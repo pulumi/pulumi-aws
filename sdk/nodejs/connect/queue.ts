@@ -143,6 +143,10 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly quickConnectIds!: pulumi.Output<string[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
      */
     public readonly status!: pulumi.Output<string>;
@@ -152,8 +156,6 @@ export class Queue extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -179,6 +181,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["outboundCallerConfig"] = state ? state.outboundCallerConfig : undefined;
             resourceInputs["queueId"] = state ? state.queueId : undefined;
             resourceInputs["quickConnectIds"] = state ? state.quickConnectIds : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -197,6 +200,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["outboundCallerConfig"] = args ? args.outboundCallerConfig : undefined;
             resourceInputs["quickConnectIds"] = args ? args.quickConnectIds : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -249,6 +253,10 @@ export interface QueueState {
      */
     quickConnectIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
      */
     status?: pulumi.Input<string>;
@@ -258,8 +266,6 @@ export interface QueueState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -296,6 +302,10 @@ export interface QueueArgs {
      * Specifies a list of quick connects ids that determine the quick connects available to agents who are working the queue.
      */
     quickConnectIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the description of the Queue. Valid values are `ENABLED`, `DISABLED`.
      */

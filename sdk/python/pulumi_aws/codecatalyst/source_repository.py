@@ -23,7 +23,8 @@ class SourceRepositoryArgs:
                  project_name: pulumi.Input[builtins.str],
                  space_name: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a SourceRepository resource.
         :param pulumi.Input[builtins.str] project_name: The name of the project in the CodeCatalyst space.
@@ -32,6 +33,7 @@ class SourceRepositoryArgs:
         :param pulumi.Input[builtins.str] space_name: The name of the CodeCatalyst space.
         :param pulumi.Input[builtins.str] description: The description of the project. This description will be displayed to all users of the project. We recommend providing a brief description of the project and its intended purpose.
         :param pulumi.Input[builtins.str] name: The name of the source repository. For more information about name requirements, see [Quotas for source repositories](https://docs.aws.amazon.com/codecatalyst/latest/userguide/source-quotas.html).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "space_name", space_name)
@@ -39,6 +41,8 @@ class SourceRepositoryArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="projectName")
@@ -90,6 +94,18 @@ class SourceRepositoryArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _SourceRepositoryState:
@@ -97,6 +113,7 @@ class _SourceRepositoryState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  space_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering SourceRepository resources.
@@ -105,6 +122,7 @@ class _SourceRepositoryState:
         :param pulumi.Input[builtins.str] project_name: The name of the project in the CodeCatalyst space.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] space_name: The name of the CodeCatalyst space.
         """
         if description is not None:
@@ -113,6 +131,8 @@ class _SourceRepositoryState:
             pulumi.set(__self__, "name", name)
         if project_name is not None:
             pulumi.set(__self__, "project_name", project_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if space_name is not None:
             pulumi.set(__self__, "space_name", space_name)
 
@@ -155,6 +175,18 @@ class _SourceRepositoryState:
         pulumi.set(self, "project_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="spaceName")
     def space_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -176,6 +208,7 @@ class SourceRepository(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  space_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -210,6 +243,7 @@ class SourceRepository(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] project_name: The name of the project in the CodeCatalyst space.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] space_name: The name of the CodeCatalyst space.
         """
         ...
@@ -261,6 +295,7 @@ class SourceRepository(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  space_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -276,6 +311,7 @@ class SourceRepository(pulumi.CustomResource):
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
             __props__.__dict__["project_name"] = project_name
+            __props__.__dict__["region"] = region
             if space_name is None and not opts.urn:
                 raise TypeError("Missing required property 'space_name'")
             __props__.__dict__["space_name"] = space_name
@@ -292,6 +328,7 @@ class SourceRepository(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             project_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             space_name: Optional[pulumi.Input[builtins.str]] = None) -> 'SourceRepository':
         """
         Get an existing SourceRepository resource's state with the given name, id, and optional extra
@@ -305,6 +342,7 @@ class SourceRepository(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] project_name: The name of the project in the CodeCatalyst space.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] space_name: The name of the CodeCatalyst space.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -314,6 +352,7 @@ class SourceRepository(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
         __props__.__dict__["project_name"] = project_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["space_name"] = space_name
         return SourceRepository(resource_name, opts=opts, __props__=__props__)
 
@@ -342,6 +381,14 @@ class SourceRepository(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "project_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="spaceName")

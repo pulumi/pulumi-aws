@@ -49,6 +49,21 @@ public final class BucketServerSideEncryptionConfigurationV2Args extends com.pul
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      * 
      */
@@ -68,6 +83,7 @@ public final class BucketServerSideEncryptionConfigurationV2Args extends com.pul
     private BucketServerSideEncryptionConfigurationV2Args(BucketServerSideEncryptionConfigurationV2Args $) {
         this.bucket = $.bucket;
         this.expectedBucketOwner = $.expectedBucketOwner;
+        this.region = $.region;
         this.rules = $.rules;
     }
 
@@ -129,6 +145,27 @@ public final class BucketServerSideEncryptionConfigurationV2Args extends com.pul
          */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -26,6 +26,7 @@ public final class GetLocalGatewayResult {
      * 
      */
     private String ownerId;
+    private String region;
     /**
      * @return State of the local gateway.
      * 
@@ -54,6 +55,9 @@ public final class GetLocalGatewayResult {
     public String ownerId() {
         return this.ownerId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return State of the local gateway.
      * 
@@ -78,6 +82,7 @@ public final class GetLocalGatewayResult {
         private String id;
         private String outpostArn;
         private String ownerId;
+        private String region;
         private String state;
         private Map<String,String> tags;
         public Builder() {}
@@ -87,6 +92,7 @@ public final class GetLocalGatewayResult {
     	      this.id = defaults.id;
     	      this.outpostArn = defaults.outpostArn;
     	      this.ownerId = defaults.ownerId;
+    	      this.region = defaults.region;
     	      this.state = defaults.state;
     	      this.tags = defaults.tags;
         }
@@ -125,6 +131,14 @@ public final class GetLocalGatewayResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder state(String state) {
             if (state == null) {
               throw new MissingRequiredPropertyException("GetLocalGatewayResult", "state");
@@ -146,6 +160,7 @@ public final class GetLocalGatewayResult {
             _resultValue.id = id;
             _resultValue.outpostArn = outpostArn;
             _resultValue.ownerId = ownerId;
+            _resultValue.region = region;
             _resultValue.state = state;
             _resultValue.tags = tags;
             return _resultValue;

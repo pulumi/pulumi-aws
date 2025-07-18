@@ -32,6 +32,7 @@ class TaskSetArgs:
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]] = None,
                  network_configuration: Optional[pulumi.Input['TaskSetNetworkConfigurationArgs']] = None,
                  platform_version: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scale: Optional[pulumi.Input['TaskSetScaleArgs']] = None,
                  service_registries: Optional[pulumi.Input['TaskSetServiceRegistriesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -51,6 +52,7 @@ class TaskSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]] load_balancers: Details on load balancers that are used with a task set. Detailed below.
         :param pulumi.Input['TaskSetNetworkConfigurationArgs'] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
         :param pulumi.Input[builtins.str] platform_version: The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['TaskSetScaleArgs'] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         :param pulumi.Input['TaskSetServiceRegistriesArgs'] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
@@ -74,6 +76,8 @@ class TaskSetArgs:
             pulumi.set(__self__, "network_configuration", network_configuration)
         if platform_version is not None:
             pulumi.set(__self__, "platform_version", platform_version)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scale is not None:
             pulumi.set(__self__, "scale", scale)
         if service_registries is not None:
@@ -209,6 +213,18 @@ class TaskSetArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def scale(self) -> Optional[pulumi.Input['TaskSetScaleArgs']]:
         """
         A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
@@ -280,6 +296,7 @@ class _TaskSetState:
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]] = None,
                  network_configuration: Optional[pulumi.Input['TaskSetNetworkConfigurationArgs']] = None,
                  platform_version: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scale: Optional[pulumi.Input['TaskSetScaleArgs']] = None,
                  service: Optional[pulumi.Input[builtins.str]] = None,
                  service_registries: Optional[pulumi.Input['TaskSetServiceRegistriesArgs']] = None,
@@ -302,6 +319,7 @@ class _TaskSetState:
         :param pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]] load_balancers: Details on load balancers that are used with a task set. Detailed below.
         :param pulumi.Input['TaskSetNetworkConfigurationArgs'] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
         :param pulumi.Input[builtins.str] platform_version: The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['TaskSetScaleArgs'] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         :param pulumi.Input[builtins.str] service: The short name or ARN of the ECS service.
         :param pulumi.Input['TaskSetServiceRegistriesArgs'] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
@@ -334,6 +352,8 @@ class _TaskSetState:
             pulumi.set(__self__, "network_configuration", network_configuration)
         if platform_version is not None:
             pulumi.set(__self__, "platform_version", platform_version)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scale is not None:
             pulumi.set(__self__, "scale", scale)
         if service is not None:
@@ -346,9 +366,6 @@ class _TaskSetState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if task_definition is not None:
@@ -470,6 +487,18 @@ class _TaskSetState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def scale(self) -> Optional[pulumi.Input['TaskSetScaleArgs']]:
         """
         A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
@@ -542,7 +571,6 @@ class _TaskSetState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -618,6 +646,7 @@ class TaskSet(pulumi.CustomResource):
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskSetLoadBalancerArgs', 'TaskSetLoadBalancerArgsDict']]]]] = None,
                  network_configuration: Optional[pulumi.Input[Union['TaskSetNetworkConfigurationArgs', 'TaskSetNetworkConfigurationArgsDict']]] = None,
                  platform_version: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scale: Optional[pulumi.Input[Union['TaskSetScaleArgs', 'TaskSetScaleArgsDict']]] = None,
                  service: Optional[pulumi.Input[builtins.str]] = None,
                  service_registries: Optional[pulumi.Input[Union['TaskSetServiceRegistriesArgs', 'TaskSetServiceRegistriesArgsDict']]] = None,
@@ -679,6 +708,7 @@ class TaskSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskSetLoadBalancerArgs', 'TaskSetLoadBalancerArgsDict']]]] load_balancers: Details on load balancers that are used with a task set. Detailed below.
         :param pulumi.Input[Union['TaskSetNetworkConfigurationArgs', 'TaskSetNetworkConfigurationArgsDict']] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
         :param pulumi.Input[builtins.str] platform_version: The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['TaskSetScaleArgs', 'TaskSetScaleArgsDict']] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         :param pulumi.Input[builtins.str] service: The short name or ARN of the ECS service.
         :param pulumi.Input[Union['TaskSetServiceRegistriesArgs', 'TaskSetServiceRegistriesArgsDict']] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
@@ -761,6 +791,7 @@ class TaskSet(pulumi.CustomResource):
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskSetLoadBalancerArgs', 'TaskSetLoadBalancerArgsDict']]]]] = None,
                  network_configuration: Optional[pulumi.Input[Union['TaskSetNetworkConfigurationArgs', 'TaskSetNetworkConfigurationArgsDict']]] = None,
                  platform_version: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scale: Optional[pulumi.Input[Union['TaskSetScaleArgs', 'TaskSetScaleArgsDict']]] = None,
                  service: Optional[pulumi.Input[builtins.str]] = None,
                  service_registries: Optional[pulumi.Input[Union['TaskSetServiceRegistriesArgs', 'TaskSetServiceRegistriesArgsDict']]] = None,
@@ -787,6 +818,7 @@ class TaskSet(pulumi.CustomResource):
             __props__.__dict__["load_balancers"] = load_balancers
             __props__.__dict__["network_configuration"] = network_configuration
             __props__.__dict__["platform_version"] = platform_version
+            __props__.__dict__["region"] = region
             __props__.__dict__["scale"] = scale
             if service is None and not opts.urn:
                 raise TypeError("Missing required property 'service'")
@@ -822,6 +854,7 @@ class TaskSet(pulumi.CustomResource):
             load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskSetLoadBalancerArgs', 'TaskSetLoadBalancerArgsDict']]]]] = None,
             network_configuration: Optional[pulumi.Input[Union['TaskSetNetworkConfigurationArgs', 'TaskSetNetworkConfigurationArgsDict']]] = None,
             platform_version: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             scale: Optional[pulumi.Input[Union['TaskSetScaleArgs', 'TaskSetScaleArgsDict']]] = None,
             service: Optional[pulumi.Input[builtins.str]] = None,
             service_registries: Optional[pulumi.Input[Union['TaskSetServiceRegistriesArgs', 'TaskSetServiceRegistriesArgsDict']]] = None,
@@ -849,6 +882,7 @@ class TaskSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskSetLoadBalancerArgs', 'TaskSetLoadBalancerArgsDict']]]] load_balancers: Details on load balancers that are used with a task set. Detailed below.
         :param pulumi.Input[Union['TaskSetNetworkConfigurationArgs', 'TaskSetNetworkConfigurationArgsDict']] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
         :param pulumi.Input[builtins.str] platform_version: The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['TaskSetScaleArgs', 'TaskSetScaleArgsDict']] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         :param pulumi.Input[builtins.str] service: The short name or ARN of the ECS service.
         :param pulumi.Input[Union['TaskSetServiceRegistriesArgs', 'TaskSetServiceRegistriesArgsDict']] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
@@ -876,6 +910,7 @@ class TaskSet(pulumi.CustomResource):
         __props__.__dict__["load_balancers"] = load_balancers
         __props__.__dict__["network_configuration"] = network_configuration
         __props__.__dict__["platform_version"] = platform_version
+        __props__.__dict__["region"] = region
         __props__.__dict__["scale"] = scale
         __props__.__dict__["service"] = service
         __props__.__dict__["service_registries"] = service_registries
@@ -963,6 +998,14 @@ class TaskSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def scale(self) -> pulumi.Output['outputs.TaskSetScale']:
         """
         A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
@@ -1011,7 +1054,6 @@ class TaskSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

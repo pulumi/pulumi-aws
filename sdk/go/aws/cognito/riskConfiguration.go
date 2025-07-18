@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,6 +70,8 @@ type RiskConfiguration struct {
 	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
 	// The compromised credentials risk configuration. See details below.
 	CompromisedCredentialsRiskConfiguration RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput `pulumi:"compromisedCredentialsRiskConfiguration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The configuration to override the risk decision. See details below.
 	RiskExceptionConfiguration RiskConfigurationRiskExceptionConfigurationPtrOutput `pulumi:"riskExceptionConfiguration"`
 	// The user pool ID.
@@ -115,6 +117,8 @@ type riskConfigurationState struct {
 	ClientId *string `pulumi:"clientId"`
 	// The compromised credentials risk configuration. See details below.
 	CompromisedCredentialsRiskConfiguration *RiskConfigurationCompromisedCredentialsRiskConfiguration `pulumi:"compromisedCredentialsRiskConfiguration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The configuration to override the risk decision. See details below.
 	RiskExceptionConfiguration *RiskConfigurationRiskExceptionConfiguration `pulumi:"riskExceptionConfiguration"`
 	// The user pool ID.
@@ -128,6 +132,8 @@ type RiskConfigurationState struct {
 	ClientId pulumi.StringPtrInput
 	// The compromised credentials risk configuration. See details below.
 	CompromisedCredentialsRiskConfiguration RiskConfigurationCompromisedCredentialsRiskConfigurationPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The configuration to override the risk decision. See details below.
 	RiskExceptionConfiguration RiskConfigurationRiskExceptionConfigurationPtrInput
 	// The user pool ID.
@@ -145,6 +151,8 @@ type riskConfigurationArgs struct {
 	ClientId *string `pulumi:"clientId"`
 	// The compromised credentials risk configuration. See details below.
 	CompromisedCredentialsRiskConfiguration *RiskConfigurationCompromisedCredentialsRiskConfiguration `pulumi:"compromisedCredentialsRiskConfiguration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The configuration to override the risk decision. See details below.
 	RiskExceptionConfiguration *RiskConfigurationRiskExceptionConfiguration `pulumi:"riskExceptionConfiguration"`
 	// The user pool ID.
@@ -159,6 +167,8 @@ type RiskConfigurationArgs struct {
 	ClientId pulumi.StringPtrInput
 	// The compromised credentials risk configuration. See details below.
 	CompromisedCredentialsRiskConfiguration RiskConfigurationCompromisedCredentialsRiskConfigurationPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The configuration to override the risk decision. See details below.
 	RiskExceptionConfiguration RiskConfigurationRiskExceptionConfigurationPtrInput
 	// The user pool ID.
@@ -269,6 +279,11 @@ func (o RiskConfigurationOutput) CompromisedCredentialsRiskConfiguration() RiskC
 	return o.ApplyT(func(v *RiskConfiguration) RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput {
 		return v.CompromisedCredentialsRiskConfiguration
 	}).(RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o RiskConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RiskConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The configuration to override the risk decision. See details below.

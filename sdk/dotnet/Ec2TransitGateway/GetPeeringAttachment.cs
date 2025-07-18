@@ -195,6 +195,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("id")]
         public string? Id { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -236,6 +242,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -281,6 +293,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Identifier of the peer EC2 Transit Gateway.
         /// </summary>
         public readonly string PeerTransitGatewayId;
+        public readonly string Region;
         public readonly string State;
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
@@ -302,6 +315,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string peerTransitGatewayId,
 
+            string region,
+
             string state,
 
             ImmutableDictionary<string, string> tags,
@@ -314,6 +329,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
             PeerAccountId = peerAccountId;
             PeerRegion = peerRegion;
             PeerTransitGatewayId = peerTransitGatewayId;
+            Region = region;
             State = state;
             Tags = tags;
             TransitGatewayId = transitGatewayId;

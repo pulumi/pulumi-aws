@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Bedrock
     ///                         Test = "ArnLike",
     ///                         Values = new[]
     ///                         {
-    ///                             $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:agent/*",
+    ///                             $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:agent/*",
     ///                         },
     ///                         Variable = "AWS:SourceArn",
     ///                     },
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}::foundation-model/anthropic.claude-v2",
+    ///                     $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:bedrock:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}::foundation-model/anthropic.claude-v2",
     ///                 },
     ///             },
     ///         },
@@ -225,6 +225,12 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Output("promptOverrideConfigurations")]
         public Output<ImmutableArray<Outputs.AgentAgentPromptOverrideConfiguration>> PromptOverrideConfigurations { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Whether the in-use check is skipped when deleting the agent.
@@ -386,6 +392,12 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Whether the in-use check is skipped when deleting the agent.
         /// </summary>
         [Input("skipResourceInUseCheck")]
@@ -531,6 +543,12 @@ namespace Pulumi.Aws.Bedrock
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Whether the in-use check is skipped when deleting the agent.
         /// </summary>
         [Input("skipResourceInUseCheck")]
@@ -554,7 +572,6 @@ namespace Pulumi.Aws.Bedrock
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

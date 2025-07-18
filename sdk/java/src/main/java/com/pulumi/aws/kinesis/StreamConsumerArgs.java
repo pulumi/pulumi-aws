@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -32,6 +33,21 @@ public final class StreamConsumerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
      * 
      */
@@ -46,11 +62,20 @@ public final class StreamConsumerArgs extends com.pulumi.resources.ResourceArgs 
         return this.streamArn;
     }
 
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private StreamConsumerArgs() {}
 
     private StreamConsumerArgs(StreamConsumerArgs $) {
         this.name = $.name;
+        this.region = $.region;
         this.streamArn = $.streamArn;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -93,6 +118,27 @@ public final class StreamConsumerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param streamArn Amazon Resource Name (ARN) of the data stream the consumer is registered with.
          * 
          * @return builder
@@ -111,6 +157,15 @@ public final class StreamConsumerArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder streamArn(String streamArn) {
             return streamArn(Output.of(streamArn));
+        }
+
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
         }
 
         public StreamConsumerArgs build() {

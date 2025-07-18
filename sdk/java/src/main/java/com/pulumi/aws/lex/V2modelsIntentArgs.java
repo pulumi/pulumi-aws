@@ -235,6 +235,21 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
      * 
      */
@@ -288,6 +303,7 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
         this.name = $.name;
         this.outputContexts = $.outputContexts;
         this.parentIntentSignature = $.parentIntentSignature;
+        this.region = $.region;
         this.sampleUtterances = $.sampleUtterances;
         this.slotPriorities = $.slotPriorities;
         this.timeouts = $.timeouts;
@@ -615,6 +631,27 @@ public final class V2modelsIntentArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder parentIntentSignature(String parentIntentSignature) {
             return parentIntentSignature(Output.of(parentIntentSignature));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

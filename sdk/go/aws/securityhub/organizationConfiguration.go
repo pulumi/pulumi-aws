@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,8 +31,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,7 +75,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -132,6 +132,8 @@ type OrganizationConfiguration struct {
 	AutoEnableStandards pulumi.StringOutput `pulumi:"autoEnableStandards"`
 	// Provides information about the way an organization is configured in Security Hub.
 	OrganizationConfiguration OrganizationConfigurationOrganizationConfigurationOutput `pulumi:"organizationConfiguration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewOrganizationConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -173,6 +175,8 @@ type organizationConfigurationState struct {
 	AutoEnableStandards *string `pulumi:"autoEnableStandards"`
 	// Provides information about the way an organization is configured in Security Hub.
 	OrganizationConfiguration *OrganizationConfigurationOrganizationConfiguration `pulumi:"organizationConfiguration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type OrganizationConfigurationState struct {
@@ -182,6 +186,8 @@ type OrganizationConfigurationState struct {
 	AutoEnableStandards pulumi.StringPtrInput
 	// Provides information about the way an organization is configured in Security Hub.
 	OrganizationConfiguration OrganizationConfigurationOrganizationConfigurationPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (OrganizationConfigurationState) ElementType() reflect.Type {
@@ -195,6 +201,8 @@ type organizationConfigurationArgs struct {
 	AutoEnableStandards *string `pulumi:"autoEnableStandards"`
 	// Provides information about the way an organization is configured in Security Hub.
 	OrganizationConfiguration *OrganizationConfigurationOrganizationConfiguration `pulumi:"organizationConfiguration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a OrganizationConfiguration resource.
@@ -205,6 +213,8 @@ type OrganizationConfigurationArgs struct {
 	AutoEnableStandards pulumi.StringPtrInput
 	// Provides information about the way an organization is configured in Security Hub.
 	OrganizationConfiguration OrganizationConfigurationOrganizationConfigurationPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (OrganizationConfigurationArgs) ElementType() reflect.Type {
@@ -309,6 +319,11 @@ func (o OrganizationConfigurationOutput) OrganizationConfiguration() Organizatio
 	return o.ApplyT(func(v *OrganizationConfiguration) OrganizationConfigurationOrganizationConfigurationOutput {
 		return v.OrganizationConfiguration
 	}).(OrganizationConfigurationOrganizationConfigurationOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o OrganizationConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type OrganizationConfigurationArrayOutput struct{ *pulumi.OutputState }

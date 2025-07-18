@@ -58,9 +58,9 @@ namespace Pulumi.Aws.AppFlow
     ///         }),
     ///     });
     /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example-bucket",
+    ///         BucketName = "example-bucket",
     ///     });
     /// 
     ///     var exampleCluster = new Aws.RedShift.Cluster("example", new()
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.AppFlow
     ///             {
     ///                 Redshift = new Aws.AppFlow.Inputs.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs
     ///                 {
-    ///                     BucketName = exampleBucketV2.Name,
+    ///                     BucketName = exampleBucket.Name,
     ///                     DatabaseUrl = Output.Tuple(exampleCluster.Endpoint, exampleCluster.DatabaseName).Apply(values =&gt;
     ///                     {
     ///                         var endpoint = values.Item1;
@@ -110,10 +110,10 @@ namespace Pulumi.Aws.AppFlow
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import AppFlow Connector Profile using the connector profile `arn`. For example:
+    /// Using `pulumi import`, import AppFlow Connector Profile using the connector profile `name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
+    /// $ pulumi import aws:appflow/connectorProfile:ConnectorProfile example example-profile
     /// ```
     /// </summary>
     [AwsResourceType("aws:appflow/connectorProfile:ConnectorProfile")]
@@ -163,6 +163,13 @@ namespace Pulumi.Aws.AppFlow
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
 
         /// <summary>
@@ -243,6 +250,13 @@ namespace Pulumi.Aws.AppFlow
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public ConnectorProfileArgs()
         {
         }
@@ -295,6 +309,13 @@ namespace Pulumi.Aws.AppFlow
 
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public ConnectorProfileState()
         {

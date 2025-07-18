@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -109,6 +109,8 @@ type LaunchConfiguration struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
 	PlacementTenancy pulumi.StringPtrOutput `pulumi:"placementTenancy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Customize details about the root block device of the instance. See Block Devices below for details.
 	RootBlockDevice LaunchConfigurationRootBlockDeviceOutput `pulumi:"rootBlockDevice"`
 	// A list of associated security group IDS.
@@ -187,6 +189,8 @@ type launchConfigurationState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
 	PlacementTenancy *string `pulumi:"placementTenancy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Customize details about the root block device of the instance. See Block Devices below for details.
 	RootBlockDevice *LaunchConfigurationRootBlockDevice `pulumi:"rootBlockDevice"`
 	// A list of associated security group IDS.
@@ -230,6 +234,8 @@ type LaunchConfigurationState struct {
 	NamePrefix pulumi.StringPtrInput
 	// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
 	PlacementTenancy pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Customize details about the root block device of the instance. See Block Devices below for details.
 	RootBlockDevice LaunchConfigurationRootBlockDevicePtrInput
 	// A list of associated security group IDS.
@@ -275,6 +281,8 @@ type launchConfigurationArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
 	PlacementTenancy *string `pulumi:"placementTenancy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Customize details about the root block device of the instance. See Block Devices below for details.
 	RootBlockDevice *LaunchConfigurationRootBlockDevice `pulumi:"rootBlockDevice"`
 	// A list of associated security group IDS.
@@ -317,6 +325,8 @@ type LaunchConfigurationArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
 	PlacementTenancy pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Customize details about the root block device of the instance. See Block Devices below for details.
 	RootBlockDevice LaunchConfigurationRootBlockDevicePtrInput
 	// A list of associated security group IDS.
@@ -488,6 +498,11 @@ func (o LaunchConfigurationOutput) NamePrefix() pulumi.StringOutput {
 // The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
 func (o LaunchConfigurationOutput) PlacementTenancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringPtrOutput { return v.PlacementTenancy }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LaunchConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LaunchConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Customize details about the root block device of the instance. See Block Devices below for details.

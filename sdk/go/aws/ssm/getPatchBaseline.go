@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,7 +50,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -93,6 +93,8 @@ type LookupPatchBaselineArgs struct {
 	//
 	// The following arguments are optional:
 	Owner string `pulumi:"owner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPatchBaseline.
@@ -119,6 +121,7 @@ type LookupPatchBaselineResult struct {
 	NamePrefix      *string `pulumi:"namePrefix"`
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	Owner           string  `pulumi:"owner"`
+	Region          string  `pulumi:"region"`
 	// List of rejected patches.
 	RejectedPatches []string `pulumi:"rejectedPatches"`
 	// Action specified to take on patches included in the `rejectedPatches` list.
@@ -148,6 +151,8 @@ type LookupPatchBaselineOutputArgs struct {
 	//
 	// The following arguments are optional:
 	Owner pulumi.StringInput `pulumi:"owner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupPatchBaselineOutputArgs) ElementType() reflect.Type {
@@ -228,6 +233,10 @@ func (o LookupPatchBaselineResultOutput) OperatingSystem() pulumi.StringPtrOutpu
 
 func (o LookupPatchBaselineResultOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o LookupPatchBaselineResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPatchBaselineResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of rejected patches.

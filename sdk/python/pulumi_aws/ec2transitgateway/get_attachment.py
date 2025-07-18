@@ -29,7 +29,7 @@ class GetAttachmentResult:
     """
     A collection of values returned by getAttachment.
     """
-    def __init__(__self__, arn=None, association_state=None, association_transit_gateway_route_table_id=None, filters=None, id=None, resource_id=None, resource_owner_id=None, resource_type=None, state=None, tags=None, transit_gateway_attachment_id=None, transit_gateway_id=None, transit_gateway_owner_id=None):
+    def __init__(__self__, arn=None, association_state=None, association_transit_gateway_route_table_id=None, filters=None, id=None, region=None, resource_id=None, resource_owner_id=None, resource_type=None, state=None, tags=None, transit_gateway_attachment_id=None, transit_gateway_id=None, transit_gateway_owner_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -45,6 +45,9 @@ class GetAttachmentResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if resource_id and not isinstance(resource_id, str):
             raise TypeError("Expected argument 'resource_id' to be a str")
         pulumi.set(__self__, "resource_id", resource_id)
@@ -106,6 +109,11 @@ class GetAttachmentResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceId")
@@ -180,6 +188,7 @@ class AwaitableGetAttachmentResult(GetAttachmentResult):
             association_transit_gateway_route_table_id=self.association_transit_gateway_route_table_id,
             filters=self.filters,
             id=self.id,
+            region=self.region,
             resource_id=self.resource_id,
             resource_owner_id=self.resource_owner_id,
             resource_type=self.resource_type,
@@ -191,6 +200,7 @@ class AwaitableGetAttachmentResult(GetAttachmentResult):
 
 
 def get_attachment(filters: Optional[Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict']]] = None,
+                   region: Optional[builtins.str] = None,
                    tags: Optional[Mapping[str, builtins.str]] = None,
                    transit_gateway_attachment_id: Optional[builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachmentResult:
@@ -217,11 +227,13 @@ def get_attachment(filters: Optional[Sequence[Union['GetAttachmentFilterArgs', '
 
 
     :param Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the attachment.
     :param builtins.str transit_gateway_attachment_id: ID of the attachment.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['transitGatewayAttachmentId'] = transit_gateway_attachment_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -233,6 +245,7 @@ def get_attachment(filters: Optional[Sequence[Union['GetAttachmentFilterArgs', '
         association_transit_gateway_route_table_id=pulumi.get(__ret__, 'association_transit_gateway_route_table_id'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         resource_id=pulumi.get(__ret__, 'resource_id'),
         resource_owner_id=pulumi.get(__ret__, 'resource_owner_id'),
         resource_type=pulumi.get(__ret__, 'resource_type'),
@@ -242,6 +255,7 @@ def get_attachment(filters: Optional[Sequence[Union['GetAttachmentFilterArgs', '
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         transit_gateway_owner_id=pulumi.get(__ret__, 'transit_gateway_owner_id'))
 def get_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict']]]]] = None,
+                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                           transit_gateway_attachment_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttachmentResult]:
@@ -268,11 +282,13 @@ def get_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
 
 
     :param Sequence[Union['GetAttachmentFilterArgs', 'GetAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the attachment.
     :param builtins.str transit_gateway_attachment_id: ID of the attachment.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['transitGatewayAttachmentId'] = transit_gateway_attachment_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -283,6 +299,7 @@ def get_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
         association_transit_gateway_route_table_id=pulumi.get(__response__, 'association_transit_gateway_route_table_id'),
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         resource_id=pulumi.get(__response__, 'resource_id'),
         resource_owner_id=pulumi.get(__response__, 'resource_owner_id'),
         resource_type=pulumi.get(__response__, 'resource_type'),

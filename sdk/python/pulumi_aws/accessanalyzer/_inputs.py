@@ -18,6 +18,12 @@ from .. import _utilities
 __all__ = [
     'AnalyzerConfigurationArgs',
     'AnalyzerConfigurationArgsDict',
+    'AnalyzerConfigurationInternalAccessArgs',
+    'AnalyzerConfigurationInternalAccessArgsDict',
+    'AnalyzerConfigurationInternalAccessAnalysisRuleArgs',
+    'AnalyzerConfigurationInternalAccessAnalysisRuleArgsDict',
+    'AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgs',
+    'AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgsDict',
     'AnalyzerConfigurationUnusedAccessArgs',
     'AnalyzerConfigurationUnusedAccessArgsDict',
     'AnalyzerConfigurationUnusedAccessAnalysisRuleArgs',
@@ -32,9 +38,13 @@ MYPY = False
 
 if not MYPY:
     class AnalyzerConfigurationArgsDict(TypedDict):
+        internal_access: NotRequired[pulumi.Input['AnalyzerConfigurationInternalAccessArgsDict']]
+        """
+        Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internal_access` Block for details.
+        """
         unused_access: NotRequired[pulumi.Input['AnalyzerConfigurationUnusedAccessArgsDict']]
         """
-        A block that specifies the configuration of an unused access analyzer for an AWS organization or account. Documented below
+        Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unused_access` Block for details.
         """
 elif False:
     AnalyzerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -42,18 +52,34 @@ elif False:
 @pulumi.input_type
 class AnalyzerConfigurationArgs:
     def __init__(__self__, *,
+                 internal_access: Optional[pulumi.Input['AnalyzerConfigurationInternalAccessArgs']] = None,
                  unused_access: Optional[pulumi.Input['AnalyzerConfigurationUnusedAccessArgs']] = None):
         """
-        :param pulumi.Input['AnalyzerConfigurationUnusedAccessArgs'] unused_access: A block that specifies the configuration of an unused access analyzer for an AWS organization or account. Documented below
+        :param pulumi.Input['AnalyzerConfigurationInternalAccessArgs'] internal_access: Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internal_access` Block for details.
+        :param pulumi.Input['AnalyzerConfigurationUnusedAccessArgs'] unused_access: Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unused_access` Block for details.
         """
+        if internal_access is not None:
+            pulumi.set(__self__, "internal_access", internal_access)
         if unused_access is not None:
             pulumi.set(__self__, "unused_access", unused_access)
+
+    @property
+    @pulumi.getter(name="internalAccess")
+    def internal_access(self) -> Optional[pulumi.Input['AnalyzerConfigurationInternalAccessArgs']]:
+        """
+        Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internal_access` Block for details.
+        """
+        return pulumi.get(self, "internal_access")
+
+    @internal_access.setter
+    def internal_access(self, value: Optional[pulumi.Input['AnalyzerConfigurationInternalAccessArgs']]):
+        pulumi.set(self, "internal_access", value)
 
     @property
     @pulumi.getter(name="unusedAccess")
     def unused_access(self) -> Optional[pulumi.Input['AnalyzerConfigurationUnusedAccessArgs']]:
         """
-        A block that specifies the configuration of an unused access analyzer for an AWS organization or account. Documented below
+        Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unused_access` Block for details.
         """
         return pulumi.get(self, "unused_access")
 
@@ -63,14 +89,150 @@ class AnalyzerConfigurationArgs:
 
 
 if not MYPY:
+    class AnalyzerConfigurationInternalAccessArgsDict(TypedDict):
+        analysis_rule: NotRequired[pulumi.Input['AnalyzerConfigurationInternalAccessAnalysisRuleArgsDict']]
+        """
+        Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysis_rule` Block for Internal Access Analyzer for details.
+        """
+elif False:
+    AnalyzerConfigurationInternalAccessArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnalyzerConfigurationInternalAccessArgs:
+    def __init__(__self__, *,
+                 analysis_rule: Optional[pulumi.Input['AnalyzerConfigurationInternalAccessAnalysisRuleArgs']] = None):
+        """
+        :param pulumi.Input['AnalyzerConfigurationInternalAccessAnalysisRuleArgs'] analysis_rule: Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysis_rule` Block for Internal Access Analyzer for details.
+        """
+        if analysis_rule is not None:
+            pulumi.set(__self__, "analysis_rule", analysis_rule)
+
+    @property
+    @pulumi.getter(name="analysisRule")
+    def analysis_rule(self) -> Optional[pulumi.Input['AnalyzerConfigurationInternalAccessAnalysisRuleArgs']]:
+        """
+        Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysis_rule` Block for Internal Access Analyzer for details.
+        """
+        return pulumi.get(self, "analysis_rule")
+
+    @analysis_rule.setter
+    def analysis_rule(self, value: Optional[pulumi.Input['AnalyzerConfigurationInternalAccessAnalysisRuleArgs']]):
+        pulumi.set(self, "analysis_rule", value)
+
+
+if not MYPY:
+    class AnalyzerConfigurationInternalAccessAnalysisRuleArgsDict(TypedDict):
+        inclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgsDict']]]]
+        """
+        List of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings. See `inclusion` Block for details.
+        """
+elif False:
+    AnalyzerConfigurationInternalAccessAnalysisRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnalyzerConfigurationInternalAccessAnalysisRuleArgs:
+    def __init__(__self__, *,
+                 inclusions: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgs']]] inclusions: List of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings. See `inclusion` Block for details.
+        """
+        if inclusions is not None:
+            pulumi.set(__self__, "inclusions", inclusions)
+
+    @property
+    @pulumi.getter
+    def inclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgs']]]]:
+        """
+        List of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings. See `inclusion` Block for details.
+        """
+        return pulumi.get(self, "inclusions")
+
+    @inclusions.setter
+    def inclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgs']]]]):
+        pulumi.set(self, "inclusions", value)
+
+
+if not MYPY:
+    class AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgsDict(TypedDict):
+        account_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        List of AWS account IDs to apply to the internal access analysis rule criteria. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
+        """
+        resource_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        List of resource ARNs to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources that match these ARNs.
+        """
+        resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        List of resource types to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources of these types. Refer to [InternalAccessAnalysisRuleCriteria](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_InternalAccessAnalysisRuleCriteria.html) in the AWS IAM Access Analyzer API Reference for valid values.
+        """
+elif False:
+    AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgs:
+    def __init__(__self__, *,
+                 account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] account_ids: List of AWS account IDs to apply to the internal access analysis rule criteria. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_arns: List of resource ARNs to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources that match these ARNs.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types: List of resource types to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources of these types. Refer to [InternalAccessAnalysisRuleCriteria](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_InternalAccessAnalysisRuleCriteria.html) in the AWS IAM Access Analyzer API Reference for valid values.
+        """
+        if account_ids is not None:
+            pulumi.set(__self__, "account_ids", account_ids)
+        if resource_arns is not None:
+            pulumi.set(__self__, "resource_arns", resource_arns)
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+
+    @property
+    @pulumi.getter(name="accountIds")
+    def account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        List of AWS account IDs to apply to the internal access analysis rule criteria. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
+        """
+        return pulumi.get(self, "account_ids")
+
+    @account_ids.setter
+    def account_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "account_ids", value)
+
+    @property
+    @pulumi.getter(name="resourceArns")
+    def resource_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        List of resource ARNs to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources that match these ARNs.
+        """
+        return pulumi.get(self, "resource_arns")
+
+    @resource_arns.setter
+    def resource_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "resource_arns", value)
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        List of resource types to apply to the internal access analysis rule criteria. The analyzer will only generate findings for resources of these types. Refer to [InternalAccessAnalysisRuleCriteria](https://docs.aws.amazon.com/access-analyzer/latest/APIReference/API_InternalAccessAnalysisRuleCriteria.html) in the AWS IAM Access Analyzer API Reference for valid values.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @resource_types.setter
+    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "resource_types", value)
+
+
+if not MYPY:
     class AnalyzerConfigurationUnusedAccessArgsDict(TypedDict):
         analysis_rule: NotRequired[pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleArgsDict']]
         """
-        A block for analysis rules. Documented below
+        Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysis_rule` Block for Unused Access Analyzer for details.
         """
         unused_access_age: NotRequired[pulumi.Input[builtins.int]]
         """
-        The specified access age in days for which to generate findings for unused access.
+        Specified access age in days for which to generate findings for unused access.
         """
 elif False:
     AnalyzerConfigurationUnusedAccessArgsDict: TypeAlias = Mapping[str, Any]
@@ -81,8 +243,8 @@ class AnalyzerConfigurationUnusedAccessArgs:
                  analysis_rule: Optional[pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleArgs']] = None,
                  unused_access_age: Optional[pulumi.Input[builtins.int]] = None):
         """
-        :param pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleArgs'] analysis_rule: A block for analysis rules. Documented below
-        :param pulumi.Input[builtins.int] unused_access_age: The specified access age in days for which to generate findings for unused access.
+        :param pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleArgs'] analysis_rule: Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysis_rule` Block for Unused Access Analyzer for details.
+        :param pulumi.Input[builtins.int] unused_access_age: Specified access age in days for which to generate findings for unused access.
         """
         if analysis_rule is not None:
             pulumi.set(__self__, "analysis_rule", analysis_rule)
@@ -93,7 +255,7 @@ class AnalyzerConfigurationUnusedAccessArgs:
     @pulumi.getter(name="analysisRule")
     def analysis_rule(self) -> Optional[pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleArgs']]:
         """
-        A block for analysis rules. Documented below
+        Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysis_rule` Block for Unused Access Analyzer for details.
         """
         return pulumi.get(self, "analysis_rule")
 
@@ -105,7 +267,7 @@ class AnalyzerConfigurationUnusedAccessArgs:
     @pulumi.getter(name="unusedAccessAge")
     def unused_access_age(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The specified access age in days for which to generate findings for unused access.
+        Specified access age in days for which to generate findings for unused access.
         """
         return pulumi.get(self, "unused_access_age")
 
@@ -118,7 +280,7 @@ if not MYPY:
     class AnalyzerConfigurationUnusedAccessAnalysisRuleArgsDict(TypedDict):
         exclusions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgsDict']]]]
         """
-        A block for the analyzer rules containing criteria to exclude from analysis. Documented below
+        List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
         """
 elif False:
     AnalyzerConfigurationUnusedAccessAnalysisRuleArgsDict: TypeAlias = Mapping[str, Any]
@@ -128,7 +290,7 @@ class AnalyzerConfigurationUnusedAccessAnalysisRuleArgs:
     def __init__(__self__, *,
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs']]] exclusions: A block for the analyzer rules containing criteria to exclude from analysis. Documented below
+        :param pulumi.Input[Sequence[pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs']]] exclusions: List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
         """
         if exclusions is not None:
             pulumi.set(__self__, "exclusions", exclusions)
@@ -137,7 +299,7 @@ class AnalyzerConfigurationUnusedAccessAnalysisRuleArgs:
     @pulumi.getter
     def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs']]]]:
         """
-        A block for the analyzer rules containing criteria to exclude from analysis. Documented below
+        List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
         """
         return pulumi.get(self, "exclusions")
 
@@ -150,11 +312,11 @@ if not MYPY:
     class AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgsDict(TypedDict):
         account_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
-        A list of account IDs to exclude from the analysis.
+        List of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
         """
         resource_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]]]
         """
-        A list of key-value pairs for resource tags to exclude from the analysis.
+        List of key-value pairs for resource tags to exclude from the analysis.
         """
 elif False:
     AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgsDict: TypeAlias = Mapping[str, Any]
@@ -165,8 +327,8 @@ class AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs:
                  account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] account_ids: A list of account IDs to exclude from the analysis.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]] resource_tags: A list of key-value pairs for resource tags to exclude from the analysis.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] account_ids: List of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]] resource_tags: List of key-value pairs for resource tags to exclude from the analysis.
         """
         if account_ids is not None:
             pulumi.set(__self__, "account_ids", account_ids)
@@ -177,7 +339,7 @@ class AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs:
     @pulumi.getter(name="accountIds")
     def account_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        A list of account IDs to exclude from the analysis.
+        List of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
         """
         return pulumi.get(self, "account_ids")
 
@@ -189,7 +351,7 @@ class AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs:
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]]]:
         """
-        A list of key-value pairs for resource tags to exclude from the analysis.
+        List of key-value pairs for resource tags to exclude from the analysis.
         """
         return pulumi.get(self, "resource_tags")
 

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,7 +70,11 @@ type LbStickinessPolicy struct {
 	// Whether to enable session stickiness for the load balancer.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Name of the load balancer to which you want to enable session stickiness.
+	//
+	// The following arguments are optional:
 	LbName pulumi.StringOutput `pulumi:"lbName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLbStickinessPolicy registers a new resource with the given unique name, arguments, and options.
@@ -117,7 +121,11 @@ type lbStickinessPolicyState struct {
 	// Whether to enable session stickiness for the load balancer.
 	Enabled *bool `pulumi:"enabled"`
 	// Name of the load balancer to which you want to enable session stickiness.
+	//
+	// The following arguments are optional:
 	LbName *string `pulumi:"lbName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LbStickinessPolicyState struct {
@@ -126,7 +134,11 @@ type LbStickinessPolicyState struct {
 	// Whether to enable session stickiness for the load balancer.
 	Enabled pulumi.BoolPtrInput
 	// Name of the load balancer to which you want to enable session stickiness.
+	//
+	// The following arguments are optional:
 	LbName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LbStickinessPolicyState) ElementType() reflect.Type {
@@ -139,7 +151,11 @@ type lbStickinessPolicyArgs struct {
 	// Whether to enable session stickiness for the load balancer.
 	Enabled bool `pulumi:"enabled"`
 	// Name of the load balancer to which you want to enable session stickiness.
+	//
+	// The following arguments are optional:
 	LbName string `pulumi:"lbName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LbStickinessPolicy resource.
@@ -149,7 +165,11 @@ type LbStickinessPolicyArgs struct {
 	// Whether to enable session stickiness for the load balancer.
 	Enabled pulumi.BoolInput
 	// Name of the load balancer to which you want to enable session stickiness.
+	//
+	// The following arguments are optional:
 	LbName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LbStickinessPolicyArgs) ElementType() reflect.Type {
@@ -250,8 +270,15 @@ func (o LbStickinessPolicyOutput) Enabled() pulumi.BoolOutput {
 }
 
 // Name of the load balancer to which you want to enable session stickiness.
+//
+// The following arguments are optional:
 func (o LbStickinessPolicyOutput) LbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbStickinessPolicy) pulumi.StringOutput { return v.LbName }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LbStickinessPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LbStickinessPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LbStickinessPolicyArrayOutput struct{ *pulumi.OutputState }

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,11 +23,11 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codepipeline"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codestarconnections"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codepipeline"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codestarconnections"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -41,7 +41,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			codepipelineBucket, err := s3.NewBucketV2(ctx, "codepipeline_bucket", &s3.BucketV2Args{
+//			codepipelineBucket, err := s3.NewBucket(ctx, "codepipeline_bucket", &s3.BucketArgs{
 //				Bucket: pulumi.String("test-bucket"),
 //			})
 //			if err != nil {
@@ -243,13 +243,13 @@ type Pipeline struct {
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores PipelineArtifactStoreArrayOutput `pulumi:"artifactStores"`
 	// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-	//
-	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 	ExecutionMode pulumi.StringPtrOutput `pulumi:"executionMode"`
 	// The name of the pipeline.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
 	PipelineType pulumi.StringPtrOutput `pulumi:"pipelineType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
@@ -257,14 +257,14 @@ type Pipeline struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
 	TriggerAlls PipelineTriggerAllArrayOutput `pulumi:"triggerAlls"`
 	// A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
 	Triggers PipelineTriggerArrayOutput `pulumi:"triggers"`
 	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+	//
+	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 	Variables PipelineVariableArrayOutput `pulumi:"variables"`
 }
 
@@ -312,13 +312,13 @@ type pipelineState struct {
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores []PipelineArtifactStore `pulumi:"artifactStores"`
 	// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-	//
-	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 	ExecutionMode *string `pulumi:"executionMode"`
 	// The name of the pipeline.
 	Name *string `pulumi:"name"`
 	// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
 	PipelineType *string `pulumi:"pipelineType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
@@ -326,14 +326,14 @@ type pipelineState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
 	TriggerAlls []PipelineTriggerAll `pulumi:"triggerAlls"`
 	// A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
 	Triggers []PipelineTrigger `pulumi:"triggers"`
 	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+	//
+	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 	Variables []PipelineVariable `pulumi:"variables"`
 }
 
@@ -343,13 +343,13 @@ type PipelineState struct {
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores PipelineArtifactStoreArrayInput
 	// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-	//
-	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 	ExecutionMode pulumi.StringPtrInput
 	// The name of the pipeline.
 	Name pulumi.StringPtrInput
 	// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
 	PipelineType pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringPtrInput
 	// A stage block. Stages are documented below.
@@ -357,14 +357,14 @@ type PipelineState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// A list of all triggers present on the pipeline, including default triggers added by AWS for `V2` pipelines which omit an explicit `trigger` definition.
 	TriggerAlls PipelineTriggerAllArrayInput
 	// A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
 	Triggers PipelineTriggerArrayInput
 	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+	//
+	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 	Variables PipelineVariableArrayInput
 }
 
@@ -376,13 +376,13 @@ type pipelineArgs struct {
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores []PipelineArtifactStore `pulumi:"artifactStores"`
 	// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-	//
-	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 	ExecutionMode *string `pulumi:"executionMode"`
 	// The name of the pipeline.
 	Name *string `pulumi:"name"`
 	// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
 	PipelineType *string `pulumi:"pipelineType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
@@ -392,6 +392,8 @@ type pipelineArgs struct {
 	// A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
 	Triggers []PipelineTrigger `pulumi:"triggers"`
 	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+	//
+	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 	Variables []PipelineVariable `pulumi:"variables"`
 }
 
@@ -400,13 +402,13 @@ type PipelineArgs struct {
 	// One or more artifactStore blocks. Artifact stores are documented below.
 	ArtifactStores PipelineArtifactStoreArrayInput
 	// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-	//
-	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 	ExecutionMode pulumi.StringPtrInput
 	// The name of the pipeline.
 	Name pulumi.StringPtrInput
 	// Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
 	PipelineType pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringInput
 	// A stage block. Stages are documented below.
@@ -416,6 +418,8 @@ type PipelineArgs struct {
 	// A trigger block. Valid only when `pipelineType` is `V2`. Triggers are documented below.
 	Triggers PipelineTriggerArrayInput
 	// A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+	//
+	// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 	Variables PipelineVariableArrayInput
 }
 
@@ -517,8 +521,6 @@ func (o PipelineOutput) ArtifactStores() PipelineArtifactStoreArrayOutput {
 }
 
 // The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-//
-// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 func (o PipelineOutput) ExecutionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.ExecutionMode }).(pulumi.StringPtrOutput)
 }
@@ -531,6 +533,11 @@ func (o PipelineOutput) Name() pulumi.StringOutput {
 // Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
 func (o PipelineOutput) PipelineType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.PipelineType }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o PipelineOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
@@ -549,8 +556,6 @@ func (o PipelineOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o PipelineOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -566,6 +571,8 @@ func (o PipelineOutput) Triggers() PipelineTriggerArrayOutput {
 }
 
 // A pipeline-level variable block. Valid only when `pipelineType` is `V2`. Variable are documented below.
+//
+// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
 func (o PipelineOutput) Variables() PipelineVariableArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineVariableArrayOutput { return v.Variables }).(PipelineVariableArrayOutput)
 }

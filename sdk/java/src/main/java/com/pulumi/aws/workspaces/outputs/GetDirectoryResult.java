@@ -65,6 +65,7 @@ public final class GetDirectoryResult {
      * 
      */
     private List<String> ipGroupIds;
+    private String region;
     /**
      * @return Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      * 
@@ -192,6 +193,9 @@ public final class GetDirectoryResult {
     public List<String> ipGroupIds() {
         return this.ipGroupIds;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      * 
@@ -293,6 +297,7 @@ public final class GetDirectoryResult {
         private String iamRoleId;
         private String id;
         private List<String> ipGroupIds;
+        private String region;
         private String registrationCode;
         private List<GetDirectorySamlProperty> samlProperties;
         private List<GetDirectorySelfServicePermission> selfServicePermissions;
@@ -319,6 +324,7 @@ public final class GetDirectoryResult {
     	      this.iamRoleId = defaults.iamRoleId;
     	      this.id = defaults.id;
     	      this.ipGroupIds = defaults.ipGroupIds;
+    	      this.region = defaults.region;
     	      this.registrationCode = defaults.registrationCode;
     	      this.samlProperties = defaults.samlProperties;
     	      this.selfServicePermissions = defaults.selfServicePermissions;
@@ -432,6 +438,14 @@ public final class GetDirectoryResult {
         }
         public Builder ipGroupIds(String... ipGroupIds) {
             return ipGroupIds(List.of(ipGroupIds));
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDirectoryResult", "region");
+            }
+            this.region = region;
+            return this;
         }
         @CustomType.Setter
         public Builder registrationCode(String registrationCode) {
@@ -557,6 +571,7 @@ public final class GetDirectoryResult {
             _resultValue.iamRoleId = iamRoleId;
             _resultValue.id = id;
             _resultValue.ipGroupIds = ipGroupIds;
+            _resultValue.region = region;
             _resultValue.registrationCode = registrationCode;
             _resultValue.samlProperties = samlProperties;
             _resultValue.selfServicePermissions = selfServicePermissions;

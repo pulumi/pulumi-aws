@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,8 +56,10 @@ type DefaultCreditSpecification struct {
 	// Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
 	CpuCredits pulumi.StringOutput `pulumi:"cpuCredits"`
 	// Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-	InstanceFamily pulumi.StringOutput                         `pulumi:"instanceFamily"`
-	Timeouts       DefaultCreditSpecificationTimeoutsPtrOutput `pulumi:"timeouts"`
+	InstanceFamily pulumi.StringOutput `pulumi:"instanceFamily"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringOutput                         `pulumi:"region"`
+	Timeouts DefaultCreditSpecificationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewDefaultCreditSpecification registers a new resource with the given unique name, arguments, and options.
@@ -99,8 +101,10 @@ type defaultCreditSpecificationState struct {
 	// Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
 	CpuCredits *string `pulumi:"cpuCredits"`
 	// Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-	InstanceFamily *string                             `pulumi:"instanceFamily"`
-	Timeouts       *DefaultCreditSpecificationTimeouts `pulumi:"timeouts"`
+	InstanceFamily *string `pulumi:"instanceFamily"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   *string                             `pulumi:"region"`
+	Timeouts *DefaultCreditSpecificationTimeouts `pulumi:"timeouts"`
 }
 
 type DefaultCreditSpecificationState struct {
@@ -108,7 +112,9 @@ type DefaultCreditSpecificationState struct {
 	CpuCredits pulumi.StringPtrInput
 	// Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
 	InstanceFamily pulumi.StringPtrInput
-	Timeouts       DefaultCreditSpecificationTimeoutsPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts DefaultCreditSpecificationTimeoutsPtrInput
 }
 
 func (DefaultCreditSpecificationState) ElementType() reflect.Type {
@@ -119,8 +125,10 @@ type defaultCreditSpecificationArgs struct {
 	// Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
 	CpuCredits string `pulumi:"cpuCredits"`
 	// Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
-	InstanceFamily string                              `pulumi:"instanceFamily"`
-	Timeouts       *DefaultCreditSpecificationTimeouts `pulumi:"timeouts"`
+	InstanceFamily string `pulumi:"instanceFamily"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   *string                             `pulumi:"region"`
+	Timeouts *DefaultCreditSpecificationTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a DefaultCreditSpecification resource.
@@ -129,7 +137,9 @@ type DefaultCreditSpecificationArgs struct {
 	CpuCredits pulumi.StringInput
 	// Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
 	InstanceFamily pulumi.StringInput
-	Timeouts       DefaultCreditSpecificationTimeoutsPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts DefaultCreditSpecificationTimeoutsPtrInput
 }
 
 func (DefaultCreditSpecificationArgs) ElementType() reflect.Type {
@@ -227,6 +237,11 @@ func (o DefaultCreditSpecificationOutput) CpuCredits() pulumi.StringOutput {
 // Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
 func (o DefaultCreditSpecificationOutput) InstanceFamily() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultCreditSpecification) pulumi.StringOutput { return v.InstanceFamily }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DefaultCreditSpecificationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultCreditSpecification) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o DefaultCreditSpecificationOutput) Timeouts() DefaultCreditSpecificationTimeoutsPtrOutput {

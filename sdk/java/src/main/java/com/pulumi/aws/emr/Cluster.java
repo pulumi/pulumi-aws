@@ -839,6 +839,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+     * 
+     */
+    @Export(name="osReleaseLabel", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> osReleaseLabel;
+
+    /**
+     * @return Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+     * 
+     */
+    public Output<Optional<String>> osReleaseLabel() {
+        return Codegen.optional(this.osReleaseLabel);
+    }
+    /**
      * The specified placement group configuration for an Amazon EMR cluster.
      * 
      */
@@ -851,6 +865,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<ClusterPlacementGroupConfig>>> placementGroupConfigs() {
         return Codegen.optional(this.placementGroupConfigs);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * Release label for the Amazon EMR release.
@@ -957,11 +985,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

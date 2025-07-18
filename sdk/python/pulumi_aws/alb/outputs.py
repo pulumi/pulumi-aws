@@ -817,9 +817,10 @@ class ListenerMutualAuthentication(dict):
                  ignore_client_certificate_expiry: Optional[builtins.bool] = None,
                  trust_store_arn: Optional[builtins.str] = None):
         """
-        :param builtins.str mode: Valid values are `off`, `verify` and `passthrough`.
+        :param builtins.str mode: Valid values are `off`, `passthrough`, and `verify`.
         :param builtins.str advertise_trust_store_ca_names: Valid values are `off` and `on`.
-        :param builtins.bool ignore_client_certificate_expiry: Whether client certificate expiry is ignored. Default is `false`.
+        :param builtins.bool ignore_client_certificate_expiry: Whether client certificate expiry is ignored.
+               Default is `false`.
         :param builtins.str trust_store_arn: ARN of the elbv2 Trust Store.
         """
         pulumi.set(__self__, "mode", mode)
@@ -834,7 +835,7 @@ class ListenerMutualAuthentication(dict):
     @pulumi.getter
     def mode(self) -> builtins.str:
         """
-        Valid values are `off`, `verify` and `passthrough`.
+        Valid values are `off`, `passthrough`, and `verify`.
         """
         return pulumi.get(self, "mode")
 
@@ -850,7 +851,8 @@ class ListenerMutualAuthentication(dict):
     @pulumi.getter(name="ignoreClientCertificateExpiry")
     def ignore_client_certificate_expiry(self) -> Optional[builtins.bool]:
         """
-        Whether client certificate expiry is ignored. Default is `false`.
+        Whether client certificate expiry is ignored.
+        Default is `false`.
         """
         return pulumi.get(self, "ignore_client_certificate_expiry")
 

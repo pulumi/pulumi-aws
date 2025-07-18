@@ -23,13 +23,15 @@ class PreparedStatementArgs:
                  query_statement: pulumi.Input[builtins.str],
                  workgroup: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a PreparedStatement resource.
         :param pulumi.Input[builtins.str] query_statement: The query string for the prepared statement.
         :param pulumi.Input[builtins.str] workgroup: The name of the workgroup to which the prepared statement belongs.
         :param pulumi.Input[builtins.str] description: Brief explanation of prepared statement. Maximum length of 1024.
         :param pulumi.Input[builtins.str] name: The name of the prepared statement. Maximum length of 256.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "query_statement", query_statement)
         pulumi.set(__self__, "workgroup", workgroup)
@@ -37,6 +39,8 @@ class PreparedStatementArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="queryStatement")
@@ -86,6 +90,18 @@ class PreparedStatementArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _PreparedStatementState:
@@ -93,12 +109,14 @@ class _PreparedStatementState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  query_statement: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  workgroup: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering PreparedStatement resources.
         :param pulumi.Input[builtins.str] description: Brief explanation of prepared statement. Maximum length of 1024.
         :param pulumi.Input[builtins.str] name: The name of the prepared statement. Maximum length of 256.
         :param pulumi.Input[builtins.str] query_statement: The query string for the prepared statement.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workgroup: The name of the workgroup to which the prepared statement belongs.
         """
         if description is not None:
@@ -107,6 +125,8 @@ class _PreparedStatementState:
             pulumi.set(__self__, "name", name)
         if query_statement is not None:
             pulumi.set(__self__, "query_statement", query_statement)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if workgroup is not None:
             pulumi.set(__self__, "workgroup", workgroup)
 
@@ -148,6 +168,18 @@ class _PreparedStatementState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def workgroup(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The name of the workgroup to which the prepared statement belongs.
@@ -168,6 +200,7 @@ class PreparedStatement(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  query_statement: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  workgroup: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -179,7 +212,7 @@ class PreparedStatement(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.s3.BucketV2("test",
+        test = aws.s3.Bucket("test",
             bucket="tf-test",
             force_destroy=True)
         test_workgroup = aws.athena.Workgroup("test", name="tf-test")
@@ -205,6 +238,7 @@ class PreparedStatement(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Brief explanation of prepared statement. Maximum length of 1024.
         :param pulumi.Input[builtins.str] name: The name of the prepared statement. Maximum length of 256.
         :param pulumi.Input[builtins.str] query_statement: The query string for the prepared statement.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workgroup: The name of the workgroup to which the prepared statement belongs.
         """
         ...
@@ -222,7 +256,7 @@ class PreparedStatement(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.s3.BucketV2("test",
+        test = aws.s3.Bucket("test",
             bucket="tf-test",
             force_destroy=True)
         test_workgroup = aws.athena.Workgroup("test", name="tf-test")
@@ -261,6 +295,7 @@ class PreparedStatement(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  query_statement: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  workgroup: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -276,6 +311,7 @@ class PreparedStatement(pulumi.CustomResource):
             if query_statement is None and not opts.urn:
                 raise TypeError("Missing required property 'query_statement'")
             __props__.__dict__["query_statement"] = query_statement
+            __props__.__dict__["region"] = region
             if workgroup is None and not opts.urn:
                 raise TypeError("Missing required property 'workgroup'")
             __props__.__dict__["workgroup"] = workgroup
@@ -292,6 +328,7 @@ class PreparedStatement(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             query_statement: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             workgroup: Optional[pulumi.Input[builtins.str]] = None) -> 'PreparedStatement':
         """
         Get an existing PreparedStatement resource's state with the given name, id, and optional extra
@@ -303,6 +340,7 @@ class PreparedStatement(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Brief explanation of prepared statement. Maximum length of 1024.
         :param pulumi.Input[builtins.str] name: The name of the prepared statement. Maximum length of 256.
         :param pulumi.Input[builtins.str] query_statement: The query string for the prepared statement.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workgroup: The name of the workgroup to which the prepared statement belongs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -312,6 +350,7 @@ class PreparedStatement(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
         __props__.__dict__["query_statement"] = query_statement
+        __props__.__dict__["region"] = region
         __props__.__dict__["workgroup"] = workgroup
         return PreparedStatement(resource_name, opts=opts, __props__=__props__)
 
@@ -338,6 +377,14 @@ class PreparedStatement(pulumi.CustomResource):
         The query string for the prepared statement.
         """
         return pulumi.get(self, "query_statement")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

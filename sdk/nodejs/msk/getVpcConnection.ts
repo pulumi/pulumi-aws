@@ -22,6 +22,7 @@ export function getVpcConnection(args: GetVpcConnectionArgs, opts?: pulumi.Invok
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:msk/getVpcConnection:getVpcConnection", {
         "arn": args.arn,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -34,6 +35,10 @@ export interface GetVpcConnectionArgs {
      * ARN of the VPC Connection.
      */
     arn: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of key-value pairs assigned to the VPC Connection.
      */
@@ -57,6 +62,7 @@ export interface GetVpcConnectionResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * The security groups attached to the ENIs for the broker nodes.
      */
@@ -92,6 +98,7 @@ export function getVpcConnectionOutput(args: GetVpcConnectionOutputArgs, opts?: 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:msk/getVpcConnection:getVpcConnection", {
         "arn": args.arn,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -104,6 +111,10 @@ export interface GetVpcConnectionOutputArgs {
      * ARN of the VPC Connection.
      */
     arn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of key-value pairs assigned to the VPC Connection.
      */

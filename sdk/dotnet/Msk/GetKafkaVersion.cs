@@ -130,6 +130,12 @@ namespace Pulumi.Aws.Msk
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferred_versions` or `version` must be set.
         /// </summary>
         [Input("version")]
@@ -156,6 +162,12 @@ namespace Pulumi.Aws.Msk
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferred_versions` or `version` must be set.
         /// </summary>
         [Input("version")]
@@ -176,6 +188,7 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         public readonly string Id;
         public readonly ImmutableArray<string> PreferredVersions;
+        public readonly string Region;
         /// <summary>
         /// Status of the MSK Kafka version eg. `ACTIVE` or `DEPRECATED`.
         /// </summary>
@@ -188,12 +201,15 @@ namespace Pulumi.Aws.Msk
 
             ImmutableArray<string> preferredVersions,
 
+            string region,
+
             string status,
 
             string version)
         {
             Id = id;
             PreferredVersions = preferredVersions;
+            Region = region;
             Status = status;
             Version = version;
         }

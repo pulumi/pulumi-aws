@@ -27,7 +27,7 @@ class GetEnvironmentBlueprintResult:
     """
     A collection of values returned by getEnvironmentBlueprint.
     """
-    def __init__(__self__, blueprint_provider=None, description=None, domain_id=None, id=None, managed=None, name=None):
+    def __init__(__self__, blueprint_provider=None, description=None, domain_id=None, id=None, managed=None, name=None, region=None):
         if blueprint_provider and not isinstance(blueprint_provider, str):
             raise TypeError("Expected argument 'blueprint_provider' to be a str")
         pulumi.set(__self__, "blueprint_provider", blueprint_provider)
@@ -46,6 +46,9 @@ class GetEnvironmentBlueprintResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="blueprintProvider")
@@ -86,6 +89,11 @@ class GetEnvironmentBlueprintResult:
     def name(self) -> builtins.str:
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetEnvironmentBlueprintResult(GetEnvironmentBlueprintResult):
     # pylint: disable=using-constant-test
@@ -98,12 +106,14 @@ class AwaitableGetEnvironmentBlueprintResult(GetEnvironmentBlueprintResult):
             domain_id=self.domain_id,
             id=self.id,
             managed=self.managed,
-            name=self.name)
+            name=self.name,
+            region=self.region)
 
 
 def get_environment_blueprint(domain_id: Optional[builtins.str] = None,
                               managed: Optional[builtins.bool] = None,
                               name: Optional[builtins.str] = None,
+                              region: Optional[builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentBlueprintResult:
     """
     Data source for managing an AWS DataZone Environment Blueprint.
@@ -128,11 +138,13 @@ def get_environment_blueprint(domain_id: Optional[builtins.str] = None,
     :param builtins.str domain_id: ID of the domain.
     :param builtins.bool managed: Whether the blueprint is managed by Amazon DataZone.
     :param builtins.str name: Name of the blueprint.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['domainId'] = domain_id
     __args__['managed'] = managed
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:datazone/getEnvironmentBlueprint:getEnvironmentBlueprint', __args__, opts=opts, typ=GetEnvironmentBlueprintResult).value
 
@@ -142,10 +154,12 @@ def get_environment_blueprint(domain_id: Optional[builtins.str] = None,
         domain_id=pulumi.get(__ret__, 'domain_id'),
         id=pulumi.get(__ret__, 'id'),
         managed=pulumi.get(__ret__, 'managed'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'))
 def get_environment_blueprint_output(domain_id: Optional[pulumi.Input[builtins.str]] = None,
                                      managed: Optional[pulumi.Input[builtins.bool]] = None,
                                      name: Optional[pulumi.Input[builtins.str]] = None,
+                                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentBlueprintResult]:
     """
     Data source for managing an AWS DataZone Environment Blueprint.
@@ -170,11 +184,13 @@ def get_environment_blueprint_output(domain_id: Optional[pulumi.Input[builtins.s
     :param builtins.str domain_id: ID of the domain.
     :param builtins.bool managed: Whether the blueprint is managed by Amazon DataZone.
     :param builtins.str name: Name of the blueprint.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['domainId'] = domain_id
     __args__['managed'] = managed
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:datazone/getEnvironmentBlueprint:getEnvironmentBlueprint', __args__, opts=opts, typ=GetEnvironmentBlueprintResult)
     return __ret__.apply(lambda __response__: GetEnvironmentBlueprintResult(
@@ -183,4 +199,5 @@ def get_environment_blueprint_output(domain_id: Optional[pulumi.Input[builtins.s
         domain_id=pulumi.get(__response__, 'domain_id'),
         id=pulumi.get(__response__, 'id'),
         managed=pulumi.get(__response__, 'managed'),
-        name=pulumi.get(__response__, 'name')))
+        name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region')))

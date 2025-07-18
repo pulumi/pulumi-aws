@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,13 +69,13 @@ type DeviceFleet struct {
 	IotRoleAlias       pulumi.StringOutput  `pulumi:"iotRoleAlias"`
 	// Specifies details about the repository. see Output Config details below.
 	OutputConfig DeviceFleetOutputConfigOutput `pulumi:"outputConfig"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -129,13 +129,13 @@ type deviceFleetState struct {
 	IotRoleAlias       *string `pulumi:"iotRoleAlias"`
 	// Specifies details about the repository. see Output Config details below.
 	OutputConfig *DeviceFleetOutputConfig `pulumi:"outputConfig"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
 	RoleArn *string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -151,13 +151,13 @@ type DeviceFleetState struct {
 	IotRoleAlias       pulumi.StringPtrInput
 	// Specifies details about the repository. see Output Config details below.
 	OutputConfig DeviceFleetOutputConfigPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
 	RoleArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -174,6 +174,8 @@ type deviceFleetArgs struct {
 	EnableIotRoleAlias *bool `pulumi:"enableIotRoleAlias"`
 	// Specifies details about the repository. see Output Config details below.
 	OutputConfig DeviceFleetOutputConfig `pulumi:"outputConfig"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
 	RoleArn string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -190,6 +192,8 @@ type DeviceFleetArgs struct {
 	EnableIotRoleAlias pulumi.BoolPtrInput
 	// Specifies details about the repository. see Output Config details below.
 	OutputConfig DeviceFleetOutputConfigInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
 	RoleArn pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -312,6 +316,11 @@ func (o DeviceFleetOutput) OutputConfig() DeviceFleetOutputConfigOutput {
 	return o.ApplyT(func(v *DeviceFleet) DeviceFleetOutputConfigOutput { return v.OutputConfig }).(DeviceFleetOutputConfigOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DeviceFleetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeviceFleet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
 func (o DeviceFleetOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeviceFleet) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
@@ -323,8 +332,6 @@ func (o DeviceFleetOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o DeviceFleetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DeviceFleet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

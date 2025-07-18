@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,6 +78,8 @@ type GetAmiIdsArgs struct {
 	NameRegex *string `pulumi:"nameRegex"`
 	// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
 	Owners []string `pulumi:"owners"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Used to sort AMIs by creation time.
 	// If no value is specified, the default value is `false`.
 	SortAscending *bool `pulumi:"sortAscending"`
@@ -94,6 +96,7 @@ type GetAmiIdsResult struct {
 	IncludeDeprecated *bool    `pulumi:"includeDeprecated"`
 	NameRegex         *string  `pulumi:"nameRegex"`
 	Owners            []string `pulumi:"owners"`
+	Region            string   `pulumi:"region"`
 	SortAscending     *bool    `pulumi:"sortAscending"`
 }
 
@@ -126,6 +129,8 @@ type GetAmiIdsOutputArgs struct {
 	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
 	// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
 	Owners pulumi.StringArrayInput `pulumi:"owners"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Used to sort AMIs by creation time.
 	// If no value is specified, the default value is `false`.
 	SortAscending pulumi.BoolPtrInput `pulumi:"sortAscending"`
@@ -178,6 +183,10 @@ func (o GetAmiIdsResultOutput) NameRegex() pulumi.StringPtrOutput {
 
 func (o GetAmiIdsResultOutput) Owners() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAmiIdsResult) []string { return v.Owners }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAmiIdsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAmiIdsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetAmiIdsResultOutput) SortAscending() pulumi.BoolPtrOutput {

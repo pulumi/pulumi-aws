@@ -29,6 +29,7 @@ class NetworkInsightsPathArgs:
                  destination_port: Optional[pulumi.Input[builtins.int]] = None,
                  filter_at_destination: Optional[pulumi.Input['NetworkInsightsPathFilterAtDestinationArgs']] = None,
                  filter_at_source: Optional[pulumi.Input['NetworkInsightsPathFilterAtSourceArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_ip: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -40,6 +41,7 @@ class NetworkInsightsPathArgs:
         :param pulumi.Input[builtins.str] destination: ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
         :param pulumi.Input[builtins.str] destination_ip: IP address of the destination resource.
         :param pulumi.Input[builtins.int] destination_port: Destination port to analyze access to.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_ip: IP address of the source resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -55,6 +57,8 @@ class NetworkInsightsPathArgs:
             pulumi.set(__self__, "filter_at_destination", filter_at_destination)
         if filter_at_source is not None:
             pulumi.set(__self__, "filter_at_source", filter_at_source)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source_ip is not None:
             pulumi.set(__self__, "source_ip", source_ip)
         if tags is not None:
@@ -141,6 +145,18 @@ class NetworkInsightsPathArgs:
         pulumi.set(self, "filter_at_source", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sourceIp")
     def source_ip(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -176,6 +192,7 @@ class _NetworkInsightsPathState:
                  filter_at_destination: Optional[pulumi.Input['NetworkInsightsPathFilterAtDestinationArgs']] = None,
                  filter_at_source: Optional[pulumi.Input['NetworkInsightsPathFilterAtSourceArgs']] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[builtins.str]] = None,
                  source_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_ip: Optional[pulumi.Input[builtins.str]] = None,
@@ -191,6 +208,7 @@ class _NetworkInsightsPathState:
         :param pulumi.Input[builtins.str] protocol: Protocol to use for analysis. Valid options are `tcp` or `udp`.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source: ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         :param pulumi.Input[builtins.str] source_arn: ARN of the source.
         :param pulumi.Input[builtins.str] source_ip: IP address of the source resource.
@@ -213,6 +231,8 @@ class _NetworkInsightsPathState:
             pulumi.set(__self__, "filter_at_source", filter_at_source)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source is not None:
             pulumi.set(__self__, "source", source)
         if source_arn is not None:
@@ -221,9 +241,6 @@ class _NetworkInsightsPathState:
             pulumi.set(__self__, "source_ip", source_ip)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -321,6 +338,18 @@ class _NetworkInsightsPathState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def source(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
@@ -369,7 +398,6 @@ class _NetworkInsightsPathState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -393,6 +421,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
                  filter_at_destination: Optional[pulumi.Input[Union['NetworkInsightsPathFilterAtDestinationArgs', 'NetworkInsightsPathFilterAtDestinationArgsDict']]] = None,
                  filter_at_source: Optional[pulumi.Input[Union['NetworkInsightsPathFilterAtSourceArgs', 'NetworkInsightsPathFilterAtSourceArgsDict']]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[builtins.str]] = None,
                  source_ip: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -428,6 +457,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] protocol: Protocol to use for analysis. Valid options are `tcp` or `udp`.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source: ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         :param pulumi.Input[builtins.str] source_ip: IP address of the source resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -482,6 +512,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
                  filter_at_destination: Optional[pulumi.Input[Union['NetworkInsightsPathFilterAtDestinationArgs', 'NetworkInsightsPathFilterAtDestinationArgsDict']]] = None,
                  filter_at_source: Optional[pulumi.Input[Union['NetworkInsightsPathFilterAtSourceArgs', 'NetworkInsightsPathFilterAtSourceArgsDict']]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[builtins.str]] = None,
                  source_ip: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -502,6 +533,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["region"] = region
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
@@ -529,6 +561,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
             filter_at_destination: Optional[pulumi.Input[Union['NetworkInsightsPathFilterAtDestinationArgs', 'NetworkInsightsPathFilterAtDestinationArgsDict']]] = None,
             filter_at_source: Optional[pulumi.Input[Union['NetworkInsightsPathFilterAtSourceArgs', 'NetworkInsightsPathFilterAtSourceArgsDict']]] = None,
             protocol: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             source: Optional[pulumi.Input[builtins.str]] = None,
             source_arn: Optional[pulumi.Input[builtins.str]] = None,
             source_ip: Optional[pulumi.Input[builtins.str]] = None,
@@ -549,6 +582,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] protocol: Protocol to use for analysis. Valid options are `tcp` or `udp`.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source: ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
         :param pulumi.Input[builtins.str] source_arn: ARN of the source.
         :param pulumi.Input[builtins.str] source_ip: IP address of the source resource.
@@ -567,6 +601,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
         __props__.__dict__["filter_at_destination"] = filter_at_destination
         __props__.__dict__["filter_at_source"] = filter_at_source
         __props__.__dict__["protocol"] = protocol
+        __props__.__dict__["region"] = region
         __props__.__dict__["source"] = source
         __props__.__dict__["source_arn"] = source_arn
         __props__.__dict__["source_ip"] = source_ip
@@ -636,6 +671,14 @@ class NetworkInsightsPath(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def source(self) -> pulumi.Output[builtins.str]:
         """
         ID or ARN of the resource which is the source of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN.
@@ -668,7 +711,6 @@ class NetworkInsightsPath(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

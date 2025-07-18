@@ -71,6 +71,21 @@ public final class GetClusterVersionsPlainArgs extends com.pulumi.resources.Invo
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Status of the EKS cluster versions to list.
      * Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
      * 
@@ -94,6 +109,7 @@ public final class GetClusterVersionsPlainArgs extends com.pulumi.resources.Invo
         this.clusterVersionsOnlies = $.clusterVersionsOnlies;
         this.defaultOnly = $.defaultOnly;
         this.includeAll = $.includeAll;
+        this.region = $.region;
         this.versionStatus = $.versionStatus;
     }
 
@@ -155,6 +171,17 @@ public final class GetClusterVersionsPlainArgs extends com.pulumi.resources.Invo
          */
         public Builder includeAll(@Nullable Boolean includeAll) {
             $.includeAll = includeAll;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

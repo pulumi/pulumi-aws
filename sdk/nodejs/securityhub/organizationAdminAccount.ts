@@ -65,6 +65,10 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
      * The AWS account identifier of the account to designate as the Security Hub administrator account.
      */
     public readonly adminAccountId!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a OrganizationAdminAccount resource with the given unique name, arguments, and options.
@@ -80,12 +84,14 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as OrganizationAdminAccountState | undefined;
             resourceInputs["adminAccountId"] = state ? state.adminAccountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as OrganizationAdminAccountArgs | undefined;
             if ((!args || args.adminAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'adminAccountId'");
             }
             resourceInputs["adminAccountId"] = args ? args.adminAccountId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OrganizationAdminAccount.__pulumiType, name, resourceInputs, opts);
@@ -100,6 +106,10 @@ export interface OrganizationAdminAccountState {
      * The AWS account identifier of the account to designate as the Security Hub administrator account.
      */
     adminAccountId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -110,4 +120,8 @@ export interface OrganizationAdminAccountArgs {
      * The AWS account identifier of the account to designate as the Security Hub administrator account.
      */
     adminAccountId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

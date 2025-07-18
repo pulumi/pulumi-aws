@@ -27,6 +27,7 @@ export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Pro
         "exportVersion": args.exportVersion,
         "includeExtensions": args.includeExtensions,
         "outputType": args.outputType,
+        "region": args.region,
         "specification": args.specification,
         "stageName": args.stageName,
     }, opts);
@@ -53,6 +54,10 @@ export interface GetExportArgs {
      */
     outputType: string;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
      */
     specification: string;
@@ -78,6 +83,7 @@ export interface GetExportResult {
     readonly id: string;
     readonly includeExtensions?: boolean;
     readonly outputType: string;
+    readonly region: string;
     readonly specification: string;
     readonly stageName?: string;
 }
@@ -104,6 +110,7 @@ export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeO
         "exportVersion": args.exportVersion,
         "includeExtensions": args.includeExtensions,
         "outputType": args.outputType,
+        "region": args.region,
         "specification": args.specification,
         "stageName": args.stageName,
     }, opts);
@@ -129,6 +136,10 @@ export interface GetExportOutputArgs {
      * Output type of the exported definition file. Valid values are `JSON` and `YAML`.
      */
     outputType: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
      */

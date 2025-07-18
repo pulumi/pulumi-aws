@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -95,7 +95,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -166,8 +166,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -245,7 +245,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -337,9 +337,10 @@ type TlsInspectionConfiguration struct {
 	// Descriptive name of the TLS inspection configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Number of firewall policies that use this TLS inspection configuration.
-	NumberOfAssociations pulumi.IntOutput       `pulumi:"numberOfAssociations"`
-	Tags                 pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	NumberOfAssociations pulumi.IntOutput `pulumi:"numberOfAssociations"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringOutput                         `pulumi:"region"`
+	Tags     pulumi.StringMapOutput                      `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput                      `pulumi:"tagsAll"`
 	Timeouts TlsInspectionConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
 	// TLS inspection configuration block. Detailed below.
@@ -395,9 +396,10 @@ type tlsInspectionConfigurationState struct {
 	// Descriptive name of the TLS inspection configuration.
 	Name *string `pulumi:"name"`
 	// Number of firewall policies that use this TLS inspection configuration.
-	NumberOfAssociations *int              `pulumi:"numberOfAssociations"`
-	Tags                 map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	NumberOfAssociations *int `pulumi:"numberOfAssociations"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   *string                             `pulumi:"region"`
+	Tags     map[string]string                   `pulumi:"tags"`
 	TagsAll  map[string]string                   `pulumi:"tagsAll"`
 	Timeouts *TlsInspectionConfigurationTimeouts `pulumi:"timeouts"`
 	// TLS inspection configuration block. Detailed below.
@@ -425,8 +427,9 @@ type TlsInspectionConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// Number of firewall policies that use this TLS inspection configuration.
 	NumberOfAssociations pulumi.IntPtrInput
-	Tags                 pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts TlsInspectionConfigurationTimeoutsPtrInput
 	// TLS inspection configuration block. Detailed below.
@@ -449,7 +452,9 @@ type tlsInspectionConfigurationArgs struct {
 	// Encryption configuration block. Detailed below.
 	EncryptionConfigurations []TlsInspectionConfigurationEncryptionConfiguration `pulumi:"encryptionConfigurations"`
 	// Descriptive name of the TLS inspection configuration.
-	Name     *string                             `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   *string                             `pulumi:"region"`
 	Tags     map[string]string                   `pulumi:"tags"`
 	Timeouts *TlsInspectionConfigurationTimeouts `pulumi:"timeouts"`
 	// TLS inspection configuration block. Detailed below.
@@ -465,7 +470,9 @@ type TlsInspectionConfigurationArgs struct {
 	// Encryption configuration block. Detailed below.
 	EncryptionConfigurations TlsInspectionConfigurationEncryptionConfigurationArrayInput
 	// Descriptive name of the TLS inspection configuration.
-	Name     pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
 	Tags     pulumi.StringMapInput
 	Timeouts TlsInspectionConfigurationTimeoutsPtrInput
 	// TLS inspection configuration block. Detailed below.
@@ -602,11 +609,15 @@ func (o TlsInspectionConfigurationOutput) NumberOfAssociations() pulumi.IntOutpu
 	return o.ApplyT(func(v *TlsInspectionConfiguration) pulumi.IntOutput { return v.NumberOfAssociations }).(pulumi.IntOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o TlsInspectionConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TlsInspectionConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 func (o TlsInspectionConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TlsInspectionConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o TlsInspectionConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TlsInspectionConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

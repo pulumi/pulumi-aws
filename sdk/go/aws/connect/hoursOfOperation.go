@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -93,11 +93,11 @@ type HoursOfOperation struct {
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 	// Specifies the name of the Hours of Operation.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Tags to apply to the Hours of Operation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies the time zone of the Hours of Operation.
 	TimeZone pulumi.StringOutput `pulumi:"timeZone"`
@@ -154,11 +154,11 @@ type hoursOfOperationState struct {
 	InstanceId *string `pulumi:"instanceId"`
 	// Specifies the name of the Hours of Operation.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags to apply to the Hours of Operation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies the time zone of the Hours of Operation.
 	TimeZone *string `pulumi:"timeZone"`
@@ -177,11 +177,11 @@ type HoursOfOperationState struct {
 	InstanceId pulumi.StringPtrInput
 	// Specifies the name of the Hours of Operation.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tags to apply to the Hours of Operation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Specifies the time zone of the Hours of Operation.
 	TimeZone pulumi.StringPtrInput
@@ -200,6 +200,8 @@ type hoursOfOperationArgs struct {
 	InstanceId string `pulumi:"instanceId"`
 	// Specifies the name of the Hours of Operation.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags to apply to the Hours of Operation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies the time zone of the Hours of Operation.
@@ -216,6 +218,8 @@ type HoursOfOperationArgs struct {
 	InstanceId pulumi.StringInput
 	// Specifies the name of the Hours of Operation.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tags to apply to the Hours of Operation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Specifies the time zone of the Hours of Operation.
@@ -339,14 +343,17 @@ func (o HoursOfOperationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o HoursOfOperationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Tags to apply to the Hours of Operation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o HoursOfOperationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o HoursOfOperationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

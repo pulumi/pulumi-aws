@@ -190,6 +190,21 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
      * 
      */
@@ -248,6 +263,7 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
         this.provisioningArtifactId = $.provisioningArtifactId;
         this.provisioningArtifactName = $.provisioningArtifactName;
         this.provisioningParameters = $.provisioningParameters;
+        this.region = $.region;
         this.retainPhysicalResources = $.retainPhysicalResources;
         this.stackSetProvisioningPreferences = $.stackSetProvisioningPreferences;
         this.tags = $.tags;
@@ -524,6 +540,27 @@ public final class ProvisionedProductArgs extends com.pulumi.resources.ResourceA
          */
         public Builder provisioningParameters(ProvisionedProductProvisioningParameterArgs... provisioningParameters) {
             return provisioningParameters(List.of(provisioningParameters));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

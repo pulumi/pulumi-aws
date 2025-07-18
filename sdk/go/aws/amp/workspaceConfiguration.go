@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amp"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,7 +76,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amp"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -119,6 +119,8 @@ type WorkspaceConfiguration struct {
 
 	// Configuration block for setting limits on metrics with specific label sets. Detailed below.
 	LimitsPerLabelSets WorkspaceConfigurationLimitsPerLabelSetArrayOutput `pulumi:"limitsPerLabelSets"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Number of days to retain metric data in the workspace.
 	RetentionPeriodInDays pulumi.IntOutput                        `pulumi:"retentionPeriodInDays"`
 	Timeouts              WorkspaceConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -163,6 +165,8 @@ func GetWorkspaceConfiguration(ctx *pulumi.Context,
 type workspaceConfigurationState struct {
 	// Configuration block for setting limits on metrics with specific label sets. Detailed below.
 	LimitsPerLabelSets []WorkspaceConfigurationLimitsPerLabelSet `pulumi:"limitsPerLabelSets"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Number of days to retain metric data in the workspace.
 	RetentionPeriodInDays *int                            `pulumi:"retentionPeriodInDays"`
 	Timeouts              *WorkspaceConfigurationTimeouts `pulumi:"timeouts"`
@@ -175,6 +179,8 @@ type workspaceConfigurationState struct {
 type WorkspaceConfigurationState struct {
 	// Configuration block for setting limits on metrics with specific label sets. Detailed below.
 	LimitsPerLabelSets WorkspaceConfigurationLimitsPerLabelSetArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Number of days to retain metric data in the workspace.
 	RetentionPeriodInDays pulumi.IntPtrInput
 	Timeouts              WorkspaceConfigurationTimeoutsPtrInput
@@ -191,6 +197,8 @@ func (WorkspaceConfigurationState) ElementType() reflect.Type {
 type workspaceConfigurationArgs struct {
 	// Configuration block for setting limits on metrics with specific label sets. Detailed below.
 	LimitsPerLabelSets []WorkspaceConfigurationLimitsPerLabelSet `pulumi:"limitsPerLabelSets"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Number of days to retain metric data in the workspace.
 	RetentionPeriodInDays *int                            `pulumi:"retentionPeriodInDays"`
 	Timeouts              *WorkspaceConfigurationTimeouts `pulumi:"timeouts"`
@@ -204,6 +212,8 @@ type workspaceConfigurationArgs struct {
 type WorkspaceConfigurationArgs struct {
 	// Configuration block for setting limits on metrics with specific label sets. Detailed below.
 	LimitsPerLabelSets WorkspaceConfigurationLimitsPerLabelSetArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Number of days to retain metric data in the workspace.
 	RetentionPeriodInDays pulumi.IntPtrInput
 	Timeouts              WorkspaceConfigurationTimeoutsPtrInput
@@ -305,6 +315,11 @@ func (o WorkspaceConfigurationOutput) LimitsPerLabelSets() WorkspaceConfiguratio
 	return o.ApplyT(func(v *WorkspaceConfiguration) WorkspaceConfigurationLimitsPerLabelSetArrayOutput {
 		return v.LimitsPerLabelSets
 	}).(WorkspaceConfigurationLimitsPerLabelSetArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o WorkspaceConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkspaceConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Number of days to retain metric data in the workspace.

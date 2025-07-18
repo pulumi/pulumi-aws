@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,8 +27,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,7 +90,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -135,6 +135,8 @@ type MailFrom struct {
 	//
 	// The following arguments are optional:
 	MailFromDomain pulumi.StringOutput `pulumi:"mailFromDomain"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewMailFrom registers a new resource with the given unique name, arguments, and options.
@@ -181,6 +183,8 @@ type mailFromState struct {
 	//
 	// The following arguments are optional:
 	MailFromDomain *string `pulumi:"mailFromDomain"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type MailFromState struct {
@@ -192,6 +196,8 @@ type MailFromState struct {
 	//
 	// The following arguments are optional:
 	MailFromDomain pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (MailFromState) ElementType() reflect.Type {
@@ -207,6 +213,8 @@ type mailFromArgs struct {
 	//
 	// The following arguments are optional:
 	MailFromDomain string `pulumi:"mailFromDomain"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a MailFrom resource.
@@ -219,6 +227,8 @@ type MailFromArgs struct {
 	//
 	// The following arguments are optional:
 	MailFromDomain pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (MailFromArgs) ElementType() reflect.Type {
@@ -323,6 +333,11 @@ func (o MailFromOutput) Domain() pulumi.StringOutput {
 // The following arguments are optional:
 func (o MailFromOutput) MailFromDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v *MailFrom) pulumi.StringOutput { return v.MailFromDomain }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o MailFromOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *MailFrom) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type MailFromArrayOutput struct{ *pulumi.OutputState }

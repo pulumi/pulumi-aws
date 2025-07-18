@@ -50,7 +50,24 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID of the route server endpoint for which to create a peer.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="routeServerEndpointId", required=true)
@@ -59,14 +76,24 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
     /**
      * @return The ID of the route server endpoint for which to create a peer.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> routeServerEndpointId() {
         return this.routeServerEndpointId;
     }
 
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -83,6 +110,7 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
     private RouteServerPeerArgs(RouteServerPeerArgs $) {
         this.bgpOptions = $.bgpOptions;
         this.peerAddress = $.peerAddress;
+        this.region = $.region;
         this.routeServerEndpointId = $.routeServerEndpointId;
         this.tags = $.tags;
         this.timeouts = $.timeouts;
@@ -149,7 +177,30 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param routeServerEndpointId The ID of the route server endpoint for which to create a peer.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -162,6 +213,8 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param routeServerEndpointId The ID of the route server endpoint for which to create a peer.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -169,11 +222,23 @@ public final class RouteServerPeerArgs extends com.pulumi.resources.ResourceArgs
             return routeServerEndpointId(Output.of(routeServerEndpointId));
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

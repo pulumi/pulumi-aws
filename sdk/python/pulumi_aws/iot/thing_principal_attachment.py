@@ -21,14 +21,18 @@ __all__ = ['ThingPrincipalAttachmentArgs', 'ThingPrincipalAttachment']
 class ThingPrincipalAttachmentArgs:
     def __init__(__self__, *,
                  principal: pulumi.Input[builtins.str],
-                 thing: pulumi.Input[builtins.str]):
+                 thing: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ThingPrincipalAttachment resource.
         :param pulumi.Input[builtins.str] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         :param pulumi.Input[builtins.str] thing: The name of the thing.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "principal", principal)
         pulumi.set(__self__, "thing", thing)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -54,19 +58,35 @@ class ThingPrincipalAttachmentArgs:
     def thing(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "thing", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ThingPrincipalAttachmentState:
     def __init__(__self__, *,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  thing: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ThingPrincipalAttachment resources.
         :param pulumi.Input[builtins.str] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] thing: The name of the thing.
         """
         if principal is not None:
             pulumi.set(__self__, "principal", principal)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if thing is not None:
             pulumi.set(__self__, "thing", thing)
 
@@ -81,6 +101,18 @@ class _ThingPrincipalAttachmentState:
     @principal.setter
     def principal(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "principal", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -102,6 +134,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  thing: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -126,6 +159,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] thing: The name of the thing.
         """
         ...
@@ -169,6 +203,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  thing: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -182,6 +217,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
             if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__.__dict__["principal"] = principal
+            __props__.__dict__["region"] = region
             if thing is None and not opts.urn:
                 raise TypeError("Missing required property 'thing'")
             __props__.__dict__["thing"] = thing
@@ -196,6 +232,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             principal: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             thing: Optional[pulumi.Input[builtins.str]] = None) -> 'ThingPrincipalAttachment':
         """
         Get an existing ThingPrincipalAttachment resource's state with the given name, id, and optional extra
@@ -205,6 +242,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] principal: The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] thing: The name of the thing.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -212,6 +250,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
         __props__ = _ThingPrincipalAttachmentState.__new__(_ThingPrincipalAttachmentState)
 
         __props__.__dict__["principal"] = principal
+        __props__.__dict__["region"] = region
         __props__.__dict__["thing"] = thing
         return ThingPrincipalAttachment(resource_name, opts=opts, __props__=__props__)
 
@@ -222,6 +261,14 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
         The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
         """
         return pulumi.get(self, "principal")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

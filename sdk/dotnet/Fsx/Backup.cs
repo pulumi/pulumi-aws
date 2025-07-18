@@ -160,6 +160,12 @@ namespace Pulumi.Aws.Fsx
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         /// </summary>
         [Output("tags")]
@@ -179,6 +185,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// The ID of the volume to back up. Required if backing up a ONTAP Volume.
+        /// 
+        /// Note - One of `file_system_id` or `volume_id` can be specified. `file_system_id` is used for Lustre and Windows, `volume_id` is used for ONTAP.
         /// </summary>
         [Output("volumeId")]
         public Output<string?> VolumeId { get; private set; } = null!;
@@ -235,6 +243,12 @@ namespace Pulumi.Aws.Fsx
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -249,6 +263,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// The ID of the volume to back up. Required if backing up a ONTAP Volume.
+        /// 
+        /// Note - One of `file_system_id` or `volume_id` can be specified. `file_system_id` is used for Lustre and Windows, `volume_id` is used for ONTAP.
         /// </summary>
         [Input("volumeId")]
         public Input<string>? VolumeId { get; set; }
@@ -285,6 +301,12 @@ namespace Pulumi.Aws.Fsx
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -303,7 +325,6 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -318,6 +339,8 @@ namespace Pulumi.Aws.Fsx
 
         /// <summary>
         /// The ID of the volume to back up. Required if backing up a ONTAP Volume.
+        /// 
+        /// Note - One of `file_system_id` or `volume_id` can be specified. `file_system_id` is used for Lustre and Windows, `volume_id` is used for ONTAP.
         /// </summary>
         [Input("volumeId")]
         public Input<string>? VolumeId { get; set; }

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,6 +63,8 @@ type BucketAccessKey struct {
 	BucketName pulumi.StringOutput `pulumi:"bucketName"`
 	// Date and time when the access key was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
 	SecretAccessKey pulumi.StringOutput `pulumi:"secretAccessKey"`
 	// Status of the access key.
@@ -108,6 +110,8 @@ type bucketAccessKeyState struct {
 	BucketName *string `pulumi:"bucketName"`
 	// Date and time when the access key was created.
 	CreatedAt *string `pulumi:"createdAt"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
 	SecretAccessKey *string `pulumi:"secretAccessKey"`
 	// Status of the access key.
@@ -121,6 +125,8 @@ type BucketAccessKeyState struct {
 	BucketName pulumi.StringPtrInput
 	// Date and time when the access key was created.
 	CreatedAt pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
 	SecretAccessKey pulumi.StringPtrInput
 	// Status of the access key.
@@ -134,12 +140,16 @@ func (BucketAccessKeyState) ElementType() reflect.Type {
 type bucketAccessKeyArgs struct {
 	// Name of the bucket that the access key will belong to and grant access to.
 	BucketName string `pulumi:"bucketName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BucketAccessKey resource.
 type BucketAccessKeyArgs struct {
 	// Name of the bucket that the access key will belong to and grant access to.
 	BucketName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BucketAccessKeyArgs) ElementType() reflect.Type {
@@ -242,6 +252,11 @@ func (o BucketAccessKeyOutput) BucketName() pulumi.StringOutput {
 // Date and time when the access key was created.
 func (o BucketAccessKeyOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketAccessKey) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o BucketAccessKeyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketAccessKey) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.

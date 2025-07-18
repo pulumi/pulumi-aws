@@ -125,6 +125,12 @@ namespace Pulumi.Aws.Cognito
         public Output<ImmutableArray<string>> OpenidConnectProviderArns { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
         /// </summary>
         [Output("samlProviderArns")]
@@ -243,6 +249,12 @@ namespace Pulumi.Aws.Cognito
             set => _openidConnectProviderArns = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("samlProviderArns")]
         private InputList<string>? _samlProviderArns;
 
@@ -342,6 +354,12 @@ namespace Pulumi.Aws.Cognito
             set => _openidConnectProviderArns = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("samlProviderArns")]
         private InputList<string>? _samlProviderArns;
 
@@ -384,7 +402,6 @@ namespace Pulumi.Aws.Cognito
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

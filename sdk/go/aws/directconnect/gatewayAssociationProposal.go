@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,6 +75,8 @@ type GatewayAssociationProposal struct {
 	DxGatewayId pulumi.StringOutput `pulumi:"dxGatewayId"`
 	// AWS Account identifier of the Direct Connect Gateway's owner.
 	DxGatewayOwnerAccountId pulumi.StringOutput `pulumi:"dxGatewayOwnerAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewGatewayAssociationProposal registers a new resource with the given unique name, arguments, and options.
@@ -128,6 +130,8 @@ type gatewayAssociationProposalState struct {
 	DxGatewayId *string `pulumi:"dxGatewayId"`
 	// AWS Account identifier of the Direct Connect Gateway's owner.
 	DxGatewayOwnerAccountId *string `pulumi:"dxGatewayOwnerAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type GatewayAssociationProposalState struct {
@@ -143,6 +147,8 @@ type GatewayAssociationProposalState struct {
 	DxGatewayId pulumi.StringPtrInput
 	// AWS Account identifier of the Direct Connect Gateway's owner.
 	DxGatewayOwnerAccountId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (GatewayAssociationProposalState) ElementType() reflect.Type {
@@ -158,6 +164,8 @@ type gatewayAssociationProposalArgs struct {
 	DxGatewayId string `pulumi:"dxGatewayId"`
 	// AWS Account identifier of the Direct Connect Gateway's owner.
 	DxGatewayOwnerAccountId string `pulumi:"dxGatewayOwnerAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a GatewayAssociationProposal resource.
@@ -170,6 +178,8 @@ type GatewayAssociationProposalArgs struct {
 	DxGatewayId pulumi.StringInput
 	// AWS Account identifier of the Direct Connect Gateway's owner.
 	DxGatewayOwnerAccountId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (GatewayAssociationProposalArgs) ElementType() reflect.Type {
@@ -287,6 +297,11 @@ func (o GatewayAssociationProposalOutput) DxGatewayId() pulumi.StringOutput {
 // AWS Account identifier of the Direct Connect Gateway's owner.
 func (o GatewayAssociationProposalOutput) DxGatewayOwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GatewayAssociationProposal) pulumi.StringOutput { return v.DxGatewayOwnerAccountId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o GatewayAssociationProposalOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *GatewayAssociationProposal) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type GatewayAssociationProposalArrayOutput struct{ *pulumi.OutputState }

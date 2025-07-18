@@ -38,6 +38,7 @@ export function getKey(args: GetKeyArgs, opts?: pulumi.InvokeOptions): Promise<G
     return pulumi.runtime.invoke("aws:kms/getKey:getKey", {
         "grantTokens": args.grantTokens,
         "keyId": args.keyId,
+        "region": args.region,
     }, opts);
 }
 
@@ -57,6 +58,10 @@ export interface GetKeyArgs {
      * * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
      */
     keyId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -84,7 +89,7 @@ export interface GetKeyResult {
      */
     readonly customKeyStoreId: string;
     /**
-     * Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
+     * See `keySpec`.
      */
     readonly customerMasterKeySpec: string;
     /**
@@ -142,6 +147,10 @@ export interface GetKeyResult {
      */
     readonly pendingDeletionWindowInDays: number;
     /**
+     * The AWS Region of a primary or replica key in a multi-Region key.
+     */
+    readonly region: string;
+    /**
      * The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expirationModel` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
      */
     readonly validTo: string;
@@ -181,6 +190,7 @@ export function getKeyOutput(args: GetKeyOutputArgs, opts?: pulumi.InvokeOutputO
     return pulumi.runtime.invokeOutput("aws:kms/getKey:getKey", {
         "grantTokens": args.grantTokens,
         "keyId": args.keyId,
+        "region": args.region,
     }, opts);
 }
 
@@ -200,4 +210,8 @@ export interface GetKeyOutputArgs {
      * * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
      */
     keyId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

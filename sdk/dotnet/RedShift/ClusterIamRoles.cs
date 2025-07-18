@@ -65,6 +65,12 @@ namespace Pulumi.Aws.RedShift
         [Output("iamRoleArns")]
         public Output<ImmutableArray<string>> IamRoleArns { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ClusterIamRoles resource with the given unique name, arguments, and options.
@@ -135,6 +141,12 @@ namespace Pulumi.Aws.RedShift
             set => _iamRoleArns = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public ClusterIamRolesArgs()
         {
         }
@@ -166,6 +178,12 @@ namespace Pulumi.Aws.RedShift
             get => _iamRoleArns ?? (_iamRoleArns = new InputList<string>());
             set => _iamRoleArns = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public ClusterIamRolesState()
         {

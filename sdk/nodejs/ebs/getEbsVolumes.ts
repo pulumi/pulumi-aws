@@ -39,6 +39,7 @@ export function getEbsVolumes(args?: GetEbsVolumesArgs, opts?: pulumi.InvokeOpti
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ebs/getEbsVolumes:getEbsVolumes", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -51,6 +52,10 @@ export interface GetEbsVolumesArgs {
      * Custom filter block as described below.
      */
     filters?: inputs.ebs.GetEbsVolumesFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired volumes.
@@ -75,6 +80,7 @@ export interface GetEbsVolumesResult {
      * no volumes match the provided criteria.
      */
     readonly ids: string[];
+    readonly region: string;
     readonly tags?: {[key: string]: string};
 }
 /**
@@ -109,6 +115,7 @@ export function getEbsVolumesOutput(args?: GetEbsVolumesOutputArgs, opts?: pulum
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ebs/getEbsVolumes:getEbsVolumes", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -121,6 +128,10 @@ export interface GetEbsVolumesOutputArgs {
      * Custom filter block as described below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ebs.GetEbsVolumesFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired volumes.

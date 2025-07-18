@@ -31,6 +31,7 @@ class ChannelArgs:
                  log_level: Optional[pulumi.Input[builtins.str]] = None,
                  maintenance: Optional[pulumi.Input['ChannelMaintenanceArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  start_channel: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -48,6 +49,7 @@ class ChannelArgs:
         :param pulumi.Input[builtins.str] name: Name of the Channel.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: Concise argument description.
         :param pulumi.Input[builtins.bool] start_channel: Whether to start/stop channel. Default: `false`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -66,6 +68,8 @@ class ChannelArgs:
             pulumi.set(__self__, "maintenance", maintenance)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if start_channel is not None:
@@ -186,6 +190,18 @@ class ChannelArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -248,6 +264,7 @@ class _ChannelState:
                  log_level: Optional[pulumi.Input[builtins.str]] = None,
                  maintenance: Optional[pulumi.Input['ChannelMaintenanceArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  start_channel: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -268,6 +285,7 @@ class _ChannelState:
         :param pulumi.Input[builtins.str] name: Name of the Channel.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: Concise argument description.
         :param pulumi.Input[builtins.bool] start_channel: Whether to start/stop channel. Default: `false`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -295,15 +313,14 @@ class _ChannelState:
             pulumi.set(__self__, "maintenance", maintenance)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if start_channel is not None:
             pulumi.set(__self__, "start_channel", start_channel)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc is not None:
@@ -444,6 +461,18 @@ class _ChannelState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -481,7 +510,6 @@ class _ChannelState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -517,6 +545,7 @@ class Channel(pulumi.CustomResource):
                  log_level: Optional[pulumi.Input[builtins.str]] = None,
                  maintenance: Optional[pulumi.Input[Union['ChannelMaintenanceArgs', 'ChannelMaintenanceArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  start_channel: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -619,6 +648,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the Channel.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: Concise argument description.
         :param pulumi.Input[builtins.bool] start_channel: Whether to start/stop channel. Default: `false`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -738,6 +768,7 @@ class Channel(pulumi.CustomResource):
                  log_level: Optional[pulumi.Input[builtins.str]] = None,
                  maintenance: Optional[pulumi.Input[Union['ChannelMaintenanceArgs', 'ChannelMaintenanceArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  start_channel: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -770,6 +801,7 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["log_level"] = log_level
             __props__.__dict__["maintenance"] = maintenance
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["start_channel"] = start_channel
             __props__.__dict__["tags"] = tags
@@ -798,6 +830,7 @@ class Channel(pulumi.CustomResource):
             log_level: Optional[pulumi.Input[builtins.str]] = None,
             maintenance: Optional[pulumi.Input[Union['ChannelMaintenanceArgs', 'ChannelMaintenanceArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             start_channel: Optional[pulumi.Input[builtins.bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -823,6 +856,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the Channel.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: Concise argument description.
         :param pulumi.Input[builtins.bool] start_channel: Whether to start/stop channel. Default: `false`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the channel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -843,6 +877,7 @@ class Channel(pulumi.CustomResource):
         __props__.__dict__["log_level"] = log_level
         __props__.__dict__["maintenance"] = maintenance
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["start_channel"] = start_channel
         __props__.__dict__["tags"] = tags
@@ -941,6 +976,14 @@ class Channel(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -966,7 +1009,6 @@ class Channel(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

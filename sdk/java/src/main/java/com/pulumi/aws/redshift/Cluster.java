@@ -7,8 +7,6 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.redshift.ClusterArgs;
 import com.pulumi.aws.redshift.inputs.ClusterState;
 import com.pulumi.aws.redshift.outputs.ClusterClusterNode;
-import com.pulumi.aws.redshift.outputs.ClusterLogging;
-import com.pulumi.aws.redshift.outputs.ClusterSnapshotCopy;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -409,16 +407,18 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     }
     /**
      * If true , the data in the cluster is encrypted at rest.
+     * Default is `true`.
      * 
      */
-    @Export(name="encrypted", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> encrypted;
+    @Export(name="encrypted", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> encrypted;
 
     /**
      * @return If true , the data in the cluster is encrypted at rest.
+     * Default is `true`.
      * 
      */
-    public Output<Optional<Boolean>> encrypted() {
+    public Output<Optional<String>> encrypted() {
         return Codegen.optional(this.encrypted);
     }
     /**
@@ -490,24 +490,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
-    }
-    /**
-     * Logging, documented below.
-     * 
-     * @deprecated
-     * logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
-    @Export(name="logging", refs={ClusterLogging.class}, tree="[0]")
-    private Output<ClusterLogging> logging;
-
-    /**
-     * @return Logging, documented below.
-     * 
-     */
-    public Output<ClusterLogging> logging() {
-        return this.logging;
     }
     /**
      * The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
@@ -712,18 +694,32 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.preferredMaintenanceWindow;
     }
     /**
-     * If true, the cluster can be accessed from a public network. Default is `true`.
+     * If true, the cluster can be accessed from a public network. Default is `false`.
      * 
      */
     @Export(name="publiclyAccessible", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> publiclyAccessible;
 
     /**
-     * @return If true, the cluster can be accessed from a public network. Default is `true`.
+     * @return If true, the cluster can be accessed from a public network. Default is `false`.
      * 
      */
     public Output<Optional<Boolean>> publiclyAccessible() {
         return Codegen.optional(this.publiclyAccessible);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
@@ -768,24 +764,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.snapshotClusterIdentifier);
     }
     /**
-     * Configuration of automatic copy of snapshots from one region to another. Documented below.
-     * 
-     * @deprecated
-     * snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
-    @Export(name="snapshotCopy", refs={ClusterSnapshotCopy.class}, tree="[0]")
-    private Output<ClusterSnapshotCopy> snapshotCopy;
-
-    /**
-     * @return Configuration of automatic copy of snapshots from one region to another. Documented below.
-     * 
-     */
-    public Output<ClusterSnapshotCopy> snapshotCopy() {
-        return this.snapshotCopy;
-    }
-    /**
      * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
      * 
      */
@@ -822,11 +800,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

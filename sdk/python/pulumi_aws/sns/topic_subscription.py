@@ -30,6 +30,7 @@ class TopicSubscriptionArgs:
                  filter_policy_scope: Optional[pulumi.Input[builtins.str]] = None,
                  raw_message_delivery: Optional[pulumi.Input[builtins.bool]] = None,
                  redrive_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replay_policy: Optional[pulumi.Input[builtins.str]] = None,
                  subscription_role_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -46,6 +47,7 @@ class TopicSubscriptionArgs:
         :param pulumi.Input[builtins.str] filter_policy_scope: Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
         :param pulumi.Input[builtins.bool] raw_message_delivery: Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
         :param pulumi.Input[builtins.str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replay_policy: JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
         :param pulumi.Input[builtins.str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         """
@@ -66,6 +68,8 @@ class TopicSubscriptionArgs:
             pulumi.set(__self__, "raw_message_delivery", raw_message_delivery)
         if redrive_policy is not None:
             pulumi.set(__self__, "redrive_policy", redrive_policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replay_policy is not None:
             pulumi.set(__self__, "replay_policy", replay_policy)
         if subscription_role_arn is not None:
@@ -194,6 +198,18 @@ class TopicSubscriptionArgs:
         pulumi.set(self, "redrive_policy", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replayPolicy")
     def replay_policy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -234,6 +250,7 @@ class _TopicSubscriptionState:
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
                  raw_message_delivery: Optional[pulumi.Input[builtins.bool]] = None,
                  redrive_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replay_policy: Optional[pulumi.Input[builtins.str]] = None,
                  subscription_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  topic: Optional[pulumi.Input[builtins.str]] = None):
@@ -252,6 +269,7 @@ class _TopicSubscriptionState:
         :param pulumi.Input[builtins.str] protocol: Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
         :param pulumi.Input[builtins.bool] raw_message_delivery: Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
         :param pulumi.Input[builtins.str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replay_policy: JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
         :param pulumi.Input[builtins.str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         :param pulumi.Input[builtins.str] topic: ARN of the SNS topic to subscribe to.
@@ -284,6 +302,8 @@ class _TopicSubscriptionState:
             pulumi.set(__self__, "raw_message_delivery", raw_message_delivery)
         if redrive_policy is not None:
             pulumi.set(__self__, "redrive_policy", redrive_policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replay_policy is not None:
             pulumi.set(__self__, "replay_policy", replay_policy)
         if subscription_role_arn is not None:
@@ -448,6 +468,18 @@ class _TopicSubscriptionState:
         pulumi.set(self, "redrive_policy", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replayPolicy")
     def replay_policy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -501,6 +533,7 @@ class TopicSubscription(pulumi.CustomResource):
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
                  raw_message_delivery: Optional[pulumi.Input[builtins.bool]] = None,
                  redrive_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replay_policy: Optional[pulumi.Input[builtins.str]] = None,
                  subscription_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  topic: Optional[pulumi.Input[builtins.str]] = None,
@@ -527,7 +560,7 @@ class TopicSubscription(pulumi.CustomResource):
         import pulumi_aws as aws
 
         user_updates = aws.sns.Topic("user_updates", name="user-updates-topic")
-        sqs_queue_policy = user_updates.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
+        sqs_queue_policy = aws.iam.get_policy_document_output(policy_id="arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
             statements=[{
                 "sid": "user_updates_sqs_target",
                 "effect": "Allow",
@@ -540,9 +573,9 @@ class TopicSubscription(pulumi.CustomResource):
                 "conditions": [{
                     "test": "ArnEquals",
                     "variable": "aws:SourceArn",
-                    "values": [arn],
+                    "values": [user_updates.arn],
                 }],
-            }]))
+            }])
         user_updates_queue = aws.sqs.Queue("user_updates_queue",
             name="user-updates-queue",
             policy=sqs_queue_policy.json)
@@ -704,6 +737,7 @@ class TopicSubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] protocol: Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
         :param pulumi.Input[builtins.bool] raw_message_delivery: Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
         :param pulumi.Input[builtins.str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replay_policy: JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
         :param pulumi.Input[builtins.str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         :param pulumi.Input[builtins.str] topic: ARN of the SNS topic to subscribe to.
@@ -738,7 +772,7 @@ class TopicSubscription(pulumi.CustomResource):
         import pulumi_aws as aws
 
         user_updates = aws.sns.Topic("user_updates", name="user-updates-topic")
-        sqs_queue_policy = user_updates.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
+        sqs_queue_policy = aws.iam.get_policy_document_output(policy_id="arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy",
             statements=[{
                 "sid": "user_updates_sqs_target",
                 "effect": "Allow",
@@ -751,9 +785,9 @@ class TopicSubscription(pulumi.CustomResource):
                 "conditions": [{
                     "test": "ArnEquals",
                     "variable": "aws:SourceArn",
-                    "values": [arn],
+                    "values": [user_updates.arn],
                 }],
-            }]))
+            }])
         user_updates_queue = aws.sqs.Queue("user_updates_queue",
             name="user-updates-queue",
             policy=sqs_queue_policy.json)
@@ -928,6 +962,7 @@ class TopicSubscription(pulumi.CustomResource):
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
                  raw_message_delivery: Optional[pulumi.Input[builtins.bool]] = None,
                  redrive_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replay_policy: Optional[pulumi.Input[builtins.str]] = None,
                  subscription_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  topic: Optional[pulumi.Input[builtins.str]] = None,
@@ -953,6 +988,7 @@ class TopicSubscription(pulumi.CustomResource):
             __props__.__dict__["protocol"] = protocol
             __props__.__dict__["raw_message_delivery"] = raw_message_delivery
             __props__.__dict__["redrive_policy"] = redrive_policy
+            __props__.__dict__["region"] = region
             __props__.__dict__["replay_policy"] = replay_policy
             __props__.__dict__["subscription_role_arn"] = subscription_role_arn
             if topic is None and not opts.urn:
@@ -985,6 +1021,7 @@ class TopicSubscription(pulumi.CustomResource):
             protocol: Optional[pulumi.Input[builtins.str]] = None,
             raw_message_delivery: Optional[pulumi.Input[builtins.bool]] = None,
             redrive_policy: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replay_policy: Optional[pulumi.Input[builtins.str]] = None,
             subscription_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             topic: Optional[pulumi.Input[builtins.str]] = None) -> 'TopicSubscription':
@@ -1008,6 +1045,7 @@ class TopicSubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] protocol: Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
         :param pulumi.Input[builtins.bool] raw_message_delivery: Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
         :param pulumi.Input[builtins.str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replay_policy: JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
         :param pulumi.Input[builtins.str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         :param pulumi.Input[builtins.str] topic: ARN of the SNS topic to subscribe to.
@@ -1031,6 +1069,7 @@ class TopicSubscription(pulumi.CustomResource):
         __props__.__dict__["protocol"] = protocol
         __props__.__dict__["raw_message_delivery"] = raw_message_delivery
         __props__.__dict__["redrive_policy"] = redrive_policy
+        __props__.__dict__["region"] = region
         __props__.__dict__["replay_policy"] = replay_policy
         __props__.__dict__["subscription_role_arn"] = subscription_role_arn
         __props__.__dict__["topic"] = topic
@@ -1139,6 +1178,14 @@ class TopicSubscription(pulumi.CustomResource):
         JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
         """
         return pulumi.get(self, "redrive_policy")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="replayPolicy")

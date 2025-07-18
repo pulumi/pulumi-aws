@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,9 +55,10 @@ type GetAppregistryAttributeGroupAssociationsArgs struct {
 	// ID of the application to which attribute groups are associated.
 	Id *string `pulumi:"id"`
 	// Name of the application to which attribute groups are associated.
-	//
-	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// > Exactly one of `id`or `name` must be set.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAppregistryAttributeGroupAssociations.
@@ -66,6 +67,7 @@ type GetAppregistryAttributeGroupAssociationsResult struct {
 	AttributeGroupIds []string `pulumi:"attributeGroupIds"`
 	Id                *string  `pulumi:"id"`
 	Name              *string  `pulumi:"name"`
+	Region            string   `pulumi:"region"`
 }
 
 func GetAppregistryAttributeGroupAssociationsOutput(ctx *pulumi.Context, args GetAppregistryAttributeGroupAssociationsOutputArgs, opts ...pulumi.InvokeOption) GetAppregistryAttributeGroupAssociationsResultOutput {
@@ -82,9 +84,10 @@ type GetAppregistryAttributeGroupAssociationsOutputArgs struct {
 	// ID of the application to which attribute groups are associated.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the application to which attribute groups are associated.
-	//
-	// The following arguments are optional:
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// > Exactly one of `id`or `name` must be set.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetAppregistryAttributeGroupAssociationsOutputArgs) ElementType() reflect.Type {
@@ -117,6 +120,10 @@ func (o GetAppregistryAttributeGroupAssociationsResultOutput) Id() pulumi.String
 
 func (o GetAppregistryAttributeGroupAssociationsResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetAppregistryAttributeGroupAssociationsResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o GetAppregistryAttributeGroupAssociationsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAppregistryAttributeGroupAssociationsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

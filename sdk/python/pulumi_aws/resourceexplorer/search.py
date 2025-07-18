@@ -28,13 +28,16 @@ class SearchResult:
     """
     A collection of values returned by Search.
     """
-    def __init__(__self__, id=None, query_string=None, resource_counts=None, resources=None, view_arn=None):
+    def __init__(__self__, id=None, query_string=None, region=None, resource_counts=None, resources=None, view_arn=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if query_string and not isinstance(query_string, str):
             raise TypeError("Expected argument 'query_string' to be a str")
         pulumi.set(__self__, "query_string", query_string)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if resource_counts and not isinstance(resource_counts, list):
             raise TypeError("Expected argument 'resource_counts' to be a list")
         pulumi.set(__self__, "resource_counts", resource_counts)
@@ -57,6 +60,14 @@ class SearchResult:
     @pulumi.getter(name="queryString")
     def query_string(self) -> builtins.str:
         return pulumi.get(self, "query_string")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        """
+        Amazon Web Services Region in which the resource was created and exists.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceCounts")
@@ -88,12 +99,14 @@ class AwaitableSearchResult(SearchResult):
         return SearchResult(
             id=self.id,
             query_string=self.query_string,
+            region=self.region,
             resource_counts=self.resource_counts,
             resources=self.resources,
             view_arn=self.view_arn)
 
 
 def search(query_string: Optional[builtins.str] = None,
+           region: Optional[builtins.str] = None,
            view_arn: Optional[builtins.str] = None,
            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableSearchResult:
     """
@@ -115,10 +128,12 @@ def search(query_string: Optional[builtins.str] = None,
     :param builtins.str query_string: String that includes keywords and filters that specify the resources that you want to include in the results. For the complete syntax supported by the QueryString parameter, see Search query syntax reference for [Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html). The search is completely case insensitive. You can specify an empty string to return all results up to the limit of 1,000 total results. The operation can return only the first 1,000 results. If the resource you want is not included, then use a different value for QueryString to refine the results.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str view_arn: Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
     """
     __args__ = dict()
     __args__['queryString'] = query_string
+    __args__['region'] = region
     __args__['viewArn'] = view_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:resourceexplorer/search:Search', __args__, opts=opts, typ=SearchResult).value
@@ -126,10 +141,12 @@ def search(query_string: Optional[builtins.str] = None,
     return AwaitableSearchResult(
         id=pulumi.get(__ret__, 'id'),
         query_string=pulumi.get(__ret__, 'query_string'),
+        region=pulumi.get(__ret__, 'region'),
         resource_counts=pulumi.get(__ret__, 'resource_counts'),
         resources=pulumi.get(__ret__, 'resources'),
         view_arn=pulumi.get(__ret__, 'view_arn'))
 def search_output(query_string: Optional[pulumi.Input[builtins.str]] = None,
+                  region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                   view_arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[SearchResult]:
     """
@@ -151,16 +168,19 @@ def search_output(query_string: Optional[pulumi.Input[builtins.str]] = None,
     :param builtins.str query_string: String that includes keywords and filters that specify the resources that you want to include in the results. For the complete syntax supported by the QueryString parameter, see Search query syntax reference for [Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html). The search is completely case insensitive. You can specify an empty string to return all results up to the limit of 1,000 total results. The operation can return only the first 1,000 results. If the resource you want is not included, then use a different value for QueryString to refine the results.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str view_arn: Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
     """
     __args__ = dict()
     __args__['queryString'] = query_string
+    __args__['region'] = region
     __args__['viewArn'] = view_arn
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:resourceexplorer/search:Search', __args__, opts=opts, typ=SearchResult)
     return __ret__.apply(lambda __response__: SearchResult(
         id=pulumi.get(__response__, 'id'),
         query_string=pulumi.get(__response__, 'query_string'),
+        region=pulumi.get(__response__, 'region'),
         resource_counts=pulumi.get(__response__, 'resource_counts'),
         resources=pulumi.get(__response__, 'resources'),
         view_arn=pulumi.get(__response__, 'view_arn')))

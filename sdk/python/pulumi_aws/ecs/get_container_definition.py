@@ -27,7 +27,7 @@ class GetContainerDefinitionResult:
     """
     A collection of values returned by getContainerDefinition.
     """
-    def __init__(__self__, container_name=None, cpu=None, disable_networking=None, docker_labels=None, environment=None, id=None, image=None, image_digest=None, memory=None, memory_reservation=None, task_definition=None):
+    def __init__(__self__, container_name=None, cpu=None, disable_networking=None, docker_labels=None, environment=None, id=None, image=None, image_digest=None, memory=None, memory_reservation=None, region=None, task_definition=None):
         if container_name and not isinstance(container_name, str):
             raise TypeError("Expected argument 'container_name' to be a str")
         pulumi.set(__self__, "container_name", container_name)
@@ -58,6 +58,9 @@ class GetContainerDefinitionResult:
         if memory_reservation and not isinstance(memory_reservation, int):
             raise TypeError("Expected argument 'memory_reservation' to be a int")
         pulumi.set(__self__, "memory_reservation", memory_reservation)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if task_definition and not isinstance(task_definition, str):
             raise TypeError("Expected argument 'task_definition' to be a str")
         pulumi.set(__self__, "task_definition", task_definition)
@@ -140,6 +143,11 @@ class GetContainerDefinitionResult:
         return pulumi.get(self, "memory_reservation")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="taskDefinition")
     def task_definition(self) -> builtins.str:
         return pulumi.get(self, "task_definition")
@@ -161,10 +169,12 @@ class AwaitableGetContainerDefinitionResult(GetContainerDefinitionResult):
             image_digest=self.image_digest,
             memory=self.memory,
             memory_reservation=self.memory_reservation,
+            region=self.region,
             task_definition=self.task_definition)
 
 
 def get_container_definition(container_name: Optional[builtins.str] = None,
+                             region: Optional[builtins.str] = None,
                              task_definition: Optional[builtins.str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerDefinitionResult:
     """
@@ -183,10 +193,12 @@ def get_container_definition(container_name: Optional[builtins.str] = None,
 
 
     :param builtins.str container_name: Name of the container definition
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str task_definition: ARN of the task definition which contains the container
     """
     __args__ = dict()
     __args__['containerName'] = container_name
+    __args__['region'] = region
     __args__['taskDefinition'] = task_definition
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ecs/getContainerDefinition:getContainerDefinition', __args__, opts=opts, typ=GetContainerDefinitionResult).value
@@ -202,8 +214,10 @@ def get_container_definition(container_name: Optional[builtins.str] = None,
         image_digest=pulumi.get(__ret__, 'image_digest'),
         memory=pulumi.get(__ret__, 'memory'),
         memory_reservation=pulumi.get(__ret__, 'memory_reservation'),
+        region=pulumi.get(__ret__, 'region'),
         task_definition=pulumi.get(__ret__, 'task_definition'))
 def get_container_definition_output(container_name: Optional[pulumi.Input[builtins.str]] = None,
+                                    region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                     task_definition: Optional[pulumi.Input[builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerDefinitionResult]:
     """
@@ -222,10 +236,12 @@ def get_container_definition_output(container_name: Optional[pulumi.Input[builti
 
 
     :param builtins.str container_name: Name of the container definition
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str task_definition: ARN of the task definition which contains the container
     """
     __args__ = dict()
     __args__['containerName'] = container_name
+    __args__['region'] = region
     __args__['taskDefinition'] = task_definition
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ecs/getContainerDefinition:getContainerDefinition', __args__, opts=opts, typ=GetContainerDefinitionResult)
@@ -240,4 +256,5 @@ def get_container_definition_output(container_name: Optional[pulumi.Input[builti
         image_digest=pulumi.get(__response__, 'image_digest'),
         memory=pulumi.get(__response__, 'memory'),
         memory_reservation=pulumi.get(__response__, 'memory_reservation'),
+        region=pulumi.get(__response__, 'region'),
         task_definition=pulumi.get(__response__, 'task_definition')))

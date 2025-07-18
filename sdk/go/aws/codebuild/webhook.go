@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,7 +29,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codebuild"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codebuild"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,6 +85,8 @@ type Webhook struct {
 	PayloadUrl pulumi.StringOutput `pulumi:"payloadUrl"`
 	// The name of the build project.
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
 	ScopeConfiguration WebhookScopeConfigurationPtrOutput `pulumi:"scopeConfiguration"`
 	// The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
@@ -142,6 +144,8 @@ type webhookState struct {
 	PayloadUrl *string `pulumi:"payloadUrl"`
 	// The name of the build project.
 	ProjectName *string `pulumi:"projectName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
 	ScopeConfiguration *WebhookScopeConfiguration `pulumi:"scopeConfiguration"`
 	// The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
@@ -163,6 +167,8 @@ type WebhookState struct {
 	PayloadUrl pulumi.StringPtrInput
 	// The name of the build project.
 	ProjectName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
 	ScopeConfiguration WebhookScopeConfigurationPtrInput
 	// The secret token of the associated repository. Not returned by the CodeBuild API for all source types.
@@ -186,6 +192,8 @@ type webhookArgs struct {
 	ManualCreation *bool `pulumi:"manualCreation"`
 	// The name of the build project.
 	ProjectName string `pulumi:"projectName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
 	ScopeConfiguration *WebhookScopeConfiguration `pulumi:"scopeConfiguration"`
 }
@@ -202,6 +210,8 @@ type WebhookArgs struct {
 	ManualCreation pulumi.BoolPtrInput
 	// The name of the build project.
 	ProjectName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
 	ScopeConfiguration WebhookScopeConfigurationPtrInput
 }
@@ -321,6 +331,11 @@ func (o WebhookOutput) PayloadUrl() pulumi.StringOutput {
 // The name of the build project.
 func (o WebhookOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o WebhookOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.

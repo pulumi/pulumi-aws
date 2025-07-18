@@ -25,10 +25,22 @@ import * as utilities from "../utilities";
  * });
  * ```
  */
-export function getRegistrationCode(opts?: pulumi.InvokeOptions): Promise<GetRegistrationCodeResult> {
+export function getRegistrationCode(args?: GetRegistrationCodeArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationCodeResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iot/getRegistrationCode:getRegistrationCode", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getRegistrationCode.
+ */
+export interface GetRegistrationCodeArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -39,6 +51,7 @@ export interface GetRegistrationCodeResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * The CA certificate registration code.
      */
@@ -65,8 +78,20 @@ export interface GetRegistrationCodeResult {
  * });
  * ```
  */
-export function getRegistrationCodeOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistrationCodeResult> {
+export function getRegistrationCodeOutput(args?: GetRegistrationCodeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistrationCodeResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:iot/getRegistrationCode:getRegistrationCode", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getRegistrationCode.
+ */
+export interface GetRegistrationCodeOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

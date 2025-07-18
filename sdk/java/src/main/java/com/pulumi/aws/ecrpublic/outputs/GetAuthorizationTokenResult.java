@@ -30,6 +30,7 @@ public final class GetAuthorizationTokenResult {
      * 
      */
     private String password;
+    private String region;
     /**
      * @return User name decoded from the authorization token.
      * 
@@ -65,6 +66,9 @@ public final class GetAuthorizationTokenResult {
     public String password() {
         return this.password;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return User name decoded from the authorization token.
      * 
@@ -86,6 +90,7 @@ public final class GetAuthorizationTokenResult {
         private String expiresAt;
         private String id;
         private String password;
+        private String region;
         private String userName;
         public Builder() {}
         public Builder(GetAuthorizationTokenResult defaults) {
@@ -94,6 +99,7 @@ public final class GetAuthorizationTokenResult {
     	      this.expiresAt = defaults.expiresAt;
     	      this.id = defaults.id;
     	      this.password = defaults.password;
+    	      this.region = defaults.region;
     	      this.userName = defaults.userName;
         }
 
@@ -130,6 +136,14 @@ public final class GetAuthorizationTokenResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAuthorizationTokenResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder userName(String userName) {
             if (userName == null) {
               throw new MissingRequiredPropertyException("GetAuthorizationTokenResult", "userName");
@@ -143,6 +157,7 @@ public final class GetAuthorizationTokenResult {
             _resultValue.expiresAt = expiresAt;
             _resultValue.id = id;
             _resultValue.password = password;
+            _resultValue.region = region;
             _resultValue.userName = userName;
             return _resultValue;
         }

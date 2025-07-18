@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,6 +75,8 @@ type ManagedPrefixListEntry struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the prefix list.
 	PrefixListId pulumi.StringOutput `pulumi:"prefixListId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewManagedPrefixListEntry registers a new resource with the given unique name, arguments, and options.
@@ -119,6 +121,8 @@ type managedPrefixListEntryState struct {
 	Description *string `pulumi:"description"`
 	// The ID of the prefix list.
 	PrefixListId *string `pulumi:"prefixListId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ManagedPrefixListEntryState struct {
@@ -128,6 +132,8 @@ type ManagedPrefixListEntryState struct {
 	Description pulumi.StringPtrInput
 	// The ID of the prefix list.
 	PrefixListId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ManagedPrefixListEntryState) ElementType() reflect.Type {
@@ -141,6 +147,8 @@ type managedPrefixListEntryArgs struct {
 	Description *string `pulumi:"description"`
 	// The ID of the prefix list.
 	PrefixListId string `pulumi:"prefixListId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ManagedPrefixListEntry resource.
@@ -151,6 +159,8 @@ type ManagedPrefixListEntryArgs struct {
 	Description pulumi.StringPtrInput
 	// The ID of the prefix list.
 	PrefixListId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ManagedPrefixListEntryArgs) ElementType() reflect.Type {
@@ -253,6 +263,11 @@ func (o ManagedPrefixListEntryOutput) Description() pulumi.StringPtrOutput {
 // The ID of the prefix list.
 func (o ManagedPrefixListEntryOutput) PrefixListId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPrefixListEntry) pulumi.StringOutput { return v.PrefixListId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ManagedPrefixListEntryOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedPrefixListEntry) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ManagedPrefixListEntryArrayOutput struct{ *pulumi.OutputState }

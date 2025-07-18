@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,6 +68,8 @@ type DocumentationPart struct {
 	Location DocumentationPartLocationOutput `pulumi:"location"`
 	// Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
 	Properties pulumi.StringOutput `pulumi:"properties"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the associated Rest API
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 }
@@ -117,6 +119,8 @@ type documentationPartState struct {
 	Location *DocumentationPartLocation `pulumi:"location"`
 	// Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
 	Properties *string `pulumi:"properties"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the associated Rest API
 	RestApiId *string `pulumi:"restApiId"`
 }
@@ -128,6 +132,8 @@ type DocumentationPartState struct {
 	Location DocumentationPartLocationPtrInput
 	// Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
 	Properties pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the associated Rest API
 	RestApiId pulumi.StringPtrInput
 }
@@ -141,6 +147,8 @@ type documentationPartArgs struct {
 	Location DocumentationPartLocation `pulumi:"location"`
 	// Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
 	Properties string `pulumi:"properties"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the associated Rest API
 	RestApiId string `pulumi:"restApiId"`
 }
@@ -151,6 +159,8 @@ type DocumentationPartArgs struct {
 	Location DocumentationPartLocationInput
 	// Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
 	Properties pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the associated Rest API
 	RestApiId pulumi.StringInput
 }
@@ -255,6 +265,11 @@ func (o DocumentationPartOutput) Location() DocumentationPartLocationOutput {
 // Content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., "{ \"description\": \"The API does ...\" }". Only Swagger-compliant key-value pairs can be exported and, hence, published.
 func (o DocumentationPartOutput) Properties() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentationPart) pulumi.StringOutput { return v.Properties }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DocumentationPartOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DocumentationPart) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the associated Rest API

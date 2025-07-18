@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/finspace"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/finspace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,22 +84,23 @@ type KxVolume struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
 	Nas1Configurations KxVolumeNas1ConfigurationArrayOutput `pulumi:"nas1Configurations"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The status of volume creation.
-	// * `CREATING` – The volume creation is in progress.
-	// * `CREATE_FAILED` – The volume creation has failed.
-	// * `ACTIVE` – The volume is active.
-	// * `UPDATING` – The volume is in the process of being updated.
-	// * `UPDATE_FAILED` – The update action failed.
-	// * `UPDATED` – The volume is successfully updated.
-	// * `DELETING` – The volume is in the process of being deleted.
-	// * `DELETE_FAILED` – The system failed to delete the volume.
-	// * `DELETED` – The volume is successfully deleted.
+	// * `CREATING` - The volume creation is in progress.
+	// * `CREATE_FAILED` - The volume creation has failed.
+	// * `ACTIVE` - The volume is active.
+	// * `UPDATING` - The volume is in the process of being updated.
+	// * `UPDATE_FAILED` - The update action failed.
+	// * `UPDATED` - The volume is successfully updated.
+	// * `DELETING` - The volume is in the process of being deleted.
+	// * `DELETE_FAILED` - The system failed to delete the volume.
+	// * `DELETED` - The volume is successfully deleted.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The error message when a failed state occurs.
 	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
 	// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -169,22 +170,23 @@ type kxVolumeState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
 	Nas1Configurations []KxVolumeNas1Configuration `pulumi:"nas1Configurations"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The status of volume creation.
-	// * `CREATING` – The volume creation is in progress.
-	// * `CREATE_FAILED` – The volume creation has failed.
-	// * `ACTIVE` – The volume is active.
-	// * `UPDATING` – The volume is in the process of being updated.
-	// * `UPDATE_FAILED` – The update action failed.
-	// * `UPDATED` – The volume is successfully updated.
-	// * `DELETING` – The volume is in the process of being deleted.
-	// * `DELETE_FAILED` – The system failed to delete the volume.
-	// * `DELETED` – The volume is successfully deleted.
+	// * `CREATING` - The volume creation is in progress.
+	// * `CREATE_FAILED` - The volume creation has failed.
+	// * `ACTIVE` - The volume is active.
+	// * `UPDATING` - The volume is in the process of being updated.
+	// * `UPDATE_FAILED` - The update action failed.
+	// * `UPDATED` - The volume is successfully updated.
+	// * `DELETING` - The volume is in the process of being deleted.
+	// * `DELETE_FAILED` - The system failed to delete the volume.
+	// * `DELETED` - The volume is successfully deleted.
 	Status *string `pulumi:"status"`
 	// The error message when a failed state occurs.
 	StatusReason *string `pulumi:"statusReason"`
 	// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
 	Type *string `pulumi:"type"`
@@ -213,22 +215,23 @@ type KxVolumeState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
 	Nas1Configurations KxVolumeNas1ConfigurationArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The status of volume creation.
-	// * `CREATING` – The volume creation is in progress.
-	// * `CREATE_FAILED` – The volume creation has failed.
-	// * `ACTIVE` – The volume is active.
-	// * `UPDATING` – The volume is in the process of being updated.
-	// * `UPDATE_FAILED` – The update action failed.
-	// * `UPDATED` – The volume is successfully updated.
-	// * `DELETING` – The volume is in the process of being deleted.
-	// * `DELETE_FAILED` – The system failed to delete the volume.
-	// * `DELETED` – The volume is successfully deleted.
+	// * `CREATING` - The volume creation is in progress.
+	// * `CREATE_FAILED` - The volume creation has failed.
+	// * `ACTIVE` - The volume is active.
+	// * `UPDATING` - The volume is in the process of being updated.
+	// * `UPDATE_FAILED` - The update action failed.
+	// * `UPDATED` - The volume is successfully updated.
+	// * `DELETING` - The volume is in the process of being deleted.
+	// * `DELETE_FAILED` - The system failed to delete the volume.
+	// * `DELETED` - The volume is successfully deleted.
 	Status pulumi.StringPtrInput
 	// The error message when a failed state occurs.
 	StatusReason pulumi.StringPtrInput
 	// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
 	Type pulumi.StringPtrInput
@@ -254,6 +257,8 @@ type kxVolumeArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
 	Nas1Configurations []KxVolumeNas1Configuration `pulumi:"nas1Configurations"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
 	Tags map[string]string `pulumi:"tags"`
 	// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
@@ -277,6 +282,8 @@ type KxVolumeArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
 	Nas1Configurations KxVolumeNas1ConfigurationArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
 	Tags pulumi.StringMapInput
 	// The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
@@ -422,16 +429,21 @@ func (o KxVolumeOutput) Nas1Configurations() KxVolumeNas1ConfigurationArrayOutpu
 	return o.ApplyT(func(v *KxVolume) KxVolumeNas1ConfigurationArrayOutput { return v.Nas1Configurations }).(KxVolumeNas1ConfigurationArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o KxVolumeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *KxVolume) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The status of volume creation.
-// * `CREATING` – The volume creation is in progress.
-// * `CREATE_FAILED` – The volume creation has failed.
-// * `ACTIVE` – The volume is active.
-// * `UPDATING` – The volume is in the process of being updated.
-// * `UPDATE_FAILED` – The update action failed.
-// * `UPDATED` – The volume is successfully updated.
-// * `DELETING` – The volume is in the process of being deleted.
-// * `DELETE_FAILED` – The system failed to delete the volume.
-// * `DELETED` – The volume is successfully deleted.
+// * `CREATING` - The volume creation is in progress.
+// * `CREATE_FAILED` - The volume creation has failed.
+// * `ACTIVE` - The volume is active.
+// * `UPDATING` - The volume is in the process of being updated.
+// * `UPDATE_FAILED` - The update action failed.
+// * `UPDATED` - The volume is successfully updated.
+// * `DELETING` - The volume is in the process of being deleted.
+// * `DELETE_FAILED` - The system failed to delete the volume.
+// * `DELETED` - The volume is successfully deleted.
 func (o KxVolumeOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxVolume) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
@@ -446,7 +458,6 @@ func (o KxVolumeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KxVolume) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o KxVolumeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KxVolume) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

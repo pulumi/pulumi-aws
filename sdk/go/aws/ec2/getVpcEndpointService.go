@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,7 +66,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -92,7 +92,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -166,12 +166,16 @@ type LookupVpcEndpointServiceResult struct {
 	PrivateDnsName string `pulumi:"privateDnsName"`
 	// Private DNS names assigned to the VPC endpoint service.
 	PrivateDnsNames []string `pulumi:"privateDnsNames"`
-	// Region of the endpoint service.
+	// (**Deprecated**) Region of the endpoint service. Use `serviceRegion` instead.
+	//
+	// Deprecated: region is deprecated. Use serviceRegion instead.
 	Region  string  `pulumi:"region"`
 	Service *string `pulumi:"service"`
 	// ID of the endpoint service.
-	ServiceId      string   `pulumi:"serviceId"`
-	ServiceName    string   `pulumi:"serviceName"`
+	ServiceId   string `pulumi:"serviceId"`
+	ServiceName string `pulumi:"serviceName"`
+	// Region of the endpoint service.
+	ServiceRegion  string   `pulumi:"serviceRegion"`
 	ServiceRegions []string `pulumi:"serviceRegions"`
 	ServiceType    string   `pulumi:"serviceType"`
 	// The supported IP address types.
@@ -277,7 +281,9 @@ func (o LookupVpcEndpointServiceResultOutput) PrivateDnsNames() pulumi.StringArr
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) []string { return v.PrivateDnsNames }).(pulumi.StringArrayOutput)
 }
 
-// Region of the endpoint service.
+// (**Deprecated**) Region of the endpoint service. Use `serviceRegion` instead.
+//
+// Deprecated: region is deprecated. Use serviceRegion instead.
 func (o LookupVpcEndpointServiceResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -293,6 +299,11 @@ func (o LookupVpcEndpointServiceResultOutput) ServiceId() pulumi.StringOutput {
 
 func (o LookupVpcEndpointServiceResultOutput) ServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) string { return v.ServiceName }).(pulumi.StringOutput)
+}
+
+// Region of the endpoint service.
+func (o LookupVpcEndpointServiceResultOutput) ServiceRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcEndpointServiceResult) string { return v.ServiceRegion }).(pulumi.StringOutput)
 }
 
 func (o LookupVpcEndpointServiceResultOutput) ServiceRegions() pulumi.StringArrayOutput {

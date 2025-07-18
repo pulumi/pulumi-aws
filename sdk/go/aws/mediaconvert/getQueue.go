@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mediaconvert"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/mediaconvert"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.Invo
 type LookupQueueArgs struct {
 	// Unique identifier of the queue. The same as `name`.
 	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -62,7 +64,8 @@ type LookupQueueResult struct {
 	Arn string `pulumi:"arn"`
 	Id  string `pulumi:"id"`
 	// The same as `id`.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// The status of the queue.
 	Status string `pulumi:"status"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -82,6 +85,8 @@ func LookupQueueOutput(ctx *pulumi.Context, args LookupQueueOutputArgs, opts ...
 type LookupQueueOutputArgs struct {
 	// Unique identifier of the queue. The same as `name`.
 	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -117,6 +122,10 @@ func (o LookupQueueResultOutput) Id() pulumi.StringOutput {
 // The same as `id`.
 func (o LookupQueueResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupQueueResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupQueueResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The status of the queue.

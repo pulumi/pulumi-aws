@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupSecretRotation(ctx *pulumi.Context, args *LookupSecretRotationArgs, o
 
 // A collection of arguments for invoking getSecretRotation.
 type LookupSecretRotationArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
 	SecretId string `pulumi:"secretId"`
 }
@@ -59,7 +61,8 @@ type LookupSecretRotationArgs struct {
 // A collection of values returned by getSecretRotation.
 type LookupSecretRotationResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// ARN of the secret.
 	RotationEnabled bool `pulumi:"rotationEnabled"`
 	// Decrypted part of the protected secret information that was originally provided as a string.
@@ -80,6 +83,8 @@ func LookupSecretRotationOutput(ctx *pulumi.Context, args LookupSecretRotationOu
 
 // A collection of arguments for invoking getSecretRotation.
 type LookupSecretRotationOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
 }
@@ -106,6 +111,10 @@ func (o LookupSecretRotationResultOutput) ToLookupSecretRotationResultOutputWith
 // The provider-assigned unique ID for this managed resource.
 func (o LookupSecretRotationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretRotationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupSecretRotationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretRotationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of the secret.

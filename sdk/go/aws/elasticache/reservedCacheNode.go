@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -45,6 +45,8 @@ type ReservedCacheNode struct {
 	ProductDescription pulumi.StringOutput `pulumi:"productDescription"`
 	// Recurring price charged to run this reserved cache node.
 	RecurringCharges ReservedCacheNodeRecurringChargeArrayOutput `pulumi:"recurringCharges"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the reserved cache node offering to purchase.
 	// To determine an `reservedCacheNodesOfferingId`, see the `elasticache.getReservedCacheNodeOffering` data source.
 	//
@@ -57,8 +59,6 @@ type ReservedCacheNode struct {
 	// Map of tags to assign to the reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput             `pulumi:"tagsAll"`
 	Timeouts ReservedCacheNodeTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Hourly price charged for this reserved cache node.
@@ -115,6 +115,8 @@ type reservedCacheNodeState struct {
 	ProductDescription *string `pulumi:"productDescription"`
 	// Recurring price charged to run this reserved cache node.
 	RecurringCharges []ReservedCacheNodeRecurringCharge `pulumi:"recurringCharges"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the reserved cache node offering to purchase.
 	// To determine an `reservedCacheNodesOfferingId`, see the `elasticache.getReservedCacheNodeOffering` data source.
 	//
@@ -127,8 +129,6 @@ type reservedCacheNodeState struct {
 	// Map of tags to assign to the reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string          `pulumi:"tagsAll"`
 	Timeouts *ReservedCacheNodeTimeouts `pulumi:"timeouts"`
 	// Hourly price charged for this reserved cache node.
@@ -153,6 +153,8 @@ type ReservedCacheNodeState struct {
 	ProductDescription pulumi.StringPtrInput
 	// Recurring price charged to run this reserved cache node.
 	RecurringCharges ReservedCacheNodeRecurringChargeArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the reserved cache node offering to purchase.
 	// To determine an `reservedCacheNodesOfferingId`, see the `elasticache.getReservedCacheNodeOffering` data source.
 	//
@@ -165,8 +167,6 @@ type ReservedCacheNodeState struct {
 	// Map of tags to assign to the reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts ReservedCacheNodeTimeoutsPtrInput
 	// Hourly price charged for this reserved cache node.
@@ -181,6 +181,8 @@ type reservedCacheNodeArgs struct {
 	// Number of cache node instances to reserve.
 	// Default value is `1`.
 	CacheNodeCount *int `pulumi:"cacheNodeCount"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the reserved cache node offering to purchase.
 	// To determine an `reservedCacheNodesOfferingId`, see the `elasticache.getReservedCacheNodeOffering` data source.
 	//
@@ -196,6 +198,8 @@ type ReservedCacheNodeArgs struct {
 	// Number of cache node instances to reserve.
 	// Default value is `1`.
 	CacheNodeCount pulumi.IntPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the reserved cache node offering to purchase.
 	// To determine an `reservedCacheNodesOfferingId`, see the `elasticache.getReservedCacheNodeOffering` data source.
 	//
@@ -334,6 +338,11 @@ func (o ReservedCacheNodeOutput) RecurringCharges() ReservedCacheNodeRecurringCh
 	return o.ApplyT(func(v *ReservedCacheNode) ReservedCacheNodeRecurringChargeArrayOutput { return v.RecurringCharges }).(ReservedCacheNodeRecurringChargeArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ReservedCacheNodeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReservedCacheNode) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // ID of the reserved cache node offering to purchase.
 // To determine an `reservedCacheNodesOfferingId`, see the `elasticache.getReservedCacheNodeOffering` data source.
 //
@@ -358,8 +367,6 @@ func (o ReservedCacheNodeOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ReservedCacheNodeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReservedCacheNode) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

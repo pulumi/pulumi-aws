@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -96,6 +96,8 @@ type InfrastructureConfiguration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
 	Placement InfrastructureConfigurationPlacementPtrOutput `pulumi:"placement"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags pulumi.StringMapOutput `pulumi:"resourceTags"`
 	// Set of EC2 Security Group identifiers.
@@ -107,8 +109,6 @@ type InfrastructureConfiguration struct {
 	// Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
 	TerminateInstanceOnFailure pulumi.BoolPtrOutput `pulumi:"terminateInstanceOnFailure"`
@@ -171,6 +171,8 @@ type infrastructureConfigurationState struct {
 	Name *string `pulumi:"name"`
 	// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
 	Placement *InfrastructureConfigurationPlacement `pulumi:"placement"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// Set of EC2 Security Group identifiers.
@@ -182,8 +184,6 @@ type infrastructureConfigurationState struct {
 	// Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
 	TerminateInstanceOnFailure *bool `pulumi:"terminateInstanceOnFailure"`
@@ -214,6 +214,8 @@ type InfrastructureConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
 	Placement InfrastructureConfigurationPlacementPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags pulumi.StringMapInput
 	// Set of EC2 Security Group identifiers.
@@ -225,8 +227,6 @@ type InfrastructureConfigurationState struct {
 	// Key-value map of resource tags to assign to the configuration. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
 	TerminateInstanceOnFailure pulumi.BoolPtrInput
@@ -255,6 +255,8 @@ type infrastructureConfigurationArgs struct {
 	Name *string `pulumi:"name"`
 	// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
 	Placement *InfrastructureConfigurationPlacement `pulumi:"placement"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// Set of EC2 Security Group identifiers.
@@ -289,6 +291,8 @@ type InfrastructureConfigurationArgs struct {
 	Name pulumi.StringPtrInput
 	// Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
 	Placement InfrastructureConfigurationPlacementPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags to assign to infrastructure created by the configuration.
 	ResourceTags pulumi.StringMapInput
 	// Set of EC2 Security Group identifiers.
@@ -449,6 +453,11 @@ func (o InfrastructureConfigurationOutput) Placement() InfrastructureConfigurati
 	return o.ApplyT(func(v *InfrastructureConfiguration) InfrastructureConfigurationPlacementPtrOutput { return v.Placement }).(InfrastructureConfigurationPlacementPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o InfrastructureConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Key-value map of resource tags to assign to infrastructure created by the configuration.
 func (o InfrastructureConfigurationOutput) ResourceTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringMapOutput { return v.ResourceTags }).(pulumi.StringMapOutput)
@@ -475,8 +484,6 @@ func (o InfrastructureConfigurationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o InfrastructureConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

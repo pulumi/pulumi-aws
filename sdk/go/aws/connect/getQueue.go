@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,6 +88,8 @@ type LookupQueueArgs struct {
 	Name *string `pulumi:"name"`
 	// Returns information on a specific Queue by Queue id
 	QueueId *string `pulumi:"queueId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the Queue.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -110,6 +112,7 @@ type LookupQueueResult struct {
 	OutboundCallerConfigs []GetQueueOutboundCallerConfig `pulumi:"outboundCallerConfigs"`
 	// Identifier for the Queue.
 	QueueId string `pulumi:"queueId"`
+	Region  string `pulumi:"region"`
 	// Description of the Queue. Values are `ENABLED` or `DISABLED`.
 	Status string `pulumi:"status"`
 	// Map of tags assigned to the Queue.
@@ -135,6 +138,8 @@ type LookupQueueOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Returns information on a specific Queue by Queue id
 	QueueId pulumi.StringPtrInput `pulumi:"queueId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the Queue.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -199,6 +204,10 @@ func (o LookupQueueResultOutput) OutboundCallerConfigs() GetQueueOutboundCallerC
 // Identifier for the Queue.
 func (o LookupQueueResultOutput) QueueId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.QueueId }).(pulumi.StringOutput)
+}
+
+func (o LookupQueueResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupQueueResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Description of the Queue. Values are `ENABLED` or `DISABLED`.

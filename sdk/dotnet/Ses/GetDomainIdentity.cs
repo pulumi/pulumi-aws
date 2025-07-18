@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Ses
         [Input("domain", required: true)]
         public string Domain { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetDomainIdentityArgs()
         {
         }
@@ -106,6 +112,12 @@ namespace Pulumi.Aws.Ses
         /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetDomainIdentityInvokeArgs()
         {
@@ -129,6 +141,7 @@ namespace Pulumi.Aws.Ses
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
         /// </summary>
@@ -142,11 +155,14 @@ namespace Pulumi.Aws.Ses
 
             string id,
 
+            string region,
+
             string verificationToken)
         {
             Arn = arn;
             Domain = domain;
             Id = id;
+            Region = region;
             VerificationToken = verificationToken;
         }
     }

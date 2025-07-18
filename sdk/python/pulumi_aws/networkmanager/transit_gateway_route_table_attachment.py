@@ -25,8 +25,10 @@ class TransitGatewayRouteTableAttachmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a TransitGatewayRouteTableAttachment resource.
-        :param pulumi.Input[builtins.str] peering_id: The ID of the peer for the attachment.
-        :param pulumi.Input[builtins.str] transit_gateway_route_table_arn: The ARN of the transit gateway route table for the attachment.
+        :param pulumi.Input[builtins.str] peering_id: ID of the peer for the attachment.
+        :param pulumi.Input[builtins.str] transit_gateway_route_table_arn: ARN of the transit gateway route table for the attachment.
+               
+               The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "peering_id", peering_id)
@@ -38,7 +40,7 @@ class TransitGatewayRouteTableAttachmentArgs:
     @pulumi.getter(name="peeringId")
     def peering_id(self) -> pulumi.Input[builtins.str]:
         """
-        The ID of the peer for the attachment.
+        ID of the peer for the attachment.
         """
         return pulumi.get(self, "peering_id")
 
@@ -50,7 +52,9 @@ class TransitGatewayRouteTableAttachmentArgs:
     @pulumi.getter(name="transitGatewayRouteTableArn")
     def transit_gateway_route_table_arn(self) -> pulumi.Input[builtins.str]:
         """
-        The ARN of the transit gateway route table for the attachment.
+        ARN of the transit gateway route table for the attachment.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "transit_gateway_route_table_arn")
 
@@ -90,20 +94,22 @@ class _TransitGatewayRouteTableAttachmentState:
                  transit_gateway_route_table_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering TransitGatewayRouteTableAttachment resources.
-        :param pulumi.Input[builtins.str] arn: Attachment Amazon Resource Name (ARN).
-        :param pulumi.Input[builtins.int] attachment_policy_rule_number: The policy rule number associated with the attachment.
-        :param pulumi.Input[builtins.str] attachment_type: The type of attachment.
-        :param pulumi.Input[builtins.str] core_network_arn: The ARN of the core network.
-        :param pulumi.Input[builtins.str] core_network_id: The ID of the core network.
-        :param pulumi.Input[builtins.str] edge_location: The edge location for the peer.
-        :param pulumi.Input[builtins.str] owner_account_id: The ID of the attachment account owner.
-        :param pulumi.Input[builtins.str] peering_id: The ID of the peer for the attachment.
-        :param pulumi.Input[builtins.str] resource_arn: The attachment resource ARN.
-        :param pulumi.Input[builtins.str] segment_name: The name of the segment attachment.
-        :param pulumi.Input[builtins.str] state: The state of the attachment.
+        :param pulumi.Input[builtins.str] arn: Attachment ARN.
+        :param pulumi.Input[builtins.int] attachment_policy_rule_number: Policy rule number associated with the attachment.
+        :param pulumi.Input[builtins.str] attachment_type: Type of attachment.
+        :param pulumi.Input[builtins.str] core_network_arn: ARN of the core network.
+        :param pulumi.Input[builtins.str] core_network_id: ID of the core network.
+        :param pulumi.Input[builtins.str] edge_location: Edge location for the peer.
+        :param pulumi.Input[builtins.str] owner_account_id: ID of the attachment account owner.
+        :param pulumi.Input[builtins.str] peering_id: ID of the peer for the attachment.
+        :param pulumi.Input[builtins.str] resource_arn: Attachment resource ARN.
+        :param pulumi.Input[builtins.str] segment_name: Name of the segment attachment.
+        :param pulumi.Input[builtins.str] state: State of the attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[builtins.str] transit_gateway_route_table_arn: The ARN of the transit gateway route table for the attachment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[builtins.str] transit_gateway_route_table_arn: ARN of the transit gateway route table for the attachment.
+               
+               The following arguments are optional:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -130,9 +136,6 @@ class _TransitGatewayRouteTableAttachmentState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if transit_gateway_route_table_arn is not None:
             pulumi.set(__self__, "transit_gateway_route_table_arn", transit_gateway_route_table_arn)
@@ -141,7 +144,7 @@ class _TransitGatewayRouteTableAttachmentState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Attachment Amazon Resource Name (ARN).
+        Attachment ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -153,7 +156,7 @@ class _TransitGatewayRouteTableAttachmentState:
     @pulumi.getter(name="attachmentPolicyRuleNumber")
     def attachment_policy_rule_number(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The policy rule number associated with the attachment.
+        Policy rule number associated with the attachment.
         """
         return pulumi.get(self, "attachment_policy_rule_number")
 
@@ -165,7 +168,7 @@ class _TransitGatewayRouteTableAttachmentState:
     @pulumi.getter(name="attachmentType")
     def attachment_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The type of attachment.
+        Type of attachment.
         """
         return pulumi.get(self, "attachment_type")
 
@@ -177,7 +180,7 @@ class _TransitGatewayRouteTableAttachmentState:
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ARN of the core network.
+        ARN of the core network.
         """
         return pulumi.get(self, "core_network_arn")
 
@@ -189,7 +192,7 @@ class _TransitGatewayRouteTableAttachmentState:
     @pulumi.getter(name="coreNetworkId")
     def core_network_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ID of the core network.
+        ID of the core network.
         """
         return pulumi.get(self, "core_network_id")
 
@@ -201,7 +204,7 @@ class _TransitGatewayRouteTableAttachmentState:
     @pulumi.getter(name="edgeLocation")
     def edge_location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The edge location for the peer.
+        Edge location for the peer.
         """
         return pulumi.get(self, "edge_location")
 
@@ -213,7 +216,7 @@ class _TransitGatewayRouteTableAttachmentState:
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ID of the attachment account owner.
+        ID of the attachment account owner.
         """
         return pulumi.get(self, "owner_account_id")
 
@@ -225,7 +228,7 @@ class _TransitGatewayRouteTableAttachmentState:
     @pulumi.getter(name="peeringId")
     def peering_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ID of the peer for the attachment.
+        ID of the peer for the attachment.
         """
         return pulumi.get(self, "peering_id")
 
@@ -237,7 +240,7 @@ class _TransitGatewayRouteTableAttachmentState:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The attachment resource ARN.
+        Attachment resource ARN.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -249,7 +252,7 @@ class _TransitGatewayRouteTableAttachmentState:
     @pulumi.getter(name="segmentName")
     def segment_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the segment attachment.
+        Name of the segment attachment.
         """
         return pulumi.get(self, "segment_name")
 
@@ -261,7 +264,7 @@ class _TransitGatewayRouteTableAttachmentState:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The state of the attachment.
+        State of the attachment.
         """
         return pulumi.get(self, "state")
 
@@ -283,10 +286,9 @@ class _TransitGatewayRouteTableAttachmentState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -298,7 +300,9 @@ class _TransitGatewayRouteTableAttachmentState:
     @pulumi.getter(name="transitGatewayRouteTableArn")
     def transit_gateway_route_table_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ARN of the transit gateway route table for the attachment.
+        ARN of the transit gateway route table for the attachment.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "transit_gateway_route_table_arn")
 
@@ -318,7 +322,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
                  transit_gateway_route_table_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Creates a transit gateway route table attachment.
+        Manages a Network Manager transit gateway route table attachment.
 
         ## Example Usage
 
@@ -341,9 +345,11 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] peering_id: The ID of the peer for the attachment.
+        :param pulumi.Input[builtins.str] peering_id: ID of the peer for the attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[builtins.str] transit_gateway_route_table_arn: The ARN of the transit gateway route table for the attachment.
+        :param pulumi.Input[builtins.str] transit_gateway_route_table_arn: ARN of the transit gateway route table for the attachment.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -352,7 +358,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
                  args: TransitGatewayRouteTableAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Creates a transit gateway route table attachment.
+        Manages a Network Manager transit gateway route table attachment.
 
         ## Example Usage
 
@@ -449,20 +455,22 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] arn: Attachment Amazon Resource Name (ARN).
-        :param pulumi.Input[builtins.int] attachment_policy_rule_number: The policy rule number associated with the attachment.
-        :param pulumi.Input[builtins.str] attachment_type: The type of attachment.
-        :param pulumi.Input[builtins.str] core_network_arn: The ARN of the core network.
-        :param pulumi.Input[builtins.str] core_network_id: The ID of the core network.
-        :param pulumi.Input[builtins.str] edge_location: The edge location for the peer.
-        :param pulumi.Input[builtins.str] owner_account_id: The ID of the attachment account owner.
-        :param pulumi.Input[builtins.str] peering_id: The ID of the peer for the attachment.
-        :param pulumi.Input[builtins.str] resource_arn: The attachment resource ARN.
-        :param pulumi.Input[builtins.str] segment_name: The name of the segment attachment.
-        :param pulumi.Input[builtins.str] state: The state of the attachment.
+        :param pulumi.Input[builtins.str] arn: Attachment ARN.
+        :param pulumi.Input[builtins.int] attachment_policy_rule_number: Policy rule number associated with the attachment.
+        :param pulumi.Input[builtins.str] attachment_type: Type of attachment.
+        :param pulumi.Input[builtins.str] core_network_arn: ARN of the core network.
+        :param pulumi.Input[builtins.str] core_network_id: ID of the core network.
+        :param pulumi.Input[builtins.str] edge_location: Edge location for the peer.
+        :param pulumi.Input[builtins.str] owner_account_id: ID of the attachment account owner.
+        :param pulumi.Input[builtins.str] peering_id: ID of the peer for the attachment.
+        :param pulumi.Input[builtins.str] resource_arn: Attachment resource ARN.
+        :param pulumi.Input[builtins.str] segment_name: Name of the segment attachment.
+        :param pulumi.Input[builtins.str] state: State of the attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[builtins.str] transit_gateway_route_table_arn: The ARN of the transit gateway route table for the attachment.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[builtins.str] transit_gateway_route_table_arn: ARN of the transit gateway route table for the attachment.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -488,7 +496,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
         """
-        Attachment Amazon Resource Name (ARN).
+        Attachment ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -496,7 +504,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
     @pulumi.getter(name="attachmentPolicyRuleNumber")
     def attachment_policy_rule_number(self) -> pulumi.Output[builtins.int]:
         """
-        The policy rule number associated with the attachment.
+        Policy rule number associated with the attachment.
         """
         return pulumi.get(self, "attachment_policy_rule_number")
 
@@ -504,7 +512,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
     @pulumi.getter(name="attachmentType")
     def attachment_type(self) -> pulumi.Output[builtins.str]:
         """
-        The type of attachment.
+        Type of attachment.
         """
         return pulumi.get(self, "attachment_type")
 
@@ -512,7 +520,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> pulumi.Output[builtins.str]:
         """
-        The ARN of the core network.
+        ARN of the core network.
         """
         return pulumi.get(self, "core_network_arn")
 
@@ -520,7 +528,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
     @pulumi.getter(name="coreNetworkId")
     def core_network_id(self) -> pulumi.Output[builtins.str]:
         """
-        The ID of the core network.
+        ID of the core network.
         """
         return pulumi.get(self, "core_network_id")
 
@@ -528,7 +536,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
     @pulumi.getter(name="edgeLocation")
     def edge_location(self) -> pulumi.Output[builtins.str]:
         """
-        The edge location for the peer.
+        Edge location for the peer.
         """
         return pulumi.get(self, "edge_location")
 
@@ -536,7 +544,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> pulumi.Output[builtins.str]:
         """
-        The ID of the attachment account owner.
+        ID of the attachment account owner.
         """
         return pulumi.get(self, "owner_account_id")
 
@@ -544,7 +552,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
     @pulumi.getter(name="peeringId")
     def peering_id(self) -> pulumi.Output[builtins.str]:
         """
-        The ID of the peer for the attachment.
+        ID of the peer for the attachment.
         """
         return pulumi.get(self, "peering_id")
 
@@ -552,7 +560,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[builtins.str]:
         """
-        The attachment resource ARN.
+        Attachment resource ARN.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -560,7 +568,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
     @pulumi.getter(name="segmentName")
     def segment_name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the segment attachment.
+        Name of the segment attachment.
         """
         return pulumi.get(self, "segment_name")
 
@@ -568,7 +576,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
     @pulumi.getter
     def state(self) -> pulumi.Output[builtins.str]:
         """
-        The state of the attachment.
+        State of the attachment.
         """
         return pulumi.get(self, "state")
 
@@ -582,10 +590,9 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -593,7 +600,9 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
     @pulumi.getter(name="transitGatewayRouteTableArn")
     def transit_gateway_route_table_arn(self) -> pulumi.Output[builtins.str]:
         """
-        The ARN of the transit gateway route table for the attachment.
+        ARN of the transit gateway route table for the attachment.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "transit_gateway_route_table_arn")
 

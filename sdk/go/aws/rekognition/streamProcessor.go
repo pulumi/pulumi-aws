@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,18 +30,18 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rekognition"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rekognition"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("example-bucket"),
 //			})
 //			if err != nil {
@@ -90,7 +90,7 @@ import (
 //							var _zero string
 //							tmpJSON1, err := json.Marshal(map[string]interface{}{
 //								"Version": "2012-10-17",
-//								"Statement": []interface{}{
+//								"Statement": []map[string]interface{}{
 //									map[string]interface{}{
 //										"Action": []string{
 //											"s3:PutObject",
@@ -180,9 +180,9 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rekognition"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rekognition"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -346,6 +346,8 @@ type StreamProcessor struct {
 	NotificationChannel StreamProcessorNotificationChannelPtrOutput `pulumi:"notificationChannel"`
 	// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
 	Output StreamProcessorOutputTypePtrOutput `pulumi:"output"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
 	RegionsOfInterests StreamProcessorRegionsOfInterestArrayOutput `pulumi:"regionsOfInterests"`
 	// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
@@ -362,8 +364,6 @@ type StreamProcessor struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput           `pulumi:"tagsAll"`
 	Timeouts StreamProcessorTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -415,6 +415,8 @@ type streamProcessorState struct {
 	NotificationChannel *StreamProcessorNotificationChannel `pulumi:"notificationChannel"`
 	// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
 	Output *StreamProcessorOutputType `pulumi:"output"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
 	RegionsOfInterests []StreamProcessorRegionsOfInterest `pulumi:"regionsOfInterests"`
 	// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
@@ -431,8 +433,6 @@ type streamProcessorState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string        `pulumi:"tagsAll"`
 	Timeouts *StreamProcessorTimeouts `pulumi:"timeouts"`
 }
@@ -452,6 +452,8 @@ type StreamProcessorState struct {
 	NotificationChannel StreamProcessorNotificationChannelPtrInput
 	// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
 	Output StreamProcessorOutputTypePtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
 	RegionsOfInterests StreamProcessorRegionsOfInterestArrayInput
 	// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
@@ -468,8 +470,6 @@ type StreamProcessorState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts StreamProcessorTimeoutsPtrInput
 }
@@ -491,6 +491,8 @@ type streamProcessorArgs struct {
 	NotificationChannel *StreamProcessorNotificationChannel `pulumi:"notificationChannel"`
 	// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
 	Output *StreamProcessorOutputType `pulumi:"output"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
 	RegionsOfInterests []StreamProcessorRegionsOfInterest `pulumi:"regionsOfInterests"`
 	// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
@@ -518,6 +520,8 @@ type StreamProcessorArgs struct {
 	NotificationChannel StreamProcessorNotificationChannelPtrInput
 	// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
 	Output StreamProcessorOutputTypePtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
 	RegionsOfInterests StreamProcessorRegionsOfInterestArrayInput
 	// The Amazon Resource Number (ARN) of the IAM role that allows access to the stream processor. The IAM role provides Rekognition read permissions for a Kinesis stream. It also provides write permissions to an Amazon S3 bucket and Amazon Simple Notification Service topic for a label detection stream processor. This is required for both face search and label detection stream processors.
@@ -653,6 +657,11 @@ func (o StreamProcessorOutput) Output() StreamProcessorOutputTypePtrOutput {
 	return o.ApplyT(func(v *StreamProcessor) StreamProcessorOutputTypePtrOutput { return v.Output }).(StreamProcessorOutputTypePtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o StreamProcessorOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *StreamProcessor) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
 func (o StreamProcessorOutput) RegionsOfInterests() StreamProcessorRegionsOfInterestArrayOutput {
 	return o.ApplyT(func(v *StreamProcessor) StreamProcessorRegionsOfInterestArrayOutput { return v.RegionsOfInterests }).(StreamProcessorRegionsOfInterestArrayOutput)
@@ -684,8 +693,6 @@ func (o StreamProcessorOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o StreamProcessorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StreamProcessor) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

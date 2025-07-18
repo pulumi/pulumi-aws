@@ -14,11 +14,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
+    private String deepThreatInspection;
     private @Nullable List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> overrides;
     private Integer priority;
     private String resourceArn;
 
     private GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference() {}
+    public String deepThreatInspection() {
+        return this.deepThreatInspection;
+    }
     public List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> overrides() {
         return this.overrides == null ? List.of() : this.overrides;
     }
@@ -38,17 +42,27 @@ public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String deepThreatInspection;
         private @Nullable List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> overrides;
         private Integer priority;
         private String resourceArn;
         public Builder() {}
         public Builder(GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.deepThreatInspection = defaults.deepThreatInspection;
     	      this.overrides = defaults.overrides;
     	      this.priority = defaults.priority;
     	      this.resourceArn = defaults.resourceArn;
         }
 
+        @CustomType.Setter
+        public Builder deepThreatInspection(String deepThreatInspection) {
+            if (deepThreatInspection == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference", "deepThreatInspection");
+            }
+            this.deepThreatInspection = deepThreatInspection;
+            return this;
+        }
         @CustomType.Setter
         public Builder overrides(@Nullable List<GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride> overrides) {
 
@@ -76,6 +90,7 @@ public final class GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference {
         }
         public GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference build() {
             final var _resultValue = new GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference();
+            _resultValue.deepThreatInspection = deepThreatInspection;
             _resultValue.overrides = overrides;
             _resultValue.priority = priority;
             _resultValue.resourceArn = resourceArn;

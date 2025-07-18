@@ -67,6 +67,10 @@ export class AuthenticationProfile extends pulumi.CustomResource {
      * The name of the authentication profile.
      */
     public readonly authenticationProfileName!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a AuthenticationProfile resource with the given unique name, arguments, and options.
@@ -83,6 +87,7 @@ export class AuthenticationProfile extends pulumi.CustomResource {
             const state = argsOrState as AuthenticationProfileState | undefined;
             resourceInputs["authenticationProfileContent"] = state ? state.authenticationProfileContent : undefined;
             resourceInputs["authenticationProfileName"] = state ? state.authenticationProfileName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AuthenticationProfileArgs | undefined;
             if ((!args || args.authenticationProfileContent === undefined) && !opts.urn) {
@@ -93,6 +98,7 @@ export class AuthenticationProfile extends pulumi.CustomResource {
             }
             resourceInputs["authenticationProfileContent"] = args ? args.authenticationProfileContent : undefined;
             resourceInputs["authenticationProfileName"] = args ? args.authenticationProfileName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AuthenticationProfile.__pulumiType, name, resourceInputs, opts);
@@ -111,6 +117,10 @@ export interface AuthenticationProfileState {
      * The name of the authentication profile.
      */
     authenticationProfileName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -125,4 +135,8 @@ export interface AuthenticationProfileArgs {
      * The name of the authentication profile.
      */
     authenticationProfileName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

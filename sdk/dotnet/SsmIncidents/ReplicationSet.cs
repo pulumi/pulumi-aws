@@ -167,7 +167,13 @@ namespace Pulumi.Aws.SsmIncidents
         public Output<string> LastModifiedBy { get; private set; } = null!;
 
         /// <summary>
-        /// The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+        /// The replication set's Regions. Use `regions` instead.
+        /// </summary>
+        [Output("region")]
+        public Output<ImmutableArray<Outputs.ReplicationSetRegion>> Region { get; private set; } = null!;
+
+        /// <summary>
+        /// The replication set's Regions.
         /// </summary>
         [Output("regions")]
         public Output<ImmutableArray<Outputs.ReplicationSetRegion>> Regions { get; private set; } = null!;
@@ -211,7 +217,7 @@ namespace Pulumi.Aws.SsmIncidents
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ReplicationSet(string name, ReplicationSetArgs args, CustomResourceOptions? options = null)
+        public ReplicationSet(string name, ReplicationSetArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:ssmincidents/replicationSet:ReplicationSet", name, args ?? new ReplicationSetArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -249,11 +255,24 @@ namespace Pulumi.Aws.SsmIncidents
 
     public sealed class ReplicationSetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("regions", required: true)]
+        [Input("region")]
+        private InputList<Inputs.ReplicationSetRegionArgs>? _region;
+
+        /// <summary>
+        /// The replication set's Regions. Use `regions` instead.
+        /// </summary>
+        [Obsolete(@"region is deprecated. Use regions instead.")]
+        public InputList<Inputs.ReplicationSetRegionArgs> Region
+        {
+            get => _region ?? (_region = new InputList<Inputs.ReplicationSetRegionArgs>());
+            set => _region = value;
+        }
+
+        [Input("regions")]
         private InputList<Inputs.ReplicationSetRegionArgs>? _regions;
 
         /// <summary>
-        /// The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+        /// The replication set's Regions.
         /// </summary>
         public InputList<Inputs.ReplicationSetRegionArgs> Regions
         {
@@ -317,11 +336,24 @@ namespace Pulumi.Aws.SsmIncidents
         [Input("lastModifiedBy")]
         public Input<string>? LastModifiedBy { get; set; }
 
+        [Input("region")]
+        private InputList<Inputs.ReplicationSetRegionGetArgs>? _region;
+
+        /// <summary>
+        /// The replication set's Regions. Use `regions` instead.
+        /// </summary>
+        [Obsolete(@"region is deprecated. Use regions instead.")]
+        public InputList<Inputs.ReplicationSetRegionGetArgs> Region
+        {
+            get => _region ?? (_region = new InputList<Inputs.ReplicationSetRegionGetArgs>());
+            set => _region = value;
+        }
+
         [Input("regions")]
         private InputList<Inputs.ReplicationSetRegionGetArgs>? _regions;
 
         /// <summary>
-        /// The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+        /// The replication set's Regions.
         /// </summary>
         public InputList<Inputs.ReplicationSetRegionGetArgs> Regions
         {
@@ -366,7 +398,6 @@ namespace Pulumi.Aws.SsmIncidents
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

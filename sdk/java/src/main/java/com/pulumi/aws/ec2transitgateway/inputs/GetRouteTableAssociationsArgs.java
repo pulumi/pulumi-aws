@@ -40,6 +40,21 @@ public final class GetRouteTableAssociationsArgs extends com.pulumi.resources.In
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Identifier of EC2 Transit Gateway Route Table.
      * 
      * The following arguments are optional:
@@ -62,6 +77,7 @@ public final class GetRouteTableAssociationsArgs extends com.pulumi.resources.In
 
     private GetRouteTableAssociationsArgs(GetRouteTableAssociationsArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.transitGatewayRouteTableId = $.transitGatewayRouteTableId;
     }
 
@@ -121,6 +137,27 @@ public final class GetRouteTableAssociationsArgs extends com.pulumi.resources.In
          */
         public Builder filters(GetRouteTableAssociationsFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

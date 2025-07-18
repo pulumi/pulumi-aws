@@ -27,7 +27,7 @@ class GetAccessEntryResult:
     """
     A collection of values returned by getAccessEntry.
     """
-    def __init__(__self__, access_entry_arn=None, cluster_name=None, created_at=None, id=None, kubernetes_groups=None, modified_at=None, principal_arn=None, tags=None, tags_all=None, type=None, user_name=None):
+    def __init__(__self__, access_entry_arn=None, cluster_name=None, created_at=None, id=None, kubernetes_groups=None, modified_at=None, principal_arn=None, region=None, tags=None, tags_all=None, type=None, user_name=None):
         if access_entry_arn and not isinstance(access_entry_arn, str):
             raise TypeError("Expected argument 'access_entry_arn' to be a str")
         pulumi.set(__self__, "access_entry_arn", access_entry_arn)
@@ -49,6 +49,9 @@ class GetAccessEntryResult:
         if principal_arn and not isinstance(principal_arn, str):
             raise TypeError("Expected argument 'principal_arn' to be a str")
         pulumi.set(__self__, "principal_arn", principal_arn)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -114,6 +117,11 @@ class GetAccessEntryResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags")
 
@@ -155,6 +163,7 @@ class AwaitableGetAccessEntryResult(GetAccessEntryResult):
             kubernetes_groups=self.kubernetes_groups,
             modified_at=self.modified_at,
             principal_arn=self.principal_arn,
+            region=self.region,
             tags=self.tags,
             tags_all=self.tags_all,
             type=self.type,
@@ -163,7 +172,9 @@ class AwaitableGetAccessEntryResult(GetAccessEntryResult):
 
 def get_access_entry(cluster_name: Optional[builtins.str] = None,
                      principal_arn: Optional[builtins.str] = None,
+                     region: Optional[builtins.str] = None,
                      tags: Optional[Mapping[str, builtins.str]] = None,
+                     tags_all: Optional[Mapping[str, builtins.str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessEntryResult:
     """
     Access Entry Configurations for an EKS Cluster.
@@ -182,11 +193,15 @@ def get_access_entry(cluster_name: Optional[builtins.str] = None,
 
     :param builtins.str cluster_name: Name of the EKS Cluster.
     :param builtins.str principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    :param Mapping[str, builtins.str] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['principalArn'] = principal_arn
+    __args__['region'] = region
     __args__['tags'] = tags
+    __args__['tagsAll'] = tags_all
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:eks/getAccessEntry:getAccessEntry', __args__, opts=opts, typ=GetAccessEntryResult).value
 
@@ -198,13 +213,16 @@ def get_access_entry(cluster_name: Optional[builtins.str] = None,
         kubernetes_groups=pulumi.get(__ret__, 'kubernetes_groups'),
         modified_at=pulumi.get(__ret__, 'modified_at'),
         principal_arn=pulumi.get(__ret__, 'principal_arn'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         tags_all=pulumi.get(__ret__, 'tags_all'),
         type=pulumi.get(__ret__, 'type'),
         user_name=pulumi.get(__ret__, 'user_name'))
 def get_access_entry_output(cluster_name: Optional[pulumi.Input[builtins.str]] = None,
                             principal_arn: Optional[pulumi.Input[builtins.str]] = None,
+                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
+                            tags_all: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessEntryResult]:
     """
     Access Entry Configurations for an EKS Cluster.
@@ -223,11 +241,15 @@ def get_access_entry_output(cluster_name: Optional[pulumi.Input[builtins.str]] =
 
     :param builtins.str cluster_name: Name of the EKS Cluster.
     :param builtins.str principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    :param Mapping[str, builtins.str] tags_all: (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['principalArn'] = principal_arn
+    __args__['region'] = region
     __args__['tags'] = tags
+    __args__['tagsAll'] = tags_all
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:eks/getAccessEntry:getAccessEntry', __args__, opts=opts, typ=GetAccessEntryResult)
     return __ret__.apply(lambda __response__: GetAccessEntryResult(
@@ -238,6 +260,7 @@ def get_access_entry_output(cluster_name: Optional[pulumi.Input[builtins.str]] =
         kubernetes_groups=pulumi.get(__response__, 'kubernetes_groups'),
         modified_at=pulumi.get(__response__, 'modified_at'),
         principal_arn=pulumi.get(__response__, 'principal_arn'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         tags_all=pulumi.get(__response__, 'tags_all'),
         type=pulumi.get(__response__, 'type'),

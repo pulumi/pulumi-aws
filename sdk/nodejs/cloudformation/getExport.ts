@@ -30,6 +30,7 @@ export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Pro
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudformation/getExport:getExport", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -41,6 +42,10 @@ export interface GetExportArgs {
      * Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -56,6 +61,7 @@ export interface GetExportResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      */
@@ -87,6 +93,7 @@ export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudformation/getExport:getExport", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -98,4 +105,8 @@ export interface GetExportOutputArgs {
      * Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

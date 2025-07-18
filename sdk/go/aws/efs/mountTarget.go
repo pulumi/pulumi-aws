@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/efs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,6 +85,8 @@ type MountTarget struct {
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
 	// AWS account ID that owns the resource.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of up to 5 VPC security group IDs (that must
 	// be for the same VPC as subnet specified) in effect for the mount target.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
@@ -147,6 +149,8 @@ type mountTargetState struct {
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// AWS account ID that owns the resource.
 	OwnerId *string `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of up to 5 VPC security group IDs (that must
 	// be for the same VPC as subnet specified) in effect for the mount target.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -174,6 +178,8 @@ type MountTargetState struct {
 	NetworkInterfaceId pulumi.StringPtrInput
 	// AWS account ID that owns the resource.
 	OwnerId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of up to 5 VPC security group IDs (that must
 	// be for the same VPC as subnet specified) in effect for the mount target.
 	SecurityGroups pulumi.StringArrayInput
@@ -191,6 +197,8 @@ type mountTargetArgs struct {
 	// The address (within the address range of the specified subnet) at
 	// which the file system may be mounted via the mount target.
 	IpAddress *string `pulumi:"ipAddress"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of up to 5 VPC security group IDs (that must
 	// be for the same VPC as subnet specified) in effect for the mount target.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -205,6 +213,8 @@ type MountTargetArgs struct {
 	// The address (within the address range of the specified subnet) at
 	// which the file system may be mounted via the mount target.
 	IpAddress pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of up to 5 VPC security group IDs (that must
 	// be for the same VPC as subnet specified) in effect for the mount target.
 	SecurityGroups pulumi.StringArrayInput
@@ -343,6 +353,11 @@ func (o MountTargetOutput) NetworkInterfaceId() pulumi.StringOutput {
 // AWS account ID that owns the resource.
 func (o MountTargetOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MountTarget) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o MountTargetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *MountTarget) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A list of up to 5 VPC security group IDs (that must

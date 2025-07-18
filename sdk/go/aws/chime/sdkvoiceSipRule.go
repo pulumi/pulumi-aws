@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chime"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,6 +65,8 @@ type SdkvoiceSipRule struct {
 	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
 	// The name of the SIP rule.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
 	TargetApplications SdkvoiceSipRuleTargetApplicationArrayOutput `pulumi:"targetApplications"`
 	// The type of trigger assigned to the SIP rule in `triggerValue`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
@@ -118,6 +120,8 @@ type sdkvoiceSipRuleState struct {
 	Disabled *bool `pulumi:"disabled"`
 	// The name of the SIP rule.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
 	TargetApplications []SdkvoiceSipRuleTargetApplication `pulumi:"targetApplications"`
 	// The type of trigger assigned to the SIP rule in `triggerValue`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
@@ -133,6 +137,8 @@ type SdkvoiceSipRuleState struct {
 	Disabled pulumi.BoolPtrInput
 	// The name of the SIP rule.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
 	TargetApplications SdkvoiceSipRuleTargetApplicationArrayInput
 	// The type of trigger assigned to the SIP rule in `triggerValue`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
@@ -152,6 +158,8 @@ type sdkvoiceSipRuleArgs struct {
 	Disabled *bool `pulumi:"disabled"`
 	// The name of the SIP rule.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
 	TargetApplications []SdkvoiceSipRuleTargetApplication `pulumi:"targetApplications"`
 	// The type of trigger assigned to the SIP rule in `triggerValue`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
@@ -168,6 +176,8 @@ type SdkvoiceSipRuleArgs struct {
 	Disabled pulumi.BoolPtrInput
 	// The name of the SIP rule.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.
 	TargetApplications SdkvoiceSipRuleTargetApplicationArrayInput
 	// The type of trigger assigned to the SIP rule in `triggerValue`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
@@ -273,6 +283,11 @@ func (o SdkvoiceSipRuleOutput) Disabled() pulumi.BoolPtrOutput {
 // The name of the SIP rule.
 func (o SdkvoiceSipRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SdkvoiceSipRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o SdkvoiceSipRuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SdkvoiceSipRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `targetApplications`.

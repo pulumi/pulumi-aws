@@ -219,6 +219,10 @@ export class VpcEndpoint extends pulumi.CustomResource {
      */
     public readonly privateDnsEnabled!: pulumi.Output<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
      */
     public /*out*/ readonly requesterManaged!: pulumi.Output<boolean>;
@@ -265,8 +269,6 @@ export class VpcEndpoint extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -302,6 +304,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["policy"] = state ? state.policy : undefined;
             resourceInputs["prefixListId"] = state ? state.prefixListId : undefined;
             resourceInputs["privateDnsEnabled"] = state ? state.privateDnsEnabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requesterManaged"] = state ? state.requesterManaged : undefined;
             resourceInputs["resourceConfigurationArn"] = state ? state.resourceConfigurationArn : undefined;
             resourceInputs["routeTableIds"] = state ? state.routeTableIds : undefined;
@@ -326,6 +329,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["privateDnsEnabled"] = args ? args.privateDnsEnabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceConfigurationArn"] = args ? args.resourceConfigurationArn : undefined;
             resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
@@ -402,6 +406,10 @@ export interface VpcEndpointState {
      */
     privateDnsEnabled?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
      */
     requesterManaged?: pulumi.Input<boolean>;
@@ -448,8 +456,6 @@ export interface VpcEndpointState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -487,6 +493,10 @@ export interface VpcEndpointArgs {
      * Defaults to `false`.
      */
     privateDnsEnabled?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of a Resource Configuration to connect this VPC Endpoint to. Exactly one of `resourceConfigurationArn`, `serviceName` or `serviceNetworkArn` is required.
      */

@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Connect
     ///         InstanceId = exampleAwsConnectInstance.Id,
     ///         LexBot = new Aws.Connect.Inputs.BotAssociationLexBotArgs
     ///         {
-    ///             LexRegion = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             LexRegion = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             Name = exampleBot.Name,
     ///         },
     ///     });
@@ -139,6 +139,12 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Output("lexBot")]
         public Output<Outputs.BotAssociationLexBot> LexBot { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
 
         /// <summary>
@@ -198,6 +204,12 @@ namespace Pulumi.Aws.Connect
         [Input("lexBot", required: true)]
         public Input<Inputs.BotAssociationLexBotArgs> LexBot { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public BotAssociationArgs()
         {
         }
@@ -217,6 +229,12 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("lexBot")]
         public Input<Inputs.BotAssociationLexBotGetArgs>? LexBot { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public BotAssociationState()
         {

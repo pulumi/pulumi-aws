@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,6 +98,8 @@ type DefaultPatchBaseline struct {
 	// `UBUNTU`, and
 	// `WINDOWS`.
 	OperatingSystem pulumi.StringOutput `pulumi:"operatingSystem"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDefaultPatchBaseline registers a new resource with the given unique name, arguments, and options.
@@ -156,6 +158,8 @@ type defaultPatchBaselineState struct {
 	// `UBUNTU`, and
 	// `WINDOWS`.
 	OperatingSystem *string `pulumi:"operatingSystem"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type DefaultPatchBaselineState struct {
@@ -179,6 +183,8 @@ type DefaultPatchBaselineState struct {
 	// `UBUNTU`, and
 	// `WINDOWS`.
 	OperatingSystem pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DefaultPatchBaselineState) ElementType() reflect.Type {
@@ -206,6 +212,8 @@ type defaultPatchBaselineArgs struct {
 	// `UBUNTU`, and
 	// `WINDOWS`.
 	OperatingSystem string `pulumi:"operatingSystem"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DefaultPatchBaseline resource.
@@ -230,6 +238,8 @@ type DefaultPatchBaselineArgs struct {
 	// `UBUNTU`, and
 	// `WINDOWS`.
 	OperatingSystem pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DefaultPatchBaselineArgs) ElementType() reflect.Type {
@@ -343,6 +353,11 @@ func (o DefaultPatchBaselineOutput) BaselineId() pulumi.StringOutput {
 // `WINDOWS`.
 func (o DefaultPatchBaselineOutput) OperatingSystem() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultPatchBaseline) pulumi.StringOutput { return v.OperatingSystem }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DefaultPatchBaselineOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultPatchBaseline) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type DefaultPatchBaselineArrayOutput struct{ *pulumi.OutputState }

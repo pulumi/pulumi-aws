@@ -32,6 +32,21 @@ public final class GetIdentityPoolPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A map of tags to assigned to the Identity Pool.
      * 
      */
@@ -50,6 +65,7 @@ public final class GetIdentityPoolPlainArgs extends com.pulumi.resources.InvokeA
 
     private GetIdentityPoolPlainArgs(GetIdentityPoolPlainArgs $) {
         this.identityPoolName = $.identityPoolName;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -79,6 +95,17 @@ public final class GetIdentityPoolPlainArgs extends com.pulumi.resources.InvokeA
          */
         public Builder identityPoolName(String identityPoolName) {
             $.identityPoolName = identityPoolName;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

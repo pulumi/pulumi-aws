@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticsearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticsearch"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -86,6 +86,8 @@ type DomainSamlOptions struct {
 	//
 	// The following arguments are optional:
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The SAML authentication options for an AWS Elasticsearch Domain.
 	SamlOptions DomainSamlOptionsSamlOptionsPtrOutput `pulumi:"samlOptions"`
 }
@@ -127,6 +129,8 @@ type domainSamlOptionsState struct {
 	//
 	// The following arguments are optional:
 	DomainName *string `pulumi:"domainName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The SAML authentication options for an AWS Elasticsearch Domain.
 	SamlOptions *DomainSamlOptionsSamlOptions `pulumi:"samlOptions"`
 }
@@ -136,6 +140,8 @@ type DomainSamlOptionsState struct {
 	//
 	// The following arguments are optional:
 	DomainName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The SAML authentication options for an AWS Elasticsearch Domain.
 	SamlOptions DomainSamlOptionsSamlOptionsPtrInput
 }
@@ -149,6 +155,8 @@ type domainSamlOptionsArgs struct {
 	//
 	// The following arguments are optional:
 	DomainName string `pulumi:"domainName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The SAML authentication options for an AWS Elasticsearch Domain.
 	SamlOptions *DomainSamlOptionsSamlOptions `pulumi:"samlOptions"`
 }
@@ -159,6 +167,8 @@ type DomainSamlOptionsArgs struct {
 	//
 	// The following arguments are optional:
 	DomainName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The SAML authentication options for an AWS Elasticsearch Domain.
 	SamlOptions DomainSamlOptionsSamlOptionsPtrInput
 }
@@ -255,6 +265,11 @@ func (o DomainSamlOptionsOutput) ToDomainSamlOptionsOutputWithContext(ctx contex
 // The following arguments are optional:
 func (o DomainSamlOptionsOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainSamlOptions) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DomainSamlOptionsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainSamlOptions) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The SAML authentication options for an AWS Elasticsearch Domain.

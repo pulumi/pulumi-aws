@@ -22,17 +22,21 @@ class DomainNameArgs:
     def __init__(__self__, *,
                  certificate_arn: pulumi.Input[builtins.str],
                  domain_name: pulumi.Input[builtins.str],
-                 description: Optional[pulumi.Input[builtins.str]] = None):
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a DomainName resource.
         :param pulumi.Input[builtins.str] certificate_arn: ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
         :param pulumi.Input[builtins.str] domain_name: Domain name.
         :param pulumi.Input[builtins.str] description: A description of the Domain Name.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "certificate_arn", certificate_arn)
         pulumi.set(__self__, "domain_name", domain_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="certificateArn")
@@ -70,6 +74,18 @@ class DomainNameArgs:
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _DomainNameState:
@@ -78,7 +94,8 @@ class _DomainNameState:
                  certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
-                 hosted_zone_id: Optional[pulumi.Input[builtins.str]] = None):
+                 hosted_zone_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering DomainName resources.
         :param pulumi.Input[builtins.str] appsync_domain_name: Domain name that AppSync provides.
@@ -86,6 +103,7 @@ class _DomainNameState:
         :param pulumi.Input[builtins.str] description: A description of the Domain Name.
         :param pulumi.Input[builtins.str] domain_name: Domain name.
         :param pulumi.Input[builtins.str] hosted_zone_id: ID of your Amazon Route 53 hosted zone.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if appsync_domain_name is not None:
             pulumi.set(__self__, "appsync_domain_name", appsync_domain_name)
@@ -97,6 +115,8 @@ class _DomainNameState:
             pulumi.set(__self__, "domain_name", domain_name)
         if hosted_zone_id is not None:
             pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="appsyncDomainName")
@@ -158,6 +178,18 @@ class _DomainNameState:
     def hosted_zone_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "hosted_zone_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:appsync/domainName:DomainName")
 class DomainName(pulumi.CustomResource):
@@ -168,6 +200,7 @@ class DomainName(pulumi.CustomResource):
                  certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides an AppSync Domain Name.
@@ -196,6 +229,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] certificate_arn: ARN of the certificate. This can be an Certificate Manager (ACM) certificate or an Identity and Access Management (IAM) server certificate. The certifiacte must reside in us-east-1.
         :param pulumi.Input[builtins.str] description: A description of the Domain Name.
         :param pulumi.Input[builtins.str] domain_name: Domain name.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -243,6 +277,7 @@ class DomainName(pulumi.CustomResource):
                  certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -259,6 +294,7 @@ class DomainName(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["appsync_domain_name"] = None
             __props__.__dict__["hosted_zone_id"] = None
         super(DomainName, __self__).__init__(
@@ -275,7 +311,8 @@ class DomainName(pulumi.CustomResource):
             certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             domain_name: Optional[pulumi.Input[builtins.str]] = None,
-            hosted_zone_id: Optional[pulumi.Input[builtins.str]] = None) -> 'DomainName':
+            hosted_zone_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'DomainName':
         """
         Get an existing DomainName resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -288,6 +325,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A description of the Domain Name.
         :param pulumi.Input[builtins.str] domain_name: Domain name.
         :param pulumi.Input[builtins.str] hosted_zone_id: ID of your Amazon Route 53 hosted zone.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -298,6 +336,7 @@ class DomainName(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["hosted_zone_id"] = hosted_zone_id
+        __props__.__dict__["region"] = region
         return DomainName(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -339,4 +378,12 @@ class DomainName(pulumi.CustomResource):
         ID of your Amazon Route 53 hosted zone.
         """
         return pulumi.get(self, "hosted_zone_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

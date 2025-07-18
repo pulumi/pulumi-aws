@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
 export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:codecommit/getRepository:getRepository", {
+        "region": args.region,
         "repositoryName": args.repositoryName,
     }, opts);
 }
@@ -29,6 +30,10 @@ export function getRepository(args: GetRepositoryArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getRepository.
  */
 export interface GetRepositoryArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Name for the repository. This needs to be less than 100 characters.
      */
@@ -59,6 +64,7 @@ export interface GetRepositoryResult {
      * The ID of the encryption key.
      */
     readonly kmsKeyId: string;
+    readonly region: string;
     /**
      * ID of the repository.
      */
@@ -82,6 +88,7 @@ export interface GetRepositoryResult {
 export function getRepositoryOutput(args: GetRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:codecommit/getRepository:getRepository", {
+        "region": args.region,
         "repositoryName": args.repositoryName,
     }, opts);
 }
@@ -90,6 +97,10 @@ export function getRepositoryOutput(args: GetRepositoryOutputArgs, opts?: pulumi
  * A collection of arguments for invoking getRepository.
  */
 export interface GetRepositoryOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name for the repository. This needs to be less than 100 characters.
      */

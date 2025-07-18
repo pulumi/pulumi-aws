@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,8 +71,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -114,7 +114,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -157,7 +157,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -199,7 +199,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -250,6 +250,8 @@ type ConfigurationSetEventDestination struct {
 	EventDestination ConfigurationSetEventDestinationEventDestinationOutput `pulumi:"eventDestination"`
 	// An object that defines the event destination. See `eventDestination` Block for details.
 	EventDestinationName pulumi.StringOutput `pulumi:"eventDestinationName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewConfigurationSetEventDestination registers a new resource with the given unique name, arguments, and options.
@@ -297,6 +299,8 @@ type configurationSetEventDestinationState struct {
 	EventDestination *ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
 	// An object that defines the event destination. See `eventDestination` Block for details.
 	EventDestinationName *string `pulumi:"eventDestinationName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ConfigurationSetEventDestinationState struct {
@@ -306,6 +310,8 @@ type ConfigurationSetEventDestinationState struct {
 	EventDestination ConfigurationSetEventDestinationEventDestinationPtrInput
 	// An object that defines the event destination. See `eventDestination` Block for details.
 	EventDestinationName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ConfigurationSetEventDestinationState) ElementType() reflect.Type {
@@ -319,6 +325,8 @@ type configurationSetEventDestinationArgs struct {
 	EventDestination ConfigurationSetEventDestinationEventDestination `pulumi:"eventDestination"`
 	// An object that defines the event destination. See `eventDestination` Block for details.
 	EventDestinationName string `pulumi:"eventDestinationName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ConfigurationSetEventDestination resource.
@@ -329,6 +337,8 @@ type ConfigurationSetEventDestinationArgs struct {
 	EventDestination ConfigurationSetEventDestinationEventDestinationInput
 	// An object that defines the event destination. See `eventDestination` Block for details.
 	EventDestinationName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ConfigurationSetEventDestinationArgs) ElementType() reflect.Type {
@@ -433,6 +443,11 @@ func (o ConfigurationSetEventDestinationOutput) EventDestination() Configuration
 // An object that defines the event destination. See `eventDestination` Block for details.
 func (o ConfigurationSetEventDestinationOutput) EventDestinationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestination) pulumi.StringOutput { return v.EventDestinationName }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ConfigurationSetEventDestinationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationSetEventDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ConfigurationSetEventDestinationArrayOutput struct{ *pulumi.OutputState }

@@ -25,6 +25,7 @@ export function getOutposts(args?: GetOutpostsArgs, opts?: pulumi.InvokeOptions)
         "availabilityZone": args.availabilityZone,
         "availabilityZoneId": args.availabilityZoneId,
         "ownerId": args.ownerId,
+        "region": args.region,
         "siteId": args.siteId,
     }, opts);
 }
@@ -45,6 +46,10 @@ export interface GetOutpostsArgs {
      * AWS Account identifier of the Outpost owner.
      */
     ownerId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Site identifier.
      */
@@ -70,6 +75,7 @@ export interface GetOutpostsResult {
      */
     readonly ids: string[];
     readonly ownerId: string;
+    readonly region: string;
     readonly siteId: string;
 }
 /**
@@ -93,6 +99,7 @@ export function getOutpostsOutput(args?: GetOutpostsOutputArgs, opts?: pulumi.In
         "availabilityZone": args.availabilityZone,
         "availabilityZoneId": args.availabilityZoneId,
         "ownerId": args.ownerId,
+        "region": args.region,
         "siteId": args.siteId,
     }, opts);
 }
@@ -113,6 +120,10 @@ export interface GetOutpostsOutputArgs {
      * AWS Account identifier of the Outpost owner.
      */
     ownerId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Site identifier.
      */

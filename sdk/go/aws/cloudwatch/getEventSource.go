@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func GetEventSource(ctx *pulumi.Context, args *GetEventSourceArgs, opts ...pulum
 type GetEventSourceArgs struct {
 	// Specifying this limits the results to only those partner event sources with names that start with the specified prefix
 	NamePrefix *string `pulumi:"namePrefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEventSource.
@@ -67,6 +69,7 @@ type GetEventSourceResult struct {
 	// Name of the event source
 	Name       string  `pulumi:"name"`
 	NamePrefix *string `pulumi:"namePrefix"`
+	Region     string  `pulumi:"region"`
 	// State of the event source (`ACTIVE` or `PENDING`)
 	State string `pulumi:"state"`
 }
@@ -84,6 +87,8 @@ func GetEventSourceOutput(ctx *pulumi.Context, args GetEventSourceOutputArgs, op
 type GetEventSourceOutputArgs struct {
 	// Specifying this limits the results to only those partner event sources with names that start with the specified prefix
 	NamePrefix pulumi.StringPtrInput `pulumi:"namePrefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetEventSourceOutputArgs) ElementType() reflect.Type {
@@ -127,6 +132,10 @@ func (o GetEventSourceResultOutput) Name() pulumi.StringOutput {
 
 func (o GetEventSourceResultOutput) NamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetEventSourceResult) *string { return v.NamePrefix }).(pulumi.StringPtrOutput)
+}
+
+func (o GetEventSourceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventSourceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // State of the event source (`ACTIVE` or `PENDING`)

@@ -69,6 +69,10 @@ export class Resource extends pulumi.CustomResource {
      */
     public readonly groupArn!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of the resource to be added to the group.
      */
     public readonly resourceArn!: pulumi.Output<string>;
@@ -91,6 +95,7 @@ export class Resource extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ResourceState | undefined;
             resourceInputs["groupArn"] = state ? state.groupArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
         } else {
@@ -102,6 +107,7 @@ export class Resource extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceArn'");
             }
             resourceInputs["groupArn"] = args ? args.groupArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
             resourceInputs["resourceType"] = undefined /*out*/;
         }
@@ -118,6 +124,10 @@ export interface ResourceState {
      * Name or ARN of the resource group to add resources to.
      */
     groupArn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the resource to be added to the group.
      */
@@ -136,6 +146,10 @@ export interface ResourceArgs {
      * Name or ARN of the resource group to add resources to.
      */
     groupArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the resource to be added to the group.
      */

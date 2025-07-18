@@ -73,6 +73,10 @@ export class VpcAttachment extends pulumi.CustomResource {
      */
     public readonly ipv6Support!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
      */
     public readonly securityGroupReferencingSupport!: pulumi.Output<string>;
@@ -86,8 +90,6 @@ export class VpcAttachment extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -128,6 +130,7 @@ export class VpcAttachment extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["dnsSupport"] = state ? state.dnsSupport : undefined;
             resourceInputs["ipv6Support"] = state ? state.ipv6Support : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupReferencingSupport"] = state ? state.securityGroupReferencingSupport : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -151,6 +154,7 @@ export class VpcAttachment extends pulumi.CustomResource {
             resourceInputs["applianceModeSupport"] = args ? args.applianceModeSupport : undefined;
             resourceInputs["dnsSupport"] = args ? args.dnsSupport : undefined;
             resourceInputs["ipv6Support"] = args ? args.ipv6Support : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupReferencingSupport"] = args ? args.securityGroupReferencingSupport : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -188,6 +192,10 @@ export interface VpcAttachmentState {
      */
     ipv6Support?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
      */
     securityGroupReferencingSupport?: pulumi.Input<string>;
@@ -201,8 +209,6 @@ export interface VpcAttachmentState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -243,6 +249,10 @@ export interface VpcAttachmentArgs {
      * Whether IPv6 support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
      */
     ipv6Support?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
      */

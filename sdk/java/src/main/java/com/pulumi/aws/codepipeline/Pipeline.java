@@ -36,8 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.codestarconnections.Connection;
  * import com.pulumi.aws.codestarconnections.ConnectionArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.Role;
@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  *             .providerType("GitHub")
  *             .build());
  * 
- *         var codepipelineBucket = new BucketV2("codepipelineBucket", BucketV2Args.builder()
+ *         var codepipelineBucket = new Bucket("codepipelineBucket", BucketArgs.builder()
  *             .bucket("test-bucket")
  *             .build());
  * 
@@ -246,16 +246,12 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
     /**
      * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
      * 
-     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
-     * 
      */
     @Export(name="executionMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> executionMode;
 
     /**
      * @return The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-     * 
-     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      * 
      */
     public Output<Optional<String>> executionMode() {
@@ -288,6 +284,20 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> pipelineType() {
         return Codegen.optional(this.pipelineType);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
@@ -334,11 +344,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
@@ -380,12 +386,16 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
     /**
      * A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
      * 
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+     * 
      */
     @Export(name="variables", refs={List.class,PipelineVariable.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PipelineVariable>> variables;
 
     /**
      * @return A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+     * 
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      * 
      */
     public Output<Optional<List<PipelineVariable>>> variables() {

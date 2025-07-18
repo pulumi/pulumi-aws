@@ -30,6 +30,7 @@ class PatchBaselineArgs:
                  global_filters: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineGlobalFilterArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  operating_system: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rejected_patches: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  rejected_patches_action: Optional[pulumi.Input[builtins.str]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineSourceArgs']]]] = None,
@@ -46,6 +47,7 @@ class PatchBaselineArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] operating_system: Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] rejected_patches: List of rejected patches.
         :param pulumi.Input[builtins.str] rejected_patches_action: Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineSourceArgs']]] sources: Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
@@ -67,6 +69,8 @@ class PatchBaselineArgs:
             pulumi.set(__self__, "name", name)
         if operating_system is not None:
             pulumi.set(__self__, "operating_system", operating_system)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rejected_patches is not None:
             pulumi.set(__self__, "rejected_patches", rejected_patches)
         if rejected_patches_action is not None:
@@ -175,6 +179,18 @@ class PatchBaselineArgs:
         pulumi.set(self, "operating_system", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="rejectedPatches")
     def rejected_patches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -236,6 +252,7 @@ class _PatchBaselineState:
                  json: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  operating_system: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rejected_patches: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  rejected_patches_action: Optional[pulumi.Input[builtins.str]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['PatchBaselineSourceArgs']]]] = None,
@@ -255,6 +272,7 @@ class _PatchBaselineState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] operating_system: Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] rejected_patches: List of rejected patches.
         :param pulumi.Input[builtins.str] rejected_patches_action: Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineSourceArgs']]] sources: Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
@@ -281,6 +299,8 @@ class _PatchBaselineState:
             pulumi.set(__self__, "name", name)
         if operating_system is not None:
             pulumi.set(__self__, "operating_system", operating_system)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rejected_patches is not None:
             pulumi.set(__self__, "rejected_patches", rejected_patches)
         if rejected_patches_action is not None:
@@ -289,9 +309,6 @@ class _PatchBaselineState:
             pulumi.set(__self__, "sources", sources)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -418,6 +435,18 @@ class _PatchBaselineState:
         pulumi.set(self, "operating_system", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="rejectedPatches")
     def rejected_patches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -467,7 +496,6 @@ class _PatchBaselineState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -493,6 +521,7 @@ class PatchBaseline(pulumi.CustomResource):
                  global_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineGlobalFilterArgs', 'PatchBaselineGlobalFilterArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  operating_system: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rejected_patches: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  rejected_patches_action: Optional[pulumi.Input[builtins.str]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineSourceArgs', 'PatchBaselineSourceArgsDict']]]]] = None,
@@ -686,6 +715,7 @@ class PatchBaseline(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] operating_system: Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] rejected_patches: List of rejected patches.
         :param pulumi.Input[builtins.str] rejected_patches_action: Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineSourceArgs', 'PatchBaselineSourceArgsDict']]]] sources: Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
@@ -896,6 +926,7 @@ class PatchBaseline(pulumi.CustomResource):
                  global_filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineGlobalFilterArgs', 'PatchBaselineGlobalFilterArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  operating_system: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rejected_patches: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  rejected_patches_action: Optional[pulumi.Input[builtins.str]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineSourceArgs', 'PatchBaselineSourceArgsDict']]]]] = None,
@@ -917,6 +948,7 @@ class PatchBaseline(pulumi.CustomResource):
             __props__.__dict__["global_filters"] = global_filters
             __props__.__dict__["name"] = name
             __props__.__dict__["operating_system"] = operating_system
+            __props__.__dict__["region"] = region
             __props__.__dict__["rejected_patches"] = rejected_patches
             __props__.__dict__["rejected_patches_action"] = rejected_patches_action
             __props__.__dict__["sources"] = sources
@@ -944,6 +976,7 @@ class PatchBaseline(pulumi.CustomResource):
             json: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             operating_system: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rejected_patches: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             rejected_patches_action: Optional[pulumi.Input[builtins.str]] = None,
             sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineSourceArgs', 'PatchBaselineSourceArgsDict']]]]] = None,
@@ -968,6 +1001,7 @@ class PatchBaseline(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] operating_system: Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] rejected_patches: List of rejected patches.
         :param pulumi.Input[builtins.str] rejected_patches_action: Action for Patch Manager to take on patches included in the `rejected_patches` list. Valid values are `ALLOW_AS_DEPENDENCY` and `BLOCK`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PatchBaselineSourceArgs', 'PatchBaselineSourceArgsDict']]]] sources: Configuration block with alternate sources for patches. Applies to Linux instances only. See `source` below.
@@ -988,6 +1022,7 @@ class PatchBaseline(pulumi.CustomResource):
         __props__.__dict__["json"] = json
         __props__.__dict__["name"] = name
         __props__.__dict__["operating_system"] = operating_system
+        __props__.__dict__["region"] = region
         __props__.__dict__["rejected_patches"] = rejected_patches
         __props__.__dict__["rejected_patches_action"] = rejected_patches_action
         __props__.__dict__["sources"] = sources
@@ -1078,6 +1113,14 @@ class PatchBaseline(pulumi.CustomResource):
         return pulumi.get(self, "operating_system")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="rejectedPatches")
     def rejected_patches(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
@@ -1111,7 +1154,6 @@ class PatchBaseline(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

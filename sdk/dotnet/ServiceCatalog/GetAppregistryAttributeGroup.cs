@@ -111,6 +111,13 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// &gt; Exactly one of `arn`, `id`, or `name` must be set.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetAppregistryAttributeGroupArgs()
         {
         }
@@ -137,6 +144,13 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// &gt; Exactly one of `arn`, `id`, or `name` must be set.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetAppregistryAttributeGroupInvokeArgs()
         {
         }
@@ -158,6 +172,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public readonly string Description;
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// A map of tags assigned to the Attribute Group. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
@@ -175,6 +190,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
             string name,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
@@ -182,6 +199,7 @@ namespace Pulumi.Aws.ServiceCatalog
             Description = description;
             Id = id;
             Name = name;
+            Region = region;
             Tags = tags;
         }
     }

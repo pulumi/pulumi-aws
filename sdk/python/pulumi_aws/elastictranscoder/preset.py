@@ -27,6 +27,7 @@ class PresetArgs:
                  audio_codec_options: Optional[pulumi.Input['PresetAudioCodecOptionsArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  thumbnails: Optional[pulumi.Input['PresetThumbnailsArgs']] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  video: Optional[pulumi.Input['PresetVideoArgs']] = None,
@@ -39,6 +40,7 @@ class PresetArgs:
         :param pulumi.Input['PresetAudioCodecOptionsArgs'] audio_codec_options: Codec options for the audio parameters (documented below)
         :param pulumi.Input[builtins.str] description: A description of the preset (maximum 255 characters)
         :param pulumi.Input[builtins.str] name: The name of the preset. (maximum 40 characters)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['PresetThumbnailsArgs'] thumbnails: Thumbnail parameters object (documented below)
         :param pulumi.Input['PresetVideoArgs'] video: Video parameters object (documented below)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] video_codec_options: Codec options for the video parameters
@@ -55,6 +57,8 @@ class PresetArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if thumbnails is not None:
             pulumi.set(__self__, "thumbnails", thumbnails)
         if type is not None:
@@ -128,6 +132,18 @@ class PresetArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def thumbnails(self) -> Optional[pulumi.Input['PresetThumbnailsArgs']]:
         """
         Thumbnail parameters object (documented below)
@@ -195,6 +211,7 @@ class _PresetState:
                  container: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  thumbnails: Optional[pulumi.Input['PresetThumbnailsArgs']] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  video: Optional[pulumi.Input['PresetVideoArgs']] = None,
@@ -208,6 +225,7 @@ class _PresetState:
         :param pulumi.Input[builtins.str] container: The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
         :param pulumi.Input[builtins.str] description: A description of the preset (maximum 255 characters)
         :param pulumi.Input[builtins.str] name: The name of the preset. (maximum 40 characters)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['PresetThumbnailsArgs'] thumbnails: Thumbnail parameters object (documented below)
         :param pulumi.Input['PresetVideoArgs'] video: Video parameters object (documented below)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] video_codec_options: Codec options for the video parameters
@@ -227,6 +245,8 @@ class _PresetState:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if thumbnails is not None:
             pulumi.set(__self__, "thumbnails", thumbnails)
         if type is not None:
@@ -312,6 +332,18 @@ class _PresetState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def thumbnails(self) -> Optional[pulumi.Input['PresetThumbnailsArgs']]:
         """
         Thumbnail parameters object (documented below)
@@ -381,6 +413,7 @@ class Preset(pulumi.CustomResource):
                  container: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  thumbnails: Optional[pulumi.Input[Union['PresetThumbnailsArgs', 'PresetThumbnailsArgsDict']]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  video: Optional[pulumi.Input[Union['PresetVideoArgs', 'PresetVideoArgsDict']]] = None,
@@ -389,6 +422,8 @@ class Preset(pulumi.CustomResource):
                  __props__=None):
         """
         Provides an Elastic Transcoder preset resource.
+
+        > **Warning:** This resource is deprecated. Use [AWS Elemental MediaConvert](https://aws.amazon.com/blogs/media/migrating-workflows-from-amazon-elastic-transcoder-to-aws-elemental-mediaconvert/) instead. AWS will [discontinue support for Amazon Elastic Transcoder](https://aws.amazon.com/blogs/media/support-for-amazon-elastic-transcoder-ending-soon/), effective November 13, 2025.
 
         ## Example Usage
 
@@ -467,6 +502,7 @@ class Preset(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] container: The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
         :param pulumi.Input[builtins.str] description: A description of the preset (maximum 255 characters)
         :param pulumi.Input[builtins.str] name: The name of the preset. (maximum 40 characters)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['PresetThumbnailsArgs', 'PresetThumbnailsArgsDict']] thumbnails: Thumbnail parameters object (documented below)
         :param pulumi.Input[Union['PresetVideoArgs', 'PresetVideoArgsDict']] video: Video parameters object (documented below)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] video_codec_options: Codec options for the video parameters
@@ -482,6 +518,8 @@ class Preset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Elastic Transcoder preset resource.
+
+        > **Warning:** This resource is deprecated. Use [AWS Elemental MediaConvert](https://aws.amazon.com/blogs/media/migrating-workflows-from-amazon-elastic-transcoder-to-aws-elemental-mediaconvert/) instead. AWS will [discontinue support for Amazon Elastic Transcoder](https://aws.amazon.com/blogs/media/support-for-amazon-elastic-transcoder-ending-soon/), effective November 13, 2025.
 
         ## Example Usage
 
@@ -573,6 +611,7 @@ class Preset(pulumi.CustomResource):
                  container: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  thumbnails: Optional[pulumi.Input[Union['PresetThumbnailsArgs', 'PresetThumbnailsArgsDict']]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  video: Optional[pulumi.Input[Union['PresetVideoArgs', 'PresetVideoArgsDict']]] = None,
@@ -594,6 +633,7 @@ class Preset(pulumi.CustomResource):
             __props__.__dict__["container"] = container
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["thumbnails"] = thumbnails
             __props__.__dict__["type"] = type
             __props__.__dict__["video"] = video
@@ -616,6 +656,7 @@ class Preset(pulumi.CustomResource):
             container: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             thumbnails: Optional[pulumi.Input[Union['PresetThumbnailsArgs', 'PresetThumbnailsArgsDict']]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None,
             video: Optional[pulumi.Input[Union['PresetVideoArgs', 'PresetVideoArgsDict']]] = None,
@@ -634,6 +675,7 @@ class Preset(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] container: The container type for the output file. Valid values are `flac`, `flv`, `fmp4`, `gif`, `mp3`, `mp4`, `mpg`, `mxf`, `oga`, `ogg`, `ts`, and `webm`.
         :param pulumi.Input[builtins.str] description: A description of the preset (maximum 255 characters)
         :param pulumi.Input[builtins.str] name: The name of the preset. (maximum 40 characters)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['PresetThumbnailsArgs', 'PresetThumbnailsArgsDict']] thumbnails: Thumbnail parameters object (documented below)
         :param pulumi.Input[Union['PresetVideoArgs', 'PresetVideoArgsDict']] video: Video parameters object (documented below)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] video_codec_options: Codec options for the video parameters
@@ -651,6 +693,7 @@ class Preset(pulumi.CustomResource):
         __props__.__dict__["container"] = container
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["thumbnails"] = thumbnails
         __props__.__dict__["type"] = type
         __props__.__dict__["video"] = video
@@ -705,6 +748,14 @@ class Preset(pulumi.CustomResource):
         The name of the preset. (maximum 40 characters)
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

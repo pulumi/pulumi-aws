@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/guardduty"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func GetFindingIds(ctx *pulumi.Context, args *GetFindingIdsArgs, opts ...pulumi.
 type GetFindingIdsArgs struct {
 	// ID of the GuardDuty detector.
 	DetectorId string `pulumi:"detectorId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getFindingIds.
@@ -64,6 +66,7 @@ type GetFindingIdsResult struct {
 	// Indicates whether findings are present for the specified detector.
 	HasFindings bool   `pulumi:"hasFindings"`
 	Id          string `pulumi:"id"`
+	Region      string `pulumi:"region"`
 }
 
 func GetFindingIdsOutput(ctx *pulumi.Context, args GetFindingIdsOutputArgs, opts ...pulumi.InvokeOption) GetFindingIdsResultOutput {
@@ -79,6 +82,8 @@ func GetFindingIdsOutput(ctx *pulumi.Context, args GetFindingIdsOutputArgs, opts
 type GetFindingIdsOutputArgs struct {
 	// ID of the GuardDuty detector.
 	DetectorId pulumi.StringInput `pulumi:"detectorId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetFindingIdsOutputArgs) ElementType() reflect.Type {
@@ -116,6 +121,10 @@ func (o GetFindingIdsResultOutput) HasFindings() pulumi.BoolOutput {
 
 func (o GetFindingIdsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFindingIdsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetFindingIdsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFindingIdsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

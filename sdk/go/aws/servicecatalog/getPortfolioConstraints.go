@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,6 +60,8 @@ type GetPortfolioConstraintsArgs struct {
 	PortfolioId string `pulumi:"portfolioId"`
 	// Product identifier.
 	ProductId *string `pulumi:"productId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPortfolioConstraints.
@@ -73,6 +75,7 @@ type GetPortfolioConstraintsResult struct {
 	PortfolioId string `pulumi:"portfolioId"`
 	// Identifier of the product the constraint applies to. A constraint applies to a specific instance of a product within a certain portfolio.
 	ProductId *string `pulumi:"productId"`
+	Region    string  `pulumi:"region"`
 }
 
 func GetPortfolioConstraintsOutput(ctx *pulumi.Context, args GetPortfolioConstraintsOutputArgs, opts ...pulumi.InvokeOption) GetPortfolioConstraintsResultOutput {
@@ -94,6 +97,8 @@ type GetPortfolioConstraintsOutputArgs struct {
 	PortfolioId pulumi.StringInput `pulumi:"portfolioId"`
 	// Product identifier.
 	ProductId pulumi.StringPtrInput `pulumi:"productId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetPortfolioConstraintsOutputArgs) ElementType() reflect.Type {
@@ -137,6 +142,10 @@ func (o GetPortfolioConstraintsResultOutput) PortfolioId() pulumi.StringOutput {
 // Identifier of the product the constraint applies to. A constraint applies to a specific instance of a product within a certain portfolio.
 func (o GetPortfolioConstraintsResultOutput) ProductId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetPortfolioConstraintsResult) *string { return v.ProductId }).(pulumi.StringPtrOutput)
+}
+
+func (o GetPortfolioConstraintsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPortfolioConstraintsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

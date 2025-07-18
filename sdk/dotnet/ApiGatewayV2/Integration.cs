@@ -242,6 +242,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> PayloadFormatVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
         /// For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
         /// For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
@@ -403,6 +409,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Input("payloadFormatVersion")]
         public Input<string>? PayloadFormatVersion { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("requestParameters")]
         private InputMap<string>? _requestParameters;
 
@@ -550,6 +562,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Input("payloadFormatVersion")]
         public Input<string>? PayloadFormatVersion { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("requestParameters")]
         private InputMap<string>? _requestParameters;

@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Provides an Elastic Transcoder pipeline resource.
  *
+ * > **Warning:** This resource is deprecated. Use [AWS Elemental MediaConvert](https://aws.amazon.com/blogs/media/migrating-workflows-from-amazon-elastic-transcoder-to-aws-elemental-mediaconvert/) instead. AWS will [discontinue support for Amazon Elastic Transcoder](https://aws.amazon.com/blogs/media/support-for-amazon-elastic-transcoder-ending-soon/), effective November 13, 2025.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -100,6 +102,10 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly outputBucket!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      */
     public readonly role!: pulumi.Output<string>;
@@ -142,6 +148,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["notifications"] = state ? state.notifications : undefined;
             resourceInputs["outputBucket"] = state ? state.outputBucket : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["role"] = state ? state.role : undefined;
             resourceInputs["thumbnailConfig"] = state ? state.thumbnailConfig : undefined;
             resourceInputs["thumbnailConfigPermissions"] = state ? state.thumbnailConfigPermissions : undefined;
@@ -160,6 +167,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["notifications"] = args ? args.notifications : undefined;
             resourceInputs["outputBucket"] = args ? args.outputBucket : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["thumbnailConfig"] = args ? args.thumbnailConfig : undefined;
             resourceInputs["thumbnailConfigPermissions"] = args ? args.thumbnailConfigPermissions : undefined;
@@ -206,6 +214,10 @@ export interface PipelineState {
      * The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
      */
     outputBucket?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      */
@@ -261,6 +273,10 @@ export interface PipelineArgs {
      * The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
      */
     outputBucket?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      */

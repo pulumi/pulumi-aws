@@ -76,6 +76,21 @@ public final class BucketAclV2State extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private BucketAclV2State() {}
 
     private BucketAclV2State(BucketAclV2State $) {
@@ -83,6 +98,7 @@ public final class BucketAclV2State extends com.pulumi.resources.ResourceArgs {
         this.acl = $.acl;
         this.bucket = $.bucket;
         this.expectedBucketOwner = $.expectedBucketOwner;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -185,6 +201,27 @@ public final class BucketAclV2State extends com.pulumi.resources.ResourceArgs {
          */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public BucketAclV2State build() {

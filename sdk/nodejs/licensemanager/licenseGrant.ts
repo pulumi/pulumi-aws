@@ -72,6 +72,10 @@ export class LicenseGrant extends pulumi.CustomResource {
      */
     public readonly principal!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The grant status.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -100,6 +104,7 @@ export class LicenseGrant extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parentArn"] = state ? state.parentArn : undefined;
             resourceInputs["principal"] = state ? state.principal : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
         } else {
@@ -117,6 +122,7 @@ export class LicenseGrant extends pulumi.CustomResource {
             resourceInputs["licenseArn"] = args ? args.licenseArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["homeRegion"] = undefined /*out*/;
             resourceInputs["parentArn"] = undefined /*out*/;
@@ -161,6 +167,10 @@ export interface LicenseGrantState {
      */
     principal?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The grant status.
      */
     status?: pulumi.Input<string>;
@@ -190,4 +200,8 @@ export interface LicenseGrantArgs {
      * The target account for the grant in the form of the ARN for an account principal of the root user.
      */
     principal: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

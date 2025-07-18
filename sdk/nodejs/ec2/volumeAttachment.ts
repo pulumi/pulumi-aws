@@ -88,6 +88,10 @@ export class VolumeAttachment extends pulumi.CustomResource {
      */
     public readonly instanceId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Set this to true if you do not wish
      * to detach the volume from the instance to which it is attached at destroy
      * time, and instead just remove the attachment from this provider state. This is
@@ -121,6 +125,7 @@ export class VolumeAttachment extends pulumi.CustomResource {
             resourceInputs["deviceName"] = state ? state.deviceName : undefined;
             resourceInputs["forceDetach"] = state ? state.forceDetach : undefined;
             resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
             resourceInputs["stopInstanceBeforeDetaching"] = state ? state.stopInstanceBeforeDetaching : undefined;
             resourceInputs["volumeId"] = state ? state.volumeId : undefined;
@@ -138,6 +143,7 @@ export class VolumeAttachment extends pulumi.CustomResource {
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
             resourceInputs["forceDetach"] = args ? args.forceDetach : undefined;
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             resourceInputs["stopInstanceBeforeDetaching"] = args ? args.stopInstanceBeforeDetaching : undefined;
             resourceInputs["volumeId"] = args ? args.volumeId : undefined;
@@ -167,6 +173,10 @@ export interface VolumeAttachmentState {
      * ID of the Instance to attach to
      */
     instanceId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Set this to true if you do not wish
      * to detach the volume from the instance to which it is attached at destroy
@@ -206,6 +216,10 @@ export interface VolumeAttachmentArgs {
      * ID of the Instance to attach to
      */
     instanceId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Set this to true if you do not wish
      * to detach the volume from the instance to which it is attached at destroy

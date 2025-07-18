@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,7 +55,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,6 +89,8 @@ type LookupTransitGatewayArgs struct {
 	Filters []GetTransitGatewayFilter `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway.
 	Id *string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -120,6 +122,7 @@ type LookupTransitGatewayResult struct {
 	OwnerId string `pulumi:"ownerId"`
 	// Identifier of the default propagation route table
 	PropagationDefaultRouteTableId string `pulumi:"propagationDefaultRouteTableId"`
+	Region                         string `pulumi:"region"`
 	// Whether Security Group Referencing Support is enabled
 	SecurityGroupReferencingSupport string `pulumi:"securityGroupReferencingSupport"`
 	// Key-value tags for the EC2 Transit Gateway
@@ -145,6 +148,8 @@ type LookupTransitGatewayOutputArgs struct {
 	Filters GetTransitGatewayFilterArrayInput `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway.
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -230,6 +235,10 @@ func (o LookupTransitGatewayResultOutput) OwnerId() pulumi.StringOutput {
 // Identifier of the default propagation route table
 func (o LookupTransitGatewayResultOutput) PropagationDefaultRouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.PropagationDefaultRouteTableId }).(pulumi.StringOutput)
+}
+
+func (o LookupTransitGatewayResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Whether Security Group Referencing Support is enabled

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amplify"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,6 +73,8 @@ type Webhook struct {
 	BranchName pulumi.StringOutput `pulumi:"branchName"`
 	// Description for a webhook.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// URL of the webhook.
 	Url pulumi.StringOutput `pulumi:"url"`
 }
@@ -121,6 +123,8 @@ type webhookState struct {
 	BranchName *string `pulumi:"branchName"`
 	// Description for a webhook.
 	Description *string `pulumi:"description"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// URL of the webhook.
 	Url *string `pulumi:"url"`
 }
@@ -134,6 +138,8 @@ type WebhookState struct {
 	BranchName pulumi.StringPtrInput
 	// Description for a webhook.
 	Description pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// URL of the webhook.
 	Url pulumi.StringPtrInput
 }
@@ -149,6 +155,8 @@ type webhookArgs struct {
 	BranchName string `pulumi:"branchName"`
 	// Description for a webhook.
 	Description *string `pulumi:"description"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Webhook resource.
@@ -159,6 +167,8 @@ type WebhookArgs struct {
 	BranchName pulumi.StringInput
 	// Description for a webhook.
 	Description pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (WebhookArgs) ElementType() reflect.Type {
@@ -266,6 +276,11 @@ func (o WebhookOutput) BranchName() pulumi.StringOutput {
 // Description for a webhook.
 func (o WebhookOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o WebhookOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Webhook) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // URL of the webhook.

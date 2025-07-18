@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/bedrock"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -126,13 +126,14 @@ type Guardrail struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
 	SensitiveInformationPolicyConfig GuardrailSensitiveInformationPolicyConfigPtrOutput `pulumi:"sensitiveInformationPolicyConfig"`
 	// Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags     pulumi.StringMapOutput     `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput     `pulumi:"tagsAll"`
 	Timeouts GuardrailTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Topic policy config for a guardrail. See Topic Policy Config for more information.
@@ -201,13 +202,14 @@ type guardrailState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
 	SensitiveInformationPolicyConfig *GuardrailSensitiveInformationPolicyConfig `pulumi:"sensitiveInformationPolicyConfig"`
 	// Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
 	Status *string `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags     map[string]string  `pulumi:"tags"`
 	TagsAll  map[string]string  `pulumi:"tagsAll"`
 	Timeouts *GuardrailTimeouts `pulumi:"timeouts"`
 	// Topic policy config for a guardrail. See Topic Policy Config for more information.
@@ -241,13 +243,14 @@ type GuardrailState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
 	SensitiveInformationPolicyConfig GuardrailSensitiveInformationPolicyConfigPtrInput
 	// Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
 	Status pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts GuardrailTimeoutsPtrInput
 	// Topic policy config for a guardrail. See Topic Policy Config for more information.
@@ -279,6 +282,8 @@ type guardrailArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
 	SensitiveInformationPolicyConfig *GuardrailSensitiveInformationPolicyConfig `pulumi:"sensitiveInformationPolicyConfig"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -308,6 +313,8 @@ type GuardrailArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
 	SensitiveInformationPolicyConfig GuardrailSensitiveInformationPolicyConfigPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -460,6 +467,11 @@ func (o GuardrailOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Guardrail) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o GuardrailOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Guardrail) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Sensitive information policy config for a guardrail. See Sensitive Information Policy Config for more information.
 func (o GuardrailOutput) SensitiveInformationPolicyConfig() GuardrailSensitiveInformationPolicyConfigPtrOutput {
 	return o.ApplyT(func(v *Guardrail) GuardrailSensitiveInformationPolicyConfigPtrOutput {
@@ -477,7 +489,6 @@ func (o GuardrailOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Guardrail) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o GuardrailOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Guardrail) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

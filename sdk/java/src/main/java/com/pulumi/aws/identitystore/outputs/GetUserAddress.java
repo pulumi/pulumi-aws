@@ -37,7 +37,7 @@ public final class GetUserAddress {
      */
     private Boolean primary;
     /**
-     * @return The region of the address.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     private String region;
@@ -89,7 +89,7 @@ public final class GetUserAddress {
         return this.primary;
     }
     /**
-     * @return The region of the address.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public String region() {

@@ -252,6 +252,12 @@ namespace Pulumi.Aws.Eks
         public Output<string> NodeRoleArn { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         /// </summary>
         [Output("releaseVersion")]
@@ -450,6 +456,12 @@ namespace Pulumi.Aws.Eks
         public Input<string> NodeRoleArn { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         /// </summary>
         [Input("releaseVersion")]
@@ -616,6 +628,12 @@ namespace Pulumi.Aws.Eks
         public Input<string>? NodeRoleArn { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         /// </summary>
         [Input("releaseVersion")]
@@ -683,7 +701,6 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

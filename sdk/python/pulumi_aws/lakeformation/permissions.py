@@ -32,6 +32,7 @@ class PermissionsArgs:
                  lf_tag: Optional[pulumi.Input['PermissionsLfTagArgs']] = None,
                  lf_tag_policy: Optional[pulumi.Input['PermissionsLfTagPolicyArgs']] = None,
                  permissions_with_grant_options: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table: Optional[pulumi.Input['PermissionsTableArgs']] = None,
                  table_with_columns: Optional[pulumi.Input['PermissionsTableWithColumnsArgs']] = None):
         """
@@ -50,6 +51,7 @@ class PermissionsArgs:
         :param pulumi.Input['PermissionsLfTagArgs'] lf_tag: Configuration block for an LF-tag resource. Detailed below.
         :param pulumi.Input['PermissionsLfTagPolicyArgs'] lf_tag_policy: Configuration block for an LF-tag policy resource. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] permissions_with_grant_options: Subset of `permissions` which the principal can pass.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['PermissionsTableArgs'] table: Configuration block for a table resource. Detailed below.
         :param pulumi.Input['PermissionsTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
                
@@ -73,6 +75,8 @@ class PermissionsArgs:
             pulumi.set(__self__, "lf_tag_policy", lf_tag_policy)
         if permissions_with_grant_options is not None:
             pulumi.set(__self__, "permissions_with_grant_options", permissions_with_grant_options)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if table is not None:
             pulumi.set(__self__, "table", table)
         if table_with_columns is not None:
@@ -204,6 +208,18 @@ class PermissionsArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def table(self) -> Optional[pulumi.Input['PermissionsTableArgs']]:
         """
         Configuration block for a table resource. Detailed below.
@@ -242,6 +258,7 @@ class _PermissionsState:
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  permissions_with_grant_options: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table: Optional[pulumi.Input['PermissionsTableArgs']] = None,
                  table_with_columns: Optional[pulumi.Input['PermissionsTableWithColumnsArgs']] = None):
         """
@@ -260,6 +277,7 @@ class _PermissionsState:
                > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
                
                One of the following is required:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['PermissionsTableArgs'] table: Configuration block for a table resource. Detailed below.
         :param pulumi.Input['PermissionsTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
                
@@ -285,6 +303,8 @@ class _PermissionsState:
             pulumi.set(__self__, "permissions_with_grant_options", permissions_with_grant_options)
         if principal is not None:
             pulumi.set(__self__, "principal", principal)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if table is not None:
             pulumi.set(__self__, "table", table)
         if table_with_columns is not None:
@@ -416,6 +436,18 @@ class _PermissionsState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def table(self) -> Optional[pulumi.Input['PermissionsTableArgs']]:
         """
         Configuration block for a table resource. Detailed below.
@@ -457,6 +489,7 @@ class Permissions(pulumi.CustomResource):
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  permissions_with_grant_options: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table: Optional[pulumi.Input[Union['PermissionsTableArgs', 'PermissionsTableArgsDict']]] = None,
                  table_with_columns: Optional[pulumi.Input[Union['PermissionsTableWithColumnsArgs', 'PermissionsTableWithColumnsArgsDict']]] = None,
                  __props__=None):
@@ -637,6 +670,7 @@ class Permissions(pulumi.CustomResource):
                > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
                
                One of the following is required:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['PermissionsTableArgs', 'PermissionsTableArgsDict']] table: Configuration block for a table resource. Detailed below.
         :param pulumi.Input[Union['PermissionsTableWithColumnsArgs', 'PermissionsTableWithColumnsArgsDict']] table_with_columns: Configuration block for a table with columns resource. Detailed below.
                
@@ -834,6 +868,7 @@ class Permissions(pulumi.CustomResource):
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  permissions_with_grant_options: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  principal: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table: Optional[pulumi.Input[Union['PermissionsTableArgs', 'PermissionsTableArgsDict']]] = None,
                  table_with_columns: Optional[pulumi.Input[Union['PermissionsTableWithColumnsArgs', 'PermissionsTableWithColumnsArgsDict']]] = None,
                  __props__=None):
@@ -859,6 +894,7 @@ class Permissions(pulumi.CustomResource):
             if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__.__dict__["principal"] = principal
+            __props__.__dict__["region"] = region
             __props__.__dict__["table"] = table
             __props__.__dict__["table_with_columns"] = table_with_columns
         super(Permissions, __self__).__init__(
@@ -881,6 +917,7 @@ class Permissions(pulumi.CustomResource):
             permissions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             permissions_with_grant_options: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             principal: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             table: Optional[pulumi.Input[Union['PermissionsTableArgs', 'PermissionsTableArgsDict']]] = None,
             table_with_columns: Optional[pulumi.Input[Union['PermissionsTableWithColumnsArgs', 'PermissionsTableWithColumnsArgsDict']]] = None) -> 'Permissions':
         """
@@ -904,6 +941,7 @@ class Permissions(pulumi.CustomResource):
                > **NOTE:** We highly recommend that the `principal` _NOT_ be a Lake Formation administrator (granted using `lakeformation.DataLakeSettings`). The entity (e.g., IAM role) running the deployment will most likely need to be a Lake Formation administrator. As such, the entity will have implicit permissions and does not need permissions granted through this resource.
                
                One of the following is required:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['PermissionsTableArgs', 'PermissionsTableArgsDict']] table: Configuration block for a table resource. Detailed below.
         :param pulumi.Input[Union['PermissionsTableWithColumnsArgs', 'PermissionsTableWithColumnsArgsDict']] table_with_columns: Configuration block for a table with columns resource. Detailed below.
                
@@ -923,6 +961,7 @@ class Permissions(pulumi.CustomResource):
         __props__.__dict__["permissions"] = permissions
         __props__.__dict__["permissions_with_grant_options"] = permissions_with_grant_options
         __props__.__dict__["principal"] = principal
+        __props__.__dict__["region"] = region
         __props__.__dict__["table"] = table
         __props__.__dict__["table_with_columns"] = table_with_columns
         return Permissions(resource_name, opts=opts, __props__=__props__)
@@ -1010,6 +1049,14 @@ class Permissions(pulumi.CustomResource):
         One of the following is required:
         """
         return pulumi.get(self, "principal")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

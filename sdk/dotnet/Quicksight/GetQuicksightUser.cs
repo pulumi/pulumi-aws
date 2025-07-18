@@ -112,6 +112,12 @@ namespace Pulumi.Aws.Quicksight
         public string? Namespace { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// The name of the user that you want to match.
         /// 
         /// The following arguments are optional:
@@ -138,6 +144,12 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name of the user that you want to match.
@@ -183,6 +195,7 @@ namespace Pulumi.Aws.Quicksight
         /// The principal ID of the user.
         /// </summary>
         public readonly string PrincipalId;
+        public readonly string Region;
         public readonly string UserName;
         /// <summary>
         /// The Amazon QuickSight role for the user. The user role can be one of the following:.
@@ -210,6 +223,8 @@ namespace Pulumi.Aws.Quicksight
 
             string principalId,
 
+            string region,
+
             string userName,
 
             string userRole)
@@ -222,6 +237,7 @@ namespace Pulumi.Aws.Quicksight
             IdentityType = identityType;
             Namespace = @namespace;
             PrincipalId = principalId;
+            Region = region;
             UserName = userName;
             UserRole = userRole;
         }

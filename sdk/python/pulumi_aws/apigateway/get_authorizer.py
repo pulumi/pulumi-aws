@@ -27,7 +27,7 @@ class GetAuthorizerResult:
     """
     A collection of values returned by getAuthorizer.
     """
-    def __init__(__self__, arn=None, authorizer_credentials=None, authorizer_id=None, authorizer_result_ttl_in_seconds=None, authorizer_uri=None, id=None, identity_source=None, identity_validation_expression=None, name=None, provider_arns=None, rest_api_id=None, type=None):
+    def __init__(__self__, arn=None, authorizer_credentials=None, authorizer_id=None, authorizer_result_ttl_in_seconds=None, authorizer_uri=None, id=None, identity_source=None, identity_validation_expression=None, name=None, provider_arns=None, region=None, rest_api_id=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -58,6 +58,9 @@ class GetAuthorizerResult:
         if provider_arns and not isinstance(provider_arns, list):
             raise TypeError("Expected argument 'provider_arns' to be a list")
         pulumi.set(__self__, "provider_arns", provider_arns)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if rest_api_id and not isinstance(rest_api_id, str):
             raise TypeError("Expected argument 'rest_api_id' to be a str")
         pulumi.set(__self__, "rest_api_id", rest_api_id)
@@ -143,6 +146,11 @@ class GetAuthorizerResult:
         return pulumi.get(self, "provider_arns")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> builtins.str:
         return pulumi.get(self, "rest_api_id")
@@ -172,11 +180,13 @@ class AwaitableGetAuthorizerResult(GetAuthorizerResult):
             identity_validation_expression=self.identity_validation_expression,
             name=self.name,
             provider_arns=self.provider_arns,
+            region=self.region,
             rest_api_id=self.rest_api_id,
             type=self.type)
 
 
 def get_authorizer(authorizer_id: Optional[builtins.str] = None,
+                   region: Optional[builtins.str] = None,
                    rest_api_id: Optional[builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizerResult:
     """
@@ -194,10 +204,12 @@ def get_authorizer(authorizer_id: Optional[builtins.str] = None,
 
 
     :param builtins.str authorizer_id: Authorizer identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str rest_api_id: ID of the associated REST API.
     """
     __args__ = dict()
     __args__['authorizerId'] = authorizer_id
+    __args__['region'] = region
     __args__['restApiId'] = rest_api_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getAuthorizer:getAuthorizer', __args__, opts=opts, typ=GetAuthorizerResult).value
@@ -213,9 +225,11 @@ def get_authorizer(authorizer_id: Optional[builtins.str] = None,
         identity_validation_expression=pulumi.get(__ret__, 'identity_validation_expression'),
         name=pulumi.get(__ret__, 'name'),
         provider_arns=pulumi.get(__ret__, 'provider_arns'),
+        region=pulumi.get(__ret__, 'region'),
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'),
         type=pulumi.get(__ret__, 'type'))
 def get_authorizer_output(authorizer_id: Optional[pulumi.Input[builtins.str]] = None,
+                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           rest_api_id: Optional[pulumi.Input[builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizerResult]:
     """
@@ -233,10 +247,12 @@ def get_authorizer_output(authorizer_id: Optional[pulumi.Input[builtins.str]] = 
 
 
     :param builtins.str authorizer_id: Authorizer identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str rest_api_id: ID of the associated REST API.
     """
     __args__ = dict()
     __args__['authorizerId'] = authorizer_id
+    __args__['region'] = region
     __args__['restApiId'] = rest_api_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getAuthorizer:getAuthorizer', __args__, opts=opts, typ=GetAuthorizerResult)
@@ -251,5 +267,6 @@ def get_authorizer_output(authorizer_id: Optional[pulumi.Input[builtins.str]] = 
         identity_validation_expression=pulumi.get(__response__, 'identity_validation_expression'),
         name=pulumi.get(__response__, 'name'),
         provider_arns=pulumi.get(__response__, 'provider_arns'),
+        region=pulumi.get(__response__, 'region'),
         rest_api_id=pulumi.get(__response__, 'rest_api_id'),
         type=pulumi.get(__response__, 'type')))

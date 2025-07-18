@@ -57,10 +57,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For example:
+ * Using `pulumi import`, import API Gateway Accounts using the account ID. For example:
  *
  * ```sh
- * $ pulumi import aws:apigateway/account:Account demo api-gateway-account
+ * $ pulumi import aws:apigateway/account:Account demo 123456789012
  * ```
  */
 export class Account extends pulumi.CustomResource {
@@ -104,13 +104,9 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly features!: pulumi.Output<string[]>;
     /**
-     * If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-     * Defaults to `false`.
-     * Will be removed in a future major version of the provider.
-     *
-     * @deprecated The "resetOnDelete" attribute will be removed in a future version of the provider
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly resetOnDelete!: pulumi.Output<boolean | undefined>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * Account-Level throttle settings. See exported fields below.
      */
@@ -132,12 +128,12 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["apiKeyVersion"] = state ? state.apiKeyVersion : undefined;
             resourceInputs["cloudwatchRoleArn"] = state ? state.cloudwatchRoleArn : undefined;
             resourceInputs["features"] = state ? state.features : undefined;
-            resourceInputs["resetOnDelete"] = state ? state.resetOnDelete : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["throttleSettings"] = state ? state.throttleSettings : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
             resourceInputs["cloudwatchRoleArn"] = args ? args.cloudwatchRoleArn : undefined;
-            resourceInputs["resetOnDelete"] = args ? args.resetOnDelete : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["apiKeyVersion"] = undefined /*out*/;
             resourceInputs["features"] = undefined /*out*/;
             resourceInputs["throttleSettings"] = undefined /*out*/;
@@ -164,13 +160,9 @@ export interface AccountState {
      */
     features?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-     * Defaults to `false`.
-     * Will be removed in a future major version of the provider.
-     *
-     * @deprecated The "resetOnDelete" attribute will be removed in a future version of the provider
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    resetOnDelete?: pulumi.Input<boolean>;
+    region?: pulumi.Input<string>;
     /**
      * Account-Level throttle settings. See exported fields below.
      */
@@ -186,11 +178,7 @@ export interface AccountArgs {
      */
     cloudwatchRoleArn?: pulumi.Input<string>;
     /**
-     * If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-     * Defaults to `false`.
-     * Will be removed in a future major version of the provider.
-     *
-     * @deprecated The "resetOnDelete" attribute will be removed in a future version of the provider
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    resetOnDelete?: pulumi.Input<boolean>;
+    region?: pulumi.Input<string>;
 }

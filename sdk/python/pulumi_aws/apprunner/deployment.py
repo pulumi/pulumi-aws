@@ -23,12 +23,16 @@ __all__ = ['DeploymentArgs', 'Deployment']
 class DeploymentArgs:
     def __init__(__self__, *,
                  service_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['DeploymentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Deployment resource.
         :param pulumi.Input[builtins.str] service_arn: The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "service_arn", service_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -46,6 +50,18 @@ class DeploymentArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['DeploymentTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -58,17 +74,21 @@ class DeploymentArgs:
 class _DeploymentState:
     def __init__(__self__, *,
                  operation_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_arn: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['DeploymentTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
         :param pulumi.Input[builtins.str] operation_id: The unique ID of the operation associated with deployment.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_arn: The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
         :param pulumi.Input[builtins.str] status: The current status of the App Runner service deployment.
         """
         if operation_id is not None:
             pulumi.set(__self__, "operation_id", operation_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if service_arn is not None:
             pulumi.set(__self__, "service_arn", service_arn)
         if status is not None:
@@ -87,6 +107,18 @@ class _DeploymentState:
     @operation_id.setter
     def operation_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "operation_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="serviceArn")
@@ -128,6 +160,7 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_arn: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -145,6 +178,7 @@ class Deployment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_arn: The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
         """
         ...
@@ -180,6 +214,7 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_arn: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -191,6 +226,7 @@ class Deployment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeploymentArgs.__new__(DeploymentArgs)
 
+            __props__.__dict__["region"] = region
             if service_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'service_arn'")
             __props__.__dict__["service_arn"] = service_arn
@@ -208,6 +244,7 @@ class Deployment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             operation_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             service_arn: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             timeouts: Optional[pulumi.Input[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict']]] = None) -> 'Deployment':
@@ -219,6 +256,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] operation_id: The unique ID of the operation associated with deployment.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_arn: The Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
         :param pulumi.Input[builtins.str] status: The current status of the App Runner service deployment.
         """
@@ -227,6 +265,7 @@ class Deployment(pulumi.CustomResource):
         __props__ = _DeploymentState.__new__(_DeploymentState)
 
         __props__.__dict__["operation_id"] = operation_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["service_arn"] = service_arn
         __props__.__dict__["status"] = status
         __props__.__dict__["timeouts"] = timeouts
@@ -239,6 +278,14 @@ class Deployment(pulumi.CustomResource):
         The unique ID of the operation associated with deployment.
         """
         return pulumi.get(self, "operation_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serviceArn")

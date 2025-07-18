@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Grafana
 
     public sealed class GetWorkspaceArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -119,6 +125,12 @@ namespace Pulumi.Aws.Grafana
 
     public sealed class GetWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -207,6 +219,7 @@ namespace Pulumi.Aws.Grafana
         /// Permission type of the workspace.
         /// </summary>
         public readonly string PermissionType;
+        public readonly string Region;
         /// <summary>
         /// IAM role ARN that the workspace assumes.
         /// </summary>
@@ -258,6 +271,8 @@ namespace Pulumi.Aws.Grafana
 
             string permissionType,
 
+            string region,
+
             string roleArn,
 
             string samlConfigurationStatus,
@@ -285,6 +300,7 @@ namespace Pulumi.Aws.Grafana
             OrganizationRoleName = organizationRoleName;
             OrganizationalUnits = organizationalUnits;
             PermissionType = permissionType;
+            Region = region;
             RoleArn = roleArn;
             SamlConfigurationStatus = samlConfigurationStatus;
             StackSetName = stackSetName;

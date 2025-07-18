@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,14 +23,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -43,7 +43,7 @@ import (
 //				return err
 //			}
 //			_, err = ssoadmin.NewApplicationAccessScope(ctx, "example", &ssoadmin.ApplicationAccessScopeArgs{
-//				ApplicationArn: exampleApplication.ApplicationArn,
+//				ApplicationArn: exampleApplication.Arn,
 //				AuthorizedTargets: pulumi.StringArray{
 //					pulumi.String("arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012"),
 //				},
@@ -72,6 +72,8 @@ type ApplicationAccessScope struct {
 	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
 	// Specifies an array list of ARNs that represent the authorized targets for this access scope.
 	AuthorizedTargets pulumi.StringArrayOutput `pulumi:"authorizedTargets"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the name of the access scope to be associated with the specified targets.
 	//
 	// The following arguments are optional:
@@ -118,6 +120,8 @@ type applicationAccessScopeState struct {
 	ApplicationArn *string `pulumi:"applicationArn"`
 	// Specifies an array list of ARNs that represent the authorized targets for this access scope.
 	AuthorizedTargets []string `pulumi:"authorizedTargets"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the name of the access scope to be associated with the specified targets.
 	//
 	// The following arguments are optional:
@@ -129,6 +133,8 @@ type ApplicationAccessScopeState struct {
 	ApplicationArn pulumi.StringPtrInput
 	// Specifies an array list of ARNs that represent the authorized targets for this access scope.
 	AuthorizedTargets pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the name of the access scope to be associated with the specified targets.
 	//
 	// The following arguments are optional:
@@ -144,6 +150,8 @@ type applicationAccessScopeArgs struct {
 	ApplicationArn string `pulumi:"applicationArn"`
 	// Specifies an array list of ARNs that represent the authorized targets for this access scope.
 	AuthorizedTargets []string `pulumi:"authorizedTargets"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the name of the access scope to be associated with the specified targets.
 	//
 	// The following arguments are optional:
@@ -156,6 +164,8 @@ type ApplicationAccessScopeArgs struct {
 	ApplicationArn pulumi.StringInput
 	// Specifies an array list of ARNs that represent the authorized targets for this access scope.
 	AuthorizedTargets pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the name of the access scope to be associated with the specified targets.
 	//
 	// The following arguments are optional:
@@ -257,6 +267,11 @@ func (o ApplicationAccessScopeOutput) ApplicationArn() pulumi.StringOutput {
 // Specifies an array list of ARNs that represent the authorized targets for this access scope.
 func (o ApplicationAccessScopeOutput) AuthorizedTargets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApplicationAccessScope) pulumi.StringArrayOutput { return v.AuthorizedTargets }).(pulumi.StringArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ApplicationAccessScopeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationAccessScope) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the access scope to be associated with the specified targets.

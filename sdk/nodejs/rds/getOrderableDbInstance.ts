@@ -60,6 +60,7 @@ export function getOrderableDbInstance(args: GetOrderableDbInstanceArgs, opts?: 
         "preferredEngineVersions": args.preferredEngineVersions,
         "preferredInstanceClasses": args.preferredInstanceClasses,
         "readReplicaCapable": args.readReplicaCapable,
+        "region": args.region,
         "storageType": args.storageType,
         "supportedEngineModes": args.supportedEngineModes,
         "supportedNetworkTypes": args.supportedNetworkTypes,
@@ -117,6 +118,10 @@ export interface GetOrderableDbInstanceArgs {
      * Whether a DB instance can have a read replica.
      */
     readReplicaCapable?: boolean;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
      */
@@ -228,6 +233,7 @@ export interface GetOrderableDbInstanceResult {
     readonly preferredEngineVersions?: string[];
     readonly preferredInstanceClasses?: string[];
     readonly readReplicaCapable: boolean;
+    readonly region: string;
     readonly storageType: string;
     readonly supportedEngineModes: string[];
     readonly supportedNetworkTypes: string[];
@@ -299,6 +305,7 @@ export function getOrderableDbInstanceOutput(args: GetOrderableDbInstanceOutputA
         "preferredEngineVersions": args.preferredEngineVersions,
         "preferredInstanceClasses": args.preferredInstanceClasses,
         "readReplicaCapable": args.readReplicaCapable,
+        "region": args.region,
         "storageType": args.storageType,
         "supportedEngineModes": args.supportedEngineModes,
         "supportedNetworkTypes": args.supportedNetworkTypes,
@@ -356,6 +363,10 @@ export interface GetOrderableDbInstanceOutputArgs {
      * Whether a DB instance can have a read replica.
      */
     readReplicaCapable?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
      */

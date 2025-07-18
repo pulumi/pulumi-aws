@@ -12,9 +12,13 @@ namespace Pulumi.Aws.Lambda
     public static class GetFunction
     {
         /// <summary>
-        /// Provides information about a Lambda Function.
+        /// Provides details about an AWS Lambda Function. Use this data source to obtain information about an existing Lambda function for use in other resources or as a reference for function configurations.
+        /// 
+        /// &gt; **Note:** This data source returns information about the latest version or alias specified by the `qualifier`. If no `qualifier` is provided, it returns information about the most recent published version, or `$LATEST` if no published version exists.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -24,13 +28,127 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var config = new Config();
-        ///     var functionName = config.Require("functionName");
-        ///     var existing = Aws.Lambda.GetFunction.Invoke(new()
+        ///     var example = Aws.Lambda.GetFunction.Invoke(new()
         ///     {
-        ///         FunctionName = functionName,
+        ///         FunctionName = "my-lambda-function",
         ///     });
         /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["functionArn"] = example.Apply(getFunctionResult =&gt; getFunctionResult.Arn),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Using Function Alias
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Lambda.GetFunction.Invoke(new()
+        ///     {
+        ///         FunctionName = "api-handler",
+        ///         Qualifier = "production",
+        ///     });
+        /// 
+        ///     // Use in API Gateway integration
+        ///     var exampleIntegration = new Aws.ApiGateway.Integration("example", new()
+        ///     {
+        ///         RestApi = exampleAwsApiGatewayRestApi.Id,
+        ///         ResourceId = exampleAwsApiGatewayResource.Id,
+        ///         HttpMethod = exampleAwsApiGatewayMethod.HttpMethod,
+        ///         IntegrationHttpMethod = "POST",
+        ///         Type = "AWS_PROXY",
+        ///         Uri = example.Apply(getFunctionResult =&gt; getFunctionResult.InvokeArn),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Function Configuration Reference
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get existing function details
+        ///     var reference = Aws.Lambda.GetFunction.Invoke(new()
+        ///     {
+        ///         FunctionName = "existing-function",
+        ///     });
+        /// 
+        ///     // Create new function with similar configuration
+        ///     var example = new Aws.Lambda.Function("example", new()
+        ///     {
+        ///         Code = new FileArchive("new-function.zip"),
+        ///         Name = "new-function",
+        ///         Role = reference.Apply(getFunctionResult =&gt; getFunctionResult.Role),
+        ///         Handler = reference.Apply(getFunctionResult =&gt; getFunctionResult.Handler),
+        ///         Runtime = reference.Apply(getFunctionResult =&gt; getFunctionResult.Runtime).Apply(System.Enum.Parse&lt;Aws.Lambda.Runtime&gt;),
+        ///         MemorySize = reference.Apply(getFunctionResult =&gt; getFunctionResult.MemorySize),
+        ///         Timeout = reference.Apply(getFunctionResult =&gt; getFunctionResult.Timeout),
+        ///         Architectures = reference.Apply(getFunctionResult =&gt; getFunctionResult.Architectures),
+        ///         VpcConfig = new Aws.Lambda.Inputs.FunctionVpcConfigArgs
+        ///         {
+        ///             SubnetIds = reference.Apply(getFunctionResult =&gt; getFunctionResult.VpcConfig?.SubnetIds),
+        ///             SecurityGroupIds = reference.Apply(getFunctionResult =&gt; getFunctionResult.VpcConfig?.SecurityGroupIds),
+        ///         },
+        ///         Environment = new Aws.Lambda.Inputs.FunctionEnvironmentArgs
+        ///         {
+        ///             Variables = reference.Apply(getFunctionResult =&gt; getFunctionResult.Environment?.Variables),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Function Version Management
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get details about specific version
+        ///     var version = Aws.Lambda.GetFunction.Invoke(new()
+        ///     {
+        ///         FunctionName = "my-function",
+        ///         Qualifier = "3",
+        ///     });
+        /// 
+        ///     // Get details about latest version
+        ///     var latest = Aws.Lambda.GetFunction.Invoke(new()
+        ///     {
+        ///         FunctionName = "my-function",
+        ///         Qualifier = "$LATEST",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["versionComparison"] = 
+        ///         {
+        ///             { "specificVersion", version.Apply(getFunctionResult =&gt; getFunctionResult.Version) },
+        ///             { "latestVersion", latest.Apply(getFunctionResult =&gt; getFunctionResult.Version) },
+        ///             { "codeDifference", Output.Tuple(version, latest).Apply(values =&gt;
+        ///             {
+        ///                 var version = values.Item1;
+        ///                 var latest = values.Item2;
+        ///                 return version.Apply(getFunctionResult =&gt; getFunctionResult.CodeSha256) != latest.Apply(getFunctionResult =&gt; getFunctionResult.CodeSha256);
+        ///             }) },
+        ///         },
+        ///     };
         /// });
         /// ```
         /// </summary>
@@ -38,9 +156,13 @@ namespace Pulumi.Aws.Lambda
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("aws:lambda/getFunction:getFunction", args ?? new GetFunctionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides information about a Lambda Function.
+        /// Provides details about an AWS Lambda Function. Use this data source to obtain information about an existing Lambda function for use in other resources or as a reference for function configurations.
+        /// 
+        /// &gt; **Note:** This data source returns information about the latest version or alias specified by the `qualifier`. If no `qualifier` is provided, it returns information about the most recent published version, or `$LATEST` if no published version exists.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -50,13 +172,127 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var config = new Config();
-        ///     var functionName = config.Require("functionName");
-        ///     var existing = Aws.Lambda.GetFunction.Invoke(new()
+        ///     var example = Aws.Lambda.GetFunction.Invoke(new()
         ///     {
-        ///         FunctionName = functionName,
+        ///         FunctionName = "my-lambda-function",
         ///     });
         /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["functionArn"] = example.Apply(getFunctionResult =&gt; getFunctionResult.Arn),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Using Function Alias
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Lambda.GetFunction.Invoke(new()
+        ///     {
+        ///         FunctionName = "api-handler",
+        ///         Qualifier = "production",
+        ///     });
+        /// 
+        ///     // Use in API Gateway integration
+        ///     var exampleIntegration = new Aws.ApiGateway.Integration("example", new()
+        ///     {
+        ///         RestApi = exampleAwsApiGatewayRestApi.Id,
+        ///         ResourceId = exampleAwsApiGatewayResource.Id,
+        ///         HttpMethod = exampleAwsApiGatewayMethod.HttpMethod,
+        ///         IntegrationHttpMethod = "POST",
+        ///         Type = "AWS_PROXY",
+        ///         Uri = example.Apply(getFunctionResult =&gt; getFunctionResult.InvokeArn),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Function Configuration Reference
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get existing function details
+        ///     var reference = Aws.Lambda.GetFunction.Invoke(new()
+        ///     {
+        ///         FunctionName = "existing-function",
+        ///     });
+        /// 
+        ///     // Create new function with similar configuration
+        ///     var example = new Aws.Lambda.Function("example", new()
+        ///     {
+        ///         Code = new FileArchive("new-function.zip"),
+        ///         Name = "new-function",
+        ///         Role = reference.Apply(getFunctionResult =&gt; getFunctionResult.Role),
+        ///         Handler = reference.Apply(getFunctionResult =&gt; getFunctionResult.Handler),
+        ///         Runtime = reference.Apply(getFunctionResult =&gt; getFunctionResult.Runtime).Apply(System.Enum.Parse&lt;Aws.Lambda.Runtime&gt;),
+        ///         MemorySize = reference.Apply(getFunctionResult =&gt; getFunctionResult.MemorySize),
+        ///         Timeout = reference.Apply(getFunctionResult =&gt; getFunctionResult.Timeout),
+        ///         Architectures = reference.Apply(getFunctionResult =&gt; getFunctionResult.Architectures),
+        ///         VpcConfig = new Aws.Lambda.Inputs.FunctionVpcConfigArgs
+        ///         {
+        ///             SubnetIds = reference.Apply(getFunctionResult =&gt; getFunctionResult.VpcConfig?.SubnetIds),
+        ///             SecurityGroupIds = reference.Apply(getFunctionResult =&gt; getFunctionResult.VpcConfig?.SecurityGroupIds),
+        ///         },
+        ///         Environment = new Aws.Lambda.Inputs.FunctionEnvironmentArgs
+        ///         {
+        ///             Variables = reference.Apply(getFunctionResult =&gt; getFunctionResult.Environment?.Variables),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Function Version Management
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get details about specific version
+        ///     var version = Aws.Lambda.GetFunction.Invoke(new()
+        ///     {
+        ///         FunctionName = "my-function",
+        ///         Qualifier = "3",
+        ///     });
+        /// 
+        ///     // Get details about latest version
+        ///     var latest = Aws.Lambda.GetFunction.Invoke(new()
+        ///     {
+        ///         FunctionName = "my-function",
+        ///         Qualifier = "$LATEST",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["versionComparison"] = 
+        ///         {
+        ///             { "specificVersion", version.Apply(getFunctionResult =&gt; getFunctionResult.Version) },
+        ///             { "latestVersion", latest.Apply(getFunctionResult =&gt; getFunctionResult.Version) },
+        ///             { "codeDifference", Output.Tuple(version, latest).Apply(values =&gt;
+        ///             {
+        ///                 var version = values.Item1;
+        ///                 var latest = values.Item2;
+        ///                 return version.Apply(getFunctionResult =&gt; getFunctionResult.CodeSha256) != latest.Apply(getFunctionResult =&gt; getFunctionResult.CodeSha256);
+        ///             }) },
+        ///         },
+        ///     };
         /// });
         /// ```
         /// </summary>
@@ -64,9 +300,13 @@ namespace Pulumi.Aws.Lambda
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionResult>("aws:lambda/getFunction:getFunction", args ?? new GetFunctionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides information about a Lambda Function.
+        /// Provides details about an AWS Lambda Function. Use this data source to obtain information about an existing Lambda function for use in other resources or as a reference for function configurations.
+        /// 
+        /// &gt; **Note:** This data source returns information about the latest version or alias specified by the `qualifier`. If no `qualifier` is provided, it returns information about the most recent published version, or `$LATEST` if no published version exists.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -76,13 +316,127 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var config = new Config();
-        ///     var functionName = config.Require("functionName");
-        ///     var existing = Aws.Lambda.GetFunction.Invoke(new()
+        ///     var example = Aws.Lambda.GetFunction.Invoke(new()
         ///     {
-        ///         FunctionName = functionName,
+        ///         FunctionName = "my-lambda-function",
         ///     });
         /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["functionArn"] = example.Apply(getFunctionResult =&gt; getFunctionResult.Arn),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Using Function Alias
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Lambda.GetFunction.Invoke(new()
+        ///     {
+        ///         FunctionName = "api-handler",
+        ///         Qualifier = "production",
+        ///     });
+        /// 
+        ///     // Use in API Gateway integration
+        ///     var exampleIntegration = new Aws.ApiGateway.Integration("example", new()
+        ///     {
+        ///         RestApi = exampleAwsApiGatewayRestApi.Id,
+        ///         ResourceId = exampleAwsApiGatewayResource.Id,
+        ///         HttpMethod = exampleAwsApiGatewayMethod.HttpMethod,
+        ///         IntegrationHttpMethod = "POST",
+        ///         Type = "AWS_PROXY",
+        ///         Uri = example.Apply(getFunctionResult =&gt; getFunctionResult.InvokeArn),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Function Configuration Reference
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get existing function details
+        ///     var reference = Aws.Lambda.GetFunction.Invoke(new()
+        ///     {
+        ///         FunctionName = "existing-function",
+        ///     });
+        /// 
+        ///     // Create new function with similar configuration
+        ///     var example = new Aws.Lambda.Function("example", new()
+        ///     {
+        ///         Code = new FileArchive("new-function.zip"),
+        ///         Name = "new-function",
+        ///         Role = reference.Apply(getFunctionResult =&gt; getFunctionResult.Role),
+        ///         Handler = reference.Apply(getFunctionResult =&gt; getFunctionResult.Handler),
+        ///         Runtime = reference.Apply(getFunctionResult =&gt; getFunctionResult.Runtime).Apply(System.Enum.Parse&lt;Aws.Lambda.Runtime&gt;),
+        ///         MemorySize = reference.Apply(getFunctionResult =&gt; getFunctionResult.MemorySize),
+        ///         Timeout = reference.Apply(getFunctionResult =&gt; getFunctionResult.Timeout),
+        ///         Architectures = reference.Apply(getFunctionResult =&gt; getFunctionResult.Architectures),
+        ///         VpcConfig = new Aws.Lambda.Inputs.FunctionVpcConfigArgs
+        ///         {
+        ///             SubnetIds = reference.Apply(getFunctionResult =&gt; getFunctionResult.VpcConfig?.SubnetIds),
+        ///             SecurityGroupIds = reference.Apply(getFunctionResult =&gt; getFunctionResult.VpcConfig?.SecurityGroupIds),
+        ///         },
+        ///         Environment = new Aws.Lambda.Inputs.FunctionEnvironmentArgs
+        ///         {
+        ///             Variables = reference.Apply(getFunctionResult =&gt; getFunctionResult.Environment?.Variables),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Function Version Management
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get details about specific version
+        ///     var version = Aws.Lambda.GetFunction.Invoke(new()
+        ///     {
+        ///         FunctionName = "my-function",
+        ///         Qualifier = "3",
+        ///     });
+        /// 
+        ///     // Get details about latest version
+        ///     var latest = Aws.Lambda.GetFunction.Invoke(new()
+        ///     {
+        ///         FunctionName = "my-function",
+        ///         Qualifier = "$LATEST",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["versionComparison"] = 
+        ///         {
+        ///             { "specificVersion", version.Apply(getFunctionResult =&gt; getFunctionResult.Version) },
+        ///             { "latestVersion", latest.Apply(getFunctionResult =&gt; getFunctionResult.Version) },
+        ///             { "codeDifference", Output.Tuple(version, latest).Apply(values =&gt;
+        ///             {
+        ///                 var version = values.Item1;
+        ///                 var latest = values.Item2;
+        ///                 return version.Apply(getFunctionResult =&gt; getFunctionResult.CodeSha256) != latest.Apply(getFunctionResult =&gt; getFunctionResult.CodeSha256);
+        ///             }) },
+        ///         },
+        ///     };
         /// });
         /// ```
         /// </summary>
@@ -94,19 +448,31 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetFunctionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the lambda function.
+        /// Name of the Lambda function.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("functionName", required: true)]
         public string FunctionName { get; set; } = null!;
 
         /// <summary>
-        /// Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
+        /// Alias name or version number of the Lambda function. E.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
         /// </summary>
         [Input("qualifier")]
         public string? Qualifier { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// Map of tags assigned to the Lambda Function.
+        /// </summary>
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
@@ -122,19 +488,31 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetFunctionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the lambda function.
+        /// Name of the Lambda function.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
 
         /// <summary>
-        /// Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
+        /// Alias name or version number of the Lambda function. E.g., `$LATEST`, `my-alias`, or `1`. When not included: the data source resolves to the most recent published version; if no published version exists: it resolves to the most recent unpublished version.
         /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags assigned to the Lambda Function.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -156,7 +534,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly ImmutableArray<string> Architectures;
         /// <summary>
-        /// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualified_arn`.
+        /// ARN of the Amazon EFS Access Point that provides access to the file system.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -168,7 +546,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string CodeSigningConfigArn;
         /// <summary>
-        /// Configure the function's *dead letter queue*.
+        /// Configuration for the function's dead letter queue. See below.
         /// </summary>
         public readonly Outputs.GetFunctionDeadLetterConfigResult DeadLetterConfig;
         /// <summary>
@@ -176,15 +554,15 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// Lambda environment's configuration settings.
+        /// Lambda environment's configuration settings. See below.
         /// </summary>
         public readonly Outputs.GetFunctionEnvironmentResult Environment;
         /// <summary>
-        /// Amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
+        /// Amount of ephemeral storage (`/tmp`) allocated for the Lambda Function. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionEphemeralStorageResult> EphemeralStorages;
         /// <summary>
-        /// Connection settings for an Amazon EFS file system.
+        /// Connection settings for an Amazon EFS file system. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionFileSystemConfigResult> FileSystemConfigs;
         public readonly string FunctionName;
@@ -201,7 +579,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string ImageUri;
         /// <summary>
-        /// ARN to be used for invoking Lambda Function from API Gateway. **NOTE:** Starting with `v4.51.0` of the provider, this will *not* include the qualifier.
+        /// ARN to be used for invoking Lambda Function from API Gateway. **Note:** Starting with `v4.51.0` of the provider, this will not include the qualifier.
         /// </summary>
         public readonly string InvokeArn;
         /// <summary>
@@ -217,7 +595,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly ImmutableArray<string> Layers;
         /// <summary>
-        /// Advanced logging settings.
+        /// Advanced logging settings. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionLoggingConfigResult> LoggingConfigs;
         /// <summary>
@@ -233,8 +611,9 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string QualifiedInvokeArn;
         public readonly string? Qualifier;
+        public readonly string Region;
         /// <summary>
-        /// The amount of reserved concurrent executions for this lambda function or `-1` if unreserved.
+        /// Amount of reserved concurrent executions for this Lambda function or `-1` if unreserved.
         /// </summary>
         public readonly int ReservedConcurrentExecutions;
         /// <summary>
@@ -250,7 +629,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string SigningJobArn;
         /// <summary>
-        /// The ARN for a signing profile version.
+        /// ARN for a signing profile version.
         /// </summary>
         public readonly string SigningProfileVersionArn;
         /// <summary>
@@ -261,21 +640,24 @@ namespace Pulumi.Aws.Lambda
         /// Size in bytes of the function .zip file.
         /// </summary>
         public readonly int SourceCodeSize;
+        /// <summary>
+        /// Map of tags assigned to the Lambda Function.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// Function execution time at which Lambda should terminate the function.
         /// </summary>
         public readonly int Timeout;
         /// <summary>
-        /// Tracing settings of the function.
+        /// Tracing settings of the function. See below.
         /// </summary>
         public readonly Outputs.GetFunctionTracingConfigResult TracingConfig;
         /// <summary>
-        /// The version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
+        /// Version of the Lambda function returned. If `qualifier` is not set, this will resolve to the most recent published version. If no published version of the function exists, `version` will resolve to `$LATEST`.
         /// </summary>
         public readonly string Version;
         /// <summary>
-        /// VPC configuration associated with your Lambda function.
+        /// VPC configuration associated with your Lambda function. See below.
         /// </summary>
         public readonly Outputs.GetFunctionVpcConfigResult VpcConfig;
 
@@ -325,6 +707,8 @@ namespace Pulumi.Aws.Lambda
 
             string? qualifier,
 
+            string region,
+
             int reservedConcurrentExecutions,
 
             string role,
@@ -371,6 +755,7 @@ namespace Pulumi.Aws.Lambda
             QualifiedArn = qualifiedArn;
             QualifiedInvokeArn = qualifiedInvokeArn;
             Qualifier = qualifier;
+            Region = region;
             ReservedConcurrentExecutions = reservedConcurrentExecutions;
             Role = role;
             Runtime = runtime;

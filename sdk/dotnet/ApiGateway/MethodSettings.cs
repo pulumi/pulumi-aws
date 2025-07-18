@@ -138,6 +138,12 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> MethodPath { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ID of the REST API
         /// </summary>
         [Output("restApi")]
@@ -208,6 +214,12 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string> MethodPath { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ID of the REST API
         /// </summary>
         [Input("restApi", required: true)]
@@ -238,6 +250,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("methodPath")]
         public Input<string>? MethodPath { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ID of the REST API

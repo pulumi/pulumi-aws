@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 type LookupServiceArgs struct {
 	// ARN of the ECS Cluster
 	ClusterArn string `pulumi:"clusterArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the ECS Service
 	ServiceName string `pulumi:"serviceName"`
 	// Resource tags.
@@ -72,6 +74,7 @@ type LookupServiceResult struct {
 	Id string `pulumi:"id"`
 	// Launch type for the ECS Service
 	LaunchType string `pulumi:"launchType"`
+	Region     string `pulumi:"region"`
 	// Scheduling strategy for the ECS Service
 	SchedulingStrategy string `pulumi:"schedulingStrategy"`
 	ServiceName        string `pulumi:"serviceName"`
@@ -94,6 +97,8 @@ func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts
 type LookupServiceOutputArgs struct {
 	// ARN of the ECS Cluster
 	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Name of the ECS Service
 	ServiceName pulumi.StringInput `pulumi:"serviceName"`
 	// Resource tags.
@@ -145,6 +150,10 @@ func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
 // Launch type for the ECS Service
 func (o LookupServiceResultOutput) LaunchType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.LaunchType }).(pulumi.StringOutput)
+}
+
+func (o LookupServiceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Scheduling strategy for the ECS Service

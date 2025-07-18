@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupRepositoryCreationTemplate(ctx *pulumi.Context, args *LookupRepositor
 type LookupRepositoryCreationTemplateArgs struct {
 	// The repository name prefix that the template matches against.
 	Prefix string `pulumi:"prefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to any created repositories.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 }
@@ -73,6 +75,7 @@ type LookupRepositoryCreationTemplateResult struct {
 	// The lifecycle policy document to apply to any created repositories.
 	LifecyclePolicy string `pulumi:"lifecyclePolicy"`
 	Prefix          string `pulumi:"prefix"`
+	Region          string `pulumi:"region"`
 	// The registry ID the repository creation template applies to.
 	RegistryId string `pulumi:"registryId"`
 	// The registry policy document to apply to any created repositories.
@@ -94,6 +97,8 @@ func LookupRepositoryCreationTemplateOutput(ctx *pulumi.Context, args LookupRepo
 type LookupRepositoryCreationTemplateOutputArgs struct {
 	// The repository name prefix that the template matches against.
 	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags to assign to any created repositories.
 	ResourceTags pulumi.StringMapInput `pulumi:"resourceTags"`
 }
@@ -156,6 +161,10 @@ func (o LookupRepositoryCreationTemplateResultOutput) LifecyclePolicy() pulumi.S
 
 func (o LookupRepositoryCreationTemplateResultOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+func (o LookupRepositoryCreationTemplateResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryCreationTemplateResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The registry ID the repository creation template applies to.

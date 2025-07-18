@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,6 +89,8 @@ type LogDestinationPolicy struct {
 	DestinationName pulumi.StringOutput `pulumi:"destinationName"`
 	// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
 	ForceUpdate pulumi.BoolPtrOutput `pulumi:"forceUpdate"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLogDestinationPolicy registers a new resource with the given unique name, arguments, and options.
@@ -133,6 +135,8 @@ type logDestinationPolicyState struct {
 	DestinationName *string `pulumi:"destinationName"`
 	// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
 	ForceUpdate *bool `pulumi:"forceUpdate"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LogDestinationPolicyState struct {
@@ -142,6 +146,8 @@ type LogDestinationPolicyState struct {
 	DestinationName pulumi.StringPtrInput
 	// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
 	ForceUpdate pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LogDestinationPolicyState) ElementType() reflect.Type {
@@ -155,6 +161,8 @@ type logDestinationPolicyArgs struct {
 	DestinationName string `pulumi:"destinationName"`
 	// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
 	ForceUpdate *bool `pulumi:"forceUpdate"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LogDestinationPolicy resource.
@@ -165,6 +173,8 @@ type LogDestinationPolicyArgs struct {
 	DestinationName pulumi.StringInput
 	// Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
 	ForceUpdate pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LogDestinationPolicyArgs) ElementType() reflect.Type {
@@ -267,6 +277,11 @@ func (o LogDestinationPolicyOutput) DestinationName() pulumi.StringOutput {
 // Specify true if you are updating an existing destination policy to grant permission to an organization ID instead of granting permission to individual AWS accounts.
 func (o LogDestinationPolicyOutput) ForceUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LogDestinationPolicy) pulumi.BoolPtrOutput { return v.ForceUpdate }).(pulumi.BoolPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LogDestinationPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogDestinationPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LogDestinationPolicyArrayOutput struct{ *pulumi.OutputState }

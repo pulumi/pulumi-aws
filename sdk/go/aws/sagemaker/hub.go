@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,13 +63,13 @@ type Hub struct {
 	HubName pulumi.StringOutput `pulumi:"hubName"`
 	// The searchable keywords for the hub.
 	HubSearchKeywords pulumi.StringArrayOutput `pulumi:"hubSearchKeywords"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
 	S3StorageConfig HubS3StorageConfigPtrOutput `pulumi:"s3StorageConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -119,13 +119,13 @@ type hubState struct {
 	HubName *string `pulumi:"hubName"`
 	// The searchable keywords for the hub.
 	HubSearchKeywords []string `pulumi:"hubSearchKeywords"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
 	S3StorageConfig *HubS3StorageConfig `pulumi:"s3StorageConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -140,13 +140,13 @@ type HubState struct {
 	HubName pulumi.StringPtrInput
 	// The searchable keywords for the hub.
 	HubSearchKeywords pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
 	S3StorageConfig HubS3StorageConfigPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -163,6 +163,8 @@ type hubArgs struct {
 	HubName string `pulumi:"hubName"`
 	// The searchable keywords for the hub.
 	HubSearchKeywords []string `pulumi:"hubSearchKeywords"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
 	S3StorageConfig *HubS3StorageConfig `pulumi:"s3StorageConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -179,6 +181,8 @@ type HubArgs struct {
 	HubName pulumi.StringInput
 	// The searchable keywords for the hub.
 	HubSearchKeywords pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
 	S3StorageConfig HubS3StorageConfigPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -297,6 +301,11 @@ func (o HubOutput) HubSearchKeywords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringArrayOutput { return v.HubSearchKeywords }).(pulumi.StringArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o HubOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The Amazon S3 storage configuration for the hub. See S3 Storage Config details below.
 func (o HubOutput) S3StorageConfig() HubS3StorageConfigPtrOutput {
 	return o.ApplyT(func(v *Hub) HubS3StorageConfigPtrOutput { return v.S3StorageConfig }).(HubS3StorageConfigPtrOutput)
@@ -308,8 +317,6 @@ func (o HubOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o HubOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

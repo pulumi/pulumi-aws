@@ -99,6 +99,12 @@ namespace Pulumi.Aws.Sfn
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetStateMachineArgs()
         {
         }
@@ -112,6 +118,12 @@ namespace Pulumi.Aws.Sfn
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetStateMachineInvokeArgs()
         {
@@ -141,6 +153,7 @@ namespace Pulumi.Aws.Sfn
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// The revision identifier for the state machine.
         /// </summary>
@@ -168,6 +181,8 @@ namespace Pulumi.Aws.Sfn
 
             string name,
 
+            string region,
+
             string revisionId,
 
             string roleArn,
@@ -180,6 +195,7 @@ namespace Pulumi.Aws.Sfn
             Description = description;
             Id = id;
             Name = name;
+            Region = region;
             RevisionId = revisionId;
             RoleArn = roleArn;
             Status = status;

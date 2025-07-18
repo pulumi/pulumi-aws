@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,7 +28,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,9 +88,9 @@ type DefaultSubnet struct {
 	OutpostArn                     pulumi.StringOutput    `pulumi:"outpostArn"`
 	OwnerId                        pulumi.StringOutput    `pulumi:"ownerId"`
 	PrivateDnsHostnameTypeOnLaunch pulumi.StringOutput    `pulumi:"privateDnsHostnameTypeOnLaunch"`
+	Region                         pulumi.StringOutput    `pulumi:"region"`
 	Tags                           pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll                        pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the VPC the subnet is in
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -156,9 +156,9 @@ type defaultSubnetState struct {
 	OutpostArn                     *string           `pulumi:"outpostArn"`
 	OwnerId                        *string           `pulumi:"ownerId"`
 	PrivateDnsHostnameTypeOnLaunch *string           `pulumi:"privateDnsHostnameTypeOnLaunch"`
+	Region                         *string           `pulumi:"region"`
 	Tags                           map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll                        map[string]string `pulumi:"tagsAll"`
 	// The ID of the VPC the subnet is in
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -192,9 +192,9 @@ type DefaultSubnetState struct {
 	OutpostArn                     pulumi.StringPtrInput
 	OwnerId                        pulumi.StringPtrInput
 	PrivateDnsHostnameTypeOnLaunch pulumi.StringPtrInput
+	Region                         pulumi.StringPtrInput
 	Tags                           pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
+	TagsAll                        pulumi.StringMapInput
 	// The ID of the VPC the subnet is in
 	VpcId pulumi.StringPtrInput
 }
@@ -222,6 +222,7 @@ type defaultSubnetArgs struct {
 	MapCustomerOwnedIpOnLaunch     *bool             `pulumi:"mapCustomerOwnedIpOnLaunch"`
 	MapPublicIpOnLaunch            *bool             `pulumi:"mapPublicIpOnLaunch"`
 	PrivateDnsHostnameTypeOnLaunch *string           `pulumi:"privateDnsHostnameTypeOnLaunch"`
+	Region                         *string           `pulumi:"region"`
 	Tags                           map[string]string `pulumi:"tags"`
 }
 
@@ -245,6 +246,7 @@ type DefaultSubnetArgs struct {
 	MapCustomerOwnedIpOnLaunch     pulumi.BoolPtrInput
 	MapPublicIpOnLaunch            pulumi.BoolPtrInput
 	PrivateDnsHostnameTypeOnLaunch pulumi.StringPtrInput
+	Region                         pulumi.StringPtrInput
 	Tags                           pulumi.StringMapInput
 }
 
@@ -423,11 +425,14 @@ func (o DefaultSubnetOutput) PrivateDnsHostnameTypeOnLaunch() pulumi.StringOutpu
 	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringOutput { return v.PrivateDnsHostnameTypeOnLaunch }).(pulumi.StringOutput)
 }
 
+func (o DefaultSubnetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 func (o DefaultSubnetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o DefaultSubnetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DefaultSubnet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

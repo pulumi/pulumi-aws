@@ -22,6 +22,7 @@ export function getRateBasedMod(args: GetRateBasedModArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafregional/getRateBasedMod:getRateBasedMod", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -33,6 +34,10 @@ export interface GetRateBasedModArgs {
      * Name of the WAF Regional rate based rule.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -44,6 +49,7 @@ export interface GetRateBasedModResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
 }
 /**
  * `aws.wafregional.RateBasedRule` Retrieves a WAF Regional Rate Based Rule Resource Id.
@@ -63,6 +69,7 @@ export function getRateBasedModOutput(args: GetRateBasedModOutputArgs, opts?: pu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:wafregional/getRateBasedMod:getRateBasedMod", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -74,4 +81,8 @@ export interface GetRateBasedModOutputArgs {
      * Name of the WAF Regional rate based rule.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

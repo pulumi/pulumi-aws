@@ -23,6 +23,7 @@ class MulticastDomainArgs:
                  transit_gateway_id: pulumi.Input[builtins.str],
                  auto_accept_shared_associations: Optional[pulumi.Input[builtins.str]] = None,
                  igmpv2_support: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  static_sources_support: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -30,6 +31,7 @@ class MulticastDomainArgs:
         :param pulumi.Input[builtins.str] transit_gateway_id: EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
         :param pulumi.Input[builtins.str] auto_accept_shared_associations: Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[builtins.str] igmpv2_support: Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] static_sources_support: Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -38,6 +40,8 @@ class MulticastDomainArgs:
             pulumi.set(__self__, "auto_accept_shared_associations", auto_accept_shared_associations)
         if igmpv2_support is not None:
             pulumi.set(__self__, "igmpv2_support", igmpv2_support)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if static_sources_support is not None:
             pulumi.set(__self__, "static_sources_support", static_sources_support)
         if tags is not None:
@@ -80,6 +84,18 @@ class MulticastDomainArgs:
         pulumi.set(self, "igmpv2_support", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="staticSourcesSupport")
     def static_sources_support(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -111,6 +127,7 @@ class _MulticastDomainState:
                  auto_accept_shared_associations: Optional[pulumi.Input[builtins.str]] = None,
                  igmpv2_support: Optional[pulumi.Input[builtins.str]] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  static_sources_support: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -121,6 +138,7 @@ class _MulticastDomainState:
         :param pulumi.Input[builtins.str] auto_accept_shared_associations: Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[builtins.str] igmpv2_support: Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[builtins.str] owner_id: Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] static_sources_support: Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -134,13 +152,12 @@ class _MulticastDomainState:
             pulumi.set(__self__, "igmpv2_support", igmpv2_support)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if static_sources_support is not None:
             pulumi.set(__self__, "static_sources_support", static_sources_support)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if transit_gateway_id is not None:
@@ -195,6 +212,18 @@ class _MulticastDomainState:
         pulumi.set(self, "owner_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="staticSourcesSupport")
     def static_sources_support(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -220,7 +249,6 @@ class _MulticastDomainState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -252,6 +280,7 @@ class MulticastDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_accept_shared_associations: Optional[pulumi.Input[builtins.str]] = None,
                  igmpv2_support: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  static_sources_support: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -360,6 +389,7 @@ class MulticastDomain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] auto_accept_shared_associations: Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[builtins.str] igmpv2_support: Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] static_sources_support: Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] transit_gateway_id: EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
@@ -487,6 +517,7 @@ class MulticastDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_accept_shared_associations: Optional[pulumi.Input[builtins.str]] = None,
                  igmpv2_support: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  static_sources_support: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -501,6 +532,7 @@ class MulticastDomain(pulumi.CustomResource):
 
             __props__.__dict__["auto_accept_shared_associations"] = auto_accept_shared_associations
             __props__.__dict__["igmpv2_support"] = igmpv2_support
+            __props__.__dict__["region"] = region
             __props__.__dict__["static_sources_support"] = static_sources_support
             __props__.__dict__["tags"] = tags
             if transit_gateway_id is None and not opts.urn:
@@ -523,6 +555,7 @@ class MulticastDomain(pulumi.CustomResource):
             auto_accept_shared_associations: Optional[pulumi.Input[builtins.str]] = None,
             igmpv2_support: Optional[pulumi.Input[builtins.str]] = None,
             owner_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             static_sources_support: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -538,6 +571,7 @@ class MulticastDomain(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] auto_accept_shared_associations: Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[builtins.str] igmpv2_support: Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[builtins.str] owner_id: Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] static_sources_support: Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -551,6 +585,7 @@ class MulticastDomain(pulumi.CustomResource):
         __props__.__dict__["auto_accept_shared_associations"] = auto_accept_shared_associations
         __props__.__dict__["igmpv2_support"] = igmpv2_support
         __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["static_sources_support"] = static_sources_support
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -590,6 +625,14 @@ class MulticastDomain(pulumi.CustomResource):
         return pulumi.get(self, "owner_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="staticSourcesSupport")
     def static_sources_support(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -607,7 +650,6 @@ class MulticastDomain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

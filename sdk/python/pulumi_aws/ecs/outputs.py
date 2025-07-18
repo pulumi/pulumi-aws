@@ -48,7 +48,6 @@ __all__ = [
     'ServiceVolumeConfigurationManagedEbsVolumeTagSpecification',
     'ServiceVpcLatticeConfiguration',
     'TaskDefinitionEphemeralStorage',
-    'TaskDefinitionInferenceAccelerator',
     'TaskDefinitionPlacementConstraint',
     'TaskDefinitionProxyConfiguration',
     'TaskDefinitionRuntimePlatform',
@@ -66,7 +65,6 @@ __all__ = [
     'GetClusterServiceConnectDefaultResult',
     'GetClusterSettingResult',
     'GetTaskDefinitionEphemeralStorageResult',
-    'GetTaskDefinitionInferenceAcceleratorResult',
     'GetTaskDefinitionPlacementConstraintResult',
     'GetTaskDefinitionProxyConfigurationResult',
     'GetTaskDefinitionRuntimePlatformResult',
@@ -82,7 +80,6 @@ __all__ = [
     'GetTaskExecutionOverridesContainerOverrideResult',
     'GetTaskExecutionOverridesContainerOverrideEnvironmentResult',
     'GetTaskExecutionOverridesContainerOverrideResourceRequirementResult',
-    'GetTaskExecutionOverridesInferenceAcceleratorOverrideResult',
     'GetTaskExecutionPlacementConstraintResult',
     'GetTaskExecutionPlacementStrategyResult',
 ]
@@ -1919,54 +1916,6 @@ class TaskDefinitionEphemeralStorage(dict):
 
 
 @pulumi.output_type
-class TaskDefinitionInferenceAccelerator(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "deviceName":
-            suggest = "device_name"
-        elif key == "deviceType":
-            suggest = "device_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionInferenceAccelerator. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TaskDefinitionInferenceAccelerator.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TaskDefinitionInferenceAccelerator.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 device_name: builtins.str,
-                 device_type: builtins.str):
-        """
-        :param builtins.str device_name: Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
-        :param builtins.str device_type: Elastic Inference accelerator type to use.
-        """
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "device_type", device_type)
-
-    @property
-    @pulumi.getter(name="deviceName")
-    def device_name(self) -> builtins.str:
-        """
-        Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
-        """
-        return pulumi.get(self, "device_name")
-
-    @property
-    @pulumi.getter(name="deviceType")
-    def device_type(self) -> builtins.str:
-        """
-        Elastic Inference accelerator type to use.
-        """
-        return pulumi.get(self, "device_type")
-
-
-@pulumi.output_type
 class TaskDefinitionPlacementConstraint(dict):
     def __init__(__self__, *,
                  type: builtins.str,
@@ -2900,35 +2849,6 @@ class GetTaskDefinitionEphemeralStorageResult(dict):
 
 
 @pulumi.output_type
-class GetTaskDefinitionInferenceAcceleratorResult(dict):
-    def __init__(__self__, *,
-                 device_name: builtins.str,
-                 device_type: builtins.str):
-        """
-        :param builtins.str device_name: Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
-        :param builtins.str device_type: Elastic Inference accelerator type to use.
-        """
-        pulumi.set(__self__, "device_name", device_name)
-        pulumi.set(__self__, "device_type", device_type)
-
-    @property
-    @pulumi.getter(name="deviceName")
-    def device_name(self) -> builtins.str:
-        """
-        Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
-        """
-        return pulumi.get(self, "device_name")
-
-    @property
-    @pulumi.getter(name="deviceType")
-    def device_type(self) -> builtins.str:
-        """
-        Elastic Inference accelerator type to use.
-        """
-        return pulumi.get(self, "device_type")
-
-
-@pulumi.output_type
 class GetTaskDefinitionPlacementConstraintResult(dict):
     def __init__(__self__, *,
                  expression: builtins.str,
@@ -3417,14 +3337,12 @@ class GetTaskExecutionOverridesResult(dict):
                  container_overrides: Optional[Sequence['outputs.GetTaskExecutionOverridesContainerOverrideResult']] = None,
                  cpu: Optional[builtins.str] = None,
                  execution_role_arn: Optional[builtins.str] = None,
-                 inference_accelerator_overrides: Optional[Sequence['outputs.GetTaskExecutionOverridesInferenceAcceleratorOverrideResult']] = None,
                  memory: Optional[builtins.str] = None,
                  task_role_arn: Optional[builtins.str] = None):
         """
         :param Sequence['GetTaskExecutionOverridesContainerOverrideArgs'] container_overrides: One or more container overrides that are sent to a task. See below.
         :param builtins.str cpu: The CPU override for the task.
         :param builtins.str execution_role_arn: Amazon Resource Name (ARN) of the task execution role override for the task.
-        :param Sequence['GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs'] inference_accelerator_overrides: **DEPRECATED** Elastic Inference accelerator override for the task. See below.
         :param builtins.str memory: The memory override for the task.
         :param builtins.str task_role_arn: Amazon Resource Name (ARN) of the role that containers in this task can assume.
         """
@@ -3434,8 +3352,6 @@ class GetTaskExecutionOverridesResult(dict):
             pulumi.set(__self__, "cpu", cpu)
         if execution_role_arn is not None:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
-        if inference_accelerator_overrides is not None:
-            pulumi.set(__self__, "inference_accelerator_overrides", inference_accelerator_overrides)
         if memory is not None:
             pulumi.set(__self__, "memory", memory)
         if task_role_arn is not None:
@@ -3464,15 +3380,6 @@ class GetTaskExecutionOverridesResult(dict):
         Amazon Resource Name (ARN) of the task execution role override for the task.
         """
         return pulumi.get(self, "execution_role_arn")
-
-    @property
-    @pulumi.getter(name="inferenceAcceleratorOverrides")
-    @_utilities.deprecated("""inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.""")
-    def inference_accelerator_overrides(self) -> Optional[Sequence['outputs.GetTaskExecutionOverridesInferenceAcceleratorOverrideResult']]:
-        """
-        **DEPRECATED** Elastic Inference accelerator override for the task. See below.
-        """
-        return pulumi.get(self, "inference_accelerator_overrides")
 
     @property
     @pulumi.getter
@@ -3616,8 +3523,8 @@ class GetTaskExecutionOverridesContainerOverrideResourceRequirementResult(dict):
                  type: builtins.str,
                  value: builtins.str):
         """
-        :param builtins.str type: The type of resource to assign to a container. Valid values are `GPU` or `InferenceAccelerator`.
-        :param builtins.str value: The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. If the `InferenceAccelerator` type is used, the value matches the `deviceName` for an InferenceAccelerator specified in a task definition.
+        :param builtins.str type: The type of resource to assign to a container. Valid values are `GPU`.
+        :param builtins.str value: The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -3626,7 +3533,7 @@ class GetTaskExecutionOverridesContainerOverrideResourceRequirementResult(dict):
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        The type of resource to assign to a container. Valid values are `GPU` or `InferenceAccelerator`.
+        The type of resource to assign to a container. Valid values are `GPU`.
         """
         return pulumi.get(self, "type")
 
@@ -3634,40 +3541,9 @@ class GetTaskExecutionOverridesContainerOverrideResourceRequirementResult(dict):
     @pulumi.getter
     def value(self) -> builtins.str:
         """
-        The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. If the `InferenceAccelerator` type is used, the value matches the `deviceName` for an InferenceAccelerator specified in a task definition.
+        The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
         """
         return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class GetTaskExecutionOverridesInferenceAcceleratorOverrideResult(dict):
-    def __init__(__self__, *,
-                 device_name: Optional[builtins.str] = None,
-                 device_type: Optional[builtins.str] = None):
-        """
-        :param builtins.str device_name: The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
-        :param builtins.str device_type: The Elastic Inference accelerator type to use.
-        """
-        if device_name is not None:
-            pulumi.set(__self__, "device_name", device_name)
-        if device_type is not None:
-            pulumi.set(__self__, "device_type", device_type)
-
-    @property
-    @pulumi.getter(name="deviceName")
-    def device_name(self) -> Optional[builtins.str]:
-        """
-        The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
-        """
-        return pulumi.get(self, "device_name")
-
-    @property
-    @pulumi.getter(name="deviceType")
-    def device_type(self) -> Optional[builtins.str]:
-        """
-        The Elastic Inference accelerator type to use.
-        """
-        return pulumi.get(self, "device_type")
 
 
 @pulumi.output_type

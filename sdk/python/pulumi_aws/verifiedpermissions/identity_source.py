@@ -24,18 +24,22 @@ class IdentitySourceArgs:
     def __init__(__self__, *,
                  policy_store_id: pulumi.Input[builtins.str],
                  configuration: Optional[pulumi.Input['IdentitySourceConfigurationArgs']] = None,
-                 principal_entity_type: Optional[pulumi.Input[builtins.str]] = None):
+                 principal_entity_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a IdentitySource resource.
         :param pulumi.Input[builtins.str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source.
         :param pulumi.Input['IdentitySourceConfigurationArgs'] configuration: Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
         :param pulumi.Input[builtins.str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy_store_id", policy_store_id)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
         if principal_entity_type is not None:
             pulumi.set(__self__, "principal_entity_type", principal_entity_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="policyStoreId")
@@ -73,18 +77,32 @@ class IdentitySourceArgs:
     def principal_entity_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "principal_entity_type", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _IdentitySourceState:
     def __init__(__self__, *,
                  configuration: Optional[pulumi.Input['IdentitySourceConfigurationArgs']] = None,
                  policy_store_id: Optional[pulumi.Input[builtins.str]] = None,
-                 principal_entity_type: Optional[pulumi.Input[builtins.str]] = None):
+                 principal_entity_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering IdentitySource resources.
         :param pulumi.Input['IdentitySourceConfigurationArgs'] configuration: Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
         :param pulumi.Input[builtins.str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source.
         :param pulumi.Input[builtins.str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
@@ -92,6 +110,8 @@ class _IdentitySourceState:
             pulumi.set(__self__, "policy_store_id", policy_store_id)
         if principal_entity_type is not None:
             pulumi.set(__self__, "principal_entity_type", principal_entity_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -129,6 +149,18 @@ class _IdentitySourceState:
     def principal_entity_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "principal_entity_type", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:verifiedpermissions/identitySource:IdentitySource")
 class IdentitySource(pulumi.CustomResource):
@@ -139,6 +171,7 @@ class IdentitySource(pulumi.CustomResource):
                  configuration: Optional[pulumi.Input[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict']]] = None,
                  policy_store_id: Optional[pulumi.Input[builtins.str]] = None,
                  principal_entity_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Verified Permissions Identity Source.
@@ -212,6 +245,7 @@ class IdentitySource(pulumi.CustomResource):
         :param pulumi.Input[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict']] configuration: Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
         :param pulumi.Input[builtins.str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source.
         :param pulumi.Input[builtins.str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -304,6 +338,7 @@ class IdentitySource(pulumi.CustomResource):
                  configuration: Optional[pulumi.Input[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict']]] = None,
                  policy_store_id: Optional[pulumi.Input[builtins.str]] = None,
                  principal_entity_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -318,6 +353,7 @@ class IdentitySource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy_store_id'")
             __props__.__dict__["policy_store_id"] = policy_store_id
             __props__.__dict__["principal_entity_type"] = principal_entity_type
+            __props__.__dict__["region"] = region
         super(IdentitySource, __self__).__init__(
             'aws:verifiedpermissions/identitySource:IdentitySource',
             resource_name,
@@ -330,7 +366,8 @@ class IdentitySource(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             configuration: Optional[pulumi.Input[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict']]] = None,
             policy_store_id: Optional[pulumi.Input[builtins.str]] = None,
-            principal_entity_type: Optional[pulumi.Input[builtins.str]] = None) -> 'IdentitySource':
+            principal_entity_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'IdentitySource':
         """
         Get an existing IdentitySource resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -341,6 +378,7 @@ class IdentitySource(pulumi.CustomResource):
         :param pulumi.Input[Union['IdentitySourceConfigurationArgs', 'IdentitySourceConfigurationArgsDict']] configuration: Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
         :param pulumi.Input[builtins.str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source.
         :param pulumi.Input[builtins.str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -349,6 +387,7 @@ class IdentitySource(pulumi.CustomResource):
         __props__.__dict__["configuration"] = configuration
         __props__.__dict__["policy_store_id"] = policy_store_id
         __props__.__dict__["principal_entity_type"] = principal_entity_type
+        __props__.__dict__["region"] = region
         return IdentitySource(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -374,4 +413,12 @@ class IdentitySource(pulumi.CustomResource):
         Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
         """
         return pulumi.get(self, "principal_entity_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

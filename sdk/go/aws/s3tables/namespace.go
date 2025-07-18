@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3tables"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3tables"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,6 +69,8 @@ type Namespace struct {
 	Namespace pulumi.StringOutput `pulumi:"namespace"`
 	// Account ID of the account that owns the namespace.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN referencing the Table Bucket that contains this Namespace.
 	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
 }
@@ -119,6 +121,8 @@ type namespaceState struct {
 	Namespace *string `pulumi:"namespace"`
 	// Account ID of the account that owns the namespace.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN referencing the Table Bucket that contains this Namespace.
 	TableBucketArn *string `pulumi:"tableBucketArn"`
 }
@@ -134,6 +138,8 @@ type NamespaceState struct {
 	Namespace pulumi.StringPtrInput
 	// Account ID of the account that owns the namespace.
 	OwnerAccountId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN referencing the Table Bucket that contains this Namespace.
 	TableBucketArn pulumi.StringPtrInput
 }
@@ -147,6 +153,8 @@ type namespaceArgs struct {
 	// Must be between 1 and 255 characters in length.
 	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace string `pulumi:"namespace"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN referencing the Table Bucket that contains this Namespace.
 	TableBucketArn string `pulumi:"tableBucketArn"`
 }
@@ -157,6 +165,8 @@ type NamespaceArgs struct {
 	// Must be between 1 and 255 characters in length.
 	// Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
 	Namespace pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN referencing the Table Bucket that contains this Namespace.
 	TableBucketArn pulumi.StringInput
 }
@@ -268,6 +278,11 @@ func (o NamespaceOutput) Namespace() pulumi.StringOutput {
 // Account ID of the account that owns the namespace.
 func (o NamespaceOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o NamespaceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN referencing the Table Bucket that contains this Namespace.

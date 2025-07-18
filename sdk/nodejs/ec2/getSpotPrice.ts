@@ -33,6 +33,7 @@ export function getSpotPrice(args?: GetSpotPriceArgs, opts?: pulumi.InvokeOption
         "availabilityZone": args.availabilityZone,
         "filters": args.filters,
         "instanceType": args.instanceType,
+        "region": args.region,
     }, opts);
 }
 
@@ -52,6 +53,10 @@ export interface GetSpotPriceArgs {
      * Type of instance for which to query Spot Price information.
      */
     instanceType?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -65,6 +70,7 @@ export interface GetSpotPriceResult {
      */
     readonly id: string;
     readonly instanceType?: string;
+    readonly region: string;
     /**
      * Most recent Spot Price value for the given instance type and AZ.
      */
@@ -100,6 +106,7 @@ export function getSpotPriceOutput(args?: GetSpotPriceOutputArgs, opts?: pulumi.
         "availabilityZone": args.availabilityZone,
         "filters": args.filters,
         "instanceType": args.instanceType,
+        "region": args.region,
     }, opts);
 }
 
@@ -119,4 +126,8 @@ export interface GetSpotPriceOutputArgs {
      * Type of instance for which to query Spot Price information.
      */
     instanceType?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

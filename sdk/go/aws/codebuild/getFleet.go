@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codebuild"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codebuild"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,7 +63,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codebuild"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codebuild"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -95,6 +95,8 @@ func LookupFleet(ctx *pulumi.Context, args *LookupFleetArgs, opts ...pulumi.Invo
 type LookupFleetArgs struct {
 	// Fleet name.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Mapping of Key-Value tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -124,6 +126,7 @@ type LookupFleetResult struct {
 	Name         string `pulumi:"name"`
 	// Overflow behavior for compute fleet.
 	OverflowBehavior string `pulumi:"overflowBehavior"`
+	Region           string `pulumi:"region"`
 	// Nested attribute containing information about the scaling configuration.
 	ScalingConfigurations []GetFleetScalingConfiguration `pulumi:"scalingConfigurations"`
 	// Nested attribute containing information about the current status of the fleet.
@@ -147,6 +150,8 @@ func LookupFleetOutput(ctx *pulumi.Context, args LookupFleetOutputArgs, opts ...
 type LookupFleetOutputArgs struct {
 	// Fleet name.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Mapping of Key-Value tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -227,6 +232,10 @@ func (o LookupFleetResultOutput) Name() pulumi.StringOutput {
 // Overflow behavior for compute fleet.
 func (o LookupFleetResultOutput) OverflowBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFleetResult) string { return v.OverflowBehavior }).(pulumi.StringOutput)
+}
+
+func (o LookupFleetResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFleetResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Nested attribute containing information about the scaling configuration.

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupDomainIdentity(ctx *pulumi.Context, args *LookupDomainIdentityArgs, o
 type LookupDomainIdentityArgs struct {
 	// Name of the domain
 	Domain string `pulumi:"domain"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDomainIdentity.
@@ -61,7 +63,8 @@ type LookupDomainIdentityResult struct {
 	// Name of the domain
 	Domain string `pulumi:"domain"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
 	VerificationToken string `pulumi:"verificationToken"`
 }
@@ -79,6 +82,8 @@ func LookupDomainIdentityOutput(ctx *pulumi.Context, args LookupDomainIdentityOu
 type LookupDomainIdentityOutputArgs struct {
 	// Name of the domain
 	Domain pulumi.StringInput `pulumi:"domain"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupDomainIdentityOutputArgs) ElementType() reflect.Type {
@@ -113,6 +118,10 @@ func (o LookupDomainIdentityResultOutput) Domain() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupDomainIdentityResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainIdentityResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupDomainIdentityResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainIdentityResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.

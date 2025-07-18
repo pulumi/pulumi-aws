@@ -22,17 +22,21 @@ class LoggingOptionsArgs:
     def __init__(__self__, *,
                  default_log_level: pulumi.Input[builtins.str],
                  role_arn: pulumi.Input[builtins.str],
-                 disable_all_logs: Optional[pulumi.Input[builtins.bool]] = None):
+                 disable_all_logs: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LoggingOptions resource.
         :param pulumi.Input[builtins.str] default_log_level: The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the role that allows IoT to write to Cloudwatch logs.
         :param pulumi.Input[builtins.bool] disable_all_logs: If `true` all logs are disabled. The default is `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "default_log_level", default_log_level)
         pulumi.set(__self__, "role_arn", role_arn)
         if disable_all_logs is not None:
             pulumi.set(__self__, "disable_all_logs", disable_all_logs)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="defaultLogLevel")
@@ -70,23 +74,39 @@ class LoggingOptionsArgs:
     def disable_all_logs(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "disable_all_logs", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _LoggingOptionsState:
     def __init__(__self__, *,
                  default_log_level: Optional[pulumi.Input[builtins.str]] = None,
                  disable_all_logs: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering LoggingOptions resources.
         :param pulumi.Input[builtins.str] default_log_level: The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
         :param pulumi.Input[builtins.bool] disable_all_logs: If `true` all logs are disabled. The default is `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the role that allows IoT to write to Cloudwatch logs.
         """
         if default_log_level is not None:
             pulumi.set(__self__, "default_log_level", default_log_level)
         if disable_all_logs is not None:
             pulumi.set(__self__, "disable_all_logs", disable_all_logs)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
 
@@ -115,6 +135,18 @@ class _LoggingOptionsState:
         pulumi.set(self, "disable_all_logs", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -135,6 +167,7 @@ class LoggingOptions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_log_level: Optional[pulumi.Input[builtins.str]] = None,
                  disable_all_logs: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -155,6 +188,7 @@ class LoggingOptions(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] default_log_level: The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
         :param pulumi.Input[builtins.bool] disable_all_logs: If `true` all logs are disabled. The default is `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the role that allows IoT to write to Cloudwatch logs.
         """
         ...
@@ -194,6 +228,7 @@ class LoggingOptions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_log_level: Optional[pulumi.Input[builtins.str]] = None,
                  disable_all_logs: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -208,6 +243,7 @@ class LoggingOptions(pulumi.CustomResource):
                 raise TypeError("Missing required property 'default_log_level'")
             __props__.__dict__["default_log_level"] = default_log_level
             __props__.__dict__["disable_all_logs"] = disable_all_logs
+            __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -223,6 +259,7 @@ class LoggingOptions(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             default_log_level: Optional[pulumi.Input[builtins.str]] = None,
             disable_all_logs: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'LoggingOptions':
         """
         Get an existing LoggingOptions resource's state with the given name, id, and optional extra
@@ -233,6 +270,7 @@ class LoggingOptions(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] default_log_level: The default logging level. Valid Values: `"DEBUG"`, `"INFO"`, `"ERROR"`, `"WARN"`, `"DISABLED"`.
         :param pulumi.Input[builtins.bool] disable_all_logs: If `true` all logs are disabled. The default is `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the role that allows IoT to write to Cloudwatch logs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -241,6 +279,7 @@ class LoggingOptions(pulumi.CustomResource):
 
         __props__.__dict__["default_log_level"] = default_log_level
         __props__.__dict__["disable_all_logs"] = disable_all_logs
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         return LoggingOptions(resource_name, opts=opts, __props__=__props__)
 
@@ -259,6 +298,14 @@ class LoggingOptions(pulumi.CustomResource):
         If `true` all logs are disabled. The default is `false`.
         """
         return pulumi.get(self, "disable_all_logs")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")

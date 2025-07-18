@@ -28,7 +28,7 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, arn=None, encryption_configurations=None, id=None, image_scanning_configurations=None, image_tag_mutability=None, most_recent_image_tags=None, name=None, registry_id=None, repository_url=None, tags=None):
+    def __init__(__self__, arn=None, encryption_configurations=None, id=None, image_scanning_configurations=None, image_tag_mutability=None, most_recent_image_tags=None, name=None, region=None, registry_id=None, repository_url=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -50,6 +50,9 @@ class GetRepositoryResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if registry_id and not isinstance(registry_id, str):
             raise TypeError("Expected argument 'registry_id' to be a str")
         pulumi.set(__self__, "registry_id", registry_id)
@@ -114,6 +117,11 @@ class GetRepositoryResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> builtins.str:
         return pulumi.get(self, "registry_id")
@@ -148,12 +156,14 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             image_tag_mutability=self.image_tag_mutability,
             most_recent_image_tags=self.most_recent_image_tags,
             name=self.name,
+            region=self.region,
             registry_id=self.registry_id,
             repository_url=self.repository_url,
             tags=self.tags)
 
 
 def get_repository(name: Optional[builtins.str] = None,
+                   region: Optional[builtins.str] = None,
                    registry_id: Optional[builtins.str] = None,
                    tags: Optional[Mapping[str, builtins.str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryResult:
@@ -171,11 +181,13 @@ def get_repository(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the ECR Repository.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str registry_id: Registry ID where the repository was created.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['registryId'] = registry_id
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -189,10 +201,12 @@ def get_repository(name: Optional[builtins.str] = None,
         image_tag_mutability=pulumi.get(__ret__, 'image_tag_mutability'),
         most_recent_image_tags=pulumi.get(__ret__, 'most_recent_image_tags'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         registry_id=pulumi.get(__ret__, 'registry_id'),
         repository_url=pulumi.get(__ret__, 'repository_url'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_repository_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           registry_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryResult]:
@@ -210,11 +224,13 @@ def get_repository_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the ECR Repository.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str registry_id: Registry ID where the repository was created.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['registryId'] = registry_id
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -227,6 +243,7 @@ def get_repository_output(name: Optional[pulumi.Input[builtins.str]] = None,
         image_tag_mutability=pulumi.get(__response__, 'image_tag_mutability'),
         most_recent_image_tags=pulumi.get(__response__, 'most_recent_image_tags'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         registry_id=pulumi.get(__response__, 'registry_id'),
         repository_url=pulumi.get(__response__, 'repository_url'),
         tags=pulumi.get(__response__, 'tags')))

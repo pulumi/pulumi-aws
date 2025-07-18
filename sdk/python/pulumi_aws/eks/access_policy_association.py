@@ -25,18 +25,22 @@ class AccessPolicyAssociationArgs:
                  access_scope: pulumi.Input['AccessPolicyAssociationAccessScopeArgs'],
                  cluster_name: pulumi.Input[builtins.str],
                  policy_arn: pulumi.Input[builtins.str],
-                 principal_arn: pulumi.Input[builtins.str]):
+                 principal_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a AccessPolicyAssociation resource.
         :param pulumi.Input['AccessPolicyAssociationAccessScopeArgs'] access_scope: The configuration block to determine the scope of the access. See `access_scope` Block below.
         :param pulumi.Input[builtins.str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[builtins.str] policy_arn: The ARN of the access policy that you're associating.
         :param pulumi.Input[builtins.str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "access_scope", access_scope)
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "policy_arn", policy_arn)
         pulumi.set(__self__, "principal_arn", principal_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="accessScope")
@@ -86,6 +90,18 @@ class AccessPolicyAssociationArgs:
     def principal_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "principal_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _AccessPolicyAssociationState:
@@ -95,7 +111,8 @@ class _AccessPolicyAssociationState:
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
                  modified_at: Optional[pulumi.Input[builtins.str]] = None,
                  policy_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 principal_arn: Optional[pulumi.Input[builtins.str]] = None):
+                 principal_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccessPolicyAssociation resources.
         :param pulumi.Input['AccessPolicyAssociationAccessScopeArgs'] access_scope: The configuration block to determine the scope of the access. See `access_scope` Block below.
@@ -104,6 +121,7 @@ class _AccessPolicyAssociationState:
         :param pulumi.Input[builtins.str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
         :param pulumi.Input[builtins.str] policy_arn: The ARN of the access policy that you're associating.
         :param pulumi.Input[builtins.str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if access_scope is not None:
             pulumi.set(__self__, "access_scope", access_scope)
@@ -117,6 +135,8 @@ class _AccessPolicyAssociationState:
             pulumi.set(__self__, "policy_arn", policy_arn)
         if principal_arn is not None:
             pulumi.set(__self__, "principal_arn", principal_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="accessScope")
@@ -190,6 +210,18 @@ class _AccessPolicyAssociationState:
     def principal_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "principal_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:eks/accessPolicyAssociation:AccessPolicyAssociation")
 class AccessPolicyAssociation(pulumi.CustomResource):
@@ -201,6 +233,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_arn: Optional[pulumi.Input[builtins.str]] = None,
                  principal_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Access Entry Policy Association for an EKS Cluster.
@@ -235,6 +268,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[builtins.str] policy_arn: The ARN of the access policy that you're associating.
         :param pulumi.Input[builtins.str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -288,6 +322,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_arn: Optional[pulumi.Input[builtins.str]] = None,
                  principal_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -309,6 +344,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
             if principal_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_arn'")
             __props__.__dict__["principal_arn"] = principal_arn
+            __props__.__dict__["region"] = region
             __props__.__dict__["associated_at"] = None
             __props__.__dict__["modified_at"] = None
         super(AccessPolicyAssociation, __self__).__init__(
@@ -326,7 +362,8 @@ class AccessPolicyAssociation(pulumi.CustomResource):
             cluster_name: Optional[pulumi.Input[builtins.str]] = None,
             modified_at: Optional[pulumi.Input[builtins.str]] = None,
             policy_arn: Optional[pulumi.Input[builtins.str]] = None,
-            principal_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'AccessPolicyAssociation':
+            principal_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'AccessPolicyAssociation':
         """
         Get an existing AccessPolicyAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -340,6 +377,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] modified_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the policy was updated.
         :param pulumi.Input[builtins.str] policy_arn: The ARN of the access policy that you're associating.
         :param pulumi.Input[builtins.str] principal_arn: The IAM Principal ARN which requires Authentication access to the EKS cluster.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -351,6 +389,7 @@ class AccessPolicyAssociation(pulumi.CustomResource):
         __props__.__dict__["modified_at"] = modified_at
         __props__.__dict__["policy_arn"] = policy_arn
         __props__.__dict__["principal_arn"] = principal_arn
+        __props__.__dict__["region"] = region
         return AccessPolicyAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -400,4 +439,12 @@ class AccessPolicyAssociation(pulumi.CustomResource):
         The IAM Principal ARN which requires Authentication access to the EKS cluster.
         """
         return pulumi.get(self, "principal_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

@@ -77,6 +77,12 @@ namespace Pulumi.Aws.Chime
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration for server side encryption.
         /// </summary>
         [Output("serverSideEncryptionConfiguration")]
@@ -147,6 +153,12 @@ namespace Pulumi.Aws.Chime
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration for server side encryption.
         /// </summary>
         [Input("serverSideEncryptionConfiguration", required: true)]
@@ -187,6 +199,12 @@ namespace Pulumi.Aws.Chime
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration for server side encryption.
         /// </summary>
         [Input("serverSideEncryptionConfiguration")]
@@ -202,7 +220,6 @@ namespace Pulumi.Aws.Chime
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

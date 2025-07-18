@@ -108,6 +108,12 @@ namespace Pulumi.Aws.AppConfig
         [Input("configurationProfileId", required: true)]
         public string ConfigurationProfileId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -139,6 +145,12 @@ namespace Pulumi.Aws.AppConfig
         /// </summary>
         [Input("configurationProfileId", required: true)]
         public Input<string> ConfigurationProfileId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -185,6 +197,7 @@ namespace Pulumi.Aws.AppConfig
         /// Name of the Configuration Profile.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// ARN of an IAM role with permission to access the configuration at the specified location_uri.
         /// </summary>
@@ -220,6 +233,8 @@ namespace Pulumi.Aws.AppConfig
 
             string name,
 
+            string region,
+
             string retrievalRoleArn,
 
             ImmutableDictionary<string, string> tags,
@@ -236,6 +251,7 @@ namespace Pulumi.Aws.AppConfig
             KmsKeyIdentifier = kmsKeyIdentifier;
             LocationUri = locationUri;
             Name = name;
+            Region = region;
             RetrievalRoleArn = retrievalRoleArn;
             Tags = tags;
             Type = type;

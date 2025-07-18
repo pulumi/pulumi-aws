@@ -98,6 +98,10 @@ export class RouteServer extends pulumi.CustomResource {
      */
     public readonly persistRoutesDuration!: pulumi.Output<number | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The unique identifier of the route server.
      */
     public /*out*/ readonly routeServerId!: pulumi.Output<string>;
@@ -115,8 +119,6 @@ export class RouteServer extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.vpc.RouteServerTimeouts | undefined>;
@@ -138,6 +140,7 @@ export class RouteServer extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["persistRoutes"] = state ? state.persistRoutes : undefined;
             resourceInputs["persistRoutesDuration"] = state ? state.persistRoutesDuration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routeServerId"] = state ? state.routeServerId : undefined;
             resourceInputs["snsNotificationsEnabled"] = state ? state.snsNotificationsEnabled : undefined;
             resourceInputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
@@ -152,6 +155,7 @@ export class RouteServer extends pulumi.CustomResource {
             resourceInputs["amazonSideAsn"] = args ? args.amazonSideAsn : undefined;
             resourceInputs["persistRoutes"] = args ? args.persistRoutes : undefined;
             resourceInputs["persistRoutesDuration"] = args ? args.persistRoutesDuration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["snsNotificationsEnabled"] = args ? args.snsNotificationsEnabled : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -188,6 +192,10 @@ export interface RouteServerState {
      */
     persistRoutesDuration?: pulumi.Input<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The unique identifier of the route server.
      */
     routeServerId?: pulumi.Input<string>;
@@ -205,8 +213,6 @@ export interface RouteServerState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.vpc.RouteServerTimeouts>;
@@ -230,6 +236,10 @@ export interface RouteServerArgs {
      * The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
      */
     persistRoutesDuration?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
      */

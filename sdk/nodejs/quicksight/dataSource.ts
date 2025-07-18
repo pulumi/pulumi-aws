@@ -42,13 +42,13 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const currentGetPartition = aws.getPartition({});
  * const currentGetRegion = aws.getRegion({});
- * const example = new aws.s3.BucketV2("example", {});
+ * const example = new aws.s3.Bucket("example", {});
  * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("example", {
  *     bucket: example.bucket,
  *     key: "manifest.json",
  *     content: pulumi.jsonStringify({
  *         fileLocations: [{
- *             URIPrefixes: [pulumi.all([example.id, currentGetRegion, currentGetPartition]).apply(([id, currentGetRegion, currentGetPartition]) => `https://${id}.s3-${currentGetRegion.name}.${currentGetPartition.dnsSuffix}`)],
+ *             URIPrefixes: [pulumi.all([example.id, currentGetRegion, currentGetPartition]).apply(([id, currentGetRegion, currentGetPartition]) => `https://${id}.s3-${currentGetRegion.region}.${currentGetPartition.dnsSuffix}`)],
  *         }],
  *         globalUploadSettings: {
  *             format: "CSV",
@@ -180,6 +180,10 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly permissions!: pulumi.Output<outputs.quicksight.DataSourcePermission[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
      */
     public readonly sslProperties!: pulumi.Output<outputs.quicksight.DataSourceSslProperties>;
@@ -189,8 +193,6 @@ export class DataSource extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -224,6 +226,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sslProperties"] = state ? state.sslProperties : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -246,6 +249,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sslProperties"] = args ? args.sslProperties : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -291,6 +295,10 @@ export interface DataSourceState {
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourcePermission>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
      */
     sslProperties?: pulumi.Input<inputs.quicksight.DataSourceSslProperties>;
@@ -300,8 +308,6 @@ export interface DataSourceState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -344,6 +350,10 @@ export interface DataSourceArgs {
      * A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourcePermission>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
      */

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/efs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func GetAccessPoints(ctx *pulumi.Context, args *GetAccessPointsArgs, opts ...pul
 type GetAccessPointsArgs struct {
 	// EFS File System identifier.
 	FileSystemId string `pulumi:"fileSystemId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAccessPoints.
@@ -62,7 +64,8 @@ type GetAccessPointsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set of identifiers.
-	Ids []string `pulumi:"ids"`
+	Ids    []string `pulumi:"ids"`
+	Region string   `pulumi:"region"`
 }
 
 func GetAccessPointsOutput(ctx *pulumi.Context, args GetAccessPointsOutputArgs, opts ...pulumi.InvokeOption) GetAccessPointsResultOutput {
@@ -78,6 +81,8 @@ func GetAccessPointsOutput(ctx *pulumi.Context, args GetAccessPointsOutputArgs, 
 type GetAccessPointsOutputArgs struct {
 	// EFS File System identifier.
 	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetAccessPointsOutputArgs) ElementType() reflect.Type {
@@ -116,6 +121,10 @@ func (o GetAccessPointsResultOutput) Id() pulumi.StringOutput {
 // Set of identifiers.
 func (o GetAccessPointsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAccessPointsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAccessPointsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

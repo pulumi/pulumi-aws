@@ -126,18 +126,33 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Version of the associated API documentation
+     * Version of the associated API documentation.
      * 
      */
     @Import(name="documentationVersion")
     private @Nullable Output<String> documentationVersion;
 
     /**
-     * @return Version of the associated API documentation
+     * @return Version of the associated API documentation.
      * 
      */
     public Optional<Output<String>> documentationVersion() {
         return Optional.ofNullable(this.documentationVersion);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -186,14 +201,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map that defines the stage variables
+     * Map that defines the stage variables.
      * 
      */
     @Import(name="variables")
     private @Nullable Output<Map<String,String>> variables;
 
     /**
-     * @return Map that defines the stage variables
+     * @return Map that defines the stage variables.
      * 
      */
     public Optional<Output<Map<String,String>>> variables() {
@@ -226,6 +241,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         this.deployment = $.deployment;
         this.description = $.description;
         this.documentationVersion = $.documentationVersion;
+        this.region = $.region;
         this.restApi = $.restApi;
         this.stageName = $.stageName;
         this.tags = $.tags;
@@ -399,7 +415,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param documentationVersion Version of the associated API documentation
+         * @param documentationVersion Version of the associated API documentation.
          * 
          * @return builder
          * 
@@ -410,13 +426,34 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param documentationVersion Version of the associated API documentation
+         * @param documentationVersion Version of the associated API documentation.
          * 
          * @return builder
          * 
          */
         public Builder documentationVersion(String documentationVersion) {
             return documentationVersion(Output.of(documentationVersion));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -483,7 +520,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variables Map that defines the stage variables
+         * @param variables Map that defines the stage variables.
          * 
          * @return builder
          * 
@@ -494,7 +531,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param variables Map that defines the stage variables
+         * @param variables Map that defines the stage variables.
          * 
          * @return builder
          * 

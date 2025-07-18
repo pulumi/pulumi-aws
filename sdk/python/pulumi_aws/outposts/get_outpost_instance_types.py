@@ -27,7 +27,7 @@ class GetOutpostInstanceTypesResult:
     """
     A collection of values returned by getOutpostInstanceTypes.
     """
-    def __init__(__self__, arn=None, id=None, instance_types=None):
+    def __init__(__self__, arn=None, id=None, instance_types=None, region=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +37,9 @@ class GetOutpostInstanceTypesResult:
         if instance_types and not isinstance(instance_types, list):
             raise TypeError("Expected argument 'instance_types' to be a list")
         pulumi.set(__self__, "instance_types", instance_types)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -59,6 +62,11 @@ class GetOutpostInstanceTypesResult:
         """
         return pulumi.get(self, "instance_types")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetOutpostInstanceTypesResult(GetOutpostInstanceTypesResult):
     # pylint: disable=using-constant-test
@@ -68,10 +76,12 @@ class AwaitableGetOutpostInstanceTypesResult(GetOutpostInstanceTypesResult):
         return GetOutpostInstanceTypesResult(
             arn=self.arn,
             id=self.id,
-            instance_types=self.instance_types)
+            instance_types=self.instance_types,
+            region=self.region)
 
 
 def get_outpost_instance_types(arn: Optional[builtins.str] = None,
+                               region: Optional[builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutpostInstanceTypesResult:
     """
     Information about Outposts Instance Types.
@@ -87,17 +97,21 @@ def get_outpost_instance_types(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: Outpost ARN.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes', __args__, opts=opts, typ=GetOutpostInstanceTypesResult).value
 
     return AwaitableGetOutpostInstanceTypesResult(
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
-        instance_types=pulumi.get(__ret__, 'instance_types'))
+        instance_types=pulumi.get(__ret__, 'instance_types'),
+        region=pulumi.get(__ret__, 'region'))
 def get_outpost_instance_types_output(arn: Optional[pulumi.Input[builtins.str]] = None,
+                                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutpostInstanceTypesResult]:
     """
     Information about Outposts Instance Types.
@@ -113,12 +127,15 @@ def get_outpost_instance_types_output(arn: Optional[pulumi.Input[builtins.str]] 
 
 
     :param builtins.str arn: Outpost ARN.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes', __args__, opts=opts, typ=GetOutpostInstanceTypesResult)
     return __ret__.apply(lambda __response__: GetOutpostInstanceTypesResult(
         arn=pulumi.get(__response__, 'arn'),
         id=pulumi.get(__response__, 'id'),
-        instance_types=pulumi.get(__response__, 'instance_types')))
+        instance_types=pulumi.get(__response__, 'instance_types'),
+        region=pulumi.get(__response__, 'region')))

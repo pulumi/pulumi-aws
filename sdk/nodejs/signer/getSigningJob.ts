@@ -25,6 +25,7 @@ export function getSigningJob(args: GetSigningJobArgs, opts?: pulumi.InvokeOptio
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:signer/getSigningJob:getSigningJob", {
         "jobId": args.jobId,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,6 +37,10 @@ export interface GetSigningJobArgs {
      * ID of the signing job on output.
      */
     jobId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -79,6 +84,7 @@ export interface GetSigningJobResult {
      * Version of the signing profile used to initiate the signing job.
      */
     readonly profileVersion: string;
+    readonly region: string;
     /**
      * IAM principal that requested the signing job.
      */
@@ -126,6 +132,7 @@ export function getSigningJobOutput(args: GetSigningJobOutputArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:signer/getSigningJob:getSigningJob", {
         "jobId": args.jobId,
+        "region": args.region,
     }, opts);
 }
 
@@ -137,4 +144,8 @@ export interface GetSigningJobOutputArgs {
      * ID of the signing job on output.
      */
     jobId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

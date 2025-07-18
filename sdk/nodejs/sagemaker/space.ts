@@ -77,6 +77,10 @@ export class Space extends pulumi.CustomResource {
      */
     public readonly ownershipSettings!: pulumi.Output<outputs.sagemaker.SpaceOwnershipSettings | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the space that appears in the SageMaker AI Studio UI.
      */
     public readonly spaceDisplayName!: pulumi.Output<string | undefined>;
@@ -98,8 +102,6 @@ export class Space extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -124,6 +126,7 @@ export class Space extends pulumi.CustomResource {
             resourceInputs["domainId"] = state ? state.domainId : undefined;
             resourceInputs["homeEfsFileSystemUid"] = state ? state.homeEfsFileSystemUid : undefined;
             resourceInputs["ownershipSettings"] = state ? state.ownershipSettings : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["spaceDisplayName"] = state ? state.spaceDisplayName : undefined;
             resourceInputs["spaceName"] = state ? state.spaceName : undefined;
             resourceInputs["spaceSettings"] = state ? state.spaceSettings : undefined;
@@ -141,6 +144,7 @@ export class Space extends pulumi.CustomResource {
             }
             resourceInputs["domainId"] = args ? args.domainId : undefined;
             resourceInputs["ownershipSettings"] = args ? args.ownershipSettings : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["spaceDisplayName"] = args ? args.spaceDisplayName : undefined;
             resourceInputs["spaceName"] = args ? args.spaceName : undefined;
             resourceInputs["spaceSettings"] = args ? args.spaceSettings : undefined;
@@ -177,6 +181,10 @@ export interface SpaceState {
      */
     ownershipSettings?: pulumi.Input<inputs.sagemaker.SpaceOwnershipSettings>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The name of the space that appears in the SageMaker AI Studio UI.
      */
     spaceDisplayName?: pulumi.Input<string>;
@@ -198,8 +206,6 @@ export interface SpaceState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -220,6 +226,10 @@ export interface SpaceArgs {
      * A collection of ownership settings. Required if `spaceSharingSettings` is set. See `ownershipSettings` Block below.
      */
     ownershipSettings?: pulumi.Input<inputs.sagemaker.SpaceOwnershipSettings>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the space that appears in the SageMaker AI Studio UI.
      */

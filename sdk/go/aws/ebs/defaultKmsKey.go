@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,7 +28,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ebs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,6 +59,8 @@ type DefaultKmsKey struct {
 
 	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
 	KeyArn pulumi.StringOutput `pulumi:"keyArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDefaultKmsKey registers a new resource with the given unique name, arguments, and options.
@@ -96,11 +98,15 @@ func GetDefaultKmsKey(ctx *pulumi.Context,
 type defaultKmsKeyState struct {
 	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
 	KeyArn *string `pulumi:"keyArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type DefaultKmsKeyState struct {
 	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
 	KeyArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DefaultKmsKeyState) ElementType() reflect.Type {
@@ -110,12 +116,16 @@ func (DefaultKmsKeyState) ElementType() reflect.Type {
 type defaultKmsKeyArgs struct {
 	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
 	KeyArn string `pulumi:"keyArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DefaultKmsKey resource.
 type DefaultKmsKeyArgs struct {
 	// The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
 	KeyArn pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DefaultKmsKeyArgs) ElementType() reflect.Type {
@@ -208,6 +218,11 @@ func (o DefaultKmsKeyOutput) ToDefaultKmsKeyOutputWithContext(ctx context.Contex
 // The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
 func (o DefaultKmsKeyOutput) KeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultKmsKey) pulumi.StringOutput { return v.KeyArn }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DefaultKmsKeyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultKmsKey) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type DefaultKmsKeyArrayOutput struct{ *pulumi.OutputState }

@@ -29,7 +29,7 @@ class GetPrefixListResult:
     """
     A collection of values returned by getPrefixList.
     """
-    def __init__(__self__, cidr_blocks=None, filters=None, id=None, name=None, prefix_list_id=None):
+    def __init__(__self__, cidr_blocks=None, filters=None, id=None, name=None, prefix_list_id=None, region=None):
         if cidr_blocks and not isinstance(cidr_blocks, list):
             raise TypeError("Expected argument 'cidr_blocks' to be a list")
         pulumi.set(__self__, "cidr_blocks", cidr_blocks)
@@ -45,6 +45,9 @@ class GetPrefixListResult:
         if prefix_list_id and not isinstance(prefix_list_id, str):
             raise TypeError("Expected argument 'prefix_list_id' to be a str")
         pulumi.set(__self__, "prefix_list_id", prefix_list_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="cidrBlocks")
@@ -80,6 +83,11 @@ class GetPrefixListResult:
     def prefix_list_id(self) -> Optional[builtins.str]:
         return pulumi.get(self, "prefix_list_id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetPrefixListResult(GetPrefixListResult):
     # pylint: disable=using-constant-test
@@ -91,12 +99,14 @@ class AwaitableGetPrefixListResult(GetPrefixListResult):
             filters=self.filters,
             id=self.id,
             name=self.name,
-            prefix_list_id=self.prefix_list_id)
+            prefix_list_id=self.prefix_list_id,
+            region=self.region)
 
 
 def get_prefix_list(filters: Optional[Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict']]] = None,
                     name: Optional[builtins.str] = None,
                     prefix_list_id: Optional[builtins.str] = None,
+                    region: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrefixListResult:
     """
     `ec2_get_prefix_list` provides details about a specific AWS prefix list (PL)
@@ -151,11 +161,13 @@ def get_prefix_list(filters: Optional[Sequence[Union['GetPrefixListFilterArgs', 
            whose data will be exported as attributes.
     :param builtins.str name: Name of the prefix list to select.
     :param builtins.str prefix_list_id: ID of the prefix list to select.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['name'] = name
     __args__['prefixListId'] = prefix_list_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getPrefixList:getPrefixList', __args__, opts=opts, typ=GetPrefixListResult).value
 
@@ -164,10 +176,12 @@ def get_prefix_list(filters: Optional[Sequence[Union['GetPrefixListFilterArgs', 
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
-        prefix_list_id=pulumi.get(__ret__, 'prefix_list_id'))
+        prefix_list_id=pulumi.get(__ret__, 'prefix_list_id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetPrefixListFilterArgs', 'GetPrefixListFilterArgsDict']]]]] = None,
                            name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            prefix_list_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrefixListResult]:
     """
     `ec2_get_prefix_list` provides details about a specific AWS prefix list (PL)
@@ -222,11 +236,13 @@ def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
            whose data will be exported as attributes.
     :param builtins.str name: Name of the prefix list to select.
     :param builtins.str prefix_list_id: ID of the prefix list to select.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['name'] = name
     __args__['prefixListId'] = prefix_list_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getPrefixList:getPrefixList', __args__, opts=opts, typ=GetPrefixListResult)
     return __ret__.apply(lambda __response__: GetPrefixListResult(
@@ -234,4 +250,5 @@ def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
-        prefix_list_id=pulumi.get(__response__, 'prefix_list_id')))
+        prefix_list_id=pulumi.get(__response__, 'prefix_list_id'),
+        region=pulumi.get(__response__, 'region')))

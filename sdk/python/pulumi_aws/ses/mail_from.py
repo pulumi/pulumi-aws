@@ -22,7 +22,8 @@ class MailFromArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[builtins.str],
                  mail_from_domain: pulumi.Input[builtins.str],
-                 behavior_on_mx_failure: Optional[pulumi.Input[builtins.str]] = None):
+                 behavior_on_mx_failure: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a MailFrom resource.
         :param pulumi.Input[builtins.str] domain: Verified domain name or email identity to generate DKIM tokens for.
@@ -30,11 +31,14 @@ class MailFromArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] behavior_on_mx_failure: The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "mail_from_domain", mail_from_domain)
         if behavior_on_mx_failure is not None:
             pulumi.set(__self__, "behavior_on_mx_failure", behavior_on_mx_failure)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -74,13 +78,26 @@ class MailFromArgs:
     def behavior_on_mx_failure(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "behavior_on_mx_failure", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _MailFromState:
     def __init__(__self__, *,
                  behavior_on_mx_failure: Optional[pulumi.Input[builtins.str]] = None,
                  domain: Optional[pulumi.Input[builtins.str]] = None,
-                 mail_from_domain: Optional[pulumi.Input[builtins.str]] = None):
+                 mail_from_domain: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering MailFrom resources.
         :param pulumi.Input[builtins.str] behavior_on_mx_failure: The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. Defaults to `UseDefaultValue`. See the [SES API documentation](https://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityMailFromDomain.html) for more information.
@@ -88,6 +105,7 @@ class _MailFromState:
         :param pulumi.Input[builtins.str] mail_from_domain: Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if behavior_on_mx_failure is not None:
             pulumi.set(__self__, "behavior_on_mx_failure", behavior_on_mx_failure)
@@ -95,6 +113,8 @@ class _MailFromState:
             pulumi.set(__self__, "domain", domain)
         if mail_from_domain is not None:
             pulumi.set(__self__, "mail_from_domain", mail_from_domain)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="behaviorOnMxFailure")
@@ -134,6 +154,18 @@ class _MailFromState:
     def mail_from_domain(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "mail_from_domain", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:ses/mailFrom:MailFrom")
 class MailFrom(pulumi.CustomResource):
@@ -144,6 +176,7 @@ class MailFrom(pulumi.CustomResource):
                  behavior_on_mx_failure: Optional[pulumi.Input[builtins.str]] = None,
                  domain: Optional[pulumi.Input[builtins.str]] = None,
                  mail_from_domain: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides an SES domain MAIL FROM resource.
@@ -207,6 +240,7 @@ class MailFrom(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] mail_from_domain: Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -287,6 +321,7 @@ class MailFrom(pulumi.CustomResource):
                  behavior_on_mx_failure: Optional[pulumi.Input[builtins.str]] = None,
                  domain: Optional[pulumi.Input[builtins.str]] = None,
                  mail_from_domain: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -303,6 +338,7 @@ class MailFrom(pulumi.CustomResource):
             if mail_from_domain is None and not opts.urn:
                 raise TypeError("Missing required property 'mail_from_domain'")
             __props__.__dict__["mail_from_domain"] = mail_from_domain
+            __props__.__dict__["region"] = region
         super(MailFrom, __self__).__init__(
             'aws:ses/mailFrom:MailFrom',
             resource_name,
@@ -315,7 +351,8 @@ class MailFrom(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             behavior_on_mx_failure: Optional[pulumi.Input[builtins.str]] = None,
             domain: Optional[pulumi.Input[builtins.str]] = None,
-            mail_from_domain: Optional[pulumi.Input[builtins.str]] = None) -> 'MailFrom':
+            mail_from_domain: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'MailFrom':
         """
         Get an existing MailFrom resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -328,6 +365,7 @@ class MailFrom(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] mail_from_domain: Subdomain (of above domain) which is to be used as MAIL FROM address (Required for DMARC validation)
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -336,6 +374,7 @@ class MailFrom(pulumi.CustomResource):
         __props__.__dict__["behavior_on_mx_failure"] = behavior_on_mx_failure
         __props__.__dict__["domain"] = domain
         __props__.__dict__["mail_from_domain"] = mail_from_domain
+        __props__.__dict__["region"] = region
         return MailFrom(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -363,4 +402,12 @@ class MailFrom(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "mail_from_domain")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

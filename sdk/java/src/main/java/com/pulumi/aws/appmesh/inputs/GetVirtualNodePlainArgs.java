@@ -62,6 +62,21 @@ public final class GetVirtualNodePlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Map of tags.
      * 
      */
@@ -82,6 +97,7 @@ public final class GetVirtualNodePlainArgs extends com.pulumi.resources.InvokeAr
         this.meshName = $.meshName;
         this.meshOwner = $.meshOwner;
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -133,6 +149,17 @@ public final class GetVirtualNodePlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

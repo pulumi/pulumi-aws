@@ -23,14 +23,18 @@ __all__ = ['UserHierarchyStructureArgs', 'UserHierarchyStructure']
 class UserHierarchyStructureArgs:
     def __init__(__self__, *,
                  hierarchy_structure: pulumi.Input['UserHierarchyStructureHierarchyStructureArgs'],
-                 instance_id: pulumi.Input[builtins.str]):
+                 instance_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a UserHierarchyStructure resource.
         :param pulumi.Input['UserHierarchyStructureHierarchyStructureArgs'] hierarchy_structure: A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
         :param pulumi.Input[builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "hierarchy_structure", hierarchy_structure)
         pulumi.set(__self__, "instance_id", instance_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="hierarchyStructure")
@@ -56,21 +60,37 @@ class UserHierarchyStructureArgs:
     def instance_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "instance_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _UserHierarchyStructureState:
     def __init__(__self__, *,
                  hierarchy_structure: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureArgs']] = None,
-                 instance_id: Optional[pulumi.Input[builtins.str]] = None):
+                 instance_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserHierarchyStructure resources.
         :param pulumi.Input['UserHierarchyStructureHierarchyStructureArgs'] hierarchy_structure: A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
         :param pulumi.Input[builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if hierarchy_structure is not None:
             pulumi.set(__self__, "hierarchy_structure", hierarchy_structure)
         if instance_id is not None:
             pulumi.set(__self__, "instance_id", instance_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="hierarchyStructure")
@@ -96,6 +116,18 @@ class _UserHierarchyStructureState:
     def instance_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "instance_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:connect/userHierarchyStructure:UserHierarchyStructure")
 class UserHierarchyStructure(pulumi.CustomResource):
@@ -105,6 +137,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hierarchy_structure: Optional[pulumi.Input[Union['UserHierarchyStructureHierarchyStructureArgs', 'UserHierarchyStructureHierarchyStructureArgsDict']]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides an Amazon Connect User Hierarchy Structure resource. For more information see
@@ -166,6 +199,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['UserHierarchyStructureHierarchyStructureArgs', 'UserHierarchyStructureHierarchyStructureArgsDict']] hierarchy_structure: A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
         :param pulumi.Input[builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -246,6 +280,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  hierarchy_structure: Optional[pulumi.Input[Union['UserHierarchyStructureHierarchyStructureArgs', 'UserHierarchyStructureHierarchyStructureArgsDict']]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -261,6 +296,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
             if instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_id'")
             __props__.__dict__["instance_id"] = instance_id
+            __props__.__dict__["region"] = region
         super(UserHierarchyStructure, __self__).__init__(
             'aws:connect/userHierarchyStructure:UserHierarchyStructure',
             resource_name,
@@ -272,7 +308,8 @@ class UserHierarchyStructure(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             hierarchy_structure: Optional[pulumi.Input[Union['UserHierarchyStructureHierarchyStructureArgs', 'UserHierarchyStructureHierarchyStructureArgsDict']]] = None,
-            instance_id: Optional[pulumi.Input[builtins.str]] = None) -> 'UserHierarchyStructure':
+            instance_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'UserHierarchyStructure':
         """
         Get an existing UserHierarchyStructure resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -282,6 +319,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['UserHierarchyStructureHierarchyStructureArgs', 'UserHierarchyStructureHierarchyStructureArgsDict']] hierarchy_structure: A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
         :param pulumi.Input[builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -289,6 +327,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
 
         __props__.__dict__["hierarchy_structure"] = hierarchy_structure
         __props__.__dict__["instance_id"] = instance_id
+        __props__.__dict__["region"] = region
         return UserHierarchyStructure(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -306,4 +345,12 @@ class UserHierarchyStructure(pulumi.CustomResource):
         Specifies the identifier of the hosting Amazon Connect Instance.
         """
         return pulumi.get(self, "instance_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

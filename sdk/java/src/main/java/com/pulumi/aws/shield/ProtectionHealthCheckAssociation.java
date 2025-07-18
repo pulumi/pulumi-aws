@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleProtection = new Protection("exampleProtection", ProtectionArgs.builder()
  *             .name("example-protection")
- *             .resourceArn(example.id().applyValue(_id -> String.format("arn:%s:ec2:%s:%s:eip-allocation/%s", currentGetPartition.partition(),current.name(),currentGetCallerIdentity.accountId(),_id)))
+ *             .resourceArn(example.id().applyValue(_id -> String.format("arn:%s:ec2:%s:%s:eip-allocation/%s", currentGetPartition.partition(),current.region(),currentGetCallerIdentity.accountId(),_id)))
  *             .build());
  * 
  *         var exampleHealthCheck = new HealthCheck("exampleHealthCheck", HealthCheckArgs.builder()

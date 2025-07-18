@@ -60,12 +60,12 @@ import javax.annotation.Nullable;
  *             .connectionAlias("outbound_connection")
  *             .localDomainInfo(OutboundConnectionLocalDomainInfoArgs.builder()
  *                 .ownerId(current.accountId())
- *                 .region(currentGetRegion.name())
+ *                 .region(currentGetRegion.region())
  *                 .domainName(localDomain.domainName())
  *                 .build())
  *             .remoteDomainInfo(OutboundConnectionRemoteDomainInfoArgs.builder()
  *                 .ownerId(current.accountId())
- *                 .region(currentGetRegion.name())
+ *                 .region(currentGetRegion.region())
  *                 .domainName(remoteDomain.domainName())
  *                 .build())
  *             .build());
@@ -118,6 +118,20 @@ public class InboundConnectionAccepter extends com.pulumi.resources.CustomResour
      */
     public Output<String> connectionStatus() {
         return this.connectionStatus;
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
 
     /**

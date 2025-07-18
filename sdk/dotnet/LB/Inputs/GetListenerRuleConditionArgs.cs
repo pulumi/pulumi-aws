@@ -12,43 +12,79 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class GetListenerRuleConditionInputArgs : global::Pulumi.ResourceArgs
     {
+        [Input("hostHeaders")]
+        private InputList<Inputs.GetListenerRuleConditionHostHeaderInputArgs>? _hostHeaders;
+
         /// <summary>
         /// Contains a single attribute `values`, which contains a set of host names.
         /// </summary>
-        [Input("hostHeader")]
-        public Input<Inputs.GetListenerRuleConditionHostHeaderInputArgs>? HostHeader { get; set; }
+        public InputList<Inputs.GetListenerRuleConditionHostHeaderInputArgs> HostHeaders
+        {
+            get => _hostHeaders ?? (_hostHeaders = new InputList<Inputs.GetListenerRuleConditionHostHeaderInputArgs>());
+            set => _hostHeaders = value;
+        }
+
+        [Input("httpHeaders")]
+        private InputList<Inputs.GetListenerRuleConditionHttpHeaderInputArgs>? _httpHeaders;
 
         /// <summary>
         /// HTTP header and values to match.
         /// Detailed below.
         /// </summary>
-        [Input("httpHeader")]
-        public Input<Inputs.GetListenerRuleConditionHttpHeaderInputArgs>? HttpHeader { get; set; }
+        public InputList<Inputs.GetListenerRuleConditionHttpHeaderInputArgs> HttpHeaders
+        {
+            get => _httpHeaders ?? (_httpHeaders = new InputList<Inputs.GetListenerRuleConditionHttpHeaderInputArgs>());
+            set => _httpHeaders = value;
+        }
+
+        [Input("httpRequestMethods")]
+        private InputList<Inputs.GetListenerRuleConditionHttpRequestMethodInputArgs>? _httpRequestMethods;
 
         /// <summary>
         /// Contains a single attribute `values`, which contains a set of HTTP request methods.
         /// </summary>
-        [Input("httpRequestMethod")]
-        public Input<Inputs.GetListenerRuleConditionHttpRequestMethodInputArgs>? HttpRequestMethod { get; set; }
+        public InputList<Inputs.GetListenerRuleConditionHttpRequestMethodInputArgs> HttpRequestMethods
+        {
+            get => _httpRequestMethods ?? (_httpRequestMethods = new InputList<Inputs.GetListenerRuleConditionHttpRequestMethodInputArgs>());
+            set => _httpRequestMethods = value;
+        }
+
+        [Input("pathPatterns")]
+        private InputList<Inputs.GetListenerRuleConditionPathPatternInputArgs>? _pathPatterns;
 
         /// <summary>
         /// Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
         /// </summary>
-        [Input("pathPattern")]
-        public Input<Inputs.GetListenerRuleConditionPathPatternInputArgs>? PathPattern { get; set; }
+        public InputList<Inputs.GetListenerRuleConditionPathPatternInputArgs> PathPatterns
+        {
+            get => _pathPatterns ?? (_pathPatterns = new InputList<Inputs.GetListenerRuleConditionPathPatternInputArgs>());
+            set => _pathPatterns = value;
+        }
+
+        [Input("queryStrings")]
+        private InputList<Inputs.GetListenerRuleConditionQueryStringInputArgs>? _queryStrings;
 
         /// <summary>
         /// Query string parameters to match.
         /// Detailed below.
         /// </summary>
-        [Input("queryString")]
-        public Input<Inputs.GetListenerRuleConditionQueryStringInputArgs>? QueryString { get; set; }
+        public InputList<Inputs.GetListenerRuleConditionQueryStringInputArgs> QueryStrings
+        {
+            get => _queryStrings ?? (_queryStrings = new InputList<Inputs.GetListenerRuleConditionQueryStringInputArgs>());
+            set => _queryStrings = value;
+        }
+
+        [Input("sourceIps")]
+        private InputList<Inputs.GetListenerRuleConditionSourceIpInputArgs>? _sourceIps;
 
         /// <summary>
         /// Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
         /// </summary>
-        [Input("sourceIp")]
-        public Input<Inputs.GetListenerRuleConditionSourceIpInputArgs>? SourceIp { get; set; }
+        public InputList<Inputs.GetListenerRuleConditionSourceIpInputArgs> SourceIps
+        {
+            get => _sourceIps ?? (_sourceIps = new InputList<Inputs.GetListenerRuleConditionSourceIpInputArgs>());
+            set => _sourceIps = value;
+        }
 
         public GetListenerRuleConditionInputArgs()
         {

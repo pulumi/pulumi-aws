@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,6 +88,8 @@ type LookupContactFlowModuleArgs struct {
 	//
 	// > **NOTE:** `instanceId` and one of either `name` or `contactFlowModuleId` is required.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the Contact Flow Module.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -105,6 +107,7 @@ type LookupContactFlowModuleResult struct {
 	Id         string `pulumi:"id"`
 	InstanceId string `pulumi:"instanceId"`
 	Name       string `pulumi:"name"`
+	Region     string `pulumi:"region"`
 	// Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
 	State string `pulumi:"state"`
 	// Status of the Contact Flow Module Module. Values are either `PUBLISHED` or `SAVED`.
@@ -132,6 +135,8 @@ type LookupContactFlowModuleOutputArgs struct {
 	//
 	// > **NOTE:** `instanceId` and one of either `name` or `contactFlowModuleId` is required.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags to assign to the Contact Flow Module.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -185,6 +190,10 @@ func (o LookupContactFlowModuleResultOutput) InstanceId() pulumi.StringOutput {
 
 func (o LookupContactFlowModuleResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowModuleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupContactFlowModuleResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContactFlowModuleResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.

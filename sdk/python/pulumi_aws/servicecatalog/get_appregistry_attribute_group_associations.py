@@ -27,7 +27,7 @@ class GetAppregistryAttributeGroupAssociationsResult:
     """
     A collection of values returned by getAppregistryAttributeGroupAssociations.
     """
-    def __init__(__self__, attribute_group_ids=None, id=None, name=None):
+    def __init__(__self__, attribute_group_ids=None, id=None, name=None, region=None):
         if attribute_group_ids and not isinstance(attribute_group_ids, list):
             raise TypeError("Expected argument 'attribute_group_ids' to be a list")
         pulumi.set(__self__, "attribute_group_ids", attribute_group_ids)
@@ -37,6 +37,9 @@ class GetAppregistryAttributeGroupAssociationsResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="attributeGroupIds")
@@ -56,6 +59,11 @@ class GetAppregistryAttributeGroupAssociationsResult:
     def name(self) -> Optional[builtins.str]:
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetAppregistryAttributeGroupAssociationsResult(GetAppregistryAttributeGroupAssociationsResult):
     # pylint: disable=using-constant-test
@@ -65,11 +73,13 @@ class AwaitableGetAppregistryAttributeGroupAssociationsResult(GetAppregistryAttr
         return GetAppregistryAttributeGroupAssociationsResult(
             attribute_group_ids=self.attribute_group_ids,
             id=self.id,
-            name=self.name)
+            name=self.name,
+            region=self.region)
 
 
 def get_appregistry_attribute_group_associations(id: Optional[builtins.str] = None,
                                                  name: Optional[builtins.str] = None,
+                                                 region: Optional[builtins.str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppregistryAttributeGroupAssociationsResult:
     """
     Data source for managing AWS Service Catalog AppRegistry Attribute Group Associations.
@@ -88,21 +98,24 @@ def get_appregistry_attribute_group_associations(id: Optional[builtins.str] = No
 
     :param builtins.str id: ID of the application to which attribute groups are associated.
     :param builtins.str name: Name of the application to which attribute groups are associated.
-           
-           The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+           > Exactly one of `id`or `name` must be set.
     """
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:servicecatalog/getAppregistryAttributeGroupAssociations:getAppregistryAttributeGroupAssociations', __args__, opts=opts, typ=GetAppregistryAttributeGroupAssociationsResult).value
 
     return AwaitableGetAppregistryAttributeGroupAssociationsResult(
         attribute_group_ids=pulumi.get(__ret__, 'attribute_group_ids'),
         id=pulumi.get(__ret__, 'id'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'))
 def get_appregistry_attribute_group_associations_output(id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                                         name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppregistryAttributeGroupAssociationsResult]:
     """
     Data source for managing AWS Service Catalog AppRegistry Attribute Group Associations.
@@ -121,15 +134,17 @@ def get_appregistry_attribute_group_associations_output(id: Optional[pulumi.Inpu
 
     :param builtins.str id: ID of the application to which attribute groups are associated.
     :param builtins.str name: Name of the application to which attribute groups are associated.
-           
-           The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+           > Exactly one of `id`or `name` must be set.
     """
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicecatalog/getAppregistryAttributeGroupAssociations:getAppregistryAttributeGroupAssociations', __args__, opts=opts, typ=GetAppregistryAttributeGroupAssociationsResult)
     return __ret__.apply(lambda __response__: GetAppregistryAttributeGroupAssociationsResult(
         attribute_group_ids=pulumi.get(__response__, 'attribute_group_ids'),
         id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name')))
+        name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region')))

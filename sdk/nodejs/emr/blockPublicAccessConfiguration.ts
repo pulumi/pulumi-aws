@@ -120,6 +120,10 @@ export class BlockPublicAccessConfiguration extends pulumi.CustomResource {
      * Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
      */
     public readonly permittedPublicSecurityGroupRuleRanges!: pulumi.Output<outputs.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange[] | undefined>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a BlockPublicAccessConfiguration resource with the given unique name, arguments, and options.
@@ -136,6 +140,7 @@ export class BlockPublicAccessConfiguration extends pulumi.CustomResource {
             const state = argsOrState as BlockPublicAccessConfigurationState | undefined;
             resourceInputs["blockPublicSecurityGroupRules"] = state ? state.blockPublicSecurityGroupRules : undefined;
             resourceInputs["permittedPublicSecurityGroupRuleRanges"] = state ? state.permittedPublicSecurityGroupRuleRanges : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as BlockPublicAccessConfigurationArgs | undefined;
             if ((!args || args.blockPublicSecurityGroupRules === undefined) && !opts.urn) {
@@ -143,6 +148,7 @@ export class BlockPublicAccessConfiguration extends pulumi.CustomResource {
             }
             resourceInputs["blockPublicSecurityGroupRules"] = args ? args.blockPublicSecurityGroupRules : undefined;
             resourceInputs["permittedPublicSecurityGroupRuleRanges"] = args ? args.permittedPublicSecurityGroupRuleRanges : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BlockPublicAccessConfiguration.__pulumiType, name, resourceInputs, opts);
@@ -163,6 +169,10 @@ export interface BlockPublicAccessConfigurationState {
      * Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
      */
     permittedPublicSecurityGroupRuleRanges?: pulumi.Input<pulumi.Input<inputs.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -179,4 +189,8 @@ export interface BlockPublicAccessConfigurationArgs {
      * Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `blockPublicSecurityGroupRules` is set to `true`.
      */
     permittedPublicSecurityGroupRuleRanges?: pulumi.Input<pulumi.Input<inputs.emr.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

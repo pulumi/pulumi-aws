@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupImagePipeline(ctx *pulumi.Context, args *LookupImagePipelineArgs, opt
 type LookupImagePipelineArgs struct {
 	// ARN of the image pipeline.
 	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the image pipeline.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -88,6 +90,7 @@ type LookupImagePipelineResult struct {
 	Name string `pulumi:"name"`
 	// Platform of the image pipeline.
 	Platform string `pulumi:"platform"`
+	Region   string `pulumi:"region"`
 	// List of an object with schedule settings.
 	Schedules []GetImagePipelineSchedule `pulumi:"schedules"`
 	// Status of the image pipeline.
@@ -109,6 +112,8 @@ func LookupImagePipelineOutput(ctx *pulumi.Context, args LookupImagePipelineOutp
 type LookupImagePipelineOutputArgs struct {
 	// ARN of the image pipeline.
 	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the image pipeline.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -212,6 +217,10 @@ func (o LookupImagePipelineResultOutput) Name() pulumi.StringOutput {
 // Platform of the image pipeline.
 func (o LookupImagePipelineResultOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.Platform }).(pulumi.StringOutput)
+}
+
+func (o LookupImagePipelineResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of an object with schedule settings.

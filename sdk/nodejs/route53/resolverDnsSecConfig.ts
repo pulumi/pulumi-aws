@@ -66,6 +66,10 @@ export class ResolverDnsSecConfig extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
      */
     public readonly resourceId!: pulumi.Output<string>;
@@ -89,6 +93,7 @@ export class ResolverDnsSecConfig extends pulumi.CustomResource {
             const state = argsOrState as ResolverDnsSecConfigState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
             resourceInputs["validationStatus"] = state ? state.validationStatus : undefined;
         } else {
@@ -96,6 +101,7 @@ export class ResolverDnsSecConfig extends pulumi.CustomResource {
             if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
@@ -119,6 +125,10 @@ export interface ResolverDnsSecConfigState {
      */
     ownerId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
      */
     resourceId?: pulumi.Input<string>;
@@ -132,6 +142,10 @@ export interface ResolverDnsSecConfigState {
  * The set of arguments for constructing a ResolverDnsSecConfig resource.
  */
 export interface ResolverDnsSecConfigArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
      */

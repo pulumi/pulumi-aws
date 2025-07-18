@@ -16,18 +16,14 @@ public final class VpcAttachmentOptionsArgs extends com.pulumi.resources.Resourc
     public static final VpcAttachmentOptionsArgs Empty = new VpcAttachmentOptionsArgs();
 
     /**
-     * Indicates whether appliance mode is supported.
-     * If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
-     * If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+     * Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
      * 
      */
     @Import(name="applianceModeSupport")
     private @Nullable Output<Boolean> applianceModeSupport;
 
     /**
-     * @return Indicates whether appliance mode is supported.
-     * If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
-     * If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+     * @return Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
      * 
      */
     public Optional<Output<Boolean>> applianceModeSupport() {
@@ -35,16 +31,14 @@ public final class VpcAttachmentOptionsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Indicates whether IPv6 is supported.
-     * If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+     * Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
      * 
      */
     @Import(name="ipv6Support")
     private @Nullable Output<Boolean> ipv6Support;
 
     /**
-     * @return Indicates whether IPv6 is supported.
-     * If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+     * @return Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
      * 
      */
     public Optional<Output<Boolean>> ipv6Support() {
@@ -77,9 +71,7 @@ public final class VpcAttachmentOptionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param applianceModeSupport Indicates whether appliance mode is supported.
-         * If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
-         * If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+         * @param applianceModeSupport Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
          * 
          * @return builder
          * 
@@ -90,9 +82,7 @@ public final class VpcAttachmentOptionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param applianceModeSupport Indicates whether appliance mode is supported.
-         * If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
-         * If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+         * @param applianceModeSupport Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
          * 
          * @return builder
          * 
@@ -102,8 +92,7 @@ public final class VpcAttachmentOptionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ipv6Support Indicates whether IPv6 is supported.
-         * If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+         * @param ipv6Support Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
          * 
          * @return builder
          * 
@@ -114,8 +103,7 @@ public final class VpcAttachmentOptionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ipv6Support Indicates whether IPv6 is supported.
-         * If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+         * @param ipv6Support Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
          * 
          * @return builder
          * 

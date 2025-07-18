@@ -121,6 +121,12 @@ public class Thesaurus extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    public Output<String> region() {
+        return this.region;
+    }
     /**
      * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
      * 
@@ -172,11 +178,7 @@ public class Thesaurus extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

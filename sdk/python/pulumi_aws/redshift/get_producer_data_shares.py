@@ -15,7 +15,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetProducerDataSharesResult',
@@ -29,7 +28,7 @@ class GetProducerDataSharesResult:
     """
     A collection of values returned by getProducerDataShares.
     """
-    def __init__(__self__, data_shares=None, id=None, producer_arn=None, status=None):
+    def __init__(__self__, data_shares=None, id=None, producer_arn=None, region=None, status=None):
         if data_shares and not isinstance(data_shares, list):
             raise TypeError("Expected argument 'data_shares' to be a list")
         pulumi.set(__self__, "data_shares", data_shares)
@@ -39,13 +38,16 @@ class GetProducerDataSharesResult:
         if producer_arn and not isinstance(producer_arn, str):
             raise TypeError("Expected argument 'producer_arn' to be a str")
         pulumi.set(__self__, "producer_arn", producer_arn)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
 
     @property
     @pulumi.getter(name="dataShares")
-    def data_shares(self) -> Optional[Sequence['outputs.GetProducerDataSharesDataShareResult']]:
+    def data_shares(self) -> Sequence['outputs.GetProducerDataSharesDataShareResult']:
         """
         An array of all data shares in the producer. See `data_shares` below.
         """
@@ -69,6 +71,11 @@ class GetProducerDataSharesResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[builtins.str]:
         return pulumi.get(self, "status")
 
@@ -82,11 +89,12 @@ class AwaitableGetProducerDataSharesResult(GetProducerDataSharesResult):
             data_shares=self.data_shares,
             id=self.id,
             producer_arn=self.producer_arn,
+            region=self.region,
             status=self.status)
 
 
-def get_producer_data_shares(data_shares: Optional[Sequence[Union['GetProducerDataSharesDataShareArgs', 'GetProducerDataSharesDataShareArgsDict']]] = None,
-                             producer_arn: Optional[builtins.str] = None,
+def get_producer_data_shares(producer_arn: Optional[builtins.str] = None,
+                             region: Optional[builtins.str] = None,
                              status: Optional[builtins.str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProducerDataSharesResult:
     """
@@ -104,15 +112,15 @@ def get_producer_data_shares(data_shares: Optional[Sequence[Union['GetProducerDa
     ```
 
 
-    :param Sequence[Union['GetProducerDataSharesDataShareArgs', 'GetProducerDataSharesDataShareArgsDict']] data_shares: An array of all data shares in the producer. See `data_shares` below.
     :param builtins.str producer_arn: Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str status: Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
     """
     __args__ = dict()
-    __args__['dataShares'] = data_shares
     __args__['producerArn'] = producer_arn
+    __args__['region'] = region
     __args__['status'] = status
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:redshift/getProducerDataShares:getProducerDataShares', __args__, opts=opts, typ=GetProducerDataSharesResult).value
@@ -121,9 +129,10 @@ def get_producer_data_shares(data_shares: Optional[Sequence[Union['GetProducerDa
         data_shares=pulumi.get(__ret__, 'data_shares'),
         id=pulumi.get(__ret__, 'id'),
         producer_arn=pulumi.get(__ret__, 'producer_arn'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'))
-def get_producer_data_shares_output(data_shares: Optional[pulumi.Input[Optional[Sequence[Union['GetProducerDataSharesDataShareArgs', 'GetProducerDataSharesDataShareArgsDict']]]]] = None,
-                                    producer_arn: Optional[pulumi.Input[builtins.str]] = None,
+def get_producer_data_shares_output(producer_arn: Optional[pulumi.Input[builtins.str]] = None,
+                                    region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                     status: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProducerDataSharesResult]:
     """
@@ -141,15 +150,15 @@ def get_producer_data_shares_output(data_shares: Optional[pulumi.Input[Optional[
     ```
 
 
-    :param Sequence[Union['GetProducerDataSharesDataShareArgs', 'GetProducerDataSharesDataShareArgsDict']] data_shares: An array of all data shares in the producer. See `data_shares` below.
     :param builtins.str producer_arn: Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str status: Status of a datashare in the producer. Valid values are `ACTIVE`, `AUTHORIZED`, `PENDING_AUTHORIZATION`, `DEAUTHORIZED`, and `REJECTED`. Omit this argument to return all statuses.
     """
     __args__ = dict()
-    __args__['dataShares'] = data_shares
     __args__['producerArn'] = producer_arn
+    __args__['region'] = region
     __args__['status'] = status
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:redshift/getProducerDataShares:getProducerDataShares', __args__, opts=opts, typ=GetProducerDataSharesResult)
@@ -157,4 +166,5 @@ def get_producer_data_shares_output(data_shares: Optional[pulumi.Input[Optional[
         data_shares=pulumi.get(__response__, 'data_shares'),
         id=pulumi.get(__response__, 'id'),
         producer_arn=pulumi.get(__response__, 'producer_arn'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status')))

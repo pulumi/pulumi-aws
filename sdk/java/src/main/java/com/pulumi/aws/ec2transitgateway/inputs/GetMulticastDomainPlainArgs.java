@@ -33,6 +33,21 @@ public final class GetMulticastDomainPlainArgs extends com.pulumi.resources.Invo
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key-value tags for the EC2 Transit Gateway Multicast Domain.
      * 
      */
@@ -66,6 +81,7 @@ public final class GetMulticastDomainPlainArgs extends com.pulumi.resources.Invo
 
     private GetMulticastDomainPlainArgs(GetMulticastDomainPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
         this.transitGatewayMulticastDomainId = $.transitGatewayMulticastDomainId;
     }
@@ -107,6 +123,17 @@ public final class GetMulticastDomainPlainArgs extends com.pulumi.resources.Invo
          */
         public Builder filters(GetMulticastDomainFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

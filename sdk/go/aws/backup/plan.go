@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -74,13 +74,13 @@ type Plan struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The display name of a backup plan.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules PlanRuleArrayOutput `pulumi:"rules"`
 	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -125,13 +125,13 @@ type planState struct {
 	Arn *string `pulumi:"arn"`
 	// The display name of a backup plan.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules []PlanRule `pulumi:"rules"`
 	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
 	Version *string `pulumi:"version"`
@@ -144,13 +144,13 @@ type PlanState struct {
 	Arn pulumi.StringPtrInput
 	// The display name of a backup plan.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules PlanRuleArrayInput
 	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Unique, randomly generated, Unicode, UTF-8 encoded string that serves as the version ID of the backup plan.
 	Version pulumi.StringPtrInput
@@ -165,6 +165,8 @@ type planArgs struct {
 	AdvancedBackupSettings []PlanAdvancedBackupSetting `pulumi:"advancedBackupSettings"`
 	// The display name of a backup plan.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules []PlanRule `pulumi:"rules"`
 	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -177,6 +179,8 @@ type PlanArgs struct {
 	AdvancedBackupSettings PlanAdvancedBackupSettingArrayInput
 	// The display name of a backup plan.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A rule object that specifies a scheduled task that is used to back up a selection of resources.
 	Rules PlanRuleArrayInput
 	// Metadata that you can assign to help organize the plans you create. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -285,6 +289,11 @@ func (o PlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o PlanOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // A rule object that specifies a scheduled task that is used to back up a selection of resources.
 func (o PlanOutput) Rules() PlanRuleArrayOutput {
 	return o.ApplyT(func(v *Plan) PlanRuleArrayOutput { return v.Rules }).(PlanRuleArrayOutput)
@@ -296,8 +305,6 @@ func (o PlanOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o PlanOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

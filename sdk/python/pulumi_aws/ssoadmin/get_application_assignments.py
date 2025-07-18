@@ -15,7 +15,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetApplicationAssignmentsResult',
@@ -29,7 +28,7 @@ class GetApplicationAssignmentsResult:
     """
     A collection of values returned by getApplicationAssignments.
     """
-    def __init__(__self__, application_arn=None, application_assignments=None, id=None):
+    def __init__(__self__, application_arn=None, application_assignments=None, id=None, region=None):
         if application_arn and not isinstance(application_arn, str):
             raise TypeError("Expected argument 'application_arn' to be a str")
         pulumi.set(__self__, "application_arn", application_arn)
@@ -39,6 +38,9 @@ class GetApplicationAssignmentsResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="applicationArn")
@@ -50,7 +52,7 @@ class GetApplicationAssignmentsResult:
 
     @property
     @pulumi.getter(name="applicationAssignments")
-    def application_assignments(self) -> Optional[Sequence['outputs.GetApplicationAssignmentsApplicationAssignmentResult']]:
+    def application_assignments(self) -> Sequence['outputs.GetApplicationAssignmentsApplicationAssignmentResult']:
         """
         List of principals assigned to the application. See the `application_assignments` attribute reference below.
         """
@@ -61,6 +63,11 @@ class GetApplicationAssignmentsResult:
     def id(self) -> builtins.str:
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetApplicationAssignmentsResult(GetApplicationAssignmentsResult):
     # pylint: disable=using-constant-test
@@ -70,11 +77,12 @@ class AwaitableGetApplicationAssignmentsResult(GetApplicationAssignmentsResult):
         return GetApplicationAssignmentsResult(
             application_arn=self.application_arn,
             application_assignments=self.application_assignments,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
 def get_application_assignments(application_arn: Optional[builtins.str] = None,
-                                application_assignments: Optional[Sequence[Union['GetApplicationAssignmentsApplicationAssignmentArgs', 'GetApplicationAssignmentsApplicationAssignmentArgsDict']]] = None,
+                                region: Optional[builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationAssignmentsResult:
     """
     Data source for managing AWS SSO Admin Application Assignments.
@@ -87,25 +95,26 @@ def get_application_assignments(application_arn: Optional[builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ssoadmin.get_application_assignments(application_arn=example_aws_ssoadmin_application["applicationArn"])
+    example = aws.ssoadmin.get_application_assignments(application_arn=example_aws_ssoadmin_application["arn"])
     ```
 
 
     :param builtins.str application_arn: ARN of the application.
-    :param Sequence[Union['GetApplicationAssignmentsApplicationAssignmentArgs', 'GetApplicationAssignmentsApplicationAssignmentArgsDict']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['applicationArn'] = application_arn
-    __args__['applicationAssignments'] = application_assignments
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ssoadmin/getApplicationAssignments:getApplicationAssignments', __args__, opts=opts, typ=GetApplicationAssignmentsResult).value
 
     return AwaitableGetApplicationAssignmentsResult(
         application_arn=pulumi.get(__ret__, 'application_arn'),
         application_assignments=pulumi.get(__ret__, 'application_assignments'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_application_assignments_output(application_arn: Optional[pulumi.Input[builtins.str]] = None,
-                                       application_assignments: Optional[pulumi.Input[Optional[Sequence[Union['GetApplicationAssignmentsApplicationAssignmentArgs', 'GetApplicationAssignmentsApplicationAssignmentArgsDict']]]]] = None,
+                                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationAssignmentsResult]:
     """
     Data source for managing AWS SSO Admin Application Assignments.
@@ -118,19 +127,20 @@ def get_application_assignments_output(application_arn: Optional[pulumi.Input[bu
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ssoadmin.get_application_assignments(application_arn=example_aws_ssoadmin_application["applicationArn"])
+    example = aws.ssoadmin.get_application_assignments(application_arn=example_aws_ssoadmin_application["arn"])
     ```
 
 
     :param builtins.str application_arn: ARN of the application.
-    :param Sequence[Union['GetApplicationAssignmentsApplicationAssignmentArgs', 'GetApplicationAssignmentsApplicationAssignmentArgsDict']] application_assignments: List of principals assigned to the application. See the `application_assignments` attribute reference below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['applicationArn'] = application_arn
-    __args__['applicationAssignments'] = application_assignments
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssoadmin/getApplicationAssignments:getApplicationAssignments', __args__, opts=opts, typ=GetApplicationAssignmentsResult)
     return __ret__.apply(lambda __response__: GetApplicationAssignmentsResult(
         application_arn=pulumi.get(__response__, 'application_arn'),
         application_assignments=pulumi.get(__response__, 'application_assignments'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

@@ -23,7 +23,8 @@ class TemplateAliasArgs:
                  alias_name: pulumi.Input[builtins.str],
                  template_id: pulumi.Input[builtins.str],
                  template_version_number: pulumi.Input[builtins.int],
-                 aws_account_id: Optional[pulumi.Input[builtins.str]] = None):
+                 aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a TemplateAlias resource.
         :param pulumi.Input[builtins.str] alias_name: Display name of the template alias.
@@ -32,12 +33,15 @@ class TemplateAliasArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "alias_name", alias_name)
         pulumi.set(__self__, "template_id", template_id)
         pulumi.set(__self__, "template_version_number", template_version_number)
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="aliasName")
@@ -89,6 +93,18 @@ class TemplateAliasArgs:
     def aws_account_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _TemplateAliasState:
@@ -96,6 +112,7 @@ class _TemplateAliasState:
                  alias_name: Optional[pulumi.Input[builtins.str]] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  template_id: Optional[pulumi.Input[builtins.str]] = None,
                  template_version_number: Optional[pulumi.Input[builtins.int]] = None):
         """
@@ -103,6 +120,7 @@ class _TemplateAliasState:
         :param pulumi.Input[builtins.str] alias_name: Display name of the template alias.
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the template alias.
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] template_id: ID of the template.
         :param pulumi.Input[builtins.int] template_version_number: Version number of the template.
                
@@ -114,6 +132,8 @@ class _TemplateAliasState:
             pulumi.set(__self__, "arn", arn)
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if template_id is not None:
             pulumi.set(__self__, "template_id", template_id)
         if template_version_number is not None:
@@ -156,6 +176,18 @@ class _TemplateAliasState:
         pulumi.set(self, "aws_account_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="templateId")
     def template_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -190,6 +222,7 @@ class TemplateAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias_name: Optional[pulumi.Input[builtins.str]] = None,
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  template_id: Optional[pulumi.Input[builtins.str]] = None,
                  template_version_number: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
@@ -222,6 +255,7 @@ class TemplateAlias(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] alias_name: Display name of the template alias.
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] template_id: ID of the template.
         :param pulumi.Input[builtins.int] template_version_number: Version number of the template.
                
@@ -275,6 +309,7 @@ class TemplateAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias_name: Optional[pulumi.Input[builtins.str]] = None,
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  template_id: Optional[pulumi.Input[builtins.str]] = None,
                  template_version_number: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
@@ -290,6 +325,7 @@ class TemplateAlias(pulumi.CustomResource):
                 raise TypeError("Missing required property 'alias_name'")
             __props__.__dict__["alias_name"] = alias_name
             __props__.__dict__["aws_account_id"] = aws_account_id
+            __props__.__dict__["region"] = region
             if template_id is None and not opts.urn:
                 raise TypeError("Missing required property 'template_id'")
             __props__.__dict__["template_id"] = template_id
@@ -310,6 +346,7 @@ class TemplateAlias(pulumi.CustomResource):
             alias_name: Optional[pulumi.Input[builtins.str]] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             template_id: Optional[pulumi.Input[builtins.str]] = None,
             template_version_number: Optional[pulumi.Input[builtins.int]] = None) -> 'TemplateAlias':
         """
@@ -322,6 +359,7 @@ class TemplateAlias(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] alias_name: Display name of the template alias.
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the template alias.
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] template_id: ID of the template.
         :param pulumi.Input[builtins.int] template_version_number: Version number of the template.
                
@@ -334,6 +372,7 @@ class TemplateAlias(pulumi.CustomResource):
         __props__.__dict__["alias_name"] = alias_name
         __props__.__dict__["arn"] = arn
         __props__.__dict__["aws_account_id"] = aws_account_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["template_id"] = template_id
         __props__.__dict__["template_version_number"] = template_version_number
         return TemplateAlias(resource_name, opts=opts, __props__=__props__)
@@ -361,6 +400,14 @@ class TemplateAlias(pulumi.CustomResource):
         AWS account ID.
         """
         return pulumi.get(self, "aws_account_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="templateId")

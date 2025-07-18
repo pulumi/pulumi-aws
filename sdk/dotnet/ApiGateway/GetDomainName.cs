@@ -99,6 +99,12 @@ namespace Pulumi.Aws.ApiGateway
         [Input("domainNameId")]
         public string? DomainNameId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -130,6 +136,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("domainNameId")]
         public Input<string>? DomainNameId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -191,6 +203,7 @@ namespace Pulumi.Aws.ApiGateway
         /// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
         /// </summary>
         public readonly string Policy;
+        public readonly string Region;
         /// <summary>
         /// ARN for an AWS-managed certificate that is used for validating the regional domain name.
         /// </summary>
@@ -240,6 +253,8 @@ namespace Pulumi.Aws.ApiGateway
 
             string policy,
 
+            string region,
+
             string regionalCertificateArn,
 
             string regionalCertificateName,
@@ -263,6 +278,7 @@ namespace Pulumi.Aws.ApiGateway
             EndpointConfigurations = endpointConfigurations;
             Id = id;
             Policy = policy;
+            Region = region;
             RegionalCertificateArn = regionalCertificateArn;
             RegionalCertificateName = regionalCertificateName;
             RegionalDomainName = regionalDomainName;

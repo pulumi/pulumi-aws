@@ -28,7 +28,7 @@ class GetDirectoryResult:
     """
     A collection of values returned by getDirectory.
     """
-    def __init__(__self__, access_url=None, alias=None, connect_settings=None, description=None, directory_id=None, dns_ip_addresses=None, edition=None, enable_sso=None, id=None, name=None, radius_settings=None, security_group_id=None, short_name=None, size=None, tags=None, type=None, vpc_settings=None):
+    def __init__(__self__, access_url=None, alias=None, connect_settings=None, description=None, directory_id=None, dns_ip_addresses=None, edition=None, enable_sso=None, id=None, name=None, radius_settings=None, region=None, security_group_id=None, short_name=None, size=None, tags=None, type=None, vpc_settings=None):
         if access_url and not isinstance(access_url, str):
             raise TypeError("Expected argument 'access_url' to be a str")
         pulumi.set(__self__, "access_url", access_url)
@@ -62,6 +62,9 @@ class GetDirectoryResult:
         if radius_settings and not isinstance(radius_settings, list):
             raise TypeError("Expected argument 'radius_settings' to be a list")
         pulumi.set(__self__, "radius_settings", radius_settings)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_group_id and not isinstance(security_group_id, str):
             raise TypeError("Expected argument 'security_group_id' to be a str")
         pulumi.set(__self__, "security_group_id", security_group_id)
@@ -161,6 +164,11 @@ class GetDirectoryResult:
         return pulumi.get(self, "radius_settings")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> builtins.str:
         """
@@ -223,6 +231,7 @@ class AwaitableGetDirectoryResult(GetDirectoryResult):
             id=self.id,
             name=self.name,
             radius_settings=self.radius_settings,
+            region=self.region,
             security_group_id=self.security_group_id,
             short_name=self.short_name,
             size=self.size,
@@ -232,6 +241,7 @@ class AwaitableGetDirectoryResult(GetDirectoryResult):
 
 
 def get_directory(directory_id: Optional[builtins.str] = None,
+                  region: Optional[builtins.str] = None,
                   tags: Optional[Mapping[str, builtins.str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDirectoryResult:
     """
@@ -248,10 +258,12 @@ def get_directory(directory_id: Optional[builtins.str] = None,
 
 
     :param builtins.str directory_id: ID of the directory.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags assigned to the directory/connector.
     """
     __args__ = dict()
     __args__['directoryId'] = directory_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:directoryservice/getDirectory:getDirectory', __args__, opts=opts, typ=GetDirectoryResult).value
@@ -268,6 +280,7 @@ def get_directory(directory_id: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         radius_settings=pulumi.get(__ret__, 'radius_settings'),
+        region=pulumi.get(__ret__, 'region'),
         security_group_id=pulumi.get(__ret__, 'security_group_id'),
         short_name=pulumi.get(__ret__, 'short_name'),
         size=pulumi.get(__ret__, 'size'),
@@ -275,6 +288,7 @@ def get_directory(directory_id: Optional[builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         vpc_settings=pulumi.get(__ret__, 'vpc_settings'))
 def get_directory_output(directory_id: Optional[pulumi.Input[builtins.str]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectoryResult]:
     """
@@ -291,10 +305,12 @@ def get_directory_output(directory_id: Optional[pulumi.Input[builtins.str]] = No
 
 
     :param builtins.str directory_id: ID of the directory.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags assigned to the directory/connector.
     """
     __args__ = dict()
     __args__['directoryId'] = directory_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:directoryservice/getDirectory:getDirectory', __args__, opts=opts, typ=GetDirectoryResult)
@@ -310,6 +326,7 @@ def get_directory_output(directory_id: Optional[pulumi.Input[builtins.str]] = No
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         radius_settings=pulumi.get(__response__, 'radius_settings'),
+        region=pulumi.get(__response__, 'region'),
         security_group_id=pulumi.get(__response__, 'security_group_id'),
         short_name=pulumi.get(__response__, 'short_name'),
         size=pulumi.get(__response__, 'size'),

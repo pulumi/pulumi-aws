@@ -9,7 +9,6 @@ import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingWaitAndConti
 import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -19,11 +18,11 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
 
     public static final V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs Empty = new V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs();
 
-    @Import(name="customPayloads")
-    private @Nullable Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs>> customPayloads;
+    @Import(name="customPayload")
+    private @Nullable Output<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs> customPayload;
 
-    public Optional<Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs>>> customPayloads() {
-        return Optional.ofNullable(this.customPayloads);
+    public Optional<Output<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs>> customPayload() {
+        return Optional.ofNullable(this.customPayload);
     }
 
     @Import(name="imageResponseCard")
@@ -50,7 +49,7 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
     private V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs() {}
 
     private V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs $) {
-        this.customPayloads = $.customPayloads;
+        this.customPayload = $.customPayload;
         this.imageResponseCard = $.imageResponseCard;
         this.plainTextMessage = $.plainTextMessage;
         this.ssmlMessage = $.ssmlMessage;
@@ -74,17 +73,13 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
             $ = new V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder customPayloads(@Nullable Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs>> customPayloads) {
-            $.customPayloads = customPayloads;
+        public Builder customPayload(@Nullable Output<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs> customPayload) {
+            $.customPayload = customPayload;
             return this;
         }
 
-        public Builder customPayloads(List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs> customPayloads) {
-            return customPayloads(Output.of(customPayloads));
-        }
-
-        public Builder customPayloads(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs... customPayloads) {
-            return customPayloads(List.of(customPayloads));
+        public Builder customPayload(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs customPayload) {
+            return customPayload(Output.of(customPayload));
         }
 
         public Builder imageResponseCard(@Nullable Output<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs> imageResponseCard) {

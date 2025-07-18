@@ -27,7 +27,7 @@ class GetUserPoolClientsResult:
     """
     A collection of values returned by getUserPoolClients.
     """
-    def __init__(__self__, client_ids=None, client_names=None, id=None, user_pool_id=None):
+    def __init__(__self__, client_ids=None, client_names=None, id=None, region=None, user_pool_id=None):
         if client_ids and not isinstance(client_ids, list):
             raise TypeError("Expected argument 'client_ids' to be a list")
         pulumi.set(__self__, "client_ids", client_ids)
@@ -37,6 +37,9 @@ class GetUserPoolClientsResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if user_pool_id and not isinstance(user_pool_id, str):
             raise TypeError("Expected argument 'user_pool_id' to be a str")
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -66,6 +69,11 @@ class GetUserPoolClientsResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> builtins.str:
         return pulumi.get(self, "user_pool_id")
@@ -80,10 +88,12 @@ class AwaitableGetUserPoolClientsResult(GetUserPoolClientsResult):
             client_ids=self.client_ids,
             client_names=self.client_names,
             id=self.id,
+            region=self.region,
             user_pool_id=self.user_pool_id)
 
 
-def get_user_pool_clients(user_pool_id: Optional[builtins.str] = None,
+def get_user_pool_clients(region: Optional[builtins.str] = None,
+                          user_pool_id: Optional[builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolClientsResult:
     """
     Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
@@ -98,9 +108,11 @@ def get_user_pool_clients(user_pool_id: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_pool_id: Cognito user pool ID.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['userPoolId'] = user_pool_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:cognito/getUserPoolClients:getUserPoolClients', __args__, opts=opts, typ=GetUserPoolClientsResult).value
@@ -109,8 +121,10 @@ def get_user_pool_clients(user_pool_id: Optional[builtins.str] = None,
         client_ids=pulumi.get(__ret__, 'client_ids'),
         client_names=pulumi.get(__ret__, 'client_names'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         user_pool_id=pulumi.get(__ret__, 'user_pool_id'))
-def get_user_pool_clients_output(user_pool_id: Optional[pulumi.Input[builtins.str]] = None,
+def get_user_pool_clients_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                 user_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolClientsResult]:
     """
     Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
@@ -125,9 +139,11 @@ def get_user_pool_clients_output(user_pool_id: Optional[pulumi.Input[builtins.st
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_pool_id: Cognito user pool ID.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['userPoolId'] = user_pool_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cognito/getUserPoolClients:getUserPoolClients', __args__, opts=opts, typ=GetUserPoolClientsResult)
@@ -135,4 +151,5 @@ def get_user_pool_clients_output(user_pool_id: Optional[pulumi.Input[builtins.st
         client_ids=pulumi.get(__response__, 'client_ids'),
         client_names=pulumi.get(__response__, 'client_names'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         user_pool_id=pulumi.get(__response__, 'user_pool_id')))

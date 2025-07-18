@@ -27,7 +27,7 @@ class GetServerlessAccessPolicyResult:
     """
     A collection of values returned by getServerlessAccessPolicy.
     """
-    def __init__(__self__, description=None, id=None, name=None, policy=None, policy_version=None, type=None):
+    def __init__(__self__, description=None, id=None, name=None, policy=None, policy_version=None, region=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -43,6 +43,9 @@ class GetServerlessAccessPolicyResult:
         if policy_version and not isinstance(policy_version, str):
             raise TypeError("Expected argument 'policy_version' to be a str")
         pulumi.set(__self__, "policy_version", policy_version)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -83,6 +86,11 @@ class GetServerlessAccessPolicyResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def type(self) -> builtins.str:
         return pulumi.get(self, "type")
 
@@ -98,10 +106,12 @@ class AwaitableGetServerlessAccessPolicyResult(GetServerlessAccessPolicyResult):
             name=self.name,
             policy=self.policy,
             policy_version=self.policy_version,
+            region=self.region,
             type=self.type)
 
 
 def get_serverless_access_policy(name: Optional[builtins.str] = None,
+                                 region: Optional[builtins.str] = None,
                                  type: Optional[builtins.str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerlessAccessPolicyResult:
     """
@@ -121,10 +131,12 @@ def get_serverless_access_policy(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the policy.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str type: Type of access policy. Must be `data`.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['type'] = type
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy', __args__, opts=opts, typ=GetServerlessAccessPolicyResult).value
@@ -135,8 +147,10 @@ def get_serverless_access_policy(name: Optional[builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         policy=pulumi.get(__ret__, 'policy'),
         policy_version=pulumi.get(__ret__, 'policy_version'),
+        region=pulumi.get(__ret__, 'region'),
         type=pulumi.get(__ret__, 'type'))
 def get_serverless_access_policy_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                         type: Optional[pulumi.Input[builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessAccessPolicyResult]:
     """
@@ -156,10 +170,12 @@ def get_serverless_access_policy_output(name: Optional[pulumi.Input[builtins.str
 
 
     :param builtins.str name: Name of the policy.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str type: Type of access policy. Must be `data`.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['type'] = type
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:opensearch/getServerlessAccessPolicy:getServerlessAccessPolicy', __args__, opts=opts, typ=GetServerlessAccessPolicyResult)
@@ -169,4 +185,5 @@ def get_serverless_access_policy_output(name: Optional[pulumi.Input[builtins.str
         name=pulumi.get(__response__, 'name'),
         policy=pulumi.get(__response__, 'policy'),
         policy_version=pulumi.get(__response__, 'policy_version'),
+        region=pulumi.get(__response__, 'region'),
         type=pulumi.get(__response__, 'type')))

@@ -28,6 +28,7 @@ class AuthorizerArgs:
                  identity_validation_expression: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Authorizer resource.
@@ -40,6 +41,7 @@ class AuthorizerArgs:
         :param pulumi.Input[builtins.str] identity_validation_expression: Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
         :param pulumi.Input[builtins.str] name: Name of the authorizer
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] provider_arns: List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] type: Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
         """
         pulumi.set(__self__, "rest_api", rest_api)
@@ -57,6 +59,8 @@ class AuthorizerArgs:
             pulumi.set(__self__, "name", name)
         if provider_arns is not None:
             pulumi.set(__self__, "provider_arns", provider_arns)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -159,6 +163,18 @@ class AuthorizerArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
@@ -181,6 +197,7 @@ class _AuthorizerState:
                  identity_validation_expression: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -194,6 +211,7 @@ class _AuthorizerState:
         :param pulumi.Input[builtins.str] identity_validation_expression: Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
         :param pulumi.Input[builtins.str] name: Name of the authorizer
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] provider_arns: List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] type: Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
         """
@@ -213,6 +231,8 @@ class _AuthorizerState:
             pulumi.set(__self__, "name", name)
         if provider_arns is not None:
             pulumi.set(__self__, "provider_arns", provider_arns)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rest_api is not None:
             pulumi.set(__self__, "rest_api", rest_api)
         if type is not None:
@@ -316,6 +336,18 @@ class _AuthorizerState:
         pulumi.set(self, "provider_arns", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -353,6 +385,7 @@ class Authorizer(pulumi.CustomResource):
                  identity_validation_expression: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -430,6 +463,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] identity_validation_expression: Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
         :param pulumi.Input[builtins.str] name: Name of the authorizer
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] provider_arns: List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] type: Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
         """
@@ -525,6 +559,7 @@ class Authorizer(pulumi.CustomResource):
                  identity_validation_expression: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -543,6 +578,7 @@ class Authorizer(pulumi.CustomResource):
             __props__.__dict__["identity_validation_expression"] = identity_validation_expression
             __props__.__dict__["name"] = name
             __props__.__dict__["provider_arns"] = provider_arns
+            __props__.__dict__["region"] = region
             if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
             __props__.__dict__["rest_api"] = rest_api
@@ -566,6 +602,7 @@ class Authorizer(pulumi.CustomResource):
             identity_validation_expression: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             provider_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rest_api: Optional[pulumi.Input[builtins.str]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None) -> 'Authorizer':
         """
@@ -584,6 +621,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] identity_validation_expression: Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
         :param pulumi.Input[builtins.str] name: Name of the authorizer
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] provider_arns: List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] type: Type of the authorizer. Possible values are `TOKEN` for a Lambda function using a single authorization token submitted in a custom header, `REQUEST` for a Lambda function using incoming request parameters, or `COGNITO_USER_POOLS` for using an Amazon Cognito user pool. Defaults to `TOKEN`.
         """
@@ -599,6 +637,7 @@ class Authorizer(pulumi.CustomResource):
         __props__.__dict__["identity_validation_expression"] = identity_validation_expression
         __props__.__dict__["name"] = name
         __props__.__dict__["provider_arns"] = provider_arns
+        __props__.__dict__["region"] = region
         __props__.__dict__["rest_api"] = rest_api
         __props__.__dict__["type"] = type
         return Authorizer(resource_name, opts=opts, __props__=__props__)
@@ -667,6 +706,14 @@ class Authorizer(pulumi.CustomResource):
         List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
         """
         return pulumi.get(self, "provider_arns")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="restApi")

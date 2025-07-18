@@ -3,10 +3,9 @@
 
 package com.pulumi.aws.ssoadmin.inputs;
 
-import com.pulumi.aws.ssoadmin.inputs.GetApplicationProvidersApplicationProviderArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.util.List;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,24 +16,24 @@ public final class GetApplicationProvidersArgs extends com.pulumi.resources.Invo
     public static final GetApplicationProvidersArgs Empty = new GetApplicationProvidersArgs();
 
     /**
-     * A list of application providers available in the current region. See `application_providers` below.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    @Import(name="applicationProviders")
-    private @Nullable Output<List<GetApplicationProvidersApplicationProviderArgs>> applicationProviders;
+    @Import(name="region")
+    private @Nullable Output<String> region;
 
     /**
-     * @return A list of application providers available in the current region. See `application_providers` below.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    public Optional<Output<List<GetApplicationProvidersApplicationProviderArgs>>> applicationProviders() {
-        return Optional.ofNullable(this.applicationProviders);
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetApplicationProvidersArgs() {}
 
     private GetApplicationProvidersArgs(GetApplicationProvidersArgs $) {
-        this.applicationProviders = $.applicationProviders;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -56,34 +55,24 @@ public final class GetApplicationProvidersArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param applicationProviders A list of application providers available in the current region. See `application_providers` below.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
          */
-        public Builder applicationProviders(@Nullable Output<List<GetApplicationProvidersApplicationProviderArgs>> applicationProviders) {
-            $.applicationProviders = applicationProviders;
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
             return this;
         }
 
         /**
-         * @param applicationProviders A list of application providers available in the current region. See `application_providers` below.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
          */
-        public Builder applicationProviders(List<GetApplicationProvidersApplicationProviderArgs> applicationProviders) {
-            return applicationProviders(Output.of(applicationProviders));
-        }
-
-        /**
-         * @param applicationProviders A list of application providers available in the current region. See `application_providers` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder applicationProviders(GetApplicationProvidersApplicationProviderArgs... applicationProviders) {
-            return applicationProviders(List.of(applicationProviders));
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetApplicationProvidersArgs build() {

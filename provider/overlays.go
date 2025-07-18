@@ -16,7 +16,6 @@ package provider
 
 import (
 	_ "embed" // Needed to support go:embed directive
-	"fmt"
 	"maps"
 
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -27,8 +26,6 @@ const (
 	callbackFunctionTok = "aws:lambda/callbackFunction:CallbackFunction"
 	codePathOptionsTok  = "aws:lambda/CodePathOptions:CodePathOptions"
 )
-
-var arnToken = fmt.Sprintf("#/types/%s", awsTypeDefaultFile(awsMod, "ARN"))
 
 // resourceOverlays augment the resources defined by the upstream AWS provider
 var resourceOverlays = map[string]schema.ResourceSpec{}
@@ -58,15 +55,18 @@ var callbackFunction = schema.ResourceSpec{
 	InputProperties: map[string]schema.PropertySpec{
 		"role": {
 			TypeSpec: schema.TypeSpec{
-				OneOf: []schema.TypeSpec{
-					{
-						Ref: "#/types/aws:iam/Role:Role",
-					},
-					{
-						Type: "string",
-						Ref:  arnToken,
-					},
-				},
+				Type: "string",
+				// The ref to iam/Role would lead to a dangling reference in the schema which is not allowed.
+				// This schema isn't the source of truth for the callbackFunction though, the nodejs overlay
+				// is so removing this doesn't impact the actual type the user sees, it should only affect the docs.
+				// OneOf: []schema.TypeSpec{
+				// 	{
+				// 		Type: "string",
+				// 	},
+				// 	{
+				// 		Ref: "#/types/aws:iam/Role:Role",
+				// 	},
+				// },
 			},
 			Description: "The execution role for the Lambda Function. The role provides the function's identity and access to AWS services and resources. Only one of `role` or `policies` can be provided. If neither is provided, the default policies will be used instead.",
 		},
@@ -77,14 +77,12 @@ var callbackFunction = schema.ResourceSpec{
 						Type: "object",
 						AdditionalProperties: &schema.TypeSpec{
 							Type: "string",
-							Ref:  arnToken,
 						},
 					},
 					{
 						Type: "array",
 						Items: &schema.TypeSpec{
 							Type: "string",
-							Ref:  arnToken,
 						},
 					},
 				},

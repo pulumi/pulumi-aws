@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Provides an Elastic Transcoder preset resource.
  *
+ * > **Warning:** This resource is deprecated. Use [AWS Elemental MediaConvert](https://aws.amazon.com/blogs/media/migrating-workflows-from-amazon-elastic-transcoder-to-aws-elemental-mediaconvert/) instead. AWS will [discontinue support for Amazon Elastic Transcoder](https://aws.amazon.com/blogs/media/support-for-amazon-elastic-transcoder-ending-soon/), effective November 13, 2025.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -134,6 +136,10 @@ export class Preset extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Thumbnail parameters object (documented below)
      */
     public readonly thumbnails!: pulumi.Output<outputs.elastictranscoder.PresetThumbnails | undefined>;
@@ -172,6 +178,7 @@ export class Preset extends pulumi.CustomResource {
             resourceInputs["container"] = state ? state.container : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["thumbnails"] = state ? state.thumbnails : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["video"] = state ? state.video : undefined;
@@ -187,6 +194,7 @@ export class Preset extends pulumi.CustomResource {
             resourceInputs["container"] = args ? args.container : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["thumbnails"] = args ? args.thumbnails : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["video"] = args ? args.video : undefined;
@@ -227,6 +235,10 @@ export interface PresetState {
      * The name of the preset. (maximum 40 characters)
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Thumbnail parameters object (documented below)
      */
@@ -272,6 +284,10 @@ export interface PresetArgs {
      * The name of the preset. (maximum 40 characters)
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Thumbnail parameters object (documented below)
      */

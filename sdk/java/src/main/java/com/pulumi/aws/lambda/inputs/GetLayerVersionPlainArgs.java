@@ -17,14 +17,14 @@ public final class GetLayerVersionPlainArgs extends com.pulumi.resources.InvokeA
     public static final GetLayerVersionPlainArgs Empty = new GetLayerVersionPlainArgs();
 
     /**
-     * Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+     * Specific architecture the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
      * 
      */
     @Import(name="compatibleArchitecture")
     private @Nullable String compatibleArchitecture;
 
     /**
-     * @return Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+     * @return Specific architecture the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
      * 
      */
     public Optional<String> compatibleArchitecture() {
@@ -47,18 +47,37 @@ public final class GetLayerVersionPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * Name of the lambda layer.
+     * Name of the Lambda layer.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="layerName", required=true)
     private String layerName;
 
     /**
-     * @return Name of the lambda layer.
+     * @return Name of the Lambda layer.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String layerName() {
         return this.layerName;
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -82,6 +101,7 @@ public final class GetLayerVersionPlainArgs extends com.pulumi.resources.InvokeA
         this.compatibleArchitecture = $.compatibleArchitecture;
         this.compatibleRuntime = $.compatibleRuntime;
         this.layerName = $.layerName;
+        this.region = $.region;
         this.version = $.version;
     }
 
@@ -104,7 +124,7 @@ public final class GetLayerVersionPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param compatibleArchitecture Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+         * @param compatibleArchitecture Specific architecture the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
          * 
          * @return builder
          * 
@@ -126,13 +146,26 @@ public final class GetLayerVersionPlainArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param layerName Name of the lambda layer.
+         * @param layerName Name of the Lambda layer.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
          */
         public Builder layerName(String layerName) {
             $.layerName = layerName;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

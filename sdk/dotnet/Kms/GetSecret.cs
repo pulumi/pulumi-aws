@@ -11,12 +11,21 @@ namespace Pulumi.Aws.Kms
 {
     public static class GetSecret
     {
+        /// <summary>
+        /// !&gt; **WARNING:** This data source's functionality was removed in version 2.0.0 of the AWS Provider. You can migrate existing configurations to the `aws.kms.getSecrets` data source following instructions available in the Version 2 Upgrade Guide. This data source will be removed in a future version.
+        /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("aws:kms/getSecret:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// !&gt; **WARNING:** This data source's functionality was removed in version 2.0.0 of the AWS Provider. You can migrate existing configurations to the `aws.kms.getSecrets` data source following instructions available in the Version 2 Upgrade Guide. This data source will be removed in a future version.
+        /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("aws:kms/getSecret:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// !&gt; **WARNING:** This data source's functionality was removed in version 2.0.0 of the AWS Provider. You can migrate existing configurations to the `aws.kms.getSecrets` data source following instructions available in the Version 2 Upgrade Guide. This data source will be removed in a future version.
+        /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("aws:kms/getSecret:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());
     }
@@ -24,6 +33,9 @@ namespace Pulumi.Aws.Kms
 
     public sealed class GetSecretArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("secrets", required: true)]
         private List<Inputs.GetSecretSecretArgs>? _secrets;
         public List<Inputs.GetSecretSecretArgs> Secrets
@@ -40,6 +52,9 @@ namespace Pulumi.Aws.Kms
 
     public sealed class GetSecretInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("secrets", required: true)]
         private InputList<Inputs.GetSecretSecretInputArgs>? _secrets;
         public InputList<Inputs.GetSecretSecretInputArgs> Secrets
@@ -62,15 +77,19 @@ namespace Pulumi.Aws.Kms
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         public readonly ImmutableArray<Outputs.GetSecretSecretResult> Secrets;
 
         [OutputConstructor]
         private GetSecretResult(
             string id,
 
+            string region,
+
             ImmutableArray<Outputs.GetSecretSecretResult> secrets)
         {
             Id = id;
+            Region = region;
             Secrets = secrets;
         }
     }

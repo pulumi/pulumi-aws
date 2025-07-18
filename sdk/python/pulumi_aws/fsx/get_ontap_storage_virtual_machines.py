@@ -29,7 +29,7 @@ class GetOntapStorageVirtualMachinesResult:
     """
     A collection of values returned by getOntapStorageVirtualMachines.
     """
-    def __init__(__self__, filters=None, id=None, ids=None):
+    def __init__(__self__, filters=None, id=None, ids=None, region=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -39,6 +39,9 @@ class GetOntapStorageVirtualMachinesResult:
         if ids and not isinstance(ids, list):
             raise TypeError("Expected argument 'ids' to be a list")
         pulumi.set(__self__, "ids", ids)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -61,6 +64,11 @@ class GetOntapStorageVirtualMachinesResult:
         """
         return pulumi.get(self, "ids")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetOntapStorageVirtualMachinesResult(GetOntapStorageVirtualMachinesResult):
     # pylint: disable=using-constant-test
@@ -70,10 +78,12 @@ class AwaitableGetOntapStorageVirtualMachinesResult(GetOntapStorageVirtualMachin
         return GetOntapStorageVirtualMachinesResult(
             filters=self.filters,
             id=self.id,
-            ids=self.ids)
+            ids=self.ids,
+            region=self.region)
 
 
 def get_ontap_storage_virtual_machines(filters: Optional[Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict']]] = None,
+                                       region: Optional[builtins.str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOntapStorageVirtualMachinesResult:
     """
     This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.
@@ -94,17 +104,21 @@ def get_ontap_storage_virtual_machines(filters: Optional[Sequence[Union['GetOnta
 
 
     :param Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict']] filters: Configuration block. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines', __args__, opts=opts, typ=GetOntapStorageVirtualMachinesResult).value
 
     return AwaitableGetOntapStorageVirtualMachinesResult(
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
-        ids=pulumi.get(__ret__, 'ids'))
+        ids=pulumi.get(__ret__, 'ids'),
+        region=pulumi.get(__ret__, 'region'))
 def get_ontap_storage_virtual_machines_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict']]]]] = None,
+                                              region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOntapStorageVirtualMachinesResult]:
     """
     This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.
@@ -125,12 +139,15 @@ def get_ontap_storage_virtual_machines_output(filters: Optional[pulumi.Input[Opt
 
 
     :param Sequence[Union['GetOntapStorageVirtualMachinesFilterArgs', 'GetOntapStorageVirtualMachinesFilterArgsDict']] filters: Configuration block. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines', __args__, opts=opts, typ=GetOntapStorageVirtualMachinesResult)
     return __ret__.apply(lambda __response__: GetOntapStorageVirtualMachinesResult(
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
-        ids=pulumi.get(__response__, 'ids')))
+        ids=pulumi.get(__response__, 'ids'),
+        region=pulumi.get(__response__, 'region')))

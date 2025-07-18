@@ -115,6 +115,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<Outputs.WorkteamNotificationConfiguration?> NotificationConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The subdomain for your OIDC Identity Provider.
         /// </summary>
         [Output("subdomain")]
@@ -220,6 +226,12 @@ namespace Pulumi.Aws.Sagemaker
         [Input("notificationConfiguration")]
         public Input<Inputs.WorkteamNotificationConfigurationArgs>? NotificationConfiguration { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -289,6 +301,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.WorkteamNotificationConfigurationGetArgs>? NotificationConfiguration { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The subdomain for your OIDC Identity Provider.
         /// </summary>
         [Input("subdomain")]
@@ -312,7 +330,6 @@ namespace Pulumi.Aws.Sagemaker
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

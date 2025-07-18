@@ -195,6 +195,7 @@ public final class GetInstanceResult {
      * 
      */
     private String publicIp;
+    private String region;
     /**
      * @return Root block device mappings of the Instance
      * 
@@ -493,6 +494,9 @@ public final class GetInstanceResult {
     public String publicIp() {
         return this.publicIp;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Root block device mappings of the Instance
      * 
@@ -611,6 +615,7 @@ public final class GetInstanceResult {
         private String privateIp;
         private String publicDns;
         private String publicIp;
+        private String region;
         private List<GetInstanceRootBlockDevice> rootBlockDevices;
         private List<String> secondaryPrivateIps;
         private List<String> securityGroups;
@@ -662,6 +667,7 @@ public final class GetInstanceResult {
     	      this.privateIp = defaults.privateIp;
     	      this.publicDns = defaults.publicDns;
     	      this.publicIp = defaults.publicIp;
+    	      this.region = defaults.region;
     	      this.rootBlockDevices = defaults.rootBlockDevices;
     	      this.secondaryPrivateIps = defaults.secondaryPrivateIps;
     	      this.securityGroups = defaults.securityGroups;
@@ -998,6 +1004,14 @@ public final class GetInstanceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetInstanceResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder rootBlockDevices(List<GetInstanceRootBlockDevice> rootBlockDevices) {
             if (rootBlockDevices == null) {
               throw new MissingRequiredPropertyException("GetInstanceResult", "rootBlockDevices");
@@ -1129,6 +1143,7 @@ public final class GetInstanceResult {
             _resultValue.privateIp = privateIp;
             _resultValue.publicDns = publicDns;
             _resultValue.publicIp = publicIp;
+            _resultValue.region = region;
             _resultValue.rootBlockDevices = rootBlockDevices;
             _resultValue.secondaryPrivateIps = secondaryPrivateIps;
             _resultValue.securityGroups = securityGroups;

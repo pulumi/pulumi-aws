@@ -91,6 +91,10 @@ export class CustomLogSource extends pulumi.CustomResource {
      */
     public /*out*/ readonly providerDetails!: pulumi.Output<outputs.securitylake.CustomLogSourceProviderDetail[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specify the name for a third-party custom source.
      * This must be a Regionally unique value.
      * Has a maximum length of 20.
@@ -118,6 +122,7 @@ export class CustomLogSource extends pulumi.CustomResource {
             resourceInputs["configuration"] = state ? state.configuration : undefined;
             resourceInputs["eventClasses"] = state ? state.eventClasses : undefined;
             resourceInputs["providerDetails"] = state ? state.providerDetails : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sourceName"] = state ? state.sourceName : undefined;
             resourceInputs["sourceVersion"] = state ? state.sourceVersion : undefined;
         } else {
@@ -127,6 +132,7 @@ export class CustomLogSource extends pulumi.CustomResource {
             }
             resourceInputs["configuration"] = args ? args.configuration : undefined;
             resourceInputs["eventClasses"] = args ? args.eventClasses : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sourceName"] = args ? args.sourceName : undefined;
             resourceInputs["sourceVersion"] = args ? args.sourceVersion : undefined;
             resourceInputs["attributes"] = undefined /*out*/;
@@ -158,6 +164,10 @@ export interface CustomLogSourceState {
      */
     providerDetails?: pulumi.Input<pulumi.Input<inputs.securitylake.CustomLogSourceProviderDetail>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Specify the name for a third-party custom source.
      * This must be a Regionally unique value.
      * Has a maximum length of 20.
@@ -181,6 +191,10 @@ export interface CustomLogSourceArgs {
      * The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
      */
     eventClasses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specify the name for a third-party custom source.
      * This must be a Regionally unique value.

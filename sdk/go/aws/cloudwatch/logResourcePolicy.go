@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,8 +76,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -135,6 +135,8 @@ type LogResourcePolicy struct {
 	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
 	// Name of the resource policy.
 	PolicyName pulumi.StringOutput `pulumi:"policyName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLogResourcePolicy registers a new resource with the given unique name, arguments, and options.
@@ -177,6 +179,8 @@ type logResourcePolicyState struct {
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// Name of the resource policy.
 	PolicyName *string `pulumi:"policyName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LogResourcePolicyState struct {
@@ -184,6 +188,8 @@ type LogResourcePolicyState struct {
 	PolicyDocument pulumi.Input
 	// Name of the resource policy.
 	PolicyName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LogResourcePolicyState) ElementType() reflect.Type {
@@ -195,6 +201,8 @@ type logResourcePolicyArgs struct {
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// Name of the resource policy.
 	PolicyName string `pulumi:"policyName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LogResourcePolicy resource.
@@ -203,6 +211,8 @@ type LogResourcePolicyArgs struct {
 	PolicyDocument pulumi.Input
 	// Name of the resource policy.
 	PolicyName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LogResourcePolicyArgs) ElementType() reflect.Type {
@@ -300,6 +310,11 @@ func (o LogResourcePolicyOutput) PolicyDocument() pulumi.StringOutput {
 // Name of the resource policy.
 func (o LogResourcePolicyOutput) PolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogResourcePolicy) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LogResourcePolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogResourcePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LogResourcePolicyArrayOutput struct{ *pulumi.OutputState }

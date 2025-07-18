@@ -147,6 +147,12 @@ namespace Pulumi.Aws.Cognito
         public Output<string> LastModifiedDate { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The user pool ID for the user pool.
         /// </summary>
         [Output("userPoolId")]
@@ -217,6 +223,12 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? ImageFile { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The user pool ID for the user pool.
         /// </summary>
         [Input("userPoolId", required: true)]
@@ -271,6 +283,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("lastModifiedDate")]
         public Input<string>? LastModifiedDate { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The user pool ID for the user pool.

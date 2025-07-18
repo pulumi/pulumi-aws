@@ -29,6 +29,7 @@ class TriggerArgs:
                  event_batching_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerEventBatchingConditionArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  predicate: Optional[pulumi.Input['TriggerPredicateArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input[builtins.str]] = None,
                  start_on_creation: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -42,6 +43,7 @@ class TriggerArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TriggerEventBatchingConditionArgs']]] event_batching_conditions: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
         :param pulumi.Input[builtins.str] name: The name of the trigger.
         :param pulumi.Input['TriggerPredicateArgs'] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         :param pulumi.Input[builtins.bool] start_on_creation: Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -59,6 +61,8 @@ class TriggerArgs:
             pulumi.set(__self__, "name", name)
         if predicate is not None:
             pulumi.set(__self__, "predicate", predicate)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
         if start_on_creation is not None:
@@ -154,6 +158,18 @@ class TriggerArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
@@ -211,6 +227,7 @@ class _TriggerState:
                  event_batching_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerEventBatchingConditionArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  predicate: Optional[pulumi.Input['TriggerPredicateArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input[builtins.str]] = None,
                  start_on_creation: Optional[pulumi.Input[builtins.bool]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
@@ -227,6 +244,7 @@ class _TriggerState:
         :param pulumi.Input[Sequence[pulumi.Input['TriggerEventBatchingConditionArgs']]] event_batching_conditions: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
         :param pulumi.Input[builtins.str] name: The name of the trigger.
         :param pulumi.Input['TriggerPredicateArgs'] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         :param pulumi.Input[builtins.bool] start_on_creation: Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
         :param pulumi.Input[builtins.str] state: The current state of the trigger.
@@ -249,6 +267,8 @@ class _TriggerState:
             pulumi.set(__self__, "name", name)
         if predicate is not None:
             pulumi.set(__self__, "predicate", predicate)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
         if start_on_creation is not None:
@@ -257,9 +277,6 @@ class _TriggerState:
             pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
@@ -353,6 +370,18 @@ class _TriggerState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
@@ -401,7 +430,6 @@ class _TriggerState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -449,6 +477,7 @@ class Trigger(pulumi.CustomResource):
                  event_batching_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  predicate: Optional[pulumi.Input[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input[builtins.str]] = None,
                  start_on_creation: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -569,6 +598,7 @@ class Trigger(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']]]] event_batching_conditions: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
         :param pulumi.Input[builtins.str] name: The name of the trigger.
         :param pulumi.Input[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         :param pulumi.Input[builtins.bool] start_on_creation: Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -708,6 +738,7 @@ class Trigger(pulumi.CustomResource):
                  event_batching_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  predicate: Optional[pulumi.Input[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input[builtins.str]] = None,
                  start_on_creation: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -730,6 +761,7 @@ class Trigger(pulumi.CustomResource):
             __props__.__dict__["event_batching_conditions"] = event_batching_conditions
             __props__.__dict__["name"] = name
             __props__.__dict__["predicate"] = predicate
+            __props__.__dict__["region"] = region
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["start_on_creation"] = start_on_creation
             __props__.__dict__["tags"] = tags
@@ -757,6 +789,7 @@ class Trigger(pulumi.CustomResource):
             event_batching_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             predicate: Optional[pulumi.Input[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             schedule: Optional[pulumi.Input[builtins.str]] = None,
             start_on_creation: Optional[pulumi.Input[builtins.bool]] = None,
             state: Optional[pulumi.Input[builtins.str]] = None,
@@ -778,6 +811,7 @@ class Trigger(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']]]] event_batching_conditions: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires. See Event Batching Condition.
         :param pulumi.Input[builtins.str] name: The name of the trigger.
         :param pulumi.Input[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']] predicate: A predicate to specify when the new trigger should fire. Required when trigger type is `CONDITIONAL`. See Predicate Below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule: A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
         :param pulumi.Input[builtins.bool] start_on_creation: Set to true to start `SCHEDULED` and `CONDITIONAL` triggers when created. True is not supported for `ON_DEMAND` triggers.
         :param pulumi.Input[builtins.str] state: The current state of the trigger.
@@ -797,6 +831,7 @@ class Trigger(pulumi.CustomResource):
         __props__.__dict__["event_batching_conditions"] = event_batching_conditions
         __props__.__dict__["name"] = name
         __props__.__dict__["predicate"] = predicate
+        __props__.__dict__["region"] = region
         __props__.__dict__["schedule"] = schedule
         __props__.__dict__["start_on_creation"] = start_on_creation
         __props__.__dict__["state"] = state
@@ -864,6 +899,14 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def schedule(self) -> pulumi.Output[Optional[builtins.str]]:
         """
         A cron expression used to specify the schedule. [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html)
@@ -896,7 +939,6 @@ class Trigger(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

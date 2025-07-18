@@ -128,7 +128,7 @@ import javax.annotation.Nullable;
  *     }
  *   ]
  * }
- * ", current.name(),currentGetCallerIdentity.accountId(),domain))
+ * ", current.region(),currentGetCallerIdentity.accountId(),domain))
  *             .build());
  * 
  *     }
@@ -308,7 +308,7 @@ import javax.annotation.Nullable;
  * 		}
  * 	]
  * }
- * ", current.name(),currentGetCallerIdentity.accountId(),domain))
+ * ", current.region(),currentGetCallerIdentity.accountId(),domain))
  *             .tags(Map.of("Domain", "TestDomain"))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(esServiceLinkedRole)
@@ -574,6 +574,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.nodeToNodeEncryption;
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
      * 
      */
@@ -604,11 +618,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

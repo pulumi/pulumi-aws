@@ -147,6 +147,12 @@ namespace Pulumi.Aws.Amp
         [Input("aliasPrefix")]
         public string? AliasPrefix { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetWorkspacesArgs()
         {
         }
@@ -160,6 +166,12 @@ namespace Pulumi.Aws.Amp
         /// </summary>
         [Input("aliasPrefix")]
         public Input<string>? AliasPrefix { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetWorkspacesInvokeArgs()
         {
@@ -184,6 +196,7 @@ namespace Pulumi.Aws.Amp
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// List of workspace IDs of the matched Prometheus workspaces.
         /// </summary>
@@ -199,12 +212,15 @@ namespace Pulumi.Aws.Amp
 
             string id,
 
+            string region,
+
             ImmutableArray<string> workspaceIds)
         {
             AliasPrefix = aliasPrefix;
             Aliases = aliases;
             Arns = arns;
             Id = id;
+            Region = region;
             WorkspaceIds = workspaceIds;
         }
     }

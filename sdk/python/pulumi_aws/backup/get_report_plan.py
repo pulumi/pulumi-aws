@@ -28,7 +28,7 @@ class GetReportPlanResult:
     """
     A collection of values returned by getReportPlan.
     """
-    def __init__(__self__, arn=None, creation_time=None, deployment_status=None, description=None, id=None, name=None, report_delivery_channels=None, report_settings=None, tags=None):
+    def __init__(__self__, arn=None, creation_time=None, deployment_status=None, description=None, id=None, name=None, region=None, report_delivery_channels=None, report_settings=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -47,6 +47,9 @@ class GetReportPlanResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if report_delivery_channels and not isinstance(report_delivery_channels, list):
             raise TypeError("Expected argument 'report_delivery_channels' to be a list")
         pulumi.set(__self__, "report_delivery_channels", report_delivery_channels)
@@ -103,6 +106,11 @@ class GetReportPlanResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="reportDeliveryChannels")
     def report_delivery_channels(self) -> Sequence['outputs.GetReportPlanReportDeliveryChannelResult']:
         """
@@ -139,12 +147,14 @@ class AwaitableGetReportPlanResult(GetReportPlanResult):
             description=self.description,
             id=self.id,
             name=self.name,
+            region=self.region,
             report_delivery_channels=self.report_delivery_channels,
             report_settings=self.report_settings,
             tags=self.tags)
 
 
 def get_report_plan(name: Optional[builtins.str] = None,
+                    region: Optional[builtins.str] = None,
                     tags: Optional[Mapping[str, builtins.str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportPlanResult:
     """
@@ -161,10 +171,12 @@ def get_report_plan(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Backup report plan name.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that you can assign to help organize the report plans you create.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:backup/getReportPlan:getReportPlan', __args__, opts=opts, typ=GetReportPlanResult).value
@@ -176,10 +188,12 @@ def get_report_plan(name: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         report_delivery_channels=pulumi.get(__ret__, 'report_delivery_channels'),
         report_settings=pulumi.get(__ret__, 'report_settings'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_report_plan_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReportPlanResult]:
     """
@@ -196,10 +210,12 @@ def get_report_plan_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Backup report plan name.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that you can assign to help organize the report plans you create.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:backup/getReportPlan:getReportPlan', __args__, opts=opts, typ=GetReportPlanResult)
@@ -210,6 +226,7 @@ def get_report_plan_output(name: Optional[pulumi.Input[builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         report_delivery_channels=pulumi.get(__response__, 'report_delivery_channels'),
         report_settings=pulumi.get(__response__, 'report_settings'),
         tags=pulumi.get(__response__, 'tags')))

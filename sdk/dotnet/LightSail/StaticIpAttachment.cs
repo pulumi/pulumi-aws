@@ -72,7 +72,15 @@ namespace Pulumi.Aws.LightSail
         public Output<string> IpAddress { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the allocated static IP.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("staticIpName")]
         public Output<string> StaticIpName { get; private set; } = null!;
@@ -130,7 +138,15 @@ namespace Pulumi.Aws.LightSail
         public Input<string> InstanceName { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Name of the allocated static IP.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("staticIpName", required: true)]
         public Input<string> StaticIpName { get; set; } = null!;
@@ -156,7 +172,15 @@ namespace Pulumi.Aws.LightSail
         public Input<string>? IpAddress { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Name of the allocated static IP.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("staticIpName")]
         public Input<string>? StaticIpName { get; set; }

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,6 +58,8 @@ type GetProvisioningArtifactsArgs struct {
 	//
 	// The following arguments are optional:
 	ProductId string `pulumi:"productId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getProvisioningArtifacts.
@@ -68,6 +70,7 @@ type GetProvisioningArtifactsResult struct {
 	ProductId string `pulumi:"productId"`
 	// List with information about the provisioning artifacts. See details below.
 	ProvisioningArtifactDetails []GetProvisioningArtifactsProvisioningArtifactDetail `pulumi:"provisioningArtifactDetails"`
+	Region                      string                                               `pulumi:"region"`
 }
 
 func GetProvisioningArtifactsOutput(ctx *pulumi.Context, args GetProvisioningArtifactsOutputArgs, opts ...pulumi.InvokeOption) GetProvisioningArtifactsResultOutput {
@@ -87,6 +90,8 @@ type GetProvisioningArtifactsOutputArgs struct {
 	//
 	// The following arguments are optional:
 	ProductId pulumi.StringInput `pulumi:"productId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetProvisioningArtifactsOutputArgs) ElementType() reflect.Type {
@@ -126,6 +131,10 @@ func (o GetProvisioningArtifactsResultOutput) ProvisioningArtifactDetails() GetP
 	return o.ApplyT(func(v GetProvisioningArtifactsResult) []GetProvisioningArtifactsProvisioningArtifactDetail {
 		return v.ProvisioningArtifactDetails
 	}).(GetProvisioningArtifactsProvisioningArtifactDetailArrayOutput)
+}
+
+func (o GetProvisioningArtifactsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProvisioningArtifactsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

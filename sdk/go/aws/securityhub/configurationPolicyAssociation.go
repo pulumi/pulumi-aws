@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -106,6 +106,8 @@ type ConfigurationPolicyAssociation struct {
 
 	// The universally unique identifier (UUID) of the configuration policy.
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
 	TargetId pulumi.StringOutput `pulumi:"targetId"`
 }
@@ -148,6 +150,8 @@ func GetConfigurationPolicyAssociation(ctx *pulumi.Context,
 type configurationPolicyAssociationState struct {
 	// The universally unique identifier (UUID) of the configuration policy.
 	PolicyId *string `pulumi:"policyId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
 	TargetId *string `pulumi:"targetId"`
 }
@@ -155,6 +159,8 @@ type configurationPolicyAssociationState struct {
 type ConfigurationPolicyAssociationState struct {
 	// The universally unique identifier (UUID) of the configuration policy.
 	PolicyId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
 	TargetId pulumi.StringPtrInput
 }
@@ -166,6 +172,8 @@ func (ConfigurationPolicyAssociationState) ElementType() reflect.Type {
 type configurationPolicyAssociationArgs struct {
 	// The universally unique identifier (UUID) of the configuration policy.
 	PolicyId string `pulumi:"policyId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
 	TargetId string `pulumi:"targetId"`
 }
@@ -174,6 +182,8 @@ type configurationPolicyAssociationArgs struct {
 type ConfigurationPolicyAssociationArgs struct {
 	// The universally unique identifier (UUID) of the configuration policy.
 	PolicyId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
 	TargetId pulumi.StringInput
 }
@@ -268,6 +278,11 @@ func (o ConfigurationPolicyAssociationOutput) ToConfigurationPolicyAssociationOu
 // The universally unique identifier (UUID) of the configuration policy.
 func (o ConfigurationPolicyAssociationOutput) PolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationPolicyAssociation) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ConfigurationPolicyAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The identifier of the target account, organizational unit, or the root to associate with the specified configuration.

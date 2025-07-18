@@ -18,9 +18,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
- *     bucket: exampleBucketV2.id,
+ * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
+ * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
+ *     bucket: exampleBucket.id,
  *     acl: "private",
  * });
  * const assumeRole = aws.iam.getPolicyDocument({
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
- * const example = pulumi.all([exampleBucketV2.arn, exampleBucketV2.arn]).apply(([exampleBucketV2Arn, exampleBucketV2Arn1]) => aws.iam.getPolicyDocumentOutput({
+ * const example = pulumi.all([exampleBucket.arn, exampleBucket.arn]).apply(([exampleBucketArn, exampleBucketArn1]) => aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             effect: "Allow",
@@ -85,8 +85,8 @@ import * as utilities from "../utilities";
  *             effect: "Allow",
  *             actions: ["s3:*"],
  *             resources: [
- *                 exampleBucketV2Arn,
- *                 `${exampleBucketV2Arn1}/*`,
+ *                 exampleBucketArn,
+ *                 `${exampleBucketArn1}/*`,
  *             ],
  *         },
  *         {
@@ -113,7 +113,7 @@ import * as utilities from "../utilities";
  *     },
  *     cache: {
  *         type: "S3",
- *         location: exampleBucketV2.bucket,
+ *         location: exampleBucket.bucket,
  *     },
  *     environment: {
  *         computeType: "BUILD_GENERAL1_SMALL",
@@ -139,7 +139,7 @@ import * as utilities from "../utilities";
  *         },
  *         s3Logs: {
  *             status: "ENABLED",
- *             location: pulumi.interpolate`${exampleBucketV2.id}/build-log`,
+ *             location: pulumi.interpolate`${exampleBucket.id}/build-log`,
  *         },
  *     },
  *     source: {
@@ -338,6 +338,10 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly queuedTimeout!: pulumi.Output<number | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
      * Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
      * `projectVisibility` is `PUBLIC_READ`.
@@ -380,8 +384,6 @@ export class Project extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider 
      * `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -419,6 +421,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["projectVisibility"] = state ? state.projectVisibility : undefined;
             resourceInputs["publicProjectAlias"] = state ? state.publicProjectAlias : undefined;
             resourceInputs["queuedTimeout"] = state ? state.queuedTimeout : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceAccessRole"] = state ? state.resourceAccessRole : undefined;
             resourceInputs["secondaryArtifacts"] = state ? state.secondaryArtifacts : undefined;
             resourceInputs["secondarySourceVersions"] = state ? state.secondarySourceVersions : undefined;
@@ -457,6 +460,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["projectVisibility"] = args ? args.projectVisibility : undefined;
             resourceInputs["queuedTimeout"] = args ? args.queuedTimeout : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceAccessRole"] = args ? args.resourceAccessRole : undefined;
             resourceInputs["secondaryArtifacts"] = args ? args.secondaryArtifacts : undefined;
             resourceInputs["secondarySourceVersions"] = args ? args.secondarySourceVersions : undefined;
@@ -557,6 +561,10 @@ export interface ProjectState {
      */
     queuedTimeout?: pulumi.Input<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
      * Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
      * `projectVisibility` is `PUBLIC_READ`.
@@ -599,8 +607,6 @@ export interface ProjectState {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider 
      * `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -677,6 +683,10 @@ export interface ProjectArgs {
      * times out. The default is 8 hours. The `queuedTimeout` property is not available on the `Lambda` compute type.
      */
     queuedTimeout?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
      * Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if

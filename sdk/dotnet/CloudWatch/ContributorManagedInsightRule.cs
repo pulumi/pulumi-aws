@@ -32,6 +32,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
         /// </summary>
         [Output("resourceArn")]
@@ -104,6 +110,12 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class ContributorManagedInsightRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
         /// </summary>
         [Input("resourceArn", required: true)]
@@ -143,6 +155,12 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
         /// </summary>
         [Input("resourceArn")]
@@ -164,7 +182,6 @@ namespace Pulumi.Aws.CloudWatch
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

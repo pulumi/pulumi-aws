@@ -23,46 +23,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.redshift.SnapshotCopyGrant;
- * import com.pulumi.aws.redshift.SnapshotCopyGrantArgs;
- * import com.pulumi.aws.redshift.Cluster;
- * import com.pulumi.aws.redshift.ClusterArgs;
- * import com.pulumi.aws.redshift.inputs.ClusterSnapshotCopyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var test = new SnapshotCopyGrant("test", SnapshotCopyGrantArgs.builder()
- *             .snapshotCopyGrantName("my-grant")
- *             .build());
- * 
- *         var testCluster = new Cluster("testCluster", ClusterArgs.builder()
- *             .snapshotCopy(ClusterSnapshotCopyArgs.builder()
- *                 .destinationRegion("us-east-2")
- *                 .grantName(test.snapshotCopyGrantName())
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -105,6 +65,20 @@ public class SnapshotCopyGrant extends com.pulumi.resources.CustomResource {
         return this.kmsKeyId;
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * A friendly name for identifying the grant.
      * 
      */
@@ -135,11 +109,7 @@ public class SnapshotCopyGrant extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

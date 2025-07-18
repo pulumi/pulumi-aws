@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/qldb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/qldb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,11 +63,11 @@ type Ledger struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The permissions mode for the QLDB ledger instance. Specify either `ALLOW_ALL` or `STANDARD`.
 	PermissionsMode pulumi.StringOutput `pulumi:"permissionsMode"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -114,11 +114,11 @@ type ledgerState struct {
 	Name *string `pulumi:"name"`
 	// The permissions mode for the QLDB ledger instance. Specify either `ALLOW_ALL` or `STANDARD`.
 	PermissionsMode *string `pulumi:"permissionsMode"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -133,11 +133,11 @@ type LedgerState struct {
 	Name pulumi.StringPtrInput
 	// The permissions mode for the QLDB ledger instance. Specify either `ALLOW_ALL` or `STANDARD`.
 	PermissionsMode pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -154,6 +154,8 @@ type ledgerArgs struct {
 	Name *string `pulumi:"name"`
 	// The permissions mode for the QLDB ledger instance. Specify either `ALLOW_ALL` or `STANDARD`.
 	PermissionsMode string `pulumi:"permissionsMode"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -168,6 +170,8 @@ type LedgerArgs struct {
 	Name pulumi.StringPtrInput
 	// The permissions mode for the QLDB ledger instance. Specify either `ALLOW_ALL` or `STANDARD`.
 	PermissionsMode pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -284,14 +288,17 @@ func (o LedgerOutput) PermissionsMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ledger) pulumi.StringOutput { return v.PermissionsMode }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LedgerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ledger) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o LedgerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Ledger) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o LedgerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Ledger) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

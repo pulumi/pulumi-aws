@@ -109,6 +109,21 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Name of the resource group.
      * 
      * The following arguments are optional:
@@ -151,6 +166,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         this.groupingType = $.groupingType;
         this.opsCenterEnabled = $.opsCenterEnabled;
         this.opsItemSnsTopicArn = $.opsItemSnsTopicArn;
+        this.region = $.region;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
     }
@@ -297,6 +313,27 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder opsItemSnsTopicArn(String opsItemSnsTopicArn) {
             return opsItemSnsTopicArn(Output.of(opsItemSnsTopicArn));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

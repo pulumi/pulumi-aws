@@ -24,6 +24,7 @@ class ReservedInstanceArgs:
     def __init__(__self__, *,
                  offering_id: pulumi.Input[builtins.str],
                  instance_count: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reservation_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -32,12 +33,15 @@ class ReservedInstanceArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.int] instance_count: Number of instances to reserve. Default value is `1`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] reservation_id: Customer-specified identifier to track this reservation.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "offering_id", offering_id)
         if instance_count is not None:
             pulumi.set(__self__, "instance_count", instance_count)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if reservation_id is not None:
             pulumi.set(__self__, "reservation_id", reservation_id)
         if tags is not None:
@@ -68,6 +72,18 @@ class ReservedInstanceArgs:
     @instance_count.setter
     def instance_count(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "instance_count", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="reservationId")
@@ -109,6 +125,7 @@ class _ReservedInstanceState:
                  offering_type: Optional[pulumi.Input[builtins.str]] = None,
                  product_description: Optional[pulumi.Input[builtins.str]] = None,
                  recurring_charges: Optional[pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reservation_id: Optional[pulumi.Input[builtins.str]] = None,
                  start_time: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
@@ -131,6 +148,7 @@ class _ReservedInstanceState:
         :param pulumi.Input[builtins.str] offering_type: Offering type of this reserved DB instance.
         :param pulumi.Input[builtins.str] product_description: Description of the reserved DB instance.
         :param pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]] recurring_charges: Recurring price charged to run this reserved DB instance.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] reservation_id: Customer-specified identifier to track this reservation.
         :param pulumi.Input[builtins.str] start_time: Time the reservation started.
         :param pulumi.Input[builtins.str] state: State of the reserved DB instance.
@@ -162,6 +180,8 @@ class _ReservedInstanceState:
             pulumi.set(__self__, "product_description", product_description)
         if recurring_charges is not None:
             pulumi.set(__self__, "recurring_charges", recurring_charges)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if reservation_id is not None:
             pulumi.set(__self__, "reservation_id", reservation_id)
         if start_time is not None:
@@ -170,9 +190,6 @@ class _ReservedInstanceState:
             pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if usage_price is not None:
@@ -325,6 +342,18 @@ class _ReservedInstanceState:
         pulumi.set(self, "recurring_charges", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="reservationId")
     def reservation_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -374,7 +403,6 @@ class _ReservedInstanceState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -406,6 +434,7 @@ class ReservedInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_count: Optional[pulumi.Input[builtins.int]] = None,
                  offering_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reservation_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -447,6 +476,7 @@ class ReservedInstance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] offering_id: ID of the Reserved DB instance offering to purchase. To determine an `offering_id`, see the `rds_get_reserved_instance_offering` data source.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] reservation_id: Customer-specified identifier to track this reservation.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the DB reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -505,6 +535,7 @@ class ReservedInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_count: Optional[pulumi.Input[builtins.int]] = None,
                  offering_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reservation_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -520,6 +551,7 @@ class ReservedInstance(pulumi.CustomResource):
             if offering_id is None and not opts.urn:
                 raise TypeError("Missing required property 'offering_id'")
             __props__.__dict__["offering_id"] = offering_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["reservation_id"] = reservation_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -558,6 +590,7 @@ class ReservedInstance(pulumi.CustomResource):
             offering_type: Optional[pulumi.Input[builtins.str]] = None,
             product_description: Optional[pulumi.Input[builtins.str]] = None,
             recurring_charges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReservedInstanceRecurringChargeArgs', 'ReservedInstanceRecurringChargeArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             reservation_id: Optional[pulumi.Input[builtins.str]] = None,
             start_time: Optional[pulumi.Input[builtins.str]] = None,
             state: Optional[pulumi.Input[builtins.str]] = None,
@@ -585,6 +618,7 @@ class ReservedInstance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] offering_type: Offering type of this reserved DB instance.
         :param pulumi.Input[builtins.str] product_description: Description of the reserved DB instance.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReservedInstanceRecurringChargeArgs', 'ReservedInstanceRecurringChargeArgsDict']]]] recurring_charges: Recurring price charged to run this reserved DB instance.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] reservation_id: Customer-specified identifier to track this reservation.
         :param pulumi.Input[builtins.str] start_time: Time the reservation started.
         :param pulumi.Input[builtins.str] state: State of the reserved DB instance.
@@ -608,6 +642,7 @@ class ReservedInstance(pulumi.CustomResource):
         __props__.__dict__["offering_type"] = offering_type
         __props__.__dict__["product_description"] = product_description
         __props__.__dict__["recurring_charges"] = recurring_charges
+        __props__.__dict__["region"] = region
         __props__.__dict__["reservation_id"] = reservation_id
         __props__.__dict__["start_time"] = start_time
         __props__.__dict__["state"] = state
@@ -715,6 +750,14 @@ class ReservedInstance(pulumi.CustomResource):
         return pulumi.get(self, "recurring_charges")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="reservationId")
     def reservation_id(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -748,7 +791,6 @@ class ReservedInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

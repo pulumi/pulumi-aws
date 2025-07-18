@@ -24,6 +24,7 @@ class UserGroupArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  precedence: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a UserGroup resource.
@@ -31,6 +32,7 @@ class UserGroupArgs:
         :param pulumi.Input[builtins.str] description: The description of the user group.
         :param pulumi.Input[builtins.str] name: The name of the user group.
         :param pulumi.Input[builtins.int] precedence: The precedence of the user group.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role to be associated with the user group.
         """
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -40,6 +42,8 @@ class UserGroupArgs:
             pulumi.set(__self__, "name", name)
         if precedence is not None:
             pulumi.set(__self__, "precedence", precedence)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
 
@@ -92,6 +96,18 @@ class UserGroupArgs:
         pulumi.set(self, "precedence", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -110,6 +126,7 @@ class _UserGroupState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  precedence: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  user_pool_id: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -117,6 +134,7 @@ class _UserGroupState:
         :param pulumi.Input[builtins.str] description: The description of the user group.
         :param pulumi.Input[builtins.str] name: The name of the user group.
         :param pulumi.Input[builtins.int] precedence: The precedence of the user group.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role to be associated with the user group.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID.
         """
@@ -126,6 +144,8 @@ class _UserGroupState:
             pulumi.set(__self__, "name", name)
         if precedence is not None:
             pulumi.set(__self__, "precedence", precedence)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if user_pool_id is not None:
@@ -168,6 +188,18 @@ class _UserGroupState:
         pulumi.set(self, "precedence", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -201,6 +233,7 @@ class UserGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  precedence: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  user_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -258,6 +291,7 @@ class UserGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The description of the user group.
         :param pulumi.Input[builtins.str] name: The name of the user group.
         :param pulumi.Input[builtins.int] precedence: The precedence of the user group.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role to be associated with the user group.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID.
         """
@@ -334,6 +368,7 @@ class UserGroup(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  precedence: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  user_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -348,6 +383,7 @@ class UserGroup(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["precedence"] = precedence
+            __props__.__dict__["region"] = region
             __props__.__dict__["role_arn"] = role_arn
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
@@ -365,6 +401,7 @@ class UserGroup(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             precedence: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             user_pool_id: Optional[pulumi.Input[builtins.str]] = None) -> 'UserGroup':
         """
@@ -377,6 +414,7 @@ class UserGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The description of the user group.
         :param pulumi.Input[builtins.str] name: The name of the user group.
         :param pulumi.Input[builtins.int] precedence: The precedence of the user group.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role to be associated with the user group.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID.
         """
@@ -387,6 +425,7 @@ class UserGroup(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
         __props__.__dict__["precedence"] = precedence
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["user_pool_id"] = user_pool_id
         return UserGroup(resource_name, opts=opts, __props__=__props__)
@@ -414,6 +453,14 @@ class UserGroup(pulumi.CustomResource):
         The precedence of the user group.
         """
         return pulumi.get(self, "precedence")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")

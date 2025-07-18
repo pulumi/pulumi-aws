@@ -22,6 +22,7 @@ class TapePoolArgs:
     def __init__(__self__, *,
                  pool_name: pulumi.Input[builtins.str],
                  storage_class: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_lock_time_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  retention_lock_type: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -29,12 +30,15 @@ class TapePoolArgs:
         The set of arguments for constructing a TapePool resource.
         :param pulumi.Input[builtins.str] pool_name: The name of the new custom tape pool.
         :param pulumi.Input[builtins.str] storage_class: The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_lock_time_in_days: Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
         :param pulumi.Input[builtins.str] retention_lock_type: Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "pool_name", pool_name)
         pulumi.set(__self__, "storage_class", storage_class)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retention_lock_time_in_days is not None:
             pulumi.set(__self__, "retention_lock_time_in_days", retention_lock_time_in_days)
         if retention_lock_type is not None:
@@ -65,6 +69,18 @@ class TapePoolArgs:
     @storage_class.setter
     def storage_class(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "storage_class", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="retentionLockTimeInDays")
@@ -108,6 +124,7 @@ class _TapePoolState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  pool_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_lock_time_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  retention_lock_type: Optional[pulumi.Input[builtins.str]] = None,
                  storage_class: Optional[pulumi.Input[builtins.str]] = None,
@@ -117,6 +134,7 @@ class _TapePoolState:
         Input properties used for looking up and filtering TapePool resources.
         :param pulumi.Input[builtins.str] arn: Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
         :param pulumi.Input[builtins.str] pool_name: The name of the new custom tape pool.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_lock_time_in_days: Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
         :param pulumi.Input[builtins.str] retention_lock_type: Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
         :param pulumi.Input[builtins.str] storage_class: The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
@@ -127,6 +145,8 @@ class _TapePoolState:
             pulumi.set(__self__, "arn", arn)
         if pool_name is not None:
             pulumi.set(__self__, "pool_name", pool_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retention_lock_time_in_days is not None:
             pulumi.set(__self__, "retention_lock_time_in_days", retention_lock_time_in_days)
         if retention_lock_type is not None:
@@ -135,9 +155,6 @@ class _TapePoolState:
             pulumi.set(__self__, "storage_class", storage_class)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -164,6 +181,18 @@ class _TapePoolState:
     @pool_name.setter
     def pool_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "pool_name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="retentionLockTimeInDays")
@@ -215,7 +244,6 @@ class _TapePoolState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -234,6 +262,7 @@ class TapePool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  pool_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_lock_time_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  retention_lock_type: Optional[pulumi.Input[builtins.str]] = None,
                  storage_class: Optional[pulumi.Input[builtins.str]] = None,
@@ -264,6 +293,7 @@ class TapePool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] pool_name: The name of the new custom tape pool.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_lock_time_in_days: Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
         :param pulumi.Input[builtins.str] retention_lock_type: Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
         :param pulumi.Input[builtins.str] storage_class: The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
@@ -313,6 +343,7 @@ class TapePool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  pool_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_lock_time_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  retention_lock_type: Optional[pulumi.Input[builtins.str]] = None,
                  storage_class: Optional[pulumi.Input[builtins.str]] = None,
@@ -329,6 +360,7 @@ class TapePool(pulumi.CustomResource):
             if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")
             __props__.__dict__["pool_name"] = pool_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["retention_lock_time_in_days"] = retention_lock_time_in_days
             __props__.__dict__["retention_lock_type"] = retention_lock_type
             if storage_class is None and not opts.urn:
@@ -349,6 +381,7 @@ class TapePool(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             pool_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             retention_lock_time_in_days: Optional[pulumi.Input[builtins.int]] = None,
             retention_lock_type: Optional[pulumi.Input[builtins.str]] = None,
             storage_class: Optional[pulumi.Input[builtins.str]] = None,
@@ -363,6 +396,7 @@ class TapePool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
         :param pulumi.Input[builtins.str] pool_name: The name of the new custom tape pool.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_lock_time_in_days: Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
         :param pulumi.Input[builtins.str] retention_lock_type: Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account. Possible values are `COMPLIANCE`, `GOVERNANCE`, and `NONE`. Default value is `NONE`.
         :param pulumi.Input[builtins.str] storage_class: The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class that corresponds to the pool. Possible values are `DEEP_ARCHIVE` or `GLACIER`.
@@ -375,6 +409,7 @@ class TapePool(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["pool_name"] = pool_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["retention_lock_time_in_days"] = retention_lock_time_in_days
         __props__.__dict__["retention_lock_type"] = retention_lock_type
         __props__.__dict__["storage_class"] = storage_class
@@ -397,6 +432,14 @@ class TapePool(pulumi.CustomResource):
         The name of the new custom tape pool.
         """
         return pulumi.get(self, "pool_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="retentionLockTimeInDays")
@@ -432,7 +475,6 @@ class TapePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

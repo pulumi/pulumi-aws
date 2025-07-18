@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datazone"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -131,14 +131,14 @@ type Domain struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// URL of the data portal for the Domain.
 	PortalUrl pulumi.StringOutput `pulumi:"portalUrl"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 	SingleSignOn DomainSingleSignOnPtrOutput `pulumi:"singleSignOn"`
 	// Whether to skip the deletion check for the Domain.
 	SkipDeletionCheck pulumi.BoolPtrOutput   `pulumi:"skipDeletionCheck"`
 	Tags              pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput  `pulumi:"tagsAll"`
 	Timeouts DomainTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -190,14 +190,14 @@ type domainState struct {
 	Name *string `pulumi:"name"`
 	// URL of the data portal for the Domain.
 	PortalUrl *string `pulumi:"portalUrl"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 	SingleSignOn *DomainSingleSignOn `pulumi:"singleSignOn"`
 	// Whether to skip the deletion check for the Domain.
 	SkipDeletionCheck *bool             `pulumi:"skipDeletionCheck"`
 	Tags              map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string `pulumi:"tagsAll"`
 	Timeouts *DomainTimeouts   `pulumi:"timeouts"`
 }
@@ -217,14 +217,14 @@ type DomainState struct {
 	Name pulumi.StringPtrInput
 	// URL of the data portal for the Domain.
 	PortalUrl pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 	SingleSignOn DomainSingleSignOnPtrInput
 	// Whether to skip the deletion check for the Domain.
 	SkipDeletionCheck pulumi.BoolPtrInput
 	Tags              pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts DomainTimeoutsPtrInput
 }
@@ -244,6 +244,8 @@ type domainArgs struct {
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// Name of the Domain.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 	SingleSignOn *DomainSingleSignOn `pulumi:"singleSignOn"`
 	// Whether to skip the deletion check for the Domain.
@@ -264,6 +266,8 @@ type DomainArgs struct {
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// Name of the Domain.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 	SingleSignOn DomainSingleSignOnPtrInput
 	// Whether to skip the deletion check for the Domain.
@@ -391,6 +395,11 @@ func (o DomainOutput) PortalUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.PortalUrl }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DomainOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
 func (o DomainOutput) SingleSignOn() DomainSingleSignOnPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainSingleSignOnPtrOutput { return v.SingleSignOn }).(DomainSingleSignOnPtrOutput)
@@ -406,8 +415,6 @@ func (o DomainOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o DomainOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

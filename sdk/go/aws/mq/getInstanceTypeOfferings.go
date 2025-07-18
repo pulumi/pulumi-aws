@@ -7,11 +7,11 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides information about a MQ Broker Instance Offerings.
+// Provides details about available MQ broker instance type offerings. Use this data source to discover supported instance types, storage types, and deployment modes for Amazon MQ brokers.
 //
 // ## Example Usage
 //
@@ -20,39 +20,44 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mq"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/mq"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Get all instance type offerings
 //			_, err := mq.GetInstanceTypeOfferings(ctx, &mq.GetInstanceTypeOfferingsArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
+//			// Filter by engine type
 //			_, err = mq.GetInstanceTypeOfferings(ctx, &mq.GetInstanceTypeOfferingsArgs{
 //				EngineType: pulumi.StringRef("ACTIVEMQ"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
+//			// Filter by storage type
 //			_, err = mq.GetInstanceTypeOfferings(ctx, &mq.GetInstanceTypeOfferingsArgs{
 //				StorageType: pulumi.StringRef("EBS"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
+//			// Filter by instance type
 //			_, err = mq.GetInstanceTypeOfferings(ctx, &mq.GetInstanceTypeOfferingsArgs{
 //				HostInstanceType: pulumi.StringRef("mq.m5.large"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
+//			// Filter by multiple criteria
 //			_, err = mq.GetInstanceTypeOfferings(ctx, &mq.GetInstanceTypeOfferingsArgs{
-//				HostInstanceType: pulumi.StringRef("mq.m5.large"),
-//				StorageType:      pulumi.StringRef("EBS"),
 //				EngineType:       pulumi.StringRef("ACTIVEMQ"),
+//				StorageType:      pulumi.StringRef("EBS"),
+//				HostInstanceType: pulumi.StringRef("mq.m5.large"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -78,20 +83,23 @@ type GetInstanceTypeOfferingsArgs struct {
 	EngineType *string `pulumi:"engineType"`
 	// Filter response by host instance type.
 	HostInstanceType *string `pulumi:"hostInstanceType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Filter response by storage type.
 	StorageType *string `pulumi:"storageType"`
 }
 
 // A collection of values returned by getInstanceTypeOfferings.
 type GetInstanceTypeOfferingsResult struct {
-	// Option for host instance type. See Broker Instance Options below.
+	// List of broker instance options. See Broker Instance Options below.
 	BrokerInstanceOptions []GetInstanceTypeOfferingsBrokerInstanceOption `pulumi:"brokerInstanceOptions"`
 	// Broker's engine type.
 	EngineType *string `pulumi:"engineType"`
 	// Broker's instance type.
 	HostInstanceType *string `pulumi:"hostInstanceType"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// Broker's storage type.
 	StorageType *string `pulumi:"storageType"`
 }
@@ -111,6 +119,8 @@ type GetInstanceTypeOfferingsOutputArgs struct {
 	EngineType pulumi.StringPtrInput `pulumi:"engineType"`
 	// Filter response by host instance type.
 	HostInstanceType pulumi.StringPtrInput `pulumi:"hostInstanceType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Filter response by storage type.
 	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
 }
@@ -134,7 +144,7 @@ func (o GetInstanceTypeOfferingsResultOutput) ToGetInstanceTypeOfferingsResultOu
 	return o
 }
 
-// Option for host instance type. See Broker Instance Options below.
+// List of broker instance options. See Broker Instance Options below.
 func (o GetInstanceTypeOfferingsResultOutput) BrokerInstanceOptions() GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput {
 	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) []GetInstanceTypeOfferingsBrokerInstanceOption {
 		return v.BrokerInstanceOptions
@@ -154,6 +164,10 @@ func (o GetInstanceTypeOfferingsResultOutput) HostInstanceType() pulumi.StringPt
 // The provider-assigned unique ID for this managed resource.
 func (o GetInstanceTypeOfferingsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetInstanceTypeOfferingsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Broker's storage type.

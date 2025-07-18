@@ -94,6 +94,12 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class GetSecretRotationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
         /// </summary>
         [Input("secretId", required: true)]
@@ -107,6 +113,12 @@ namespace Pulumi.Aws.SecretsManager
 
     public sealed class GetSecretRotationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
         /// </summary>
@@ -127,6 +139,7 @@ namespace Pulumi.Aws.SecretsManager
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// ARN of the secret.
         /// </summary>
@@ -145,6 +158,8 @@ namespace Pulumi.Aws.SecretsManager
         private GetSecretRotationResult(
             string id,
 
+            string region,
+
             bool rotationEnabled,
 
             string rotationLambdaArn,
@@ -154,6 +169,7 @@ namespace Pulumi.Aws.SecretsManager
             string secretId)
         {
             Id = id;
+            Region = region;
             RotationEnabled = rotationEnabled;
             RotationLambdaArn = rotationLambdaArn;
             RotationRules = rotationRules;

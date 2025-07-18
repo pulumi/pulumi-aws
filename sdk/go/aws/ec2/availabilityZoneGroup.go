@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,6 +57,8 @@ type AvailabilityZoneGroup struct {
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
 	// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
 	OptInStatus pulumi.StringOutput `pulumi:"optInStatus"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAvailabilityZoneGroup registers a new resource with the given unique name, arguments, and options.
@@ -99,6 +101,8 @@ type availabilityZoneGroupState struct {
 	GroupName *string `pulumi:"groupName"`
 	// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
 	OptInStatus *string `pulumi:"optInStatus"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type AvailabilityZoneGroupState struct {
@@ -106,6 +110,8 @@ type AvailabilityZoneGroupState struct {
 	GroupName pulumi.StringPtrInput
 	// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
 	OptInStatus pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AvailabilityZoneGroupState) ElementType() reflect.Type {
@@ -117,6 +123,8 @@ type availabilityZoneGroupArgs struct {
 	GroupName string `pulumi:"groupName"`
 	// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
 	OptInStatus string `pulumi:"optInStatus"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AvailabilityZoneGroup resource.
@@ -125,6 +133,8 @@ type AvailabilityZoneGroupArgs struct {
 	GroupName pulumi.StringInput
 	// Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
 	OptInStatus pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AvailabilityZoneGroupArgs) ElementType() reflect.Type {
@@ -222,6 +232,11 @@ func (o AvailabilityZoneGroupOutput) GroupName() pulumi.StringOutput {
 // Indicates whether to enable or disable Availability Zone Group. Valid values: `opted-in` or `not-opted-in`.
 func (o AvailabilityZoneGroupOutput) OptInStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *AvailabilityZoneGroup) pulumi.StringOutput { return v.OptInStatus }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AvailabilityZoneGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AvailabilityZoneGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type AvailabilityZoneGroupArrayOutput struct{ *pulumi.OutputState }

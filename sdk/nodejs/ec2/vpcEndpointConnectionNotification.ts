@@ -94,6 +94,10 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
      */
     public /*out*/ readonly notificationType!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The state of the notification.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
@@ -122,6 +126,7 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
             resourceInputs["connectionEvents"] = state ? state.connectionEvents : undefined;
             resourceInputs["connectionNotificationArn"] = state ? state.connectionNotificationArn : undefined;
             resourceInputs["notificationType"] = state ? state.notificationType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
             resourceInputs["vpcEndpointServiceId"] = state ? state.vpcEndpointServiceId : undefined;
@@ -135,6 +140,7 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
             }
             resourceInputs["connectionEvents"] = args ? args.connectionEvents : undefined;
             resourceInputs["connectionNotificationArn"] = args ? args.connectionNotificationArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
             resourceInputs["vpcEndpointServiceId"] = args ? args.vpcEndpointServiceId : undefined;
             resourceInputs["notificationType"] = undefined /*out*/;
@@ -164,6 +170,10 @@ export interface VpcEndpointConnectionNotificationState {
      */
     notificationType?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The state of the notification.
      */
     state?: pulumi.Input<string>;
@@ -191,6 +201,10 @@ export interface VpcEndpointConnectionNotificationArgs {
      * The ARN of the SNS topic for the notifications.
      */
     connectionNotificationArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the VPC Endpoint to receive notifications for.
      */

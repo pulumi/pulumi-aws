@@ -26,6 +26,7 @@ public final class GetQuicksightAnalysisResult {
     private String lastUpdatedTime;
     private String name;
     private List<GetQuicksightAnalysisPermission> permissions;
+    private String region;
     private String status;
     private Map<String,String> tags;
     private String themeArn;
@@ -62,6 +63,9 @@ public final class GetQuicksightAnalysisResult {
     public List<GetQuicksightAnalysisPermission> permissions() {
         return this.permissions;
     }
+    public String region() {
+        return this.region;
+    }
     public String status() {
         return this.status;
     }
@@ -90,6 +94,7 @@ public final class GetQuicksightAnalysisResult {
         private String lastUpdatedTime;
         private String name;
         private List<GetQuicksightAnalysisPermission> permissions;
+        private String region;
         private String status;
         private Map<String,String> tags;
         private String themeArn;
@@ -105,6 +110,7 @@ public final class GetQuicksightAnalysisResult {
     	      this.lastUpdatedTime = defaults.lastUpdatedTime;
     	      this.name = defaults.name;
     	      this.permissions = defaults.permissions;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
     	      this.tags = defaults.tags;
     	      this.themeArn = defaults.themeArn;
@@ -186,6 +192,14 @@ public final class GetQuicksightAnalysisResult {
             return permissions(List.of(permissions));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetQuicksightAnalysisResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetQuicksightAnalysisResult", "status");
@@ -220,6 +234,7 @@ public final class GetQuicksightAnalysisResult {
             _resultValue.lastUpdatedTime = lastUpdatedTime;
             _resultValue.name = name;
             _resultValue.permissions = permissions;
+            _resultValue.region = region;
             _resultValue.status = status;
             _resultValue.tags = tags;
             _resultValue.themeArn = themeArn;

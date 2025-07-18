@@ -151,6 +151,12 @@ namespace Pulumi.Aws.Ecr
     public partial class ReplicationConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The registry ID where the replication configuration was created.
         /// </summary>
         [Output("registryId")]
@@ -209,6 +215,12 @@ namespace Pulumi.Aws.Ecr
     public sealed class ReplicationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Replication configuration for a registry. See Replication Configuration.
         /// </summary>
         [Input("replicationConfiguration")]
@@ -222,6 +234,12 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class ReplicationConfigurationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The registry ID where the replication configuration was created.
         /// </summary>

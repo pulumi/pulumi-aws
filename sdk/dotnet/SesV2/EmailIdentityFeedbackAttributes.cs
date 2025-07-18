@@ -61,6 +61,12 @@ namespace Pulumi.Aws.SesV2
         [Output("emailIdentity")]
         public Output<string> EmailIdentity { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a EmailIdentityFeedbackAttributes resource with the given unique name, arguments, and options.
@@ -119,6 +125,12 @@ namespace Pulumi.Aws.SesV2
         [Input("emailIdentity", required: true)]
         public Input<string> EmailIdentity { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public EmailIdentityFeedbackAttributesArgs()
         {
         }
@@ -138,6 +150,12 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         [Input("emailIdentity")]
         public Input<string>? EmailIdentity { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public EmailIdentityFeedbackAttributesState()
         {

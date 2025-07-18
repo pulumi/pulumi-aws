@@ -131,6 +131,21 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+     * 
+     */
+    @Import(name="jobMode")
+    private @Nullable Output<String> jobMode;
+
+    /**
+     * @return Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+     * 
+     */
+    public Optional<Output<String>> jobMode() {
+        return Optional.ofNullable(this.jobMode);
+    }
+
+    /**
      * Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
      * 
      */
@@ -251,6 +266,21 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ARN of the IAM role associated with this job.
      * 
      */
@@ -364,6 +394,7 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
         this.executionClass = $.executionClass;
         this.executionProperty = $.executionProperty;
         this.glueVersion = $.glueVersion;
+        this.jobMode = $.jobMode;
         this.jobRunQueuingEnabled = $.jobRunQueuingEnabled;
         this.maintenanceWindow = $.maintenanceWindow;
         this.maxCapacity = $.maxCapacity;
@@ -372,6 +403,7 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
         this.nonOverridableArguments = $.nonOverridableArguments;
         this.notificationProperty = $.notificationProperty;
         this.numberOfWorkers = $.numberOfWorkers;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.securityConfiguration = $.securityConfiguration;
         this.sourceControlDetails = $.sourceControlDetails;
@@ -556,6 +588,27 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param jobMode Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobMode(@Nullable Output<String> jobMode) {
+            $.jobMode = jobMode;
+            return this;
+        }
+
+        /**
+         * @param jobMode Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobMode(String jobMode) {
+            return jobMode(Output.of(jobMode));
+        }
+
+        /**
          * @param jobRunQueuingEnabled Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
          * 
          * @return builder
@@ -721,6 +774,27 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder numberOfWorkers(Integer numberOfWorkers) {
             return numberOfWorkers(Output.of(numberOfWorkers));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

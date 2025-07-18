@@ -8,41 +8,164 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Lambda Code Signing Config resource. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
+// Manages an AWS Lambda Code Signing Config. Use this resource to define allowed signing profiles and code-signing validation policies for Lambda functions to ensure code integrity and authenticity.
 //
-// For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+// For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
 //
 // ## Example Usage
+//
+// ### Basic Usage
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/signer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewCodeSigningConfig(ctx, "new_csc", &lambda.CodeSigningConfigArgs{
+//			// Create signing profiles for different environments
+//			prod, err := signer.NewSigningProfile(ctx, "prod", &signer.SigningProfileArgs{
+//				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
+//				NamePrefix: pulumi.String("prod_lambda_"),
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			dev, err := signer.NewSigningProfile(ctx, "dev", &signer.SigningProfileArgs{
+//				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
+//				NamePrefix: pulumi.String("dev_lambda_"),
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("development"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Code signing configuration with enforcement
+//			_, err = lambda.NewCodeSigningConfig(ctx, "example", &lambda.CodeSigningConfigArgs{
+//				Description: pulumi.String("Code signing configuration for Lambda functions"),
 //				AllowedPublishers: &lambda.CodeSigningConfigAllowedPublishersArgs{
 //					SigningProfileVersionArns: pulumi.StringArray{
-//						example1.VersionArn,
-//						example2.VersionArn,
+//						prod.VersionArn,
+//						dev.VersionArn,
+//					},
+//				},
+//				Policies: &lambda.CodeSigningConfigPoliciesArgs{
+//					UntrustedArtifactOnDeployment: pulumi.String("Enforce"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("production"),
+//					"Purpose":     pulumi.String("code-signing"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Warning Only Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lambda.NewCodeSigningConfig(ctx, "example", &lambda.CodeSigningConfigArgs{
+//				Description: pulumi.String("Development code signing configuration"),
+//				AllowedPublishers: &lambda.CodeSigningConfigAllowedPublishersArgs{
+//					SigningProfileVersionArns: pulumi.StringArray{
+//						dev.VersionArn,
 //					},
 //				},
 //				Policies: &lambda.CodeSigningConfigPoliciesArgs{
 //					UntrustedArtifactOnDeployment: pulumi.String("Warn"),
 //				},
-//				Description: pulumi.String("My awesome code signing config."),
 //				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("dynamodb"),
+//					"Environment": pulumi.String("development"),
+//					"Purpose":     pulumi.String("code-signing"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Multiple Environment Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Production signing configuration
+//			_, err := lambda.NewCodeSigningConfig(ctx, "prod", &lambda.CodeSigningConfigArgs{
+//				Description: pulumi.String("Production code signing configuration with strict enforcement"),
+//				AllowedPublishers: &lambda.CodeSigningConfigAllowedPublishersArgs{
+//					SigningProfileVersionArns: pulumi.StringArray{
+//						prodAwsSignerSigningProfile.VersionArn,
+//					},
+//				},
+//				Policies: &lambda.CodeSigningConfigPoliciesArgs{
+//					UntrustedArtifactOnDeployment: pulumi.String("Enforce"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("production"),
+//					"Security":    pulumi.String("strict"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Development signing configuration
+//			_, err = lambda.NewCodeSigningConfig(ctx, "dev", &lambda.CodeSigningConfigArgs{
+//				Description: pulumi.String("Development code signing configuration with warnings"),
+//				AllowedPublishers: &lambda.CodeSigningConfigAllowedPublishersArgs{
+//					SigningProfileVersionArns: pulumi.StringArray{
+//						devAwsSignerSigningProfile.VersionArn,
+//						test.VersionArn,
+//					},
+//				},
+//				Policies: &lambda.CodeSigningConfigPoliciesArgs{
+//					UntrustedArtifactOnDeployment: pulumi.String("Warn"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("development"),
+//					"Security":    pulumi.String("flexible"),
 //				},
 //			})
 //			if err != nil {
@@ -56,31 +179,33 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Code Signing Configs using their ARN. For example:
+// For backwards compatibility, the following legacy `pulumi import` command is also supported:
 //
 // ```sh
-// $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
+// $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig example arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
 // ```
 type CodeSigningConfig struct {
 	pulumi.CustomResourceState
 
-	// A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+	// Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+	//
+	// The following arguments are optional:
 	AllowedPublishers CodeSigningConfigAllowedPublishersOutput `pulumi:"allowedPublishers"`
-	// The Amazon Resource Name (ARN) of the code signing configuration.
+	// ARN of the code signing configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Unique identifier for the code signing configuration.
 	ConfigId pulumi.StringOutput `pulumi:"configId"`
 	// Descriptive name for this code signing configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The date and time that the code signing configuration was last modified.
+	// Date and time that the code signing configuration was last modified.
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
-	// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+	// Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
 	Policies CodeSigningConfigPoliciesOutput `pulumi:"policies"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -117,44 +242,48 @@ func GetCodeSigningConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CodeSigningConfig resources.
 type codeSigningConfigState struct {
-	// A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+	// Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+	//
+	// The following arguments are optional:
 	AllowedPublishers *CodeSigningConfigAllowedPublishers `pulumi:"allowedPublishers"`
-	// The Amazon Resource Name (ARN) of the code signing configuration.
+	// ARN of the code signing configuration.
 	Arn *string `pulumi:"arn"`
 	// Unique identifier for the code signing configuration.
 	ConfigId *string `pulumi:"configId"`
 	// Descriptive name for this code signing configuration.
 	Description *string `pulumi:"description"`
-	// The date and time that the code signing configuration was last modified.
+	// Date and time that the code signing configuration was last modified.
 	LastModified *string `pulumi:"lastModified"`
-	// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+	// Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
 	Policies *CodeSigningConfigPolicies `pulumi:"policies"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type CodeSigningConfigState struct {
-	// A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+	// Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+	//
+	// The following arguments are optional:
 	AllowedPublishers CodeSigningConfigAllowedPublishersPtrInput
-	// The Amazon Resource Name (ARN) of the code signing configuration.
+	// ARN of the code signing configuration.
 	Arn pulumi.StringPtrInput
 	// Unique identifier for the code signing configuration.
 	ConfigId pulumi.StringPtrInput
 	// Descriptive name for this code signing configuration.
 	Description pulumi.StringPtrInput
-	// The date and time that the code signing configuration was last modified.
+	// Date and time that the code signing configuration was last modified.
 	LastModified pulumi.StringPtrInput
-	// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+	// Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
 	Policies CodeSigningConfigPoliciesPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -163,24 +292,32 @@ func (CodeSigningConfigState) ElementType() reflect.Type {
 }
 
 type codeSigningConfigArgs struct {
-	// A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+	// Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+	//
+	// The following arguments are optional:
 	AllowedPublishers CodeSigningConfigAllowedPublishers `pulumi:"allowedPublishers"`
 	// Descriptive name for this code signing configuration.
 	Description *string `pulumi:"description"`
-	// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+	// Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
 	Policies *CodeSigningConfigPolicies `pulumi:"policies"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CodeSigningConfig resource.
 type CodeSigningConfigArgs struct {
-	// A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+	// Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+	//
+	// The following arguments are optional:
 	AllowedPublishers CodeSigningConfigAllowedPublishersInput
 	// Descriptive name for this code signing configuration.
 	Description pulumi.StringPtrInput
-	// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+	// Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
 	Policies CodeSigningConfigPoliciesPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -272,12 +409,14 @@ func (o CodeSigningConfigOutput) ToCodeSigningConfigOutputWithContext(ctx contex
 	return o
 }
 
-// A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+// Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+//
+// The following arguments are optional:
 func (o CodeSigningConfigOutput) AllowedPublishers() CodeSigningConfigAllowedPublishersOutput {
 	return o.ApplyT(func(v *CodeSigningConfig) CodeSigningConfigAllowedPublishersOutput { return v.AllowedPublishers }).(CodeSigningConfigAllowedPublishersOutput)
 }
 
-// The Amazon Resource Name (ARN) of the code signing configuration.
+// ARN of the code signing configuration.
 func (o CodeSigningConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CodeSigningConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -292,14 +431,19 @@ func (o CodeSigningConfigOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeSigningConfig) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The date and time that the code signing configuration was last modified.
+// Date and time that the code signing configuration was last modified.
 func (o CodeSigningConfigOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v *CodeSigningConfig) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
 }
 
-// A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+// Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
 func (o CodeSigningConfigOutput) Policies() CodeSigningConfigPoliciesOutput {
 	return o.ApplyT(func(v *CodeSigningConfig) CodeSigningConfigPoliciesOutput { return v.Policies }).(CodeSigningConfigPoliciesOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o CodeSigningConfigOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CodeSigningConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -307,9 +451,7 @@ func (o CodeSigningConfigOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CodeSigningConfig) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CodeSigningConfigOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CodeSigningConfig) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,8 +54,8 @@ func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ..
 type LookupApplicationArgs struct {
 	// ARN of the application.
 	ApplicationArn string `pulumi:"applicationArn"`
-	// Options for the portal associated with an application. See the `ssoadmin.Application` resource documentation. The attributes are the same.
-	PortalOptions []GetApplicationPortalOption `pulumi:"portalOptions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getApplication.
@@ -75,6 +75,7 @@ type LookupApplicationResult struct {
 	Name string `pulumi:"name"`
 	// Options for the portal associated with an application. See the `ssoadmin.Application` resource documentation. The attributes are the same.
 	PortalOptions []GetApplicationPortalOption `pulumi:"portalOptions"`
+	Region        string                       `pulumi:"region"`
 	// Status of the application.
 	Status string `pulumi:"status"`
 }
@@ -92,8 +93,8 @@ func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputAr
 type LookupApplicationOutputArgs struct {
 	// ARN of the application.
 	ApplicationArn pulumi.StringInput `pulumi:"applicationArn"`
-	// Options for the portal associated with an application. See the `ssoadmin.Application` resource documentation. The attributes are the same.
-	PortalOptions GetApplicationPortalOptionArrayInput `pulumi:"portalOptions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupApplicationOutputArgs) ElementType() reflect.Type {
@@ -152,6 +153,10 @@ func (o LookupApplicationResultOutput) Name() pulumi.StringOutput {
 // Options for the portal associated with an application. See the `ssoadmin.Application` resource documentation. The attributes are the same.
 func (o LookupApplicationResultOutput) PortalOptions() GetApplicationPortalOptionArrayOutput {
 	return o.ApplyT(func(v LookupApplicationResult) []GetApplicationPortalOption { return v.PortalOptions }).(GetApplicationPortalOptionArrayOutput)
+}
+
+func (o LookupApplicationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApplicationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Status of the application.

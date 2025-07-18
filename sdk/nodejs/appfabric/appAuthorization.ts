@@ -92,10 +92,11 @@ export class AppAuthorization extends pulumi.CustomResource {
      * The user persona of the app authorization.
      */
     public /*out*/ readonly persona!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * @deprecated Please use `tags` instead.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
+    public readonly region!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Contains information about an application tenant, such as the application display name and identifier.
@@ -125,6 +126,7 @@ export class AppAuthorization extends pulumi.CustomResource {
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["credential"] = state ? state.credential : undefined;
             resourceInputs["persona"] = state ? state.persona : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["tenants"] = state ? state.tenants : undefined;
@@ -145,6 +147,7 @@ export class AppAuthorization extends pulumi.CustomResource {
             resourceInputs["appBundleArn"] = args ? args.appBundleArn : undefined;
             resourceInputs["authType"] = args ? args.authType : undefined;
             resourceInputs["credential"] = args ? args.credential : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tenants"] = args ? args.tenants : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -194,10 +197,11 @@ export interface AppAuthorizationState {
      * The user persona of the app authorization.
      */
     persona?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * @deprecated Please use `tags` instead.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
+    region?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Contains information about an application tenant, such as the application display name and identifier.
@@ -228,6 +232,10 @@ export interface AppAuthorizationArgs {
      * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
      */
     credential?: pulumi.Input<inputs.appfabric.AppAuthorizationCredential>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Contains information about an application tenant, such as the application display name and identifier.

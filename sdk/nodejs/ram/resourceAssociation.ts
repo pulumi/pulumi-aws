@@ -58,6 +58,10 @@ export class ResourceAssociation extends pulumi.CustomResource {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
      */
     public readonly resourceArn!: pulumi.Output<string>;
@@ -79,6 +83,7 @@ export class ResourceAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceAssociationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
             resourceInputs["resourceShareArn"] = state ? state.resourceShareArn : undefined;
         } else {
@@ -89,6 +94,7 @@ export class ResourceAssociation extends pulumi.CustomResource {
             if ((!args || args.resourceShareArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceShareArn'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
             resourceInputs["resourceShareArn"] = args ? args.resourceShareArn : undefined;
         }
@@ -101,6 +107,10 @@ export class ResourceAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResourceAssociation resources.
  */
 export interface ResourceAssociationState {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
      */
@@ -115,6 +125,10 @@ export interface ResourceAssociationState {
  * The set of arguments for constructing a ResourceAssociation resource.
  */
 export interface ResourceAssociationArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
      */

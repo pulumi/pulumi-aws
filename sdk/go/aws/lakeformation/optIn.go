@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lakeformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,6 +48,8 @@ type OptIn struct {
 	LastUpdatedBy pulumi.StringOutput `pulumi:"lastUpdatedBy"`
 	// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
 	Principals OptInPrincipalArrayOutput `pulumi:"principals"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Structure for the resource. See Resource for more details.
 	ResourceDatas OptInResourceDataArrayOutput `pulumi:"resourceDatas"`
 }
@@ -89,6 +91,8 @@ type optInState struct {
 	LastUpdatedBy *string `pulumi:"lastUpdatedBy"`
 	// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
 	Principals []OptInPrincipal `pulumi:"principals"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Structure for the resource. See Resource for more details.
 	ResourceDatas []OptInResourceData `pulumi:"resourceDatas"`
 }
@@ -101,6 +105,8 @@ type OptInState struct {
 	LastUpdatedBy pulumi.StringPtrInput
 	// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
 	Principals OptInPrincipalArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Structure for the resource. See Resource for more details.
 	ResourceDatas OptInResourceDataArrayInput
 }
@@ -114,6 +120,8 @@ type optInArgs struct {
 	Conditions []OptInCondition `pulumi:"conditions"`
 	// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
 	Principals []OptInPrincipal `pulumi:"principals"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Structure for the resource. See Resource for more details.
 	ResourceDatas []OptInResourceData `pulumi:"resourceDatas"`
 }
@@ -124,6 +132,8 @@ type OptInArgs struct {
 	Conditions OptInConditionArrayInput
 	// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
 	Principals OptInPrincipalArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Structure for the resource. See Resource for more details.
 	ResourceDatas OptInResourceDataArrayInput
 }
@@ -232,6 +242,11 @@ func (o OptInOutput) LastUpdatedBy() pulumi.StringOutput {
 // Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
 func (o OptInOutput) Principals() OptInPrincipalArrayOutput {
 	return o.ApplyT(func(v *OptIn) OptInPrincipalArrayOutput { return v.Principals }).(OptInPrincipalArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o OptInOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *OptIn) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Structure for the resource. See Resource for more details.

@@ -37,6 +37,7 @@ export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions)
     return pulumi.runtime.invoke("aws:connect/getInstance:getInstance", {
         "instanceAlias": args.instanceAlias,
         "instanceId": args.instanceId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -55,6 +56,10 @@ export interface GetInstanceArgs {
      * Returns information on a specific connect instance by id
      */
     instanceId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * A map of tags to assigned to the instance.
      */
@@ -108,6 +113,7 @@ export interface GetInstanceResult {
      * Whether outbound calls are enabled.
      */
     readonly outboundCallsEnabled: boolean;
+    readonly region: string;
     /**
      * Service role of the instance.
      */
@@ -154,6 +160,7 @@ export function getInstanceOutput(args?: GetInstanceOutputArgs, opts?: pulumi.In
     return pulumi.runtime.invokeOutput("aws:connect/getInstance:getInstance", {
         "instanceAlias": args.instanceAlias,
         "instanceId": args.instanceId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -172,6 +179,10 @@ export interface GetInstanceOutputArgs {
      * Returns information on a specific connect instance by id
      */
     instanceId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assigned to the instance.
      */

@@ -110,6 +110,10 @@ export class SshKey extends pulumi.CustomResource {
      */
     public readonly body!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Server ID of the Transfer Server (e.g., `s-12345678`)
      */
     public readonly serverId!: pulumi.Output<string>;
@@ -133,6 +137,7 @@ export class SshKey extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SshKeyState | undefined;
             resourceInputs["body"] = state ? state.body : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serverId"] = state ? state.serverId : undefined;
             resourceInputs["sshKeyId"] = state ? state.sshKeyId : undefined;
             resourceInputs["userName"] = state ? state.userName : undefined;
@@ -148,6 +153,7 @@ export class SshKey extends pulumi.CustomResource {
                 throw new Error("Missing required property 'userName'");
             }
             resourceInputs["body"] = args ? args.body : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serverId"] = args ? args.serverId : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
             resourceInputs["sshKeyId"] = undefined /*out*/;
@@ -165,6 +171,10 @@ export interface SshKeyState {
      * The public key portion of an SSH key pair.
      */
     body?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Server ID of the Transfer Server (e.g., `s-12345678`)
      */
@@ -184,6 +194,10 @@ export interface SshKeyArgs {
      * The public key portion of an SSH key pair.
      */
     body: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Server ID of the Transfer Server (e.g., `s-12345678`)
      */

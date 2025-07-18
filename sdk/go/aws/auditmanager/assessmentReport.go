@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/auditmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,6 +63,8 @@ type AssessmentReport struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the assessment report.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
 	Status pulumi.StringOutput `pulumi:"status"`
 }
@@ -110,6 +112,8 @@ type assessmentReportState struct {
 	Description *string `pulumi:"description"`
 	// Name of the assessment report.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
 	Status *string `pulumi:"status"`
 }
@@ -125,6 +129,8 @@ type AssessmentReportState struct {
 	Description pulumi.StringPtrInput
 	// Name of the assessment report.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.
 	Status pulumi.StringPtrInput
 }
@@ -142,6 +148,8 @@ type assessmentReportArgs struct {
 	Description *string `pulumi:"description"`
 	// Name of the assessment report.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AssessmentReport resource.
@@ -154,6 +162,8 @@ type AssessmentReportArgs struct {
 	Description pulumi.StringPtrInput
 	// Name of the assessment report.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AssessmentReportArgs) ElementType() reflect.Type {
@@ -263,6 +273,11 @@ func (o AssessmentReportOutput) Description() pulumi.StringPtrOutput {
 // Name of the assessment report.
 func (o AssessmentReportOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentReport) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AssessmentReportOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssessmentReport) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Current status of the specified assessment report. Valid values are `COMPLETE`, `IN_PROGRESS`, and `FAILED`.

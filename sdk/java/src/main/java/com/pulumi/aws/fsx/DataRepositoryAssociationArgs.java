@@ -111,6 +111,21 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * See the `s3` configuration block. Max of 1.
      * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
      * 
@@ -151,6 +166,7 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Re
         this.fileSystemId = $.fileSystemId;
         this.fileSystemPath = $.fileSystemPath;
         this.importedFileChunkSize = $.importedFileChunkSize;
+        this.region = $.region;
         this.s3 = $.s3;
         this.tags = $.tags;
     }
@@ -297,6 +313,27 @@ public final class DataRepositoryAssociationArgs extends com.pulumi.resources.Re
          */
         public Builder importedFileChunkSize(Integer importedFileChunkSize) {
             return importedFileChunkSize(Output.of(importedFileChunkSize));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

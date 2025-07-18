@@ -12,6 +12,8 @@ namespace Pulumi.Aws.ElasticTranscoder
     /// <summary>
     /// Provides an Elastic Transcoder pipeline resource.
     /// 
+    /// &gt; **Warning:** This resource is deprecated. Use [AWS Elemental MediaConvert](https://aws.amazon.com/blogs/media/migrating-workflows-from-amazon-elastic-transcoder-to-aws-elemental-mediaconvert/) instead. AWS will [discontinue support for Amazon Elastic Transcoder](https://aws.amazon.com/blogs/media/support-for-amazon-elastic-transcoder-ending-soon/), effective November 13, 2025.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -100,6 +102,12 @@ namespace Pulumi.Aws.ElasticTranscoder
         /// </summary>
         [Output("outputBucket")]
         public Output<string> OutputBucket { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
@@ -223,6 +231,12 @@ namespace Pulumi.Aws.ElasticTranscoder
         public Input<string>? OutputBucket { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         /// </summary>
         [Input("role", required: true)]
@@ -316,6 +330,12 @@ namespace Pulumi.Aws.ElasticTranscoder
         /// </summary>
         [Input("outputBucket")]
         public Input<string>? OutputBucket { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.

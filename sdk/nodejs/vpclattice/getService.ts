@@ -28,6 +28,7 @@ export function getService(args?: GetServiceArgs, opts?: pulumi.InvokeOptions): 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:vpclattice/getService:getService", {
         "name": args.name,
+        "region": args.region,
         "serviceIdentifier": args.serviceIdentifier,
         "tags": args.tags,
     }, opts);
@@ -41,6 +42,10 @@ export interface GetServiceArgs {
      * Service name.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * ID or Amazon Resource Name (ARN) of the service.
      */
@@ -80,6 +85,7 @@ export interface GetServiceResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     readonly serviceIdentifier: string;
     /**
      * Status of the service.
@@ -111,6 +117,7 @@ export function getServiceOutput(args?: GetServiceOutputArgs, opts?: pulumi.Invo
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:vpclattice/getService:getService", {
         "name": args.name,
+        "region": args.region,
         "serviceIdentifier": args.serviceIdentifier,
         "tags": args.tags,
     }, opts);
@@ -124,6 +131,10 @@ export interface GetServiceOutputArgs {
      * Service name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID or Amazon Resource Name (ARN) of the service.
      */

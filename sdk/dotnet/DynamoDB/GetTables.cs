@@ -35,8 +35,8 @@ namespace Pulumi.Aws.DynamoDB
         /// });
         /// ```
         /// </summary>
-        public static Task<GetTablesResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTablesResult>("aws:dynamodb/getTables:getTables", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetTablesResult> InvokeAsync(GetTablesArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTablesResult>("aws:dynamodb/getTables:getTables", args ?? new GetTablesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a list of all AWS DynamoDB table names in a region.
@@ -62,8 +62,8 @@ namespace Pulumi.Aws.DynamoDB
         /// });
         /// ```
         /// </summary>
-        public static Output<GetTablesResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetTablesResult>("aws:dynamodb/getTables:getTables", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetTablesResult> Invoke(GetTablesInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTablesResult>("aws:dynamodb/getTables:getTables", args ?? new GetTablesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a list of all AWS DynamoDB table names in a region.
@@ -89,8 +89,37 @@ namespace Pulumi.Aws.DynamoDB
         /// });
         /// ```
         /// </summary>
-        public static Output<GetTablesResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetTablesResult>("aws:dynamodb/getTables:getTables", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetTablesResult> Invoke(GetTablesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTablesResult>("aws:dynamodb/getTables:getTables", args ?? new GetTablesInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetTablesArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetTablesArgs()
+        {
+        }
+        public static new GetTablesArgs Empty => new GetTablesArgs();
+    }
+
+    public sealed class GetTablesInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetTablesInvokeArgs()
+        {
+        }
+        public static new GetTablesInvokeArgs Empty => new GetTablesInvokeArgs();
     }
 
 
@@ -105,15 +134,19 @@ namespace Pulumi.Aws.DynamoDB
         /// A list of all the DynamoDB table names found.
         /// </summary>
         public readonly ImmutableArray<string> Names;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetTablesResult(
             string id,
 
-            ImmutableArray<string> names)
+            ImmutableArray<string> names,
+
+            string region)
         {
             Id = id;
             Names = names;
+            Region = region;
         }
     }
 }

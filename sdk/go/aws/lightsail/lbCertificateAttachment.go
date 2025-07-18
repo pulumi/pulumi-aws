@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,7 +75,11 @@ type LbCertificateAttachment struct {
 	// Name of your SSL/TLS certificate.
 	CertificateName pulumi.StringOutput `pulumi:"certificateName"`
 	// Name of the load balancer to which you want to associate the SSL/TLS certificate.
+	//
+	// The following arguments are optional:
 	LbName pulumi.StringOutput `pulumi:"lbName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLbCertificateAttachment registers a new resource with the given unique name, arguments, and options.
@@ -117,14 +121,22 @@ type lbCertificateAttachmentState struct {
 	// Name of your SSL/TLS certificate.
 	CertificateName *string `pulumi:"certificateName"`
 	// Name of the load balancer to which you want to associate the SSL/TLS certificate.
+	//
+	// The following arguments are optional:
 	LbName *string `pulumi:"lbName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LbCertificateAttachmentState struct {
 	// Name of your SSL/TLS certificate.
 	CertificateName pulumi.StringPtrInput
 	// Name of the load balancer to which you want to associate the SSL/TLS certificate.
+	//
+	// The following arguments are optional:
 	LbName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LbCertificateAttachmentState) ElementType() reflect.Type {
@@ -135,7 +147,11 @@ type lbCertificateAttachmentArgs struct {
 	// Name of your SSL/TLS certificate.
 	CertificateName string `pulumi:"certificateName"`
 	// Name of the load balancer to which you want to associate the SSL/TLS certificate.
+	//
+	// The following arguments are optional:
 	LbName string `pulumi:"lbName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LbCertificateAttachment resource.
@@ -143,7 +159,11 @@ type LbCertificateAttachmentArgs struct {
 	// Name of your SSL/TLS certificate.
 	CertificateName pulumi.StringInput
 	// Name of the load balancer to which you want to associate the SSL/TLS certificate.
+	//
+	// The following arguments are optional:
 	LbName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LbCertificateAttachmentArgs) ElementType() reflect.Type {
@@ -239,8 +259,15 @@ func (o LbCertificateAttachmentOutput) CertificateName() pulumi.StringOutput {
 }
 
 // Name of the load balancer to which you want to associate the SSL/TLS certificate.
+//
+// The following arguments are optional:
 func (o LbCertificateAttachmentOutput) LbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbCertificateAttachment) pulumi.StringOutput { return v.LbName }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LbCertificateAttachmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LbCertificateAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LbCertificateAttachmentArrayOutput struct{ *pulumi.OutputState }

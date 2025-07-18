@@ -29,7 +29,7 @@ class GetSecurityGroupRuleResult:
     """
     A collection of values returned by getSecurityGroupRule.
     """
-    def __init__(__self__, arn=None, cidr_ipv4=None, cidr_ipv6=None, description=None, filters=None, from_port=None, id=None, ip_protocol=None, is_egress=None, prefix_list_id=None, referenced_security_group_id=None, security_group_id=None, security_group_rule_id=None, tags=None, to_port=None):
+    def __init__(__self__, arn=None, cidr_ipv4=None, cidr_ipv6=None, description=None, filters=None, from_port=None, id=None, ip_protocol=None, is_egress=None, prefix_list_id=None, referenced_security_group_id=None, region=None, security_group_id=None, security_group_rule_id=None, tags=None, to_port=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -63,6 +63,9 @@ class GetSecurityGroupRuleResult:
         if referenced_security_group_id and not isinstance(referenced_security_group_id, str):
             raise TypeError("Expected argument 'referenced_security_group_id' to be a str")
         pulumi.set(__self__, "referenced_security_group_id", referenced_security_group_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_group_id and not isinstance(security_group_id, str):
             raise TypeError("Expected argument 'security_group_id' to be a str")
         pulumi.set(__self__, "security_group_id", security_group_id)
@@ -159,6 +162,11 @@ class GetSecurityGroupRuleResult:
         return pulumi.get(self, "referenced_security_group_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> builtins.str:
         """
@@ -205,6 +213,7 @@ class AwaitableGetSecurityGroupRuleResult(GetSecurityGroupRuleResult):
             is_egress=self.is_egress,
             prefix_list_id=self.prefix_list_id,
             referenced_security_group_id=self.referenced_security_group_id,
+            region=self.region,
             security_group_id=self.security_group_id,
             security_group_rule_id=self.security_group_rule_id,
             tags=self.tags,
@@ -212,6 +221,7 @@ class AwaitableGetSecurityGroupRuleResult(GetSecurityGroupRuleResult):
 
 
 def get_security_group_rule(filters: Optional[Sequence[Union['GetSecurityGroupRuleFilterArgs', 'GetSecurityGroupRuleFilterArgsDict']]] = None,
+                            region: Optional[builtins.str] = None,
                             security_group_rule_id: Optional[builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityGroupRuleResult:
     """
@@ -232,10 +242,12 @@ def get_security_group_rule(filters: Optional[Sequence[Union['GetSecurityGroupRu
            The arguments of this data source act as filters for querying the available
            security group rules. The given filters must match exactly one security group rule
            whose data will be exported as attributes.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str security_group_rule_id: ID of the security group rule to select.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['securityGroupRuleId'] = security_group_rule_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:vpc/getSecurityGroupRule:getSecurityGroupRule', __args__, opts=opts, typ=GetSecurityGroupRuleResult).value
@@ -252,11 +264,13 @@ def get_security_group_rule(filters: Optional[Sequence[Union['GetSecurityGroupRu
         is_egress=pulumi.get(__ret__, 'is_egress'),
         prefix_list_id=pulumi.get(__ret__, 'prefix_list_id'),
         referenced_security_group_id=pulumi.get(__ret__, 'referenced_security_group_id'),
+        region=pulumi.get(__ret__, 'region'),
         security_group_id=pulumi.get(__ret__, 'security_group_id'),
         security_group_rule_id=pulumi.get(__ret__, 'security_group_rule_id'),
         tags=pulumi.get(__ret__, 'tags'),
         to_port=pulumi.get(__ret__, 'to_port'))
 def get_security_group_rule_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSecurityGroupRuleFilterArgs', 'GetSecurityGroupRuleFilterArgsDict']]]]] = None,
+                                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    security_group_rule_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityGroupRuleResult]:
     """
@@ -277,10 +291,12 @@ def get_security_group_rule_output(filters: Optional[pulumi.Input[Optional[Seque
            The arguments of this data source act as filters for querying the available
            security group rules. The given filters must match exactly one security group rule
            whose data will be exported as attributes.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str security_group_rule_id: ID of the security group rule to select.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['securityGroupRuleId'] = security_group_rule_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:vpc/getSecurityGroupRule:getSecurityGroupRule', __args__, opts=opts, typ=GetSecurityGroupRuleResult)
@@ -296,6 +312,7 @@ def get_security_group_rule_output(filters: Optional[pulumi.Input[Optional[Seque
         is_egress=pulumi.get(__response__, 'is_egress'),
         prefix_list_id=pulumi.get(__response__, 'prefix_list_id'),
         referenced_security_group_id=pulumi.get(__response__, 'referenced_security_group_id'),
+        region=pulumi.get(__response__, 'region'),
         security_group_id=pulumi.get(__response__, 'security_group_id'),
         security_group_rule_id=pulumi.get(__response__, 'security_group_rule_id'),
         tags=pulumi.get(__response__, 'tags'),

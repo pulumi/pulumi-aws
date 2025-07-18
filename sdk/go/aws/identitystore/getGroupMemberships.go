@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,15 +22,15 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/identitystore"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/identitystore"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -74,6 +74,8 @@ type GetGroupMembershipsArgs struct {
 	GroupId string `pulumi:"groupId"`
 	// Identity Store ID associated with the Single Sign-On Instance.
 	IdentityStoreId string `pulumi:"identityStoreId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getGroupMemberships.
@@ -86,6 +88,7 @@ type GetGroupMembershipsResult struct {
 	Id string `pulumi:"id"`
 	// Identity store identifier.
 	IdentityStoreId string `pulumi:"identityStoreId"`
+	Region          string `pulumi:"region"`
 }
 
 func GetGroupMembershipsOutput(ctx *pulumi.Context, args GetGroupMembershipsOutputArgs, opts ...pulumi.InvokeOption) GetGroupMembershipsResultOutput {
@@ -103,6 +106,8 @@ type GetGroupMembershipsOutputArgs struct {
 	GroupId pulumi.StringInput `pulumi:"groupId"`
 	// Identity Store ID associated with the Single Sign-On Instance.
 	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetGroupMembershipsOutputArgs) ElementType() reflect.Type {
@@ -142,6 +147,10 @@ func (o GetGroupMembershipsResultOutput) Id() pulumi.StringOutput {
 // Identity store identifier.
 func (o GetGroupMembershipsResultOutput) IdentityStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGroupMembershipsResult) string { return v.IdentityStoreId }).(pulumi.StringOutput)
+}
+
+func (o GetGroupMembershipsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupMembershipsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

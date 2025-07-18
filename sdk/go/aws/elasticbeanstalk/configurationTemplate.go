@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticbeanstalk"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticbeanstalk"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,6 +70,8 @@ type ConfigurationTemplate struct {
 	EnvironmentId pulumi.StringPtrOutput `pulumi:"environmentId"`
 	// A unique name for this Template.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
 	// below in Option Settings
@@ -120,6 +122,8 @@ type configurationTemplateState struct {
 	EnvironmentId *string `pulumi:"environmentId"`
 	// A unique name for this Template.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
 	// below in Option Settings
@@ -138,6 +142,8 @@ type ConfigurationTemplateState struct {
 	EnvironmentId pulumi.StringPtrInput
 	// A unique name for this Template.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
 	// below in Option Settings
@@ -160,6 +166,8 @@ type configurationTemplateArgs struct {
 	EnvironmentId *string `pulumi:"environmentId"`
 	// A unique name for this Template.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
 	// below in Option Settings
@@ -179,6 +187,8 @@ type ConfigurationTemplateArgs struct {
 	EnvironmentId pulumi.StringPtrInput
 	// A unique name for this Template.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
 	// below in Option Settings
@@ -293,6 +303,11 @@ func (o ConfigurationTemplateOutput) EnvironmentId() pulumi.StringPtrOutput {
 // A unique name for this Template.
 func (o ConfigurationTemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ConfigurationTemplateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Option settings to configure the new Environment. These

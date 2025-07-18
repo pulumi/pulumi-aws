@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupContainerRecipe(ctx *pulumi.Context, args *LookupContainerRecipeArgs,
 type LookupContainerRecipeArgs struct {
 	// ARN of the container recipe.
 	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the container recipe.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -85,6 +87,7 @@ type LookupContainerRecipeResult struct {
 	ParentImage string `pulumi:"parentImage"`
 	// Platform of the container recipe.
 	Platform string `pulumi:"platform"`
+	Region   string `pulumi:"region"`
 	// Key-value map of resource tags for the container recipe.
 	Tags map[string]string `pulumi:"tags"`
 	// Destination repository for the container image.
@@ -108,6 +111,8 @@ func LookupContainerRecipeOutput(ctx *pulumi.Context, args LookupContainerRecipe
 type LookupContainerRecipeOutputArgs struct {
 	// ARN of the container recipe.
 	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the container recipe.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -200,6 +205,10 @@ func (o LookupContainerRecipeResultOutput) ParentImage() pulumi.StringOutput {
 // Platform of the container recipe.
 func (o LookupContainerRecipeResultOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContainerRecipeResult) string { return v.Platform }).(pulumi.StringOutput)
+}
+
+func (o LookupContainerRecipeResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContainerRecipeResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags for the container recipe.

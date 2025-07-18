@@ -318,6 +318,12 @@ namespace Pulumi.Aws.Ec2
         [Input("publicIp")]
         public string? PublicIp { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -365,6 +371,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("publicIp")]
         public Input<string>? PublicIp { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -458,6 +470,7 @@ namespace Pulumi.Aws.Ec2
         /// ID of an address pool.
         /// </summary>
         public readonly string PublicIpv4Pool;
+        public readonly string Region;
         /// <summary>
         /// Key-value map of tags associated with Elastic IP.
         /// </summary>
@@ -501,6 +514,8 @@ namespace Pulumi.Aws.Ec2
 
             string publicIpv4Pool,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
@@ -521,6 +536,7 @@ namespace Pulumi.Aws.Ec2
             PublicDns = publicDns;
             PublicIp = publicIp;
             PublicIpv4Pool = publicIpv4Pool;
+            Region = region;
             Tags = tags;
         }
     }

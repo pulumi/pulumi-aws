@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -103,6 +103,8 @@ type SslNegotiationPolicy struct {
 	LoadBalancer pulumi.StringOutput `pulumi:"loadBalancer"`
 	// The name of the SSL negotiation policy.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	//
 	// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
@@ -164,6 +166,8 @@ type sslNegotiationPolicyState struct {
 	LoadBalancer *string `pulumi:"loadBalancer"`
 	// The name of the SSL negotiation policy.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	//
 	// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
@@ -184,6 +188,8 @@ type SslNegotiationPolicyState struct {
 	LoadBalancer pulumi.StringPtrInput
 	// The name of the SSL negotiation policy.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	//
 	// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
@@ -208,6 +214,8 @@ type sslNegotiationPolicyArgs struct {
 	LoadBalancer string `pulumi:"loadBalancer"`
 	// The name of the SSL negotiation policy.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	//
 	// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
@@ -229,6 +237,8 @@ type SslNegotiationPolicyArgs struct {
 	LoadBalancer pulumi.StringInput
 	// The name of the SSL negotiation policy.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	//
 	// To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
@@ -345,6 +355,11 @@ func (o SslNegotiationPolicyOutput) LoadBalancer() pulumi.StringOutput {
 // The name of the SSL negotiation policy.
 func (o SslNegotiationPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SslNegotiationPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o SslNegotiationPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SslNegotiationPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of arbitrary keys and values that, when changed, will trigger a redeployment.

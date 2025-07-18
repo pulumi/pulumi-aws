@@ -22,6 +22,7 @@ export function getImage(args: GetImageArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:workspaces/getImage:getImage", {
         "imageId": args.imageId,
+        "region": args.region,
     }, opts);
 }
 
@@ -33,6 +34,10 @@ export interface GetImageArgs {
      * ID of the image.
      */
     imageId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -53,6 +58,7 @@ export interface GetImageResult {
      */
     readonly name: string;
     readonly operatingSystemType: string;
+    readonly region: string;
     /**
      * Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
      */
@@ -80,6 +86,7 @@ export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:workspaces/getImage:getImage", {
         "imageId": args.imageId,
+        "region": args.region,
     }, opts);
 }
 
@@ -91,4 +98,8 @@ export interface GetImageOutputArgs {
      * ID of the image.
      */
     imageId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

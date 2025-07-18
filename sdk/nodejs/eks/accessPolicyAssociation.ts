@@ -87,6 +87,10 @@ export class AccessPolicyAssociation extends pulumi.CustomResource {
      * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      */
     public readonly principalArn!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a AccessPolicyAssociation resource with the given unique name, arguments, and options.
@@ -107,6 +111,7 @@ export class AccessPolicyAssociation extends pulumi.CustomResource {
             resourceInputs["modifiedAt"] = state ? state.modifiedAt : undefined;
             resourceInputs["policyArn"] = state ? state.policyArn : undefined;
             resourceInputs["principalArn"] = state ? state.principalArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AccessPolicyAssociationArgs | undefined;
             if ((!args || args.accessScope === undefined) && !opts.urn) {
@@ -125,6 +130,7 @@ export class AccessPolicyAssociation extends pulumi.CustomResource {
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["policyArn"] = args ? args.policyArn : undefined;
             resourceInputs["principalArn"] = args ? args.principalArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["associatedAt"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
         }
@@ -161,6 +167,10 @@ export interface AccessPolicyAssociationState {
      * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      */
     principalArn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -183,4 +193,8 @@ export interface AccessPolicyAssociationArgs {
      * The IAM Principal ARN which requires Authentication access to the EKS cluster.
      */
     principalArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

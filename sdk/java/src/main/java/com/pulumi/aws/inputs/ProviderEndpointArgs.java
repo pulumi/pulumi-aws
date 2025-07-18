@@ -2314,36 +2314,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
-    @Import(name="iotanalytics")
-    private @Nullable Output<String> iotanalytics;
-
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
-    public Optional<Output<String>> iotanalytics() {
-        return Optional.ofNullable(this.iotanalytics);
-    }
-
-    /**
-     * Use this to override the default service endpoint URL
-     * 
-     */
-    @Import(name="iotevents")
-    private @Nullable Output<String> iotevents;
-
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
-    public Optional<Output<String>> iotevents() {
-        return Optional.ofNullable(this.iotevents);
-    }
-
-    /**
-     * Use this to override the default service endpoint URL
-     * 
-     */
     @Import(name="ivs")
     private @Nullable Output<String> ivs;
 
@@ -3139,21 +3109,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
-    @Import(name="opsworks")
-    private @Nullable Output<String> opsworks;
-
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
-    public Optional<Output<String>> opsworks() {
-        return Optional.ofNullable(this.opsworks);
-    }
-
-    /**
-     * Use this to override the default service endpoint URL
-     * 
-     */
     @Import(name="organizations")
     private @Nullable Output<String> organizations;
 
@@ -3844,21 +3799,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
-    @Import(name="sdb")
-    private @Nullable Output<String> sdb;
-
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
-    public Optional<Output<String>> sdb() {
-        return Optional.ofNullable(this.sdb);
-    }
-
-    /**
-     * Use this to override the default service endpoint URL
-     * 
-     */
     @Import(name="secretsmanager")
     private @Nullable Output<String> secretsmanager;
 
@@ -4078,21 +4018,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> signer() {
         return Optional.ofNullable(this.signer);
-    }
-
-    /**
-     * Use this to override the default service endpoint URL
-     * 
-     */
-    @Import(name="simpledb")
-    private @Nullable Output<String> simpledb;
-
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
-    public Optional<Output<String>> simpledb() {
-        return Optional.ofNullable(this.simpledb);
     }
 
     /**
@@ -4504,21 +4429,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
-    @Import(name="worklink")
-    private @Nullable Output<String> worklink;
-
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
-    public Optional<Output<String>> worklink() {
-        return Optional.ofNullable(this.worklink);
-    }
-
-    /**
-     * Use this to override the default service endpoint URL
-     * 
-     */
     @Import(name="workspaces")
     private @Nullable Output<String> workspaces;
 
@@ -4716,8 +4626,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.internetmonitor = $.internetmonitor;
         this.invoicing = $.invoicing;
         this.iot = $.iot;
-        this.iotanalytics = $.iotanalytics;
-        this.iotevents = $.iotevents;
         this.ivs = $.ivs;
         this.ivschat = $.ivschat;
         this.kafka = $.kafka;
@@ -4771,7 +4679,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.opensearchingestion = $.opensearchingestion;
         this.opensearchserverless = $.opensearchserverless;
         this.opensearchservice = $.opensearchservice;
-        this.opsworks = $.opsworks;
         this.organizations = $.organizations;
         this.osis = $.osis;
         this.outposts = $.outposts;
@@ -4818,7 +4725,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.sagemaker = $.sagemaker;
         this.scheduler = $.scheduler;
         this.schemas = $.schemas;
-        this.sdb = $.sdb;
         this.secretsmanager = $.secretsmanager;
         this.securityhub = $.securityhub;
         this.securitylake = $.securitylake;
@@ -4834,7 +4740,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.sfn = $.sfn;
         this.shield = $.shield;
         this.signer = $.signer;
-        this.simpledb = $.simpledb;
         this.sns = $.sns;
         this.sqs = $.sqs;
         this.ssm = $.ssm;
@@ -4862,7 +4767,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.wafregional = $.wafregional;
         this.wafv2 = $.wafv2;
         this.wellarchitected = $.wellarchitected;
-        this.worklink = $.worklink;
         this.workspaces = $.workspaces;
         this.workspacesweb = $.workspacesweb;
         this.xray = $.xray;
@@ -8100,48 +8004,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param iotanalytics Use this to override the default service endpoint URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder iotanalytics(@Nullable Output<String> iotanalytics) {
-            $.iotanalytics = iotanalytics;
-            return this;
-        }
-
-        /**
-         * @param iotanalytics Use this to override the default service endpoint URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder iotanalytics(String iotanalytics) {
-            return iotanalytics(Output.of(iotanalytics));
-        }
-
-        /**
-         * @param iotevents Use this to override the default service endpoint URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder iotevents(@Nullable Output<String> iotevents) {
-            $.iotevents = iotevents;
-            return this;
-        }
-
-        /**
-         * @param iotevents Use this to override the default service endpoint URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder iotevents(String iotevents) {
-            return iotevents(Output.of(iotevents));
-        }
-
-        /**
          * @param ivs Use this to override the default service endpoint URL
          * 
          * @return builder
@@ -9255,27 +9117,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param opsworks Use this to override the default service endpoint URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder opsworks(@Nullable Output<String> opsworks) {
-            $.opsworks = opsworks;
-            return this;
-        }
-
-        /**
-         * @param opsworks Use this to override the default service endpoint URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder opsworks(String opsworks) {
-            return opsworks(Output.of(opsworks));
-        }
-
-        /**
          * @param organizations Use this to override the default service endpoint URL
          * 
          * @return builder
@@ -10242,27 +10083,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param sdb Use this to override the default service endpoint URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder sdb(@Nullable Output<String> sdb) {
-            $.sdb = sdb;
-            return this;
-        }
-
-        /**
-         * @param sdb Use this to override the default service endpoint URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder sdb(String sdb) {
-            return sdb(Output.of(sdb));
-        }
-
-        /**
          * @param secretsmanager Use this to override the default service endpoint URL
          * 
          * @return builder
@@ -10575,27 +10395,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder signer(String signer) {
             return signer(Output.of(signer));
-        }
-
-        /**
-         * @param simpledb Use this to override the default service endpoint URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder simpledb(@Nullable Output<String> simpledb) {
-            $.simpledb = simpledb;
-            return this;
-        }
-
-        /**
-         * @param simpledb Use this to override the default service endpoint URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder simpledb(String simpledb) {
-            return simpledb(Output.of(simpledb));
         }
 
         /**
@@ -11163,27 +10962,6 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder wellarchitected(String wellarchitected) {
             return wellarchitected(Output.of(wellarchitected));
-        }
-
-        /**
-         * @param worklink Use this to override the default service endpoint URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder worklink(@Nullable Output<String> worklink) {
-            $.worklink = worklink;
-            return this;
-        }
-
-        /**
-         * @param worklink Use this to override the default service endpoint URL
-         * 
-         * @return builder
-         * 
-         */
-        public Builder worklink(String worklink) {
-            return worklink(Output.of(worklink));
         }
 
         /**

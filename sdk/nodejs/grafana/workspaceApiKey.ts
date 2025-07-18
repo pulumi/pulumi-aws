@@ -64,6 +64,10 @@ export class WorkspaceApiKey extends pulumi.CustomResource {
      */
     public readonly keyRole!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
      */
     public readonly secondsToLive!: pulumi.Output<number>;
@@ -88,6 +92,7 @@ export class WorkspaceApiKey extends pulumi.CustomResource {
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["keyName"] = state ? state.keyName : undefined;
             resourceInputs["keyRole"] = state ? state.keyRole : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["secondsToLive"] = state ? state.secondsToLive : undefined;
             resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
@@ -106,6 +111,7 @@ export class WorkspaceApiKey extends pulumi.CustomResource {
             }
             resourceInputs["keyName"] = args ? args.keyName : undefined;
             resourceInputs["keyRole"] = args ? args.keyRole : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["secondsToLive"] = args ? args.secondsToLive : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
             resourceInputs["key"] = undefined /*out*/;
@@ -134,6 +140,10 @@ export interface WorkspaceApiKeyState {
      */
     keyRole?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
      */
     secondsToLive?: pulumi.Input<number>;
@@ -155,6 +165,10 @@ export interface WorkspaceApiKeyArgs {
      * Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
      */
     keyRole: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
      */

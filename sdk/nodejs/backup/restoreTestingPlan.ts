@@ -78,6 +78,10 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
      */
     public readonly recoveryPointSelection!: pulumi.Output<outputs.backup.RestoreTestingPlanRecoveryPointSelection | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The schedule expression for the restore testing plan.
      */
     public readonly scheduleExpression!: pulumi.Output<string>;
@@ -92,8 +96,6 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -113,6 +115,7 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["recoveryPointSelection"] = state ? state.recoveryPointSelection : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scheduleExpression"] = state ? state.scheduleExpression : undefined;
             resourceInputs["scheduleExpressionTimezone"] = state ? state.scheduleExpressionTimezone : undefined;
             resourceInputs["startWindowHours"] = state ? state.startWindowHours : undefined;
@@ -125,6 +128,7 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["recoveryPointSelection"] = args ? args.recoveryPointSelection : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
             resourceInputs["scheduleExpressionTimezone"] = args ? args.scheduleExpressionTimezone : undefined;
             resourceInputs["startWindowHours"] = args ? args.startWindowHours : undefined;
@@ -154,6 +158,10 @@ export interface RestoreTestingPlanState {
      */
     recoveryPointSelection?: pulumi.Input<inputs.backup.RestoreTestingPlanRecoveryPointSelection>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The schedule expression for the restore testing plan.
      */
     scheduleExpression?: pulumi.Input<string>;
@@ -168,8 +176,6 @@ export interface RestoreTestingPlanState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -186,6 +192,10 @@ export interface RestoreTestingPlanArgs {
      * Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
      */
     recoveryPointSelection?: pulumi.Input<inputs.backup.RestoreTestingPlanRecoveryPointSelection>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The schedule expression for the restore testing plan.
      */

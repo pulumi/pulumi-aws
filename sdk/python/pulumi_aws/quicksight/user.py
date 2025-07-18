@@ -26,6 +26,7 @@ class UserArgs:
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  iam_arn: Optional[pulumi.Input[builtins.str]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  session_name: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -38,6 +39,7 @@ class UserArgs:
         :param pulumi.Input[builtins.str] aws_account_id: ID for the AWS account that the user is in. Use the ID for the AWS account that contains your Amazon QuickSight account.
         :param pulumi.Input[builtins.str] iam_arn: ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
         :param pulumi.Input[builtins.str] namespace: The Amazon Quicksight namespace to create the user in. Defaults to `default`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] session_name: Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
         :param pulumi.Input[builtins.str] user_name: Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
         """
@@ -50,6 +52,8 @@ class UserArgs:
             pulumi.set(__self__, "iam_arn", iam_arn)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if session_name is not None:
             pulumi.set(__self__, "session_name", session_name)
         if user_name is not None:
@@ -130,6 +134,18 @@ class UserArgs:
         pulumi.set(self, "namespace", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sessionName")
     def session_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -163,6 +179,7 @@ class _UserState:
                  iam_arn: Optional[pulumi.Input[builtins.str]] = None,
                  identity_type: Optional[pulumi.Input[builtins.str]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  session_name: Optional[pulumi.Input[builtins.str]] = None,
                  user_invitation_url: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -175,6 +192,7 @@ class _UserState:
         :param pulumi.Input[builtins.str] iam_arn: ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
         :param pulumi.Input[builtins.str] identity_type: Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
         :param pulumi.Input[builtins.str] namespace: The Amazon Quicksight namespace to create the user in. Defaults to `default`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] session_name: Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
         :param pulumi.Input[builtins.str] user_invitation_url: URL the user visits to complete registration and provide a password. Returned only for users with an identity type of `QUICKSIGHT`.
         :param pulumi.Input[builtins.str] user_name: Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
@@ -194,6 +212,8 @@ class _UserState:
             pulumi.set(__self__, "identity_type", identity_type)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if session_name is not None:
             pulumi.set(__self__, "session_name", session_name)
         if user_invitation_url is not None:
@@ -276,6 +296,18 @@ class _UserState:
         pulumi.set(self, "namespace", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sessionName")
     def session_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -337,6 +369,7 @@ class User(pulumi.CustomResource):
                  iam_arn: Optional[pulumi.Input[builtins.str]] = None,
                  identity_type: Optional[pulumi.Input[builtins.str]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  session_name: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
                  user_role: Optional[pulumi.Input[builtins.str]] = None,
@@ -398,6 +431,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] iam_arn: ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
         :param pulumi.Input[builtins.str] identity_type: Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
         :param pulumi.Input[builtins.str] namespace: The Amazon Quicksight namespace to create the user in. Defaults to `default`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] session_name: Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
         :param pulumi.Input[builtins.str] user_name: Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
         :param pulumi.Input[builtins.str] user_role: Amazon QuickSight role for the user. Value values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`.
@@ -480,6 +514,7 @@ class User(pulumi.CustomResource):
                  iam_arn: Optional[pulumi.Input[builtins.str]] = None,
                  identity_type: Optional[pulumi.Input[builtins.str]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  session_name: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
                  user_role: Optional[pulumi.Input[builtins.str]] = None,
@@ -501,6 +536,7 @@ class User(pulumi.CustomResource):
                 raise TypeError("Missing required property 'identity_type'")
             __props__.__dict__["identity_type"] = identity_type
             __props__.__dict__["namespace"] = namespace
+            __props__.__dict__["region"] = region
             __props__.__dict__["session_name"] = session_name
             __props__.__dict__["user_name"] = user_name
             if user_role is None and not opts.urn:
@@ -524,6 +560,7 @@ class User(pulumi.CustomResource):
             iam_arn: Optional[pulumi.Input[builtins.str]] = None,
             identity_type: Optional[pulumi.Input[builtins.str]] = None,
             namespace: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             session_name: Optional[pulumi.Input[builtins.str]] = None,
             user_invitation_url: Optional[pulumi.Input[builtins.str]] = None,
             user_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -541,6 +578,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] iam_arn: ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
         :param pulumi.Input[builtins.str] identity_type: Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`.
         :param pulumi.Input[builtins.str] namespace: The Amazon Quicksight namespace to create the user in. Defaults to `default`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] session_name: Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
         :param pulumi.Input[builtins.str] user_invitation_url: URL the user visits to complete registration and provide a password. Returned only for users with an identity type of `QUICKSIGHT`.
         :param pulumi.Input[builtins.str] user_name: Amazon QuickSight user name that you want to create for the user you are registering. Required only for users with an identity type of `QUICKSIGHT`.
@@ -558,6 +596,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["iam_arn"] = iam_arn
         __props__.__dict__["identity_type"] = identity_type
         __props__.__dict__["namespace"] = namespace
+        __props__.__dict__["region"] = region
         __props__.__dict__["session_name"] = session_name
         __props__.__dict__["user_invitation_url"] = user_invitation_url
         __props__.__dict__["user_name"] = user_name
@@ -611,6 +650,14 @@ class User(pulumi.CustomResource):
         The Amazon Quicksight namespace to create the user in. Defaults to `default`.
         """
         return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sessionName")

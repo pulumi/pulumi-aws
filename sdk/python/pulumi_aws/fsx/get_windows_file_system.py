@@ -28,7 +28,7 @@ class GetWindowsFileSystemResult:
     """
     A collection of values returned by getWindowsFileSystem.
     """
-    def __init__(__self__, active_directory_id=None, aliases=None, arn=None, audit_log_configurations=None, automatic_backup_retention_days=None, backup_id=None, copy_tags_to_backups=None, daily_automatic_backup_start_time=None, deployment_type=None, disk_iops_configurations=None, dns_name=None, id=None, kms_key_id=None, network_interface_ids=None, owner_id=None, preferred_file_server_ip=None, preferred_subnet_id=None, security_group_ids=None, skip_final_backup=None, storage_capacity=None, storage_type=None, subnet_ids=None, tags=None, throughput_capacity=None, vpc_id=None, weekly_maintenance_start_time=None):
+    def __init__(__self__, active_directory_id=None, aliases=None, arn=None, audit_log_configurations=None, automatic_backup_retention_days=None, backup_id=None, copy_tags_to_backups=None, daily_automatic_backup_start_time=None, deployment_type=None, disk_iops_configurations=None, dns_name=None, id=None, kms_key_id=None, network_interface_ids=None, owner_id=None, preferred_file_server_ip=None, preferred_subnet_id=None, region=None, security_group_ids=None, skip_final_backup=None, storage_capacity=None, storage_type=None, subnet_ids=None, tags=None, throughput_capacity=None, vpc_id=None, weekly_maintenance_start_time=None):
         if active_directory_id and not isinstance(active_directory_id, str):
             raise TypeError("Expected argument 'active_directory_id' to be a str")
         pulumi.set(__self__, "active_directory_id", active_directory_id)
@@ -80,6 +80,9 @@ class GetWindowsFileSystemResult:
         if preferred_subnet_id and not isinstance(preferred_subnet_id, str):
             raise TypeError("Expected argument 'preferred_subnet_id' to be a str")
         pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_group_ids and not isinstance(security_group_ids, list):
             raise TypeError("Expected argument 'security_group_ids' to be a list")
         pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -239,6 +242,11 @@ class GetWindowsFileSystemResult:
         return pulumi.get(self, "preferred_subnet_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[builtins.str]:
         return pulumi.get(self, "security_group_ids")
@@ -328,6 +336,7 @@ class AwaitableGetWindowsFileSystemResult(GetWindowsFileSystemResult):
             owner_id=self.owner_id,
             preferred_file_server_ip=self.preferred_file_server_ip,
             preferred_subnet_id=self.preferred_subnet_id,
+            region=self.region,
             security_group_ids=self.security_group_ids,
             skip_final_backup=self.skip_final_backup,
             storage_capacity=self.storage_capacity,
@@ -340,6 +349,7 @@ class AwaitableGetWindowsFileSystemResult(GetWindowsFileSystemResult):
 
 
 def get_windows_file_system(id: Optional[builtins.str] = None,
+                            region: Optional[builtins.str] = None,
                             tags: Optional[Mapping[str, builtins.str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWindowsFileSystemResult:
     """
@@ -358,10 +368,12 @@ def get_windows_file_system(id: Optional[builtins.str] = None,
 
 
     :param builtins.str id: Identifier of the file system (e.g. `fs-12345678`).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: The tags to associate with the file system.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:fsx/getWindowsFileSystem:getWindowsFileSystem', __args__, opts=opts, typ=GetWindowsFileSystemResult).value
@@ -384,6 +396,7 @@ def get_windows_file_system(id: Optional[builtins.str] = None,
         owner_id=pulumi.get(__ret__, 'owner_id'),
         preferred_file_server_ip=pulumi.get(__ret__, 'preferred_file_server_ip'),
         preferred_subnet_id=pulumi.get(__ret__, 'preferred_subnet_id'),
+        region=pulumi.get(__ret__, 'region'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         skip_final_backup=pulumi.get(__ret__, 'skip_final_backup'),
         storage_capacity=pulumi.get(__ret__, 'storage_capacity'),
@@ -394,6 +407,7 @@ def get_windows_file_system(id: Optional[builtins.str] = None,
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         weekly_maintenance_start_time=pulumi.get(__ret__, 'weekly_maintenance_start_time'))
 def get_windows_file_system_output(id: Optional[pulumi.Input[builtins.str]] = None,
+                                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWindowsFileSystemResult]:
     """
@@ -412,10 +426,12 @@ def get_windows_file_system_output(id: Optional[pulumi.Input[builtins.str]] = No
 
 
     :param builtins.str id: Identifier of the file system (e.g. `fs-12345678`).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: The tags to associate with the file system.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:fsx/getWindowsFileSystem:getWindowsFileSystem', __args__, opts=opts, typ=GetWindowsFileSystemResult)
@@ -437,6 +453,7 @@ def get_windows_file_system_output(id: Optional[pulumi.Input[builtins.str]] = No
         owner_id=pulumi.get(__response__, 'owner_id'),
         preferred_file_server_ip=pulumi.get(__response__, 'preferred_file_server_ip'),
         preferred_subnet_id=pulumi.get(__response__, 'preferred_subnet_id'),
+        region=pulumi.get(__response__, 'region'),
         security_group_ids=pulumi.get(__response__, 'security_group_ids'),
         skip_final_backup=pulumi.get(__response__, 'skip_final_backup'),
         storage_capacity=pulumi.get(__response__, 'storage_capacity'),

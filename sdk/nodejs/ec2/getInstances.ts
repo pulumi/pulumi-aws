@@ -50,6 +50,7 @@ export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOption
         "filters": args.filters,
         "instanceStateNames": args.instanceStateNames,
         "instanceTags": args.instanceTags,
+        "region": args.region,
     }, opts);
 }
 
@@ -72,6 +73,10 @@ export interface GetInstancesArgs {
      * exactly match a pair on desired instances.
      */
     instanceTags?: {[key: string]: string};
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -101,6 +106,7 @@ export interface GetInstancesResult {
      * Public IP addresses of instances found through the filter
      */
     readonly publicIps: string[];
+    readonly region: string;
 }
 /**
  * Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
@@ -145,6 +151,7 @@ export function getInstancesOutput(args?: GetInstancesOutputArgs, opts?: pulumi.
         "filters": args.filters,
         "instanceStateNames": args.instanceStateNames,
         "instanceTags": args.instanceTags,
+        "region": args.region,
     }, opts);
 }
 
@@ -167,4 +174,8 @@ export interface GetInstancesOutputArgs {
      * exactly match a pair on desired instances.
      */
     instanceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

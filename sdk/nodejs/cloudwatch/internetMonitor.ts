@@ -78,6 +78,10 @@ export class InternetMonitor extends pulumi.CustomResource {
      */
     public readonly monitorName!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
      */
     public readonly resources!: pulumi.Output<string[] | undefined>;
@@ -91,8 +95,6 @@ export class InternetMonitor extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -118,6 +120,7 @@ export class InternetMonitor extends pulumi.CustomResource {
             resourceInputs["internetMeasurementsLogDelivery"] = state ? state.internetMeasurementsLogDelivery : undefined;
             resourceInputs["maxCityNetworksToMonitor"] = state ? state.maxCityNetworksToMonitor : undefined;
             resourceInputs["monitorName"] = state ? state.monitorName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resources"] = state ? state.resources : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -132,6 +135,7 @@ export class InternetMonitor extends pulumi.CustomResource {
             resourceInputs["internetMeasurementsLogDelivery"] = args ? args.internetMeasurementsLogDelivery : undefined;
             resourceInputs["maxCityNetworksToMonitor"] = args ? args.maxCityNetworksToMonitor : undefined;
             resourceInputs["monitorName"] = args ? args.monitorName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resources"] = args ? args.resources : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -171,6 +175,10 @@ export interface InternetMonitorState {
      */
     monitorName?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
      */
     resources?: pulumi.Input<pulumi.Input<string>[]>;
@@ -184,8 +192,6 @@ export interface InternetMonitorState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -216,6 +222,10 @@ export interface InternetMonitorArgs {
      * The following arguments are optional:
      */
     monitorName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
      */

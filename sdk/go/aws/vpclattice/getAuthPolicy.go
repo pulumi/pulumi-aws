@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func LookupAuthPolicy(ctx *pulumi.Context, args *LookupAuthPolicyArgs, opts ...p
 type LookupAuthPolicyArgs struct {
 	// The auth policy. The policy string in JSON must not contain newlines or blank lines.
 	Policy *string `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceIdentifier string `pulumi:"resourceIdentifier"`
 	// The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
@@ -66,6 +68,7 @@ type LookupAuthPolicyResult struct {
 	Id string `pulumi:"id"`
 	// The auth policy. The policy string in JSON must not contain newlines or blank lines.
 	Policy             *string `pulumi:"policy"`
+	Region             string  `pulumi:"region"`
 	ResourceIdentifier string  `pulumi:"resourceIdentifier"`
 	// The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
 	State *string `pulumi:"state"`
@@ -84,6 +87,8 @@ func LookupAuthPolicyOutput(ctx *pulumi.Context, args LookupAuthPolicyOutputArgs
 type LookupAuthPolicyOutputArgs struct {
 	// The auth policy. The policy string in JSON must not contain newlines or blank lines.
 	Policy pulumi.StringPtrInput `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
 	ResourceIdentifier pulumi.StringInput `pulumi:"resourceIdentifier"`
 	// The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
@@ -117,6 +122,10 @@ func (o LookupAuthPolicyResultOutput) Id() pulumi.StringOutput {
 // The auth policy. The policy string in JSON must not contain newlines or blank lines.
 func (o LookupAuthPolicyResultOutput) Policy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAuthPolicyResult) *string { return v.Policy }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupAuthPolicyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAuthPolicyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupAuthPolicyResultOutput) ResourceIdentifier() pulumi.StringOutput {

@@ -25,14 +25,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an Amazon MQ broker resource. This resources also manages users for the broker.
- * 
- * &gt; For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
- * 
- * &gt; **NOTE:** Amazon MQ currently places limits on **RabbitMQ** brokers. For example, a RabbitMQ broker cannot have: instances with an associated IP address of an ENI attached to the broker, an associated LDAP server to authenticate and authorize broker connections, storage type `EFS`, or audit logging. Although this resource allows you to create RabbitMQ users, RabbitMQ users cannot have console access or groups. Also, Amazon MQ does not return information about RabbitMQ users so drift detection is not possible.
- * 
- * &gt; **NOTE:** Changes to an MQ Broker can occur when you change a parameter, such as `configuration` or `user`, and are reflected in the next maintenance window. Because of this, the provider may report a difference in its planning phase because a modification has not yet taken place. You can use the `apply_immediately` flag to instruct the service to apply the change immediately (see documentation below). Using `apply_immediately` can result in a brief downtime as the broker reboots.
- * 
  * ## Example Usage
  * 
  * ### Basic Example
@@ -73,8 +65,8 @@ import javax.annotation.Nullable;
  *             .hostInstanceType("mq.t2.micro")
  *             .securityGroups(testAwsSecurityGroup.id())
  *             .users(BrokerUserArgs.builder()
- *                 .username("ExampleUser")
- *                 .password("MindTheGap")
+ *                 .username("example_user")
+ *                 .password("<password>")
  *                 .build())
  *             .build());
  * 
@@ -85,8 +77,6 @@ import javax.annotation.Nullable;
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### High-throughput Optimized Example
- * 
- * This example shows the use of EBS storage for high-throughput optimized performance.
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -125,8 +115,8 @@ import javax.annotation.Nullable;
  *             .hostInstanceType("mq.m5.large")
  *             .securityGroups(testAwsSecurityGroup.id())
  *             .users(BrokerUserArgs.builder()
- *                 .username("ExampleUser")
- *                 .password("MindTheGap")
+ *                 .username("example_user")
+ *                 .password("<password>")
  *                 .build())
  *             .build());
  * 
@@ -172,12 +162,12 @@ import javax.annotation.Nullable;
  *             .deploymentMode("ACTIVE_STANDBY_MULTI_AZ")
  *             .users(            
  *                 BrokerUserArgs.builder()
- *                     .username("ExampleUser")
- *                     .password("MindTheGap")
+ *                     .username("example_user")
+ *                     .password("<password>")
  *                     .build(),
  *                 BrokerUserArgs.builder()
- *                     .username("ExampleReplicationUser")
- *                     .password("Example12345")
+ *                     .username("example_replication_user")
+ *                     .password("<password>")
  *                     .replicationUser(true)
  *                     .build())
  *             .build());
@@ -194,12 +184,12 @@ import javax.annotation.Nullable;
  *             .dataReplicationPrimaryBrokerArn(primary.arn())
  *             .users(            
  *                 BrokerUserArgs.builder()
- *                     .username("ExampleUser")
- *                     .password("MindTheGap")
+ *                     .username("example_user")
+ *                     .password("<password>")
  *                     .build(),
  *                 BrokerUserArgs.builder()
- *                     .username("ExampleReplicationUser")
- *                     .password("Example12345")
+ *                     .username("example_replication_user")
+ *                     .password("<password>")
  *                     .replicationUser(true)
  *                     .build())
  *             .build());
@@ -224,14 +214,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:mq/broker:Broker")
 public class Broker extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
+     * Whether to apply broker modifications immediately. Default is `false`.
      * 
      */
     @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> applyImmediately;
 
     /**
-     * @return Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
+     * @return Whether to apply broker modifications immediately. Default is `false`.
      * 
      */
     public Output<Optional<Boolean>> applyImmediately() {
@@ -308,28 +298,28 @@ public class Broker extends com.pulumi.resources.CustomResource {
         return this.configuration;
     }
     /**
-     * Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+     * Whether this broker is part of a data replication pair. Valid values are `CRDR` and `NONE`.
      * 
      */
     @Export(name="dataReplicationMode", refs={String.class}, tree="[0]")
     private Output<String> dataReplicationMode;
 
     /**
-     * @return Defines whether this broker is a part of a data replication pair. Valid values are `CRDR` and `NONE`.
+     * @return Whether this broker is part of a data replication pair. Valid values are `CRDR` and `NONE`.
      * 
      */
     public Output<String> dataReplicationMode() {
         return this.dataReplicationMode;
     }
     /**
-     * The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
+     * ARN of the primary broker used to replicate data in a data replication pair. Required when `data_replication_mode` is `CRDR`.
      * 
      */
     @Export(name="dataReplicationPrimaryBrokerArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dataReplicationPrimaryBrokerArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when `data_replication_mode` is `CRDR`.
+     * @return ARN of the primary broker used to replicate data in a data replication pair. Required when `data_replication_mode` is `CRDR`.
      * 
      */
     public Output<Optional<String>> dataReplicationPrimaryBrokerArn() {
@@ -378,14 +368,14 @@ public class Broker extends com.pulumi.resources.CustomResource {
         return this.engineType;
     }
     /**
-     * Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
+     * Version of the broker engine.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
-     * @return Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
+     * @return Version of the broker engine.
      * 
      */
     public Output<String> engineVersion() {
@@ -420,28 +410,28 @@ public class Broker extends com.pulumi.resources.CustomResource {
         return this.instances;
     }
     /**
-     * Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
+     * Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engine_type` `RabbitMQ`. Detailed below.
      * 
      */
     @Export(name="ldapServerMetadata", refs={BrokerLdapServerMetadata.class}, tree="[0]")
     private Output</* @Nullable */ BrokerLdapServerMetadata> ldapServerMetadata;
 
     /**
-     * @return Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
+     * @return Configuration block for the LDAP server used to authenticate and authorize connections. Not supported for `engine_type` `RabbitMQ`. Detailed below.
      * 
      */
     public Output<Optional<BrokerLdapServerMetadata>> ldapServerMetadata() {
         return Codegen.optional(this.ldapServerMetadata);
     }
     /**
-     * Configuration block for the logging configuration of the broker. Detailed below.
+     * Configuration block for the logging configuration. Detailed below.
      * 
      */
     @Export(name="logs", refs={BrokerLogs.class}, tree="[0]")
     private Output</* @Nullable */ BrokerLogs> logs;
 
     /**
-     * @return Configuration block for the logging configuration of the broker. Detailed below.
+     * @return Configuration block for the logging configuration. Detailed below.
      * 
      */
     public Output<Optional<BrokerLogs>> logs() {
@@ -462,14 +452,14 @@ public class Broker extends com.pulumi.resources.CustomResource {
         return this.maintenanceWindowStartTime;
     }
     /**
-     * (Optional) The data replication mode that will be applied after reboot.
+     * Data replication mode that will be applied after reboot.
      * 
      */
     @Export(name="pendingDataReplicationMode", refs={String.class}, tree="[0]")
     private Output<String> pendingDataReplicationMode;
 
     /**
-     * @return (Optional) The data replication mode that will be applied after reboot.
+     * @return Data replication mode that will be applied after reboot.
      * 
      */
     public Output<String> pendingDataReplicationMode() {
@@ -490,6 +480,20 @@ public class Broker extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publiclyAccessible);
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * List of security group IDs assigned to the broker.
      * 
      */
@@ -504,14 +508,14 @@ public class Broker extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.securityGroups);
     }
     /**
-     * Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
+     * Storage type of the broker. For `engine_type` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
      * 
      */
     @Export(name="storageType", refs={String.class}, tree="[0]")
     private Output<String> storageType;
 
     /**
-     * @return Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
+     * @return Storage type of the broker. For `engine_type` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
      * 
      */
     public Output<String> storageType() {
@@ -546,18 +550,14 @@ public class Broker extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

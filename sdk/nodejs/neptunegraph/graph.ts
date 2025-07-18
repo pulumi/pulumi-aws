@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The aws.neptunegraph.Graph resource creates an Amazon Analytics Graph.
+ * The `aws.neptunegraph.Graph` resource creates an Amazon Analytics Graph.
  *
  * ## Example Usage
  *
@@ -112,15 +112,19 @@ export class Graph extends pulumi.CustomResource {
      */
     public readonly publicConnectivity!: pulumi.Output<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
      */
     public readonly replicaCount!: pulumi.Output<number>;
     /**
-     * The tags associated with this graph. (see below for nested schema of tags)
+     * Key-value tags for the graph. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * @deprecated Please use `tags` instead.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.neptunegraph.GraphTimeouts | undefined>;
@@ -150,6 +154,7 @@ export class Graph extends pulumi.CustomResource {
             resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
             resourceInputs["provisionedMemory"] = state ? state.provisionedMemory : undefined;
             resourceInputs["publicConnectivity"] = state ? state.publicConnectivity : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicaCount"] = state ? state.replicaCount : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -166,6 +171,7 @@ export class Graph extends pulumi.CustomResource {
             resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["provisionedMemory"] = args ? args.provisionedMemory : undefined;
             resourceInputs["publicConnectivity"] = args ? args.publicConnectivity : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicaCount"] = args ? args.replicaCount : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -221,15 +227,19 @@ export interface GraphState {
      */
     publicConnectivity?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
      */
     replicaCount?: pulumi.Input<number>;
     /**
-     * The tags associated with this graph. (see below for nested schema of tags)
+     * Key-value tags for the graph. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * @deprecated Please use `tags` instead.
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.neptunegraph.GraphTimeouts>;
@@ -273,11 +283,15 @@ export interface GraphArgs {
      */
     publicConnectivity?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
      */
     replicaCount?: pulumi.Input<number>;
     /**
-     * The tags associated with this graph. (see below for nested schema of tags)
+     * Key-value tags for the graph. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.neptunegraph.GraphTimeouts>;

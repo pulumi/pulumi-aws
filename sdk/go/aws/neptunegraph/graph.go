@@ -8,11 +8,11 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The neptunegraph.Graph resource creates an Amazon Analytics Graph.
+// The `neptunegraph.Graph` resource creates an Amazon Analytics Graph.
 //
 // ## Example Usage
 //
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptunegraph"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/neptunegraph"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,11 +88,13 @@ type Graph struct {
 	ProvisionedMemory pulumi.IntOutput `pulumi:"provisionedMemory"`
 	// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
 	PublicConnectivity pulumi.BoolOutput `pulumi:"publicConnectivity"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
 	ReplicaCount pulumi.IntOutput `pulumi:"replicaCount"`
-	// The tags associated with this graph. (see below for nested schema of tags)
+	// Key-value tags for the graph. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput `pulumi:"tagsAll"`
 	Timeouts GraphTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Vector Search Configuration (see below for nested schema of vector_search_configuration)
@@ -153,11 +155,13 @@ type graphState struct {
 	ProvisionedMemory *int `pulumi:"provisionedMemory"`
 	// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
 	PublicConnectivity *bool `pulumi:"publicConnectivity"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
 	ReplicaCount *int `pulumi:"replicaCount"`
-	// The tags associated with this graph. (see below for nested schema of tags)
+	// Key-value tags for the graph. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string `pulumi:"tagsAll"`
 	Timeouts *GraphTimeouts    `pulumi:"timeouts"`
 	// Vector Search Configuration (see below for nested schema of vector_search_configuration)
@@ -186,11 +190,13 @@ type GraphState struct {
 	ProvisionedMemory pulumi.IntPtrInput
 	// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
 	PublicConnectivity pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
 	ReplicaCount pulumi.IntPtrInput
-	// The tags associated with this graph. (see below for nested schema of tags)
+	// Key-value tags for the graph. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts GraphTimeoutsPtrInput
 	// Vector Search Configuration (see below for nested schema of vector_search_configuration)
@@ -219,9 +225,11 @@ type graphArgs struct {
 	ProvisionedMemory int `pulumi:"provisionedMemory"`
 	// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
 	PublicConnectivity *bool `pulumi:"publicConnectivity"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
 	ReplicaCount *int `pulumi:"replicaCount"`
-	// The tags associated with this graph. (see below for nested schema of tags)
+	// Key-value tags for the graph. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string `pulumi:"tags"`
 	Timeouts *GraphTimeouts    `pulumi:"timeouts"`
 	// Vector Search Configuration (see below for nested schema of vector_search_configuration)
@@ -247,9 +255,11 @@ type GraphArgs struct {
 	ProvisionedMemory pulumi.IntInput
 	// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
 	PublicConnectivity pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
 	ReplicaCount pulumi.IntPtrInput
-	// The tags associated with this graph. (see below for nested schema of tags)
+	// Key-value tags for the graph. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts GraphTimeoutsPtrInput
 	// Vector Search Configuration (see below for nested schema of vector_search_configuration)
@@ -388,17 +398,22 @@ func (o GraphOutput) PublicConnectivity() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Graph) pulumi.BoolOutput { return v.PublicConnectivity }).(pulumi.BoolOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o GraphOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Graph) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
 func (o GraphOutput) ReplicaCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Graph) pulumi.IntOutput { return v.ReplicaCount }).(pulumi.IntOutput)
 }
 
-// The tags associated with this graph. (see below for nested schema of tags)
+// Key-value tags for the graph. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o GraphOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Graph) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o GraphOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Graph) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -44,8 +44,7 @@ export interface GetHostedZoneIdArgs {
      */
     loadBalancerType?: string;
     /**
-     * Name of the region whose AWS ELB HostedZoneId is desired.
-     * Defaults to the region from the AWS provider configuration.
+     * Name of the Region whose AWS ELB HostedZoneId is desired. Defaults to the Region set in the provider configuration.
      */
     region?: string;
 }
@@ -59,7 +58,7 @@ export interface GetHostedZoneIdResult {
      */
     readonly id: string;
     readonly loadBalancerType?: string;
-    readonly region?: string;
+    readonly region: string;
 }
 /**
  * Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing (ELB) in a given region for the purpose of using in an AWS Route53 Alias. Specify the ELB type (`network` or `application`) to return the relevant the associated HostedZoneId. Ref: [ELB service endpoints](https://docs.aws.amazon.com/general/latest/gr/elb.html#elb_region)
@@ -101,8 +100,7 @@ export interface GetHostedZoneIdOutputArgs {
      */
     loadBalancerType?: pulumi.Input<string>;
     /**
-     * Name of the region whose AWS ELB HostedZoneId is desired.
-     * Defaults to the region from the AWS provider configuration.
+     * Name of the Region whose AWS ELB HostedZoneId is desired. Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
 }

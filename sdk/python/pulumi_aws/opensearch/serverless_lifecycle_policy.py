@@ -23,7 +23,8 @@ class ServerlessLifecyclePolicyArgs:
                  policy: pulumi.Input[builtins.str],
                  type: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ServerlessLifecyclePolicy resource.
         :param pulumi.Input[builtins.str] policy: JSON policy document to use as the content for the new policy.
@@ -32,6 +33,7 @@ class ServerlessLifecyclePolicyArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] description: Description of the policy.
         :param pulumi.Input[builtins.str] name: Name of the policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "type", type)
@@ -39,6 +41,8 @@ class ServerlessLifecyclePolicyArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -90,6 +94,18 @@ class ServerlessLifecyclePolicyArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ServerlessLifecyclePolicyState:
@@ -98,6 +114,7 @@ class _ServerlessLifecyclePolicyState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  policy_version: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerlessLifecyclePolicy resources.
@@ -105,6 +122,7 @@ class _ServerlessLifecyclePolicyState:
         :param pulumi.Input[builtins.str] name: Name of the policy.
         :param pulumi.Input[builtins.str] policy: JSON policy document to use as the content for the new policy.
         :param pulumi.Input[builtins.str] policy_version: Version of the policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] type: Type of lifecycle policy. Must be `retention`.
                
                The following arguments are optional:
@@ -117,6 +135,8 @@ class _ServerlessLifecyclePolicyState:
             pulumi.set(__self__, "policy", policy)
         if policy_version is not None:
             pulumi.set(__self__, "policy_version", policy_version)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -170,6 +190,18 @@ class _ServerlessLifecyclePolicyState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Type of lifecycle policy. Must be `retention`.
@@ -192,6 +224,7 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -238,6 +271,7 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Description of the policy.
         :param pulumi.Input[builtins.str] name: Name of the policy.
         :param pulumi.Input[builtins.str] policy: JSON policy document to use as the content for the new policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] type: Type of lifecycle policy. Must be `retention`.
                
                The following arguments are optional:
@@ -305,6 +339,7 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -320,6 +355,7 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
+            __props__.__dict__["region"] = region
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
@@ -338,6 +374,7 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             policy: Optional[pulumi.Input[builtins.str]] = None,
             policy_version: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None) -> 'ServerlessLifecyclePolicy':
         """
         Get an existing ServerlessLifecyclePolicy resource's state with the given name, id, and optional extra
@@ -350,6 +387,7 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the policy.
         :param pulumi.Input[builtins.str] policy: JSON policy document to use as the content for the new policy.
         :param pulumi.Input[builtins.str] policy_version: Version of the policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] type: Type of lifecycle policy. Must be `retention`.
                
                The following arguments are optional:
@@ -362,6 +400,7 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["policy"] = policy
         __props__.__dict__["policy_version"] = policy_version
+        __props__.__dict__["region"] = region
         __props__.__dict__["type"] = type
         return ServerlessLifecyclePolicy(resource_name, opts=opts, __props__=__props__)
 
@@ -396,6 +435,14 @@ class ServerlessLifecyclePolicy(pulumi.CustomResource):
         Version of the policy.
         """
         return pulumi.get(self, "policy_version")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

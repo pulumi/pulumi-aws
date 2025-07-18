@@ -258,6 +258,12 @@ namespace Pulumi.Aws.S3
         [Input("bucket", required: true)]
         public string Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetBucketArgs()
         {
         }
@@ -271,6 +277,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetBucketInvokeArgs()
         {
@@ -292,6 +304,10 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string BucketDomainName;
         /// <summary>
+        /// AWS region this bucket resides in.
+        /// </summary>
+        public readonly string BucketRegion;
+        /// <summary>
         /// The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
         /// </summary>
         public readonly string BucketRegionalDomainName;
@@ -303,9 +319,6 @@ namespace Pulumi.Aws.S3
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// AWS region this bucket resides in.
-        /// </summary>
         public readonly string Region;
         /// <summary>
         /// Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
@@ -324,6 +337,8 @@ namespace Pulumi.Aws.S3
 
             string bucketDomainName,
 
+            string bucketRegion,
+
             string bucketRegionalDomainName,
 
             string hostedZoneId,
@@ -339,6 +354,7 @@ namespace Pulumi.Aws.S3
             Arn = arn;
             Bucket = bucket;
             BucketDomainName = bucketDomainName;
+            BucketRegion = bucketRegion;
             BucketRegionalDomainName = bucketRegionalDomainName;
             HostedZoneId = hostedZoneId;
             Id = id;

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,6 +55,8 @@ type LookupExperienceArgs struct {
 	ExperienceId string `pulumi:"experienceId"`
 	// Identifier of the index that contains the Experience.
 	IndexId string `pulumi:"indexId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getExperience.
@@ -76,7 +78,8 @@ type LookupExperienceResult struct {
 	Id      string `pulumi:"id"`
 	IndexId string `pulumi:"indexId"`
 	// Name of the Experience.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.
 	RoleArn string `pulumi:"roleArn"`
 	// Current processing status of your Amazon Kendra Experience. When the status is `ACTIVE`, your Amazon Kendra Experience is ready to use. When the status is `FAILED`, the `errorMessage` field contains the reason that this failed.
@@ -100,6 +103,8 @@ type LookupExperienceOutputArgs struct {
 	ExperienceId pulumi.StringInput `pulumi:"experienceId"`
 	// Identifier of the index that contains the Experience.
 	IndexId pulumi.StringInput `pulumi:"indexId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupExperienceOutputArgs) ElementType() reflect.Type {
@@ -167,6 +172,10 @@ func (o LookupExperienceResultOutput) IndexId() pulumi.StringOutput {
 // Name of the Experience.
 func (o LookupExperienceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupExperienceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupExperienceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupExperienceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Shows the ARN of a role with permission to access `Query` API, `QuerySuggestions` API, `SubmitFeedback` API, and AWS SSO that stores your user and group information.

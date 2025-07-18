@@ -340,12 +340,12 @@ export const getSecurityGroups: typeof import("./getSecurityGroups").getSecurity
 export const getSecurityGroupsOutput: typeof import("./getSecurityGroups").getSecurityGroupsOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityGroups","getSecurityGroupsOutput"], () => require("./getSecurityGroups"));
 
-export { GetSerialConsoleAccessResult } from "./getSerialConsoleAccess";
+export { GetSerialConsoleAccessArgs, GetSerialConsoleAccessResult, GetSerialConsoleAccessOutputArgs } from "./getSerialConsoleAccess";
 export const getSerialConsoleAccess: typeof import("./getSerialConsoleAccess").getSerialConsoleAccess = null as any;
 export const getSerialConsoleAccessOutput: typeof import("./getSerialConsoleAccess").getSerialConsoleAccessOutput = null as any;
 utilities.lazyLoad(exports, ["getSerialConsoleAccess","getSerialConsoleAccessOutput"], () => require("./getSerialConsoleAccess"));
 
-export { GetSpotDatafeedSubscriptionResult } from "./getSpotDatafeedSubscription";
+export { GetSpotDatafeedSubscriptionArgs, GetSpotDatafeedSubscriptionResult, GetSpotDatafeedSubscriptionOutputArgs } from "./getSpotDatafeedSubscription";
 export const getSpotDatafeedSubscription: typeof import("./getSpotDatafeedSubscription").getSpotDatafeedSubscription = null as any;
 export const getSpotDatafeedSubscriptionOutput: typeof import("./getSpotDatafeedSubscription").getSpotDatafeedSubscriptionOutput = null as any;
 utilities.lazyLoad(exports, ["getSpotDatafeedSubscription","getSpotDatafeedSubscriptionOutput"], () => require("./getSpotDatafeedSubscription"));
@@ -389,21 +389,6 @@ export { GetVpcEndpointServiceArgs, GetVpcEndpointServiceResult, GetVpcEndpointS
 export const getVpcEndpointService: typeof import("./getVpcEndpointService").getVpcEndpointService = null as any;
 export const getVpcEndpointServiceOutput: typeof import("./getVpcEndpointService").getVpcEndpointServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getVpcEndpointService","getVpcEndpointServiceOutput"], () => require("./getVpcEndpointService"));
-
-export { GetVpcIamPoolArgs, GetVpcIamPoolResult, GetVpcIamPoolOutputArgs } from "./getVpcIamPool";
-export const getVpcIamPool: typeof import("./getVpcIamPool").getVpcIamPool = null as any;
-export const getVpcIamPoolOutput: typeof import("./getVpcIamPool").getVpcIamPoolOutput = null as any;
-utilities.lazyLoad(exports, ["getVpcIamPool","getVpcIamPoolOutput"], () => require("./getVpcIamPool"));
-
-export { GetVpcIamPoolCidrsArgs, GetVpcIamPoolCidrsResult, GetVpcIamPoolCidrsOutputArgs } from "./getVpcIamPoolCidrs";
-export const getVpcIamPoolCidrs: typeof import("./getVpcIamPoolCidrs").getVpcIamPoolCidrs = null as any;
-export const getVpcIamPoolCidrsOutput: typeof import("./getVpcIamPoolCidrs").getVpcIamPoolCidrsOutput = null as any;
-utilities.lazyLoad(exports, ["getVpcIamPoolCidrs","getVpcIamPoolCidrsOutput"], () => require("./getVpcIamPoolCidrs"));
-
-export { GetVpcIamPoolsArgs, GetVpcIamPoolsResult, GetVpcIamPoolsOutputArgs } from "./getVpcIamPools";
-export const getVpcIamPools: typeof import("./getVpcIamPools").getVpcIamPools = null as any;
-export const getVpcIamPoolsOutput: typeof import("./getVpcIamPools").getVpcIamPoolsOutput = null as any;
-utilities.lazyLoad(exports, ["getVpcIamPools","getVpcIamPoolsOutput"], () => require("./getVpcIamPools"));
 
 export { GetVpcIpamArgs, GetVpcIpamResult, GetVpcIpamOutputArgs } from "./getVpcIpam";
 export const getVpcIpam: typeof import("./getVpcIpam").getVpcIpam = null as any;
@@ -465,8 +450,6 @@ export type InstanceMetadataDefaults = import("./instanceMetadataDefaults").Inst
 export const InstanceMetadataDefaults: typeof import("./instanceMetadataDefaults").InstanceMetadataDefaults = null as any;
 utilities.lazyLoad(exports, ["InstanceMetadataDefaults"], () => require("./instanceMetadataDefaults"));
 
-export * from "./instancePlatform";
-export * from "./instanceType";
 export { InternetGatewayArgs, InternetGatewayState } from "./internetGateway";
 export type InternetGateway = import("./internetGateway").InternetGateway;
 export const InternetGateway: typeof import("./internetGateway").InternetGateway = null as any;
@@ -577,8 +560,6 @@ export type PlacementGroup = import("./placementGroup").PlacementGroup;
 export const PlacementGroup: typeof import("./placementGroup").PlacementGroup = null as any;
 utilities.lazyLoad(exports, ["PlacementGroup"], () => require("./placementGroup"));
 
-export * from "./placementStrategy";
-export * from "./protocolType";
 export { ProxyProtocolPolicyArgs, ProxyProtocolPolicyState } from "./proxyProtocolPolicy";
 export type ProxyProtocolPolicy = import("./proxyProtocolPolicy").ProxyProtocolPolicy;
 export const ProxyProtocolPolicy: typeof import("./proxyProtocolPolicy").ProxyProtocolPolicy = null as any;
@@ -654,7 +635,6 @@ export type Tag = import("./tag").Tag;
 export const Tag: typeof import("./tag").Tag = null as any;
 utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
 
-export * from "./tenancy";
 export { TrafficMirrorFilterArgs, TrafficMirrorFilterState } from "./trafficMirrorFilter";
 export type TrafficMirrorFilter = import("./trafficMirrorFilter").TrafficMirrorFilter;
 export const TrafficMirrorFilter: typeof import("./trafficMirrorFilter").TrafficMirrorFilter = null as any;

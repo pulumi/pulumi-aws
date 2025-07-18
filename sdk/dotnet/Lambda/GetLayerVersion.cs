@@ -12,9 +12,11 @@ namespace Pulumi.Aws.Lambda
     public static class GetLayerVersion
     {
         /// <summary>
-        /// Provides information about a Lambda Layer Version.
+        /// Provides details about an AWS Lambda Layer Version. Use this data source to retrieve information about a specific layer version or find the latest version compatible with your runtime and architecture requirements.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Get Latest Layer Version
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -24,13 +26,133 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var config = new Config();
-        ///     var layerName = config.Require("layerName");
-        ///     var existing = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     var example = Aws.Lambda.GetLayerVersion.Invoke(new()
         ///     {
-        ///         LayerName = layerName,
+        ///         LayerName = "my-shared-utilities",
         ///     });
         /// 
+        ///     // Use the layer in a Lambda function
+        ///     var exampleFunction = new Aws.Lambda.Function("example", new()
+        ///     {
+        ///         Code = new FileArchive("function.zip"),
+        ///         Name = "example_function",
+        ///         Role = lambdaRole.Arn,
+        ///         Handler = "index.handler",
+        ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+        ///         Layers = new[]
+        ///         {
+        ///             example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Get Specific Layer Version
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerName = "production-utilities",
+        ///         Version = 5,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["layerInfo"] = 
+        ///         {
+        ///             { "arn", example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn) },
+        ///             { "version", example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version) },
+        ///             { "description", example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Description) },
+        ///         },
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Get Latest Compatible Layer Version
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Find latest layer version compatible with Python 3.12
+        ///     var pythonLayer = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerName = "python-dependencies",
+        ///         CompatibleRuntime = "python3.12",
+        ///     });
+        /// 
+        ///     // Find latest layer version compatible with ARM64 architecture
+        ///     var armLayer = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerName = "optimized-libraries",
+        ///         CompatibleArchitecture = "arm64",
+        ///     });
+        /// 
+        ///     // Use both layers in a function
+        ///     var example = new Aws.Lambda.Function("example", new()
+        ///     {
+        ///         Code = new FileArchive("function.zip"),
+        ///         Name = "multi_layer_function",
+        ///         Role = lambdaRole.Arn,
+        ///         Handler = "app.handler",
+        ///         Runtime = Aws.Lambda.Runtime.Python3d12,
+        ///         Architectures = new[]
+        ///         {
+        ///             "arm64",
+        ///         },
+        ///         Layers = new[]
+        ///         {
+        ///             pythonLayer.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),
+        ///             armLayer.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Compare Layer Versions
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get latest version
+        ///     var latest = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerName = "shared-layer",
+        ///     });
+        /// 
+        ///     // Get specific version for comparison
+        ///     var stable = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerName = "shared-layer",
+        ///         Version = 3,
+        ///     });
+        /// 
+        ///     var useLatestLayer = latest.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version) &gt; 5;
+        /// 
+        ///     var selectedLayer = useLatestLayer ? latest.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn) : stable.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn);
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["selectedLayerVersion"] = useLatestLayer ? latest.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version) : stable.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version),
+        ///     };
         /// });
         /// ```
         /// </summary>
@@ -38,9 +160,11 @@ namespace Pulumi.Aws.Lambda
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLayerVersionResult>("aws:lambda/getLayerVersion:getLayerVersion", args ?? new GetLayerVersionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides information about a Lambda Layer Version.
+        /// Provides details about an AWS Lambda Layer Version. Use this data source to retrieve information about a specific layer version or find the latest version compatible with your runtime and architecture requirements.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Get Latest Layer Version
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -50,13 +174,133 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var config = new Config();
-        ///     var layerName = config.Require("layerName");
-        ///     var existing = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     var example = Aws.Lambda.GetLayerVersion.Invoke(new()
         ///     {
-        ///         LayerName = layerName,
+        ///         LayerName = "my-shared-utilities",
         ///     });
         /// 
+        ///     // Use the layer in a Lambda function
+        ///     var exampleFunction = new Aws.Lambda.Function("example", new()
+        ///     {
+        ///         Code = new FileArchive("function.zip"),
+        ///         Name = "example_function",
+        ///         Role = lambdaRole.Arn,
+        ///         Handler = "index.handler",
+        ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+        ///         Layers = new[]
+        ///         {
+        ///             example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Get Specific Layer Version
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerName = "production-utilities",
+        ///         Version = 5,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["layerInfo"] = 
+        ///         {
+        ///             { "arn", example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn) },
+        ///             { "version", example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version) },
+        ///             { "description", example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Description) },
+        ///         },
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Get Latest Compatible Layer Version
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Find latest layer version compatible with Python 3.12
+        ///     var pythonLayer = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerName = "python-dependencies",
+        ///         CompatibleRuntime = "python3.12",
+        ///     });
+        /// 
+        ///     // Find latest layer version compatible with ARM64 architecture
+        ///     var armLayer = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerName = "optimized-libraries",
+        ///         CompatibleArchitecture = "arm64",
+        ///     });
+        /// 
+        ///     // Use both layers in a function
+        ///     var example = new Aws.Lambda.Function("example", new()
+        ///     {
+        ///         Code = new FileArchive("function.zip"),
+        ///         Name = "multi_layer_function",
+        ///         Role = lambdaRole.Arn,
+        ///         Handler = "app.handler",
+        ///         Runtime = Aws.Lambda.Runtime.Python3d12,
+        ///         Architectures = new[]
+        ///         {
+        ///             "arm64",
+        ///         },
+        ///         Layers = new[]
+        ///         {
+        ///             pythonLayer.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),
+        ///             armLayer.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Compare Layer Versions
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get latest version
+        ///     var latest = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerName = "shared-layer",
+        ///     });
+        /// 
+        ///     // Get specific version for comparison
+        ///     var stable = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerName = "shared-layer",
+        ///         Version = 3,
+        ///     });
+        /// 
+        ///     var useLatestLayer = latest.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version) &gt; 5;
+        /// 
+        ///     var selectedLayer = useLatestLayer ? latest.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn) : stable.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn);
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["selectedLayerVersion"] = useLatestLayer ? latest.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version) : stable.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version),
+        ///     };
         /// });
         /// ```
         /// </summary>
@@ -64,9 +308,11 @@ namespace Pulumi.Aws.Lambda
             => global::Pulumi.Deployment.Instance.Invoke<GetLayerVersionResult>("aws:lambda/getLayerVersion:getLayerVersion", args ?? new GetLayerVersionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides information about a Lambda Layer Version.
+        /// Provides details about an AWS Lambda Layer Version. Use this data source to retrieve information about a specific layer version or find the latest version compatible with your runtime and architecture requirements.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Get Latest Layer Version
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -76,13 +322,133 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var config = new Config();
-        ///     var layerName = config.Require("layerName");
-        ///     var existing = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     var example = Aws.Lambda.GetLayerVersion.Invoke(new()
         ///     {
-        ///         LayerName = layerName,
+        ///         LayerName = "my-shared-utilities",
         ///     });
         /// 
+        ///     // Use the layer in a Lambda function
+        ///     var exampleFunction = new Aws.Lambda.Function("example", new()
+        ///     {
+        ///         Code = new FileArchive("function.zip"),
+        ///         Name = "example_function",
+        ///         Role = lambdaRole.Arn,
+        ///         Handler = "index.handler",
+        ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+        ///         Layers = new[]
+        ///         {
+        ///             example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Get Specific Layer Version
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerName = "production-utilities",
+        ///         Version = 5,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["layerInfo"] = 
+        ///         {
+        ///             { "arn", example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn) },
+        ///             { "version", example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version) },
+        ///             { "description", example.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Description) },
+        ///         },
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Get Latest Compatible Layer Version
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Find latest layer version compatible with Python 3.12
+        ///     var pythonLayer = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerName = "python-dependencies",
+        ///         CompatibleRuntime = "python3.12",
+        ///     });
+        /// 
+        ///     // Find latest layer version compatible with ARM64 architecture
+        ///     var armLayer = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerName = "optimized-libraries",
+        ///         CompatibleArchitecture = "arm64",
+        ///     });
+        /// 
+        ///     // Use both layers in a function
+        ///     var example = new Aws.Lambda.Function("example", new()
+        ///     {
+        ///         Code = new FileArchive("function.zip"),
+        ///         Name = "multi_layer_function",
+        ///         Role = lambdaRole.Arn,
+        ///         Handler = "app.handler",
+        ///         Runtime = Aws.Lambda.Runtime.Python3d12,
+        ///         Architectures = new[]
+        ///         {
+        ///             "arm64",
+        ///         },
+        ///         Layers = new[]
+        ///         {
+        ///             pythonLayer.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),
+        ///             armLayer.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn),
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Compare Layer Versions
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get latest version
+        ///     var latest = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerName = "shared-layer",
+        ///     });
+        /// 
+        ///     // Get specific version for comparison
+        ///     var stable = Aws.Lambda.GetLayerVersion.Invoke(new()
+        ///     {
+        ///         LayerName = "shared-layer",
+        ///         Version = 3,
+        ///     });
+        /// 
+        ///     var useLatestLayer = latest.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version) &gt; 5;
+        /// 
+        ///     var selectedLayer = useLatestLayer ? latest.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn) : stable.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Arn);
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["selectedLayerVersion"] = useLatestLayer ? latest.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version) : stable.Apply(getLayerVersionResult =&gt; getLayerVersionResult.Version),
+        ///     };
         /// });
         /// ```
         /// </summary>
@@ -94,7 +460,7 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetLayerVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+        /// Specific architecture the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
         /// </summary>
         [Input("compatibleArchitecture")]
         public string? CompatibleArchitecture { get; set; }
@@ -106,10 +472,18 @@ namespace Pulumi.Aws.Lambda
         public string? CompatibleRuntime { get; set; }
 
         /// <summary>
-        /// Name of the lambda layer.
+        /// Name of the Lambda layer.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("layerName", required: true)]
         public string LayerName { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
 
         /// <summary>
         /// Specific layer version. Conflicts with `compatible_runtime` and `compatible_architecture`. If omitted, the latest available layer version will be used.
@@ -126,7 +500,7 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetLayerVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+        /// Specific architecture the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
         /// </summary>
         [Input("compatibleArchitecture")]
         public Input<string>? CompatibleArchitecture { get; set; }
@@ -138,10 +512,18 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? CompatibleRuntime { get; set; }
 
         /// <summary>
-        /// Name of the lambda layer.
+        /// Name of the Lambda layer.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("layerName", required: true)]
         public Input<string> LayerName { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specific layer version. Conflicts with `compatible_runtime` and `compatible_architecture`. If omitted, the latest available layer version will be used.
@@ -169,7 +551,7 @@ namespace Pulumi.Aws.Lambda
         public readonly string CodeSha256;
         public readonly string? CompatibleArchitecture;
         /// <summary>
-        /// A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
+        /// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
         /// </summary>
         public readonly ImmutableArray<string> CompatibleArchitectures;
         public readonly string? CompatibleRuntime;
@@ -198,12 +580,13 @@ namespace Pulumi.Aws.Lambda
         /// License info associated with the specific Lambda Layer version.
         /// </summary>
         public readonly string LicenseInfo;
+        public readonly string Region;
         /// <summary>
         /// ARN of a signing job.
         /// </summary>
         public readonly string SigningJobArn;
         /// <summary>
-        /// The ARN for a signing profile version.
+        /// ARN for a signing profile version.
         /// </summary>
         public readonly string SigningProfileVersionArn;
         /// <summary>
@@ -215,7 +598,7 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly int SourceCodeSize;
         /// <summary>
-        /// This Lambda Layer version.
+        /// Lambda Layer version.
         /// </summary>
         public readonly int Version;
 
@@ -245,6 +628,8 @@ namespace Pulumi.Aws.Lambda
 
             string licenseInfo,
 
+            string region,
+
             string signingJobArn,
 
             string signingProfileVersionArn,
@@ -267,6 +652,7 @@ namespace Pulumi.Aws.Lambda
             LayerArn = layerArn;
             LayerName = layerName;
             LicenseInfo = licenseInfo;
+            Region = region;
             SigningJobArn = signingJobArn;
             SigningProfileVersionArn = signingProfileVersionArn;
             SourceCodeHash = sourceCodeHash;

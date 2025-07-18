@@ -22,6 +22,7 @@ export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mediaconvert/getQueue:getQueue", {
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -34,6 +35,10 @@ export interface GetQueueArgs {
      * Unique identifier of the queue. The same as `name`.
      */
     id: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
@@ -53,6 +58,7 @@ export interface GetQueueResult {
      * The same as `id`.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * The status of the queue.
      */
@@ -80,6 +86,7 @@ export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:mediaconvert/getQueue:getQueue", {
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -92,6 +99,10 @@ export interface GetQueueOutputArgs {
      * Unique identifier of the queue. The same as `name`.
      */
     id: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */

@@ -28,6 +28,7 @@ class WebhookArgs:
                  target_pipeline: pulumi.Input[builtins.str],
                  authentication_configuration: Optional[pulumi.Input['WebhookAuthenticationConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Webhook resource.
@@ -37,6 +38,7 @@ class WebhookArgs:
         :param pulumi.Input[builtins.str] target_pipeline: The name of the pipeline.
         :param pulumi.Input['WebhookAuthenticationConfigurationArgs'] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         :param pulumi.Input[builtins.str] name: The name of the webhook.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "authentication", authentication)
@@ -47,6 +49,8 @@ class WebhookArgs:
             pulumi.set(__self__, "authentication_configuration", authentication_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -124,6 +128,18 @@ class WebhookArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -143,6 +159,7 @@ class _WebhookState:
                  authentication_configuration: Optional[pulumi.Input['WebhookAuthenticationConfigurationArgs']] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_action: Optional[pulumi.Input[builtins.str]] = None,
@@ -155,6 +172,7 @@ class _WebhookState:
         :param pulumi.Input['WebhookAuthenticationConfigurationArgs'] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterArgs']]] filters: One or more `filter` blocks. Filter blocks are documented below.
         :param pulumi.Input[builtins.str] name: The name of the webhook.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] target_action: The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
@@ -171,11 +189,10 @@ class _WebhookState:
             pulumi.set(__self__, "filters", filters)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if target_action is not None:
@@ -247,6 +264,18 @@ class _WebhookState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -259,7 +288,6 @@ class _WebhookState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -317,6 +345,7 @@ class Webhook(pulumi.CustomResource):
                  authentication_configuration: Optional[pulumi.Input[Union['WebhookAuthenticationConfigurationArgs', 'WebhookAuthenticationConfigurationArgsDict']]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterArgs', 'WebhookFilterArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_action: Optional[pulumi.Input[builtins.str]] = None,
                  target_pipeline: Optional[pulumi.Input[builtins.str]] = None,
@@ -338,6 +367,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[Union['WebhookAuthenticationConfigurationArgs', 'WebhookAuthenticationConfigurationArgsDict']] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterArgs', 'WebhookFilterArgsDict']]]] filters: One or more `filter` blocks. Filter blocks are documented below.
         :param pulumi.Input[builtins.str] name: The name of the webhook.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] target_action: The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
         :param pulumi.Input[builtins.str] target_pipeline: The name of the pipeline.
@@ -378,6 +408,7 @@ class Webhook(pulumi.CustomResource):
                  authentication_configuration: Optional[pulumi.Input[Union['WebhookAuthenticationConfigurationArgs', 'WebhookAuthenticationConfigurationArgsDict']]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterArgs', 'WebhookFilterArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_action: Optional[pulumi.Input[builtins.str]] = None,
                  target_pipeline: Optional[pulumi.Input[builtins.str]] = None,
@@ -398,6 +429,7 @@ class Webhook(pulumi.CustomResource):
                 raise TypeError("Missing required property 'filters'")
             __props__.__dict__["filters"] = filters
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             if target_action is None and not opts.urn:
                 raise TypeError("Missing required property 'target_action'")
@@ -423,6 +455,7 @@ class Webhook(pulumi.CustomResource):
             authentication_configuration: Optional[pulumi.Input[Union['WebhookAuthenticationConfigurationArgs', 'WebhookAuthenticationConfigurationArgsDict']]] = None,
             filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterArgs', 'WebhookFilterArgsDict']]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             target_action: Optional[pulumi.Input[builtins.str]] = None,
@@ -440,6 +473,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[Union['WebhookAuthenticationConfigurationArgs', 'WebhookAuthenticationConfigurationArgsDict']] authentication_configuration: An `auth` block. Required for `IP` and `GITHUB_HMAC`. Auth blocks are documented below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WebhookFilterArgs', 'WebhookFilterArgsDict']]]] filters: One or more `filter` blocks. Filter blocks are documented below.
         :param pulumi.Input[builtins.str] name: The name of the webhook.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] target_action: The name of the action in a pipeline you want to connect to the webhook. The action must be from the source (first) stage of the pipeline.
@@ -455,6 +489,7 @@ class Webhook(pulumi.CustomResource):
         __props__.__dict__["authentication_configuration"] = authentication_configuration
         __props__.__dict__["filters"] = filters
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["target_action"] = target_action
@@ -504,6 +539,14 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -512,7 +555,6 @@ class Webhook(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

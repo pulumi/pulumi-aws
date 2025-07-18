@@ -51,6 +51,10 @@ export class SnapshotBlockPublicAccess extends pulumi.CustomResource {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
      */
     public readonly state!: pulumi.Output<string>;
@@ -68,12 +72,14 @@ export class SnapshotBlockPublicAccess extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnapshotBlockPublicAccessState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
         } else {
             const args = argsOrState as SnapshotBlockPublicAccessArgs | undefined;
             if ((!args || args.state === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -86,6 +92,10 @@ export class SnapshotBlockPublicAccess extends pulumi.CustomResource {
  */
 export interface SnapshotBlockPublicAccessState {
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
      */
     state?: pulumi.Input<string>;
@@ -95,6 +105,10 @@ export interface SnapshotBlockPublicAccessState {
  * The set of arguments for constructing a SnapshotBlockPublicAccess resource.
  */
 export interface SnapshotBlockPublicAccessArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
      */

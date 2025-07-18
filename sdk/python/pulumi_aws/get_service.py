@@ -132,7 +132,7 @@ def get_service(dns_name: Optional[builtins.str] = None,
     import pulumi_aws as aws
 
     current = aws.get_region()
-    test = aws.get_service(region=current.name,
+    test = aws.get_service(region=current.region,
         service_id="ec2")
     ```
 
@@ -156,7 +156,7 @@ def get_service(dns_name: Optional[builtins.str] = None,
 
 
     :param builtins.str dns_name: DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
-    :param builtins.str region: Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
+    :param builtins.str region: Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`). Defaults to the Region set in the provider configuration.
     :param builtins.str reverse_dns_name: Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
     :param builtins.str reverse_dns_prefix: Prefix of the service (_e.g.,_ `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
     :param builtins.str service_id: Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required. A service's endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).
@@ -199,7 +199,7 @@ def get_service_output(dns_name: Optional[pulumi.Input[Optional[builtins.str]]] 
     import pulumi_aws as aws
 
     current = aws.get_region()
-    test = aws.get_service(region=current.name,
+    test = aws.get_service(region=current.region,
         service_id="ec2")
     ```
 
@@ -223,7 +223,7 @@ def get_service_output(dns_name: Optional[pulumi.Input[Optional[builtins.str]]] 
 
 
     :param builtins.str dns_name: DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
-    :param builtins.str region: Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
+    :param builtins.str region: Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`). Defaults to the Region set in the provider configuration.
     :param builtins.str reverse_dns_name: Reverse DNS name of the service (_e.g.,_ `com.amazonaws.us-west-2.s3`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
     :param builtins.str reverse_dns_prefix: Prefix of the service (_e.g.,_ `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
     :param builtins.str service_id: Service endpoint ID (_e.g.,_ `s3`, `rds`, `ec2`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required. A service's endpoint ID can be found in the [_AWS General Reference_](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html).

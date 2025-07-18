@@ -12,11 +12,13 @@ namespace Pulumi.Aws.Lambda
     public static class GetCodeSigningConfig
     {
         /// <summary>
-        /// Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
+        /// Provides details about an AWS Lambda Code Signing Config. Use this data source to retrieve information about an existing code signing configuration for Lambda functions to ensure code integrity and authenticity.
         /// 
-        /// For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+        /// For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -26,11 +28,100 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existingCsc = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
+        ///     var example = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
         ///     {
-        ///         Arn = $"arn:aws:lambda:{awsRegion}:{awsAccount}:code-signing-config:csc-0f6c334abcdea4d8b",
+        ///         Arn = "arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b",
         ///     });
         /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["configDetails"] = 
+        ///         {
+        ///             { "configId", example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.ConfigId) },
+        ///             { "description", example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Description) },
+        ///             { "policy", example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Policies[0]?.UntrustedArtifactOnDeployment) },
+        ///         },
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Use in Lambda Function
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get existing code signing configuration
+        ///     var securityConfig = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
+        ///     {
+        ///         Arn = codeSigningConfigArn,
+        ///     });
+        /// 
+        ///     // Create Lambda function with code signing
+        ///     var example = new Aws.Lambda.Function("example", new()
+        ///     {
+        ///         Code = new FileArchive("function.zip"),
+        ///         Name = "secure-function",
+        ///         Role = lambdaRole.Arn,
+        ///         Handler = "index.handler",
+        ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+        ///         CodeSigningConfigArn = securityConfig.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Arn),
+        ///         Tags = 
+        ///         {
+        ///             { "Environment", "production" },
+        ///             { "Security", "code-signed" },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Multi-Environment Configuration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Production code signing config
+        ///     var prod = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-prod-123",
+        ///     });
+        /// 
+        ///     // Development code signing config
+        ///     var dev = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-dev-456",
+        ///     });
+        /// 
+        ///     var prodPolicy = prod.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Policies[0]?.UntrustedArtifactOnDeployment);
+        /// 
+        ///     var devPolicy = dev.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Policies[0]?.UntrustedArtifactOnDeployment);
+        /// 
+        ///     var configComparison = 
+        ///     {
+        ///         { "prodEnforcement", prodPolicy },
+        ///         { "devEnforcement", devPolicy },
+        ///         { "policiesMatch", Output.Tuple(prodPolicy, devPolicy).Apply(values =&gt;
+        ///         {
+        ///             var prodPolicy = values.Item1;
+        ///             var devPolicy = values.Item2;
+        ///             return prodPolicy == devPolicy;
+        ///         }) },
+        ///     };
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["environmentComparison"] = configComparison,
+        ///     };
         /// });
         /// ```
         /// </summary>
@@ -38,11 +129,13 @@ namespace Pulumi.Aws.Lambda
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCodeSigningConfigResult>("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", args ?? new GetCodeSigningConfigArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
+        /// Provides details about an AWS Lambda Code Signing Config. Use this data source to retrieve information about an existing code signing configuration for Lambda functions to ensure code integrity and authenticity.
         /// 
-        /// For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+        /// For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -52,11 +145,100 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existingCsc = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
+        ///     var example = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
         ///     {
-        ///         Arn = $"arn:aws:lambda:{awsRegion}:{awsAccount}:code-signing-config:csc-0f6c334abcdea4d8b",
+        ///         Arn = "arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b",
         ///     });
         /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["configDetails"] = 
+        ///         {
+        ///             { "configId", example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.ConfigId) },
+        ///             { "description", example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Description) },
+        ///             { "policy", example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Policies[0]?.UntrustedArtifactOnDeployment) },
+        ///         },
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Use in Lambda Function
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get existing code signing configuration
+        ///     var securityConfig = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
+        ///     {
+        ///         Arn = codeSigningConfigArn,
+        ///     });
+        /// 
+        ///     // Create Lambda function with code signing
+        ///     var example = new Aws.Lambda.Function("example", new()
+        ///     {
+        ///         Code = new FileArchive("function.zip"),
+        ///         Name = "secure-function",
+        ///         Role = lambdaRole.Arn,
+        ///         Handler = "index.handler",
+        ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+        ///         CodeSigningConfigArn = securityConfig.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Arn),
+        ///         Tags = 
+        ///         {
+        ///             { "Environment", "production" },
+        ///             { "Security", "code-signed" },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Multi-Environment Configuration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Production code signing config
+        ///     var prod = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-prod-123",
+        ///     });
+        /// 
+        ///     // Development code signing config
+        ///     var dev = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-dev-456",
+        ///     });
+        /// 
+        ///     var prodPolicy = prod.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Policies[0]?.UntrustedArtifactOnDeployment);
+        /// 
+        ///     var devPolicy = dev.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Policies[0]?.UntrustedArtifactOnDeployment);
+        /// 
+        ///     var configComparison = 
+        ///     {
+        ///         { "prodEnforcement", prodPolicy },
+        ///         { "devEnforcement", devPolicy },
+        ///         { "policiesMatch", Output.Tuple(prodPolicy, devPolicy).Apply(values =&gt;
+        ///         {
+        ///             var prodPolicy = values.Item1;
+        ///             var devPolicy = values.Item2;
+        ///             return prodPolicy == devPolicy;
+        ///         }) },
+        ///     };
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["environmentComparison"] = configComparison,
+        ///     };
         /// });
         /// ```
         /// </summary>
@@ -64,11 +246,13 @@ namespace Pulumi.Aws.Lambda
             => global::Pulumi.Deployment.Instance.Invoke<GetCodeSigningConfigResult>("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", args ?? new GetCodeSigningConfigInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
+        /// Provides details about an AWS Lambda Code Signing Config. Use this data source to retrieve information about an existing code signing configuration for Lambda functions to ensure code integrity and authenticity.
         /// 
-        /// For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+        /// For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
         /// 
         /// ## Example Usage
+        /// 
+        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -78,11 +262,100 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var existingCsc = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
+        ///     var example = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
         ///     {
-        ///         Arn = $"arn:aws:lambda:{awsRegion}:{awsAccount}:code-signing-config:csc-0f6c334abcdea4d8b",
+        ///         Arn = "arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b",
         ///     });
         /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["configDetails"] = 
+        ///         {
+        ///             { "configId", example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.ConfigId) },
+        ///             { "description", example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Description) },
+        ///             { "policy", example.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Policies[0]?.UntrustedArtifactOnDeployment) },
+        ///         },
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Use in Lambda Function
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get existing code signing configuration
+        ///     var securityConfig = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
+        ///     {
+        ///         Arn = codeSigningConfigArn,
+        ///     });
+        /// 
+        ///     // Create Lambda function with code signing
+        ///     var example = new Aws.Lambda.Function("example", new()
+        ///     {
+        ///         Code = new FileArchive("function.zip"),
+        ///         Name = "secure-function",
+        ///         Role = lambdaRole.Arn,
+        ///         Handler = "index.handler",
+        ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+        ///         CodeSigningConfigArn = securityConfig.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Arn),
+        ///         Tags = 
+        ///         {
+        ///             { "Environment", "production" },
+        ///             { "Security", "code-signed" },
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Multi-Environment Configuration
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Production code signing config
+        ///     var prod = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-prod-123",
+        ///     });
+        /// 
+        ///     // Development code signing config
+        ///     var dev = Aws.Lambda.GetCodeSigningConfig.Invoke(new()
+        ///     {
+        ///         Arn = "arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-dev-456",
+        ///     });
+        /// 
+        ///     var prodPolicy = prod.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Policies[0]?.UntrustedArtifactOnDeployment);
+        /// 
+        ///     var devPolicy = dev.Apply(getCodeSigningConfigResult =&gt; getCodeSigningConfigResult.Policies[0]?.UntrustedArtifactOnDeployment);
+        /// 
+        ///     var configComparison = 
+        ///     {
+        ///         { "prodEnforcement", prodPolicy },
+        ///         { "devEnforcement", devPolicy },
+        ///         { "policiesMatch", Output.Tuple(prodPolicy, devPolicy).Apply(values =&gt;
+        ///         {
+        ///             var prodPolicy = values.Item1;
+        ///             var devPolicy = values.Item2;
+        ///             return prodPolicy == devPolicy;
+        ///         }) },
+        ///     };
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["environmentComparison"] = configComparison,
+        ///     };
         /// });
         /// ```
         /// </summary>
@@ -95,9 +368,17 @@ namespace Pulumi.Aws.Lambda
     {
         /// <summary>
         /// ARN of the code signing configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
 
         public GetCodeSigningConfigArgs()
         {
@@ -109,9 +390,17 @@ namespace Pulumi.Aws.Lambda
     {
         /// <summary>
         /// ARN of the code signing configuration.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetCodeSigningConfigInvokeArgs()
         {
@@ -124,7 +413,7 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetCodeSigningConfigResult
     {
         /// <summary>
-        /// List of allowed publishers as signing profiles for this code signing configuration.
+        /// List of allowed publishers as signing profiles for this code signing configuration. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCodeSigningConfigAllowedPublisherResult> AllowedPublishers;
         public readonly string Arn;
@@ -145,9 +434,10 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string LastModified;
         /// <summary>
-        /// List of code signing policies that control the validation failure action for signature mismatch or expiry.
+        /// List of code signing policies that control the validation failure action for signature mismatch or expiry. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCodeSigningConfigPolicyResult> Policies;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetCodeSigningConfigResult(
@@ -163,7 +453,9 @@ namespace Pulumi.Aws.Lambda
 
             string lastModified,
 
-            ImmutableArray<Outputs.GetCodeSigningConfigPolicyResult> policies)
+            ImmutableArray<Outputs.GetCodeSigningConfigPolicyResult> policies,
+
+            string region)
         {
             AllowedPublishers = allowedPublishers;
             Arn = arn;
@@ -172,6 +464,7 @@ namespace Pulumi.Aws.Lambda
             Id = id;
             LastModified = lastModified;
             Policies = policies;
+            Region = region;
         }
     }
 }

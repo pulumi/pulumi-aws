@@ -63,6 +63,10 @@ export class Attachment extends pulumi.CustomResource {
      * Instance ID to place in the ELB pool.
      */
     public readonly instance!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Attachment resource with the given unique name, arguments, and options.
@@ -79,6 +83,7 @@ export class Attachment extends pulumi.CustomResource {
             const state = argsOrState as AttachmentState | undefined;
             resourceInputs["elb"] = state ? state.elb : undefined;
             resourceInputs["instance"] = state ? state.instance : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AttachmentArgs | undefined;
             if ((!args || args.elb === undefined) && !opts.urn) {
@@ -89,6 +94,7 @@ export class Attachment extends pulumi.CustomResource {
             }
             resourceInputs["elb"] = args ? args.elb : undefined;
             resourceInputs["instance"] = args ? args.instance : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/attachment:Attachment" }] };
@@ -109,6 +115,10 @@ export interface AttachmentState {
      * Instance ID to place in the ELB pool.
      */
     instance?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -123,4 +133,8 @@ export interface AttachmentArgs {
      * Instance ID to place in the ELB pool.
      */
     instance: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

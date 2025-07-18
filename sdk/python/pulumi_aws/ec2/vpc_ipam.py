@@ -26,6 +26,7 @@ class VpcIpamArgs:
                  cascade: Optional[pulumi.Input[builtins.bool]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enable_private_gua: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tier: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -34,6 +35,7 @@ class VpcIpamArgs:
         :param pulumi.Input[builtins.bool] cascade: Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
         :param pulumi.Input[builtins.str] description: A description for the IPAM.
         :param pulumi.Input[builtins.bool] enable_private_gua: Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] tier: specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
         """
@@ -44,6 +46,8 @@ class VpcIpamArgs:
             pulumi.set(__self__, "description", description)
         if enable_private_gua is not None:
             pulumi.set(__self__, "enable_private_gua", enable_private_gua)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tier is not None:
@@ -99,6 +103,18 @@ class VpcIpamArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -134,6 +150,7 @@ class _VpcIpamState:
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]]] = None,
                  private_default_scope_id: Optional[pulumi.Input[builtins.str]] = None,
                  public_default_scope_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scope_count: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -150,6 +167,7 @@ class _VpcIpamState:
         :param pulumi.Input[builtins.str] private_default_scope_id: The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
         :param pulumi.Input[builtins.str] public_default_scope_id: The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
                IP space. The public scope is intended for all internet-routable IP space.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] scope_count: The number of scopes in the IPAM.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -173,13 +191,12 @@ class _VpcIpamState:
             pulumi.set(__self__, "private_default_scope_id", private_default_scope_id)
         if public_default_scope_id is not None:
             pulumi.set(__self__, "public_default_scope_id", public_default_scope_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scope_count is not None:
             pulumi.set(__self__, "scope_count", scope_count)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tier is not None:
@@ -295,6 +312,18 @@ class _VpcIpamState:
         pulumi.set(self, "public_default_scope_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="scopeCount")
     def scope_count(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -320,7 +349,6 @@ class _VpcIpamState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -354,6 +382,7 @@ class VpcIpam(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enable_private_gua: Optional[pulumi.Input[builtins.bool]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamOperatingRegionArgs', 'VpcIpamOperatingRegionArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tier: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -372,7 +401,7 @@ class VpcIpam(pulumi.CustomResource):
         main = aws.ec2.VpcIpam("main",
             description="My IPAM",
             operating_regions=[{
-                "region_name": current.name,
+                "region_name": current.region,
             }],
             tags={
                 "Test": "Main",
@@ -395,6 +424,7 @@ class VpcIpam(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A description for the IPAM.
         :param pulumi.Input[builtins.bool] enable_private_gua: Enable this option to use your own GUA ranges as private IPv6 addresses. Default: `false`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamOperatingRegionArgs', 'VpcIpamOperatingRegionArgsDict']]]] operating_regions: Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] tier: specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
         """
@@ -419,7 +449,7 @@ class VpcIpam(pulumi.CustomResource):
         main = aws.ec2.VpcIpam("main",
             description="My IPAM",
             operating_regions=[{
-                "region_name": current.name,
+                "region_name": current.region,
             }],
             tags={
                 "Test": "Main",
@@ -455,6 +485,7 @@ class VpcIpam(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enable_private_gua: Optional[pulumi.Input[builtins.bool]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamOperatingRegionArgs', 'VpcIpamOperatingRegionArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tier: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -472,6 +503,7 @@ class VpcIpam(pulumi.CustomResource):
             if operating_regions is None and not opts.urn:
                 raise TypeError("Missing required property 'operating_regions'")
             __props__.__dict__["operating_regions"] = operating_regions
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tier"] = tier
             __props__.__dict__["arn"] = None
@@ -500,6 +532,7 @@ class VpcIpam(pulumi.CustomResource):
             operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamOperatingRegionArgs', 'VpcIpamOperatingRegionArgsDict']]]]] = None,
             private_default_scope_id: Optional[pulumi.Input[builtins.str]] = None,
             public_default_scope_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             scope_count: Optional[pulumi.Input[builtins.int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -521,6 +554,7 @@ class VpcIpam(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] private_default_scope_id: The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
         :param pulumi.Input[builtins.str] public_default_scope_id: The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
                IP space. The public scope is intended for all internet-routable IP space.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] scope_count: The number of scopes in the IPAM.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -539,6 +573,7 @@ class VpcIpam(pulumi.CustomResource):
         __props__.__dict__["operating_regions"] = operating_regions
         __props__.__dict__["private_default_scope_id"] = private_default_scope_id
         __props__.__dict__["public_default_scope_id"] = public_default_scope_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["scope_count"] = scope_count
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -619,6 +654,14 @@ class VpcIpam(pulumi.CustomResource):
         return pulumi.get(self, "public_default_scope_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="scopeCount")
     def scope_count(self) -> pulumi.Output[builtins.int]:
         """
@@ -636,7 +679,6 @@ class VpcIpam(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -28,6 +28,7 @@ export function getVirtualRouter(args: GetVirtualRouterArgs, opts?: pulumi.Invok
         "meshName": args.meshName,
         "meshOwner": args.meshOwner,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -45,6 +46,10 @@ export interface GetVirtualRouterArgs {
      * Name of the virtual router.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags.
      */
@@ -74,6 +79,7 @@ export interface GetVirtualRouterResult {
     readonly meshName: string;
     readonly meshOwner: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Resource owner's AWS account ID.
      */
@@ -108,6 +114,7 @@ export function getVirtualRouterOutput(args: GetVirtualRouterOutputArgs, opts?: 
         "meshName": args.meshName,
         "meshOwner": args.meshOwner,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -125,6 +132,10 @@ export interface GetVirtualRouterOutputArgs {
      * Name of the virtual router.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags.
      */

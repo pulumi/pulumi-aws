@@ -357,6 +357,12 @@ namespace Pulumi.Aws.LakeFormation
         public string Principal { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for a table resource. Detailed below.
         /// </summary>
         [Input("table")]
@@ -429,6 +435,12 @@ namespace Pulumi.Aws.LakeFormation
         public Input<string> Principal { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for a table resource. Detailed below.
         /// </summary>
         [Input("table")]
@@ -472,6 +484,7 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         public readonly ImmutableArray<string> PermissionsWithGrantOptions;
         public readonly string Principal;
+        public readonly string Region;
         public readonly Outputs.GetPermissionsTableResult Table;
         public readonly Outputs.GetPermissionsTableWithColumnsResult TableWithColumns;
 
@@ -499,6 +512,8 @@ namespace Pulumi.Aws.LakeFormation
 
             string principal,
 
+            string region,
+
             Outputs.GetPermissionsTableResult table,
 
             Outputs.GetPermissionsTableWithColumnsResult tableWithColumns)
@@ -514,6 +529,7 @@ namespace Pulumi.Aws.LakeFormation
             Permissions = permissions;
             PermissionsWithGrantOptions = permissionsWithGrantOptions;
             Principal = principal;
+            Region = region;
             Table = table;
             TableWithColumns = tableWithColumns;
         }

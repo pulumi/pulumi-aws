@@ -6,18 +6,20 @@ package com.pulumi.aws.s3;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.s3.BucketRequestPaymentConfigurationV2Args;
 import com.pulumi.aws.s3.inputs.BucketRequestPaymentConfigurationV2State;
+import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
  * Provides an S3 bucket request payment configuration resource. For more information, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html).
  * 
- * &gt; **NOTE:** Destroying an `aws.s3.BucketRequestPaymentConfigurationV2` resource resets the bucket&#39;s `payer` to the S3 default: the bucket owner.
+ * &gt; **NOTE:** Destroying an `aws.s3.BucketRequestPaymentConfiguration` resource resets the bucket&#39;s `payer` to the S3 default: the bucket owner.
  * 
  * &gt; This resource cannot be used with S3 directory buckets.
  * 
@@ -31,8 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketRequestPaymentConfigurationV2;
- * import com.pulumi.aws.s3.BucketRequestPaymentConfigurationV2Args;
+ * import com.pulumi.aws.s3.BucketRequestPaymentConfiguration;
+ * import com.pulumi.aws.s3.BucketRequestPaymentConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,7 +48,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketRequestPaymentConfigurationV2("example", BucketRequestPaymentConfigurationV2Args.builder()
+ *         var example = new BucketRequestPaymentConfiguration("example", BucketRequestPaymentConfigurationArgs.builder()
  *             .bucket(exampleAwsS3Bucket.id())
  *             .payer("Requester")
  *             .build());
@@ -74,7 +76,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name,123456789012
  * ```
  * 
+ * @deprecated
+ * aws.s3/bucketrequestpaymentconfigurationv2.BucketRequestPaymentConfigurationV2 has been deprecated in favor of aws.s3/bucketrequestpaymentconfiguration.BucketRequestPaymentConfiguration
+ * 
  */
+@Deprecated /* aws.s3/bucketrequestpaymentconfigurationv2.BucketRequestPaymentConfigurationV2 has been deprecated in favor of aws.s3/bucketrequestpaymentconfiguration.BucketRequestPaymentConfiguration */
 @ResourceType(type="aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2")
 public class BucketRequestPaymentConfigurationV2 extends com.pulumi.resources.CustomResource {
     /**
@@ -119,6 +125,20 @@ public class BucketRequestPaymentConfigurationV2 extends com.pulumi.resources.Cu
     public Output<String> payer() {
         return this.payer;
     }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
 
     /**
      *
@@ -159,6 +179,9 @@ public class BucketRequestPaymentConfigurationV2 extends com.pulumi.resources.Cu
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .aliases(List.of(
+                Output.of(Alias.builder().type("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2").build())
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

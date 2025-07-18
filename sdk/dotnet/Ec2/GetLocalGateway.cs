@@ -118,6 +118,12 @@ namespace Pulumi.Aws.Ec2
         public string? Id { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Current state of the desired Local Gateway.
         /// Can be either `"pending"` or `"available"`.
         /// </summary>
@@ -168,6 +174,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Id { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Current state of the desired Local Gateway.
         /// Can be either `"pending"` or `"available"`.
         /// </summary>
@@ -211,6 +223,7 @@ namespace Pulumi.Aws.Ec2
         /// AWS account identifier that owns the Local Gateway.
         /// </summary>
         public readonly string OwnerId;
+        public readonly string Region;
         /// <summary>
         /// State of the local gateway.
         /// </summary>
@@ -227,6 +240,8 @@ namespace Pulumi.Aws.Ec2
 
             string ownerId,
 
+            string region,
+
             string state,
 
             ImmutableDictionary<string, string> tags)
@@ -235,6 +250,7 @@ namespace Pulumi.Aws.Ec2
             Id = id;
             OutpostArn = outpostArn;
             OwnerId = ownerId;
+            Region = region;
             State = state;
             Tags = tags;
         }

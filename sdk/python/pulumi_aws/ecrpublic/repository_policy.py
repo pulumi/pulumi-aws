@@ -21,14 +21,18 @@ __all__ = ['RepositoryPolicyArgs', 'RepositoryPolicy']
 class RepositoryPolicyArgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[builtins.str],
-                 repository_name: pulumi.Input[builtins.str]):
+                 repository_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryPolicy resource.
         :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string.
         :param pulumi.Input[builtins.str] repository_name: Name of the repository to apply the policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "repository_name", repository_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -54,21 +58,37 @@ class RepositoryPolicyArgs:
     def repository_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "repository_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _RepositoryPolicyState:
     def __init__(__self__, *,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registry_id: Optional[pulumi.Input[builtins.str]] = None,
                  repository_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering RepositoryPolicy resources.
         :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[builtins.str] repository_name: Name of the repository to apply the policy.
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if registry_id is not None:
             pulumi.set(__self__, "registry_id", registry_id)
         if repository_name is not None:
@@ -85,6 +105,18 @@ class _RepositoryPolicyState:
     @policy.setter
     def policy(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="registryId")
@@ -118,6 +150,7 @@ class RepositoryPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -174,6 +207,7 @@ class RepositoryPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository_name: Name of the repository to apply the policy.
         """
         ...
@@ -249,6 +283,7 @@ class RepositoryPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -262,6 +297,7 @@ class RepositoryPolicy(pulumi.CustomResource):
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
+            __props__.__dict__["region"] = region
             if repository_name is None and not opts.urn:
                 raise TypeError("Missing required property 'repository_name'")
             __props__.__dict__["repository_name"] = repository_name
@@ -277,6 +313,7 @@ class RepositoryPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             policy: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             registry_id: Optional[pulumi.Input[builtins.str]] = None,
             repository_name: Optional[pulumi.Input[builtins.str]] = None) -> 'RepositoryPolicy':
         """
@@ -287,6 +324,7 @@ class RepositoryPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] policy: The policy document. This is a JSON formatted string.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[builtins.str] repository_name: Name of the repository to apply the policy.
         """
@@ -295,6 +333,7 @@ class RepositoryPolicy(pulumi.CustomResource):
         __props__ = _RepositoryPolicyState.__new__(_RepositoryPolicyState)
 
         __props__.__dict__["policy"] = policy
+        __props__.__dict__["region"] = region
         __props__.__dict__["registry_id"] = registry_id
         __props__.__dict__["repository_name"] = repository_name
         return RepositoryPolicy(resource_name, opts=opts, __props__=__props__)
@@ -306,6 +345,14 @@ class RepositoryPolicy(pulumi.CustomResource):
         The policy document. This is a JSON formatted string.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="registryId")

@@ -36,6 +36,7 @@ class NodeGroupArgs:
                  node_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  node_group_name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  node_repair_config: Optional[pulumi.Input['NodeGroupNodeRepairConfigArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  release_version: Optional[pulumi.Input[builtins.str]] = None,
                  remote_access: Optional[pulumi.Input['NodeGroupRemoteAccessArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -60,6 +61,7 @@ class NodeGroupArgs:
         :param pulumi.Input[builtins.str] node_group_name: Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         :param pulumi.Input[builtins.str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         :param pulumi.Input['NodeGroupNodeRepairConfigArgs'] node_repair_config: The node auto repair configuration for the node group. See `node_repair_config` below for details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         :param pulumi.Input['NodeGroupRemoteAccessArgs'] remote_access: Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -91,6 +93,8 @@ class NodeGroupArgs:
             pulumi.set(__self__, "node_group_name_prefix", node_group_name_prefix)
         if node_repair_config is not None:
             pulumi.set(__self__, "node_repair_config", node_repair_config)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if release_version is not None:
             pulumi.set(__self__, "release_version", release_version)
         if remote_access is not None:
@@ -275,6 +279,18 @@ class NodeGroupArgs:
         pulumi.set(self, "node_repair_config", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="releaseVersion")
     def release_version(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -363,6 +379,7 @@ class _NodeGroupState:
                  node_group_name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  node_repair_config: Optional[pulumi.Input['NodeGroupNodeRepairConfigArgs']] = None,
                  node_role_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  release_version: Optional[pulumi.Input[builtins.str]] = None,
                  remote_access: Optional[pulumi.Input['NodeGroupRemoteAccessArgs']] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceArgs']]]] = None,
@@ -389,6 +406,7 @@ class _NodeGroupState:
         :param pulumi.Input[builtins.str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         :param pulumi.Input['NodeGroupNodeRepairConfigArgs'] node_repair_config: The node auto repair configuration for the node group. See `node_repair_config` below for details.
         :param pulumi.Input[builtins.str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         :param pulumi.Input['NodeGroupRemoteAccessArgs'] remote_access: Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
         :param pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceArgs']]] resources: List of objects containing information about underlying resources.
@@ -429,6 +447,8 @@ class _NodeGroupState:
             pulumi.set(__self__, "node_repair_config", node_repair_config)
         if node_role_arn is not None:
             pulumi.set(__self__, "node_role_arn", node_role_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if release_version is not None:
             pulumi.set(__self__, "release_version", release_version)
         if remote_access is not None:
@@ -443,9 +463,6 @@ class _NodeGroupState:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if taints is not None:
@@ -612,6 +629,18 @@ class _NodeGroupState:
         pulumi.set(self, "node_role_arn", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="releaseVersion")
     def release_version(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -699,7 +728,6 @@ class _NodeGroupState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -765,6 +793,7 @@ class NodeGroup(pulumi.CustomResource):
                  node_group_name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  node_repair_config: Optional[pulumi.Input[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict']]] = None,
                  node_role_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  release_version: Optional[pulumi.Input[builtins.str]] = None,
                  remote_access: Optional[pulumi.Input[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict']]] = None,
                  scaling_config: Optional[pulumi.Input[Union['NodeGroupScalingConfigArgs', 'NodeGroupScalingConfigArgsDict']]] = None,
@@ -886,6 +915,7 @@ class NodeGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         :param pulumi.Input[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict']] node_repair_config: The node auto repair configuration for the node group. See `node_repair_config` below for details.
         :param pulumi.Input[builtins.str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         :param pulumi.Input[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict']] remote_access: Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
         :param pulumi.Input[Union['NodeGroupScalingConfigArgs', 'NodeGroupScalingConfigArgsDict']] scaling_config: Configuration block with scaling settings. See `scaling_config` below for details.
@@ -1028,6 +1058,7 @@ class NodeGroup(pulumi.CustomResource):
                  node_group_name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  node_repair_config: Optional[pulumi.Input[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict']]] = None,
                  node_role_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  release_version: Optional[pulumi.Input[builtins.str]] = None,
                  remote_access: Optional[pulumi.Input[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict']]] = None,
                  scaling_config: Optional[pulumi.Input[Union['NodeGroupScalingConfigArgs', 'NodeGroupScalingConfigArgsDict']]] = None,
@@ -1061,6 +1092,7 @@ class NodeGroup(pulumi.CustomResource):
             if node_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'node_role_arn'")
             __props__.__dict__["node_role_arn"] = node_role_arn
+            __props__.__dict__["region"] = region
             __props__.__dict__["release_version"] = release_version
             __props__.__dict__["remote_access"] = remote_access
             if scaling_config is None and not opts.urn:
@@ -1100,6 +1132,7 @@ class NodeGroup(pulumi.CustomResource):
             node_group_name_prefix: Optional[pulumi.Input[builtins.str]] = None,
             node_repair_config: Optional[pulumi.Input[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict']]] = None,
             node_role_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             release_version: Optional[pulumi.Input[builtins.str]] = None,
             remote_access: Optional[pulumi.Input[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict']]] = None,
             resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupResourceArgs', 'NodeGroupResourceArgsDict']]]]] = None,
@@ -1131,6 +1164,7 @@ class NodeGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         :param pulumi.Input[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict']] node_repair_config: The node auto repair configuration for the node group. See `node_repair_config` below for details.
         :param pulumi.Input[builtins.str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         :param pulumi.Input[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict']] remote_access: Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NodeGroupResourceArgs', 'NodeGroupResourceArgsDict']]]] resources: List of objects containing information about underlying resources.
@@ -1162,6 +1196,7 @@ class NodeGroup(pulumi.CustomResource):
         __props__.__dict__["node_group_name_prefix"] = node_group_name_prefix
         __props__.__dict__["node_repair_config"] = node_repair_config
         __props__.__dict__["node_role_arn"] = node_role_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["release_version"] = release_version
         __props__.__dict__["remote_access"] = remote_access
         __props__.__dict__["resources"] = resources
@@ -1280,6 +1315,14 @@ class NodeGroup(pulumi.CustomResource):
         return pulumi.get(self, "node_role_arn")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="releaseVersion")
     def release_version(self) -> pulumi.Output[builtins.str]:
         """
@@ -1339,7 +1382,6 @@ class NodeGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

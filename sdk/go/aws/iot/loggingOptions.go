@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,6 +47,8 @@ type LoggingOptions struct {
 	DefaultLogLevel pulumi.StringOutput `pulumi:"defaultLogLevel"`
 	// If `true` all logs are disabled. The default is `false`.
 	DisableAllLogs pulumi.BoolPtrOutput `pulumi:"disableAllLogs"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the role that allows IoT to write to Cloudwatch logs.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 }
@@ -91,6 +93,8 @@ type loggingOptionsState struct {
 	DefaultLogLevel *string `pulumi:"defaultLogLevel"`
 	// If `true` all logs are disabled. The default is `false`.
 	DisableAllLogs *bool `pulumi:"disableAllLogs"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the role that allows IoT to write to Cloudwatch logs.
 	RoleArn *string `pulumi:"roleArn"`
 }
@@ -100,6 +104,8 @@ type LoggingOptionsState struct {
 	DefaultLogLevel pulumi.StringPtrInput
 	// If `true` all logs are disabled. The default is `false`.
 	DisableAllLogs pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the role that allows IoT to write to Cloudwatch logs.
 	RoleArn pulumi.StringPtrInput
 }
@@ -113,6 +119,8 @@ type loggingOptionsArgs struct {
 	DefaultLogLevel string `pulumi:"defaultLogLevel"`
 	// If `true` all logs are disabled. The default is `false`.
 	DisableAllLogs *bool `pulumi:"disableAllLogs"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the role that allows IoT to write to Cloudwatch logs.
 	RoleArn string `pulumi:"roleArn"`
 }
@@ -123,6 +131,8 @@ type LoggingOptionsArgs struct {
 	DefaultLogLevel pulumi.StringInput
 	// If `true` all logs are disabled. The default is `false`.
 	DisableAllLogs pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the role that allows IoT to write to Cloudwatch logs.
 	RoleArn pulumi.StringInput
 }
@@ -222,6 +232,11 @@ func (o LoggingOptionsOutput) DefaultLogLevel() pulumi.StringOutput {
 // If `true` all logs are disabled. The default is `false`.
 func (o LoggingOptionsOutput) DisableAllLogs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoggingOptions) pulumi.BoolPtrOutput { return v.DisableAllLogs }).(pulumi.BoolPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LoggingOptionsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoggingOptions) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of the role that allows IoT to write to Cloudwatch logs.

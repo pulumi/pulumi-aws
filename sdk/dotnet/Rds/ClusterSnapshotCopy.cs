@@ -113,6 +113,12 @@ namespace Pulumi.Aws.Rds
         public Output<string?> PresignedUrl { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         /// </summary>
         [Output("sharedAccounts")]
@@ -238,6 +244,12 @@ namespace Pulumi.Aws.Rds
         [Input("presignedUrl")]
         public Input<string>? PresignedUrl { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("sharedAccounts")]
         private InputList<string>? _sharedAccounts;
 
@@ -341,6 +353,12 @@ namespace Pulumi.Aws.Rds
         [Input("presignedUrl")]
         public Input<string>? PresignedUrl { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("sharedAccounts")]
         private InputList<string>? _sharedAccounts;
 
@@ -392,7 +410,6 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -23,7 +23,8 @@ class ProxyTargetArgs:
                  db_proxy_name: pulumi.Input[builtins.str],
                  target_group_name: pulumi.Input[builtins.str],
                  db_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
-                 db_instance_identifier: Optional[pulumi.Input[builtins.str]] = None):
+                 db_instance_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ProxyTarget resource.
         :param pulumi.Input[builtins.str] db_proxy_name: The name of the DB proxy.
@@ -32,6 +33,7 @@ class ProxyTargetArgs:
                
                **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         :param pulumi.Input[builtins.str] db_instance_identifier: DB instance identifier.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "db_proxy_name", db_proxy_name)
         pulumi.set(__self__, "target_group_name", target_group_name)
@@ -39,6 +41,8 @@ class ProxyTargetArgs:
             pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
         if db_instance_identifier is not None:
             pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="dbProxyName")
@@ -90,6 +94,18 @@ class ProxyTargetArgs:
     def db_instance_identifier(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "db_instance_identifier", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ProxyTargetState:
@@ -100,6 +116,7 @@ class _ProxyTargetState:
                  endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  rds_resource_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_arn: Optional[pulumi.Input[builtins.str]] = None,
                  target_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  tracked_cluster_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -114,6 +131,7 @@ class _ProxyTargetState:
         :param pulumi.Input[builtins.str] endpoint: Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
         :param pulumi.Input[builtins.int] port: Port for the target RDS DB Instance or Aurora DB Cluster.
         :param pulumi.Input[builtins.str] rds_resource_id: Identifier representing the DB Instance or DB Cluster target.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_arn: Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
         :param pulumi.Input[builtins.str] target_group_name: The name of the target group.
         :param pulumi.Input[builtins.str] tracked_cluster_id: DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
@@ -131,6 +149,8 @@ class _ProxyTargetState:
             pulumi.set(__self__, "port", port)
         if rds_resource_id is not None:
             pulumi.set(__self__, "rds_resource_id", rds_resource_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if target_arn is not None:
             pulumi.set(__self__, "target_arn", target_arn)
         if target_group_name is not None:
@@ -215,6 +235,18 @@ class _ProxyTargetState:
         pulumi.set(self, "rds_resource_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -272,6 +304,7 @@ class ProxyTarget(pulumi.CustomResource):
                  db_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  db_instance_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  db_proxy_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -341,6 +374,7 @@ class ProxyTarget(pulumi.CustomResource):
                **NOTE:** Either `db_instance_identifier` or `db_cluster_identifier` should be specified and both should not be specified together
         :param pulumi.Input[builtins.str] db_instance_identifier: DB instance identifier.
         :param pulumi.Input[builtins.str] db_proxy_name: The name of the DB proxy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_group_name: The name of the target group.
         """
         ...
@@ -427,6 +461,7 @@ class ProxyTarget(pulumi.CustomResource):
                  db_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  db_instance_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  db_proxy_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -442,6 +477,7 @@ class ProxyTarget(pulumi.CustomResource):
             if db_proxy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'db_proxy_name'")
             __props__.__dict__["db_proxy_name"] = db_proxy_name
+            __props__.__dict__["region"] = region
             if target_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'target_group_name'")
             __props__.__dict__["target_group_name"] = target_group_name
@@ -467,6 +503,7 @@ class ProxyTarget(pulumi.CustomResource):
             endpoint: Optional[pulumi.Input[builtins.str]] = None,
             port: Optional[pulumi.Input[builtins.int]] = None,
             rds_resource_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             target_arn: Optional[pulumi.Input[builtins.str]] = None,
             target_group_name: Optional[pulumi.Input[builtins.str]] = None,
             tracked_cluster_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -486,6 +523,7 @@ class ProxyTarget(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] endpoint: Hostname for the target RDS DB Instance. Only returned for `RDS_INSTANCE` type.
         :param pulumi.Input[builtins.int] port: Port for the target RDS DB Instance or Aurora DB Cluster.
         :param pulumi.Input[builtins.str] rds_resource_id: Identifier representing the DB Instance or DB Cluster target.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_arn: Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
         :param pulumi.Input[builtins.str] target_group_name: The name of the target group.
         :param pulumi.Input[builtins.str] tracked_cluster_id: DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
@@ -501,6 +539,7 @@ class ProxyTarget(pulumi.CustomResource):
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["port"] = port
         __props__.__dict__["rds_resource_id"] = rds_resource_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["target_arn"] = target_arn
         __props__.__dict__["target_group_name"] = target_group_name
         __props__.__dict__["tracked_cluster_id"] = tracked_cluster_id
@@ -556,6 +595,14 @@ class ProxyTarget(pulumi.CustomResource):
         Identifier representing the DB Instance or DB Cluster target.
         """
         return pulumi.get(self, "rds_resource_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="targetArn")

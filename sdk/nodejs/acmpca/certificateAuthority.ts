@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {
+ * const example = new aws.s3.Bucket("example", {
  *     bucket: "example",
  *     forceDestroy: true,
  * });
@@ -181,6 +181,10 @@ export class CertificateAuthority extends pulumi.CustomResource {
      */
     public readonly permanentDeletionTimeInDays!: pulumi.Output<number | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Nested argument containing revocation configuration. Defined below.
      */
     public readonly revocationConfiguration!: pulumi.Output<outputs.acmpca.CertificateAuthorityRevocationConfiguration | undefined>;
@@ -194,8 +198,6 @@ export class CertificateAuthority extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -230,6 +232,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
             resourceInputs["notAfter"] = state ? state.notAfter : undefined;
             resourceInputs["notBefore"] = state ? state.notBefore : undefined;
             resourceInputs["permanentDeletionTimeInDays"] = state ? state.permanentDeletionTimeInDays : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["revocationConfiguration"] = state ? state.revocationConfiguration : undefined;
             resourceInputs["serial"] = state ? state.serial : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -245,6 +248,7 @@ export class CertificateAuthority extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["keyStorageSecurityStandard"] = args ? args.keyStorageSecurityStandard : undefined;
             resourceInputs["permanentDeletionTimeInDays"] = args ? args.permanentDeletionTimeInDays : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["revocationConfiguration"] = args ? args.revocationConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -308,6 +312,10 @@ export interface CertificateAuthorityState {
      */
     permanentDeletionTimeInDays?: pulumi.Input<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Nested argument containing revocation configuration. Defined below.
      */
     revocationConfiguration?: pulumi.Input<inputs.acmpca.CertificateAuthorityRevocationConfiguration>;
@@ -321,8 +329,6 @@ export interface CertificateAuthorityState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -355,6 +361,10 @@ export interface CertificateAuthorityArgs {
      * Number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
      */
     permanentDeletionTimeInDays?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Nested argument containing revocation configuration. Defined below.
      */

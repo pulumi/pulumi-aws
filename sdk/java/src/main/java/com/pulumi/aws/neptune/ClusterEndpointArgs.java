@@ -79,6 +79,21 @@ public final class ClusterEndpointArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * List of DB instance identifiers that are part of the custom endpoint group.
      * 
      */
@@ -115,6 +130,7 @@ public final class ClusterEndpointArgs extends com.pulumi.resources.ResourceArgs
         this.clusterIdentifier = $.clusterIdentifier;
         this.endpointType = $.endpointType;
         this.excludedMembers = $.excludedMembers;
+        this.region = $.region;
         this.staticMembers = $.staticMembers;
         this.tags = $.tags;
     }
@@ -229,6 +245,27 @@ public final class ClusterEndpointArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder excludedMembers(String... excludedMembers) {
             return excludedMembers(List.of(excludedMembers));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -24,16 +24,20 @@ class DirectoryBucketAccessPointScopeArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[builtins.str],
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scope: Optional[pulumi.Input['DirectoryBucketAccessPointScopeScopeArgs']] = None):
         """
         The set of arguments for constructing a DirectoryBucketAccessPointScope resource.
         :param pulumi.Input[builtins.str] account_id: The AWS account ID that owns the specified access point.
         :param pulumi.Input[builtins.str] name: The name of the access point that you want to apply the scope to.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DirectoryBucketAccessPointScopeScopeArgs'] scope: . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
         """
         pulumi.set(__self__, "account_id", account_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
 
@@ -63,6 +67,18 @@ class DirectoryBucketAccessPointScopeArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def scope(self) -> Optional[pulumi.Input['DirectoryBucketAccessPointScopeScopeArgs']]:
         """
         . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
@@ -79,17 +95,21 @@ class _DirectoryBucketAccessPointScopeState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scope: Optional[pulumi.Input['DirectoryBucketAccessPointScopeScopeArgs']] = None):
         """
         Input properties used for looking up and filtering DirectoryBucketAccessPointScope resources.
         :param pulumi.Input[builtins.str] account_id: The AWS account ID that owns the specified access point.
         :param pulumi.Input[builtins.str] name: The name of the access point that you want to apply the scope to.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DirectoryBucketAccessPointScopeScopeArgs'] scope: . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
 
@@ -119,6 +139,18 @@ class _DirectoryBucketAccessPointScopeState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def scope(self) -> Optional[pulumi.Input['DirectoryBucketAccessPointScopeScopeArgs']]:
         """
         . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
@@ -138,6 +170,7 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scope: Optional[pulumi.Input[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict']]] = None,
                  __props__=None):
         """
@@ -185,6 +218,7 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_id: The AWS account ID that owns the specified access point.
         :param pulumi.Input[builtins.str] name: The name of the access point that you want to apply the scope to.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict']] scope: . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
         """
         ...
@@ -251,6 +285,7 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scope: Optional[pulumi.Input[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -265,6 +300,7 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_id'")
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["scope"] = scope
         super(DirectoryBucketAccessPointScope, __self__).__init__(
             'aws:s3control/directoryBucketAccessPointScope:DirectoryBucketAccessPointScope',
@@ -278,6 +314,7 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             scope: Optional[pulumi.Input[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict']]] = None) -> 'DirectoryBucketAccessPointScope':
         """
         Get an existing DirectoryBucketAccessPointScope resource's state with the given name, id, and optional extra
@@ -288,6 +325,7 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_id: The AWS account ID that owns the specified access point.
         :param pulumi.Input[builtins.str] name: The name of the access point that you want to apply the scope to.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DirectoryBucketAccessPointScopeScopeArgs', 'DirectoryBucketAccessPointScopeScopeArgsDict']] scope: . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -296,6 +334,7 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
 
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["scope"] = scope
         return DirectoryBucketAccessPointScope(resource_name, opts=opts, __props__=__props__)
 
@@ -314,6 +353,14 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
         The name of the access point that you want to apply the scope to.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

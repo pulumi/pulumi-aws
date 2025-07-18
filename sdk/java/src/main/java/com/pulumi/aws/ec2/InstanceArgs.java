@@ -83,8 +83,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
      * 
-     * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
-     * 
      */
     @Import(name="capacityReservationSpecification")
     private @Nullable Output<InstanceCapacityReservationSpecificationArgs> capacityReservationSpecification;
@@ -92,34 +90,9 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
      * 
-     * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
-     * 
      */
     public Optional<Output<InstanceCapacityReservationSpecificationArgs>> capacityReservationSpecification() {
         return Optional.ofNullable(this.capacityReservationSpecification);
-    }
-
-    /**
-     * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-     * 
-     * @deprecated
-     * cpu_core_count is deprecated. Use cpu_options instead.
-     * 
-     */
-    @Deprecated /* cpu_core_count is deprecated. Use cpu_options instead. */
-    @Import(name="cpuCoreCount")
-    private @Nullable Output<Integer> cpuCoreCount;
-
-    /**
-     * @return Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-     * 
-     * @deprecated
-     * cpu_core_count is deprecated. Use cpu_options instead.
-     * 
-     */
-    @Deprecated /* cpu_core_count is deprecated. Use cpu_options instead. */
-    public Optional<Output<Integer>> cpuCoreCount() {
-        return Optional.ofNullable(this.cpuCoreCount);
     }
 
     /**
@@ -135,29 +108,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<InstanceCpuOptionsArgs>> cpuOptions() {
         return Optional.ofNullable(this.cpuOptions);
-    }
-
-    /**
-     * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-     * 
-     * @deprecated
-     * cpu_threads_per_core is deprecated. Use cpu_options instead.
-     * 
-     */
-    @Deprecated /* cpu_threads_per_core is deprecated. Use cpu_options instead. */
-    @Import(name="cpuThreadsPerCore")
-    private @Nullable Output<Integer> cpuThreadsPerCore;
-
-    /**
-     * @return If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-     * 
-     * @deprecated
-     * cpu_threads_per_core is deprecated. Use cpu_options instead.
-     * 
-     */
-    @Deprecated /* cpu_threads_per_core is deprecated. Use cpu_options instead. */
-    public Optional<Output<Integer>> cpuThreadsPerCore() {
-        return Optional.ofNullable(this.cpuThreadsPerCore);
     }
 
     /**
@@ -581,6 +531,21 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      * 
      */
@@ -783,9 +748,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         this.associatePublicIpAddress = $.associatePublicIpAddress;
         this.availabilityZone = $.availabilityZone;
         this.capacityReservationSpecification = $.capacityReservationSpecification;
-        this.cpuCoreCount = $.cpuCoreCount;
         this.cpuOptions = $.cpuOptions;
-        this.cpuThreadsPerCore = $.cpuThreadsPerCore;
         this.creditSpecification = $.creditSpecification;
         this.disableApiStop = $.disableApiStop;
         this.disableApiTermination = $.disableApiTermination;
@@ -814,6 +777,7 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         this.placementPartitionNumber = $.placementPartitionNumber;
         this.privateDnsNameOptions = $.privateDnsNameOptions;
         this.privateIp = $.privateIp;
+        this.region = $.region;
         this.rootBlockDevice = $.rootBlockDevice;
         this.secondaryPrivateIps = $.secondaryPrivateIps;
         this.securityGroups = $.securityGroups;
@@ -912,8 +876,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param capacityReservationSpecification Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
          * 
-         * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
-         * 
          * @return builder
          * 
          */
@@ -925,42 +887,11 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param capacityReservationSpecification Describes an instance&#39;s Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
          * 
-         * &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
-         * 
          * @return builder
          * 
          */
         public Builder capacityReservationSpecification(InstanceCapacityReservationSpecificationArgs capacityReservationSpecification) {
             return capacityReservationSpecification(Output.of(capacityReservationSpecification));
-        }
-
-        /**
-         * @param cpuCoreCount Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * cpu_core_count is deprecated. Use cpu_options instead.
-         * 
-         */
-        @Deprecated /* cpu_core_count is deprecated. Use cpu_options instead. */
-        public Builder cpuCoreCount(@Nullable Output<Integer> cpuCoreCount) {
-            $.cpuCoreCount = cpuCoreCount;
-            return this;
-        }
-
-        /**
-         * @param cpuCoreCount Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * cpu_core_count is deprecated. Use cpu_options instead.
-         * 
-         */
-        @Deprecated /* cpu_core_count is deprecated. Use cpu_options instead. */
-        public Builder cpuCoreCount(Integer cpuCoreCount) {
-            return cpuCoreCount(Output.of(cpuCoreCount));
         }
 
         /**
@@ -982,35 +913,6 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder cpuOptions(InstanceCpuOptionsArgs cpuOptions) {
             return cpuOptions(Output.of(cpuOptions));
-        }
-
-        /**
-         * @param cpuThreadsPerCore If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * cpu_threads_per_core is deprecated. Use cpu_options instead.
-         * 
-         */
-        @Deprecated /* cpu_threads_per_core is deprecated. Use cpu_options instead. */
-        public Builder cpuThreadsPerCore(@Nullable Output<Integer> cpuThreadsPerCore) {
-            $.cpuThreadsPerCore = cpuThreadsPerCore;
-            return this;
-        }
-
-        /**
-         * @param cpuThreadsPerCore If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * cpu_threads_per_core is deprecated. Use cpu_options instead.
-         * 
-         */
-        @Deprecated /* cpu_threads_per_core is deprecated. Use cpu_options instead. */
-        public Builder cpuThreadsPerCore(Integer cpuThreadsPerCore) {
-            return cpuThreadsPerCore(Output.of(cpuThreadsPerCore));
         }
 
         /**
@@ -1659,6 +1561,27 @@ public final class InstanceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder privateIp(String privateIp) {
             return privateIp(Output.of(privateIp));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

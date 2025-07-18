@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,6 +26,8 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 type LookupClusterArgs struct {
 	// Cluster identifier
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags associated to the cluster
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -104,7 +106,8 @@ type LookupClusterResult struct {
 	// The maintenance window
 	PreferredMaintenanceWindow string `pulumi:"preferredMaintenanceWindow"`
 	// Whether the cluster is publicly accessible
-	PubliclyAccessible bool `pulumi:"publiclyAccessible"`
+	PubliclyAccessible bool   `pulumi:"publiclyAccessible"`
+	Region             string `pulumi:"region"`
 	// Folder inside the S3 bucket where the log files are stored
 	S3KeyPrefix string `pulumi:"s3KeyPrefix"`
 	// Tags associated to the cluster
@@ -128,6 +131,8 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 type LookupClusterOutputArgs struct {
 	// Cluster identifier
 	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags associated to the cluster
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -333,6 +338,10 @@ func (o LookupClusterResultOutput) PreferredMaintenanceWindow() pulumi.StringOut
 // Whether the cluster is publicly accessible
 func (o LookupClusterResultOutput) PubliclyAccessible() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.PubliclyAccessible }).(pulumi.BoolOutput)
+}
+
+func (o LookupClusterResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Folder inside the S3 bucket where the log files are stored

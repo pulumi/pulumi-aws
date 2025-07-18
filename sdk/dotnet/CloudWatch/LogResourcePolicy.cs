@@ -136,6 +136,12 @@ namespace Pulumi.Aws.CloudWatch
         [Output("policyName")]
         public Output<string> PolicyName { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a LogResourcePolicy resource with the given unique name, arguments, and options.
@@ -186,13 +192,19 @@ namespace Pulumi.Aws.CloudWatch
         /// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
         /// </summary>
         [Input("policyDocument", required: true)]
-        public Input<string> PolicyDocument { get; set; } = null!;
+        public InputUnion<string, Inputs.PolicyDocumentArgs> PolicyDocument { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource policy.
         /// </summary>
         [Input("policyName", required: true)]
         public Input<string> PolicyName { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public LogResourcePolicyArgs()
         {
@@ -206,13 +218,19 @@ namespace Pulumi.Aws.CloudWatch
         /// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
         /// </summary>
         [Input("policyDocument")]
-        public Input<string>? PolicyDocument { get; set; }
+        public InputUnion<string, Inputs.PolicyDocumentGetArgs>? PolicyDocument { get; set; }
 
         /// <summary>
         /// Name of the resource policy.
         /// </summary>
         [Input("policyName")]
         public Input<string>? PolicyName { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public LogResourcePolicyState()
         {

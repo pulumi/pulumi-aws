@@ -30,8 +30,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.LogGroup;
  * import com.pulumi.aws.cloudwatch.LogGroupArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicy;
  * import com.pulumi.aws.cloudwatch.LogDataProtectionPolicyArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -52,13 +52,13 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .build());
  * 
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
+ *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
  *             .bucket("example")
  *             .build());
  * 
  *         var exampleLogDataProtectionPolicy = new LogDataProtectionPolicy("exampleLogDataProtectionPolicy", LogDataProtectionPolicyArgs.builder()
  *             .logGroupName(example.name())
- *             .policyDocument(exampleBucketV2.bucket().applyValue(_bucket -> serializeJson(
+ *             .policyDocument(exampleBucket.bucket().applyValue(_bucket -> serializeJson(
  *                 jsonObject(
  *                     jsonProperty("Name", "Example"),
  *                     jsonProperty("Version", "2021-06-01"),
@@ -135,6 +135,20 @@ public class LogDataProtectionPolicy extends com.pulumi.resources.CustomResource
      */
     public Output<String> policyDocument() {
         return this.policyDocument;
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
 
     /**

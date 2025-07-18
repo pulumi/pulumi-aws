@@ -60,6 +60,10 @@ export class DelegatedAdminAccount extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Status of this delegated admin account.
      */
     public /*out*/ readonly relationshipStatus!: pulumi.Output<string>;
@@ -78,6 +82,7 @@ export class DelegatedAdminAccount extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DelegatedAdminAccountState | undefined;
             resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["relationshipStatus"] = state ? state.relationshipStatus : undefined;
         } else {
             const args = argsOrState as DelegatedAdminAccountArgs | undefined;
@@ -85,6 +90,7 @@ export class DelegatedAdminAccount extends pulumi.CustomResource {
                 throw new Error("Missing required property 'accountId'");
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["relationshipStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -101,6 +107,10 @@ export interface DelegatedAdminAccountState {
      */
     accountId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Status of this delegated admin account.
      */
     relationshipStatus?: pulumi.Input<string>;
@@ -114,4 +124,8 @@ export interface DelegatedAdminAccountArgs {
      * Account to enable as delegated admin account.
      */
     accountId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

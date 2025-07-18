@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/oam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/oam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupSink(ctx *pulumi.Context, args *LookupSinkArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getSink.
 type LookupSinkArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the sink.
 	SinkIdentifier string `pulumi:"sinkIdentifier"`
 	// Tags assigned to the sink.
@@ -65,7 +67,8 @@ type LookupSinkResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Name of the sink.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Random ID string that AWS generated as part of the sink ARN.
 	SinkId         string `pulumi:"sinkId"`
 	SinkIdentifier string `pulumi:"sinkIdentifier"`
@@ -84,6 +87,8 @@ func LookupSinkOutput(ctx *pulumi.Context, args LookupSinkOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getSink.
 type LookupSinkOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ARN of the sink.
 	SinkIdentifier pulumi.StringInput `pulumi:"sinkIdentifier"`
 	// Tags assigned to the sink.
@@ -122,6 +127,10 @@ func (o LookupSinkResultOutput) Id() pulumi.StringOutput {
 // Name of the sink.
 func (o LookupSinkResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSinkResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupSinkResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSinkResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Random ID string that AWS generated as part of the sink ARN.

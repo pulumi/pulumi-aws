@@ -50,6 +50,21 @@ public final class GetServiceQuotaPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      * 
      */
@@ -69,6 +84,7 @@ public final class GetServiceQuotaPlainArgs extends com.pulumi.resources.InvokeA
     private GetServiceQuotaPlainArgs(GetServiceQuotaPlainArgs $) {
         this.quotaCode = $.quotaCode;
         this.quotaName = $.quotaName;
+        this.region = $.region;
         this.serviceCode = $.serviceCode;
     }
 
@@ -111,6 +127,17 @@ public final class GetServiceQuotaPlainArgs extends com.pulumi.resources.InvokeA
          */
         public Builder quotaName(@Nullable String quotaName) {
             $.quotaName = quotaName;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

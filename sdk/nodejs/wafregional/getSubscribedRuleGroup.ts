@@ -39,6 +39,7 @@ export function getSubscribedRuleGroup(args?: GetSubscribedRuleGroupArgs, opts?:
     return pulumi.runtime.invoke("aws:wafregional/getSubscribedRuleGroup:getSubscribedRuleGroup", {
         "metricName": args.metricName,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -56,6 +57,10 @@ export interface GetSubscribedRuleGroupArgs {
      * Name of the WAF rule group.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -68,6 +73,7 @@ export interface GetSubscribedRuleGroupResult {
     readonly id: string;
     readonly metricName?: string;
     readonly name?: string;
+    readonly region: string;
 }
 /**
  * `aws.wafregional.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace for use in WAF Regional (needs to be subscribed to first).
@@ -104,6 +110,7 @@ export function getSubscribedRuleGroupOutput(args?: GetSubscribedRuleGroupOutput
     return pulumi.runtime.invokeOutput("aws:wafregional/getSubscribedRuleGroup:getSubscribedRuleGroup", {
         "metricName": args.metricName,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -121,4 +128,8 @@ export interface GetSubscribedRuleGroupOutputArgs {
      * Name of the WAF rule group.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

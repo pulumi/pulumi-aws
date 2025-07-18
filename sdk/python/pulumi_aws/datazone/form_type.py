@@ -27,6 +27,7 @@ class FormTypeArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  model: Optional[pulumi.Input['FormTypeModelArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['FormTypeTimeoutsArgs']] = None):
         """
@@ -36,6 +37,7 @@ class FormTypeArgs:
         :param pulumi.Input[builtins.str] description: Description of form type. Must have a length of between 1 and 2048 characters.
         :param pulumi.Input['FormTypeModelArgs'] model: Object of the model of the form type that contains the following attributes.
         :param pulumi.Input[builtins.str] name: Name of the form type. Must be the name of the structure in smithy document.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         pulumi.set(__self__, "owning_project_identifier", owning_project_identifier)
@@ -45,6 +47,8 @@ class FormTypeArgs:
             pulumi.set(__self__, "model", model)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if timeouts is not None:
@@ -112,6 +116,18 @@ class FormTypeArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "status")
 
@@ -142,6 +158,7 @@ class _FormTypeState:
                  origin_domain_id: Optional[pulumi.Input[builtins.str]] = None,
                  origin_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  owning_project_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  revision: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['FormTypeTimeoutsArgs']] = None):
@@ -156,6 +173,7 @@ class _FormTypeState:
         :param pulumi.Input[builtins.str] origin_domain_id: Origin domain id of the Form Type.
         :param pulumi.Input[builtins.str] origin_project_id: Origin project id of the Form Type.
         :param pulumi.Input[builtins.str] owning_project_identifier: Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] revision: Revision of the Form Type.
         """
         if created_at is not None:
@@ -178,6 +196,8 @@ class _FormTypeState:
             pulumi.set(__self__, "origin_project_id", origin_project_id)
         if owning_project_identifier is not None:
             pulumi.set(__self__, "owning_project_identifier", owning_project_identifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if revision is not None:
             pulumi.set(__self__, "revision", revision)
         if status is not None:
@@ -304,6 +324,18 @@ class _FormTypeState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def revision(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Revision of the Form Type.
@@ -344,6 +376,7 @@ class FormType(pulumi.CustomResource):
                  model: Optional[pulumi.Input[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owning_project_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['FormTypeTimeoutsArgs', 'FormTypeTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -449,6 +482,7 @@ class FormType(pulumi.CustomResource):
         :param pulumi.Input[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']] model: Object of the model of the form type that contains the following attributes.
         :param pulumi.Input[builtins.str] name: Name of the form type. Must be the name of the structure in smithy document.
         :param pulumi.Input[builtins.str] owning_project_identifier: Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -571,6 +605,7 @@ class FormType(pulumi.CustomResource):
                  model: Optional[pulumi.Input[Union['FormTypeModelArgs', 'FormTypeModelArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owning_project_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['FormTypeTimeoutsArgs', 'FormTypeTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -591,6 +626,7 @@ class FormType(pulumi.CustomResource):
             if owning_project_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'owning_project_identifier'")
             __props__.__dict__["owning_project_identifier"] = owning_project_identifier
+            __props__.__dict__["region"] = region
             __props__.__dict__["status"] = status
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["created_at"] = None
@@ -619,6 +655,7 @@ class FormType(pulumi.CustomResource):
             origin_domain_id: Optional[pulumi.Input[builtins.str]] = None,
             origin_project_id: Optional[pulumi.Input[builtins.str]] = None,
             owning_project_identifier: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             revision: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             timeouts: Optional[pulumi.Input[Union['FormTypeTimeoutsArgs', 'FormTypeTimeoutsArgsDict']]] = None) -> 'FormType':
@@ -638,6 +675,7 @@ class FormType(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] origin_domain_id: Origin domain id of the Form Type.
         :param pulumi.Input[builtins.str] origin_project_id: Origin project id of the Form Type.
         :param pulumi.Input[builtins.str] owning_project_identifier: Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] revision: Revision of the Form Type.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -654,6 +692,7 @@ class FormType(pulumi.CustomResource):
         __props__.__dict__["origin_domain_id"] = origin_domain_id
         __props__.__dict__["origin_project_id"] = origin_project_id
         __props__.__dict__["owning_project_identifier"] = owning_project_identifier
+        __props__.__dict__["region"] = region
         __props__.__dict__["revision"] = revision
         __props__.__dict__["status"] = status
         __props__.__dict__["timeouts"] = timeouts
@@ -735,6 +774,14 @@ class FormType(pulumi.CustomResource):
         Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
         """
         return pulumi.get(self, "owning_project_identifier")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

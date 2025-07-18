@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,6 +87,8 @@ type AccountSubscription struct {
 	ReaderGroups pulumi.StringArrayOutput `pulumi:"readerGroups"`
 	// Realm of the Active Directory that is associated with your Amazon QuickSight account.
 	Realm pulumi.StringPtrOutput `pulumi:"realm"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAccountSubscription registers a new resource with the given unique name, arguments, and options.
@@ -167,6 +169,8 @@ type accountSubscriptionState struct {
 	ReaderGroups []string `pulumi:"readerGroups"`
 	// Realm of the Active Directory that is associated with your Amazon QuickSight account.
 	Realm *string `pulumi:"realm"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type AccountSubscriptionState struct {
@@ -206,6 +210,8 @@ type AccountSubscriptionState struct {
 	ReaderGroups pulumi.StringArrayInput
 	// Realm of the Active Directory that is associated with your Amazon QuickSight account.
 	Realm pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AccountSubscriptionState) ElementType() reflect.Type {
@@ -247,6 +253,8 @@ type accountSubscriptionArgs struct {
 	ReaderGroups []string `pulumi:"readerGroups"`
 	// Realm of the Active Directory that is associated with your Amazon QuickSight account.
 	Realm *string `pulumi:"realm"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AccountSubscription resource.
@@ -285,6 +293,8 @@ type AccountSubscriptionArgs struct {
 	ReaderGroups pulumi.StringArrayInput
 	// Realm of the Active Directory that is associated with your Amazon QuickSight account.
 	Realm pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AccountSubscriptionArgs) ElementType() reflect.Type {
@@ -459,6 +469,11 @@ func (o AccountSubscriptionOutput) ReaderGroups() pulumi.StringArrayOutput {
 // Realm of the Active Directory that is associated with your Amazon QuickSight account.
 func (o AccountSubscriptionOutput) Realm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringPtrOutput { return v.Realm }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AccountSubscriptionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccountSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type AccountSubscriptionArrayOutput struct{ *pulumi.OutputState }

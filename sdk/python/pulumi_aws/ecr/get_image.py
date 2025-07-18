@@ -27,7 +27,7 @@ class GetImageResult:
     """
     A collection of values returned by getImage.
     """
-    def __init__(__self__, id=None, image_digest=None, image_pushed_at=None, image_size_in_bytes=None, image_tag=None, image_tags=None, image_uri=None, most_recent=None, registry_id=None, repository_name=None):
+    def __init__(__self__, id=None, image_digest=None, image_pushed_at=None, image_size_in_bytes=None, image_tag=None, image_tags=None, image_uri=None, most_recent=None, region=None, registry_id=None, repository_name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -52,6 +52,9 @@ class GetImageResult:
         if most_recent and not isinstance(most_recent, bool):
             raise TypeError("Expected argument 'most_recent' to be a bool")
         pulumi.set(__self__, "most_recent", most_recent)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if registry_id and not isinstance(registry_id, str):
             raise TypeError("Expected argument 'registry_id' to be a str")
         pulumi.set(__self__, "registry_id", registry_id)
@@ -115,6 +118,11 @@ class GetImageResult:
         return pulumi.get(self, "most_recent")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> builtins.str:
         return pulumi.get(self, "registry_id")
@@ -139,6 +147,7 @@ class AwaitableGetImageResult(GetImageResult):
             image_tags=self.image_tags,
             image_uri=self.image_uri,
             most_recent=self.most_recent,
+            region=self.region,
             registry_id=self.registry_id,
             repository_name=self.repository_name)
 
@@ -146,6 +155,7 @@ class AwaitableGetImageResult(GetImageResult):
 def get_image(image_digest: Optional[builtins.str] = None,
               image_tag: Optional[builtins.str] = None,
               most_recent: Optional[builtins.bool] = None,
+              region: Optional[builtins.str] = None,
               registry_id: Optional[builtins.str] = None,
               repository_name: Optional[builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
@@ -166,6 +176,7 @@ def get_image(image_digest: Optional[builtins.str] = None,
     :param builtins.str image_digest: Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
     :param builtins.str image_tag: Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
     :param builtins.bool most_recent: Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str registry_id: ID of the Registry where the repository resides.
     :param builtins.str repository_name: Name of the ECR Repository.
     """
@@ -173,6 +184,7 @@ def get_image(image_digest: Optional[builtins.str] = None,
     __args__['imageDigest'] = image_digest
     __args__['imageTag'] = image_tag
     __args__['mostRecent'] = most_recent
+    __args__['region'] = region
     __args__['registryId'] = registry_id
     __args__['repositoryName'] = repository_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -187,11 +199,13 @@ def get_image(image_digest: Optional[builtins.str] = None,
         image_tags=pulumi.get(__ret__, 'image_tags'),
         image_uri=pulumi.get(__ret__, 'image_uri'),
         most_recent=pulumi.get(__ret__, 'most_recent'),
+        region=pulumi.get(__ret__, 'region'),
         registry_id=pulumi.get(__ret__, 'registry_id'),
         repository_name=pulumi.get(__ret__, 'repository_name'))
 def get_image_output(image_digest: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      image_tag: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      most_recent: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      registry_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      repository_name: Optional[pulumi.Input[builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
@@ -212,6 +226,7 @@ def get_image_output(image_digest: Optional[pulumi.Input[Optional[builtins.str]]
     :param builtins.str image_digest: Sha256 digest of the image manifest. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
     :param builtins.str image_tag: Tag associated with this image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
     :param builtins.bool most_recent: Return the most recently pushed image. At least one of `image_digest`, `image_tag`, or `most_recent` must be specified.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str registry_id: ID of the Registry where the repository resides.
     :param builtins.str repository_name: Name of the ECR Repository.
     """
@@ -219,6 +234,7 @@ def get_image_output(image_digest: Optional[pulumi.Input[Optional[builtins.str]]
     __args__['imageDigest'] = image_digest
     __args__['imageTag'] = image_tag
     __args__['mostRecent'] = most_recent
+    __args__['region'] = region
     __args__['registryId'] = registry_id
     __args__['repositoryName'] = repository_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -232,5 +248,6 @@ def get_image_output(image_digest: Optional[pulumi.Input[Optional[builtins.str]]
         image_tags=pulumi.get(__response__, 'image_tags'),
         image_uri=pulumi.get(__response__, 'image_uri'),
         most_recent=pulumi.get(__response__, 'most_recent'),
+        region=pulumi.get(__response__, 'region'),
         registry_id=pulumi.get(__response__, 'registry_id'),
         repository_name=pulumi.get(__response__, 'repository_name')))

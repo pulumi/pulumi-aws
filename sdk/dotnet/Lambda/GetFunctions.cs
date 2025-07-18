@@ -12,9 +12,11 @@ namespace Pulumi.Aws.Lambda
     public static class GetFunctions
     {
         /// <summary>
-        /// Data resource to get a list of Lambda Functions.
+        /// Provides a list of AWS Lambda Functions in the current region. Use this data source to discover existing Lambda functions for inventory, monitoring, or bulk operations.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### List All Functions
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -26,16 +28,110 @@ namespace Pulumi.Aws.Lambda
         /// {
         ///     var all = Aws.Lambda.GetFunctions.Invoke();
         /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["functionCount"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length,
+        ///         ["allFunctionNames"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Use Function List for Bulk Operations
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get all Lambda functions
+        ///     var all = Aws.Lambda.GetFunctions.Invoke();
+        /// 
+        ///     // Create CloudWatch alarms for all functions
+        ///     var lambdaErrors = new List&lt;Aws.CloudWatch.MetricAlarm&gt;();
+        ///     for (var rangeIndex = 0; rangeIndex &lt; all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length; rangeIndex++)
+        ///     {
+        ///         var range = new { Value = rangeIndex };
+        ///         lambdaErrors.Add(new Aws.CloudWatch.MetricAlarm($"lambda_errors-{range.Value}", new()
+        ///         {
+        ///             Name = $"{all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value]}-errors",
+        ///             ComparisonOperator = "GreaterThanThreshold",
+        ///             EvaluationPeriods = 2,
+        ///             MetricName = "Errors",
+        ///             Namespace = "AWS/Lambda",
+        ///             Period = 300,
+        ///             Statistic = "Sum",
+        ///             Threshold = 5,
+        ///             AlarmDescription = "This metric monitors lambda errors",
+        ///             Dimensions = 
+        ///             {
+        ///                 { "FunctionName", all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value] },
+        ///             },
+        ///             Tags = 
+        ///             {
+        ///                 { "Environment", "monitoring" },
+        ///                 { "Purpose", "lambda-error-tracking" },
+        ///             },
+        ///         }));
+        ///     }
+        /// });
+        /// ```
+        /// 
+        /// ### Create Function Inventory
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var all = Aws.Lambda.GetFunctions.Invoke();
+        /// 
+        ///     // Get detailed information for each function
+        ///     var details = ;
+        /// 
+        ///     var functionInventory = Output.Tuple(all, all, details, details, details, details).Apply(values =&gt;
+        ///     {
+        ///         var all = values.Item1;
+        ///         var all1 = values.Item2;
+        ///         var details = values.Item3;
+        ///         var details1 = values.Item4;
+        ///         var details2 = values.Item5;
+        ///         var details3 = values.Item6;
+        ///         return .Select(name =&gt; 
+        ///         {
+        ///             return 
+        ///             {
+        ///                 { "name", name },
+        ///                 { "arn", all1.FunctionArns[i] },
+        ///                 { "runtime", details[i].Runtime },
+        ///                 { "memorySize", details1[i].MemorySize },
+        ///                 { "timeout", details2[i].Timeout },
+        ///                 { "handler", details3[i].Handler },
+        ///             };
+        ///         }).ToList();
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["functionInventory"] = functionInventory,
+        ///     };
         /// });
         /// ```
         /// </summary>
-        public static Task<GetFunctionsResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionsResult>("aws:lambda/getFunctions:getFunctions", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetFunctionsResult> InvokeAsync(GetFunctionsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFunctionsResult>("aws:lambda/getFunctions:getFunctions", args ?? new GetFunctionsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data resource to get a list of Lambda Functions.
+        /// Provides a list of AWS Lambda Functions in the current region. Use this data source to discover existing Lambda functions for inventory, monitoring, or bulk operations.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### List All Functions
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -47,16 +143,110 @@ namespace Pulumi.Aws.Lambda
         /// {
         ///     var all = Aws.Lambda.GetFunctions.Invoke();
         /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["functionCount"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length,
+        ///         ["allFunctionNames"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Use Function List for Bulk Operations
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get all Lambda functions
+        ///     var all = Aws.Lambda.GetFunctions.Invoke();
+        /// 
+        ///     // Create CloudWatch alarms for all functions
+        ///     var lambdaErrors = new List&lt;Aws.CloudWatch.MetricAlarm&gt;();
+        ///     for (var rangeIndex = 0; rangeIndex &lt; all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length; rangeIndex++)
+        ///     {
+        ///         var range = new { Value = rangeIndex };
+        ///         lambdaErrors.Add(new Aws.CloudWatch.MetricAlarm($"lambda_errors-{range.Value}", new()
+        ///         {
+        ///             Name = $"{all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value]}-errors",
+        ///             ComparisonOperator = "GreaterThanThreshold",
+        ///             EvaluationPeriods = 2,
+        ///             MetricName = "Errors",
+        ///             Namespace = "AWS/Lambda",
+        ///             Period = 300,
+        ///             Statistic = "Sum",
+        ///             Threshold = 5,
+        ///             AlarmDescription = "This metric monitors lambda errors",
+        ///             Dimensions = 
+        ///             {
+        ///                 { "FunctionName", all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value] },
+        ///             },
+        ///             Tags = 
+        ///             {
+        ///                 { "Environment", "monitoring" },
+        ///                 { "Purpose", "lambda-error-tracking" },
+        ///             },
+        ///         }));
+        ///     }
+        /// });
+        /// ```
+        /// 
+        /// ### Create Function Inventory
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var all = Aws.Lambda.GetFunctions.Invoke();
+        /// 
+        ///     // Get detailed information for each function
+        ///     var details = ;
+        /// 
+        ///     var functionInventory = Output.Tuple(all, all, details, details, details, details).Apply(values =&gt;
+        ///     {
+        ///         var all = values.Item1;
+        ///         var all1 = values.Item2;
+        ///         var details = values.Item3;
+        ///         var details1 = values.Item4;
+        ///         var details2 = values.Item5;
+        ///         var details3 = values.Item6;
+        ///         return .Select(name =&gt; 
+        ///         {
+        ///             return 
+        ///             {
+        ///                 { "name", name },
+        ///                 { "arn", all1.FunctionArns[i] },
+        ///                 { "runtime", details[i].Runtime },
+        ///                 { "memorySize", details1[i].MemorySize },
+        ///                 { "timeout", details2[i].Timeout },
+        ///                 { "handler", details3[i].Handler },
+        ///             };
+        ///         }).ToList();
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["functionInventory"] = functionInventory,
+        ///     };
         /// });
         /// ```
         /// </summary>
-        public static Output<GetFunctionsResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetFunctionsResult>("aws:lambda/getFunctions:getFunctions", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetFunctionsResult> Invoke(GetFunctionsInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFunctionsResult>("aws:lambda/getFunctions:getFunctions", args ?? new GetFunctionsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data resource to get a list of Lambda Functions.
+        /// Provides a list of AWS Lambda Functions in the current region. Use this data source to discover existing Lambda functions for inventory, monitoring, or bulk operations.
         /// 
         /// ## Example Usage
+        /// 
+        /// ### List All Functions
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -68,11 +258,132 @@ namespace Pulumi.Aws.Lambda
         /// {
         ///     var all = Aws.Lambda.GetFunctions.Invoke();
         /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["functionCount"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length,
+        ///         ["allFunctionNames"] = all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames),
+        ///     };
+        /// });
+        /// ```
+        /// 
+        /// ### Use Function List for Bulk Operations
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Get all Lambda functions
+        ///     var all = Aws.Lambda.GetFunctions.Invoke();
+        /// 
+        ///     // Create CloudWatch alarms for all functions
+        ///     var lambdaErrors = new List&lt;Aws.CloudWatch.MetricAlarm&gt;();
+        ///     for (var rangeIndex = 0; rangeIndex &lt; all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames).Length; rangeIndex++)
+        ///     {
+        ///         var range = new { Value = rangeIndex };
+        ///         lambdaErrors.Add(new Aws.CloudWatch.MetricAlarm($"lambda_errors-{range.Value}", new()
+        ///         {
+        ///             Name = $"{all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value]}-errors",
+        ///             ComparisonOperator = "GreaterThanThreshold",
+        ///             EvaluationPeriods = 2,
+        ///             MetricName = "Errors",
+        ///             Namespace = "AWS/Lambda",
+        ///             Period = 300,
+        ///             Statistic = "Sum",
+        ///             Threshold = 5,
+        ///             AlarmDescription = "This metric monitors lambda errors",
+        ///             Dimensions = 
+        ///             {
+        ///                 { "FunctionName", all.Apply(getFunctionsResult =&gt; getFunctionsResult.FunctionNames)[range.Value] },
+        ///             },
+        ///             Tags = 
+        ///             {
+        ///                 { "Environment", "monitoring" },
+        ///                 { "Purpose", "lambda-error-tracking" },
+        ///             },
+        ///         }));
+        ///     }
+        /// });
+        /// ```
+        /// 
+        /// ### Create Function Inventory
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var all = Aws.Lambda.GetFunctions.Invoke();
+        /// 
+        ///     // Get detailed information for each function
+        ///     var details = ;
+        /// 
+        ///     var functionInventory = Output.Tuple(all, all, details, details, details, details).Apply(values =&gt;
+        ///     {
+        ///         var all = values.Item1;
+        ///         var all1 = values.Item2;
+        ///         var details = values.Item3;
+        ///         var details1 = values.Item4;
+        ///         var details2 = values.Item5;
+        ///         var details3 = values.Item6;
+        ///         return .Select(name =&gt; 
+        ///         {
+        ///             return 
+        ///             {
+        ///                 { "name", name },
+        ///                 { "arn", all1.FunctionArns[i] },
+        ///                 { "runtime", details[i].Runtime },
+        ///                 { "memorySize", details1[i].MemorySize },
+        ///                 { "timeout", details2[i].Timeout },
+        ///                 { "handler", details3[i].Handler },
+        ///             };
+        ///         }).ToList();
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["functionInventory"] = functionInventory,
+        ///     };
         /// });
         /// ```
         /// </summary>
-        public static Output<GetFunctionsResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetFunctionsResult>("aws:lambda/getFunctions:getFunctions", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetFunctionsResult> Invoke(GetFunctionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFunctionsResult>("aws:lambda/getFunctions:getFunctions", args ?? new GetFunctionsInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetFunctionsArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetFunctionsArgs()
+        {
+        }
+        public static new GetFunctionsArgs Empty => new GetFunctionsArgs();
+    }
+
+    public sealed class GetFunctionsInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetFunctionsInvokeArgs()
+        {
+        }
+        public static new GetFunctionsInvokeArgs Empty => new GetFunctionsInvokeArgs();
     }
 
 
@@ -80,17 +391,18 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetFunctionsResult
     {
         /// <summary>
-        /// A list of Lambda Function ARNs.
+        /// List of Lambda Function ARNs.
         /// </summary>
         public readonly ImmutableArray<string> FunctionArns;
         /// <summary>
-        /// A list of Lambda Function names.
+        /// List of Lambda Function names.
         /// </summary>
         public readonly ImmutableArray<string> FunctionNames;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetFunctionsResult(
@@ -98,11 +410,14 @@ namespace Pulumi.Aws.Lambda
 
             ImmutableArray<string> functionNames,
 
-            string id)
+            string id,
+
+            string region)
         {
             FunctionArns = functionArns;
             FunctionNames = functionNames;
             Id = id;
+            Region = region;
         }
     }
 }

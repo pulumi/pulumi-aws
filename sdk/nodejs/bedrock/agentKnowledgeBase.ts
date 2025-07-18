@@ -144,6 +144,10 @@ export class AgentKnowledgeBase extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -159,8 +163,6 @@ export class AgentKnowledgeBase extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseTimeouts | undefined>;
@@ -188,6 +190,7 @@ export class AgentKnowledgeBase extends pulumi.CustomResource {
             resourceInputs["failureReasons"] = state ? state.failureReasons : undefined;
             resourceInputs["knowledgeBaseConfiguration"] = state ? state.knowledgeBaseConfiguration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["storageConfiguration"] = state ? state.storageConfiguration : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -202,6 +205,7 @@ export class AgentKnowledgeBase extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["knowledgeBaseConfiguration"] = args ? args.knowledgeBaseConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -243,6 +247,10 @@ export interface AgentKnowledgeBaseState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
      */
     roleArn?: pulumi.Input<string>;
@@ -258,8 +266,6 @@ export interface AgentKnowledgeBaseState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseTimeouts>;
@@ -285,6 +291,10 @@ export interface AgentKnowledgeBaseArgs {
      * Name of the knowledge base.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the IAM role with permissions to invoke API operations on the knowledge base.
      */

@@ -79,6 +79,10 @@ export class RegionSettings extends pulumi.CustomResource {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
      */
     public readonly resourceTypeManagementPreference!: pulumi.Output<{[key: string]: boolean}>;
@@ -100,6 +104,7 @@ export class RegionSettings extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegionSettingsState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceTypeManagementPreference"] = state ? state.resourceTypeManagementPreference : undefined;
             resourceInputs["resourceTypeOptInPreference"] = state ? state.resourceTypeOptInPreference : undefined;
         } else {
@@ -107,6 +112,7 @@ export class RegionSettings extends pulumi.CustomResource {
             if ((!args || args.resourceTypeOptInPreference === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceTypeOptInPreference'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceTypeManagementPreference"] = args ? args.resourceTypeManagementPreference : undefined;
             resourceInputs["resourceTypeOptInPreference"] = args ? args.resourceTypeOptInPreference : undefined;
         }
@@ -119,6 +125,10 @@ export class RegionSettings extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RegionSettings resources.
  */
 export interface RegionSettingsState {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
      */
@@ -133,6 +143,10 @@ export interface RegionSettingsState {
  * The set of arguments for constructing a RegionSettings resource.
  */
 export interface RegionSettingsArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
      */

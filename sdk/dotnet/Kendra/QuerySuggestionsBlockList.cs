@@ -81,6 +81,9 @@ namespace Pulumi.Aws.Kendra
         [Output("querySuggestionsBlockListId")]
         public Output<string> QuerySuggestionsBlockListId { get; private set; } = null!;
 
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         /// <summary>
         /// IAM (Identity and Access Management) role used to access the block list text file in S3.
         /// </summary>
@@ -166,6 +169,9 @@ namespace Pulumi.Aws.Kendra
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// IAM (Identity and Access Management) role used to access the block list text file in S3.
         /// </summary>
@@ -221,6 +227,9 @@ namespace Pulumi.Aws.Kendra
         [Input("querySuggestionsBlockListId")]
         public Input<string>? QuerySuggestionsBlockListId { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// IAM (Identity and Access Management) role used to access the block list text file in S3.
         /// </summary>
@@ -250,7 +259,6 @@ namespace Pulumi.Aws.Kendra
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

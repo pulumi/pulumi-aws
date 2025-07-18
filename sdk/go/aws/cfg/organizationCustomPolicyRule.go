@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cfg"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -94,6 +94,8 @@ type OrganizationCustomPolicyRule struct {
 	PolicyRuntime pulumi.StringOutput `pulumi:"policyRuntime"`
 	// policy definition containing the logic for your organization AWS Config Custom Policy rule
 	PolicyText pulumi.StringOutput `pulumi:"policyText"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope pulumi.StringPtrOutput `pulumi:"resourceIdScope"`
 	// List of types of AWS resources to evaluate
@@ -165,6 +167,8 @@ type organizationCustomPolicyRuleState struct {
 	PolicyRuntime *string `pulumi:"policyRuntime"`
 	// policy definition containing the logic for your organization AWS Config Custom Policy rule
 	PolicyText *string `pulumi:"policyText"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope *string `pulumi:"resourceIdScope"`
 	// List of types of AWS resources to evaluate
@@ -198,6 +202,8 @@ type OrganizationCustomPolicyRuleState struct {
 	PolicyRuntime pulumi.StringPtrInput
 	// policy definition containing the logic for your organization AWS Config Custom Policy rule
 	PolicyText pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope pulumi.StringPtrInput
 	// List of types of AWS resources to evaluate
@@ -233,6 +239,8 @@ type organizationCustomPolicyRuleArgs struct {
 	PolicyRuntime string `pulumi:"policyRuntime"`
 	// policy definition containing the logic for your organization AWS Config Custom Policy rule
 	PolicyText string `pulumi:"policyText"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope *string `pulumi:"resourceIdScope"`
 	// List of types of AWS resources to evaluate
@@ -265,6 +273,8 @@ type OrganizationCustomPolicyRuleArgs struct {
 	PolicyRuntime pulumi.StringInput
 	// policy definition containing the logic for your organization AWS Config Custom Policy rule
 	PolicyText pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope pulumi.StringPtrInput
 	// List of types of AWS resources to evaluate
@@ -409,6 +419,11 @@ func (o OrganizationCustomPolicyRuleOutput) PolicyRuntime() pulumi.StringOutput 
 // policy definition containing the logic for your organization AWS Config Custom Policy rule
 func (o OrganizationCustomPolicyRuleOutput) PolicyText() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringOutput { return v.PolicyText }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o OrganizationCustomPolicyRuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Identifier of the AWS resource to evaluate

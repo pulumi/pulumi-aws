@@ -26,6 +26,7 @@ class CaCertificateArgs:
                  allow_auto_registration: pulumi.Input[builtins.bool],
                  ca_certificate_pem: pulumi.Input[builtins.str],
                  certificate_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registration_config: Optional[pulumi.Input['CaCertificateRegistrationConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  verification_certificate_pem: Optional[pulumi.Input[builtins.str]] = None):
@@ -35,6 +36,7 @@ class CaCertificateArgs:
         :param pulumi.Input[builtins.bool] allow_auto_registration: Boolean flag to indicate if the certificate should be active for device regisration.
         :param pulumi.Input[builtins.str] ca_certificate_pem: PEM encoded CA certificate.
         :param pulumi.Input[builtins.str] certificate_mode: The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['CaCertificateRegistrationConfigArgs'] registration_config: Information about the registration configuration. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] verification_certificate_pem: PEM encoded verification certificate containing the common name of a registration code. Review
@@ -45,6 +47,8 @@ class CaCertificateArgs:
         pulumi.set(__self__, "ca_certificate_pem", ca_certificate_pem)
         if certificate_mode is not None:
             pulumi.set(__self__, "certificate_mode", certificate_mode)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if registration_config is not None:
             pulumi.set(__self__, "registration_config", registration_config)
         if tags is not None:
@@ -101,6 +105,18 @@ class CaCertificateArgs:
         pulumi.set(self, "certificate_mode", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="registrationConfig")
     def registration_config(self) -> Optional[pulumi.Input['CaCertificateRegistrationConfigArgs']]:
         """
@@ -148,6 +164,7 @@ class _CaCertificateState:
                  certificate_mode: Optional[pulumi.Input[builtins.str]] = None,
                  customer_version: Optional[pulumi.Input[builtins.int]] = None,
                  generation_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registration_config: Optional[pulumi.Input['CaCertificateRegistrationConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -162,6 +179,7 @@ class _CaCertificateState:
         :param pulumi.Input[builtins.str] certificate_mode: The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
         :param pulumi.Input[builtins.int] customer_version: The customer version of the CA certificate.
         :param pulumi.Input[builtins.str] generation_id: The generation ID of the CA certificate.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['CaCertificateRegistrationConfigArgs'] registration_config: Information about the registration configuration. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -183,13 +201,12 @@ class _CaCertificateState:
             pulumi.set(__self__, "customer_version", customer_version)
         if generation_id is not None:
             pulumi.set(__self__, "generation_id", generation_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if registration_config is not None:
             pulumi.set(__self__, "registration_config", registration_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if validities is not None:
@@ -282,6 +299,18 @@ class _CaCertificateState:
         pulumi.set(self, "generation_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="registrationConfig")
     def registration_config(self) -> Optional[pulumi.Input['CaCertificateRegistrationConfigArgs']]:
         """
@@ -307,7 +336,6 @@ class _CaCertificateState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -354,6 +382,7 @@ class CaCertificate(pulumi.CustomResource):
                  allow_auto_registration: Optional[pulumi.Input[builtins.bool]] = None,
                  ca_certificate_pem: Optional[pulumi.Input[builtins.str]] = None,
                  certificate_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registration_config: Optional[pulumi.Input[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  verification_certificate_pem: Optional[pulumi.Input[builtins.str]] = None,
@@ -412,6 +441,7 @@ class CaCertificate(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] allow_auto_registration: Boolean flag to indicate if the certificate should be active for device regisration.
         :param pulumi.Input[builtins.str] ca_certificate_pem: PEM encoded CA certificate.
         :param pulumi.Input[builtins.str] certificate_mode: The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']] registration_config: Information about the registration configuration. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] verification_certificate_pem: PEM encoded verification certificate containing the common name of a registration code. Review
@@ -490,6 +520,7 @@ class CaCertificate(pulumi.CustomResource):
                  allow_auto_registration: Optional[pulumi.Input[builtins.bool]] = None,
                  ca_certificate_pem: Optional[pulumi.Input[builtins.str]] = None,
                  certificate_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registration_config: Optional[pulumi.Input[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  verification_certificate_pem: Optional[pulumi.Input[builtins.str]] = None,
@@ -512,6 +543,7 @@ class CaCertificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'ca_certificate_pem'")
             __props__.__dict__["ca_certificate_pem"] = None if ca_certificate_pem is None else pulumi.Output.secret(ca_certificate_pem)
             __props__.__dict__["certificate_mode"] = certificate_mode
+            __props__.__dict__["region"] = region
             __props__.__dict__["registration_config"] = registration_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["verification_certificate_pem"] = None if verification_certificate_pem is None else pulumi.Output.secret(verification_certificate_pem)
@@ -539,6 +571,7 @@ class CaCertificate(pulumi.CustomResource):
             certificate_mode: Optional[pulumi.Input[builtins.str]] = None,
             customer_version: Optional[pulumi.Input[builtins.int]] = None,
             generation_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             registration_config: Optional[pulumi.Input[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -558,6 +591,7 @@ class CaCertificate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] certificate_mode: The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
         :param pulumi.Input[builtins.int] customer_version: The customer version of the CA certificate.
         :param pulumi.Input[builtins.str] generation_id: The generation ID of the CA certificate.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['CaCertificateRegistrationConfigArgs', 'CaCertificateRegistrationConfigArgsDict']] registration_config: Information about the registration configuration. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -576,6 +610,7 @@ class CaCertificate(pulumi.CustomResource):
         __props__.__dict__["certificate_mode"] = certificate_mode
         __props__.__dict__["customer_version"] = customer_version
         __props__.__dict__["generation_id"] = generation_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["registration_config"] = registration_config
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -640,6 +675,14 @@ class CaCertificate(pulumi.CustomResource):
         return pulumi.get(self, "generation_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="registrationConfig")
     def registration_config(self) -> pulumi.Output[Optional['outputs.CaCertificateRegistrationConfig']]:
         """
@@ -657,7 +700,6 @@ class CaCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

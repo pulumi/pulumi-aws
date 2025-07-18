@@ -23,14 +23,18 @@ __all__ = ['InstanceLoggingConfigurationArgs', 'InstanceLoggingConfiguration']
 class InstanceLoggingConfigurationArgs:
     def __init__(__self__, *,
                  access_logs: pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs'],
-                 verifiedaccess_instance_id: pulumi.Input[builtins.str]):
+                 verifiedaccess_instance_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a InstanceLoggingConfiguration resource.
         :param pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs'] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
         :param pulumi.Input[builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "access_logs", access_logs)
         pulumi.set(__self__, "verifiedaccess_instance_id", verifiedaccess_instance_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="accessLogs")
@@ -56,19 +60,35 @@ class InstanceLoggingConfigurationArgs:
     def verifiedaccess_instance_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "verifiedaccess_instance_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _InstanceLoggingConfigurationState:
     def __init__(__self__, *,
                  access_logs: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  verifiedaccess_instance_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering InstanceLoggingConfiguration resources.
         :param pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs'] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance.
         """
         if access_logs is not None:
             pulumi.set(__self__, "access_logs", access_logs)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if verifiedaccess_instance_id is not None:
             pulumi.set(__self__, "verifiedaccess_instance_id", verifiedaccess_instance_id)
 
@@ -83,6 +103,18 @@ class _InstanceLoggingConfigurationState:
     @access_logs.setter
     def access_logs(self, value: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsArgs']]):
         pulumi.set(self, "access_logs", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="verifiedaccessInstanceId")
@@ -104,6 +136,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_logs: Optional[pulumi.Input[Union['InstanceLoggingConfigurationAccessLogsArgs', 'InstanceLoggingConfigurationAccessLogsArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  verifiedaccess_instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -221,6 +254,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['InstanceLoggingConfigurationAccessLogsArgs', 'InstanceLoggingConfigurationAccessLogsArgsDict']] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance.
         """
         ...
@@ -357,6 +391,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_logs: Optional[pulumi.Input[Union['InstanceLoggingConfigurationAccessLogsArgs', 'InstanceLoggingConfigurationAccessLogsArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  verifiedaccess_instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -370,6 +405,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
             if access_logs is None and not opts.urn:
                 raise TypeError("Missing required property 'access_logs'")
             __props__.__dict__["access_logs"] = access_logs
+            __props__.__dict__["region"] = region
             if verifiedaccess_instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'verifiedaccess_instance_id'")
             __props__.__dict__["verifiedaccess_instance_id"] = verifiedaccess_instance_id
@@ -384,6 +420,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             access_logs: Optional[pulumi.Input[Union['InstanceLoggingConfigurationAccessLogsArgs', 'InstanceLoggingConfigurationAccessLogsArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             verifiedaccess_instance_id: Optional[pulumi.Input[builtins.str]] = None) -> 'InstanceLoggingConfiguration':
         """
         Get an existing InstanceLoggingConfiguration resource's state with the given name, id, and optional extra
@@ -393,6 +430,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['InstanceLoggingConfigurationAccessLogsArgs', 'InstanceLoggingConfigurationAccessLogsArgsDict']] access_logs: A block that specifies the configuration options for Verified Access instances. Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] verifiedaccess_instance_id: The ID of the Verified Access instance.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -400,6 +438,7 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         __props__ = _InstanceLoggingConfigurationState.__new__(_InstanceLoggingConfigurationState)
 
         __props__.__dict__["access_logs"] = access_logs
+        __props__.__dict__["region"] = region
         __props__.__dict__["verifiedaccess_instance_id"] = verifiedaccess_instance_id
         return InstanceLoggingConfiguration(resource_name, opts=opts, __props__=__props__)
 
@@ -410,6 +449,14 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         A block that specifies the configuration options for Verified Access instances. Detailed below.
         """
         return pulumi.get(self, "access_logs")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="verifiedaccessInstanceId")

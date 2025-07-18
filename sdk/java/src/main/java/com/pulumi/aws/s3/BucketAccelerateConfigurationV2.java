@@ -6,11 +6,13 @@ package com.pulumi.aws.s3;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.s3.BucketAccelerateConfigurationV2Args;
 import com.pulumi.aws.s3.inputs.BucketAccelerateConfigurationV2State;
+import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -29,10 +31,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.BucketAccelerateConfigurationV2;
- * import com.pulumi.aws.s3.BucketAccelerateConfigurationV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.s3.BucketAccelerateConfiguration;
+ * import com.pulumi.aws.s3.BucketAccelerateConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,11 +48,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var mybucket = new BucketV2("mybucket", BucketV2Args.builder()
+ *         var mybucket = new Bucket("mybucket", BucketArgs.builder()
  *             .bucket("mybucket")
  *             .build());
  * 
- *         var example = new BucketAccelerateConfigurationV2("example", BucketAccelerateConfigurationV2Args.builder()
+ *         var example = new BucketAccelerateConfiguration("example", BucketAccelerateConfigurationArgs.builder()
  *             .bucket(mybucket.id())
  *             .status("Enabled")
  *             .build());
@@ -78,7 +80,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
  * ```
  * 
+ * @deprecated
+ * aws.s3/bucketaccelerateconfigurationv2.BucketAccelerateConfigurationV2 has been deprecated in favor of aws.s3/bucketaccelerateconfiguration.BucketAccelerateConfiguration
+ * 
  */
+@Deprecated /* aws.s3/bucketaccelerateconfigurationv2.BucketAccelerateConfigurationV2 has been deprecated in favor of aws.s3/bucketaccelerateconfiguration.BucketAccelerateConfiguration */
 @ResourceType(type="aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2")
 public class BucketAccelerateConfigurationV2 extends com.pulumi.resources.CustomResource {
     /**
@@ -108,6 +114,20 @@ public class BucketAccelerateConfigurationV2 extends com.pulumi.resources.Custom
      */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
@@ -163,6 +183,9 @@ public class BucketAccelerateConfigurationV2 extends com.pulumi.resources.Custom
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .aliases(List.of(
+                Output.of(Alias.builder().type("aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2").build())
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

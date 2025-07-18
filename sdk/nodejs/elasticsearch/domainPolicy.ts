@@ -2,9 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
-
-import {PolicyDocument} from "../iam";
 
 /**
  * Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g., ARN)
@@ -75,6 +76,10 @@ export class DomainPolicy extends pulumi.CustomResource {
      * Name of the domain.
      */
     public readonly domainName!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DomainPolicy resource with the given unique name, arguments, and options.
@@ -91,6 +96,7 @@ export class DomainPolicy extends pulumi.CustomResource {
             const state = argsOrState as DomainPolicyState | undefined;
             resourceInputs["accessPolicies"] = state ? state.accessPolicies : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DomainPolicyArgs | undefined;
             if ((!args || args.accessPolicies === undefined) && !opts.urn) {
@@ -101,6 +107,7 @@ export class DomainPolicy extends pulumi.CustomResource {
             }
             resourceInputs["accessPolicies"] = args ? args.accessPolicies : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DomainPolicy.__pulumiType, name, resourceInputs, opts);
@@ -114,11 +121,15 @@ export interface DomainPolicyState {
     /**
      * IAM policy document specifying the access policies for the domain
      */
-    accessPolicies?: pulumi.Input<string | PolicyDocument>;
+    accessPolicies?: pulumi.Input<string | inputs.elasticsearch.PolicyDocument>;
     /**
      * Name of the domain.
      */
     domainName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -128,9 +139,13 @@ export interface DomainPolicyArgs {
     /**
      * IAM policy document specifying the access policies for the domain
      */
-    accessPolicies: pulumi.Input<string | PolicyDocument>;
+    accessPolicies: pulumi.Input<string | inputs.elasticsearch.PolicyDocument>;
     /**
      * Name of the domain.
      */
     domainName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

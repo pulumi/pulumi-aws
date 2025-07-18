@@ -28,7 +28,7 @@ class GetModelsResult:
     """
     A collection of values returned by getModels.
     """
-    def __init__(__self__, by_customization_type=None, by_inference_type=None, by_output_modality=None, by_provider=None, id=None, model_summaries=None):
+    def __init__(__self__, by_customization_type=None, by_inference_type=None, by_output_modality=None, by_provider=None, id=None, model_summaries=None, region=None):
         if by_customization_type and not isinstance(by_customization_type, str):
             raise TypeError("Expected argument 'by_customization_type' to be a str")
         pulumi.set(__self__, "by_customization_type", by_customization_type)
@@ -47,6 +47,9 @@ class GetModelsResult:
         if model_summaries and not isinstance(model_summaries, list):
             raise TypeError("Expected argument 'model_summaries' to be a list")
         pulumi.set(__self__, "model_summaries", model_summaries)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="byCustomizationType")
@@ -84,6 +87,11 @@ class GetModelsResult:
         """
         return pulumi.get(self, "model_summaries")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetModelsResult(GetModelsResult):
     # pylint: disable=using-constant-test
@@ -96,13 +104,15 @@ class AwaitableGetModelsResult(GetModelsResult):
             by_output_modality=self.by_output_modality,
             by_provider=self.by_provider,
             id=self.id,
-            model_summaries=self.model_summaries)
+            model_summaries=self.model_summaries,
+            region=self.region)
 
 
 def get_models(by_customization_type: Optional[builtins.str] = None,
                by_inference_type: Optional[builtins.str] = None,
                by_output_modality: Optional[builtins.str] = None,
                by_provider: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetModelsResult:
     """
     Data source for managing AWS Bedrock Foundation Models.
@@ -132,12 +142,14 @@ def get_models(by_customization_type: Optional[builtins.str] = None,
     :param builtins.str by_inference_type: Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
     :param builtins.str by_output_modality: Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.
     :param builtins.str by_provider: Model provider to filter on.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['byCustomizationType'] = by_customization_type
     __args__['byInferenceType'] = by_inference_type
     __args__['byOutputModality'] = by_output_modality
     __args__['byProvider'] = by_provider
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:bedrockfoundation/getModels:getModels', __args__, opts=opts, typ=GetModelsResult).value
 
@@ -147,11 +159,13 @@ def get_models(by_customization_type: Optional[builtins.str] = None,
         by_output_modality=pulumi.get(__ret__, 'by_output_modality'),
         by_provider=pulumi.get(__ret__, 'by_provider'),
         id=pulumi.get(__ret__, 'id'),
-        model_summaries=pulumi.get(__ret__, 'model_summaries'))
+        model_summaries=pulumi.get(__ret__, 'model_summaries'),
+        region=pulumi.get(__ret__, 'region'))
 def get_models_output(by_customization_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       by_inference_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       by_output_modality: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       by_provider: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelsResult]:
     """
     Data source for managing AWS Bedrock Foundation Models.
@@ -181,12 +195,14 @@ def get_models_output(by_customization_type: Optional[pulumi.Input[Optional[buil
     :param builtins.str by_inference_type: Inference type to filter on. Valid values are `ON_DEMAND` and `PROVISIONED`.
     :param builtins.str by_output_modality: Output modality to filter on. Valid values are `TEXT`, `IMAGE`, and `EMBEDDING`.
     :param builtins.str by_provider: Model provider to filter on.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['byCustomizationType'] = by_customization_type
     __args__['byInferenceType'] = by_inference_type
     __args__['byOutputModality'] = by_output_modality
     __args__['byProvider'] = by_provider
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:bedrockfoundation/getModels:getModels', __args__, opts=opts, typ=GetModelsResult)
     return __ret__.apply(lambda __response__: GetModelsResult(
@@ -195,4 +211,5 @@ def get_models_output(by_customization_type: Optional[pulumi.Input[Optional[buil
         by_output_modality=pulumi.get(__response__, 'by_output_modality'),
         by_provider=pulumi.get(__response__, 'by_provider'),
         id=pulumi.get(__response__, 'id'),
-        model_summaries=pulumi.get(__response__, 'model_summaries')))
+        model_summaries=pulumi.get(__response__, 'model_summaries'),
+        region=pulumi.get(__response__, 'region')))

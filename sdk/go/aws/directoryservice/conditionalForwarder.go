@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directoryservice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,6 +59,8 @@ type ConditionalForwarder struct {
 	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
 	// A list of forwarder IP addresses.
 	DnsIps pulumi.StringArrayOutput `pulumi:"dnsIps"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The fully qualified domain name of the remote domain for which forwarders will be used.
 	RemoteDomainName pulumi.StringOutput `pulumi:"remoteDomainName"`
 }
@@ -112,6 +114,8 @@ type conditionalForwarderState struct {
 	DirectoryId *string `pulumi:"directoryId"`
 	// A list of forwarder IP addresses.
 	DnsIps []string `pulumi:"dnsIps"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The fully qualified domain name of the remote domain for which forwarders will be used.
 	RemoteDomainName *string `pulumi:"remoteDomainName"`
 }
@@ -121,6 +125,8 @@ type ConditionalForwarderState struct {
 	DirectoryId pulumi.StringPtrInput
 	// A list of forwarder IP addresses.
 	DnsIps pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The fully qualified domain name of the remote domain for which forwarders will be used.
 	RemoteDomainName pulumi.StringPtrInput
 }
@@ -134,6 +140,8 @@ type conditionalForwarderArgs struct {
 	DirectoryId string `pulumi:"directoryId"`
 	// A list of forwarder IP addresses.
 	DnsIps []string `pulumi:"dnsIps"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The fully qualified domain name of the remote domain for which forwarders will be used.
 	RemoteDomainName string `pulumi:"remoteDomainName"`
 }
@@ -144,6 +152,8 @@ type ConditionalForwarderArgs struct {
 	DirectoryId pulumi.StringInput
 	// A list of forwarder IP addresses.
 	DnsIps pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The fully qualified domain name of the remote domain for which forwarders will be used.
 	RemoteDomainName pulumi.StringInput
 }
@@ -243,6 +253,11 @@ func (o ConditionalForwarderOutput) DirectoryId() pulumi.StringOutput {
 // A list of forwarder IP addresses.
 func (o ConditionalForwarderOutput) DnsIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ConditionalForwarder) pulumi.StringArrayOutput { return v.DnsIps }).(pulumi.StringArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ConditionalForwarderOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConditionalForwarder) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The fully qualified domain name of the remote domain for which forwarders will be used.

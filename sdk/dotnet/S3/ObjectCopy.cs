@@ -306,6 +306,12 @@ namespace Pulumi.Aws.S3
         public Output<Outputs.ObjectCopyOverrideProvider?> OverrideProvider { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// If present, indicates that the requester was successfully charged for the request.
         /// </summary>
         [Output("requestCharged")]
@@ -659,6 +665,12 @@ namespace Pulumi.Aws.S3
 
         [Input("overrideProvider")]
         public Input<Inputs.ObjectCopyOverrideProviderArgs>? OverrideProvider { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
@@ -1017,6 +1029,12 @@ namespace Pulumi.Aws.S3
         public Input<Inputs.ObjectCopyOverrideProviderGetArgs>? OverrideProvider { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// If present, indicates that the requester was successfully charged for the request.
         /// </summary>
         [Input("requestCharged")]
@@ -1106,7 +1124,6 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

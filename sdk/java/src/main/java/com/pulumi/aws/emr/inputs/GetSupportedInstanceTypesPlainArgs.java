@@ -3,11 +3,9 @@
 
 package com.pulumi.aws.emr.inputs;
 
-import com.pulumi.aws.emr.inputs.GetSupportedInstanceTypesSupportedInstanceType;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,6 +14,21 @@ import javax.annotation.Nullable;
 public final class GetSupportedInstanceTypesPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSupportedInstanceTypesPlainArgs Empty = new GetSupportedInstanceTypesPlainArgs();
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
@@ -32,26 +45,11 @@ public final class GetSupportedInstanceTypesPlainArgs extends com.pulumi.resourc
         return this.releaseLabel;
     }
 
-    /**
-     * List of supported instance types. See `supported_instance_types` below.
-     * 
-     */
-    @Import(name="supportedInstanceTypes")
-    private @Nullable List<GetSupportedInstanceTypesSupportedInstanceType> supportedInstanceTypes;
-
-    /**
-     * @return List of supported instance types. See `supported_instance_types` below.
-     * 
-     */
-    public Optional<List<GetSupportedInstanceTypesSupportedInstanceType>> supportedInstanceTypes() {
-        return Optional.ofNullable(this.supportedInstanceTypes);
-    }
-
     private GetSupportedInstanceTypesPlainArgs() {}
 
     private GetSupportedInstanceTypesPlainArgs(GetSupportedInstanceTypesPlainArgs $) {
+        this.region = $.region;
         this.releaseLabel = $.releaseLabel;
-        this.supportedInstanceTypes = $.supportedInstanceTypes;
     }
 
     public static Builder builder() {
@@ -73,6 +71,17 @@ public final class GetSupportedInstanceTypesPlainArgs extends com.pulumi.resourc
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
          * @param releaseLabel Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
          * 
          * @return builder
@@ -81,27 +90,6 @@ public final class GetSupportedInstanceTypesPlainArgs extends com.pulumi.resourc
         public Builder releaseLabel(String releaseLabel) {
             $.releaseLabel = releaseLabel;
             return this;
-        }
-
-        /**
-         * @param supportedInstanceTypes List of supported instance types. See `supported_instance_types` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder supportedInstanceTypes(@Nullable List<GetSupportedInstanceTypesSupportedInstanceType> supportedInstanceTypes) {
-            $.supportedInstanceTypes = supportedInstanceTypes;
-            return this;
-        }
-
-        /**
-         * @param supportedInstanceTypes List of supported instance types. See `supported_instance_types` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder supportedInstanceTypes(GetSupportedInstanceTypesSupportedInstanceType... supportedInstanceTypes) {
-            return supportedInstanceTypes(List.of(supportedInstanceTypes));
         }
 
         public GetSupportedInstanceTypesPlainArgs build() {

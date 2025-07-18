@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmcontacts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmcontacts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -92,7 +92,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmcontacts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -169,6 +169,8 @@ type Plan struct {
 
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId pulumi.StringOutput `pulumi:"contactId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 	Stages PlanStageArrayOutput `pulumi:"stages"`
 }
@@ -211,6 +213,8 @@ func GetPlan(ctx *pulumi.Context,
 type planState struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId *string `pulumi:"contactId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 	Stages []PlanStage `pulumi:"stages"`
 }
@@ -218,6 +222,8 @@ type planState struct {
 type PlanState struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 	Stages PlanStageArrayInput
 }
@@ -229,6 +235,8 @@ func (PlanState) ElementType() reflect.Type {
 type planArgs struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId string `pulumi:"contactId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 	Stages []PlanStage `pulumi:"stages"`
 }
@@ -237,6 +245,8 @@ type planArgs struct {
 type PlanArgs struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 	Stages PlanStageArrayInput
 }
@@ -331,6 +341,11 @@ func (o PlanOutput) ToPlanOutputWithContext(ctx context.Context) PlanOutput {
 // The Amazon Resource Name (ARN) of the contact or escalation plan.
 func (o PlanOutput) ContactId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.ContactId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o PlanOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.

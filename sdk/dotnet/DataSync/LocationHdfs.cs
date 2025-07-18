@@ -169,6 +169,12 @@ namespace Pulumi.Aws.DataSync
         public Output<Outputs.LocationHdfsQopConfiguration> QopConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
         /// </summary>
         [Output("replicationFactor")]
@@ -326,6 +332,12 @@ namespace Pulumi.Aws.DataSync
         public Input<Inputs.LocationHdfsQopConfigurationArgs>? QopConfiguration { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
         /// </summary>
         [Input("replicationFactor")]
@@ -448,6 +460,12 @@ namespace Pulumi.Aws.DataSync
         public Input<Inputs.LocationHdfsQopConfigurationGetArgs>? QopConfiguration { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
         /// </summary>
         [Input("replicationFactor")]
@@ -483,7 +501,6 @@ namespace Pulumi.Aws.DataSync
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

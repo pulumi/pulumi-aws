@@ -73,6 +73,10 @@ export class Attachment extends pulumi.CustomResource {
      * ARN of a load balancer target group.
      */
     public readonly lbTargetGroupArn!: pulumi.Output<string | undefined>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Attachment resource with the given unique name, arguments, and options.
@@ -90,6 +94,7 @@ export class Attachment extends pulumi.CustomResource {
             resourceInputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
             resourceInputs["elb"] = state ? state.elb : undefined;
             resourceInputs["lbTargetGroupArn"] = state ? state.lbTargetGroupArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AttachmentArgs | undefined;
             if ((!args || args.autoscalingGroupName === undefined) && !opts.urn) {
@@ -98,6 +103,7 @@ export class Attachment extends pulumi.CustomResource {
             resourceInputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
             resourceInputs["elb"] = args ? args.elb : undefined;
             resourceInputs["lbTargetGroupArn"] = args ? args.lbTargetGroupArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Attachment.__pulumiType, name, resourceInputs, opts);
@@ -120,6 +126,10 @@ export interface AttachmentState {
      * ARN of a load balancer target group.
      */
     lbTargetGroupArn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -138,4 +148,8 @@ export interface AttachmentArgs {
      * ARN of a load balancer target group.
      */
     lbTargetGroupArn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

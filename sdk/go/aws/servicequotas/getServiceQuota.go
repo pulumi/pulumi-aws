@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicequotas"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicequotas"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,6 +66,8 @@ type LookupServiceQuotaArgs struct {
 	//
 	// > *NOTE:* Either `quotaCode` or `quotaName` must be configured.
 	QuotaName *string `pulumi:"quotaName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Service code for the quota. Available values can be found with the `servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
 	ServiceCode string `pulumi:"serviceCode"`
 }
@@ -84,6 +86,7 @@ type LookupServiceQuotaResult struct {
 	Id          string `pulumi:"id"`
 	QuotaCode   string `pulumi:"quotaCode"`
 	QuotaName   string `pulumi:"quotaName"`
+	Region      string `pulumi:"region"`
 	ServiceCode string `pulumi:"serviceCode"`
 	// Name of the service.
 	ServiceName string `pulumi:"serviceName"`
@@ -110,6 +113,8 @@ type LookupServiceQuotaOutputArgs struct {
 	//
 	// > *NOTE:* Either `quotaCode` or `quotaName` must be configured.
 	QuotaName pulumi.StringPtrInput `pulumi:"quotaName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Service code for the quota. Available values can be found with the `servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
 	ServiceCode pulumi.StringInput `pulumi:"serviceCode"`
 }
@@ -164,6 +169,10 @@ func (o LookupServiceQuotaResultOutput) QuotaCode() pulumi.StringOutput {
 
 func (o LookupServiceQuotaResultOutput) QuotaName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceQuotaResult) string { return v.QuotaName }).(pulumi.StringOutput)
+}
+
+func (o LookupServiceQuotaResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceQuotaResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupServiceQuotaResultOutput) ServiceCode() pulumi.StringOutput {

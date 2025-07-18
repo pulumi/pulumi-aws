@@ -84,6 +84,10 @@ export class EndpointAuthorization extends pulumi.CustomResource {
      */
     public /*out*/ readonly grantor!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
      */
     public readonly vpcIds!: pulumi.Output<string[] | undefined>;
@@ -108,6 +112,7 @@ export class EndpointAuthorization extends pulumi.CustomResource {
             resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
             resourceInputs["grantee"] = state ? state.grantee : undefined;
             resourceInputs["grantor"] = state ? state.grantor : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["vpcIds"] = state ? state.vpcIds : undefined;
         } else {
             const args = argsOrState as EndpointAuthorizationArgs | undefined;
@@ -120,6 +125,7 @@ export class EndpointAuthorization extends pulumi.CustomResource {
             resourceInputs["account"] = args ? args.account : undefined;
             resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["vpcIds"] = args ? args.vpcIds : undefined;
             resourceInputs["allowedAllVpcs"] = undefined /*out*/;
             resourceInputs["endpointCount"] = undefined /*out*/;
@@ -164,6 +170,10 @@ export interface EndpointAuthorizationState {
      */
     grantor?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
      */
     vpcIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -185,6 +195,10 @@ export interface EndpointAuthorizationArgs {
      * Indicates whether to force the revoke action. If true, the Redshift-managed VPC endpoints associated with the endpoint authorization are also deleted. Default value is `false`.
      */
     forceDelete?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
      */

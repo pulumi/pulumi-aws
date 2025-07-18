@@ -25,6 +25,7 @@ class LocationFsxWindowsArgs:
                  security_group_arns: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  user: pulumi.Input[builtins.str],
                  domain: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -34,6 +35,7 @@ class LocationFsxWindowsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
         :param pulumi.Input[builtins.str] user: The user who has the permissions to access files and folders in the FSx for Windows file system.
         :param pulumi.Input[builtins.str] domain: The name of the Windows domain that the FSx for Windows server belongs to.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -43,6 +45,8 @@ class LocationFsxWindowsArgs:
         pulumi.set(__self__, "user", user)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if subdirectory is not None:
             pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
@@ -110,6 +114,18 @@ class LocationFsxWindowsArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def subdirectory(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Subdirectory to perform actions as source or destination.
@@ -141,6 +157,7 @@ class _LocationFsxWindowsState:
                  domain: Optional[pulumi.Input[builtins.str]] = None,
                  fsx_filesystem_arn: Optional[pulumi.Input[builtins.str]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -154,6 +171,7 @@ class _LocationFsxWindowsState:
         :param pulumi.Input[builtins.str] domain: The name of the Windows domain that the FSx for Windows server belongs to.
         :param pulumi.Input[builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for Windows file system.
         :param pulumi.Input[builtins.str] password: The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -171,15 +189,14 @@ class _LocationFsxWindowsState:
             pulumi.set(__self__, "fsx_filesystem_arn", fsx_filesystem_arn)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_arns is not None:
             pulumi.set(__self__, "security_group_arns", security_group_arns)
         if subdirectory is not None:
             pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if uri is not None:
@@ -248,6 +265,18 @@ class _LocationFsxWindowsState:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupArns")
     def security_group_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -285,7 +314,6 @@ class _LocationFsxWindowsState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -330,6 +358,7 @@ class LocationFsxWindows(pulumi.CustomResource):
                  domain: Optional[pulumi.Input[builtins.str]] = None,
                  fsx_filesystem_arn: Optional[pulumi.Input[builtins.str]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -364,6 +393,7 @@ class LocationFsxWindows(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain: The name of the Windows domain that the FSx for Windows server belongs to.
         :param pulumi.Input[builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for Windows file system.
         :param pulumi.Input[builtins.str] password: The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -417,6 +447,7 @@ class LocationFsxWindows(pulumi.CustomResource):
                  domain: Optional[pulumi.Input[builtins.str]] = None,
                  fsx_filesystem_arn: Optional[pulumi.Input[builtins.str]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -437,6 +468,7 @@ class LocationFsxWindows(pulumi.CustomResource):
             if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
+            __props__.__dict__["region"] = region
             if security_group_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_arns'")
             __props__.__dict__["security_group_arns"] = security_group_arns
@@ -466,6 +498,7 @@ class LocationFsxWindows(pulumi.CustomResource):
             domain: Optional[pulumi.Input[builtins.str]] = None,
             fsx_filesystem_arn: Optional[pulumi.Input[builtins.str]] = None,
             password: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             subdirectory: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -484,6 +517,7 @@ class LocationFsxWindows(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain: The name of the Windows domain that the FSx for Windows server belongs to.
         :param pulumi.Input[builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for Windows file system.
         :param pulumi.Input[builtins.str] password: The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -500,6 +534,7 @@ class LocationFsxWindows(pulumi.CustomResource):
         __props__.__dict__["domain"] = domain
         __props__.__dict__["fsx_filesystem_arn"] = fsx_filesystem_arn
         __props__.__dict__["password"] = password
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_group_arns"] = security_group_arns
         __props__.__dict__["subdirectory"] = subdirectory
         __props__.__dict__["tags"] = tags
@@ -549,6 +584,14 @@ class LocationFsxWindows(pulumi.CustomResource):
         return pulumi.get(self, "password")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroupArns")
     def security_group_arns(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
@@ -574,7 +617,6 @@ class LocationFsxWindows(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

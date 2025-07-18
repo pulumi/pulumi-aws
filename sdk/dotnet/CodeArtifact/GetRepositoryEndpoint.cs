@@ -112,6 +112,12 @@ namespace Pulumi.Aws.CodeArtifact
         public string Format { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Name of the repository.
         /// </summary>
         [Input("repository", required: true)]
@@ -144,6 +150,12 @@ namespace Pulumi.Aws.CodeArtifact
         public Input<string> Format { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Name of the repository.
         /// </summary>
         [Input("repository", required: true)]
@@ -166,6 +178,7 @@ namespace Pulumi.Aws.CodeArtifact
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         public readonly string Repository;
         /// <summary>
         /// URL of the returned endpoint.
@@ -182,6 +195,8 @@ namespace Pulumi.Aws.CodeArtifact
 
             string id,
 
+            string region,
+
             string repository,
 
             string repositoryEndpoint)
@@ -190,6 +205,7 @@ namespace Pulumi.Aws.CodeArtifact
             DomainOwner = domainOwner;
             Format = format;
             Id = id;
+            Region = region;
             Repository = repository;
             RepositoryEndpoint = repositoryEndpoint;
         }

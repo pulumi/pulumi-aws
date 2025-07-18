@@ -7,15 +7,15 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // `getAvailabilityZone` provides details about a specific availability zone (AZ)
-// in the current region.
+// in the current Region.
 //
 // This can be used both to validate an availability zone given in a variable
-// and to split the AZ name into its component parts of an AWS region and an
+// and to split the AZ name into its component parts of an AWS Region and an
 // AZ identifier letter. The latter may be useful e.g., for implementing a
 // consistent subnet numbering scheme across several regions by mapping both
 // the region and the subnet letter to network numbers.
@@ -33,8 +33,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
@@ -131,6 +131,8 @@ type GetAvailabilityZoneArgs struct {
 	Filters []GetAvailabilityZoneFilter `pulumi:"filters"`
 	// Full name of the availability zone to select.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
 	State *string `pulumi:"state"`
 	// Zone ID of the availability zone to select.
@@ -145,7 +147,9 @@ type GetAvailabilityZoneArgs struct {
 type GetAvailabilityZoneResult struct {
 	AllAvailabilityZones *bool                       `pulumi:"allAvailabilityZones"`
 	Filters              []GetAvailabilityZoneFilter `pulumi:"filters"`
-	// For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
+	// The long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
+	GroupLongName string `pulumi:"groupLongName"`
+	// The name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
 	GroupName string `pulumi:"groupName"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
@@ -162,10 +166,9 @@ type GetAvailabilityZoneResult struct {
 	ParentZoneId string `pulumi:"parentZoneId"`
 	// Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
 	ParentZoneName string `pulumi:"parentZoneName"`
-	// Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
-	Region string `pulumi:"region"`
-	State  string `pulumi:"state"`
-	ZoneId string `pulumi:"zoneId"`
+	Region         string `pulumi:"region"`
+	State          string `pulumi:"state"`
+	ZoneId         string `pulumi:"zoneId"`
 	// Type of zone. Values are `availability-zone`, `local-zone`, and `wavelength-zone`.
 	ZoneType string `pulumi:"zoneType"`
 }
@@ -187,6 +190,8 @@ type GetAvailabilityZoneOutputArgs struct {
 	Filters GetAvailabilityZoneFilterArrayInput `pulumi:"filters"`
 	// Full name of the availability zone to select.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Zone ID of the availability zone to select.
@@ -224,7 +229,12 @@ func (o GetAvailabilityZoneResultOutput) Filters() GetAvailabilityZoneFilterArra
 	return o.ApplyT(func(v GetAvailabilityZoneResult) []GetAvailabilityZoneFilter { return v.Filters }).(GetAvailabilityZoneFilterArrayOutput)
 }
 
-// For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
+// The long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
+func (o GetAvailabilityZoneResultOutput) GroupLongName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.GroupLongName }).(pulumi.StringOutput)
+}
+
+// The name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
 func (o GetAvailabilityZoneResultOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.GroupName }).(pulumi.StringOutput)
 }
@@ -265,7 +275,6 @@ func (o GetAvailabilityZoneResultOutput) ParentZoneName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.ParentZoneName }).(pulumi.StringOutput)
 }
 
-// Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
 func (o GetAvailabilityZoneResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.Region }).(pulumi.StringOutput)
 }

@@ -29,7 +29,7 @@ class GetLaunchTemplateResult:
     """
     A collection of values returned by getLaunchTemplate.
     """
-    def __init__(__self__, arn=None, block_device_mappings=None, capacity_reservation_specifications=None, cpu_options=None, credit_specifications=None, default_version=None, description=None, disable_api_stop=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerators=None, enclave_options=None, filters=None, hibernation_options=None, iam_instance_profiles=None, id=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_requirements=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, license_specifications=None, maintenance_options=None, metadata_options=None, monitorings=None, name=None, network_interfaces=None, placements=None, private_dns_name_options=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
+    def __init__(__self__, arn=None, block_device_mappings=None, capacity_reservation_specifications=None, cpu_options=None, credit_specifications=None, default_version=None, description=None, disable_api_stop=None, disable_api_termination=None, ebs_optimized=None, enclave_options=None, filters=None, hibernation_options=None, iam_instance_profiles=None, id=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_requirements=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, license_specifications=None, maintenance_options=None, metadata_options=None, monitorings=None, name=None, network_interfaces=None, placements=None, private_dns_name_options=None, ram_disk_id=None, region=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -60,12 +60,6 @@ class GetLaunchTemplateResult:
         if ebs_optimized and not isinstance(ebs_optimized, str):
             raise TypeError("Expected argument 'ebs_optimized' to be a str")
         pulumi.set(__self__, "ebs_optimized", ebs_optimized)
-        if elastic_gpu_specifications and not isinstance(elastic_gpu_specifications, list):
-            raise TypeError("Expected argument 'elastic_gpu_specifications' to be a list")
-        pulumi.set(__self__, "elastic_gpu_specifications", elastic_gpu_specifications)
-        if elastic_inference_accelerators and not isinstance(elastic_inference_accelerators, list):
-            raise TypeError("Expected argument 'elastic_inference_accelerators' to be a list")
-        pulumi.set(__self__, "elastic_inference_accelerators", elastic_inference_accelerators)
         if enclave_options and not isinstance(enclave_options, list):
             raise TypeError("Expected argument 'enclave_options' to be a list")
         pulumi.set(__self__, "enclave_options", enclave_options)
@@ -132,6 +126,9 @@ class GetLaunchTemplateResult:
         if ram_disk_id and not isinstance(ram_disk_id, str):
             raise TypeError("Expected argument 'ram_disk_id' to be a str")
         pulumi.set(__self__, "ram_disk_id", ram_disk_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_group_names and not isinstance(security_group_names, list):
             raise TypeError("Expected argument 'security_group_names' to be a list")
         pulumi.set(__self__, "security_group_names", security_group_names)
@@ -197,18 +194,6 @@ class GetLaunchTemplateResult:
     @pulumi.getter(name="ebsOptimized")
     def ebs_optimized(self) -> builtins.str:
         return pulumi.get(self, "ebs_optimized")
-
-    @property
-    @pulumi.getter(name="elasticGpuSpecifications")
-    @_utilities.deprecated("""elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.""")
-    def elastic_gpu_specifications(self) -> Sequence['outputs.GetLaunchTemplateElasticGpuSpecificationResult']:
-        return pulumi.get(self, "elastic_gpu_specifications")
-
-    @property
-    @pulumi.getter(name="elasticInferenceAccelerators")
-    @_utilities.deprecated("""elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.""")
-    def elastic_inference_accelerators(self) -> Sequence['outputs.GetLaunchTemplateElasticInferenceAcceleratorResult']:
-        return pulumi.get(self, "elastic_inference_accelerators")
 
     @property
     @pulumi.getter(name="enclaveOptions")
@@ -324,6 +309,11 @@ class GetLaunchTemplateResult:
         return pulumi.get(self, "ram_disk_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroupNames")
     def security_group_names(self) -> Sequence[builtins.str]:
         return pulumi.get(self, "security_group_names")
@@ -365,8 +355,6 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
             disable_api_stop=self.disable_api_stop,
             disable_api_termination=self.disable_api_termination,
             ebs_optimized=self.ebs_optimized,
-            elastic_gpu_specifications=self.elastic_gpu_specifications,
-            elastic_inference_accelerators=self.elastic_inference_accelerators,
             enclave_options=self.enclave_options,
             filters=self.filters,
             hibernation_options=self.hibernation_options,
@@ -389,6 +377,7 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
             placements=self.placements,
             private_dns_name_options=self.private_dns_name_options,
             ram_disk_id=self.ram_disk_id,
+            region=self.region,
             security_group_names=self.security_group_names,
             tag_specifications=self.tag_specifications,
             tags=self.tags,
@@ -399,6 +388,7 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
 def get_launch_template(filters: Optional[Sequence[Union['GetLaunchTemplateFilterArgs', 'GetLaunchTemplateFilterArgsDict']]] = None,
                         id: Optional[builtins.str] = None,
                         name: Optional[builtins.str] = None,
+                        region: Optional[builtins.str] = None,
                         tags: Optional[Mapping[str, builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLaunchTemplateResult:
     """
@@ -429,12 +419,14 @@ def get_launch_template(filters: Optional[Sequence[Union['GetLaunchTemplateFilte
     :param Sequence[Union['GetLaunchTemplateFilterArgs', 'GetLaunchTemplateFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param builtins.str id: ID of the specific launch template to retrieve.
     :param builtins.str name: Name of the launch template.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getLaunchTemplate:getLaunchTemplate', __args__, opts=opts, typ=GetLaunchTemplateResult).value
@@ -450,8 +442,6 @@ def get_launch_template(filters: Optional[Sequence[Union['GetLaunchTemplateFilte
         disable_api_stop=pulumi.get(__ret__, 'disable_api_stop'),
         disable_api_termination=pulumi.get(__ret__, 'disable_api_termination'),
         ebs_optimized=pulumi.get(__ret__, 'ebs_optimized'),
-        elastic_gpu_specifications=pulumi.get(__ret__, 'elastic_gpu_specifications'),
-        elastic_inference_accelerators=pulumi.get(__ret__, 'elastic_inference_accelerators'),
         enclave_options=pulumi.get(__ret__, 'enclave_options'),
         filters=pulumi.get(__ret__, 'filters'),
         hibernation_options=pulumi.get(__ret__, 'hibernation_options'),
@@ -474,6 +464,7 @@ def get_launch_template(filters: Optional[Sequence[Union['GetLaunchTemplateFilte
         placements=pulumi.get(__ret__, 'placements'),
         private_dns_name_options=pulumi.get(__ret__, 'private_dns_name_options'),
         ram_disk_id=pulumi.get(__ret__, 'ram_disk_id'),
+        region=pulumi.get(__ret__, 'region'),
         security_group_names=pulumi.get(__ret__, 'security_group_names'),
         tag_specifications=pulumi.get(__ret__, 'tag_specifications'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -482,6 +473,7 @@ def get_launch_template(filters: Optional[Sequence[Union['GetLaunchTemplateFilte
 def get_launch_template_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLaunchTemplateFilterArgs', 'GetLaunchTemplateFilterArgsDict']]]]] = None,
                                id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                               region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLaunchTemplateResult]:
     """
@@ -512,12 +504,14 @@ def get_launch_template_output(filters: Optional[pulumi.Input[Optional[Sequence[
     :param Sequence[Union['GetLaunchTemplateFilterArgs', 'GetLaunchTemplateFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param builtins.str id: ID of the specific launch template to retrieve.
     :param builtins.str name: Name of the launch template.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getLaunchTemplate:getLaunchTemplate', __args__, opts=opts, typ=GetLaunchTemplateResult)
@@ -532,8 +526,6 @@ def get_launch_template_output(filters: Optional[pulumi.Input[Optional[Sequence[
         disable_api_stop=pulumi.get(__response__, 'disable_api_stop'),
         disable_api_termination=pulumi.get(__response__, 'disable_api_termination'),
         ebs_optimized=pulumi.get(__response__, 'ebs_optimized'),
-        elastic_gpu_specifications=pulumi.get(__response__, 'elastic_gpu_specifications'),
-        elastic_inference_accelerators=pulumi.get(__response__, 'elastic_inference_accelerators'),
         enclave_options=pulumi.get(__response__, 'enclave_options'),
         filters=pulumi.get(__response__, 'filters'),
         hibernation_options=pulumi.get(__response__, 'hibernation_options'),
@@ -556,6 +548,7 @@ def get_launch_template_output(filters: Optional[pulumi.Input[Optional[Sequence[
         placements=pulumi.get(__response__, 'placements'),
         private_dns_name_options=pulumi.get(__response__, 'private_dns_name_options'),
         ram_disk_id=pulumi.get(__response__, 'ram_disk_id'),
+        region=pulumi.get(__response__, 'region'),
         security_group_names=pulumi.get(__response__, 'security_group_names'),
         tag_specifications=pulumi.get(__response__, 'tag_specifications'),
         tags=pulumi.get(__response__, 'tags'),

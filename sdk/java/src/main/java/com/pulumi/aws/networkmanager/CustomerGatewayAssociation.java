@@ -15,8 +15,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Associates a customer gateway with a device and optionally, with a link.
- * If you specify a link, it must be associated with the specified device.
+ * Manages a Network Manager Customer Gateway Association.
+ * 
+ * Use this resource to associate a customer gateway with a device and optionally, with a link. If you specify a link, it must be associated with the specified device.
  * 
  * ## Example Usage
  * 
@@ -118,56 +119,60 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:networkmanager/customerGatewayAssociation:CustomerGatewayAssociation")
 public class CustomerGatewayAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the customer gateway.
+     * ARN of the customer gateway.
      * 
      */
     @Export(name="customerGatewayArn", refs={String.class}, tree="[0]")
     private Output<String> customerGatewayArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the customer gateway.
+     * @return ARN of the customer gateway.
      * 
      */
     public Output<String> customerGatewayArn() {
         return this.customerGatewayArn;
     }
     /**
-     * The ID of the device.
+     * ID of the device.
      * 
      */
     @Export(name="deviceId", refs={String.class}, tree="[0]")
     private Output<String> deviceId;
 
     /**
-     * @return The ID of the device.
+     * @return ID of the device.
      * 
      */
     public Output<String> deviceId() {
         return this.deviceId;
     }
     /**
-     * The ID of the global network.
+     * ID of the global network.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="globalNetworkId", refs={String.class}, tree="[0]")
     private Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the global network.
+     * @return ID of the global network.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
     /**
-     * The ID of the link.
+     * ID of the link.
      * 
      */
     @Export(name="linkId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> linkId;
 
     /**
-     * @return The ID of the link.
+     * @return ID of the link.
      * 
      */
     public Output<Optional<String>> linkId() {

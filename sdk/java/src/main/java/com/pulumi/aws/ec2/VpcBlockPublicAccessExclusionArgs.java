@@ -38,6 +38,21 @@ public final class VpcBlockPublicAccessExclusionArgs extends com.pulumi.resource
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
      * 
      */
@@ -93,6 +108,7 @@ public final class VpcBlockPublicAccessExclusionArgs extends com.pulumi.resource
 
     private VpcBlockPublicAccessExclusionArgs(VpcBlockPublicAccessExclusionArgs $) {
         this.internetGatewayExclusionMode = $.internetGatewayExclusionMode;
+        this.region = $.region;
         this.subnetId = $.subnetId;
         this.tags = $.tags;
         this.timeouts = $.timeouts;
@@ -140,6 +156,27 @@ public final class VpcBlockPublicAccessExclusionArgs extends com.pulumi.resource
          */
         public Builder internetGatewayExclusionMode(String internetGatewayExclusionMode) {
             return internetGatewayExclusionMode(Output.of(internetGatewayExclusionMode));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

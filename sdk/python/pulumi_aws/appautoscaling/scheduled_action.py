@@ -29,6 +29,7 @@ class ScheduledActionArgs:
                  service_namespace: pulumi.Input[builtins.str],
                  end_time: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  start_time: Optional[pulumi.Input[builtins.str]] = None,
                  timezone: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -40,6 +41,7 @@ class ScheduledActionArgs:
         :param pulumi.Input[builtins.str] service_namespace: Namespace of the AWS service. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs
         :param pulumi.Input[builtins.str] end_time: Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
         :param pulumi.Input[builtins.str] name: Name of the scheduled action.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] start_time: Date and time for the scheduled action to start in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
         :param pulumi.Input[builtins.str] timezone: Time zone used when setting a scheduled action by using an at or cron expression. Does not affect timezone for `start_time` and `end_time`. Valid values are the [canonical names of the IANA time zones supported by Joda-Time](https://www.joda.org/joda-time/timezones.html), such as `Etc/GMT+9` or `Pacific/Tahiti`. Default is `UTC`.
         """
@@ -52,6 +54,8 @@ class ScheduledActionArgs:
             pulumi.set(__self__, "end_time", end_time)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if start_time is not None:
             pulumi.set(__self__, "start_time", start_time)
         if timezone is not None:
@@ -142,6 +146,18 @@ class ScheduledActionArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -172,6 +188,7 @@ class _ScheduledActionState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  end_time: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  scalable_dimension: Optional[pulumi.Input[builtins.str]] = None,
                  scalable_target_action: Optional[pulumi.Input['ScheduledActionScalableTargetActionArgs']] = None,
@@ -184,6 +201,7 @@ class _ScheduledActionState:
         :param pulumi.Input[builtins.str] arn: ARN of the scheduled action.
         :param pulumi.Input[builtins.str] end_time: Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
         :param pulumi.Input[builtins.str] name: Name of the scheduled action.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id: Identifier of the resource associated with the scheduled action. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
         :param pulumi.Input[builtins.str] scalable_dimension: Scalable dimension. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs:service:DesiredCount
         :param pulumi.Input['ScheduledActionScalableTargetActionArgs'] scalable_target_action: New minimum and maximum capacity. You can set both values or just one. See below
@@ -198,6 +216,8 @@ class _ScheduledActionState:
             pulumi.set(__self__, "end_time", end_time)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
         if scalable_dimension is not None:
@@ -248,6 +268,18 @@ class _ScheduledActionState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -342,6 +374,7 @@ class ScheduledAction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  end_time: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  scalable_dimension: Optional[pulumi.Input[builtins.str]] = None,
                  scalable_target_action: Optional[pulumi.Input[Union['ScheduledActionScalableTargetActionArgs', 'ScheduledActionScalableTargetActionArgsDict']]] = None,
@@ -407,6 +440,7 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] end_time: Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
         :param pulumi.Input[builtins.str] name: Name of the scheduled action.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id: Identifier of the resource associated with the scheduled action. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
         :param pulumi.Input[builtins.str] scalable_dimension: Scalable dimension. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs:service:DesiredCount
         :param pulumi.Input[Union['ScheduledActionScalableTargetActionArgs', 'ScheduledActionScalableTargetActionArgsDict']] scalable_target_action: New minimum and maximum capacity. You can set both values or just one. See below
@@ -491,6 +525,7 @@ class ScheduledAction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  end_time: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  scalable_dimension: Optional[pulumi.Input[builtins.str]] = None,
                  scalable_target_action: Optional[pulumi.Input[Union['ScheduledActionScalableTargetActionArgs', 'ScheduledActionScalableTargetActionArgsDict']]] = None,
@@ -509,6 +544,7 @@ class ScheduledAction(pulumi.CustomResource):
 
             __props__.__dict__["end_time"] = end_time
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
@@ -540,6 +576,7 @@ class ScheduledAction(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             end_time: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_id: Optional[pulumi.Input[builtins.str]] = None,
             scalable_dimension: Optional[pulumi.Input[builtins.str]] = None,
             scalable_target_action: Optional[pulumi.Input[Union['ScheduledActionScalableTargetActionArgs', 'ScheduledActionScalableTargetActionArgsDict']]] = None,
@@ -557,6 +594,7 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: ARN of the scheduled action.
         :param pulumi.Input[builtins.str] end_time: Date and time for the scheduled action to end in RFC 3339 format. The timezone is not affected by the setting of `timezone`.
         :param pulumi.Input[builtins.str] name: Name of the scheduled action.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id: Identifier of the resource associated with the scheduled action. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html)
         :param pulumi.Input[builtins.str] scalable_dimension: Scalable dimension. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_PutScheduledAction.html) Example: ecs:service:DesiredCount
         :param pulumi.Input[Union['ScheduledActionScalableTargetActionArgs', 'ScheduledActionScalableTargetActionArgsDict']] scalable_target_action: New minimum and maximum capacity. You can set both values or just one. See below
@@ -572,6 +610,7 @@ class ScheduledAction(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["end_time"] = end_time
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_id"] = resource_id
         __props__.__dict__["scalable_dimension"] = scalable_dimension
         __props__.__dict__["scalable_target_action"] = scalable_target_action
@@ -604,6 +643,14 @@ class ScheduledAction(pulumi.CustomResource):
         Name of the scheduled action.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceId")

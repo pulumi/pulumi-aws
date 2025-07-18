@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "tf-test-bucket"});
+ * const bucket = new aws.s3.Bucket("bucket", {bucket: "tf-test-bucket"});
  * const firehoseAssumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -74,7 +74,7 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
- * const bucketAcl = new aws.s3.BucketAclV2("bucket_acl", {
+ * const bucketAcl = new aws.s3.BucketAcl("bucket_acl", {
  *     bucket: bucket.id,
  *     acl: "private",
  * });
@@ -499,7 +499,7 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const currentGetPartition = aws.getPartition({});
  * const currentGetRegion = aws.getRegion({});
- * const bucket = new aws.s3.BucketV2("bucket", {
+ * const bucket = new aws.s3.Bucket("bucket", {
  *     bucket: "test-bucket",
  *     forceDestroy: true,
  * });
@@ -530,7 +530,7 @@ import * as utilities from "../utilities";
  *     destination: "iceberg",
  *     icebergConfiguration: {
  *         roleArn: firehoseRole.arn,
- *         catalogArn: Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:glue:${currentGetRegion.name}:${current.accountId}:catalog`),
+ *         catalogArn: Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:glue:${currentGetRegion.region}:${current.accountId}:catalog`),
  *         bufferingSize: 10,
  *         bufferingInterval: 400,
  *         s3Configuration: {
@@ -739,9 +739,11 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      */
     public readonly redshiftConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamRedshiftConfiguration | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Encrypt at rest options. See `serverSideEncryption` block below for details.
-     *
-     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      */
     public readonly serverSideEncryption!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamServerSideEncryption | undefined>;
     /**
@@ -750,6 +752,8 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
     public readonly snowflakeConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamSnowflakeConfiguration | undefined>;
     /**
      * Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
+     *
+     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      */
     public readonly splunkConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration | undefined>;
     /**
@@ -758,8 +762,6 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly versionId!: pulumi.Output<string>;
@@ -790,6 +792,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             resourceInputs["opensearchConfiguration"] = state ? state.opensearchConfiguration : undefined;
             resourceInputs["opensearchserverlessConfiguration"] = state ? state.opensearchserverlessConfiguration : undefined;
             resourceInputs["redshiftConfiguration"] = state ? state.redshiftConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
             resourceInputs["snowflakeConfiguration"] = state ? state.snowflakeConfiguration : undefined;
             resourceInputs["splunkConfiguration"] = state ? state.splunkConfiguration : undefined;
@@ -814,6 +817,7 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
             resourceInputs["opensearchConfiguration"] = args ? args.opensearchConfiguration : undefined;
             resourceInputs["opensearchserverlessConfiguration"] = args ? args.opensearchserverlessConfiguration : undefined;
             resourceInputs["redshiftConfiguration"] = args ? args.redshiftConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             resourceInputs["snowflakeConfiguration"] = args ? args.snowflakeConfiguration : undefined;
             resourceInputs["splunkConfiguration"] = args ? args.splunkConfiguration : undefined;
@@ -880,9 +884,11 @@ export interface FirehoseDeliveryStreamState {
      */
     redshiftConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfiguration>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Encrypt at rest options. See `serverSideEncryption` block below for details.
-     *
-     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      */
     serverSideEncryption?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamServerSideEncryption>;
     /**
@@ -891,6 +897,8 @@ export interface FirehoseDeliveryStreamState {
     snowflakeConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSnowflakeConfiguration>;
     /**
      * Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
+     *
+     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      */
     splunkConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration>;
     /**
@@ -899,8 +907,6 @@ export interface FirehoseDeliveryStreamState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     versionId?: pulumi.Input<string>;
@@ -960,9 +966,11 @@ export interface FirehoseDeliveryStreamArgs {
      */
     redshiftConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamRedshiftConfiguration>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Encrypt at rest options. See `serverSideEncryption` block below for details.
-     *
-     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      */
     serverSideEncryption?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamServerSideEncryption>;
     /**
@@ -971,6 +979,8 @@ export interface FirehoseDeliveryStreamArgs {
     snowflakeConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSnowflakeConfiguration>;
     /**
      * Configuration options when `destination` is `splunk`. See `splunkConfiguration` block below for details.
+     *
+     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      */
     splunkConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration>;
     /**

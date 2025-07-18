@@ -124,6 +124,10 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
      */
     public readonly placement!: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationPlacement | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Key-value map of resource tags to assign to infrastructure created by the configuration.
      */
     public readonly resourceTags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -145,8 +149,6 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -178,6 +180,7 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
             resourceInputs["logging"] = state ? state.logging : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["placement"] = state ? state.placement : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceTags"] = state ? state.resourceTags : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
@@ -198,6 +201,7 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
             resourceInputs["logging"] = args ? args.logging : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["placement"] = args ? args.placement : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
@@ -265,6 +269,10 @@ export interface InfrastructureConfigurationState {
      */
     placement?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationPlacement>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Key-value map of resource tags to assign to infrastructure created by the configuration.
      */
     resourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -286,8 +294,6 @@ export interface InfrastructureConfigurationState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -334,6 +340,10 @@ export interface InfrastructureConfigurationArgs {
      * Configuration block with placement settings that define where the instances that are launched from your image will run. Detailed below.
      */
     placement?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationPlacement>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags to assign to infrastructure created by the configuration.
      */

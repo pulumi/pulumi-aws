@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmcontacts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func LookupContact(ctx *pulumi.Context, args *LookupContactArgs, opts ...pulumi.
 type LookupContactArgs struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -66,7 +68,8 @@ type LookupContactResult struct {
 	// Full friendly name of the contact or escalation plan.
 	DisplayName string `pulumi:"displayName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of contact engaged. A single contact is type `PERSONAL` and an escalation plan is type `ESCALATION`.
@@ -86,6 +89,8 @@ func LookupContactOutput(ctx *pulumi.Context, args LookupContactOutputArgs, opts
 type LookupContactOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -126,6 +131,10 @@ func (o LookupContactResultOutput) DisplayName() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupContactResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupContactResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContactResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags to assign to the resource.

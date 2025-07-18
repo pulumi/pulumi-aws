@@ -319,7 +319,7 @@ class StackInstancesStackInstanceSummary(dict):
         :param builtins.str detailed_status: Detailed status of the stack instance. Values include `PENDING`, `RUNNING`, `SUCCEEDED`, `FAILED`, `CANCELLED`, `INOPERABLE`, `SKIPPED_SUSPENDED_ACCOUNT`, `FAILED_IMPORT`.
         :param builtins.str drift_status: Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs. Values include `DRIFTED`, `IN_SYNC`, `UNKNOWN`, `NOT_CHECKED`.
         :param builtins.str organizational_unit_id: Organization root ID or organizational unit (OU) IDs that you specified for `deployment_targets`.
-        :param builtins.str region: Region that the stack instance is associated with.
+        :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param builtins.str stack_id: ID of the stack instance.
         :param builtins.str stack_set_id: Name or unique ID of the stack set that the stack instance is associated with.
         :param builtins.str status: Status of the stack instance, in terms of its synchronization with its associated stack set. Values include `CURRENT`, `OUTDATED`, `INOPERABLE`.
@@ -380,7 +380,7 @@ class StackInstancesStackInstanceSummary(dict):
     @pulumi.getter
     def region(self) -> Optional[builtins.str]:
         """
-        Region that the stack instance is associated with.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -110,9 +110,9 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example-s3-bucket",
+    ///         BucketName = "example-s3-bucket",
     ///         ForceDestroy = true,
     ///     });
     /// 
@@ -139,7 +139,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"{exampleBucketV2.Arn}/*",
+    ///                     $"{exampleBucket.Arn}/*",
     ///                 },
     ///             },
     ///         },
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     /// 
     ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = exampleBucket.Id,
     ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     ///         {
     ///             S3Configuration = new Aws.TimestreamInfluxDB.Inputs.DbInstanceLogDeliveryConfigurationS3ConfigurationArgs
     ///             {
-    ///                 BucketName = exampleBucketV2.Bucket,
+    ///                 BucketName = exampleBucket.BucketName,
     ///                 Enabled = true,
     ///             },
     ///         },
@@ -343,6 +343,12 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         /// </summary>
         [Output("publiclyAccessible")]
         public Output<bool> PubliclyAccessible { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.
@@ -523,6 +529,12 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -691,6 +703,12 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         public Input<bool>? PubliclyAccessible { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.
         /// </summary>
         [Input("secondaryAvailabilityZone")]
@@ -714,7 +732,6 @@ namespace Pulumi.Aws.TimestreamInfluxDB
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

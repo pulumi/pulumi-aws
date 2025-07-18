@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const s3 = current.then(current => aws.ec2.getPrefixList({
- *     name: `com.amazonaws.${current.name}.s3`,
+ *     name: `com.amazonaws.${current.region}.s3`,
  * }));
  * const s3GatewayEgress = new aws.ec2.SecurityGroupRule("s3_gateway_egress", {
  *     description: "S3 Gateway Egress",
@@ -190,6 +190,11 @@ export class SecurityGroupRule extends pulumi.CustomResource {
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Security group to apply this rule to.
      */
     public readonly securityGroupId!: pulumi.Output<string>;
@@ -214,8 +219,6 @@ export class SecurityGroupRule extends pulumi.CustomResource {
      * or `egress` (outbound).
      *
      * The following arguments are optional:
-     *
-     * > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -238,6 +241,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
             resourceInputs["ipv6CidrBlocks"] = state ? state.ipv6CidrBlocks : undefined;
             resourceInputs["prefixListIds"] = state ? state.prefixListIds : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
             resourceInputs["securityGroupRuleId"] = state ? state.securityGroupRuleId : undefined;
             resourceInputs["self"] = state ? state.self : undefined;
@@ -267,6 +271,7 @@ export class SecurityGroupRule extends pulumi.CustomResource {
             resourceInputs["ipv6CidrBlocks"] = args ? args.ipv6CidrBlocks : undefined;
             resourceInputs["prefixListIds"] = args ? args.prefixListIds : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
             resourceInputs["self"] = args ? args.self : undefined;
             resourceInputs["sourceSecurityGroupId"] = args ? args.sourceSecurityGroupId : undefined;
@@ -308,6 +313,11 @@ export interface SecurityGroupRuleState {
      */
     protocol?: pulumi.Input<string | enums.ec2.ProtocolType>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Security group to apply this rule to.
      */
     securityGroupId?: pulumi.Input<string>;
@@ -332,8 +342,6 @@ export interface SecurityGroupRuleState {
      * or `egress` (outbound).
      *
      * The following arguments are optional:
-     *
-     * > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
      */
     type?: pulumi.Input<string>;
 }
@@ -367,6 +375,11 @@ export interface SecurityGroupRuleArgs {
      */
     protocol: pulumi.Input<string | enums.ec2.ProtocolType>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Security group to apply this rule to.
      */
     securityGroupId: pulumi.Input<string>;
@@ -387,8 +400,6 @@ export interface SecurityGroupRuleArgs {
      * or `egress` (outbound).
      *
      * The following arguments are optional:
-     *
-     * > **Note** Although `cidrBlocks`, `ipv6CidrBlocks`, `prefixListIds`, and `sourceSecurityGroupId` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
      */
     type: pulumi.Input<string>;
 }

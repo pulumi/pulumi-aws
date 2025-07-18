@@ -76,6 +76,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> GatewayId { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the routing table to associate with.
         /// 
         /// &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
@@ -142,6 +148,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? GatewayId { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID of the routing table to associate with.
         /// 
         /// &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
@@ -168,6 +180,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("gatewayId")]
         public Input<string>? GatewayId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ID of the routing table to associate with.

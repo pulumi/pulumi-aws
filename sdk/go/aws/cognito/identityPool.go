@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -104,6 +104,8 @@ type IdentityPool struct {
 	IdentityPoolName pulumi.StringOutput `pulumi:"identityPoolName"`
 	// Set of OpendID Connect provider ARNs.
 	OpenidConnectProviderArns pulumi.StringArrayOutput `pulumi:"openidConnectProviderArns"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
 	SamlProviderArns pulumi.StringArrayOutput `pulumi:"samlProviderArns"`
 	// Key-Value pairs mapping provider names to provider app IDs.
@@ -111,8 +113,6 @@ type IdentityPool struct {
 	// A map of tags to assign to the Identity Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -164,6 +164,8 @@ type identityPoolState struct {
 	IdentityPoolName *string `pulumi:"identityPoolName"`
 	// Set of OpendID Connect provider ARNs.
 	OpenidConnectProviderArns []string `pulumi:"openidConnectProviderArns"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
 	SamlProviderArns []string `pulumi:"samlProviderArns"`
 	// Key-Value pairs mapping provider names to provider app IDs.
@@ -171,8 +173,6 @@ type identityPoolState struct {
 	// A map of tags to assign to the Identity Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -192,6 +192,8 @@ type IdentityPoolState struct {
 	IdentityPoolName pulumi.StringPtrInput
 	// Set of OpendID Connect provider ARNs.
 	OpenidConnectProviderArns pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
 	SamlProviderArns pulumi.StringArrayInput
 	// Key-Value pairs mapping provider names to provider app IDs.
@@ -199,8 +201,6 @@ type IdentityPoolState struct {
 	// A map of tags to assign to the Identity Pool. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -222,6 +222,8 @@ type identityPoolArgs struct {
 	IdentityPoolName string `pulumi:"identityPoolName"`
 	// Set of OpendID Connect provider ARNs.
 	OpenidConnectProviderArns []string `pulumi:"openidConnectProviderArns"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
 	SamlProviderArns []string `pulumi:"samlProviderArns"`
 	// Key-Value pairs mapping provider names to provider app IDs.
@@ -245,6 +247,8 @@ type IdentityPoolArgs struct {
 	IdentityPoolName pulumi.StringInput
 	// Set of OpendID Connect provider ARNs.
 	OpenidConnectProviderArns pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
 	SamlProviderArns pulumi.StringArrayInput
 	// Key-Value pairs mapping provider names to provider app IDs.
@@ -378,6 +382,11 @@ func (o IdentityPoolOutput) OpenidConnectProviderArns() pulumi.StringArrayOutput
 	return o.ApplyT(func(v *IdentityPool) pulumi.StringArrayOutput { return v.OpenidConnectProviderArns }).(pulumi.StringArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o IdentityPoolOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *IdentityPool) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
 func (o IdentityPoolOutput) SamlProviderArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IdentityPool) pulumi.StringArrayOutput { return v.SamlProviderArns }).(pulumi.StringArrayOutput)
@@ -394,8 +403,6 @@ func (o IdentityPoolOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o IdentityPoolOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IdentityPool) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

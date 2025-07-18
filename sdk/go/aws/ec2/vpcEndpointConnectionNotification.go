@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,9 +22,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -106,6 +106,8 @@ type VpcEndpointConnectionNotification struct {
 	ConnectionNotificationArn pulumi.StringOutput `pulumi:"connectionNotificationArn"`
 	// The type of notification.
 	NotificationType pulumi.StringOutput `pulumi:"notificationType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The state of the notification.
 	State pulumi.StringOutput `pulumi:"state"`
 	// The ID of the VPC Endpoint to receive notifications for.
@@ -158,6 +160,8 @@ type vpcEndpointConnectionNotificationState struct {
 	ConnectionNotificationArn *string `pulumi:"connectionNotificationArn"`
 	// The type of notification.
 	NotificationType *string `pulumi:"notificationType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The state of the notification.
 	State *string `pulumi:"state"`
 	// The ID of the VPC Endpoint to receive notifications for.
@@ -175,6 +179,8 @@ type VpcEndpointConnectionNotificationState struct {
 	ConnectionNotificationArn pulumi.StringPtrInput
 	// The type of notification.
 	NotificationType pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The state of the notification.
 	State pulumi.StringPtrInput
 	// The ID of the VPC Endpoint to receive notifications for.
@@ -194,6 +200,8 @@ type vpcEndpointConnectionNotificationArgs struct {
 	ConnectionEvents []string `pulumi:"connectionEvents"`
 	// The ARN of the SNS topic for the notifications.
 	ConnectionNotificationArn string `pulumi:"connectionNotificationArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the VPC Endpoint to receive notifications for.
 	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 	// The ID of the VPC Endpoint Service to receive notifications for.
@@ -208,6 +216,8 @@ type VpcEndpointConnectionNotificationArgs struct {
 	ConnectionEvents pulumi.StringArrayInput
 	// The ARN of the SNS topic for the notifications.
 	ConnectionNotificationArn pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the VPC Endpoint to receive notifications for.
 	VpcEndpointId pulumi.StringPtrInput
 	// The ID of the VPC Endpoint Service to receive notifications for.
@@ -316,6 +326,11 @@ func (o VpcEndpointConnectionNotificationOutput) ConnectionNotificationArn() pul
 // The type of notification.
 func (o VpcEndpointConnectionNotificationOutput) NotificationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointConnectionNotification) pulumi.StringOutput { return v.NotificationType }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o VpcEndpointConnectionNotificationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcEndpointConnectionNotification) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The state of the notification.

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -623,7 +623,7 @@ type StackInstancesStackInstanceSummary struct {
 	DriftStatus *string `pulumi:"driftStatus"`
 	// Organization root ID or organizational unit (OU) IDs that you specified for `deploymentTargets`.
 	OrganizationalUnitId *string `pulumi:"organizationalUnitId"`
-	// Region that the stack instance is associated with.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ID of the stack instance.
 	StackId *string `pulumi:"stackId"`
@@ -655,7 +655,7 @@ type StackInstancesStackInstanceSummaryArgs struct {
 	DriftStatus pulumi.StringPtrInput `pulumi:"driftStatus"`
 	// Organization root ID or organizational unit (OU) IDs that you specified for `deploymentTargets`.
 	OrganizationalUnitId pulumi.StringPtrInput `pulumi:"organizationalUnitId"`
-	// Region that the stack instance is associated with.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the stack instance.
 	StackId pulumi.StringPtrInput `pulumi:"stackId"`
@@ -738,7 +738,7 @@ func (o StackInstancesStackInstanceSummaryOutput) OrganizationalUnitId() pulumi.
 	return o.ApplyT(func(v StackInstancesStackInstanceSummary) *string { return v.OrganizationalUnitId }).(pulumi.StringPtrOutput)
 }
 
-// Region that the stack instance is associated with.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o StackInstancesStackInstanceSummaryOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StackInstancesStackInstanceSummary) *string { return v.Region }).(pulumi.StringPtrOutput)
 }

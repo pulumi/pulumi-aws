@@ -13,6 +13,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -46,9 +47,48 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         var example = new ImageVersion("example", ImageVersionArgs.builder()
+ *             .imageName(test.id())
+ *             .baseImage("012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### With Aliases
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sagemaker.ImageVersion;
+ * import com.pulumi.aws.sagemaker.ImageVersionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
  *         var test = new ImageVersion("test", ImageVersionArgs.builder()
  *             .imageName(testAwsSagemakerImage.id())
  *             .baseImage("012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest")
+ *             .aliases(            
+ *                 "latest",
+ *                 "stable")
  *             .build());
  * 
  *     }
@@ -59,15 +99,29 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import SageMaker AI Image Versions using the `name`. For example:
+ * Using `pulumi import`, import SageMaker AI Image Versions using a comma-delimited string concatenating `image_name` and `version`. For example:
  * 
  * ```sh
- * $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
+ * $ pulumi import aws:sagemaker/imageVersion:ImageVersion example example-name,1
  * ```
  * 
  */
 @ResourceType(type="aws:sagemaker/imageVersion:ImageVersion")
 public class ImageVersion extends com.pulumi.resources.CustomResource {
+    /**
+     * A list of aliases for the image version.
+     * 
+     */
+    @Export(name="aliases", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> aliases;
+
+    /**
+     * @return A list of aliases for the image version.
+     * 
+     */
+    public Output<Optional<List<String>>> aliases() {
+        return Codegen.optional(this.aliases);
+    }
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
      * 
@@ -199,6 +253,20 @@ public class ImageVersion extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> programmingLang() {
         return Codegen.optional(this.programmingLang);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * The maintainer description of the image version.

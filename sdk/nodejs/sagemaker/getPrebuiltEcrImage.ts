@@ -46,7 +46,7 @@ export interface GetPrebuiltEcrImageArgs {
      */
     imageTag?: string;
     /**
-     * Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
+     * Region to use in the registry path. Defaults to the Region set in the provider configuration.
      */
     region?: string;
     /**
@@ -65,7 +65,7 @@ export interface GetPrebuiltEcrImageResult {
      */
     readonly id: string;
     readonly imageTag?: string;
-    readonly region?: string;
+    readonly region: string;
     /**
      * Account ID containing the image. For example, `469771592824`.
      */
@@ -118,7 +118,7 @@ export interface GetPrebuiltEcrImageOutputArgs {
      */
     imageTag?: pulumi.Input<string>;
     /**
-     * Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
+     * Region to use in the registry path. Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

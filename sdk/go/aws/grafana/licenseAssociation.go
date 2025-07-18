@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/grafana"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/grafana"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -99,6 +99,8 @@ type LicenseAssociation struct {
 	LicenseExpiration pulumi.StringOutput `pulumi:"licenseExpiration"`
 	// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
 	LicenseType pulumi.StringOutput `pulumi:"licenseType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The workspace id.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
@@ -147,6 +149,8 @@ type licenseAssociationState struct {
 	LicenseExpiration *string `pulumi:"licenseExpiration"`
 	// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
 	LicenseType *string `pulumi:"licenseType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The workspace id.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
@@ -160,6 +164,8 @@ type LicenseAssociationState struct {
 	LicenseExpiration pulumi.StringPtrInput
 	// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
 	LicenseType pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The workspace id.
 	WorkspaceId pulumi.StringPtrInput
 }
@@ -173,6 +179,8 @@ type licenseAssociationArgs struct {
 	GrafanaToken *string `pulumi:"grafanaToken"`
 	// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
 	LicenseType string `pulumi:"licenseType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The workspace id.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
@@ -183,6 +191,8 @@ type LicenseAssociationArgs struct {
 	GrafanaToken pulumi.StringPtrInput
 	// The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
 	LicenseType pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The workspace id.
 	WorkspaceId pulumi.StringInput
 }
@@ -292,6 +302,11 @@ func (o LicenseAssociationOutput) LicenseExpiration() pulumi.StringOutput {
 // The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
 func (o LicenseAssociationOutput) LicenseType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseAssociation) pulumi.StringOutput { return v.LicenseType }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LicenseAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LicenseAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The workspace id.

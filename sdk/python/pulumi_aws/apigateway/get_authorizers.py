@@ -27,13 +27,16 @@ class GetAuthorizersResult:
     """
     A collection of values returned by getAuthorizers.
     """
-    def __init__(__self__, id=None, ids=None, rest_api_id=None):
+    def __init__(__self__, id=None, ids=None, region=None, rest_api_id=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if ids and not isinstance(ids, list):
             raise TypeError("Expected argument 'ids' to be a list")
         pulumi.set(__self__, "ids", ids)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if rest_api_id and not isinstance(rest_api_id, str):
             raise TypeError("Expected argument 'rest_api_id' to be a str")
         pulumi.set(__self__, "rest_api_id", rest_api_id)
@@ -55,6 +58,11 @@ class GetAuthorizersResult:
         return pulumi.get(self, "ids")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> builtins.str:
         return pulumi.get(self, "rest_api_id")
@@ -68,10 +76,12 @@ class AwaitableGetAuthorizersResult(GetAuthorizersResult):
         return GetAuthorizersResult(
             id=self.id,
             ids=self.ids,
+            region=self.region,
             rest_api_id=self.rest_api_id)
 
 
-def get_authorizers(rest_api_id: Optional[builtins.str] = None,
+def get_authorizers(region: Optional[builtins.str] = None,
+                    rest_api_id: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizersResult:
     """
     Provides details about multiple API Gateway Authorizers.
@@ -86,9 +96,11 @@ def get_authorizers(rest_api_id: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str rest_api_id: ID of the associated REST API.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['restApiId'] = rest_api_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getAuthorizers:getAuthorizers', __args__, opts=opts, typ=GetAuthorizersResult).value
@@ -96,8 +108,10 @@ def get_authorizers(rest_api_id: Optional[builtins.str] = None,
     return AwaitableGetAuthorizersResult(
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
+        region=pulumi.get(__ret__, 'region'),
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'))
-def get_authorizers_output(rest_api_id: Optional[pulumi.Input[builtins.str]] = None,
+def get_authorizers_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                           rest_api_id: Optional[pulumi.Input[builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizersResult]:
     """
     Provides details about multiple API Gateway Authorizers.
@@ -112,13 +126,16 @@ def get_authorizers_output(rest_api_id: Optional[pulumi.Input[builtins.str]] = N
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str rest_api_id: ID of the associated REST API.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['restApiId'] = rest_api_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getAuthorizers:getAuthorizers', __args__, opts=opts, typ=GetAuthorizersResult)
     return __ret__.apply(lambda __response__: GetAuthorizersResult(
         id=pulumi.get(__response__, 'id'),
         ids=pulumi.get(__response__, 'ids'),
+        region=pulumi.get(__response__, 'region'),
         rest_api_id=pulumi.get(__response__, 'rest_api_id')))

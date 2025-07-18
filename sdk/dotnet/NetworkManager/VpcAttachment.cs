@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager
 {
     /// <summary>
-    /// Resource for managing an AWS Network Manager VPC Attachment.
+    /// Manages a Network Manager VPC attachment.
     /// 
     /// ## Example Usage
     /// 
@@ -49,73 +49,73 @@ namespace Pulumi.Aws.NetworkManager
     public partial class VpcAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the attachment.
+        /// ARN of the attachment.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The policy rule number associated with the attachment.
+        /// Policy rule number associated with the attachment.
         /// </summary>
         [Output("attachmentPolicyRuleNumber")]
         public Output<int> AttachmentPolicyRuleNumber { get; private set; } = null!;
 
         /// <summary>
-        /// The type of attachment.
+        /// Type of attachment.
         /// </summary>
         [Output("attachmentType")]
         public Output<string> AttachmentType { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of a core network.
+        /// ARN of a core network.
         /// </summary>
         [Output("coreNetworkArn")]
         public Output<string> CoreNetworkArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of a core network for the VPC attachment.
+        /// ID of a core network for the VPC attachment.
         /// </summary>
         [Output("coreNetworkId")]
         public Output<string> CoreNetworkId { get; private set; } = null!;
 
         /// <summary>
-        /// The Region where the edge is located.
+        /// Region where the edge is located.
         /// </summary>
         [Output("edgeLocation")]
         public Output<string> EdgeLocation { get; private set; } = null!;
 
         /// <summary>
-        /// Options for the VPC attachment.
+        /// Options for the VPC attachment. See below.
         /// </summary>
         [Output("options")]
         public Output<Outputs.VpcAttachmentOptions?> Options { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the attachment account owner.
+        /// ID of the attachment account owner.
         /// </summary>
         [Output("ownerAccountId")]
         public Output<string> OwnerAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The attachment resource ARN.
+        /// Attachment resource ARN.
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the segment attachment.
+        /// Name of the segment attachment.
         /// </summary>
         [Output("segmentName")]
         public Output<string> SegmentName { get; private set; } = null!;
 
         /// <summary>
-        /// The state of the attachment.
+        /// State of the attachment.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// The subnet ARN of the VPC attachment.
+        /// Subnet ARNs of the VPC attachment.
         /// </summary>
         [Output("subnetArns")]
         public Output<ImmutableArray<string>> SubnetArns { get; private set; } = null!;
@@ -127,13 +127,13 @@ namespace Pulumi.Aws.NetworkManager
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the VPC.
+        /// ARN of the VPC.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -187,13 +187,13 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class VpcAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of a core network for the VPC attachment.
+        /// ID of a core network for the VPC attachment.
         /// </summary>
         [Input("coreNetworkId", required: true)]
         public Input<string> CoreNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// Options for the VPC attachment.
+        /// Options for the VPC attachment. See below.
         /// </summary>
         [Input("options")]
         public Input<Inputs.VpcAttachmentOptionsArgs>? Options { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.NetworkManager
         private InputList<string>? _subnetArns;
 
         /// <summary>
-        /// The subnet ARN of the VPC attachment.
+        /// Subnet ARNs of the VPC attachment.
         /// </summary>
         public InputList<string> SubnetArns
         {
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.NetworkManager
         }
 
         /// <summary>
-        /// The ARN of the VPC.
+        /// ARN of the VPC.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -239,67 +239,67 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class VpcAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the attachment.
+        /// ARN of the attachment.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The policy rule number associated with the attachment.
+        /// Policy rule number associated with the attachment.
         /// </summary>
         [Input("attachmentPolicyRuleNumber")]
         public Input<int>? AttachmentPolicyRuleNumber { get; set; }
 
         /// <summary>
-        /// The type of attachment.
+        /// Type of attachment.
         /// </summary>
         [Input("attachmentType")]
         public Input<string>? AttachmentType { get; set; }
 
         /// <summary>
-        /// The ARN of a core network.
+        /// ARN of a core network.
         /// </summary>
         [Input("coreNetworkArn")]
         public Input<string>? CoreNetworkArn { get; set; }
 
         /// <summary>
-        /// The ID of a core network for the VPC attachment.
+        /// ID of a core network for the VPC attachment.
         /// </summary>
         [Input("coreNetworkId")]
         public Input<string>? CoreNetworkId { get; set; }
 
         /// <summary>
-        /// The Region where the edge is located.
+        /// Region where the edge is located.
         /// </summary>
         [Input("edgeLocation")]
         public Input<string>? EdgeLocation { get; set; }
 
         /// <summary>
-        /// Options for the VPC attachment.
+        /// Options for the VPC attachment. See below.
         /// </summary>
         [Input("options")]
         public Input<Inputs.VpcAttachmentOptionsGetArgs>? Options { get; set; }
 
         /// <summary>
-        /// The ID of the attachment account owner.
+        /// ID of the attachment account owner.
         /// </summary>
         [Input("ownerAccountId")]
         public Input<string>? OwnerAccountId { get; set; }
 
         /// <summary>
-        /// The attachment resource ARN.
+        /// Attachment resource ARN.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
         /// <summary>
-        /// The name of the segment attachment.
+        /// Name of the segment attachment.
         /// </summary>
         [Input("segmentName")]
         public Input<string>? SegmentName { get; set; }
 
         /// <summary>
-        /// The state of the attachment.
+        /// State of the attachment.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Aws.NetworkManager
         private InputList<string>? _subnetArns;
 
         /// <summary>
-        /// The subnet ARN of the VPC attachment.
+        /// Subnet ARNs of the VPC attachment.
         /// </summary>
         public InputList<string> SubnetArns
         {
@@ -332,9 +332,8 @@ namespace Pulumi.Aws.NetworkManager
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -342,7 +341,7 @@ namespace Pulumi.Aws.NetworkManager
         }
 
         /// <summary>
-        /// The ARN of the VPC.
+        /// ARN of the VPC.
         /// 
         /// The following arguments are optional:
         /// </summary>

@@ -120,6 +120,10 @@ export class RemediationConfiguration extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<outputs.cfg.RemediationConfigurationParameter[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Type of resource.
      */
     public readonly resourceType!: pulumi.Output<string | undefined>;
@@ -161,6 +165,7 @@ export class RemediationConfiguration extends pulumi.CustomResource {
             resourceInputs["executionControls"] = state ? state.executionControls : undefined;
             resourceInputs["maximumAutomaticAttempts"] = state ? state.maximumAutomaticAttempts : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
             resourceInputs["retryAttemptSeconds"] = state ? state.retryAttemptSeconds : undefined;
             resourceInputs["targetId"] = state ? state.targetId : undefined;
@@ -182,6 +187,7 @@ export class RemediationConfiguration extends pulumi.CustomResource {
             resourceInputs["executionControls"] = args ? args.executionControls : undefined;
             resourceInputs["maximumAutomaticAttempts"] = args ? args.maximumAutomaticAttempts : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
             resourceInputs["retryAttemptSeconds"] = args ? args.retryAttemptSeconds : undefined;
             resourceInputs["targetId"] = args ? args.targetId : undefined;
@@ -222,6 +228,10 @@ export interface RemediationConfigurationState {
      * Can be specified multiple times for each parameter. Each parameter block supports arguments below.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.cfg.RemediationConfigurationParameter>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Type of resource.
      */
@@ -270,6 +280,10 @@ export interface RemediationConfigurationArgs {
      * Can be specified multiple times for each parameter. Each parameter block supports arguments below.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.cfg.RemediationConfigurationParameter>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Type of resource.
      */

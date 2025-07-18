@@ -28,7 +28,7 @@ class GetCloudFormationTypeResult:
     """
     A collection of values returned by getCloudFormationType.
     """
-    def __init__(__self__, arn=None, default_version_id=None, deprecated_status=None, description=None, documentation_url=None, execution_role_arn=None, id=None, is_default_version=None, logging_configs=None, provisioning_type=None, schema=None, source_url=None, type=None, type_arn=None, type_name=None, version_id=None, visibility=None):
+    def __init__(__self__, arn=None, default_version_id=None, deprecated_status=None, description=None, documentation_url=None, execution_role_arn=None, id=None, is_default_version=None, logging_configs=None, provisioning_type=None, region=None, schema=None, source_url=None, type=None, type_arn=None, type_name=None, version_id=None, visibility=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -59,6 +59,9 @@ class GetCloudFormationTypeResult:
         if provisioning_type and not isinstance(provisioning_type, str):
             raise TypeError("Expected argument 'provisioning_type' to be a str")
         pulumi.set(__self__, "provisioning_type", provisioning_type)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if schema and not isinstance(schema, str):
             raise TypeError("Expected argument 'schema' to be a str")
         pulumi.set(__self__, "schema", schema)
@@ -160,6 +163,11 @@ class GetCloudFormationTypeResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def schema(self) -> builtins.str:
         """
         JSON document of the CloudFormation Type schema.
@@ -219,6 +227,7 @@ class AwaitableGetCloudFormationTypeResult(GetCloudFormationTypeResult):
             is_default_version=self.is_default_version,
             logging_configs=self.logging_configs,
             provisioning_type=self.provisioning_type,
+            region=self.region,
             schema=self.schema,
             source_url=self.source_url,
             type=self.type,
@@ -229,6 +238,7 @@ class AwaitableGetCloudFormationTypeResult(GetCloudFormationTypeResult):
 
 
 def get_cloud_formation_type(arn: Optional[builtins.str] = None,
+                             region: Optional[builtins.str] = None,
                              type: Optional[builtins.str] = None,
                              type_name: Optional[builtins.str] = None,
                              version_id: Optional[builtins.str] = None,
@@ -248,12 +258,14 @@ def get_cloud_formation_type(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str type: CloudFormation Registry Type. For example, `RESOURCE`.
     :param builtins.str type_name: CloudFormation Type name. For example, `AWS::EC2::VPC`.
     :param builtins.str version_id: Identifier of the CloudFormation Type version.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['type'] = type
     __args__['typeName'] = type_name
     __args__['versionId'] = version_id
@@ -271,6 +283,7 @@ def get_cloud_formation_type(arn: Optional[builtins.str] = None,
         is_default_version=pulumi.get(__ret__, 'is_default_version'),
         logging_configs=pulumi.get(__ret__, 'logging_configs'),
         provisioning_type=pulumi.get(__ret__, 'provisioning_type'),
+        region=pulumi.get(__ret__, 'region'),
         schema=pulumi.get(__ret__, 'schema'),
         source_url=pulumi.get(__ret__, 'source_url'),
         type=pulumi.get(__ret__, 'type'),
@@ -279,6 +292,7 @@ def get_cloud_formation_type(arn: Optional[builtins.str] = None,
         version_id=pulumi.get(__ret__, 'version_id'),
         visibility=pulumi.get(__ret__, 'visibility'))
 def get_cloud_formation_type_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                    region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                     type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                     type_name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                     version_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -298,12 +312,14 @@ def get_cloud_formation_type_output(arn: Optional[pulumi.Input[Optional[builtins
 
 
     :param builtins.str arn: ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str type: CloudFormation Registry Type. For example, `RESOURCE`.
     :param builtins.str type_name: CloudFormation Type name. For example, `AWS::EC2::VPC`.
     :param builtins.str version_id: Identifier of the CloudFormation Type version.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['type'] = type
     __args__['typeName'] = type_name
     __args__['versionId'] = version_id
@@ -320,6 +336,7 @@ def get_cloud_formation_type_output(arn: Optional[pulumi.Input[Optional[builtins
         is_default_version=pulumi.get(__response__, 'is_default_version'),
         logging_configs=pulumi.get(__response__, 'logging_configs'),
         provisioning_type=pulumi.get(__response__, 'provisioning_type'),
+        region=pulumi.get(__response__, 'region'),
         schema=pulumi.get(__response__, 'schema'),
         source_url=pulumi.get(__response__, 'source_url'),
         type=pulumi.get(__response__, 'type'),

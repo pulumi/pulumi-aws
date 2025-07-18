@@ -28,7 +28,7 @@ class GetEmailIdentityResult:
     """
     A collection of values returned by getEmailIdentity.
     """
-    def __init__(__self__, arn=None, configuration_set_name=None, dkim_signing_attributes=None, email_identity=None, id=None, identity_type=None, tags=None, verified_for_sending_status=None):
+    def __init__(__self__, arn=None, configuration_set_name=None, dkim_signing_attributes=None, email_identity=None, id=None, identity_type=None, region=None, tags=None, verified_for_sending_status=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -47,6 +47,9 @@ class GetEmailIdentityResult:
         if identity_type and not isinstance(identity_type, str):
             raise TypeError("Expected argument 'identity_type' to be a str")
         pulumi.set(__self__, "identity_type", identity_type)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -98,6 +101,11 @@ class GetEmailIdentityResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Key-value mapping of resource tags.
@@ -125,11 +133,13 @@ class AwaitableGetEmailIdentityResult(GetEmailIdentityResult):
             email_identity=self.email_identity,
             id=self.id,
             identity_type=self.identity_type,
+            region=self.region,
             tags=self.tags,
             verified_for_sending_status=self.verified_for_sending_status)
 
 
 def get_email_identity(email_identity: Optional[builtins.str] = None,
+                       region: Optional[builtins.str] = None,
                        tags: Optional[Mapping[str, builtins.str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEmailIdentityResult:
     """
@@ -148,10 +158,12 @@ def get_email_identity(email_identity: Optional[builtins.str] = None,
 
 
     :param builtins.str email_identity: The name of the email identity.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value mapping of resource tags.
     """
     __args__ = dict()
     __args__['emailIdentity'] = email_identity
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:sesv2/getEmailIdentity:getEmailIdentity', __args__, opts=opts, typ=GetEmailIdentityResult).value
@@ -163,9 +175,11 @@ def get_email_identity(email_identity: Optional[builtins.str] = None,
         email_identity=pulumi.get(__ret__, 'email_identity'),
         id=pulumi.get(__ret__, 'id'),
         identity_type=pulumi.get(__ret__, 'identity_type'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         verified_for_sending_status=pulumi.get(__ret__, 'verified_for_sending_status'))
 def get_email_identity_output(email_identity: Optional[pulumi.Input[builtins.str]] = None,
+                              region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailIdentityResult]:
     """
@@ -184,10 +198,12 @@ def get_email_identity_output(email_identity: Optional[pulumi.Input[builtins.str
 
 
     :param builtins.str email_identity: The name of the email identity.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value mapping of resource tags.
     """
     __args__ = dict()
     __args__['emailIdentity'] = email_identity
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:sesv2/getEmailIdentity:getEmailIdentity', __args__, opts=opts, typ=GetEmailIdentityResult)
@@ -198,5 +214,6 @@ def get_email_identity_output(email_identity: Optional[pulumi.Input[builtins.str
         email_identity=pulumi.get(__response__, 'email_identity'),
         id=pulumi.get(__response__, 'id'),
         identity_type=pulumi.get(__response__, 'identity_type'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         verified_for_sending_status=pulumi.get(__response__, 'verified_for_sending_status')))

@@ -25,6 +25,7 @@ export function getInfrastructureConfiguration(args: GetInfrastructureConfigurat
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getInfrastructureConfiguration:getInfrastructureConfiguration", {
         "arn": args.arn,
+        "region": args.region,
         "resourceTags": args.resourceTags,
         "tags": args.tags,
     }, opts);
@@ -38,6 +39,10 @@ export interface GetInfrastructureConfigurationArgs {
      * ARN of the infrastructure configuration.
      */
     arn: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
      */
@@ -94,6 +99,7 @@ export interface GetInfrastructureConfigurationResult {
      * Placement settings that define where the instances that are launched from your image will run.
      */
     readonly placements: outputs.imagebuilder.GetInfrastructureConfigurationPlacement[];
+    readonly region: string;
     /**
      * Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
      */
@@ -137,6 +143,7 @@ export function getInfrastructureConfigurationOutput(args: GetInfrastructureConf
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:imagebuilder/getInfrastructureConfiguration:getInfrastructureConfiguration", {
         "arn": args.arn,
+        "region": args.region,
         "resourceTags": args.resourceTags,
         "tags": args.tags,
     }, opts);
@@ -150,6 +157,10 @@ export interface GetInfrastructureConfigurationOutputArgs {
      * ARN of the infrastructure configuration.
      */
     arn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
      */

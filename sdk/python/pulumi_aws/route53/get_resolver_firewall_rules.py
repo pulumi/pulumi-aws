@@ -28,7 +28,7 @@ class GetResolverFirewallRulesResult:
     """
     A collection of values returned by getResolverFirewallRules.
     """
-    def __init__(__self__, action=None, firewall_rule_group_id=None, firewall_rules=None, id=None, priority=None):
+    def __init__(__self__, action=None, firewall_rule_group_id=None, firewall_rules=None, id=None, priority=None, region=None):
         if action and not isinstance(action, str):
             raise TypeError("Expected argument 'action' to be a str")
         pulumi.set(__self__, "action", action)
@@ -44,6 +44,9 @@ class GetResolverFirewallRulesResult:
         if priority and not isinstance(priority, int):
             raise TypeError("Expected argument 'priority' to be a int")
         pulumi.set(__self__, "priority", priority)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -76,6 +79,11 @@ class GetResolverFirewallRulesResult:
     def priority(self) -> Optional[builtins.int]:
         return pulumi.get(self, "priority")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetResolverFirewallRulesResult(GetResolverFirewallRulesResult):
     # pylint: disable=using-constant-test
@@ -87,12 +95,14 @@ class AwaitableGetResolverFirewallRulesResult(GetResolverFirewallRulesResult):
             firewall_rule_group_id=self.firewall_rule_group_id,
             firewall_rules=self.firewall_rules,
             id=self.id,
-            priority=self.priority)
+            priority=self.priority,
+            region=self.region)
 
 
 def get_resolver_firewall_rules(action: Optional[builtins.str] = None,
                                 firewall_rule_group_id: Optional[builtins.str] = None,
                                 priority: Optional[builtins.int] = None,
+                                region: Optional[builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverFirewallRulesResult:
     """
     `route53_get_resolver_firewall_rules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
@@ -112,11 +122,13 @@ def get_resolver_firewall_rules(action: Optional[builtins.str] = None,
     :param builtins.str action: The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
     :param builtins.str firewall_rule_group_id: The unique identifier of the firewall rule group that you want to retrieve the rules for.
     :param builtins.int priority: The setting that determines the processing order of the rules in a rule group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['action'] = action
     __args__['firewallRuleGroupId'] = firewall_rule_group_id
     __args__['priority'] = priority
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:route53/getResolverFirewallRules:getResolverFirewallRules', __args__, opts=opts, typ=GetResolverFirewallRulesResult).value
 
@@ -125,10 +137,12 @@ def get_resolver_firewall_rules(action: Optional[builtins.str] = None,
         firewall_rule_group_id=pulumi.get(__ret__, 'firewall_rule_group_id'),
         firewall_rules=pulumi.get(__ret__, 'firewall_rules'),
         id=pulumi.get(__ret__, 'id'),
-        priority=pulumi.get(__ret__, 'priority'))
+        priority=pulumi.get(__ret__, 'priority'),
+        region=pulumi.get(__ret__, 'region'))
 def get_resolver_firewall_rules_output(action: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                        firewall_rule_group_id: Optional[pulumi.Input[builtins.str]] = None,
                                        priority: Optional[pulumi.Input[Optional[builtins.int]]] = None,
+                                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverFirewallRulesResult]:
     """
     `route53_get_resolver_firewall_rules` Provides details about rules in a specific Route53 Resolver Firewall rule group.
@@ -148,11 +162,13 @@ def get_resolver_firewall_rules_output(action: Optional[pulumi.Input[Optional[bu
     :param builtins.str action: The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
     :param builtins.str firewall_rule_group_id: The unique identifier of the firewall rule group that you want to retrieve the rules for.
     :param builtins.int priority: The setting that determines the processing order of the rules in a rule group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['action'] = action
     __args__['firewallRuleGroupId'] = firewall_rule_group_id
     __args__['priority'] = priority
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverFirewallRules:getResolverFirewallRules', __args__, opts=opts, typ=GetResolverFirewallRulesResult)
     return __ret__.apply(lambda __response__: GetResolverFirewallRulesResult(
@@ -160,4 +176,5 @@ def get_resolver_firewall_rules_output(action: Optional[pulumi.Input[Optional[bu
         firewall_rule_group_id=pulumi.get(__response__, 'firewall_rule_group_id'),
         firewall_rules=pulumi.get(__response__, 'firewall_rules'),
         id=pulumi.get(__response__, 'id'),
-        priority=pulumi.get(__response__, 'priority')))
+        priority=pulumi.get(__response__, 'priority'),
+        region=pulumi.get(__response__, 'region')))

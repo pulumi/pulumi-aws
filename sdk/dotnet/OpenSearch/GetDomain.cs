@@ -99,6 +99,12 @@ namespace Pulumi.Aws.OpenSearch
         [Input("offPeakWindowOptions")]
         public Inputs.GetDomainOffPeakWindowOptionsArgs? OffPeakWindowOptions { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -130,6 +136,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("offPeakWindowOptions")]
         public Input<Inputs.GetDomainOffPeakWindowOptionsInputArgs>? OffPeakWindowOptions { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -235,10 +247,6 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         public readonly string IpAddressType;
         /// <summary>
-        /// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-        /// </summary>
-        public readonly string KibanaEndpoint;
-        /// <summary>
         /// Domain log publishing related options.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainLogPublishingOptionResult> LogPublishingOptions;
@@ -254,6 +262,7 @@ namespace Pulumi.Aws.OpenSearch
         /// Status of a configuration change in the domain.
         /// </summary>
         public readonly bool Processing;
+        public readonly string Region;
         /// <summary>
         /// Domain snapshot related options.
         /// </summary>
@@ -315,8 +324,6 @@ namespace Pulumi.Aws.OpenSearch
 
             string ipAddressType,
 
-            string kibanaEndpoint,
-
             ImmutableArray<Outputs.GetDomainLogPublishingOptionResult> logPublishingOptions,
 
             ImmutableArray<Outputs.GetDomainNodeToNodeEncryptionResult> nodeToNodeEncryptions,
@@ -324,6 +331,8 @@ namespace Pulumi.Aws.OpenSearch
             Outputs.GetDomainOffPeakWindowOptionsResult? offPeakWindowOptions,
 
             bool processing,
+
+            string region,
 
             ImmutableArray<Outputs.GetDomainSnapshotOptionResult> snapshotOptions,
 
@@ -354,11 +363,11 @@ namespace Pulumi.Aws.OpenSearch
             EngineVersion = engineVersion;
             Id = id;
             IpAddressType = ipAddressType;
-            KibanaEndpoint = kibanaEndpoint;
             LogPublishingOptions = logPublishingOptions;
             NodeToNodeEncryptions = nodeToNodeEncryptions;
             OffPeakWindowOptions = offPeakWindowOptions;
             Processing = processing;
+            Region = region;
             SnapshotOptions = snapshotOptions;
             SoftwareUpdateOptions = softwareUpdateOptions;
             Tags = tags;

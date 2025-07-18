@@ -65,6 +65,21 @@ public final class NatGatewayArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A list of secondary allocation EIP IDs for this NAT Gateway.
      * 
      */
@@ -145,6 +160,7 @@ public final class NatGatewayArgs extends com.pulumi.resources.ResourceArgs {
         this.allocationId = $.allocationId;
         this.connectivityType = $.connectivityType;
         this.privateIp = $.privateIp;
+        this.region = $.region;
         this.secondaryAllocationIds = $.secondaryAllocationIds;
         this.secondaryPrivateIpAddressCount = $.secondaryPrivateIpAddressCount;
         this.secondaryPrivateIpAddresses = $.secondaryPrivateIpAddresses;
@@ -231,6 +247,27 @@ public final class NatGatewayArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder privateIp(String privateIp) {
             return privateIp(Output.of(privateIp));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

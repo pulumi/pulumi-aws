@@ -225,7 +225,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
 
         Note that the AWS API may translate the `s3_canonical_user_id` `CanonicalUser`
         principal into an `AWS` IAM ARN principal when supplied in an
-        `s3.BucketV2` bucket policy, causing spurious diffs. If
+        `s3.Bucket` bucket policy, causing spurious diffs. If
         you see this behavior, use the `iam_arn` instead:
 
         ```python
@@ -308,7 +308,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
 
         Note that the AWS API may translate the `s3_canonical_user_id` `CanonicalUser`
         principal into an `AWS` IAM ARN principal when supplied in an
-        `s3.BucketV2` bucket policy, causing spurious diffs. If
+        `s3.Bucket` bucket policy, causing spurious diffs. If
         you see this behavior, use the `iam_arn` instead:
 
         ```python

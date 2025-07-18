@@ -24,6 +24,7 @@ export function getContact(args: GetContactArgs, opts?: pulumi.InvokeOptions): P
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssmcontacts/getContact:getContact", {
         "arn": args.arn,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -36,6 +37,10 @@ export interface GetContactArgs {
      * The Amazon Resource Name (ARN) of the contact or escalation plan.
      */
     arn: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags to assign to the resource.
      */
@@ -59,6 +64,7 @@ export interface GetContactResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * Map of tags to assign to the resource.
      */
@@ -88,6 +94,7 @@ export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.Invok
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssmcontacts/getContact:getContact", {
         "arn": args.arn,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -100,6 +107,10 @@ export interface GetContactOutputArgs {
      * The Amazon Resource Name (ARN) of the contact or escalation plan.
      */
     arn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the resource.
      */

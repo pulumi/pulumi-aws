@@ -12,7 +12,7 @@ namespace Pulumi.Aws.S3
     /// <summary>
     /// Provides a S3 bucket server-side encryption configuration resource.
     /// 
-    /// &gt; **NOTE:** Destroying an `aws.s3.BucketServerSideEncryptionConfigurationV2` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
+    /// &gt; **NOTE:** Destroying an `aws.s3.BucketServerSideEncryptionConfiguration` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
     /// 
     /// ## Example Usage
     /// 
@@ -30,19 +30,19 @@ namespace Pulumi.Aws.S3
     ///         DeletionWindowInDays = 10,
     ///     });
     /// 
-    ///     var mybucket = new Aws.S3.BucketV2("mybucket", new()
+    ///     var mybucket = new Aws.S3.Bucket("mybucket", new()
     ///     {
-    ///         Bucket = "mybucket",
+    ///         BucketName = "mybucket",
     ///     });
     /// 
-    ///     var example = new Aws.S3.BucketServerSideEncryptionConfigurationV2("example", new()
+    ///     var example = new Aws.S3.BucketServerSideEncryptionConfiguration("example", new()
     ///     {
     ///         Bucket = mybucket.Id,
     ///         Rules = new[]
     ///         {
-    ///             new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationV2RuleArgs
+    ///             new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationRuleArgs
     ///             {
-    ///                 ApplyServerSideEncryptionByDefault = new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs
+    ///                 ApplyServerSideEncryptionByDefault = new Aws.S3.Inputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs
     ///                 {
     ///                     KmsMasterKeyId = mykey.Arn,
     ///                     SseAlgorithm = "aws:kms",
@@ -71,6 +71,7 @@ namespace Pulumi.Aws.S3
     /// $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name,123456789012
     /// ```
     /// </summary>
+    [Obsolete(@"aws.s3/bucketserversideencryptionconfigurationv2.BucketServerSideEncryptionConfigurationV2 has been deprecated in favor of aws.s3/bucketserversideencryptionconfiguration.BucketServerSideEncryptionConfiguration")]
     [AwsResourceType("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2")]
     public partial class BucketServerSideEncryptionConfigurationV2 : global::Pulumi.CustomResource
     {
@@ -85,6 +86,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
@@ -115,6 +122,10 @@ namespace Pulumi.Aws.S3
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2" },
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -150,6 +161,12 @@ namespace Pulumi.Aws.S3
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("rules", required: true)]
         private InputList<Inputs.BucketServerSideEncryptionConfigurationV2RuleArgs>? _rules;
 
@@ -181,6 +198,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.BucketServerSideEncryptionConfigurationV2RuleGetArgs>? _rules;

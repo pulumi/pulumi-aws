@@ -60,6 +60,12 @@ namespace Pulumi.Aws.Fms
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Details about the resource set to be created or updated. See `resource_set` Attribute Reference below.
         /// </summary>
         [Output("resourceSets")]
@@ -120,6 +126,12 @@ namespace Pulumi.Aws.Fms
 
     public sealed class ResourceSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resourceSets")]
         private InputList<Inputs.ResourceSetResourceSetArgs>? _resourceSets;
 
@@ -157,6 +169,12 @@ namespace Pulumi.Aws.Fms
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resourceSets")]
         private InputList<Inputs.ResourceSetResourceSetGetArgs>? _resourceSets;
 
@@ -179,7 +197,6 @@ namespace Pulumi.Aws.Fms
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -27,6 +27,7 @@ class LocationAzureBlobArgs:
                  container_url: pulumi.Input[builtins.str],
                  access_tier: Optional[pulumi.Input[builtins.str]] = None,
                  blob_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sas_configuration: Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -37,6 +38,7 @@ class LocationAzureBlobArgs:
         :param pulumi.Input[builtins.str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
         :param pulumi.Input[builtins.str] access_tier: The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
         :param pulumi.Input[builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['LocationAzureBlobSasConfigurationArgs'] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         :param pulumi.Input[builtins.str] subdirectory: Path segments if you want to limit your transfer to a virtual directory in the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -48,6 +50,8 @@ class LocationAzureBlobArgs:
             pulumi.set(__self__, "access_tier", access_tier)
         if blob_type is not None:
             pulumi.set(__self__, "blob_type", blob_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sas_configuration is not None:
             pulumi.set(__self__, "sas_configuration", sas_configuration)
         if subdirectory is not None:
@@ -116,6 +120,18 @@ class LocationAzureBlobArgs:
         pulumi.set(self, "blob_type", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sasConfiguration")
     def sas_configuration(self) -> Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']]:
         """
@@ -161,6 +177,7 @@ class _LocationAzureBlobState:
                  authentication_type: Optional[pulumi.Input[builtins.str]] = None,
                  blob_type: Optional[pulumi.Input[builtins.str]] = None,
                  container_url: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sas_configuration: Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -174,6 +191,7 @@ class _LocationAzureBlobState:
         :param pulumi.Input[builtins.str] authentication_type: The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
         :param pulumi.Input[builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
         :param pulumi.Input[builtins.str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['LocationAzureBlobSasConfigurationArgs'] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         :param pulumi.Input[builtins.str] subdirectory: Path segments if you want to limit your transfer to a virtual directory in the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -191,15 +209,14 @@ class _LocationAzureBlobState:
             pulumi.set(__self__, "blob_type", blob_type)
         if container_url is not None:
             pulumi.set(__self__, "container_url", container_url)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sas_configuration is not None:
             pulumi.set(__self__, "sas_configuration", sas_configuration)
         if subdirectory is not None:
             pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if uri is not None:
@@ -278,6 +295,18 @@ class _LocationAzureBlobState:
         pulumi.set(self, "container_url", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sasConfiguration")
     def sas_configuration(self) -> Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']]:
         """
@@ -315,7 +344,6 @@ class _LocationAzureBlobState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -347,6 +375,7 @@ class LocationAzureBlob(pulumi.CustomResource):
                  authentication_type: Optional[pulumi.Input[builtins.str]] = None,
                  blob_type: Optional[pulumi.Input[builtins.str]] = None,
                  container_url: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sas_configuration: Optional[pulumi.Input[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict']]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -386,6 +415,7 @@ class LocationAzureBlob(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] authentication_type: The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
         :param pulumi.Input[builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
         :param pulumi.Input[builtins.str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict']] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         :param pulumi.Input[builtins.str] subdirectory: Path segments if you want to limit your transfer to a virtual directory in the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -444,6 +474,7 @@ class LocationAzureBlob(pulumi.CustomResource):
                  authentication_type: Optional[pulumi.Input[builtins.str]] = None,
                  blob_type: Optional[pulumi.Input[builtins.str]] = None,
                  container_url: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sas_configuration: Optional[pulumi.Input[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict']]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -467,6 +498,7 @@ class LocationAzureBlob(pulumi.CustomResource):
             if container_url is None and not opts.urn:
                 raise TypeError("Missing required property 'container_url'")
             __props__.__dict__["container_url"] = container_url
+            __props__.__dict__["region"] = region
             __props__.__dict__["sas_configuration"] = sas_configuration
             __props__.__dict__["subdirectory"] = subdirectory
             __props__.__dict__["tags"] = tags
@@ -489,6 +521,7 @@ class LocationAzureBlob(pulumi.CustomResource):
             authentication_type: Optional[pulumi.Input[builtins.str]] = None,
             blob_type: Optional[pulumi.Input[builtins.str]] = None,
             container_url: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             sas_configuration: Optional[pulumi.Input[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict']]] = None,
             subdirectory: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -507,6 +540,7 @@ class LocationAzureBlob(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] authentication_type: The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
         :param pulumi.Input[builtins.str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
         :param pulumi.Input[builtins.str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['LocationAzureBlobSasConfigurationArgs', 'LocationAzureBlobSasConfigurationArgsDict']] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         :param pulumi.Input[builtins.str] subdirectory: Path segments if you want to limit your transfer to a virtual directory in the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -522,6 +556,7 @@ class LocationAzureBlob(pulumi.CustomResource):
         __props__.__dict__["authentication_type"] = authentication_type
         __props__.__dict__["blob_type"] = blob_type
         __props__.__dict__["container_url"] = container_url
+        __props__.__dict__["region"] = region
         __props__.__dict__["sas_configuration"] = sas_configuration
         __props__.__dict__["subdirectory"] = subdirectory
         __props__.__dict__["tags"] = tags
@@ -578,6 +613,14 @@ class LocationAzureBlob(pulumi.CustomResource):
         return pulumi.get(self, "container_url")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="sasConfiguration")
     def sas_configuration(self) -> pulumi.Output[Optional['outputs.LocationAzureBlobSasConfiguration']]:
         """
@@ -603,7 +646,6 @@ class LocationAzureBlob(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

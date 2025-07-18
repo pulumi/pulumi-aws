@@ -99,6 +99,12 @@ namespace Pulumi.Aws.Ec2
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetVpcIpamArgs()
         {
         }
@@ -112,6 +118,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetVpcIpamInvokeArgs()
         {
@@ -167,6 +179,7 @@ namespace Pulumi.Aws.Ec2
         /// ID of the default public scope.
         /// </summary>
         public readonly string PublicDefaultScopeId;
+        public readonly string Region;
         /// <summary>
         /// Number of resource discovery associations.
         /// </summary>
@@ -216,6 +229,8 @@ namespace Pulumi.Aws.Ec2
 
             string publicDefaultScopeId,
 
+            string region,
+
             int resourceDiscoveryAssociationCount,
 
             int scopeCount,
@@ -239,6 +254,7 @@ namespace Pulumi.Aws.Ec2
             OwnerId = ownerId;
             PrivateDefaultScopeId = privateDefaultScopeId;
             PublicDefaultScopeId = publicDefaultScopeId;
+            Region = region;
             ResourceDiscoveryAssociationCount = resourceDiscoveryAssociationCount;
             ScopeCount = scopeCount;
             State = state;

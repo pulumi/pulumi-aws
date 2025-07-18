@@ -29,7 +29,7 @@ class GetListenerRuleResult:
     """
     A collection of values returned by getListenerRule.
     """
-    def __init__(__self__, actions=None, arn=None, conditions=None, id=None, listener_arn=None, priority=None, tags=None):
+    def __init__(__self__, actions=None, arn=None, conditions=None, id=None, listener_arn=None, priority=None, region=None, tags=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -48,6 +48,9 @@ class GetListenerRuleResult:
         if priority and not isinstance(priority, int):
             raise TypeError("Expected argument 'priority' to be a int")
         pulumi.set(__self__, "priority", priority)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -98,6 +101,11 @@ class GetListenerRuleResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Tags assigned to the Listener Rule.
@@ -117,6 +125,7 @@ class AwaitableGetListenerRuleResult(GetListenerRuleResult):
             id=self.id,
             listener_arn=self.listener_arn,
             priority=self.priority,
+            region=self.region,
             tags=self.tags)
 
 
@@ -125,6 +134,7 @@ def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArg
                       conditions: Optional[Sequence[Union['GetListenerRuleConditionArgs', 'GetListenerRuleConditionArgsDict']]] = None,
                       listener_arn: Optional[builtins.str] = None,
                       priority: Optional[builtins.int] = None,
+                      region: Optional[builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetListenerRuleResult:
     """
     Provides information about an AWS Elastic Load Balancing Listener Rule.
@@ -166,6 +176,7 @@ def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArg
            Either `arn` or `listener_arn` must be set.
     :param builtins.int priority: Priority of the Listener Rule within the Listener.
            Must be set if `listener_arn` is set, otherwise must not be set.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['actions'] = actions
@@ -173,6 +184,7 @@ def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArg
     __args__['conditions'] = conditions
     __args__['listenerArn'] = listener_arn
     __args__['priority'] = priority
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:lb/getListenerRule:getListenerRule', __args__, opts=opts, typ=GetListenerRuleResult).value
 
@@ -183,12 +195,14 @@ def get_listener_rule(actions: Optional[Sequence[Union['GetListenerRuleActionArg
         id=pulumi.get(__ret__, 'id'),
         listener_arn=pulumi.get(__ret__, 'listener_arn'),
         priority=pulumi.get(__ret__, 'priority'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_listener_rule_output(actions: Optional[pulumi.Input[Optional[Sequence[Union['GetListenerRuleActionArgs', 'GetListenerRuleActionArgsDict']]]]] = None,
                              arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              conditions: Optional[pulumi.Input[Optional[Sequence[Union['GetListenerRuleConditionArgs', 'GetListenerRuleConditionArgsDict']]]]] = None,
                              listener_arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              priority: Optional[pulumi.Input[Optional[builtins.int]]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListenerRuleResult]:
     """
     Provides information about an AWS Elastic Load Balancing Listener Rule.
@@ -230,6 +244,7 @@ def get_listener_rule_output(actions: Optional[pulumi.Input[Optional[Sequence[Un
            Either `arn` or `listener_arn` must be set.
     :param builtins.int priority: Priority of the Listener Rule within the Listener.
            Must be set if `listener_arn` is set, otherwise must not be set.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['actions'] = actions
@@ -237,6 +252,7 @@ def get_listener_rule_output(actions: Optional[pulumi.Input[Optional[Sequence[Un
     __args__['conditions'] = conditions
     __args__['listenerArn'] = listener_arn
     __args__['priority'] = priority
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lb/getListenerRule:getListenerRule', __args__, opts=opts, typ=GetListenerRuleResult)
     return __ret__.apply(lambda __response__: GetListenerRuleResult(
@@ -246,4 +262,5 @@ def get_listener_rule_output(actions: Optional[pulumi.Input[Optional[Sequence[Un
         id=pulumi.get(__response__, 'id'),
         listener_arn=pulumi.get(__response__, 'listener_arn'),
         priority=pulumi.get(__response__, 'priority'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

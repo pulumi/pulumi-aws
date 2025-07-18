@@ -27,7 +27,7 @@ class GetAuthorizationTokenResult:
     """
     A collection of values returned by getAuthorizationToken.
     """
-    def __init__(__self__, authorization_token=None, expires_at=None, id=None, password=None, user_name=None):
+    def __init__(__self__, authorization_token=None, expires_at=None, id=None, password=None, region=None, user_name=None):
         if authorization_token and not isinstance(authorization_token, str):
             raise TypeError("Expected argument 'authorization_token' to be a str")
         pulumi.set(__self__, "authorization_token", authorization_token)
@@ -40,6 +40,9 @@ class GetAuthorizationTokenResult:
         if password and not isinstance(password, str):
             raise TypeError("Expected argument 'password' to be a str")
         pulumi.set(__self__, "password", password)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if user_name and not isinstance(user_name, str):
             raise TypeError("Expected argument 'user_name' to be a str")
         pulumi.set(__self__, "user_name", user_name)
@@ -77,6 +80,11 @@ class GetAuthorizationTokenResult:
         return pulumi.get(self, "password")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="userName")
     def user_name(self) -> builtins.str:
         """
@@ -95,10 +103,12 @@ class AwaitableGetAuthorizationTokenResult(GetAuthorizationTokenResult):
             expires_at=self.expires_at,
             id=self.id,
             password=self.password,
+            region=self.region,
             user_name=self.user_name)
 
 
-def get_authorization_token(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationTokenResult:
+def get_authorization_token(region: Optional[builtins.str] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationTokenResult:
     """
     The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.
 
@@ -112,8 +122,12 @@ def get_authorization_token(opts: Optional[pulumi.InvokeOptions] = None) -> Awai
 
     token = aws.ecrpublic.get_authorization_token()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ecrpublic/getAuthorizationToken:getAuthorizationToken', __args__, opts=opts, typ=GetAuthorizationTokenResult).value
 
@@ -122,8 +136,10 @@ def get_authorization_token(opts: Optional[pulumi.InvokeOptions] = None) -> Awai
         expires_at=pulumi.get(__ret__, 'expires_at'),
         id=pulumi.get(__ret__, 'id'),
         password=pulumi.get(__ret__, 'password'),
+        region=pulumi.get(__ret__, 'region'),
         user_name=pulumi.get(__ret__, 'user_name'))
-def get_authorization_token_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationTokenResult]:
+def get_authorization_token_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationTokenResult]:
     """
     The Public ECR Authorization Token data source allows the authorization token, token expiration date, user name, and password to be retrieved for a Public ECR repository.
 
@@ -137,8 +153,12 @@ def get_authorization_token_output(opts: Optional[Union[pulumi.InvokeOptions, pu
 
     token = aws.ecrpublic.get_authorization_token()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ecrpublic/getAuthorizationToken:getAuthorizationToken', __args__, opts=opts, typ=GetAuthorizationTokenResult)
     return __ret__.apply(lambda __response__: GetAuthorizationTokenResult(
@@ -146,4 +166,5 @@ def get_authorization_token_output(opts: Optional[Union[pulumi.InvokeOptions, pu
         expires_at=pulumi.get(__response__, 'expires_at'),
         id=pulumi.get(__response__, 'id'),
         password=pulumi.get(__response__, 'password'),
+        region=pulumi.get(__response__, 'region'),
         user_name=pulumi.get(__response__, 'user_name')))

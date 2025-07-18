@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmincidents"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,7 +60,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmincidents"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -172,11 +172,11 @@ type ResponsePlan struct {
 	Integration ResponsePlanIntegrationPtrOutput `pulumi:"integration"`
 	// The name of the response plan.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The tags applied to the response plan.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -229,11 +229,11 @@ type responsePlanState struct {
 	Integration *ResponsePlanIntegration `pulumi:"integration"`
 	// The name of the response plan.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The tags applied to the response plan.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -254,11 +254,11 @@ type ResponsePlanState struct {
 	Integration ResponsePlanIntegrationPtrInput
 	// The name of the response plan.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The tags applied to the response plan.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -281,6 +281,8 @@ type responsePlanArgs struct {
 	Integration *ResponsePlanIntegration `pulumi:"integration"`
 	// The name of the response plan.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The tags applied to the response plan.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -301,6 +303,8 @@ type ResponsePlanArgs struct {
 	Integration ResponsePlanIntegrationPtrInput
 	// The name of the response plan.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The tags applied to the response plan.
 	Tags pulumi.StringMapInput
 }
@@ -432,14 +436,17 @@ func (o ResponsePlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResponsePlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ResponsePlanOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResponsePlan) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The tags applied to the response plan.
 func (o ResponsePlanOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResponsePlan) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ResponsePlanOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResponsePlan) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

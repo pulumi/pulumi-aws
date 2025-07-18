@@ -168,6 +168,10 @@ export class OntapFileSystem extends pulumi.CustomResource {
      */
     public readonly preferredSubnetId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
      */
     public readonly routeTableIds!: pulumi.Output<string[]>;
@@ -193,8 +197,6 @@ export class OntapFileSystem extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -241,6 +243,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
             resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["preferredSubnetId"] = state ? state.preferredSubnetId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routeTableIds"] = state ? state.routeTableIds : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["storageCapacity"] = state ? state.storageCapacity : undefined;
@@ -275,6 +278,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
             resourceInputs["haPairs"] = args ? args.haPairs : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["preferredSubnetId"] = args ? args.preferredSubnetId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
@@ -360,6 +364,10 @@ export interface OntapFileSystemState {
      */
     preferredSubnetId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
      */
     routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -385,8 +393,6 @@ export interface OntapFileSystemState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -447,6 +453,10 @@ export interface OntapFileSystemArgs {
      * The ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
      */
     preferredSubnetId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
      */

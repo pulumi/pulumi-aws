@@ -73,6 +73,10 @@ export class InviteAccepter extends pulumi.CustomResource {
      * AWS account ID for primary account.
      */
     public readonly masterAccountId!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a InviteAccepter resource with the given unique name, arguments, and options.
@@ -89,6 +93,7 @@ export class InviteAccepter extends pulumi.CustomResource {
             const state = argsOrState as InviteAccepterState | undefined;
             resourceInputs["detectorId"] = state ? state.detectorId : undefined;
             resourceInputs["masterAccountId"] = state ? state.masterAccountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as InviteAccepterArgs | undefined;
             if ((!args || args.detectorId === undefined) && !opts.urn) {
@@ -99,6 +104,7 @@ export class InviteAccepter extends pulumi.CustomResource {
             }
             resourceInputs["detectorId"] = args ? args.detectorId : undefined;
             resourceInputs["masterAccountId"] = args ? args.masterAccountId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(InviteAccepter.__pulumiType, name, resourceInputs, opts);
@@ -117,6 +123,10 @@ export interface InviteAccepterState {
      * AWS account ID for primary account.
      */
     masterAccountId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -131,4 +141,8 @@ export interface InviteAccepterArgs {
      * AWS account ID for primary account.
      */
     masterAccountId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

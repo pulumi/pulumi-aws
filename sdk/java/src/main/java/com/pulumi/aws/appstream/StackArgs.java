@@ -151,6 +151,21 @@ public final class StackArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration block for the storage connectors to enable.
      * See `storage_connectors` below.
      * 
@@ -227,6 +242,7 @@ public final class StackArgs extends com.pulumi.resources.ResourceArgs {
         this.feedbackUrl = $.feedbackUrl;
         this.name = $.name;
         this.redirectUrl = $.redirectUrl;
+        this.region = $.region;
         this.storageConnectors = $.storageConnectors;
         this.streamingExperienceSettings = $.streamingExperienceSettings;
         this.tags = $.tags;
@@ -446,6 +462,27 @@ public final class StackArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder redirectUrl(String redirectUrl) {
             return redirectUrl(Output.of(redirectUrl));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

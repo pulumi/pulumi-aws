@@ -15,7 +15,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetTemplatesResult',
@@ -29,7 +28,10 @@ class GetTemplatesResult:
     """
     A collection of values returned by getTemplates.
     """
-    def __init__(__self__, id=None, region=None, templates=None):
+    def __init__(__self__, aws_region=None, id=None, region=None, templates=None):
+        if aws_region and not isinstance(aws_region, str):
+            raise TypeError("Expected argument 'aws_region' to be a str")
+        pulumi.set(__self__, "aws_region", aws_region)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -41,13 +43,19 @@ class GetTemplatesResult:
         pulumi.set(__self__, "templates", templates)
 
     @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "aws_region")
+
+    @property
     @pulumi.getter
     def id(self) -> builtins.str:
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
-    def region(self) -> builtins.str:
+    @_utilities.deprecated("""region is deprecated. Use get_region instead.""")
+    def region(self) -> Optional[builtins.str]:
         """
         AWS Region to which the template applies.
         """
@@ -55,7 +63,7 @@ class GetTemplatesResult:
 
     @property
     @pulumi.getter
-    def templates(self) -> Optional[Sequence['outputs.GetTemplatesTemplateResult']]:
+    def templates(self) -> Sequence['outputs.GetTemplatesTemplateResult']:
         """
         A list of quota increase templates for specified region. See `templates`.
         """
@@ -68,16 +76,17 @@ class AwaitableGetTemplatesResult(GetTemplatesResult):
         if False:
             yield self
         return GetTemplatesResult(
+            aws_region=self.aws_region,
             id=self.id,
             region=self.region,
             templates=self.templates)
 
 
-def get_templates(region: Optional[builtins.str] = None,
-                  templates: Optional[Sequence[Union['GetTemplatesTemplateArgs', 'GetTemplatesTemplateArgsDict']]] = None,
+def get_templates(aws_region: Optional[builtins.str] = None,
+                  region: Optional[builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTemplatesResult:
     """
-    Data source for managing an AWS Service Quotas Templates.
+    Data source for managing AWS Service Quotas Templates.
 
     ## Example Usage
 
@@ -87,28 +96,29 @@ def get_templates(region: Optional[builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.servicequotas.get_templates(region="us-east-1")
+    example = aws.servicequotas.get_templates(aws_region="us-east-1")
     ```
 
 
-    :param builtins.str region: AWS Region to which the quota increases apply.
-    :param Sequence[Union['GetTemplatesTemplateArgs', 'GetTemplatesTemplateArgsDict']] templates: A list of quota increase templates for specified region. See `templates`.
+    :param builtins.str aws_region: AWS Region to which the quota increases apply.
+    :param builtins.str region: AWS Region to which the quota increases apply. Use `get_region` instead.
     """
     __args__ = dict()
+    __args__['awsRegion'] = aws_region
     __args__['region'] = region
-    __args__['templates'] = templates
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:servicequotas/getTemplates:getTemplates', __args__, opts=opts, typ=GetTemplatesResult).value
 
     return AwaitableGetTemplatesResult(
+        aws_region=pulumi.get(__ret__, 'aws_region'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
         templates=pulumi.get(__ret__, 'templates'))
-def get_templates_output(region: Optional[pulumi.Input[builtins.str]] = None,
-                         templates: Optional[pulumi.Input[Optional[Sequence[Union['GetTemplatesTemplateArgs', 'GetTemplatesTemplateArgsDict']]]]] = None,
+def get_templates_output(aws_region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTemplatesResult]:
     """
-    Data source for managing an AWS Service Quotas Templates.
+    Data source for managing AWS Service Quotas Templates.
 
     ## Example Usage
 
@@ -118,19 +128,20 @@ def get_templates_output(region: Optional[pulumi.Input[builtins.str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.servicequotas.get_templates(region="us-east-1")
+    example = aws.servicequotas.get_templates(aws_region="us-east-1")
     ```
 
 
-    :param builtins.str region: AWS Region to which the quota increases apply.
-    :param Sequence[Union['GetTemplatesTemplateArgs', 'GetTemplatesTemplateArgsDict']] templates: A list of quota increase templates for specified region. See `templates`.
+    :param builtins.str aws_region: AWS Region to which the quota increases apply.
+    :param builtins.str region: AWS Region to which the quota increases apply. Use `get_region` instead.
     """
     __args__ = dict()
+    __args__['awsRegion'] = aws_region
     __args__['region'] = region
-    __args__['templates'] = templates
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicequotas/getTemplates:getTemplates', __args__, opts=opts, typ=GetTemplatesResult)
     return __ret__.apply(lambda __response__: GetTemplatesResult(
+        aws_region=pulumi.get(__response__, 'aws_region'),
         id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region'),
         templates=pulumi.get(__response__, 'templates')))

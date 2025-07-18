@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupLaunchConfiguration(ctx *pulumi.Context, args *LookupLaunchConfigurat
 type LookupLaunchConfigurationArgs struct {
 	// Name of the launch configuration.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLaunchConfiguration.
@@ -84,6 +86,7 @@ type LookupLaunchConfigurationResult struct {
 	Name string `pulumi:"name"`
 	// Tenancy of the instance.
 	PlacementTenancy string `pulumi:"placementTenancy"`
+	Region           string `pulumi:"region"`
 	// Root Block Device of the instance.
 	RootBlockDevices []GetLaunchConfigurationRootBlockDevice `pulumi:"rootBlockDevices"`
 	// List of associated Security Group IDS.
@@ -107,6 +110,8 @@ func LookupLaunchConfigurationOutput(ctx *pulumi.Context, args LookupLaunchConfi
 type LookupLaunchConfigurationOutputArgs struct {
 	// Name of the launch configuration.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupLaunchConfigurationOutputArgs) ElementType() reflect.Type {
@@ -202,6 +207,10 @@ func (o LookupLaunchConfigurationResultOutput) Name() pulumi.StringOutput {
 // Tenancy of the instance.
 func (o LookupLaunchConfigurationResultOutput) PlacementTenancy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchConfigurationResult) string { return v.PlacementTenancy }).(pulumi.StringOutput)
+}
+
+func (o LookupLaunchConfigurationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLaunchConfigurationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Root Block Device of the instance.

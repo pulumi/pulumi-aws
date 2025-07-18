@@ -42,6 +42,7 @@ export function getHoursOfOperation(args: GetHoursOfOperationArgs, opts?: pulumi
         "hoursOfOperationId": args.hoursOfOperationId,
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -64,6 +65,10 @@ export interface GetHoursOfOperationArgs {
      * > **NOTE:** `instanceId` and one of either `name` or `hoursOfOperationId` is required.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags to assign to the Hours of Operation.
      */
@@ -102,6 +107,7 @@ export interface GetHoursOfOperationResult {
      * Name of the Hours of Operation.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * Map of tags to assign to the Hours of Operation.
      */
@@ -146,6 +152,7 @@ export function getHoursOfOperationOutput(args: GetHoursOfOperationOutputArgs, o
         "hoursOfOperationId": args.hoursOfOperationId,
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -168,6 +175,10 @@ export interface GetHoursOfOperationOutputArgs {
      * > **NOTE:** `instanceId` and one of either `name` or `hoursOfOperationId` is required.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the Hours of Operation.
      */

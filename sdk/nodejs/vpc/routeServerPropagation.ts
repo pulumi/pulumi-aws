@@ -61,11 +61,17 @@ export class RouteServerPropagation extends pulumi.CustomResource {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The unique identifier for the route server to be associated.
      */
     public readonly routeServerId!: pulumi.Output<string>;
     /**
      * The ID of the route table to which route server will propagate routes.
+     *
+     * The following arguments are optional:
      */
     public readonly routeTableId!: pulumi.Output<string>;
     public readonly timeouts!: pulumi.Output<outputs.vpc.RouteServerPropagationTimeouts | undefined>;
@@ -83,6 +89,7 @@ export class RouteServerPropagation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteServerPropagationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routeServerId"] = state ? state.routeServerId : undefined;
             resourceInputs["routeTableId"] = state ? state.routeTableId : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -94,6 +101,7 @@ export class RouteServerPropagation extends pulumi.CustomResource {
             if ((!args || args.routeTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'routeTableId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routeServerId"] = args ? args.routeServerId : undefined;
             resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -108,11 +116,17 @@ export class RouteServerPropagation extends pulumi.CustomResource {
  */
 export interface RouteServerPropagationState {
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The unique identifier for the route server to be associated.
      */
     routeServerId?: pulumi.Input<string>;
     /**
      * The ID of the route table to which route server will propagate routes.
+     *
+     * The following arguments are optional:
      */
     routeTableId?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.vpc.RouteServerPropagationTimeouts>;
@@ -123,11 +137,17 @@ export interface RouteServerPropagationState {
  */
 export interface RouteServerPropagationArgs {
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The unique identifier for the route server to be associated.
      */
     routeServerId: pulumi.Input<string>;
     /**
      * The ID of the route table to which route server will propagate routes.
+     *
+     * The following arguments are optional:
      */
     routeTableId: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.vpc.RouteServerPropagationTimeouts>;

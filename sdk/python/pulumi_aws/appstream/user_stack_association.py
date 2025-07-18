@@ -23,6 +23,7 @@ class UserStackAssociationArgs:
                  authentication_type: pulumi.Input[builtins.str],
                  stack_name: pulumi.Input[builtins.str],
                  user_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  send_email_notification: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The set of arguments for constructing a UserStackAssociation resource.
@@ -31,11 +32,14 @@ class UserStackAssociationArgs:
         :param pulumi.Input[builtins.str] user_name: Email address of the user who is associated with the stack.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         pulumi.set(__self__, "stack_name", stack_name)
         pulumi.set(__self__, "user_name", user_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if send_email_notification is not None:
             pulumi.set(__self__, "send_email_notification", send_email_notification)
 
@@ -78,6 +82,18 @@ class UserStackAssociationArgs:
         pulumi.set(self, "user_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sendEmailNotification")
     def send_email_notification(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -94,12 +110,14 @@ class UserStackAssociationArgs:
 class _UserStackAssociationState:
     def __init__(__self__, *,
                  authentication_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  send_email_notification: Optional[pulumi.Input[builtins.bool]] = None,
                  stack_name: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserStackAssociation resources.
         :param pulumi.Input[builtins.str] authentication_type: Authentication type for the user.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
         :param pulumi.Input[builtins.str] stack_name: Name of the stack that is associated with the user.
         :param pulumi.Input[builtins.str] user_name: Email address of the user who is associated with the stack.
@@ -108,6 +126,8 @@ class _UserStackAssociationState:
         """
         if authentication_type is not None:
             pulumi.set(__self__, "authentication_type", authentication_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if send_email_notification is not None:
             pulumi.set(__self__, "send_email_notification", send_email_notification)
         if stack_name is not None:
@@ -126,6 +146,18 @@ class _UserStackAssociationState:
     @authentication_type.setter
     def authentication_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="sendEmailNotification")
@@ -173,6 +205,7 @@ class UserStackAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  send_email_notification: Optional[pulumi.Input[builtins.bool]] = None,
                  stack_name: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -207,6 +240,7 @@ class UserStackAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] authentication_type: Authentication type for the user.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
         :param pulumi.Input[builtins.str] stack_name: Name of the stack that is associated with the user.
         :param pulumi.Input[builtins.str] user_name: Email address of the user who is associated with the stack.
@@ -262,6 +296,7 @@ class UserStackAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  send_email_notification: Optional[pulumi.Input[builtins.bool]] = None,
                  stack_name: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -277,6 +312,7 @@ class UserStackAssociation(pulumi.CustomResource):
             if authentication_type is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_type'")
             __props__.__dict__["authentication_type"] = authentication_type
+            __props__.__dict__["region"] = region
             __props__.__dict__["send_email_notification"] = send_email_notification
             if stack_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stack_name'")
@@ -295,6 +331,7 @@ class UserStackAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             authentication_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             send_email_notification: Optional[pulumi.Input[builtins.bool]] = None,
             stack_name: Optional[pulumi.Input[builtins.str]] = None,
             user_name: Optional[pulumi.Input[builtins.str]] = None) -> 'UserStackAssociation':
@@ -306,6 +343,7 @@ class UserStackAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] authentication_type: Authentication type for the user.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] send_email_notification: Whether a welcome email is sent to a user after the user is created in the user pool.
         :param pulumi.Input[builtins.str] stack_name: Name of the stack that is associated with the user.
         :param pulumi.Input[builtins.str] user_name: Email address of the user who is associated with the stack.
@@ -317,6 +355,7 @@ class UserStackAssociation(pulumi.CustomResource):
         __props__ = _UserStackAssociationState.__new__(_UserStackAssociationState)
 
         __props__.__dict__["authentication_type"] = authentication_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["send_email_notification"] = send_email_notification
         __props__.__dict__["stack_name"] = stack_name
         __props__.__dict__["user_name"] = user_name
@@ -329,6 +368,14 @@ class UserStackAssociation(pulumi.CustomResource):
         Authentication type for the user.
         """
         return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sendEmailNotification")

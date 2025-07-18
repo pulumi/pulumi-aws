@@ -26,6 +26,7 @@ class CloudFormationTypeArgs:
                  type_name: pulumi.Input[builtins.str],
                  execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  logging_config: Optional[pulumi.Input['CloudFormationTypeLoggingConfigArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a CloudFormationType resource.
@@ -33,6 +34,7 @@ class CloudFormationTypeArgs:
         :param pulumi.Input[builtins.str] type_name: CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
         :param pulumi.Input[builtins.str] execution_role_arn: Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
         :param pulumi.Input['CloudFormationTypeLoggingConfigArgs'] logging_config: Configuration block containing logging configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] type: CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
         """
         pulumi.set(__self__, "schema_handler_package", schema_handler_package)
@@ -41,6 +43,8 @@ class CloudFormationTypeArgs:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if logging_config is not None:
             pulumi.set(__self__, "logging_config", logging_config)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -94,6 +98,18 @@ class CloudFormationTypeArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
@@ -117,6 +133,7 @@ class _CloudFormationTypeState:
                  is_default_version: Optional[pulumi.Input[builtins.bool]] = None,
                  logging_config: Optional[pulumi.Input['CloudFormationTypeLoggingConfigArgs']] = None,
                  provisioning_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schema: Optional[pulumi.Input[builtins.str]] = None,
                  schema_handler_package: Optional[pulumi.Input[builtins.str]] = None,
                  source_url: Optional[pulumi.Input[builtins.str]] = None,
@@ -136,6 +153,7 @@ class _CloudFormationTypeState:
         :param pulumi.Input[builtins.bool] is_default_version: Whether the CloudFormation Type version is the default version.
         :param pulumi.Input['CloudFormationTypeLoggingConfigArgs'] logging_config: Configuration block containing logging configuration.
         :param pulumi.Input[builtins.str] provisioning_type: Provisioning behavior of the CloudFormation Type.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schema: JSON document of the CloudFormation Type schema.
         :param pulumi.Input[builtins.str] schema_handler_package: URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
         :param pulumi.Input[builtins.str] source_url: URL of the source code for the CloudFormation Type.
@@ -163,6 +181,8 @@ class _CloudFormationTypeState:
             pulumi.set(__self__, "logging_config", logging_config)
         if provisioning_type is not None:
             pulumi.set(__self__, "provisioning_type", provisioning_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
         if schema_handler_package is not None:
@@ -290,6 +310,18 @@ class _CloudFormationTypeState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         JSON document of the CloudFormation Type schema.
@@ -393,6 +425,7 @@ class CloudFormationType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  logging_config: Optional[pulumi.Input[Union['CloudFormationTypeLoggingConfigArgs', 'CloudFormationTypeLoggingConfigArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schema_handler_package: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  type_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -412,6 +445,7 @@ class CloudFormationType(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] execution_role_arn: Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
         :param pulumi.Input[Union['CloudFormationTypeLoggingConfigArgs', 'CloudFormationTypeLoggingConfigArgsDict']] logging_config: Configuration block containing logging configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schema_handler_package: URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
         :param pulumi.Input[builtins.str] type: CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
         :param pulumi.Input[builtins.str] type_name: CloudFormation Type name. For example, `ExampleCompany::ExampleService::ExampleResource`.
@@ -450,6 +484,7 @@ class CloudFormationType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  logging_config: Optional[pulumi.Input[Union['CloudFormationTypeLoggingConfigArgs', 'CloudFormationTypeLoggingConfigArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schema_handler_package: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  type_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -464,6 +499,7 @@ class CloudFormationType(pulumi.CustomResource):
 
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["logging_config"] = logging_config
+            __props__.__dict__["region"] = region
             if schema_handler_package is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_handler_package'")
             __props__.__dict__["schema_handler_package"] = schema_handler_package
@@ -502,6 +538,7 @@ class CloudFormationType(pulumi.CustomResource):
             is_default_version: Optional[pulumi.Input[builtins.bool]] = None,
             logging_config: Optional[pulumi.Input[Union['CloudFormationTypeLoggingConfigArgs', 'CloudFormationTypeLoggingConfigArgsDict']]] = None,
             provisioning_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             schema: Optional[pulumi.Input[builtins.str]] = None,
             schema_handler_package: Optional[pulumi.Input[builtins.str]] = None,
             source_url: Optional[pulumi.Input[builtins.str]] = None,
@@ -526,6 +563,7 @@ class CloudFormationType(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] is_default_version: Whether the CloudFormation Type version is the default version.
         :param pulumi.Input[Union['CloudFormationTypeLoggingConfigArgs', 'CloudFormationTypeLoggingConfigArgsDict']] logging_config: Configuration block containing logging configuration.
         :param pulumi.Input[builtins.str] provisioning_type: Provisioning behavior of the CloudFormation Type.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schema: JSON document of the CloudFormation Type schema.
         :param pulumi.Input[builtins.str] schema_handler_package: URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
         :param pulumi.Input[builtins.str] source_url: URL of the source code for the CloudFormation Type.
@@ -548,6 +586,7 @@ class CloudFormationType(pulumi.CustomResource):
         __props__.__dict__["is_default_version"] = is_default_version
         __props__.__dict__["logging_config"] = logging_config
         __props__.__dict__["provisioning_type"] = provisioning_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["schema"] = schema
         __props__.__dict__["schema_handler_package"] = schema_handler_package
         __props__.__dict__["source_url"] = source_url
@@ -629,6 +668,14 @@ class CloudFormationType(pulumi.CustomResource):
         Provisioning behavior of the CloudFormation Type.
         """
         return pulumi.get(self, "provisioning_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

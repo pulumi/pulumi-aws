@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dax"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dax"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -97,6 +97,8 @@ type Cluster struct {
 	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
 	// The port used by the configuration endpoint
 	Port pulumi.IntOutput `pulumi:"port"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The number of nodes in the DAX cluster. A
 	// replication factor of 1 will create a single-node cluster, without any read
 	// replicas
@@ -112,8 +114,6 @@ type Cluster struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -203,6 +203,8 @@ type clusterState struct {
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// The port used by the configuration endpoint
 	Port *int `pulumi:"port"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The number of nodes in the DAX cluster. A
 	// replication factor of 1 will create a single-node cluster, without any read
 	// replicas
@@ -218,8 +220,6 @@ type clusterState struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -268,6 +268,8 @@ type ClusterState struct {
 	ParameterGroupName pulumi.StringPtrInput
 	// The port used by the configuration endpoint
 	Port pulumi.IntPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The number of nodes in the DAX cluster. A
 	// replication factor of 1 will create a single-node cluster, without any read
 	// replicas
@@ -283,8 +285,6 @@ type ClusterState struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -324,6 +324,8 @@ type clusterArgs struct {
 	// Name of the parameter group to associate
 	// with this DAX cluster
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The number of nodes in the DAX cluster. A
 	// replication factor of 1 will create a single-node cluster, without any read
 	// replicas
@@ -373,6 +375,8 @@ type ClusterArgs struct {
 	// Name of the parameter group to associate
 	// with this DAX cluster
 	ParameterGroupName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The number of nodes in the DAX cluster. A
 	// replication factor of 1 will create a single-node cluster, without any read
 	// replicas
@@ -562,6 +566,11 @@ func (o ClusterOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ClusterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The number of nodes in the DAX cluster. A
 // replication factor of 1 will create a single-node cluster, without any read
 // replicas
@@ -592,8 +601,6 @@ func (o ClusterOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

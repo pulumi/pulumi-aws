@@ -67,6 +67,10 @@ export class TagOption extends pulumi.CustomResource {
     public readonly key!: pulumi.Output<string>;
     public /*out*/ readonly owner!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Tag option value.
      *
      * The following arguments are optional:
@@ -89,6 +93,7 @@ export class TagOption extends pulumi.CustomResource {
             resourceInputs["active"] = state ? state.active : undefined;
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as TagOptionArgs | undefined;
@@ -100,6 +105,7 @@ export class TagOption extends pulumi.CustomResource {
             }
             resourceInputs["active"] = args ? args.active : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["value"] = args ? args.value : undefined;
             resourceInputs["owner"] = undefined /*out*/;
         }
@@ -122,6 +128,10 @@ export interface TagOptionState {
     key?: pulumi.Input<string>;
     owner?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Tag option value.
      *
      * The following arguments are optional:
@@ -141,6 +151,10 @@ export interface TagOptionArgs {
      * Tag option key.
      */
     key: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Tag option value.
      *

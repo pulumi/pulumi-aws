@@ -33,6 +33,7 @@ class DatabaseArgs:
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -52,6 +53,7 @@ class DatabaseArgs:
         :param pulumi.Input[builtins.str] preferred_backup_window: Daily time range during which automated backups are created for your database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
         :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur on your database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
         :param pulumi.Input[builtins.bool] publicly_accessible: Whether the database is accessible to resources outside of your Lightsail account. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Whether a final database snapshot is created before your database is deleted. If true is specified, no database snapshot is created. If false is specified, a database snapshot is created before your database is deleted. You must specify the final relational database snapshot name parameter if the skip final snapshot parameter is false.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -75,6 +77,8 @@ class DatabaseArgs:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if skip_final_snapshot is not None:
             pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
         if tags is not None:
@@ -239,6 +243,18 @@ class DatabaseArgs:
         pulumi.set(self, "publicly_accessible", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="skipFinalSnapshot")
     def skip_final_snapshot(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -288,6 +304,7 @@ class _DatabaseState:
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
                  ram_size: Optional[pulumi.Input[builtins.float]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  relational_database_name: Optional[pulumi.Input[builtins.str]] = None,
                  secondary_availability_zone: Optional[pulumi.Input[builtins.str]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
@@ -318,6 +335,7 @@ class _DatabaseState:
         :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur on your database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
         :param pulumi.Input[builtins.bool] publicly_accessible: Whether the database is accessible to resources outside of your Lightsail account. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
         :param pulumi.Input[builtins.float] ram_size: Amount of RAM in GB for the database.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] relational_database_name: Name to use for your Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
                
                The following arguments are optional:
@@ -371,6 +389,8 @@ class _DatabaseState:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if ram_size is not None:
             pulumi.set(__self__, "ram_size", ram_size)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if relational_database_name is not None:
             pulumi.set(__self__, "relational_database_name", relational_database_name)
         if secondary_availability_zone is not None:
@@ -381,9 +401,6 @@ class _DatabaseState:
             pulumi.set(__self__, "support_code", support_code)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -652,6 +669,18 @@ class _DatabaseState:
         pulumi.set(self, "ram_size", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="relationalDatabaseName")
     def relational_database_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -715,7 +744,6 @@ class _DatabaseState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -745,6 +773,7 @@ class Database(pulumi.CustomResource):
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  relational_database_name: Optional[pulumi.Input[builtins.str]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -917,6 +946,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] preferred_backup_window: Daily time range during which automated backups are created for your database if automated backups are enabled. Must be in the hh24:mi-hh24:mi format. Example: `16:00-16:30`. Specified in Coordinated Universal Time (UTC).
         :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur on your database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
         :param pulumi.Input[builtins.bool] publicly_accessible: Whether the database is accessible to resources outside of your Lightsail account. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] relational_database_name: Name to use for your Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
                
                The following arguments are optional:
@@ -1110,6 +1140,7 @@ class Database(pulumi.CustomResource):
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  relational_database_name: Optional[pulumi.Input[builtins.str]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -1144,6 +1175,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["publicly_accessible"] = publicly_accessible
+            __props__.__dict__["region"] = region
             if relational_database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'relational_database_name'")
             __props__.__dict__["relational_database_name"] = relational_database_name
@@ -1196,6 +1228,7 @@ class Database(pulumi.CustomResource):
             preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
             publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
             ram_size: Optional[pulumi.Input[builtins.float]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             relational_database_name: Optional[pulumi.Input[builtins.str]] = None,
             secondary_availability_zone: Optional[pulumi.Input[builtins.str]] = None,
             skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1231,6 +1264,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur on your database. Must be in the ddd:hh24:mi-ddd:hh24:mi format. Specified in Coordinated Universal Time (UTC). Example: `Tue:17:00-Tue:17:30`
         :param pulumi.Input[builtins.bool] publicly_accessible: Whether the database is accessible to resources outside of your Lightsail account. A value of true specifies a database that is available to resources outside of your Lightsail account. A value of false specifies a database that is available only to your Lightsail resources in the same region as your database.
         :param pulumi.Input[builtins.float] ram_size: Amount of RAM in GB for the database.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] relational_database_name: Name to use for your Lightsail database resource. Names be unique within each AWS Region in your Lightsail account.
                
                The following arguments are optional:
@@ -1266,6 +1300,7 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
         __props__.__dict__["publicly_accessible"] = publicly_accessible
         __props__.__dict__["ram_size"] = ram_size
+        __props__.__dict__["region"] = region
         __props__.__dict__["relational_database_name"] = relational_database_name
         __props__.__dict__["secondary_availability_zone"] = secondary_availability_zone
         __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
@@ -1451,6 +1486,14 @@ class Database(pulumi.CustomResource):
         return pulumi.get(self, "ram_size")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="relationalDatabaseName")
     def relational_database_name(self) -> pulumi.Output[builtins.str]:
         """
@@ -1494,7 +1537,6 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

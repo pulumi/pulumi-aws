@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.codebuild.inputs;
 
+import com.pulumi.aws.codebuild.inputs.ProjectEnvironmentDockerServerArgs;
 import com.pulumi.aws.codebuild.inputs.ProjectEnvironmentEnvironmentVariableArgs;
 import com.pulumi.aws.codebuild.inputs.ProjectEnvironmentFleetArgs;
 import com.pulumi.aws.codebuild.inputs.ProjectEnvironmentRegistryCredentialArgs;
@@ -55,6 +56,21 @@ public final class ProjectEnvironmentArgs extends com.pulumi.resources.ResourceA
      */
     public Output<String> computeType() {
         return this.computeType;
+    }
+
+    /**
+     * Configuration block. Detailed below.
+     * 
+     */
+    @Import(name="dockerServer")
+    private @Nullable Output<ProjectEnvironmentDockerServerArgs> dockerServer;
+
+    /**
+     * @return Configuration block. Detailed below.
+     * 
+     */
+    public Optional<Output<ProjectEnvironmentDockerServerArgs>> dockerServer() {
+        return Optional.ofNullable(this.dockerServer);
     }
 
     /**
@@ -187,6 +203,7 @@ public final class ProjectEnvironmentArgs extends com.pulumi.resources.ResourceA
     private ProjectEnvironmentArgs(ProjectEnvironmentArgs $) {
         this.certificate = $.certificate;
         this.computeType = $.computeType;
+        this.dockerServer = $.dockerServer;
         this.environmentVariables = $.environmentVariables;
         this.fleet = $.fleet;
         this.image = $.image;
@@ -260,6 +277,27 @@ public final class ProjectEnvironmentArgs extends com.pulumi.resources.ResourceA
          */
         public Builder computeType(String computeType) {
             return computeType(Output.of(computeType));
+        }
+
+        /**
+         * @param dockerServer Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dockerServer(@Nullable Output<ProjectEnvironmentDockerServerArgs> dockerServer) {
+            $.dockerServer = dockerServer;
+            return this;
+        }
+
+        /**
+         * @param dockerServer Configuration block. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dockerServer(ProjectEnvironmentDockerServerArgs dockerServer) {
+            return dockerServer(Output.of(dockerServer));
         }
 
         /**

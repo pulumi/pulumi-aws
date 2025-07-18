@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/auditmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,6 +87,8 @@ type Assessment struct {
 	FrameworkId pulumi.StringOutput `pulumi:"frameworkId"`
 	// Name of the assessment.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// List of roles for the assessment. See `roles` below.
 	Roles AssessmentRoleArrayOutput `pulumi:"roles"`
 	// Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
@@ -98,8 +100,7 @@ type Assessment struct {
 	// Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -112,9 +113,6 @@ func NewAssessment(ctx *pulumi.Context,
 
 	if args.FrameworkId == nil {
 		return nil, errors.New("invalid value for required argument 'FrameworkId'")
-	}
-	if args.Roles == nil {
-		return nil, errors.New("invalid value for required argument 'Roles'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Assessment
@@ -149,6 +147,8 @@ type assessmentState struct {
 	FrameworkId *string `pulumi:"frameworkId"`
 	// Name of the assessment.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of roles for the assessment. See `roles` below.
 	Roles []AssessmentRole `pulumi:"roles"`
 	// Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
@@ -160,8 +160,7 @@ type assessmentState struct {
 	// Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
 	Status *string `pulumi:"status"`
 	// A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -176,6 +175,8 @@ type AssessmentState struct {
 	FrameworkId pulumi.StringPtrInput
 	// Name of the assessment.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of roles for the assessment. See `roles` below.
 	Roles AssessmentRoleArrayInput
 	// Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
@@ -187,8 +188,7 @@ type AssessmentState struct {
 	// Status of the assessment. Valid values are `ACTIVE` and `INACTIVE`.
 	Status pulumi.StringPtrInput
 	// A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -205,6 +205,8 @@ type assessmentArgs struct {
 	FrameworkId string `pulumi:"frameworkId"`
 	// Name of the assessment.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of roles for the assessment. See `roles` below.
 	Roles []AssessmentRole `pulumi:"roles"`
 	// Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
@@ -225,6 +227,8 @@ type AssessmentArgs struct {
 	FrameworkId pulumi.StringInput
 	// Name of the assessment.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of roles for the assessment. See `roles` below.
 	Roles AssessmentRoleArrayInput
 	// Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
@@ -349,6 +353,11 @@ func (o AssessmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AssessmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // List of roles for the assessment. See `roles` below.
 func (o AssessmentOutput) Roles() AssessmentRoleArrayOutput {
 	return o.ApplyT(func(v *Assessment) AssessmentRoleArrayOutput { return v.Roles }).(AssessmentRoleArrayOutput)
@@ -376,7 +385,6 @@ func (o AssessmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o AssessmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

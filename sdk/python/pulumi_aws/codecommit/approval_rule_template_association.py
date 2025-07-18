@@ -21,14 +21,18 @@ __all__ = ['ApprovalRuleTemplateAssociationArgs', 'ApprovalRuleTemplateAssociati
 class ApprovalRuleTemplateAssociationArgs:
     def __init__(__self__, *,
                  approval_rule_template_name: pulumi.Input[builtins.str],
-                 repository_name: pulumi.Input[builtins.str]):
+                 repository_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ApprovalRuleTemplateAssociation resource.
         :param pulumi.Input[builtins.str] approval_rule_template_name: The name for the approval rule template.
         :param pulumi.Input[builtins.str] repository_name: The name of the repository that you want to associate with the template.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "approval_rule_template_name", approval_rule_template_name)
         pulumi.set(__self__, "repository_name", repository_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="approvalRuleTemplateName")
@@ -54,19 +58,35 @@ class ApprovalRuleTemplateAssociationArgs:
     def repository_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "repository_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ApprovalRuleTemplateAssociationState:
     def __init__(__self__, *,
                  approval_rule_template_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApprovalRuleTemplateAssociation resources.
         :param pulumi.Input[builtins.str] approval_rule_template_name: The name for the approval rule template.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository_name: The name of the repository that you want to associate with the template.
         """
         if approval_rule_template_name is not None:
             pulumi.set(__self__, "approval_rule_template_name", approval_rule_template_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if repository_name is not None:
             pulumi.set(__self__, "repository_name", repository_name)
 
@@ -81,6 +101,18 @@ class _ApprovalRuleTemplateAssociationState:
     @approval_rule_template_name.setter
     def approval_rule_template_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "approval_rule_template_name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="repositoryName")
@@ -102,6 +134,7 @@ class ApprovalRuleTemplateAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  approval_rule_template_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -129,6 +162,7 @@ class ApprovalRuleTemplateAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] approval_rule_template_name: The name for the approval rule template.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository_name: The name of the repository that you want to associate with the template.
         """
         ...
@@ -175,6 +209,7 @@ class ApprovalRuleTemplateAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  approval_rule_template_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -188,6 +223,7 @@ class ApprovalRuleTemplateAssociation(pulumi.CustomResource):
             if approval_rule_template_name is None and not opts.urn:
                 raise TypeError("Missing required property 'approval_rule_template_name'")
             __props__.__dict__["approval_rule_template_name"] = approval_rule_template_name
+            __props__.__dict__["region"] = region
             if repository_name is None and not opts.urn:
                 raise TypeError("Missing required property 'repository_name'")
             __props__.__dict__["repository_name"] = repository_name
@@ -202,6 +238,7 @@ class ApprovalRuleTemplateAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             approval_rule_template_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             repository_name: Optional[pulumi.Input[builtins.str]] = None) -> 'ApprovalRuleTemplateAssociation':
         """
         Get an existing ApprovalRuleTemplateAssociation resource's state with the given name, id, and optional extra
@@ -211,6 +248,7 @@ class ApprovalRuleTemplateAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] approval_rule_template_name: The name for the approval rule template.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository_name: The name of the repository that you want to associate with the template.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -218,6 +256,7 @@ class ApprovalRuleTemplateAssociation(pulumi.CustomResource):
         __props__ = _ApprovalRuleTemplateAssociationState.__new__(_ApprovalRuleTemplateAssociationState)
 
         __props__.__dict__["approval_rule_template_name"] = approval_rule_template_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["repository_name"] = repository_name
         return ApprovalRuleTemplateAssociation(resource_name, opts=opts, __props__=__props__)
 
@@ -228,6 +267,14 @@ class ApprovalRuleTemplateAssociation(pulumi.CustomResource):
         The name for the approval rule template.
         """
         return pulumi.get(self, "approval_rule_template_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="repositoryName")

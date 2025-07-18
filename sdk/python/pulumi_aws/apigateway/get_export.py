@@ -27,7 +27,7 @@ class GetExportResult:
     """
     A collection of values returned by getExport.
     """
-    def __init__(__self__, accepts=None, body=None, content_disposition=None, content_type=None, export_type=None, id=None, parameters=None, rest_api_id=None, stage_name=None):
+    def __init__(__self__, accepts=None, body=None, content_disposition=None, content_type=None, export_type=None, id=None, parameters=None, region=None, rest_api_id=None, stage_name=None):
         if accepts and not isinstance(accepts, str):
             raise TypeError("Expected argument 'accepts' to be a str")
         pulumi.set(__self__, "accepts", accepts)
@@ -49,6 +49,9 @@ class GetExportResult:
         if parameters and not isinstance(parameters, dict):
             raise TypeError("Expected argument 'parameters' to be a dict")
         pulumi.set(__self__, "parameters", parameters)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if rest_api_id and not isinstance(rest_api_id, str):
             raise TypeError("Expected argument 'rest_api_id' to be a str")
         pulumi.set(__self__, "rest_api_id", rest_api_id)
@@ -104,6 +107,11 @@ class GetExportResult:
         return pulumi.get(self, "parameters")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> builtins.str:
         return pulumi.get(self, "rest_api_id")
@@ -127,6 +135,7 @@ class AwaitableGetExportResult(GetExportResult):
             export_type=self.export_type,
             id=self.id,
             parameters=self.parameters,
+            region=self.region,
             rest_api_id=self.rest_api_id,
             stage_name=self.stage_name)
 
@@ -134,6 +143,7 @@ class AwaitableGetExportResult(GetExportResult):
 def get_export(accepts: Optional[builtins.str] = None,
                export_type: Optional[builtins.str] = None,
                parameters: Optional[Mapping[str, builtins.str]] = None,
+               region: Optional[builtins.str] = None,
                rest_api_id: Optional[builtins.str] = None,
                stage_name: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportResult:
@@ -153,6 +163,7 @@ def get_export(accepts: Optional[builtins.str] = None,
     :param builtins.str accepts: Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
     :param builtins.str export_type: Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
     :param Mapping[str, builtins.str] parameters: Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str rest_api_id: Identifier of the associated REST API.
     :param builtins.str stage_name: Name of the Stage that will be exported.
     """
@@ -160,6 +171,7 @@ def get_export(accepts: Optional[builtins.str] = None,
     __args__['accepts'] = accepts
     __args__['exportType'] = export_type
     __args__['parameters'] = parameters
+    __args__['region'] = region
     __args__['restApiId'] = rest_api_id
     __args__['stageName'] = stage_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -173,11 +185,13 @@ def get_export(accepts: Optional[builtins.str] = None,
         export_type=pulumi.get(__ret__, 'export_type'),
         id=pulumi.get(__ret__, 'id'),
         parameters=pulumi.get(__ret__, 'parameters'),
+        region=pulumi.get(__ret__, 'region'),
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'),
         stage_name=pulumi.get(__ret__, 'stage_name'))
 def get_export_output(accepts: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       export_type: Optional[pulumi.Input[builtins.str]] = None,
                       parameters: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       rest_api_id: Optional[pulumi.Input[builtins.str]] = None,
                       stage_name: Optional[pulumi.Input[builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExportResult]:
@@ -197,6 +211,7 @@ def get_export_output(accepts: Optional[pulumi.Input[Optional[builtins.str]]] = 
     :param builtins.str accepts: Content-type of the export. Valid values are `application/json` and `application/yaml` are supported for `export_type` `ofoas30` and `swagger`.
     :param builtins.str export_type: Type of export. Acceptable values are `oas30` for OpenAPI 3.0.x and `swagger` for Swagger/OpenAPI 2.0.
     :param Mapping[str, builtins.str] parameters: Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str rest_api_id: Identifier of the associated REST API.
     :param builtins.str stage_name: Name of the Stage that will be exported.
     """
@@ -204,6 +219,7 @@ def get_export_output(accepts: Optional[pulumi.Input[Optional[builtins.str]]] = 
     __args__['accepts'] = accepts
     __args__['exportType'] = export_type
     __args__['parameters'] = parameters
+    __args__['region'] = region
     __args__['restApiId'] = rest_api_id
     __args__['stageName'] = stage_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -216,5 +232,6 @@ def get_export_output(accepts: Optional[pulumi.Input[Optional[builtins.str]]] = 
         export_type=pulumi.get(__response__, 'export_type'),
         id=pulumi.get(__response__, 'id'),
         parameters=pulumi.get(__response__, 'parameters'),
+        region=pulumi.get(__response__, 'region'),
         rest_api_id=pulumi.get(__response__, 'rest_api_id'),
         stage_name=pulumi.get(__response__, 'stage_name')))

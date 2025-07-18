@@ -159,6 +159,12 @@ namespace Pulumi.Aws.SecretsManager
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -190,6 +196,12 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -242,6 +254,7 @@ namespace Pulumi.Aws.SecretsManager
         /// Resource-based policy document that's attached to the secret.
         /// </summary>
         public readonly string Policy;
+        public readonly string Region;
         /// <summary>
         /// Tags of the secret.
         /// </summary>
@@ -265,6 +278,8 @@ namespace Pulumi.Aws.SecretsManager
 
             string policy,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
@@ -275,6 +290,7 @@ namespace Pulumi.Aws.SecretsManager
             LastChangedDate = lastChangedDate;
             Name = name;
             Policy = policy;
+            Region = region;
             Tags = tags;
         }
     }

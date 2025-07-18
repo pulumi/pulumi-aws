@@ -38,16 +38,12 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
     /**
      * Flag to enable AWS LakeFormation hybrid access permission mode.
      * 
-     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-     * 
      */
     @Import(name="hybridAccessEnabled")
     private @Nullable Output<Boolean> hybridAccessEnabled;
 
     /**
      * @return Flag to enable AWS LakeFormation hybrid access permission mode.
-     * 
-     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
      * 
      */
     public Optional<Output<Boolean>> hybridAccessEnabled() {
@@ -67,6 +63,21 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> lastModified() {
         return Optional.ofNullable(this.lastModified);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -99,9 +110,21 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.useServiceLinkedRole);
     }
 
+    /**
+     * Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+     * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * 
+     */
     @Import(name="withFederation")
     private @Nullable Output<Boolean> withFederation;
 
+    /**
+     * @return Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+     * 
+     * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+     * 
+     */
     public Optional<Output<Boolean>> withFederation() {
         return Optional.ofNullable(this.withFederation);
     }
@@ -112,6 +135,7 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.hybridAccessEnabled = $.hybridAccessEnabled;
         this.lastModified = $.lastModified;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.useServiceLinkedRole = $.useServiceLinkedRole;
         this.withFederation = $.withFederation;
@@ -163,8 +187,6 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param hybridAccessEnabled Flag to enable AWS LakeFormation hybrid access permission mode.
          * 
-         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
-         * 
          * @return builder
          * 
          */
@@ -175,8 +197,6 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param hybridAccessEnabled Flag to enable AWS LakeFormation hybrid access permission mode.
-         * 
-         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
          * 
          * @return builder
          * 
@@ -204,6 +224,27 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder lastModified(String lastModified) {
             return lastModified(Output.of(lastModified));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -248,11 +289,27 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
             return useServiceLinkedRole(Output.of(useServiceLinkedRole));
         }
 
+        /**
+         * @param withFederation Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+         * 
+         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+         * 
+         * @return builder
+         * 
+         */
         public Builder withFederation(@Nullable Output<Boolean> withFederation) {
             $.withFederation = withFederation;
             return this;
         }
 
+        /**
+         * @param withFederation Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+         * 
+         * &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+         * 
+         * @return builder
+         * 
+         */
         public Builder withFederation(Boolean withFederation) {
             return withFederation(Output.of(withFederation));
         }

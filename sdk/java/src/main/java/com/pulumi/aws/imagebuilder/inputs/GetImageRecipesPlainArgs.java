@@ -46,11 +46,27 @@ public final class GetImageRecipesPlainArgs extends com.pulumi.resources.InvokeA
         return Optional.ofNullable(this.owner);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetImageRecipesPlainArgs() {}
 
     private GetImageRecipesPlainArgs(GetImageRecipesPlainArgs $) {
         this.filters = $.filters;
         this.owner = $.owner;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -100,6 +116,17 @@ public final class GetImageRecipesPlainArgs extends com.pulumi.resources.InvokeA
          */
         public Builder owner(@Nullable String owner) {
             $.owner = owner;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

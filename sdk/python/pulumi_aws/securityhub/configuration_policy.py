@@ -24,18 +24,22 @@ class ConfigurationPolicyArgs:
     def __init__(__self__, *,
                  configuration_policy: pulumi.Input['ConfigurationPolicyConfigurationPolicyArgs'],
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ConfigurationPolicy resource.
         :param pulumi.Input['ConfigurationPolicyConfigurationPolicyArgs'] configuration_policy: Defines how Security Hub is configured. See below.
         :param pulumi.Input[builtins.str] description: The description of the configuration policy.
         :param pulumi.Input[builtins.str] name: The name of the configuration policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "configuration_policy", configuration_policy)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="configurationPolicy")
@@ -73,6 +77,18 @@ class ConfigurationPolicyArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ConfigurationPolicyState:
@@ -80,12 +96,14 @@ class _ConfigurationPolicyState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  configuration_policy: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicyArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConfigurationPolicy resources.
         :param pulumi.Input['ConfigurationPolicyConfigurationPolicyArgs'] configuration_policy: Defines how Security Hub is configured. See below.
         :param pulumi.Input[builtins.str] description: The description of the configuration policy.
         :param pulumi.Input[builtins.str] name: The name of the configuration policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -95,6 +113,8 @@ class _ConfigurationPolicyState:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -141,6 +161,18 @@ class _ConfigurationPolicyState:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:securityhub/configurationPolicy:ConfigurationPolicy")
 class ConfigurationPolicy(pulumi.CustomResource):
@@ -151,6 +183,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
                  configuration_policy: Optional[pulumi.Input[Union['ConfigurationPolicyConfigurationPolicyArgs', 'ConfigurationPolicyConfigurationPolicyArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Manages Security Hub configuration policy
@@ -273,6 +306,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
         :param pulumi.Input[Union['ConfigurationPolicyConfigurationPolicyArgs', 'ConfigurationPolicyConfigurationPolicyArgsDict']] configuration_policy: Defines how Security Hub is configured. See below.
         :param pulumi.Input[builtins.str] description: The description of the configuration policy.
         :param pulumi.Input[builtins.str] name: The name of the configuration policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -414,6 +448,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
                  configuration_policy: Optional[pulumi.Input[Union['ConfigurationPolicyConfigurationPolicyArgs', 'ConfigurationPolicyConfigurationPolicyArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -428,6 +463,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
             __props__.__dict__["configuration_policy"] = configuration_policy
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["arn"] = None
         super(ConfigurationPolicy, __self__).__init__(
             'aws:securityhub/configurationPolicy:ConfigurationPolicy',
@@ -442,7 +478,8 @@ class ConfigurationPolicy(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             configuration_policy: Optional[pulumi.Input[Union['ConfigurationPolicyConfigurationPolicyArgs', 'ConfigurationPolicyConfigurationPolicyArgsDict']]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
-            name: Optional[pulumi.Input[builtins.str]] = None) -> 'ConfigurationPolicy':
+            name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'ConfigurationPolicy':
         """
         Get an existing ConfigurationPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -453,6 +490,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
         :param pulumi.Input[Union['ConfigurationPolicyConfigurationPolicyArgs', 'ConfigurationPolicyConfigurationPolicyArgsDict']] configuration_policy: Defines how Security Hub is configured. See below.
         :param pulumi.Input[builtins.str] description: The description of the configuration policy.
         :param pulumi.Input[builtins.str] name: The name of the configuration policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -462,6 +500,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
         __props__.__dict__["configuration_policy"] = configuration_policy
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         return ConfigurationPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -492,4 +531,12 @@ class ConfigurationPolicy(pulumi.CustomResource):
         The name of the configuration policy.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

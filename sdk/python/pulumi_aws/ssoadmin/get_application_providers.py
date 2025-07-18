@@ -15,7 +15,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetApplicationProvidersResult',
@@ -29,17 +28,20 @@ class GetApplicationProvidersResult:
     """
     A collection of values returned by getApplicationProviders.
     """
-    def __init__(__self__, application_providers=None, id=None):
+    def __init__(__self__, application_providers=None, id=None, region=None):
         if application_providers and not isinstance(application_providers, list):
             raise TypeError("Expected argument 'application_providers' to be a list")
         pulumi.set(__self__, "application_providers", application_providers)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="applicationProviders")
-    def application_providers(self) -> Optional[Sequence['outputs.GetApplicationProvidersApplicationProviderResult']]:
+    def application_providers(self) -> Sequence['outputs.GetApplicationProvidersApplicationProviderResult']:
         """
         A list of application providers available in the current region. See `application_providers` below.
         """
@@ -53,6 +55,11 @@ class GetApplicationProvidersResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetApplicationProvidersResult(GetApplicationProvidersResult):
     # pylint: disable=using-constant-test
@@ -61,10 +68,11 @@ class AwaitableGetApplicationProvidersResult(GetApplicationProvidersResult):
             yield self
         return GetApplicationProvidersResult(
             application_providers=self.application_providers,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
-def get_application_providers(application_providers: Optional[Sequence[Union['GetApplicationProvidersApplicationProviderArgs', 'GetApplicationProvidersApplicationProviderArgsDict']]] = None,
+def get_application_providers(region: Optional[builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationProvidersResult:
     """
     Data source for managing AWS SSO Admin Application Providers.
@@ -81,17 +89,18 @@ def get_application_providers(application_providers: Optional[Sequence[Union['Ge
     ```
 
 
-    :param Sequence[Union['GetApplicationProvidersApplicationProviderArgs', 'GetApplicationProvidersApplicationProviderArgsDict']] application_providers: A list of application providers available in the current region. See `application_providers` below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
-    __args__['applicationProviders'] = application_providers
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ssoadmin/getApplicationProviders:getApplicationProviders', __args__, opts=opts, typ=GetApplicationProvidersResult).value
 
     return AwaitableGetApplicationProvidersResult(
         application_providers=pulumi.get(__ret__, 'application_providers'),
-        id=pulumi.get(__ret__, 'id'))
-def get_application_providers_output(application_providers: Optional[pulumi.Input[Optional[Sequence[Union['GetApplicationProvidersApplicationProviderArgs', 'GetApplicationProvidersApplicationProviderArgsDict']]]]] = None,
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
+def get_application_providers_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationProvidersResult]:
     """
     Data source for managing AWS SSO Admin Application Providers.
@@ -108,12 +117,13 @@ def get_application_providers_output(application_providers: Optional[pulumi.Inpu
     ```
 
 
-    :param Sequence[Union['GetApplicationProvidersApplicationProviderArgs', 'GetApplicationProvidersApplicationProviderArgsDict']] application_providers: A list of application providers available in the current region. See `application_providers` below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
-    __args__['applicationProviders'] = application_providers
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssoadmin/getApplicationProviders:getApplicationProviders', __args__, opts=opts, typ=GetApplicationProvidersResult)
     return __ret__.apply(lambda __response__: GetApplicationProvidersResult(
         application_providers=pulumi.get(__response__, 'application_providers'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

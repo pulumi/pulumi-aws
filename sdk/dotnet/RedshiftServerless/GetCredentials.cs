@@ -100,6 +100,12 @@ namespace Pulumi.Aws.RedshiftServerless
         public int? DurationSeconds { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// The name of the workgroup associated with the database.
         /// </summary>
         [Input("workgroupName", required: true)]
@@ -124,6 +130,12 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         [Input("durationSeconds")]
         public Input<int>? DurationSeconds { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name of the workgroup associated with the database.
@@ -159,6 +171,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         public readonly string WorkgroupName;
 
         [OutputConstructor]
@@ -175,6 +188,8 @@ namespace Pulumi.Aws.RedshiftServerless
 
             string id,
 
+            string region,
+
             string workgroupName)
         {
             DbName = dbName;
@@ -183,6 +198,7 @@ namespace Pulumi.Aws.RedshiftServerless
             DurationSeconds = durationSeconds;
             Expiration = expiration;
             Id = id;
+            Region = region;
             WorkgroupName = workgroupName;
         }
     }

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,7 +66,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -109,13 +109,13 @@ type DefaultRouteTable struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// List of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayOutput `pulumi:"propagatingVgws"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Set of objects. Detailed below
 	Routes DefaultRouteTableRouteArrayOutput `pulumi:"routes"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// ID of the VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -164,13 +164,13 @@ type defaultRouteTableState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// List of virtual gateways for propagation.
 	PropagatingVgws []string `pulumi:"propagatingVgws"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set of objects. Detailed below
 	Routes []DefaultRouteTableRoute `pulumi:"routes"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// ID of the VPC.
 	VpcId *string `pulumi:"vpcId"`
@@ -187,13 +187,13 @@ type DefaultRouteTableState struct {
 	OwnerId pulumi.StringPtrInput
 	// List of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set of objects. Detailed below
 	Routes DefaultRouteTableRouteArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// ID of the VPC.
 	VpcId pulumi.StringPtrInput
@@ -210,6 +210,8 @@ type defaultRouteTableArgs struct {
 	DefaultRouteTableId string `pulumi:"defaultRouteTableId"`
 	// List of virtual gateways for propagation.
 	PropagatingVgws []string `pulumi:"propagatingVgws"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set of objects. Detailed below
 	Routes []DefaultRouteTableRoute `pulumi:"routes"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -224,6 +226,8 @@ type DefaultRouteTableArgs struct {
 	DefaultRouteTableId pulumi.StringInput
 	// List of virtual gateways for propagation.
 	PropagatingVgws pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set of objects. Detailed below
 	Routes DefaultRouteTableRouteArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -339,6 +343,11 @@ func (o DefaultRouteTableOutput) PropagatingVgws() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DefaultRouteTable) pulumi.StringArrayOutput { return v.PropagatingVgws }).(pulumi.StringArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DefaultRouteTableOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultRouteTable) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Set of objects. Detailed below
 func (o DefaultRouteTableOutput) Routes() DefaultRouteTableRouteArrayOutput {
 	return o.ApplyT(func(v *DefaultRouteTable) DefaultRouteTableRouteArrayOutput { return v.Routes }).(DefaultRouteTableRouteArrayOutput)
@@ -350,8 +359,6 @@ func (o DefaultRouteTableOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o DefaultRouteTableOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DefaultRouteTable) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

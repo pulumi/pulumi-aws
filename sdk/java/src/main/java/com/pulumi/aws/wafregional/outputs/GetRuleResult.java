@@ -16,6 +16,7 @@ public final class GetRuleResult {
      */
     private String id;
     private String name;
+    private String region;
 
     private GetRuleResult() {}
     /**
@@ -27,6 +28,9 @@ public final class GetRuleResult {
     }
     public String name() {
         return this.name;
+    }
+    public String region() {
+        return this.region;
     }
 
     public static Builder builder() {
@@ -40,11 +44,13 @@ public final class GetRuleResult {
     public static final class Builder {
         private String id;
         private String name;
+        private String region;
         public Builder() {}
         public Builder(GetRuleResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -63,10 +69,19 @@ public final class GetRuleResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRuleResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetRuleResult build() {
             final var _resultValue = new GetRuleResult();
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

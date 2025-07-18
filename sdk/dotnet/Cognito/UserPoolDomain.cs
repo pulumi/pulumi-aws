@@ -138,6 +138,12 @@ namespace Pulumi.Aws.Cognito
         public Output<int> ManagedLoginVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The S3 bucket where the static files for this domain are stored.
         /// </summary>
         [Output("s3Bucket")]
@@ -220,6 +226,12 @@ namespace Pulumi.Aws.Cognito
         public Input<int>? ManagedLoginVersion { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The user pool ID.
         /// </summary>
         [Input("userPoolId", required: true)]
@@ -274,6 +286,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("managedLoginVersion")]
         public Input<int>? ManagedLoginVersion { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The S3 bucket where the static files for this domain are stored.

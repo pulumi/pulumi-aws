@@ -86,6 +86,10 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
      */
     public readonly loggingLevel!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the Slack channel. For example, `C07EZ1ABC23`.
      */
     public readonly slackChannelId!: pulumi.Output<string>;
@@ -113,8 +117,6 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.chatbot.SlackChannelConfigurationTimeouts | undefined>;
@@ -141,6 +143,7 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
             resourceInputs["guardrailPolicyArns"] = state ? state.guardrailPolicyArns : undefined;
             resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
             resourceInputs["loggingLevel"] = state ? state.loggingLevel : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["slackChannelId"] = state ? state.slackChannelId : undefined;
             resourceInputs["slackChannelName"] = state ? state.slackChannelName : undefined;
             resourceInputs["slackTeamId"] = state ? state.slackTeamId : undefined;
@@ -168,6 +171,7 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
             resourceInputs["guardrailPolicyArns"] = args ? args.guardrailPolicyArns : undefined;
             resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
             resourceInputs["loggingLevel"] = args ? args.loggingLevel : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["slackChannelId"] = args ? args.slackChannelId : undefined;
             resourceInputs["slackTeamId"] = args ? args.slackTeamId : undefined;
             resourceInputs["snsTopicArns"] = args ? args.snsTopicArns : undefined;
@@ -209,6 +213,10 @@ export interface SlackChannelConfigurationState {
      */
     loggingLevel?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ID of the Slack channel. For example, `C07EZ1ABC23`.
      */
     slackChannelId?: pulumi.Input<string>;
@@ -236,8 +244,6 @@ export interface SlackChannelConfigurationState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.chatbot.SlackChannelConfigurationTimeouts>;
@@ -267,6 +273,10 @@ export interface SlackChannelConfigurationArgs {
      * Logging levels include `ERROR`, `INFO`, or `NONE`.
      */
     loggingLevel?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the Slack channel. For example, `C07EZ1ABC23`.
      */

@@ -25,6 +25,7 @@ export function getProxy(args: GetProxyArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getProxy:getProxy", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,6 +37,10 @@ export interface GetProxyArgs {
      * Name of the DB proxy.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -71,6 +76,7 @@ export interface GetProxyResult {
      */
     readonly idleClientTimeout: number;
     readonly name: string;
+    readonly region: string;
     /**
      * Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
      */
@@ -110,6 +116,7 @@ export function getProxyOutput(args: GetProxyOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:rds/getProxy:getProxy", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -121,4 +128,8 @@ export interface GetProxyOutputArgs {
      * Name of the DB proxy.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -134,6 +134,10 @@ export class Environment extends pulumi.CustomResource {
      */
     public /*out*/ readonly providerEnvironment!: pulumi.Output<string>;
     public /*out*/ readonly provisionedResources!: pulumi.Output<outputs.datazone.EnvironmentProvisionedResource[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly timeouts!: pulumi.Output<outputs.datazone.EnvironmentTimeouts | undefined>;
     /**
      * The user parameters that are used in the environment. See User Parameters for more information.
@@ -167,6 +171,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["projectIdentifier"] = state ? state.projectIdentifier : undefined;
             resourceInputs["providerEnvironment"] = state ? state.providerEnvironment : undefined;
             resourceInputs["provisionedResources"] = state ? state.provisionedResources : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
             resourceInputs["userParameters"] = state ? state.userParameters : undefined;
         } else {
@@ -189,6 +194,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["profileIdentifier"] = args ? args.profileIdentifier : undefined;
             resourceInputs["projectIdentifier"] = args ? args.projectIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["userParameters"] = args ? args.userParameters : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -261,6 +267,10 @@ export interface EnvironmentState {
      */
     providerEnvironment?: pulumi.Input<string>;
     provisionedResources?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentProvisionedResource>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.datazone.EnvironmentTimeouts>;
     /**
      * The user parameters that are used in the environment. See User Parameters for more information.
@@ -310,6 +320,10 @@ export interface EnvironmentArgs {
      * The following arguments are optional:
      */
     projectIdentifier: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.datazone.EnvironmentTimeouts>;
     /**
      * The user parameters that are used in the environment. See User Parameters for more information.

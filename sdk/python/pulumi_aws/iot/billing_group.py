@@ -24,17 +24,21 @@ class BillingGroupArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  properties: Optional[pulumi.Input['BillingGroupPropertiesArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a BillingGroup resource.
         :param pulumi.Input[builtins.str] name: The name of the Billing Group.
         :param pulumi.Input['BillingGroupPropertiesArgs'] properties: The Billing Group properties. Defined below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -64,6 +68,18 @@ class BillingGroupArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value mapping of resource tags
@@ -82,6 +98,7 @@ class _BillingGroupState:
                  metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['BillingGroupMetadataArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  properties: Optional[pulumi.Input['BillingGroupPropertiesArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version: Optional[pulumi.Input[builtins.int]] = None):
@@ -90,6 +107,7 @@ class _BillingGroupState:
         :param pulumi.Input[builtins.str] arn: The ARN of the Billing Group.
         :param pulumi.Input[builtins.str] name: The name of the Billing Group.
         :param pulumi.Input['BillingGroupPropertiesArgs'] properties: The Billing Group properties. Defined below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags
         :param pulumi.Input[builtins.int] version: The current version of the Billing Group record in the registry.
         """
@@ -101,11 +119,10 @@ class _BillingGroupState:
             pulumi.set(__self__, "name", name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if version is not None:
@@ -158,6 +175,18 @@ class _BillingGroupState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value mapping of resource tags
@@ -170,7 +199,6 @@ class _BillingGroupState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -199,6 +227,7 @@ class BillingGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  properties: Optional[pulumi.Input[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -232,6 +261,7 @@ class BillingGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: The name of the Billing Group.
         :param pulumi.Input[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict']] properties: The Billing Group properties. Defined below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags
         """
         ...
@@ -284,6 +314,7 @@ class BillingGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  properties: Optional[pulumi.Input[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -296,6 +327,7 @@ class BillingGroup(pulumi.CustomResource):
 
             __props__.__dict__["name"] = name
             __props__.__dict__["properties"] = properties
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["metadatas"] = None
@@ -315,6 +347,7 @@ class BillingGroup(pulumi.CustomResource):
             metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BillingGroupMetadataArgs', 'BillingGroupMetadataArgsDict']]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             properties: Optional[pulumi.Input[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             version: Optional[pulumi.Input[builtins.int]] = None) -> 'BillingGroup':
@@ -328,6 +361,7 @@ class BillingGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: The ARN of the Billing Group.
         :param pulumi.Input[builtins.str] name: The name of the Billing Group.
         :param pulumi.Input[Union['BillingGroupPropertiesArgs', 'BillingGroupPropertiesArgsDict']] properties: The Billing Group properties. Defined below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags
         :param pulumi.Input[builtins.int] version: The current version of the Billing Group record in the registry.
         """
@@ -339,6 +373,7 @@ class BillingGroup(pulumi.CustomResource):
         __props__.__dict__["metadatas"] = metadatas
         __props__.__dict__["name"] = name
         __props__.__dict__["properties"] = properties
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["version"] = version
@@ -375,6 +410,14 @@ class BillingGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         Key-value mapping of resource tags
@@ -383,7 +426,6 @@ class BillingGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

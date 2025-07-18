@@ -17,6 +17,21 @@ public final class DefaultRouteTablePropagationArgs extends com.pulumi.resources
 
     public static final DefaultRouteTablePropagationArgs Empty = new DefaultRouteTablePropagationArgs();
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="timeouts")
     private @Nullable Output<DefaultRouteTablePropagationTimeoutsArgs> timeouts;
 
@@ -57,6 +72,7 @@ public final class DefaultRouteTablePropagationArgs extends com.pulumi.resources
     private DefaultRouteTablePropagationArgs() {}
 
     private DefaultRouteTablePropagationArgs(DefaultRouteTablePropagationArgs $) {
+        this.region = $.region;
         this.timeouts = $.timeouts;
         this.transitGatewayId = $.transitGatewayId;
         this.transitGatewayRouteTableId = $.transitGatewayRouteTableId;
@@ -78,6 +94,27 @@ public final class DefaultRouteTablePropagationArgs extends com.pulumi.resources
 
         public Builder(DefaultRouteTablePropagationArgs defaults) {
             $ = new DefaultRouteTablePropagationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder timeouts(@Nullable Output<DefaultRouteTablePropagationTimeoutsArgs> timeouts) {

@@ -25,6 +25,7 @@ class SchemaArgs:
                  schema_definition: pulumi.Input[builtins.str],
                  schema_name: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registry_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -34,6 +35,7 @@ class SchemaArgs:
         :param pulumi.Input[builtins.str] schema_definition: The schema definition using the `data_format` setting for `schema_name`.
         :param pulumi.Input[builtins.str] schema_name: The Name of the schema.
         :param pulumi.Input[builtins.str] description: A description of the schema.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_arn: The ARN of the Glue Registry to create the schema in.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -43,6 +45,8 @@ class SchemaArgs:
         pulumi.set(__self__, "schema_name", schema_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if registry_arn is not None:
             pulumi.set(__self__, "registry_arn", registry_arn)
         if tags is not None:
@@ -109,6 +113,18 @@ class SchemaArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="registryArn")
     def registry_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -142,6 +158,7 @@ class _SchemaState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  latest_schema_version: Optional[pulumi.Input[builtins.int]] = None,
                  next_schema_version: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registry_arn: Optional[pulumi.Input[builtins.str]] = None,
                  registry_name: Optional[pulumi.Input[builtins.str]] = None,
                  schema_checkpoint: Optional[pulumi.Input[builtins.int]] = None,
@@ -157,6 +174,7 @@ class _SchemaState:
         :param pulumi.Input[builtins.str] description: A description of the schema.
         :param pulumi.Input[builtins.int] latest_schema_version: The latest version of the schema associated with the returned schema definition.
         :param pulumi.Input[builtins.int] next_schema_version: The next version of the schema associated with the returned schema definition.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_arn: The ARN of the Glue Registry to create the schema in.
         :param pulumi.Input[builtins.str] registry_name: The name of the Glue Registry.
         :param pulumi.Input[builtins.int] schema_checkpoint: The version number of the checkpoint (the last time the compatibility mode was changed).
@@ -177,6 +195,8 @@ class _SchemaState:
             pulumi.set(__self__, "latest_schema_version", latest_schema_version)
         if next_schema_version is not None:
             pulumi.set(__self__, "next_schema_version", next_schema_version)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if registry_arn is not None:
             pulumi.set(__self__, "registry_arn", registry_arn)
         if registry_name is not None:
@@ -189,9 +209,6 @@ class _SchemaState:
             pulumi.set(__self__, "schema_name", schema_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -268,6 +285,18 @@ class _SchemaState:
         pulumi.set(self, "next_schema_version", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="registryArn")
     def registry_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -341,7 +370,6 @@ class _SchemaState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -362,6 +390,7 @@ class Schema(pulumi.CustomResource):
                  compatibility: Optional[pulumi.Input[builtins.str]] = None,
                  data_format: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registry_arn: Optional[pulumi.Input[builtins.str]] = None,
                  schema_definition: Optional[pulumi.Input[builtins.str]] = None,
                  schema_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -397,6 +426,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] compatibility: The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
         :param pulumi.Input[builtins.str] data_format: The data format of the schema definition. Valid values are `AVRO`, `JSON` and `PROTOBUF`.
         :param pulumi.Input[builtins.str] description: A description of the schema.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_arn: The ARN of the Glue Registry to create the schema in.
         :param pulumi.Input[builtins.str] schema_definition: The schema definition using the `data_format` setting for `schema_name`.
         :param pulumi.Input[builtins.str] schema_name: The Name of the schema.
@@ -451,6 +481,7 @@ class Schema(pulumi.CustomResource):
                  compatibility: Optional[pulumi.Input[builtins.str]] = None,
                  data_format: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registry_arn: Optional[pulumi.Input[builtins.str]] = None,
                  schema_definition: Optional[pulumi.Input[builtins.str]] = None,
                  schema_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -471,6 +502,7 @@ class Schema(pulumi.CustomResource):
                 raise TypeError("Missing required property 'data_format'")
             __props__.__dict__["data_format"] = data_format
             __props__.__dict__["description"] = description
+            __props__.__dict__["region"] = region
             __props__.__dict__["registry_arn"] = registry_arn
             if schema_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_definition'")
@@ -501,6 +533,7 @@ class Schema(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             latest_schema_version: Optional[pulumi.Input[builtins.int]] = None,
             next_schema_version: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             registry_arn: Optional[pulumi.Input[builtins.str]] = None,
             registry_name: Optional[pulumi.Input[builtins.str]] = None,
             schema_checkpoint: Optional[pulumi.Input[builtins.int]] = None,
@@ -521,6 +554,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A description of the schema.
         :param pulumi.Input[builtins.int] latest_schema_version: The latest version of the schema associated with the returned schema definition.
         :param pulumi.Input[builtins.int] next_schema_version: The next version of the schema associated with the returned schema definition.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_arn: The ARN of the Glue Registry to create the schema in.
         :param pulumi.Input[builtins.str] registry_name: The name of the Glue Registry.
         :param pulumi.Input[builtins.int] schema_checkpoint: The version number of the checkpoint (the last time the compatibility mode was changed).
@@ -539,6 +573,7 @@ class Schema(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["latest_schema_version"] = latest_schema_version
         __props__.__dict__["next_schema_version"] = next_schema_version
+        __props__.__dict__["region"] = region
         __props__.__dict__["registry_arn"] = registry_arn
         __props__.__dict__["registry_name"] = registry_name
         __props__.__dict__["schema_checkpoint"] = schema_checkpoint
@@ -597,6 +632,14 @@ class Schema(pulumi.CustomResource):
         return pulumi.get(self, "next_schema_version")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="registryArn")
     def registry_arn(self) -> pulumi.Output[builtins.str]:
         """
@@ -646,7 +689,6 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

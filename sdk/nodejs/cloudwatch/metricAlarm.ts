@@ -288,6 +288,10 @@ export class MetricAlarm extends pulumi.CustomResource {
      */
     public readonly period!: pulumi.Output<number | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The statistic to apply to the alarm's associated metric.
      * Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
      */
@@ -303,8 +307,6 @@ export class MetricAlarm extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -354,6 +356,7 @@ export class MetricAlarm extends pulumi.CustomResource {
             resourceInputs["namespace"] = state ? state.namespace : undefined;
             resourceInputs["okActions"] = state ? state.okActions : undefined;
             resourceInputs["period"] = state ? state.period : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["statistic"] = state ? state.statistic : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -385,6 +388,7 @@ export class MetricAlarm extends pulumi.CustomResource {
             resourceInputs["namespace"] = args ? args.namespace : undefined;
             resourceInputs["okActions"] = args ? args.okActions : undefined;
             resourceInputs["period"] = args ? args.period : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["statistic"] = args ? args.statistic : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["threshold"] = args ? args.threshold : undefined;
@@ -478,6 +482,10 @@ export interface MetricAlarmState {
      */
     period?: pulumi.Input<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The statistic to apply to the alarm's associated metric.
      * Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`
      */
@@ -493,8 +501,6 @@ export interface MetricAlarmState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -589,6 +595,10 @@ export interface MetricAlarmArgs {
      * Valid values are `10`, `20`, `30`, or any multiple of `60`.
      */
     period?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The statistic to apply to the alarm's associated metric.
      * Either of the following is supported: `SampleCount`, `Average`, `Sum`, `Minimum`, `Maximum`

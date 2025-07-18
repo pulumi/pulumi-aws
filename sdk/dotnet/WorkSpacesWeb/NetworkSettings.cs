@@ -98,6 +98,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
         public Output<string> NetworkSettingsArn { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// One or more security groups used to control access from streaming instances to your VPC.
         /// </summary>
         [Output("securityGroupIds")]
@@ -179,6 +185,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
 
     public sealed class NetworkSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("securityGroupIds", required: true)]
         private InputList<string>? _securityGroupIds;
 
@@ -249,6 +261,12 @@ namespace Pulumi.Aws.WorkSpacesWeb
         [Input("networkSettingsArn")]
         public Input<string>? NetworkSettingsArn { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 
@@ -291,7 +309,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -100,6 +100,12 @@ namespace Pulumi.Aws.Route53
     public sealed class GetResolverFirewallConfigArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// The ID of the VPC from Amazon VPC that the configuration is for.
         /// </summary>
         [Input("resourceId", required: true)]
@@ -113,6 +119,12 @@ namespace Pulumi.Aws.Route53
 
     public sealed class GetResolverFirewallConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The ID of the VPC from Amazon VPC that the configuration is for.
         /// </summary>
@@ -141,6 +153,7 @@ namespace Pulumi.Aws.Route53
         /// The Amazon Web Services account ID of the owner of the VPC that this firewall configuration applies to.
         /// </summary>
         public readonly string OwnerId;
+        public readonly string Region;
         public readonly string ResourceId;
 
         [OutputConstructor]
@@ -151,11 +164,14 @@ namespace Pulumi.Aws.Route53
 
             string ownerId,
 
+            string region,
+
             string resourceId)
         {
             FirewallFailOpen = firewallFailOpen;
             Id = id;
             OwnerId = ownerId;
+            Region = region;
             ResourceId = resourceId;
         }
     }

@@ -69,6 +69,10 @@ export class ResolverConfig extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the VPC that the configuration is for.
      */
     public readonly resourceId!: pulumi.Output<string>;
@@ -88,6 +92,7 @@ export class ResolverConfig extends pulumi.CustomResource {
             const state = argsOrState as ResolverConfigState | undefined;
             resourceInputs["autodefinedReverseFlag"] = state ? state.autodefinedReverseFlag : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
         } else {
             const args = argsOrState as ResolverConfigArgs | undefined;
@@ -98,6 +103,7 @@ export class ResolverConfig extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceId'");
             }
             resourceInputs["autodefinedReverseFlag"] = args ? args.autodefinedReverseFlag : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["ownerId"] = undefined /*out*/;
         }
@@ -119,6 +125,10 @@ export interface ResolverConfigState {
      */
     ownerId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the VPC that the configuration is for.
      */
     resourceId?: pulumi.Input<string>;
@@ -132,6 +142,10 @@ export interface ResolverConfigArgs {
      * Indicates whether or not the Resolver will create autodefined rules for reverse DNS lookups. Valid values: `ENABLE`, `DISABLE`.
      */
     autodefinedReverseFlag: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the VPC that the configuration is for.
      */

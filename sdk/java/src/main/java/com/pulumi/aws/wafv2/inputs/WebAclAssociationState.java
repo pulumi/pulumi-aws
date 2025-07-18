@@ -16,6 +16,21 @@ public final class WebAclAssociationState extends com.pulumi.resources.ResourceA
     public static final WebAclAssociationState Empty = new WebAclAssociationState();
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The Amazon Resource Name (ARN) of the resource to associate with the web ACL. This must be an ARN of an Application Load Balancer, an Amazon API Gateway stage (REST only, HTTP is unsupported), an Amazon Cognito User Pool, an Amazon AppSync GraphQL API, an Amazon App Runner service, or an Amazon Verified Access instance.
      * 
      */
@@ -48,6 +63,7 @@ public final class WebAclAssociationState extends com.pulumi.resources.ResourceA
     private WebAclAssociationState() {}
 
     private WebAclAssociationState(WebAclAssociationState $) {
+        this.region = $.region;
         this.resourceArn = $.resourceArn;
         this.webAclArn = $.webAclArn;
     }
@@ -68,6 +84,27 @@ public final class WebAclAssociationState extends com.pulumi.resources.ResourceA
 
         public Builder(WebAclAssociationState defaults) {
             $ = new WebAclAssociationState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

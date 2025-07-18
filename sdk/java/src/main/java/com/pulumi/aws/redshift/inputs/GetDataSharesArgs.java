@@ -3,10 +3,9 @@
 
 package com.pulumi.aws.redshift.inputs;
 
-import com.pulumi.aws.redshift.inputs.GetDataSharesDataShareArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.util.List;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,24 +16,24 @@ public final class GetDataSharesArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetDataSharesArgs Empty = new GetDataSharesArgs();
 
     /**
-     * An array of all data shares in the current region. See `data_shares` below.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    @Import(name="dataShares")
-    private @Nullable Output<List<GetDataSharesDataShareArgs>> dataShares;
+    @Import(name="region")
+    private @Nullable Output<String> region;
 
     /**
-     * @return An array of all data shares in the current region. See `data_shares` below.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    public Optional<Output<List<GetDataSharesDataShareArgs>>> dataShares() {
-        return Optional.ofNullable(this.dataShares);
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetDataSharesArgs() {}
 
     private GetDataSharesArgs(GetDataSharesArgs $) {
-        this.dataShares = $.dataShares;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -56,34 +55,24 @@ public final class GetDataSharesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param dataShares An array of all data shares in the current region. See `data_shares` below.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
          */
-        public Builder dataShares(@Nullable Output<List<GetDataSharesDataShareArgs>> dataShares) {
-            $.dataShares = dataShares;
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
             return this;
         }
 
         /**
-         * @param dataShares An array of all data shares in the current region. See `data_shares` below.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
          */
-        public Builder dataShares(List<GetDataSharesDataShareArgs> dataShares) {
-            return dataShares(Output.of(dataShares));
-        }
-
-        /**
-         * @param dataShares An array of all data shares in the current region. See `data_shares` below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder dataShares(GetDataSharesDataShareArgs... dataShares) {
-            return dataShares(List.of(dataShares));
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetDataSharesArgs build() {

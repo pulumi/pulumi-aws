@@ -24,6 +24,7 @@ class ReservedCacheNodeArgs:
     def __init__(__self__, *,
                  reserved_cache_nodes_offering_id: pulumi.Input[builtins.str],
                  cache_node_count: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ReservedCacheNodeTimeoutsArgs']] = None):
         """
@@ -34,11 +35,14 @@ class ReservedCacheNodeArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.int] cache_node_count: Number of cache node instances to reserve.
                Default value is `1`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "reserved_cache_nodes_offering_id", reserved_cache_nodes_offering_id)
         if cache_node_count is not None:
             pulumi.set(__self__, "cache_node_count", cache_node_count)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -74,6 +78,18 @@ class ReservedCacheNodeArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags to assign to the reservation. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -105,6 +121,7 @@ class _ReservedCacheNodeState:
                  offering_type: Optional[pulumi.Input[builtins.str]] = None,
                  product_description: Optional[pulumi.Input[builtins.str]] = None,
                  recurring_charges: Optional[pulumi.Input[Sequence[pulumi.Input['ReservedCacheNodeRecurringChargeArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reserved_cache_nodes_offering_id: Optional[pulumi.Input[builtins.str]] = None,
                  start_time: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
@@ -123,6 +140,7 @@ class _ReservedCacheNodeState:
         :param pulumi.Input[builtins.str] offering_type: Offering type of this reserved cache node.
         :param pulumi.Input[builtins.str] product_description: Engine type for the reserved cache node.
         :param pulumi.Input[Sequence[pulumi.Input['ReservedCacheNodeRecurringChargeArgs']]] recurring_charges: Recurring price charged to run this reserved cache node.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] reserved_cache_nodes_offering_id: ID of the reserved cache node offering to purchase.
                To determine an `reserved_cache_nodes_offering_id`, see the `elasticache_get_reserved_cache_node_offering` data source.
                
@@ -149,6 +167,8 @@ class _ReservedCacheNodeState:
             pulumi.set(__self__, "product_description", product_description)
         if recurring_charges is not None:
             pulumi.set(__self__, "recurring_charges", recurring_charges)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if reserved_cache_nodes_offering_id is not None:
             pulumi.set(__self__, "reserved_cache_nodes_offering_id", reserved_cache_nodes_offering_id)
         if start_time is not None:
@@ -157,9 +177,6 @@ class _ReservedCacheNodeState:
             pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
@@ -265,6 +282,18 @@ class _ReservedCacheNodeState:
         pulumi.set(self, "recurring_charges", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="reservedCacheNodesOfferingId")
     def reserved_cache_nodes_offering_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -317,7 +346,6 @@ class _ReservedCacheNodeState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -357,6 +385,7 @@ class ReservedCacheNode(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_node_count: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reserved_cache_nodes_offering_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['ReservedCacheNodeTimeoutsArgs', 'ReservedCacheNodeTimeoutsArgsDict']]] = None,
@@ -380,6 +409,7 @@ class ReservedCacheNode(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.int] cache_node_count: Number of cache node instances to reserve.
                Default value is `1`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] reserved_cache_nodes_offering_id: ID of the reserved cache node offering to purchase.
                To determine an `reserved_cache_nodes_offering_id`, see the `elasticache_get_reserved_cache_node_offering` data source.
                
@@ -423,6 +453,7 @@ class ReservedCacheNode(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cache_node_count: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reserved_cache_nodes_offering_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['ReservedCacheNodeTimeoutsArgs', 'ReservedCacheNodeTimeoutsArgsDict']]] = None,
@@ -436,6 +467,7 @@ class ReservedCacheNode(pulumi.CustomResource):
             __props__ = ReservedCacheNodeArgs.__new__(ReservedCacheNodeArgs)
 
             __props__.__dict__["cache_node_count"] = cache_node_count
+            __props__.__dict__["region"] = region
             if reserved_cache_nodes_offering_id is None and not opts.urn:
                 raise TypeError("Missing required property 'reserved_cache_nodes_offering_id'")
             __props__.__dict__["reserved_cache_nodes_offering_id"] = reserved_cache_nodes_offering_id
@@ -470,6 +502,7 @@ class ReservedCacheNode(pulumi.CustomResource):
             offering_type: Optional[pulumi.Input[builtins.str]] = None,
             product_description: Optional[pulumi.Input[builtins.str]] = None,
             recurring_charges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReservedCacheNodeRecurringChargeArgs', 'ReservedCacheNodeRecurringChargeArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             reserved_cache_nodes_offering_id: Optional[pulumi.Input[builtins.str]] = None,
             start_time: Optional[pulumi.Input[builtins.str]] = None,
             state: Optional[pulumi.Input[builtins.str]] = None,
@@ -493,6 +526,7 @@ class ReservedCacheNode(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] offering_type: Offering type of this reserved cache node.
         :param pulumi.Input[builtins.str] product_description: Engine type for the reserved cache node.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReservedCacheNodeRecurringChargeArgs', 'ReservedCacheNodeRecurringChargeArgsDict']]]] recurring_charges: Recurring price charged to run this reserved cache node.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] reserved_cache_nodes_offering_id: ID of the reserved cache node offering to purchase.
                To determine an `reserved_cache_nodes_offering_id`, see the `elasticache_get_reserved_cache_node_offering` data source.
                
@@ -515,6 +549,7 @@ class ReservedCacheNode(pulumi.CustomResource):
         __props__.__dict__["offering_type"] = offering_type
         __props__.__dict__["product_description"] = product_description
         __props__.__dict__["recurring_charges"] = recurring_charges
+        __props__.__dict__["region"] = region
         __props__.__dict__["reserved_cache_nodes_offering_id"] = reserved_cache_nodes_offering_id
         __props__.__dict__["start_time"] = start_time
         __props__.__dict__["state"] = state
@@ -590,6 +625,14 @@ class ReservedCacheNode(pulumi.CustomResource):
         return pulumi.get(self, "recurring_charges")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="reservedCacheNodesOfferingId")
     def reserved_cache_nodes_offering_id(self) -> pulumi.Output[builtins.str]:
         """
@@ -626,7 +669,6 @@ class ReservedCacheNode(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -327,7 +327,6 @@ export class Cluster extends pulumi.CustomResource {
      * Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
      */
     public readonly bootstrapSelfManagedAddons!: pulumi.Output<boolean | undefined>;
-    public /*out*/ readonly certificateAuthorities!: pulumi.Output<outputs.eks.ClusterCertificateAuthority[]>;
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      */
@@ -344,7 +343,6 @@ export class Cluster extends pulumi.CustomResource {
      * Unix epoch timestamp in seconds for when the cluster was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
-    public readonly defaultAddonsToRemoves!: pulumi.Output<string[] | undefined>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      */
@@ -382,6 +380,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly platformVersion!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
      */
     public readonly remoteNetworkConfig!: pulumi.Output<outputs.eks.ClusterRemoteNetworkConfig | undefined>;
@@ -403,8 +405,6 @@ export class Cluster extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -442,12 +442,10 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["accessConfig"] = state ? state.accessConfig : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["bootstrapSelfManagedAddons"] = state ? state.bootstrapSelfManagedAddons : undefined;
-            resourceInputs["certificateAuthorities"] = state ? state.certificateAuthorities : undefined;
             resourceInputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
             resourceInputs["clusterId"] = state ? state.clusterId : undefined;
             resourceInputs["computeConfig"] = state ? state.computeConfig : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
-            resourceInputs["defaultAddonsToRemoves"] = state ? state.defaultAddonsToRemoves : undefined;
             resourceInputs["enabledClusterLogTypes"] = state ? state.enabledClusterLogTypes : undefined;
             resourceInputs["encryptionConfig"] = state ? state.encryptionConfig : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
@@ -457,6 +455,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outpostConfig"] = state ? state.outpostConfig : undefined;
             resourceInputs["platformVersion"] = state ? state.platformVersion : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["remoteNetworkConfig"] = state ? state.remoteNetworkConfig : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -478,13 +477,13 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["accessConfig"] = args ? args.accessConfig : undefined;
             resourceInputs["bootstrapSelfManagedAddons"] = args ? args.bootstrapSelfManagedAddons : undefined;
             resourceInputs["computeConfig"] = args ? args.computeConfig : undefined;
-            resourceInputs["defaultAddonsToRemoves"] = args ? args.defaultAddonsToRemoves : undefined;
             resourceInputs["enabledClusterLogTypes"] = args ? args.enabledClusterLogTypes : undefined;
             resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
             resourceInputs["forceUpdateVersion"] = args ? args.forceUpdateVersion : undefined;
             resourceInputs["kubernetesNetworkConfig"] = args ? args.kubernetesNetworkConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["outpostConfig"] = args ? args.outpostConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["remoteNetworkConfig"] = args ? args.remoteNetworkConfig : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["storageConfig"] = args ? args.storageConfig : undefined;
@@ -494,7 +493,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             resourceInputs["zonalShiftConfig"] = args ? args.zonalShiftConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
-            resourceInputs["certificateAuthorities"] = undefined /*out*/;
             resourceInputs["certificateAuthority"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -525,7 +523,6 @@ export interface ClusterState {
      * Install default unmanaged add-ons, such as `aws-cni`, `kube-proxy`, and CoreDNS during cluster creation. If `false`, you must manually install desired add-ons. Changing this value will force a new cluster to be created. Defaults to `true`.
      */
     bootstrapSelfManagedAddons?: pulumi.Input<boolean>;
-    certificateAuthorities?: pulumi.Input<pulumi.Input<inputs.eks.ClusterCertificateAuthority>[]>;
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      */
@@ -542,7 +539,6 @@ export interface ClusterState {
      * Unix epoch timestamp in seconds for when the cluster was created.
      */
     createdAt?: pulumi.Input<string>;
-    defaultAddonsToRemoves?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      */
@@ -580,6 +576,10 @@ export interface ClusterState {
      */
     platformVersion?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
      */
     remoteNetworkConfig?: pulumi.Input<inputs.eks.ClusterRemoteNetworkConfig>;
@@ -601,8 +601,6 @@ export interface ClusterState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -641,7 +639,6 @@ export interface ClusterArgs {
      * Configuration block with compute configuration for EKS Auto Mode. Detailed below.
      */
     computeConfig?: pulumi.Input<inputs.eks.ClusterComputeConfig>;
-    defaultAddonsToRemoves?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      */
@@ -666,6 +663,10 @@ export interface ClusterArgs {
      * Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
      */
     outpostConfig?: pulumi.Input<inputs.eks.ClusterOutpostConfig>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
      */

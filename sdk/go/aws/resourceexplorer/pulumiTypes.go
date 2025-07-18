@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -197,7 +197,7 @@ type SearchResource struct {
 	OwningAccountId string `pulumi:"owningAccountId"`
 	// Structure with additional type-specific details about the resource.  See `properties` below.
 	Properties []SearchResourceProperty `pulumi:"properties"`
-	// Amazon Web Services Region in which the resource was created and exists.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
 	// Type of the resource.
 	ResourceType string `pulumi:"resourceType"`
@@ -225,7 +225,7 @@ type SearchResourceArgs struct {
 	OwningAccountId pulumi.StringInput `pulumi:"owningAccountId"`
 	// Structure with additional type-specific details about the resource.  See `properties` below.
 	Properties SearchResourcePropertyArrayInput `pulumi:"properties"`
-	// Amazon Web Services Region in which the resource was created and exists.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
 	// Type of the resource.
 	ResourceType pulumi.StringInput `pulumi:"resourceType"`
@@ -304,7 +304,7 @@ func (o SearchResourceOutput) Properties() SearchResourcePropertyArrayOutput {
 	return o.ApplyT(func(v SearchResource) []SearchResourceProperty { return v.Properties }).(SearchResourcePropertyArrayOutput)
 }
 
-// Amazon Web Services Region in which the resource was created and exists.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SearchResourceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v SearchResource) string { return v.Region }).(pulumi.StringOutput)
 }

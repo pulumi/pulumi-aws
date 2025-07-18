@@ -16,10 +16,22 @@ import * as utilities from "../utilities";
  * const example = aws.s3.getDirectoryBuckets({});
  * ```
  */
-export function getDirectoryBuckets(opts?: pulumi.InvokeOptions): Promise<GetDirectoryBucketsResult> {
+export function getDirectoryBuckets(args?: GetDirectoryBucketsArgs, opts?: pulumi.InvokeOptions): Promise<GetDirectoryBucketsResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:s3/getDirectoryBuckets:getDirectoryBuckets", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getDirectoryBuckets.
+ */
+export interface GetDirectoryBucketsArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -35,6 +47,7 @@ export interface GetDirectoryBucketsResult {
      */
     readonly buckets: string[];
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Lists Amazon S3 Express directory buckets.
@@ -48,8 +61,20 @@ export interface GetDirectoryBucketsResult {
  * const example = aws.s3.getDirectoryBuckets({});
  * ```
  */
-export function getDirectoryBucketsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDirectoryBucketsResult> {
+export function getDirectoryBucketsOutput(args?: GetDirectoryBucketsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDirectoryBucketsResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:s3/getDirectoryBuckets:getDirectoryBuckets", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getDirectoryBuckets.
+ */
+export interface GetDirectoryBucketsOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -128,6 +128,10 @@ export class CatalogTableOptimizer extends pulumi.CustomResource {
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the table.
      */
     public readonly tableName!: pulumi.Output<string>;
@@ -152,6 +156,7 @@ export class CatalogTableOptimizer extends pulumi.CustomResource {
             resourceInputs["catalogId"] = state ? state.catalogId : undefined;
             resourceInputs["configuration"] = state ? state.configuration : undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tableName"] = state ? state.tableName : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
@@ -171,6 +176,7 @@ export class CatalogTableOptimizer extends pulumi.CustomResource {
             resourceInputs["catalogId"] = args ? args.catalogId : undefined;
             resourceInputs["configuration"] = args ? args.configuration : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
         }
@@ -195,6 +201,10 @@ export interface CatalogTableOptimizerState {
      * The name of the database in the catalog in which the table resides.
      */
     databaseName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the table.
      */
@@ -221,6 +231,10 @@ export interface CatalogTableOptimizerArgs {
      * The name of the database in the catalog in which the table resides.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the table.
      */

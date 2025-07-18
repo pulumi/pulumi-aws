@@ -18,6 +18,21 @@ public final class GetVirtualClusterArgs extends com.pulumi.resources.InvokeArgs
     public static final GetVirtualClusterArgs Empty = new GetVirtualClusterArgs();
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key-value mapping of resource tags.
      * 
      */
@@ -50,6 +65,7 @@ public final class GetVirtualClusterArgs extends com.pulumi.resources.InvokeArgs
     private GetVirtualClusterArgs() {}
 
     private GetVirtualClusterArgs(GetVirtualClusterArgs $) {
+        this.region = $.region;
         this.tags = $.tags;
         this.virtualClusterId = $.virtualClusterId;
     }
@@ -70,6 +86,27 @@ public final class GetVirtualClusterArgs extends com.pulumi.resources.InvokeArgs
 
         public Builder(GetVirtualClusterArgs defaults) {
             $ = new GetVirtualClusterArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

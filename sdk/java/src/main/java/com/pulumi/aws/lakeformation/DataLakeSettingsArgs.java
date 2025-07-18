@@ -171,6 +171,21 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
      * 
      * &gt; **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
@@ -202,6 +217,7 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
         this.externalDataFilteringAllowLists = $.externalDataFilteringAllowLists;
         this.parameters = $.parameters;
         this.readOnlyAdmins = $.readOnlyAdmins;
+        this.region = $.region;
         this.trustedResourceOwners = $.trustedResourceOwners;
     }
 
@@ -491,6 +507,27 @@ public final class DataLakeSettingsArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder readOnlyAdmins(String... readOnlyAdmins) {
             return readOnlyAdmins(List.of(readOnlyAdmins));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

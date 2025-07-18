@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/resourcegroups"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/resourcegroups"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,6 +71,8 @@ type Resource struct {
 
 	// Name or ARN of the resource group to add resources to.
 	GroupArn pulumi.StringOutput `pulumi:"groupArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the resource to be added to the group.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// The resource type of a resource, such as `AWS::EC2::Instance`.
@@ -115,6 +117,8 @@ func GetResource(ctx *pulumi.Context,
 type resourceState struct {
 	// Name or ARN of the resource group to add resources to.
 	GroupArn *string `pulumi:"groupArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the resource to be added to the group.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// The resource type of a resource, such as `AWS::EC2::Instance`.
@@ -124,6 +128,8 @@ type resourceState struct {
 type ResourceState struct {
 	// Name or ARN of the resource group to add resources to.
 	GroupArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the resource to be added to the group.
 	ResourceArn pulumi.StringPtrInput
 	// The resource type of a resource, such as `AWS::EC2::Instance`.
@@ -137,6 +143,8 @@ func (ResourceState) ElementType() reflect.Type {
 type resourceArgs struct {
 	// Name or ARN of the resource group to add resources to.
 	GroupArn string `pulumi:"groupArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the resource to be added to the group.
 	ResourceArn string `pulumi:"resourceArn"`
 }
@@ -145,6 +153,8 @@ type resourceArgs struct {
 type ResourceArgs struct {
 	// Name or ARN of the resource group to add resources to.
 	GroupArn pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the resource to be added to the group.
 	ResourceArn pulumi.StringInput
 }
@@ -239,6 +249,11 @@ func (o ResourceOutput) ToResourceOutputWithContext(ctx context.Context) Resourc
 // Name or ARN of the resource group to add resources to.
 func (o ResourceOutput) GroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.GroupArn }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ResourceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of the resource to be added to the group.

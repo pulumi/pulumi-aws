@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/memorydb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,6 +50,8 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getUser.
 type LookupUserArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the user.
 	Tags map[string]string `pulumi:"tags"`
 	// Name of the user.
@@ -68,6 +70,7 @@ type LookupUserResult struct {
 	Id string `pulumi:"id"`
 	// Minimum engine version supported for the user.
 	MinimumEngineVersion string `pulumi:"minimumEngineVersion"`
+	Region               string `pulumi:"region"`
 	// Map of tags assigned to the user.
 	Tags     map[string]string `pulumi:"tags"`
 	UserName string            `pulumi:"userName"`
@@ -84,6 +87,8 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getUser.
 type LookupUserOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the user.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Name of the user.
@@ -132,6 +137,10 @@ func (o LookupUserResultOutput) Id() pulumi.StringOutput {
 // Minimum engine version supported for the user.
 func (o LookupUserResultOutput) MinimumEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.MinimumEngineVersion }).(pulumi.StringOutput)
+}
+
+func (o LookupUserResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags assigned to the user.

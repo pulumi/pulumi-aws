@@ -14,17 +14,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BrokerLdapServerMetadata {
     /**
-     * @return List of a fully qualified domain name of the LDAP server and an optional failover server.
+     * @return List of fully qualified domain names of the LDAP server and optional failover server.
      * 
      */
     private @Nullable List<String> hosts;
     /**
-     * @return Fully qualified name of the directory to search for a user’s groups.
+     * @return Fully qualified name of the directory to search for a user&#39;s groups.
      * 
      */
     private @Nullable String roleBase;
     /**
-     * @return Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+     * @return LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
      * 
      */
     private @Nullable String roleName;
@@ -54,7 +54,7 @@ public final class BrokerLdapServerMetadata {
      */
     private @Nullable String userBase;
     /**
-     * @return Specifies the name of the LDAP attribute for the user group membership.
+     * @return Name of the LDAP attribute for the user group membership.
      * 
      */
     private @Nullable String userRoleName;
@@ -71,21 +71,21 @@ public final class BrokerLdapServerMetadata {
 
     private BrokerLdapServerMetadata() {}
     /**
-     * @return List of a fully qualified domain name of the LDAP server and an optional failover server.
+     * @return List of fully qualified domain names of the LDAP server and optional failover server.
      * 
      */
     public List<String> hosts() {
         return this.hosts == null ? List.of() : this.hosts;
     }
     /**
-     * @return Fully qualified name of the directory to search for a user’s groups.
+     * @return Fully qualified name of the directory to search for a user&#39;s groups.
      * 
      */
     public Optional<String> roleBase() {
         return Optional.ofNullable(this.roleBase);
     }
     /**
-     * @return Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+     * @return LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
      * 
      */
     public Optional<String> roleName() {
@@ -127,7 +127,7 @@ public final class BrokerLdapServerMetadata {
         return Optional.ofNullable(this.userBase);
     }
     /**
-     * @return Specifies the name of the LDAP attribute for the user group membership.
+     * @return Name of the LDAP attribute for the user group membership.
      * 
      */
     public Optional<String> userRoleName() {

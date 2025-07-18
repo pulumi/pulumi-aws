@@ -780,16 +780,6 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
-    private @Nullable String iotanalytics;
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
-    private @Nullable String iotevents;
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
     private @Nullable String ivs;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1055,11 +1045,6 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
-    private @Nullable String opsworks;
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
     private @Nullable String organizations;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1290,11 +1275,6 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
-    private @Nullable String sdb;
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
     private @Nullable String secretsmanager;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1366,11 +1346,6 @@ public final class Endpoints {
      * 
      */
     private @Nullable String signer;
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
-    private @Nullable String simpledb;
     /**
      * @return Use this to override the default service endpoint URL
      * 
@@ -1506,11 +1481,6 @@ public final class Endpoints {
      * 
      */
     private @Nullable String wellarchitected;
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
-    private @Nullable String worklink;
     /**
      * @return Use this to override the default service endpoint URL
      * 
@@ -2603,20 +2573,6 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
-    public Optional<String> iotanalytics() {
-        return Optional.ofNullable(this.iotanalytics);
-    }
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
-    public Optional<String> iotevents() {
-        return Optional.ofNullable(this.iotevents);
-    }
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
     public Optional<String> ivs() {
         return Optional.ofNullable(this.ivs);
     }
@@ -2988,13 +2944,6 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
-    public Optional<String> opsworks() {
-        return Optional.ofNullable(this.opsworks);
-    }
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
     public Optional<String> organizations() {
         return Optional.ofNullable(this.organizations);
     }
@@ -3317,13 +3266,6 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
-    public Optional<String> sdb() {
-        return Optional.ofNullable(this.sdb);
-    }
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
     public Optional<String> secretsmanager() {
         return Optional.ofNullable(this.secretsmanager);
     }
@@ -3424,13 +3366,6 @@ public final class Endpoints {
      */
     public Optional<String> signer() {
         return Optional.ofNullable(this.signer);
-    }
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
-    public Optional<String> simpledb() {
-        return Optional.ofNullable(this.simpledb);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -3625,13 +3560,6 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
-    public Optional<String> worklink() {
-        return Optional.ofNullable(this.worklink);
-    }
-    /**
-     * @return Use this to override the default service endpoint URL
-     * 
-     */
     public Optional<String> workspaces() {
         return Optional.ofNullable(this.workspaces);
     }
@@ -3812,8 +3740,6 @@ public final class Endpoints {
         private @Nullable String internetmonitor;
         private @Nullable String invoicing;
         private @Nullable String iot;
-        private @Nullable String iotanalytics;
-        private @Nullable String iotevents;
         private @Nullable String ivs;
         private @Nullable String ivschat;
         private @Nullable String kafka;
@@ -3867,7 +3793,6 @@ public final class Endpoints {
         private @Nullable String opensearchingestion;
         private @Nullable String opensearchserverless;
         private @Nullable String opensearchservice;
-        private @Nullable String opsworks;
         private @Nullable String organizations;
         private @Nullable String osis;
         private @Nullable String outposts;
@@ -3914,7 +3839,6 @@ public final class Endpoints {
         private @Nullable String sagemaker;
         private @Nullable String scheduler;
         private @Nullable String schemas;
-        private @Nullable String sdb;
         private @Nullable String secretsmanager;
         private @Nullable String securityhub;
         private @Nullable String securitylake;
@@ -3930,7 +3854,6 @@ public final class Endpoints {
         private @Nullable String sfn;
         private @Nullable String shield;
         private @Nullable String signer;
-        private @Nullable String simpledb;
         private @Nullable String sns;
         private @Nullable String sqs;
         private @Nullable String ssm;
@@ -3958,7 +3881,6 @@ public final class Endpoints {
         private @Nullable String wafregional;
         private @Nullable String wafv2;
         private @Nullable String wellarchitected;
-        private @Nullable String worklink;
         private @Nullable String workspaces;
         private @Nullable String workspacesweb;
         private @Nullable String xray;
@@ -4118,8 +4040,6 @@ public final class Endpoints {
     	      this.internetmonitor = defaults.internetmonitor;
     	      this.invoicing = defaults.invoicing;
     	      this.iot = defaults.iot;
-    	      this.iotanalytics = defaults.iotanalytics;
-    	      this.iotevents = defaults.iotevents;
     	      this.ivs = defaults.ivs;
     	      this.ivschat = defaults.ivschat;
     	      this.kafka = defaults.kafka;
@@ -4173,7 +4093,6 @@ public final class Endpoints {
     	      this.opensearchingestion = defaults.opensearchingestion;
     	      this.opensearchserverless = defaults.opensearchserverless;
     	      this.opensearchservice = defaults.opensearchservice;
-    	      this.opsworks = defaults.opsworks;
     	      this.organizations = defaults.organizations;
     	      this.osis = defaults.osis;
     	      this.outposts = defaults.outposts;
@@ -4220,7 +4139,6 @@ public final class Endpoints {
     	      this.sagemaker = defaults.sagemaker;
     	      this.scheduler = defaults.scheduler;
     	      this.schemas = defaults.schemas;
-    	      this.sdb = defaults.sdb;
     	      this.secretsmanager = defaults.secretsmanager;
     	      this.securityhub = defaults.securityhub;
     	      this.securitylake = defaults.securitylake;
@@ -4236,7 +4154,6 @@ public final class Endpoints {
     	      this.sfn = defaults.sfn;
     	      this.shield = defaults.shield;
     	      this.signer = defaults.signer;
-    	      this.simpledb = defaults.simpledb;
     	      this.sns = defaults.sns;
     	      this.sqs = defaults.sqs;
     	      this.ssm = defaults.ssm;
@@ -4264,7 +4181,6 @@ public final class Endpoints {
     	      this.wafregional = defaults.wafregional;
     	      this.wafv2 = defaults.wafv2;
     	      this.wellarchitected = defaults.wellarchitected;
-    	      this.worklink = defaults.worklink;
     	      this.workspaces = defaults.workspaces;
     	      this.workspacesweb = defaults.workspacesweb;
     	      this.xray = defaults.xray;
@@ -5189,18 +5105,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder iotanalytics(@Nullable String iotanalytics) {
-
-            this.iotanalytics = iotanalytics;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder iotevents(@Nullable String iotevents) {
-
-            this.iotevents = iotevents;
-            return this;
-        }
-        @CustomType.Setter
         public Builder ivs(@Nullable String ivs) {
 
             this.ivs = ivs;
@@ -5519,12 +5423,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder opsworks(@Nullable String opsworks) {
-
-            this.opsworks = opsworks;
-            return this;
-        }
-        @CustomType.Setter
         public Builder organizations(@Nullable String organizations) {
 
             this.organizations = organizations;
@@ -5801,12 +5699,6 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
-        public Builder sdb(@Nullable String sdb) {
-
-            this.sdb = sdb;
-            return this;
-        }
-        @CustomType.Setter
         public Builder secretsmanager(@Nullable String secretsmanager) {
 
             this.secretsmanager = secretsmanager;
@@ -5894,12 +5786,6 @@ public final class Endpoints {
         public Builder signer(@Nullable String signer) {
 
             this.signer = signer;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder simpledb(@Nullable String simpledb) {
-
-            this.simpledb = simpledb;
             return this;
         }
         @CustomType.Setter
@@ -6062,12 +5948,6 @@ public final class Endpoints {
         public Builder wellarchitected(@Nullable String wellarchitected) {
 
             this.wellarchitected = wellarchitected;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder worklink(@Nullable String worklink) {
-
-            this.worklink = worklink;
             return this;
         }
         @CustomType.Setter
@@ -6243,8 +6123,6 @@ public final class Endpoints {
             _resultValue.internetmonitor = internetmonitor;
             _resultValue.invoicing = invoicing;
             _resultValue.iot = iot;
-            _resultValue.iotanalytics = iotanalytics;
-            _resultValue.iotevents = iotevents;
             _resultValue.ivs = ivs;
             _resultValue.ivschat = ivschat;
             _resultValue.kafka = kafka;
@@ -6298,7 +6176,6 @@ public final class Endpoints {
             _resultValue.opensearchingestion = opensearchingestion;
             _resultValue.opensearchserverless = opensearchserverless;
             _resultValue.opensearchservice = opensearchservice;
-            _resultValue.opsworks = opsworks;
             _resultValue.organizations = organizations;
             _resultValue.osis = osis;
             _resultValue.outposts = outposts;
@@ -6345,7 +6222,6 @@ public final class Endpoints {
             _resultValue.sagemaker = sagemaker;
             _resultValue.scheduler = scheduler;
             _resultValue.schemas = schemas;
-            _resultValue.sdb = sdb;
             _resultValue.secretsmanager = secretsmanager;
             _resultValue.securityhub = securityhub;
             _resultValue.securitylake = securitylake;
@@ -6361,7 +6237,6 @@ public final class Endpoints {
             _resultValue.sfn = sfn;
             _resultValue.shield = shield;
             _resultValue.signer = signer;
-            _resultValue.simpledb = simpledb;
             _resultValue.sns = sns;
             _resultValue.sqs = sqs;
             _resultValue.ssm = ssm;
@@ -6389,7 +6264,6 @@ public final class Endpoints {
             _resultValue.wafregional = wafregional;
             _resultValue.wafv2 = wafv2;
             _resultValue.wellarchitected = wellarchitected;
-            _resultValue.worklink = worklink;
             _resultValue.workspaces = workspaces;
             _resultValue.workspacesweb = workspacesweb;
             _resultValue.xray = xray;

@@ -36,6 +36,7 @@ class WindowsFileSystemArgs:
                  final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  self_managed_active_directory: Optional[pulumi.Input['WindowsFileSystemSelfManagedActiveDirectoryArgs']] = None,
                  skip_final_backup: Optional[pulumi.Input[builtins.bool]] = None,
@@ -61,6 +62,7 @@ class WindowsFileSystemArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] final_backup_tags: A map of tags to apply to the file system's final backup.
         :param pulumi.Input[builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
         :param pulumi.Input[builtins.str] preferred_subnet_id: Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input['WindowsFileSystemSelfManagedActiveDirectoryArgs'] self_managed_active_directory: Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
         :param pulumi.Input[builtins.bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
@@ -95,6 +97,8 @@ class WindowsFileSystemArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if preferred_subnet_id is not None:
             pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if self_managed_active_directory is not None:
@@ -281,6 +285,18 @@ class WindowsFileSystemArgs:
         pulumi.set(self, "preferred_subnet_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -385,6 +401,7 @@ class _WindowsFileSystemState:
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_file_server_ip: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remote_administration_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  self_managed_active_directory: Optional[pulumi.Input['WindowsFileSystemSelfManagedActiveDirectoryArgs']] = None,
@@ -416,6 +433,7 @@ class _WindowsFileSystemState:
         :param pulumi.Input[builtins.str] owner_id: AWS account identifier that created the file system.
         :param pulumi.Input[builtins.str] preferred_file_server_ip: The IP address of the primary, or preferred, file server.
         :param pulumi.Input[builtins.str] preferred_subnet_id: Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] remote_administration_endpoint: For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input['WindowsFileSystemSelfManagedActiveDirectoryArgs'] self_managed_active_directory: Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
@@ -465,6 +483,8 @@ class _WindowsFileSystemState:
             pulumi.set(__self__, "preferred_file_server_ip", preferred_file_server_ip)
         if preferred_subnet_id is not None:
             pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if remote_administration_endpoint is not None:
             pulumi.set(__self__, "remote_administration_endpoint", remote_administration_endpoint)
         if security_group_ids is not None:
@@ -481,9 +501,6 @@ class _WindowsFileSystemState:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if throughput_capacity is not None:
@@ -698,6 +715,18 @@ class _WindowsFileSystemState:
         pulumi.set(self, "preferred_subnet_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="remoteAdministrationEndpoint")
     def remote_administration_endpoint(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -795,7 +824,6 @@ class _WindowsFileSystemState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -863,6 +891,7 @@ class WindowsFileSystem(pulumi.CustomResource):
                  final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  self_managed_active_directory: Optional[pulumi.Input[Union['WindowsFileSystemSelfManagedActiveDirectoryArgs', 'WindowsFileSystemSelfManagedActiveDirectoryArgsDict']]] = None,
                  skip_final_backup: Optional[pulumi.Input[builtins.bool]] = None,
@@ -943,6 +972,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] final_backup_tags: A map of tags to apply to the file system's final backup.
         :param pulumi.Input[builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
         :param pulumi.Input[builtins.str] preferred_subnet_id: Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[Union['WindowsFileSystemSelfManagedActiveDirectoryArgs', 'WindowsFileSystemSelfManagedActiveDirectoryArgsDict']] self_managed_active_directory: Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
         :param pulumi.Input[builtins.bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
@@ -1044,6 +1074,7 @@ class WindowsFileSystem(pulumi.CustomResource):
                  final_backup_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  self_managed_active_directory: Optional[pulumi.Input[Union['WindowsFileSystemSelfManagedActiveDirectoryArgs', 'WindowsFileSystemSelfManagedActiveDirectoryArgsDict']]] = None,
                  skip_final_backup: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1074,6 +1105,7 @@ class WindowsFileSystem(pulumi.CustomResource):
             __props__.__dict__["final_backup_tags"] = final_backup_tags
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["preferred_subnet_id"] = preferred_subnet_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["self_managed_active_directory"] = self_managed_active_directory
             __props__.__dict__["skip_final_backup"] = skip_final_backup
@@ -1122,6 +1154,7 @@ class WindowsFileSystem(pulumi.CustomResource):
             owner_id: Optional[pulumi.Input[builtins.str]] = None,
             preferred_file_server_ip: Optional[pulumi.Input[builtins.str]] = None,
             preferred_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             remote_administration_endpoint: Optional[pulumi.Input[builtins.str]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             self_managed_active_directory: Optional[pulumi.Input[Union['WindowsFileSystemSelfManagedActiveDirectoryArgs', 'WindowsFileSystemSelfManagedActiveDirectoryArgsDict']]] = None,
@@ -1158,6 +1191,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] owner_id: AWS account identifier that created the file system.
         :param pulumi.Input[builtins.str] preferred_file_server_ip: The IP address of the primary, or preferred, file server.
         :param pulumi.Input[builtins.str] preferred_subnet_id: Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] remote_administration_endpoint: For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[Union['WindowsFileSystemSelfManagedActiveDirectoryArgs', 'WindowsFileSystemSelfManagedActiveDirectoryArgsDict']] self_managed_active_directory: Configuration block that Amazon FSx uses to join the Windows File Server instance to your self-managed (including on-premises) Microsoft Active Directory (AD) directory. Cannot be specified with `active_directory_id`. See `self_managed_active_directory` Block for details.
@@ -1194,6 +1228,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["preferred_file_server_ip"] = preferred_file_server_ip
         __props__.__dict__["preferred_subnet_id"] = preferred_subnet_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["remote_administration_endpoint"] = remote_administration_endpoint
         __props__.__dict__["security_group_ids"] = security_group_ids
         __props__.__dict__["self_managed_active_directory"] = self_managed_active_directory
@@ -1345,6 +1380,14 @@ class WindowsFileSystem(pulumi.CustomResource):
         return pulumi.get(self, "preferred_subnet_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="remoteAdministrationEndpoint")
     def remote_administration_endpoint(self) -> pulumi.Output[builtins.str]:
         """
@@ -1410,7 +1453,6 @@ class WindowsFileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

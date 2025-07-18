@@ -30,6 +30,7 @@ class StageArgs:
                  deployment_id: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_settings: Optional[pulumi.Input[Sequence[pulumi.Input['StageRouteSettingArgs']]]] = None,
                  stage_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -47,6 +48,7 @@ class StageArgs:
         :param pulumi.Input[builtins.str] name: Name of the stage. Must be between 1 and 128 characters in length.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['StageRouteSettingArgs']]] route_settings: Route settings for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] stage_variables: Map that defines the stage variables for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -66,6 +68,8 @@ class StageArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if route_settings is not None:
             pulumi.set(__self__, "route_settings", route_settings)
         if stage_variables is not None:
@@ -174,6 +178,18 @@ class StageArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="routeSettings")
     def route_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StageRouteSettingArgs']]]]:
         """
@@ -224,6 +240,7 @@ class _StageState:
                  execution_arn: Optional[pulumi.Input[builtins.str]] = None,
                  invoke_url: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_settings: Optional[pulumi.Input[Sequence[pulumi.Input['StageRouteSettingArgs']]]] = None,
                  stage_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -248,6 +265,7 @@ class _StageState:
         :param pulumi.Input[builtins.str] name: Name of the stage. Must be between 1 and 128 characters in length.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['StageRouteSettingArgs']]] route_settings: Route settings for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] stage_variables: Map that defines the stage variables for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -275,15 +293,14 @@ class _StageState:
             pulumi.set(__self__, "invoke_url", invoke_url)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if route_settings is not None:
             pulumi.set(__self__, "route_settings", route_settings)
         if stage_variables is not None:
             pulumi.set(__self__, "stage_variables", stage_variables)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -427,6 +444,18 @@ class _StageState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="routeSettings")
     def route_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StageRouteSettingArgs']]]]:
         """
@@ -464,7 +493,6 @@ class _StageState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -490,6 +518,7 @@ class Stage(pulumi.CustomResource):
                  deployment_id: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StageRouteSettingArgs', 'StageRouteSettingArgsDict']]]]] = None,
                  stage_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -534,6 +563,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the stage. Must be between 1 and 128 characters in length.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StageRouteSettingArgs', 'StageRouteSettingArgsDict']]]] route_settings: Route settings for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] stage_variables: Map that defines the stage variables for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -593,6 +623,7 @@ class Stage(pulumi.CustomResource):
                  deployment_id: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StageRouteSettingArgs', 'StageRouteSettingArgsDict']]]]] = None,
                  stage_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -615,6 +646,7 @@ class Stage(pulumi.CustomResource):
             __props__.__dict__["deployment_id"] = deployment_id
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["route_settings"] = route_settings
             __props__.__dict__["stage_variables"] = stage_variables
             __props__.__dict__["tags"] = tags
@@ -643,6 +675,7 @@ class Stage(pulumi.CustomResource):
             execution_arn: Optional[pulumi.Input[builtins.str]] = None,
             invoke_url: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             route_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StageRouteSettingArgs', 'StageRouteSettingArgsDict']]]]] = None,
             stage_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -672,6 +705,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the stage. Must be between 1 and 128 characters in length.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StageRouteSettingArgs', 'StageRouteSettingArgsDict']]]] route_settings: Route settings for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] stage_variables: Map that defines the stage variables for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the stage. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -692,6 +726,7 @@ class Stage(pulumi.CustomResource):
         __props__.__dict__["execution_arn"] = execution_arn
         __props__.__dict__["invoke_url"] = invoke_url
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["route_settings"] = route_settings
         __props__.__dict__["stage_variables"] = stage_variables
         __props__.__dict__["tags"] = tags
@@ -794,6 +829,14 @@ class Stage(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="routeSettings")
     def route_settings(self) -> pulumi.Output[Optional[Sequence['outputs.StageRouteSetting']]]:
         """
@@ -819,7 +862,6 @@ class Stage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

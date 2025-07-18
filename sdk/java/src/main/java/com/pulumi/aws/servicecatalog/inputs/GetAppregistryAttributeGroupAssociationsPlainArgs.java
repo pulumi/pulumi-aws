@@ -32,8 +32,6 @@ public final class GetAppregistryAttributeGroupAssociationsPlainArgs extends com
     /**
      * Name of the application to which attribute groups are associated.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="name")
     private @Nullable String name;
@@ -41,11 +39,26 @@ public final class GetAppregistryAttributeGroupAssociationsPlainArgs extends com
     /**
      * @return Name of the application to which attribute groups are associated.
      * 
-     * The following arguments are optional:
-     * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * &gt; Exactly one of `id`or `name` must be set.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * &gt; Exactly one of `id`or `name` must be set.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetAppregistryAttributeGroupAssociationsPlainArgs() {}
@@ -53,6 +66,7 @@ public final class GetAppregistryAttributeGroupAssociationsPlainArgs extends com
     private GetAppregistryAttributeGroupAssociationsPlainArgs(GetAppregistryAttributeGroupAssociationsPlainArgs $) {
         this.id = $.id;
         this.name = $.name;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -87,13 +101,23 @@ public final class GetAppregistryAttributeGroupAssociationsPlainArgs extends com
         /**
          * @param name Name of the application to which attribute groups are associated.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * &gt; Exactly one of `id`or `name` must be set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

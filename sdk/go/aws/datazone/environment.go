@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datazone"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -101,7 +101,9 @@ type Environment struct {
 	// The provider of the environment.
 	ProviderEnvironment  pulumi.StringOutput                       `pulumi:"providerEnvironment"`
 	ProvisionedResources EnvironmentProvisionedResourceArrayOutput `pulumi:"provisionedResources"`
-	Timeouts             EnvironmentTimeoutsPtrOutput              `pulumi:"timeouts"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringOutput          `pulumi:"region"`
+	Timeouts EnvironmentTimeoutsPtrOutput `pulumi:"timeouts"`
 	// The user parameters that are used in the environment. See User Parameters for more information.
 	UserParameters EnvironmentUserParameterArrayOutput `pulumi:"userParameters"`
 }
@@ -174,7 +176,9 @@ type environmentState struct {
 	// The provider of the environment.
 	ProviderEnvironment  *string                          `pulumi:"providerEnvironment"`
 	ProvisionedResources []EnvironmentProvisionedResource `pulumi:"provisionedResources"`
-	Timeouts             *EnvironmentTimeouts             `pulumi:"timeouts"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   *string              `pulumi:"region"`
+	Timeouts *EnvironmentTimeouts `pulumi:"timeouts"`
 	// The user parameters that are used in the environment. See User Parameters for more information.
 	UserParameters []EnvironmentUserParameter `pulumi:"userParameters"`
 }
@@ -209,7 +213,9 @@ type EnvironmentState struct {
 	// The provider of the environment.
 	ProviderEnvironment  pulumi.StringPtrInput
 	ProvisionedResources EnvironmentProvisionedResourceArrayInput
-	Timeouts             EnvironmentTimeoutsPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts EnvironmentTimeoutsPtrInput
 	// The user parameters that are used in the environment. See User Parameters for more information.
 	UserParameters EnvironmentUserParameterArrayInput
 }
@@ -238,8 +244,10 @@ type environmentArgs struct {
 	// The ID of the project where the environment exists.
 	//
 	// The following arguments are optional:
-	ProjectIdentifier string               `pulumi:"projectIdentifier"`
-	Timeouts          *EnvironmentTimeouts `pulumi:"timeouts"`
+	ProjectIdentifier string `pulumi:"projectIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   *string              `pulumi:"region"`
+	Timeouts *EnvironmentTimeouts `pulumi:"timeouts"`
 	// The user parameters that are used in the environment. See User Parameters for more information.
 	UserParameters []EnvironmentUserParameter `pulumi:"userParameters"`
 }
@@ -266,7 +274,9 @@ type EnvironmentArgs struct {
 	//
 	// The following arguments are optional:
 	ProjectIdentifier pulumi.StringInput
-	Timeouts          EnvironmentTimeoutsPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts EnvironmentTimeoutsPtrInput
 	// The user parameters that are used in the environment. See User Parameters for more information.
 	UserParameters EnvironmentUserParameterArrayInput
 }
@@ -427,6 +437,11 @@ func (o EnvironmentOutput) ProviderEnvironment() pulumi.StringOutput {
 
 func (o EnvironmentOutput) ProvisionedResources() EnvironmentProvisionedResourceArrayOutput {
 	return o.ApplyT(func(v *Environment) EnvironmentProvisionedResourceArrayOutput { return v.ProvisionedResources }).(EnvironmentProvisionedResourceArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o EnvironmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o EnvironmentOutput) Timeouts() EnvironmentTimeoutsPtrOutput {

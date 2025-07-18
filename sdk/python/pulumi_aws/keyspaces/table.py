@@ -31,6 +31,7 @@ class TableArgs:
                  default_time_to_live: Optional[pulumi.Input[builtins.int]] = None,
                  encryption_specification: Optional[pulumi.Input['TableEncryptionSpecificationArgs']] = None,
                  point_in_time_recovery: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  ttl: Optional[pulumi.Input['TableTtlArgs']] = None):
         """
@@ -46,6 +47,7 @@ class TableArgs:
         :param pulumi.Input[builtins.int] default_time_to_live: The default Time to Live setting in seconds for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL-how-it-works.html#ttl-howitworks_default_ttl).
         :param pulumi.Input['TableEncryptionSpecificationArgs'] encryption_specification: Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
         :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['TableTtlArgs'] ttl: Enables Time to Live custom settings for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/TTL.html).
         """
@@ -64,6 +66,8 @@ class TableArgs:
             pulumi.set(__self__, "encryption_specification", encryption_specification)
         if point_in_time_recovery is not None:
             pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if ttl is not None:
@@ -181,6 +185,18 @@ class TableArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -215,6 +231,7 @@ class _TableState:
                  encryption_specification: Optional[pulumi.Input['TableEncryptionSpecificationArgs']] = None,
                  keyspace_name: Optional[pulumi.Input[builtins.str]] = None,
                  point_in_time_recovery: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schema_definition: Optional[pulumi.Input['TableSchemaDefinitionArgs']] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -230,6 +247,7 @@ class _TableState:
         :param pulumi.Input['TableEncryptionSpecificationArgs'] encryption_specification: Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
         :param pulumi.Input[builtins.str] keyspace_name: The name of the keyspace that the table is going to be created in.
         :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['TableSchemaDefinitionArgs'] schema_definition: Describes the schema of the table.
         :param pulumi.Input[builtins.str] table_name: The name of the table.
                
@@ -254,15 +272,14 @@ class _TableState:
             pulumi.set(__self__, "keyspace_name", keyspace_name)
         if point_in_time_recovery is not None:
             pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schema_definition is not None:
             pulumi.set(__self__, "schema_definition", schema_definition)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if ttl is not None:
@@ -365,6 +382,18 @@ class _TableState:
         pulumi.set(self, "point_in_time_recovery", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="schemaDefinition")
     def schema_definition(self) -> Optional[pulumi.Input['TableSchemaDefinitionArgs']]:
         """
@@ -404,7 +433,6 @@ class _TableState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -441,6 +469,7 @@ class Table(pulumi.CustomResource):
                  encryption_specification: Optional[pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']]] = None,
                  keyspace_name: Optional[pulumi.Input[builtins.str]] = None,
                  point_in_time_recovery: Optional[pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schema_definition: Optional[pulumi.Input[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict']]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -488,6 +517,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']] encryption_specification: Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
         :param pulumi.Input[builtins.str] keyspace_name: The name of the keyspace that the table is going to be created in.
         :param pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']] point_in_time_recovery: Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict']] schema_definition: Describes the schema of the table.
         :param pulumi.Input[builtins.str] table_name: The name of the table.
                
@@ -556,6 +586,7 @@ class Table(pulumi.CustomResource):
                  encryption_specification: Optional[pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']]] = None,
                  keyspace_name: Optional[pulumi.Input[builtins.str]] = None,
                  point_in_time_recovery: Optional[pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schema_definition: Optional[pulumi.Input[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict']]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -578,6 +609,7 @@ class Table(pulumi.CustomResource):
                 raise TypeError("Missing required property 'keyspace_name'")
             __props__.__dict__["keyspace_name"] = keyspace_name
             __props__.__dict__["point_in_time_recovery"] = point_in_time_recovery
+            __props__.__dict__["region"] = region
             if schema_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_definition'")
             __props__.__dict__["schema_definition"] = schema_definition
@@ -606,6 +638,7 @@ class Table(pulumi.CustomResource):
             encryption_specification: Optional[pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']]] = None,
             keyspace_name: Optional[pulumi.Input[builtins.str]] = None,
             point_in_time_recovery: Optional[pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             schema_definition: Optional[pulumi.Input[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict']]] = None,
             table_name: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -626,6 +659,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Union['TableEncryptionSpecificationArgs', 'TableEncryptionSpecificationArgsDict']] encryption_specification: Specifies how the encryption key for encryption at rest is managed for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html).
         :param pulumi.Input[builtins.str] keyspace_name: The name of the keyspace that the table is going to be created in.
         :param pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']] point_in_time_recovery: Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['TableSchemaDefinitionArgs', 'TableSchemaDefinitionArgsDict']] schema_definition: Describes the schema of the table.
         :param pulumi.Input[builtins.str] table_name: The name of the table.
                
@@ -646,6 +680,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["encryption_specification"] = encryption_specification
         __props__.__dict__["keyspace_name"] = keyspace_name
         __props__.__dict__["point_in_time_recovery"] = point_in_time_recovery
+        __props__.__dict__["region"] = region
         __props__.__dict__["schema_definition"] = schema_definition
         __props__.__dict__["table_name"] = table_name
         __props__.__dict__["tags"] = tags
@@ -718,6 +753,14 @@ class Table(pulumi.CustomResource):
         return pulumi.get(self, "point_in_time_recovery")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="schemaDefinition")
     def schema_definition(self) -> pulumi.Output['outputs.TableSchemaDefinition']:
         """
@@ -745,7 +788,6 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

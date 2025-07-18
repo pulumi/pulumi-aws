@@ -27,6 +27,10 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
+        public readonly Outputs.ProjectEnvironmentDockerServer? DockerServer;
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ProjectEnvironmentEnvironmentVariable> EnvironmentVariables;
         /// <summary>
         /// Configuration block. Detailed below.
@@ -69,6 +73,8 @@ namespace Pulumi.Aws.CodeBuild.Outputs
 
             string computeType,
 
+            Outputs.ProjectEnvironmentDockerServer? dockerServer,
+
             ImmutableArray<Outputs.ProjectEnvironmentEnvironmentVariable> environmentVariables,
 
             Outputs.ProjectEnvironmentFleet? fleet,
@@ -85,6 +91,7 @@ namespace Pulumi.Aws.CodeBuild.Outputs
         {
             Certificate = certificate;
             ComputeType = computeType;
+            DockerServer = dockerServer;
             EnvironmentVariables = environmentVariables;
             Fleet = fleet;
             Image = image;

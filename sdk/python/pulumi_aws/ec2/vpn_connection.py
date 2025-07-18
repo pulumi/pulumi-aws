@@ -29,6 +29,7 @@ class VpnConnectionArgs:
                  local_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  outside_ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  preshared_key_storage: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remote_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  remote_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  static_routes_only: Optional[pulumi.Input[builtins.bool]] = None,
@@ -86,6 +87,7 @@ class VpnConnectionArgs:
         :param pulumi.Input[builtins.str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[builtins.str] outside_ip_address_type: Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
         :param pulumi.Input[builtins.str] preshared_key_storage: Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[builtins.str] remote_ipv6_network_cidr: The IPv6 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[builtins.bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
@@ -147,6 +149,8 @@ class VpnConnectionArgs:
             pulumi.set(__self__, "outside_ip_address_type", outside_ip_address_type)
         if preshared_key_storage is not None:
             pulumi.set(__self__, "preshared_key_storage", preshared_key_storage)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if remote_ipv4_network_cidr is not None:
             pulumi.set(__self__, "remote_ipv4_network_cidr", remote_ipv4_network_cidr)
         if remote_ipv6_network_cidr is not None:
@@ -327,6 +331,18 @@ class VpnConnectionArgs:
     @preshared_key_storage.setter
     def preshared_key_storage(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "preshared_key_storage", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="remoteIpv4NetworkCidr")
@@ -919,6 +935,7 @@ class _VpnConnectionState:
                  outside_ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  preshared_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  preshared_key_storage: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remote_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  remote_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionRouteArgs']]]] = None,
@@ -995,6 +1012,7 @@ class _VpnConnectionState:
         :param pulumi.Input[builtins.str] outside_ip_address_type: Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
         :param pulumi.Input[builtins.str] preshared_key_arn: ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `preshared_key_storage` argument is set to `SecretsManager`.
         :param pulumi.Input[builtins.str] preshared_key_storage: Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[builtins.str] remote_ipv6_network_cidr: The IPv6 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionRouteArgs']]] routes: The static routes associated with the VPN connection. Detailed below.
@@ -1081,6 +1099,8 @@ class _VpnConnectionState:
             pulumi.set(__self__, "preshared_key_arn", preshared_key_arn)
         if preshared_key_storage is not None:
             pulumi.set(__self__, "preshared_key_storage", preshared_key_storage)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if remote_ipv4_network_cidr is not None:
             pulumi.set(__self__, "remote_ipv4_network_cidr", remote_ipv4_network_cidr)
         if remote_ipv6_network_cidr is not None:
@@ -1091,9 +1111,6 @@ class _VpnConnectionState:
             pulumi.set(__self__, "static_routes_only", static_routes_only)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if transit_gateway_attachment_id is not None:
@@ -1344,6 +1361,18 @@ class _VpnConnectionState:
         pulumi.set(self, "preshared_key_storage", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="remoteIpv4NetworkCidr")
     def remote_ipv4_network_cidr(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -1405,7 +1434,6 @@ class _VpnConnectionState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -2113,6 +2141,7 @@ class VpnConnection(pulumi.CustomResource):
                  local_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  outside_ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  preshared_key_storage: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remote_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  remote_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  static_routes_only: Optional[pulumi.Input[builtins.bool]] = None,
@@ -2261,6 +2290,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[builtins.str] outside_ip_address_type: Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
         :param pulumi.Input[builtins.str] preshared_key_storage: Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[builtins.str] remote_ipv6_network_cidr: The IPv6 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[builtins.bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
@@ -2428,6 +2458,7 @@ class VpnConnection(pulumi.CustomResource):
                  local_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  outside_ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  preshared_key_storage: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remote_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  remote_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  static_routes_only: Optional[pulumi.Input[builtins.bool]] = None,
@@ -2494,6 +2525,7 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["local_ipv6_network_cidr"] = local_ipv6_network_cidr
             __props__.__dict__["outside_ip_address_type"] = outside_ip_address_type
             __props__.__dict__["preshared_key_storage"] = preshared_key_storage
+            __props__.__dict__["region"] = region
             __props__.__dict__["remote_ipv4_network_cidr"] = remote_ipv4_network_cidr
             __props__.__dict__["remote_ipv6_network_cidr"] = remote_ipv6_network_cidr
             __props__.__dict__["static_routes_only"] = static_routes_only
@@ -2587,6 +2619,7 @@ class VpnConnection(pulumi.CustomResource):
             outside_ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
             preshared_key_arn: Optional[pulumi.Input[builtins.str]] = None,
             preshared_key_storage: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             remote_ipv4_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
             remote_ipv6_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
             routes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnConnectionRouteArgs', 'VpnConnectionRouteArgsDict']]]]] = None,
@@ -2668,6 +2701,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] outside_ip_address_type: Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
         :param pulumi.Input[builtins.str] preshared_key_arn: ARN of the Secrets Manager secret storing the pre-shared key(s) for the VPN connection. Note that even if it returns a valid Secrets Manager ARN, the pre-shared key(s) will not be stored in Secrets Manager unless the `preshared_key_storage` argument is set to `SecretsManager`.
         :param pulumi.Input[builtins.str] preshared_key_storage: Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[builtins.str] remote_ipv6_network_cidr: The IPv6 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpnConnectionRouteArgs', 'VpnConnectionRouteArgsDict']]]] routes: The static routes associated with the VPN connection. Detailed below.
@@ -2747,6 +2781,7 @@ class VpnConnection(pulumi.CustomResource):
         __props__.__dict__["outside_ip_address_type"] = outside_ip_address_type
         __props__.__dict__["preshared_key_arn"] = preshared_key_arn
         __props__.__dict__["preshared_key_storage"] = preshared_key_storage
+        __props__.__dict__["region"] = region
         __props__.__dict__["remote_ipv4_network_cidr"] = remote_ipv4_network_cidr
         __props__.__dict__["remote_ipv6_network_cidr"] = remote_ipv6_network_cidr
         __props__.__dict__["routes"] = routes
@@ -2901,6 +2936,14 @@ class VpnConnection(pulumi.CustomResource):
         return pulumi.get(self, "preshared_key_storage")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="remoteIpv4NetworkCidr")
     def remote_ipv4_network_cidr(self) -> pulumi.Output[builtins.str]:
         """
@@ -2942,7 +2985,6 @@ class VpnConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

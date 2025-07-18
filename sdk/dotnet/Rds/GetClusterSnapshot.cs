@@ -181,6 +181,12 @@ namespace Pulumi.Aws.Rds
         public bool? MostRecent { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Type of snapshots to be returned. If you don't specify a SnapshotType
         /// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
         /// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
@@ -241,6 +247,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("mostRecent")]
         public Input<bool>? MostRecent { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Type of snapshots to be returned. If you don't specify a SnapshotType
@@ -317,6 +329,7 @@ namespace Pulumi.Aws.Rds
         /// Port that the DB cluster was listening on at the time of the snapshot.
         /// </summary>
         public readonly int Port;
+        public readonly string Region;
         /// <summary>
         /// Time when the snapshot was taken, in Universal Coordinated Time (UTC).
         /// </summary>
@@ -370,6 +383,8 @@ namespace Pulumi.Aws.Rds
 
             int port,
 
+            string region,
+
             string snapshotCreateTime,
 
             string? snapshotType,
@@ -398,6 +413,7 @@ namespace Pulumi.Aws.Rds
             LicenseModel = licenseModel;
             MostRecent = mostRecent;
             Port = port;
+            Region = region;
             SnapshotCreateTime = snapshotCreateTime;
             SnapshotType = snapshotType;
             SourceDbClusterSnapshotArn = sourceDbClusterSnapshotArn;

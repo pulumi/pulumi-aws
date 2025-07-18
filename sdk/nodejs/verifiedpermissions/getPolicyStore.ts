@@ -27,6 +27,7 @@ export function getPolicyStore(args: GetPolicyStoreArgs, opts?: pulumi.InvokeOpt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:verifiedpermissions/getPolicyStore:getPolicyStore", {
         "id": args.id,
+        "region": args.region,
     }, opts);
 }
 
@@ -38,6 +39,10 @@ export interface GetPolicyStoreArgs {
      * The ID of the Policy Store.
      */
     id: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -58,6 +63,7 @@ export interface GetPolicyStoreResult {
      * The date the Policy Store was last updated.
      */
     readonly lastUpdatedDate: string;
+    readonly region: string;
     /**
      * Map of key-value pairs associated with the policy store.
      */
@@ -87,6 +93,7 @@ export function getPolicyStoreOutput(args: GetPolicyStoreOutputArgs, opts?: pulu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:verifiedpermissions/getPolicyStore:getPolicyStore", {
         "id": args.id,
+        "region": args.region,
     }, opts);
 }
 
@@ -98,4 +105,8 @@ export interface GetPolicyStoreOutputArgs {
      * The ID of the Policy Store.
      */
     id: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

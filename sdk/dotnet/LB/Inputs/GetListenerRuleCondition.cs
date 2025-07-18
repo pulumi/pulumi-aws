@@ -12,43 +12,79 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class GetListenerRuleConditionArgs : global::Pulumi.InvokeArgs
     {
+        [Input("hostHeaders")]
+        private List<Inputs.GetListenerRuleConditionHostHeaderArgs>? _hostHeaders;
+
         /// <summary>
         /// Contains a single attribute `values`, which contains a set of host names.
         /// </summary>
-        [Input("hostHeader")]
-        public Inputs.GetListenerRuleConditionHostHeaderArgs? HostHeader { get; set; }
+        public List<Inputs.GetListenerRuleConditionHostHeaderArgs> HostHeaders
+        {
+            get => _hostHeaders ?? (_hostHeaders = new List<Inputs.GetListenerRuleConditionHostHeaderArgs>());
+            set => _hostHeaders = value;
+        }
+
+        [Input("httpHeaders")]
+        private List<Inputs.GetListenerRuleConditionHttpHeaderArgs>? _httpHeaders;
 
         /// <summary>
         /// HTTP header and values to match.
         /// Detailed below.
         /// </summary>
-        [Input("httpHeader")]
-        public Inputs.GetListenerRuleConditionHttpHeaderArgs? HttpHeader { get; set; }
+        public List<Inputs.GetListenerRuleConditionHttpHeaderArgs> HttpHeaders
+        {
+            get => _httpHeaders ?? (_httpHeaders = new List<Inputs.GetListenerRuleConditionHttpHeaderArgs>());
+            set => _httpHeaders = value;
+        }
+
+        [Input("httpRequestMethods")]
+        private List<Inputs.GetListenerRuleConditionHttpRequestMethodArgs>? _httpRequestMethods;
 
         /// <summary>
         /// Contains a single attribute `values`, which contains a set of HTTP request methods.
         /// </summary>
-        [Input("httpRequestMethod")]
-        public Inputs.GetListenerRuleConditionHttpRequestMethodArgs? HttpRequestMethod { get; set; }
+        public List<Inputs.GetListenerRuleConditionHttpRequestMethodArgs> HttpRequestMethods
+        {
+            get => _httpRequestMethods ?? (_httpRequestMethods = new List<Inputs.GetListenerRuleConditionHttpRequestMethodArgs>());
+            set => _httpRequestMethods = value;
+        }
+
+        [Input("pathPatterns")]
+        private List<Inputs.GetListenerRuleConditionPathPatternArgs>? _pathPatterns;
 
         /// <summary>
         /// Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
         /// </summary>
-        [Input("pathPattern")]
-        public Inputs.GetListenerRuleConditionPathPatternArgs? PathPattern { get; set; }
+        public List<Inputs.GetListenerRuleConditionPathPatternArgs> PathPatterns
+        {
+            get => _pathPatterns ?? (_pathPatterns = new List<Inputs.GetListenerRuleConditionPathPatternArgs>());
+            set => _pathPatterns = value;
+        }
+
+        [Input("queryStrings")]
+        private List<Inputs.GetListenerRuleConditionQueryStringArgs>? _queryStrings;
 
         /// <summary>
         /// Query string parameters to match.
         /// Detailed below.
         /// </summary>
-        [Input("queryString")]
-        public Inputs.GetListenerRuleConditionQueryStringArgs? QueryString { get; set; }
+        public List<Inputs.GetListenerRuleConditionQueryStringArgs> QueryStrings
+        {
+            get => _queryStrings ?? (_queryStrings = new List<Inputs.GetListenerRuleConditionQueryStringArgs>());
+            set => _queryStrings = value;
+        }
+
+        [Input("sourceIps")]
+        private List<Inputs.GetListenerRuleConditionSourceIpArgs>? _sourceIps;
 
         /// <summary>
         /// Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
         /// </summary>
-        [Input("sourceIp")]
-        public Inputs.GetListenerRuleConditionSourceIpArgs? SourceIp { get; set; }
+        public List<Inputs.GetListenerRuleConditionSourceIpArgs> SourceIps
+        {
+            get => _sourceIps ?? (_sourceIps = new List<Inputs.GetListenerRuleConditionSourceIpArgs>());
+            set => _sourceIps = value;
+        }
 
         public GetListenerRuleConditionArgs()
         {

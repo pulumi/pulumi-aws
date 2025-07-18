@@ -27,7 +27,7 @@ class GetPullThroughCacheRuleResult:
     """
     A collection of values returned by getPullThroughCacheRule.
     """
-    def __init__(__self__, credential_arn=None, custom_role_arn=None, ecr_repository_prefix=None, id=None, registry_id=None, upstream_registry_url=None, upstream_repository_prefix=None):
+    def __init__(__self__, credential_arn=None, custom_role_arn=None, ecr_repository_prefix=None, id=None, region=None, registry_id=None, upstream_registry_url=None, upstream_repository_prefix=None):
         if credential_arn and not isinstance(credential_arn, str):
             raise TypeError("Expected argument 'credential_arn' to be a str")
         pulumi.set(__self__, "credential_arn", credential_arn)
@@ -40,6 +40,9 @@ class GetPullThroughCacheRuleResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if registry_id and not isinstance(registry_id, str):
             raise TypeError("Expected argument 'registry_id' to be a str")
         pulumi.set(__self__, "registry_id", registry_id)
@@ -80,6 +83,11 @@ class GetPullThroughCacheRuleResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> builtins.str:
         """
@@ -114,12 +122,14 @@ class AwaitableGetPullThroughCacheRuleResult(GetPullThroughCacheRuleResult):
             custom_role_arn=self.custom_role_arn,
             ecr_repository_prefix=self.ecr_repository_prefix,
             id=self.id,
+            region=self.region,
             registry_id=self.registry_id,
             upstream_registry_url=self.upstream_registry_url,
             upstream_repository_prefix=self.upstream_repository_prefix)
 
 
 def get_pull_through_cache_rule(ecr_repository_prefix: Optional[builtins.str] = None,
+                                region: Optional[builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPullThroughCacheRuleResult:
     """
     The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
@@ -135,9 +145,11 @@ def get_pull_through_cache_rule(ecr_repository_prefix: Optional[builtins.str] = 
 
 
     :param builtins.str ecr_repository_prefix: The repository name prefix to use when caching images from the source registry.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['ecrRepositoryPrefix'] = ecr_repository_prefix
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule', __args__, opts=opts, typ=GetPullThroughCacheRuleResult).value
 
@@ -146,10 +158,12 @@ def get_pull_through_cache_rule(ecr_repository_prefix: Optional[builtins.str] = 
         custom_role_arn=pulumi.get(__ret__, 'custom_role_arn'),
         ecr_repository_prefix=pulumi.get(__ret__, 'ecr_repository_prefix'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         registry_id=pulumi.get(__ret__, 'registry_id'),
         upstream_registry_url=pulumi.get(__ret__, 'upstream_registry_url'),
         upstream_repository_prefix=pulumi.get(__ret__, 'upstream_repository_prefix'))
 def get_pull_through_cache_rule_output(ecr_repository_prefix: Optional[pulumi.Input[builtins.str]] = None,
+                                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPullThroughCacheRuleResult]:
     """
     The ECR Pull Through Cache Rule data source allows the upstream registry URL and registry ID to be retrieved for a Pull Through Cache Rule.
@@ -165,9 +179,11 @@ def get_pull_through_cache_rule_output(ecr_repository_prefix: Optional[pulumi.In
 
 
     :param builtins.str ecr_repository_prefix: The repository name prefix to use when caching images from the source registry.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['ecrRepositoryPrefix'] = ecr_repository_prefix
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule', __args__, opts=opts, typ=GetPullThroughCacheRuleResult)
     return __ret__.apply(lambda __response__: GetPullThroughCacheRuleResult(
@@ -175,6 +191,7 @@ def get_pull_through_cache_rule_output(ecr_repository_prefix: Optional[pulumi.In
         custom_role_arn=pulumi.get(__response__, 'custom_role_arn'),
         ecr_repository_prefix=pulumi.get(__response__, 'ecr_repository_prefix'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         registry_id=pulumi.get(__response__, 'registry_id'),
         upstream_registry_url=pulumi.get(__response__, 'upstream_registry_url'),
         upstream_repository_prefix=pulumi.get(__response__, 'upstream_repository_prefix')))

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/location"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/location"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,11 +63,11 @@ type RouteCalculation struct {
 	DataSource pulumi.StringOutput `pulumi:"dataSource"`
 	// The optional description for the route calculator resource.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The timestamp for when the route calculator resource was last update in ISO 8601.
 	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
@@ -121,11 +121,11 @@ type routeCalculationState struct {
 	DataSource *string `pulumi:"dataSource"`
 	// The optional description for the route calculator resource.
 	Description *string `pulumi:"description"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The timestamp for when the route calculator resource was last update in ISO 8601.
 	UpdateTime *string `pulumi:"updateTime"`
@@ -144,11 +144,11 @@ type RouteCalculationState struct {
 	DataSource pulumi.StringPtrInput
 	// The optional description for the route calculator resource.
 	Description pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The timestamp for when the route calculator resource was last update in ISO 8601.
 	UpdateTime pulumi.StringPtrInput
@@ -167,6 +167,8 @@ type routeCalculationArgs struct {
 	DataSource string `pulumi:"dataSource"`
 	// The optional description for the route calculator resource.
 	Description *string `pulumi:"description"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -181,6 +183,8 @@ type RouteCalculationArgs struct {
 	DataSource pulumi.StringInput
 	// The optional description for the route calculator resource.
 	Description pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -299,14 +303,17 @@ func (o RouteCalculationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteCalculation) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o RouteCalculationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteCalculation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Key-value tags for the route calculator. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RouteCalculationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteCalculation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o RouteCalculationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteCalculation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

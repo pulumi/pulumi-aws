@@ -72,6 +72,10 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
      */
     public readonly ecrRepositoryPrefix!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The registry ID where the repository was created.
      */
     public /*out*/ readonly registryId!: pulumi.Output<string>;
@@ -100,6 +104,7 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
             resourceInputs["credentialArn"] = state ? state.credentialArn : undefined;
             resourceInputs["customRoleArn"] = state ? state.customRoleArn : undefined;
             resourceInputs["ecrRepositoryPrefix"] = state ? state.ecrRepositoryPrefix : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["registryId"] = state ? state.registryId : undefined;
             resourceInputs["upstreamRegistryUrl"] = state ? state.upstreamRegistryUrl : undefined;
             resourceInputs["upstreamRepositoryPrefix"] = state ? state.upstreamRepositoryPrefix : undefined;
@@ -114,6 +119,7 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
             resourceInputs["credentialArn"] = args ? args.credentialArn : undefined;
             resourceInputs["customRoleArn"] = args ? args.customRoleArn : undefined;
             resourceInputs["ecrRepositoryPrefix"] = args ? args.ecrRepositoryPrefix : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["upstreamRegistryUrl"] = args ? args.upstreamRegistryUrl : undefined;
             resourceInputs["upstreamRepositoryPrefix"] = args ? args.upstreamRepositoryPrefix : undefined;
             resourceInputs["registryId"] = undefined /*out*/;
@@ -139,6 +145,10 @@ export interface PullThroughCacheRuleState {
      * The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don't have an associated pull through cache rule.
      */
     ecrRepositoryPrefix?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The registry ID where the repository was created.
      */
@@ -169,6 +179,10 @@ export interface PullThroughCacheRuleArgs {
      * The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don't have an associated pull through cache rule.
      */
     ecrRepositoryPrefix: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The registry URL of the upstream registry to use as the source.
      */

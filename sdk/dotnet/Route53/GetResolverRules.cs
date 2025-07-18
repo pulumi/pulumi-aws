@@ -231,6 +231,12 @@ namespace Pulumi.Aws.Route53
         public string? OwnerId { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// ID of the outbound resolver endpoint for the desired resolver rules.
         /// </summary>
         [Input("resolverEndpointId")]
@@ -271,6 +277,12 @@ namespace Pulumi.Aws.Route53
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ID of the outbound resolver endpoint for the desired resolver rules.
         /// </summary>
         [Input("resolverEndpointId")]
@@ -304,6 +316,7 @@ namespace Pulumi.Aws.Route53
         public readonly string Id;
         public readonly string? NameRegex;
         public readonly string? OwnerId;
+        public readonly string Region;
         public readonly string? ResolverEndpointId;
         /// <summary>
         /// IDs of the matched resolver rules.
@@ -320,6 +333,8 @@ namespace Pulumi.Aws.Route53
 
             string? ownerId,
 
+            string region,
+
             string? resolverEndpointId,
 
             ImmutableArray<string> resolverRuleIds,
@@ -331,6 +346,7 @@ namespace Pulumi.Aws.Route53
             Id = id;
             NameRegex = nameRegex;
             OwnerId = ownerId;
+            Region = region;
             ResolverEndpointId = resolverEndpointId;
             ResolverRuleIds = resolverRuleIds;
             RuleType = ruleType;

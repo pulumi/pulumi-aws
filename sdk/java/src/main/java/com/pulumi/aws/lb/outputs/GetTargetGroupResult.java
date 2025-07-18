@@ -37,6 +37,7 @@ public final class GetTargetGroupResult {
     private String protocol;
     private String protocolVersion;
     private Boolean proxyProtocolV2;
+    private String region;
     private Integer slowStart;
     private GetTargetGroupStickiness stickiness;
     private Map<String,String> tags;
@@ -99,6 +100,9 @@ public final class GetTargetGroupResult {
     public Boolean proxyProtocolV2() {
         return this.proxyProtocolV2;
     }
+    public String region() {
+        return this.region;
+    }
     public Integer slowStart() {
         return this.slowStart;
     }
@@ -141,6 +145,7 @@ public final class GetTargetGroupResult {
         private String protocol;
         private String protocolVersion;
         private Boolean proxyProtocolV2;
+        private String region;
         private Integer slowStart;
         private GetTargetGroupStickiness stickiness;
         private Map<String,String> tags;
@@ -166,6 +171,7 @@ public final class GetTargetGroupResult {
     	      this.protocol = defaults.protocol;
     	      this.protocolVersion = defaults.protocolVersion;
     	      this.proxyProtocolV2 = defaults.proxyProtocolV2;
+    	      this.region = defaults.region;
     	      this.slowStart = defaults.slowStart;
     	      this.stickiness = defaults.stickiness;
     	      this.tags = defaults.tags;
@@ -313,6 +319,14 @@ public final class GetTargetGroupResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetTargetGroupResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder slowStart(Integer slowStart) {
             if (slowStart == null) {
               throw new MissingRequiredPropertyException("GetTargetGroupResult", "slowStart");
@@ -371,6 +385,7 @@ public final class GetTargetGroupResult {
             _resultValue.protocol = protocol;
             _resultValue.protocolVersion = protocolVersion;
             _resultValue.proxyProtocolV2 = proxyProtocolV2;
+            _resultValue.region = region;
             _resultValue.slowStart = slowStart;
             _resultValue.stickiness = stickiness;
             _resultValue.tags = tags;

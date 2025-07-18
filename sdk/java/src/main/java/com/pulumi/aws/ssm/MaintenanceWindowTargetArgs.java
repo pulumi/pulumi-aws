@@ -64,6 +64,21 @@ public final class MaintenanceWindowTargetArgs extends com.pulumi.resources.Reso
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
      * 
      */
@@ -116,6 +131,7 @@ public final class MaintenanceWindowTargetArgs extends com.pulumi.resources.Reso
         this.description = $.description;
         this.name = $.name;
         this.ownerInformation = $.ownerInformation;
+        this.region = $.region;
         this.resourceType = $.resourceType;
         this.targets = $.targets;
         this.windowId = $.windowId;
@@ -200,6 +216,27 @@ public final class MaintenanceWindowTargetArgs extends com.pulumi.resources.Reso
          */
         public Builder ownerInformation(String ownerInformation) {
             return ownerInformation(Output.of(ownerInformation));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -23,14 +23,18 @@ __all__ = ['AuthorizeVpcEndpointAccessArgs', 'AuthorizeVpcEndpointAccess']
 class AuthorizeVpcEndpointAccessArgs:
     def __init__(__self__, *,
                  account: pulumi.Input[builtins.str],
-                 domain_name: pulumi.Input[builtins.str]):
+                 domain_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a AuthorizeVpcEndpointAccess resource.
         :param pulumi.Input[builtins.str] account: AWS account ID to grant access to.
         :param pulumi.Input[builtins.str] domain_name: Name of OpenSearch Service domain to provide access to.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "account", account)
         pulumi.set(__self__, "domain_name", domain_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -56,18 +60,32 @@ class AuthorizeVpcEndpointAccessArgs:
     def domain_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "domain_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _AuthorizeVpcEndpointAccessState:
     def __init__(__self__, *,
                  account: Optional[pulumi.Input[builtins.str]] = None,
                  authorized_principals: Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs']]]] = None,
-                 domain_name: Optional[pulumi.Input[builtins.str]] = None):
+                 domain_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering AuthorizeVpcEndpointAccess resources.
         :param pulumi.Input[builtins.str] account: AWS account ID to grant access to.
         :param pulumi.Input[Sequence[pulumi.Input['AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs']]] authorized_principals: Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
         :param pulumi.Input[builtins.str] domain_name: Name of OpenSearch Service domain to provide access to.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if account is not None:
             pulumi.set(__self__, "account", account)
@@ -75,6 +93,8 @@ class _AuthorizeVpcEndpointAccessState:
             pulumi.set(__self__, "authorized_principals", authorized_principals)
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -112,6 +132,18 @@ class _AuthorizeVpcEndpointAccessState:
     def domain_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "domain_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess")
 class AuthorizeVpcEndpointAccess(pulumi.CustomResource):
@@ -121,6 +153,7 @@ class AuthorizeVpcEndpointAccess(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS OpenSearch Authorize Vpc Endpoint Access.
@@ -151,6 +184,7 @@ class AuthorizeVpcEndpointAccess(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account: AWS account ID to grant access to.
         :param pulumi.Input[builtins.str] domain_name: Name of OpenSearch Service domain to provide access to.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -200,6 +234,7 @@ class AuthorizeVpcEndpointAccess(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -215,6 +250,7 @@ class AuthorizeVpcEndpointAccess(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["authorized_principals"] = None
         super(AuthorizeVpcEndpointAccess, __self__).__init__(
             'aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess',
@@ -228,7 +264,8 @@ class AuthorizeVpcEndpointAccess(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account: Optional[pulumi.Input[builtins.str]] = None,
             authorized_principals: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs', 'AuthorizeVpcEndpointAccessAuthorizedPrincipalArgsDict']]]]] = None,
-            domain_name: Optional[pulumi.Input[builtins.str]] = None) -> 'AuthorizeVpcEndpointAccess':
+            domain_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'AuthorizeVpcEndpointAccess':
         """
         Get an existing AuthorizeVpcEndpointAccess resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -239,6 +276,7 @@ class AuthorizeVpcEndpointAccess(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] account: AWS account ID to grant access to.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs', 'AuthorizeVpcEndpointAccessAuthorizedPrincipalArgsDict']]]] authorized_principals: Information about the Amazon Web Services account or service that was provided access to the domain. See authorized principal attribute for further details.
         :param pulumi.Input[builtins.str] domain_name: Name of OpenSearch Service domain to provide access to.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -247,6 +285,7 @@ class AuthorizeVpcEndpointAccess(pulumi.CustomResource):
         __props__.__dict__["account"] = account
         __props__.__dict__["authorized_principals"] = authorized_principals
         __props__.__dict__["domain_name"] = domain_name
+        __props__.__dict__["region"] = region
         return AuthorizeVpcEndpointAccess(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -272,4 +311,12 @@ class AuthorizeVpcEndpointAccess(pulumi.CustomResource):
         Name of OpenSearch Service domain to provide access to.
         """
         return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

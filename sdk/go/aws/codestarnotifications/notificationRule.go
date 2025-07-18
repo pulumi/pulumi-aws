@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,77 +21,77 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecommit"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codestarnotifications"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codecommit"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codestarnotifications"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// code, err := codecommit.NewRepository(ctx, "code", &codecommit.RepositoryArgs{
-// RepositoryName: pulumi.String("example-code-repo"),
-// })
-// if err != nil {
-// return err
-// }
-// notif, err := sns.NewTopic(ctx, "notif", &sns.TopicArgs{
-// Name: pulumi.String("notification"),
-// })
-// if err != nil {
-// return err
-// }
-// notifAccess := notif.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Actions: []string{
-// "sns:Publish",
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "Service",
-// Identifiers: []string{
-// "codestar-notifications.amazonaws.com",
-// },
-// },
-// },
-// Resources: interface{}{
-// arn,
-// },
-// },
-// },
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
-// Arn: notif.Arn,
-// Policy: pulumi.String(notifAccess.ApplyT(func(notifAccess iam.GetPolicyDocumentResult) (*string, error) {
-// return &notifAccess.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = codestarnotifications.NewNotificationRule(ctx, "commits", &codestarnotifications.NotificationRuleArgs{
-// DetailType: pulumi.String("BASIC"),
-// EventTypeIds: pulumi.StringArray{
-// pulumi.String("codecommit-repository-comments-on-commits"),
-// },
-// Name: pulumi.String("example-code-repo-commits"),
-// Resource: code.Arn,
-// Targets: codestarnotifications.NotificationRuleTargetArray{
-// &codestarnotifications.NotificationRuleTargetArgs{
-// Address: notif.Arn,
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			code, err := codecommit.NewRepository(ctx, "code", &codecommit.RepositoryArgs{
+//				RepositoryName: pulumi.String("example-code-repo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			notif, err := sns.NewTopic(ctx, "notif", &sns.TopicArgs{
+//				Name: pulumi.String("notification"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			notifAccess := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("sns:Publish"),
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("codestar-notifications.amazonaws.com"),
+//								},
+//							},
+//						},
+//						Resources: pulumi.StringArray{
+//							notif.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
+//				Arn: notif.Arn,
+//				Policy: pulumi.String(notifAccess.ApplyT(func(notifAccess iam.GetPolicyDocumentResult) (*string, error) {
+//					return &notifAccess.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = codestarnotifications.NewNotificationRule(ctx, "commits", &codestarnotifications.NotificationRuleArgs{
+//				DetailType: pulumi.String("BASIC"),
+//				EventTypeIds: pulumi.StringArray{
+//					pulumi.String("codecommit-repository-comments-on-commits"),
+//				},
+//				Name:     pulumi.String("example-code-repo-commits"),
+//				Resource: code.Arn,
+//				Targets: codestarnotifications.NotificationRuleTargetArray{
+//					&codestarnotifications.NotificationRuleTargetArgs{
+//						Address: notif.Arn,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -113,6 +113,8 @@ type NotificationRule struct {
 	EventTypeIds pulumi.StringArrayOutput `pulumi:"eventTypeIds"`
 	// The name of notification rule.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the resource to associate with the notification rule.
 	Resource pulumi.StringOutput `pulumi:"resource"`
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
@@ -120,8 +122,6 @@ type NotificationRule struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
 	Targets NotificationRuleTargetArrayOutput `pulumi:"targets"`
@@ -175,6 +175,8 @@ type notificationRuleState struct {
 	EventTypeIds []string `pulumi:"eventTypeIds"`
 	// The name of notification rule.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the resource to associate with the notification rule.
 	Resource *string `pulumi:"resource"`
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
@@ -182,8 +184,6 @@ type notificationRuleState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
 	Targets []NotificationRuleTarget `pulumi:"targets"`
@@ -199,6 +199,8 @@ type NotificationRuleState struct {
 	EventTypeIds pulumi.StringArrayInput
 	// The name of notification rule.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the resource to associate with the notification rule.
 	Resource pulumi.StringPtrInput
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
@@ -206,8 +208,6 @@ type NotificationRuleState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
 	Targets NotificationRuleTargetArrayInput
@@ -225,6 +225,8 @@ type notificationRuleArgs struct {
 	EventTypeIds []string `pulumi:"eventTypeIds"`
 	// The name of notification rule.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the resource to associate with the notification rule.
 	Resource string `pulumi:"resource"`
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
@@ -244,6 +246,8 @@ type NotificationRuleArgs struct {
 	EventTypeIds pulumi.StringArrayInput
 	// The name of notification rule.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the resource to associate with the notification rule.
 	Resource pulumi.StringInput
 	// The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
@@ -362,6 +366,11 @@ func (o NotificationRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o NotificationRuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotificationRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The ARN of the resource to associate with the notification rule.
 func (o NotificationRuleOutput) Resource() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringOutput { return v.Resource }).(pulumi.StringOutput)
@@ -378,8 +387,6 @@ func (o NotificationRuleOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o NotificationRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

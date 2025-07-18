@@ -9,7 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetApplicationProvidersApplicationProvider {
@@ -22,7 +21,7 @@ public final class GetApplicationProvidersApplicationProvider {
      * @return An object describing how IAM Identity Center represents the application provider in the portal. See `display_data` below.
      * 
      */
-    private @Nullable List<GetApplicationProvidersApplicationProviderDisplayData> displayDatas;
+    private List<GetApplicationProvidersApplicationProviderDisplayData> displayDatas;
     /**
      * @return Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
      * 
@@ -42,7 +41,7 @@ public final class GetApplicationProvidersApplicationProvider {
      * 
      */
     public List<GetApplicationProvidersApplicationProviderDisplayData> displayDatas() {
-        return this.displayDatas == null ? List.of() : this.displayDatas;
+        return this.displayDatas;
     }
     /**
      * @return Protocol that the application provider uses to perform federation. Valid values are `SAML` and `OAUTH`.
@@ -62,7 +61,7 @@ public final class GetApplicationProvidersApplicationProvider {
     @CustomType.Builder
     public static final class Builder {
         private String applicationProviderArn;
-        private @Nullable List<GetApplicationProvidersApplicationProviderDisplayData> displayDatas;
+        private List<GetApplicationProvidersApplicationProviderDisplayData> displayDatas;
         private String federationProtocol;
         public Builder() {}
         public Builder(GetApplicationProvidersApplicationProvider defaults) {
@@ -81,8 +80,10 @@ public final class GetApplicationProvidersApplicationProvider {
             return this;
         }
         @CustomType.Setter
-        public Builder displayDatas(@Nullable List<GetApplicationProvidersApplicationProviderDisplayData> displayDatas) {
-
+        public Builder displayDatas(List<GetApplicationProvidersApplicationProviderDisplayData> displayDatas) {
+            if (displayDatas == null) {
+              throw new MissingRequiredPropertyException("GetApplicationProvidersApplicationProvider", "displayDatas");
+            }
             this.displayDatas = displayDatas;
             return this;
         }

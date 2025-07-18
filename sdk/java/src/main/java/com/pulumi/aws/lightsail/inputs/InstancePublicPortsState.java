@@ -18,14 +18,14 @@ public final class InstancePublicPortsState extends com.pulumi.resources.Resourc
     public static final InstancePublicPortsState Empty = new InstancePublicPortsState();
 
     /**
-     * Name of the Lightsail Instance.
+     * Name of the instance for which to open ports.
      * 
      */
     @Import(name="instanceName")
     private @Nullable Output<String> instanceName;
 
     /**
-     * @return Name of the Lightsail Instance.
+     * @return Name of the instance for which to open ports.
      * 
      */
     public Optional<Output<String>> instanceName() {
@@ -33,18 +33,37 @@ public final class InstancePublicPortsState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+     * Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="portInfos")
     private @Nullable Output<List<InstancePublicPortsPortInfoArgs>> portInfos;
 
     /**
-     * @return Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+     * @return Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<List<InstancePublicPortsPortInfoArgs>>> portInfos() {
         return Optional.ofNullable(this.portInfos);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private InstancePublicPortsState() {}
@@ -52,6 +71,7 @@ public final class InstancePublicPortsState extends com.pulumi.resources.Resourc
     private InstancePublicPortsState(InstancePublicPortsState $) {
         this.instanceName = $.instanceName;
         this.portInfos = $.portInfos;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -73,7 +93,7 @@ public final class InstancePublicPortsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param instanceName Name of the Lightsail Instance.
+         * @param instanceName Name of the instance for which to open ports.
          * 
          * @return builder
          * 
@@ -84,7 +104,7 @@ public final class InstancePublicPortsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param instanceName Name of the Lightsail Instance.
+         * @param instanceName Name of the instance for which to open ports.
          * 
          * @return builder
          * 
@@ -94,7 +114,9 @@ public final class InstancePublicPortsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param portInfos Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+         * @param portInfos Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -105,7 +127,9 @@ public final class InstancePublicPortsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param portInfos Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+         * @param portInfos Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -115,13 +139,36 @@ public final class InstancePublicPortsState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param portInfos Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+         * @param portInfos Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
          */
         public Builder portInfos(InstancePublicPortsPortInfoArgs... portInfos) {
             return portInfos(List.of(portInfos));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public InstancePublicPortsState build() {

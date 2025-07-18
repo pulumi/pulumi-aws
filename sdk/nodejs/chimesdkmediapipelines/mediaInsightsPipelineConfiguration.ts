@@ -330,6 +330,10 @@ export class MediaInsightsPipelineConfiguration extends pulumi.CustomResource {
      */
     public readonly realTimeAlertConfiguration!: pulumi.Output<outputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
      */
     public readonly resourceAccessRoleArn!: pulumi.Output<string>;
@@ -337,9 +341,6 @@ export class MediaInsightsPipelineConfiguration extends pulumi.CustomResource {
      * Key-value map of tags for the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -359,6 +360,7 @@ export class MediaInsightsPipelineConfiguration extends pulumi.CustomResource {
             resourceInputs["elements"] = state ? state.elements : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["realTimeAlertConfiguration"] = state ? state.realTimeAlertConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceAccessRoleArn"] = state ? state.resourceAccessRoleArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -373,6 +375,7 @@ export class MediaInsightsPipelineConfiguration extends pulumi.CustomResource {
             resourceInputs["elements"] = args ? args.elements : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["realTimeAlertConfiguration"] = args ? args.realTimeAlertConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceAccessRoleArn"] = args ? args.resourceAccessRoleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -404,6 +407,10 @@ export interface MediaInsightsPipelineConfigurationState {
      */
     realTimeAlertConfiguration?: pulumi.Input<inputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
      */
     resourceAccessRoleArn?: pulumi.Input<string>;
@@ -411,9 +418,6 @@ export interface MediaInsightsPipelineConfigurationState {
      * Key-value map of tags for the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -433,6 +437,10 @@ export interface MediaInsightsPipelineConfigurationArgs {
      * Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
      */
     realTimeAlertConfiguration?: pulumi.Input<inputs.chimesdkmediapipelines.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
      */

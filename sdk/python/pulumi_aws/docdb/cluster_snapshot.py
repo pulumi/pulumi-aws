@@ -21,14 +21,18 @@ __all__ = ['ClusterSnapshotArgs', 'ClusterSnapshot']
 class ClusterSnapshotArgs:
     def __init__(__self__, *,
                  db_cluster_identifier: pulumi.Input[builtins.str],
-                 db_cluster_snapshot_identifier: pulumi.Input[builtins.str]):
+                 db_cluster_snapshot_identifier: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterSnapshot resource.
         :param pulumi.Input[builtins.str] db_cluster_identifier: The DocumentDB Cluster Identifier from which to take the snapshot.
         :param pulumi.Input[builtins.str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
         pulumi.set(__self__, "db_cluster_snapshot_identifier", db_cluster_snapshot_identifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="dbClusterIdentifier")
@@ -54,6 +58,18 @@ class ClusterSnapshotArgs:
     def db_cluster_snapshot_identifier(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "db_cluster_snapshot_identifier", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ClusterSnapshotState:
@@ -66,6 +82,7 @@ class _ClusterSnapshotState:
                  engine_version: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_type: Optional[pulumi.Input[builtins.str]] = None,
                  source_db_cluster_snapshot_arn: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
@@ -81,6 +98,7 @@ class _ClusterSnapshotState:
         :param pulumi.Input[builtins.str] engine_version: Version of the database engine for this DocumentDB cluster snapshot.
         :param pulumi.Input[builtins.str] kms_key_id: If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
         :param pulumi.Input[builtins.int] port: Port that the DocumentDB cluster was listening on at the time of the snapshot.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of this DocumentDB Cluster Snapshot.
         :param pulumi.Input[builtins.bool] storage_encrypted: Specifies whether the DocumentDB cluster snapshot is encrypted.
         :param pulumi.Input[builtins.str] vpc_id: The VPC ID associated with the DocumentDB cluster snapshot.
@@ -101,6 +119,8 @@ class _ClusterSnapshotState:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if snapshot_type is not None:
             pulumi.set(__self__, "snapshot_type", snapshot_type)
         if source_db_cluster_snapshot_arn is not None:
@@ -209,6 +229,18 @@ class _ClusterSnapshotState:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="snapshotType")
     def snapshot_type(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "snapshot_type")
@@ -271,6 +303,7 @@ class ClusterSnapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  db_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  db_cluster_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Manages a DocumentDB database cluster snapshot for DocumentDB clusters.
@@ -298,6 +331,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] db_cluster_identifier: The DocumentDB Cluster Identifier from which to take the snapshot.
         :param pulumi.Input[builtins.str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -344,6 +378,7 @@ class ClusterSnapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  db_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  db_cluster_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -359,6 +394,7 @@ class ClusterSnapshot(pulumi.CustomResource):
             if db_cluster_snapshot_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'db_cluster_snapshot_identifier'")
             __props__.__dict__["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+            __props__.__dict__["region"] = region
             __props__.__dict__["availability_zones"] = None
             __props__.__dict__["db_cluster_snapshot_arn"] = None
             __props__.__dict__["engine"] = None
@@ -388,6 +424,7 @@ class ClusterSnapshot(pulumi.CustomResource):
             engine_version: Optional[pulumi.Input[builtins.str]] = None,
             kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
             port: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             snapshot_type: Optional[pulumi.Input[builtins.str]] = None,
             source_db_cluster_snapshot_arn: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
@@ -408,6 +445,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] engine_version: Version of the database engine for this DocumentDB cluster snapshot.
         :param pulumi.Input[builtins.str] kms_key_id: If storage_encrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
         :param pulumi.Input[builtins.int] port: Port that the DocumentDB cluster was listening on at the time of the snapshot.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of this DocumentDB Cluster Snapshot.
         :param pulumi.Input[builtins.bool] storage_encrypted: Specifies whether the DocumentDB cluster snapshot is encrypted.
         :param pulumi.Input[builtins.str] vpc_id: The VPC ID associated with the DocumentDB cluster snapshot.
@@ -424,6 +462,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         __props__.__dict__["engine_version"] = engine_version
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["port"] = port
+        __props__.__dict__["region"] = region
         __props__.__dict__["snapshot_type"] = snapshot_type
         __props__.__dict__["source_db_cluster_snapshot_arn"] = source_db_cluster_snapshot_arn
         __props__.__dict__["status"] = status
@@ -494,6 +533,14 @@ class ClusterSnapshot(pulumi.CustomResource):
         Port that the DocumentDB cluster was listening on at the time of the snapshot.
         """
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="snapshotType")

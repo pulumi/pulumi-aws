@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/schemas"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/schemas"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,13 +64,13 @@ type Discoverer struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The description of the discoverer. Maximum of 256 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the event bus to discover event schemas on.
 	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -111,13 +111,13 @@ type discovererState struct {
 	Arn *string `pulumi:"arn"`
 	// The description of the discoverer. Maximum of 256 characters.
 	Description *string `pulumi:"description"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the event bus to discover event schemas on.
 	SourceArn *string `pulumi:"sourceArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -126,13 +126,13 @@ type DiscovererState struct {
 	Arn pulumi.StringPtrInput
 	// The description of the discoverer. Maximum of 256 characters.
 	Description pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the event bus to discover event schemas on.
 	SourceArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -143,6 +143,8 @@ func (DiscovererState) ElementType() reflect.Type {
 type discovererArgs struct {
 	// The description of the discoverer. Maximum of 256 characters.
 	Description *string `pulumi:"description"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the event bus to discover event schemas on.
 	SourceArn string `pulumi:"sourceArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -153,6 +155,8 @@ type discovererArgs struct {
 type DiscovererArgs struct {
 	// The description of the discoverer. Maximum of 256 characters.
 	Description pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the event bus to discover event schemas on.
 	SourceArn pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -256,6 +260,11 @@ func (o DiscovererOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Discoverer) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DiscovererOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Discoverer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The ARN of the event bus to discover event schemas on.
 func (o DiscovererOutput) SourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Discoverer) pulumi.StringOutput { return v.SourceArn }).(pulumi.StringOutput)
@@ -267,8 +276,6 @@ func (o DiscovererOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o DiscovererOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Discoverer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

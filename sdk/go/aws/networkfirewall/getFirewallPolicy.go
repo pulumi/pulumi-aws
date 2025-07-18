@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +48,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -74,7 +74,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkfirewall"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkfirewall"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -115,6 +115,8 @@ type LookupFirewallPolicyArgs struct {
 	//
 	// One or more of these arguments is required.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value tags for the firewall policy.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -127,8 +129,9 @@ type LookupFirewallPolicyResult struct {
 	// The [policy][2] for the specified firewall policy.
 	FirewallPolicies []GetFirewallPolicyFirewallPolicy `pulumi:"firewallPolicies"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string  `pulumi:"id"`
-	Name *string `pulumi:"name"`
+	Id     string  `pulumi:"id"`
+	Name   *string `pulumi:"name"`
+	Region string  `pulumi:"region"`
 	// Key-value tags for the firewall policy.
 	Tags map[string]string `pulumi:"tags"`
 	// Token used for optimistic locking.
@@ -152,6 +155,8 @@ type LookupFirewallPolicyOutputArgs struct {
 	//
 	// One or more of these arguments is required.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value tags for the firewall policy.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -196,6 +201,10 @@ func (o LookupFirewallPolicyResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupFirewallPolicyResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFirewallPolicyResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupFirewallPolicyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirewallPolicyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value tags for the firewall policy.

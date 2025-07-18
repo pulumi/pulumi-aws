@@ -77,6 +77,21 @@ public final class GetCatalogTablePlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The transaction ID at which to read the table contents.
      * 
      */
@@ -98,6 +113,7 @@ public final class GetCatalogTablePlainArgs extends com.pulumi.resources.InvokeA
         this.databaseName = $.databaseName;
         this.name = $.name;
         this.queryAsOfTime = $.queryAsOfTime;
+        this.region = $.region;
         this.transactionId = $.transactionId;
     }
 
@@ -160,6 +176,17 @@ public final class GetCatalogTablePlainArgs extends com.pulumi.resources.InvokeA
          */
         public Builder queryAsOfTime(@Nullable String queryAsOfTime) {
             $.queryAsOfTime = queryAsOfTime;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

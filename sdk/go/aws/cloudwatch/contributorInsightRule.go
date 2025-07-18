@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ import (
 type ContributorInsightRule struct {
 	pulumi.CustomResourceState
 
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the Contributor Insight Rule.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
@@ -65,8 +67,7 @@ type ContributorInsightRule struct {
 	// State of the rule. Valid values are `ENABLED` and `DISABLED`.
 	RuleState pulumi.StringPtrOutput `pulumi:"ruleState"`
 	Tags      pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll   pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewContributorInsightRule registers a new resource with the given unique name, arguments, and options.
@@ -105,6 +106,8 @@ func GetContributorInsightRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContributorInsightRule resources.
 type contributorInsightRuleState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the Contributor Insight Rule.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
@@ -116,11 +119,12 @@ type contributorInsightRuleState struct {
 	// State of the rule. Valid values are `ENABLED` and `DISABLED`.
 	RuleState *string           `pulumi:"ruleState"`
 	Tags      map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll   map[string]string `pulumi:"tagsAll"`
 }
 
 type ContributorInsightRuleState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the Contributor Insight Rule.
 	ResourceArn pulumi.StringPtrInput
 	// Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
@@ -132,8 +136,7 @@ type ContributorInsightRuleState struct {
 	// State of the rule. Valid values are `ENABLED` and `DISABLED`.
 	RuleState pulumi.StringPtrInput
 	Tags      pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
+	TagsAll   pulumi.StringMapInput
 }
 
 func (ContributorInsightRuleState) ElementType() reflect.Type {
@@ -141,6 +144,8 @@ func (ContributorInsightRuleState) ElementType() reflect.Type {
 }
 
 type contributorInsightRuleArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
 	RuleDefinition string `pulumi:"ruleDefinition"`
 	// Unique name of the rule.
@@ -154,6 +159,8 @@ type contributorInsightRuleArgs struct {
 
 // The set of arguments for constructing a ContributorInsightRule resource.
 type ContributorInsightRuleArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
 	RuleDefinition pulumi.StringInput
 	// Unique name of the rule.
@@ -252,6 +259,11 @@ func (o ContributorInsightRuleOutput) ToContributorInsightRuleOutputWithContext(
 	return o
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ContributorInsightRuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContributorInsightRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // ARN of the Contributor Insight Rule.
 func (o ContributorInsightRuleOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContributorInsightRule) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
@@ -278,7 +290,6 @@ func (o ContributorInsightRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContributorInsightRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ContributorInsightRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContributorInsightRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

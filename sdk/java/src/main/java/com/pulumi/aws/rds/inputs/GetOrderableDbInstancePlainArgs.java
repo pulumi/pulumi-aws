@@ -153,6 +153,21 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
      * 
      */
@@ -374,6 +389,7 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
         this.preferredEngineVersions = $.preferredEngineVersions;
         this.preferredInstanceClasses = $.preferredInstanceClasses;
         this.readReplicaCapable = $.readReplicaCapable;
+        this.region = $.region;
         this.storageType = $.storageType;
         this.supportedEngineModes = $.supportedEngineModes;
         this.supportedNetworkTypes = $.supportedNetworkTypes;
@@ -524,6 +540,17 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
          */
         public Builder readReplicaCapable(@Nullable Boolean readReplicaCapable) {
             $.readReplicaCapable = readReplicaCapable;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

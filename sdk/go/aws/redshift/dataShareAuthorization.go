@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,6 +65,8 @@ type DataShareAuthorization struct {
 	ManagedBy pulumi.StringOutput `pulumi:"managedBy"`
 	// Amazon Resource Name (ARN) of the producer.
 	ProducerArn pulumi.StringOutput `pulumi:"producerArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDataShareAuthorization registers a new resource with the given unique name, arguments, and options.
@@ -115,6 +117,8 @@ type dataShareAuthorizationState struct {
 	ManagedBy *string `pulumi:"managedBy"`
 	// Amazon Resource Name (ARN) of the producer.
 	ProducerArn *string `pulumi:"producerArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type DataShareAuthorizationState struct {
@@ -130,6 +134,8 @@ type DataShareAuthorizationState struct {
 	ManagedBy pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the producer.
 	ProducerArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DataShareAuthorizationState) ElementType() reflect.Type {
@@ -145,6 +151,8 @@ type dataShareAuthorizationArgs struct {
 	//
 	// The following arguments are optional:
 	DataShareArn string `pulumi:"dataShareArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DataShareAuthorization resource.
@@ -157,6 +165,8 @@ type DataShareAuthorizationArgs struct {
 	//
 	// The following arguments are optional:
 	DataShareArn pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DataShareAuthorizationArgs) ElementType() reflect.Type {
@@ -271,6 +281,11 @@ func (o DataShareAuthorizationOutput) ManagedBy() pulumi.StringOutput {
 // Amazon Resource Name (ARN) of the producer.
 func (o DataShareAuthorizationOutput) ProducerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataShareAuthorization) pulumi.StringOutput { return v.ProducerArn }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DataShareAuthorizationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataShareAuthorization) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type DataShareAuthorizationArrayOutput struct{ *pulumi.OutputState }

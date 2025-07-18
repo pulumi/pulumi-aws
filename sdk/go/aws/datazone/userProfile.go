@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datazone"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,6 +58,8 @@ type UserProfile struct {
 	Details UserProfileDetailArrayOutput `pulumi:"details"`
 	// The domain identifier.
 	DomainIdentifier pulumi.StringOutput `pulumi:"domainIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The user profile status.
 	Status   pulumi.StringOutput          `pulumi:"status"`
 	Timeouts UserProfileTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -111,6 +113,8 @@ type userProfileState struct {
 	Details []UserProfileDetail `pulumi:"details"`
 	// The domain identifier.
 	DomainIdentifier *string `pulumi:"domainIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The user profile status.
 	Status   *string              `pulumi:"status"`
 	Timeouts *UserProfileTimeouts `pulumi:"timeouts"`
@@ -129,6 +133,8 @@ type UserProfileState struct {
 	Details UserProfileDetailArrayInput
 	// The domain identifier.
 	DomainIdentifier pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The user profile status.
 	Status   pulumi.StringPtrInput
 	Timeouts UserProfileTimeoutsPtrInput
@@ -149,6 +155,8 @@ func (UserProfileState) ElementType() reflect.Type {
 type userProfileArgs struct {
 	// The domain identifier.
 	DomainIdentifier string `pulumi:"domainIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The user profile status.
 	Status   *string              `pulumi:"status"`
 	Timeouts *UserProfileTimeouts `pulumi:"timeouts"`
@@ -164,6 +172,8 @@ type userProfileArgs struct {
 type UserProfileArgs struct {
 	// The domain identifier.
 	DomainIdentifier pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The user profile status.
 	Status   pulumi.StringPtrInput
 	Timeouts UserProfileTimeoutsPtrInput
@@ -270,6 +280,11 @@ func (o UserProfileOutput) Details() UserProfileDetailArrayOutput {
 // The domain identifier.
 func (o UserProfileOutput) DomainIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.DomainIdentifier }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o UserProfileOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The user profile status.

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/devicefarm"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/devicefarm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,11 +75,11 @@ type NetworkProfile struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of the project for the network profile.
 	ProjectArn pulumi.StringOutput `pulumi:"projectArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
@@ -142,11 +142,11 @@ type networkProfileState struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the project for the network profile.
 	ProjectArn *string `pulumi:"projectArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
 	Type *string `pulumi:"type"`
@@ -177,11 +177,11 @@ type NetworkProfileState struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the project for the network profile.
 	ProjectArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
 	Type pulumi.StringPtrInput
@@ -214,6 +214,8 @@ type networkProfileArgs struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the project for the network profile.
 	ProjectArn string `pulumi:"projectArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
@@ -244,6 +246,8 @@ type NetworkProfileArgs struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the project for the network profile.
 	ProjectArn pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
@@ -385,14 +389,17 @@ func (o NetworkProfileOutput) ProjectArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.ProjectArn }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o NetworkProfileOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NetworkProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o NetworkProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

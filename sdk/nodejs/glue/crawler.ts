@@ -235,6 +235,10 @@ export class Crawler extends pulumi.CustomResource {
      */
     public readonly recrawlPolicy!: pulumi.Output<outputs.glue.CrawlerRecrawlPolicy | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */
     public readonly role!: pulumi.Output<string>;
@@ -266,8 +270,6 @@ export class Crawler extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -300,6 +302,7 @@ export class Crawler extends pulumi.CustomResource {
             resourceInputs["mongodbTargets"] = state ? state.mongodbTargets : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["recrawlPolicy"] = state ? state.recrawlPolicy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["role"] = state ? state.role : undefined;
             resourceInputs["s3Targets"] = state ? state.s3Targets : undefined;
             resourceInputs["schedule"] = state ? state.schedule : undefined;
@@ -331,6 +334,7 @@ export class Crawler extends pulumi.CustomResource {
             resourceInputs["mongodbTargets"] = args ? args.mongodbTargets : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["recrawlPolicy"] = args ? args.recrawlPolicy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["s3Targets"] = args ? args.s3Targets : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
@@ -415,6 +419,10 @@ export interface CrawlerState {
      */
     recrawlPolicy?: pulumi.Input<inputs.glue.CrawlerRecrawlPolicy>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */
     role?: pulumi.Input<string>;
@@ -446,8 +454,6 @@ export interface CrawlerState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -516,6 +522,10 @@ export interface CrawlerArgs {
      * A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
      */
     recrawlPolicy?: pulumi.Input<inputs.glue.CrawlerRecrawlPolicy>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      */

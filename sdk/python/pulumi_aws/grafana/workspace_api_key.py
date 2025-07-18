@@ -23,18 +23,22 @@ class WorkspaceApiKeyArgs:
                  key_name: pulumi.Input[builtins.str],
                  key_role: pulumi.Input[builtins.str],
                  seconds_to_live: pulumi.Input[builtins.int],
-                 workspace_id: pulumi.Input[builtins.str]):
+                 workspace_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceApiKey resource.
         :param pulumi.Input[builtins.str] key_name: Specifies the name of the API key. Key names must be unique to the workspace.
         :param pulumi.Input[builtins.str] key_role: Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
         :param pulumi.Input[builtins.int] seconds_to_live: Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
         :param pulumi.Input[builtins.str] workspace_id: The ID of the workspace that the API key is valid for.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "key_name", key_name)
         pulumi.set(__self__, "key_role", key_role)
         pulumi.set(__self__, "seconds_to_live", seconds_to_live)
         pulumi.set(__self__, "workspace_id", workspace_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="keyName")
@@ -84,6 +88,18 @@ class WorkspaceApiKeyArgs:
     def workspace_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "workspace_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _WorkspaceApiKeyState:
@@ -91,6 +107,7 @@ class _WorkspaceApiKeyState:
                  key: Optional[pulumi.Input[builtins.str]] = None,
                  key_name: Optional[pulumi.Input[builtins.str]] = None,
                  key_role: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  seconds_to_live: Optional[pulumi.Input[builtins.int]] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -98,6 +115,7 @@ class _WorkspaceApiKeyState:
         :param pulumi.Input[builtins.str] key: The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
         :param pulumi.Input[builtins.str] key_name: Specifies the name of the API key. Key names must be unique to the workspace.
         :param pulumi.Input[builtins.str] key_role: Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] seconds_to_live: Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
         :param pulumi.Input[builtins.str] workspace_id: The ID of the workspace that the API key is valid for.
         """
@@ -107,6 +125,8 @@ class _WorkspaceApiKeyState:
             pulumi.set(__self__, "key_name", key_name)
         if key_role is not None:
             pulumi.set(__self__, "key_role", key_role)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if seconds_to_live is not None:
             pulumi.set(__self__, "seconds_to_live", seconds_to_live)
         if workspace_id is not None:
@@ -149,6 +169,18 @@ class _WorkspaceApiKeyState:
         pulumi.set(self, "key_role", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="secondsToLive")
     def seconds_to_live(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -181,6 +213,7 @@ class WorkspaceApiKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key_name: Optional[pulumi.Input[builtins.str]] = None,
                  key_role: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  seconds_to_live: Optional[pulumi.Input[builtins.int]] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -206,6 +239,7 @@ class WorkspaceApiKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] key_name: Specifies the name of the API key. Key names must be unique to the workspace.
         :param pulumi.Input[builtins.str] key_role: Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] seconds_to_live: Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
         :param pulumi.Input[builtins.str] workspace_id: The ID of the workspace that the API key is valid for.
         """
@@ -250,6 +284,7 @@ class WorkspaceApiKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key_name: Optional[pulumi.Input[builtins.str]] = None,
                  key_role: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  seconds_to_live: Optional[pulumi.Input[builtins.int]] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -267,6 +302,7 @@ class WorkspaceApiKey(pulumi.CustomResource):
             if key_role is None and not opts.urn:
                 raise TypeError("Missing required property 'key_role'")
             __props__.__dict__["key_role"] = key_role
+            __props__.__dict__["region"] = region
             if seconds_to_live is None and not opts.urn:
                 raise TypeError("Missing required property 'seconds_to_live'")
             __props__.__dict__["seconds_to_live"] = seconds_to_live
@@ -289,6 +325,7 @@ class WorkspaceApiKey(pulumi.CustomResource):
             key: Optional[pulumi.Input[builtins.str]] = None,
             key_name: Optional[pulumi.Input[builtins.str]] = None,
             key_role: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             seconds_to_live: Optional[pulumi.Input[builtins.int]] = None,
             workspace_id: Optional[pulumi.Input[builtins.str]] = None) -> 'WorkspaceApiKey':
         """
@@ -301,6 +338,7 @@ class WorkspaceApiKey(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] key: The key token in JSON format. Use this value as a bearer token to authenticate HTTP requests to the workspace.
         :param pulumi.Input[builtins.str] key_name: Specifies the name of the API key. Key names must be unique to the workspace.
         :param pulumi.Input[builtins.str] key_role: Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] seconds_to_live: Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
         :param pulumi.Input[builtins.str] workspace_id: The ID of the workspace that the API key is valid for.
         """
@@ -311,6 +349,7 @@ class WorkspaceApiKey(pulumi.CustomResource):
         __props__.__dict__["key"] = key
         __props__.__dict__["key_name"] = key_name
         __props__.__dict__["key_role"] = key_role
+        __props__.__dict__["region"] = region
         __props__.__dict__["seconds_to_live"] = seconds_to_live
         __props__.__dict__["workspace_id"] = workspace_id
         return WorkspaceApiKey(resource_name, opts=opts, __props__=__props__)
@@ -338,6 +377,14 @@ class WorkspaceApiKey(pulumi.CustomResource):
         Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
         """
         return pulumi.get(self, "key_role")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="secondsToLive")

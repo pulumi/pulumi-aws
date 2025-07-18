@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -117,181 +117,6 @@ func (o AccountThrottleSettingArrayOutput) Index(i pulumi.IntInput) AccountThrot
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountThrottleSetting {
 		return vs[0].([]AccountThrottleSetting)[vs[1].(int)]
 	}).(AccountThrottleSettingOutput)
-}
-
-type DeploymentCanarySettings struct {
-	// Percentage (0.0-100.0) of traffic routed to the canary deployment.
-	PercentTraffic *float64 `pulumi:"percentTraffic"`
-	// Stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
-	StageVariableOverrides map[string]string `pulumi:"stageVariableOverrides"`
-	// Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
-	UseStageCache *bool `pulumi:"useStageCache"`
-}
-
-// DeploymentCanarySettingsInput is an input type that accepts DeploymentCanarySettingsArgs and DeploymentCanarySettingsOutput values.
-// You can construct a concrete instance of `DeploymentCanarySettingsInput` via:
-//
-//	DeploymentCanarySettingsArgs{...}
-type DeploymentCanarySettingsInput interface {
-	pulumi.Input
-
-	ToDeploymentCanarySettingsOutput() DeploymentCanarySettingsOutput
-	ToDeploymentCanarySettingsOutputWithContext(context.Context) DeploymentCanarySettingsOutput
-}
-
-type DeploymentCanarySettingsArgs struct {
-	// Percentage (0.0-100.0) of traffic routed to the canary deployment.
-	PercentTraffic pulumi.Float64PtrInput `pulumi:"percentTraffic"`
-	// Stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
-	StageVariableOverrides pulumi.StringMapInput `pulumi:"stageVariableOverrides"`
-	// Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
-	UseStageCache pulumi.BoolPtrInput `pulumi:"useStageCache"`
-}
-
-func (DeploymentCanarySettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentCanarySettings)(nil)).Elem()
-}
-
-func (i DeploymentCanarySettingsArgs) ToDeploymentCanarySettingsOutput() DeploymentCanarySettingsOutput {
-	return i.ToDeploymentCanarySettingsOutputWithContext(context.Background())
-}
-
-func (i DeploymentCanarySettingsArgs) ToDeploymentCanarySettingsOutputWithContext(ctx context.Context) DeploymentCanarySettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentCanarySettingsOutput)
-}
-
-func (i DeploymentCanarySettingsArgs) ToDeploymentCanarySettingsPtrOutput() DeploymentCanarySettingsPtrOutput {
-	return i.ToDeploymentCanarySettingsPtrOutputWithContext(context.Background())
-}
-
-func (i DeploymentCanarySettingsArgs) ToDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentCanarySettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentCanarySettingsOutput).ToDeploymentCanarySettingsPtrOutputWithContext(ctx)
-}
-
-// DeploymentCanarySettingsPtrInput is an input type that accepts DeploymentCanarySettingsArgs, DeploymentCanarySettingsPtr and DeploymentCanarySettingsPtrOutput values.
-// You can construct a concrete instance of `DeploymentCanarySettingsPtrInput` via:
-//
-//	        DeploymentCanarySettingsArgs{...}
-//
-//	or:
-//
-//	        nil
-type DeploymentCanarySettingsPtrInput interface {
-	pulumi.Input
-
-	ToDeploymentCanarySettingsPtrOutput() DeploymentCanarySettingsPtrOutput
-	ToDeploymentCanarySettingsPtrOutputWithContext(context.Context) DeploymentCanarySettingsPtrOutput
-}
-
-type deploymentCanarySettingsPtrType DeploymentCanarySettingsArgs
-
-func DeploymentCanarySettingsPtr(v *DeploymentCanarySettingsArgs) DeploymentCanarySettingsPtrInput {
-	return (*deploymentCanarySettingsPtrType)(v)
-}
-
-func (*deploymentCanarySettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeploymentCanarySettings)(nil)).Elem()
-}
-
-func (i *deploymentCanarySettingsPtrType) ToDeploymentCanarySettingsPtrOutput() DeploymentCanarySettingsPtrOutput {
-	return i.ToDeploymentCanarySettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *deploymentCanarySettingsPtrType) ToDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentCanarySettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentCanarySettingsPtrOutput)
-}
-
-type DeploymentCanarySettingsOutput struct{ *pulumi.OutputState }
-
-func (DeploymentCanarySettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentCanarySettings)(nil)).Elem()
-}
-
-func (o DeploymentCanarySettingsOutput) ToDeploymentCanarySettingsOutput() DeploymentCanarySettingsOutput {
-	return o
-}
-
-func (o DeploymentCanarySettingsOutput) ToDeploymentCanarySettingsOutputWithContext(ctx context.Context) DeploymentCanarySettingsOutput {
-	return o
-}
-
-func (o DeploymentCanarySettingsOutput) ToDeploymentCanarySettingsPtrOutput() DeploymentCanarySettingsPtrOutput {
-	return o.ToDeploymentCanarySettingsPtrOutputWithContext(context.Background())
-}
-
-func (o DeploymentCanarySettingsOutput) ToDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentCanarySettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentCanarySettings) *DeploymentCanarySettings {
-		return &v
-	}).(DeploymentCanarySettingsPtrOutput)
-}
-
-// Percentage (0.0-100.0) of traffic routed to the canary deployment.
-func (o DeploymentCanarySettingsOutput) PercentTraffic() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DeploymentCanarySettings) *float64 { return v.PercentTraffic }).(pulumi.Float64PtrOutput)
-}
-
-// Stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
-func (o DeploymentCanarySettingsOutput) StageVariableOverrides() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DeploymentCanarySettings) map[string]string { return v.StageVariableOverrides }).(pulumi.StringMapOutput)
-}
-
-// Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
-func (o DeploymentCanarySettingsOutput) UseStageCache() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DeploymentCanarySettings) *bool { return v.UseStageCache }).(pulumi.BoolPtrOutput)
-}
-
-type DeploymentCanarySettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (DeploymentCanarySettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeploymentCanarySettings)(nil)).Elem()
-}
-
-func (o DeploymentCanarySettingsPtrOutput) ToDeploymentCanarySettingsPtrOutput() DeploymentCanarySettingsPtrOutput {
-	return o
-}
-
-func (o DeploymentCanarySettingsPtrOutput) ToDeploymentCanarySettingsPtrOutputWithContext(ctx context.Context) DeploymentCanarySettingsPtrOutput {
-	return o
-}
-
-func (o DeploymentCanarySettingsPtrOutput) Elem() DeploymentCanarySettingsOutput {
-	return o.ApplyT(func(v *DeploymentCanarySettings) DeploymentCanarySettings {
-		if v != nil {
-			return *v
-		}
-		var ret DeploymentCanarySettings
-		return ret
-	}).(DeploymentCanarySettingsOutput)
-}
-
-// Percentage (0.0-100.0) of traffic routed to the canary deployment.
-func (o DeploymentCanarySettingsPtrOutput) PercentTraffic() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *DeploymentCanarySettings) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.PercentTraffic
-	}).(pulumi.Float64PtrOutput)
-}
-
-// Stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
-func (o DeploymentCanarySettingsPtrOutput) StageVariableOverrides() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *DeploymentCanarySettings) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.StageVariableOverrides
-	}).(pulumi.StringMapOutput)
-}
-
-// Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
-func (o DeploymentCanarySettingsPtrOutput) UseStageCache() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DeploymentCanarySettings) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.UseStageCache
-	}).(pulumi.BoolPtrOutput)
 }
 
 type DocumentationPartLocation struct {
@@ -2878,8 +2703,6 @@ func (o GetRestApiEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) Get
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountThrottleSettingInput)(nil)).Elem(), AccountThrottleSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountThrottleSettingArrayInput)(nil)).Elem(), AccountThrottleSettingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentCanarySettingsInput)(nil)).Elem(), DeploymentCanarySettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentCanarySettingsPtrInput)(nil)).Elem(), DeploymentCanarySettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartLocationInput)(nil)).Elem(), DocumentationPartLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartLocationPtrInput)(nil)).Elem(), DocumentationPartLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameEndpointConfigurationInput)(nil)).Elem(), DomainNameEndpointConfigurationArgs{})
@@ -2914,8 +2737,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRestApiEndpointConfigurationArrayInput)(nil)).Elem(), GetRestApiEndpointConfigurationArray{})
 	pulumi.RegisterOutputType(AccountThrottleSettingOutput{})
 	pulumi.RegisterOutputType(AccountThrottleSettingArrayOutput{})
-	pulumi.RegisterOutputType(DeploymentCanarySettingsOutput{})
-	pulumi.RegisterOutputType(DeploymentCanarySettingsPtrOutput{})
 	pulumi.RegisterOutputType(DocumentationPartLocationOutput{})
 	pulumi.RegisterOutputType(DocumentationPartLocationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameEndpointConfigurationOutput{})

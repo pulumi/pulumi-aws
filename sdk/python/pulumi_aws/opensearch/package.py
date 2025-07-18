@@ -25,19 +25,23 @@ class PackageArgs:
                  package_name: pulumi.Input[builtins.str],
                  package_source: pulumi.Input['PackagePackageSourceArgs'],
                  package_type: pulumi.Input[builtins.str],
-                 package_description: Optional[pulumi.Input[builtins.str]] = None):
+                 package_description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Package resource.
         :param pulumi.Input[builtins.str] package_name: Unique name for the package.
         :param pulumi.Input['PackagePackageSourceArgs'] package_source: Configuration block for the package source options.
         :param pulumi.Input[builtins.str] package_type: The type of package.
         :param pulumi.Input[builtins.str] package_description: Description of the package.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "package_name", package_name)
         pulumi.set(__self__, "package_source", package_source)
         pulumi.set(__self__, "package_type", package_type)
         if package_description is not None:
             pulumi.set(__self__, "package_description", package_description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="packageName")
@@ -87,6 +91,18 @@ class PackageArgs:
     def package_description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "package_description", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _PackageState:
@@ -96,7 +112,8 @@ class _PackageState:
                  package_id: Optional[pulumi.Input[builtins.str]] = None,
                  package_name: Optional[pulumi.Input[builtins.str]] = None,
                  package_source: Optional[pulumi.Input['PackagePackageSourceArgs']] = None,
-                 package_type: Optional[pulumi.Input[builtins.str]] = None):
+                 package_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Package resources.
         :param pulumi.Input[builtins.str] available_package_version: The current version of the package.
@@ -104,6 +121,7 @@ class _PackageState:
         :param pulumi.Input[builtins.str] package_name: Unique name for the package.
         :param pulumi.Input['PackagePackageSourceArgs'] package_source: Configuration block for the package source options.
         :param pulumi.Input[builtins.str] package_type: The type of package.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if available_package_version is not None:
             pulumi.set(__self__, "available_package_version", available_package_version)
@@ -117,6 +135,8 @@ class _PackageState:
             pulumi.set(__self__, "package_source", package_source)
         if package_type is not None:
             pulumi.set(__self__, "package_type", package_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="availablePackageVersion")
@@ -187,6 +207,18 @@ class _PackageState:
     def package_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "package_type", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:opensearch/package:Package")
 class Package(pulumi.CustomResource):
@@ -198,6 +230,7 @@ class Package(pulumi.CustomResource):
                  package_name: Optional[pulumi.Input[builtins.str]] = None,
                  package_source: Optional[pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']]] = None,
                  package_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Manages an AWS Opensearch Package.
@@ -211,7 +244,7 @@ class Package(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_std as std
 
-        my_opensearch_packages = aws.s3.BucketV2("my_opensearch_packages", bucket="my-opensearch-packages")
+        my_opensearch_packages = aws.s3.Bucket("my_opensearch_packages", bucket="my-opensearch-packages")
         example = aws.s3.BucketObjectv2("example",
             bucket=my_opensearch_packages.bucket,
             key="example.txt",
@@ -240,6 +273,7 @@ class Package(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] package_name: Unique name for the package.
         :param pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']] package_source: Configuration block for the package source options.
         :param pulumi.Input[builtins.str] package_type: The type of package.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -259,7 +293,7 @@ class Package(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_std as std
 
-        my_opensearch_packages = aws.s3.BucketV2("my_opensearch_packages", bucket="my-opensearch-packages")
+        my_opensearch_packages = aws.s3.Bucket("my_opensearch_packages", bucket="my-opensearch-packages")
         example = aws.s3.BucketObjectv2("example",
             bucket=my_opensearch_packages.bucket,
             key="example.txt",
@@ -301,6 +335,7 @@ class Package(pulumi.CustomResource):
                  package_name: Optional[pulumi.Input[builtins.str]] = None,
                  package_source: Optional[pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']]] = None,
                  package_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -320,6 +355,7 @@ class Package(pulumi.CustomResource):
             if package_type is None and not opts.urn:
                 raise TypeError("Missing required property 'package_type'")
             __props__.__dict__["package_type"] = package_type
+            __props__.__dict__["region"] = region
             __props__.__dict__["available_package_version"] = None
             __props__.__dict__["package_id"] = None
         super(Package, __self__).__init__(
@@ -337,7 +373,8 @@ class Package(pulumi.CustomResource):
             package_id: Optional[pulumi.Input[builtins.str]] = None,
             package_name: Optional[pulumi.Input[builtins.str]] = None,
             package_source: Optional[pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']]] = None,
-            package_type: Optional[pulumi.Input[builtins.str]] = None) -> 'Package':
+            package_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'Package':
         """
         Get an existing Package resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -350,6 +387,7 @@ class Package(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] package_name: Unique name for the package.
         :param pulumi.Input[Union['PackagePackageSourceArgs', 'PackagePackageSourceArgsDict']] package_source: Configuration block for the package source options.
         :param pulumi.Input[builtins.str] package_type: The type of package.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -361,6 +399,7 @@ class Package(pulumi.CustomResource):
         __props__.__dict__["package_name"] = package_name
         __props__.__dict__["package_source"] = package_source
         __props__.__dict__["package_type"] = package_type
+        __props__.__dict__["region"] = region
         return Package(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -407,4 +446,12 @@ class Package(pulumi.CustomResource):
         The type of package.
         """
         return pulumi.get(self, "package_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

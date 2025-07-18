@@ -78,6 +78,10 @@ export class DomainDkim extends pulumi.CustomResource {
      * Verified domain name to generate DKIM tokens for.
      */
     public readonly domain!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DomainDkim resource with the given unique name, arguments, and options.
@@ -94,12 +98,14 @@ export class DomainDkim extends pulumi.CustomResource {
             const state = argsOrState as DomainDkimState | undefined;
             resourceInputs["dkimTokens"] = state ? state.dkimTokens : undefined;
             resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DomainDkimArgs | undefined;
             if ((!args || args.domain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
             resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["dkimTokens"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -124,6 +130,10 @@ export interface DomainDkimState {
      * Verified domain name to generate DKIM tokens for.
      */
     domain?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -134,4 +144,8 @@ export interface DomainDkimArgs {
      * Verified domain name to generate DKIM tokens for.
      */
     domain: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

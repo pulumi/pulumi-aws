@@ -24,6 +24,7 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:timestreamwrite/getDatabase:getDatabase", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -32,6 +33,10 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetDatabaseArgs {
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -59,6 +64,7 @@ export interface GetDatabaseResult {
      */
     readonly lastUpdatedTime: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Total number of tables in the Timestream database.
      */
@@ -84,6 +90,7 @@ export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:timestreamwrite/getDatabase:getDatabase", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -92,4 +99,8 @@ export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.Inv
  */
 export interface GetDatabaseOutputArgs {
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

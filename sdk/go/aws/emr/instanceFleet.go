@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -108,6 +108,8 @@ type InstanceFleet struct {
 	// The number of Spot units that have been provisioned for this instance fleet
 	// to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
 	ProvisionedSpotCapacity pulumi.IntOutput `pulumi:"provisionedSpotCapacity"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
 	TargetOnDemandCapacity pulumi.IntPtrOutput `pulumi:"targetOnDemandCapacity"`
 	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
@@ -161,6 +163,8 @@ type instanceFleetState struct {
 	// The number of Spot units that have been provisioned for this instance fleet
 	// to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
 	ProvisionedSpotCapacity *int `pulumi:"provisionedSpotCapacity"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
 	TargetOnDemandCapacity *int `pulumi:"targetOnDemandCapacity"`
 	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
@@ -182,6 +186,8 @@ type InstanceFleetState struct {
 	// The number of Spot units that have been provisioned for this instance fleet
 	// to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
 	ProvisionedSpotCapacity pulumi.IntPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
 	TargetOnDemandCapacity pulumi.IntPtrInput
 	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
@@ -201,6 +207,8 @@ type instanceFleetArgs struct {
 	LaunchSpecifications *InstanceFleetLaunchSpecifications `pulumi:"launchSpecifications"`
 	// Friendly name given to the instance fleet.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
 	TargetOnDemandCapacity *int `pulumi:"targetOnDemandCapacity"`
 	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
@@ -217,6 +225,8 @@ type InstanceFleetArgs struct {
 	LaunchSpecifications InstanceFleetLaunchSpecificationsPtrInput
 	// Friendly name given to the instance fleet.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
 	TargetOnDemandCapacity pulumi.IntPtrInput
 	// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
@@ -340,6 +350,11 @@ func (o InstanceFleetOutput) ProvisionedOnDemandCapacity() pulumi.IntOutput {
 // to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
 func (o InstanceFleetOutput) ProvisionedSpotCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *InstanceFleet) pulumi.IntOutput { return v.ProvisionedSpotCapacity }).(pulumi.IntOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o InstanceFleetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceFleet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.

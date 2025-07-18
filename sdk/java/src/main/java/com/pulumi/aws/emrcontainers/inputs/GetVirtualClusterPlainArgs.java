@@ -17,6 +17,21 @@ public final class GetVirtualClusterPlainArgs extends com.pulumi.resources.Invok
     public static final GetVirtualClusterPlainArgs Empty = new GetVirtualClusterPlainArgs();
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key-value mapping of resource tags.
      * 
      */
@@ -49,6 +64,7 @@ public final class GetVirtualClusterPlainArgs extends com.pulumi.resources.Invok
     private GetVirtualClusterPlainArgs() {}
 
     private GetVirtualClusterPlainArgs(GetVirtualClusterPlainArgs $) {
+        this.region = $.region;
         this.tags = $.tags;
         this.virtualClusterId = $.virtualClusterId;
     }
@@ -69,6 +85,17 @@ public final class GetVirtualClusterPlainArgs extends com.pulumi.resources.Invok
 
         public Builder(GetVirtualClusterPlainArgs defaults) {
             $ = new GetVirtualClusterPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

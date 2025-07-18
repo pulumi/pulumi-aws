@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Efs
         [Input("accessPointId", required: true)]
         public string AccessPointId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         [Input("accessPointId", required: true)]
         public Input<string> AccessPointId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -163,6 +175,7 @@ namespace Pulumi.Aws.Efs
         /// Single element list containing operating system user and group applied to all file system requests made using the access point.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccessPointPosixUserResult> PosixUsers;
+        public readonly string Region;
         /// <summary>
         /// Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
         /// </summary>
@@ -188,6 +201,8 @@ namespace Pulumi.Aws.Efs
 
             ImmutableArray<Outputs.GetAccessPointPosixUserResult> posixUsers,
 
+            string region,
+
             ImmutableArray<Outputs.GetAccessPointRootDirectoryResult> rootDirectories,
 
             ImmutableDictionary<string, string> tags)
@@ -199,6 +214,7 @@ namespace Pulumi.Aws.Efs
             Id = id;
             OwnerId = ownerId;
             PosixUsers = posixUsers;
+            Region = region;
             RootDirectories = rootDirectories;
             Tags = tags;
         }

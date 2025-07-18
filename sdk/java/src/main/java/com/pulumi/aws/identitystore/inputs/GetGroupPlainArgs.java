@@ -4,7 +4,6 @@
 package com.pulumi.aws.identitystore.inputs;
 
 import com.pulumi.aws.identitystore.inputs.GetGroupAlternateIdentifier;
-import com.pulumi.aws.identitystore.inputs.GetGroupFilter;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -30,29 +29,6 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Optional<GetGroupAlternateIdentifier> alternateIdentifier() {
         return Optional.ofNullable(this.alternateIdentifier);
-    }
-
-    /**
-     * Configuration block for filtering by a unique attribute of the group. Detailed below.
-     * 
-     * @deprecated
-     * filter is deprecated. Use alternate_identifier instead.
-     * 
-     */
-    @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
-    @Import(name="filter")
-    private @Nullable GetGroupFilter filter;
-
-    /**
-     * @return Configuration block for filtering by a unique attribute of the group. Detailed below.
-     * 
-     * @deprecated
-     * filter is deprecated. Use alternate_identifier instead.
-     * 
-     */
-    @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
-    public Optional<GetGroupFilter> filter() {
-        return Optional.ofNullable(this.filter);
     }
 
     /**
@@ -93,13 +69,28 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.identityStoreId;
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetGroupPlainArgs() {}
 
     private GetGroupPlainArgs(GetGroupPlainArgs $) {
         this.alternateIdentifier = $.alternateIdentifier;
-        this.filter = $.filter;
         this.groupId = $.groupId;
         this.identityStoreId = $.identityStoreId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -132,21 +123,6 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filter Configuration block for filtering by a unique attribute of the group. Detailed below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * filter is deprecated. Use alternate_identifier instead.
-         * 
-         */
-        @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
-        public Builder filter(@Nullable GetGroupFilter filter) {
-            $.filter = filter;
-            return this;
-        }
-
-        /**
          * @param groupId The identifier for a group in the Identity Store.
          * 
          * &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
@@ -169,6 +145,17 @@ public final class GetGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder identityStoreId(String identityStoreId) {
             $.identityStoreId = identityStoreId;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

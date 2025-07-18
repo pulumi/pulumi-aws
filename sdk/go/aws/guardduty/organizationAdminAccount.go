@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/guardduty"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,6 +68,8 @@ type OrganizationAdminAccount struct {
 
 	// AWS account identifier to designate as a delegated administrator for GuardDuty.
 	AdminAccountId pulumi.StringOutput `pulumi:"adminAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewOrganizationAdminAccount registers a new resource with the given unique name, arguments, and options.
@@ -105,11 +107,15 @@ func GetOrganizationAdminAccount(ctx *pulumi.Context,
 type organizationAdminAccountState struct {
 	// AWS account identifier to designate as a delegated administrator for GuardDuty.
 	AdminAccountId *string `pulumi:"adminAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type OrganizationAdminAccountState struct {
 	// AWS account identifier to designate as a delegated administrator for GuardDuty.
 	AdminAccountId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (OrganizationAdminAccountState) ElementType() reflect.Type {
@@ -119,12 +125,16 @@ func (OrganizationAdminAccountState) ElementType() reflect.Type {
 type organizationAdminAccountArgs struct {
 	// AWS account identifier to designate as a delegated administrator for GuardDuty.
 	AdminAccountId string `pulumi:"adminAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a OrganizationAdminAccount resource.
 type OrganizationAdminAccountArgs struct {
 	// AWS account identifier to designate as a delegated administrator for GuardDuty.
 	AdminAccountId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (OrganizationAdminAccountArgs) ElementType() reflect.Type {
@@ -217,6 +227,11 @@ func (o OrganizationAdminAccountOutput) ToOrganizationAdminAccountOutputWithCont
 // AWS account identifier to designate as a delegated administrator for GuardDuty.
 func (o OrganizationAdminAccountOutput) AdminAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationAdminAccount) pulumi.StringOutput { return v.AdminAccountId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o OrganizationAdminAccountOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationAdminAccount) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type OrganizationAdminAccountArrayOutput struct{ *pulumi.OutputState }

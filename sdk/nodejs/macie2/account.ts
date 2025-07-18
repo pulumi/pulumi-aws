@@ -64,6 +64,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly findingPublishingFrequency!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
      */
     public /*out*/ readonly serviceRole!: pulumi.Output<string>;
@@ -91,12 +95,14 @@ export class Account extends pulumi.CustomResource {
             const state = argsOrState as AccountState | undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["findingPublishingFrequency"] = state ? state.findingPublishingFrequency : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
             resourceInputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["serviceRole"] = undefined /*out*/;
@@ -120,6 +126,10 @@ export interface AccountState {
      */
     findingPublishingFrequency?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
      */
     serviceRole?: pulumi.Input<string>;
@@ -141,6 +151,10 @@ export interface AccountArgs {
      * Specifies how often to publish updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events). Valid values are `FIFTEEN_MINUTES`, `ONE_HOUR` or `SIX_HOURS`.
      */
     findingPublishingFrequency?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      */

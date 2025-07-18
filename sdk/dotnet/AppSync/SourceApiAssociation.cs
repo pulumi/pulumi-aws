@@ -76,6 +76,12 @@ namespace Pulumi.Aws.AppSync
         public Output<string> MergedApiId { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         /// </summary>
         [Output("sourceApiArn")]
@@ -158,6 +164,12 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? MergedApiId { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.
         /// </summary>
         [Input("sourceApiArn")]
@@ -217,6 +229,12 @@ namespace Pulumi.Aws.AppSync
         /// </summary>
         [Input("mergedApiId")]
         public Input<string>? MergedApiId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of the source API. One of `source_api_arn` or `source_api_id` must be specified.

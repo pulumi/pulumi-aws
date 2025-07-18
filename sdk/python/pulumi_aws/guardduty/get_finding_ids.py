@@ -27,7 +27,7 @@ class GetFindingIdsResult:
     """
     A collection of values returned by getFindingIds.
     """
-    def __init__(__self__, detector_id=None, finding_ids=None, has_findings=None, id=None):
+    def __init__(__self__, detector_id=None, finding_ids=None, has_findings=None, id=None, region=None):
         if detector_id and not isinstance(detector_id, str):
             raise TypeError("Expected argument 'detector_id' to be a str")
         pulumi.set(__self__, "detector_id", detector_id)
@@ -40,6 +40,9 @@ class GetFindingIdsResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="detectorId")
@@ -67,6 +70,11 @@ class GetFindingIdsResult:
     def id(self) -> builtins.str:
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetFindingIdsResult(GetFindingIdsResult):
     # pylint: disable=using-constant-test
@@ -77,10 +85,12 @@ class AwaitableGetFindingIdsResult(GetFindingIdsResult):
             detector_id=self.detector_id,
             finding_ids=self.finding_ids,
             has_findings=self.has_findings,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
 def get_finding_ids(detector_id: Optional[builtins.str] = None,
+                    region: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFindingIdsResult:
     """
     Data source for managing an AWS GuardDuty Finding Ids.
@@ -98,9 +108,11 @@ def get_finding_ids(detector_id: Optional[builtins.str] = None,
 
 
     :param builtins.str detector_id: ID of the GuardDuty detector.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['detectorId'] = detector_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:guardduty/getFindingIds:getFindingIds', __args__, opts=opts, typ=GetFindingIdsResult).value
 
@@ -108,8 +120,10 @@ def get_finding_ids(detector_id: Optional[builtins.str] = None,
         detector_id=pulumi.get(__ret__, 'detector_id'),
         finding_ids=pulumi.get(__ret__, 'finding_ids'),
         has_findings=pulumi.get(__ret__, 'has_findings'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_finding_ids_output(detector_id: Optional[pulumi.Input[builtins.str]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFindingIdsResult]:
     """
     Data source for managing an AWS GuardDuty Finding Ids.
@@ -127,13 +141,16 @@ def get_finding_ids_output(detector_id: Optional[pulumi.Input[builtins.str]] = N
 
 
     :param builtins.str detector_id: ID of the GuardDuty detector.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['detectorId'] = detector_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:guardduty/getFindingIds:getFindingIds', __args__, opts=opts, typ=GetFindingIdsResult)
     return __ret__.apply(lambda __response__: GetFindingIdsResult(
         detector_id=pulumi.get(__response__, 'detector_id'),
         finding_ids=pulumi.get(__response__, 'finding_ids'),
         has_findings=pulumi.get(__response__, 'has_findings'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

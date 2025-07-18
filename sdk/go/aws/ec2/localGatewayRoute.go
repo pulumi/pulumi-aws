@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,6 +58,8 @@ type LocalGatewayRoute struct {
 	LocalGatewayRouteTableId pulumi.StringOutput `pulumi:"localGatewayRouteTableId"`
 	// Identifier of EC2 Local Gateway Virtual Interface Group.
 	LocalGatewayVirtualInterfaceGroupId pulumi.StringOutput `pulumi:"localGatewayVirtualInterfaceGroupId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLocalGatewayRoute registers a new resource with the given unique name, arguments, and options.
@@ -105,6 +107,8 @@ type localGatewayRouteState struct {
 	LocalGatewayRouteTableId *string `pulumi:"localGatewayRouteTableId"`
 	// Identifier of EC2 Local Gateway Virtual Interface Group.
 	LocalGatewayVirtualInterfaceGroupId *string `pulumi:"localGatewayVirtualInterfaceGroupId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LocalGatewayRouteState struct {
@@ -114,6 +118,8 @@ type LocalGatewayRouteState struct {
 	LocalGatewayRouteTableId pulumi.StringPtrInput
 	// Identifier of EC2 Local Gateway Virtual Interface Group.
 	LocalGatewayVirtualInterfaceGroupId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LocalGatewayRouteState) ElementType() reflect.Type {
@@ -127,6 +133,8 @@ type localGatewayRouteArgs struct {
 	LocalGatewayRouteTableId string `pulumi:"localGatewayRouteTableId"`
 	// Identifier of EC2 Local Gateway Virtual Interface Group.
 	LocalGatewayVirtualInterfaceGroupId string `pulumi:"localGatewayVirtualInterfaceGroupId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LocalGatewayRoute resource.
@@ -137,6 +145,8 @@ type LocalGatewayRouteArgs struct {
 	LocalGatewayRouteTableId pulumi.StringInput
 	// Identifier of EC2 Local Gateway Virtual Interface Group.
 	LocalGatewayVirtualInterfaceGroupId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LocalGatewayRouteArgs) ElementType() reflect.Type {
@@ -239,6 +249,11 @@ func (o LocalGatewayRouteOutput) LocalGatewayRouteTableId() pulumi.StringOutput 
 // Identifier of EC2 Local Gateway Virtual Interface Group.
 func (o LocalGatewayRouteOutput) LocalGatewayVirtualInterfaceGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringOutput { return v.LocalGatewayVirtualInterfaceGroupId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LocalGatewayRouteOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocalGatewayRoute) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LocalGatewayRouteArrayOutput struct{ *pulumi.OutputState }

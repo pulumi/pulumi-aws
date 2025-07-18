@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/efs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,7 +58,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/efs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -92,7 +92,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/efs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -137,6 +137,8 @@ type ReplicationConfiguration struct {
 	Destination ReplicationConfigurationDestinationOutput `pulumi:"destination"`
 	// The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
 	OriginalSourceFileSystemArn pulumi.StringOutput `pulumi:"originalSourceFileSystemArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
 	SourceFileSystemArn pulumi.StringOutput `pulumi:"sourceFileSystemArn"`
 	// The ID of the file system that is to be replicated.
@@ -189,6 +191,8 @@ type replicationConfigurationState struct {
 	Destination *ReplicationConfigurationDestination `pulumi:"destination"`
 	// The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
 	OriginalSourceFileSystemArn *string `pulumi:"originalSourceFileSystemArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
 	SourceFileSystemArn *string `pulumi:"sourceFileSystemArn"`
 	// The ID of the file system that is to be replicated.
@@ -206,6 +210,8 @@ type ReplicationConfigurationState struct {
 	Destination ReplicationConfigurationDestinationPtrInput
 	// The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
 	OriginalSourceFileSystemArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
 	SourceFileSystemArn pulumi.StringPtrInput
 	// The ID of the file system that is to be replicated.
@@ -221,6 +227,8 @@ func (ReplicationConfigurationState) ElementType() reflect.Type {
 type replicationConfigurationArgs struct {
 	// A destination configuration block (documented below).
 	Destination ReplicationConfigurationDestination `pulumi:"destination"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the file system that is to be replicated.
 	SourceFileSystemId string `pulumi:"sourceFileSystemId"`
 }
@@ -229,6 +237,8 @@ type replicationConfigurationArgs struct {
 type ReplicationConfigurationArgs struct {
 	// A destination configuration block (documented below).
 	Destination ReplicationConfigurationDestinationInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the file system that is to be replicated.
 	SourceFileSystemId pulumi.StringInput
 }
@@ -335,6 +345,11 @@ func (o ReplicationConfigurationOutput) Destination() ReplicationConfigurationDe
 // The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
 func (o ReplicationConfigurationOutput) OriginalSourceFileSystemArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.OriginalSourceFileSystemArn }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ReplicationConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the current source file system in the replication configuration.

@@ -15,7 +15,7 @@ export type AssessmentTemplate = import("./assessmentTemplate").AssessmentTempla
 export const AssessmentTemplate: typeof import("./assessmentTemplate").AssessmentTemplate = null as any;
 utilities.lazyLoad(exports, ["AssessmentTemplate"], () => require("./assessmentTemplate"));
 
-export { GetRulesPackagesResult } from "./getRulesPackages";
+export { GetRulesPackagesArgs, GetRulesPackagesResult, GetRulesPackagesOutputArgs } from "./getRulesPackages";
 export const getRulesPackages: typeof import("./getRulesPackages").getRulesPackages = null as any;
 export const getRulesPackagesOutput: typeof import("./getRulesPackages").getRulesPackagesOutput = null as any;
 utilities.lazyLoad(exports, ["getRulesPackages","getRulesPackagesOutput"], () => require("./getRulesPackages"));

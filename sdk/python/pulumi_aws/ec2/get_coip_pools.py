@@ -29,7 +29,7 @@ class GetCoipPoolsResult:
     """
     A collection of values returned by getCoipPools.
     """
-    def __init__(__self__, filters=None, id=None, pool_ids=None, tags=None):
+    def __init__(__self__, filters=None, id=None, pool_ids=None, region=None, tags=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -39,6 +39,9 @@ class GetCoipPoolsResult:
         if pool_ids and not isinstance(pool_ids, list):
             raise TypeError("Expected argument 'pool_ids' to be a list")
         pulumi.set(__self__, "pool_ids", pool_ids)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -66,6 +69,11 @@ class GetCoipPoolsResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags")
 
@@ -79,10 +87,12 @@ class AwaitableGetCoipPoolsResult(GetCoipPoolsResult):
             filters=self.filters,
             id=self.id,
             pool_ids=self.pool_ids,
+            region=self.region,
             tags=self.tags)
 
 
 def get_coip_pools(filters: Optional[Sequence[Union['GetCoipPoolsFilterArgs', 'GetCoipPoolsFilterArgsDict']]] = None,
+                   region: Optional[builtins.str] = None,
                    tags: Optional[Mapping[str, builtins.str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCoipPoolsResult:
     """
@@ -93,11 +103,13 @@ def get_coip_pools(filters: Optional[Sequence[Union['GetCoipPoolsFilterArgs', 'G
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired aws_ec2_coip_pools.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getCoipPools:getCoipPools', __args__, opts=opts, typ=GetCoipPoolsResult).value
@@ -106,8 +118,10 @@ def get_coip_pools(filters: Optional[Sequence[Union['GetCoipPoolsFilterArgs', 'G
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         pool_ids=pulumi.get(__ret__, 'pool_ids'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_coip_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetCoipPoolsFilterArgs', 'GetCoipPoolsFilterArgsDict']]]]] = None,
+                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCoipPoolsResult]:
     """
@@ -118,11 +132,13 @@ def get_coip_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired aws_ec2_coip_pools.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getCoipPools:getCoipPools', __args__, opts=opts, typ=GetCoipPoolsResult)
@@ -130,4 +146,5 @@ def get_coip_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         pool_ids=pulumi.get(__response__, 'pool_ids'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

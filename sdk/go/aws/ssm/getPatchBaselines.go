@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +46,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -93,6 +93,8 @@ type GetPatchBaselinesArgs struct {
 	DefaultBaselines *bool `pulumi:"defaultBaselines"`
 	// Key-value pairs used to filter the results. See `filter` below.
 	Filters []GetPatchBaselinesFilter `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPatchBaselines.
@@ -102,7 +104,8 @@ type GetPatchBaselinesResult struct {
 	DefaultBaselines   *bool                               `pulumi:"defaultBaselines"`
 	Filters            []GetPatchBaselinesFilter           `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func GetPatchBaselinesOutput(ctx *pulumi.Context, args GetPatchBaselinesOutputArgs, opts ...pulumi.InvokeOption) GetPatchBaselinesResultOutput {
@@ -120,6 +123,8 @@ type GetPatchBaselinesOutputArgs struct {
 	DefaultBaselines pulumi.BoolPtrInput `pulumi:"defaultBaselines"`
 	// Key-value pairs used to filter the results. See `filter` below.
 	Filters GetPatchBaselinesFilterArrayInput `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetPatchBaselinesOutputArgs) ElementType() reflect.Type {
@@ -157,6 +162,10 @@ func (o GetPatchBaselinesResultOutput) Filters() GetPatchBaselinesFilterArrayOut
 // The provider-assigned unique ID for this managed resource.
 func (o GetPatchBaselinesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPatchBaselinesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetPatchBaselinesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPatchBaselinesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

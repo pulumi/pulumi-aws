@@ -64,6 +64,21 @@ public final class TrafficMirrorSessionArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
      * 
      */
@@ -144,6 +159,7 @@ public final class TrafficMirrorSessionArgs extends com.pulumi.resources.Resourc
         this.description = $.description;
         this.networkInterfaceId = $.networkInterfaceId;
         this.packetLength = $.packetLength;
+        this.region = $.region;
         this.sessionNumber = $.sessionNumber;
         this.tags = $.tags;
         this.trafficMirrorFilterId = $.trafficMirrorFilterId;
@@ -230,6 +246,27 @@ public final class TrafficMirrorSessionArgs extends com.pulumi.resources.Resourc
          */
         public Builder packetLength(Integer packetLength) {
             return packetLength(Output.of(packetLength));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

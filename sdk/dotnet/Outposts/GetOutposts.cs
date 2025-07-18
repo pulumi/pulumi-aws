@@ -106,6 +106,12 @@ namespace Pulumi.Aws.Outposts
         public string? OwnerId { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Site identifier.
         /// </summary>
         [Input("siteId")]
@@ -138,6 +144,12 @@ namespace Pulumi.Aws.Outposts
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Site identifier.
         /// </summary>
         [Input("siteId")]
@@ -168,6 +180,7 @@ namespace Pulumi.Aws.Outposts
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string OwnerId;
+        public readonly string Region;
         public readonly string SiteId;
 
         [OutputConstructor]
@@ -184,6 +197,8 @@ namespace Pulumi.Aws.Outposts
 
             string ownerId,
 
+            string region,
+
             string siteId)
         {
             Arns = arns;
@@ -192,6 +207,7 @@ namespace Pulumi.Aws.Outposts
             Id = id;
             Ids = ids;
             OwnerId = ownerId;
+            Region = region;
             SiteId = siteId;
         }
     }

@@ -193,47 +193,21 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
-    /**
-     * ARN of an ACM PCA
-     * 
-     */
     @Export(name="certificateAuthorityArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateAuthorityArn;
 
-    /**
-     * @return ARN of an ACM PCA
-     * 
-     */
     public Output<Optional<String>> certificateAuthorityArn() {
         return Codegen.optional(this.certificateAuthorityArn);
     }
-    /**
-     * Certificate&#39;s PEM-formatted public key
-     * 
-     */
     @Export(name="certificateBody", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateBody;
 
-    /**
-     * @return Certificate&#39;s PEM-formatted public key
-     * 
-     */
     public Output<Optional<String>> certificateBody() {
         return Codegen.optional(this.certificateBody);
     }
-    /**
-     * Certificate&#39;s PEM-formatted chain
-     * * Creating a private CA issued certificate
-     * 
-     */
     @Export(name="certificateChain", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificateChain;
 
-    /**
-     * @return Certificate&#39;s PEM-formatted chain
-     * * Creating a private CA issued certificate
-     * 
-     */
     public Output<Optional<String>> certificateChain() {
         return Codegen.optional(this.certificateChain);
     }
@@ -269,39 +243,15 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     public Output<List<CertificateDomainValidationOption>> domainValidationOptions() {
         return this.domainValidationOptions;
     }
-    /**
-     * Amount of time to start automatic renewal process before expiration.
-     * Has no effect if less than 60 days.
-     * Represented by either
-     * a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
-     * or a string such as `2160h`.
-     * 
-     */
     @Export(name="earlyRenewalDuration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> earlyRenewalDuration;
 
-    /**
-     * @return Amount of time to start automatic renewal process before expiration.
-     * Has no effect if less than 60 days.
-     * Represented by either
-     * a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
-     * or a string such as `2160h`.
-     * 
-     */
     public Output<Optional<String>> earlyRenewalDuration() {
         return Codegen.optional(this.earlyRenewalDuration);
     }
-    /**
-     * Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
-     * 
-     */
     @Export(name="keyAlgorithm", refs={String.class}, tree="[0]")
     private Output<String> keyAlgorithm;
 
-    /**
-     * @return Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
-     * 
-     */
     public Output<String> keyAlgorithm() {
         return this.keyAlgorithm;
     }
@@ -333,17 +283,9 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     public Output<String> notBefore() {
         return this.notBefore;
     }
-    /**
-     * Configuration block used to set certificate options. Detailed below.
-     * 
-     */
     @Export(name="options", refs={CertificateOptions.class}, tree="[0]")
     private Output<CertificateOptions> options;
 
-    /**
-     * @return Configuration block used to set certificate options. Detailed below.
-     * 
-     */
     public Output<CertificateOptions> options() {
         return this.options;
     }
@@ -361,19 +303,27 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     public Output<Boolean> pendingRenewal() {
         return this.pendingRenewal;
     }
-    /**
-     * Certificate&#39;s PEM-formatted private key
-     * 
-     */
     @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privateKey;
 
-    /**
-     * @return Certificate&#39;s PEM-formatted private key
-     * 
-     */
     public Output<Optional<String>> privateKey() {
         return Codegen.optional(this.privateKey);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * * Creating an Amazon issued certificate
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * * Creating an Amazon issued certificate
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * Whether the certificate is eligible for managed renewal.
@@ -417,17 +367,9 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     public Output<String> status() {
         return this.status;
     }
-    /**
-     * Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
-     * 
-     */
     @Export(name="subjectAlternativeNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> subjectAlternativeNames;
 
-    /**
-     * @return Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
-     * 
-     */
     public Output<List<String>> subjectAlternativeNames() {
         return this.subjectAlternativeNames;
     }
@@ -448,11 +390,7 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
@@ -491,33 +429,15 @@ public class Certificate extends com.pulumi.resources.CustomResource {
     public Output<List<String>> validationEmails() {
         return this.validationEmails;
     }
-    /**
-     * Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-     * 
-     */
     @Export(name="validationMethod", refs={String.class}, tree="[0]")
     private Output<String> validationMethod;
 
-    /**
-     * @return Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-     * 
-     */
     public Output<String> validationMethod() {
         return this.validationMethod;
     }
-    /**
-     * Configuration block used to specify information about the initial validation of each domain name. Detailed below.
-     * * Importing an existing certificate
-     * 
-     */
     @Export(name="validationOptions", refs={List.class,CertificateValidationOption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CertificateValidationOption>> validationOptions;
 
-    /**
-     * @return Configuration block used to specify information about the initial validation of each domain name. Detailed below.
-     * * Importing an existing certificate
-     * 
-     */
     public Output<Optional<List<CertificateValidationOption>>> validationOptions() {
         return Codegen.optional(this.validationOptions);
     }

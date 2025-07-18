@@ -29,7 +29,7 @@ class GetVpcPeeringConnectionResult:
     """
     A collection of values returned by getVpcPeeringConnection.
     """
-    def __init__(__self__, accepter=None, cidr_block=None, cidr_block_sets=None, filters=None, id=None, ipv6_cidr_block_sets=None, owner_id=None, peer_cidr_block=None, peer_cidr_block_sets=None, peer_ipv6_cidr_block_sets=None, peer_owner_id=None, peer_region=None, peer_vpc_id=None, region=None, requester=None, status=None, tags=None, vpc_id=None):
+    def __init__(__self__, accepter=None, cidr_block=None, cidr_block_sets=None, filters=None, id=None, ipv6_cidr_block_sets=None, owner_id=None, peer_cidr_block=None, peer_cidr_block_sets=None, peer_ipv6_cidr_block_sets=None, peer_owner_id=None, peer_region=None, peer_vpc_id=None, region=None, requester=None, requester_region=None, status=None, tags=None, vpc_id=None):
         if accepter and not isinstance(accepter, dict):
             raise TypeError("Expected argument 'accepter' to be a dict")
         pulumi.set(__self__, "accepter", accepter)
@@ -75,6 +75,9 @@ class GetVpcPeeringConnectionResult:
         if requester and not isinstance(requester, dict):
             raise TypeError("Expected argument 'requester' to be a dict")
         pulumi.set(__self__, "requester", requester)
+        if requester_region and not isinstance(requester_region, str):
+            raise TypeError("Expected argument 'requester_region' to be a str")
+        pulumi.set(__self__, "requester_region", requester_region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -162,6 +165,9 @@ class GetVpcPeeringConnectionResult:
     @property
     @pulumi.getter(name="peerRegion")
     def peer_region(self) -> builtins.str:
+        """
+        Region of the accepter VPC.
+        """
         return pulumi.get(self, "peer_region")
 
     @property
@@ -171,7 +177,11 @@ class GetVpcPeeringConnectionResult:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""region is deprecated. Use requester_region instead.""")
     def region(self) -> builtins.str:
+        """
+        (**Deprecated**) Region of the requester VPC. Use `requester_region` instead.
+        """
         return pulumi.get(self, "region")
 
     @property
@@ -182,6 +192,14 @@ class GetVpcPeeringConnectionResult:
         (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         """
         return pulumi.get(self, "requester")
+
+    @property
+    @pulumi.getter(name="requesterRegion")
+    def requester_region(self) -> builtins.str:
+        """
+        Region of the requester VPC.
+        """
+        return pulumi.get(self, "requester_region")
 
     @property
     @pulumi.getter
@@ -220,6 +238,7 @@ class AwaitableGetVpcPeeringConnectionResult(GetVpcPeeringConnectionResult):
             peer_vpc_id=self.peer_vpc_id,
             region=self.region,
             requester=self.requester,
+            requester_region=self.requester_region,
             status=self.status,
             tags=self.tags,
             vpc_id=self.vpc_id)
@@ -231,9 +250,7 @@ def get_vpc_peering_connection(cidr_block: Optional[builtins.str] = None,
                                owner_id: Optional[builtins.str] = None,
                                peer_cidr_block: Optional[builtins.str] = None,
                                peer_owner_id: Optional[builtins.str] = None,
-                               peer_region: Optional[builtins.str] = None,
                                peer_vpc_id: Optional[builtins.str] = None,
-                               region: Optional[builtins.str] = None,
                                status: Optional[builtins.str] = None,
                                tags: Optional[Mapping[str, builtins.str]] = None,
                                vpc_id: Optional[builtins.str] = None,
@@ -267,9 +284,7 @@ def get_vpc_peering_connection(cidr_block: Optional[builtins.str] = None,
     :param builtins.str owner_id: AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
     :param builtins.str peer_cidr_block: Primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
     :param builtins.str peer_owner_id: AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
-    :param builtins.str peer_region: Region of the accepter VPC of the specific VPC Peering Connection to retrieve.
     :param builtins.str peer_vpc_id: ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
-    :param builtins.str region: Region of the requester VPC of the specific VPC Peering Connection to retrieve.
     :param builtins.str status: Status of the specific VPC Peering Connection to retrieve.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
@@ -285,9 +300,7 @@ def get_vpc_peering_connection(cidr_block: Optional[builtins.str] = None,
     __args__['ownerId'] = owner_id
     __args__['peerCidrBlock'] = peer_cidr_block
     __args__['peerOwnerId'] = peer_owner_id
-    __args__['peerRegion'] = peer_region
     __args__['peerVpcId'] = peer_vpc_id
-    __args__['region'] = region
     __args__['status'] = status
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
@@ -310,6 +323,7 @@ def get_vpc_peering_connection(cidr_block: Optional[builtins.str] = None,
         peer_vpc_id=pulumi.get(__ret__, 'peer_vpc_id'),
         region=pulumi.get(__ret__, 'region'),
         requester=pulumi.get(__ret__, 'requester'),
+        requester_region=pulumi.get(__ret__, 'requester_region'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
@@ -319,9 +333,7 @@ def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional
                                       owner_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                       peer_cidr_block: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                       peer_owner_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
-                                      peer_region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                       peer_vpc_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
-                                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                       status: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                       tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                       vpc_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -355,9 +367,7 @@ def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional
     :param builtins.str owner_id: AWS account ID of the owner of the requester VPC of the specific VPC Peering Connection to retrieve.
     :param builtins.str peer_cidr_block: Primary CIDR block of the accepter VPC of the specific VPC Peering Connection to retrieve.
     :param builtins.str peer_owner_id: AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
-    :param builtins.str peer_region: Region of the accepter VPC of the specific VPC Peering Connection to retrieve.
     :param builtins.str peer_vpc_id: ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
-    :param builtins.str region: Region of the requester VPC of the specific VPC Peering Connection to retrieve.
     :param builtins.str status: Status of the specific VPC Peering Connection to retrieve.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired VPC Peering Connection.
@@ -373,9 +383,7 @@ def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional
     __args__['ownerId'] = owner_id
     __args__['peerCidrBlock'] = peer_cidr_block
     __args__['peerOwnerId'] = peer_owner_id
-    __args__['peerRegion'] = peer_region
     __args__['peerVpcId'] = peer_vpc_id
-    __args__['region'] = region
     __args__['status'] = status
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
@@ -397,6 +405,7 @@ def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional
         peer_vpc_id=pulumi.get(__response__, 'peer_vpc_id'),
         region=pulumi.get(__response__, 'region'),
         requester=pulumi.get(__response__, 'requester'),
+        requester_region=pulumi.get(__response__, 'requester_region'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),
         vpc_id=pulumi.get(__response__, 'vpc_id')))

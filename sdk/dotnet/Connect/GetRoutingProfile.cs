@@ -166,6 +166,12 @@ namespace Pulumi.Aws.Connect
         public string? Name { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Returns information on a specific Routing Profile by Routing Profile id
         /// 
         /// &gt; **NOTE:** `instance_id` and one of either `name` or `routing_profile_id` is required.
@@ -204,6 +210,12 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Returns information on a specific Routing Profile by Routing Profile id
@@ -261,6 +273,7 @@ namespace Pulumi.Aws.Connect
         /// One or more `queue_configs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queue_configs` block is documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRoutingProfileQueueConfigResult> QueueConfigs;
+        public readonly string Region;
         public readonly string RoutingProfileId;
         /// <summary>
         /// Map of tags to assign to the Routing Profile.
@@ -285,6 +298,8 @@ namespace Pulumi.Aws.Connect
 
             ImmutableArray<Outputs.GetRoutingProfileQueueConfigResult> queueConfigs,
 
+            string region,
+
             string routingProfileId,
 
             ImmutableDictionary<string, string> tags)
@@ -297,6 +312,7 @@ namespace Pulumi.Aws.Connect
             MediaConcurrencies = mediaConcurrencies;
             Name = name;
             QueueConfigs = queueConfigs;
+            Region = region;
             RoutingProfileId = routingProfileId;
             Tags = tags;
         }

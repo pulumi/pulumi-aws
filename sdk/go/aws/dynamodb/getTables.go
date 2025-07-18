@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,14 +22,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dynamodb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			all, err := dynamodb.GetTables(ctx, map[string]interface{}{}, nil)
+//			all, err := dynamodb.GetTables(ctx, &dynamodb.GetTablesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -39,14 +39,20 @@ import (
 //	}
 //
 // ```
-func GetTables(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetTablesResult, error) {
+func GetTables(ctx *pulumi.Context, args *GetTablesArgs, opts ...pulumi.InvokeOption) (*GetTablesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTablesResult
-	err := ctx.Invoke("aws:dynamodb/getTables:getTables", nil, &rv, opts...)
+	err := ctx.Invoke("aws:dynamodb/getTables:getTables", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getTables.
+type GetTablesArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getTables.
@@ -54,14 +60,27 @@ type GetTablesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A list of all the DynamoDB table names found.
-	Names []string `pulumi:"names"`
+	Names  []string `pulumi:"names"`
+	Region string   `pulumi:"region"`
 }
 
-func GetTablesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetTablesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetTablesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:dynamodb/getTables:getTables", nil, GetTablesResultOutput{}, options).(GetTablesResultOutput), nil
-	}).(GetTablesResultOutput)
+func GetTablesOutput(ctx *pulumi.Context, args GetTablesOutputArgs, opts ...pulumi.InvokeOption) GetTablesResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetTablesResultOutput, error) {
+			args := v.(GetTablesArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:dynamodb/getTables:getTables", args, GetTablesResultOutput{}, options).(GetTablesResultOutput), nil
+		}).(GetTablesResultOutput)
+}
+
+// A collection of arguments for invoking getTables.
+type GetTablesOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetTablesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTablesArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getTables.
@@ -87,6 +106,10 @@ func (o GetTablesResultOutput) Id() pulumi.StringOutput {
 // A list of all the DynamoDB table names found.
 func (o GetTablesResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTablesResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+func (o GetTablesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTablesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

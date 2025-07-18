@@ -93,6 +93,12 @@ namespace Pulumi.Aws.ImageBuilder
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -194,6 +206,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// Platform of the container recipe.
         /// </summary>
         public readonly string Platform;
+        public readonly string Region;
         /// <summary>
         /// Key-value map of resource tags for the container recipe.
         /// </summary>
@@ -241,6 +254,8 @@ namespace Pulumi.Aws.ImageBuilder
 
             string platform,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             ImmutableArray<Outputs.GetContainerRecipeTargetRepositoryResult> targetRepositories,
@@ -263,6 +278,7 @@ namespace Pulumi.Aws.ImageBuilder
             Owner = owner;
             ParentImage = parentImage;
             Platform = platform;
+            Region = region;
             Tags = tags;
             TargetRepositories = targetRepositories;
             Version = version;

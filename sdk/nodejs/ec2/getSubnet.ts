@@ -63,6 +63,7 @@ export function getSubnet(args?: GetSubnetArgs, opts?: pulumi.InvokeOptions): Pr
         "filters": args.filters,
         "id": args.id,
         "ipv6CidrBlock": args.ipv6CidrBlock,
+        "region": args.region,
         "state": args.state,
         "tags": args.tags,
         "vpcId": args.vpcId,
@@ -101,6 +102,10 @@ export interface GetSubnetArgs {
      * IPv6 CIDR block of the desired subnet.
      */
     ipv6CidrBlock?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * State that the desired subnet must have.
      */
@@ -186,6 +191,7 @@ export interface GetSubnetResult {
      * The type of hostnames assigned to instances in the subnet at launch.
      */
     readonly privateDnsHostnameTypeOnLaunch: string;
+    readonly region: string;
     readonly state: string;
     readonly tags: {[key: string]: string};
     readonly vpcId: string;
@@ -246,6 +252,7 @@ export function getSubnetOutput(args?: GetSubnetOutputArgs, opts?: pulumi.Invoke
         "filters": args.filters,
         "id": args.id,
         "ipv6CidrBlock": args.ipv6CidrBlock,
+        "region": args.region,
         "state": args.state,
         "tags": args.tags,
         "vpcId": args.vpcId,
@@ -284,6 +291,10 @@ export interface GetSubnetOutputArgs {
      * IPv6 CIDR block of the desired subnet.
      */
     ipv6CidrBlock?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * State that the desired subnet must have.
      */

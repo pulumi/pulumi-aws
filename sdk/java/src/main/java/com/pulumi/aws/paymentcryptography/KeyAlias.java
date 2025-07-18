@@ -22,6 +22,55 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.paymentcryptography.Key;
+ * import com.pulumi.aws.paymentcryptography.KeyArgs;
+ * import com.pulumi.aws.paymentcryptography.inputs.KeyKeyAttributeArgs;
+ * import com.pulumi.aws.paymentcryptography.KeyAlias;
+ * import com.pulumi.aws.paymentcryptography.KeyAliasArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Key("test", KeyArgs.builder()
+ *             .exportable(true)
+ *             .keyAttributes(KeyKeyAttributeArgs.builder()
+ *                 .keyAlgorithm("TDES_3KEY")
+ *                 .keyClass("SYMMETRIC_KEY")
+ *                 .keyUsage("TR31_P0_PIN_ENCRYPTION_KEY")
+ *                 .keyModesOfUses(KeyKeyAttributeKeyModesOfUseArgs.builder()
+ *                     .decrypt(true)
+ *                     .encrypt(true)
+ *                     .wrap(true)
+ *                     .unwrap(true)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var testKeyAlias = new KeyAlias("testKeyAlias", KeyAliasArgs.builder()
+ *             .aliasName("alias/test-alias")
+ *             .keyArn(test.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -66,6 +115,20 @@ public class KeyAlias extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> keyArn() {
         return Codegen.optional(this.keyArn);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
 
     /**

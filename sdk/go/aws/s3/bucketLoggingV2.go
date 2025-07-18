@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,40 +27,40 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-tf-example-bucket"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
 //				Bucket: example.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			logBucket, err := s3.NewBucketV2(ctx, "log_bucket", &s3.BucketV2Args{
+//			logBucket, err := s3.NewBucket(ctx, "log_bucket", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-tf-log-bucket"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "log_bucket_acl", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAcl(ctx, "log_bucket_acl", &s3.BucketAclArgs{
 //				Bucket: logBucket.ID(),
 //				Acl:    pulumi.String("log-delivery-write"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketLoggingV2(ctx, "example", &s3.BucketLoggingV2Args{
+//			_, err = s3.NewBucketLogging(ctx, "example", &s3.BucketLoggingArgs{
 //				Bucket:       example.ID(),
 //				TargetBucket: logBucket.ID(),
 //				TargetPrefix: pulumi.String("log/"),
@@ -90,6 +90,8 @@ import (
 // ```sh
 // $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name,123456789012
 // ```
+//
+// Deprecated: aws.s3/bucketloggingv2.BucketLoggingV2 has been deprecated in favor of aws.s3/bucketlogging.BucketLogging
 type BucketLoggingV2 struct {
 	pulumi.CustomResourceState
 
@@ -97,6 +99,8 @@ type BucketLoggingV2 struct {
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Name of the bucket where you want Amazon S3 to store server access logs.
 	TargetBucket pulumi.StringOutput `pulumi:"targetBucket"`
 	// Set of configuration blocks with information for granting permissions. See below.
@@ -123,6 +127,12 @@ func NewBucketLoggingV2(ctx *pulumi.Context,
 	if args.TargetPrefix == nil {
 		return nil, errors.New("invalid value for required argument 'TargetPrefix'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("aws:s3/bucketLoggingV2:BucketLoggingV2"),
+		},
+	})
+	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketLoggingV2
 	err := ctx.RegisterResource("aws:s3/bucketLoggingV2:BucketLoggingV2", name, args, &resource, opts...)
@@ -150,6 +160,8 @@ type bucketLoggingV2State struct {
 	Bucket *string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the bucket where you want Amazon S3 to store server access logs.
 	TargetBucket *string `pulumi:"targetBucket"`
 	// Set of configuration blocks with information for granting permissions. See below.
@@ -165,6 +177,8 @@ type BucketLoggingV2State struct {
 	Bucket pulumi.StringPtrInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the bucket where you want Amazon S3 to store server access logs.
 	TargetBucket pulumi.StringPtrInput
 	// Set of configuration blocks with information for granting permissions. See below.
@@ -184,6 +198,8 @@ type bucketLoggingV2Args struct {
 	Bucket string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the bucket where you want Amazon S3 to store server access logs.
 	TargetBucket string `pulumi:"targetBucket"`
 	// Set of configuration blocks with information for granting permissions. See below.
@@ -200,6 +216,8 @@ type BucketLoggingV2Args struct {
 	Bucket pulumi.StringInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the bucket where you want Amazon S3 to store server access logs.
 	TargetBucket pulumi.StringInput
 	// Set of configuration blocks with information for granting permissions. See below.
@@ -305,6 +323,11 @@ func (o BucketLoggingV2Output) Bucket() pulumi.StringOutput {
 // Account ID of the expected bucket owner.
 func (o BucketLoggingV2Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLoggingV2) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o BucketLoggingV2Output) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketLoggingV2) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Name of the bucket where you want Amazon S3 to store server access logs.

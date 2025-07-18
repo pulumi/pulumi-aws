@@ -38,6 +38,7 @@ class CrawlerArgs:
                  mongodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recrawl_policy: Optional[pulumi.Input['CrawlerRecrawlPolicyArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]] = None,
                  schedule: Optional[pulumi.Input[builtins.str]] = None,
                  schema_change_policy: Optional[pulumi.Input['CrawlerSchemaChangePolicyArgs']] = None,
@@ -62,6 +63,7 @@ class CrawlerArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]] mongodb_targets: List of nested MongoDB target arguments. See MongoDB Target below.
         :param pulumi.Input[builtins.str] name: Name of the crawler.
         :param pulumi.Input['CrawlerRecrawlPolicyArgs'] recrawl_policy: A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]] s3_targets: List of nested Amazon S3 target arguments. See S3 Target below.
         :param pulumi.Input[builtins.str] schedule: A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
         :param pulumi.Input['CrawlerSchemaChangePolicyArgs'] schema_change_policy: Policy for the crawler's update and deletion behavior. See Schema Change Policy below.
@@ -101,6 +103,8 @@ class CrawlerArgs:
             pulumi.set(__self__, "name", name)
         if recrawl_policy is not None:
             pulumi.set(__self__, "recrawl_policy", recrawl_policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if s3_targets is not None:
             pulumi.set(__self__, "s3_targets", s3_targets)
         if schedule is not None:
@@ -307,6 +311,18 @@ class CrawlerArgs:
         pulumi.set(self, "recrawl_policy", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="s3Targets")
     def s3_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]]:
         """
@@ -400,6 +416,7 @@ class _CrawlerState:
                  mongodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recrawl_policy: Optional[pulumi.Input['CrawlerRecrawlPolicyArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role: Optional[pulumi.Input[builtins.str]] = None,
                  s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]]] = None,
                  schedule: Optional[pulumi.Input[builtins.str]] = None,
@@ -426,6 +443,7 @@ class _CrawlerState:
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerMongodbTargetArgs']]] mongodb_targets: List of nested MongoDB target arguments. See MongoDB Target below.
         :param pulumi.Input[builtins.str] name: Name of the crawler.
         :param pulumi.Input['CrawlerRecrawlPolicyArgs'] recrawl_policy: A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerS3TargetArgs']]] s3_targets: List of nested Amazon S3 target arguments. See S3 Target below.
         :param pulumi.Input[builtins.str] schedule: A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
@@ -469,6 +487,8 @@ class _CrawlerState:
             pulumi.set(__self__, "name", name)
         if recrawl_policy is not None:
             pulumi.set(__self__, "recrawl_policy", recrawl_policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role is not None:
             pulumi.set(__self__, "role", role)
         if s3_targets is not None:
@@ -483,9 +503,6 @@ class _CrawlerState:
             pulumi.set(__self__, "table_prefix", table_prefix)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -683,6 +700,18 @@ class _CrawlerState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def role(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
@@ -769,7 +798,6 @@ class _CrawlerState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -802,6 +830,7 @@ class Crawler(pulumi.CustomResource):
                  mongodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CrawlerMongodbTargetArgs', 'CrawlerMongodbTargetArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recrawl_policy: Optional[pulumi.Input[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role: Optional[pulumi.Input[builtins.str]] = None,
                  s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CrawlerS3TargetArgs', 'CrawlerS3TargetArgsDict']]]]] = None,
                  schedule: Optional[pulumi.Input[builtins.str]] = None,
@@ -957,6 +986,7 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerMongodbTargetArgs', 'CrawlerMongodbTargetArgsDict']]]] mongodb_targets: List of nested MongoDB target arguments. See MongoDB Target below.
         :param pulumi.Input[builtins.str] name: Name of the crawler.
         :param pulumi.Input[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict']] recrawl_policy: A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerS3TargetArgs', 'CrawlerS3TargetArgsDict']]]] s3_targets: List of nested Amazon S3 target arguments. See S3 Target below.
         :param pulumi.Input[builtins.str] schedule: A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
@@ -1133,6 +1163,7 @@ class Crawler(pulumi.CustomResource):
                  mongodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CrawlerMongodbTargetArgs', 'CrawlerMongodbTargetArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recrawl_policy: Optional[pulumi.Input[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role: Optional[pulumi.Input[builtins.str]] = None,
                  s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CrawlerS3TargetArgs', 'CrawlerS3TargetArgsDict']]]]] = None,
                  schedule: Optional[pulumi.Input[builtins.str]] = None,
@@ -1166,6 +1197,7 @@ class Crawler(pulumi.CustomResource):
             __props__.__dict__["mongodb_targets"] = mongodb_targets
             __props__.__dict__["name"] = name
             __props__.__dict__["recrawl_policy"] = recrawl_policy
+            __props__.__dict__["region"] = region
             if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
             __props__.__dict__["role"] = role
@@ -1203,6 +1235,7 @@ class Crawler(pulumi.CustomResource):
             mongodb_targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CrawlerMongodbTargetArgs', 'CrawlerMongodbTargetArgsDict']]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             recrawl_policy: Optional[pulumi.Input[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role: Optional[pulumi.Input[builtins.str]] = None,
             s3_targets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CrawlerS3TargetArgs', 'CrawlerS3TargetArgsDict']]]]] = None,
             schedule: Optional[pulumi.Input[builtins.str]] = None,
@@ -1234,6 +1267,7 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerMongodbTargetArgs', 'CrawlerMongodbTargetArgsDict']]]] mongodb_targets: List of nested MongoDB target arguments. See MongoDB Target below.
         :param pulumi.Input[builtins.str] name: Name of the crawler.
         :param pulumi.Input[Union['CrawlerRecrawlPolicyArgs', 'CrawlerRecrawlPolicyArgsDict']] recrawl_policy: A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.. See Recrawl Policy below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CrawlerS3TargetArgs', 'CrawlerS3TargetArgsDict']]]] s3_targets: List of nested Amazon S3 target arguments. See S3 Target below.
         :param pulumi.Input[builtins.str] schedule: A cron expression used to specify the schedule. For more information, see [Time-Based Schedules for Jobs and Crawlers](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html). For example, to run something every day at 12:15 UTC, you would specify: `cron(15 12 * * ? *)`.
@@ -1265,6 +1299,7 @@ class Crawler(pulumi.CustomResource):
         __props__.__dict__["mongodb_targets"] = mongodb_targets
         __props__.__dict__["name"] = name
         __props__.__dict__["recrawl_policy"] = recrawl_policy
+        __props__.__dict__["region"] = region
         __props__.__dict__["role"] = role
         __props__.__dict__["s3_targets"] = s3_targets
         __props__.__dict__["schedule"] = schedule
@@ -1405,6 +1440,14 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def role(self) -> pulumi.Output[builtins.str]:
         """
         The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
@@ -1463,7 +1506,6 @@ class Crawler(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.codebuild.outputs;
 
+import com.pulumi.aws.codebuild.outputs.ProjectEnvironmentDockerServer;
 import com.pulumi.aws.codebuild.outputs.ProjectEnvironmentEnvironmentVariable;
 import com.pulumi.aws.codebuild.outputs.ProjectEnvironmentFleet;
 import com.pulumi.aws.codebuild.outputs.ProjectEnvironmentRegistryCredential;
@@ -30,6 +31,11 @@ public final class ProjectEnvironment {
      * 
      */
     private String computeType;
+    /**
+     * @return Configuration block. Detailed below.
+     * 
+     */
+    private @Nullable ProjectEnvironmentDockerServer dockerServer;
     /**
      * @return Configuration block. Detailed below.
      * 
@@ -93,6 +99,13 @@ public final class ProjectEnvironment {
      */
     public String computeType() {
         return this.computeType;
+    }
+    /**
+     * @return Configuration block. Detailed below.
+     * 
+     */
+    public Optional<ProjectEnvironmentDockerServer> dockerServer() {
+        return Optional.ofNullable(this.dockerServer);
     }
     /**
      * @return Configuration block. Detailed below.
@@ -165,6 +178,7 @@ public final class ProjectEnvironment {
     public static final class Builder {
         private @Nullable String certificate;
         private String computeType;
+        private @Nullable ProjectEnvironmentDockerServer dockerServer;
         private @Nullable List<ProjectEnvironmentEnvironmentVariable> environmentVariables;
         private @Nullable ProjectEnvironmentFleet fleet;
         private String image;
@@ -177,6 +191,7 @@ public final class ProjectEnvironment {
     	      Objects.requireNonNull(defaults);
     	      this.certificate = defaults.certificate;
     	      this.computeType = defaults.computeType;
+    	      this.dockerServer = defaults.dockerServer;
     	      this.environmentVariables = defaults.environmentVariables;
     	      this.fleet = defaults.fleet;
     	      this.image = defaults.image;
@@ -198,6 +213,12 @@ public final class ProjectEnvironment {
               throw new MissingRequiredPropertyException("ProjectEnvironment", "computeType");
             }
             this.computeType = computeType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dockerServer(@Nullable ProjectEnvironmentDockerServer dockerServer) {
+
+            this.dockerServer = dockerServer;
             return this;
         }
         @CustomType.Setter
@@ -253,6 +274,7 @@ public final class ProjectEnvironment {
             final var _resultValue = new ProjectEnvironment();
             _resultValue.certificate = certificate;
             _resultValue.computeType = computeType;
+            _resultValue.dockerServer = dockerServer;
             _resultValue.environmentVariables = environmentVariables;
             _resultValue.fleet = fleet;
             _resultValue.image = image;

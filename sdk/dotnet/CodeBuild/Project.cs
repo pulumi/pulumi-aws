@@ -24,14 +24,14 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example",
+    ///         BucketName = "example",
     ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
+    ///     var exampleBucketAcl = new Aws.S3.BucketAcl("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = exampleBucket.Id,
     ///         Acl = "private",
     ///     });
     /// 
@@ -146,8 +146,8 @@ namespace Pulumi.Aws.CodeBuild
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     exampleBucketV2.Arn,
-    ///                     $"{exampleBucketV2.Arn}/*",
+    ///                     exampleBucket.Arn,
+    ///                     $"{exampleBucket.Arn}/*",
     ///                 },
     ///             },
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.CodeBuild
     ///         Cache = new Aws.CodeBuild.Inputs.ProjectCacheArgs
     ///         {
     ///             Type = "S3",
-    ///             Location = exampleBucketV2.Bucket,
+    ///             Location = exampleBucket.BucketName,
     ///         },
     ///         Environment = new Aws.CodeBuild.Inputs.ProjectEnvironmentArgs
     ///         {
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.CodeBuild
     ///             S3Logs = new Aws.CodeBuild.Inputs.ProjectLogsConfigS3LogsArgs
     ///             {
     ///                 Status = "ENABLED",
-    ///                 Location = exampleBucketV2.Id.Apply(id =&gt; $"{id}/build-log"),
+    ///                 Location = exampleBucket.Id.Apply(id =&gt; $"{id}/build-log"),
     ///             },
     ///         },
     ///         Source = new Aws.CodeBuild.Inputs.ProjectSourceArgs
@@ -452,6 +452,12 @@ namespace Pulumi.Aws.CodeBuild
         public Output<int?> QueuedTimeout { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
         /// Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
         /// `project_visibility` is `PUBLIC_READ`.
@@ -665,6 +671,12 @@ namespace Pulumi.Aws.CodeBuild
         public Input<int>? QueuedTimeout { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
         /// Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
         /// `project_visibility` is `PUBLIC_READ`.
@@ -875,6 +887,12 @@ namespace Pulumi.Aws.CodeBuild
         public Input<int>? QueuedTimeout { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
         /// Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
         /// `project_visibility` is `PUBLIC_READ`.
@@ -961,7 +979,6 @@ namespace Pulumi.Aws.CodeBuild
         /// A map of tags assigned to the resource, including those inherited from the provider 
         /// `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

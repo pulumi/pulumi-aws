@@ -145,6 +145,10 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
@@ -156,9 +160,6 @@ export class Fleet extends pulumi.CustomResource {
      * Map of tags to attach to AppStream instances.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
@@ -195,6 +196,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["maxSessionsPerInstance"] = state ? state.maxSessionsPerInstance : undefined;
             resourceInputs["maxUserDurationInSeconds"] = state ? state.maxUserDurationInSeconds : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["streamView"] = state ? state.streamView : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -223,6 +225,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["maxSessionsPerInstance"] = args ? args.maxSessionsPerInstance : undefined;
             resourceInputs["maxUserDurationInSeconds"] = args ? args.maxUserDurationInSeconds : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["streamView"] = args ? args.streamView : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
@@ -311,6 +314,10 @@ export interface FleetState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * State of the fleet. Can be `STARTING`, `RUNNING`, `STOPPING` or `STOPPED`
      */
     state?: pulumi.Input<string>;
@@ -322,9 +329,6 @@ export interface FleetState {
      * Map of tags to attach to AppStream instances.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
@@ -398,6 +402,10 @@ export interface FleetArgs {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * AppStream 2.0 view that is displayed to your users when they stream from the fleet. When `APP` is specified, only the windows of applications opened by users display. When `DESKTOP` is specified, the standard desktop that is provided by the operating system displays. If not specified, defaults to `APP`.
      */

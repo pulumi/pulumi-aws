@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,6 +71,8 @@ type GetVpcIpamPoolsArgs struct {
 	//
 	// The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
 	Filters []GetVpcIpamPoolsFilter `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getVpcIpamPools.
@@ -80,6 +82,7 @@ type GetVpcIpamPoolsResult struct {
 	Id string `pulumi:"id"`
 	// List of IPAM pools and their attributes. See below for details
 	IpamPools []GetVpcIpamPoolsIpamPool `pulumi:"ipamPools"`
+	Region    string                    `pulumi:"region"`
 }
 
 func GetVpcIpamPoolsOutput(ctx *pulumi.Context, args GetVpcIpamPoolsOutputArgs, opts ...pulumi.InvokeOption) GetVpcIpamPoolsResultOutput {
@@ -97,6 +100,8 @@ type GetVpcIpamPoolsOutputArgs struct {
 	//
 	// The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
 	Filters GetVpcIpamPoolsFilterArrayInput `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetVpcIpamPoolsOutputArgs) ElementType() reflect.Type {
@@ -130,6 +135,10 @@ func (o GetVpcIpamPoolsResultOutput) Id() pulumi.StringOutput {
 // List of IPAM pools and their attributes. See below for details
 func (o GetVpcIpamPoolsResultOutput) IpamPools() GetVpcIpamPoolsIpamPoolArrayOutput {
 	return o.ApplyT(func(v GetVpcIpamPoolsResult) []GetVpcIpamPoolsIpamPool { return v.IpamPools }).(GetVpcIpamPoolsIpamPoolArrayOutput)
+}
+
+func (o GetVpcIpamPoolsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamPoolsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

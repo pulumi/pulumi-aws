@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,6 +53,8 @@ func LookupUserPoolClient(ctx *pulumi.Context, args *LookupUserPoolClientArgs, o
 type LookupUserPoolClientArgs struct {
 	// Client Id of the user pool.
 	ClientId string `pulumi:"clientId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// User pool the client belongs to.
 	UserPoolId string `pulumi:"userPoolId"`
 }
@@ -97,7 +99,8 @@ type LookupUserPoolClientResult struct {
 	// (Optional) A block that specifies the configuration of refresh token rotation. Detailed below.
 	RefreshTokenRotations []GetUserPoolClientRefreshTokenRotation `pulumi:"refreshTokenRotations"`
 	// (Optional) Time limit in days refresh tokens are valid for.
-	RefreshTokenValidity int `pulumi:"refreshTokenValidity"`
+	RefreshTokenValidity int    `pulumi:"refreshTokenValidity"`
+	Region               string `pulumi:"region"`
 	// (Optional) List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
 	SupportedIdentityProviders []string `pulumi:"supportedIdentityProviders"`
 	// (Optional) Configuration block for units in which the validity times are represented in. Detailed below.
@@ -120,6 +123,8 @@ func LookupUserPoolClientOutput(ctx *pulumi.Context, args LookupUserPoolClientOu
 type LookupUserPoolClientOutputArgs struct {
 	// Client Id of the user pool.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// User pool the client belongs to.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
@@ -247,6 +252,10 @@ func (o LookupUserPoolClientResultOutput) RefreshTokenRotations() GetUserPoolCli
 // (Optional) Time limit in days refresh tokens are valid for.
 func (o LookupUserPoolClientResultOutput) RefreshTokenValidity() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) int { return v.RefreshTokenValidity }).(pulumi.IntOutput)
+}
+
+func (o LookupUserPoolClientResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // (Optional) List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).

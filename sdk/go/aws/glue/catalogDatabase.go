@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +46,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -101,11 +101,11 @@ type CatalogDatabase struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of key-value pairs that define parameters and properties of the database.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for a target database for resource linking. See `targetDatabase` below.
 	TargetDatabase CatalogDatabaseTargetDatabasePtrOutput `pulumi:"targetDatabase"`
@@ -157,11 +157,11 @@ type catalogDatabaseState struct {
 	Name *string `pulumi:"name"`
 	// List of key-value pairs that define parameters and properties of the database.
 	Parameters map[string]string `pulumi:"parameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for a target database for resource linking. See `targetDatabase` below.
 	TargetDatabase *CatalogDatabaseTargetDatabase `pulumi:"targetDatabase"`
@@ -184,11 +184,11 @@ type CatalogDatabaseState struct {
 	Name pulumi.StringPtrInput
 	// List of key-value pairs that define parameters and properties of the database.
 	Parameters pulumi.StringMapInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Configuration block for a target database for resource linking. See `targetDatabase` below.
 	TargetDatabase CatalogDatabaseTargetDatabasePtrInput
@@ -213,6 +213,8 @@ type catalogDatabaseArgs struct {
 	Name *string `pulumi:"name"`
 	// List of key-value pairs that define parameters and properties of the database.
 	Parameters map[string]string `pulumi:"parameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration block for a target database for resource linking. See `targetDatabase` below.
@@ -235,6 +237,8 @@ type CatalogDatabaseArgs struct {
 	Name pulumi.StringPtrInput
 	// List of key-value pairs that define parameters and properties of the database.
 	Parameters pulumi.StringMapInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Configuration block for a target database for resource linking. See `targetDatabase` below.
@@ -370,14 +374,17 @@ func (o CatalogDatabaseOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o CatalogDatabaseOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CatalogDatabaseOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o CatalogDatabaseOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CatalogDatabase) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

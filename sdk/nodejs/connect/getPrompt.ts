@@ -26,6 +26,7 @@ export function getPrompt(args: GetPromptArgs, opts?: pulumi.InvokeOptions): Pro
     return pulumi.runtime.invoke("aws:connect/getPrompt:getPrompt", {
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -41,6 +42,10 @@ export interface GetPromptArgs {
      * Returns information on a specific Prompt by name
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -61,6 +66,7 @@ export interface GetPromptResult {
      * Identifier for the prompt.
      */
     readonly promptId: string;
+    readonly region: string;
 }
 /**
  * Provides details about a specific Amazon Connect Prompt.
@@ -84,6 +90,7 @@ export function getPromptOutput(args: GetPromptOutputArgs, opts?: pulumi.InvokeO
     return pulumi.runtime.invokeOutput("aws:connect/getPrompt:getPrompt", {
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -99,4 +106,8 @@ export interface GetPromptOutputArgs {
      * Returns information on a specific Prompt by name
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

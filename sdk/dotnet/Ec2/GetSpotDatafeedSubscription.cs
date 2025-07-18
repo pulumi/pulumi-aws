@@ -31,8 +31,8 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// </summary>
-        public static Task<GetSpotDatafeedSubscriptionResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpotDatafeedSubscriptionResult>("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetSpotDatafeedSubscriptionResult> InvokeAsync(GetSpotDatafeedSubscriptionArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSpotDatafeedSubscriptionResult>("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", args ?? new GetSpotDatafeedSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// &gt; There is only a single spot data feed subscription per account.
@@ -54,8 +54,8 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// </summary>
-        public static Output<GetSpotDatafeedSubscriptionResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSpotDatafeedSubscriptionResult>("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetSpotDatafeedSubscriptionResult> Invoke(GetSpotDatafeedSubscriptionInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSpotDatafeedSubscriptionResult>("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", args ?? new GetSpotDatafeedSubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// &gt; There is only a single spot data feed subscription per account.
@@ -77,8 +77,37 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// </summary>
-        public static Output<GetSpotDatafeedSubscriptionResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSpotDatafeedSubscriptionResult>("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetSpotDatafeedSubscriptionResult> Invoke(GetSpotDatafeedSubscriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSpotDatafeedSubscriptionResult>("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", args ?? new GetSpotDatafeedSubscriptionInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetSpotDatafeedSubscriptionArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetSpotDatafeedSubscriptionArgs()
+        {
+        }
+        public static new GetSpotDatafeedSubscriptionArgs Empty => new GetSpotDatafeedSubscriptionArgs();
+    }
+
+    public sealed class GetSpotDatafeedSubscriptionInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetSpotDatafeedSubscriptionInvokeArgs()
+        {
+        }
+        public static new GetSpotDatafeedSubscriptionInvokeArgs Empty => new GetSpotDatafeedSubscriptionInvokeArgs();
     }
 
 
@@ -97,6 +126,7 @@ namespace Pulumi.Aws.Ec2
         /// The prefix for the data feed files.
         /// </summary>
         public readonly string Prefix;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetSpotDatafeedSubscriptionResult(
@@ -104,11 +134,14 @@ namespace Pulumi.Aws.Ec2
 
             string id,
 
-            string prefix)
+            string prefix,
+
+            string region)
         {
             Bucket = bucket;
             Id = id;
             Prefix = prefix;
+            Region = region;
         }
     }
 }

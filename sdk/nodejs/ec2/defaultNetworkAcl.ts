@@ -164,6 +164,10 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
      */
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
@@ -173,8 +177,6 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -200,6 +202,7 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
             resourceInputs["egress"] = state ? state.egress : undefined;
             resourceInputs["ingress"] = state ? state.ingress : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -212,6 +215,7 @@ export class DefaultNetworkAcl extends pulumi.CustomResource {
             resourceInputs["defaultNetworkAclId"] = args ? args.defaultNetworkAclId : undefined;
             resourceInputs["egress"] = args ? args.egress : undefined;
             resourceInputs["ingress"] = args ? args.ingress : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -251,6 +255,10 @@ export interface DefaultNetworkAclState {
      */
     ownerId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -260,8 +268,6 @@ export interface DefaultNetworkAclState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -288,6 +294,10 @@ export interface DefaultNetworkAclArgs {
      * Configuration block for an ingress rule. Detailed below.
      */
     ingress?: pulumi.Input<pulumi.Input<inputs.ec2.DefaultNetworkAclIngress>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
      */

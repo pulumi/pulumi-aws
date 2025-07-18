@@ -63,6 +63,21 @@ public final class UserGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ARN of the IAM role to be associated with the user group.
      * 
      */
@@ -98,6 +113,7 @@ public final class UserGroupArgs extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.name = $.name;
         this.precedence = $.precedence;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.userPoolId = $.userPoolId;
     }
@@ -181,6 +197,27 @@ public final class UserGroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder precedence(Integer precedence) {
             return precedence(Output.of(precedence));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

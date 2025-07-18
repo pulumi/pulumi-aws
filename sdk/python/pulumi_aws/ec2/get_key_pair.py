@@ -29,7 +29,7 @@ class GetKeyPairResult:
     """
     A collection of values returned by getKeyPair.
     """
-    def __init__(__self__, arn=None, create_time=None, filters=None, fingerprint=None, id=None, include_public_key=None, key_name=None, key_pair_id=None, key_type=None, public_key=None, tags=None):
+    def __init__(__self__, arn=None, create_time=None, filters=None, fingerprint=None, id=None, include_public_key=None, key_name=None, key_pair_id=None, key_type=None, public_key=None, region=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -60,6 +60,9 @@ class GetKeyPairResult:
         if public_key and not isinstance(public_key, str):
             raise TypeError("Expected argument 'public_key' to be a str")
         pulumi.set(__self__, "public_key", public_key)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -134,6 +137,11 @@ class GetKeyPairResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Any tags assigned to the Key Pair.
@@ -157,6 +165,7 @@ class AwaitableGetKeyPairResult(GetKeyPairResult):
             key_pair_id=self.key_pair_id,
             key_type=self.key_type,
             public_key=self.public_key,
+            region=self.region,
             tags=self.tags)
 
 
@@ -164,6 +173,7 @@ def get_key_pair(filters: Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKe
                  include_public_key: Optional[builtins.bool] = None,
                  key_name: Optional[builtins.str] = None,
                  key_pair_id: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
                  tags: Optional[Mapping[str, builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyPairResult:
     """
@@ -197,6 +207,7 @@ def get_key_pair(filters: Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKe
     :param builtins.bool include_public_key: Whether to include the public key material in the response.
     :param builtins.str key_name: Key Pair name.
     :param builtins.str key_pair_id: Key Pair ID.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Any tags assigned to the Key Pair.
     """
     __args__ = dict()
@@ -204,6 +215,7 @@ def get_key_pair(filters: Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKe
     __args__['includePublicKey'] = include_public_key
     __args__['keyName'] = key_name
     __args__['keyPairId'] = key_pair_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getKeyPair:getKeyPair', __args__, opts=opts, typ=GetKeyPairResult).value
@@ -219,11 +231,13 @@ def get_key_pair(filters: Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKe
         key_pair_id=pulumi.get(__ret__, 'key_pair_id'),
         key_type=pulumi.get(__ret__, 'key_type'),
         public_key=pulumi.get(__ret__, 'public_key'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKeyPairFilterArgsDict']]]]] = None,
                         include_public_key: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                         key_name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         key_pair_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyPairResult]:
     """
@@ -257,6 +271,7 @@ def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
     :param builtins.bool include_public_key: Whether to include the public key material in the response.
     :param builtins.str key_name: Key Pair name.
     :param builtins.str key_pair_id: Key Pair ID.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Any tags assigned to the Key Pair.
     """
     __args__ = dict()
@@ -264,6 +279,7 @@ def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
     __args__['includePublicKey'] = include_public_key
     __args__['keyName'] = key_name
     __args__['keyPairId'] = key_pair_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getKeyPair:getKeyPair', __args__, opts=opts, typ=GetKeyPairResult)
@@ -278,4 +294,5 @@ def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
         key_pair_id=pulumi.get(__response__, 'key_pair_id'),
         key_type=pulumi.get(__response__, 'key_type'),
         public_key=pulumi.get(__response__, 'public_key'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

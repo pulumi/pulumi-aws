@@ -28,7 +28,7 @@ class GetInferenceProfileResult:
     """
     A collection of values returned by getInferenceProfile.
     """
-    def __init__(__self__, created_at=None, description=None, id=None, inference_profile_arn=None, inference_profile_id=None, inference_profile_name=None, models=None, status=None, type=None, updated_at=None):
+    def __init__(__self__, created_at=None, description=None, id=None, inference_profile_arn=None, inference_profile_id=None, inference_profile_name=None, models=None, region=None, status=None, type=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -50,6 +50,9 @@ class GetInferenceProfileResult:
         if models and not isinstance(models, list):
             raise TypeError("Expected argument 'models' to be a list")
         pulumi.set(__self__, "models", models)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -115,6 +118,11 @@ class GetInferenceProfileResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def status(self) -> builtins.str:
         """
         The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
@@ -151,12 +159,14 @@ class AwaitableGetInferenceProfileResult(GetInferenceProfileResult):
             inference_profile_id=self.inference_profile_id,
             inference_profile_name=self.inference_profile_name,
             models=self.models,
+            region=self.region,
             status=self.status,
             type=self.type,
             updated_at=self.updated_at)
 
 
 def get_inference_profile(inference_profile_id: Optional[builtins.str] = None,
+                          region: Optional[builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInferenceProfileResult:
     """
     Data source for managing an AWS Bedrock Inference Profile.
@@ -175,9 +185,11 @@ def get_inference_profile(inference_profile_id: Optional[builtins.str] = None,
 
 
     :param builtins.str inference_profile_id: Inference Profile identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['inferenceProfileId'] = inference_profile_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:bedrock/getInferenceProfile:getInferenceProfile', __args__, opts=opts, typ=GetInferenceProfileResult).value
 
@@ -189,10 +201,12 @@ def get_inference_profile(inference_profile_id: Optional[builtins.str] = None,
         inference_profile_id=pulumi.get(__ret__, 'inference_profile_id'),
         inference_profile_name=pulumi.get(__ret__, 'inference_profile_name'),
         models=pulumi.get(__ret__, 'models'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_inference_profile_output(inference_profile_id: Optional[pulumi.Input[builtins.str]] = None,
+                                 region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInferenceProfileResult]:
     """
     Data source for managing an AWS Bedrock Inference Profile.
@@ -211,9 +225,11 @@ def get_inference_profile_output(inference_profile_id: Optional[pulumi.Input[bui
 
 
     :param builtins.str inference_profile_id: Inference Profile identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['inferenceProfileId'] = inference_profile_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:bedrock/getInferenceProfile:getInferenceProfile', __args__, opts=opts, typ=GetInferenceProfileResult)
     return __ret__.apply(lambda __response__: GetInferenceProfileResult(
@@ -224,6 +240,7 @@ def get_inference_profile_output(inference_profile_id: Optional[pulumi.Input[bui
         inference_profile_id=pulumi.get(__response__, 'inference_profile_id'),
         inference_profile_name=pulumi.get(__response__, 'inference_profile_name'),
         models=pulumi.get(__response__, 'models'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status'),
         type=pulumi.get(__response__, 'type'),
         updated_at=pulumi.get(__response__, 'updated_at')))

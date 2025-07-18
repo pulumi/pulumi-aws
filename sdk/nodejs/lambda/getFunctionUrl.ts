@@ -8,19 +8,59 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides information about a Lambda function URL.
+ * Provides details about an AWS Lambda Function URL. Use this data source to retrieve information about an existing function URL configuration.
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const config = new pulumi.Config();
- * const functionName = config.require("functionName");
- * const existing = aws.lambda.getFunctionUrl({
- *     functionName: functionName,
+ * const example = aws.lambda.getFunctionUrl({
+ *     functionName: "my_lambda_function",
  * });
+ * export const functionUrl = example.then(example => example.functionUrl);
+ * ```
+ *
+ * ### With Qualifier
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = aws.lambda.getFunctionUrl({
+ *     functionName: exampleAwsLambdaFunction.functionName,
+ *     qualifier: "production",
+ * });
+ * // Use the URL in other resources
+ * const lambdaAlias = new aws.route53.Record("lambda_alias", {
+ *     zoneId: exampleAwsRoute53Zone.zoneId,
+ *     name: "api.example.com",
+ *     type: aws.route53.RecordType.CNAME,
+ *     ttl: 300,
+ *     records: [example.then(example => std.replace({
+ *         text: example.functionUrl,
+ *         search: "https://",
+ *         replace: "",
+ *     })).then(invoke => invoke.result)],
+ * });
+ * ```
+ *
+ * ### Retrieve CORS Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.lambda.getFunctionUrl({
+ *     functionName: "api_function",
+ * });
+ * const corsConfig = pulumi.all([example.then(example => example.cors).length, example]).apply(([length, example]) => length > 0 ? example.cors?.[0] : null);
+ * const allowedOrigins = corsConfig != null ? corsConfig?.allowOrigins : [];
+ * export const corsAllowedOrigins = allowedOrigins;
  * ```
  */
 export function getFunctionUrl(args: GetFunctionUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionUrlResult> {
@@ -28,6 +68,7 @@ export function getFunctionUrl(args: GetFunctionUrlArgs, opts?: pulumi.InvokeOpt
     return pulumi.runtime.invoke("aws:lambda/getFunctionUrl:getFunctionUrl", {
         "functionName": args.functionName,
         "qualifier": args.qualifier,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,13 +77,19 @@ export function getFunctionUrl(args: GetFunctionUrlArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetFunctionUrlArgs {
     /**
-     * The name (or ARN) of the Lambda function.
+     * Name or ARN of the Lambda function.
+     *
+     * The following arguments are optional:
      */
     functionName: string;
     /**
-     * Alias name or `"$LATEST"`.
+     * Alias name or `$LATEST`.
      */
     qualifier?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -54,7 +101,7 @@ export interface GetFunctionUrlResult {
      */
     readonly authorizationType: string;
     /**
-     * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `aws.lambda.FunctionUrl` resource documentation for more details.
+     * Cross-origin resource sharing (CORS) settings for the function URL. See below.
      */
     readonly cors: outputs.lambda.GetFunctionUrlCor[];
     /**
@@ -83,25 +130,66 @@ export interface GetFunctionUrlResult {
      */
     readonly lastModifiedTime: string;
     readonly qualifier?: string;
+    readonly region: string;
     /**
      * Generated ID for the endpoint.
      */
     readonly urlId: string;
 }
 /**
- * Provides information about a Lambda function URL.
+ * Provides details about an AWS Lambda Function URL. Use this data source to retrieve information about an existing function URL configuration.
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const config = new pulumi.Config();
- * const functionName = config.require("functionName");
- * const existing = aws.lambda.getFunctionUrl({
- *     functionName: functionName,
+ * const example = aws.lambda.getFunctionUrl({
+ *     functionName: "my_lambda_function",
  * });
+ * export const functionUrl = example.then(example => example.functionUrl);
+ * ```
+ *
+ * ### With Qualifier
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = aws.lambda.getFunctionUrl({
+ *     functionName: exampleAwsLambdaFunction.functionName,
+ *     qualifier: "production",
+ * });
+ * // Use the URL in other resources
+ * const lambdaAlias = new aws.route53.Record("lambda_alias", {
+ *     zoneId: exampleAwsRoute53Zone.zoneId,
+ *     name: "api.example.com",
+ *     type: aws.route53.RecordType.CNAME,
+ *     ttl: 300,
+ *     records: [example.then(example => std.replace({
+ *         text: example.functionUrl,
+ *         search: "https://",
+ *         replace: "",
+ *     })).then(invoke => invoke.result)],
+ * });
+ * ```
+ *
+ * ### Retrieve CORS Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.lambda.getFunctionUrl({
+ *     functionName: "api_function",
+ * });
+ * const corsConfig = pulumi.all([example.then(example => example.cors).length, example]).apply(([length, example]) => length > 0 ? example.cors?.[0] : null);
+ * const allowedOrigins = corsConfig != null ? corsConfig?.allowOrigins : [];
+ * export const corsAllowedOrigins = allowedOrigins;
  * ```
  */
 export function getFunctionUrlOutput(args: GetFunctionUrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFunctionUrlResult> {
@@ -109,6 +197,7 @@ export function getFunctionUrlOutput(args: GetFunctionUrlOutputArgs, opts?: pulu
     return pulumi.runtime.invokeOutput("aws:lambda/getFunctionUrl:getFunctionUrl", {
         "functionName": args.functionName,
         "qualifier": args.qualifier,
+        "region": args.region,
     }, opts);
 }
 
@@ -117,11 +206,17 @@ export function getFunctionUrlOutput(args: GetFunctionUrlOutputArgs, opts?: pulu
  */
 export interface GetFunctionUrlOutputArgs {
     /**
-     * The name (or ARN) of the Lambda function.
+     * Name or ARN of the Lambda function.
+     *
+     * The following arguments are optional:
      */
     functionName: pulumi.Input<string>;
     /**
-     * Alias name or `"$LATEST"`.
+     * Alias name or `$LATEST`.
      */
     qualifier?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

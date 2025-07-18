@@ -29,6 +29,7 @@ export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promi
     return pulumi.runtime.invoke("aws:timestreamwrite/getTable:getTable", {
         "databaseName": args.databaseName,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -44,6 +45,10 @@ export interface GetTableArgs {
      * Name of the Timestream table.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -78,6 +83,7 @@ export interface GetTableResult {
      * Name of the table.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * Object containing the following attributes to describe the retention duration for the memory and magnetic stores.
      */
@@ -113,6 +119,7 @@ export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOut
     return pulumi.runtime.invokeOutput("aws:timestreamwrite/getTable:getTable", {
         "databaseName": args.databaseName,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -128,4 +135,8 @@ export interface GetTableOutputArgs {
      * Name of the Timestream table.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

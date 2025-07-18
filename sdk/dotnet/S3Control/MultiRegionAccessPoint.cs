@@ -26,14 +26,14 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var fooBucket = new Aws.S3.BucketV2("foo_bucket", new()
+    ///     var fooBucket = new Aws.S3.Bucket("foo_bucket", new()
     ///     {
-    ///         Bucket = "example-bucket-foo",
+    ///         BucketName = "example-bucket-foo",
     ///     });
     /// 
-    ///     var barBucket = new Aws.S3.BucketV2("bar_bucket", new()
+    ///     var barBucket = new Aws.S3.Bucket("bar_bucket", new()
     ///     {
-    ///         Bucket = "example-bucket-bar",
+    ///         BucketName = "example-bucket-bar",
     ///     });
     /// 
     ///     var example = new Aws.S3Control.MultiRegionAccessPoint("example", new()
@@ -100,6 +100,12 @@ namespace Pulumi.Aws.S3Control
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
         /// </summary>
         [Output("status")]
@@ -163,6 +169,12 @@ namespace Pulumi.Aws.S3Control
         [Input("details", required: true)]
         public Input<Inputs.MultiRegionAccessPointDetailsArgs> Details { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public MultiRegionAccessPointArgs()
         {
         }
@@ -200,6 +212,12 @@ namespace Pulumi.Aws.S3Control
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.

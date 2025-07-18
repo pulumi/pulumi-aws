@@ -23,19 +23,23 @@ class BaiduChannelArgs:
                  api_key: pulumi.Input[builtins.str],
                  application_id: pulumi.Input[builtins.str],
                  secret_key: pulumi.Input[builtins.str],
-                 enabled: Optional[pulumi.Input[builtins.bool]] = None):
+                 enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a BaiduChannel resource.
         :param pulumi.Input[builtins.str] api_key: Platform credential API key from Baidu.
         :param pulumi.Input[builtins.str] application_id: The application ID.
         :param pulumi.Input[builtins.str] secret_key: Platform credential Secret key from Baidu.
         :param pulumi.Input[builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "api_key", api_key)
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "secret_key", secret_key)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -85,6 +89,18 @@ class BaiduChannelArgs:
     def enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _BaiduChannelState:
@@ -92,12 +108,14 @@ class _BaiduChannelState:
                  api_key: Optional[pulumi.Input[builtins.str]] = None,
                  application_id: Optional[pulumi.Input[builtins.str]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secret_key: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering BaiduChannel resources.
         :param pulumi.Input[builtins.str] api_key: Platform credential API key from Baidu.
         :param pulumi.Input[builtins.str] application_id: The application ID.
         :param pulumi.Input[builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_key: Platform credential Secret key from Baidu.
         """
         if api_key is not None:
@@ -106,6 +124,8 @@ class _BaiduChannelState:
             pulumi.set(__self__, "application_id", application_id)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if secret_key is not None:
             pulumi.set(__self__, "secret_key", secret_key)
 
@@ -146,6 +166,18 @@ class _BaiduChannelState:
         pulumi.set(self, "enabled", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="secretKey")
     def secret_key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -167,6 +199,7 @@ class BaiduChannel(pulumi.CustomResource):
                  api_key: Optional[pulumi.Input[builtins.str]] = None,
                  application_id: Optional[pulumi.Input[builtins.str]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secret_key: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -199,6 +232,7 @@ class BaiduChannel(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_key: Platform credential API key from Baidu.
         :param pulumi.Input[builtins.str] application_id: The application ID.
         :param pulumi.Input[builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_key: Platform credential Secret key from Baidu.
         """
         ...
@@ -250,6 +284,7 @@ class BaiduChannel(pulumi.CustomResource):
                  api_key: Optional[pulumi.Input[builtins.str]] = None,
                  application_id: Optional[pulumi.Input[builtins.str]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secret_key: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -267,6 +302,7 @@ class BaiduChannel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
             __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["region"] = region
             if secret_key is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_key'")
             __props__.__dict__["secret_key"] = None if secret_key is None else pulumi.Output.secret(secret_key)
@@ -285,6 +321,7 @@ class BaiduChannel(pulumi.CustomResource):
             api_key: Optional[pulumi.Input[builtins.str]] = None,
             application_id: Optional[pulumi.Input[builtins.str]] = None,
             enabled: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             secret_key: Optional[pulumi.Input[builtins.str]] = None) -> 'BaiduChannel':
         """
         Get an existing BaiduChannel resource's state with the given name, id, and optional extra
@@ -296,6 +333,7 @@ class BaiduChannel(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_key: Platform credential API key from Baidu.
         :param pulumi.Input[builtins.str] application_id: The application ID.
         :param pulumi.Input[builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_key: Platform credential Secret key from Baidu.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -305,6 +343,7 @@ class BaiduChannel(pulumi.CustomResource):
         __props__.__dict__["api_key"] = api_key
         __props__.__dict__["application_id"] = application_id
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["region"] = region
         __props__.__dict__["secret_key"] = secret_key
         return BaiduChannel(resource_name, opts=opts, __props__=__props__)
 
@@ -331,6 +370,14 @@ class BaiduChannel(pulumi.CustomResource):
         Specifies whether to enable the channel. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="secretKey")

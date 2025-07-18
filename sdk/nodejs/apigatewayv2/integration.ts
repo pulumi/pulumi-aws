@@ -201,6 +201,10 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly payloadFormatVersion!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
      * For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
      * For HTTP APIs without a specified `integrationSubtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
@@ -256,6 +260,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["integrationUri"] = state ? state.integrationUri : undefined;
             resourceInputs["passthroughBehavior"] = state ? state.passthroughBehavior : undefined;
             resourceInputs["payloadFormatVersion"] = state ? state.payloadFormatVersion : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requestParameters"] = state ? state.requestParameters : undefined;
             resourceInputs["requestTemplates"] = state ? state.requestTemplates : undefined;
             resourceInputs["responseParameters"] = state ? state.responseParameters : undefined;
@@ -282,6 +287,7 @@ export class Integration extends pulumi.CustomResource {
             resourceInputs["integrationUri"] = args ? args.integrationUri : undefined;
             resourceInputs["passthroughBehavior"] = args ? args.passthroughBehavior : undefined;
             resourceInputs["payloadFormatVersion"] = args ? args.payloadFormatVersion : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["requestParameters"] = args ? args.requestParameters : undefined;
             resourceInputs["requestTemplates"] = args ? args.requestTemplates : undefined;
             resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
@@ -354,6 +360,10 @@ export interface IntegrationState {
      * The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
      */
     payloadFormatVersion?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
      * For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
@@ -440,6 +450,10 @@ export interface IntegrationArgs {
      * The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
      */
     payloadFormatVersion?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
      * For HTTP APIs with a specified `integrationSubtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.

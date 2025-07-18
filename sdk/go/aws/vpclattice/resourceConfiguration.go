@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,7 +62,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -101,7 +101,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -147,6 +147,8 @@ type ResourceConfiguration struct {
 	PortRanges pulumi.StringArrayOutput `pulumi:"portRanges"`
 	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
 	//
 	// The following arguments are optional:
@@ -158,8 +160,6 @@ type ResourceConfiguration struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput                 `pulumi:"tagsAll"`
 	Timeouts ResourceConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
@@ -206,6 +206,8 @@ type resourceConfigurationState struct {
 	PortRanges []string `pulumi:"portRanges"`
 	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
 	Protocol *string `pulumi:"protocol"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
 	//
 	// The following arguments are optional:
@@ -217,8 +219,6 @@ type resourceConfigurationState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string              `pulumi:"tagsAll"`
 	Timeouts *ResourceConfigurationTimeouts `pulumi:"timeouts"`
 	// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
@@ -236,6 +236,8 @@ type ResourceConfigurationState struct {
 	PortRanges pulumi.StringArrayInput
 	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
 	Protocol pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
 	//
 	// The following arguments are optional:
@@ -247,8 +249,6 @@ type ResourceConfigurationState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts ResourceConfigurationTimeoutsPtrInput
 	// Type of Resource Configuration. Must be one of `GROUP`, `CHILD`, `SINGLE`, `ARN`.
@@ -268,6 +268,8 @@ type resourceConfigurationArgs struct {
 	PortRanges []string `pulumi:"portRanges"`
 	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
 	Protocol *string `pulumi:"protocol"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
 	//
 	// The following arguments are optional:
@@ -293,6 +295,8 @@ type ResourceConfigurationArgs struct {
 	PortRanges pulumi.StringArrayInput
 	// Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
 	Protocol pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
 	//
 	// The following arguments are optional:
@@ -420,6 +424,11 @@ func (o ResourceConfigurationOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ResourceConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
 //
 // The following arguments are optional:
@@ -445,8 +454,6 @@ func (o ResourceConfigurationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ResourceConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

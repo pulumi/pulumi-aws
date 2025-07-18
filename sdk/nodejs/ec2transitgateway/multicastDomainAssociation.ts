@@ -56,6 +56,10 @@ export class MulticastDomainAssociation extends pulumi.CustomResource {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the subnet to associate with the transit gateway multicast domain.
      */
     public readonly subnetId!: pulumi.Output<string>;
@@ -81,6 +85,7 @@ export class MulticastDomainAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MulticastDomainAssociationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
             resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
             resourceInputs["transitGatewayMulticastDomainId"] = state ? state.transitGatewayMulticastDomainId : undefined;
@@ -95,6 +100,7 @@ export class MulticastDomainAssociation extends pulumi.CustomResource {
             if ((!args || args.transitGatewayMulticastDomainId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayMulticastDomainId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
             resourceInputs["transitGatewayMulticastDomainId"] = args ? args.transitGatewayMulticastDomainId : undefined;
@@ -108,6 +114,10 @@ export class MulticastDomainAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MulticastDomainAssociation resources.
  */
 export interface MulticastDomainAssociationState {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the subnet to associate with the transit gateway multicast domain.
      */
@@ -126,6 +136,10 @@ export interface MulticastDomainAssociationState {
  * The set of arguments for constructing a MulticastDomainAssociation resource.
  */
 export interface MulticastDomainAssociationArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the subnet to associate with the transit gateway multicast domain.
      */

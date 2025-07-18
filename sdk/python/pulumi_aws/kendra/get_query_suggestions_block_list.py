@@ -28,7 +28,7 @@ class GetQuerySuggestionsBlockListResult:
     """
     A collection of values returned by getQuerySuggestionsBlockList.
     """
-    def __init__(__self__, arn=None, created_at=None, description=None, error_message=None, file_size_bytes=None, id=None, index_id=None, item_count=None, name=None, query_suggestions_block_list_id=None, role_arn=None, source_s3_paths=None, status=None, tags=None, updated_at=None):
+    def __init__(__self__, arn=None, created_at=None, description=None, error_message=None, file_size_bytes=None, id=None, index_id=None, item_count=None, name=None, query_suggestions_block_list_id=None, region=None, role_arn=None, source_s3_paths=None, status=None, tags=None, updated_at=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -59,6 +59,9 @@ class GetQuerySuggestionsBlockListResult:
         if query_suggestions_block_list_id and not isinstance(query_suggestions_block_list_id, str):
             raise TypeError("Expected argument 'query_suggestions_block_list_id' to be a str")
         pulumi.set(__self__, "query_suggestions_block_list_id", query_suggestions_block_list_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -150,6 +153,11 @@ class GetQuerySuggestionsBlockListResult:
         return pulumi.get(self, "query_suggestions_block_list_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> builtins.str:
         """
@@ -206,6 +214,7 @@ class AwaitableGetQuerySuggestionsBlockListResult(GetQuerySuggestionsBlockListRe
             item_count=self.item_count,
             name=self.name,
             query_suggestions_block_list_id=self.query_suggestions_block_list_id,
+            region=self.region,
             role_arn=self.role_arn,
             source_s3_paths=self.source_s3_paths,
             status=self.status,
@@ -215,6 +224,7 @@ class AwaitableGetQuerySuggestionsBlockListResult(GetQuerySuggestionsBlockListRe
 
 def get_query_suggestions_block_list(index_id: Optional[builtins.str] = None,
                                      query_suggestions_block_list_id: Optional[builtins.str] = None,
+                                     region: Optional[builtins.str] = None,
                                      tags: Optional[Mapping[str, builtins.str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQuerySuggestionsBlockListResult:
     """
@@ -233,11 +243,13 @@ def get_query_suggestions_block_list(index_id: Optional[builtins.str] = None,
 
     :param builtins.str index_id: Identifier of the index that contains the block list.
     :param builtins.str query_suggestions_block_list_id: Identifier of the block list.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that helps organize the block list you create.
     """
     __args__ = dict()
     __args__['indexId'] = index_id
     __args__['querySuggestionsBlockListId'] = query_suggestions_block_list_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList', __args__, opts=opts, typ=GetQuerySuggestionsBlockListResult).value
@@ -253,6 +265,7 @@ def get_query_suggestions_block_list(index_id: Optional[builtins.str] = None,
         item_count=pulumi.get(__ret__, 'item_count'),
         name=pulumi.get(__ret__, 'name'),
         query_suggestions_block_list_id=pulumi.get(__ret__, 'query_suggestions_block_list_id'),
+        region=pulumi.get(__ret__, 'region'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         source_s3_paths=pulumi.get(__ret__, 'source_s3_paths'),
         status=pulumi.get(__ret__, 'status'),
@@ -260,6 +273,7 @@ def get_query_suggestions_block_list(index_id: Optional[builtins.str] = None,
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_query_suggestions_block_list_output(index_id: Optional[pulumi.Input[builtins.str]] = None,
                                             query_suggestions_block_list_id: Optional[pulumi.Input[builtins.str]] = None,
+                                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                             tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQuerySuggestionsBlockListResult]:
     """
@@ -278,11 +292,13 @@ def get_query_suggestions_block_list_output(index_id: Optional[pulumi.Input[buil
 
     :param builtins.str index_id: Identifier of the index that contains the block list.
     :param builtins.str query_suggestions_block_list_id: Identifier of the block list.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that helps organize the block list you create.
     """
     __args__ = dict()
     __args__['indexId'] = index_id
     __args__['querySuggestionsBlockListId'] = query_suggestions_block_list_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList', __args__, opts=opts, typ=GetQuerySuggestionsBlockListResult)
@@ -297,6 +313,7 @@ def get_query_suggestions_block_list_output(index_id: Optional[pulumi.Input[buil
         item_count=pulumi.get(__response__, 'item_count'),
         name=pulumi.get(__response__, 'name'),
         query_suggestions_block_list_id=pulumi.get(__response__, 'query_suggestions_block_list_id'),
+        region=pulumi.get(__response__, 'region'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         source_s3_paths=pulumi.get(__response__, 'source_s3_paths'),
         status=pulumi.get(__response__, 'status'),

@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+ * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
  * import com.pulumi.aws.ssoadmin.inputs.GetPermissionSetArgs;
  * import com.pulumi.aws.identitystore.IdentitystoreFunctions;
  * import com.pulumi.aws.identitystore.inputs.GetGroupArgs;
@@ -50,7 +51,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+ *             .build());
  * 
  *         final var exampleGetPermissionSet = SsoadminFunctions.getPermissionSet(GetPermissionSetArgs.builder()
  *             .instanceArn(example.arns()[0])
@@ -95,6 +97,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+ * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
  * import com.pulumi.aws.ssoadmin.PermissionSet;
  * import com.pulumi.aws.ssoadmin.PermissionSetArgs;
  * import com.pulumi.aws.identitystore.Group;
@@ -117,7 +120,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+ *             .build());
  * 
  *         var examplePermissionSet = new PermissionSet("examplePermissionSet", PermissionSetArgs.builder()
  *             .name("Example")
@@ -219,6 +223,20 @@ public class AccountAssignment extends com.pulumi.resources.CustomResource {
      */
     public Output<String> principalType() {
         return this.principalType;
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * An AWS account identifier, typically a 10-12 digit string.

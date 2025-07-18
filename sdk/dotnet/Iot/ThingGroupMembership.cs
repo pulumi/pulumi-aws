@@ -50,6 +50,12 @@ namespace Pulumi.Aws.Iot
         public Output<bool?> OverrideDynamicGroup { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the group to which you are adding a thing.
         /// </summary>
         [Output("thingGroupName")]
@@ -114,6 +120,12 @@ namespace Pulumi.Aws.Iot
         public Input<bool>? OverrideDynamicGroup { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name of the group to which you are adding a thing.
         /// </summary>
         [Input("thingGroupName", required: true)]
@@ -138,6 +150,12 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         [Input("overrideDynamicGroup")]
         public Input<bool>? OverrideDynamicGroup { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name of the group to which you are adding a thing.

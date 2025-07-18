@@ -90,6 +90,21 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.hostedZoneId);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private DomainNameState() {}
 
     private DomainNameState(DomainNameState $) {
@@ -98,6 +113,7 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.domainName = $.domainName;
         this.hostedZoneId = $.hostedZoneId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -221,6 +237,27 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder hostedZoneId(String hostedZoneId) {
             return hostedZoneId(Output.of(hostedZoneId));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public DomainNameState build() {

@@ -27,6 +27,7 @@ class StreamArgs:
                  enforce_consumer_deletion: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  shard_count: Optional[pulumi.Input[builtins.int]] = None,
                  shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -39,6 +40,7 @@ class StreamArgs:
         :param pulumi.Input[builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
         :param pulumi.Input[builtins.str] kms_key_id: The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
         :param pulumi.Input[builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
         :param pulumi.Input[builtins.int] shard_count: The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
                Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
@@ -56,6 +58,8 @@ class StreamArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retention_period is not None:
             pulumi.set(__self__, "retention_period", retention_period)
         if shard_count is not None:
@@ -126,6 +130,18 @@ class StreamArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="retentionPeriod")
@@ -197,6 +213,7 @@ class _StreamState:
                  enforce_consumer_deletion: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  shard_count: Optional[pulumi.Input[builtins.int]] = None,
                  shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -210,6 +227,7 @@ class _StreamState:
         :param pulumi.Input[builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
         :param pulumi.Input[builtins.str] kms_key_id: The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
         :param pulumi.Input[builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
         :param pulumi.Input[builtins.int] shard_count: The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
                Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
@@ -228,6 +246,8 @@ class _StreamState:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retention_period is not None:
             pulumi.set(__self__, "retention_period", retention_period)
         if shard_count is not None:
@@ -238,9 +258,6 @@ class _StreamState:
             pulumi.set(__self__, "stream_mode_details", stream_mode_details)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -305,6 +322,18 @@ class _StreamState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -367,7 +396,6 @@ class _StreamState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -390,6 +418,7 @@ class Stream(pulumi.CustomResource):
                  enforce_consumer_deletion: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  shard_count: Optional[pulumi.Input[builtins.int]] = None,
                  shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -439,6 +468,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
         :param pulumi.Input[builtins.str] kms_key_id: The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
         :param pulumi.Input[builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
         :param pulumi.Input[builtins.int] shard_count: The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
                Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
@@ -508,6 +538,7 @@ class Stream(pulumi.CustomResource):
                  enforce_consumer_deletion: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  shard_count: Optional[pulumi.Input[builtins.int]] = None,
                  shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -527,6 +558,7 @@ class Stream(pulumi.CustomResource):
             __props__.__dict__["enforce_consumer_deletion"] = enforce_consumer_deletion
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["retention_period"] = retention_period
             __props__.__dict__["shard_count"] = shard_count
             __props__.__dict__["shard_level_metrics"] = shard_level_metrics
@@ -548,6 +580,7 @@ class Stream(pulumi.CustomResource):
             enforce_consumer_deletion: Optional[pulumi.Input[builtins.bool]] = None,
             kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             retention_period: Optional[pulumi.Input[builtins.int]] = None,
             shard_count: Optional[pulumi.Input[builtins.int]] = None,
             shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -566,6 +599,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
         :param pulumi.Input[builtins.str] kms_key_id: The GUID for the customer-managed KMS key to use for encryption. You can also use a Kinesis-owned master key by specifying the alias `alias/aws/kinesis`.
         :param pulumi.Input[builtins.str] name: A name to identify the stream. This is unique to the AWS account and region the Stream is created in.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period: Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
         :param pulumi.Input[builtins.int] shard_count: The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
                Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
@@ -583,6 +617,7 @@ class Stream(pulumi.CustomResource):
         __props__.__dict__["enforce_consumer_deletion"] = enforce_consumer_deletion
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["retention_period"] = retention_period
         __props__.__dict__["shard_count"] = shard_count
         __props__.__dict__["shard_level_metrics"] = shard_level_metrics
@@ -632,6 +667,14 @@ class Stream(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> pulumi.Output[Optional[builtins.int]]:
         """
@@ -674,7 +717,6 @@ class Stream(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

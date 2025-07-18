@@ -111,6 +111,21 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         return this.policyReferenceName;
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="sseSpecification")
     private @Nullable Output<TrustProviderSseSpecificationArgs> sseSpecification;
 
@@ -176,6 +191,7 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.nativeApplicationOidcOptions = $.nativeApplicationOidcOptions;
         this.oidcOptions = $.oidcOptions;
         this.policyReferenceName = $.policyReferenceName;
+        this.region = $.region;
         this.sseSpecification = $.sseSpecification;
         this.tags = $.tags;
         this.trustProviderType = $.trustProviderType;
@@ -324,6 +340,27 @@ public final class TrustProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder policyReferenceName(String policyReferenceName) {
             return policyReferenceName(Output.of(policyReferenceName));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder sseSpecification(@Nullable Output<TrustProviderSseSpecificationArgs> sseSpecification) {

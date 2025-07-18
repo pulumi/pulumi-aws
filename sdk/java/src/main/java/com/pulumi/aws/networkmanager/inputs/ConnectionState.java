@@ -17,14 +17,14 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
     public static final ConnectionState Empty = new ConnectionState();
 
     /**
-     * The Amazon Resource Name (ARN) of the connection.
+     * ARN of the connection.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the connection.
+     * @return ARN of the connection.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -32,14 +32,14 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the second device in the connection.
+     * ID of the second device in the connection.
      * 
      */
     @Import(name="connectedDeviceId")
     private @Nullable Output<String> connectedDeviceId;
 
     /**
-     * @return The ID of the second device in the connection.
+     * @return ID of the second device in the connection.
      * 
      */
     public Optional<Output<String>> connectedDeviceId() {
@@ -47,14 +47,14 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the link for the second device.
+     * ID of the link for the second device.
      * 
      */
     @Import(name="connectedLinkId")
     private @Nullable Output<String> connectedLinkId;
 
     /**
-     * @return The ID of the link for the second device.
+     * @return ID of the link for the second device.
      * 
      */
     public Optional<Output<String>> connectedLinkId() {
@@ -62,14 +62,14 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A description of the connection.
+     * Description of the connection.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return A description of the connection.
+     * @return Description of the connection.
      * 
      */
     public Optional<Output<String>> description() {
@@ -77,14 +77,14 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the first device in the connection.
+     * ID of the first device in the connection.
      * 
      */
     @Import(name="deviceId")
     private @Nullable Output<String> deviceId;
 
     /**
-     * @return The ID of the first device in the connection.
+     * @return ID of the first device in the connection.
      * 
      */
     public Optional<Output<String>> deviceId() {
@@ -92,14 +92,18 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the global network.
+     * ID of the global network.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="globalNetworkId")
     private @Nullable Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the global network.
+     * @return ID of the global network.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> globalNetworkId() {
@@ -107,14 +111,14 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the link for the first device.
+     * ID of the link for the first device.
      * 
      */
     @Import(name="linkId")
     private @Nullable Output<String> linkId;
 
     /**
-     * @return The ID of the link for the first device.
+     * @return ID of the link for the first device.
      * 
      */
     public Optional<Output<String>> linkId() {
@@ -137,24 +141,16 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * Please use `tags` instead.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -192,7 +188,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the connection.
+         * @param arn ARN of the connection.
          * 
          * @return builder
          * 
@@ -203,7 +199,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the connection.
+         * @param arn ARN of the connection.
          * 
          * @return builder
          * 
@@ -213,7 +209,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectedDeviceId The ID of the second device in the connection.
+         * @param connectedDeviceId ID of the second device in the connection.
          * 
          * @return builder
          * 
@@ -224,7 +220,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectedDeviceId The ID of the second device in the connection.
+         * @param connectedDeviceId ID of the second device in the connection.
          * 
          * @return builder
          * 
@@ -234,7 +230,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectedLinkId The ID of the link for the second device.
+         * @param connectedLinkId ID of the link for the second device.
          * 
          * @return builder
          * 
@@ -245,7 +241,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectedLinkId The ID of the link for the second device.
+         * @param connectedLinkId ID of the link for the second device.
          * 
          * @return builder
          * 
@@ -255,7 +251,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the connection.
+         * @param description Description of the connection.
          * 
          * @return builder
          * 
@@ -266,7 +262,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description A description of the connection.
+         * @param description Description of the connection.
          * 
          * @return builder
          * 
@@ -276,7 +272,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceId The ID of the first device in the connection.
+         * @param deviceId ID of the first device in the connection.
          * 
          * @return builder
          * 
@@ -287,7 +283,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deviceId The ID of the first device in the connection.
+         * @param deviceId ID of the first device in the connection.
          * 
          * @return builder
          * 
@@ -297,7 +293,9 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the global network.
+         * @param globalNetworkId ID of the global network.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -308,7 +306,9 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalNetworkId The ID of the global network.
+         * @param globalNetworkId ID of the global network.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param linkId The ID of the link for the first device.
+         * @param linkId ID of the link for the first device.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param linkId The ID of the link for the first device.
+         * @param linkId ID of the link for the first device.
          * 
          * @return builder
          * 
@@ -360,30 +360,22 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

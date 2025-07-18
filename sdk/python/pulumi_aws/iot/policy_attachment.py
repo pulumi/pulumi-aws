@@ -21,14 +21,18 @@ __all__ = ['PolicyAttachmentArgs', 'PolicyAttachment']
 class PolicyAttachmentArgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[builtins.str],
-                 target: pulumi.Input[builtins.str]):
+                 target: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyAttachment resource.
         :param pulumi.Input[builtins.str] policy: The name of the policy to attach.
         :param pulumi.Input[builtins.str] target: The identity to which the policy is attached.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "target", target)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -54,19 +58,35 @@ class PolicyAttachmentArgs:
     def target(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "target", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _PolicyAttachmentState:
     def __init__(__self__, *,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyAttachment resources.
         :param pulumi.Input[builtins.str] policy: The name of the policy to attach.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target: The identity to which the policy is attached.
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if target is not None:
             pulumi.set(__self__, "target", target)
 
@@ -81,6 +101,18 @@ class _PolicyAttachmentState:
     @policy.setter
     def policy(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -102,6 +134,7 @@ class PolicyAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -133,6 +166,7 @@ class PolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] policy: The name of the policy to attach.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target: The identity to which the policy is attached.
         """
         ...
@@ -183,6 +217,7 @@ class PolicyAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -196,6 +231,7 @@ class PolicyAttachment(pulumi.CustomResource):
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
+            __props__.__dict__["region"] = region
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__.__dict__["target"] = target
@@ -210,6 +246,7 @@ class PolicyAttachment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             policy: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             target: Optional[pulumi.Input[builtins.str]] = None) -> 'PolicyAttachment':
         """
         Get an existing PolicyAttachment resource's state with the given name, id, and optional extra
@@ -219,6 +256,7 @@ class PolicyAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] policy: The name of the policy to attach.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target: The identity to which the policy is attached.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -226,6 +264,7 @@ class PolicyAttachment(pulumi.CustomResource):
         __props__ = _PolicyAttachmentState.__new__(_PolicyAttachmentState)
 
         __props__.__dict__["policy"] = policy
+        __props__.__dict__["region"] = region
         __props__.__dict__["target"] = target
         return PolicyAttachment(resource_name, opts=opts, __props__=__props__)
 
@@ -236,6 +275,14 @@ class PolicyAttachment(pulumi.CustomResource):
         The name of the policy to attach.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

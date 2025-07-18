@@ -68,6 +68,12 @@ namespace Pulumi.Aws.SesV2
         [Output("mailFromDomain")]
         public Output<string?> MailFromDomain { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a EmailIdentityMailFromAttributes resource with the given unique name, arguments, and options.
@@ -132,6 +138,12 @@ namespace Pulumi.Aws.SesV2
         [Input("mailFromDomain")]
         public Input<string>? MailFromDomain { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public EmailIdentityMailFromAttributesArgs()
         {
         }
@@ -157,6 +169,12 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         [Input("mailFromDomain")]
         public Input<string>? MailFromDomain { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public EmailIdentityMailFromAttributesState()
         {

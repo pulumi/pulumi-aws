@@ -151,6 +151,12 @@ namespace Pulumi.Aws.Fsx
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("snapshotIds")]
         private List<string>? _snapshotIds;
 
@@ -208,6 +214,12 @@ namespace Pulumi.Aws.Fsx
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("snapshotIds")]
         private InputList<string>? _snapshotIds;
 
@@ -260,6 +272,7 @@ namespace Pulumi.Aws.Fsx
         /// Name of the snapshot.
         /// </summary>
         public readonly string? Name;
+        public readonly string Region;
         /// <summary>
         /// ID of the snapshot.
         /// </summary>
@@ -288,6 +301,8 @@ namespace Pulumi.Aws.Fsx
 
             string? name,
 
+            string region,
+
             string snapshotId,
 
             ImmutableArray<string> snapshotIds,
@@ -302,6 +317,7 @@ namespace Pulumi.Aws.Fsx
             Id = id;
             MostRecent = mostRecent;
             Name = name;
+            Region = region;
             SnapshotId = snapshotId;
             SnapshotIds = snapshotIds;
             Tags = tags;

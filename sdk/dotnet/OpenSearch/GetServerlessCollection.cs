@@ -101,9 +101,17 @@ namespace Pulumi.Aws.OpenSearch
 
         /// <summary>
         /// Name of the collection.
+        /// 
+        /// &gt; Exactly one of `id` or `name` is required.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
 
         public GetServerlessCollectionArgs()
         {
@@ -121,9 +129,17 @@ namespace Pulumi.Aws.OpenSearch
 
         /// <summary>
         /// Name of the collection.
+        /// 
+        /// &gt; Exactly one of `id` or `name` is required.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetServerlessCollectionInvokeArgs()
         {
@@ -170,6 +186,7 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         public readonly string LastModifiedDate;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Indicates whether standby replicas should be used for a collection.
         /// </summary>
@@ -207,6 +224,8 @@ namespace Pulumi.Aws.OpenSearch
 
             string name,
 
+            string region,
+
             string standbyReplicas,
 
             ImmutableDictionary<string, string> tags,
@@ -224,6 +243,7 @@ namespace Pulumi.Aws.OpenSearch
             KmsKeyArn = kmsKeyArn;
             LastModifiedDate = lastModifiedDate;
             Name = name;
+            Region = region;
             StandbyReplicas = standbyReplicas;
             Tags = tags;
             Type = type;

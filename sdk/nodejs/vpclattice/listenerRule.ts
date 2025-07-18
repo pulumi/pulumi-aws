@@ -149,6 +149,10 @@ export class ListenerRule extends pulumi.CustomResource {
      */
     public readonly priority!: pulumi.Output<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Unique identifier for the listener rule.
      */
     public /*out*/ readonly ruleId!: pulumi.Output<string>;
@@ -162,8 +166,6 @@ export class ListenerRule extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -186,6 +188,7 @@ export class ListenerRule extends pulumi.CustomResource {
             resourceInputs["match"] = state ? state.match : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["ruleId"] = state ? state.ruleId : undefined;
             resourceInputs["serviceIdentifier"] = state ? state.serviceIdentifier : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -212,6 +215,7 @@ export class ListenerRule extends pulumi.CustomResource {
             resourceInputs["match"] = args ? args.match : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceIdentifier"] = args ? args.serviceIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -256,6 +260,10 @@ export interface ListenerRuleState {
      */
     priority?: pulumi.Input<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Unique identifier for the listener rule.
      */
     ruleId?: pulumi.Input<string>;
@@ -269,8 +277,6 @@ export interface ListenerRuleState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -303,6 +309,10 @@ export interface ListenerRuleArgs {
      * The following arguments are optional:
      */
     priority: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
      */

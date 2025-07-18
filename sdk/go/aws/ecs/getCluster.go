@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,6 +53,8 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 type LookupClusterArgs struct {
 	// Name of the ECS Cluster
 	ClusterName string `pulumi:"clusterName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -65,7 +67,8 @@ type LookupClusterResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Number of pending tasks for the ECS Cluster
-	PendingTasksCount int `pulumi:"pendingTasksCount"`
+	PendingTasksCount int    `pulumi:"pendingTasksCount"`
+	Region            string `pulumi:"region"`
 	// The number of registered container instances for the ECS Cluster
 	RegisteredContainerInstancesCount int `pulumi:"registeredContainerInstancesCount"`
 	// Number of running tasks for the ECS Cluster
@@ -93,6 +96,8 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 type LookupClusterOutputArgs struct {
 	// Name of the ECS Cluster
 	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -133,6 +138,10 @@ func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
 // Number of pending tasks for the ECS Cluster
 func (o LookupClusterResultOutput) PendingTasksCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.PendingTasksCount }).(pulumi.IntOutput)
+}
+
+func (o LookupClusterResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The number of registered container instances for the ECS Cluster

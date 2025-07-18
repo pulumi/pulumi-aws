@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,7 +44,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -93,6 +93,8 @@ type GetQueryLogConfigArgs struct {
 	Filters []GetQueryLogConfigFilter `pulumi:"filters"`
 	// The name of the query logging configuration.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the Route53 Resolver Query Logging Configuration.
 	ResolverQueryLogConfigId *string `pulumi:"resolverQueryLogConfigId"`
 	// Map of tags to assign to the service.
@@ -112,6 +114,7 @@ type GetQueryLogConfigResult struct {
 	Name *string `pulumi:"name"`
 	// The AWS account ID for the account that created the query logging configuration.
 	OwnerId                  string  `pulumi:"ownerId"`
+	Region                   string  `pulumi:"region"`
 	ResolverQueryLogConfigId *string `pulumi:"resolverQueryLogConfigId"`
 	// An indication of whether the query logging configuration is shared with other AWS accounts or was shared with the current account by another AWS account.
 	ShareStatus string `pulumi:"shareStatus"`
@@ -136,6 +139,8 @@ type GetQueryLogConfigOutputArgs struct {
 	Filters GetQueryLogConfigFilterArrayInput `pulumi:"filters"`
 	// The name of the query logging configuration.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the Route53 Resolver Query Logging Configuration.
 	ResolverQueryLogConfigId pulumi.StringPtrInput `pulumi:"resolverQueryLogConfigId"`
 	// Map of tags to assign to the service.
@@ -188,6 +193,10 @@ func (o GetQueryLogConfigResultOutput) Name() pulumi.StringPtrOutput {
 // The AWS account ID for the account that created the query logging configuration.
 func (o GetQueryLogConfigResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetQueryLogConfigResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o GetQueryLogConfigResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetQueryLogConfigResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetQueryLogConfigResultOutput) ResolverQueryLogConfigId() pulumi.StringPtrOutput {

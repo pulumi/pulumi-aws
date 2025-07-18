@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,6 +30,8 @@ type IdentityPoolProviderPrincipalTag struct {
 	IdentityProviderName pulumi.StringOutput `pulumi:"identityProviderName"`
 	// String to string map of variables.
 	PrincipalTags pulumi.StringMapOutput `pulumi:"principalTags"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// use default (username and clientID) attribute mappings.
 	UseDefaults pulumi.BoolPtrOutput `pulumi:"useDefaults"`
 }
@@ -76,6 +78,8 @@ type identityPoolProviderPrincipalTagState struct {
 	IdentityProviderName *string `pulumi:"identityProviderName"`
 	// String to string map of variables.
 	PrincipalTags map[string]string `pulumi:"principalTags"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// use default (username and clientID) attribute mappings.
 	UseDefaults *bool `pulumi:"useDefaults"`
 }
@@ -87,6 +91,8 @@ type IdentityPoolProviderPrincipalTagState struct {
 	IdentityProviderName pulumi.StringPtrInput
 	// String to string map of variables.
 	PrincipalTags pulumi.StringMapInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// use default (username and clientID) attribute mappings.
 	UseDefaults pulumi.BoolPtrInput
 }
@@ -102,6 +108,8 @@ type identityPoolProviderPrincipalTagArgs struct {
 	IdentityProviderName string `pulumi:"identityProviderName"`
 	// String to string map of variables.
 	PrincipalTags map[string]string `pulumi:"principalTags"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// use default (username and clientID) attribute mappings.
 	UseDefaults *bool `pulumi:"useDefaults"`
 }
@@ -114,6 +122,8 @@ type IdentityPoolProviderPrincipalTagArgs struct {
 	IdentityProviderName pulumi.StringInput
 	// String to string map of variables.
 	PrincipalTags pulumi.StringMapInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// use default (username and clientID) attribute mappings.
 	UseDefaults pulumi.BoolPtrInput
 }
@@ -218,6 +228,11 @@ func (o IdentityPoolProviderPrincipalTagOutput) IdentityProviderName() pulumi.St
 // String to string map of variables.
 func (o IdentityPoolProviderPrincipalTagOutput) PrincipalTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IdentityPoolProviderPrincipalTag) pulumi.StringMapOutput { return v.PrincipalTags }).(pulumi.StringMapOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o IdentityPoolProviderPrincipalTagOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *IdentityPoolProviderPrincipalTag) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // use default (username and clientID) attribute mappings.

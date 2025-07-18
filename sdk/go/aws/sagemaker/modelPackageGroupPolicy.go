@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,7 +28,9 @@ type ModelPackageGroupPolicy struct {
 
 	// The name of the model package group.
 	ModelPackageGroupName pulumi.StringOutput `pulumi:"modelPackageGroupName"`
-	ResourcePolicy        pulumi.StringOutput `pulumi:"resourcePolicy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region         pulumi.StringOutput `pulumi:"region"`
+	ResourcePolicy pulumi.StringOutput `pulumi:"resourcePolicy"`
 }
 
 // NewModelPackageGroupPolicy registers a new resource with the given unique name, arguments, and options.
@@ -69,13 +71,17 @@ func GetModelPackageGroupPolicy(ctx *pulumi.Context,
 type modelPackageGroupPolicyState struct {
 	// The name of the model package group.
 	ModelPackageGroupName *string `pulumi:"modelPackageGroupName"`
-	ResourcePolicy        *string `pulumi:"resourcePolicy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region         *string `pulumi:"region"`
+	ResourcePolicy *string `pulumi:"resourcePolicy"`
 }
 
 type ModelPackageGroupPolicyState struct {
 	// The name of the model package group.
 	ModelPackageGroupName pulumi.StringPtrInput
-	ResourcePolicy        pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region         pulumi.StringPtrInput
+	ResourcePolicy pulumi.StringPtrInput
 }
 
 func (ModelPackageGroupPolicyState) ElementType() reflect.Type {
@@ -85,14 +91,18 @@ func (ModelPackageGroupPolicyState) ElementType() reflect.Type {
 type modelPackageGroupPolicyArgs struct {
 	// The name of the model package group.
 	ModelPackageGroupName string `pulumi:"modelPackageGroupName"`
-	ResourcePolicy        string `pulumi:"resourcePolicy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region         *string `pulumi:"region"`
+	ResourcePolicy string  `pulumi:"resourcePolicy"`
 }
 
 // The set of arguments for constructing a ModelPackageGroupPolicy resource.
 type ModelPackageGroupPolicyArgs struct {
 	// The name of the model package group.
 	ModelPackageGroupName pulumi.StringInput
-	ResourcePolicy        pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region         pulumi.StringPtrInput
+	ResourcePolicy pulumi.StringInput
 }
 
 func (ModelPackageGroupPolicyArgs) ElementType() reflect.Type {
@@ -185,6 +195,11 @@ func (o ModelPackageGroupPolicyOutput) ToModelPackageGroupPolicyOutputWithContex
 // The name of the model package group.
 func (o ModelPackageGroupPolicyOutput) ModelPackageGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelPackageGroupPolicy) pulumi.StringOutput { return v.ModelPackageGroupName }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ModelPackageGroupPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ModelPackageGroupPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o ModelPackageGroupPolicyOutput) ResourcePolicy() pulumi.StringOutput {

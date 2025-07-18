@@ -204,6 +204,21 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      * 
      */
@@ -357,6 +372,7 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
         this.finalBackupTags = $.finalBackupTags;
         this.kmsKeyId = $.kmsKeyId;
         this.preferredSubnetId = $.preferredSubnetId;
+        this.region = $.region;
         this.securityGroupIds = $.securityGroupIds;
         this.selfManagedActiveDirectory = $.selfManagedActiveDirectory;
         this.skipFinalBackup = $.skipFinalBackup;
@@ -646,6 +662,27 @@ public final class WindowsFileSystemArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder preferredSubnetId(String preferredSubnetId) {
             return preferredSubnetId(Output.of(preferredSubnetId));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

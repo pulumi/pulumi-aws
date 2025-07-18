@@ -141,6 +141,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly outboundCallsEnabled!: pulumi.Output<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The service role of the instance.
      */
     public /*out*/ readonly serviceRole!: pulumi.Output<string>;
@@ -155,8 +159,6 @@ export class Instance extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -185,6 +187,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["instanceAlias"] = state ? state.instanceAlias : undefined;
             resourceInputs["multiPartyConferenceEnabled"] = state ? state.multiPartyConferenceEnabled : undefined;
             resourceInputs["outboundCallsEnabled"] = state ? state.outboundCallsEnabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -210,6 +213,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["instanceAlias"] = args ? args.instanceAlias : undefined;
             resourceInputs["multiPartyConferenceEnabled"] = args ? args.multiPartyConferenceEnabled : undefined;
             resourceInputs["outboundCallsEnabled"] = args ? args.outboundCallsEnabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
@@ -275,6 +279,10 @@ export interface InstanceState {
      */
     outboundCallsEnabled?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The service role of the instance.
      */
     serviceRole?: pulumi.Input<string>;
@@ -289,8 +297,6 @@ export interface InstanceState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -339,6 +345,10 @@ export interface InstanceArgs {
      * Specifies whether outbound calls are enabled.
      */
     outboundCallsEnabled: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Tags to apply to the Instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * <!-- * `useCustomTtsVoices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupResourcePolicy(ctx *pulumi.Context, args *LookupResourcePolicyArgs, o
 
 // A collection of arguments for invoking getResourcePolicy.
 type LookupResourcePolicyArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Resource ARN of the resource for which a policy is retrieved.
 	ResourceArn string `pulumi:"resourceArn"`
 }
@@ -62,6 +64,7 @@ type LookupResourcePolicyResult struct {
 	Id string `pulumi:"id"`
 	// JSON-encoded string representation of the applied resource policy.
 	Policy      string `pulumi:"policy"`
+	Region      string `pulumi:"region"`
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -76,6 +79,8 @@ func LookupResourcePolicyOutput(ctx *pulumi.Context, args LookupResourcePolicyOu
 
 // A collection of arguments for invoking getResourcePolicy.
 type LookupResourcePolicyOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Resource ARN of the resource for which a policy is retrieved.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
@@ -107,6 +112,10 @@ func (o LookupResourcePolicyResultOutput) Id() pulumi.StringOutput {
 // JSON-encoded string representation of the applied resource policy.
 func (o LookupResourcePolicyResultOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourcePolicyResult) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+func (o LookupResourcePolicyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourcePolicyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupResourcePolicyResultOutput) ResourceArn() pulumi.StringOutput {

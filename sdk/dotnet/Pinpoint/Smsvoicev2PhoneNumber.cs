@@ -102,6 +102,12 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string> PhoneNumber { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Use this field to attach your phone number for an external registration process.
         /// </summary>
         [Output("registrationId")]
@@ -232,6 +238,12 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? OptOutListName { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Use this field to attach your phone number for an external registration process.
         /// </summary>
         [Input("registrationId")]
@@ -341,6 +353,12 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? PhoneNumber { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Use this field to attach your phone number for an external registration process.
         /// </summary>
         [Input("registrationId")]
@@ -366,7 +384,6 @@ namespace Pulumi.Aws.Pinpoint
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

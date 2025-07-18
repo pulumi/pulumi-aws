@@ -27,7 +27,7 @@ class GetEngineVersionResult:
     """
     A collection of values returned by getEngineVersion.
     """
-    def __init__(__self__, engine=None, engine_description=None, exportable_log_types=None, id=None, parameter_group_family=None, preferred_versions=None, supports_log_exports_to_cloudwatch=None, valid_upgrade_targets=None, version=None, version_description=None):
+    def __init__(__self__, engine=None, engine_description=None, exportable_log_types=None, id=None, parameter_group_family=None, preferred_versions=None, region=None, supports_log_exports_to_cloudwatch=None, valid_upgrade_targets=None, version=None, version_description=None):
         if engine and not isinstance(engine, str):
             raise TypeError("Expected argument 'engine' to be a str")
         pulumi.set(__self__, "engine", engine)
@@ -46,6 +46,9 @@ class GetEngineVersionResult:
         if preferred_versions and not isinstance(preferred_versions, list):
             raise TypeError("Expected argument 'preferred_versions' to be a list")
         pulumi.set(__self__, "preferred_versions", preferred_versions)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if supports_log_exports_to_cloudwatch and not isinstance(supports_log_exports_to_cloudwatch, bool):
             raise TypeError("Expected argument 'supports_log_exports_to_cloudwatch' to be a bool")
         pulumi.set(__self__, "supports_log_exports_to_cloudwatch", supports_log_exports_to_cloudwatch)
@@ -99,6 +102,11 @@ class GetEngineVersionResult:
         return pulumi.get(self, "preferred_versions")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="supportsLogExportsToCloudwatch")
     def supports_log_exports_to_cloudwatch(self) -> builtins.bool:
         """
@@ -140,6 +148,7 @@ class AwaitableGetEngineVersionResult(GetEngineVersionResult):
             id=self.id,
             parameter_group_family=self.parameter_group_family,
             preferred_versions=self.preferred_versions,
+            region=self.region,
             supports_log_exports_to_cloudwatch=self.supports_log_exports_to_cloudwatch,
             valid_upgrade_targets=self.valid_upgrade_targets,
             version=self.version,
@@ -149,6 +158,7 @@ class AwaitableGetEngineVersionResult(GetEngineVersionResult):
 def get_engine_version(engine: Optional[builtins.str] = None,
                        parameter_group_family: Optional[builtins.str] = None,
                        preferred_versions: Optional[Sequence[builtins.str]] = None,
+                       region: Optional[builtins.str] = None,
                        version: Optional[builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEngineVersionResult:
     """
@@ -167,12 +177,14 @@ def get_engine_version(engine: Optional[builtins.str] = None,
     :param builtins.str engine: DB engine. (Default: `docdb`)
     :param builtins.str parameter_group_family: Name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
     :param Sequence[builtins.str] preferred_versions: Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str version: Version of the DB engine. For example, `3.6.0`. If `version` and `preferred_versions` are not set, the data source will provide information for the AWS-defined default version. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
     """
     __args__ = dict()
     __args__['engine'] = engine
     __args__['parameterGroupFamily'] = parameter_group_family
     __args__['preferredVersions'] = preferred_versions
+    __args__['region'] = region
     __args__['version'] = version
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:docdb/getEngineVersion:getEngineVersion', __args__, opts=opts, typ=GetEngineVersionResult).value
@@ -184,6 +196,7 @@ def get_engine_version(engine: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         parameter_group_family=pulumi.get(__ret__, 'parameter_group_family'),
         preferred_versions=pulumi.get(__ret__, 'preferred_versions'),
+        region=pulumi.get(__ret__, 'region'),
         supports_log_exports_to_cloudwatch=pulumi.get(__ret__, 'supports_log_exports_to_cloudwatch'),
         valid_upgrade_targets=pulumi.get(__ret__, 'valid_upgrade_targets'),
         version=pulumi.get(__ret__, 'version'),
@@ -191,6 +204,7 @@ def get_engine_version(engine: Optional[builtins.str] = None,
 def get_engine_version_output(engine: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               parameter_group_family: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               preferred_versions: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
+                              region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               version: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEngineVersionResult]:
     """
@@ -209,12 +223,14 @@ def get_engine_version_output(engine: Optional[pulumi.Input[Optional[builtins.st
     :param builtins.str engine: DB engine. (Default: `docdb`)
     :param builtins.str parameter_group_family: Name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
     :param Sequence[builtins.str] preferred_versions: Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str version: Version of the DB engine. For example, `3.6.0`. If `version` and `preferred_versions` are not set, the data source will provide information for the AWS-defined default version. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
     """
     __args__ = dict()
     __args__['engine'] = engine
     __args__['parameterGroupFamily'] = parameter_group_family
     __args__['preferredVersions'] = preferred_versions
+    __args__['region'] = region
     __args__['version'] = version
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:docdb/getEngineVersion:getEngineVersion', __args__, opts=opts, typ=GetEngineVersionResult)
@@ -225,6 +241,7 @@ def get_engine_version_output(engine: Optional[pulumi.Input[Optional[builtins.st
         id=pulumi.get(__response__, 'id'),
         parameter_group_family=pulumi.get(__response__, 'parameter_group_family'),
         preferred_versions=pulumi.get(__response__, 'preferred_versions'),
+        region=pulumi.get(__response__, 'region'),
         supports_log_exports_to_cloudwatch=pulumi.get(__response__, 'supports_log_exports_to_cloudwatch'),
         valid_upgrade_targets=pulumi.get(__response__, 'valid_upgrade_targets'),
         version=pulumi.get(__response__, 'version'),

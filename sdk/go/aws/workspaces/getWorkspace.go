@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspaces"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +48,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspaces"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,6 +81,8 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 type LookupWorkspaceArgs struct {
 	// ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
 	DirectoryId *string `pulumi:"directoryId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags for the WorkSpace.
 	Tags map[string]string `pulumi:"tags"`
 	// User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.
@@ -99,6 +101,7 @@ type LookupWorkspaceResult struct {
 	Id string `pulumi:"id"`
 	// IP address of the WorkSpace.
 	IpAddress                   string `pulumi:"ipAddress"`
+	Region                      string `pulumi:"region"`
 	RootVolumeEncryptionEnabled bool   `pulumi:"rootVolumeEncryptionEnabled"`
 	// Operational state of the WorkSpace.
 	State                       string                          `pulumi:"state"`
@@ -123,6 +126,8 @@ func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, 
 type LookupWorkspaceOutputArgs struct {
 	// ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
 	DirectoryId pulumi.StringPtrInput `pulumi:"directoryId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags for the WorkSpace.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// User name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.
@@ -171,6 +176,10 @@ func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
 // IP address of the WorkSpace.
 func (o LookupWorkspaceResultOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+func (o LookupWorkspaceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupWorkspaceResultOutput) RootVolumeEncryptionEnabled() pulumi.BoolOutput {

@@ -53,6 +53,7 @@ export function getResolverRules(args?: GetResolverRulesArgs, opts?: pulumi.Invo
     return pulumi.runtime.invoke("aws:route53/getResolverRules:getResolverRules", {
         "nameRegex": args.nameRegex,
         "ownerId": args.ownerId,
+        "region": args.region,
         "resolverEndpointId": args.resolverEndpointId,
         "ruleType": args.ruleType,
         "shareStatus": args.shareStatus,
@@ -73,6 +74,10 @@ export interface GetResolverRulesArgs {
      * When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
      */
     ownerId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * ID of the outbound resolver endpoint for the desired resolver rules.
      */
@@ -97,6 +102,7 @@ export interface GetResolverRulesResult {
     readonly id: string;
     readonly nameRegex?: string;
     readonly ownerId?: string;
+    readonly region: string;
     readonly resolverEndpointId?: string;
     /**
      * IDs of the matched resolver rules.
@@ -154,6 +160,7 @@ export function getResolverRulesOutput(args?: GetResolverRulesOutputArgs, opts?:
     return pulumi.runtime.invokeOutput("aws:route53/getResolverRules:getResolverRules", {
         "nameRegex": args.nameRegex,
         "ownerId": args.ownerId,
+        "region": args.region,
         "resolverEndpointId": args.resolverEndpointId,
         "ruleType": args.ruleType,
         "shareStatus": args.shareStatus,
@@ -174,6 +181,10 @@ export interface GetResolverRulesOutputArgs {
      * When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
      */
     ownerId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the outbound resolver endpoint for the desired resolver rules.
      */

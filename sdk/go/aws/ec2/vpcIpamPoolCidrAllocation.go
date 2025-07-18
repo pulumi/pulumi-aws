@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,7 +38,7 @@ import (
 //			exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "example", &ec2.VpcIpamArgs{
 //				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
 //					&ec2.VpcIpamOperatingRegionArgs{
-//						RegionName: pulumi.String(current.Name),
+//						RegionName: pulumi.String(current.Region),
 //					},
 //				},
 //			})
@@ -48,7 +48,7 @@ import (
 //			exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "example", &ec2.VpcIpamPoolArgs{
 //				AddressFamily: pulumi.String("ipv4"),
 //				IpamScopeId:   exampleVpcIpam.PrivateDefaultScopeId,
-//				Locale:        pulumi.String(current.Name),
+//				Locale:        pulumi.String(current.Region),
 //			})
 //			if err != nil {
 //				return err
@@ -82,8 +82,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -97,7 +97,7 @@ import (
 //			exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "example", &ec2.VpcIpamArgs{
 //				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
 //					&ec2.VpcIpamOperatingRegionArgs{
-//						RegionName: pulumi.String(current.Name),
+//						RegionName: pulumi.String(current.Region),
 //					},
 //				},
 //			})
@@ -107,7 +107,7 @@ import (
 //			exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "example", &ec2.VpcIpamPoolArgs{
 //				AddressFamily: pulumi.String("ipv4"),
 //				IpamScopeId:   exampleVpcIpam.PrivateDefaultScopeId,
-//				Locale:        pulumi.String(current.Name),
+//				Locale:        pulumi.String(current.Region),
 //			})
 //			if err != nil {
 //				return err
@@ -158,6 +158,8 @@ type VpcIpamPoolCidrAllocation struct {
 	IpamPoolId pulumi.StringOutput `pulumi:"ipamPoolId"`
 	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
 	NetmaskLength pulumi.IntOutput `pulumi:"netmaskLength"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the resource.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// The owner of the resource.
@@ -210,6 +212,8 @@ type vpcIpamPoolCidrAllocationState struct {
 	IpamPoolId *string `pulumi:"ipamPoolId"`
 	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
 	NetmaskLength *int `pulumi:"netmaskLength"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the resource.
 	ResourceId *string `pulumi:"resourceId"`
 	// The owner of the resource.
@@ -230,6 +234,8 @@ type VpcIpamPoolCidrAllocationState struct {
 	IpamPoolId pulumi.StringPtrInput
 	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
 	NetmaskLength pulumi.IntPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the resource.
 	ResourceId pulumi.StringPtrInput
 	// The owner of the resource.
@@ -253,6 +259,8 @@ type vpcIpamPoolCidrAllocationArgs struct {
 	IpamPoolId string `pulumi:"ipamPoolId"`
 	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
 	NetmaskLength *int `pulumi:"netmaskLength"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a VpcIpamPoolCidrAllocation resource.
@@ -267,6 +275,8 @@ type VpcIpamPoolCidrAllocationArgs struct {
 	IpamPoolId pulumi.StringInput
 	// The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
 	NetmaskLength pulumi.IntPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (VpcIpamPoolCidrAllocationArgs) ElementType() reflect.Type {
@@ -383,6 +393,11 @@ func (o VpcIpamPoolCidrAllocationOutput) IpamPoolId() pulumi.StringOutput {
 // The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
 func (o VpcIpamPoolCidrAllocationOutput) NetmaskLength() pulumi.IntOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.IntOutput { return v.NetmaskLength }).(pulumi.IntOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o VpcIpamPoolCidrAllocationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the resource.

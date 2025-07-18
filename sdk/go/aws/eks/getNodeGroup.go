@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,6 +55,8 @@ type LookupNodeGroupArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// Name of the node group.
 	NodeGroupName string `pulumi:"nodeGroupName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -81,6 +83,7 @@ type LookupNodeGroupResult struct {
 	NodeGroupName   string                       `pulumi:"nodeGroupName"`
 	// ARN of the IAM Role that provides permissions for the EKS Node Group.
 	NodeRoleArn string `pulumi:"nodeRoleArn"`
+	Region      string `pulumi:"region"`
 	// AMI version of the EKS Node Group.
 	ReleaseVersion string `pulumi:"releaseVersion"`
 	// Configuration block with remote access settings.
@@ -116,6 +119,8 @@ type LookupNodeGroupOutputArgs struct {
 	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	// Name of the node group.
 	NodeGroupName pulumi.StringInput `pulumi:"nodeGroupName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -190,6 +195,10 @@ func (o LookupNodeGroupResultOutput) NodeGroupName() pulumi.StringOutput {
 // ARN of the IAM Role that provides permissions for the EKS Node Group.
 func (o LookupNodeGroupResultOutput) NodeRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNodeGroupResult) string { return v.NodeRoleArn }).(pulumi.StringOutput)
+}
+
+func (o LookupNodeGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNodeGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // AMI version of the EKS Node Group.

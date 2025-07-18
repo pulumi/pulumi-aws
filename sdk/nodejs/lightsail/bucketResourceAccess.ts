@@ -70,6 +70,10 @@ export class BucketResourceAccess extends pulumi.CustomResource {
      */
     public readonly bucketName!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the resource to grant bucket access.
      */
     public readonly resourceName!: pulumi.Output<string>;
@@ -88,6 +92,7 @@ export class BucketResourceAccess extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as BucketResourceAccessState | undefined;
             resourceInputs["bucketName"] = state ? state.bucketName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceName"] = state ? state.resourceName : undefined;
         } else {
             const args = argsOrState as BucketResourceAccessArgs | undefined;
@@ -98,6 +103,7 @@ export class BucketResourceAccess extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceName'");
             }
             resourceInputs["bucketName"] = args ? args.bucketName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -114,6 +120,10 @@ export interface BucketResourceAccessState {
      */
     bucketName?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Name of the resource to grant bucket access.
      */
     resourceName?: pulumi.Input<string>;
@@ -127,6 +137,10 @@ export interface BucketResourceAccessArgs {
      * Name of the bucket to grant access to.
      */
     bucketName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the resource to grant bucket access.
      */

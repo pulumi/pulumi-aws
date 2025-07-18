@@ -78,6 +78,7 @@ public final class GetEndpointResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return IDs of the security groups for the target network associated with the Client VPN endpoint.
      * 
@@ -209,6 +210,9 @@ public final class GetEndpointResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return IDs of the security groups for the target network associated with the Client VPN endpoint.
      * 
@@ -298,6 +302,7 @@ public final class GetEndpointResult {
         private List<String> dnsServers;
         private @Nullable List<GetEndpointFilter> filters;
         private String id;
+        private String region;
         private List<String> securityGroupIds;
         private String selfServicePortal;
         private String selfServicePortalUrl;
@@ -324,6 +329,7 @@ public final class GetEndpointResult {
     	      this.dnsServers = defaults.dnsServers;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.selfServicePortal = defaults.selfServicePortal;
     	      this.selfServicePortalUrl = defaults.selfServicePortalUrl;
@@ -460,6 +466,14 @@ public final class GetEndpointResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityGroupIds(List<String> securityGroupIds) {
             if (securityGroupIds == null) {
               throw new MissingRequiredPropertyException("GetEndpointResult", "securityGroupIds");
@@ -557,6 +571,7 @@ public final class GetEndpointResult {
             _resultValue.dnsServers = dnsServers;
             _resultValue.filters = filters;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.securityGroupIds = securityGroupIds;
             _resultValue.selfServicePortal = selfServicePortal;
             _resultValue.selfServicePortalUrl = selfServicePortalUrl;

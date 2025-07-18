@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudcontrol"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudcontrol"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,6 +53,8 @@ func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulum
 type LookupResourceArgs struct {
 	// Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
 	Identifier string `pulumi:"identifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the IAM Role to assume for operations.
 	RoleArn *string `pulumi:"roleArn"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
@@ -70,6 +72,7 @@ type LookupResourceResult struct {
 	Identifier string `pulumi:"identifier"`
 	// JSON string matching the CloudFormation resource type schema with current configuration.
 	Properties    string  `pulumi:"properties"`
+	Region        string  `pulumi:"region"`
 	RoleArn       *string `pulumi:"roleArn"`
 	TypeName      string  `pulumi:"typeName"`
 	TypeVersionId *string `pulumi:"typeVersionId"`
@@ -88,6 +91,8 @@ func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, op
 type LookupResourceOutputArgs struct {
 	// Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
 	Identifier pulumi.StringInput `pulumi:"identifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ARN of the IAM Role to assume for operations.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
@@ -129,6 +134,10 @@ func (o LookupResourceResultOutput) Identifier() pulumi.StringOutput {
 // JSON string matching the CloudFormation resource type schema with current configuration.
 func (o LookupResourceResultOutput) Properties() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceResult) string { return v.Properties }).(pulumi.StringOutput)
+}
+
+func (o LookupResourceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupResourceResultOutput) RoleArn() pulumi.StringPtrOutput {

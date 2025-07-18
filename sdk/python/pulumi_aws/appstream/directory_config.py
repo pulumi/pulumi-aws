@@ -24,16 +24,20 @@ class DirectoryConfigArgs:
     def __init__(__self__, *,
                  directory_name: pulumi.Input[builtins.str],
                  organizational_unit_distinguished_names: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
-                 service_account_credentials: pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs']):
+                 service_account_credentials: pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs'],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a DirectoryConfig resource.
         :param pulumi.Input[builtins.str] directory_name: Fully qualified name of the directory.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] organizational_unit_distinguished_names: Distinguished names of the organizational units for computer accounts.
         :param pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs'] service_account_credentials: Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "directory_name", directory_name)
         pulumi.set(__self__, "organizational_unit_distinguished_names", organizational_unit_distinguished_names)
         pulumi.set(__self__, "service_account_credentials", service_account_credentials)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="directoryName")
@@ -71,6 +75,18 @@ class DirectoryConfigArgs:
     def service_account_credentials(self, value: pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs']):
         pulumi.set(self, "service_account_credentials", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _DirectoryConfigState:
@@ -78,12 +94,14 @@ class _DirectoryConfigState:
                  created_time: Optional[pulumi.Input[builtins.str]] = None,
                  directory_name: Optional[pulumi.Input[builtins.str]] = None,
                  organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_account_credentials: Optional[pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs']] = None):
         """
         Input properties used for looking up and filtering DirectoryConfig resources.
         :param pulumi.Input[builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
         :param pulumi.Input[builtins.str] directory_name: Fully qualified name of the directory.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] organizational_unit_distinguished_names: Distinguished names of the organizational units for computer accounts.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs'] service_account_credentials: Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
         """
         if created_time is not None:
@@ -92,6 +110,8 @@ class _DirectoryConfigState:
             pulumi.set(__self__, "directory_name", directory_name)
         if organizational_unit_distinguished_names is not None:
             pulumi.set(__self__, "organizational_unit_distinguished_names", organizational_unit_distinguished_names)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if service_account_credentials is not None:
             pulumi.set(__self__, "service_account_credentials", service_account_credentials)
 
@@ -132,6 +152,18 @@ class _DirectoryConfigState:
         pulumi.set(self, "organizational_unit_distinguished_names", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serviceAccountCredentials")
     def service_account_credentials(self) -> Optional[pulumi.Input['DirectoryConfigServiceAccountCredentialsArgs']]:
         """
@@ -152,6 +184,7 @@ class DirectoryConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  directory_name: Optional[pulumi.Input[builtins.str]] = None,
                  organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_account_credentials: Optional[pulumi.Input[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict']]] = None,
                  __props__=None):
         """
@@ -184,6 +217,7 @@ class DirectoryConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] directory_name: Fully qualified name of the directory.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] organizational_unit_distinguished_names: Distinguished names of the organizational units for computer accounts.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict']] service_account_credentials: Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
         """
         ...
@@ -235,6 +269,7 @@ class DirectoryConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  directory_name: Optional[pulumi.Input[builtins.str]] = None,
                  organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_account_credentials: Optional[pulumi.Input[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -251,6 +286,7 @@ class DirectoryConfig(pulumi.CustomResource):
             if organizational_unit_distinguished_names is None and not opts.urn:
                 raise TypeError("Missing required property 'organizational_unit_distinguished_names'")
             __props__.__dict__["organizational_unit_distinguished_names"] = organizational_unit_distinguished_names
+            __props__.__dict__["region"] = region
             if service_account_credentials is None and not opts.urn:
                 raise TypeError("Missing required property 'service_account_credentials'")
             __props__.__dict__["service_account_credentials"] = service_account_credentials
@@ -268,6 +304,7 @@ class DirectoryConfig(pulumi.CustomResource):
             created_time: Optional[pulumi.Input[builtins.str]] = None,
             directory_name: Optional[pulumi.Input[builtins.str]] = None,
             organizational_unit_distinguished_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             service_account_credentials: Optional[pulumi.Input[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict']]] = None) -> 'DirectoryConfig':
         """
         Get an existing DirectoryConfig resource's state with the given name, id, and optional extra
@@ -279,6 +316,7 @@ class DirectoryConfig(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] created_time: Date and time, in UTC and extended RFC 3339 format, when the directory config was created.
         :param pulumi.Input[builtins.str] directory_name: Fully qualified name of the directory.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] organizational_unit_distinguished_names: Distinguished names of the organizational units for computer accounts.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DirectoryConfigServiceAccountCredentialsArgs', 'DirectoryConfigServiceAccountCredentialsArgsDict']] service_account_credentials: Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -288,6 +326,7 @@ class DirectoryConfig(pulumi.CustomResource):
         __props__.__dict__["created_time"] = created_time
         __props__.__dict__["directory_name"] = directory_name
         __props__.__dict__["organizational_unit_distinguished_names"] = organizational_unit_distinguished_names
+        __props__.__dict__["region"] = region
         __props__.__dict__["service_account_credentials"] = service_account_credentials
         return DirectoryConfig(resource_name, opts=opts, __props__=__props__)
 
@@ -314,6 +353,14 @@ class DirectoryConfig(pulumi.CustomResource):
         Distinguished names of the organizational units for computer accounts.
         """
         return pulumi.get(self, "organizational_unit_distinguished_names")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serviceAccountCredentials")

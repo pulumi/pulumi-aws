@@ -77,6 +77,12 @@ namespace Pulumi.Aws.Macie2
         [Output("invitationId")]
         public Output<string> InvitationId { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a InvitationAccepter resource with the given unique name, arguments, and options.
@@ -129,6 +135,12 @@ namespace Pulumi.Aws.Macie2
         [Input("administratorAccountId", required: true)]
         public Input<string> AdministratorAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public InvitationAccepterArgs()
         {
         }
@@ -148,6 +160,12 @@ namespace Pulumi.Aws.Macie2
         /// </summary>
         [Input("invitationId")]
         public Input<string>? InvitationId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public InvitationAccepterState()
         {

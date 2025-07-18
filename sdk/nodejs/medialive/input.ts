@@ -113,6 +113,10 @@ export class Input extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the role this input assumes during and after creation.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -124,9 +128,6 @@ export class Input extends pulumi.CustomResource {
      * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The different types of inputs that AWS Elemental MediaLive supports.
@@ -162,6 +163,7 @@ export class Input extends pulumi.CustomResource {
             resourceInputs["inputSourceType"] = state ? state.inputSourceType : undefined;
             resourceInputs["mediaConnectFlows"] = state ? state.mediaConnectFlows : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["sources"] = state ? state.sources : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -178,6 +180,7 @@ export class Input extends pulumi.CustomResource {
             resourceInputs["inputSecurityGroups"] = args ? args.inputSecurityGroups : undefined;
             resourceInputs["mediaConnectFlows"] = args ? args.mediaConnectFlows : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["sources"] = args ? args.sources : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -240,6 +243,10 @@ export interface InputState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ARN of the role this input assumes during and after creation.
      */
     roleArn?: pulumi.Input<string>;
@@ -251,9 +258,6 @@ export interface InputState {
      * A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The different types of inputs that AWS Elemental MediaLive supports.
@@ -291,6 +295,10 @@ export interface InputArgs {
      * Name of the input.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the role this input assumes during and after creation.
      */

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,8 +54,10 @@ func LookupServerlessSecurityConfig(ctx *pulumi.Context, args *LookupServerlessS
 type LookupServerlessSecurityConfigArgs struct {
 	// The unique identifier of the security configuration.
 	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// SAML options for the security configuration.
-	SamlOptions *GetServerlessSecurityConfigSamlOptions `pulumi:"samlOptions"`
+	SamlOptions []GetServerlessSecurityConfigSamlOption `pulumi:"samlOptions"`
 }
 
 // A collection of values returned by getServerlessSecurityConfig.
@@ -69,8 +71,9 @@ type LookupServerlessSecurityConfigResult struct {
 	Id          string `pulumi:"id"`
 	// The date the configuration was last modified.
 	LastModifiedDate string `pulumi:"lastModifiedDate"`
+	Region           string `pulumi:"region"`
 	// SAML options for the security configuration.
-	SamlOptions *GetServerlessSecurityConfigSamlOptions `pulumi:"samlOptions"`
+	SamlOptions []GetServerlessSecurityConfigSamlOption `pulumi:"samlOptions"`
 	// The type of security configuration.
 	Type string `pulumi:"type"`
 }
@@ -88,8 +91,10 @@ func LookupServerlessSecurityConfigOutput(ctx *pulumi.Context, args LookupServer
 type LookupServerlessSecurityConfigOutputArgs struct {
 	// The unique identifier of the security configuration.
 	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// SAML options for the security configuration.
-	SamlOptions GetServerlessSecurityConfigSamlOptionsPtrInput `pulumi:"samlOptions"`
+	SamlOptions GetServerlessSecurityConfigSamlOptionArrayInput `pulumi:"samlOptions"`
 }
 
 func (LookupServerlessSecurityConfigOutputArgs) ElementType() reflect.Type {
@@ -135,11 +140,15 @@ func (o LookupServerlessSecurityConfigResultOutput) LastModifiedDate() pulumi.St
 	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.LastModifiedDate }).(pulumi.StringOutput)
 }
 
+func (o LookupServerlessSecurityConfigResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) string { return v.Region }).(pulumi.StringOutput)
+}
+
 // SAML options for the security configuration.
-func (o LookupServerlessSecurityConfigResultOutput) SamlOptions() GetServerlessSecurityConfigSamlOptionsPtrOutput {
-	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) *GetServerlessSecurityConfigSamlOptions {
+func (o LookupServerlessSecurityConfigResultOutput) SamlOptions() GetServerlessSecurityConfigSamlOptionArrayOutput {
+	return o.ApplyT(func(v LookupServerlessSecurityConfigResult) []GetServerlessSecurityConfigSamlOption {
 		return v.SamlOptions
-	}).(GetServerlessSecurityConfigSamlOptionsPtrOutput)
+	}).(GetServerlessSecurityConfigSamlOptionArrayOutput)
 }
 
 // The type of security configuration.

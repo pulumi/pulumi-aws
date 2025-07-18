@@ -27,7 +27,7 @@ class GetFunctionsResult:
     """
     A collection of values returned by getFunctions.
     """
-    def __init__(__self__, function_arns=None, function_names=None, id=None):
+    def __init__(__self__, function_arns=None, function_names=None, id=None, region=None):
         if function_arns and not isinstance(function_arns, list):
             raise TypeError("Expected argument 'function_arns' to be a list")
         pulumi.set(__self__, "function_arns", function_arns)
@@ -37,12 +37,15 @@ class GetFunctionsResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="functionArns")
     def function_arns(self) -> Sequence[builtins.str]:
         """
-        A list of Lambda Function ARNs.
+        List of Lambda Function ARNs.
         """
         return pulumi.get(self, "function_arns")
 
@@ -50,7 +53,7 @@ class GetFunctionsResult:
     @pulumi.getter(name="functionNames")
     def function_names(self) -> Sequence[builtins.str]:
         """
-        A list of Lambda Function names.
+        List of Lambda Function names.
         """
         return pulumi.get(self, "function_names")
 
@@ -62,6 +65,11 @@ class GetFunctionsResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetFunctionsResult(GetFunctionsResult):
     # pylint: disable=using-constant-test
@@ -71,47 +79,174 @@ class AwaitableGetFunctionsResult(GetFunctionsResult):
         return GetFunctionsResult(
             function_arns=self.function_arns,
             function_names=self.function_names,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
-def get_functions(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionsResult:
+def get_functions(region: Optional[builtins.str] = None,
+                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFunctionsResult:
     """
-    Data resource to get a list of Lambda Functions.
+    Provides a list of AWS Lambda Functions in the current region. Use this data source to discover existing Lambda functions for inventory, monitoring, or bulk operations.
 
     ## Example Usage
+
+    ### List All Functions
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
     all = aws.lambda.get_functions()
+    pulumi.export("functionCount", len(all.function_names))
+    pulumi.export("allFunctionNames", all.function_names)
     ```
+
+    ### Use Function List for Bulk Operations
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    # Get all Lambda functions
+    all = aws.lambda.get_functions()
+    # Create CloudWatch alarms for all functions
+    lambda_errors = []
+    def create_lambda_errors(range_body):
+        for range in [{"value": i} for i in range(0, range_body)]:
+            lambda_errors.append(aws.cloudwatch.MetricAlarm(f"lambda_errors-{range['value']}",
+                name=f"{all.function_names[range['value']]}-errors",
+                comparison_operator="GreaterThanThreshold",
+                evaluation_periods=2,
+                metric_name="Errors",
+                namespace="AWS/Lambda",
+                period=300,
+                statistic="Sum",
+                threshold=5,
+                alarm_description="This metric monitors lambda errors",
+                dimensions={
+                    "FunctionName": all.function_names[range["value"]],
+                },
+                tags={
+                    "Environment": "monitoring",
+                    "Purpose": "lambda-error-tracking",
+                }))
+
+    (len(all.function_names)).apply(create_lambda_errors)
+    ```
+
+    ### Create Function Inventory
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    all = aws.lambda.get_functions()
+    # Get detailed information for each function
+    details = [aws.lambda.get_function(function_name=all.function_names[__index]) for __index in len(all.function_names).apply(lambda length: range(length))]
+    function_inventory = [{
+        "name": name,
+        "arn": all.function_arns[i],
+        "runtime": details.apply(lambda details: details[i].runtime),
+        "memorySize": details.apply(lambda details: details[i].memory_size),
+        "timeout": details.apply(lambda details: details[i].timeout),
+        "handler": details.apply(lambda details: details[i].handler),
+    } for i, name in all.function_names]
+    pulumi.export("functionInventory", function_inventory)
+    ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:lambda/getFunctions:getFunctions', __args__, opts=opts, typ=GetFunctionsResult).value
 
     return AwaitableGetFunctionsResult(
         function_arns=pulumi.get(__ret__, 'function_arns'),
         function_names=pulumi.get(__ret__, 'function_names'),
-        id=pulumi.get(__ret__, 'id'))
-def get_functions_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionsResult]:
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
+def get_functions_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionsResult]:
     """
-    Data resource to get a list of Lambda Functions.
+    Provides a list of AWS Lambda Functions in the current region. Use this data source to discover existing Lambda functions for inventory, monitoring, or bulk operations.
 
     ## Example Usage
+
+    ### List All Functions
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
     all = aws.lambda.get_functions()
+    pulumi.export("functionCount", len(all.function_names))
+    pulumi.export("allFunctionNames", all.function_names)
     ```
+
+    ### Use Function List for Bulk Operations
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    # Get all Lambda functions
+    all = aws.lambda.get_functions()
+    # Create CloudWatch alarms for all functions
+    lambda_errors = []
+    def create_lambda_errors(range_body):
+        for range in [{"value": i} for i in range(0, range_body)]:
+            lambda_errors.append(aws.cloudwatch.MetricAlarm(f"lambda_errors-{range['value']}",
+                name=f"{all.function_names[range['value']]}-errors",
+                comparison_operator="GreaterThanThreshold",
+                evaluation_periods=2,
+                metric_name="Errors",
+                namespace="AWS/Lambda",
+                period=300,
+                statistic="Sum",
+                threshold=5,
+                alarm_description="This metric monitors lambda errors",
+                dimensions={
+                    "FunctionName": all.function_names[range["value"]],
+                },
+                tags={
+                    "Environment": "monitoring",
+                    "Purpose": "lambda-error-tracking",
+                }))
+
+    (len(all.function_names)).apply(create_lambda_errors)
+    ```
+
+    ### Create Function Inventory
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    all = aws.lambda.get_functions()
+    # Get detailed information for each function
+    details = [aws.lambda.get_function(function_name=all.function_names[__index]) for __index in len(all.function_names).apply(lambda length: range(length))]
+    function_inventory = [{
+        "name": name,
+        "arn": all.function_arns[i],
+        "runtime": details.apply(lambda details: details[i].runtime),
+        "memorySize": details.apply(lambda details: details[i].memory_size),
+        "timeout": details.apply(lambda details: details[i].timeout),
+        "handler": details.apply(lambda details: details[i].handler),
+    } for i, name in all.function_names]
+    pulumi.export("functionInventory", function_inventory)
+    ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lambda/getFunctions:getFunctions', __args__, opts=opts, typ=GetFunctionsResult)
     return __ret__.apply(lambda __response__: GetFunctionsResult(
         function_arns=pulumi.get(__response__, 'function_arns'),
         function_names=pulumi.get(__response__, 'function_names'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

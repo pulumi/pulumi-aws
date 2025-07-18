@@ -125,6 +125,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
         /// </summary>
         [Output("ruleAction")]
@@ -243,6 +249,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string> Protocol { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`
         /// </summary>
         [Input("ruleAction", required: true)]
@@ -321,6 +333,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Indicates whether to allow or deny the traffic that matches the rule. Accepted values: `allow` | `deny`

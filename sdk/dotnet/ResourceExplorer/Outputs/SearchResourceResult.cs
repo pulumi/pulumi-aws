@@ -30,7 +30,7 @@ namespace Pulumi.Aws.ResourceExplorer.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.SearchResourcePropertyResult> Properties;
         /// <summary>
-        /// Amazon Web Services Region in which the resource was created and exists.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         public readonly string Region;
         /// <summary>

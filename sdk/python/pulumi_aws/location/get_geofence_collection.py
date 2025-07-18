@@ -27,7 +27,7 @@ class GetGeofenceCollectionResult:
     """
     A collection of values returned by getGeofenceCollection.
     """
-    def __init__(__self__, collection_arn=None, collection_name=None, create_time=None, description=None, id=None, kms_key_id=None, tags=None, update_time=None):
+    def __init__(__self__, collection_arn=None, collection_name=None, create_time=None, description=None, id=None, kms_key_id=None, region=None, tags=None, update_time=None):
         if collection_arn and not isinstance(collection_arn, str):
             raise TypeError("Expected argument 'collection_arn' to be a str")
         pulumi.set(__self__, "collection_arn", collection_arn)
@@ -46,6 +46,9 @@ class GetGeofenceCollectionResult:
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
         pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -100,6 +103,11 @@ class GetGeofenceCollectionResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Key-value map of resource tags for the geofence collection.
@@ -127,12 +135,14 @@ class AwaitableGetGeofenceCollectionResult(GetGeofenceCollectionResult):
             description=self.description,
             id=self.id,
             kms_key_id=self.kms_key_id,
+            region=self.region,
             tags=self.tags,
             update_time=self.update_time)
 
 
 def get_geofence_collection(collection_name: Optional[builtins.str] = None,
                             kms_key_id: Optional[builtins.str] = None,
+                            region: Optional[builtins.str] = None,
                             tags: Optional[Mapping[str, builtins.str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGeofenceCollectionResult:
     """
@@ -152,11 +162,13 @@ def get_geofence_collection(collection_name: Optional[builtins.str] = None,
 
     :param builtins.str collection_name: Name of the geofence collection.
     :param builtins.str kms_key_id: Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the geofence collection.
     """
     __args__ = dict()
     __args__['collectionName'] = collection_name
     __args__['kmsKeyId'] = kms_key_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:location/getGeofenceCollection:getGeofenceCollection', __args__, opts=opts, typ=GetGeofenceCollectionResult).value
@@ -168,10 +180,12 @@ def get_geofence_collection(collection_name: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
 def get_geofence_collection_output(collection_name: Optional[pulumi.Input[builtins.str]] = None,
                                    kms_key_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGeofenceCollectionResult]:
     """
@@ -191,11 +205,13 @@ def get_geofence_collection_output(collection_name: Optional[pulumi.Input[builti
 
     :param builtins.str collection_name: Name of the geofence collection.
     :param builtins.str kms_key_id: Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the geofence collection.
     """
     __args__ = dict()
     __args__['collectionName'] = collection_name
     __args__['kmsKeyId'] = kms_key_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:location/getGeofenceCollection:getGeofenceCollection', __args__, opts=opts, typ=GetGeofenceCollectionResult)
@@ -206,5 +222,6 @@ def get_geofence_collection_output(collection_name: Optional[pulumi.Input[builti
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         update_time=pulumi.get(__response__, 'update_time')))

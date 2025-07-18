@@ -27,7 +27,7 @@ class GetContactResult:
     """
     A collection of values returned by getContact.
     """
-    def __init__(__self__, alias=None, arn=None, display_name=None, id=None, tags=None, type=None):
+    def __init__(__self__, alias=None, arn=None, display_name=None, id=None, region=None, tags=None, type=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
@@ -40,6 +40,9 @@ class GetContactResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -78,6 +81,11 @@ class GetContactResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Map of tags to assign to the resource.
@@ -103,11 +111,13 @@ class AwaitableGetContactResult(GetContactResult):
             arn=self.arn,
             display_name=self.display_name,
             id=self.id,
+            region=self.region,
             tags=self.tags,
             type=self.type)
 
 
 def get_contact(arn: Optional[builtins.str] = None,
+                region: Optional[builtins.str] = None,
                 tags: Optional[Mapping[str, builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactResult:
     """
@@ -126,10 +136,12 @@ def get_contact(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: The Amazon Resource Name (ARN) of the contact or escalation plan.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ssmcontacts/getContact:getContact', __args__, opts=opts, typ=GetContactResult).value
@@ -139,9 +151,11 @@ def get_contact(arn: Optional[builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         display_name=pulumi.get(__ret__, 'display_name'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_contact_output(arn: Optional[pulumi.Input[builtins.str]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactResult]:
     """
@@ -160,10 +174,12 @@ def get_contact_output(arn: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str arn: The Amazon Resource Name (ARN) of the contact or escalation plan.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssmcontacts/getContact:getContact', __args__, opts=opts, typ=GetContactResult)
@@ -172,5 +188,6 @@ def get_contact_output(arn: Optional[pulumi.Input[builtins.str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         display_name=pulumi.get(__response__, 'display_name'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

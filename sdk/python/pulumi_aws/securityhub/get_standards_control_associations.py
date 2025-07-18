@@ -28,10 +28,13 @@ class GetStandardsControlAssociationsResult:
     """
     A collection of values returned by getStandardsControlAssociations.
     """
-    def __init__(__self__, id=None, security_control_id=None, standards_control_associations=None):
+    def __init__(__self__, id=None, region=None, security_control_id=None, standards_control_associations=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_control_id and not isinstance(security_control_id, str):
             raise TypeError("Expected argument 'security_control_id' to be a str")
         pulumi.set(__self__, "security_control_id", security_control_id)
@@ -43,6 +46,11 @@ class GetStandardsControlAssociationsResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="securityControlId")
@@ -69,11 +77,13 @@ class AwaitableGetStandardsControlAssociationsResult(GetStandardsControlAssociat
             yield self
         return GetStandardsControlAssociationsResult(
             id=self.id,
+            region=self.region,
             security_control_id=self.security_control_id,
             standards_control_associations=self.standards_control_associations)
 
 
-def get_standards_control_associations(security_control_id: Optional[builtins.str] = None,
+def get_standards_control_associations(region: Optional[builtins.str] = None,
+                                       security_control_id: Optional[builtins.str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStandardsControlAssociationsResult:
     """
     Data source for managing an AWS Security Hub Standards Control Associations.
@@ -91,18 +101,22 @@ def get_standards_control_associations(security_control_id: Optional[builtins.st
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str security_control_id: The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['securityControlId'] = security_control_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations', __args__, opts=opts, typ=GetStandardsControlAssociationsResult).value
 
     return AwaitableGetStandardsControlAssociationsResult(
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         security_control_id=pulumi.get(__ret__, 'security_control_id'),
         standards_control_associations=pulumi.get(__ret__, 'standards_control_associations'))
-def get_standards_control_associations_output(security_control_id: Optional[pulumi.Input[builtins.str]] = None,
+def get_standards_control_associations_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                              security_control_id: Optional[pulumi.Input[builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStandardsControlAssociationsResult]:
     """
     Data source for managing an AWS Security Hub Standards Control Associations.
@@ -120,13 +134,16 @@ def get_standards_control_associations_output(security_control_id: Optional[pulu
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str security_control_id: The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['securityControlId'] = security_control_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations', __args__, opts=opts, typ=GetStandardsControlAssociationsResult)
     return __ret__.apply(lambda __response__: GetStandardsControlAssociationsResult(
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         security_control_id=pulumi.get(__response__, 'security_control_id'),
         standards_control_associations=pulumi.get(__response__, 'standards_control_associations')))

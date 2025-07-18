@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,14 +22,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecrpublic"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecrpublic"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecrpublic.GetAuthorizationToken(ctx, map[string]interface{}{}, nil)
+//			_, err := ecrpublic.GetAuthorizationToken(ctx, &ecrpublic.GetAuthorizationTokenArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -38,14 +38,20 @@ import (
 //	}
 //
 // ```
-func GetAuthorizationToken(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetAuthorizationTokenResult, error) {
+func GetAuthorizationToken(ctx *pulumi.Context, args *GetAuthorizationTokenArgs, opts ...pulumi.InvokeOption) (*GetAuthorizationTokenResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAuthorizationTokenResult
-	err := ctx.Invoke("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", nil, &rv, opts...)
+	err := ctx.Invoke("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getAuthorizationToken.
+type GetAuthorizationTokenArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAuthorizationToken.
@@ -58,15 +64,28 @@ type GetAuthorizationTokenResult struct {
 	Id string `pulumi:"id"`
 	// Password decoded from the authorization token.
 	Password string `pulumi:"password"`
+	Region   string `pulumi:"region"`
 	// User name decoded from the authorization token.
 	UserName string `pulumi:"userName"`
 }
 
-func GetAuthorizationTokenOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetAuthorizationTokenResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetAuthorizationTokenResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", nil, GetAuthorizationTokenResultOutput{}, options).(GetAuthorizationTokenResultOutput), nil
-	}).(GetAuthorizationTokenResultOutput)
+func GetAuthorizationTokenOutput(ctx *pulumi.Context, args GetAuthorizationTokenOutputArgs, opts ...pulumi.InvokeOption) GetAuthorizationTokenResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetAuthorizationTokenResultOutput, error) {
+			args := v.(GetAuthorizationTokenArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", args, GetAuthorizationTokenResultOutput{}, options).(GetAuthorizationTokenResultOutput), nil
+		}).(GetAuthorizationTokenResultOutput)
+}
+
+// A collection of arguments for invoking getAuthorizationToken.
+type GetAuthorizationTokenOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetAuthorizationTokenOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAuthorizationTokenArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getAuthorizationToken.
@@ -102,6 +121,10 @@ func (o GetAuthorizationTokenResultOutput) Id() pulumi.StringOutput {
 // Password decoded from the authorization token.
 func (o GetAuthorizationTokenResultOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.Password }).(pulumi.StringOutput)
+}
+
+func (o GetAuthorizationTokenResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthorizationTokenResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // User name decoded from the authorization token.

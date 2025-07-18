@@ -25,6 +25,7 @@ class SpaceArgs:
                  domain_id: pulumi.Input[builtins.str],
                  space_name: pulumi.Input[builtins.str],
                  ownership_settings: Optional[pulumi.Input['SpaceOwnershipSettingsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  space_display_name: Optional[pulumi.Input[builtins.str]] = None,
                  space_settings: Optional[pulumi.Input['SpaceSpaceSettingsArgs']] = None,
                  space_sharing_settings: Optional[pulumi.Input['SpaceSpaceSharingSettingsArgs']] = None,
@@ -34,6 +35,7 @@ class SpaceArgs:
         :param pulumi.Input[builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[builtins.str] space_name: The name of the space.
         :param pulumi.Input['SpaceOwnershipSettingsArgs'] ownership_settings: A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] space_display_name: The name of the space that appears in the SageMaker AI Studio UI.
         :param pulumi.Input['SpaceSpaceSettingsArgs'] space_settings: A collection of space settings. See `space_settings` Block below.
         :param pulumi.Input['SpaceSpaceSharingSettingsArgs'] space_sharing_settings: A collection of space sharing settings. Required if `ownership_settings` is set. See `space_sharing_settings` Block below.
@@ -43,6 +45,8 @@ class SpaceArgs:
         pulumi.set(__self__, "space_name", space_name)
         if ownership_settings is not None:
             pulumi.set(__self__, "ownership_settings", ownership_settings)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if space_display_name is not None:
             pulumi.set(__self__, "space_display_name", space_display_name)
         if space_settings is not None:
@@ -87,6 +91,18 @@ class SpaceArgs:
     @ownership_settings.setter
     def ownership_settings(self, value: Optional[pulumi.Input['SpaceOwnershipSettingsArgs']]):
         pulumi.set(self, "ownership_settings", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="spaceDisplayName")
@@ -144,6 +160,7 @@ class _SpaceState:
                  domain_id: Optional[pulumi.Input[builtins.str]] = None,
                  home_efs_file_system_uid: Optional[pulumi.Input[builtins.str]] = None,
                  ownership_settings: Optional[pulumi.Input['SpaceOwnershipSettingsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  space_display_name: Optional[pulumi.Input[builtins.str]] = None,
                  space_name: Optional[pulumi.Input[builtins.str]] = None,
                  space_settings: Optional[pulumi.Input['SpaceSpaceSettingsArgs']] = None,
@@ -157,6 +174,7 @@ class _SpaceState:
         :param pulumi.Input[builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[builtins.str] home_efs_file_system_uid: The ID of the space's profile in the Amazon Elastic File System volume.
         :param pulumi.Input['SpaceOwnershipSettingsArgs'] ownership_settings: A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] space_display_name: The name of the space that appears in the SageMaker AI Studio UI.
         :param pulumi.Input[builtins.str] space_name: The name of the space.
         :param pulumi.Input['SpaceSpaceSettingsArgs'] space_settings: A collection of space settings. See `space_settings` Block below.
@@ -173,6 +191,8 @@ class _SpaceState:
             pulumi.set(__self__, "home_efs_file_system_uid", home_efs_file_system_uid)
         if ownership_settings is not None:
             pulumi.set(__self__, "ownership_settings", ownership_settings)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if space_display_name is not None:
             pulumi.set(__self__, "space_display_name", space_display_name)
         if space_name is not None:
@@ -183,9 +203,6 @@ class _SpaceState:
             pulumi.set(__self__, "space_sharing_settings", space_sharing_settings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if url is not None:
@@ -238,6 +255,18 @@ class _SpaceState:
     @ownership_settings.setter
     def ownership_settings(self, value: Optional[pulumi.Input['SpaceOwnershipSettingsArgs']]):
         pulumi.set(self, "ownership_settings", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="spaceDisplayName")
@@ -301,7 +330,6 @@ class _SpaceState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -333,6 +361,7 @@ class Space(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_id: Optional[pulumi.Input[builtins.str]] = None,
                  ownership_settings: Optional[pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  space_display_name: Optional[pulumi.Input[builtins.str]] = None,
                  space_name: Optional[pulumi.Input[builtins.str]] = None,
                  space_settings: Optional[pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']]] = None,
@@ -367,6 +396,7 @@ class Space(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']] ownership_settings: A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] space_display_name: The name of the space that appears in the SageMaker AI Studio UI.
         :param pulumi.Input[builtins.str] space_name: The name of the space.
         :param pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']] space_settings: A collection of space settings. See `space_settings` Block below.
@@ -420,6 +450,7 @@ class Space(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_id: Optional[pulumi.Input[builtins.str]] = None,
                  ownership_settings: Optional[pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  space_display_name: Optional[pulumi.Input[builtins.str]] = None,
                  space_name: Optional[pulumi.Input[builtins.str]] = None,
                  space_settings: Optional[pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']]] = None,
@@ -438,6 +469,7 @@ class Space(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_id'")
             __props__.__dict__["domain_id"] = domain_id
             __props__.__dict__["ownership_settings"] = ownership_settings
+            __props__.__dict__["region"] = region
             __props__.__dict__["space_display_name"] = space_display_name
             if space_name is None and not opts.urn:
                 raise TypeError("Missing required property 'space_name'")
@@ -463,6 +495,7 @@ class Space(pulumi.CustomResource):
             domain_id: Optional[pulumi.Input[builtins.str]] = None,
             home_efs_file_system_uid: Optional[pulumi.Input[builtins.str]] = None,
             ownership_settings: Optional[pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             space_display_name: Optional[pulumi.Input[builtins.str]] = None,
             space_name: Optional[pulumi.Input[builtins.str]] = None,
             space_settings: Optional[pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']]] = None,
@@ -481,6 +514,7 @@ class Space(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[builtins.str] home_efs_file_system_uid: The ID of the space's profile in the Amazon Elastic File System volume.
         :param pulumi.Input[Union['SpaceOwnershipSettingsArgs', 'SpaceOwnershipSettingsArgsDict']] ownership_settings: A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] space_display_name: The name of the space that appears in the SageMaker AI Studio UI.
         :param pulumi.Input[builtins.str] space_name: The name of the space.
         :param pulumi.Input[Union['SpaceSpaceSettingsArgs', 'SpaceSpaceSettingsArgsDict']] space_settings: A collection of space settings. See `space_settings` Block below.
@@ -497,6 +531,7 @@ class Space(pulumi.CustomResource):
         __props__.__dict__["domain_id"] = domain_id
         __props__.__dict__["home_efs_file_system_uid"] = home_efs_file_system_uid
         __props__.__dict__["ownership_settings"] = ownership_settings
+        __props__.__dict__["region"] = region
         __props__.__dict__["space_display_name"] = space_display_name
         __props__.__dict__["space_name"] = space_name
         __props__.__dict__["space_settings"] = space_settings
@@ -537,6 +572,14 @@ class Space(pulumi.CustomResource):
         A collection of ownership settings. Required if `space_sharing_settings` is set. See `ownership_settings` Block below.
         """
         return pulumi.get(self, "ownership_settings")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="spaceDisplayName")
@@ -580,7 +623,6 @@ class Space(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

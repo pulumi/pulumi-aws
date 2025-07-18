@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +19,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ebs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,6 +48,8 @@ import (
 type SnapshotBlockPublicAccess struct {
 	pulumi.CustomResourceState
 
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
 	State pulumi.StringOutput `pulumi:"state"`
 }
@@ -85,11 +87,15 @@ func GetSnapshotBlockPublicAccess(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SnapshotBlockPublicAccess resources.
 type snapshotBlockPublicAccessState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
 	State *string `pulumi:"state"`
 }
 
 type SnapshotBlockPublicAccessState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
 	State pulumi.StringPtrInput
 }
@@ -99,12 +105,16 @@ func (SnapshotBlockPublicAccessState) ElementType() reflect.Type {
 }
 
 type snapshotBlockPublicAccessArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
 	State string `pulumi:"state"`
 }
 
 // The set of arguments for constructing a SnapshotBlockPublicAccess resource.
 type SnapshotBlockPublicAccessArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.
 	State pulumi.StringInput
 }
@@ -194,6 +204,11 @@ func (o SnapshotBlockPublicAccessOutput) ToSnapshotBlockPublicAccessOutput() Sna
 
 func (o SnapshotBlockPublicAccessOutput) ToSnapshotBlockPublicAccessOutputWithContext(ctx context.Context) SnapshotBlockPublicAccessOutput {
 	return o
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o SnapshotBlockPublicAccessOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SnapshotBlockPublicAccess) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The mode in which to enable "Block public access for snapshots" for the region. Allowed values are `block-all-sharing`, `block-new-sharing`, `unblocked`.

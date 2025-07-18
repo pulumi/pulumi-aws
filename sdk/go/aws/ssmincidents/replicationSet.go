@@ -7,8 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmincidents"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,7 +59,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmincidents"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -93,7 +92,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmincidents"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -125,8 +124,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmincidents"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmincidents"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -175,7 +174,11 @@ type ReplicationSet struct {
 	DeletionProtected pulumi.BoolOutput `pulumi:"deletionProtected"`
 	// A timestamp showing when the replication set was last modified.
 	LastModifiedBy pulumi.StringOutput `pulumi:"lastModifiedBy"`
-	// The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+	// The replication set's Regions. Use `regions` instead.
+	//
+	// Deprecated: region is deprecated. Use regions instead.
+	Region ReplicationSetRegionArrayOutput `pulumi:"region"`
+	// The replication set's Regions.
 	Regions ReplicationSetRegionArrayOutput `pulumi:"regions"`
 	// The current status of the Region.
 	// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
@@ -195,8 +198,6 @@ type ReplicationSet struct {
 	// > **NOTE:** If possible, create all the customer managed keys you need (using the deploy command) before you create the replication set, or create the keys and replication set in the same deploy command. Otherwise, to delete a replication set, you must run one deploy command to delete the replication set and another to delete the AWS KMS keys used by the replication set. Deleting the AWS KMS keys before deleting the replication set results in an error. In that case, you must manually reenable the deleted key using the AWS Management Console before you can delete the replication set.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -204,12 +205,9 @@ type ReplicationSet struct {
 func NewReplicationSet(ctx *pulumi.Context,
 	name string, args *ReplicationSetArgs, opts ...pulumi.ResourceOption) (*ReplicationSet, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ReplicationSetArgs{}
 	}
 
-	if args.Regions == nil {
-		return nil, errors.New("invalid value for required argument 'Regions'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationSet
 	err := ctx.RegisterResource("aws:ssmincidents/replicationSet:ReplicationSet", name, args, &resource, opts...)
@@ -241,7 +239,11 @@ type replicationSetState struct {
 	DeletionProtected *bool `pulumi:"deletionProtected"`
 	// A timestamp showing when the replication set was last modified.
 	LastModifiedBy *string `pulumi:"lastModifiedBy"`
-	// The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+	// The replication set's Regions. Use `regions` instead.
+	//
+	// Deprecated: region is deprecated. Use regions instead.
+	Region []ReplicationSetRegion `pulumi:"region"`
+	// The replication set's Regions.
 	Regions []ReplicationSetRegion `pulumi:"regions"`
 	// The current status of the Region.
 	// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
@@ -261,8 +263,6 @@ type replicationSetState struct {
 	// > **NOTE:** If possible, create all the customer managed keys you need (using the deploy command) before you create the replication set, or create the keys and replication set in the same deploy command. Otherwise, to delete a replication set, you must run one deploy command to delete the replication set and another to delete the AWS KMS keys used by the replication set. Deleting the AWS KMS keys before deleting the replication set results in an error. In that case, you must manually reenable the deleted key using the AWS Management Console before you can delete the replication set.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -275,7 +275,11 @@ type ReplicationSetState struct {
 	DeletionProtected pulumi.BoolPtrInput
 	// A timestamp showing when the replication set was last modified.
 	LastModifiedBy pulumi.StringPtrInput
-	// The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+	// The replication set's Regions. Use `regions` instead.
+	//
+	// Deprecated: region is deprecated. Use regions instead.
+	Region ReplicationSetRegionArrayInput
+	// The replication set's Regions.
 	Regions ReplicationSetRegionArrayInput
 	// The current status of the Region.
 	// * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
@@ -295,8 +299,6 @@ type ReplicationSetState struct {
 	// > **NOTE:** If possible, create all the customer managed keys you need (using the deploy command) before you create the replication set, or create the keys and replication set in the same deploy command. Otherwise, to delete a replication set, you must run one deploy command to delete the replication set and another to delete the AWS KMS keys used by the replication set. Deleting the AWS KMS keys before deleting the replication set results in an error. In that case, you must manually reenable the deleted key using the AWS Management Console before you can delete the replication set.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -305,7 +307,11 @@ func (ReplicationSetState) ElementType() reflect.Type {
 }
 
 type replicationSetArgs struct {
-	// The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+	// The replication set's Regions. Use `regions` instead.
+	//
+	// Deprecated: region is deprecated. Use regions instead.
+	Region []ReplicationSetRegion `pulumi:"region"`
+	// The replication set's Regions.
 	Regions []ReplicationSetRegion `pulumi:"regions"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -325,7 +331,11 @@ type replicationSetArgs struct {
 
 // The set of arguments for constructing a ReplicationSet resource.
 type ReplicationSetArgs struct {
-	// The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+	// The replication set's Regions. Use `regions` instead.
+	//
+	// Deprecated: region is deprecated. Use regions instead.
+	Region ReplicationSetRegionArrayInput
+	// The replication set's Regions.
 	Regions ReplicationSetRegionArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	//
@@ -450,7 +460,14 @@ func (o ReplicationSetOutput) LastModifiedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationSet) pulumi.StringOutput { return v.LastModifiedBy }).(pulumi.StringOutput)
 }
 
-// The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+// The replication set's Regions. Use `regions` instead.
+//
+// Deprecated: region is deprecated. Use regions instead.
+func (o ReplicationSetOutput) Region() ReplicationSetRegionArrayOutput {
+	return o.ApplyT(func(v *ReplicationSet) ReplicationSetRegionArrayOutput { return v.Region }).(ReplicationSetRegionArrayOutput)
+}
+
+// The replication set's Regions.
 func (o ReplicationSetOutput) Regions() ReplicationSetRegionArrayOutput {
 	return o.ApplyT(func(v *ReplicationSet) ReplicationSetRegionArrayOutput { return v.Regions }).(ReplicationSetRegionArrayOutput)
 }
@@ -479,8 +496,6 @@ func (o ReplicationSetOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ReplicationSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReplicationSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

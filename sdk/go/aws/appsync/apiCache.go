@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,6 +66,8 @@ type ApiCache struct {
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// At-rest encryption flag for cache. You cannot update this setting after creation.
 	AtRestEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"atRestEncryptionEnabled"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
 	TransitEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"transitEncryptionEnabled"`
 	// TTL in seconds for cache entries.
@@ -122,6 +124,8 @@ type apiCacheState struct {
 	ApiId *string `pulumi:"apiId"`
 	// At-rest encryption flag for cache. You cannot update this setting after creation.
 	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 	// TTL in seconds for cache entries.
@@ -137,6 +141,8 @@ type ApiCacheState struct {
 	ApiId pulumi.StringPtrInput
 	// At-rest encryption flag for cache. You cannot update this setting after creation.
 	AtRestEncryptionEnabled pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 	// TTL in seconds for cache entries.
@@ -156,6 +162,8 @@ type apiCacheArgs struct {
 	ApiId string `pulumi:"apiId"`
 	// At-rest encryption flag for cache. You cannot update this setting after creation.
 	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 	// TTL in seconds for cache entries.
@@ -172,6 +180,8 @@ type ApiCacheArgs struct {
 	ApiId pulumi.StringInput
 	// At-rest encryption flag for cache. You cannot update this setting after creation.
 	AtRestEncryptionEnabled pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Transit encryption flag when connecting to cache. You cannot update this setting after creation.
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 	// TTL in seconds for cache entries.
@@ -280,6 +290,11 @@ func (o ApiCacheOutput) ApiId() pulumi.StringOutput {
 // At-rest encryption flag for cache. You cannot update this setting after creation.
 func (o ApiCacheOutput) AtRestEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApiCache) pulumi.BoolPtrOutput { return v.AtRestEncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ApiCacheOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiCache) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Transit encryption flag when connecting to cache. You cannot update this setting after creation.

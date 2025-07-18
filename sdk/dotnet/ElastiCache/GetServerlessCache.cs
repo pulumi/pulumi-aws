@@ -93,6 +93,12 @@ namespace Pulumi.Aws.ElastiCache
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetServerlessCacheArgs()
         {
         }
@@ -106,6 +112,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetServerlessCacheInvokeArgs()
         {
@@ -166,6 +178,7 @@ namespace Pulumi.Aws.ElastiCache
         /// Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
         /// </summary>
         public readonly Outputs.GetServerlessCacheReaderEndpointResult ReaderEndpoint;
+        public readonly string Region;
         /// <summary>
         /// A list of the one or more VPC security groups associated with the serverless cache.
         /// </summary>
@@ -215,6 +228,8 @@ namespace Pulumi.Aws.ElastiCache
 
             Outputs.GetServerlessCacheReaderEndpointResult readerEndpoint,
 
+            string region,
+
             ImmutableArray<string> securityGroupIds,
 
             int snapshotRetentionLimit,
@@ -238,6 +253,7 @@ namespace Pulumi.Aws.ElastiCache
             MajorEngineVersion = majorEngineVersion;
             Name = name;
             ReaderEndpoint = readerEndpoint;
+            Region = region;
             SecurityGroupIds = securityGroupIds;
             SnapshotRetentionLimit = snapshotRetentionLimit;
             Status = status;

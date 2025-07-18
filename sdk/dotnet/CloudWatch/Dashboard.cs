@@ -103,6 +103,12 @@ namespace Pulumi.Aws.CloudWatch
         [Output("dashboardName")]
         public Output<string> DashboardName { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Dashboard resource with the given unique name, arguments, and options.
@@ -161,6 +167,12 @@ namespace Pulumi.Aws.CloudWatch
         [Input("dashboardName", required: true)]
         public Input<string> DashboardName { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public DashboardArgs()
         {
         }
@@ -186,6 +198,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("dashboardName")]
         public Input<string>? DashboardName { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public DashboardState()
         {

@@ -26,6 +26,7 @@ class S3LocationArgs:
                  s3_config: pulumi.Input['S3LocationS3ConfigArgs'],
                  subdirectory: pulumi.Input[builtins.str],
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_storage_class: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -34,6 +35,7 @@ class S3LocationArgs:
         :param pulumi.Input['S3LocationS3ConfigArgs'] s3_config: Configuration block containing information for connecting to S3.
         :param pulumi.Input[builtins.str] subdirectory: Prefix to perform actions as source or destination.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] agent_arns: (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_storage_class: Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -42,6 +44,8 @@ class S3LocationArgs:
         pulumi.set(__self__, "subdirectory", subdirectory)
         if agent_arns is not None:
             pulumi.set(__self__, "agent_arns", agent_arns)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if s3_storage_class is not None:
             pulumi.set(__self__, "s3_storage_class", s3_storage_class)
         if tags is not None:
@@ -96,6 +100,18 @@ class S3LocationArgs:
         pulumi.set(self, "agent_arns", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="s3StorageClass")
     def s3_storage_class(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -125,6 +141,7 @@ class _S3LocationState:
     def __init__(__self__, *,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket_arn: Optional[pulumi.Input[builtins.str]] = None,
                  s3_config: Optional[pulumi.Input['S3LocationS3ConfigArgs']] = None,
                  s3_storage_class: Optional[pulumi.Input[builtins.str]] = None,
@@ -136,6 +153,7 @@ class _S3LocationState:
         Input properties used for looking up and filtering S3Location resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] agent_arns: (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
         :param pulumi.Input['S3LocationS3ConfigArgs'] s3_config: Configuration block containing information for connecting to S3.
         :param pulumi.Input[builtins.str] s3_storage_class: Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
@@ -147,6 +165,8 @@ class _S3LocationState:
             pulumi.set(__self__, "agent_arns", agent_arns)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if s3_bucket_arn is not None:
             pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
         if s3_config is not None:
@@ -157,9 +177,6 @@ class _S3LocationState:
             pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if uri is not None:
@@ -188,6 +205,18 @@ class _S3LocationState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="s3BucketArn")
@@ -251,7 +280,6 @@ class _S3LocationState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -279,6 +307,7 @@ class S3Location(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket_arn: Optional[pulumi.Input[builtins.str]] = None,
                  s3_config: Optional[pulumi.Input[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict']]] = None,
                  s3_storage_class: Optional[pulumi.Input[builtins.str]] = None,
@@ -331,6 +360,7 @@ class S3Location(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] agent_arns: (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
         :param pulumi.Input[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict']] s3_config: Configuration block containing information for connecting to S3.
         :param pulumi.Input[builtins.str] s3_storage_class: Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
@@ -402,6 +432,7 @@ class S3Location(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket_arn: Optional[pulumi.Input[builtins.str]] = None,
                  s3_config: Optional[pulumi.Input[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict']]] = None,
                  s3_storage_class: Optional[pulumi.Input[builtins.str]] = None,
@@ -417,6 +448,7 @@ class S3Location(pulumi.CustomResource):
             __props__ = S3LocationArgs.__new__(S3LocationArgs)
 
             __props__.__dict__["agent_arns"] = agent_arns
+            __props__.__dict__["region"] = region
             if s3_bucket_arn is None and not opts.urn:
                 raise TypeError("Missing required property 's3_bucket_arn'")
             __props__.__dict__["s3_bucket_arn"] = s3_bucket_arn
@@ -443,6 +475,7 @@ class S3Location(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             s3_bucket_arn: Optional[pulumi.Input[builtins.str]] = None,
             s3_config: Optional[pulumi.Input[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict']]] = None,
             s3_storage_class: Optional[pulumi.Input[builtins.str]] = None,
@@ -459,6 +492,7 @@ class S3Location(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] agent_arns: (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_arn: Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
         :param pulumi.Input[Union['S3LocationS3ConfigArgs', 'S3LocationS3ConfigArgsDict']] s3_config: Configuration block containing information for connecting to S3.
         :param pulumi.Input[builtins.str] s3_storage_class: Amazon S3 storage class that you want to store your files in when this location is used as a task destination. [Valid values](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes)
@@ -472,6 +506,7 @@ class S3Location(pulumi.CustomResource):
 
         __props__.__dict__["agent_arns"] = agent_arns
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["s3_bucket_arn"] = s3_bucket_arn
         __props__.__dict__["s3_config"] = s3_config
         __props__.__dict__["s3_storage_class"] = s3_storage_class
@@ -496,6 +531,14 @@ class S3Location(pulumi.CustomResource):
         Amazon Resource Name (ARN) of the DataSync Location.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="s3BucketArn")
@@ -539,7 +582,6 @@ class S3Location(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

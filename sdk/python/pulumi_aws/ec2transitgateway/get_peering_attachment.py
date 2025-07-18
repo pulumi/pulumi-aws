@@ -29,7 +29,7 @@ class GetPeeringAttachmentResult:
     """
     A collection of values returned by getPeeringAttachment.
     """
-    def __init__(__self__, arn=None, filters=None, id=None, peer_account_id=None, peer_region=None, peer_transit_gateway_id=None, state=None, tags=None, transit_gateway_id=None):
+    def __init__(__self__, arn=None, filters=None, id=None, peer_account_id=None, peer_region=None, peer_transit_gateway_id=None, region=None, state=None, tags=None, transit_gateway_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -48,6 +48,9 @@ class GetPeeringAttachmentResult:
         if peer_transit_gateway_id and not isinstance(peer_transit_gateway_id, str):
             raise TypeError("Expected argument 'peer_transit_gateway_id' to be a str")
         pulumi.set(__self__, "peer_transit_gateway_id", peer_transit_gateway_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -102,6 +105,11 @@ class GetPeeringAttachmentResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def state(self) -> builtins.str:
         return pulumi.get(self, "state")
 
@@ -131,6 +139,7 @@ class AwaitableGetPeeringAttachmentResult(GetPeeringAttachmentResult):
             peer_account_id=self.peer_account_id,
             peer_region=self.peer_region,
             peer_transit_gateway_id=self.peer_transit_gateway_id,
+            region=self.region,
             state=self.state,
             tags=self.tags,
             transit_gateway_id=self.transit_gateway_id)
@@ -138,6 +147,7 @@ class AwaitableGetPeeringAttachmentResult(GetPeeringAttachmentResult):
 
 def get_peering_attachment(filters: Optional[Sequence[Union['GetPeeringAttachmentFilterArgs', 'GetPeeringAttachmentFilterArgsDict']]] = None,
                            id: Optional[builtins.str] = None,
+                           region: Optional[builtins.str] = None,
                            tags: Optional[Mapping[str, builtins.str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPeeringAttachmentResult:
     """
@@ -169,6 +179,7 @@ def get_peering_attachment(filters: Optional[Sequence[Union['GetPeeringAttachmen
 
     :param Sequence[Union['GetPeeringAttachmentFilterArgs', 'GetPeeringAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param builtins.str id: Identifier of the EC2 Transit Gateway Peering Attachment.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
            
@@ -178,6 +189,7 @@ def get_peering_attachment(filters: Optional[Sequence[Union['GetPeeringAttachmen
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment', __args__, opts=opts, typ=GetPeeringAttachmentResult).value
@@ -189,11 +201,13 @@ def get_peering_attachment(filters: Optional[Sequence[Union['GetPeeringAttachmen
         peer_account_id=pulumi.get(__ret__, 'peer_account_id'),
         peer_region=pulumi.get(__ret__, 'peer_region'),
         peer_transit_gateway_id=pulumi.get(__ret__, 'peer_transit_gateway_id'),
+        region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
 def get_peering_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetPeeringAttachmentFilterArgs', 'GetPeeringAttachmentFilterArgsDict']]]]] = None,
                                   id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                  region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                   tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPeeringAttachmentResult]:
     """
@@ -225,6 +239,7 @@ def get_peering_attachment_output(filters: Optional[pulumi.Input[Optional[Sequen
 
     :param Sequence[Union['GetPeeringAttachmentFilterArgs', 'GetPeeringAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param builtins.str id: Identifier of the EC2 Transit Gateway Peering Attachment.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the specific EC2 Transit Gateway Peering Attachment to retrieve.
            
@@ -234,6 +249,7 @@ def get_peering_attachment_output(filters: Optional[pulumi.Input[Optional[Sequen
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getPeeringAttachment:getPeeringAttachment', __args__, opts=opts, typ=GetPeeringAttachmentResult)
@@ -244,6 +260,7 @@ def get_peering_attachment_output(filters: Optional[pulumi.Input[Optional[Sequen
         peer_account_id=pulumi.get(__response__, 'peer_account_id'),
         peer_region=pulumi.get(__response__, 'peer_region'),
         peer_transit_gateway_id=pulumi.get(__response__, 'peer_transit_gateway_id'),
+        region=pulumi.get(__response__, 'region'),
         state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags'),
         transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id')))

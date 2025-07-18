@@ -25,6 +25,7 @@ class ResourceLfTagArgs:
                  catalog_id: Optional[pulumi.Input[builtins.str]] = None,
                  database: Optional[pulumi.Input['ResourceLfTagDatabaseArgs']] = None,
                  lf_tag: Optional[pulumi.Input['ResourceLfTagLfTagArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table: Optional[pulumi.Input['ResourceLfTagTableArgs']] = None,
                  table_with_columns: Optional[pulumi.Input['ResourceLfTagTableWithColumnsArgs']] = None,
                  timeouts: Optional[pulumi.Input['ResourceLfTagTimeoutsArgs']] = None):
@@ -35,6 +36,7 @@ class ResourceLfTagArgs:
         :param pulumi.Input['ResourceLfTagLfTagArgs'] lf_tag: Set of LF-tags to attach to the resource. See LF Tag for more details.
                
                Exactly one of the following is required:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ResourceLfTagTableArgs'] table: Configuration block for a table resource. See Table for more details.
         :param pulumi.Input['ResourceLfTagTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. See Table With Columns for more details.
                
@@ -46,6 +48,8 @@ class ResourceLfTagArgs:
             pulumi.set(__self__, "database", database)
         if lf_tag is not None:
             pulumi.set(__self__, "lf_tag", lf_tag)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if table is not None:
             pulumi.set(__self__, "table", table)
         if table_with_columns is not None:
@@ -90,6 +94,18 @@ class ResourceLfTagArgs:
     @lf_tag.setter
     def lf_tag(self, value: Optional[pulumi.Input['ResourceLfTagLfTagArgs']]):
         pulumi.set(self, "lf_tag", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -133,6 +149,7 @@ class _ResourceLfTagState:
                  catalog_id: Optional[pulumi.Input[builtins.str]] = None,
                  database: Optional[pulumi.Input['ResourceLfTagDatabaseArgs']] = None,
                  lf_tag: Optional[pulumi.Input['ResourceLfTagLfTagArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table: Optional[pulumi.Input['ResourceLfTagTableArgs']] = None,
                  table_with_columns: Optional[pulumi.Input['ResourceLfTagTableWithColumnsArgs']] = None,
                  timeouts: Optional[pulumi.Input['ResourceLfTagTimeoutsArgs']] = None):
@@ -143,6 +160,7 @@ class _ResourceLfTagState:
         :param pulumi.Input['ResourceLfTagLfTagArgs'] lf_tag: Set of LF-tags to attach to the resource. See LF Tag for more details.
                
                Exactly one of the following is required:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ResourceLfTagTableArgs'] table: Configuration block for a table resource. See Table for more details.
         :param pulumi.Input['ResourceLfTagTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. See Table With Columns for more details.
                
@@ -154,6 +172,8 @@ class _ResourceLfTagState:
             pulumi.set(__self__, "database", database)
         if lf_tag is not None:
             pulumi.set(__self__, "lf_tag", lf_tag)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if table is not None:
             pulumi.set(__self__, "table", table)
         if table_with_columns is not None:
@@ -198,6 +218,18 @@ class _ResourceLfTagState:
     @lf_tag.setter
     def lf_tag(self, value: Optional[pulumi.Input['ResourceLfTagLfTagArgs']]):
         pulumi.set(self, "lf_tag", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -244,6 +276,7 @@ class ResourceLfTag(pulumi.CustomResource):
                  catalog_id: Optional[pulumi.Input[builtins.str]] = None,
                  database: Optional[pulumi.Input[Union['ResourceLfTagDatabaseArgs', 'ResourceLfTagDatabaseArgsDict']]] = None,
                  lf_tag: Optional[pulumi.Input[Union['ResourceLfTagLfTagArgs', 'ResourceLfTagLfTagArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table: Optional[pulumi.Input[Union['ResourceLfTagTableArgs', 'ResourceLfTagTableArgsDict']]] = None,
                  table_with_columns: Optional[pulumi.Input[Union['ResourceLfTagTableWithColumnsArgs', 'ResourceLfTagTableWithColumnsArgsDict']]] = None,
                  timeouts: Optional[pulumi.Input[Union['ResourceLfTagTimeoutsArgs', 'ResourceLfTagTimeoutsArgsDict']]] = None,
@@ -280,6 +313,7 @@ class ResourceLfTag(pulumi.CustomResource):
         :param pulumi.Input[Union['ResourceLfTagLfTagArgs', 'ResourceLfTagLfTagArgsDict']] lf_tag: Set of LF-tags to attach to the resource. See LF Tag for more details.
                
                Exactly one of the following is required:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ResourceLfTagTableArgs', 'ResourceLfTagTableArgsDict']] table: Configuration block for a table resource. See Table for more details.
         :param pulumi.Input[Union['ResourceLfTagTableWithColumnsArgs', 'ResourceLfTagTableWithColumnsArgsDict']] table_with_columns: Configuration block for a table with columns resource. See Table With Columns for more details.
                
@@ -334,6 +368,7 @@ class ResourceLfTag(pulumi.CustomResource):
                  catalog_id: Optional[pulumi.Input[builtins.str]] = None,
                  database: Optional[pulumi.Input[Union['ResourceLfTagDatabaseArgs', 'ResourceLfTagDatabaseArgsDict']]] = None,
                  lf_tag: Optional[pulumi.Input[Union['ResourceLfTagLfTagArgs', 'ResourceLfTagLfTagArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table: Optional[pulumi.Input[Union['ResourceLfTagTableArgs', 'ResourceLfTagTableArgsDict']]] = None,
                  table_with_columns: Optional[pulumi.Input[Union['ResourceLfTagTableWithColumnsArgs', 'ResourceLfTagTableWithColumnsArgsDict']]] = None,
                  timeouts: Optional[pulumi.Input[Union['ResourceLfTagTimeoutsArgs', 'ResourceLfTagTimeoutsArgsDict']]] = None,
@@ -349,6 +384,7 @@ class ResourceLfTag(pulumi.CustomResource):
             __props__.__dict__["catalog_id"] = catalog_id
             __props__.__dict__["database"] = database
             __props__.__dict__["lf_tag"] = lf_tag
+            __props__.__dict__["region"] = region
             __props__.__dict__["table"] = table
             __props__.__dict__["table_with_columns"] = table_with_columns
             __props__.__dict__["timeouts"] = timeouts
@@ -365,6 +401,7 @@ class ResourceLfTag(pulumi.CustomResource):
             catalog_id: Optional[pulumi.Input[builtins.str]] = None,
             database: Optional[pulumi.Input[Union['ResourceLfTagDatabaseArgs', 'ResourceLfTagDatabaseArgsDict']]] = None,
             lf_tag: Optional[pulumi.Input[Union['ResourceLfTagLfTagArgs', 'ResourceLfTagLfTagArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             table: Optional[pulumi.Input[Union['ResourceLfTagTableArgs', 'ResourceLfTagTableArgsDict']]] = None,
             table_with_columns: Optional[pulumi.Input[Union['ResourceLfTagTableWithColumnsArgs', 'ResourceLfTagTableWithColumnsArgsDict']]] = None,
             timeouts: Optional[pulumi.Input[Union['ResourceLfTagTimeoutsArgs', 'ResourceLfTagTimeoutsArgsDict']]] = None) -> 'ResourceLfTag':
@@ -380,6 +417,7 @@ class ResourceLfTag(pulumi.CustomResource):
         :param pulumi.Input[Union['ResourceLfTagLfTagArgs', 'ResourceLfTagLfTagArgsDict']] lf_tag: Set of LF-tags to attach to the resource. See LF Tag for more details.
                
                Exactly one of the following is required:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ResourceLfTagTableArgs', 'ResourceLfTagTableArgsDict']] table: Configuration block for a table resource. See Table for more details.
         :param pulumi.Input[Union['ResourceLfTagTableWithColumnsArgs', 'ResourceLfTagTableWithColumnsArgsDict']] table_with_columns: Configuration block for a table with columns resource. See Table With Columns for more details.
                
@@ -392,6 +430,7 @@ class ResourceLfTag(pulumi.CustomResource):
         __props__.__dict__["catalog_id"] = catalog_id
         __props__.__dict__["database"] = database
         __props__.__dict__["lf_tag"] = lf_tag
+        __props__.__dict__["region"] = region
         __props__.__dict__["table"] = table
         __props__.__dict__["table_with_columns"] = table_with_columns
         __props__.__dict__["timeouts"] = timeouts
@@ -422,6 +461,14 @@ class ResourceLfTag(pulumi.CustomResource):
         Exactly one of the following is required:
         """
         return pulumi.get(self, "lf_tag")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

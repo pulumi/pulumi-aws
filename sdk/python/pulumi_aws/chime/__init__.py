@@ -13,7 +13,6 @@ from .sdkvoice_voice_profile_domain import *
 from .voice_connector import *
 from .voice_connector_group import *
 from .voice_connector_logging import *
-from .voice_connector_organization import *
 from .voice_connector_origination import *
 from .voice_connector_streaming import *
 from .voice_connector_termination import *

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     ///     var exampleProductSubscription = new Aws.SecurityHub.ProductSubscription("example", new()
     ///     {
-    ///         ProductArn = $"arn:aws:securityhub:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:733251395267:product/alertlogic/althreatmanagement",
+    ///         ProductArn = $"arn:aws:securityhub:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:733251395267:product/alertlogic/althreatmanagement",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -100,6 +100,12 @@ namespace Pulumi.Aws.SecurityHub
         /// </summary>
         [Output("productArn")]
         public Output<string> ProductArn { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
 
         /// <summary>
@@ -191,6 +197,12 @@ namespace Pulumi.Aws.SecurityHub
         [Input("productArn", required: true)]
         public Input<string> ProductArn { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public ProductSubscriptionArgs()
         {
         }
@@ -248,6 +260,12 @@ namespace Pulumi.Aws.SecurityHub
         /// </summary>
         [Input("productArn")]
         public Input<string>? ProductArn { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public ProductSubscriptionState()
         {

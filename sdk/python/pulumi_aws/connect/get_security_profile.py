@@ -27,7 +27,7 @@ class GetSecurityProfileResult:
     """
     A collection of values returned by getSecurityProfile.
     """
-    def __init__(__self__, arn=None, description=None, id=None, instance_id=None, name=None, organization_resource_id=None, permissions=None, security_profile_id=None, tags=None):
+    def __init__(__self__, arn=None, description=None, id=None, instance_id=None, name=None, organization_resource_id=None, permissions=None, region=None, security_profile_id=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +49,9 @@ class GetSecurityProfileResult:
         if permissions and not isinstance(permissions, list):
             raise TypeError("Expected argument 'permissions' to be a list")
         pulumi.set(__self__, "permissions", permissions)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_profile_id and not isinstance(security_profile_id, str):
             raise TypeError("Expected argument 'security_profile_id' to be a str")
         pulumi.set(__self__, "security_profile_id", security_profile_id)
@@ -107,6 +110,11 @@ class GetSecurityProfileResult:
         return pulumi.get(self, "permissions")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityProfileId")
     def security_profile_id(self) -> builtins.str:
         return pulumi.get(self, "security_profile_id")
@@ -133,12 +141,14 @@ class AwaitableGetSecurityProfileResult(GetSecurityProfileResult):
             name=self.name,
             organization_resource_id=self.organization_resource_id,
             permissions=self.permissions,
+            region=self.region,
             security_profile_id=self.security_profile_id,
             tags=self.tags)
 
 
 def get_security_profile(instance_id: Optional[builtins.str] = None,
                          name: Optional[builtins.str] = None,
+                         region: Optional[builtins.str] = None,
                          security_profile_id: Optional[builtins.str] = None,
                          tags: Optional[Mapping[str, builtins.str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityProfileResult:
@@ -172,12 +182,14 @@ def get_security_profile(instance_id: Optional[builtins.str] = None,
     :param builtins.str name: Returns information on a specific Security Profile by name
            
            > **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str security_profile_id: Returns information on a specific Security Profile by Security Profile id
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the Security Profile.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['securityProfileId'] = security_profile_id
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -191,10 +203,12 @@ def get_security_profile(instance_id: Optional[builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         organization_resource_id=pulumi.get(__ret__, 'organization_resource_id'),
         permissions=pulumi.get(__ret__, 'permissions'),
+        region=pulumi.get(__ret__, 'region'),
         security_profile_id=pulumi.get(__ret__, 'security_profile_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_security_profile_output(instance_id: Optional[pulumi.Input[builtins.str]] = None,
                                 name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 security_profile_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityProfileResult]:
@@ -228,12 +242,14 @@ def get_security_profile_output(instance_id: Optional[pulumi.Input[builtins.str]
     :param builtins.str name: Returns information on a specific Security Profile by name
            
            > **NOTE:** `instance_id` and one of either `name` or `security_profile_id` is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str security_profile_id: Returns information on a specific Security Profile by Security Profile id
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the Security Profile.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['securityProfileId'] = security_profile_id
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -246,5 +262,6 @@ def get_security_profile_output(instance_id: Optional[pulumi.Input[builtins.str]
         name=pulumi.get(__response__, 'name'),
         organization_resource_id=pulumi.get(__response__, 'organization_resource_id'),
         permissions=pulumi.get(__response__, 'permissions'),
+        region=pulumi.get(__response__, 'region'),
         security_profile_id=pulumi.get(__response__, 'security_profile_id'),
         tags=pulumi.get(__response__, 'tags')))

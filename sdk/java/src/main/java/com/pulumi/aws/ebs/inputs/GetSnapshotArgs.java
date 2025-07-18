@@ -20,18 +20,14 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetSnapshotArgs Empty = new GetSnapshotArgs();
 
     /**
-     * One or more name/value pairs to filter off of. There are
-     * several valid keys, for a full reference, check out
-     * [describe-snapshots in the AWS CLI reference][1].
+     * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
      * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetSnapshotFilterArgs>> filters;
 
     /**
-     * @return One or more name/value pairs to filter off of. There are
-     * several valid keys, for a full reference, check out
-     * [describe-snapshots in the AWS CLI reference][1].
+     * @return One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
      * 
      */
     public Optional<Output<List<GetSnapshotFilterArgs>>> filters() {
@@ -66,6 +62,21 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Optional<Output<List<String>>> owners() {
         return Optional.ofNullable(this.owners);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -119,6 +130,7 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
         this.filters = $.filters;
         this.mostRecent = $.mostRecent;
         this.owners = $.owners;
+        this.region = $.region;
         this.restorableByUserIds = $.restorableByUserIds;
         this.snapshotIds = $.snapshotIds;
         this.tags = $.tags;
@@ -143,9 +155,7 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filters One or more name/value pairs to filter off of. There are
-         * several valid keys, for a full reference, check out
-         * [describe-snapshots in the AWS CLI reference][1].
+         * @param filters One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
          * 
          * @return builder
          * 
@@ -156,9 +166,7 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filters One or more name/value pairs to filter off of. There are
-         * several valid keys, for a full reference, check out
-         * [describe-snapshots in the AWS CLI reference][1].
+         * @param filters One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
          * 
          * @return builder
          * 
@@ -168,9 +176,7 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filters One or more name/value pairs to filter off of. There are
-         * several valid keys, for a full reference, check out
-         * [describe-snapshots in the AWS CLI reference][1].
+         * @param filters One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
          * 
          * @return builder
          * 
@@ -229,6 +235,27 @@ public final class GetSnapshotArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder owners(String... owners) {
             return owners(List.of(owners));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

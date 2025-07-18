@@ -25,6 +25,7 @@ class DeploymentConfigArgs:
                  compute_platform: Optional[pulumi.Input[builtins.str]] = None,
                  deployment_config_name: Optional[pulumi.Input[builtins.str]] = None,
                  minimum_healthy_hosts: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  traffic_routing_config: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']] = None,
                  zonal_config: Optional[pulumi.Input['DeploymentConfigZonalConfigArgs']] = None):
         """
@@ -32,6 +33,7 @@ class DeploymentConfigArgs:
         :param pulumi.Input[builtins.str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         :param pulumi.Input[builtins.str] deployment_config_name: The name of the deployment config.
         :param pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs'] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs'] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
         :param pulumi.Input['DeploymentConfigZonalConfigArgs'] zonal_config: A zonal_config block. Zonal Config is documented below.
         """
@@ -41,6 +43,8 @@ class DeploymentConfigArgs:
             pulumi.set(__self__, "deployment_config_name", deployment_config_name)
         if minimum_healthy_hosts is not None:
             pulumi.set(__self__, "minimum_healthy_hosts", minimum_healthy_hosts)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if traffic_routing_config is not None:
             pulumi.set(__self__, "traffic_routing_config", traffic_routing_config)
         if zonal_config is not None:
@@ -83,6 +87,18 @@ class DeploymentConfigArgs:
         pulumi.set(self, "minimum_healthy_hosts", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="trafficRoutingConfig")
     def traffic_routing_config(self) -> Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']]:
         """
@@ -115,6 +131,7 @@ class _DeploymentConfigState:
                  deployment_config_id: Optional[pulumi.Input[builtins.str]] = None,
                  deployment_config_name: Optional[pulumi.Input[builtins.str]] = None,
                  minimum_healthy_hosts: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  traffic_routing_config: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']] = None,
                  zonal_config: Optional[pulumi.Input['DeploymentConfigZonalConfigArgs']] = None):
         """
@@ -124,6 +141,7 @@ class _DeploymentConfigState:
         :param pulumi.Input[builtins.str] deployment_config_id: The AWS Assigned deployment config id
         :param pulumi.Input[builtins.str] deployment_config_name: The name of the deployment config.
         :param pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs'] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs'] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
         :param pulumi.Input['DeploymentConfigZonalConfigArgs'] zonal_config: A zonal_config block. Zonal Config is documented below.
         """
@@ -137,6 +155,8 @@ class _DeploymentConfigState:
             pulumi.set(__self__, "deployment_config_name", deployment_config_name)
         if minimum_healthy_hosts is not None:
             pulumi.set(__self__, "minimum_healthy_hosts", minimum_healthy_hosts)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if traffic_routing_config is not None:
             pulumi.set(__self__, "traffic_routing_config", traffic_routing_config)
         if zonal_config is not None:
@@ -203,6 +223,18 @@ class _DeploymentConfigState:
         pulumi.set(self, "minimum_healthy_hosts", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="trafficRoutingConfig")
     def traffic_routing_config(self) -> Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']]:
         """
@@ -236,6 +268,7 @@ class DeploymentConfig(pulumi.CustomResource):
                  compute_platform: Optional[pulumi.Input[builtins.str]] = None,
                  deployment_config_name: Optional[pulumi.Input[builtins.str]] = None,
                  minimum_healthy_hosts: Optional[pulumi.Input[Union['DeploymentConfigMinimumHealthyHostsArgs', 'DeploymentConfigMinimumHealthyHostsArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  traffic_routing_config: Optional[pulumi.Input[Union['DeploymentConfigTrafficRoutingConfigArgs', 'DeploymentConfigTrafficRoutingConfigArgsDict']]] = None,
                  zonal_config: Optional[pulumi.Input[Union['DeploymentConfigZonalConfigArgs', 'DeploymentConfigZonalConfigArgsDict']]] = None,
                  __props__=None):
@@ -325,6 +358,7 @@ class DeploymentConfig(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         :param pulumi.Input[builtins.str] deployment_config_name: The name of the deployment config.
         :param pulumi.Input[Union['DeploymentConfigMinimumHealthyHostsArgs', 'DeploymentConfigMinimumHealthyHostsArgsDict']] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DeploymentConfigTrafficRoutingConfigArgs', 'DeploymentConfigTrafficRoutingConfigArgsDict']] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
         :param pulumi.Input[Union['DeploymentConfigZonalConfigArgs', 'DeploymentConfigZonalConfigArgsDict']] zonal_config: A zonal_config block. Zonal Config is documented below.
         """
@@ -433,6 +467,7 @@ class DeploymentConfig(pulumi.CustomResource):
                  compute_platform: Optional[pulumi.Input[builtins.str]] = None,
                  deployment_config_name: Optional[pulumi.Input[builtins.str]] = None,
                  minimum_healthy_hosts: Optional[pulumi.Input[Union['DeploymentConfigMinimumHealthyHostsArgs', 'DeploymentConfigMinimumHealthyHostsArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  traffic_routing_config: Optional[pulumi.Input[Union['DeploymentConfigTrafficRoutingConfigArgs', 'DeploymentConfigTrafficRoutingConfigArgsDict']]] = None,
                  zonal_config: Optional[pulumi.Input[Union['DeploymentConfigZonalConfigArgs', 'DeploymentConfigZonalConfigArgsDict']]] = None,
                  __props__=None):
@@ -447,6 +482,7 @@ class DeploymentConfig(pulumi.CustomResource):
             __props__.__dict__["compute_platform"] = compute_platform
             __props__.__dict__["deployment_config_name"] = deployment_config_name
             __props__.__dict__["minimum_healthy_hosts"] = minimum_healthy_hosts
+            __props__.__dict__["region"] = region
             __props__.__dict__["traffic_routing_config"] = traffic_routing_config
             __props__.__dict__["zonal_config"] = zonal_config
             __props__.__dict__["arn"] = None
@@ -466,6 +502,7 @@ class DeploymentConfig(pulumi.CustomResource):
             deployment_config_id: Optional[pulumi.Input[builtins.str]] = None,
             deployment_config_name: Optional[pulumi.Input[builtins.str]] = None,
             minimum_healthy_hosts: Optional[pulumi.Input[Union['DeploymentConfigMinimumHealthyHostsArgs', 'DeploymentConfigMinimumHealthyHostsArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             traffic_routing_config: Optional[pulumi.Input[Union['DeploymentConfigTrafficRoutingConfigArgs', 'DeploymentConfigTrafficRoutingConfigArgsDict']]] = None,
             zonal_config: Optional[pulumi.Input[Union['DeploymentConfigZonalConfigArgs', 'DeploymentConfigZonalConfigArgsDict']]] = None) -> 'DeploymentConfig':
         """
@@ -480,6 +517,7 @@ class DeploymentConfig(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] deployment_config_id: The AWS Assigned deployment config id
         :param pulumi.Input[builtins.str] deployment_config_name: The name of the deployment config.
         :param pulumi.Input[Union['DeploymentConfigMinimumHealthyHostsArgs', 'DeploymentConfigMinimumHealthyHostsArgsDict']] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DeploymentConfigTrafficRoutingConfigArgs', 'DeploymentConfigTrafficRoutingConfigArgsDict']] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
         :param pulumi.Input[Union['DeploymentConfigZonalConfigArgs', 'DeploymentConfigZonalConfigArgsDict']] zonal_config: A zonal_config block. Zonal Config is documented below.
         """
@@ -492,6 +530,7 @@ class DeploymentConfig(pulumi.CustomResource):
         __props__.__dict__["deployment_config_id"] = deployment_config_id
         __props__.__dict__["deployment_config_name"] = deployment_config_name
         __props__.__dict__["minimum_healthy_hosts"] = minimum_healthy_hosts
+        __props__.__dict__["region"] = region
         __props__.__dict__["traffic_routing_config"] = traffic_routing_config
         __props__.__dict__["zonal_config"] = zonal_config
         return DeploymentConfig(resource_name, opts=opts, __props__=__props__)
@@ -535,6 +574,14 @@ class DeploymentConfig(pulumi.CustomResource):
         A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         """
         return pulumi.get(self, "minimum_healthy_hosts")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="trafficRoutingConfig")

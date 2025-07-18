@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const example = new aws.s3.Bucket("example", {bucket: "example"});
  * const exampleAccessPoint = new aws.s3.AccessPoint("example", {
  *     bucket: example.id,
  *     name: "example",
@@ -94,6 +94,10 @@ export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
      * The name for this Object Lambda Access Point.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ObjectLambdaAccessPoint resource with the given unique name, arguments, and options.
@@ -113,6 +117,7 @@ export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["configuration"] = state ? state.configuration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ObjectLambdaAccessPointArgs | undefined;
             if ((!args || args.configuration === undefined) && !opts.urn) {
@@ -121,6 +126,7 @@ export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["configuration"] = args ? args.configuration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
         }
@@ -153,6 +159,10 @@ export interface ObjectLambdaAccessPointState {
      * The name for this Object Lambda Access Point.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -171,4 +181,8 @@ export interface ObjectLambdaAccessPointArgs {
      * The name for this Object Lambda Access Point.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

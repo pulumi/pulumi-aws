@@ -115,6 +115,12 @@ namespace Pulumi.Aws.Eks
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
         public Dictionary<string, string> Tags
@@ -143,6 +149,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -192,6 +204,7 @@ namespace Pulumi.Aws.Eks
         /// Pod identity association for the EKS add-on.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAddonPodIdentityAssociationResult> PodIdentityAssociations;
+        public readonly string Region;
         /// <summary>
         /// ARN of IAM role used for EKS add-on. If value is empty -
         /// then add-on uses the IAM role assigned to the EKS Cluster node.
@@ -219,6 +232,8 @@ namespace Pulumi.Aws.Eks
 
             ImmutableArray<Outputs.GetAddonPodIdentityAssociationResult> podIdentityAssociations,
 
+            string region,
+
             string serviceAccountRoleArn,
 
             ImmutableDictionary<string, string> tags)
@@ -232,6 +247,7 @@ namespace Pulumi.Aws.Eks
             Id = id;
             ModifiedAt = modifiedAt;
             PodIdentityAssociations = podIdentityAssociations;
+            Region = region;
             ServiceAccountRoleArn = serviceAccountRoleArn;
             Tags = tags;
         }

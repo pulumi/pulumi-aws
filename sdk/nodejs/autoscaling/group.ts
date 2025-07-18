@@ -8,7 +8,6 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 import {LaunchConfiguration, PlacementGroup} from "../ec2";
-import {Metric} from "./index";
 
 /**
  * Provides an Auto Scaling Group resource.
@@ -531,7 +530,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      */
-    public readonly enabledMetrics!: pulumi.Output<Metric[] | undefined>;
+    public readonly enabledMetrics!: pulumi.Output<enums.autoscaling.Metric[] | undefined>;
     /**
      * Allows deleting the Auto Scaling Group without waiting
      * for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
@@ -643,6 +642,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly protectFromScaleIn!: pulumi.Output<boolean | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of the service-linked role that the ASG will use to call other AWS services
      */
     public readonly serviceLinkedRoleArn!: pulumi.Output<string>;
@@ -743,6 +746,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["placementGroup"] = state ? state.placementGroup : undefined;
             resourceInputs["predictedCapacity"] = state ? state.predictedCapacity : undefined;
             resourceInputs["protectFromScaleIn"] = state ? state.protectFromScaleIn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceLinkedRoleArn"] = state ? state.serviceLinkedRoleArn : undefined;
             resourceInputs["suspendedProcesses"] = state ? state.suspendedProcesses : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -793,6 +797,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["placementGroup"] = args ? args.placementGroup : undefined;
             resourceInputs["protectFromScaleIn"] = args ? args.protectFromScaleIn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceLinkedRoleArn"] = args ? args.serviceLinkedRoleArn : undefined;
             resourceInputs["suspendedProcesses"] = args ? args.suspendedProcesses : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -861,7 +866,7 @@ export interface GroupState {
     /**
      * List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      */
-    enabledMetrics?: pulumi.Input<pulumi.Input<Metric>[]>;
+    enabledMetrics?: pulumi.Input<pulumi.Input<enums.autoscaling.Metric>[]>;
     /**
      * Allows deleting the Auto Scaling Group without waiting
      * for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
@@ -973,6 +978,10 @@ export interface GroupState {
      */
     protectFromScaleIn?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ARN of the service-linked role that the ASG will use to call other AWS services
      */
     serviceLinkedRoleArn?: pulumi.Input<string>;
@@ -1073,7 +1082,7 @@ export interface GroupArgs {
     /**
      * List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      */
-    enabledMetrics?: pulumi.Input<pulumi.Input<Metric>[]>;
+    enabledMetrics?: pulumi.Input<pulumi.Input<enums.autoscaling.Metric>[]>;
     /**
      * Allows deleting the Auto Scaling Group without waiting
      * for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
@@ -1180,6 +1189,10 @@ export interface GroupArgs {
      * in the Amazon EC2 Auto Scaling User Guide.
      */
     protectFromScaleIn?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the service-linked role that the ASG will use to call other AWS services
      */

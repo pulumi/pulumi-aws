@@ -115,6 +115,21 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
      * 
      */
@@ -144,21 +159,9 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * @deprecated
-     * Please use `tags` instead.
-     * 
-     */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @deprecated
-     * Please use `tags` instead.
-     * 
-     */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -209,6 +212,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         this.modelSource = $.modelSource;
         this.models = $.models;
         this.name = $.name;
+        this.region = $.region;
         this.status = $.status;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -376,6 +380,27 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param status The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
          * 
          * @return builder
@@ -417,27 +442,11 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
             return tags(Output.of(tags));
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
-         */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
-         */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

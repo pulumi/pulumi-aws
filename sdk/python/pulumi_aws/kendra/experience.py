@@ -26,7 +26,8 @@ class ExperienceArgs:
                  role_arn: pulumi.Input[builtins.str],
                  configuration: Optional[pulumi.Input['ExperienceConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Experience resource.
         :param pulumi.Input[builtins.str] index_id: The identifier of the index for your Amazon Kendra experience.
@@ -38,6 +39,7 @@ class ExperienceArgs:
                > **NOTE:** By default of the AWS Kendra API, updates to an existing `kendra.Experience` resource (e.g. updating the `name`) will also update the `configuration.content_source_configuration.direct_put_content` parameter to `false` if not already provided.
         :param pulumi.Input[builtins.str] description: A description for your Amazon Kendra experience.
         :param pulumi.Input[builtins.str] name: A name for your Amazon Kendra experience.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -47,6 +49,8 @@ class ExperienceArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="indexId")
@@ -112,6 +116,18 @@ class ExperienceArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ExperienceState:
@@ -123,6 +139,7 @@ class _ExperienceState:
                  experience_id: Optional[pulumi.Input[builtins.str]] = None,
                  index_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -136,6 +153,7 @@ class _ExperienceState:
         :param pulumi.Input[builtins.str] experience_id: The unique identifier of the experience.
         :param pulumi.Input[builtins.str] index_id: The identifier of the index for your Amazon Kendra experience.
         :param pulumi.Input[builtins.str] name: A name for your Amazon Kendra experience.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
                
                The following arguments are optional:
@@ -155,6 +173,8 @@ class _ExperienceState:
             pulumi.set(__self__, "index_id", index_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if status is not None:
@@ -247,6 +267,18 @@ class _ExperienceState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -283,6 +315,7 @@ class Experience(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  index_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -328,6 +361,7 @@ class Experience(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A description for your Amazon Kendra experience.
         :param pulumi.Input[builtins.str] index_id: The identifier of the index for your Amazon Kendra experience.
         :param pulumi.Input[builtins.str] name: A name for your Amazon Kendra experience.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
                
                The following arguments are optional:
@@ -392,6 +426,7 @@ class Experience(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  index_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -408,6 +443,7 @@ class Experience(pulumi.CustomResource):
                 raise TypeError("Missing required property 'index_id'")
             __props__.__dict__["index_id"] = index_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -432,6 +468,7 @@ class Experience(pulumi.CustomResource):
             experience_id: Optional[pulumi.Input[builtins.str]] = None,
             index_id: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None) -> 'Experience':
         """
@@ -450,6 +487,7 @@ class Experience(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] experience_id: The unique identifier of the experience.
         :param pulumi.Input[builtins.str] index_id: The identifier of the index for your Amazon Kendra experience.
         :param pulumi.Input[builtins.str] name: A name for your Amazon Kendra experience.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
                
                The following arguments are optional:
@@ -466,6 +504,7 @@ class Experience(pulumi.CustomResource):
         __props__.__dict__["experience_id"] = experience_id
         __props__.__dict__["index_id"] = index_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["status"] = status
         return Experience(resource_name, opts=opts, __props__=__props__)
@@ -527,6 +566,14 @@ class Experience(pulumi.CustomResource):
         A name for your Amazon Kendra experience.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")

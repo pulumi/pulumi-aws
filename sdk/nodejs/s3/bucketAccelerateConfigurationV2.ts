@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const mybucket = new aws.s3.BucketV2("mybucket", {bucket: "mybucket"});
- * const example = new aws.s3.BucketAccelerateConfigurationV2("example", {
+ * const mybucket = new aws.s3.Bucket("mybucket", {bucket: "mybucket"});
+ * const example = new aws.s3.BucketAccelerateConfiguration("example", {
  *     bucket: mybucket.id,
  *     status: "Enabled",
  * });
@@ -38,6 +38,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
  * ```
+ *
+ * @deprecated aws.s3/bucketaccelerateconfigurationv2.BucketAccelerateConfigurationV2 has been deprecated in favor of aws.s3/bucketaccelerateconfiguration.BucketAccelerateConfiguration
  */
 export class BucketAccelerateConfigurationV2 extends pulumi.CustomResource {
     /**
@@ -50,6 +52,7 @@ export class BucketAccelerateConfigurationV2 extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BucketAccelerateConfigurationV2State, opts?: pulumi.CustomResourceOptions): BucketAccelerateConfigurationV2 {
+        pulumi.log.warn("BucketAccelerateConfigurationV2 is deprecated: aws.s3/bucketaccelerateconfigurationv2.BucketAccelerateConfigurationV2 has been deprecated in favor of aws.s3/bucketaccelerateconfiguration.BucketAccelerateConfiguration")
         return new BucketAccelerateConfigurationV2(name, <any>state, { ...opts, id: id });
     }
 
@@ -76,6 +79,10 @@ export class BucketAccelerateConfigurationV2 extends pulumi.CustomResource {
      */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
      */
     public readonly status!: pulumi.Output<string>;
@@ -87,14 +94,18 @@ export class BucketAccelerateConfigurationV2 extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.s3/bucketaccelerateconfigurationv2.BucketAccelerateConfigurationV2 has been deprecated in favor of aws.s3/bucketaccelerateconfiguration.BucketAccelerateConfiguration */
     constructor(name: string, args: BucketAccelerateConfigurationV2Args, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.s3/bucketaccelerateconfigurationv2.BucketAccelerateConfigurationV2 has been deprecated in favor of aws.s3/bucketaccelerateconfiguration.BucketAccelerateConfiguration */
     constructor(name: string, argsOrState?: BucketAccelerateConfigurationV2Args | BucketAccelerateConfigurationV2State, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BucketAccelerateConfigurationV2 is deprecated: aws.s3/bucketaccelerateconfigurationv2.BucketAccelerateConfigurationV2 has been deprecated in favor of aws.s3/bucketaccelerateconfiguration.BucketAccelerateConfiguration")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketAccelerateConfigurationV2State | undefined;
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as BucketAccelerateConfigurationV2Args | undefined;
@@ -106,9 +117,12 @@ export class BucketAccelerateConfigurationV2 extends pulumi.CustomResource {
             }
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BucketAccelerateConfigurationV2.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -125,6 +139,10 @@ export interface BucketAccelerateConfigurationV2State {
      * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
      */
@@ -143,6 +161,10 @@ export interface BucketAccelerateConfigurationV2Args {
      * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
      */

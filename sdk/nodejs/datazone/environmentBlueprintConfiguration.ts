@@ -9,33 +9,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.datazone.Domain("example", {
- *     name: "example_domain",
- *     domainExecutionRole: domainExecutionRole.arn,
- * });
- * const defaultDataLake = aws.datazone.getEnvironmentBlueprintOutput({
- *     domainId: example.id,
- *     name: "DefaultDataLake",
- *     managed: true,
- * });
- * const exampleEnvironmentBlueprintConfiguration = new aws.datazone.EnvironmentBlueprintConfiguration("example", {
- *     domainId: example.id,
- *     environmentBlueprintId: defaultDataLake.apply(defaultDataLake => defaultDataLake.id),
- *     enabledRegions: ["us-east-1"],
- *     regionalParameters: {
- *         "us-east-1": {
- *             s3Location: "s3://my-amazon-datazone-bucket",
- *         },
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import DataZone Environment Blueprint Configuration using the `domain_id` and `environment_blueprint_id`, separated by a `/`. For example:
@@ -95,9 +68,13 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
      */
     public readonly provisioningRoleArn!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Parameters for each region in which the blueprint is enabled
      */
-    public readonly regionalParameters!: pulumi.Output<{[key: string]: {[key: string]: string}} | undefined>;
+    public readonly regionalParameters!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a EnvironmentBlueprintConfiguration resource with the given unique name, arguments, and options.
@@ -117,6 +94,7 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
             resourceInputs["environmentBlueprintId"] = state ? state.environmentBlueprintId : undefined;
             resourceInputs["manageAccessRoleArn"] = state ? state.manageAccessRoleArn : undefined;
             resourceInputs["provisioningRoleArn"] = state ? state.provisioningRoleArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["regionalParameters"] = state ? state.regionalParameters : undefined;
         } else {
             const args = argsOrState as EnvironmentBlueprintConfigurationArgs | undefined;
@@ -134,6 +112,7 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
             resourceInputs["environmentBlueprintId"] = args ? args.environmentBlueprintId : undefined;
             resourceInputs["manageAccessRoleArn"] = args ? args.manageAccessRoleArn : undefined;
             resourceInputs["provisioningRoleArn"] = args ? args.provisioningRoleArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["regionalParameters"] = args ? args.regionalParameters : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -168,9 +147,13 @@ export interface EnvironmentBlueprintConfigurationState {
      */
     provisioningRoleArn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Parameters for each region in which the blueprint is enabled
      */
-    regionalParameters?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<string>}>}>;
+    regionalParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -200,7 +183,11 @@ export interface EnvironmentBlueprintConfigurationArgs {
      */
     provisioningRoleArn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Parameters for each region in which the blueprint is enabled
      */
-    regionalParameters?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: pulumi.Input<string>}>}>;
+    regionalParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

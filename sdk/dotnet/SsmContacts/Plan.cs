@@ -158,6 +158,12 @@ namespace Pulumi.Aws.SsmContacts
         public Output<string> ContactId { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         /// </summary>
         [Output("stages")]
@@ -215,6 +221,12 @@ namespace Pulumi.Aws.SsmContacts
         [Input("contactId", required: true)]
         public Input<string> ContactId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("stages", required: true)]
         private InputList<Inputs.PlanStageArgs>? _stages;
 
@@ -240,6 +252,12 @@ namespace Pulumi.Aws.SsmContacts
         /// </summary>
         [Input("contactId")]
         public Input<string>? ContactId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("stages")]
         private InputList<Inputs.PlanStageGetArgs>? _stages;

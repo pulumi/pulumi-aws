@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -505,31 +505,6 @@ func (i *clusterCertificateAuthorityPtrType) ToClusterCertificateAuthorityPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateAuthorityPtrOutput)
 }
 
-// ClusterCertificateAuthorityArrayInput is an input type that accepts ClusterCertificateAuthorityArray and ClusterCertificateAuthorityArrayOutput values.
-// You can construct a concrete instance of `ClusterCertificateAuthorityArrayInput` via:
-//
-//	ClusterCertificateAuthorityArray{ ClusterCertificateAuthorityArgs{...} }
-type ClusterCertificateAuthorityArrayInput interface {
-	pulumi.Input
-
-	ToClusterCertificateAuthorityArrayOutput() ClusterCertificateAuthorityArrayOutput
-	ToClusterCertificateAuthorityArrayOutputWithContext(context.Context) ClusterCertificateAuthorityArrayOutput
-}
-
-type ClusterCertificateAuthorityArray []ClusterCertificateAuthorityInput
-
-func (ClusterCertificateAuthorityArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterCertificateAuthority)(nil)).Elem()
-}
-
-func (i ClusterCertificateAuthorityArray) ToClusterCertificateAuthorityArrayOutput() ClusterCertificateAuthorityArrayOutput {
-	return i.ToClusterCertificateAuthorityArrayOutputWithContext(context.Background())
-}
-
-func (i ClusterCertificateAuthorityArray) ToClusterCertificateAuthorityArrayOutputWithContext(ctx context.Context) ClusterCertificateAuthorityArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateAuthorityArrayOutput)
-}
-
 type ClusterCertificateAuthorityOutput struct{ *pulumi.OutputState }
 
 func (ClusterCertificateAuthorityOutput) ElementType() reflect.Type {
@@ -591,26 +566,6 @@ func (o ClusterCertificateAuthorityPtrOutput) Data() pulumi.StringPtrOutput {
 		}
 		return v.Data
 	}).(pulumi.StringPtrOutput)
-}
-
-type ClusterCertificateAuthorityArrayOutput struct{ *pulumi.OutputState }
-
-func (ClusterCertificateAuthorityArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterCertificateAuthority)(nil)).Elem()
-}
-
-func (o ClusterCertificateAuthorityArrayOutput) ToClusterCertificateAuthorityArrayOutput() ClusterCertificateAuthorityArrayOutput {
-	return o
-}
-
-func (o ClusterCertificateAuthorityArrayOutput) ToClusterCertificateAuthorityArrayOutputWithContext(ctx context.Context) ClusterCertificateAuthorityArrayOutput {
-	return o
-}
-
-func (o ClusterCertificateAuthorityArrayOutput) Index(i pulumi.IntInput) ClusterCertificateAuthorityOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterCertificateAuthority {
-		return vs[0].([]ClusterCertificateAuthority)[vs[1].(int)]
-	}).(ClusterCertificateAuthorityOutput)
 }
 
 type ClusterComputeConfig struct {
@@ -7405,7 +7360,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAccessConfigPtrInput)(nil)).Elem(), ClusterAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityInput)(nil)).Elem(), ClusterCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityPtrInput)(nil)).Elem(), ClusterCertificateAuthorityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityArrayInput)(nil)).Elem(), ClusterCertificateAuthorityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterComputeConfigInput)(nil)).Elem(), ClusterComputeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterComputeConfigPtrInput)(nil)).Elem(), ClusterComputeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigInput)(nil)).Elem(), ClusterEncryptionConfigArgs{})
@@ -7517,7 +7471,6 @@ func init() {
 	pulumi.RegisterOutputType(ClusterAccessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterCertificateAuthorityOutput{})
 	pulumi.RegisterOutputType(ClusterCertificateAuthorityPtrOutput{})
-	pulumi.RegisterOutputType(ClusterCertificateAuthorityArrayOutput{})
 	pulumi.RegisterOutputType(ClusterComputeConfigOutput{})
 	pulumi.RegisterOutputType(ClusterComputeConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigOutput{})

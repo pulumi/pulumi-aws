@@ -139,6 +139,10 @@ export class ScheduledAction extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
      */
     public readonly schedule!: pulumi.Output<string>;
@@ -169,6 +173,7 @@ export class ScheduledAction extends pulumi.CustomResource {
             resourceInputs["endTime"] = state ? state.endTime : undefined;
             resourceInputs["iamRole"] = state ? state.iamRole : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["schedule"] = state ? state.schedule : undefined;
             resourceInputs["startTime"] = state ? state.startTime : undefined;
             resourceInputs["targetAction"] = state ? state.targetAction : undefined;
@@ -188,6 +193,7 @@ export class ScheduledAction extends pulumi.CustomResource {
             resourceInputs["endTime"] = args ? args.endTime : undefined;
             resourceInputs["iamRole"] = args ? args.iamRole : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["startTime"] = args ? args.startTime : undefined;
             resourceInputs["targetAction"] = args ? args.targetAction : undefined;
@@ -221,6 +227,10 @@ export interface ScheduledActionState {
      * The scheduled action name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
      */
@@ -259,6 +269,10 @@ export interface ScheduledActionArgs {
      * The scheduled action name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
      */

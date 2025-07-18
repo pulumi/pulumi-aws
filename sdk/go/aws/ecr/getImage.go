@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,6 +57,8 @@ type GetImageArgs struct {
 	ImageTag *string `pulumi:"imageTag"`
 	// Return the most recently pushed image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
 	MostRecent *bool `pulumi:"mostRecent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the Registry where the repository resides.
 	RegistryId *string `pulumi:"registryId"`
 	// Name of the ECR Repository.
@@ -78,6 +80,7 @@ type GetImageResult struct {
 	// The URI for the specific image version specified by `imageTag` or `imageDigest`.
 	ImageUri       string `pulumi:"imageUri"`
 	MostRecent     *bool  `pulumi:"mostRecent"`
+	Region         string `pulumi:"region"`
 	RegistryId     string `pulumi:"registryId"`
 	RepositoryName string `pulumi:"repositoryName"`
 }
@@ -99,6 +102,8 @@ type GetImageOutputArgs struct {
 	ImageTag pulumi.StringPtrInput `pulumi:"imageTag"`
 	// Return the most recently pushed image. At least one of `imageDigest`, `imageTag`, or `mostRecent` must be specified.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the Registry where the repository resides.
 	RegistryId pulumi.StringPtrInput `pulumi:"registryId"`
 	// Name of the ECR Repository.
@@ -159,6 +164,10 @@ func (o GetImageResultOutput) ImageUri() pulumi.StringOutput {
 
 func (o GetImageResultOutput) MostRecent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetImageResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetImageResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetImageResultOutput) RegistryId() pulumi.StringOutput {

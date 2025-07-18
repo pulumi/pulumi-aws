@@ -71,6 +71,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> IntegrationResponseKey { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         /// </summary>
         [Output("responseTemplates")]
@@ -152,6 +158,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Input("integrationResponseKey", required: true)]
         public Input<string> IntegrationResponseKey { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("responseTemplates")]
         private InputMap<string>? _responseTemplates;
 
@@ -201,6 +213,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Input("integrationResponseKey")]
         public Input<string>? IntegrationResponseKey { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("responseTemplates")]
         private InputMap<string>? _responseTemplates;

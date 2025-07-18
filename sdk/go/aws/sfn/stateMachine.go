@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sfn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,7 +69,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sfn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -114,7 +114,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sfn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -162,7 +162,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sfn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -213,7 +213,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sfn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -279,8 +279,10 @@ type StateMachine struct {
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Set to true to publish a version of the state machine during creation. Default: false.
-	Publish    pulumi.BoolPtrOutput `pulumi:"publish"`
-	RevisionId pulumi.StringOutput  `pulumi:"revisionId"`
+	Publish pulumi.BoolPtrOutput `pulumi:"publish"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region     pulumi.StringOutput `pulumi:"region"`
+	RevisionId pulumi.StringOutput `pulumi:"revisionId"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The ARN of the state machine version.
@@ -290,8 +292,6 @@ type StateMachine struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Selects whether AWS X-Ray tracing is enabled.
 	TracingConfiguration StateMachineTracingConfigurationOutput `pulumi:"tracingConfiguration"`
@@ -352,7 +352,9 @@ type stateMachineState struct {
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Set to true to publish a version of the state machine during creation. Default: false.
-	Publish    *bool   `pulumi:"publish"`
+	Publish *bool `pulumi:"publish"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region     *string `pulumi:"region"`
 	RevisionId *string `pulumi:"revisionId"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn *string `pulumi:"roleArn"`
@@ -363,8 +365,6 @@ type stateMachineState struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Selects whether AWS X-Ray tracing is enabled.
 	TracingConfiguration *StateMachineTracingConfiguration `pulumi:"tracingConfiguration"`
@@ -390,7 +390,9 @@ type StateMachineState struct {
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
 	// Set to true to publish a version of the state machine during creation. Default: false.
-	Publish    pulumi.BoolPtrInput
+	Publish pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region     pulumi.StringPtrInput
 	RevisionId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn pulumi.StringPtrInput
@@ -401,8 +403,6 @@ type StateMachineState struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Selects whether AWS X-Ray tracing is enabled.
 	TracingConfiguration StateMachineTracingConfigurationPtrInput
@@ -428,6 +428,8 @@ type stateMachineArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Set to true to publish a version of the state machine during creation. Default: false.
 	Publish *bool `pulumi:"publish"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn string `pulumi:"roleArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -452,6 +454,8 @@ type StateMachineArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// Set to true to publish a version of the state machine during creation. Default: false.
 	Publish pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
 	RoleArn pulumi.StringInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -593,6 +597,11 @@ func (o StateMachineOutput) Publish() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.BoolPtrOutput { return v.Publish }).(pulumi.BoolPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o StateMachineOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 func (o StateMachineOutput) RevisionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.RevisionId }).(pulumi.StringOutput)
 }
@@ -618,8 +627,6 @@ func (o StateMachineOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o StateMachineOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

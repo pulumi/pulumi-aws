@@ -27,7 +27,7 @@ class GetPortfolioResult:
     """
     A collection of values returned by getPortfolio.
     """
-    def __init__(__self__, accept_language=None, arn=None, created_time=None, description=None, id=None, name=None, provider_name=None, tags=None):
+    def __init__(__self__, accept_language=None, arn=None, created_time=None, description=None, id=None, name=None, provider_name=None, region=None, tags=None):
         if accept_language and not isinstance(accept_language, str):
             raise TypeError("Expected argument 'accept_language' to be a str")
         pulumi.set(__self__, "accept_language", accept_language)
@@ -49,6 +49,9 @@ class GetPortfolioResult:
         if provider_name and not isinstance(provider_name, str):
             raise TypeError("Expected argument 'provider_name' to be a str")
         pulumi.set(__self__, "provider_name", provider_name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -105,6 +108,11 @@ class GetPortfolioResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Tags applied to the portfolio.
@@ -125,11 +133,13 @@ class AwaitableGetPortfolioResult(GetPortfolioResult):
             id=self.id,
             name=self.name,
             provider_name=self.provider_name,
+            region=self.region,
             tags=self.tags)
 
 
 def get_portfolio(accept_language: Optional[builtins.str] = None,
                   id: Optional[builtins.str] = None,
+                  region: Optional[builtins.str] = None,
                   tags: Optional[Mapping[str, builtins.str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPortfolioResult:
     """
@@ -149,11 +159,13 @@ def get_portfolio(accept_language: Optional[builtins.str] = None,
     :param builtins.str id: Portfolio identifier.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags applied to the portfolio.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:servicecatalog/getPortfolio:getPortfolio', __args__, opts=opts, typ=GetPortfolioResult).value
@@ -166,9 +178,11 @@ def get_portfolio(accept_language: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         provider_name=pulumi.get(__ret__, 'provider_name'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_portfolio_output(accept_language: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          id: Optional[pulumi.Input[builtins.str]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPortfolioResult]:
     """
@@ -188,11 +202,13 @@ def get_portfolio_output(accept_language: Optional[pulumi.Input[Optional[builtin
     :param builtins.str id: Portfolio identifier.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags applied to the portfolio.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicecatalog/getPortfolio:getPortfolio', __args__, opts=opts, typ=GetPortfolioResult)
@@ -204,4 +220,5 @@ def get_portfolio_output(accept_language: Optional[pulumi.Input[Optional[builtin
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         provider_name=pulumi.get(__response__, 'provider_name'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

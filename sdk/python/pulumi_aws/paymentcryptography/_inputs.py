@@ -16,10 +16,10 @@ else:
 from .. import _utilities
 
 __all__ = [
-    'KeyKeyAttributesArgs',
-    'KeyKeyAttributesArgsDict',
-    'KeyKeyAttributesKeyModesOfUseArgs',
-    'KeyKeyAttributesKeyModesOfUseArgsDict',
+    'KeyKeyAttributeArgs',
+    'KeyKeyAttributeArgsDict',
+    'KeyKeyAttributeKeyModesOfUseArgs',
+    'KeyKeyAttributeKeyModesOfUseArgsDict',
     'KeyTimeoutsArgs',
     'KeyTimeoutsArgsDict',
 ]
@@ -27,7 +27,7 @@ __all__ = [
 MYPY = False
 
 if not MYPY:
-    class KeyKeyAttributesArgsDict(TypedDict):
+    class KeyKeyAttributeArgsDict(TypedDict):
         key_algorithm: pulumi.Input[builtins.str]
         """
         Key algorithm to be use during creation of an AWS Payment Cryptography key.
@@ -40,31 +40,31 @@ if not MYPY:
         """
         Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
         """
-        key_modes_of_use: NotRequired[pulumi.Input['KeyKeyAttributesKeyModesOfUseArgsDict']]
+        key_modes_of_uses: NotRequired[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeKeyModesOfUseArgsDict']]]]
         """
         List of cryptographic operations that you can perform using the key.
         """
 elif False:
-    KeyKeyAttributesArgsDict: TypeAlias = Mapping[str, Any]
+    KeyKeyAttributeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class KeyKeyAttributesArgs:
+class KeyKeyAttributeArgs:
     def __init__(__self__, *,
                  key_algorithm: pulumi.Input[builtins.str],
                  key_class: pulumi.Input[builtins.str],
                  key_usage: pulumi.Input[builtins.str],
-                 key_modes_of_use: Optional[pulumi.Input['KeyKeyAttributesKeyModesOfUseArgs']] = None):
+                 key_modes_of_uses: Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeKeyModesOfUseArgs']]]] = None):
         """
         :param pulumi.Input[builtins.str] key_algorithm: Key algorithm to be use during creation of an AWS Payment Cryptography key.
         :param pulumi.Input[builtins.str] key_class: Type of AWS Payment Cryptography key to create.
         :param pulumi.Input[builtins.str] key_usage: Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
-        :param pulumi.Input['KeyKeyAttributesKeyModesOfUseArgs'] key_modes_of_use: List of cryptographic operations that you can perform using the key.
+        :param pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeKeyModesOfUseArgs']]] key_modes_of_uses: List of cryptographic operations that you can perform using the key.
         """
         pulumi.set(__self__, "key_algorithm", key_algorithm)
         pulumi.set(__self__, "key_class", key_class)
         pulumi.set(__self__, "key_usage", key_usage)
-        if key_modes_of_use is not None:
-            pulumi.set(__self__, "key_modes_of_use", key_modes_of_use)
+        if key_modes_of_uses is not None:
+            pulumi.set(__self__, "key_modes_of_uses", key_modes_of_uses)
 
     @property
     @pulumi.getter(name="keyAlgorithm")
@@ -103,20 +103,20 @@ class KeyKeyAttributesArgs:
         pulumi.set(self, "key_usage", value)
 
     @property
-    @pulumi.getter(name="keyModesOfUse")
-    def key_modes_of_use(self) -> Optional[pulumi.Input['KeyKeyAttributesKeyModesOfUseArgs']]:
+    @pulumi.getter(name="keyModesOfUses")
+    def key_modes_of_uses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeKeyModesOfUseArgs']]]]:
         """
         List of cryptographic operations that you can perform using the key.
         """
-        return pulumi.get(self, "key_modes_of_use")
+        return pulumi.get(self, "key_modes_of_uses")
 
-    @key_modes_of_use.setter
-    def key_modes_of_use(self, value: Optional[pulumi.Input['KeyKeyAttributesKeyModesOfUseArgs']]):
-        pulumi.set(self, "key_modes_of_use", value)
+    @key_modes_of_uses.setter
+    def key_modes_of_uses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyKeyAttributeKeyModesOfUseArgs']]]]):
+        pulumi.set(self, "key_modes_of_uses", value)
 
 
 if not MYPY:
-    class KeyKeyAttributesKeyModesOfUseArgsDict(TypedDict):
+    class KeyKeyAttributeKeyModesOfUseArgsDict(TypedDict):
         decrypt: NotRequired[pulumi.Input[builtins.bool]]
         """
         Whether an AWS Payment Cryptography key can be used to decrypt data.
@@ -154,10 +154,10 @@ if not MYPY:
         Whether an AWS Payment Cryptography key can be used to wrap other keys.
         """
 elif False:
-    KeyKeyAttributesKeyModesOfUseArgsDict: TypeAlias = Mapping[str, Any]
+    KeyKeyAttributeKeyModesOfUseArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class KeyKeyAttributesKeyModesOfUseArgs:
+class KeyKeyAttributeKeyModesOfUseArgs:
     def __init__(__self__, *,
                  decrypt: Optional[pulumi.Input[builtins.bool]] = None,
                  derive_key: Optional[pulumi.Input[builtins.bool]] = None,

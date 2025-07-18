@@ -196,6 +196,10 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Resource owner's AWS account ID.
      */
     public /*out*/ readonly resourceOwner!: pulumi.Output<string>;
@@ -209,8 +213,6 @@ export class Route extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -237,6 +239,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["meshName"] = state ? state.meshName : undefined;
             resourceInputs["meshOwner"] = state ? state.meshOwner : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceOwner"] = state ? state.resourceOwner : undefined;
             resourceInputs["spec"] = state ? state.spec : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -256,6 +259,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["meshName"] = args ? args.meshName : undefined;
             resourceInputs["meshOwner"] = args ? args.meshOwner : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["spec"] = args ? args.spec : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualRouterName"] = args ? args.virtualRouterName : undefined;
@@ -299,6 +303,10 @@ export interface RouteState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Resource owner's AWS account ID.
      */
     resourceOwner?: pulumi.Input<string>;
@@ -312,8 +320,6 @@ export interface RouteState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -338,6 +344,10 @@ export interface RouteArgs {
      * Name to use for the route. Must be between 1 and 255 characters in length.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Route specification to apply.
      */

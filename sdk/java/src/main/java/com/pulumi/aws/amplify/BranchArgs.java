@@ -184,6 +184,21 @@ public final class BranchArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Enables skew protection for the branch.
+     * 
+     */
+    @Import(name="enableSkewProtection")
+    private @Nullable Output<Boolean> enableSkewProtection;
+
+    /**
+     * @return Enables skew protection for the branch.
+     * 
+     */
+    public Optional<Output<Boolean>> enableSkewProtection() {
+        return Optional.ofNullable(this.enableSkewProtection);
+    }
+
+    /**
      * Environment variables for the branch.
      * 
      */
@@ -226,6 +241,21 @@ public final class BranchArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> pullRequestEnvironmentName() {
         return Optional.ofNullable(this.pullRequestEnvironmentName);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -287,9 +317,11 @@ public final class BranchArgs extends com.pulumi.resources.ResourceArgs {
         this.enableNotification = $.enableNotification;
         this.enablePerformanceMode = $.enablePerformanceMode;
         this.enablePullRequestPreview = $.enablePullRequestPreview;
+        this.enableSkewProtection = $.enableSkewProtection;
         this.environmentVariables = $.environmentVariables;
         this.framework = $.framework;
         this.pullRequestEnvironmentName = $.pullRequestEnvironmentName;
+        this.region = $.region;
         this.stage = $.stage;
         this.tags = $.tags;
         this.ttl = $.ttl;
@@ -545,6 +577,27 @@ public final class BranchArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param enableSkewProtection Enables skew protection for the branch.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableSkewProtection(@Nullable Output<Boolean> enableSkewProtection) {
+            $.enableSkewProtection = enableSkewProtection;
+            return this;
+        }
+
+        /**
+         * @param enableSkewProtection Enables skew protection for the branch.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableSkewProtection(Boolean enableSkewProtection) {
+            return enableSkewProtection(Output.of(enableSkewProtection));
+        }
+
+        /**
          * @param environmentVariables Environment variables for the branch.
          * 
          * @return builder
@@ -605,6 +658,27 @@ public final class BranchArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder pullRequestEnvironmentName(String pullRequestEnvironmentName) {
             return pullRequestEnvironmentName(Output.of(pullRequestEnvironmentName));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

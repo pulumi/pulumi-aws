@@ -8,24 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides information about a MQ Broker.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const brokerId = config.get("brokerId") || "";
- * const brokerName = config.get("brokerName") || "";
- * const byId = aws.mq.getBroker({
- *     brokerId: brokerId,
- * });
- * const byName = aws.mq.getBroker({
- *     brokerName: brokerName,
- * });
- * ```
+ * Provides details about an existing Amazon MQ broker. Use this data source to retrieve configuration and metadata for an Amazon MQ broker by ID or name.
  */
 export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerResult> {
     args = args || {};
@@ -33,6 +16,7 @@ export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Pr
     return pulumi.runtime.invoke("aws:mq/getBroker:getBroker", {
         "brokerId": args.brokerId,
         "brokerName": args.brokerName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -42,13 +26,21 @@ export function getBroker(args?: GetBrokerArgs, opts?: pulumi.InvokeOptions): Pr
  */
 export interface GetBrokerArgs {
     /**
-     * Unique id of the mq broker.
+     * Unique ID of the MQ broker.
      */
     brokerId?: string;
     /**
-     * Unique name of the mq broker.
+     * Unique name of the MQ broker.
      */
     brokerName?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * > **Note:** Either `brokerId` or `brokerName` must be specified.
+     */
+    region?: string;
+    /**
+     * Map of tags assigned to the broker.
+     */
     tags?: {[key: string]: string};
 }
 
@@ -56,51 +48,92 @@ export interface GetBrokerArgs {
  * A collection of values returned by getBroker.
  */
 export interface GetBrokerResult {
+    /**
+     * ARN of the broker.
+     */
     readonly arn: string;
+    /**
+     * Authentication strategy used to secure the broker.
+     */
     readonly authenticationStrategy: string;
+    /**
+     * Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
+     */
     readonly autoMinorVersionUpgrade: boolean;
     readonly brokerId: string;
     readonly brokerName: string;
+    /**
+     * Configuration block for broker configuration. See Configuration below.
+     */
     readonly configuration: outputs.mq.GetBrokerConfiguration;
+    /**
+     * Deployment mode of the broker.
+     */
     readonly deploymentMode: string;
+    /**
+     * Configuration block containing encryption options. See Encryption Options below.
+     */
     readonly encryptionOptions: outputs.mq.GetBrokerEncryptionOption[];
+    /**
+     * Type of broker engine.
+     */
     readonly engineType: string;
+    /**
+     * Version of the broker engine.
+     */
     readonly engineVersion: string;
+    /**
+     * Broker's instance type.
+     */
     readonly hostInstanceType: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * List of information about allocated brokers (both active & standby). See Instances below.
+     */
     readonly instances: outputs.mq.GetBrokerInstance[];
+    /**
+     * Configuration block for the LDAP server used to authenticate and authorize connections to the broker. See LDAP Server Metadata below.
+     */
     readonly ldapServerMetadatas: outputs.mq.GetBrokerLdapServerMetadata[];
+    /**
+     * Configuration block for the logging configuration of the broker. See Logs below.
+     */
     readonly logs: outputs.mq.GetBrokerLogs;
+    /**
+     * Configuration block for the maintenance window start time. See Maintenance Window Start Time below.
+     */
     readonly maintenanceWindowStartTime: outputs.mq.GetBrokerMaintenanceWindowStartTime;
+    /**
+     * Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
+     */
     readonly publiclyAccessible: boolean;
+    readonly region: string;
+    /**
+     * List of security group IDs assigned to the broker.
+     */
     readonly securityGroups: string[];
+    /**
+     * Storage type of the broker.
+     */
     readonly storageType: string;
+    /**
+     * List of subnet IDs in which to launch the broker.
+     */
     readonly subnetIds: string[];
+    /**
+     * Map of tags assigned to the broker.
+     */
     readonly tags: {[key: string]: string};
+    /**
+     * Configuration block for broker users. See User below.
+     */
     readonly users: outputs.mq.GetBrokerUser[];
 }
 /**
- * Provides information about a MQ Broker.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const brokerId = config.get("brokerId") || "";
- * const brokerName = config.get("brokerName") || "";
- * const byId = aws.mq.getBroker({
- *     brokerId: brokerId,
- * });
- * const byName = aws.mq.getBroker({
- *     brokerName: brokerName,
- * });
- * ```
+ * Provides details about an existing Amazon MQ broker. Use this data source to retrieve configuration and metadata for an Amazon MQ broker by ID or name.
  */
 export function getBrokerOutput(args?: GetBrokerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBrokerResult> {
     args = args || {};
@@ -108,6 +141,7 @@ export function getBrokerOutput(args?: GetBrokerOutputArgs, opts?: pulumi.Invoke
     return pulumi.runtime.invokeOutput("aws:mq/getBroker:getBroker", {
         "brokerId": args.brokerId,
         "brokerName": args.brokerName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -117,12 +151,20 @@ export function getBrokerOutput(args?: GetBrokerOutputArgs, opts?: pulumi.Invoke
  */
 export interface GetBrokerOutputArgs {
     /**
-     * Unique id of the mq broker.
+     * Unique ID of the MQ broker.
      */
     brokerId?: pulumi.Input<string>;
     /**
-     * Unique name of the mq broker.
+     * Unique name of the MQ broker.
      */
     brokerName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * > **Note:** Either `brokerId` or `brokerName` must be specified.
+     */
+    region?: pulumi.Input<string>;
+    /**
+     * Map of tags assigned to the broker.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

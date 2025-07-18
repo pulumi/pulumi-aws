@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/verifiedaccess"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,11 +63,12 @@ type TrustProvider struct {
 	// The OpenID Connect details for an oidc-type, user-identity based trust provider.
 	OidcOptions TrustProviderOidcOptionsPtrOutput `pulumi:"oidcOptions"`
 	// The identifier to be used when working with policy rules.
-	PolicyReferenceName pulumi.StringOutput                 `pulumi:"policyReferenceName"`
-	SseSpecification    TrustProviderSseSpecificationOutput `pulumi:"sseSpecification"`
+	PolicyReferenceName pulumi.StringOutput `pulumi:"policyReferenceName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region           pulumi.StringOutput                 `pulumi:"region"`
+	SseSpecification TrustProviderSseSpecificationOutput `pulumi:"sseSpecification"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of trust provider can be either user or device-based.
 	//
@@ -124,11 +125,12 @@ type trustProviderState struct {
 	// The OpenID Connect details for an oidc-type, user-identity based trust provider.
 	OidcOptions *TrustProviderOidcOptions `pulumi:"oidcOptions"`
 	// The identifier to be used when working with policy rules.
-	PolicyReferenceName *string                        `pulumi:"policyReferenceName"`
-	SseSpecification    *TrustProviderSseSpecification `pulumi:"sseSpecification"`
+	PolicyReferenceName *string `pulumi:"policyReferenceName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region           *string                        `pulumi:"region"`
+	SseSpecification *TrustProviderSseSpecification `pulumi:"sseSpecification"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of trust provider can be either user or device-based.
 	//
@@ -151,10 +153,11 @@ type TrustProviderState struct {
 	OidcOptions TrustProviderOidcOptionsPtrInput
 	// The identifier to be used when working with policy rules.
 	PolicyReferenceName pulumi.StringPtrInput
-	SseSpecification    TrustProviderSseSpecificationPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region           pulumi.StringPtrInput
+	SseSpecification TrustProviderSseSpecificationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The type of trust provider can be either user or device-based.
 	//
@@ -180,8 +183,10 @@ type trustProviderArgs struct {
 	// The OpenID Connect details for an oidc-type, user-identity based trust provider.
 	OidcOptions *TrustProviderOidcOptions `pulumi:"oidcOptions"`
 	// The identifier to be used when working with policy rules.
-	PolicyReferenceName string                         `pulumi:"policyReferenceName"`
-	SseSpecification    *TrustProviderSseSpecification `pulumi:"sseSpecification"`
+	PolicyReferenceName string `pulumi:"policyReferenceName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region           *string                        `pulumi:"region"`
+	SseSpecification *TrustProviderSseSpecification `pulumi:"sseSpecification"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of trust provider can be either user or device-based.
@@ -206,7 +211,9 @@ type TrustProviderArgs struct {
 	OidcOptions TrustProviderOidcOptionsPtrInput
 	// The identifier to be used when working with policy rules.
 	PolicyReferenceName pulumi.StringInput
-	SseSpecification    TrustProviderSseSpecificationPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region           pulumi.StringPtrInput
+	SseSpecification TrustProviderSseSpecificationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The type of trust provider can be either user or device-based.
@@ -336,6 +343,11 @@ func (o TrustProviderOutput) PolicyReferenceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustProvider) pulumi.StringOutput { return v.PolicyReferenceName }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o TrustProviderOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrustProvider) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 func (o TrustProviderOutput) SseSpecification() TrustProviderSseSpecificationOutput {
 	return o.ApplyT(func(v *TrustProvider) TrustProviderSseSpecificationOutput { return v.SseSpecification }).(TrustProviderSseSpecificationOutput)
 }
@@ -345,7 +357,6 @@ func (o TrustProviderOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrustProvider) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o TrustProviderOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TrustProvider) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

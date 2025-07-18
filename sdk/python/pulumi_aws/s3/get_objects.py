@@ -27,7 +27,7 @@ class GetObjectsResult:
     """
     A collection of values returned by getObjects.
     """
-    def __init__(__self__, bucket=None, common_prefixes=None, delimiter=None, encoding_type=None, fetch_owner=None, id=None, keys=None, max_keys=None, owners=None, prefix=None, request_charged=None, request_payer=None, start_after=None):
+    def __init__(__self__, bucket=None, common_prefixes=None, delimiter=None, encoding_type=None, fetch_owner=None, id=None, keys=None, max_keys=None, owners=None, prefix=None, region=None, request_charged=None, request_payer=None, start_after=None):
         if bucket and not isinstance(bucket, str):
             raise TypeError("Expected argument 'bucket' to be a str")
         pulumi.set(__self__, "bucket", bucket)
@@ -58,6 +58,9 @@ class GetObjectsResult:
         if prefix and not isinstance(prefix, str):
             raise TypeError("Expected argument 'prefix' to be a str")
         pulumi.set(__self__, "prefix", prefix)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if request_charged and not isinstance(request_charged, str):
             raise TypeError("Expected argument 'request_charged' to be a str")
         pulumi.set(__self__, "request_charged", request_charged)
@@ -131,6 +134,11 @@ class GetObjectsResult:
         return pulumi.get(self, "prefix")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="requestCharged")
     def request_charged(self) -> builtins.str:
         """
@@ -165,6 +173,7 @@ class AwaitableGetObjectsResult(GetObjectsResult):
             max_keys=self.max_keys,
             owners=self.owners,
             prefix=self.prefix,
+            region=self.region,
             request_charged=self.request_charged,
             request_payer=self.request_payer,
             start_after=self.start_after)
@@ -176,6 +185,7 @@ def get_objects(bucket: Optional[builtins.str] = None,
                 fetch_owner: Optional[builtins.bool] = None,
                 max_keys: Optional[builtins.int] = None,
                 prefix: Optional[builtins.str] = None,
+                region: Optional[builtins.str] = None,
                 request_payer: Optional[builtins.str] = None,
                 start_after: Optional[builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetObjectsResult:
@@ -191,6 +201,7 @@ def get_objects(bucket: Optional[builtins.str] = None,
     :param builtins.bool fetch_owner: Boolean specifying whether to populate the owner list (Default: false)
     :param builtins.int max_keys: Maximum object keys to return (Default: 1000)
     :param builtins.str prefix: Limits results to object keys with this prefix (Default: none)
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str request_payer: Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
     :param builtins.str start_after: Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
     """
@@ -201,6 +212,7 @@ def get_objects(bucket: Optional[builtins.str] = None,
     __args__['fetchOwner'] = fetch_owner
     __args__['maxKeys'] = max_keys
     __args__['prefix'] = prefix
+    __args__['region'] = region
     __args__['requestPayer'] = request_payer
     __args__['startAfter'] = start_after
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -217,6 +229,7 @@ def get_objects(bucket: Optional[builtins.str] = None,
         max_keys=pulumi.get(__ret__, 'max_keys'),
         owners=pulumi.get(__ret__, 'owners'),
         prefix=pulumi.get(__ret__, 'prefix'),
+        region=pulumi.get(__ret__, 'region'),
         request_charged=pulumi.get(__ret__, 'request_charged'),
         request_payer=pulumi.get(__ret__, 'request_payer'),
         start_after=pulumi.get(__ret__, 'start_after'))
@@ -226,6 +239,7 @@ def get_objects_output(bucket: Optional[pulumi.Input[builtins.str]] = None,
                        fetch_owner: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                        max_keys: Optional[pulumi.Input[Optional[builtins.int]]] = None,
                        prefix: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        request_payer: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        start_after: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetObjectsResult]:
@@ -241,6 +255,7 @@ def get_objects_output(bucket: Optional[pulumi.Input[builtins.str]] = None,
     :param builtins.bool fetch_owner: Boolean specifying whether to populate the owner list (Default: false)
     :param builtins.int max_keys: Maximum object keys to return (Default: 1000)
     :param builtins.str prefix: Limits results to object keys with this prefix (Default: none)
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str request_payer: Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
     :param builtins.str start_after: Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
     """
@@ -251,6 +266,7 @@ def get_objects_output(bucket: Optional[pulumi.Input[builtins.str]] = None,
     __args__['fetchOwner'] = fetch_owner
     __args__['maxKeys'] = max_keys
     __args__['prefix'] = prefix
+    __args__['region'] = region
     __args__['requestPayer'] = request_payer
     __args__['startAfter'] = start_after
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -266,6 +282,7 @@ def get_objects_output(bucket: Optional[pulumi.Input[builtins.str]] = None,
         max_keys=pulumi.get(__response__, 'max_keys'),
         owners=pulumi.get(__response__, 'owners'),
         prefix=pulumi.get(__response__, 'prefix'),
+        region=pulumi.get(__response__, 'region'),
         request_charged=pulumi.get(__response__, 'request_charged'),
         request_payer=pulumi.get(__response__, 'request_payer'),
         start_after=pulumi.get(__response__, 'start_after')))

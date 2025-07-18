@@ -101,6 +101,12 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -134,6 +140,12 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -179,6 +191,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Name of the person or organization who owns the portfolio.
         /// </summary>
         public readonly string ProviderName;
+        public readonly string Region;
         /// <summary>
         /// Tags applied to the portfolio.
         /// </summary>
@@ -200,6 +213,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
             string providerName,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             AcceptLanguage = acceptLanguage;
@@ -209,6 +224,7 @@ namespace Pulumi.Aws.ServiceCatalog
             Id = id;
             Name = name;
             ProviderName = providerName;
+            Region = region;
             Tags = tags;
         }
     }

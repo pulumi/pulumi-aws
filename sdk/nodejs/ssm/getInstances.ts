@@ -29,6 +29,7 @@ export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOption
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssm/getInstances:getInstances", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -40,6 +41,10 @@ export interface GetInstancesArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: inputs.ssm.GetInstancesFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -55,6 +60,7 @@ export interface GetInstancesResult {
      * Set of instance IDs of the matched SSM managed instances.
      */
     readonly ids: string[];
+    readonly region: string;
 }
 /**
  * Use this data source to get the instance IDs of SSM managed instances.
@@ -78,6 +84,7 @@ export function getInstancesOutput(args?: GetInstancesOutputArgs, opts?: pulumi.
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssm/getInstances:getInstances", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -89,4 +96,8 @@ export interface GetInstancesOutputArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ssm.GetInstancesFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

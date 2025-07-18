@@ -105,6 +105,10 @@ export class DomainAssociation extends pulumi.CustomResource {
      */
     public readonly enableAutoSubDomain!: pulumi.Output<boolean | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Setting for the subdomain. Documented below.
      */
     public readonly subDomains!: pulumi.Output<outputs.amplify.DomainAssociationSubDomain[]>;
@@ -132,6 +136,7 @@ export class DomainAssociation extends pulumi.CustomResource {
             resourceInputs["certificateVerificationDnsRecord"] = state ? state.certificateVerificationDnsRecord : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["enableAutoSubDomain"] = state ? state.enableAutoSubDomain : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["subDomains"] = state ? state.subDomains : undefined;
             resourceInputs["waitForVerification"] = state ? state.waitForVerification : undefined;
         } else {
@@ -149,6 +154,7 @@ export class DomainAssociation extends pulumi.CustomResource {
             resourceInputs["certificateSettings"] = args ? args.certificateSettings : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["enableAutoSubDomain"] = args ? args.enableAutoSubDomain : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subDomains"] = args ? args.subDomains : undefined;
             resourceInputs["waitForVerification"] = args ? args.waitForVerification : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -188,6 +194,10 @@ export interface DomainAssociationState {
      */
     enableAutoSubDomain?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Setting for the subdomain. Documented below.
      */
     subDomains?: pulumi.Input<pulumi.Input<inputs.amplify.DomainAssociationSubDomain>[]>;
@@ -217,6 +227,10 @@ export interface DomainAssociationArgs {
      * Enables the automated creation of subdomains for branches.
      */
     enableAutoSubDomain?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Setting for the subdomain. Documented below.
      */

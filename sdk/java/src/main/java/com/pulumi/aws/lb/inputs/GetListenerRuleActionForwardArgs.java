@@ -22,16 +22,16 @@ public final class GetListenerRuleActionForwardArgs extends com.pulumi.resources
      * Detailed below.
      * 
      */
-    @Import(name="stickiness")
-    private @Nullable Output<GetListenerRuleActionForwardStickinessArgs> stickiness;
+    @Import(name="stickinesses")
+    private @Nullable Output<List<GetListenerRuleActionForwardStickinessArgs>> stickinesses;
 
     /**
      * @return Target group stickiness for the rule.
      * Detailed below.
      * 
      */
-    public Optional<Output<GetListenerRuleActionForwardStickinessArgs>> stickiness() {
-        return Optional.ofNullable(this.stickiness);
+    public Optional<Output<List<GetListenerRuleActionForwardStickinessArgs>>> stickinesses() {
+        return Optional.ofNullable(this.stickinesses);
     }
 
     /**
@@ -54,7 +54,7 @@ public final class GetListenerRuleActionForwardArgs extends com.pulumi.resources
     private GetListenerRuleActionForwardArgs() {}
 
     private GetListenerRuleActionForwardArgs(GetListenerRuleActionForwardArgs $) {
-        this.stickiness = $.stickiness;
+        this.stickinesses = $.stickinesses;
         this.targetGroups = $.targetGroups;
     }
 
@@ -77,26 +77,37 @@ public final class GetListenerRuleActionForwardArgs extends com.pulumi.resources
         }
 
         /**
-         * @param stickiness Target group stickiness for the rule.
+         * @param stickinesses Target group stickiness for the rule.
          * Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder stickiness(@Nullable Output<GetListenerRuleActionForwardStickinessArgs> stickiness) {
-            $.stickiness = stickiness;
+        public Builder stickinesses(@Nullable Output<List<GetListenerRuleActionForwardStickinessArgs>> stickinesses) {
+            $.stickinesses = stickinesses;
             return this;
         }
 
         /**
-         * @param stickiness Target group stickiness for the rule.
+         * @param stickinesses Target group stickiness for the rule.
          * Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder stickiness(GetListenerRuleActionForwardStickinessArgs stickiness) {
-            return stickiness(Output.of(stickiness));
+        public Builder stickinesses(List<GetListenerRuleActionForwardStickinessArgs> stickinesses) {
+            return stickinesses(Output.of(stickinesses));
+        }
+
+        /**
+         * @param stickinesses Target group stickiness for the rule.
+         * Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder stickinesses(GetListenerRuleActionForwardStickinessArgs... stickinesses) {
+            return stickinesses(List.of(stickinesses));
         }
 
         /**

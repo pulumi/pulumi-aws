@@ -2,7 +2,7 @@ import * as aws from "@pulumi/aws";
 import * as pulumi from "@pulumi/pulumi";
 
 const cfg = new pulumi.Config();
-const b = new aws.s3.BucketV2("my-bucket", {});
+const b = new aws.s3.Bucket("my-bucket", {});
 
 if (cfg.get("bucket-object") !== "exclude") {
     const o = new aws.s3.BucketObjectv2("obj", {
@@ -11,3 +11,5 @@ if (cfg.get("bucket-object") !== "exclude") {
         source: new pulumi.asset.FileAsset("index.ts"),
     });
 }
+
+export const bucketName = b.bucket;

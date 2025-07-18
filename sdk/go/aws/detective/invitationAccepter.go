@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/detective"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/detective"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,6 +67,8 @@ type InvitationAccepter struct {
 
 	// ARN of the behavior graph that the member account is accepting the invitation for.
 	GraphArn pulumi.StringOutput `pulumi:"graphArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewInvitationAccepter registers a new resource with the given unique name, arguments, and options.
@@ -104,11 +106,15 @@ func GetInvitationAccepter(ctx *pulumi.Context,
 type invitationAccepterState struct {
 	// ARN of the behavior graph that the member account is accepting the invitation for.
 	GraphArn *string `pulumi:"graphArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type InvitationAccepterState struct {
 	// ARN of the behavior graph that the member account is accepting the invitation for.
 	GraphArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (InvitationAccepterState) ElementType() reflect.Type {
@@ -118,12 +124,16 @@ func (InvitationAccepterState) ElementType() reflect.Type {
 type invitationAccepterArgs struct {
 	// ARN of the behavior graph that the member account is accepting the invitation for.
 	GraphArn string `pulumi:"graphArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a InvitationAccepter resource.
 type InvitationAccepterArgs struct {
 	// ARN of the behavior graph that the member account is accepting the invitation for.
 	GraphArn pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (InvitationAccepterArgs) ElementType() reflect.Type {
@@ -216,6 +226,11 @@ func (o InvitationAccepterOutput) ToInvitationAccepterOutputWithContext(ctx cont
 // ARN of the behavior graph that the member account is accepting the invitation for.
 func (o InvitationAccepterOutput) GraphArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvitationAccepter) pulumi.StringOutput { return v.GraphArn }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o InvitationAccepterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *InvitationAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type InvitationAccepterArrayOutput struct{ *pulumi.OutputState }

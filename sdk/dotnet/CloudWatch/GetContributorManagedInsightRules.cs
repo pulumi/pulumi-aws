@@ -94,6 +94,12 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class GetContributorManagedInsightRulesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
         /// </summary>
         [Input("resourceArn", required: true)]
@@ -107,6 +113,12 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class GetContributorManagedInsightRulesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
         /// </summary>
@@ -131,6 +143,7 @@ namespace Pulumi.Aws.CloudWatch
         /// Managed rules that are available for the specified Amazon Web Services resource. See `managed_rules reference` below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetContributorManagedInsightRulesManagedRuleResult> ManagedRules;
+        public readonly string Region;
         /// <summary>
         /// If a managed rule is enabled, this is the ARN for the related Amazon Web Services resource.
         /// </summary>
@@ -142,10 +155,13 @@ namespace Pulumi.Aws.CloudWatch
 
             ImmutableArray<Outputs.GetContributorManagedInsightRulesManagedRuleResult> managedRules,
 
+            string region,
+
             string resourceArn)
         {
             Id = id;
             ManagedRules = managedRules;
+            Region = region;
             ResourceArn = resourceArn;
         }
     }

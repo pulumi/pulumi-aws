@@ -21,10 +21,22 @@ import * as utilities from "../utilities";
  * const test = aws.bedrock.getInferenceProfiles({});
  * ```
  */
-export function getInferenceProfiles(opts?: pulumi.InvokeOptions): Promise<GetInferenceProfilesResult> {
+export function getInferenceProfiles(args?: GetInferenceProfilesArgs, opts?: pulumi.InvokeOptions): Promise<GetInferenceProfilesResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:bedrock/getInferenceProfiles:getInferenceProfiles", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getInferenceProfiles.
+ */
+export interface GetInferenceProfilesArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -39,6 +51,7 @@ export interface GetInferenceProfilesResult {
      * List of inference profile summary objects. See `inferenceProfileSummaries`.
      */
     readonly inferenceProfileSummaries: outputs.bedrock.GetInferenceProfilesInferenceProfileSummary[];
+    readonly region: string;
 }
 /**
  * Data source for managing AWS Bedrock AWS Bedrock Inference Profiles.
@@ -54,8 +67,20 @@ export interface GetInferenceProfilesResult {
  * const test = aws.bedrock.getInferenceProfiles({});
  * ```
  */
-export function getInferenceProfilesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInferenceProfilesResult> {
+export function getInferenceProfilesOutput(args?: GetInferenceProfilesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInferenceProfilesResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:bedrock/getInferenceProfiles:getInferenceProfiles", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getInferenceProfiles.
+ */
+export interface GetInferenceProfilesOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

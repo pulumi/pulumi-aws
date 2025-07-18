@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appmesh"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appmesh"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,6 +57,8 @@ type LookupVirtualGatewayArgs struct {
 	MeshName string `pulumi:"meshName"`
 	// Name of the virtual gateway.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -74,6 +76,7 @@ type LookupVirtualGatewayResult struct {
 	MeshName        string `pulumi:"meshName"`
 	MeshOwner       string `pulumi:"meshOwner"`
 	Name            string `pulumi:"name"`
+	Region          string `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner string `pulumi:"resourceOwner"`
 	// Virtual gateway specification. See the `appmesh.VirtualGateway` resource for details.
@@ -97,6 +100,8 @@ type LookupVirtualGatewayOutputArgs struct {
 	MeshName pulumi.StringInput `pulumi:"meshName"`
 	// Name of the virtual gateway.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -150,6 +155,10 @@ func (o LookupVirtualGatewayResultOutput) MeshOwner() pulumi.StringOutput {
 
 func (o LookupVirtualGatewayResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualGatewayResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupVirtualGatewayResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVirtualGatewayResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Resource owner's AWS account ID.

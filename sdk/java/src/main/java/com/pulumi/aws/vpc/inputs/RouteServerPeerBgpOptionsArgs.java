@@ -35,16 +35,12 @@ public final class RouteServerPeerBgpOptionsArgs extends com.pulumi.resources.Re
     /**
      * The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="peerLivenessDetection")
     private @Nullable Output<String> peerLivenessDetection;
 
     /**
      * @return The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> peerLivenessDetection() {
@@ -100,8 +96,6 @@ public final class RouteServerPeerBgpOptionsArgs extends com.pulumi.resources.Re
         /**
          * @param peerLivenessDetection The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -112,8 +106,6 @@ public final class RouteServerPeerBgpOptionsArgs extends com.pulumi.resources.Re
 
         /**
          * @param peerLivenessDetection The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

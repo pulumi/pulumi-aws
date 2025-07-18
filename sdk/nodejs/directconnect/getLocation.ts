@@ -25,6 +25,7 @@ export function getLocation(args: GetLocationArgs, opts?: pulumi.InvokeOptions):
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:directconnect/getLocation:getLocation", {
         "locationCode": args.locationCode,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,6 +37,10 @@ export interface GetLocationArgs {
      * Code for the location to retrieve.
      */
     locationCode: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -63,6 +68,7 @@ export interface GetLocationResult {
      * Name of the location. This includes the name of the colocation partner and the physical site of the building.
      */
     readonly locationName: string;
+    readonly region: string;
 }
 /**
  * Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
@@ -85,6 +91,7 @@ export function getLocationOutput(args: GetLocationOutputArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:directconnect/getLocation:getLocation", {
         "locationCode": args.locationCode,
+        "region": args.region,
     }, opts);
 }
 
@@ -96,4 +103,8 @@ export interface GetLocationOutputArgs {
      * Code for the location to retrieve.
      */
     locationCode: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

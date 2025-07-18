@@ -33,6 +33,7 @@ export function getAmiIds(args: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Pro
         "includeDeprecated": args.includeDeprecated,
         "nameRegex": args.nameRegex,
         "owners": args.owners,
+        "region": args.region,
         "sortAscending": args.sortAscending,
     }, opts);
 }
@@ -70,6 +71,10 @@ export interface GetAmiIdsArgs {
      */
     owners: string[];
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * Used to sort AMIs by creation time.
      * If no value is specified, the default value is `false`.
      */
@@ -93,6 +98,7 @@ export interface GetAmiIdsResult {
     readonly includeDeprecated?: boolean;
     readonly nameRegex?: string;
     readonly owners: string[];
+    readonly region: string;
     readonly sortAscending?: boolean;
 }
 /**
@@ -121,6 +127,7 @@ export function getAmiIdsOutput(args: GetAmiIdsOutputArgs, opts?: pulumi.InvokeO
         "includeDeprecated": args.includeDeprecated,
         "nameRegex": args.nameRegex,
         "owners": args.owners,
+        "region": args.region,
         "sortAscending": args.sortAscending,
     }, opts);
 }
@@ -157,6 +164,10 @@ export interface GetAmiIdsOutputArgs {
      * List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
      */
     owners: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Used to sort AMIs by creation time.
      * If no value is specified, the default value is `false`.

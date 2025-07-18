@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  *             identifiers: ["*"],
  *         }],
  *         actions: ["es:*"],
- *         resources: [`arn:aws:es:${current.name}:${currentGetCallerIdentity.accountId}:domain/${domain}/*`],
+ *         resources: [`arn:aws:es:${current.region}:${currentGetCallerIdentity.accountId}:domain/${domain}/*`],
  *         conditions: [{
  *             test: "IpAddress",
  *             variable: "aws:SourceIp",
@@ -158,7 +158,7 @@ import * as utilities from "../utilities";
  *             identifiers: ["*"],
  *         }],
  *         actions: ["es:*"],
- *         resources: [`arn:aws:es:${current.name}:${currentGetCallerIdentity.accountId}:domain/${domain}/*`],
+ *         resources: [`arn:aws:es:${current.region}:${currentGetCallerIdentity.accountId}:domain/${domain}/*`],
  *     }],
  * }));
  * const exampleDomain = new aws.opensearch.Domain("example", {
@@ -386,12 +386,6 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly ipAddressType!: pulumi.Output<string>;
     /**
-     * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
-     *
-     * @deprecated kibana_endpoint is deprecated. Use dashboardEndpoint instead.
-     */
-    public /*out*/ readonly kibanaEndpoint!: pulumi.Output<string>;
-    /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      */
     public readonly logPublishingOptions!: pulumi.Output<outputs.opensearch.DomainLogPublishingOption[] | undefined>;
@@ -403,6 +397,10 @@ export class Domain extends pulumi.CustomResource {
      * Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
      */
     public readonly offPeakWindowOptions!: pulumi.Output<outputs.opensearch.DomainOffPeakWindowOptions>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
      */
@@ -417,8 +415,6 @@ export class Domain extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -458,10 +454,10 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["endpointV2"] = state ? state.endpointV2 : undefined;
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
             resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
-            resourceInputs["kibanaEndpoint"] = state ? state.kibanaEndpoint : undefined;
             resourceInputs["logPublishingOptions"] = state ? state.logPublishingOptions : undefined;
             resourceInputs["nodeToNodeEncryption"] = state ? state.nodeToNodeEncryption : undefined;
             resourceInputs["offPeakWindowOptions"] = state ? state.offPeakWindowOptions : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["snapshotOptions"] = state ? state.snapshotOptions : undefined;
             resourceInputs["softwareUpdateOptions"] = state ? state.softwareUpdateOptions : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -484,6 +480,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
             resourceInputs["nodeToNodeEncryption"] = args ? args.nodeToNodeEncryption : undefined;
             resourceInputs["offPeakWindowOptions"] = args ? args.offPeakWindowOptions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["snapshotOptions"] = args ? args.snapshotOptions : undefined;
             resourceInputs["softwareUpdateOptions"] = args ? args.softwareUpdateOptions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -495,7 +492,6 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["endpointV2"] = undefined /*out*/;
-            resourceInputs["kibanaEndpoint"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -588,12 +584,6 @@ export interface DomainState {
      */
     ipAddressType?: pulumi.Input<string>;
     /**
-     * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
-     *
-     * @deprecated kibana_endpoint is deprecated. Use dashboardEndpoint instead.
-     */
-    kibanaEndpoint?: pulumi.Input<string>;
-    /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      */
     logPublishingOptions?: pulumi.Input<pulumi.Input<inputs.opensearch.DomainLogPublishingOption>[]>;
@@ -605,6 +595,10 @@ export interface DomainState {
      * Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
      */
     offPeakWindowOptions?: pulumi.Input<inputs.opensearch.DomainOffPeakWindowOptions>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
      */
@@ -619,8 +613,6 @@ export interface DomainState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -697,6 +689,10 @@ export interface DomainArgs {
      * Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
      */
     offPeakWindowOptions?: pulumi.Input<inputs.opensearch.DomainOffPeakWindowOptions>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
      */

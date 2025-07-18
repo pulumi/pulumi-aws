@@ -50,15 +50,15 @@ public final class DomainPermissionsArgs extends com.pulumi.resources.ResourceAr
      * A JSON policy string to be set as the access control resource policy on the provided domain.
      * 
      */
-    @Import(name="policyDocument", required=true)
-    private Output<String> policyDocument;
+    @Import(name="policyDocument")
+    private @Nullable Output<String> policyDocument;
 
     /**
      * @return A JSON policy string to be set as the access control resource policy on the provided domain.
      * 
      */
-    public Output<String> policyDocument() {
-        return this.policyDocument;
+    public Optional<Output<String>> policyDocument() {
+        return Optional.ofNullable(this.policyDocument);
     }
 
     /**
@@ -76,6 +76,21 @@ public final class DomainPermissionsArgs extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.policyRevision);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private DomainPermissionsArgs() {}
 
     private DomainPermissionsArgs(DomainPermissionsArgs $) {
@@ -83,6 +98,7 @@ public final class DomainPermissionsArgs extends com.pulumi.resources.ResourceAr
         this.domainOwner = $.domainOwner;
         this.policyDocument = $.policyDocument;
         this.policyRevision = $.policyRevision;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -151,7 +167,7 @@ public final class DomainPermissionsArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder policyDocument(Output<String> policyDocument) {
+        public Builder policyDocument(@Nullable Output<String> policyDocument) {
             $.policyDocument = policyDocument;
             return this;
         }
@@ -187,12 +203,30 @@ public final class DomainPermissionsArgs extends com.pulumi.resources.ResourceAr
             return policyRevision(Output.of(policyRevision));
         }
 
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
         public DomainPermissionsArgs build() {
             if ($.domain == null) {
                 throw new MissingRequiredPropertyException("DomainPermissionsArgs", "domain");
-            }
-            if ($.policyDocument == null) {
-                throw new MissingRequiredPropertyException("DomainPermissionsArgs", "policyDocument");
             }
             return $;
         }

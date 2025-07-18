@@ -22,6 +22,51 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.verifiedpermissions.Schema;
+ * import com.pulumi.aws.verifiedpermissions.SchemaArgs;
+ * import com.pulumi.aws.verifiedpermissions.inputs.SchemaDefinitionArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Schema("example", SchemaArgs.builder()
+ *             .policyStoreId(exampleAwsVerifiedpermissionsPolicyStore.policyStoreId())
+ *             .definition(SchemaDefinitionArgs.builder()
+ *                 .value(serializeJson(
+ *                     jsonObject(
+ *                         jsonProperty("Namespace", jsonObject(
+ *                             jsonProperty("entityTypes", jsonObject(
+ * 
+ *                             )),
+ *                             jsonProperty("actions", jsonObject(
+ * 
+ *                             ))
+ *                         ))
+ *                     )))
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -76,6 +121,20 @@ public class Schema extends com.pulumi.resources.CustomResource {
      */
     public Output<String> policyStoreId() {
         return this.policyStoreId;
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
 
     /**

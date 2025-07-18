@@ -28,7 +28,7 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, access_string=None, arn=None, authentication_modes=None, id=None, minimum_engine_version=None, tags=None, user_name=None):
+    def __init__(__self__, access_string=None, arn=None, authentication_modes=None, id=None, minimum_engine_version=None, region=None, tags=None, user_name=None):
         if access_string and not isinstance(access_string, str):
             raise TypeError("Expected argument 'access_string' to be a str")
         pulumi.set(__self__, "access_string", access_string)
@@ -44,6 +44,9 @@ class GetUserResult:
         if minimum_engine_version and not isinstance(minimum_engine_version, str):
             raise TypeError("Expected argument 'minimum_engine_version' to be a str")
         pulumi.set(__self__, "minimum_engine_version", minimum_engine_version)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -93,6 +96,11 @@ class GetUserResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Map of tags assigned to the user.
@@ -116,11 +124,13 @@ class AwaitableGetUserResult(GetUserResult):
             authentication_modes=self.authentication_modes,
             id=self.id,
             minimum_engine_version=self.minimum_engine_version,
+            region=self.region,
             tags=self.tags,
             user_name=self.user_name)
 
 
-def get_user(tags: Optional[Mapping[str, builtins.str]] = None,
+def get_user(region: Optional[builtins.str] = None,
+             tags: Optional[Mapping[str, builtins.str]] = None,
              user_name: Optional[builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
@@ -136,10 +146,12 @@ def get_user(tags: Optional[Mapping[str, builtins.str]] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the user.
     :param builtins.str user_name: Name of the user.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['userName'] = user_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -151,9 +163,11 @@ def get_user(tags: Optional[Mapping[str, builtins.str]] = None,
         authentication_modes=pulumi.get(__ret__, 'authentication_modes'),
         id=pulumi.get(__ret__, 'id'),
         minimum_engine_version=pulumi.get(__ret__, 'minimum_engine_version'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         user_name=pulumi.get(__ret__, 'user_name'))
-def get_user_output(tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
+def get_user_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                    tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                     user_name: Optional[pulumi.Input[builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
@@ -169,10 +183,12 @@ def get_user_output(tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.s
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the user.
     :param builtins.str user_name: Name of the user.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['userName'] = user_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -183,5 +199,6 @@ def get_user_output(tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.s
         authentication_modes=pulumi.get(__response__, 'authentication_modes'),
         id=pulumi.get(__response__, 'id'),
         minimum_engine_version=pulumi.get(__response__, 'minimum_engine_version'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         user_name=pulumi.get(__response__, 'user_name')))

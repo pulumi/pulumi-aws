@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,7 +71,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -111,7 +111,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -262,8 +262,6 @@ type responseHeadersPolicyArgs struct {
 	CorsConfig *ResponseHeadersPolicyCorsConfig `pulumi:"corsConfig"`
 	// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
 	CustomHeadersConfig *ResponseHeadersPolicyCustomHeadersConfig `pulumi:"customHeadersConfig"`
-	// The current version of the response headers policy.
-	Etag *string `pulumi:"etag"`
 	// A unique name to identify the response headers policy.
 	Name *string `pulumi:"name"`
 	// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
@@ -282,8 +280,6 @@ type ResponseHeadersPolicyArgs struct {
 	CorsConfig ResponseHeadersPolicyCorsConfigPtrInput
 	// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
 	CustomHeadersConfig ResponseHeadersPolicyCustomHeadersConfigPtrInput
-	// The current version of the response headers policy.
-	Etag pulumi.StringPtrInput
 	// A unique name to identify the response headers policy.
 	Name pulumi.StringPtrInput
 	// A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.

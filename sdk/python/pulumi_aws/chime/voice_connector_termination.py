@@ -25,7 +25,8 @@ class VoiceConnectorTerminationArgs:
                  voice_connector_id: pulumi.Input[builtins.str],
                  cps_limit: Optional[pulumi.Input[builtins.int]] = None,
                  default_phone_number: Optional[pulumi.Input[builtins.str]] = None,
-                 disabled: Optional[pulumi.Input[builtins.bool]] = None):
+                 disabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a VoiceConnectorTermination resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] calling_regions: The countries to which calls are allowed, in ISO 3166-1 alpha-2 format.
@@ -34,6 +35,7 @@ class VoiceConnectorTerminationArgs:
         :param pulumi.Input[builtins.int] cps_limit: The limit on calls per second. Max value based on account service quota. Default value of `1`.
         :param pulumi.Input[builtins.str] default_phone_number: The default caller ID phone number.
         :param pulumi.Input[builtins.bool] disabled: When termination settings are disabled, outbound calls can not be made.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "calling_regions", calling_regions)
         pulumi.set(__self__, "cidr_allow_lists", cidr_allow_lists)
@@ -44,6 +46,8 @@ class VoiceConnectorTerminationArgs:
             pulumi.set(__self__, "default_phone_number", default_phone_number)
         if disabled is not None:
             pulumi.set(__self__, "disabled", disabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="callingRegions")
@@ -117,6 +121,18 @@ class VoiceConnectorTerminationArgs:
     def disabled(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _VoiceConnectorTerminationState:
@@ -126,6 +142,7 @@ class _VoiceConnectorTerminationState:
                  cps_limit: Optional[pulumi.Input[builtins.int]] = None,
                  default_phone_number: Optional[pulumi.Input[builtins.str]] = None,
                  disabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  voice_connector_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering VoiceConnectorTermination resources.
@@ -134,6 +151,7 @@ class _VoiceConnectorTerminationState:
         :param pulumi.Input[builtins.int] cps_limit: The limit on calls per second. Max value based on account service quota. Default value of `1`.
         :param pulumi.Input[builtins.str] default_phone_number: The default caller ID phone number.
         :param pulumi.Input[builtins.bool] disabled: When termination settings are disabled, outbound calls can not be made.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] voice_connector_id: The Amazon Chime Voice Connector ID.
         """
         if calling_regions is not None:
@@ -146,6 +164,8 @@ class _VoiceConnectorTerminationState:
             pulumi.set(__self__, "default_phone_number", default_phone_number)
         if disabled is not None:
             pulumi.set(__self__, "disabled", disabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if voice_connector_id is not None:
             pulumi.set(__self__, "voice_connector_id", voice_connector_id)
 
@@ -210,6 +230,18 @@ class _VoiceConnectorTerminationState:
         pulumi.set(self, "disabled", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="voiceConnectorId")
     def voice_connector_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -233,6 +265,7 @@ class VoiceConnectorTermination(pulumi.CustomResource):
                  cps_limit: Optional[pulumi.Input[builtins.int]] = None,
                  default_phone_number: Optional[pulumi.Input[builtins.str]] = None,
                  disabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  voice_connector_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -273,6 +306,7 @@ class VoiceConnectorTermination(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] cps_limit: The limit on calls per second. Max value based on account service quota. Default value of `1`.
         :param pulumi.Input[builtins.str] default_phone_number: The default caller ID phone number.
         :param pulumi.Input[builtins.bool] disabled: When termination settings are disabled, outbound calls can not be made.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] voice_connector_id: The Amazon Chime Voice Connector ID.
         """
         ...
@@ -332,6 +366,7 @@ class VoiceConnectorTermination(pulumi.CustomResource):
                  cps_limit: Optional[pulumi.Input[builtins.int]] = None,
                  default_phone_number: Optional[pulumi.Input[builtins.str]] = None,
                  disabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  voice_connector_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -351,6 +386,7 @@ class VoiceConnectorTermination(pulumi.CustomResource):
             __props__.__dict__["cps_limit"] = cps_limit
             __props__.__dict__["default_phone_number"] = default_phone_number
             __props__.__dict__["disabled"] = disabled
+            __props__.__dict__["region"] = region
             if voice_connector_id is None and not opts.urn:
                 raise TypeError("Missing required property 'voice_connector_id'")
             __props__.__dict__["voice_connector_id"] = voice_connector_id
@@ -369,6 +405,7 @@ class VoiceConnectorTermination(pulumi.CustomResource):
             cps_limit: Optional[pulumi.Input[builtins.int]] = None,
             default_phone_number: Optional[pulumi.Input[builtins.str]] = None,
             disabled: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             voice_connector_id: Optional[pulumi.Input[builtins.str]] = None) -> 'VoiceConnectorTermination':
         """
         Get an existing VoiceConnectorTermination resource's state with the given name, id, and optional extra
@@ -382,6 +419,7 @@ class VoiceConnectorTermination(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] cps_limit: The limit on calls per second. Max value based on account service quota. Default value of `1`.
         :param pulumi.Input[builtins.str] default_phone_number: The default caller ID phone number.
         :param pulumi.Input[builtins.bool] disabled: When termination settings are disabled, outbound calls can not be made.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] voice_connector_id: The Amazon Chime Voice Connector ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -393,6 +431,7 @@ class VoiceConnectorTermination(pulumi.CustomResource):
         __props__.__dict__["cps_limit"] = cps_limit
         __props__.__dict__["default_phone_number"] = default_phone_number
         __props__.__dict__["disabled"] = disabled
+        __props__.__dict__["region"] = region
         __props__.__dict__["voice_connector_id"] = voice_connector_id
         return VoiceConnectorTermination(resource_name, opts=opts, __props__=__props__)
 
@@ -435,6 +474,14 @@ class VoiceConnectorTermination(pulumi.CustomResource):
         When termination settings are disabled, outbound calls can not be made.
         """
         return pulumi.get(self, "disabled")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="voiceConnectorId")

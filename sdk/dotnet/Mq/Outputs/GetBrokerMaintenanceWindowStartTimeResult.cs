@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Mq.Outputs
     [OutputType]
     public sealed class GetBrokerMaintenanceWindowStartTimeResult
     {
+        /// <summary>
+        /// Day of the week.
+        /// </summary>
         public readonly string DayOfWeek;
+        /// <summary>
+        /// Time, in 24-hour format.
+        /// </summary>
         public readonly string TimeOfDay;
+        /// <summary>
+        /// Time zone in either the Country/City format or the UTC offset format.
+        /// </summary>
         public readonly string TimeZone;
 
         [OutputConstructor]

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/keyspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/keyspaces"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,13 +55,13 @@ type Keyspace struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the keyspace to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The replication specification of the keyspace.
 	ReplicationSpecification KeyspaceReplicationSpecificationOutput `pulumi:"replicationSpecification"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -99,13 +99,13 @@ type keyspaceState struct {
 	Arn *string `pulumi:"arn"`
 	// The name of the keyspace to be created.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The replication specification of the keyspace.
 	ReplicationSpecification *KeyspaceReplicationSpecification `pulumi:"replicationSpecification"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -114,13 +114,13 @@ type KeyspaceState struct {
 	Arn pulumi.StringPtrInput
 	// The name of the keyspace to be created.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The replication specification of the keyspace.
 	ReplicationSpecification KeyspaceReplicationSpecificationPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -131,6 +131,8 @@ func (KeyspaceState) ElementType() reflect.Type {
 type keyspaceArgs struct {
 	// The name of the keyspace to be created.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The replication specification of the keyspace.
 	ReplicationSpecification *KeyspaceReplicationSpecification `pulumi:"replicationSpecification"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -141,6 +143,8 @@ type keyspaceArgs struct {
 type KeyspaceArgs struct {
 	// The name of the keyspace to be created.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The replication specification of the keyspace.
 	ReplicationSpecification KeyspaceReplicationSpecificationPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -244,6 +248,11 @@ func (o KeyspaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Keyspace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o KeyspaceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Keyspace) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The replication specification of the keyspace.
 func (o KeyspaceOutput) ReplicationSpecification() KeyspaceReplicationSpecificationOutput {
 	return o.ApplyT(func(v *Keyspace) KeyspaceReplicationSpecificationOutput { return v.ReplicationSpecification }).(KeyspaceReplicationSpecificationOutput)
@@ -255,8 +264,6 @@ func (o KeyspaceOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o KeyspaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Keyspace) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

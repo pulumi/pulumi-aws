@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -18217,106 +18217,6 @@ func (o VpcConnectionTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type GetAnalysisPermission struct {
-	Actions   []string `pulumi:"actions"`
-	Principal string   `pulumi:"principal"`
-}
-
-// GetAnalysisPermissionInput is an input type that accepts GetAnalysisPermissionArgs and GetAnalysisPermissionOutput values.
-// You can construct a concrete instance of `GetAnalysisPermissionInput` via:
-//
-//	GetAnalysisPermissionArgs{...}
-type GetAnalysisPermissionInput interface {
-	pulumi.Input
-
-	ToGetAnalysisPermissionOutput() GetAnalysisPermissionOutput
-	ToGetAnalysisPermissionOutputWithContext(context.Context) GetAnalysisPermissionOutput
-}
-
-type GetAnalysisPermissionArgs struct {
-	Actions   pulumi.StringArrayInput `pulumi:"actions"`
-	Principal pulumi.StringInput      `pulumi:"principal"`
-}
-
-func (GetAnalysisPermissionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAnalysisPermission)(nil)).Elem()
-}
-
-func (i GetAnalysisPermissionArgs) ToGetAnalysisPermissionOutput() GetAnalysisPermissionOutput {
-	return i.ToGetAnalysisPermissionOutputWithContext(context.Background())
-}
-
-func (i GetAnalysisPermissionArgs) ToGetAnalysisPermissionOutputWithContext(ctx context.Context) GetAnalysisPermissionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAnalysisPermissionOutput)
-}
-
-// GetAnalysisPermissionArrayInput is an input type that accepts GetAnalysisPermissionArray and GetAnalysisPermissionArrayOutput values.
-// You can construct a concrete instance of `GetAnalysisPermissionArrayInput` via:
-//
-//	GetAnalysisPermissionArray{ GetAnalysisPermissionArgs{...} }
-type GetAnalysisPermissionArrayInput interface {
-	pulumi.Input
-
-	ToGetAnalysisPermissionArrayOutput() GetAnalysisPermissionArrayOutput
-	ToGetAnalysisPermissionArrayOutputWithContext(context.Context) GetAnalysisPermissionArrayOutput
-}
-
-type GetAnalysisPermissionArray []GetAnalysisPermissionInput
-
-func (GetAnalysisPermissionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAnalysisPermission)(nil)).Elem()
-}
-
-func (i GetAnalysisPermissionArray) ToGetAnalysisPermissionArrayOutput() GetAnalysisPermissionArrayOutput {
-	return i.ToGetAnalysisPermissionArrayOutputWithContext(context.Background())
-}
-
-func (i GetAnalysisPermissionArray) ToGetAnalysisPermissionArrayOutputWithContext(ctx context.Context) GetAnalysisPermissionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAnalysisPermissionArrayOutput)
-}
-
-type GetAnalysisPermissionOutput struct{ *pulumi.OutputState }
-
-func (GetAnalysisPermissionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAnalysisPermission)(nil)).Elem()
-}
-
-func (o GetAnalysisPermissionOutput) ToGetAnalysisPermissionOutput() GetAnalysisPermissionOutput {
-	return o
-}
-
-func (o GetAnalysisPermissionOutput) ToGetAnalysisPermissionOutputWithContext(ctx context.Context) GetAnalysisPermissionOutput {
-	return o
-}
-
-func (o GetAnalysisPermissionOutput) Actions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetAnalysisPermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
-}
-
-func (o GetAnalysisPermissionOutput) Principal() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAnalysisPermission) string { return v.Principal }).(pulumi.StringOutput)
-}
-
-type GetAnalysisPermissionArrayOutput struct{ *pulumi.OutputState }
-
-func (GetAnalysisPermissionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAnalysisPermission)(nil)).Elem()
-}
-
-func (o GetAnalysisPermissionArrayOutput) ToGetAnalysisPermissionArrayOutput() GetAnalysisPermissionArrayOutput {
-	return o
-}
-
-func (o GetAnalysisPermissionArrayOutput) ToGetAnalysisPermissionArrayOutputWithContext(ctx context.Context) GetAnalysisPermissionArrayOutput {
-	return o
-}
-
-func (o GetAnalysisPermissionArrayOutput) Index(i pulumi.IntInput) GetAnalysisPermissionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAnalysisPermission {
-		return vs[0].([]GetAnalysisPermission)[vs[1].(int)]
-	}).(GetAnalysisPermissionOutput)
-}
-
 type GetDataSetColumnGroup struct {
 	GeoSpatialColumnGroups []GetDataSetColumnGroupGeoSpatialColumnGroup `pulumi:"geoSpatialColumnGroups"`
 }
@@ -23528,8 +23428,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemePermissionArrayInput)(nil)).Elem(), ThemePermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionTimeoutsInput)(nil)).Elem(), VpcConnectionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionTimeoutsPtrInput)(nil)).Elem(), VpcConnectionTimeoutsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAnalysisPermissionInput)(nil)).Elem(), GetAnalysisPermissionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAnalysisPermissionArrayInput)(nil)).Elem(), GetAnalysisPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetColumnGroupInput)(nil)).Elem(), GetDataSetColumnGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetColumnGroupArrayInput)(nil)).Elem(), GetDataSetColumnGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataSetColumnGroupGeoSpatialColumnGroupInput)(nil)).Elem(), GetDataSetColumnGroupGeoSpatialColumnGroupArgs{})
@@ -23861,8 +23759,6 @@ func init() {
 	pulumi.RegisterOutputType(ThemePermissionArrayOutput{})
 	pulumi.RegisterOutputType(VpcConnectionTimeoutsOutput{})
 	pulumi.RegisterOutputType(VpcConnectionTimeoutsPtrOutput{})
-	pulumi.RegisterOutputType(GetAnalysisPermissionOutput{})
-	pulumi.RegisterOutputType(GetAnalysisPermissionArrayOutput{})
 	pulumi.RegisterOutputType(GetDataSetColumnGroupOutput{})
 	pulumi.RegisterOutputType(GetDataSetColumnGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetDataSetColumnGroupGeoSpatialColumnGroupOutput{})

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,6 +57,8 @@ type InstanceDesiredState struct {
 
 	// DB Instance Identifier
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configured state of the DB Instance. Valid values are `available` and `stopped`.
 	State    pulumi.StringOutput                   `pulumi:"state"`
 	Timeouts InstanceDesiredStateTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -100,6 +102,8 @@ func GetInstanceDesiredState(ctx *pulumi.Context,
 type instanceDesiredStateState struct {
 	// DB Instance Identifier
 	Identifier *string `pulumi:"identifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configured state of the DB Instance. Valid values are `available` and `stopped`.
 	State    *string                       `pulumi:"state"`
 	Timeouts *InstanceDesiredStateTimeouts `pulumi:"timeouts"`
@@ -108,6 +112,8 @@ type instanceDesiredStateState struct {
 type InstanceDesiredStateState struct {
 	// DB Instance Identifier
 	Identifier pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configured state of the DB Instance. Valid values are `available` and `stopped`.
 	State    pulumi.StringPtrInput
 	Timeouts InstanceDesiredStateTimeoutsPtrInput
@@ -120,6 +126,8 @@ func (InstanceDesiredStateState) ElementType() reflect.Type {
 type instanceDesiredStateArgs struct {
 	// DB Instance Identifier
 	Identifier string `pulumi:"identifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configured state of the DB Instance. Valid values are `available` and `stopped`.
 	State    string                        `pulumi:"state"`
 	Timeouts *InstanceDesiredStateTimeouts `pulumi:"timeouts"`
@@ -129,6 +137,8 @@ type instanceDesiredStateArgs struct {
 type InstanceDesiredStateArgs struct {
 	// DB Instance Identifier
 	Identifier pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configured state of the DB Instance. Valid values are `available` and `stopped`.
 	State    pulumi.StringInput
 	Timeouts InstanceDesiredStateTimeoutsPtrInput
@@ -224,6 +234,11 @@ func (o InstanceDesiredStateOutput) ToInstanceDesiredStateOutputWithContext(ctx 
 // DB Instance Identifier
 func (o InstanceDesiredStateOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceDesiredState) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o InstanceDesiredStateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceDesiredState) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Configured state of the DB Instance. Valid values are `available` and `stopped`.

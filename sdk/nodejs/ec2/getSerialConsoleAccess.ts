@@ -16,10 +16,22 @@ import * as utilities from "../utilities";
  * const current = aws.ec2.getSerialConsoleAccess({});
  * ```
  */
-export function getSerialConsoleAccess(opts?: pulumi.InvokeOptions): Promise<GetSerialConsoleAccessResult> {
+export function getSerialConsoleAccess(args?: GetSerialConsoleAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetSerialConsoleAccessResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getSerialConsoleAccess.
+ */
+export interface GetSerialConsoleAccessArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -34,6 +46,7 @@ export interface GetSerialConsoleAccessResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
@@ -47,8 +60,20 @@ export interface GetSerialConsoleAccessResult {
  * const current = aws.ec2.getSerialConsoleAccess({});
  * ```
  */
-export function getSerialConsoleAccessOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSerialConsoleAccessResult> {
+export function getSerialConsoleAccessOutput(args?: GetSerialConsoleAccessOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSerialConsoleAccessResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getSerialConsoleAccess.
+ */
+export interface GetSerialConsoleAccessOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

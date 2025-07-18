@@ -108,6 +108,10 @@ export class ResourceGateway extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
@@ -125,8 +129,6 @@ export class ResourceGateway extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.vpclattice.ResourceGatewayTimeouts | undefined>;
@@ -153,6 +155,7 @@ export class ResourceGateway extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -170,6 +173,7 @@ export class ResourceGateway extends pulumi.CustomResource {
             }
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -201,6 +205,10 @@ export interface ResourceGatewayState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -218,8 +226,6 @@ export interface ResourceGatewayState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.vpclattice.ResourceGatewayTimeouts>;
@@ -243,6 +249,10 @@ export interface ResourceGatewayArgs {
      * Name of the resource gateway.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
      */

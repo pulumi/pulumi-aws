@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     parentId: example.roots?.[0]?.id,
  * }));
  * const exampleControlTowerControl = new aws.controltower.ControlTowerControl("example", {
- *     controlIdentifier: current.then(current => `arn:aws:controltower:${current.name}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK`),
+ *     controlIdentifier: current.then(current => `arn:aws:controltower:${current.region}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK`),
  *     targetIdentifier: exampleGetOrganizationalUnits.then(exampleGetOrganizationalUnits => .filter(x => x.name == "Infrastructure").map(x => (x.arn))[0]),
  *     parameters: [{
  *         key: "AllowedRegions",
@@ -81,6 +81,10 @@ export class ControlTowerControl extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<outputs.controltower.ControlTowerControlParameter[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the organizational unit.
      *
      * The following arguments are optional:
@@ -103,6 +107,7 @@ export class ControlTowerControl extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["controlIdentifier"] = state ? state.controlIdentifier : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["targetIdentifier"] = state ? state.targetIdentifier : undefined;
         } else {
             const args = argsOrState as ControlTowerControlArgs | undefined;
@@ -114,6 +119,7 @@ export class ControlTowerControl extends pulumi.CustomResource {
             }
             resourceInputs["controlIdentifier"] = args ? args.controlIdentifier : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["targetIdentifier"] = args ? args.targetIdentifier : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
@@ -139,6 +145,10 @@ export interface ControlTowerControlState {
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.controltower.ControlTowerControlParameter>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ARN of the organizational unit.
      *
      * The following arguments are optional:
@@ -158,6 +168,10 @@ export interface ControlTowerControlArgs {
      * Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.controltower.ControlTowerControlParameter>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the organizational unit.
      *

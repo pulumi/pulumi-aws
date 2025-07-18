@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicediscovery"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicediscovery"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,6 +53,8 @@ func GetDnsNamespace(ctx *pulumi.Context, args *GetDnsNamespaceArgs, opts ...pul
 type GetDnsNamespaceArgs struct {
 	// Name of the namespace.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
@@ -68,8 +70,9 @@ type GetDnsNamespaceResult struct {
 	// ID for the hosted zone that Amazon Route 53 creates when you create a namespace.
 	HostedZone string `pulumi:"hostedZone"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 	Type string            `pulumi:"type"`
@@ -88,6 +91,8 @@ func GetDnsNamespaceOutput(ctx *pulumi.Context, args GetDnsNamespaceOutputArgs, 
 type GetDnsNamespaceOutputArgs struct {
 	// Name of the namespace.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
@@ -135,6 +140,10 @@ func (o GetDnsNamespaceResultOutput) Id() pulumi.StringOutput {
 
 func (o GetDnsNamespaceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDnsNamespaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetDnsNamespaceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDnsNamespaceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags for the resource.

@@ -28,7 +28,7 @@ class GetSlotTypeResult:
     """
     A collection of values returned by getSlotType.
     """
-    def __init__(__self__, checksum=None, created_date=None, description=None, enumeration_values=None, id=None, last_updated_date=None, name=None, value_selection_strategy=None, version=None):
+    def __init__(__self__, checksum=None, created_date=None, description=None, enumeration_values=None, id=None, last_updated_date=None, name=None, region=None, value_selection_strategy=None, version=None):
         if checksum and not isinstance(checksum, str):
             raise TypeError("Expected argument 'checksum' to be a str")
         pulumi.set(__self__, "checksum", checksum)
@@ -50,6 +50,9 @@ class GetSlotTypeResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if value_selection_strategy and not isinstance(value_selection_strategy, str):
             raise TypeError("Expected argument 'value_selection_strategy' to be a str")
         pulumi.set(__self__, "value_selection_strategy", value_selection_strategy)
@@ -117,6 +120,11 @@ class GetSlotTypeResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="valueSelectionStrategy")
     def value_selection_strategy(self) -> builtins.str:
         """
@@ -149,11 +157,13 @@ class AwaitableGetSlotTypeResult(GetSlotTypeResult):
             id=self.id,
             last_updated_date=self.last_updated_date,
             name=self.name,
+            region=self.region,
             value_selection_strategy=self.value_selection_strategy,
             version=self.version)
 
 
 def get_slot_type(name: Optional[builtins.str] = None,
+                  region: Optional[builtins.str] = None,
                   version: Optional[builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSlotTypeResult:
     """
@@ -171,10 +181,12 @@ def get_slot_type(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the slot type. The name is case sensitive.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str version: Version of the slot type.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['version'] = version
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:lex/getSlotType:getSlotType', __args__, opts=opts, typ=GetSlotTypeResult).value
@@ -187,9 +199,11 @@ def get_slot_type(name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         value_selection_strategy=pulumi.get(__ret__, 'value_selection_strategy'),
         version=pulumi.get(__ret__, 'version'))
 def get_slot_type_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          version: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSlotTypeResult]:
     """
@@ -207,10 +221,12 @@ def get_slot_type_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the slot type. The name is case sensitive.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str version: Version of the slot type.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['version'] = version
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lex/getSlotType:getSlotType', __args__, opts=opts, typ=GetSlotTypeResult)
@@ -222,5 +238,6 @@ def get_slot_type_output(name: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         last_updated_date=pulumi.get(__response__, 'last_updated_date'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         value_selection_strategy=pulumi.get(__response__, 'value_selection_strategy'),
         version=pulumi.get(__response__, 'version')))

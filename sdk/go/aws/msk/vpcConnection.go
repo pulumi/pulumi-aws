@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/msk"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,13 +71,13 @@ type VpcConnection struct {
 	Authentication pulumi.StringOutput `pulumi:"authentication"`
 	// The list of subnets in the client VPC to connect to.
 	ClientSubnets pulumi.StringArrayOutput `pulumi:"clientSubnets"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) of the cluster.
 	TargetClusterArn pulumi.StringOutput `pulumi:"targetClusterArn"`
@@ -136,13 +136,13 @@ type vpcConnectionState struct {
 	Authentication *string `pulumi:"authentication"`
 	// The list of subnets in the client VPC to connect to.
 	ClientSubnets []string `pulumi:"clientSubnets"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) of the cluster.
 	TargetClusterArn *string `pulumi:"targetClusterArn"`
@@ -157,13 +157,13 @@ type VpcConnectionState struct {
 	Authentication pulumi.StringPtrInput
 	// The list of subnets in the client VPC to connect to.
 	ClientSubnets pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The Amazon Resource Name (ARN) of the cluster.
 	TargetClusterArn pulumi.StringPtrInput
@@ -180,6 +180,8 @@ type vpcConnectionArgs struct {
 	Authentication string `pulumi:"authentication"`
 	// The list of subnets in the client VPC to connect to.
 	ClientSubnets []string `pulumi:"clientSubnets"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -196,6 +198,8 @@ type VpcConnectionArgs struct {
 	Authentication pulumi.StringInput
 	// The list of subnets in the client VPC to connect to.
 	ClientSubnets pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The security groups to attach to the ENIs for the broker nodes.
 	SecurityGroups pulumi.StringArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -308,6 +312,11 @@ func (o VpcConnectionOutput) ClientSubnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringArrayOutput { return v.ClientSubnets }).(pulumi.StringArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o VpcConnectionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The security groups to attach to the ENIs for the broker nodes.
 func (o VpcConnectionOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
@@ -319,8 +328,6 @@ func (o VpcConnectionOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o VpcConnectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

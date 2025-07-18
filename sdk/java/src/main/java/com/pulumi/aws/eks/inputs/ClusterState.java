@@ -75,13 +75,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.bootstrapSelfManagedAddons);
     }
 
-    @Import(name="certificateAuthorities")
-    private @Nullable Output<List<ClusterCertificateAuthorityArgs>> certificateAuthorities;
-
-    public Optional<Output<List<ClusterCertificateAuthorityArgs>>> certificateAuthorities() {
-        return Optional.ofNullable(this.certificateAuthorities);
-    }
-
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      * 
@@ -140,13 +133,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
-    }
-
-    @Import(name="defaultAddonsToRemoves")
-    private @Nullable Output<List<String>> defaultAddonsToRemoves;
-
-    public Optional<Output<List<String>>> defaultAddonsToRemoves() {
-        return Optional.ofNullable(this.defaultAddonsToRemoves);
     }
 
     /**
@@ -285,6 +271,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
      * 
      */
@@ -362,22 +363,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -452,12 +445,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.accessConfig = $.accessConfig;
         this.arn = $.arn;
         this.bootstrapSelfManagedAddons = $.bootstrapSelfManagedAddons;
-        this.certificateAuthorities = $.certificateAuthorities;
         this.certificateAuthority = $.certificateAuthority;
         this.clusterId = $.clusterId;
         this.computeConfig = $.computeConfig;
         this.createdAt = $.createdAt;
-        this.defaultAddonsToRemoves = $.defaultAddonsToRemoves;
         this.enabledClusterLogTypes = $.enabledClusterLogTypes;
         this.encryptionConfig = $.encryptionConfig;
         this.endpoint = $.endpoint;
@@ -467,6 +458,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.outpostConfig = $.outpostConfig;
         this.platformVersion = $.platformVersion;
+        this.region = $.region;
         this.remoteNetworkConfig = $.remoteNetworkConfig;
         this.roleArn = $.roleArn;
         this.status = $.status;
@@ -560,19 +552,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
             return bootstrapSelfManagedAddons(Output.of(bootstrapSelfManagedAddons));
         }
 
-        public Builder certificateAuthorities(@Nullable Output<List<ClusterCertificateAuthorityArgs>> certificateAuthorities) {
-            $.certificateAuthorities = certificateAuthorities;
-            return this;
-        }
-
-        public Builder certificateAuthorities(List<ClusterCertificateAuthorityArgs> certificateAuthorities) {
-            return certificateAuthorities(Output.of(certificateAuthorities));
-        }
-
-        public Builder certificateAuthorities(ClusterCertificateAuthorityArgs... certificateAuthorities) {
-            return certificateAuthorities(List.of(certificateAuthorities));
-        }
-
         /**
          * @param certificateAuthority Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
          * 
@@ -655,19 +634,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
-        }
-
-        public Builder defaultAddonsToRemoves(@Nullable Output<List<String>> defaultAddonsToRemoves) {
-            $.defaultAddonsToRemoves = defaultAddonsToRemoves;
-            return this;
-        }
-
-        public Builder defaultAddonsToRemoves(List<String> defaultAddonsToRemoves) {
-            return defaultAddonsToRemoves(Output.of(defaultAddonsToRemoves));
-        }
-
-        public Builder defaultAddonsToRemoves(String... defaultAddonsToRemoves) {
-            return defaultAddonsToRemoves(List.of(defaultAddonsToRemoves));
         }
 
         /**
@@ -880,6 +846,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param remoteNetworkConfig Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
          * 
          * @return builder
@@ -989,11 +976,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -1004,11 +987,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

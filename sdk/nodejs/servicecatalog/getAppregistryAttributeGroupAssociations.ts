@@ -26,6 +26,7 @@ export function getAppregistryAttributeGroupAssociations(args?: GetAppregistryAt
     return pulumi.runtime.invoke("aws:servicecatalog/getAppregistryAttributeGroupAssociations:getAppregistryAttributeGroupAssociations", {
         "id": args.id,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -39,10 +40,13 @@ export interface GetAppregistryAttributeGroupAssociationsArgs {
     id?: string;
     /**
      * Name of the application to which attribute groups are associated.
-     *
-     * The following arguments are optional:
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * > Exactly one of `id`or `name` must be set.
+     */
+    region?: string;
 }
 
 /**
@@ -55,6 +59,7 @@ export interface GetAppregistryAttributeGroupAssociationsResult {
     readonly attributeGroupIds: string[];
     readonly id?: string;
     readonly name?: string;
+    readonly region: string;
 }
 /**
  * Data source for managing AWS Service Catalog AppRegistry Attribute Group Associations.
@@ -78,6 +83,7 @@ export function getAppregistryAttributeGroupAssociationsOutput(args?: GetAppregi
     return pulumi.runtime.invokeOutput("aws:servicecatalog/getAppregistryAttributeGroupAssociations:getAppregistryAttributeGroupAssociations", {
         "id": args.id,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -91,8 +97,11 @@ export interface GetAppregistryAttributeGroupAssociationsOutputArgs {
     id?: pulumi.Input<string>;
     /**
      * Name of the application to which attribute groups are associated.
-     *
-     * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * > Exactly one of `id`or `name` must be set.
+     */
+    region?: pulumi.Input<string>;
 }

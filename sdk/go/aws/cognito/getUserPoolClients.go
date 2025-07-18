@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,6 +50,8 @@ func GetUserPoolClients(ctx *pulumi.Context, args *GetUserPoolClientsArgs, opts 
 
 // A collection of arguments for invoking getUserPoolClients.
 type GetUserPoolClientsArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Cognito user pool ID.
 	UserPoolId string `pulumi:"userPoolId"`
 }
@@ -62,6 +64,7 @@ type GetUserPoolClientsResult struct {
 	ClientNames []string `pulumi:"clientNames"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
+	Region     string `pulumi:"region"`
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
@@ -76,6 +79,8 @@ func GetUserPoolClientsOutput(ctx *pulumi.Context, args GetUserPoolClientsOutput
 
 // A collection of arguments for invoking getUserPoolClients.
 type GetUserPoolClientsOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Cognito user pool ID.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
@@ -112,6 +117,10 @@ func (o GetUserPoolClientsResultOutput) ClientNames() pulumi.StringArrayOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetUserPoolClientsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserPoolClientsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetUserPoolClientsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUserPoolClientsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetUserPoolClientsResultOutput) UserPoolId() pulumi.StringOutput {

@@ -182,6 +182,13 @@ public final class DefaultVpcState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.ownerId);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
@@ -189,21 +196,9 @@ public final class DefaultVpcState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * @deprecated
-     * Please use `tags` instead.
-     * 
-     */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @deprecated
-     * Please use `tags` instead.
-     * 
-     */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -231,6 +226,7 @@ public final class DefaultVpcState extends com.pulumi.resources.ResourceArgs {
         this.ipv6NetmaskLength = $.ipv6NetmaskLength;
         this.mainRouteTableId = $.mainRouteTableId;
         this.ownerId = $.ownerId;
+        this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -469,6 +465,15 @@ public final class DefaultVpcState extends com.pulumi.resources.ResourceArgs {
             return ownerId(Output.of(ownerId));
         }
 
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
@@ -478,27 +483,11 @@ public final class DefaultVpcState extends com.pulumi.resources.ResourceArgs {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
-         */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
-         */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

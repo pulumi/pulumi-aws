@@ -38,7 +38,7 @@ if not MYPY:
     class BrokerConfigurationArgsDict(TypedDict):
         id: NotRequired[pulumi.Input[builtins.str]]
         """
-        The Configuration ID.
+        Configuration ID.
         """
         revision: NotRequired[pulumi.Input[builtins.int]]
         """
@@ -53,7 +53,7 @@ class BrokerConfigurationArgs:
                  id: Optional[pulumi.Input[builtins.str]] = None,
                  revision: Optional[pulumi.Input[builtins.int]] = None):
         """
-        :param pulumi.Input[builtins.str] id: The Configuration ID.
+        :param pulumi.Input[builtins.str] id: Configuration ID.
         :param pulumi.Input[builtins.int] revision: Revision of the Configuration.
         """
         if id is not None:
@@ -65,7 +65,7 @@ class BrokerConfigurationArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Configuration ID.
+        Configuration ID.
         """
         return pulumi.get(self, "id")
 
@@ -90,11 +90,11 @@ if not MYPY:
     class BrokerEncryptionOptionsArgsDict(TypedDict):
         kms_key_id: NotRequired[pulumi.Input[builtins.str]]
         """
-        Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
+        ARN of KMS CMK to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
         """
         use_aws_owned_key: NotRequired[pulumi.Input[builtins.bool]]
         """
-        Whether to enable an AWS-owned KMS CMK that is not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` will create an AWS-managed CMK aliased to `aws/mq` in your account.
+        Whether to enable an AWS-owned KMS CMK not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` creates an AWS-managed CMK aliased to `aws/mq` in your account.
         """
 elif False:
     BrokerEncryptionOptionsArgsDict: TypeAlias = Mapping[str, Any]
@@ -105,8 +105,8 @@ class BrokerEncryptionOptionsArgs:
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  use_aws_owned_key: Optional[pulumi.Input[builtins.bool]] = None):
         """
-        :param pulumi.Input[builtins.str] kms_key_id: Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
-        :param pulumi.Input[builtins.bool] use_aws_owned_key: Whether to enable an AWS-owned KMS CMK that is not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` will create an AWS-managed CMK aliased to `aws/mq` in your account.
+        :param pulumi.Input[builtins.str] kms_key_id: ARN of KMS CMK to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
+        :param pulumi.Input[builtins.bool] use_aws_owned_key: Whether to enable an AWS-owned KMS CMK not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` creates an AWS-managed CMK aliased to `aws/mq` in your account.
         """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -117,7 +117,7 @@ class BrokerEncryptionOptionsArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
+        ARN of KMS CMK to use for encryption at rest. Requires setting `use_aws_owned_key` to `false`. To perform drift detection when AWS-managed CMKs or customer-managed CMKs are in use, this value must be configured.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -129,7 +129,7 @@ class BrokerEncryptionOptionsArgs:
     @pulumi.getter(name="useAwsOwnedKey")
     def use_aws_owned_key(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Whether to enable an AWS-owned KMS CMK that is not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` will create an AWS-managed CMK aliased to `aws/mq` in your account.
+        Whether to enable an AWS-owned KMS CMK not in your account. Defaults to `true`. Setting to `false` without configuring `kms_key_id` creates an AWS-managed CMK aliased to `aws/mq` in your account.
         """
         return pulumi.get(self, "use_aws_owned_key")
 
@@ -142,7 +142,7 @@ if not MYPY:
     class BrokerInstanceArgsDict(TypedDict):
         console_url: NotRequired[pulumi.Input[builtins.str]]
         """
-        The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
+        URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
         """
         endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
@@ -170,7 +170,7 @@ class BrokerInstanceArgs:
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  ip_address: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] console_url: The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
+        :param pulumi.Input[builtins.str] console_url: URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] endpoints: Broker's wire-level protocol endpoints in the following order & format referenceable e.g., as `instances.0.endpoints.0` (SSL):
                * For `ActiveMQ`:
                * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
@@ -193,7 +193,7 @@ class BrokerInstanceArgs:
     @pulumi.getter(name="consoleUrl")
     def console_url(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
+        URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
         """
         return pulumi.get(self, "console_url")
 
@@ -238,15 +238,15 @@ if not MYPY:
     class BrokerLdapServerMetadataArgsDict(TypedDict):
         hosts: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
-        List of a fully qualified domain name of the LDAP server and an optional failover server.
+        List of fully qualified domain names of the LDAP server and optional failover server.
         """
         role_base: NotRequired[pulumi.Input[builtins.str]]
         """
-        Fully qualified name of the directory to search for a user’s groups.
+        Fully qualified name of the directory to search for a user's groups.
         """
         role_name: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+        LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
         """
         role_search_matching: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -270,7 +270,7 @@ if not MYPY:
         """
         user_role_name: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies the name of the LDAP attribute for the user group membership.
+        Name of the LDAP attribute for the user group membership.
         """
         user_search_matching: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -298,15 +298,15 @@ class BrokerLdapServerMetadataArgs:
                  user_search_matching: Optional[pulumi.Input[builtins.str]] = None,
                  user_search_subtree: Optional[pulumi.Input[builtins.bool]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] hosts: List of a fully qualified domain name of the LDAP server and an optional failover server.
-        :param pulumi.Input[builtins.str] role_base: Fully qualified name of the directory to search for a user’s groups.
-        :param pulumi.Input[builtins.str] role_name: Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] hosts: List of fully qualified domain names of the LDAP server and optional failover server.
+        :param pulumi.Input[builtins.str] role_base: Fully qualified name of the directory to search for a user's groups.
+        :param pulumi.Input[builtins.str] role_name: LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
         :param pulumi.Input[builtins.str] role_search_matching: Search criteria for groups.
         :param pulumi.Input[builtins.bool] role_search_subtree: Whether the directory search scope is the entire sub-tree.
         :param pulumi.Input[builtins.str] service_account_password: Service account password.
         :param pulumi.Input[builtins.str] service_account_username: Service account username.
         :param pulumi.Input[builtins.str] user_base: Fully qualified name of the directory where you want to search for users.
-        :param pulumi.Input[builtins.str] user_role_name: Specifies the name of the LDAP attribute for the user group membership.
+        :param pulumi.Input[builtins.str] user_role_name: Name of the LDAP attribute for the user group membership.
         :param pulumi.Input[builtins.str] user_search_matching: Search criteria for users.
         :param pulumi.Input[builtins.bool] user_search_subtree: Whether the directory search scope is the entire sub-tree.
         """
@@ -337,7 +337,7 @@ class BrokerLdapServerMetadataArgs:
     @pulumi.getter
     def hosts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        List of a fully qualified domain name of the LDAP server and an optional failover server.
+        List of fully qualified domain names of the LDAP server and optional failover server.
         """
         return pulumi.get(self, "hosts")
 
@@ -349,7 +349,7 @@ class BrokerLdapServerMetadataArgs:
     @pulumi.getter(name="roleBase")
     def role_base(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the directory to search for a user’s groups.
+        Fully qualified name of the directory to search for a user's groups.
         """
         return pulumi.get(self, "role_base")
 
@@ -361,7 +361,7 @@ class BrokerLdapServerMetadataArgs:
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+        LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
         """
         return pulumi.get(self, "role_name")
 
@@ -433,7 +433,7 @@ class BrokerLdapServerMetadataArgs:
     @pulumi.getter(name="userRoleName")
     def user_role_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the name of the LDAP attribute for the user group membership.
+        Name of the LDAP attribute for the user group membership.
         """
         return pulumi.get(self, "user_role_name")
 
@@ -470,11 +470,11 @@ if not MYPY:
     class BrokerLogsArgsDict(TypedDict):
         audit: NotRequired[pulumi.Input[builtins.bool]]
         """
-        Enables audit logging. Auditing is only possible for `engine_type` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
+        Whether to enable audit logging. Only possible for `engine_type` of `ActiveMQ`. Logs user management actions via JMX or ActiveMQ Web Console. Defaults to `false`.
         """
         general: NotRequired[pulumi.Input[builtins.bool]]
         """
-        Enables general logging via CloudWatch. Defaults to `false`.
+        Whether to enable general logging via CloudWatch. Defaults to `false`.
         """
 elif False:
     BrokerLogsArgsDict: TypeAlias = Mapping[str, Any]
@@ -485,8 +485,8 @@ class BrokerLogsArgs:
                  audit: Optional[pulumi.Input[builtins.bool]] = None,
                  general: Optional[pulumi.Input[builtins.bool]] = None):
         """
-        :param pulumi.Input[builtins.bool] audit: Enables audit logging. Auditing is only possible for `engine_type` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
-        :param pulumi.Input[builtins.bool] general: Enables general logging via CloudWatch. Defaults to `false`.
+        :param pulumi.Input[builtins.bool] audit: Whether to enable audit logging. Only possible for `engine_type` of `ActiveMQ`. Logs user management actions via JMX or ActiveMQ Web Console. Defaults to `false`.
+        :param pulumi.Input[builtins.bool] general: Whether to enable general logging via CloudWatch. Defaults to `false`.
         """
         if audit is not None:
             pulumi.set(__self__, "audit", audit)
@@ -497,7 +497,7 @@ class BrokerLogsArgs:
     @pulumi.getter
     def audit(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Enables audit logging. Auditing is only possible for `engine_type` of `ActiveMQ`. User management action made using JMX or the ActiveMQ Web Console is logged. Defaults to `false`.
+        Whether to enable audit logging. Only possible for `engine_type` of `ActiveMQ`. Logs user management actions via JMX or ActiveMQ Web Console. Defaults to `false`.
         """
         return pulumi.get(self, "audit")
 
@@ -509,7 +509,7 @@ class BrokerLogsArgs:
     @pulumi.getter
     def general(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Enables general logging via CloudWatch. Defaults to `false`.
+        Whether to enable general logging via CloudWatch. Defaults to `false`.
         """
         return pulumi.get(self, "general")
 
@@ -591,13 +591,13 @@ if not MYPY:
     class BrokerUserArgsDict(TypedDict):
         password: pulumi.Input[builtins.str]
         """
-        Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+        Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
         """
         username: pulumi.Input[builtins.str]
         """
         Username of the user.
 
-        > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
+        The following arguments are optional:
         """
         console_access: NotRequired[pulumi.Input[builtins.bool]]
         """
@@ -609,7 +609,9 @@ if not MYPY:
         """
         replication_user: NotRequired[pulumi.Input[builtins.bool]]
         """
-        Whether to set set replication user. Defaults to `false`.
+        Whether to set replication user. Defaults to `false`.
+
+        > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
         """
 elif False:
     BrokerUserArgsDict: TypeAlias = Mapping[str, Any]
@@ -623,13 +625,15 @@ class BrokerUserArgs:
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  replication_user: Optional[pulumi.Input[builtins.bool]] = None):
         """
-        :param pulumi.Input[builtins.str] password: Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+        :param pulumi.Input[builtins.str] password: Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
         :param pulumi.Input[builtins.str] username: Username of the user.
                
-               > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
+               The following arguments are optional:
         :param pulumi.Input[builtins.bool] console_access: Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] groups: List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
-        :param pulumi.Input[builtins.bool] replication_user: Whether to set set replication user. Defaults to `false`.
+        :param pulumi.Input[builtins.bool] replication_user: Whether to set replication user. Defaults to `false`.
+               
+               > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -644,7 +648,7 @@ class BrokerUserArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[builtins.str]:
         """
-        Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+        Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
         """
         return pulumi.get(self, "password")
 
@@ -658,7 +662,7 @@ class BrokerUserArgs:
         """
         Username of the user.
 
-        > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
+        The following arguments are optional:
         """
         return pulumi.get(self, "username")
 
@@ -694,7 +698,9 @@ class BrokerUserArgs:
     @pulumi.getter(name="replicationUser")
     def replication_user(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Whether to set set replication user. Defaults to `false`.
+        Whether to set replication user. Defaults to `false`.
+
+        > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
         """
         return pulumi.get(self, "replication_user")
 

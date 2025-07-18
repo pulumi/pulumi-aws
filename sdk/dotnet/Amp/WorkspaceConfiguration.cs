@@ -113,6 +113,12 @@ namespace Pulumi.Aws.Amp
         public Output<ImmutableArray<Outputs.WorkspaceConfigurationLimitsPerLabelSet>> LimitsPerLabelSets { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Number of days to retain metric data in the workspace.
         /// </summary>
         [Output("retentionPeriodInDays")]
@@ -188,6 +194,12 @@ namespace Pulumi.Aws.Amp
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Number of days to retain metric data in the workspace.
         /// </summary>
         [Input("retentionPeriodInDays")]
@@ -223,6 +235,12 @@ namespace Pulumi.Aws.Amp
             get => _limitsPerLabelSets ?? (_limitsPerLabelSets = new InputList<Inputs.WorkspaceConfigurationLimitsPerLabelSetGetArgs>());
             set => _limitsPerLabelSets = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Number of days to retain metric data in the workspace.

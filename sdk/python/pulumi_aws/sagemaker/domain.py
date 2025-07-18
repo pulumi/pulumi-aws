@@ -32,6 +32,7 @@ class DomainArgs:
                  default_space_settings: Optional[pulumi.Input['DomainDefaultSpaceSettingsArgs']] = None,
                  domain_settings: Optional[pulumi.Input['DomainDomainSettingsArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_policy: Optional[pulumi.Input['DomainRetentionPolicyArgs']] = None,
                  tag_propagation: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -49,6 +50,7 @@ class DomainArgs:
         :param pulumi.Input['DomainDefaultSpaceSettingsArgs'] default_space_settings: The default space settings. See `default_space_settings` Block below.
         :param pulumi.Input['DomainDomainSettingsArgs'] domain_settings: The domain settings. See `domain_settings` Block below.
         :param pulumi.Input[builtins.str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DomainRetentionPolicyArgs'] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         :param pulumi.Input[builtins.str] tag_propagation: Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -68,6 +70,8 @@ class DomainArgs:
             pulumi.set(__self__, "domain_settings", domain_settings)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retention_policy is not None:
             pulumi.set(__self__, "retention_policy", retention_policy)
         if tag_propagation is not None:
@@ -198,6 +202,18 @@ class DomainArgs:
         pulumi.set(self, "kms_key_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="retentionPolicy")
     def retention_policy(self) -> Optional[pulumi.Input['DomainRetentionPolicyArgs']]:
         """
@@ -247,6 +263,7 @@ class _DomainState:
                  domain_settings: Optional[pulumi.Input['DomainDomainSettingsArgs']] = None,
                  home_efs_file_system_id: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_policy: Optional[pulumi.Input['DomainRetentionPolicyArgs']] = None,
                  security_group_id_for_domain_boundary: Optional[pulumi.Input[builtins.str]] = None,
                  single_sign_on_application_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -269,6 +286,7 @@ class _DomainState:
         :param pulumi.Input['DomainDomainSettingsArgs'] domain_settings: The domain settings. See `domain_settings` Block below.
         :param pulumi.Input[builtins.str] home_efs_file_system_id: The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         :param pulumi.Input[builtins.str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DomainRetentionPolicyArgs'] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         :param pulumi.Input[builtins.str] security_group_id_for_domain_boundary: The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
         :param pulumi.Input[builtins.str] single_sign_on_application_arn: The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
@@ -302,6 +320,8 @@ class _DomainState:
             pulumi.set(__self__, "home_efs_file_system_id", home_efs_file_system_id)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retention_policy is not None:
             pulumi.set(__self__, "retention_policy", retention_policy)
         if security_group_id_for_domain_boundary is not None:
@@ -316,9 +336,6 @@ class _DomainState:
             pulumi.set(__self__, "tag_propagation", tag_propagation)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if url is not None:
@@ -447,6 +464,18 @@ class _DomainState:
         pulumi.set(self, "kms_key_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="retentionPolicy")
     def retention_policy(self) -> Optional[pulumi.Input['DomainRetentionPolicyArgs']]:
         """
@@ -532,7 +561,6 @@ class _DomainState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -584,6 +612,7 @@ class Domain(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  domain_settings: Optional[pulumi.Input[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict']]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_policy: Optional[pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tag_propagation: Optional[pulumi.Input[builtins.str]] = None,
@@ -622,6 +651,41 @@ class Domain(pulumi.CustomResource):
             })
         ```
 
+        ### Using Custom Images
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sagemaker.Image("example",
+            image_name="example",
+            role_arn=example_aws_iam_role["arn"])
+        example_app_image_config = aws.sagemaker.AppImageConfig("example",
+            app_image_config_name="example",
+            kernel_gateway_image_config={
+                "kernel_specs": [{
+                    "name": "example",
+                }],
+            })
+        example_image_version = aws.sagemaker.ImageVersion("example",
+            image_name=example.id,
+            base_image="base-image")
+        example_domain = aws.sagemaker.Domain("example",
+            domain_name="example",
+            auth_mode="IAM",
+            vpc_id=example_aws_vpc["id"],
+            subnet_ids=[example_aws_subnet["id"]],
+            default_user_settings={
+                "execution_role": example_aws_iam_role["arn"],
+                "kernel_gateway_app_settings": {
+                    "custom_images": [{
+                        "app_image_config_name": example_app_image_config.app_image_config_name,
+                        "image_name": example_image_version.image_name,
+                    }],
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import SageMaker AI Domains using the `id`. For example:
@@ -640,6 +704,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain_name: The domain name.
         :param pulumi.Input[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict']] domain_settings: The domain settings. See `domain_settings` Block below.
         :param pulumi.Input[builtins.str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The VPC subnets that Studio uses for communication.
         :param pulumi.Input[builtins.str] tag_propagation: Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
@@ -686,6 +751,41 @@ class Domain(pulumi.CustomResource):
             })
         ```
 
+        ### Using Custom Images
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.sagemaker.Image("example",
+            image_name="example",
+            role_arn=example_aws_iam_role["arn"])
+        example_app_image_config = aws.sagemaker.AppImageConfig("example",
+            app_image_config_name="example",
+            kernel_gateway_image_config={
+                "kernel_specs": [{
+                    "name": "example",
+                }],
+            })
+        example_image_version = aws.sagemaker.ImageVersion("example",
+            image_name=example.id,
+            base_image="base-image")
+        example_domain = aws.sagemaker.Domain("example",
+            domain_name="example",
+            auth_mode="IAM",
+            vpc_id=example_aws_vpc["id"],
+            subnet_ids=[example_aws_subnet["id"]],
+            default_user_settings={
+                "execution_role": example_aws_iam_role["arn"],
+                "kernel_gateway_app_settings": {
+                    "custom_images": [{
+                        "app_image_config_name": example_app_image_config.app_image_config_name,
+                        "image_name": example_image_version.image_name,
+                    }],
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import SageMaker AI Domains using the `id`. For example:
@@ -717,6 +817,7 @@ class Domain(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  domain_settings: Optional[pulumi.Input[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict']]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_policy: Optional[pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tag_propagation: Optional[pulumi.Input[builtins.str]] = None,
@@ -745,6 +846,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["domain_settings"] = domain_settings
             __props__.__dict__["kms_key_id"] = kms_key_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["retention_policy"] = retention_policy
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
@@ -781,6 +883,7 @@ class Domain(pulumi.CustomResource):
             domain_settings: Optional[pulumi.Input[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict']]] = None,
             home_efs_file_system_id: Optional[pulumi.Input[builtins.str]] = None,
             kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             retention_policy: Optional[pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']]] = None,
             security_group_id_for_domain_boundary: Optional[pulumi.Input[builtins.str]] = None,
             single_sign_on_application_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -808,6 +911,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainDomainSettingsArgs', 'DomainDomainSettingsArgsDict']] domain_settings: The domain settings. See `domain_settings` Block below.
         :param pulumi.Input[builtins.str] home_efs_file_system_id: The ID of the Amazon Elastic File System (EFS) managed by this Domain.
         :param pulumi.Input[builtins.str] kms_key_id: The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DomainRetentionPolicyArgs', 'DomainRetentionPolicyArgsDict']] retention_policy: The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
         :param pulumi.Input[builtins.str] security_group_id_for_domain_boundary: The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
         :param pulumi.Input[builtins.str] single_sign_on_application_arn: The ARN of the application managed by SageMaker AI in IAM Identity Center. This value is only returned for domains created after September 19, 2023.
@@ -835,6 +939,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["domain_settings"] = domain_settings
         __props__.__dict__["home_efs_file_system_id"] = home_efs_file_system_id
         __props__.__dict__["kms_key_id"] = kms_key_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["retention_policy"] = retention_policy
         __props__.__dict__["security_group_id_for_domain_boundary"] = security_group_id_for_domain_boundary
         __props__.__dict__["single_sign_on_application_arn"] = single_sign_on_application_arn
@@ -928,6 +1033,14 @@ class Domain(pulumi.CustomResource):
         return pulumi.get(self, "kms_key_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="retentionPolicy")
     def retention_policy(self) -> pulumi.Output[Optional['outputs.DomainRetentionPolicy']]:
         """
@@ -985,7 +1098,6 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

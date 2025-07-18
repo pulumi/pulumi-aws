@@ -28,7 +28,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, cluster_certificates=None, cluster_id=None, cluster_state=None, id=None, security_group_id=None, subnet_ids=None, vpc_id=None):
+    def __init__(__self__, cluster_certificates=None, cluster_id=None, cluster_state=None, id=None, region=None, security_group_id=None, subnet_ids=None, vpc_id=None):
         if cluster_certificates and not isinstance(cluster_certificates, list):
             raise TypeError("Expected argument 'cluster_certificates' to be a list")
         pulumi.set(__self__, "cluster_certificates", cluster_certificates)
@@ -41,6 +41,9 @@ class GetClusterResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_group_id and not isinstance(security_group_id, str):
             raise TypeError("Expected argument 'security_group_id' to be a str")
         pulumi.set(__self__, "security_group_id", security_group_id)
@@ -78,6 +81,11 @@ class GetClusterResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> builtins.str:
         """
@@ -112,6 +120,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             cluster_id=self.cluster_id,
             cluster_state=self.cluster_state,
             id=self.id,
+            region=self.region,
             security_group_id=self.security_group_id,
             subnet_ids=self.subnet_ids,
             vpc_id=self.vpc_id)
@@ -119,6 +128,7 @@ class AwaitableGetClusterResult(GetClusterResult):
 
 def get_cluster(cluster_id: Optional[builtins.str] = None,
                 cluster_state: Optional[builtins.str] = None,
+                region: Optional[builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Use this data source to get information about a CloudHSM v2 cluster
@@ -135,10 +145,12 @@ def get_cluster(cluster_id: Optional[builtins.str] = None,
 
     :param builtins.str cluster_id: ID of Cloud HSM v2 cluster.
     :param builtins.str cluster_state: State of the cluster to be found.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id
     __args__['clusterState'] = cluster_state
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:cloudhsmv2/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
@@ -147,11 +159,13 @@ def get_cluster(cluster_id: Optional[builtins.str] = None,
         cluster_id=pulumi.get(__ret__, 'cluster_id'),
         cluster_state=pulumi.get(__ret__, 'cluster_state'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         security_group_id=pulumi.get(__ret__, 'security_group_id'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_cluster_output(cluster_id: Optional[pulumi.Input[builtins.str]] = None,
                        cluster_state: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Use this data source to get information about a CloudHSM v2 cluster
@@ -168,10 +182,12 @@ def get_cluster_output(cluster_id: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str cluster_id: ID of Cloud HSM v2 cluster.
     :param builtins.str cluster_state: State of the cluster to be found.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id
     __args__['clusterState'] = cluster_state
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudhsmv2/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult)
     return __ret__.apply(lambda __response__: GetClusterResult(
@@ -179,6 +195,7 @@ def get_cluster_output(cluster_id: Optional[pulumi.Input[builtins.str]] = None,
         cluster_id=pulumi.get(__response__, 'cluster_id'),
         cluster_state=pulumi.get(__response__, 'cluster_state'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         security_group_id=pulumi.get(__response__, 'security_group_id'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),
         vpc_id=pulumi.get(__response__, 'vpc_id')))

@@ -28,7 +28,7 @@ class GetFileSystemResult:
     """
     A collection of values returned by getFileSystem.
     """
-    def __init__(__self__, arn=None, availability_zone_id=None, availability_zone_name=None, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, id=None, kms_key_id=None, lifecycle_policies=None, lifecycle_policy=None, name=None, performance_mode=None, protections=None, provisioned_throughput_in_mibps=None, size_in_bytes=None, tags=None, throughput_mode=None):
+    def __init__(__self__, arn=None, availability_zone_id=None, availability_zone_name=None, creation_token=None, dns_name=None, encrypted=None, file_system_id=None, id=None, kms_key_id=None, lifecycle_policies=None, name=None, performance_mode=None, protections=None, provisioned_throughput_in_mibps=None, region=None, size_in_bytes=None, tags=None, throughput_mode=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -59,9 +59,6 @@ class GetFileSystemResult:
         if lifecycle_policies and not isinstance(lifecycle_policies, list):
             raise TypeError("Expected argument 'lifecycle_policies' to be a list")
         pulumi.set(__self__, "lifecycle_policies", lifecycle_policies)
-        if lifecycle_policy and not isinstance(lifecycle_policy, dict):
-            raise TypeError("Expected argument 'lifecycle_policy' to be a dict")
-        pulumi.set(__self__, "lifecycle_policy", lifecycle_policy)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -74,6 +71,9 @@ class GetFileSystemResult:
         if provisioned_throughput_in_mibps and not isinstance(provisioned_throughput_in_mibps, float):
             raise TypeError("Expected argument 'provisioned_throughput_in_mibps' to be a float")
         pulumi.set(__self__, "provisioned_throughput_in_mibps", provisioned_throughput_in_mibps)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if size_in_bytes and not isinstance(size_in_bytes, int):
             raise TypeError("Expected argument 'size_in_bytes' to be a int")
         pulumi.set(__self__, "size_in_bytes", size_in_bytes)
@@ -153,16 +153,10 @@ class GetFileSystemResult:
     @property
     @pulumi.getter(name="lifecyclePolicies")
     def lifecycle_policies(self) -> Sequence['outputs.GetFileSystemLifecyclePolicyResult']:
-        return pulumi.get(self, "lifecycle_policies")
-
-    @property
-    @pulumi.getter(name="lifecyclePolicy")
-    @_utilities.deprecated("""Use `lifecycle_policies` instead. This field will be removed in the next major version.""")
-    def lifecycle_policy(self) -> 'outputs.GetFileSystemLifecyclePolicyResult':
         """
         File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
         """
-        return pulumi.get(self, "lifecycle_policy")
+        return pulumi.get(self, "lifecycle_policies")
 
     @property
     @pulumi.getter
@@ -192,6 +186,11 @@ class GetFileSystemResult:
         The throughput, measured in MiB/s, that you want to provision for the file system.
         """
         return pulumi.get(self, "provisioned_throughput_in_mibps")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sizeInBytes")
@@ -234,11 +233,11 @@ class AwaitableGetFileSystemResult(GetFileSystemResult):
             id=self.id,
             kms_key_id=self.kms_key_id,
             lifecycle_policies=self.lifecycle_policies,
-            lifecycle_policy=self.lifecycle_policy,
             name=self.name,
             performance_mode=self.performance_mode,
             protections=self.protections,
             provisioned_throughput_in_mibps=self.provisioned_throughput_in_mibps,
+            region=self.region,
             size_in_bytes=self.size_in_bytes,
             tags=self.tags,
             throughput_mode=self.throughput_mode)
@@ -246,6 +245,7 @@ class AwaitableGetFileSystemResult(GetFileSystemResult):
 
 def get_file_system(creation_token: Optional[builtins.str] = None,
                     file_system_id: Optional[builtins.str] = None,
+                    region: Optional[builtins.str] = None,
                     tags: Optional[Mapping[str, builtins.str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileSystemResult:
     """
@@ -270,11 +270,13 @@ def get_file_system(creation_token: Optional[builtins.str] = None,
 
     :param builtins.str creation_token: Restricts the list to the file system with this creation token.
     :param builtins.str file_system_id: ID that identifies the file system (e.g., fs-ccfc0d65).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Restricts the list to the file system with these tags.
     """
     __args__ = dict()
     __args__['creationToken'] = creation_token
     __args__['fileSystemId'] = file_system_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:efs/getFileSystem:getFileSystem', __args__, opts=opts, typ=GetFileSystemResult).value
@@ -290,16 +292,17 @@ def get_file_system(creation_token: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         lifecycle_policies=pulumi.get(__ret__, 'lifecycle_policies'),
-        lifecycle_policy=pulumi.get(__ret__, 'lifecycle_policy'),
         name=pulumi.get(__ret__, 'name'),
         performance_mode=pulumi.get(__ret__, 'performance_mode'),
         protections=pulumi.get(__ret__, 'protections'),
         provisioned_throughput_in_mibps=pulumi.get(__ret__, 'provisioned_throughput_in_mibps'),
+        region=pulumi.get(__ret__, 'region'),
         size_in_bytes=pulumi.get(__ret__, 'size_in_bytes'),
         tags=pulumi.get(__ret__, 'tags'),
         throughput_mode=pulumi.get(__ret__, 'throughput_mode'))
 def get_file_system_output(creation_token: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            file_system_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileSystemResult]:
     """
@@ -324,11 +327,13 @@ def get_file_system_output(creation_token: Optional[pulumi.Input[Optional[builti
 
     :param builtins.str creation_token: Restricts the list to the file system with this creation token.
     :param builtins.str file_system_id: ID that identifies the file system (e.g., fs-ccfc0d65).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Restricts the list to the file system with these tags.
     """
     __args__ = dict()
     __args__['creationToken'] = creation_token
     __args__['fileSystemId'] = file_system_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:efs/getFileSystem:getFileSystem', __args__, opts=opts, typ=GetFileSystemResult)
@@ -343,11 +348,11 @@ def get_file_system_output(creation_token: Optional[pulumi.Input[Optional[builti
         id=pulumi.get(__response__, 'id'),
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
         lifecycle_policies=pulumi.get(__response__, 'lifecycle_policies'),
-        lifecycle_policy=pulumi.get(__response__, 'lifecycle_policy'),
         name=pulumi.get(__response__, 'name'),
         performance_mode=pulumi.get(__response__, 'performance_mode'),
         protections=pulumi.get(__response__, 'protections'),
         provisioned_throughput_in_mibps=pulumi.get(__response__, 'provisioned_throughput_in_mibps'),
+        region=pulumi.get(__response__, 'region'),
         size_in_bytes=pulumi.get(__response__, 'size_in_bytes'),
         tags=pulumi.get(__response__, 'tags'),
         throughput_mode=pulumi.get(__response__, 'throughput_mode')))

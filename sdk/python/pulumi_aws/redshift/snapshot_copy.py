@@ -23,6 +23,7 @@ class SnapshotCopyArgs:
                  cluster_identifier: pulumi.Input[builtins.str],
                  destination_region: pulumi.Input[builtins.str],
                  manual_snapshot_retention_period: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  snapshot_copy_grant_name: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -32,6 +33,7 @@ class SnapshotCopyArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.int] manual_snapshot_retention_period: Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period: Number of days to retain automated snapshots in the destination region after they are copied from the source region.
         :param pulumi.Input[builtins.str] snapshot_copy_grant_name: Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
         """
@@ -39,6 +41,8 @@ class SnapshotCopyArgs:
         pulumi.set(__self__, "destination_region", destination_region)
         if manual_snapshot_retention_period is not None:
             pulumi.set(__self__, "manual_snapshot_retention_period", manual_snapshot_retention_period)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retention_period is not None:
             pulumi.set(__self__, "retention_period", retention_period)
         if snapshot_copy_grant_name is not None:
@@ -83,6 +87,18 @@ class SnapshotCopyArgs:
         pulumi.set(self, "manual_snapshot_retention_period", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -113,6 +129,7 @@ class _SnapshotCopyState:
                  cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  destination_region: Optional[pulumi.Input[builtins.str]] = None,
                  manual_snapshot_retention_period: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  snapshot_copy_grant_name: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -122,6 +139,7 @@ class _SnapshotCopyState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.int] manual_snapshot_retention_period: Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period: Number of days to retain automated snapshots in the destination region after they are copied from the source region.
         :param pulumi.Input[builtins.str] snapshot_copy_grant_name: Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
         """
@@ -131,6 +149,8 @@ class _SnapshotCopyState:
             pulumi.set(__self__, "destination_region", destination_region)
         if manual_snapshot_retention_period is not None:
             pulumi.set(__self__, "manual_snapshot_retention_period", manual_snapshot_retention_period)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retention_period is not None:
             pulumi.set(__self__, "retention_period", retention_period)
         if snapshot_copy_grant_name is not None:
@@ -175,6 +195,18 @@ class _SnapshotCopyState:
         pulumi.set(self, "manual_snapshot_retention_period", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -208,6 +240,7 @@ class SnapshotCopy(pulumi.CustomResource):
                  cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  destination_region: Optional[pulumi.Input[builtins.str]] = None,
                  manual_snapshot_retention_period: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  snapshot_copy_grant_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -242,6 +275,7 @@ class SnapshotCopy(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.int] manual_snapshot_retention_period: Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period: Number of days to retain automated snapshots in the destination region after they are copied from the source region.
         :param pulumi.Input[builtins.str] snapshot_copy_grant_name: Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
         """
@@ -293,6 +327,7 @@ class SnapshotCopy(pulumi.CustomResource):
                  cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  destination_region: Optional[pulumi.Input[builtins.str]] = None,
                  manual_snapshot_retention_period: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  snapshot_copy_grant_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -311,6 +346,7 @@ class SnapshotCopy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'destination_region'")
             __props__.__dict__["destination_region"] = destination_region
             __props__.__dict__["manual_snapshot_retention_period"] = manual_snapshot_retention_period
+            __props__.__dict__["region"] = region
             __props__.__dict__["retention_period"] = retention_period
             __props__.__dict__["snapshot_copy_grant_name"] = snapshot_copy_grant_name
         super(SnapshotCopy, __self__).__init__(
@@ -326,6 +362,7 @@ class SnapshotCopy(pulumi.CustomResource):
             cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
             destination_region: Optional[pulumi.Input[builtins.str]] = None,
             manual_snapshot_retention_period: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             retention_period: Optional[pulumi.Input[builtins.int]] = None,
             snapshot_copy_grant_name: Optional[pulumi.Input[builtins.str]] = None) -> 'SnapshotCopy':
         """
@@ -340,6 +377,7 @@ class SnapshotCopy(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.int] manual_snapshot_retention_period: Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period: Number of days to retain automated snapshots in the destination region after they are copied from the source region.
         :param pulumi.Input[builtins.str] snapshot_copy_grant_name: Name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
         """
@@ -350,6 +388,7 @@ class SnapshotCopy(pulumi.CustomResource):
         __props__.__dict__["cluster_identifier"] = cluster_identifier
         __props__.__dict__["destination_region"] = destination_region
         __props__.__dict__["manual_snapshot_retention_period"] = manual_snapshot_retention_period
+        __props__.__dict__["region"] = region
         __props__.__dict__["retention_period"] = retention_period
         __props__.__dict__["snapshot_copy_grant_name"] = snapshot_copy_grant_name
         return SnapshotCopy(resource_name, opts=opts, __props__=__props__)
@@ -379,6 +418,14 @@ class SnapshotCopy(pulumi.CustomResource):
         Number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is `-1`, the manual snapshot is retained indefinitely.
         """
         return pulumi.get(self, "manual_snapshot_retention_period")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="retentionPeriod")

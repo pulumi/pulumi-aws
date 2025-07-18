@@ -7,14 +7,14 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 var _ = internal.GetEnvOrDefault
 
 type ConnectAttachmentOptions struct {
-	// The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
+	// Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
 	Protocol *string `pulumi:"protocol"`
 }
 
@@ -30,7 +30,7 @@ type ConnectAttachmentOptionsInput interface {
 }
 
 type ConnectAttachmentOptionsArgs struct {
-	// The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
+	// Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
@@ -111,7 +111,7 @@ func (o ConnectAttachmentOptionsOutput) ToConnectAttachmentOptionsPtrOutputWithC
 	}).(ConnectAttachmentOptionsPtrOutput)
 }
 
-// The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
+// Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
 func (o ConnectAttachmentOptionsOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectAttachmentOptions) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -140,7 +140,7 @@ func (o ConnectAttachmentOptionsPtrOutput) Elem() ConnectAttachmentOptionsOutput
 	}).(ConnectAttachmentOptionsOutput)
 }
 
-// The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
+// Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
 func (o ConnectAttachmentOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectAttachmentOptions) *string {
 		if v == nil {
@@ -151,6 +151,7 @@ func (o ConnectAttachmentOptionsPtrOutput) Protocol() pulumi.StringPtrOutput {
 }
 
 type ConnectPeerBgpOptions struct {
+	// Peer ASN.
 	PeerAsn *int `pulumi:"peerAsn"`
 }
 
@@ -166,6 +167,7 @@ type ConnectPeerBgpOptionsInput interface {
 }
 
 type ConnectPeerBgpOptionsArgs struct {
+	// Peer ASN.
 	PeerAsn pulumi.IntPtrInput `pulumi:"peerAsn"`
 }
 
@@ -246,6 +248,7 @@ func (o ConnectPeerBgpOptionsOutput) ToConnectPeerBgpOptionsPtrOutputWithContext
 	}).(ConnectPeerBgpOptionsPtrOutput)
 }
 
+// Peer ASN.
 func (o ConnectPeerBgpOptionsOutput) PeerAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConnectPeerBgpOptions) *int { return v.PeerAsn }).(pulumi.IntPtrOutput)
 }
@@ -274,6 +277,7 @@ func (o ConnectPeerBgpOptionsPtrOutput) Elem() ConnectPeerBgpOptionsOutput {
 	}).(ConnectPeerBgpOptionsOutput)
 }
 
+// Peer ASN.
 func (o ConnectPeerBgpOptionsPtrOutput) PeerAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ConnectPeerBgpOptions) *int {
 		if v == nil {
@@ -285,11 +289,11 @@ func (o ConnectPeerBgpOptionsPtrOutput) PeerAsn() pulumi.IntPtrOutput {
 
 type ConnectPeerConfiguration struct {
 	BgpConfigurations []ConnectPeerConfigurationBgpConfiguration `pulumi:"bgpConfigurations"`
-	// A Connect peer core network address.
+	// Connect peer core network address.
 	CoreNetworkAddress *string `pulumi:"coreNetworkAddress"`
-	// The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
+	// Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
 	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
-	// The Connect peer address.
+	// Connect peer address.
 	//
 	// The following arguments are optional:
 	PeerAddress *string `pulumi:"peerAddress"`
@@ -309,11 +313,11 @@ type ConnectPeerConfigurationInput interface {
 
 type ConnectPeerConfigurationArgs struct {
 	BgpConfigurations ConnectPeerConfigurationBgpConfigurationArrayInput `pulumi:"bgpConfigurations"`
-	// A Connect peer core network address.
+	// Connect peer core network address.
 	CoreNetworkAddress pulumi.StringPtrInput `pulumi:"coreNetworkAddress"`
-	// The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
+	// Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
 	InsideCidrBlocks pulumi.StringArrayInput `pulumi:"insideCidrBlocks"`
-	// The Connect peer address.
+	// Connect peer address.
 	//
 	// The following arguments are optional:
 	PeerAddress pulumi.StringPtrInput `pulumi:"peerAddress"`
@@ -377,17 +381,17 @@ func (o ConnectPeerConfigurationOutput) BgpConfigurations() ConnectPeerConfigura
 	}).(ConnectPeerConfigurationBgpConfigurationArrayOutput)
 }
 
-// A Connect peer core network address.
+// Connect peer core network address.
 func (o ConnectPeerConfigurationOutput) CoreNetworkAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectPeerConfiguration) *string { return v.CoreNetworkAddress }).(pulumi.StringPtrOutput)
 }
 
-// The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
+// Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
 func (o ConnectPeerConfigurationOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConnectPeerConfiguration) []string { return v.InsideCidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// The Connect peer address.
+// Connect peer address.
 //
 // The following arguments are optional:
 func (o ConnectPeerConfigurationOutput) PeerAddress() pulumi.StringPtrOutput {
@@ -419,14 +423,15 @@ func (o ConnectPeerConfigurationArrayOutput) Index(i pulumi.IntInput) ConnectPee
 }
 
 type ConnectPeerConfigurationBgpConfiguration struct {
-	// A Connect peer core network address.
+	// Connect peer core network address.
 	CoreNetworkAddress *string `pulumi:"coreNetworkAddress"`
 	CoreNetworkAsn     *int    `pulumi:"coreNetworkAsn"`
-	// The Connect peer address.
+	// Connect peer address.
 	//
 	// The following arguments are optional:
 	PeerAddress *string `pulumi:"peerAddress"`
-	PeerAsn     *int    `pulumi:"peerAsn"`
+	// Peer ASN.
+	PeerAsn *int `pulumi:"peerAsn"`
 }
 
 // ConnectPeerConfigurationBgpConfigurationInput is an input type that accepts ConnectPeerConfigurationBgpConfigurationArgs and ConnectPeerConfigurationBgpConfigurationOutput values.
@@ -441,14 +446,15 @@ type ConnectPeerConfigurationBgpConfigurationInput interface {
 }
 
 type ConnectPeerConfigurationBgpConfigurationArgs struct {
-	// A Connect peer core network address.
+	// Connect peer core network address.
 	CoreNetworkAddress pulumi.StringPtrInput `pulumi:"coreNetworkAddress"`
 	CoreNetworkAsn     pulumi.IntPtrInput    `pulumi:"coreNetworkAsn"`
-	// The Connect peer address.
+	// Connect peer address.
 	//
 	// The following arguments are optional:
 	PeerAddress pulumi.StringPtrInput `pulumi:"peerAddress"`
-	PeerAsn     pulumi.IntPtrInput    `pulumi:"peerAsn"`
+	// Peer ASN.
+	PeerAsn pulumi.IntPtrInput `pulumi:"peerAsn"`
 }
 
 func (ConnectPeerConfigurationBgpConfigurationArgs) ElementType() reflect.Type {
@@ -502,7 +508,7 @@ func (o ConnectPeerConfigurationBgpConfigurationOutput) ToConnectPeerConfigurati
 	return o
 }
 
-// A Connect peer core network address.
+// Connect peer core network address.
 func (o ConnectPeerConfigurationBgpConfigurationOutput) CoreNetworkAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectPeerConfigurationBgpConfiguration) *string { return v.CoreNetworkAddress }).(pulumi.StringPtrOutput)
 }
@@ -511,13 +517,14 @@ func (o ConnectPeerConfigurationBgpConfigurationOutput) CoreNetworkAsn() pulumi.
 	return o.ApplyT(func(v ConnectPeerConfigurationBgpConfiguration) *int { return v.CoreNetworkAsn }).(pulumi.IntPtrOutput)
 }
 
-// The Connect peer address.
+// Connect peer address.
 //
 // The following arguments are optional:
 func (o ConnectPeerConfigurationBgpConfigurationOutput) PeerAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectPeerConfigurationBgpConfiguration) *string { return v.PeerAddress }).(pulumi.StringPtrOutput)
 }
 
+// Peer ASN.
 func (o ConnectPeerConfigurationBgpConfigurationOutput) PeerAsn() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConnectPeerConfigurationBgpConfiguration) *int { return v.PeerAsn }).(pulumi.IntPtrOutput)
 }
@@ -773,9 +780,9 @@ func (o CoreNetworkSegmentArrayOutput) Index(i pulumi.IntInput) CoreNetworkSegme
 }
 
 type DeviceAwsLocation struct {
-	// The Amazon Resource Name (ARN) of the subnet that the device is located in.
+	// ARN of the subnet that the device is located in.
 	SubnetArn *string `pulumi:"subnetArn"`
-	// The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+	// Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
 	Zone *string `pulumi:"zone"`
 }
 
@@ -791,9 +798,9 @@ type DeviceAwsLocationInput interface {
 }
 
 type DeviceAwsLocationArgs struct {
-	// The Amazon Resource Name (ARN) of the subnet that the device is located in.
+	// ARN of the subnet that the device is located in.
 	SubnetArn pulumi.StringPtrInput `pulumi:"subnetArn"`
-	// The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+	// Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
 	Zone pulumi.StringPtrInput `pulumi:"zone"`
 }
 
@@ -874,12 +881,12 @@ func (o DeviceAwsLocationOutput) ToDeviceAwsLocationPtrOutputWithContext(ctx con
 	}).(DeviceAwsLocationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the subnet that the device is located in.
+// ARN of the subnet that the device is located in.
 func (o DeviceAwsLocationOutput) SubnetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceAwsLocation) *string { return v.SubnetArn }).(pulumi.StringPtrOutput)
 }
 
-// The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+// Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
 func (o DeviceAwsLocationOutput) Zone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceAwsLocation) *string { return v.Zone }).(pulumi.StringPtrOutput)
 }
@@ -908,7 +915,7 @@ func (o DeviceAwsLocationPtrOutput) Elem() DeviceAwsLocationOutput {
 	}).(DeviceAwsLocationOutput)
 }
 
-// The Amazon Resource Name (ARN) of the subnet that the device is located in.
+// ARN of the subnet that the device is located in.
 func (o DeviceAwsLocationPtrOutput) SubnetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceAwsLocation) *string {
 		if v == nil {
@@ -918,7 +925,7 @@ func (o DeviceAwsLocationPtrOutput) SubnetArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+// Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
 func (o DeviceAwsLocationPtrOutput) Zone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceAwsLocation) *string {
 		if v == nil {
@@ -929,11 +936,11 @@ func (o DeviceAwsLocationPtrOutput) Zone() pulumi.StringPtrOutput {
 }
 
 type DeviceLocation struct {
-	// The physical address.
+	// Physical address.
 	Address *string `pulumi:"address"`
-	// The latitude.
+	// Latitude.
 	Latitude *string `pulumi:"latitude"`
-	// The longitude.
+	// Longitude.
 	Longitude *string `pulumi:"longitude"`
 }
 
@@ -949,11 +956,11 @@ type DeviceLocationInput interface {
 }
 
 type DeviceLocationArgs struct {
-	// The physical address.
+	// Physical address.
 	Address pulumi.StringPtrInput `pulumi:"address"`
-	// The latitude.
+	// Latitude.
 	Latitude pulumi.StringPtrInput `pulumi:"latitude"`
-	// The longitude.
+	// Longitude.
 	Longitude pulumi.StringPtrInput `pulumi:"longitude"`
 }
 
@@ -1034,17 +1041,17 @@ func (o DeviceLocationOutput) ToDeviceLocationPtrOutputWithContext(ctx context.C
 	}).(DeviceLocationPtrOutput)
 }
 
-// The physical address.
+// Physical address.
 func (o DeviceLocationOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceLocation) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// The latitude.
+// Latitude.
 func (o DeviceLocationOutput) Latitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceLocation) *string { return v.Latitude }).(pulumi.StringPtrOutput)
 }
 
-// The longitude.
+// Longitude.
 func (o DeviceLocationOutput) Longitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceLocation) *string { return v.Longitude }).(pulumi.StringPtrOutput)
 }
@@ -1073,7 +1080,7 @@ func (o DeviceLocationPtrOutput) Elem() DeviceLocationOutput {
 	}).(DeviceLocationOutput)
 }
 
-// The physical address.
+// Physical address.
 func (o DeviceLocationPtrOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceLocation) *string {
 		if v == nil {
@@ -1083,7 +1090,7 @@ func (o DeviceLocationPtrOutput) Address() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The latitude.
+// Latitude.
 func (o DeviceLocationPtrOutput) Latitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceLocation) *string {
 		if v == nil {
@@ -1093,7 +1100,7 @@ func (o DeviceLocationPtrOutput) Latitude() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The longitude.
+// Longitude.
 func (o DeviceLocationPtrOutput) Longitude() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeviceLocation) *string {
 		if v == nil {
@@ -1610,12 +1617,9 @@ func (o SiteLocationPtrOutput) Longitude() pulumi.StringPtrOutput {
 }
 
 type VpcAttachmentOptions struct {
-	// Indicates whether appliance mode is supported.
-	// If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
-	// If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+	// Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
 	ApplianceModeSupport *bool `pulumi:"applianceModeSupport"`
-	// Indicates whether IPv6 is supported.
-	// If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+	// Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
 	Ipv6Support *bool `pulumi:"ipv6Support"`
 }
 
@@ -1631,12 +1635,9 @@ type VpcAttachmentOptionsInput interface {
 }
 
 type VpcAttachmentOptionsArgs struct {
-	// Indicates whether appliance mode is supported.
-	// If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
-	// If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+	// Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
 	ApplianceModeSupport pulumi.BoolPtrInput `pulumi:"applianceModeSupport"`
-	// Indicates whether IPv6 is supported.
-	// If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+	// Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
 	Ipv6Support pulumi.BoolPtrInput `pulumi:"ipv6Support"`
 }
 
@@ -1717,15 +1718,12 @@ func (o VpcAttachmentOptionsOutput) ToVpcAttachmentOptionsPtrOutputWithContext(c
 	}).(VpcAttachmentOptionsPtrOutput)
 }
 
-// Indicates whether appliance mode is supported.
-// If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
-// If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+// Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
 func (o VpcAttachmentOptionsOutput) ApplianceModeSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpcAttachmentOptions) *bool { return v.ApplianceModeSupport }).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether IPv6 is supported.
-// If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+// Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
 func (o VpcAttachmentOptionsOutput) Ipv6Support() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpcAttachmentOptions) *bool { return v.Ipv6Support }).(pulumi.BoolPtrOutput)
 }
@@ -1754,9 +1752,7 @@ func (o VpcAttachmentOptionsPtrOutput) Elem() VpcAttachmentOptionsOutput {
 	}).(VpcAttachmentOptionsOutput)
 }
 
-// Indicates whether appliance mode is supported.
-// If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
-// If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+// Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
 func (o VpcAttachmentOptionsPtrOutput) ApplianceModeSupport() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcAttachmentOptions) *bool {
 		if v == nil {
@@ -1766,8 +1762,7 @@ func (o VpcAttachmentOptionsPtrOutput) ApplianceModeSupport() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Indicates whether IPv6 is supported.
-// If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+// Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
 func (o VpcAttachmentOptionsPtrOutput) Ipv6Support() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcAttachmentOptions) *bool {
 		if v == nil {
@@ -2129,10 +2124,14 @@ func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput) Index(
 type GetCoreNetworkPolicyDocumentCoreNetworkConfiguration struct {
 	// List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `"64512-65534"`. No other ASN ranges can be used.
 	AsnRanges []string `pulumi:"asnRanges"`
+	// Indicates whether DNS resolution is enabled for the core network. The value can be either `true` or `false`. When set to `true`, DNS resolution is enabled for VPCs attached to the core network, allowing resources in different VPCs to resolve each other's domain names. The default is `true`.
+	DnsSupport *bool `pulumi:"dnsSupport"`
 	// A block value of AWS Region locations where you're creating Core Network Edges. Detailed below.
 	EdgeLocations []GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation `pulumi:"edgeLocations"`
 	// The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
 	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
+	// — (Optional) Indicates whether security group referencing is enabled for the core network. The value can be either `true` or `false`. When set to `true`, security groups in one VPC can reference security groups in another VPC attached to the core network, enabling more flexible security configurations across your network. The default is `false`.
+	SecurityGroupReferencingSupport *bool `pulumi:"securityGroupReferencingSupport"`
 	// Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
 	VpnEcmpSupport *bool `pulumi:"vpnEcmpSupport"`
 }
@@ -2151,10 +2150,14 @@ type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInput interface {
 type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs struct {
 	// List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `"64512-65534"`. No other ASN ranges can be used.
 	AsnRanges pulumi.StringArrayInput `pulumi:"asnRanges"`
+	// Indicates whether DNS resolution is enabled for the core network. The value can be either `true` or `false`. When set to `true`, DNS resolution is enabled for VPCs attached to the core network, allowing resources in different VPCs to resolve each other's domain names. The default is `true`.
+	DnsSupport pulumi.BoolPtrInput `pulumi:"dnsSupport"`
 	// A block value of AWS Region locations where you're creating Core Network Edges. Detailed below.
 	EdgeLocations GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayInput `pulumi:"edgeLocations"`
 	// The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
 	InsideCidrBlocks pulumi.StringArrayInput `pulumi:"insideCidrBlocks"`
+	// — (Optional) Indicates whether security group referencing is enabled for the core network. The value can be either `true` or `false`. When set to `true`, security groups in one VPC can reference security groups in another VPC attached to the core network, enabling more flexible security configurations across your network. The default is `false`.
+	SecurityGroupReferencingSupport pulumi.BoolPtrInput `pulumi:"securityGroupReferencingSupport"`
 	// Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
 	VpnEcmpSupport pulumi.BoolPtrInput `pulumi:"vpnEcmpSupport"`
 }
@@ -2215,6 +2218,11 @@ func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput) AsnRanges() 
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentCoreNetworkConfiguration) []string { return v.AsnRanges }).(pulumi.StringArrayOutput)
 }
 
+// Indicates whether DNS resolution is enabled for the core network. The value can be either `true` or `false`. When set to `true`, DNS resolution is enabled for VPCs attached to the core network, allowing resources in different VPCs to resolve each other's domain names. The default is `true`.
+func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput) DnsSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentCoreNetworkConfiguration) *bool { return v.DnsSupport }).(pulumi.BoolPtrOutput)
+}
+
 // A block value of AWS Region locations where you're creating Core Network Edges. Detailed below.
 func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput) EdgeLocations() GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentCoreNetworkConfiguration) []GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation {
@@ -2225,6 +2233,13 @@ func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput) EdgeLocation
 // The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
 func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentCoreNetworkConfiguration) []string { return v.InsideCidrBlocks }).(pulumi.StringArrayOutput)
+}
+
+// — (Optional) Indicates whether security group referencing is enabled for the core network. The value can be either `true` or `false`. When set to `true`, security groups in one VPC can reference security groups in another VPC attached to the core network, enabling more flexible security configurations across your network. The default is `false`.
+func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput) SecurityGroupReferencingSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentCoreNetworkConfiguration) *bool {
+		return v.SecurityGroupReferencingSupport
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.

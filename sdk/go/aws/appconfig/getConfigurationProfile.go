@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appconfig"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,6 +57,8 @@ type LookupConfigurationProfileArgs struct {
 	ApplicationId string `pulumi:"applicationId"`
 	// ID of the Configuration Profile.
 	ConfigurationProfileId string `pulumi:"configurationProfileId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -75,7 +77,8 @@ type LookupConfigurationProfileResult struct {
 	// Location URI of the Configuration Profile.
 	LocationUri string `pulumi:"locationUri"`
 	// Name of the Configuration Profile.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// ARN of an IAM role with permission to access the configuration at the specified location_uri.
 	RetrievalRoleArn string `pulumi:"retrievalRoleArn"`
 	// Map of tags for the resource.
@@ -101,6 +104,8 @@ type LookupConfigurationProfileOutputArgs struct {
 	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
 	// ID of the Configuration Profile.
 	ConfigurationProfileId pulumi.StringInput `pulumi:"configurationProfileId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -159,6 +164,10 @@ func (o LookupConfigurationProfileResultOutput) LocationUri() pulumi.StringOutpu
 // Name of the Configuration Profile.
 func (o LookupConfigurationProfileResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupConfigurationProfileResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationProfileResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of an IAM role with permission to access the configuration at the specified location_uri.

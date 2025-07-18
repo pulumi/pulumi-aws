@@ -137,10 +137,6 @@ __all__ = [
     'LaunchTemplateCpuOptionsArgsDict',
     'LaunchTemplateCreditSpecificationArgs',
     'LaunchTemplateCreditSpecificationArgsDict',
-    'LaunchTemplateElasticGpuSpecificationArgs',
-    'LaunchTemplateElasticGpuSpecificationArgsDict',
-    'LaunchTemplateElasticInferenceAcceleratorArgs',
-    'LaunchTemplateElasticInferenceAcceleratorArgsDict',
     'LaunchTemplateEnclaveOptionsArgs',
     'LaunchTemplateEnclaveOptionsArgsDict',
     'LaunchTemplateHibernationOptionsArgs',
@@ -583,12 +579,6 @@ __all__ = [
     'GetVpcEndpointServiceFilterArgsDict',
     'GetVpcFilterArgs',
     'GetVpcFilterArgsDict',
-    'GetVpcIamPoolCidrsFilterArgs',
-    'GetVpcIamPoolCidrsFilterArgsDict',
-    'GetVpcIamPoolFilterArgs',
-    'GetVpcIamPoolFilterArgsDict',
-    'GetVpcIamPoolsFilterArgs',
-    'GetVpcIamPoolsFilterArgsDict',
     'GetVpcIpamPoolCidrsFilterArgs',
     'GetVpcIpamPoolCidrsFilterArgsDict',
     'GetVpcIpamPoolFilterArgs',
@@ -4498,7 +4488,7 @@ if not MYPY:
     class FlowLogDestinationOptionsArgsDict(TypedDict):
         file_format: NotRequired[pulumi.Input[builtins.str]]
         """
-        The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+        File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
         """
         hive_compatible_partitions: NotRequired[pulumi.Input[builtins.bool]]
         """
@@ -4518,7 +4508,7 @@ class FlowLogDestinationOptionsArgs:
                  hive_compatible_partitions: Optional[pulumi.Input[builtins.bool]] = None,
                  per_hour_partition: Optional[pulumi.Input[builtins.bool]] = None):
         """
-        :param pulumi.Input[builtins.str] file_format: The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+        :param pulumi.Input[builtins.str] file_format: File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
         :param pulumi.Input[builtins.bool] hive_compatible_partitions: Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
         :param pulumi.Input[builtins.bool] per_hour_partition: Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
         """
@@ -4533,7 +4523,7 @@ class FlowLogDestinationOptionsArgs:
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+        File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
         """
         return pulumi.get(self, "file_format")
 
@@ -6790,68 +6780,6 @@ class LaunchTemplateCreditSpecificationArgs:
     @cpu_credits.setter
     def cpu_credits(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "cpu_credits", value)
-
-
-if not MYPY:
-    class LaunchTemplateElasticGpuSpecificationArgsDict(TypedDict):
-        type: pulumi.Input[builtins.str]
-        """
-        The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
-        """
-elif False:
-    LaunchTemplateElasticGpuSpecificationArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class LaunchTemplateElasticGpuSpecificationArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[builtins.str]):
-        """
-        :param pulumi.Input[builtins.str] type: The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
-        """
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[builtins.str]:
-        """
-        The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "type", value)
-
-
-if not MYPY:
-    class LaunchTemplateElasticInferenceAcceleratorArgsDict(TypedDict):
-        type: pulumi.Input[builtins.str]
-        """
-        Accelerator type.
-        """
-elif False:
-    LaunchTemplateElasticInferenceAcceleratorArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class LaunchTemplateElasticInferenceAcceleratorArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[builtins.str]):
-        """
-        :param pulumi.Input[builtins.str] type: Accelerator type.
-        """
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[builtins.str]:
-        """
-        Accelerator type.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "type", value)
 
 
 if not MYPY:
@@ -23804,159 +23732,6 @@ class GetVpcFilterArgs:
         """
         Set of values that are accepted for the given field.
         A VPC will be selected if any one of the given values matches.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: Sequence[builtins.str]):
-        pulumi.set(self, "values", value)
-
-
-if not MYPY:
-    class GetVpcIamPoolCidrsFilterArgsDict(TypedDict):
-        name: builtins.str
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
-        """
-        values: Sequence[builtins.str]
-        """
-        Set of values that are accepted for the given field.
-        """
-elif False:
-    GetVpcIamPoolCidrsFilterArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class GetVpcIamPoolCidrsFilterArgs:
-    def __init__(__self__, *,
-                 name: builtins.str,
-                 values: Sequence[builtins.str]):
-        """
-        :param builtins.str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
-        :param Sequence[builtins.str] values: Set of values that are accepted for the given field.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: builtins.str):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[builtins.str]:
-        """
-        Set of values that are accepted for the given field.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: Sequence[builtins.str]):
-        pulumi.set(self, "values", value)
-
-
-if not MYPY:
-    class GetVpcIamPoolFilterArgsDict(TypedDict):
-        name: builtins.str
-        """
-        The name of the filter. Filter names are case-sensitive.
-        """
-        values: Sequence[builtins.str]
-        """
-        The filter values. Filter values are case-sensitive.
-        """
-elif False:
-    GetVpcIamPoolFilterArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class GetVpcIamPoolFilterArgs:
-    def __init__(__self__, *,
-                 name: builtins.str,
-                 values: Sequence[builtins.str]):
-        """
-        :param builtins.str name: The name of the filter. Filter names are case-sensitive.
-        :param Sequence[builtins.str] values: The filter values. Filter values are case-sensitive.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        The name of the filter. Filter names are case-sensitive.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: builtins.str):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[builtins.str]:
-        """
-        The filter values. Filter values are case-sensitive.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: Sequence[builtins.str]):
-        pulumi.set(self, "values", value)
-
-
-if not MYPY:
-    class GetVpcIamPoolsFilterArgsDict(TypedDict):
-        name: builtins.str
-        """
-        The name of the filter. Filter names are case-sensitive.
-        """
-        values: Sequence[builtins.str]
-        """
-        The filter values. Filter values are case-sensitive.
-        """
-elif False:
-    GetVpcIamPoolsFilterArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class GetVpcIamPoolsFilterArgs:
-    def __init__(__self__, *,
-                 name: builtins.str,
-                 values: Sequence[builtins.str]):
-        """
-        :param builtins.str name: The name of the filter. Filter names are case-sensitive.
-        :param Sequence[builtins.str] values: The filter values. Filter values are case-sensitive.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        The name of the filter. Filter names are case-sensitive.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: builtins.str):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[builtins.str]:
-        """
-        The filter values. Filter values are case-sensitive.
         """
         return pulumi.get(self, "values")
 

@@ -33,6 +33,7 @@ public final class GetVaultResult {
      * 
      */
     private Integer recoveryPoints;
+    private String region;
     /**
      * @return Metadata that you can assign to help organize the resources that you create.
      * 
@@ -71,6 +72,9 @@ public final class GetVaultResult {
     public Integer recoveryPoints() {
         return this.recoveryPoints;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Metadata that you can assign to help organize the resources that you create.
      * 
@@ -93,6 +97,7 @@ public final class GetVaultResult {
         private String kmsKeyArn;
         private String name;
         private Integer recoveryPoints;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetVaultResult defaults) {
@@ -102,6 +107,7 @@ public final class GetVaultResult {
     	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.name = defaults.name;
     	      this.recoveryPoints = defaults.recoveryPoints;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -146,6 +152,14 @@ public final class GetVaultResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVaultResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetVaultResult", "tags");
@@ -160,6 +174,7 @@ public final class GetVaultResult {
             _resultValue.kmsKeyArn = kmsKeyArn;
             _resultValue.name = name;
             _resultValue.recoveryPoints = recoveryPoints;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

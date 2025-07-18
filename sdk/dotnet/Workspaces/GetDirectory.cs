@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Workspaces
         [Input("directoryId", required: true)]
         public string DirectoryId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         [Input("directoryId", required: true)]
         public Input<string> DirectoryId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -179,6 +191,7 @@ namespace Pulumi.Aws.Workspaces
         /// Identifiers of the IP access control groups associated with the directory.
         /// </summary>
         public readonly ImmutableArray<string> IpGroupIds;
+        public readonly string Region;
         /// <summary>
         /// Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
         /// </summary>
@@ -249,6 +262,8 @@ namespace Pulumi.Aws.Workspaces
 
             ImmutableArray<string> ipGroupIds,
 
+            string region,
+
             string registrationCode,
 
             ImmutableArray<Outputs.GetDirectorySamlPropertyResult> samlProperties,
@@ -284,6 +299,7 @@ namespace Pulumi.Aws.Workspaces
             IamRoleId = iamRoleId;
             Id = id;
             IpGroupIds = ipGroupIds;
+            Region = region;
             RegistrationCode = registrationCode;
             SamlProperties = samlProperties;
             SelfServicePermissions = selfServicePermissions;

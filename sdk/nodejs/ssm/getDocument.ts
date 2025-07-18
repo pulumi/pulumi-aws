@@ -40,6 +40,7 @@ export function getDocument(args: GetDocumentArgs, opts?: pulumi.InvokeOptions):
         "documentFormat": args.documentFormat,
         "documentVersion": args.documentVersion,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -59,6 +60,10 @@ export interface GetDocumentArgs {
      * The name of the document.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -84,6 +89,7 @@ export interface GetDocumentResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
 }
 /**
  * Gets the contents of the specified Systems Manager document.
@@ -121,6 +127,7 @@ export function getDocumentOutput(args: GetDocumentOutputArgs, opts?: pulumi.Inv
         "documentFormat": args.documentFormat,
         "documentVersion": args.documentVersion,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -140,4 +147,8 @@ export interface GetDocumentOutputArgs {
      * The name of the document.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

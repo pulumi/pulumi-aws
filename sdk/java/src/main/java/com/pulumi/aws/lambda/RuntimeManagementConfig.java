@@ -15,12 +15,11 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Lambda Runtime Management Config.
+ * Manages an AWS Lambda Runtime Management Config. Use this resource to control how Lambda updates the runtime for your function.
  * 
  * Refer to the [AWS Lambda documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) for supported runtimes.
  * 
- * &gt; Deletion of this resource returns the runtime update mode to `Auto` (the default behavior).
- * To leave the configured runtime management options in-place, use a `removed` block with the destroy lifecycle set to `false`.
+ * &gt; **Note:** Deletion of this resource returns the runtime update mode to `Auto` (the default behavior). To leave the configured runtime management options in-place, use a `removed` block with the destroy lifecycle set to `false`.
  * 
  * ## Example Usage
  * 
@@ -50,7 +49,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RuntimeManagementConfig("example", RuntimeManagementConfigArgs.builder()
- *             .functionName(test.functionName())
+ *             .functionName(exampleAwsLambdaFunction.functionName())
  *             .updateRuntimeOn("FunctionUpdate")
  *             .build());
  * 
@@ -60,7 +59,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### `Manual` Update
+ * ### Manual Update
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -86,7 +85,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RuntimeManagementConfig("example", RuntimeManagementConfigArgs.builder()
- *             .functionName(test.functionName())
+ *             .functionName(exampleAwsLambdaFunction.functionName())
  *             .updateRuntimeOn("Manual")
  *             .runtimeVersionArn("arn:aws:lambda:us-east-1::runtime:abcd1234")
  *             .build());
@@ -97,14 +96,14 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * &gt; Once the runtime update mode is set to `Manual`, the `aws.lambda.Function` `runtime` cannot be updated. To upgrade a runtime, the `update_runtime_on` argument must be set to `Auto` or `FunctionUpdate` prior to changing the function&#39;s `runtime` argument.
+ * &gt; **Note:** Once the runtime update mode is set to `Manual`, the `aws.lambda.Function` `runtime` cannot be updated. To upgrade a runtime, the `update_runtime_on` argument must be set to `Auto` or `FunctionUpdate` prior to changing the function&#39;s `runtime` argument.
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Lambda Runtime Management Config using a comma-delimited string combining `function_name` and `qualifier`. For example:
  * 
  * ```sh
- * $ pulumi import aws:lambda/runtimeManagementConfig:RuntimeManagementConfig example my-function,$LATEST
+ * $ pulumi import aws:lambda/runtimeManagementConfig:RuntimeManagementConfig example example,$LATEST
  * ```
  * 
  */
@@ -155,6 +154,20 @@ public class RuntimeManagementConfig extends com.pulumi.resources.CustomResource
      */
     public Output<Optional<String>> qualifier() {
         return Codegen.optional(this.qualifier);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.

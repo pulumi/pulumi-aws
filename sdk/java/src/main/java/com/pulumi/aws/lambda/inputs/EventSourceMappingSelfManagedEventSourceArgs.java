@@ -16,14 +16,14 @@ public final class EventSourceMappingSelfManagedEventSourceArgs extends com.pulu
     public static final EventSourceMappingSelfManagedEventSourceArgs Empty = new EventSourceMappingSelfManagedEventSourceArgs();
 
     /**
-     * A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
+     * Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
      * 
      */
     @Import(name="endpoints", required=true)
     private Output<Map<String,String>> endpoints;
 
     /**
-     * @return A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
+     * @return Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
      * 
      */
     public Output<Map<String,String>> endpoints() {
@@ -55,7 +55,7 @@ public final class EventSourceMappingSelfManagedEventSourceArgs extends com.pulu
         }
 
         /**
-         * @param endpoints A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
+         * @param endpoints Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class EventSourceMappingSelfManagedEventSourceArgs extends com.pulu
         }
 
         /**
-         * @param endpoints A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
+         * @param endpoints Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
          * 
          * @return builder
          * 

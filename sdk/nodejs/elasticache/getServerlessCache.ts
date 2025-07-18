@@ -25,6 +25,7 @@ export function getServerlessCache(args: GetServerlessCacheArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elasticache/getServerlessCache:getServerlessCache", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,6 +37,10 @@ export interface GetServerlessCacheArgs {
      * Identifier for the serverless cache.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -91,6 +96,7 @@ export interface GetServerlessCacheResult {
      * Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
      */
     readonly readerEndpoint: outputs.elasticache.GetServerlessCacheReaderEndpoint;
+    readonly region: string;
     /**
      * A list of the one or more VPC security groups associated with the serverless cache.
      */
@@ -130,6 +136,7 @@ export function getServerlessCacheOutput(args: GetServerlessCacheOutputArgs, opt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:elasticache/getServerlessCache:getServerlessCache", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -141,4 +148,8 @@ export interface GetServerlessCacheOutputArgs {
      * Identifier for the serverless cache.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

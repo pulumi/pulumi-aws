@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,12 +60,13 @@ type ResourceSet struct {
 
 	// ARN of the Resource Set.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
 	ResourceSets ResourceSetResourceSetArrayOutput `pulumi:"resourceSets"`
 	Tags         pulumi.StringMapOutput            `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll  pulumi.StringMapOutput       `pulumi:"tagsAll"`
-	Timeouts ResourceSetTimeoutsPtrOutput `pulumi:"timeouts"`
+	TagsAll      pulumi.StringMapOutput            `pulumi:"tagsAll"`
+	Timeouts     ResourceSetTimeoutsPtrOutput      `pulumi:"timeouts"`
 }
 
 // NewResourceSet registers a new resource with the given unique name, arguments, and options.
@@ -100,23 +101,25 @@ func GetResourceSet(ctx *pulumi.Context,
 type resourceSetState struct {
 	// ARN of the Resource Set.
 	Arn *string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
 	ResourceSets []ResourceSetResourceSet `pulumi:"resourceSets"`
 	Tags         map[string]string        `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll  map[string]string    `pulumi:"tagsAll"`
-	Timeouts *ResourceSetTimeouts `pulumi:"timeouts"`
+	TagsAll      map[string]string        `pulumi:"tagsAll"`
+	Timeouts     *ResourceSetTimeouts     `pulumi:"timeouts"`
 }
 
 type ResourceSetState struct {
 	// ARN of the Resource Set.
 	Arn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
 	ResourceSets ResourceSetResourceSetArrayInput
 	Tags         pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll  pulumi.StringMapInput
-	Timeouts ResourceSetTimeoutsPtrInput
+	TagsAll      pulumi.StringMapInput
+	Timeouts     ResourceSetTimeoutsPtrInput
 }
 
 func (ResourceSetState) ElementType() reflect.Type {
@@ -124,6 +127,8 @@ func (ResourceSetState) ElementType() reflect.Type {
 }
 
 type resourceSetArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
 	ResourceSets []ResourceSetResourceSet `pulumi:"resourceSets"`
 	Tags         map[string]string        `pulumi:"tags"`
@@ -132,6 +137,8 @@ type resourceSetArgs struct {
 
 // The set of arguments for constructing a ResourceSet resource.
 type ResourceSetArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
 	ResourceSets ResourceSetResourceSetArrayInput
 	Tags         pulumi.StringMapInput
@@ -230,6 +237,11 @@ func (o ResourceSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ResourceSetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
 func (o ResourceSetOutput) ResourceSets() ResourceSetResourceSetArrayOutput {
 	return o.ApplyT(func(v *ResourceSet) ResourceSetResourceSetArrayOutput { return v.ResourceSets }).(ResourceSetResourceSetArrayOutput)
@@ -239,7 +251,6 @@ func (o ResourceSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ResourceSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -12,21 +12,53 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrokerUser {
+    /**
+     * @return Whether to enable access to the ActiveMQ Web Console for the user.
+     * 
+     */
     private Boolean consoleAccess;
+    /**
+     * @return List of groups to which the ActiveMQ user belongs.
+     * 
+     */
     private List<String> groups;
+    /**
+     * @return Whether to set replication user.
+     * 
+     */
     private Boolean replicationUser;
+    /**
+     * @return Username of the user.
+     * 
+     */
     private String username;
 
     private GetBrokerUser() {}
+    /**
+     * @return Whether to enable access to the ActiveMQ Web Console for the user.
+     * 
+     */
     public Boolean consoleAccess() {
         return this.consoleAccess;
     }
+    /**
+     * @return List of groups to which the ActiveMQ user belongs.
+     * 
+     */
     public List<String> groups() {
         return this.groups;
     }
+    /**
+     * @return Whether to set replication user.
+     * 
+     */
     public Boolean replicationUser() {
         return this.replicationUser;
     }
+    /**
+     * @return Username of the user.
+     * 
+     */
     public String username() {
         return this.username;
     }

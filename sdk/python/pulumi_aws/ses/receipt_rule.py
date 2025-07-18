@@ -30,6 +30,7 @@ class ReceiptRuleArgs:
                  lambda_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleLambdaActionArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recipients: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleS3ActionArgs']]]] = None,
                  scan_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  sns_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleSnsActionArgs']]]] = None,
@@ -46,6 +47,7 @@ class ReceiptRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ReceiptRuleLambdaActionArgs']]] lambda_actions: A list of Lambda Action blocks. Documented below.
         :param pulumi.Input[builtins.str] name: The name of the rule
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] recipients: A list of email addresses
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ReceiptRuleS3ActionArgs']]] s3_actions: A list of S3 Action blocks. Documented below.
         :param pulumi.Input[builtins.bool] scan_enabled: If true, incoming emails will be scanned for spam and viruses
         :param pulumi.Input[Sequence[pulumi.Input['ReceiptRuleSnsActionArgs']]] sns_actions: A list of SNS Action blocks. Documented below.
@@ -68,6 +70,8 @@ class ReceiptRuleArgs:
             pulumi.set(__self__, "name", name)
         if recipients is not None:
             pulumi.set(__self__, "recipients", recipients)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if s3_actions is not None:
             pulumi.set(__self__, "s3_actions", s3_actions)
         if scan_enabled is not None:
@@ -178,6 +182,18 @@ class ReceiptRuleArgs:
         pulumi.set(self, "recipients", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="s3Actions")
     def s3_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleS3ActionArgs']]]]:
         """
@@ -261,6 +277,7 @@ class _ReceiptRuleState:
                  lambda_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleLambdaActionArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recipients: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  s3_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReceiptRuleS3ActionArgs']]]] = None,
                  scan_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -278,6 +295,7 @@ class _ReceiptRuleState:
         :param pulumi.Input[Sequence[pulumi.Input['ReceiptRuleLambdaActionArgs']]] lambda_actions: A list of Lambda Action blocks. Documented below.
         :param pulumi.Input[builtins.str] name: The name of the rule
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] recipients: A list of email addresses
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_set_name: The name of the rule set
         :param pulumi.Input[Sequence[pulumi.Input['ReceiptRuleS3ActionArgs']]] s3_actions: A list of S3 Action blocks. Documented below.
         :param pulumi.Input[builtins.bool] scan_enabled: If true, incoming emails will be scanned for spam and viruses
@@ -302,6 +320,8 @@ class _ReceiptRuleState:
             pulumi.set(__self__, "name", name)
         if recipients is not None:
             pulumi.set(__self__, "recipients", recipients)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rule_set_name is not None:
             pulumi.set(__self__, "rule_set_name", rule_set_name)
         if s3_actions is not None:
@@ -414,6 +434,18 @@ class _ReceiptRuleState:
         pulumi.set(self, "recipients", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="ruleSetName")
     def rule_set_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -511,6 +543,7 @@ class ReceiptRule(pulumi.CustomResource):
                  lambda_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReceiptRuleLambdaActionArgs', 'ReceiptRuleLambdaActionArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recipients: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  s3_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReceiptRuleS3ActionArgs', 'ReceiptRuleS3ActionArgsDict']]]]] = None,
                  scan_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -563,6 +596,7 @@ class ReceiptRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReceiptRuleLambdaActionArgs', 'ReceiptRuleLambdaActionArgsDict']]]] lambda_actions: A list of Lambda Action blocks. Documented below.
         :param pulumi.Input[builtins.str] name: The name of the rule
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] recipients: A list of email addresses
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_set_name: The name of the rule set
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReceiptRuleS3ActionArgs', 'ReceiptRuleS3ActionArgsDict']]]] s3_actions: A list of S3 Action blocks. Documented below.
         :param pulumi.Input[builtins.bool] scan_enabled: If true, incoming emails will be scanned for spam and viruses
@@ -634,6 +668,7 @@ class ReceiptRule(pulumi.CustomResource):
                  lambda_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReceiptRuleLambdaActionArgs', 'ReceiptRuleLambdaActionArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recipients: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  s3_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReceiptRuleS3ActionArgs', 'ReceiptRuleS3ActionArgsDict']]]]] = None,
                  scan_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -657,6 +692,7 @@ class ReceiptRule(pulumi.CustomResource):
             __props__.__dict__["lambda_actions"] = lambda_actions
             __props__.__dict__["name"] = name
             __props__.__dict__["recipients"] = recipients
+            __props__.__dict__["region"] = region
             if rule_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_set_name'")
             __props__.__dict__["rule_set_name"] = rule_set_name
@@ -685,6 +721,7 @@ class ReceiptRule(pulumi.CustomResource):
             lambda_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReceiptRuleLambdaActionArgs', 'ReceiptRuleLambdaActionArgsDict']]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             recipients: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rule_set_name: Optional[pulumi.Input[builtins.str]] = None,
             s3_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReceiptRuleS3ActionArgs', 'ReceiptRuleS3ActionArgsDict']]]]] = None,
             scan_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -707,6 +744,7 @@ class ReceiptRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReceiptRuleLambdaActionArgs', 'ReceiptRuleLambdaActionArgsDict']]]] lambda_actions: A list of Lambda Action blocks. Documented below.
         :param pulumi.Input[builtins.str] name: The name of the rule
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] recipients: A list of email addresses
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_set_name: The name of the rule set
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReceiptRuleS3ActionArgs', 'ReceiptRuleS3ActionArgsDict']]]] s3_actions: A list of S3 Action blocks. Documented below.
         :param pulumi.Input[builtins.bool] scan_enabled: If true, incoming emails will be scanned for spam and viruses
@@ -727,6 +765,7 @@ class ReceiptRule(pulumi.CustomResource):
         __props__.__dict__["lambda_actions"] = lambda_actions
         __props__.__dict__["name"] = name
         __props__.__dict__["recipients"] = recipients
+        __props__.__dict__["region"] = region
         __props__.__dict__["rule_set_name"] = rule_set_name
         __props__.__dict__["s3_actions"] = s3_actions
         __props__.__dict__["scan_enabled"] = scan_enabled
@@ -799,6 +838,14 @@ class ReceiptRule(pulumi.CustomResource):
         A list of email addresses
         """
         return pulumi.get(self, "recipients")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="ruleSetName")

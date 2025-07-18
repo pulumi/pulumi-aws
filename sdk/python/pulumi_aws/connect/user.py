@@ -31,6 +31,7 @@ class UserArgs:
                  identity_info: Optional[pulumi.Input['UserIdentityInfoArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a User resource.
@@ -43,6 +44,7 @@ class UserArgs:
         :param pulumi.Input['UserIdentityInfoArgs'] identity_info: A block that contains information about the identity of the user. Documented below.
         :param pulumi.Input[builtins.str] name: The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\\@]+`.
         :param pulumi.Input[builtins.str] password: The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the user. If configured with a provider
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -60,6 +62,8 @@ class UserArgs:
             pulumi.set(__self__, "name", name)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -173,6 +177,18 @@ class UserArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Tags to apply to the user. If configured with a provider
@@ -196,6 +212,7 @@ class _UserState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
                  phone_config: Optional[pulumi.Input['UserPhoneConfigArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  routing_profile_id: Optional[pulumi.Input[builtins.str]] = None,
                  security_profile_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -211,6 +228,7 @@ class _UserState:
         :param pulumi.Input[builtins.str] name: The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\\@]+`.
         :param pulumi.Input[builtins.str] password: The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
         :param pulumi.Input['UserPhoneConfigArgs'] phone_config: A block that contains information about the phone settings for the user. Documented below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] routing_profile_id: The identifier of the routing profile for the user.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_profile_ids: A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the user. If configured with a provider
@@ -234,15 +252,14 @@ class _UserState:
             pulumi.set(__self__, "password", password)
         if phone_config is not None:
             pulumi.set(__self__, "phone_config", phone_config)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if routing_profile_id is not None:
             pulumi.set(__self__, "routing_profile_id", routing_profile_id)
         if security_profile_ids is not None:
             pulumi.set(__self__, "security_profile_ids", security_profile_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if user_id is not None:
@@ -345,6 +362,18 @@ class _UserState:
         pulumi.set(self, "phone_config", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="routingProfileId")
     def routing_profile_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -383,7 +412,6 @@ class _UserState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -420,6 +448,7 @@ class User(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
                  phone_config: Optional[pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  routing_profile_id: Optional[pulumi.Input[builtins.str]] = None,
                  security_profile_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -557,6 +586,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\\@]+`.
         :param pulumi.Input[builtins.str] password: The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
         :param pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']] phone_config: A block that contains information about the phone settings for the user. Documented below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] routing_profile_id: The identifier of the routing profile for the user.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_profile_ids: A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the user. If configured with a provider
@@ -714,6 +744,7 @@ class User(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
                  phone_config: Optional[pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  routing_profile_id: Optional[pulumi.Input[builtins.str]] = None,
                  security_profile_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -737,6 +768,7 @@ class User(pulumi.CustomResource):
             if phone_config is None and not opts.urn:
                 raise TypeError("Missing required property 'phone_config'")
             __props__.__dict__["phone_config"] = phone_config
+            __props__.__dict__["region"] = region
             if routing_profile_id is None and not opts.urn:
                 raise TypeError("Missing required property 'routing_profile_id'")
             __props__.__dict__["routing_profile_id"] = routing_profile_id
@@ -767,6 +799,7 @@ class User(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             password: Optional[pulumi.Input[builtins.str]] = None,
             phone_config: Optional[pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             routing_profile_id: Optional[pulumi.Input[builtins.str]] = None,
             security_profile_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -787,6 +820,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The user name for the account. For instances not using SAML for identity management, the user name can include up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters from `[a-zA-Z0-9_-.\\@]+`.
         :param pulumi.Input[builtins.str] password: The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
         :param pulumi.Input[Union['UserPhoneConfigArgs', 'UserPhoneConfigArgsDict']] phone_config: A block that contains information about the phone settings for the user. Documented below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] routing_profile_id: The identifier of the routing profile for the user.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_profile_ids: A list of identifiers for the security profiles for the user. Specify a minimum of 1 and maximum of 10 security profile ids. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the user. If configured with a provider
@@ -806,6 +840,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["password"] = password
         __props__.__dict__["phone_config"] = phone_config
+        __props__.__dict__["region"] = region
         __props__.__dict__["routing_profile_id"] = routing_profile_id
         __props__.__dict__["security_profile_ids"] = security_profile_ids
         __props__.__dict__["tags"] = tags
@@ -878,6 +913,14 @@ class User(pulumi.CustomResource):
         return pulumi.get(self, "phone_config")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="routingProfileId")
     def routing_profile_id(self) -> pulumi.Output[builtins.str]:
         """
@@ -904,7 +947,6 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

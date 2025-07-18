@@ -124,7 +124,11 @@ public class Detector extends com.pulumi.resources.CustomResource {
     /**
      * Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.DetectorFeature` resources.
      * 
+     * @deprecated
+     * datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead.
+     * 
      */
+    @Deprecated /* datasources is deprecated. Use aws.guardduty.DetectorFeature resources instead. */
     @Export(name="datasources", refs={DetectorDatasources.class}, tree="[0]")
     private Output<DetectorDatasources> datasources;
 
@@ -164,6 +168,20 @@ public class Detector extends com.pulumi.resources.CustomResource {
         return this.findingPublishingFrequency;
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -180,11 +198,7 @@ public class Detector extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

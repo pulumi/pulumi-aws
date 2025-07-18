@@ -20,25 +20,45 @@ __all__ = ['StaticIpArgs', 'StaticIp']
 @pulumi.input_type
 class StaticIpArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a StaticIp resource.
         :param pulumi.Input[builtins.str] name: Name for the allocated static IP.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Name for the allocated static IP.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
@@ -47,12 +67,16 @@ class _StaticIpState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  ip_address: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  support_code: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering StaticIp resources.
         :param pulumi.Input[builtins.str] arn: ARN of the Lightsail static IP.
         :param pulumi.Input[builtins.str] ip_address: Allocated static IP address.
         :param pulumi.Input[builtins.str] name: Name for the allocated static IP.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] support_code: Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         """
         if arn is not None:
@@ -61,6 +85,8 @@ class _StaticIpState:
             pulumi.set(__self__, "ip_address", ip_address)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if support_code is not None:
             pulumi.set(__self__, "support_code", support_code)
 
@@ -93,12 +119,26 @@ class _StaticIpState:
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Name for the allocated static IP.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="supportCode")
@@ -120,6 +160,7 @@ class StaticIp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Manages a static IP address.
@@ -148,6 +189,9 @@ class StaticIp(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: Name for the allocated static IP.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -195,6 +239,7 @@ class StaticIp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -205,6 +250,7 @@ class StaticIp(pulumi.CustomResource):
             __props__ = StaticIpArgs.__new__(StaticIpArgs)
 
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["arn"] = None
             __props__.__dict__["ip_address"] = None
             __props__.__dict__["support_code"] = None
@@ -221,6 +267,7 @@ class StaticIp(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             ip_address: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             support_code: Optional[pulumi.Input[builtins.str]] = None) -> 'StaticIp':
         """
         Get an existing StaticIp resource's state with the given name, id, and optional extra
@@ -232,6 +279,9 @@ class StaticIp(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: ARN of the Lightsail static IP.
         :param pulumi.Input[builtins.str] ip_address: Allocated static IP address.
         :param pulumi.Input[builtins.str] name: Name for the allocated static IP.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] support_code: Support code for the static IP. Include this code in your email to support when you have questions about a static IP in Lightsail. This code enables our support team to look up your Lightsail information more easily.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -241,6 +291,7 @@ class StaticIp(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["ip_address"] = ip_address
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["support_code"] = support_code
         return StaticIp(resource_name, opts=opts, __props__=__props__)
 
@@ -265,8 +316,18 @@ class StaticIp(pulumi.CustomResource):
     def name(self) -> pulumi.Output[builtins.str]:
         """
         Name for the allocated static IP.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="supportCode")

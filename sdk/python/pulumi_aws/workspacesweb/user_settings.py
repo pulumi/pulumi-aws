@@ -33,6 +33,7 @@ class UserSettingsArgs:
                  deep_link_allowed: Optional[pulumi.Input[builtins.str]] = None,
                  disconnect_timeout_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
                  idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  toolbar_configuration: Optional[pulumi.Input['UserSettingsToolbarConfigurationArgs']] = None):
         """
@@ -50,6 +51,7 @@ class UserSettingsArgs:
         :param pulumi.Input[builtins.str] deep_link_allowed: Specifies whether the user can use deep links that open automatically when connecting to a session. Valid values are `Enabled` or `Disabled`.
         :param pulumi.Input[builtins.int] disconnect_timeout_in_minutes: Amount of time that a streaming session remains active after users disconnect. Value must be between 1 and 600 minutes.
         :param pulumi.Input[builtins.int] idle_disconnect_timeout_in_minutes: Amount of time that users can be idle before they are disconnected from their streaming session. Value must be between 0 and 60 minutes.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['UserSettingsToolbarConfigurationArgs'] toolbar_configuration: Configuration of the toolbar. Detailed below.
         """
@@ -70,6 +72,8 @@ class UserSettingsArgs:
             pulumi.set(__self__, "disconnect_timeout_in_minutes", disconnect_timeout_in_minutes)
         if idle_disconnect_timeout_in_minutes is not None:
             pulumi.set(__self__, "idle_disconnect_timeout_in_minutes", idle_disconnect_timeout_in_minutes)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if toolbar_configuration is not None:
@@ -211,6 +215,18 @@ class UserSettingsArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -248,6 +264,7 @@ class _UserSettingsState:
                  idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
                  paste_allowed: Optional[pulumi.Input[builtins.str]] = None,
                  print_allowed: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  toolbar_configuration: Optional[pulumi.Input['UserSettingsToolbarConfigurationArgs']] = None,
@@ -266,6 +283,7 @@ class _UserSettingsState:
         :param pulumi.Input[builtins.int] idle_disconnect_timeout_in_minutes: Amount of time that users can be idle before they are disconnected from their streaming session. Value must be between 0 and 60 minutes.
         :param pulumi.Input[builtins.str] paste_allowed: Specifies whether the user can paste text from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
         :param pulumi.Input[builtins.str] print_allowed: Specifies whether the user can print to the local device. Valid values are `Enabled` or `Disabled`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['UserSettingsToolbarConfigurationArgs'] toolbar_configuration: Configuration of the toolbar. Detailed below.
@@ -296,11 +314,10 @@ class _UserSettingsState:
             pulumi.set(__self__, "paste_allowed", paste_allowed)
         if print_allowed is not None:
             pulumi.set(__self__, "print_allowed", print_allowed)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if toolbar_configuration is not None:
@@ -444,6 +461,18 @@ class _UserSettingsState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -456,7 +485,6 @@ class _UserSettingsState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -522,6 +550,7 @@ class UserSettings(pulumi.CustomResource):
                  idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
                  paste_allowed: Optional[pulumi.Input[builtins.str]] = None,
                  print_allowed: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  toolbar_configuration: Optional[pulumi.Input[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']]] = None,
                  upload_allowed: Optional[pulumi.Input[builtins.str]] = None,
@@ -632,6 +661,7 @@ class UserSettings(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] idle_disconnect_timeout_in_minutes: Amount of time that users can be idle before they are disconnected from their streaming session. Value must be between 0 and 60 minutes.
         :param pulumi.Input[builtins.str] paste_allowed: Specifies whether the user can paste text from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
         :param pulumi.Input[builtins.str] print_allowed: Specifies whether the user can print to the local device. Valid values are `Enabled` or `Disabled`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']] toolbar_configuration: Configuration of the toolbar. Detailed below.
         :param pulumi.Input[builtins.str] upload_allowed: Specifies whether the user can upload files from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
@@ -763,6 +793,7 @@ class UserSettings(pulumi.CustomResource):
                  idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
                  paste_allowed: Optional[pulumi.Input[builtins.str]] = None,
                  print_allowed: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  toolbar_configuration: Optional[pulumi.Input[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']]] = None,
                  upload_allowed: Optional[pulumi.Input[builtins.str]] = None,
@@ -793,6 +824,7 @@ class UserSettings(pulumi.CustomResource):
             if print_allowed is None and not opts.urn:
                 raise TypeError("Missing required property 'print_allowed'")
             __props__.__dict__["print_allowed"] = print_allowed
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["toolbar_configuration"] = toolbar_configuration
             if upload_allowed is None and not opts.urn:
@@ -824,6 +856,7 @@ class UserSettings(pulumi.CustomResource):
             idle_disconnect_timeout_in_minutes: Optional[pulumi.Input[builtins.int]] = None,
             paste_allowed: Optional[pulumi.Input[builtins.str]] = None,
             print_allowed: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             toolbar_configuration: Optional[pulumi.Input[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']]] = None,
@@ -847,6 +880,7 @@ class UserSettings(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] idle_disconnect_timeout_in_minutes: Amount of time that users can be idle before they are disconnected from their streaming session. Value must be between 0 and 60 minutes.
         :param pulumi.Input[builtins.str] paste_allowed: Specifies whether the user can paste text from the local device to the streaming session. Valid values are `Enabled` or `Disabled`.
         :param pulumi.Input[builtins.str] print_allowed: Specifies whether the user can print to the local device. Valid values are `Enabled` or `Disabled`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']] toolbar_configuration: Configuration of the toolbar. Detailed below.
@@ -870,6 +904,7 @@ class UserSettings(pulumi.CustomResource):
         __props__.__dict__["idle_disconnect_timeout_in_minutes"] = idle_disconnect_timeout_in_minutes
         __props__.__dict__["paste_allowed"] = paste_allowed
         __props__.__dict__["print_allowed"] = print_allowed
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["toolbar_configuration"] = toolbar_configuration
@@ -967,6 +1002,14 @@ class UserSettings(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -975,7 +1018,6 @@ class UserSettings(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

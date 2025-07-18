@@ -93,6 +93,10 @@ export class Alias extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The StateMachine alias' route configuration settings. Fields documented below
      */
     public readonly routingConfigurations!: pulumi.Output<outputs.sfn.AliasRoutingConfiguration[]>;
@@ -114,6 +118,7 @@ export class Alias extends pulumi.CustomResource {
             resourceInputs["creationDate"] = state ? state.creationDate : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routingConfigurations"] = state ? state.routingConfigurations : undefined;
         } else {
             const args = argsOrState as AliasArgs | undefined;
@@ -122,6 +127,7 @@ export class Alias extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routingConfigurations"] = args ? args.routingConfigurations : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
@@ -152,6 +158,10 @@ export interface AliasState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The StateMachine alias' route configuration settings. Fields documented below
      */
     routingConfigurations?: pulumi.Input<pulumi.Input<inputs.sfn.AliasRoutingConfiguration>[]>;
@@ -169,6 +179,10 @@ export interface AliasArgs {
      * Name for the alias you are creating.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The StateMachine alias' route configuration settings. Fields documented below
      */

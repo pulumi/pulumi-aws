@@ -41,8 +41,8 @@ import {Bucket} from "./index";
  *     description: "KMS key 1",
  *     deletionWindowInDays: 7,
  * });
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {bucket: "examplebuckettftest"});
- * const example = new aws.s3.BucketAclV2("example", {
+ * const examplebucket = new aws.s3.Bucket("examplebucket", {bucket: "examplebuckettftest"});
+ * const example = new aws.s3.BucketAcl("example", {
  *     bucket: examplebucket.id,
  *     acl: "private",
  * });
@@ -60,8 +60,8 @@ import {Bucket} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {bucket: "examplebuckettftest"});
- * const example = new aws.s3.BucketAclV2("example", {
+ * const examplebucket = new aws.s3.Bucket("examplebucket", {bucket: "examplebuckettftest"});
+ * const example = new aws.s3.BucketAcl("example", {
  *     bucket: examplebucket.id,
  *     acl: "private",
  * });
@@ -79,8 +79,8 @@ import {Bucket} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {bucket: "examplebuckettftest"});
- * const example = new aws.s3.BucketAclV2("example", {
+ * const examplebucket = new aws.s3.Bucket("examplebucket", {bucket: "examplebuckettftest"});
+ * const example = new aws.s3.BucketAcl("example", {
  *     bucket: examplebucket.id,
  *     acl: "private",
  * });
@@ -98,15 +98,15 @@ import {Bucket} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {
+ * const examplebucket = new aws.s3.Bucket("examplebucket", {
  *     bucket: "examplebuckettftest",
  *     objectLockEnabled: true,
  * });
- * const example = new aws.s3.BucketAclV2("example", {
+ * const example = new aws.s3.BucketAcl("example", {
  *     bucket: examplebucket.id,
  *     acl: "private",
  * });
- * const exampleBucketVersioningV2 = new aws.s3.BucketVersioningV2("example", {
+ * const exampleBucketVersioning = new aws.s3.BucketVersioning("example", {
  *     bucket: examplebucket.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
@@ -121,7 +121,7 @@ import {Bucket} from "./index";
  *     objectLockRetainUntilDate: "2021-12-31T23:59:60Z",
  *     forceDestroy: true,
  * }, {
- *     dependsOn: [exampleBucketVersioningV2],
+ *     dependsOn: [exampleBucketVersioning],
  * });
  * ```
  *
@@ -136,7 +136,7 @@ import {Bucket} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const examplebucket = new aws.s3.BucketV2("examplebucket", {bucket: "examplebuckettftest"});
+ * const examplebucket = new aws.s3.Bucket("examplebucket", {bucket: "examplebuckettftest"});
  * const examplebucketObject = new aws.s3.BucketObjectv2("examplebucket_object", {
  *     key: "someobject",
  *     bucket: examplebucket.id,
@@ -304,6 +304,10 @@ export class BucketObjectv2 extends pulumi.CustomResource {
      */
     public readonly overrideProvider!: pulumi.Output<outputs.s3.BucketObjectv2OverrideProvider | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */
     public readonly serverSideEncryption!: pulumi.Output<string>;
@@ -325,8 +329,6 @@ export class BucketObjectv2 extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -383,6 +385,7 @@ export class BucketObjectv2 extends pulumi.CustomResource {
             resourceInputs["objectLockMode"] = state ? state.objectLockMode : undefined;
             resourceInputs["objectLockRetainUntilDate"] = state ? state.objectLockRetainUntilDate : undefined;
             resourceInputs["overrideProvider"] = state ? state.overrideProvider : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
             resourceInputs["source"] = state ? state.source : undefined;
             resourceInputs["sourceHash"] = state ? state.sourceHash : undefined;
@@ -416,6 +419,7 @@ export class BucketObjectv2 extends pulumi.CustomResource {
             resourceInputs["objectLockMode"] = args ? args.objectLockMode : undefined;
             resourceInputs["objectLockRetainUntilDate"] = args ? args.objectLockRetainUntilDate : undefined;
             resourceInputs["overrideProvider"] = args ? args.overrideProvider : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["sourceHash"] = args ? args.sourceHash : undefined;
@@ -549,6 +553,10 @@ export interface BucketObjectv2State {
      */
     overrideProvider?: pulumi.Input<inputs.s3.BucketObjectv2OverrideProvider>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */
     serverSideEncryption?: pulumi.Input<string>;
@@ -570,8 +578,6 @@ export interface BucketObjectv2State {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -676,6 +682,10 @@ export interface BucketObjectv2Args {
      * Override provider-level configuration options. See Override Provider below for more details.
      */
     overrideProvider?: pulumi.Input<inputs.s3.BucketObjectv2OverrideProvider>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
      */

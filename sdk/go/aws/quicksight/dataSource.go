@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,10 +62,10 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,7 +84,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example, err := s3.NewBucketV2(ctx, "example", nil)
+//			example, err := s3.NewBucket(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -97,7 +97,7 @@ import (
 //						"fileLocations": []map[string]interface{}{
 //							map[string]interface{}{
 //								"URIPrefixes": []string{
-//									fmt.Sprintf("https://%v.s3-%v.%v", id, currentGetRegion.Name, currentGetPartition.DnsSuffix),
+//									fmt.Sprintf("https://%v.s3-%v.%v", id, currentGetRegion.Region, currentGetPartition.DnsSuffix),
 //								},
 //							},
 //						},
@@ -237,13 +237,13 @@ type DataSource struct {
 	Parameters DataSourceParametersOutput `pulumi:"parameters"`
 	// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
 	Permissions DataSourcePermissionArrayOutput `pulumi:"permissions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
 	SslProperties DataSourceSslPropertiesOutput `pulumi:"sslProperties"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
 	//
@@ -306,13 +306,13 @@ type dataSourceState struct {
 	Parameters *DataSourceParameters `pulumi:"parameters"`
 	// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
 	Permissions []DataSourcePermission `pulumi:"permissions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
 	SslProperties *DataSourceSslProperties `pulumi:"sslProperties"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
 	//
@@ -337,13 +337,13 @@ type DataSourceState struct {
 	Parameters DataSourceParametersPtrInput
 	// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
 	Permissions DataSourcePermissionArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
 	SslProperties DataSourceSslPropertiesPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
 	//
@@ -370,6 +370,8 @@ type dataSourceArgs struct {
 	Parameters DataSourceParameters `pulumi:"parameters"`
 	// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
 	Permissions []DataSourcePermission `pulumi:"permissions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
 	SslProperties *DataSourceSslProperties `pulumi:"sslProperties"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -396,6 +398,8 @@ type DataSourceArgs struct {
 	Parameters DataSourceParametersInput
 	// A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
 	Permissions DataSourcePermissionArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
 	SslProperties DataSourceSslPropertiesPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -530,6 +534,11 @@ func (o DataSourceOutput) Permissions() DataSourcePermissionArrayOutput {
 	return o.ApplyT(func(v *DataSource) DataSourcePermissionArrayOutput { return v.Permissions }).(DataSourcePermissionArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DataSourceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
 func (o DataSourceOutput) SslProperties() DataSourceSslPropertiesOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceSslPropertiesOutput { return v.SslProperties }).(DataSourceSslPropertiesOutput)
@@ -541,8 +550,6 @@ func (o DataSourceOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o DataSourceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

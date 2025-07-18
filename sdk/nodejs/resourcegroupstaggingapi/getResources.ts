@@ -55,6 +55,7 @@ export function getResources(args?: GetResourcesArgs, opts?: pulumi.InvokeOption
     return pulumi.runtime.invoke("aws:resourcegroupstaggingapi/getResources:getResources", {
         "excludeCompliantResources": args.excludeCompliantResources,
         "includeComplianceDetails": args.includeComplianceDetails,
+        "region": args.region,
         "resourceArnLists": args.resourceArnLists,
         "resourceTypeFilters": args.resourceTypeFilters,
         "tagFilters": args.tagFilters,
@@ -73,6 +74,10 @@ export interface GetResourcesArgs {
      * Specifies whether to include details regarding the compliance with the effective tag policy.
      */
     includeComplianceDetails?: boolean;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
      */
@@ -97,6 +102,7 @@ export interface GetResourcesResult {
      */
     readonly id: string;
     readonly includeComplianceDetails?: boolean;
+    readonly region: string;
     readonly resourceArnLists?: string[];
     /**
      * List of objects matching the search criteria.
@@ -153,6 +159,7 @@ export function getResourcesOutput(args?: GetResourcesOutputArgs, opts?: pulumi.
     return pulumi.runtime.invokeOutput("aws:resourcegroupstaggingapi/getResources:getResources", {
         "excludeCompliantResources": args.excludeCompliantResources,
         "includeComplianceDetails": args.includeComplianceDetails,
+        "region": args.region,
         "resourceArnLists": args.resourceArnLists,
         "resourceTypeFilters": args.resourceTypeFilters,
         "tagFilters": args.tagFilters,
@@ -171,6 +178,10 @@ export interface GetResourcesOutputArgs {
      * Specifies whether to include details regarding the compliance with the effective tag policy.
      */
     includeComplianceDetails?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
      */

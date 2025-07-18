@@ -43,6 +43,7 @@ class ProfileArgs:
                  party_type_string: Optional[pulumi.Input[builtins.str]] = None,
                  personal_email_address: Optional[pulumi.Input[builtins.str]] = None,
                  phone_number: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shipping_address: Optional[pulumi.Input['ProfileShippingAddressArgs']] = None):
         """
         The set of arguments for constructing a Profile resource.
@@ -69,6 +70,7 @@ class ProfileArgs:
         :param pulumi.Input[builtins.str] party_type_string: The type of profile used to describe the customer.
         :param pulumi.Input[builtins.str] personal_email_address: The customer’s personal email address.
         :param pulumi.Input[builtins.str] phone_number: The customer’s phone number, which has not been specified as a mobile, home, or business number.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ProfileShippingAddressArgs'] shipping_address: A block that specifies the customer’s shipping address. Documented below.
         """
         pulumi.set(__self__, "domain_name", domain_name)
@@ -112,6 +114,8 @@ class ProfileArgs:
             pulumi.set(__self__, "personal_email_address", personal_email_address)
         if phone_number is not None:
             pulumi.set(__self__, "phone_number", phone_number)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if shipping_address is not None:
             pulumi.set(__self__, "shipping_address", shipping_address)
 
@@ -370,6 +374,18 @@ class ProfileArgs:
         pulumi.set(self, "phone_number", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="shippingAddress")
     def shipping_address(self) -> Optional[pulumi.Input['ProfileShippingAddressArgs']]:
         """
@@ -406,6 +422,7 @@ class _ProfileState:
                  party_type_string: Optional[pulumi.Input[builtins.str]] = None,
                  personal_email_address: Optional[pulumi.Input[builtins.str]] = None,
                  phone_number: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shipping_address: Optional[pulumi.Input['ProfileShippingAddressArgs']] = None):
         """
         Input properties used for looking up and filtering Profile resources.
@@ -432,6 +449,7 @@ class _ProfileState:
         :param pulumi.Input[builtins.str] party_type_string: The type of profile used to describe the customer.
         :param pulumi.Input[builtins.str] personal_email_address: The customer’s personal email address.
         :param pulumi.Input[builtins.str] phone_number: The customer’s phone number, which has not been specified as a mobile, home, or business number.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ProfileShippingAddressArgs'] shipping_address: A block that specifies the customer’s shipping address. Documented below.
         """
         if account_number is not None:
@@ -476,6 +494,8 @@ class _ProfileState:
             pulumi.set(__self__, "personal_email_address", personal_email_address)
         if phone_number is not None:
             pulumi.set(__self__, "phone_number", phone_number)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if shipping_address is not None:
             pulumi.set(__self__, "shipping_address", shipping_address)
 
@@ -734,6 +754,18 @@ class _ProfileState:
         pulumi.set(self, "phone_number", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="shippingAddress")
     def shipping_address(self) -> Optional[pulumi.Input['ProfileShippingAddressArgs']]:
         """
@@ -773,6 +805,7 @@ class Profile(pulumi.CustomResource):
                  party_type_string: Optional[pulumi.Input[builtins.str]] = None,
                  personal_email_address: Optional[pulumi.Input[builtins.str]] = None,
                  phone_number: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shipping_address: Optional[pulumi.Input[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']]] = None,
                  __props__=None):
         """
@@ -822,6 +855,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] party_type_string: The type of profile used to describe the customer.
         :param pulumi.Input[builtins.str] personal_email_address: The customer’s personal email address.
         :param pulumi.Input[builtins.str] phone_number: The customer’s phone number, which has not been specified as a mobile, home, or business number.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']] shipping_address: A block that specifies the customer’s shipping address. Documented below.
         """
         ...
@@ -888,6 +922,7 @@ class Profile(pulumi.CustomResource):
                  party_type_string: Optional[pulumi.Input[builtins.str]] = None,
                  personal_email_address: Optional[pulumi.Input[builtins.str]] = None,
                  phone_number: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shipping_address: Optional[pulumi.Input[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -921,6 +956,7 @@ class Profile(pulumi.CustomResource):
             __props__.__dict__["party_type_string"] = party_type_string
             __props__.__dict__["personal_email_address"] = personal_email_address
             __props__.__dict__["phone_number"] = phone_number
+            __props__.__dict__["region"] = region
             __props__.__dict__["shipping_address"] = shipping_address
         super(Profile, __self__).__init__(
             'aws:customerprofiles/profile:Profile',
@@ -953,6 +989,7 @@ class Profile(pulumi.CustomResource):
             party_type_string: Optional[pulumi.Input[builtins.str]] = None,
             personal_email_address: Optional[pulumi.Input[builtins.str]] = None,
             phone_number: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             shipping_address: Optional[pulumi.Input[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']]] = None) -> 'Profile':
         """
         Get an existing Profile resource's state with the given name, id, and optional extra
@@ -984,6 +1021,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] party_type_string: The type of profile used to describe the customer.
         :param pulumi.Input[builtins.str] personal_email_address: The customer’s personal email address.
         :param pulumi.Input[builtins.str] phone_number: The customer’s phone number, which has not been specified as a mobile, home, or business number.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ProfileShippingAddressArgs', 'ProfileShippingAddressArgsDict']] shipping_address: A block that specifies the customer’s shipping address. Documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1011,6 +1049,7 @@ class Profile(pulumi.CustomResource):
         __props__.__dict__["party_type_string"] = party_type_string
         __props__.__dict__["personal_email_address"] = personal_email_address
         __props__.__dict__["phone_number"] = phone_number
+        __props__.__dict__["region"] = region
         __props__.__dict__["shipping_address"] = shipping_address
         return Profile(resource_name, opts=opts, __props__=__props__)
 
@@ -1183,6 +1222,14 @@ class Profile(pulumi.CustomResource):
         The customer’s phone number, which has not been specified as a mobile, home, or business number.
         """
         return pulumi.get(self, "phone_number")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="shippingAddress")

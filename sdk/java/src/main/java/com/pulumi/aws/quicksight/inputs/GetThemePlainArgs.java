@@ -32,6 +32,21 @@ public final class GetThemePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
@@ -69,6 +84,7 @@ public final class GetThemePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetThemePlainArgs(GetThemePlainArgs $) {
         this.awsAccountId = $.awsAccountId;
+        this.region = $.region;
         this.tags = $.tags;
         this.themeId = $.themeId;
     }
@@ -99,6 +115,17 @@ public final class GetThemePlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder awsAccountId(@Nullable String awsAccountId) {
             $.awsAccountId = awsAccountId;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

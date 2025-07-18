@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,20 +25,20 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := s3.NewBucketV2(ctx, "test", &s3.BucketV2Args{
+//			test, err := s3.NewBucket(ctx, "test", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-tf-test-bucket"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			inventory, err := s3.NewBucketV2(ctx, "inventory", &s3.BucketV2Args{
+//			inventory, err := s3.NewBucket(ctx, "inventory", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-tf-inventory-bucket"),
 //			})
 //			if err != nil {
@@ -74,20 +74,20 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := s3.NewBucketV2(ctx, "test", &s3.BucketV2Args{
+//			test, err := s3.NewBucket(ctx, "test", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-tf-test-bucket"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			inventory, err := s3.NewBucketV2(ctx, "inventory", &s3.BucketV2Args{
+//			inventory, err := s3.NewBucket(ctx, "inventory", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-tf-inventory-bucket"),
 //			})
 //			if err != nil {
@@ -144,6 +144,8 @@ type Inventory struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
 	OptionalFields pulumi.StringArrayOutput `pulumi:"optionalFields"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the schedule for generating inventory results (documented below).
 	Schedule InventoryScheduleOutput `pulumi:"schedule"`
 }
@@ -204,6 +206,8 @@ type inventoryState struct {
 	Name *string `pulumi:"name"`
 	// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
 	OptionalFields []string `pulumi:"optionalFields"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the schedule for generating inventory results (documented below).
 	Schedule *InventorySchedule `pulumi:"schedule"`
 }
@@ -223,6 +227,8 @@ type InventoryState struct {
 	Name pulumi.StringPtrInput
 	// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
 	OptionalFields pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the schedule for generating inventory results (documented below).
 	Schedule InventorySchedulePtrInput
 }
@@ -246,6 +252,8 @@ type inventoryArgs struct {
 	Name *string `pulumi:"name"`
 	// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
 	OptionalFields []string `pulumi:"optionalFields"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the schedule for generating inventory results (documented below).
 	Schedule InventorySchedule `pulumi:"schedule"`
 }
@@ -266,6 +274,8 @@ type InventoryArgs struct {
 	Name pulumi.StringPtrInput
 	// List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
 	OptionalFields pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the schedule for generating inventory results (documented below).
 	Schedule InventoryScheduleInput
 }
@@ -390,6 +400,11 @@ func (o InventoryOutput) Name() pulumi.StringOutput {
 // List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
 func (o InventoryOutput) OptionalFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Inventory) pulumi.StringArrayOutput { return v.OptionalFields }).(pulumi.StringArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o InventoryOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Inventory) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Specifies the schedule for generating inventory results (documented below).

@@ -28,7 +28,7 @@ class GetDirectoryResult:
     """
     A collection of values returned by getDirectory.
     """
-    def __init__(__self__, active_directory_configs=None, alias=None, certificate_based_auth_properties=None, customer_user_name=None, directory_id=None, directory_name=None, directory_type=None, dns_ip_addresses=None, iam_role_id=None, id=None, ip_group_ids=None, registration_code=None, saml_properties=None, self_service_permissions=None, subnet_ids=None, tags=None, user_identity_type=None, workspace_access_properties=None, workspace_creation_properties=None, workspace_directory_description=None, workspace_directory_name=None, workspace_security_group_id=None, workspace_type=None):
+    def __init__(__self__, active_directory_configs=None, alias=None, certificate_based_auth_properties=None, customer_user_name=None, directory_id=None, directory_name=None, directory_type=None, dns_ip_addresses=None, iam_role_id=None, id=None, ip_group_ids=None, region=None, registration_code=None, saml_properties=None, self_service_permissions=None, subnet_ids=None, tags=None, user_identity_type=None, workspace_access_properties=None, workspace_creation_properties=None, workspace_directory_description=None, workspace_directory_name=None, workspace_security_group_id=None, workspace_type=None):
         if active_directory_configs and not isinstance(active_directory_configs, list):
             raise TypeError("Expected argument 'active_directory_configs' to be a list")
         pulumi.set(__self__, "active_directory_configs", active_directory_configs)
@@ -62,6 +62,9 @@ class GetDirectoryResult:
         if ip_group_ids and not isinstance(ip_group_ids, list):
             raise TypeError("Expected argument 'ip_group_ids' to be a list")
         pulumi.set(__self__, "ip_group_ids", ip_group_ids)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if registration_code and not isinstance(registration_code, str):
             raise TypeError("Expected argument 'registration_code' to be a str")
         pulumi.set(__self__, "registration_code", registration_code)
@@ -182,6 +185,11 @@ class GetDirectoryResult:
         return pulumi.get(self, "ip_group_ids")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="registrationCode")
     def registration_code(self) -> builtins.str:
         """
@@ -292,6 +300,7 @@ class AwaitableGetDirectoryResult(GetDirectoryResult):
             iam_role_id=self.iam_role_id,
             id=self.id,
             ip_group_ids=self.ip_group_ids,
+            region=self.region,
             registration_code=self.registration_code,
             saml_properties=self.saml_properties,
             self_service_permissions=self.self_service_permissions,
@@ -307,6 +316,7 @@ class AwaitableGetDirectoryResult(GetDirectoryResult):
 
 
 def get_directory(directory_id: Optional[builtins.str] = None,
+                  region: Optional[builtins.str] = None,
                   tags: Optional[Mapping[str, builtins.str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDirectoryResult:
     """
@@ -323,10 +333,12 @@ def get_directory(directory_id: Optional[builtins.str] = None,
 
 
     :param builtins.str directory_id: Directory identifier for registration in WorkSpaces service.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags assigned to the WorkSpaces directory.
     """
     __args__ = dict()
     __args__['directoryId'] = directory_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:workspaces/getDirectory:getDirectory', __args__, opts=opts, typ=GetDirectoryResult).value
@@ -343,6 +355,7 @@ def get_directory(directory_id: Optional[builtins.str] = None,
         iam_role_id=pulumi.get(__ret__, 'iam_role_id'),
         id=pulumi.get(__ret__, 'id'),
         ip_group_ids=pulumi.get(__ret__, 'ip_group_ids'),
+        region=pulumi.get(__ret__, 'region'),
         registration_code=pulumi.get(__ret__, 'registration_code'),
         saml_properties=pulumi.get(__ret__, 'saml_properties'),
         self_service_permissions=pulumi.get(__ret__, 'self_service_permissions'),
@@ -356,6 +369,7 @@ def get_directory(directory_id: Optional[builtins.str] = None,
         workspace_security_group_id=pulumi.get(__ret__, 'workspace_security_group_id'),
         workspace_type=pulumi.get(__ret__, 'workspace_type'))
 def get_directory_output(directory_id: Optional[pulumi.Input[builtins.str]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectoryResult]:
     """
@@ -372,10 +386,12 @@ def get_directory_output(directory_id: Optional[pulumi.Input[builtins.str]] = No
 
 
     :param builtins.str directory_id: Directory identifier for registration in WorkSpaces service.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags assigned to the WorkSpaces directory.
     """
     __args__ = dict()
     __args__['directoryId'] = directory_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:workspaces/getDirectory:getDirectory', __args__, opts=opts, typ=GetDirectoryResult)
@@ -391,6 +407,7 @@ def get_directory_output(directory_id: Optional[pulumi.Input[builtins.str]] = No
         iam_role_id=pulumi.get(__response__, 'iam_role_id'),
         id=pulumi.get(__response__, 'id'),
         ip_group_ids=pulumi.get(__response__, 'ip_group_ids'),
+        region=pulumi.get(__response__, 'region'),
         registration_code=pulumi.get(__response__, 'registration_code'),
         saml_properties=pulumi.get(__response__, 'saml_properties'),
         self_service_permissions=pulumi.get(__response__, 'self_service_permissions'),

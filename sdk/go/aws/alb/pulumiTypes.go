@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -1662,9 +1662,10 @@ func (o ListenerDefaultActionRedirectPtrOutput) StatusCode() pulumi.StringPtrOut
 type ListenerMutualAuthentication struct {
 	// Valid values are `off` and `on`.
 	AdvertiseTrustStoreCaNames *string `pulumi:"advertiseTrustStoreCaNames"`
-	// Whether client certificate expiry is ignored. Default is `false`.
+	// Whether client certificate expiry is ignored.
+	// Default is `false`.
 	IgnoreClientCertificateExpiry *bool `pulumi:"ignoreClientCertificateExpiry"`
-	// Valid values are `off`, `verify` and `passthrough`.
+	// Valid values are `off`, `passthrough`, and `verify`.
 	Mode string `pulumi:"mode"`
 	// ARN of the elbv2 Trust Store.
 	TrustStoreArn *string `pulumi:"trustStoreArn"`
@@ -1684,9 +1685,10 @@ type ListenerMutualAuthenticationInput interface {
 type ListenerMutualAuthenticationArgs struct {
 	// Valid values are `off` and `on`.
 	AdvertiseTrustStoreCaNames pulumi.StringPtrInput `pulumi:"advertiseTrustStoreCaNames"`
-	// Whether client certificate expiry is ignored. Default is `false`.
+	// Whether client certificate expiry is ignored.
+	// Default is `false`.
 	IgnoreClientCertificateExpiry pulumi.BoolPtrInput `pulumi:"ignoreClientCertificateExpiry"`
-	// Valid values are `off`, `verify` and `passthrough`.
+	// Valid values are `off`, `passthrough`, and `verify`.
 	Mode pulumi.StringInput `pulumi:"mode"`
 	// ARN of the elbv2 Trust Store.
 	TrustStoreArn pulumi.StringPtrInput `pulumi:"trustStoreArn"`
@@ -1774,12 +1776,13 @@ func (o ListenerMutualAuthenticationOutput) AdvertiseTrustStoreCaNames() pulumi.
 	return o.ApplyT(func(v ListenerMutualAuthentication) *string { return v.AdvertiseTrustStoreCaNames }).(pulumi.StringPtrOutput)
 }
 
-// Whether client certificate expiry is ignored. Default is `false`.
+// Whether client certificate expiry is ignored.
+// Default is `false`.
 func (o ListenerMutualAuthenticationOutput) IgnoreClientCertificateExpiry() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ListenerMutualAuthentication) *bool { return v.IgnoreClientCertificateExpiry }).(pulumi.BoolPtrOutput)
 }
 
-// Valid values are `off`, `verify` and `passthrough`.
+// Valid values are `off`, `passthrough`, and `verify`.
 func (o ListenerMutualAuthenticationOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v ListenerMutualAuthentication) string { return v.Mode }).(pulumi.StringOutput)
 }
@@ -1823,7 +1826,8 @@ func (o ListenerMutualAuthenticationPtrOutput) AdvertiseTrustStoreCaNames() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether client certificate expiry is ignored. Default is `false`.
+// Whether client certificate expiry is ignored.
+// Default is `false`.
 func (o ListenerMutualAuthenticationPtrOutput) IgnoreClientCertificateExpiry() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ListenerMutualAuthentication) *bool {
 		if v == nil {
@@ -1833,7 +1837,7 @@ func (o ListenerMutualAuthenticationPtrOutput) IgnoreClientCertificateExpiry() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Valid values are `off`, `verify` and `passthrough`.
+// Valid values are `off`, `passthrough`, and `verify`.
 func (o ListenerMutualAuthenticationPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerMutualAuthentication) *string {
 		if v == nil {

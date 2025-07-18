@@ -42,6 +42,7 @@ export function getMulticastDomain(args?: GetMulticastDomainArgs, opts?: pulumi.
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getMulticastDomain:getMulticastDomain", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
         "transitGatewayMulticastDomainId": args.transitGatewayMulticastDomainId,
     }, opts);
@@ -55,6 +56,10 @@ export interface GetMulticastDomainArgs {
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
     filters?: inputs.ec2transitgateway.GetMulticastDomainFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Key-value tags for the EC2 Transit Gateway Multicast Domain.
      */
@@ -98,6 +103,7 @@ export interface GetMulticastDomainResult {
      * Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
      */
     readonly ownerId: string;
+    readonly region: string;
     /**
      * EC2 Multicast Domain Group Sources
      */
@@ -156,6 +162,7 @@ export function getMulticastDomainOutput(args?: GetMulticastDomainOutputArgs, op
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getMulticastDomain:getMulticastDomain", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
         "transitGatewayMulticastDomainId": args.transitGatewayMulticastDomainId,
     }, opts);
@@ -169,6 +176,10 @@ export interface GetMulticastDomainOutputArgs {
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetMulticastDomainFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway Multicast Domain.
      */

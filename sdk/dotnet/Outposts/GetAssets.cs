@@ -243,6 +243,12 @@ namespace Pulumi.Aws.Outposts
             set => _hostIdFilters = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("statusIdFilters")]
         private List<string>? _statusIdFilters;
 
@@ -281,6 +287,12 @@ namespace Pulumi.Aws.Outposts
             set => _hostIdFilters = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("statusIdFilters")]
         private InputList<string>? _statusIdFilters;
 
@@ -313,6 +325,7 @@ namespace Pulumi.Aws.Outposts
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         public readonly ImmutableArray<string> StatusIdFilters;
 
         [OutputConstructor]
@@ -325,12 +338,15 @@ namespace Pulumi.Aws.Outposts
 
             string id,
 
+            string region,
+
             ImmutableArray<string> statusIdFilters)
         {
             Arn = arn;
             AssetIds = assetIds;
             HostIdFilters = hostIdFilters;
             Id = id;
+            Region = region;
             StatusIdFilters = statusIdFilters;
         }
     }

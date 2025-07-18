@@ -204,6 +204,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public Output<ImmutableArray<string>> Queues { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Option settings to configure the new Environment. These
         /// override specific values that are set as defaults. The format is detailed
         /// below in Option Settings
@@ -354,6 +360,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// </summary>
         [Input("pollInterval")]
         public Input<string>? PollInterval { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("settings")]
         private InputList<Inputs.EnvironmentSettingArgs>? _settings;
@@ -558,6 +570,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
             set => _queues = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("settings")]
         private InputList<Inputs.EnvironmentSettingGetArgs>? _settings;
 
@@ -597,7 +615,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

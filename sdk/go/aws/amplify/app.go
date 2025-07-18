@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amplify"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,7 +82,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amplify"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -112,7 +112,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amplify"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -146,7 +146,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amplify"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -181,7 +181,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amplify"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -219,7 +219,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amplify"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -248,7 +248,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amplify"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -273,6 +273,35 @@ import (
 //
 // `),
 //
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Job Config
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amplify"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				Name: pulumi.String("example"),
+//				JobConfig: &amplify.AppJobConfigArgs{
+//					BuildComputeType: pulumi.String("STANDARD_8GB"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -330,6 +359,8 @@ type App struct {
 	EnvironmentVariables pulumi.StringMapOutput `pulumi:"environmentVariables"`
 	// AWS Identity and Access Management (IAM) service role for an Amplify app.
 	IamServiceRoleArn pulumi.StringPtrOutput `pulumi:"iamServiceRoleArn"`
+	// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+	JobConfig AppJobConfigOutput `pulumi:"jobConfig"`
 	// Name for an Amplify app.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
@@ -338,13 +369,13 @@ type App struct {
 	Platform pulumi.StringPtrOutput `pulumi:"platform"`
 	// Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
 	ProductionBranches AppProductionBranchArrayOutput `pulumi:"productionBranches"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Repository for an Amplify app.
 	Repository pulumi.StringPtrOutput `pulumi:"repository"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -429,6 +460,8 @@ type appState struct {
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// AWS Identity and Access Management (IAM) service role for an Amplify app.
 	IamServiceRoleArn *string `pulumi:"iamServiceRoleArn"`
+	// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+	JobConfig *AppJobConfig `pulumi:"jobConfig"`
 	// Name for an Amplify app.
 	Name *string `pulumi:"name"`
 	// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
@@ -437,13 +470,13 @@ type appState struct {
 	Platform *string `pulumi:"platform"`
 	// Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
 	ProductionBranches []AppProductionBranch `pulumi:"productionBranches"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Repository for an Amplify app.
 	Repository *string `pulumi:"repository"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -484,6 +517,8 @@ type AppState struct {
 	EnvironmentVariables pulumi.StringMapInput
 	// AWS Identity and Access Management (IAM) service role for an Amplify app.
 	IamServiceRoleArn pulumi.StringPtrInput
+	// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+	JobConfig AppJobConfigPtrInput
 	// Name for an Amplify app.
 	Name pulumi.StringPtrInput
 	// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
@@ -492,13 +527,13 @@ type AppState struct {
 	Platform pulumi.StringPtrInput
 	// Describes the information about a production branch for an Amplify app. A `productionBranch` block is documented below.
 	ProductionBranches AppProductionBranchArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Repository for an Amplify app.
 	Repository pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -539,12 +574,16 @@ type appArgs struct {
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// AWS Identity and Access Management (IAM) service role for an Amplify app.
 	IamServiceRoleArn *string `pulumi:"iamServiceRoleArn"`
+	// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+	JobConfig *AppJobConfig `pulumi:"jobConfig"`
 	// Name for an Amplify app.
 	Name *string `pulumi:"name"`
 	// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
 	OauthToken *string `pulumi:"oauthToken"`
 	// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
 	Platform *string `pulumi:"platform"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Repository for an Amplify app.
 	Repository *string `pulumi:"repository"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -585,12 +624,16 @@ type AppArgs struct {
 	EnvironmentVariables pulumi.StringMapInput
 	// AWS Identity and Access Management (IAM) service role for an Amplify app.
 	IamServiceRoleArn pulumi.StringPtrInput
+	// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+	JobConfig AppJobConfigPtrInput
 	// Name for an Amplify app.
 	Name pulumi.StringPtrInput
 	// OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
 	OauthToken pulumi.StringPtrInput
 	// Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
 	Platform pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Repository for an Amplify app.
 	Repository pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -774,6 +817,11 @@ func (o AppOutput) IamServiceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.IamServiceRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+func (o AppOutput) JobConfig() AppJobConfigOutput {
+	return o.ApplyT(func(v *App) AppJobConfigOutput { return v.JobConfig }).(AppJobConfigOutput)
+}
+
 // Name for an Amplify app.
 func (o AppOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -794,6 +842,11 @@ func (o AppOutput) ProductionBranches() AppProductionBranchArrayOutput {
 	return o.ApplyT(func(v *App) AppProductionBranchArrayOutput { return v.ProductionBranches }).(AppProductionBranchArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AppOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Repository for an Amplify app.
 func (o AppOutput) Repository() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.Repository }).(pulumi.StringPtrOutput)
@@ -805,8 +858,6 @@ func (o AppOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o AppOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *App) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

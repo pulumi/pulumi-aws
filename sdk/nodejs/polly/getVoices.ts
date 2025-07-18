@@ -39,6 +39,7 @@ export function getVoices(args?: GetVoicesArgs, opts?: pulumi.InvokeOptions): Pr
         "engine": args.engine,
         "includeAdditionalLanguageCodes": args.includeAdditionalLanguageCodes,
         "languageCode": args.languageCode,
+        "region": args.region,
         "voices": args.voices,
     }, opts);
 }
@@ -60,6 +61,10 @@ export interface GetVoicesArgs {
      */
     languageCode?: string;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * List of voices with their properties. See `voices` Attribute Reference below.
      */
     voices?: inputs.polly.GetVoicesVoice[];
@@ -79,6 +84,7 @@ export interface GetVoicesResult {
      * Language code of the voice.
      */
     readonly languageCode?: string;
+    readonly region: string;
     /**
      * List of voices with their properties. See `voices` Attribute Reference below.
      */
@@ -116,6 +122,7 @@ export function getVoicesOutput(args?: GetVoicesOutputArgs, opts?: pulumi.Invoke
         "engine": args.engine,
         "includeAdditionalLanguageCodes": args.includeAdditionalLanguageCodes,
         "languageCode": args.languageCode,
+        "region": args.region,
         "voices": args.voices,
     }, opts);
 }
@@ -136,6 +143,10 @@ export interface GetVoicesOutputArgs {
      * Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
      */
     languageCode?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of voices with their properties. See `voices` Attribute Reference below.
      */

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -35,9 +35,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudformation.NewStackSetInstance(ctx, "example", &cloudformation.StackSetInstanceArgs{
-//				AccountId:    pulumi.String("123456789012"),
-//				Region:       pulumi.String("us-east-1"),
-//				StackSetName: pulumi.Any(exampleAwsCloudformationStackSet.Name),
+//				AccountId:              pulumi.String("123456789012"),
+//				StackSetInstanceRegion: pulumi.String("us-east-1"),
+//				StackSetName:           pulumi.Any(exampleAwsCloudformationStackSet.Name),
 //			})
 //			if err != nil {
 //				return err
@@ -55,7 +55,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -129,7 +129,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -142,8 +142,8 @@ import (
 //						exampleAwsOrganizationsOrganization.Roots[0].Id,
 //					},
 //				},
-//				Region:       pulumi.String("us-east-1"),
-//				StackSetName: pulumi.Any(exampleAwsCloudformationStackSet.Name),
+//				StackSetInstanceRegion: pulumi.String("us-east-1"),
+//				StackSetName:           pulumi.Any(exampleAwsCloudformationStackSet.Name),
 //			})
 //			if err != nil {
 //				return err
@@ -190,7 +190,9 @@ type StackSetInstance struct {
 	OrganizationalUnitId pulumi.StringOutput `pulumi:"organizationalUnitId"`
 	// Key-value map of input parameters to override from the StackSet for this Instance.
 	ParameterOverrides pulumi.StringMapOutput `pulumi:"parameterOverrides"`
-	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
+	//
+	// Deprecated: region is deprecated. Use stackSetInstanceRegion instead.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
 	RetainStack pulumi.BoolPtrOutput `pulumi:"retainStack"`
@@ -198,6 +200,8 @@ type StackSetInstance struct {
 	StackId pulumi.StringOutput `pulumi:"stackId"`
 	// List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
 	StackInstanceSummaries StackSetInstanceStackInstanceSummaryArrayOutput `pulumi:"stackInstanceSummaries"`
+	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+	StackSetInstanceRegion pulumi.StringOutput `pulumi:"stackSetInstanceRegion"`
 	// Name of the StackSet.
 	StackSetName pulumi.StringOutput `pulumi:"stackSetName"`
 }
@@ -247,7 +251,9 @@ type stackSetInstanceState struct {
 	OrganizationalUnitId *string `pulumi:"organizationalUnitId"`
 	// Key-value map of input parameters to override from the StackSet for this Instance.
 	ParameterOverrides map[string]string `pulumi:"parameterOverrides"`
-	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
+	//
+	// Deprecated: region is deprecated. Use stackSetInstanceRegion instead.
 	Region *string `pulumi:"region"`
 	// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
 	RetainStack *bool `pulumi:"retainStack"`
@@ -255,6 +261,8 @@ type stackSetInstanceState struct {
 	StackId *string `pulumi:"stackId"`
 	// List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
 	StackInstanceSummaries []StackSetInstanceStackInstanceSummary `pulumi:"stackInstanceSummaries"`
+	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+	StackSetInstanceRegion *string `pulumi:"stackSetInstanceRegion"`
 	// Name of the StackSet.
 	StackSetName *string `pulumi:"stackSetName"`
 }
@@ -272,7 +280,9 @@ type StackSetInstanceState struct {
 	OrganizationalUnitId pulumi.StringPtrInput
 	// Key-value map of input parameters to override from the StackSet for this Instance.
 	ParameterOverrides pulumi.StringMapInput
-	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
+	//
+	// Deprecated: region is deprecated. Use stackSetInstanceRegion instead.
 	Region pulumi.StringPtrInput
 	// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
 	RetainStack pulumi.BoolPtrInput
@@ -280,6 +290,8 @@ type StackSetInstanceState struct {
 	StackId pulumi.StringPtrInput
 	// List of stack instances created from an organizational unit deployment target. This will only be populated when `deploymentTargets` is set. See `stackInstanceSummaries`.
 	StackInstanceSummaries StackSetInstanceStackInstanceSummaryArrayInput
+	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+	StackSetInstanceRegion pulumi.StringPtrInput
 	// Name of the StackSet.
 	StackSetName pulumi.StringPtrInput
 }
@@ -299,10 +311,14 @@ type stackSetInstanceArgs struct {
 	OperationPreferences *StackSetInstanceOperationPreferences `pulumi:"operationPreferences"`
 	// Key-value map of input parameters to override from the StackSet for this Instance.
 	ParameterOverrides map[string]string `pulumi:"parameterOverrides"`
-	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
+	//
+	// Deprecated: region is deprecated. Use stackSetInstanceRegion instead.
 	Region *string `pulumi:"region"`
 	// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
 	RetainStack *bool `pulumi:"retainStack"`
+	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+	StackSetInstanceRegion *string `pulumi:"stackSetInstanceRegion"`
 	// Name of the StackSet.
 	StackSetName string `pulumi:"stackSetName"`
 }
@@ -319,10 +335,14 @@ type StackSetInstanceArgs struct {
 	OperationPreferences StackSetInstanceOperationPreferencesPtrInput
 	// Key-value map of input parameters to override from the StackSet for this Instance.
 	ParameterOverrides pulumi.StringMapInput
-	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
+	//
+	// Deprecated: region is deprecated. Use stackSetInstanceRegion instead.
 	Region pulumi.StringPtrInput
 	// During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
 	RetainStack pulumi.BoolPtrInput
+	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+	StackSetInstanceRegion pulumi.StringPtrInput
 	// Name of the StackSet.
 	StackSetName pulumi.StringInput
 }
@@ -444,7 +464,9 @@ func (o StackSetInstanceOutput) ParameterOverrides() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StackSetInstance) pulumi.StringMapOutput { return v.ParameterOverrides }).(pulumi.StringMapOutput)
 }
 
-// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+// Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stackSetInstanceRegion` instead.
+//
+// Deprecated: region is deprecated. Use stackSetInstanceRegion instead.
 func (o StackSetInstanceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *StackSetInstance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -464,6 +486,11 @@ func (o StackSetInstanceOutput) StackInstanceSummaries() StackSetInstanceStackIn
 	return o.ApplyT(func(v *StackSetInstance) StackSetInstanceStackInstanceSummaryArrayOutput {
 		return v.StackInstanceSummaries
 	}).(StackSetInstanceStackInstanceSummaryArrayOutput)
+}
+
+// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+func (o StackSetInstanceOutput) StackSetInstanceRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v *StackSetInstance) pulumi.StringOutput { return v.StackSetInstanceRegion }).(pulumi.StringOutput)
 }
 
 // Name of the StackSet.

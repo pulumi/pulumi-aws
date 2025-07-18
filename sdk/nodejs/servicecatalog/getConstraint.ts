@@ -27,6 +27,7 @@ export function getConstraint(args: GetConstraintArgs, opts?: pulumi.InvokeOptio
         "acceptLanguage": args.acceptLanguage,
         "description": args.description,
         "id": args.id,
+        "region": args.region,
     }, opts);
 }
 
@@ -48,6 +49,10 @@ export interface GetConstraintArgs {
      * The following arguments are optional:
      */
     id: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -76,6 +81,7 @@ export interface GetConstraintResult {
      * Product identifier.
      */
     readonly productId: string;
+    readonly region: string;
     /**
      * Constraint status.
      */
@@ -108,6 +114,7 @@ export function getConstraintOutput(args: GetConstraintOutputArgs, opts?: pulumi
         "acceptLanguage": args.acceptLanguage,
         "description": args.description,
         "id": args.id,
+        "region": args.region,
     }, opts);
 }
 
@@ -129,4 +136,8 @@ export interface GetConstraintOutputArgs {
      * The following arguments are optional:
      */
     id: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

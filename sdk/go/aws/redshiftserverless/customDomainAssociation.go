@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acm"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshiftserverless"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/acm"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshiftserverless"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,6 +78,8 @@ type CustomDomainAssociation struct {
 	CustomDomainCertificateExpiryTime pulumi.StringOutput `pulumi:"customDomainCertificateExpiryTime"`
 	// Custom domain to associate with the workgroup.
 	CustomDomainName pulumi.StringOutput `pulumi:"customDomainName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Name of the workgroup.
 	WorkgroupName pulumi.StringOutput `pulumi:"workgroupName"`
 }
@@ -127,6 +129,8 @@ type customDomainAssociationState struct {
 	CustomDomainCertificateExpiryTime *string `pulumi:"customDomainCertificateExpiryTime"`
 	// Custom domain to associate with the workgroup.
 	CustomDomainName *string `pulumi:"customDomainName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the workgroup.
 	WorkgroupName *string `pulumi:"workgroupName"`
 }
@@ -138,6 +142,8 @@ type CustomDomainAssociationState struct {
 	CustomDomainCertificateExpiryTime pulumi.StringPtrInput
 	// Custom domain to associate with the workgroup.
 	CustomDomainName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the workgroup.
 	WorkgroupName pulumi.StringPtrInput
 }
@@ -151,6 +157,8 @@ type customDomainAssociationArgs struct {
 	CustomDomainCertificateArn string `pulumi:"customDomainCertificateArn"`
 	// Custom domain to associate with the workgroup.
 	CustomDomainName string `pulumi:"customDomainName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the workgroup.
 	WorkgroupName string `pulumi:"workgroupName"`
 }
@@ -161,6 +169,8 @@ type CustomDomainAssociationArgs struct {
 	CustomDomainCertificateArn pulumi.StringInput
 	// Custom domain to associate with the workgroup.
 	CustomDomainName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the workgroup.
 	WorkgroupName pulumi.StringInput
 }
@@ -265,6 +275,11 @@ func (o CustomDomainAssociationOutput) CustomDomainCertificateExpiryTime() pulum
 // Custom domain to associate with the workgroup.
 func (o CustomDomainAssociationOutput) CustomDomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDomainAssociation) pulumi.StringOutput { return v.CustomDomainName }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o CustomDomainAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomDomainAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Name of the workgroup.

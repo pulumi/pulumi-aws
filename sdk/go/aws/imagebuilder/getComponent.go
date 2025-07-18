@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupComponent(ctx *pulumi.Context, args *LookupComponentArgs, opts ...pul
 type LookupComponentArgs struct {
 	// ARN of the component.
 	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the component.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -79,6 +81,7 @@ type LookupComponentResult struct {
 	Owner string `pulumi:"owner"`
 	// Platform of the component.
 	Platform string `pulumi:"platform"`
+	Region   string `pulumi:"region"`
 	// Operating Systems (OSes) supported by the component.
 	SupportedOsVersions []string `pulumi:"supportedOsVersions"`
 	// Key-value map of resource tags for the component.
@@ -102,6 +105,8 @@ func LookupComponentOutput(ctx *pulumi.Context, args LookupComponentOutputArgs, 
 type LookupComponentOutputArgs struct {
 	// ARN of the component.
 	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the component.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -177,6 +182,10 @@ func (o LookupComponentResultOutput) Owner() pulumi.StringOutput {
 // Platform of the component.
 func (o LookupComponentResultOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupComponentResult) string { return v.Platform }).(pulumi.StringOutput)
+}
+
+func (o LookupComponentResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupComponentResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Operating Systems (OSes) supported by the component.

@@ -93,6 +93,12 @@ namespace Pulumi.Aws.MemoryDb
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.MemoryDb
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -165,6 +177,7 @@ namespace Pulumi.Aws.MemoryDb
         /// Name of the cluster.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
         /// </summary>
@@ -188,6 +201,8 @@ namespace Pulumi.Aws.MemoryDb
 
             string name,
 
+            string region,
+
             string source,
 
             ImmutableDictionary<string, string> tags)
@@ -198,6 +213,7 @@ namespace Pulumi.Aws.MemoryDb
             Id = id;
             KmsKeyArn = kmsKeyArn;
             Name = name;
+            Region = region;
             Source = source;
             Tags = tags;
         }

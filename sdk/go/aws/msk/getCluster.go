@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/msk"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 type LookupClusterArgs struct {
 	// Name of the cluster.
 	ClusterName string `pulumi:"clusterName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of key-value pairs assigned to the cluster.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -86,7 +88,8 @@ type LookupClusterResult struct {
 	// Apache Kafka version.
 	KafkaVersion string `pulumi:"kafkaVersion"`
 	// Number of broker nodes in the cluster.
-	NumberOfBrokerNodes int `pulumi:"numberOfBrokerNodes"`
+	NumberOfBrokerNodes int    `pulumi:"numberOfBrokerNodes"`
+	Region              string `pulumi:"region"`
 	// Map of key-value pairs assigned to the cluster.
 	Tags map[string]string `pulumi:"tags"`
 	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
@@ -108,6 +111,8 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 type LookupClusterOutputArgs struct {
 	// Name of the cluster.
 	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of key-value pairs assigned to the cluster.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -198,6 +203,10 @@ func (o LookupClusterResultOutput) KafkaVersion() pulumi.StringOutput {
 // Number of broker nodes in the cluster.
 func (o LookupClusterResultOutput) NumberOfBrokerNodes() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.NumberOfBrokerNodes }).(pulumi.IntOutput)
+}
+
+func (o LookupClusterResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of key-value pairs assigned to the cluster.

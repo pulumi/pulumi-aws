@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,6 +65,8 @@ type GetRandomPasswordArgs struct {
 	IncludeSpace *bool `pulumi:"includeSpace"`
 	// Length of the password.
 	PasswordLength *int `pulumi:"passwordLength"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
 	RequireEachIncludedType *bool `pulumi:"requireEachIncludedType"`
 }
@@ -82,6 +84,7 @@ type GetRandomPasswordResult struct {
 	PasswordLength *int   `pulumi:"passwordLength"`
 	// Random password.
 	RandomPassword          string `pulumi:"randomPassword"`
+	Region                  string `pulumi:"region"`
 	RequireEachIncludedType *bool  `pulumi:"requireEachIncludedType"`
 }
 
@@ -110,6 +113,8 @@ type GetRandomPasswordOutputArgs struct {
 	IncludeSpace pulumi.BoolPtrInput `pulumi:"includeSpace"`
 	// Length of the password.
 	PasswordLength pulumi.IntPtrInput `pulumi:"passwordLength"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
 	RequireEachIncludedType pulumi.BoolPtrInput `pulumi:"requireEachIncludedType"`
 }
@@ -169,6 +174,10 @@ func (o GetRandomPasswordResultOutput) PasswordLength() pulumi.IntPtrOutput {
 // Random password.
 func (o GetRandomPasswordResultOutput) RandomPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRandomPasswordResult) string { return v.RandomPassword }).(pulumi.StringOutput)
+}
+
+func (o GetRandomPasswordResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRandomPasswordResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetRandomPasswordResultOutput) RequireEachIncludedType() pulumi.BoolPtrOutput {

@@ -88,6 +88,12 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetAuthorizersArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// ID of the associated REST API.
         /// </summary>
         [Input("restApiId", required: true)]
@@ -101,6 +107,12 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class GetAuthorizersInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// ID of the associated REST API.
         /// </summary>
@@ -125,6 +137,7 @@ namespace Pulumi.Aws.ApiGateway
         /// List of Authorizer identifiers.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
+        public readonly string Region;
         public readonly string RestApiId;
 
         [OutputConstructor]
@@ -133,10 +146,13 @@ namespace Pulumi.Aws.ApiGateway
 
             ImmutableArray<string> ids,
 
+            string region,
+
             string restApiId)
         {
             Id = id;
             Ids = ids;
+            Region = region;
             RestApiId = restApiId;
         }
     }

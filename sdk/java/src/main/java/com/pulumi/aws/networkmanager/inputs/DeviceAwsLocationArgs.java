@@ -16,14 +16,14 @@ public final class DeviceAwsLocationArgs extends com.pulumi.resources.ResourceAr
     public static final DeviceAwsLocationArgs Empty = new DeviceAwsLocationArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the subnet that the device is located in.
+     * ARN of the subnet that the device is located in.
      * 
      */
     @Import(name="subnetArn")
     private @Nullable Output<String> subnetArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the subnet that the device is located in.
+     * @return ARN of the subnet that the device is located in.
      * 
      */
     public Optional<Output<String>> subnetArn() {
@@ -31,14 +31,14 @@ public final class DeviceAwsLocationArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+     * Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
      * 
      */
     @Import(name="zone")
     private @Nullable Output<String> zone;
 
     /**
-     * @return The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+     * @return Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
      * 
      */
     public Optional<Output<String>> zone() {
@@ -71,7 +71,7 @@ public final class DeviceAwsLocationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param subnetArn The Amazon Resource Name (ARN) of the subnet that the device is located in.
+         * @param subnetArn ARN of the subnet that the device is located in.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class DeviceAwsLocationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param subnetArn The Amazon Resource Name (ARN) of the subnet that the device is located in.
+         * @param subnetArn ARN of the subnet that the device is located in.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class DeviceAwsLocationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param zone The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+         * @param zone Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DeviceAwsLocationArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param zone The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+         * @param zone Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
          * 
          * @return builder
          * 

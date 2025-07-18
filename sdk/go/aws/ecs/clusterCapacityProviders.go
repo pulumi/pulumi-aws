@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -74,6 +74,8 @@ type ClusterCapacityProviders struct {
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// Set of capacity provider strategies to use by default for the cluster. Detailed below.
 	DefaultCapacityProviderStrategies ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput `pulumi:"defaultCapacityProviderStrategies"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewClusterCapacityProviders registers a new resource with the given unique name, arguments, and options.
@@ -115,6 +117,8 @@ type clusterCapacityProvidersState struct {
 	ClusterName *string `pulumi:"clusterName"`
 	// Set of capacity provider strategies to use by default for the cluster. Detailed below.
 	DefaultCapacityProviderStrategies []ClusterCapacityProvidersDefaultCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategies"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ClusterCapacityProvidersState struct {
@@ -124,6 +128,8 @@ type ClusterCapacityProvidersState struct {
 	ClusterName pulumi.StringPtrInput
 	// Set of capacity provider strategies to use by default for the cluster. Detailed below.
 	DefaultCapacityProviderStrategies ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ClusterCapacityProvidersState) ElementType() reflect.Type {
@@ -137,6 +143,8 @@ type clusterCapacityProvidersArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// Set of capacity provider strategies to use by default for the cluster. Detailed below.
 	DefaultCapacityProviderStrategies []ClusterCapacityProvidersDefaultCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategies"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ClusterCapacityProviders resource.
@@ -147,6 +155,8 @@ type ClusterCapacityProvidersArgs struct {
 	ClusterName pulumi.StringInput
 	// Set of capacity provider strategies to use by default for the cluster. Detailed below.
 	DefaultCapacityProviderStrategies ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ClusterCapacityProvidersArgs) ElementType() reflect.Type {
@@ -251,6 +261,11 @@ func (o ClusterCapacityProvidersOutput) DefaultCapacityProviderStrategies() Clus
 	return o.ApplyT(func(v *ClusterCapacityProviders) ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput {
 		return v.DefaultCapacityProviderStrategies
 	}).(ClusterCapacityProvidersDefaultCapacityProviderStrategyArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ClusterCapacityProvidersOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterCapacityProviders) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ClusterCapacityProvidersArrayOutput struct{ *pulumi.OutputState }

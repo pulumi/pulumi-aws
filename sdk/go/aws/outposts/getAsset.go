@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,6 +28,8 @@ type GetAssetArgs struct {
 	Arn string `pulumi:"arn"`
 	// ID of the asset.
 	AssetId string `pulumi:"assetId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAsset.
@@ -44,6 +46,7 @@ type GetAssetResult struct {
 	RackElevation int `pulumi:"rackElevation"`
 	// Rack ID of the asset.
 	RackId string `pulumi:"rackId"`
+	Region string `pulumi:"region"`
 }
 
 func GetAssetOutput(ctx *pulumi.Context, args GetAssetOutputArgs, opts ...pulumi.InvokeOption) GetAssetResultOutput {
@@ -61,6 +64,8 @@ type GetAssetOutputArgs struct {
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// ID of the asset.
 	AssetId pulumi.StringInput `pulumi:"assetId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetAssetOutputArgs) ElementType() reflect.Type {
@@ -113,6 +118,10 @@ func (o GetAssetResultOutput) RackElevation() pulumi.IntOutput {
 // Rack ID of the asset.
 func (o GetAssetResultOutput) RackId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAssetResult) string { return v.RackId }).(pulumi.StringOutput)
+}
+
+func (o GetAssetResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAssetResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

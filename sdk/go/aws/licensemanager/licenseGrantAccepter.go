@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/licensemanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,6 +64,8 @@ type LicenseGrantAccepter struct {
 	ParentArn pulumi.StringOutput `pulumi:"parentArn"`
 	// The target account for the grant.
 	Principal pulumi.StringOutput `pulumi:"principal"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The grant status.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The grant version.
@@ -117,6 +119,8 @@ type licenseGrantAccepterState struct {
 	ParentArn *string `pulumi:"parentArn"`
 	// The target account for the grant.
 	Principal *string `pulumi:"principal"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The grant status.
 	Status *string `pulumi:"status"`
 	// The grant version.
@@ -138,6 +142,8 @@ type LicenseGrantAccepterState struct {
 	ParentArn pulumi.StringPtrInput
 	// The target account for the grant.
 	Principal pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The grant status.
 	Status pulumi.StringPtrInput
 	// The grant version.
@@ -151,12 +157,16 @@ func (LicenseGrantAccepterState) ElementType() reflect.Type {
 type licenseGrantAccepterArgs struct {
 	// The ARN of the grant to accept.
 	GrantArn string `pulumi:"grantArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LicenseGrantAccepter resource.
 type LicenseGrantAccepterArgs struct {
 	// The ARN of the grant to accept.
 	GrantArn pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LicenseGrantAccepterArgs) ElementType() reflect.Type {
@@ -279,6 +289,11 @@ func (o LicenseGrantAccepterOutput) ParentArn() pulumi.StringOutput {
 // The target account for the grant.
 func (o LicenseGrantAccepterOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *LicenseGrantAccepter) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LicenseGrantAccepterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LicenseGrantAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The grant status.

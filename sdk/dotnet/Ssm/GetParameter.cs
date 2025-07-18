@@ -100,6 +100,12 @@ namespace Pulumi.Aws.Ssm
         public string Name { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Whether to return decrypted `SecureString` value. Defaults to `true`.
         /// </summary>
         [Input("withDecryption")]
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Whether to return decrypted `SecureString` value. Defaults to `true`.
@@ -151,6 +163,7 @@ namespace Pulumi.Aws.Ssm
         /// Name of the parameter.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
         /// </summary>
@@ -175,6 +188,8 @@ namespace Pulumi.Aws.Ssm
 
             string name,
 
+            string region,
+
             string type,
 
             string value,
@@ -187,6 +202,7 @@ namespace Pulumi.Aws.Ssm
             Id = id;
             InsecureValue = insecureValue;
             Name = name;
+            Region = region;
             Type = type;
             Value = value;
             Version = version;

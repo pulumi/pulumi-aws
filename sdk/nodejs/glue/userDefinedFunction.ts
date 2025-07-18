@@ -100,6 +100,10 @@ export class UserDefinedFunction extends pulumi.CustomResource {
      */
     public readonly ownerType!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The configuration block for Resource URIs. See resource uris below for more details.
      */
     public readonly resourceUris!: pulumi.Output<outputs.glue.UserDefinedFunctionResourceUri[] | undefined>;
@@ -125,6 +129,7 @@ export class UserDefinedFunction extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ownerName"] = state ? state.ownerName : undefined;
             resourceInputs["ownerType"] = state ? state.ownerType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceUris"] = state ? state.resourceUris : undefined;
         } else {
             const args = argsOrState as UserDefinedFunctionArgs | undefined;
@@ -146,6 +151,7 @@ export class UserDefinedFunction extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["ownerName"] = args ? args.ownerName : undefined;
             resourceInputs["ownerType"] = args ? args.ownerType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceUris"] = args ? args.resourceUris : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
@@ -192,6 +198,10 @@ export interface UserDefinedFunctionState {
      */
     ownerType?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The configuration block for Resource URIs. See resource uris below for more details.
      */
     resourceUris?: pulumi.Input<pulumi.Input<inputs.glue.UserDefinedFunctionResourceUri>[]>;
@@ -225,6 +235,10 @@ export interface UserDefinedFunctionArgs {
      * The owner type. can be one of `USER`, `ROLE`, and `GROUP`.
      */
     ownerType: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The configuration block for Resource URIs. See resource uris below for more details.
      */

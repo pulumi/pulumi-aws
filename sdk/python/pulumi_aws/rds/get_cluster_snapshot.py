@@ -27,7 +27,7 @@ class GetClusterSnapshotResult:
     """
     A collection of values returned by getClusterSnapshot.
     """
-    def __init__(__self__, allocated_storage=None, availability_zones=None, db_cluster_identifier=None, db_cluster_snapshot_arn=None, db_cluster_snapshot_identifier=None, engine=None, engine_version=None, id=None, include_public=None, include_shared=None, kms_key_id=None, license_model=None, most_recent=None, port=None, snapshot_create_time=None, snapshot_type=None, source_db_cluster_snapshot_arn=None, status=None, storage_encrypted=None, tags=None, vpc_id=None):
+    def __init__(__self__, allocated_storage=None, availability_zones=None, db_cluster_identifier=None, db_cluster_snapshot_arn=None, db_cluster_snapshot_identifier=None, engine=None, engine_version=None, id=None, include_public=None, include_shared=None, kms_key_id=None, license_model=None, most_recent=None, port=None, region=None, snapshot_create_time=None, snapshot_type=None, source_db_cluster_snapshot_arn=None, status=None, storage_encrypted=None, tags=None, vpc_id=None):
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -70,6 +70,9 @@ class GetClusterSnapshotResult:
         if port and not isinstance(port, int):
             raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if snapshot_create_time and not isinstance(snapshot_create_time, str):
             raise TypeError("Expected argument 'snapshot_create_time' to be a str")
         pulumi.set(__self__, "snapshot_create_time", snapshot_create_time)
@@ -193,6 +196,11 @@ class GetClusterSnapshotResult:
         return pulumi.get(self, "port")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="snapshotCreateTime")
     def snapshot_create_time(self) -> builtins.str:
         """
@@ -263,6 +271,7 @@ class AwaitableGetClusterSnapshotResult(GetClusterSnapshotResult):
             license_model=self.license_model,
             most_recent=self.most_recent,
             port=self.port,
+            region=self.region,
             snapshot_create_time=self.snapshot_create_time,
             snapshot_type=self.snapshot_type,
             source_db_cluster_snapshot_arn=self.source_db_cluster_snapshot_arn,
@@ -277,6 +286,7 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[builtins.str] = None,
                          include_public: Optional[builtins.bool] = None,
                          include_shared: Optional[builtins.bool] = None,
                          most_recent: Optional[builtins.bool] = None,
+                         region: Optional[builtins.str] = None,
                          snapshot_type: Optional[builtins.str] = None,
                          tags: Optional[Mapping[str, builtins.str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterSnapshotResult:
@@ -315,6 +325,7 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[builtins.str] = None,
            AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
            The default is `false`.
     :param builtins.bool most_recent: If more than one result is returned, use the most recent Snapshot.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType
            value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
            included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
@@ -327,6 +338,7 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[builtins.str] = None,
     __args__['includePublic'] = include_public
     __args__['includeShared'] = include_shared
     __args__['mostRecent'] = most_recent
+    __args__['region'] = region
     __args__['snapshotType'] = snapshot_type
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -347,6 +359,7 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[builtins.str] = None,
         license_model=pulumi.get(__ret__, 'license_model'),
         most_recent=pulumi.get(__ret__, 'most_recent'),
         port=pulumi.get(__ret__, 'port'),
+        region=pulumi.get(__ret__, 'region'),
         snapshot_create_time=pulumi.get(__ret__, 'snapshot_create_time'),
         snapshot_type=pulumi.get(__ret__, 'snapshot_type'),
         source_db_cluster_snapshot_arn=pulumi.get(__ret__, 'source_db_cluster_snapshot_arn'),
@@ -359,6 +372,7 @@ def get_cluster_snapshot_output(db_cluster_identifier: Optional[pulumi.Input[Opt
                                 include_public: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                 include_shared: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                 most_recent: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
+                                region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 snapshot_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterSnapshotResult]:
@@ -397,6 +411,7 @@ def get_cluster_snapshot_output(db_cluster_identifier: Optional[pulumi.Input[Opt
            AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
            The default is `false`.
     :param builtins.bool most_recent: If more than one result is returned, use the most recent Snapshot.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType
            value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
            included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
@@ -409,6 +424,7 @@ def get_cluster_snapshot_output(db_cluster_identifier: Optional[pulumi.Input[Opt
     __args__['includePublic'] = include_public
     __args__['includeShared'] = include_shared
     __args__['mostRecent'] = most_recent
+    __args__['region'] = region
     __args__['snapshotType'] = snapshot_type
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -428,6 +444,7 @@ def get_cluster_snapshot_output(db_cluster_identifier: Optional[pulumi.Input[Opt
         license_model=pulumi.get(__response__, 'license_model'),
         most_recent=pulumi.get(__response__, 'most_recent'),
         port=pulumi.get(__response__, 'port'),
+        region=pulumi.get(__response__, 'region'),
         snapshot_create_time=pulumi.get(__response__, 'snapshot_create_time'),
         snapshot_type=pulumi.get(__response__, 'snapshot_type'),
         source_db_cluster_snapshot_arn=pulumi.get(__response__, 'source_db_cluster_snapshot_arn'),

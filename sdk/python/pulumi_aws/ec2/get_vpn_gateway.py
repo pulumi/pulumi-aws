@@ -29,7 +29,7 @@ class GetVpnGatewayResult:
     """
     A collection of values returned by getVpnGateway.
     """
-    def __init__(__self__, amazon_side_asn=None, arn=None, attached_vpc_id=None, availability_zone=None, filters=None, id=None, state=None, tags=None):
+    def __init__(__self__, amazon_side_asn=None, arn=None, attached_vpc_id=None, availability_zone=None, filters=None, id=None, region=None, state=None, tags=None):
         if amazon_side_asn and not isinstance(amazon_side_asn, str):
             raise TypeError("Expected argument 'amazon_side_asn' to be a str")
         pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
@@ -48,6 +48,9 @@ class GetVpnGatewayResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -87,6 +90,11 @@ class GetVpnGatewayResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def state(self) -> builtins.str:
         return pulumi.get(self, "state")
 
@@ -108,6 +116,7 @@ class AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
             availability_zone=self.availability_zone,
             filters=self.filters,
             id=self.id,
+            region=self.region,
             state=self.state,
             tags=self.tags)
 
@@ -117,6 +126,7 @@ def get_vpn_gateway(amazon_side_asn: Optional[builtins.str] = None,
                     availability_zone: Optional[builtins.str] = None,
                     filters: Optional[Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict']]] = None,
                     id: Optional[builtins.str] = None,
+                    region: Optional[builtins.str] = None,
                     state: Optional[builtins.str] = None,
                     tags: Optional[Mapping[str, builtins.str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnGatewayResult:
@@ -146,6 +156,7 @@ def get_vpn_gateway(amazon_side_asn: Optional[builtins.str] = None,
     :param builtins.str availability_zone: Availability Zone of the specific VPN Gateway to retrieve.
     :param Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict']] filters: Custom filter block as described below.
     :param builtins.str id: ID of the specific VPN Gateway to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: State of the specific VPN Gateway to retrieve.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired VPN Gateway.
@@ -156,6 +167,7 @@ def get_vpn_gateway(amazon_side_asn: Optional[builtins.str] = None,
     __args__['availabilityZone'] = availability_zone
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['state'] = state
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -168,6 +180,7 @@ def get_vpn_gateway(amazon_side_asn: Optional[builtins.str] = None,
         availability_zone=pulumi.get(__ret__, 'availability_zone'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -175,6 +188,7 @@ def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[built
                            availability_zone: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict']]]]] = None,
                            id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            state: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnGatewayResult]:
@@ -204,6 +218,7 @@ def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[built
     :param builtins.str availability_zone: Availability Zone of the specific VPN Gateway to retrieve.
     :param Sequence[Union['GetVpnGatewayFilterArgs', 'GetVpnGatewayFilterArgsDict']] filters: Custom filter block as described below.
     :param builtins.str id: ID of the specific VPN Gateway to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: State of the specific VPN Gateway to retrieve.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired VPN Gateway.
@@ -214,6 +229,7 @@ def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[built
     __args__['availabilityZone'] = availability_zone
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['state'] = state
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -225,5 +241,6 @@ def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[built
         availability_zone=pulumi.get(__response__, 'availability_zone'),
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags')))

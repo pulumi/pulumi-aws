@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,7 +61,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,7 +91,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -120,7 +120,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -161,6 +161,8 @@ type Classifier struct {
 	JsonClassifier ClassifierJsonClassifierPtrOutput `pulumi:"jsonClassifier"`
 	// The name of the classifier.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A classifier for XML content. Defined below.
 	XmlClassifier ClassifierXmlClassifierPtrOutput `pulumi:"xmlClassifier"`
 }
@@ -203,6 +205,8 @@ type classifierState struct {
 	JsonClassifier *ClassifierJsonClassifier `pulumi:"jsonClassifier"`
 	// The name of the classifier.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A classifier for XML content. Defined below.
 	XmlClassifier *ClassifierXmlClassifier `pulumi:"xmlClassifier"`
 }
@@ -216,6 +220,8 @@ type ClassifierState struct {
 	JsonClassifier ClassifierJsonClassifierPtrInput
 	// The name of the classifier.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A classifier for XML content. Defined below.
 	XmlClassifier ClassifierXmlClassifierPtrInput
 }
@@ -233,6 +239,8 @@ type classifierArgs struct {
 	JsonClassifier *ClassifierJsonClassifier `pulumi:"jsonClassifier"`
 	// The name of the classifier.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A classifier for XML content. Defined below.
 	XmlClassifier *ClassifierXmlClassifier `pulumi:"xmlClassifier"`
 }
@@ -247,6 +255,8 @@ type ClassifierArgs struct {
 	JsonClassifier ClassifierJsonClassifierPtrInput
 	// The name of the classifier.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A classifier for XML content. Defined below.
 	XmlClassifier ClassifierXmlClassifierPtrInput
 }
@@ -356,6 +366,11 @@ func (o ClassifierOutput) JsonClassifier() ClassifierJsonClassifierPtrOutput {
 // The name of the classifier.
 func (o ClassifierOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Classifier) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ClassifierOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Classifier) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A classifier for XML content. Defined below.

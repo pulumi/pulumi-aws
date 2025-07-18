@@ -77,6 +77,21 @@ public final class GetCapacityBlockOfferingPlainArgs extends com.pulumi.resource
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
      * 
      */
@@ -98,6 +113,7 @@ public final class GetCapacityBlockOfferingPlainArgs extends com.pulumi.resource
         this.endDateRange = $.endDateRange;
         this.instanceCount = $.instanceCount;
         this.instanceType = $.instanceType;
+        this.region = $.region;
         this.startDateRange = $.startDateRange;
     }
 
@@ -160,6 +176,17 @@ public final class GetCapacityBlockOfferingPlainArgs extends com.pulumi.resource
          */
         public Builder instanceType(String instanceType) {
             $.instanceType = instanceType;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

@@ -240,6 +240,12 @@ namespace Pulumi.Aws.Ec2
             set => _instanceTags = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetInstancesArgs()
         {
         }
@@ -287,6 +293,12 @@ namespace Pulumi.Aws.Ec2
             set => _instanceTags = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetInstancesInvokeArgs()
         {
         }
@@ -320,6 +332,7 @@ namespace Pulumi.Aws.Ec2
         /// Public IP addresses of instances found through the filter
         /// </summary>
         public readonly ImmutableArray<string> PublicIps;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetInstancesResult(
@@ -337,7 +350,9 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<string> privateIps,
 
-            ImmutableArray<string> publicIps)
+            ImmutableArray<string> publicIps,
+
+            string region)
         {
             Filters = filters;
             Id = id;
@@ -347,6 +362,7 @@ namespace Pulumi.Aws.Ec2
             Ipv6Addresses = ipv6Addresses;
             PrivateIps = privateIps;
             PublicIps = publicIps;
+            Region = region;
         }
     }
 }

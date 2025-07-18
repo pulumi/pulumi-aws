@@ -68,6 +68,7 @@ public final class GetInfrastructureConfigurationResult {
      * 
      */
     private List<GetInfrastructureConfigurationPlacement> placements;
+    private String region;
     /**
      * @return Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
      * 
@@ -176,6 +177,9 @@ public final class GetInfrastructureConfigurationResult {
     public List<GetInfrastructureConfigurationPlacement> placements() {
         return this.placements;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
      * 
@@ -240,6 +244,7 @@ public final class GetInfrastructureConfigurationResult {
         private List<GetInfrastructureConfigurationLogging> loggings;
         private String name;
         private List<GetInfrastructureConfigurationPlacement> placements;
+        private String region;
         private Map<String,String> resourceTags;
         private List<String> securityGroupIds;
         private String snsTopicArn;
@@ -261,6 +266,7 @@ public final class GetInfrastructureConfigurationResult {
     	      this.loggings = defaults.loggings;
     	      this.name = defaults.name;
     	      this.placements = defaults.placements;
+    	      this.region = defaults.region;
     	      this.resourceTags = defaults.resourceTags;
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.snsTopicArn = defaults.snsTopicArn;
@@ -378,6 +384,14 @@ public final class GetInfrastructureConfigurationResult {
             return placements(List.of(placements));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceTags(Map<String,String> resourceTags) {
             if (resourceTags == null) {
               throw new MissingRequiredPropertyException("GetInfrastructureConfigurationResult", "resourceTags");
@@ -442,6 +456,7 @@ public final class GetInfrastructureConfigurationResult {
             _resultValue.loggings = loggings;
             _resultValue.name = name;
             _resultValue.placements = placements;
+            _resultValue.region = region;
             _resultValue.resourceTags = resourceTags;
             _resultValue.securityGroupIds = securityGroupIds;
             _resultValue.snsTopicArn = snsTopicArn;

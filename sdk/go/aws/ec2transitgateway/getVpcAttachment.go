@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,7 +55,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,6 +89,8 @@ type LookupVpcAttachmentArgs struct {
 	Filters []GetVpcAttachmentFilter `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway VPC Attachment.
 	Id *string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -106,6 +108,7 @@ type LookupVpcAttachmentResult struct {
 	Id string `pulumi:"id"`
 	// Whether IPv6 support is enabled.
 	Ipv6Support string `pulumi:"ipv6Support"`
+	Region      string `pulumi:"region"`
 	// Whether Security Group Referencing Support is enabled.
 	SecurityGroupReferencingSupport string `pulumi:"securityGroupReferencingSupport"`
 	// Identifiers of EC2 Subnets.
@@ -135,6 +138,8 @@ type LookupVpcAttachmentOutputArgs struct {
 	Filters GetVpcAttachmentFilterArrayInput `pulumi:"filters"`
 	// Identifier of the EC2 Transit Gateway VPC Attachment.
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -185,6 +190,10 @@ func (o LookupVpcAttachmentResultOutput) Id() pulumi.StringOutput {
 // Whether IPv6 support is enabled.
 func (o LookupVpcAttachmentResultOutput) Ipv6Support() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcAttachmentResult) string { return v.Ipv6Support }).(pulumi.StringOutput)
+}
+
+func (o LookupVpcAttachmentResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcAttachmentResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Whether Security Group Referencing Support is enabled.

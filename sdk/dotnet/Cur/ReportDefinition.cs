@@ -36,6 +36,7 @@ namespace Pulumi.Aws.Cur
     ///             "SPLIT_COST_ALLOCATION_DATA",
     ///         },
     ///         S3Bucket = "example-bucket-name",
+    ///         S3Prefix = "example-cur-report",
     ///         S3Region = "us-east-1",
     ///         AdditionalArtifacts = new[]
     ///         {
@@ -65,7 +66,7 @@ namespace Pulumi.Aws.Cur
         public Output<ImmutableArray<string>> AdditionalArtifacts { get; private set; } = null!;
 
         /// <summary>
-        /// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+        /// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
         /// </summary>
         [Output("additionalSchemaElements")]
         public Output<ImmutableArray<string>> AdditionalSchemaElements { get; private set; } = null!;
@@ -113,10 +114,10 @@ namespace Pulumi.Aws.Cur
         public Output<string> S3Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// Report path prefix. Limited to 256 characters.
+        /// Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
         /// </summary>
         [Output("s3Prefix")]
-        public Output<string?> S3Prefix { get; private set; } = null!;
+        public Output<string> S3Prefix { get; private set; } = null!;
 
         /// <summary>
         /// Region of the existing S3 bucket to hold generated reports.
@@ -204,7 +205,7 @@ namespace Pulumi.Aws.Cur
         private InputList<string>? _additionalSchemaElements;
 
         /// <summary>
-        /// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+        /// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
         /// </summary>
         public InputList<string> AdditionalSchemaElements
         {
@@ -249,10 +250,10 @@ namespace Pulumi.Aws.Cur
         public Input<string> S3Bucket { get; set; } = null!;
 
         /// <summary>
-        /// Report path prefix. Limited to 256 characters.
+        /// Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
         /// </summary>
-        [Input("s3Prefix")]
-        public Input<string>? S3Prefix { get; set; }
+        [Input("s3Prefix", required: true)]
+        public Input<string> S3Prefix { get; set; } = null!;
 
         /// <summary>
         /// Region of the existing S3 bucket to hold generated reports.
@@ -302,7 +303,7 @@ namespace Pulumi.Aws.Cur
         private InputList<string>? _additionalSchemaElements;
 
         /// <summary>
-        /// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+        /// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
         /// </summary>
         public InputList<string> AdditionalSchemaElements
         {
@@ -353,7 +354,7 @@ namespace Pulumi.Aws.Cur
         public Input<string>? S3Bucket { get; set; }
 
         /// <summary>
-        /// Report path prefix. Limited to 256 characters.
+        /// Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
         /// </summary>
         [Input("s3Prefix")]
         public Input<string>? S3Prefix { get; set; }
@@ -382,7 +383,6 @@ namespace Pulumi.Aws.Cur
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

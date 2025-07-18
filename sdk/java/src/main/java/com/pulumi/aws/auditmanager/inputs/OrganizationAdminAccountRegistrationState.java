@@ -45,11 +45,27 @@ public final class OrganizationAdminAccountRegistrationState extends com.pulumi.
         return Optional.ofNullable(this.organizationId);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private OrganizationAdminAccountRegistrationState() {}
 
     private OrganizationAdminAccountRegistrationState(OrganizationAdminAccountRegistrationState $) {
         this.adminAccountId = $.adminAccountId;
         this.organizationId = $.organizationId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -110,6 +126,27 @@ public final class OrganizationAdminAccountRegistrationState extends com.pulumi.
          */
         public Builder organizationId(String organizationId) {
             return organizationId(Output.of(organizationId));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public OrganizationAdminAccountRegistrationState build() {

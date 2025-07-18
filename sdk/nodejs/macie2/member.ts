@@ -95,6 +95,10 @@ export class Member extends pulumi.CustomResource {
     public /*out*/ readonly invitedAt!: pulumi.Output<string>;
     public /*out*/ readonly masterAccountId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The current status of the relationship between the account and the administrator account.
      */
     public /*out*/ readonly relationshipStatus!: pulumi.Output<string>;
@@ -108,8 +112,6 @@ export class Member extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -139,6 +141,7 @@ export class Member extends pulumi.CustomResource {
             resourceInputs["invite"] = state ? state.invite : undefined;
             resourceInputs["invitedAt"] = state ? state.invitedAt : undefined;
             resourceInputs["masterAccountId"] = state ? state.masterAccountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["relationshipStatus"] = state ? state.relationshipStatus : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -157,6 +160,7 @@ export class Member extends pulumi.CustomResource {
             resourceInputs["invitationDisableEmailNotification"] = args ? args.invitationDisableEmailNotification : undefined;
             resourceInputs["invitationMessage"] = args ? args.invitationMessage : undefined;
             resourceInputs["invite"] = args ? args.invite : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["administratorAccountId"] = undefined /*out*/;
@@ -210,6 +214,10 @@ export interface MemberState {
     invitedAt?: pulumi.Input<string>;
     masterAccountId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The current status of the relationship between the account and the administrator account.
      */
     relationshipStatus?: pulumi.Input<string>;
@@ -223,8 +231,6 @@ export interface MemberState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -257,6 +263,10 @@ export interface MemberArgs {
      * Send an invitation to a member
      */
     invite?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
      */

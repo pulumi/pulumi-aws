@@ -125,6 +125,10 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly overflowBehavior!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
      */
     public readonly scalingConfiguration!: pulumi.Output<outputs.codebuild.FleetScalingConfiguration | undefined>;
@@ -136,9 +140,6 @@ export class Fleet extends pulumi.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block. See `vpcConfig` below.
@@ -169,6 +170,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["lastModified"] = state ? state.lastModified : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["overflowBehavior"] = state ? state.overflowBehavior : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scalingConfiguration"] = state ? state.scalingConfiguration : undefined;
             resourceInputs["statuses"] = state ? state.statuses : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -193,6 +195,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["imageId"] = args ? args.imageId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["overflowBehavior"] = args ? args.overflowBehavior : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scalingConfiguration"] = args ? args.scalingConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcConfigs"] = args ? args.vpcConfigs : undefined;
@@ -258,6 +261,10 @@ export interface FleetState {
      */
     overflowBehavior?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
      */
     scalingConfiguration?: pulumi.Input<inputs.codebuild.FleetScalingConfiguration>;
@@ -269,9 +276,6 @@ export interface FleetState {
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block. See `vpcConfig` below.
@@ -317,6 +321,10 @@ export interface FleetArgs {
      * Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
      */
     overflowBehavior?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
      */

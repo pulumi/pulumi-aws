@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecatalyst"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codecatalyst"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,6 +72,8 @@ type DevEnvironment struct {
 	PersistentStorage DevEnvironmentPersistentStorageOutput `pulumi:"persistentStorage"`
 	// The name of the project in the space.
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The source repository that contains the branch to clone into the Dev Environment.
 	Repositories DevEnvironmentRepositoryArrayOutput `pulumi:"repositories"`
 	// The name of the space.
@@ -136,6 +138,8 @@ type devEnvironmentState struct {
 	PersistentStorage *DevEnvironmentPersistentStorage `pulumi:"persistentStorage"`
 	// The name of the project in the space.
 	ProjectName *string `pulumi:"projectName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The source repository that contains the branch to clone into the Dev Environment.
 	Repositories []DevEnvironmentRepository `pulumi:"repositories"`
 	// The name of the space.
@@ -156,6 +160,8 @@ type DevEnvironmentState struct {
 	PersistentStorage DevEnvironmentPersistentStoragePtrInput
 	// The name of the project in the space.
 	ProjectName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The source repository that contains the branch to clone into the Dev Environment.
 	Repositories DevEnvironmentRepositoryArrayInput
 	// The name of the space.
@@ -180,6 +186,8 @@ type devEnvironmentArgs struct {
 	PersistentStorage DevEnvironmentPersistentStorage `pulumi:"persistentStorage"`
 	// The name of the project in the space.
 	ProjectName string `pulumi:"projectName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The source repository that contains the branch to clone into the Dev Environment.
 	Repositories []DevEnvironmentRepository `pulumi:"repositories"`
 	// The name of the space.
@@ -201,6 +209,8 @@ type DevEnvironmentArgs struct {
 	PersistentStorage DevEnvironmentPersistentStorageInput
 	// The name of the project in the space.
 	ProjectName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The source repository that contains the branch to clone into the Dev Environment.
 	Repositories DevEnvironmentRepositoryArrayInput
 	// The name of the space.
@@ -323,6 +333,11 @@ func (o DevEnvironmentOutput) PersistentStorage() DevEnvironmentPersistentStorag
 // The name of the project in the space.
 func (o DevEnvironmentOutput) ProjectName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEnvironment) pulumi.StringOutput { return v.ProjectName }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DevEnvironmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DevEnvironment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The source repository that contains the branch to clone into the Dev Environment.

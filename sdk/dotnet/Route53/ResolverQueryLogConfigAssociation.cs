@@ -43,6 +43,12 @@ namespace Pulumi.Aws.Route53
     public partial class ResolverQueryLogConfigAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
         /// </summary>
         [Output("resolverQueryLogConfigId")]
@@ -101,6 +107,12 @@ namespace Pulumi.Aws.Route53
     public sealed class ResolverQueryLogConfigAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
         /// </summary>
         [Input("resolverQueryLogConfigId", required: true)]
@@ -120,6 +132,12 @@ namespace Pulumi.Aws.Route53
 
     public sealed class ResolverQueryLogConfigAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
         /// </summary>

@@ -21,16 +21,20 @@ __all__ = ['NamespaceArgs', 'Namespace']
 class NamespaceArgs:
     def __init__(__self__, *,
                  namespace: pulumi.Input[builtins.str],
-                 table_bucket_arn: pulumi.Input[builtins.str]):
+                 table_bucket_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Namespace resource.
         :param pulumi.Input[builtins.str] namespace: Name of the namespace.
                Must be between 1 and 255 characters in length.
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         :param pulumi.Input[builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "table_bucket_arn", table_bucket_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -58,6 +62,18 @@ class NamespaceArgs:
     def table_bucket_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "table_bucket_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _NamespaceState:
@@ -66,6 +82,7 @@ class _NamespaceState:
                  created_by: Optional[pulumi.Input[builtins.str]] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
                  owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_bucket_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Namespace resources.
@@ -75,6 +92,7 @@ class _NamespaceState:
                Must be between 1 and 255 characters in length.
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         :param pulumi.Input[builtins.str] owner_account_id: Account ID of the account that owns the namespace.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
         """
         if created_at is not None:
@@ -85,6 +103,8 @@ class _NamespaceState:
             pulumi.set(__self__, "namespace", namespace)
         if owner_account_id is not None:
             pulumi.set(__self__, "owner_account_id", owner_account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if table_bucket_arn is not None:
             pulumi.set(__self__, "table_bucket_arn", table_bucket_arn)
 
@@ -139,6 +159,18 @@ class _NamespaceState:
         pulumi.set(self, "owner_account_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -158,6 +190,7 @@ class Namespace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_bucket_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -190,6 +223,7 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] namespace: Name of the namespace.
                Must be between 1 and 255 characters in length.
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
         """
         ...
@@ -239,6 +273,7 @@ class Namespace(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_bucket_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -252,6 +287,7 @@ class Namespace(pulumi.CustomResource):
             if namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace'")
             __props__.__dict__["namespace"] = namespace
+            __props__.__dict__["region"] = region
             if table_bucket_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'table_bucket_arn'")
             __props__.__dict__["table_bucket_arn"] = table_bucket_arn
@@ -272,6 +308,7 @@ class Namespace(pulumi.CustomResource):
             created_by: Optional[pulumi.Input[builtins.str]] = None,
             namespace: Optional[pulumi.Input[builtins.str]] = None,
             owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             table_bucket_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'Namespace':
         """
         Get an existing Namespace resource's state with the given name, id, and optional extra
@@ -286,6 +323,7 @@ class Namespace(pulumi.CustomResource):
                Must be between 1 and 255 characters in length.
                Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
         :param pulumi.Input[builtins.str] owner_account_id: Account ID of the account that owns the namespace.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_bucket_arn: ARN referencing the Table Bucket that contains this Namespace.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -296,6 +334,7 @@ class Namespace(pulumi.CustomResource):
         __props__.__dict__["created_by"] = created_by
         __props__.__dict__["namespace"] = namespace
         __props__.__dict__["owner_account_id"] = owner_account_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["table_bucket_arn"] = table_bucket_arn
         return Namespace(resource_name, opts=opts, __props__=__props__)
 
@@ -332,6 +371,14 @@ class Namespace(pulumi.CustomResource):
         Account ID of the account that owns the namespace.
         """
         return pulumi.get(self, "owner_account_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="tableBucketArn")

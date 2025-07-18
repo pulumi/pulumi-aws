@@ -51,6 +51,21 @@ public final class RuntimeManagementConfigArgs extends com.pulumi.resources.Reso
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
      * 
      */
@@ -85,6 +100,7 @@ public final class RuntimeManagementConfigArgs extends com.pulumi.resources.Reso
     private RuntimeManagementConfigArgs(RuntimeManagementConfigArgs $) {
         this.functionName = $.functionName;
         this.qualifier = $.qualifier;
+        this.region = $.region;
         this.runtimeVersionArn = $.runtimeVersionArn;
         this.updateRuntimeOn = $.updateRuntimeOn;
     }
@@ -151,6 +167,27 @@ public final class RuntimeManagementConfigArgs extends com.pulumi.resources.Reso
          */
         public Builder qualifier(String qualifier) {
             return qualifier(Output.of(qualifier));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

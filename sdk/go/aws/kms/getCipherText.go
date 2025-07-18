@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,6 +64,8 @@ type GetCipherTextArgs struct {
 	KeyId string `pulumi:"keyId"`
 	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
 	Plaintext string `pulumi:"plaintext"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCipherText.
@@ -75,6 +77,7 @@ type GetCipherTextResult struct {
 	Id        string `pulumi:"id"`
 	KeyId     string `pulumi:"keyId"`
 	Plaintext string `pulumi:"plaintext"`
+	Region    string `pulumi:"region"`
 }
 
 func GetCipherTextOutput(ctx *pulumi.Context, args GetCipherTextOutputArgs, opts ...pulumi.InvokeOption) GetCipherTextResultOutput {
@@ -94,6 +97,8 @@ type GetCipherTextOutputArgs struct {
 	KeyId pulumi.StringInput `pulumi:"keyId"`
 	// Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
 	Plaintext pulumi.StringInput `pulumi:"plaintext"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetCipherTextOutputArgs) ElementType() reflect.Type {
@@ -135,6 +140,10 @@ func (o GetCipherTextResultOutput) KeyId() pulumi.StringOutput {
 
 func (o GetCipherTextResultOutput) Plaintext() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCipherTextResult) string { return v.Plaintext }).(pulumi.StringOutput)
+}
+
+func (o GetCipherTextResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCipherTextResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

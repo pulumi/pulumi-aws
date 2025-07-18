@@ -27,7 +27,7 @@ class GetResourceResult:
     """
     A collection of values returned by getResource.
     """
-    def __init__(__self__, id=None, identifier=None, properties=None, role_arn=None, type_name=None, type_version_id=None):
+    def __init__(__self__, id=None, identifier=None, properties=None, region=None, role_arn=None, type_name=None, type_version_id=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -37,6 +37,9 @@ class GetResourceResult:
         if properties and not isinstance(properties, str):
             raise TypeError("Expected argument 'properties' to be a str")
         pulumi.set(__self__, "properties", properties)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -69,6 +72,11 @@ class GetResourceResult:
         return pulumi.get(self, "properties")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[builtins.str]:
         return pulumi.get(self, "role_arn")
@@ -93,12 +101,14 @@ class AwaitableGetResourceResult(GetResourceResult):
             id=self.id,
             identifier=self.identifier,
             properties=self.properties,
+            region=self.region,
             role_arn=self.role_arn,
             type_name=self.type_name,
             type_version_id=self.type_version_id)
 
 
 def get_resource(identifier: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
                  role_arn: Optional[builtins.str] = None,
                  type_name: Optional[builtins.str] = None,
                  type_version_id: Optional[builtins.str] = None,
@@ -118,6 +128,7 @@ def get_resource(identifier: Optional[builtins.str] = None,
 
 
     :param builtins.str identifier: Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str role_arn: ARN of the IAM Role to assume for operations.
     :param builtins.str type_name: CloudFormation resource type name. For example, `AWS::EC2::VPC`.
            
@@ -126,6 +137,7 @@ def get_resource(identifier: Optional[builtins.str] = None,
     """
     __args__ = dict()
     __args__['identifier'] = identifier
+    __args__['region'] = region
     __args__['roleArn'] = role_arn
     __args__['typeName'] = type_name
     __args__['typeVersionId'] = type_version_id
@@ -136,10 +148,12 @@ def get_resource(identifier: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         identifier=pulumi.get(__ret__, 'identifier'),
         properties=pulumi.get(__ret__, 'properties'),
+        region=pulumi.get(__ret__, 'region'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         type_name=pulumi.get(__ret__, 'type_name'),
         type_version_id=pulumi.get(__ret__, 'type_version_id'))
 def get_resource_output(identifier: Optional[pulumi.Input[builtins.str]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         role_arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         type_name: Optional[pulumi.Input[builtins.str]] = None,
                         type_version_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -159,6 +173,7 @@ def get_resource_output(identifier: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str identifier: Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str role_arn: ARN of the IAM Role to assume for operations.
     :param builtins.str type_name: CloudFormation resource type name. For example, `AWS::EC2::VPC`.
            
@@ -167,6 +182,7 @@ def get_resource_output(identifier: Optional[pulumi.Input[builtins.str]] = None,
     """
     __args__ = dict()
     __args__['identifier'] = identifier
+    __args__['region'] = region
     __args__['roleArn'] = role_arn
     __args__['typeName'] = type_name
     __args__['typeVersionId'] = type_version_id
@@ -176,6 +192,7 @@ def get_resource_output(identifier: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         identifier=pulumi.get(__response__, 'identifier'),
         properties=pulumi.get(__response__, 'properties'),
+        region=pulumi.get(__response__, 'region'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         type_name=pulumi.get(__response__, 'type_name'),
         type_version_id=pulumi.get(__response__, 'type_version_id')))

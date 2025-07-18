@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetServerlessLifecyclePolicyPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -29,6 +31,21 @@ public final class GetServerlessLifecyclePolicyPlainArgs extends com.pulumi.reso
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Type of lifecycle policy. Must be `retention`.
      * 
      */
@@ -47,6 +64,7 @@ public final class GetServerlessLifecyclePolicyPlainArgs extends com.pulumi.reso
 
     private GetServerlessLifecyclePolicyPlainArgs(GetServerlessLifecyclePolicyPlainArgs $) {
         this.name = $.name;
+        this.region = $.region;
         this.type = $.type;
     }
 
@@ -76,6 +94,17 @@ public final class GetServerlessLifecyclePolicyPlainArgs extends com.pulumi.reso
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

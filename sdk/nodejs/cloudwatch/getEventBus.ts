@@ -27,6 +27,7 @@ export function getEventBus(args: GetEventBusArgs, opts?: pulumi.InvokeOptions):
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudwatch/getEventBus:getEventBus", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -38,6 +39,10 @@ export interface GetEventBusArgs {
      * Name of the event bus.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -65,6 +70,7 @@ export interface GetEventBusResult {
      */
     readonly kmsKeyIdentifier: string;
     readonly name: string;
+    readonly region: string;
 }
 /**
  * This data source can be used to fetch information about a specific
@@ -86,6 +92,7 @@ export function getEventBusOutput(args: GetEventBusOutputArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudwatch/getEventBus:getEventBus", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -97,4 +104,8 @@ export interface GetEventBusOutputArgs {
      * Name of the event bus.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

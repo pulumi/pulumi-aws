@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FunctionSnapStart {
     /**
-     * @return Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+     * @return When to apply snap start optimization. Valid value: `PublishedVersions`.
      * 
      */
     private String applyOn;
@@ -25,7 +25,7 @@ public final class FunctionSnapStart {
 
     private FunctionSnapStart() {}
     /**
-     * @return Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+     * @return When to apply snap start optimization. Valid value: `PublishedVersions`.
      * 
      */
     public String applyOn() {

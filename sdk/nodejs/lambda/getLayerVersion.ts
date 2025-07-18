@@ -5,19 +5,96 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides information about a Lambda Layer Version.
+ * Provides details about an AWS Lambda Layer Version. Use this data source to retrieve information about a specific layer version or find the latest version compatible with your runtime and architecture requirements.
  *
  * ## Example Usage
+ *
+ * ### Get Latest Layer Version
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const config = new pulumi.Config();
- * const layerName = config.require("layerName");
- * const existing = aws.lambda.getLayerVersion({
- *     layerName: layerName,
+ * const example = aws.lambda.getLayerVersion({
+ *     layerName: "my-shared-utilities",
  * });
+ * // Use the layer in a Lambda function
+ * const exampleFunction = new aws.lambda.Function("example", {
+ *     code: new pulumi.asset.FileArchive("function.zip"),
+ *     name: "example_function",
+ *     role: lambdaRole.arn,
+ *     handler: "index.handler",
+ *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     layers: [example.then(example => example.arn)],
+ * });
+ * ```
+ *
+ * ### Get Specific Layer Version
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.lambda.getLayerVersion({
+ *     layerName: "production-utilities",
+ *     version: 5,
+ * });
+ * export const layerInfo = {
+ *     arn: example.then(example => example.arn),
+ *     version: example.then(example => example.version),
+ *     description: example.then(example => example.description),
+ * };
+ * ```
+ *
+ * ### Get Latest Compatible Layer Version
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Find latest layer version compatible with Python 3.12
+ * const pythonLayer = aws.lambda.getLayerVersion({
+ *     layerName: "python-dependencies",
+ *     compatibleRuntime: "python3.12",
+ * });
+ * // Find latest layer version compatible with ARM64 architecture
+ * const armLayer = aws.lambda.getLayerVersion({
+ *     layerName: "optimized-libraries",
+ *     compatibleArchitecture: "arm64",
+ * });
+ * // Use both layers in a function
+ * const example = new aws.lambda.Function("example", {
+ *     code: new pulumi.asset.FileArchive("function.zip"),
+ *     name: "multi_layer_function",
+ *     role: lambdaRole.arn,
+ *     handler: "app.handler",
+ *     runtime: aws.lambda.Runtime.Python3d12,
+ *     architectures: ["arm64"],
+ *     layers: [
+ *         pythonLayer.then(pythonLayer => pythonLayer.arn),
+ *         armLayer.then(armLayer => armLayer.arn),
+ *     ],
+ * });
+ * ```
+ *
+ * ### Compare Layer Versions
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Get latest version
+ * const latest = aws.lambda.getLayerVersion({
+ *     layerName: "shared-layer",
+ * });
+ * // Get specific version for comparison
+ * const stable = aws.lambda.getLayerVersion({
+ *     layerName: "shared-layer",
+ *     version: 3,
+ * });
+ * const useLatestLayer = latest.then(latest => latest.version > 5);
+ * const selectedLayer = useLatestLayer ? latest.then(latest => latest.arn) : stable.then(stable => stable.arn);
+ * export const selectedLayerVersion = useLatestLayer ? latest.then(latest => latest.version) : stable.then(stable => stable.version);
  * ```
  */
 export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetLayerVersionResult> {
@@ -26,6 +103,7 @@ export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeO
         "compatibleArchitecture": args.compatibleArchitecture,
         "compatibleRuntime": args.compatibleRuntime,
         "layerName": args.layerName,
+        "region": args.region,
         "version": args.version,
     }, opts);
 }
@@ -35,7 +113,7 @@ export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeO
  */
 export interface GetLayerVersionArgs {
     /**
-     * Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+     * Specific architecture the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
      */
     compatibleArchitecture?: string;
     /**
@@ -43,9 +121,15 @@ export interface GetLayerVersionArgs {
      */
     compatibleRuntime?: string;
     /**
-     * Name of the lambda layer.
+     * Name of the Lambda layer.
+     *
+     * The following arguments are optional:
      */
     layerName: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
      */
@@ -66,7 +150,7 @@ export interface GetLayerVersionResult {
     readonly codeSha256: string;
     readonly compatibleArchitecture?: string;
     /**
-     * A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
+     * List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
      */
     readonly compatibleArchitectures: string[];
     readonly compatibleRuntime?: string;
@@ -95,12 +179,13 @@ export interface GetLayerVersionResult {
      * License info associated with the specific Lambda Layer version.
      */
     readonly licenseInfo: string;
+    readonly region: string;
     /**
      * ARN of a signing job.
      */
     readonly signingJobArn: string;
     /**
-     * The ARN for a signing profile version.
+     * ARN for a signing profile version.
      */
     readonly signingProfileVersionArn: string;
     /**
@@ -114,24 +199,101 @@ export interface GetLayerVersionResult {
      */
     readonly sourceCodeSize: number;
     /**
-     * This Lambda Layer version.
+     * Lambda Layer version.
      */
     readonly version: number;
 }
 /**
- * Provides information about a Lambda Layer Version.
+ * Provides details about an AWS Lambda Layer Version. Use this data source to retrieve information about a specific layer version or find the latest version compatible with your runtime and architecture requirements.
  *
  * ## Example Usage
+ *
+ * ### Get Latest Layer Version
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const config = new pulumi.Config();
- * const layerName = config.require("layerName");
- * const existing = aws.lambda.getLayerVersion({
- *     layerName: layerName,
+ * const example = aws.lambda.getLayerVersion({
+ *     layerName: "my-shared-utilities",
  * });
+ * // Use the layer in a Lambda function
+ * const exampleFunction = new aws.lambda.Function("example", {
+ *     code: new pulumi.asset.FileArchive("function.zip"),
+ *     name: "example_function",
+ *     role: lambdaRole.arn,
+ *     handler: "index.handler",
+ *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     layers: [example.then(example => example.arn)],
+ * });
+ * ```
+ *
+ * ### Get Specific Layer Version
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.lambda.getLayerVersion({
+ *     layerName: "production-utilities",
+ *     version: 5,
+ * });
+ * export const layerInfo = {
+ *     arn: example.then(example => example.arn),
+ *     version: example.then(example => example.version),
+ *     description: example.then(example => example.description),
+ * };
+ * ```
+ *
+ * ### Get Latest Compatible Layer Version
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Find latest layer version compatible with Python 3.12
+ * const pythonLayer = aws.lambda.getLayerVersion({
+ *     layerName: "python-dependencies",
+ *     compatibleRuntime: "python3.12",
+ * });
+ * // Find latest layer version compatible with ARM64 architecture
+ * const armLayer = aws.lambda.getLayerVersion({
+ *     layerName: "optimized-libraries",
+ *     compatibleArchitecture: "arm64",
+ * });
+ * // Use both layers in a function
+ * const example = new aws.lambda.Function("example", {
+ *     code: new pulumi.asset.FileArchive("function.zip"),
+ *     name: "multi_layer_function",
+ *     role: lambdaRole.arn,
+ *     handler: "app.handler",
+ *     runtime: aws.lambda.Runtime.Python3d12,
+ *     architectures: ["arm64"],
+ *     layers: [
+ *         pythonLayer.then(pythonLayer => pythonLayer.arn),
+ *         armLayer.then(armLayer => armLayer.arn),
+ *     ],
+ * });
+ * ```
+ *
+ * ### Compare Layer Versions
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Get latest version
+ * const latest = aws.lambda.getLayerVersion({
+ *     layerName: "shared-layer",
+ * });
+ * // Get specific version for comparison
+ * const stable = aws.lambda.getLayerVersion({
+ *     layerName: "shared-layer",
+ *     version: 3,
+ * });
+ * const useLatestLayer = latest.then(latest => latest.version > 5);
+ * const selectedLayer = useLatestLayer ? latest.then(latest => latest.arn) : stable.then(stable => stable.arn);
+ * export const selectedLayerVersion = useLatestLayer ? latest.then(latest => latest.version) : stable.then(stable => stable.version);
  * ```
  */
 export function getLayerVersionOutput(args: GetLayerVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLayerVersionResult> {
@@ -140,6 +302,7 @@ export function getLayerVersionOutput(args: GetLayerVersionOutputArgs, opts?: pu
         "compatibleArchitecture": args.compatibleArchitecture,
         "compatibleRuntime": args.compatibleRuntime,
         "layerName": args.layerName,
+        "region": args.region,
         "version": args.version,
     }, opts);
 }
@@ -149,7 +312,7 @@ export function getLayerVersionOutput(args: GetLayerVersionOutputArgs, opts?: pu
  */
 export interface GetLayerVersionOutputArgs {
     /**
-     * Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+     * Specific architecture the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
      */
     compatibleArchitecture?: pulumi.Input<string>;
     /**
@@ -157,9 +320,15 @@ export interface GetLayerVersionOutputArgs {
      */
     compatibleRuntime?: pulumi.Input<string>;
     /**
-     * Name of the lambda layer.
+     * Name of the Lambda layer.
+     *
+     * The following arguments are optional:
      */
     layerName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
      */

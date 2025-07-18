@@ -31,6 +31,53 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### With Metadata Schema
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleTableBucket = new aws.s3tables.TableBucket("example", {name: "example-bucket"});
+ * const exampleNamespace = new aws.s3tables.Namespace("example", {
+ *     namespace: "example_namespace",
+ *     tableBucketArn: exampleTableBucket.arn,
+ * });
+ * const example = new aws.s3tables.Table("example", {
+ *     name: "example_table",
+ *     namespace: exampleNamespace.namespace,
+ *     tableBucketArn: exampleNamespace.tableBucketArn,
+ *     format: "ICEBERG",
+ *     metadata: {
+ *         iceberg: {
+ *             schema: {
+ *                 fields: [
+ *                     {
+ *                         name: "id",
+ *                         type: "long",
+ *                         required: true,
+ *                     },
+ *                     {
+ *                         name: "name",
+ *                         type: "string",
+ *                         required: true,
+ *                     },
+ *                     {
+ *                         name: "created_at",
+ *                         type: "timestamp",
+ *                         required: false,
+ *                     },
+ *                     {
+ *                         name: "price",
+ *                         type: "decimal(10,2)",
+ *                         required: false,
+ *                     },
+ *                 ],
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import S3 Tables Table using the `table_bucket_arn`, the value of `namespace`, and the value of `name`, separated by a semicolon (`;`). For example:
@@ -95,6 +142,11 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly maintenanceConfiguration!: pulumi.Output<outputs.s3tables.TableMaintenanceConfiguration>;
     /**
+     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+     * See `metadata` below.
+     */
+    public readonly metadata!: pulumi.Output<outputs.s3tables.TableMetadata | undefined>;
+    /**
      * Location of table metadata.
      */
     public /*out*/ readonly metadataLocation!: pulumi.Output<string>;
@@ -123,6 +175,10 @@ export class Table extends pulumi.CustomResource {
      * Account ID of the account that owns the namespace.
      */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      *
@@ -162,12 +218,14 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
             resourceInputs["format"] = state ? state.format : undefined;
             resourceInputs["maintenanceConfiguration"] = state ? state.maintenanceConfiguration : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
             resourceInputs["metadataLocation"] = state ? state.metadataLocation : undefined;
             resourceInputs["modifiedAt"] = state ? state.modifiedAt : undefined;
             resourceInputs["modifiedBy"] = state ? state.modifiedBy : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namespace"] = state ? state.namespace : undefined;
             resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tableBucketArn"] = state ? state.tableBucketArn : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["versionToken"] = state ? state.versionToken : undefined;
@@ -186,8 +244,10 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["format"] = args ? args.format : undefined;
             resourceInputs["maintenanceConfiguration"] = args ? args.maintenanceConfiguration : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tableBucketArn"] = args ? args.tableBucketArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -237,6 +297,11 @@ export interface TableState {
      */
     maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableMaintenanceConfiguration>;
     /**
+     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+     * See `metadata` below.
+     */
+    metadata?: pulumi.Input<inputs.s3tables.TableMetadata>;
+    /**
      * Location of table metadata.
      */
     metadataLocation?: pulumi.Input<string>;
@@ -265,6 +330,10 @@ export interface TableState {
      * Account ID of the account that owns the namespace.
      */
     ownerAccountId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      *
@@ -306,6 +375,11 @@ export interface TableArgs {
      */
     maintenanceConfiguration?: pulumi.Input<inputs.s3tables.TableMaintenanceConfiguration>;
     /**
+     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+     * See `metadata` below.
+     */
+    metadata?: pulumi.Input<inputs.s3tables.TableMetadata>;
+    /**
      * Name of the table.
      * Must be between 1 and 255 characters in length.
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
@@ -318,6 +392,10 @@ export interface TableArgs {
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      */
     namespace: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN referencing the Table Bucket that contains this Namespace.
      *

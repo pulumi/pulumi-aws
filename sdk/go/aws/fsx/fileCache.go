@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fsx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -111,6 +111,8 @@ type FileCache struct {
 	// A list of network interface IDs.
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	OwnerId             pulumi.StringOutput      `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
@@ -120,8 +122,7 @@ type FileCache struct {
 	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of your virtual private cloud (VPC).
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -193,6 +194,8 @@ type fileCacheState struct {
 	// A list of network interface IDs.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	OwnerId             *string  `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
@@ -202,8 +205,7 @@ type fileCacheState struct {
 	// The following arguments are optional:
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of your virtual private cloud (VPC).
 	VpcId *string `pulumi:"vpcId"`
@@ -234,6 +236,8 @@ type FileCacheState struct {
 	// A list of network interface IDs.
 	NetworkInterfaceIds pulumi.StringArrayInput
 	OwnerId             pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
@@ -243,8 +247,7 @@ type FileCacheState struct {
 	// The following arguments are optional:
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the file cache. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The ID of your virtual private cloud (VPC).
 	VpcId pulumi.StringPtrInput
@@ -268,6 +271,8 @@ type fileCacheArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
 	LustreConfigurations []FileCacheLustreConfiguration `pulumi:"lustreConfigurations"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
@@ -295,6 +300,8 @@ type FileCacheArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// See the `lustreConfiguration` block. Required when `fileCacheType` is `LUSTRE`.
 	LustreConfigurations FileCacheLustreConfigurationArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The storage capacity of the cache in gibibytes (GiB). Valid values are `1200` GiB, `2400` GiB, and increments of `2400` GiB.
@@ -454,6 +461,11 @@ func (o FileCacheOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FileCache) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o FileCacheOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *FileCache) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // A list of IDs specifying the security groups to apply to all network interfaces created for Amazon File Cache access.
 func (o FileCacheOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FileCache) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -476,7 +488,6 @@ func (o FileCacheOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FileCache) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o FileCacheOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FileCache) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

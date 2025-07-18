@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Backup
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -162,6 +174,7 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
         /// </summary>
@@ -189,6 +202,8 @@ namespace Pulumi.Aws.Backup
 
             string name,
 
+            string region,
+
             ImmutableArray<Outputs.GetReportPlanReportDeliveryChannelResult> reportDeliveryChannels,
 
             ImmutableArray<Outputs.GetReportPlanReportSettingResult> reportSettings,
@@ -201,6 +216,7 @@ namespace Pulumi.Aws.Backup
             Description = description;
             Id = id;
             Name = name;
+            Region = region;
             ReportDeliveryChannels = reportDeliveryChannels;
             ReportSettings = reportSettings;
             Tags = tags;

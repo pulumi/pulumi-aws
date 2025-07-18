@@ -123,6 +123,10 @@ export class InstanceGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The number of instances currently running in this instance group.
      */
     public /*out*/ readonly runningInstanceCount!: pulumi.Output<number>;
@@ -153,6 +157,7 @@ export class InstanceGroup extends pulumi.CustomResource {
             resourceInputs["instanceCount"] = state ? state.instanceCount : undefined;
             resourceInputs["instanceType"] = state ? state.instanceType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["runningInstanceCount"] = state ? state.runningInstanceCount : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
         } else {
@@ -172,6 +177,7 @@ export class InstanceGroup extends pulumi.CustomResource {
             resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["runningInstanceCount"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }
@@ -241,6 +247,10 @@ export interface InstanceGroupState {
      * Human friendly name given to the instance group. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The number of instances currently running in this instance group.
      */
@@ -312,4 +322,8 @@ export interface InstanceGroupArgs {
      * Human friendly name given to the instance group. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

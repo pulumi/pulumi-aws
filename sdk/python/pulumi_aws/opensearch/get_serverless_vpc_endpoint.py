@@ -27,7 +27,7 @@ class GetServerlessVpcEndpointResult:
     """
     A collection of values returned by getServerlessVpcEndpoint.
     """
-    def __init__(__self__, created_date=None, id=None, name=None, security_group_ids=None, subnet_ids=None, vpc_endpoint_id=None, vpc_id=None):
+    def __init__(__self__, created_date=None, id=None, name=None, region=None, security_group_ids=None, subnet_ids=None, vpc_endpoint_id=None, vpc_id=None):
         if created_date and not isinstance(created_date, str):
             raise TypeError("Expected argument 'created_date' to be a str")
         pulumi.set(__self__, "created_date", created_date)
@@ -37,6 +37,9 @@ class GetServerlessVpcEndpointResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_group_ids and not isinstance(security_group_ids, list):
             raise TypeError("Expected argument 'security_group_ids' to be a list")
         pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -73,6 +76,11 @@ class GetServerlessVpcEndpointResult:
         The name of the endpoint.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -113,13 +121,15 @@ class AwaitableGetServerlessVpcEndpointResult(GetServerlessVpcEndpointResult):
             created_date=self.created_date,
             id=self.id,
             name=self.name,
+            region=self.region,
             security_group_ids=self.security_group_ids,
             subnet_ids=self.subnet_ids,
             vpc_endpoint_id=self.vpc_endpoint_id,
             vpc_id=self.vpc_id)
 
 
-def get_serverless_vpc_endpoint(vpc_endpoint_id: Optional[builtins.str] = None,
+def get_serverless_vpc_endpoint(region: Optional[builtins.str] = None,
+                                vpc_endpoint_id: Optional[builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerlessVpcEndpointResult:
     """
     Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
@@ -134,9 +144,11 @@ def get_serverless_vpc_endpoint(vpc_endpoint_id: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str vpc_endpoint_id: The unique identifier of the endpoint.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['vpcEndpointId'] = vpc_endpoint_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint', __args__, opts=opts, typ=GetServerlessVpcEndpointResult).value
@@ -145,11 +157,13 @@ def get_serverless_vpc_endpoint(vpc_endpoint_id: Optional[builtins.str] = None,
         created_date=pulumi.get(__ret__, 'created_date'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         vpc_endpoint_id=pulumi.get(__ret__, 'vpc_endpoint_id'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_serverless_vpc_endpoint_output(vpc_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
+def get_serverless_vpc_endpoint_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                       vpc_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessVpcEndpointResult]:
     """
     Data source for managing an AWS OpenSearch Serverless VPC Endpoint.
@@ -164,9 +178,11 @@ def get_serverless_vpc_endpoint_output(vpc_endpoint_id: Optional[pulumi.Input[bu
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str vpc_endpoint_id: The unique identifier of the endpoint.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['vpcEndpointId'] = vpc_endpoint_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint', __args__, opts=opts, typ=GetServerlessVpcEndpointResult)
@@ -174,6 +190,7 @@ def get_serverless_vpc_endpoint_output(vpc_endpoint_id: Optional[pulumi.Input[bu
         created_date=pulumi.get(__response__, 'created_date'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         security_group_ids=pulumi.get(__response__, 'security_group_ids'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),
         vpc_endpoint_id=pulumi.get(__response__, 'vpc_endpoint_id'),

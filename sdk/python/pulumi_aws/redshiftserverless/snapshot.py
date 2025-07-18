@@ -22,15 +22,19 @@ class SnapshotArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[builtins.str],
                  snapshot_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[builtins.int]] = None):
         """
         The set of arguments for constructing a Snapshot resource.
         :param pulumi.Input[builtins.str] namespace_name: The namespace to create a snapshot for.
         :param pulumi.Input[builtins.str] snapshot_name: The name of the snapshot.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period: How long to retain the created snapshot. Default value is `-1`.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "snapshot_name", snapshot_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retention_period is not None:
             pulumi.set(__self__, "retention_period", retention_period)
 
@@ -59,6 +63,18 @@ class SnapshotArgs:
         pulumi.set(self, "snapshot_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -82,6 +98,7 @@ class _SnapshotState:
                  namespace_arn: Optional[pulumi.Input[builtins.str]] = None,
                  namespace_name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_account: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  snapshot_name: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -94,6 +111,7 @@ class _SnapshotState:
         :param pulumi.Input[builtins.str] namespace_arn: The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
         :param pulumi.Input[builtins.str] namespace_name: The namespace to create a snapshot for.
         :param pulumi.Input[builtins.str] owner_account: The owner Amazon Web Services; account of the snapshot.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period: How long to retain the created snapshot. Default value is `-1`.
         :param pulumi.Input[builtins.str] snapshot_name: The name of the snapshot.
         """
@@ -113,6 +131,8 @@ class _SnapshotState:
             pulumi.set(__self__, "namespace_name", namespace_name)
         if owner_account is not None:
             pulumi.set(__self__, "owner_account", owner_account)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retention_period is not None:
             pulumi.set(__self__, "retention_period", retention_period)
         if snapshot_name is not None:
@@ -215,6 +235,18 @@ class _SnapshotState:
         pulumi.set(self, "owner_account", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -246,6 +278,7 @@ class Snapshot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  namespace_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  snapshot_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -274,6 +307,7 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] namespace_name: The namespace to create a snapshot for.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period: How long to retain the created snapshot. Default value is `-1`.
         :param pulumi.Input[builtins.str] snapshot_name: The name of the snapshot.
         """
@@ -321,6 +355,7 @@ class Snapshot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  namespace_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  snapshot_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -335,6 +370,7 @@ class Snapshot(pulumi.CustomResource):
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__.__dict__["namespace_name"] = namespace_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["retention_period"] = retention_period
             if snapshot_name is None and not opts.urn:
                 raise TypeError("Missing required property 'snapshot_name'")
@@ -364,6 +400,7 @@ class Snapshot(pulumi.CustomResource):
             namespace_arn: Optional[pulumi.Input[builtins.str]] = None,
             namespace_name: Optional[pulumi.Input[builtins.str]] = None,
             owner_account: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             retention_period: Optional[pulumi.Input[builtins.int]] = None,
             snapshot_name: Optional[pulumi.Input[builtins.str]] = None) -> 'Snapshot':
         """
@@ -381,6 +418,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] namespace_arn: The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
         :param pulumi.Input[builtins.str] namespace_name: The namespace to create a snapshot for.
         :param pulumi.Input[builtins.str] owner_account: The owner Amazon Web Services; account of the snapshot.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period: How long to retain the created snapshot. Default value is `-1`.
         :param pulumi.Input[builtins.str] snapshot_name: The name of the snapshot.
         """
@@ -396,6 +434,7 @@ class Snapshot(pulumi.CustomResource):
         __props__.__dict__["namespace_arn"] = namespace_arn
         __props__.__dict__["namespace_name"] = namespace_name
         __props__.__dict__["owner_account"] = owner_account
+        __props__.__dict__["region"] = region
         __props__.__dict__["retention_period"] = retention_period
         __props__.__dict__["snapshot_name"] = snapshot_name
         return Snapshot(resource_name, opts=opts, __props__=__props__)
@@ -463,6 +502,14 @@ class Snapshot(pulumi.CustomResource):
         The owner Amazon Web Services; account of the snapshot.
         """
         return pulumi.get(self, "owner_account")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="retentionPeriod")

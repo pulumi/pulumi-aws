@@ -24,6 +24,7 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecs/getService:getService", {
         "clusterArn": args.clusterArn,
+        "region": args.region,
         "serviceName": args.serviceName,
         "tags": args.tags,
     }, opts);
@@ -37,6 +38,10 @@ export interface GetServiceArgs {
      * ARN of the ECS Cluster
      */
     clusterArn: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Name of the ECS Service
      */
@@ -69,6 +74,7 @@ export interface GetServiceResult {
      * Launch type for the ECS Service
      */
     readonly launchType: string;
+    readonly region: string;
     /**
      * Scheduling strategy for the ECS Service
      */
@@ -103,6 +109,7 @@ export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.Invok
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecs/getService:getService", {
         "clusterArn": args.clusterArn,
+        "region": args.region,
         "serviceName": args.serviceName,
         "tags": args.tags,
     }, opts);
@@ -116,6 +123,10 @@ export interface GetServiceOutputArgs {
      * ARN of the ECS Cluster
      */
     clusterArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the ECS Service
      */

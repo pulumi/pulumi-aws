@@ -29,7 +29,7 @@ class GetOntapStorageVirtualMachineResult:
     """
     A collection of values returned by getOntapStorageVirtualMachine.
     """
-    def __init__(__self__, active_directory_configurations=None, arn=None, creation_time=None, endpoints=None, file_system_id=None, filters=None, id=None, lifecycle_status=None, lifecycle_transition_reasons=None, name=None, subtype=None, tags=None, uuid=None):
+    def __init__(__self__, active_directory_configurations=None, arn=None, creation_time=None, endpoints=None, file_system_id=None, filters=None, id=None, lifecycle_status=None, lifecycle_transition_reasons=None, name=None, region=None, subtype=None, tags=None, uuid=None):
         if active_directory_configurations and not isinstance(active_directory_configurations, list):
             raise TypeError("Expected argument 'active_directory_configurations' to be a list")
         pulumi.set(__self__, "active_directory_configurations", active_directory_configurations)
@@ -60,6 +60,9 @@ class GetOntapStorageVirtualMachineResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if subtype and not isinstance(subtype, str):
             raise TypeError("Expected argument 'subtype' to be a str")
         pulumi.set(__self__, "subtype", subtype)
@@ -149,6 +152,11 @@ class GetOntapStorageVirtualMachineResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def subtype(self) -> builtins.str:
         """
         The SVM's subtype.
@@ -185,6 +193,7 @@ class AwaitableGetOntapStorageVirtualMachineResult(GetOntapStorageVirtualMachine
             lifecycle_status=self.lifecycle_status,
             lifecycle_transition_reasons=self.lifecycle_transition_reasons,
             name=self.name,
+            region=self.region,
             subtype=self.subtype,
             tags=self.tags,
             uuid=self.uuid)
@@ -192,6 +201,7 @@ class AwaitableGetOntapStorageVirtualMachineResult(GetOntapStorageVirtualMachine
 
 def get_ontap_storage_virtual_machine(filters: Optional[Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict']]] = None,
                                       id: Optional[builtins.str] = None,
+                                      region: Optional[builtins.str] = None,
                                       tags: Optional[Mapping[str, builtins.str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOntapStorageVirtualMachineResult:
     """
@@ -225,10 +235,12 @@ def get_ontap_storage_virtual_machine(filters: Optional[Sequence[Union['GetOntap
     :param builtins.str id: Identifier of the storage virtual machine (e.g. `svm-12345678`).
            
            The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:fsx/getOntapStorageVirtualMachine:getOntapStorageVirtualMachine', __args__, opts=opts, typ=GetOntapStorageVirtualMachineResult).value
@@ -244,11 +256,13 @@ def get_ontap_storage_virtual_machine(filters: Optional[Sequence[Union['GetOntap
         lifecycle_status=pulumi.get(__ret__, 'lifecycle_status'),
         lifecycle_transition_reasons=pulumi.get(__ret__, 'lifecycle_transition_reasons'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         subtype=pulumi.get(__ret__, 'subtype'),
         tags=pulumi.get(__ret__, 'tags'),
         uuid=pulumi.get(__ret__, 'uuid'))
 def get_ontap_storage_virtual_machine_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetOntapStorageVirtualMachineFilterArgs', 'GetOntapStorageVirtualMachineFilterArgsDict']]]]] = None,
                                              id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                              tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOntapStorageVirtualMachineResult]:
     """
@@ -282,10 +296,12 @@ def get_ontap_storage_virtual_machine_output(filters: Optional[pulumi.Input[Opti
     :param builtins.str id: Identifier of the storage virtual machine (e.g. `svm-12345678`).
            
            The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:fsx/getOntapStorageVirtualMachine:getOntapStorageVirtualMachine', __args__, opts=opts, typ=GetOntapStorageVirtualMachineResult)
@@ -300,6 +316,7 @@ def get_ontap_storage_virtual_machine_output(filters: Optional[pulumi.Input[Opti
         lifecycle_status=pulumi.get(__response__, 'lifecycle_status'),
         lifecycle_transition_reasons=pulumi.get(__response__, 'lifecycle_transition_reasons'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         subtype=pulumi.get(__response__, 'subtype'),
         tags=pulumi.get(__response__, 'tags'),
         uuid=pulumi.get(__response__, 'uuid')))

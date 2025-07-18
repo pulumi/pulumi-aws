@@ -35,6 +35,7 @@ public final class GetSigningProfileResult {
      * 
      */
     private String platformId;
+    private String region;
     /**
      * @return Revocation information for a signing profile.
      * 
@@ -98,6 +99,9 @@ public final class GetSigningProfileResult {
     public String platformId() {
         return this.platformId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Revocation information for a signing profile.
      * 
@@ -155,6 +159,7 @@ public final class GetSigningProfileResult {
         private String name;
         private String platformDisplayName;
         private String platformId;
+        private String region;
         private List<GetSigningProfileRevocationRecord> revocationRecords;
         private List<GetSigningProfileSignatureValidityPeriod> signatureValidityPeriods;
         private String status;
@@ -169,6 +174,7 @@ public final class GetSigningProfileResult {
     	      this.name = defaults.name;
     	      this.platformDisplayName = defaults.platformDisplayName;
     	      this.platformId = defaults.platformId;
+    	      this.region = defaults.region;
     	      this.revocationRecords = defaults.revocationRecords;
     	      this.signatureValidityPeriods = defaults.signatureValidityPeriods;
     	      this.status = defaults.status;
@@ -215,6 +221,14 @@ public final class GetSigningProfileResult {
               throw new MissingRequiredPropertyException("GetSigningProfileResult", "platformId");
             }
             this.platformId = platformId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSigningProfileResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -278,6 +292,7 @@ public final class GetSigningProfileResult {
             _resultValue.name = name;
             _resultValue.platformDisplayName = platformDisplayName;
             _resultValue.platformId = platformId;
+            _resultValue.region = region;
             _resultValue.revocationRecords = revocationRecords;
             _resultValue.signatureValidityPeriods = signatureValidityPeriods;
             _resultValue.status = status;

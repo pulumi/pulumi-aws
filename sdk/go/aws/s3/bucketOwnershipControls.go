@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,14 +23,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -63,6 +63,8 @@ type BucketOwnershipControls struct {
 
 	// Name of the bucket that you want to associate this access point with.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block(s) with Ownership Controls rules. Detailed below.
 	Rule BucketOwnershipControlsRuleOutput `pulumi:"rule"`
 }
@@ -105,6 +107,8 @@ func GetBucketOwnershipControls(ctx *pulumi.Context,
 type bucketOwnershipControlsState struct {
 	// Name of the bucket that you want to associate this access point with.
 	Bucket *string `pulumi:"bucket"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block(s) with Ownership Controls rules. Detailed below.
 	Rule *BucketOwnershipControlsRule `pulumi:"rule"`
 }
@@ -112,6 +116,8 @@ type bucketOwnershipControlsState struct {
 type BucketOwnershipControlsState struct {
 	// Name of the bucket that you want to associate this access point with.
 	Bucket pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block(s) with Ownership Controls rules. Detailed below.
 	Rule BucketOwnershipControlsRulePtrInput
 }
@@ -123,6 +129,8 @@ func (BucketOwnershipControlsState) ElementType() reflect.Type {
 type bucketOwnershipControlsArgs struct {
 	// Name of the bucket that you want to associate this access point with.
 	Bucket string `pulumi:"bucket"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block(s) with Ownership Controls rules. Detailed below.
 	Rule BucketOwnershipControlsRule `pulumi:"rule"`
 }
@@ -131,6 +139,8 @@ type bucketOwnershipControlsArgs struct {
 type BucketOwnershipControlsArgs struct {
 	// Name of the bucket that you want to associate this access point with.
 	Bucket pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block(s) with Ownership Controls rules. Detailed below.
 	Rule BucketOwnershipControlsRuleInput
 }
@@ -225,6 +235,11 @@ func (o BucketOwnershipControlsOutput) ToBucketOwnershipControlsOutputWithContex
 // Name of the bucket that you want to associate this access point with.
 func (o BucketOwnershipControlsOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketOwnershipControls) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o BucketOwnershipControlsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketOwnershipControls) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Configuration block(s) with Ownership Controls rules. Detailed below.

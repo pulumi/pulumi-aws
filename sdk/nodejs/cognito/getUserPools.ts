@@ -31,6 +31,7 @@ export function getUserPools(args: GetUserPoolsArgs, opts?: pulumi.InvokeOptions
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cognito/getUserPools:getUserPools", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -42,6 +43,10 @@ export interface GetUserPoolsArgs {
      * Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -61,6 +66,7 @@ export interface GetUserPoolsResult {
      */
     readonly ids: string[];
     readonly name: string;
+    readonly region: string;
 }
 /**
  * Use this data source to get a list of cognito user pools.
@@ -89,6 +95,7 @@ export function getUserPoolsOutput(args: GetUserPoolsOutputArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cognito/getUserPools:getUserPools", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -100,4 +107,8 @@ export interface GetUserPoolsOutputArgs {
      * Name of the cognito user pools. Name is not a unique attribute for cognito user pool, so multiple pools might be returned with given name. If the pool name is expected to be unique, you can reference the pool id via ```tolist(data.aws_cognito_user_pools.selected.ids)[0]```
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

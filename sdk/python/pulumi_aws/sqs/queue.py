@@ -35,6 +35,7 @@ class QueueArgs:
                  receive_wait_time_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  redrive_allow_policy: Optional[pulumi.Input[builtins.str]] = None,
                  redrive_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sqs_managed_sse_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  visibility_timeout_seconds: Optional[pulumi.Input[builtins.int]] = None):
@@ -55,6 +56,7 @@ class QueueArgs:
         :param pulumi.Input[builtins.int] receive_wait_time_seconds: Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         :param pulumi.Input[builtins.str] redrive_allow_policy: JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `sqs.RedriveAllowPolicy` resource instead.
         :param pulumi.Input[builtins.str] redrive_policy: JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `sqs.RedrivePolicy` resource instead. **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] sqs_managed_sse_enabled: Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.int] visibility_timeout_seconds: Visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
@@ -89,6 +91,8 @@ class QueueArgs:
             pulumi.set(__self__, "redrive_allow_policy", redrive_allow_policy)
         if redrive_policy is not None:
             pulumi.set(__self__, "redrive_policy", redrive_policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sqs_managed_sse_enabled is not None:
             pulumi.set(__self__, "sqs_managed_sse_enabled", sqs_managed_sse_enabled)
         if tags is not None:
@@ -277,6 +281,18 @@ class QueueArgs:
         pulumi.set(self, "redrive_policy", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sqsManagedSseEnabled")
     def sqs_managed_sse_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -332,6 +348,7 @@ class _QueueState:
                  receive_wait_time_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  redrive_allow_policy: Optional[pulumi.Input[builtins.str]] = None,
                  redrive_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sqs_managed_sse_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -355,6 +372,7 @@ class _QueueState:
         :param pulumi.Input[builtins.int] receive_wait_time_seconds: Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         :param pulumi.Input[builtins.str] redrive_allow_policy: JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `sqs.RedriveAllowPolicy` resource instead.
         :param pulumi.Input[builtins.str] redrive_policy: JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `sqs.RedrivePolicy` resource instead. **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] sqs_managed_sse_enabled: Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -393,13 +411,12 @@ class _QueueState:
             pulumi.set(__self__, "redrive_allow_policy", redrive_allow_policy)
         if redrive_policy is not None:
             pulumi.set(__self__, "redrive_policy", redrive_policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sqs_managed_sse_enabled is not None:
             pulumi.set(__self__, "sqs_managed_sse_enabled", sqs_managed_sse_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if url is not None:
@@ -600,6 +617,18 @@ class _QueueState:
         pulumi.set(self, "redrive_policy", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sqsManagedSseEnabled")
     def sqs_managed_sse_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -625,7 +654,6 @@ class _QueueState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -682,6 +710,7 @@ class Queue(pulumi.CustomResource):
                  receive_wait_time_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  redrive_allow_policy: Optional[pulumi.Input[builtins.str]] = None,
                  redrive_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sqs_managed_sse_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  visibility_timeout_seconds: Optional[pulumi.Input[builtins.int]] = None,
@@ -810,6 +839,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] receive_wait_time_seconds: Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         :param pulumi.Input[builtins.str] redrive_allow_policy: JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `sqs.RedriveAllowPolicy` resource instead.
         :param pulumi.Input[builtins.str] redrive_policy: JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `sqs.RedrivePolicy` resource instead. **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] sqs_managed_sse_enabled: Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.int] visibility_timeout_seconds: Visibility timeout for the queue. An integer from 0 to 43200 (12 hours). The default for this attribute is 30. For more information about visibility timeout, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html).
@@ -957,6 +987,7 @@ class Queue(pulumi.CustomResource):
                  receive_wait_time_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  redrive_allow_policy: Optional[pulumi.Input[builtins.str]] = None,
                  redrive_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sqs_managed_sse_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  visibility_timeout_seconds: Optional[pulumi.Input[builtins.int]] = None,
@@ -984,6 +1015,7 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["receive_wait_time_seconds"] = receive_wait_time_seconds
             __props__.__dict__["redrive_allow_policy"] = redrive_allow_policy
             __props__.__dict__["redrive_policy"] = redrive_policy
+            __props__.__dict__["region"] = region
             __props__.__dict__["sqs_managed_sse_enabled"] = sqs_managed_sse_enabled
             __props__.__dict__["tags"] = tags
             __props__.__dict__["visibility_timeout_seconds"] = visibility_timeout_seconds
@@ -1016,6 +1048,7 @@ class Queue(pulumi.CustomResource):
             receive_wait_time_seconds: Optional[pulumi.Input[builtins.int]] = None,
             redrive_allow_policy: Optional[pulumi.Input[builtins.str]] = None,
             redrive_policy: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             sqs_managed_sse_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -1044,6 +1077,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] receive_wait_time_seconds: Time for which a ReceiveMessage call will wait for a message to arrive (long polling) before returning. An integer from 0 to 20 (seconds). The default for this attribute is 0, meaning that the call will return immediately.
         :param pulumi.Input[builtins.str] redrive_allow_policy: JSON policy to set up the Dead Letter Queue redrive permission, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `sqs.RedriveAllowPolicy` resource instead.
         :param pulumi.Input[builtins.str] redrive_policy: JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). The provider will only perform drift detection of its value when present in a configuration. It is preferred to use the `sqs.RedrivePolicy` resource instead. **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] sqs_managed_sse_enabled: Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). The provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the queue. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1070,6 +1104,7 @@ class Queue(pulumi.CustomResource):
         __props__.__dict__["receive_wait_time_seconds"] = receive_wait_time_seconds
         __props__.__dict__["redrive_allow_policy"] = redrive_allow_policy
         __props__.__dict__["redrive_policy"] = redrive_policy
+        __props__.__dict__["region"] = region
         __props__.__dict__["sqs_managed_sse_enabled"] = sqs_managed_sse_enabled
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -1206,6 +1241,14 @@ class Queue(pulumi.CustomResource):
         return pulumi.get(self, "redrive_policy")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="sqsManagedSseEnabled")
     def sqs_managed_sse_enabled(self) -> pulumi.Output[builtins.bool]:
         """
@@ -1223,7 +1266,6 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

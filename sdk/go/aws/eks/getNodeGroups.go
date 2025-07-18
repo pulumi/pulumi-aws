@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,6 +26,8 @@ func GetNodeGroups(ctx *pulumi.Context, args *GetNodeGroupsArgs, opts ...pulumi.
 type GetNodeGroupsArgs struct {
 	// Name of the cluster.
 	ClusterName string `pulumi:"clusterName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getNodeGroups.
@@ -34,7 +36,8 @@ type GetNodeGroupsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set of all node group names in an EKS Cluster.
-	Names []string `pulumi:"names"`
+	Names  []string `pulumi:"names"`
+	Region string   `pulumi:"region"`
 }
 
 func GetNodeGroupsOutput(ctx *pulumi.Context, args GetNodeGroupsOutputArgs, opts ...pulumi.InvokeOption) GetNodeGroupsResultOutput {
@@ -50,6 +53,8 @@ func GetNodeGroupsOutput(ctx *pulumi.Context, args GetNodeGroupsOutputArgs, opts
 type GetNodeGroupsOutputArgs struct {
 	// Name of the cluster.
 	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetNodeGroupsOutputArgs) ElementType() reflect.Type {
@@ -83,6 +88,10 @@ func (o GetNodeGroupsResultOutput) Id() pulumi.StringOutput {
 // Set of all node group names in an EKS Cluster.
 func (o GetNodeGroupsResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetNodeGroupsResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+func (o GetNodeGroupsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNodeGroupsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

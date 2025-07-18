@@ -28,7 +28,7 @@ class GetPortfolioConstraintsResult:
     """
     A collection of values returned by getPortfolioConstraints.
     """
-    def __init__(__self__, accept_language=None, details=None, id=None, portfolio_id=None, product_id=None):
+    def __init__(__self__, accept_language=None, details=None, id=None, portfolio_id=None, product_id=None, region=None):
         if accept_language and not isinstance(accept_language, str):
             raise TypeError("Expected argument 'accept_language' to be a str")
         pulumi.set(__self__, "accept_language", accept_language)
@@ -44,6 +44,9 @@ class GetPortfolioConstraintsResult:
         if product_id and not isinstance(product_id, str):
             raise TypeError("Expected argument 'product_id' to be a str")
         pulumi.set(__self__, "product_id", product_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="acceptLanguage")
@@ -82,6 +85,11 @@ class GetPortfolioConstraintsResult:
         """
         return pulumi.get(self, "product_id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetPortfolioConstraintsResult(GetPortfolioConstraintsResult):
     # pylint: disable=using-constant-test
@@ -93,12 +101,14 @@ class AwaitableGetPortfolioConstraintsResult(GetPortfolioConstraintsResult):
             details=self.details,
             id=self.id,
             portfolio_id=self.portfolio_id,
-            product_id=self.product_id)
+            product_id=self.product_id,
+            region=self.region)
 
 
 def get_portfolio_constraints(accept_language: Optional[builtins.str] = None,
                               portfolio_id: Optional[builtins.str] = None,
                               product_id: Optional[builtins.str] = None,
+                              region: Optional[builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPortfolioConstraintsResult:
     """
     Provides information on Service Catalog Portfolio Constraints.
@@ -120,11 +130,13 @@ def get_portfolio_constraints(accept_language: Optional[builtins.str] = None,
            
            The following arguments are optional:
     :param builtins.str product_id: Product identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
     __args__['portfolioId'] = portfolio_id
     __args__['productId'] = product_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints', __args__, opts=opts, typ=GetPortfolioConstraintsResult).value
 
@@ -133,10 +145,12 @@ def get_portfolio_constraints(accept_language: Optional[builtins.str] = None,
         details=pulumi.get(__ret__, 'details'),
         id=pulumi.get(__ret__, 'id'),
         portfolio_id=pulumi.get(__ret__, 'portfolio_id'),
-        product_id=pulumi.get(__ret__, 'product_id'))
+        product_id=pulumi.get(__ret__, 'product_id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_portfolio_constraints_output(accept_language: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      portfolio_id: Optional[pulumi.Input[builtins.str]] = None,
                                      product_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPortfolioConstraintsResult]:
     """
     Provides information on Service Catalog Portfolio Constraints.
@@ -158,11 +172,13 @@ def get_portfolio_constraints_output(accept_language: Optional[pulumi.Input[Opti
            
            The following arguments are optional:
     :param builtins.str product_id: Product identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
     __args__['portfolioId'] = portfolio_id
     __args__['productId'] = product_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints', __args__, opts=opts, typ=GetPortfolioConstraintsResult)
     return __ret__.apply(lambda __response__: GetPortfolioConstraintsResult(
@@ -170,4 +186,5 @@ def get_portfolio_constraints_output(accept_language: Optional[pulumi.Input[Opti
         details=pulumi.get(__response__, 'details'),
         id=pulumi.get(__response__, 'id'),
         portfolio_id=pulumi.get(__response__, 'portfolio_id'),
-        product_id=pulumi.get(__response__, 'product_id')))
+        product_id=pulumi.get(__response__, 'product_id'),
+        region=pulumi.get(__response__, 'region')))

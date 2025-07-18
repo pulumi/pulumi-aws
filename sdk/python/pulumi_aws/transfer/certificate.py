@@ -25,6 +25,7 @@ class CertificateArgs:
                  certificate_chain: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  private_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Certificate resource.
@@ -33,6 +34,7 @@ class CertificateArgs:
         :param pulumi.Input[builtins.str] certificate_chain: The optional list of certificate that make up the chain for the certificate that is being imported.
         :param pulumi.Input[builtins.str] description: A short description that helps identify the certificate.
         :param pulumi.Input[builtins.str] private_key: The private key associated with the certificate being imported.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "certificate", certificate)
@@ -43,6 +45,8 @@ class CertificateArgs:
             pulumi.set(__self__, "description", description)
         if private_key is not None:
             pulumi.set(__self__, "private_key", private_key)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -108,6 +112,18 @@ class CertificateArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -130,6 +146,7 @@ class _CertificateState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  inactive_date: Optional[pulumi.Input[builtins.str]] = None,
                  private_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  usage: Optional[pulumi.Input[builtins.str]] = None):
@@ -143,6 +160,7 @@ class _CertificateState:
         :param pulumi.Input[builtins.str] description: A short description that helps identify the certificate.
         :param pulumi.Input[builtins.str] inactive_date: An date when the certificate becomes inactive
         :param pulumi.Input[builtins.str] private_key: The private key associated with the certificate being imported.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] usage: Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
         """
@@ -162,11 +180,10 @@ class _CertificateState:
             pulumi.set(__self__, "inactive_date", inactive_date)
         if private_key is not None:
             pulumi.set(__self__, "private_key", private_key)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if usage is not None:
@@ -270,6 +287,18 @@ class _CertificateState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -282,7 +311,6 @@ class _CertificateState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -313,6 +341,7 @@ class Certificate(pulumi.CustomResource):
                  certificate_chain: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  private_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  usage: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -335,6 +364,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] certificate_chain: The optional list of certificate that make up the chain for the certificate that is being imported.
         :param pulumi.Input[builtins.str] description: A short description that helps identify the certificate.
         :param pulumi.Input[builtins.str] private_key: The private key associated with the certificate being imported.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] usage: Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
         """
@@ -376,6 +406,7 @@ class Certificate(pulumi.CustomResource):
                  certificate_chain: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  private_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  usage: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -393,6 +424,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["certificate_chain"] = None if certificate_chain is None else pulumi.Output.secret(certificate_chain)
             __props__.__dict__["description"] = description
             __props__.__dict__["private_key"] = None if private_key is None else pulumi.Output.secret(private_key)
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             if usage is None and not opts.urn:
                 raise TypeError("Missing required property 'usage'")
@@ -422,6 +454,7 @@ class Certificate(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             inactive_date: Optional[pulumi.Input[builtins.str]] = None,
             private_key: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             usage: Optional[pulumi.Input[builtins.str]] = None) -> 'Certificate':
@@ -440,6 +473,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A short description that helps identify the certificate.
         :param pulumi.Input[builtins.str] inactive_date: An date when the certificate becomes inactive
         :param pulumi.Input[builtins.str] private_key: The private key associated with the certificate being imported.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] usage: Specifies if a certificate is being used for signing or encryption. The valid values are SIGNING and ENCRYPTION.
         """
@@ -455,6 +489,7 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["inactive_date"] = inactive_date
         __props__.__dict__["private_key"] = private_key
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["usage"] = usage
@@ -526,6 +561,14 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -534,7 +577,6 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

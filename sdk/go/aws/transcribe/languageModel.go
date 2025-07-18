@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,9 +28,9 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transcribe"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/transcribe"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,7 +91,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket:       pulumi.String("example-transcribe"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
@@ -99,7 +99,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketObjectv2(ctx, "object", &s3.BucketObjectv2Args{
-//				Bucket: exampleBucketV2.ID(),
+//				Bucket: exampleBucket.ID(),
 //				Key:    pulumi.String("transcribe/test1.txt"),
 //				Source: pulumi.NewFileAsset("test1.txt"),
 //			})
@@ -111,7 +111,7 @@ import (
 //				BaseModelName: pulumi.String("NarrowBand"),
 //				InputDataConfig: &transcribe.LanguageModelInputDataConfigArgs{
 //					DataAccessRoleArn: exampleRole.Arn,
-//					S3Uri: exampleBucketV2.ID().ApplyT(func(id string) (string, error) {
+//					S3Uri: exampleBucket.ID().ApplyT(func(id string) (string, error) {
 //						return fmt.Sprintf("s3://%v/transcribe/", id), nil
 //					}).(pulumi.StringOutput),
 //				},
@@ -148,9 +148,10 @@ type LanguageModel struct {
 	// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
 	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
 	// The model name.
-	ModelName pulumi.StringOutput    `pulumi:"modelName"`
-	Tags      pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	ModelName pulumi.StringOutput `pulumi:"modelName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region  pulumi.StringOutput    `pulumi:"region"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -205,9 +206,10 @@ type languageModelState struct {
 	// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
 	LanguageCode *string `pulumi:"languageCode"`
 	// The model name.
-	ModelName *string           `pulumi:"modelName"`
-	Tags      map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	ModelName *string `pulumi:"modelName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region  *string           `pulumi:"region"`
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -222,8 +224,9 @@ type LanguageModelState struct {
 	LanguageCode pulumi.StringPtrInput
 	// The model name.
 	ModelName pulumi.StringPtrInput
-	Tags      pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region  pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -239,8 +242,10 @@ type languageModelArgs struct {
 	// The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
 	LanguageCode string `pulumi:"languageCode"`
 	// The model name.
-	ModelName string            `pulumi:"modelName"`
-	Tags      map[string]string `pulumi:"tags"`
+	ModelName string `pulumi:"modelName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LanguageModel resource.
@@ -253,7 +258,9 @@ type LanguageModelArgs struct {
 	LanguageCode pulumi.StringInput
 	// The model name.
 	ModelName pulumi.StringInput
-	Tags      pulumi.StringMapInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
 }
 
 func (LanguageModelArgs) ElementType() reflect.Type {
@@ -368,11 +375,15 @@ func (o LanguageModelOutput) ModelName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LanguageModel) pulumi.StringOutput { return v.ModelName }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LanguageModelOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LanguageModel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 func (o LanguageModelOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LanguageModel) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o LanguageModelOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LanguageModel) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

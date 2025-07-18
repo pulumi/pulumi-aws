@@ -36,6 +36,7 @@ export function getLocalGatewayRouteTable(args?: GetLocalGatewayRouteTableArgs, 
         "localGatewayId": args.localGatewayId,
         "localGatewayRouteTableId": args.localGatewayRouteTableId,
         "outpostArn": args.outpostArn,
+        "region": args.region,
         "state": args.state,
         "tags": args.tags,
     }, opts);
@@ -58,6 +59,10 @@ export interface GetLocalGatewayRouteTableArgs {
      * ARN of the Outpost the local gateway route table is associated with.
      */
     outpostArn?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * State of the local gateway route table.
      */
@@ -85,6 +90,7 @@ export interface GetLocalGatewayRouteTableResult {
     readonly localGatewayId: string;
     readonly localGatewayRouteTableId: string;
     readonly outpostArn: string;
+    readonly region: string;
     readonly state: string;
     readonly tags: {[key: string]: string};
 }
@@ -117,6 +123,7 @@ export function getLocalGatewayRouteTableOutput(args?: GetLocalGatewayRouteTable
         "localGatewayId": args.localGatewayId,
         "localGatewayRouteTableId": args.localGatewayRouteTableId,
         "outpostArn": args.outpostArn,
+        "region": args.region,
         "state": args.state,
         "tags": args.tags,
     }, opts);
@@ -139,6 +146,10 @@ export interface GetLocalGatewayRouteTableOutputArgs {
      * ARN of the Outpost the local gateway route table is associated with.
      */
     outpostArn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * State of the local gateway route table.
      */

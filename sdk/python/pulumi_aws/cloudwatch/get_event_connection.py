@@ -27,7 +27,7 @@ class GetEventConnectionResult:
     """
     A collection of values returned by getEventConnection.
     """
-    def __init__(__self__, arn=None, authorization_type=None, id=None, kms_key_identifier=None, name=None, secret_arn=None):
+    def __init__(__self__, arn=None, authorization_type=None, id=None, kms_key_identifier=None, name=None, region=None, secret_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -43,6 +43,9 @@ class GetEventConnectionResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if secret_arn and not isinstance(secret_arn, str):
             raise TypeError("Expected argument 'secret_arn' to be a str")
         pulumi.set(__self__, "secret_arn", secret_arn)
@@ -85,6 +88,11 @@ class GetEventConnectionResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> builtins.str:
         """
@@ -104,10 +112,12 @@ class AwaitableGetEventConnectionResult(GetEventConnectionResult):
             id=self.id,
             kms_key_identifier=self.kms_key_identifier,
             name=self.name,
+            region=self.region,
             secret_arn=self.secret_arn)
 
 
 def get_event_connection(name: Optional[builtins.str] = None,
+                         region: Optional[builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventConnectionResult:
     """
     Use this data source to retrieve information about an EventBridge connection.
@@ -125,9 +135,11 @@ def get_event_connection(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the connection.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:cloudwatch/getEventConnection:getEventConnection', __args__, opts=opts, typ=GetEventConnectionResult).value
 
@@ -137,8 +149,10 @@ def get_event_connection(name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         kms_key_identifier=pulumi.get(__ret__, 'kms_key_identifier'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         secret_arn=pulumi.get(__ret__, 'secret_arn'))
 def get_event_connection_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                                region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventConnectionResult]:
     """
     Use this data source to retrieve information about an EventBridge connection.
@@ -156,9 +170,11 @@ def get_event_connection_output(name: Optional[pulumi.Input[builtins.str]] = Non
 
 
     :param builtins.str name: Name of the connection.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudwatch/getEventConnection:getEventConnection', __args__, opts=opts, typ=GetEventConnectionResult)
     return __ret__.apply(lambda __response__: GetEventConnectionResult(
@@ -167,4 +183,5 @@ def get_event_connection_output(name: Optional[pulumi.Input[builtins.str]] = Non
         id=pulumi.get(__response__, 'id'),
         kms_key_identifier=pulumi.get(__response__, 'kms_key_identifier'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         secret_arn=pulumi.get(__response__, 'secret_arn')))

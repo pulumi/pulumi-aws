@@ -94,6 +94,12 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class GetServiceNetworkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Identifier of the service network.
         /// </summary>
         [Input("serviceNetworkIdentifier", required: true)]
@@ -115,6 +121,12 @@ namespace Pulumi.Aws.VpcLattice
 
     public sealed class GetServiceNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Identifier of the service network.
         /// </summary>
@@ -171,6 +183,7 @@ namespace Pulumi.Aws.VpcLattice
         /// Number of VPCs associated with this service network.
         /// </summary>
         public readonly int NumberOfAssociatedVpcs;
+        public readonly string Region;
         public readonly string ServiceNetworkIdentifier;
         public readonly ImmutableDictionary<string, string> Tags;
 
@@ -192,6 +205,8 @@ namespace Pulumi.Aws.VpcLattice
 
             int numberOfAssociatedVpcs,
 
+            string region,
+
             string serviceNetworkIdentifier,
 
             ImmutableDictionary<string, string> tags)
@@ -204,6 +219,7 @@ namespace Pulumi.Aws.VpcLattice
             Name = name;
             NumberOfAssociatedServices = numberOfAssociatedServices;
             NumberOfAssociatedVpcs = numberOfAssociatedVpcs;
+            Region = region;
             ServiceNetworkIdentifier = serviceNetworkIdentifier;
             Tags = tags;
         }

@@ -29,7 +29,7 @@ class GetInstanceTypeOfferingsResult:
     """
     A collection of values returned by getInstanceTypeOfferings.
     """
-    def __init__(__self__, filters=None, id=None, instance_types=None, location_type=None, location_types=None, locations=None):
+    def __init__(__self__, filters=None, id=None, instance_types=None, location_type=None, location_types=None, locations=None, region=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -48,6 +48,9 @@ class GetInstanceTypeOfferingsResult:
         if locations and not isinstance(locations, list):
             raise TypeError("Expected argument 'locations' to be a list")
         pulumi.set(__self__, "locations", locations)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -91,6 +94,11 @@ class GetInstanceTypeOfferingsResult:
         """
         return pulumi.get(self, "locations")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetInstanceTypeOfferingsResult(GetInstanceTypeOfferingsResult):
     # pylint: disable=using-constant-test
@@ -103,11 +111,13 @@ class AwaitableGetInstanceTypeOfferingsResult(GetInstanceTypeOfferingsResult):
             instance_types=self.instance_types,
             location_type=self.location_type,
             location_types=self.location_types,
-            locations=self.locations)
+            locations=self.locations,
+            region=self.region)
 
 
 def get_instance_type_offerings(filters: Optional[Sequence[Union['GetInstanceTypeOfferingsFilterArgs', 'GetInstanceTypeOfferingsFilterArgsDict']]] = None,
                                 location_type: Optional[builtins.str] = None,
+                                region: Optional[builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceTypeOfferingsResult:
     """
     Information about EC2 Instance Type Offerings.
@@ -137,10 +147,12 @@ def get_instance_type_offerings(filters: Optional[Sequence[Union['GetInstanceTyp
 
     :param Sequence[Union['GetInstanceTypeOfferingsFilterArgs', 'GetInstanceTypeOfferingsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
     :param builtins.str location_type: Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['locationType'] = location_type
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInstanceTypeOfferings:getInstanceTypeOfferings', __args__, opts=opts, typ=GetInstanceTypeOfferingsResult).value
 
@@ -150,9 +162,11 @@ def get_instance_type_offerings(filters: Optional[Sequence[Union['GetInstanceTyp
         instance_types=pulumi.get(__ret__, 'instance_types'),
         location_type=pulumi.get(__ret__, 'location_type'),
         location_types=pulumi.get(__ret__, 'location_types'),
-        locations=pulumi.get(__ret__, 'locations'))
+        locations=pulumi.get(__ret__, 'locations'),
+        region=pulumi.get(__ret__, 'region'))
 def get_instance_type_offerings_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstanceTypeOfferingsFilterArgs', 'GetInstanceTypeOfferingsFilterArgsDict']]]]] = None,
                                        location_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceTypeOfferingsResult]:
     """
     Information about EC2 Instance Type Offerings.
@@ -182,10 +196,12 @@ def get_instance_type_offerings_output(filters: Optional[pulumi.Input[Optional[S
 
     :param Sequence[Union['GetInstanceTypeOfferingsFilterArgs', 'GetInstanceTypeOfferingsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
     :param builtins.str location_type: Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['locationType'] = location_type
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInstanceTypeOfferings:getInstanceTypeOfferings', __args__, opts=opts, typ=GetInstanceTypeOfferingsResult)
     return __ret__.apply(lambda __response__: GetInstanceTypeOfferingsResult(
@@ -194,4 +210,5 @@ def get_instance_type_offerings_output(filters: Optional[pulumi.Input[Optional[S
         instance_types=pulumi.get(__response__, 'instance_types'),
         location_type=pulumi.get(__response__, 'location_type'),
         location_types=pulumi.get(__response__, 'location_types'),
-        locations=pulumi.get(__response__, 'locations')))
+        locations=pulumi.get(__response__, 'locations'),
+        region=pulumi.get(__response__, 'region')))

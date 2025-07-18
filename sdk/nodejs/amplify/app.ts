@@ -163,6 +163,20 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Job Config
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.amplify.App("example", {
+ *     name: "example",
+ *     jobConfig: {
+ *         buildComputeType: "STANDARD_8GB",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Amplify App using Amplify App ID (appId). For example:
@@ -273,6 +287,10 @@ export class App extends pulumi.CustomResource {
      */
     public readonly iamServiceRoleArn!: pulumi.Output<string | undefined>;
     /**
+     * Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+     */
+    public readonly jobConfig!: pulumi.Output<outputs.amplify.AppJobConfig>;
+    /**
      * Name for an Amplify app.
      */
     public readonly name!: pulumi.Output<string>;
@@ -289,6 +307,10 @@ export class App extends pulumi.CustomResource {
      */
     public /*out*/ readonly productionBranches!: pulumi.Output<outputs.amplify.AppProductionBranch[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Repository for an Amplify app.
      */
     public readonly repository!: pulumi.Output<string | undefined>;
@@ -298,8 +320,6 @@ export class App extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -334,10 +354,12 @@ export class App extends pulumi.CustomResource {
             resourceInputs["enableBranchAutoDeletion"] = state ? state.enableBranchAutoDeletion : undefined;
             resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
             resourceInputs["iamServiceRoleArn"] = state ? state.iamServiceRoleArn : undefined;
+            resourceInputs["jobConfig"] = state ? state.jobConfig : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["oauthToken"] = state ? state.oauthToken : undefined;
             resourceInputs["platform"] = state ? state.platform : undefined;
             resourceInputs["productionBranches"] = state ? state.productionBranches : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["repository"] = state ? state.repository : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -359,9 +381,11 @@ export class App extends pulumi.CustomResource {
             resourceInputs["enableBranchAutoDeletion"] = args ? args.enableBranchAutoDeletion : undefined;
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             resourceInputs["iamServiceRoleArn"] = args ? args.iamServiceRoleArn : undefined;
+            resourceInputs["jobConfig"] = args ? args.jobConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["oauthToken"] = args?.oauthToken ? pulumi.secret(args.oauthToken) : undefined;
             resourceInputs["platform"] = args ? args.platform : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -453,6 +477,10 @@ export interface AppState {
      */
     iamServiceRoleArn?: pulumi.Input<string>;
     /**
+     * Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+     */
+    jobConfig?: pulumi.Input<inputs.amplify.AppJobConfig>;
+    /**
      * Name for an Amplify app.
      */
     name?: pulumi.Input<string>;
@@ -469,6 +497,10 @@ export interface AppState {
      */
     productionBranches?: pulumi.Input<pulumi.Input<inputs.amplify.AppProductionBranch>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Repository for an Amplify app.
      */
     repository?: pulumi.Input<string>;
@@ -478,8 +510,6 @@ export interface AppState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -553,6 +583,10 @@ export interface AppArgs {
      */
     iamServiceRoleArn?: pulumi.Input<string>;
     /**
+     * Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `jobConfig` Block for details.
+     */
+    jobConfig?: pulumi.Input<inputs.amplify.AppJobConfig>;
+    /**
      * Name for an Amplify app.
      */
     name?: pulumi.Input<string>;
@@ -564,6 +598,10 @@ export interface AppArgs {
      * Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
      */
     platform?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Repository for an Amplify app.
      */

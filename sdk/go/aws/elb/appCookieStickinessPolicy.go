@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,6 +81,8 @@ type AppCookieStickinessPolicy struct {
 	LoadBalancer pulumi.StringOutput `pulumi:"loadBalancer"`
 	// Name of the stickiness policy.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAppCookieStickinessPolicy registers a new resource with the given unique name, arguments, and options.
@@ -139,6 +141,8 @@ type appCookieStickinessPolicyState struct {
 	LoadBalancer *string `pulumi:"loadBalancer"`
 	// Name of the stickiness policy.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type AppCookieStickinessPolicyState struct {
@@ -153,6 +157,8 @@ type AppCookieStickinessPolicyState struct {
 	LoadBalancer pulumi.StringPtrInput
 	// Name of the stickiness policy.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AppCookieStickinessPolicyState) ElementType() reflect.Type {
@@ -171,6 +177,8 @@ type appCookieStickinessPolicyArgs struct {
 	LoadBalancer string `pulumi:"loadBalancer"`
 	// Name of the stickiness policy.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AppCookieStickinessPolicy resource.
@@ -186,6 +194,8 @@ type AppCookieStickinessPolicyArgs struct {
 	LoadBalancer pulumi.StringInput
 	// Name of the stickiness policy.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AppCookieStickinessPolicyArgs) ElementType() reflect.Type {
@@ -296,6 +306,11 @@ func (o AppCookieStickinessPolicyOutput) LoadBalancer() pulumi.StringOutput {
 // Name of the stickiness policy.
 func (o AppCookieStickinessPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppCookieStickinessPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AppCookieStickinessPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppCookieStickinessPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type AppCookieStickinessPolicyArrayOutput struct{ *pulumi.OutputState }

@@ -31,6 +31,7 @@ export function getContainerRecipes(args?: GetContainerRecipesArgs, opts?: pulum
     return pulumi.runtime.invoke("aws:imagebuilder/getContainerRecipes:getContainerRecipes", {
         "filters": args.filters,
         "owner": args.owner,
+        "region": args.region,
     }, opts);
 }
 
@@ -46,6 +47,10 @@ export interface GetContainerRecipesArgs {
      * Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
      */
     owner?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -66,6 +71,7 @@ export interface GetContainerRecipesResult {
      */
     readonly names: string[];
     readonly owner?: string;
+    readonly region: string;
 }
 /**
  * Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
@@ -91,6 +97,7 @@ export function getContainerRecipesOutput(args?: GetContainerRecipesOutputArgs, 
     return pulumi.runtime.invokeOutput("aws:imagebuilder/getContainerRecipes:getContainerRecipes", {
         "filters": args.filters,
         "owner": args.owner,
+        "region": args.region,
     }, opts);
 }
 
@@ -106,4 +113,8 @@ export interface GetContainerRecipesOutputArgs {
      * Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
      */
     owner?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

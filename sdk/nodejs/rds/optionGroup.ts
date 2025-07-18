@@ -123,6 +123,10 @@ export class OptionGroup extends pulumi.CustomResource {
      */
     public readonly options!: pulumi.Output<outputs.rds.OptionGroupOption[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
      */
     public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
@@ -132,8 +136,6 @@ export class OptionGroup extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -157,6 +159,7 @@ export class OptionGroup extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["optionGroupDescription"] = state ? state.optionGroupDescription : undefined;
             resourceInputs["options"] = state ? state.options : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -174,6 +177,7 @@ export class OptionGroup extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["optionGroupDescription"] = (args ? args.optionGroupDescription : undefined) ?? "Managed by Pulumi";
             resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -217,6 +221,10 @@ export interface OptionGroupState {
      */
     options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
      */
     skipDestroy?: pulumi.Input<boolean>;
@@ -226,8 +234,6 @@ export interface OptionGroupState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -260,6 +266,10 @@ export interface OptionGroupArgs {
      * The options to apply. See `option` Block below for more details.
      */
     options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
      */

@@ -3,11 +3,12 @@
 
 package com.pulumi.aws.opensearch.inputs;
 
-import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigSamlOptionsArgs;
+import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigSamlOptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -33,17 +34,32 @@ public final class GetServerlessSecurityConfigArgs extends com.pulumi.resources.
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * SAML options for the security configuration.
      * 
      */
     @Import(name="samlOptions")
-    private @Nullable Output<GetServerlessSecurityConfigSamlOptionsArgs> samlOptions;
+    private @Nullable Output<List<GetServerlessSecurityConfigSamlOptionArgs>> samlOptions;
 
     /**
      * @return SAML options for the security configuration.
      * 
      */
-    public Optional<Output<GetServerlessSecurityConfigSamlOptionsArgs>> samlOptions() {
+    public Optional<Output<List<GetServerlessSecurityConfigSamlOptionArgs>>> samlOptions() {
         return Optional.ofNullable(this.samlOptions);
     }
 
@@ -51,6 +67,7 @@ public final class GetServerlessSecurityConfigArgs extends com.pulumi.resources.
 
     private GetServerlessSecurityConfigArgs(GetServerlessSecurityConfigArgs $) {
         this.id = $.id;
+        this.region = $.region;
         this.samlOptions = $.samlOptions;
     }
 
@@ -94,12 +111,33 @@ public final class GetServerlessSecurityConfigArgs extends com.pulumi.resources.
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param samlOptions SAML options for the security configuration.
          * 
          * @return builder
          * 
          */
-        public Builder samlOptions(@Nullable Output<GetServerlessSecurityConfigSamlOptionsArgs> samlOptions) {
+        public Builder samlOptions(@Nullable Output<List<GetServerlessSecurityConfigSamlOptionArgs>> samlOptions) {
             $.samlOptions = samlOptions;
             return this;
         }
@@ -110,8 +148,18 @@ public final class GetServerlessSecurityConfigArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder samlOptions(GetServerlessSecurityConfigSamlOptionsArgs samlOptions) {
+        public Builder samlOptions(List<GetServerlessSecurityConfigSamlOptionArgs> samlOptions) {
             return samlOptions(Output.of(samlOptions));
+        }
+
+        /**
+         * @param samlOptions SAML options for the security configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder samlOptions(GetServerlessSecurityConfigSamlOptionArgs... samlOptions) {
+            return samlOptions(List.of(samlOptions));
         }
 
         public GetServerlessSecurityConfigArgs build() {

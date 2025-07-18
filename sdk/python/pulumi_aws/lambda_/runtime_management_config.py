@@ -22,6 +22,7 @@ class RuntimeManagementConfigArgs:
     def __init__(__self__, *,
                  function_name: pulumi.Input[builtins.str],
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  runtime_version_arn: Optional[pulumi.Input[builtins.str]] = None,
                  update_runtime_on: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -30,12 +31,15 @@ class RuntimeManagementConfigArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] qualifier: Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] runtime_version_arn: ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
         :param pulumi.Input[builtins.str] update_runtime_on: Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
         """
         pulumi.set(__self__, "function_name", function_name)
         if qualifier is not None:
             pulumi.set(__self__, "qualifier", qualifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if runtime_version_arn is not None:
             pulumi.set(__self__, "runtime_version_arn", runtime_version_arn)
         if update_runtime_on is not None:
@@ -68,6 +72,18 @@ class RuntimeManagementConfigArgs:
         pulumi.set(self, "qualifier", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="runtimeVersionArn")
     def runtime_version_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -98,6 +114,7 @@ class _RuntimeManagementConfigState:
                  function_arn: Optional[pulumi.Input[builtins.str]] = None,
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  runtime_version_arn: Optional[pulumi.Input[builtins.str]] = None,
                  update_runtime_on: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -107,6 +124,7 @@ class _RuntimeManagementConfigState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] qualifier: Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] runtime_version_arn: ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
         :param pulumi.Input[builtins.str] update_runtime_on: Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
         """
@@ -116,6 +134,8 @@ class _RuntimeManagementConfigState:
             pulumi.set(__self__, "function_name", function_name)
         if qualifier is not None:
             pulumi.set(__self__, "qualifier", qualifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if runtime_version_arn is not None:
             pulumi.set(__self__, "runtime_version_arn", runtime_version_arn)
         if update_runtime_on is not None:
@@ -160,6 +180,18 @@ class _RuntimeManagementConfigState:
         pulumi.set(self, "qualifier", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="runtimeVersionArn")
     def runtime_version_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -192,16 +224,16 @@ class RuntimeManagementConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  runtime_version_arn: Optional[pulumi.Input[builtins.str]] = None,
                  update_runtime_on: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Lambda Runtime Management Config.
+        Manages an AWS Lambda Runtime Management Config. Use this resource to control how Lambda updates the runtime for your function.
 
         Refer to the [AWS Lambda documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) for supported runtimes.
 
-        > Deletion of this resource returns the runtime update mode to `Auto` (the default behavior).
-        To leave the configured runtime management options in-place, use a `removed` block with the destroy lifecycle set to `false`.
+        > **Note:** Deletion of this resource returns the runtime update mode to `Auto` (the default behavior). To leave the configured runtime management options in-place, use a `removed` block with the destroy lifecycle set to `false`.
 
         ## Example Usage
 
@@ -212,30 +244,30 @@ class RuntimeManagementConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.RuntimeManagementConfig("example",
-            function_name=test["functionName"],
+            function_name=example_aws_lambda_function["functionName"],
             update_runtime_on="FunctionUpdate")
         ```
 
-        ### `Manual` Update
+        ### Manual Update
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lambda_.RuntimeManagementConfig("example",
-            function_name=test["functionName"],
+            function_name=example_aws_lambda_function["functionName"],
             update_runtime_on="Manual",
             runtime_version_arn="arn:aws:lambda:us-east-1::runtime:abcd1234")
         ```
 
-        > Once the runtime update mode is set to `Manual`, the `lambda.Function` `runtime` cannot be updated. To upgrade a runtime, the `update_runtime_on` argument must be set to `Auto` or `FunctionUpdate` prior to changing the function's `runtime` argument.
+        > **Note:** Once the runtime update mode is set to `Manual`, the `lambda.Function` `runtime` cannot be updated. To upgrade a runtime, the `update_runtime_on` argument must be set to `Auto` or `FunctionUpdate` prior to changing the function's `runtime` argument.
 
         ## Import
 
         Using `pulumi import`, import Lambda Runtime Management Config using a comma-delimited string combining `function_name` and `qualifier`. For example:
 
         ```sh
-        $ pulumi import aws:lambda/runtimeManagementConfig:RuntimeManagementConfig example my-function,$LATEST
+        $ pulumi import aws:lambda/runtimeManagementConfig:RuntimeManagementConfig example example,$LATEST
         ```
 
         :param str resource_name: The name of the resource.
@@ -244,6 +276,7 @@ class RuntimeManagementConfig(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] qualifier: Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] runtime_version_arn: ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
         :param pulumi.Input[builtins.str] update_runtime_on: Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
         """
@@ -254,12 +287,11 @@ class RuntimeManagementConfig(pulumi.CustomResource):
                  args: RuntimeManagementConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Lambda Runtime Management Config.
+        Manages an AWS Lambda Runtime Management Config. Use this resource to control how Lambda updates the runtime for your function.
 
         Refer to the [AWS Lambda documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) for supported runtimes.
 
-        > Deletion of this resource returns the runtime update mode to `Auto` (the default behavior).
-        To leave the configured runtime management options in-place, use a `removed` block with the destroy lifecycle set to `false`.
+        > **Note:** Deletion of this resource returns the runtime update mode to `Auto` (the default behavior). To leave the configured runtime management options in-place, use a `removed` block with the destroy lifecycle set to `false`.
 
         ## Example Usage
 
@@ -270,30 +302,30 @@ class RuntimeManagementConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.RuntimeManagementConfig("example",
-            function_name=test["functionName"],
+            function_name=example_aws_lambda_function["functionName"],
             update_runtime_on="FunctionUpdate")
         ```
 
-        ### `Manual` Update
+        ### Manual Update
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lambda_.RuntimeManagementConfig("example",
-            function_name=test["functionName"],
+            function_name=example_aws_lambda_function["functionName"],
             update_runtime_on="Manual",
             runtime_version_arn="arn:aws:lambda:us-east-1::runtime:abcd1234")
         ```
 
-        > Once the runtime update mode is set to `Manual`, the `lambda.Function` `runtime` cannot be updated. To upgrade a runtime, the `update_runtime_on` argument must be set to `Auto` or `FunctionUpdate` prior to changing the function's `runtime` argument.
+        > **Note:** Once the runtime update mode is set to `Manual`, the `lambda.Function` `runtime` cannot be updated. To upgrade a runtime, the `update_runtime_on` argument must be set to `Auto` or `FunctionUpdate` prior to changing the function's `runtime` argument.
 
         ## Import
 
         Using `pulumi import`, import Lambda Runtime Management Config using a comma-delimited string combining `function_name` and `qualifier`. For example:
 
         ```sh
-        $ pulumi import aws:lambda/runtimeManagementConfig:RuntimeManagementConfig example my-function,$LATEST
+        $ pulumi import aws:lambda/runtimeManagementConfig:RuntimeManagementConfig example example,$LATEST
         ```
 
         :param str resource_name: The name of the resource.
@@ -313,6 +345,7 @@ class RuntimeManagementConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  runtime_version_arn: Optional[pulumi.Input[builtins.str]] = None,
                  update_runtime_on: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -328,6 +361,7 @@ class RuntimeManagementConfig(pulumi.CustomResource):
                 raise TypeError("Missing required property 'function_name'")
             __props__.__dict__["function_name"] = function_name
             __props__.__dict__["qualifier"] = qualifier
+            __props__.__dict__["region"] = region
             __props__.__dict__["runtime_version_arn"] = runtime_version_arn
             __props__.__dict__["update_runtime_on"] = update_runtime_on
             __props__.__dict__["function_arn"] = None
@@ -344,6 +378,7 @@ class RuntimeManagementConfig(pulumi.CustomResource):
             function_arn: Optional[pulumi.Input[builtins.str]] = None,
             function_name: Optional[pulumi.Input[builtins.str]] = None,
             qualifier: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             runtime_version_arn: Optional[pulumi.Input[builtins.str]] = None,
             update_runtime_on: Optional[pulumi.Input[builtins.str]] = None) -> 'RuntimeManagementConfig':
         """
@@ -358,6 +393,7 @@ class RuntimeManagementConfig(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] qualifier: Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] runtime_version_arn: ARN of the runtime version. Only required when `update_runtime_on` is `Manual`.
         :param pulumi.Input[builtins.str] update_runtime_on: Runtime update mode. Valid values are `Auto`, `FunctionUpdate`, and `Manual`. When a function is created, the default mode is `Auto`.
         """
@@ -368,6 +404,7 @@ class RuntimeManagementConfig(pulumi.CustomResource):
         __props__.__dict__["function_arn"] = function_arn
         __props__.__dict__["function_name"] = function_name
         __props__.__dict__["qualifier"] = qualifier
+        __props__.__dict__["region"] = region
         __props__.__dict__["runtime_version_arn"] = runtime_version_arn
         __props__.__dict__["update_runtime_on"] = update_runtime_on
         return RuntimeManagementConfig(resource_name, opts=opts, __props__=__props__)
@@ -397,6 +434,14 @@ class RuntimeManagementConfig(pulumi.CustomResource):
         Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
         """
         return pulumi.get(self, "qualifier")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="runtimeVersionArn")

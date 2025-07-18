@@ -3,10 +3,9 @@
 
 package com.pulumi.aws.synthetics.inputs;
 
-import com.pulumi.aws.synthetics.inputs.GetRuntimeVersionsRuntimeVersionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.util.List;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,24 +16,24 @@ public final class GetRuntimeVersionsArgs extends com.pulumi.resources.InvokeArg
     public static final GetRuntimeVersionsArgs Empty = new GetRuntimeVersionsArgs();
 
     /**
-     * List of runtime versions. See `runtime_versions` attribute reference.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    @Import(name="runtimeVersions")
-    private @Nullable Output<List<GetRuntimeVersionsRuntimeVersionArgs>> runtimeVersions;
+    @Import(name="region")
+    private @Nullable Output<String> region;
 
     /**
-     * @return List of runtime versions. See `runtime_versions` attribute reference.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    public Optional<Output<List<GetRuntimeVersionsRuntimeVersionArgs>>> runtimeVersions() {
-        return Optional.ofNullable(this.runtimeVersions);
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetRuntimeVersionsArgs() {}
 
     private GetRuntimeVersionsArgs(GetRuntimeVersionsArgs $) {
-        this.runtimeVersions = $.runtimeVersions;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -56,34 +55,24 @@ public final class GetRuntimeVersionsArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param runtimeVersions List of runtime versions. See `runtime_versions` attribute reference.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
          */
-        public Builder runtimeVersions(@Nullable Output<List<GetRuntimeVersionsRuntimeVersionArgs>> runtimeVersions) {
-            $.runtimeVersions = runtimeVersions;
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
             return this;
         }
 
         /**
-         * @param runtimeVersions List of runtime versions. See `runtime_versions` attribute reference.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
          */
-        public Builder runtimeVersions(List<GetRuntimeVersionsRuntimeVersionArgs> runtimeVersions) {
-            return runtimeVersions(Output.of(runtimeVersions));
-        }
-
-        /**
-         * @param runtimeVersions List of runtime versions. See `runtime_versions` attribute reference.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder runtimeVersions(GetRuntimeVersionsRuntimeVersionArgs... runtimeVersions) {
-            return runtimeVersions(List.of(runtimeVersions));
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetRuntimeVersionsArgs build() {

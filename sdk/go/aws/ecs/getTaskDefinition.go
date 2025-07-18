@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,6 +89,8 @@ func LookupTaskDefinition(ctx *pulumi.Context, args *LookupTaskDefinitionArgs, o
 
 // A collection of arguments for invoking getTaskDefinition.
 type LookupTaskDefinitionArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
 	TaskDefinition string `pulumi:"taskDefinition"`
 }
@@ -114,8 +116,6 @@ type LookupTaskDefinitionResult struct {
 	Family string `pulumi:"family"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Configuration block(s) with Inference Accelerators settings. Detailed below.
-	InferenceAccelerators []GetTaskDefinitionInferenceAccelerator `pulumi:"inferenceAccelerators"`
 	// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
 	IpcMode string `pulumi:"ipcMode"`
 	// Amount (in MiB) of memory used by the task. If the `requiresCompatibilities` is `FARGATE` this field is required.
@@ -128,6 +128,7 @@ type LookupTaskDefinitionResult struct {
 	PlacementConstraints []GetTaskDefinitionPlacementConstraint `pulumi:"placementConstraints"`
 	// Configuration block for the App Mesh proxy. Detailed below.
 	ProxyConfigurations []GetTaskDefinitionProxyConfiguration `pulumi:"proxyConfigurations"`
+	Region              string                                `pulumi:"region"`
 	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
 	// Revision of the task in a particular family.
@@ -154,6 +155,8 @@ func LookupTaskDefinitionOutput(ctx *pulumi.Context, args LookupTaskDefinitionOu
 
 // A collection of arguments for invoking getTaskDefinition.
 type LookupTaskDefinitionOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
 	TaskDefinition pulumi.StringInput `pulumi:"taskDefinition"`
 }
@@ -223,13 +226,6 @@ func (o LookupTaskDefinitionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Configuration block(s) with Inference Accelerators settings. Detailed below.
-func (o LookupTaskDefinitionResultOutput) InferenceAccelerators() GetTaskDefinitionInferenceAcceleratorArrayOutput {
-	return o.ApplyT(func(v LookupTaskDefinitionResult) []GetTaskDefinitionInferenceAccelerator {
-		return v.InferenceAccelerators
-	}).(GetTaskDefinitionInferenceAcceleratorArrayOutput)
-}
-
 // IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
 func (o LookupTaskDefinitionResultOutput) IpcMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.IpcMode }).(pulumi.StringOutput)
@@ -260,6 +256,10 @@ func (o LookupTaskDefinitionResultOutput) PlacementConstraints() GetTaskDefiniti
 // Configuration block for the App Mesh proxy. Detailed below.
 func (o LookupTaskDefinitionResultOutput) ProxyConfigurations() GetTaskDefinitionProxyConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupTaskDefinitionResult) []GetTaskDefinitionProxyConfiguration { return v.ProxyConfigurations }).(GetTaskDefinitionProxyConfigurationArrayOutput)
+}
+
+func (o LookupTaskDefinitionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTaskDefinitionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,6 +35,8 @@ type ScalingPlan struct {
 	ApplicationSource ScalingPlanApplicationSourceOutput `pulumi:"applicationSource"`
 	// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
 	ScalingInstructions ScalingPlanScalingInstructionArrayOutput `pulumi:"scalingInstructions"`
 	// The version number of the scaling plan. This value is always 1.
@@ -81,6 +83,8 @@ type scalingPlanState struct {
 	ApplicationSource *ScalingPlanApplicationSource `pulumi:"applicationSource"`
 	// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
 	ScalingInstructions []ScalingPlanScalingInstruction `pulumi:"scalingInstructions"`
 	// The version number of the scaling plan. This value is always 1.
@@ -92,6 +96,8 @@ type ScalingPlanState struct {
 	ApplicationSource ScalingPlanApplicationSourcePtrInput
 	// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
 	ScalingInstructions ScalingPlanScalingInstructionArrayInput
 	// The version number of the scaling plan. This value is always 1.
@@ -107,6 +113,8 @@ type scalingPlanArgs struct {
 	ApplicationSource ScalingPlanApplicationSource `pulumi:"applicationSource"`
 	// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
 	ScalingInstructions []ScalingPlanScalingInstruction `pulumi:"scalingInstructions"`
 }
@@ -117,6 +125,8 @@ type ScalingPlanArgs struct {
 	ApplicationSource ScalingPlanApplicationSourceInput
 	// Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
 	ScalingInstructions ScalingPlanScalingInstructionArrayInput
 }
@@ -216,6 +226,11 @@ func (o ScalingPlanOutput) ApplicationSource() ScalingPlanApplicationSourceOutpu
 // Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
 func (o ScalingPlanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScalingPlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ScalingPlanOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScalingPlan) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).

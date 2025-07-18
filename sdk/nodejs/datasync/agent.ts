@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const exampleVpcEndpoint = new aws.ec2.VpcEndpoint("example", {
- *     serviceName: current.then(current => `com.amazonaws.${current.name}.datasync`),
+ *     serviceName: current.then(current => `com.amazonaws.${current.region}.datasync`),
  *     vpcId: exampleAwsVpc.id,
  *     securityGroupIds: [exampleAwsSecurityGroup.id],
  *     subnetIds: [exampleAwsSubnet.id],
@@ -105,6 +105,10 @@ export class Agent extends pulumi.CustomResource {
      */
     public readonly privateLinkEndpoint!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARNs of the security groups used to protect your data transfer task subnets.
      */
     public readonly securityGroupArns!: pulumi.Output<string[] | undefined>;
@@ -118,8 +122,6 @@ export class Agent extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -145,6 +147,7 @@ export class Agent extends pulumi.CustomResource {
             resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["privateLinkEndpoint"] = state ? state.privateLinkEndpoint : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupArns"] = state ? state.securityGroupArns : undefined;
             resourceInputs["subnetArns"] = state ? state.subnetArns : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -156,6 +159,7 @@ export class Agent extends pulumi.CustomResource {
             resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["privateLinkEndpoint"] = args ? args.privateLinkEndpoint : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
             resourceInputs["subnetArns"] = args ? args.subnetArns : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -193,6 +197,10 @@ export interface AgentState {
      */
     privateLinkEndpoint?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ARNs of the security groups used to protect your data transfer task subnets.
      */
     securityGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
@@ -206,8 +214,6 @@ export interface AgentState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -236,6 +242,10 @@ export interface AgentArgs {
      * The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activationKey`.
      */
     privateLinkEndpoint?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARNs of the security groups used to protect your data transfer task subnets.
      */

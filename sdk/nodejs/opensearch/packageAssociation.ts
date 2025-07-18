@@ -73,6 +73,10 @@ export class PackageAssociation extends pulumi.CustomResource {
      */
     public readonly packageId!: pulumi.Output<string>;
     public /*out*/ readonly referencePath!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a PackageAssociation resource with the given unique name, arguments, and options.
@@ -90,6 +94,7 @@ export class PackageAssociation extends pulumi.CustomResource {
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["packageId"] = state ? state.packageId : undefined;
             resourceInputs["referencePath"] = state ? state.referencePath : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as PackageAssociationArgs | undefined;
             if ((!args || args.domainName === undefined) && !opts.urn) {
@@ -100,6 +105,7 @@ export class PackageAssociation extends pulumi.CustomResource {
             }
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["packageId"] = args ? args.packageId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["referencePath"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -120,6 +126,10 @@ export interface PackageAssociationState {
      */
     packageId?: pulumi.Input<string>;
     referencePath?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -134,4 +144,8 @@ export interface PackageAssociationArgs {
      * Internal ID of the package to associate with a domain.
      */
     packageId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

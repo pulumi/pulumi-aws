@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,7 +82,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -114,7 +114,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -199,6 +199,8 @@ type ConfigurationPolicy struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the configuration policy.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewConfigurationPolicy registers a new resource with the given unique name, arguments, and options.
@@ -241,6 +243,8 @@ type configurationPolicyState struct {
 	Description *string `pulumi:"description"`
 	// The name of the configuration policy.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ConfigurationPolicyState struct {
@@ -251,6 +255,8 @@ type ConfigurationPolicyState struct {
 	Description pulumi.StringPtrInput
 	// The name of the configuration policy.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ConfigurationPolicyState) ElementType() reflect.Type {
@@ -264,6 +270,8 @@ type configurationPolicyArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the configuration policy.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ConfigurationPolicy resource.
@@ -274,6 +282,8 @@ type ConfigurationPolicyArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the configuration policy.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ConfigurationPolicyArgs) ElementType() reflect.Type {
@@ -382,6 +392,11 @@ func (o ConfigurationPolicyOutput) Description() pulumi.StringPtrOutput {
 // The name of the configuration policy.
 func (o ConfigurationPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ConfigurationPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ConfigurationPolicyArrayOutput struct{ *pulumi.OutputState }

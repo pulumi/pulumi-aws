@@ -92,6 +92,10 @@ export class EventAction extends pulumi.CustomResource {
      */
     public readonly event!: pulumi.Output<outputs.dataexchange.EventActionEvent | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Data and time when the resource was last updated.
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
@@ -113,11 +117,13 @@ export class EventAction extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["event"] = state ? state.event : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
         } else {
             const args = argsOrState as EventActionArgs | undefined;
             resourceInputs["action"] = args ? args.action : undefined;
             resourceInputs["event"] = args ? args.event : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
@@ -150,6 +156,10 @@ export interface EventActionState {
      */
     event?: pulumi.Input<inputs.dataexchange.EventActionEvent>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Data and time when the resource was last updated.
      */
     updatedAt?: pulumi.Input<string>;
@@ -169,4 +179,8 @@ export interface EventActionArgs {
      * Described in `event` Configuration Block below.
      */
     event?: pulumi.Input<inputs.dataexchange.EventActionEvent>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

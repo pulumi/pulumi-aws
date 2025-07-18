@@ -24,16 +24,20 @@ class ArchiveRuleArgs:
     def __init__(__self__, *,
                  analyzer_name: pulumi.Input[builtins.str],
                  filters: pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArgs']]],
-                 rule_name: pulumi.Input[builtins.str]):
+                 rule_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ArchiveRule resource.
         :param pulumi.Input[builtins.str] analyzer_name: Analyzer name.
         :param pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArgs']]] filters: Filter criteria for the archive rule. See Filter for more details.
         :param pulumi.Input[builtins.str] rule_name: Rule name.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "analyzer_name", analyzer_name)
         pulumi.set(__self__, "filters", filters)
         pulumi.set(__self__, "rule_name", rule_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="analyzerName")
@@ -71,23 +75,39 @@ class ArchiveRuleArgs:
     def rule_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "rule_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ArchiveRuleState:
     def __init__(__self__, *,
                  analyzer_name: Optional[pulumi.Input[builtins.str]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ArchiveRule resources.
         :param pulumi.Input[builtins.str] analyzer_name: Analyzer name.
         :param pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArgs']]] filters: Filter criteria for the archive rule. See Filter for more details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_name: Rule name.
         """
         if analyzer_name is not None:
             pulumi.set(__self__, "analyzer_name", analyzer_name)
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rule_name is not None:
             pulumi.set(__self__, "rule_name", rule_name)
 
@@ -116,6 +136,18 @@ class _ArchiveRuleState:
         pulumi.set(self, "filters", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -136,6 +168,7 @@ class ArchiveRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analyzer_name: Optional[pulumi.Input[builtins.str]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -180,6 +213,7 @@ class ArchiveRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] analyzer_name: Analyzer name.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict']]]] filters: Filter criteria for the archive rule. See Filter for more details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_name: Rule name.
         """
         ...
@@ -243,6 +277,7 @@ class ArchiveRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analyzer_name: Optional[pulumi.Input[builtins.str]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -259,6 +294,7 @@ class ArchiveRule(pulumi.CustomResource):
             if filters is None and not opts.urn:
                 raise TypeError("Missing required property 'filters'")
             __props__.__dict__["filters"] = filters
+            __props__.__dict__["region"] = region
             if rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_name'")
             __props__.__dict__["rule_name"] = rule_name
@@ -274,6 +310,7 @@ class ArchiveRule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             analyzer_name: Optional[pulumi.Input[builtins.str]] = None,
             filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rule_name: Optional[pulumi.Input[builtins.str]] = None) -> 'ArchiveRule':
         """
         Get an existing ArchiveRule resource's state with the given name, id, and optional extra
@@ -284,6 +321,7 @@ class ArchiveRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] analyzer_name: Analyzer name.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ArchiveRuleFilterArgs', 'ArchiveRuleFilterArgsDict']]]] filters: Filter criteria for the archive rule. See Filter for more details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_name: Rule name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -292,6 +330,7 @@ class ArchiveRule(pulumi.CustomResource):
 
         __props__.__dict__["analyzer_name"] = analyzer_name
         __props__.__dict__["filters"] = filters
+        __props__.__dict__["region"] = region
         __props__.__dict__["rule_name"] = rule_name
         return ArchiveRule(resource_name, opts=opts, __props__=__props__)
 
@@ -310,6 +349,14 @@ class ArchiveRule(pulumi.CustomResource):
         Filter criteria for the archive rule. See Filter for more details.
         """
         return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="ruleName")

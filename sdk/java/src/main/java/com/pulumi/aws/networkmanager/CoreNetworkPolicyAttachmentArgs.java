@@ -15,14 +15,14 @@ public final class CoreNetworkPolicyAttachmentArgs extends com.pulumi.resources.
     public static final CoreNetworkPolicyAttachmentArgs Empty = new CoreNetworkPolicyAttachmentArgs();
 
     /**
-     * The ID of the core network that a policy will be attached to and made `LIVE`.
+     * ID of the core network that a policy will be attached to and made `LIVE`.
      * 
      */
     @Import(name="coreNetworkId", required=true)
     private Output<String> coreNetworkId;
 
     /**
-     * @return The ID of the core network that a policy will be attached to and made `LIVE`.
+     * @return ID of the core network that a policy will be attached to and made `LIVE`.
      * 
      */
     public Output<String> coreNetworkId() {
@@ -70,7 +70,7 @@ public final class CoreNetworkPolicyAttachmentArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param coreNetworkId The ID of the core network that a policy will be attached to and made `LIVE`.
+         * @param coreNetworkId ID of the core network that a policy will be attached to and made `LIVE`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class CoreNetworkPolicyAttachmentArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param coreNetworkId The ID of the core network that a policy will be attached to and made `LIVE`.
+         * @param coreNetworkId ID of the core network that a policy will be attached to and made `LIVE`.
          * 
          * @return builder
          * 

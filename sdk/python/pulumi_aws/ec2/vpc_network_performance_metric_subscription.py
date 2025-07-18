@@ -23,18 +23,22 @@ class VpcNetworkPerformanceMetricSubscriptionArgs:
                  destination: pulumi.Input[builtins.str],
                  source: pulumi.Input[builtins.str],
                  metric: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  statistic: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a VpcNetworkPerformanceMetricSubscription resource.
         :param pulumi.Input[builtins.str] destination: The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
         :param pulumi.Input[builtins.str] source: The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         :param pulumi.Input[builtins.str] metric: The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] statistic: The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "source", source)
         if metric is not None:
             pulumi.set(__self__, "metric", metric)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if statistic is not None:
             pulumi.set(__self__, "statistic", statistic)
 
@@ -76,6 +80,18 @@ class VpcNetworkPerformanceMetricSubscriptionArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def statistic(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
@@ -93,6 +109,7 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
                  destination: Optional[pulumi.Input[builtins.str]] = None,
                  metric: Optional[pulumi.Input[builtins.str]] = None,
                  period: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[builtins.str]] = None,
                  statistic: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -100,6 +117,7 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
         :param pulumi.Input[builtins.str] destination: The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
         :param pulumi.Input[builtins.str] metric: The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
         :param pulumi.Input[builtins.str] period: The data aggregation time for the subscription.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source: The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         :param pulumi.Input[builtins.str] statistic: The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
@@ -109,6 +127,8 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
             pulumi.set(__self__, "metric", metric)
         if period is not None:
             pulumi.set(__self__, "period", period)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source is not None:
             pulumi.set(__self__, "source", source)
         if statistic is not None:
@@ -152,6 +172,18 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def source(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
@@ -183,6 +215,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination: Optional[pulumi.Input[builtins.str]] = None,
                  metric: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[builtins.str]] = None,
                  statistic: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -204,6 +237,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] destination: The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
         :param pulumi.Input[builtins.str] metric: The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source: The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         :param pulumi.Input[builtins.str] statistic: The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
@@ -244,6 +278,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination: Optional[pulumi.Input[builtins.str]] = None,
                  metric: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[builtins.str]] = None,
                  statistic: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -259,6 +294,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'destination'")
             __props__.__dict__["destination"] = destination
             __props__.__dict__["metric"] = metric
+            __props__.__dict__["region"] = region
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
@@ -277,6 +313,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
             destination: Optional[pulumi.Input[builtins.str]] = None,
             metric: Optional[pulumi.Input[builtins.str]] = None,
             period: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             source: Optional[pulumi.Input[builtins.str]] = None,
             statistic: Optional[pulumi.Input[builtins.str]] = None) -> 'VpcNetworkPerformanceMetricSubscription':
         """
@@ -289,6 +326,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] destination: The target Region or Availability Zone that the metric subscription is enabled for. For example, `eu-west-1`.
         :param pulumi.Input[builtins.str] metric: The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
         :param pulumi.Input[builtins.str] period: The data aggregation time for the subscription.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source: The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         :param pulumi.Input[builtins.str] statistic: The statistic used for the enabled subscription. Valid values: `p50`. Default: `p50`.
         """
@@ -299,6 +337,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
         __props__.__dict__["destination"] = destination
         __props__.__dict__["metric"] = metric
         __props__.__dict__["period"] = period
+        __props__.__dict__["region"] = region
         __props__.__dict__["source"] = source
         __props__.__dict__["statistic"] = statistic
         return VpcNetworkPerformanceMetricSubscription(resource_name, opts=opts, __props__=__props__)
@@ -326,6 +365,14 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
         The data aggregation time for the subscription.
         """
         return pulumi.get(self, "period")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

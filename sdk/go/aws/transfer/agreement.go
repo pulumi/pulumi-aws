@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/transfer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,12 +71,13 @@ type Agreement struct {
 	LocalProfileId pulumi.StringOutput `pulumi:"localProfileId"`
 	// The unique identifier for the AS2 partner profile.
 	PartnerProfileId pulumi.StringOutput `pulumi:"partnerProfileId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The unique server identifier for the server instance. This is the specific server the agreement uses.
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
 	Status   pulumi.StringOutput `pulumi:"status"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -139,12 +140,13 @@ type agreementState struct {
 	LocalProfileId *string `pulumi:"localProfileId"`
 	// The unique identifier for the AS2 partner profile.
 	PartnerProfileId *string `pulumi:"partnerProfileId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The unique server identifier for the server instance. This is the specific server the agreement uses.
 	ServerId *string `pulumi:"serverId"`
 	Status   *string `pulumi:"status"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -163,12 +165,13 @@ type AgreementState struct {
 	LocalProfileId pulumi.StringPtrInput
 	// The unique identifier for the AS2 partner profile.
 	PartnerProfileId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The unique server identifier for the server instance. This is the specific server the agreement uses.
 	ServerId pulumi.StringPtrInput
 	Status   pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -187,6 +190,8 @@ type agreementArgs struct {
 	LocalProfileId string `pulumi:"localProfileId"`
 	// The unique identifier for the AS2 partner profile.
 	PartnerProfileId string `pulumi:"partnerProfileId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The unique server identifier for the server instance. This is the specific server the agreement uses.
 	ServerId string `pulumi:"serverId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -205,6 +210,8 @@ type AgreementArgs struct {
 	LocalProfileId pulumi.StringInput
 	// The unique identifier for the AS2 partner profile.
 	PartnerProfileId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The unique server identifier for the server instance. This is the specific server the agreement uses.
 	ServerId pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -333,6 +340,11 @@ func (o AgreementOutput) PartnerProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.PartnerProfileId }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AgreementOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The unique server identifier for the server instance. This is the specific server the agreement uses.
 func (o AgreementOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Agreement) pulumi.StringOutput { return v.ServerId }).(pulumi.StringOutput)
@@ -347,7 +359,6 @@ func (o AgreementOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Agreement) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o AgreementOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Agreement) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

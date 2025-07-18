@@ -159,6 +159,12 @@ namespace Pulumi.Aws.LB
         [Input("port")]
         public int? Port { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
         public Dictionary<string, string> Tags
@@ -193,6 +199,12 @@ namespace Pulumi.Aws.LB
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
         public InputMap<string> Tags
@@ -223,6 +235,7 @@ namespace Pulumi.Aws.LB
         public readonly ImmutableArray<Outputs.GetListenerMutualAuthenticationResult> MutualAuthentications;
         public readonly int Port;
         public readonly string Protocol;
+        public readonly string Region;
         public readonly string SslPolicy;
         public readonly ImmutableDictionary<string, string> Tags;
 
@@ -246,6 +259,8 @@ namespace Pulumi.Aws.LB
 
             string protocol,
 
+            string region,
+
             string sslPolicy,
 
             ImmutableDictionary<string, string> tags)
@@ -259,6 +274,7 @@ namespace Pulumi.Aws.LB
             MutualAuthentications = mutualAuthentications;
             Port = port;
             Protocol = protocol;
+            Region = region;
             SslPolicy = sslPolicy;
             Tags = tags;
         }

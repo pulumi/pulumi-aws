@@ -27,7 +27,7 @@ class GetBucketPolicyResult:
     """
     A collection of values returned by getBucketPolicy.
     """
-    def __init__(__self__, bucket=None, id=None, policy=None):
+    def __init__(__self__, bucket=None, id=None, policy=None, region=None):
         if bucket and not isinstance(bucket, str):
             raise TypeError("Expected argument 'bucket' to be a str")
         pulumi.set(__self__, "bucket", bucket)
@@ -37,6 +37,9 @@ class GetBucketPolicyResult:
         if policy and not isinstance(policy, str):
             raise TypeError("Expected argument 'policy' to be a str")
         pulumi.set(__self__, "policy", policy)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -59,6 +62,11 @@ class GetBucketPolicyResult:
         """
         return pulumi.get(self, "policy")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetBucketPolicyResult(GetBucketPolicyResult):
     # pylint: disable=using-constant-test
@@ -68,10 +76,12 @@ class AwaitableGetBucketPolicyResult(GetBucketPolicyResult):
         return GetBucketPolicyResult(
             bucket=self.bucket,
             id=self.id,
-            policy=self.policy)
+            policy=self.policy,
+            region=self.region)
 
 
 def get_bucket_policy(bucket: Optional[builtins.str] = None,
+                      region: Optional[builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBucketPolicyResult:
     """
     The bucket policy data source returns IAM policy of an S3 bucket.
@@ -90,17 +100,21 @@ def get_bucket_policy(bucket: Optional[builtins.str] = None,
 
 
     :param builtins.str bucket: Bucket name.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['bucket'] = bucket
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:s3/getBucketPolicy:getBucketPolicy', __args__, opts=opts, typ=GetBucketPolicyResult).value
 
     return AwaitableGetBucketPolicyResult(
         bucket=pulumi.get(__ret__, 'bucket'),
         id=pulumi.get(__ret__, 'id'),
-        policy=pulumi.get(__ret__, 'policy'))
+        policy=pulumi.get(__ret__, 'policy'),
+        region=pulumi.get(__ret__, 'region'))
 def get_bucket_policy_output(bucket: Optional[pulumi.Input[builtins.str]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketPolicyResult]:
     """
     The bucket policy data source returns IAM policy of an S3 bucket.
@@ -119,12 +133,15 @@ def get_bucket_policy_output(bucket: Optional[pulumi.Input[builtins.str]] = None
 
 
     :param builtins.str bucket: Bucket name.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['bucket'] = bucket
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:s3/getBucketPolicy:getBucketPolicy', __args__, opts=opts, typ=GetBucketPolicyResult)
     return __ret__.apply(lambda __response__: GetBucketPolicyResult(
         bucket=pulumi.get(__response__, 'bucket'),
         id=pulumi.get(__response__, 'id'),
-        policy=pulumi.get(__response__, 'policy')))
+        policy=pulumi.get(__response__, 'policy'),
+        region=pulumi.get(__response__, 'region')))

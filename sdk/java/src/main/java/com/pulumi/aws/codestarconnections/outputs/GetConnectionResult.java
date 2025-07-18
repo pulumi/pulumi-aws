@@ -37,6 +37,7 @@ public final class GetConnectionResult {
      * 
      */
     private String providerType;
+    private String region;
     /**
      * @return Map of key-value resource tags to associate with the resource.
      * 
@@ -82,6 +83,9 @@ public final class GetConnectionResult {
     public String providerType() {
         return this.providerType;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of key-value resource tags to associate with the resource.
      * 
@@ -105,6 +109,7 @@ public final class GetConnectionResult {
         private String id;
         private String name;
         private String providerType;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetConnectionResult defaults) {
@@ -115,6 +120,7 @@ public final class GetConnectionResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.providerType = defaults.providerType;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -167,6 +173,14 @@ public final class GetConnectionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetConnectionResult", "tags");
@@ -182,6 +196,7 @@ public final class GetConnectionResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.providerType = providerType;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

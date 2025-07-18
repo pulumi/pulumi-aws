@@ -62,6 +62,10 @@ export class Resource extends pulumi.CustomResource {
      */
     public /*out*/ readonly properties!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
@@ -95,6 +99,7 @@ export class Resource extends pulumi.CustomResource {
             const state = argsOrState as ResourceState | undefined;
             resourceInputs["desiredState"] = state ? state.desiredState : undefined;
             resourceInputs["properties"] = state ? state.properties : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
             resourceInputs["typeName"] = state ? state.typeName : undefined;
@@ -108,6 +113,7 @@ export class Resource extends pulumi.CustomResource {
                 throw new Error("Missing required property 'typeName'");
             }
             resourceInputs["desiredState"] = args ? args.desiredState : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["schema"] = args?.schema ? pulumi.secret(args.schema) : undefined;
             resourceInputs["typeName"] = args ? args.typeName : undefined;
@@ -133,6 +139,10 @@ export interface ResourceState {
      * JSON string matching the CloudFormation resource type schema with current configuration. Underlying attributes can be referenced via the `jsondecode()` function, for example, `jsondecode(data.aws_cloudcontrolapi_resource.example.properties)["example"]`.
      */
     properties?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
      */
@@ -161,6 +171,10 @@ export interface ResourceArgs {
      * JSON string matching the CloudFormation resource type schema with desired configuration.
      */
     desiredState: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
      */

@@ -167,6 +167,12 @@ namespace Pulumi.Aws.Ec2
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetVpcIpamPoolsArgs()
         {
         }
@@ -189,6 +195,12 @@ namespace Pulumi.Aws.Ec2
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetVpcIpamPoolsInvokeArgs()
         {
         }
@@ -208,6 +220,7 @@ namespace Pulumi.Aws.Ec2
         /// List of IPAM pools and their attributes. See below for details
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcIpamPoolsIpamPoolResult> IpamPools;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetVpcIpamPoolsResult(
@@ -215,11 +228,14 @@ namespace Pulumi.Aws.Ec2
 
             string id,
 
-            ImmutableArray<Outputs.GetVpcIpamPoolsIpamPoolResult> ipamPools)
+            ImmutableArray<Outputs.GetVpcIpamPoolsIpamPoolResult> ipamPools,
+
+            string region)
         {
             Filters = filters;
             Id = id;
             IpamPools = ipamPools;
+            Region = region;
         }
     }
 }

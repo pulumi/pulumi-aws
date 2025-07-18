@@ -27,7 +27,7 @@ class GetIntentResult:
     """
     A collection of values returned by getIntent.
     """
-    def __init__(__self__, arn=None, checksum=None, created_date=None, description=None, id=None, last_updated_date=None, name=None, parent_intent_signature=None, version=None):
+    def __init__(__self__, arn=None, checksum=None, created_date=None, description=None, id=None, last_updated_date=None, name=None, parent_intent_signature=None, region=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -52,6 +52,9 @@ class GetIntentResult:
         if parent_intent_signature and not isinstance(parent_intent_signature, str):
             raise TypeError("Expected argument 'parent_intent_signature' to be a str")
         pulumi.set(__self__, "parent_intent_signature", parent_intent_signature)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
@@ -126,6 +129,11 @@ class GetIntentResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def version(self) -> Optional[builtins.str]:
         """
         Version of the bot.
@@ -147,10 +155,12 @@ class AwaitableGetIntentResult(GetIntentResult):
             last_updated_date=self.last_updated_date,
             name=self.name,
             parent_intent_signature=self.parent_intent_signature,
+            region=self.region,
             version=self.version)
 
 
 def get_intent(name: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                version: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntentResult:
     """
@@ -168,10 +178,12 @@ def get_intent(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the intent. The name is case sensitive.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str version: Version of the intent.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['version'] = version
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:lex/getIntent:getIntent', __args__, opts=opts, typ=GetIntentResult).value
@@ -185,8 +197,10 @@ def get_intent(name: Optional[builtins.str] = None,
         last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
         name=pulumi.get(__ret__, 'name'),
         parent_intent_signature=pulumi.get(__ret__, 'parent_intent_signature'),
+        region=pulumi.get(__ret__, 'region'),
         version=pulumi.get(__ret__, 'version'))
 def get_intent_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       version: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntentResult]:
     """
@@ -204,10 +218,12 @@ def get_intent_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the intent. The name is case sensitive.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str version: Version of the intent.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['version'] = version
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lex/getIntent:getIntent', __args__, opts=opts, typ=GetIntentResult)
@@ -220,4 +236,5 @@ def get_intent_output(name: Optional[pulumi.Input[builtins.str]] = None,
         last_updated_date=pulumi.get(__response__, 'last_updated_date'),
         name=pulumi.get(__response__, 'name'),
         parent_intent_signature=pulumi.get(__response__, 'parent_intent_signature'),
+        region=pulumi.get(__response__, 'region'),
         version=pulumi.get(__response__, 'version')))

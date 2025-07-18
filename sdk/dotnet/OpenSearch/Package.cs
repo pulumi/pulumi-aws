@@ -25,14 +25,14 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var myOpensearchPackages = new Aws.S3.BucketV2("my_opensearch_packages", new()
+    ///     var myOpensearchPackages = new Aws.S3.Bucket("my_opensearch_packages", new()
     ///     {
-    ///         Bucket = "my-opensearch-packages",
+    ///         BucketName = "my-opensearch-packages",
     ///     });
     /// 
     ///     var example = new Aws.S3.BucketObjectv2("example", new()
     ///     {
-    ///         Bucket = myOpensearchPackages.Bucket,
+    ///         Bucket = myOpensearchPackages.BucketName,
     ///         Key = "example.txt",
     ///         Source = new FileAsset("./example.txt"),
     ///         Etag = Std.Filemd5.Invoke(new()
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.OpenSearch
     ///         PackageName = "example-txt",
     ///         PackageSource = new Aws.OpenSearch.Inputs.PackagePackageSourceArgs
     ///         {
-    ///             S3BucketName = myOpensearchPackages.Bucket,
+    ///             S3BucketName = myOpensearchPackages.BucketName,
     ///             S3Key = example.Key,
     ///         },
     ///         PackageType = "TXT-DICTIONARY",
@@ -98,6 +98,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Output("packageType")]
         public Output<string> PackageType { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
 
         /// <summary>
@@ -169,6 +175,12 @@ namespace Pulumi.Aws.OpenSearch
         [Input("packageType", required: true)]
         public Input<string> PackageType { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public PackageArgs()
         {
         }
@@ -209,6 +221,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("packageType")]
         public Input<string>? PackageType { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public PackageState()
         {

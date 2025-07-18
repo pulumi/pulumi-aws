@@ -55,8 +55,8 @@ namespace Pulumi.Aws.Inspector
         /// });
         /// ```
         /// </summary>
-        public static Task<GetRulesPackagesResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetRulesPackagesResult> InvokeAsync(GetRulesPackagesArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", args ?? new GetRulesPackagesArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
@@ -102,8 +102,8 @@ namespace Pulumi.Aws.Inspector
         /// });
         /// ```
         /// </summary>
-        public static Output<GetRulesPackagesResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetRulesPackagesResult> Invoke(GetRulesPackagesInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", args ?? new GetRulesPackagesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
@@ -149,8 +149,37 @@ namespace Pulumi.Aws.Inspector
         /// });
         /// ```
         /// </summary>
-        public static Output<GetRulesPackagesResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetRulesPackagesResult> Invoke(GetRulesPackagesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRulesPackagesResult>("aws:inspector/getRulesPackages:getRulesPackages", args ?? new GetRulesPackagesInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetRulesPackagesArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetRulesPackagesArgs()
+        {
+        }
+        public static new GetRulesPackagesArgs Empty => new GetRulesPackagesArgs();
+    }
+
+    public sealed class GetRulesPackagesInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetRulesPackagesInvokeArgs()
+        {
+        }
+        public static new GetRulesPackagesInvokeArgs Empty => new GetRulesPackagesInvokeArgs();
     }
 
 
@@ -165,15 +194,19 @@ namespace Pulumi.Aws.Inspector
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetRulesPackagesResult(
             ImmutableArray<string> arns,
 
-            string id)
+            string id,
+
+            string region)
         {
             Arns = arns;
             Id = id;
+            Region = region;
         }
     }
 }

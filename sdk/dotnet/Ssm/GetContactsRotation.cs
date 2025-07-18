@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Ssm
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetContactsRotationArgs()
         {
         }
@@ -106,6 +112,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetContactsRotationInvokeArgs()
         {
@@ -131,6 +143,7 @@ namespace Pulumi.Aws.Ssm
         /// Information about when an on-call rotation is in effect and how long the rotation period lasts.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetContactsRotationRecurrenceResult> Recurrences;
+        public readonly string Region;
         /// <summary>
         /// The date and time, in RFC 3339 format, that the rotation goes into effect.
         /// </summary>
@@ -156,6 +169,8 @@ namespace Pulumi.Aws.Ssm
 
             ImmutableArray<Outputs.GetContactsRotationRecurrenceResult> recurrences,
 
+            string region,
+
             string startTime,
 
             ImmutableDictionary<string, string> tags,
@@ -167,6 +182,7 @@ namespace Pulumi.Aws.Ssm
             Id = id;
             Name = name;
             Recurrences = recurrences;
+            Region = region;
             StartTime = startTime;
             Tags = tags;
             TimeZoneId = timeZoneId;

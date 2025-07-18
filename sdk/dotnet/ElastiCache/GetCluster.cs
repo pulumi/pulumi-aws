@@ -93,6 +93,12 @@ namespace Pulumi.Aws.ElastiCache
         [Input("clusterId", required: true)]
         public string ClusterId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("clusterId", required: true)]
         public Input<string> ClusterId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -215,6 +227,7 @@ namespace Pulumi.Aws.ElastiCache
         /// The outpost ARN in which the cache cluster was created if created in outpost.
         /// </summary>
         public readonly string PreferredOutpostArn;
+        public readonly string Region;
         /// <summary>
         /// The replication group to which this cache cluster belongs.
         /// </summary>
@@ -282,6 +295,8 @@ namespace Pulumi.Aws.ElastiCache
 
             string preferredOutpostArn,
 
+            string region,
+
             string replicationGroupId,
 
             ImmutableArray<string> securityGroupIds,
@@ -313,6 +328,7 @@ namespace Pulumi.Aws.ElastiCache
             ParameterGroupName = parameterGroupName;
             Port = port;
             PreferredOutpostArn = preferredOutpostArn;
+            Region = region;
             ReplicationGroupId = replicationGroupId;
             SecurityGroupIds = securityGroupIds;
             SnapshotRetentionLimit = snapshotRetentionLimit;

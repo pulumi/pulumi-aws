@@ -29,7 +29,7 @@ class GetVpcEndpointServiceResult:
     """
     A collection of values returned by getVpcEndpointService.
     """
-    def __init__(__self__, acceptance_required=None, arn=None, availability_zones=None, base_endpoint_dns_names=None, filters=None, id=None, manages_vpc_endpoints=None, owner=None, private_dns_name=None, private_dns_names=None, region=None, service=None, service_id=None, service_name=None, service_regions=None, service_type=None, supported_ip_address_types=None, tags=None, vpc_endpoint_policy_supported=None):
+    def __init__(__self__, acceptance_required=None, arn=None, availability_zones=None, base_endpoint_dns_names=None, filters=None, id=None, manages_vpc_endpoints=None, owner=None, private_dns_name=None, private_dns_names=None, region=None, service=None, service_id=None, service_name=None, service_region=None, service_regions=None, service_type=None, supported_ip_address_types=None, tags=None, vpc_endpoint_policy_supported=None):
         if acceptance_required and not isinstance(acceptance_required, bool):
             raise TypeError("Expected argument 'acceptance_required' to be a bool")
         pulumi.set(__self__, "acceptance_required", acceptance_required)
@@ -72,6 +72,9 @@ class GetVpcEndpointServiceResult:
         if service_name and not isinstance(service_name, str):
             raise TypeError("Expected argument 'service_name' to be a str")
         pulumi.set(__self__, "service_name", service_name)
+        if service_region and not isinstance(service_region, str):
+            raise TypeError("Expected argument 'service_region' to be a str")
+        pulumi.set(__self__, "service_region", service_region)
         if service_regions and not isinstance(service_regions, list):
             raise TypeError("Expected argument 'service_regions' to be a list")
         pulumi.set(__self__, "service_regions", service_regions)
@@ -167,9 +170,10 @@ class GetVpcEndpointServiceResult:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""region is deprecated. Use service_region instead.""")
     def region(self) -> builtins.str:
         """
-        Region of the endpoint service.
+        (**Deprecated**) Region of the endpoint service. Use `service_region` instead.
         """
         return pulumi.get(self, "region")
 
@@ -190,6 +194,14 @@ class GetVpcEndpointServiceResult:
     @pulumi.getter(name="serviceName")
     def service_name(self) -> builtins.str:
         return pulumi.get(self, "service_name")
+
+    @property
+    @pulumi.getter(name="serviceRegion")
+    def service_region(self) -> builtins.str:
+        """
+        Region of the endpoint service.
+        """
+        return pulumi.get(self, "service_region")
 
     @property
     @pulumi.getter(name="serviceRegions")
@@ -246,6 +258,7 @@ class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
             service=self.service,
             service_id=self.service_id,
             service_name=self.service_name,
+            service_region=self.service_region,
             service_regions=self.service_regions,
             service_type=self.service_type,
             supported_ip_address_types=self.supported_ip_address_types,
@@ -339,6 +352,7 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[Union['GetVpcEndpointSer
         service=pulumi.get(__ret__, 'service'),
         service_id=pulumi.get(__ret__, 'service_id'),
         service_name=pulumi.get(__ret__, 'service_name'),
+        service_region=pulumi.get(__ret__, 'service_region'),
         service_regions=pulumi.get(__ret__, 'service_regions'),
         service_type=pulumi.get(__ret__, 'service_type'),
         supported_ip_address_types=pulumi.get(__ret__, 'supported_ip_address_types'),
@@ -429,6 +443,7 @@ def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequ
         service=pulumi.get(__response__, 'service'),
         service_id=pulumi.get(__response__, 'service_id'),
         service_name=pulumi.get(__response__, 'service_name'),
+        service_region=pulumi.get(__response__, 'service_region'),
         service_regions=pulumi.get(__response__, 'service_regions'),
         service_type=pulumi.get(__response__, 'service_type'),
         supported_ip_address_types=pulumi.get(__response__, 'supported_ip_address_types'),

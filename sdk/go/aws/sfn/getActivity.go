@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sfn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ type LookupActivityArgs struct {
 	Arn *string `pulumi:"arn"`
 	// Name that identifies the activity.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getActivity.
@@ -62,8 +64,9 @@ type LookupActivityResult struct {
 	// Date the activity was created.
 	CreationDate string `pulumi:"creationDate"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 }
 
 func LookupActivityOutput(ctx *pulumi.Context, args LookupActivityOutputArgs, opts ...pulumi.InvokeOption) LookupActivityResultOutput {
@@ -81,6 +84,8 @@ type LookupActivityOutputArgs struct {
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Name that identifies the activity.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupActivityOutputArgs) ElementType() reflect.Type {
@@ -118,6 +123,10 @@ func (o LookupActivityResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupActivityResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupActivityResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupActivityResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActivityResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

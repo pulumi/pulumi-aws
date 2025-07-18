@@ -18,7 +18,6 @@ from . import outputs
 
 __all__ = [
     'AccountThrottleSetting',
-    'DeploymentCanarySettings',
     'DocumentationPartLocation',
     'DomainNameEndpointConfiguration',
     'DomainNameMutualTlsAuthentication',
@@ -83,70 +82,6 @@ class AccountThrottleSetting(dict):
         Number of times API Gateway allows the API to be called per second on average (RPS).
         """
         return pulumi.get(self, "rate_limit")
-
-
-@pulumi.output_type
-class DeploymentCanarySettings(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "percentTraffic":
-            suggest = "percent_traffic"
-        elif key == "stageVariableOverrides":
-            suggest = "stage_variable_overrides"
-        elif key == "useStageCache":
-            suggest = "use_stage_cache"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DeploymentCanarySettings. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DeploymentCanarySettings.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DeploymentCanarySettings.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 percent_traffic: Optional[builtins.float] = None,
-                 stage_variable_overrides: Optional[Mapping[str, builtins.str]] = None,
-                 use_stage_cache: Optional[builtins.bool] = None):
-        """
-        :param builtins.float percent_traffic: Percentage (0.0-100.0) of traffic routed to the canary deployment.
-        :param Mapping[str, builtins.str] stage_variable_overrides: Stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
-        :param builtins.bool use_stage_cache: Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
-        """
-        if percent_traffic is not None:
-            pulumi.set(__self__, "percent_traffic", percent_traffic)
-        if stage_variable_overrides is not None:
-            pulumi.set(__self__, "stage_variable_overrides", stage_variable_overrides)
-        if use_stage_cache is not None:
-            pulumi.set(__self__, "use_stage_cache", use_stage_cache)
-
-    @property
-    @pulumi.getter(name="percentTraffic")
-    def percent_traffic(self) -> Optional[builtins.float]:
-        """
-        Percentage (0.0-100.0) of traffic routed to the canary deployment.
-        """
-        return pulumi.get(self, "percent_traffic")
-
-    @property
-    @pulumi.getter(name="stageVariableOverrides")
-    def stage_variable_overrides(self) -> Optional[Mapping[str, builtins.str]]:
-        """
-        Stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.
-        """
-        return pulumi.get(self, "stage_variable_overrides")
-
-    @property
-    @pulumi.getter(name="useStageCache")
-    def use_stage_cache(self) -> Optional[builtins.bool]:
-        """
-        Boolean flag to indicate whether the canary release deployment uses the stage cache or not.
-        """
-        return pulumi.get(self, "use_stage_cache")
 
 
 @pulumi.output_type

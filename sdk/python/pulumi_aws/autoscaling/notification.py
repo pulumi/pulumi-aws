@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['NotificationArgs', 'Notification']
 
@@ -21,18 +22,22 @@ __all__ = ['NotificationArgs', 'Notification']
 class NotificationArgs:
     def __init__(__self__, *,
                  group_names: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
-                 notifications: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
-                 topic_arn: pulumi.Input[builtins.str]):
+                 notifications: pulumi.Input[Sequence[pulumi.Input['NotificationType']]],
+                 topic_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Notification resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] group_names: List of AutoScaling Group Names
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] notifications: List of Notification Types that trigger
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationType']]] notifications: List of Notification Types that trigger
                notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         :param pulumi.Input[builtins.str] topic_arn: Topic ARN for notifications to be sent through
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "group_names", group_names)
         pulumi.set(__self__, "notifications", notifications)
         pulumi.set(__self__, "topic_arn", topic_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="groupNames")
@@ -48,7 +53,7 @@ class NotificationArgs:
 
     @property
     @pulumi.getter
-    def notifications(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+    def notifications(self) -> pulumi.Input[Sequence[pulumi.Input['NotificationType']]]:
         """
         List of Notification Types that trigger
         notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
@@ -56,7 +61,7 @@ class NotificationArgs:
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+    def notifications(self, value: pulumi.Input[Sequence[pulumi.Input['NotificationType']]]):
         pulumi.set(self, "notifications", value)
 
     @property
@@ -71,24 +76,40 @@ class NotificationArgs:
     def topic_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "topic_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _NotificationState:
     def __init__(__self__, *,
                  group_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationType']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  topic_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Notification resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] group_names: List of AutoScaling Group Names
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] notifications: List of Notification Types that trigger
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationType']]] notifications: List of Notification Types that trigger
                notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] topic_arn: Topic ARN for notifications to be sent through
         """
         if group_names is not None:
             pulumi.set(__self__, "group_names", group_names)
         if notifications is not None:
             pulumi.set(__self__, "notifications", notifications)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if topic_arn is not None:
             pulumi.set(__self__, "topic_arn", topic_arn)
 
@@ -106,7 +127,7 @@ class _NotificationState:
 
     @property
     @pulumi.getter
-    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def notifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationType']]]]:
         """
         List of Notification Types that trigger
         notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
@@ -114,8 +135,20 @@ class _NotificationState:
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def notifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationType']]]]):
         pulumi.set(self, "notifications", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="topicArn")
@@ -137,7 +170,8 @@ class Notification(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationType']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  topic_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -162,10 +196,10 @@ class Notification(pulumi.CustomResource):
                 foo.name,
             ],
             notifications=[
-                "autoscaling:EC2_INSTANCE_LAUNCH",
-                "autoscaling:EC2_INSTANCE_TERMINATE",
-                "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-                "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+                aws.autoscaling.NotificationType.INSTANCE_LAUNCH,
+                aws.autoscaling.NotificationType.INSTANCE_TERMINATE,
+                aws.autoscaling.NotificationType.INSTANCE_LAUNCH_ERROR,
+                aws.autoscaling.NotificationType.INSTANCE_TERMINATE_ERROR,
             ],
             topic_arn=example.arn)
         ```
@@ -173,8 +207,9 @@ class Notification(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] group_names: List of AutoScaling Group Names
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] notifications: List of Notification Types that trigger
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationType']]] notifications: List of Notification Types that trigger
                notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] topic_arn: Topic ARN for notifications to be sent through
         """
         ...
@@ -205,10 +240,10 @@ class Notification(pulumi.CustomResource):
                 foo.name,
             ],
             notifications=[
-                "autoscaling:EC2_INSTANCE_LAUNCH",
-                "autoscaling:EC2_INSTANCE_TERMINATE",
-                "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-                "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+                aws.autoscaling.NotificationType.INSTANCE_LAUNCH,
+                aws.autoscaling.NotificationType.INSTANCE_TERMINATE,
+                aws.autoscaling.NotificationType.INSTANCE_LAUNCH_ERROR,
+                aws.autoscaling.NotificationType.INSTANCE_TERMINATE_ERROR,
             ],
             topic_arn=example.arn)
         ```
@@ -229,7 +264,8 @@ class Notification(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationType']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  topic_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -246,6 +282,7 @@ class Notification(pulumi.CustomResource):
             if notifications is None and not opts.urn:
                 raise TypeError("Missing required property 'notifications'")
             __props__.__dict__["notifications"] = notifications
+            __props__.__dict__["region"] = region
             if topic_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_arn'")
             __props__.__dict__["topic_arn"] = topic_arn
@@ -260,7 +297,8 @@ class Notification(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             group_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-            notifications: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            notifications: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationType']]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             topic_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'Notification':
         """
         Get an existing Notification resource's state with the given name, id, and optional extra
@@ -270,8 +308,9 @@ class Notification(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] group_names: List of AutoScaling Group Names
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] notifications: List of Notification Types that trigger
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationType']]] notifications: List of Notification Types that trigger
                notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] topic_arn: Topic ARN for notifications to be sent through
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -280,6 +319,7 @@ class Notification(pulumi.CustomResource):
 
         __props__.__dict__["group_names"] = group_names
         __props__.__dict__["notifications"] = notifications
+        __props__.__dict__["region"] = region
         __props__.__dict__["topic_arn"] = topic_arn
         return Notification(resource_name, opts=opts, __props__=__props__)
 
@@ -293,12 +333,20 @@ class Notification(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def notifications(self) -> pulumi.Output[Sequence[builtins.str]]:
+    def notifications(self) -> pulumi.Output[Sequence['NotificationType']]:
         """
         List of Notification Types that trigger
         notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
         """
         return pulumi.get(self, "notifications")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="topicArn")

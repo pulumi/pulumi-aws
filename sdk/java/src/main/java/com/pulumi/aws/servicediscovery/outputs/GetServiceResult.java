@@ -52,20 +52,12 @@ public final class GetServiceResult {
      * 
      */
     private String namespaceId;
+    private String region;
     /**
      * @return Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     private @Nullable Map<String,String> tags;
-    /**
-     * @return (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * tags_all is deprecated. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
-    private Map<String,String> tagsAll;
 
     private GetServiceResult() {}
     /**
@@ -120,23 +112,15 @@ public final class GetServiceResult {
     public String namespaceId() {
         return this.namespaceId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
-    }
-    /**
-     * @return (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * tags_all is deprecated. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
-    public Map<String,String> tagsAll() {
-        return this.tagsAll;
     }
 
     public static Builder builder() {
@@ -156,8 +140,8 @@ public final class GetServiceResult {
         private String id;
         private String name;
         private String namespaceId;
+        private String region;
         private @Nullable Map<String,String> tags;
-        private Map<String,String> tagsAll;
         public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -169,8 +153,8 @@ public final class GetServiceResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.namespaceId = defaults.namespaceId;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
-    	      this.tagsAll = defaults.tagsAll;
         }
 
         @CustomType.Setter
@@ -247,17 +231,17 @@ public final class GetServiceResult {
             return this;
         }
         @CustomType.Setter
-        public Builder tags(@Nullable Map<String,String> tags) {
-
-            this.tags = tags;
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            if (tagsAll == null) {
-              throw new MissingRequiredPropertyException("GetServiceResult", "tagsAll");
-            }
-            this.tagsAll = tagsAll;
+        public Builder tags(@Nullable Map<String,String> tags) {
+
+            this.tags = tags;
             return this;
         }
         public GetServiceResult build() {
@@ -270,8 +254,8 @@ public final class GetServiceResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.namespaceId = namespaceId;
+            _resultValue.region = region;
             _resultValue.tags = tags;
-            _resultValue.tagsAll = tagsAll;
             return _resultValue;
         }
     }

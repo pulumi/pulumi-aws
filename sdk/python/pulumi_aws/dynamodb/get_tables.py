@@ -27,13 +27,16 @@ class GetTablesResult:
     """
     A collection of values returned by getTables.
     """
-    def __init__(__self__, id=None, names=None):
+    def __init__(__self__, id=None, names=None, region=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if names and not isinstance(names, list):
             raise TypeError("Expected argument 'names' to be a list")
         pulumi.set(__self__, "names", names)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -51,6 +54,11 @@ class GetTablesResult:
         """
         return pulumi.get(self, "names")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetTablesResult(GetTablesResult):
     # pylint: disable=using-constant-test
@@ -59,10 +67,12 @@ class AwaitableGetTablesResult(GetTablesResult):
             yield self
         return GetTablesResult(
             id=self.id,
-            names=self.names)
+            names=self.names,
+            region=self.region)
 
 
-def get_tables(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTablesResult:
+def get_tables(region: Optional[builtins.str] = None,
+               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTablesResult:
     """
     Returns a list of all AWS DynamoDB table names in a region.
 
@@ -77,15 +87,21 @@ def get_tables(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTable
     all = aws.dynamodb.get_tables()
     pulumi.export("tableNames", all.names)
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:dynamodb/getTables:getTables', __args__, opts=opts, typ=GetTablesResult).value
 
     return AwaitableGetTablesResult(
         id=pulumi.get(__ret__, 'id'),
-        names=pulumi.get(__ret__, 'names'))
-def get_tables_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTablesResult]:
+        names=pulumi.get(__ret__, 'names'),
+        region=pulumi.get(__ret__, 'region'))
+def get_tables_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTablesResult]:
     """
     Returns a list of all AWS DynamoDB table names in a region.
 
@@ -100,10 +116,15 @@ def get_tables_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOu
     all = aws.dynamodb.get_tables()
     pulumi.export("tableNames", all.names)
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:dynamodb/getTables:getTables', __args__, opts=opts, typ=GetTablesResult)
     return __ret__.apply(lambda __response__: GetTablesResult(
         id=pulumi.get(__response__, 'id'),
-        names=pulumi.get(__response__, 'names')))
+        names=pulumi.get(__response__, 'names'),
+        region=pulumi.get(__response__, 'region')))

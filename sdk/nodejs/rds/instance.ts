@@ -575,10 +575,6 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly multiAz!: pulumi.Output<boolean>;
     /**
-     * @deprecated This property has been deprecated. Please use 'dbName' instead.
-     */
-    public readonly name!: pulumi.Output<string | undefined>;
-    /**
      * The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
      * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
      */
@@ -620,6 +616,10 @@ export class Instance extends pulumi.CustomResource {
      * accessible. Default is `false`.
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     /**
      * Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
      * is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
@@ -690,8 +690,6 @@ export class Instance extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -784,7 +782,6 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["monitoringInterval"] = state ? state.monitoringInterval : undefined;
             resourceInputs["monitoringRoleArn"] = state ? state.monitoringRoleArn : undefined;
             resourceInputs["multiAz"] = state ? state.multiAz : undefined;
-            resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ncharCharacterSetName"] = state ? state.ncharCharacterSetName : undefined;
             resourceInputs["networkType"] = state ? state.networkType : undefined;
             resourceInputs["optionGroupName"] = state ? state.optionGroupName : undefined;
@@ -795,6 +792,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["performanceInsightsRetentionPeriod"] = state ? state.performanceInsightsRetentionPeriod : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicaMode"] = state ? state.replicaMode : undefined;
             resourceInputs["replicas"] = state ? state.replicas : undefined;
             resourceInputs["replicateSourceDb"] = state ? state.replicateSourceDb : undefined;
@@ -863,7 +861,6 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["monitoringInterval"] = args ? args.monitoringInterval : undefined;
             resourceInputs["monitoringRoleArn"] = args ? args.monitoringRoleArn : undefined;
             resourceInputs["multiAz"] = args ? args.multiAz : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["ncharCharacterSetName"] = args ? args.ncharCharacterSetName : undefined;
             resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["optionGroupName"] = args ? args.optionGroupName : undefined;
@@ -874,6 +871,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["performanceInsightsRetentionPeriod"] = args ? args.performanceInsightsRetentionPeriod : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicaMode"] = args ? args.replicaMode : undefined;
             resourceInputs["replicateSourceDb"] = args ? args.replicateSourceDb : undefined;
             resourceInputs["restoreToPointInTime"] = args ? args.restoreToPointInTime : undefined;
@@ -1178,10 +1176,6 @@ export interface InstanceState {
      */
     multiAz?: pulumi.Input<boolean>;
     /**
-     * @deprecated This property has been deprecated. Please use 'dbName' instead.
-     */
-    name?: pulumi.Input<string>;
-    /**
      * The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
      * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
      */
@@ -1223,6 +1217,10 @@ export interface InstanceState {
      * accessible. Default is `false`.
      */
     publiclyAccessible?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
      * is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
@@ -1293,8 +1291,6 @@ export interface InstanceState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -1560,10 +1556,6 @@ export interface InstanceArgs {
      */
     multiAz?: pulumi.Input<boolean>;
     /**
-     * @deprecated This property has been deprecated. Please use 'dbName' instead.
-     */
-    name?: pulumi.Input<string>;
-    /**
      * The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
      * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
      */
@@ -1605,6 +1597,10 @@ export interface InstanceArgs {
      * accessible. Default is `false`.
      */
     publiclyAccessible?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
      * is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.

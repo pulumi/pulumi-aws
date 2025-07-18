@@ -31,21 +31,17 @@ class ClusterArgs:
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
                  availability_zone_relocation_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  cluster_parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
-                 cluster_public_key: Optional[pulumi.Input[builtins.str]] = None,
-                 cluster_revision_number: Optional[pulumi.Input[builtins.str]] = None,
                  cluster_subnet_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  cluster_type: Optional[pulumi.Input[builtins.str]] = None,
                  cluster_version: Optional[pulumi.Input[builtins.str]] = None,
                  database_name: Optional[pulumi.Input[builtins.str]] = None,
                  default_iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  elastic_ip: Optional[pulumi.Input[builtins.str]] = None,
-                 encrypted: Optional[pulumi.Input[builtins.bool]] = None,
-                 endpoint: Optional[pulumi.Input[builtins.str]] = None,
+                 encrypted: Optional[pulumi.Input[builtins.str]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[builtins.bool]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
-                 logging: Optional[pulumi.Input['ClusterLoggingArgs']] = None,
                  maintenance_track_name: Optional[pulumi.Input[builtins.str]] = None,
                  manage_master_password: Optional[pulumi.Input[builtins.bool]] = None,
                  manual_snapshot_retention_period: Optional[pulumi.Input[builtins.int]] = None,
@@ -58,10 +54,10 @@ class ClusterArgs:
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
                  snapshot_arn: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
-                 snapshot_copy: Optional[pulumi.Input['ClusterSnapshotCopyArgs']] = None,
                  snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
@@ -78,8 +74,6 @@ class ClusterArgs:
         :param pulumi.Input[builtins.str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
         :param pulumi.Input[builtins.bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
         :param pulumi.Input[builtins.str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
-        :param pulumi.Input[builtins.str] cluster_public_key: The public key for the cluster
-        :param pulumi.Input[builtins.str] cluster_revision_number: The specific revision number of the database in the cluster
         :param pulumi.Input[builtins.str] cluster_subnet_group_name: The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
         :param pulumi.Input[builtins.str] cluster_type: The cluster type to use. Either `single-node` or `multi-node`.
         :param pulumi.Input[builtins.str] cluster_version: The version of the Amazon Redshift engine software that you want to deploy on the cluster.
@@ -88,13 +82,12 @@ class ClusterArgs:
                If you do not provide a name, Amazon Redshift will create a default database called `dev`.
         :param pulumi.Input[builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[builtins.str] elastic_ip: The Elastic IP (EIP) address for the cluster.
-        :param pulumi.Input[builtins.bool] encrypted: If true , the data in the cluster is encrypted at rest.
-        :param pulumi.Input[builtins.str] endpoint: The connection endpoint
+        :param pulumi.Input[builtins.str] encrypted: If true , the data in the cluster is encrypted at rest.
+               Default is `true`.
         :param pulumi.Input[builtins.bool] enhanced_vpc_routing: If true , enhanced VPC routing is enabled.
         :param pulumi.Input[builtins.str] final_snapshot_identifier: The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         :param pulumi.Input[builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
-        :param pulumi.Input['ClusterLoggingArgs'] logging: Logging, documented below.
         :param pulumi.Input[builtins.str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
         :param pulumi.Input[builtins.bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials.
                Conflicts with `master_password` and `master_password_wo`.
@@ -116,11 +109,11 @@ class ClusterArgs:
                Default port is `5439`.
         :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
-        :param pulumi.Input[builtins.bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `true`.
+        :param pulumi.Input[builtins.bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
         :param pulumi.Input[builtins.str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
         :param pulumi.Input[builtins.str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
-        :param pulumi.Input['ClusterSnapshotCopyArgs'] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
         :param pulumi.Input[builtins.str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -147,10 +140,6 @@ class ClusterArgs:
             pulumi.set(__self__, "availability_zone_relocation_enabled", availability_zone_relocation_enabled)
         if cluster_parameter_group_name is not None:
             pulumi.set(__self__, "cluster_parameter_group_name", cluster_parameter_group_name)
-        if cluster_public_key is not None:
-            pulumi.set(__self__, "cluster_public_key", cluster_public_key)
-        if cluster_revision_number is not None:
-            pulumi.set(__self__, "cluster_revision_number", cluster_revision_number)
         if cluster_subnet_group_name is not None:
             pulumi.set(__self__, "cluster_subnet_group_name", cluster_subnet_group_name)
         if cluster_type is not None:
@@ -165,8 +154,6 @@ class ClusterArgs:
             pulumi.set(__self__, "elastic_ip", elastic_ip)
         if encrypted is not None:
             pulumi.set(__self__, "encrypted", encrypted)
-        if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
         if enhanced_vpc_routing is not None:
             pulumi.set(__self__, "enhanced_vpc_routing", enhanced_vpc_routing)
         if final_snapshot_identifier is not None:
@@ -175,11 +162,6 @@ class ClusterArgs:
             pulumi.set(__self__, "iam_roles", iam_roles)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
-        if logging is not None:
-            warnings.warn("""logging is deprecated. Use the redshift.Logging resource instead. This argument will be removed in a future major version.""", DeprecationWarning)
-            pulumi.log.warn("""logging is deprecated: logging is deprecated. Use the redshift.Logging resource instead. This argument will be removed in a future major version.""")
-        if logging is not None:
-            pulumi.set(__self__, "logging", logging)
         if maintenance_track_name is not None:
             pulumi.set(__self__, "maintenance_track_name", maintenance_track_name)
         if manage_master_password is not None:
@@ -204,17 +186,14 @@ class ClusterArgs:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if skip_final_snapshot is not None:
             pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
         if snapshot_arn is not None:
             pulumi.set(__self__, "snapshot_arn", snapshot_arn)
         if snapshot_cluster_identifier is not None:
             pulumi.set(__self__, "snapshot_cluster_identifier", snapshot_cluster_identifier)
-        if snapshot_copy is not None:
-            warnings.warn("""snapshot_copy is deprecated. Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""", DeprecationWarning)
-            pulumi.log.warn("""snapshot_copy is deprecated: snapshot_copy is deprecated. Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""")
-        if snapshot_copy is not None:
-            pulumi.set(__self__, "snapshot_copy", snapshot_copy)
         if snapshot_identifier is not None:
             pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
         if tags is not None:
@@ -334,30 +313,6 @@ class ClusterArgs:
         pulumi.set(self, "cluster_parameter_group_name", value)
 
     @property
-    @pulumi.getter(name="clusterPublicKey")
-    def cluster_public_key(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The public key for the cluster
-        """
-        return pulumi.get(self, "cluster_public_key")
-
-    @cluster_public_key.setter
-    def cluster_public_key(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "cluster_public_key", value)
-
-    @property
-    @pulumi.getter(name="clusterRevisionNumber")
-    def cluster_revision_number(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The specific revision number of the database in the cluster
-        """
-        return pulumi.get(self, "cluster_revision_number")
-
-    @cluster_revision_number.setter
-    def cluster_revision_number(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "cluster_revision_number", value)
-
-    @property
     @pulumi.getter(name="clusterSubnetGroupName")
     def cluster_subnet_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -433,27 +388,16 @@ class ClusterArgs:
 
     @property
     @pulumi.getter
-    def encrypted(self) -> Optional[pulumi.Input[builtins.bool]]:
+    def encrypted(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         If true , the data in the cluster is encrypted at rest.
+        Default is `true`.
         """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
-    def encrypted(self, value: Optional[pulumi.Input[builtins.bool]]):
+    def encrypted(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "encrypted", value)
-
-    @property
-    @pulumi.getter
-    def endpoint(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The connection endpoint
-        """
-        return pulumi.get(self, "endpoint")
-
-    @endpoint.setter
-    def endpoint(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "endpoint", value)
 
     @property
     @pulumi.getter(name="enhancedVpcRouting")
@@ -502,19 +446,6 @@ class ClusterArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""logging is deprecated. Use the redshift.Logging resource instead. This argument will be removed in a future major version.""")
-    def logging(self) -> Optional[pulumi.Input['ClusterLoggingArgs']]:
-        """
-        Logging, documented below.
-        """
-        return pulumi.get(self, "logging")
-
-    @logging.setter
-    def logging(self, value: Optional[pulumi.Input['ClusterLoggingArgs']]):
-        pulumi.set(self, "logging", value)
 
     @property
     @pulumi.getter(name="maintenanceTrackName")
@@ -662,13 +593,25 @@ class ClusterArgs:
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If true, the cluster can be accessed from a public network. Default is `true`.
+        If true, the cluster can be accessed from a public network. Default is `false`.
         """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
     def publicly_accessible(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "publicly_accessible", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="skipFinalSnapshot")
@@ -705,19 +648,6 @@ class ClusterArgs:
     @snapshot_cluster_identifier.setter
     def snapshot_cluster_identifier(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "snapshot_cluster_identifier", value)
-
-    @property
-    @pulumi.getter(name="snapshotCopy")
-    @_utilities.deprecated("""snapshot_copy is deprecated. Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""")
-    def snapshot_copy(self) -> Optional[pulumi.Input['ClusterSnapshotCopyArgs']]:
-        """
-        Configuration of automatic copy of snapshots from one region to another. Documented below.
-        """
-        return pulumi.get(self, "snapshot_copy")
-
-    @snapshot_copy.setter
-    def snapshot_copy(self, value: Optional[pulumi.Input['ClusterSnapshotCopyArgs']]):
-        pulumi.set(self, "snapshot_copy", value)
 
     @property
     @pulumi.getter(name="snapshotIdentifier")
@@ -782,13 +712,12 @@ class _ClusterState:
                  default_iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  dns_name: Optional[pulumi.Input[builtins.str]] = None,
                  elastic_ip: Optional[pulumi.Input[builtins.str]] = None,
-                 encrypted: Optional[pulumi.Input[builtins.bool]] = None,
+                 encrypted: Optional[pulumi.Input[builtins.str]] = None,
                  endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[builtins.bool]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
-                 logging: Optional[pulumi.Input['ClusterLoggingArgs']] = None,
                  maintenance_track_name: Optional[pulumi.Input[builtins.str]] = None,
                  manage_master_password: Optional[pulumi.Input[builtins.bool]] = None,
                  manual_snapshot_retention_period: Optional[pulumi.Input[builtins.int]] = None,
@@ -803,10 +732,10 @@ class _ClusterState:
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
                  snapshot_arn: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
-                 snapshot_copy: Optional[pulumi.Input['ClusterSnapshotCopyArgs']] = None,
                  snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -837,13 +766,13 @@ class _ClusterState:
         :param pulumi.Input[builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[builtins.str] dns_name: The DNS name of the cluster
         :param pulumi.Input[builtins.str] elastic_ip: The Elastic IP (EIP) address for the cluster.
-        :param pulumi.Input[builtins.bool] encrypted: If true , the data in the cluster is encrypted at rest.
+        :param pulumi.Input[builtins.str] encrypted: If true , the data in the cluster is encrypted at rest.
+               Default is `true`.
         :param pulumi.Input[builtins.str] endpoint: The connection endpoint
         :param pulumi.Input[builtins.bool] enhanced_vpc_routing: If true , enhanced VPC routing is enabled.
         :param pulumi.Input[builtins.str] final_snapshot_identifier: The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         :param pulumi.Input[builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
-        :param pulumi.Input['ClusterLoggingArgs'] logging: Logging, documented below.
         :param pulumi.Input[builtins.str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
         :param pulumi.Input[builtins.bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials.
                Conflicts with `master_password` and `master_password_wo`.
@@ -867,11 +796,11 @@ class _ClusterState:
                Default port is `5439`.
         :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
-        :param pulumi.Input[builtins.bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `true`.
+        :param pulumi.Input[builtins.bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
         :param pulumi.Input[builtins.str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
         :param pulumi.Input[builtins.str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
-        :param pulumi.Input['ClusterSnapshotCopyArgs'] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
         :param pulumi.Input[builtins.str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -935,11 +864,6 @@ class _ClusterState:
             pulumi.set(__self__, "iam_roles", iam_roles)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
-        if logging is not None:
-            warnings.warn("""logging is deprecated. Use the redshift.Logging resource instead. This argument will be removed in a future major version.""", DeprecationWarning)
-            pulumi.log.warn("""logging is deprecated: logging is deprecated. Use the redshift.Logging resource instead. This argument will be removed in a future major version.""")
-        if logging is not None:
-            pulumi.set(__self__, "logging", logging)
         if maintenance_track_name is not None:
             pulumi.set(__self__, "maintenance_track_name", maintenance_track_name)
         if manage_master_password is not None:
@@ -968,24 +892,18 @@ class _ClusterState:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if skip_final_snapshot is not None:
             pulumi.set(__self__, "skip_final_snapshot", skip_final_snapshot)
         if snapshot_arn is not None:
             pulumi.set(__self__, "snapshot_arn", snapshot_arn)
         if snapshot_cluster_identifier is not None:
             pulumi.set(__self__, "snapshot_cluster_identifier", snapshot_cluster_identifier)
-        if snapshot_copy is not None:
-            warnings.warn("""snapshot_copy is deprecated. Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""", DeprecationWarning)
-            pulumi.log.warn("""snapshot_copy is deprecated: snapshot_copy is deprecated. Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""")
-        if snapshot_copy is not None:
-            pulumi.set(__self__, "snapshot_copy", snapshot_copy)
         if snapshot_identifier is not None:
             pulumi.set(__self__, "snapshot_identifier", snapshot_identifier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_security_group_ids is not None:
@@ -1238,14 +1156,15 @@ class _ClusterState:
 
     @property
     @pulumi.getter
-    def encrypted(self) -> Optional[pulumi.Input[builtins.bool]]:
+    def encrypted(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         If true , the data in the cluster is encrypted at rest.
+        Default is `true`.
         """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
-    def encrypted(self, value: Optional[pulumi.Input[builtins.bool]]):
+    def encrypted(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "encrypted", value)
 
     @property
@@ -1307,19 +1226,6 @@ class _ClusterState:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""logging is deprecated. Use the redshift.Logging resource instead. This argument will be removed in a future major version.""")
-    def logging(self) -> Optional[pulumi.Input['ClusterLoggingArgs']]:
-        """
-        Logging, documented below.
-        """
-        return pulumi.get(self, "logging")
-
-    @logging.setter
-    def logging(self, value: Optional[pulumi.Input['ClusterLoggingArgs']]):
-        pulumi.set(self, "logging", value)
 
     @property
     @pulumi.getter(name="maintenanceTrackName")
@@ -1491,13 +1397,25 @@ class _ClusterState:
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If true, the cluster can be accessed from a public network. Default is `true`.
+        If true, the cluster can be accessed from a public network. Default is `false`.
         """
         return pulumi.get(self, "publicly_accessible")
 
     @publicly_accessible.setter
     def publicly_accessible(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "publicly_accessible", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="skipFinalSnapshot")
@@ -1536,19 +1454,6 @@ class _ClusterState:
         pulumi.set(self, "snapshot_cluster_identifier", value)
 
     @property
-    @pulumi.getter(name="snapshotCopy")
-    @_utilities.deprecated("""snapshot_copy is deprecated. Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""")
-    def snapshot_copy(self) -> Optional[pulumi.Input['ClusterSnapshotCopyArgs']]:
-        """
-        Configuration of automatic copy of snapshots from one region to another. Documented below.
-        """
-        return pulumi.get(self, "snapshot_copy")
-
-    @snapshot_copy.setter
-    def snapshot_copy(self, value: Optional[pulumi.Input['ClusterSnapshotCopyArgs']]):
-        pulumi.set(self, "snapshot_copy", value)
-
-    @property
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -1577,7 +1482,6 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1615,21 +1519,17 @@ class Cluster(pulumi.CustomResource):
                  availability_zone_relocation_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  cluster_parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
-                 cluster_public_key: Optional[pulumi.Input[builtins.str]] = None,
-                 cluster_revision_number: Optional[pulumi.Input[builtins.str]] = None,
                  cluster_subnet_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  cluster_type: Optional[pulumi.Input[builtins.str]] = None,
                  cluster_version: Optional[pulumi.Input[builtins.str]] = None,
                  database_name: Optional[pulumi.Input[builtins.str]] = None,
                  default_iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  elastic_ip: Optional[pulumi.Input[builtins.str]] = None,
-                 encrypted: Optional[pulumi.Input[builtins.bool]] = None,
-                 endpoint: Optional[pulumi.Input[builtins.str]] = None,
+                 encrypted: Optional[pulumi.Input[builtins.str]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[builtins.bool]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
-                 logging: Optional[pulumi.Input[Union['ClusterLoggingArgs', 'ClusterLoggingArgsDict']]] = None,
                  maintenance_track_name: Optional[pulumi.Input[builtins.str]] = None,
                  manage_master_password: Optional[pulumi.Input[builtins.bool]] = None,
                  manual_snapshot_retention_period: Optional[pulumi.Input[builtins.int]] = None,
@@ -1643,10 +1543,10 @@ class Cluster(pulumi.CustomResource):
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
                  snapshot_arn: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
-                 snapshot_copy: Optional[pulumi.Input[Union['ClusterSnapshotCopyArgs', 'ClusterSnapshotCopyArgsDict']]] = None,
                  snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -1704,8 +1604,6 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
         :param pulumi.Input[builtins.str] cluster_identifier: The Cluster Identifier. Must be a lower case string.
         :param pulumi.Input[builtins.str] cluster_parameter_group_name: The name of the parameter group to be associated with this cluster.
-        :param pulumi.Input[builtins.str] cluster_public_key: The public key for the cluster
-        :param pulumi.Input[builtins.str] cluster_revision_number: The specific revision number of the database in the cluster
         :param pulumi.Input[builtins.str] cluster_subnet_group_name: The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
         :param pulumi.Input[builtins.str] cluster_type: The cluster type to use. Either `single-node` or `multi-node`.
         :param pulumi.Input[builtins.str] cluster_version: The version of the Amazon Redshift engine software that you want to deploy on the cluster.
@@ -1714,13 +1612,12 @@ class Cluster(pulumi.CustomResource):
                If you do not provide a name, Amazon Redshift will create a default database called `dev`.
         :param pulumi.Input[builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[builtins.str] elastic_ip: The Elastic IP (EIP) address for the cluster.
-        :param pulumi.Input[builtins.bool] encrypted: If true , the data in the cluster is encrypted at rest.
-        :param pulumi.Input[builtins.str] endpoint: The connection endpoint
+        :param pulumi.Input[builtins.str] encrypted: If true , the data in the cluster is encrypted at rest.
+               Default is `true`.
         :param pulumi.Input[builtins.bool] enhanced_vpc_routing: If true , enhanced VPC routing is enabled.
         :param pulumi.Input[builtins.str] final_snapshot_identifier: The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         :param pulumi.Input[builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
-        :param pulumi.Input[Union['ClusterLoggingArgs', 'ClusterLoggingArgsDict']] logging: Logging, documented below.
         :param pulumi.Input[builtins.str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
         :param pulumi.Input[builtins.bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials.
                Conflicts with `master_password` and `master_password_wo`.
@@ -1743,11 +1640,11 @@ class Cluster(pulumi.CustomResource):
                Default port is `5439`.
         :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
-        :param pulumi.Input[builtins.bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `true`.
+        :param pulumi.Input[builtins.bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
         :param pulumi.Input[builtins.str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
         :param pulumi.Input[builtins.str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
-        :param pulumi.Input[Union['ClusterSnapshotCopyArgs', 'ClusterSnapshotCopyArgsDict']] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
         :param pulumi.Input[builtins.str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -1825,21 +1722,17 @@ class Cluster(pulumi.CustomResource):
                  availability_zone_relocation_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  cluster_parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
-                 cluster_public_key: Optional[pulumi.Input[builtins.str]] = None,
-                 cluster_revision_number: Optional[pulumi.Input[builtins.str]] = None,
                  cluster_subnet_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  cluster_type: Optional[pulumi.Input[builtins.str]] = None,
                  cluster_version: Optional[pulumi.Input[builtins.str]] = None,
                  database_name: Optional[pulumi.Input[builtins.str]] = None,
                  default_iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  elastic_ip: Optional[pulumi.Input[builtins.str]] = None,
-                 encrypted: Optional[pulumi.Input[builtins.bool]] = None,
-                 endpoint: Optional[pulumi.Input[builtins.str]] = None,
+                 encrypted: Optional[pulumi.Input[builtins.str]] = None,
                  enhanced_vpc_routing: Optional[pulumi.Input[builtins.bool]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
-                 logging: Optional[pulumi.Input[Union['ClusterLoggingArgs', 'ClusterLoggingArgsDict']]] = None,
                  maintenance_track_name: Optional[pulumi.Input[builtins.str]] = None,
                  manage_master_password: Optional[pulumi.Input[builtins.bool]] = None,
                  manual_snapshot_retention_period: Optional[pulumi.Input[builtins.int]] = None,
@@ -1853,10 +1746,10 @@ class Cluster(pulumi.CustomResource):
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
                  snapshot_arn: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
-                 snapshot_copy: Optional[pulumi.Input[Union['ClusterSnapshotCopyArgs', 'ClusterSnapshotCopyArgsDict']]] = None,
                  snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -1879,8 +1772,6 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_identifier'")
             __props__.__dict__["cluster_identifier"] = cluster_identifier
             __props__.__dict__["cluster_parameter_group_name"] = cluster_parameter_group_name
-            __props__.__dict__["cluster_public_key"] = cluster_public_key
-            __props__.__dict__["cluster_revision_number"] = cluster_revision_number
             __props__.__dict__["cluster_subnet_group_name"] = cluster_subnet_group_name
             __props__.__dict__["cluster_type"] = cluster_type
             __props__.__dict__["cluster_version"] = cluster_version
@@ -1888,12 +1779,10 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["default_iam_role_arn"] = default_iam_role_arn
             __props__.__dict__["elastic_ip"] = elastic_ip
             __props__.__dict__["encrypted"] = encrypted
-            __props__.__dict__["endpoint"] = endpoint
             __props__.__dict__["enhanced_vpc_routing"] = enhanced_vpc_routing
             __props__.__dict__["final_snapshot_identifier"] = final_snapshot_identifier
             __props__.__dict__["iam_roles"] = iam_roles
             __props__.__dict__["kms_key_id"] = kms_key_id
-            __props__.__dict__["logging"] = logging
             __props__.__dict__["maintenance_track_name"] = maintenance_track_name
             __props__.__dict__["manage_master_password"] = manage_master_password
             __props__.__dict__["manual_snapshot_retention_period"] = manual_snapshot_retention_period
@@ -1909,17 +1798,20 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["port"] = port
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["publicly_accessible"] = publicly_accessible
+            __props__.__dict__["region"] = region
             __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
             __props__.__dict__["snapshot_arn"] = snapshot_arn
             __props__.__dict__["snapshot_cluster_identifier"] = snapshot_cluster_identifier
-            __props__.__dict__["snapshot_copy"] = snapshot_copy
             __props__.__dict__["snapshot_identifier"] = snapshot_identifier
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["arn"] = None
             __props__.__dict__["cluster_namespace_arn"] = None
             __props__.__dict__["cluster_nodes"] = None
+            __props__.__dict__["cluster_public_key"] = None
+            __props__.__dict__["cluster_revision_number"] = None
             __props__.__dict__["dns_name"] = None
+            __props__.__dict__["endpoint"] = None
             __props__.__dict__["master_password_secret_arn"] = None
             __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["masterPassword"])
@@ -1954,13 +1846,12 @@ class Cluster(pulumi.CustomResource):
             default_iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             dns_name: Optional[pulumi.Input[builtins.str]] = None,
             elastic_ip: Optional[pulumi.Input[builtins.str]] = None,
-            encrypted: Optional[pulumi.Input[builtins.bool]] = None,
+            encrypted: Optional[pulumi.Input[builtins.str]] = None,
             endpoint: Optional[pulumi.Input[builtins.str]] = None,
             enhanced_vpc_routing: Optional[pulumi.Input[builtins.bool]] = None,
             final_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
             iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
-            logging: Optional[pulumi.Input[Union['ClusterLoggingArgs', 'ClusterLoggingArgsDict']]] = None,
             maintenance_track_name: Optional[pulumi.Input[builtins.str]] = None,
             manage_master_password: Optional[pulumi.Input[builtins.bool]] = None,
             manual_snapshot_retention_period: Optional[pulumi.Input[builtins.int]] = None,
@@ -1975,10 +1866,10 @@ class Cluster(pulumi.CustomResource):
             port: Optional[pulumi.Input[builtins.int]] = None,
             preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
             publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
             snapshot_arn: Optional[pulumi.Input[builtins.str]] = None,
             snapshot_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
-            snapshot_copy: Optional[pulumi.Input[Union['ClusterSnapshotCopyArgs', 'ClusterSnapshotCopyArgsDict']]] = None,
             snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -2014,13 +1905,13 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[builtins.str] dns_name: The DNS name of the cluster
         :param pulumi.Input[builtins.str] elastic_ip: The Elastic IP (EIP) address for the cluster.
-        :param pulumi.Input[builtins.bool] encrypted: If true , the data in the cluster is encrypted at rest.
+        :param pulumi.Input[builtins.str] encrypted: If true , the data in the cluster is encrypted at rest.
+               Default is `true`.
         :param pulumi.Input[builtins.str] endpoint: The connection endpoint
         :param pulumi.Input[builtins.bool] enhanced_vpc_routing: If true , enhanced VPC routing is enabled.
         :param pulumi.Input[builtins.str] final_snapshot_identifier: The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skip_final_snapshot` must be false.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         :param pulumi.Input[builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
-        :param pulumi.Input[Union['ClusterLoggingArgs', 'ClusterLoggingArgsDict']] logging: Logging, documented below.
         :param pulumi.Input[builtins.str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
         :param pulumi.Input[builtins.bool] manage_master_password: Whether to use AWS SecretsManager to manage the cluster admin credentials.
                Conflicts with `master_password` and `master_password_wo`.
@@ -2044,11 +1935,11 @@ class Cluster(pulumi.CustomResource):
                Default port is `5439`.
         :param pulumi.Input[builtins.str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
-        :param pulumi.Input[builtins.bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `true`.
+        :param pulumi.Input[builtins.bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
         :param pulumi.Input[builtins.str] snapshot_arn: The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshot_identifier`.
         :param pulumi.Input[builtins.str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from.
-        :param pulumi.Input[Union['ClusterSnapshotCopyArgs', 'ClusterSnapshotCopyArgsDict']] snapshot_copy: Configuration of automatic copy of snapshots from one region to another. Documented below.
         :param pulumi.Input[builtins.str] snapshot_identifier: The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -2087,7 +1978,6 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["final_snapshot_identifier"] = final_snapshot_identifier
         __props__.__dict__["iam_roles"] = iam_roles
         __props__.__dict__["kms_key_id"] = kms_key_id
-        __props__.__dict__["logging"] = logging
         __props__.__dict__["maintenance_track_name"] = maintenance_track_name
         __props__.__dict__["manage_master_password"] = manage_master_password
         __props__.__dict__["manual_snapshot_retention_period"] = manual_snapshot_retention_period
@@ -2102,10 +1992,10 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["port"] = port
         __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
         __props__.__dict__["publicly_accessible"] = publicly_accessible
+        __props__.__dict__["region"] = region
         __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
         __props__.__dict__["snapshot_arn"] = snapshot_arn
         __props__.__dict__["snapshot_cluster_identifier"] = snapshot_cluster_identifier
-        __props__.__dict__["snapshot_copy"] = snapshot_copy
         __props__.__dict__["snapshot_identifier"] = snapshot_identifier
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -2279,9 +2169,10 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def encrypted(self) -> pulumi.Output[Optional[builtins.bool]]:
+    def encrypted(self) -> pulumi.Output[Optional[builtins.str]]:
         """
         If true , the data in the cluster is encrypted at rest.
+        Default is `true`.
         """
         return pulumi.get(self, "encrypted")
 
@@ -2324,15 +2215,6 @@ class Cluster(pulumi.CustomResource):
         The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         """
         return pulumi.get(self, "kms_key_id")
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""logging is deprecated. Use the redshift.Logging resource instead. This argument will be removed in a future major version.""")
-    def logging(self) -> pulumi.Output['outputs.ClusterLogging']:
-        """
-        Logging, documented below.
-        """
-        return pulumi.get(self, "logging")
 
     @property
     @pulumi.getter(name="maintenanceTrackName")
@@ -2452,9 +2334,17 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        If true, the cluster can be accessed from a public network. Default is `true`.
+        If true, the cluster can be accessed from a public network. Default is `false`.
         """
         return pulumi.get(self, "publicly_accessible")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="skipFinalSnapshot")
@@ -2481,15 +2371,6 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "snapshot_cluster_identifier")
 
     @property
-    @pulumi.getter(name="snapshotCopy")
-    @_utilities.deprecated("""snapshot_copy is deprecated. Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.""")
-    def snapshot_copy(self) -> pulumi.Output['outputs.ClusterSnapshotCopy']:
-        """
-        Configuration of automatic copy of snapshots from one region to another. Documented below.
-        """
-        return pulumi.get(self, "snapshot_copy")
-
-    @property
     @pulumi.getter(name="snapshotIdentifier")
     def snapshot_identifier(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -2510,7 +2391,6 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

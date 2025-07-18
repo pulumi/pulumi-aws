@@ -85,6 +85,10 @@ export class Member extends pulumi.CustomResource {
      */
     public readonly invite!: pulumi.Output<boolean | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
      */
     public /*out*/ readonly relationshipStatus!: pulumi.Output<string>;
@@ -108,6 +112,7 @@ export class Member extends pulumi.CustomResource {
             resourceInputs["email"] = state ? state.email : undefined;
             resourceInputs["invitationMessage"] = state ? state.invitationMessage : undefined;
             resourceInputs["invite"] = state ? state.invite : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["relationshipStatus"] = state ? state.relationshipStatus : undefined;
         } else {
             const args = argsOrState as MemberArgs | undefined;
@@ -126,6 +131,7 @@ export class Member extends pulumi.CustomResource {
             resourceInputs["email"] = args ? args.email : undefined;
             resourceInputs["invitationMessage"] = args ? args.invitationMessage : undefined;
             resourceInputs["invite"] = args ? args.invite : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["relationshipStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -162,6 +168,10 @@ export interface MemberState {
      */
     invite?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
      */
     relationshipStatus?: pulumi.Input<string>;
@@ -195,4 +205,8 @@ export interface MemberArgs {
      * Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationshipStatus` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
      */
     invite?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -28,7 +28,7 @@ class GetKeyResult:
     """
     A collection of values returned by getKey.
     """
-    def __init__(__self__, arn=None, aws_account_id=None, cloud_hsm_cluster_id=None, creation_date=None, custom_key_store_id=None, customer_master_key_spec=None, deletion_date=None, description=None, enabled=None, expiration_model=None, grant_tokens=None, id=None, key_id=None, key_manager=None, key_spec=None, key_state=None, key_usage=None, multi_region=None, multi_region_configurations=None, origin=None, pending_deletion_window_in_days=None, valid_to=None, xks_key_configurations=None):
+    def __init__(__self__, arn=None, aws_account_id=None, cloud_hsm_cluster_id=None, creation_date=None, custom_key_store_id=None, customer_master_key_spec=None, deletion_date=None, description=None, enabled=None, expiration_model=None, grant_tokens=None, id=None, key_id=None, key_manager=None, key_spec=None, key_state=None, key_usage=None, multi_region=None, multi_region_configurations=None, origin=None, pending_deletion_window_in_days=None, region=None, valid_to=None, xks_key_configurations=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -92,6 +92,9 @@ class GetKeyResult:
         if pending_deletion_window_in_days and not isinstance(pending_deletion_window_in_days, int):
             raise TypeError("Expected argument 'pending_deletion_window_in_days' to be a int")
         pulumi.set(__self__, "pending_deletion_window_in_days", pending_deletion_window_in_days)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if valid_to and not isinstance(valid_to, str):
             raise TypeError("Expected argument 'valid_to' to be a str")
         pulumi.set(__self__, "valid_to", valid_to)
@@ -143,7 +146,7 @@ class GetKeyResult:
     @pulumi.getter(name="customerMasterKeySpec")
     def customer_master_key_spec(self) -> builtins.str:
         """
-        Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
+        See `key_spec`.
         """
         return pulumi.get(self, "customer_master_key_spec")
 
@@ -262,6 +265,14 @@ class GetKeyResult:
         return pulumi.get(self, "pending_deletion_window_in_days")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        """
+        The AWS Region of a primary or replica key in a multi-Region key.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="validTo")
     def valid_to(self) -> builtins.str:
         """
@@ -305,12 +316,14 @@ class AwaitableGetKeyResult(GetKeyResult):
             multi_region_configurations=self.multi_region_configurations,
             origin=self.origin,
             pending_deletion_window_in_days=self.pending_deletion_window_in_days,
+            region=self.region,
             valid_to=self.valid_to,
             xks_key_configurations=self.xks_key_configurations)
 
 
 def get_key(grant_tokens: Optional[Sequence[builtins.str]] = None,
             key_id: Optional[builtins.str] = None,
+            region: Optional[builtins.str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
     Use this data source to get detailed information about
@@ -337,10 +350,12 @@ def get_key(grant_tokens: Optional[Sequence[builtins.str]] = None,
            * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
            * Alias name. E.g.: `alias/my-key`
            * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['grantTokens'] = grant_tokens
     __args__['keyId'] = key_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:kms/getKey:getKey', __args__, opts=opts, typ=GetKeyResult).value
 
@@ -366,10 +381,12 @@ def get_key(grant_tokens: Optional[Sequence[builtins.str]] = None,
         multi_region_configurations=pulumi.get(__ret__, 'multi_region_configurations'),
         origin=pulumi.get(__ret__, 'origin'),
         pending_deletion_window_in_days=pulumi.get(__ret__, 'pending_deletion_window_in_days'),
+        region=pulumi.get(__ret__, 'region'),
         valid_to=pulumi.get(__ret__, 'valid_to'),
         xks_key_configurations=pulumi.get(__ret__, 'xks_key_configurations'))
 def get_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                    key_id: Optional[pulumi.Input[builtins.str]] = None,
+                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyResult]:
     """
     Use this data source to get detailed information about
@@ -396,10 +413,12 @@ def get_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[builtin
            * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
            * Alias name. E.g.: `alias/my-key`
            * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['grantTokens'] = grant_tokens
     __args__['keyId'] = key_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kms/getKey:getKey', __args__, opts=opts, typ=GetKeyResult)
     return __ret__.apply(lambda __response__: GetKeyResult(
@@ -424,5 +443,6 @@ def get_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[builtin
         multi_region_configurations=pulumi.get(__response__, 'multi_region_configurations'),
         origin=pulumi.get(__response__, 'origin'),
         pending_deletion_window_in_days=pulumi.get(__response__, 'pending_deletion_window_in_days'),
+        region=pulumi.get(__response__, 'region'),
         valid_to=pulumi.get(__response__, 'valid_to'),
         xks_key_configurations=pulumi.get(__response__, 'xks_key_configurations')))

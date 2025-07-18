@@ -65,6 +65,10 @@ export class Revision extends pulumi.CustomResource {
      */
     public readonly dataSetId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Id of the revision.
      */
     public /*out*/ readonly revisionId!: pulumi.Output<string>;
@@ -74,8 +78,6 @@ export class Revision extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -95,6 +97,7 @@ export class Revision extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["dataSetId"] = state ? state.dataSetId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["revisionId"] = state ? state.revisionId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -105,6 +108,7 @@ export class Revision extends pulumi.CustomResource {
             }
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["revisionId"] = undefined /*out*/;
@@ -132,6 +136,10 @@ export interface RevisionState {
      */
     dataSetId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Id of the revision.
      */
     revisionId?: pulumi.Input<string>;
@@ -141,8 +149,6 @@ export interface RevisionState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -159,6 +165,10 @@ export interface RevisionArgs {
      * The dataset id.
      */
     dataSetId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

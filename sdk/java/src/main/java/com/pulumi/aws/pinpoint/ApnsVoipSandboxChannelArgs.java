@@ -126,6 +126,21 @@ public final class ApnsVoipSandboxChannelArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID assigned to your Apple developer account team. This value is provided on the Membership page.
      * 
      */
@@ -179,6 +194,7 @@ public final class ApnsVoipSandboxChannelArgs extends com.pulumi.resources.Resou
         this.defaultAuthenticationMethod = $.defaultAuthenticationMethod;
         this.enabled = $.enabled;
         this.privateKey = $.privateKey;
+        this.region = $.region;
         this.teamId = $.teamId;
         this.tokenKey = $.tokenKey;
         this.tokenKeyId = $.tokenKeyId;
@@ -344,6 +360,27 @@ public final class ApnsVoipSandboxChannelArgs extends com.pulumi.resources.Resou
          */
         public Builder privateKey(String privateKey) {
             return privateKey(Output.of(privateKey));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

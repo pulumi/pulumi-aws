@@ -28,7 +28,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, arn=None, auth_type=None, certificate_arn=None, custom_domain_name=None, dns_entries=None, id=None, name=None, service_identifier=None, status=None, tags=None):
+    def __init__(__self__, arn=None, auth_type=None, certificate_arn=None, custom_domain_name=None, dns_entries=None, id=None, name=None, region=None, service_identifier=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -50,6 +50,9 @@ class GetServiceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if service_identifier and not isinstance(service_identifier, str):
             raise TypeError("Expected argument 'service_identifier' to be a str")
         pulumi.set(__self__, "service_identifier", service_identifier)
@@ -114,6 +117,11 @@ class GetServiceResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="serviceIdentifier")
     def service_identifier(self) -> builtins.str:
         return pulumi.get(self, "service_identifier")
@@ -148,12 +156,14 @@ class AwaitableGetServiceResult(GetServiceResult):
             dns_entries=self.dns_entries,
             id=self.id,
             name=self.name,
+            region=self.region,
             service_identifier=self.service_identifier,
             status=self.status,
             tags=self.tags)
 
 
 def get_service(name: Optional[builtins.str] = None,
+                region: Optional[builtins.str] = None,
                 service_identifier: Optional[builtins.str] = None,
                 tags: Optional[Mapping[str, builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
@@ -173,11 +183,13 @@ def get_service(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Service name.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_identifier: ID or Amazon Resource Name (ARN) of the service.
     :param Mapping[str, builtins.str] tags: List of tags associated with the service.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['serviceIdentifier'] = service_identifier
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -191,10 +203,12 @@ def get_service(name: Optional[builtins.str] = None,
         dns_entries=pulumi.get(__ret__, 'dns_entries'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         service_identifier=pulumi.get(__ret__, 'service_identifier'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_service_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        service_identifier: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
@@ -214,11 +228,13 @@ def get_service_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = No
 
 
     :param builtins.str name: Service name.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_identifier: ID or Amazon Resource Name (ARN) of the service.
     :param Mapping[str, builtins.str] tags: List of tags associated with the service.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['serviceIdentifier'] = service_identifier
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -231,6 +247,7 @@ def get_service_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = No
         dns_entries=pulumi.get(__response__, 'dns_entries'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         service_identifier=pulumi.get(__response__, 'service_identifier'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

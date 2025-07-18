@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func LookupEventBus(ctx *pulumi.Context, args *LookupEventBusArgs, opts ...pulum
 type LookupEventBusArgs struct {
 	// Name of the event bus.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEventBus.
@@ -69,6 +71,7 @@ type LookupEventBusResult struct {
 	// Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt events on this event bus, if one has been specified.
 	KmsKeyIdentifier string `pulumi:"kmsKeyIdentifier"`
 	Name             string `pulumi:"name"`
+	Region           string `pulumi:"region"`
 }
 
 func LookupEventBusOutput(ctx *pulumi.Context, args LookupEventBusOutputArgs, opts ...pulumi.InvokeOption) LookupEventBusResultOutput {
@@ -84,6 +87,8 @@ func LookupEventBusOutput(ctx *pulumi.Context, args LookupEventBusOutputArgs, op
 type LookupEventBusOutputArgs struct {
 	// Name of the event bus.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupEventBusOutputArgs) ElementType() reflect.Type {
@@ -132,6 +137,10 @@ func (o LookupEventBusResultOutput) KmsKeyIdentifier() pulumi.StringOutput {
 
 func (o LookupEventBusResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventBusResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupEventBusResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventBusResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

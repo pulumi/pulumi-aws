@@ -88,6 +88,12 @@ namespace Pulumi.Aws.ElastiCache
     public sealed class GetReplicationGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Identifier for the replication group.
         /// </summary>
         [Input("replicationGroupId", required: true)]
@@ -101,6 +107,12 @@ namespace Pulumi.Aws.ElastiCache
 
     public sealed class GetReplicationGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Identifier for the replication group.
         /// </summary>
@@ -181,6 +193,7 @@ namespace Pulumi.Aws.ElastiCache
         /// The endpoint of the reader node in this node group (shard).
         /// </summary>
         public readonly string ReaderEndpointAddress;
+        public readonly string Region;
         /// <summary>
         /// Number of replica nodes in each node group.
         /// </summary>
@@ -229,6 +242,8 @@ namespace Pulumi.Aws.ElastiCache
 
             string readerEndpointAddress,
 
+            string region,
+
             int replicasPerNodeGroup,
 
             string replicationGroupId,
@@ -253,6 +268,7 @@ namespace Pulumi.Aws.ElastiCache
             Port = port;
             PrimaryEndpointAddress = primaryEndpointAddress;
             ReaderEndpointAddress = readerEndpointAddress;
+            Region = region;
             ReplicasPerNodeGroup = replicasPerNodeGroup;
             ReplicationGroupId = replicationGroupId;
             SnapshotRetentionLimit = snapshotRetentionLimit;

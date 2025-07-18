@@ -39,6 +39,21 @@ public final class GetLocalGatewaysPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local_gateways.
      * 
@@ -59,6 +74,7 @@ public final class GetLocalGatewaysPlainArgs extends com.pulumi.resources.Invoke
 
     private GetLocalGatewaysPlainArgs(GetLocalGatewaysPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -105,6 +121,17 @@ public final class GetLocalGatewaysPlainArgs extends com.pulumi.resources.Invoke
          */
         public Builder filters(GetLocalGatewaysFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

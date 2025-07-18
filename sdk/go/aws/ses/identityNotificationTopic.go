@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,6 +59,8 @@ type IdentityNotificationTopic struct {
 	IncludeOriginalHeaders pulumi.BoolPtrOutput `pulumi:"includeOriginalHeaders"`
 	// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
 	NotificationType pulumi.StringOutput `pulumi:"notificationType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
 	TopicArn pulumi.StringPtrOutput `pulumi:"topicArn"`
 }
@@ -105,6 +107,8 @@ type identityNotificationTopicState struct {
 	IncludeOriginalHeaders *bool `pulumi:"includeOriginalHeaders"`
 	// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
 	NotificationType *string `pulumi:"notificationType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
 	TopicArn *string `pulumi:"topicArn"`
 }
@@ -116,6 +120,8 @@ type IdentityNotificationTopicState struct {
 	IncludeOriginalHeaders pulumi.BoolPtrInput
 	// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
 	NotificationType pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
 	TopicArn pulumi.StringPtrInput
 }
@@ -131,6 +137,8 @@ type identityNotificationTopicArgs struct {
 	IncludeOriginalHeaders *bool `pulumi:"includeOriginalHeaders"`
 	// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
 	NotificationType string `pulumi:"notificationType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
 	TopicArn *string `pulumi:"topicArn"`
 }
@@ -143,6 +151,8 @@ type IdentityNotificationTopicArgs struct {
 	IncludeOriginalHeaders pulumi.BoolPtrInput
 	// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
 	NotificationType pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
 	TopicArn pulumi.StringPtrInput
 }
@@ -247,6 +257,11 @@ func (o IdentityNotificationTopicOutput) IncludeOriginalHeaders() pulumi.BoolPtr
 // The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
 func (o IdentityNotificationTopicOutput) NotificationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentityNotificationTopic) pulumi.StringOutput { return v.NotificationType }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o IdentityNotificationTopicOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *IdentityNotificationTopic) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.

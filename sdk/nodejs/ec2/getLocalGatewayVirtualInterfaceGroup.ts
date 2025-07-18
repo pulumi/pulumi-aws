@@ -28,6 +28,7 @@ export function getLocalGatewayVirtualInterfaceGroup(args?: GetLocalGatewayVirtu
         "filters": args.filters,
         "id": args.id,
         "localGatewayId": args.localGatewayId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -49,6 +50,10 @@ export interface GetLocalGatewayVirtualInterfaceGroupArgs {
      */
     localGatewayId?: string;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
      */
     tags?: {[key: string]: string};
@@ -65,6 +70,7 @@ export interface GetLocalGatewayVirtualInterfaceGroupResult {
      * Set of EC2 Local Gateway Virtual Interface identifiers.
      */
     readonly localGatewayVirtualInterfaceIds: string[];
+    readonly region: string;
     readonly tags: {[key: string]: string};
 }
 /**
@@ -88,6 +94,7 @@ export function getLocalGatewayVirtualInterfaceGroupOutput(args?: GetLocalGatewa
         "filters": args.filters,
         "id": args.id,
         "localGatewayId": args.localGatewayId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -108,6 +115,10 @@ export interface GetLocalGatewayVirtualInterfaceGroupOutputArgs {
      * Identifier of EC2 Local Gateway.
      */
     localGatewayId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
      */

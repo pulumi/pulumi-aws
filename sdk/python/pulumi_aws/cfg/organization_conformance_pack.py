@@ -27,6 +27,7 @@ class OrganizationConformancePackArgs:
                  excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConformancePackInputParameterArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  template_body: Optional[pulumi.Input[builtins.str]] = None,
                  template_s3_uri: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -36,6 +37,7 @@ class OrganizationConformancePackArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] excluded_accounts: Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationConformancePackInputParameterArgs']]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
         :param pulumi.Input[builtins.str] name: The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] template_body: A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
         :param pulumi.Input[builtins.str] template_s3_uri: Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         """
@@ -49,6 +51,8 @@ class OrganizationConformancePackArgs:
             pulumi.set(__self__, "input_parameters", input_parameters)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if template_body is not None:
             pulumi.set(__self__, "template_body", template_body)
         if template_s3_uri is not None:
@@ -115,6 +119,18 @@ class OrganizationConformancePackArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="templateBody")
     def template_body(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -148,6 +164,7 @@ class _OrganizationConformancePackState:
                  excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConformancePackInputParameterArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  template_body: Optional[pulumi.Input[builtins.str]] = None,
                  template_s3_uri: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -158,6 +175,7 @@ class _OrganizationConformancePackState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] excluded_accounts: Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationConformancePackInputParameterArgs']]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
         :param pulumi.Input[builtins.str] name: The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] template_body: A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
         :param pulumi.Input[builtins.str] template_s3_uri: Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         """
@@ -173,6 +191,8 @@ class _OrganizationConformancePackState:
             pulumi.set(__self__, "input_parameters", input_parameters)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if template_body is not None:
             pulumi.set(__self__, "template_body", template_body)
         if template_s3_uri is not None:
@@ -251,6 +271,18 @@ class _OrganizationConformancePackState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="templateBody")
     def template_body(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -286,6 +318,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
                  excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConformancePackInputParameterArgs', 'OrganizationConformancePackInputParameterArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  template_body: Optional[pulumi.Input[builtins.str]] = None,
                  template_s3_uri: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -338,9 +371,9 @@ class OrganizationConformancePack(pulumi.CustomResource):
         example_organization = aws.organizations.Organization("example",
             aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
             feature_set="ALL")
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_bucket = aws.s3.Bucket("example", bucket="example")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             key="example-key",
             content=\"\"\"Resources:
           IAMPasswordPolicy:
@@ -354,7 +387,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         example = aws.cfg.OrganizationConformancePack("example",
             name="example",
             template_s3_uri=pulumi.Output.all(
-                bucket=example_bucket_v2.bucket,
+                bucket=example_bucket.bucket,
                 key=example_bucket_objectv2.key
         ).apply(lambda resolved_outputs: f"s3://{resolved_outputs['bucket']}/{resolved_outputs['key']}")
         ,
@@ -379,6 +412,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] excluded_accounts: Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConformancePackInputParameterArgs', 'OrganizationConformancePackInputParameterArgsDict']]]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
         :param pulumi.Input[builtins.str] name: The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] template_body: A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
         :param pulumi.Input[builtins.str] template_s3_uri: Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         """
@@ -437,9 +471,9 @@ class OrganizationConformancePack(pulumi.CustomResource):
         example_organization = aws.organizations.Organization("example",
             aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
             feature_set="ALL")
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+        example_bucket = aws.s3.Bucket("example", bucket="example")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             key="example-key",
             content=\"\"\"Resources:
           IAMPasswordPolicy:
@@ -453,7 +487,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         example = aws.cfg.OrganizationConformancePack("example",
             name="example",
             template_s3_uri=pulumi.Output.all(
-                bucket=example_bucket_v2.bucket,
+                bucket=example_bucket.bucket,
                 key=example_bucket_objectv2.key
         ).apply(lambda resolved_outputs: f"s3://{resolved_outputs['bucket']}/{resolved_outputs['key']}")
         ,
@@ -491,6 +525,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
                  excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConformancePackInputParameterArgs', 'OrganizationConformancePackInputParameterArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  template_body: Optional[pulumi.Input[builtins.str]] = None,
                  template_s3_uri: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -507,6 +542,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
             __props__.__dict__["excluded_accounts"] = excluded_accounts
             __props__.__dict__["input_parameters"] = input_parameters
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["template_body"] = template_body
             __props__.__dict__["template_s3_uri"] = template_s3_uri
             __props__.__dict__["arn"] = None
@@ -526,6 +562,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
             excluded_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConformancePackInputParameterArgs', 'OrganizationConformancePackInputParameterArgsDict']]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             template_body: Optional[pulumi.Input[builtins.str]] = None,
             template_s3_uri: Optional[pulumi.Input[builtins.str]] = None) -> 'OrganizationConformancePack':
         """
@@ -541,6 +578,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] excluded_accounts: Set of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack. Maximum of 1000 accounts.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConformancePackInputParameterArgs', 'OrganizationConformancePackInputParameterArgsDict']]]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
         :param pulumi.Input[builtins.str] name: The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] template_body: A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
         :param pulumi.Input[builtins.str] template_s3_uri: Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         """
@@ -554,6 +592,7 @@ class OrganizationConformancePack(pulumi.CustomResource):
         __props__.__dict__["excluded_accounts"] = excluded_accounts
         __props__.__dict__["input_parameters"] = input_parameters
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["template_body"] = template_body
         __props__.__dict__["template_s3_uri"] = template_s3_uri
         return OrganizationConformancePack(resource_name, opts=opts, __props__=__props__)
@@ -605,6 +644,14 @@ class OrganizationConformancePack(pulumi.CustomResource):
         The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="templateBody")

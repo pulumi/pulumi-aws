@@ -29,6 +29,7 @@ class KxVolumeArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  nas1_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxVolumeNas1ConfigurationArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a KxVolume resource.
@@ -42,6 +43,7 @@ class KxVolumeArgs:
         :param pulumi.Input[builtins.str] description: Description of the volume.
         :param pulumi.Input[builtins.str] name: Unique name for the volumr that you want to create.
         :param pulumi.Input[Sequence[pulumi.Input['KxVolumeNas1ConfigurationArgs']]] nas1_configurations: Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
         """
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -54,6 +56,8 @@ class KxVolumeArgs:
             pulumi.set(__self__, "name", name)
         if nas1_configurations is not None:
             pulumi.set(__self__, "nas1_configurations", nas1_configurations)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -146,6 +150,18 @@ class KxVolumeArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
@@ -170,6 +186,7 @@ class _KxVolumeState:
                  last_modified_timestamp: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  nas1_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxVolumeNas1ConfigurationArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  status_reason: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -189,16 +206,17 @@ class _KxVolumeState:
         :param pulumi.Input[builtins.str] last_modified_timestamp: Last timestamp at which the volume was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         :param pulumi.Input[builtins.str] name: Unique name for the volumr that you want to create.
         :param pulumi.Input[Sequence[pulumi.Input['KxVolumeNas1ConfigurationArgs']]] nas1_configurations: Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of volume creation.
-               * `CREATING` – The volume creation is in progress.
-               * `CREATE_FAILED` – The volume creation has failed.
-               * `ACTIVE` – The volume is active.
-               * `UPDATING` – The volume is in the process of being updated.
-               * `UPDATE_FAILED` – The update action failed.
-               * `UPDATED` – The volume is successfully updated.
-               * `DELETING` – The volume is in the process of being deleted.
-               * `DELETE_FAILED` – The system failed to delete the volume.
-               * `DELETED` – The volume is successfully deleted.
+               * `CREATING` - The volume creation is in progress.
+               * `CREATE_FAILED` - The volume creation has failed.
+               * `ACTIVE` - The volume is active.
+               * `UPDATING` - The volume is in the process of being updated.
+               * `UPDATE_FAILED` - The update action failed.
+               * `UPDATED` - The volume is successfully updated.
+               * `DELETING` - The volume is in the process of being deleted.
+               * `DELETE_FAILED` - The system failed to delete the volume.
+               * `DELETED` - The volume is successfully deleted.
         :param pulumi.Input[builtins.str] status_reason: The error message when a failed state occurs.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
         :param pulumi.Input[builtins.str] type: The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
@@ -223,15 +241,14 @@ class _KxVolumeState:
             pulumi.set(__self__, "name", name)
         if nas1_configurations is not None:
             pulumi.set(__self__, "nas1_configurations", nas1_configurations)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if status_reason is not None:
             pulumi.set(__self__, "status_reason", status_reason)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
@@ -359,18 +376,30 @@ class _KxVolumeState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The status of volume creation.
-        * `CREATING` – The volume creation is in progress.
-        * `CREATE_FAILED` – The volume creation has failed.
-        * `ACTIVE` – The volume is active.
-        * `UPDATING` – The volume is in the process of being updated.
-        * `UPDATE_FAILED` – The update action failed.
-        * `UPDATED` – The volume is successfully updated.
-        * `DELETING` – The volume is in the process of being deleted.
-        * `DELETE_FAILED` – The system failed to delete the volume.
-        * `DELETED` – The volume is successfully deleted.
+        * `CREATING` - The volume creation is in progress.
+        * `CREATE_FAILED` - The volume creation has failed.
+        * `ACTIVE` - The volume is active.
+        * `UPDATING` - The volume is in the process of being updated.
+        * `UPDATE_FAILED` - The update action failed.
+        * `UPDATED` - The volume is successfully updated.
+        * `DELETING` - The volume is in the process of being deleted.
+        * `DELETE_FAILED` - The system failed to delete the volume.
+        * `DELETED` - The volume is successfully deleted.
         """
         return pulumi.get(self, "status")
 
@@ -404,7 +433,6 @@ class _KxVolumeState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -437,6 +465,7 @@ class KxVolume(pulumi.CustomResource):
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  nas1_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxVolumeNas1ConfigurationArgs', 'KxVolumeNas1ConfigurationArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -482,6 +511,7 @@ class KxVolume(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] environment_id: A unique identifier for the kdb environment, whose clusters can attach to the volume.
         :param pulumi.Input[builtins.str] name: Unique name for the volumr that you want to create.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KxVolumeNas1ConfigurationArgs', 'KxVolumeNas1ConfigurationArgsDict']]]] nas1_configurations: Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
         :param pulumi.Input[builtins.str] type: The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
         """
@@ -543,6 +573,7 @@ class KxVolume(pulumi.CustomResource):
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  nas1_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxVolumeNas1ConfigurationArgs', 'KxVolumeNas1ConfigurationArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -566,6 +597,7 @@ class KxVolume(pulumi.CustomResource):
             __props__.__dict__["environment_id"] = environment_id
             __props__.__dict__["name"] = name
             __props__.__dict__["nas1_configurations"] = nas1_configurations
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -597,6 +629,7 @@ class KxVolume(pulumi.CustomResource):
             last_modified_timestamp: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             nas1_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KxVolumeNas1ConfigurationArgs', 'KxVolumeNas1ConfigurationArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             status_reason: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -621,16 +654,17 @@ class KxVolume(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] last_modified_timestamp: Last timestamp at which the volume was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         :param pulumi.Input[builtins.str] name: Unique name for the volumr that you want to create.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KxVolumeNas1ConfigurationArgs', 'KxVolumeNas1ConfigurationArgsDict']]]] nas1_configurations: Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volume_type` is `NAS_1`. See `nas1_configuration` Argument Reference below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of volume creation.
-               * `CREATING` – The volume creation is in progress.
-               * `CREATE_FAILED` – The volume creation has failed.
-               * `ACTIVE` – The volume is active.
-               * `UPDATING` – The volume is in the process of being updated.
-               * `UPDATE_FAILED` – The update action failed.
-               * `UPDATED` – The volume is successfully updated.
-               * `DELETING` – The volume is in the process of being deleted.
-               * `DELETE_FAILED` – The system failed to delete the volume.
-               * `DELETED` – The volume is successfully deleted.
+               * `CREATING` - The volume creation is in progress.
+               * `CREATE_FAILED` - The volume creation has failed.
+               * `ACTIVE` - The volume is active.
+               * `UPDATING` - The volume is in the process of being updated.
+               * `UPDATE_FAILED` - The update action failed.
+               * `UPDATED` - The volume is successfully updated.
+               * `DELETING` - The volume is in the process of being deleted.
+               * `DELETE_FAILED` - The system failed to delete the volume.
+               * `DELETED` - The volume is successfully deleted.
         :param pulumi.Input[builtins.str] status_reason: The error message when a failed state occurs.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
         :param pulumi.Input[builtins.str] type: The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1_configuration`.
@@ -649,6 +683,7 @@ class KxVolume(pulumi.CustomResource):
         __props__.__dict__["last_modified_timestamp"] = last_modified_timestamp
         __props__.__dict__["name"] = name
         __props__.__dict__["nas1_configurations"] = nas1_configurations
+        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         __props__.__dict__["status_reason"] = status_reason
         __props__.__dict__["tags"] = tags
@@ -738,18 +773,26 @@ class KxVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def status(self) -> pulumi.Output[builtins.str]:
         """
         The status of volume creation.
-        * `CREATING` – The volume creation is in progress.
-        * `CREATE_FAILED` – The volume creation has failed.
-        * `ACTIVE` – The volume is active.
-        * `UPDATING` – The volume is in the process of being updated.
-        * `UPDATE_FAILED` – The update action failed.
-        * `UPDATED` – The volume is successfully updated.
-        * `DELETING` – The volume is in the process of being deleted.
-        * `DELETE_FAILED` – The system failed to delete the volume.
-        * `DELETED` – The volume is successfully deleted.
+        * `CREATING` - The volume creation is in progress.
+        * `CREATE_FAILED` - The volume creation has failed.
+        * `ACTIVE` - The volume is active.
+        * `UPDATING` - The volume is in the process of being updated.
+        * `UPDATE_FAILED` - The update action failed.
+        * `UPDATED` - The volume is successfully updated.
+        * `DELETING` - The volume is in the process of being deleted.
+        * `DELETE_FAILED` - The system failed to delete the volume.
+        * `DELETED` - The volume is successfully deleted.
         """
         return pulumi.get(self, "status")
 
@@ -771,7 +814,6 @@ class KxVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

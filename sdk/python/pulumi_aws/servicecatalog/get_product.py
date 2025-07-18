@@ -27,7 +27,7 @@ class GetProductResult:
     """
     A collection of values returned by getProduct.
     """
-    def __init__(__self__, accept_language=None, arn=None, created_time=None, description=None, distributor=None, has_default_path=None, id=None, name=None, owner=None, status=None, support_description=None, support_email=None, support_url=None, tags=None, type=None):
+    def __init__(__self__, accept_language=None, arn=None, created_time=None, description=None, distributor=None, has_default_path=None, id=None, name=None, owner=None, region=None, status=None, support_description=None, support_email=None, support_url=None, tags=None, type=None):
         if accept_language and not isinstance(accept_language, str):
             raise TypeError("Expected argument 'accept_language' to be a str")
         pulumi.set(__self__, "accept_language", accept_language)
@@ -55,6 +55,9 @@ class GetProductResult:
         if owner and not isinstance(owner, str):
             raise TypeError("Expected argument 'owner' to be a str")
         pulumi.set(__self__, "owner", owner)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -142,6 +145,11 @@ class GetProductResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def status(self) -> builtins.str:
         """
         Status of the product.
@@ -204,6 +212,7 @@ class AwaitableGetProductResult(GetProductResult):
             id=self.id,
             name=self.name,
             owner=self.owner,
+            region=self.region,
             status=self.status,
             support_description=self.support_description,
             support_email=self.support_email,
@@ -214,6 +223,7 @@ class AwaitableGetProductResult(GetProductResult):
 
 def get_product(accept_language: Optional[builtins.str] = None,
                 id: Optional[builtins.str] = None,
+                region: Optional[builtins.str] = None,
                 tags: Optional[Mapping[str, builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
@@ -237,11 +247,13 @@ def get_product(accept_language: Optional[builtins.str] = None,
     :param builtins.str id: ID of the product.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags applied to the product.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:servicecatalog/getProduct:getProduct', __args__, opts=opts, typ=GetProductResult).value
@@ -256,6 +268,7 @@ def get_product(accept_language: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         owner=pulumi.get(__ret__, 'owner'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
         support_description=pulumi.get(__ret__, 'support_description'),
         support_email=pulumi.get(__ret__, 'support_email'),
@@ -264,6 +277,7 @@ def get_product(accept_language: Optional[builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_product_output(accept_language: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        id: Optional[pulumi.Input[builtins.str]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductResult]:
     """
@@ -287,11 +301,13 @@ def get_product_output(accept_language: Optional[pulumi.Input[Optional[builtins.
     :param builtins.str id: ID of the product.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags applied to the product.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicecatalog/getProduct:getProduct', __args__, opts=opts, typ=GetProductResult)
@@ -305,6 +321,7 @@ def get_product_output(accept_language: Optional[pulumi.Input[Optional[builtins.
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         owner=pulumi.get(__response__, 'owner'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status'),
         support_description=pulumi.get(__response__, 'support_description'),
         support_email=pulumi.get(__response__, 'support_email'),

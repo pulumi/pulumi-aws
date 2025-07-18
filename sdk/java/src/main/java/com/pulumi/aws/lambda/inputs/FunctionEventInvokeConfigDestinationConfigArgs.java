@@ -17,14 +17,14 @@ public final class FunctionEventInvokeConfigDestinationConfigArgs extends com.pu
     public static final FunctionEventInvokeConfigDestinationConfigArgs Empty = new FunctionEventInvokeConfigDestinationConfigArgs();
 
     /**
-     * Configuration block with destination configuration for failed asynchronous invocations. See below for details.
+     * Configuration block with destination configuration for failed asynchronous invocations. See below.
      * 
      */
     @Import(name="onFailure")
     private @Nullable Output<FunctionEventInvokeConfigDestinationConfigOnFailureArgs> onFailure;
 
     /**
-     * @return Configuration block with destination configuration for failed asynchronous invocations. See below for details.
+     * @return Configuration block with destination configuration for failed asynchronous invocations. See below.
      * 
      */
     public Optional<Output<FunctionEventInvokeConfigDestinationConfigOnFailureArgs>> onFailure() {
@@ -32,14 +32,14 @@ public final class FunctionEventInvokeConfigDestinationConfigArgs extends com.pu
     }
 
     /**
-     * Configuration block with destination configuration for successful asynchronous invocations. See below for details.
+     * Configuration block with destination configuration for successful asynchronous invocations. See below.
      * 
      */
     @Import(name="onSuccess")
     private @Nullable Output<FunctionEventInvokeConfigDestinationConfigOnSuccessArgs> onSuccess;
 
     /**
-     * @return Configuration block with destination configuration for successful asynchronous invocations. See below for details.
+     * @return Configuration block with destination configuration for successful asynchronous invocations. See below.
      * 
      */
     public Optional<Output<FunctionEventInvokeConfigDestinationConfigOnSuccessArgs>> onSuccess() {
@@ -72,7 +72,7 @@ public final class FunctionEventInvokeConfigDestinationConfigArgs extends com.pu
         }
 
         /**
-         * @param onFailure Configuration block with destination configuration for failed asynchronous invocations. See below for details.
+         * @param onFailure Configuration block with destination configuration for failed asynchronous invocations. See below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class FunctionEventInvokeConfigDestinationConfigArgs extends com.pu
         }
 
         /**
-         * @param onFailure Configuration block with destination configuration for failed asynchronous invocations. See below for details.
+         * @param onFailure Configuration block with destination configuration for failed asynchronous invocations. See below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class FunctionEventInvokeConfigDestinationConfigArgs extends com.pu
         }
 
         /**
-         * @param onSuccess Configuration block with destination configuration for successful asynchronous invocations. See below for details.
+         * @param onSuccess Configuration block with destination configuration for successful asynchronous invocations. See below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class FunctionEventInvokeConfigDestinationConfigArgs extends com.pu
         }
 
         /**
-         * @param onSuccess Configuration block with destination configuration for successful asynchronous invocations. See below for details.
+         * @param onSuccess Configuration block with destination configuration for successful asynchronous invocations. See below.
          * 
          * @return builder
          * 

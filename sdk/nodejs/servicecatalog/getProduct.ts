@@ -27,6 +27,7 @@ export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): P
     return pulumi.runtime.invoke("aws:servicecatalog/getProduct:getProduct", {
         "acceptLanguage": args.acceptLanguage,
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -45,6 +46,10 @@ export interface GetProductArgs {
      * The following arguments are optional:
      */
     id: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Tags applied to the product.
      */
@@ -85,6 +90,7 @@ export interface GetProductResult {
      * Owner of the product.
      */
     readonly owner: string;
+    readonly region: string;
     /**
      * Status of the product.
      */
@@ -133,6 +139,7 @@ export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.Invok
     return pulumi.runtime.invokeOutput("aws:servicecatalog/getProduct:getProduct", {
         "acceptLanguage": args.acceptLanguage,
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -151,6 +158,10 @@ export interface GetProductOutputArgs {
      * The following arguments are optional:
      */
     id: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Tags applied to the product.
      */

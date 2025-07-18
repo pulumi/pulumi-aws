@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ type LookupDomainArgs struct {
 	DomainName string `pulumi:"domainName"`
 	// Off Peak update options
 	OffPeakWindowOptions *GetDomainOffPeakWindowOptions `pulumi:"offPeakWindowOptions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags assigned to the domain.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -101,10 +103,6 @@ type LookupDomainResult struct {
 	Id string `pulumi:"id"`
 	// Type of IP addresses supported by the endpoint for the domain.
 	IpAddressType string `pulumi:"ipAddressType"`
-	// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
-	//
-	// Deprecated: kibana_endpoint is deprecated. Use dashboardEndpoint instead.
-	KibanaEndpoint string `pulumi:"kibanaEndpoint"`
 	// Domain log publishing related options.
 	LogPublishingOptions []GetDomainLogPublishingOption `pulumi:"logPublishingOptions"`
 	// Domain in transit encryption related options.
@@ -112,7 +110,8 @@ type LookupDomainResult struct {
 	// Off Peak update options
 	OffPeakWindowOptions *GetDomainOffPeakWindowOptions `pulumi:"offPeakWindowOptions"`
 	// Status of a configuration change in the domain.
-	Processing bool `pulumi:"processing"`
+	Processing bool   `pulumi:"processing"`
+	Region     string `pulumi:"region"`
 	// Domain snapshot related options.
 	SnapshotOptions []GetDomainSnapshotOption `pulumi:"snapshotOptions"`
 	// Software update options for the domain
@@ -138,6 +137,8 @@ type LookupDomainOutputArgs struct {
 	DomainName pulumi.StringInput `pulumi:"domainName"`
 	// Off Peak update options
 	OffPeakWindowOptions GetDomainOffPeakWindowOptionsPtrInput `pulumi:"offPeakWindowOptions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags assigned to the domain.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -265,13 +266,6 @@ func (o LookupDomainResultOutput) IpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.IpAddressType }).(pulumi.StringOutput)
 }
 
-// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboardEndpoint` attribute instead.
-//
-// Deprecated: kibana_endpoint is deprecated. Use dashboardEndpoint instead.
-func (o LookupDomainResultOutput) KibanaEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDomainResult) string { return v.KibanaEndpoint }).(pulumi.StringOutput)
-}
-
 // Domain log publishing related options.
 func (o LookupDomainResultOutput) LogPublishingOptions() GetDomainLogPublishingOptionArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainLogPublishingOption { return v.LogPublishingOptions }).(GetDomainLogPublishingOptionArrayOutput)
@@ -290,6 +284,10 @@ func (o LookupDomainResultOutput) OffPeakWindowOptions() GetDomainOffPeakWindowO
 // Status of a configuration change in the domain.
 func (o LookupDomainResultOutput) Processing() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDomainResult) bool { return v.Processing }).(pulumi.BoolOutput)
+}
+
+func (o LookupDomainResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Domain snapshot related options.

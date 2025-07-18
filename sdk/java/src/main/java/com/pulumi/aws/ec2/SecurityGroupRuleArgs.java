@@ -112,6 +112,23 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Security group to apply this rule to.
      * 
      */
@@ -177,8 +194,6 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
      * 
      * The following arguments are optional:
      * 
-     * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
-     * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
@@ -188,8 +203,6 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
      * or `egress` (outbound).
      * 
      * The following arguments are optional:
-     * 
-     * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
      * 
      */
     public Output<String> type() {
@@ -205,6 +218,7 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
         this.ipv6CidrBlocks = $.ipv6CidrBlocks;
         this.prefixListIds = $.prefixListIds;
         this.protocol = $.protocol;
+        this.region = $.region;
         this.securityGroupId = $.securityGroupId;
         this.self = $.self;
         this.sourceSecurityGroupId = $.sourceSecurityGroupId;
@@ -407,6 +421,29 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param securityGroupId Security group to apply this rule to.
          * 
          * @return builder
@@ -496,8 +533,6 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
          * 
          * The following arguments are optional:
          * 
-         * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
-         * 
          * @return builder
          * 
          */
@@ -511,8 +546,6 @@ public final class SecurityGroupRuleArgs extends com.pulumi.resources.ResourceAr
          * or `egress` (outbound).
          * 
          * The following arguments are optional:
-         * 
-         * &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
          * 
          * @return builder
          * 

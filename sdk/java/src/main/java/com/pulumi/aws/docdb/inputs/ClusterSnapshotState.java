@@ -138,6 +138,21 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.port);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="snapshotType")
     private @Nullable Output<String> snapshotType;
 
@@ -208,6 +223,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         this.engineVersion = $.engineVersion;
         this.kmsKeyId = $.kmsKeyId;
         this.port = $.port;
+        this.region = $.region;
         this.snapshotType = $.snapshotType;
         this.sourceDbClusterSnapshotArn = $.sourceDbClusterSnapshotArn;
         this.status = $.status;
@@ -409,6 +425,27 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
          */
         public Builder port(Integer port) {
             return port(Output.of(port));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder snapshotType(@Nullable Output<String> snapshotType) {

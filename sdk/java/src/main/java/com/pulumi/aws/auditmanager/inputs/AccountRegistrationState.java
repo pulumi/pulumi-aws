@@ -62,6 +62,21 @@ public final class AccountRegistrationState extends com.pulumi.resources.Resourc
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Status of the account registration request.
      * 
      */
@@ -82,6 +97,7 @@ public final class AccountRegistrationState extends com.pulumi.resources.Resourc
         this.delegatedAdminAccount = $.delegatedAdminAccount;
         this.deregisterOnDestroy = $.deregisterOnDestroy;
         this.kmsKey = $.kmsKey;
+        this.region = $.region;
         this.status = $.status;
     }
 
@@ -164,6 +180,27 @@ public final class AccountRegistrationState extends com.pulumi.resources.Resourc
          */
         public Builder kmsKey(String kmsKey) {
             return kmsKey(Output.of(kmsKey));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

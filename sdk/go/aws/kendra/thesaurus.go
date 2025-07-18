@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,7 +65,8 @@ type Thesaurus struct {
 	// The identifier of the index for a thesaurus.
 	IndexId pulumi.StringOutput `pulumi:"indexId"`
 	// The name for the thesaurus.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name   pulumi.StringOutput `pulumi:"name"`
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
@@ -74,8 +75,6 @@ type Thesaurus struct {
 	Status pulumi.StringOutput    `pulumi:"status"`
 	Tags   pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 	ThesaurusId pulumi.StringOutput    `pulumi:"thesaurusId"`
 }
@@ -125,7 +124,8 @@ type thesaurusState struct {
 	// The identifier of the index for a thesaurus.
 	IndexId *string `pulumi:"indexId"`
 	// The name for the thesaurus.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn *string `pulumi:"roleArn"`
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
@@ -134,8 +134,6 @@ type thesaurusState struct {
 	Status *string           `pulumi:"status"`
 	Tags   map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll     map[string]string `pulumi:"tagsAll"`
 	ThesaurusId *string           `pulumi:"thesaurusId"`
 }
@@ -147,7 +145,8 @@ type ThesaurusState struct {
 	// The identifier of the index for a thesaurus.
 	IndexId pulumi.StringPtrInput
 	// The name for the thesaurus.
-	Name pulumi.StringPtrInput
+	Name   pulumi.StringPtrInput
+	Region pulumi.StringPtrInput
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringPtrInput
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
@@ -156,8 +155,6 @@ type ThesaurusState struct {
 	Status pulumi.StringPtrInput
 	Tags   pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll     pulumi.StringMapInput
 	ThesaurusId pulumi.StringPtrInput
 }
@@ -171,7 +168,8 @@ type thesaurusArgs struct {
 	// The identifier of the index for a thesaurus.
 	IndexId string `pulumi:"indexId"`
 	// The name for the thesaurus.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region *string `pulumi:"region"`
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn string `pulumi:"roleArn"`
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
@@ -185,7 +183,8 @@ type ThesaurusArgs struct {
 	// The identifier of the index for a thesaurus.
 	IndexId pulumi.StringInput
 	// The name for the thesaurus.
-	Name pulumi.StringPtrInput
+	Name   pulumi.StringPtrInput
+	Region pulumi.StringPtrInput
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringInput
 	// The S3 path where your thesaurus file sits in S3. Detailed below.
@@ -299,6 +298,10 @@ func (o ThesaurusOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+func (o ThesaurusOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 func (o ThesaurusOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
@@ -319,8 +322,6 @@ func (o ThesaurusOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ThesaurusOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

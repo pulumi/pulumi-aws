@@ -197,6 +197,10 @@ export class User extends pulumi.CustomResource {
      */
     public readonly phoneConfig!: pulumi.Output<outputs.connect.UserPhoneConfig>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The identifier of the routing profile for the user.
      */
     public readonly routingProfileId!: pulumi.Output<string>;
@@ -211,8 +215,6 @@ export class User extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -241,6 +243,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["phoneConfig"] = state ? state.phoneConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routingProfileId"] = state ? state.routingProfileId : undefined;
             resourceInputs["securityProfileIds"] = state ? state.securityProfileIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -267,6 +270,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["phoneConfig"] = args ? args.phoneConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routingProfileId"] = args ? args.routingProfileId : undefined;
             resourceInputs["securityProfileIds"] = args ? args.securityProfileIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -318,6 +322,10 @@ export interface UserState {
      */
     phoneConfig?: pulumi.Input<inputs.connect.UserPhoneConfig>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The identifier of the routing profile for the user.
      */
     routingProfileId?: pulumi.Input<string>;
@@ -332,8 +340,6 @@ export interface UserState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -374,6 +380,10 @@ export interface UserArgs {
      * A block that contains information about the phone settings for the user. Documented below.
      */
     phoneConfig: pulumi.Input<inputs.connect.UserPhoneConfig>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The identifier of the routing profile for the user.
      */

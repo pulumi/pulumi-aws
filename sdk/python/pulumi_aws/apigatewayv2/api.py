@@ -32,6 +32,7 @@ class ApiArgs:
                  fail_on_warnings: Optional[pulumi.Input[builtins.bool]] = None,
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_key: Optional[pulumi.Input[builtins.str]] = None,
                  route_selection_expression: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -53,6 +54,7 @@ class ApiArgs:
         :param pulumi.Input[builtins.bool] fail_on_warnings: Whether warnings should return an error while API Gateway is creating or updating the resource using an OpenAPI specification. Defaults to `false`. Applicable for HTTP APIs.
         :param pulumi.Input[builtins.str] ip_address_type: The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
         :param pulumi.Input[builtins.str] name: Name of the API. Must be less than or equal to 128 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_key: Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
         :param pulumi.Input[builtins.str] route_selection_expression: The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
                Defaults to `$request.method $request.path`.
@@ -81,6 +83,8 @@ class ApiArgs:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if route_key is not None:
             pulumi.set(__self__, "route_key", route_key)
         if route_selection_expression is not None:
@@ -217,6 +221,18 @@ class ApiArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="routeKey")
     def route_key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -296,6 +312,7 @@ class _ApiState:
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  protocol_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_key: Optional[pulumi.Input[builtins.str]] = None,
                  route_selection_expression: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -323,6 +340,7 @@ class _ApiState:
         :param pulumi.Input[builtins.str] ip_address_type: The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
         :param pulumi.Input[builtins.str] name: Name of the API. Must be less than or equal to 128 characters in length.
         :param pulumi.Input[builtins.str] protocol_type: API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_key: Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
         :param pulumi.Input[builtins.str] route_selection_expression: The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
                Defaults to `$request.method $request.path`.
@@ -359,15 +377,14 @@ class _ApiState:
             pulumi.set(__self__, "name", name)
         if protocol_type is not None:
             pulumi.set(__self__, "protocol_type", protocol_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if route_key is not None:
             pulumi.set(__self__, "route_key", route_key)
         if route_selection_expression is not None:
             pulumi.set(__self__, "route_selection_expression", route_selection_expression)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if target is not None:
@@ -538,6 +555,18 @@ class _ApiState:
         pulumi.set(self, "protocol_type", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="routeKey")
     def route_key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -576,7 +605,6 @@ class _ApiState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -630,6 +658,7 @@ class Api(pulumi.CustomResource):
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  protocol_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_key: Optional[pulumi.Input[builtins.str]] = None,
                  route_selection_expression: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -690,6 +719,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ip_address_type: The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
         :param pulumi.Input[builtins.str] name: Name of the API. Must be less than or equal to 128 characters in length.
         :param pulumi.Input[builtins.str] protocol_type: API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_key: Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
         :param pulumi.Input[builtins.str] route_selection_expression: The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
                Defaults to `$request.method $request.path`.
@@ -768,6 +798,7 @@ class Api(pulumi.CustomResource):
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  protocol_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_key: Optional[pulumi.Input[builtins.str]] = None,
                  route_selection_expression: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -794,6 +825,7 @@ class Api(pulumi.CustomResource):
             if protocol_type is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol_type'")
             __props__.__dict__["protocol_type"] = protocol_type
+            __props__.__dict__["region"] = region
             __props__.__dict__["route_key"] = route_key
             __props__.__dict__["route_selection_expression"] = route_selection_expression
             __props__.__dict__["tags"] = tags
@@ -826,6 +858,7 @@ class Api(pulumi.CustomResource):
             ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             protocol_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             route_key: Optional[pulumi.Input[builtins.str]] = None,
             route_selection_expression: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -858,6 +891,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ip_address_type: The IP address types that can invoke the API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your API. Defaults to `ipv4`.
         :param pulumi.Input[builtins.str] name: Name of the API. Must be less than or equal to 128 characters in length.
         :param pulumi.Input[builtins.str] protocol_type: API protocol. Valid values: `HTTP`, `WEBSOCKET`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_key: Part of _quick create_. Specifies any [route key](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html). Applicable for HTTP APIs.
         :param pulumi.Input[builtins.str] route_selection_expression: The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
                Defaults to `$request.method $request.path`.
@@ -885,6 +919,7 @@ class Api(pulumi.CustomResource):
         __props__.__dict__["ip_address_type"] = ip_address_type
         __props__.__dict__["name"] = name
         __props__.__dict__["protocol_type"] = protocol_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["route_key"] = route_key
         __props__.__dict__["route_selection_expression"] = route_selection_expression
         __props__.__dict__["tags"] = tags
@@ -1004,6 +1039,14 @@ class Api(pulumi.CustomResource):
         return pulumi.get(self, "protocol_type")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="routeKey")
     def route_key(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -1030,7 +1073,6 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

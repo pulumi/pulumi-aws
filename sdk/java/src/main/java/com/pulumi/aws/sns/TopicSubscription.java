@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .name("user-updates-topic")
  *             .build());
  * 
- *         final var sqsQueuePolicy = userUpdates.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var sqsQueuePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .policyId("arn:aws:sqs:us-west-2:123456789012:user_updates_queue/SQSDefaultPolicy")
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid("user_updates_sqs_target")
@@ -80,10 +80,10 @@ import javax.annotation.Nullable;
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("ArnEquals")
  *                     .variable("aws:SourceArn")
- *                     .values(_arn)
+ *                     .values(userUpdates.arn())
  *                     .build())
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var userUpdatesQueue = new Queue("userUpdatesQueue", QueueArgs.builder()
  *             .name("user-updates-queue")
@@ -487,6 +487,20 @@ public class TopicSubscription extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> redrivePolicy() {
         return Codegen.optional(this.redrivePolicy);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.

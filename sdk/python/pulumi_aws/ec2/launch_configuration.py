@@ -35,6 +35,7 @@ class LaunchConfigurationArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  placement_tenancy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  root_block_device: Optional[pulumi.Input['LaunchConfigurationRootBlockDeviceArgs']] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  spot_price: Optional[pulumi.Input[builtins.str]] = None,
@@ -57,6 +58,7 @@ class LaunchConfigurationArgs:
         :param pulumi.Input[builtins.str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.str] placement_tenancy: The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['LaunchConfigurationRootBlockDeviceArgs'] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: A list of associated security group IDS.
         :param pulumi.Input[builtins.str] spot_price: The maximum price to use for reserving spot instances.
@@ -87,6 +89,8 @@ class LaunchConfigurationArgs:
             pulumi.set(__self__, "name_prefix", name_prefix)
         if placement_tenancy is not None:
             pulumi.set(__self__, "placement_tenancy", placement_tenancy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if root_block_device is not None:
             pulumi.set(__self__, "root_block_device", root_block_device)
         if security_groups is not None:
@@ -257,6 +261,18 @@ class LaunchConfigurationArgs:
         pulumi.set(self, "placement_tenancy", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="rootBlockDevice")
     def root_block_device(self) -> Optional[pulumi.Input['LaunchConfigurationRootBlockDeviceArgs']]:
         """
@@ -334,6 +350,7 @@ class _LaunchConfigurationState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  placement_tenancy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  root_block_device: Optional[pulumi.Input['LaunchConfigurationRootBlockDeviceArgs']] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  spot_price: Optional[pulumi.Input[builtins.str]] = None,
@@ -357,6 +374,7 @@ class _LaunchConfigurationState:
         :param pulumi.Input[builtins.str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.str] placement_tenancy: The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['LaunchConfigurationRootBlockDeviceArgs'] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: A list of associated security group IDS.
         :param pulumi.Input[builtins.str] spot_price: The maximum price to use for reserving spot instances.
@@ -391,6 +409,8 @@ class _LaunchConfigurationState:
             pulumi.set(__self__, "name_prefix", name_prefix)
         if placement_tenancy is not None:
             pulumi.set(__self__, "placement_tenancy", placement_tenancy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if root_block_device is not None:
             pulumi.set(__self__, "root_block_device", root_block_device)
         if security_groups is not None:
@@ -573,6 +593,18 @@ class _LaunchConfigurationState:
         pulumi.set(self, "placement_tenancy", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="rootBlockDevice")
     def root_block_device(self) -> Optional[pulumi.Input['LaunchConfigurationRootBlockDeviceArgs']]:
         """
@@ -652,6 +684,7 @@ class LaunchConfiguration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  placement_tenancy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  root_block_device: Optional[pulumi.Input[Union['LaunchConfigurationRootBlockDeviceArgs', 'LaunchConfigurationRootBlockDeviceArgsDict']]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  spot_price: Optional[pulumi.Input[builtins.str]] = None,
@@ -714,6 +747,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.str] placement_tenancy: The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['LaunchConfigurationRootBlockDeviceArgs', 'LaunchConfigurationRootBlockDeviceArgsDict']] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: A list of associated security group IDS.
         :param pulumi.Input[builtins.str] spot_price: The maximum price to use for reserving spot instances.
@@ -793,6 +827,7 @@ class LaunchConfiguration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  placement_tenancy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  root_block_device: Optional[pulumi.Input[Union['LaunchConfigurationRootBlockDeviceArgs', 'LaunchConfigurationRootBlockDeviceArgsDict']]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  spot_price: Optional[pulumi.Input[builtins.str]] = None,
@@ -824,6 +859,7 @@ class LaunchConfiguration(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["placement_tenancy"] = placement_tenancy
+            __props__.__dict__["region"] = region
             __props__.__dict__["root_block_device"] = root_block_device
             __props__.__dict__["security_groups"] = security_groups
             __props__.__dict__["spot_price"] = spot_price
@@ -854,6 +890,7 @@ class LaunchConfiguration(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             name_prefix: Optional[pulumi.Input[builtins.str]] = None,
             placement_tenancy: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             root_block_device: Optional[pulumi.Input[Union['LaunchConfigurationRootBlockDeviceArgs', 'LaunchConfigurationRootBlockDeviceArgsDict']]] = None,
             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             spot_price: Optional[pulumi.Input[builtins.str]] = None,
@@ -882,6 +919,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the launch configuration. If you leave this blank, this provider will auto-generate a unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[builtins.str] placement_tenancy: The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['LaunchConfigurationRootBlockDeviceArgs', 'LaunchConfigurationRootBlockDeviceArgsDict']] root_block_device: Customize details about the root block device of the instance. See Block Devices below for details.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: A list of associated security group IDS.
         :param pulumi.Input[builtins.str] spot_price: The maximum price to use for reserving spot instances.
@@ -906,6 +944,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["placement_tenancy"] = placement_tenancy
+        __props__.__dict__["region"] = region
         __props__.__dict__["root_block_device"] = root_block_device
         __props__.__dict__["security_groups"] = security_groups
         __props__.__dict__["spot_price"] = spot_price
@@ -1026,6 +1065,14 @@ class LaunchConfiguration(pulumi.CustomResource):
         The tenancy of the instance. Valid values are `default` or `dedicated`, see [AWS's Create Launch Configuration](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_CreateLaunchConfiguration.html) for more details.
         """
         return pulumi.get(self, "placement_tenancy")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="rootBlockDevice")

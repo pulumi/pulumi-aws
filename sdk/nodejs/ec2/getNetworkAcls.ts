@@ -62,6 +62,7 @@ export function getNetworkAcls(args?: GetNetworkAclsArgs, opts?: pulumi.InvokeOp
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getNetworkAcls:getNetworkAcls", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
@@ -75,6 +76,10 @@ export interface GetNetworkAclsArgs {
      * Custom filter block as described below.
      */
     filters?: inputs.ec2.GetNetworkAclsFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired network ACLs.
@@ -99,6 +104,7 @@ export interface GetNetworkAclsResult {
      * List of all the network ACL ids found.
      */
     readonly ids: string[];
+    readonly region: string;
     readonly tags: {[key: string]: string};
     readonly vpcId?: string;
 }
@@ -157,6 +163,7 @@ export function getNetworkAclsOutput(args?: GetNetworkAclsOutputArgs, opts?: pul
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getNetworkAcls:getNetworkAcls", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
@@ -170,6 +177,10 @@ export interface GetNetworkAclsOutputArgs {
      * Custom filter block as described below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkAclsFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired network ACLs.

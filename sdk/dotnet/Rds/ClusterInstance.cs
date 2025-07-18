@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Rds
     ///             Identifier = $"aurora-cluster-demo-{range.Value}",
     ///             ClusterIdentifier = @default.Id,
     ///             InstanceClass = Aws.Rds.InstanceType.R4_Large,
-    ///             Engine = @default.Engine,
+    ///             Engine = @default.Engine.Apply(System.Enum.Parse&lt;Aws.Rds.EngineType&gt;),
     ///             EngineVersion = @default.EngineVersion,
     ///         }));
     ///     }
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Rds
         /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         /// </summary>
         [Output("engine")]
-        public Output<string> Engine { get; private set; } = null!;
+        public Output<Pulumi.Aws.Rds.EngineType> Engine { get; private set; } = null!;
 
         /// <summary>
         /// Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
@@ -264,6 +264,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Output("publiclyAccessible")]
         public Output<bool> PubliclyAccessible { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the DB cluster is encrypted.
@@ -397,7 +403,7 @@ namespace Pulumi.Aws.Rds
         /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         /// </summary>
         [Input("engine", required: true)]
-        public Input<string> Engine { get; set; } = null!;
+        public Input<Pulumi.Aws.Rds.EngineType> Engine { get; set; } = null!;
 
         /// <summary>
         /// Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
@@ -482,6 +488,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -583,7 +595,7 @@ namespace Pulumi.Aws.Rds
         /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         /// </summary>
         [Input("engine")]
-        public Input<string>? Engine { get; set; }
+        public Input<Pulumi.Aws.Rds.EngineType>? Engine { get; set; }
 
         /// <summary>
         /// Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `aws.rds.Cluster` `engine_version`. Trying to upgrade in `aws_cluster_instance` will not update the `engine_version`.
@@ -694,6 +706,12 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? PubliclyAccessible { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Specifies whether the DB cluster is encrypted.
         /// </summary>
         [Input("storageEncrypted")]
@@ -720,7 +738,6 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

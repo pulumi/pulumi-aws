@@ -28,7 +28,7 @@ class GetSchedulingPolicyResult:
     """
     A collection of values returned by getSchedulingPolicy.
     """
-    def __init__(__self__, arn=None, fair_share_policies=None, id=None, name=None, tags=None):
+    def __init__(__self__, arn=None, fair_share_policies=None, id=None, name=None, region=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -41,6 +41,9 @@ class GetSchedulingPolicyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -73,6 +76,11 @@ class GetSchedulingPolicyResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Key-value map of resource tags
@@ -90,10 +98,12 @@ class AwaitableGetSchedulingPolicyResult(GetSchedulingPolicyResult):
             fair_share_policies=self.fair_share_policies,
             id=self.id,
             name=self.name,
+            region=self.region,
             tags=self.tags)
 
 
 def get_scheduling_policy(arn: Optional[builtins.str] = None,
+                          region: Optional[builtins.str] = None,
                           tags: Optional[Mapping[str, builtins.str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchedulingPolicyResult:
     """
@@ -110,10 +120,12 @@ def get_scheduling_policy(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: ARN of the scheduling policy.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:batch/getSchedulingPolicy:getSchedulingPolicy', __args__, opts=opts, typ=GetSchedulingPolicyResult).value
@@ -123,8 +135,10 @@ def get_scheduling_policy(arn: Optional[builtins.str] = None,
         fair_share_policies=pulumi.get(__ret__, 'fair_share_policies'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_scheduling_policy_output(arn: Optional[pulumi.Input[builtins.str]] = None,
+                                 region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchedulingPolicyResult]:
     """
@@ -141,10 +155,12 @@ def get_scheduling_policy_output(arn: Optional[pulumi.Input[builtins.str]] = Non
 
 
     :param builtins.str arn: ARN of the scheduling policy.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:batch/getSchedulingPolicy:getSchedulingPolicy', __args__, opts=opts, typ=GetSchedulingPolicyResult)
@@ -153,4 +169,5 @@ def get_scheduling_policy_output(arn: Optional[pulumi.Input[builtins.str]] = Non
         fair_share_policies=pulumi.get(__response__, 'fair_share_policies'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

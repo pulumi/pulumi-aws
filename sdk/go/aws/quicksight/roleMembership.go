@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,6 +61,8 @@ type RoleMembership struct {
 	MemberName pulumi.StringOutput `pulumi:"memberName"`
 	// Name of the namespace. Defaults to `default`.
 	Namespace pulumi.StringOutput `pulumi:"namespace"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
 	//
 	// The following arguments are optional:
@@ -109,6 +111,8 @@ type roleMembershipState struct {
 	MemberName *string `pulumi:"memberName"`
 	// Name of the namespace. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
 	//
 	// The following arguments are optional:
@@ -122,6 +126,8 @@ type RoleMembershipState struct {
 	MemberName pulumi.StringPtrInput
 	// Name of the namespace. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
 	//
 	// The following arguments are optional:
@@ -139,6 +145,8 @@ type roleMembershipArgs struct {
 	MemberName string `pulumi:"memberName"`
 	// Name of the namespace. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
 	//
 	// The following arguments are optional:
@@ -153,6 +161,8 @@ type RoleMembershipArgs struct {
 	MemberName pulumi.StringInput
 	// Name of the namespace. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.
 	//
 	// The following arguments are optional:
@@ -259,6 +269,11 @@ func (o RoleMembershipOutput) MemberName() pulumi.StringOutput {
 // Name of the namespace. Defaults to `default`.
 func (o RoleMembershipOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleMembership) pulumi.StringOutput { return v.Namespace }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o RoleMembershipOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RoleMembership) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Role to add the group to. Valid values are `ADMIN`, `AUTHOR`, `READER`, `ADMIN_PRO`, `AUTHOR_PRO`, and `READER_PRO`.

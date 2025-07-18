@@ -75,6 +75,10 @@ export class GeoMatchSet extends pulumi.CustomResource {
      * The name or description of the Geo Match Set.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a GeoMatchSet resource with the given unique name, arguments, and options.
@@ -91,10 +95,12 @@ export class GeoMatchSet extends pulumi.CustomResource {
             const state = argsOrState as GeoMatchSetState | undefined;
             resourceInputs["geoMatchConstraints"] = state ? state.geoMatchConstraints : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as GeoMatchSetArgs | undefined;
             resourceInputs["geoMatchConstraints"] = args ? args.geoMatchConstraints : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GeoMatchSet.__pulumiType, name, resourceInputs, opts);
@@ -113,6 +119,10 @@ export interface GeoMatchSetState {
      * The name or description of the Geo Match Set.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -127,4 +137,8 @@ export interface GeoMatchSetArgs {
      * The name or description of the Geo Match Set.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

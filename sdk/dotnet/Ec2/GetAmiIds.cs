@@ -186,6 +186,12 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Used to sort AMIs by creation time.
         /// If no value is specified, the default value is `false`.
         /// </summary>
@@ -257,6 +263,12 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Used to sort AMIs by creation time.
         /// If no value is specified, the default value is `false`.
         /// </summary>
@@ -286,6 +298,7 @@ namespace Pulumi.Aws.Ec2
         public readonly bool? IncludeDeprecated;
         public readonly string? NameRegex;
         public readonly ImmutableArray<string> Owners;
+        public readonly string Region;
         public readonly bool? SortAscending;
 
         [OutputConstructor]
@@ -304,6 +317,8 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<string> owners,
 
+            string region,
+
             bool? sortAscending)
         {
             ExecutableUsers = executableUsers;
@@ -313,6 +328,7 @@ namespace Pulumi.Aws.Ec2
             IncludeDeprecated = includeDeprecated;
             NameRegex = nameRegex;
             Owners = owners;
+            Region = region;
             SortAscending = sortAscending;
         }
     }

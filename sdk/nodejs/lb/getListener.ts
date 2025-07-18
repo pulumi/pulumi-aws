@@ -42,6 +42,7 @@ export function getListener(args?: GetListenerArgs, opts?: pulumi.InvokeOptions)
         "arn": args.arn,
         "loadBalancerArn": args.loadBalancerArn,
         "port": args.port,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -62,6 +63,10 @@ export interface GetListenerArgs {
      * Port of the listener. Required if `arn` is not set.
      */
     port?: number;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     tags?: {[key: string]: string};
 }
 
@@ -81,6 +86,7 @@ export interface GetListenerResult {
     readonly mutualAuthentications: outputs.lb.GetListenerMutualAuthentication[];
     readonly port: number;
     readonly protocol: string;
+    readonly region: string;
     readonly sslPolicy: string;
     readonly tags: {[key: string]: string};
 }
@@ -119,6 +125,7 @@ export function getListenerOutput(args?: GetListenerOutputArgs, opts?: pulumi.In
         "arn": args.arn,
         "loadBalancerArn": args.loadBalancerArn,
         "port": args.port,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -139,5 +146,9 @@ export interface GetListenerOutputArgs {
      * Port of the listener. Required if `arn` is not set.
      */
     port?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -50,6 +50,21 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
      * 
      */
@@ -84,6 +99,7 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
     private AccessPointArgs(AccessPointArgs $) {
         this.fileSystemId = $.fileSystemId;
         this.posixUser = $.posixUser;
+        this.region = $.region;
         this.rootDirectory = $.rootDirectory;
         this.tags = $.tags;
     }
@@ -146,6 +162,27 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder posixUser(AccessPointPosixUserArgs posixUser) {
             return posixUser(Output.of(posixUser));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

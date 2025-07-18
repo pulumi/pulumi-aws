@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,6 +98,8 @@ type ProxyDefaultTargetGroup struct {
 	DbProxyName pulumi.StringOutput `pulumi:"dbProxyName"`
 	// The name of the default target group.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewProxyDefaultTargetGroup registers a new resource with the given unique name, arguments, and options.
@@ -141,6 +143,8 @@ type proxyDefaultTargetGroupState struct {
 	DbProxyName *string `pulumi:"dbProxyName"`
 	// The name of the default target group.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ProxyDefaultTargetGroupState struct {
@@ -152,6 +156,8 @@ type ProxyDefaultTargetGroupState struct {
 	DbProxyName pulumi.StringPtrInput
 	// The name of the default target group.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ProxyDefaultTargetGroupState) ElementType() reflect.Type {
@@ -163,6 +169,8 @@ type proxyDefaultTargetGroupArgs struct {
 	ConnectionPoolConfig *ProxyDefaultTargetGroupConnectionPoolConfig `pulumi:"connectionPoolConfig"`
 	// Name of the RDS DB Proxy.
 	DbProxyName string `pulumi:"dbProxyName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ProxyDefaultTargetGroup resource.
@@ -171,6 +179,8 @@ type ProxyDefaultTargetGroupArgs struct {
 	ConnectionPoolConfig ProxyDefaultTargetGroupConnectionPoolConfigPtrInput
 	// Name of the RDS DB Proxy.
 	DbProxyName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ProxyDefaultTargetGroupArgs) ElementType() reflect.Type {
@@ -280,6 +290,11 @@ func (o ProxyDefaultTargetGroupOutput) DbProxyName() pulumi.StringOutput {
 // The name of the default target group.
 func (o ProxyDefaultTargetGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyDefaultTargetGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ProxyDefaultTargetGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProxyDefaultTargetGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ProxyDefaultTargetGroupArrayOutput struct{ *pulumi.OutputState }

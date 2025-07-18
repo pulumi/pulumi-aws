@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,11 +56,11 @@ import (
 //					bar.Name,
 //					foo.Name,
 //				},
-//				Notifications: pulumi.StringArray{
-//					pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH"),
-//					pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE"),
-//					pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH_ERROR"),
-//					pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE_ERROR"),
+//				Notifications: autoscaling.NotificationTypeArray{
+//					autoscaling.NotificationTypeInstanceLaunch,
+//					autoscaling.NotificationTypeInstanceTerminate,
+//					autoscaling.NotificationTypeInstanceLaunchError,
+//					autoscaling.NotificationTypeInstanceTerminateError,
 //				},
 //				TopicArn: example.Arn,
 //			})
@@ -79,7 +79,9 @@ type Notification struct {
 	GroupNames pulumi.StringArrayOutput `pulumi:"groupNames"`
 	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-	Notifications pulumi.StringArrayOutput `pulumi:"notifications"`
+	Notifications NotificationTypeArrayOutput `pulumi:"notifications"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Topic ARN for notifications to be sent through
 	TopicArn pulumi.StringOutput `pulumi:"topicArn"`
 }
@@ -127,7 +129,9 @@ type notificationState struct {
 	GroupNames []string `pulumi:"groupNames"`
 	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-	Notifications []string `pulumi:"notifications"`
+	Notifications []NotificationType `pulumi:"notifications"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Topic ARN for notifications to be sent through
 	TopicArn *string `pulumi:"topicArn"`
 }
@@ -137,7 +141,9 @@ type NotificationState struct {
 	GroupNames pulumi.StringArrayInput
 	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-	Notifications pulumi.StringArrayInput
+	Notifications NotificationTypeArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Topic ARN for notifications to be sent through
 	TopicArn pulumi.StringPtrInput
 }
@@ -151,7 +157,9 @@ type notificationArgs struct {
 	GroupNames []string `pulumi:"groupNames"`
 	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-	Notifications []string `pulumi:"notifications"`
+	Notifications []NotificationType `pulumi:"notifications"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Topic ARN for notifications to be sent through
 	TopicArn string `pulumi:"topicArn"`
 }
@@ -162,7 +170,9 @@ type NotificationArgs struct {
 	GroupNames pulumi.StringArrayInput
 	// List of Notification Types that trigger
 	// notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-	Notifications pulumi.StringArrayInput
+	Notifications NotificationTypeArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Topic ARN for notifications to be sent through
 	TopicArn pulumi.StringInput
 }
@@ -261,8 +271,13 @@ func (o NotificationOutput) GroupNames() pulumi.StringArrayOutput {
 
 // List of Notification Types that trigger
 // notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
-func (o NotificationOutput) Notifications() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *Notification) pulumi.StringArrayOutput { return v.Notifications }).(pulumi.StringArrayOutput)
+func (o NotificationOutput) Notifications() NotificationTypeArrayOutput {
+	return o.ApplyT(func(v *Notification) NotificationTypeArrayOutput { return v.Notifications }).(NotificationTypeArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o NotificationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Notification) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Topic ARN for notifications to be sent through

@@ -129,6 +129,12 @@ namespace Pulumi.Aws.SsoAdmin
         [Input("principalType", required: true)]
         public string PrincipalType { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetPrincipalApplicationAssignmentsArgs()
         {
         }
@@ -167,6 +173,12 @@ namespace Pulumi.Aws.SsoAdmin
         [Input("principalType", required: true)]
         public Input<string> PrincipalType { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetPrincipalApplicationAssignmentsInvokeArgs()
         {
         }
@@ -191,6 +203,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
         /// </summary>
         public readonly string PrincipalType;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetPrincipalApplicationAssignmentsResult(
@@ -202,13 +215,16 @@ namespace Pulumi.Aws.SsoAdmin
 
             string principalId,
 
-            string principalType)
+            string principalType,
+
+            string region)
         {
             ApplicationAssignments = applicationAssignments;
             Id = id;
             InstanceArn = instanceArn;
             PrincipalId = principalId;
             PrincipalType = principalType;
+            Region = region;
         }
     }
 }

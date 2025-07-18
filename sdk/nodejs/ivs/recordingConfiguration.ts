@@ -81,6 +81,10 @@ export class RecordingConfiguration extends pulumi.CustomResource {
      */
     public readonly recordingReconnectWindowSeconds!: pulumi.Output<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The current state of the Recording Configuration.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
@@ -90,8 +94,6 @@ export class RecordingConfiguration extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -116,6 +118,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
             resourceInputs["destinationConfiguration"] = state ? state.destinationConfiguration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["recordingReconnectWindowSeconds"] = state ? state.recordingReconnectWindowSeconds : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -128,6 +131,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
             resourceInputs["destinationConfiguration"] = args ? args.destinationConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["recordingReconnectWindowSeconds"] = args ? args.recordingReconnectWindowSeconds : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["thumbnailConfiguration"] = args ? args.thumbnailConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -160,6 +164,10 @@ export interface RecordingConfigurationState {
      */
     recordingReconnectWindowSeconds?: pulumi.Input<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The current state of the Recording Configuration.
      */
     state?: pulumi.Input<string>;
@@ -169,8 +177,6 @@ export interface RecordingConfigurationState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -195,6 +201,10 @@ export interface RecordingConfigurationArgs {
      * If a broadcast disconnects and then reconnects within the specified interval, the multiple streams will be considered a single broadcast and merged together.
      */
     recordingReconnectWindowSeconds?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

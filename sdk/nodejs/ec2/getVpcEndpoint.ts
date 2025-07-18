@@ -34,6 +34,7 @@ export function getVpcEndpoint(args?: GetVpcEndpointArgs, opts?: pulumi.InvokeOp
     return pulumi.runtime.invoke("aws:ec2/getVpcEndpoint:getVpcEndpoint", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "serviceName": args.serviceName,
         "state": args.state,
         "tags": args.tags,
@@ -53,6 +54,10 @@ export interface GetVpcEndpointArgs {
      * ID of the specific VPC Endpoint to retrieve.
      */
     id?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */
@@ -118,6 +123,7 @@ export interface GetVpcEndpointResult {
      * Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
      */
     readonly privateDnsEnabled: boolean;
+    readonly region: string;
     /**
      * Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
      */
@@ -170,6 +176,7 @@ export function getVpcEndpointOutput(args?: GetVpcEndpointOutputArgs, opts?: pul
     return pulumi.runtime.invokeOutput("aws:ec2/getVpcEndpoint:getVpcEndpoint", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "serviceName": args.serviceName,
         "state": args.state,
         "tags": args.tags,
@@ -189,6 +196,10 @@ export interface GetVpcEndpointOutputArgs {
      * ID of the specific VPC Endpoint to retrieve.
      */
     id?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
      */

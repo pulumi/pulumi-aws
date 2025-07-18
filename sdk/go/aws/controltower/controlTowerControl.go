@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,6 +31,8 @@ type ControlTowerControl struct {
 	ControlIdentifier pulumi.StringOutput `pulumi:"controlIdentifier"`
 	// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
 	Parameters ControlTowerControlParameterArrayOutput `pulumi:"parameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the organizational unit.
 	//
 	// The following arguments are optional:
@@ -79,6 +81,8 @@ type controlTowerControlState struct {
 	ControlIdentifier *string `pulumi:"controlIdentifier"`
 	// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
 	Parameters []ControlTowerControlParameter `pulumi:"parameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the organizational unit.
 	//
 	// The following arguments are optional:
@@ -92,6 +96,8 @@ type ControlTowerControlState struct {
 	ControlIdentifier pulumi.StringPtrInput
 	// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
 	Parameters ControlTowerControlParameterArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the organizational unit.
 	//
 	// The following arguments are optional:
@@ -107,6 +113,8 @@ type controlTowerControlArgs struct {
 	ControlIdentifier string `pulumi:"controlIdentifier"`
 	// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
 	Parameters []ControlTowerControlParameter `pulumi:"parameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the organizational unit.
 	//
 	// The following arguments are optional:
@@ -119,6 +127,8 @@ type ControlTowerControlArgs struct {
 	ControlIdentifier pulumi.StringInput
 	// Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
 	Parameters ControlTowerControlParameterArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the organizational unit.
 	//
 	// The following arguments are optional:
@@ -225,6 +235,11 @@ func (o ControlTowerControlOutput) ControlIdentifier() pulumi.StringOutput {
 // Parameter values which are specified to configure the control when you enable it. See Parameters for more details.
 func (o ControlTowerControlOutput) Parameters() ControlTowerControlParameterArrayOutput {
 	return o.ApplyT(func(v *ControlTowerControl) ControlTowerControlParameterArrayOutput { return v.Parameters }).(ControlTowerControlParameterArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ControlTowerControlOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ControlTowerControl) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of the organizational unit.

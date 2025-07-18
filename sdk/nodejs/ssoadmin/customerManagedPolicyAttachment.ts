@@ -93,6 +93,10 @@ export class CustomerManagedPolicyAttachment extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the Permission Set.
      */
     public readonly permissionSetArn!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a CustomerManagedPolicyAttachment resource with the given unique name, arguments, and options.
@@ -110,6 +114,7 @@ export class CustomerManagedPolicyAttachment extends pulumi.CustomResource {
             resourceInputs["customerManagedPolicyReference"] = state ? state.customerManagedPolicyReference : undefined;
             resourceInputs["instanceArn"] = state ? state.instanceArn : undefined;
             resourceInputs["permissionSetArn"] = state ? state.permissionSetArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as CustomerManagedPolicyAttachmentArgs | undefined;
             if ((!args || args.customerManagedPolicyReference === undefined) && !opts.urn) {
@@ -124,6 +129,7 @@ export class CustomerManagedPolicyAttachment extends pulumi.CustomResource {
             resourceInputs["customerManagedPolicyReference"] = args ? args.customerManagedPolicyReference : undefined;
             resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
             resourceInputs["permissionSetArn"] = args ? args.permissionSetArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CustomerManagedPolicyAttachment.__pulumiType, name, resourceInputs, opts);
@@ -146,6 +152,10 @@ export interface CustomerManagedPolicyAttachmentState {
      * The Amazon Resource Name (ARN) of the Permission Set.
      */
     permissionSetArn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -164,4 +174,8 @@ export interface CustomerManagedPolicyAttachmentArgs {
      * The Amazon Resource Name (ARN) of the Permission Set.
      */
     permissionSetArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

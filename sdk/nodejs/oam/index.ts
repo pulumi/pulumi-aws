@@ -10,7 +10,7 @@ export const getLink: typeof import("./getLink").getLink = null as any;
 export const getLinkOutput: typeof import("./getLink").getLinkOutput = null as any;
 utilities.lazyLoad(exports, ["getLink","getLinkOutput"], () => require("./getLink"));
 
-export { GetLinksResult } from "./getLinks";
+export { GetLinksArgs, GetLinksResult, GetLinksOutputArgs } from "./getLinks";
 export const getLinks: typeof import("./getLinks").getLinks = null as any;
 export const getLinksOutput: typeof import("./getLinks").getLinksOutput = null as any;
 utilities.lazyLoad(exports, ["getLinks","getLinksOutput"], () => require("./getLinks"));
@@ -20,7 +20,7 @@ export const getSink: typeof import("./getSink").getSink = null as any;
 export const getSinkOutput: typeof import("./getSink").getSinkOutput = null as any;
 utilities.lazyLoad(exports, ["getSink","getSinkOutput"], () => require("./getSink"));
 
-export { GetSinksResult } from "./getSinks";
+export { GetSinksArgs, GetSinksResult, GetSinksOutputArgs } from "./getSinks";
 export const getSinks: typeof import("./getSinks").getSinks = null as any;
 export const getSinksOutput: typeof import("./getSinks").getSinksOutput = null as any;
 utilities.lazyLoad(exports, ["getSinks","getSinksOutput"], () => require("./getSinks"));

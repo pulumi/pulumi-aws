@@ -54,6 +54,21 @@ public final class PrefixListReferenceState extends com.pulumi.resources.Resourc
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Identifier of EC2 Transit Gateway Attachment.
      * 
      */
@@ -93,6 +108,7 @@ public final class PrefixListReferenceState extends com.pulumi.resources.Resourc
         this.blackhole = $.blackhole;
         this.prefixListId = $.prefixListId;
         this.prefixListOwnerId = $.prefixListOwnerId;
+        this.region = $.region;
         this.transitGatewayAttachmentId = $.transitGatewayAttachmentId;
         this.transitGatewayRouteTableId = $.transitGatewayRouteTableId;
     }
@@ -164,6 +180,27 @@ public final class PrefixListReferenceState extends com.pulumi.resources.Resourc
 
         public Builder prefixListOwnerId(String prefixListOwnerId) {
             return prefixListOwnerId(Output.of(prefixListOwnerId));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

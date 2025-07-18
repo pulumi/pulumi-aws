@@ -16,6 +16,21 @@ public final class TableBucketPolicyState extends com.pulumi.resources.ResourceA
     public static final TableBucketPolicyState Empty = new TableBucketPolicyState();
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Amazon Web Services resource-based policy document in JSON format.
      * 
      */
@@ -48,6 +63,7 @@ public final class TableBucketPolicyState extends com.pulumi.resources.ResourceA
     private TableBucketPolicyState() {}
 
     private TableBucketPolicyState(TableBucketPolicyState $) {
+        this.region = $.region;
         this.resourcePolicy = $.resourcePolicy;
         this.tableBucketArn = $.tableBucketArn;
     }
@@ -68,6 +84,27 @@ public final class TableBucketPolicyState extends com.pulumi.resources.ResourceA
 
         public Builder(TableBucketPolicyState defaults) {
             $ = new TableBucketPolicyState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -30,6 +30,7 @@ class V2modelsSlotArgs:
                  multiple_values_settings: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotMultipleValuesSettingArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  obfuscation_settings: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotObfuscationSettingArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  slot_type_id: Optional[pulumi.Input[builtins.str]] = None,
                  sub_slot_settings: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]]] = None,
                  timeouts: Optional[pulumi.Input['V2modelsSlotTimeoutsArgs']] = None,
@@ -46,6 +47,7 @@ class V2modelsSlotArgs:
         :param pulumi.Input[builtins.str] name: Name of the slot.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotObfuscationSettingArgs']]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs.
                See the `obfuscation_setting` argument reference below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] slot_type_id: Unique identifier for the slot type associated with this slot.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
                See the `sub_slot_setting` argument reference below.
@@ -62,6 +64,8 @@ class V2modelsSlotArgs:
             pulumi.set(__self__, "name", name)
         if obfuscation_settings is not None:
             pulumi.set(__self__, "obfuscation_settings", obfuscation_settings)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if slot_type_id is not None:
             pulumi.set(__self__, "slot_type_id", slot_type_id)
         if sub_slot_settings is not None:
@@ -170,6 +174,18 @@ class V2modelsSlotArgs:
         pulumi.set(self, "obfuscation_settings", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="slotTypeId")
     def slot_type_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -224,6 +240,7 @@ class _V2modelsSlotState:
                  multiple_values_settings: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotMultipleValuesSettingArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  obfuscation_settings: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotObfuscationSettingArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  slot_id: Optional[pulumi.Input[builtins.str]] = None,
                  slot_type_id: Optional[pulumi.Input[builtins.str]] = None,
                  sub_slot_settings: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]]] = None,
@@ -241,6 +258,7 @@ class _V2modelsSlotState:
         :param pulumi.Input[builtins.str] name: Name of the slot.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotObfuscationSettingArgs']]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs.
                See the `obfuscation_setting` argument reference below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] slot_id: Unique identifier associated with the slot.
         :param pulumi.Input[builtins.str] slot_type_id: Unique identifier for the slot type associated with this slot.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
@@ -262,6 +280,8 @@ class _V2modelsSlotState:
             pulumi.set(__self__, "name", name)
         if obfuscation_settings is not None:
             pulumi.set(__self__, "obfuscation_settings", obfuscation_settings)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if slot_id is not None:
             pulumi.set(__self__, "slot_id", slot_id)
         if slot_type_id is not None:
@@ -372,6 +392,18 @@ class _V2modelsSlotState:
         pulumi.set(self, "obfuscation_settings", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="slotId")
     def slot_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -441,6 +473,7 @@ class V2modelsSlot(pulumi.CustomResource):
                  multiple_values_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotMultipleValuesSettingArgs', 'V2modelsSlotMultipleValuesSettingArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  obfuscation_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  slot_type_id: Optional[pulumi.Input[builtins.str]] = None,
                  sub_slot_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotSubSlotSettingArgs', 'V2modelsSlotSubSlotSettingArgsDict']]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['V2modelsSlotTimeoutsArgs', 'V2modelsSlotTimeoutsArgsDict']]] = None,
@@ -467,6 +500,7 @@ class V2modelsSlot(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the slot.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs.
                See the `obfuscation_setting` argument reference below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] slot_type_id: Unique identifier for the slot type associated with this slot.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotSubSlotSettingArgs', 'V2modelsSlotSubSlotSettingArgsDict']]]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
                See the `sub_slot_setting` argument reference below.
@@ -509,6 +543,7 @@ class V2modelsSlot(pulumi.CustomResource):
                  multiple_values_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotMultipleValuesSettingArgs', 'V2modelsSlotMultipleValuesSettingArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  obfuscation_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  slot_type_id: Optional[pulumi.Input[builtins.str]] = None,
                  sub_slot_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotSubSlotSettingArgs', 'V2modelsSlotSubSlotSettingArgsDict']]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['V2modelsSlotTimeoutsArgs', 'V2modelsSlotTimeoutsArgsDict']]] = None,
@@ -538,6 +573,7 @@ class V2modelsSlot(pulumi.CustomResource):
             __props__.__dict__["multiple_values_settings"] = multiple_values_settings
             __props__.__dict__["name"] = name
             __props__.__dict__["obfuscation_settings"] = obfuscation_settings
+            __props__.__dict__["region"] = region
             __props__.__dict__["slot_type_id"] = slot_type_id
             __props__.__dict__["sub_slot_settings"] = sub_slot_settings
             __props__.__dict__["timeouts"] = timeouts
@@ -561,6 +597,7 @@ class V2modelsSlot(pulumi.CustomResource):
             multiple_values_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotMultipleValuesSettingArgs', 'V2modelsSlotMultipleValuesSettingArgsDict']]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             obfuscation_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             slot_id: Optional[pulumi.Input[builtins.str]] = None,
             slot_type_id: Optional[pulumi.Input[builtins.str]] = None,
             sub_slot_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotSubSlotSettingArgs', 'V2modelsSlotSubSlotSettingArgsDict']]]]] = None,
@@ -583,6 +620,7 @@ class V2modelsSlot(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the slot.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotObfuscationSettingArgs', 'V2modelsSlotObfuscationSettingArgsDict']]]] obfuscation_settings: Determines how slot values are used in Amazon CloudWatch logs.
                See the `obfuscation_setting` argument reference below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] slot_id: Unique identifier associated with the slot.
         :param pulumi.Input[builtins.str] slot_type_id: Unique identifier for the slot type associated with this slot.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotSubSlotSettingArgs', 'V2modelsSlotSubSlotSettingArgsDict']]]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
@@ -600,6 +638,7 @@ class V2modelsSlot(pulumi.CustomResource):
         __props__.__dict__["multiple_values_settings"] = multiple_values_settings
         __props__.__dict__["name"] = name
         __props__.__dict__["obfuscation_settings"] = obfuscation_settings
+        __props__.__dict__["region"] = region
         __props__.__dict__["slot_id"] = slot_id
         __props__.__dict__["slot_type_id"] = slot_type_id
         __props__.__dict__["sub_slot_settings"] = sub_slot_settings
@@ -672,6 +711,14 @@ class V2modelsSlot(pulumi.CustomResource):
         See the `obfuscation_setting` argument reference below.
         """
         return pulumi.get(self, "obfuscation_settings")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="slotId")

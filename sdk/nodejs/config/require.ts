@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import {region} from "./vars";
-import {Region} from "..";
+import {Region} from "../types/enums";
 
 /**
  * requireRegion fetches the AWS region, requiring that it exists; if it has not been configured, an error is thrown.
@@ -22,6 +22,6 @@ export function requireRegion(): Region {
     if (region === undefined) {
         throw new Error("No AWS region has been configured");
     }
-    return region;
+    return region as Region;
 }
 

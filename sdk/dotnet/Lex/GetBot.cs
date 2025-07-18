@@ -97,6 +97,12 @@ namespace Pulumi.Aws.Lex
         public string Name { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Version or alias of the bot.
         /// </summary>
         [Input("version")]
@@ -115,6 +121,12 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Version or alias of the bot.
@@ -188,6 +200,7 @@ namespace Pulumi.Aws.Lex
         /// The threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot.
         /// </summary>
         public readonly double NluIntentConfidenceThreshold;
+        public readonly string Region;
         /// <summary>
         /// Status of the bot.
         /// </summary>
@@ -231,6 +244,8 @@ namespace Pulumi.Aws.Lex
 
             double nluIntentConfidenceThreshold,
 
+            string region,
+
             string status,
 
             string? version,
@@ -251,6 +266,7 @@ namespace Pulumi.Aws.Lex
             Locale = locale;
             Name = name;
             NluIntentConfidenceThreshold = nluIntentConfidenceThreshold;
+            Region = region;
             Status = status;
             Version = version;
             VoiceId = voiceId;

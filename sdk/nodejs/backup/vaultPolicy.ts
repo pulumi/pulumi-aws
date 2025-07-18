@@ -89,6 +89,10 @@ export class VaultPolicy extends pulumi.CustomResource {
      * The backup vault access policy document in JSON format.
      */
     public readonly policy!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a VaultPolicy resource with the given unique name, arguments, and options.
@@ -106,6 +110,7 @@ export class VaultPolicy extends pulumi.CustomResource {
             resourceInputs["backupVaultArn"] = state ? state.backupVaultArn : undefined;
             resourceInputs["backupVaultName"] = state ? state.backupVaultName : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as VaultPolicyArgs | undefined;
             if ((!args || args.backupVaultName === undefined) && !opts.urn) {
@@ -116,6 +121,7 @@ export class VaultPolicy extends pulumi.CustomResource {
             }
             resourceInputs["backupVaultName"] = args ? args.backupVaultName : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["backupVaultArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -139,6 +145,10 @@ export interface VaultPolicyState {
      * The backup vault access policy document in JSON format.
      */
     policy?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -153,4 +163,8 @@ export interface VaultPolicyArgs {
      * The backup vault access policy document in JSON format.
      */
     policy: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

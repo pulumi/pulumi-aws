@@ -99,6 +99,12 @@ namespace Pulumi.Aws.Vpc
         public Output<int?> PersistRoutesDuration { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The unique identifier of the route server.
         /// </summary>
         [Output("routeServerId")]
@@ -198,6 +204,12 @@ namespace Pulumi.Aws.Vpc
         public Input<int>? PersistRoutesDuration { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
         /// </summary>
         [Input("snsNotificationsEnabled")]
@@ -253,6 +265,12 @@ namespace Pulumi.Aws.Vpc
         public Input<int>? PersistRoutesDuration { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The unique identifier of the route server.
         /// </summary>
         [Input("routeServerId")]
@@ -288,7 +306,6 @@ namespace Pulumi.Aws.Vpc
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -1779,9 +1779,9 @@ func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput) Weig
 }
 
 type ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig struct {
-	// The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximumTtl`.
+	// The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` - `3600` (5–60 minutes). The value must be less than or equal to `maximumTtl`.
 	IdleTtl int `pulumi:"idleTtl"`
-	// The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idleTtl`.
+	// The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` - `3600` (5–60 minutes). The value must be greater than or equal to `idleTtl`.
 	MaximumTtl int `pulumi:"maximumTtl"`
 }
 
@@ -1797,9 +1797,9 @@ type ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessC
 }
 
 type ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs struct {
-	// The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximumTtl`.
+	// The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` - `3600` (5–60 minutes). The value must be less than or equal to `maximumTtl`.
 	IdleTtl pulumi.IntInput `pulumi:"idleTtl"`
-	// The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idleTtl`.
+	// The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` - `3600` (5–60 minutes). The value must be greater than or equal to `idleTtl`.
 	MaximumTtl pulumi.IntInput `pulumi:"maximumTtl"`
 }
 
@@ -1880,14 +1880,14 @@ func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickine
 	}).(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput)
 }
 
-// The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximumTtl`.
+// The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` - `3600` (5–60 minutes). The value must be less than or equal to `maximumTtl`.
 func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput) IdleTtl() pulumi.IntOutput {
 	return o.ApplyT(func(v ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig) int {
 		return v.IdleTtl
 	}).(pulumi.IntOutput)
 }
 
-// The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idleTtl`.
+// The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` - `3600` (5–60 minutes). The value must be greater than or equal to `idleTtl`.
 func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput) MaximumTtl() pulumi.IntOutput {
 	return o.ApplyT(func(v ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig) int {
 		return v.MaximumTtl
@@ -1918,7 +1918,7 @@ func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickine
 	}).(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput)
 }
 
-// The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` – `3600` (5–60 minutes). The value must be less than or equal to `maximumTtl`.
+// The amount of time in seconds after which sessions will cease if no requests are received. Valid values are `300` - `3600` (5–60 minutes). The value must be less than or equal to `maximumTtl`.
 func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput) IdleTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig) *int {
 		if v == nil {
@@ -1928,7 +1928,7 @@ func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickine
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` – `3600` (5–60 minutes). The value must be greater than or equal to `idleTtl`.
+// The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` - `3600` (5–60 minutes). The value must be greater than or equal to `idleTtl`.
 func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput) MaximumTtl() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig) *int {
 		if v == nil {

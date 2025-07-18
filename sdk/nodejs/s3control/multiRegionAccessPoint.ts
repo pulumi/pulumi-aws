@@ -20,8 +20,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const fooBucket = new aws.s3.BucketV2("foo_bucket", {bucket: "example-bucket-foo"});
- * const barBucket = new aws.s3.BucketV2("bar_bucket", {bucket: "example-bucket-bar"});
+ * const fooBucket = new aws.s3.Bucket("foo_bucket", {bucket: "example-bucket-foo"});
+ * const barBucket = new aws.s3.Bucket("bar_bucket", {bucket: "example-bucket-bar"});
  * const example = new aws.s3control.MultiRegionAccessPoint("example", {details: {
  *     name: "example",
  *     regions: [
@@ -92,6 +92,10 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly domainName!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -114,6 +118,7 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["details"] = state ? state.details : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as MultiRegionAccessPointArgs | undefined;
@@ -122,6 +127,7 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
             }
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["details"] = args ? args.details : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
@@ -157,6 +163,10 @@ export interface MultiRegionAccessPointState {
      */
     domainName?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
      */
     status?: pulumi.Input<string>;
@@ -174,4 +184,8 @@ export interface MultiRegionAccessPointArgs {
      * A configuration block containing details about the Multi-Region Access Point. See Details Configuration Block below for more details
      */
     details: pulumi.Input<inputs.s3control.MultiRegionAccessPointDetails>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

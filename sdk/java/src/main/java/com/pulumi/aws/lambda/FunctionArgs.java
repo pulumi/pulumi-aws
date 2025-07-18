@@ -33,14 +33,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     public static final FunctionArgs Empty = new FunctionArgs();
 
     /**
-     * Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stay the same.
+     * Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
      * 
      */
     @Import(name="architectures")
     private @Nullable Output<List<String>> architectures;
 
     /**
-     * @return Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stay the same.
+     * @return Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
      * 
      */
     public Optional<Output<List<String>>> architectures() {
@@ -48,14 +48,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Path to the function&#39;s deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
+     * Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
      * 
      */
     @Import(name="code")
     private @Nullable Output<Archive> code;
 
     /**
-     * @return Path to the function&#39;s deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
+     * @return Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
      * 
      */
     public Optional<Output<Archive>> code() {
@@ -63,14 +63,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
+     * ARN of a code-signing configuration to enable code signing for this function.
      * 
      */
     @Import(name="codeSigningConfigArn")
     private @Nullable Output<String> codeSigningConfigArn;
 
     /**
-     * @return To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
+     * @return ARN of a code-signing configuration to enable code signing for this function.
      * 
      */
     public Optional<Output<String>> codeSigningConfigArn() {
@@ -78,14 +78,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block. Detailed below.
+     * Configuration block for dead letter queue. See below.
      * 
      */
     @Import(name="deadLetterConfig")
     private @Nullable Output<FunctionDeadLetterConfigArgs> deadLetterConfig;
 
     /**
-     * @return Configuration block. Detailed below.
+     * @return Configuration block for dead letter queue. See below.
      * 
      */
     public Optional<Output<FunctionDeadLetterConfigArgs>> deadLetterConfig() {
@@ -108,14 +108,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block. Detailed below.
+     * Configuration block for environment variables. See below.
      * 
      */
     @Import(name="environment")
     private @Nullable Output<FunctionEnvironmentArgs> environment;
 
     /**
-     * @return Configuration block. Detailed below.
+     * @return Configuration block for environment variables. See below.
      * 
      */
     public Optional<Output<FunctionEnvironmentArgs>> environment() {
@@ -123,14 +123,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+     * Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
      * 
      */
     @Import(name="ephemeralStorage")
     private @Nullable Output<FunctionEphemeralStorageArgs> ephemeralStorage;
 
     /**
-     * @return The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+     * @return Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
      * 
      */
     public Optional<Output<FunctionEphemeralStorageArgs>> ephemeralStorage() {
@@ -138,14 +138,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block. Detailed below.
+     * Configuration block for EFS file system. See below.
      * 
      */
     @Import(name="fileSystemConfig")
     private @Nullable Output<FunctionFileSystemConfigArgs> fileSystemConfig;
 
     /**
-     * @return Configuration block. Detailed below.
+     * @return Configuration block for EFS file system. See below.
      * 
      */
     public Optional<Output<FunctionFileSystemConfigArgs>> fileSystemConfig() {
@@ -153,14 +153,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
+     * Function entry point in your code. Required if `package_type` is `Zip`.
      * 
      */
     @Import(name="handler")
     private @Nullable Output<String> handler;
 
     /**
-     * @return Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
+     * @return Function entry point in your code. Required if `package_type` is `Zip`.
      * 
      */
     public Optional<Output<String>> handler() {
@@ -168,14 +168,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block. Detailed below.
+     * Container image configuration values. See below.
      * 
      */
     @Import(name="imageConfig")
     private @Nullable Output<FunctionImageConfigArgs> imageConfig;
 
     /**
-     * @return Configuration block. Detailed below.
+     * @return Container image configuration values. See below.
      * 
      */
     public Optional<Output<FunctionImageConfigArgs>> imageConfig() {
@@ -183,14 +183,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ECR image URI containing the function&#39;s deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
+     * ECR image URI containing the function&#39;s deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
      * 
      */
     @Import(name="imageUri")
     private @Nullable Output<String> imageUri;
 
     /**
-     * @return ECR image URI containing the function&#39;s deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
+     * @return ECR image URI containing the function&#39;s deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
      * 
      */
     public Optional<Output<String>> imageUri() {
@@ -198,14 +198,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
+     * ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
+     * @return ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -213,14 +213,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+     * List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
      * 
      */
     @Import(name="layers")
     private @Nullable Output<List<String>> layers;
 
     /**
-     * @return List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+     * @return List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
      * 
      */
     public Optional<Output<List<String>>> layers() {
@@ -228,14 +228,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block used to specify advanced logging settings. Detailed below.
+     * Configuration block for advanced logging settings. See below.
      * 
      */
     @Import(name="loggingConfig")
     private @Nullable Output<FunctionLoggingConfigArgs> loggingConfig;
 
     /**
-     * @return Configuration block used to specify advanced logging settings. Detailed below.
+     * @return Configuration block for advanced logging settings. See below.
      * 
      */
     public Optional<Output<FunctionLoggingConfigArgs>> loggingConfig() {
@@ -243,14 +243,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
+     * Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
      * 
      */
     @Import(name="memorySize")
     private @Nullable Output<Integer> memorySize;
 
     /**
-     * @return Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
+     * @return Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
      * 
      */
     public Optional<Output<Integer>> memorySize() {
@@ -303,20 +303,29 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to replace the security groups on the function&#39;s VPC configuration prior to destruction.
-     * Removing these security group associations prior to function destruction can speed up security group deletion times of AWS&#39;s internal cleanup operations.
-     * By default, the security groups will be replaced with the `default` security group in the function&#39;s configured VPC.
-     * Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
+     * Whether to replace the security groups on the function&#39;s VPC configuration prior to destruction. Default is `false`.
      * 
      */
     @Import(name="replaceSecurityGroupsOnDestroy")
     private @Nullable Output<Boolean> replaceSecurityGroupsOnDestroy;
 
     /**
-     * @return Whether to replace the security groups on the function&#39;s VPC configuration prior to destruction.
-     * Removing these security group associations prior to function destruction can speed up security group deletion times of AWS&#39;s internal cleanup operations.
-     * By default, the security groups will be replaced with the `default` security group in the function&#39;s configured VPC.
-     * Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+     * @return Whether to replace the security groups on the function&#39;s VPC configuration prior to destruction. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> replaceSecurityGroupsOnDestroy() {
@@ -324,16 +333,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction.
-     * `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+     * List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
      * 
      */
     @Import(name="replacementSecurityGroupIds")
     private @Nullable Output<List<String>> replacementSecurityGroupIds;
 
     /**
-     * @return List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction.
-     * `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+     * @return List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
      * 
      */
     public Optional<Output<List<String>>> replacementSecurityGroupIds() {
@@ -341,14 +348,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
+     * Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`.
      * 
      */
     @Import(name="reservedConcurrentExecutions")
     private @Nullable Output<Integer> reservedConcurrentExecutions;
 
     /**
-     * @return Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
+     * @return Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`.
      * 
      */
     public Optional<Output<Integer>> reservedConcurrentExecutions() {
@@ -356,7 +363,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
+     * ARN of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
      * 
      * The following arguments are optional:
      * 
@@ -365,7 +372,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> role;
 
     /**
-     * @return Amazon Resource Name (ARN) of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
+     * @return ARN of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
      * 
      * The following arguments are optional:
      * 
@@ -375,14 +382,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Identifier of the function&#39;s runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+     * Identifier of the function&#39;s runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      * 
      */
     @Import(name="runtime")
     private @Nullable Output<Either<String,Runtime>> runtime;
 
     /**
-     * @return Identifier of the function&#39;s runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+     * @return Identifier of the function&#39;s runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
      * 
      */
     public Optional<Output<Either<String,Runtime>>> runtime() {
@@ -390,14 +397,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * S3 bucket location containing the function&#39;s deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
+     * S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
      * 
      */
     @Import(name="s3Bucket")
     private @Nullable Output<String> s3Bucket;
 
     /**
-     * @return S3 bucket location containing the function&#39;s deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
+     * @return S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
      * 
      */
     public Optional<Output<String>> s3Bucket() {
@@ -405,14 +412,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * S3 key of an object containing the function&#39;s deployment package. When `s3_bucket` is set, `s3_key` is required.
+     * S3 key of an object containing the function&#39;s deployment package. Required if `s3_bucket` is set.
      * 
      */
     @Import(name="s3Key")
     private @Nullable Output<String> s3Key;
 
     /**
-     * @return S3 key of an object containing the function&#39;s deployment package. When `s3_bucket` is set, `s3_key` is required.
+     * @return S3 key of an object containing the function&#39;s deployment package. Required if `s3_bucket` is set.
      * 
      */
     public Optional<Output<String>> s3Key() {
@@ -435,14 +442,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+     * Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
      * 
      */
     @Import(name="skipDestroy")
     private @Nullable Output<Boolean> skipDestroy;
 
     /**
-     * @return Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+     * @return Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> skipDestroy() {
@@ -450,14 +457,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Snap start settings block. Detailed below.
+     * Configuration block for snap start settings. See below.
      * 
      */
     @Import(name="snapStart")
     private @Nullable Output<FunctionSnapStartArgs> snapStart;
 
     /**
-     * @return Snap start settings block. Detailed below.
+     * @return Configuration block for snap start settings. See below.
      * 
      */
     public Optional<Output<FunctionSnapStartArgs>> snapStart() {
@@ -465,14 +472,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+     * Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
      * 
      */
     @Import(name="sourceCodeHash")
     private @Nullable Output<String> sourceCodeHash;
 
     /**
-     * @return Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+     * @return Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
      * 
      */
     public Optional<Output<String>> sourceCodeHash() {
@@ -480,14 +487,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -495,14 +502,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
+     * Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
      * 
      */
     @Import(name="timeout")
     private @Nullable Output<Integer> timeout;
 
     /**
-     * @return Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
+     * @return Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
      * 
      */
     public Optional<Output<Integer>> timeout() {
@@ -510,14 +517,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block. Detailed below.
+     * Configuration block for X-Ray tracing. See below.
      * 
      */
     @Import(name="tracingConfig")
     private @Nullable Output<FunctionTracingConfigArgs> tracingConfig;
 
     /**
-     * @return Configuration block. Detailed below.
+     * @return Configuration block for X-Ray tracing. See below.
      * 
      */
     public Optional<Output<FunctionTracingConfigArgs>> tracingConfig() {
@@ -525,14 +532,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block. Detailed below.
+     * Configuration block for VPC. See below.
      * 
      */
     @Import(name="vpcConfig")
     private @Nullable Output<FunctionVpcConfigArgs> vpcConfig;
 
     /**
-     * @return Configuration block. Detailed below.
+     * @return Configuration block for VPC. See below.
      * 
      */
     public Optional<Output<FunctionVpcConfigArgs>> vpcConfig() {
@@ -560,6 +567,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.packageType = $.packageType;
         this.publish = $.publish;
+        this.region = $.region;
         this.replaceSecurityGroupsOnDestroy = $.replaceSecurityGroupsOnDestroy;
         this.replacementSecurityGroupIds = $.replacementSecurityGroupIds;
         this.reservedConcurrentExecutions = $.reservedConcurrentExecutions;
@@ -596,7 +604,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param architectures Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stay the same.
+         * @param architectures Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
          * 
          * @return builder
          * 
@@ -607,7 +615,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param architectures Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stay the same.
+         * @param architectures Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
          * 
          * @return builder
          * 
@@ -617,7 +625,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param architectures Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stay the same.
+         * @param architectures Instruction set architecture for your Lambda function. Valid values are `[&#34;x86_64&#34;]` and `[&#34;arm64&#34;]`. Default is `[&#34;x86_64&#34;]`. Removing this attribute, function&#39;s architecture stays the same.
          * 
          * @return builder
          * 
@@ -627,7 +635,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param code Path to the function&#39;s deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
+         * @param code Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
          * 
          * @return builder
          * 
@@ -638,7 +646,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param code Path to the function&#39;s deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
+         * @param code Path to the function&#39;s deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
          * 
          * @return builder
          * 
@@ -648,7 +656,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param codeSigningConfigArn To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
+         * @param codeSigningConfigArn ARN of a code-signing configuration to enable code signing for this function.
          * 
          * @return builder
          * 
@@ -659,7 +667,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param codeSigningConfigArn To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
+         * @param codeSigningConfigArn ARN of a code-signing configuration to enable code signing for this function.
          * 
          * @return builder
          * 
@@ -669,7 +677,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deadLetterConfig Configuration block. Detailed below.
+         * @param deadLetterConfig Configuration block for dead letter queue. See below.
          * 
          * @return builder
          * 
@@ -680,7 +688,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param deadLetterConfig Configuration block. Detailed below.
+         * @param deadLetterConfig Configuration block for dead letter queue. See below.
          * 
          * @return builder
          * 
@@ -711,7 +719,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environment Configuration block. Detailed below.
+         * @param environment Configuration block for environment variables. See below.
          * 
          * @return builder
          * 
@@ -722,7 +730,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param environment Configuration block. Detailed below.
+         * @param environment Configuration block for environment variables. See below.
          * 
          * @return builder
          * 
@@ -732,7 +740,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ephemeralStorage The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+         * @param ephemeralStorage Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
          * 
          * @return builder
          * 
@@ -743,7 +751,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ephemeralStorage The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+         * @param ephemeralStorage Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
          * 
          * @return builder
          * 
@@ -753,7 +761,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileSystemConfig Configuration block. Detailed below.
+         * @param fileSystemConfig Configuration block for EFS file system. See below.
          * 
          * @return builder
          * 
@@ -764,7 +772,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileSystemConfig Configuration block. Detailed below.
+         * @param fileSystemConfig Configuration block for EFS file system. See below.
          * 
          * @return builder
          * 
@@ -774,7 +782,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param handler Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
+         * @param handler Function entry point in your code. Required if `package_type` is `Zip`.
          * 
          * @return builder
          * 
@@ -785,7 +793,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param handler Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
+         * @param handler Function entry point in your code. Required if `package_type` is `Zip`.
          * 
          * @return builder
          * 
@@ -795,7 +803,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageConfig Configuration block. Detailed below.
+         * @param imageConfig Container image configuration values. See below.
          * 
          * @return builder
          * 
@@ -806,7 +814,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageConfig Configuration block. Detailed below.
+         * @param imageConfig Container image configuration values. See below.
          * 
          * @return builder
          * 
@@ -816,7 +824,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageUri ECR image URI containing the function&#39;s deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
+         * @param imageUri ECR image URI containing the function&#39;s deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
          * 
          * @return builder
          * 
@@ -827,7 +835,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageUri ECR image URI containing the function&#39;s deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
+         * @param imageUri ECR image URI containing the function&#39;s deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
          * 
          * @return builder
          * 
@@ -837,7 +845,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
+         * @param kmsKeyArn ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
          * 
          * @return builder
          * 
@@ -848,7 +856,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
+         * @param kmsKeyArn ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
          * 
          * @return builder
          * 
@@ -858,7 +866,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param layers List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+         * @param layers List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
          * 
          * @return builder
          * 
@@ -869,7 +877,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param layers List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+         * @param layers List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
          * 
          * @return builder
          * 
@@ -879,7 +887,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param layers List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+         * @param layers List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
          * 
          * @return builder
          * 
@@ -889,7 +897,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingConfig Configuration block used to specify advanced logging settings. Detailed below.
+         * @param loggingConfig Configuration block for advanced logging settings. See below.
          * 
          * @return builder
          * 
@@ -900,7 +908,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param loggingConfig Configuration block used to specify advanced logging settings. Detailed below.
+         * @param loggingConfig Configuration block for advanced logging settings. See below.
          * 
          * @return builder
          * 
@@ -910,7 +918,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param memorySize Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
+         * @param memorySize Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
          * 
          * @return builder
          * 
@@ -921,7 +929,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param memorySize Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
+         * @param memorySize Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
          * 
          * @return builder
          * 
@@ -994,10 +1002,28 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replaceSecurityGroupsOnDestroy Whether to replace the security groups on the function&#39;s VPC configuration prior to destruction.
-         * Removing these security group associations prior to function destruction can speed up security group deletion times of AWS&#39;s internal cleanup operations.
-         * By default, the security groups will be replaced with the `default` security group in the function&#39;s configured VPC.
-         * Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
+         * @param replaceSecurityGroupsOnDestroy Whether to replace the security groups on the function&#39;s VPC configuration prior to destruction. Default is `false`.
          * 
          * @return builder
          * 
@@ -1008,10 +1034,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replaceSecurityGroupsOnDestroy Whether to replace the security groups on the function&#39;s VPC configuration prior to destruction.
-         * Removing these security group associations prior to function destruction can speed up security group deletion times of AWS&#39;s internal cleanup operations.
-         * By default, the security groups will be replaced with the `default` security group in the function&#39;s configured VPC.
-         * Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+         * @param replaceSecurityGroupsOnDestroy Whether to replace the security groups on the function&#39;s VPC configuration prior to destruction. Default is `false`.
          * 
          * @return builder
          * 
@@ -1021,8 +1044,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replacementSecurityGroupIds List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction.
-         * `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+         * @param replacementSecurityGroupIds List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
          * 
          * @return builder
          * 
@@ -1033,8 +1055,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replacementSecurityGroupIds List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction.
-         * `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+         * @param replacementSecurityGroupIds List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
          * 
          * @return builder
          * 
@@ -1044,8 +1065,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replacementSecurityGroupIds List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction.
-         * `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+         * @param replacementSecurityGroupIds List of security group IDs to assign to the function&#39;s VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
          * 
          * @return builder
          * 
@@ -1055,7 +1075,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reservedConcurrentExecutions Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
+         * @param reservedConcurrentExecutions Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`.
          * 
          * @return builder
          * 
@@ -1066,7 +1086,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param reservedConcurrentExecutions Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
+         * @param reservedConcurrentExecutions Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`.
          * 
          * @return builder
          * 
@@ -1076,7 +1096,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param role Amazon Resource Name (ARN) of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
+         * @param role ARN of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
          * 
          * The following arguments are optional:
          * 
@@ -1089,7 +1109,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param role Amazon Resource Name (ARN) of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
+         * @param role ARN of the function&#39;s execution role. The role provides the function&#39;s identity and access to AWS services and resources.
          * 
          * The following arguments are optional:
          * 
@@ -1101,7 +1121,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtime Identifier of the function&#39;s runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+         * @param runtime Identifier of the function&#39;s runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
          * 
          * @return builder
          * 
@@ -1112,7 +1132,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtime Identifier of the function&#39;s runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+         * @param runtime Identifier of the function&#39;s runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
          * 
          * @return builder
          * 
@@ -1122,7 +1142,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtime Identifier of the function&#39;s runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+         * @param runtime Identifier of the function&#39;s runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
          * 
          * @return builder
          * 
@@ -1132,7 +1152,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param runtime Identifier of the function&#39;s runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+         * @param runtime Identifier of the function&#39;s runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
          * 
          * @return builder
          * 
@@ -1142,7 +1162,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Bucket S3 bucket location containing the function&#39;s deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
+         * @param s3Bucket S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
          * 
          * @return builder
          * 
@@ -1153,7 +1173,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Bucket S3 bucket location containing the function&#39;s deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
+         * @param s3Bucket S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename` and `image_uri`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
          * 
          * @return builder
          * 
@@ -1163,7 +1183,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Key S3 key of an object containing the function&#39;s deployment package. When `s3_bucket` is set, `s3_key` is required.
+         * @param s3Key S3 key of an object containing the function&#39;s deployment package. Required if `s3_bucket` is set.
          * 
          * @return builder
          * 
@@ -1174,7 +1194,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Key S3 key of an object containing the function&#39;s deployment package. When `s3_bucket` is set, `s3_key` is required.
+         * @param s3Key S3 key of an object containing the function&#39;s deployment package. Required if `s3_bucket` is set.
          * 
          * @return builder
          * 
@@ -1205,7 +1225,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipDestroy Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+         * @param skipDestroy Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
          * 
          * @return builder
          * 
@@ -1216,7 +1236,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipDestroy Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+         * @param skipDestroy Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
          * 
          * @return builder
          * 
@@ -1226,7 +1246,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapStart Snap start settings block. Detailed below.
+         * @param snapStart Configuration block for snap start settings. See below.
          * 
          * @return builder
          * 
@@ -1237,7 +1257,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapStart Snap start settings block. Detailed below.
+         * @param snapStart Configuration block for snap start settings. See below.
          * 
          * @return builder
          * 
@@ -1247,7 +1267,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceCodeHash Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+         * @param sourceCodeHash Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
          * 
          * @return builder
          * 
@@ -1258,7 +1278,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceCodeHash Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+         * @param sourceCodeHash Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
          * 
          * @return builder
          * 
@@ -1268,7 +1288,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1279,7 +1299,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -1289,7 +1309,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeout Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
+         * @param timeout Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
          * 
          * @return builder
          * 
@@ -1300,7 +1320,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeout Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
+         * @param timeout Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
          * 
          * @return builder
          * 
@@ -1310,7 +1330,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tracingConfig Configuration block. Detailed below.
+         * @param tracingConfig Configuration block for X-Ray tracing. See below.
          * 
          * @return builder
          * 
@@ -1321,7 +1341,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tracingConfig Configuration block. Detailed below.
+         * @param tracingConfig Configuration block for X-Ray tracing. See below.
          * 
          * @return builder
          * 
@@ -1331,7 +1351,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfig Configuration block. Detailed below.
+         * @param vpcConfig Configuration block for VPC. See below.
          * 
          * @return builder
          * 
@@ -1342,7 +1362,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfig Configuration block. Detailed below.
+         * @param vpcConfig Configuration block for VPC. See below.
          * 
          * @return builder
          * 

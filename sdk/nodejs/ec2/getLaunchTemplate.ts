@@ -42,6 +42,7 @@ export function getLaunchTemplate(args?: GetLaunchTemplateArgs, opts?: pulumi.In
         "filters": args.filters,
         "id": args.id,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -63,6 +64,10 @@ export interface GetLaunchTemplateArgs {
      */
     name?: string;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
      */
     tags?: {[key: string]: string};
@@ -82,14 +87,6 @@ export interface GetLaunchTemplateResult {
     readonly disableApiStop: boolean;
     readonly disableApiTermination: boolean;
     readonly ebsOptimized: string;
-    /**
-     * @deprecated elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-     */
-    readonly elasticGpuSpecifications: outputs.ec2.GetLaunchTemplateElasticGpuSpecification[];
-    /**
-     * @deprecated elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-     */
-    readonly elasticInferenceAccelerators: outputs.ec2.GetLaunchTemplateElasticInferenceAccelerator[];
     readonly enclaveOptions: outputs.ec2.GetLaunchTemplateEnclaveOption[];
     readonly filters?: outputs.ec2.GetLaunchTemplateFilter[];
     readonly hibernationOptions: outputs.ec2.GetLaunchTemplateHibernationOption[];
@@ -115,6 +112,7 @@ export interface GetLaunchTemplateResult {
     readonly placements: outputs.ec2.GetLaunchTemplatePlacement[];
     readonly privateDnsNameOptions: outputs.ec2.GetLaunchTemplatePrivateDnsNameOption[];
     readonly ramDiskId: string;
+    readonly region: string;
     readonly securityGroupNames: string[];
     readonly tagSpecifications: outputs.ec2.GetLaunchTemplateTagSpecification[];
     readonly tags: {[key: string]: string};
@@ -156,6 +154,7 @@ export function getLaunchTemplateOutput(args?: GetLaunchTemplateOutputArgs, opts
         "filters": args.filters,
         "id": args.id,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -176,6 +175,10 @@ export interface GetLaunchTemplateOutputArgs {
      * Name of the launch template.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
      */

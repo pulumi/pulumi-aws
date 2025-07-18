@@ -118,6 +118,10 @@ export class FindingAggregator extends pulumi.CustomResource {
      */
     public readonly linkingMode!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
      */
     public readonly specifiedRegions!: pulumi.Output<string[] | undefined>;
@@ -136,6 +140,7 @@ export class FindingAggregator extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as FindingAggregatorState | undefined;
             resourceInputs["linkingMode"] = state ? state.linkingMode : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["specifiedRegions"] = state ? state.specifiedRegions : undefined;
         } else {
             const args = argsOrState as FindingAggregatorArgs | undefined;
@@ -143,6 +148,7 @@ export class FindingAggregator extends pulumi.CustomResource {
                 throw new Error("Missing required property 'linkingMode'");
             }
             resourceInputs["linkingMode"] = args ? args.linkingMode : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["specifiedRegions"] = args ? args.specifiedRegions : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -159,6 +165,10 @@ export interface FindingAggregatorState {
      */
     linkingMode?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
      */
     specifiedRegions?: pulumi.Input<pulumi.Input<string>[]>;
@@ -172,6 +182,10 @@ export interface FindingAggregatorArgs {
      * Indicates whether to aggregate findings from all of the available Regions or from a specified list. The options are `ALL_REGIONS`, `ALL_REGIONS_EXCEPT_SPECIFIED`, `SPECIFIED_REGIONS` or `NO_REGIONS`. When `ALL_REGIONS` or `ALL_REGIONS_EXCEPT_SPECIFIED` are used, Security Hub will automatically aggregate findings from new Regions as Security Hub supports them and you opt into them.
      */
     linkingMode: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of regions to include or exclude (required if `linkingMode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
      */

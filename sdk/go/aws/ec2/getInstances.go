@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,6 +91,8 @@ type GetInstancesArgs struct {
 	// Map of tags, each pair of which must
 	// exactly match a pair on desired instances.
 	InstanceTags map[string]string `pulumi:"instanceTags"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getInstances.
@@ -108,6 +110,7 @@ type GetInstancesResult struct {
 	PrivateIps []string `pulumi:"privateIps"`
 	// Public IP addresses of instances found through the filter
 	PublicIps []string `pulumi:"publicIps"`
+	Region    string   `pulumi:"region"`
 }
 
 func GetInstancesOutput(ctx *pulumi.Context, args GetInstancesOutputArgs, opts ...pulumi.InvokeOption) GetInstancesResultOutput {
@@ -130,6 +133,8 @@ type GetInstancesOutputArgs struct {
 	// Map of tags, each pair of which must
 	// exactly match a pair on desired instances.
 	InstanceTags pulumi.StringMapInput `pulumi:"instanceTags"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetInstancesOutputArgs) ElementType() reflect.Type {
@@ -186,6 +191,10 @@ func (o GetInstancesResultOutput) PrivateIps() pulumi.StringArrayOutput {
 // Public IP addresses of instances found through the filter
 func (o GetInstancesResultOutput) PublicIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstancesResult) []string { return v.PublicIps }).(pulumi.StringArrayOutput)
+}
+
+func (o GetInstancesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstancesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

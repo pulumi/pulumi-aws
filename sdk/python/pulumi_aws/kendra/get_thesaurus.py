@@ -28,7 +28,7 @@ class GetThesaurusResult:
     """
     A collection of values returned by getThesaurus.
     """
-    def __init__(__self__, arn=None, created_at=None, description=None, error_message=None, file_size_bytes=None, id=None, index_id=None, name=None, role_arn=None, source_s3_paths=None, status=None, synonym_rule_count=None, tags=None, term_count=None, thesaurus_id=None, updated_at=None):
+    def __init__(__self__, arn=None, created_at=None, description=None, error_message=None, file_size_bytes=None, id=None, index_id=None, name=None, region=None, role_arn=None, source_s3_paths=None, status=None, synonym_rule_count=None, tags=None, term_count=None, thesaurus_id=None, updated_at=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -53,6 +53,9 @@ class GetThesaurusResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -140,6 +143,11 @@ class GetThesaurusResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> builtins.str:
         """
@@ -215,6 +223,7 @@ class AwaitableGetThesaurusResult(GetThesaurusResult):
             id=self.id,
             index_id=self.index_id,
             name=self.name,
+            region=self.region,
             role_arn=self.role_arn,
             source_s3_paths=self.source_s3_paths,
             status=self.status,
@@ -226,6 +235,7 @@ class AwaitableGetThesaurusResult(GetThesaurusResult):
 
 
 def get_thesaurus(index_id: Optional[builtins.str] = None,
+                  region: Optional[builtins.str] = None,
                   tags: Optional[Mapping[str, builtins.str]] = None,
                   thesaurus_id: Optional[builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetThesaurusResult:
@@ -244,11 +254,13 @@ def get_thesaurus(index_id: Optional[builtins.str] = None,
 
 
     :param builtins.str index_id: Identifier of the index that contains the Thesaurus.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that helps organize the Thesaurus you create.
     :param builtins.str thesaurus_id: Identifier of the Thesaurus.
     """
     __args__ = dict()
     __args__['indexId'] = index_id
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['thesaurusId'] = thesaurus_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -263,6 +275,7 @@ def get_thesaurus(index_id: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         index_id=pulumi.get(__ret__, 'index_id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         source_s3_paths=pulumi.get(__ret__, 'source_s3_paths'),
         status=pulumi.get(__ret__, 'status'),
@@ -272,6 +285,7 @@ def get_thesaurus(index_id: Optional[builtins.str] = None,
         thesaurus_id=pulumi.get(__ret__, 'thesaurus_id'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_thesaurus_output(index_id: Optional[pulumi.Input[builtins.str]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                          thesaurus_id: Optional[pulumi.Input[builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThesaurusResult]:
@@ -290,11 +304,13 @@ def get_thesaurus_output(index_id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str index_id: Identifier of the index that contains the Thesaurus.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that helps organize the Thesaurus you create.
     :param builtins.str thesaurus_id: Identifier of the Thesaurus.
     """
     __args__ = dict()
     __args__['indexId'] = index_id
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['thesaurusId'] = thesaurus_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -308,6 +324,7 @@ def get_thesaurus_output(index_id: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         index_id=pulumi.get(__response__, 'index_id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         source_s3_paths=pulumi.get(__response__, 'source_s3_paths'),
         status=pulumi.get(__response__, 'status'),

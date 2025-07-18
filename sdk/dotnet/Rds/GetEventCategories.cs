@@ -157,6 +157,12 @@ namespace Pulumi.Aws.Rds
     public sealed class GetEventCategoriesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
         /// </summary>
         [Input("sourceType")]
@@ -170,6 +176,12 @@ namespace Pulumi.Aws.Rds
 
     public sealed class GetEventCategoriesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
         /// </summary>
@@ -194,6 +206,7 @@ namespace Pulumi.Aws.Rds
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         public readonly string? SourceType;
 
         [OutputConstructor]
@@ -202,10 +215,13 @@ namespace Pulumi.Aws.Rds
 
             string id,
 
+            string region,
+
             string? sourceType)
         {
             EventCategories = eventCategories;
             Id = id;
+            Region = region;
             SourceType = sourceType;
         }
     }

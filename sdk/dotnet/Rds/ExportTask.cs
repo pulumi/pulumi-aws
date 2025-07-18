@@ -47,15 +47,15 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example",
+    ///         BucketName = "example",
     ///         ForceDestroy = true,
     ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
+    ///     var exampleBucketAcl = new Aws.S3.BucketAcl("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = exampleBucket.Id,
     ///         Acl = "private",
     ///     });
     /// 
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Rds
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     exampleBucketV2.Arn,
+    ///                     exampleBucket.Arn,
     ///                 },
     ///             },
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Rds
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"{exampleBucketV2.Arn}/*",
+    ///                     $"{exampleBucket.Arn}/*",
     ///                 },
     ///             },
     ///         },
@@ -165,7 +165,7 @@ namespace Pulumi.Aws.Rds
     ///     {
     ///         ExportTaskIdentifier = "example",
     ///         SourceArn = exampleSnapshot.DbSnapshotArn,
-    ///         S3BucketName = exampleBucketV2.Id,
+    ///         S3BucketName = exampleBucket.Id,
     ///         IamRoleArn = exampleRole.Arn,
     ///         KmsKeyId = exampleKey.Arn,
     ///         ExportOnlies = new[]
@@ -224,6 +224,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Output("percentProgress")]
         public Output<int> PercentProgress { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Name of the Amazon S3 bucket to export the snapshot to.
@@ -361,6 +367,12 @@ namespace Pulumi.Aws.Rds
         public Input<string> KmsKeyId { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Name of the Amazon S3 bucket to export the snapshot to.
         /// </summary>
         [Input("s3BucketName", required: true)]
@@ -432,6 +444,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("percentProgress")]
         public Input<int>? PercentProgress { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Name of the Amazon S3 bucket to export the snapshot to.

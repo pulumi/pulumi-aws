@@ -27,8 +27,8 @@ export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): P
     return pulumi.runtime.invoke("aws:servicediscovery/getService:getService", {
         "name": args.name,
         "namespaceId": args.namespaceId,
+        "region": args.region,
         "tags": args.tags,
-        "tagsAll": args.tagsAll,
     }, opts);
 }
 
@@ -45,15 +45,13 @@ export interface GetServiceArgs {
      */
     namespaceId: string;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: {[key: string]: string};
-    /**
-     * (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated tags_all is deprecated. This argument will be removed in a future major version.
-     */
-    tagsAll?: {[key: string]: string};
 }
 
 /**
@@ -89,16 +87,11 @@ export interface GetServiceResult {
      * ID of the namespace to use for DNS configuration.
      */
     readonly namespaceId: string;
+    readonly region: string;
     /**
      * Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     readonly tags?: {[key: string]: string};
-    /**
-     * (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated tags_all is deprecated. This argument will be removed in a future major version.
-     */
-    readonly tagsAll: {[key: string]: string};
 }
 /**
  * Retrieves information about a Service Discovery Service.
@@ -120,8 +113,8 @@ export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.Invok
     return pulumi.runtime.invokeOutput("aws:servicediscovery/getService:getService", {
         "name": args.name,
         "namespaceId": args.namespaceId,
+        "region": args.region,
         "tags": args.tags,
-        "tagsAll": args.tagsAll,
     }, opts);
 }
 
@@ -138,13 +131,11 @@ export interface GetServiceOutputArgs {
      */
     namespaceId: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated tags_all is deprecated. This argument will be removed in a future major version.
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

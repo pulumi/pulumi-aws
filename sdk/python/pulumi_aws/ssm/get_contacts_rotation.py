@@ -28,7 +28,7 @@ class GetContactsRotationResult:
     """
     A collection of values returned by getContactsRotation.
     """
-    def __init__(__self__, arn=None, contact_ids=None, id=None, name=None, recurrences=None, start_time=None, tags=None, time_zone_id=None):
+    def __init__(__self__, arn=None, contact_ids=None, id=None, name=None, recurrences=None, region=None, start_time=None, tags=None, time_zone_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -44,6 +44,9 @@ class GetContactsRotationResult:
         if recurrences and not isinstance(recurrences, list):
             raise TypeError("Expected argument 'recurrences' to be a list")
         pulumi.set(__self__, "recurrences", recurrences)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if start_time and not isinstance(start_time, str):
             raise TypeError("Expected argument 'start_time' to be a str")
         pulumi.set(__self__, "start_time", start_time)
@@ -89,6 +92,11 @@ class GetContactsRotationResult:
         return pulumi.get(self, "recurrences")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> builtins.str:
         """
@@ -124,12 +132,14 @@ class AwaitableGetContactsRotationResult(GetContactsRotationResult):
             id=self.id,
             name=self.name,
             recurrences=self.recurrences,
+            region=self.region,
             start_time=self.start_time,
             tags=self.tags,
             time_zone_id=self.time_zone_id)
 
 
 def get_contacts_rotation(arn: Optional[builtins.str] = None,
+                          region: Optional[builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactsRotationResult:
     """
     ## Example Usage
@@ -145,9 +155,11 @@ def get_contacts_rotation(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: The Amazon Resource Name (ARN) of the rotation.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ssm/getContactsRotation:getContactsRotation', __args__, opts=opts, typ=GetContactsRotationResult).value
 
@@ -157,10 +169,12 @@ def get_contacts_rotation(arn: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         recurrences=pulumi.get(__ret__, 'recurrences'),
+        region=pulumi.get(__ret__, 'region'),
         start_time=pulumi.get(__ret__, 'start_time'),
         tags=pulumi.get(__ret__, 'tags'),
         time_zone_id=pulumi.get(__ret__, 'time_zone_id'))
 def get_contacts_rotation_output(arn: Optional[pulumi.Input[builtins.str]] = None,
+                                 region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactsRotationResult]:
     """
     ## Example Usage
@@ -176,9 +190,11 @@ def get_contacts_rotation_output(arn: Optional[pulumi.Input[builtins.str]] = Non
 
 
     :param builtins.str arn: The Amazon Resource Name (ARN) of the rotation.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssm/getContactsRotation:getContactsRotation', __args__, opts=opts, typ=GetContactsRotationResult)
     return __ret__.apply(lambda __response__: GetContactsRotationResult(
@@ -187,6 +203,7 @@ def get_contacts_rotation_output(arn: Optional[pulumi.Input[builtins.str]] = Non
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         recurrences=pulumi.get(__response__, 'recurrences'),
+        region=pulumi.get(__response__, 'region'),
         start_time=pulumi.get(__response__, 'start_time'),
         tags=pulumi.get(__response__, 'tags'),
         time_zone_id=pulumi.get(__response__, 'time_zone_id')))

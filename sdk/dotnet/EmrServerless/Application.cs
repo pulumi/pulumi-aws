@@ -167,6 +167,12 @@ namespace Pulumi.Aws.EmrServerless
         public Output<Outputs.ApplicationNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The EMR release version associated with the application.
         /// </summary>
         [Output("releaseLabel")]
@@ -297,6 +303,12 @@ namespace Pulumi.Aws.EmrServerless
         public Input<Inputs.ApplicationNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The EMR release version associated with the application.
         /// </summary>
         [Input("releaseLabel", required: true)]
@@ -395,6 +407,12 @@ namespace Pulumi.Aws.EmrServerless
         public Input<Inputs.ApplicationNetworkConfigurationGetArgs>? NetworkConfiguration { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The EMR release version associated with the application.
         /// </summary>
         [Input("releaseLabel")]
@@ -418,7 +436,6 @@ namespace Pulumi.Aws.EmrServerless
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -373,6 +373,12 @@ namespace Pulumi.Aws
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Allows to filter list of Availability Zones based on their
         /// current state. Can be either `"available"`, `"information"`, `"impaired"` or
         /// `"unavailable"`. By default the list includes a complete set of Availability Zones
@@ -432,6 +438,12 @@ namespace Pulumi.Aws
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Allows to filter list of Availability Zones based on their
         /// current state. Can be either `"available"`, `"information"`, `"impaired"` or
         /// `"unavailable"`. By default the list includes a complete set of Availability Zones
@@ -466,6 +478,7 @@ namespace Pulumi.Aws
         /// List of the Availability Zone names available to the account.
         /// </summary>
         public readonly ImmutableArray<string> Names;
+        public readonly string Region;
         public readonly string? State;
         /// <summary>
         /// List of the Availability Zone IDs available to the account.
@@ -488,6 +501,8 @@ namespace Pulumi.Aws
 
             ImmutableArray<string> names,
 
+            string region,
+
             string? state,
 
             ImmutableArray<string> zoneIds)
@@ -499,6 +514,7 @@ namespace Pulumi.Aws
             GroupNames = groupNames;
             Id = id;
             Names = names;
+            Region = region;
             State = state;
             ZoneIds = zoneIds;
         }

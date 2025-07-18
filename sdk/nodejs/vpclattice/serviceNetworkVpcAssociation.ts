@@ -67,6 +67,10 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdBy!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The IDs of the security groups.
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
@@ -85,8 +89,6 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -109,6 +111,7 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
             const state = argsOrState as ServiceNetworkVpcAssociationState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["createdBy"] = state ? state.createdBy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["serviceNetworkIdentifier"] = state ? state.serviceNetworkIdentifier : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -123,6 +126,7 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
             if ((!args || args.vpcIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcIdentifier'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["serviceNetworkIdentifier"] = args ? args.serviceNetworkIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -150,6 +154,10 @@ export interface ServiceNetworkVpcAssociationState {
      */
     createdBy?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The IDs of the security groups.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -168,8 +176,6 @@ export interface ServiceNetworkVpcAssociationState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -182,6 +188,10 @@ export interface ServiceNetworkVpcAssociationState {
  * The set of arguments for constructing a ServiceNetworkVpcAssociation resource.
  */
 export interface ServiceNetworkVpcAssociationArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IDs of the security groups.
      */

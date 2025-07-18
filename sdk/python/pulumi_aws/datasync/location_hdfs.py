@@ -33,6 +33,7 @@ class LocationHdfsArgs:
                  kerberos_principal: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_provider_uri: Optional[pulumi.Input[builtins.str]] = None,
                  qop_configuration: Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_factor: Optional[pulumi.Input[builtins.int]] = None,
                  simple_user: Optional[pulumi.Input[builtins.str]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
@@ -50,6 +51,7 @@ class LocationHdfsArgs:
         :param pulumi.Input[builtins.str] kerberos_principal: The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[builtins.str] kms_key_provider_uri: The URI of the HDFS cluster's Key Management Server (KMS).
         :param pulumi.Input['LocationHdfsQopConfigurationArgs'] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] replication_factor: The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
         :param pulumi.Input[builtins.str] simple_user: The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[builtins.str] subdirectory: A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
@@ -75,6 +77,8 @@ class LocationHdfsArgs:
             pulumi.set(__self__, "kms_key_provider_uri", kms_key_provider_uri)
         if qop_configuration is not None:
             pulumi.set(__self__, "qop_configuration", qop_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replication_factor is not None:
             pulumi.set(__self__, "replication_factor", replication_factor)
         if simple_user is not None:
@@ -217,6 +221,18 @@ class LocationHdfsArgs:
         pulumi.set(self, "qop_configuration", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replicationFactor")
     def replication_factor(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -280,6 +296,7 @@ class _LocationHdfsState:
                  kms_key_provider_uri: Optional[pulumi.Input[builtins.str]] = None,
                  name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]]] = None,
                  qop_configuration: Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_factor: Optional[pulumi.Input[builtins.int]] = None,
                  simple_user: Optional[pulumi.Input[builtins.str]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
@@ -300,6 +317,7 @@ class _LocationHdfsState:
         :param pulumi.Input[builtins.str] kms_key_provider_uri: The URI of the HDFS cluster's Key Management Server (KMS).
         :param pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]] name_nodes: The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
         :param pulumi.Input['LocationHdfsQopConfigurationArgs'] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] replication_factor: The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
         :param pulumi.Input[builtins.str] simple_user: The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[builtins.str] subdirectory: A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
@@ -330,6 +348,8 @@ class _LocationHdfsState:
             pulumi.set(__self__, "name_nodes", name_nodes)
         if qop_configuration is not None:
             pulumi.set(__self__, "qop_configuration", qop_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replication_factor is not None:
             pulumi.set(__self__, "replication_factor", replication_factor)
         if simple_user is not None:
@@ -338,9 +358,6 @@ class _LocationHdfsState:
             pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if uri is not None:
@@ -491,6 +508,18 @@ class _LocationHdfsState:
         pulumi.set(self, "qop_configuration", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replicationFactor")
     def replication_factor(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -540,7 +569,6 @@ class _LocationHdfsState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -578,6 +606,7 @@ class LocationHdfs(pulumi.CustomResource):
                  kms_key_provider_uri: Optional[pulumi.Input[builtins.str]] = None,
                  name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocationHdfsNameNodeArgs', 'LocationHdfsNameNodeArgsDict']]]]] = None,
                  qop_configuration: Optional[pulumi.Input[Union['LocationHdfsQopConfigurationArgs', 'LocationHdfsQopConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_factor: Optional[pulumi.Input[builtins.int]] = None,
                  simple_user: Optional[pulumi.Input[builtins.str]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
@@ -644,6 +673,7 @@ class LocationHdfs(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] kms_key_provider_uri: The URI of the HDFS cluster's Key Management Server (KMS).
         :param pulumi.Input[Sequence[pulumi.Input[Union['LocationHdfsNameNodeArgs', 'LocationHdfsNameNodeArgsDict']]]] name_nodes: The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
         :param pulumi.Input[Union['LocationHdfsQopConfigurationArgs', 'LocationHdfsQopConfigurationArgsDict']] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] replication_factor: The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
         :param pulumi.Input[builtins.str] simple_user: The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[builtins.str] subdirectory: A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
@@ -729,6 +759,7 @@ class LocationHdfs(pulumi.CustomResource):
                  kms_key_provider_uri: Optional[pulumi.Input[builtins.str]] = None,
                  name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocationHdfsNameNodeArgs', 'LocationHdfsNameNodeArgsDict']]]]] = None,
                  qop_configuration: Optional[pulumi.Input[Union['LocationHdfsQopConfigurationArgs', 'LocationHdfsQopConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_factor: Optional[pulumi.Input[builtins.int]] = None,
                  simple_user: Optional[pulumi.Input[builtins.str]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
@@ -757,6 +788,7 @@ class LocationHdfs(pulumi.CustomResource):
                 raise TypeError("Missing required property 'name_nodes'")
             __props__.__dict__["name_nodes"] = name_nodes
             __props__.__dict__["qop_configuration"] = qop_configuration
+            __props__.__dict__["region"] = region
             __props__.__dict__["replication_factor"] = replication_factor
             __props__.__dict__["simple_user"] = simple_user
             __props__.__dict__["subdirectory"] = subdirectory
@@ -786,6 +818,7 @@ class LocationHdfs(pulumi.CustomResource):
             kms_key_provider_uri: Optional[pulumi.Input[builtins.str]] = None,
             name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LocationHdfsNameNodeArgs', 'LocationHdfsNameNodeArgsDict']]]]] = None,
             qop_configuration: Optional[pulumi.Input[Union['LocationHdfsQopConfigurationArgs', 'LocationHdfsQopConfigurationArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replication_factor: Optional[pulumi.Input[builtins.int]] = None,
             simple_user: Optional[pulumi.Input[builtins.str]] = None,
             subdirectory: Optional[pulumi.Input[builtins.str]] = None,
@@ -811,6 +844,7 @@ class LocationHdfs(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] kms_key_provider_uri: The URI of the HDFS cluster's Key Management Server (KMS).
         :param pulumi.Input[Sequence[pulumi.Input[Union['LocationHdfsNameNodeArgs', 'LocationHdfsNameNodeArgsDict']]]] name_nodes: The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
         :param pulumi.Input[Union['LocationHdfsQopConfigurationArgs', 'LocationHdfsQopConfigurationArgsDict']] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] replication_factor: The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
         :param pulumi.Input[builtins.str] simple_user: The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[builtins.str] subdirectory: A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
@@ -833,6 +867,7 @@ class LocationHdfs(pulumi.CustomResource):
         __props__.__dict__["kms_key_provider_uri"] = kms_key_provider_uri
         __props__.__dict__["name_nodes"] = name_nodes
         __props__.__dict__["qop_configuration"] = qop_configuration
+        __props__.__dict__["region"] = region
         __props__.__dict__["replication_factor"] = replication_factor
         __props__.__dict__["simple_user"] = simple_user
         __props__.__dict__["subdirectory"] = subdirectory
@@ -938,6 +973,14 @@ class LocationHdfs(pulumi.CustomResource):
         return pulumi.get(self, "qop_configuration")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="replicationFactor")
     def replication_factor(self) -> pulumi.Output[Optional[builtins.int]]:
         """
@@ -971,7 +1014,6 @@ class LocationHdfs(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

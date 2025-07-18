@@ -102,6 +102,12 @@ namespace Pulumi.Aws.Kinesis
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -127,6 +133,12 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -182,6 +194,7 @@ namespace Pulumi.Aws.Kinesis
         /// List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
         /// </summary>
         public readonly ImmutableArray<string> OpenShards;
+        public readonly string Region;
         /// <summary>
         /// Length of time (in hours) data records are accessible after they are added to the stream.
         /// </summary>
@@ -221,6 +234,8 @@ namespace Pulumi.Aws.Kinesis
 
             ImmutableArray<string> openShards,
 
+            string region,
+
             int retentionPeriod,
 
             ImmutableArray<string> shardLevelMetrics,
@@ -239,6 +254,7 @@ namespace Pulumi.Aws.Kinesis
             KmsKeyId = kmsKeyId;
             Name = name;
             OpenShards = openShards;
+            Region = region;
             RetentionPeriod = retentionPeriod;
             ShardLevelMetrics = shardLevelMetrics;
             Status = status;

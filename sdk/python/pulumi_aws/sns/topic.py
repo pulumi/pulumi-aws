@@ -42,6 +42,7 @@ class TopicArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  signature_version: Optional[pulumi.Input[builtins.int]] = None,
                  sqs_failure_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  sqs_success_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -72,6 +73,7 @@ class TopicArgs:
         :param pulumi.Input[builtins.str] name: The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
         :param pulumi.Input[builtins.str] policy: The fully-formed AWS policy as JSON.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] signature_version: If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
         :param pulumi.Input[builtins.str] sqs_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[builtins.str] sqs_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
@@ -123,6 +125,8 @@ class TopicArgs:
             pulumi.set(__self__, "name_prefix", name_prefix)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if signature_version is not None:
             pulumi.set(__self__, "signature_version", signature_version)
         if sqs_failure_feedback_role_arn is not None:
@@ -401,6 +405,18 @@ class TopicArgs:
         pulumi.set(self, "policy", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="signatureVersion")
     def signature_version(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -501,6 +517,7 @@ class _TopicState:
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  owner: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  signature_version: Optional[pulumi.Input[builtins.int]] = None,
                  sqs_failure_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  sqs_success_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -535,6 +552,7 @@ class _TopicState:
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
         :param pulumi.Input[builtins.str] owner: The AWS Account ID of the SNS topic owner
         :param pulumi.Input[builtins.str] policy: The fully-formed AWS policy as JSON.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] signature_version: If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
         :param pulumi.Input[builtins.str] sqs_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[builtins.str] sqs_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
@@ -593,6 +611,8 @@ class _TopicState:
             pulumi.set(__self__, "owner", owner)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if signature_version is not None:
             pulumi.set(__self__, "signature_version", signature_version)
         if sqs_failure_feedback_role_arn is not None:
@@ -603,9 +623,6 @@ class _TopicState:
             pulumi.set(__self__, "sqs_success_feedback_sample_rate", sqs_success_feedback_sample_rate)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tracing_config is not None:
@@ -912,6 +929,18 @@ class _TopicState:
         pulumi.set(self, "policy", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="signatureVersion")
     def signature_version(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -973,7 +1002,6 @@ class _TopicState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1025,6 +1053,7 @@ class Topic(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  signature_version: Optional[pulumi.Input[builtins.int]] = None,
                  sqs_failure_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  sqs_success_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -1131,6 +1160,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the topic. Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long. For a FIFO (first-in-first-out) topic, the name must end with the `.fifo` suffix. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
         :param pulumi.Input[builtins.str] policy: The fully-formed AWS policy as JSON.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] signature_version: If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
         :param pulumi.Input[builtins.str] sqs_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[builtins.str] sqs_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
@@ -1256,6 +1286,7 @@ class Topic(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  signature_version: Optional[pulumi.Input[builtins.int]] = None,
                  sqs_failure_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  sqs_success_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -1293,6 +1324,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["policy"] = policy
+            __props__.__dict__["region"] = region
             __props__.__dict__["signature_version"] = signature_version
             __props__.__dict__["sqs_failure_feedback_role_arn"] = sqs_failure_feedback_role_arn
             __props__.__dict__["sqs_success_feedback_role_arn"] = sqs_success_feedback_role_arn
@@ -1338,6 +1370,7 @@ class Topic(pulumi.CustomResource):
             name_prefix: Optional[pulumi.Input[builtins.str]] = None,
             owner: Optional[pulumi.Input[builtins.str]] = None,
             policy: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             signature_version: Optional[pulumi.Input[builtins.int]] = None,
             sqs_failure_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             sqs_success_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -1377,6 +1410,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`
         :param pulumi.Input[builtins.str] owner: The AWS Account ID of the SNS topic owner
         :param pulumi.Input[builtins.str] policy: The fully-formed AWS policy as JSON.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] signature_version: If `SignatureVersion` should be [1 (SHA1) or 2 (SHA256)](https://docs.aws.amazon.com/sns/latest/dg/sns-verify-signature-of-message.html). The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS.
         :param pulumi.Input[builtins.str] sqs_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[builtins.str] sqs_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
@@ -1414,6 +1448,7 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["owner"] = owner
         __props__.__dict__["policy"] = policy
+        __props__.__dict__["region"] = region
         __props__.__dict__["signature_version"] = signature_version
         __props__.__dict__["sqs_failure_feedback_role_arn"] = sqs_failure_feedback_role_arn
         __props__.__dict__["sqs_success_feedback_role_arn"] = sqs_success_feedback_role_arn
@@ -1624,6 +1659,14 @@ class Topic(pulumi.CustomResource):
         return pulumi.get(self, "policy")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="signatureVersion")
     def signature_version(self) -> pulumi.Output[builtins.int]:
         """
@@ -1665,7 +1708,6 @@ class Topic(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

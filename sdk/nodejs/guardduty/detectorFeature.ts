@@ -19,6 +19,27 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.guardduty.Detector("example", {enable: true});
+ * const s3Protection = new aws.guardduty.DetectorFeature("s3_protection", {
+ *     detectorId: example.id,
+ *     name: "S3_DATA_EVENTS",
+ *     status: "ENABLED",
+ * });
+ * ```
+ *
+ * ## Extended Threat Detection for EKS
+ *
+ * To enable GuardDuty [Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) for EKS, you need at least one of these features enabled: [EKS Protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html) or [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring-configuration.html). For maximum detection coverage, enabling both is recommended to enhance detection capabilities.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.guardduty.Detector("example", {enable: true});
+ * const eksProtection = new aws.guardduty.DetectorFeature("eks_protection", {
+ *     detectorId: example.id,
+ *     name: "EKS_AUDIT_LOGS",
+ *     status: "ENABLED",
+ * });
  * const eksRuntimeMonitoring = new aws.guardduty.DetectorFeature("eks_runtime_monitoring", {
  *     detectorId: example.id,
  *     name: "EKS_RUNTIME_MONITORING",
@@ -71,6 +92,10 @@ export class DetectorFeature extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      */
     public readonly status!: pulumi.Output<string>;
@@ -91,6 +116,7 @@ export class DetectorFeature extends pulumi.CustomResource {
             resourceInputs["additionalConfigurations"] = state ? state.additionalConfigurations : undefined;
             resourceInputs["detectorId"] = state ? state.detectorId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as DetectorFeatureArgs | undefined;
@@ -103,6 +129,7 @@ export class DetectorFeature extends pulumi.CustomResource {
             resourceInputs["additionalConfigurations"] = args ? args.additionalConfigurations : undefined;
             resourceInputs["detectorId"] = args ? args.detectorId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -127,6 +154,10 @@ export interface DetectorFeatureState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      */
     status?: pulumi.Input<string>;
@@ -148,6 +179,10 @@ export interface DetectorFeatureArgs {
      * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      */

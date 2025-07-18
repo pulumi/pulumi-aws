@@ -27,6 +27,7 @@ class TemplateArgs:
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_entity: Optional[pulumi.Input['TemplateSourceEntityArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -38,6 +39,7 @@ class TemplateArgs:
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[builtins.str] name: Display name for the template.
         :param pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['TemplateSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -49,6 +51,8 @@ class TemplateArgs:
             pulumi.set(__self__, "name", name)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source_entity is not None:
             pulumi.set(__self__, "source_entity", source_entity)
         if tags is not None:
@@ -117,6 +121,18 @@ class TemplateArgs:
         pulumi.set(self, "permissions", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> Optional[pulumi.Input['TemplateSourceEntityArgs']]:
         """
@@ -150,6 +166,7 @@ class _TemplateState:
                  last_updated_time: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_entity: Optional[pulumi.Input['TemplateSourceEntityArgs']] = None,
                  source_entity_arn: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
@@ -166,6 +183,7 @@ class _TemplateState:
         :param pulumi.Input[builtins.str] last_updated_time: The time that the template was last updated.
         :param pulumi.Input[builtins.str] name: Display name for the template.
         :param pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['TemplateSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[builtins.str] source_entity_arn: Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
         :param pulumi.Input[builtins.str] status: The template creation status.
@@ -189,6 +207,8 @@ class _TemplateState:
             pulumi.set(__self__, "name", name)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source_entity is not None:
             pulumi.set(__self__, "source_entity", source_entity)
         if source_entity_arn is not None:
@@ -197,9 +217,6 @@ class _TemplateState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if template_id is not None:
@@ -282,6 +299,18 @@ class _TemplateState:
         pulumi.set(self, "permissions", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> Optional[pulumi.Input['TemplateSourceEntityArgs']]:
         """
@@ -331,7 +360,6 @@ class _TemplateState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -390,6 +418,7 @@ class Template(pulumi.CustomResource):
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TemplatePermissionArgs', 'TemplatePermissionArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_entity: Optional[pulumi.Input[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  template_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -430,6 +459,7 @@ class Template(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[builtins.str] name: Display name for the template.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TemplatePermissionArgs', 'TemplatePermissionArgsDict']]]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict']] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] template_id: Identifier for the template.
@@ -491,6 +521,7 @@ class Template(pulumi.CustomResource):
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TemplatePermissionArgs', 'TemplatePermissionArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_entity: Optional[pulumi.Input[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  template_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -507,6 +538,7 @@ class Template(pulumi.CustomResource):
             __props__.__dict__["aws_account_id"] = aws_account_id
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
+            __props__.__dict__["region"] = region
             __props__.__dict__["source_entity"] = source_entity
             __props__.__dict__["tags"] = tags
             if template_id is None and not opts.urn:
@@ -538,6 +570,7 @@ class Template(pulumi.CustomResource):
             last_updated_time: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TemplatePermissionArgs', 'TemplatePermissionArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             source_entity: Optional[pulumi.Input[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict']]] = None,
             source_entity_arn: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
@@ -559,6 +592,7 @@ class Template(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] last_updated_time: The time that the template was last updated.
         :param pulumi.Input[builtins.str] name: Display name for the template.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TemplatePermissionArgs', 'TemplatePermissionArgsDict']]]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict']] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[builtins.str] source_entity_arn: Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
         :param pulumi.Input[builtins.str] status: The template creation status.
@@ -580,6 +614,7 @@ class Template(pulumi.CustomResource):
         __props__.__dict__["last_updated_time"] = last_updated_time
         __props__.__dict__["name"] = name
         __props__.__dict__["permissions"] = permissions
+        __props__.__dict__["region"] = region
         __props__.__dict__["source_entity"] = source_entity
         __props__.__dict__["source_entity_arn"] = source_entity_arn
         __props__.__dict__["status"] = status
@@ -639,6 +674,14 @@ class Template(pulumi.CustomResource):
         return pulumi.get(self, "permissions")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> pulumi.Output[Optional['outputs.TemplateSourceEntity']]:
         """
@@ -672,7 +715,6 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

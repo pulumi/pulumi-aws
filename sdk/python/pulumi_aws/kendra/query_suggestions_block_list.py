@@ -27,6 +27,7 @@ class QuerySuggestionsBlockListArgs:
                  source_s3_path: pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs'],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a QuerySuggestionsBlockList resource.
@@ -42,6 +43,8 @@ class QuerySuggestionsBlockListArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -104,6 +107,15 @@ class QuerySuggestionsBlockListArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags")
 
@@ -120,6 +132,7 @@ class _QuerySuggestionsBlockListState:
                  index_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  query_suggestions_block_list_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_s3_path: Optional[pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs']] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
@@ -145,6 +158,8 @@ class _QuerySuggestionsBlockListState:
             pulumi.set(__self__, "name", name)
         if query_suggestions_block_list_id is not None:
             pulumi.set(__self__, "query_suggestions_block_list_id", query_suggestions_block_list_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if source_s3_path is not None:
@@ -153,9 +168,6 @@ class _QuerySuggestionsBlockListState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -217,6 +229,15 @@ class _QuerySuggestionsBlockListState:
         pulumi.set(self, "query_suggestions_block_list_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -260,7 +281,6 @@ class _QuerySuggestionsBlockListState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
@@ -281,6 +301,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  index_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_s3_path: Optional[pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -380,6 +401,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  index_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_s3_path: Optional[pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -397,6 +419,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
                 raise TypeError("Missing required property 'index_id'")
             __props__.__dict__["index_id"] = index_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -423,6 +446,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
             index_id: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             query_suggestions_block_list_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             source_s3_path: Optional[pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
@@ -452,6 +476,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         __props__.__dict__["index_id"] = index_id
         __props__.__dict__["name"] = name
         __props__.__dict__["query_suggestions_block_list_id"] = query_suggestions_block_list_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["source_s3_path"] = source_s3_path
         __props__.__dict__["status"] = status
@@ -497,6 +522,11 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         return pulumi.get(self, "query_suggestions_block_list_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[builtins.str]:
         """
@@ -524,7 +554,6 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.

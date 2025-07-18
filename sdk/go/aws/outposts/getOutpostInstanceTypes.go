@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/outposts"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/outposts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func GetOutpostInstanceTypes(ctx *pulumi.Context, args *GetOutpostInstanceTypesA
 type GetOutpostInstanceTypesArgs struct {
 	// Outpost ARN.
 	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getOutpostInstanceTypes.
@@ -61,6 +63,7 @@ type GetOutpostInstanceTypesResult struct {
 	Id string `pulumi:"id"`
 	// Set of instance types.
 	InstanceTypes []string `pulumi:"instanceTypes"`
+	Region        string   `pulumi:"region"`
 }
 
 func GetOutpostInstanceTypesOutput(ctx *pulumi.Context, args GetOutpostInstanceTypesOutputArgs, opts ...pulumi.InvokeOption) GetOutpostInstanceTypesResultOutput {
@@ -76,6 +79,8 @@ func GetOutpostInstanceTypesOutput(ctx *pulumi.Context, args GetOutpostInstanceT
 type GetOutpostInstanceTypesOutputArgs struct {
 	// Outpost ARN.
 	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetOutpostInstanceTypesOutputArgs) ElementType() reflect.Type {
@@ -109,6 +114,10 @@ func (o GetOutpostInstanceTypesResultOutput) Id() pulumi.StringOutput {
 // Set of instance types.
 func (o GetOutpostInstanceTypesResultOutput) InstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOutpostInstanceTypesResult) []string { return v.InstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetOutpostInstanceTypesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOutpostInstanceTypesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

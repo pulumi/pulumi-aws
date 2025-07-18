@@ -19,6 +19,21 @@ public final class RegistryScanningConfigurationArgs extends com.pulumi.resource
     public static final RegistryScanningConfigurationArgs Empty = new RegistryScanningConfigurationArgs();
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
      * 
      */
@@ -51,6 +66,7 @@ public final class RegistryScanningConfigurationArgs extends com.pulumi.resource
     private RegistryScanningConfigurationArgs() {}
 
     private RegistryScanningConfigurationArgs(RegistryScanningConfigurationArgs $) {
+        this.region = $.region;
         this.rules = $.rules;
         this.scanType = $.scanType;
     }
@@ -71,6 +87,27 @@ public final class RegistryScanningConfigurationArgs extends com.pulumi.resource
 
         public Builder(RegistryScanningConfigurationArgs defaults) {
             $ = new RegistryScanningConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

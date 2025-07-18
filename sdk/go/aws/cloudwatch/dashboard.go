@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,6 +98,8 @@ type Dashboard struct {
 	DashboardBody pulumi.StringOutput `pulumi:"dashboardBody"`
 	// The name of the dashboard.
 	DashboardName pulumi.StringOutput `pulumi:"dashboardName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDashboard registers a new resource with the given unique name, arguments, and options.
@@ -142,6 +144,8 @@ type dashboardState struct {
 	DashboardBody *string `pulumi:"dashboardBody"`
 	// The name of the dashboard.
 	DashboardName *string `pulumi:"dashboardName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type DashboardState struct {
@@ -151,6 +155,8 @@ type DashboardState struct {
 	DashboardBody pulumi.StringPtrInput
 	// The name of the dashboard.
 	DashboardName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DashboardState) ElementType() reflect.Type {
@@ -162,6 +168,8 @@ type dashboardArgs struct {
 	DashboardBody string `pulumi:"dashboardBody"`
 	// The name of the dashboard.
 	DashboardName string `pulumi:"dashboardName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Dashboard resource.
@@ -170,6 +178,8 @@ type DashboardArgs struct {
 	DashboardBody pulumi.StringInput
 	// The name of the dashboard.
 	DashboardName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DashboardArgs) ElementType() reflect.Type {
@@ -272,6 +282,11 @@ func (o DashboardOutput) DashboardBody() pulumi.StringOutput {
 // The name of the dashboard.
 func (o DashboardOutput) DashboardName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.DashboardName }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DashboardOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type DashboardArrayOutput struct{ *pulumi.OutputState }

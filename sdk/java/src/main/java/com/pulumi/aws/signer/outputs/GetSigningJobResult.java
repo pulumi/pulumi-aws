@@ -60,6 +60,7 @@ public final class GetSigningJobResult {
      * 
      */
     private String profileVersion;
+    private String region;
     /**
      * @return IAM principal that requested the signing job.
      * 
@@ -163,6 +164,9 @@ public final class GetSigningJobResult {
     public String profileVersion() {
         return this.profileVersion;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return IAM principal that requested the signing job.
      * 
@@ -232,6 +236,7 @@ public final class GetSigningJobResult {
         private String platformId;
         private String profileName;
         private String profileVersion;
+        private String region;
         private String requestedBy;
         private List<GetSigningJobRevocationRecord> revocationRecords;
         private String signatureExpiresAt;
@@ -252,6 +257,7 @@ public final class GetSigningJobResult {
     	      this.platformId = defaults.platformId;
     	      this.profileName = defaults.profileName;
     	      this.profileVersion = defaults.profileVersion;
+    	      this.region = defaults.region;
     	      this.requestedBy = defaults.requestedBy;
     	      this.revocationRecords = defaults.revocationRecords;
     	      this.signatureExpiresAt = defaults.signatureExpiresAt;
@@ -342,6 +348,14 @@ public final class GetSigningJobResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSigningJobResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder requestedBy(String requestedBy) {
             if (requestedBy == null) {
               throw new MissingRequiredPropertyException("GetSigningJobResult", "requestedBy");
@@ -418,6 +432,7 @@ public final class GetSigningJobResult {
             _resultValue.platformId = platformId;
             _resultValue.profileName = profileName;
             _resultValue.profileVersion = profileVersion;
+            _resultValue.region = region;
             _resultValue.requestedBy = requestedBy;
             _resultValue.revocationRecords = revocationRecords;
             _resultValue.signatureExpiresAt = signatureExpiresAt;

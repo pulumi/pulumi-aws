@@ -58,6 +58,12 @@ namespace Pulumi.Aws.WafRegional
         [Output("regexPatternStrings")]
         public Output<ImmutableArray<string>> RegexPatternStrings { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a RegexPatternSet resource with the given unique name, arguments, and options.
@@ -122,6 +128,12 @@ namespace Pulumi.Aws.WafRegional
             set => _regexPatternStrings = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public RegexPatternSetArgs()
         {
         }
@@ -147,6 +159,12 @@ namespace Pulumi.Aws.WafRegional
             get => _regexPatternStrings ?? (_regexPatternStrings = new InputList<string>());
             set => _regexPatternStrings = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public RegexPatternSetState()
         {

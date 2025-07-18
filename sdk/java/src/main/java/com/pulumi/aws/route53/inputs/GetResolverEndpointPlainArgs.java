@@ -36,6 +36,21 @@ public final class GetResolverEndpointPlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ID of the Route53 Resolver Endpoint.
      * 
      */
@@ -54,6 +69,7 @@ public final class GetResolverEndpointPlainArgs extends com.pulumi.resources.Inv
 
     private GetResolverEndpointPlainArgs(GetResolverEndpointPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.resolverEndpointId = $.resolverEndpointId;
     }
 
@@ -98,6 +114,17 @@ public final class GetResolverEndpointPlainArgs extends com.pulumi.resources.Inv
          */
         public Builder filters(GetResolverEndpointFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

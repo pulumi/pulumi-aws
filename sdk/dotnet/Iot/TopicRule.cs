@@ -200,6 +200,12 @@ namespace Pulumi.Aws.Iot
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("republishes")]
         public Output<ImmutableArray<Outputs.TopicRuleRepublish>> Republishes { get; private set; } = null!;
 
@@ -416,6 +422,12 @@ namespace Pulumi.Aws.Iot
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("republishes")]
         private InputList<Inputs.TopicRuleRepublishArgs>? _republishes;
         public InputList<Inputs.TopicRuleRepublishArgs> Republishes
@@ -630,6 +642,12 @@ namespace Pulumi.Aws.Iot
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("republishes")]
         private InputList<Inputs.TopicRuleRepublishGetArgs>? _republishes;
         public InputList<Inputs.TopicRuleRepublishGetArgs> Republishes
@@ -700,7 +718,6 @@ namespace Pulumi.Aws.Iot
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

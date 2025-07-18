@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,6 +65,8 @@ type RouteResponse struct {
 	ApiId pulumi.StringOutput `pulumi:"apiId"`
 	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
 	ModelSelectionExpression pulumi.StringPtrOutput `pulumi:"modelSelectionExpression"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Response models for the route response.
 	ResponseModels pulumi.StringMapOutput `pulumi:"responseModels"`
 	// Identifier of the `apigatewayv2.Route`.
@@ -116,6 +118,8 @@ type routeResponseState struct {
 	ApiId *string `pulumi:"apiId"`
 	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
 	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Response models for the route response.
 	ResponseModels map[string]string `pulumi:"responseModels"`
 	// Identifier of the `apigatewayv2.Route`.
@@ -129,6 +133,8 @@ type RouteResponseState struct {
 	ApiId pulumi.StringPtrInput
 	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
 	ModelSelectionExpression pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Response models for the route response.
 	ResponseModels pulumi.StringMapInput
 	// Identifier of the `apigatewayv2.Route`.
@@ -146,6 +152,8 @@ type routeResponseArgs struct {
 	ApiId string `pulumi:"apiId"`
 	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
 	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Response models for the route response.
 	ResponseModels map[string]string `pulumi:"responseModels"`
 	// Identifier of the `apigatewayv2.Route`.
@@ -160,6 +168,8 @@ type RouteResponseArgs struct {
 	ApiId pulumi.StringInput
 	// The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
 	ModelSelectionExpression pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Response models for the route response.
 	ResponseModels pulumi.StringMapInput
 	// Identifier of the `apigatewayv2.Route`.
@@ -263,6 +273,11 @@ func (o RouteResponseOutput) ApiId() pulumi.StringOutput {
 // The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route response.
 func (o RouteResponseOutput) ModelSelectionExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteResponse) pulumi.StringPtrOutput { return v.ModelSelectionExpression }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o RouteResponseOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteResponse) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Response models for the route response.

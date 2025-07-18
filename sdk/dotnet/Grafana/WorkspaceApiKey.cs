@@ -57,6 +57,12 @@ namespace Pulumi.Aws.Grafana
         public Output<string> KeyRole { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
         /// </summary>
         [Output("secondsToLive")]
@@ -131,6 +137,12 @@ namespace Pulumi.Aws.Grafana
         public Input<string> KeyRole { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
         /// </summary>
         [Input("secondsToLive", required: true)]
@@ -177,6 +189,12 @@ namespace Pulumi.Aws.Grafana
         /// </summary>
         [Input("keyRole")]
         public Input<string>? KeyRole { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.

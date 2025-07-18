@@ -30,7 +30,8 @@ class InstanceGroupArgs:
                  ebs_configs: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceGroupEbsConfigArgs']]]] = None,
                  ebs_optimized: Optional[pulumi.Input[builtins.bool]] = None,
                  instance_count: Optional[pulumi.Input[builtins.int]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a InstanceGroup resource.
         :param pulumi.Input[builtins.str] cluster_id: ID of the EMR Cluster to attach to. Changing this forces a new resource to be created.
@@ -63,6 +64,7 @@ class InstanceGroupArgs:
         :param pulumi.Input[builtins.bool] ebs_optimized: Indicates whether an Amazon EBS volume is EBS-optimized. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.int] instance_count: target number of instances for the instance group. defaults to 0.
         :param pulumi.Input[builtins.str] name: Human friendly name given to the instance group. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -80,6 +82,8 @@ class InstanceGroupArgs:
             pulumi.set(__self__, "instance_count", instance_count)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -210,6 +214,18 @@ class InstanceGroupArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _InstanceGroupState:
@@ -223,6 +239,7 @@ class _InstanceGroupState:
                  instance_count: Optional[pulumi.Input[builtins.int]] = None,
                  instance_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  running_instance_count: Optional[pulumi.Input[builtins.int]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -257,6 +274,7 @@ class _InstanceGroupState:
         :param pulumi.Input[builtins.int] instance_count: target number of instances for the instance group. defaults to 0.
         :param pulumi.Input[builtins.str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Human friendly name given to the instance group. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] running_instance_count: The number of instances currently running in this instance group.
         :param pulumi.Input[builtins.str] status: The current status of the instance group.
         """
@@ -278,6 +296,8 @@ class _InstanceGroupState:
             pulumi.set(__self__, "instance_type", instance_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if running_instance_count is not None:
             pulumi.set(__self__, "running_instance_count", running_instance_count)
         if status is not None:
@@ -413,6 +433,18 @@ class _InstanceGroupState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="runningInstanceCount")
     def running_instance_count(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -452,6 +484,7 @@ class InstanceGroup(pulumi.CustomResource):
                  instance_count: Optional[pulumi.Input[builtins.int]] = None,
                  instance_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides an Elastic MapReduce Cluster Instance Group configuration.
@@ -514,6 +547,7 @@ class InstanceGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] instance_count: target number of instances for the instance group. defaults to 0.
         :param pulumi.Input[builtins.str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Human friendly name given to the instance group. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -574,6 +608,7 @@ class InstanceGroup(pulumi.CustomResource):
                  instance_count: Optional[pulumi.Input[builtins.int]] = None,
                  instance_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -596,6 +631,7 @@ class InstanceGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["running_instance_count"] = None
             __props__.__dict__["status"] = None
         super(InstanceGroup, __self__).__init__(
@@ -617,6 +653,7 @@ class InstanceGroup(pulumi.CustomResource):
             instance_count: Optional[pulumi.Input[builtins.int]] = None,
             instance_type: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             running_instance_count: Optional[pulumi.Input[builtins.int]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None) -> 'InstanceGroup':
         """
@@ -656,6 +693,7 @@ class InstanceGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] instance_count: target number of instances for the instance group. defaults to 0.
         :param pulumi.Input[builtins.str] instance_type: The EC2 instance type for all instances in the instance group. Changing this forces a new resource to be created.
         :param pulumi.Input[builtins.str] name: Human friendly name given to the instance group. Changing this forces a new resource to be created.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] running_instance_count: The number of instances currently running in this instance group.
         :param pulumi.Input[builtins.str] status: The current status of the instance group.
         """
@@ -672,6 +710,7 @@ class InstanceGroup(pulumi.CustomResource):
         __props__.__dict__["instance_count"] = instance_count
         __props__.__dict__["instance_type"] = instance_type
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["running_instance_count"] = running_instance_count
         __props__.__dict__["status"] = status
         return InstanceGroup(resource_name, opts=opts, __props__=__props__)
@@ -768,6 +807,14 @@ class InstanceGroup(pulumi.CustomResource):
         Human friendly name given to the instance group. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="runningInstanceCount")

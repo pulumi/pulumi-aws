@@ -33,14 +33,14 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Lambda Function name or ARN.
+     * Name or ARN of the Lambda function.
      * 
      */
     @Import(name="functionName", required=true)
     private Output<String> functionName;
 
     /**
-     * @return Lambda Function name or ARN.
+     * @return Name or ARN of the Lambda function.
      * 
      */
     public Output<String> functionName() {
@@ -63,14 +63,18 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+     * Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+     * @return Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -78,14 +82,29 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Lambda alias&#39; route configuration settings. Fields documented below
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
+     * Lambda alias&#39; route configuration settings. See below.
      * 
      */
     @Import(name="routingConfig")
     private @Nullable Output<AliasRoutingConfigArgs> routingConfig;
 
     /**
-     * @return The Lambda alias&#39; route configuration settings. Fields documented below
+     * @return Lambda alias&#39; route configuration settings. See below.
      * 
      */
     public Optional<Output<AliasRoutingConfigArgs>> routingConfig() {
@@ -99,6 +118,7 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         this.functionName = $.functionName;
         this.functionVersion = $.functionVersion;
         this.name = $.name;
+        this.region = $.region;
         this.routingConfig = $.routingConfig;
     }
 
@@ -142,7 +162,7 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionName Lambda Function name or ARN.
+         * @param functionName Name or ARN of the Lambda function.
          * 
          * @return builder
          * 
@@ -153,7 +173,7 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionName Lambda Function name or ARN.
+         * @param functionName Name or ARN of the Lambda function.
          * 
          * @return builder
          * 
@@ -184,7 +204,9 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+         * @param name Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -195,7 +217,9 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name for the alias you are creating. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`
+         * @param name Name for the alias. Pattern: `(?!^[0-9]+$)([a-zA-Z0-9-_]+)`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -205,7 +229,28 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routingConfig The Lambda alias&#39; route configuration settings. Fields documented below
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
+         * @param routingConfig Lambda alias&#39; route configuration settings. See below.
          * 
          * @return builder
          * 
@@ -216,7 +261,7 @@ public final class AliasArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param routingConfig The Lambda alias&#39; route configuration settings. Fields documented below
+         * @param routingConfig Lambda alias&#39; route configuration settings. See below.
          * 
          * @return builder
          * 

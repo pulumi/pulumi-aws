@@ -207,6 +207,10 @@ export class ExperimentTemplate extends pulumi.CustomResource {
      */
     public readonly logConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateLogConfiguration | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -220,9 +224,6 @@ export class ExperimentTemplate extends pulumi.CustomResource {
      * Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Target of an action. See below.
@@ -247,6 +248,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             resourceInputs["experimentOptions"] = state ? state.experimentOptions : undefined;
             resourceInputs["experimentReportConfiguration"] = state ? state.experimentReportConfiguration : undefined;
             resourceInputs["logConfiguration"] = state ? state.logConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["stopConditions"] = state ? state.stopConditions : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -271,6 +273,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             resourceInputs["experimentOptions"] = args ? args.experimentOptions : undefined;
             resourceInputs["experimentReportConfiguration"] = args ? args.experimentReportConfiguration : undefined;
             resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stopConditions"] = args ? args.stopConditions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -307,6 +310,10 @@ export interface ExperimentTemplateState {
      */
     logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfiguration>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      */
     roleArn?: pulumi.Input<string>;
@@ -320,9 +327,6 @@ export interface ExperimentTemplateState {
      * Key-value mapping of tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Target of an action. See below.
@@ -354,6 +358,10 @@ export interface ExperimentTemplateArgs {
      * The configuration for experiment logging. See below.
      */
     logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfiguration>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of an IAM role that grants the AWS FIS service permission to perform service actions on your behalf.
      */

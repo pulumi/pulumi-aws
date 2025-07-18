@@ -89,6 +89,10 @@ export class MacsecKeyAssociation extends pulumi.CustomResource {
      */
     public readonly connectionId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
      *
      * > **Note:** `ckn` and `cak` are mutually exclusive with `secretArn` - these arguments cannot be used together. If you use `ckn` and `cak`, you should not use `secretArn`. If you use the `secretArn` argument to reference an existing MAC Security (MACSec) secret key, you should not use `ckn` or `cak`.
@@ -119,6 +123,7 @@ export class MacsecKeyAssociation extends pulumi.CustomResource {
             resourceInputs["cak"] = state ? state.cak : undefined;
             resourceInputs["ckn"] = state ? state.ckn : undefined;
             resourceInputs["connectionId"] = state ? state.connectionId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["secretArn"] = state ? state.secretArn : undefined;
             resourceInputs["startOn"] = state ? state.startOn : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
@@ -130,6 +135,7 @@ export class MacsecKeyAssociation extends pulumi.CustomResource {
             resourceInputs["cak"] = args ? args.cak : undefined;
             resourceInputs["ckn"] = args ? args.ckn : undefined;
             resourceInputs["connectionId"] = args ? args.connectionId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["secretArn"] = args ? args.secretArn : undefined;
             resourceInputs["startOn"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -155,6 +161,10 @@ export interface MacsecKeyAssociationState {
      * The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
      */
     connectionId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
      *
@@ -187,6 +197,10 @@ export interface MacsecKeyAssociationArgs {
      * The ID of the dedicated Direct Connect connection. The connection must be a dedicated connection in the `AVAILABLE` state.
      */
     connectionId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key to associate with the dedicated connection.
      *

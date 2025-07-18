@@ -28,7 +28,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, bootstrap_brokers=None, bootstrap_brokers_public_sasl_iam=None, bootstrap_brokers_public_sasl_scram=None, bootstrap_brokers_public_tls=None, bootstrap_brokers_sasl_iam=None, bootstrap_brokers_sasl_scram=None, bootstrap_brokers_tls=None, broker_node_group_infos=None, cluster_name=None, cluster_uuid=None, id=None, kafka_version=None, number_of_broker_nodes=None, tags=None, zookeeper_connect_string=None, zookeeper_connect_string_tls=None):
+    def __init__(__self__, arn=None, bootstrap_brokers=None, bootstrap_brokers_public_sasl_iam=None, bootstrap_brokers_public_sasl_scram=None, bootstrap_brokers_public_tls=None, bootstrap_brokers_sasl_iam=None, bootstrap_brokers_sasl_scram=None, bootstrap_brokers_tls=None, broker_node_group_infos=None, cluster_name=None, cluster_uuid=None, id=None, kafka_version=None, number_of_broker_nodes=None, region=None, tags=None, zookeeper_connect_string=None, zookeeper_connect_string_tls=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -71,6 +71,9 @@ class GetClusterResult:
         if number_of_broker_nodes and not isinstance(number_of_broker_nodes, int):
             raise TypeError("Expected argument 'number_of_broker_nodes' to be a int")
         pulumi.set(__self__, "number_of_broker_nodes", number_of_broker_nodes)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -192,6 +195,11 @@ class GetClusterResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Map of key-value pairs assigned to the cluster.
@@ -235,12 +243,14 @@ class AwaitableGetClusterResult(GetClusterResult):
             id=self.id,
             kafka_version=self.kafka_version,
             number_of_broker_nodes=self.number_of_broker_nodes,
+            region=self.region,
             tags=self.tags,
             zookeeper_connect_string=self.zookeeper_connect_string,
             zookeeper_connect_string_tls=self.zookeeper_connect_string_tls)
 
 
 def get_cluster(cluster_name: Optional[builtins.str] = None,
+                region: Optional[builtins.str] = None,
                 tags: Optional[Mapping[str, builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
@@ -259,10 +269,12 @@ def get_cluster(cluster_name: Optional[builtins.str] = None,
 
 
     :param builtins.str cluster_name: Name of the cluster.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of key-value pairs assigned to the cluster.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:msk/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
@@ -282,10 +294,12 @@ def get_cluster(cluster_name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         kafka_version=pulumi.get(__ret__, 'kafka_version'),
         number_of_broker_nodes=pulumi.get(__ret__, 'number_of_broker_nodes'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         zookeeper_connect_string=pulumi.get(__ret__, 'zookeeper_connect_string'),
         zookeeper_connect_string_tls=pulumi.get(__ret__, 'zookeeper_connect_string_tls'))
 def get_cluster_output(cluster_name: Optional[pulumi.Input[builtins.str]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
@@ -304,10 +318,12 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[builtins.str]] = None
 
 
     :param builtins.str cluster_name: Name of the cluster.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of key-value pairs assigned to the cluster.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:msk/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult)
@@ -326,6 +342,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[builtins.str]] = None
         id=pulumi.get(__response__, 'id'),
         kafka_version=pulumi.get(__response__, 'kafka_version'),
         number_of_broker_nodes=pulumi.get(__response__, 'number_of_broker_nodes'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         zookeeper_connect_string=pulumi.get(__response__, 'zookeeper_connect_string'),
         zookeeper_connect_string_tls=pulumi.get(__response__, 'zookeeper_connect_string_tls')))

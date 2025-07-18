@@ -68,6 +68,10 @@ export class DefaultCreditSpecification extends pulumi.CustomResource {
      * Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
      */
     public readonly instanceFamily!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly timeouts!: pulumi.Output<outputs.ec2.DefaultCreditSpecificationTimeouts | undefined>;
 
     /**
@@ -85,6 +89,7 @@ export class DefaultCreditSpecification extends pulumi.CustomResource {
             const state = argsOrState as DefaultCreditSpecificationState | undefined;
             resourceInputs["cpuCredits"] = state ? state.cpuCredits : undefined;
             resourceInputs["instanceFamily"] = state ? state.instanceFamily : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as DefaultCreditSpecificationArgs | undefined;
@@ -96,6 +101,7 @@ export class DefaultCreditSpecification extends pulumi.CustomResource {
             }
             resourceInputs["cpuCredits"] = args ? args.cpuCredits : undefined;
             resourceInputs["instanceFamily"] = args ? args.instanceFamily : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -115,6 +121,10 @@ export interface DefaultCreditSpecificationState {
      * Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
      */
     instanceFamily?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2.DefaultCreditSpecificationTimeouts>;
 }
 
@@ -130,5 +140,9 @@ export interface DefaultCreditSpecificationArgs {
      * Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
      */
     instanceFamily: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2.DefaultCreditSpecificationTimeouts>;
 }

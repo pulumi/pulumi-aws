@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/storagegateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,7 +59,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/storagegateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -102,6 +102,8 @@ type UploadBuffer struct {
 	DiskPath pulumi.StringOutput `pulumi:"diskPath"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewUploadBuffer registers a new resource with the given unique name, arguments, and options.
@@ -143,6 +145,8 @@ type uploadBufferState struct {
 	DiskPath *string `pulumi:"diskPath"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn *string `pulumi:"gatewayArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type UploadBufferState struct {
@@ -152,6 +156,8 @@ type UploadBufferState struct {
 	DiskPath pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (UploadBufferState) ElementType() reflect.Type {
@@ -165,6 +171,8 @@ type uploadBufferArgs struct {
 	DiskPath *string `pulumi:"diskPath"`
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn string `pulumi:"gatewayArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a UploadBuffer resource.
@@ -175,6 +183,8 @@ type UploadBufferArgs struct {
 	DiskPath pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the gateway.
 	GatewayArn pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (UploadBufferArgs) ElementType() reflect.Type {
@@ -277,6 +287,11 @@ func (o UploadBufferOutput) DiskPath() pulumi.StringOutput {
 // The Amazon Resource Name (ARN) of the gateway.
 func (o UploadBufferOutput) GatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UploadBuffer) pulumi.StringOutput { return v.GatewayArn }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o UploadBufferOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *UploadBuffer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type UploadBufferArrayOutput struct{ *pulumi.OutputState }

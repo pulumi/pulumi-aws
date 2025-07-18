@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * const glue_example_policy = Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["glue:CreateTable"],
- *         resources: [`arn:${currentGetPartition.partition}:glue:${currentGetRegion.name}:${current.accountId}:*`],
+ *         resources: [`arn:${currentGetPartition.partition}:glue:${currentGetRegion.region}:${current.accountId}:*`],
  *         principals: [{
  *             identifiers: ["*"],
  *             type: "AWS",
@@ -73,6 +73,10 @@ export class ResourcePolicy extends pulumi.CustomResource {
      * The policy to be applied to the aws glue data catalog.
      */
     public readonly policy!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ResourcePolicy resource with the given unique name, arguments, and options.
@@ -89,6 +93,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
             const state = argsOrState as ResourcePolicyState | undefined;
             resourceInputs["enableHybrid"] = state ? state.enableHybrid : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ResourcePolicyArgs | undefined;
             if ((!args || args.policy === undefined) && !opts.urn) {
@@ -96,6 +101,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
             }
             resourceInputs["enableHybrid"] = args ? args.enableHybrid : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResourcePolicy.__pulumiType, name, resourceInputs, opts);
@@ -114,6 +120,10 @@ export interface ResourcePolicyState {
      * The policy to be applied to the aws glue data catalog.
      */
     policy?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -128,4 +138,8 @@ export interface ResourcePolicyArgs {
      * The policy to be applied to the aws glue data catalog.
      */
     policy: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

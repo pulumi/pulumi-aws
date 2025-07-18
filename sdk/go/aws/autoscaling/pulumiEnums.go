@@ -212,6 +212,51 @@ func (in *metricPtr) ToMetricPtrOutputWithContext(ctx context.Context) MetricPtr
 	return pulumi.ToOutputWithContext(ctx, in).(MetricPtrOutput)
 }
 
+// MetricArrayInput is an input type that accepts MetricArray and MetricArrayOutput values.
+// You can construct a concrete instance of `MetricArrayInput` via:
+//
+//	MetricArray{ MetricArgs{...} }
+type MetricArrayInput interface {
+	pulumi.Input
+
+	ToMetricArrayOutput() MetricArrayOutput
+	ToMetricArrayOutputWithContext(context.Context) MetricArrayOutput
+}
+
+type MetricArray []Metric
+
+func (MetricArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Metric)(nil)).Elem()
+}
+
+func (i MetricArray) ToMetricArrayOutput() MetricArrayOutput {
+	return i.ToMetricArrayOutputWithContext(context.Background())
+}
+
+func (i MetricArray) ToMetricArrayOutputWithContext(ctx context.Context) MetricArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricArrayOutput)
+}
+
+type MetricArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Metric)(nil)).Elem()
+}
+
+func (o MetricArrayOutput) ToMetricArrayOutput() MetricArrayOutput {
+	return o
+}
+
+func (o MetricArrayOutput) ToMetricArrayOutputWithContext(ctx context.Context) MetricArrayOutput {
+	return o
+}
+
+func (o MetricArrayOutput) Index(i pulumi.IntInput) MetricOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Metric {
+		return vs[0].([]Metric)[vs[1].(int)]
+	}).(MetricOutput)
+}
+
 // See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html
 type MetricsGranularity string
 
@@ -548,17 +593,66 @@ func (in *notificationTypePtr) ToNotificationTypePtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(NotificationTypePtrOutput)
 }
 
+// NotificationTypeArrayInput is an input type that accepts NotificationTypeArray and NotificationTypeArrayOutput values.
+// You can construct a concrete instance of `NotificationTypeArrayInput` via:
+//
+//	NotificationTypeArray{ NotificationTypeArgs{...} }
+type NotificationTypeArrayInput interface {
+	pulumi.Input
+
+	ToNotificationTypeArrayOutput() NotificationTypeArrayOutput
+	ToNotificationTypeArrayOutputWithContext(context.Context) NotificationTypeArrayOutput
+}
+
+type NotificationTypeArray []NotificationType
+
+func (NotificationTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationType)(nil)).Elem()
+}
+
+func (i NotificationTypeArray) ToNotificationTypeArrayOutput() NotificationTypeArrayOutput {
+	return i.ToNotificationTypeArrayOutputWithContext(context.Background())
+}
+
+func (i NotificationTypeArray) ToNotificationTypeArrayOutputWithContext(ctx context.Context) NotificationTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotificationTypeArrayOutput)
+}
+
+type NotificationTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (NotificationTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotificationType)(nil)).Elem()
+}
+
+func (o NotificationTypeArrayOutput) ToNotificationTypeArrayOutput() NotificationTypeArrayOutput {
+	return o
+}
+
+func (o NotificationTypeArrayOutput) ToNotificationTypeArrayOutputWithContext(ctx context.Context) NotificationTypeArrayOutput {
+	return o
+}
+
+func (o NotificationTypeArrayOutput) Index(i pulumi.IntInput) NotificationTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationType {
+		return vs[0].([]NotificationType)[vs[1].(int)]
+	}).(NotificationTypeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricInput)(nil)).Elem(), Metric("GroupMinSize"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricPtrInput)(nil)).Elem(), Metric("GroupMinSize"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricArrayInput)(nil)).Elem(), MetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricsGranularityInput)(nil)).Elem(), MetricsGranularity("1Minute"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricsGranularityPtrInput)(nil)).Elem(), MetricsGranularity("1Minute"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationTypeInput)(nil)).Elem(), NotificationType("autoscaling:EC2_INSTANCE_LAUNCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationTypePtrInput)(nil)).Elem(), NotificationType("autoscaling:EC2_INSTANCE_LAUNCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationTypeArrayInput)(nil)).Elem(), NotificationTypeArray{})
 	pulumi.RegisterOutputType(MetricOutput{})
 	pulumi.RegisterOutputType(MetricPtrOutput{})
+	pulumi.RegisterOutputType(MetricArrayOutput{})
 	pulumi.RegisterOutputType(MetricsGranularityOutput{})
 	pulumi.RegisterOutputType(MetricsGranularityPtrOutput{})
 	pulumi.RegisterOutputType(NotificationTypeOutput{})
 	pulumi.RegisterOutputType(NotificationTypePtrOutput{})
+	pulumi.RegisterOutputType(NotificationTypeArrayOutput{})
 }

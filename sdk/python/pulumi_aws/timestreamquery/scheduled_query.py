@@ -32,6 +32,7 @@ class ScheduledQueryArgs:
                  last_run_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  recently_failed_runs: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ScheduledQueryTimeoutsArgs']] = None):
         """
@@ -48,6 +49,7 @@ class ScheduledQueryArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryArgs']]] last_run_summaries: Runtime summary for the last scheduled query run.
         :param pulumi.Input[builtins.str] name: Name of the scheduled query.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunArgs']]] recently_failed_runs: Runtime summary for the last five failed scheduled query runs.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "error_report_configuration", error_report_configuration)
@@ -64,6 +66,8 @@ class ScheduledQueryArgs:
             pulumi.set(__self__, "name", name)
         if recently_failed_runs is not None:
             pulumi.set(__self__, "recently_failed_runs", recently_failed_runs)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -193,6 +197,18 @@ class ScheduledQueryArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -228,6 +244,7 @@ class _ScheduledQueryState:
                  previous_invocation_time: Optional[pulumi.Input[builtins.str]] = None,
                  query_string: Optional[pulumi.Input[builtins.str]] = None,
                  recently_failed_runs: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_configuration: Optional[pulumi.Input['ScheduledQueryScheduleConfigurationArgs']] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -248,6 +265,7 @@ class _ScheduledQueryState:
         :param pulumi.Input[builtins.str] previous_invocation_time: Last time the scheduled query was run.
         :param pulumi.Input[builtins.str] query_string: Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunArgs']]] recently_failed_runs: Runtime summary for the last five failed scheduled query runs.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ScheduledQueryScheduleConfigurationArgs'] schedule_configuration: Configuration block for schedule configuration for the query. See below.
         :param pulumi.Input[builtins.str] state: State of the scheduled query, either `ENABLED` or `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -280,15 +298,14 @@ class _ScheduledQueryState:
             pulumi.set(__self__, "query_string", query_string)
         if recently_failed_runs is not None:
             pulumi.set(__self__, "recently_failed_runs", recently_failed_runs)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schedule_configuration is not None:
             pulumi.set(__self__, "schedule_configuration", schedule_configuration)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if target_configuration is not None:
@@ -441,6 +458,18 @@ class _ScheduledQueryState:
         pulumi.set(self, "recently_failed_runs", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="scheduleConfiguration")
     def schedule_configuration(self) -> Optional[pulumi.Input['ScheduledQueryScheduleConfigurationArgs']]:
         """
@@ -478,7 +507,6 @@ class _ScheduledQueryState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -527,6 +555,7 @@ class ScheduledQuery(pulumi.CustomResource):
                  notification_configuration: Optional[pulumi.Input[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict']]] = None,
                  query_string: Optional[pulumi.Input[builtins.str]] = None,
                  recently_failed_runs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRecentlyFailedRunArgs', 'ScheduledQueryRecentlyFailedRunArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_configuration: Optional[pulumi.Input[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_configuration: Optional[pulumi.Input[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict']]] = None,
@@ -633,7 +662,7 @@ class ScheduledQuery(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test = aws.s3.BucketV2("test",
+        test = aws.s3.Bucket("test",
             bucket="example",
             force_destroy=True)
         test_topic = aws.sns.Topic("test", name="example")
@@ -819,6 +848,7 @@ class ScheduledQuery(pulumi.CustomResource):
         :param pulumi.Input[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict']] notification_configuration: Configuration block for notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated, or when it is deleted. See below.
         :param pulumi.Input[builtins.str] query_string: Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRecentlyFailedRunArgs', 'ScheduledQueryRecentlyFailedRunArgsDict']]]] recently_failed_runs: Runtime summary for the last five failed scheduled query runs.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict']] schedule_configuration: Configuration block for schedule configuration for the query. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict']] target_configuration: Configuration block for writing the result of a query. See below.
@@ -932,7 +962,7 @@ class ScheduledQuery(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        test = aws.s3.BucketV2("test",
+        test = aws.s3.Bucket("test",
             bucket="example",
             force_destroy=True)
         test_topic = aws.sns.Topic("test", name="example")
@@ -1131,6 +1161,7 @@ class ScheduledQuery(pulumi.CustomResource):
                  notification_configuration: Optional[pulumi.Input[Union['ScheduledQueryNotificationConfigurationArgs', 'ScheduledQueryNotificationConfigurationArgsDict']]] = None,
                  query_string: Optional[pulumi.Input[builtins.str]] = None,
                  recently_failed_runs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRecentlyFailedRunArgs', 'ScheduledQueryRecentlyFailedRunArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_configuration: Optional[pulumi.Input[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_configuration: Optional[pulumi.Input[Union['ScheduledQueryTargetConfigurationArgs', 'ScheduledQueryTargetConfigurationArgsDict']]] = None,
@@ -1160,6 +1191,7 @@ class ScheduledQuery(pulumi.CustomResource):
                 raise TypeError("Missing required property 'query_string'")
             __props__.__dict__["query_string"] = query_string
             __props__.__dict__["recently_failed_runs"] = recently_failed_runs
+            __props__.__dict__["region"] = region
             if schedule_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_configuration'")
             __props__.__dict__["schedule_configuration"] = schedule_configuration
@@ -1196,6 +1228,7 @@ class ScheduledQuery(pulumi.CustomResource):
             previous_invocation_time: Optional[pulumi.Input[builtins.str]] = None,
             query_string: Optional[pulumi.Input[builtins.str]] = None,
             recently_failed_runs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRecentlyFailedRunArgs', 'ScheduledQueryRecentlyFailedRunArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             schedule_configuration: Optional[pulumi.Input[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict']]] = None,
             state: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -1221,6 +1254,7 @@ class ScheduledQuery(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] previous_invocation_time: Last time the scheduled query was run.
         :param pulumi.Input[builtins.str] query_string: Query string to run. Parameter names can be specified in the query string using the `@` character followed by an identifier. The named parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run. The timestamp calculated according to the `schedule_configuration` parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduledQueryRecentlyFailedRunArgs', 'ScheduledQueryRecentlyFailedRunArgsDict']]]] recently_failed_runs: Runtime summary for the last five failed scheduled query runs.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ScheduledQueryScheduleConfigurationArgs', 'ScheduledQueryScheduleConfigurationArgsDict']] schedule_configuration: Configuration block for schedule configuration for the query. See below.
         :param pulumi.Input[builtins.str] state: State of the scheduled query, either `ENABLED` or `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1245,6 +1279,7 @@ class ScheduledQuery(pulumi.CustomResource):
         __props__.__dict__["previous_invocation_time"] = previous_invocation_time
         __props__.__dict__["query_string"] = query_string
         __props__.__dict__["recently_failed_runs"] = recently_failed_runs
+        __props__.__dict__["region"] = region
         __props__.__dict__["schedule_configuration"] = schedule_configuration
         __props__.__dict__["state"] = state
         __props__.__dict__["tags"] = tags
@@ -1350,6 +1385,14 @@ class ScheduledQuery(pulumi.CustomResource):
         return pulumi.get(self, "recently_failed_runs")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="scheduleConfiguration")
     def schedule_configuration(self) -> pulumi.Output['outputs.ScheduledQueryScheduleConfiguration']:
         """
@@ -1375,7 +1418,6 @@ class ScheduledQuery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

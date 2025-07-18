@@ -28,6 +28,7 @@ public final class GetResolverRuleResult {
      * 
      */
     private String ownerId;
+    private String region;
     private String resolverEndpointId;
     private String resolverRuleId;
     private String ruleType;
@@ -71,6 +72,9 @@ public final class GetResolverRuleResult {
     public String ownerId() {
         return this.ownerId;
     }
+    public String region() {
+        return this.region;
+    }
     public String resolverEndpointId() {
         return this.resolverEndpointId;
     }
@@ -110,6 +114,7 @@ public final class GetResolverRuleResult {
         private String id;
         private String name;
         private String ownerId;
+        private String region;
         private String resolverEndpointId;
         private String resolverRuleId;
         private String ruleType;
@@ -123,6 +128,7 @@ public final class GetResolverRuleResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.ownerId = defaults.ownerId;
+    	      this.region = defaults.region;
     	      this.resolverEndpointId = defaults.resolverEndpointId;
     	      this.resolverRuleId = defaults.resolverRuleId;
     	      this.ruleType = defaults.ruleType;
@@ -168,6 +174,14 @@ public final class GetResolverRuleResult {
               throw new MissingRequiredPropertyException("GetResolverRuleResult", "ownerId");
             }
             this.ownerId = ownerId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetResolverRuleResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -217,6 +231,7 @@ public final class GetResolverRuleResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.ownerId = ownerId;
+            _resultValue.region = region;
             _resultValue.resolverEndpointId = resolverEndpointId;
             _resultValue.resolverRuleId = resolverRuleId;
             _resultValue.ruleType = ruleType;

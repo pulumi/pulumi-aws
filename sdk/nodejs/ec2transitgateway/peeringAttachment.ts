@@ -91,6 +91,10 @@ export class PeeringAttachment extends pulumi.CustomResource {
      * Identifier of EC2 Transit Gateway to peer with.
      */
     public readonly peerTransitGatewayId!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -98,8 +102,6 @@ export class PeeringAttachment extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -125,6 +127,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
             resourceInputs["peerAccountId"] = state ? state.peerAccountId : undefined;
             resourceInputs["peerRegion"] = state ? state.peerRegion : undefined;
             resourceInputs["peerTransitGatewayId"] = state ? state.peerTransitGatewayId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -144,6 +147,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
             resourceInputs["peerAccountId"] = args ? args.peerAccountId : undefined;
             resourceInputs["peerRegion"] = args ? args.peerRegion : undefined;
             resourceInputs["peerTransitGatewayId"] = args ? args.peerTransitGatewayId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -179,6 +183,10 @@ export interface PeeringAttachmentState {
      * Identifier of EC2 Transit Gateway to peer with.
      */
     peerTransitGatewayId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     state?: pulumi.Input<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -186,8 +194,6 @@ export interface PeeringAttachmentState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -216,6 +222,10 @@ export interface PeeringAttachmentArgs {
      * Identifier of EC2 Transit Gateway to peer with.
      */
     peerTransitGatewayId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

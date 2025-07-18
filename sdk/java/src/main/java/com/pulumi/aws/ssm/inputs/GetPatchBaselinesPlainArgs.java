@@ -6,6 +6,7 @@ package com.pulumi.aws.ssm.inputs;
 import com.pulumi.aws.ssm.inputs.GetPatchBaselinesFilter;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -46,11 +47,27 @@ public final class GetPatchBaselinesPlainArgs extends com.pulumi.resources.Invok
         return Optional.ofNullable(this.filters);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetPatchBaselinesPlainArgs() {}
 
     private GetPatchBaselinesPlainArgs(GetPatchBaselinesPlainArgs $) {
         this.defaultBaselines = $.defaultBaselines;
         this.filters = $.filters;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -101,6 +118,17 @@ public final class GetPatchBaselinesPlainArgs extends com.pulumi.resources.Invok
          */
         public Builder filters(GetPatchBaselinesFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         public GetPatchBaselinesPlainArgs build() {

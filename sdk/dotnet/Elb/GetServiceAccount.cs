@@ -29,12 +29,12 @@ namespace Pulumi.Aws.Elb
         /// {
         ///     var main = Aws.Elb.GetServiceAccount.Invoke();
         /// 
-        ///     var elbLogs = new Aws.S3.BucketV2("elb_logs", new()
+        ///     var elbLogs = new Aws.S3.Bucket("elb_logs", new()
         ///     {
-        ///         Bucket = "my-elb-tf-test-bucket",
+        ///         BucketName = "my-elb-tf-test-bucket",
         ///     });
         /// 
-        ///     var elbLogsAcl = new Aws.S3.BucketAclV2("elb_logs_acl", new()
+        ///     var elbLogsAcl = new Aws.S3.BucketAcl("elb_logs_acl", new()
         ///     {
         ///         Bucket = elbLogs.Id,
         ///         Acl = "private",
@@ -124,12 +124,12 @@ namespace Pulumi.Aws.Elb
         /// {
         ///     var main = Aws.Elb.GetServiceAccount.Invoke();
         /// 
-        ///     var elbLogs = new Aws.S3.BucketV2("elb_logs", new()
+        ///     var elbLogs = new Aws.S3.Bucket("elb_logs", new()
         ///     {
-        ///         Bucket = "my-elb-tf-test-bucket",
+        ///         BucketName = "my-elb-tf-test-bucket",
         ///     });
         /// 
-        ///     var elbLogsAcl = new Aws.S3.BucketAclV2("elb_logs_acl", new()
+        ///     var elbLogsAcl = new Aws.S3.BucketAcl("elb_logs_acl", new()
         ///     {
         ///         Bucket = elbLogs.Id,
         ///         Acl = "private",
@@ -219,12 +219,12 @@ namespace Pulumi.Aws.Elb
         /// {
         ///     var main = Aws.Elb.GetServiceAccount.Invoke();
         /// 
-        ///     var elbLogs = new Aws.S3.BucketV2("elb_logs", new()
+        ///     var elbLogs = new Aws.S3.Bucket("elb_logs", new()
         ///     {
-        ///         Bucket = "my-elb-tf-test-bucket",
+        ///         BucketName = "my-elb-tf-test-bucket",
         ///     });
         /// 
-        ///     var elbLogsAcl = new Aws.S3.BucketAclV2("elb_logs_acl", new()
+        ///     var elbLogsAcl = new Aws.S3.BucketAcl("elb_logs_acl", new()
         ///     {
         ///         Bucket = elbLogs.Id,
         ///         Acl = "private",
@@ -301,8 +301,7 @@ namespace Pulumi.Aws.Elb
     public sealed class GetServiceAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the region whose AWS ELB account ID is desired.
-        /// Defaults to the region from the AWS provider configuration.
+        /// Name of the Region whose AWS ELB account ID is desired. Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public string? Region { get; set; }
@@ -316,8 +315,7 @@ namespace Pulumi.Aws.Elb
     public sealed class GetServiceAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the region whose AWS ELB account ID is desired.
-        /// Defaults to the region from the AWS provider configuration.
+        /// Name of the Region whose AWS ELB account ID is desired. Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -333,14 +331,14 @@ namespace Pulumi.Aws.Elb
     public sealed class GetServiceAccountResult
     {
         /// <summary>
-        /// ARN of the AWS ELB service account in the selected region.
+        /// ARN of the AWS ELB service account in the selected Region.
         /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        public readonly string? Region;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetServiceAccountResult(
@@ -348,7 +346,7 @@ namespace Pulumi.Aws.Elb
 
             string id,
 
-            string? region)
+            string region)
         {
             Arn = arn;
             Id = id;

@@ -27,7 +27,7 @@ class GetAddonVersionResult:
     """
     A collection of values returned by getAddonVersion.
     """
-    def __init__(__self__, addon_name=None, id=None, kubernetes_version=None, most_recent=None, version=None):
+    def __init__(__self__, addon_name=None, id=None, kubernetes_version=None, most_recent=None, region=None, version=None):
         if addon_name and not isinstance(addon_name, str):
             raise TypeError("Expected argument 'addon_name' to be a str")
         pulumi.set(__self__, "addon_name", addon_name)
@@ -40,6 +40,9 @@ class GetAddonVersionResult:
         if most_recent and not isinstance(most_recent, bool):
             raise TypeError("Expected argument 'most_recent' to be a bool")
         pulumi.set(__self__, "most_recent", most_recent)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
@@ -69,6 +72,11 @@ class GetAddonVersionResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def version(self) -> builtins.str:
         """
         Version of the EKS add-on.
@@ -86,12 +94,14 @@ class AwaitableGetAddonVersionResult(GetAddonVersionResult):
             id=self.id,
             kubernetes_version=self.kubernetes_version,
             most_recent=self.most_recent,
+            region=self.region,
             version=self.version)
 
 
 def get_addon_version(addon_name: Optional[builtins.str] = None,
                       kubernetes_version: Optional[builtins.str] = None,
                       most_recent: Optional[builtins.bool] = None,
+                      region: Optional[builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAddonVersionResult:
     """
     Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
@@ -120,11 +130,13 @@ def get_addon_version(addon_name: Optional[builtins.str] = None,
            the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
     :param builtins.str kubernetes_version: Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
     :param builtins.bool most_recent: Determines if the most recent or default version of the addon should be returned.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['addonName'] = addon_name
     __args__['kubernetesVersion'] = kubernetes_version
     __args__['mostRecent'] = most_recent
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:eks/getAddonVersion:getAddonVersion', __args__, opts=opts, typ=GetAddonVersionResult).value
 
@@ -133,10 +145,12 @@ def get_addon_version(addon_name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         kubernetes_version=pulumi.get(__ret__, 'kubernetes_version'),
         most_recent=pulumi.get(__ret__, 'most_recent'),
+        region=pulumi.get(__ret__, 'region'),
         version=pulumi.get(__ret__, 'version'))
 def get_addon_version_output(addon_name: Optional[pulumi.Input[builtins.str]] = None,
                              kubernetes_version: Optional[pulumi.Input[builtins.str]] = None,
                              most_recent: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAddonVersionResult]:
     """
     Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
@@ -165,11 +179,13 @@ def get_addon_version_output(addon_name: Optional[pulumi.Input[builtins.str]] = 
            the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
     :param builtins.str kubernetes_version: Version of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
     :param builtins.bool most_recent: Determines if the most recent or default version of the addon should be returned.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['addonName'] = addon_name
     __args__['kubernetesVersion'] = kubernetes_version
     __args__['mostRecent'] = most_recent
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:eks/getAddonVersion:getAddonVersion', __args__, opts=opts, typ=GetAddonVersionResult)
     return __ret__.apply(lambda __response__: GetAddonVersionResult(
@@ -177,4 +193,5 @@ def get_addon_version_output(addon_name: Optional[pulumi.Input[builtins.str]] = 
         id=pulumi.get(__response__, 'id'),
         kubernetes_version=pulumi.get(__response__, 'kubernetes_version'),
         most_recent=pulumi.get(__response__, 'most_recent'),
+        region=pulumi.get(__response__, 'region'),
         version=pulumi.get(__response__, 'version')))

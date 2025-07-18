@@ -27,7 +27,7 @@ class GetServiceNetworkResult:
     """
     A collection of values returned by getServiceNetwork.
     """
-    def __init__(__self__, arn=None, auth_type=None, created_at=None, id=None, last_updated_at=None, name=None, number_of_associated_services=None, number_of_associated_vpcs=None, service_network_identifier=None, tags=None):
+    def __init__(__self__, arn=None, auth_type=None, created_at=None, id=None, last_updated_at=None, name=None, number_of_associated_services=None, number_of_associated_vpcs=None, region=None, service_network_identifier=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -52,6 +52,9 @@ class GetServiceNetworkResult:
         if number_of_associated_vpcs and not isinstance(number_of_associated_vpcs, int):
             raise TypeError("Expected argument 'number_of_associated_vpcs' to be a int")
         pulumi.set(__self__, "number_of_associated_vpcs", number_of_associated_vpcs)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if service_network_identifier and not isinstance(service_network_identifier, str):
             raise TypeError("Expected argument 'service_network_identifier' to be a str")
         pulumi.set(__self__, "service_network_identifier", service_network_identifier)
@@ -124,6 +127,11 @@ class GetServiceNetworkResult:
         return pulumi.get(self, "number_of_associated_vpcs")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="serviceNetworkIdentifier")
     def service_network_identifier(self) -> builtins.str:
         return pulumi.get(self, "service_network_identifier")
@@ -148,11 +156,13 @@ class AwaitableGetServiceNetworkResult(GetServiceNetworkResult):
             name=self.name,
             number_of_associated_services=self.number_of_associated_services,
             number_of_associated_vpcs=self.number_of_associated_vpcs,
+            region=self.region,
             service_network_identifier=self.service_network_identifier,
             tags=self.tags)
 
 
-def get_service_network(service_network_identifier: Optional[builtins.str] = None,
+def get_service_network(region: Optional[builtins.str] = None,
+                        service_network_identifier: Optional[builtins.str] = None,
                         tags: Optional[Mapping[str, builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceNetworkResult:
     """
@@ -170,9 +180,11 @@ def get_service_network(service_network_identifier: Optional[builtins.str] = Non
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_network_identifier: Identifier of the service network.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['serviceNetworkIdentifier'] = service_network_identifier
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -187,9 +199,11 @@ def get_service_network(service_network_identifier: Optional[builtins.str] = Non
         name=pulumi.get(__ret__, 'name'),
         number_of_associated_services=pulumi.get(__ret__, 'number_of_associated_services'),
         number_of_associated_vpcs=pulumi.get(__ret__, 'number_of_associated_vpcs'),
+        region=pulumi.get(__ret__, 'region'),
         service_network_identifier=pulumi.get(__ret__, 'service_network_identifier'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_service_network_output(service_network_identifier: Optional[pulumi.Input[builtins.str]] = None,
+def get_service_network_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                               service_network_identifier: Optional[pulumi.Input[builtins.str]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceNetworkResult]:
     """
@@ -207,9 +221,11 @@ def get_service_network_output(service_network_identifier: Optional[pulumi.Input
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_network_identifier: Identifier of the service network.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['serviceNetworkIdentifier'] = service_network_identifier
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -223,5 +239,6 @@ def get_service_network_output(service_network_identifier: Optional[pulumi.Input
         name=pulumi.get(__response__, 'name'),
         number_of_associated_services=pulumi.get(__response__, 'number_of_associated_services'),
         number_of_associated_vpcs=pulumi.get(__response__, 'number_of_associated_vpcs'),
+        region=pulumi.get(__response__, 'region'),
         service_network_identifier=pulumi.get(__response__, 'service_network_identifier'),
         tags=pulumi.get(__response__, 'tags')))

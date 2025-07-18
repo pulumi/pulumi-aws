@@ -27,7 +27,7 @@ class GetResourceResult:
     """
     A collection of values returned by getResource.
     """
-    def __init__(__self__, id=None, parent_id=None, path=None, path_part=None, rest_api_id=None):
+    def __init__(__self__, id=None, parent_id=None, path=None, path_part=None, region=None, rest_api_id=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -40,6 +40,9 @@ class GetResourceResult:
         if path_part and not isinstance(path_part, str):
             raise TypeError("Expected argument 'path_part' to be a str")
         pulumi.set(__self__, "path_part", path_part)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if rest_api_id and not isinstance(rest_api_id, str):
             raise TypeError("Expected argument 'rest_api_id' to be a str")
         pulumi.set(__self__, "rest_api_id", rest_api_id)
@@ -74,6 +77,11 @@ class GetResourceResult:
         return pulumi.get(self, "path_part")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="restApiId")
     def rest_api_id(self) -> builtins.str:
         return pulumi.get(self, "rest_api_id")
@@ -89,10 +97,12 @@ class AwaitableGetResourceResult(GetResourceResult):
             parent_id=self.parent_id,
             path=self.path,
             path_part=self.path_part,
+            region=self.region,
             rest_api_id=self.rest_api_id)
 
 
 def get_resource(path: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
                  rest_api_id: Optional[builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceResult:
     """
@@ -112,10 +122,12 @@ def get_resource(path: Optional[builtins.str] = None,
 
 
     :param builtins.str path: Full path of the resource.  If no path is found, an error will be returned.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str rest_api_id: REST API id that owns the resource. If no REST API is found, an error will be returned.
     """
     __args__ = dict()
     __args__['path'] = path
+    __args__['region'] = region
     __args__['restApiId'] = rest_api_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getResource:getResource', __args__, opts=opts, typ=GetResourceResult).value
@@ -125,8 +137,10 @@ def get_resource(path: Optional[builtins.str] = None,
         parent_id=pulumi.get(__ret__, 'parent_id'),
         path=pulumi.get(__ret__, 'path'),
         path_part=pulumi.get(__ret__, 'path_part'),
+        region=pulumi.get(__ret__, 'region'),
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'))
 def get_resource_output(path: Optional[pulumi.Input[builtins.str]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         rest_api_id: Optional[pulumi.Input[builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceResult]:
     """
@@ -146,10 +160,12 @@ def get_resource_output(path: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str path: Full path of the resource.  If no path is found, an error will be returned.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str rest_api_id: REST API id that owns the resource. If no REST API is found, an error will be returned.
     """
     __args__ = dict()
     __args__['path'] = path
+    __args__['region'] = region
     __args__['restApiId'] = rest_api_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getResource:getResource', __args__, opts=opts, typ=GetResourceResult)
@@ -158,4 +174,5 @@ def get_resource_output(path: Optional[pulumi.Input[builtins.str]] = None,
         parent_id=pulumi.get(__response__, 'parent_id'),
         path=pulumi.get(__response__, 'path'),
         path_part=pulumi.get(__response__, 'path_part'),
+        region=pulumi.get(__response__, 'region'),
         rest_api_id=pulumi.get(__response__, 'rest_api_id')))

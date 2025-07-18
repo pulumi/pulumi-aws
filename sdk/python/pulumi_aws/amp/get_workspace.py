@@ -27,7 +27,7 @@ class GetWorkspaceResult:
     """
     A collection of values returned by getWorkspace.
     """
-    def __init__(__self__, alias=None, arn=None, created_date=None, id=None, kms_key_arn=None, prometheus_endpoint=None, status=None, tags=None, workspace_id=None):
+    def __init__(__self__, alias=None, arn=None, created_date=None, id=None, kms_key_arn=None, prometheus_endpoint=None, region=None, status=None, tags=None, workspace_id=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
@@ -46,6 +46,9 @@ class GetWorkspaceResult:
         if prometheus_endpoint and not isinstance(prometheus_endpoint, str):
             raise TypeError("Expected argument 'prometheus_endpoint' to be a str")
         pulumi.set(__self__, "prometheus_endpoint", prometheus_endpoint)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -106,6 +109,11 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def status(self) -> builtins.str:
         """
         Status of the Prometheus workspace.
@@ -138,12 +146,14 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             id=self.id,
             kms_key_arn=self.kms_key_arn,
             prometheus_endpoint=self.prometheus_endpoint,
+            region=self.region,
             status=self.status,
             tags=self.tags,
             workspace_id=self.workspace_id)
 
 
-def get_workspace(tags: Optional[Mapping[str, builtins.str]] = None,
+def get_workspace(region: Optional[builtins.str] = None,
+                  tags: Optional[Mapping[str, builtins.str]] = None,
                   workspace_id: Optional[builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
@@ -161,10 +171,12 @@ def get_workspace(tags: Optional[Mapping[str, builtins.str]] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags assigned to the resource.
     :param builtins.str workspace_id: Prometheus workspace ID.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['workspaceId'] = workspace_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -177,10 +189,12 @@ def get_workspace(tags: Optional[Mapping[str, builtins.str]] = None,
         id=pulumi.get(__ret__, 'id'),
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         prometheus_endpoint=pulumi.get(__ret__, 'prometheus_endpoint'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
+def get_workspace_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                          workspace_id: Optional[pulumi.Input[builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
@@ -198,10 +212,12 @@ def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, built
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags assigned to the resource.
     :param builtins.str workspace_id: Prometheus workspace ID.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['workspaceId'] = workspace_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -213,6 +229,7 @@ def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, built
         id=pulumi.get(__response__, 'id'),
         kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
         prometheus_endpoint=pulumi.get(__response__, 'prometheus_endpoint'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),
         workspace_id=pulumi.get(__response__, 'workspace_id')))

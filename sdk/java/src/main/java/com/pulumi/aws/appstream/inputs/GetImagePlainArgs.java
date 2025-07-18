@@ -76,6 +76,21 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The type of image which must be (PUBLIC, PRIVATE, or SHARED).
      * 
      */
@@ -97,6 +112,7 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
         this.mostRecent = $.mostRecent;
         this.name = $.name;
         this.nameRegex = $.nameRegex;
+        this.region = $.region;
         this.type = $.type;
     }
 
@@ -159,6 +175,17 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder nameRegex(@Nullable String nameRegex) {
             $.nameRegex = nameRegex;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

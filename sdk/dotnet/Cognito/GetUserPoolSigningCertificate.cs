@@ -88,6 +88,12 @@ namespace Pulumi.Aws.Cognito
     public sealed class GetUserPoolSigningCertificateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Cognito user pool ID.
         /// </summary>
         [Input("userPoolId", required: true)]
@@ -101,6 +107,12 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class GetUserPoolSigningCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Cognito user pool ID.
         /// </summary>
@@ -125,6 +137,7 @@ namespace Pulumi.Aws.Cognito
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         public readonly string UserPoolId;
 
         [OutputConstructor]
@@ -133,10 +146,13 @@ namespace Pulumi.Aws.Cognito
 
             string id,
 
+            string region,
+
             string userPoolId)
         {
             Certificate = certificate;
             Id = id;
+            Region = region;
             UserPoolId = userPoolId;
         }
     }

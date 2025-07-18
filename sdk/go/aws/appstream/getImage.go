@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appstream"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,6 +60,8 @@ type GetImageArgs struct {
 	Name *string `pulumi:"name"`
 	// Regular expression name of the image being searched for. Cannot be used with arn or name.
 	NameRegex *string `pulumi:"nameRegex"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The type of image which must be (PUBLIC, PRIVATE, or SHARED).
 	Type *string `pulumi:"type"`
 }
@@ -94,6 +96,7 @@ type GetImageResult struct {
 	// Operating system platform of the image. Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
 	Platform                    string `pulumi:"platform"`
 	PublicBaseImageReleasedDate string `pulumi:"publicBaseImageReleasedDate"`
+	Region                      string `pulumi:"region"`
 	// Current state of image. Image starts in PENDING state which changes to AVAILABLE if creation passes and FAILED if it fails. Values will be from: PENDING | AVAILABLE | FAILED | COPYING | DELETING | CREATING | IMPORTING.
 	State              string                      `pulumi:"state"`
 	StateChangeReasons []GetImageStateChangeReason `pulumi:"stateChangeReasons"`
@@ -119,6 +122,8 @@ type GetImageOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Regular expression name of the image being searched for. Cannot be used with arn or name.
 	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The type of image which must be (PUBLIC, PRIVATE, or SHARED).
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -216,6 +221,10 @@ func (o GetImageResultOutput) Platform() pulumi.StringOutput {
 
 func (o GetImageResultOutput) PublicBaseImageReleasedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.PublicBaseImageReleasedDate }).(pulumi.StringOutput)
+}
+
+func (o GetImageResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Current state of image. Image starts in PENDING state which changes to AVAILABLE if creation passes and FAILED if it fails. Values will be from: PENDING | AVAILABLE | FAILED | COPYING | DELETING | CREATING | IMPORTING.

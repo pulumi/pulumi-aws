@@ -10,8 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager
 {
     /// <summary>
-    /// Creates a device in a global network. If you specify both a site ID and a location,
-    /// the location of the site is used for visualization in the Network Manager console.
+    /// Manages a Network Manager Device.
+    /// 
+    /// Use this resource to create a device in a global network. If you specify both a site ID and a location, the location of the site is used for visualization in the Network Manager console.
     /// 
     /// ## Example Usage
     /// 
@@ -44,49 +45,51 @@ namespace Pulumi.Aws.NetworkManager
     public partial class Device : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the device.
+        /// ARN of the device.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS location of the device. Documented below.
+        /// AWS location of the device. Documented below.
         /// </summary>
         [Output("awsLocation")]
         public Output<Outputs.DeviceAwsLocation?> AwsLocation { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the device.
+        /// Description of the device.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the global network.
+        /// ID of the global network.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("globalNetworkId")]
         public Output<string> GlobalNetworkId { get; private set; } = null!;
 
         /// <summary>
-        /// The location of the device. Documented below.
+        /// Location of the device. Documented below.
         /// </summary>
         [Output("location")]
         public Output<Outputs.DeviceLocation?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The model of device.
+        /// Model of device.
         /// </summary>
         [Output("model")]
         public Output<string?> Model { get; private set; } = null!;
 
         /// <summary>
-        /// The serial number of the device.
+        /// Serial number of the device.
         /// </summary>
         [Output("serialNumber")]
         public Output<string?> SerialNumber { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the site.
+        /// ID of the site.
         /// </summary>
         [Output("siteId")]
         public Output<string?> SiteId { get; private set; } = null!;
@@ -98,19 +101,19 @@ namespace Pulumi.Aws.NetworkManager
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The type of device.
+        /// Type of device.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The vendor of the device.
+        /// Vendor of the device.
         /// </summary>
         [Output("vendor")]
         public Output<string?> Vendor { get; private set; } = null!;
@@ -162,43 +165,45 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class DeviceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS location of the device. Documented below.
+        /// AWS location of the device. Documented below.
         /// </summary>
         [Input("awsLocation")]
         public Input<Inputs.DeviceAwsLocationArgs>? AwsLocation { get; set; }
 
         /// <summary>
-        /// A description of the device.
+        /// Description of the device.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ID of the global network.
+        /// ID of the global network.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// The location of the device. Documented below.
+        /// Location of the device. Documented below.
         /// </summary>
         [Input("location")]
         public Input<Inputs.DeviceLocationArgs>? Location { get; set; }
 
         /// <summary>
-        /// The model of device.
+        /// Model of device.
         /// </summary>
         [Input("model")]
         public Input<string>? Model { get; set; }
 
         /// <summary>
-        /// The serial number of the device.
+        /// Serial number of the device.
         /// </summary>
         [Input("serialNumber")]
         public Input<string>? SerialNumber { get; set; }
 
         /// <summary>
-        /// The ID of the site.
+        /// ID of the site.
         /// </summary>
         [Input("siteId")]
         public Input<string>? SiteId { get; set; }
@@ -216,13 +221,13 @@ namespace Pulumi.Aws.NetworkManager
         }
 
         /// <summary>
-        /// The type of device.
+        /// Type of device.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// The vendor of the device.
+        /// Vendor of the device.
         /// </summary>
         [Input("vendor")]
         public Input<string>? Vendor { get; set; }
@@ -236,49 +241,51 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class DeviceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the device.
+        /// ARN of the device.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The AWS location of the device. Documented below.
+        /// AWS location of the device. Documented below.
         /// </summary>
         [Input("awsLocation")]
         public Input<Inputs.DeviceAwsLocationGetArgs>? AwsLocation { get; set; }
 
         /// <summary>
-        /// A description of the device.
+        /// Description of the device.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The ID of the global network.
+        /// ID of the global network.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("globalNetworkId")]
         public Input<string>? GlobalNetworkId { get; set; }
 
         /// <summary>
-        /// The location of the device. Documented below.
+        /// Location of the device. Documented below.
         /// </summary>
         [Input("location")]
         public Input<Inputs.DeviceLocationGetArgs>? Location { get; set; }
 
         /// <summary>
-        /// The model of device.
+        /// Model of device.
         /// </summary>
         [Input("model")]
         public Input<string>? Model { get; set; }
 
         /// <summary>
-        /// The serial number of the device.
+        /// Serial number of the device.
         /// </summary>
         [Input("serialNumber")]
         public Input<string>? SerialNumber { get; set; }
 
         /// <summary>
-        /// The ID of the site.
+        /// ID of the site.
         /// </summary>
         [Input("siteId")]
         public Input<string>? SiteId { get; set; }
@@ -299,9 +306,8 @@ namespace Pulumi.Aws.NetworkManager
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -309,13 +315,13 @@ namespace Pulumi.Aws.NetworkManager
         }
 
         /// <summary>
-        /// The type of device.
+        /// Type of device.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// The vendor of the device.
+        /// Vendor of the device.
         /// </summary>
         [Input("vendor")]
         public Input<string>? Vendor { get; set; }

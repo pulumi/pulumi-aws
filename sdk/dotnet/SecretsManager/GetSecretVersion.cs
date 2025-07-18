@@ -157,6 +157,12 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class GetSecretVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
         /// </summary>
         [Input("secretId", required: true)]
@@ -182,6 +188,12 @@ namespace Pulumi.Aws.SecretsManager
 
     public sealed class GetSecretVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
         /// </summary>
@@ -222,6 +234,7 @@ namespace Pulumi.Aws.SecretsManager
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// Decrypted part of the protected secret information that was originally provided as a binary.
         /// </summary>
@@ -246,6 +259,8 @@ namespace Pulumi.Aws.SecretsManager
 
             string id,
 
+            string region,
+
             string secretBinary,
 
             string secretId,
@@ -261,6 +276,7 @@ namespace Pulumi.Aws.SecretsManager
             Arn = arn;
             CreatedDate = createdDate;
             Id = id;
+            Region = region;
             SecretBinary = secretBinary;
             SecretId = secretId;
             SecretString = secretString;

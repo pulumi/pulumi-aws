@@ -14,6 +14,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -55,7 +56,7 @@ import javax.annotation.Nullable;
  *         var example = new Subscriber("example", SubscriberArgs.builder()
  *             .subscriberName("example-name")
  *             .accessType("S3")
- *             .source(SubscriberSourceArgs.builder()
+ *             .sources(SubscriberSourceArgs.builder()
  *                 .awsLogSourceResource(SubscriberSourceAwsLogSourceResourceArgs.builder()
  *                     .sourceName("ROUTE53")
  *                     .sourceVersion("1.0")
@@ -113,6 +114,20 @@ public class Subscriber extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
@@ -174,15 +189,15 @@ public class Subscriber extends com.pulumi.resources.CustomResource {
      * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      * 
      */
-    @Export(name="source", refs={SubscriberSource.class}, tree="[0]")
-    private Output</* @Nullable */ SubscriberSource> source;
+    @Export(name="sources", refs={List.class,SubscriberSource.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<SubscriberSource>> sources;
 
     /**
      * @return The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      * 
      */
-    public Output<Optional<SubscriberSource>> source() {
-        return Codegen.optional(this.source);
+    public Output<Optional<List<SubscriberSource>>> sources() {
+        return Codegen.optional(this.sources);
     }
     /**
      * The description for your subscriber account in Security Lake.
@@ -271,11 +286,7 @@ public class Subscriber extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

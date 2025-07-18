@@ -30,6 +30,7 @@ class SecurityGroupRuleArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  ipv6_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  prefix_list_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  self: Optional[pulumi.Input[builtins.bool]] = None,
                  source_security_group_id: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -42,12 +43,12 @@ class SecurityGroupRuleArgs:
                or `egress` (outbound).
                
                The following arguments are optional:
-               
-               > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cidr_blocks: List of CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         :param pulumi.Input[builtins.str] description: Description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] prefix_list_ids: List of Prefix List IDs.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+               > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         :param pulumi.Input[builtins.bool] self: Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
         :param pulumi.Input[builtins.str] source_security_group_id: Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
         """
@@ -64,6 +65,8 @@ class SecurityGroupRuleArgs:
             pulumi.set(__self__, "ipv6_cidr_blocks", ipv6_cidr_blocks)
         if prefix_list_ids is not None:
             pulumi.set(__self__, "prefix_list_ids", prefix_list_ids)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if self is not None:
             pulumi.set(__self__, "self", self)
         if source_security_group_id is not None:
@@ -125,8 +128,6 @@ class SecurityGroupRuleArgs:
         or `egress` (outbound).
 
         The following arguments are optional:
-
-        > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         """
         return pulumi.get(self, "type")
 
@@ -184,6 +185,19 @@ class SecurityGroupRuleArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def self(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
@@ -216,6 +230,7 @@ class _SecurityGroupRuleState:
                  ipv6_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  prefix_list_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  protocol: Optional[pulumi.Input[Union[builtins.str, 'ProtocolType']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_rule_id: Optional[pulumi.Input[builtins.str]] = None,
                  self: Optional[pulumi.Input[builtins.bool]] = None,
@@ -230,6 +245,8 @@ class _SecurityGroupRuleState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] prefix_list_ids: List of Prefix List IDs.
         :param pulumi.Input[Union[builtins.str, 'ProtocolType']] protocol: Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+               > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         :param pulumi.Input[builtins.str] security_group_id: Security group to apply this rule to.
         :param pulumi.Input[builtins.str] security_group_rule_id: If the `ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
         :param pulumi.Input[builtins.bool] self: Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
@@ -239,8 +256,6 @@ class _SecurityGroupRuleState:
                or `egress` (outbound).
                
                The following arguments are optional:
-               
-               > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         """
         if cidr_blocks is not None:
             pulumi.set(__self__, "cidr_blocks", cidr_blocks)
@@ -254,6 +269,8 @@ class _SecurityGroupRuleState:
             pulumi.set(__self__, "prefix_list_ids", prefix_list_ids)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_id is not None:
             pulumi.set(__self__, "security_group_id", security_group_id)
         if security_group_rule_id is not None:
@@ -340,6 +357,19 @@ class _SecurityGroupRuleState:
         pulumi.set(self, "protocol", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -407,8 +437,6 @@ class _SecurityGroupRuleState:
         or `egress` (outbound).
 
         The following arguments are optional:
-
-        > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         """
         return pulumi.get(self, "type")
 
@@ -429,6 +457,7 @@ class SecurityGroupRule(pulumi.CustomResource):
                  ipv6_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  prefix_list_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  protocol: Optional[pulumi.Input[Union[builtins.str, 'ProtocolType']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  self: Optional[pulumi.Input[builtins.bool]] = None,
                  source_security_group_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -495,7 +524,7 @@ class SecurityGroupRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        s3 = aws.ec2.get_prefix_list(name=f"com.amazonaws.{current.name}.s3")
+        s3 = aws.ec2.get_prefix_list(name=f"com.amazonaws.{current.region}.s3")
         s3_gateway_egress = aws.ec2.SecurityGroupRule("s3_gateway_egress",
             description="S3 Gateway Egress",
             type="egress",
@@ -568,6 +597,8 @@ class SecurityGroupRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] prefix_list_ids: List of Prefix List IDs.
         :param pulumi.Input[Union[builtins.str, 'ProtocolType']] protocol: Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+               > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         :param pulumi.Input[builtins.str] security_group_id: Security group to apply this rule to.
         :param pulumi.Input[builtins.bool] self: Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
         :param pulumi.Input[builtins.str] source_security_group_id: Security group id to allow access to/from, depending on the `type`. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `self`.
@@ -576,8 +607,6 @@ class SecurityGroupRule(pulumi.CustomResource):
                or `egress` (outbound).
                
                The following arguments are optional:
-               
-               > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         """
         ...
     @overload
@@ -645,7 +674,7 @@ class SecurityGroupRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        s3 = aws.ec2.get_prefix_list(name=f"com.amazonaws.{current.name}.s3")
+        s3 = aws.ec2.get_prefix_list(name=f"com.amazonaws.{current.region}.s3")
         s3_gateway_egress = aws.ec2.SecurityGroupRule("s3_gateway_egress",
             description="S3 Gateway Egress",
             type="egress",
@@ -731,6 +760,7 @@ class SecurityGroupRule(pulumi.CustomResource):
                  ipv6_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  prefix_list_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  protocol: Optional[pulumi.Input[Union[builtins.str, 'ProtocolType']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  self: Optional[pulumi.Input[builtins.bool]] = None,
                  source_security_group_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -755,6 +785,7 @@ class SecurityGroupRule(pulumi.CustomResource):
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["region"] = region
             if security_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_id'")
             __props__.__dict__["security_group_id"] = security_group_id
@@ -783,6 +814,7 @@ class SecurityGroupRule(pulumi.CustomResource):
             ipv6_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             prefix_list_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             protocol: Optional[pulumi.Input[Union[builtins.str, 'ProtocolType']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_group_id: Optional[pulumi.Input[builtins.str]] = None,
             security_group_rule_id: Optional[pulumi.Input[builtins.str]] = None,
             self: Optional[pulumi.Input[builtins.bool]] = None,
@@ -802,6 +834,8 @@ class SecurityGroupRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ipv6_cidr_blocks: List of IPv6 CIDR blocks. Cannot be specified with `source_security_group_id` or `self`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] prefix_list_ids: List of Prefix List IDs.
         :param pulumi.Input[Union[builtins.str, 'ProtocolType']] protocol: Protocol. If not icmp, icmpv6, tcp, udp, or all use the [protocol number](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+               > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         :param pulumi.Input[builtins.str] security_group_id: Security group to apply this rule to.
         :param pulumi.Input[builtins.str] security_group_rule_id: If the `ec2.SecurityGroupRule` resource has a single source or destination then this is the AWS Security Group Rule resource ID. Otherwise it is empty.
         :param pulumi.Input[builtins.bool] self: Whether the security group itself will be added as a source to this ingress rule. Cannot be specified with `cidr_blocks`, `ipv6_cidr_blocks`, or `source_security_group_id`.
@@ -811,8 +845,6 @@ class SecurityGroupRule(pulumi.CustomResource):
                or `egress` (outbound).
                
                The following arguments are optional:
-               
-               > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -824,6 +856,7 @@ class SecurityGroupRule(pulumi.CustomResource):
         __props__.__dict__["ipv6_cidr_blocks"] = ipv6_cidr_blocks
         __props__.__dict__["prefix_list_ids"] = prefix_list_ids
         __props__.__dict__["protocol"] = protocol
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_group_id"] = security_group_id
         __props__.__dict__["security_group_rule_id"] = security_group_rule_id
         __props__.__dict__["self"] = self
@@ -881,6 +914,15 @@ class SecurityGroupRule(pulumi.CustomResource):
         return pulumi.get(self, "protocol")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> pulumi.Output[builtins.str]:
         """
@@ -928,8 +970,6 @@ class SecurityGroupRule(pulumi.CustomResource):
         or `egress` (outbound).
 
         The following arguments are optional:
-
-        > **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         """
         return pulumi.get(self, "type")
 

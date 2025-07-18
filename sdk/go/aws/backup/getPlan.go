@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupPlan(ctx *pulumi.Context, args *LookupPlanArgs, opts ...pulumi.Invoke
 type LookupPlanArgs struct {
 	// Backup plan ID.
 	PlanId string `pulumi:"planId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Metadata that you can assign to help organize the plans you create.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -65,6 +67,7 @@ type LookupPlanResult struct {
 	// Display name of a backup plan.
 	Name   string `pulumi:"name"`
 	PlanId string `pulumi:"planId"`
+	Region string `pulumi:"region"`
 	// Rules of a backup plan.
 	Rules []GetPlanRule `pulumi:"rules"`
 	// Metadata that you can assign to help organize the plans you create.
@@ -86,6 +89,8 @@ func LookupPlanOutput(ctx *pulumi.Context, args LookupPlanOutputArgs, opts ...pu
 type LookupPlanOutputArgs struct {
 	// Backup plan ID.
 	PlanId pulumi.StringInput `pulumi:"planId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Metadata that you can assign to help organize the plans you create.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -126,6 +131,10 @@ func (o LookupPlanResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupPlanResultOutput) PlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlanResult) string { return v.PlanId }).(pulumi.StringOutput)
+}
+
+func (o LookupPlanResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPlanResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Rules of a backup plan.

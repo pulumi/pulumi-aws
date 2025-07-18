@@ -29,6 +29,7 @@ export function getSecrets(args?: GetSecretsArgs, opts?: pulumi.InvokeOptions): 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:secretsmanager/getSecrets:getSecrets", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -40,6 +41,10 @@ export interface GetSecretsArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: inputs.secretsmanager.GetSecretsFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -59,6 +64,7 @@ export interface GetSecretsResult {
      * Set of names of the matched Secrets Manager secrets.
      */
     readonly names: string[];
+    readonly region: string;
 }
 /**
  * Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
@@ -82,6 +88,7 @@ export function getSecretsOutput(args?: GetSecretsOutputArgs, opts?: pulumi.Invo
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:secretsmanager/getSecrets:getSecrets", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -93,4 +100,8 @@ export interface GetSecretsOutputArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.secretsmanager.GetSecretsFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

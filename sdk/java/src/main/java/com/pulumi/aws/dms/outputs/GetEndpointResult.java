@@ -43,6 +43,7 @@ public final class GetEndpointResult {
     private List<GetEndpointPostgresSetting> postgresSettings;
     private List<GetEndpointRedisSetting> redisSettings;
     private List<GetEndpointRedshiftSetting> redshiftSettings;
+    private String region;
     private List<GetEndpointS3Setting> s3Settings;
     private String secretsManagerAccessRoleArn;
     private String secretsManagerArn;
@@ -111,6 +112,9 @@ public final class GetEndpointResult {
     public List<GetEndpointRedshiftSetting> redshiftSettings() {
         return this.redshiftSettings;
     }
+    public String region() {
+        return this.region;
+    }
     public List<GetEndpointS3Setting> s3Settings() {
         return this.s3Settings;
     }
@@ -163,6 +167,7 @@ public final class GetEndpointResult {
         private List<GetEndpointPostgresSetting> postgresSettings;
         private List<GetEndpointRedisSetting> redisSettings;
         private List<GetEndpointRedshiftSetting> redshiftSettings;
+        private String region;
         private List<GetEndpointS3Setting> s3Settings;
         private String secretsManagerAccessRoleArn;
         private String secretsManagerArn;
@@ -192,6 +197,7 @@ public final class GetEndpointResult {
     	      this.postgresSettings = defaults.postgresSettings;
     	      this.redisSettings = defaults.redisSettings;
     	      this.redshiftSettings = defaults.redshiftSettings;
+    	      this.region = defaults.region;
     	      this.s3Settings = defaults.s3Settings;
     	      this.secretsManagerAccessRoleArn = defaults.secretsManagerAccessRoleArn;
     	      this.secretsManagerArn = defaults.secretsManagerArn;
@@ -368,6 +374,14 @@ public final class GetEndpointResult {
             return redshiftSettings(List.of(redshiftSettings));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEndpointResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder s3Settings(List<GetEndpointS3Setting> s3Settings) {
             if (s3Settings == null) {
               throw new MissingRequiredPropertyException("GetEndpointResult", "s3Settings");
@@ -454,6 +468,7 @@ public final class GetEndpointResult {
             _resultValue.postgresSettings = postgresSettings;
             _resultValue.redisSettings = redisSettings;
             _resultValue.redshiftSettings = redshiftSettings;
+            _resultValue.region = region;
             _resultValue.s3Settings = s3Settings;
             _resultValue.secretsManagerAccessRoleArn = secretsManagerAccessRoleArn;
             _resultValue.secretsManagerArn = secretsManagerArn;

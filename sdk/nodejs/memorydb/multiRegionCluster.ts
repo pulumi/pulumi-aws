@@ -109,6 +109,10 @@ export class MultiRegionCluster extends pulumi.CustomResource {
      * The number of shards for the multi-region cluster.
      */
     public readonly numShards!: pulumi.Output<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -116,8 +120,6 @@ export class MultiRegionCluster extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.memorydb.MultiRegionClusterTimeouts | undefined>;
@@ -149,6 +151,7 @@ export class MultiRegionCluster extends pulumi.CustomResource {
             resourceInputs["multiRegionParameterGroupName"] = state ? state.multiRegionParameterGroupName : undefined;
             resourceInputs["nodeType"] = state ? state.nodeType : undefined;
             resourceInputs["numShards"] = state ? state.numShards : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -170,6 +173,7 @@ export class MultiRegionCluster extends pulumi.CustomResource {
             resourceInputs["multiRegionParameterGroupName"] = args ? args.multiRegionParameterGroupName : undefined;
             resourceInputs["nodeType"] = args ? args.nodeType : undefined;
             resourceInputs["numShards"] = args ? args.numShards : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["tlsEnabled"] = args ? args.tlsEnabled : undefined;
@@ -226,6 +230,10 @@ export interface MultiRegionClusterState {
      * The number of shards for the multi-region cluster.
      */
     numShards?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -233,8 +241,6 @@ export interface MultiRegionClusterState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.memorydb.MultiRegionClusterTimeouts>;
@@ -279,6 +285,10 @@ export interface MultiRegionClusterArgs {
      * The number of shards for the multi-region cluster.
      */
     numShards?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

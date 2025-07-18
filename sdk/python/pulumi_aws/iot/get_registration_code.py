@@ -27,10 +27,13 @@ class GetRegistrationCodeResult:
     """
     A collection of values returned by getRegistrationCode.
     """
-    def __init__(__self__, id=None, registration_code=None):
+    def __init__(__self__, id=None, region=None, registration_code=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if registration_code and not isinstance(registration_code, str):
             raise TypeError("Expected argument 'registration_code' to be a str")
         pulumi.set(__self__, "registration_code", registration_code)
@@ -42,6 +45,11 @@ class GetRegistrationCodeResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="registrationCode")
@@ -59,10 +67,12 @@ class AwaitableGetRegistrationCodeResult(GetRegistrationCodeResult):
             yield self
         return GetRegistrationCodeResult(
             id=self.id,
+            region=self.region,
             registration_code=self.registration_code)
 
 
-def get_registration_code(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationCodeResult:
+def get_registration_code(region: Optional[builtins.str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationCodeResult:
     """
     Gets a registration code used to register a CA certificate with AWS IoT.
 
@@ -82,15 +92,21 @@ def get_registration_code(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
             commonName: example.registration_code,
         }])
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:iot/getRegistrationCode:getRegistrationCode', __args__, opts=opts, typ=GetRegistrationCodeResult).value
 
     return AwaitableGetRegistrationCodeResult(
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         registration_code=pulumi.get(__ret__, 'registration_code'))
-def get_registration_code_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistrationCodeResult]:
+def get_registration_code_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistrationCodeResult]:
     """
     Gets a registration code used to register a CA certificate with AWS IoT.
 
@@ -110,10 +126,15 @@ def get_registration_code_output(opts: Optional[Union[pulumi.InvokeOptions, pulu
             commonName: example.registration_code,
         }])
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:iot/getRegistrationCode:getRegistrationCode', __args__, opts=opts, typ=GetRegistrationCodeResult)
     return __ret__.apply(lambda __response__: GetRegistrationCodeResult(
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         registration_code=pulumi.get(__response__, 'registration_code')))

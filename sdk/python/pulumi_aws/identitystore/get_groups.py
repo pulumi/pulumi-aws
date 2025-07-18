@@ -28,7 +28,7 @@ class GetGroupsResult:
     """
     A collection of values returned by getGroups.
     """
-    def __init__(__self__, groups=None, id=None, identity_store_id=None):
+    def __init__(__self__, groups=None, id=None, identity_store_id=None, region=None):
         if groups and not isinstance(groups, list):
             raise TypeError("Expected argument 'groups' to be a list")
         pulumi.set(__self__, "groups", groups)
@@ -38,6 +38,9 @@ class GetGroupsResult:
         if identity_store_id and not isinstance(identity_store_id, str):
             raise TypeError("Expected argument 'identity_store_id' to be a str")
         pulumi.set(__self__, "identity_store_id", identity_store_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -60,6 +63,11 @@ class GetGroupsResult:
     def identity_store_id(self) -> builtins.str:
         return pulumi.get(self, "identity_store_id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetGroupsResult(GetGroupsResult):
     # pylint: disable=using-constant-test
@@ -69,10 +77,12 @@ class AwaitableGetGroupsResult(GetGroupsResult):
         return GetGroupsResult(
             groups=self.groups,
             id=self.id,
-            identity_store_id=self.identity_store_id)
+            identity_store_id=self.identity_store_id,
+            region=self.region)
 
 
 def get_groups(identity_store_id: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupsResult:
     """
     Data source for managing an AWS SSO Identity Store Groups.
@@ -91,17 +101,21 @@ def get_groups(identity_store_id: Optional[builtins.str] = None,
 
 
     :param builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On (SSO) Instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['identityStoreId'] = identity_store_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:identitystore/getGroups:getGroups', __args__, opts=opts, typ=GetGroupsResult).value
 
     return AwaitableGetGroupsResult(
         groups=pulumi.get(__ret__, 'groups'),
         id=pulumi.get(__ret__, 'id'),
-        identity_store_id=pulumi.get(__ret__, 'identity_store_id'))
+        identity_store_id=pulumi.get(__ret__, 'identity_store_id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_groups_output(identity_store_id: Optional[pulumi.Input[builtins.str]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupsResult]:
     """
     Data source for managing an AWS SSO Identity Store Groups.
@@ -120,12 +134,15 @@ def get_groups_output(identity_store_id: Optional[pulumi.Input[builtins.str]] = 
 
 
     :param builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On (SSO) Instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['identityStoreId'] = identity_store_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:identitystore/getGroups:getGroups', __args__, opts=opts, typ=GetGroupsResult)
     return __ret__.apply(lambda __response__: GetGroupsResult(
         groups=pulumi.get(__response__, 'groups'),
         id=pulumi.get(__response__, 'id'),
-        identity_store_id=pulumi.get(__response__, 'identity_store_id')))
+        identity_store_id=pulumi.get(__response__, 'identity_store_id'),
+        region=pulumi.get(__response__, 'region')))

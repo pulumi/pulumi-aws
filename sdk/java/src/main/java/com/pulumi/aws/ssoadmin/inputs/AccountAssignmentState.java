@@ -76,6 +76,21 @@ public final class AccountAssignmentState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * An AWS account identifier, typically a 10-12 digit string.
      * 
      */
@@ -112,6 +127,7 @@ public final class AccountAssignmentState extends com.pulumi.resources.ResourceA
         this.permissionSetArn = $.permissionSetArn;
         this.principalId = $.principalId;
         this.principalType = $.principalType;
+        this.region = $.region;
         this.targetId = $.targetId;
         this.targetType = $.targetType;
     }
@@ -216,6 +232,27 @@ public final class AccountAssignmentState extends com.pulumi.resources.ResourceA
          */
         public Builder principalType(String principalType) {
             return principalType(Output.of(principalType));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

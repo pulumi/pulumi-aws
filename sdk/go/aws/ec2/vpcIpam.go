@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,7 +39,7 @@ import (
 //				Description: pulumi.String("My IPAM"),
 //				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
 //					&ec2.VpcIpamOperatingRegionArgs{
-//						RegionName: pulumi.String(current.Name),
+//						RegionName: pulumi.String(current.Region),
 //					},
 //				},
 //				Tags: pulumi.StringMap{
@@ -86,13 +86,13 @@ type VpcIpam struct {
 	// The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
 	// IP space. The public scope is intended for all internet-routable IP space.
 	PublicDefaultScopeId pulumi.StringOutput `pulumi:"publicDefaultScopeId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The number of scopes in the IPAM.
 	ScopeCount pulumi.IntOutput `pulumi:"scopeCount"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
 	Tier pulumi.StringPtrOutput `pulumi:"tier"`
@@ -150,13 +150,13 @@ type vpcIpamState struct {
 	// The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
 	// IP space. The public scope is intended for all internet-routable IP space.
 	PublicDefaultScopeId *string `pulumi:"publicDefaultScopeId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The number of scopes in the IPAM.
 	ScopeCount *int `pulumi:"scopeCount"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
 	Tier *string `pulumi:"tier"`
@@ -182,13 +182,13 @@ type VpcIpamState struct {
 	// The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
 	// IP space. The public scope is intended for all internet-routable IP space.
 	PublicDefaultScopeId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The number of scopes in the IPAM.
 	ScopeCount pulumi.IntPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
 	Tier pulumi.StringPtrInput
@@ -207,6 +207,8 @@ type vpcIpamArgs struct {
 	EnablePrivateGua *bool `pulumi:"enablePrivateGua"`
 	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
 	OperatingRegions []VpcIpamOperatingRegion `pulumi:"operatingRegions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
@@ -223,6 +225,8 @@ type VpcIpamArgs struct {
 	EnablePrivateGua pulumi.BoolPtrInput
 	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
 	OperatingRegions VpcIpamOperatingRegionArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// specifies the IPAM tier. Valid options include `free` and `advanced`. Default is `advanced`.
@@ -362,6 +366,11 @@ func (o VpcIpamOutput) PublicDefaultScopeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.StringOutput { return v.PublicDefaultScopeId }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o VpcIpamOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcIpam) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The number of scopes in the IPAM.
 func (o VpcIpamOutput) ScopeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.IntOutput { return v.ScopeCount }).(pulumi.IntOutput)
@@ -373,8 +382,6 @@ func (o VpcIpamOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o VpcIpamOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcIpam) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,6 +24,8 @@ func GetControls(ctx *pulumi.Context, args *GetControlsArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getControls.
 type GetControlsArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the organizational unit.
 	TargetIdentifier string `pulumi:"targetIdentifier"`
 }
@@ -34,6 +36,7 @@ type GetControlsResult struct {
 	EnabledControls []string `pulumi:"enabledControls"`
 	// The provider-assigned unique ID for this managed resource.
 	Id               string `pulumi:"id"`
+	Region           string `pulumi:"region"`
 	TargetIdentifier string `pulumi:"targetIdentifier"`
 }
 
@@ -48,6 +51,8 @@ func GetControlsOutput(ctx *pulumi.Context, args GetControlsOutputArgs, opts ...
 
 // A collection of arguments for invoking getControls.
 type GetControlsOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The ARN of the organizational unit.
 	TargetIdentifier pulumi.StringInput `pulumi:"targetIdentifier"`
 }
@@ -79,6 +84,10 @@ func (o GetControlsResultOutput) EnabledControls() pulumi.StringArrayOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetControlsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetControlsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetControlsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetControlsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetControlsResultOutput) TargetIdentifier() pulumi.StringOutput {

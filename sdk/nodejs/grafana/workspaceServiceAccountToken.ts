@@ -71,6 +71,10 @@ export class WorkspaceServiceAccountToken extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
      */
     public readonly secondsToLive!: pulumi.Output<number>;
@@ -104,6 +108,7 @@ export class WorkspaceServiceAccountToken extends pulumi.CustomResource {
             resourceInputs["expiresAt"] = state ? state.expiresAt : undefined;
             resourceInputs["key"] = state ? state.key : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["secondsToLive"] = state ? state.secondsToLive : undefined;
             resourceInputs["serviceAccountId"] = state ? state.serviceAccountId : undefined;
             resourceInputs["serviceAccountTokenId"] = state ? state.serviceAccountTokenId : undefined;
@@ -120,6 +125,7 @@ export class WorkspaceServiceAccountToken extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceId'");
             }
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["secondsToLive"] = args ? args.secondsToLive : undefined;
             resourceInputs["serviceAccountId"] = args ? args.serviceAccountId : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
@@ -156,6 +162,10 @@ export interface WorkspaceServiceAccountTokenState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
      */
     secondsToLive?: pulumi.Input<number>;
@@ -181,6 +191,10 @@ export interface WorkspaceServiceAccountTokenArgs {
      * A name for the token to create. The name must be unique within the workspace.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Sets how long the token will be valid, in seconds. You can set the time up to 30 days in the future.
      */

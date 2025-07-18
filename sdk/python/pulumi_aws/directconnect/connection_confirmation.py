@@ -20,12 +20,16 @@ __all__ = ['ConnectionConfirmationArgs', 'ConnectionConfirmation']
 @pulumi.input_type
 class ConnectionConfirmationArgs:
     def __init__(__self__, *,
-                 connection_id: pulumi.Input[builtins.str]):
+                 connection_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectionConfirmation resource.
         :param pulumi.Input[builtins.str] connection_id: The ID of the hosted connection.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "connection_id", connection_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="connectionId")
@@ -39,17 +43,33 @@ class ConnectionConfirmationArgs:
     def connection_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "connection_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ConnectionConfirmationState:
     def __init__(__self__, *,
-                 connection_id: Optional[pulumi.Input[builtins.str]] = None):
+                 connection_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConnectionConfirmation resources.
         :param pulumi.Input[builtins.str] connection_id: The ID of the hosted connection.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if connection_id is not None:
             pulumi.set(__self__, "connection_id", connection_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="connectionId")
@@ -63,6 +83,18 @@ class _ConnectionConfirmationState:
     def connection_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "connection_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:directconnect/connectionConfirmation:ConnectionConfirmation")
 class ConnectionConfirmation(pulumi.CustomResource):
@@ -71,6 +103,7 @@ class ConnectionConfirmation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a confirmation of the creation of the specified hosted connection on an interconnect.
@@ -87,6 +120,7 @@ class ConnectionConfirmation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] connection_id: The ID of the hosted connection.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -122,6 +156,7 @@ class ConnectionConfirmation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -134,6 +169,7 @@ class ConnectionConfirmation(pulumi.CustomResource):
             if connection_id is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_id'")
             __props__.__dict__["connection_id"] = connection_id
+            __props__.__dict__["region"] = region
         super(ConnectionConfirmation, __self__).__init__(
             'aws:directconnect/connectionConfirmation:ConnectionConfirmation',
             resource_name,
@@ -144,7 +180,8 @@ class ConnectionConfirmation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            connection_id: Optional[pulumi.Input[builtins.str]] = None) -> 'ConnectionConfirmation':
+            connection_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'ConnectionConfirmation':
         """
         Get an existing ConnectionConfirmation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -153,12 +190,14 @@ class ConnectionConfirmation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] connection_id: The ID of the hosted connection.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ConnectionConfirmationState.__new__(_ConnectionConfirmationState)
 
         __props__.__dict__["connection_id"] = connection_id
+        __props__.__dict__["region"] = region
         return ConnectionConfirmation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -168,4 +207,12 @@ class ConnectionConfirmation(pulumi.CustomResource):
         The ID of the hosted connection.
         """
         return pulumi.get(self, "connection_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

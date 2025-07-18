@@ -27,7 +27,7 @@ class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
     """
-    def __init__(__self__, arn=None, certificate=None, certificate_chain=None, domain=None, id=None, key_types=None, most_recent=None, status=None, statuses=None, tags=None, types=None):
+    def __init__(__self__, arn=None, certificate=None, certificate_chain=None, domain=None, id=None, key_types=None, most_recent=None, region=None, status=None, statuses=None, tags=None, types=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +49,9 @@ class GetCertificateResult:
         if most_recent and not isinstance(most_recent, bool):
             raise TypeError("Expected argument 'most_recent' to be a bool")
         pulumi.set(__self__, "most_recent", most_recent)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -111,6 +114,11 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def status(self) -> builtins.str:
         """
         Status of the found certificate.
@@ -149,6 +157,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             id=self.id,
             key_types=self.key_types,
             most_recent=self.most_recent,
+            region=self.region,
             status=self.status,
             statuses=self.statuses,
             tags=self.tags,
@@ -158,6 +167,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
 def get_certificate(domain: Optional[builtins.str] = None,
                     key_types: Optional[Sequence[builtins.str]] = None,
                     most_recent: Optional[builtins.bool] = None,
+                    region: Optional[builtins.str] = None,
                     statuses: Optional[Sequence[builtins.str]] = None,
                     tags: Optional[Mapping[str, builtins.str]] = None,
                     types: Optional[Sequence[builtins.str]] = None,
@@ -188,6 +198,7 @@ def get_certificate(domain: Optional[builtins.str] = None,
     :param builtins.str domain: Domain of the certificate to look up. If set and no certificate is found with this name, an error will be returned.
     :param Sequence[builtins.str] key_types: List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
     :param builtins.bool most_recent: If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[builtins.str] statuses: List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
            `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
            are returned.
@@ -198,6 +209,7 @@ def get_certificate(domain: Optional[builtins.str] = None,
     __args__['domain'] = domain
     __args__['keyTypes'] = key_types
     __args__['mostRecent'] = most_recent
+    __args__['region'] = region
     __args__['statuses'] = statuses
     __args__['tags'] = tags
     __args__['types'] = types
@@ -212,6 +224,7 @@ def get_certificate(domain: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         key_types=pulumi.get(__ret__, 'key_types'),
         most_recent=pulumi.get(__ret__, 'most_recent'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
         statuses=pulumi.get(__ret__, 'statuses'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -219,6 +232,7 @@ def get_certificate(domain: Optional[builtins.str] = None,
 def get_certificate_output(domain: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            key_types: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                            most_recent: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            statuses: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                            types: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
@@ -249,6 +263,7 @@ def get_certificate_output(domain: Optional[pulumi.Input[Optional[builtins.str]]
     :param builtins.str domain: Domain of the certificate to look up. If set and no certificate is found with this name, an error will be returned.
     :param Sequence[builtins.str] key_types: List of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
     :param builtins.bool most_recent: If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[builtins.str] statuses: List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
            `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
            are returned.
@@ -259,6 +274,7 @@ def get_certificate_output(domain: Optional[pulumi.Input[Optional[builtins.str]]
     __args__['domain'] = domain
     __args__['keyTypes'] = key_types
     __args__['mostRecent'] = most_recent
+    __args__['region'] = region
     __args__['statuses'] = statuses
     __args__['tags'] = tags
     __args__['types'] = types
@@ -272,6 +288,7 @@ def get_certificate_output(domain: Optional[pulumi.Input[Optional[builtins.str]]
         id=pulumi.get(__response__, 'id'),
         key_types=pulumi.get(__response__, 'key_types'),
         most_recent=pulumi.get(__response__, 'most_recent'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status'),
         statuses=pulumi.get(__response__, 'statuses'),
         tags=pulumi.get(__response__, 'tags'),

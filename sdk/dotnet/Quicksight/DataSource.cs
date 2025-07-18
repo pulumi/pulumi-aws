@@ -62,11 +62,11 @@ namespace Pulumi.Aws.Quicksight
     /// 
     ///     var currentGetRegion = Aws.GetRegion.Invoke();
     /// 
-    ///     var example = new Aws.S3.BucketV2("example");
+    ///     var example = new Aws.S3.Bucket("example");
     /// 
     ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("example", new()
     ///     {
-    ///         Bucket = example.Bucket,
+    ///         Bucket = example.BucketName,
     ///         Key = "manifest.json",
     ///         Content = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Quicksight
     ///                             var id = values.Item1;
     ///                             var currentGetRegion = values.Item2;
     ///                             var currentGetPartition = values.Item3;
-    ///                             return $"https://{id}.s3-{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}.{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}";
+    ///                             return $"https://{id}.s3-{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}.{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}";
     ///                         }),
     ///                     },
     ///                 },
@@ -176,7 +176,7 @@ namespace Pulumi.Aws.Quicksight
     ///             {
     ///                 ManifestFileLocation = new Aws.Quicksight.Inputs.DataSourceParametersS3ManifestFileLocationArgs
     ///                 {
-    ///                     Bucket = example.Bucket,
+    ///                     Bucket = example.BucketName,
     ///                     Key = exampleBucketObjectv2.Key,
     ///                 },
     ///                 RoleArn = exampleRole.Arn,
@@ -240,6 +240,12 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.DataSourcePermission>> Permissions { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
@@ -362,6 +368,12 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
         /// </summary>
         [Input("sslProperties")]
@@ -450,6 +462,12 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
         /// </summary>
         [Input("sslProperties")]
@@ -473,7 +491,6 @@ namespace Pulumi.Aws.Quicksight
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

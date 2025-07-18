@@ -193,6 +193,12 @@ namespace Pulumi.Aws.Ecs
     public sealed class GetTaskDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
         /// </summary>
         [Input("taskDefinition", required: true)]
@@ -206,6 +212,12 @@ namespace Pulumi.Aws.Ecs
 
     public sealed class GetTaskDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
         /// </summary>
@@ -260,10 +272,6 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Configuration block(s) with Inference Accelerators settings. Detailed below.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.GetTaskDefinitionInferenceAcceleratorResult> InferenceAccelerators;
-        /// <summary>
         /// IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         /// </summary>
         public readonly string IpcMode;
@@ -287,6 +295,7 @@ namespace Pulumi.Aws.Ecs
         /// Configuration block for the App Mesh proxy. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTaskDefinitionProxyConfigurationResult> ProxyConfigurations;
+        public readonly string Region;
         /// <summary>
         /// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
         /// </summary>
@@ -333,8 +342,6 @@ namespace Pulumi.Aws.Ecs
 
             string id,
 
-            ImmutableArray<Outputs.GetTaskDefinitionInferenceAcceleratorResult> inferenceAccelerators,
-
             string ipcMode,
 
             string memory,
@@ -346,6 +353,8 @@ namespace Pulumi.Aws.Ecs
             ImmutableArray<Outputs.GetTaskDefinitionPlacementConstraintResult> placementConstraints,
 
             ImmutableArray<Outputs.GetTaskDefinitionProxyConfigurationResult> proxyConfigurations,
+
+            string region,
 
             ImmutableArray<string> requiresCompatibilities,
 
@@ -370,13 +379,13 @@ namespace Pulumi.Aws.Ecs
             ExecutionRoleArn = executionRoleArn;
             Family = family;
             Id = id;
-            InferenceAccelerators = inferenceAccelerators;
             IpcMode = ipcMode;
             Memory = memory;
             NetworkMode = networkMode;
             PidMode = pidMode;
             PlacementConstraints = placementConstraints;
             ProxyConfigurations = proxyConfigurations;
+            Region = region;
             RequiresCompatibilities = requiresCompatibilities;
             Revision = revision;
             RuntimePlatforms = runtimePlatforms;

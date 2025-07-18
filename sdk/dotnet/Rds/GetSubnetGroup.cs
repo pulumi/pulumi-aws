@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Rds
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetSubnetGroupArgs()
         {
         }
@@ -106,6 +112,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetSubnetGroupInvokeArgs()
         {
@@ -130,6 +142,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Provides the status of the DB subnet group.
         /// </summary>
@@ -157,6 +170,8 @@ namespace Pulumi.Aws.Rds
 
             string name,
 
+            string region,
+
             string status,
 
             ImmutableArray<string> subnetIds,
@@ -169,6 +184,7 @@ namespace Pulumi.Aws.Rds
             Description = description;
             Id = id;
             Name = name;
+            Region = region;
             Status = status;
             SubnetIds = subnetIds;
             SupportedNetworkTypes = supportedNetworkTypes;

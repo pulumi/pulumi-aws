@@ -178,6 +178,10 @@ export class MLTransform extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<outputs.glue.MLTransformParameters>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the IAM role associated with this ML Transform.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -191,8 +195,6 @@ export class MLTransform extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -227,6 +229,7 @@ export class MLTransform extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["numberOfWorkers"] = state ? state.numberOfWorkers : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["schemas"] = state ? state.schemas : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -252,6 +255,7 @@ export class MLTransform extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
@@ -311,6 +315,10 @@ export interface MLTransformState {
      */
     parameters?: pulumi.Input<inputs.glue.MLTransformParameters>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ARN of the IAM role associated with this ML Transform.
      */
     roleArn?: pulumi.Input<string>;
@@ -324,8 +332,6 @@ export interface MLTransformState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -374,6 +380,10 @@ export interface MLTransformArgs {
      * The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
      */
     parameters: pulumi.Input<inputs.glue.MLTransformParameters>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role associated with this ML Transform.
      */

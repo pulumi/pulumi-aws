@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,20 +25,20 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			analytics, err := s3.NewBucketV2(ctx, "analytics", &s3.BucketV2Args{
+//			analytics, err := s3.NewBucket(ctx, "analytics", &s3.BucketArgs{
 //				Bucket: pulumi.String("analytics-destination"),
 //			})
 //			if err != nil {
@@ -73,14 +73,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -122,6 +122,8 @@ type AnalyticsConfiguration struct {
 	Filter AnalyticsConfigurationFilterPtrOutput `pulumi:"filter"`
 	// Unique identifier of the analytics configuration for the bucket.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration for the analytics data export (documented below).
 	StorageClassAnalysis AnalyticsConfigurationStorageClassAnalysisPtrOutput `pulumi:"storageClassAnalysis"`
 }
@@ -165,6 +167,8 @@ type analyticsConfigurationState struct {
 	Filter *AnalyticsConfigurationFilter `pulumi:"filter"`
 	// Unique identifier of the analytics configuration for the bucket.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration for the analytics data export (documented below).
 	StorageClassAnalysis *AnalyticsConfigurationStorageClassAnalysis `pulumi:"storageClassAnalysis"`
 }
@@ -176,6 +180,8 @@ type AnalyticsConfigurationState struct {
 	Filter AnalyticsConfigurationFilterPtrInput
 	// Unique identifier of the analytics configuration for the bucket.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration for the analytics data export (documented below).
 	StorageClassAnalysis AnalyticsConfigurationStorageClassAnalysisPtrInput
 }
@@ -191,6 +197,8 @@ type analyticsConfigurationArgs struct {
 	Filter *AnalyticsConfigurationFilter `pulumi:"filter"`
 	// Unique identifier of the analytics configuration for the bucket.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration for the analytics data export (documented below).
 	StorageClassAnalysis *AnalyticsConfigurationStorageClassAnalysis `pulumi:"storageClassAnalysis"`
 }
@@ -203,6 +211,8 @@ type AnalyticsConfigurationArgs struct {
 	Filter AnalyticsConfigurationFilterPtrInput
 	// Unique identifier of the analytics configuration for the bucket.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration for the analytics data export (documented below).
 	StorageClassAnalysis AnalyticsConfigurationStorageClassAnalysisPtrInput
 }
@@ -307,6 +317,11 @@ func (o AnalyticsConfigurationOutput) Filter() AnalyticsConfigurationFilterPtrOu
 // Unique identifier of the analytics configuration for the bucket.
 func (o AnalyticsConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalyticsConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AnalyticsConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AnalyticsConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Configuration for the analytics data export (documented below).

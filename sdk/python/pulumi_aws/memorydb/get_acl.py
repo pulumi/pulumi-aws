@@ -27,7 +27,7 @@ class GetAclResult:
     """
     A collection of values returned by getAcl.
     """
-    def __init__(__self__, arn=None, id=None, minimum_engine_version=None, name=None, tags=None, user_names=None):
+    def __init__(__self__, arn=None, id=None, minimum_engine_version=None, name=None, region=None, tags=None, user_names=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +40,9 @@ class GetAclResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -78,6 +81,11 @@ class GetAclResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Map of tags assigned to the ACL.
@@ -103,11 +111,13 @@ class AwaitableGetAclResult(GetAclResult):
             id=self.id,
             minimum_engine_version=self.minimum_engine_version,
             name=self.name,
+            region=self.region,
             tags=self.tags,
             user_names=self.user_names)
 
 
 def get_acl(name: Optional[builtins.str] = None,
+            region: Optional[builtins.str] = None,
             tags: Optional[Mapping[str, builtins.str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAclResult:
     """
@@ -124,10 +134,12 @@ def get_acl(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the ACL.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the ACL.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:memorydb/getAcl:getAcl', __args__, opts=opts, typ=GetAclResult).value
@@ -137,9 +149,11 @@ def get_acl(name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         minimum_engine_version=pulumi.get(__ret__, 'minimum_engine_version'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         user_names=pulumi.get(__ret__, 'user_names'))
 def get_acl_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAclResult]:
     """
@@ -156,10 +170,12 @@ def get_acl_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the ACL.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the ACL.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:memorydb/getAcl:getAcl', __args__, opts=opts, typ=GetAclResult)
@@ -168,5 +184,6 @@ def get_acl_output(name: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         minimum_engine_version=pulumi.get(__response__, 'minimum_engine_version'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         user_names=pulumi.get(__response__, 'user_names')))

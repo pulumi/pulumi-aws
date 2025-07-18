@@ -26,6 +26,7 @@ public final class GetWebAclResult {
      */
     private String id;
     private String name;
+    private String region;
     private String scope;
 
     private GetWebAclResult() {}
@@ -53,6 +54,9 @@ public final class GetWebAclResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     public String scope() {
         return this.scope;
     }
@@ -70,6 +74,7 @@ public final class GetWebAclResult {
         private String description;
         private String id;
         private String name;
+        private String region;
         private String scope;
         public Builder() {}
         public Builder(GetWebAclResult defaults) {
@@ -78,6 +83,7 @@ public final class GetWebAclResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.scope = defaults.scope;
         }
 
@@ -114,6 +120,14 @@ public final class GetWebAclResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetWebAclResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder scope(String scope) {
             if (scope == null) {
               throw new MissingRequiredPropertyException("GetWebAclResult", "scope");
@@ -127,6 +141,7 @@ public final class GetWebAclResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.scope = scope;
             return _resultValue;
         }

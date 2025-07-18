@@ -21,15 +21,19 @@ __all__ = ['LogStreamArgs', 'LogStream']
 class LogStreamArgs:
     def __init__(__self__, *,
                  log_group_name: pulumi.Input[builtins.str],
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LogStream resource.
         :param pulumi.Input[builtins.str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[builtins.str] name: The name of the log stream. Must not be longer than 512 characters and must not contain `:`
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "log_group_name", log_group_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -55,18 +59,32 @@ class LogStreamArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _LogStreamState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  log_group_name: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogStream resources.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) specifying the log stream.
         :param pulumi.Input[builtins.str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[builtins.str] name: The name of the log stream. Must not be longer than 512 characters and must not contain `:`
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -74,6 +92,8 @@ class _LogStreamState:
             pulumi.set(__self__, "log_group_name", log_group_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -111,6 +131,18 @@ class _LogStreamState:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:cloudwatch/logStream:LogStream")
 class LogStream(pulumi.CustomResource):
@@ -120,6 +152,7 @@ class LogStream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a CloudWatch Log Stream resource.
@@ -148,6 +181,7 @@ class LogStream(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[builtins.str] name: The name of the log stream. Must not be longer than 512 characters and must not contain `:`
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -195,6 +229,7 @@ class LogStream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -208,6 +243,7 @@ class LogStream(pulumi.CustomResource):
                 raise TypeError("Missing required property 'log_group_name'")
             __props__.__dict__["log_group_name"] = log_group_name
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["arn"] = None
         super(LogStream, __self__).__init__(
             'aws:cloudwatch/logStream:LogStream',
@@ -221,7 +257,8 @@ class LogStream(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             log_group_name: Optional[pulumi.Input[builtins.str]] = None,
-            name: Optional[pulumi.Input[builtins.str]] = None) -> 'LogStream':
+            name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'LogStream':
         """
         Get an existing LogStream resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -232,6 +269,7 @@ class LogStream(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) specifying the log stream.
         :param pulumi.Input[builtins.str] log_group_name: The name of the log group under which the log stream is to be created.
         :param pulumi.Input[builtins.str] name: The name of the log stream. Must not be longer than 512 characters and must not contain `:`
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -240,6 +278,7 @@ class LogStream(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["log_group_name"] = log_group_name
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         return LogStream(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -265,4 +304,12 @@ class LogStream(pulumi.CustomResource):
         The name of the log stream. Must not be longer than 512 characters and must not contain `:`
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

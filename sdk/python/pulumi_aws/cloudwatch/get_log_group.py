@@ -27,7 +27,7 @@ class GetLogGroupResult:
     """
     A collection of values returned by getLogGroup.
     """
-    def __init__(__self__, arn=None, creation_time=None, id=None, kms_key_id=None, log_group_class=None, name=None, retention_in_days=None, tags=None):
+    def __init__(__self__, arn=None, creation_time=None, id=None, kms_key_id=None, log_group_class=None, name=None, region=None, retention_in_days=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -46,6 +46,9 @@ class GetLogGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if retention_in_days and not isinstance(retention_in_days, int):
             raise TypeError("Expected argument 'retention_in_days' to be a int")
         pulumi.set(__self__, "retention_in_days", retention_in_days)
@@ -99,6 +102,11 @@ class GetLogGroupResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> builtins.int:
         """
@@ -127,11 +135,13 @@ class AwaitableGetLogGroupResult(GetLogGroupResult):
             kms_key_id=self.kms_key_id,
             log_group_class=self.log_group_class,
             name=self.name,
+            region=self.region,
             retention_in_days=self.retention_in_days,
             tags=self.tags)
 
 
 def get_log_group(name: Optional[builtins.str] = None,
+                  region: Optional[builtins.str] = None,
                   tags: Optional[Mapping[str, builtins.str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogGroupResult:
     """
@@ -148,10 +158,12 @@ def get_log_group(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the Cloudwatch log group
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the resource.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:cloudwatch/getLogGroup:getLogGroup', __args__, opts=opts, typ=GetLogGroupResult).value
@@ -163,9 +175,11 @@ def get_log_group(name: Optional[builtins.str] = None,
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         log_group_class=pulumi.get(__ret__, 'log_group_class'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         retention_in_days=pulumi.get(__ret__, 'retention_in_days'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_log_group_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogGroupResult]:
     """
@@ -182,10 +196,12 @@ def get_log_group_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the Cloudwatch log group
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the resource.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudwatch/getLogGroup:getLogGroup', __args__, opts=opts, typ=GetLogGroupResult)
@@ -196,5 +212,6 @@ def get_log_group_output(name: Optional[pulumi.Input[builtins.str]] = None,
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
         log_group_class=pulumi.get(__response__, 'log_group_class'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         retention_in_days=pulumi.get(__response__, 'retention_in_days'),
         tags=pulumi.get(__response__, 'tags')))

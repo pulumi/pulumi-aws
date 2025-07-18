@@ -102,6 +102,10 @@ export class ExtensionAssociation extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the application, configuration profile, or environment to associate with the extension.
      */
     public readonly resourceArn!: pulumi.Output<string>;
@@ -123,6 +127,7 @@ export class ExtensionAssociation extends pulumi.CustomResource {
             resourceInputs["extensionArn"] = state ? state.extensionArn : undefined;
             resourceInputs["extensionVersion"] = state ? state.extensionVersion : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as ExtensionAssociationArgs | undefined;
@@ -134,6 +139,7 @@ export class ExtensionAssociation extends pulumi.CustomResource {
             }
             resourceInputs["extensionArn"] = args ? args.extensionArn : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["extensionVersion"] = undefined /*out*/;
@@ -164,6 +170,10 @@ export interface ExtensionAssociationState {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ARN of the application, configuration profile, or environment to associate with the extension.
      */
     resourceArn?: pulumi.Input<string>;
@@ -181,6 +191,10 @@ export interface ExtensionAssociationArgs {
      * The parameter names and values defined for the association.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the application, configuration profile, or environment to associate with the extension.
      */

@@ -25,6 +25,7 @@ class ResolverRuleArgs:
                  domain_name: pulumi.Input[builtins.str],
                  rule_type: pulumi.Input[builtins.str],
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resolver_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_ips: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverRuleTargetIpArgs']]]] = None):
@@ -33,6 +34,7 @@ class ResolverRuleArgs:
         :param pulumi.Input[builtins.str] domain_name: DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
         :param pulumi.Input[builtins.str] rule_type: Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
         :param pulumi.Input[builtins.str] name: Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resolver_endpoint_id: ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
                This argument should only be specified for `FORWARD` type rules.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -43,6 +45,8 @@ class ResolverRuleArgs:
         pulumi.set(__self__, "rule_type", rule_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resolver_endpoint_id is not None:
             pulumi.set(__self__, "resolver_endpoint_id", resolver_endpoint_id)
         if tags is not None:
@@ -85,6 +89,18 @@ class ResolverRuleArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resolverEndpointId")
@@ -132,6 +148,7 @@ class _ResolverRuleState:
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resolver_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
                  rule_type: Optional[pulumi.Input[builtins.str]] = None,
                  share_status: Optional[pulumi.Input[builtins.str]] = None,
@@ -144,6 +161,7 @@ class _ResolverRuleState:
         :param pulumi.Input[builtins.str] domain_name: DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
         :param pulumi.Input[builtins.str] name: Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
         :param pulumi.Input[builtins.str] owner_id: When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resolver_endpoint_id: ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
                This argument should only be specified for `FORWARD` type rules.
         :param pulumi.Input[builtins.str] rule_type: Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
@@ -162,6 +180,8 @@ class _ResolverRuleState:
             pulumi.set(__self__, "name", name)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resolver_endpoint_id is not None:
             pulumi.set(__self__, "resolver_endpoint_id", resolver_endpoint_id)
         if rule_type is not None:
@@ -170,9 +190,6 @@ class _ResolverRuleState:
             pulumi.set(__self__, "share_status", share_status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if target_ips is not None:
@@ -227,6 +244,18 @@ class _ResolverRuleState:
         pulumi.set(self, "owner_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resolverEndpointId")
     def resolver_endpoint_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -278,7 +307,6 @@ class _ResolverRuleState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -311,6 +339,7 @@ class ResolverRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resolver_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
                  rule_type: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -382,6 +411,7 @@ class ResolverRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] domain_name: DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
         :param pulumi.Input[builtins.str] name: Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resolver_endpoint_id: ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
                This argument should only be specified for `FORWARD` type rules.
         :param pulumi.Input[builtins.str] rule_type: Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
@@ -474,6 +504,7 @@ class ResolverRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resolver_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
                  rule_type: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -491,6 +522,7 @@ class ResolverRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["resolver_endpoint_id"] = resolver_endpoint_id
             if rule_type is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_type'")
@@ -515,6 +547,7 @@ class ResolverRule(pulumi.CustomResource):
             domain_name: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             owner_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resolver_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
             rule_type: Optional[pulumi.Input[builtins.str]] = None,
             share_status: Optional[pulumi.Input[builtins.str]] = None,
@@ -532,6 +565,7 @@ class ResolverRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain_name: DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
         :param pulumi.Input[builtins.str] name: Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
         :param pulumi.Input[builtins.str] owner_id: When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resolver_endpoint_id: ID of the outbound resolver endpoint that you want to use to route DNS queries to the IP addresses that you specify using `target_ip`.
                This argument should only be specified for `FORWARD` type rules.
         :param pulumi.Input[builtins.str] rule_type: Rule type. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
@@ -550,6 +584,7 @@ class ResolverRule(pulumi.CustomResource):
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["name"] = name
         __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["resolver_endpoint_id"] = resolver_endpoint_id
         __props__.__dict__["rule_type"] = rule_type
         __props__.__dict__["share_status"] = share_status
@@ -591,6 +626,14 @@ class ResolverRule(pulumi.CustomResource):
         return pulumi.get(self, "owner_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resolverEndpointId")
     def resolver_endpoint_id(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -626,7 +669,6 @@ class ResolverRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

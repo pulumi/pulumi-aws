@@ -55,16 +55,12 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     /**
      * The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
      * 
-     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
-     * 
      */
     @Import(name="executionMode")
     private @Nullable Output<String> executionMode;
 
     /**
      * @return The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-     * 
-     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      * 
      */
     public Optional<Output<String>> executionMode() {
@@ -99,6 +95,21 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> pipelineType() {
         return Optional.ofNullable(this.pipelineType);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -149,22 +160,14 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -202,12 +205,16 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     /**
      * A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
      * 
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+     * 
      */
     @Import(name="variables")
     private @Nullable Output<List<PipelineVariableArgs>> variables;
 
     /**
      * @return A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+     * 
+     * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
      * 
      */
     public Optional<Output<List<PipelineVariableArgs>>> variables() {
@@ -222,6 +229,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         this.executionMode = $.executionMode;
         this.name = $.name;
         this.pipelineType = $.pipelineType;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.stages = $.stages;
         this.tags = $.tags;
@@ -304,8 +312,6 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param executionMode The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
          * 
-         * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
-         * 
          * @return builder
          * 
          */
@@ -316,8 +322,6 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param executionMode The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-         * 
-         * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
          * 
          * @return builder
          * 
@@ -366,6 +370,27 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder pipelineType(String pipelineType) {
             return pipelineType(Output.of(pipelineType));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -446,11 +471,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -461,11 +482,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
@@ -535,6 +552,8 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param variables A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
          * 
+         * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+         * 
          * @return builder
          * 
          */
@@ -546,6 +565,8 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param variables A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
          * 
+         * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
+         * 
          * @return builder
          * 
          */
@@ -555,6 +576,8 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param variables A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+         * 
+         * **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
          * 
          * @return builder
          * 

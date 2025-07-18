@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates a transit gateway route table attachment.
+ * Manages a Network Manager transit gateway route table attachment.
  * 
  * ## Example Usage
  * 
@@ -67,154 +67,154 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment")
 public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.CustomResource {
     /**
-     * Attachment Amazon Resource Name (ARN).
+     * Attachment ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Attachment Amazon Resource Name (ARN).
+     * @return Attachment ARN.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The policy rule number associated with the attachment.
+     * Policy rule number associated with the attachment.
      * 
      */
     @Export(name="attachmentPolicyRuleNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> attachmentPolicyRuleNumber;
 
     /**
-     * @return The policy rule number associated with the attachment.
+     * @return Policy rule number associated with the attachment.
      * 
      */
     public Output<Integer> attachmentPolicyRuleNumber() {
         return this.attachmentPolicyRuleNumber;
     }
     /**
-     * The type of attachment.
+     * Type of attachment.
      * 
      */
     @Export(name="attachmentType", refs={String.class}, tree="[0]")
     private Output<String> attachmentType;
 
     /**
-     * @return The type of attachment.
+     * @return Type of attachment.
      * 
      */
     public Output<String> attachmentType() {
         return this.attachmentType;
     }
     /**
-     * The ARN of the core network.
+     * ARN of the core network.
      * 
      */
     @Export(name="coreNetworkArn", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkArn;
 
     /**
-     * @return The ARN of the core network.
+     * @return ARN of the core network.
      * 
      */
     public Output<String> coreNetworkArn() {
         return this.coreNetworkArn;
     }
     /**
-     * The ID of the core network.
+     * ID of the core network.
      * 
      */
     @Export(name="coreNetworkId", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkId;
 
     /**
-     * @return The ID of the core network.
+     * @return ID of the core network.
      * 
      */
     public Output<String> coreNetworkId() {
         return this.coreNetworkId;
     }
     /**
-     * The edge location for the peer.
+     * Edge location for the peer.
      * 
      */
     @Export(name="edgeLocation", refs={String.class}, tree="[0]")
     private Output<String> edgeLocation;
 
     /**
-     * @return The edge location for the peer.
+     * @return Edge location for the peer.
      * 
      */
     public Output<String> edgeLocation() {
         return this.edgeLocation;
     }
     /**
-     * The ID of the attachment account owner.
+     * ID of the attachment account owner.
      * 
      */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
     /**
-     * @return The ID of the attachment account owner.
+     * @return ID of the attachment account owner.
      * 
      */
     public Output<String> ownerAccountId() {
         return this.ownerAccountId;
     }
     /**
-     * The ID of the peer for the attachment.
+     * ID of the peer for the attachment.
      * 
      */
     @Export(name="peeringId", refs={String.class}, tree="[0]")
     private Output<String> peeringId;
 
     /**
-     * @return The ID of the peer for the attachment.
+     * @return ID of the peer for the attachment.
      * 
      */
     public Output<String> peeringId() {
         return this.peeringId;
     }
     /**
-     * The attachment resource ARN.
+     * Attachment resource ARN.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return The attachment resource ARN.
+     * @return Attachment resource ARN.
      * 
      */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
     /**
-     * The name of the segment attachment.
+     * Name of the segment attachment.
      * 
      */
     @Export(name="segmentName", refs={String.class}, tree="[0]")
     private Output<String> segmentName;
 
     /**
-     * @return The name of the segment attachment.
+     * @return Name of the segment attachment.
      * 
      */
     public Output<String> segmentName() {
         return this.segmentName;
     }
     /**
-     * The state of the attachment.
+     * State of the attachment.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
-     * @return The state of the attachment.
+     * @return State of the attachment.
      * 
      */
     public Output<String> state() {
@@ -235,32 +235,32 @@ public class TransitGatewayRouteTableAttachment extends com.pulumi.resources.Cus
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The ARN of the transit gateway route table for the attachment.
+     * ARN of the transit gateway route table for the attachment.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="transitGatewayRouteTableArn", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayRouteTableArn;
 
     /**
-     * @return The ARN of the transit gateway route table for the attachment.
+     * @return ARN of the transit gateway route table for the attachment.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> transitGatewayRouteTableArn() {

@@ -27,7 +27,7 @@ class GetDnsNamespaceResult:
     """
     A collection of values returned by getDnsNamespace.
     """
-    def __init__(__self__, arn=None, description=None, hosted_zone=None, id=None, name=None, tags=None, type=None):
+    def __init__(__self__, arn=None, description=None, hosted_zone=None, id=None, name=None, region=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -43,6 +43,9 @@ class GetDnsNamespaceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -89,6 +92,11 @@ class GetDnsNamespaceResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Map of tags for the resource.
@@ -112,11 +120,13 @@ class AwaitableGetDnsNamespaceResult(GetDnsNamespaceResult):
             hosted_zone=self.hosted_zone,
             id=self.id,
             name=self.name,
+            region=self.region,
             tags=self.tags,
             type=self.type)
 
 
 def get_dns_namespace(name: Optional[builtins.str] = None,
+                      region: Optional[builtins.str] = None,
                       tags: Optional[Mapping[str, builtins.str]] = None,
                       type: Optional[builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsNamespaceResult:
@@ -135,11 +145,13 @@ def get_dns_namespace(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the namespace.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     :param builtins.str type: Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['type'] = type
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -151,9 +163,11 @@ def get_dns_namespace(name: Optional[builtins.str] = None,
         hosted_zone=pulumi.get(__ret__, 'hosted_zone'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_dns_namespace_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                              type: Optional[pulumi.Input[builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsNamespaceResult]:
@@ -172,11 +186,13 @@ def get_dns_namespace_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the namespace.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     :param builtins.str type: Type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['type'] = type
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -187,5 +203,6 @@ def get_dns_namespace_output(name: Optional[pulumi.Input[builtins.str]] = None,
         hosted_zone=pulumi.get(__response__, 'hosted_zone'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

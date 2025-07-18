@@ -121,6 +121,12 @@ namespace Pulumi.Aws.Transfer
         public Output<ImmutableArray<Outputs.WorkflowOnExceptionStep>> OnExceptionSteps { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
         /// </summary>
         [Output("steps")]
@@ -202,6 +208,12 @@ namespace Pulumi.Aws.Transfer
             set => _onExceptionSteps = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("steps", required: true)]
         private InputList<Inputs.WorkflowStepArgs>? _steps;
 
@@ -258,6 +270,12 @@ namespace Pulumi.Aws.Transfer
             set => _onExceptionSteps = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("steps")]
         private InputList<Inputs.WorkflowStepGetArgs>? _steps;
 
@@ -288,7 +306,6 @@ namespace Pulumi.Aws.Transfer
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

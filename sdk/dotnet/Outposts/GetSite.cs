@@ -99,6 +99,12 @@ namespace Pulumi.Aws.Outposts
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetSiteArgs()
         {
         }
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.Outposts
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetSiteInvokeArgs()
         {
@@ -139,6 +151,7 @@ namespace Pulumi.Aws.Outposts
         public readonly string Description;
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetSiteResult(
@@ -148,12 +161,15 @@ namespace Pulumi.Aws.Outposts
 
             string id,
 
-            string name)
+            string name,
+
+            string region)
         {
             AccountId = accountId;
             Description = description;
             Id = id;
             Name = name;
+            Region = region;
         }
     }
 }

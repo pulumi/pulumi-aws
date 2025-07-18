@@ -23,13 +23,15 @@ class VaultLockConfigurationArgs:
                  backup_vault_name: pulumi.Input[builtins.str],
                  changeable_for_days: Optional[pulumi.Input[builtins.int]] = None,
                  max_retention_days: Optional[pulumi.Input[builtins.int]] = None,
-                 min_retention_days: Optional[pulumi.Input[builtins.int]] = None):
+                 min_retention_days: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a VaultLockConfiguration resource.
         :param pulumi.Input[builtins.str] backup_vault_name: Name of the backup vault to add a lock configuration for.
         :param pulumi.Input[builtins.int] changeable_for_days: The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
         :param pulumi.Input[builtins.int] max_retention_days: The maximum retention period that the vault retains its recovery points.
         :param pulumi.Input[builtins.int] min_retention_days: The minimum retention period that the vault retains its recovery points.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "backup_vault_name", backup_vault_name)
         if changeable_for_days is not None:
@@ -38,6 +40,8 @@ class VaultLockConfigurationArgs:
             pulumi.set(__self__, "max_retention_days", max_retention_days)
         if min_retention_days is not None:
             pulumi.set(__self__, "min_retention_days", min_retention_days)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="backupVaultName")
@@ -87,6 +91,18 @@ class VaultLockConfigurationArgs:
     def min_retention_days(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "min_retention_days", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _VaultLockConfigurationState:
@@ -95,7 +111,8 @@ class _VaultLockConfigurationState:
                  backup_vault_name: Optional[pulumi.Input[builtins.str]] = None,
                  changeable_for_days: Optional[pulumi.Input[builtins.int]] = None,
                  max_retention_days: Optional[pulumi.Input[builtins.int]] = None,
-                 min_retention_days: Optional[pulumi.Input[builtins.int]] = None):
+                 min_retention_days: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering VaultLockConfiguration resources.
         :param pulumi.Input[builtins.str] backup_vault_arn: The ARN of the vault.
@@ -103,6 +120,7 @@ class _VaultLockConfigurationState:
         :param pulumi.Input[builtins.int] changeable_for_days: The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
         :param pulumi.Input[builtins.int] max_retention_days: The maximum retention period that the vault retains its recovery points.
         :param pulumi.Input[builtins.int] min_retention_days: The minimum retention period that the vault retains its recovery points.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if backup_vault_arn is not None:
             pulumi.set(__self__, "backup_vault_arn", backup_vault_arn)
@@ -114,6 +132,8 @@ class _VaultLockConfigurationState:
             pulumi.set(__self__, "max_retention_days", max_retention_days)
         if min_retention_days is not None:
             pulumi.set(__self__, "min_retention_days", min_retention_days)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="backupVaultArn")
@@ -175,6 +195,18 @@ class _VaultLockConfigurationState:
     def min_retention_days(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "min_retention_days", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:backup/vaultLockConfiguration:VaultLockConfiguration")
 class VaultLockConfiguration(pulumi.CustomResource):
@@ -186,6 +218,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
                  changeable_for_days: Optional[pulumi.Input[builtins.int]] = None,
                  max_retention_days: Optional[pulumi.Input[builtins.int]] = None,
                  min_retention_days: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides an AWS Backup vault lock configuration resource.
@@ -217,6 +250,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] changeable_for_days: The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
         :param pulumi.Input[builtins.int] max_retention_days: The maximum retention period that the vault retains its recovery points.
         :param pulumi.Input[builtins.int] min_retention_days: The minimum retention period that the vault retains its recovery points.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -267,6 +301,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
                  changeable_for_days: Optional[pulumi.Input[builtins.int]] = None,
                  max_retention_days: Optional[pulumi.Input[builtins.int]] = None,
                  min_retention_days: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -282,6 +317,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
             __props__.__dict__["changeable_for_days"] = changeable_for_days
             __props__.__dict__["max_retention_days"] = max_retention_days
             __props__.__dict__["min_retention_days"] = min_retention_days
+            __props__.__dict__["region"] = region
             __props__.__dict__["backup_vault_arn"] = None
         super(VaultLockConfiguration, __self__).__init__(
             'aws:backup/vaultLockConfiguration:VaultLockConfiguration',
@@ -297,7 +333,8 @@ class VaultLockConfiguration(pulumi.CustomResource):
             backup_vault_name: Optional[pulumi.Input[builtins.str]] = None,
             changeable_for_days: Optional[pulumi.Input[builtins.int]] = None,
             max_retention_days: Optional[pulumi.Input[builtins.int]] = None,
-            min_retention_days: Optional[pulumi.Input[builtins.int]] = None) -> 'VaultLockConfiguration':
+            min_retention_days: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'VaultLockConfiguration':
         """
         Get an existing VaultLockConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -310,6 +347,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] changeable_for_days: The number of days before the lock date. If omitted creates a vault lock in `governance` mode, otherwise it will create a vault lock in `compliance` mode.
         :param pulumi.Input[builtins.int] max_retention_days: The maximum retention period that the vault retains its recovery points.
         :param pulumi.Input[builtins.int] min_retention_days: The minimum retention period that the vault retains its recovery points.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -320,6 +358,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
         __props__.__dict__["changeable_for_days"] = changeable_for_days
         __props__.__dict__["max_retention_days"] = max_retention_days
         __props__.__dict__["min_retention_days"] = min_retention_days
+        __props__.__dict__["region"] = region
         return VaultLockConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -361,4 +400,12 @@ class VaultLockConfiguration(pulumi.CustomResource):
         The minimum retention period that the vault retains its recovery points.
         """
         return pulumi.get(self, "min_retention_days")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,6 +59,8 @@ type LookupBotAssociationArgs struct {
 	InstanceId string `pulumi:"instanceId"`
 	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
 	LexBot GetBotAssociationLexBot `pulumi:"lexBot"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getBotAssociation.
@@ -67,6 +69,7 @@ type LookupBotAssociationResult struct {
 	Id         string                  `pulumi:"id"`
 	InstanceId string                  `pulumi:"instanceId"`
 	LexBot     GetBotAssociationLexBot `pulumi:"lexBot"`
+	Region     string                  `pulumi:"region"`
 }
 
 func LookupBotAssociationOutput(ctx *pulumi.Context, args LookupBotAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupBotAssociationResultOutput {
@@ -84,6 +87,8 @@ type LookupBotAssociationOutputArgs struct {
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Configuration information of an Amazon Lex (V1) bot. Detailed below.
 	LexBot GetBotAssociationLexBotInput `pulumi:"lexBot"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupBotAssociationOutputArgs) ElementType() reflect.Type {
@@ -116,6 +121,10 @@ func (o LookupBotAssociationResultOutput) InstanceId() pulumi.StringOutput {
 
 func (o LookupBotAssociationResultOutput) LexBot() GetBotAssociationLexBotOutput {
 	return o.ApplyT(func(v LookupBotAssociationResult) GetBotAssociationLexBot { return v.LexBot }).(GetBotAssociationLexBotOutput)
+}
+
+func (o LookupBotAssociationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBotAssociationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

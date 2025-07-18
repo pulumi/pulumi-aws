@@ -28,6 +28,7 @@ export function getLaunchPaths(args: GetLaunchPathsArgs, opts?: pulumi.InvokeOpt
     return pulumi.runtime.invoke("aws:servicecatalog/getLaunchPaths:getLaunchPaths", {
         "acceptLanguage": args.acceptLanguage,
         "productId": args.productId,
+        "region": args.region,
     }, opts);
 }
 
@@ -45,6 +46,10 @@ export interface GetLaunchPathsArgs {
      * The following arguments are optional:
      */
     productId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -57,6 +62,7 @@ export interface GetLaunchPathsResult {
      */
     readonly id: string;
     readonly productId: string;
+    readonly region: string;
     /**
      * Block with information about the launch path. See details below.
      */
@@ -83,6 +89,7 @@ export function getLaunchPathsOutput(args: GetLaunchPathsOutputArgs, opts?: pulu
     return pulumi.runtime.invokeOutput("aws:servicecatalog/getLaunchPaths:getLaunchPaths", {
         "acceptLanguage": args.acceptLanguage,
         "productId": args.productId,
+        "region": args.region,
     }, opts);
 }
 
@@ -100,4 +107,8 @@ export interface GetLaunchPathsOutputArgs {
      * The following arguments are optional:
      */
     productId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

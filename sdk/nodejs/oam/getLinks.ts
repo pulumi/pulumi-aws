@@ -18,10 +18,22 @@ import * as utilities from "../utilities";
  * const example = aws.oam.getLinks({});
  * ```
  */
-export function getLinks(opts?: pulumi.InvokeOptions): Promise<GetLinksResult> {
+export function getLinks(args?: GetLinksArgs, opts?: pulumi.InvokeOptions): Promise<GetLinksResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:oam/getLinks:getLinks", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getLinks.
+ */
+export interface GetLinksArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -36,6 +48,7 @@ export interface GetLinksResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Data source for managing an AWS CloudWatch Observability Access Manager Links.
@@ -51,8 +64,20 @@ export interface GetLinksResult {
  * const example = aws.oam.getLinks({});
  * ```
  */
-export function getLinksOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinksResult> {
+export function getLinksOutput(args?: GetLinksOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinksResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:oam/getLinks:getLinks", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getLinks.
+ */
+export interface GetLinksOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

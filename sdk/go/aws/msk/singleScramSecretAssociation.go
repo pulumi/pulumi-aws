@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/msk"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,6 +53,8 @@ type SingleScramSecretAssociation struct {
 
 	// Amazon Resource Name (ARN) of the MSK cluster.
 	ClusterArn pulumi.StringOutput `pulumi:"clusterArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// AWS Secrets Manager secret ARN.
 	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
 }
@@ -95,6 +97,8 @@ func GetSingleScramSecretAssociation(ctx *pulumi.Context,
 type singleScramSecretAssociationState struct {
 	// Amazon Resource Name (ARN) of the MSK cluster.
 	ClusterArn *string `pulumi:"clusterArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// AWS Secrets Manager secret ARN.
 	SecretArn *string `pulumi:"secretArn"`
 }
@@ -102,6 +106,8 @@ type singleScramSecretAssociationState struct {
 type SingleScramSecretAssociationState struct {
 	// Amazon Resource Name (ARN) of the MSK cluster.
 	ClusterArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// AWS Secrets Manager secret ARN.
 	SecretArn pulumi.StringPtrInput
 }
@@ -113,6 +119,8 @@ func (SingleScramSecretAssociationState) ElementType() reflect.Type {
 type singleScramSecretAssociationArgs struct {
 	// Amazon Resource Name (ARN) of the MSK cluster.
 	ClusterArn string `pulumi:"clusterArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// AWS Secrets Manager secret ARN.
 	SecretArn string `pulumi:"secretArn"`
 }
@@ -121,6 +129,8 @@ type singleScramSecretAssociationArgs struct {
 type SingleScramSecretAssociationArgs struct {
 	// Amazon Resource Name (ARN) of the MSK cluster.
 	ClusterArn pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// AWS Secrets Manager secret ARN.
 	SecretArn pulumi.StringInput
 }
@@ -215,6 +225,11 @@ func (o SingleScramSecretAssociationOutput) ToSingleScramSecretAssociationOutput
 // Amazon Resource Name (ARN) of the MSK cluster.
 func (o SingleScramSecretAssociationOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SingleScramSecretAssociation) pulumi.StringOutput { return v.ClusterArn }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o SingleScramSecretAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SingleScramSecretAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // AWS Secrets Manager secret ARN.

@@ -140,7 +140,7 @@ import javax.annotation.Nullable;
  *                     .identifiers("*")
  *                     .build())
  *                 .actions("es:*")
- *                 .resources(String.format("arn:aws:es:%s:%s:domain/%s/*", current.name(),currentGetCallerIdentity.accountId(),domain))
+ *                 .resources(String.format("arn:aws:es:%s:%s:domain/%s/*", current.region(),currentGetCallerIdentity.accountId(),domain))
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("IpAddress")
  *                     .variable("aws:SourceIp")
@@ -315,7 +315,7 @@ import javax.annotation.Nullable;
  *                     .identifiers("*")
  *                     .build())
  *                 .actions("es:*")
- *                 .resources(String.format("arn:aws:es:%s:%s:domain/%s/*", current.name(),currentGetCallerIdentity.accountId(),domain))
+ *                 .resources(String.format("arn:aws:es:%s:%s:domain/%s/*", current.region(),currentGetCallerIdentity.accountId(),domain))
  *                 .build())
  *             .build());
  * 
@@ -775,24 +775,6 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.ipAddressType;
     }
     /**
-     * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-     * 
-     * @deprecated
-     * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
-     * 
-     */
-    @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
-    @Export(name="kibanaEndpoint", refs={String.class}, tree="[0]")
-    private Output<String> kibanaEndpoint;
-
-    /**
-     * @return (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-     * 
-     */
-    public Output<String> kibanaEndpoint() {
-        return this.kibanaEndpoint;
-    }
-    /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      * 
      */
@@ -833,6 +815,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
      */
     public Output<DomainOffPeakWindowOptions> offPeakWindowOptions() {
         return this.offPeakWindowOptions;
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
@@ -879,11 +875,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

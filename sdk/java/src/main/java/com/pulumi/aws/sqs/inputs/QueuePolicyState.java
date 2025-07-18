@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.sqs.inputs;
 
+import com.pulumi.aws.sqs.inputs.PolicyDocumentArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -16,9 +18,9 @@ public final class QueuePolicyState extends com.pulumi.resources.ResourceArgs {
     public static final QueuePolicyState Empty = new QueuePolicyState();
 
     @Import(name="policy")
-    private @Nullable Output<String> policy;
+    private @Nullable Output<Either<String,PolicyDocumentArgs>> policy;
 
-    public Optional<Output<String>> policy() {
+    public Optional<Output<Either<String,PolicyDocumentArgs>>> policy() {
         return Optional.ofNullable(this.policy);
     }
 
@@ -37,11 +39,27 @@ public final class QueuePolicyState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.queueUrl);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private QueuePolicyState() {}
 
     private QueuePolicyState(QueuePolicyState $) {
         this.policy = $.policy;
         this.queueUrl = $.queueUrl;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -62,13 +80,21 @@ public final class QueuePolicyState extends com.pulumi.resources.ResourceArgs {
             $ = new QueuePolicyState(Objects.requireNonNull(defaults));
         }
 
-        public Builder policy(@Nullable Output<String> policy) {
+        public Builder policy(@Nullable Output<Either<String,PolicyDocumentArgs>> policy) {
             $.policy = policy;
             return this;
         }
 
-        public Builder policy(String policy) {
+        public Builder policy(Either<String,PolicyDocumentArgs> policy) {
             return policy(Output.of(policy));
+        }
+
+        public Builder policy(String policy) {
+            return policy(Either.ofLeft(policy));
+        }
+
+        public Builder policy(PolicyDocumentArgs policy) {
+            return policy(Either.ofRight(policy));
         }
 
         /**
@@ -90,6 +116,27 @@ public final class QueuePolicyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder queueUrl(String queueUrl) {
             return queueUrl(Output.of(queueUrl));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public QueuePolicyState build() {

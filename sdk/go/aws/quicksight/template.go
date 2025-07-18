@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,6 +71,8 @@ type Template struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A set of resource permissions on the template. Maximum of 64 items. See permissions.
 	Permissions TemplatePermissionArrayOutput `pulumi:"permissions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity TemplateSourceEntityPtrOutput `pulumi:"sourceEntity"`
 	// Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
@@ -80,8 +82,6 @@ type Template struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Identifier for the template.
 	TemplateId pulumi.StringOutput `pulumi:"templateId"`
@@ -141,6 +141,8 @@ type templateState struct {
 	Name *string `pulumi:"name"`
 	// A set of resource permissions on the template. Maximum of 64 items. See permissions.
 	Permissions []TemplatePermission `pulumi:"permissions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity *TemplateSourceEntity `pulumi:"sourceEntity"`
 	// Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
@@ -150,8 +152,6 @@ type templateState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Identifier for the template.
 	TemplateId *string `pulumi:"templateId"`
@@ -176,6 +176,8 @@ type TemplateState struct {
 	Name pulumi.StringPtrInput
 	// A set of resource permissions on the template. Maximum of 64 items. See permissions.
 	Permissions TemplatePermissionArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity TemplateSourceEntityPtrInput
 	// Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
@@ -185,8 +187,6 @@ type TemplateState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Identifier for the template.
 	TemplateId pulumi.StringPtrInput
@@ -209,6 +209,8 @@ type templateArgs struct {
 	Name *string `pulumi:"name"`
 	// A set of resource permissions on the template. Maximum of 64 items. See permissions.
 	Permissions []TemplatePermission `pulumi:"permissions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity *TemplateSourceEntity `pulumi:"sourceEntity"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -229,6 +231,8 @@ type TemplateArgs struct {
 	Name pulumi.StringPtrInput
 	// A set of resource permissions on the template. Maximum of 64 items. See permissions.
 	Permissions TemplatePermissionArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity TemplateSourceEntityPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -358,6 +362,11 @@ func (o TemplateOutput) Permissions() TemplatePermissionArrayOutput {
 	return o.ApplyT(func(v *Template) TemplatePermissionArrayOutput { return v.Permissions }).(TemplatePermissionArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o TemplateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 func (o TemplateOutput) SourceEntity() TemplateSourceEntityPtrOutput {
 	return o.ApplyT(func(v *Template) TemplateSourceEntityPtrOutput { return v.SourceEntity }).(TemplateSourceEntityPtrOutput)
@@ -379,8 +388,6 @@ func (o TemplateOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o TemplateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

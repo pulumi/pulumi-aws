@@ -37,6 +37,14 @@ import * as utilities from "../utilities";
  *     username: exampleUser.username,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Using `pulumi import`, import a Cognito Group User using a comma-delimited string concatenating the `user_pool_id`, `group_name`, and `username` arguments. For example:
+ *
+ * ```sh
+ * $ pulumi import aws:cognito/userInGroup:UserInGroup example us-east-1_vG78M4goG,example-group,example-user
+ * ```
  */
 export class UserInGroup extends pulumi.CustomResource {
     /**
@@ -71,6 +79,10 @@ export class UserInGroup extends pulumi.CustomResource {
      */
     public readonly groupName!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The user pool ID of the user and group.
      */
     public readonly userPoolId!: pulumi.Output<string>;
@@ -93,6 +105,7 @@ export class UserInGroup extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as UserInGroupState | undefined;
             resourceInputs["groupName"] = state ? state.groupName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
             resourceInputs["username"] = state ? state.username : undefined;
         } else {
@@ -107,6 +120,7 @@ export class UserInGroup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'username'");
             }
             resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
         }
@@ -123,6 +137,10 @@ export interface UserInGroupState {
      * The name of the group to which the user is to be added.
      */
     groupName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The user pool ID of the user and group.
      */
@@ -141,6 +159,10 @@ export interface UserInGroupArgs {
      * The name of the group to which the user is to be added.
      */
     groupName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The user pool ID of the user and group.
      */

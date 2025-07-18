@@ -143,6 +143,10 @@ export class GlobalCluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly globalClusterResourceId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
      */
     public readonly sourceDbClusterIdentifier!: pulumi.Output<string>;
@@ -173,6 +177,7 @@ export class GlobalCluster extends pulumi.CustomResource {
             resourceInputs["globalClusterIdentifier"] = state ? state.globalClusterIdentifier : undefined;
             resourceInputs["globalClusterMembers"] = state ? state.globalClusterMembers : undefined;
             resourceInputs["globalClusterResourceId"] = state ? state.globalClusterResourceId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sourceDbClusterIdentifier"] = state ? state.sourceDbClusterIdentifier : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
@@ -186,6 +191,7 @@ export class GlobalCluster extends pulumi.CustomResource {
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -236,6 +242,10 @@ export interface GlobalClusterState {
      */
     globalClusterResourceId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
      */
     sourceDbClusterIdentifier?: pulumi.Input<string>;
@@ -271,6 +281,10 @@ export interface GlobalClusterArgs {
      * The global cluster identifier.
      */
     globalClusterIdentifier: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
      */

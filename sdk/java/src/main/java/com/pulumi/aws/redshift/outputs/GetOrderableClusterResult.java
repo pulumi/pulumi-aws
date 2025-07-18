@@ -26,6 +26,7 @@ public final class GetOrderableClusterResult {
     private String id;
     private String nodeType;
     private @Nullable List<String> preferredNodeTypes;
+    private String region;
 
     private GetOrderableClusterResult() {}
     /**
@@ -54,6 +55,9 @@ public final class GetOrderableClusterResult {
     public List<String> preferredNodeTypes() {
         return this.preferredNodeTypes == null ? List.of() : this.preferredNodeTypes;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -70,6 +74,7 @@ public final class GetOrderableClusterResult {
         private String id;
         private String nodeType;
         private @Nullable List<String> preferredNodeTypes;
+        private String region;
         public Builder() {}
         public Builder(GetOrderableClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -79,6 +84,7 @@ public final class GetOrderableClusterResult {
     	      this.id = defaults.id;
     	      this.nodeType = defaults.nodeType;
     	      this.preferredNodeTypes = defaults.preferredNodeTypes;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -133,6 +139,14 @@ public final class GetOrderableClusterResult {
         public Builder preferredNodeTypes(String... preferredNodeTypes) {
             return preferredNodeTypes(List.of(preferredNodeTypes));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetOrderableClusterResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetOrderableClusterResult build() {
             final var _resultValue = new GetOrderableClusterResult();
             _resultValue.availabilityZones = availabilityZones;
@@ -141,6 +155,7 @@ public final class GetOrderableClusterResult {
             _resultValue.id = id;
             _resultValue.nodeType = nodeType;
             _resultValue.preferredNodeTypes = preferredNodeTypes;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

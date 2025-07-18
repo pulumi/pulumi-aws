@@ -24,7 +24,8 @@ class AccountVdmAttributesArgs:
     def __init__(__self__, *,
                  vdm_enabled: pulumi.Input[builtins.str],
                  dashboard_attributes: Optional[pulumi.Input['AccountVdmAttributesDashboardAttributesArgs']] = None,
-                 guardian_attributes: Optional[pulumi.Input['AccountVdmAttributesGuardianAttributesArgs']] = None):
+                 guardian_attributes: Optional[pulumi.Input['AccountVdmAttributesGuardianAttributesArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a AccountVdmAttributes resource.
         :param pulumi.Input[builtins.str] vdm_enabled: Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
@@ -32,12 +33,15 @@ class AccountVdmAttributesArgs:
                The following arguments are optional:
         :param pulumi.Input['AccountVdmAttributesDashboardAttributesArgs'] dashboard_attributes: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         :param pulumi.Input['AccountVdmAttributesGuardianAttributesArgs'] guardian_attributes: Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "vdm_enabled", vdm_enabled)
         if dashboard_attributes is not None:
             pulumi.set(__self__, "dashboard_attributes", dashboard_attributes)
         if guardian_attributes is not None:
             pulumi.set(__self__, "guardian_attributes", guardian_attributes)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="vdmEnabled")
@@ -77,17 +81,31 @@ class AccountVdmAttributesArgs:
     def guardian_attributes(self, value: Optional[pulumi.Input['AccountVdmAttributesGuardianAttributesArgs']]):
         pulumi.set(self, "guardian_attributes", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _AccountVdmAttributesState:
     def __init__(__self__, *,
                  dashboard_attributes: Optional[pulumi.Input['AccountVdmAttributesDashboardAttributesArgs']] = None,
                  guardian_attributes: Optional[pulumi.Input['AccountVdmAttributesGuardianAttributesArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vdm_enabled: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountVdmAttributes resources.
         :param pulumi.Input['AccountVdmAttributesDashboardAttributesArgs'] dashboard_attributes: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         :param pulumi.Input['AccountVdmAttributesGuardianAttributesArgs'] guardian_attributes: Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vdm_enabled: Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
                
                The following arguments are optional:
@@ -96,6 +114,8 @@ class _AccountVdmAttributesState:
             pulumi.set(__self__, "dashboard_attributes", dashboard_attributes)
         if guardian_attributes is not None:
             pulumi.set(__self__, "guardian_attributes", guardian_attributes)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if vdm_enabled is not None:
             pulumi.set(__self__, "vdm_enabled", vdm_enabled)
 
@@ -124,6 +144,18 @@ class _AccountVdmAttributesState:
         pulumi.set(self, "guardian_attributes", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="vdmEnabled")
     def vdm_enabled(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -146,6 +178,7 @@ class AccountVdmAttributes(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dashboard_attributes: Optional[pulumi.Input[Union['AccountVdmAttributesDashboardAttributesArgs', 'AccountVdmAttributesDashboardAttributesArgsDict']]] = None,
                  guardian_attributes: Optional[pulumi.Input[Union['AccountVdmAttributesGuardianAttributesArgs', 'AccountVdmAttributesGuardianAttributesArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vdm_enabled: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -181,6 +214,7 @@ class AccountVdmAttributes(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AccountVdmAttributesDashboardAttributesArgs', 'AccountVdmAttributesDashboardAttributesArgsDict']] dashboard_attributes: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         :param pulumi.Input[Union['AccountVdmAttributesGuardianAttributesArgs', 'AccountVdmAttributesGuardianAttributesArgsDict']] guardian_attributes: Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vdm_enabled: Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
                
                The following arguments are optional:
@@ -237,6 +271,7 @@ class AccountVdmAttributes(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dashboard_attributes: Optional[pulumi.Input[Union['AccountVdmAttributesDashboardAttributesArgs', 'AccountVdmAttributesDashboardAttributesArgsDict']]] = None,
                  guardian_attributes: Optional[pulumi.Input[Union['AccountVdmAttributesGuardianAttributesArgs', 'AccountVdmAttributesGuardianAttributesArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vdm_enabled: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -249,6 +284,7 @@ class AccountVdmAttributes(pulumi.CustomResource):
 
             __props__.__dict__["dashboard_attributes"] = dashboard_attributes
             __props__.__dict__["guardian_attributes"] = guardian_attributes
+            __props__.__dict__["region"] = region
             if vdm_enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'vdm_enabled'")
             __props__.__dict__["vdm_enabled"] = vdm_enabled
@@ -264,6 +300,7 @@ class AccountVdmAttributes(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             dashboard_attributes: Optional[pulumi.Input[Union['AccountVdmAttributesDashboardAttributesArgs', 'AccountVdmAttributesDashboardAttributesArgsDict']]] = None,
             guardian_attributes: Optional[pulumi.Input[Union['AccountVdmAttributesGuardianAttributesArgs', 'AccountVdmAttributesGuardianAttributesArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             vdm_enabled: Optional[pulumi.Input[builtins.str]] = None) -> 'AccountVdmAttributes':
         """
         Get an existing AccountVdmAttributes resource's state with the given name, id, and optional extra
@@ -274,6 +311,7 @@ class AccountVdmAttributes(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AccountVdmAttributesDashboardAttributesArgs', 'AccountVdmAttributesDashboardAttributesArgsDict']] dashboard_attributes: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         :param pulumi.Input[Union['AccountVdmAttributesGuardianAttributesArgs', 'AccountVdmAttributesGuardianAttributesArgsDict']] guardian_attributes: Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vdm_enabled: Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
                
                The following arguments are optional:
@@ -284,6 +322,7 @@ class AccountVdmAttributes(pulumi.CustomResource):
 
         __props__.__dict__["dashboard_attributes"] = dashboard_attributes
         __props__.__dict__["guardian_attributes"] = guardian_attributes
+        __props__.__dict__["region"] = region
         __props__.__dict__["vdm_enabled"] = vdm_enabled
         return AccountVdmAttributes(resource_name, opts=opts, __props__=__props__)
 
@@ -302,6 +341,14 @@ class AccountVdmAttributes(pulumi.CustomResource):
         Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
         return pulumi.get(self, "guardian_attributes")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="vdmEnabled")

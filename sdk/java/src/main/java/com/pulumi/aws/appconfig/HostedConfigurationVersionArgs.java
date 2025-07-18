@@ -91,6 +91,21 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private HostedConfigurationVersionArgs() {}
 
     private HostedConfigurationVersionArgs(HostedConfigurationVersionArgs $) {
@@ -99,6 +114,7 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
         this.content = $.content;
         this.contentType = $.contentType;
         this.description = $.description;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -222,6 +238,27 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public HostedConfigurationVersionArgs build() {

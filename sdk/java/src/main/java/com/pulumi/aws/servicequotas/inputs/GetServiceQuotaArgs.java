@@ -51,6 +51,21 @@ public final class GetServiceQuotaArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      * 
      */
@@ -70,6 +85,7 @@ public final class GetServiceQuotaArgs extends com.pulumi.resources.InvokeArgs {
     private GetServiceQuotaArgs(GetServiceQuotaArgs $) {
         this.quotaCode = $.quotaCode;
         this.quotaName = $.quotaName;
+        this.region = $.region;
         this.serviceCode = $.serviceCode;
     }
 
@@ -135,6 +151,27 @@ public final class GetServiceQuotaArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder quotaName(String quotaName) {
             return quotaName(Output.of(quotaName));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

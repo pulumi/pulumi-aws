@@ -29,7 +29,8 @@ class InventoryArgs:
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  filter: Optional[pulumi.Input['InventoryFilterArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 optional_fields: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 optional_fields: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Inventory resource.
         :param pulumi.Input[builtins.str] bucket: Name of the source bucket that inventory lists the objects for.
@@ -40,6 +41,7 @@ class InventoryArgs:
         :param pulumi.Input['InventoryFilterArgs'] filter: Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria (documented below).
         :param pulumi.Input[builtins.str] name: Unique identifier of the inventory configuration for the bucket.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] optional_fields: List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "destination", destination)
@@ -53,6 +55,8 @@ class InventoryArgs:
             pulumi.set(__self__, "name", name)
         if optional_fields is not None:
             pulumi.set(__self__, "optional_fields", optional_fields)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -150,6 +154,18 @@ class InventoryArgs:
     def optional_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "optional_fields", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _InventoryState:
@@ -161,6 +177,7 @@ class _InventoryState:
                  included_object_versions: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  optional_fields: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input['InventoryScheduleArgs']] = None):
         """
         Input properties used for looking up and filtering Inventory resources.
@@ -171,6 +188,7 @@ class _InventoryState:
         :param pulumi.Input[builtins.str] included_object_versions: Object versions to include in the inventory list. Valid values: `All`, `Current`.
         :param pulumi.Input[builtins.str] name: Unique identifier of the inventory configuration for the bucket.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] optional_fields: List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['InventoryScheduleArgs'] schedule: Specifies the schedule for generating inventory results (documented below).
         """
         if bucket is not None:
@@ -187,6 +205,8 @@ class _InventoryState:
             pulumi.set(__self__, "name", name)
         if optional_fields is not None:
             pulumi.set(__self__, "optional_fields", optional_fields)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
 
@@ -276,6 +296,18 @@ class _InventoryState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['InventoryScheduleArgs']]:
         """
         Specifies the schedule for generating inventory results (documented below).
@@ -300,6 +332,7 @@ class Inventory(pulumi.CustomResource):
                  included_object_versions: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  optional_fields: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input[Union['InventoryScheduleArgs', 'InventoryScheduleArgsDict']]] = None,
                  __props__=None):
         """
@@ -315,8 +348,8 @@ class Inventory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.s3.BucketV2("test", bucket="my-tf-test-bucket")
-        inventory = aws.s3.BucketV2("inventory", bucket="my-tf-inventory-bucket")
+        test = aws.s3.Bucket("test", bucket="my-tf-test-bucket")
+        inventory = aws.s3.Bucket("inventory", bucket="my-tf-inventory-bucket")
         test_inventory = aws.s3.Inventory("test",
             bucket=test.id,
             name="EntireBucketDaily",
@@ -338,8 +371,8 @@ class Inventory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.s3.BucketV2("test", bucket="my-tf-test-bucket")
-        inventory = aws.s3.BucketV2("inventory", bucket="my-tf-inventory-bucket")
+        test = aws.s3.Bucket("test", bucket="my-tf-test-bucket")
+        inventory = aws.s3.Bucket("inventory", bucket="my-tf-inventory-bucket")
         test_prefix = aws.s3.Inventory("test-prefix",
             bucket=test.id,
             name="DocumentsWeekly",
@@ -376,6 +409,7 @@ class Inventory(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] included_object_versions: Object versions to include in the inventory list. Valid values: `All`, `Current`.
         :param pulumi.Input[builtins.str] name: Unique identifier of the inventory configuration for the bucket.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] optional_fields: List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['InventoryScheduleArgs', 'InventoryScheduleArgsDict']] schedule: Specifies the schedule for generating inventory results (documented below).
         """
         ...
@@ -397,8 +431,8 @@ class Inventory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.s3.BucketV2("test", bucket="my-tf-test-bucket")
-        inventory = aws.s3.BucketV2("inventory", bucket="my-tf-inventory-bucket")
+        test = aws.s3.Bucket("test", bucket="my-tf-test-bucket")
+        inventory = aws.s3.Bucket("inventory", bucket="my-tf-inventory-bucket")
         test_inventory = aws.s3.Inventory("test",
             bucket=test.id,
             name="EntireBucketDaily",
@@ -420,8 +454,8 @@ class Inventory(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.s3.BucketV2("test", bucket="my-tf-test-bucket")
-        inventory = aws.s3.BucketV2("inventory", bucket="my-tf-inventory-bucket")
+        test = aws.s3.Bucket("test", bucket="my-tf-test-bucket")
+        inventory = aws.s3.Bucket("inventory", bucket="my-tf-inventory-bucket")
         test_prefix = aws.s3.Inventory("test-prefix",
             bucket=test.id,
             name="DocumentsWeekly",
@@ -471,6 +505,7 @@ class Inventory(pulumi.CustomResource):
                  included_object_versions: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  optional_fields: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input[Union['InventoryScheduleArgs', 'InventoryScheduleArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -494,6 +529,7 @@ class Inventory(pulumi.CustomResource):
             __props__.__dict__["included_object_versions"] = included_object_versions
             __props__.__dict__["name"] = name
             __props__.__dict__["optional_fields"] = optional_fields
+            __props__.__dict__["region"] = region
             if schedule is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule'")
             __props__.__dict__["schedule"] = schedule
@@ -514,6 +550,7 @@ class Inventory(pulumi.CustomResource):
             included_object_versions: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             optional_fields: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             schedule: Optional[pulumi.Input[Union['InventoryScheduleArgs', 'InventoryScheduleArgsDict']]] = None) -> 'Inventory':
         """
         Get an existing Inventory resource's state with the given name, id, and optional extra
@@ -529,6 +566,7 @@ class Inventory(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] included_object_versions: Object versions to include in the inventory list. Valid values: `All`, `Current`.
         :param pulumi.Input[builtins.str] name: Unique identifier of the inventory configuration for the bucket.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] optional_fields: List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['InventoryScheduleArgs', 'InventoryScheduleArgsDict']] schedule: Specifies the schedule for generating inventory results (documented below).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -542,6 +580,7 @@ class Inventory(pulumi.CustomResource):
         __props__.__dict__["included_object_versions"] = included_object_versions
         __props__.__dict__["name"] = name
         __props__.__dict__["optional_fields"] = optional_fields
+        __props__.__dict__["region"] = region
         __props__.__dict__["schedule"] = schedule
         return Inventory(resource_name, opts=opts, __props__=__props__)
 
@@ -600,6 +639,14 @@ class Inventory(pulumi.CustomResource):
         List of optional fields that are included in the inventory results. Please refer to the S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_InventoryConfiguration.html#AmazonS3-Type-InventoryConfiguration-OptionalFields) for more details.
         """
         return pulumi.get(self, "optional_fields")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

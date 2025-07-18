@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appconfig"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appconfig"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -122,6 +122,8 @@ type ExtensionAssociation struct {
 	ExtensionVersion pulumi.IntOutput `pulumi:"extensionVersion"`
 	// The parameter names and values defined for the association.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the application, configuration profile, or environment to associate with the extension.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 }
@@ -170,6 +172,8 @@ type extensionAssociationState struct {
 	ExtensionVersion *int `pulumi:"extensionVersion"`
 	// The parameter names and values defined for the association.
 	Parameters map[string]string `pulumi:"parameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the application, configuration profile, or environment to associate with the extension.
 	ResourceArn *string `pulumi:"resourceArn"`
 }
@@ -183,6 +187,8 @@ type ExtensionAssociationState struct {
 	ExtensionVersion pulumi.IntPtrInput
 	// The parameter names and values defined for the association.
 	Parameters pulumi.StringMapInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the application, configuration profile, or environment to associate with the extension.
 	ResourceArn pulumi.StringPtrInput
 }
@@ -196,6 +202,8 @@ type extensionAssociationArgs struct {
 	ExtensionArn string `pulumi:"extensionArn"`
 	// The parameter names and values defined for the association.
 	Parameters map[string]string `pulumi:"parameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the application, configuration profile, or environment to associate with the extension.
 	ResourceArn string `pulumi:"resourceArn"`
 }
@@ -206,6 +214,8 @@ type ExtensionAssociationArgs struct {
 	ExtensionArn pulumi.StringInput
 	// The parameter names and values defined for the association.
 	Parameters pulumi.StringMapInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the application, configuration profile, or environment to associate with the extension.
 	ResourceArn pulumi.StringInput
 }
@@ -315,6 +325,11 @@ func (o ExtensionAssociationOutput) ExtensionVersion() pulumi.IntOutput {
 // The parameter names and values defined for the association.
 func (o ExtensionAssociationOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ExtensionAssociation) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ExtensionAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExtensionAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of the application, configuration profile, or environment to associate with the extension.

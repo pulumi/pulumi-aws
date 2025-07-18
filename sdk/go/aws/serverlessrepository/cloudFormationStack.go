@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/serverlessrepository"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/serverlessrepository"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +48,7 @@ import (
 //				},
 //				Parameters: pulumi.StringMap{
 //					"functionName": pulumi.String("func-postgres-rotator"),
-//					"endpoint":     pulumi.Sprintf("secretsmanager.%v.%v", currentGetRegion.Name, current.DnsSuffix),
+//					"endpoint":     pulumi.Sprintf("secretsmanager.%v.%v", currentGetRegion.Region, current.DnsSuffix),
 //				},
 //			})
 //			if err != nil {
@@ -80,13 +80,13 @@ type CloudFormationStack struct {
 	Outputs pulumi.StringMapOutput `pulumi:"outputs"`
 	// A map of Parameter structures that specify input parameters for the stack.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The version of the application to deploy. If not supplied, deploys the latest version.
 	SemanticVersion pulumi.StringOutput `pulumi:"semanticVersion"`
 	// A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -136,13 +136,13 @@ type cloudFormationStackState struct {
 	Outputs map[string]string `pulumi:"outputs"`
 	// A map of Parameter structures that specify input parameters for the stack.
 	Parameters map[string]string `pulumi:"parameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The version of the application to deploy. If not supplied, deploys the latest version.
 	SemanticVersion *string `pulumi:"semanticVersion"`
 	// A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -157,13 +157,13 @@ type CloudFormationStackState struct {
 	Outputs pulumi.StringMapInput
 	// A map of Parameter structures that specify input parameters for the stack.
 	Parameters pulumi.StringMapInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The version of the application to deploy. If not supplied, deploys the latest version.
 	SemanticVersion pulumi.StringPtrInput
 	// A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -180,6 +180,8 @@ type cloudFormationStackArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of Parameter structures that specify input parameters for the stack.
 	Parameters map[string]string `pulumi:"parameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The version of the application to deploy. If not supplied, deploys the latest version.
 	SemanticVersion *string `pulumi:"semanticVersion"`
 	// A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -196,6 +198,8 @@ type CloudFormationStackArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of Parameter structures that specify input parameters for the stack.
 	Parameters pulumi.StringMapInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The version of the application to deploy. If not supplied, deploys the latest version.
 	SemanticVersion pulumi.StringPtrInput
 	// A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -314,6 +318,11 @@ func (o CloudFormationStackOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CloudFormationStack) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o CloudFormationStackOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudFormationStack) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The version of the application to deploy. If not supplied, deploys the latest version.
 func (o CloudFormationStackOutput) SemanticVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudFormationStack) pulumi.StringOutput { return v.SemanticVersion }).(pulumi.StringOutput)
@@ -325,8 +334,6 @@ func (o CloudFormationStackOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o CloudFormationStackOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CloudFormationStack) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

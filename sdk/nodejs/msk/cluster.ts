@@ -42,8 +42,8 @@ import * as utilities from "../utilities";
  * const sg = new aws.ec2.SecurityGroup("sg", {vpcId: vpc.id});
  * const kms = new aws.kms.Key("kms", {description: "example"});
  * const test = new aws.cloudwatch.LogGroup("test", {name: "msk_broker_logs"});
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "msk-broker-logs-bucket"});
- * const bucketAcl = new aws.s3.BucketAclV2("bucket_acl", {
+ * const bucket = new aws.s3.Bucket("bucket", {bucket: "msk-broker-logs-bucket"});
+ * const bucketAcl = new aws.s3.BucketAcl("bucket_acl", {
  *     bucket: bucket.id,
  *     acl: "private",
  * });
@@ -288,6 +288,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly openMonitoring!: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
      */
     public readonly storageMode!: pulumi.Output<string>;
@@ -297,8 +301,6 @@ export class Cluster extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -346,6 +348,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["loggingInfo"] = state ? state.loggingInfo : undefined;
             resourceInputs["numberOfBrokerNodes"] = state ? state.numberOfBrokerNodes : undefined;
             resourceInputs["openMonitoring"] = state ? state.openMonitoring : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["storageMode"] = state ? state.storageMode : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -372,6 +375,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["loggingInfo"] = args ? args.loggingInfo : undefined;
             resourceInputs["numberOfBrokerNodes"] = args ? args.numberOfBrokerNodes : undefined;
             resourceInputs["openMonitoring"] = args ? args.openMonitoring : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["storageMode"] = args ? args.storageMode : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -493,6 +497,10 @@ export interface ClusterState {
      */
     openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
      */
     storageMode?: pulumi.Input<string>;
@@ -502,8 +510,6 @@ export interface ClusterState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -560,6 +566,10 @@ export interface ClusterArgs {
      * Configuration block for JMX and Node monitoring for the MSK cluster. See below.
      */
     openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoring>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Controls storage mode for supported storage tiers. Valid values are: `LOCAL` or `TIERED`.
      */

@@ -26,6 +26,7 @@ class DirectoryArgs:
                  certificate_based_auth_properties: Optional[pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs']] = None,
                  directory_id: Optional[pulumi.Input[builtins.str]] = None,
                  ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  saml_properties: Optional[pulumi.Input['DirectorySamlPropertiesArgs']] = None,
                  self_service_permissions: Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -42,6 +43,7 @@ class DirectoryArgs:
         :param pulumi.Input['DirectoryCertificateBasedAuthPropertiesArgs'] certificate_based_auth_properties: Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
         :param pulumi.Input[builtins.str] directory_id: The directory identifier for registration in WorkSpaces service.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ip_group_ids: The identifiers of the IP access control groups associated with the directory.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DirectorySamlPropertiesArgs'] saml_properties: Configuration of SAML authentication integration. Defined below.
         :param pulumi.Input['DirectorySelfServicePermissionsArgs'] self_service_permissions: Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The identifiers of the subnets where the directory resides.
@@ -63,6 +65,8 @@ class DirectoryArgs:
             pulumi.set(__self__, "directory_id", directory_id)
         if ip_group_ids is not None:
             pulumi.set(__self__, "ip_group_ids", ip_group_ids)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if saml_properties is not None:
             pulumi.set(__self__, "saml_properties", saml_properties)
         if self_service_permissions is not None:
@@ -131,6 +135,18 @@ class DirectoryArgs:
     @ip_group_ids.setter
     def ip_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "ip_group_ids", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="samlProperties")
@@ -268,6 +284,7 @@ class _DirectoryState:
                  dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  iam_role_id: Optional[pulumi.Input[builtins.str]] = None,
                  ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registration_code: Optional[pulumi.Input[builtins.str]] = None,
                  saml_properties: Optional[pulumi.Input['DirectorySamlPropertiesArgs']] = None,
                  self_service_permissions: Optional[pulumi.Input['DirectorySelfServicePermissionsArgs']] = None,
@@ -293,6 +310,7 @@ class _DirectoryState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_ip_addresses: The IP addresses of the DNS servers for the directory.
         :param pulumi.Input[builtins.str] iam_role_id: The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ip_group_ids: The identifiers of the IP access control groups associated with the directory.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registration_code: The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
         :param pulumi.Input['DirectorySamlPropertiesArgs'] saml_properties: Configuration of SAML authentication integration. Defined below.
         :param pulumi.Input['DirectorySelfServicePermissionsArgs'] self_service_permissions: Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
@@ -329,6 +347,8 @@ class _DirectoryState:
             pulumi.set(__self__, "iam_role_id", iam_role_id)
         if ip_group_ids is not None:
             pulumi.set(__self__, "ip_group_ids", ip_group_ids)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if registration_code is not None:
             pulumi.set(__self__, "registration_code", registration_code)
         if saml_properties is not None:
@@ -339,9 +359,6 @@ class _DirectoryState:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if user_identity_type is not None:
@@ -480,6 +497,18 @@ class _DirectoryState:
         pulumi.set(self, "ip_group_ids", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="registrationCode")
     def registration_code(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -541,7 +570,6 @@ class _DirectoryState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -649,6 +677,7 @@ class Directory(pulumi.CustomResource):
                  certificate_based_auth_properties: Optional[pulumi.Input[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']]] = None,
                  directory_id: Optional[pulumi.Input[builtins.str]] = None,
                  ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  saml_properties: Optional[pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']]] = None,
                  self_service_permissions: Optional[pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -829,6 +858,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']] certificate_based_auth_properties: Configuration of certificate-based authentication (CBA) integration. Requires SAML authentication to be enabled. Defined below.
         :param pulumi.Input[builtins.str] directory_id: The directory identifier for registration in WorkSpaces service.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ip_group_ids: The identifiers of the IP access control groups associated with the directory.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']] saml_properties: Configuration of SAML authentication integration. Defined below.
         :param pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']] self_service_permissions: Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: The identifiers of the subnets where the directory resides.
@@ -1030,6 +1060,7 @@ class Directory(pulumi.CustomResource):
                  certificate_based_auth_properties: Optional[pulumi.Input[Union['DirectoryCertificateBasedAuthPropertiesArgs', 'DirectoryCertificateBasedAuthPropertiesArgsDict']]] = None,
                  directory_id: Optional[pulumi.Input[builtins.str]] = None,
                  ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  saml_properties: Optional[pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']]] = None,
                  self_service_permissions: Optional[pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -1053,6 +1084,7 @@ class Directory(pulumi.CustomResource):
             __props__.__dict__["certificate_based_auth_properties"] = certificate_based_auth_properties
             __props__.__dict__["directory_id"] = directory_id
             __props__.__dict__["ip_group_ids"] = ip_group_ids
+            __props__.__dict__["region"] = region
             __props__.__dict__["saml_properties"] = saml_properties
             __props__.__dict__["self_service_permissions"] = self_service_permissions
             __props__.__dict__["subnet_ids"] = subnet_ids
@@ -1092,6 +1124,7 @@ class Directory(pulumi.CustomResource):
             dns_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             iam_role_id: Optional[pulumi.Input[builtins.str]] = None,
             ip_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             registration_code: Optional[pulumi.Input[builtins.str]] = None,
             saml_properties: Optional[pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']]] = None,
             self_service_permissions: Optional[pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']]] = None,
@@ -1122,6 +1155,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] dns_ip_addresses: The IP addresses of the DNS servers for the directory.
         :param pulumi.Input[builtins.str] iam_role_id: The identifier of the IAM role. This is the role that allows Amazon WorkSpaces to make calls to other services, such as Amazon EC2, on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ip_group_ids: The identifiers of the IP access control groups associated with the directory.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registration_code: The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
         :param pulumi.Input[Union['DirectorySamlPropertiesArgs', 'DirectorySamlPropertiesArgsDict']] saml_properties: Configuration of SAML authentication integration. Defined below.
         :param pulumi.Input[Union['DirectorySelfServicePermissionsArgs', 'DirectorySelfServicePermissionsArgsDict']] self_service_permissions: Permissions to enable or disable self-service capabilities when `workspace_type` is set to `PERSONAL`.. Defined below.
@@ -1152,6 +1186,7 @@ class Directory(pulumi.CustomResource):
         __props__.__dict__["dns_ip_addresses"] = dns_ip_addresses
         __props__.__dict__["iam_role_id"] = iam_role_id
         __props__.__dict__["ip_group_ids"] = ip_group_ids
+        __props__.__dict__["region"] = region
         __props__.__dict__["registration_code"] = registration_code
         __props__.__dict__["saml_properties"] = saml_properties
         __props__.__dict__["self_service_permissions"] = self_service_permissions
@@ -1248,6 +1283,14 @@ class Directory(pulumi.CustomResource):
         return pulumi.get(self, "ip_group_ids")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="registrationCode")
     def registration_code(self) -> pulumi.Output[builtins.str]:
         """
@@ -1289,7 +1332,6 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

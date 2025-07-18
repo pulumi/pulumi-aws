@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,7 +84,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -182,6 +182,8 @@ type GlobalReplicationGroup struct {
 	ParameterGroupName pulumi.StringPtrOutput `pulumi:"parameterGroupName"`
 	// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
 	PrimaryReplicationGroupId pulumi.StringOutput `pulumi:"primaryReplicationGroupId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A flag that indicates whether the encryption in transit is enabled.
 	TransitEncryptionEnabled pulumi.BoolOutput `pulumi:"transitEncryptionEnabled"`
 }
@@ -269,6 +271,8 @@ type globalReplicationGroupState struct {
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
 	PrimaryReplicationGroupId *string `pulumi:"primaryReplicationGroupId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A flag that indicates whether the encryption in transit is enabled.
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 }
@@ -321,6 +325,8 @@ type GlobalReplicationGroupState struct {
 	ParameterGroupName pulumi.StringPtrInput
 	// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
 	PrimaryReplicationGroupId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A flag that indicates whether the encryption in transit is enabled.
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 }
@@ -360,6 +366,8 @@ type globalReplicationGroupArgs struct {
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
 	PrimaryReplicationGroupId string `pulumi:"primaryReplicationGroupId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a GlobalReplicationGroup resource.
@@ -394,6 +402,8 @@ type GlobalReplicationGroupArgs struct {
 	ParameterGroupName pulumi.StringPtrInput
 	// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
 	PrimaryReplicationGroupId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (GlobalReplicationGroupArgs) ElementType() reflect.Type {
@@ -578,6 +588,11 @@ func (o GlobalReplicationGroupOutput) ParameterGroupName() pulumi.StringPtrOutpu
 // The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
 func (o GlobalReplicationGroupOutput) PrimaryReplicationGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.PrimaryReplicationGroupId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o GlobalReplicationGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A flag that indicates whether the encryption in transit is enabled.

@@ -85,6 +85,10 @@ export class TableItem extends pulumi.CustomResource {
      */
     public readonly rangeKey!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the table to contain the item.
      *
      * > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
@@ -107,6 +111,7 @@ export class TableItem extends pulumi.CustomResource {
             resourceInputs["hashKey"] = state ? state.hashKey : undefined;
             resourceInputs["item"] = state ? state.item : undefined;
             resourceInputs["rangeKey"] = state ? state.rangeKey : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as TableItemArgs | undefined;
@@ -122,6 +127,7 @@ export class TableItem extends pulumi.CustomResource {
             resourceInputs["hashKey"] = args ? args.hashKey : undefined;
             resourceInputs["item"] = args ? args.item : undefined;
             resourceInputs["rangeKey"] = args ? args.rangeKey : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -146,6 +152,10 @@ export interface TableItemState {
      */
     rangeKey?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Name of the table to contain the item.
      *
      * > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
@@ -169,6 +179,10 @@ export interface TableItemArgs {
      * Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
      */
     rangeKey?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the table to contain the item.
      *

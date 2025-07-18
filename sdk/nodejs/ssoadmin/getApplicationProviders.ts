@@ -25,7 +25,7 @@ export function getApplicationProviders(args?: GetApplicationProvidersArgs, opts
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssoadmin/getApplicationProviders:getApplicationProviders", {
-        "applicationProviders": args.applicationProviders,
+        "region": args.region,
     }, opts);
 }
 
@@ -34,9 +34,9 @@ export function getApplicationProviders(args?: GetApplicationProvidersArgs, opts
  */
 export interface GetApplicationProvidersArgs {
     /**
-     * A list of application providers available in the current region. See `applicationProviders` below.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    applicationProviders?: inputs.ssoadmin.GetApplicationProvidersApplicationProvider[];
+    region?: string;
 }
 
 /**
@@ -46,11 +46,12 @@ export interface GetApplicationProvidersResult {
     /**
      * A list of application providers available in the current region. See `applicationProviders` below.
      */
-    readonly applicationProviders?: outputs.ssoadmin.GetApplicationProvidersApplicationProvider[];
+    readonly applicationProviders: outputs.ssoadmin.GetApplicationProvidersApplicationProvider[];
     /**
      * AWS region.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Data source for managing AWS SSO Admin Application Providers.
@@ -70,7 +71,7 @@ export function getApplicationProvidersOutput(args?: GetApplicationProvidersOutp
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssoadmin/getApplicationProviders:getApplicationProviders", {
-        "applicationProviders": args.applicationProviders,
+        "region": args.region,
     }, opts);
 }
 
@@ -79,7 +80,7 @@ export function getApplicationProvidersOutput(args?: GetApplicationProvidersOutp
  */
 export interface GetApplicationProvidersOutputArgs {
     /**
-     * A list of application providers available in the current region. See `applicationProviders` below.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    applicationProviders?: pulumi.Input<pulumi.Input<inputs.ssoadmin.GetApplicationProvidersApplicationProviderArgs>[]>;
+    region?: pulumi.Input<string>;
 }

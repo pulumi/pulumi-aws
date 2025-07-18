@@ -46,6 +46,21 @@ public final class GetAccessEntryPlainArgs extends com.pulumi.resources.InvokeAr
         return this.principalArn;
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
@@ -53,12 +68,29 @@ public final class GetAccessEntryPlainArgs extends com.pulumi.resources.InvokeAr
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Map<String,String> tagsAll;
+
+    /**
+     * @return (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+     * 
+     */
+    public Optional<Map<String,String>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     private GetAccessEntryPlainArgs() {}
 
     private GetAccessEntryPlainArgs(GetAccessEntryPlainArgs $) {
         this.clusterName = $.clusterName;
         this.principalArn = $.principalArn;
+        this.region = $.region;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -101,8 +133,30 @@ public final class GetAccessEntryPlainArgs extends com.pulumi.resources.InvokeAr
             return this;
         }
 
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
+        }
+
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tagsAll (Optional) Key-value map of resource tags, including those inherited from the provider `default_tags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Map<String,String> tagsAll) {
+            $.tagsAll = tagsAll;
             return this;
         }
 

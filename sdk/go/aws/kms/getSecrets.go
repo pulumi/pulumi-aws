@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +33,7 @@ func GetSecrets(ctx *pulumi.Context, args *GetSecretsArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getSecrets.
 type GetSecretsArgs struct {
+	Region *string `pulumi:"region"`
 	// One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
 	Secrets []GetSecretsSecret `pulumi:"secrets"`
 }
@@ -43,6 +44,7 @@ type GetSecretsResult struct {
 	Id string `pulumi:"id"`
 	// Map containing each `secret` `name` as the key with its decrypted plaintext value
 	Plaintext map[string]string  `pulumi:"plaintext"`
+	Region    string             `pulumi:"region"`
 	Secrets   []GetSecretsSecret `pulumi:"secrets"`
 }
 
@@ -57,6 +59,7 @@ func GetSecretsOutput(ctx *pulumi.Context, args GetSecretsOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getSecrets.
 type GetSecretsOutputArgs struct {
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
 	Secrets GetSecretsSecretArrayInput `pulumi:"secrets"`
 }
@@ -88,6 +91,10 @@ func (o GetSecretsResultOutput) Id() pulumi.StringOutput {
 // Map containing each `secret` `name` as the key with its decrypted plaintext value
 func (o GetSecretsResultOutput) Plaintext() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetSecretsResult) map[string]string { return v.Plaintext }).(pulumi.StringMapOutput)
+}
+
+func (o GetSecretsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetSecretsResultOutput) Secrets() GetSecretsSecretArrayOutput {

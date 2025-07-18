@@ -65,6 +65,10 @@ export class ApplicationSnapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly applicationVersionId!: pulumi.Output<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The timestamp of the application snapshot.
      */
     public /*out*/ readonly snapshotCreationTimestamp!: pulumi.Output<string>;
@@ -88,6 +92,7 @@ export class ApplicationSnapshot extends pulumi.CustomResource {
             const state = argsOrState as ApplicationSnapshotState | undefined;
             resourceInputs["applicationName"] = state ? state.applicationName : undefined;
             resourceInputs["applicationVersionId"] = state ? state.applicationVersionId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["snapshotCreationTimestamp"] = state ? state.snapshotCreationTimestamp : undefined;
             resourceInputs["snapshotName"] = state ? state.snapshotName : undefined;
         } else {
@@ -99,6 +104,7 @@ export class ApplicationSnapshot extends pulumi.CustomResource {
                 throw new Error("Missing required property 'snapshotName'");
             }
             resourceInputs["applicationName"] = args ? args.applicationName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
             resourceInputs["applicationVersionId"] = undefined /*out*/;
             resourceInputs["snapshotCreationTimestamp"] = undefined /*out*/;
@@ -121,6 +127,10 @@ export interface ApplicationSnapshotState {
      */
     applicationVersionId?: pulumi.Input<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The timestamp of the application snapshot.
      */
     snapshotCreationTimestamp?: pulumi.Input<string>;
@@ -138,6 +148,10 @@ export interface ApplicationSnapshotArgs {
      * The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
      */
     applicationName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the application snapshot.
      */

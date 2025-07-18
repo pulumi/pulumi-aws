@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,6 +82,8 @@ type Product struct {
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 	ProvisioningArtifactParameters ProductProvisioningArtifactParametersOutput `pulumi:"provisioningArtifactParameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Status of the product.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Support information about the product.
@@ -93,8 +95,6 @@ type Product struct {
 	// Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
 	//
@@ -159,6 +159,8 @@ type productState struct {
 	Owner *string `pulumi:"owner"`
 	// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 	ProvisioningArtifactParameters *ProductProvisioningArtifactParameters `pulumi:"provisioningArtifactParameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Status of the product.
 	Status *string `pulumi:"status"`
 	// Support information about the product.
@@ -170,8 +172,6 @@ type productState struct {
 	// Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
 	//
@@ -198,6 +198,8 @@ type ProductState struct {
 	Owner pulumi.StringPtrInput
 	// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 	ProvisioningArtifactParameters ProductProvisioningArtifactParametersPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Status of the product.
 	Status pulumi.StringPtrInput
 	// Support information about the product.
@@ -209,8 +211,6 @@ type ProductState struct {
 	// Tags to apply to the product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
 	//
@@ -235,6 +235,8 @@ type productArgs struct {
 	Owner string `pulumi:"owner"`
 	// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 	ProvisioningArtifactParameters ProductProvisioningArtifactParameters `pulumi:"provisioningArtifactParameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Support information about the product.
 	SupportDescription *string `pulumi:"supportDescription"`
 	// Contact email for product support.
@@ -263,6 +265,8 @@ type ProductArgs struct {
 	Owner pulumi.StringInput
 	// Configuration block for provisioning artifact (i.e., version) parameters. See `provisioningArtifactParameters` Block for details.
 	ProvisioningArtifactParameters ProductProvisioningArtifactParametersInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Support information about the product.
 	SupportDescription pulumi.StringPtrInput
 	// Contact email for product support.
@@ -409,6 +413,11 @@ func (o ProductOutput) ProvisioningArtifactParameters() ProductProvisioningArtif
 	return o.ApplyT(func(v *Product) ProductProvisioningArtifactParametersOutput { return v.ProvisioningArtifactParameters }).(ProductProvisioningArtifactParametersOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ProductOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Product) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Status of the product.
 func (o ProductOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Product) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
@@ -435,8 +444,6 @@ func (o ProductOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ProductOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Product) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

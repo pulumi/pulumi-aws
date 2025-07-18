@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,6 +60,8 @@ type LookupProductArgs struct {
 	//
 	// The following arguments are optional:
 	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags applied to the product.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -81,7 +83,8 @@ type LookupProductResult struct {
 	// Name of the product.
 	Name string `pulumi:"name"`
 	// Owner of the product.
-	Owner string `pulumi:"owner"`
+	Owner  string `pulumi:"owner"`
+	Region string `pulumi:"region"`
 	// Status of the product.
 	Status string `pulumi:"status"`
 	// Field that provides support information about the product.
@@ -113,6 +116,8 @@ type LookupProductOutputArgs struct {
 	//
 	// The following arguments are optional:
 	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags applied to the product.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -177,6 +182,10 @@ func (o LookupProductResultOutput) Name() pulumi.StringOutput {
 // Owner of the product.
 func (o LookupProductResultOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProductResult) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o LookupProductResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProductResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Status of the product.

@@ -29,7 +29,8 @@ class HostedPublicVirtualInterfaceArgs:
                  amazon_address: Optional[pulumi.Input[builtins.str]] = None,
                  bgp_auth_key: Optional[pulumi.Input[builtins.str]] = None,
                  customer_address: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a HostedPublicVirtualInterface resource.
         :param pulumi.Input[builtins.str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -42,6 +43,7 @@ class HostedPublicVirtualInterfaceArgs:
         :param pulumi.Input[builtins.str] bgp_auth_key: The authentication key for BGP configuration.
         :param pulumi.Input[builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         :param pulumi.Input[builtins.str] name: The name for the virtual interface.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "address_family", address_family)
         pulumi.set(__self__, "bgp_asn", bgp_asn)
@@ -57,6 +59,8 @@ class HostedPublicVirtualInterfaceArgs:
             pulumi.set(__self__, "customer_address", customer_address)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -178,6 +182,18 @@ class HostedPublicVirtualInterfaceArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _HostedPublicVirtualInterfaceState:
@@ -193,6 +209,7 @@ class _HostedPublicVirtualInterfaceState:
                  customer_address: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_filter_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  vlan: Optional[pulumi.Input[builtins.int]] = None):
         """
@@ -207,6 +224,7 @@ class _HostedPublicVirtualInterfaceState:
         :param pulumi.Input[builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         :param pulumi.Input[builtins.str] name: The name for the virtual interface.
         :param pulumi.Input[builtins.str] owner_account_id: The AWS account that will own the new virtual interface.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] route_filter_prefixes: A list of routes to be advertised to the AWS network in this region.
         :param pulumi.Input[builtins.int] vlan: The VLAN ID.
         """
@@ -232,6 +250,8 @@ class _HostedPublicVirtualInterfaceState:
             pulumi.set(__self__, "name", name)
         if owner_account_id is not None:
             pulumi.set(__self__, "owner_account_id", owner_account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if route_filter_prefixes is not None:
             pulumi.set(__self__, "route_filter_prefixes", route_filter_prefixes)
         if vlan is not None:
@@ -367,6 +387,18 @@ class _HostedPublicVirtualInterfaceState:
         pulumi.set(self, "owner_account_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="routeFilterPrefixes")
     def route_filter_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -405,6 +437,7 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
                  customer_address: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_filter_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  vlan: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
@@ -450,6 +483,7 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         :param pulumi.Input[builtins.str] name: The name for the virtual interface.
         :param pulumi.Input[builtins.str] owner_account_id: The AWS account that will own the new virtual interface.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] route_filter_prefixes: A list of routes to be advertised to the AWS network in this region.
         :param pulumi.Input[builtins.int] vlan: The VLAN ID.
         """
@@ -514,6 +548,7 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
                  customer_address: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_filter_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  vlan: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
@@ -541,6 +576,7 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
             if owner_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'owner_account_id'")
             __props__.__dict__["owner_account_id"] = owner_account_id
+            __props__.__dict__["region"] = region
             if route_filter_prefixes is None and not opts.urn:
                 raise TypeError("Missing required property 'route_filter_prefixes'")
             __props__.__dict__["route_filter_prefixes"] = route_filter_prefixes
@@ -571,6 +607,7 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
             customer_address: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             route_filter_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             vlan: Optional[pulumi.Input[builtins.int]] = None) -> 'HostedPublicVirtualInterface':
         """
@@ -590,6 +627,7 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         :param pulumi.Input[builtins.str] name: The name for the virtual interface.
         :param pulumi.Input[builtins.str] owner_account_id: The AWS account that will own the new virtual interface.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] route_filter_prefixes: A list of routes to be advertised to the AWS network in this region.
         :param pulumi.Input[builtins.int] vlan: The VLAN ID.
         """
@@ -608,6 +646,7 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
         __props__.__dict__["customer_address"] = customer_address
         __props__.__dict__["name"] = name
         __props__.__dict__["owner_account_id"] = owner_account_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["route_filter_prefixes"] = route_filter_prefixes
         __props__.__dict__["vlan"] = vlan
         return HostedPublicVirtualInterface(resource_name, opts=opts, __props__=__props__)
@@ -696,6 +735,14 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
         The AWS account that will own the new virtual interface.
         """
         return pulumi.get(self, "owner_account_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="routeFilterPrefixes")

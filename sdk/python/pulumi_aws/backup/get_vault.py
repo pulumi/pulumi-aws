@@ -27,7 +27,7 @@ class GetVaultResult:
     """
     A collection of values returned by getVault.
     """
-    def __init__(__self__, arn=None, id=None, kms_key_arn=None, name=None, recovery_points=None, tags=None):
+    def __init__(__self__, arn=None, id=None, kms_key_arn=None, name=None, recovery_points=None, region=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -43,6 +43,9 @@ class GetVaultResult:
         if recovery_points and not isinstance(recovery_points, int):
             raise TypeError("Expected argument 'recovery_points' to be a int")
         pulumi.set(__self__, "recovery_points", recovery_points)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -86,6 +89,11 @@ class GetVaultResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Metadata that you can assign to help organize the resources that you create.
@@ -104,10 +112,12 @@ class AwaitableGetVaultResult(GetVaultResult):
             kms_key_arn=self.kms_key_arn,
             name=self.name,
             recovery_points=self.recovery_points,
+            region=self.region,
             tags=self.tags)
 
 
 def get_vault(name: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               tags: Optional[Mapping[str, builtins.str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVaultResult:
     """
@@ -124,10 +134,12 @@ def get_vault(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the backup vault.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that you can assign to help organize the resources that you create.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:backup/getVault:getVault', __args__, opts=opts, typ=GetVaultResult).value
@@ -138,8 +150,10 @@ def get_vault(name: Optional[builtins.str] = None,
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         name=pulumi.get(__ret__, 'name'),
         recovery_points=pulumi.get(__ret__, 'recovery_points'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_vault_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVaultResult]:
     """
@@ -156,10 +170,12 @@ def get_vault_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the backup vault.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that you can assign to help organize the resources that you create.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:backup/getVault:getVault', __args__, opts=opts, typ=GetVaultResult)
@@ -169,4 +185,5 @@ def get_vault_output(name: Optional[pulumi.Input[builtins.str]] = None,
         kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
         name=pulumi.get(__response__, 'name'),
         recovery_points=pulumi.get(__response__, 'recovery_points'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

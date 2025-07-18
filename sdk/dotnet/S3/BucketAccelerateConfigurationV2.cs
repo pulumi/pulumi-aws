@@ -24,12 +24,12 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var mybucket = new Aws.S3.BucketV2("mybucket", new()
+    ///     var mybucket = new Aws.S3.Bucket("mybucket", new()
     ///     {
-    ///         Bucket = "mybucket",
+    ///         BucketName = "mybucket",
     ///     });
     /// 
-    ///     var example = new Aws.S3.BucketAccelerateConfigurationV2("example", new()
+    ///     var example = new Aws.S3.BucketAccelerateConfiguration("example", new()
     ///     {
     ///         Bucket = mybucket.Id,
     ///         Status = "Enabled",
@@ -55,6 +55,7 @@ namespace Pulumi.Aws.S3
     /// $ pulumi import aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2 example bucket-name,123456789012
     /// ```
     /// </summary>
+    [Obsolete(@"aws.s3/bucketaccelerateconfigurationv2.BucketAccelerateConfigurationV2 has been deprecated in favor of aws.s3/bucketaccelerateconfiguration.BucketAccelerateConfiguration")]
     [AwsResourceType("aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2")]
     public partial class BucketAccelerateConfigurationV2 : global::Pulumi.CustomResource
     {
@@ -69,6 +70,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
@@ -99,6 +106,10 @@ namespace Pulumi.Aws.S3
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2" },
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -135,6 +146,12 @@ namespace Pulumi.Aws.S3
         public Input<string>? ExpectedBucketOwner { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
         /// </summary>
         [Input("status", required: true)]
@@ -159,6 +176,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.

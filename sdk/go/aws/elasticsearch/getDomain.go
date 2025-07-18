@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticsearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticsearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.In
 type LookupDomainArgs struct {
 	// Name of the domain.
 	DomainName string `pulumi:"domainName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags assigned to the domain.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -96,7 +98,8 @@ type LookupDomainResult struct {
 	// Domain in transit encryption related options.
 	NodeToNodeEncryptions []GetDomainNodeToNodeEncryption `pulumi:"nodeToNodeEncryptions"`
 	// Status of a configuration change in the domain.
-	Processing bool `pulumi:"processing"`
+	Processing bool   `pulumi:"processing"`
+	Region     string `pulumi:"region"`
 	// Domain snapshot related options.
 	SnapshotOptions []GetDomainSnapshotOption `pulumi:"snapshotOptions"`
 	// Tags assigned to the domain.
@@ -118,6 +121,8 @@ func LookupDomainOutput(ctx *pulumi.Context, args LookupDomainOutputArgs, opts .
 type LookupDomainOutputArgs struct {
 	// Name of the domain.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags assigned to the domain.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -238,6 +243,10 @@ func (o LookupDomainResultOutput) NodeToNodeEncryptions() GetDomainNodeToNodeEnc
 // Status of a configuration change in the domain.
 func (o LookupDomainResultOutput) Processing() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDomainResult) bool { return v.Processing }).(pulumi.BoolOutput)
+}
+
+func (o LookupDomainResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Domain snapshot related options.

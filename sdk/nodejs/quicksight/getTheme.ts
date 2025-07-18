@@ -27,6 +27,7 @@ export function getTheme(args: GetThemeArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:quicksight/getTheme:getTheme", {
         "awsAccountId": args.awsAccountId,
+        "region": args.region,
         "tags": args.tags,
         "themeId": args.themeId,
     }, opts);
@@ -40,6 +41,10 @@ export interface GetThemeArgs {
      * AWS account ID.
      */
     awsAccountId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
@@ -89,6 +94,7 @@ export interface GetThemeResult {
      * A set of resource permissions on the theme. See permissions.
      */
     readonly permissions: outputs.quicksight.GetThemePermission[];
+    readonly region: string;
     /**
      * The theme creation status.
      */
@@ -127,6 +133,7 @@ export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:quicksight/getTheme:getTheme", {
         "awsAccountId": args.awsAccountId,
+        "region": args.region,
         "tags": args.tags,
         "themeId": args.themeId,
     }, opts);
@@ -140,6 +147,10 @@ export interface GetThemeOutputArgs {
      * AWS account ID.
      */
     awsAccountId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */

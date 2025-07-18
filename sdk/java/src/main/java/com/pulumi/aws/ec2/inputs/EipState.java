@@ -5,7 +5,6 @@ package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -297,7 +296,28 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+     * Including both will **not** return an error from the AWS API, but will have undefined behavior.
+     * See the relevant [AssociateAddress API Call][1] for more information.
+     * 
+     * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
      * 
      */
     @Import(name="tags")
@@ -305,6 +325,12 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+     * Including both will **not** return an error from the AWS API, but will have undefined behavior.
+     * See the relevant [AssociateAddress API Call][1] for more information.
+     * 
+     * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -314,59 +340,16 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
-    }
-
-    /**
-     * Boolean if the EIP is in a VPC or not. Use `domain` instead.
-     * Defaults to `true` unless the region supports EC2-Classic.
-     * 
-     * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-     * 
-     * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error but `address` will be used in the
-     * case both options are defined as the api only requires one or the other.
-     * 
-     * @deprecated
-     * vpc is deprecated. Use domain instead.
-     * 
-     */
-    @Deprecated /* vpc is deprecated. Use domain instead. */
-    @Import(name="vpc")
-    private @Nullable Output<Boolean> vpc;
-
-    /**
-     * @return Boolean if the EIP is in a VPC or not. Use `domain` instead.
-     * Defaults to `true` unless the region supports EC2-Classic.
-     * 
-     * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-     * 
-     * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error but `address` will be used in the
-     * case both options are defined as the api only requires one or the other.
-     * 
-     * @deprecated
-     * vpc is deprecated. Use domain instead.
-     * 
-     */
-    @Deprecated /* vpc is deprecated. Use domain instead. */
-    public Optional<Output<Boolean>> vpc() {
-        return Optional.ofNullable(this.vpc);
     }
 
     private EipState() {}
@@ -391,9 +374,9 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
         this.publicDns = $.publicDns;
         this.publicIp = $.publicIp;
         this.publicIpv4Pool = $.publicIpv4Pool;
+        this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
-        this.vpc = $.vpc;
     }
 
     public static Builder builder() {
@@ -804,7 +787,34 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param tags Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+         * Including both will **not** return an error from the AWS API, but will have undefined behavior.
+         * See the relevant [AssociateAddress API Call][1] for more information.
+         * 
+         * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
          * 
          * @return builder
          * 
@@ -816,6 +826,12 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+         * Including both will **not** return an error from the AWS API, but will have undefined behavior.
+         * See the relevant [AssociateAddress API Call][1] for more information.
+         * 
+         * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
          * 
          * @return builder
          * 
@@ -829,11 +845,7 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -844,54 +856,9 @@ public final class EipState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
-        }
-
-        /**
-         * @param vpc Boolean if the EIP is in a VPC or not. Use `domain` instead.
-         * Defaults to `true` unless the region supports EC2-Classic.
-         * 
-         * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-         * 
-         * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error but `address` will be used in the
-         * case both options are defined as the api only requires one or the other.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * vpc is deprecated. Use domain instead.
-         * 
-         */
-        @Deprecated /* vpc is deprecated. Use domain instead. */
-        public Builder vpc(@Nullable Output<Boolean> vpc) {
-            $.vpc = vpc;
-            return this;
-        }
-
-        /**
-         * @param vpc Boolean if the EIP is in a VPC or not. Use `domain` instead.
-         * Defaults to `true` unless the region supports EC2-Classic.
-         * 
-         * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-         * 
-         * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error but `address` will be used in the
-         * case both options are defined as the api only requires one or the other.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * vpc is deprecated. Use domain instead.
-         * 
-         */
-        @Deprecated /* vpc is deprecated. Use domain instead. */
-        public Builder vpc(Boolean vpc) {
-            return vpc(Output.of(vpc));
         }
 
         public EipState build() {

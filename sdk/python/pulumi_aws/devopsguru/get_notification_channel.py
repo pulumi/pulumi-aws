@@ -29,13 +29,16 @@ class GetNotificationChannelResult:
     """
     A collection of values returned by getNotificationChannel.
     """
-    def __init__(__self__, filters=None, id=None, sns=None):
+    def __init__(__self__, filters=None, id=None, region=None, sns=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if sns and not isinstance(sns, list):
             raise TypeError("Expected argument 'sns' to be a list")
         pulumi.set(__self__, "sns", sns)
@@ -55,6 +58,11 @@ class GetNotificationChannelResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def sns(self) -> Optional[Sequence['outputs.GetNotificationChannelSnResult']]:
         """
         SNS noficiation channel configurations. See the `sns` attribute reference below.
@@ -70,11 +78,13 @@ class AwaitableGetNotificationChannelResult(GetNotificationChannelResult):
         return GetNotificationChannelResult(
             filters=self.filters,
             id=self.id,
+            region=self.region,
             sns=self.sns)
 
 
 def get_notification_channel(filters: Optional[Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict']]] = None,
                              id: Optional[builtins.str] = None,
+                             region: Optional[builtins.str] = None,
                              sns: Optional[Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotificationChannelResult:
     """
@@ -94,11 +104,13 @@ def get_notification_channel(filters: Optional[Sequence[Union['GetNotificationCh
 
     :param Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
     :param builtins.str id: Unique identifier for the notification channel.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']] sns: SNS noficiation channel configurations. See the `sns` attribute reference below.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['sns'] = sns
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:devopsguru/getNotificationChannel:getNotificationChannel', __args__, opts=opts, typ=GetNotificationChannelResult).value
@@ -106,9 +118,11 @@ def get_notification_channel(filters: Optional[Sequence[Union['GetNotificationCh
     return AwaitableGetNotificationChannelResult(
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         sns=pulumi.get(__ret__, 'sns'))
 def get_notification_channel_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict']]]]] = None,
                                     id: Optional[pulumi.Input[builtins.str]] = None,
+                                    region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                     sns: Optional[pulumi.Input[Optional[Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationChannelResult]:
     """
@@ -128,15 +142,18 @@ def get_notification_channel_output(filters: Optional[pulumi.Input[Optional[Sequ
 
     :param Sequence[Union['GetNotificationChannelFilterArgs', 'GetNotificationChannelFilterArgsDict']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` attribute reference below.
     :param builtins.str id: Unique identifier for the notification channel.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[Union['GetNotificationChannelSnArgs', 'GetNotificationChannelSnArgsDict']] sns: SNS noficiation channel configurations. See the `sns` attribute reference below.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['sns'] = sns
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:devopsguru/getNotificationChannel:getNotificationChannel', __args__, opts=opts, typ=GetNotificationChannelResult)
     return __ret__.apply(lambda __response__: GetNotificationChannelResult(
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         sns=pulumi.get(__response__, 'sns')))

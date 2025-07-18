@@ -93,29 +93,11 @@ namespace Pulumi.Aws.DevOpsGuru
 
     public sealed class GetResourceCollectionArgs : global::Pulumi.InvokeArgs
     {
-        [Input("cloudformations")]
-        private List<Inputs.GetResourceCollectionCloudformationArgs>? _cloudformations;
-
         /// <summary>
-        /// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
-        public List<Inputs.GetResourceCollectionCloudformationArgs> Cloudformations
-        {
-            get => _cloudformations ?? (_cloudformations = new List<Inputs.GetResourceCollectionCloudformationArgs>());
-            set => _cloudformations = value;
-        }
-
-        [Input("tags")]
-        private List<Inputs.GetResourceCollectionTagArgs>? _tags;
-
-        /// <summary>
-        /// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-        /// </summary>
-        public List<Inputs.GetResourceCollectionTagArgs> Tags
-        {
-            get => _tags ?? (_tags = new List<Inputs.GetResourceCollectionTagArgs>());
-            set => _tags = value;
-        }
+        [Input("region")]
+        public string? Region { get; set; }
 
         /// <summary>
         /// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
@@ -131,29 +113,11 @@ namespace Pulumi.Aws.DevOpsGuru
 
     public sealed class GetResourceCollectionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("cloudformations")]
-        private InputList<Inputs.GetResourceCollectionCloudformationInputArgs>? _cloudformations;
-
         /// <summary>
-        /// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
-        public InputList<Inputs.GetResourceCollectionCloudformationInputArgs> Cloudformations
-        {
-            get => _cloudformations ?? (_cloudformations = new InputList<Inputs.GetResourceCollectionCloudformationInputArgs>());
-            set => _cloudformations = value;
-        }
-
-        [Input("tags")]
-        private InputList<Inputs.GetResourceCollectionTagInputArgs>? _tags;
-
-        /// <summary>
-        /// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-        /// </summary>
-        public InputList<Inputs.GetResourceCollectionTagInputArgs> Tags
-        {
-            get => _tags ?? (_tags = new InputList<Inputs.GetResourceCollectionTagInputArgs>());
-            set => _tags = value;
-        }
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
@@ -179,6 +143,7 @@ namespace Pulumi.Aws.DevOpsGuru
         /// Type of AWS resource collection to create (same value as `type`).
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
         /// </summary>
@@ -191,12 +156,15 @@ namespace Pulumi.Aws.DevOpsGuru
 
             string id,
 
+            string region,
+
             ImmutableArray<Outputs.GetResourceCollectionTagResult> tags,
 
             string type)
         {
             Cloudformations = cloudformations;
             Id = id;
+            Region = region;
             Tags = tags;
             Type = type;
         }

@@ -20,14 +20,14 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
     public static final ConnectPeerArgs Empty = new ConnectPeerArgs();
 
     /**
-     * The Connect peer BGP options.
+     * Connect peer BGP options. See bgp_options for more information.
      * 
      */
     @Import(name="bgpOptions")
     private @Nullable Output<ConnectPeerBgpOptionsArgs> bgpOptions;
 
     /**
-     * @return The Connect peer BGP options.
+     * @return Connect peer BGP options. See bgp_options for more information.
      * 
      */
     public Optional<Output<ConnectPeerBgpOptionsArgs>> bgpOptions() {
@@ -35,14 +35,14 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the connection attachment.
+     * ID of the connection attachment.
      * 
      */
     @Import(name="connectAttachmentId", required=true)
     private Output<String> connectAttachmentId;
 
     /**
-     * @return The ID of the connection attachment.
+     * @return ID of the connection attachment.
      * 
      */
     public Output<String> connectAttachmentId() {
@@ -50,14 +50,14 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A Connect peer core network address.
+     * Connect peer core network address.
      * 
      */
     @Import(name="coreNetworkAddress")
     private @Nullable Output<String> coreNetworkAddress;
 
     /**
-     * @return A Connect peer core network address.
+     * @return Connect peer core network address.
      * 
      */
     public Optional<Output<String>> coreNetworkAddress() {
@@ -65,14 +65,14 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
+     * Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     @Import(name="insideCidrBlocks")
     private @Nullable Output<List<String>> insideCidrBlocks;
 
     /**
-     * @return The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
+     * @return Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     public Optional<Output<List<String>>> insideCidrBlocks() {
@@ -80,7 +80,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Connect peer address.
+     * Connect peer address.
      * 
      * The following arguments are optional:
      * 
@@ -89,7 +89,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> peerAddress;
 
     /**
-     * @return The Connect peer address.
+     * @return Connect peer address.
      * 
      * The following arguments are optional:
      * 
@@ -99,14 +99,14 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+     * Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     @Import(name="subnetArn")
     private @Nullable Output<String> subnetArn;
 
     /**
-     * @return The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+     * @return Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     public Optional<Output<String>> subnetArn() {
@@ -159,7 +159,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bgpOptions The Connect peer BGP options.
+         * @param bgpOptions Connect peer BGP options. See bgp_options for more information.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bgpOptions The Connect peer BGP options.
+         * @param bgpOptions Connect peer BGP options. See bgp_options for more information.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectAttachmentId The ID of the connection attachment.
+         * @param connectAttachmentId ID of the connection attachment.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectAttachmentId The ID of the connection attachment.
+         * @param connectAttachmentId ID of the connection attachment.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param coreNetworkAddress A Connect peer core network address.
+         * @param coreNetworkAddress Connect peer core network address.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param coreNetworkAddress A Connect peer core network address.
+         * @param coreNetworkAddress Connect peer core network address.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insideCidrBlocks The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
+         * @param insideCidrBlocks Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insideCidrBlocks The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
+         * @param insideCidrBlocks Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insideCidrBlocks The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
+         * @param insideCidrBlocks Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param peerAddress The Connect peer address.
+         * @param peerAddress Connect peer address.
          * 
          * The following arguments are optional:
          * 
@@ -266,7 +266,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param peerAddress The Connect peer address.
+         * @param peerAddress Connect peer address.
          * 
          * The following arguments are optional:
          * 
@@ -278,7 +278,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetArn The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+         * @param subnetArn Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class ConnectPeerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetArn The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+         * @param subnetArn Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 

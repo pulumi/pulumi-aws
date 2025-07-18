@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
 //	"github.com/pulumi/pulumi-tls/sdk/v4/go/tls"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -60,7 +60,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example, err := iot.GetRegistrationCode(ctx, map[string]interface{}{}, nil)
+//			example, err := iot.GetRegistrationCode(ctx, &iot.GetRegistrationCodeArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -120,13 +120,13 @@ type CaCertificate struct {
 	CustomerVersion pulumi.IntOutput `pulumi:"customerVersion"`
 	// The generation ID of the CA certificate.
 	GenerationId pulumi.StringOutput `pulumi:"generationId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Information about the registration configuration. See below.
 	RegistrationConfig CaCertificateRegistrationConfigPtrOutput `pulumi:"registrationConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// When the CA certificate is valid.
 	Validities CaCertificateValidityArrayOutput `pulumi:"validities"`
@@ -199,13 +199,13 @@ type caCertificateState struct {
 	CustomerVersion *int `pulumi:"customerVersion"`
 	// The generation ID of the CA certificate.
 	GenerationId *string `pulumi:"generationId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Information about the registration configuration. See below.
 	RegistrationConfig *CaCertificateRegistrationConfig `pulumi:"registrationConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// When the CA certificate is valid.
 	Validities []CaCertificateValidity `pulumi:"validities"`
@@ -229,13 +229,13 @@ type CaCertificateState struct {
 	CustomerVersion pulumi.IntPtrInput
 	// The generation ID of the CA certificate.
 	GenerationId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Information about the registration configuration. See below.
 	RegistrationConfig CaCertificateRegistrationConfigPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// When the CA certificate is valid.
 	Validities CaCertificateValidityArrayInput
@@ -257,6 +257,8 @@ type caCertificateArgs struct {
 	CaCertificatePem string `pulumi:"caCertificatePem"`
 	// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
 	CertificateMode *string `pulumi:"certificateMode"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Information about the registration configuration. See below.
 	RegistrationConfig *CaCertificateRegistrationConfig `pulumi:"registrationConfig"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -276,6 +278,8 @@ type CaCertificateArgs struct {
 	CaCertificatePem pulumi.StringInput
 	// The certificate mode in which the CA will be registered. Valid values: `DEFAULT` and `SNI_ONLY`. Default: `DEFAULT`.
 	CertificateMode pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Information about the registration configuration. See below.
 	RegistrationConfig CaCertificateRegistrationConfigPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -407,6 +411,11 @@ func (o CaCertificateOutput) GenerationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.StringOutput { return v.GenerationId }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o CaCertificateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CaCertificate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Information about the registration configuration. See below.
 func (o CaCertificateOutput) RegistrationConfig() CaCertificateRegistrationConfigPtrOutput {
 	return o.ApplyT(func(v *CaCertificate) CaCertificateRegistrationConfigPtrOutput { return v.RegistrationConfig }).(CaCertificateRegistrationConfigPtrOutput)
@@ -418,8 +427,6 @@ func (o CaCertificateOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o CaCertificateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CaCertificate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

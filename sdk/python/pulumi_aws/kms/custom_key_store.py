@@ -26,6 +26,7 @@ class CustomKeyStoreArgs:
                  cloud_hsm_cluster_id: Optional[pulumi.Input[builtins.str]] = None,
                  custom_key_store_type: Optional[pulumi.Input[builtins.str]] = None,
                  key_store_password: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  trust_anchor_certificate: Optional[pulumi.Input[builtins.str]] = None,
                  xks_proxy_authentication_credential: Optional[pulumi.Input['CustomKeyStoreXksProxyAuthenticationCredentialArgs']] = None,
                  xks_proxy_connectivity: Optional[pulumi.Input[builtins.str]] = None,
@@ -38,6 +39,7 @@ class CustomKeyStoreArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] custom_key_store_type: Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "custom_key_store_name", custom_key_store_name)
         if cloud_hsm_cluster_id is not None:
@@ -46,6 +48,8 @@ class CustomKeyStoreArgs:
             pulumi.set(__self__, "custom_key_store_type", custom_key_store_type)
         if key_store_password is not None:
             pulumi.set(__self__, "key_store_password", key_store_password)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if trust_anchor_certificate is not None:
             pulumi.set(__self__, "trust_anchor_certificate", trust_anchor_certificate)
         if xks_proxy_authentication_credential is not None:
@@ -102,6 +106,18 @@ class CustomKeyStoreArgs:
     @key_store_password.setter
     def key_store_password(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "key_store_password", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="trustAnchorCertificate")
@@ -165,6 +181,7 @@ class _CustomKeyStoreState:
                  custom_key_store_name: Optional[pulumi.Input[builtins.str]] = None,
                  custom_key_store_type: Optional[pulumi.Input[builtins.str]] = None,
                  key_store_password: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  trust_anchor_certificate: Optional[pulumi.Input[builtins.str]] = None,
                  xks_proxy_authentication_credential: Optional[pulumi.Input['CustomKeyStoreXksProxyAuthenticationCredentialArgs']] = None,
                  xks_proxy_connectivity: Optional[pulumi.Input[builtins.str]] = None,
@@ -177,6 +194,7 @@ class _CustomKeyStoreState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] custom_key_store_type: Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if cloud_hsm_cluster_id is not None:
             pulumi.set(__self__, "cloud_hsm_cluster_id", cloud_hsm_cluster_id)
@@ -186,6 +204,8 @@ class _CustomKeyStoreState:
             pulumi.set(__self__, "custom_key_store_type", custom_key_store_type)
         if key_store_password is not None:
             pulumi.set(__self__, "key_store_password", key_store_password)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if trust_anchor_certificate is not None:
             pulumi.set(__self__, "trust_anchor_certificate", trust_anchor_certificate)
         if xks_proxy_authentication_credential is not None:
@@ -242,6 +262,18 @@ class _CustomKeyStoreState:
     @key_store_password.setter
     def key_store_password(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "key_store_password", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="trustAnchorCertificate")
@@ -308,6 +340,7 @@ class CustomKeyStore(pulumi.CustomResource):
                  custom_key_store_name: Optional[pulumi.Input[builtins.str]] = None,
                  custom_key_store_type: Optional[pulumi.Input[builtins.str]] = None,
                  key_store_password: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  trust_anchor_certificate: Optional[pulumi.Input[builtins.str]] = None,
                  xks_proxy_authentication_credential: Optional[pulumi.Input[Union['CustomKeyStoreXksProxyAuthenticationCredentialArgs', 'CustomKeyStoreXksProxyAuthenticationCredentialArgsDict']]] = None,
                  xks_proxy_connectivity: Optional[pulumi.Input[builtins.str]] = None,
@@ -385,6 +418,7 @@ class CustomKeyStore(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] custom_key_store_type: Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -475,6 +509,7 @@ class CustomKeyStore(pulumi.CustomResource):
                  custom_key_store_name: Optional[pulumi.Input[builtins.str]] = None,
                  custom_key_store_type: Optional[pulumi.Input[builtins.str]] = None,
                  key_store_password: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  trust_anchor_certificate: Optional[pulumi.Input[builtins.str]] = None,
                  xks_proxy_authentication_credential: Optional[pulumi.Input[Union['CustomKeyStoreXksProxyAuthenticationCredentialArgs', 'CustomKeyStoreXksProxyAuthenticationCredentialArgsDict']]] = None,
                  xks_proxy_connectivity: Optional[pulumi.Input[builtins.str]] = None,
@@ -496,6 +531,7 @@ class CustomKeyStore(pulumi.CustomResource):
             __props__.__dict__["custom_key_store_name"] = custom_key_store_name
             __props__.__dict__["custom_key_store_type"] = custom_key_store_type
             __props__.__dict__["key_store_password"] = key_store_password
+            __props__.__dict__["region"] = region
             __props__.__dict__["trust_anchor_certificate"] = trust_anchor_certificate
             __props__.__dict__["xks_proxy_authentication_credential"] = xks_proxy_authentication_credential
             __props__.__dict__["xks_proxy_connectivity"] = xks_proxy_connectivity
@@ -516,6 +552,7 @@ class CustomKeyStore(pulumi.CustomResource):
             custom_key_store_name: Optional[pulumi.Input[builtins.str]] = None,
             custom_key_store_type: Optional[pulumi.Input[builtins.str]] = None,
             key_store_password: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             trust_anchor_certificate: Optional[pulumi.Input[builtins.str]] = None,
             xks_proxy_authentication_credential: Optional[pulumi.Input[Union['CustomKeyStoreXksProxyAuthenticationCredentialArgs', 'CustomKeyStoreXksProxyAuthenticationCredentialArgsDict']]] = None,
             xks_proxy_connectivity: Optional[pulumi.Input[builtins.str]] = None,
@@ -533,6 +570,7 @@ class CustomKeyStore(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] custom_key_store_type: Specifies the type of key store to create. Valid values are `AWS_CLOUDHSM` and `EXTERNAL_KEY_STORE`. If omitted, AWS will default the value to `AWS_CLOUDHSM`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -542,6 +580,7 @@ class CustomKeyStore(pulumi.CustomResource):
         __props__.__dict__["custom_key_store_name"] = custom_key_store_name
         __props__.__dict__["custom_key_store_type"] = custom_key_store_type
         __props__.__dict__["key_store_password"] = key_store_password
+        __props__.__dict__["region"] = region
         __props__.__dict__["trust_anchor_certificate"] = trust_anchor_certificate
         __props__.__dict__["xks_proxy_authentication_credential"] = xks_proxy_authentication_credential
         __props__.__dict__["xks_proxy_connectivity"] = xks_proxy_connectivity
@@ -577,6 +616,14 @@ class CustomKeyStore(pulumi.CustomResource):
     @pulumi.getter(name="keyStorePassword")
     def key_store_password(self) -> pulumi.Output[Optional[builtins.str]]:
         return pulumi.get(self, "key_store_password")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="trustAnchorCertificate")

@@ -25,6 +25,7 @@ public final class GetDomainIdentityResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
      * 
@@ -53,6 +54,9 @@ public final class GetDomainIdentityResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
      * 
@@ -73,6 +77,7 @@ public final class GetDomainIdentityResult {
         private String arn;
         private String domain;
         private String id;
+        private String region;
         private String verificationToken;
         public Builder() {}
         public Builder(GetDomainIdentityResult defaults) {
@@ -80,6 +85,7 @@ public final class GetDomainIdentityResult {
     	      this.arn = defaults.arn;
     	      this.domain = defaults.domain;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.verificationToken = defaults.verificationToken;
         }
 
@@ -108,6 +114,14 @@ public final class GetDomainIdentityResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDomainIdentityResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder verificationToken(String verificationToken) {
             if (verificationToken == null) {
               throw new MissingRequiredPropertyException("GetDomainIdentityResult", "verificationToken");
@@ -120,6 +134,7 @@ public final class GetDomainIdentityResult {
             _resultValue.arn = arn;
             _resultValue.domain = domain;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.verificationToken = verificationToken;
             return _resultValue;
         }

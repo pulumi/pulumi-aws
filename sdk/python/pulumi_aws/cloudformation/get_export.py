@@ -27,7 +27,7 @@ class GetExportResult:
     """
     A collection of values returned by getExport.
     """
-    def __init__(__self__, exporting_stack_id=None, id=None, name=None, value=None):
+    def __init__(__self__, exporting_stack_id=None, id=None, name=None, region=None, value=None):
         if exporting_stack_id and not isinstance(exporting_stack_id, str):
             raise TypeError("Expected argument 'exporting_stack_id' to be a str")
         pulumi.set(__self__, "exporting_stack_id", exporting_stack_id)
@@ -37,6 +37,9 @@ class GetExportResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if value and not isinstance(value, str):
             raise TypeError("Expected argument 'value' to be a str")
         pulumi.set(__self__, "value", value)
@@ -64,6 +67,11 @@ class GetExportResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def value(self) -> builtins.str:
         """
         Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
@@ -80,10 +88,12 @@ class AwaitableGetExportResult(GetExportResult):
             exporting_stack_id=self.exporting_stack_id,
             id=self.id,
             name=self.name,
+            region=self.region,
             value=self.value)
 
 
 def get_export(name: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportResult:
     """
     The CloudFormation Export data source allows access to stack
@@ -106,9 +116,11 @@ def get_export(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:cloudformation/getExport:getExport', __args__, opts=opts, typ=GetExportResult).value
 
@@ -116,8 +128,10 @@ def get_export(name: Optional[builtins.str] = None,
         exporting_stack_id=pulumi.get(__ret__, 'exporting_stack_id'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         value=pulumi.get(__ret__, 'value'))
 def get_export_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExportResult]:
     """
     The CloudFormation Export data source allows access to stack
@@ -140,13 +154,16 @@ def get_export_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudformation/getExport:getExport', __args__, opts=opts, typ=GetExportResult)
     return __ret__.apply(lambda __response__: GetExportResult(
         exporting_stack_id=pulumi.get(__response__, 'exporting_stack_id'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         value=pulumi.get(__response__, 'value')))

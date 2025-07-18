@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,14 +23,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -70,6 +70,8 @@ type PermissionSet struct {
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 	// The name of the Permission Set.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The relay state URL used to redirect users within the application during the federation authentication process.
 	RelayState pulumi.StringPtrOutput `pulumi:"relayState"`
 	// The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
@@ -77,8 +79,6 @@ type PermissionSet struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -125,6 +125,8 @@ type permissionSetState struct {
 	InstanceArn *string `pulumi:"instanceArn"`
 	// The name of the Permission Set.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The relay state URL used to redirect users within the application during the federation authentication process.
 	RelayState *string `pulumi:"relayState"`
 	// The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
@@ -132,8 +134,6 @@ type permissionSetState struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -148,6 +148,8 @@ type PermissionSetState struct {
 	InstanceArn pulumi.StringPtrInput
 	// The name of the Permission Set.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The relay state URL used to redirect users within the application during the federation authentication process.
 	RelayState pulumi.StringPtrInput
 	// The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
@@ -155,8 +157,6 @@ type PermissionSetState struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -171,6 +171,8 @@ type permissionSetArgs struct {
 	InstanceArn string `pulumi:"instanceArn"`
 	// The name of the Permission Set.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The relay state URL used to redirect users within the application during the federation authentication process.
 	RelayState *string `pulumi:"relayState"`
 	// The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
@@ -187,6 +189,8 @@ type PermissionSetArgs struct {
 	InstanceArn pulumi.StringInput
 	// The name of the Permission Set.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The relay state URL used to redirect users within the application during the federation authentication process.
 	RelayState pulumi.StringPtrInput
 	// The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
@@ -307,6 +311,11 @@ func (o PermissionSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o PermissionSetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *PermissionSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The relay state URL used to redirect users within the application during the federation authentication process.
 func (o PermissionSetOutput) RelayState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringPtrOutput { return v.RelayState }).(pulumi.StringPtrOutput)
@@ -323,8 +332,6 @@ func (o PermissionSetOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o PermissionSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

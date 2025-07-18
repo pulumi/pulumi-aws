@@ -25,8 +25,8 @@ class SiteToSiteVpnAttachmentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a SiteToSiteVpnAttachment resource.
-        :param pulumi.Input[builtins.str] core_network_id: The ID of a core network for the VPN attachment.
-        :param pulumi.Input[builtins.str] vpn_connection_arn: The ARN of the site-to-site VPN connection.
+        :param pulumi.Input[builtins.str] core_network_id: ID of a core network for the VPN attachment.
+        :param pulumi.Input[builtins.str] vpn_connection_arn: ARN of the site-to-site VPN connection.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -40,7 +40,7 @@ class SiteToSiteVpnAttachmentArgs:
     @pulumi.getter(name="coreNetworkId")
     def core_network_id(self) -> pulumi.Input[builtins.str]:
         """
-        The ID of a core network for the VPN attachment.
+        ID of a core network for the VPN attachment.
         """
         return pulumi.get(self, "core_network_id")
 
@@ -52,7 +52,7 @@ class SiteToSiteVpnAttachmentArgs:
     @pulumi.getter(name="vpnConnectionArn")
     def vpn_connection_arn(self) -> pulumi.Input[builtins.str]:
         """
-        The ARN of the site-to-site VPN connection.
+        ARN of the site-to-site VPN connection.
 
         The following arguments are optional:
         """
@@ -93,19 +93,19 @@ class _SiteToSiteVpnAttachmentState:
                  vpn_connection_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering SiteToSiteVpnAttachment resources.
-        :param pulumi.Input[builtins.str] arn: The ARN of the attachment.
-        :param pulumi.Input[builtins.int] attachment_policy_rule_number: The policy rule number associated with the attachment.
-        :param pulumi.Input[builtins.str] attachment_type: The type of attachment.
-        :param pulumi.Input[builtins.str] core_network_arn: The ARN of a core network.
-        :param pulumi.Input[builtins.str] core_network_id: The ID of a core network for the VPN attachment.
-        :param pulumi.Input[builtins.str] edge_location: The Region where the edge is located.
-        :param pulumi.Input[builtins.str] owner_account_id: The ID of the attachment account owner.
-        :param pulumi.Input[builtins.str] resource_arn: The attachment resource ARN.
-        :param pulumi.Input[builtins.str] segment_name: The name of the segment attachment.
-        :param pulumi.Input[builtins.str] state: The state of the attachment.
+        :param pulumi.Input[builtins.str] arn: ARN of the attachment.
+        :param pulumi.Input[builtins.int] attachment_policy_rule_number: Policy rule number associated with the attachment.
+        :param pulumi.Input[builtins.str] attachment_type: Type of attachment.
+        :param pulumi.Input[builtins.str] core_network_arn: ARN of a core network.
+        :param pulumi.Input[builtins.str] core_network_id: ID of a core network for the VPN attachment.
+        :param pulumi.Input[builtins.str] edge_location: Region where the edge is located.
+        :param pulumi.Input[builtins.str] owner_account_id: ID of the attachment account owner.
+        :param pulumi.Input[builtins.str] resource_arn: Attachment resource ARN.
+        :param pulumi.Input[builtins.str] segment_name: Name of the segment attachment.
+        :param pulumi.Input[builtins.str] state: State of the attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[builtins.str] vpn_connection_arn: The ARN of the site-to-site VPN connection.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[builtins.str] vpn_connection_arn: ARN of the site-to-site VPN connection.
                
                The following arguments are optional:
         """
@@ -132,9 +132,6 @@ class _SiteToSiteVpnAttachmentState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpn_connection_arn is not None:
             pulumi.set(__self__, "vpn_connection_arn", vpn_connection_arn)
@@ -143,7 +140,7 @@ class _SiteToSiteVpnAttachmentState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ARN of the attachment.
+        ARN of the attachment.
         """
         return pulumi.get(self, "arn")
 
@@ -155,7 +152,7 @@ class _SiteToSiteVpnAttachmentState:
     @pulumi.getter(name="attachmentPolicyRuleNumber")
     def attachment_policy_rule_number(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The policy rule number associated with the attachment.
+        Policy rule number associated with the attachment.
         """
         return pulumi.get(self, "attachment_policy_rule_number")
 
@@ -167,7 +164,7 @@ class _SiteToSiteVpnAttachmentState:
     @pulumi.getter(name="attachmentType")
     def attachment_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The type of attachment.
+        Type of attachment.
         """
         return pulumi.get(self, "attachment_type")
 
@@ -179,7 +176,7 @@ class _SiteToSiteVpnAttachmentState:
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ARN of a core network.
+        ARN of a core network.
         """
         return pulumi.get(self, "core_network_arn")
 
@@ -191,7 +188,7 @@ class _SiteToSiteVpnAttachmentState:
     @pulumi.getter(name="coreNetworkId")
     def core_network_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ID of a core network for the VPN attachment.
+        ID of a core network for the VPN attachment.
         """
         return pulumi.get(self, "core_network_id")
 
@@ -203,7 +200,7 @@ class _SiteToSiteVpnAttachmentState:
     @pulumi.getter(name="edgeLocation")
     def edge_location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Region where the edge is located.
+        Region where the edge is located.
         """
         return pulumi.get(self, "edge_location")
 
@@ -215,7 +212,7 @@ class _SiteToSiteVpnAttachmentState:
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ID of the attachment account owner.
+        ID of the attachment account owner.
         """
         return pulumi.get(self, "owner_account_id")
 
@@ -227,7 +224,7 @@ class _SiteToSiteVpnAttachmentState:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The attachment resource ARN.
+        Attachment resource ARN.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -239,7 +236,7 @@ class _SiteToSiteVpnAttachmentState:
     @pulumi.getter(name="segmentName")
     def segment_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the segment attachment.
+        Name of the segment attachment.
         """
         return pulumi.get(self, "segment_name")
 
@@ -251,7 +248,7 @@ class _SiteToSiteVpnAttachmentState:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The state of the attachment.
+        State of the attachment.
         """
         return pulumi.get(self, "state")
 
@@ -273,10 +270,9 @@ class _SiteToSiteVpnAttachmentState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -288,7 +284,7 @@ class _SiteToSiteVpnAttachmentState:
     @pulumi.getter(name="vpnConnectionArn")
     def vpn_connection_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ARN of the site-to-site VPN connection.
+        ARN of the site-to-site VPN connection.
 
         The following arguments are optional:
         """
@@ -310,7 +306,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                  vpn_connection_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Network Manager SiteToSiteAttachment.
+        Manages a Network Manager site-to-site VPN attachment.
 
         ## Example Usage
 
@@ -335,9 +331,9 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] core_network_id: The ID of a core network for the VPN attachment.
+        :param pulumi.Input[builtins.str] core_network_id: ID of a core network for the VPN attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[builtins.str] vpn_connection_arn: The ARN of the site-to-site VPN connection.
+        :param pulumi.Input[builtins.str] vpn_connection_arn: ARN of the site-to-site VPN connection.
                
                The following arguments are optional:
         """
@@ -348,7 +344,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                  args: SiteToSiteVpnAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Network Manager SiteToSiteAttachment.
+        Manages a Network Manager site-to-site VPN attachment.
 
         ## Example Usage
 
@@ -445,19 +441,19 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] arn: The ARN of the attachment.
-        :param pulumi.Input[builtins.int] attachment_policy_rule_number: The policy rule number associated with the attachment.
-        :param pulumi.Input[builtins.str] attachment_type: The type of attachment.
-        :param pulumi.Input[builtins.str] core_network_arn: The ARN of a core network.
-        :param pulumi.Input[builtins.str] core_network_id: The ID of a core network for the VPN attachment.
-        :param pulumi.Input[builtins.str] edge_location: The Region where the edge is located.
-        :param pulumi.Input[builtins.str] owner_account_id: The ID of the attachment account owner.
-        :param pulumi.Input[builtins.str] resource_arn: The attachment resource ARN.
-        :param pulumi.Input[builtins.str] segment_name: The name of the segment attachment.
-        :param pulumi.Input[builtins.str] state: The state of the attachment.
+        :param pulumi.Input[builtins.str] arn: ARN of the attachment.
+        :param pulumi.Input[builtins.int] attachment_policy_rule_number: Policy rule number associated with the attachment.
+        :param pulumi.Input[builtins.str] attachment_type: Type of attachment.
+        :param pulumi.Input[builtins.str] core_network_arn: ARN of a core network.
+        :param pulumi.Input[builtins.str] core_network_id: ID of a core network for the VPN attachment.
+        :param pulumi.Input[builtins.str] edge_location: Region where the edge is located.
+        :param pulumi.Input[builtins.str] owner_account_id: ID of the attachment account owner.
+        :param pulumi.Input[builtins.str] resource_arn: Attachment resource ARN.
+        :param pulumi.Input[builtins.str] segment_name: Name of the segment attachment.
+        :param pulumi.Input[builtins.str] state: State of the attachment.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[builtins.str] vpn_connection_arn: The ARN of the site-to-site VPN connection.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[builtins.str] vpn_connection_arn: ARN of the site-to-site VPN connection.
                
                The following arguments are optional:
         """
@@ -484,7 +480,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
         """
-        The ARN of the attachment.
+        ARN of the attachment.
         """
         return pulumi.get(self, "arn")
 
@@ -492,7 +488,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
     @pulumi.getter(name="attachmentPolicyRuleNumber")
     def attachment_policy_rule_number(self) -> pulumi.Output[builtins.int]:
         """
-        The policy rule number associated with the attachment.
+        Policy rule number associated with the attachment.
         """
         return pulumi.get(self, "attachment_policy_rule_number")
 
@@ -500,7 +496,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
     @pulumi.getter(name="attachmentType")
     def attachment_type(self) -> pulumi.Output[builtins.str]:
         """
-        The type of attachment.
+        Type of attachment.
         """
         return pulumi.get(self, "attachment_type")
 
@@ -508,7 +504,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> pulumi.Output[builtins.str]:
         """
-        The ARN of a core network.
+        ARN of a core network.
         """
         return pulumi.get(self, "core_network_arn")
 
@@ -516,7 +512,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
     @pulumi.getter(name="coreNetworkId")
     def core_network_id(self) -> pulumi.Output[builtins.str]:
         """
-        The ID of a core network for the VPN attachment.
+        ID of a core network for the VPN attachment.
         """
         return pulumi.get(self, "core_network_id")
 
@@ -524,7 +520,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
     @pulumi.getter(name="edgeLocation")
     def edge_location(self) -> pulumi.Output[builtins.str]:
         """
-        The Region where the edge is located.
+        Region where the edge is located.
         """
         return pulumi.get(self, "edge_location")
 
@@ -532,7 +528,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
     @pulumi.getter(name="ownerAccountId")
     def owner_account_id(self) -> pulumi.Output[builtins.str]:
         """
-        The ID of the attachment account owner.
+        ID of the attachment account owner.
         """
         return pulumi.get(self, "owner_account_id")
 
@@ -540,7 +536,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[builtins.str]:
         """
-        The attachment resource ARN.
+        Attachment resource ARN.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -548,7 +544,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
     @pulumi.getter(name="segmentName")
     def segment_name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the segment attachment.
+        Name of the segment attachment.
         """
         return pulumi.get(self, "segment_name")
 
@@ -556,7 +552,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
     @pulumi.getter
     def state(self) -> pulumi.Output[builtins.str]:
         """
-        The state of the attachment.
+        State of the attachment.
         """
         return pulumi.get(self, "state")
 
@@ -570,10 +566,9 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -581,7 +576,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
     @pulumi.getter(name="vpnConnectionArn")
     def vpn_connection_arn(self) -> pulumi.Output[builtins.str]:
         """
-        The ARN of the site-to-site VPN connection.
+        ARN of the site-to-site VPN connection.
 
         The following arguments are optional:
         """

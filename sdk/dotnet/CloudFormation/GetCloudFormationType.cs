@@ -97,6 +97,12 @@ namespace Pulumi.Aws.CloudFormation
         public string? Arn { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// CloudFormation Registry Type. For example, `RESOURCE`.
         /// </summary>
         [Input("type")]
@@ -127,6 +133,12 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// CloudFormation Registry Type. For example, `RESOURCE`.
@@ -193,6 +205,7 @@ namespace Pulumi.Aws.CloudFormation
         /// Provisioning behavior of the CloudFormation Type.
         /// </summary>
         public readonly string ProvisioningType;
+        public readonly string Region;
         /// <summary>
         /// JSON document of the CloudFormation Type schema.
         /// </summary>
@@ -232,6 +245,8 @@ namespace Pulumi.Aws.CloudFormation
 
             string provisioningType,
 
+            string region,
+
             string schema,
 
             string sourceUrl,
@@ -256,6 +271,7 @@ namespace Pulumi.Aws.CloudFormation
             IsDefaultVersion = isDefaultVersion;
             LoggingConfigs = loggingConfigs;
             ProvisioningType = provisioningType;
+            Region = region;
             Schema = schema;
             SourceUrl = sourceUrl;
             Type = type;

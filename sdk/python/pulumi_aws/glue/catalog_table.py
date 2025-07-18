@@ -31,6 +31,7 @@ class CatalogTableArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]] = None,
                  partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention: Optional[pulumi.Input[builtins.int]] = None,
                  storage_descriptor: Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']] = None,
                  table_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -50,6 +51,7 @@ class CatalogTableArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: Properties associated with this table, as a list of key-value pairs.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention: Retention time for this table.
         :param pulumi.Input['CatalogTableStorageDescriptorArgs'] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         :param pulumi.Input[builtins.str] table_type: Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
@@ -74,6 +76,8 @@ class CatalogTableArgs:
             pulumi.set(__self__, "partition_indices", partition_indices)
         if partition_keys is not None:
             pulumi.set(__self__, "partition_keys", partition_keys)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retention is not None:
             pulumi.set(__self__, "retention", retention)
         if storage_descriptor is not None:
@@ -199,6 +203,18 @@ class CatalogTableArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def retention(self) -> Optional[pulumi.Input[builtins.int]]:
         """
         Retention time for this table.
@@ -283,6 +299,7 @@ class _CatalogTableState:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]] = None,
                  partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention: Optional[pulumi.Input[builtins.int]] = None,
                  storage_descriptor: Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']] = None,
                  table_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -303,6 +320,7 @@ class _CatalogTableState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: Properties associated with this table, as a list of key-value pairs.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention: Retention time for this table.
         :param pulumi.Input['CatalogTableStorageDescriptorArgs'] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         :param pulumi.Input[builtins.str] table_type: Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
@@ -330,6 +348,8 @@ class _CatalogTableState:
             pulumi.set(__self__, "partition_indices", partition_indices)
         if partition_keys is not None:
             pulumi.set(__self__, "partition_keys", partition_keys)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retention is not None:
             pulumi.set(__self__, "retention", retention)
         if storage_descriptor is not None:
@@ -467,6 +487,18 @@ class _CatalogTableState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def retention(self) -> Optional[pulumi.Input[builtins.int]]:
         """
         Retention time for this table.
@@ -553,6 +585,7 @@ class CatalogTable(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict']]]]] = None,
                  partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention: Optional[pulumi.Input[builtins.int]] = None,
                  storage_descriptor: Optional[pulumi.Input[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']]] = None,
                  table_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -650,6 +683,7 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: Properties associated with this table, as a list of key-value pairs.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict']]]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict']]]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention: Retention time for this table.
         :param pulumi.Input[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         :param pulumi.Input[builtins.str] table_type: Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
@@ -764,6 +798,7 @@ class CatalogTable(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict']]]]] = None,
                  partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention: Optional[pulumi.Input[builtins.int]] = None,
                  storage_descriptor: Optional[pulumi.Input[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']]] = None,
                  table_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -790,6 +825,7 @@ class CatalogTable(pulumi.CustomResource):
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["partition_indices"] = partition_indices
             __props__.__dict__["partition_keys"] = partition_keys
+            __props__.__dict__["region"] = region
             __props__.__dict__["retention"] = retention
             __props__.__dict__["storage_descriptor"] = storage_descriptor
             __props__.__dict__["table_type"] = table_type
@@ -817,6 +853,7 @@ class CatalogTable(pulumi.CustomResource):
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict']]]]] = None,
             partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             retention: Optional[pulumi.Input[builtins.int]] = None,
             storage_descriptor: Optional[pulumi.Input[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']]] = None,
             table_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -842,6 +879,7 @@ class CatalogTable(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: Properties associated with this table, as a list of key-value pairs.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionIndexArgs', 'CatalogTablePartitionIndexArgsDict']]]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogTablePartitionKeyArgs', 'CatalogTablePartitionKeyArgsDict']]]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention: Retention time for this table.
         :param pulumi.Input[Union['CatalogTableStorageDescriptorArgs', 'CatalogTableStorageDescriptorArgsDict']] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         :param pulumi.Input[builtins.str] table_type: Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
@@ -863,6 +901,7 @@ class CatalogTable(pulumi.CustomResource):
         __props__.__dict__["parameters"] = parameters
         __props__.__dict__["partition_indices"] = partition_indices
         __props__.__dict__["partition_keys"] = partition_keys
+        __props__.__dict__["region"] = region
         __props__.__dict__["retention"] = retention
         __props__.__dict__["storage_descriptor"] = storage_descriptor
         __props__.__dict__["table_type"] = table_type
@@ -952,6 +991,14 @@ class CatalogTable(pulumi.CustomResource):
         Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         """
         return pulumi.get(self, "partition_keys")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

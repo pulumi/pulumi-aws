@@ -172,6 +172,10 @@ export class StackSet extends pulumi.CustomResource {
      */
     public readonly permissionModel!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Unique identifier of the StackSet.
      */
     public /*out*/ readonly stackSetId!: pulumi.Output<string>;
@@ -181,8 +185,6 @@ export class StackSet extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -219,6 +221,7 @@ export class StackSet extends pulumi.CustomResource {
             resourceInputs["operationPreferences"] = state ? state.operationPreferences : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["permissionModel"] = state ? state.permissionModel : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["stackSetId"] = state ? state.stackSetId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -237,6 +240,7 @@ export class StackSet extends pulumi.CustomResource {
             resourceInputs["operationPreferences"] = args ? args.operationPreferences : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["permissionModel"] = args ? args.permissionModel : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["templateBody"] = args ? args.templateBody : undefined;
             resourceInputs["templateUrl"] = args ? args.templateUrl : undefined;
@@ -302,6 +306,10 @@ export interface StackSetState {
      */
     permissionModel?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Unique identifier of the StackSet.
      */
     stackSetId?: pulumi.Input<string>;
@@ -311,8 +319,6 @@ export interface StackSetState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -373,6 +379,10 @@ export interface StackSetArgs {
      * Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
      */
     permissionModel?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

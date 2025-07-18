@@ -23,7 +23,8 @@ class IngestionArgs:
                  data_set_id: pulumi.Input[builtins.str],
                  ingestion_id: pulumi.Input[builtins.str],
                  ingestion_type: pulumi.Input[builtins.str],
-                 aws_account_id: Optional[pulumi.Input[builtins.str]] = None):
+                 aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Ingestion resource.
         :param pulumi.Input[builtins.str] data_set_id: ID of the dataset used in the ingestion.
@@ -32,12 +33,15 @@ class IngestionArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "data_set_id", data_set_id)
         pulumi.set(__self__, "ingestion_id", ingestion_id)
         pulumi.set(__self__, "ingestion_type", ingestion_type)
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="dataSetId")
@@ -89,6 +93,18 @@ class IngestionArgs:
     def aws_account_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _IngestionState:
@@ -98,7 +114,8 @@ class _IngestionState:
                  data_set_id: Optional[pulumi.Input[builtins.str]] = None,
                  ingestion_id: Optional[pulumi.Input[builtins.str]] = None,
                  ingestion_status: Optional[pulumi.Input[builtins.str]] = None,
-                 ingestion_type: Optional[pulumi.Input[builtins.str]] = None):
+                 ingestion_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Ingestion resources.
         :param pulumi.Input[builtins.str] arn: ARN of the Ingestion.
@@ -109,6 +126,7 @@ class _IngestionState:
         :param pulumi.Input[builtins.str] ingestion_type: Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -122,6 +140,8 @@ class _IngestionState:
             pulumi.set(__self__, "ingestion_status", ingestion_status)
         if ingestion_type is not None:
             pulumi.set(__self__, "ingestion_type", ingestion_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -197,6 +217,18 @@ class _IngestionState:
     def ingestion_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "ingestion_type", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:quicksight/ingestion:Ingestion")
 class Ingestion(pulumi.CustomResource):
@@ -208,6 +240,7 @@ class Ingestion(pulumi.CustomResource):
                  data_set_id: Optional[pulumi.Input[builtins.str]] = None,
                  ingestion_id: Optional[pulumi.Input[builtins.str]] = None,
                  ingestion_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS QuickSight Ingestion.
@@ -242,6 +275,7 @@ class Ingestion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ingestion_type: Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -293,6 +327,7 @@ class Ingestion(pulumi.CustomResource):
                  data_set_id: Optional[pulumi.Input[builtins.str]] = None,
                  ingestion_id: Optional[pulumi.Input[builtins.str]] = None,
                  ingestion_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -312,6 +347,7 @@ class Ingestion(pulumi.CustomResource):
             if ingestion_type is None and not opts.urn:
                 raise TypeError("Missing required property 'ingestion_type'")
             __props__.__dict__["ingestion_type"] = ingestion_type
+            __props__.__dict__["region"] = region
             __props__.__dict__["arn"] = None
             __props__.__dict__["ingestion_status"] = None
         super(Ingestion, __self__).__init__(
@@ -329,7 +365,8 @@ class Ingestion(pulumi.CustomResource):
             data_set_id: Optional[pulumi.Input[builtins.str]] = None,
             ingestion_id: Optional[pulumi.Input[builtins.str]] = None,
             ingestion_status: Optional[pulumi.Input[builtins.str]] = None,
-            ingestion_type: Optional[pulumi.Input[builtins.str]] = None) -> 'Ingestion':
+            ingestion_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'Ingestion':
         """
         Get an existing Ingestion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -345,6 +382,7 @@ class Ingestion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ingestion_type: Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -356,6 +394,7 @@ class Ingestion(pulumi.CustomResource):
         __props__.__dict__["ingestion_id"] = ingestion_id
         __props__.__dict__["ingestion_status"] = ingestion_status
         __props__.__dict__["ingestion_type"] = ingestion_type
+        __props__.__dict__["region"] = region
         return Ingestion(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -407,4 +446,12 @@ class Ingestion(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "ingestion_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

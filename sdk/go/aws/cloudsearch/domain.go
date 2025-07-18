@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudsearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudsearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,6 +88,8 @@ type Domain struct {
 	MultiAz pulumi.BoolOutput `pulumi:"multiAz"`
 	// The name of the CloudSearch domain.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Domain scaling parameters. Documented below.
 	ScalingParameters DomainScalingParametersOutput `pulumi:"scalingParameters"`
 	// The service endpoint for requesting search results from a search domain.
@@ -138,6 +140,8 @@ type domainState struct {
 	MultiAz *bool `pulumi:"multiAz"`
 	// The name of the CloudSearch domain.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Domain scaling parameters. Documented below.
 	ScalingParameters *DomainScalingParameters `pulumi:"scalingParameters"`
 	// The service endpoint for requesting search results from a search domain.
@@ -159,6 +163,8 @@ type DomainState struct {
 	MultiAz pulumi.BoolPtrInput
 	// The name of the CloudSearch domain.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Domain scaling parameters. Documented below.
 	ScalingParameters DomainScalingParametersPtrInput
 	// The service endpoint for requesting search results from a search domain.
@@ -178,6 +184,8 @@ type domainArgs struct {
 	MultiAz *bool `pulumi:"multiAz"`
 	// The name of the CloudSearch domain.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Domain scaling parameters. Documented below.
 	ScalingParameters *DomainScalingParameters `pulumi:"scalingParameters"`
 }
@@ -192,6 +200,8 @@ type DomainArgs struct {
 	MultiAz pulumi.BoolPtrInput
 	// The name of the CloudSearch domain.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Domain scaling parameters. Documented below.
 	ScalingParameters DomainScalingParametersPtrInput
 }
@@ -316,6 +326,11 @@ func (o DomainOutput) MultiAz() pulumi.BoolOutput {
 // The name of the CloudSearch domain.
 func (o DomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DomainOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Domain scaling parameters. Documented below.

@@ -29,8 +29,8 @@ namespace Pulumi.Aws.Ses
         /// });
         /// ```
         /// </summary>
-        public static Task<GetActiveReceiptRuleSetResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetActiveReceiptRuleSetResult>("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetActiveReceiptRuleSetResult> InvokeAsync(GetActiveReceiptRuleSetArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetActiveReceiptRuleSetResult>("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", args ?? new GetActiveReceiptRuleSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the active SES receipt rule set
@@ -50,8 +50,8 @@ namespace Pulumi.Aws.Ses
         /// });
         /// ```
         /// </summary>
-        public static Output<GetActiveReceiptRuleSetResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetActiveReceiptRuleSetResult>("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetActiveReceiptRuleSetResult> Invoke(GetActiveReceiptRuleSetInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetActiveReceiptRuleSetResult>("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", args ?? new GetActiveReceiptRuleSetInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the active SES receipt rule set
@@ -71,8 +71,37 @@ namespace Pulumi.Aws.Ses
         /// });
         /// ```
         /// </summary>
-        public static Output<GetActiveReceiptRuleSetResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetActiveReceiptRuleSetResult>("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetActiveReceiptRuleSetResult> Invoke(GetActiveReceiptRuleSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetActiveReceiptRuleSetResult>("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", args ?? new GetActiveReceiptRuleSetInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetActiveReceiptRuleSetArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetActiveReceiptRuleSetArgs()
+        {
+        }
+        public static new GetActiveReceiptRuleSetArgs Empty => new GetActiveReceiptRuleSetArgs();
+    }
+
+    public sealed class GetActiveReceiptRuleSetInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetActiveReceiptRuleSetInvokeArgs()
+        {
+        }
+        public static new GetActiveReceiptRuleSetInvokeArgs Empty => new GetActiveReceiptRuleSetInvokeArgs();
     }
 
 
@@ -87,6 +116,7 @@ namespace Pulumi.Aws.Ses
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// Name of the rule set
         /// </summary>
@@ -98,10 +128,13 @@ namespace Pulumi.Aws.Ses
 
             string id,
 
+            string region,
+
             string ruleSetName)
         {
             Arn = arn;
             Id = id;
+            Region = region;
             RuleSetName = ruleSetName;
         }
     }

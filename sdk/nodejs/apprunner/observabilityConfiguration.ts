@@ -80,6 +80,10 @@ export class ObservabilityConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly observabilityConfigurationRevision!: pulumi.Output<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -89,8 +93,6 @@ export class ObservabilityConfiguration extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -115,6 +117,7 @@ export class ObservabilityConfiguration extends pulumi.CustomResource {
             resourceInputs["latest"] = state ? state.latest : undefined;
             resourceInputs["observabilityConfigurationName"] = state ? state.observabilityConfigurationName : undefined;
             resourceInputs["observabilityConfigurationRevision"] = state ? state.observabilityConfigurationRevision : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -125,6 +128,7 @@ export class ObservabilityConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'observabilityConfigurationName'");
             }
             resourceInputs["observabilityConfigurationName"] = args ? args.observabilityConfigurationName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["traceConfiguration"] = args ? args.traceConfiguration : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -159,6 +163,10 @@ export interface ObservabilityConfigurationState {
      */
     observabilityConfigurationRevision?: pulumi.Input<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
      */
     status?: pulumi.Input<string>;
@@ -168,8 +176,6 @@ export interface ObservabilityConfigurationState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -186,6 +192,10 @@ export interface ObservabilityConfigurationArgs {
      * Name of the observability configuration.
      */
     observabilityConfigurationName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

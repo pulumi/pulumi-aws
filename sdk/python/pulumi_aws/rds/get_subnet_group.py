@@ -27,7 +27,7 @@ class GetSubnetGroupResult:
     """
     A collection of values returned by getSubnetGroup.
     """
-    def __init__(__self__, arn=None, description=None, id=None, name=None, status=None, subnet_ids=None, supported_network_types=None, vpc_id=None):
+    def __init__(__self__, arn=None, description=None, id=None, name=None, region=None, status=None, subnet_ids=None, supported_network_types=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +40,9 @@ class GetSubnetGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -84,6 +87,11 @@ class GetSubnetGroupResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def status(self) -> builtins.str:
         """
         Provides the status of the DB subnet group.
@@ -125,6 +133,7 @@ class AwaitableGetSubnetGroupResult(GetSubnetGroupResult):
             description=self.description,
             id=self.id,
             name=self.name,
+            region=self.region,
             status=self.status,
             subnet_ids=self.subnet_ids,
             supported_network_types=self.supported_network_types,
@@ -132,6 +141,7 @@ class AwaitableGetSubnetGroupResult(GetSubnetGroupResult):
 
 
 def get_subnet_group(name: Optional[builtins.str] = None,
+                     region: Optional[builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubnetGroupResult:
     """
     Use this data source to get information about an RDS subnet group.
@@ -147,9 +157,11 @@ def get_subnet_group(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the RDS database subnet group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:rds/getSubnetGroup:getSubnetGroup', __args__, opts=opts, typ=GetSubnetGroupResult).value
 
@@ -158,11 +170,13 @@ def get_subnet_group(name: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         supported_network_types=pulumi.get(__ret__, 'supported_network_types'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_subnet_group_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetGroupResult]:
     """
     Use this data source to get information about an RDS subnet group.
@@ -178,9 +192,11 @@ def get_subnet_group_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the RDS database subnet group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getSubnetGroup:getSubnetGroup', __args__, opts=opts, typ=GetSubnetGroupResult)
     return __ret__.apply(lambda __response__: GetSubnetGroupResult(
@@ -188,6 +204,7 @@ def get_subnet_group_output(name: Optional[pulumi.Input[builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),
         supported_network_types=pulumi.get(__response__, 'supported_network_types'),

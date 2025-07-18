@@ -29,7 +29,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_stop=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, enclave_options=None, ephemeral_block_devices=None, filters=None, get_password_data=None, get_user_data=None, host_id=None, host_resource_group_arn=None, iam_instance_profile=None, id=None, instance_id=None, instance_state=None, instance_tags=None, instance_type=None, ipv6_addresses=None, key_name=None, launch_time=None, maintenance_options=None, metadata_options=None, monitoring=None, network_interface_id=None, outpost_arn=None, password_data=None, placement_group=None, placement_partition_number=None, private_dns=None, private_dns_name_options=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, secondary_private_ips=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None):
+    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_stop=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, enclave_options=None, ephemeral_block_devices=None, filters=None, get_password_data=None, get_user_data=None, host_id=None, host_resource_group_arn=None, iam_instance_profile=None, id=None, instance_id=None, instance_state=None, instance_tags=None, instance_type=None, ipv6_addresses=None, key_name=None, launch_time=None, maintenance_options=None, metadata_options=None, monitoring=None, network_interface_id=None, outpost_arn=None, password_data=None, placement_group=None, placement_partition_number=None, private_dns=None, private_dns_name_options=None, private_ip=None, public_dns=None, public_ip=None, region=None, root_block_devices=None, secondary_private_ips=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None):
         if ami and not isinstance(ami, str):
             raise TypeError("Expected argument 'ami' to be a str")
         pulumi.set(__self__, "ami", ami)
@@ -144,6 +144,9 @@ class GetInstanceResult:
         if public_ip and not isinstance(public_ip, str):
             raise TypeError("Expected argument 'public_ip' to be a str")
         pulumi.set(__self__, "public_ip", public_ip)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if root_block_devices and not isinstance(root_block_devices, list):
             raise TypeError("Expected argument 'root_block_devices' to be a list")
         pulumi.set(__self__, "root_block_devices", root_block_devices)
@@ -465,6 +468,11 @@ class GetInstanceResult:
         return pulumi.get(self, "public_ip")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="rootBlockDevices")
     def root_block_devices(self) -> Sequence['outputs.GetInstanceRootBlockDeviceResult']:
         """
@@ -589,6 +597,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             private_ip=self.private_ip,
             public_dns=self.public_dns,
             public_ip=self.public_ip,
+            region=self.region,
             root_block_devices=self.root_block_devices,
             secondary_private_ips=self.secondary_private_ips,
             security_groups=self.security_groups,
@@ -606,6 +615,7 @@ def get_instance(filters: Optional[Sequence[Union['GetInstanceFilterArgs', 'GetI
                  get_user_data: Optional[builtins.bool] = None,
                  instance_id: Optional[builtins.str] = None,
                  instance_tags: Optional[Mapping[str, builtins.str]] = None,
+                 region: Optional[builtins.str] = None,
                  tags: Optional[Mapping[str, builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceResult:
     """
@@ -645,6 +655,7 @@ def get_instance(filters: Optional[Sequence[Union['GetInstanceFilterArgs', 'GetI
     :param builtins.str instance_id: Specify the exact Instance ID with which to populate the data source.
     :param Mapping[str, builtins.str] instance_tags: Map of tags, each pair of which must
            exactly match a pair on the desired Instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the Instance.
     """
     __args__ = dict()
@@ -653,6 +664,7 @@ def get_instance(filters: Optional[Sequence[Union['GetInstanceFilterArgs', 'GetI
     __args__['getUserData'] = get_user_data
     __args__['instanceId'] = instance_id
     __args__['instanceTags'] = instance_tags
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInstance:getInstance', __args__, opts=opts, typ=GetInstanceResult).value
@@ -696,6 +708,7 @@ def get_instance(filters: Optional[Sequence[Union['GetInstanceFilterArgs', 'GetI
         private_ip=pulumi.get(__ret__, 'private_ip'),
         public_dns=pulumi.get(__ret__, 'public_dns'),
         public_ip=pulumi.get(__ret__, 'public_ip'),
+        region=pulumi.get(__ret__, 'region'),
         root_block_devices=pulumi.get(__ret__, 'root_block_devices'),
         secondary_private_ips=pulumi.get(__ret__, 'secondary_private_ips'),
         security_groups=pulumi.get(__ret__, 'security_groups'),
@@ -711,6 +724,7 @@ def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
                         get_user_data: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                         instance_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         instance_tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
     """
@@ -750,6 +764,7 @@ def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
     :param builtins.str instance_id: Specify the exact Instance ID with which to populate the data source.
     :param Mapping[str, builtins.str] instance_tags: Map of tags, each pair of which must
            exactly match a pair on the desired Instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the Instance.
     """
     __args__ = dict()
@@ -758,6 +773,7 @@ def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
     __args__['getUserData'] = get_user_data
     __args__['instanceId'] = instance_id
     __args__['instanceTags'] = instance_tags
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInstance:getInstance', __args__, opts=opts, typ=GetInstanceResult)
@@ -800,6 +816,7 @@ def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
         private_ip=pulumi.get(__response__, 'private_ip'),
         public_dns=pulumi.get(__response__, 'public_dns'),
         public_ip=pulumi.get(__response__, 'public_ip'),
+        region=pulumi.get(__response__, 'region'),
         root_block_devices=pulumi.get(__response__, 'root_block_devices'),
         secondary_private_ips=pulumi.get(__response__, 'secondary_private_ips'),
         security_groups=pulumi.get(__response__, 'security_groups'),

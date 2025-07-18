@@ -21,12 +21,12 @@ import * as utilities from "../utilities";
  *     connectionAlias: "outbound_connection",
  *     localDomainInfo: {
  *         ownerId: current.then(current => current.accountId),
- *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.name),
+ *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.region),
  *         domainName: localDomain.domainName,
  *     },
  *     remoteDomainInfo: {
  *         ownerId: current.then(current => current.accountId),
- *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.name),
+ *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.region),
  *         domainName: remoteDomain.domainName,
  *     },
  * });
@@ -77,6 +77,10 @@ export class InboundConnectionAccepter extends pulumi.CustomResource {
      * Status of the connection request.
      */
     public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a InboundConnectionAccepter resource with the given unique name, arguments, and options.
@@ -93,12 +97,14 @@ export class InboundConnectionAccepter extends pulumi.CustomResource {
             const state = argsOrState as InboundConnectionAccepterState | undefined;
             resourceInputs["connectionId"] = state ? state.connectionId : undefined;
             resourceInputs["connectionStatus"] = state ? state.connectionStatus : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as InboundConnectionAccepterArgs | undefined;
             if ((!args || args.connectionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionId'");
             }
             resourceInputs["connectionId"] = args ? args.connectionId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["connectionStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -118,6 +124,10 @@ export interface InboundConnectionAccepterState {
      * Status of the connection request.
      */
     connectionStatus?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -128,4 +138,8 @@ export interface InboundConnectionAccepterArgs {
      * Specifies the ID of the connection to accept.
      */
     connectionId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -97,29 +97,6 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-     * 
-     * @deprecated
-     * instance_id is deprecated. Use targets instead.
-     * 
-     */
-    @Deprecated /* instance_id is deprecated. Use targets instead. */
-    @Import(name="instanceId")
-    private @Nullable Output<String> instanceId;
-
-    /**
-     * @return The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-     * 
-     * @deprecated
-     * instance_id is deprecated. Use targets instead.
-     * 
-     */
-    @Deprecated /* instance_id is deprecated. Use targets instead. */
-    public Optional<Output<String>> instanceId() {
-        return Optional.ofNullable(this.instanceId);
-    }
-
-    /**
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      * 
      */
@@ -192,6 +169,21 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Map<String,String>>> parameters() {
         return Optional.ofNullable(this.parameters);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -281,12 +273,12 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         this.automationTargetParameterName = $.automationTargetParameterName;
         this.complianceSeverity = $.complianceSeverity;
         this.documentVersion = $.documentVersion;
-        this.instanceId = $.instanceId;
         this.maxConcurrency = $.maxConcurrency;
         this.maxErrors = $.maxErrors;
         this.name = $.name;
         this.outputLocation = $.outputLocation;
         this.parameters = $.parameters;
+        this.region = $.region;
         this.scheduleExpression = $.scheduleExpression;
         this.syncCompliance = $.syncCompliance;
         this.tags = $.tags;
@@ -418,35 +410,6 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceId The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * instance_id is deprecated. Use targets instead.
-         * 
-         */
-        @Deprecated /* instance_id is deprecated. Use targets instead. */
-        public Builder instanceId(@Nullable Output<String> instanceId) {
-            $.instanceId = instanceId;
-            return this;
-        }
-
-        /**
-         * @param instanceId The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * instance_id is deprecated. Use targets instead.
-         * 
-         */
-        @Deprecated /* instance_id is deprecated. Use targets instead. */
-        public Builder instanceId(String instanceId) {
-            return instanceId(Output.of(instanceId));
-        }
-
-        /**
          * @param maxConcurrency The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
          * 
          * @return builder
@@ -549,6 +512,27 @@ public final class AssociationArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder parameters(Map<String,String> parameters) {
             return parameters(Output.of(parameters));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

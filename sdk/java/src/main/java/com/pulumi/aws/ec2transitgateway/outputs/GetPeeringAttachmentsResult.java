@@ -24,6 +24,7 @@ public final class GetPeeringAttachmentsResult {
      * 
      */
     private List<String> ids;
+    private String region;
 
     private GetPeeringAttachmentsResult() {}
     public List<GetPeeringAttachmentsFilter> filters() {
@@ -43,6 +44,9 @@ public final class GetPeeringAttachmentsResult {
     public List<String> ids() {
         return this.ids;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -56,12 +60,14 @@ public final class GetPeeringAttachmentsResult {
         private @Nullable List<GetPeeringAttachmentsFilter> filters;
         private String id;
         private List<String> ids;
+        private String region;
         public Builder() {}
         public Builder(GetPeeringAttachmentsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.ids = defaults.ids;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -92,11 +98,20 @@ public final class GetPeeringAttachmentsResult {
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPeeringAttachmentsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetPeeringAttachmentsResult build() {
             final var _resultValue = new GetPeeringAttachmentsResult();
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.ids = ids;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

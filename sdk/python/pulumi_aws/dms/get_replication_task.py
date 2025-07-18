@@ -27,7 +27,7 @@ class GetReplicationTaskResult:
     """
     A collection of values returned by getReplicationTask.
     """
-    def __init__(__self__, cdc_start_position=None, cdc_start_time=None, id=None, migration_type=None, replication_instance_arn=None, replication_task_arn=None, replication_task_id=None, replication_task_settings=None, source_endpoint_arn=None, start_replication_task=None, status=None, table_mappings=None, tags=None, target_endpoint_arn=None):
+    def __init__(__self__, cdc_start_position=None, cdc_start_time=None, id=None, migration_type=None, region=None, replication_instance_arn=None, replication_task_arn=None, replication_task_id=None, replication_task_settings=None, source_endpoint_arn=None, start_replication_task=None, status=None, table_mappings=None, tags=None, target_endpoint_arn=None):
         if cdc_start_position and not isinstance(cdc_start_position, str):
             raise TypeError("Expected argument 'cdc_start_position' to be a str")
         pulumi.set(__self__, "cdc_start_position", cdc_start_position)
@@ -40,6 +40,9 @@ class GetReplicationTaskResult:
         if migration_type and not isinstance(migration_type, str):
             raise TypeError("Expected argument 'migration_type' to be a str")
         pulumi.set(__self__, "migration_type", migration_type)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if replication_instance_arn and not isinstance(replication_instance_arn, str):
             raise TypeError("Expected argument 'replication_instance_arn' to be a str")
         pulumi.set(__self__, "replication_instance_arn", replication_instance_arn)
@@ -102,6 +105,11 @@ class GetReplicationTaskResult:
         The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
         """
         return pulumi.get(self, "migration_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="replicationInstanceArn")
@@ -188,6 +196,7 @@ class AwaitableGetReplicationTaskResult(GetReplicationTaskResult):
             cdc_start_time=self.cdc_start_time,
             id=self.id,
             migration_type=self.migration_type,
+            region=self.region,
             replication_instance_arn=self.replication_instance_arn,
             replication_task_arn=self.replication_task_arn,
             replication_task_id=self.replication_task_id,
@@ -200,7 +209,8 @@ class AwaitableGetReplicationTaskResult(GetReplicationTaskResult):
             target_endpoint_arn=self.target_endpoint_arn)
 
 
-def get_replication_task(replication_task_id: Optional[builtins.str] = None,
+def get_replication_task(region: Optional[builtins.str] = None,
+                         replication_task_id: Optional[builtins.str] = None,
                          tags: Optional[Mapping[str, builtins.str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationTaskResult:
     """
@@ -218,14 +228,11 @@ def get_replication_task(replication_task_id: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str replication_task_id: The replication task identifier.
-           
-           - Must contain from 1 to 255 alphanumeric characters or hyphens.
-           - First character must be a letter.
-           - Cannot end with a hyphen.
-           - Cannot contain two consecutive hyphens.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['replicationTaskId'] = replication_task_id
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -236,6 +243,7 @@ def get_replication_task(replication_task_id: Optional[builtins.str] = None,
         cdc_start_time=pulumi.get(__ret__, 'cdc_start_time'),
         id=pulumi.get(__ret__, 'id'),
         migration_type=pulumi.get(__ret__, 'migration_type'),
+        region=pulumi.get(__ret__, 'region'),
         replication_instance_arn=pulumi.get(__ret__, 'replication_instance_arn'),
         replication_task_arn=pulumi.get(__ret__, 'replication_task_arn'),
         replication_task_id=pulumi.get(__ret__, 'replication_task_id'),
@@ -246,7 +254,8 @@ def get_replication_task(replication_task_id: Optional[builtins.str] = None,
         table_mappings=pulumi.get(__ret__, 'table_mappings'),
         tags=pulumi.get(__ret__, 'tags'),
         target_endpoint_arn=pulumi.get(__ret__, 'target_endpoint_arn'))
-def get_replication_task_output(replication_task_id: Optional[pulumi.Input[builtins.str]] = None,
+def get_replication_task_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                replication_task_id: Optional[pulumi.Input[builtins.str]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationTaskResult]:
     """
@@ -264,14 +273,11 @@ def get_replication_task_output(replication_task_id: Optional[pulumi.Input[built
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str replication_task_id: The replication task identifier.
-           
-           - Must contain from 1 to 255 alphanumeric characters or hyphens.
-           - First character must be a letter.
-           - Cannot end with a hyphen.
-           - Cannot contain two consecutive hyphens.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['replicationTaskId'] = replication_task_id
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -281,6 +287,7 @@ def get_replication_task_output(replication_task_id: Optional[pulumi.Input[built
         cdc_start_time=pulumi.get(__response__, 'cdc_start_time'),
         id=pulumi.get(__response__, 'id'),
         migration_type=pulumi.get(__response__, 'migration_type'),
+        region=pulumi.get(__response__, 'region'),
         replication_instance_arn=pulumi.get(__response__, 'replication_instance_arn'),
         replication_task_arn=pulumi.get(__response__, 'replication_task_arn'),
         replication_task_id=pulumi.get(__response__, 'replication_task_id'),

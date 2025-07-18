@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssoadmin.ApplicationAssignment("example", {
- *     applicationArn: exampleAwsSsoadminApplication.applicationArn,
+ *     applicationArn: exampleAwsSsoadminApplication.arn,
  *     principalId: exampleAwsIdentitystoreUser.userId,
  *     principalType: "USER",
  * });
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssoadmin.ApplicationAssignment("example", {
- *     applicationArn: exampleAwsSsoadminApplication.applicationArn,
+ *     applicationArn: exampleAwsSsoadminApplication.arn,
  *     principalId: exampleAwsIdentitystoreGroup.groupId,
  *     principalType: "GROUP",
  * });
@@ -83,6 +83,10 @@ export class ApplicationAssignment extends pulumi.CustomResource {
      * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
      */
     public readonly principalType!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ApplicationAssignment resource with the given unique name, arguments, and options.
@@ -100,6 +104,7 @@ export class ApplicationAssignment extends pulumi.CustomResource {
             resourceInputs["applicationArn"] = state ? state.applicationArn : undefined;
             resourceInputs["principalId"] = state ? state.principalId : undefined;
             resourceInputs["principalType"] = state ? state.principalType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ApplicationAssignmentArgs | undefined;
             if ((!args || args.applicationArn === undefined) && !opts.urn) {
@@ -114,6 +119,7 @@ export class ApplicationAssignment extends pulumi.CustomResource {
             resourceInputs["applicationArn"] = args ? args.applicationArn : undefined;
             resourceInputs["principalId"] = args ? args.principalId : undefined;
             resourceInputs["principalType"] = args ? args.principalType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ApplicationAssignment.__pulumiType, name, resourceInputs, opts);
@@ -136,6 +142,10 @@ export interface ApplicationAssignmentState {
      * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
      */
     principalType?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -154,4 +164,8 @@ export interface ApplicationAssignmentArgs {
      * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
      */
     principalType: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

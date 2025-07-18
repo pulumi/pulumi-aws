@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -1669,162 +1669,6 @@ func (o GetGroupExternalIdArrayOutput) Index(i pulumi.IntInput) GetGroupExternal
 	}).(GetGroupExternalIdOutput)
 }
 
-type GetGroupFilter struct {
-	// Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
-	AttributePath string `pulumi:"attributePath"`
-	// Value for an attribute.
-	AttributeValue string `pulumi:"attributeValue"`
-}
-
-// GetGroupFilterInput is an input type that accepts GetGroupFilterArgs and GetGroupFilterOutput values.
-// You can construct a concrete instance of `GetGroupFilterInput` via:
-//
-//	GetGroupFilterArgs{...}
-type GetGroupFilterInput interface {
-	pulumi.Input
-
-	ToGetGroupFilterOutput() GetGroupFilterOutput
-	ToGetGroupFilterOutputWithContext(context.Context) GetGroupFilterOutput
-}
-
-type GetGroupFilterArgs struct {
-	// Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
-	AttributePath pulumi.StringInput `pulumi:"attributePath"`
-	// Value for an attribute.
-	AttributeValue pulumi.StringInput `pulumi:"attributeValue"`
-}
-
-func (GetGroupFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetGroupFilter)(nil)).Elem()
-}
-
-func (i GetGroupFilterArgs) ToGetGroupFilterOutput() GetGroupFilterOutput {
-	return i.ToGetGroupFilterOutputWithContext(context.Background())
-}
-
-func (i GetGroupFilterArgs) ToGetGroupFilterOutputWithContext(ctx context.Context) GetGroupFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetGroupFilterOutput)
-}
-
-func (i GetGroupFilterArgs) ToGetGroupFilterPtrOutput() GetGroupFilterPtrOutput {
-	return i.ToGetGroupFilterPtrOutputWithContext(context.Background())
-}
-
-func (i GetGroupFilterArgs) ToGetGroupFilterPtrOutputWithContext(ctx context.Context) GetGroupFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetGroupFilterOutput).ToGetGroupFilterPtrOutputWithContext(ctx)
-}
-
-// GetGroupFilterPtrInput is an input type that accepts GetGroupFilterArgs, GetGroupFilterPtr and GetGroupFilterPtrOutput values.
-// You can construct a concrete instance of `GetGroupFilterPtrInput` via:
-//
-//	        GetGroupFilterArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetGroupFilterPtrInput interface {
-	pulumi.Input
-
-	ToGetGroupFilterPtrOutput() GetGroupFilterPtrOutput
-	ToGetGroupFilterPtrOutputWithContext(context.Context) GetGroupFilterPtrOutput
-}
-
-type getGroupFilterPtrType GetGroupFilterArgs
-
-func GetGroupFilterPtr(v *GetGroupFilterArgs) GetGroupFilterPtrInput {
-	return (*getGroupFilterPtrType)(v)
-}
-
-func (*getGroupFilterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetGroupFilter)(nil)).Elem()
-}
-
-func (i *getGroupFilterPtrType) ToGetGroupFilterPtrOutput() GetGroupFilterPtrOutput {
-	return i.ToGetGroupFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *getGroupFilterPtrType) ToGetGroupFilterPtrOutputWithContext(ctx context.Context) GetGroupFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetGroupFilterPtrOutput)
-}
-
-type GetGroupFilterOutput struct{ *pulumi.OutputState }
-
-func (GetGroupFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetGroupFilter)(nil)).Elem()
-}
-
-func (o GetGroupFilterOutput) ToGetGroupFilterOutput() GetGroupFilterOutput {
-	return o
-}
-
-func (o GetGroupFilterOutput) ToGetGroupFilterOutputWithContext(ctx context.Context) GetGroupFilterOutput {
-	return o
-}
-
-func (o GetGroupFilterOutput) ToGetGroupFilterPtrOutput() GetGroupFilterPtrOutput {
-	return o.ToGetGroupFilterPtrOutputWithContext(context.Background())
-}
-
-func (o GetGroupFilterOutput) ToGetGroupFilterPtrOutputWithContext(ctx context.Context) GetGroupFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetGroupFilter) *GetGroupFilter {
-		return &v
-	}).(GetGroupFilterPtrOutput)
-}
-
-// Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
-func (o GetGroupFilterOutput) AttributePath() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupFilter) string { return v.AttributePath }).(pulumi.StringOutput)
-}
-
-// Value for an attribute.
-func (o GetGroupFilterOutput) AttributeValue() pulumi.StringOutput {
-	return o.ApplyT(func(v GetGroupFilter) string { return v.AttributeValue }).(pulumi.StringOutput)
-}
-
-type GetGroupFilterPtrOutput struct{ *pulumi.OutputState }
-
-func (GetGroupFilterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetGroupFilter)(nil)).Elem()
-}
-
-func (o GetGroupFilterPtrOutput) ToGetGroupFilterPtrOutput() GetGroupFilterPtrOutput {
-	return o
-}
-
-func (o GetGroupFilterPtrOutput) ToGetGroupFilterPtrOutputWithContext(ctx context.Context) GetGroupFilterPtrOutput {
-	return o
-}
-
-func (o GetGroupFilterPtrOutput) Elem() GetGroupFilterOutput {
-	return o.ApplyT(func(v *GetGroupFilter) GetGroupFilter {
-		if v != nil {
-			return *v
-		}
-		var ret GetGroupFilter
-		return ret
-	}).(GetGroupFilterOutput)
-}
-
-// Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
-func (o GetGroupFilterPtrOutput) AttributePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetGroupFilter) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AttributePath
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value for an attribute.
-func (o GetGroupFilterPtrOutput) AttributeValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetGroupFilter) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AttributeValue
-	}).(pulumi.StringPtrOutput)
-}
-
 type GetGroupMembershipsGroupMembership struct {
 	// The identifier for a group in the Identity Store.
 	GroupId string `pulumi:"groupId"`
@@ -2250,7 +2094,7 @@ type GetUserAddress struct {
 	PostalCode string `pulumi:"postalCode"`
 	// When `true`, this is the primary phone number associated with the user.
 	Primary bool `pulumi:"primary"`
-	// The region of the address.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
 	// The street of the address.
 	StreetAddress string `pulumi:"streetAddress"`
@@ -2280,7 +2124,7 @@ type GetUserAddressArgs struct {
 	PostalCode pulumi.StringInput `pulumi:"postalCode"`
 	// When `true`, this is the primary phone number associated with the user.
 	Primary pulumi.BoolInput `pulumi:"primary"`
-	// The region of the address.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
 	// The street of the address.
 	StreetAddress pulumi.StringInput `pulumi:"streetAddress"`
@@ -2364,7 +2208,7 @@ func (o GetUserAddressOutput) Primary() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetUserAddress) bool { return v.Primary }).(pulumi.BoolOutput)
 }
 
-// The region of the address.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GetUserAddressOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserAddress) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -3098,162 +2942,6 @@ func (o GetUserExternalIdArrayOutput) Index(i pulumi.IntInput) GetUserExternalId
 	}).(GetUserExternalIdOutput)
 }
 
-type GetUserFilter struct {
-	// Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
-	AttributePath string `pulumi:"attributePath"`
-	// Value for an attribute.
-	AttributeValue string `pulumi:"attributeValue"`
-}
-
-// GetUserFilterInput is an input type that accepts GetUserFilterArgs and GetUserFilterOutput values.
-// You can construct a concrete instance of `GetUserFilterInput` via:
-//
-//	GetUserFilterArgs{...}
-type GetUserFilterInput interface {
-	pulumi.Input
-
-	ToGetUserFilterOutput() GetUserFilterOutput
-	ToGetUserFilterOutputWithContext(context.Context) GetUserFilterOutput
-}
-
-type GetUserFilterArgs struct {
-	// Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
-	AttributePath pulumi.StringInput `pulumi:"attributePath"`
-	// Value for an attribute.
-	AttributeValue pulumi.StringInput `pulumi:"attributeValue"`
-}
-
-func (GetUserFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetUserFilter)(nil)).Elem()
-}
-
-func (i GetUserFilterArgs) ToGetUserFilterOutput() GetUserFilterOutput {
-	return i.ToGetUserFilterOutputWithContext(context.Background())
-}
-
-func (i GetUserFilterArgs) ToGetUserFilterOutputWithContext(ctx context.Context) GetUserFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetUserFilterOutput)
-}
-
-func (i GetUserFilterArgs) ToGetUserFilterPtrOutput() GetUserFilterPtrOutput {
-	return i.ToGetUserFilterPtrOutputWithContext(context.Background())
-}
-
-func (i GetUserFilterArgs) ToGetUserFilterPtrOutputWithContext(ctx context.Context) GetUserFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetUserFilterOutput).ToGetUserFilterPtrOutputWithContext(ctx)
-}
-
-// GetUserFilterPtrInput is an input type that accepts GetUserFilterArgs, GetUserFilterPtr and GetUserFilterPtrOutput values.
-// You can construct a concrete instance of `GetUserFilterPtrInput` via:
-//
-//	        GetUserFilterArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetUserFilterPtrInput interface {
-	pulumi.Input
-
-	ToGetUserFilterPtrOutput() GetUserFilterPtrOutput
-	ToGetUserFilterPtrOutputWithContext(context.Context) GetUserFilterPtrOutput
-}
-
-type getUserFilterPtrType GetUserFilterArgs
-
-func GetUserFilterPtr(v *GetUserFilterArgs) GetUserFilterPtrInput {
-	return (*getUserFilterPtrType)(v)
-}
-
-func (*getUserFilterPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetUserFilter)(nil)).Elem()
-}
-
-func (i *getUserFilterPtrType) ToGetUserFilterPtrOutput() GetUserFilterPtrOutput {
-	return i.ToGetUserFilterPtrOutputWithContext(context.Background())
-}
-
-func (i *getUserFilterPtrType) ToGetUserFilterPtrOutputWithContext(ctx context.Context) GetUserFilterPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetUserFilterPtrOutput)
-}
-
-type GetUserFilterOutput struct{ *pulumi.OutputState }
-
-func (GetUserFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetUserFilter)(nil)).Elem()
-}
-
-func (o GetUserFilterOutput) ToGetUserFilterOutput() GetUserFilterOutput {
-	return o
-}
-
-func (o GetUserFilterOutput) ToGetUserFilterOutputWithContext(ctx context.Context) GetUserFilterOutput {
-	return o
-}
-
-func (o GetUserFilterOutput) ToGetUserFilterPtrOutput() GetUserFilterPtrOutput {
-	return o.ToGetUserFilterPtrOutputWithContext(context.Background())
-}
-
-func (o GetUserFilterOutput) ToGetUserFilterPtrOutputWithContext(ctx context.Context) GetUserFilterPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetUserFilter) *GetUserFilter {
-		return &v
-	}).(GetUserFilterPtrOutput)
-}
-
-// Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
-func (o GetUserFilterOutput) AttributePath() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserFilter) string { return v.AttributePath }).(pulumi.StringOutput)
-}
-
-// Value for an attribute.
-func (o GetUserFilterOutput) AttributeValue() pulumi.StringOutput {
-	return o.ApplyT(func(v GetUserFilter) string { return v.AttributeValue }).(pulumi.StringOutput)
-}
-
-type GetUserFilterPtrOutput struct{ *pulumi.OutputState }
-
-func (GetUserFilterPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetUserFilter)(nil)).Elem()
-}
-
-func (o GetUserFilterPtrOutput) ToGetUserFilterPtrOutput() GetUserFilterPtrOutput {
-	return o
-}
-
-func (o GetUserFilterPtrOutput) ToGetUserFilterPtrOutputWithContext(ctx context.Context) GetUserFilterPtrOutput {
-	return o
-}
-
-func (o GetUserFilterPtrOutput) Elem() GetUserFilterOutput {
-	return o.ApplyT(func(v *GetUserFilter) GetUserFilter {
-		if v != nil {
-			return *v
-		}
-		var ret GetUserFilter
-		return ret
-	}).(GetUserFilterOutput)
-}
-
-// Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
-func (o GetUserFilterPtrOutput) AttributePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetUserFilter) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AttributePath
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value for an attribute.
-func (o GetUserFilterPtrOutput) AttributeValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetUserFilter) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AttributeValue
-	}).(pulumi.StringPtrOutput)
-}
-
 type GetUserName struct {
 	// The family name of the user.
 	FamilyName string `pulumi:"familyName"`
@@ -3754,7 +3442,7 @@ type GetUsersUserAddress struct {
 	PostalCode string `pulumi:"postalCode"`
 	// When `true`, this is the primary phone number associated with the user.
 	Primary bool `pulumi:"primary"`
-	// Region of the address.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
 	// Street of the address.
 	StreetAddress string `pulumi:"streetAddress"`
@@ -3784,7 +3472,7 @@ type GetUsersUserAddressArgs struct {
 	PostalCode pulumi.StringInput `pulumi:"postalCode"`
 	// When `true`, this is the primary phone number associated with the user.
 	Primary pulumi.BoolInput `pulumi:"primary"`
-	// Region of the address.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
 	// Street of the address.
 	StreetAddress pulumi.StringInput `pulumi:"streetAddress"`
@@ -3868,7 +3556,7 @@ func (o GetUsersUserAddressOutput) Primary() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetUsersUserAddress) bool { return v.Primary }).(pulumi.BoolOutput)
 }
 
-// Region of the address.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GetUsersUserAddressOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUserAddress) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -4402,8 +4090,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupAlternateIdentifierUniqueAttributePtrInput)(nil)).Elem(), GetGroupAlternateIdentifierUniqueAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupExternalIdInput)(nil)).Elem(), GetGroupExternalIdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupExternalIdArrayInput)(nil)).Elem(), GetGroupExternalIdArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupFilterInput)(nil)).Elem(), GetGroupFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupFilterPtrInput)(nil)).Elem(), GetGroupFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupMembershipsGroupMembershipInput)(nil)).Elem(), GetGroupMembershipsGroupMembershipArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupMembershipsGroupMembershipArrayInput)(nil)).Elem(), GetGroupMembershipsGroupMembershipArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupMembershipsGroupMembershipMemberIdInput)(nil)).Elem(), GetGroupMembershipsGroupMembershipMemberIdArgs{})
@@ -4423,8 +4109,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserEmailArrayInput)(nil)).Elem(), GetUserEmailArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserExternalIdInput)(nil)).Elem(), GetUserExternalIdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserExternalIdArrayInput)(nil)).Elem(), GetUserExternalIdArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetUserFilterInput)(nil)).Elem(), GetUserFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetUserFilterPtrInput)(nil)).Elem(), GetUserFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserNameInput)(nil)).Elem(), GetUserNameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserNameArrayInput)(nil)).Elem(), GetUserNameArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserPhoneNumberInput)(nil)).Elem(), GetUserPhoneNumberArgs{})
@@ -4461,8 +4145,6 @@ func init() {
 	pulumi.RegisterOutputType(GetGroupAlternateIdentifierUniqueAttributePtrOutput{})
 	pulumi.RegisterOutputType(GetGroupExternalIdOutput{})
 	pulumi.RegisterOutputType(GetGroupExternalIdArrayOutput{})
-	pulumi.RegisterOutputType(GetGroupFilterOutput{})
-	pulumi.RegisterOutputType(GetGroupFilterPtrOutput{})
 	pulumi.RegisterOutputType(GetGroupMembershipsGroupMembershipOutput{})
 	pulumi.RegisterOutputType(GetGroupMembershipsGroupMembershipArrayOutput{})
 	pulumi.RegisterOutputType(GetGroupMembershipsGroupMembershipMemberIdOutput{})
@@ -4482,8 +4164,6 @@ func init() {
 	pulumi.RegisterOutputType(GetUserEmailArrayOutput{})
 	pulumi.RegisterOutputType(GetUserExternalIdOutput{})
 	pulumi.RegisterOutputType(GetUserExternalIdArrayOutput{})
-	pulumi.RegisterOutputType(GetUserFilterOutput{})
-	pulumi.RegisterOutputType(GetUserFilterPtrOutput{})
 	pulumi.RegisterOutputType(GetUserNameOutput{})
 	pulumi.RegisterOutputType(GetUserNameArrayOutput{})
 	pulumi.RegisterOutputType(GetUserPhoneNumberOutput{})

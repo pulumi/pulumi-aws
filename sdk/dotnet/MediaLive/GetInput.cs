@@ -99,6 +99,12 @@ namespace Pulumi.Aws.MediaLive
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetInputArgs()
         {
         }
@@ -112,6 +118,12 @@ namespace Pulumi.Aws.MediaLive
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetInputInvokeArgs()
         {
@@ -157,6 +169,7 @@ namespace Pulumi.Aws.MediaLive
         /// Name of the input.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// The ARN of the role this input assumes during and after creation.
         /// </summary>
@@ -204,6 +217,8 @@ namespace Pulumi.Aws.MediaLive
 
             string name,
 
+            string region,
+
             string roleArn,
 
             ImmutableArray<string> securityGroups,
@@ -226,6 +241,7 @@ namespace Pulumi.Aws.MediaLive
             InputSourceType = inputSourceType;
             MediaConnectFlows = mediaConnectFlows;
             Name = name;
+            Region = region;
             RoleArn = roleArn;
             SecurityGroups = securityGroups;
             Sources = sources;

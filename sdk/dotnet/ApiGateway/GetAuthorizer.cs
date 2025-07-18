@@ -97,6 +97,12 @@ namespace Pulumi.Aws.ApiGateway
         public string AuthorizerId { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// ID of the associated REST API.
         /// </summary>
         [Input("restApiId", required: true)]
@@ -115,6 +121,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("authorizerId", required: true)]
         public Input<string> AuthorizerId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ID of the associated REST API.
@@ -169,6 +181,7 @@ namespace Pulumi.Aws.ApiGateway
         /// List of the Amazon Cognito user pool ARNs.
         /// </summary>
         public readonly ImmutableArray<string> ProviderArns;
+        public readonly string Region;
         public readonly string RestApiId;
         /// <summary>
         /// Type of the authorizer.
@@ -197,6 +210,8 @@ namespace Pulumi.Aws.ApiGateway
 
             ImmutableArray<string> providerArns,
 
+            string region,
+
             string restApiId,
 
             string type)
@@ -211,6 +226,7 @@ namespace Pulumi.Aws.ApiGateway
             IdentityValidationExpression = identityValidationExpression;
             Name = name;
             ProviderArns = providerArns;
+            Region = region;
             RestApiId = restApiId;
             Type = type;
         }

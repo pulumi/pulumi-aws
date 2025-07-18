@@ -28,7 +28,7 @@ class GetProxyResult:
     """
     A collection of values returned by getProxy.
     """
-    def __init__(__self__, arn=None, auths=None, debug_logging=None, endpoint=None, engine_family=None, id=None, idle_client_timeout=None, name=None, require_tls=None, role_arn=None, vpc_id=None, vpc_security_group_ids=None, vpc_subnet_ids=None):
+    def __init__(__self__, arn=None, auths=None, debug_logging=None, endpoint=None, engine_family=None, id=None, idle_client_timeout=None, name=None, region=None, require_tls=None, role_arn=None, vpc_id=None, vpc_security_group_ids=None, vpc_subnet_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -53,6 +53,9 @@ class GetProxyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if require_tls and not isinstance(require_tls, bool):
             raise TypeError("Expected argument 'require_tls' to be a bool")
         pulumi.set(__self__, "require_tls", require_tls)
@@ -131,6 +134,11 @@ class GetProxyResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="requireTls")
     def require_tls(self) -> builtins.bool:
         """
@@ -185,6 +193,7 @@ class AwaitableGetProxyResult(GetProxyResult):
             id=self.id,
             idle_client_timeout=self.idle_client_timeout,
             name=self.name,
+            region=self.region,
             require_tls=self.require_tls,
             role_arn=self.role_arn,
             vpc_id=self.vpc_id,
@@ -193,6 +202,7 @@ class AwaitableGetProxyResult(GetProxyResult):
 
 
 def get_proxy(name: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProxyResult:
     """
     Use this data source to get information about a DB Proxy.
@@ -208,9 +218,11 @@ def get_proxy(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the DB proxy.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:rds/getProxy:getProxy', __args__, opts=opts, typ=GetProxyResult).value
 
@@ -223,12 +235,14 @@ def get_proxy(name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         idle_client_timeout=pulumi.get(__ret__, 'idle_client_timeout'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         require_tls=pulumi.get(__ret__, 'require_tls'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'),
         vpc_subnet_ids=pulumi.get(__ret__, 'vpc_subnet_ids'))
 def get_proxy_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProxyResult]:
     """
     Use this data source to get information about a DB Proxy.
@@ -244,9 +258,11 @@ def get_proxy_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the DB proxy.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getProxy:getProxy', __args__, opts=opts, typ=GetProxyResult)
     return __ret__.apply(lambda __response__: GetProxyResult(
@@ -258,6 +274,7 @@ def get_proxy_output(name: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         idle_client_timeout=pulumi.get(__response__, 'idle_client_timeout'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         require_tls=pulumi.get(__response__, 'require_tls'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         vpc_id=pulumi.get(__response__, 'vpc_id'),

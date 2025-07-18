@@ -30,13 +30,6 @@ public final class GetAcceleratorArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.arn);
     }
 
-    @Import(name="id")
-    private @Nullable Output<String> id;
-
-    public Optional<Output<String>> id() {
-        return Optional.ofNullable(this.id);
-    }
-
     /**
      * Unique name of the Global Accelerator.
      * 
@@ -60,7 +53,6 @@ public final class GetAcceleratorArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetAcceleratorArgs(GetAcceleratorArgs $) {
         this.arn = $.arn;
-        this.id = $.id;
         this.name = $.name;
     }
 
@@ -101,15 +93,6 @@ public final class GetAcceleratorArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
-        }
-
-        public Builder id(@Nullable Output<String> id) {
-            $.id = id;
-            return this;
-        }
-
-        public Builder id(String id) {
-            return id(Output.of(id));
         }
 
         /**

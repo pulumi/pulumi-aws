@@ -66,6 +66,10 @@ export class AlertManagerDefinition extends pulumi.CustomResource {
      */
     public readonly definition!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the prometheus workspace the alert manager definition should be linked to
      */
     public readonly workspaceId!: pulumi.Output<string>;
@@ -84,6 +88,7 @@ export class AlertManagerDefinition extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AlertManagerDefinitionState | undefined;
             resourceInputs["definition"] = state ? state.definition : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as AlertManagerDefinitionArgs | undefined;
@@ -94,6 +99,7 @@ export class AlertManagerDefinition extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceId'");
             }
             resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -110,6 +116,10 @@ export interface AlertManagerDefinitionState {
      */
     definition?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ID of the prometheus workspace the alert manager definition should be linked to
      */
     workspaceId?: pulumi.Input<string>;
@@ -123,6 +133,10 @@ export interface AlertManagerDefinitionArgs {
      * the alert manager definition that you want to be applied. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-alert-manager.html).
      */
     definition: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the prometheus workspace the alert manager definition should be linked to
      */

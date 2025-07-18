@@ -111,6 +111,12 @@ namespace Pulumi.Aws.Efs
         [Input("mountTargetId")]
         public string? MountTargetId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetMountTargetArgs()
         {
         }
@@ -136,6 +142,12 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         [Input("mountTargetId")]
         public Input<string>? MountTargetId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetMountTargetInvokeArgs()
         {
@@ -186,6 +198,7 @@ namespace Pulumi.Aws.Efs
         /// AWS account ID that owns the resource.
         /// </summary>
         public readonly string OwnerId;
+        public readonly string Region;
         /// <summary>
         /// List of VPC security group IDs attached to the mount target.
         /// </summary>
@@ -221,6 +234,8 @@ namespace Pulumi.Aws.Efs
 
             string ownerId,
 
+            string region,
+
             ImmutableArray<string> securityGroups,
 
             string subnetId)
@@ -237,6 +252,7 @@ namespace Pulumi.Aws.Efs
             MountTargetId = mountTargetId;
             NetworkInterfaceId = networkInterfaceId;
             OwnerId = ownerId;
+            Region = region;
             SecurityGroups = securityGroups;
             SubnetId = subnetId;
         }

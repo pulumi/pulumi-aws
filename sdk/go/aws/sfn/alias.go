@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sfn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,6 +82,8 @@ type Alias struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name for the alias you are creating.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The StateMachine alias' route configuration settings. Fields documented below
 	RoutingConfigurations AliasRoutingConfigurationArrayOutput `pulumi:"routingConfigurations"`
 }
@@ -127,6 +129,8 @@ type aliasState struct {
 	Description *string `pulumi:"description"`
 	// Name for the alias you are creating.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The StateMachine alias' route configuration settings. Fields documented below
 	RoutingConfigurations []AliasRoutingConfiguration `pulumi:"routingConfigurations"`
 }
@@ -140,6 +144,8 @@ type AliasState struct {
 	Description pulumi.StringPtrInput
 	// Name for the alias you are creating.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The StateMachine alias' route configuration settings. Fields documented below
 	RoutingConfigurations AliasRoutingConfigurationArrayInput
 }
@@ -153,6 +159,8 @@ type aliasArgs struct {
 	Description *string `pulumi:"description"`
 	// Name for the alias you are creating.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The StateMachine alias' route configuration settings. Fields documented below
 	RoutingConfigurations []AliasRoutingConfiguration `pulumi:"routingConfigurations"`
 }
@@ -163,6 +171,8 @@ type AliasArgs struct {
 	Description pulumi.StringPtrInput
 	// Name for the alias you are creating.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The StateMachine alias' route configuration settings. Fields documented below
 	RoutingConfigurations AliasRoutingConfigurationArrayInput
 }
@@ -272,6 +282,11 @@ func (o AliasOutput) Description() pulumi.StringPtrOutput {
 // Name for the alias you are creating.
 func (o AliasOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AliasOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The StateMachine alias' route configuration settings. Fields documented below

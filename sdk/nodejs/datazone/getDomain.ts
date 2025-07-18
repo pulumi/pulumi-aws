@@ -26,6 +26,7 @@ export function getDomain(args?: GetDomainArgs, opts?: pulumi.InvokeOptions): Pr
     return pulumi.runtime.invoke("aws:datazone/getDomain:getDomain", {
         "id": args.id,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -41,6 +42,10 @@ export interface GetDomainArgs {
      * Name of the Domain. One of `name` or `id` is required.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -77,6 +82,7 @@ export interface GetDomainResult {
      * URL of the Domain.
      */
     readonly portalUrl: string;
+    readonly region: string;
     /**
      * Status of the Domain.
      */
@@ -104,6 +110,7 @@ export function getDomainOutput(args?: GetDomainOutputArgs, opts?: pulumi.Invoke
     return pulumi.runtime.invokeOutput("aws:datazone/getDomain:getDomain", {
         "id": args.id,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -119,4 +126,8 @@ export interface GetDomainOutputArgs {
      * Name of the Domain. One of `name` or `id` is required.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

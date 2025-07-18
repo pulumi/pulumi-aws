@@ -28,7 +28,7 @@ class GetServiceQuotaResult:
     """
     A collection of values returned by getServiceQuota.
     """
-    def __init__(__self__, adjustable=None, arn=None, default_value=None, global_quota=None, id=None, quota_code=None, quota_name=None, service_code=None, service_name=None, usage_metrics=None, value=None):
+    def __init__(__self__, adjustable=None, arn=None, default_value=None, global_quota=None, id=None, quota_code=None, quota_name=None, region=None, service_code=None, service_name=None, usage_metrics=None, value=None):
         if adjustable and not isinstance(adjustable, bool):
             raise TypeError("Expected argument 'adjustable' to be a bool")
         pulumi.set(__self__, "adjustable", adjustable)
@@ -50,6 +50,9 @@ class GetServiceQuotaResult:
         if quota_name and not isinstance(quota_name, str):
             raise TypeError("Expected argument 'quota_name' to be a str")
         pulumi.set(__self__, "quota_name", quota_name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if service_code and not isinstance(service_code, str):
             raise TypeError("Expected argument 'service_code' to be a str")
         pulumi.set(__self__, "service_code", service_code)
@@ -114,6 +117,11 @@ class GetServiceQuotaResult:
         return pulumi.get(self, "quota_name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="serviceCode")
     def service_code(self) -> builtins.str:
         return pulumi.get(self, "service_code")
@@ -156,6 +164,7 @@ class AwaitableGetServiceQuotaResult(GetServiceQuotaResult):
             id=self.id,
             quota_code=self.quota_code,
             quota_name=self.quota_name,
+            region=self.region,
             service_code=self.service_code,
             service_name=self.service_name,
             usage_metrics=self.usage_metrics,
@@ -164,6 +173,7 @@ class AwaitableGetServiceQuotaResult(GetServiceQuotaResult):
 
 def get_service_quota(quota_code: Optional[builtins.str] = None,
                       quota_name: Optional[builtins.str] = None,
+                      region: Optional[builtins.str] = None,
                       service_code: Optional[builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceQuotaResult:
     """
@@ -188,11 +198,13 @@ def get_service_quota(quota_code: Optional[builtins.str] = None,
     :param builtins.str quota_name: Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_name` or `quota_code` must be specified.
            
            > *NOTE:* Either `quota_code` or `quota_name` must be configured.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_code: Service code for the quota. Available values can be found with the `servicequotas_get_service` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
     """
     __args__ = dict()
     __args__['quotaCode'] = quota_code
     __args__['quotaName'] = quota_name
+    __args__['region'] = region
     __args__['serviceCode'] = service_code
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:servicequotas/getServiceQuota:getServiceQuota', __args__, opts=opts, typ=GetServiceQuotaResult).value
@@ -205,12 +217,14 @@ def get_service_quota(quota_code: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         quota_code=pulumi.get(__ret__, 'quota_code'),
         quota_name=pulumi.get(__ret__, 'quota_name'),
+        region=pulumi.get(__ret__, 'region'),
         service_code=pulumi.get(__ret__, 'service_code'),
         service_name=pulumi.get(__ret__, 'service_name'),
         usage_metrics=pulumi.get(__ret__, 'usage_metrics'),
         value=pulumi.get(__ret__, 'value'))
 def get_service_quota_output(quota_code: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              quota_name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              service_code: Optional[pulumi.Input[builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceQuotaResult]:
     """
@@ -235,11 +249,13 @@ def get_service_quota_output(quota_code: Optional[pulumi.Input[Optional[builtins
     :param builtins.str quota_name: Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html). One of `quota_name` or `quota_code` must be specified.
            
            > *NOTE:* Either `quota_code` or `quota_name` must be configured.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_code: Service code for the quota. Available values can be found with the `servicequotas_get_service` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
     """
     __args__ = dict()
     __args__['quotaCode'] = quota_code
     __args__['quotaName'] = quota_name
+    __args__['region'] = region
     __args__['serviceCode'] = service_code
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicequotas/getServiceQuota:getServiceQuota', __args__, opts=opts, typ=GetServiceQuotaResult)
@@ -251,6 +267,7 @@ def get_service_quota_output(quota_code: Optional[pulumi.Input[Optional[builtins
         id=pulumi.get(__response__, 'id'),
         quota_code=pulumi.get(__response__, 'quota_code'),
         quota_name=pulumi.get(__response__, 'quota_name'),
+        region=pulumi.get(__response__, 'region'),
         service_code=pulumi.get(__response__, 'service_code'),
         service_name=pulumi.get(__response__, 'service_name'),
         usage_metrics=pulumi.get(__response__, 'usage_metrics'),

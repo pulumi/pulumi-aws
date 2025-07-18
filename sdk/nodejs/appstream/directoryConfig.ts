@@ -75,6 +75,10 @@ export class DirectoryConfig extends pulumi.CustomResource {
      */
     public readonly organizationalUnitDistinguishedNames!: pulumi.Output<string[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
      */
     public readonly serviceAccountCredentials!: pulumi.Output<outputs.appstream.DirectoryConfigServiceAccountCredentials>;
@@ -95,6 +99,7 @@ export class DirectoryConfig extends pulumi.CustomResource {
             resourceInputs["createdTime"] = state ? state.createdTime : undefined;
             resourceInputs["directoryName"] = state ? state.directoryName : undefined;
             resourceInputs["organizationalUnitDistinguishedNames"] = state ? state.organizationalUnitDistinguishedNames : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceAccountCredentials"] = state ? state.serviceAccountCredentials : undefined;
         } else {
             const args = argsOrState as DirectoryConfigArgs | undefined;
@@ -109,6 +114,7 @@ export class DirectoryConfig extends pulumi.CustomResource {
             }
             resourceInputs["directoryName"] = args ? args.directoryName : undefined;
             resourceInputs["organizationalUnitDistinguishedNames"] = args ? args.organizationalUnitDistinguishedNames : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceAccountCredentials"] = args ? args.serviceAccountCredentials : undefined;
             resourceInputs["createdTime"] = undefined /*out*/;
         }
@@ -134,6 +140,10 @@ export interface DirectoryConfigState {
      */
     organizationalUnitDistinguishedNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
      */
     serviceAccountCredentials?: pulumi.Input<inputs.appstream.DirectoryConfigServiceAccountCredentials>;
@@ -151,6 +161,10 @@ export interface DirectoryConfigArgs {
      * Distinguished names of the organizational units for computer accounts.
      */
     organizationalUnitDistinguishedNames: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `serviceAccountCredentials` below.
      */

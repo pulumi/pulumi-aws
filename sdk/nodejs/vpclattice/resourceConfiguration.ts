@@ -132,6 +132,10 @@ export class ResourceConfiguration extends pulumi.CustomResource {
      */
     public readonly protocol!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
      *
      * The following arguments are optional:
@@ -151,8 +155,6 @@ export class ResourceConfiguration extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.vpclattice.ResourceConfigurationTimeouts | undefined>;
@@ -179,6 +181,7 @@ export class ResourceConfiguration extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["portRanges"] = state ? state.portRanges : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceConfigurationDefinition"] = state ? state.resourceConfigurationDefinition : undefined;
             resourceInputs["resourceConfigurationGroupId"] = state ? state.resourceConfigurationGroupId : undefined;
             resourceInputs["resourceGatewayIdentifier"] = state ? state.resourceGatewayIdentifier : undefined;
@@ -192,6 +195,7 @@ export class ResourceConfiguration extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["portRanges"] = args ? args.portRanges : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceConfigurationDefinition"] = args ? args.resourceConfigurationDefinition : undefined;
             resourceInputs["resourceConfigurationGroupId"] = args ? args.resourceConfigurationGroupId : undefined;
             resourceInputs["resourceGatewayIdentifier"] = args ? args.resourceGatewayIdentifier : undefined;
@@ -231,6 +235,10 @@ export interface ResourceConfigurationState {
      */
     protocol?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
      *
      * The following arguments are optional:
@@ -250,8 +258,6 @@ export interface ResourceConfigurationState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.vpclattice.ResourceConfigurationTimeouts>;
@@ -281,6 +287,10 @@ export interface ResourceConfigurationArgs {
      * Protocol for the Resource `TCP` is currently the only supported value.  MUST be specified if `resourceConfigurationGroupId` is not.
      */
     protocol?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Details of the Resource Configuration. See `resourceConfigurationDefinition` Block for details.
      *

@@ -96,9 +96,9 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "brodobaggins",
+    ///         BucketName = "brodobaggins",
     ///     });
     /// 
     ///     var exampleQueue = new Aws.Sqs.Queue("example", new()
@@ -159,6 +159,12 @@ namespace Pulumi.Aws.Sqs
         [Output("queueUrl")]
         public Output<string> QueueUrl { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a QueuePolicy resource with the given unique name, arguments, and options.
@@ -206,13 +212,19 @@ namespace Pulumi.Aws.Sqs
     public sealed class QueuePolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("policy", required: true)]
-        public Input<string> Policy { get; set; } = null!;
+        public InputUnion<string, Inputs.PolicyDocumentArgs> Policy { get; set; } = null!;
 
         /// <summary>
         /// URL of the SQS Queue to which to attach the policy.
         /// </summary>
         [Input("queueUrl", required: true)]
         public Input<string> QueueUrl { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public QueuePolicyArgs()
         {
@@ -223,13 +235,19 @@ namespace Pulumi.Aws.Sqs
     public sealed class QueuePolicyState : global::Pulumi.ResourceArgs
     {
         [Input("policy")]
-        public Input<string>? Policy { get; set; }
+        public InputUnion<string, Inputs.PolicyDocumentGetArgs>? Policy { get; set; }
 
         /// <summary>
         /// URL of the SQS Queue to which to attach the policy.
         /// </summary>
         [Input("queueUrl")]
         public Input<string>? QueueUrl { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public QueuePolicyState()
         {

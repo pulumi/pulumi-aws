@@ -47,6 +47,21 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -61,36 +76,13 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * tags_all is deprecated. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
-    @Import(name="tagsAll")
-    private @Nullable Map<String,String> tagsAll;
-
-    /**
-     * @return (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * tags_all is deprecated. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
-    public Optional<Map<String,String>> tagsAll() {
-        return Optional.ofNullable(this.tagsAll);
-    }
-
     private GetServicePlainArgs() {}
 
     private GetServicePlainArgs(GetServicePlainArgs $) {
         this.name = $.name;
         this.namespaceId = $.namespaceId;
+        this.region = $.region;
         this.tags = $.tags;
-        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -134,6 +126,17 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
          * @param tags Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
@@ -141,21 +144,6 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder tags(@Nullable Map<String,String> tags) {
             $.tags = tags;
-            return this;
-        }
-
-        /**
-         * @param tagsAll (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * tags_all is deprecated. This argument will be removed in a future major version.
-         * 
-         */
-        @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
-        public Builder tagsAll(@Nullable Map<String,String> tagsAll) {
-            $.tagsAll = tagsAll;
             return this;
         }
 

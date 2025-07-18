@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a global network resource.
+ * Manages a Network Manager Global Network.
+ *
+ * Use this resource to create and manage a global network, which is a single private network that acts as the high-level container for your network objects.
  *
  * ## Example Usage
  *
@@ -53,7 +55,7 @@ export class GlobalNetwork extends pulumi.CustomResource {
     }
 
     /**
-     * Global Network Amazon Resource Name (ARN)
+     * Global Network ARN.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -65,9 +67,7 @@ export class GlobalNetwork extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -105,7 +105,7 @@ export class GlobalNetwork extends pulumi.CustomResource {
  */
 export interface GlobalNetworkState {
     /**
-     * Global Network Amazon Resource Name (ARN)
+     * Global Network ARN.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -117,9 +117,7 @@ export interface GlobalNetworkState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

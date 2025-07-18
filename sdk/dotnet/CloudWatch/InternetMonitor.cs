@@ -74,6 +74,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> MonitorName { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
         /// </summary>
         [Output("resources")]
@@ -175,6 +181,12 @@ namespace Pulumi.Aws.CloudWatch
         [Input("monitorName", required: true)]
         public Input<string> MonitorName { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resources")]
         private InputList<string>? _resources;
 
@@ -251,6 +263,12 @@ namespace Pulumi.Aws.CloudWatch
         [Input("monitorName")]
         public Input<string>? MonitorName { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resources")]
         private InputList<string>? _resources;
 
@@ -287,7 +305,6 @@ namespace Pulumi.Aws.CloudWatch
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

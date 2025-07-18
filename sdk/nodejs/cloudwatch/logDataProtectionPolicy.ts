@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudwatch.LogGroup("example", {name: "example"});
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
  * const exampleLogDataProtectionPolicy = new aws.cloudwatch.LogDataProtectionPolicy("example", {
  *     logGroupName: example.name,
  *     policyDocument: pulumi.jsonStringify({
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *                     Audit: {
  *                         FindingsDestination: {
  *                             S3: {
- *                                 Bucket: exampleBucketV2.bucket,
+ *                                 Bucket: exampleBucket.bucket,
  *                             },
  *                         },
  *                     },
@@ -94,6 +94,10 @@ export class LogDataProtectionPolicy extends pulumi.CustomResource {
      * Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
      */
     public readonly policyDocument!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LogDataProtectionPolicy resource with the given unique name, arguments, and options.
@@ -110,6 +114,7 @@ export class LogDataProtectionPolicy extends pulumi.CustomResource {
             const state = argsOrState as LogDataProtectionPolicyState | undefined;
             resourceInputs["logGroupName"] = state ? state.logGroupName : undefined;
             resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LogDataProtectionPolicyArgs | undefined;
             if ((!args || args.logGroupName === undefined) && !opts.urn) {
@@ -120,6 +125,7 @@ export class LogDataProtectionPolicy extends pulumi.CustomResource {
             }
             resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogDataProtectionPolicy.__pulumiType, name, resourceInputs, opts);
@@ -138,6 +144,10 @@ export interface LogDataProtectionPolicyState {
      * Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
      */
     policyDocument?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -152,4 +162,8 @@ export interface LogDataProtectionPolicyArgs {
      * Specifies the data protection policy in JSON. Read more at [Data protection policy syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data-start.html#mask-sensitive-log-data-policysyntax).
      */
     policyDocument: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

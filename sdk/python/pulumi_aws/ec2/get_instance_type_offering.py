@@ -29,7 +29,7 @@ class GetInstanceTypeOfferingResult:
     """
     A collection of values returned by getInstanceTypeOffering.
     """
-    def __init__(__self__, filters=None, id=None, instance_type=None, location_type=None, preferred_instance_types=None):
+    def __init__(__self__, filters=None, id=None, instance_type=None, location_type=None, preferred_instance_types=None, region=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -45,6 +45,9 @@ class GetInstanceTypeOfferingResult:
         if preferred_instance_types and not isinstance(preferred_instance_types, list):
             raise TypeError("Expected argument 'preferred_instance_types' to be a list")
         pulumi.set(__self__, "preferred_instance_types", preferred_instance_types)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -77,6 +80,11 @@ class GetInstanceTypeOfferingResult:
     def preferred_instance_types(self) -> Optional[Sequence[builtins.str]]:
         return pulumi.get(self, "preferred_instance_types")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetInstanceTypeOfferingResult(GetInstanceTypeOfferingResult):
     # pylint: disable=using-constant-test
@@ -88,12 +96,14 @@ class AwaitableGetInstanceTypeOfferingResult(GetInstanceTypeOfferingResult):
             id=self.id,
             instance_type=self.instance_type,
             location_type=self.location_type,
-            preferred_instance_types=self.preferred_instance_types)
+            preferred_instance_types=self.preferred_instance_types,
+            region=self.region)
 
 
 def get_instance_type_offering(filters: Optional[Sequence[Union['GetInstanceTypeOfferingFilterArgs', 'GetInstanceTypeOfferingFilterArgsDict']]] = None,
                                location_type: Optional[builtins.str] = None,
                                preferred_instance_types: Optional[Sequence[builtins.str]] = None,
+                               region: Optional[builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceTypeOfferingResult:
     """
     Information about single EC2 Instance Type Offering.
@@ -121,11 +131,13 @@ def get_instance_type_offering(filters: Optional[Sequence[Union['GetInstanceType
     :param Sequence[Union['GetInstanceTypeOfferingFilterArgs', 'GetInstanceTypeOfferingFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
     :param builtins.str location_type: Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
     :param Sequence[builtins.str] preferred_instance_types: Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['locationType'] = location_type
     __args__['preferredInstanceTypes'] = preferred_instance_types
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering', __args__, opts=opts, typ=GetInstanceTypeOfferingResult).value
 
@@ -134,10 +146,12 @@ def get_instance_type_offering(filters: Optional[Sequence[Union['GetInstanceType
         id=pulumi.get(__ret__, 'id'),
         instance_type=pulumi.get(__ret__, 'instance_type'),
         location_type=pulumi.get(__ret__, 'location_type'),
-        preferred_instance_types=pulumi.get(__ret__, 'preferred_instance_types'))
+        preferred_instance_types=pulumi.get(__ret__, 'preferred_instance_types'),
+        region=pulumi.get(__ret__, 'region'))
 def get_instance_type_offering_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstanceTypeOfferingFilterArgs', 'GetInstanceTypeOfferingFilterArgsDict']]]]] = None,
                                       location_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                       preferred_instance_types: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
+                                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceTypeOfferingResult]:
     """
     Information about single EC2 Instance Type Offering.
@@ -165,11 +179,13 @@ def get_instance_type_offering_output(filters: Optional[pulumi.Input[Optional[Se
     :param Sequence[Union['GetInstanceTypeOfferingFilterArgs', 'GetInstanceTypeOfferingFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
     :param builtins.str location_type: Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
     :param Sequence[builtins.str] preferred_instance_types: Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['locationType'] = location_type
     __args__['preferredInstanceTypes'] = preferred_instance_types
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering', __args__, opts=opts, typ=GetInstanceTypeOfferingResult)
     return __ret__.apply(lambda __response__: GetInstanceTypeOfferingResult(
@@ -177,4 +193,5 @@ def get_instance_type_offering_output(filters: Optional[pulumi.Input[Optional[Se
         id=pulumi.get(__response__, 'id'),
         instance_type=pulumi.get(__response__, 'instance_type'),
         location_type=pulumi.get(__response__, 'location_type'),
-        preferred_instance_types=pulumi.get(__response__, 'preferred_instance_types')))
+        preferred_instance_types=pulumi.get(__response__, 'preferred_instance_types'),
+        region=pulumi.get(__response__, 'region')))

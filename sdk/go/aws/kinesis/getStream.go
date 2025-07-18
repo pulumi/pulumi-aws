@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,6 +55,8 @@ func LookupStream(ctx *pulumi.Context, args *LookupStreamArgs, opts ...pulumi.In
 type LookupStreamArgs struct {
 	// Name of the Kinesis Stream.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assigned to the stream.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -77,6 +79,7 @@ type LookupStreamResult struct {
 	Name string `pulumi:"name"`
 	// List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
 	OpenShards []string `pulumi:"openShards"`
+	Region     string   `pulumi:"region"`
 	// Length of time (in hours) data records are accessible after they are added to the stream.
 	RetentionPeriod int `pulumi:"retentionPeriod"`
 	// List of shard-level CloudWatch metrics which are enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more.
@@ -102,6 +105,8 @@ func LookupStreamOutput(ctx *pulumi.Context, args LookupStreamOutputArgs, opts .
 type LookupStreamOutputArgs struct {
 	// Name of the Kinesis Stream.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags to assigned to the stream.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -163,6 +168,10 @@ func (o LookupStreamResultOutput) Name() pulumi.StringOutput {
 // List of shard ids in the OPEN state. See [Shard State](https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing) for more.
 func (o LookupStreamResultOutput) OpenShards() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupStreamResult) []string { return v.OpenShards }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupStreamResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStreamResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Length of time (in hours) data records are accessible after they are added to the stream.

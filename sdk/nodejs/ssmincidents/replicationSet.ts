@@ -132,7 +132,13 @@ export class ReplicationSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastModifiedBy!: pulumi.Output<string>;
     /**
-     * The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+     * The replication set's Regions. Use `regions` instead.
+     *
+     * @deprecated region is deprecated. Use regions instead.
+     */
+    public readonly region!: pulumi.Output<outputs.ssmincidents.ReplicationSetRegion[]>;
+    /**
+     * The replication set's Regions.
      */
     public readonly regions!: pulumi.Output<outputs.ssmincidents.ReplicationSetRegion[]>;
     /**
@@ -158,8 +164,6 @@ export class ReplicationSet extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -170,7 +174,7 @@ export class ReplicationSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ReplicationSetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: ReplicationSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReplicationSetArgs | ReplicationSetState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -180,15 +184,14 @@ export class ReplicationSet extends pulumi.CustomResource {
             resourceInputs["createdBy"] = state ? state.createdBy : undefined;
             resourceInputs["deletionProtected"] = state ? state.deletionProtected : undefined;
             resourceInputs["lastModifiedBy"] = state ? state.lastModifiedBy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["regions"] = state ? state.regions : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ReplicationSetArgs | undefined;
-            if ((!args || args.regions === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'regions'");
-            }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["regions"] = args ? args.regions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -224,7 +227,13 @@ export interface ReplicationSetState {
      */
     lastModifiedBy?: pulumi.Input<string>;
     /**
-     * The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+     * The replication set's Regions. Use `regions` instead.
+     *
+     * @deprecated region is deprecated. Use regions instead.
+     */
+    region?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[]>;
+    /**
+     * The replication set's Regions.
      */
     regions?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[]>;
     /**
@@ -250,8 +259,6 @@ export interface ReplicationSetState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -261,9 +268,15 @@ export interface ReplicationSetState {
  */
 export interface ReplicationSetArgs {
     /**
-     * The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+     * The replication set's Regions. Use `regions` instead.
+     *
+     * @deprecated region is deprecated. Use regions instead.
      */
-    regions: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[]>;
+    region?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[]>;
+    /**
+     * The replication set's Regions.
+     */
+    regions?: pulumi.Input<pulumi.Input<inputs.ssmincidents.ReplicationSetRegion>[]>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      *

@@ -24,15 +24,19 @@ class CodeRepositoryArgs:
     def __init__(__self__, *,
                  code_repository_name: pulumi.Input[builtins.str],
                  git_config: pulumi.Input['CodeRepositoryGitConfigArgs'],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a CodeRepository resource.
         :param pulumi.Input[builtins.str] code_repository_name: The name of the Code Repository (must be unique).
         :param pulumi.Input['CodeRepositoryGitConfigArgs'] git_config: Specifies details about the repository. see Git Config details below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "code_repository_name", code_repository_name)
         pulumi.set(__self__, "git_config", git_config)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -62,6 +66,18 @@ class CodeRepositoryArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -79,6 +95,7 @@ class _CodeRepositoryState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  code_repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  git_config: Optional[pulumi.Input['CodeRepositoryGitConfigArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -86,6 +103,7 @@ class _CodeRepositoryState:
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
         :param pulumi.Input[builtins.str] code_repository_name: The name of the Code Repository (must be unique).
         :param pulumi.Input['CodeRepositoryGitConfigArgs'] git_config: Specifies details about the repository. see Git Config details below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -95,11 +113,10 @@ class _CodeRepositoryState:
             pulumi.set(__self__, "code_repository_name", code_repository_name)
         if git_config is not None:
             pulumi.set(__self__, "git_config", git_config)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -141,6 +158,18 @@ class _CodeRepositoryState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -153,7 +182,6 @@ class _CodeRepositoryState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -173,6 +201,7 @@ class CodeRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code_repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  git_config: Optional[pulumi.Input[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -228,6 +257,7 @@ class CodeRepository(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] code_repository_name: The name of the Code Repository (must be unique).
         :param pulumi.Input[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict']] git_config: Specifies details about the repository. see Git Config details below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -302,6 +332,7 @@ class CodeRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code_repository_name: Optional[pulumi.Input[builtins.str]] = None,
                  git_config: Optional[pulumi.Input[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -318,6 +349,7 @@ class CodeRepository(pulumi.CustomResource):
             if git_config is None and not opts.urn:
                 raise TypeError("Missing required property 'git_config'")
             __props__.__dict__["git_config"] = git_config
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -334,6 +366,7 @@ class CodeRepository(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             code_repository_name: Optional[pulumi.Input[builtins.str]] = None,
             git_config: Optional[pulumi.Input[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'CodeRepository':
         """
@@ -346,6 +379,7 @@ class CodeRepository(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
         :param pulumi.Input[builtins.str] code_repository_name: The name of the Code Repository (must be unique).
         :param pulumi.Input[Union['CodeRepositoryGitConfigArgs', 'CodeRepositoryGitConfigArgsDict']] git_config: Specifies details about the repository. see Git Config details below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -356,6 +390,7 @@ class CodeRepository(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["code_repository_name"] = code_repository_name
         __props__.__dict__["git_config"] = git_config
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return CodeRepository(resource_name, opts=opts, __props__=__props__)
@@ -386,6 +421,14 @@ class CodeRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -394,7 +437,6 @@ class CodeRepository(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

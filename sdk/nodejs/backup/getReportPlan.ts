@@ -25,6 +25,7 @@ export function getReportPlan(args: GetReportPlanArgs, opts?: pulumi.InvokeOptio
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:backup/getReportPlan:getReportPlan", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,10 @@ export interface GetReportPlanArgs {
      * Backup report plan name.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Metadata that you can assign to help organize the report plans you create.
      */
@@ -68,6 +73,7 @@ export interface GetReportPlanResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      */
@@ -99,6 +105,7 @@ export function getReportPlanOutput(args: GetReportPlanOutputArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:backup/getReportPlan:getReportPlan", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -111,6 +118,10 @@ export interface GetReportPlanOutputArgs {
      * Backup report plan name.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Metadata that you can assign to help organize the report plans you create.
      */

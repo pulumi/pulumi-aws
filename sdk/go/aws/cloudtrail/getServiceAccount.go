@@ -7,14 +7,14 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
 // in a given region for the purpose of allowing CloudTrail to store trail data in S3.
 //
-// > **Note:** AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+// > **Warning:** This data source is deprecated. The AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
 //
 // ## Example Usage
 //
@@ -25,9 +25,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,7 +38,7 @@ import (
 // if err != nil {
 // return err
 // }
-// bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+// bucket, err := s3.NewBucket(ctx, "bucket", &s3.BucketArgs{
 // Bucket: pulumi.String("tf-cloudtrail-logging-test-bucket"),
 // ForceDestroy: pulumi.Bool(true),
 // })
@@ -112,18 +112,17 @@ func GetServiceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs, opts ..
 
 // A collection of arguments for invoking getServiceAccount.
 type GetServiceAccountArgs struct {
-	// Name of the region whose AWS CloudTrail account ID is desired.
-	// Defaults to the region from the AWS provider configuration.
+	// Name of the Region whose AWS CloudTrail account ID is desired. Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getServiceAccount.
 type GetServiceAccountResult struct {
-	// ARN of the AWS CloudTrail service account in the selected region.
+	// ARN of the AWS CloudTrail service account in the selected Region.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string  `pulumi:"id"`
-	Region *string `pulumi:"region"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func GetServiceAccountOutput(ctx *pulumi.Context, args GetServiceAccountOutputArgs, opts ...pulumi.InvokeOption) GetServiceAccountResultOutput {
@@ -137,8 +136,7 @@ func GetServiceAccountOutput(ctx *pulumi.Context, args GetServiceAccountOutputAr
 
 // A collection of arguments for invoking getServiceAccount.
 type GetServiceAccountOutputArgs struct {
-	// Name of the region whose AWS CloudTrail account ID is desired.
-	// Defaults to the region from the AWS provider configuration.
+	// Name of the Region whose AWS CloudTrail account ID is desired. Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -161,7 +159,7 @@ func (o GetServiceAccountResultOutput) ToGetServiceAccountResultOutputWithContex
 	return o
 }
 
-// ARN of the AWS CloudTrail service account in the selected region.
+// ARN of the AWS CloudTrail service account in the selected Region.
 func (o GetServiceAccountResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceAccountResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -171,8 +169,8 @@ func (o GetServiceAccountResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceAccountResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o GetServiceAccountResultOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetServiceAccountResult) *string { return v.Region }).(pulumi.StringPtrOutput)
+func (o GetServiceAccountResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceAccountResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

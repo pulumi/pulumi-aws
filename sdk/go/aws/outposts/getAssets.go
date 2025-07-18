@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/outposts"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/outposts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +48,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/outposts"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/outposts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,7 +77,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/outposts"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/outposts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -114,6 +114,8 @@ type GetAssetsArgs struct {
 	Arn string `pulumi:"arn"`
 	// Filters by list of Host IDs of a Dedicated Host.
 	HostIdFilters []string `pulumi:"hostIdFilters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Filters by list of state status. Valid values: "ACTIVE", "RETIRING".
 	StatusIdFilters []string `pulumi:"statusIdFilters"`
 }
@@ -126,6 +128,7 @@ type GetAssetsResult struct {
 	HostIdFilters []string `pulumi:"hostIdFilters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id              string   `pulumi:"id"`
+	Region          string   `pulumi:"region"`
 	StatusIdFilters []string `pulumi:"statusIdFilters"`
 }
 
@@ -144,6 +147,8 @@ type GetAssetsOutputArgs struct {
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Filters by list of Host IDs of a Dedicated Host.
 	HostIdFilters pulumi.StringArrayInput `pulumi:"hostIdFilters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Filters by list of state status. Valid values: "ACTIVE", "RETIRING".
 	StatusIdFilters pulumi.StringArrayInput `pulumi:"statusIdFilters"`
 }
@@ -183,6 +188,10 @@ func (o GetAssetsResultOutput) HostIdFilters() pulumi.StringArrayOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetAssetsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAssetsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetAssetsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAssetsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetAssetsResultOutput) StatusIdFilters() pulumi.StringArrayOutput {

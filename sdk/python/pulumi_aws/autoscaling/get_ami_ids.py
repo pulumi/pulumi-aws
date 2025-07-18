@@ -29,7 +29,7 @@ class GetAmiIdsResult:
     """
     A collection of values returned by getAmiIds.
     """
-    def __init__(__self__, arns=None, filters=None, id=None, names=None):
+    def __init__(__self__, arns=None, filters=None, id=None, names=None, region=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         pulumi.set(__self__, "arns", arns)
@@ -42,6 +42,9 @@ class GetAmiIdsResult:
         if names and not isinstance(names, list):
             raise TypeError("Expected argument 'names' to be a list")
         pulumi.set(__self__, "names", names)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -72,6 +75,11 @@ class GetAmiIdsResult:
         """
         return pulumi.get(self, "names")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetAmiIdsResult(GetAmiIdsResult):
     # pylint: disable=using-constant-test
@@ -82,11 +90,13 @@ class AwaitableGetAmiIdsResult(GetAmiIdsResult):
             arns=self.arns,
             filters=self.filters,
             id=self.id,
-            names=self.names)
+            names=self.names,
+            region=self.region)
 
 
 def get_ami_ids(filters: Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']]] = None,
                 names: Optional[Sequence[builtins.str]] = None,
+                region: Optional[builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAmiIdsResult:
     """
     The Autoscaling Groups data source allows access to the list of AWS
@@ -111,10 +121,10 @@ def get_ami_ids(filters: Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiI
     slack_notifications = aws.autoscaling.Notification("slack_notifications",
         group_names=groups.names,
         notifications=[
-            "autoscaling:EC2_INSTANCE_LAUNCH",
-            "autoscaling:EC2_INSTANCE_TERMINATE",
-            "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-            "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+            aws.autoscaling.NotificationType.INSTANCE_LAUNCH,
+            aws.autoscaling.NotificationType.INSTANCE_TERMINATE,
+            aws.autoscaling.NotificationType.INSTANCE_LAUNCH_ERROR,
+            aws.autoscaling.NotificationType.INSTANCE_TERMINATE_ERROR,
         ],
         topic_arn="TOPIC ARN")
     ```
@@ -122,10 +132,12 @@ def get_ami_ids(filters: Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiI
 
     :param Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
     :param Sequence[builtins.str] names: List of autoscaling group names
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['names'] = names
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:autoscaling/getAmiIds:getAmiIds', __args__, opts=opts, typ=GetAmiIdsResult).value
 
@@ -133,9 +145,11 @@ def get_ami_ids(filters: Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiI
         arns=pulumi.get(__ret__, 'arns'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
-        names=pulumi.get(__ret__, 'names'))
+        names=pulumi.get(__ret__, 'names'),
+        region=pulumi.get(__ret__, 'region'))
 def get_ami_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']]]]] = None,
                        names: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAmiIdsResult]:
     """
     The Autoscaling Groups data source allows access to the list of AWS
@@ -160,10 +174,10 @@ def get_ami_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['G
     slack_notifications = aws.autoscaling.Notification("slack_notifications",
         group_names=groups.names,
         notifications=[
-            "autoscaling:EC2_INSTANCE_LAUNCH",
-            "autoscaling:EC2_INSTANCE_TERMINATE",
-            "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-            "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+            aws.autoscaling.NotificationType.INSTANCE_LAUNCH,
+            aws.autoscaling.NotificationType.INSTANCE_TERMINATE,
+            aws.autoscaling.NotificationType.INSTANCE_LAUNCH_ERROR,
+            aws.autoscaling.NotificationType.INSTANCE_TERMINATE_ERROR,
         ],
         topic_arn="TOPIC ARN")
     ```
@@ -171,14 +185,17 @@ def get_ami_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['G
 
     :param Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
     :param Sequence[builtins.str] names: List of autoscaling group names
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['names'] = names
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:autoscaling/getAmiIds:getAmiIds', __args__, opts=opts, typ=GetAmiIdsResult)
     return __ret__.apply(lambda __response__: GetAmiIdsResult(
         arns=pulumi.get(__response__, 'arns'),
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
-        names=pulumi.get(__response__, 'names')))
+        names=pulumi.get(__response__, 'names'),
+        region=pulumi.get(__response__, 'region')))

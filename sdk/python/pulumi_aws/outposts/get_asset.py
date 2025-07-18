@@ -27,7 +27,7 @@ class GetAssetResult:
     """
     A collection of values returned by getAsset.
     """
-    def __init__(__self__, arn=None, asset_id=None, asset_type=None, host_id=None, id=None, rack_elevation=None, rack_id=None):
+    def __init__(__self__, arn=None, asset_id=None, asset_type=None, host_id=None, id=None, rack_elevation=None, rack_id=None, region=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +49,9 @@ class GetAssetResult:
         if rack_id and not isinstance(rack_id, str):
             raise TypeError("Expected argument 'rack_id' to be a str")
         pulumi.set(__self__, "rack_id", rack_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -100,6 +103,11 @@ class GetAssetResult:
         """
         return pulumi.get(self, "rack_id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetAssetResult(GetAssetResult):
     # pylint: disable=using-constant-test
@@ -113,11 +121,13 @@ class AwaitableGetAssetResult(GetAssetResult):
             host_id=self.host_id,
             id=self.id,
             rack_elevation=self.rack_elevation,
-            rack_id=self.rack_id)
+            rack_id=self.rack_id,
+            region=self.region)
 
 
 def get_asset(arn: Optional[builtins.str] = None,
               asset_id: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssetResult:
     """
     Information about a specific hardware asset in an Outpost.
@@ -125,10 +135,12 @@ def get_asset(arn: Optional[builtins.str] = None,
 
     :param builtins.str arn: Outpost ARN.
     :param builtins.str asset_id: ID of the asset.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['assetId'] = asset_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:outposts/getAsset:getAsset', __args__, opts=opts, typ=GetAssetResult).value
 
@@ -139,9 +151,11 @@ def get_asset(arn: Optional[builtins.str] = None,
         host_id=pulumi.get(__ret__, 'host_id'),
         id=pulumi.get(__ret__, 'id'),
         rack_elevation=pulumi.get(__ret__, 'rack_elevation'),
-        rack_id=pulumi.get(__ret__, 'rack_id'))
+        rack_id=pulumi.get(__ret__, 'rack_id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_asset_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                      asset_id: Optional[pulumi.Input[builtins.str]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssetResult]:
     """
     Information about a specific hardware asset in an Outpost.
@@ -149,10 +163,12 @@ def get_asset_output(arn: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str arn: Outpost ARN.
     :param builtins.str asset_id: ID of the asset.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['assetId'] = asset_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:outposts/getAsset:getAsset', __args__, opts=opts, typ=GetAssetResult)
     return __ret__.apply(lambda __response__: GetAssetResult(
@@ -162,4 +178,5 @@ def get_asset_output(arn: Optional[pulumi.Input[builtins.str]] = None,
         host_id=pulumi.get(__response__, 'host_id'),
         id=pulumi.get(__response__, 'id'),
         rack_elevation=pulumi.get(__response__, 'rack_elevation'),
-        rack_id=pulumi.get(__response__, 'rack_id')))
+        rack_id=pulumi.get(__response__, 'rack_id'),
+        region=pulumi.get(__response__, 'region')))

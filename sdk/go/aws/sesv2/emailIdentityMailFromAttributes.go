@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,6 +70,8 @@ type EmailIdentityMailFromAttributes struct {
 	EmailIdentity pulumi.StringOutput `pulumi:"emailIdentity"`
 	// The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
 	MailFromDomain pulumi.StringPtrOutput `pulumi:"mailFromDomain"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewEmailIdentityMailFromAttributes registers a new resource with the given unique name, arguments, and options.
@@ -111,6 +113,8 @@ type emailIdentityMailFromAttributesState struct {
 	EmailIdentity *string `pulumi:"emailIdentity"`
 	// The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
 	MailFromDomain *string `pulumi:"mailFromDomain"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type EmailIdentityMailFromAttributesState struct {
@@ -120,6 +124,8 @@ type EmailIdentityMailFromAttributesState struct {
 	EmailIdentity pulumi.StringPtrInput
 	// The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
 	MailFromDomain pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EmailIdentityMailFromAttributesState) ElementType() reflect.Type {
@@ -133,6 +139,8 @@ type emailIdentityMailFromAttributesArgs struct {
 	EmailIdentity string `pulumi:"emailIdentity"`
 	// The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
 	MailFromDomain *string `pulumi:"mailFromDomain"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EmailIdentityMailFromAttributes resource.
@@ -143,6 +151,8 @@ type EmailIdentityMailFromAttributesArgs struct {
 	EmailIdentity pulumi.StringInput
 	// The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
 	MailFromDomain pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EmailIdentityMailFromAttributesArgs) ElementType() reflect.Type {
@@ -245,6 +255,11 @@ func (o EmailIdentityMailFromAttributesOutput) EmailIdentity() pulumi.StringOutp
 // The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
 func (o EmailIdentityMailFromAttributesOutput) MailFromDomain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EmailIdentityMailFromAttributes) pulumi.StringPtrOutput { return v.MailFromDomain }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o EmailIdentityMailFromAttributesOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailIdentityMailFromAttributes) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type EmailIdentityMailFromAttributesArrayOutput struct{ *pulumi.OutputState }

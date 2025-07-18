@@ -63,6 +63,21 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
      * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
      * are returned.
@@ -117,6 +132,7 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
         this.domain = $.domain;
         this.keyTypes = $.keyTypes;
         this.mostRecent = $.mostRecent;
+        this.region = $.region;
         this.statuses = $.statuses;
         this.tags = $.tags;
         this.types = $.types;
@@ -180,6 +196,17 @@ public final class GetCertificatePlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder mostRecent(@Nullable Boolean mostRecent) {
             $.mostRecent = mostRecent;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

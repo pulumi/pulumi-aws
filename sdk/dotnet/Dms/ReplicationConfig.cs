@@ -72,6 +72,12 @@ namespace Pulumi.Aws.Dms
         public Output<Outputs.ReplicationConfigComputeConfig> ComputeConfig { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Unique identifier that you want to use to create the config.
         /// </summary>
         [Output("replicationConfigIdentifier")]
@@ -190,6 +196,12 @@ namespace Pulumi.Aws.Dms
         public Input<Inputs.ReplicationConfigComputeConfigArgs> ComputeConfig { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Unique identifier that you want to use to create the config.
         /// </summary>
         [Input("replicationConfigIdentifier", required: true)]
@@ -276,6 +288,12 @@ namespace Pulumi.Aws.Dms
         public Input<Inputs.ReplicationConfigComputeConfigGetArgs>? ComputeConfig { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Unique identifier that you want to use to create the config.
         /// </summary>
         [Input("replicationConfigIdentifier")]
@@ -341,7 +359,6 @@ namespace Pulumi.Aws.Dms
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

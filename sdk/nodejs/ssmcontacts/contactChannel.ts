@@ -107,6 +107,10 @@ export class ContactChannel extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
      */
     public readonly type!: pulumi.Output<string>;
@@ -129,6 +133,7 @@ export class ContactChannel extends pulumi.CustomResource {
             resourceInputs["contactId"] = state ? state.contactId : undefined;
             resourceInputs["deliveryAddress"] = state ? state.deliveryAddress : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ContactChannelArgs | undefined;
@@ -144,6 +149,7 @@ export class ContactChannel extends pulumi.CustomResource {
             resourceInputs["contactId"] = args ? args.contactId : undefined;
             resourceInputs["deliveryAddress"] = args ? args.deliveryAddress : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["activationStatus"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -178,6 +184,10 @@ export interface ContactChannelState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
      */
     type?: pulumi.Input<string>;
@@ -199,6 +209,10 @@ export interface ContactChannelArgs {
      * Name of the contact channel. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Type of the contact channel. One of `SMS`, `VOICE` or `EMAIL`.
      */

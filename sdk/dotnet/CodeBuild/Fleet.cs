@@ -145,6 +145,12 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string> OverflowBehavior { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         /// </summary>
         [Output("scalingConfiguration")]
@@ -268,6 +274,12 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? OverflowBehavior { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         /// </summary>
         [Input("scalingConfiguration")]
@@ -374,6 +386,12 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string>? OverflowBehavior { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
         /// </summary>
         [Input("scalingConfiguration")]
@@ -405,7 +423,6 @@ namespace Pulumi.Aws.CodeBuild
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

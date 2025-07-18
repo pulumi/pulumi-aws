@@ -29,6 +29,7 @@ class RepositoryCreationTemplateArgs:
                  encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateEncryptionConfigurationArgs']]]] = None,
                  image_tag_mutability: Optional[pulumi.Input[builtins.str]] = None,
                  lifecycle_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository_policy: Optional[pulumi.Input[builtins.str]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -40,6 +41,7 @@ class RepositoryCreationTemplateArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration for any created repositories. See below for schema.
         :param pulumi.Input[builtins.str] image_tag_mutability: The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         :param pulumi.Input[builtins.str] lifecycle_policy: The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] resource_tags: A map of tags to assign to any created repositories.
         """
         pulumi.set(__self__, "applied_fors", applied_fors)
@@ -54,6 +56,8 @@ class RepositoryCreationTemplateArgs:
             pulumi.set(__self__, "image_tag_mutability", image_tag_mutability)
         if lifecycle_policy is not None:
             pulumi.set(__self__, "lifecycle_policy", lifecycle_policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if repository_policy is not None:
             pulumi.set(__self__, "repository_policy", repository_policy)
         if resource_tags is not None:
@@ -144,6 +148,18 @@ class RepositoryCreationTemplateArgs:
         pulumi.set(self, "lifecycle_policy", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="repositoryPolicy")
     def repository_policy(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "repository_policy")
@@ -175,6 +191,7 @@ class _RepositoryCreationTemplateState:
                  image_tag_mutability: Optional[pulumi.Input[builtins.str]] = None,
                  lifecycle_policy: Optional[pulumi.Input[builtins.str]] = None,
                  prefix: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  registry_id: Optional[pulumi.Input[builtins.str]] = None,
                  repository_policy: Optional[pulumi.Input[builtins.str]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -187,6 +204,7 @@ class _RepositoryCreationTemplateState:
         :param pulumi.Input[builtins.str] image_tag_mutability: The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         :param pulumi.Input[builtins.str] lifecycle_policy: The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
         :param pulumi.Input[builtins.str] prefix: The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_id: The registry ID the repository creation template applies to.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] resource_tags: A map of tags to assign to any created repositories.
         """
@@ -204,6 +222,8 @@ class _RepositoryCreationTemplateState:
             pulumi.set(__self__, "lifecycle_policy", lifecycle_policy)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if registry_id is not None:
             pulumi.set(__self__, "registry_id", registry_id)
         if repository_policy is not None:
@@ -296,6 +316,18 @@ class _RepositoryCreationTemplateState:
         pulumi.set(self, "prefix", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -342,6 +374,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
                  image_tag_mutability: Optional[pulumi.Input[builtins.str]] = None,
                  lifecycle_policy: Optional[pulumi.Input[builtins.str]] = None,
                  prefix: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository_policy: Optional[pulumi.Input[builtins.str]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -428,6 +461,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] image_tag_mutability: The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         :param pulumi.Input[builtins.str] lifecycle_policy: The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
         :param pulumi.Input[builtins.str] prefix: The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] resource_tags: A map of tags to assign to any created repositories.
         """
         ...
@@ -532,6 +566,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
                  image_tag_mutability: Optional[pulumi.Input[builtins.str]] = None,
                  lifecycle_policy: Optional[pulumi.Input[builtins.str]] = None,
                  prefix: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository_policy: Optional[pulumi.Input[builtins.str]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -554,6 +589,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
             if prefix is None and not opts.urn:
                 raise TypeError("Missing required property 'prefix'")
             __props__.__dict__["prefix"] = prefix
+            __props__.__dict__["region"] = region
             __props__.__dict__["repository_policy"] = repository_policy
             __props__.__dict__["resource_tags"] = resource_tags
             __props__.__dict__["registry_id"] = None
@@ -574,6 +610,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
             image_tag_mutability: Optional[pulumi.Input[builtins.str]] = None,
             lifecycle_policy: Optional[pulumi.Input[builtins.str]] = None,
             prefix: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             registry_id: Optional[pulumi.Input[builtins.str]] = None,
             repository_policy: Optional[pulumi.Input[builtins.str]] = None,
             resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'RepositoryCreationTemplate':
@@ -591,6 +628,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] image_tag_mutability: The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         :param pulumi.Input[builtins.str] lifecycle_policy: The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
         :param pulumi.Input[builtins.str] prefix: The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] registry_id: The registry ID the repository creation template applies to.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] resource_tags: A map of tags to assign to any created repositories.
         """
@@ -605,6 +643,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         __props__.__dict__["image_tag_mutability"] = image_tag_mutability
         __props__.__dict__["lifecycle_policy"] = lifecycle_policy
         __props__.__dict__["prefix"] = prefix
+        __props__.__dict__["region"] = region
         __props__.__dict__["registry_id"] = registry_id
         __props__.__dict__["repository_policy"] = repository_policy
         __props__.__dict__["resource_tags"] = resource_tags
@@ -665,6 +704,14 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         """
         return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="registryId")

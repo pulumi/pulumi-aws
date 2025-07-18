@@ -17,14 +17,14 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
     public static final InvocationState Empty = new InvocationState();
 
     /**
-     * Name of the lambda function.
+     * Name of the Lambda function.
      * 
      */
     @Import(name="functionName")
     private @Nullable Output<String> functionName;
 
     /**
-     * @return Name of the lambda function.
+     * @return Name of the Lambda function.
      * 
      */
     public Optional<Output<String>> functionName() {
@@ -32,7 +32,7 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * JSON payload to the lambda function.
+     * JSON payload to the Lambda function.
      * 
      * The following arguments are optional:
      * 
@@ -41,7 +41,7 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> input;
 
     /**
-     * @return JSON payload to the lambda function.
+     * @return JSON payload to the Lambda function.
      * 
      * The following arguments are optional:
      * 
@@ -66,14 +66,14 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+     * Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
      * 
      */
     @Import(name="qualifier")
     private @Nullable Output<String> qualifier;
 
     /**
-     * @return Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+     * @return Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
      * 
      */
     public Optional<Output<String>> qualifier() {
@@ -81,14 +81,29 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * String result of the lambda function invocation.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
+     * String result of the Lambda function invocation.
      * 
      */
     @Import(name="result")
     private @Nullable Output<String> result;
 
     /**
-     * @return String result of the lambda function invocation.
+     * @return String result of the Lambda function invocation.
      * 
      */
     public Optional<Output<String>> result() {
@@ -124,6 +139,7 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
         this.input = $.input;
         this.lifecycleScope = $.lifecycleScope;
         this.qualifier = $.qualifier;
+        this.region = $.region;
         this.result = $.result;
         this.terraformKey = $.terraformKey;
         this.triggers = $.triggers;
@@ -148,7 +164,7 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionName Name of the lambda function.
+         * @param functionName Name of the Lambda function.
          * 
          * @return builder
          * 
@@ -159,7 +175,7 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionName Name of the lambda function.
+         * @param functionName Name of the Lambda function.
          * 
          * @return builder
          * 
@@ -169,7 +185,7 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param input JSON payload to the lambda function.
+         * @param input JSON payload to the Lambda function.
          * 
          * The following arguments are optional:
          * 
@@ -182,7 +198,7 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param input JSON payload to the lambda function.
+         * @param input JSON payload to the Lambda function.
          * 
          * The following arguments are optional:
          * 
@@ -215,7 +231,7 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param qualifier Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+         * @param qualifier Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
          * 
          * @return builder
          * 
@@ -226,7 +242,7 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param qualifier Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+         * @param qualifier Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
          * 
          * @return builder
          * 
@@ -236,7 +252,28 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param result String result of the lambda function invocation.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
+         * @param result String result of the Lambda function invocation.
          * 
          * @return builder
          * 
@@ -247,7 +284,7 @@ public final class InvocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param result String result of the lambda function invocation.
+         * @param result String result of the Lambda function invocation.
          * 
          * @return builder
          * 

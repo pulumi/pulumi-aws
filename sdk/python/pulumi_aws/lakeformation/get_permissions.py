@@ -29,7 +29,7 @@ class GetPermissionsResult:
     """
     A collection of values returned by getPermissions.
     """
-    def __init__(__self__, catalog_id=None, catalog_resource=None, data_cells_filter=None, data_location=None, database=None, id=None, lf_tag=None, lf_tag_policy=None, permissions=None, permissions_with_grant_options=None, principal=None, table=None, table_with_columns=None):
+    def __init__(__self__, catalog_id=None, catalog_resource=None, data_cells_filter=None, data_location=None, database=None, id=None, lf_tag=None, lf_tag_policy=None, permissions=None, permissions_with_grant_options=None, principal=None, region=None, table=None, table_with_columns=None):
         if catalog_id and not isinstance(catalog_id, str):
             raise TypeError("Expected argument 'catalog_id' to be a str")
         pulumi.set(__self__, "catalog_id", catalog_id)
@@ -63,6 +63,9 @@ class GetPermissionsResult:
         if principal and not isinstance(principal, str):
             raise TypeError("Expected argument 'principal' to be a str")
         pulumi.set(__self__, "principal", principal)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if table and not isinstance(table, dict):
             raise TypeError("Expected argument 'table' to be a dict")
         pulumi.set(__self__, "table", table)
@@ -136,6 +139,11 @@ class GetPermissionsResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def table(self) -> 'outputs.GetPermissionsTableResult':
         return pulumi.get(self, "table")
 
@@ -162,6 +170,7 @@ class AwaitableGetPermissionsResult(GetPermissionsResult):
             permissions=self.permissions,
             permissions_with_grant_options=self.permissions_with_grant_options,
             principal=self.principal,
+            region=self.region,
             table=self.table,
             table_with_columns=self.table_with_columns)
 
@@ -174,6 +183,7 @@ def get_permissions(catalog_id: Optional[builtins.str] = None,
                     lf_tag: Optional[Union['GetPermissionsLfTagArgs', 'GetPermissionsLfTagArgsDict']] = None,
                     lf_tag_policy: Optional[Union['GetPermissionsLfTagPolicyArgs', 'GetPermissionsLfTagPolicyArgsDict']] = None,
                     principal: Optional[builtins.str] = None,
+                    region: Optional[builtins.str] = None,
                     table: Optional[Union['GetPermissionsTableArgs', 'GetPermissionsTableArgsDict']] = None,
                     table_with_columns: Optional[Union['GetPermissionsTableWithColumnsArgs', 'GetPermissionsTableWithColumnsArgsDict']] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPermissionsResult:
@@ -245,6 +255,7 @@ def get_permissions(catalog_id: Optional[builtins.str] = None,
     :param builtins.str principal: Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
            
            One of the following is required:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Union['GetPermissionsTableArgs', 'GetPermissionsTableArgsDict'] table: Configuration block for a table resource. Detailed below.
     :param Union['GetPermissionsTableWithColumnsArgs', 'GetPermissionsTableWithColumnsArgsDict'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
            
@@ -259,6 +270,7 @@ def get_permissions(catalog_id: Optional[builtins.str] = None,
     __args__['lfTag'] = lf_tag
     __args__['lfTagPolicy'] = lf_tag_policy
     __args__['principal'] = principal
+    __args__['region'] = region
     __args__['table'] = table
     __args__['tableWithColumns'] = table_with_columns
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -276,6 +288,7 @@ def get_permissions(catalog_id: Optional[builtins.str] = None,
         permissions=pulumi.get(__ret__, 'permissions'),
         permissions_with_grant_options=pulumi.get(__ret__, 'permissions_with_grant_options'),
         principal=pulumi.get(__ret__, 'principal'),
+        region=pulumi.get(__ret__, 'region'),
         table=pulumi.get(__ret__, 'table'),
         table_with_columns=pulumi.get(__ret__, 'table_with_columns'))
 def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -286,6 +299,7 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[builtins.s
                            lf_tag: Optional[pulumi.Input[Optional[Union['GetPermissionsLfTagArgs', 'GetPermissionsLfTagArgsDict']]]] = None,
                            lf_tag_policy: Optional[pulumi.Input[Optional[Union['GetPermissionsLfTagPolicyArgs', 'GetPermissionsLfTagPolicyArgsDict']]]] = None,
                            principal: Optional[pulumi.Input[builtins.str]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            table: Optional[pulumi.Input[Optional[Union['GetPermissionsTableArgs', 'GetPermissionsTableArgsDict']]]] = None,
                            table_with_columns: Optional[pulumi.Input[Optional[Union['GetPermissionsTableWithColumnsArgs', 'GetPermissionsTableWithColumnsArgsDict']]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionsResult]:
@@ -357,6 +371,7 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[builtins.s
     :param builtins.str principal: Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
            
            One of the following is required:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Union['GetPermissionsTableArgs', 'GetPermissionsTableArgsDict'] table: Configuration block for a table resource. Detailed below.
     :param Union['GetPermissionsTableWithColumnsArgs', 'GetPermissionsTableWithColumnsArgsDict'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
            
@@ -371,6 +386,7 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[builtins.s
     __args__['lfTag'] = lf_tag
     __args__['lfTagPolicy'] = lf_tag_policy
     __args__['principal'] = principal
+    __args__['region'] = region
     __args__['table'] = table
     __args__['tableWithColumns'] = table_with_columns
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -387,5 +403,6 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[builtins.s
         permissions=pulumi.get(__response__, 'permissions'),
         permissions_with_grant_options=pulumi.get(__response__, 'permissions_with_grant_options'),
         principal=pulumi.get(__response__, 'principal'),
+        region=pulumi.get(__response__, 'region'),
         table=pulumi.get(__response__, 'table'),
         table_with_columns=pulumi.get(__response__, 'table_with_columns')))

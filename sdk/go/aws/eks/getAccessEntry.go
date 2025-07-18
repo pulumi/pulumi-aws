@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,8 +55,12 @@ type LookupAccessEntryArgs struct {
 	// Name of the EKS Cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
-	PrincipalArn string            `pulumi:"principalArn"`
-	Tags         map[string]string `pulumi:"tags"`
+	PrincipalArn string `pulumi:"principalArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
+	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // A collection of values returned by getAccessEntry.
@@ -73,6 +77,7 @@ type LookupAccessEntryResult struct {
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
 	ModifiedAt   string            `pulumi:"modifiedAt"`
 	PrincipalArn string            `pulumi:"principalArn"`
+	Region       string            `pulumi:"region"`
 	Tags         map[string]string `pulumi:"tags"`
 	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -96,8 +101,12 @@ type LookupAccessEntryOutputArgs struct {
 	// Name of the EKS Cluster.
 	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
-	PrincipalArn pulumi.StringInput    `pulumi:"principalArn"`
-	Tags         pulumi.StringMapInput `pulumi:"tags"`
+	PrincipalArn pulumi.StringInput `pulumi:"principalArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
+	// (Optional) Key-value map of resource tags, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
 }
 
 func (LookupAccessEntryOutputArgs) ElementType() reflect.Type {
@@ -150,6 +159,10 @@ func (o LookupAccessEntryResultOutput) ModifiedAt() pulumi.StringOutput {
 
 func (o LookupAccessEntryResultOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessEntryResult) string { return v.PrincipalArn }).(pulumi.StringOutput)
+}
+
+func (o LookupAccessEntryResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccessEntryResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupAccessEntryResultOutput) Tags() pulumi.StringMapOutput {

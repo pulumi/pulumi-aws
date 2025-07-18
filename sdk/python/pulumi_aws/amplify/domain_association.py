@@ -27,6 +27,7 @@ class DomainAssociationArgs:
                  sub_domains: pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]],
                  certificate_settings: Optional[pulumi.Input['DomainAssociationCertificateSettingsArgs']] = None,
                  enable_auto_sub_domain: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  wait_for_verification: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The set of arguments for constructing a DomainAssociation resource.
@@ -35,6 +36,7 @@ class DomainAssociationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]] sub_domains: Setting for the subdomain. Documented below.
         :param pulumi.Input['DomainAssociationCertificateSettingsArgs'] certificate_settings: The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         :param pulumi.Input[builtins.bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
         pulumi.set(__self__, "app_id", app_id)
@@ -44,6 +46,8 @@ class DomainAssociationArgs:
             pulumi.set(__self__, "certificate_settings", certificate_settings)
         if enable_auto_sub_domain is not None:
             pulumi.set(__self__, "enable_auto_sub_domain", enable_auto_sub_domain)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if wait_for_verification is not None:
             pulumi.set(__self__, "wait_for_verification", wait_for_verification)
 
@@ -108,6 +112,18 @@ class DomainAssociationArgs:
         pulumi.set(self, "enable_auto_sub_domain", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="waitForVerification")
     def wait_for_verification(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -129,6 +145,7 @@ class _DomainAssociationState:
                  certificate_verification_dns_record: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  enable_auto_sub_domain: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]]] = None,
                  wait_for_verification: Optional[pulumi.Input[builtins.bool]] = None):
         """
@@ -139,6 +156,7 @@ class _DomainAssociationState:
         :param pulumi.Input[builtins.str] certificate_verification_dns_record: DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
         :param pulumi.Input[builtins.str] domain_name: Domain name for the domain association.
         :param pulumi.Input[builtins.bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]] sub_domains: Setting for the subdomain. Documented below.
         :param pulumi.Input[builtins.bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
@@ -154,6 +172,8 @@ class _DomainAssociationState:
             pulumi.set(__self__, "domain_name", domain_name)
         if enable_auto_sub_domain is not None:
             pulumi.set(__self__, "enable_auto_sub_domain", enable_auto_sub_domain)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sub_domains is not None:
             pulumi.set(__self__, "sub_domains", sub_domains)
         if wait_for_verification is not None:
@@ -232,6 +252,18 @@ class _DomainAssociationState:
         pulumi.set(self, "enable_auto_sub_domain", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="subDomains")
     def sub_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]]]:
         """
@@ -266,6 +298,7 @@ class DomainAssociation(pulumi.CustomResource):
                  certificate_settings: Optional[pulumi.Input[Union['DomainAssociationCertificateSettingsArgs', 'DomainAssociationCertificateSettingsArgsDict']]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  enable_auto_sub_domain: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]]] = None,
                  wait_for_verification: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
@@ -317,6 +350,7 @@ class DomainAssociation(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainAssociationCertificateSettingsArgs', 'DomainAssociationCertificateSettingsArgsDict']] certificate_settings: The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         :param pulumi.Input[builtins.str] domain_name: Domain name for the domain association.
         :param pulumi.Input[builtins.bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]] sub_domains: Setting for the subdomain. Documented below.
         :param pulumi.Input[builtins.bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
@@ -387,6 +421,7 @@ class DomainAssociation(pulumi.CustomResource):
                  certificate_settings: Optional[pulumi.Input[Union['DomainAssociationCertificateSettingsArgs', 'DomainAssociationCertificateSettingsArgsDict']]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  enable_auto_sub_domain: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]]] = None,
                  wait_for_verification: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
@@ -406,6 +441,7 @@ class DomainAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["enable_auto_sub_domain"] = enable_auto_sub_domain
+            __props__.__dict__["region"] = region
             if sub_domains is None and not opts.urn:
                 raise TypeError("Missing required property 'sub_domains'")
             __props__.__dict__["sub_domains"] = sub_domains
@@ -428,6 +464,7 @@ class DomainAssociation(pulumi.CustomResource):
             certificate_verification_dns_record: Optional[pulumi.Input[builtins.str]] = None,
             domain_name: Optional[pulumi.Input[builtins.str]] = None,
             enable_auto_sub_domain: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]]] = None,
             wait_for_verification: Optional[pulumi.Input[builtins.bool]] = None) -> 'DomainAssociation':
         """
@@ -443,6 +480,7 @@ class DomainAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] certificate_verification_dns_record: DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
         :param pulumi.Input[builtins.str] domain_name: Domain name for the domain association.
         :param pulumi.Input[builtins.bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DomainAssociationSubDomainArgs', 'DomainAssociationSubDomainArgsDict']]]] sub_domains: Setting for the subdomain. Documented below.
         :param pulumi.Input[builtins.bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
@@ -456,6 +494,7 @@ class DomainAssociation(pulumi.CustomResource):
         __props__.__dict__["certificate_verification_dns_record"] = certificate_verification_dns_record
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["enable_auto_sub_domain"] = enable_auto_sub_domain
+        __props__.__dict__["region"] = region
         __props__.__dict__["sub_domains"] = sub_domains
         __props__.__dict__["wait_for_verification"] = wait_for_verification
         return DomainAssociation(resource_name, opts=opts, __props__=__props__)
@@ -507,6 +546,14 @@ class DomainAssociation(pulumi.CustomResource):
         Enables the automated creation of subdomains for branches.
         """
         return pulumi.get(self, "enable_auto_sub_domain")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="subDomains")

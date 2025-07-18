@@ -31,9 +31,9 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "my-test-trail",
+    ///         BucketName = "my-test-trail",
     ///         ForceDestroy = true,
     ///     });
     /// 
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.CloudTrail
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     exampleBucketV2.Arn,
+    ///                     exampleBucket.Arn,
     ///                 },
     ///                 Conditions = new[]
     ///                 {
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.CloudTrail
     ///                         Variable = "aws:SourceArn",
     ///                         Values = new[]
     ///                         {
-    ///                             $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudtrail:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:trail/example",
+    ///                             $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudtrail:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:trail/example",
     ///                         },
     ///                     },
     ///                 },
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.CloudTrail
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"{exampleBucketV2.Arn}/prefix/AWSLogs/{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}/*",
+    ///                     $"{exampleBucket.Arn}/prefix/AWSLogs/{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}/*",
     ///                 },
     ///                 Conditions = new[]
     ///                 {
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.CloudTrail
     ///                         Variable = "aws:SourceArn",
     ///                         Values = new[]
     ///                         {
-    ///                             $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudtrail:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:trail/example",
+    ///                             $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:cloudtrail:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:trail/example",
     ///                         },
     ///                     },
     ///                 },
@@ -133,14 +133,14 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = exampleBucket.Id,
     ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var exampleTrail = new Aws.CloudTrail.Trail("example", new()
     ///     {
     ///         Name = "example",
-    ///         S3BucketName = exampleBucketV2.Id,
+    ///         S3BucketName = exampleBucket.Id,
     ///         S3KeyPrefix = "prefix",
     ///         IncludeGlobalServiceEvents = false,
     ///     }, new CustomResourceOptions
@@ -601,6 +601,12 @@ namespace Pulumi.Aws.CloudTrail
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the S3 bucket designated for publishing log files.
         /// 
         /// The following arguments are optional:
@@ -775,6 +781,12 @@ namespace Pulumi.Aws.CloudTrail
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Name of the S3 bucket designated for publishing log files.
         /// 
         /// The following arguments are optional:
@@ -917,6 +929,12 @@ namespace Pulumi.Aws.CloudTrail
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Name of the S3 bucket designated for publishing log files.
         /// 
         /// The following arguments are optional:
@@ -960,7 +978,6 @@ namespace Pulumi.Aws.CloudTrail
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

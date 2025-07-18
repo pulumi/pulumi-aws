@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,6 +59,8 @@ func GetDistributionConfigurations(ctx *pulumi.Context, args *GetDistributionCon
 type GetDistributionConfigurationsArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetDistributionConfigurationsFilter `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDistributionConfigurations.
@@ -69,7 +71,8 @@ type GetDistributionConfigurationsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set of names of the matched Image Builder Distribution Configurations.
-	Names []string `pulumi:"names"`
+	Names  []string `pulumi:"names"`
+	Region string   `pulumi:"region"`
 }
 
 func GetDistributionConfigurationsOutput(ctx *pulumi.Context, args GetDistributionConfigurationsOutputArgs, opts ...pulumi.InvokeOption) GetDistributionConfigurationsResultOutput {
@@ -85,6 +88,8 @@ func GetDistributionConfigurationsOutput(ctx *pulumi.Context, args GetDistributi
 type GetDistributionConfigurationsOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetDistributionConfigurationsFilterArrayInput `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetDistributionConfigurationsOutputArgs) ElementType() reflect.Type {
@@ -123,6 +128,10 @@ func (o GetDistributionConfigurationsResultOutput) Id() pulumi.StringOutput {
 // Set of names of the matched Image Builder Distribution Configurations.
 func (o GetDistributionConfigurationsResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationsResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+func (o GetDistributionConfigurationsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

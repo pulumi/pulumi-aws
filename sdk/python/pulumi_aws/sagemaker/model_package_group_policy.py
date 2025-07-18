@@ -21,13 +21,17 @@ __all__ = ['ModelPackageGroupPolicyArgs', 'ModelPackageGroupPolicy']
 class ModelPackageGroupPolicyArgs:
     def __init__(__self__, *,
                  model_package_group_name: pulumi.Input[builtins.str],
-                 resource_policy: pulumi.Input[builtins.str]):
+                 resource_policy: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ModelPackageGroupPolicy resource.
         :param pulumi.Input[builtins.str] model_package_group_name: The name of the model package group.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "model_package_group_name", model_package_group_name)
         pulumi.set(__self__, "resource_policy", resource_policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="modelPackageGroupName")
@@ -50,18 +54,34 @@ class ModelPackageGroupPolicyArgs:
     def resource_policy(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "resource_policy", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ModelPackageGroupPolicyState:
     def __init__(__self__, *,
                  model_package_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_policy: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ModelPackageGroupPolicy resources.
         :param pulumi.Input[builtins.str] model_package_group_name: The name of the model package group.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if model_package_group_name is not None:
             pulumi.set(__self__, "model_package_group_name", model_package_group_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_policy is not None:
             pulumi.set(__self__, "resource_policy", resource_policy)
 
@@ -76,6 +96,18 @@ class _ModelPackageGroupPolicyState:
     @model_package_group_name.setter
     def model_package_group_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "model_package_group_name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourcePolicy")
@@ -94,6 +126,7 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  model_package_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_policy: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -112,6 +145,7 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] model_package_group_name: The name of the model package group.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -148,6 +182,7 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  model_package_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_policy: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -161,6 +196,7 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
             if model_package_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'model_package_group_name'")
             __props__.__dict__["model_package_group_name"] = model_package_group_name
+            __props__.__dict__["region"] = region
             if resource_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_policy'")
             __props__.__dict__["resource_policy"] = resource_policy
@@ -175,6 +211,7 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             model_package_group_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_policy: Optional[pulumi.Input[builtins.str]] = None) -> 'ModelPackageGroupPolicy':
         """
         Get an existing ModelPackageGroupPolicy resource's state with the given name, id, and optional extra
@@ -184,12 +221,14 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] model_package_group_name: The name of the model package group.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ModelPackageGroupPolicyState.__new__(_ModelPackageGroupPolicyState)
 
         __props__.__dict__["model_package_group_name"] = model_package_group_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_policy"] = resource_policy
         return ModelPackageGroupPolicy(resource_name, opts=opts, __props__=__props__)
 
@@ -200,6 +239,14 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
         The name of the model package group.
         """
         return pulumi.get(self, "model_package_group_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourcePolicy")

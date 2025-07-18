@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Outposts
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetOutpostInstanceTypesArgs()
         {
         }
@@ -106,6 +112,12 @@ namespace Pulumi.Aws.Outposts
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetOutpostInstanceTypesInvokeArgs()
         {
@@ -126,6 +138,7 @@ namespace Pulumi.Aws.Outposts
         /// Set of instance types.
         /// </summary>
         public readonly ImmutableArray<string> InstanceTypes;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetOutpostInstanceTypesResult(
@@ -133,11 +146,14 @@ namespace Pulumi.Aws.Outposts
 
             string id,
 
-            ImmutableArray<string> instanceTypes)
+            ImmutableArray<string> instanceTypes,
+
+            string region)
         {
             Arn = arn;
             Id = id;
             InstanceTypes = instanceTypes;
+            Region = region;
         }
     }
 }

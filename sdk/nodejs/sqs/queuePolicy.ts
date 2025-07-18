@@ -2,9 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
-
-import {PolicyDocument} from "../iam";
 
 /**
  * Allows you to set a policy of an SQS Queue while referencing the ARN of the queue within the policy.
@@ -51,7 +52,7 @@ import {PolicyDocument} from "../iam";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "brodobaggins"});
+ * const example = new aws.s3.Bucket("example", {bucket: "brodobaggins"});
  * const exampleQueue = new aws.sqs.Queue("example", {name: "be-giant"});
  * const exampleQueuePolicy = new aws.sqs.QueuePolicy("example", {
  *     queueUrl: exampleQueue.id,
@@ -116,6 +117,10 @@ export class QueuePolicy extends pulumi.CustomResource {
      * URL of the SQS Queue to which to attach the policy.
      */
     public readonly queueUrl!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a QueuePolicy resource with the given unique name, arguments, and options.
@@ -132,6 +137,7 @@ export class QueuePolicy extends pulumi.CustomResource {
             const state = argsOrState as QueuePolicyState | undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
             resourceInputs["queueUrl"] = state ? state.queueUrl : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as QueuePolicyArgs | undefined;
             if ((!args || args.policy === undefined) && !opts.urn) {
@@ -142,6 +148,7 @@ export class QueuePolicy extends pulumi.CustomResource {
             }
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["queueUrl"] = args ? args.queueUrl : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(QueuePolicy.__pulumiType, name, resourceInputs, opts);
@@ -152,20 +159,28 @@ export class QueuePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering QueuePolicy resources.
  */
 export interface QueuePolicyState {
-    policy?: pulumi.Input<string | PolicyDocument>;
+    policy?: pulumi.Input<string | inputs.sqs.PolicyDocument>;
     /**
      * URL of the SQS Queue to which to attach the policy.
      */
     queueUrl?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a QueuePolicy resource.
  */
 export interface QueuePolicyArgs {
-    policy: pulumi.Input<string | PolicyDocument>;
+    policy: pulumi.Input<string | inputs.sqs.PolicyDocument>;
     /**
      * URL of the SQS Queue to which to attach the policy.
      */
     queueUrl: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

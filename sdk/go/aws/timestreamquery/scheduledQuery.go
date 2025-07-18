@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/timestreamquery"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/timestreamquery"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -132,18 +132,18 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/timestreamwrite"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sqs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/timestreamwrite"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketV2(ctx, "test", &s3.BucketV2Args{
+//			_, err := s3.NewBucket(ctx, "test", &s3.BucketArgs{
 //				Bucket:       pulumi.String("example"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
@@ -320,7 +320,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/timestreamquery"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/timestreamquery"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -442,6 +442,8 @@ type ScheduledQuery struct {
 	QueryString pulumi.StringOutput `pulumi:"queryString"`
 	// Runtime summary for the last five failed scheduled query runs.
 	RecentlyFailedRuns ScheduledQueryRecentlyFailedRunArrayOutput `pulumi:"recentlyFailedRuns"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for schedule configuration for the query. See below.
 	ScheduleConfiguration ScheduledQueryScheduleConfigurationOutput `pulumi:"scheduleConfiguration"`
 	// State of the scheduled query, either `ENABLED` or `DISABLED`.
@@ -449,8 +451,6 @@ type ScheduledQuery struct {
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for writing the result of a query. See below.
 	//
@@ -531,6 +531,8 @@ type scheduledQueryState struct {
 	QueryString *string `pulumi:"queryString"`
 	// Runtime summary for the last five failed scheduled query runs.
 	RecentlyFailedRuns []ScheduledQueryRecentlyFailedRun `pulumi:"recentlyFailedRuns"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block for schedule configuration for the query. See below.
 	ScheduleConfiguration *ScheduledQueryScheduleConfiguration `pulumi:"scheduleConfiguration"`
 	// State of the scheduled query, either `ENABLED` or `DISABLED`.
@@ -538,8 +540,6 @@ type scheduledQueryState struct {
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for writing the result of a query. See below.
 	//
@@ -573,6 +573,8 @@ type ScheduledQueryState struct {
 	QueryString pulumi.StringPtrInput
 	// Runtime summary for the last five failed scheduled query runs.
 	RecentlyFailedRuns ScheduledQueryRecentlyFailedRunArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block for schedule configuration for the query. See below.
 	ScheduleConfiguration ScheduledQueryScheduleConfigurationPtrInput
 	// State of the scheduled query, either `ENABLED` or `DISABLED`.
@@ -580,8 +582,6 @@ type ScheduledQueryState struct {
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Configuration block for writing the result of a query. See below.
 	//
@@ -611,6 +611,8 @@ type scheduledQueryArgs struct {
 	QueryString string `pulumi:"queryString"`
 	// Runtime summary for the last five failed scheduled query runs.
 	RecentlyFailedRuns []ScheduledQueryRecentlyFailedRun `pulumi:"recentlyFailedRuns"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block for schedule configuration for the query. See below.
 	ScheduleConfiguration ScheduledQueryScheduleConfiguration `pulumi:"scheduleConfiguration"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -640,6 +642,8 @@ type ScheduledQueryArgs struct {
 	QueryString pulumi.StringInput
 	// Runtime summary for the last five failed scheduled query runs.
 	RecentlyFailedRuns ScheduledQueryRecentlyFailedRunArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block for schedule configuration for the query. See below.
 	ScheduleConfiguration ScheduledQueryScheduleConfigurationInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -802,6 +806,11 @@ func (o ScheduledQueryOutput) RecentlyFailedRuns() ScheduledQueryRecentlyFailedR
 	return o.ApplyT(func(v *ScheduledQuery) ScheduledQueryRecentlyFailedRunArrayOutput { return v.RecentlyFailedRuns }).(ScheduledQueryRecentlyFailedRunArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ScheduledQueryOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScheduledQuery) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Configuration block for schedule configuration for the query. See below.
 func (o ScheduledQueryOutput) ScheduleConfiguration() ScheduledQueryScheduleConfigurationOutput {
 	return o.ApplyT(func(v *ScheduledQuery) ScheduledQueryScheduleConfigurationOutput { return v.ScheduleConfiguration }).(ScheduledQueryScheduleConfigurationOutput)
@@ -818,8 +827,6 @@ func (o ScheduledQueryOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ScheduledQueryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ScheduledQuery) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

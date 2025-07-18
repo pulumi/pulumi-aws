@@ -56,6 +56,10 @@ export class LoggingOptions extends pulumi.CustomResource {
      */
     public readonly disableAllLogs!: pulumi.Output<boolean | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the role that allows IoT to write to Cloudwatch logs.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -75,6 +79,7 @@ export class LoggingOptions extends pulumi.CustomResource {
             const state = argsOrState as LoggingOptionsState | undefined;
             resourceInputs["defaultLogLevel"] = state ? state.defaultLogLevel : undefined;
             resourceInputs["disableAllLogs"] = state ? state.disableAllLogs : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as LoggingOptionsArgs | undefined;
@@ -86,6 +91,7 @@ export class LoggingOptions extends pulumi.CustomResource {
             }
             resourceInputs["defaultLogLevel"] = args ? args.defaultLogLevel : undefined;
             resourceInputs["disableAllLogs"] = args ? args.disableAllLogs : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -106,6 +112,10 @@ export interface LoggingOptionsState {
      */
     disableAllLogs?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ARN of the role that allows IoT to write to Cloudwatch logs.
      */
     roleArn?: pulumi.Input<string>;
@@ -123,6 +133,10 @@ export interface LoggingOptionsArgs {
      * If `true` all logs are disabled. The default is `false`.
      */
     disableAllLogs?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the role that allows IoT to write to Cloudwatch logs.
      */

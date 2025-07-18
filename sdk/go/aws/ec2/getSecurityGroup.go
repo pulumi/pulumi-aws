@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -74,6 +74,8 @@ type LookupSecurityGroupArgs struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired security group.
 	Tags map[string]string `pulumi:"tags"`
@@ -93,6 +95,7 @@ type LookupSecurityGroupResult struct {
 	Filters     []GetSecurityGroupFilter `pulumi:"filters"`
 	Id          string                   `pulumi:"id"`
 	Name        string                   `pulumi:"name"`
+	Region      string                   `pulumi:"region"`
 	Tags        map[string]string        `pulumi:"tags"`
 	VpcId       string                   `pulumi:"vpcId"`
 }
@@ -115,6 +118,8 @@ type LookupSecurityGroupOutputArgs struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired security group.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -164,6 +169,10 @@ func (o LookupSecurityGroupResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupSecurityGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecurityGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupSecurityGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupSecurityGroupResultOutput) Tags() pulumi.StringMapOutput {

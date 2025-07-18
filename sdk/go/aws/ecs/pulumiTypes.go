@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -4880,112 +4880,6 @@ func (o TaskDefinitionEphemeralStoragePtrOutput) SizeInGib() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-type TaskDefinitionInferenceAccelerator struct {
-	// Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
-	DeviceName string `pulumi:"deviceName"`
-	// Elastic Inference accelerator type to use.
-	DeviceType string `pulumi:"deviceType"`
-}
-
-// TaskDefinitionInferenceAcceleratorInput is an input type that accepts TaskDefinitionInferenceAcceleratorArgs and TaskDefinitionInferenceAcceleratorOutput values.
-// You can construct a concrete instance of `TaskDefinitionInferenceAcceleratorInput` via:
-//
-//	TaskDefinitionInferenceAcceleratorArgs{...}
-type TaskDefinitionInferenceAcceleratorInput interface {
-	pulumi.Input
-
-	ToTaskDefinitionInferenceAcceleratorOutput() TaskDefinitionInferenceAcceleratorOutput
-	ToTaskDefinitionInferenceAcceleratorOutputWithContext(context.Context) TaskDefinitionInferenceAcceleratorOutput
-}
-
-type TaskDefinitionInferenceAcceleratorArgs struct {
-	// Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
-	DeviceName pulumi.StringInput `pulumi:"deviceName"`
-	// Elastic Inference accelerator type to use.
-	DeviceType pulumi.StringInput `pulumi:"deviceType"`
-}
-
-func (TaskDefinitionInferenceAcceleratorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionInferenceAccelerator)(nil)).Elem()
-}
-
-func (i TaskDefinitionInferenceAcceleratorArgs) ToTaskDefinitionInferenceAcceleratorOutput() TaskDefinitionInferenceAcceleratorOutput {
-	return i.ToTaskDefinitionInferenceAcceleratorOutputWithContext(context.Background())
-}
-
-func (i TaskDefinitionInferenceAcceleratorArgs) ToTaskDefinitionInferenceAcceleratorOutputWithContext(ctx context.Context) TaskDefinitionInferenceAcceleratorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionInferenceAcceleratorOutput)
-}
-
-// TaskDefinitionInferenceAcceleratorArrayInput is an input type that accepts TaskDefinitionInferenceAcceleratorArray and TaskDefinitionInferenceAcceleratorArrayOutput values.
-// You can construct a concrete instance of `TaskDefinitionInferenceAcceleratorArrayInput` via:
-//
-//	TaskDefinitionInferenceAcceleratorArray{ TaskDefinitionInferenceAcceleratorArgs{...} }
-type TaskDefinitionInferenceAcceleratorArrayInput interface {
-	pulumi.Input
-
-	ToTaskDefinitionInferenceAcceleratorArrayOutput() TaskDefinitionInferenceAcceleratorArrayOutput
-	ToTaskDefinitionInferenceAcceleratorArrayOutputWithContext(context.Context) TaskDefinitionInferenceAcceleratorArrayOutput
-}
-
-type TaskDefinitionInferenceAcceleratorArray []TaskDefinitionInferenceAcceleratorInput
-
-func (TaskDefinitionInferenceAcceleratorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskDefinitionInferenceAccelerator)(nil)).Elem()
-}
-
-func (i TaskDefinitionInferenceAcceleratorArray) ToTaskDefinitionInferenceAcceleratorArrayOutput() TaskDefinitionInferenceAcceleratorArrayOutput {
-	return i.ToTaskDefinitionInferenceAcceleratorArrayOutputWithContext(context.Background())
-}
-
-func (i TaskDefinitionInferenceAcceleratorArray) ToTaskDefinitionInferenceAcceleratorArrayOutputWithContext(ctx context.Context) TaskDefinitionInferenceAcceleratorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionInferenceAcceleratorArrayOutput)
-}
-
-type TaskDefinitionInferenceAcceleratorOutput struct{ *pulumi.OutputState }
-
-func (TaskDefinitionInferenceAcceleratorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskDefinitionInferenceAccelerator)(nil)).Elem()
-}
-
-func (o TaskDefinitionInferenceAcceleratorOutput) ToTaskDefinitionInferenceAcceleratorOutput() TaskDefinitionInferenceAcceleratorOutput {
-	return o
-}
-
-func (o TaskDefinitionInferenceAcceleratorOutput) ToTaskDefinitionInferenceAcceleratorOutputWithContext(ctx context.Context) TaskDefinitionInferenceAcceleratorOutput {
-	return o
-}
-
-// Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
-func (o TaskDefinitionInferenceAcceleratorOutput) DeviceName() pulumi.StringOutput {
-	return o.ApplyT(func(v TaskDefinitionInferenceAccelerator) string { return v.DeviceName }).(pulumi.StringOutput)
-}
-
-// Elastic Inference accelerator type to use.
-func (o TaskDefinitionInferenceAcceleratorOutput) DeviceType() pulumi.StringOutput {
-	return o.ApplyT(func(v TaskDefinitionInferenceAccelerator) string { return v.DeviceType }).(pulumi.StringOutput)
-}
-
-type TaskDefinitionInferenceAcceleratorArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskDefinitionInferenceAcceleratorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskDefinitionInferenceAccelerator)(nil)).Elem()
-}
-
-func (o TaskDefinitionInferenceAcceleratorArrayOutput) ToTaskDefinitionInferenceAcceleratorArrayOutput() TaskDefinitionInferenceAcceleratorArrayOutput {
-	return o
-}
-
-func (o TaskDefinitionInferenceAcceleratorArrayOutput) ToTaskDefinitionInferenceAcceleratorArrayOutputWithContext(ctx context.Context) TaskDefinitionInferenceAcceleratorArrayOutput {
-	return o
-}
-
-func (o TaskDefinitionInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput) TaskDefinitionInferenceAcceleratorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskDefinitionInferenceAccelerator {
-		return vs[0].([]TaskDefinitionInferenceAccelerator)[vs[1].(int)]
-	}).(TaskDefinitionInferenceAcceleratorOutput)
-}
-
 type TaskDefinitionPlacementConstraint struct {
 	// Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
 	Expression *string `pulumi:"expression"`
@@ -7564,112 +7458,6 @@ func (o GetTaskDefinitionEphemeralStorageArrayOutput) Index(i pulumi.IntInput) G
 	}).(GetTaskDefinitionEphemeralStorageOutput)
 }
 
-type GetTaskDefinitionInferenceAccelerator struct {
-	// Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
-	DeviceName string `pulumi:"deviceName"`
-	// Elastic Inference accelerator type to use.
-	DeviceType string `pulumi:"deviceType"`
-}
-
-// GetTaskDefinitionInferenceAcceleratorInput is an input type that accepts GetTaskDefinitionInferenceAcceleratorArgs and GetTaskDefinitionInferenceAcceleratorOutput values.
-// You can construct a concrete instance of `GetTaskDefinitionInferenceAcceleratorInput` via:
-//
-//	GetTaskDefinitionInferenceAcceleratorArgs{...}
-type GetTaskDefinitionInferenceAcceleratorInput interface {
-	pulumi.Input
-
-	ToGetTaskDefinitionInferenceAcceleratorOutput() GetTaskDefinitionInferenceAcceleratorOutput
-	ToGetTaskDefinitionInferenceAcceleratorOutputWithContext(context.Context) GetTaskDefinitionInferenceAcceleratorOutput
-}
-
-type GetTaskDefinitionInferenceAcceleratorArgs struct {
-	// Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
-	DeviceName pulumi.StringInput `pulumi:"deviceName"`
-	// Elastic Inference accelerator type to use.
-	DeviceType pulumi.StringInput `pulumi:"deviceType"`
-}
-
-func (GetTaskDefinitionInferenceAcceleratorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTaskDefinitionInferenceAccelerator)(nil)).Elem()
-}
-
-func (i GetTaskDefinitionInferenceAcceleratorArgs) ToGetTaskDefinitionInferenceAcceleratorOutput() GetTaskDefinitionInferenceAcceleratorOutput {
-	return i.ToGetTaskDefinitionInferenceAcceleratorOutputWithContext(context.Background())
-}
-
-func (i GetTaskDefinitionInferenceAcceleratorArgs) ToGetTaskDefinitionInferenceAcceleratorOutputWithContext(ctx context.Context) GetTaskDefinitionInferenceAcceleratorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionInferenceAcceleratorOutput)
-}
-
-// GetTaskDefinitionInferenceAcceleratorArrayInput is an input type that accepts GetTaskDefinitionInferenceAcceleratorArray and GetTaskDefinitionInferenceAcceleratorArrayOutput values.
-// You can construct a concrete instance of `GetTaskDefinitionInferenceAcceleratorArrayInput` via:
-//
-//	GetTaskDefinitionInferenceAcceleratorArray{ GetTaskDefinitionInferenceAcceleratorArgs{...} }
-type GetTaskDefinitionInferenceAcceleratorArrayInput interface {
-	pulumi.Input
-
-	ToGetTaskDefinitionInferenceAcceleratorArrayOutput() GetTaskDefinitionInferenceAcceleratorArrayOutput
-	ToGetTaskDefinitionInferenceAcceleratorArrayOutputWithContext(context.Context) GetTaskDefinitionInferenceAcceleratorArrayOutput
-}
-
-type GetTaskDefinitionInferenceAcceleratorArray []GetTaskDefinitionInferenceAcceleratorInput
-
-func (GetTaskDefinitionInferenceAcceleratorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetTaskDefinitionInferenceAccelerator)(nil)).Elem()
-}
-
-func (i GetTaskDefinitionInferenceAcceleratorArray) ToGetTaskDefinitionInferenceAcceleratorArrayOutput() GetTaskDefinitionInferenceAcceleratorArrayOutput {
-	return i.ToGetTaskDefinitionInferenceAcceleratorArrayOutputWithContext(context.Background())
-}
-
-func (i GetTaskDefinitionInferenceAcceleratorArray) ToGetTaskDefinitionInferenceAcceleratorArrayOutputWithContext(ctx context.Context) GetTaskDefinitionInferenceAcceleratorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetTaskDefinitionInferenceAcceleratorArrayOutput)
-}
-
-type GetTaskDefinitionInferenceAcceleratorOutput struct{ *pulumi.OutputState }
-
-func (GetTaskDefinitionInferenceAcceleratorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTaskDefinitionInferenceAccelerator)(nil)).Elem()
-}
-
-func (o GetTaskDefinitionInferenceAcceleratorOutput) ToGetTaskDefinitionInferenceAcceleratorOutput() GetTaskDefinitionInferenceAcceleratorOutput {
-	return o
-}
-
-func (o GetTaskDefinitionInferenceAcceleratorOutput) ToGetTaskDefinitionInferenceAcceleratorOutputWithContext(ctx context.Context) GetTaskDefinitionInferenceAcceleratorOutput {
-	return o
-}
-
-// Elastic Inference accelerator device name. The deviceName must also be referenced in a container definition as a ResourceRequirement.
-func (o GetTaskDefinitionInferenceAcceleratorOutput) DeviceName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTaskDefinitionInferenceAccelerator) string { return v.DeviceName }).(pulumi.StringOutput)
-}
-
-// Elastic Inference accelerator type to use.
-func (o GetTaskDefinitionInferenceAcceleratorOutput) DeviceType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTaskDefinitionInferenceAccelerator) string { return v.DeviceType }).(pulumi.StringOutput)
-}
-
-type GetTaskDefinitionInferenceAcceleratorArrayOutput struct{ *pulumi.OutputState }
-
-func (GetTaskDefinitionInferenceAcceleratorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetTaskDefinitionInferenceAccelerator)(nil)).Elem()
-}
-
-func (o GetTaskDefinitionInferenceAcceleratorArrayOutput) ToGetTaskDefinitionInferenceAcceleratorArrayOutput() GetTaskDefinitionInferenceAcceleratorArrayOutput {
-	return o
-}
-
-func (o GetTaskDefinitionInferenceAcceleratorArrayOutput) ToGetTaskDefinitionInferenceAcceleratorArrayOutputWithContext(ctx context.Context) GetTaskDefinitionInferenceAcceleratorArrayOutput {
-	return o
-}
-
-func (o GetTaskDefinitionInferenceAcceleratorArrayOutput) Index(i pulumi.IntInput) GetTaskDefinitionInferenceAcceleratorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskDefinitionInferenceAccelerator {
-		return vs[0].([]GetTaskDefinitionInferenceAccelerator)[vs[1].(int)]
-	}).(GetTaskDefinitionInferenceAcceleratorOutput)
-}
-
 type GetTaskDefinitionPlacementConstraint struct {
 	// Cluster Query Language expression to apply to the constraint. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
 	Expression string `pulumi:"expression"`
@@ -9056,10 +8844,6 @@ type GetTaskExecutionOverrides struct {
 	Cpu *string `pulumi:"cpu"`
 	// Amazon Resource Name (ARN) of the task execution role override for the task.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// **DEPRECATED** Elastic Inference accelerator override for the task. See below.
-	//
-	// Deprecated: inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
-	InferenceAcceleratorOverrides []GetTaskExecutionOverridesInferenceAcceleratorOverride `pulumi:"inferenceAcceleratorOverrides"`
 	// The memory override for the task.
 	Memory *string `pulumi:"memory"`
 	// Amazon Resource Name (ARN) of the role that containers in this task can assume.
@@ -9084,10 +8868,6 @@ type GetTaskExecutionOverridesArgs struct {
 	Cpu pulumi.StringPtrInput `pulumi:"cpu"`
 	// Amazon Resource Name (ARN) of the task execution role override for the task.
 	ExecutionRoleArn pulumi.StringPtrInput `pulumi:"executionRoleArn"`
-	// **DEPRECATED** Elastic Inference accelerator override for the task. See below.
-	//
-	// Deprecated: inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
-	InferenceAcceleratorOverrides GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayInput `pulumi:"inferenceAcceleratorOverrides"`
 	// The memory override for the task.
 	Memory pulumi.StringPtrInput `pulumi:"memory"`
 	// Amazon Resource Name (ARN) of the role that containers in this task can assume.
@@ -9188,15 +8968,6 @@ func (o GetTaskExecutionOverridesOutput) ExecutionRoleArn() pulumi.StringPtrOutp
 	return o.ApplyT(func(v GetTaskExecutionOverrides) *string { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// **DEPRECATED** Elastic Inference accelerator override for the task. See below.
-//
-// Deprecated: inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
-func (o GetTaskExecutionOverridesOutput) InferenceAcceleratorOverrides() GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput {
-	return o.ApplyT(func(v GetTaskExecutionOverrides) []GetTaskExecutionOverridesInferenceAcceleratorOverride {
-		return v.InferenceAcceleratorOverrides
-	}).(GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput)
-}
-
 // The memory override for the task.
 func (o GetTaskExecutionOverridesOutput) Memory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverrides) *string { return v.Memory }).(pulumi.StringPtrOutput)
@@ -9259,18 +9030,6 @@ func (o GetTaskExecutionOverridesPtrOutput) ExecutionRoleArn() pulumi.StringPtrO
 		}
 		return v.ExecutionRoleArn
 	}).(pulumi.StringPtrOutput)
-}
-
-// **DEPRECATED** Elastic Inference accelerator override for the task. See below.
-//
-// Deprecated: inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.
-func (o GetTaskExecutionOverridesPtrOutput) InferenceAcceleratorOverrides() GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput {
-	return o.ApplyT(func(v *GetTaskExecutionOverrides) []GetTaskExecutionOverridesInferenceAcceleratorOverride {
-		if v == nil {
-			return nil
-		}
-		return v.InferenceAcceleratorOverrides
-	}).(GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput)
 }
 
 // The memory override for the task.
@@ -9555,9 +9314,9 @@ func (o GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput) Index(
 }
 
 type GetTaskExecutionOverridesContainerOverrideResourceRequirement struct {
-	// The type of resource to assign to a container. Valid values are `GPU` or `InferenceAccelerator`.
+	// The type of resource to assign to a container. Valid values are `GPU`.
 	Type string `pulumi:"type"`
-	// The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. If the `InferenceAccelerator` type is used, the value matches the `deviceName` for an InferenceAccelerator specified in a task definition.
+	// The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
 	Value string `pulumi:"value"`
 }
 
@@ -9573,9 +9332,9 @@ type GetTaskExecutionOverridesContainerOverrideResourceRequirementInput interfac
 }
 
 type GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs struct {
-	// The type of resource to assign to a container. Valid values are `GPU` or `InferenceAccelerator`.
+	// The type of resource to assign to a container. Valid values are `GPU`.
 	Type pulumi.StringInput `pulumi:"type"`
-	// The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. If the `InferenceAccelerator` type is used, the value matches the `deviceName` for an InferenceAccelerator specified in a task definition.
+	// The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -9630,12 +9389,12 @@ func (o GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput) ToG
 	return o
 }
 
-// The type of resource to assign to a container. Valid values are `GPU` or `InferenceAccelerator`.
+// The type of resource to assign to a container. Valid values are `GPU`.
 func (o GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverrideResourceRequirement) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on. If the `InferenceAccelerator` type is used, the value matches the `deviceName` for an InferenceAccelerator specified in a task definition.
+// The value for the specified resource type. If the `GPU` type is used, the value is the number of physical GPUs the Amazon ECS container agent reserves for the container. The number of GPUs that's reserved for all containers in a task can't exceed the number of available GPUs on the container instance that the task is launched on.
 func (o GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTaskExecutionOverridesContainerOverrideResourceRequirement) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -9658,112 +9417,6 @@ func (o GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskExecutionOverridesContainerOverrideResourceRequirement {
 		return vs[0].([]GetTaskExecutionOverridesContainerOverrideResourceRequirement)[vs[1].(int)]
 	}).(GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput)
-}
-
-type GetTaskExecutionOverridesInferenceAcceleratorOverride struct {
-	// The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
-	DeviceName *string `pulumi:"deviceName"`
-	// The Elastic Inference accelerator type to use.
-	DeviceType *string `pulumi:"deviceType"`
-}
-
-// GetTaskExecutionOverridesInferenceAcceleratorOverrideInput is an input type that accepts GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs and GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput values.
-// You can construct a concrete instance of `GetTaskExecutionOverridesInferenceAcceleratorOverrideInput` via:
-//
-//	GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs{...}
-type GetTaskExecutionOverridesInferenceAcceleratorOverrideInput interface {
-	pulumi.Input
-
-	ToGetTaskExecutionOverridesInferenceAcceleratorOverrideOutput() GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput
-	ToGetTaskExecutionOverridesInferenceAcceleratorOverrideOutputWithContext(context.Context) GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput
-}
-
-type GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs struct {
-	// The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
-	DeviceName pulumi.StringPtrInput `pulumi:"deviceName"`
-	// The Elastic Inference accelerator type to use.
-	DeviceType pulumi.StringPtrInput `pulumi:"deviceType"`
-}
-
-func (GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTaskExecutionOverridesInferenceAcceleratorOverride)(nil)).Elem()
-}
-
-func (i GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs) ToGetTaskExecutionOverridesInferenceAcceleratorOverrideOutput() GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput {
-	return i.ToGetTaskExecutionOverridesInferenceAcceleratorOverrideOutputWithContext(context.Background())
-}
-
-func (i GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs) ToGetTaskExecutionOverridesInferenceAcceleratorOverrideOutputWithContext(ctx context.Context) GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput)
-}
-
-// GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayInput is an input type that accepts GetTaskExecutionOverridesInferenceAcceleratorOverrideArray and GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput values.
-// You can construct a concrete instance of `GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayInput` via:
-//
-//	GetTaskExecutionOverridesInferenceAcceleratorOverrideArray{ GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs{...} }
-type GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayInput interface {
-	pulumi.Input
-
-	ToGetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput() GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput
-	ToGetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutputWithContext(context.Context) GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput
-}
-
-type GetTaskExecutionOverridesInferenceAcceleratorOverrideArray []GetTaskExecutionOverridesInferenceAcceleratorOverrideInput
-
-func (GetTaskExecutionOverridesInferenceAcceleratorOverrideArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetTaskExecutionOverridesInferenceAcceleratorOverride)(nil)).Elem()
-}
-
-func (i GetTaskExecutionOverridesInferenceAcceleratorOverrideArray) ToGetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput() GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput {
-	return i.ToGetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutputWithContext(context.Background())
-}
-
-func (i GetTaskExecutionOverridesInferenceAcceleratorOverrideArray) ToGetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutputWithContext(ctx context.Context) GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput)
-}
-
-type GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput struct{ *pulumi.OutputState }
-
-func (GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTaskExecutionOverridesInferenceAcceleratorOverride)(nil)).Elem()
-}
-
-func (o GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput) ToGetTaskExecutionOverridesInferenceAcceleratorOverrideOutput() GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput {
-	return o
-}
-
-func (o GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput) ToGetTaskExecutionOverridesInferenceAcceleratorOverrideOutputWithContext(ctx context.Context) GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput {
-	return o
-}
-
-// The Elastic Inference accelerator device name to override for the task. This parameter must match a deviceName specified in the task definition.
-func (o GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput) DeviceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetTaskExecutionOverridesInferenceAcceleratorOverride) *string { return v.DeviceName }).(pulumi.StringPtrOutput)
-}
-
-// The Elastic Inference accelerator type to use.
-func (o GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput) DeviceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetTaskExecutionOverridesInferenceAcceleratorOverride) *string { return v.DeviceType }).(pulumi.StringPtrOutput)
-}
-
-type GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput struct{ *pulumi.OutputState }
-
-func (GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetTaskExecutionOverridesInferenceAcceleratorOverride)(nil)).Elem()
-}
-
-func (o GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput) ToGetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput() GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput {
-	return o
-}
-
-func (o GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput) ToGetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutputWithContext(ctx context.Context) GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput {
-	return o
-}
-
-func (o GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput) Index(i pulumi.IntInput) GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTaskExecutionOverridesInferenceAcceleratorOverride {
-		return vs[0].([]GetTaskExecutionOverridesInferenceAcceleratorOverride)[vs[1].(int)]
-	}).(GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput)
 }
 
 type GetTaskExecutionPlacementConstraint struct {
@@ -10047,8 +9700,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVpcLatticeConfigurationArrayInput)(nil)).Elem(), ServiceVpcLatticeConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEphemeralStorageInput)(nil)).Elem(), TaskDefinitionEphemeralStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEphemeralStoragePtrInput)(nil)).Elem(), TaskDefinitionEphemeralStorageArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionInferenceAcceleratorInput)(nil)).Elem(), TaskDefinitionInferenceAcceleratorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionInferenceAcceleratorArrayInput)(nil)).Elem(), TaskDefinitionInferenceAcceleratorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionPlacementConstraintInput)(nil)).Elem(), TaskDefinitionPlacementConstraintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionPlacementConstraintArrayInput)(nil)).Elem(), TaskDefinitionPlacementConstraintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionProxyConfigurationInput)(nil)).Elem(), TaskDefinitionProxyConfigurationArgs{})
@@ -10083,8 +9734,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterSettingArrayInput)(nil)).Elem(), GetClusterSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionEphemeralStorageInput)(nil)).Elem(), GetTaskDefinitionEphemeralStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionEphemeralStorageArrayInput)(nil)).Elem(), GetTaskDefinitionEphemeralStorageArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionInferenceAcceleratorInput)(nil)).Elem(), GetTaskDefinitionInferenceAcceleratorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionInferenceAcceleratorArrayInput)(nil)).Elem(), GetTaskDefinitionInferenceAcceleratorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionPlacementConstraintInput)(nil)).Elem(), GetTaskDefinitionPlacementConstraintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionPlacementConstraintArrayInput)(nil)).Elem(), GetTaskDefinitionPlacementConstraintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskDefinitionProxyConfigurationInput)(nil)).Elem(), GetTaskDefinitionProxyConfigurationArgs{})
@@ -10115,8 +9764,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionOverridesContainerOverrideEnvironmentArrayInput)(nil)).Elem(), GetTaskExecutionOverridesContainerOverrideEnvironmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionOverridesContainerOverrideResourceRequirementInput)(nil)).Elem(), GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayInput)(nil)).Elem(), GetTaskExecutionOverridesContainerOverrideResourceRequirementArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionOverridesInferenceAcceleratorOverrideInput)(nil)).Elem(), GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayInput)(nil)).Elem(), GetTaskExecutionOverridesInferenceAcceleratorOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionPlacementConstraintInput)(nil)).Elem(), GetTaskExecutionPlacementConstraintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionPlacementConstraintArrayInput)(nil)).Elem(), GetTaskExecutionPlacementConstraintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTaskExecutionPlacementStrategyInput)(nil)).Elem(), GetTaskExecutionPlacementStrategyArgs{})
@@ -10183,8 +9830,6 @@ func init() {
 	pulumi.RegisterOutputType(ServiceVpcLatticeConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionEphemeralStorageOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionEphemeralStoragePtrOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionInferenceAcceleratorOutput{})
-	pulumi.RegisterOutputType(TaskDefinitionInferenceAcceleratorArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionPlacementConstraintOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionPlacementConstraintArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionProxyConfigurationOutput{})
@@ -10219,8 +9864,6 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetTaskDefinitionEphemeralStorageOutput{})
 	pulumi.RegisterOutputType(GetTaskDefinitionEphemeralStorageArrayOutput{})
-	pulumi.RegisterOutputType(GetTaskDefinitionInferenceAcceleratorOutput{})
-	pulumi.RegisterOutputType(GetTaskDefinitionInferenceAcceleratorArrayOutput{})
 	pulumi.RegisterOutputType(GetTaskDefinitionPlacementConstraintOutput{})
 	pulumi.RegisterOutputType(GetTaskDefinitionPlacementConstraintArrayOutput{})
 	pulumi.RegisterOutputType(GetTaskDefinitionProxyConfigurationOutput{})
@@ -10251,8 +9894,6 @@ func init() {
 	pulumi.RegisterOutputType(GetTaskExecutionOverridesContainerOverrideEnvironmentArrayOutput{})
 	pulumi.RegisterOutputType(GetTaskExecutionOverridesContainerOverrideResourceRequirementOutput{})
 	pulumi.RegisterOutputType(GetTaskExecutionOverridesContainerOverrideResourceRequirementArrayOutput{})
-	pulumi.RegisterOutputType(GetTaskExecutionOverridesInferenceAcceleratorOverrideOutput{})
-	pulumi.RegisterOutputType(GetTaskExecutionOverridesInferenceAcceleratorOverrideArrayOutput{})
 	pulumi.RegisterOutputType(GetTaskExecutionPlacementConstraintOutput{})
 	pulumi.RegisterOutputType(GetTaskExecutionPlacementConstraintArrayOutput{})
 	pulumi.RegisterOutputType(GetTaskExecutionPlacementStrategyOutput{})

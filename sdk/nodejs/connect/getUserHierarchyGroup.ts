@@ -42,6 +42,7 @@ export function getUserHierarchyGroup(args: GetUserHierarchyGroupArgs, opts?: pu
         "hierarchyGroupId": args.hierarchyGroupId,
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -64,6 +65,10 @@ export interface GetUserHierarchyGroupArgs {
      * > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags to assign to the hierarchy group.
      */
@@ -96,6 +101,7 @@ export interface GetUserHierarchyGroupResult {
      * Name of the hierarchy group.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * Map of tags to assign to the hierarchy group.
      */
@@ -136,6 +142,7 @@ export function getUserHierarchyGroupOutput(args: GetUserHierarchyGroupOutputArg
         "hierarchyGroupId": args.hierarchyGroupId,
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -158,6 +165,10 @@ export interface GetUserHierarchyGroupOutputArgs {
      * > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the hierarchy group.
      */

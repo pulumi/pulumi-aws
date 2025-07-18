@@ -37,6 +37,12 @@ namespace Pulumi.Aws.Ssm
         public bool? Recursive { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
         /// </summary>
         [Input("withDecryption")]
@@ -61,6 +67,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("recursive")]
         public Input<bool>? Recursive { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
@@ -92,6 +104,7 @@ namespace Pulumi.Aws.Ssm
         public readonly ImmutableArray<string> Names;
         public readonly string Path;
         public readonly bool? Recursive;
+        public readonly string Region;
         /// <summary>
         /// A list that contains the types (`String`, `StringList`, or `SecureString`) of retrieved parameters.
         /// </summary>
@@ -114,6 +127,8 @@ namespace Pulumi.Aws.Ssm
 
             bool? recursive,
 
+            string region,
+
             ImmutableArray<string> types,
 
             ImmutableArray<string> values,
@@ -125,6 +140,7 @@ namespace Pulumi.Aws.Ssm
             Names = names;
             Path = path;
             Recursive = recursive;
+            Region = region;
             Types = types;
             Values = values;
             WithDecryption = withDecryption;

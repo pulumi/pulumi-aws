@@ -76,8 +76,14 @@ export class LbCertificateAttachment extends pulumi.CustomResource {
     public readonly certificateName!: pulumi.Output<string>;
     /**
      * Name of the load balancer to which you want to associate the SSL/TLS certificate.
+     *
+     * The following arguments are optional:
      */
     public readonly lbName!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LbCertificateAttachment resource with the given unique name, arguments, and options.
@@ -94,6 +100,7 @@ export class LbCertificateAttachment extends pulumi.CustomResource {
             const state = argsOrState as LbCertificateAttachmentState | undefined;
             resourceInputs["certificateName"] = state ? state.certificateName : undefined;
             resourceInputs["lbName"] = state ? state.lbName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LbCertificateAttachmentArgs | undefined;
             if ((!args || args.certificateName === undefined) && !opts.urn) {
@@ -104,6 +111,7 @@ export class LbCertificateAttachment extends pulumi.CustomResource {
             }
             resourceInputs["certificateName"] = args ? args.certificateName : undefined;
             resourceInputs["lbName"] = args ? args.lbName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LbCertificateAttachment.__pulumiType, name, resourceInputs, opts);
@@ -120,8 +128,14 @@ export interface LbCertificateAttachmentState {
     certificateName?: pulumi.Input<string>;
     /**
      * Name of the load balancer to which you want to associate the SSL/TLS certificate.
+     *
+     * The following arguments are optional:
      */
     lbName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -134,6 +148,12 @@ export interface LbCertificateAttachmentArgs {
     certificateName: pulumi.Input<string>;
     /**
      * Name of the load balancer to which you want to associate the SSL/TLS certificate.
+     *
+     * The following arguments are optional:
      */
     lbName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

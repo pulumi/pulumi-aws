@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Transfer
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetConnectorArgs()
         {
         }
@@ -106,6 +112,12 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetConnectorInvokeArgs()
         {
@@ -134,6 +146,7 @@ namespace Pulumi.Aws.Transfer
         /// ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
         /// </summary>
         public readonly string LoggingRole;
+        public readonly string Region;
         /// <summary>
         /// Name of security policy.
         /// </summary>
@@ -167,6 +180,8 @@ namespace Pulumi.Aws.Transfer
 
             string loggingRole,
 
+            string region,
+
             string securityPolicyName,
 
             ImmutableArray<string> serviceManagedEgressIpAddresses,
@@ -182,6 +197,7 @@ namespace Pulumi.Aws.Transfer
             As2Configs = as2Configs;
             Id = id;
             LoggingRole = loggingRole;
+            Region = region;
             SecurityPolicyName = securityPolicyName;
             ServiceManagedEgressIpAddresses = serviceManagedEgressIpAddresses;
             SftpConfigs = sftpConfigs;

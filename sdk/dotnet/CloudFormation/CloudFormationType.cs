@@ -78,6 +78,12 @@ namespace Pulumi.Aws.CloudFormation
         public Output<string> ProvisioningType { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// JSON document of the CloudFormation Type schema.
         /// </summary>
         [Output("schema")]
@@ -184,6 +190,12 @@ namespace Pulumi.Aws.CloudFormation
         public Input<Inputs.CloudFormationTypeLoggingConfigArgs>? LoggingConfig { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
         /// </summary>
         [Input("schemaHandlerPackage", required: true)]
@@ -262,6 +274,12 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         [Input("provisioningType")]
         public Input<string>? ProvisioningType { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// JSON document of the CloudFormation Type schema.

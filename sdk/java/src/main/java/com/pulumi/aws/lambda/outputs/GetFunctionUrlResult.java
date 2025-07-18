@@ -20,7 +20,7 @@ public final class GetFunctionUrlResult {
      */
     private String authorizationType;
     /**
-     * @return The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `aws.lambda.FunctionUrl` resource documentation for more details.
+     * @return Cross-origin resource sharing (CORS) settings for the function URL. See below.
      * 
      */
     private List<GetFunctionUrlCor> cors;
@@ -56,6 +56,7 @@ public final class GetFunctionUrlResult {
      */
     private String lastModifiedTime;
     private @Nullable String qualifier;
+    private String region;
     /**
      * @return Generated ID for the endpoint.
      * 
@@ -71,7 +72,7 @@ public final class GetFunctionUrlResult {
         return this.authorizationType;
     }
     /**
-     * @return The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. See the `aws.lambda.FunctionUrl` resource documentation for more details.
+     * @return Cross-origin resource sharing (CORS) settings for the function URL. See below.
      * 
      */
     public List<GetFunctionUrlCor> cors() {
@@ -125,6 +126,9 @@ public final class GetFunctionUrlResult {
     public Optional<String> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Generated ID for the endpoint.
      * 
@@ -152,6 +156,7 @@ public final class GetFunctionUrlResult {
         private String invokeMode;
         private String lastModifiedTime;
         private @Nullable String qualifier;
+        private String region;
         private String urlId;
         public Builder() {}
         public Builder(GetFunctionUrlResult defaults) {
@@ -166,6 +171,7 @@ public final class GetFunctionUrlResult {
     	      this.invokeMode = defaults.invokeMode;
     	      this.lastModifiedTime = defaults.lastModifiedTime;
     	      this.qualifier = defaults.qualifier;
+    	      this.region = defaults.region;
     	      this.urlId = defaults.urlId;
         }
 
@@ -251,6 +257,14 @@ public final class GetFunctionUrlResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetFunctionUrlResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder urlId(String urlId) {
             if (urlId == null) {
               throw new MissingRequiredPropertyException("GetFunctionUrlResult", "urlId");
@@ -270,6 +284,7 @@ public final class GetFunctionUrlResult {
             _resultValue.invokeMode = invokeMode;
             _resultValue.lastModifiedTime = lastModifiedTime;
             _resultValue.qualifier = qualifier;
+            _resultValue.region = region;
             _resultValue.urlId = urlId;
             return _resultValue;
         }

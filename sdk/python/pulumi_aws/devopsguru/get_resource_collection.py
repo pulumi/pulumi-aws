@@ -15,7 +15,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetResourceCollectionResult',
@@ -29,13 +28,16 @@ class GetResourceCollectionResult:
     """
     A collection of values returned by getResourceCollection.
     """
-    def __init__(__self__, cloudformations=None, id=None, tags=None, type=None):
+    def __init__(__self__, cloudformations=None, id=None, region=None, tags=None, type=None):
         if cloudformations and not isinstance(cloudformations, list):
             raise TypeError("Expected argument 'cloudformations' to be a list")
         pulumi.set(__self__, "cloudformations", cloudformations)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -45,7 +47,7 @@ class GetResourceCollectionResult:
 
     @property
     @pulumi.getter
-    def cloudformations(self) -> Optional[Sequence['outputs.GetResourceCollectionCloudformationResult']]:
+    def cloudformations(self) -> Sequence['outputs.GetResourceCollectionCloudformationResult']:
         """
         A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
         """
@@ -61,7 +63,12 @@ class GetResourceCollectionResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence['outputs.GetResourceCollectionTagResult']]:
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Sequence['outputs.GetResourceCollectionTagResult']:
         """
         AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
         """
@@ -81,12 +88,12 @@ class AwaitableGetResourceCollectionResult(GetResourceCollectionResult):
         return GetResourceCollectionResult(
             cloudformations=self.cloudformations,
             id=self.id,
+            region=self.region,
             tags=self.tags,
             type=self.type)
 
 
-def get_resource_collection(cloudformations: Optional[Sequence[Union['GetResourceCollectionCloudformationArgs', 'GetResourceCollectionCloudformationArgsDict']]] = None,
-                            tags: Optional[Sequence[Union['GetResourceCollectionTagArgs', 'GetResourceCollectionTagArgsDict']]] = None,
+def get_resource_collection(region: Optional[builtins.str] = None,
                             type: Optional[builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceCollectionResult:
     """
@@ -104,13 +111,11 @@ def get_resource_collection(cloudformations: Optional[Sequence[Union['GetResourc
     ```
 
 
-    :param Sequence[Union['GetResourceCollectionCloudformationArgs', 'GetResourceCollectionCloudformationArgsDict']] cloudformations: A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-    :param Sequence[Union['GetResourceCollectionTagArgs', 'GetResourceCollectionTagArgsDict']] tags: AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str type: Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
     """
     __args__ = dict()
-    __args__['cloudformations'] = cloudformations
-    __args__['tags'] = tags
+    __args__['region'] = region
     __args__['type'] = type
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:devopsguru/getResourceCollection:getResourceCollection', __args__, opts=opts, typ=GetResourceCollectionResult).value
@@ -118,10 +123,10 @@ def get_resource_collection(cloudformations: Optional[Sequence[Union['GetResourc
     return AwaitableGetResourceCollectionResult(
         cloudformations=pulumi.get(__ret__, 'cloudformations'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_resource_collection_output(cloudformations: Optional[pulumi.Input[Optional[Sequence[Union['GetResourceCollectionCloudformationArgs', 'GetResourceCollectionCloudformationArgsDict']]]]] = None,
-                                   tags: Optional[pulumi.Input[Optional[Sequence[Union['GetResourceCollectionTagArgs', 'GetResourceCollectionTagArgsDict']]]]] = None,
+def get_resource_collection_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    type: Optional[pulumi.Input[builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceCollectionResult]:
     """
@@ -139,18 +144,17 @@ def get_resource_collection_output(cloudformations: Optional[pulumi.Input[Option
     ```
 
 
-    :param Sequence[Union['GetResourceCollectionCloudformationArgs', 'GetResourceCollectionCloudformationArgsDict']] cloudformations: A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-    :param Sequence[Union['GetResourceCollectionTagArgs', 'GetResourceCollectionTagArgsDict']] tags: AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str type: Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
     """
     __args__ = dict()
-    __args__['cloudformations'] = cloudformations
-    __args__['tags'] = tags
+    __args__['region'] = region
     __args__['type'] = type
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:devopsguru/getResourceCollection:getResourceCollection', __args__, opts=opts, typ=GetResourceCollectionResult)
     return __ret__.apply(lambda __response__: GetResourceCollectionResult(
         cloudformations=pulumi.get(__response__, 'cloudformations'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

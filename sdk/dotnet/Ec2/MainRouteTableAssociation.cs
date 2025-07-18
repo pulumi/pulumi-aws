@@ -53,6 +53,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> OriginalRouteTableId { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Route Table to set as the new
         /// main route table for the target VPC
         /// </summary>
@@ -112,6 +118,12 @@ namespace Pulumi.Aws.Ec2
     public sealed class MainRouteTableAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID of the Route Table to set as the new
         /// main route table for the target VPC
         /// </summary>
@@ -137,6 +149,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("originalRouteTableId")]
         public Input<string>? OriginalRouteTableId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ID of the Route Table to set as the new

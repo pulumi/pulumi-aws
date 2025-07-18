@@ -20,12 +20,16 @@ __all__ = ['ResourceShareAccepterArgs', 'ResourceShareAccepter']
 @pulumi.input_type
 class ResourceShareAccepterArgs:
     def __init__(__self__, *,
-                 share_arn: pulumi.Input[builtins.str]):
+                 share_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceShareAccepter resource.
         :param pulumi.Input[builtins.str] share_arn: The ARN of the resource share.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "share_arn", share_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="shareArn")
@@ -39,12 +43,25 @@ class ResourceShareAccepterArgs:
     def share_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "share_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ResourceShareAccepterState:
     def __init__(__self__, *,
                  invitation_arn: Optional[pulumi.Input[builtins.str]] = None,
                  receiver_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  sender_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  share_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -55,6 +72,7 @@ class _ResourceShareAccepterState:
         Input properties used for looking up and filtering ResourceShareAccepter resources.
         :param pulumi.Input[builtins.str] invitation_arn: The ARN of the resource share invitation.
         :param pulumi.Input[builtins.str] receiver_account_id: The account ID of the receiver account which accepts the invitation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resources: A list of the resource ARNs shared via the resource share.
         :param pulumi.Input[builtins.str] sender_account_id: The account ID of the sender account which submits the invitation.
         :param pulumi.Input[builtins.str] share_arn: The ARN of the resource share.
@@ -66,6 +84,8 @@ class _ResourceShareAccepterState:
             pulumi.set(__self__, "invitation_arn", invitation_arn)
         if receiver_account_id is not None:
             pulumi.set(__self__, "receiver_account_id", receiver_account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resources is not None:
             pulumi.set(__self__, "resources", resources)
         if sender_account_id is not None:
@@ -102,6 +122,18 @@ class _ResourceShareAccepterState:
     @receiver_account_id.setter
     def receiver_account_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "receiver_account_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -182,6 +214,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  share_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -220,6 +253,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] share_arn: The ARN of the resource share.
         """
         ...
@@ -277,6 +311,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  share_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -287,6 +322,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResourceShareAccepterArgs.__new__(ResourceShareAccepterArgs)
 
+            __props__.__dict__["region"] = region
             if share_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'share_arn'")
             __props__.__dict__["share_arn"] = share_arn
@@ -309,6 +345,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             invitation_arn: Optional[pulumi.Input[builtins.str]] = None,
             receiver_account_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             sender_account_id: Optional[pulumi.Input[builtins.str]] = None,
             share_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -324,6 +361,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] invitation_arn: The ARN of the resource share invitation.
         :param pulumi.Input[builtins.str] receiver_account_id: The account ID of the receiver account which accepts the invitation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resources: A list of the resource ARNs shared via the resource share.
         :param pulumi.Input[builtins.str] sender_account_id: The account ID of the sender account which submits the invitation.
         :param pulumi.Input[builtins.str] share_arn: The ARN of the resource share.
@@ -337,6 +375,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
         __props__.__dict__["invitation_arn"] = invitation_arn
         __props__.__dict__["receiver_account_id"] = receiver_account_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["resources"] = resources
         __props__.__dict__["sender_account_id"] = sender_account_id
         __props__.__dict__["share_arn"] = share_arn
@@ -360,6 +399,14 @@ class ResourceShareAccepter(pulumi.CustomResource):
         The account ID of the receiver account which accepts the invitation.
         """
         return pulumi.get(self, "receiver_account_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

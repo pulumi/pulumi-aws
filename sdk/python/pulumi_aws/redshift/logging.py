@@ -24,6 +24,7 @@ class LoggingArgs:
                  bucket_name: Optional[pulumi.Input[builtins.str]] = None,
                  log_destination_type: Optional[pulumi.Input[builtins.str]] = None,
                  log_exports: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Logging resource.
@@ -33,6 +34,7 @@ class LoggingArgs:
         :param pulumi.Input[builtins.str] bucket_name: Name of an existing S3 bucket where the log files are to be stored. Required when `log_destination_type` is `s3`. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions. For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
         :param pulumi.Input[builtins.str] log_destination_type: Log destination type. Valid values are `s3` and `cloudwatch`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] log_exports: Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_key_prefix: Prefix applied to the log file names.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
@@ -42,6 +44,8 @@ class LoggingArgs:
             pulumi.set(__self__, "log_destination_type", log_destination_type)
         if log_exports is not None:
             pulumi.set(__self__, "log_exports", log_exports)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if s3_key_prefix is not None:
             pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
 
@@ -96,6 +100,18 @@ class LoggingArgs:
         pulumi.set(self, "log_exports", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -115,6 +131,7 @@ class _LoggingState:
                  cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  log_destination_type: Optional[pulumi.Input[builtins.str]] = None,
                  log_exports: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Logging resources.
@@ -124,6 +141,7 @@ class _LoggingState:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] log_destination_type: Log destination type. Valid values are `s3` and `cloudwatch`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] log_exports: Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_key_prefix: Prefix applied to the log file names.
         """
         if bucket_name is not None:
@@ -134,6 +152,8 @@ class _LoggingState:
             pulumi.set(__self__, "log_destination_type", log_destination_type)
         if log_exports is not None:
             pulumi.set(__self__, "log_exports", log_exports)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if s3_key_prefix is not None:
             pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
 
@@ -188,6 +208,18 @@ class _LoggingState:
         pulumi.set(self, "log_exports", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -210,6 +242,7 @@ class Logging(pulumi.CustomResource):
                  cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  log_destination_type: Optional[pulumi.Input[builtins.str]] = None,
                  log_exports: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -261,6 +294,7 @@ class Logging(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] log_destination_type: Log destination type. Valid values are `s3` and `cloudwatch`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] log_exports: Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_key_prefix: Prefix applied to the log file names.
         """
         ...
@@ -329,6 +363,7 @@ class Logging(pulumi.CustomResource):
                  cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  log_destination_type: Optional[pulumi.Input[builtins.str]] = None,
                  log_exports: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -345,6 +380,7 @@ class Logging(pulumi.CustomResource):
             __props__.__dict__["cluster_identifier"] = cluster_identifier
             __props__.__dict__["log_destination_type"] = log_destination_type
             __props__.__dict__["log_exports"] = log_exports
+            __props__.__dict__["region"] = region
             __props__.__dict__["s3_key_prefix"] = s3_key_prefix
         super(Logging, __self__).__init__(
             'aws:redshift/logging:Logging',
@@ -360,6 +396,7 @@ class Logging(pulumi.CustomResource):
             cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
             log_destination_type: Optional[pulumi.Input[builtins.str]] = None,
             log_exports: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             s3_key_prefix: Optional[pulumi.Input[builtins.str]] = None) -> 'Logging':
         """
         Get an existing Logging resource's state with the given name, id, and optional extra
@@ -374,6 +411,7 @@ class Logging(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] log_destination_type: Log destination type. Valid values are `s3` and `cloudwatch`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] log_exports: Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_key_prefix: Prefix applied to the log file names.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -384,6 +422,7 @@ class Logging(pulumi.CustomResource):
         __props__.__dict__["cluster_identifier"] = cluster_identifier
         __props__.__dict__["log_destination_type"] = log_destination_type
         __props__.__dict__["log_exports"] = log_exports
+        __props__.__dict__["region"] = region
         __props__.__dict__["s3_key_prefix"] = s3_key_prefix
         return Logging(resource_name, opts=opts, __props__=__props__)
 
@@ -420,6 +459,14 @@ class Logging(pulumi.CustomResource):
         Collection of exported log types. Required when `log_destination_type` is `cloudwatch`. Valid values are `connectionlog`, `useractivitylog`, and `userlog`.
         """
         return pulumi.get(self, "log_exports")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="s3KeyPrefix")

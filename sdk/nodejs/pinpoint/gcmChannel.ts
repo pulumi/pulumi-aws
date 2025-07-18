@@ -57,6 +57,10 @@ export class GcmChannel extends pulumi.CustomResource {
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly serviceJson!: pulumi.Output<string | undefined>;
 
     /**
@@ -76,6 +80,7 @@ export class GcmChannel extends pulumi.CustomResource {
             resourceInputs["applicationId"] = state ? state.applicationId : undefined;
             resourceInputs["defaultAuthenticationMethod"] = state ? state.defaultAuthenticationMethod : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceJson"] = state ? state.serviceJson : undefined;
         } else {
             const args = argsOrState as GcmChannelArgs | undefined;
@@ -86,6 +91,7 @@ export class GcmChannel extends pulumi.CustomResource {
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
             resourceInputs["defaultAuthenticationMethod"] = args ? args.defaultAuthenticationMethod : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceJson"] = args?.serviceJson ? pulumi.secret(args.serviceJson) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -112,6 +118,10 @@ export interface GcmChannelState {
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     serviceJson?: pulumi.Input<string>;
 }
 
@@ -132,5 +142,9 @@ export interface GcmChannelArgs {
      * Whether the channel is enabled or disabled. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     serviceJson?: pulumi.Input<string>;
 }

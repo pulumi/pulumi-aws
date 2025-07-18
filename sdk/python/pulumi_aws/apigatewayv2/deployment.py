@@ -22,16 +22,20 @@ class DeploymentArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
         :param pulumi.Input[builtins.str] api_id: API identifier.
         :param pulumi.Input[builtins.str] description: Description for the deployment resource. Must be less than or equal to 1024 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         pulumi.set(__self__, "api_id", api_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if triggers is not None:
             pulumi.set(__self__, "triggers", triggers)
 
@@ -61,6 +65,18 @@ class DeploymentArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of arbitrary keys and values that, when changed, will trigger a redeployment.
@@ -78,12 +94,14 @@ class _DeploymentState:
                  api_id: Optional[pulumi.Input[builtins.str]] = None,
                  auto_deployed: Optional[pulumi.Input[builtins.bool]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
         :param pulumi.Input[builtins.str] api_id: API identifier.
         :param pulumi.Input[builtins.bool] auto_deployed: Whether the deployment was automatically released.
         :param pulumi.Input[builtins.str] description: Description for the deployment resource. Must be less than or equal to 1024 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         if api_id is not None:
@@ -92,6 +110,8 @@ class _DeploymentState:
             pulumi.set(__self__, "auto_deployed", auto_deployed)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if triggers is not None:
             pulumi.set(__self__, "triggers", triggers)
 
@@ -133,6 +153,18 @@ class _DeploymentState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of arbitrary keys and values that, when changed, will trigger a redeployment.
@@ -152,6 +184,7 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -175,6 +208,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] api_id: API identifier.
         :param pulumi.Input[builtins.str] description: Description for the deployment resource. Must be less than or equal to 1024 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         ...
@@ -217,6 +251,7 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_id: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -231,6 +266,7 @@ class Deployment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
             __props__.__dict__["description"] = description
+            __props__.__dict__["region"] = region
             __props__.__dict__["triggers"] = triggers
             __props__.__dict__["auto_deployed"] = None
         super(Deployment, __self__).__init__(
@@ -246,6 +282,7 @@ class Deployment(pulumi.CustomResource):
             api_id: Optional[pulumi.Input[builtins.str]] = None,
             auto_deployed: Optional[pulumi.Input[builtins.bool]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Deployment':
         """
         Get an existing Deployment resource's state with the given name, id, and optional extra
@@ -257,6 +294,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_id: API identifier.
         :param pulumi.Input[builtins.bool] auto_deployed: Whether the deployment was automatically released.
         :param pulumi.Input[builtins.str] description: Description for the deployment resource. Must be less than or equal to 1024 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -266,6 +304,7 @@ class Deployment(pulumi.CustomResource):
         __props__.__dict__["api_id"] = api_id
         __props__.__dict__["auto_deployed"] = auto_deployed
         __props__.__dict__["description"] = description
+        __props__.__dict__["region"] = region
         __props__.__dict__["triggers"] = triggers
         return Deployment(resource_name, opts=opts, __props__=__props__)
 
@@ -292,6 +331,14 @@ class Deployment(pulumi.CustomResource):
         Description for the deployment resource. Must be less than or equal to 1024 characters in length.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

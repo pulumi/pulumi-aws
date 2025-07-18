@@ -14,7 +14,6 @@ from .data_set import *
 from .data_source import *
 from .folder import *
 from .folder_membership import *
-from .get_analysis import *
 from .get_data_set import *
 from .get_quicksight_analysis import *
 from .get_quicksight_group import *

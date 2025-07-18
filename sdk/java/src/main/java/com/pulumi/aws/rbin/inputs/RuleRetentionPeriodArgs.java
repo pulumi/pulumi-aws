@@ -16,14 +16,14 @@ public final class RuleRetentionPeriodArgs extends com.pulumi.resources.Resource
     public static final RuleRetentionPeriodArgs Empty = new RuleRetentionPeriodArgs();
 
     /**
-     * The unit of time in which the retention period is measured. Currently, only DAYS is supported.
+     * Unit of time in which the retention period is measured. Currently, only DAYS is supported.
      * 
      */
     @Import(name="retentionPeriodUnit", required=true)
     private Output<String> retentionPeriodUnit;
 
     /**
-     * @return The unit of time in which the retention period is measured. Currently, only DAYS is supported.
+     * @return Unit of time in which the retention period is measured. Currently, only DAYS is supported.
      * 
      */
     public Output<String> retentionPeriodUnit() {
@@ -31,14 +31,14 @@ public final class RuleRetentionPeriodArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
+     * Period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
      * 
      */
     @Import(name="retentionPeriodValue", required=true)
     private Output<Integer> retentionPeriodValue;
 
     /**
-     * @return The period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
+     * @return Period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
      * 
      */
     public Output<Integer> retentionPeriodValue() {
@@ -71,7 +71,7 @@ public final class RuleRetentionPeriodArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param retentionPeriodUnit The unit of time in which the retention period is measured. Currently, only DAYS is supported.
+         * @param retentionPeriodUnit Unit of time in which the retention period is measured. Currently, only DAYS is supported.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class RuleRetentionPeriodArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param retentionPeriodUnit The unit of time in which the retention period is measured. Currently, only DAYS is supported.
+         * @param retentionPeriodUnit Unit of time in which the retention period is measured. Currently, only DAYS is supported.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class RuleRetentionPeriodArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param retentionPeriodValue The period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
+         * @param retentionPeriodValue Period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class RuleRetentionPeriodArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param retentionPeriodValue The period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
+         * @param retentionPeriodValue Period value for which the retention rule is to retain resources. The period is measured using the unit specified for RetentionPeriodUnit.
          * 
          * @return builder
          * 

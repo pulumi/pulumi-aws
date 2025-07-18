@@ -39,6 +39,7 @@ export function getCertificate(args?: GetCertificateArgs, opts?: pulumi.InvokeOp
         "domain": args.domain,
         "keyTypes": args.keyTypes,
         "mostRecent": args.mostRecent,
+        "region": args.region,
         "statuses": args.statuses,
         "tags": args.tags,
         "types": args.types,
@@ -61,6 +62,10 @@ export interface GetCertificateArgs {
      * If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
      */
     mostRecent?: boolean;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
      * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
@@ -100,6 +105,7 @@ export interface GetCertificateResult {
     readonly id: string;
     readonly keyTypes?: string[];
     readonly mostRecent?: boolean;
+    readonly region: string;
     /**
      * Status of the found certificate.
      */
@@ -146,6 +152,7 @@ export function getCertificateOutput(args?: GetCertificateOutputArgs, opts?: pul
         "domain": args.domain,
         "keyTypes": args.keyTypes,
         "mostRecent": args.mostRecent,
+        "region": args.region,
         "statuses": args.statuses,
         "tags": args.tags,
         "types": args.types,
@@ -168,6 +175,10 @@ export interface GetCertificateOutputArgs {
      * If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
      */
     mostRecent?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
      * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state

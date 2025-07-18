@@ -143,6 +143,12 @@ namespace Pulumi.Aws.Outposts
             set => _preferredInstanceTypes = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetOutpostInstanceTypeArgs()
         {
         }
@@ -177,6 +183,12 @@ namespace Pulumi.Aws.Outposts
             set => _preferredInstanceTypes = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetOutpostInstanceTypeInvokeArgs()
         {
         }
@@ -194,6 +206,7 @@ namespace Pulumi.Aws.Outposts
         public readonly string Id;
         public readonly string InstanceType;
         public readonly ImmutableArray<string> PreferredInstanceTypes;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetOutpostInstanceTypeResult(
@@ -203,12 +216,15 @@ namespace Pulumi.Aws.Outposts
 
             string instanceType,
 
-            ImmutableArray<string> preferredInstanceTypes)
+            ImmutableArray<string> preferredInstanceTypes,
+
+            string region)
         {
             Arn = arn;
             Id = id;
             InstanceType = instanceType;
             PreferredInstanceTypes = preferredInstanceTypes;
+            Region = region;
         }
     }
 }

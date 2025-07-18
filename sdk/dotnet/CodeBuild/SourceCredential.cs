@@ -104,6 +104,12 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string> AuthType { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The source provider used for this project.
         /// </summary>
         [Output("serverType")]
@@ -183,6 +189,12 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string> AuthType { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The source provider used for this project.
         /// </summary>
         [Input("serverType", required: true)]
@@ -234,6 +246,12 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         [Input("authType")]
         public Input<string>? AuthType { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The source provider used for this project.

@@ -43,6 +43,7 @@ public final class GetSnapshotResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
      * 
@@ -97,6 +98,9 @@ public final class GetSnapshotResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
      * 
@@ -127,6 +131,7 @@ public final class GetSnapshotResult {
         private String id;
         private String kmsKeyArn;
         private String name;
+        private String region;
         private String source;
         private Map<String,String> tags;
         public Builder() {}
@@ -138,6 +143,7 @@ public final class GetSnapshotResult {
     	      this.id = defaults.id;
     	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.source = defaults.source;
     	      this.tags = defaults.tags;
         }
@@ -194,6 +200,14 @@ public final class GetSnapshotResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder source(String source) {
             if (source == null) {
               throw new MissingRequiredPropertyException("GetSnapshotResult", "source");
@@ -217,6 +231,7 @@ public final class GetSnapshotResult {
             _resultValue.id = id;
             _resultValue.kmsKeyArn = kmsKeyArn;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.source = source;
             _resultValue.tags = tags;
             return _resultValue;

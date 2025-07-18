@@ -28,7 +28,7 @@ class GetCustomModelResult:
     """
     A collection of values returned by getCustomModel.
     """
-    def __init__(__self__, base_model_arn=None, creation_time=None, hyperparameters=None, id=None, job_arn=None, job_name=None, job_tags=None, model_arn=None, model_id=None, model_kms_key_arn=None, model_name=None, model_tags=None, output_data_configs=None, training_data_configs=None, training_metrics=None, validation_data_configs=None, validation_metrics=None):
+    def __init__(__self__, base_model_arn=None, creation_time=None, hyperparameters=None, id=None, job_arn=None, job_name=None, job_tags=None, model_arn=None, model_id=None, model_kms_key_arn=None, model_name=None, model_tags=None, output_data_configs=None, region=None, training_data_configs=None, training_metrics=None, validation_data_configs=None, validation_metrics=None):
         if base_model_arn and not isinstance(base_model_arn, str):
             raise TypeError("Expected argument 'base_model_arn' to be a str")
         pulumi.set(__self__, "base_model_arn", base_model_arn)
@@ -68,6 +68,9 @@ class GetCustomModelResult:
         if output_data_configs and not isinstance(output_data_configs, list):
             raise TypeError("Expected argument 'output_data_configs' to be a list")
         pulumi.set(__self__, "output_data_configs", output_data_configs)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if training_data_configs and not isinstance(training_data_configs, list):
             raise TypeError("Expected argument 'training_data_configs' to be a list")
         pulumi.set(__self__, "training_data_configs", training_data_configs)
@@ -180,6 +183,11 @@ class GetCustomModelResult:
         return pulumi.get(self, "output_data_configs")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="trainingDataConfigs")
     def training_data_configs(self) -> Sequence['outputs.GetCustomModelTrainingDataConfigResult']:
         """
@@ -231,6 +239,7 @@ class AwaitableGetCustomModelResult(GetCustomModelResult):
             model_name=self.model_name,
             model_tags=self.model_tags,
             output_data_configs=self.output_data_configs,
+            region=self.region,
             training_data_configs=self.training_data_configs,
             training_metrics=self.training_metrics,
             validation_data_configs=self.validation_data_configs,
@@ -238,6 +247,7 @@ class AwaitableGetCustomModelResult(GetCustomModelResult):
 
 
 def get_custom_model(model_id: Optional[builtins.str] = None,
+                     region: Optional[builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomModelResult:
     """
     Returns properties of a specific Amazon Bedrock custom model.
@@ -253,9 +263,11 @@ def get_custom_model(model_id: Optional[builtins.str] = None,
 
 
     :param builtins.str model_id: Name or ARN of the custom model.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['modelId'] = model_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:bedrock/getCustomModel:getCustomModel', __args__, opts=opts, typ=GetCustomModelResult).value
 
@@ -273,11 +285,13 @@ def get_custom_model(model_id: Optional[builtins.str] = None,
         model_name=pulumi.get(__ret__, 'model_name'),
         model_tags=pulumi.get(__ret__, 'model_tags'),
         output_data_configs=pulumi.get(__ret__, 'output_data_configs'),
+        region=pulumi.get(__ret__, 'region'),
         training_data_configs=pulumi.get(__ret__, 'training_data_configs'),
         training_metrics=pulumi.get(__ret__, 'training_metrics'),
         validation_data_configs=pulumi.get(__ret__, 'validation_data_configs'),
         validation_metrics=pulumi.get(__ret__, 'validation_metrics'))
 def get_custom_model_output(model_id: Optional[pulumi.Input[builtins.str]] = None,
+                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomModelResult]:
     """
     Returns properties of a specific Amazon Bedrock custom model.
@@ -293,9 +307,11 @@ def get_custom_model_output(model_id: Optional[pulumi.Input[builtins.str]] = Non
 
 
     :param builtins.str model_id: Name or ARN of the custom model.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['modelId'] = model_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:bedrock/getCustomModel:getCustomModel', __args__, opts=opts, typ=GetCustomModelResult)
     return __ret__.apply(lambda __response__: GetCustomModelResult(
@@ -312,6 +328,7 @@ def get_custom_model_output(model_id: Optional[pulumi.Input[builtins.str]] = Non
         model_name=pulumi.get(__response__, 'model_name'),
         model_tags=pulumi.get(__response__, 'model_tags'),
         output_data_configs=pulumi.get(__response__, 'output_data_configs'),
+        region=pulumi.get(__response__, 'region'),
         training_data_configs=pulumi.get(__response__, 'training_data_configs'),
         training_metrics=pulumi.get(__response__, 'training_metrics'),
         validation_data_configs=pulumi.get(__response__, 'validation_data_configs'),

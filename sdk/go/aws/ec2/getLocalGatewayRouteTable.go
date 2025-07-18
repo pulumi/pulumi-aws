@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -65,6 +65,8 @@ type GetLocalGatewayRouteTableArgs struct {
 	LocalGatewayRouteTableId *string `pulumi:"localGatewayRouteTableId"`
 	// ARN of the Outpost the local gateway route table is associated with.
 	OutpostArn *string `pulumi:"outpostArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// State of the local gateway route table.
 	State *string `pulumi:"state"`
 	// Mapping of tags, each pair of which must exactly match
@@ -84,6 +86,7 @@ type GetLocalGatewayRouteTableResult struct {
 	LocalGatewayId           string            `pulumi:"localGatewayId"`
 	LocalGatewayRouteTableId string            `pulumi:"localGatewayRouteTableId"`
 	OutpostArn               string            `pulumi:"outpostArn"`
+	Region                   string            `pulumi:"region"`
 	State                    string            `pulumi:"state"`
 	Tags                     map[string]string `pulumi:"tags"`
 }
@@ -106,6 +109,8 @@ type GetLocalGatewayRouteTableOutputArgs struct {
 	LocalGatewayRouteTableId pulumi.StringPtrInput `pulumi:"localGatewayRouteTableId"`
 	// ARN of the Outpost the local gateway route table is associated with.
 	OutpostArn pulumi.StringPtrInput `pulumi:"outpostArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// State of the local gateway route table.
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Mapping of tags, each pair of which must exactly match
@@ -155,6 +160,10 @@ func (o GetLocalGatewayRouteTableResultOutput) LocalGatewayRouteTableId() pulumi
 
 func (o GetLocalGatewayRouteTableResultOutput) OutpostArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) string { return v.OutpostArn }).(pulumi.StringOutput)
+}
+
+func (o GetLocalGatewayRouteTableResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetLocalGatewayRouteTableResultOutput) State() pulumi.StringOutput {

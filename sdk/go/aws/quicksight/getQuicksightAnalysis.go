@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,8 +55,10 @@ type GetQuicksightAnalysisArgs struct {
 	// Identifier for the analysis.
 	AnalysisId string `pulumi:"analysisId"`
 	// AWS account ID.
-	AwsAccountId *string           `pulumi:"awsAccountId"`
-	Tags         map[string]string `pulumi:"tags"`
+	AwsAccountId *string `pulumi:"awsAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getQuicksightAnalysis.
@@ -71,6 +73,7 @@ type GetQuicksightAnalysisResult struct {
 	LastUpdatedTime   string                            `pulumi:"lastUpdatedTime"`
 	Name              string                            `pulumi:"name"`
 	Permissions       []GetQuicksightAnalysisPermission `pulumi:"permissions"`
+	Region            string                            `pulumi:"region"`
 	Status            string                            `pulumi:"status"`
 	Tags              map[string]string                 `pulumi:"tags"`
 	ThemeArn          string                            `pulumi:"themeArn"`
@@ -91,7 +94,9 @@ type GetQuicksightAnalysisOutputArgs struct {
 	AnalysisId pulumi.StringInput `pulumi:"analysisId"`
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
-	Tags         pulumi.StringMapInput `pulumi:"tags"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetQuicksightAnalysisOutputArgs) ElementType() reflect.Type {
@@ -148,6 +153,10 @@ func (o GetQuicksightAnalysisResultOutput) Name() pulumi.StringOutput {
 
 func (o GetQuicksightAnalysisResultOutput) Permissions() GetQuicksightAnalysisPermissionArrayOutput {
 	return o.ApplyT(func(v GetQuicksightAnalysisResult) []GetQuicksightAnalysisPermission { return v.Permissions }).(GetQuicksightAnalysisPermissionArrayOutput)
+}
+
+func (o GetQuicksightAnalysisResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetQuicksightAnalysisResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetQuicksightAnalysisResultOutput) Status() pulumi.StringOutput {

@@ -26,7 +26,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// {
     ///     var example = new Aws.SsoAdmin.ApplicationAssignment("example", new()
     ///     {
-    ///         ApplicationArn = exampleAwsSsoadminApplication.ApplicationArn,
+    ///         ApplicationArn = exampleAwsSsoadminApplication.Arn,
     ///         PrincipalId = exampleAwsIdentitystoreUser.UserId,
     ///         PrincipalType = "USER",
     ///     });
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// {
     ///     var example = new Aws.SsoAdmin.ApplicationAssignment("example", new()
     ///     {
-    ///         ApplicationArn = exampleAwsSsoadminApplication.ApplicationArn,
+    ///         ApplicationArn = exampleAwsSsoadminApplication.Arn,
     ///         PrincipalId = exampleAwsIdentitystoreGroup.GroupId,
     ///         PrincipalType = "GROUP",
     ///     });
@@ -82,6 +82,12 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         [Output("principalType")]
         public Output<string> PrincipalType { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
 
         /// <summary>
@@ -147,6 +153,12 @@ namespace Pulumi.Aws.SsoAdmin
         [Input("principalType", required: true)]
         public Input<string> PrincipalType { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public ApplicationAssignmentArgs()
         {
         }
@@ -172,6 +184,12 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public ApplicationAssignmentState()
         {

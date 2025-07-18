@@ -25,6 +25,7 @@ export function getEnvironments(args: GetEnvironmentsArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appconfig/getEnvironments:getEnvironments", {
         "applicationId": args.applicationId,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,6 +37,10 @@ export interface GetEnvironmentsArgs {
      * ID of the AppConfig Application.
      */
     applicationId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -51,6 +56,7 @@ export interface GetEnvironmentsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Provides access to all Environments for an AppConfig Application. This will allow you to pass Environment IDs to another
@@ -73,6 +79,7 @@ export function getEnvironmentsOutput(args: GetEnvironmentsOutputArgs, opts?: pu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:appconfig/getEnvironments:getEnvironments", {
         "applicationId": args.applicationId,
+        "region": args.region,
     }, opts);
 }
 
@@ -84,4 +91,8 @@ export interface GetEnvironmentsOutputArgs {
      * ID of the AppConfig Application.
      */
     applicationId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

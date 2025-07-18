@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,14 +20,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ses.LookupActiveReceiptRuleSet(ctx, map[string]interface{}{}, nil)
+//			_, err := ses.LookupActiveReceiptRuleSet(ctx, &ses.LookupActiveReceiptRuleSetArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -36,14 +36,20 @@ import (
 //	}
 //
 // ```
-func LookupActiveReceiptRuleSet(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupActiveReceiptRuleSetResult, error) {
+func LookupActiveReceiptRuleSet(ctx *pulumi.Context, args *LookupActiveReceiptRuleSetArgs, opts ...pulumi.InvokeOption) (*LookupActiveReceiptRuleSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupActiveReceiptRuleSetResult
-	err := ctx.Invoke("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", nil, &rv, opts...)
+	err := ctx.Invoke("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getActiveReceiptRuleSet.
+type LookupActiveReceiptRuleSetArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getActiveReceiptRuleSet.
@@ -51,16 +57,29 @@ type LookupActiveReceiptRuleSetResult struct {
 	// SES receipt rule set ARN.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// Name of the rule set
 	RuleSetName string `pulumi:"ruleSetName"`
 }
 
-func LookupActiveReceiptRuleSetOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupActiveReceiptRuleSetResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (LookupActiveReceiptRuleSetResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", nil, LookupActiveReceiptRuleSetResultOutput{}, options).(LookupActiveReceiptRuleSetResultOutput), nil
-	}).(LookupActiveReceiptRuleSetResultOutput)
+func LookupActiveReceiptRuleSetOutput(ctx *pulumi.Context, args LookupActiveReceiptRuleSetOutputArgs, opts ...pulumi.InvokeOption) LookupActiveReceiptRuleSetResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (LookupActiveReceiptRuleSetResultOutput, error) {
+			args := v.(LookupActiveReceiptRuleSetArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet", args, LookupActiveReceiptRuleSetResultOutput{}, options).(LookupActiveReceiptRuleSetResultOutput), nil
+		}).(LookupActiveReceiptRuleSetResultOutput)
+}
+
+// A collection of arguments for invoking getActiveReceiptRuleSet.
+type LookupActiveReceiptRuleSetOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (LookupActiveReceiptRuleSetOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupActiveReceiptRuleSetArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getActiveReceiptRuleSet.
@@ -86,6 +105,10 @@ func (o LookupActiveReceiptRuleSetResultOutput) Arn() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupActiveReceiptRuleSetResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupActiveReceiptRuleSetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupActiveReceiptRuleSetResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupActiveReceiptRuleSetResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Name of the rule set

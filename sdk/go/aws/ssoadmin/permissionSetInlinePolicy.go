@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,15 +19,15 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -85,6 +85,8 @@ type PermissionSetInlinePolicy struct {
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn pulumi.StringOutput `pulumi:"permissionSetArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewPermissionSetInlinePolicy registers a new resource with the given unique name, arguments, and options.
@@ -132,6 +134,8 @@ type permissionSetInlinePolicyState struct {
 	InstanceArn *string `pulumi:"instanceArn"`
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn *string `pulumi:"permissionSetArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type PermissionSetInlinePolicyState struct {
@@ -141,6 +145,8 @@ type PermissionSetInlinePolicyState struct {
 	InstanceArn pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PermissionSetInlinePolicyState) ElementType() reflect.Type {
@@ -154,6 +160,8 @@ type permissionSetInlinePolicyArgs struct {
 	InstanceArn string `pulumi:"instanceArn"`
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn string `pulumi:"permissionSetArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a PermissionSetInlinePolicy resource.
@@ -164,6 +172,8 @@ type PermissionSetInlinePolicyArgs struct {
 	InstanceArn pulumi.StringInput
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PermissionSetInlinePolicyArgs) ElementType() reflect.Type {
@@ -266,6 +276,11 @@ func (o PermissionSetInlinePolicyOutput) InstanceArn() pulumi.StringOutput {
 // The Amazon Resource Name (ARN) of the Permission Set.
 func (o PermissionSetInlinePolicyOutput) PermissionSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PermissionSetInlinePolicy) pulumi.StringOutput { return v.PermissionSetArn }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o PermissionSetInlinePolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *PermissionSetInlinePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type PermissionSetInlinePolicyArrayOutput struct{ *pulumi.OutputState }

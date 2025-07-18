@@ -28,7 +28,7 @@ class GetThemeResult:
     """
     A collection of values returned by getTheme.
     """
-    def __init__(__self__, arn=None, aws_account_id=None, base_theme_id=None, configurations=None, created_time=None, id=None, last_updated_time=None, name=None, permissions=None, status=None, tags=None, theme_id=None, version_description=None, version_number=None):
+    def __init__(__self__, arn=None, aws_account_id=None, base_theme_id=None, configurations=None, created_time=None, id=None, last_updated_time=None, name=None, permissions=None, region=None, status=None, tags=None, theme_id=None, version_description=None, version_number=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -56,6 +56,9 @@ class GetThemeResult:
         if permissions and not isinstance(permissions, list):
             raise TypeError("Expected argument 'permissions' to be a list")
         pulumi.set(__self__, "permissions", permissions)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -143,6 +146,11 @@ class GetThemeResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def status(self) -> builtins.str:
         """
         The theme creation status.
@@ -194,6 +202,7 @@ class AwaitableGetThemeResult(GetThemeResult):
             last_updated_time=self.last_updated_time,
             name=self.name,
             permissions=self.permissions,
+            region=self.region,
             status=self.status,
             tags=self.tags,
             theme_id=self.theme_id,
@@ -202,6 +211,7 @@ class AwaitableGetThemeResult(GetThemeResult):
 
 
 def get_theme(aws_account_id: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               tags: Optional[Mapping[str, builtins.str]] = None,
               theme_id: Optional[builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetThemeResult:
@@ -221,6 +231,7 @@ def get_theme(aws_account_id: Optional[builtins.str] = None,
 
 
     :param builtins.str aws_account_id: AWS account ID.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
     :param builtins.str theme_id: Identifier of the theme.
            
@@ -228,6 +239,7 @@ def get_theme(aws_account_id: Optional[builtins.str] = None,
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['themeId'] = theme_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -243,12 +255,14 @@ def get_theme(aws_account_id: Optional[builtins.str] = None,
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         name=pulumi.get(__ret__, 'name'),
         permissions=pulumi.get(__ret__, 'permissions'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         theme_id=pulumi.get(__ret__, 'theme_id'),
         version_description=pulumi.get(__ret__, 'version_description'),
         version_number=pulumi.get(__ret__, 'version_number'))
 def get_theme_output(aws_account_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                      theme_id: Optional[pulumi.Input[builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThemeResult]:
@@ -268,6 +282,7 @@ def get_theme_output(aws_account_id: Optional[pulumi.Input[Optional[builtins.str
 
 
     :param builtins.str aws_account_id: AWS account ID.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
     :param builtins.str theme_id: Identifier of the theme.
            
@@ -275,6 +290,7 @@ def get_theme_output(aws_account_id: Optional[pulumi.Input[Optional[builtins.str
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['themeId'] = theme_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -289,6 +305,7 @@ def get_theme_output(aws_account_id: Optional[pulumi.Input[Optional[builtins.str
         last_updated_time=pulumi.get(__response__, 'last_updated_time'),
         name=pulumi.get(__response__, 'name'),
         permissions=pulumi.get(__response__, 'permissions'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),
         theme_id=pulumi.get(__response__, 'theme_id'),

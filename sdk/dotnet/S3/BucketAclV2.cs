@@ -28,9 +28,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "my-tf-example-bucket",
+    ///         BucketName = "my-tf-example-bucket",
     ///     });
     /// 
     ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("example", new()
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.S3
     ///         },
     ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
+    ///     var exampleBucketAcl = new Aws.S3.BucketAcl("example", new()
     ///     {
     ///         Bucket = example.Id,
     ///         Acl = "private",
@@ -70,9 +70,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "my-tf-example-bucket",
+    ///         BucketName = "my-tf-example-bucket",
     ///     });
     /// 
     ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("example", new()
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.S3
     ///         RestrictPublicBuckets = false,
     ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
+    ///     var exampleBucketAcl = new Aws.S3.BucketAcl("example", new()
     ///     {
     ///         Bucket = example.Id,
     ///         Acl = "public-read",
@@ -121,9 +121,9 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var current = Aws.S3.GetCanonicalUserId.Invoke();
     /// 
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "my-tf-example-bucket",
+    ///         BucketName = "my-tf-example-bucket",
     ///     });
     /// 
     ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("example", new()
@@ -135,25 +135,25 @@ namespace Pulumi.Aws.S3
     ///         },
     ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
+    ///     var exampleBucketAcl = new Aws.S3.BucketAcl("example", new()
     ///     {
     ///         Bucket = example.Id,
-    ///         AccessControlPolicy = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyArgs
+    ///         AccessControlPolicy = new Aws.S3.Inputs.BucketAclAccessControlPolicyArgs
     ///         {
     ///             Grants = new[]
     ///             {
-    ///                 new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantArgs
+    ///                 new Aws.S3.Inputs.BucketAclAccessControlPolicyGrantArgs
     ///                 {
-    ///                     Grantee = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantGranteeArgs
+    ///                     Grantee = new Aws.S3.Inputs.BucketAclAccessControlPolicyGrantGranteeArgs
     ///                     {
     ///                         Id = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
     ///                         Type = "CanonicalUser",
     ///                     },
     ///                     Permission = "READ",
     ///                 },
-    ///                 new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantArgs
+    ///                 new Aws.S3.Inputs.BucketAclAccessControlPolicyGrantArgs
     ///                 {
-    ///                     Grantee = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyGrantGranteeArgs
+    ///                     Grantee = new Aws.S3.Inputs.BucketAclAccessControlPolicyGrantGranteeArgs
     ///                     {
     ///                         Type = "Group",
     ///                         Uri = "http://acs.amazonaws.com/groups/s3/LogDelivery",
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.S3
     ///                     Permission = "READ_ACP",
     ///                 },
     ///             },
-    ///             Owner = new Aws.S3.Inputs.BucketAclV2AccessControlPolicyOwnerArgs
+    ///             Owner = new Aws.S3.Inputs.BucketAclAccessControlPolicyOwnerArgs
     ///             {
     ///                 Id = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
     ///             },
@@ -211,6 +211,7 @@ namespace Pulumi.Aws.S3
     /// $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012,private
     /// ```
     /// </summary>
+    [Obsolete(@"aws.s3/bucketaclv2.BucketAclV2 has been deprecated in favor of aws.s3/bucketacl.BucketAcl")]
     [AwsResourceType("aws:s3/bucketAclV2:BucketAclV2")]
     public partial class BucketAclV2 : global::Pulumi.CustomResource
     {
@@ -238,6 +239,12 @@ namespace Pulumi.Aws.S3
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a BucketAclV2 resource with the given unique name, arguments, and options.
@@ -261,6 +268,10 @@ namespace Pulumi.Aws.S3
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "aws:s3/bucketAclV2:BucketAclV2" },
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -308,6 +319,12 @@ namespace Pulumi.Aws.S3
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public BucketAclV2Args()
         {
         }
@@ -339,6 +356,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public BucketAclV2State()
         {

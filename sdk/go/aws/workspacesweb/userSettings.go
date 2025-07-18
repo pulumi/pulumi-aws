@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspacesweb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,7 +53,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspacesweb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,8 +91,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspacesweb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspacesweb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -186,11 +186,11 @@ type UserSettings struct {
 	PasteAllowed pulumi.StringOutput `pulumi:"pasteAllowed"`
 	// Specifies whether the user can print to the local device. Valid values are `Enabled` or `Disabled`.
 	PrintAllowed pulumi.StringOutput `pulumi:"printAllowed"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration of the toolbar. Detailed below.
 	ToolbarConfiguration UserSettingsToolbarConfigurationPtrOutput `pulumi:"toolbarConfiguration"`
@@ -275,11 +275,11 @@ type userSettingsState struct {
 	PasteAllowed *string `pulumi:"pasteAllowed"`
 	// Specifies whether the user can print to the local device. Valid values are `Enabled` or `Disabled`.
 	PrintAllowed *string `pulumi:"printAllowed"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration of the toolbar. Detailed below.
 	ToolbarConfiguration *UserSettingsToolbarConfiguration `pulumi:"toolbarConfiguration"`
@@ -314,11 +314,11 @@ type UserSettingsState struct {
 	PasteAllowed pulumi.StringPtrInput
 	// Specifies whether the user can print to the local device. Valid values are `Enabled` or `Disabled`.
 	PrintAllowed pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Configuration of the toolbar. Detailed below.
 	ToolbarConfiguration UserSettingsToolbarConfigurationPtrInput
@@ -355,6 +355,8 @@ type userSettingsArgs struct {
 	PasteAllowed string `pulumi:"pasteAllowed"`
 	// Specifies whether the user can print to the local device. Valid values are `Enabled` or `Disabled`.
 	PrintAllowed string `pulumi:"printAllowed"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration of the toolbar. Detailed below.
@@ -387,6 +389,8 @@ type UserSettingsArgs struct {
 	PasteAllowed pulumi.StringInput
 	// Specifies whether the user can print to the local device. Valid values are `Enabled` or `Disabled`.
 	PrintAllowed pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Configuration of the toolbar. Detailed below.
@@ -541,14 +545,17 @@ func (o UserSettingsOutput) PrintAllowed() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserSettings) pulumi.StringOutput { return v.PrintAllowed }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o UserSettingsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserSettings) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o UserSettingsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserSettings) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o UserSettingsOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserSettings) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

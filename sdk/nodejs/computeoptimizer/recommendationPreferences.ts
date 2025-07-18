@@ -111,6 +111,10 @@ export class RecommendationPreferences extends pulumi.CustomResource {
      */
     public readonly preferredResources!: pulumi.Output<outputs.computeoptimizer.RecommendationPreferencesPreferredResource[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
      */
     public readonly resourceType!: pulumi.Output<string>;
@@ -145,6 +149,7 @@ export class RecommendationPreferences extends pulumi.CustomResource {
             resourceInputs["inferredWorkloadTypes"] = state ? state.inferredWorkloadTypes : undefined;
             resourceInputs["lookBackPeriod"] = state ? state.lookBackPeriod : undefined;
             resourceInputs["preferredResources"] = state ? state.preferredResources : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
             resourceInputs["savingsEstimationMode"] = state ? state.savingsEstimationMode : undefined;
             resourceInputs["scope"] = state ? state.scope : undefined;
@@ -159,6 +164,7 @@ export class RecommendationPreferences extends pulumi.CustomResource {
             resourceInputs["inferredWorkloadTypes"] = args ? args.inferredWorkloadTypes : undefined;
             resourceInputs["lookBackPeriod"] = args ? args.lookBackPeriod : undefined;
             resourceInputs["preferredResources"] = args ? args.preferredResources : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
             resourceInputs["savingsEstimationMode"] = args ? args.savingsEstimationMode : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
@@ -193,6 +199,10 @@ export interface RecommendationPreferencesState {
      * The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
      */
     preferredResources?: pulumi.Input<pulumi.Input<inputs.computeoptimizer.RecommendationPreferencesPreferredResource>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
      */
@@ -235,6 +245,10 @@ export interface RecommendationPreferencesArgs {
      * The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
      */
     preferredResources?: pulumi.Input<pulumi.Input<inputs.computeoptimizer.RecommendationPreferencesPreferredResource>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
      */

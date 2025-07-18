@@ -102,6 +102,12 @@ namespace Pulumi.Aws.ServiceDiscovery
         [Input("namespaceId", required: true)]
         public string NamespaceId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -112,19 +118,6 @@ namespace Pulumi.Aws.ServiceDiscovery
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private Dictionary<string, string>? _tagsAll;
-
-        /// <summary>
-        /// (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        [Obsolete(@"tags_all is deprecated. This argument will be removed in a future major version.")]
-        public Dictionary<string, string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new Dictionary<string, string>());
-            set => _tagsAll = value;
         }
 
         public GetServiceArgs()
@@ -147,6 +140,12 @@ namespace Pulumi.Aws.ServiceDiscovery
         [Input("namespaceId", required: true)]
         public Input<string> NamespaceId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -157,19 +156,6 @@ namespace Pulumi.Aws.ServiceDiscovery
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        [Obsolete(@"tags_all is deprecated. This argument will be removed in a future major version.")]
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public GetServiceInvokeArgs()
@@ -211,14 +197,11 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// ID of the namespace to use for DNS configuration.
         /// </summary>
         public readonly string NamespaceId;
+        public readonly string Region;
         /// <summary>
         /// Map of tags to assign to the service. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
-        /// (**Deprecated**) Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string> TagsAll;
 
         [OutputConstructor]
         private GetServiceResult(
@@ -238,9 +221,9 @@ namespace Pulumi.Aws.ServiceDiscovery
 
             string namespaceId,
 
-            ImmutableDictionary<string, string>? tags,
+            string region,
 
-            ImmutableDictionary<string, string> tagsAll)
+            ImmutableDictionary<string, string>? tags)
         {
             Arn = arn;
             Description = description;
@@ -250,8 +233,8 @@ namespace Pulumi.Aws.ServiceDiscovery
             Id = id;
             Name = name;
             NamespaceId = namespaceId;
+            Region = region;
             Tags = tags;
-            TagsAll = tagsAll;
         }
     }
 }

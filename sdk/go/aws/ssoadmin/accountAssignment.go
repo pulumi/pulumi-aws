@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,15 +23,15 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/identitystore"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/identitystore"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -80,15 +80,15 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/identitystore"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/identitystore"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -152,6 +152,8 @@ type AccountAssignment struct {
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
 	// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
 	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// An AWS account identifier, typically a 10-12 digit string.
 	TargetId pulumi.StringOutput `pulumi:"targetId"`
 	// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
@@ -211,6 +213,8 @@ type accountAssignmentState struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
 	PrincipalType *string `pulumi:"principalType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// An AWS account identifier, typically a 10-12 digit string.
 	TargetId *string `pulumi:"targetId"`
 	// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
@@ -226,6 +230,8 @@ type AccountAssignmentState struct {
 	PrincipalId pulumi.StringPtrInput
 	// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
 	PrincipalType pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// An AWS account identifier, typically a 10-12 digit string.
 	TargetId pulumi.StringPtrInput
 	// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
@@ -245,6 +251,8 @@ type accountAssignmentArgs struct {
 	PrincipalId string `pulumi:"principalId"`
 	// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
 	PrincipalType string `pulumi:"principalType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// An AWS account identifier, typically a 10-12 digit string.
 	TargetId string `pulumi:"targetId"`
 	// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
@@ -261,6 +269,8 @@ type AccountAssignmentArgs struct {
 	PrincipalId pulumi.StringInput
 	// The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
 	PrincipalType pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// An AWS account identifier, typically a 10-12 digit string.
 	TargetId pulumi.StringInput
 	// The entity type for which the assignment will be created. Valid values: `AWS_ACCOUNT`.
@@ -372,6 +382,11 @@ func (o AccountAssignmentOutput) PrincipalId() pulumi.StringOutput {
 // The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
 func (o AccountAssignmentOutput) PrincipalType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountAssignment) pulumi.StringOutput { return v.PrincipalType }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AccountAssignmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccountAssignment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // An AWS account identifier, typically a 10-12 digit string.

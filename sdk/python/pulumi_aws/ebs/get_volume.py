@@ -29,7 +29,7 @@ class GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
-    def __init__(__self__, arn=None, availability_zone=None, create_time=None, encrypted=None, filters=None, id=None, iops=None, kms_key_id=None, most_recent=None, multi_attach_enabled=None, outpost_arn=None, size=None, snapshot_id=None, tags=None, throughput=None, volume_id=None, volume_type=None):
+    def __init__(__self__, arn=None, availability_zone=None, create_time=None, encrypted=None, filters=None, id=None, iops=None, kms_key_id=None, most_recent=None, multi_attach_enabled=None, outpost_arn=None, region=None, size=None, snapshot_id=None, tags=None, throughput=None, volume_id=None, volume_type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -63,6 +63,9 @@ class GetVolumeResult:
         if outpost_arn and not isinstance(outpost_arn, str):
             raise TypeError("Expected argument 'outpost_arn' to be a str")
         pulumi.set(__self__, "outpost_arn", outpost_arn)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if size and not isinstance(size, int):
             raise TypeError("Expected argument 'size' to be a int")
         pulumi.set(__self__, "size", size)
@@ -166,6 +169,11 @@ class GetVolumeResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def size(self) -> builtins.int:
         """
         Size of the drive in GiBs.
@@ -230,6 +238,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             most_recent=self.most_recent,
             multi_attach_enabled=self.multi_attach_enabled,
             outpost_arn=self.outpost_arn,
+            region=self.region,
             size=self.size,
             snapshot_id=self.snapshot_id,
             tags=self.tags,
@@ -240,6 +249,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
 
 def get_volume(filters: Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolumeFilterArgsDict']]] = None,
                most_recent: Optional[builtins.bool] = None,
+               region: Optional[builtins.str] = None,
                tags: Optional[Mapping[str, builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeResult:
     """
@@ -271,11 +281,13 @@ def get_volume(filters: Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolum
            [describe-volumes in the AWS CLI reference][1].
     :param builtins.bool most_recent: If more than one result is returned, use the most
            recent volume.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['mostRecent'] = most_recent
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ebs/getVolume:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
@@ -292,6 +304,7 @@ def get_volume(filters: Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolum
         most_recent=pulumi.get(__ret__, 'most_recent'),
         multi_attach_enabled=pulumi.get(__ret__, 'multi_attach_enabled'),
         outpost_arn=pulumi.get(__ret__, 'outpost_arn'),
+        region=pulumi.get(__ret__, 'region'),
         size=pulumi.get(__ret__, 'size'),
         snapshot_id=pulumi.get(__ret__, 'snapshot_id'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -300,6 +313,7 @@ def get_volume(filters: Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolum
         volume_type=pulumi.get(__ret__, 'volume_type'))
 def get_volume_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolumeFilterArgsDict']]]]] = None,
                       most_recent: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeResult]:
     """
@@ -331,11 +345,13 @@ def get_volume_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['Ge
            [describe-volumes in the AWS CLI reference][1].
     :param builtins.bool most_recent: If more than one result is returned, use the most
            recent volume.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['mostRecent'] = most_recent
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ebs/getVolume:getVolume', __args__, opts=opts, typ=GetVolumeResult)
@@ -351,6 +367,7 @@ def get_volume_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['Ge
         most_recent=pulumi.get(__response__, 'most_recent'),
         multi_attach_enabled=pulumi.get(__response__, 'multi_attach_enabled'),
         outpost_arn=pulumi.get(__response__, 'outpost_arn'),
+        region=pulumi.get(__response__, 'region'),
         size=pulumi.get(__response__, 'size'),
         snapshot_id=pulumi.get(__response__, 'snapshot_id'),
         tags=pulumi.get(__response__, 'tags'),

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -1611,6 +1611,544 @@ func (o TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput)
 	}).(pulumi.IntPtrOutput)
 }
 
+type TableMetadata struct {
+	// Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
+	// See `iceberg` below.
+	Iceberg TableMetadataIceberg `pulumi:"iceberg"`
+}
+
+// TableMetadataInput is an input type that accepts TableMetadataArgs and TableMetadataOutput values.
+// You can construct a concrete instance of `TableMetadataInput` via:
+//
+//	TableMetadataArgs{...}
+type TableMetadataInput interface {
+	pulumi.Input
+
+	ToTableMetadataOutput() TableMetadataOutput
+	ToTableMetadataOutputWithContext(context.Context) TableMetadataOutput
+}
+
+type TableMetadataArgs struct {
+	// Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
+	// See `iceberg` below.
+	Iceberg TableMetadataIcebergInput `pulumi:"iceberg"`
+}
+
+func (TableMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableMetadata)(nil)).Elem()
+}
+
+func (i TableMetadataArgs) ToTableMetadataOutput() TableMetadataOutput {
+	return i.ToTableMetadataOutputWithContext(context.Background())
+}
+
+func (i TableMetadataArgs) ToTableMetadataOutputWithContext(ctx context.Context) TableMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableMetadataOutput)
+}
+
+func (i TableMetadataArgs) ToTableMetadataPtrOutput() TableMetadataPtrOutput {
+	return i.ToTableMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i TableMetadataArgs) ToTableMetadataPtrOutputWithContext(ctx context.Context) TableMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableMetadataOutput).ToTableMetadataPtrOutputWithContext(ctx)
+}
+
+// TableMetadataPtrInput is an input type that accepts TableMetadataArgs, TableMetadataPtr and TableMetadataPtrOutput values.
+// You can construct a concrete instance of `TableMetadataPtrInput` via:
+//
+//	        TableMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableMetadataPtrInput interface {
+	pulumi.Input
+
+	ToTableMetadataPtrOutput() TableMetadataPtrOutput
+	ToTableMetadataPtrOutputWithContext(context.Context) TableMetadataPtrOutput
+}
+
+type tableMetadataPtrType TableMetadataArgs
+
+func TableMetadataPtr(v *TableMetadataArgs) TableMetadataPtrInput {
+	return (*tableMetadataPtrType)(v)
+}
+
+func (*tableMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableMetadata)(nil)).Elem()
+}
+
+func (i *tableMetadataPtrType) ToTableMetadataPtrOutput() TableMetadataPtrOutput {
+	return i.ToTableMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *tableMetadataPtrType) ToTableMetadataPtrOutputWithContext(ctx context.Context) TableMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableMetadataPtrOutput)
+}
+
+type TableMetadataOutput struct{ *pulumi.OutputState }
+
+func (TableMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableMetadata)(nil)).Elem()
+}
+
+func (o TableMetadataOutput) ToTableMetadataOutput() TableMetadataOutput {
+	return o
+}
+
+func (o TableMetadataOutput) ToTableMetadataOutputWithContext(ctx context.Context) TableMetadataOutput {
+	return o
+}
+
+func (o TableMetadataOutput) ToTableMetadataPtrOutput() TableMetadataPtrOutput {
+	return o.ToTableMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o TableMetadataOutput) ToTableMetadataPtrOutputWithContext(ctx context.Context) TableMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableMetadata) *TableMetadata {
+		return &v
+	}).(TableMetadataPtrOutput)
+}
+
+// Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
+// See `iceberg` below.
+func (o TableMetadataOutput) Iceberg() TableMetadataIcebergOutput {
+	return o.ApplyT(func(v TableMetadata) TableMetadataIceberg { return v.Iceberg }).(TableMetadataIcebergOutput)
+}
+
+type TableMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (TableMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableMetadata)(nil)).Elem()
+}
+
+func (o TableMetadataPtrOutput) ToTableMetadataPtrOutput() TableMetadataPtrOutput {
+	return o
+}
+
+func (o TableMetadataPtrOutput) ToTableMetadataPtrOutputWithContext(ctx context.Context) TableMetadataPtrOutput {
+	return o
+}
+
+func (o TableMetadataPtrOutput) Elem() TableMetadataOutput {
+	return o.ApplyT(func(v *TableMetadata) TableMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret TableMetadata
+		return ret
+	}).(TableMetadataOutput)
+}
+
+// Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
+// See `iceberg` below.
+func (o TableMetadataPtrOutput) Iceberg() TableMetadataIcebergPtrOutput {
+	return o.ApplyT(func(v *TableMetadata) *TableMetadataIceberg {
+		if v == nil {
+			return nil
+		}
+		return &v.Iceberg
+	}).(TableMetadataIcebergPtrOutput)
+}
+
+type TableMetadataIceberg struct {
+	// Schema configuration for the Iceberg table.
+	// See `schema` below.
+	Schema TableMetadataIcebergSchema `pulumi:"schema"`
+}
+
+// TableMetadataIcebergInput is an input type that accepts TableMetadataIcebergArgs and TableMetadataIcebergOutput values.
+// You can construct a concrete instance of `TableMetadataIcebergInput` via:
+//
+//	TableMetadataIcebergArgs{...}
+type TableMetadataIcebergInput interface {
+	pulumi.Input
+
+	ToTableMetadataIcebergOutput() TableMetadataIcebergOutput
+	ToTableMetadataIcebergOutputWithContext(context.Context) TableMetadataIcebergOutput
+}
+
+type TableMetadataIcebergArgs struct {
+	// Schema configuration for the Iceberg table.
+	// See `schema` below.
+	Schema TableMetadataIcebergSchemaInput `pulumi:"schema"`
+}
+
+func (TableMetadataIcebergArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableMetadataIceberg)(nil)).Elem()
+}
+
+func (i TableMetadataIcebergArgs) ToTableMetadataIcebergOutput() TableMetadataIcebergOutput {
+	return i.ToTableMetadataIcebergOutputWithContext(context.Background())
+}
+
+func (i TableMetadataIcebergArgs) ToTableMetadataIcebergOutputWithContext(ctx context.Context) TableMetadataIcebergOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableMetadataIcebergOutput)
+}
+
+func (i TableMetadataIcebergArgs) ToTableMetadataIcebergPtrOutput() TableMetadataIcebergPtrOutput {
+	return i.ToTableMetadataIcebergPtrOutputWithContext(context.Background())
+}
+
+func (i TableMetadataIcebergArgs) ToTableMetadataIcebergPtrOutputWithContext(ctx context.Context) TableMetadataIcebergPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableMetadataIcebergOutput).ToTableMetadataIcebergPtrOutputWithContext(ctx)
+}
+
+// TableMetadataIcebergPtrInput is an input type that accepts TableMetadataIcebergArgs, TableMetadataIcebergPtr and TableMetadataIcebergPtrOutput values.
+// You can construct a concrete instance of `TableMetadataIcebergPtrInput` via:
+//
+//	        TableMetadataIcebergArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableMetadataIcebergPtrInput interface {
+	pulumi.Input
+
+	ToTableMetadataIcebergPtrOutput() TableMetadataIcebergPtrOutput
+	ToTableMetadataIcebergPtrOutputWithContext(context.Context) TableMetadataIcebergPtrOutput
+}
+
+type tableMetadataIcebergPtrType TableMetadataIcebergArgs
+
+func TableMetadataIcebergPtr(v *TableMetadataIcebergArgs) TableMetadataIcebergPtrInput {
+	return (*tableMetadataIcebergPtrType)(v)
+}
+
+func (*tableMetadataIcebergPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableMetadataIceberg)(nil)).Elem()
+}
+
+func (i *tableMetadataIcebergPtrType) ToTableMetadataIcebergPtrOutput() TableMetadataIcebergPtrOutput {
+	return i.ToTableMetadataIcebergPtrOutputWithContext(context.Background())
+}
+
+func (i *tableMetadataIcebergPtrType) ToTableMetadataIcebergPtrOutputWithContext(ctx context.Context) TableMetadataIcebergPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableMetadataIcebergPtrOutput)
+}
+
+type TableMetadataIcebergOutput struct{ *pulumi.OutputState }
+
+func (TableMetadataIcebergOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableMetadataIceberg)(nil)).Elem()
+}
+
+func (o TableMetadataIcebergOutput) ToTableMetadataIcebergOutput() TableMetadataIcebergOutput {
+	return o
+}
+
+func (o TableMetadataIcebergOutput) ToTableMetadataIcebergOutputWithContext(ctx context.Context) TableMetadataIcebergOutput {
+	return o
+}
+
+func (o TableMetadataIcebergOutput) ToTableMetadataIcebergPtrOutput() TableMetadataIcebergPtrOutput {
+	return o.ToTableMetadataIcebergPtrOutputWithContext(context.Background())
+}
+
+func (o TableMetadataIcebergOutput) ToTableMetadataIcebergPtrOutputWithContext(ctx context.Context) TableMetadataIcebergPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableMetadataIceberg) *TableMetadataIceberg {
+		return &v
+	}).(TableMetadataIcebergPtrOutput)
+}
+
+// Schema configuration for the Iceberg table.
+// See `schema` below.
+func (o TableMetadataIcebergOutput) Schema() TableMetadataIcebergSchemaOutput {
+	return o.ApplyT(func(v TableMetadataIceberg) TableMetadataIcebergSchema { return v.Schema }).(TableMetadataIcebergSchemaOutput)
+}
+
+type TableMetadataIcebergPtrOutput struct{ *pulumi.OutputState }
+
+func (TableMetadataIcebergPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableMetadataIceberg)(nil)).Elem()
+}
+
+func (o TableMetadataIcebergPtrOutput) ToTableMetadataIcebergPtrOutput() TableMetadataIcebergPtrOutput {
+	return o
+}
+
+func (o TableMetadataIcebergPtrOutput) ToTableMetadataIcebergPtrOutputWithContext(ctx context.Context) TableMetadataIcebergPtrOutput {
+	return o
+}
+
+func (o TableMetadataIcebergPtrOutput) Elem() TableMetadataIcebergOutput {
+	return o.ApplyT(func(v *TableMetadataIceberg) TableMetadataIceberg {
+		if v != nil {
+			return *v
+		}
+		var ret TableMetadataIceberg
+		return ret
+	}).(TableMetadataIcebergOutput)
+}
+
+// Schema configuration for the Iceberg table.
+// See `schema` below.
+func (o TableMetadataIcebergPtrOutput) Schema() TableMetadataIcebergSchemaPtrOutput {
+	return o.ApplyT(func(v *TableMetadataIceberg) *TableMetadataIcebergSchema {
+		if v == nil {
+			return nil
+		}
+		return &v.Schema
+	}).(TableMetadataIcebergSchemaPtrOutput)
+}
+
+type TableMetadataIcebergSchema struct {
+	// List of schema fields for the Iceberg table. Each field defines a column in the table schema.
+	// See `field` below.
+	Fields []TableMetadataIcebergSchemaField `pulumi:"fields"`
+}
+
+// TableMetadataIcebergSchemaInput is an input type that accepts TableMetadataIcebergSchemaArgs and TableMetadataIcebergSchemaOutput values.
+// You can construct a concrete instance of `TableMetadataIcebergSchemaInput` via:
+//
+//	TableMetadataIcebergSchemaArgs{...}
+type TableMetadataIcebergSchemaInput interface {
+	pulumi.Input
+
+	ToTableMetadataIcebergSchemaOutput() TableMetadataIcebergSchemaOutput
+	ToTableMetadataIcebergSchemaOutputWithContext(context.Context) TableMetadataIcebergSchemaOutput
+}
+
+type TableMetadataIcebergSchemaArgs struct {
+	// List of schema fields for the Iceberg table. Each field defines a column in the table schema.
+	// See `field` below.
+	Fields TableMetadataIcebergSchemaFieldArrayInput `pulumi:"fields"`
+}
+
+func (TableMetadataIcebergSchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableMetadataIcebergSchema)(nil)).Elem()
+}
+
+func (i TableMetadataIcebergSchemaArgs) ToTableMetadataIcebergSchemaOutput() TableMetadataIcebergSchemaOutput {
+	return i.ToTableMetadataIcebergSchemaOutputWithContext(context.Background())
+}
+
+func (i TableMetadataIcebergSchemaArgs) ToTableMetadataIcebergSchemaOutputWithContext(ctx context.Context) TableMetadataIcebergSchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableMetadataIcebergSchemaOutput)
+}
+
+func (i TableMetadataIcebergSchemaArgs) ToTableMetadataIcebergSchemaPtrOutput() TableMetadataIcebergSchemaPtrOutput {
+	return i.ToTableMetadataIcebergSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i TableMetadataIcebergSchemaArgs) ToTableMetadataIcebergSchemaPtrOutputWithContext(ctx context.Context) TableMetadataIcebergSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableMetadataIcebergSchemaOutput).ToTableMetadataIcebergSchemaPtrOutputWithContext(ctx)
+}
+
+// TableMetadataIcebergSchemaPtrInput is an input type that accepts TableMetadataIcebergSchemaArgs, TableMetadataIcebergSchemaPtr and TableMetadataIcebergSchemaPtrOutput values.
+// You can construct a concrete instance of `TableMetadataIcebergSchemaPtrInput` via:
+//
+//	        TableMetadataIcebergSchemaArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableMetadataIcebergSchemaPtrInput interface {
+	pulumi.Input
+
+	ToTableMetadataIcebergSchemaPtrOutput() TableMetadataIcebergSchemaPtrOutput
+	ToTableMetadataIcebergSchemaPtrOutputWithContext(context.Context) TableMetadataIcebergSchemaPtrOutput
+}
+
+type tableMetadataIcebergSchemaPtrType TableMetadataIcebergSchemaArgs
+
+func TableMetadataIcebergSchemaPtr(v *TableMetadataIcebergSchemaArgs) TableMetadataIcebergSchemaPtrInput {
+	return (*tableMetadataIcebergSchemaPtrType)(v)
+}
+
+func (*tableMetadataIcebergSchemaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableMetadataIcebergSchema)(nil)).Elem()
+}
+
+func (i *tableMetadataIcebergSchemaPtrType) ToTableMetadataIcebergSchemaPtrOutput() TableMetadataIcebergSchemaPtrOutput {
+	return i.ToTableMetadataIcebergSchemaPtrOutputWithContext(context.Background())
+}
+
+func (i *tableMetadataIcebergSchemaPtrType) ToTableMetadataIcebergSchemaPtrOutputWithContext(ctx context.Context) TableMetadataIcebergSchemaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableMetadataIcebergSchemaPtrOutput)
+}
+
+type TableMetadataIcebergSchemaOutput struct{ *pulumi.OutputState }
+
+func (TableMetadataIcebergSchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableMetadataIcebergSchema)(nil)).Elem()
+}
+
+func (o TableMetadataIcebergSchemaOutput) ToTableMetadataIcebergSchemaOutput() TableMetadataIcebergSchemaOutput {
+	return o
+}
+
+func (o TableMetadataIcebergSchemaOutput) ToTableMetadataIcebergSchemaOutputWithContext(ctx context.Context) TableMetadataIcebergSchemaOutput {
+	return o
+}
+
+func (o TableMetadataIcebergSchemaOutput) ToTableMetadataIcebergSchemaPtrOutput() TableMetadataIcebergSchemaPtrOutput {
+	return o.ToTableMetadataIcebergSchemaPtrOutputWithContext(context.Background())
+}
+
+func (o TableMetadataIcebergSchemaOutput) ToTableMetadataIcebergSchemaPtrOutputWithContext(ctx context.Context) TableMetadataIcebergSchemaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableMetadataIcebergSchema) *TableMetadataIcebergSchema {
+		return &v
+	}).(TableMetadataIcebergSchemaPtrOutput)
+}
+
+// List of schema fields for the Iceberg table. Each field defines a column in the table schema.
+// See `field` below.
+func (o TableMetadataIcebergSchemaOutput) Fields() TableMetadataIcebergSchemaFieldArrayOutput {
+	return o.ApplyT(func(v TableMetadataIcebergSchema) []TableMetadataIcebergSchemaField { return v.Fields }).(TableMetadataIcebergSchemaFieldArrayOutput)
+}
+
+type TableMetadataIcebergSchemaPtrOutput struct{ *pulumi.OutputState }
+
+func (TableMetadataIcebergSchemaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableMetadataIcebergSchema)(nil)).Elem()
+}
+
+func (o TableMetadataIcebergSchemaPtrOutput) ToTableMetadataIcebergSchemaPtrOutput() TableMetadataIcebergSchemaPtrOutput {
+	return o
+}
+
+func (o TableMetadataIcebergSchemaPtrOutput) ToTableMetadataIcebergSchemaPtrOutputWithContext(ctx context.Context) TableMetadataIcebergSchemaPtrOutput {
+	return o
+}
+
+func (o TableMetadataIcebergSchemaPtrOutput) Elem() TableMetadataIcebergSchemaOutput {
+	return o.ApplyT(func(v *TableMetadataIcebergSchema) TableMetadataIcebergSchema {
+		if v != nil {
+			return *v
+		}
+		var ret TableMetadataIcebergSchema
+		return ret
+	}).(TableMetadataIcebergSchemaOutput)
+}
+
+// List of schema fields for the Iceberg table. Each field defines a column in the table schema.
+// See `field` below.
+func (o TableMetadataIcebergSchemaPtrOutput) Fields() TableMetadataIcebergSchemaFieldArrayOutput {
+	return o.ApplyT(func(v *TableMetadataIcebergSchema) []TableMetadataIcebergSchemaField {
+		if v == nil {
+			return nil
+		}
+		return v.Fields
+	}).(TableMetadataIcebergSchemaFieldArrayOutput)
+}
+
+type TableMetadataIcebergSchemaField struct {
+	// The name of the field.
+	Name string `pulumi:"name"`
+	// A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+	Required *bool `pulumi:"required"`
+	// The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+	Type string `pulumi:"type"`
+}
+
+// TableMetadataIcebergSchemaFieldInput is an input type that accepts TableMetadataIcebergSchemaFieldArgs and TableMetadataIcebergSchemaFieldOutput values.
+// You can construct a concrete instance of `TableMetadataIcebergSchemaFieldInput` via:
+//
+//	TableMetadataIcebergSchemaFieldArgs{...}
+type TableMetadataIcebergSchemaFieldInput interface {
+	pulumi.Input
+
+	ToTableMetadataIcebergSchemaFieldOutput() TableMetadataIcebergSchemaFieldOutput
+	ToTableMetadataIcebergSchemaFieldOutputWithContext(context.Context) TableMetadataIcebergSchemaFieldOutput
+}
+
+type TableMetadataIcebergSchemaFieldArgs struct {
+	// The name of the field.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+	Required pulumi.BoolPtrInput `pulumi:"required"`
+	// The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (TableMetadataIcebergSchemaFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableMetadataIcebergSchemaField)(nil)).Elem()
+}
+
+func (i TableMetadataIcebergSchemaFieldArgs) ToTableMetadataIcebergSchemaFieldOutput() TableMetadataIcebergSchemaFieldOutput {
+	return i.ToTableMetadataIcebergSchemaFieldOutputWithContext(context.Background())
+}
+
+func (i TableMetadataIcebergSchemaFieldArgs) ToTableMetadataIcebergSchemaFieldOutputWithContext(ctx context.Context) TableMetadataIcebergSchemaFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableMetadataIcebergSchemaFieldOutput)
+}
+
+// TableMetadataIcebergSchemaFieldArrayInput is an input type that accepts TableMetadataIcebergSchemaFieldArray and TableMetadataIcebergSchemaFieldArrayOutput values.
+// You can construct a concrete instance of `TableMetadataIcebergSchemaFieldArrayInput` via:
+//
+//	TableMetadataIcebergSchemaFieldArray{ TableMetadataIcebergSchemaFieldArgs{...} }
+type TableMetadataIcebergSchemaFieldArrayInput interface {
+	pulumi.Input
+
+	ToTableMetadataIcebergSchemaFieldArrayOutput() TableMetadataIcebergSchemaFieldArrayOutput
+	ToTableMetadataIcebergSchemaFieldArrayOutputWithContext(context.Context) TableMetadataIcebergSchemaFieldArrayOutput
+}
+
+type TableMetadataIcebergSchemaFieldArray []TableMetadataIcebergSchemaFieldInput
+
+func (TableMetadataIcebergSchemaFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableMetadataIcebergSchemaField)(nil)).Elem()
+}
+
+func (i TableMetadataIcebergSchemaFieldArray) ToTableMetadataIcebergSchemaFieldArrayOutput() TableMetadataIcebergSchemaFieldArrayOutput {
+	return i.ToTableMetadataIcebergSchemaFieldArrayOutputWithContext(context.Background())
+}
+
+func (i TableMetadataIcebergSchemaFieldArray) ToTableMetadataIcebergSchemaFieldArrayOutputWithContext(ctx context.Context) TableMetadataIcebergSchemaFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableMetadataIcebergSchemaFieldArrayOutput)
+}
+
+type TableMetadataIcebergSchemaFieldOutput struct{ *pulumi.OutputState }
+
+func (TableMetadataIcebergSchemaFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableMetadataIcebergSchemaField)(nil)).Elem()
+}
+
+func (o TableMetadataIcebergSchemaFieldOutput) ToTableMetadataIcebergSchemaFieldOutput() TableMetadataIcebergSchemaFieldOutput {
+	return o
+}
+
+func (o TableMetadataIcebergSchemaFieldOutput) ToTableMetadataIcebergSchemaFieldOutputWithContext(ctx context.Context) TableMetadataIcebergSchemaFieldOutput {
+	return o
+}
+
+// The name of the field.
+func (o TableMetadataIcebergSchemaFieldOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TableMetadataIcebergSchemaField) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+func (o TableMetadataIcebergSchemaFieldOutput) Required() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TableMetadataIcebergSchemaField) *bool { return v.Required }).(pulumi.BoolPtrOutput)
+}
+
+// The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+func (o TableMetadataIcebergSchemaFieldOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v TableMetadataIcebergSchemaField) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type TableMetadataIcebergSchemaFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (TableMetadataIcebergSchemaFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableMetadataIcebergSchemaField)(nil)).Elem()
+}
+
+func (o TableMetadataIcebergSchemaFieldArrayOutput) ToTableMetadataIcebergSchemaFieldArrayOutput() TableMetadataIcebergSchemaFieldArrayOutput {
+	return o
+}
+
+func (o TableMetadataIcebergSchemaFieldArrayOutput) ToTableMetadataIcebergSchemaFieldArrayOutputWithContext(ctx context.Context) TableMetadataIcebergSchemaFieldArrayOutput {
+	return o
+}
+
+func (o TableMetadataIcebergSchemaFieldArrayOutput) Index(i pulumi.IntInput) TableMetadataIcebergSchemaFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableMetadataIcebergSchemaField {
+		return vs[0].([]TableMetadataIcebergSchemaField)[vs[1].(int)]
+	}).(TableMetadataIcebergSchemaFieldOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationInput)(nil)).Elem(), TableBucketEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableBucketEncryptionConfigurationPtrInput)(nil)).Elem(), TableBucketEncryptionConfigurationArgs{})
@@ -1632,6 +2170,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableMaintenanceConfigurationIcebergSnapshotManagementPtrInput)(nil)).Elem(), TableMaintenanceConfigurationIcebergSnapshotManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableMaintenanceConfigurationIcebergSnapshotManagementSettingsInput)(nil)).Elem(), TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrInput)(nil)).Elem(), TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableMetadataInput)(nil)).Elem(), TableMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableMetadataPtrInput)(nil)).Elem(), TableMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableMetadataIcebergInput)(nil)).Elem(), TableMetadataIcebergArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableMetadataIcebergPtrInput)(nil)).Elem(), TableMetadataIcebergArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableMetadataIcebergSchemaInput)(nil)).Elem(), TableMetadataIcebergSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableMetadataIcebergSchemaPtrInput)(nil)).Elem(), TableMetadataIcebergSchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableMetadataIcebergSchemaFieldInput)(nil)).Elem(), TableMetadataIcebergSchemaFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableMetadataIcebergSchemaFieldArrayInput)(nil)).Elem(), TableMetadataIcebergSchemaFieldArray{})
 	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(TableBucketEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TableBucketMaintenanceConfigurationOutput{})
@@ -1652,4 +2198,12 @@ func init() {
 	pulumi.RegisterOutputType(TableMaintenanceConfigurationIcebergSnapshotManagementPtrOutput{})
 	pulumi.RegisterOutputType(TableMaintenanceConfigurationIcebergSnapshotManagementSettingsOutput{})
 	pulumi.RegisterOutputType(TableMaintenanceConfigurationIcebergSnapshotManagementSettingsPtrOutput{})
+	pulumi.RegisterOutputType(TableMetadataOutput{})
+	pulumi.RegisterOutputType(TableMetadataPtrOutput{})
+	pulumi.RegisterOutputType(TableMetadataIcebergOutput{})
+	pulumi.RegisterOutputType(TableMetadataIcebergPtrOutput{})
+	pulumi.RegisterOutputType(TableMetadataIcebergSchemaOutput{})
+	pulumi.RegisterOutputType(TableMetadataIcebergSchemaPtrOutput{})
+	pulumi.RegisterOutputType(TableMetadataIcebergSchemaFieldOutput{})
+	pulumi.RegisterOutputType(TableMetadataIcebergSchemaFieldArrayOutput{})
 }

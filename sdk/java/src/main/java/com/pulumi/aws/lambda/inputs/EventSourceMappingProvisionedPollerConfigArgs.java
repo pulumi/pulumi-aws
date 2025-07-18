@@ -16,14 +16,14 @@ public final class EventSourceMappingProvisionedPollerConfigArgs extends com.pul
     public static final EventSourceMappingProvisionedPollerConfigArgs Empty = new EventSourceMappingProvisionedPollerConfigArgs();
 
     /**
-     * The maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
+     * Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
      * 
      */
     @Import(name="maximumPollers")
     private @Nullable Output<Integer> maximumPollers;
 
     /**
-     * @return The maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
+     * @return Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
      * 
      */
     public Optional<Output<Integer>> maximumPollers() {
@@ -31,14 +31,14 @@ public final class EventSourceMappingProvisionedPollerConfigArgs extends com.pul
     }
 
     /**
-     * The minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
+     * Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
      * 
      */
     @Import(name="minimumPollers")
     private @Nullable Output<Integer> minimumPollers;
 
     /**
-     * @return The minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
+     * @return Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
      * 
      */
     public Optional<Output<Integer>> minimumPollers() {
@@ -71,7 +71,7 @@ public final class EventSourceMappingProvisionedPollerConfigArgs extends com.pul
         }
 
         /**
-         * @param maximumPollers The maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
+         * @param maximumPollers Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class EventSourceMappingProvisionedPollerConfigArgs extends com.pul
         }
 
         /**
-         * @param maximumPollers The maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
+         * @param maximumPollers Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class EventSourceMappingProvisionedPollerConfigArgs extends com.pul
         }
 
         /**
-         * @param minimumPollers The minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
+         * @param minimumPollers Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class EventSourceMappingProvisionedPollerConfigArgs extends com.pul
         }
 
         /**
-         * @param minimumPollers The minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
+         * @param minimumPollers Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
          * 
          * @return builder
          * 

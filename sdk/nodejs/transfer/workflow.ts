@@ -106,6 +106,10 @@ export class Workflow extends pulumi.CustomResource {
      */
     public readonly onExceptionSteps!: pulumi.Output<outputs.transfer.WorkflowOnExceptionStep[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
      */
     public readonly steps!: pulumi.Output<outputs.transfer.WorkflowStep[]>;
@@ -115,8 +119,6 @@ export class Workflow extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -136,6 +138,7 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["onExceptionSteps"] = state ? state.onExceptionSteps : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["steps"] = state ? state.steps : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -146,6 +149,7 @@ export class Workflow extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["onExceptionSteps"] = args ? args.onExceptionSteps : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["steps"] = args ? args.steps : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -173,6 +177,10 @@ export interface WorkflowState {
      */
     onExceptionSteps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowOnExceptionStep>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
      */
     steps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowStep>[]>;
@@ -182,8 +190,6 @@ export interface WorkflowState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -200,6 +206,10 @@ export interface WorkflowArgs {
      * Specifies the steps (actions) to take if errors are encountered during execution of the workflow. See Workflow Steps below.
      */
     onExceptionSteps?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowOnExceptionStep>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
      */

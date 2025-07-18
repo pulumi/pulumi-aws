@@ -9,10 +9,10 @@ import * as utilities from "./utilities";
 
 /**
  * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
- * in the current region.
+ * in the current Region.
  *
  * This can be used both to validate an availability zone given in a variable
- * and to split the AZ name into its component parts of an AWS region and an
+ * and to split the AZ name into its component parts of an AWS Region and an
  * AZ identifier letter. The latter may be useful e.g., for implementing a
  * consistent subnet numbering scheme across several regions by mapping both
  * the region and the subnet letter to network numbers.
@@ -75,6 +75,7 @@ export function getAvailabilityZone(args?: GetAvailabilityZoneArgs, opts?: pulum
         "allAvailabilityZones": args.allAvailabilityZones,
         "filters": args.filters,
         "name": args.name,
+        "region": args.region,
         "state": args.state,
         "zoneId": args.zoneId,
     }, opts);
@@ -97,6 +98,10 @@ export interface GetAvailabilityZoneArgs {
      */
     name?: string;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
      */
     state?: string;
@@ -117,7 +122,11 @@ export interface GetAvailabilityZoneResult {
     readonly allAvailabilityZones?: boolean;
     readonly filters?: outputs.GetAvailabilityZoneFilter[];
     /**
-     * For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
+     * The long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
+     */
+    readonly groupLongName: string;
+    /**
+     * The name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
      */
     readonly groupName: string;
     /**
@@ -147,9 +156,6 @@ export interface GetAvailabilityZoneResult {
      * Name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.
      */
     readonly parentZoneName: string;
-    /**
-     * Region where the selected availability zone resides. This is always the region selected on the provider, since this data source searches only within that region.
-     */
     readonly region: string;
     readonly state: string;
     readonly zoneId: string;
@@ -160,10 +166,10 @@ export interface GetAvailabilityZoneResult {
 }
 /**
  * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
- * in the current region.
+ * in the current Region.
  *
  * This can be used both to validate an availability zone given in a variable
- * and to split the AZ name into its component parts of an AWS region and an
+ * and to split the AZ name into its component parts of an AWS Region and an
  * AZ identifier letter. The latter may be useful e.g., for implementing a
  * consistent subnet numbering scheme across several regions by mapping both
  * the region and the subnet letter to network numbers.
@@ -226,6 +232,7 @@ export function getAvailabilityZoneOutput(args?: GetAvailabilityZoneOutputArgs, 
         "allAvailabilityZones": args.allAvailabilityZones,
         "filters": args.filters,
         "name": args.name,
+        "region": args.region,
         "state": args.state,
         "zoneId": args.zoneId,
     }, opts);
@@ -247,6 +254,10 @@ export interface GetAvailabilityZoneOutputArgs {
      * Full name of the availability zone to select.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
      */

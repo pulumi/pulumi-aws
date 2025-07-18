@@ -22,7 +22,8 @@ class PolicyTemplateArgs:
     def __init__(__self__, *,
                  policy_store_id: pulumi.Input[builtins.str],
                  statement: pulumi.Input[builtins.str],
-                 description: Optional[pulumi.Input[builtins.str]] = None):
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyTemplate resource.
         :param pulumi.Input[builtins.str] policy_store_id: The ID of the Policy Store.
@@ -30,11 +31,14 @@ class PolicyTemplateArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] description: Provides a description for the policy template.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy_store_id", policy_store_id)
         pulumi.set(__self__, "statement", statement)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="policyStoreId")
@@ -74,6 +78,18 @@ class PolicyTemplateArgs:
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _PolicyTemplateState:
@@ -82,6 +98,7 @@ class _PolicyTemplateState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  policy_store_id: Optional[pulumi.Input[builtins.str]] = None,
                  policy_template_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  statement: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyTemplate resources.
@@ -89,6 +106,7 @@ class _PolicyTemplateState:
         :param pulumi.Input[builtins.str] description: Provides a description for the policy template.
         :param pulumi.Input[builtins.str] policy_store_id: The ID of the Policy Store.
         :param pulumi.Input[builtins.str] policy_template_id: The ID of the Policy Store.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] statement: Defines the content of the statement, written in Cedar policy language.
                
                The following arguments are optional:
@@ -101,6 +119,8 @@ class _PolicyTemplateState:
             pulumi.set(__self__, "policy_store_id", policy_store_id)
         if policy_template_id is not None:
             pulumi.set(__self__, "policy_template_id", policy_template_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if statement is not None:
             pulumi.set(__self__, "statement", statement)
 
@@ -154,6 +174,18 @@ class _PolicyTemplateState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def statement(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Defines the content of the statement, written in Cedar policy language.
@@ -175,6 +207,7 @@ class PolicyTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  policy_store_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  statement: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -205,6 +238,7 @@ class PolicyTemplate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: Provides a description for the policy template.
         :param pulumi.Input[builtins.str] policy_store_id: The ID of the Policy Store.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] statement: Defines the content of the statement, written in Cedar policy language.
                
                The following arguments are optional:
@@ -256,6 +290,7 @@ class PolicyTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  policy_store_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  statement: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -270,6 +305,7 @@ class PolicyTemplate(pulumi.CustomResource):
             if policy_store_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_store_id'")
             __props__.__dict__["policy_store_id"] = policy_store_id
+            __props__.__dict__["region"] = region
             if statement is None and not opts.urn:
                 raise TypeError("Missing required property 'statement'")
             __props__.__dict__["statement"] = statement
@@ -289,6 +325,7 @@ class PolicyTemplate(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             policy_store_id: Optional[pulumi.Input[builtins.str]] = None,
             policy_template_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             statement: Optional[pulumi.Input[builtins.str]] = None) -> 'PolicyTemplate':
         """
         Get an existing PolicyTemplate resource's state with the given name, id, and optional extra
@@ -301,6 +338,7 @@ class PolicyTemplate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: Provides a description for the policy template.
         :param pulumi.Input[builtins.str] policy_store_id: The ID of the Policy Store.
         :param pulumi.Input[builtins.str] policy_template_id: The ID of the Policy Store.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] statement: Defines the content of the statement, written in Cedar policy language.
                
                The following arguments are optional:
@@ -313,6 +351,7 @@ class PolicyTemplate(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["policy_store_id"] = policy_store_id
         __props__.__dict__["policy_template_id"] = policy_template_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["statement"] = statement
         return PolicyTemplate(resource_name, opts=opts, __props__=__props__)
 
@@ -347,6 +386,14 @@ class PolicyTemplate(pulumi.CustomResource):
         The ID of the Policy Store.
         """
         return pulumi.get(self, "policy_template_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

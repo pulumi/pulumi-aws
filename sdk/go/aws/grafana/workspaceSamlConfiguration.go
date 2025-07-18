@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/grafana"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/grafana"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -116,6 +116,8 @@ type WorkspaceSamlConfiguration struct {
 	NameAssertion pulumi.StringOutput `pulumi:"nameAssertion"`
 	// The org assertion.
 	OrgAssertion pulumi.StringPtrOutput `pulumi:"orgAssertion"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The role assertion.
 	RoleAssertion pulumi.StringPtrOutput `pulumi:"roleAssertion"`
 	// The status of the SAML configuration.
@@ -184,6 +186,8 @@ type workspaceSamlConfigurationState struct {
 	NameAssertion *string `pulumi:"nameAssertion"`
 	// The org assertion.
 	OrgAssertion *string `pulumi:"orgAssertion"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The role assertion.
 	RoleAssertion *string `pulumi:"roleAssertion"`
 	// The status of the SAML configuration.
@@ -217,6 +221,8 @@ type WorkspaceSamlConfigurationState struct {
 	NameAssertion pulumi.StringPtrInput
 	// The org assertion.
 	OrgAssertion pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The role assertion.
 	RoleAssertion pulumi.StringPtrInput
 	// The status of the SAML configuration.
@@ -254,6 +260,8 @@ type workspaceSamlConfigurationArgs struct {
 	NameAssertion *string `pulumi:"nameAssertion"`
 	// The org assertion.
 	OrgAssertion *string `pulumi:"orgAssertion"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The role assertion.
 	RoleAssertion *string `pulumi:"roleAssertion"`
 	// The workspace id.
@@ -286,6 +294,8 @@ type WorkspaceSamlConfigurationArgs struct {
 	NameAssertion pulumi.StringPtrInput
 	// The org assertion.
 	OrgAssertion pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The role assertion.
 	RoleAssertion pulumi.StringPtrInput
 	// The workspace id.
@@ -434,6 +444,11 @@ func (o WorkspaceSamlConfigurationOutput) NameAssertion() pulumi.StringOutput {
 // The org assertion.
 func (o WorkspaceSamlConfigurationOutput) OrgAssertion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringPtrOutput { return v.OrgAssertion }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o WorkspaceSamlConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkspaceSamlConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The role assertion.

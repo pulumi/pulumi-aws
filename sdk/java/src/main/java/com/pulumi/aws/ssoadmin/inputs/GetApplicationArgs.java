@@ -3,12 +3,10 @@
 
 package com.pulumi.aws.ssoadmin.inputs;
 
-import com.pulumi.aws.ssoadmin.inputs.GetApplicationPortalOptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -34,25 +32,25 @@ public final class GetApplicationArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    @Import(name="portalOptions")
-    private @Nullable Output<List<GetApplicationPortalOptionArgs>> portalOptions;
+    @Import(name="region")
+    private @Nullable Output<String> region;
 
     /**
-     * @return Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    public Optional<Output<List<GetApplicationPortalOptionArgs>>> portalOptions() {
-        return Optional.ofNullable(this.portalOptions);
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetApplicationArgs() {}
 
     private GetApplicationArgs(GetApplicationArgs $) {
         this.applicationArn = $.applicationArn;
-        this.portalOptions = $.portalOptions;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -95,34 +93,24 @@ public final class GetApplicationArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param portalOptions Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
          */
-        public Builder portalOptions(@Nullable Output<List<GetApplicationPortalOptionArgs>> portalOptions) {
-            $.portalOptions = portalOptions;
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
             return this;
         }
 
         /**
-         * @param portalOptions Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
          */
-        public Builder portalOptions(List<GetApplicationPortalOptionArgs> portalOptions) {
-            return portalOptions(Output.of(portalOptions));
-        }
-
-        /**
-         * @param portalOptions Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder portalOptions(GetApplicationPortalOptionArgs... portalOptions) {
-            return portalOptions(List.of(portalOptions));
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetApplicationArgs build() {

@@ -28,7 +28,7 @@ class GetExperienceResult:
     """
     A collection of values returned by getExperience.
     """
-    def __init__(__self__, arn=None, configurations=None, created_at=None, description=None, endpoints=None, error_message=None, experience_id=None, id=None, index_id=None, name=None, role_arn=None, status=None, updated_at=None):
+    def __init__(__self__, arn=None, configurations=None, created_at=None, description=None, endpoints=None, error_message=None, experience_id=None, id=None, index_id=None, name=None, region=None, role_arn=None, status=None, updated_at=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -59,6 +59,9 @@ class GetExperienceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -144,6 +147,11 @@ class GetExperienceResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> builtins.str:
         """
@@ -184,6 +192,7 @@ class AwaitableGetExperienceResult(GetExperienceResult):
             id=self.id,
             index_id=self.index_id,
             name=self.name,
+            region=self.region,
             role_arn=self.role_arn,
             status=self.status,
             updated_at=self.updated_at)
@@ -191,6 +200,7 @@ class AwaitableGetExperienceResult(GetExperienceResult):
 
 def get_experience(experience_id: Optional[builtins.str] = None,
                    index_id: Optional[builtins.str] = None,
+                   region: Optional[builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExperienceResult:
     """
     Provides details about a specific Amazon Kendra Experience.
@@ -208,10 +218,12 @@ def get_experience(experience_id: Optional[builtins.str] = None,
 
     :param builtins.str experience_id: Identifier of the Experience.
     :param builtins.str index_id: Identifier of the index that contains the Experience.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['experienceId'] = experience_id
     __args__['indexId'] = index_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:kendra/getExperience:getExperience', __args__, opts=opts, typ=GetExperienceResult).value
 
@@ -226,11 +238,13 @@ def get_experience(experience_id: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         index_id=pulumi.get(__ret__, 'index_id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         status=pulumi.get(__ret__, 'status'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_experience_output(experience_id: Optional[pulumi.Input[builtins.str]] = None,
                           index_id: Optional[pulumi.Input[builtins.str]] = None,
+                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExperienceResult]:
     """
     Provides details about a specific Amazon Kendra Experience.
@@ -248,10 +262,12 @@ def get_experience_output(experience_id: Optional[pulumi.Input[builtins.str]] = 
 
     :param builtins.str experience_id: Identifier of the Experience.
     :param builtins.str index_id: Identifier of the index that contains the Experience.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['experienceId'] = experience_id
     __args__['indexId'] = index_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kendra/getExperience:getExperience', __args__, opts=opts, typ=GetExperienceResult)
     return __ret__.apply(lambda __response__: GetExperienceResult(
@@ -265,6 +281,7 @@ def get_experience_output(experience_id: Optional[pulumi.Input[builtins.str]] = 
         id=pulumi.get(__response__, 'id'),
         index_id=pulumi.get(__response__, 'index_id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         status=pulumi.get(__response__, 'status'),
         updated_at=pulumi.get(__response__, 'updated_at')))

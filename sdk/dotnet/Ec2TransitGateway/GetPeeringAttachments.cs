@@ -186,6 +186,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetPeeringAttachmentsArgs()
         {
         }
@@ -206,6 +212,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetPeeringAttachmentsInvokeArgs()
         {
         }
@@ -225,6 +237,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [aws.ec2transitgateway.PeeringAttachment][2] data source, searching by identifier.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetPeeringAttachmentsResult(
@@ -232,11 +245,14 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string id,
 
-            ImmutableArray<string> ids)
+            ImmutableArray<string> ids,
+
+            string region)
         {
             Filters = filters;
             Id = id;
             Ids = ids;
+            Region = region;
         }
     }
 }

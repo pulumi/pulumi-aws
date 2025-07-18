@@ -15,7 +15,7 @@ namespace Pulumi.Aws.CloudTrail
         /// Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
         /// in a given region for the purpose of allowing CloudTrail to store trail data in S3.
         /// 
-        /// &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+        /// &gt; **Warning:** This data source is deprecated. The AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
         /// 
         /// ## Example Usage
         /// 
@@ -29,9 +29,9 @@ namespace Pulumi.Aws.CloudTrail
         /// {
         ///     var main = Aws.CloudTrail.GetServiceAccount.Invoke();
         /// 
-        ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+        ///     var bucket = new Aws.S3.Bucket("bucket", new()
         ///     {
-        ///         Bucket = "tf-cloudtrail-logging-test-bucket",
+        ///         BucketName = "tf-cloudtrail-logging-test-bucket",
         ///         ForceDestroy = true,
         ///     });
         /// 
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.CloudTrail
         /// Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
         /// in a given region for the purpose of allowing CloudTrail to store trail data in S3.
         /// 
-        /// &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+        /// &gt; **Warning:** This data source is deprecated. The AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
         /// 
         /// ## Example Usage
         /// 
@@ -120,9 +120,9 @@ namespace Pulumi.Aws.CloudTrail
         /// {
         ///     var main = Aws.CloudTrail.GetServiceAccount.Invoke();
         /// 
-        ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+        ///     var bucket = new Aws.S3.Bucket("bucket", new()
         ///     {
-        ///         Bucket = "tf-cloudtrail-logging-test-bucket",
+        ///         BucketName = "tf-cloudtrail-logging-test-bucket",
         ///         ForceDestroy = true,
         ///     });
         /// 
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.CloudTrail
         /// Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
         /// in a given region for the purpose of allowing CloudTrail to store trail data in S3.
         /// 
-        /// &gt; **Note:** AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+        /// &gt; **Warning:** This data source is deprecated. The AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
         /// 
         /// ## Example Usage
         /// 
@@ -211,9 +211,9 @@ namespace Pulumi.Aws.CloudTrail
         /// {
         ///     var main = Aws.CloudTrail.GetServiceAccount.Invoke();
         /// 
-        ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+        ///     var bucket = new Aws.S3.Bucket("bucket", new()
         ///     {
-        ///         Bucket = "tf-cloudtrail-logging-test-bucket",
+        ///         BucketName = "tf-cloudtrail-logging-test-bucket",
         ///         ForceDestroy = true,
         ///     });
         /// 
@@ -289,8 +289,7 @@ namespace Pulumi.Aws.CloudTrail
     public sealed class GetServiceAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the region whose AWS CloudTrail account ID is desired.
-        /// Defaults to the region from the AWS provider configuration.
+        /// Name of the Region whose AWS CloudTrail account ID is desired. Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public string? Region { get; set; }
@@ -304,8 +303,7 @@ namespace Pulumi.Aws.CloudTrail
     public sealed class GetServiceAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the region whose AWS CloudTrail account ID is desired.
-        /// Defaults to the region from the AWS provider configuration.
+        /// Name of the Region whose AWS CloudTrail account ID is desired. Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -321,14 +319,14 @@ namespace Pulumi.Aws.CloudTrail
     public sealed class GetServiceAccountResult
     {
         /// <summary>
-        /// ARN of the AWS CloudTrail service account in the selected region.
+        /// ARN of the AWS CloudTrail service account in the selected Region.
         /// </summary>
         public readonly string Arn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        public readonly string? Region;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetServiceAccountResult(
@@ -336,7 +334,7 @@ namespace Pulumi.Aws.CloudTrail
 
             string id,
 
-            string? region)
+            string region)
         {
             Arn = arn;
             Id = id;

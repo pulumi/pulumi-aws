@@ -29,10 +29,13 @@ class GetSecretResult:
     """
     A collection of values returned by getSecret.
     """
-    def __init__(__self__, id=None, secrets=None):
+    def __init__(__self__, id=None, region=None, secrets=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if secrets and not isinstance(secrets, list):
             raise TypeError("Expected argument 'secrets' to be a list")
         pulumi.set(__self__, "secrets", secrets)
@@ -47,6 +50,11 @@ class GetSecretResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def secrets(self) -> Sequence['outputs.GetSecretSecretResult']:
         return pulumi.get(self, "secrets")
 
@@ -58,31 +66,38 @@ class AwaitableGetSecretResult(GetSecretResult):
             yield self
         return GetSecretResult(
             id=self.id,
+            region=self.region,
             secrets=self.secrets)
 
 
-def get_secret(secrets: Optional[Sequence[Union['GetSecretSecretArgs', 'GetSecretSecretArgsDict']]] = None,
+def get_secret(region: Optional[builtins.str] = None,
+               secrets: Optional[Sequence[Union['GetSecretSecretArgs', 'GetSecretSecretArgsDict']]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
-    Use this data source to access information about an existing resource.
+    !> **WARNING:** This data source's functionality was removed in version 2.0.0 of the AWS Provider. You can migrate existing configurations to the `kms_get_secrets` data source following instructions available in the Version 2 Upgrade Guide. This data source will be removed in a future version.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['secrets'] = secrets
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:kms/getSecret:getSecret', __args__, opts=opts, typ=GetSecretResult).value
 
     return AwaitableGetSecretResult(
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         secrets=pulumi.get(__ret__, 'secrets'))
-def get_secret_output(secrets: Optional[pulumi.Input[Sequence[Union['GetSecretSecretArgs', 'GetSecretSecretArgsDict']]]] = None,
+def get_secret_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                      secrets: Optional[pulumi.Input[Sequence[Union['GetSecretSecretArgs', 'GetSecretSecretArgsDict']]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretResult]:
     """
-    Use this data source to access information about an existing resource.
+    !> **WARNING:** This data source's functionality was removed in version 2.0.0 of the AWS Provider. You can migrate existing configurations to the `kms_get_secrets` data source following instructions available in the Version 2 Upgrade Guide. This data source will be removed in a future version.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['secrets'] = secrets
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kms/getSecret:getSecret', __args__, opts=opts, typ=GetSecretResult)
     return __ret__.apply(lambda __response__: GetSecretResult(
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         secrets=pulumi.get(__response__, 'secrets')))

@@ -29,7 +29,7 @@ class GetPipelineDefinitionResult:
     """
     A collection of values returned by getPipelineDefinition.
     """
-    def __init__(__self__, id=None, parameter_objects=None, parameter_values=None, pipeline_id=None, pipeline_objects=None):
+    def __init__(__self__, id=None, parameter_objects=None, parameter_values=None, pipeline_id=None, pipeline_objects=None, region=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -45,6 +45,9 @@ class GetPipelineDefinitionResult:
         if pipeline_objects and not isinstance(pipeline_objects, list):
             raise TypeError("Expected argument 'pipeline_objects' to be a list")
         pulumi.set(__self__, "pipeline_objects", pipeline_objects)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -83,6 +86,11 @@ class GetPipelineDefinitionResult:
         """
         return pulumi.get(self, "pipeline_objects")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetPipelineDefinitionResult(GetPipelineDefinitionResult):
     # pylint: disable=using-constant-test
@@ -94,11 +102,13 @@ class AwaitableGetPipelineDefinitionResult(GetPipelineDefinitionResult):
             parameter_objects=self.parameter_objects,
             parameter_values=self.parameter_values,
             pipeline_id=self.pipeline_id,
-            pipeline_objects=self.pipeline_objects)
+            pipeline_objects=self.pipeline_objects,
+            region=self.region)
 
 
 def get_pipeline_definition(parameter_values: Optional[Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict']]] = None,
                             pipeline_id: Optional[builtins.str] = None,
+                            region: Optional[builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineDefinitionResult:
     """
     Provides details about a specific DataPipeline Pipeline Definition.
@@ -115,10 +125,12 @@ def get_pipeline_definition(parameter_values: Optional[Sequence[Union['GetPipeli
 
     :param Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict']] parameter_values: Parameter values used in the pipeline definition. See below
     :param builtins.str pipeline_id: ID of the pipeline.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['parameterValues'] = parameter_values
     __args__['pipelineId'] = pipeline_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:datapipeline/getPipelineDefinition:getPipelineDefinition', __args__, opts=opts, typ=GetPipelineDefinitionResult).value
 
@@ -127,9 +139,11 @@ def get_pipeline_definition(parameter_values: Optional[Sequence[Union['GetPipeli
         parameter_objects=pulumi.get(__ret__, 'parameter_objects'),
         parameter_values=pulumi.get(__ret__, 'parameter_values'),
         pipeline_id=pulumi.get(__ret__, 'pipeline_id'),
-        pipeline_objects=pulumi.get(__ret__, 'pipeline_objects'))
+        pipeline_objects=pulumi.get(__ret__, 'pipeline_objects'),
+        region=pulumi.get(__ret__, 'region'))
 def get_pipeline_definition_output(parameter_values: Optional[pulumi.Input[Optional[Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict']]]]] = None,
                                    pipeline_id: Optional[pulumi.Input[builtins.str]] = None,
+                                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineDefinitionResult]:
     """
     Provides details about a specific DataPipeline Pipeline Definition.
@@ -146,10 +160,12 @@ def get_pipeline_definition_output(parameter_values: Optional[pulumi.Input[Optio
 
     :param Sequence[Union['GetPipelineDefinitionParameterValueArgs', 'GetPipelineDefinitionParameterValueArgsDict']] parameter_values: Parameter values used in the pipeline definition. See below
     :param builtins.str pipeline_id: ID of the pipeline.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['parameterValues'] = parameter_values
     __args__['pipelineId'] = pipeline_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:datapipeline/getPipelineDefinition:getPipelineDefinition', __args__, opts=opts, typ=GetPipelineDefinitionResult)
     return __ret__.apply(lambda __response__: GetPipelineDefinitionResult(
@@ -157,4 +173,5 @@ def get_pipeline_definition_output(parameter_values: Optional[pulumi.Input[Optio
         parameter_objects=pulumi.get(__response__, 'parameter_objects'),
         parameter_values=pulumi.get(__response__, 'parameter_values'),
         pipeline_id=pulumi.get(__response__, 'pipeline_id'),
-        pipeline_objects=pulumi.get(__response__, 'pipeline_objects')))
+        pipeline_objects=pulumi.get(__response__, 'pipeline_objects'),
+        region=pulumi.get(__response__, 'region')))

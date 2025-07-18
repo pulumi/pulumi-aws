@@ -27,7 +27,7 @@ class GetResolverFirewallRuleGroupResult:
     """
     A collection of values returned by getResolverFirewallRuleGroup.
     """
-    def __init__(__self__, arn=None, creation_time=None, creator_request_id=None, firewall_rule_group_id=None, id=None, modification_time=None, name=None, owner_id=None, rule_count=None, share_status=None, status=None, status_message=None):
+    def __init__(__self__, arn=None, creation_time=None, creator_request_id=None, firewall_rule_group_id=None, id=None, modification_time=None, name=None, owner_id=None, region=None, rule_count=None, share_status=None, status=None, status_message=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -52,6 +52,9 @@ class GetResolverFirewallRuleGroupResult:
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if rule_count and not isinstance(rule_count, int):
             raise TypeError("Expected argument 'rule_count' to be a int")
         pulumi.set(__self__, "rule_count", rule_count)
@@ -127,6 +130,11 @@ class GetResolverFirewallRuleGroupResult:
         return pulumi.get(self, "owner_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="ruleCount")
     def rule_count(self) -> builtins.int:
         """
@@ -173,6 +181,7 @@ class AwaitableGetResolverFirewallRuleGroupResult(GetResolverFirewallRuleGroupRe
             modification_time=self.modification_time,
             name=self.name,
             owner_id=self.owner_id,
+            region=self.region,
             rule_count=self.rule_count,
             share_status=self.share_status,
             status=self.status,
@@ -180,6 +189,7 @@ class AwaitableGetResolverFirewallRuleGroupResult(GetResolverFirewallRuleGroupRe
 
 
 def get_resolver_firewall_rule_group(firewall_rule_group_id: Optional[builtins.str] = None,
+                                     region: Optional[builtins.str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverFirewallRuleGroupResult:
     """
     `route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
@@ -199,9 +209,11 @@ def get_resolver_firewall_rule_group(firewall_rule_group_id: Optional[builtins.s
 
 
     :param builtins.str firewall_rule_group_id: The ID of the rule group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['firewallRuleGroupId'] = firewall_rule_group_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup', __args__, opts=opts, typ=GetResolverFirewallRuleGroupResult).value
 
@@ -214,11 +226,13 @@ def get_resolver_firewall_rule_group(firewall_rule_group_id: Optional[builtins.s
         modification_time=pulumi.get(__ret__, 'modification_time'),
         name=pulumi.get(__ret__, 'name'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
+        region=pulumi.get(__ret__, 'region'),
         rule_count=pulumi.get(__ret__, 'rule_count'),
         share_status=pulumi.get(__ret__, 'share_status'),
         status=pulumi.get(__ret__, 'status'),
         status_message=pulumi.get(__ret__, 'status_message'))
 def get_resolver_firewall_rule_group_output(firewall_rule_group_id: Optional[pulumi.Input[builtins.str]] = None,
+                                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverFirewallRuleGroupResult]:
     """
     `route53.ResolverFirewallRuleGroup` Retrieves the specified firewall rule group.
@@ -238,9 +252,11 @@ def get_resolver_firewall_rule_group_output(firewall_rule_group_id: Optional[pul
 
 
     :param builtins.str firewall_rule_group_id: The ID of the rule group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['firewallRuleGroupId'] = firewall_rule_group_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup', __args__, opts=opts, typ=GetResolverFirewallRuleGroupResult)
     return __ret__.apply(lambda __response__: GetResolverFirewallRuleGroupResult(
@@ -252,6 +268,7 @@ def get_resolver_firewall_rule_group_output(firewall_rule_group_id: Optional[pul
         modification_time=pulumi.get(__response__, 'modification_time'),
         name=pulumi.get(__response__, 'name'),
         owner_id=pulumi.get(__response__, 'owner_id'),
+        region=pulumi.get(__response__, 'region'),
         rule_count=pulumi.get(__response__, 'rule_count'),
         share_status=pulumi.get(__response__, 'share_status'),
         status=pulumi.get(__response__, 'status'),

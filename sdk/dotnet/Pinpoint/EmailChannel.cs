@@ -151,6 +151,12 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string?> OrchestrationSendingRoleArn { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         /// </summary>
         [Output("roleArn")]
@@ -239,6 +245,12 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? OrchestrationSendingRoleArn { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         /// </summary>
         [Input("roleArn")]
@@ -293,6 +305,12 @@ namespace Pulumi.Aws.Pinpoint
         /// </summary>
         [Input("orchestrationSendingRoleArn")]
         public Input<string>? OrchestrationSendingRoleArn { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.

@@ -111,6 +111,12 @@ namespace Pulumi.Aws.Route53
         [Input("priority")]
         public int? Priority { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetResolverFirewallRulesArgs()
         {
         }
@@ -137,6 +143,12 @@ namespace Pulumi.Aws.Route53
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetResolverFirewallRulesInvokeArgs()
         {
         }
@@ -158,6 +170,7 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         public readonly string Id;
         public readonly int? Priority;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetResolverFirewallRulesResult(
@@ -169,13 +182,16 @@ namespace Pulumi.Aws.Route53
 
             string id,
 
-            int? priority)
+            int? priority,
+
+            string region)
         {
             Action = action;
             FirewallRuleGroupId = firewallRuleGroupId;
             FirewallRules = firewallRules;
             Id = id;
             Priority = priority;
+            Region = region;
         }
     }
 }

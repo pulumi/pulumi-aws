@@ -32,6 +32,7 @@ export function getLicenseGrants(args?: GetLicenseGrantsArgs, opts?: pulumi.Invo
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:licensemanager/getLicenseGrants:getLicenseGrants", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -43,6 +44,10 @@ export interface GetLicenseGrantsArgs {
      * Custom filter block as described below.
      */
     filters?: inputs.licensemanager.GetLicenseGrantsFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -58,6 +63,7 @@ export interface GetLicenseGrantsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * This resource can be used to get a set of license grant ARNs matching a filter.
@@ -84,6 +90,7 @@ export function getLicenseGrantsOutput(args?: GetLicenseGrantsOutputArgs, opts?:
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:licensemanager/getLicenseGrants:getLicenseGrants", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -95,4 +102,8 @@ export interface GetLicenseGrantsOutputArgs {
      * Custom filter block as described below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.licensemanager.GetLicenseGrantsFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

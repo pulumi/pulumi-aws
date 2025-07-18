@@ -28,7 +28,7 @@ class GetVpcIpamResult:
     """
     A collection of values returned by getVpcIpam.
     """
-    def __init__(__self__, arn=None, default_resource_discovery_association_id=None, default_resource_discovery_id=None, description=None, enable_private_gua=None, id=None, ipam_region=None, operating_regions=None, owner_id=None, private_default_scope_id=None, public_default_scope_id=None, resource_discovery_association_count=None, scope_count=None, state=None, state_message=None, tags=None, tier=None):
+    def __init__(__self__, arn=None, default_resource_discovery_association_id=None, default_resource_discovery_id=None, description=None, enable_private_gua=None, id=None, ipam_region=None, operating_regions=None, owner_id=None, private_default_scope_id=None, public_default_scope_id=None, region=None, resource_discovery_association_count=None, scope_count=None, state=None, state_message=None, tags=None, tier=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -62,6 +62,9 @@ class GetVpcIpamResult:
         if public_default_scope_id and not isinstance(public_default_scope_id, str):
             raise TypeError("Expected argument 'public_default_scope_id' to be a str")
         pulumi.set(__self__, "public_default_scope_id", public_default_scope_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if resource_discovery_association_count and not isinstance(resource_discovery_association_count, int):
             raise TypeError("Expected argument 'resource_discovery_association_count' to be a int")
         pulumi.set(__self__, "resource_discovery_association_count", resource_discovery_association_count)
@@ -170,6 +173,11 @@ class GetVpcIpamResult:
         return pulumi.get(self, "public_default_scope_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resourceDiscoveryAssociationCount")
     def resource_discovery_association_count(self) -> builtins.int:
         """
@@ -235,6 +243,7 @@ class AwaitableGetVpcIpamResult(GetVpcIpamResult):
             owner_id=self.owner_id,
             private_default_scope_id=self.private_default_scope_id,
             public_default_scope_id=self.public_default_scope_id,
+            region=self.region,
             resource_discovery_association_count=self.resource_discovery_association_count,
             scope_count=self.scope_count,
             state=self.state,
@@ -244,6 +253,7 @@ class AwaitableGetVpcIpamResult(GetVpcIpamResult):
 
 
 def get_vpc_ipam(id: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIpamResult:
     """
     Data source for managing a VPC IPAM.
@@ -261,9 +271,11 @@ def get_vpc_ipam(id: Optional[builtins.str] = None,
 
 
     :param builtins.str id: ID of the IPAM.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcIpam:getVpcIpam', __args__, opts=opts, typ=GetVpcIpamResult).value
 
@@ -279,6 +291,7 @@ def get_vpc_ipam(id: Optional[builtins.str] = None,
         owner_id=pulumi.get(__ret__, 'owner_id'),
         private_default_scope_id=pulumi.get(__ret__, 'private_default_scope_id'),
         public_default_scope_id=pulumi.get(__ret__, 'public_default_scope_id'),
+        region=pulumi.get(__ret__, 'region'),
         resource_discovery_association_count=pulumi.get(__ret__, 'resource_discovery_association_count'),
         scope_count=pulumi.get(__ret__, 'scope_count'),
         state=pulumi.get(__ret__, 'state'),
@@ -286,6 +299,7 @@ def get_vpc_ipam(id: Optional[builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tier=pulumi.get(__ret__, 'tier'))
 def get_vpc_ipam_output(id: Optional[pulumi.Input[builtins.str]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcIpamResult]:
     """
     Data source for managing a VPC IPAM.
@@ -303,9 +317,11 @@ def get_vpc_ipam_output(id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str id: ID of the IPAM.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcIpam:getVpcIpam', __args__, opts=opts, typ=GetVpcIpamResult)
     return __ret__.apply(lambda __response__: GetVpcIpamResult(
@@ -320,6 +336,7 @@ def get_vpc_ipam_output(id: Optional[pulumi.Input[builtins.str]] = None,
         owner_id=pulumi.get(__response__, 'owner_id'),
         private_default_scope_id=pulumi.get(__response__, 'private_default_scope_id'),
         public_default_scope_id=pulumi.get(__response__, 'public_default_scope_id'),
+        region=pulumi.get(__response__, 'region'),
         resource_discovery_association_count=pulumi.get(__response__, 'resource_discovery_association_count'),
         scope_count=pulumi.get(__response__, 'scope_count'),
         state=pulumi.get(__response__, 'state'),

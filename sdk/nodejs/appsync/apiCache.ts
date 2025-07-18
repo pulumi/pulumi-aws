@@ -74,6 +74,10 @@ export class ApiCache extends pulumi.CustomResource {
      */
     public readonly atRestEncryptionEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
      */
     public readonly transitEncryptionEnabled!: pulumi.Output<boolean | undefined>;
@@ -102,6 +106,7 @@ export class ApiCache extends pulumi.CustomResource {
             resourceInputs["apiCachingBehavior"] = state ? state.apiCachingBehavior : undefined;
             resourceInputs["apiId"] = state ? state.apiId : undefined;
             resourceInputs["atRestEncryptionEnabled"] = state ? state.atRestEncryptionEnabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["transitEncryptionEnabled"] = state ? state.transitEncryptionEnabled : undefined;
             resourceInputs["ttl"] = state ? state.ttl : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -122,6 +127,7 @@ export class ApiCache extends pulumi.CustomResource {
             resourceInputs["apiCachingBehavior"] = args ? args.apiCachingBehavior : undefined;
             resourceInputs["apiId"] = args ? args.apiId : undefined;
             resourceInputs["atRestEncryptionEnabled"] = args ? args.atRestEncryptionEnabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["transitEncryptionEnabled"] = args ? args.transitEncryptionEnabled : undefined;
             resourceInputs["ttl"] = args ? args.ttl : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -147,6 +153,10 @@ export interface ApiCacheState {
      * At-rest encryption flag for cache. You cannot update this setting after creation.
      */
     atRestEncryptionEnabled?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
      */
@@ -177,6 +187,10 @@ export interface ApiCacheArgs {
      * At-rest encryption flag for cache. You cannot update this setting after creation.
      */
     atRestEncryptionEnabled?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Transit encryption flag when connecting to cache. You cannot update this setting after creation.
      */

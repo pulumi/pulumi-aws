@@ -31,6 +31,7 @@ class CanaryArgs:
                  delete_lambda: Optional[pulumi.Input[builtins.bool]] = None,
                  failure_retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  run_config: Optional[pulumi.Input['CanaryRunConfigArgs']] = None,
                  s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
                  s3_key: Optional[pulumi.Input[builtins.str]] = None,
@@ -53,6 +54,7 @@ class CanaryArgs:
         :param pulumi.Input[builtins.bool] delete_lambda: Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
         :param pulumi.Input[builtins.int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[builtins.str] name: Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['CanaryRunConfigArgs'] run_config: Configuration block for individual canary runs. Detailed below.
         :param pulumi.Input[builtins.str] s3_bucket: Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
         :param pulumi.Input[builtins.str] s3_key: S3 key of your script. **Conflicts with `zip_file`.**
@@ -76,6 +78,8 @@ class CanaryArgs:
             pulumi.set(__self__, "failure_retention_period", failure_retention_period)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if run_config is not None:
             pulumi.set(__self__, "run_config", run_config)
         if s3_bucket is not None:
@@ -206,6 +210,18 @@ class CanaryArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="runConfig")
     def run_config(self) -> Optional[pulumi.Input['CanaryRunConfigArgs']]:
         """
@@ -326,6 +342,7 @@ class _CanaryState:
                  failure_retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  handler: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  run_config: Optional[pulumi.Input['CanaryRunConfigArgs']] = None,
                  runtime_version: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
@@ -352,6 +369,7 @@ class _CanaryState:
         :param pulumi.Input[builtins.int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[builtins.str] handler: Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
         :param pulumi.Input[builtins.str] name: Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['CanaryRunConfigArgs'] run_config: Configuration block for individual canary runs. Detailed below.
         :param pulumi.Input[builtins.str] runtime_version: Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
         :param pulumi.Input[builtins.str] s3_bucket: Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
@@ -388,6 +406,8 @@ class _CanaryState:
             pulumi.set(__self__, "handler", handler)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if run_config is not None:
             pulumi.set(__self__, "run_config", run_config)
         if runtime_version is not None:
@@ -410,9 +430,6 @@ class _CanaryState:
             pulumi.set(__self__, "success_retention_period", success_retention_period)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timelines is not None:
@@ -529,6 +546,18 @@ class _CanaryState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="runConfig")
@@ -666,7 +695,6 @@ class _CanaryState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -727,6 +755,7 @@ class Canary(pulumi.CustomResource):
                  failure_retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  handler: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  run_config: Optional[pulumi.Input[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']]] = None,
                  runtime_version: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
@@ -779,6 +808,7 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[builtins.str] handler: Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
         :param pulumi.Input[builtins.str] name: Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']] run_config: Configuration block for individual canary runs. Detailed below.
         :param pulumi.Input[builtins.str] runtime_version: Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
         :param pulumi.Input[builtins.str] s3_bucket: Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
@@ -852,6 +882,7 @@ class Canary(pulumi.CustomResource):
                  failure_retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  handler: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  run_config: Optional[pulumi.Input[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']]] = None,
                  runtime_version: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
@@ -885,6 +916,7 @@ class Canary(pulumi.CustomResource):
                 raise TypeError("Missing required property 'handler'")
             __props__.__dict__["handler"] = handler
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["run_config"] = run_config
             if runtime_version is None and not opts.urn:
                 raise TypeError("Missing required property 'runtime_version'")
@@ -925,6 +957,7 @@ class Canary(pulumi.CustomResource):
             failure_retention_period: Optional[pulumi.Input[builtins.int]] = None,
             handler: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             run_config: Optional[pulumi.Input[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']]] = None,
             runtime_version: Optional[pulumi.Input[builtins.str]] = None,
             s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
@@ -956,6 +989,7 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[builtins.str] handler: Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
         :param pulumi.Input[builtins.str] name: Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['CanaryRunConfigArgs', 'CanaryRunConfigArgsDict']] run_config: Configuration block for individual canary runs. Detailed below.
         :param pulumi.Input[builtins.str] runtime_version: Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
         :param pulumi.Input[builtins.str] s3_bucket: Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
@@ -987,6 +1021,7 @@ class Canary(pulumi.CustomResource):
         __props__.__dict__["failure_retention_period"] = failure_retention_period
         __props__.__dict__["handler"] = handler
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["run_config"] = run_config
         __props__.__dict__["runtime_version"] = runtime_version
         __props__.__dict__["s3_bucket"] = s3_bucket
@@ -1075,6 +1110,14 @@ class Canary(pulumi.CustomResource):
         Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="runConfig")
@@ -1168,7 +1211,6 @@ class Canary(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

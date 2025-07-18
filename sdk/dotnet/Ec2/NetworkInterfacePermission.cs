@@ -88,6 +88,12 @@ namespace Pulumi.Aws.Ec2
         [Output("permission")]
         public Output<string> Permission { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("timeouts")]
         public Output<Outputs.NetworkInterfacePermissionTimeouts?> Timeouts { get; private set; } = null!;
 
@@ -155,6 +161,12 @@ namespace Pulumi.Aws.Ec2
         [Input("permission", required: true)]
         public Input<string> Permission { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("timeouts")]
         public Input<Inputs.NetworkInterfacePermissionTimeoutsArgs>? Timeouts { get; set; }
 
@@ -189,6 +201,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("permission")]
         public Input<string>? Permission { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.NetworkInterfacePermissionTimeoutsGetArgs>? Timeouts { get; set; }

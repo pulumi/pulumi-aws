@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,8 +29,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,6 +77,8 @@ type DomainIdentityVerification struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The domain name of the SES domain identity to verify.
 	Domain pulumi.StringOutput `pulumi:"domain"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDomainIdentityVerification registers a new resource with the given unique name, arguments, and options.
@@ -116,6 +118,8 @@ type domainIdentityVerificationState struct {
 	Arn *string `pulumi:"arn"`
 	// The domain name of the SES domain identity to verify.
 	Domain *string `pulumi:"domain"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type DomainIdentityVerificationState struct {
@@ -123,6 +127,8 @@ type DomainIdentityVerificationState struct {
 	Arn pulumi.StringPtrInput
 	// The domain name of the SES domain identity to verify.
 	Domain pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DomainIdentityVerificationState) ElementType() reflect.Type {
@@ -132,12 +138,16 @@ func (DomainIdentityVerificationState) ElementType() reflect.Type {
 type domainIdentityVerificationArgs struct {
 	// The domain name of the SES domain identity to verify.
 	Domain string `pulumi:"domain"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DomainIdentityVerification resource.
 type DomainIdentityVerificationArgs struct {
 	// The domain name of the SES domain identity to verify.
 	Domain pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DomainIdentityVerificationArgs) ElementType() reflect.Type {
@@ -235,6 +245,11 @@ func (o DomainIdentityVerificationOutput) Arn() pulumi.StringOutput {
 // The domain name of the SES domain identity to verify.
 func (o DomainIdentityVerificationOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainIdentityVerification) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DomainIdentityVerificationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainIdentityVerification) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type DomainIdentityVerificationArrayOutput struct{ *pulumi.OutputState }

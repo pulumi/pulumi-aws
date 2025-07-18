@@ -28,29 +28,29 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "my-tf-example-bucket",
+    ///         BucketName = "my-tf-example-bucket",
     ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
+    ///     var exampleBucketAcl = new Aws.S3.BucketAcl("example", new()
     ///     {
     ///         Bucket = example.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var logBucket = new Aws.S3.BucketV2("log_bucket", new()
+    ///     var logBucket = new Aws.S3.Bucket("log_bucket", new()
     ///     {
-    ///         Bucket = "my-tf-log-bucket",
+    ///         BucketName = "my-tf-log-bucket",
     ///     });
     /// 
-    ///     var logBucketAcl = new Aws.S3.BucketAclV2("log_bucket_acl", new()
+    ///     var logBucketAcl = new Aws.S3.BucketAcl("log_bucket_acl", new()
     ///     {
     ///         Bucket = logBucket.Id,
     ///         Acl = "log-delivery-write",
     ///     });
     /// 
-    ///     var exampleBucketLoggingV2 = new Aws.S3.BucketLoggingV2("example", new()
+    ///     var exampleBucketLogging = new Aws.S3.BucketLogging("example", new()
     ///     {
     ///         Bucket = example.Id,
     ///         TargetBucket = logBucket.Id,
@@ -77,6 +77,7 @@ namespace Pulumi.Aws.S3
     /// $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name,123456789012
     /// ```
     /// </summary>
+    [Obsolete(@"aws.s3/bucketloggingv2.BucketLoggingV2 has been deprecated in favor of aws.s3/bucketlogging.BucketLogging")]
     [AwsResourceType("aws:s3/bucketLoggingV2:BucketLoggingV2")]
     public partial class BucketLoggingV2 : global::Pulumi.CustomResource
     {
@@ -91,6 +92,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Name of the bucket where you want Amazon S3 to store server access logs.
@@ -139,6 +146,10 @@ namespace Pulumi.Aws.S3
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "aws:s3/bucketLoggingV2:BucketLoggingV2" },
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -173,6 +184,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Name of the bucket where you want Amazon S3 to store server access logs.
@@ -223,6 +240,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Name of the bucket where you want Amazon S3 to store server access logs.

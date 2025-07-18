@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,7 +50,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -144,6 +144,8 @@ type CatalogTable struct {
 	PartitionIndices CatalogTablePartitionIndexArrayOutput `pulumi:"partitionIndices"`
 	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
 	PartitionKeys CatalogTablePartitionKeyArrayOutput `pulumi:"partitionKeys"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Retention time for this table.
 	Retention pulumi.IntPtrOutput `pulumi:"retention"`
 	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
@@ -213,6 +215,8 @@ type catalogTableState struct {
 	PartitionIndices []CatalogTablePartitionIndex `pulumi:"partitionIndices"`
 	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
 	PartitionKeys []CatalogTablePartitionKey `pulumi:"partitionKeys"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Retention time for this table.
 	Retention *int `pulumi:"retention"`
 	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
@@ -250,6 +254,8 @@ type CatalogTableState struct {
 	PartitionIndices CatalogTablePartitionIndexArrayInput
 	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
 	PartitionKeys CatalogTablePartitionKeyArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Retention time for this table.
 	Retention pulumi.IntPtrInput
 	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
@@ -289,6 +295,8 @@ type catalogTableArgs struct {
 	PartitionIndices []CatalogTablePartitionIndex `pulumi:"partitionIndices"`
 	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
 	PartitionKeys []CatalogTablePartitionKey `pulumi:"partitionKeys"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Retention time for this table.
 	Retention *int `pulumi:"retention"`
 	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
@@ -325,6 +333,8 @@ type CatalogTableArgs struct {
 	PartitionIndices CatalogTablePartitionIndexArrayInput
 	// Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
 	PartitionKeys CatalogTablePartitionKeyArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Retention time for this table.
 	Retention pulumi.IntPtrInput
 	// Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storageDescriptor` below.
@@ -476,6 +486,11 @@ func (o CatalogTableOutput) PartitionIndices() CatalogTablePartitionIndexArrayOu
 // Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
 func (o CatalogTableOutput) PartitionKeys() CatalogTablePartitionKeyArrayOutput {
 	return o.ApplyT(func(v *CatalogTable) CatalogTablePartitionKeyArrayOutput { return v.PartitionKeys }).(CatalogTablePartitionKeyArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o CatalogTableOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Retention time for this table.

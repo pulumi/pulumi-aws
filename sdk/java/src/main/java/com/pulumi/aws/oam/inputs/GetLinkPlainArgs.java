@@ -31,6 +31,21 @@ public final class GetLinkPlainArgs extends com.pulumi.resources.InvokeArgs {
         return this.linkIdentifier;
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
@@ -42,6 +57,7 @@ public final class GetLinkPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetLinkPlainArgs(GetLinkPlainArgs $) {
         this.linkIdentifier = $.linkIdentifier;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -71,6 +87,17 @@ public final class GetLinkPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder linkIdentifier(String linkIdentifier) {
             $.linkIdentifier = linkIdentifier;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

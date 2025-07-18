@@ -25,6 +25,7 @@ export function getSigningProfile(args: GetSigningProfileArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:signer/getSigningProfile:getSigningProfile", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,10 @@ export interface GetSigningProfileArgs {
      * Name of the target signing profile.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * List of tags associated with the signing profile.
      */
@@ -64,6 +69,7 @@ export interface GetSigningProfileResult {
      * ID of the platform that is used by the target signing profile.
      */
     readonly platformId: string;
+    readonly region: string;
     /**
      * Revocation information for a signing profile.
      */
@@ -107,6 +113,7 @@ export function getSigningProfileOutput(args: GetSigningProfileOutputArgs, opts?
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:signer/getSigningProfile:getSigningProfile", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -119,6 +126,10 @@ export interface GetSigningProfileOutputArgs {
      * Name of the target signing profile.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of tags associated with the signing profile.
      */

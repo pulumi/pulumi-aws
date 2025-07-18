@@ -28,7 +28,7 @@ class GetAddonResult:
     """
     A collection of values returned by getAddon.
     """
-    def __init__(__self__, addon_name=None, addon_version=None, arn=None, cluster_name=None, configuration_values=None, created_at=None, id=None, modified_at=None, pod_identity_associations=None, service_account_role_arn=None, tags=None):
+    def __init__(__self__, addon_name=None, addon_version=None, arn=None, cluster_name=None, configuration_values=None, created_at=None, id=None, modified_at=None, pod_identity_associations=None, region=None, service_account_role_arn=None, tags=None):
         if addon_name and not isinstance(addon_name, str):
             raise TypeError("Expected argument 'addon_name' to be a str")
         pulumi.set(__self__, "addon_name", addon_name)
@@ -56,6 +56,9 @@ class GetAddonResult:
         if pod_identity_associations and not isinstance(pod_identity_associations, list):
             raise TypeError("Expected argument 'pod_identity_associations' to be a list")
         pulumi.set(__self__, "pod_identity_associations", pod_identity_associations)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if service_account_role_arn and not isinstance(service_account_role_arn, str):
             raise TypeError("Expected argument 'service_account_role_arn' to be a str")
         pulumi.set(__self__, "service_account_role_arn", service_account_role_arn)
@@ -130,6 +133,11 @@ class GetAddonResult:
         return pulumi.get(self, "pod_identity_associations")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="serviceAccountRoleArn")
     def service_account_role_arn(self) -> builtins.str:
         """
@@ -159,12 +167,14 @@ class AwaitableGetAddonResult(GetAddonResult):
             id=self.id,
             modified_at=self.modified_at,
             pod_identity_associations=self.pod_identity_associations,
+            region=self.region,
             service_account_role_arn=self.service_account_role_arn,
             tags=self.tags)
 
 
 def get_addon(addon_name: Optional[builtins.str] = None,
               cluster_name: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               tags: Optional[Mapping[str, builtins.str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAddonResult:
     """
@@ -185,10 +195,12 @@ def get_addon(addon_name: Optional[builtins.str] = None,
     :param builtins.str addon_name: Name of the EKS add-on. The name must match one of
            the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
     :param builtins.str cluster_name: Name of the EKS Cluster.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['addonName'] = addon_name
     __args__['clusterName'] = cluster_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:eks/getAddon:getAddon', __args__, opts=opts, typ=GetAddonResult).value
@@ -203,10 +215,12 @@ def get_addon(addon_name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         modified_at=pulumi.get(__ret__, 'modified_at'),
         pod_identity_associations=pulumi.get(__ret__, 'pod_identity_associations'),
+        region=pulumi.get(__ret__, 'region'),
         service_account_role_arn=pulumi.get(__ret__, 'service_account_role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_addon_output(addon_name: Optional[pulumi.Input[builtins.str]] = None,
                      cluster_name: Optional[pulumi.Input[builtins.str]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAddonResult]:
     """
@@ -227,10 +241,12 @@ def get_addon_output(addon_name: Optional[pulumi.Input[builtins.str]] = None,
     :param builtins.str addon_name: Name of the EKS add-on. The name must match one of
            the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
     :param builtins.str cluster_name: Name of the EKS Cluster.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['addonName'] = addon_name
     __args__['clusterName'] = cluster_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:eks/getAddon:getAddon', __args__, opts=opts, typ=GetAddonResult)
@@ -244,5 +260,6 @@ def get_addon_output(addon_name: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         modified_at=pulumi.get(__response__, 'modified_at'),
         pod_identity_associations=pulumi.get(__response__, 'pod_identity_associations'),
+        region=pulumi.get(__response__, 'region'),
         service_account_role_arn=pulumi.get(__response__, 'service_account_role_arn'),
         tags=pulumi.get(__response__, 'tags')))

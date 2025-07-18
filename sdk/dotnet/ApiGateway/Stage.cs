@@ -108,7 +108,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Version of the associated API documentation
+        /// Version of the associated API documentation.
         /// </summary>
         [Output("documentationVersion")]
         public Output<string?> DocumentationVersion { get; private set; } = null!;
@@ -127,6 +127,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Output("invokeUrl")]
         public Output<string> InvokeUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// ID of the associated REST API
@@ -153,7 +159,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Map that defines the stage variables
+        /// Map that defines the stage variables.
         /// </summary>
         [Output("variables")]
         public Output<ImmutableDictionary<string, string>?> Variables { get; private set; } = null!;
@@ -259,10 +265,16 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Version of the associated API documentation
+        /// Version of the associated API documentation.
         /// </summary>
         [Input("documentationVersion")]
         public Input<string>? DocumentationVersion { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ID of the associated REST API
@@ -292,7 +304,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _variables;
 
         /// <summary>
-        /// Map that defines the stage variables
+        /// Map that defines the stage variables.
         /// </summary>
         public InputMap<string> Variables
         {
@@ -363,7 +375,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Version of the associated API documentation
+        /// Version of the associated API documentation.
         /// </summary>
         [Input("documentationVersion")]
         public Input<string>? DocumentationVersion { get; set; }
@@ -382,6 +394,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("invokeUrl")]
         public Input<string>? InvokeUrl { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ID of the associated REST API
@@ -413,7 +431,6 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -424,7 +441,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _variables;
 
         /// <summary>
-        /// Map that defines the stage variables
+        /// Map that defines the stage variables.
         /// </summary>
         public InputMap<string> Variables
         {

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,8 +27,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,8 +80,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -144,8 +144,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -234,6 +234,8 @@ type EventBusPolicy struct {
 	EventBusName pulumi.StringPtrOutput `pulumi:"eventBusName"`
 	// The text of the policy.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewEventBusPolicy registers a new resource with the given unique name, arguments, and options.
@@ -274,6 +276,8 @@ type eventBusPolicyState struct {
 	EventBusName *string `pulumi:"eventBusName"`
 	// The text of the policy.
 	Policy *string `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type EventBusPolicyState struct {
@@ -282,6 +286,8 @@ type EventBusPolicyState struct {
 	EventBusName pulumi.StringPtrInput
 	// The text of the policy.
 	Policy pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EventBusPolicyState) ElementType() reflect.Type {
@@ -294,6 +300,8 @@ type eventBusPolicyArgs struct {
 	EventBusName *string `pulumi:"eventBusName"`
 	// The text of the policy.
 	Policy string `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EventBusPolicy resource.
@@ -303,6 +311,8 @@ type EventBusPolicyArgs struct {
 	EventBusName pulumi.StringPtrInput
 	// The text of the policy.
 	Policy pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EventBusPolicyArgs) ElementType() reflect.Type {
@@ -401,6 +411,11 @@ func (o EventBusPolicyOutput) EventBusName() pulumi.StringPtrOutput {
 // The text of the policy.
 func (o EventBusPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventBusPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o EventBusPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventBusPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type EventBusPolicyArrayOutput struct{ *pulumi.OutputState }

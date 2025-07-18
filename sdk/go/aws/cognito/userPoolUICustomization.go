@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -81,7 +81,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -146,6 +146,8 @@ type UserPoolUICustomization struct {
 	ImageUrl pulumi.StringOutput `pulumi:"imageUrl"`
 	// The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
 	LastModifiedDate pulumi.StringOutput `pulumi:"lastModifiedDate"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The user pool ID for the user pool.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
@@ -197,6 +199,8 @@ type userPoolUICustomizationState struct {
 	ImageUrl *string `pulumi:"imageUrl"`
 	// The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
 	LastModifiedDate *string `pulumi:"lastModifiedDate"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The user pool ID for the user pool.
 	UserPoolId *string `pulumi:"userPoolId"`
 }
@@ -216,6 +220,8 @@ type UserPoolUICustomizationState struct {
 	ImageUrl pulumi.StringPtrInput
 	// The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
 	LastModifiedDate pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The user pool ID for the user pool.
 	UserPoolId pulumi.StringPtrInput
 }
@@ -231,6 +237,8 @@ type userPoolUICustomizationArgs struct {
 	Css *string `pulumi:"css"`
 	// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
 	ImageFile *string `pulumi:"imageFile"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The user pool ID for the user pool.
 	UserPoolId string `pulumi:"userPoolId"`
 }
@@ -243,6 +251,8 @@ type UserPoolUICustomizationArgs struct {
 	Css pulumi.StringPtrInput
 	// The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `imageFile` is required.
 	ImageFile pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The user pool ID for the user pool.
 	UserPoolId pulumi.StringInput
 }
@@ -367,6 +377,11 @@ func (o UserPoolUICustomizationOutput) ImageUrl() pulumi.StringOutput {
 // The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
 func (o UserPoolUICustomizationOutput) LastModifiedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolUICustomization) pulumi.StringOutput { return v.LastModifiedDate }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o UserPoolUICustomizationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserPoolUICustomization) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The user pool ID for the user pool.

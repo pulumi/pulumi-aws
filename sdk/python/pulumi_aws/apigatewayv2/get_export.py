@@ -27,7 +27,7 @@ class GetExportResult:
     """
     A collection of values returned by getExport.
     """
-    def __init__(__self__, api_id=None, body=None, export_version=None, id=None, include_extensions=None, output_type=None, specification=None, stage_name=None):
+    def __init__(__self__, api_id=None, body=None, export_version=None, id=None, include_extensions=None, output_type=None, region=None, specification=None, stage_name=None):
         if api_id and not isinstance(api_id, str):
             raise TypeError("Expected argument 'api_id' to be a str")
         pulumi.set(__self__, "api_id", api_id)
@@ -46,6 +46,9 @@ class GetExportResult:
         if output_type and not isinstance(output_type, str):
             raise TypeError("Expected argument 'output_type' to be a str")
         pulumi.set(__self__, "output_type", output_type)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if specification and not isinstance(specification, str):
             raise TypeError("Expected argument 'specification' to be a str")
         pulumi.set(__self__, "specification", specification)
@@ -91,6 +94,11 @@ class GetExportResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def specification(self) -> builtins.str:
         return pulumi.get(self, "specification")
 
@@ -112,6 +120,7 @@ class AwaitableGetExportResult(GetExportResult):
             id=self.id,
             include_extensions=self.include_extensions,
             output_type=self.output_type,
+            region=self.region,
             specification=self.specification,
             stage_name=self.stage_name)
 
@@ -120,6 +129,7 @@ def get_export(api_id: Optional[builtins.str] = None,
                export_version: Optional[builtins.str] = None,
                include_extensions: Optional[builtins.bool] = None,
                output_type: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                specification: Optional[builtins.str] = None,
                stage_name: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportResult:
@@ -142,6 +152,7 @@ def get_export(api_id: Optional[builtins.str] = None,
     :param builtins.str export_version: Version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
     :param builtins.bool include_extensions: Whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
     :param builtins.str output_type: Output type of the exported definition file. Valid values are `JSON` and `YAML`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str specification: Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
     :param builtins.str stage_name: Name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
     """
@@ -150,6 +161,7 @@ def get_export(api_id: Optional[builtins.str] = None,
     __args__['exportVersion'] = export_version
     __args__['includeExtensions'] = include_extensions
     __args__['outputType'] = output_type
+    __args__['region'] = region
     __args__['specification'] = specification
     __args__['stageName'] = stage_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -162,12 +174,14 @@ def get_export(api_id: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         include_extensions=pulumi.get(__ret__, 'include_extensions'),
         output_type=pulumi.get(__ret__, 'output_type'),
+        region=pulumi.get(__ret__, 'region'),
         specification=pulumi.get(__ret__, 'specification'),
         stage_name=pulumi.get(__ret__, 'stage_name'))
 def get_export_output(api_id: Optional[pulumi.Input[builtins.str]] = None,
                       export_version: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       include_extensions: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                       output_type: Optional[pulumi.Input[builtins.str]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       specification: Optional[pulumi.Input[builtins.str]] = None,
                       stage_name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExportResult]:
@@ -190,6 +204,7 @@ def get_export_output(api_id: Optional[pulumi.Input[builtins.str]] = None,
     :param builtins.str export_version: Version of the API Gateway export algorithm. API Gateway uses the latest version by default. Currently, the only supported version is `1.0`.
     :param builtins.bool include_extensions: Whether to include API Gateway extensions in the exported API definition. API Gateway extensions are included by default.
     :param builtins.str output_type: Output type of the exported definition file. Valid values are `JSON` and `YAML`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str specification: Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
     :param builtins.str stage_name: Name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
     """
@@ -198,6 +213,7 @@ def get_export_output(api_id: Optional[pulumi.Input[builtins.str]] = None,
     __args__['exportVersion'] = export_version
     __args__['includeExtensions'] = include_extensions
     __args__['outputType'] = output_type
+    __args__['region'] = region
     __args__['specification'] = specification
     __args__['stageName'] = stage_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -209,5 +225,6 @@ def get_export_output(api_id: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         include_extensions=pulumi.get(__response__, 'include_extensions'),
         output_type=pulumi.get(__response__, 'output_type'),
+        region=pulumi.get(__response__, 'region'),
         specification=pulumi.get(__response__, 'specification'),
         stage_name=pulumi.get(__response__, 'stage_name')))

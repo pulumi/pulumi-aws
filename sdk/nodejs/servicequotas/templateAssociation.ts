@@ -56,6 +56,10 @@ export class TemplateAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === TemplateAssociation.__pulumiType;
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
@@ -75,10 +79,12 @@ export class TemplateAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TemplateAssociationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as TemplateAssociationArgs | undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
             resourceInputs["status"] = undefined /*out*/;
         }
@@ -91,6 +97,10 @@ export class TemplateAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TemplateAssociation resources.
  */
 export interface TemplateAssociationState {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     skipDestroy?: pulumi.Input<boolean>;
     /**
      * Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
@@ -102,5 +112,9 @@ export interface TemplateAssociationState {
  * The set of arguments for constructing a TemplateAssociation resource.
  */
 export interface TemplateAssociationArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     skipDestroy?: pulumi.Input<boolean>;
 }

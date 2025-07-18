@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,7 +31,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,6 +81,8 @@ type ProvisioningArtifact struct {
 	ProductId pulumi.StringOutput `pulumi:"productId"`
 	// Provisioning artifact identifier.
 	ProvisioningArtifactId pulumi.StringOutput `pulumi:"provisioningArtifactId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 	TemplatePhysicalId pulumi.StringPtrOutput `pulumi:"templatePhysicalId"`
 	// Template source as URL of the CloudFormation template in Amazon S3.
@@ -142,6 +144,8 @@ type provisioningArtifactState struct {
 	ProductId *string `pulumi:"productId"`
 	// Provisioning artifact identifier.
 	ProvisioningArtifactId *string `pulumi:"provisioningArtifactId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 	TemplatePhysicalId *string `pulumi:"templatePhysicalId"`
 	// Template source as URL of the CloudFormation template in Amazon S3.
@@ -171,6 +175,8 @@ type ProvisioningArtifactState struct {
 	ProductId pulumi.StringPtrInput
 	// Provisioning artifact identifier.
 	ProvisioningArtifactId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 	TemplatePhysicalId pulumi.StringPtrInput
 	// Template source as URL of the CloudFormation template in Amazon S3.
@@ -200,6 +206,8 @@ type provisioningArtifactArgs struct {
 	Name *string `pulumi:"name"`
 	// Identifier of the product.
 	ProductId string `pulumi:"productId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 	TemplatePhysicalId *string `pulumi:"templatePhysicalId"`
 	// Template source as URL of the CloudFormation template in Amazon S3.
@@ -226,6 +234,8 @@ type ProvisioningArtifactArgs struct {
 	Name pulumi.StringPtrInput
 	// Identifier of the product.
 	ProductId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
 	TemplatePhysicalId pulumi.StringPtrInput
 	// Template source as URL of the CloudFormation template in Amazon S3.
@@ -366,6 +376,11 @@ func (o ProvisioningArtifactOutput) ProductId() pulumi.StringOutput {
 // Provisioning artifact identifier.
 func (o ProvisioningArtifactOutput) ProvisioningArtifactId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringOutput { return v.ProvisioningArtifactId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ProvisioningArtifactOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProvisioningArtifact) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.

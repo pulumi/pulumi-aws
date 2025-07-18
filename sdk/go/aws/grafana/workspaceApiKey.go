@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/grafana"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/grafana"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,6 +53,8 @@ type WorkspaceApiKey struct {
 	KeyName pulumi.StringOutput `pulumi:"keyName"`
 	// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
 	KeyRole pulumi.StringOutput `pulumi:"keyRole"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
 	SecondsToLive pulumi.IntOutput `pulumi:"secondsToLive"`
 	// The ID of the workspace that the API key is valid for.
@@ -111,6 +113,8 @@ type workspaceApiKeyState struct {
 	KeyName *string `pulumi:"keyName"`
 	// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
 	KeyRole *string `pulumi:"keyRole"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
 	SecondsToLive *int `pulumi:"secondsToLive"`
 	// The ID of the workspace that the API key is valid for.
@@ -124,6 +128,8 @@ type WorkspaceApiKeyState struct {
 	KeyName pulumi.StringPtrInput
 	// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
 	KeyRole pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
 	SecondsToLive pulumi.IntPtrInput
 	// The ID of the workspace that the API key is valid for.
@@ -139,6 +145,8 @@ type workspaceApiKeyArgs struct {
 	KeyName string `pulumi:"keyName"`
 	// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
 	KeyRole string `pulumi:"keyRole"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
 	SecondsToLive int `pulumi:"secondsToLive"`
 	// The ID of the workspace that the API key is valid for.
@@ -151,6 +159,8 @@ type WorkspaceApiKeyArgs struct {
 	KeyName pulumi.StringInput
 	// Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
 	KeyRole pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.
 	SecondsToLive pulumi.IntInput
 	// The ID of the workspace that the API key is valid for.
@@ -257,6 +267,11 @@ func (o WorkspaceApiKeyOutput) KeyName() pulumi.StringOutput {
 // Specifies the permission level of the API key. Valid values are `VIEWER`, `EDITOR`, or `ADMIN`.
 func (o WorkspaceApiKeyOutput) KeyRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceApiKey) pulumi.StringOutput { return v.KeyRole }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o WorkspaceApiKeyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *WorkspaceApiKey) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Specifies the time in seconds until the API key expires. Keys can be valid for up to 30 days.

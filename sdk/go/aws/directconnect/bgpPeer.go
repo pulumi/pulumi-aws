@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,6 +62,8 @@ type BgpPeer struct {
 	// The IPv4 CIDR destination address to which Amazon should send traffic.
 	// Required for IPv4 BGP peers on public virtual interfaces.
 	CustomerAddress pulumi.StringOutput `pulumi:"customerAddress"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the Direct Connect virtual interface on which to create the BGP peer.
 	VirtualInterfaceId pulumi.StringOutput `pulumi:"virtualInterfaceId"`
 }
@@ -123,6 +125,8 @@ type bgpPeerState struct {
 	// The IPv4 CIDR destination address to which Amazon should send traffic.
 	// Required for IPv4 BGP peers on public virtual interfaces.
 	CustomerAddress *string `pulumi:"customerAddress"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the Direct Connect virtual interface on which to create the BGP peer.
 	VirtualInterfaceId *string `pulumi:"virtualInterfaceId"`
 }
@@ -146,6 +150,8 @@ type BgpPeerState struct {
 	// The IPv4 CIDR destination address to which Amazon should send traffic.
 	// Required for IPv4 BGP peers on public virtual interfaces.
 	CustomerAddress pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the Direct Connect virtual interface on which to create the BGP peer.
 	VirtualInterfaceId pulumi.StringPtrInput
 }
@@ -167,6 +173,8 @@ type bgpPeerArgs struct {
 	// The IPv4 CIDR destination address to which Amazon should send traffic.
 	// Required for IPv4 BGP peers on public virtual interfaces.
 	CustomerAddress *string `pulumi:"customerAddress"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the Direct Connect virtual interface on which to create the BGP peer.
 	VirtualInterfaceId string `pulumi:"virtualInterfaceId"`
 }
@@ -185,6 +193,8 @@ type BgpPeerArgs struct {
 	// The IPv4 CIDR destination address to which Amazon should send traffic.
 	// Required for IPv4 BGP peers on public virtual interfaces.
 	CustomerAddress pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the Direct Connect virtual interface on which to create the BGP peer.
 	VirtualInterfaceId pulumi.StringInput
 }
@@ -316,6 +326,11 @@ func (o BgpPeerOutput) BgpStatus() pulumi.StringOutput {
 // Required for IPv4 BGP peers on public virtual interfaces.
 func (o BgpPeerOutput) CustomerAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *BgpPeer) pulumi.StringOutput { return v.CustomerAddress }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o BgpPeerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BgpPeer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the Direct Connect virtual interface on which to create the BGP peer.

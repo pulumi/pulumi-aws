@@ -29,7 +29,7 @@ class GetNatGatewayResult:
     """
     A collection of values returned by getNatGateway.
     """
-    def __init__(__self__, allocation_id=None, association_id=None, connectivity_type=None, filters=None, id=None, network_interface_id=None, private_ip=None, public_ip=None, secondary_allocation_ids=None, secondary_private_ip_address_count=None, secondary_private_ip_addresses=None, state=None, subnet_id=None, tags=None, vpc_id=None):
+    def __init__(__self__, allocation_id=None, association_id=None, connectivity_type=None, filters=None, id=None, network_interface_id=None, private_ip=None, public_ip=None, region=None, secondary_allocation_ids=None, secondary_private_ip_address_count=None, secondary_private_ip_addresses=None, state=None, subnet_id=None, tags=None, vpc_id=None):
         if allocation_id and not isinstance(allocation_id, str):
             raise TypeError("Expected argument 'allocation_id' to be a str")
         pulumi.set(__self__, "allocation_id", allocation_id)
@@ -54,6 +54,9 @@ class GetNatGatewayResult:
         if public_ip and not isinstance(public_ip, str):
             raise TypeError("Expected argument 'public_ip' to be a str")
         pulumi.set(__self__, "public_ip", public_ip)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if secondary_allocation_ids and not isinstance(secondary_allocation_ids, list):
             raise TypeError("Expected argument 'secondary_allocation_ids' to be a list")
         pulumi.set(__self__, "secondary_allocation_ids", secondary_allocation_ids)
@@ -135,6 +138,11 @@ class GetNatGatewayResult:
         return pulumi.get(self, "public_ip")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="secondaryAllocationIds")
     def secondary_allocation_ids(self) -> Sequence[builtins.str]:
         """
@@ -193,6 +201,7 @@ class AwaitableGetNatGatewayResult(GetNatGatewayResult):
             network_interface_id=self.network_interface_id,
             private_ip=self.private_ip,
             public_ip=self.public_ip,
+            region=self.region,
             secondary_allocation_ids=self.secondary_allocation_ids,
             secondary_private_ip_address_count=self.secondary_private_ip_address_count,
             secondary_private_ip_addresses=self.secondary_private_ip_addresses,
@@ -204,6 +213,7 @@ class AwaitableGetNatGatewayResult(GetNatGatewayResult):
 
 def get_nat_gateway(filters: Optional[Sequence[Union['GetNatGatewayFilterArgs', 'GetNatGatewayFilterArgsDict']]] = None,
                     id: Optional[builtins.str] = None,
+                    region: Optional[builtins.str] = None,
                     state: Optional[builtins.str] = None,
                     subnet_id: Optional[builtins.str] = None,
                     tags: Optional[Mapping[str, builtins.str]] = None,
@@ -240,6 +250,7 @@ def get_nat_gateway(filters: Optional[Sequence[Union['GetNatGatewayFilterArgs', 
            NAT Gateways in the current Region. The given filters must match exactly one
            NAT Gateway whose data will be exported as attributes.
     :param builtins.str id: ID of the specific NAT Gateway to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: State of the NAT Gateway (pending | failed | available | deleting | deleted ).
     :param builtins.str subnet_id: ID of subnet that the NAT Gateway resides in.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
@@ -249,6 +260,7 @@ def get_nat_gateway(filters: Optional[Sequence[Union['GetNatGatewayFilterArgs', 
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['state'] = state
     __args__['subnetId'] = subnet_id
     __args__['tags'] = tags
@@ -265,6 +277,7 @@ def get_nat_gateway(filters: Optional[Sequence[Union['GetNatGatewayFilterArgs', 
         network_interface_id=pulumi.get(__ret__, 'network_interface_id'),
         private_ip=pulumi.get(__ret__, 'private_ip'),
         public_ip=pulumi.get(__ret__, 'public_ip'),
+        region=pulumi.get(__ret__, 'region'),
         secondary_allocation_ids=pulumi.get(__ret__, 'secondary_allocation_ids'),
         secondary_private_ip_address_count=pulumi.get(__ret__, 'secondary_private_ip_address_count'),
         secondary_private_ip_addresses=pulumi.get(__ret__, 'secondary_private_ip_addresses'),
@@ -274,6 +287,7 @@ def get_nat_gateway(filters: Optional[Sequence[Union['GetNatGatewayFilterArgs', 
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNatGatewayFilterArgs', 'GetNatGatewayFilterArgsDict']]]]] = None,
                            id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            state: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            subnet_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
@@ -310,6 +324,7 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
            NAT Gateways in the current Region. The given filters must match exactly one
            NAT Gateway whose data will be exported as attributes.
     :param builtins.str id: ID of the specific NAT Gateway to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: State of the NAT Gateway (pending | failed | available | deleting | deleted ).
     :param builtins.str subnet_id: ID of subnet that the NAT Gateway resides in.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
@@ -319,6 +334,7 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['state'] = state
     __args__['subnetId'] = subnet_id
     __args__['tags'] = tags
@@ -334,6 +350,7 @@ def get_nat_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
         network_interface_id=pulumi.get(__response__, 'network_interface_id'),
         private_ip=pulumi.get(__response__, 'private_ip'),
         public_ip=pulumi.get(__response__, 'public_ip'),
+        region=pulumi.get(__response__, 'region'),
         secondary_allocation_ids=pulumi.get(__response__, 'secondary_allocation_ids'),
         secondary_private_ip_address_count=pulumi.get(__response__, 'secondary_private_ip_address_count'),
         secondary_private_ip_addresses=pulumi.get(__response__, 'secondary_private_ip_addresses'),

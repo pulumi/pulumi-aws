@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,14 +23,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := directconnect.GetLocations(ctx, map[string]interface{}{}, nil)
+//			_, err := directconnect.GetLocations(ctx, &directconnect.GetLocationsArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -39,14 +39,20 @@ import (
 //	}
 //
 // ```
-func GetLocations(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetLocationsResult, error) {
+func GetLocations(ctx *pulumi.Context, args *GetLocationsArgs, opts ...pulumi.InvokeOption) (*GetLocationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocationsResult
-	err := ctx.Invoke("aws:directconnect/getLocations:getLocations", nil, &rv, opts...)
+	err := ctx.Invoke("aws:directconnect/getLocations:getLocations", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getLocations.
+type GetLocationsArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLocations.
@@ -55,13 +61,26 @@ type GetLocationsResult struct {
 	Id string `pulumi:"id"`
 	// Code for the locations.
 	LocationCodes []string `pulumi:"locationCodes"`
+	Region        string   `pulumi:"region"`
 }
 
-func GetLocationsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetLocationsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetLocationsResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:directconnect/getLocations:getLocations", nil, GetLocationsResultOutput{}, options).(GetLocationsResultOutput), nil
-	}).(GetLocationsResultOutput)
+func GetLocationsOutput(ctx *pulumi.Context, args GetLocationsOutputArgs, opts ...pulumi.InvokeOption) GetLocationsResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetLocationsResultOutput, error) {
+			args := v.(GetLocationsArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:directconnect/getLocations:getLocations", args, GetLocationsResultOutput{}, options).(GetLocationsResultOutput), nil
+		}).(GetLocationsResultOutput)
+}
+
+// A collection of arguments for invoking getLocations.
+type GetLocationsOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetLocationsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLocationsArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getLocations.
@@ -87,6 +106,10 @@ func (o GetLocationsResultOutput) Id() pulumi.StringOutput {
 // Code for the locations.
 func (o GetLocationsResultOutput) LocationCodes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLocationsResult) []string { return v.LocationCodes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLocationsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

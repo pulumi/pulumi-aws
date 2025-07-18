@@ -83,6 +83,10 @@ export class ReplicationConfig extends pulumi.CustomResource {
      */
     public readonly computeConfig!: pulumi.Output<outputs.dms.ReplicationConfigComputeConfig>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Unique identifier that you want to use to create the config.
      */
     public readonly replicationConfigIdentifier!: pulumi.Output<string>;
@@ -120,8 +124,6 @@ export class ReplicationConfig extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -144,6 +146,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
             const state = argsOrState as ReplicationConfigState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["computeConfig"] = state ? state.computeConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicationConfigIdentifier"] = state ? state.replicationConfigIdentifier : undefined;
             resourceInputs["replicationSettings"] = state ? state.replicationSettings : undefined;
             resourceInputs["replicationType"] = state ? state.replicationType : undefined;
@@ -176,6 +179,7 @@ export class ReplicationConfig extends pulumi.CustomResource {
                 throw new Error("Missing required property 'targetEndpointArn'");
             }
             resourceInputs["computeConfig"] = args ? args.computeConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicationConfigIdentifier"] = args ? args.replicationConfigIdentifier : undefined;
             resourceInputs["replicationSettings"] = args ? args.replicationSettings : undefined;
             resourceInputs["replicationType"] = args ? args.replicationType : undefined;
@@ -206,6 +210,10 @@ export interface ReplicationConfigState {
      * Configuration block for provisioning an DMS Serverless replication.
      */
     computeConfig?: pulumi.Input<inputs.dms.ReplicationConfigComputeConfig>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Unique identifier that you want to use to create the config.
      */
@@ -244,8 +252,6 @@ export interface ReplicationConfigState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -262,6 +268,10 @@ export interface ReplicationConfigArgs {
      * Configuration block for provisioning an DMS Serverless replication.
      */
     computeConfig: pulumi.Input<inputs.dms.ReplicationConfigComputeConfig>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Unique identifier that you want to use to create the config.
      */

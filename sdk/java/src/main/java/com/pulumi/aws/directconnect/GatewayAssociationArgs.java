@@ -107,22 +107,18 @@ public final class GatewayAssociationArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * @deprecated
-     * vpn_gateway_id is deprecated. Use associated_gateway_id instead.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    @Deprecated /* vpn_gateway_id is deprecated. Use associated_gateway_id instead. */
-    @Import(name="vpnGatewayId")
-    private @Nullable Output<String> vpnGatewayId;
+    @Import(name="region")
+    private @Nullable Output<String> region;
 
     /**
-     * @deprecated
-     * vpn_gateway_id is deprecated. Use associated_gateway_id instead.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    @Deprecated /* vpn_gateway_id is deprecated. Use associated_gateway_id instead. */
-    public Optional<Output<String>> vpnGatewayId() {
-        return Optional.ofNullable(this.vpnGatewayId);
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GatewayAssociationArgs() {}
@@ -133,7 +129,7 @@ public final class GatewayAssociationArgs extends com.pulumi.resources.ResourceA
         this.associatedGatewayOwnerAccountId = $.associatedGatewayOwnerAccountId;
         this.dxGatewayId = $.dxGatewayId;
         this.proposalId = $.proposalId;
-        this.vpnGatewayId = $.vpnGatewayId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -288,28 +284,24 @@ public final class GatewayAssociationArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
          * @return builder
          * 
-         * @deprecated
-         * vpn_gateway_id is deprecated. Use associated_gateway_id instead.
-         * 
          */
-        @Deprecated /* vpn_gateway_id is deprecated. Use associated_gateway_id instead. */
-        public Builder vpnGatewayId(@Nullable Output<String> vpnGatewayId) {
-            $.vpnGatewayId = vpnGatewayId;
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
             return this;
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
          * @return builder
          * 
-         * @deprecated
-         * vpn_gateway_id is deprecated. Use associated_gateway_id instead.
-         * 
          */
-        @Deprecated /* vpn_gateway_id is deprecated. Use associated_gateway_id instead. */
-        public Builder vpnGatewayId(String vpnGatewayId) {
-            return vpnGatewayId(Output.of(vpnGatewayId));
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GatewayAssociationArgs build() {

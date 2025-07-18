@@ -158,7 +158,7 @@ def get_link(global_network_id: Optional[builtins.str] = None,
              tags: Optional[Mapping[str, builtins.str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkResult:
     """
-    Retrieve information about a link.
+    Provides details about an existing Network Manager link.
 
     ## Example Usage
 
@@ -198,7 +198,7 @@ def get_link_output(global_network_id: Optional[pulumi.Input[builtins.str]] = No
                     tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkResult]:
     """
-    Retrieve information about a link.
+    Provides details about an existing Network Manager link.
 
     ## Example Usage
 

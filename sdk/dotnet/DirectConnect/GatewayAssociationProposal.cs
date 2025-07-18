@@ -90,6 +90,12 @@ namespace Pulumi.Aws.DirectConnect
         [Output("dxGatewayOwnerAccountId")]
         public Output<string> DxGatewayOwnerAccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a GatewayAssociationProposal resource with the given unique name, arguments, and options.
@@ -166,6 +172,12 @@ namespace Pulumi.Aws.DirectConnect
         [Input("dxGatewayOwnerAccountId", required: true)]
         public Input<string> DxGatewayOwnerAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GatewayAssociationProposalArgs()
         {
         }
@@ -215,6 +227,12 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("dxGatewayOwnerAccountId")]
         public Input<string>? DxGatewayOwnerAccountId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GatewayAssociationProposalState()
         {

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,16 +25,16 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			b, err := s3.NewBucketV2(ctx, "b", &s3.BucketV2Args{
+//			b, err := s3.NewBucket(ctx, "b", &s3.BucketArgs{
 //				Bucket: pulumi.String("awsconfig-example"),
 //			})
 //			if err != nil {
@@ -144,6 +144,8 @@ type RecorderStatus struct {
 	IsEnabled pulumi.BoolOutput `pulumi:"isEnabled"`
 	// The name of the recorder
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewRecorderStatus registers a new resource with the given unique name, arguments, and options.
@@ -183,6 +185,8 @@ type recorderStatusState struct {
 	IsEnabled *bool `pulumi:"isEnabled"`
 	// The name of the recorder
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type RecorderStatusState struct {
@@ -190,6 +194,8 @@ type RecorderStatusState struct {
 	IsEnabled pulumi.BoolPtrInput
 	// The name of the recorder
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (RecorderStatusState) ElementType() reflect.Type {
@@ -201,6 +207,8 @@ type recorderStatusArgs struct {
 	IsEnabled bool `pulumi:"isEnabled"`
 	// The name of the recorder
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a RecorderStatus resource.
@@ -209,6 +217,8 @@ type RecorderStatusArgs struct {
 	IsEnabled pulumi.BoolInput
 	// The name of the recorder
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (RecorderStatusArgs) ElementType() reflect.Type {
@@ -306,6 +316,11 @@ func (o RecorderStatusOutput) IsEnabled() pulumi.BoolOutput {
 // The name of the recorder
 func (o RecorderStatusOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RecorderStatus) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o RecorderStatusOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RecorderStatus) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type RecorderStatusArrayOutput struct{ *pulumi.OutputState }

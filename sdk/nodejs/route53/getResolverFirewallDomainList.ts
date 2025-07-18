@@ -26,6 +26,7 @@ export function getResolverFirewallDomainList(args: GetResolverFirewallDomainLis
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", {
         "firewallDomainListId": args.firewallDomainListId,
+        "region": args.region,
     }, opts);
 }
 
@@ -37,6 +38,10 @@ export interface GetResolverFirewallDomainListArgs {
      * The ID of the domain list.
      */
     firewallDomainListId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -76,6 +81,7 @@ export interface GetResolverFirewallDomainListResult {
      * The name of the domain list.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * The status of the domain list.
      */
@@ -107,6 +113,7 @@ export function getResolverFirewallDomainListOutput(args: GetResolverFirewallDom
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", {
         "firewallDomainListId": args.firewallDomainListId,
+        "region": args.region,
     }, opts);
 }
 
@@ -118,4 +125,8 @@ export interface GetResolverFirewallDomainListOutputArgs {
      * The ID of the domain list.
      */
     firewallDomainListId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

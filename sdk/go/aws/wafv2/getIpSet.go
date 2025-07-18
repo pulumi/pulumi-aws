@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,6 +53,8 @@ func LookupIpSet(ctx *pulumi.Context, args *LookupIpSetArgs, opts ...pulumi.Invo
 type LookupIpSetArgs struct {
 	// Name of the WAFv2 IP Set.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope string `pulumi:"scope"`
 }
@@ -70,6 +72,7 @@ type LookupIpSetResult struct {
 	// IP address version of the set.
 	IpAddressVersion string `pulumi:"ipAddressVersion"`
 	Name             string `pulumi:"name"`
+	Region           string `pulumi:"region"`
 	Scope            string `pulumi:"scope"`
 }
 
@@ -86,6 +89,8 @@ func LookupIpSetOutput(ctx *pulumi.Context, args LookupIpSetOutputArgs, opts ...
 type LookupIpSetOutputArgs struct {
 	// Name of the WAFv2 IP Set.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
 	Scope pulumi.StringInput `pulumi:"scope"`
 }
@@ -136,6 +141,10 @@ func (o LookupIpSetResultOutput) IpAddressVersion() pulumi.StringOutput {
 
 func (o LookupIpSetResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIpSetResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupIpSetResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIpSetResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupIpSetResultOutput) Scope() pulumi.StringOutput {

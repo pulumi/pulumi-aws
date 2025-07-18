@@ -197,6 +197,12 @@ namespace Pulumi.Aws.Fsx
         [Input("id")]
         public string? Id { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
         public Dictionary<string, string> Tags
@@ -232,6 +238,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -288,6 +300,7 @@ namespace Pulumi.Aws.Fsx
         /// The name of the SVM, if provisioned.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// The SVM's subtype.
         /// </summary>
@@ -320,6 +333,8 @@ namespace Pulumi.Aws.Fsx
 
             string name,
 
+            string region,
+
             string subtype,
 
             ImmutableDictionary<string, string> tags,
@@ -336,6 +351,7 @@ namespace Pulumi.Aws.Fsx
             LifecycleStatus = lifecycleStatus;
             LifecycleTransitionReasons = lifecycleTransitionReasons;
             Name = name;
+            Region = region;
             Subtype = subtype;
             Tags = tags;
             Uuid = uuid;

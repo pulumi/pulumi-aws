@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lakeformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,6 +62,8 @@ import (
 type DataCellsFilter struct {
 	pulumi.CustomResourceState
 
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Information about the data cells filter. See Table Data below for details.
 	TableData DataCellsFilterTableDataPtrOutput `pulumi:"tableData"`
 	Timeouts  DataCellsFilterTimeoutsPtrOutput  `pulumi:"timeouts"`
@@ -97,12 +99,16 @@ func GetDataCellsFilter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataCellsFilter resources.
 type dataCellsFilterState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Information about the data cells filter. See Table Data below for details.
 	TableData *DataCellsFilterTableData `pulumi:"tableData"`
 	Timeouts  *DataCellsFilterTimeouts  `pulumi:"timeouts"`
 }
 
 type DataCellsFilterState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Information about the data cells filter. See Table Data below for details.
 	TableData DataCellsFilterTableDataPtrInput
 	Timeouts  DataCellsFilterTimeoutsPtrInput
@@ -113,6 +119,8 @@ func (DataCellsFilterState) ElementType() reflect.Type {
 }
 
 type dataCellsFilterArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Information about the data cells filter. See Table Data below for details.
 	TableData *DataCellsFilterTableData `pulumi:"tableData"`
 	Timeouts  *DataCellsFilterTimeouts  `pulumi:"timeouts"`
@@ -120,6 +128,8 @@ type dataCellsFilterArgs struct {
 
 // The set of arguments for constructing a DataCellsFilter resource.
 type DataCellsFilterArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Information about the data cells filter. See Table Data below for details.
 	TableData DataCellsFilterTableDataPtrInput
 	Timeouts  DataCellsFilterTimeoutsPtrInput
@@ -210,6 +220,11 @@ func (o DataCellsFilterOutput) ToDataCellsFilterOutput() DataCellsFilterOutput {
 
 func (o DataCellsFilterOutput) ToDataCellsFilterOutputWithContext(ctx context.Context) DataCellsFilterOutput {
 	return o
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DataCellsFilterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCellsFilter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Information about the data cells filter. See Table Data below for details.

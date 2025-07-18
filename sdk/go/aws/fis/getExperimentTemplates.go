@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fis"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,8 +49,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fis"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fis"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -101,6 +101,8 @@ func GetExperimentTemplates(ctx *pulumi.Context, args *GetExperimentTemplatesArg
 
 // A collection of arguments for invoking getExperimentTemplates.
 type GetExperimentTemplatesArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired experiment templates.
 	Tags map[string]string `pulumi:"tags"`
@@ -111,8 +113,9 @@ type GetExperimentTemplatesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of all the experiment template ids found.
-	Ids  []string          `pulumi:"ids"`
-	Tags map[string]string `pulumi:"tags"`
+	Ids    []string          `pulumi:"ids"`
+	Region string            `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 func GetExperimentTemplatesOutput(ctx *pulumi.Context, args GetExperimentTemplatesOutputArgs, opts ...pulumi.InvokeOption) GetExperimentTemplatesResultOutput {
@@ -126,6 +129,8 @@ func GetExperimentTemplatesOutput(ctx *pulumi.Context, args GetExperimentTemplat
 
 // A collection of arguments for invoking getExperimentTemplates.
 type GetExperimentTemplatesOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired experiment templates.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -158,6 +163,10 @@ func (o GetExperimentTemplatesResultOutput) Id() pulumi.StringOutput {
 // List of all the experiment template ids found.
 func (o GetExperimentTemplatesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetExperimentTemplatesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetExperimentTemplatesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExperimentTemplatesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetExperimentTemplatesResultOutput) Tags() pulumi.StringMapOutput {

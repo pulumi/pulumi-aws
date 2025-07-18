@@ -119,6 +119,10 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
      */
     public readonly preserveExistingData!: pulumi.Output<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
      */
     public readonly snapshotId!: pulumi.Output<string | undefined>;
@@ -128,8 +132,6 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -184,6 +186,7 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
             resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             resourceInputs["networkInterfacePort"] = state ? state.networkInterfacePort : undefined;
             resourceInputs["preserveExistingData"] = state ? state.preserveExistingData : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["snapshotId"] = state ? state.snapshotId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -217,6 +220,7 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
             resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             resourceInputs["preserveExistingData"] = args ? args.preserveExistingData : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetName"] = args ? args.targetName : undefined;
@@ -282,6 +286,10 @@ export interface StoredIscsiVolumeState {
      */
     preserveExistingData?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
      */
     snapshotId?: pulumi.Input<string>;
@@ -291,8 +299,6 @@ export interface StoredIscsiVolumeState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -353,6 +359,10 @@ export interface StoredIscsiVolumeArgs {
      * Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
      */
     preserveExistingData: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
      */

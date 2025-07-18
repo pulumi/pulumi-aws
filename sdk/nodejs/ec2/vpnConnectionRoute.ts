@@ -65,6 +65,10 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
      */
     public readonly destinationCidrBlock!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the VPN connection.
      */
     public readonly vpnConnectionId!: pulumi.Output<string>;
@@ -83,6 +87,7 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VpnConnectionRouteState | undefined;
             resourceInputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["vpnConnectionId"] = state ? state.vpnConnectionId : undefined;
         } else {
             const args = argsOrState as VpnConnectionRouteArgs | undefined;
@@ -93,6 +98,7 @@ export class VpnConnectionRoute extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpnConnectionId'");
             }
             resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["vpnConnectionId"] = args ? args.vpnConnectionId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -109,6 +115,10 @@ export interface VpnConnectionRouteState {
      */
     destinationCidrBlock?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the VPN connection.
      */
     vpnConnectionId?: pulumi.Input<string>;
@@ -122,6 +132,10 @@ export interface VpnConnectionRouteArgs {
      * The CIDR block associated with the local subnet of the customer network.
      */
     destinationCidrBlock: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the VPN connection.
      */

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Lambda.Outputs
     public sealed class FunctionEventInvokeConfigDestinationConfig
     {
         /// <summary>
-        /// Configuration block with destination configuration for failed asynchronous invocations. See below for details.
+        /// Configuration block with destination configuration for failed asynchronous invocations. See below.
         /// </summary>
         public readonly Outputs.FunctionEventInvokeConfigDestinationConfigOnFailure? OnFailure;
         /// <summary>
-        /// Configuration block with destination configuration for successful asynchronous invocations. See below for details.
+        /// Configuration block with destination configuration for successful asynchronous invocations. See below.
         /// </summary>
         public readonly Outputs.FunctionEventInvokeConfigDestinationConfigOnSuccess? OnSuccess;
 

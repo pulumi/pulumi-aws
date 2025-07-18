@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codedeploy"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codedeploy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,7 +89,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codedeploy"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codedeploy"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -157,6 +157,8 @@ type DeploymentConfig struct {
 	DeploymentConfigName pulumi.StringOutput `pulumi:"deploymentConfigName"`
 	// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
 	MinimumHealthyHosts DeploymentConfigMinimumHealthyHostsPtrOutput `pulumi:"minimumHealthyHosts"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
 	TrafficRoutingConfig DeploymentConfigTrafficRoutingConfigPtrOutput `pulumi:"trafficRoutingConfig"`
 	// A zonalConfig block. Zonal Config is documented below.
@@ -203,6 +205,8 @@ type deploymentConfigState struct {
 	DeploymentConfigName *string `pulumi:"deploymentConfigName"`
 	// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
 	MinimumHealthyHosts *DeploymentConfigMinimumHealthyHosts `pulumi:"minimumHealthyHosts"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
 	TrafficRoutingConfig *DeploymentConfigTrafficRoutingConfig `pulumi:"trafficRoutingConfig"`
 	// A zonalConfig block. Zonal Config is documented below.
@@ -220,6 +224,8 @@ type DeploymentConfigState struct {
 	DeploymentConfigName pulumi.StringPtrInput
 	// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
 	MinimumHealthyHosts DeploymentConfigMinimumHealthyHostsPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
 	TrafficRoutingConfig DeploymentConfigTrafficRoutingConfigPtrInput
 	// A zonalConfig block. Zonal Config is documented below.
@@ -237,6 +243,8 @@ type deploymentConfigArgs struct {
 	DeploymentConfigName *string `pulumi:"deploymentConfigName"`
 	// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
 	MinimumHealthyHosts *DeploymentConfigMinimumHealthyHosts `pulumi:"minimumHealthyHosts"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
 	TrafficRoutingConfig *DeploymentConfigTrafficRoutingConfig `pulumi:"trafficRoutingConfig"`
 	// A zonalConfig block. Zonal Config is documented below.
@@ -251,6 +259,8 @@ type DeploymentConfigArgs struct {
 	DeploymentConfigName pulumi.StringPtrInput
 	// A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
 	MinimumHealthyHosts DeploymentConfigMinimumHealthyHostsPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A trafficRoutingConfig block. Traffic Routing Config is documented below.
 	TrafficRoutingConfig DeploymentConfigTrafficRoutingConfigPtrInput
 	// A zonalConfig block. Zonal Config is documented below.
@@ -367,6 +377,11 @@ func (o DeploymentConfigOutput) DeploymentConfigName() pulumi.StringOutput {
 // A minimumHealthyHosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
 func (o DeploymentConfigOutput) MinimumHealthyHosts() DeploymentConfigMinimumHealthyHostsPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfig) DeploymentConfigMinimumHealthyHostsPtrOutput { return v.MinimumHealthyHosts }).(DeploymentConfigMinimumHealthyHostsPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DeploymentConfigOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeploymentConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A trafficRoutingConfig block. Traffic Routing Config is documented below.

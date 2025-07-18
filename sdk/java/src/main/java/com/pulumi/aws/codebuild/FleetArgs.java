@@ -147,6 +147,21 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scaling_configuration` below.
      * 
      */
@@ -202,6 +217,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         this.imageId = $.imageId;
         this.name = $.name;
         this.overflowBehavior = $.overflowBehavior;
+        this.region = $.region;
         this.scalingConfiguration = $.scalingConfiguration;
         this.tags = $.tags;
         this.vpcConfigs = $.vpcConfigs;
@@ -395,6 +411,27 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder overflowBehavior(String overflowBehavior) {
             return overflowBehavior(Output.of(overflowBehavior));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

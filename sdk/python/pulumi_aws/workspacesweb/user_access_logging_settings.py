@@ -21,15 +21,19 @@ __all__ = ['UserAccessLoggingSettingsArgs', 'UserAccessLoggingSettings']
 class UserAccessLoggingSettingsArgs:
     def __init__(__self__, *,
                  kinesis_stream_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a UserAccessLoggingSettings resource.
         :param pulumi.Input[builtins.str] kinesis_stream_arn: ARN of the Kinesis stream.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "kinesis_stream_arn", kinesis_stream_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -49,6 +53,18 @@ class UserAccessLoggingSettingsArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -65,6 +81,7 @@ class _UserAccessLoggingSettingsState:
     def __init__(__self__, *,
                  associated_portal_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  kinesis_stream_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_access_logging_settings_arn: Optional[pulumi.Input[builtins.str]] = None):
@@ -74,6 +91,7 @@ class _UserAccessLoggingSettingsState:
         :param pulumi.Input[builtins.str] kinesis_stream_arn: ARN of the Kinesis stream.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] user_access_logging_settings_arn: ARN of the user access logging settings resource.
@@ -82,11 +100,10 @@ class _UserAccessLoggingSettingsState:
             pulumi.set(__self__, "associated_portal_arns", associated_portal_arns)
         if kinesis_stream_arn is not None:
             pulumi.set(__self__, "kinesis_stream_arn", kinesis_stream_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if user_access_logging_settings_arn is not None:
@@ -120,6 +137,18 @@ class _UserAccessLoggingSettingsState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -132,7 +161,6 @@ class _UserAccessLoggingSettingsState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -163,6 +191,7 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  kinesis_stream_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -212,6 +241,7 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] kinesis_stream_arn: ARN of the Kinesis stream.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -278,6 +308,7 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  kinesis_stream_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -291,12 +322,11 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
             if kinesis_stream_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'kinesis_stream_arn'")
             __props__.__dict__["kinesis_stream_arn"] = kinesis_stream_arn
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["associated_portal_arns"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["user_access_logging_settings_arn"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:workspaces/webUserAccessLoggingSettings:WebUserAccessLoggingSettings")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(UserAccessLoggingSettings, __self__).__init__(
             'aws:workspacesweb/userAccessLoggingSettings:UserAccessLoggingSettings',
             resource_name,
@@ -309,6 +339,7 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             associated_portal_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             kinesis_stream_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             user_access_logging_settings_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'UserAccessLoggingSettings':
@@ -323,6 +354,7 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] kinesis_stream_arn: ARN of the Kinesis stream.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] user_access_logging_settings_arn: ARN of the user access logging settings resource.
@@ -333,6 +365,7 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
 
         __props__.__dict__["associated_portal_arns"] = associated_portal_arns
         __props__.__dict__["kinesis_stream_arn"] = kinesis_stream_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["user_access_logging_settings_arn"] = user_access_logging_settings_arn
@@ -358,6 +391,14 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -366,7 +407,6 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

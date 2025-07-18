@@ -181,6 +181,12 @@ namespace Pulumi.Aws.Neptune
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
         /// </summary>
         [Input("version")]
@@ -267,6 +273,12 @@ namespace Pulumi.Aws.Neptune
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
         /// </summary>
         [Input("version")]
@@ -307,6 +319,7 @@ namespace Pulumi.Aws.Neptune
         public readonly ImmutableArray<string> PreferredMajorTargets;
         public readonly ImmutableArray<string> PreferredUpgradeTargets;
         public readonly ImmutableArray<string> PreferredVersions;
+        public readonly string Region;
         /// <summary>
         /// Set of character sets supported by this engine version.
         /// </summary>
@@ -377,6 +390,8 @@ namespace Pulumi.Aws.Neptune
 
             ImmutableArray<string> preferredVersions,
 
+            string region,
+
             ImmutableArray<string> supportedCharacterSets,
 
             ImmutableArray<string> supportedTimezones,
@@ -412,6 +427,7 @@ namespace Pulumi.Aws.Neptune
             PreferredMajorTargets = preferredMajorTargets;
             PreferredUpgradeTargets = preferredUpgradeTargets;
             PreferredVersions = preferredVersions;
+            Region = region;
             SupportedCharacterSets = supportedCharacterSets;
             SupportedTimezones = supportedTimezones;
             SupportsGlobalDatabases = supportsGlobalDatabases;

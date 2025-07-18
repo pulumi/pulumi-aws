@@ -65,6 +65,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
         /// </summary>
         [Output("stage")]
@@ -135,6 +141,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.
         /// </summary>
         [Input("stage", required: true)]
@@ -165,6 +177,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// API stage. Use the `aws.apigatewayv2.Stage` resource to configure an API stage.

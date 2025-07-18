@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datasync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,6 +64,8 @@ type NfsLocation struct {
 	MountOptions NfsLocationMountOptionsPtrOutput `pulumi:"mountOptions"`
 	// Configuration block containing information for connecting to the NFS File System.
 	OnPremConfig NfsLocationOnPremConfigOutput `pulumi:"onPremConfig"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
 	ServerHostname pulumi.StringOutput `pulumi:"serverHostname"`
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
@@ -71,8 +73,6 @@ type NfsLocation struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	Uri     pulumi.StringOutput    `pulumi:"uri"`
 }
@@ -122,6 +122,8 @@ type nfsLocationState struct {
 	MountOptions *NfsLocationMountOptions `pulumi:"mountOptions"`
 	// Configuration block containing information for connecting to the NFS File System.
 	OnPremConfig *NfsLocationOnPremConfig `pulumi:"onPremConfig"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
 	ServerHostname *string `pulumi:"serverHostname"`
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
@@ -129,8 +131,6 @@ type nfsLocationState struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	Uri     *string           `pulumi:"uri"`
 }
@@ -142,6 +142,8 @@ type NfsLocationState struct {
 	MountOptions NfsLocationMountOptionsPtrInput
 	// Configuration block containing information for connecting to the NFS File System.
 	OnPremConfig NfsLocationOnPremConfigPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
 	ServerHostname pulumi.StringPtrInput
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
@@ -149,8 +151,6 @@ type NfsLocationState struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	Uri     pulumi.StringPtrInput
 }
@@ -164,6 +164,8 @@ type nfsLocationArgs struct {
 	MountOptions *NfsLocationMountOptions `pulumi:"mountOptions"`
 	// Configuration block containing information for connecting to the NFS File System.
 	OnPremConfig NfsLocationOnPremConfig `pulumi:"onPremConfig"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
 	ServerHostname string `pulumi:"serverHostname"`
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
@@ -178,6 +180,8 @@ type NfsLocationArgs struct {
 	MountOptions NfsLocationMountOptionsPtrInput
 	// Configuration block containing information for connecting to the NFS File System.
 	OnPremConfig NfsLocationOnPremConfigInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
 	ServerHostname pulumi.StringInput
 	// Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
@@ -288,6 +292,11 @@ func (o NfsLocationOutput) OnPremConfig() NfsLocationOnPremConfigOutput {
 	return o.ApplyT(func(v *NfsLocation) NfsLocationOnPremConfigOutput { return v.OnPremConfig }).(NfsLocationOnPremConfigOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o NfsLocationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *NfsLocation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
 func (o NfsLocationOutput) ServerHostname() pulumi.StringOutput {
 	return o.ApplyT(func(v *NfsLocation) pulumi.StringOutput { return v.ServerHostname }).(pulumi.StringOutput)
@@ -304,8 +313,6 @@ func (o NfsLocationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o NfsLocationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NfsLocation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

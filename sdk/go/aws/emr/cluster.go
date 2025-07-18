@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -171,7 +171,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -304,7 +304,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -343,8 +343,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -414,7 +414,7 @@ type Cluster struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -473,8 +473,12 @@ type Cluster struct {
 	MasterPublicDns pulumi.StringOutput `pulumi:"masterPublicDns"`
 	// Name of the job flow.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+	OsReleaseLabel pulumi.StringPtrOutput `pulumi:"osReleaseLabel"`
 	// The specified placement group configuration for an Amazon EMR cluster.
 	PlacementGroupConfigs ClusterPlacementGroupConfigArrayOutput `pulumi:"placementGroupConfigs"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Release label for the Amazon EMR release.
 	ReleaseLabel pulumi.StringOutput `pulumi:"releaseLabel"`
 	// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
@@ -492,8 +496,6 @@ type Cluster struct {
 	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
 	TerminationProtection pulumi.BoolOutput `pulumi:"terminationProtection"`
@@ -562,7 +564,7 @@ type clusterState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -621,8 +623,12 @@ type clusterState struct {
 	MasterPublicDns *string `pulumi:"masterPublicDns"`
 	// Name of the job flow.
 	Name *string `pulumi:"name"`
+	// Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+	OsReleaseLabel *string `pulumi:"osReleaseLabel"`
 	// The specified placement group configuration for an Amazon EMR cluster.
 	PlacementGroupConfigs []ClusterPlacementGroupConfig `pulumi:"placementGroupConfigs"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Release label for the Amazon EMR release.
 	ReleaseLabel *string `pulumi:"releaseLabel"`
 	// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
@@ -640,8 +646,6 @@ type clusterState struct {
 	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
 	TerminationProtection *bool `pulumi:"terminationProtection"`
@@ -675,7 +679,7 @@ type ClusterState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -734,8 +738,12 @@ type ClusterState struct {
 	MasterPublicDns pulumi.StringPtrInput
 	// Name of the job flow.
 	Name pulumi.StringPtrInput
+	// Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+	OsReleaseLabel pulumi.StringPtrInput
 	// The specified placement group configuration for an Amazon EMR cluster.
 	PlacementGroupConfigs ClusterPlacementGroupConfigArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Release label for the Amazon EMR release.
 	ReleaseLabel pulumi.StringPtrInput
 	// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
@@ -753,8 +761,6 @@ type ClusterState struct {
 	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
 	TerminationProtection pulumi.BoolPtrInput
@@ -789,7 +795,7 @@ type clusterArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -846,8 +852,12 @@ type clusterArgs struct {
 	MasterInstanceGroup *ClusterMasterInstanceGroup `pulumi:"masterInstanceGroup"`
 	// Name of the job flow.
 	Name *string `pulumi:"name"`
+	// Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+	OsReleaseLabel *string `pulumi:"osReleaseLabel"`
 	// The specified placement group configuration for an Amazon EMR cluster.
 	PlacementGroupConfigs []ClusterPlacementGroupConfig `pulumi:"placementGroupConfigs"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Release label for the Amazon EMR release.
 	ReleaseLabel string `pulumi:"releaseLabel"`
 	// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
@@ -894,7 +904,7 @@ type ClusterArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -951,8 +961,12 @@ type ClusterArgs struct {
 	MasterInstanceGroup ClusterMasterInstanceGroupPtrInput
 	// Name of the job flow.
 	Name pulumi.StringPtrInput
+	// Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+	OsReleaseLabel pulumi.StringPtrInput
 	// The specified placement group configuration for an Amazon EMR cluster.
 	PlacementGroupConfigs ClusterPlacementGroupConfigArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Release label for the Amazon EMR release.
 	ReleaseLabel pulumi.StringInput
 	// Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
@@ -1112,7 +1126,7 @@ func (o ClusterOutput) Configurations() pulumi.StringPtrOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -1220,9 +1234,19 @@ func (o ClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+func (o ClusterOutput) OsReleaseLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.OsReleaseLabel }).(pulumi.StringPtrOutput)
+}
+
 // The specified placement group configuration for an Amazon EMR cluster.
 func (o ClusterOutput) PlacementGroupConfigs() ClusterPlacementGroupConfigArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterPlacementGroupConfigArrayOutput { return v.PlacementGroupConfigs }).(ClusterPlacementGroupConfigArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ClusterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Release label for the Amazon EMR release.
@@ -1263,8 +1287,6 @@ func (o ClusterOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

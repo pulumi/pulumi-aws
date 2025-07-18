@@ -17,6 +17,21 @@ public final class GetReplicationInstancePlainArgs extends com.pulumi.resources.
     public static final GetReplicationInstancePlainArgs Empty = new GetReplicationInstancePlainArgs();
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The replication instance identifier.
      * 
      */
@@ -41,6 +56,7 @@ public final class GetReplicationInstancePlainArgs extends com.pulumi.resources.
     private GetReplicationInstancePlainArgs() {}
 
     private GetReplicationInstancePlainArgs(GetReplicationInstancePlainArgs $) {
+        this.region = $.region;
         this.replicationInstanceId = $.replicationInstanceId;
         this.tags = $.tags;
     }
@@ -61,6 +77,17 @@ public final class GetReplicationInstancePlainArgs extends com.pulumi.resources.
 
         public Builder(GetReplicationInstancePlainArgs defaults) {
             $ = new GetReplicationInstancePlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

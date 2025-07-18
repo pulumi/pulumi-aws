@@ -27,7 +27,7 @@ class GetPermissionSetResult:
     """
     A collection of values returned by getPermissionSet.
     """
-    def __init__(__self__, arn=None, created_date=None, description=None, id=None, instance_arn=None, name=None, relay_state=None, session_duration=None, tags=None):
+    def __init__(__self__, arn=None, created_date=None, description=None, id=None, instance_arn=None, name=None, region=None, relay_state=None, session_duration=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -46,6 +46,9 @@ class GetPermissionSetResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if relay_state and not isinstance(relay_state, str):
             raise TypeError("Expected argument 'relay_state' to be a str")
         pulumi.set(__self__, "relay_state", relay_state)
@@ -93,6 +96,11 @@ class GetPermissionSetResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="relayState")
     def relay_state(self) -> builtins.str:
         """
@@ -129,6 +137,7 @@ class AwaitableGetPermissionSetResult(GetPermissionSetResult):
             id=self.id,
             instance_arn=self.instance_arn,
             name=self.name,
+            region=self.region,
             relay_state=self.relay_state,
             session_duration=self.session_duration,
             tags=self.tags)
@@ -137,6 +146,7 @@ class AwaitableGetPermissionSetResult(GetPermissionSetResult):
 def get_permission_set(arn: Optional[builtins.str] = None,
                        instance_arn: Optional[builtins.str] = None,
                        name: Optional[builtins.str] = None,
+                       region: Optional[builtins.str] = None,
                        tags: Optional[Mapping[str, builtins.str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPermissionSetResult:
     """
@@ -158,12 +168,16 @@ def get_permission_set(arn: Optional[builtins.str] = None,
     :param builtins.str arn: ARN of the permission set.
     :param builtins.str instance_arn: ARN of the SSO Instance associated with the permission set.
     :param builtins.str name: Name of the SSO Permission Set.
+           
+           > **NOTE:** Either `arn` or `name` must be configured.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['instanceArn'] = instance_arn
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ssoadmin/getPermissionSet:getPermissionSet', __args__, opts=opts, typ=GetPermissionSetResult).value
@@ -175,12 +189,14 @@ def get_permission_set(arn: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         instance_arn=pulumi.get(__ret__, 'instance_arn'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         relay_state=pulumi.get(__ret__, 'relay_state'),
         session_duration=pulumi.get(__ret__, 'session_duration'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_permission_set_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               instance_arn: Optional[pulumi.Input[builtins.str]] = None,
                               name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                              region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionSetResult]:
     """
@@ -202,12 +218,16 @@ def get_permission_set_output(arn: Optional[pulumi.Input[Optional[builtins.str]]
     :param builtins.str arn: ARN of the permission set.
     :param builtins.str instance_arn: ARN of the SSO Instance associated with the permission set.
     :param builtins.str name: Name of the SSO Permission Set.
+           
+           > **NOTE:** Either `arn` or `name` must be configured.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['instanceArn'] = instance_arn
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssoadmin/getPermissionSet:getPermissionSet', __args__, opts=opts, typ=GetPermissionSetResult)
@@ -218,6 +238,7 @@ def get_permission_set_output(arn: Optional[pulumi.Input[Optional[builtins.str]]
         id=pulumi.get(__response__, 'id'),
         instance_arn=pulumi.get(__response__, 'instance_arn'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         relay_state=pulumi.get(__response__, 'relay_state'),
         session_duration=pulumi.get(__response__, 'session_duration'),
         tags=pulumi.get(__response__, 'tags')))

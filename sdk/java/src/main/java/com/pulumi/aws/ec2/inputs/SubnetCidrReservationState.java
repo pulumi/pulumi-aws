@@ -61,6 +61,21 @@ public final class SubnetCidrReservationState extends com.pulumi.resources.Resou
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The type of reservation to create. Valid values: `explicit`, `prefix`
      * 
      */
@@ -96,6 +111,7 @@ public final class SubnetCidrReservationState extends com.pulumi.resources.Resou
         this.cidrBlock = $.cidrBlock;
         this.description = $.description;
         this.ownerId = $.ownerId;
+        this.region = $.region;
         this.reservationType = $.reservationType;
         this.subnetId = $.subnetId;
     }
@@ -179,6 +195,27 @@ public final class SubnetCidrReservationState extends com.pulumi.resources.Resou
          */
         public Builder ownerId(String ownerId) {
             return ownerId(Output.of(ownerId));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

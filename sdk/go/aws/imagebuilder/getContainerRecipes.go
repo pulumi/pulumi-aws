@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,6 +62,8 @@ type GetContainerRecipesArgs struct {
 	Filters []GetContainerRecipesFilter `pulumi:"filters"`
 	// Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
 	Owner *string `pulumi:"owner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getContainerRecipes.
@@ -72,8 +74,9 @@ type GetContainerRecipesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set of names of the matched Image Builder Container Recipes.
-	Names []string `pulumi:"names"`
-	Owner *string  `pulumi:"owner"`
+	Names  []string `pulumi:"names"`
+	Owner  *string  `pulumi:"owner"`
+	Region string   `pulumi:"region"`
 }
 
 func GetContainerRecipesOutput(ctx *pulumi.Context, args GetContainerRecipesOutputArgs, opts ...pulumi.InvokeOption) GetContainerRecipesResultOutput {
@@ -91,6 +94,8 @@ type GetContainerRecipesOutputArgs struct {
 	Filters GetContainerRecipesFilterArrayInput `pulumi:"filters"`
 	// Owner of the container recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
 	Owner pulumi.StringPtrInput `pulumi:"owner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetContainerRecipesOutputArgs) ElementType() reflect.Type {
@@ -133,6 +138,10 @@ func (o GetContainerRecipesResultOutput) Names() pulumi.StringArrayOutput {
 
 func (o GetContainerRecipesResultOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetContainerRecipesResult) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o GetContainerRecipesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerRecipesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

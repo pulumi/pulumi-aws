@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,14 +20,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -38,14 +38,20 @@ import (
 //	}
 //
 // ```
-func GetInstances(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetInstancesResult, error) {
+func GetInstances(ctx *pulumi.Context, args *GetInstancesArgs, opts ...pulumi.InvokeOption) (*GetInstancesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetInstancesResult
-	err := ctx.Invoke("aws:ssoadmin/getInstances:getInstances", nil, &rv, opts...)
+	err := ctx.Invoke("aws:ssoadmin/getInstances:getInstances", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getInstances.
+type GetInstancesArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getInstances.
@@ -56,13 +62,26 @@ type GetInstancesResult struct {
 	Id string `pulumi:"id"`
 	// Set of identifiers of the identity stores connected to the SSO Instances.
 	IdentityStoreIds []string `pulumi:"identityStoreIds"`
+	Region           string   `pulumi:"region"`
 }
 
-func GetInstancesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetInstancesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetInstancesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:ssoadmin/getInstances:getInstances", nil, GetInstancesResultOutput{}, options).(GetInstancesResultOutput), nil
-	}).(GetInstancesResultOutput)
+func GetInstancesOutput(ctx *pulumi.Context, args GetInstancesOutputArgs, opts ...pulumi.InvokeOption) GetInstancesResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetInstancesResultOutput, error) {
+			args := v.(GetInstancesArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ssoadmin/getInstances:getInstances", args, GetInstancesResultOutput{}, options).(GetInstancesResultOutput), nil
+		}).(GetInstancesResultOutput)
+}
+
+// A collection of arguments for invoking getInstances.
+type GetInstancesOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetInstancesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstancesArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getInstances.
@@ -93,6 +112,10 @@ func (o GetInstancesResultOutput) Id() pulumi.StringOutput {
 // Set of identifiers of the identity stores connected to the SSO Instances.
 func (o GetInstancesResultOutput) IdentityStoreIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstancesResult) []string { return v.IdentityStoreIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetInstancesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstancesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

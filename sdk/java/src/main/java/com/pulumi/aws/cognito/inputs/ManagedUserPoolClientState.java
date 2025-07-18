@@ -341,6 +341,21 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * List of provider names for the identity providers that are supported on this client. It uses the `provider_name` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      * 
      */
@@ -424,6 +439,7 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
         this.readAttributes = $.readAttributes;
         this.refreshTokenRotation = $.refreshTokenRotation;
         this.refreshTokenValidity = $.refreshTokenValidity;
+        this.region = $.region;
         this.supportedIdentityProviders = $.supportedIdentityProviders;
         this.tokenValidityUnits = $.tokenValidityUnits;
         this.userPoolId = $.userPoolId;
@@ -951,6 +967,27 @@ public final class ManagedUserPoolClientState extends com.pulumi.resources.Resou
          */
         public Builder refreshTokenValidity(Integer refreshTokenValidity) {
             return refreshTokenValidity(Output.of(refreshTokenValidity));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

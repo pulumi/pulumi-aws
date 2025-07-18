@@ -107,6 +107,10 @@ export class GlobalTable extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
      */
     public readonly replicas!: pulumi.Output<outputs.dynamodb.GlobalTableReplica[]>;
@@ -126,6 +130,7 @@ export class GlobalTable extends pulumi.CustomResource {
             const state = argsOrState as GlobalTableState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicas"] = state ? state.replicas : undefined;
         } else {
             const args = argsOrState as GlobalTableArgs | undefined;
@@ -133,6 +138,7 @@ export class GlobalTable extends pulumi.CustomResource {
                 throw new Error("Missing required property 'replicas'");
             }
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicas"] = args ? args.replicas : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
@@ -154,6 +160,10 @@ export interface GlobalTableState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
      */
     replicas?: pulumi.Input<pulumi.Input<inputs.dynamodb.GlobalTableReplica>[]>;
@@ -167,6 +177,10 @@ export interface GlobalTableArgs {
      * The name of the global table. Must match underlying DynamoDB Table names in all regions.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Underlying DynamoDB Table. At least 1 replica must be defined. See below.
      */

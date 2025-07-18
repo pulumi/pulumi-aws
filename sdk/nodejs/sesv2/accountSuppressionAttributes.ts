@@ -53,6 +53,10 @@ export class AccountSuppressionAttributes extends pulumi.CustomResource {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
      */
     public readonly suppressedReasons!: pulumi.Output<string[]>;
@@ -70,12 +74,14 @@ export class AccountSuppressionAttributes extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountSuppressionAttributesState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["suppressedReasons"] = state ? state.suppressedReasons : undefined;
         } else {
             const args = argsOrState as AccountSuppressionAttributesArgs | undefined;
             if ((!args || args.suppressedReasons === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'suppressedReasons'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["suppressedReasons"] = args ? args.suppressedReasons : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -88,6 +94,10 @@ export class AccountSuppressionAttributes extends pulumi.CustomResource {
  */
 export interface AccountSuppressionAttributesState {
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
      */
     suppressedReasons?: pulumi.Input<pulumi.Input<string>[]>;
@@ -97,6 +107,10 @@ export interface AccountSuppressionAttributesState {
  * The set of arguments for constructing a AccountSuppressionAttributes resource.
  */
 export interface AccountSuppressionAttributesArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
      */

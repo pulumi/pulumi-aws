@@ -23,18 +23,22 @@ class PartnerArgs:
                  account_id: pulumi.Input[builtins.str],
                  cluster_identifier: pulumi.Input[builtins.str],
                  database_name: pulumi.Input[builtins.str],
-                 partner_name: pulumi.Input[builtins.str]):
+                 partner_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Partner resource.
         :param pulumi.Input[builtins.str] account_id: The Amazon Web Services account ID that owns the cluster.
         :param pulumi.Input[builtins.str] cluster_identifier: The cluster identifier of the cluster that receives data from the partner.
         :param pulumi.Input[builtins.str] database_name: The name of the database that receives data from the partner.
         :param pulumi.Input[builtins.str] partner_name: The name of the partner that is authorized to send data.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "partner_name", partner_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="accountId")
@@ -84,6 +88,18 @@ class PartnerArgs:
     def partner_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "partner_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _PartnerState:
@@ -92,6 +108,7 @@ class _PartnerState:
                  cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  database_name: Optional[pulumi.Input[builtins.str]] = None,
                  partner_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  status_message: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -100,6 +117,7 @@ class _PartnerState:
         :param pulumi.Input[builtins.str] cluster_identifier: The cluster identifier of the cluster that receives data from the partner.
         :param pulumi.Input[builtins.str] database_name: The name of the database that receives data from the partner.
         :param pulumi.Input[builtins.str] partner_name: The name of the partner that is authorized to send data.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: (Optional) The partner integration status.
         :param pulumi.Input[builtins.str] status_message: (Optional) The status message provided by the partner.
         """
@@ -111,6 +129,8 @@ class _PartnerState:
             pulumi.set(__self__, "database_name", database_name)
         if partner_name is not None:
             pulumi.set(__self__, "partner_name", partner_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if status_message is not None:
@@ -166,6 +186,18 @@ class _PartnerState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         (Optional) The partner integration status.
@@ -199,6 +231,7 @@ class Partner(pulumi.CustomResource):
                  cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  database_name: Optional[pulumi.Input[builtins.str]] = None,
                  partner_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Creates a new Amazon Redshift Partner Integration.
@@ -230,6 +263,7 @@ class Partner(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cluster_identifier: The cluster identifier of the cluster that receives data from the partner.
         :param pulumi.Input[builtins.str] database_name: The name of the database that receives data from the partner.
         :param pulumi.Input[builtins.str] partner_name: The name of the partner that is authorized to send data.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -280,6 +314,7 @@ class Partner(pulumi.CustomResource):
                  cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  database_name: Optional[pulumi.Input[builtins.str]] = None,
                  partner_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -301,6 +336,7 @@ class Partner(pulumi.CustomResource):
             if partner_name is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_name'")
             __props__.__dict__["partner_name"] = partner_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["status"] = None
             __props__.__dict__["status_message"] = None
         super(Partner, __self__).__init__(
@@ -317,6 +353,7 @@ class Partner(pulumi.CustomResource):
             cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
             database_name: Optional[pulumi.Input[builtins.str]] = None,
             partner_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             status_message: Optional[pulumi.Input[builtins.str]] = None) -> 'Partner':
         """
@@ -330,6 +367,7 @@ class Partner(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cluster_identifier: The cluster identifier of the cluster that receives data from the partner.
         :param pulumi.Input[builtins.str] database_name: The name of the database that receives data from the partner.
         :param pulumi.Input[builtins.str] partner_name: The name of the partner that is authorized to send data.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: (Optional) The partner integration status.
         :param pulumi.Input[builtins.str] status_message: (Optional) The status message provided by the partner.
         """
@@ -341,6 +379,7 @@ class Partner(pulumi.CustomResource):
         __props__.__dict__["cluster_identifier"] = cluster_identifier
         __props__.__dict__["database_name"] = database_name
         __props__.__dict__["partner_name"] = partner_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         __props__.__dict__["status_message"] = status_message
         return Partner(resource_name, opts=opts, __props__=__props__)
@@ -376,6 +415,14 @@ class Partner(pulumi.CustomResource):
         The name of the partner that is authorized to send data.
         """
         return pulumi.get(self, "partner_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

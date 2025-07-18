@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func LookupParameter(ctx *pulumi.Context, args *LookupParameterArgs, opts ...pul
 type LookupParameterArgs struct {
 	// Name of the parameter.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether to return decrypted `SecureString` value. Defaults to `true`.
 	WithDecryption *bool `pulumi:"withDecryption"`
 }
@@ -67,7 +69,8 @@ type LookupParameterResult struct {
 	// Value of the parameter. **Use caution:** This value is never marked as sensitive.
 	InsecureValue string `pulumi:"insecureValue"`
 	// Name of the parameter.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
 	Type string `pulumi:"type"`
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`.
@@ -90,6 +93,8 @@ func LookupParameterOutput(ctx *pulumi.Context, args LookupParameterOutputArgs, 
 type LookupParameterOutputArgs struct {
 	// Name of the parameter.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Whether to return decrypted `SecureString` value. Defaults to `true`.
 	WithDecryption pulumi.BoolPtrInput `pulumi:"withDecryption"`
 }
@@ -131,6 +136,10 @@ func (o LookupParameterResultOutput) InsecureValue() pulumi.StringOutput {
 // Name of the parameter.
 func (o LookupParameterResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupParameterResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupParameterResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupParameterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.

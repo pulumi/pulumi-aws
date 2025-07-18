@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,6 +58,8 @@ type LookupNetworkInsightsPathArgs struct {
 	Filters []GetNetworkInsightsPathFilter `pulumi:"filters"`
 	// ID of the Network Insights Path to select.
 	NetworkInsightsPathId *string `pulumi:"networkInsightsPathId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -84,6 +86,7 @@ type LookupNetworkInsightsPathResult struct {
 	NetworkInsightsPathId string `pulumi:"networkInsightsPathId"`
 	// Protocol.
 	Protocol string `pulumi:"protocol"`
+	Region   string `pulumi:"region"`
 	// AWS resource that is the source of the path.
 	Source string `pulumi:"source"`
 	// ARN of the source.
@@ -113,6 +116,8 @@ type LookupNetworkInsightsPathOutputArgs struct {
 	Filters GetNetworkInsightsPathFilterArrayInput `pulumi:"filters"`
 	// ID of the Network Insights Path to select.
 	NetworkInsightsPathId pulumi.StringPtrInput `pulumi:"networkInsightsPathId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -191,6 +196,10 @@ func (o LookupNetworkInsightsPathResultOutput) NetworkInsightsPathId() pulumi.St
 // Protocol.
 func (o LookupNetworkInsightsPathResultOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsPathResult) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+func (o LookupNetworkInsightsPathResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsPathResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // AWS resource that is the source of the path.

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,12 +81,8 @@ type LookupVpcPeeringConnectionArgs struct {
 	PeerCidrBlock *string `pulumi:"peerCidrBlock"`
 	// AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
 	PeerOwnerId *string `pulumi:"peerOwnerId"`
-	// Region of the accepter VPC of the specific VPC Peering Connection to retrieve.
-	PeerRegion *string `pulumi:"peerRegion"`
 	// ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
 	PeerVpcId *string `pulumi:"peerVpcId"`
-	// Region of the requester VPC of the specific VPC Peering Connection to retrieve.
-	Region *string `pulumi:"region"`
 	// Status of the specific VPC Peering Connection to retrieve.
 	Status *string `pulumi:"status"`
 	// Map of tags, each pair of which must exactly match
@@ -119,15 +115,21 @@ type LookupVpcPeeringConnectionResult struct {
 	// List of objects with IPv6 CIDR blocks of the accepter VPC.
 	PeerIpv6CidrBlockSets []GetVpcPeeringConnectionPeerIpv6CidrBlockSet `pulumi:"peerIpv6CidrBlockSets"`
 	PeerOwnerId           string                                        `pulumi:"peerOwnerId"`
-	PeerRegion            string                                        `pulumi:"peerRegion"`
-	PeerVpcId             string                                        `pulumi:"peerVpcId"`
-	Region                string                                        `pulumi:"region"`
+	// Region of the accepter VPC.
+	PeerRegion string `pulumi:"peerRegion"`
+	PeerVpcId  string `pulumi:"peerVpcId"`
+	// (**Deprecated**) Region of the requester VPC. Use `requesterRegion` instead.
+	//
+	// Deprecated: region is deprecated. Use requesterRegion instead.
+	Region string `pulumi:"region"`
 	// Configuration block that describes [VPC Peering Connection]
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
-	Requester map[string]bool   `pulumi:"requester"`
-	Status    string            `pulumi:"status"`
-	Tags      map[string]string `pulumi:"tags"`
-	VpcId     string            `pulumi:"vpcId"`
+	Requester map[string]bool `pulumi:"requester"`
+	// Region of the requester VPC.
+	RequesterRegion string            `pulumi:"requesterRegion"`
+	Status          string            `pulumi:"status"`
+	Tags            map[string]string `pulumi:"tags"`
+	VpcId           string            `pulumi:"vpcId"`
 }
 
 func LookupVpcPeeringConnectionOutput(ctx *pulumi.Context, args LookupVpcPeeringConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVpcPeeringConnectionResultOutput {
@@ -153,12 +155,8 @@ type LookupVpcPeeringConnectionOutputArgs struct {
 	PeerCidrBlock pulumi.StringPtrInput `pulumi:"peerCidrBlock"`
 	// AWS account ID of the owner of the accepter VPC of the specific VPC Peering Connection to retrieve.
 	PeerOwnerId pulumi.StringPtrInput `pulumi:"peerOwnerId"`
-	// Region of the accepter VPC of the specific VPC Peering Connection to retrieve.
-	PeerRegion pulumi.StringPtrInput `pulumi:"peerRegion"`
 	// ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
 	PeerVpcId pulumi.StringPtrInput `pulumi:"peerVpcId"`
-	// Region of the requester VPC of the specific VPC Peering Connection to retrieve.
-	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Status of the specific VPC Peering Connection to retrieve.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	// Map of tags, each pair of which must exactly match
@@ -247,6 +245,7 @@ func (o LookupVpcPeeringConnectionResultOutput) PeerOwnerId() pulumi.StringOutpu
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) string { return v.PeerOwnerId }).(pulumi.StringOutput)
 }
 
+// Region of the accepter VPC.
 func (o LookupVpcPeeringConnectionResultOutput) PeerRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) string { return v.PeerRegion }).(pulumi.StringOutput)
 }
@@ -255,6 +254,9 @@ func (o LookupVpcPeeringConnectionResultOutput) PeerVpcId() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) string { return v.PeerVpcId }).(pulumi.StringOutput)
 }
 
+// (**Deprecated**) Region of the requester VPC. Use `requesterRegion` instead.
+//
+// Deprecated: region is deprecated. Use requesterRegion instead.
 func (o LookupVpcPeeringConnectionResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -263,6 +265,11 @@ func (o LookupVpcPeeringConnectionResultOutput) Region() pulumi.StringOutput {
 // (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 func (o LookupVpcPeeringConnectionResultOutput) Requester() pulumi.BoolMapOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) map[string]bool { return v.Requester }).(pulumi.BoolMapOutput)
+}
+
+// Region of the requester VPC.
+func (o LookupVpcPeeringConnectionResultOutput) RequesterRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) string { return v.RequesterRegion }).(pulumi.StringOutput)
 }
 
 func (o LookupVpcPeeringConnectionResultOutput) Status() pulumi.StringOutput {

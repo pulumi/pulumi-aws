@@ -15,11 +15,6 @@ export const getAuthorizationToken: typeof import("./getAuthorizationToken").get
 export const getAuthorizationTokenOutput: typeof import("./getAuthorizationToken").getAuthorizationTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getAuthorizationToken","getAuthorizationTokenOutput"], () => require("./getAuthorizationToken"));
 
-export { GetCredentialsArgs, GetCredentialsResult, GetCredentialsOutputArgs } from "./getCredentials";
-export const getCredentials: typeof import("./getCredentials").getCredentials = null as any;
-export const getCredentialsOutput: typeof import("./getCredentials").getCredentialsOutput = null as any;
-utilities.lazyLoad(exports, ["getCredentials","getCredentialsOutput"], () => require("./getCredentials"));
-
 export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
 export const getImage: typeof import("./getImage").getImage = null as any;
 export const getImageOutput: typeof import("./getImage").getImageOutput = null as any;
@@ -35,7 +30,7 @@ export const getPullThroughCacheRule: typeof import("./getPullThroughCacheRule")
 export const getPullThroughCacheRuleOutput: typeof import("./getPullThroughCacheRule").getPullThroughCacheRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getPullThroughCacheRule","getPullThroughCacheRuleOutput"], () => require("./getPullThroughCacheRule"));
 
-export { GetRepositoriesResult } from "./getRepositories";
+export { GetRepositoriesArgs, GetRepositoriesResult, GetRepositoriesOutputArgs } from "./getRepositories";
 export const getRepositories: typeof import("./getRepositories").getRepositories = null as any;
 export const getRepositoriesOutput: typeof import("./getRepositories").getRepositoriesOutput = null as any;
 utilities.lazyLoad(exports, ["getRepositories","getRepositoriesOutput"], () => require("./getRepositories"));
@@ -91,6 +86,9 @@ export type RepositoryPolicy = import("./repositoryPolicy").RepositoryPolicy;
 export const RepositoryPolicy: typeof import("./repositoryPolicy").RepositoryPolicy = null as any;
 utilities.lazyLoad(exports, ["RepositoryPolicy"], () => require("./repositoryPolicy"));
 
+
+// Export enums:
+export * from "../types/enums/ecr";
 
 const _module = {
     version: utilities.getVersion(),

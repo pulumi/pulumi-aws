@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates a peering connection between an AWS Cloud WAN core network and an AWS Transit Gateway.
+ * Manages a Network Manager transit gateway peering connection. Creates a peering connection between an AWS Cloud WAN core network and an AWS Transit Gateway.
  * 
  * ## Example Usage
  * 
@@ -66,98 +66,98 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:networkmanager/transitGatewayPeering:TransitGatewayPeering")
 public class TransitGatewayPeering extends com.pulumi.resources.CustomResource {
     /**
-     * Peering Amazon Resource Name (ARN).
+     * Peering ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Peering Amazon Resource Name (ARN).
+     * @return Peering ARN.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The ARN of the core network.
+     * ARN of the core network.
      * 
      */
     @Export(name="coreNetworkArn", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkArn;
 
     /**
-     * @return The ARN of the core network.
+     * @return ARN of the core network.
      * 
      */
     public Output<String> coreNetworkArn() {
         return this.coreNetworkArn;
     }
     /**
-     * The ID of a core network.
+     * ID of a core network.
      * 
      */
     @Export(name="coreNetworkId", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkId;
 
     /**
-     * @return The ID of a core network.
+     * @return ID of a core network.
      * 
      */
     public Output<String> coreNetworkId() {
         return this.coreNetworkId;
     }
     /**
-     * The edge location for the peer.
+     * Edge location for the peer.
      * 
      */
     @Export(name="edgeLocation", refs={String.class}, tree="[0]")
     private Output<String> edgeLocation;
 
     /**
-     * @return The edge location for the peer.
+     * @return Edge location for the peer.
      * 
      */
     public Output<String> edgeLocation() {
         return this.edgeLocation;
     }
     /**
-     * The ID of the account owner.
+     * ID of the account owner.
      * 
      */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
     /**
-     * @return The ID of the account owner.
+     * @return ID of the account owner.
      * 
      */
     public Output<String> ownerAccountId() {
         return this.ownerAccountId;
     }
     /**
-     * The type of peering. This will be `TRANSIT_GATEWAY`.
+     * Type of peering. This will be `TRANSIT_GATEWAY`.
      * 
      */
     @Export(name="peeringType", refs={String.class}, tree="[0]")
     private Output<String> peeringType;
 
     /**
-     * @return The type of peering. This will be `TRANSIT_GATEWAY`.
+     * @return Type of peering. This will be `TRANSIT_GATEWAY`.
      * 
      */
     public Output<String> peeringType() {
         return this.peeringType;
     }
     /**
-     * The resource ARN of the peer.
+     * Resource ARN of the peer.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return The resource ARN of the peer.
+     * @return Resource ARN of the peer.
      * 
      */
     public Output<String> resourceArn() {
@@ -178,46 +178,46 @@ public class TransitGatewayPeering extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The ARN of the transit gateway for the peering request.
+     * ARN of the transit gateway for the peering request.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="transitGatewayArn", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayArn;
 
     /**
-     * @return The ARN of the transit gateway for the peering request.
+     * @return ARN of the transit gateway for the peering request.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> transitGatewayArn() {
         return this.transitGatewayArn;
     }
     /**
-     * The ID of the transit gateway peering attachment.
+     * ID of the transit gateway peering attachment.
      * 
      */
     @Export(name="transitGatewayPeeringAttachmentId", refs={String.class}, tree="[0]")
     private Output<String> transitGatewayPeeringAttachmentId;
 
     /**
-     * @return The ID of the transit gateway peering attachment.
+     * @return ID of the transit gateway peering attachment.
      * 
      */
     public Output<String> transitGatewayPeeringAttachmentId() {

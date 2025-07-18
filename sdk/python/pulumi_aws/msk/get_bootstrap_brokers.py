@@ -27,7 +27,7 @@ class GetBootstrapBrokersResult:
     """
     A collection of values returned by getBootstrapBrokers.
     """
-    def __init__(__self__, bootstrap_brokers=None, bootstrap_brokers_public_sasl_iam=None, bootstrap_brokers_public_sasl_scram=None, bootstrap_brokers_public_tls=None, bootstrap_brokers_sasl_iam=None, bootstrap_brokers_sasl_scram=None, bootstrap_brokers_tls=None, bootstrap_brokers_vpc_connectivity_sasl_iam=None, bootstrap_brokers_vpc_connectivity_sasl_scram=None, bootstrap_brokers_vpc_connectivity_tls=None, cluster_arn=None, id=None):
+    def __init__(__self__, bootstrap_brokers=None, bootstrap_brokers_public_sasl_iam=None, bootstrap_brokers_public_sasl_scram=None, bootstrap_brokers_public_tls=None, bootstrap_brokers_sasl_iam=None, bootstrap_brokers_sasl_scram=None, bootstrap_brokers_tls=None, bootstrap_brokers_vpc_connectivity_sasl_iam=None, bootstrap_brokers_vpc_connectivity_sasl_scram=None, bootstrap_brokers_vpc_connectivity_tls=None, cluster_arn=None, id=None, region=None):
         if bootstrap_brokers and not isinstance(bootstrap_brokers, str):
             raise TypeError("Expected argument 'bootstrap_brokers' to be a str")
         pulumi.set(__self__, "bootstrap_brokers", bootstrap_brokers)
@@ -64,6 +64,9 @@ class GetBootstrapBrokersResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="bootstrapBrokers")
@@ -158,6 +161,11 @@ class GetBootstrapBrokersResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetBootstrapBrokersResult(GetBootstrapBrokersResult):
     # pylint: disable=using-constant-test
@@ -176,10 +184,12 @@ class AwaitableGetBootstrapBrokersResult(GetBootstrapBrokersResult):
             bootstrap_brokers_vpc_connectivity_sasl_scram=self.bootstrap_brokers_vpc_connectivity_sasl_scram,
             bootstrap_brokers_vpc_connectivity_tls=self.bootstrap_brokers_vpc_connectivity_tls,
             cluster_arn=self.cluster_arn,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
 def get_bootstrap_brokers(cluster_arn: Optional[builtins.str] = None,
+                          region: Optional[builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBootstrapBrokersResult:
     """
     Get a list of brokers that a client application can use to bootstrap.
@@ -195,9 +205,11 @@ def get_bootstrap_brokers(cluster_arn: Optional[builtins.str] = None,
 
 
     :param builtins.str cluster_arn: ARN of the cluster the nodes belong to.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:msk/getBootstrapBrokers:getBootstrapBrokers', __args__, opts=opts, typ=GetBootstrapBrokersResult).value
 
@@ -213,8 +225,10 @@ def get_bootstrap_brokers(cluster_arn: Optional[builtins.str] = None,
         bootstrap_brokers_vpc_connectivity_sasl_scram=pulumi.get(__ret__, 'bootstrap_brokers_vpc_connectivity_sasl_scram'),
         bootstrap_brokers_vpc_connectivity_tls=pulumi.get(__ret__, 'bootstrap_brokers_vpc_connectivity_tls'),
         cluster_arn=pulumi.get(__ret__, 'cluster_arn'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_bootstrap_brokers_output(cluster_arn: Optional[pulumi.Input[builtins.str]] = None,
+                                 region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBootstrapBrokersResult]:
     """
     Get a list of brokers that a client application can use to bootstrap.
@@ -230,9 +244,11 @@ def get_bootstrap_brokers_output(cluster_arn: Optional[pulumi.Input[builtins.str
 
 
     :param builtins.str cluster_arn: ARN of the cluster the nodes belong to.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:msk/getBootstrapBrokers:getBootstrapBrokers', __args__, opts=opts, typ=GetBootstrapBrokersResult)
     return __ret__.apply(lambda __response__: GetBootstrapBrokersResult(
@@ -247,4 +263,5 @@ def get_bootstrap_brokers_output(cluster_arn: Optional[pulumi.Input[builtins.str
         bootstrap_brokers_vpc_connectivity_sasl_scram=pulumi.get(__response__, 'bootstrap_brokers_vpc_connectivity_sasl_scram'),
         bootstrap_brokers_vpc_connectivity_tls=pulumi.get(__response__, 'bootstrap_brokers_vpc_connectivity_tls'),
         cluster_arn=pulumi.get(__response__, 'cluster_arn'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

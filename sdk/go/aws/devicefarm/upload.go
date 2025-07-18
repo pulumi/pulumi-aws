@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/devicefarm"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/devicefarm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,6 +72,8 @@ type Upload struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of the project for the upload.
 	ProjectArn pulumi.StringOutput `pulumi:"projectArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The presigned Amazon S3 URL that was used to store a file using a PUT request.
@@ -126,6 +128,8 @@ type uploadState struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the project for the upload.
 	ProjectArn *string `pulumi:"projectArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
 	Type *string `pulumi:"type"`
 	// The presigned Amazon S3 URL that was used to store a file using a PUT request.
@@ -145,6 +149,8 @@ type UploadState struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the project for the upload.
 	ProjectArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
 	Type pulumi.StringPtrInput
 	// The presigned Amazon S3 URL that was used to store a file using a PUT request.
@@ -162,6 +168,8 @@ type uploadArgs struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the project for the upload.
 	ProjectArn string `pulumi:"projectArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
 	Type string `pulumi:"type"`
 }
@@ -174,6 +182,8 @@ type UploadArgs struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the project for the upload.
 	ProjectArn pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.
 	Type pulumi.StringInput
 }
@@ -293,6 +303,11 @@ func (o UploadOutput) Name() pulumi.StringOutput {
 // The ARN of the project for the upload.
 func (o UploadOutput) ProjectArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Upload) pulumi.StringOutput { return v.ProjectArn }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o UploadOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Upload) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The upload's upload type. See [AWS Docs](https://docs.aws.amazon.com/devicefarm/latest/APIReference/API_CreateUpload.html#API_CreateUpload_RequestSyntax) for valid list of values.

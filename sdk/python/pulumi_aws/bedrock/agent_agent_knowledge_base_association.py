@@ -27,6 +27,7 @@ class AgentAgentKnowledgeBaseAssociationArgs:
                  knowledge_base_id: pulumi.Input[builtins.str],
                  knowledge_base_state: pulumi.Input[builtins.str],
                  agent_version: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['AgentAgentKnowledgeBaseAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentAgentKnowledgeBaseAssociation resource.
@@ -37,6 +38,7 @@ class AgentAgentKnowledgeBaseAssociationArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] agent_version: Version of the agent with which you want to associate the knowledge base. Valid values: `DRAFT`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "agent_id", agent_id)
         pulumi.set(__self__, "description", description)
@@ -44,6 +46,8 @@ class AgentAgentKnowledgeBaseAssociationArgs:
         pulumi.set(__self__, "knowledge_base_state", knowledge_base_state)
         if agent_version is not None:
             pulumi.set(__self__, "agent_version", agent_version)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -111,6 +115,18 @@ class AgentAgentKnowledgeBaseAssociationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['AgentAgentKnowledgeBaseAssociationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -127,6 +143,7 @@ class _AgentAgentKnowledgeBaseAssociationState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  knowledge_base_id: Optional[pulumi.Input[builtins.str]] = None,
                  knowledge_base_state: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['AgentAgentKnowledgeBaseAssociationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering AgentAgentKnowledgeBaseAssociation resources.
@@ -137,6 +154,7 @@ class _AgentAgentKnowledgeBaseAssociationState:
         :param pulumi.Input[builtins.str] knowledge_base_state: Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if agent_id is not None:
             pulumi.set(__self__, "agent_id", agent_id)
@@ -148,6 +166,8 @@ class _AgentAgentKnowledgeBaseAssociationState:
             pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
         if knowledge_base_state is not None:
             pulumi.set(__self__, "knowledge_base_state", knowledge_base_state)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -215,6 +235,18 @@ class _AgentAgentKnowledgeBaseAssociationState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['AgentAgentKnowledgeBaseAssociationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -234,6 +266,7 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  knowledge_base_id: Optional[pulumi.Input[builtins.str]] = None,
                  knowledge_base_state: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['AgentAgentKnowledgeBaseAssociationTimeoutsArgs', 'AgentAgentKnowledgeBaseAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
@@ -271,6 +304,7 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] knowledge_base_state: Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -324,6 +358,7 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  knowledge_base_id: Optional[pulumi.Input[builtins.str]] = None,
                  knowledge_base_state: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['AgentAgentKnowledgeBaseAssociationTimeoutsArgs', 'AgentAgentKnowledgeBaseAssociationTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -347,6 +382,7 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
             if knowledge_base_state is None and not opts.urn:
                 raise TypeError("Missing required property 'knowledge_base_state'")
             __props__.__dict__["knowledge_base_state"] = knowledge_base_state
+            __props__.__dict__["region"] = region
             __props__.__dict__["timeouts"] = timeouts
         super(AgentAgentKnowledgeBaseAssociation, __self__).__init__(
             'aws:bedrock/agentAgentKnowledgeBaseAssociation:AgentAgentKnowledgeBaseAssociation',
@@ -363,6 +399,7 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             knowledge_base_id: Optional[pulumi.Input[builtins.str]] = None,
             knowledge_base_state: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             timeouts: Optional[pulumi.Input[Union['AgentAgentKnowledgeBaseAssociationTimeoutsArgs', 'AgentAgentKnowledgeBaseAssociationTimeoutsArgsDict']]] = None) -> 'AgentAgentKnowledgeBaseAssociation':
         """
         Get an existing AgentAgentKnowledgeBaseAssociation resource's state with the given name, id, and optional extra
@@ -378,6 +415,7 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] knowledge_base_state: Whether to use the knowledge base when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request. Valid values: `ENABLED`, `DISABLED`.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -388,6 +426,7 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["knowledge_base_id"] = knowledge_base_id
         __props__.__dict__["knowledge_base_state"] = knowledge_base_state
+        __props__.__dict__["region"] = region
         __props__.__dict__["timeouts"] = timeouts
         return AgentAgentKnowledgeBaseAssociation(resource_name, opts=opts, __props__=__props__)
 
@@ -432,6 +471,14 @@ class AgentAgentKnowledgeBaseAssociation(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "knowledge_base_state")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

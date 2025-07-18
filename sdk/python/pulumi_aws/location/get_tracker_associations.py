@@ -27,13 +27,16 @@ class GetTrackerAssociationsResult:
     """
     A collection of values returned by getTrackerAssociations.
     """
-    def __init__(__self__, consumer_arns=None, id=None, tracker_name=None):
+    def __init__(__self__, consumer_arns=None, id=None, region=None, tracker_name=None):
         if consumer_arns and not isinstance(consumer_arns, list):
             raise TypeError("Expected argument 'consumer_arns' to be a list")
         pulumi.set(__self__, "consumer_arns", consumer_arns)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tracker_name and not isinstance(tracker_name, str):
             raise TypeError("Expected argument 'tracker_name' to be a str")
         pulumi.set(__self__, "tracker_name", tracker_name)
@@ -55,6 +58,11 @@ class GetTrackerAssociationsResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="trackerName")
     def tracker_name(self) -> builtins.str:
         return pulumi.get(self, "tracker_name")
@@ -68,10 +76,12 @@ class AwaitableGetTrackerAssociationsResult(GetTrackerAssociationsResult):
         return GetTrackerAssociationsResult(
             consumer_arns=self.consumer_arns,
             id=self.id,
+            region=self.region,
             tracker_name=self.tracker_name)
 
 
-def get_tracker_associations(tracker_name: Optional[builtins.str] = None,
+def get_tracker_associations(region: Optional[builtins.str] = None,
+                             tracker_name: Optional[builtins.str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrackerAssociationsResult:
     """
     Retrieve information about Location Service Tracker Associations.
@@ -88,9 +98,11 @@ def get_tracker_associations(tracker_name: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str tracker_name: Name of the tracker resource associated with a geofence collection.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['trackerName'] = tracker_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:location/getTrackerAssociations:getTrackerAssociations', __args__, opts=opts, typ=GetTrackerAssociationsResult).value
@@ -98,8 +110,10 @@ def get_tracker_associations(tracker_name: Optional[builtins.str] = None,
     return AwaitableGetTrackerAssociationsResult(
         consumer_arns=pulumi.get(__ret__, 'consumer_arns'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         tracker_name=pulumi.get(__ret__, 'tracker_name'))
-def get_tracker_associations_output(tracker_name: Optional[pulumi.Input[builtins.str]] = None,
+def get_tracker_associations_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                    tracker_name: Optional[pulumi.Input[builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrackerAssociationsResult]:
     """
     Retrieve information about Location Service Tracker Associations.
@@ -116,13 +130,16 @@ def get_tracker_associations_output(tracker_name: Optional[pulumi.Input[builtins
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str tracker_name: Name of the tracker resource associated with a geofence collection.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['trackerName'] = tracker_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:location/getTrackerAssociations:getTrackerAssociations', __args__, opts=opts, typ=GetTrackerAssociationsResult)
     return __ret__.apply(lambda __response__: GetTrackerAssociationsResult(
         consumer_arns=pulumi.get(__response__, 'consumer_arns'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         tracker_name=pulumi.get(__response__, 'tracker_name')))

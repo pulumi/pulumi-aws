@@ -14,6 +14,12 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     public sealed class FirewallPolicyFirewallPolicyStatefulRuleGroupReference
     {
         /// <summary>
+        /// Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
+        /// 
+        /// For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
+        /// </summary>
+        public readonly string? DeepThreatInspection;
+        /// <summary>
         /// Configuration block for override values
         /// </summary>
         public readonly Outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride? Override;
@@ -28,12 +34,15 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private FirewallPolicyFirewallPolicyStatefulRuleGroupReference(
+            string? deepThreatInspection,
+
             Outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride? @override,
 
             int? priority,
 
             string resourceArn)
         {
+            DeepThreatInspection = deepThreatInspection;
             Override = @override;
             Priority = priority;
             ResourceArn = resourceArn;

@@ -82,6 +82,7 @@ public final class GetContainerRecipeResult {
      * 
      */
     private String platform;
+    private String region;
     /**
      * @return Key-value map of resource tags for the container recipe.
      * 
@@ -198,6 +199,9 @@ public final class GetContainerRecipeResult {
     public String platform() {
         return this.platform;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Key-value map of resource tags for the container recipe.
      * 
@@ -250,6 +254,7 @@ public final class GetContainerRecipeResult {
         private String owner;
         private String parentImage;
         private String platform;
+        private String region;
         private Map<String,String> tags;
         private List<GetContainerRecipeTargetRepository> targetRepositories;
         private String version;
@@ -271,6 +276,7 @@ public final class GetContainerRecipeResult {
     	      this.owner = defaults.owner;
     	      this.parentImage = defaults.parentImage;
     	      this.platform = defaults.platform;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.targetRepositories = defaults.targetRepositories;
     	      this.version = defaults.version;
@@ -396,6 +402,14 @@ public final class GetContainerRecipeResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetContainerRecipeResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetContainerRecipeResult", "tags");
@@ -446,6 +460,7 @@ public final class GetContainerRecipeResult {
             _resultValue.owner = owner;
             _resultValue.parentImage = parentImage;
             _resultValue.platform = platform;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.targetRepositories = targetRepositories;
             _resultValue.version = version;

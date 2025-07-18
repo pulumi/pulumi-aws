@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,6 +87,8 @@ type AccountSettingDefault struct {
 	// Name of the account setting to set.
 	Name         pulumi.StringOutput `pulumi:"name"`
 	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// State of the setting.
 	Value pulumi.StringOutput `pulumi:"value"`
 }
@@ -127,6 +129,8 @@ type accountSettingDefaultState struct {
 	// Name of the account setting to set.
 	Name         *string `pulumi:"name"`
 	PrincipalArn *string `pulumi:"principalArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// State of the setting.
 	Value *string `pulumi:"value"`
 }
@@ -135,6 +139,8 @@ type AccountSettingDefaultState struct {
 	// Name of the account setting to set.
 	Name         pulumi.StringPtrInput
 	PrincipalArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// State of the setting.
 	Value pulumi.StringPtrInput
 }
@@ -146,6 +152,8 @@ func (AccountSettingDefaultState) ElementType() reflect.Type {
 type accountSettingDefaultArgs struct {
 	// Name of the account setting to set.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// State of the setting.
 	Value string `pulumi:"value"`
 }
@@ -154,6 +162,8 @@ type accountSettingDefaultArgs struct {
 type AccountSettingDefaultArgs struct {
 	// Name of the account setting to set.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// State of the setting.
 	Value pulumi.StringInput
 }
@@ -252,6 +262,11 @@ func (o AccountSettingDefaultOutput) Name() pulumi.StringOutput {
 
 func (o AccountSettingDefaultOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSettingDefault) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AccountSettingDefaultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccountSettingDefault) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // State of the setting.

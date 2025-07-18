@@ -2,9 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {PolicyDocument, Role} from "./index";
+import {Role} from "./index";
 
 /**
  * Provides an IAM role inline policy.
@@ -84,17 +87,19 @@ export class RolePolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the role policy. If omitted, this provider will
-     * assign a random, unique name.
+     * The name of the role policy.
+     * If omitted, the provider will assign a random, unique name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix.
+     * Conflicts with `name`.
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
-     * The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+     * The inline policy document.
+     * This is a JSON formatted string.
+     * For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
      */
     public readonly policy!: pulumi.Output<string>;
     /**
@@ -142,19 +147,21 @@ export class RolePolicy extends pulumi.CustomResource {
  */
 export interface RolePolicyState {
     /**
-     * The name of the role policy. If omitted, this provider will
-     * assign a random, unique name.
+     * The name of the role policy.
+     * If omitted, the provider will assign a random, unique name.
      */
     name?: pulumi.Input<string>;
     /**
-     * Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix.
+     * Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+     * The inline policy document.
+     * This is a JSON formatted string.
+     * For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
      */
-    policy?: pulumi.Input<string | PolicyDocument>;
+    policy?: pulumi.Input<string | inputs.iam.PolicyDocument>;
     /**
      * The name of the IAM role to attach to the policy.
      */
@@ -166,19 +173,21 @@ export interface RolePolicyState {
  */
 export interface RolePolicyArgs {
     /**
-     * The name of the role policy. If omitted, this provider will
-     * assign a random, unique name.
+     * The name of the role policy.
+     * If omitted, the provider will assign a random, unique name.
      */
     name?: pulumi.Input<string>;
     /**
-     * Creates a unique name beginning with the specified
-     * prefix. Conflicts with `name`.
+     * Creates a unique name beginning with the specified prefix.
+     * Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
     /**
-     * The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+     * The inline policy document.
+     * This is a JSON formatted string.
+     * For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
      */
-    policy: pulumi.Input<string | PolicyDocument>;
+    policy: pulumi.Input<string | inputs.iam.PolicyDocument>;
     /**
      * The name of the IAM role to attach to the policy.
      */

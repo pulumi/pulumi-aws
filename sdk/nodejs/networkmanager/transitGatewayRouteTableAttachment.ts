@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Creates a transit gateway route table attachment.
+ * Manages a Network Manager transit gateway route table attachment.
  *
  * ## Example Usage
  *
@@ -56,47 +56,47 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * Attachment Amazon Resource Name (ARN).
+     * Attachment ARN.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The policy rule number associated with the attachment.
+     * Policy rule number associated with the attachment.
      */
     public /*out*/ readonly attachmentPolicyRuleNumber!: pulumi.Output<number>;
     /**
-     * The type of attachment.
+     * Type of attachment.
      */
     public /*out*/ readonly attachmentType!: pulumi.Output<string>;
     /**
-     * The ARN of the core network.
+     * ARN of the core network.
      */
     public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
     /**
-     * The ID of the core network.
+     * ID of the core network.
      */
     public /*out*/ readonly coreNetworkId!: pulumi.Output<string>;
     /**
-     * The edge location for the peer.
+     * Edge location for the peer.
      */
     public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
     /**
-     * The ID of the attachment account owner.
+     * ID of the attachment account owner.
      */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
     /**
-     * The ID of the peer for the attachment.
+     * ID of the peer for the attachment.
      */
     public readonly peeringId!: pulumi.Output<string>;
     /**
-     * The attachment resource ARN.
+     * Attachment resource ARN.
      */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     /**
-     * The name of the segment attachment.
+     * Name of the segment attachment.
      */
     public /*out*/ readonly segmentName!: pulumi.Output<string>;
     /**
-     * The state of the attachment.
+     * State of the attachment.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
@@ -104,13 +104,13 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The ARN of the transit gateway route table for the attachment.
+     * ARN of the transit gateway route table for the attachment.
+     *
+     * The following arguments are optional:
      */
     public readonly transitGatewayRouteTableArn!: pulumi.Output<string>;
 
@@ -174,47 +174,47 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
  */
 export interface TransitGatewayRouteTableAttachmentState {
     /**
-     * Attachment Amazon Resource Name (ARN).
+     * Attachment ARN.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The policy rule number associated with the attachment.
+     * Policy rule number associated with the attachment.
      */
     attachmentPolicyRuleNumber?: pulumi.Input<number>;
     /**
-     * The type of attachment.
+     * Type of attachment.
      */
     attachmentType?: pulumi.Input<string>;
     /**
-     * The ARN of the core network.
+     * ARN of the core network.
      */
     coreNetworkArn?: pulumi.Input<string>;
     /**
-     * The ID of the core network.
+     * ID of the core network.
      */
     coreNetworkId?: pulumi.Input<string>;
     /**
-     * The edge location for the peer.
+     * Edge location for the peer.
      */
     edgeLocation?: pulumi.Input<string>;
     /**
-     * The ID of the attachment account owner.
+     * ID of the attachment account owner.
      */
     ownerAccountId?: pulumi.Input<string>;
     /**
-     * The ID of the peer for the attachment.
+     * ID of the peer for the attachment.
      */
     peeringId?: pulumi.Input<string>;
     /**
-     * The attachment resource ARN.
+     * Attachment resource ARN.
      */
     resourceArn?: pulumi.Input<string>;
     /**
-     * The name of the segment attachment.
+     * Name of the segment attachment.
      */
     segmentName?: pulumi.Input<string>;
     /**
-     * The state of the attachment.
+     * State of the attachment.
      */
     state?: pulumi.Input<string>;
     /**
@@ -222,13 +222,13 @@ export interface TransitGatewayRouteTableAttachmentState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ARN of the transit gateway route table for the attachment.
+     * ARN of the transit gateway route table for the attachment.
+     *
+     * The following arguments are optional:
      */
     transitGatewayRouteTableArn?: pulumi.Input<string>;
 }
@@ -238,7 +238,7 @@ export interface TransitGatewayRouteTableAttachmentState {
  */
 export interface TransitGatewayRouteTableAttachmentArgs {
     /**
-     * The ID of the peer for the attachment.
+     * ID of the peer for the attachment.
      */
     peeringId: pulumi.Input<string>;
     /**
@@ -246,7 +246,9 @@ export interface TransitGatewayRouteTableAttachmentArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ARN of the transit gateway route table for the attachment.
+     * ARN of the transit gateway route table for the attachment.
+     *
+     * The following arguments are optional:
      */
     transitGatewayRouteTableArn: pulumi.Input<string>;
 }

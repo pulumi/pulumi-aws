@@ -506,6 +506,9 @@ if not MYPY:
     class MultiRegionAccessPointDetailsArgsDict(TypedDict):
         name: pulumi.Input[builtins.str]
         regions: pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointDetailsRegionArgsDict']]]
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
         public_access_block: NotRequired[pulumi.Input['MultiRegionAccessPointDetailsPublicAccessBlockArgsDict']]
 elif False:
     MultiRegionAccessPointDetailsArgsDict: TypeAlias = Mapping[str, Any]
@@ -516,6 +519,9 @@ class MultiRegionAccessPointDetailsArgs:
                  name: pulumi.Input[builtins.str],
                  regions: pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointDetailsRegionArgs']]],
                  public_access_block: Optional[pulumi.Input['MultiRegionAccessPointDetailsPublicAccessBlockArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointDetailsRegionArgs']]] regions: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "regions", regions)
         if public_access_block is not None:
@@ -533,6 +539,9 @@ class MultiRegionAccessPointDetailsArgs:
     @property
     @pulumi.getter
     def regions(self) -> pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointDetailsRegionArgs']]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
         return pulumi.get(self, "regions")
 
     @regions.setter
@@ -616,6 +625,9 @@ if not MYPY:
         bucket: pulumi.Input[builtins.str]
         bucket_account_id: NotRequired[pulumi.Input[builtins.str]]
         region: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
 elif False:
     MultiRegionAccessPointDetailsRegionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -625,6 +637,9 @@ class MultiRegionAccessPointDetailsRegionArgs:
                  bucket: pulumi.Input[builtins.str],
                  bucket_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
         pulumi.set(__self__, "bucket", bucket)
         if bucket_account_id is not None:
             pulumi.set(__self__, "bucket_account_id", bucket_account_id)
@@ -652,6 +667,9 @@ class MultiRegionAccessPointDetailsRegionArgs:
     @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
         return pulumi.get(self, "region")
 
     @region.setter

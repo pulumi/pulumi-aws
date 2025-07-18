@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lex"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,6 +55,8 @@ type LookupBotAliasArgs struct {
 	BotName string `pulumi:"botName"`
 	// Name of the bot alias. The name is case sensitive.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getBotAlias.
@@ -76,7 +78,8 @@ type LookupBotAliasResult struct {
 	// Date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
 	// Name of the alias. The name is not case sensitive.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 }
 
 func LookupBotAliasOutput(ctx *pulumi.Context, args LookupBotAliasOutputArgs, opts ...pulumi.InvokeOption) LookupBotAliasResultOutput {
@@ -94,6 +97,8 @@ type LookupBotAliasOutputArgs struct {
 	BotName pulumi.StringInput `pulumi:"botName"`
 	// Name of the bot alias. The name is case sensitive.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupBotAliasOutputArgs) ElementType() reflect.Type {
@@ -158,6 +163,10 @@ func (o LookupBotAliasResultOutput) LastUpdatedDate() pulumi.StringOutput {
 // Name of the alias. The name is not case sensitive.
 func (o LookupBotAliasResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBotAliasResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupBotAliasResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBotAliasResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

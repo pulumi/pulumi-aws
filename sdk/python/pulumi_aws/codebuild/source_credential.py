@@ -23,6 +23,7 @@ class SourceCredentialArgs:
                  auth_type: pulumi.Input[builtins.str],
                  server_type: pulumi.Input[builtins.str],
                  token: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a SourceCredential resource.
@@ -33,12 +34,15 @@ class SourceCredentialArgs:
         :param pulumi.Input[builtins.str] token: For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
                app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
                Connection ARN.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] user_name: The Bitbucket username when the authType is `BASIC_AUTH`. This parameter is not valid for
                other types of source providers or connections.
         """
         pulumi.set(__self__, "auth_type", auth_type)
         pulumi.set(__self__, "server_type", server_type)
         pulumi.set(__self__, "token", token)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
 
@@ -83,6 +87,18 @@ class SourceCredentialArgs:
         pulumi.set(self, "token", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -101,6 +117,7 @@ class _SourceCredentialState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  auth_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_type: Optional[pulumi.Input[builtins.str]] = None,
                  token: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None):
@@ -110,6 +127,7 @@ class _SourceCredentialState:
         :param pulumi.Input[builtins.str] auth_type: The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
                repository. Valid values are `BASIC_AUTH`,
                `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_type: The source provider used for this project.
         :param pulumi.Input[builtins.str] token: For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
                app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
@@ -121,6 +139,8 @@ class _SourceCredentialState:
             pulumi.set(__self__, "arn", arn)
         if auth_type is not None:
             pulumi.set(__self__, "auth_type", auth_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if server_type is not None:
             pulumi.set(__self__, "server_type", server_type)
         if token is not None:
@@ -153,6 +173,18 @@ class _SourceCredentialState:
     @auth_type.setter
     def auth_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="serverType")
@@ -201,6 +233,7 @@ class SourceCredential(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_type: Optional[pulumi.Input[builtins.str]] = None,
                  token: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -263,6 +296,7 @@ class SourceCredential(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] auth_type: The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
                repository. Valid values are `BASIC_AUTH`,
                `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_type: The source provider used for this project.
         :param pulumi.Input[builtins.str] token: For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
                app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
@@ -345,6 +379,7 @@ class SourceCredential(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_type: Optional[pulumi.Input[builtins.str]] = None,
                  token: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -360,6 +395,7 @@ class SourceCredential(pulumi.CustomResource):
             if auth_type is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_type'")
             __props__.__dict__["auth_type"] = auth_type
+            __props__.__dict__["region"] = region
             if server_type is None and not opts.urn:
                 raise TypeError("Missing required property 'server_type'")
             __props__.__dict__["server_type"] = server_type
@@ -382,6 +418,7 @@ class SourceCredential(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             auth_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             server_type: Optional[pulumi.Input[builtins.str]] = None,
             token: Optional[pulumi.Input[builtins.str]] = None,
             user_name: Optional[pulumi.Input[builtins.str]] = None) -> 'SourceCredential':
@@ -396,6 +433,7 @@ class SourceCredential(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] auth_type: The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
                repository. Valid values are `BASIC_AUTH`,
                `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_type: The source provider used for this project.
         :param pulumi.Input[builtins.str] token: For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
                app password. When using an AWS CodeStar connection (`auth_type = "CODECONNECTIONS")`, this is an AWS CodeStar
@@ -409,6 +447,7 @@ class SourceCredential(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["auth_type"] = auth_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["server_type"] = server_type
         __props__.__dict__["token"] = token
         __props__.__dict__["user_name"] = user_name
@@ -431,6 +470,14 @@ class SourceCredential(pulumi.CustomResource):
         `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
         """
         return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serverType")

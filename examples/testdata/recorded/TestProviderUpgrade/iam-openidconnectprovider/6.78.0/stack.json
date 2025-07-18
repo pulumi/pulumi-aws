@@ -1,0 +1,80 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2025-05-14T14:54:29.635423-04:00",
+      "magic": "ddbd0ff735ffe7afff6024a5108d8161cc4d85cd0ddbd9ddcc43a35f4b02ead1",
+      "version": "v3.169.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:gF0jPVWAqjk=:v1:Fa9gMyyPJEIydckk:wDR9wHuHsbTnL9TSZ1GfAQswR8gGaA=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::aws_iam_openIdConnectProvider_OpenIdConnectProvider_1::pulumi:pulumi:Stack::aws_iam_openIdConnectProvider_OpenIdConnectProvider_1-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2025-05-14T18:54:25.084631Z",
+        "modified": "2025-05-14T18:54:25.084631Z"
+      },
+      {
+        "urn": "urn:pulumi:test::aws_iam_openIdConnectProvider_OpenIdConnectProvider_1::pulumi:providers:aws::default",
+        "custom": true,
+        "id": "a11faca5-0c97-4031-b4d2-4d9334a5ca59",
+        "type": "pulumi:providers:aws",
+        "inputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true"
+        },
+        "outputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true"
+        },
+        "created": "2025-05-14T18:54:29.056628Z",
+        "modified": "2025-05-14T18:54:29.056628Z"
+      },
+      {
+        "urn": "urn:pulumi:test::aws_iam_openIdConnectProvider_OpenIdConnectProvider_1::aws:iam/openIdConnectProvider:OpenIdConnectProvider::default",
+        "custom": true,
+        "id": "arn:aws:iam::894850187425:oidc-provider/accounts.google.com",
+        "type": "aws:iam/openIdConnectProvider:OpenIdConnectProvider",
+        "inputs": {
+          "__defaults": [],
+          "clientIdLists": [
+            "266362248691-342342xasdasdasda-apps.googleusercontent.com"
+          ],
+          "thumbprintLists": [
+            "cf23df2207d99a74fbe169e3eba035e633b65d94"
+          ],
+          "url": "https://accounts.google.com"
+        },
+        "outputs": {
+          "arn": "arn:aws:iam::894850187425:oidc-provider/accounts.google.com",
+          "clientIdLists": [
+            "266362248691-342342xasdasdasda-apps.googleusercontent.com"
+          ],
+          "id": "arn:aws:iam::894850187425:oidc-provider/accounts.google.com",
+          "thumbprintLists": [
+            "cf23df2207d99a74fbe169e3eba035e633b65d94"
+          ],
+          "url": "accounts.google.com"
+        },
+        "parent": "urn:pulumi:test::aws_iam_openIdConnectProvider_OpenIdConnectProvider_1::pulumi:pulumi:Stack::aws_iam_openIdConnectProvider_OpenIdConnectProvider_1-test",
+        "provider": "urn:pulumi:test::aws_iam_openIdConnectProvider_OpenIdConnectProvider_1::pulumi:providers:aws::default::a11faca5-0c97-4031-b4d2-4d9334a5ca59",
+        "propertyDependencies": {
+          "clientIdLists": [],
+          "thumbprintLists": [],
+          "url": []
+        },
+        "created": "2025-05-14T18:54:29.624398Z",
+        "modified": "2025-05-14T18:54:29.624398Z"
+      }
+    ],
+    "metadata": {}
+  }
+}

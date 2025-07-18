@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Lambda.Inputs
     public sealed class FunctionUrlCorsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
+        /// Whether to allow cookies or other credentials in requests to the function URL.
         /// </summary>
         [Input("allowCredentials")]
         public Input<bool>? AllowCredentials { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Lambda.Inputs
         private InputList<string>? _allowHeaders;
 
         /// <summary>
-        /// The HTTP headers that origins can include in requests to the function URL. For example: `["date", "keep-alive", "x-custom-header"]`.
+        /// HTTP headers that origins can include in requests to the function URL.
         /// </summary>
         public InputList<string> AllowHeaders
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Lambda.Inputs
         private InputList<string>? _allowMethods;
 
         /// <summary>
-        /// The HTTP methods that are allowed when calling the function URL. For example: `["GET", "POST", "DELETE"]`, or the wildcard character (`["*"]`).
+        /// HTTP methods that are allowed when calling the function URL.
         /// </summary>
         public InputList<string> AllowMethods
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Lambda.Inputs
         private InputList<string>? _allowOrigins;
 
         /// <summary>
-        /// The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`"*"`)), separated by a comma. For example: `["https://www.example.com", "http://localhost:60905"]`.
+        /// Origins that can access the function URL.
         /// </summary>
         public InputList<string> AllowOrigins
         {
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Lambda.Inputs
         private InputList<string>? _exposeHeaders;
 
         /// <summary>
-        /// The HTTP headers in your function response that you want to expose to origins that call the function URL.
+        /// HTTP headers in your function response that you want to expose to origins that call the function URL.
         /// </summary>
         public InputList<string> ExposeHeaders
         {
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Lambda.Inputs
         }
 
         /// <summary>
-        /// The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn't cache results. The maximum value is `86400`.
+        /// Maximum amount of time, in seconds, that web browsers can cache results of a preflight request. Maximum value is `86400`.
         /// </summary>
         [Input("maxAge")]
         public Input<int>? MaxAge { get; set; }

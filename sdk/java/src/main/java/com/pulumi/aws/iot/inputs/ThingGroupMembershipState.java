@@ -32,6 +32,21 @@ public final class ThingGroupMembershipState extends com.pulumi.resources.Resour
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The name of the group to which you are adding a thing.
      * 
      */
@@ -65,6 +80,7 @@ public final class ThingGroupMembershipState extends com.pulumi.resources.Resour
 
     private ThingGroupMembershipState(ThingGroupMembershipState $) {
         this.overrideDynamicGroup = $.overrideDynamicGroup;
+        this.region = $.region;
         this.thingGroupName = $.thingGroupName;
         this.thingName = $.thingName;
     }
@@ -106,6 +122,27 @@ public final class ThingGroupMembershipState extends com.pulumi.resources.Resour
          */
         public Builder overrideDynamicGroup(Boolean overrideDynamicGroup) {
             return overrideDynamicGroup(Output.of(overrideDynamicGroup));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

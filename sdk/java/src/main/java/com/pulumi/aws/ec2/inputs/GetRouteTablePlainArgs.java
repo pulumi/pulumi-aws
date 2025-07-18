@@ -48,6 +48,21 @@ public final class GetRouteTablePlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ID of the specific Route Table to retrieve.
      * 
      */
@@ -112,6 +127,7 @@ public final class GetRouteTablePlainArgs extends com.pulumi.resources.InvokeArg
     private GetRouteTablePlainArgs(GetRouteTablePlainArgs $) {
         this.filters = $.filters;
         this.gatewayId = $.gatewayId;
+        this.region = $.region;
         this.routeTableId = $.routeTableId;
         this.subnetId = $.subnetId;
         this.tags = $.tags;
@@ -165,6 +181,17 @@ public final class GetRouteTablePlainArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder gatewayId(@Nullable String gatewayId) {
             $.gatewayId = gatewayId;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

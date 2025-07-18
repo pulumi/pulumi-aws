@@ -67,6 +67,10 @@ export class InstanceDesiredState extends pulumi.CustomResource {
      */
     public readonly identifier!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configured state of the DB Instance. Valid values are `available` and `stopped`.
      */
     public readonly state!: pulumi.Output<string>;
@@ -86,6 +90,7 @@ export class InstanceDesiredState extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as InstanceDesiredStateState | undefined;
             resourceInputs["identifier"] = state ? state.identifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
@@ -97,6 +102,7 @@ export class InstanceDesiredState extends pulumi.CustomResource {
                 throw new Error("Missing required property 'state'");
             }
             resourceInputs["identifier"] = args ? args.identifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
@@ -114,6 +120,10 @@ export interface InstanceDesiredStateState {
      */
     identifier?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configured state of the DB Instance. Valid values are `available` and `stopped`.
      */
     state?: pulumi.Input<string>;
@@ -128,6 +138,10 @@ export interface InstanceDesiredStateArgs {
      * DB Instance Identifier
      */
     identifier: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configured state of the DB Instance. Valid values are `available` and `stopped`.
      */

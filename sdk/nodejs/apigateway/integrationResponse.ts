@@ -106,6 +106,10 @@ export class IntegrationResponse extends pulumi.CustomResource {
      */
     public readonly httpMethod!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * API resource ID.
      */
     public readonly resourceId!: pulumi.Output<string>;
@@ -147,6 +151,7 @@ export class IntegrationResponse extends pulumi.CustomResource {
             const state = argsOrState as IntegrationResponseState | undefined;
             resourceInputs["contentHandling"] = state ? state.contentHandling : undefined;
             resourceInputs["httpMethod"] = state ? state.httpMethod : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
             resourceInputs["responseParameters"] = state ? state.responseParameters : undefined;
             resourceInputs["responseTemplates"] = state ? state.responseTemplates : undefined;
@@ -169,6 +174,7 @@ export class IntegrationResponse extends pulumi.CustomResource {
             }
             resourceInputs["contentHandling"] = args ? args.contentHandling : undefined;
             resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
             resourceInputs["responseTemplates"] = args ? args.responseTemplates : undefined;
@@ -193,6 +199,10 @@ export interface IntegrationResponseState {
      * HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      */
     httpMethod?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * API resource ID.
      */
@@ -233,6 +243,10 @@ export interface IntegrationResponseArgs {
      * HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
      */
     httpMethod: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * API resource ID.
      */

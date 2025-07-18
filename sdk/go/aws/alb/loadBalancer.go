@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,7 +61,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -103,7 +103,7 @@ type LoadBalancer struct {
 
 	// Access Logs block. See below.
 	AccessLogs LoadBalancerAccessLogsPtrOutput `pulumi:"accessLogs"`
-	// ARN of the load balancer (matches `id`).
+	// ARN of the load balancer.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix pulumi.StringOutput `pulumi:"arnSuffix"`
@@ -116,6 +116,7 @@ type LoadBalancer struct {
 	// How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
 	DesyncMitigationMode pulumi.StringPtrOutput `pulumi:"desyncMitigationMode"`
 	// DNS name of the load balancer.
+	// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// How traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
 	DnsRecordClientRoutingPolicy pulumi.StringPtrOutput `pulumi:"dnsRecordClientRoutingPolicy"`
@@ -146,7 +147,7 @@ type LoadBalancer struct {
 	// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
 	IpamPools LoadBalancerIpamPoolsPtrOutput `pulumi:"ipamPools"`
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-	LoadBalancerType pulumi.StringPtrOutput `pulumi:"loadBalancerType"`
+	LoadBalancerType LoadBalancerTypePtrOutput `pulumi:"loadBalancerType"`
 	// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
 	MinimumLoadBalancerCapacity LoadBalancerMinimumLoadBalancerCapacityPtrOutput `pulumi:"minimumLoadBalancerCapacity"`
 	// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
@@ -155,6 +156,8 @@ type LoadBalancer struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader pulumi.BoolPtrOutput `pulumi:"preserveHostHeader"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
@@ -164,8 +167,6 @@ type LoadBalancer struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	VpcId   pulumi.StringOutput    `pulumi:"vpcId"`
 	// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
@@ -216,7 +217,7 @@ func GetLoadBalancer(ctx *pulumi.Context,
 type loadBalancerState struct {
 	// Access Logs block. See below.
 	AccessLogs *LoadBalancerAccessLogs `pulumi:"accessLogs"`
-	// ARN of the load balancer (matches `id`).
+	// ARN of the load balancer.
 	Arn *string `pulumi:"arn"`
 	// ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix *string `pulumi:"arnSuffix"`
@@ -229,6 +230,7 @@ type loadBalancerState struct {
 	// How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
 	DesyncMitigationMode *string `pulumi:"desyncMitigationMode"`
 	// DNS name of the load balancer.
+	// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
 	DnsName *string `pulumi:"dnsName"`
 	// How traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
 	DnsRecordClientRoutingPolicy *string `pulumi:"dnsRecordClientRoutingPolicy"`
@@ -259,7 +261,7 @@ type loadBalancerState struct {
 	// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
 	IpamPools *LoadBalancerIpamPools `pulumi:"ipamPools"`
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-	LoadBalancerType *string `pulumi:"loadBalancerType"`
+	LoadBalancerType *LoadBalancerType `pulumi:"loadBalancerType"`
 	// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
 	MinimumLoadBalancerCapacity *LoadBalancerMinimumLoadBalancerCapacity `pulumi:"minimumLoadBalancerCapacity"`
 	// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
@@ -268,6 +270,8 @@ type loadBalancerState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader *bool `pulumi:"preserveHostHeader"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
@@ -277,8 +281,6 @@ type loadBalancerState struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	VpcId   *string           `pulumi:"vpcId"`
 	// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
@@ -294,7 +296,7 @@ type loadBalancerState struct {
 type LoadBalancerState struct {
 	// Access Logs block. See below.
 	AccessLogs LoadBalancerAccessLogsPtrInput
-	// ARN of the load balancer (matches `id`).
+	// ARN of the load balancer.
 	Arn pulumi.StringPtrInput
 	// ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix pulumi.StringPtrInput
@@ -307,6 +309,7 @@ type LoadBalancerState struct {
 	// How the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
 	DesyncMitigationMode pulumi.StringPtrInput
 	// DNS name of the load balancer.
+	// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
 	DnsName pulumi.StringPtrInput
 	// How traffic is distributed among the load balancer Availability Zones. Possible values are `anyAvailabilityZone` (default), `availabilityZoneAffinity`, or `partialAvailabilityZoneAffinity`. See   [Availability Zone DNS affinity](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html#zonal-dns-affinity) for additional details. Only valid for `network` type load balancers.
 	DnsRecordClientRoutingPolicy pulumi.StringPtrInput
@@ -337,7 +340,7 @@ type LoadBalancerState struct {
 	// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
 	IpamPools LoadBalancerIpamPoolsPtrInput
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-	LoadBalancerType pulumi.StringPtrInput
+	LoadBalancerType LoadBalancerTypePtrInput
 	// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
 	MinimumLoadBalancerCapacity LoadBalancerMinimumLoadBalancerCapacityPtrInput
 	// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
@@ -346,6 +349,8 @@ type LoadBalancerState struct {
 	NamePrefix pulumi.StringPtrInput
 	// Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups pulumi.StringArrayInput
 	// Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
@@ -355,8 +360,6 @@ type LoadBalancerState struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	VpcId   pulumi.StringPtrInput
 	// Determines how the load balancer modifies the `X-Forwarded-For` header in the HTTP request before sending the request to the target. The possible values are `append`, `preserve`, and `remove`. Only valid for Load Balancers of type `application`. The default is `append`.
@@ -413,7 +416,7 @@ type loadBalancerArgs struct {
 	// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
 	IpamPools *LoadBalancerIpamPools `pulumi:"ipamPools"`
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-	LoadBalancerType *string `pulumi:"loadBalancerType"`
+	LoadBalancerType *LoadBalancerType `pulumi:"loadBalancerType"`
 	// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
 	MinimumLoadBalancerCapacity *LoadBalancerMinimumLoadBalancerCapacity `pulumi:"minimumLoadBalancerCapacity"`
 	// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
@@ -422,6 +425,8 @@ type loadBalancerArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader *bool `pulumi:"preserveHostHeader"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
@@ -479,7 +484,7 @@ type LoadBalancerArgs struct {
 	// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
 	IpamPools LoadBalancerIpamPoolsPtrInput
 	// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-	LoadBalancerType pulumi.StringPtrInput
+	LoadBalancerType LoadBalancerTypePtrInput
 	// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
 	MinimumLoadBalancerCapacity LoadBalancerMinimumLoadBalancerCapacityPtrInput
 	// Name of the LB. This name must be unique within your AWS account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and must not begin or end with a hyphen. If not specified, this provider will autogenerate a name beginning with `tf-lb`.
@@ -488,6 +493,8 @@ type LoadBalancerArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
 	PreserveHostHeader pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 	SecurityGroups pulumi.StringArrayInput
 	// Subnet mapping block. See below. For Load Balancers of type `network` subnet mappings can only be added.
@@ -596,7 +603,7 @@ func (o LoadBalancerOutput) AccessLogs() LoadBalancerAccessLogsPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerAccessLogsPtrOutput { return v.AccessLogs }).(LoadBalancerAccessLogsPtrOutput)
 }
 
-// ARN of the load balancer (matches `id`).
+// ARN of the load balancer.
 func (o LoadBalancerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -627,6 +634,7 @@ func (o LoadBalancerOutput) DesyncMitigationMode() pulumi.StringPtrOutput {
 }
 
 // DNS name of the load balancer.
+// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
 func (o LoadBalancerOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
@@ -704,8 +712,8 @@ func (o LoadBalancerOutput) IpamPools() LoadBalancerIpamPoolsPtrOutput {
 }
 
 // Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
-func (o LoadBalancerOutput) LoadBalancerType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.LoadBalancerType }).(pulumi.StringPtrOutput)
+func (o LoadBalancerOutput) LoadBalancerType() LoadBalancerTypePtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerTypePtrOutput { return v.LoadBalancerType }).(LoadBalancerTypePtrOutput)
 }
 
 // Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
@@ -730,6 +738,11 @@ func (o LoadBalancerOutput) PreserveHostHeader() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.BoolPtrOutput { return v.PreserveHostHeader }).(pulumi.BoolPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LoadBalancerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
 func (o LoadBalancerOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.SecurityGroups }).(pulumi.StringArrayOutput)
@@ -751,8 +764,6 @@ func (o LoadBalancerOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o LoadBalancerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

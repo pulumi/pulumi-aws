@@ -19,6 +19,11 @@ public final class TableReplica {
      */
     private @Nullable String arn;
     /**
+     * @return Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
+     * 
+     */
+    private @Nullable String consistencyMode;
+    /**
      * @return ARN of the CMK that should be used for the AWS KMS encryption.
      * This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
      * **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
@@ -64,6 +69,13 @@ public final class TableReplica {
      */
     public Optional<String> arn() {
         return Optional.ofNullable(this.arn);
+    }
+    /**
+     * @return Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
+     * 
+     */
+    public Optional<String> consistencyMode() {
+        return Optional.ofNullable(this.consistencyMode);
     }
     /**
      * @return ARN of the CMK that should be used for the AWS KMS encryption.
@@ -126,6 +138,7 @@ public final class TableReplica {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String arn;
+        private @Nullable String consistencyMode;
         private @Nullable String kmsKeyArn;
         private @Nullable Boolean pointInTimeRecovery;
         private @Nullable Boolean propagateTags;
@@ -136,6 +149,7 @@ public final class TableReplica {
         public Builder(TableReplica defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
+    	      this.consistencyMode = defaults.consistencyMode;
     	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.pointInTimeRecovery = defaults.pointInTimeRecovery;
     	      this.propagateTags = defaults.propagateTags;
@@ -148,6 +162,12 @@ public final class TableReplica {
         public Builder arn(@Nullable String arn) {
 
             this.arn = arn;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder consistencyMode(@Nullable String consistencyMode) {
+
+            this.consistencyMode = consistencyMode;
             return this;
         }
         @CustomType.Setter
@@ -191,6 +211,7 @@ public final class TableReplica {
         public TableReplica build() {
             final var _resultValue = new TableReplica();
             _resultValue.arn = arn;
+            _resultValue.consistencyMode = consistencyMode;
             _resultValue.kmsKeyArn = kmsKeyArn;
             _resultValue.pointInTimeRecovery = pointInTimeRecovery;
             _resultValue.propagateTags = propagateTags;

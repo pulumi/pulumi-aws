@@ -16,11 +16,47 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Lambda function URL resource. A function URL is a dedicated HTTP(S) endpoint for a Lambda function.
- * 
- * See the [AWS Lambda documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html) for more information.
+ * Manages a Lambda function URL. Creates a dedicated HTTP(S) endpoint for a Lambda function to enable direct invocation via HTTP requests.
  * 
  * ## Example Usage
+ * 
+ * ### Basic Function URL with No Authentication
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.FunctionUrl;
+ * import com.pulumi.aws.lambda.FunctionUrlArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new FunctionUrl("example", FunctionUrlArgs.builder()
+ *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .authorizationType("NONE")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Function URL with IAM Authentication and CORS Configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -46,19 +82,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testLatest = new FunctionUrl("testLatest", FunctionUrlArgs.builder()
- *             .functionName(test.functionName())
- *             .authorizationType("NONE")
- *             .build());
- * 
- *         var testLive = new FunctionUrl("testLive", FunctionUrlArgs.builder()
- *             .functionName(test.functionName())
+ *         var example = new FunctionUrl("example", FunctionUrlArgs.builder()
+ *             .functionName(exampleAwsLambdaFunction.functionName())
  *             .qualifier("my_alias")
  *             .authorizationType("AWS_IAM")
+ *             .invokeMode("RESPONSE_STREAM")
  *             .cors(FunctionUrlCorsArgs.builder()
  *                 .allowCredentials(true)
- *                 .allowOrigins("*")
- *                 .allowMethods("*")
+ *                 .allowOrigins("https://example.com")
+ *                 .allowMethods(                
+ *                     "GET",
+ *                     "POST")
  *                 .allowHeaders(                
  *                     "date",
  *                     "keep-alive")
@@ -80,119 +114,137 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import Lambda function URLs using the `function_name` or `function_name/qualifier`. For example:
  * 
  * ```sh
- * $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
+ * $ pulumi import aws:lambda/functionUrl:FunctionUrl example example
  * ```
  * 
  */
 @ResourceType(type="aws:lambda/functionUrl:FunctionUrl")
 public class FunctionUrl extends com.pulumi.resources.CustomResource {
     /**
-     * The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
+     * Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
      * 
      */
     @Export(name="authorizationType", refs={String.class}, tree="[0]")
     private Output<String> authorizationType;
 
     /**
-     * @return The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
+     * @return Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
      * 
      */
     public Output<String> authorizationType() {
         return this.authorizationType;
     }
     /**
-     * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
+     * Cross-origin resource sharing (CORS) settings for the function URL. See below.
      * 
      */
     @Export(name="cors", refs={FunctionUrlCors.class}, tree="[0]")
     private Output</* @Nullable */ FunctionUrlCors> cors;
 
     /**
-     * @return The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
+     * @return Cross-origin resource sharing (CORS) settings for the function URL. See below.
      * 
      */
     public Output<Optional<FunctionUrlCors>> cors() {
         return Codegen.optional(this.cors);
     }
     /**
-     * The Amazon Resource Name (ARN) of the function.
+     * ARN of the Lambda function.
      * 
      */
     @Export(name="functionArn", refs={String.class}, tree="[0]")
     private Output<String> functionArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the function.
+     * @return ARN of the Lambda function.
      * 
      */
     public Output<String> functionArn() {
         return this.functionArn;
     }
     /**
-     * The name (or ARN) of the Lambda function.
+     * Name or ARN of the Lambda function.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="functionName", refs={String.class}, tree="[0]")
     private Output<String> functionName;
 
     /**
-     * @return The name (or ARN) of the Lambda function.
+     * @return Name or ARN of the Lambda function.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> functionName() {
         return this.functionName;
     }
     /**
-     * The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
+     * HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
      * 
      */
     @Export(name="functionUrl", refs={String.class}, tree="[0]")
     private Output<String> functionUrl;
 
     /**
-     * @return The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
+     * @return HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
      * 
      */
     public Output<String> functionUrl() {
         return this.functionUrl;
     }
     /**
-     * Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+     * How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
      * 
      */
     @Export(name="invokeMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> invokeMode;
 
     /**
-     * @return Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+     * @return How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
      * 
      */
     public Output<Optional<String>> invokeMode() {
         return Codegen.optional(this.invokeMode);
     }
     /**
-     * The alias name or `&#34;$LATEST&#34;`.
+     * Alias name or `$LATEST`.
      * 
      */
     @Export(name="qualifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> qualifier;
 
     /**
-     * @return The alias name or `&#34;$LATEST&#34;`.
+     * @return Alias name or `$LATEST`.
      * 
      */
     public Output<Optional<String>> qualifier() {
         return Codegen.optional(this.qualifier);
     }
     /**
-     * A generated ID for the endpoint.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
+     * Generated ID for the endpoint.
      * 
      */
     @Export(name="urlId", refs={String.class}, tree="[0]")
     private Output<String> urlId;
 
     /**
-     * @return A generated ID for the endpoint.
+     * @return Generated ID for the endpoint.
      * 
      */
     public Output<String> urlId() {

@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.inputs.GetPartitionArgs;
  * import com.pulumi.aws.inputs.GetRegionArgs;
- * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.iam.Role;
@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  *         final var currentGetRegion = AwsFunctions.getRegion(GetRegionArgs.builder()
  *             .build());
  * 
- *         var example = new BucketV2("example");
+ *         var example = new Bucket("example");
  * 
  *         var exampleBucketObjectv2 = new BucketObjectv2("exampleBucketObjectv2", BucketObjectv2Args.builder()
  *             .bucket(example.bucket())
@@ -133,7 +133,7 @@ import javax.annotation.Nullable;
  *             .content(example.id().applyValue(_id -> serializeJson(
  *                 jsonObject(
  *                     jsonProperty("fileLocations", jsonArray(jsonObject(
- *                         jsonProperty("URIPrefixes", jsonArray(String.format("https://%s.s3-%s.%s", _id,currentGetRegion.name(),currentGetPartition.dnsSuffix())))
+ *                         jsonProperty("URIPrefixes", jsonArray(String.format("https://%s.s3-%s.%s", _id,currentGetRegion.region(),currentGetPartition.dnsSuffix())))
  *                     ))),
  *                     jsonProperty("globalUploadSettings", jsonObject(
  *                         jsonProperty("format", "CSV"),
@@ -326,6 +326,20 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.permissions);
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
      * 
      */
@@ -356,11 +370,7 @@ public class DataSource extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

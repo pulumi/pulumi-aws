@@ -104,6 +104,10 @@ export class AccessGrant extends pulumi.CustomResource {
      */
     public readonly permission!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
      */
     public readonly s3PrefixType!: pulumi.Output<string | undefined>;
@@ -113,8 +117,6 @@ export class AccessGrant extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -139,6 +141,7 @@ export class AccessGrant extends pulumi.CustomResource {
             resourceInputs["grantScope"] = state ? state.grantScope : undefined;
             resourceInputs["grantee"] = state ? state.grantee : undefined;
             resourceInputs["permission"] = state ? state.permission : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["s3PrefixType"] = state ? state.s3PrefixType : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -155,6 +158,7 @@ export class AccessGrant extends pulumi.CustomResource {
             resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["grantee"] = args ? args.grantee : undefined;
             resourceInputs["permission"] = args ? args.permission : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["s3PrefixType"] = args ? args.s3PrefixType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accessGrantArn"] = undefined /*out*/;
@@ -201,6 +205,10 @@ export interface AccessGrantState {
      */
     permission?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
      */
     s3PrefixType?: pulumi.Input<string>;
@@ -210,8 +218,6 @@ export interface AccessGrantState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -237,6 +243,10 @@ export interface AccessGrantArgs {
      * The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
      */
     permission: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
      */

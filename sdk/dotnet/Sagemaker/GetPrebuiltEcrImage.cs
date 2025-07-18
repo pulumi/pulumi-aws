@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Sagemaker
         public string? ImageTag { get; set; }
 
         /// <summary>
-        /// Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
+        /// Region to use in the registry path. Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public string? Region { get; set; }
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? ImageTag { get; set; }
 
         /// <summary>
-        /// Region to use in the registry path. If not specified, the AWS provider sets it to the current region.
+        /// Region to use in the registry path. Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         public readonly string Id;
         public readonly string? ImageTag;
-        public readonly string? Region;
+        public readonly string Region;
         /// <summary>
         /// Account ID containing the image. For example, `469771592824`.
         /// </summary>
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.Sagemaker
 
             string? imageTag,
 
-            string? region,
+            string region,
 
             string registryId,
 

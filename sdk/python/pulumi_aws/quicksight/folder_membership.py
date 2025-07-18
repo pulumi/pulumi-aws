@@ -23,7 +23,8 @@ class FolderMembershipArgs:
                  folder_id: pulumi.Input[builtins.str],
                  member_id: pulumi.Input[builtins.str],
                  member_type: pulumi.Input[builtins.str],
-                 aws_account_id: Optional[pulumi.Input[builtins.str]] = None):
+                 aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a FolderMembership resource.
         :param pulumi.Input[builtins.str] folder_id: Identifier for the folder.
@@ -32,12 +33,15 @@ class FolderMembershipArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "folder_id", folder_id)
         pulumi.set(__self__, "member_id", member_id)
         pulumi.set(__self__, "member_type", member_type)
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="folderId")
@@ -89,6 +93,18 @@ class FolderMembershipArgs:
     def aws_account_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "aws_account_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _FolderMembershipState:
@@ -96,7 +112,8 @@ class _FolderMembershipState:
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  folder_id: Optional[pulumi.Input[builtins.str]] = None,
                  member_id: Optional[pulumi.Input[builtins.str]] = None,
-                 member_type: Optional[pulumi.Input[builtins.str]] = None):
+                 member_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering FolderMembership resources.
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
@@ -105,6 +122,7 @@ class _FolderMembershipState:
         :param pulumi.Input[builtins.str] member_type: Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -114,6 +132,8 @@ class _FolderMembershipState:
             pulumi.set(__self__, "member_id", member_id)
         if member_type is not None:
             pulumi.set(__self__, "member_type", member_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="awsAccountId")
@@ -165,6 +185,18 @@ class _FolderMembershipState:
     def member_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "member_type", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:quicksight/folderMembership:FolderMembership")
 class FolderMembership(pulumi.CustomResource):
@@ -176,6 +208,7 @@ class FolderMembership(pulumi.CustomResource):
                  folder_id: Optional[pulumi.Input[builtins.str]] = None,
                  member_id: Optional[pulumi.Input[builtins.str]] = None,
                  member_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS QuickSight Folder Membership.
@@ -210,6 +243,7 @@ class FolderMembership(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] member_type: Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -261,6 +295,7 @@ class FolderMembership(pulumi.CustomResource):
                  folder_id: Optional[pulumi.Input[builtins.str]] = None,
                  member_id: Optional[pulumi.Input[builtins.str]] = None,
                  member_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -280,6 +315,7 @@ class FolderMembership(pulumi.CustomResource):
             if member_type is None and not opts.urn:
                 raise TypeError("Missing required property 'member_type'")
             __props__.__dict__["member_type"] = member_type
+            __props__.__dict__["region"] = region
         super(FolderMembership, __self__).__init__(
             'aws:quicksight/folderMembership:FolderMembership',
             resource_name,
@@ -293,7 +329,8 @@ class FolderMembership(pulumi.CustomResource):
             aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
             folder_id: Optional[pulumi.Input[builtins.str]] = None,
             member_id: Optional[pulumi.Input[builtins.str]] = None,
-            member_type: Optional[pulumi.Input[builtins.str]] = None) -> 'FolderMembership':
+            member_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'FolderMembership':
         """
         Get an existing FolderMembership resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -307,6 +344,7 @@ class FolderMembership(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] member_type: Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -316,6 +354,7 @@ class FolderMembership(pulumi.CustomResource):
         __props__.__dict__["folder_id"] = folder_id
         __props__.__dict__["member_id"] = member_id
         __props__.__dict__["member_type"] = member_type
+        __props__.__dict__["region"] = region
         return FolderMembership(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -351,4 +390,12 @@ class FolderMembership(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "member_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

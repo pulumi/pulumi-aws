@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/pinpoint"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -130,6 +130,8 @@ type EmailChannel struct {
 	MessagesPerSecond pulumi.IntOutput `pulumi:"messagesPerSecond"`
 	// The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
 	OrchestrationSendingRoleArn pulumi.StringPtrOutput `pulumi:"orchestrationSendingRoleArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 }
@@ -187,6 +189,8 @@ type emailChannelState struct {
 	MessagesPerSecond *int `pulumi:"messagesPerSecond"`
 	// The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
 	OrchestrationSendingRoleArn *string `pulumi:"orchestrationSendingRoleArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
 	RoleArn *string `pulumi:"roleArn"`
 }
@@ -206,6 +210,8 @@ type EmailChannelState struct {
 	MessagesPerSecond pulumi.IntPtrInput
 	// The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
 	OrchestrationSendingRoleArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
 	RoleArn pulumi.StringPtrInput
 }
@@ -227,6 +233,8 @@ type emailChannelArgs struct {
 	Identity string `pulumi:"identity"`
 	// The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
 	OrchestrationSendingRoleArn *string `pulumi:"orchestrationSendingRoleArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
 	RoleArn *string `pulumi:"roleArn"`
 }
@@ -245,6 +253,8 @@ type EmailChannelArgs struct {
 	Identity pulumi.StringInput
 	// The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
 	OrchestrationSendingRoleArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
 	RoleArn pulumi.StringPtrInput
 }
@@ -369,6 +379,11 @@ func (o EmailChannelOutput) MessagesPerSecond() pulumi.IntOutput {
 // The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
 func (o EmailChannelOutput) OrchestrationSendingRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EmailChannel) pulumi.StringPtrOutput { return v.OrchestrationSendingRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o EmailChannelOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailChannel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.

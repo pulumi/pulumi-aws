@@ -33,6 +33,7 @@ public final class GetSdkResult {
      */
     private String id;
     private @Nullable Map<String,String> parameters;
+    private String region;
     private String restApiId;
     private String sdkType;
     private String stageName;
@@ -69,6 +70,9 @@ public final class GetSdkResult {
     public Map<String,String> parameters() {
         return this.parameters == null ? Map.of() : this.parameters;
     }
+    public String region() {
+        return this.region;
+    }
     public String restApiId() {
         return this.restApiId;
     }
@@ -93,6 +97,7 @@ public final class GetSdkResult {
         private String contentType;
         private String id;
         private @Nullable Map<String,String> parameters;
+        private String region;
         private String restApiId;
         private String sdkType;
         private String stageName;
@@ -104,6 +109,7 @@ public final class GetSdkResult {
     	      this.contentType = defaults.contentType;
     	      this.id = defaults.id;
     	      this.parameters = defaults.parameters;
+    	      this.region = defaults.region;
     	      this.restApiId = defaults.restApiId;
     	      this.sdkType = defaults.sdkType;
     	      this.stageName = defaults.stageName;
@@ -148,6 +154,14 @@ public final class GetSdkResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSdkResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder restApiId(String restApiId) {
             if (restApiId == null) {
               throw new MissingRequiredPropertyException("GetSdkResult", "restApiId");
@@ -178,6 +192,7 @@ public final class GetSdkResult {
             _resultValue.contentType = contentType;
             _resultValue.id = id;
             _resultValue.parameters = parameters;
+            _resultValue.region = region;
             _resultValue.restApiId = restApiId;
             _resultValue.sdkType = sdkType;
             _resultValue.stageName = stageName;

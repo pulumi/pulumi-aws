@@ -197,6 +197,10 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     public readonly nodeRoleArn!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
      */
     public readonly releaseVersion!: pulumi.Output<string>;
@@ -228,8 +232,6 @@ export class NodeGroup extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -271,6 +273,7 @@ export class NodeGroup extends pulumi.CustomResource {
             resourceInputs["nodeGroupNamePrefix"] = state ? state.nodeGroupNamePrefix : undefined;
             resourceInputs["nodeRepairConfig"] = state ? state.nodeRepairConfig : undefined;
             resourceInputs["nodeRoleArn"] = state ? state.nodeRoleArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["releaseVersion"] = state ? state.releaseVersion : undefined;
             resourceInputs["remoteAccess"] = state ? state.remoteAccess : undefined;
             resourceInputs["resources"] = state ? state.resources : undefined;
@@ -308,6 +311,7 @@ export class NodeGroup extends pulumi.CustomResource {
             resourceInputs["nodeGroupNamePrefix"] = args ? args.nodeGroupNamePrefix : undefined;
             resourceInputs["nodeRepairConfig"] = args ? args.nodeRepairConfig : undefined;
             resourceInputs["nodeRoleArn"] = args ? args.nodeRoleArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["releaseVersion"] = args ? args.releaseVersion : undefined;
             resourceInputs["remoteAccess"] = args ? args.remoteAccess : undefined;
             resourceInputs["scalingConfig"] = args ? args.scalingConfig : undefined;
@@ -383,6 +387,10 @@ export interface NodeGroupState {
      */
     nodeRoleArn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
      */
     releaseVersion?: pulumi.Input<string>;
@@ -414,8 +422,6 @@ export interface NodeGroupState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -484,6 +490,10 @@ export interface NodeGroupArgs {
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
      */
     nodeRoleArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
      */

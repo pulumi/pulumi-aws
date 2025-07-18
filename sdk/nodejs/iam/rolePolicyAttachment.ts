@@ -4,7 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
 import {Role} from "./index";
 
 /**
@@ -91,7 +90,7 @@ export class RolePolicyAttachment extends pulumi.CustomResource {
     /**
      * The ARN of the policy you want to apply
      */
-    public readonly policyArn!: pulumi.Output<ARN>;
+    public readonly policyArn!: pulumi.Output<string>;
     /**
      * The name of the IAM role to which the policy should be applied
      */
@@ -135,7 +134,7 @@ export interface RolePolicyAttachmentState {
     /**
      * The ARN of the policy you want to apply
      */
-    policyArn?: pulumi.Input<ARN>;
+    policyArn?: pulumi.Input<string>;
     /**
      * The name of the IAM role to which the policy should be applied
      */
@@ -149,7 +148,7 @@ export interface RolePolicyAttachmentArgs {
     /**
      * The ARN of the policy you want to apply
      */
-    policyArn: pulumi.Input<ARN>;
+    policyArn: pulumi.Input<string>;
     /**
      * The name of the IAM role to which the policy should be applied
      */

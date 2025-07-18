@@ -35,13 +35,13 @@ namespace Pulumi.Aws.OpenSearch
     ///         LocalDomainInfo = new Aws.OpenSearch.Inputs.OutboundConnectionLocalDomainInfoArgs
     ///         {
     ///             OwnerId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///             Region = currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             Region = currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             DomainName = localDomain.DomainName,
     ///         },
     ///         RemoteDomainInfo = new Aws.OpenSearch.Inputs.OutboundConnectionRemoteDomainInfoArgs
     ///         {
     ///             OwnerId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///             Region = currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             Region = currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             DomainName = remoteDomain.DomainName,
     ///         },
     ///     });
@@ -95,6 +95,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Output("localDomainInfo")]
         public Output<Outputs.OutboundConnectionLocalDomainInfo> LocalDomainInfo { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for the remote Opensearch domain.
@@ -179,6 +185,12 @@ namespace Pulumi.Aws.OpenSearch
         public Input<Inputs.OutboundConnectionLocalDomainInfoArgs> LocalDomainInfo { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for the remote Opensearch domain.
         /// </summary>
         [Input("remoteDomainInfo", required: true)]
@@ -227,6 +239,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("localDomainInfo")]
         public Input<Inputs.OutboundConnectionLocalDomainInfoGetArgs>? LocalDomainInfo { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configuration block for the remote Opensearch domain.

@@ -17,8 +17,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.elb.getServiceAccount({});
- * const elbLogs = new aws.s3.BucketV2("elb_logs", {bucket: "my-elb-tf-test-bucket"});
- * const elbLogsAcl = new aws.s3.BucketAclV2("elb_logs_acl", {
+ * const elbLogs = new aws.s3.Bucket("elb_logs", {bucket: "my-elb-tf-test-bucket"});
+ * const elbLogsAcl = new aws.s3.BucketAcl("elb_logs_acl", {
  *     bucket: elbLogs.id,
  *     acl: "private",
  * });
@@ -66,8 +66,7 @@ export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.In
  */
 export interface GetServiceAccountArgs {
     /**
-     * Name of the region whose AWS ELB account ID is desired.
-     * Defaults to the region from the AWS provider configuration.
+     * Name of the Region whose AWS ELB account ID is desired. Defaults to the Region set in the provider configuration.
      */
     region?: string;
 }
@@ -77,14 +76,14 @@ export interface GetServiceAccountArgs {
  */
 export interface GetServiceAccountResult {
     /**
-     * ARN of the AWS ELB service account in the selected region.
+     * ARN of the AWS ELB service account in the selected Region.
      */
     readonly arn: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly region?: string;
+    readonly region: string;
 }
 /**
  * Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
@@ -99,8 +98,8 @@ export interface GetServiceAccountResult {
  * import * as aws from "@pulumi/aws";
  *
  * const main = aws.elb.getServiceAccount({});
- * const elbLogs = new aws.s3.BucketV2("elb_logs", {bucket: "my-elb-tf-test-bucket"});
- * const elbLogsAcl = new aws.s3.BucketAclV2("elb_logs_acl", {
+ * const elbLogs = new aws.s3.Bucket("elb_logs", {bucket: "my-elb-tf-test-bucket"});
+ * const elbLogsAcl = new aws.s3.BucketAcl("elb_logs_acl", {
  *     bucket: elbLogs.id,
  *     acl: "private",
  * });
@@ -148,8 +147,7 @@ export function getServiceAccountOutput(args?: GetServiceAccountOutputArgs, opts
  */
 export interface GetServiceAccountOutputArgs {
     /**
-     * Name of the region whose AWS ELB account ID is desired.
-     * Defaults to the region from the AWS provider configuration.
+     * Name of the Region whose AWS ELB account ID is desired. Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
 }

@@ -173,6 +173,12 @@ namespace Pulumi.Aws.Connect
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -212,6 +218,12 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -254,6 +266,7 @@ namespace Pulumi.Aws.Connect
         public readonly string Id;
         public readonly string InstanceId;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
         /// </summary>
@@ -283,6 +296,8 @@ namespace Pulumi.Aws.Connect
 
             string name,
 
+            string region,
+
             string state,
 
             string status,
@@ -296,6 +311,7 @@ namespace Pulumi.Aws.Connect
             Id = id;
             InstanceId = instanceId;
             Name = name;
+            Region = region;
             State = state;
             Status = status;
             Tags = tags;

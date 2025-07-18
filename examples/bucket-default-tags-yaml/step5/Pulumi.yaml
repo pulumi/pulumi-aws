@@ -10,8 +10,8 @@ resources:
         tags: 
           foo: quux
   res:
-    type: aws:s3:BucketV2
+    type: aws:s3:Bucket
     options:
       provider: ${aws-provider}
 outputs:
-  actual: ${res.tags}
+  actual: ${res.tagsAll}

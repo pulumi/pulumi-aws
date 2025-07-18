@@ -15,6 +15,9 @@ namespace Pulumi.Aws.S3Control.Outputs
     {
         public readonly string Name;
         public readonly Outputs.MultiRegionAccessPointDetailsPublicAccessBlock? PublicAccessBlock;
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
         public readonly ImmutableArray<Outputs.MultiRegionAccessPointDetailsRegion> Regions;
 
         [OutputConstructor]

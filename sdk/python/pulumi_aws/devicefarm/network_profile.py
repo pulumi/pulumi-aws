@@ -27,6 +27,7 @@ class NetworkProfileArgs:
                  downlink_jitter_ms: Optional[pulumi.Input[builtins.int]] = None,
                  downlink_loss_percent: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  uplink_bandwidth_bits: Optional[pulumi.Input[builtins.int]] = None,
@@ -42,6 +43,7 @@ class NetworkProfileArgs:
         :param pulumi.Input[builtins.int] downlink_jitter_ms: Time variation in the delay of received packets in milliseconds as an integer from `0` to `2000`.
         :param pulumi.Input[builtins.int] downlink_loss_percent: Proportion of received packets that fail to arrive from `0` to `100` percent.
         :param pulumi.Input[builtins.str] name: The name for the network profile.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] type: The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
         :param pulumi.Input[builtins.int] uplink_bandwidth_bits: The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
@@ -62,6 +64,8 @@ class NetworkProfileArgs:
             pulumi.set(__self__, "downlink_loss_percent", downlink_loss_percent)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if type is not None:
@@ -161,6 +165,18 @@ class NetworkProfileArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -243,6 +259,7 @@ class _NetworkProfileState:
                  downlink_loss_percent: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  project_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
@@ -260,6 +277,7 @@ class _NetworkProfileState:
         :param pulumi.Input[builtins.int] downlink_loss_percent: Proportion of received packets that fail to arrive from `0` to `100` percent.
         :param pulumi.Input[builtins.str] name: The name for the network profile.
         :param pulumi.Input[builtins.str] project_arn: The ARN of the project for the network profile.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
@@ -284,11 +302,10 @@ class _NetworkProfileState:
             pulumi.set(__self__, "name", name)
         if project_arn is not None:
             pulumi.set(__self__, "project_arn", project_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
@@ -400,6 +417,18 @@ class _NetworkProfileState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -412,7 +441,6 @@ class _NetworkProfileState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -497,6 +525,7 @@ class NetworkProfile(pulumi.CustomResource):
                  downlink_loss_percent: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  project_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  uplink_bandwidth_bits: Optional[pulumi.Input[builtins.int]] = None,
@@ -538,6 +567,7 @@ class NetworkProfile(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] downlink_loss_percent: Proportion of received packets that fail to arrive from `0` to `100` percent.
         :param pulumi.Input[builtins.str] name: The name for the network profile.
         :param pulumi.Input[builtins.str] project_arn: The ARN of the project for the network profile.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] type: The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
         :param pulumi.Input[builtins.int] uplink_bandwidth_bits: The data throughput rate in bits per second, as an integer from `0` to `104857600`. Default value is `104857600`.
@@ -598,6 +628,7 @@ class NetworkProfile(pulumi.CustomResource):
                  downlink_loss_percent: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  project_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  uplink_bandwidth_bits: Optional[pulumi.Input[builtins.int]] = None,
@@ -622,6 +653,7 @@ class NetworkProfile(pulumi.CustomResource):
             if project_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'project_arn'")
             __props__.__dict__["project_arn"] = project_arn
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
             __props__.__dict__["uplink_bandwidth_bits"] = uplink_bandwidth_bits
@@ -648,6 +680,7 @@ class NetworkProfile(pulumi.CustomResource):
             downlink_loss_percent: Optional[pulumi.Input[builtins.int]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             project_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None,
@@ -670,6 +703,7 @@ class NetworkProfile(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] downlink_loss_percent: Proportion of received packets that fail to arrive from `0` to `100` percent.
         :param pulumi.Input[builtins.str] name: The name for the network profile.
         :param pulumi.Input[builtins.str] project_arn: The ARN of the project for the network profile.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
@@ -690,6 +724,7 @@ class NetworkProfile(pulumi.CustomResource):
         __props__.__dict__["downlink_loss_percent"] = downlink_loss_percent
         __props__.__dict__["name"] = name
         __props__.__dict__["project_arn"] = project_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["type"] = type
@@ -765,6 +800,14 @@ class NetworkProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -773,7 +816,6 @@ class NetworkProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

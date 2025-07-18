@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,6 +56,8 @@ func LookupResolverFirewallRuleGroup(ctx *pulumi.Context, args *LookupResolverFi
 type LookupResolverFirewallRuleGroupArgs struct {
 	// The ID of the rule group.
 	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getResolverFirewallRuleGroup.
@@ -75,6 +77,7 @@ type LookupResolverFirewallRuleGroupResult struct {
 	Name string `pulumi:"name"`
 	// The Amazon Web Services account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
 	OwnerId string `pulumi:"ownerId"`
+	Region  string `pulumi:"region"`
 	// The number of rules in the rule group.
 	RuleCount int `pulumi:"ruleCount"`
 	// Whether the rule group is shared with other Amazon Web Services accounts, or was shared with the current account by another Amazon Web Services account.
@@ -98,6 +101,8 @@ func LookupResolverFirewallRuleGroupOutput(ctx *pulumi.Context, args LookupResol
 type LookupResolverFirewallRuleGroupOutputArgs struct {
 	// The ID of the rule group.
 	FirewallRuleGroupId pulumi.StringInput `pulumi:"firewallRuleGroupId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupResolverFirewallRuleGroupOutputArgs) ElementType() reflect.Type {
@@ -156,6 +161,10 @@ func (o LookupResolverFirewallRuleGroupResultOutput) Name() pulumi.StringOutput 
 // The Amazon Web Services account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
 func (o LookupResolverFirewallRuleGroupResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o LookupResolverFirewallRuleGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResolverFirewallRuleGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The number of rules in the rule group.

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,7 +62,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,7 +98,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -150,6 +150,8 @@ type EventDestination struct {
 	MatchingTypes pulumi.StringArrayOutput `pulumi:"matchingTypes"`
 	// The name of the event destination
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Send the events to an SNS Topic destination
 	//
 	// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
@@ -206,6 +208,8 @@ type eventDestinationState struct {
 	MatchingTypes []string `pulumi:"matchingTypes"`
 	// The name of the event destination
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Send the events to an SNS Topic destination
 	//
 	// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
@@ -227,6 +231,8 @@ type EventDestinationState struct {
 	MatchingTypes pulumi.StringArrayInput
 	// The name of the event destination
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Send the events to an SNS Topic destination
 	//
 	// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
@@ -250,6 +256,8 @@ type eventDestinationArgs struct {
 	MatchingTypes []string `pulumi:"matchingTypes"`
 	// The name of the event destination
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Send the events to an SNS Topic destination
 	//
 	// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
@@ -270,6 +278,8 @@ type EventDestinationArgs struct {
 	MatchingTypes pulumi.StringArrayInput
 	// The name of the event destination
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Send the events to an SNS Topic destination
 	//
 	// > **NOTE:** You can specify `"cloudwatchDestination"` or `"kinesisDestination"` but not both
@@ -398,6 +408,11 @@ func (o EventDestinationOutput) MatchingTypes() pulumi.StringArrayOutput {
 // The name of the event destination
 func (o EventDestinationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventDestination) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o EventDestinationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Send the events to an SNS Topic destination

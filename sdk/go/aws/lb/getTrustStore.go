@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -73,14 +73,17 @@ type LookupTrustStoreArgs struct {
 	//
 	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getTrustStore.
 type LookupTrustStoreResult struct {
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 }
 
 func LookupTrustStoreOutput(ctx *pulumi.Context, args LookupTrustStoreOutputArgs, opts ...pulumi.InvokeOption) LookupTrustStoreResultOutput {
@@ -100,6 +103,8 @@ type LookupTrustStoreOutputArgs struct {
 	//
 	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupTrustStoreOutputArgs) ElementType() reflect.Type {
@@ -132,6 +137,10 @@ func (o LookupTrustStoreResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupTrustStoreResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTrustStoreResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupTrustStoreResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTrustStoreResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

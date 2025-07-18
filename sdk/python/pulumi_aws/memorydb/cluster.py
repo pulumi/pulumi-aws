@@ -39,6 +39,7 @@ class ClusterArgs:
                  num_shards: Optional[pulumi.Input[builtins.int]] = None,
                  parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  snapshot_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -69,6 +70,7 @@ class ClusterArgs:
         :param pulumi.Input[builtins.int] num_shards: The number of shards in the cluster. Defaults to `1`.
         :param pulumi.Input[builtins.str] parameter_group_name: The name of the parameter group associated with the cluster.
         :param pulumi.Input[builtins.int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
         :param pulumi.Input[builtins.str] snapshot_name: The name of a snapshot from which to restore data into the new cluster.
@@ -111,6 +113,8 @@ class ClusterArgs:
             pulumi.set(__self__, "parameter_group_name", parameter_group_name)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if snapshot_arns is not None:
@@ -337,6 +341,18 @@ class ClusterArgs:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -468,6 +484,7 @@ class _ClusterState:
                  num_shards: Optional[pulumi.Input[builtins.int]] = None,
                  parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  shards: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardArgs']]]] = None,
                  snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -502,6 +519,7 @@ class _ClusterState:
         :param pulumi.Input[builtins.int] num_shards: The number of shards in the cluster. Defaults to `1`.
         :param pulumi.Input[builtins.str] parameter_group_name: The name of the parameter group associated with the cluster.
         :param pulumi.Input[builtins.int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterShardArgs']]] shards: Set of shards in this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
@@ -554,6 +572,8 @@ class _ClusterState:
             pulumi.set(__self__, "parameter_group_name", parameter_group_name)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if shards is not None:
@@ -572,9 +592,6 @@ class _ClusterState:
             pulumi.set(__self__, "subnet_group_name", subnet_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tls_enabled is not None:
@@ -820,6 +837,18 @@ class _ClusterState:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -929,7 +958,6 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -976,6 +1004,7 @@ class Cluster(pulumi.CustomResource):
                  num_shards: Optional[pulumi.Input[builtins.int]] = None,
                  parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  snapshot_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1038,6 +1067,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] num_shards: The number of shards in the cluster. Defaults to `1`.
         :param pulumi.Input[builtins.str] parameter_group_name: The name of the parameter group associated with the cluster.
         :param pulumi.Input[builtins.int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
         :param pulumi.Input[builtins.str] snapshot_name: The name of a snapshot from which to restore data into the new cluster.
@@ -1117,6 +1147,7 @@ class Cluster(pulumi.CustomResource):
                  num_shards: Optional[pulumi.Input[builtins.int]] = None,
                  parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  snapshot_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1156,6 +1187,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["num_shards"] = num_shards
             __props__.__dict__["parameter_group_name"] = parameter_group_name
             __props__.__dict__["port"] = port
+            __props__.__dict__["region"] = region
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["snapshot_arns"] = snapshot_arns
             __props__.__dict__["snapshot_name"] = snapshot_name
@@ -1200,6 +1232,7 @@ class Cluster(pulumi.CustomResource):
             num_shards: Optional[pulumi.Input[builtins.int]] = None,
             parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
             port: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             shards: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterShardArgs', 'ClusterShardArgsDict']]]]] = None,
             snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -1239,6 +1272,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] num_shards: The number of shards in the cluster. Defaults to `1`.
         :param pulumi.Input[builtins.str] parameter_group_name: The name of the parameter group associated with the cluster.
         :param pulumi.Input[builtins.int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterShardArgs', 'ClusterShardArgsDict']]]] shards: Set of shards in this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
@@ -1275,6 +1309,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["num_shards"] = num_shards
         __props__.__dict__["parameter_group_name"] = parameter_group_name
         __props__.__dict__["port"] = port
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_group_ids"] = security_group_ids
         __props__.__dict__["shards"] = shards
         __props__.__dict__["snapshot_arns"] = snapshot_arns
@@ -1448,6 +1483,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "port")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
@@ -1521,7 +1564,6 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

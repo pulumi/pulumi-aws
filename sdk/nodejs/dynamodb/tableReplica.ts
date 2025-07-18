@@ -100,6 +100,10 @@ export class TableReplica extends pulumi.CustomResource {
      */
     public readonly pointInTimeRecovery!: pulumi.Output<boolean | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
      */
     public readonly tableClassOverride!: pulumi.Output<string | undefined>;
@@ -109,8 +113,6 @@ export class TableReplica extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -132,6 +134,7 @@ export class TableReplica extends pulumi.CustomResource {
             resourceInputs["globalTableArn"] = state ? state.globalTableArn : undefined;
             resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             resourceInputs["pointInTimeRecovery"] = state ? state.pointInTimeRecovery : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tableClassOverride"] = state ? state.tableClassOverride : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -144,6 +147,7 @@ export class TableReplica extends pulumi.CustomResource {
             resourceInputs["globalTableArn"] = args ? args.globalTableArn : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["pointInTimeRecovery"] = args ? args.pointInTimeRecovery : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tableClassOverride"] = args ? args.tableClassOverride : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -181,6 +185,10 @@ export interface TableReplicaState {
      */
     pointInTimeRecovery?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
      */
     tableClassOverride?: pulumi.Input<string>;
@@ -190,8 +198,6 @@ export interface TableReplicaState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -218,6 +224,10 @@ export interface TableReplicaArgs {
      * Whether to enable Point In Time Recovery for the table replica. Default is `false`.
      */
     pointInTimeRecovery?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
      */

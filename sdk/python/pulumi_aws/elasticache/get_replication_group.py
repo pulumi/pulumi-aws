@@ -28,7 +28,7 @@ class GetReplicationGroupResult:
     """
     A collection of values returned by getReplicationGroup.
     """
-    def __init__(__self__, arn=None, auth_token_enabled=None, automatic_failover_enabled=None, cluster_mode=None, configuration_endpoint_address=None, description=None, id=None, log_delivery_configurations=None, member_clusters=None, multi_az_enabled=None, node_type=None, num_cache_clusters=None, num_node_groups=None, port=None, primary_endpoint_address=None, reader_endpoint_address=None, replicas_per_node_group=None, replication_group_id=None, snapshot_retention_limit=None, snapshot_window=None):
+    def __init__(__self__, arn=None, auth_token_enabled=None, automatic_failover_enabled=None, cluster_mode=None, configuration_endpoint_address=None, description=None, id=None, log_delivery_configurations=None, member_clusters=None, multi_az_enabled=None, node_type=None, num_cache_clusters=None, num_node_groups=None, port=None, primary_endpoint_address=None, reader_endpoint_address=None, region=None, replicas_per_node_group=None, replication_group_id=None, snapshot_retention_limit=None, snapshot_window=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -77,6 +77,9 @@ class GetReplicationGroupResult:
         if reader_endpoint_address and not isinstance(reader_endpoint_address, str):
             raise TypeError("Expected argument 'reader_endpoint_address' to be a str")
         pulumi.set(__self__, "reader_endpoint_address", reader_endpoint_address)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if replicas_per_node_group and not isinstance(replicas_per_node_group, int):
             raise TypeError("Expected argument 'replicas_per_node_group' to be a int")
         pulumi.set(__self__, "replicas_per_node_group", replicas_per_node_group)
@@ -219,6 +222,11 @@ class GetReplicationGroupResult:
         return pulumi.get(self, "reader_endpoint_address")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="replicasPerNodeGroup")
     def replicas_per_node_group(self) -> builtins.int:
         """
@@ -270,13 +278,15 @@ class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
             port=self.port,
             primary_endpoint_address=self.primary_endpoint_address,
             reader_endpoint_address=self.reader_endpoint_address,
+            region=self.region,
             replicas_per_node_group=self.replicas_per_node_group,
             replication_group_id=self.replication_group_id,
             snapshot_retention_limit=self.snapshot_retention_limit,
             snapshot_window=self.snapshot_window)
 
 
-def get_replication_group(replication_group_id: Optional[builtins.str] = None,
+def get_replication_group(region: Optional[builtins.str] = None,
+                          replication_group_id: Optional[builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationGroupResult:
     """
     Use this data source to get information about an ElastiCache Replication Group.
@@ -291,9 +301,11 @@ def get_replication_group(replication_group_id: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str replication_group_id: Identifier for the replication group.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['replicationGroupId'] = replication_group_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:elasticache/getReplicationGroup:getReplicationGroup', __args__, opts=opts, typ=GetReplicationGroupResult).value
@@ -315,11 +327,13 @@ def get_replication_group(replication_group_id: Optional[builtins.str] = None,
         port=pulumi.get(__ret__, 'port'),
         primary_endpoint_address=pulumi.get(__ret__, 'primary_endpoint_address'),
         reader_endpoint_address=pulumi.get(__ret__, 'reader_endpoint_address'),
+        region=pulumi.get(__ret__, 'region'),
         replicas_per_node_group=pulumi.get(__ret__, 'replicas_per_node_group'),
         replication_group_id=pulumi.get(__ret__, 'replication_group_id'),
         snapshot_retention_limit=pulumi.get(__ret__, 'snapshot_retention_limit'),
         snapshot_window=pulumi.get(__ret__, 'snapshot_window'))
-def get_replication_group_output(replication_group_id: Optional[pulumi.Input[builtins.str]] = None,
+def get_replication_group_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                 replication_group_id: Optional[pulumi.Input[builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationGroupResult]:
     """
     Use this data source to get information about an ElastiCache Replication Group.
@@ -334,9 +348,11 @@ def get_replication_group_output(replication_group_id: Optional[pulumi.Input[bui
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str replication_group_id: Identifier for the replication group.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['replicationGroupId'] = replication_group_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:elasticache/getReplicationGroup:getReplicationGroup', __args__, opts=opts, typ=GetReplicationGroupResult)
@@ -357,6 +373,7 @@ def get_replication_group_output(replication_group_id: Optional[pulumi.Input[bui
         port=pulumi.get(__response__, 'port'),
         primary_endpoint_address=pulumi.get(__response__, 'primary_endpoint_address'),
         reader_endpoint_address=pulumi.get(__response__, 'reader_endpoint_address'),
+        region=pulumi.get(__response__, 'region'),
         replicas_per_node_group=pulumi.get(__response__, 'replicas_per_node_group'),
         replication_group_id=pulumi.get(__response__, 'replication_group_id'),
         snapshot_retention_limit=pulumi.get(__response__, 'snapshot_retention_limit'),

@@ -57,6 +57,12 @@ namespace Pulumi.Aws.ApiGateway
     public partial class Response : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Map of parameters (paths, query strings and headers) of the Gateway Response.
         /// </summary>
         [Output("responseParameters")]
@@ -132,6 +138,12 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class ResponseArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("responseParameters")]
         private InputMap<string>? _responseParameters;
 
@@ -182,6 +194,12 @@ namespace Pulumi.Aws.ApiGateway
 
     public sealed class ResponseState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("responseParameters")]
         private InputMap<string>? _responseParameters;
 

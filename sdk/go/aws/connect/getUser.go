@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,6 +84,8 @@ type LookupUserArgs struct {
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific User by name
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the User.
 	Tags map[string]string `pulumi:"tags"`
 	// Returns information on a specific User by User id
@@ -109,6 +111,7 @@ type LookupUserResult struct {
 	Name       string `pulumi:"name"`
 	// A block that contains information about the phone settings for the user. Documented below.
 	PhoneConfigs []GetUserPhoneConfig `pulumi:"phoneConfigs"`
+	Region       string               `pulumi:"region"`
 	// The identifier of the routing profile for the user.
 	RoutingProfileId string `pulumi:"routingProfileId"`
 	// A list of identifiers for the security profiles for the user.
@@ -133,6 +136,8 @@ type LookupUserOutputArgs struct {
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific User by name
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags to assign to the User.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Returns information on a specific User by User id
@@ -197,6 +202,10 @@ func (o LookupUserResultOutput) Name() pulumi.StringOutput {
 // A block that contains information about the phone settings for the user. Documented below.
 func (o LookupUserResultOutput) PhoneConfigs() GetUserPhoneConfigArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []GetUserPhoneConfig { return v.PhoneConfigs }).(GetUserPhoneConfigArrayOutput)
+}
+
+func (o LookupUserResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The identifier of the routing profile for the user.

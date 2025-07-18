@@ -12,7 +12,7 @@ namespace Pulumi.Aws.S3
     /// <summary>
     /// Provides an S3 bucket CORS configuration resource. For more information about CORS, go to [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) in the Amazon S3 User Guide.
     /// 
-    /// &gt; **NOTE:** S3 Buckets only support a single CORS configuration. Declaring multiple `aws.s3.BucketCorsConfigurationV2` resources to the same S3 Bucket will cause a perpetual difference in configuration.
+    /// &gt; **NOTE:** S3 Buckets only support a single CORS configuration. Declaring multiple `aws.s3.BucketCorsConfiguration` resources to the same S3 Bucket will cause a perpetual difference in configuration.
     /// 
     /// &gt; This resource cannot be used with S3 directory buckets.
     /// 
@@ -26,17 +26,17 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "mybucket",
+    ///         BucketName = "mybucket",
     ///     });
     /// 
-    ///     var exampleBucketCorsConfigurationV2 = new Aws.S3.BucketCorsConfigurationV2("example", new()
+    ///     var exampleBucketCorsConfiguration = new Aws.S3.BucketCorsConfiguration("example", new()
     ///     {
     ///         Bucket = example.Id,
     ///         CorsRules = new[]
     ///         {
-    ///             new Aws.S3.Inputs.BucketCorsConfigurationV2CorsRuleArgs
+    ///             new Aws.S3.Inputs.BucketCorsConfigurationCorsRuleArgs
     ///             {
     ///                 AllowedHeaders = new[]
     ///                 {
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.S3
     ///                 },
     ///                 MaxAgeSeconds = 3000,
     ///             },
-    ///             new Aws.S3.Inputs.BucketCorsConfigurationV2CorsRuleArgs
+    ///             new Aws.S3.Inputs.BucketCorsConfigurationCorsRuleArgs
     ///             {
     ///                 AllowedMethods = new[]
     ///                 {
@@ -91,6 +91,7 @@ namespace Pulumi.Aws.S3
     /// $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name,123456789012
     /// ```
     /// </summary>
+    [Obsolete(@"aws.s3/bucketcorsconfigurationv2.BucketCorsConfigurationV2 has been deprecated in favor of aws.s3/bucketcorsconfiguration.BucketCorsConfiguration")]
     [AwsResourceType("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2")]
     public partial class BucketCorsConfigurationV2 : global::Pulumi.CustomResource
     {
@@ -111,6 +112,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
 
         /// <summary>
@@ -135,6 +142,10 @@ namespace Pulumi.Aws.S3
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2" },
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -182,6 +193,12 @@ namespace Pulumi.Aws.S3
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public BucketCorsConfigurationV2Args()
         {
         }
@@ -213,6 +230,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public BucketCorsConfigurationV2State()
         {

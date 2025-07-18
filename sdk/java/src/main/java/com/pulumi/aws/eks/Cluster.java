@@ -509,12 +509,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> bootstrapSelfManagedAddons() {
         return Codegen.optional(this.bootstrapSelfManagedAddons);
     }
-    @Export(name="certificateAuthorities", refs={List.class,ClusterCertificateAuthority.class}, tree="[0,1]")
-    private Output<List<ClusterCertificateAuthority>> certificateAuthorities;
-
-    public Output<List<ClusterCertificateAuthority>> certificateAuthorities() {
-        return this.certificateAuthorities;
-    }
     /**
      * Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
      * 
@@ -570,12 +564,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> createdAt() {
         return this.createdAt;
-    }
-    @Export(name="defaultAddonsToRemoves", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> defaultAddonsToRemoves;
-
-    public Output<Optional<List<String>>> defaultAddonsToRemoves() {
-        return Codegen.optional(this.defaultAddonsToRemoves);
     }
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
@@ -704,6 +692,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.platformVersion;
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
      * 
      */
@@ -776,11 +778,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

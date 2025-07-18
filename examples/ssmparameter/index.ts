@@ -18,7 +18,17 @@ import * as aws from "@pulumi/aws";
 const config = new pulumi.Config("aws");
 const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
 
-const foo = new aws.ssm.Parameter("foo", {
-    type: aws.ssm.StringParameter,
+const stringParam = new aws.ssm.Parameter("foo", {
+    type: aws.ssm.ParameterType.String,
     value: "bar",
 }, providerOpts);
+
+const tierParam = new aws.ssm.Parameter("int", {
+    type: aws.ssm.ParameterType.String,
+    tier: 'Intelligent-Tiering',
+    value: "bar",
+}, providerOpts);
+
+export const tier = stringParam.tier;
+// intelligent-tiering should still output as "Standard"
+export const tier2 = tierParam.tier;

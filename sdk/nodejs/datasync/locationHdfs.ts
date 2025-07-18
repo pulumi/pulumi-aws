@@ -138,6 +138,10 @@ export class LocationHdfs extends pulumi.CustomResource {
      */
     public readonly qopConfiguration!: pulumi.Output<outputs.datasync.LocationHdfsQopConfiguration>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
      */
     public readonly replicationFactor!: pulumi.Output<number | undefined>;
@@ -155,8 +159,6 @@ export class LocationHdfs extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly uri!: pulumi.Output<string>;
@@ -186,6 +188,7 @@ export class LocationHdfs extends pulumi.CustomResource {
             resourceInputs["kmsKeyProviderUri"] = state ? state.kmsKeyProviderUri : undefined;
             resourceInputs["nameNodes"] = state ? state.nameNodes : undefined;
             resourceInputs["qopConfiguration"] = state ? state.qopConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicationFactor"] = state ? state.replicationFactor : undefined;
             resourceInputs["simpleUser"] = state ? state.simpleUser : undefined;
             resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
@@ -211,6 +214,7 @@ export class LocationHdfs extends pulumi.CustomResource {
             resourceInputs["kmsKeyProviderUri"] = args ? args.kmsKeyProviderUri : undefined;
             resourceInputs["nameNodes"] = args ? args.nameNodes : undefined;
             resourceInputs["qopConfiguration"] = args ? args.qopConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicationFactor"] = args ? args.replicationFactor : undefined;
             resourceInputs["simpleUser"] = args ? args.simpleUser : undefined;
             resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
@@ -277,6 +281,10 @@ export interface LocationHdfsState {
      */
     qopConfiguration?: pulumi.Input<inputs.datasync.LocationHdfsQopConfiguration>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
      */
     replicationFactor?: pulumi.Input<number>;
@@ -294,8 +302,6 @@ export interface LocationHdfsState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     uri?: pulumi.Input<string>;
@@ -349,6 +355,10 @@ export interface LocationHdfsArgs {
      * The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
      */
     qopConfiguration?: pulumi.Input<inputs.datasync.LocationHdfsQopConfiguration>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
      */

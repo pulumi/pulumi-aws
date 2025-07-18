@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *         taskCount: 1,
  *         taskDescription: "example",
  *         taskTitle: "example",
- *         workteamArn: `arn:aws:sagemaker:${current.name}:394669845002:workteam/public-crowd/default`,
+ *         workteamArn: `arn:aws:sagemaker:${current.region}:394669845002:workteam/public-crowd/default`,
  *         publicWorkforceTaskPrice: {
  *             amountInUsd: {
  *                 cents: 1,
@@ -166,6 +166,10 @@ export class FlowDefinition extends pulumi.CustomResource {
      */
     public readonly outputConfig!: pulumi.Output<outputs.sagemaker.FlowDefinitionOutputConfig>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -175,8 +179,6 @@ export class FlowDefinition extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -199,6 +201,7 @@ export class FlowDefinition extends pulumi.CustomResource {
             resourceInputs["humanLoopConfig"] = state ? state.humanLoopConfig : undefined;
             resourceInputs["humanLoopRequestSource"] = state ? state.humanLoopRequestSource : undefined;
             resourceInputs["outputConfig"] = state ? state.outputConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -221,6 +224,7 @@ export class FlowDefinition extends pulumi.CustomResource {
             resourceInputs["humanLoopConfig"] = args ? args.humanLoopConfig : undefined;
             resourceInputs["humanLoopRequestSource"] = args ? args.humanLoopRequestSource : undefined;
             resourceInputs["outputConfig"] = args ? args.outputConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -260,6 +264,10 @@ export interface FlowDefinitionState {
      */
     outputConfig?: pulumi.Input<inputs.sagemaker.FlowDefinitionOutputConfig>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
      */
     roleArn?: pulumi.Input<string>;
@@ -269,8 +277,6 @@ export interface FlowDefinitionState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -299,6 +305,10 @@ export interface FlowDefinitionArgs {
      * An object containing information about where the human review results will be uploaded. See Output Config details below.
      */
     outputConfig: pulumi.Input<inputs.sagemaker.FlowDefinitionOutputConfig>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
      */

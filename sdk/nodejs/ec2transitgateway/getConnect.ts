@@ -42,6 +42,7 @@ export function getConnect(args?: GetConnectArgs, opts?: pulumi.InvokeOptions): 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getConnect:getConnect", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
         "transitGatewayConnectId": args.transitGatewayConnectId,
     }, opts);
@@ -55,6 +56,10 @@ export interface GetConnectArgs {
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
     filters?: inputs.ec2transitgateway.GetConnectFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Key-value tags for the EC2 Transit Gateway Connect
      */
@@ -78,6 +83,7 @@ export interface GetConnectResult {
      * Tunnel protocol
      */
     readonly protocol: string;
+    readonly region: string;
     /**
      * Key-value tags for the EC2 Transit Gateway Connect
      */
@@ -127,6 +133,7 @@ export function getConnectOutput(args?: GetConnectOutputArgs, opts?: pulumi.Invo
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getConnect:getConnect", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
         "transitGatewayConnectId": args.transitGatewayConnectId,
     }, opts);
@@ -140,6 +147,10 @@ export interface GetConnectOutputArgs {
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetConnectFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway Connect
      */

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,6 +59,8 @@ type LookupDistributionArgs struct {
 type LookupDistributionResult struct {
 	// List that contains information about CNAMEs (alternate domain names), if any, for this distribution.
 	Aliases []string `pulumi:"aliases"`
+	// ID of the Anycast static IP list that is associated with the distribution, if any.
+	AnycastIpListId string `pulumi:"anycastIpListId"`
 	// ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
 	Arn string `pulumi:"arn"`
 	// Domain name corresponding to the distribution. For
@@ -126,6 +128,11 @@ func (o LookupDistributionResultOutput) ToLookupDistributionResultOutputWithCont
 // List that contains information about CNAMEs (alternate domain names), if any, for this distribution.
 func (o LookupDistributionResultOutput) Aliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDistributionResult) []string { return v.Aliases }).(pulumi.StringArrayOutput)
+}
+
+// ID of the Anycast static IP list that is associated with the distribution, if any.
+func (o LookupDistributionResultOutput) AnycastIpListId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDistributionResult) string { return v.AnycastIpListId }).(pulumi.StringOutput)
 }
 
 // ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.

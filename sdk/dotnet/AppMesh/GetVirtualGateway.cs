@@ -108,6 +108,12 @@ namespace Pulumi.Aws.AppMesh
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -139,6 +145,12 @@ namespace Pulumi.Aws.AppMesh
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -181,6 +193,7 @@ namespace Pulumi.Aws.AppMesh
         public readonly string MeshName;
         public readonly string MeshOwner;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Resource owner's AWS account ID.
         /// </summary>
@@ -210,6 +223,8 @@ namespace Pulumi.Aws.AppMesh
 
             string name,
 
+            string region,
+
             string resourceOwner,
 
             ImmutableArray<Outputs.GetVirtualGatewaySpecResult> specs,
@@ -223,6 +238,7 @@ namespace Pulumi.Aws.AppMesh
             MeshName = meshName;
             MeshOwner = meshOwner;
             Name = name;
+            Region = region;
             ResourceOwner = resourceOwner;
             Specs = specs;
             Tags = tags;

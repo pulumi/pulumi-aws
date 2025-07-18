@@ -114,6 +114,10 @@ export class IdentityPool extends pulumi.CustomResource {
      */
     public readonly openidConnectProviderArns!: pulumi.Output<string[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
      */
     public readonly samlProviderArns!: pulumi.Output<string[] | undefined>;
@@ -127,8 +131,6 @@ export class IdentityPool extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -152,6 +154,7 @@ export class IdentityPool extends pulumi.CustomResource {
             resourceInputs["developerProviderName"] = state ? state.developerProviderName : undefined;
             resourceInputs["identityPoolName"] = state ? state.identityPoolName : undefined;
             resourceInputs["openidConnectProviderArns"] = state ? state.openidConnectProviderArns : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["samlProviderArns"] = state ? state.samlProviderArns : undefined;
             resourceInputs["supportedLoginProviders"] = state ? state.supportedLoginProviders : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -167,6 +170,7 @@ export class IdentityPool extends pulumi.CustomResource {
             resourceInputs["developerProviderName"] = args ? args.developerProviderName : undefined;
             resourceInputs["identityPoolName"] = args ? args.identityPoolName : undefined;
             resourceInputs["openidConnectProviderArns"] = args ? args.openidConnectProviderArns : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["samlProviderArns"] = args ? args.samlProviderArns : undefined;
             resourceInputs["supportedLoginProviders"] = args ? args.supportedLoginProviders : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -212,6 +216,10 @@ export interface IdentityPoolState {
      */
     openidConnectProviderArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
      */
     samlProviderArns?: pulumi.Input<pulumi.Input<string>[]>;
@@ -225,8 +233,6 @@ export interface IdentityPoolState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -260,6 +266,10 @@ export interface IdentityPoolArgs {
      * Set of OpendID Connect provider ARNs.
      */
     openidConnectProviderArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
      */

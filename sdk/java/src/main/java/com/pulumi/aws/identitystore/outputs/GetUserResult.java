@@ -7,7 +7,6 @@ import com.pulumi.aws.identitystore.outputs.GetUserAddress;
 import com.pulumi.aws.identitystore.outputs.GetUserAlternateIdentifier;
 import com.pulumi.aws.identitystore.outputs.GetUserEmail;
 import com.pulumi.aws.identitystore.outputs.GetUserExternalId;
-import com.pulumi.aws.identitystore.outputs.GetUserFilter;
 import com.pulumi.aws.identitystore.outputs.GetUserName;
 import com.pulumi.aws.identitystore.outputs.GetUserPhoneNumber;
 import com.pulumi.core.annotations.CustomType;
@@ -41,13 +40,6 @@ public final class GetUserResult {
      * 
      */
     private List<GetUserExternalId> externalIds;
-    /**
-     * @deprecated
-     * filter is deprecated. Use alternate_identifier instead.
-     * 
-     */
-    @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
-    private @Nullable GetUserFilter filter;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -84,6 +76,11 @@ public final class GetUserResult {
      * 
      */
     private String profileUrl;
+    /**
+     * @return The region of the address.
+     * 
+     */
+    private String region;
     /**
      * @return The user&#39;s time zone.
      * 
@@ -139,15 +136,6 @@ public final class GetUserResult {
         return this.externalIds;
     }
     /**
-     * @deprecated
-     * filter is deprecated. Use alternate_identifier instead.
-     * 
-     */
-    @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
-    public Optional<GetUserFilter> filter() {
-        return Optional.ofNullable(this.filter);
-    }
-    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -200,6 +188,13 @@ public final class GetUserResult {
         return this.profileUrl;
     }
     /**
+     * @return The region of the address.
+     * 
+     */
+    public String region() {
+        return this.region;
+    }
+    /**
      * @return The user&#39;s time zone.
      * 
      */
@@ -245,7 +240,6 @@ public final class GetUserResult {
         private String displayName;
         private List<GetUserEmail> emails;
         private List<GetUserExternalId> externalIds;
-        private @Nullable GetUserFilter filter;
         private String id;
         private String identityStoreId;
         private String locale;
@@ -254,6 +248,7 @@ public final class GetUserResult {
         private List<GetUserPhoneNumber> phoneNumbers;
         private String preferredLanguage;
         private String profileUrl;
+        private String region;
         private String timezone;
         private String title;
         private String userId;
@@ -267,7 +262,6 @@ public final class GetUserResult {
     	      this.displayName = defaults.displayName;
     	      this.emails = defaults.emails;
     	      this.externalIds = defaults.externalIds;
-    	      this.filter = defaults.filter;
     	      this.id = defaults.id;
     	      this.identityStoreId = defaults.identityStoreId;
     	      this.locale = defaults.locale;
@@ -276,6 +270,7 @@ public final class GetUserResult {
     	      this.phoneNumbers = defaults.phoneNumbers;
     	      this.preferredLanguage = defaults.preferredLanguage;
     	      this.profileUrl = defaults.profileUrl;
+    	      this.region = defaults.region;
     	      this.timezone = defaults.timezone;
     	      this.title = defaults.title;
     	      this.userId = defaults.userId;
@@ -329,12 +324,6 @@ public final class GetUserResult {
         }
         public Builder externalIds(GetUserExternalId... externalIds) {
             return externalIds(List.of(externalIds));
-        }
-        @CustomType.Setter
-        public Builder filter(@Nullable GetUserFilter filter) {
-
-            this.filter = filter;
-            return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -407,6 +396,14 @@ public final class GetUserResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder timezone(String timezone) {
             if (timezone == null) {
               throw new MissingRequiredPropertyException("GetUserResult", "timezone");
@@ -453,7 +450,6 @@ public final class GetUserResult {
             _resultValue.displayName = displayName;
             _resultValue.emails = emails;
             _resultValue.externalIds = externalIds;
-            _resultValue.filter = filter;
             _resultValue.id = id;
             _resultValue.identityStoreId = identityStoreId;
             _resultValue.locale = locale;
@@ -462,6 +458,7 @@ public final class GetUserResult {
             _resultValue.phoneNumbers = phoneNumbers;
             _resultValue.preferredLanguage = preferredLanguage;
             _resultValue.profileUrl = profileUrl;
+            _resultValue.region = region;
             _resultValue.timezone = timezone;
             _resultValue.title = title;
             _resultValue.userId = userId;

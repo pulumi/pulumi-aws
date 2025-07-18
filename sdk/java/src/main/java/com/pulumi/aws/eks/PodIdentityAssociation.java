@@ -10,6 +10,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -149,6 +150,34 @@ public class PodIdentityAssociation extends com.pulumi.resources.CustomResource 
         return this.clusterName;
     }
     /**
+     * Disable the tags that are automatically added to role session by Amazon EKS.
+     * 
+     */
+    @Export(name="disableSessionTags", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> disableSessionTags;
+
+    /**
+     * @return Disable the tags that are automatically added to role session by Amazon EKS.
+     * 
+     */
+    public Output<Boolean> disableSessionTags() {
+        return this.disableSessionTags;
+    }
+    /**
+     * The unique identifier for this association for a target IAM role. You put this value in the trust policy of the target role, in a Condition to match the sts.ExternalId.
+     * 
+     */
+    @Export(name="externalId", refs={String.class}, tree="[0]")
+    private Output<String> externalId;
+
+    /**
+     * @return The unique identifier for this association for a target IAM role. You put this value in the trust policy of the target role, in a Condition to match the sts.ExternalId.
+     * 
+     */
+    public Output<String> externalId() {
+        return this.externalId;
+    }
+    /**
      * The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
      * 
      */
@@ -161,6 +190,20 @@ public class PodIdentityAssociation extends com.pulumi.resources.CustomResource 
      */
     public Output<String> namespace() {
         return this.namespace;
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
@@ -211,11 +254,7 @@ public class PodIdentityAssociation extends com.pulumi.resources.CustomResource 
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
@@ -225,6 +264,20 @@ public class PodIdentityAssociation extends com.pulumi.resources.CustomResource 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+     * 
+     */
+    @Export(name="targetRoleArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> targetRoleArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+     * 
+     */
+    public Output<Optional<String>> targetRoleArn() {
+        return Codegen.optional(this.targetRoleArn);
     }
 
     /**

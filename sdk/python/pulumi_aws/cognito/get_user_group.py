@@ -27,7 +27,7 @@ class GetUserGroupResult:
     """
     A collection of values returned by getUserGroup.
     """
-    def __init__(__self__, description=None, id=None, name=None, precedence=None, role_arn=None, user_pool_id=None):
+    def __init__(__self__, description=None, id=None, name=None, precedence=None, region=None, role_arn=None, user_pool_id=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -40,6 +40,9 @@ class GetUserGroupResult:
         if precedence and not isinstance(precedence, int):
             raise TypeError("Expected argument 'precedence' to be a int")
         pulumi.set(__self__, "precedence", precedence)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -77,6 +80,11 @@ class GetUserGroupResult:
         return pulumi.get(self, "precedence")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> builtins.str:
         """
@@ -100,11 +108,13 @@ class AwaitableGetUserGroupResult(GetUserGroupResult):
             id=self.id,
             name=self.name,
             precedence=self.precedence,
+            region=self.region,
             role_arn=self.role_arn,
             user_pool_id=self.user_pool_id)
 
 
 def get_user_group(name: Optional[builtins.str] = None,
+                   region: Optional[builtins.str] = None,
                    user_pool_id: Optional[builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserGroupResult:
     """
@@ -124,10 +134,12 @@ def get_user_group(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the user group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_pool_id: User pool the client belongs to.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['userPoolId'] = user_pool_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:cognito/getUserGroup:getUserGroup', __args__, opts=opts, typ=GetUserGroupResult).value
@@ -137,9 +149,11 @@ def get_user_group(name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         precedence=pulumi.get(__ret__, 'precedence'),
+        region=pulumi.get(__ret__, 'region'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         user_pool_id=pulumi.get(__ret__, 'user_pool_id'))
 def get_user_group_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           user_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserGroupResult]:
     """
@@ -159,10 +173,12 @@ def get_user_group_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the user group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_pool_id: User pool the client belongs to.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['userPoolId'] = user_pool_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cognito/getUserGroup:getUserGroup', __args__, opts=opts, typ=GetUserGroupResult)
@@ -171,5 +187,6 @@ def get_user_group_output(name: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         precedence=pulumi.get(__response__, 'precedence'),
+        region=pulumi.get(__response__, 'region'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         user_pool_id=pulumi.get(__response__, 'user_pool_id')))

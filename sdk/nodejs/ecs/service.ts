@@ -158,6 +158,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly alarms!: pulumi.Output<outputs.ecs.ServiceAlarms | undefined>;
     /**
+     * ARN that identifies the service.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
      */
     public readonly availabilityZoneRebalancing!: pulumi.Output<string | undefined>;
@@ -249,6 +253,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly propagateTags!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
      */
     public readonly schedulingStrategy!: pulumi.Output<string | undefined>;
@@ -266,8 +274,6 @@ export class Service extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -305,6 +311,7 @@ export class Service extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
             resourceInputs["alarms"] = state ? state.alarms : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["availabilityZoneRebalancing"] = state ? state.availabilityZoneRebalancing : undefined;
             resourceInputs["capacityProviderStrategies"] = state ? state.capacityProviderStrategies : undefined;
             resourceInputs["cluster"] = state ? state.cluster : undefined;
@@ -327,6 +334,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["placementConstraints"] = state ? state.placementConstraints : undefined;
             resourceInputs["platformVersion"] = state ? state.platformVersion : undefined;
             resourceInputs["propagateTags"] = state ? state.propagateTags : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["schedulingStrategy"] = state ? state.schedulingStrategy : undefined;
             resourceInputs["serviceConnectConfiguration"] = state ? state.serviceConnectConfiguration : undefined;
             resourceInputs["serviceRegistries"] = state ? state.serviceRegistries : undefined;
@@ -362,6 +370,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["placementConstraints"] = args ? args.placementConstraints : undefined;
             resourceInputs["platformVersion"] = args ? args.platformVersion : undefined;
             resourceInputs["propagateTags"] = args ? args.propagateTags : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["schedulingStrategy"] = args ? args.schedulingStrategy : undefined;
             resourceInputs["serviceConnectConfiguration"] = args ? args.serviceConnectConfiguration : undefined;
             resourceInputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
@@ -371,6 +380,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["volumeConfiguration"] = args ? args.volumeConfiguration : undefined;
             resourceInputs["vpcLatticeConfigurations"] = args ? args.vpcLatticeConfigurations : undefined;
             resourceInputs["waitForSteadyState"] = args ? args.waitForSteadyState : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -386,6 +396,10 @@ export interface ServiceState {
      * Information about the CloudWatch alarms. See below.
      */
     alarms?: pulumi.Input<inputs.ecs.ServiceAlarms>;
+    /**
+     * ARN that identifies the service.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
      */
@@ -478,6 +492,10 @@ export interface ServiceState {
      */
     propagateTags?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
      */
     schedulingStrategy?: pulumi.Input<string>;
@@ -495,8 +513,6 @@ export interface ServiceState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -620,6 +636,10 @@ export interface ServiceArgs {
      * Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
      */
     propagateTags?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
      */

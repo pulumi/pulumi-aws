@@ -18,16 +18,16 @@ import * as utilities from "../utilities";
  *
  * const code = new aws.codecommit.Repository("code", {repositoryName: "example-code-repo"});
  * const notif = new aws.sns.Topic("notif", {name: "notification"});
- * const notifAccess = notif.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
+ * const notifAccess = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: ["sns:Publish"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["codestar-notifications.amazonaws.com"],
  *         }],
- *         resources: [arn],
+ *         resources: [notif.arn],
  *     }],
- * }));
+ * });
  * const _default = new aws.sns.TopicPolicy("default", {
  *     arn: notif.arn,
  *     policy: notifAccess.apply(notifAccess => notifAccess.json),
@@ -97,6 +97,10 @@ export class NotificationRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the resource to associate with the notification rule.
      */
     public readonly resource!: pulumi.Output<string>;
@@ -110,8 +114,6 @@ export class NotificationRule extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -136,6 +138,7 @@ export class NotificationRule extends pulumi.CustomResource {
             resourceInputs["detailType"] = state ? state.detailType : undefined;
             resourceInputs["eventTypeIds"] = state ? state.eventTypeIds : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resource"] = state ? state.resource : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -155,6 +158,7 @@ export class NotificationRule extends pulumi.CustomResource {
             resourceInputs["detailType"] = args ? args.detailType : undefined;
             resourceInputs["eventTypeIds"] = args ? args.eventTypeIds : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resource"] = args ? args.resource : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -189,6 +193,10 @@ export interface NotificationRuleState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ARN of the resource to associate with the notification rule.
      */
     resource?: pulumi.Input<string>;
@@ -202,8 +210,6 @@ export interface NotificationRuleState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -229,6 +235,10 @@ export interface NotificationRuleArgs {
      * The name of notification rule.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the resource to associate with the notification rule.
      */

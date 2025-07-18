@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lex"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,6 +53,8 @@ func LookupIntent(ctx *pulumi.Context, args *LookupIntentArgs, opts ...pulumi.In
 type LookupIntentArgs struct {
 	// Name of the intent. The name is case sensitive.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Version of the intent.
 	Version *string `pulumi:"version"`
 }
@@ -79,6 +81,7 @@ type LookupIntentResult struct {
 	// [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
 	// in the Alexa Skills Kit.
 	ParentIntentSignature string `pulumi:"parentIntentSignature"`
+	Region                string `pulumi:"region"`
 	// Version of the bot.
 	Version *string `pulumi:"version"`
 }
@@ -96,6 +99,8 @@ func LookupIntentOutput(ctx *pulumi.Context, args LookupIntentOutputArgs, opts .
 type LookupIntentOutputArgs struct {
 	// Name of the intent. The name is case sensitive.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Version of the intent.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
@@ -161,6 +166,10 @@ func (o LookupIntentResultOutput) Name() pulumi.StringOutput {
 // in the Alexa Skills Kit.
 func (o LookupIntentResultOutput) ParentIntentSignature() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupIntentResult) string { return v.ParentIntentSignature }).(pulumi.StringOutput)
+}
+
+func (o LookupIntentResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupIntentResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Version of the bot.

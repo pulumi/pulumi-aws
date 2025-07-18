@@ -24,7 +24,8 @@ class AssessmentDelegationArgs:
                  control_set_id: pulumi.Input[builtins.str],
                  role_arn: pulumi.Input[builtins.str],
                  role_type: pulumi.Input[builtins.str],
-                 comment: Optional[pulumi.Input[builtins.str]] = None):
+                 comment: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a AssessmentDelegation resource.
         :param pulumi.Input[builtins.str] assessment_id: Identifier for the assessment.
@@ -34,6 +35,7 @@ class AssessmentDelegationArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] comment: Comment describing the delegation request.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "assessment_id", assessment_id)
         pulumi.set(__self__, "control_set_id", control_set_id)
@@ -41,6 +43,8 @@ class AssessmentDelegationArgs:
         pulumi.set(__self__, "role_type", role_type)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="assessmentId")
@@ -104,6 +108,18 @@ class AssessmentDelegationArgs:
     def comment(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "comment", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _AssessmentDelegationState:
@@ -112,6 +128,7 @@ class _AssessmentDelegationState:
                  comment: Optional[pulumi.Input[builtins.str]] = None,
                  control_set_id: Optional[pulumi.Input[builtins.str]] = None,
                  delegation_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  role_type: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None):
@@ -121,6 +138,7 @@ class _AssessmentDelegationState:
         :param pulumi.Input[builtins.str] comment: Comment describing the delegation request.
         :param pulumi.Input[builtins.str] control_set_id: Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
         :param pulumi.Input[builtins.str] delegation_id: Unique identifier for the delegation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM role.
         :param pulumi.Input[builtins.str] role_type: Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
                
@@ -135,6 +153,8 @@ class _AssessmentDelegationState:
             pulumi.set(__self__, "control_set_id", control_set_id)
         if delegation_id is not None:
             pulumi.set(__self__, "delegation_id", delegation_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if role_type is not None:
@@ -191,6 +211,18 @@ class _AssessmentDelegationState:
         pulumi.set(self, "delegation_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -238,6 +270,7 @@ class AssessmentDelegation(pulumi.CustomResource):
                  assessment_id: Optional[pulumi.Input[builtins.str]] = None,
                  comment: Optional[pulumi.Input[builtins.str]] = None,
                  control_set_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  role_type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -272,6 +305,7 @@ class AssessmentDelegation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] assessment_id: Identifier for the assessment.
         :param pulumi.Input[builtins.str] comment: Comment describing the delegation request.
         :param pulumi.Input[builtins.str] control_set_id: Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM role.
         :param pulumi.Input[builtins.str] role_type: Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
                
@@ -327,6 +361,7 @@ class AssessmentDelegation(pulumi.CustomResource):
                  assessment_id: Optional[pulumi.Input[builtins.str]] = None,
                  comment: Optional[pulumi.Input[builtins.str]] = None,
                  control_set_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  role_type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -345,6 +380,7 @@ class AssessmentDelegation(pulumi.CustomResource):
             if control_set_id is None and not opts.urn:
                 raise TypeError("Missing required property 'control_set_id'")
             __props__.__dict__["control_set_id"] = control_set_id
+            __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -367,6 +403,7 @@ class AssessmentDelegation(pulumi.CustomResource):
             comment: Optional[pulumi.Input[builtins.str]] = None,
             control_set_id: Optional[pulumi.Input[builtins.str]] = None,
             delegation_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             role_type: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None) -> 'AssessmentDelegation':
@@ -381,6 +418,7 @@ class AssessmentDelegation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] comment: Comment describing the delegation request.
         :param pulumi.Input[builtins.str] control_set_id: Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
         :param pulumi.Input[builtins.str] delegation_id: Unique identifier for the delegation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM role.
         :param pulumi.Input[builtins.str] role_type: Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
                
@@ -395,6 +433,7 @@ class AssessmentDelegation(pulumi.CustomResource):
         __props__.__dict__["comment"] = comment
         __props__.__dict__["control_set_id"] = control_set_id
         __props__.__dict__["delegation_id"] = delegation_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["role_type"] = role_type
         __props__.__dict__["status"] = status
@@ -431,6 +470,14 @@ class AssessmentDelegation(pulumi.CustomResource):
         Unique identifier for the delegation.
         """
         return pulumi.get(self, "delegation_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")

@@ -151,6 +151,10 @@ export class Route extends pulumi.CustomResource {
      */
     public /*out*/ readonly origin!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the routing table.
      *
      * One of the following destination arguments must be supplied:
@@ -201,6 +205,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["natGatewayId"] = state ? state.natGatewayId : undefined;
             resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             resourceInputs["origin"] = state ? state.origin : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routeTableId"] = state ? state.routeTableId : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
@@ -221,6 +226,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["localGatewayId"] = args ? args.localGatewayId : undefined;
             resourceInputs["natGatewayId"] = args ? args.natGatewayId : undefined;
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
@@ -294,6 +300,10 @@ export interface RouteState {
      */
     origin?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the routing table.
      *
      * One of the following destination arguments must be supplied:
@@ -365,6 +375,10 @@ export interface RouteArgs {
      * Identifier of an EC2 network interface.
      */
     networkInterfaceId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the routing table.
      *

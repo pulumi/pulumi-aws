@@ -64,6 +64,7 @@ public final class GetNetworkInsightsPathResult {
      * 
      */
     private String protocol;
+    private String region;
     /**
      * @return AWS resource that is the source of the path.
      * 
@@ -155,6 +156,9 @@ public final class GetNetworkInsightsPathResult {
     public String protocol() {
         return this.protocol;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return AWS resource that is the source of the path.
      * 
@@ -204,6 +208,7 @@ public final class GetNetworkInsightsPathResult {
         private String id;
         private String networkInsightsPathId;
         private String protocol;
+        private String region;
         private String source;
         private String sourceArn;
         private String sourceIp;
@@ -222,6 +227,7 @@ public final class GetNetworkInsightsPathResult {
     	      this.id = defaults.id;
     	      this.networkInsightsPathId = defaults.networkInsightsPathId;
     	      this.protocol = defaults.protocol;
+    	      this.region = defaults.region;
     	      this.source = defaults.source;
     	      this.sourceArn = defaults.sourceArn;
     	      this.sourceIp = defaults.sourceIp;
@@ -324,6 +330,14 @@ public final class GetNetworkInsightsPathResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetNetworkInsightsPathResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder source(String source) {
             if (source == null) {
               throw new MissingRequiredPropertyException("GetNetworkInsightsPathResult", "source");
@@ -368,6 +382,7 @@ public final class GetNetworkInsightsPathResult {
             _resultValue.id = id;
             _resultValue.networkInsightsPathId = networkInsightsPathId;
             _resultValue.protocol = protocol;
+            _resultValue.region = region;
             _resultValue.source = source;
             _resultValue.sourceArn = sourceArn;
             _resultValue.sourceIp = sourceIp;

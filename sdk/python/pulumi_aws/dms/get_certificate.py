@@ -27,7 +27,7 @@ class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
     """
-    def __init__(__self__, certificate_arn=None, certificate_creation_date=None, certificate_id=None, certificate_owner=None, certificate_pem=None, certificate_wallet=None, id=None, key_length=None, signing_algorithm=None, tags=None, valid_from_date=None, valid_to_date=None):
+    def __init__(__self__, certificate_arn=None, certificate_creation_date=None, certificate_id=None, certificate_owner=None, certificate_pem=None, certificate_wallet=None, id=None, key_length=None, region=None, signing_algorithm=None, tags=None, valid_from_date=None, valid_to_date=None):
         if certificate_arn and not isinstance(certificate_arn, str):
             raise TypeError("Expected argument 'certificate_arn' to be a str")
         pulumi.set(__self__, "certificate_arn", certificate_arn)
@@ -52,6 +52,9 @@ class GetCertificateResult:
         if key_length and not isinstance(key_length, int):
             raise TypeError("Expected argument 'key_length' to be a int")
         pulumi.set(__self__, "key_length", key_length)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if signing_algorithm and not isinstance(signing_algorithm, str):
             raise TypeError("Expected argument 'signing_algorithm' to be a str")
         pulumi.set(__self__, "signing_algorithm", signing_algorithm)
@@ -127,6 +130,11 @@ class GetCertificateResult:
         return pulumi.get(self, "key_length")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="signingAlgorithm")
     def signing_algorithm(self) -> builtins.str:
         """
@@ -170,6 +178,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             certificate_wallet=self.certificate_wallet,
             id=self.id,
             key_length=self.key_length,
+            region=self.region,
             signing_algorithm=self.signing_algorithm,
             tags=self.tags,
             valid_from_date=self.valid_from_date,
@@ -177,6 +186,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
 
 
 def get_certificate(certificate_id: Optional[builtins.str] = None,
+                    region: Optional[builtins.str] = None,
                     tags: Optional[Mapping[str, builtins.str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
@@ -195,9 +205,11 @@ def get_certificate(certificate_id: Optional[builtins.str] = None,
 
 
     :param builtins.str certificate_id: A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['certificateId'] = certificate_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:dms/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
@@ -211,11 +223,13 @@ def get_certificate(certificate_id: Optional[builtins.str] = None,
         certificate_wallet=pulumi.get(__ret__, 'certificate_wallet'),
         id=pulumi.get(__ret__, 'id'),
         key_length=pulumi.get(__ret__, 'key_length'),
+        region=pulumi.get(__ret__, 'region'),
         signing_algorithm=pulumi.get(__ret__, 'signing_algorithm'),
         tags=pulumi.get(__ret__, 'tags'),
         valid_from_date=pulumi.get(__ret__, 'valid_from_date'),
         valid_to_date=pulumi.get(__ret__, 'valid_to_date'))
 def get_certificate_output(certificate_id: Optional[pulumi.Input[builtins.str]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
@@ -234,9 +248,11 @@ def get_certificate_output(certificate_id: Optional[pulumi.Input[builtins.str]] 
 
 
     :param builtins.str certificate_id: A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['certificateId'] = certificate_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:dms/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
@@ -249,6 +265,7 @@ def get_certificate_output(certificate_id: Optional[pulumi.Input[builtins.str]] 
         certificate_wallet=pulumi.get(__response__, 'certificate_wallet'),
         id=pulumi.get(__response__, 'id'),
         key_length=pulumi.get(__response__, 'key_length'),
+        region=pulumi.get(__response__, 'region'),
         signing_algorithm=pulumi.get(__response__, 'signing_algorithm'),
         tags=pulumi.get(__response__, 'tags'),
         valid_from_date=pulumi.get(__response__, 'valid_from_date'),

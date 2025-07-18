@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/bedrock"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,7 +68,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/bedrock"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -143,6 +143,8 @@ type AgentKnowledgeBase struct {
 	KnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationPtrOutput `pulumi:"knowledgeBaseConfiguration"`
 	// Name of the knowledge base.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
@@ -152,8 +154,6 @@ type AgentKnowledgeBase struct {
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput              `pulumi:"tagsAll"`
 	Timeouts AgentKnowledgeBaseTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Time at which the knowledge base was last updated.
@@ -204,6 +204,8 @@ type agentKnowledgeBaseState struct {
 	KnowledgeBaseConfiguration *AgentKnowledgeBaseKnowledgeBaseConfiguration `pulumi:"knowledgeBaseConfiguration"`
 	// Name of the knowledge base.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
 	RoleArn *string `pulumi:"roleArn"`
 	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
@@ -213,8 +215,6 @@ type agentKnowledgeBaseState struct {
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string           `pulumi:"tagsAll"`
 	Timeouts *AgentKnowledgeBaseTimeouts `pulumi:"timeouts"`
 	// Time at which the knowledge base was last updated.
@@ -233,6 +233,8 @@ type AgentKnowledgeBaseState struct {
 	KnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationPtrInput
 	// Name of the knowledge base.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
 	RoleArn pulumi.StringPtrInput
 	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
@@ -242,8 +244,6 @@ type AgentKnowledgeBaseState struct {
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts AgentKnowledgeBaseTimeoutsPtrInput
 	// Time at which the knowledge base was last updated.
@@ -261,6 +261,8 @@ type agentKnowledgeBaseArgs struct {
 	KnowledgeBaseConfiguration *AgentKnowledgeBaseKnowledgeBaseConfiguration `pulumi:"knowledgeBaseConfiguration"`
 	// Name of the knowledge base.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
 	RoleArn string `pulumi:"roleArn"`
 	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
@@ -280,6 +282,8 @@ type AgentKnowledgeBaseArgs struct {
 	KnowledgeBaseConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationPtrInput
 	// Name of the knowledge base.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the IAM role with permissions to invoke API operations on the knowledge base.
 	RoleArn pulumi.StringInput
 	// Details about the storage configuration of the knowledge base. See `storageConfiguration` block for details.
@@ -409,6 +413,11 @@ func (o AgentKnowledgeBaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AgentKnowledgeBaseOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentKnowledgeBase) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // ARN of the IAM role with permissions to invoke API operations on the knowledge base.
 func (o AgentKnowledgeBaseOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBase) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
@@ -429,8 +438,6 @@ func (o AgentKnowledgeBaseOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o AgentKnowledgeBaseOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentKnowledgeBase) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

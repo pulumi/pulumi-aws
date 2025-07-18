@@ -63,6 +63,12 @@ namespace Pulumi.Aws.LightSail
         public Output<string> BucketName { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the resource to grant bucket access.
         /// </summary>
         [Output("resourceName")]
@@ -121,6 +127,12 @@ namespace Pulumi.Aws.LightSail
         public Input<string> BucketName { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Name of the resource to grant bucket access.
         /// </summary>
         [Input("resourceName", required: true)]
@@ -139,6 +151,12 @@ namespace Pulumi.Aws.LightSail
         /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Name of the resource to grant bucket access.

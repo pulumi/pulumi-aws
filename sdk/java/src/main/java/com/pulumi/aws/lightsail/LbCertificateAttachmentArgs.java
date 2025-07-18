@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class LbCertificateAttachmentArgs extends com.pulumi.resources.ResourceArgs {
@@ -32,6 +34,8 @@ public final class LbCertificateAttachmentArgs extends com.pulumi.resources.Reso
     /**
      * Name of the load balancer to which you want to associate the SSL/TLS certificate.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="lbName", required=true)
     private Output<String> lbName;
@@ -39,9 +43,26 @@ public final class LbCertificateAttachmentArgs extends com.pulumi.resources.Reso
     /**
      * @return Name of the load balancer to which you want to associate the SSL/TLS certificate.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> lbName() {
         return this.lbName;
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private LbCertificateAttachmentArgs() {}
@@ -49,6 +70,7 @@ public final class LbCertificateAttachmentArgs extends com.pulumi.resources.Reso
     private LbCertificateAttachmentArgs(LbCertificateAttachmentArgs $) {
         this.certificateName = $.certificateName;
         this.lbName = $.lbName;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -93,6 +115,8 @@ public final class LbCertificateAttachmentArgs extends com.pulumi.resources.Reso
         /**
          * @param lbName Name of the load balancer to which you want to associate the SSL/TLS certificate.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -104,11 +128,34 @@ public final class LbCertificateAttachmentArgs extends com.pulumi.resources.Reso
         /**
          * @param lbName Name of the load balancer to which you want to associate the SSL/TLS certificate.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
         public Builder lbName(String lbName) {
             return lbName(Output.of(lbName));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public LbCertificateAttachmentArgs build() {

@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetCodeSigningConfigPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -16,6 +18,8 @@ public final class GetCodeSigningConfigPlainArgs extends com.pulumi.resources.In
     /**
      * ARN of the code signing configuration.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="arn", required=true)
     private String arn;
@@ -23,15 +27,33 @@ public final class GetCodeSigningConfigPlainArgs extends com.pulumi.resources.In
     /**
      * @return ARN of the code signing configuration.
      * 
+     * The following arguments are optional:
+     * 
      */
     public String arn() {
         return this.arn;
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetCodeSigningConfigPlainArgs() {}
 
     private GetCodeSigningConfigPlainArgs(GetCodeSigningConfigPlainArgs $) {
         this.arn = $.arn;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -55,11 +77,24 @@ public final class GetCodeSigningConfigPlainArgs extends com.pulumi.resources.In
         /**
          * @param arn ARN of the code signing configuration.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
         public Builder arn(String arn) {
             $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

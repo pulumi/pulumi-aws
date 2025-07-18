@@ -160,6 +160,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> PolicyType { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Currently defaults to and only accepts the value: `ALL`.
         /// </summary>
         [Output("scope")]
@@ -236,6 +242,12 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string> PolicyType { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Currently defaults to and only accepts the value: `ALL`.
         /// </summary>
         [Input("scope")]
@@ -272,6 +284,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Currently defaults to and only accepts the value: `ALL`.

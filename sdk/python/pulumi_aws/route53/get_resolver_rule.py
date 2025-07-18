@@ -27,7 +27,7 @@ class GetResolverRuleResult:
     """
     A collection of values returned by getResolverRule.
     """
-    def __init__(__self__, arn=None, domain_name=None, id=None, name=None, owner_id=None, resolver_endpoint_id=None, resolver_rule_id=None, rule_type=None, share_status=None, tags=None):
+    def __init__(__self__, arn=None, domain_name=None, id=None, name=None, owner_id=None, region=None, resolver_endpoint_id=None, resolver_rule_id=None, rule_type=None, share_status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -43,6 +43,9 @@ class GetResolverRuleResult:
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if resolver_endpoint_id and not isinstance(resolver_endpoint_id, str):
             raise TypeError("Expected argument 'resolver_endpoint_id' to be a str")
         pulumi.set(__self__, "resolver_endpoint_id", resolver_endpoint_id)
@@ -94,6 +97,11 @@ class GetResolverRuleResult:
         return pulumi.get(self, "owner_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resolverEndpointId")
     def resolver_endpoint_id(self) -> builtins.str:
         return pulumi.get(self, "resolver_endpoint_id")
@@ -137,6 +145,7 @@ class AwaitableGetResolverRuleResult(GetResolverRuleResult):
             id=self.id,
             name=self.name,
             owner_id=self.owner_id,
+            region=self.region,
             resolver_endpoint_id=self.resolver_endpoint_id,
             resolver_rule_id=self.resolver_rule_id,
             rule_type=self.rule_type,
@@ -146,6 +155,7 @@ class AwaitableGetResolverRuleResult(GetResolverRuleResult):
 
 def get_resolver_rule(domain_name: Optional[builtins.str] = None,
                       name: Optional[builtins.str] = None,
+                      region: Optional[builtins.str] = None,
                       resolver_endpoint_id: Optional[builtins.str] = None,
                       resolver_rule_id: Optional[builtins.str] = None,
                       rule_type: Optional[builtins.str] = None,
@@ -169,6 +179,7 @@ def get_resolver_rule(domain_name: Optional[builtins.str] = None,
 
     :param builtins.str domain_name: Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
     :param builtins.str name: Friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resolver_endpoint_id: ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
     :param builtins.str resolver_rule_id: ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
     :param builtins.str rule_type: Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
@@ -177,6 +188,7 @@ def get_resolver_rule(domain_name: Optional[builtins.str] = None,
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['name'] = name
+    __args__['region'] = region
     __args__['resolverEndpointId'] = resolver_endpoint_id
     __args__['resolverRuleId'] = resolver_rule_id
     __args__['ruleType'] = rule_type
@@ -190,6 +202,7 @@ def get_resolver_rule(domain_name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
+        region=pulumi.get(__ret__, 'region'),
         resolver_endpoint_id=pulumi.get(__ret__, 'resolver_endpoint_id'),
         resolver_rule_id=pulumi.get(__ret__, 'resolver_rule_id'),
         rule_type=pulumi.get(__ret__, 'rule_type'),
@@ -197,6 +210,7 @@ def get_resolver_rule(domain_name: Optional[builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_resolver_rule_output(domain_name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              resolver_endpoint_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              resolver_rule_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              rule_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -220,6 +234,7 @@ def get_resolver_rule_output(domain_name: Optional[pulumi.Input[Optional[builtin
 
     :param builtins.str domain_name: Domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
     :param builtins.str name: Friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resolver_endpoint_id: ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
     :param builtins.str resolver_rule_id: ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
     :param builtins.str rule_type: Rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
@@ -228,6 +243,7 @@ def get_resolver_rule_output(domain_name: Optional[pulumi.Input[Optional[builtin
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['name'] = name
+    __args__['region'] = region
     __args__['resolverEndpointId'] = resolver_endpoint_id
     __args__['resolverRuleId'] = resolver_rule_id
     __args__['ruleType'] = rule_type
@@ -240,6 +256,7 @@ def get_resolver_rule_output(domain_name: Optional[pulumi.Input[Optional[builtin
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         owner_id=pulumi.get(__response__, 'owner_id'),
+        region=pulumi.get(__response__, 'region'),
         resolver_endpoint_id=pulumi.get(__response__, 'resolver_endpoint_id'),
         resolver_rule_id=pulumi.get(__response__, 'resolver_rule_id'),
         rule_type=pulumi.get(__response__, 'rule_type'),

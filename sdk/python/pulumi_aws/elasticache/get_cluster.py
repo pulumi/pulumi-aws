@@ -28,7 +28,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, availability_zone=None, cache_nodes=None, cluster_address=None, cluster_id=None, configuration_endpoint=None, engine=None, engine_version=None, id=None, ip_discovery=None, log_delivery_configurations=None, maintenance_window=None, network_type=None, node_type=None, notification_topic_arn=None, num_cache_nodes=None, parameter_group_name=None, port=None, preferred_outpost_arn=None, replication_group_id=None, security_group_ids=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None):
+    def __init__(__self__, arn=None, availability_zone=None, cache_nodes=None, cluster_address=None, cluster_id=None, configuration_endpoint=None, engine=None, engine_version=None, id=None, ip_discovery=None, log_delivery_configurations=None, maintenance_window=None, network_type=None, node_type=None, notification_topic_arn=None, num_cache_nodes=None, parameter_group_name=None, port=None, preferred_outpost_arn=None, region=None, replication_group_id=None, security_group_ids=None, snapshot_retention_limit=None, snapshot_window=None, subnet_group_name=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -86,6 +86,9 @@ class GetClusterResult:
         if preferred_outpost_arn and not isinstance(preferred_outpost_arn, str):
             raise TypeError("Expected argument 'preferred_outpost_arn' to be a str")
         pulumi.set(__self__, "preferred_outpost_arn", preferred_outpost_arn)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if replication_group_id and not isinstance(replication_group_id, str):
             raise TypeError("Expected argument 'replication_group_id' to be a str")
         pulumi.set(__self__, "replication_group_id", replication_group_id)
@@ -256,6 +259,11 @@ class GetClusterResult:
         return pulumi.get(self, "preferred_outpost_arn")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="replicationGroupId")
     def replication_group_id(self) -> builtins.str:
         """
@@ -331,6 +339,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             parameter_group_name=self.parameter_group_name,
             port=self.port,
             preferred_outpost_arn=self.preferred_outpost_arn,
+            region=self.region,
             replication_group_id=self.replication_group_id,
             security_group_ids=self.security_group_ids,
             snapshot_retention_limit=self.snapshot_retention_limit,
@@ -340,6 +349,7 @@ class AwaitableGetClusterResult(GetClusterResult):
 
 
 def get_cluster(cluster_id: Optional[builtins.str] = None,
+                region: Optional[builtins.str] = None,
                 tags: Optional[Mapping[str, builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
@@ -356,10 +366,12 @@ def get_cluster(cluster_id: Optional[builtins.str] = None,
 
 
     :param builtins.str cluster_id: Group identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags assigned to the resource
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:elasticache/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
@@ -384,6 +396,7 @@ def get_cluster(cluster_id: Optional[builtins.str] = None,
         parameter_group_name=pulumi.get(__ret__, 'parameter_group_name'),
         port=pulumi.get(__ret__, 'port'),
         preferred_outpost_arn=pulumi.get(__ret__, 'preferred_outpost_arn'),
+        region=pulumi.get(__ret__, 'region'),
         replication_group_id=pulumi.get(__ret__, 'replication_group_id'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         snapshot_retention_limit=pulumi.get(__ret__, 'snapshot_retention_limit'),
@@ -391,6 +404,7 @@ def get_cluster(cluster_id: Optional[builtins.str] = None,
         subnet_group_name=pulumi.get(__ret__, 'subnet_group_name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_cluster_output(cluster_id: Optional[pulumi.Input[builtins.str]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
@@ -407,10 +421,12 @@ def get_cluster_output(cluster_id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str cluster_id: Group identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags assigned to the resource
     """
     __args__ = dict()
     __args__['clusterId'] = cluster_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:elasticache/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult)
@@ -434,6 +450,7 @@ def get_cluster_output(cluster_id: Optional[pulumi.Input[builtins.str]] = None,
         parameter_group_name=pulumi.get(__response__, 'parameter_group_name'),
         port=pulumi.get(__response__, 'port'),
         preferred_outpost_arn=pulumi.get(__response__, 'preferred_outpost_arn'),
+        region=pulumi.get(__response__, 'region'),
         replication_group_id=pulumi.get(__response__, 'replication_group_id'),
         security_group_ids=pulumi.get(__response__, 'security_group_ids'),
         snapshot_retention_limit=pulumi.get(__response__, 'snapshot_retention_limit'),

@@ -11,10 +11,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -102,10 +100,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For example:
+ * Using `pulumi import`, import API Gateway Accounts using the account ID. For example:
  * 
  * ```sh
- * $ pulumi import aws:apigateway/account:Account demo api-gateway-account
+ * $ pulumi import aws:apigateway/account:Account demo 123456789012
  * ```
  * 
  */
@@ -154,26 +152,18 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.features;
     }
     /**
-     * If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-     * Defaults to `false`.
-     * Will be removed in a future major version of the provider.
-     * 
-     * @deprecated
-     * The &#34;reset_on_delete&#34; attribute will be removed in a future version of the provider
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    @Deprecated /* The ""reset_on_delete"" attribute will be removed in a future version of the provider */
-    @Export(name="resetOnDelete", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> resetOnDelete;
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
 
     /**
-     * @return If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-     * Defaults to `false`.
-     * Will be removed in a future major version of the provider.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    public Output<Optional<Boolean>> resetOnDelete() {
-        return Codegen.optional(this.resetOnDelete);
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * Account-Level throttle settings. See exported fields below.

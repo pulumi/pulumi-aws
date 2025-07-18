@@ -41,6 +41,7 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
     return pulumi.runtime.invoke("aws:connect/getUser:getUser", {
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
         "userId": args.userId,
     }, opts);
@@ -58,6 +59,10 @@ export interface GetUserArgs {
      * Returns information on a specific User by name
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * A map of tags to assign to the User.
      */
@@ -103,6 +108,7 @@ export interface GetUserResult {
      * A block that contains information about the phone settings for the user. Documented below.
      */
     readonly phoneConfigs: outputs.connect.GetUserPhoneConfig[];
+    readonly region: string;
     /**
      * The identifier of the routing profile for the user.
      */
@@ -151,6 +157,7 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOutpu
     return pulumi.runtime.invokeOutput("aws:connect/getUser:getUser", {
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
         "userId": args.userId,
     }, opts);
@@ -168,6 +175,10 @@ export interface GetUserOutputArgs {
      * Returns information on a specific User by name
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the User.
      */

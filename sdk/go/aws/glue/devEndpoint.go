@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -116,6 +116,8 @@ type DevEndpoint struct {
 	PublicKey pulumi.StringPtrOutput `pulumi:"publicKey"`
 	// A list of public keys to be used by this endpoint for authentication.
 	PublicKeys pulumi.StringArrayOutput `pulumi:"publicKeys"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The IAM role for this endpoint.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The name of the Security Configuration structure to be used with this endpoint.
@@ -129,8 +131,6 @@ type DevEndpoint struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// he ID of the VPC used by this endpoint.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -203,6 +203,8 @@ type devEndpointState struct {
 	PublicKey *string `pulumi:"publicKey"`
 	// A list of public keys to be used by this endpoint for authentication.
 	PublicKeys []string `pulumi:"publicKeys"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The IAM role for this endpoint.
 	RoleArn *string `pulumi:"roleArn"`
 	// The name of the Security Configuration structure to be used with this endpoint.
@@ -216,8 +218,6 @@ type devEndpointState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// he ID of the VPC used by this endpoint.
 	VpcId *string `pulumi:"vpcId"`
@@ -258,6 +258,8 @@ type DevEndpointState struct {
 	PublicKey pulumi.StringPtrInput
 	// A list of public keys to be used by this endpoint for authentication.
 	PublicKeys pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The IAM role for this endpoint.
 	RoleArn pulumi.StringPtrInput
 	// The name of the Security Configuration structure to be used with this endpoint.
@@ -271,8 +273,6 @@ type DevEndpointState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// he ID of the VPC used by this endpoint.
 	VpcId pulumi.StringPtrInput
@@ -307,6 +307,8 @@ type devEndpointArgs struct {
 	PublicKey *string `pulumi:"publicKey"`
 	// A list of public keys to be used by this endpoint for authentication.
 	PublicKeys []string `pulumi:"publicKeys"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The IAM role for this endpoint.
 	RoleArn string `pulumi:"roleArn"`
 	// The name of the Security Configuration structure to be used with this endpoint.
@@ -341,6 +343,8 @@ type DevEndpointArgs struct {
 	PublicKey pulumi.StringPtrInput
 	// A list of public keys to be used by this endpoint for authentication.
 	PublicKeys pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The IAM role for this endpoint.
 	RoleArn pulumi.StringInput
 	// The name of the Security Configuration structure to be used with this endpoint.
@@ -512,6 +516,11 @@ func (o DevEndpointOutput) PublicKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringArrayOutput { return v.PublicKeys }).(pulumi.StringArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DevEndpointOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The IAM role for this endpoint.
 func (o DevEndpointOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
@@ -543,8 +552,6 @@ func (o DevEndpointOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o DevEndpointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DevEndpoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

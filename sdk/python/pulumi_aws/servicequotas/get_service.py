@@ -27,10 +27,13 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, id=None, service_code=None, service_name=None):
+    def __init__(__self__, id=None, region=None, service_code=None, service_name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if service_code and not isinstance(service_code, str):
             raise TypeError("Expected argument 'service_code' to be a str")
         pulumi.set(__self__, "service_code", service_code)
@@ -45,6 +48,11 @@ class GetServiceResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serviceCode")
@@ -67,11 +75,13 @@ class AwaitableGetServiceResult(GetServiceResult):
             yield self
         return GetServiceResult(
             id=self.id,
+            region=self.region,
             service_code=self.service_code,
             service_name=self.service_name)
 
 
-def get_service(service_name: Optional[builtins.str] = None,
+def get_service(region: Optional[builtins.str] = None,
+                service_name: Optional[builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Retrieve information about a Service Quotas Service.
@@ -88,18 +98,22 @@ def get_service(service_name: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_name: Service name to lookup within Service Quotas. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['serviceName'] = service_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:servicequotas/getService:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         service_code=pulumi.get(__ret__, 'service_code'),
         service_name=pulumi.get(__ret__, 'service_name'))
-def get_service_output(service_name: Optional[pulumi.Input[builtins.str]] = None,
+def get_service_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                       service_name: Optional[pulumi.Input[builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     Retrieve information about a Service Quotas Service.
@@ -116,13 +130,16 @@ def get_service_output(service_name: Optional[pulumi.Input[builtins.str]] = None
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_name: Service name to lookup within Service Quotas. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['serviceName'] = service_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicequotas/getService:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         service_code=pulumi.get(__response__, 'service_code'),
         service_name=pulumi.get(__response__, 'service_name')))

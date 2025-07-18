@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Lambda.Inputs
     public sealed class EventSourceMappingDocumentDbEventSourceConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+        /// Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
         /// </summary>
         [Input("collectionName")]
         public Input<string>? CollectionName { get; set; }
 
         /// <summary>
-        /// The name of the database to consume within the DocumentDB cluster.
+        /// Name of the database to consume within the DocumentDB cluster.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;

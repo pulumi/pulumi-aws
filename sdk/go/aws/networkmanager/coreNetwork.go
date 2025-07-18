@@ -8,11 +8,13 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a core network resource.
+// Manages a Network Manager Core Network.
+//
+// Use this resource to create and manage a core network within a global network.
 //
 // ## Example Usage
 //
@@ -23,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +51,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,7 +78,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -114,7 +116,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -227,7 +229,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -322,7 +324,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -468,7 +470,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -591,17 +593,13 @@ import (
 type CoreNetwork struct {
 	pulumi.CustomResourceState
 
-	// Core Network Amazon Resource Name (ARN).
+	// Core Network ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
 	BasePolicyDocument pulumi.StringPtrOutput `pulumi:"basePolicyDocument"`
-	// The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
-	//
-	// Deprecated: base_policy_region is deprecated. Use basePolicyRegions instead. This argument will be removed in the next major version of the provider.
-	BasePolicyRegion pulumi.StringPtrOutput `pulumi:"basePolicyRegion"`
-	// A list of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
+	// List of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
 	BasePolicyRegions pulumi.StringArrayOutput `pulumi:"basePolicyRegions"`
-	// Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `networkmanager.CoreNetworkPolicyAttachment` resource.
+	// Whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `networkmanager.CoreNetworkPolicyAttachment` resource.
 	CreateBasePolicy pulumi.BoolPtrOutput `pulumi:"createBasePolicy"`
 	// Timestamp when a core network was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
@@ -609,7 +607,9 @@ type CoreNetwork struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// One or more blocks detailing the edges within a core network. Detailed below.
 	Edges CoreNetworkEdgeArrayOutput `pulumi:"edges"`
-	// The ID of the global network that a core network will be a part of.
+	// ID of the global network that a core network will be a part of.
+	//
+	// The following arguments are optional:
 	GlobalNetworkId pulumi.StringOutput `pulumi:"globalNetworkId"`
 	// One or more blocks detailing the segments within a core network. Detailed below.
 	Segments CoreNetworkSegmentArrayOutput `pulumi:"segments"`
@@ -617,9 +617,7 @@ type CoreNetwork struct {
 	State pulumi.StringOutput `pulumi:"state"`
 	// Key-value tags for the Core Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -656,17 +654,13 @@ func GetCoreNetwork(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CoreNetwork resources.
 type coreNetworkState struct {
-	// Core Network Amazon Resource Name (ARN).
+	// Core Network ARN.
 	Arn *string `pulumi:"arn"`
 	// Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
 	BasePolicyDocument *string `pulumi:"basePolicyDocument"`
-	// The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
-	//
-	// Deprecated: base_policy_region is deprecated. Use basePolicyRegions instead. This argument will be removed in the next major version of the provider.
-	BasePolicyRegion *string `pulumi:"basePolicyRegion"`
-	// A list of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
+	// List of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
 	BasePolicyRegions []string `pulumi:"basePolicyRegions"`
-	// Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `networkmanager.CoreNetworkPolicyAttachment` resource.
+	// Whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `networkmanager.CoreNetworkPolicyAttachment` resource.
 	CreateBasePolicy *bool `pulumi:"createBasePolicy"`
 	// Timestamp when a core network was created.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -674,7 +668,9 @@ type coreNetworkState struct {
 	Description *string `pulumi:"description"`
 	// One or more blocks detailing the edges within a core network. Detailed below.
 	Edges []CoreNetworkEdge `pulumi:"edges"`
-	// The ID of the global network that a core network will be a part of.
+	// ID of the global network that a core network will be a part of.
+	//
+	// The following arguments are optional:
 	GlobalNetworkId *string `pulumi:"globalNetworkId"`
 	// One or more blocks detailing the segments within a core network. Detailed below.
 	Segments []CoreNetworkSegment `pulumi:"segments"`
@@ -682,24 +678,18 @@ type coreNetworkState struct {
 	State *string `pulumi:"state"`
 	// Key-value tags for the Core Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type CoreNetworkState struct {
-	// Core Network Amazon Resource Name (ARN).
+	// Core Network ARN.
 	Arn pulumi.StringPtrInput
 	// Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
 	BasePolicyDocument pulumi.StringPtrInput
-	// The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
-	//
-	// Deprecated: base_policy_region is deprecated. Use basePolicyRegions instead. This argument will be removed in the next major version of the provider.
-	BasePolicyRegion pulumi.StringPtrInput
-	// A list of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
+	// List of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
 	BasePolicyRegions pulumi.StringArrayInput
-	// Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `networkmanager.CoreNetworkPolicyAttachment` resource.
+	// Whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `networkmanager.CoreNetworkPolicyAttachment` resource.
 	CreateBasePolicy pulumi.BoolPtrInput
 	// Timestamp when a core network was created.
 	CreatedAt pulumi.StringPtrInput
@@ -707,7 +697,9 @@ type CoreNetworkState struct {
 	Description pulumi.StringPtrInput
 	// One or more blocks detailing the edges within a core network. Detailed below.
 	Edges CoreNetworkEdgeArrayInput
-	// The ID of the global network that a core network will be a part of.
+	// ID of the global network that a core network will be a part of.
+	//
+	// The following arguments are optional:
 	GlobalNetworkId pulumi.StringPtrInput
 	// One or more blocks detailing the segments within a core network. Detailed below.
 	Segments CoreNetworkSegmentArrayInput
@@ -715,9 +707,7 @@ type CoreNetworkState struct {
 	State pulumi.StringPtrInput
 	// Key-value tags for the Core Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -728,17 +718,15 @@ func (CoreNetworkState) ElementType() reflect.Type {
 type coreNetworkArgs struct {
 	// Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
 	BasePolicyDocument *string `pulumi:"basePolicyDocument"`
-	// The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
-	//
-	// Deprecated: base_policy_region is deprecated. Use basePolicyRegions instead. This argument will be removed in the next major version of the provider.
-	BasePolicyRegion *string `pulumi:"basePolicyRegion"`
-	// A list of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
+	// List of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
 	BasePolicyRegions []string `pulumi:"basePolicyRegions"`
-	// Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `networkmanager.CoreNetworkPolicyAttachment` resource.
+	// Whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `networkmanager.CoreNetworkPolicyAttachment` resource.
 	CreateBasePolicy *bool `pulumi:"createBasePolicy"`
 	// Description of the Core Network.
 	Description *string `pulumi:"description"`
-	// The ID of the global network that a core network will be a part of.
+	// ID of the global network that a core network will be a part of.
+	//
+	// The following arguments are optional:
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// Key-value tags for the Core Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -748,17 +736,15 @@ type coreNetworkArgs struct {
 type CoreNetworkArgs struct {
 	// Sets the base policy document for the core network. Refer to the [Core network policies documentation](https://docs.aws.amazon.com/network-manager/latest/cloudwan/cloudwan-policy-change-sets.html) for more information.
 	BasePolicyDocument pulumi.StringPtrInput
-	// The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
-	//
-	// Deprecated: base_policy_region is deprecated. Use basePolicyRegions instead. This argument will be removed in the next major version of the provider.
-	BasePolicyRegion pulumi.StringPtrInput
-	// A list of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
+	// List of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
 	BasePolicyRegions pulumi.StringArrayInput
-	// Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `networkmanager.CoreNetworkPolicyAttachment` resource.
+	// Whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `networkmanager.CoreNetworkPolicyAttachment` resource.
 	CreateBasePolicy pulumi.BoolPtrInput
 	// Description of the Core Network.
 	Description pulumi.StringPtrInput
-	// The ID of the global network that a core network will be a part of.
+	// ID of the global network that a core network will be a part of.
+	//
+	// The following arguments are optional:
 	GlobalNetworkId pulumi.StringInput
 	// Key-value tags for the Core Network. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -851,7 +837,7 @@ func (o CoreNetworkOutput) ToCoreNetworkOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// Core Network Amazon Resource Name (ARN).
+// Core Network ARN.
 func (o CoreNetworkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CoreNetwork) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -861,19 +847,12 @@ func (o CoreNetworkOutput) BasePolicyDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CoreNetwork) pulumi.StringPtrOutput { return v.BasePolicyDocument }).(pulumi.StringPtrOutput)
 }
 
-// The base policy created by setting the `createBasePolicy` argument to `true` requires a region to be set in the `edge-locations`, `location` key. If `basePolicyRegion` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
-//
-// Deprecated: base_policy_region is deprecated. Use basePolicyRegions instead. This argument will be removed in the next major version of the provider.
-func (o CoreNetworkOutput) BasePolicyRegion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CoreNetwork) pulumi.StringPtrOutput { return v.BasePolicyRegion }).(pulumi.StringPtrOutput)
-}
-
-// A list of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
+// List of regions to add to the base policy. The base policy created by setting the `createBasePolicy` argument to `true` requires one or more regions to be set in the `edge-locations`, `location` key. If `basePolicyRegions` is not specified, the region used in the base policy defaults to the region specified in the `provider` block.
 func (o CoreNetworkOutput) BasePolicyRegions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CoreNetwork) pulumi.StringArrayOutput { return v.BasePolicyRegions }).(pulumi.StringArrayOutput)
 }
 
-// Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `networkmanager.CoreNetworkPolicyAttachment` resource.
+// Whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `networkmanager.CoreNetworkPolicyAttachment` resource.
 func (o CoreNetworkOutput) CreateBasePolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CoreNetwork) pulumi.BoolPtrOutput { return v.CreateBasePolicy }).(pulumi.BoolPtrOutput)
 }
@@ -893,7 +872,9 @@ func (o CoreNetworkOutput) Edges() CoreNetworkEdgeArrayOutput {
 	return o.ApplyT(func(v *CoreNetwork) CoreNetworkEdgeArrayOutput { return v.Edges }).(CoreNetworkEdgeArrayOutput)
 }
 
-// The ID of the global network that a core network will be a part of.
+// ID of the global network that a core network will be a part of.
+//
+// The following arguments are optional:
 func (o CoreNetworkOutput) GlobalNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CoreNetwork) pulumi.StringOutput { return v.GlobalNetworkId }).(pulumi.StringOutput)
 }
@@ -913,9 +894,7 @@ func (o CoreNetworkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CoreNetwork) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o CoreNetworkOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CoreNetwork) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

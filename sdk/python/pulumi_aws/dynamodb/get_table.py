@@ -29,7 +29,7 @@ class GetTableResult:
     """
     A collection of values returned by getTable.
     """
-    def __init__(__self__, arn=None, attributes=None, billing_mode=None, deletion_protection_enabled=None, global_secondary_indexes=None, hash_key=None, id=None, local_secondary_indexes=None, name=None, on_demand_throughputs=None, point_in_time_recovery=None, range_key=None, read_capacity=None, replicas=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, table_class=None, tags=None, ttl=None, write_capacity=None):
+    def __init__(__self__, arn=None, attributes=None, billing_mode=None, deletion_protection_enabled=None, global_secondary_indexes=None, hash_key=None, id=None, local_secondary_indexes=None, name=None, on_demand_throughputs=None, point_in_time_recovery=None, range_key=None, read_capacity=None, region=None, replicas=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, table_class=None, tags=None, ttl=None, write_capacity=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -69,6 +69,9 @@ class GetTableResult:
         if read_capacity and not isinstance(read_capacity, int):
             raise TypeError("Expected argument 'read_capacity' to be a int")
         pulumi.set(__self__, "read_capacity", read_capacity)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if replicas and not isinstance(replicas, list):
             raise TypeError("Expected argument 'replicas' to be a list")
         pulumi.set(__self__, "replicas", replicas)
@@ -170,6 +173,11 @@ class GetTableResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def replicas(self) -> Sequence['outputs.GetTableReplicaResult']:
         return pulumi.get(self, "replicas")
 
@@ -238,6 +246,7 @@ class AwaitableGetTableResult(GetTableResult):
             point_in_time_recovery=self.point_in_time_recovery,
             range_key=self.range_key,
             read_capacity=self.read_capacity,
+            region=self.region,
             replicas=self.replicas,
             server_side_encryption=self.server_side_encryption,
             stream_arn=self.stream_arn,
@@ -251,6 +260,7 @@ class AwaitableGetTableResult(GetTableResult):
 
 
 def get_table(name: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               server_side_encryption: Optional[Union['GetTableServerSideEncryptionArgs', 'GetTableServerSideEncryptionArgsDict']] = None,
               tags: Optional[Mapping[str, builtins.str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResult:
@@ -268,9 +278,11 @@ def get_table(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the DynamoDB table.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['serverSideEncryption'] = server_side_encryption
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -290,6 +302,7 @@ def get_table(name: Optional[builtins.str] = None,
         point_in_time_recovery=pulumi.get(__ret__, 'point_in_time_recovery'),
         range_key=pulumi.get(__ret__, 'range_key'),
         read_capacity=pulumi.get(__ret__, 'read_capacity'),
+        region=pulumi.get(__ret__, 'region'),
         replicas=pulumi.get(__ret__, 'replicas'),
         server_side_encryption=pulumi.get(__ret__, 'server_side_encryption'),
         stream_arn=pulumi.get(__ret__, 'stream_arn'),
@@ -301,6 +314,7 @@ def get_table(name: Optional[builtins.str] = None,
         ttl=pulumi.get(__ret__, 'ttl'),
         write_capacity=pulumi.get(__ret__, 'write_capacity'))
 def get_table_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      server_side_encryption: Optional[pulumi.Input[Optional[Union['GetTableServerSideEncryptionArgs', 'GetTableServerSideEncryptionArgsDict']]]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
@@ -318,9 +332,11 @@ def get_table_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the DynamoDB table.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['serverSideEncryption'] = server_side_encryption
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -339,6 +355,7 @@ def get_table_output(name: Optional[pulumi.Input[builtins.str]] = None,
         point_in_time_recovery=pulumi.get(__response__, 'point_in_time_recovery'),
         range_key=pulumi.get(__response__, 'range_key'),
         read_capacity=pulumi.get(__response__, 'read_capacity'),
+        region=pulumi.get(__response__, 'region'),
         replicas=pulumi.get(__response__, 'replicas'),
         server_side_encryption=pulumi.get(__response__, 'server_side_encryption'),
         stream_arn=pulumi.get(__response__, 'stream_arn'),

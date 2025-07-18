@@ -27,7 +27,7 @@ class GetLocalDiskResult:
     """
     A collection of values returned by getLocalDisk.
     """
-    def __init__(__self__, disk_id=None, disk_node=None, disk_path=None, gateway_arn=None, id=None):
+    def __init__(__self__, disk_id=None, disk_node=None, disk_path=None, gateway_arn=None, id=None, region=None):
         if disk_id and not isinstance(disk_id, str):
             raise TypeError("Expected argument 'disk_id' to be a str")
         pulumi.set(__self__, "disk_id", disk_id)
@@ -43,6 +43,9 @@ class GetLocalDiskResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="diskId")
@@ -75,6 +78,11 @@ class GetLocalDiskResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetLocalDiskResult(GetLocalDiskResult):
     # pylint: disable=using-constant-test
@@ -86,12 +94,14 @@ class AwaitableGetLocalDiskResult(GetLocalDiskResult):
             disk_node=self.disk_node,
             disk_path=self.disk_path,
             gateway_arn=self.gateway_arn,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
 def get_local_disk(disk_node: Optional[builtins.str] = None,
                    disk_path: Optional[builtins.str] = None,
                    gateway_arn: Optional[builtins.str] = None,
+                   region: Optional[builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocalDiskResult:
     """
     Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
@@ -110,11 +120,13 @@ def get_local_disk(disk_node: Optional[builtins.str] = None,
     :param builtins.str disk_node: Device node of the local disk to retrieve. For example, `/dev/sdb`.
     :param builtins.str disk_path: Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
     :param builtins.str gateway_arn: ARN of the gateway.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['diskNode'] = disk_node
     __args__['diskPath'] = disk_path
     __args__['gatewayArn'] = gateway_arn
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:storagegateway/getLocalDisk:getLocalDisk', __args__, opts=opts, typ=GetLocalDiskResult).value
 
@@ -123,10 +135,12 @@ def get_local_disk(disk_node: Optional[builtins.str] = None,
         disk_node=pulumi.get(__ret__, 'disk_node'),
         disk_path=pulumi.get(__ret__, 'disk_path'),
         gateway_arn=pulumi.get(__ret__, 'gateway_arn'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_local_disk_output(disk_node: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           disk_path: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           gateway_arn: Optional[pulumi.Input[builtins.str]] = None,
+                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalDiskResult]:
     """
     Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
@@ -145,11 +159,13 @@ def get_local_disk_output(disk_node: Optional[pulumi.Input[Optional[builtins.str
     :param builtins.str disk_node: Device node of the local disk to retrieve. For example, `/dev/sdb`.
     :param builtins.str disk_path: Device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
     :param builtins.str gateway_arn: ARN of the gateway.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['diskNode'] = disk_node
     __args__['diskPath'] = disk_path
     __args__['gatewayArn'] = gateway_arn
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:storagegateway/getLocalDisk:getLocalDisk', __args__, opts=opts, typ=GetLocalDiskResult)
     return __ret__.apply(lambda __response__: GetLocalDiskResult(
@@ -157,4 +173,5 @@ def get_local_disk_output(disk_node: Optional[pulumi.Input[Optional[builtins.str
         disk_node=pulumi.get(__response__, 'disk_node'),
         disk_path=pulumi.get(__response__, 'disk_path'),
         gateway_arn=pulumi.get(__response__, 'gateway_arn'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

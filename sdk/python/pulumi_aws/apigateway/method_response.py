@@ -24,6 +24,7 @@ class MethodResponseArgs:
                  resource_id: pulumi.Input[builtins.str],
                  rest_api: pulumi.Input[builtins.str],
                  status_code: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None):
         """
@@ -32,6 +33,7 @@ class MethodResponseArgs:
         :param pulumi.Input[builtins.str] resource_id: The Resource identifier for the method resource.
         :param pulumi.Input[builtins.str] rest_api: The string identifier of the associated REST API.
         :param pulumi.Input[builtins.str] status_code: The method response's status code.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_models: A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] response_parameters: A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
                
@@ -41,6 +43,8 @@ class MethodResponseArgs:
         pulumi.set(__self__, "resource_id", resource_id)
         pulumi.set(__self__, "rest_api", rest_api)
         pulumi.set(__self__, "status_code", status_code)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if response_models is not None:
             pulumi.set(__self__, "response_models", response_models)
         if response_parameters is not None:
@@ -95,6 +99,18 @@ class MethodResponseArgs:
         pulumi.set(self, "status_code", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="responseModels")
     def response_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -125,6 +141,7 @@ class MethodResponseArgs:
 class _MethodResponseState:
     def __init__(__self__, *,
                  http_method: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
@@ -133,6 +150,7 @@ class _MethodResponseState:
         """
         Input properties used for looking up and filtering MethodResponse resources.
         :param pulumi.Input[builtins.str] http_method: The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id: The Resource identifier for the method resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_models: A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] response_parameters: A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
@@ -143,6 +161,8 @@ class _MethodResponseState:
         """
         if http_method is not None:
             pulumi.set(__self__, "http_method", http_method)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
         if response_models is not None:
@@ -165,6 +185,18 @@ class _MethodResponseState:
     @http_method.setter
     def http_method(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "http_method", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -236,6 +268,7 @@ class MethodResponse(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  http_method: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
@@ -341,6 +374,7 @@ class MethodResponse(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] http_method: The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id: The Resource identifier for the method resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_models: A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] response_parameters: A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
@@ -467,6 +501,7 @@ class MethodResponse(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  http_method: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
@@ -484,6 +519,7 @@ class MethodResponse(pulumi.CustomResource):
             if http_method is None and not opts.urn:
                 raise TypeError("Missing required property 'http_method'")
             __props__.__dict__["http_method"] = http_method
+            __props__.__dict__["region"] = region
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
@@ -506,6 +542,7 @@ class MethodResponse(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             http_method: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_id: Optional[pulumi.Input[builtins.str]] = None,
             response_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
@@ -519,6 +556,7 @@ class MethodResponse(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] http_method: The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id: The Resource identifier for the method resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_models: A map specifying the model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]] response_parameters: A map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a boolean flag indicating whether the method response parameter is required. The method response header names must match the pattern of `method.response.header.{name}`, where `name` is a valid and unique header name.
@@ -532,6 +570,7 @@ class MethodResponse(pulumi.CustomResource):
         __props__ = _MethodResponseState.__new__(_MethodResponseState)
 
         __props__.__dict__["http_method"] = http_method
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_id"] = resource_id
         __props__.__dict__["response_models"] = response_models
         __props__.__dict__["response_parameters"] = response_parameters
@@ -546,6 +585,14 @@ class MethodResponse(pulumi.CustomResource):
         The HTTP verb of the method resource (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
         """
         return pulumi.get(self, "http_method")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceId")

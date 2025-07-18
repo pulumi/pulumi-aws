@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.rbin.inputs;
 
+import com.pulumi.aws.rbin.inputs.RuleExcludeResourceTagArgs;
 import com.pulumi.aws.rbin.inputs.RuleLockConfigurationArgs;
 import com.pulumi.aws.rbin.inputs.RuleResourceTagArgs;
 import com.pulumi.aws.rbin.inputs.RuleRetentionPeriodArgs;
@@ -28,18 +29,33 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The retention rule description.
+     * Retention rule description.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The retention rule description.
+     * @return Retention rule description.
      * 
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
+     * 
+     */
+    @Import(name="excludeResourceTags")
+    private @Nullable Output<List<RuleExcludeResourceTagArgs>> excludeResourceTags;
+
+    /**
+     * @return Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
+     * 
+     */
+    public Optional<Output<List<RuleExcludeResourceTagArgs>>> excludeResourceTags() {
+        return Optional.ofNullable(this.excludeResourceTags);
     }
 
     /**
@@ -58,14 +74,14 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
+     * (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
      * 
      */
     @Import(name="lockEndTime")
     private @Nullable Output<String> lockEndTime;
 
     /**
-     * @return (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
+     * @return (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
      * 
      */
     public Optional<Output<String>> lockEndTime() {
@@ -73,14 +89,14 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
+     * (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
      * 
      */
     @Import(name="lockState")
     private @Nullable Output<String> lockState;
 
     /**
-     * @return (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
+     * @return (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
      * 
      */
     public Optional<Output<String>> lockState() {
@@ -88,14 +104,29 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
+     * Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
      * 
      */
     @Import(name="resourceTags")
     private @Nullable Output<List<RuleResourceTagArgs>> resourceTags;
 
     /**
-     * @return Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+     * @return Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
      * 
      */
     public Optional<Output<List<RuleResourceTagArgs>>> resourceTags() {
@@ -103,14 +134,14 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+     * Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
      * 
      */
     @Import(name="resourceType")
     private @Nullable Output<String> resourceType;
 
     /**
-     * @return The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+     * @return Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
      * 
      */
     public Optional<Output<String>> resourceType() {
@@ -137,14 +168,14 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
+     * (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
+     * @return (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -158,21 +189,9 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * @deprecated
-     * Please use `tags` instead.
-     * 
-     */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @deprecated
-     * Please use `tags` instead.
-     * 
-     */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -182,9 +201,11 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
     private RuleState(RuleState $) {
         this.arn = $.arn;
         this.description = $.description;
+        this.excludeResourceTags = $.excludeResourceTags;
         this.lockConfiguration = $.lockConfiguration;
         this.lockEndTime = $.lockEndTime;
         this.lockState = $.lockState;
+        this.region = $.region;
         this.resourceTags = $.resourceTags;
         this.resourceType = $.resourceType;
         this.retentionPeriod = $.retentionPeriod;
@@ -221,7 +242,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The retention rule description.
+         * @param description Retention rule description.
          * 
          * @return builder
          * 
@@ -232,13 +253,44 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The retention rule description.
+         * @param description Retention rule description.
          * 
          * @return builder
          * 
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param excludeResourceTags Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeResourceTags(@Nullable Output<List<RuleExcludeResourceTagArgs>> excludeResourceTags) {
+            $.excludeResourceTags = excludeResourceTags;
+            return this;
+        }
+
+        /**
+         * @param excludeResourceTags Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeResourceTags(List<RuleExcludeResourceTagArgs> excludeResourceTags) {
+            return excludeResourceTags(Output.of(excludeResourceTags));
+        }
+
+        /**
+         * @param excludeResourceTags Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludeResourceTags(RuleExcludeResourceTagArgs... excludeResourceTags) {
+            return excludeResourceTags(List.of(excludeResourceTags));
         }
 
         /**
@@ -263,7 +315,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lockEndTime (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
+         * @param lockEndTime (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
          * 
          * @return builder
          * 
@@ -274,7 +326,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lockEndTime (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
+         * @param lockEndTime (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
          * 
          * @return builder
          * 
@@ -284,7 +336,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lockState (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
+         * @param lockState (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
          * 
          * @return builder
          * 
@@ -295,7 +347,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lockState (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
+         * @param lockState (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
          * 
          * @return builder
          * 
@@ -305,7 +357,28 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceTags Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
+         * @param resourceTags Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
          * 
          * @return builder
          * 
@@ -316,7 +389,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceTags Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+         * @param resourceTags Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
          * 
          * @return builder
          * 
@@ -326,7 +399,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceTags Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+         * @param resourceTags Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
          * 
          * @return builder
          * 
@@ -336,7 +409,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceType The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+         * @param resourceType Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
          * 
          * @return builder
          * 
@@ -347,7 +420,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceType The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+         * @param resourceType Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
          * 
          * @return builder
          * 
@@ -382,7 +455,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
+         * @param status (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
          * 
          * @return builder
          * 
@@ -393,7 +466,7 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param status (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
+         * @param status (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
          * 
          * @return builder
          * 
@@ -411,27 +484,11 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
-         */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
-         */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

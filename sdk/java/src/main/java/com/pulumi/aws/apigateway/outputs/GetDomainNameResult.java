@@ -60,6 +60,7 @@ public final class GetDomainNameResult {
      * 
      */
     private String policy;
+    private String region;
     /**
      * @return ARN for an AWS-managed certificate that is used for validating the regional domain name.
      * 
@@ -161,6 +162,9 @@ public final class GetDomainNameResult {
     public String policy() {
         return this.policy;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return ARN for an AWS-managed certificate that is used for validating the regional domain name.
      * 
@@ -224,6 +228,7 @@ public final class GetDomainNameResult {
         private List<GetDomainNameEndpointConfiguration> endpointConfigurations;
         private String id;
         private String policy;
+        private String region;
         private String regionalCertificateArn;
         private String regionalCertificateName;
         private String regionalDomainName;
@@ -244,6 +249,7 @@ public final class GetDomainNameResult {
     	      this.endpointConfigurations = defaults.endpointConfigurations;
     	      this.id = defaults.id;
     	      this.policy = defaults.policy;
+    	      this.region = defaults.region;
     	      this.regionalCertificateArn = defaults.regionalCertificateArn;
     	      this.regionalCertificateName = defaults.regionalCertificateName;
     	      this.regionalDomainName = defaults.regionalDomainName;
@@ -344,6 +350,14 @@ public final class GetDomainNameResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDomainNameResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder regionalCertificateArn(String regionalCertificateArn) {
             if (regionalCertificateArn == null) {
               throw new MissingRequiredPropertyException("GetDomainNameResult", "regionalCertificateArn");
@@ -404,6 +418,7 @@ public final class GetDomainNameResult {
             _resultValue.endpointConfigurations = endpointConfigurations;
             _resultValue.id = id;
             _resultValue.policy = policy;
+            _resultValue.region = region;
             _resultValue.regionalCertificateArn = regionalCertificateArn;
             _resultValue.regionalCertificateName = regionalCertificateName;
             _resultValue.regionalDomainName = regionalDomainName;

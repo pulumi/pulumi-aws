@@ -21,20 +21,28 @@ __all__ = ['TemplateArgs', 'Template']
 class TemplateArgs:
     def __init__(__self__, *,
                  quota_code: pulumi.Input[builtins.str],
-                 region: pulumi.Input[builtins.str],
                  service_code: pulumi.Input[builtins.str],
-                 value: pulumi.Input[builtins.float]):
+                 value: pulumi.Input[builtins.float],
+                 aws_region: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Template resource.
         :param pulumi.Input[builtins.str] quota_code: Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
-        :param pulumi.Input[builtins.str] region: AWS Region to which the template applies.
         :param pulumi.Input[builtins.str] service_code: Service identifier. To find the service code value for an AWS service, use the servicequotas_get_service data source.
         :param pulumi.Input[builtins.float] value: The new, increased value for the quota.
+        :param pulumi.Input[builtins.str] aws_region: AWS Region to which the template applies.
+        :param pulumi.Input[builtins.str] region: AWS Region to which the template applies. Use `get_region` instead.
         """
         pulumi.set(__self__, "quota_code", quota_code)
-        pulumi.set(__self__, "region", region)
         pulumi.set(__self__, "service_code", service_code)
         pulumi.set(__self__, "value", value)
+        if aws_region is not None:
+            pulumi.set(__self__, "aws_region", aws_region)
+        if region is not None:
+            warnings.warn("""region is deprecated. Use get_region instead.""", DeprecationWarning)
+            pulumi.log.warn("""region is deprecated: region is deprecated. Use get_region instead.""")
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="quotaCode")
@@ -47,18 +55,6 @@ class TemplateArgs:
     @quota_code.setter
     def quota_code(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "quota_code", value)
-
-    @property
-    @pulumi.getter
-    def region(self) -> pulumi.Input[builtins.str]:
-        """
-        AWS Region to which the template applies.
-        """
-        return pulumi.get(self, "region")
-
-    @region.setter
-    def region(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="serviceCode")
@@ -84,10 +80,36 @@ class TemplateArgs:
     def value(self, value: pulumi.Input[builtins.float]):
         pulumi.set(self, "value", value)
 
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        AWS Region to which the template applies.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @aws_region.setter
+    def aws_region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "aws_region", value)
+
+    @property
+    @pulumi.getter
+    @_utilities.deprecated("""region is deprecated. Use get_region instead.""")
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        AWS Region to which the template applies. Use `get_region` instead.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _TemplateState:
     def __init__(__self__, *,
+                 aws_region: Optional[pulumi.Input[builtins.str]] = None,
                  global_quota: Optional[pulumi.Input[builtins.bool]] = None,
                  quota_code: Optional[pulumi.Input[builtins.str]] = None,
                  quota_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -98,21 +120,27 @@ class _TemplateState:
                  value: Optional[pulumi.Input[builtins.float]] = None):
         """
         Input properties used for looking up and filtering Template resources.
+        :param pulumi.Input[builtins.str] aws_region: AWS Region to which the template applies.
         :param pulumi.Input[builtins.bool] global_quota: Indicates whether the quota is global.
         :param pulumi.Input[builtins.str] quota_code: Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
         :param pulumi.Input[builtins.str] quota_name: Quota name.
-        :param pulumi.Input[builtins.str] region: AWS Region to which the template applies.
+        :param pulumi.Input[builtins.str] region: AWS Region to which the template applies. Use `get_region` instead.
         :param pulumi.Input[builtins.str] service_code: Service identifier. To find the service code value for an AWS service, use the servicequotas_get_service data source.
         :param pulumi.Input[builtins.str] service_name: Service name.
         :param pulumi.Input[builtins.str] unit: Unit of measurement.
         :param pulumi.Input[builtins.float] value: The new, increased value for the quota.
         """
+        if aws_region is not None:
+            pulumi.set(__self__, "aws_region", aws_region)
         if global_quota is not None:
             pulumi.set(__self__, "global_quota", global_quota)
         if quota_code is not None:
             pulumi.set(__self__, "quota_code", quota_code)
         if quota_name is not None:
             pulumi.set(__self__, "quota_name", quota_name)
+        if region is not None:
+            warnings.warn("""region is deprecated. Use get_region instead.""", DeprecationWarning)
+            pulumi.log.warn("""region is deprecated: region is deprecated. Use get_region instead.""")
         if region is not None:
             pulumi.set(__self__, "region", region)
         if service_code is not None:
@@ -123,6 +151,18 @@ class _TemplateState:
             pulumi.set(__self__, "unit", unit)
         if value is not None:
             pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        AWS Region to which the template applies.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @aws_region.setter
+    def aws_region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "aws_region", value)
 
     @property
     @pulumi.getter(name="globalQuota")
@@ -162,9 +202,10 @@ class _TemplateState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""region is deprecated. Use get_region instead.""")
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        AWS Region to which the template applies.
+        AWS Region to which the template applies. Use `get_region` instead.
         """
         return pulumi.get(self, "region")
 
@@ -227,6 +268,7 @@ class Template(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 aws_region: Optional[pulumi.Input[builtins.str]] = None,
                  quota_code: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  service_code: Optional[pulumi.Input[builtins.str]] = None,
@@ -246,7 +288,7 @@ class Template(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.servicequotas.Template("example",
-            region="us-east-1",
+            aws_region="us-east-1",
             quota_code="L-2ACBD22F",
             service_code="lambda",
             value=80)
@@ -262,8 +304,9 @@ class Template(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] aws_region: AWS Region to which the template applies.
         :param pulumi.Input[builtins.str] quota_code: Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
-        :param pulumi.Input[builtins.str] region: AWS Region to which the template applies.
+        :param pulumi.Input[builtins.str] region: AWS Region to which the template applies. Use `get_region` instead.
         :param pulumi.Input[builtins.str] service_code: Service identifier. To find the service code value for an AWS service, use the servicequotas_get_service data source.
         :param pulumi.Input[builtins.float] value: The new, increased value for the quota.
         """
@@ -287,7 +330,7 @@ class Template(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.servicequotas.Template("example",
-            region="us-east-1",
+            aws_region="us-east-1",
             quota_code="L-2ACBD22F",
             service_code="lambda",
             value=80)
@@ -316,6 +359,7 @@ class Template(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 aws_region: Optional[pulumi.Input[builtins.str]] = None,
                  quota_code: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  service_code: Optional[pulumi.Input[builtins.str]] = None,
@@ -329,11 +373,10 @@ class Template(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TemplateArgs.__new__(TemplateArgs)
 
+            __props__.__dict__["aws_region"] = aws_region
             if quota_code is None and not opts.urn:
                 raise TypeError("Missing required property 'quota_code'")
             __props__.__dict__["quota_code"] = quota_code
-            if region is None and not opts.urn:
-                raise TypeError("Missing required property 'region'")
             __props__.__dict__["region"] = region
             if service_code is None and not opts.urn:
                 raise TypeError("Missing required property 'service_code'")
@@ -355,6 +398,7 @@ class Template(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            aws_region: Optional[pulumi.Input[builtins.str]] = None,
             global_quota: Optional[pulumi.Input[builtins.bool]] = None,
             quota_code: Optional[pulumi.Input[builtins.str]] = None,
             quota_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -370,10 +414,11 @@ class Template(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] aws_region: AWS Region to which the template applies.
         :param pulumi.Input[builtins.bool] global_quota: Indicates whether the quota is global.
         :param pulumi.Input[builtins.str] quota_code: Quota identifier. To find the quota code for a specific quota, use the servicequotas.ServiceQuota data source.
         :param pulumi.Input[builtins.str] quota_name: Quota name.
-        :param pulumi.Input[builtins.str] region: AWS Region to which the template applies.
+        :param pulumi.Input[builtins.str] region: AWS Region to which the template applies. Use `get_region` instead.
         :param pulumi.Input[builtins.str] service_code: Service identifier. To find the service code value for an AWS service, use the servicequotas_get_service data source.
         :param pulumi.Input[builtins.str] service_name: Service name.
         :param pulumi.Input[builtins.str] unit: Unit of measurement.
@@ -383,6 +428,7 @@ class Template(pulumi.CustomResource):
 
         __props__ = _TemplateState.__new__(_TemplateState)
 
+        __props__.__dict__["aws_region"] = aws_region
         __props__.__dict__["global_quota"] = global_quota
         __props__.__dict__["quota_code"] = quota_code
         __props__.__dict__["quota_name"] = quota_name
@@ -392,6 +438,14 @@ class Template(pulumi.CustomResource):
         __props__.__dict__["unit"] = unit
         __props__.__dict__["value"] = value
         return Template(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> pulumi.Output[builtins.str]:
+        """
+        AWS Region to which the template applies.
+        """
+        return pulumi.get(self, "aws_region")
 
     @property
     @pulumi.getter(name="globalQuota")
@@ -419,9 +473,10 @@ class Template(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""region is deprecated. Use get_region instead.""")
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        AWS Region to which the template applies.
+        AWS Region to which the template applies. Use `get_region` instead.
         """
         return pulumi.get(self, "region")
 

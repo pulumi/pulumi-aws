@@ -27,7 +27,7 @@ class GetLambdaFunctionAssociationResult:
     """
     A collection of values returned by getLambdaFunctionAssociation.
     """
-    def __init__(__self__, function_arn=None, id=None, instance_id=None):
+    def __init__(__self__, function_arn=None, id=None, instance_id=None, region=None):
         if function_arn and not isinstance(function_arn, str):
             raise TypeError("Expected argument 'function_arn' to be a str")
         pulumi.set(__self__, "function_arn", function_arn)
@@ -37,6 +37,9 @@ class GetLambdaFunctionAssociationResult:
         if instance_id and not isinstance(instance_id, str):
             raise TypeError("Expected argument 'instance_id' to be a str")
         pulumi.set(__self__, "instance_id", instance_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="functionArn")
@@ -56,6 +59,11 @@ class GetLambdaFunctionAssociationResult:
     def instance_id(self) -> builtins.str:
         return pulumi.get(self, "instance_id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetLambdaFunctionAssociationResult(GetLambdaFunctionAssociationResult):
     # pylint: disable=using-constant-test
@@ -65,11 +73,13 @@ class AwaitableGetLambdaFunctionAssociationResult(GetLambdaFunctionAssociationRe
         return GetLambdaFunctionAssociationResult(
             function_arn=self.function_arn,
             id=self.id,
-            instance_id=self.instance_id)
+            instance_id=self.instance_id,
+            region=self.region)
 
 
 def get_lambda_function_association(function_arn: Optional[builtins.str] = None,
                                     instance_id: Optional[builtins.str] = None,
+                                    region: Optional[builtins.str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLambdaFunctionAssociationResult:
     """
     Provides details about a specific Connect Lambda Function Association.
@@ -87,19 +97,23 @@ def get_lambda_function_association(function_arn: Optional[builtins.str] = None,
 
     :param builtins.str function_arn: ARN of the Lambda Function, omitting any version or alias qualifier.
     :param builtins.str instance_id: Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['functionArn'] = function_arn
     __args__['instanceId'] = instance_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation', __args__, opts=opts, typ=GetLambdaFunctionAssociationResult).value
 
     return AwaitableGetLambdaFunctionAssociationResult(
         function_arn=pulumi.get(__ret__, 'function_arn'),
         id=pulumi.get(__ret__, 'id'),
-        instance_id=pulumi.get(__ret__, 'instance_id'))
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_lambda_function_association_output(function_arn: Optional[pulumi.Input[builtins.str]] = None,
                                            instance_id: Optional[pulumi.Input[builtins.str]] = None,
+                                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLambdaFunctionAssociationResult]:
     """
     Provides details about a specific Connect Lambda Function Association.
@@ -117,13 +131,16 @@ def get_lambda_function_association_output(function_arn: Optional[pulumi.Input[b
 
     :param builtins.str function_arn: ARN of the Lambda Function, omitting any version or alias qualifier.
     :param builtins.str instance_id: Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['functionArn'] = function_arn
     __args__['instanceId'] = instance_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation', __args__, opts=opts, typ=GetLambdaFunctionAssociationResult)
     return __ret__.apply(lambda __response__: GetLambdaFunctionAssociationResult(
         function_arn=pulumi.get(__response__, 'function_arn'),
         id=pulumi.get(__response__, 'id'),
-        instance_id=pulumi.get(__response__, 'instance_id')))
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        region=pulumi.get(__response__, 'region')))

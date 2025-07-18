@@ -228,6 +228,10 @@ export class ObjectCopy extends pulumi.CustomResource {
     public readonly objectLockRetainUntilDate!: pulumi.Output<string>;
     public readonly overrideProvider!: pulumi.Output<outputs.s3.ObjectCopyOverrideProvider | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * If present, indicates that the requester was successfully charged for the request.
      */
     public /*out*/ readonly requestCharged!: pulumi.Output<boolean>;
@@ -275,8 +279,6 @@ export class ObjectCopy extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -340,6 +342,7 @@ export class ObjectCopy extends pulumi.CustomResource {
             resourceInputs["objectLockMode"] = state ? state.objectLockMode : undefined;
             resourceInputs["objectLockRetainUntilDate"] = state ? state.objectLockRetainUntilDate : undefined;
             resourceInputs["overrideProvider"] = state ? state.overrideProvider : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requestCharged"] = state ? state.requestCharged : undefined;
             resourceInputs["requestPayer"] = state ? state.requestPayer : undefined;
             resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
@@ -395,6 +398,7 @@ export class ObjectCopy extends pulumi.CustomResource {
             resourceInputs["objectLockMode"] = args ? args.objectLockMode : undefined;
             resourceInputs["objectLockRetainUntilDate"] = args ? args.objectLockRetainUntilDate : undefined;
             resourceInputs["overrideProvider"] = args ? args.overrideProvider : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["requestPayer"] = args ? args.requestPayer : undefined;
             resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
@@ -581,6 +585,10 @@ export interface ObjectCopyState {
     objectLockRetainUntilDate?: pulumi.Input<string>;
     overrideProvider?: pulumi.Input<inputs.s3.ObjectCopyOverrideProvider>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * If present, indicates that the requester was successfully charged for the request.
      */
     requestCharged?: pulumi.Input<boolean>;
@@ -628,8 +636,6 @@ export interface ObjectCopyState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -760,6 +766,10 @@ export interface ObjectCopyArgs {
      */
     objectLockRetainUntilDate?: pulumi.Input<string>;
     overrideProvider?: pulumi.Input<inputs.s3.ObjectCopyOverrideProvider>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
      */

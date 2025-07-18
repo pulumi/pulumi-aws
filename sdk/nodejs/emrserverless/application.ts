@@ -142,6 +142,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly networkConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationNetworkConfiguration | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The EMR release version associated with the application.
      */
     public readonly releaseLabel!: pulumi.Output<string>;
@@ -151,8 +155,6 @@ export class Application extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -183,6 +185,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["maximumCapacity"] = state ? state.maximumCapacity : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["releaseLabel"] = state ? state.releaseLabel : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -204,6 +207,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["maximumCapacity"] = args ? args.maximumCapacity : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["releaseLabel"] = args ? args.releaseLabel : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -260,6 +264,10 @@ export interface ApplicationState {
      */
     networkConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationNetworkConfiguration>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The EMR release version associated with the application.
      */
     releaseLabel?: pulumi.Input<string>;
@@ -269,8 +277,6 @@ export interface ApplicationState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -319,6 +325,10 @@ export interface ApplicationArgs {
      * The network configuration for customer VPC connectivity.
      */
     networkConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationNetworkConfiguration>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The EMR release version associated with the application.
      */

@@ -27,7 +27,7 @@ class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
     """
-    def __init__(__self__, arn=None, certificate_type=None, customer_override=None, customer_override_valid_till=None, default_for_new_launches=None, id=None, latest_valid_till=None, thumbprint=None, valid_from=None, valid_till=None):
+    def __init__(__self__, arn=None, certificate_type=None, customer_override=None, customer_override_valid_till=None, default_for_new_launches=None, id=None, latest_valid_till=None, region=None, thumbprint=None, valid_from=None, valid_till=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +49,9 @@ class GetCertificateResult:
         if latest_valid_till and not isinstance(latest_valid_till, bool):
             raise TypeError("Expected argument 'latest_valid_till' to be a bool")
         pulumi.set(__self__, "latest_valid_till", latest_valid_till)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if thumbprint and not isinstance(thumbprint, str):
             raise TypeError("Expected argument 'thumbprint' to be a str")
         pulumi.set(__self__, "thumbprint", thumbprint)
@@ -108,6 +111,11 @@ class GetCertificateResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def thumbprint(self) -> builtins.str:
         """
         Thumbprint of the certificate.
@@ -144,6 +152,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             default_for_new_launches=self.default_for_new_launches,
             id=self.id,
             latest_valid_till=self.latest_valid_till,
+            region=self.region,
             thumbprint=self.thumbprint,
             valid_from=self.valid_from,
             valid_till=self.valid_till)
@@ -152,6 +161,7 @@ class AwaitableGetCertificateResult(GetCertificateResult):
 def get_certificate(default_for_new_launches: Optional[builtins.bool] = None,
                     id: Optional[builtins.str] = None,
                     latest_valid_till: Optional[builtins.bool] = None,
+                    region: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
     Information about an RDS Certificate.
@@ -169,11 +179,13 @@ def get_certificate(default_for_new_launches: Optional[builtins.bool] = None,
     :param builtins.bool default_for_new_launches: When enabled, returns the default certificate for new RDS instances.
     :param builtins.str id: Certificate identifier. For example, `rds-ca-2019`.
     :param builtins.bool latest_valid_till: When enabled, returns the certificate with the latest `ValidTill`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['defaultForNewLaunches'] = default_for_new_launches
     __args__['id'] = id
     __args__['latestValidTill'] = latest_valid_till
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:rds/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
@@ -185,12 +197,14 @@ def get_certificate(default_for_new_launches: Optional[builtins.bool] = None,
         default_for_new_launches=pulumi.get(__ret__, 'default_for_new_launches'),
         id=pulumi.get(__ret__, 'id'),
         latest_valid_till=pulumi.get(__ret__, 'latest_valid_till'),
+        region=pulumi.get(__ret__, 'region'),
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         valid_from=pulumi.get(__ret__, 'valid_from'),
         valid_till=pulumi.get(__ret__, 'valid_till'))
 def get_certificate_output(default_for_new_launches: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                            id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            latest_valid_till: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Information about an RDS Certificate.
@@ -208,11 +222,13 @@ def get_certificate_output(default_for_new_launches: Optional[pulumi.Input[Optio
     :param builtins.bool default_for_new_launches: When enabled, returns the default certificate for new RDS instances.
     :param builtins.str id: Certificate identifier. For example, `rds-ca-2019`.
     :param builtins.bool latest_valid_till: When enabled, returns the certificate with the latest `ValidTill`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['defaultForNewLaunches'] = default_for_new_launches
     __args__['id'] = id
     __args__['latestValidTill'] = latest_valid_till
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
     return __ret__.apply(lambda __response__: GetCertificateResult(
@@ -223,6 +239,7 @@ def get_certificate_output(default_for_new_launches: Optional[pulumi.Input[Optio
         default_for_new_launches=pulumi.get(__response__, 'default_for_new_launches'),
         id=pulumi.get(__response__, 'id'),
         latest_valid_till=pulumi.get(__response__, 'latest_valid_till'),
+        region=pulumi.get(__response__, 'region'),
         thumbprint=pulumi.get(__response__, 'thumbprint'),
         valid_from=pulumi.get(__response__, 'valid_from'),
         valid_till=pulumi.get(__response__, 'valid_till')))

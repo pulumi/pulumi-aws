@@ -32,6 +32,7 @@ class ClusterArgs:
                  maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
                  parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  server_side_encryption: Optional[pulumi.Input['ClusterServerSideEncryptionArgs']] = None,
                  subnet_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -63,6 +64,7 @@ class ClusterArgs:
                `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[builtins.str] parameter_group_name: Name of the parameter group to associate
                with this DAX cluster
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: One or more VPC security groups associated
                with the cluster
         :param pulumi.Input['ClusterServerSideEncryptionArgs'] server_side_encryption: Encrypt at rest options
@@ -86,6 +88,8 @@ class ClusterArgs:
             pulumi.set(__self__, "notification_topic_arn", notification_topic_arn)
         if parameter_group_name is not None:
             pulumi.set(__self__, "parameter_group_name", parameter_group_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if server_side_encryption is not None:
@@ -231,6 +235,18 @@ class ClusterArgs:
         pulumi.set(self, "parameter_group_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -298,6 +314,7 @@ class _ClusterState:
                  notification_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
                  parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_factor: Optional[pulumi.Input[builtins.int]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  server_side_encryption: Optional[pulumi.Input['ClusterServerSideEncryptionArgs']] = None,
@@ -336,6 +353,7 @@ class _ClusterState:
         :param pulumi.Input[builtins.str] parameter_group_name: Name of the parameter group to associate
                with this DAX cluster
         :param pulumi.Input[builtins.int] port: The port used by the configuration endpoint
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] replication_factor: The number of nodes in the DAX cluster. A
                replication factor of 1 will create a single-node cluster, without any read
                replicas
@@ -375,6 +393,8 @@ class _ClusterState:
             pulumi.set(__self__, "parameter_group_name", parameter_group_name)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replication_factor is not None:
             pulumi.set(__self__, "replication_factor", replication_factor)
         if security_group_ids is not None:
@@ -385,9 +405,6 @@ class _ClusterState:
             pulumi.set(__self__, "subnet_group_name", subnet_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -576,6 +593,18 @@ class _ClusterState:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replicationFactor")
     def replication_factor(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -641,7 +670,6 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -668,6 +696,7 @@ class Cluster(pulumi.CustomResource):
                  node_type: Optional[pulumi.Input[builtins.str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
                  parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_factor: Optional[pulumi.Input[builtins.int]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  server_side_encryption: Optional[pulumi.Input[Union['ClusterServerSideEncryptionArgs', 'ClusterServerSideEncryptionArgsDict']]] = None,
@@ -722,6 +751,7 @@ class Cluster(pulumi.CustomResource):
                `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
         :param pulumi.Input[builtins.str] parameter_group_name: Name of the parameter group to associate
                with this DAX cluster
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] replication_factor: The number of nodes in the DAX cluster. A
                replication factor of 1 will create a single-node cluster, without any read
                replicas
@@ -786,6 +816,7 @@ class Cluster(pulumi.CustomResource):
                  node_type: Optional[pulumi.Input[builtins.str]] = None,
                  notification_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
                  parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_factor: Optional[pulumi.Input[builtins.int]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  server_side_encryption: Optional[pulumi.Input[Union['ClusterServerSideEncryptionArgs', 'ClusterServerSideEncryptionArgsDict']]] = None,
@@ -815,6 +846,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["node_type"] = node_type
             __props__.__dict__["notification_topic_arn"] = notification_topic_arn
             __props__.__dict__["parameter_group_name"] = parameter_group_name
+            __props__.__dict__["region"] = region
             if replication_factor is None and not opts.urn:
                 raise TypeError("Missing required property 'replication_factor'")
             __props__.__dict__["replication_factor"] = replication_factor
@@ -852,6 +884,7 @@ class Cluster(pulumi.CustomResource):
             notification_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
             parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
             port: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replication_factor: Optional[pulumi.Input[builtins.int]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             server_side_encryption: Optional[pulumi.Input[Union['ClusterServerSideEncryptionArgs', 'ClusterServerSideEncryptionArgsDict']]] = None,
@@ -895,6 +928,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] parameter_group_name: Name of the parameter group to associate
                with this DAX cluster
         :param pulumi.Input[builtins.int] port: The port used by the configuration endpoint
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] replication_factor: The number of nodes in the DAX cluster. A
                replication factor of 1 will create a single-node cluster, without any read
                replicas
@@ -924,6 +958,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["notification_topic_arn"] = notification_topic_arn
         __props__.__dict__["parameter_group_name"] = parameter_group_name
         __props__.__dict__["port"] = port
+        __props__.__dict__["region"] = region
         __props__.__dict__["replication_factor"] = replication_factor
         __props__.__dict__["security_group_ids"] = security_group_ids
         __props__.__dict__["server_side_encryption"] = server_side_encryption
@@ -1061,6 +1096,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "port")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="replicationFactor")
     def replication_factor(self) -> pulumi.Output[builtins.int]:
         """
@@ -1106,7 +1149,6 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

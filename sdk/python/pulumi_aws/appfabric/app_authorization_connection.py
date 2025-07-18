@@ -25,17 +25,21 @@ class AppAuthorizationConnectionArgs:
                  app_authorization_arn: pulumi.Input[builtins.str],
                  app_bundle_arn: pulumi.Input[builtins.str],
                  auth_request: Optional[pulumi.Input['AppAuthorizationConnectionAuthRequestArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['AppAuthorizationConnectionTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AppAuthorizationConnection resource.
         :param pulumi.Input[builtins.str] app_authorization_arn: The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         :param pulumi.Input[builtins.str] app_bundle_arn: The Amazon Resource Name (ARN) of the app bundle to use for the request.
         :param pulumi.Input['AppAuthorizationConnectionAuthRequestArgs'] auth_request: Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "app_authorization_arn", app_authorization_arn)
         pulumi.set(__self__, "app_bundle_arn", app_bundle_arn)
         if auth_request is not None:
             pulumi.set(__self__, "auth_request", auth_request)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -77,6 +81,18 @@ class AppAuthorizationConnectionArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['AppAuthorizationConnectionTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -92,6 +108,7 @@ class _AppAuthorizationConnectionState:
                  app_authorization_arn: Optional[pulumi.Input[builtins.str]] = None,
                  app_bundle_arn: Optional[pulumi.Input[builtins.str]] = None,
                  auth_request: Optional[pulumi.Input['AppAuthorizationConnectionAuthRequestArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tenants: Optional[pulumi.Input[Sequence[pulumi.Input['AppAuthorizationConnectionTenantArgs']]]] = None,
                  timeouts: Optional[pulumi.Input['AppAuthorizationConnectionTimeoutsArgs']] = None):
         """
@@ -100,6 +117,7 @@ class _AppAuthorizationConnectionState:
         :param pulumi.Input[builtins.str] app_authorization_arn: The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         :param pulumi.Input[builtins.str] app_bundle_arn: The Amazon Resource Name (ARN) of the app bundle to use for the request.
         :param pulumi.Input['AppAuthorizationConnectionAuthRequestArgs'] auth_request: Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['AppAuthorizationConnectionTenantArgs']]] tenants: Contains information about an application tenant, such as the application display name and identifier.
         """
         if app is not None:
@@ -110,6 +128,8 @@ class _AppAuthorizationConnectionState:
             pulumi.set(__self__, "app_bundle_arn", app_bundle_arn)
         if auth_request is not None:
             pulumi.set(__self__, "auth_request", auth_request)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tenants is not None:
             pulumi.set(__self__, "tenants", tenants)
         if timeouts is not None:
@@ -165,6 +185,18 @@ class _AppAuthorizationConnectionState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tenants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppAuthorizationConnectionTenantArgs']]]]:
         """
         Contains information about an application tenant, such as the application display name and identifier.
@@ -194,6 +226,7 @@ class AppAuthorizationConnection(pulumi.CustomResource):
                  app_authorization_arn: Optional[pulumi.Input[builtins.str]] = None,
                  app_bundle_arn: Optional[pulumi.Input[builtins.str]] = None,
                  auth_request: Optional[pulumi.Input[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['AppAuthorizationConnectionTimeoutsArgs', 'AppAuthorizationConnectionTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
@@ -217,6 +250,7 @@ class AppAuthorizationConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] app_authorization_arn: The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         :param pulumi.Input[builtins.str] app_bundle_arn: The Amazon Resource Name (ARN) of the app bundle to use for the request.
         :param pulumi.Input[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']] auth_request: Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -258,6 +292,7 @@ class AppAuthorizationConnection(pulumi.CustomResource):
                  app_authorization_arn: Optional[pulumi.Input[builtins.str]] = None,
                  app_bundle_arn: Optional[pulumi.Input[builtins.str]] = None,
                  auth_request: Optional[pulumi.Input[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['AppAuthorizationConnectionTimeoutsArgs', 'AppAuthorizationConnectionTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -275,6 +310,7 @@ class AppAuthorizationConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'app_bundle_arn'")
             __props__.__dict__["app_bundle_arn"] = app_bundle_arn
             __props__.__dict__["auth_request"] = auth_request
+            __props__.__dict__["region"] = region
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["app"] = None
             __props__.__dict__["tenants"] = None
@@ -292,6 +328,7 @@ class AppAuthorizationConnection(pulumi.CustomResource):
             app_authorization_arn: Optional[pulumi.Input[builtins.str]] = None,
             app_bundle_arn: Optional[pulumi.Input[builtins.str]] = None,
             auth_request: Optional[pulumi.Input[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tenants: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppAuthorizationConnectionTenantArgs', 'AppAuthorizationConnectionTenantArgsDict']]]]] = None,
             timeouts: Optional[pulumi.Input[Union['AppAuthorizationConnectionTimeoutsArgs', 'AppAuthorizationConnectionTimeoutsArgsDict']]] = None) -> 'AppAuthorizationConnection':
         """
@@ -305,6 +342,7 @@ class AppAuthorizationConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] app_authorization_arn: The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         :param pulumi.Input[builtins.str] app_bundle_arn: The Amazon Resource Name (ARN) of the app bundle to use for the request.
         :param pulumi.Input[Union['AppAuthorizationConnectionAuthRequestArgs', 'AppAuthorizationConnectionAuthRequestArgsDict']] auth_request: Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppAuthorizationConnectionTenantArgs', 'AppAuthorizationConnectionTenantArgsDict']]]] tenants: Contains information about an application tenant, such as the application display name and identifier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -315,6 +353,7 @@ class AppAuthorizationConnection(pulumi.CustomResource):
         __props__.__dict__["app_authorization_arn"] = app_authorization_arn
         __props__.__dict__["app_bundle_arn"] = app_bundle_arn
         __props__.__dict__["auth_request"] = auth_request
+        __props__.__dict__["region"] = region
         __props__.__dict__["tenants"] = tenants
         __props__.__dict__["timeouts"] = timeouts
         return AppAuthorizationConnection(resource_name, opts=opts, __props__=__props__)
@@ -350,6 +389,14 @@ class AppAuthorizationConnection(pulumi.CustomResource):
         Contains OAuth2 authorization information.This is required if the app authorization for the request is configured with an OAuth2 (oauth2) authorization type.
         """
         return pulumi.get(self, "auth_request")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

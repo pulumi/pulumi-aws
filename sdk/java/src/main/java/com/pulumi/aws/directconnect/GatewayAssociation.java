@@ -324,16 +324,18 @@ public class GatewayAssociation extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.proposalId);
     }
     /**
-     * @deprecated
-     * vpn_gateway_id is deprecated. Use associated_gateway_id instead.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    @Deprecated /* vpn_gateway_id is deprecated. Use associated_gateway_id instead. */
-    @Export(name="vpnGatewayId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> vpnGatewayId;
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
 
-    public Output<Optional<String>> vpnGatewayId() {
-        return Codegen.optional(this.vpnGatewayId);
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
 
     /**

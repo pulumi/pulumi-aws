@@ -94,7 +94,7 @@ def get_devices(global_network_id: Optional[builtins.str] = None,
                 tags: Optional[Mapping[str, builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevicesResult:
     """
-    Retrieve information about devices.
+    Provides details about existing Network Manager devices.
 
     ## Example Usage
 
@@ -131,7 +131,7 @@ def get_devices_output(global_network_id: Optional[pulumi.Input[builtins.str]] =
                        tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevicesResult]:
     """
-    Retrieve information about devices.
+    Provides details about existing Network Manager devices.
 
     ## Example Usage
 

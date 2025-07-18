@@ -64,7 +64,7 @@ namespace Pulumi.Aws.OpenSearchIngest
     ///     - s3:
     ///         aws:
     ///           sts_role_arn: ""{arn}""
-    ///           region: ""{current.Apply(getRegionResult =&gt; getRegionResult.Name)}""
+    ///           region: ""{current.Apply(getRegionResult =&gt; getRegionResult.Region)}""
     ///         bucket: ""example""
     ///         threshold:
     ///           event_collect_timeout: ""60s""
@@ -170,6 +170,12 @@ namespace Pulumi.Aws.OpenSearchIngest
         /// </summary>
         [Output("pipelineName")]
         public Output<string> PipelineName { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the pipeline. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -279,6 +285,12 @@ namespace Pulumi.Aws.OpenSearchIngest
         [Input("pipelineName", required: true)]
         public Input<string> PipelineName { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -370,6 +382,12 @@ namespace Pulumi.Aws.OpenSearchIngest
         [Input("pipelineName")]
         public Input<string>? PipelineName { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -384,7 +402,6 @@ namespace Pulumi.Aws.OpenSearchIngest
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

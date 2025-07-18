@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func LookupAppregistryApplication(ctx *pulumi.Context, args *LookupAppregistryAp
 type LookupAppregistryApplicationArgs struct {
 	// Application identifier.
 	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAppregistryApplication.
@@ -66,7 +68,8 @@ type LookupAppregistryApplicationResult struct {
 	Description string `pulumi:"description"`
 	Id          string `pulumi:"id"`
 	// Name of the application.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -84,6 +87,8 @@ func LookupAppregistryApplicationOutput(ctx *pulumi.Context, args LookupAppregis
 type LookupAppregistryApplicationOutputArgs struct {
 	// Application identifier.
 	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupAppregistryApplicationOutputArgs) ElementType() reflect.Type {
@@ -127,6 +132,10 @@ func (o LookupAppregistryApplicationResultOutput) Id() pulumi.StringOutput {
 // Name of the application.
 func (o LookupAppregistryApplicationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppregistryApplicationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupAppregistryApplicationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppregistryApplicationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

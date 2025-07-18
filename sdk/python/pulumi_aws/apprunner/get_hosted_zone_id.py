@@ -39,7 +39,7 @@ class GetHostedZoneIdResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        ID of the AWS App Runner service HostedZoneId in the selected region.
+        ID of the AWS App Runner service HostedZoneId in the selected Region.
         """
         return pulumi.get(self, "id")
 
@@ -84,8 +84,7 @@ def get_hosted_zone_id(region: Optional[builtins.str] = None,
     ```
 
 
-    :param builtins.str region: Name of the region whose AWS App Runner service HostedZoneId is desired.
-           Defaults to the region from the AWS provider configuration.
+    :param builtins.str region: Name of the Region whose AWS App Runner service HostedZoneId is desired. Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -120,8 +119,7 @@ def get_hosted_zone_id_output(region: Optional[pulumi.Input[Optional[builtins.st
     ```
 
 
-    :param builtins.str region: Name of the region whose AWS App Runner service HostedZoneId is desired.
-           Defaults to the region from the AWS provider configuration.
+    :param builtins.str region: Name of the Region whose AWS App Runner service HostedZoneId is desired. Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region

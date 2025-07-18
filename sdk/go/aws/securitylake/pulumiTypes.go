@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -2474,45 +2474,29 @@ func (i SubscriberSourceArgs) ToSubscriberSourceOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriberSourceOutput)
 }
 
-func (i SubscriberSourceArgs) ToSubscriberSourcePtrOutput() SubscriberSourcePtrOutput {
-	return i.ToSubscriberSourcePtrOutputWithContext(context.Background())
-}
-
-func (i SubscriberSourceArgs) ToSubscriberSourcePtrOutputWithContext(ctx context.Context) SubscriberSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberSourceOutput).ToSubscriberSourcePtrOutputWithContext(ctx)
-}
-
-// SubscriberSourcePtrInput is an input type that accepts SubscriberSourceArgs, SubscriberSourcePtr and SubscriberSourcePtrOutput values.
-// You can construct a concrete instance of `SubscriberSourcePtrInput` via:
+// SubscriberSourceArrayInput is an input type that accepts SubscriberSourceArray and SubscriberSourceArrayOutput values.
+// You can construct a concrete instance of `SubscriberSourceArrayInput` via:
 //
-//	        SubscriberSourceArgs{...}
-//
-//	or:
-//
-//	        nil
-type SubscriberSourcePtrInput interface {
+//	SubscriberSourceArray{ SubscriberSourceArgs{...} }
+type SubscriberSourceArrayInput interface {
 	pulumi.Input
 
-	ToSubscriberSourcePtrOutput() SubscriberSourcePtrOutput
-	ToSubscriberSourcePtrOutputWithContext(context.Context) SubscriberSourcePtrOutput
+	ToSubscriberSourceArrayOutput() SubscriberSourceArrayOutput
+	ToSubscriberSourceArrayOutputWithContext(context.Context) SubscriberSourceArrayOutput
 }
 
-type subscriberSourcePtrType SubscriberSourceArgs
+type SubscriberSourceArray []SubscriberSourceInput
 
-func SubscriberSourcePtr(v *SubscriberSourceArgs) SubscriberSourcePtrInput {
-	return (*subscriberSourcePtrType)(v)
+func (SubscriberSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriberSource)(nil)).Elem()
 }
 
-func (*subscriberSourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriberSource)(nil)).Elem()
+func (i SubscriberSourceArray) ToSubscriberSourceArrayOutput() SubscriberSourceArrayOutput {
+	return i.ToSubscriberSourceArrayOutputWithContext(context.Background())
 }
 
-func (i *subscriberSourcePtrType) ToSubscriberSourcePtrOutput() SubscriberSourcePtrOutput {
-	return i.ToSubscriberSourcePtrOutputWithContext(context.Background())
-}
-
-func (i *subscriberSourcePtrType) ToSubscriberSourcePtrOutputWithContext(ctx context.Context) SubscriberSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SubscriberSourcePtrOutput)
+func (i SubscriberSourceArray) ToSubscriberSourceArrayOutputWithContext(ctx context.Context) SubscriberSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriberSourceArrayOutput)
 }
 
 type SubscriberSourceOutput struct{ *pulumi.OutputState }
@@ -2529,16 +2513,6 @@ func (o SubscriberSourceOutput) ToSubscriberSourceOutputWithContext(ctx context.
 	return o
 }
 
-func (o SubscriberSourceOutput) ToSubscriberSourcePtrOutput() SubscriberSourcePtrOutput {
-	return o.ToSubscriberSourcePtrOutputWithContext(context.Background())
-}
-
-func (o SubscriberSourceOutput) ToSubscriberSourcePtrOutputWithContext(ctx context.Context) SubscriberSourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriberSource) *SubscriberSource {
-		return &v
-	}).(SubscriberSourcePtrOutput)
-}
-
 // Amazon Security Lake supports log and event collection for natively supported AWS services. See `awsLogSourceResource` Block below.
 func (o SubscriberSourceOutput) AwsLogSourceResource() SubscriberSourceAwsLogSourceResourcePtrOutput {
 	return o.ApplyT(func(v SubscriberSource) *SubscriberSourceAwsLogSourceResource { return v.AwsLogSourceResource }).(SubscriberSourceAwsLogSourceResourcePtrOutput)
@@ -2549,48 +2523,24 @@ func (o SubscriberSourceOutput) CustomLogSourceResource() SubscriberSourceCustom
 	return o.ApplyT(func(v SubscriberSource) *SubscriberSourceCustomLogSourceResource { return v.CustomLogSourceResource }).(SubscriberSourceCustomLogSourceResourcePtrOutput)
 }
 
-type SubscriberSourcePtrOutput struct{ *pulumi.OutputState }
+type SubscriberSourceArrayOutput struct{ *pulumi.OutputState }
 
-func (SubscriberSourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SubscriberSource)(nil)).Elem()
+func (SubscriberSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubscriberSource)(nil)).Elem()
 }
 
-func (o SubscriberSourcePtrOutput) ToSubscriberSourcePtrOutput() SubscriberSourcePtrOutput {
+func (o SubscriberSourceArrayOutput) ToSubscriberSourceArrayOutput() SubscriberSourceArrayOutput {
 	return o
 }
 
-func (o SubscriberSourcePtrOutput) ToSubscriberSourcePtrOutputWithContext(ctx context.Context) SubscriberSourcePtrOutput {
+func (o SubscriberSourceArrayOutput) ToSubscriberSourceArrayOutputWithContext(ctx context.Context) SubscriberSourceArrayOutput {
 	return o
 }
 
-func (o SubscriberSourcePtrOutput) Elem() SubscriberSourceOutput {
-	return o.ApplyT(func(v *SubscriberSource) SubscriberSource {
-		if v != nil {
-			return *v
-		}
-		var ret SubscriberSource
-		return ret
+func (o SubscriberSourceArrayOutput) Index(i pulumi.IntInput) SubscriberSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubscriberSource {
+		return vs[0].([]SubscriberSource)[vs[1].(int)]
 	}).(SubscriberSourceOutput)
-}
-
-// Amazon Security Lake supports log and event collection for natively supported AWS services. See `awsLogSourceResource` Block below.
-func (o SubscriberSourcePtrOutput) AwsLogSourceResource() SubscriberSourceAwsLogSourceResourcePtrOutput {
-	return o.ApplyT(func(v *SubscriberSource) *SubscriberSourceAwsLogSourceResource {
-		if v == nil {
-			return nil
-		}
-		return v.AwsLogSourceResource
-	}).(SubscriberSourceAwsLogSourceResourcePtrOutput)
-}
-
-// Amazon Security Lake supports custom source types. See `customLogSourceResource` Block below.
-func (o SubscriberSourcePtrOutput) CustomLogSourceResource() SubscriberSourceCustomLogSourceResourcePtrOutput {
-	return o.ApplyT(func(v *SubscriberSource) *SubscriberSourceCustomLogSourceResource {
-		if v == nil {
-			return nil
-		}
-		return v.CustomLogSourceResource
-	}).(SubscriberSourceCustomLogSourceResourcePtrOutput)
 }
 
 type SubscriberSourceAwsLogSourceResource struct {
@@ -3533,7 +3483,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberNotificationConfigurationSqsNotificationConfigurationInput)(nil)).Elem(), SubscriberNotificationConfigurationSqsNotificationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberNotificationConfigurationSqsNotificationConfigurationPtrInput)(nil)).Elem(), SubscriberNotificationConfigurationSqsNotificationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberSourceInput)(nil)).Elem(), SubscriberSourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberSourcePtrInput)(nil)).Elem(), SubscriberSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberSourceArrayInput)(nil)).Elem(), SubscriberSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberSourceAwsLogSourceResourceInput)(nil)).Elem(), SubscriberSourceAwsLogSourceResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberSourceAwsLogSourceResourcePtrInput)(nil)).Elem(), SubscriberSourceAwsLogSourceResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriberSourceCustomLogSourceResourceInput)(nil)).Elem(), SubscriberSourceCustomLogSourceResourceArgs{})
@@ -3579,7 +3529,7 @@ func init() {
 	pulumi.RegisterOutputType(SubscriberNotificationConfigurationSqsNotificationConfigurationOutput{})
 	pulumi.RegisterOutputType(SubscriberNotificationConfigurationSqsNotificationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SubscriberSourceOutput{})
-	pulumi.RegisterOutputType(SubscriberSourcePtrOutput{})
+	pulumi.RegisterOutputType(SubscriberSourceArrayOutput{})
 	pulumi.RegisterOutputType(SubscriberSourceAwsLogSourceResourceOutput{})
 	pulumi.RegisterOutputType(SubscriberSourceAwsLogSourceResourcePtrOutput{})
 	pulumi.RegisterOutputType(SubscriberSourceCustomLogSourceResourceOutput{})

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,6 +56,8 @@ type LookupUserArgs struct {
 	Engine              *string                     `pulumi:"engine"`
 	NoPasswordRequired  *bool                       `pulumi:"noPasswordRequired"`
 	Passwords           []string                    `pulumi:"passwords"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier for the user.
 	UserId string `pulumi:"userId"`
 	// User name of the user.
@@ -72,6 +74,7 @@ type LookupUserResult struct {
 	Id                 string   `pulumi:"id"`
 	NoPasswordRequired *bool    `pulumi:"noPasswordRequired"`
 	Passwords          []string `pulumi:"passwords"`
+	Region             string   `pulumi:"region"`
 	// Identifier for the user.
 	UserId string `pulumi:"userId"`
 	// User name of the user.
@@ -95,6 +98,8 @@ type LookupUserOutputArgs struct {
 	Engine              pulumi.StringPtrInput               `pulumi:"engine"`
 	NoPasswordRequired  pulumi.BoolPtrInput                 `pulumi:"noPasswordRequired"`
 	Passwords           pulumi.StringArrayInput             `pulumi:"passwords"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Identifier for the user.
 	UserId pulumi.StringInput `pulumi:"userId"`
 	// User name of the user.
@@ -144,6 +149,10 @@ func (o LookupUserResultOutput) NoPasswordRequired() pulumi.BoolPtrOutput {
 
 func (o LookupUserResultOutput) Passwords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []string { return v.Passwords }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupUserResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Identifier for the user.

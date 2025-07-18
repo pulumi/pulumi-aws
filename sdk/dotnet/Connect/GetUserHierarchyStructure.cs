@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Connect
         [Input("instanceId", required: true)]
         public string InstanceId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetUserHierarchyStructureArgs()
         {
         }
@@ -106,6 +112,12 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("instanceId", required: true)]
         public Input<string> InstanceId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetUserHierarchyStructureInvokeArgs()
         {
@@ -126,6 +138,7 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public readonly string Id;
         public readonly string InstanceId;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetUserHierarchyStructureResult(
@@ -133,11 +146,14 @@ namespace Pulumi.Aws.Connect
 
             string id,
 
-            string instanceId)
+            string instanceId,
+
+            string region)
         {
             HierarchyStructures = hierarchyStructures;
             Id = id;
             InstanceId = instanceId;
+            Region = region;
         }
     }
 }

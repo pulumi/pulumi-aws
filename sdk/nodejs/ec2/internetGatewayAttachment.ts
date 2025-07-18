@@ -62,6 +62,10 @@ export class InternetGatewayAttachment extends pulumi.CustomResource {
      */
     public readonly internetGatewayId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the VPC.
      */
     public readonly vpcId!: pulumi.Output<string>;
@@ -80,6 +84,7 @@ export class InternetGatewayAttachment extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as InternetGatewayAttachmentState | undefined;
             resourceInputs["internetGatewayId"] = state ? state.internetGatewayId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as InternetGatewayAttachmentArgs | undefined;
@@ -90,6 +95,7 @@ export class InternetGatewayAttachment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcId'");
             }
             resourceInputs["internetGatewayId"] = args ? args.internetGatewayId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -106,6 +112,10 @@ export interface InternetGatewayAttachmentState {
      */
     internetGatewayId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the VPC.
      */
     vpcId?: pulumi.Input<string>;
@@ -119,6 +129,10 @@ export interface InternetGatewayAttachmentArgs {
      * The ID of the internet gateway.
      */
     internetGatewayId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the VPC.
      */

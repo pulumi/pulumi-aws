@@ -21,14 +21,18 @@ __all__ = ['SinkPolicyArgs', 'SinkPolicy']
 class SinkPolicyArgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[builtins.str],
-                 sink_identifier: pulumi.Input[builtins.str]):
+                 sink_identifier: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a SinkPolicy resource.
         :param pulumi.Input[builtins.str] policy: JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
         :param pulumi.Input[builtins.str] sink_identifier: ARN of the sink to attach this policy to.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "sink_identifier", sink_identifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -54,18 +58,32 @@ class SinkPolicyArgs:
     def sink_identifier(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "sink_identifier", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _SinkPolicyState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sink_id: Optional[pulumi.Input[builtins.str]] = None,
                  sink_identifier: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering SinkPolicy resources.
         :param pulumi.Input[builtins.str] arn: ARN of the Sink.
         :param pulumi.Input[builtins.str] policy: JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sink_id: ID string that AWS generated as part of the sink ARN.
         :param pulumi.Input[builtins.str] sink_identifier: ARN of the sink to attach this policy to.
         """
@@ -73,6 +91,8 @@ class _SinkPolicyState:
             pulumi.set(__self__, "arn", arn)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sink_id is not None:
             pulumi.set(__self__, "sink_id", sink_id)
         if sink_identifier is not None:
@@ -101,6 +121,18 @@ class _SinkPolicyState:
     @policy.setter
     def policy(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="sinkId")
@@ -134,6 +166,7 @@ class SinkPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sink_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -189,6 +222,7 @@ class SinkPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] policy: JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sink_identifier: ARN of the sink to attach this policy to.
         """
         ...
@@ -263,6 +297,7 @@ class SinkPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sink_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -276,6 +311,7 @@ class SinkPolicy(pulumi.CustomResource):
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
+            __props__.__dict__["region"] = region
             if sink_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'sink_identifier'")
             __props__.__dict__["sink_identifier"] = sink_identifier
@@ -293,6 +329,7 @@ class SinkPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             policy: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             sink_id: Optional[pulumi.Input[builtins.str]] = None,
             sink_identifier: Optional[pulumi.Input[builtins.str]] = None) -> 'SinkPolicy':
         """
@@ -304,6 +341,7 @@ class SinkPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: ARN of the Sink.
         :param pulumi.Input[builtins.str] policy: JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] sink_id: ID string that AWS generated as part of the sink ARN.
         :param pulumi.Input[builtins.str] sink_identifier: ARN of the sink to attach this policy to.
         """
@@ -313,6 +351,7 @@ class SinkPolicy(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["policy"] = policy
+        __props__.__dict__["region"] = region
         __props__.__dict__["sink_id"] = sink_id
         __props__.__dict__["sink_identifier"] = sink_identifier
         return SinkPolicy(resource_name, opts=opts, __props__=__props__)
@@ -332,6 +371,14 @@ class SinkPolicy(pulumi.CustomResource):
         JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sinkId")

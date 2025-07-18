@@ -69,6 +69,10 @@ export class VpcBlockPublicAccessOptions extends pulumi.CustomResource {
      * Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
      */
     public readonly internetGatewayBlockMode!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly timeouts!: pulumi.Output<outputs.ec2.VpcBlockPublicAccessOptionsTimeouts | undefined>;
 
     /**
@@ -87,6 +91,7 @@ export class VpcBlockPublicAccessOptions extends pulumi.CustomResource {
             resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
             resourceInputs["awsRegion"] = state ? state.awsRegion : undefined;
             resourceInputs["internetGatewayBlockMode"] = state ? state.internetGatewayBlockMode : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as VpcBlockPublicAccessOptionsArgs | undefined;
@@ -94,6 +99,7 @@ export class VpcBlockPublicAccessOptions extends pulumi.CustomResource {
                 throw new Error("Missing required property 'internetGatewayBlockMode'");
             }
             resourceInputs["internetGatewayBlockMode"] = args ? args.internetGatewayBlockMode : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["awsAccountId"] = undefined /*out*/;
             resourceInputs["awsRegion"] = undefined /*out*/;
@@ -119,6 +125,10 @@ export interface VpcBlockPublicAccessOptionsState {
      * Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
      */
     internetGatewayBlockMode?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2.VpcBlockPublicAccessOptionsTimeouts>;
 }
 
@@ -130,5 +140,9 @@ export interface VpcBlockPublicAccessOptionsArgs {
      * Block mode. Needs to be one of `block-bidirectional`, `block-ingress`, `off`. If this resource is deleted, then this value will be set to `off` in the AWS account and region.
      */
     internetGatewayBlockMode: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2.VpcBlockPublicAccessOptionsTimeouts>;
 }

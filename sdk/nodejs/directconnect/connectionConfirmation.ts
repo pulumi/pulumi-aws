@@ -48,6 +48,10 @@ export class ConnectionConfirmation extends pulumi.CustomResource {
      * The ID of the hosted connection.
      */
     public readonly connectionId!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ConnectionConfirmation resource with the given unique name, arguments, and options.
@@ -63,12 +67,14 @@ export class ConnectionConfirmation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ConnectionConfirmationState | undefined;
             resourceInputs["connectionId"] = state ? state.connectionId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ConnectionConfirmationArgs | undefined;
             if ((!args || args.connectionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionId'");
             }
             resourceInputs["connectionId"] = args ? args.connectionId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConnectionConfirmation.__pulumiType, name, resourceInputs, opts);
@@ -83,6 +89,10 @@ export interface ConnectionConfirmationState {
      * The ID of the hosted connection.
      */
     connectionId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -93,4 +103,8 @@ export interface ConnectionConfirmationArgs {
      * The ID of the hosted connection.
      */
     connectionId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

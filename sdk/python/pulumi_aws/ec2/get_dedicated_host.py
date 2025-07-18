@@ -29,7 +29,7 @@ class GetDedicatedHostResult:
     """
     A collection of values returned by getDedicatedHost.
     """
-    def __init__(__self__, arn=None, asset_id=None, auto_placement=None, availability_zone=None, cores=None, filters=None, host_id=None, host_recovery=None, id=None, instance_family=None, instance_type=None, outpost_arn=None, owner_id=None, sockets=None, tags=None, total_vcpus=None):
+    def __init__(__self__, arn=None, asset_id=None, auto_placement=None, availability_zone=None, cores=None, filters=None, host_id=None, host_recovery=None, id=None, instance_family=None, instance_type=None, outpost_arn=None, owner_id=None, region=None, sockets=None, tags=None, total_vcpus=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -69,6 +69,9 @@ class GetDedicatedHostResult:
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if sockets and not isinstance(sockets, int):
             raise TypeError("Expected argument 'sockets' to be a int")
         pulumi.set(__self__, "sockets", sockets)
@@ -179,6 +182,11 @@ class GetDedicatedHostResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def sockets(self) -> builtins.int:
         """
         Number of sockets on the Dedicated Host.
@@ -218,6 +226,7 @@ class AwaitableGetDedicatedHostResult(GetDedicatedHostResult):
             instance_type=self.instance_type,
             outpost_arn=self.outpost_arn,
             owner_id=self.owner_id,
+            region=self.region,
             sockets=self.sockets,
             tags=self.tags,
             total_vcpus=self.total_vcpus)
@@ -225,6 +234,7 @@ class AwaitableGetDedicatedHostResult(GetDedicatedHostResult):
 
 def get_dedicated_host(filters: Optional[Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict']]] = None,
                        host_id: Optional[builtins.str] = None,
+                       region: Optional[builtins.str] = None,
                        tags: Optional[Mapping[str, builtins.str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHostResult:
     """
@@ -260,10 +270,12 @@ def get_dedicated_host(filters: Optional[Sequence[Union['GetDedicatedHostFilterA
            
            The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
            The given filters must match exactly one host whose data will be exported as attributes.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['hostId'] = host_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getDedicatedHost:getDedicatedHost', __args__, opts=opts, typ=GetDedicatedHostResult).value
@@ -282,11 +294,13 @@ def get_dedicated_host(filters: Optional[Sequence[Union['GetDedicatedHostFilterA
         instance_type=pulumi.get(__ret__, 'instance_type'),
         outpost_arn=pulumi.get(__ret__, 'outpost_arn'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
+        region=pulumi.get(__ret__, 'region'),
         sockets=pulumi.get(__ret__, 'sockets'),
         tags=pulumi.get(__ret__, 'tags'),
         total_vcpus=pulumi.get(__ret__, 'total_vcpus'))
 def get_dedicated_host_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict']]]]] = None,
                               host_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                              region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedHostResult]:
     """
@@ -322,10 +336,12 @@ def get_dedicated_host_output(filters: Optional[pulumi.Input[Optional[Sequence[U
            
            The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
            The given filters must match exactly one host whose data will be exported as attributes.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['hostId'] = host_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getDedicatedHost:getDedicatedHost', __args__, opts=opts, typ=GetDedicatedHostResult)
@@ -343,6 +359,7 @@ def get_dedicated_host_output(filters: Optional[pulumi.Input[Optional[Sequence[U
         instance_type=pulumi.get(__response__, 'instance_type'),
         outpost_arn=pulumi.get(__response__, 'outpost_arn'),
         owner_id=pulumi.get(__response__, 'owner_id'),
+        region=pulumi.get(__response__, 'region'),
         sockets=pulumi.get(__response__, 'sockets'),
         tags=pulumi.get(__response__, 'tags'),
         total_vcpus=pulumi.get(__response__, 'total_vcpus')))

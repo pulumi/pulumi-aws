@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,6 +69,8 @@ type GetInstanceTypeOfferingsArgs struct {
 	Filters []GetInstanceTypeOfferingsFilter `pulumi:"filters"`
 	// Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
 	LocationType *string `pulumi:"locationType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getInstanceTypeOfferings.
@@ -83,6 +85,7 @@ type GetInstanceTypeOfferingsResult struct {
 	LocationTypes []string `pulumi:"locationTypes"`
 	// List of locations.
 	Locations []string `pulumi:"locations"`
+	Region    string   `pulumi:"region"`
 }
 
 func GetInstanceTypeOfferingsOutput(ctx *pulumi.Context, args GetInstanceTypeOfferingsOutputArgs, opts ...pulumi.InvokeOption) GetInstanceTypeOfferingsResultOutput {
@@ -100,6 +103,8 @@ type GetInstanceTypeOfferingsOutputArgs struct {
 	Filters GetInstanceTypeOfferingsFilterArrayInput `pulumi:"filters"`
 	// Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
 	LocationType pulumi.StringPtrInput `pulumi:"locationType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetInstanceTypeOfferingsOutputArgs) ElementType() reflect.Type {
@@ -147,6 +152,10 @@ func (o GetInstanceTypeOfferingsResultOutput) LocationTypes() pulumi.StringArray
 // List of locations.
 func (o GetInstanceTypeOfferingsResultOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) []string { return v.Locations }).(pulumi.StringArrayOutput)
+}
+
+func (o GetInstanceTypeOfferingsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

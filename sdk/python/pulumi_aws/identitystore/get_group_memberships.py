@@ -28,7 +28,7 @@ class GetGroupMembershipsResult:
     """
     A collection of values returned by getGroupMemberships.
     """
-    def __init__(__self__, group_id=None, group_memberships=None, id=None, identity_store_id=None):
+    def __init__(__self__, group_id=None, group_memberships=None, id=None, identity_store_id=None, region=None):
         if group_id and not isinstance(group_id, str):
             raise TypeError("Expected argument 'group_id' to be a str")
         pulumi.set(__self__, "group_id", group_id)
@@ -41,6 +41,9 @@ class GetGroupMembershipsResult:
         if identity_store_id and not isinstance(identity_store_id, str):
             raise TypeError("Expected argument 'identity_store_id' to be a str")
         pulumi.set(__self__, "identity_store_id", identity_store_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="groupId")
@@ -74,6 +77,11 @@ class GetGroupMembershipsResult:
         """
         return pulumi.get(self, "identity_store_id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetGroupMembershipsResult(GetGroupMembershipsResult):
     # pylint: disable=using-constant-test
@@ -84,11 +92,13 @@ class AwaitableGetGroupMembershipsResult(GetGroupMembershipsResult):
             group_id=self.group_id,
             group_memberships=self.group_memberships,
             id=self.id,
-            identity_store_id=self.identity_store_id)
+            identity_store_id=self.identity_store_id,
+            region=self.region)
 
 
 def get_group_memberships(group_id: Optional[builtins.str] = None,
                           identity_store_id: Optional[builtins.str] = None,
+                          region: Optional[builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupMembershipsResult:
     """
     Use this data source to get a list of members in an Identity Store Group.
@@ -116,10 +126,12 @@ def get_group_memberships(group_id: Optional[builtins.str] = None,
 
     :param builtins.str group_id: The identifier for a group in the Identity Store.
     :param builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['groupId'] = group_id
     __args__['identityStoreId'] = identity_store_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:identitystore/getGroupMemberships:getGroupMemberships', __args__, opts=opts, typ=GetGroupMembershipsResult).value
 
@@ -127,9 +139,11 @@ def get_group_memberships(group_id: Optional[builtins.str] = None,
         group_id=pulumi.get(__ret__, 'group_id'),
         group_memberships=pulumi.get(__ret__, 'group_memberships'),
         id=pulumi.get(__ret__, 'id'),
-        identity_store_id=pulumi.get(__ret__, 'identity_store_id'))
+        identity_store_id=pulumi.get(__ret__, 'identity_store_id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_group_memberships_output(group_id: Optional[pulumi.Input[builtins.str]] = None,
                                  identity_store_id: Optional[pulumi.Input[builtins.str]] = None,
+                                 region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupMembershipsResult]:
     """
     Use this data source to get a list of members in an Identity Store Group.
@@ -157,14 +171,17 @@ def get_group_memberships_output(group_id: Optional[pulumi.Input[builtins.str]] 
 
     :param builtins.str group_id: The identifier for a group in the Identity Store.
     :param builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['groupId'] = group_id
     __args__['identityStoreId'] = identity_store_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:identitystore/getGroupMemberships:getGroupMemberships', __args__, opts=opts, typ=GetGroupMembershipsResult)
     return __ret__.apply(lambda __response__: GetGroupMembershipsResult(
         group_id=pulumi.get(__response__, 'group_id'),
         group_memberships=pulumi.get(__response__, 'group_memberships'),
         id=pulumi.get(__response__, 'id'),
-        identity_store_id=pulumi.get(__response__, 'identity_store_id')))
+        identity_store_id=pulumi.get(__response__, 'identity_store_id'),
+        region=pulumi.get(__response__, 'region')))

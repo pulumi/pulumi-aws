@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func LookupEventConnection(ctx *pulumi.Context, args *LookupEventConnectionArgs,
 type LookupEventConnectionArgs struct {
 	// Name of the connection.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEventConnection.
@@ -67,6 +69,7 @@ type LookupEventConnectionResult struct {
 	// (Optional) Identifier of the AWS KMS customer managed key for EventBridge to use to encrypt the connection, if one has been specified.
 	KmsKeyIdentifier string `pulumi:"kmsKeyIdentifier"`
 	Name             string `pulumi:"name"`
+	Region           string `pulumi:"region"`
 	// ARN of the secret created from the authorization parameters specified for the connection.
 	SecretArn string `pulumi:"secretArn"`
 }
@@ -84,6 +87,8 @@ func LookupEventConnectionOutput(ctx *pulumi.Context, args LookupEventConnection
 type LookupEventConnectionOutputArgs struct {
 	// Name of the connection.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupEventConnectionOutputArgs) ElementType() reflect.Type {
@@ -127,6 +132,10 @@ func (o LookupEventConnectionResultOutput) KmsKeyIdentifier() pulumi.StringOutpu
 
 func (o LookupEventConnectionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventConnectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupEventConnectionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEventConnectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of the secret created from the authorization parameters specified for the connection.

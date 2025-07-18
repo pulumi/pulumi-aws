@@ -93,32 +93,50 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:lightsail/instancePublicPorts:InstancePublicPorts")
 public class InstancePublicPorts extends com.pulumi.resources.CustomResource {
     /**
-     * Name of the Lightsail Instance.
+     * Name of the instance for which to open ports.
      * 
      */
     @Export(name="instanceName", refs={String.class}, tree="[0]")
     private Output<String> instanceName;
 
     /**
-     * @return Name of the Lightsail Instance.
+     * @return Name of the instance for which to open ports.
      * 
      */
     public Output<String> instanceName() {
         return this.instanceName;
     }
     /**
-     * Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+     * Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="portInfos", refs={List.class,InstancePublicPortsPortInfo.class}, tree="[0,1]")
     private Output<List<InstancePublicPortsPortInfo>> portInfos;
 
     /**
-     * @return Configuration block with port information. AWS closes all currently open ports that are not included in the `port_info`. See below.
+     * @return Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `port_info` Block for details.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<List<InstancePublicPortsPortInfo>> portInfos() {
         return this.portInfos;
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
 
     /**

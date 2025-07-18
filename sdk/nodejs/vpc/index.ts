@@ -15,6 +15,11 @@ export type EndpointServicePrivateDnsVerification = import("./endpointServicePri
 export const EndpointServicePrivateDnsVerification: typeof import("./endpointServicePrivateDnsVerification").EndpointServicePrivateDnsVerification = null as any;
 utilities.lazyLoad(exports, ["EndpointServicePrivateDnsVerification"], () => require("./endpointServicePrivateDnsVerification"));
 
+export { GetEndpointAssociationsArgs, GetEndpointAssociationsResult, GetEndpointAssociationsOutputArgs } from "./getEndpointAssociations";
+export const getEndpointAssociations: typeof import("./getEndpointAssociations").getEndpointAssociations = null as any;
+export const getEndpointAssociationsOutput: typeof import("./getEndpointAssociations").getEndpointAssociationsOutput = null as any;
+utilities.lazyLoad(exports, ["getEndpointAssociations","getEndpointAssociationsOutput"], () => require("./getEndpointAssociations"));
+
 export { GetSecurityGroupRuleArgs, GetSecurityGroupRuleResult, GetSecurityGroupRuleOutputArgs } from "./getSecurityGroupRule";
 export const getSecurityGroupRule: typeof import("./getSecurityGroupRule").getSecurityGroupRule = null as any;
 export const getSecurityGroupRuleOutput: typeof import("./getSecurityGroupRule").getSecurityGroupRuleOutput = null as any;
@@ -24,11 +29,6 @@ export { GetSecurityGroupRulesArgs, GetSecurityGroupRulesResult, GetSecurityGrou
 export const getSecurityGroupRules: typeof import("./getSecurityGroupRules").getSecurityGroupRules = null as any;
 export const getSecurityGroupRulesOutput: typeof import("./getSecurityGroupRules").getSecurityGroupRulesOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityGroupRules","getSecurityGroupRulesOutput"], () => require("./getSecurityGroupRules"));
-
-export { GetVpcEndpointAssociationsArgs, GetVpcEndpointAssociationsResult, GetVpcEndpointAssociationsOutputArgs } from "./getVpcEndpointAssociations";
-export const getVpcEndpointAssociations: typeof import("./getVpcEndpointAssociations").getVpcEndpointAssociations = null as any;
-export const getVpcEndpointAssociationsOutput: typeof import("./getVpcEndpointAssociations").getVpcEndpointAssociationsOutput = null as any;
-utilities.lazyLoad(exports, ["getVpcEndpointAssociations","getVpcEndpointAssociationsOutput"], () => require("./getVpcEndpointAssociations"));
 
 export { RouteServerArgs, RouteServerState } from "./routeServer";
 export type RouteServer = import("./routeServer").RouteServer;

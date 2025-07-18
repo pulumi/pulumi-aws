@@ -66,6 +66,7 @@ public final class GetFirewallResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return A flag indicating whether the firewall is protected against changes to the subnet associations.
      * 
@@ -163,6 +164,9 @@ public final class GetFirewallResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return A flag indicating whether the firewall is protected against changes to the subnet associations.
      * 
@@ -218,6 +222,7 @@ public final class GetFirewallResult {
         private List<GetFirewallFirewallStatus> firewallStatuses;
         private String id;
         private String name;
+        private String region;
         private Boolean subnetChangeProtection;
         private List<GetFirewallSubnetMapping> subnetMappings;
         private Map<String,String> tags;
@@ -236,6 +241,7 @@ public final class GetFirewallResult {
     	      this.firewallStatuses = defaults.firewallStatuses;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.subnetChangeProtection = defaults.subnetChangeProtection;
     	      this.subnetMappings = defaults.subnetMappings;
     	      this.tags = defaults.tags;
@@ -333,6 +339,14 @@ public final class GetFirewallResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetFirewallResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder subnetChangeProtection(Boolean subnetChangeProtection) {
             if (subnetChangeProtection == null) {
               throw new MissingRequiredPropertyException("GetFirewallResult", "subnetChangeProtection");
@@ -387,6 +401,7 @@ public final class GetFirewallResult {
             _resultValue.firewallStatuses = firewallStatuses;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.subnetChangeProtection = subnetChangeProtection;
             _resultValue.subnetMappings = subnetMappings;
             _resultValue.tags = tags;

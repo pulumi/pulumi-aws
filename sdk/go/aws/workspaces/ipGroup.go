@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspaces"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,13 +68,13 @@ type IpGroup struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the IP group.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
 	Rules IpGroupRuleArrayOutput `pulumi:"rules"`
 	// A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -112,13 +112,13 @@ type ipGroupState struct {
 	Description *string `pulumi:"description"`
 	// The name of the IP group.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
 	Rules []IpGroupRule `pulumi:"rules"`
 	// A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -127,13 +127,13 @@ type IpGroupState struct {
 	Description pulumi.StringPtrInput
 	// The name of the IP group.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
 	Rules IpGroupRuleArrayInput
 	// A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -146,6 +146,8 @@ type ipGroupArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the IP group.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
 	Rules []IpGroupRule `pulumi:"rules"`
 	// A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -158,6 +160,8 @@ type IpGroupArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the IP group.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
 	Rules IpGroupRuleArrayInput
 	// A map of tags assigned to the WorkSpaces directory. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -261,6 +265,11 @@ func (o IpGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o IpGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // One or more pairs specifying the IP group rule (in CIDR format) from which web requests originate.
 func (o IpGroupOutput) Rules() IpGroupRuleArrayOutput {
 	return o.ApplyT(func(v *IpGroup) IpGroupRuleArrayOutput { return v.Rules }).(IpGroupRuleArrayOutput)
@@ -272,8 +281,6 @@ func (o IpGroupOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o IpGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IpGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

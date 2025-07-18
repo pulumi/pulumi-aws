@@ -196,6 +196,12 @@ namespace Pulumi.Aws.Ram
         public string? Name { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
         /// </summary>
         [Input("resourceOwner", required: true)]
@@ -246,6 +252,12 @@ namespace Pulumi.Aws.Ram
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
         /// </summary>
         [Input("resourceOwner", required: true)]
@@ -293,6 +305,7 @@ namespace Pulumi.Aws.Ram
         /// ID of the AWS account that owns the resource share.
         /// </summary>
         public readonly string OwningAccountId;
+        public readonly string Region;
         /// <summary>
         /// A list of resource ARNs associated with the resource share.
         /// </summary>
@@ -320,6 +333,8 @@ namespace Pulumi.Aws.Ram
 
             string owningAccountId,
 
+            string region,
+
             ImmutableArray<string> resourceArns,
 
             string resourceOwner,
@@ -335,6 +350,7 @@ namespace Pulumi.Aws.Ram
             Id = id;
             Name = name;
             OwningAccountId = owningAccountId;
+            Region = region;
             ResourceArns = resourceArns;
             ResourceOwner = resourceOwner;
             ResourceShareStatus = resourceShareStatus;

@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
+ * const bucket = new aws.s3.Bucket("bucket", {bucket: "your-bucket-name"});
  * const topic = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
+ * const bucket = new aws.s3.Bucket("bucket", {bucket: "your-bucket-name"});
  * const queue = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
@@ -117,7 +117,7 @@ import * as utilities from "../utilities";
  *     handler: "exports.example",
  *     runtime: aws.lambda.Runtime.NodeJS20dX,
  * });
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
+ * const bucket = new aws.s3.Bucket("bucket", {bucket: "your-bucket-name"});
  * const allowBucket = new aws.lambda.Permission("allow_bucket", {
  *     statementId: "AllowExecutionFromS3Bucket",
  *     action: "lambda:InvokeFunction",
@@ -165,7 +165,7 @@ import * as utilities from "../utilities";
  *     handler: "exports.example",
  *     runtime: aws.lambda.Runtime.NodeJS20dX,
  * });
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
+ * const bucket = new aws.s3.Bucket("bucket", {bucket: "your-bucket-name"});
  * const allowBucket1 = new aws.lambda.Permission("allow_bucket1", {
  *     statementId: "AllowExecutionFromS3Bucket1",
  *     action: "lambda:InvokeFunction",
@@ -216,7 +216,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
+ * const bucket = new aws.s3.Bucket("bucket", {bucket: "your-bucket-name"});
  * const queue = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
@@ -264,7 +264,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
+ * const bucket = new aws.s3.Bucket("bucket", {bucket: "your-bucket-name"});
  * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
  *     bucket: bucket.id,
  *     eventbridge: true,
@@ -326,6 +326,10 @@ export class BucketNotification extends pulumi.CustomResource {
      */
     public readonly queues!: pulumi.Output<outputs.s3.BucketNotificationQueue[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Notification configuration to SNS Topic. See below.
      */
     public readonly topics!: pulumi.Output<outputs.s3.BucketNotificationTopic[] | undefined>;
@@ -347,6 +351,7 @@ export class BucketNotification extends pulumi.CustomResource {
             resourceInputs["eventbridge"] = state ? state.eventbridge : undefined;
             resourceInputs["lambdaFunctions"] = state ? state.lambdaFunctions : undefined;
             resourceInputs["queues"] = state ? state.queues : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["topics"] = state ? state.topics : undefined;
         } else {
             const args = argsOrState as BucketNotificationArgs | undefined;
@@ -357,6 +362,7 @@ export class BucketNotification extends pulumi.CustomResource {
             resourceInputs["eventbridge"] = args ? args.eventbridge : undefined;
             resourceInputs["lambdaFunctions"] = args ? args.lambdaFunctions : undefined;
             resourceInputs["queues"] = args ? args.queues : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["topics"] = args ? args.topics : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -387,6 +393,10 @@ export interface BucketNotificationState {
      */
     queues?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationQueue>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Notification configuration to SNS Topic. See below.
      */
     topics?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationTopic>[]>;
@@ -414,6 +424,10 @@ export interface BucketNotificationArgs {
      * Notification configuration to SQS Queue. See below.
      */
     queues?: pulumi.Input<pulumi.Input<inputs.s3.BucketNotificationQueue>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Notification configuration to SNS Topic. See below.
      */

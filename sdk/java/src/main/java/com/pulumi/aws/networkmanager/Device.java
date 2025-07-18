@@ -18,8 +18,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates a device in a global network. If you specify both a site ID and a location,
- * the location of the site is used for visualization in the Network Manager console.
+ * Manages a Network Manager Device.
+ * 
+ * Use this resource to create a device in a global network. If you specify both a site ID and a location, the location of the site is used for visualization in the Network Manager console.
  * 
  * ## Example Usage
  * 
@@ -69,112 +70,116 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:networkmanager/device:Device")
 public class Device extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the device.
+     * ARN of the device.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the device.
+     * @return ARN of the device.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The AWS location of the device. Documented below.
+     * AWS location of the device. Documented below.
      * 
      */
     @Export(name="awsLocation", refs={DeviceAwsLocation.class}, tree="[0]")
     private Output</* @Nullable */ DeviceAwsLocation> awsLocation;
 
     /**
-     * @return The AWS location of the device. Documented below.
+     * @return AWS location of the device. Documented below.
      * 
      */
     public Output<Optional<DeviceAwsLocation>> awsLocation() {
         return Codegen.optional(this.awsLocation);
     }
     /**
-     * A description of the device.
+     * Description of the device.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description of the device.
+     * @return Description of the device.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The ID of the global network.
+     * ID of the global network.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="globalNetworkId", refs={String.class}, tree="[0]")
     private Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the global network.
+     * @return ID of the global network.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
     /**
-     * The location of the device. Documented below.
+     * Location of the device. Documented below.
      * 
      */
     @Export(name="location", refs={DeviceLocation.class}, tree="[0]")
     private Output</* @Nullable */ DeviceLocation> location;
 
     /**
-     * @return The location of the device. Documented below.
+     * @return Location of the device. Documented below.
      * 
      */
     public Output<Optional<DeviceLocation>> location() {
         return Codegen.optional(this.location);
     }
     /**
-     * The model of device.
+     * Model of device.
      * 
      */
     @Export(name="model", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> model;
 
     /**
-     * @return The model of device.
+     * @return Model of device.
      * 
      */
     public Output<Optional<String>> model() {
         return Codegen.optional(this.model);
     }
     /**
-     * The serial number of the device.
+     * Serial number of the device.
      * 
      */
     @Export(name="serialNumber", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serialNumber;
 
     /**
-     * @return The serial number of the device.
+     * @return Serial number of the device.
      * 
      */
     public Output<Optional<String>> serialNumber() {
         return Codegen.optional(this.serialNumber);
     }
     /**
-     * The ID of the site.
+     * ID of the site.
      * 
      */
     @Export(name="siteId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> siteId;
 
     /**
-     * @return The ID of the site.
+     * @return ID of the site.
      * 
      */
     public Output<Optional<String>> siteId() {
@@ -195,46 +200,42 @@ public class Device extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The type of device.
+     * Type of device.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return The type of device.
+     * @return Type of device.
      * 
      */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
     }
     /**
-     * The vendor of the device.
+     * Vendor of the device.
      * 
      */
     @Export(name="vendor", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vendor;
 
     /**
-     * @return The vendor of the device.
+     * @return Vendor of the device.
      * 
      */
     public Output<Optional<String>> vendor() {

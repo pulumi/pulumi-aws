@@ -32,6 +32,7 @@ export function getEnvironmentBlueprint(args: GetEnvironmentBlueprintArgs, opts?
         "domainId": args.domainId,
         "managed": args.managed,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -51,6 +52,10 @@ export interface GetEnvironmentBlueprintArgs {
      * Name of the blueprint.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -72,6 +77,7 @@ export interface GetEnvironmentBlueprintResult {
     readonly id: string;
     readonly managed: boolean;
     readonly name: string;
+    readonly region: string;
 }
 /**
  * Data source for managing an AWS DataZone Environment Blueprint.
@@ -101,6 +107,7 @@ export function getEnvironmentBlueprintOutput(args: GetEnvironmentBlueprintOutpu
         "domainId": args.domainId,
         "managed": args.managed,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -120,4 +127,8 @@ export interface GetEnvironmentBlueprintOutputArgs {
      * Name of the blueprint.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

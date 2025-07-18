@@ -91,6 +91,12 @@ namespace Pulumi.Aws.Transfer
         public Output<string> PartnerProfileId { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The unique server identifier for the server instance. This is the specific server the agreement uses.
         /// </summary>
         [Output("serverId")]
@@ -185,6 +191,12 @@ namespace Pulumi.Aws.Transfer
         public Input<string> PartnerProfileId { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The unique server identifier for the server instance. This is the specific server the agreement uses.
         /// </summary>
         [Input("serverId", required: true)]
@@ -253,6 +265,12 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? PartnerProfileId { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The unique server identifier for the server instance. This is the specific server the agreement uses.
         /// </summary>
         [Input("serverId")]
@@ -275,7 +293,6 @@ namespace Pulumi.Aws.Transfer
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

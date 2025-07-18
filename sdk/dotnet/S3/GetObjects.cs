@@ -76,6 +76,12 @@ namespace Pulumi.Aws.S3
         public string? Prefix { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
         /// </summary>
         [Input("requestPayer")]
@@ -132,6 +138,12 @@ namespace Pulumi.Aws.S3
         public Input<string>? Prefix { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
         /// </summary>
         [Input("requestPayer")]
@@ -175,6 +187,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly ImmutableArray<string> Owners;
         public readonly string? Prefix;
+        public readonly string Region;
         /// <summary>
         /// If present, indicates that the requester was successfully charged for the request.
         /// </summary>
@@ -204,6 +217,8 @@ namespace Pulumi.Aws.S3
 
             string? prefix,
 
+            string region,
+
             string requestCharged,
 
             string? requestPayer,
@@ -220,6 +235,7 @@ namespace Pulumi.Aws.S3
             MaxKeys = maxKeys;
             Owners = owners;
             Prefix = prefix;
+            Region = region;
             RequestCharged = requestCharged;
             RequestPayer = requestPayer;
             StartAfter = startAfter;

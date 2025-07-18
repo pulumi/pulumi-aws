@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -104,6 +104,8 @@ type Activation struct {
 	IamRole pulumi.StringOutput `pulumi:"iamRole"`
 	// The default name of the registered managed instance.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The number of managed instances that are currently registered using this activation.
 	RegistrationCount pulumi.IntOutput `pulumi:"registrationCount"`
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
@@ -111,8 +113,6 @@ type Activation struct {
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -161,6 +161,8 @@ type activationState struct {
 	IamRole *string `pulumi:"iamRole"`
 	// The default name of the registered managed instance.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The number of managed instances that are currently registered using this activation.
 	RegistrationCount *int `pulumi:"registrationCount"`
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
@@ -168,8 +170,6 @@ type activationState struct {
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -186,6 +186,8 @@ type ActivationState struct {
 	IamRole pulumi.StringPtrInput
 	// The default name of the registered managed instance.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The number of managed instances that are currently registered using this activation.
 	RegistrationCount pulumi.IntPtrInput
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
@@ -193,8 +195,6 @@ type ActivationState struct {
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -211,6 +211,8 @@ type activationArgs struct {
 	IamRole string `pulumi:"iamRole"`
 	// The default name of the registered managed instance.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit *int `pulumi:"registrationLimit"`
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -227,6 +229,8 @@ type ActivationArgs struct {
 	IamRole pulumi.StringInput
 	// The default name of the registered managed instance.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The maximum number of managed instances you want to register. The default value is 1 instance.
 	RegistrationLimit pulumi.IntPtrInput
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -350,6 +354,11 @@ func (o ActivationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Activation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ActivationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Activation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The number of managed instances that are currently registered using this activation.
 func (o ActivationOutput) RegistrationCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *Activation) pulumi.IntOutput { return v.RegistrationCount }).(pulumi.IntOutput)
@@ -366,8 +375,6 @@ func (o ActivationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ActivationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Activation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

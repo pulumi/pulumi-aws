@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/devopsguru"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/devopsguru"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,10 +52,8 @@ func LookupResourceCollection(ctx *pulumi.Context, args *LookupResourceCollectio
 
 // A collection of arguments for invoking getResourceCollection.
 type LookupResourceCollectionArgs struct {
-	// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-	Cloudformations []GetResourceCollectionCloudformation `pulumi:"cloudformations"`
-	// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-	Tags []GetResourceCollectionTag `pulumi:"tags"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
 	Type string `pulumi:"type"`
 }
@@ -65,7 +63,8 @@ type LookupResourceCollectionResult struct {
 	// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
 	Cloudformations []GetResourceCollectionCloudformation `pulumi:"cloudformations"`
 	// Type of AWS resource collection to create (same value as `type`).
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
 	Tags []GetResourceCollectionTag `pulumi:"tags"`
 	Type string                     `pulumi:"type"`
@@ -82,10 +81,8 @@ func LookupResourceCollectionOutput(ctx *pulumi.Context, args LookupResourceColl
 
 // A collection of arguments for invoking getResourceCollection.
 type LookupResourceCollectionOutputArgs struct {
-	// A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-	Cloudformations GetResourceCollectionCloudformationArrayInput `pulumi:"cloudformations"`
-	// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-	Tags GetResourceCollectionTagArrayInput `pulumi:"tags"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Type of AWS resource collection to create. Valid values are `AWS_CLOUD_FORMATION`, `AWS_SERVICE`, and `AWS_TAGS`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -117,6 +114,10 @@ func (o LookupResourceCollectionResultOutput) Cloudformations() GetResourceColle
 // Type of AWS resource collection to create (same value as `type`).
 func (o LookupResourceCollectionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceCollectionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupResourceCollectionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourceCollectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.

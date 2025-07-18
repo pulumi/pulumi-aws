@@ -19,6 +19,27 @@ public final class GetAmiPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetAmiPlainArgs Empty = new GetAmiPlainArgs();
 
     /**
+     * If true, allow unsafe filter values. With unsafe
+     * filters and `most_recent` set to `true`, a third party may introduce a new image which
+     * will be returned by this data source. Consider filtering by owner or image ID rather
+     * than setting this argument.
+     * 
+     */
+    @Import(name="allowUnsafeFilter")
+    private @Nullable Boolean allowUnsafeFilter;
+
+    /**
+     * @return If true, allow unsafe filter values. With unsafe
+     * filters and `most_recent` set to `true`, a third party may introduce a new image which
+     * will be returned by this data source. Consider filtering by owner or image ID rather
+     * than setting this argument.
+     * 
+     */
+    public Optional<Boolean> allowUnsafeFilter() {
+        return Optional.ofNullable(this.allowUnsafeFilter);
+    }
+
+    /**
      * Limit search to users with *explicit* launch permission on
      * the image. Valid items are the numeric account ID or `self`.
      * 
@@ -135,6 +156,21 @@ public final class GetAmiPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Any tags assigned to the image.
      * * `tags.#.key` - Key name of the tag.
      * * `tags.#.value` - Value of the tag.
@@ -171,12 +207,14 @@ public final class GetAmiPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetAmiPlainArgs() {}
 
     private GetAmiPlainArgs(GetAmiPlainArgs $) {
+        this.allowUnsafeFilter = $.allowUnsafeFilter;
         this.executableUsers = $.executableUsers;
         this.filters = $.filters;
         this.includeDeprecated = $.includeDeprecated;
         this.mostRecent = $.mostRecent;
         this.nameRegex = $.nameRegex;
         this.owners = $.owners;
+        this.region = $.region;
         this.tags = $.tags;
         this.uefiData = $.uefiData;
     }
@@ -197,6 +235,20 @@ public final class GetAmiPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetAmiPlainArgs defaults) {
             $ = new GetAmiPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param allowUnsafeFilter If true, allow unsafe filter values. With unsafe
+         * filters and `most_recent` set to `true`, a third party may introduce a new image which
+         * will be returned by this data source. Consider filtering by owner or image ID rather
+         * than setting this argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowUnsafeFilter(@Nullable Boolean allowUnsafeFilter) {
+            $.allowUnsafeFilter = allowUnsafeFilter;
+            return this;
         }
 
         /**
@@ -309,6 +361,17 @@ public final class GetAmiPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder owners(String... owners) {
             return owners(List.of(owners));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

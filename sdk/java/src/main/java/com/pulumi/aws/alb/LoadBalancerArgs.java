@@ -3,11 +3,14 @@
 
 package com.pulumi.aws.alb;
 
+import com.pulumi.aws.alb.enums.IpAddressType;
+import com.pulumi.aws.alb.enums.LoadBalancerType;
 import com.pulumi.aws.alb.inputs.LoadBalancerAccessLogsArgs;
 import com.pulumi.aws.alb.inputs.LoadBalancerConnectionLogsArgs;
 import com.pulumi.aws.alb.inputs.LoadBalancerIpamPoolsArgs;
 import com.pulumi.aws.alb.inputs.LoadBalancerMinimumLoadBalancerCapacityArgs;
 import com.pulumi.aws.alb.inputs.LoadBalancerSubnetMappingArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -284,13 +287,13 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="ipAddressType")
-    private @Nullable Output<String> ipAddressType;
+    private @Nullable Output<Either<String,IpAddressType>> ipAddressType;
 
     /**
      * @return Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      * 
      */
-    public Optional<Output<String>> ipAddressType() {
+    public Optional<Output<Either<String,IpAddressType>>> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
 
@@ -314,13 +317,13 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="loadBalancerType")
-    private @Nullable Output<String> loadBalancerType;
+    private @Nullable Output<LoadBalancerType> loadBalancerType;
 
     /**
      * @return Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      * 
      */
-    public Optional<Output<String>> loadBalancerType() {
+    public Optional<Output<LoadBalancerType>> loadBalancerType() {
         return Optional.ofNullable(this.loadBalancerType);
     }
 
@@ -382,6 +385,21 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> preserveHostHeader() {
         return Optional.ofNullable(this.preserveHostHeader);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -494,6 +512,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.namePrefix = $.namePrefix;
         this.preserveHostHeader = $.preserveHostHeader;
+        this.region = $.region;
         this.securityGroups = $.securityGroups;
         this.subnetMappings = $.subnetMappings;
         this.subnets = $.subnets;
@@ -882,7 +901,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
+        public Builder ipAddressType(@Nullable Output<Either<String,IpAddressType>> ipAddressType) {
             $.ipAddressType = ipAddressType;
             return this;
         }
@@ -893,8 +912,28 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder ipAddressType(String ipAddressType) {
+        public Builder ipAddressType(Either<String,IpAddressType> ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
+        }
+
+        /**
+         * @param ipAddressType Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(String ipAddressType) {
+            return ipAddressType(Either.ofLeft(ipAddressType));
+        }
+
+        /**
+         * @param ipAddressType Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(IpAddressType ipAddressType) {
+            return ipAddressType(Either.ofRight(ipAddressType));
         }
 
         /**
@@ -924,7 +963,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder loadBalancerType(@Nullable Output<String> loadBalancerType) {
+        public Builder loadBalancerType(@Nullable Output<LoadBalancerType> loadBalancerType) {
             $.loadBalancerType = loadBalancerType;
             return this;
         }
@@ -935,7 +974,7 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder loadBalancerType(String loadBalancerType) {
+        public Builder loadBalancerType(LoadBalancerType loadBalancerType) {
             return loadBalancerType(Output.of(loadBalancerType));
         }
 
@@ -1021,6 +1060,27 @@ public final class LoadBalancerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder preserveHostHeader(Boolean preserveHostHeader) {
             return preserveHostHeader(Output.of(preserveHostHeader));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

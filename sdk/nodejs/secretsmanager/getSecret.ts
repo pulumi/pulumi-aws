@@ -37,6 +37,7 @@ export function getSecret(args?: GetSecretArgs, opts?: pulumi.InvokeOptions): Pr
     return pulumi.runtime.invoke("aws:secretsmanager/getSecret:getSecret", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -53,6 +54,10 @@ export interface GetSecretArgs {
      * Name of the secret to retrieve.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Tags of the secret.
      */
@@ -92,6 +97,7 @@ export interface GetSecretResult {
      * Resource-based policy document that's attached to the secret.
      */
     readonly policy: string;
+    readonly region: string;
     /**
      * Tags of the secret.
      */
@@ -130,6 +136,7 @@ export function getSecretOutput(args?: GetSecretOutputArgs, opts?: pulumi.Invoke
     return pulumi.runtime.invokeOutput("aws:secretsmanager/getSecret:getSecret", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -146,6 +153,10 @@ export interface GetSecretOutputArgs {
      * Name of the secret to retrieve.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Tags of the secret.
      */

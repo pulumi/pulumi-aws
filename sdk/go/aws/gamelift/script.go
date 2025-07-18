@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/gamelift"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/gamelift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,13 +58,13 @@ type Script struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the script
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation ScriptStorageLocationOutput `pulumi:"storageLocation"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Version that is associated with this script.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
@@ -106,13 +106,13 @@ type scriptState struct {
 	Arn *string `pulumi:"arn"`
 	// Name of the script
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation *ScriptStorageLocation `pulumi:"storageLocation"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Version that is associated with this script.
 	Version *string `pulumi:"version"`
@@ -125,13 +125,13 @@ type ScriptState struct {
 	Arn pulumi.StringPtrInput
 	// Name of the script
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation ScriptStorageLocationPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Version that is associated with this script.
 	Version pulumi.StringPtrInput
@@ -146,6 +146,8 @@ func (ScriptState) ElementType() reflect.Type {
 type scriptArgs struct {
 	// Name of the script
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation *ScriptStorageLocation `pulumi:"storageLocation"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -160,6 +162,8 @@ type scriptArgs struct {
 type ScriptArgs struct {
 	// Name of the script
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation ScriptStorageLocationPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -267,6 +271,11 @@ func (o ScriptOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ScriptOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Script) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Information indicating where your game script files are stored. See below.
 func (o ScriptOutput) StorageLocation() ScriptStorageLocationOutput {
 	return o.ApplyT(func(v *Script) ScriptStorageLocationOutput { return v.StorageLocation }).(ScriptStorageLocationOutput)
@@ -278,8 +287,6 @@ func (o ScriptOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ScriptOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

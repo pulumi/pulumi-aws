@@ -28,7 +28,7 @@ class GetSecretVersionsResult:
     """
     A collection of values returned by getSecretVersions.
     """
-    def __init__(__self__, arn=None, id=None, include_deprecated=None, name=None, secret_id=None, versions=None):
+    def __init__(__self__, arn=None, id=None, include_deprecated=None, name=None, region=None, secret_id=None, versions=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -41,6 +41,9 @@ class GetSecretVersionsResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if secret_id and not isinstance(secret_id, str):
             raise TypeError("Expected argument 'secret_id' to be a str")
         pulumi.set(__self__, "secret_id", secret_id)
@@ -75,6 +78,11 @@ class GetSecretVersionsResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="secretId")
     def secret_id(self) -> builtins.str:
         return pulumi.get(self, "secret_id")
@@ -98,11 +106,13 @@ class AwaitableGetSecretVersionsResult(GetSecretVersionsResult):
             id=self.id,
             include_deprecated=self.include_deprecated,
             name=self.name,
+            region=self.region,
             secret_id=self.secret_id,
             versions=self.versions)
 
 
 def get_secret_versions(include_deprecated: Optional[builtins.bool] = None,
+                        region: Optional[builtins.str] = None,
                         secret_id: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretVersionsResult:
     """
@@ -110,10 +120,12 @@ def get_secret_versions(include_deprecated: Optional[builtins.bool] = None,
 
     :param builtins.bool include_deprecated: If true, all deprecated secret versions are included in the response.
            If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
     """
     __args__ = dict()
     __args__['includeDeprecated'] = include_deprecated
+    __args__['region'] = region
     __args__['secretId'] = secret_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecretVersions:getSecretVersions', __args__, opts=opts, typ=GetSecretVersionsResult).value
@@ -123,9 +135,11 @@ def get_secret_versions(include_deprecated: Optional[builtins.bool] = None,
         id=pulumi.get(__ret__, 'id'),
         include_deprecated=pulumi.get(__ret__, 'include_deprecated'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         secret_id=pulumi.get(__ret__, 'secret_id'),
         versions=pulumi.get(__ret__, 'versions'))
 def get_secret_versions_output(include_deprecated: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
+                               region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                secret_id: Optional[pulumi.Input[builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretVersionsResult]:
     """
@@ -133,10 +147,12 @@ def get_secret_versions_output(include_deprecated: Optional[pulumi.Input[Optiona
 
     :param builtins.bool include_deprecated: If true, all deprecated secret versions are included in the response.
            If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
     """
     __args__ = dict()
     __args__['includeDeprecated'] = include_deprecated
+    __args__['region'] = region
     __args__['secretId'] = secret_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:secretsmanager/getSecretVersions:getSecretVersions', __args__, opts=opts, typ=GetSecretVersionsResult)
@@ -145,5 +161,6 @@ def get_secret_versions_output(include_deprecated: Optional[pulumi.Input[Optiona
         id=pulumi.get(__response__, 'id'),
         include_deprecated=pulumi.get(__response__, 'include_deprecated'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         secret_id=pulumi.get(__response__, 'secret_id'),
         versions=pulumi.get(__response__, 'versions')))

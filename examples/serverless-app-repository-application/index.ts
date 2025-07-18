@@ -1,19 +1,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 
-const config = new pulumi.Config("aws");
-const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>config.require("envRegion") }) };
+const awsConfig = new pulumi.Config("aws");
+const providerOpts = { provider: new aws.Provider("prov", { region: <aws.Region>awsConfig.require("envRegion") }) };
+const config = new pulumi.Config();
 
 const athenaConnectorApp = aws.serverlessrepository.getApplication({
     applicationId: "arn:aws:serverlessrepo:us-east-1:292517598671:applications/AthenaCloudwatchConnector",
 }, providerOpts);
 
-const spillBucket = new aws.s3.BucketV2("spill-bucket", {
+const spillBucket = new aws.s3.Bucket("spill-bucket", {
     bucketPrefix: "spill-bucket",
     forceDestroy: true,
 }, providerOpts);
 
-const functionName = "athena-cloudwatch-connector"
+const functionName = config.require("functionName").toLowerCase();
 const athenaConnector = new aws.serverlessrepository.CloudFormationStack("athena-connector", {
     applicationId: athenaConnectorApp.then(app => app.applicationId),
     semanticVersion: athenaConnectorApp.then(app => app.semanticVersion),

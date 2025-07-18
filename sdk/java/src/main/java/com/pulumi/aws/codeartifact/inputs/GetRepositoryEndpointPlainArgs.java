@@ -61,6 +61,21 @@ public final class GetRepositoryEndpointPlainArgs extends com.pulumi.resources.I
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Name of the repository.
      * 
      */
@@ -81,6 +96,7 @@ public final class GetRepositoryEndpointPlainArgs extends com.pulumi.resources.I
         this.domain = $.domain;
         this.domainOwner = $.domainOwner;
         this.format = $.format;
+        this.region = $.region;
         this.repository = $.repository;
     }
 
@@ -132,6 +148,17 @@ public final class GetRepositoryEndpointPlainArgs extends com.pulumi.resources.I
          */
         public Builder format(String format) {
             $.format = format;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

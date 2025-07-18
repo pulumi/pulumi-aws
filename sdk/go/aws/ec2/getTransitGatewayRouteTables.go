@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,6 +53,8 @@ func GetTransitGatewayRouteTables(ctx *pulumi.Context, args *GetTransitGatewayRo
 type GetTransitGatewayRouteTablesArgs struct {
 	// Custom filter block as described below.
 	Filters []GetTransitGatewayRouteTablesFilter `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired transit gateway route table.
 	//
@@ -67,8 +69,9 @@ type GetTransitGatewayRouteTablesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set of Transit Gateway Route Table identifiers.
-	Ids  []string          `pulumi:"ids"`
-	Tags map[string]string `pulumi:"tags"`
+	Ids    []string          `pulumi:"ids"`
+	Region string            `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 func GetTransitGatewayRouteTablesOutput(ctx *pulumi.Context, args GetTransitGatewayRouteTablesOutputArgs, opts ...pulumi.InvokeOption) GetTransitGatewayRouteTablesResultOutput {
@@ -84,6 +87,8 @@ func GetTransitGatewayRouteTablesOutput(ctx *pulumi.Context, args GetTransitGate
 type GetTransitGatewayRouteTablesOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetTransitGatewayRouteTablesFilterArrayInput `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired transit gateway route table.
 	//
@@ -123,6 +128,10 @@ func (o GetTransitGatewayRouteTablesResultOutput) Id() pulumi.StringOutput {
 // Set of Transit Gateway Route Table identifiers.
 func (o GetTransitGatewayRouteTablesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetTransitGatewayRouteTablesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetTransitGatewayRouteTablesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTransitGatewayRouteTablesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetTransitGatewayRouteTablesResultOutput) Tags() pulumi.StringMapOutput {

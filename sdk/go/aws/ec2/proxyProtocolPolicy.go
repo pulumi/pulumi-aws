@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,6 +76,8 @@ type ProxyProtocolPolicy struct {
 	// The load balancer to which the policy
 	// should be attached.
 	LoadBalancer pulumi.StringOutput `pulumi:"loadBalancer"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewProxyProtocolPolicy registers a new resource with the given unique name, arguments, and options.
@@ -120,6 +122,8 @@ type proxyProtocolPolicyState struct {
 	// The load balancer to which the policy
 	// should be attached.
 	LoadBalancer *string `pulumi:"loadBalancer"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ProxyProtocolPolicyState struct {
@@ -129,6 +133,8 @@ type ProxyProtocolPolicyState struct {
 	// The load balancer to which the policy
 	// should be attached.
 	LoadBalancer pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ProxyProtocolPolicyState) ElementType() reflect.Type {
@@ -142,6 +148,8 @@ type proxyProtocolPolicyArgs struct {
 	// The load balancer to which the policy
 	// should be attached.
 	LoadBalancer string `pulumi:"loadBalancer"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ProxyProtocolPolicy resource.
@@ -152,6 +160,8 @@ type ProxyProtocolPolicyArgs struct {
 	// The load balancer to which the policy
 	// should be attached.
 	LoadBalancer pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ProxyProtocolPolicyArgs) ElementType() reflect.Type {
@@ -251,6 +261,11 @@ func (o ProxyProtocolPolicyOutput) InstancePorts() pulumi.StringArrayOutput {
 // should be attached.
 func (o ProxyProtocolPolicyOutput) LoadBalancer() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyProtocolPolicy) pulumi.StringOutput { return v.LoadBalancer }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ProxyProtocolPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProxyProtocolPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ProxyProtocolPolicyArrayOutput struct{ *pulumi.OutputState }

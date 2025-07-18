@@ -189,6 +189,10 @@ export class GameServerGroup extends pulumi.CustomResource {
      */
     public readonly minSize!: pulumi.Output<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -196,9 +200,6 @@ export class GameServerGroup extends pulumi.CustomResource {
      * Key-value map of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of VPC subnets to use with instances in the game server group.
@@ -229,6 +230,7 @@ export class GameServerGroup extends pulumi.CustomResource {
             resourceInputs["launchTemplate"] = state ? state.launchTemplate : undefined;
             resourceInputs["maxSize"] = state ? state.maxSize : undefined;
             resourceInputs["minSize"] = state ? state.minSize : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -261,6 +263,7 @@ export class GameServerGroup extends pulumi.CustomResource {
             resourceInputs["launchTemplate"] = args ? args.launchTemplate : undefined;
             resourceInputs["maxSize"] = args ? args.maxSize : undefined;
             resourceInputs["minSize"] = args ? args.minSize : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcSubnets"] = args ? args.vpcSubnets : undefined;
@@ -318,6 +321,10 @@ export interface GameServerGroupState {
      */
     minSize?: pulumi.Input<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
      */
     roleArn?: pulumi.Input<string>;
@@ -325,9 +332,6 @@ export interface GameServerGroupState {
      * Key-value map of resource tags
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of VPC subnets to use with instances in the game server group.
@@ -372,6 +376,10 @@ export interface GameServerGroupArgs {
      * During automatic scaling events, GameLift FleetIQ and EC2 do not scale down the group below this minimum.
      */
     minSize: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN for an IAM role that allows Amazon GameLift to access your EC2 Auto Scaling groups.
      */

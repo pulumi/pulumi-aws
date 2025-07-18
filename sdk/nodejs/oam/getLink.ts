@@ -27,6 +27,7 @@ export function getLink(args: GetLinkArgs, opts?: pulumi.InvokeOptions): Promise
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:oam/getLink:getLink", {
         "linkIdentifier": args.linkIdentifier,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -39,6 +40,10 @@ export interface GetLinkArgs {
      * ARN of the link.
      */
     linkIdentifier: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     tags?: {[key: string]: string};
 }
 
@@ -71,6 +76,7 @@ export interface GetLinkResult {
      */
     readonly linkId: string;
     readonly linkIdentifier: string;
+    readonly region: string;
     /**
      * Types of data that the source account shares with the monitoring account.
      */
@@ -101,6 +107,7 @@ export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOutpu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:oam/getLink:getLink", {
         "linkIdentifier": args.linkIdentifier,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -113,5 +120,9 @@ export interface GetLinkOutputArgs {
      * ARN of the link.
      */
     linkIdentifier: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

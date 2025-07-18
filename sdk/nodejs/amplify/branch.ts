@@ -92,18 +92,18 @@ import * as utilities from "../utilities";
  *         inputTemplate: "\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \"",
  *     },
  * });
- * const amplifyAppMaster = pulumi.all([master.arn, amplifyAppMasterTopic.arn]).apply(([masterArn, amplifyAppMasterTopicArn]) => aws.iam.getPolicyDocumentOutput({
+ * const amplifyAppMaster = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         sid: `Allow_Publish_Events ${masterArn}`,
+ *         sid: pulumi.interpolate`Allow_Publish_Events ${master.arn}`,
  *         effect: "Allow",
  *         actions: ["SNS:Publish"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["events.amazonaws.com"],
  *         }],
- *         resources: [amplifyAppMasterTopicArn],
+ *         resources: [amplifyAppMasterTopic.arn],
  *     }],
- * }));
+ * });
  * const amplifyAppMasterTopicPolicy = new aws.sns.TopicPolicy("amplify_app_master", {
  *     arn: amplifyAppMasterTopic.arn,
  *     policy: amplifyAppMaster.apply(amplifyAppMaster => amplifyAppMaster.json),
@@ -212,6 +212,10 @@ export class Branch extends pulumi.CustomResource {
      */
     public readonly enablePullRequestPreview!: pulumi.Output<boolean | undefined>;
     /**
+     * Enables skew protection for the branch.
+     */
+    public readonly enableSkewProtection!: pulumi.Output<boolean | undefined>;
+    /**
      * Environment variables for the branch.
      */
     public readonly environmentVariables!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -223,6 +227,10 @@ export class Branch extends pulumi.CustomResource {
      * Amplify environment name for the pull request.
      */
     public readonly pullRequestEnvironmentName!: pulumi.Output<string | undefined>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     /**
      * Source branch if the branch is a pull request branch.
      */
@@ -237,8 +245,6 @@ export class Branch extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -274,9 +280,11 @@ export class Branch extends pulumi.CustomResource {
             resourceInputs["enableNotification"] = state ? state.enableNotification : undefined;
             resourceInputs["enablePerformanceMode"] = state ? state.enablePerformanceMode : undefined;
             resourceInputs["enablePullRequestPreview"] = state ? state.enablePullRequestPreview : undefined;
+            resourceInputs["enableSkewProtection"] = state ? state.enableSkewProtection : undefined;
             resourceInputs["environmentVariables"] = state ? state.environmentVariables : undefined;
             resourceInputs["framework"] = state ? state.framework : undefined;
             resourceInputs["pullRequestEnvironmentName"] = state ? state.pullRequestEnvironmentName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sourceBranch"] = state ? state.sourceBranch : undefined;
             resourceInputs["stage"] = state ? state.stage : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -301,9 +309,11 @@ export class Branch extends pulumi.CustomResource {
             resourceInputs["enableNotification"] = args ? args.enableNotification : undefined;
             resourceInputs["enablePerformanceMode"] = args ? args.enablePerformanceMode : undefined;
             resourceInputs["enablePullRequestPreview"] = args ? args.enablePullRequestPreview : undefined;
+            resourceInputs["enableSkewProtection"] = args ? args.enableSkewProtection : undefined;
             resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             resourceInputs["framework"] = args ? args.framework : undefined;
             resourceInputs["pullRequestEnvironmentName"] = args ? args.pullRequestEnvironmentName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["stage"] = args ? args.stage : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["ttl"] = args ? args.ttl : undefined;
@@ -386,6 +396,10 @@ export interface BranchState {
      */
     enablePullRequestPreview?: pulumi.Input<boolean>;
     /**
+     * Enables skew protection for the branch.
+     */
+    enableSkewProtection?: pulumi.Input<boolean>;
+    /**
      * Environment variables for the branch.
      */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -397,6 +411,10 @@ export interface BranchState {
      * Amplify environment name for the pull request.
      */
     pullRequestEnvironmentName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Source branch if the branch is a pull request branch.
      */
@@ -411,8 +429,6 @@ export interface BranchState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -470,6 +486,10 @@ export interface BranchArgs {
      */
     enablePullRequestPreview?: pulumi.Input<boolean>;
     /**
+     * Enables skew protection for the branch.
+     */
+    enableSkewProtection?: pulumi.Input<boolean>;
+    /**
      * Environment variables for the branch.
      */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -481,6 +501,10 @@ export interface BranchArgs {
      * Amplify environment name for the pull request.
      */
     pullRequestEnvironmentName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
      */

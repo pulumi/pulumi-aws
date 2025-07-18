@@ -97,15 +97,21 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The status of scaling group.
-        /// * `CREATING` – The scaling group creation is in progress.
-        /// * `CREATE_FAILED` – The scaling group creation has failed.
-        /// * `ACTIVE` – The scaling group is active.
-        /// * `UPDATING` – The scaling group is in the process of being updated.
-        /// * `UPDATE_FAILED` – The update action failed.
-        /// * `DELETING` – The scaling group is in the process of being deleted.
-        /// * `DELETE_FAILED` – The system failed to delete the scaling group.
-        /// * `DELETED` – The scaling group is successfully deleted.
+        /// * `CREATING` - The scaling group creation is in progress.
+        /// * `CREATE_FAILED` - The scaling group creation has failed.
+        /// * `ACTIVE` - The scaling group is active.
+        /// * `UPDATING` - The scaling group is in the process of being updated.
+        /// * `UPDATE_FAILED` - The update action failed.
+        /// * `DELETING` - The scaling group is in the process of being deleted.
+        /// * `DELETE_FAILED` - The system failed to delete the scaling group.
+        /// * `DELETED` - The scaling group is successfully deleted.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -200,6 +206,12 @@ namespace Pulumi.Aws.FinSpace
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -277,15 +289,21 @@ namespace Pulumi.Aws.FinSpace
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The status of scaling group.
-        /// * `CREATING` – The scaling group creation is in progress.
-        /// * `CREATE_FAILED` – The scaling group creation has failed.
-        /// * `ACTIVE` – The scaling group is active.
-        /// * `UPDATING` – The scaling group is in the process of being updated.
-        /// * `UPDATE_FAILED` – The update action failed.
-        /// * `DELETING` – The scaling group is in the process of being deleted.
-        /// * `DELETE_FAILED` – The system failed to delete the scaling group.
-        /// * `DELETED` – The scaling group is successfully deleted.
+        /// * `CREATING` - The scaling group creation is in progress.
+        /// * `CREATE_FAILED` - The scaling group creation has failed.
+        /// * `ACTIVE` - The scaling group is active.
+        /// * `UPDATING` - The scaling group is in the process of being updated.
+        /// * `UPDATE_FAILED` - The update action failed.
+        /// * `DELETING` - The scaling group is in the process of being deleted.
+        /// * `DELETE_FAILED` - The system failed to delete the scaling group.
+        /// * `DELETED` - The scaling group is successfully deleted.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -314,7 +332,6 @@ namespace Pulumi.Aws.FinSpace
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

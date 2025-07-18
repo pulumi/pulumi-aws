@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,6 +34,8 @@ type MultiRegionAccessPointPolicy struct {
 	Established pulumi.StringOutput `pulumi:"established"`
 	// The proposed policy for the Multi-Region Access Point.
 	Proposed pulumi.StringOutput `pulumi:"proposed"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewMultiRegionAccessPointPolicy registers a new resource with the given unique name, arguments, and options.
@@ -77,6 +79,8 @@ type multiRegionAccessPointPolicyState struct {
 	Established *string `pulumi:"established"`
 	// The proposed policy for the Multi-Region Access Point.
 	Proposed *string `pulumi:"proposed"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type MultiRegionAccessPointPolicyState struct {
@@ -88,6 +92,8 @@ type MultiRegionAccessPointPolicyState struct {
 	Established pulumi.StringPtrInput
 	// The proposed policy for the Multi-Region Access Point.
 	Proposed pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (MultiRegionAccessPointPolicyState) ElementType() reflect.Type {
@@ -99,6 +105,8 @@ type multiRegionAccessPointPolicyArgs struct {
 	AccountId *string `pulumi:"accountId"`
 	// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
 	Details MultiRegionAccessPointPolicyDetails `pulumi:"details"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a MultiRegionAccessPointPolicy resource.
@@ -107,6 +115,8 @@ type MultiRegionAccessPointPolicyArgs struct {
 	AccountId pulumi.StringPtrInput
 	// A configuration block containing details about the policy for the Multi-Region Access Point. See Details Configuration Block below for more details
 	Details MultiRegionAccessPointPolicyDetailsInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (MultiRegionAccessPointPolicyArgs) ElementType() reflect.Type {
@@ -214,6 +224,11 @@ func (o MultiRegionAccessPointPolicyOutput) Established() pulumi.StringOutput {
 // The proposed policy for the Multi-Region Access Point.
 func (o MultiRegionAccessPointPolicyOutput) Proposed() pulumi.StringOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.StringOutput { return v.Proposed }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o MultiRegionAccessPointPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type MultiRegionAccessPointPolicyArrayOutput struct{ *pulumi.OutputState }

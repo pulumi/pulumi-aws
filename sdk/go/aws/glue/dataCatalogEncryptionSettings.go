@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,6 +64,8 @@ type DataCatalogEncryptionSettings struct {
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput `pulumi:"dataCatalogEncryptionSettings"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDataCatalogEncryptionSettings registers a new resource with the given unique name, arguments, and options.
@@ -103,6 +105,8 @@ type dataCatalogEncryptionSettingsState struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings `pulumi:"dataCatalogEncryptionSettings"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type DataCatalogEncryptionSettingsState struct {
@@ -110,6 +114,8 @@ type DataCatalogEncryptionSettingsState struct {
 	CatalogId pulumi.StringPtrInput
 	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DataCatalogEncryptionSettingsState) ElementType() reflect.Type {
@@ -121,6 +127,8 @@ type dataCatalogEncryptionSettingsArgs struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettings `pulumi:"dataCatalogEncryptionSettings"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DataCatalogEncryptionSettings resource.
@@ -129,6 +137,8 @@ type DataCatalogEncryptionSettingsArgs struct {
 	CatalogId pulumi.StringPtrInput
 	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DataCatalogEncryptionSettingsArgs) ElementType() reflect.Type {
@@ -228,6 +238,11 @@ func (o DataCatalogEncryptionSettingsOutput) DataCatalogEncryptionSettings() Dat
 	return o.ApplyT(func(v *DataCatalogEncryptionSettings) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
 		return v.DataCatalogEncryptionSettings
 	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DataCatalogEncryptionSettingsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCatalogEncryptionSettings) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type DataCatalogEncryptionSettingsArrayOutput struct{ *pulumi.OutputState }

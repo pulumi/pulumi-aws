@@ -20,8 +20,6 @@ namespace Pulumi.Aws.Vpc.Inputs
 
         /// <summary>
         /// The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("peerLivenessDetection")]
         public Input<string>? PeerLivenessDetection { get; set; }

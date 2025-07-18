@@ -92,13 +92,19 @@ export class Application extends pulumi.CustomResource {
      */
     public /*out*/ readonly applicationAccount!: pulumi.Output<string>;
     /**
-     * ARN of the application.
+     * (**Deprecated** Reference `arn` instead) ARN of the application.
+     *
+     * @deprecated Use 'arn' instead. This attribute will be removed in a future verion of the provider.
      */
     public /*out*/ readonly applicationArn!: pulumi.Output<string>;
     /**
      * ARN of the application provider.
      */
     public readonly applicationProviderArn!: pulumi.Output<string>;
+    /**
+     * ARN of the application.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
      */
@@ -122,6 +128,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly portalOptions!: pulumi.Output<outputs.ssoadmin.ApplicationPortalOptions | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Status of the application. Valid values are `ENABLED` and `DISABLED`.
      */
     public readonly status!: pulumi.Output<string>;
@@ -131,8 +141,6 @@ export class Application extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -152,11 +160,13 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["applicationAccount"] = state ? state.applicationAccount : undefined;
             resourceInputs["applicationArn"] = state ? state.applicationArn : undefined;
             resourceInputs["applicationProviderArn"] = state ? state.applicationProviderArn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["clientToken"] = state ? state.clientToken : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["instanceArn"] = state ? state.instanceArn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["portalOptions"] = state ? state.portalOptions : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -174,10 +184,12 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["portalOptions"] = args ? args.portalOptions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["applicationAccount"] = undefined /*out*/;
             resourceInputs["applicationArn"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -194,13 +206,19 @@ export interface ApplicationState {
      */
     applicationAccount?: pulumi.Input<string>;
     /**
-     * ARN of the application.
+     * (**Deprecated** Reference `arn` instead) ARN of the application.
+     *
+     * @deprecated Use 'arn' instead. This attribute will be removed in a future verion of the provider.
      */
     applicationArn?: pulumi.Input<string>;
     /**
      * ARN of the application provider.
      */
     applicationProviderArn?: pulumi.Input<string>;
+    /**
+     * ARN of the application.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
      */
@@ -224,6 +242,10 @@ export interface ApplicationState {
      */
     portalOptions?: pulumi.Input<inputs.ssoadmin.ApplicationPortalOptions>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Status of the application. Valid values are `ENABLED` and `DISABLED`.
      */
     status?: pulumi.Input<string>;
@@ -233,8 +255,6 @@ export interface ApplicationState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -269,6 +289,10 @@ export interface ApplicationArgs {
      * Options for the portal associated with an application. See `portalOptions` below.
      */
     portalOptions?: pulumi.Input<inputs.ssoadmin.ApplicationPortalOptions>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Status of the application. Valid values are `ENABLED` and `DISABLED`.
      */

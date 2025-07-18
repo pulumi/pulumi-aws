@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,6 +76,8 @@ type Model struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the model
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the associated REST API
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
 	// Schema of the model in a JSON form
@@ -124,6 +126,8 @@ type modelState struct {
 	Description *string `pulumi:"description"`
 	// Name of the model
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the associated REST API
 	RestApi interface{} `pulumi:"restApi"`
 	// Schema of the model in a JSON form
@@ -137,6 +141,8 @@ type ModelState struct {
 	Description pulumi.StringPtrInput
 	// Name of the model
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the associated REST API
 	RestApi pulumi.Input
 	// Schema of the model in a JSON form
@@ -154,6 +160,8 @@ type modelArgs struct {
 	Description *string `pulumi:"description"`
 	// Name of the model
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the associated REST API
 	RestApi interface{} `pulumi:"restApi"`
 	// Schema of the model in a JSON form
@@ -168,6 +176,8 @@ type ModelArgs struct {
 	Description pulumi.StringPtrInput
 	// Name of the model
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the associated REST API
 	RestApi pulumi.Input
 	// Schema of the model in a JSON form
@@ -274,6 +284,11 @@ func (o ModelOutput) Description() pulumi.StringPtrOutput {
 // Name of the model
 func (o ModelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ModelOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the associated REST API

@@ -27,13 +27,13 @@ class ClusterArgs:
                  access_config: Optional[pulumi.Input['ClusterAccessConfigArgs']] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[builtins.bool]] = None,
                  compute_config: Optional[pulumi.Input['ClusterComputeConfigArgs']] = None,
-                 default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  encryption_config: Optional[pulumi.Input['ClusterEncryptionConfigArgs']] = None,
                  force_update_version: Optional[pulumi.Input[builtins.bool]] = None,
                  kubernetes_network_config: Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  outpost_config: Optional[pulumi.Input['ClusterOutpostConfigArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remote_network_config: Optional[pulumi.Input['ClusterRemoteNetworkConfigArgs']] = None,
                  storage_config: Optional[pulumi.Input['ClusterStorageConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -55,6 +55,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterKubernetesNetworkConfigArgs'] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[builtins.str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]*$`).
         :param pulumi.Input['ClusterOutpostConfigArgs'] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ClusterRemoteNetworkConfigArgs'] remote_network_config: Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
         :param pulumi.Input['ClusterStorageConfigArgs'] storage_config: Configuration block with storage configuration for EKS Auto Mode. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -70,8 +71,6 @@ class ClusterArgs:
             pulumi.set(__self__, "bootstrap_self_managed_addons", bootstrap_self_managed_addons)
         if compute_config is not None:
             pulumi.set(__self__, "compute_config", compute_config)
-        if default_addons_to_removes is not None:
-            pulumi.set(__self__, "default_addons_to_removes", default_addons_to_removes)
         if enabled_cluster_log_types is not None:
             pulumi.set(__self__, "enabled_cluster_log_types", enabled_cluster_log_types)
         if encryption_config is not None:
@@ -84,6 +83,8 @@ class ClusterArgs:
             pulumi.set(__self__, "name", name)
         if outpost_config is not None:
             pulumi.set(__self__, "outpost_config", outpost_config)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if remote_network_config is not None:
             pulumi.set(__self__, "remote_network_config", remote_network_config)
         if storage_config is not None:
@@ -160,15 +161,6 @@ class ClusterArgs:
         pulumi.set(self, "compute_config", value)
 
     @property
-    @pulumi.getter(name="defaultAddonsToRemoves")
-    def default_addons_to_removes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
-        return pulumi.get(self, "default_addons_to_removes")
-
-    @default_addons_to_removes.setter
-    def default_addons_to_removes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "default_addons_to_removes", value)
-
-    @property
     @pulumi.getter(name="enabledClusterLogTypes")
     def enabled_cluster_log_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -239,6 +231,18 @@ class ClusterArgs:
     @outpost_config.setter
     def outpost_config(self, value: Optional[pulumi.Input['ClusterOutpostConfigArgs']]):
         pulumi.set(self, "outpost_config", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="remoteNetworkConfig")
@@ -319,12 +323,10 @@ class _ClusterState:
                  access_config: Optional[pulumi.Input['ClusterAccessConfigArgs']] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[builtins.bool]] = None,
-                 certificate_authorities: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]]] = None,
                  certificate_authority: Optional[pulumi.Input['ClusterCertificateAuthorityArgs']] = None,
                  cluster_id: Optional[pulumi.Input[builtins.str]] = None,
                  compute_config: Optional[pulumi.Input['ClusterComputeConfigArgs']] = None,
                  created_at: Optional[pulumi.Input[builtins.str]] = None,
-                 default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  encryption_config: Optional[pulumi.Input['ClusterEncryptionConfigArgs']] = None,
                  endpoint: Optional[pulumi.Input[builtins.str]] = None,
@@ -334,6 +336,7 @@ class _ClusterState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  outpost_config: Optional[pulumi.Input['ClusterOutpostConfigArgs']] = None,
                  platform_version: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remote_network_config: Optional[pulumi.Input['ClusterRemoteNetworkConfigArgs']] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
@@ -362,6 +365,7 @@ class _ClusterState:
         :param pulumi.Input[builtins.str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]*$`).
         :param pulumi.Input['ClusterOutpostConfigArgs'] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
         :param pulumi.Input[builtins.str] platform_version: Platform version for the cluster.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ClusterRemoteNetworkConfigArgs'] remote_network_config: Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
         :param pulumi.Input[builtins.str] role_arn: ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `iam.RolePolicy` resource or `iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         :param pulumi.Input[builtins.str] status: Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
@@ -381,8 +385,6 @@ class _ClusterState:
             pulumi.set(__self__, "arn", arn)
         if bootstrap_self_managed_addons is not None:
             pulumi.set(__self__, "bootstrap_self_managed_addons", bootstrap_self_managed_addons)
-        if certificate_authorities is not None:
-            pulumi.set(__self__, "certificate_authorities", certificate_authorities)
         if certificate_authority is not None:
             pulumi.set(__self__, "certificate_authority", certificate_authority)
         if cluster_id is not None:
@@ -391,8 +393,6 @@ class _ClusterState:
             pulumi.set(__self__, "compute_config", compute_config)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
-        if default_addons_to_removes is not None:
-            pulumi.set(__self__, "default_addons_to_removes", default_addons_to_removes)
         if enabled_cluster_log_types is not None:
             pulumi.set(__self__, "enabled_cluster_log_types", enabled_cluster_log_types)
         if encryption_config is not None:
@@ -411,6 +411,8 @@ class _ClusterState:
             pulumi.set(__self__, "outpost_config", outpost_config)
         if platform_version is not None:
             pulumi.set(__self__, "platform_version", platform_version)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if remote_network_config is not None:
             pulumi.set(__self__, "remote_network_config", remote_network_config)
         if role_arn is not None:
@@ -421,9 +423,6 @@ class _ClusterState:
             pulumi.set(__self__, "storage_config", storage_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if upgrade_policy is not None:
@@ -472,15 +471,6 @@ class _ClusterState:
         pulumi.set(self, "bootstrap_self_managed_addons", value)
 
     @property
-    @pulumi.getter(name="certificateAuthorities")
-    def certificate_authorities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]]]:
-        return pulumi.get(self, "certificate_authorities")
-
-    @certificate_authorities.setter
-    def certificate_authorities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]]]):
-        pulumi.set(self, "certificate_authorities", value)
-
-    @property
     @pulumi.getter(name="certificateAuthority")
     def certificate_authority(self) -> Optional[pulumi.Input['ClusterCertificateAuthorityArgs']]:
         """
@@ -527,15 +517,6 @@ class _ClusterState:
     @created_at.setter
     def created_at(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "created_at", value)
-
-    @property
-    @pulumi.getter(name="defaultAddonsToRemoves")
-    def default_addons_to_removes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
-        return pulumi.get(self, "default_addons_to_removes")
-
-    @default_addons_to_removes.setter
-    def default_addons_to_removes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "default_addons_to_removes", value)
 
     @property
     @pulumi.getter(name="enabledClusterLogTypes")
@@ -646,6 +627,18 @@ class _ClusterState:
         pulumi.set(self, "platform_version", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="remoteNetworkConfig")
     def remote_network_config(self) -> Optional[pulumi.Input['ClusterRemoteNetworkConfigArgs']]:
         """
@@ -707,7 +700,6 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -778,13 +770,13 @@ class Cluster(pulumi.CustomResource):
                  access_config: Optional[pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[builtins.bool]] = None,
                  compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
-                 default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  encryption_config: Optional[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
                  force_update_version: Optional[pulumi.Input[builtins.bool]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  outpost_config: Optional[pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remote_network_config: Optional[pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  storage_config: Optional[pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']]] = None,
@@ -1064,6 +1056,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, the provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[builtins.str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]*$`).
         :param pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']] remote_network_config: Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
         :param pulumi.Input[builtins.str] role_arn: ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `iam.RolePolicy` resource or `iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         :param pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']] storage_config: Configuration block with storage configuration for EKS Auto Mode. Detailed below.
@@ -1358,13 +1351,13 @@ class Cluster(pulumi.CustomResource):
                  access_config: Optional[pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[builtins.bool]] = None,
                  compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
-                 default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  encryption_config: Optional[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
                  force_update_version: Optional[pulumi.Input[builtins.bool]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  outpost_config: Optional[pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remote_network_config: Optional[pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  storage_config: Optional[pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']]] = None,
@@ -1385,13 +1378,13 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["access_config"] = access_config
             __props__.__dict__["bootstrap_self_managed_addons"] = bootstrap_self_managed_addons
             __props__.__dict__["compute_config"] = compute_config
-            __props__.__dict__["default_addons_to_removes"] = default_addons_to_removes
             __props__.__dict__["enabled_cluster_log_types"] = enabled_cluster_log_types
             __props__.__dict__["encryption_config"] = encryption_config
             __props__.__dict__["force_update_version"] = force_update_version
             __props__.__dict__["kubernetes_network_config"] = kubernetes_network_config
             __props__.__dict__["name"] = name
             __props__.__dict__["outpost_config"] = outpost_config
+            __props__.__dict__["region"] = region
             __props__.__dict__["remote_network_config"] = remote_network_config
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
@@ -1405,7 +1398,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["zonal_shift_config"] = zonal_shift_config
             __props__.__dict__["arn"] = None
-            __props__.__dict__["certificate_authorities"] = None
             __props__.__dict__["certificate_authority"] = None
             __props__.__dict__["cluster_id"] = None
             __props__.__dict__["created_at"] = None
@@ -1427,12 +1419,10 @@ class Cluster(pulumi.CustomResource):
             access_config: Optional[pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             bootstrap_self_managed_addons: Optional[pulumi.Input[builtins.bool]] = None,
-            certificate_authorities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict']]]]] = None,
             certificate_authority: Optional[pulumi.Input[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict']]] = None,
             cluster_id: Optional[pulumi.Input[builtins.str]] = None,
             compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
             created_at: Optional[pulumi.Input[builtins.str]] = None,
-            default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             encryption_config: Optional[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]] = None,
             endpoint: Optional[pulumi.Input[builtins.str]] = None,
@@ -1442,6 +1432,7 @@ class Cluster(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             outpost_config: Optional[pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']]] = None,
             platform_version: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             remote_network_config: Optional[pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
@@ -1475,6 +1466,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]*$`).
         :param pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']] outpost_config: Configuration block representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This block isn't available for creating Amazon EKS clusters on the AWS cloud.
         :param pulumi.Input[builtins.str] platform_version: Platform version for the cluster.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']] remote_network_config: Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
         :param pulumi.Input[builtins.str] role_arn: ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf. Ensure the resource configuration includes explicit dependencies on the IAM Role permissions by adding `depends_on` if using the `iam.RolePolicy` resource or `iam.RolePolicyAttachment` resource, otherwise EKS cannot delete EKS managed EC2 infrastructure such as Security Groups on EKS Cluster deletion.
         :param pulumi.Input[builtins.str] status: Status of the EKS cluster. One of `CREATING`, `ACTIVE`, `DELETING`, `FAILED`.
@@ -1495,12 +1487,10 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["access_config"] = access_config
         __props__.__dict__["arn"] = arn
         __props__.__dict__["bootstrap_self_managed_addons"] = bootstrap_self_managed_addons
-        __props__.__dict__["certificate_authorities"] = certificate_authorities
         __props__.__dict__["certificate_authority"] = certificate_authority
         __props__.__dict__["cluster_id"] = cluster_id
         __props__.__dict__["compute_config"] = compute_config
         __props__.__dict__["created_at"] = created_at
-        __props__.__dict__["default_addons_to_removes"] = default_addons_to_removes
         __props__.__dict__["enabled_cluster_log_types"] = enabled_cluster_log_types
         __props__.__dict__["encryption_config"] = encryption_config
         __props__.__dict__["endpoint"] = endpoint
@@ -1510,6 +1500,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["outpost_config"] = outpost_config
         __props__.__dict__["platform_version"] = platform_version
+        __props__.__dict__["region"] = region
         __props__.__dict__["remote_network_config"] = remote_network_config
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["status"] = status
@@ -1547,11 +1538,6 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "bootstrap_self_managed_addons")
 
     @property
-    @pulumi.getter(name="certificateAuthorities")
-    def certificate_authorities(self) -> pulumi.Output[Sequence['outputs.ClusterCertificateAuthority']]:
-        return pulumi.get(self, "certificate_authorities")
-
-    @property
     @pulumi.getter(name="certificateAuthority")
     def certificate_authority(self) -> pulumi.Output['outputs.ClusterCertificateAuthority']:
         """
@@ -1582,11 +1568,6 @@ class Cluster(pulumi.CustomResource):
         Unix epoch timestamp in seconds for when the cluster was created.
         """
         return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="defaultAddonsToRemoves")
-    def default_addons_to_removes(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
-        return pulumi.get(self, "default_addons_to_removes")
 
     @property
     @pulumi.getter(name="enabledClusterLogTypes")
@@ -1661,6 +1642,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "platform_version")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="remoteNetworkConfig")
     def remote_network_config(self) -> pulumi.Output[Optional['outputs.ClusterRemoteNetworkConfig']]:
         """
@@ -1702,7 +1691,6 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

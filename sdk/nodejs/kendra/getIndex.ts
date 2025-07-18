@@ -25,6 +25,7 @@ export function getIndex(args: GetIndexArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kendra/getIndex:getIndex", {
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,10 @@ export interface GetIndexArgs {
      * Returns information on a specific Index by id.
      */
     id: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Metadata that helps organize the Indices you create.
      */
@@ -87,6 +92,7 @@ export interface GetIndexResult {
      * Name of the index field. Minimum length of 1. Maximum length of 30.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
      */
@@ -138,6 +144,7 @@ export function getIndexOutput(args: GetIndexOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:kendra/getIndex:getIndex", {
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -150,6 +157,10 @@ export interface GetIndexOutputArgs {
      * Returns information on a specific Index by id.
      */
     id: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Metadata that helps organize the Indices you create.
      */

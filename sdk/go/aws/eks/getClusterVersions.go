@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +46,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,7 +72,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -110,6 +110,8 @@ type GetClusterVersionsArgs struct {
 	DefaultOnly *bool `pulumi:"defaultOnly"`
 	// Whether to include all kubernetes versions in the response.
 	IncludeAll *bool `pulumi:"includeAll"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Status of the EKS cluster versions to list.
 	// Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
 	VersionStatus *string `pulumi:"versionStatus"`
@@ -125,6 +127,7 @@ type GetClusterVersionsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	IncludeAll *bool  `pulumi:"includeAll"`
+	Region     string `pulumi:"region"`
 	// Status of the EKS cluster version.
 	VersionStatus *string `pulumi:"versionStatus"`
 }
@@ -148,6 +151,8 @@ type GetClusterVersionsOutputArgs struct {
 	DefaultOnly pulumi.BoolPtrInput `pulumi:"defaultOnly"`
 	// Whether to include all kubernetes versions in the response.
 	IncludeAll pulumi.BoolPtrInput `pulumi:"includeAll"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Status of the EKS cluster versions to list.
 	// Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
 	VersionStatus pulumi.StringPtrInput `pulumi:"versionStatus"`
@@ -196,6 +201,10 @@ func (o GetClusterVersionsResultOutput) Id() pulumi.StringOutput {
 
 func (o GetClusterVersionsResultOutput) IncludeAll() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetClusterVersionsResult) *bool { return v.IncludeAll }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetClusterVersionsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVersionsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Status of the EKS cluster version.

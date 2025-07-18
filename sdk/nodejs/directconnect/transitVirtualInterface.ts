@@ -115,6 +115,10 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Indicates whether to enable or disable SiteLink.
      */
     public readonly sitelinkEnabled!: pulumi.Output<boolean | undefined>;
@@ -124,8 +128,6 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -159,6 +161,7 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
             resourceInputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
             resourceInputs["mtu"] = state ? state.mtu : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sitelinkEnabled"] = state ? state.sitelinkEnabled : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -189,6 +192,7 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
             resourceInputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
             resourceInputs["mtu"] = args ? args.mtu : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sitelinkEnabled"] = args ? args.sitelinkEnabled : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vlan"] = args ? args.vlan : undefined;
@@ -258,6 +262,10 @@ export interface TransitVirtualInterfaceState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Indicates whether to enable or disable SiteLink.
      */
     sitelinkEnabled?: pulumi.Input<boolean>;
@@ -267,8 +275,6 @@ export interface TransitVirtualInterfaceState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -318,6 +324,10 @@ export interface TransitVirtualInterfaceArgs {
      * The name for the virtual interface.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Indicates whether to enable or disable SiteLink.
      */

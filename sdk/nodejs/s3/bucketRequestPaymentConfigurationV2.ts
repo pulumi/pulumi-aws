@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides an S3 bucket request payment configuration resource. For more information, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html).
  *
- * > **NOTE:** Destroying an `aws.s3.BucketRequestPaymentConfigurationV2` resource resets the bucket's `payer` to the S3 default: the bucket owner.
+ * > **NOTE:** Destroying an `aws.s3.BucketRequestPaymentConfiguration` resource resets the bucket's `payer` to the S3 default: the bucket owner.
  *
  * > This resource cannot be used with S3 directory buckets.
  *
@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketRequestPaymentConfigurationV2("example", {
+ * const example = new aws.s3.BucketRequestPaymentConfiguration("example", {
  *     bucket: exampleAwsS3Bucket.id,
  *     payer: "Requester",
  * });
@@ -39,6 +39,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name,123456789012
  * ```
+ *
+ * @deprecated aws.s3/bucketrequestpaymentconfigurationv2.BucketRequestPaymentConfigurationV2 has been deprecated in favor of aws.s3/bucketrequestpaymentconfiguration.BucketRequestPaymentConfiguration
  */
 export class BucketRequestPaymentConfigurationV2 extends pulumi.CustomResource {
     /**
@@ -51,6 +53,7 @@ export class BucketRequestPaymentConfigurationV2 extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BucketRequestPaymentConfigurationV2State, opts?: pulumi.CustomResourceOptions): BucketRequestPaymentConfigurationV2 {
+        pulumi.log.warn("BucketRequestPaymentConfigurationV2 is deprecated: aws.s3/bucketrequestpaymentconfigurationv2.BucketRequestPaymentConfigurationV2 has been deprecated in favor of aws.s3/bucketrequestpaymentconfiguration.BucketRequestPaymentConfiguration")
         return new BucketRequestPaymentConfigurationV2(name, <any>state, { ...opts, id: id });
     }
 
@@ -80,6 +83,10 @@ export class BucketRequestPaymentConfigurationV2 extends pulumi.CustomResource {
      * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
      */
     public readonly payer!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a BucketRequestPaymentConfigurationV2 resource with the given unique name, arguments, and options.
@@ -88,8 +95,11 @@ export class BucketRequestPaymentConfigurationV2 extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.s3/bucketrequestpaymentconfigurationv2.BucketRequestPaymentConfigurationV2 has been deprecated in favor of aws.s3/bucketrequestpaymentconfiguration.BucketRequestPaymentConfiguration */
     constructor(name: string, args: BucketRequestPaymentConfigurationV2Args, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.s3/bucketrequestpaymentconfigurationv2.BucketRequestPaymentConfigurationV2 has been deprecated in favor of aws.s3/bucketrequestpaymentconfiguration.BucketRequestPaymentConfiguration */
     constructor(name: string, argsOrState?: BucketRequestPaymentConfigurationV2Args | BucketRequestPaymentConfigurationV2State, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BucketRequestPaymentConfigurationV2 is deprecated: aws.s3/bucketrequestpaymentconfigurationv2.BucketRequestPaymentConfigurationV2 has been deprecated in favor of aws.s3/bucketrequestpaymentconfiguration.BucketRequestPaymentConfiguration")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
@@ -97,6 +107,7 @@ export class BucketRequestPaymentConfigurationV2 extends pulumi.CustomResource {
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
             resourceInputs["payer"] = state ? state.payer : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as BucketRequestPaymentConfigurationV2Args | undefined;
             if ((!args || args.bucket === undefined) && !opts.urn) {
@@ -108,8 +119,11 @@ export class BucketRequestPaymentConfigurationV2 extends pulumi.CustomResource {
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
             resourceInputs["payer"] = args ? args.payer : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BucketRequestPaymentConfigurationV2.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -130,6 +144,10 @@ export interface BucketRequestPaymentConfigurationV2State {
      * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
      */
     payer?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -148,4 +166,8 @@ export interface BucketRequestPaymentConfigurationV2Args {
      * Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
      */
     payer: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

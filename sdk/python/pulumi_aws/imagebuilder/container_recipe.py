@@ -34,6 +34,7 @@ class ContainerRecipeArgs:
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  platform_override: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  working_directory: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -52,6 +53,7 @@ class ContainerRecipeArgs:
         :param pulumi.Input[builtins.str] kms_key_id: The KMS key used to encrypt the container image.
         :param pulumi.Input[builtins.str] name: The name of the container recipe.
         :param pulumi.Input[builtins.str] platform_override: Specifies the operating system platform when you use a custom base image.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] working_directory: The working directory to be used during build and test workflows.
         """
@@ -74,6 +76,8 @@ class ContainerRecipeArgs:
             pulumi.set(__self__, "name", name)
         if platform_override is not None:
             pulumi.set(__self__, "platform_override", platform_override)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if working_directory is not None:
@@ -227,6 +231,18 @@ class ContainerRecipeArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -268,6 +284,7 @@ class _ContainerRecipeState:
                  parent_image: Optional[pulumi.Input[builtins.str]] = None,
                  platform: Optional[pulumi.Input[builtins.str]] = None,
                  platform_override: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_repository: Optional[pulumi.Input['ContainerRecipeTargetRepositoryArgs']] = None,
@@ -290,6 +307,7 @@ class _ContainerRecipeState:
         :param pulumi.Input[builtins.str] parent_image: The base image for the container recipe.
         :param pulumi.Input[builtins.str] platform: Platform of the container recipe.
         :param pulumi.Input[builtins.str] platform_override: Specifies the operating system platform when you use a custom base image.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['ContainerRecipeTargetRepositoryArgs'] target_repository: The destination repository for the container image. Detailed below.
@@ -328,11 +346,10 @@ class _ContainerRecipeState:
             pulumi.set(__self__, "platform", platform)
         if platform_override is not None:
             pulumi.set(__self__, "platform_override", platform_override)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if target_repository is not None:
@@ -524,6 +541,18 @@ class _ContainerRecipeState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -536,7 +565,6 @@ class _ContainerRecipeState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -602,6 +630,7 @@ class ContainerRecipe(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parent_image: Optional[pulumi.Input[builtins.str]] = None,
                  platform_override: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_repository: Optional[pulumi.Input[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict']]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
@@ -664,6 +693,7 @@ class ContainerRecipe(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the container recipe.
         :param pulumi.Input[builtins.str] parent_image: The base image for the container recipe.
         :param pulumi.Input[builtins.str] platform_override: Specifies the operating system platform when you use a custom base image.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict']] target_repository: The destination repository for the container image. Detailed below.
         :param pulumi.Input[builtins.str] version: Version of the container recipe.
@@ -747,6 +777,7 @@ class ContainerRecipe(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parent_image: Optional[pulumi.Input[builtins.str]] = None,
                  platform_override: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_repository: Optional[pulumi.Input[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict']]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
@@ -776,6 +807,7 @@ class ContainerRecipe(pulumi.CustomResource):
                 raise TypeError("Missing required property 'parent_image'")
             __props__.__dict__["parent_image"] = parent_image
             __props__.__dict__["platform_override"] = platform_override
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             if target_repository is None and not opts.urn:
                 raise TypeError("Missing required property 'target_repository'")
@@ -815,6 +847,7 @@ class ContainerRecipe(pulumi.CustomResource):
             parent_image: Optional[pulumi.Input[builtins.str]] = None,
             platform: Optional[pulumi.Input[builtins.str]] = None,
             platform_override: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             target_repository: Optional[pulumi.Input[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict']]] = None,
@@ -842,6 +875,7 @@ class ContainerRecipe(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] parent_image: The base image for the container recipe.
         :param pulumi.Input[builtins.str] platform: Platform of the container recipe.
         :param pulumi.Input[builtins.str] platform_override: Specifies the operating system platform when you use a custom base image.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['ContainerRecipeTargetRepositoryArgs', 'ContainerRecipeTargetRepositoryArgsDict']] target_repository: The destination repository for the container image. Detailed below.
@@ -869,6 +903,7 @@ class ContainerRecipe(pulumi.CustomResource):
         __props__.__dict__["parent_image"] = parent_image
         __props__.__dict__["platform"] = platform
         __props__.__dict__["platform_override"] = platform_override
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["target_repository"] = target_repository
@@ -998,6 +1033,14 @@ class ContainerRecipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         Key-value map of resource tags for the container recipe. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1006,7 +1049,6 @@ class ContainerRecipe(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

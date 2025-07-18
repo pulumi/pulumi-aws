@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,6 +58,8 @@ type GetLaunchPathsArgs struct {
 	//
 	// The following arguments are optional:
 	ProductId string `pulumi:"productId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLaunchPaths.
@@ -66,6 +68,7 @@ type GetLaunchPathsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id        string `pulumi:"id"`
 	ProductId string `pulumi:"productId"`
+	Region    string `pulumi:"region"`
 	// Block with information about the launch path. See details below.
 	Summaries []GetLaunchPathsSummary `pulumi:"summaries"`
 }
@@ -87,6 +90,8 @@ type GetLaunchPathsOutputArgs struct {
 	//
 	// The following arguments are optional:
 	ProductId pulumi.StringInput `pulumi:"productId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetLaunchPathsOutputArgs) ElementType() reflect.Type {
@@ -119,6 +124,10 @@ func (o GetLaunchPathsResultOutput) Id() pulumi.StringOutput {
 
 func (o GetLaunchPathsResultOutput) ProductId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchPathsResult) string { return v.ProductId }).(pulumi.StringOutput)
+}
+
+func (o GetLaunchPathsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchPathsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Block with information about the launch path. See details below.

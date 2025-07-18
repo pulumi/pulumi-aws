@@ -25,12 +25,14 @@ class RefreshScheduleArgs:
                  data_set_id: pulumi.Input[builtins.str],
                  schedule_id: pulumi.Input[builtins.str],
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input['RefreshScheduleScheduleArgs']] = None):
         """
         The set of arguments for constructing a RefreshSchedule resource.
         :param pulumi.Input[builtins.str] data_set_id: The ID of the dataset.
         :param pulumi.Input[builtins.str] schedule_id: The ID of the refresh schedule.
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['RefreshScheduleScheduleArgs'] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
                
                The following arguments are optional:
@@ -39,6 +41,8 @@ class RefreshScheduleArgs:
         pulumi.set(__self__, "schedule_id", schedule_id)
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
 
@@ -80,6 +84,18 @@ class RefreshScheduleArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['RefreshScheduleScheduleArgs']]:
         """
         The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
@@ -99,6 +115,7 @@ class _RefreshScheduleState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  data_set_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input['RefreshScheduleScheduleArgs']] = None,
                  schedule_id: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -106,6 +123,7 @@ class _RefreshScheduleState:
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the refresh schedule.
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[builtins.str] data_set_id: The ID of the dataset.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['RefreshScheduleScheduleArgs'] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
                
                The following arguments are optional:
@@ -117,6 +135,8 @@ class _RefreshScheduleState:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
         if data_set_id is not None:
             pulumi.set(__self__, "data_set_id", data_set_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
         if schedule_id is not None:
@@ -160,6 +180,18 @@ class _RefreshScheduleState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['RefreshScheduleScheduleArgs']]:
         """
         The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
@@ -193,6 +225,7 @@ class RefreshSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  data_set_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input[Union['RefreshScheduleScheduleArgs', 'RefreshScheduleScheduleArgsDict']]] = None,
                  schedule_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -274,6 +307,7 @@ class RefreshSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[builtins.str] data_set_id: The ID of the dataset.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['RefreshScheduleScheduleArgs', 'RefreshScheduleScheduleArgsDict']] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
                
                The following arguments are optional:
@@ -376,6 +410,7 @@ class RefreshSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  data_set_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input[Union['RefreshScheduleScheduleArgs', 'RefreshScheduleScheduleArgsDict']]] = None,
                  schedule_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -391,6 +426,7 @@ class RefreshSchedule(pulumi.CustomResource):
             if data_set_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_set_id'")
             __props__.__dict__["data_set_id"] = data_set_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["schedule"] = schedule
             if schedule_id is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_id'")
@@ -409,6 +445,7 @@ class RefreshSchedule(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             aws_account_id: Optional[pulumi.Input[builtins.str]] = None,
             data_set_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             schedule: Optional[pulumi.Input[Union['RefreshScheduleScheduleArgs', 'RefreshScheduleScheduleArgsDict']]] = None,
             schedule_id: Optional[pulumi.Input[builtins.str]] = None) -> 'RefreshSchedule':
         """
@@ -421,6 +458,7 @@ class RefreshSchedule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the refresh schedule.
         :param pulumi.Input[builtins.str] aws_account_id: AWS account ID.
         :param pulumi.Input[builtins.str] data_set_id: The ID of the dataset.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['RefreshScheduleScheduleArgs', 'RefreshScheduleScheduleArgsDict']] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
                
                The following arguments are optional:
@@ -433,6 +471,7 @@ class RefreshSchedule(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["aws_account_id"] = aws_account_id
         __props__.__dict__["data_set_id"] = data_set_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["schedule"] = schedule
         __props__.__dict__["schedule_id"] = schedule_id
         return RefreshSchedule(resource_name, opts=opts, __props__=__props__)
@@ -460,6 +499,14 @@ class RefreshSchedule(pulumi.CustomResource):
         The ID of the dataset.
         """
         return pulumi.get(self, "data_set_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

@@ -8,9 +8,9 @@ import typing
 # Export this package's modules as members:
 from .endpoint_private_dns import *
 from .endpoint_service_private_dns_verification import *
+from .get_endpoint_associations import *
 from .get_security_group_rule import *
 from .get_security_group_rules import *
-from .get_vpc_endpoint_associations import *
 from .route_server import *
 from .route_server_endpoint import *
 from .route_server_peer import *

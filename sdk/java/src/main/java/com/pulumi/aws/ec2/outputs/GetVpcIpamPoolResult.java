@@ -86,6 +86,7 @@ public final class GetVpcIpamPoolResult {
      * 
      */
     private Boolean publiclyAdvertisable;
+    private String region;
     /**
      * @return ID of the source IPAM pool.
      * 
@@ -202,6 +203,9 @@ public final class GetVpcIpamPoolResult {
     public Boolean publiclyAdvertisable() {
         return this.publiclyAdvertisable;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return ID of the source IPAM pool.
      * 
@@ -246,6 +250,7 @@ public final class GetVpcIpamPoolResult {
         private String locale;
         private Integer poolDepth;
         private Boolean publiclyAdvertisable;
+        private String region;
         private String sourceIpamPoolId;
         private String state;
         private Map<String,String> tags;
@@ -269,6 +274,7 @@ public final class GetVpcIpamPoolResult {
     	      this.locale = defaults.locale;
     	      this.poolDepth = defaults.poolDepth;
     	      this.publiclyAdvertisable = defaults.publiclyAdvertisable;
+    	      this.region = defaults.region;
     	      this.sourceIpamPoolId = defaults.sourceIpamPoolId;
     	      this.state = defaults.state;
     	      this.tags = defaults.tags;
@@ -408,6 +414,14 @@ public final class GetVpcIpamPoolResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVpcIpamPoolResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sourceIpamPoolId(String sourceIpamPoolId) {
             if (sourceIpamPoolId == null) {
               throw new MissingRequiredPropertyException("GetVpcIpamPoolResult", "sourceIpamPoolId");
@@ -450,6 +464,7 @@ public final class GetVpcIpamPoolResult {
             _resultValue.locale = locale;
             _resultValue.poolDepth = poolDepth;
             _resultValue.publiclyAdvertisable = publiclyAdvertisable;
+            _resultValue.region = region;
             _resultValue.sourceIpamPoolId = sourceIpamPoolId;
             _resultValue.state = state;
             _resultValue.tags = tags;

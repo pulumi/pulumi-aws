@@ -29,8 +29,8 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// </summary>
-        public static Task<GetSerialConsoleAccessResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSerialConsoleAccessResult>("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetSerialConsoleAccessResult> InvokeAsync(GetSerialConsoleAccessArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSerialConsoleAccessResult>("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", args ?? new GetSerialConsoleAccessArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
@@ -50,8 +50,8 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// </summary>
-        public static Output<GetSerialConsoleAccessResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSerialConsoleAccessResult>("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetSerialConsoleAccessResult> Invoke(GetSerialConsoleAccessInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSerialConsoleAccessResult>("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", args ?? new GetSerialConsoleAccessInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
@@ -71,8 +71,37 @@ namespace Pulumi.Aws.Ec2
         /// });
         /// ```
         /// </summary>
-        public static Output<GetSerialConsoleAccessResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSerialConsoleAccessResult>("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetSerialConsoleAccessResult> Invoke(GetSerialConsoleAccessInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSerialConsoleAccessResult>("aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess", args ?? new GetSerialConsoleAccessInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetSerialConsoleAccessArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetSerialConsoleAccessArgs()
+        {
+        }
+        public static new GetSerialConsoleAccessArgs Empty => new GetSerialConsoleAccessArgs();
+    }
+
+    public sealed class GetSerialConsoleAccessInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetSerialConsoleAccessInvokeArgs()
+        {
+        }
+        public static new GetSerialConsoleAccessInvokeArgs Empty => new GetSerialConsoleAccessInvokeArgs();
     }
 
 
@@ -87,15 +116,19 @@ namespace Pulumi.Aws.Ec2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetSerialConsoleAccessResult(
             bool enabled,
 
-            string id)
+            string id,
+
+            string region)
         {
             Enabled = enabled;
             Id = id;
+            Region = region;
         }
     }
 }

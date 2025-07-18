@@ -53,6 +53,21 @@ public final class GuardrailVersionArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Whether to retain the old version of a previously deployed Guardrail. Default is `false`
      * 
      */
@@ -79,6 +94,7 @@ public final class GuardrailVersionArgs extends com.pulumi.resources.ResourceArg
     private GuardrailVersionArgs(GuardrailVersionArgs $) {
         this.description = $.description;
         this.guardrailArn = $.guardrailArn;
+        this.region = $.region;
         this.skipDestroy = $.skipDestroy;
         this.timeouts = $.timeouts;
     }
@@ -145,6 +161,27 @@ public final class GuardrailVersionArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder guardrailArn(String guardrailArn) {
             return guardrailArn(Output.of(guardrailArn));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

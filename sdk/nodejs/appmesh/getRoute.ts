@@ -29,6 +29,7 @@ export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promi
         "meshName": args.meshName,
         "meshOwner": args.meshOwner,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
         "virtualRouterName": args.virtualRouterName,
     }, opts);
@@ -50,6 +51,10 @@ export interface GetRouteArgs {
      * Name of the route.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags.
      */
@@ -83,6 +88,7 @@ export interface GetRouteResult {
     readonly meshName: string;
     readonly meshOwner: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Resource owner's AWS account ID.
      */
@@ -119,6 +125,7 @@ export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOut
         "meshName": args.meshName,
         "meshOwner": args.meshOwner,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
         "virtualRouterName": args.virtualRouterName,
     }, opts);
@@ -140,6 +147,10 @@ export interface GetRouteOutputArgs {
      * Name of the route.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags.
      */

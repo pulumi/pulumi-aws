@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/drs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/drs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -116,6 +116,8 @@ type ReplicationConfigurationTemplate struct {
 	EbsEncryptionKeyArn pulumi.StringPtrOutput `pulumi:"ebsEncryptionKeyArn"`
 	// Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
 	PitPolicies ReplicationConfigurationTemplatePitPolicyArrayOutput `pulumi:"pitPolicies"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Instance type to be used for the replication server.
 	ReplicationServerInstanceType pulumi.StringOutput `pulumi:"replicationServerInstanceType"`
 	// Security group IDs that will be used by the replication server.
@@ -127,8 +129,6 @@ type ReplicationConfigurationTemplate struct {
 	// Set of tags to be associated with the Replication Configuration Template resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput                            `pulumi:"tagsAll"`
 	Timeouts ReplicationConfigurationTemplateTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Whether to use a dedicated Replication Server in the replication staging area.
@@ -220,6 +220,8 @@ type replicationConfigurationTemplateState struct {
 	EbsEncryptionKeyArn *string `pulumi:"ebsEncryptionKeyArn"`
 	// Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
 	PitPolicies []ReplicationConfigurationTemplatePitPolicy `pulumi:"pitPolicies"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Instance type to be used for the replication server.
 	ReplicationServerInstanceType *string `pulumi:"replicationServerInstanceType"`
 	// Security group IDs that will be used by the replication server.
@@ -231,8 +233,6 @@ type replicationConfigurationTemplateState struct {
 	// Set of tags to be associated with the Replication Configuration Template resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string                         `pulumi:"tagsAll"`
 	Timeouts *ReplicationConfigurationTemplateTimeouts `pulumi:"timeouts"`
 	// Whether to use a dedicated Replication Server in the replication staging area.
@@ -262,6 +262,8 @@ type ReplicationConfigurationTemplateState struct {
 	EbsEncryptionKeyArn pulumi.StringPtrInput
 	// Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
 	PitPolicies ReplicationConfigurationTemplatePitPolicyArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Instance type to be used for the replication server.
 	ReplicationServerInstanceType pulumi.StringPtrInput
 	// Security group IDs that will be used by the replication server.
@@ -273,8 +275,6 @@ type ReplicationConfigurationTemplateState struct {
 	// Set of tags to be associated with the Replication Configuration Template resource.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts ReplicationConfigurationTemplateTimeoutsPtrInput
 	// Whether to use a dedicated Replication Server in the replication staging area.
@@ -306,6 +306,8 @@ type replicationConfigurationTemplateArgs struct {
 	EbsEncryptionKeyArn *string `pulumi:"ebsEncryptionKeyArn"`
 	// Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
 	PitPolicies []ReplicationConfigurationTemplatePitPolicy `pulumi:"pitPolicies"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Instance type to be used for the replication server.
 	ReplicationServerInstanceType string `pulumi:"replicationServerInstanceType"`
 	// Security group IDs that will be used by the replication server.
@@ -343,6 +345,8 @@ type ReplicationConfigurationTemplateArgs struct {
 	EbsEncryptionKeyArn pulumi.StringPtrInput
 	// Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
 	PitPolicies ReplicationConfigurationTemplatePitPolicyArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Instance type to be used for the replication server.
 	ReplicationServerInstanceType pulumi.StringInput
 	// Security group IDs that will be used by the replication server.
@@ -499,6 +503,11 @@ func (o ReplicationConfigurationTemplateOutput) PitPolicies() ReplicationConfigu
 	}).(ReplicationConfigurationTemplatePitPolicyArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ReplicationConfigurationTemplateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Instance type to be used for the replication server.
 func (o ReplicationConfigurationTemplateOutput) ReplicationServerInstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationConfigurationTemplate) pulumi.StringOutput { return v.ReplicationServerInstanceType }).(pulumi.StringOutput)
@@ -527,8 +536,6 @@ func (o ReplicationConfigurationTemplateOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ReplicationConfigurationTemplateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReplicationConfigurationTemplate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

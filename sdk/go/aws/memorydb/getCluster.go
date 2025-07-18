@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/memorydb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 type LookupClusterArgs struct {
 	// Name of the cluster.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the cluster.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -94,7 +96,8 @@ type LookupClusterResult struct {
 	// The name of the parameter group associated with the cluster.
 	ParameterGroupName string `pulumi:"parameterGroupName"`
 	// Port number that this node is listening on.
-	Port int `pulumi:"port"`
+	Port   int    `pulumi:"port"`
+	Region string `pulumi:"region"`
 	// Set of VPC Security Group ID-s associated with this cluster.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Set of shards in this cluster.
@@ -126,6 +129,8 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 type LookupClusterOutputArgs struct {
 	// Name of the cluster.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the cluster.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -241,6 +246,10 @@ func (o LookupClusterResultOutput) ParameterGroupName() pulumi.StringOutput {
 // Port number that this node is listening on.
 func (o LookupClusterResultOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o LookupClusterResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Set of VPC Security Group ID-s associated with this cluster.

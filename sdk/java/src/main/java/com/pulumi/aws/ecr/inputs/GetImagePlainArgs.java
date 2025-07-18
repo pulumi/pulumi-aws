@@ -62,6 +62,21 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ID of the Registry where the repository resides.
      * 
      */
@@ -97,6 +112,7 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
         this.imageDigest = $.imageDigest;
         this.imageTag = $.imageTag;
         this.mostRecent = $.mostRecent;
+        this.region = $.region;
         this.registryId = $.registryId;
         this.repositoryName = $.repositoryName;
     }
@@ -149,6 +165,17 @@ public final class GetImagePlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder mostRecent(@Nullable Boolean mostRecent) {
             $.mostRecent = mostRecent;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

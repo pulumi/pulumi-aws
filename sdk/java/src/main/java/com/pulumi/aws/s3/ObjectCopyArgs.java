@@ -456,6 +456,21 @@ public final class ObjectCopyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. For information about downloading objects from requester pays buckets, see Downloading Objects in Requestor Pays Buckets (https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html) in the Amazon S3 Developer Guide. If included, the only valid value is `requester`.
      * 
      */
@@ -642,6 +657,7 @@ public final class ObjectCopyArgs extends com.pulumi.resources.ResourceArgs {
         this.objectLockMode = $.objectLockMode;
         this.objectLockRetainUntilDate = $.objectLockRetainUntilDate;
         this.overrideProvider = $.overrideProvider;
+        this.region = $.region;
         this.requestPayer = $.requestPayer;
         this.serverSideEncryption = $.serverSideEncryption;
         this.source = $.source;
@@ -1286,6 +1302,27 @@ public final class ObjectCopyArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder overrideProvider(ObjectCopyOverrideProviderArgs overrideProvider) {
             return overrideProvider(Output.of(overrideProvider));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -89,6 +89,13 @@ public final class DefaultVpcArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.ipv6NetmaskLength);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
@@ -108,6 +115,7 @@ public final class DefaultVpcArgs extends com.pulumi.resources.ResourceArgs {
         this.ipv6CidrBlockNetworkBorderGroup = $.ipv6CidrBlockNetworkBorderGroup;
         this.ipv6IpamPoolId = $.ipv6IpamPoolId;
         this.ipv6NetmaskLength = $.ipv6NetmaskLength;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -220,6 +228,15 @@ public final class DefaultVpcArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder ipv6NetmaskLength(Integer ipv6NetmaskLength) {
             return ipv6NetmaskLength(Output.of(ipv6NetmaskLength));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder tags(@Nullable Output<Map<String,String>> tags) {

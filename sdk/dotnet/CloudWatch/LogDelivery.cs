@@ -81,6 +81,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<ImmutableArray<string>> RecordFields { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
         /// </summary>
         [Output("s3DeliveryConfigurations")]
@@ -174,6 +180,12 @@ namespace Pulumi.Aws.CloudWatch
             set => _recordFields = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("s3DeliveryConfigurations")]
         private InputList<Inputs.LogDeliveryS3DeliveryConfigurationArgs>? _s3DeliveryConfigurations;
 
@@ -242,6 +254,12 @@ namespace Pulumi.Aws.CloudWatch
             set => _recordFields = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("s3DeliveryConfigurations")]
         private InputList<Inputs.LogDeliveryS3DeliveryConfigurationGetArgs>? _s3DeliveryConfigurations;
 
@@ -272,7 +290,6 @@ namespace Pulumi.Aws.CloudWatch
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -26,6 +26,7 @@ class EmailChannelArgs:
                  configuration_set: Optional[pulumi.Input[builtins.str]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  orchestration_sending_role_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a EmailChannel resource.
@@ -35,6 +36,7 @@ class EmailChannelArgs:
         :param pulumi.Input[builtins.str] configuration_set: The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
         :param pulumi.Input[builtins.bool] enabled: Whether the channel is enabled or disabled. Defaults to `true`.
         :param pulumi.Input[builtins.str] orchestration_sending_role_arn: The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """
         pulumi.set(__self__, "application_id", application_id)
@@ -46,6 +48,8 @@ class EmailChannelArgs:
             pulumi.set(__self__, "enabled", enabled)
         if orchestration_sending_role_arn is not None:
             pulumi.set(__self__, "orchestration_sending_role_arn", orchestration_sending_role_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
 
@@ -122,6 +126,18 @@ class EmailChannelArgs:
         pulumi.set(self, "orchestration_sending_role_arn", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -144,6 +160,7 @@ class _EmailChannelState:
                  identity: Optional[pulumi.Input[builtins.str]] = None,
                  messages_per_second: Optional[pulumi.Input[builtins.int]] = None,
                  orchestration_sending_role_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering EmailChannel resources.
@@ -154,6 +171,7 @@ class _EmailChannelState:
         :param pulumi.Input[builtins.str] identity: The ARN of an identity verified with SES.
         :param pulumi.Input[builtins.int] messages_per_second: Messages per second that can be sent.
         :param pulumi.Input[builtins.str] orchestration_sending_role_arn: The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """
         if application_id is not None:
@@ -170,6 +188,8 @@ class _EmailChannelState:
             pulumi.set(__self__, "messages_per_second", messages_per_second)
         if orchestration_sending_role_arn is not None:
             pulumi.set(__self__, "orchestration_sending_role_arn", orchestration_sending_role_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
 
@@ -258,6 +278,18 @@ class _EmailChannelState:
         pulumi.set(self, "orchestration_sending_role_arn", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -282,6 +314,7 @@ class EmailChannel(pulumi.CustomResource):
                  from_address: Optional[pulumi.Input[builtins.str]] = None,
                  identity: Optional[pulumi.Input[builtins.str]] = None,
                  orchestration_sending_role_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -338,6 +371,7 @@ class EmailChannel(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] from_address: The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         :param pulumi.Input[builtins.str] identity: The ARN of an identity verified with SES.
         :param pulumi.Input[builtins.str] orchestration_sending_role_arn: The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """
         ...
@@ -413,6 +447,7 @@ class EmailChannel(pulumi.CustomResource):
                  from_address: Optional[pulumi.Input[builtins.str]] = None,
                  identity: Optional[pulumi.Input[builtins.str]] = None,
                  orchestration_sending_role_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -435,6 +470,7 @@ class EmailChannel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity
             __props__.__dict__["orchestration_sending_role_arn"] = orchestration_sending_role_arn
+            __props__.__dict__["region"] = region
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["messages_per_second"] = None
         super(EmailChannel, __self__).__init__(
@@ -454,6 +490,7 @@ class EmailChannel(pulumi.CustomResource):
             identity: Optional[pulumi.Input[builtins.str]] = None,
             messages_per_second: Optional[pulumi.Input[builtins.int]] = None,
             orchestration_sending_role_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'EmailChannel':
         """
         Get an existing EmailChannel resource's state with the given name, id, and optional extra
@@ -469,6 +506,7 @@ class EmailChannel(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] identity: The ARN of an identity verified with SES.
         :param pulumi.Input[builtins.int] messages_per_second: Messages per second that can be sent.
         :param pulumi.Input[builtins.str] orchestration_sending_role_arn: The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -482,6 +520,7 @@ class EmailChannel(pulumi.CustomResource):
         __props__.__dict__["identity"] = identity
         __props__.__dict__["messages_per_second"] = messages_per_second
         __props__.__dict__["orchestration_sending_role_arn"] = orchestration_sending_role_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         return EmailChannel(resource_name, opts=opts, __props__=__props__)
 
@@ -540,6 +579,14 @@ class EmailChannel(pulumi.CustomResource):
         The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
         """
         return pulumi.get(self, "orchestration_sending_role_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")

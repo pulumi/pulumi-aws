@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directoryservice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupDirectory(ctx *pulumi.Context, args *LookupDirectoryArgs, opts ...pul
 type LookupDirectoryArgs struct {
 	// ID of the directory.
 	DirectoryId string `pulumi:"directoryId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags assigned to the directory/connector.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -77,6 +79,7 @@ type LookupDirectoryResult struct {
 	// Fully qualified name for the directory/connector.
 	Name           string                      `pulumi:"name"`
 	RadiusSettings []GetDirectoryRadiusSetting `pulumi:"radiusSettings"`
+	Region         string                      `pulumi:"region"`
 	// ID of the security group created by the directory/connector.
 	SecurityGroupId string `pulumi:"securityGroupId"`
 	// Short name of the directory/connector, such as `CORP`.
@@ -103,6 +106,8 @@ func LookupDirectoryOutput(ctx *pulumi.Context, args LookupDirectoryOutputArgs, 
 type LookupDirectoryOutputArgs struct {
 	// ID of the directory.
 	DirectoryId pulumi.StringInput `pulumi:"directoryId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags assigned to the directory/connector.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -176,6 +181,10 @@ func (o LookupDirectoryResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupDirectoryResultOutput) RadiusSettings() GetDirectoryRadiusSettingArrayOutput {
 	return o.ApplyT(func(v LookupDirectoryResult) []GetDirectoryRadiusSetting { return v.RadiusSettings }).(GetDirectoryRadiusSettingArrayOutput)
+}
+
+func (o LookupDirectoryResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDirectoryResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the security group created by the directory/connector.

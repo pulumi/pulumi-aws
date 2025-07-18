@@ -2,9 +2,6 @@ name: bucket-obj
 runtime: yaml
 resources:
   myBucket:
-    properties:
-      website:
-        indexDocument: index.html
     type: aws:s3:Bucket
   myBucketIndex:
     properties:

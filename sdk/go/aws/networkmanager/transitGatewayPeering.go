@@ -8,11 +8,11 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Creates a peering connection between an AWS Cloud WAN core network and an AWS Transit Gateway.
+// Manages a Network Manager transit gateway peering connection. Creates a peering connection between an AWS Cloud WAN core network and an AWS Transit Gateway.
 //
 // ## Example Usage
 //
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,29 +51,29 @@ import (
 type TransitGatewayPeering struct {
 	pulumi.CustomResourceState
 
-	// Peering Amazon Resource Name (ARN).
+	// Peering ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ARN of the core network.
+	// ARN of the core network.
 	CoreNetworkArn pulumi.StringOutput `pulumi:"coreNetworkArn"`
-	// The ID of a core network.
+	// ID of a core network.
 	CoreNetworkId pulumi.StringOutput `pulumi:"coreNetworkId"`
-	// The edge location for the peer.
+	// Edge location for the peer.
 	EdgeLocation pulumi.StringOutput `pulumi:"edgeLocation"`
-	// The ID of the account owner.
+	// ID of the account owner.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
-	// The type of peering. This will be `TRANSIT_GATEWAY`.
+	// Type of peering. This will be `TRANSIT_GATEWAY`.
 	PeeringType pulumi.StringOutput `pulumi:"peeringType"`
-	// The resource ARN of the peer.
+	// Resource ARN of the peer.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The ARN of the transit gateway for the peering request.
+	// ARN of the transit gateway for the peering request.
+	//
+	// The following arguments are optional:
 	TransitGatewayArn pulumi.StringOutput `pulumi:"transitGatewayArn"`
-	// The ID of the transit gateway peering attachment.
+	// ID of the transit gateway peering attachment.
 	TransitGatewayPeeringAttachmentId pulumi.StringOutput `pulumi:"transitGatewayPeeringAttachmentId"`
 }
 
@@ -113,56 +113,56 @@ func GetTransitGatewayPeering(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TransitGatewayPeering resources.
 type transitGatewayPeeringState struct {
-	// Peering Amazon Resource Name (ARN).
+	// Peering ARN.
 	Arn *string `pulumi:"arn"`
-	// The ARN of the core network.
+	// ARN of the core network.
 	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
-	// The ID of a core network.
+	// ID of a core network.
 	CoreNetworkId *string `pulumi:"coreNetworkId"`
-	// The edge location for the peer.
+	// Edge location for the peer.
 	EdgeLocation *string `pulumi:"edgeLocation"`
-	// The ID of the account owner.
+	// ID of the account owner.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
-	// The type of peering. This will be `TRANSIT_GATEWAY`.
+	// Type of peering. This will be `TRANSIT_GATEWAY`.
 	PeeringType *string `pulumi:"peeringType"`
-	// The resource ARN of the peer.
+	// Resource ARN of the peer.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The ARN of the transit gateway for the peering request.
+	// ARN of the transit gateway for the peering request.
+	//
+	// The following arguments are optional:
 	TransitGatewayArn *string `pulumi:"transitGatewayArn"`
-	// The ID of the transit gateway peering attachment.
+	// ID of the transit gateway peering attachment.
 	TransitGatewayPeeringAttachmentId *string `pulumi:"transitGatewayPeeringAttachmentId"`
 }
 
 type TransitGatewayPeeringState struct {
-	// Peering Amazon Resource Name (ARN).
+	// Peering ARN.
 	Arn pulumi.StringPtrInput
-	// The ARN of the core network.
+	// ARN of the core network.
 	CoreNetworkArn pulumi.StringPtrInput
-	// The ID of a core network.
+	// ID of a core network.
 	CoreNetworkId pulumi.StringPtrInput
-	// The edge location for the peer.
+	// Edge location for the peer.
 	EdgeLocation pulumi.StringPtrInput
-	// The ID of the account owner.
+	// ID of the account owner.
 	OwnerAccountId pulumi.StringPtrInput
-	// The type of peering. This will be `TRANSIT_GATEWAY`.
+	// Type of peering. This will be `TRANSIT_GATEWAY`.
 	PeeringType pulumi.StringPtrInput
-	// The resource ARN of the peer.
+	// Resource ARN of the peer.
 	ResourceArn pulumi.StringPtrInput
 	// Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The ARN of the transit gateway for the peering request.
+	// ARN of the transit gateway for the peering request.
+	//
+	// The following arguments are optional:
 	TransitGatewayArn pulumi.StringPtrInput
-	// The ID of the transit gateway peering attachment.
+	// ID of the transit gateway peering attachment.
 	TransitGatewayPeeringAttachmentId pulumi.StringPtrInput
 }
 
@@ -171,21 +171,25 @@ func (TransitGatewayPeeringState) ElementType() reflect.Type {
 }
 
 type transitGatewayPeeringArgs struct {
-	// The ID of a core network.
+	// ID of a core network.
 	CoreNetworkId string `pulumi:"coreNetworkId"`
 	// Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The ARN of the transit gateway for the peering request.
+	// ARN of the transit gateway for the peering request.
+	//
+	// The following arguments are optional:
 	TransitGatewayArn string `pulumi:"transitGatewayArn"`
 }
 
 // The set of arguments for constructing a TransitGatewayPeering resource.
 type TransitGatewayPeeringArgs struct {
-	// The ID of a core network.
+	// ID of a core network.
 	CoreNetworkId pulumi.StringInput
 	// Key-value tags for the peering. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The ARN of the transit gateway for the peering request.
+	// ARN of the transit gateway for the peering request.
+	//
+	// The following arguments are optional:
 	TransitGatewayArn pulumi.StringInput
 }
 
@@ -276,37 +280,37 @@ func (o TransitGatewayPeeringOutput) ToTransitGatewayPeeringOutputWithContext(ct
 	return o
 }
 
-// Peering Amazon Resource Name (ARN).
+// Peering ARN.
 func (o TransitGatewayPeeringOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The ARN of the core network.
+// ARN of the core network.
 func (o TransitGatewayPeeringOutput) CoreNetworkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringOutput { return v.CoreNetworkArn }).(pulumi.StringOutput)
 }
 
-// The ID of a core network.
+// ID of a core network.
 func (o TransitGatewayPeeringOutput) CoreNetworkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringOutput { return v.CoreNetworkId }).(pulumi.StringOutput)
 }
 
-// The edge location for the peer.
+// Edge location for the peer.
 func (o TransitGatewayPeeringOutput) EdgeLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringOutput { return v.EdgeLocation }).(pulumi.StringOutput)
 }
 
-// The ID of the account owner.
+// ID of the account owner.
 func (o TransitGatewayPeeringOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
-// The type of peering. This will be `TRANSIT_GATEWAY`.
+// Type of peering. This will be `TRANSIT_GATEWAY`.
 func (o TransitGatewayPeeringOutput) PeeringType() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringOutput { return v.PeeringType }).(pulumi.StringOutput)
 }
 
-// The resource ARN of the peer.
+// Resource ARN of the peer.
 func (o TransitGatewayPeeringOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
@@ -316,19 +320,19 @@ func (o TransitGatewayPeeringOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o TransitGatewayPeeringOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The ARN of the transit gateway for the peering request.
+// ARN of the transit gateway for the peering request.
+//
+// The following arguments are optional:
 func (o TransitGatewayPeeringOutput) TransitGatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringOutput { return v.TransitGatewayArn }).(pulumi.StringOutput)
 }
 
-// The ID of the transit gateway peering attachment.
+// ID of the transit gateway peering attachment.
 func (o TransitGatewayPeeringOutput) TransitGatewayPeeringAttachmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitGatewayPeering) pulumi.StringOutput { return v.TransitGatewayPeeringAttachmentId }).(pulumi.StringOutput)
 }

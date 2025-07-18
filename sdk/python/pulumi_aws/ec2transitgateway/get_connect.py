@@ -29,7 +29,7 @@ class GetConnectResult:
     """
     A collection of values returned by getConnect.
     """
-    def __init__(__self__, filters=None, id=None, protocol=None, tags=None, transit_gateway_connect_id=None, transit_gateway_id=None, transport_attachment_id=None):
+    def __init__(__self__, filters=None, id=None, protocol=None, region=None, tags=None, transit_gateway_connect_id=None, transit_gateway_id=None, transport_attachment_id=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -39,6 +39,9 @@ class GetConnectResult:
         if protocol and not isinstance(protocol, str):
             raise TypeError("Expected argument 'protocol' to be a str")
         pulumi.set(__self__, "protocol", protocol)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -72,6 +75,11 @@ class GetConnectResult:
         Tunnel protocol
         """
         return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter
@@ -112,6 +120,7 @@ class AwaitableGetConnectResult(GetConnectResult):
             filters=self.filters,
             id=self.id,
             protocol=self.protocol,
+            region=self.region,
             tags=self.tags,
             transit_gateway_connect_id=self.transit_gateway_connect_id,
             transit_gateway_id=self.transit_gateway_id,
@@ -119,6 +128,7 @@ class AwaitableGetConnectResult(GetConnectResult):
 
 
 def get_connect(filters: Optional[Sequence[Union['GetConnectFilterArgs', 'GetConnectFilterArgsDict']]] = None,
+                region: Optional[builtins.str] = None,
                 tags: Optional[Mapping[str, builtins.str]] = None,
                 transit_gateway_connect_id: Optional[builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectResult:
@@ -150,11 +160,13 @@ def get_connect(filters: Optional[Sequence[Union['GetConnectFilterArgs', 'GetCon
 
 
     :param Sequence[Union['GetConnectFilterArgs', 'GetConnectFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the EC2 Transit Gateway Connect
     :param builtins.str transit_gateway_connect_id: Identifier of the EC2 Transit Gateway Connect.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['transitGatewayConnectId'] = transit_gateway_connect_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -164,11 +176,13 @@ def get_connect(filters: Optional[Sequence[Union['GetConnectFilterArgs', 'GetCon
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         protocol=pulumi.get(__ret__, 'protocol'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_connect_id=pulumi.get(__ret__, 'transit_gateway_connect_id'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         transport_attachment_id=pulumi.get(__ret__, 'transport_attachment_id'))
 def get_connect_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetConnectFilterArgs', 'GetConnectFilterArgsDict']]]]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                        transit_gateway_connect_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectResult]:
@@ -200,11 +214,13 @@ def get_connect_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['G
 
 
     :param Sequence[Union['GetConnectFilterArgs', 'GetConnectFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the EC2 Transit Gateway Connect
     :param builtins.str transit_gateway_connect_id: Identifier of the EC2 Transit Gateway Connect.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['transitGatewayConnectId'] = transit_gateway_connect_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -213,6 +229,7 @@ def get_connect_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['G
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         protocol=pulumi.get(__response__, 'protocol'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         transit_gateway_connect_id=pulumi.get(__response__, 'transit_gateway_connect_id'),
         transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id'),

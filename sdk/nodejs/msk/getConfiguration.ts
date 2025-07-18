@@ -22,6 +22,7 @@ export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.Invok
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:msk/getConfiguration:getConfiguration", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -33,6 +34,10 @@ export interface GetConfigurationArgs {
      * Name of the configuration.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -60,6 +65,7 @@ export interface GetConfigurationResult {
      */
     readonly latestRevision: number;
     readonly name: string;
+    readonly region: string;
     /**
      * Contents of the server.properties file.
      */
@@ -83,6 +89,7 @@ export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:msk/getConfiguration:getConfiguration", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -94,4 +101,8 @@ export interface GetConfigurationOutputArgs {
      * Name of the configuration.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

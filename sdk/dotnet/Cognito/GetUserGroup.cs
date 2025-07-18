@@ -103,6 +103,12 @@ namespace Pulumi.Aws.Cognito
         public string Name { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// User pool the client belongs to.
         /// </summary>
         [Input("userPoolId", required: true)]
@@ -121,6 +127,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// User pool the client belongs to.
@@ -151,6 +163,7 @@ namespace Pulumi.Aws.Cognito
         /// Precedence of the user group.
         /// </summary>
         public readonly int Precedence;
+        public readonly string Region;
         /// <summary>
         /// ARN of the IAM role to be associated with the user group.
         /// </summary>
@@ -167,6 +180,8 @@ namespace Pulumi.Aws.Cognito
 
             int precedence,
 
+            string region,
+
             string roleArn,
 
             string userPoolId)
@@ -175,6 +190,7 @@ namespace Pulumi.Aws.Cognito
             Id = id;
             Name = name;
             Precedence = precedence;
+            Region = region;
             RoleArn = roleArn;
             UserPoolId = userPoolId;
         }

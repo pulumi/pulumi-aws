@@ -24,6 +24,7 @@ class ConfigurationSetArgs:
     def __init__(__self__, *,
                  delivery_options: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reputation_metrics_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  sending_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None):
@@ -33,6 +34,7 @@ class ConfigurationSetArgs:
         :param pulumi.Input[builtins.str] name: Name of the configuration set.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] reputation_metrics_enabled: Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
         :param pulumi.Input[builtins.bool] sending_enabled: Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
         :param pulumi.Input['ConfigurationSetTrackingOptionsArgs'] tracking_options: Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
@@ -41,6 +43,8 @@ class ConfigurationSetArgs:
             pulumi.set(__self__, "delivery_options", delivery_options)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if reputation_metrics_enabled is not None:
             pulumi.set(__self__, "reputation_metrics_enabled", reputation_metrics_enabled)
         if sending_enabled is not None:
@@ -73,6 +77,18 @@ class ConfigurationSetArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="reputationMetricsEnabled")
@@ -118,6 +134,7 @@ class _ConfigurationSetState:
                  delivery_options: Optional[pulumi.Input['ConfigurationSetDeliveryOptionsArgs']] = None,
                  last_fresh_start: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reputation_metrics_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  sending_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tracking_options: Optional[pulumi.Input['ConfigurationSetTrackingOptionsArgs']] = None):
@@ -129,6 +146,7 @@ class _ConfigurationSetState:
         :param pulumi.Input[builtins.str] name: Name of the configuration set.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] reputation_metrics_enabled: Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
         :param pulumi.Input[builtins.bool] sending_enabled: Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
         :param pulumi.Input['ConfigurationSetTrackingOptionsArgs'] tracking_options: Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
@@ -141,6 +159,8 @@ class _ConfigurationSetState:
             pulumi.set(__self__, "last_fresh_start", last_fresh_start)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if reputation_metrics_enabled is not None:
             pulumi.set(__self__, "reputation_metrics_enabled", reputation_metrics_enabled)
         if sending_enabled is not None:
@@ -199,6 +219,18 @@ class _ConfigurationSetState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="reputationMetricsEnabled")
     def reputation_metrics_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -243,6 +275,7 @@ class ConfigurationSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_options: Optional[pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reputation_metrics_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  sending_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tracking_options: Optional[pulumi.Input[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict']]] = None,
@@ -301,6 +334,7 @@ class ConfigurationSet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the configuration set.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] reputation_metrics_enabled: Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
         :param pulumi.Input[builtins.bool] sending_enabled: Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
         :param pulumi.Input[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict']] tracking_options: Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
@@ -376,6 +410,7 @@ class ConfigurationSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_options: Optional[pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reputation_metrics_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  sending_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tracking_options: Optional[pulumi.Input[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict']]] = None,
@@ -390,6 +425,7 @@ class ConfigurationSet(pulumi.CustomResource):
 
             __props__.__dict__["delivery_options"] = delivery_options
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["reputation_metrics_enabled"] = reputation_metrics_enabled
             __props__.__dict__["sending_enabled"] = sending_enabled
             __props__.__dict__["tracking_options"] = tracking_options
@@ -411,6 +447,7 @@ class ConfigurationSet(pulumi.CustomResource):
             delivery_options: Optional[pulumi.Input[Union['ConfigurationSetDeliveryOptionsArgs', 'ConfigurationSetDeliveryOptionsArgsDict']]] = None,
             last_fresh_start: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             reputation_metrics_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             sending_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             tracking_options: Optional[pulumi.Input[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict']]] = None) -> 'ConfigurationSet':
@@ -427,6 +464,7 @@ class ConfigurationSet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the configuration set.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] reputation_metrics_enabled: Whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch. The default value is `false`.
         :param pulumi.Input[builtins.bool] sending_enabled: Whether email sending is enabled or disabled for the configuration set. The default value is `true`.
         :param pulumi.Input[Union['ConfigurationSetTrackingOptionsArgs', 'ConfigurationSetTrackingOptionsArgsDict']] tracking_options: Domain that is used to redirect email recipients to an Amazon SES-operated domain. See below. **NOTE:** This functionality is best effort.
@@ -439,6 +477,7 @@ class ConfigurationSet(pulumi.CustomResource):
         __props__.__dict__["delivery_options"] = delivery_options
         __props__.__dict__["last_fresh_start"] = last_fresh_start
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["reputation_metrics_enabled"] = reputation_metrics_enabled
         __props__.__dict__["sending_enabled"] = sending_enabled
         __props__.__dict__["tracking_options"] = tracking_options
@@ -477,6 +516,14 @@ class ConfigurationSet(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="reputationMetricsEnabled")

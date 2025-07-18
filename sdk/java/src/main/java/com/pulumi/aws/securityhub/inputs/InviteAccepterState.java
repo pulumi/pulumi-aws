@@ -45,11 +45,27 @@ public final class InviteAccepterState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.masterId);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private InviteAccepterState() {}
 
     private InviteAccepterState(InviteAccepterState $) {
         this.invitationId = $.invitationId;
         this.masterId = $.masterId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -110,6 +126,27 @@ public final class InviteAccepterState extends com.pulumi.resources.ResourceArgs
          */
         public Builder masterId(String masterId) {
             return masterId(Output.of(masterId));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public InviteAccepterState build() {

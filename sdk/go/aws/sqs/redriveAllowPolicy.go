@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sqs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -94,6 +94,8 @@ type RedriveAllowPolicy struct {
 	QueueUrl pulumi.StringOutput `pulumi:"queueUrl"`
 	// The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
 	RedriveAllowPolicy pulumi.StringOutput `pulumi:"redriveAllowPolicy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewRedriveAllowPolicy registers a new resource with the given unique name, arguments, and options.
@@ -136,6 +138,8 @@ type redriveAllowPolicyState struct {
 	QueueUrl *string `pulumi:"queueUrl"`
 	// The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
 	RedriveAllowPolicy *string `pulumi:"redriveAllowPolicy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type RedriveAllowPolicyState struct {
@@ -143,6 +147,8 @@ type RedriveAllowPolicyState struct {
 	QueueUrl pulumi.StringPtrInput
 	// The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
 	RedriveAllowPolicy pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (RedriveAllowPolicyState) ElementType() reflect.Type {
@@ -154,6 +160,8 @@ type redriveAllowPolicyArgs struct {
 	QueueUrl string `pulumi:"queueUrl"`
 	// The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
 	RedriveAllowPolicy string `pulumi:"redriveAllowPolicy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a RedriveAllowPolicy resource.
@@ -162,6 +170,8 @@ type RedriveAllowPolicyArgs struct {
 	QueueUrl pulumi.StringInput
 	// The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
 	RedriveAllowPolicy pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (RedriveAllowPolicyArgs) ElementType() reflect.Type {
@@ -259,6 +269,11 @@ func (o RedriveAllowPolicyOutput) QueueUrl() pulumi.StringOutput {
 // The JSON redrive allow policy for the SQS queue. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
 func (o RedriveAllowPolicyOutput) RedriveAllowPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RedriveAllowPolicy) pulumi.StringOutput { return v.RedriveAllowPolicy }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o RedriveAllowPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RedriveAllowPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type RedriveAllowPolicyArrayOutput struct{ *pulumi.OutputState }

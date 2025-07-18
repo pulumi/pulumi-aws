@@ -29,7 +29,7 @@ class GetScriptResult:
     """
     A collection of values returned by getScript.
     """
-    def __init__(__self__, dag_edges=None, dag_nodes=None, id=None, language=None, python_script=None, scala_code=None):
+    def __init__(__self__, dag_edges=None, dag_nodes=None, id=None, language=None, python_script=None, region=None, scala_code=None):
         if dag_edges and not isinstance(dag_edges, list):
             raise TypeError("Expected argument 'dag_edges' to be a list")
         pulumi.set(__self__, "dag_edges", dag_edges)
@@ -45,6 +45,9 @@ class GetScriptResult:
         if python_script and not isinstance(python_script, str):
             raise TypeError("Expected argument 'python_script' to be a str")
         pulumi.set(__self__, "python_script", python_script)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if scala_code and not isinstance(scala_code, str):
             raise TypeError("Expected argument 'scala_code' to be a str")
         pulumi.set(__self__, "scala_code", scala_code)
@@ -81,6 +84,11 @@ class GetScriptResult:
         return pulumi.get(self, "python_script")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="scalaCode")
     def scala_code(self) -> builtins.str:
         """
@@ -100,12 +108,14 @@ class AwaitableGetScriptResult(GetScriptResult):
             id=self.id,
             language=self.language,
             python_script=self.python_script,
+            region=self.region,
             scala_code=self.scala_code)
 
 
 def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetScriptDagEdgeArgsDict']]] = None,
                dag_nodes: Optional[Sequence[Union['GetScriptDagNodeArgs', 'GetScriptDagNodeArgsDict']]] = None,
                language: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScriptResult:
     """
     Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
@@ -300,11 +310,13 @@ def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetSc
     :param Sequence[Union['GetScriptDagEdgeArgs', 'GetScriptDagEdgeArgsDict']] dag_edges: List of the edges in the DAG. Defined below.
     :param Sequence[Union['GetScriptDagNodeArgs', 'GetScriptDagNodeArgsDict']] dag_nodes: List of the nodes in the DAG. Defined below.
     :param builtins.str language: Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['dagEdges'] = dag_edges
     __args__['dagNodes'] = dag_nodes
     __args__['language'] = language
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:glue/getScript:getScript', __args__, opts=opts, typ=GetScriptResult).value
 
@@ -314,10 +326,12 @@ def get_script(dag_edges: Optional[Sequence[Union['GetScriptDagEdgeArgs', 'GetSc
         id=pulumi.get(__ret__, 'id'),
         language=pulumi.get(__ret__, 'language'),
         python_script=pulumi.get(__ret__, 'python_script'),
+        region=pulumi.get(__ret__, 'region'),
         scala_code=pulumi.get(__ret__, 'scala_code'))
 def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[Union['GetScriptDagEdgeArgs', 'GetScriptDagEdgeArgsDict']]]] = None,
                       dag_nodes: Optional[pulumi.Input[Sequence[Union['GetScriptDagNodeArgs', 'GetScriptDagNodeArgsDict']]]] = None,
                       language: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScriptResult]:
     """
     Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
@@ -512,11 +526,13 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[Union['GetScript
     :param Sequence[Union['GetScriptDagEdgeArgs', 'GetScriptDagEdgeArgsDict']] dag_edges: List of the edges in the DAG. Defined below.
     :param Sequence[Union['GetScriptDagNodeArgs', 'GetScriptDagNodeArgsDict']] dag_nodes: List of the nodes in the DAG. Defined below.
     :param builtins.str language: Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['dagEdges'] = dag_edges
     __args__['dagNodes'] = dag_nodes
     __args__['language'] = language
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:glue/getScript:getScript', __args__, opts=opts, typ=GetScriptResult)
     return __ret__.apply(lambda __response__: GetScriptResult(
@@ -525,4 +541,5 @@ def get_script_output(dag_edges: Optional[pulumi.Input[Sequence[Union['GetScript
         id=pulumi.get(__response__, 'id'),
         language=pulumi.get(__response__, 'language'),
         python_script=pulumi.get(__response__, 'python_script'),
+        region=pulumi.get(__response__, 'region'),
         scala_code=pulumi.get(__response__, 'scala_code')))

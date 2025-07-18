@@ -23,14 +23,18 @@ __all__ = ['VoiceConnectorTerminationCredentialsArgs', 'VoiceConnectorTerminatio
 class VoiceConnectorTerminationCredentialsArgs:
     def __init__(__self__, *,
                  credentials: pulumi.Input[Sequence[pulumi.Input['VoiceConnectorTerminationCredentialsCredentialArgs']]],
-                 voice_connector_id: pulumi.Input[builtins.str]):
+                 voice_connector_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a VoiceConnectorTerminationCredentials resource.
         :param pulumi.Input[Sequence[pulumi.Input['VoiceConnectorTerminationCredentialsCredentialArgs']]] credentials: List of termination SIP credentials.
         :param pulumi.Input[builtins.str] voice_connector_id: Amazon Chime Voice Connector ID.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "credentials", credentials)
         pulumi.set(__self__, "voice_connector_id", voice_connector_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -56,19 +60,35 @@ class VoiceConnectorTerminationCredentialsArgs:
     def voice_connector_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "voice_connector_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _VoiceConnectorTerminationCredentialsState:
     def __init__(__self__, *,
                  credentials: Optional[pulumi.Input[Sequence[pulumi.Input['VoiceConnectorTerminationCredentialsCredentialArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  voice_connector_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering VoiceConnectorTerminationCredentials resources.
         :param pulumi.Input[Sequence[pulumi.Input['VoiceConnectorTerminationCredentialsCredentialArgs']]] credentials: List of termination SIP credentials.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] voice_connector_id: Amazon Chime Voice Connector ID.
         """
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if voice_connector_id is not None:
             pulumi.set(__self__, "voice_connector_id", voice_connector_id)
 
@@ -83,6 +103,18 @@ class _VoiceConnectorTerminationCredentialsState:
     @credentials.setter
     def credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VoiceConnectorTerminationCredentialsCredentialArgs']]]]):
         pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="voiceConnectorId")
@@ -104,6 +136,7 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorTerminationCredentialsCredentialArgs', 'VoiceConnectorTerminationCredentialsCredentialArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  voice_connector_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -149,6 +182,7 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorTerminationCredentialsCredentialArgs', 'VoiceConnectorTerminationCredentialsCredentialArgsDict']]]] credentials: List of termination SIP credentials.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] voice_connector_id: Amazon Chime Voice Connector ID.
         """
         ...
@@ -213,6 +247,7 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorTerminationCredentialsCredentialArgs', 'VoiceConnectorTerminationCredentialsCredentialArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  voice_connector_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -226,6 +261,7 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
             if credentials is None and not opts.urn:
                 raise TypeError("Missing required property 'credentials'")
             __props__.__dict__["credentials"] = credentials
+            __props__.__dict__["region"] = region
             if voice_connector_id is None and not opts.urn:
                 raise TypeError("Missing required property 'voice_connector_id'")
             __props__.__dict__["voice_connector_id"] = voice_connector_id
@@ -240,6 +276,7 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             credentials: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorTerminationCredentialsCredentialArgs', 'VoiceConnectorTerminationCredentialsCredentialArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             voice_connector_id: Optional[pulumi.Input[builtins.str]] = None) -> 'VoiceConnectorTerminationCredentials':
         """
         Get an existing VoiceConnectorTerminationCredentials resource's state with the given name, id, and optional extra
@@ -249,6 +286,7 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VoiceConnectorTerminationCredentialsCredentialArgs', 'VoiceConnectorTerminationCredentialsCredentialArgsDict']]]] credentials: List of termination SIP credentials.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] voice_connector_id: Amazon Chime Voice Connector ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -256,6 +294,7 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
         __props__ = _VoiceConnectorTerminationCredentialsState.__new__(_VoiceConnectorTerminationCredentialsState)
 
         __props__.__dict__["credentials"] = credentials
+        __props__.__dict__["region"] = region
         __props__.__dict__["voice_connector_id"] = voice_connector_id
         return VoiceConnectorTerminationCredentials(resource_name, opts=opts, __props__=__props__)
 
@@ -266,6 +305,14 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
         List of termination SIP credentials.
         """
         return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="voiceConnectorId")

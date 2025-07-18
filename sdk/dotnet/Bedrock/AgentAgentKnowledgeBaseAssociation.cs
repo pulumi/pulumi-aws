@@ -78,6 +78,12 @@ namespace Pulumi.Aws.Bedrock
         [Output("knowledgeBaseState")]
         public Output<string> KnowledgeBaseState { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("timeouts")]
         public Output<Outputs.AgentAgentKnowledgeBaseAssociationTimeouts?> Timeouts { get; private set; } = null!;
 
@@ -159,6 +165,12 @@ namespace Pulumi.Aws.Bedrock
         [Input("knowledgeBaseState", required: true)]
         public Input<string> KnowledgeBaseState { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("timeouts")]
         public Input<Inputs.AgentAgentKnowledgeBaseAssociationTimeoutsArgs>? Timeouts { get; set; }
 
@@ -201,6 +213,12 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Input("knowledgeBaseState")]
         public Input<string>? KnowledgeBaseState { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.AgentAgentKnowledgeBaseAssociationTimeoutsGetArgs>? Timeouts { get; set; }

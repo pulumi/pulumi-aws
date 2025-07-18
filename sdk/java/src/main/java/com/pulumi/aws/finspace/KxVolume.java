@@ -217,16 +217,30 @@ public class KxVolume extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.nas1Configurations);
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The status of volume creation.
-     * * `CREATING` – The volume creation is in progress.
-     * * `CREATE_FAILED` – The volume creation has failed.
-     * * `ACTIVE` – The volume is active.
-     * * `UPDATING` – The volume is in the process of being updated.
-     * * `UPDATE_FAILED` – The update action failed.
-     * * `UPDATED` – The volume is successfully updated.
-     * * `DELETING` – The volume is in the process of being deleted.
-     * * `DELETE_FAILED` – The system failed to delete the volume.
-     * * `DELETED` – The volume is successfully deleted.
+     * * `CREATING` - The volume creation is in progress.
+     * * `CREATE_FAILED` - The volume creation has failed.
+     * * `ACTIVE` - The volume is active.
+     * * `UPDATING` - The volume is in the process of being updated.
+     * * `UPDATE_FAILED` - The update action failed.
+     * * `UPDATED` - The volume is successfully updated.
+     * * `DELETING` - The volume is in the process of being deleted.
+     * * `DELETE_FAILED` - The system failed to delete the volume.
+     * * `DELETED` - The volume is successfully deleted.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
@@ -234,15 +248,15 @@ public class KxVolume extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The status of volume creation.
-     * * `CREATING` – The volume creation is in progress.
-     * * `CREATE_FAILED` – The volume creation has failed.
-     * * `ACTIVE` – The volume is active.
-     * * `UPDATING` – The volume is in the process of being updated.
-     * * `UPDATE_FAILED` – The update action failed.
-     * * `UPDATED` – The volume is successfully updated.
-     * * `DELETING` – The volume is in the process of being deleted.
-     * * `DELETE_FAILED` – The system failed to delete the volume.
-     * * `DELETED` – The volume is successfully deleted.
+     * * `CREATING` - The volume creation is in progress.
+     * * `CREATE_FAILED` - The volume creation has failed.
+     * * `ACTIVE` - The volume is active.
+     * * `UPDATING` - The volume is in the process of being updated.
+     * * `UPDATE_FAILED` - The update action failed.
+     * * `UPDATED` - The volume is successfully updated.
+     * * `DELETING` - The volume is in the process of being deleted.
+     * * `DELETE_FAILED` - The system failed to delete the volume.
+     * * `DELETED` - The volume is successfully deleted.
      * 
      */
     public Output<String> status() {
@@ -276,12 +290,6 @@ public class KxVolume extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * @deprecated
-     * Please use `tags` instead.
-     * 
-     */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

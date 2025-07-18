@@ -28,7 +28,7 @@ class GetEndpointResult:
     """
     A collection of values returned by getEndpoint.
     """
-    def __init__(__self__, certificate_arn=None, database_name=None, elasticsearch_settings=None, endpoint_arn=None, endpoint_id=None, endpoint_type=None, engine_name=None, extra_connection_attributes=None, id=None, kafka_settings=None, kinesis_settings=None, kms_key_arn=None, mongodb_settings=None, password=None, port=None, postgres_settings=None, redis_settings=None, redshift_settings=None, s3_settings=None, secrets_manager_access_role_arn=None, secrets_manager_arn=None, server_name=None, service_access_role=None, ssl_mode=None, tags=None, username=None):
+    def __init__(__self__, certificate_arn=None, database_name=None, elasticsearch_settings=None, endpoint_arn=None, endpoint_id=None, endpoint_type=None, engine_name=None, extra_connection_attributes=None, id=None, kafka_settings=None, kinesis_settings=None, kms_key_arn=None, mongodb_settings=None, password=None, port=None, postgres_settings=None, redis_settings=None, redshift_settings=None, region=None, s3_settings=None, secrets_manager_access_role_arn=None, secrets_manager_arn=None, server_name=None, service_access_role=None, ssl_mode=None, tags=None, username=None):
         if certificate_arn and not isinstance(certificate_arn, str):
             raise TypeError("Expected argument 'certificate_arn' to be a str")
         pulumi.set(__self__, "certificate_arn", certificate_arn)
@@ -83,6 +83,9 @@ class GetEndpointResult:
         if redshift_settings and not isinstance(redshift_settings, list):
             raise TypeError("Expected argument 'redshift_settings' to be a list")
         pulumi.set(__self__, "redshift_settings", redshift_settings)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if s3_settings and not isinstance(s3_settings, list):
             raise TypeError("Expected argument 's3_settings' to be a list")
         pulumi.set(__self__, "s3_settings", s3_settings)
@@ -202,6 +205,11 @@ class GetEndpointResult:
         return pulumi.get(self, "redshift_settings")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="s3Settings")
     def s3_settings(self) -> Sequence['outputs.GetEndpointS3SettingResult']:
         return pulumi.get(self, "s3_settings")
@@ -266,6 +274,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             postgres_settings=self.postgres_settings,
             redis_settings=self.redis_settings,
             redshift_settings=self.redshift_settings,
+            region=self.region,
             s3_settings=self.s3_settings,
             secrets_manager_access_role_arn=self.secrets_manager_access_role_arn,
             secrets_manager_arn=self.secrets_manager_arn,
@@ -277,6 +286,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
 
 
 def get_endpoint(endpoint_id: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
                  tags: Optional[Mapping[str, builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
@@ -295,9 +305,11 @@ def get_endpoint(endpoint_id: Optional[builtins.str] = None,
 
 
     :param builtins.str endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['endpointId'] = endpoint_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:dms/getEndpoint:getEndpoint', __args__, opts=opts, typ=GetEndpointResult).value
@@ -321,6 +333,7 @@ def get_endpoint(endpoint_id: Optional[builtins.str] = None,
         postgres_settings=pulumi.get(__ret__, 'postgres_settings'),
         redis_settings=pulumi.get(__ret__, 'redis_settings'),
         redshift_settings=pulumi.get(__ret__, 'redshift_settings'),
+        region=pulumi.get(__ret__, 'region'),
         s3_settings=pulumi.get(__ret__, 's3_settings'),
         secrets_manager_access_role_arn=pulumi.get(__ret__, 'secrets_manager_access_role_arn'),
         secrets_manager_arn=pulumi.get(__ret__, 'secrets_manager_arn'),
@@ -330,6 +343,7 @@ def get_endpoint(endpoint_id: Optional[builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         username=pulumi.get(__ret__, 'username'))
 def get_endpoint_output(endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
@@ -348,9 +362,11 @@ def get_endpoint_output(endpoint_id: Optional[pulumi.Input[builtins.str]] = None
 
 
     :param builtins.str endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['endpointId'] = endpoint_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:dms/getEndpoint:getEndpoint', __args__, opts=opts, typ=GetEndpointResult)
@@ -373,6 +389,7 @@ def get_endpoint_output(endpoint_id: Optional[pulumi.Input[builtins.str]] = None
         postgres_settings=pulumi.get(__response__, 'postgres_settings'),
         redis_settings=pulumi.get(__response__, 'redis_settings'),
         redshift_settings=pulumi.get(__response__, 'redshift_settings'),
+        region=pulumi.get(__response__, 'region'),
         s3_settings=pulumi.get(__response__, 's3_settings'),
         secrets_manager_access_role_arn=pulumi.get(__response__, 'secrets_manager_access_role_arn'),
         secrets_manager_arn=pulumi.get(__response__, 'secrets_manager_arn'),

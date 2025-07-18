@@ -73,7 +73,7 @@ namespace Pulumi.Aws.ElasticSearch
     ///       ""Action"": ""es:*"",
     ///       ""Principal"": ""*"",
     ///       ""Effect"": ""Allow"",
-    ///       ""Resource"": ""arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*"",
+    ///       ""Resource"": ""arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*"",
     ///       ""Condition"": {{
     ///         ""IpAddress"": {{""aws:SourceIp"": [""66.193.100.22/32""]}}
     ///       }}
@@ -260,7 +260,7 @@ namespace Pulumi.Aws.ElasticSearch
     /// 			""Action"": ""es:*"",
     /// 			""Principal"": ""*"",
     /// 			""Effect"": ""Allow"",
-    /// 			""Resource"": ""arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*""
+    /// 			""Resource"": ""arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*""
     /// 		}}
     /// 	]
     /// }}
@@ -397,6 +397,12 @@ namespace Pulumi.Aws.ElasticSearch
         public Output<Outputs.DomainNodeToNodeEncryption> NodeToNodeEncryption { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
         /// </summary>
         [Output("snapshotOptions")]
@@ -470,7 +476,7 @@ namespace Pulumi.Aws.ElasticSearch
         /// IAM policy document specifying the access policies for the domain.
         /// </summary>
         [Input("accessPolicies")]
-        public Input<string>? AccessPolicies { get; set; }
+        public InputUnion<string, Inputs.PolicyDocumentArgs>? AccessPolicies { get; set; }
 
         [Input("advancedOptions")]
         private InputMap<string>? _advancedOptions;
@@ -559,6 +565,12 @@ namespace Pulumi.Aws.ElasticSearch
         public Input<Inputs.DomainNodeToNodeEncryptionArgs>? NodeToNodeEncryption { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
         /// </summary>
         [Input("snapshotOptions")]
@@ -594,7 +606,7 @@ namespace Pulumi.Aws.ElasticSearch
         /// IAM policy document specifying the access policies for the domain.
         /// </summary>
         [Input("accessPolicies")]
-        public Input<string>? AccessPolicies { get; set; }
+        public InputUnion<string, Inputs.PolicyDocumentGetArgs>? AccessPolicies { get; set; }
 
         [Input("advancedOptions")]
         private InputMap<string>? _advancedOptions;
@@ -707,6 +719,12 @@ namespace Pulumi.Aws.ElasticSearch
         public Input<Inputs.DomainNodeToNodeEncryptionGetArgs>? NodeToNodeEncryption { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
         /// </summary>
         [Input("snapshotOptions")]
@@ -730,7 +748,6 @@ namespace Pulumi.Aws.ElasticSearch
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

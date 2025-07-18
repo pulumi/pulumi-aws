@@ -65,13 +65,15 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
      */
     public readonly localGatewayRouteTableId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -96,6 +98,7 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
             const state = argsOrState as LocalGatewayRouteTableVpcAssociationState | undefined;
             resourceInputs["localGatewayId"] = state ? state.localGatewayId : undefined;
             resourceInputs["localGatewayRouteTableId"] = state ? state.localGatewayRouteTableId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
@@ -108,6 +111,7 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
                 throw new Error("Missing required property 'vpcId'");
             }
             resourceInputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["localGatewayId"] = undefined /*out*/;
@@ -128,13 +132,15 @@ export interface LocalGatewayRouteTableVpcAssociationState {
      */
     localGatewayRouteTableId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -153,6 +159,10 @@ export interface LocalGatewayRouteTableVpcAssociationArgs {
      * Identifier of EC2 Local Gateway Route Table.
      */
     localGatewayRouteTableId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

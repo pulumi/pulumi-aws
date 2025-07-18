@@ -99,6 +99,12 @@ namespace Pulumi.Aws.LicenseManager
         [Input("licenseArn", required: true)]
         public string LicenseArn { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetReceivedLicenseArgs()
         {
         }
@@ -112,6 +118,12 @@ namespace Pulumi.Aws.LicenseManager
         /// </summary>
         [Input("licenseArn", required: true)]
         public Input<string> LicenseArn { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetReceivedLicenseInvokeArgs()
         {
@@ -173,6 +185,7 @@ namespace Pulumi.Aws.LicenseManager
         /// Granted license received metadata. Detailed below
         /// </summary>
         public readonly ImmutableArray<Outputs.GetReceivedLicenseReceivedMetadataResult> ReceivedMetadatas;
+        public readonly string Region;
         /// <summary>
         /// Granted license status.
         /// </summary>
@@ -214,6 +227,8 @@ namespace Pulumi.Aws.LicenseManager
 
             ImmutableArray<Outputs.GetReceivedLicenseReceivedMetadataResult> receivedMetadatas,
 
+            string region,
+
             string status,
 
             ImmutableArray<Outputs.GetReceivedLicenseValidityResult> validities,
@@ -233,6 +248,7 @@ namespace Pulumi.Aws.LicenseManager
             ProductName = productName;
             ProductSku = productSku;
             ReceivedMetadatas = receivedMetadatas;
+            Region = region;
             Status = status;
             Validities = validities;
             Version = version;

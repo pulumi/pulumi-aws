@@ -29,7 +29,7 @@ class GetVpcAttachmentResult:
     """
     A collection of values returned by getVpcAttachment.
     """
-    def __init__(__self__, appliance_mode_support=None, arn=None, dns_support=None, filters=None, id=None, ipv6_support=None, security_group_referencing_support=None, subnet_ids=None, tags=None, transit_gateway_id=None, vpc_id=None, vpc_owner_id=None):
+    def __init__(__self__, appliance_mode_support=None, arn=None, dns_support=None, filters=None, id=None, ipv6_support=None, region=None, security_group_referencing_support=None, subnet_ids=None, tags=None, transit_gateway_id=None, vpc_id=None, vpc_owner_id=None):
         if appliance_mode_support and not isinstance(appliance_mode_support, str):
             raise TypeError("Expected argument 'appliance_mode_support' to be a str")
         pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
@@ -48,6 +48,9 @@ class GetVpcAttachmentResult:
         if ipv6_support and not isinstance(ipv6_support, str):
             raise TypeError("Expected argument 'ipv6_support' to be a str")
         pulumi.set(__self__, "ipv6_support", ipv6_support)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_group_referencing_support and not isinstance(security_group_referencing_support, str):
             raise TypeError("Expected argument 'security_group_referencing_support' to be a str")
         pulumi.set(__self__, "security_group_referencing_support", security_group_referencing_support)
@@ -113,6 +116,11 @@ class GetVpcAttachmentResult:
         return pulumi.get(self, "ipv6_support")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroupReferencingSupport")
     def security_group_referencing_support(self) -> builtins.str:
         """
@@ -173,6 +181,7 @@ class AwaitableGetVpcAttachmentResult(GetVpcAttachmentResult):
             filters=self.filters,
             id=self.id,
             ipv6_support=self.ipv6_support,
+            region=self.region,
             security_group_referencing_support=self.security_group_referencing_support,
             subnet_ids=self.subnet_ids,
             tags=self.tags,
@@ -183,6 +192,7 @@ class AwaitableGetVpcAttachmentResult(GetVpcAttachmentResult):
 
 def get_vpc_attachment(filters: Optional[Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict']]] = None,
                        id: Optional[builtins.str] = None,
+                       region: Optional[builtins.str] = None,
                        tags: Optional[Mapping[str, builtins.str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcAttachmentResult:
     """
@@ -214,11 +224,13 @@ def get_vpc_attachment(filters: Optional[Sequence[Union['GetVpcAttachmentFilterA
 
     :param Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param builtins.str id: Identifier of the EC2 Transit Gateway VPC Attachment.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getVpcAttachment:getVpcAttachment', __args__, opts=opts, typ=GetVpcAttachmentResult).value
@@ -230,6 +242,7 @@ def get_vpc_attachment(filters: Optional[Sequence[Union['GetVpcAttachmentFilterA
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         ipv6_support=pulumi.get(__ret__, 'ipv6_support'),
+        region=pulumi.get(__ret__, 'region'),
         security_group_referencing_support=pulumi.get(__ret__, 'security_group_referencing_support'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -238,6 +251,7 @@ def get_vpc_attachment(filters: Optional[Sequence[Union['GetVpcAttachmentFilterA
         vpc_owner_id=pulumi.get(__ret__, 'vpc_owner_id'))
 def get_vpc_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict']]]]] = None,
                               id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                              region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcAttachmentResult]:
     """
@@ -269,11 +283,13 @@ def get_vpc_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[U
 
     :param Sequence[Union['GetVpcAttachmentFilterArgs', 'GetVpcAttachmentFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param builtins.str id: Identifier of the EC2 Transit Gateway VPC Attachment.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getVpcAttachment:getVpcAttachment', __args__, opts=opts, typ=GetVpcAttachmentResult)
@@ -284,6 +300,7 @@ def get_vpc_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[U
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         ipv6_support=pulumi.get(__response__, 'ipv6_support'),
+        region=pulumi.get(__response__, 'region'),
         security_group_referencing_support=pulumi.get(__response__, 'security_group_referencing_support'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),
         tags=pulumi.get(__response__, 'tags'),

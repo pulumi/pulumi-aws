@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
-
 /**
  * Manages an EC2 Transit Gateway.
  *
@@ -63,7 +61,7 @@ export class TransitGateway extends pulumi.CustomResource {
     /**
      * EC2 Transit Gateway Amazon Resource Name (ARN)
      */
-    public /*out*/ readonly arn!: pulumi.Output<ARN>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Identifier of the default association route table
      */
@@ -101,6 +99,10 @@ export class TransitGateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly propagationDefaultRouteTableId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
      */
     public readonly securityGroupReferencingSupport!: pulumi.Output<string | undefined>;
@@ -110,8 +112,6 @@ export class TransitGateway extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -147,6 +147,7 @@ export class TransitGateway extends pulumi.CustomResource {
             resourceInputs["multicastSupport"] = state ? state.multicastSupport : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["propagationDefaultRouteTableId"] = state ? state.propagationDefaultRouteTableId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupReferencingSupport"] = state ? state.securityGroupReferencingSupport : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -161,6 +162,7 @@ export class TransitGateway extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["dnsSupport"] = args ? args.dnsSupport : undefined;
             resourceInputs["multicastSupport"] = args ? args.multicastSupport : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupReferencingSupport"] = args ? args.securityGroupReferencingSupport : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitGatewayCidrBlocks"] = args ? args.transitGatewayCidrBlocks : undefined;
@@ -189,7 +191,7 @@ export interface TransitGatewayState {
     /**
      * EC2 Transit Gateway Amazon Resource Name (ARN)
      */
-    arn?: pulumi.Input<ARN>;
+    arn?: pulumi.Input<string>;
     /**
      * Identifier of the default association route table
      */
@@ -227,6 +229,10 @@ export interface TransitGatewayState {
      */
     propagationDefaultRouteTableId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
      */
     securityGroupReferencingSupport?: pulumi.Input<string>;
@@ -236,8 +242,6 @@ export interface TransitGatewayState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -284,6 +288,10 @@ export interface TransitGatewayArgs {
      * Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
      */
     multicastSupport?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
      */

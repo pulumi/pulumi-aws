@@ -324,29 +324,6 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-     * 
-     * @deprecated
-     * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
-     * 
-     */
-    @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
-    @Import(name="kibanaEndpoint")
-    private @Nullable Output<String> kibanaEndpoint;
-
-    /**
-     * @return (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-     * 
-     * @deprecated
-     * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
-     * 
-     */
-    @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
-    public Optional<Output<String>> kibanaEndpoint() {
-        return Optional.ofNullable(this.kibanaEndpoint);
-    }
-
-    /**
      * Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
      * 
      */
@@ -389,6 +366,21 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<DomainOffPeakWindowOptionsArgs>> offPeakWindowOptions() {
         return Optional.ofNullable(this.offPeakWindowOptions);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -439,22 +431,14 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -496,10 +480,10 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         this.endpointV2 = $.endpointV2;
         this.engineVersion = $.engineVersion;
         this.ipAddressType = $.ipAddressType;
-        this.kibanaEndpoint = $.kibanaEndpoint;
         this.logPublishingOptions = $.logPublishingOptions;
         this.nodeToNodeEncryption = $.nodeToNodeEncryption;
         this.offPeakWindowOptions = $.offPeakWindowOptions;
+        this.region = $.region;
         this.snapshotOptions = $.snapshotOptions;
         this.softwareUpdateOptions = $.softwareUpdateOptions;
         this.tags = $.tags;
@@ -933,35 +917,6 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kibanaEndpoint (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
-         * 
-         */
-        @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
-        public Builder kibanaEndpoint(@Nullable Output<String> kibanaEndpoint) {
-            $.kibanaEndpoint = kibanaEndpoint;
-            return this;
-        }
-
-        /**
-         * @param kibanaEndpoint (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * kibana_endpoint is deprecated. Use dashboard_endpoint instead.
-         * 
-         */
-        @Deprecated /* kibana_endpoint is deprecated. Use dashboard_endpoint instead. */
-        public Builder kibanaEndpoint(String kibanaEndpoint) {
-            return kibanaEndpoint(Output.of(kibanaEndpoint));
-        }
-
-        /**
          * @param logPublishingOptions Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
          * 
          * @return builder
@@ -1035,6 +990,27 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param snapshotOptions Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
          * 
          * @return builder
@@ -1102,11 +1078,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -1117,11 +1089,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

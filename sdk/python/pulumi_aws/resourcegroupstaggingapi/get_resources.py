@@ -29,7 +29,7 @@ class GetResourcesResult:
     """
     A collection of values returned by getResources.
     """
-    def __init__(__self__, exclude_compliant_resources=None, id=None, include_compliance_details=None, resource_arn_lists=None, resource_tag_mapping_lists=None, resource_type_filters=None, tag_filters=None):
+    def __init__(__self__, exclude_compliant_resources=None, id=None, include_compliance_details=None, region=None, resource_arn_lists=None, resource_tag_mapping_lists=None, resource_type_filters=None, tag_filters=None):
         if exclude_compliant_resources and not isinstance(exclude_compliant_resources, bool):
             raise TypeError("Expected argument 'exclude_compliant_resources' to be a bool")
         pulumi.set(__self__, "exclude_compliant_resources", exclude_compliant_resources)
@@ -39,6 +39,9 @@ class GetResourcesResult:
         if include_compliance_details and not isinstance(include_compliance_details, bool):
             raise TypeError("Expected argument 'include_compliance_details' to be a bool")
         pulumi.set(__self__, "include_compliance_details", include_compliance_details)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if resource_arn_lists and not isinstance(resource_arn_lists, list):
             raise TypeError("Expected argument 'resource_arn_lists' to be a list")
         pulumi.set(__self__, "resource_arn_lists", resource_arn_lists)
@@ -69,6 +72,11 @@ class GetResourcesResult:
     @pulumi.getter(name="includeComplianceDetails")
     def include_compliance_details(self) -> Optional[builtins.bool]:
         return pulumi.get(self, "include_compliance_details")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceArnLists")
@@ -103,6 +111,7 @@ class AwaitableGetResourcesResult(GetResourcesResult):
             exclude_compliant_resources=self.exclude_compliant_resources,
             id=self.id,
             include_compliance_details=self.include_compliance_details,
+            region=self.region,
             resource_arn_lists=self.resource_arn_lists,
             resource_tag_mapping_lists=self.resource_tag_mapping_lists,
             resource_type_filters=self.resource_type_filters,
@@ -111,6 +120,7 @@ class AwaitableGetResourcesResult(GetResourcesResult):
 
 def get_resources(exclude_compliant_resources: Optional[builtins.bool] = None,
                   include_compliance_details: Optional[builtins.bool] = None,
+                  region: Optional[builtins.str] = None,
                   resource_arn_lists: Optional[Sequence[builtins.str]] = None,
                   resource_type_filters: Optional[Sequence[builtins.str]] = None,
                   tag_filters: Optional[Sequence[Union['GetResourcesTagFilterArgs', 'GetResourcesTagFilterArgsDict']]] = None,
@@ -156,6 +166,7 @@ def get_resources(exclude_compliant_resources: Optional[builtins.bool] = None,
 
     :param builtins.bool exclude_compliant_resources: Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `include_compliance_details` argument is also set to `true`.
     :param builtins.bool include_compliance_details: Specifies whether to include details regarding the compliance with the effective tag policy.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[builtins.str] resource_arn_lists: Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
     :param Sequence[builtins.str] resource_type_filters: Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
     :param Sequence[Union['GetResourcesTagFilterArgs', 'GetResourcesTagFilterArgsDict']] tag_filters: Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resource_arn_list`.
@@ -163,6 +174,7 @@ def get_resources(exclude_compliant_resources: Optional[builtins.bool] = None,
     __args__ = dict()
     __args__['excludeCompliantResources'] = exclude_compliant_resources
     __args__['includeComplianceDetails'] = include_compliance_details
+    __args__['region'] = region
     __args__['resourceArnLists'] = resource_arn_lists
     __args__['resourceTypeFilters'] = resource_type_filters
     __args__['tagFilters'] = tag_filters
@@ -173,12 +185,14 @@ def get_resources(exclude_compliant_resources: Optional[builtins.bool] = None,
         exclude_compliant_resources=pulumi.get(__ret__, 'exclude_compliant_resources'),
         id=pulumi.get(__ret__, 'id'),
         include_compliance_details=pulumi.get(__ret__, 'include_compliance_details'),
+        region=pulumi.get(__ret__, 'region'),
         resource_arn_lists=pulumi.get(__ret__, 'resource_arn_lists'),
         resource_tag_mapping_lists=pulumi.get(__ret__, 'resource_tag_mapping_lists'),
         resource_type_filters=pulumi.get(__ret__, 'resource_type_filters'),
         tag_filters=pulumi.get(__ret__, 'tag_filters'))
 def get_resources_output(exclude_compliant_resources: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                          include_compliance_details: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          resource_arn_lists: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                          resource_type_filters: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                          tag_filters: Optional[pulumi.Input[Optional[Sequence[Union['GetResourcesTagFilterArgs', 'GetResourcesTagFilterArgsDict']]]]] = None,
@@ -224,6 +238,7 @@ def get_resources_output(exclude_compliant_resources: Optional[pulumi.Input[Opti
 
     :param builtins.bool exclude_compliant_resources: Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `include_compliance_details` argument is also set to `true`.
     :param builtins.bool include_compliance_details: Specifies whether to include details regarding the compliance with the effective tag policy.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[builtins.str] resource_arn_lists: Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
     :param Sequence[builtins.str] resource_type_filters: Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
     :param Sequence[Union['GetResourcesTagFilterArgs', 'GetResourcesTagFilterArgsDict']] tag_filters: Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resource_arn_list`.
@@ -231,6 +246,7 @@ def get_resources_output(exclude_compliant_resources: Optional[pulumi.Input[Opti
     __args__ = dict()
     __args__['excludeCompliantResources'] = exclude_compliant_resources
     __args__['includeComplianceDetails'] = include_compliance_details
+    __args__['region'] = region
     __args__['resourceArnLists'] = resource_arn_lists
     __args__['resourceTypeFilters'] = resource_type_filters
     __args__['tagFilters'] = tag_filters
@@ -240,6 +256,7 @@ def get_resources_output(exclude_compliant_resources: Optional[pulumi.Input[Opti
         exclude_compliant_resources=pulumi.get(__response__, 'exclude_compliant_resources'),
         id=pulumi.get(__response__, 'id'),
         include_compliance_details=pulumi.get(__response__, 'include_compliance_details'),
+        region=pulumi.get(__response__, 'region'),
         resource_arn_lists=pulumi.get(__response__, 'resource_arn_lists'),
         resource_tag_mapping_lists=pulumi.get(__response__, 'resource_tag_mapping_lists'),
         resource_type_filters=pulumi.get(__response__, 'resource_type_filters'),

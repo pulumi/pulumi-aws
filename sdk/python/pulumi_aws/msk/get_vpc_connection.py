@@ -27,7 +27,7 @@ class GetVpcConnectionResult:
     """
     A collection of values returned by getVpcConnection.
     """
-    def __init__(__self__, arn=None, authentication=None, client_subnets=None, id=None, security_groups=None, tags=None, target_cluster_arn=None, vpc_id=None):
+    def __init__(__self__, arn=None, authentication=None, client_subnets=None, id=None, region=None, security_groups=None, tags=None, target_cluster_arn=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +40,9 @@ class GetVpcConnectionResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_groups and not isinstance(security_groups, list):
             raise TypeError("Expected argument 'security_groups' to be a list")
         pulumi.set(__self__, "security_groups", security_groups)
@@ -81,6 +84,11 @@ class GetVpcConnectionResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="securityGroups")
@@ -125,6 +133,7 @@ class AwaitableGetVpcConnectionResult(GetVpcConnectionResult):
             authentication=self.authentication,
             client_subnets=self.client_subnets,
             id=self.id,
+            region=self.region,
             security_groups=self.security_groups,
             tags=self.tags,
             target_cluster_arn=self.target_cluster_arn,
@@ -132,6 +141,7 @@ class AwaitableGetVpcConnectionResult(GetVpcConnectionResult):
 
 
 def get_vpc_connection(arn: Optional[builtins.str] = None,
+                       region: Optional[builtins.str] = None,
                        tags: Optional[Mapping[str, builtins.str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcConnectionResult:
     """
@@ -148,10 +158,12 @@ def get_vpc_connection(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: ARN of the VPC Connection.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of key-value pairs assigned to the VPC Connection.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:msk/getVpcConnection:getVpcConnection', __args__, opts=opts, typ=GetVpcConnectionResult).value
@@ -161,11 +173,13 @@ def get_vpc_connection(arn: Optional[builtins.str] = None,
         authentication=pulumi.get(__ret__, 'authentication'),
         client_subnets=pulumi.get(__ret__, 'client_subnets'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         security_groups=pulumi.get(__ret__, 'security_groups'),
         tags=pulumi.get(__ret__, 'tags'),
         target_cluster_arn=pulumi.get(__ret__, 'target_cluster_arn'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_vpc_connection_output(arn: Optional[pulumi.Input[builtins.str]] = None,
+                              region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcConnectionResult]:
     """
@@ -182,10 +196,12 @@ def get_vpc_connection_output(arn: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str arn: ARN of the VPC Connection.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of key-value pairs assigned to the VPC Connection.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:msk/getVpcConnection:getVpcConnection', __args__, opts=opts, typ=GetVpcConnectionResult)
@@ -194,6 +210,7 @@ def get_vpc_connection_output(arn: Optional[pulumi.Input[builtins.str]] = None,
         authentication=pulumi.get(__response__, 'authentication'),
         client_subnets=pulumi.get(__response__, 'client_subnets'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         security_groups=pulumi.get(__response__, 'security_groups'),
         tags=pulumi.get(__response__, 'tags'),
         target_cluster_arn=pulumi.get(__response__, 'target_cluster_arn'),

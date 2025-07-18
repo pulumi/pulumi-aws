@@ -29,7 +29,7 @@ class GetComponentsResult:
     """
     A collection of values returned by getComponents.
     """
-    def __init__(__self__, arns=None, filters=None, id=None, names=None, owner=None):
+    def __init__(__self__, arns=None, filters=None, id=None, names=None, owner=None, region=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         pulumi.set(__self__, "arns", arns)
@@ -45,6 +45,9 @@ class GetComponentsResult:
         if owner and not isinstance(owner, str):
             raise TypeError("Expected argument 'owner' to be a str")
         pulumi.set(__self__, "owner", owner)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -80,6 +83,11 @@ class GetComponentsResult:
     def owner(self) -> Optional[builtins.str]:
         return pulumi.get(self, "owner")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetComponentsResult(GetComponentsResult):
     # pylint: disable=using-constant-test
@@ -91,11 +99,13 @@ class AwaitableGetComponentsResult(GetComponentsResult):
             filters=self.filters,
             id=self.id,
             names=self.names,
-            owner=self.owner)
+            owner=self.owner,
+            region=self.region)
 
 
 def get_components(filters: Optional[Sequence[Union['GetComponentsFilterArgs', 'GetComponentsFilterArgsDict']]] = None,
                    owner: Optional[builtins.str] = None,
+                   region: Optional[builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComponentsResult:
     """
     Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
@@ -116,10 +126,12 @@ def get_components(filters: Optional[Sequence[Union['GetComponentsFilterArgs', '
 
     :param Sequence[Union['GetComponentsFilterArgs', 'GetComponentsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param builtins.str owner: Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['owner'] = owner
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:imagebuilder/getComponents:getComponents', __args__, opts=opts, typ=GetComponentsResult).value
 
@@ -128,9 +140,11 @@ def get_components(filters: Optional[Sequence[Union['GetComponentsFilterArgs', '
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'),
-        owner=pulumi.get(__ret__, 'owner'))
+        owner=pulumi.get(__ret__, 'owner'),
+        region=pulumi.get(__ret__, 'region'))
 def get_components_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetComponentsFilterArgs', 'GetComponentsFilterArgsDict']]]]] = None,
                           owner: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComponentsResult]:
     """
     Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
@@ -151,10 +165,12 @@ def get_components_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
 
     :param Sequence[Union['GetComponentsFilterArgs', 'GetComponentsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param builtins.str owner: Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['owner'] = owner
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getComponents:getComponents', __args__, opts=opts, typ=GetComponentsResult)
     return __ret__.apply(lambda __response__: GetComponentsResult(
@@ -162,4 +178,5 @@ def get_components_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         names=pulumi.get(__response__, 'names'),
-        owner=pulumi.get(__response__, 'owner')))
+        owner=pulumi.get(__response__, 'owner'),
+        region=pulumi.get(__response__, 'region')))

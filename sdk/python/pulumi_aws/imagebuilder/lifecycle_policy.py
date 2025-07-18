@@ -27,6 +27,7 @@ class LifecyclePolicyArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_details: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_selection: Optional[pulumi.Input['LifecyclePolicyResourceSelectionArgs']] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -37,6 +38,7 @@ class LifecyclePolicyArgs:
         :param pulumi.Input[builtins.str] description: description for the lifecycle policy.
         :param pulumi.Input[builtins.str] name: The name of the lifecycle policy to create.
         :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailArgs']]] policy_details: Configuration block with policy details. Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['LifecyclePolicyResourceSelectionArgs'] resource_selection: Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
                
                The following arguments are optional:
@@ -51,6 +53,8 @@ class LifecyclePolicyArgs:
             pulumi.set(__self__, "name", name)
         if policy_details is not None:
             pulumi.set(__self__, "policy_details", policy_details)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_selection is not None:
             pulumi.set(__self__, "resource_selection", resource_selection)
         if status is not None:
@@ -119,6 +123,18 @@ class LifecyclePolicyArgs:
         pulumi.set(self, "policy_details", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceSelection")
     def resource_selection(self) -> Optional[pulumi.Input['LifecyclePolicyResourceSelectionArgs']]:
         """
@@ -165,6 +181,7 @@ class _LifecyclePolicyState:
                  execution_role: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_details: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_selection: Optional[pulumi.Input['LifecyclePolicyResourceSelectionArgs']] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
@@ -177,6 +194,7 @@ class _LifecyclePolicyState:
         :param pulumi.Input[builtins.str] execution_role: The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         :param pulumi.Input[builtins.str] name: The name of the lifecycle policy to create.
         :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailArgs']]] policy_details: Configuration block with policy details. Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['LifecyclePolicyResourceSelectionArgs'] resource_selection: Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
                
                The following arguments are optional:
@@ -195,6 +213,8 @@ class _LifecyclePolicyState:
             pulumi.set(__self__, "name", name)
         if policy_details is not None:
             pulumi.set(__self__, "policy_details", policy_details)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_selection is not None:
             pulumi.set(__self__, "resource_selection", resource_selection)
         if resource_type is not None:
@@ -203,9 +223,6 @@ class _LifecyclePolicyState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -270,6 +287,18 @@ class _LifecyclePolicyState:
         pulumi.set(self, "policy_details", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceSelection")
     def resource_selection(self) -> Optional[pulumi.Input['LifecyclePolicyResourceSelectionArgs']]:
         """
@@ -321,7 +350,6 @@ class _LifecyclePolicyState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -343,6 +371,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                  execution_role: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_selection: Optional[pulumi.Input[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict']]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
@@ -414,6 +443,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] execution_role: The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         :param pulumi.Input[builtins.str] name: The name of the lifecycle policy to create.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]] policy_details: Configuration block with policy details. Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict']] resource_selection: Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
                
                The following arguments are optional:
@@ -506,6 +536,7 @@ class LifecyclePolicy(pulumi.CustomResource):
                  execution_role: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_selection: Optional[pulumi.Input[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict']]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
@@ -525,6 +556,7 @@ class LifecyclePolicy(pulumi.CustomResource):
             __props__.__dict__["execution_role"] = execution_role
             __props__.__dict__["name"] = name
             __props__.__dict__["policy_details"] = policy_details
+            __props__.__dict__["region"] = region
             __props__.__dict__["resource_selection"] = resource_selection
             if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
@@ -548,6 +580,7 @@ class LifecyclePolicy(pulumi.CustomResource):
             execution_role: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             policy_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_selection: Optional[pulumi.Input[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict']]] = None,
             resource_type: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
@@ -565,6 +598,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] execution_role: The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         :param pulumi.Input[builtins.str] name: The name of the lifecycle policy to create.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]] policy_details: Configuration block with policy details. Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict']] resource_selection: Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
                
                The following arguments are optional:
@@ -582,6 +616,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         __props__.__dict__["execution_role"] = execution_role
         __props__.__dict__["name"] = name
         __props__.__dict__["policy_details"] = policy_details
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_selection"] = resource_selection
         __props__.__dict__["resource_type"] = resource_type
         __props__.__dict__["status"] = status
@@ -630,6 +665,14 @@ class LifecyclePolicy(pulumi.CustomResource):
         return pulumi.get(self, "policy_details")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resourceSelection")
     def resource_selection(self) -> pulumi.Output[Optional['outputs.LifecyclePolicyResourceSelection']]:
         """
@@ -665,7 +708,6 @@ class LifecyclePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

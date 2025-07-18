@@ -557,10 +557,22 @@ namespace Pulumi.Aws.Emr
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+        /// </summary>
+        [Output("osReleaseLabel")]
+        public Output<string?> OsReleaseLabel { get; private set; } = null!;
+
+        /// <summary>
         /// The specified placement group configuration for an Amazon EMR cluster.
         /// </summary>
         [Output("placementGroupConfigs")]
         public Output<ImmutableArray<Outputs.ClusterPlacementGroupConfig>> PlacementGroupConfigs { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Release label for the Amazon EMR release.
@@ -846,6 +858,12 @@ namespace Pulumi.Aws.Emr
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+        /// </summary>
+        [Input("osReleaseLabel")]
+        public Input<string>? OsReleaseLabel { get; set; }
+
         [Input("placementGroupConfigs")]
         private InputList<Inputs.ClusterPlacementGroupConfigArgs>? _placementGroupConfigs;
 
@@ -857,6 +875,12 @@ namespace Pulumi.Aws.Emr
             get => _placementGroupConfigs ?? (_placementGroupConfigs = new InputList<Inputs.ClusterPlacementGroupConfigArgs>());
             set => _placementGroupConfigs = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Release label for the Amazon EMR release.
@@ -1125,6 +1149,12 @@ namespace Pulumi.Aws.Emr
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+        /// </summary>
+        [Input("osReleaseLabel")]
+        public Input<string>? OsReleaseLabel { get; set; }
+
         [Input("placementGroupConfigs")]
         private InputList<Inputs.ClusterPlacementGroupConfigGetArgs>? _placementGroupConfigs;
 
@@ -1136,6 +1166,12 @@ namespace Pulumi.Aws.Emr
             get => _placementGroupConfigs ?? (_placementGroupConfigs = new InputList<Inputs.ClusterPlacementGroupConfigGetArgs>());
             set => _placementGroupConfigs = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Release label for the Amazon EMR release.
@@ -1199,7 +1235,6 @@ namespace Pulumi.Aws.Emr
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

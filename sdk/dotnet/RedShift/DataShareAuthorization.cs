@@ -76,6 +76,12 @@ namespace Pulumi.Aws.RedShift
         [Output("producerArn")]
         public Output<string> ProducerArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a DataShareAuthorization resource with the given unique name, arguments, and options.
@@ -142,6 +148,12 @@ namespace Pulumi.Aws.RedShift
         [Input("dataShareArn", required: true)]
         public Input<string> DataShareArn { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public DataShareAuthorizationArgs()
         {
         }
@@ -181,6 +193,12 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("producerArn")]
         public Input<string>? ProducerArn { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public DataShareAuthorizationState()
         {

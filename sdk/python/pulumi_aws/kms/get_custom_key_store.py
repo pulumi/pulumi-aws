@@ -27,7 +27,7 @@ class GetCustomKeyStoreResult:
     """
     A collection of values returned by getCustomKeyStore.
     """
-    def __init__(__self__, cloud_hsm_cluster_id=None, connection_state=None, creation_date=None, custom_key_store_id=None, custom_key_store_name=None, id=None, trust_anchor_certificate=None):
+    def __init__(__self__, cloud_hsm_cluster_id=None, connection_state=None, creation_date=None, custom_key_store_id=None, custom_key_store_name=None, id=None, region=None, trust_anchor_certificate=None):
         if cloud_hsm_cluster_id and not isinstance(cloud_hsm_cluster_id, str):
             raise TypeError("Expected argument 'cloud_hsm_cluster_id' to be a str")
         pulumi.set(__self__, "cloud_hsm_cluster_id", cloud_hsm_cluster_id)
@@ -46,6 +46,9 @@ class GetCustomKeyStoreResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if trust_anchor_certificate and not isinstance(trust_anchor_certificate, str):
             raise TypeError("Expected argument 'trust_anchor_certificate' to be a str")
         pulumi.set(__self__, "trust_anchor_certificate", trust_anchor_certificate)
@@ -90,6 +93,11 @@ class GetCustomKeyStoreResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="trustAnchorCertificate")
     def trust_anchor_certificate(self) -> builtins.str:
         """
@@ -110,11 +118,13 @@ class AwaitableGetCustomKeyStoreResult(GetCustomKeyStoreResult):
             custom_key_store_id=self.custom_key_store_id,
             custom_key_store_name=self.custom_key_store_name,
             id=self.id,
+            region=self.region,
             trust_anchor_certificate=self.trust_anchor_certificate)
 
 
 def get_custom_key_store(custom_key_store_id: Optional[builtins.str] = None,
                          custom_key_store_name: Optional[builtins.str] = None,
+                         region: Optional[builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomKeyStoreResult:
     """
     Use this data source to get the metadata KMS custom key store.
@@ -133,10 +143,12 @@ def get_custom_key_store(custom_key_store_id: Optional[builtins.str] = None,
 
     :param builtins.str custom_key_store_id: The ID for the custom key store.
     :param builtins.str custom_key_store_name: The user-specified friendly name for the custom key store.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['customKeyStoreId'] = custom_key_store_id
     __args__['customKeyStoreName'] = custom_key_store_name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:kms/getCustomKeyStore:getCustomKeyStore', __args__, opts=opts, typ=GetCustomKeyStoreResult).value
 
@@ -147,9 +159,11 @@ def get_custom_key_store(custom_key_store_id: Optional[builtins.str] = None,
         custom_key_store_id=pulumi.get(__ret__, 'custom_key_store_id'),
         custom_key_store_name=pulumi.get(__ret__, 'custom_key_store_name'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         trust_anchor_certificate=pulumi.get(__ret__, 'trust_anchor_certificate'))
 def get_custom_key_store_output(custom_key_store_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 custom_key_store_name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomKeyStoreResult]:
     """
     Use this data source to get the metadata KMS custom key store.
@@ -168,10 +182,12 @@ def get_custom_key_store_output(custom_key_store_id: Optional[pulumi.Input[Optio
 
     :param builtins.str custom_key_store_id: The ID for the custom key store.
     :param builtins.str custom_key_store_name: The user-specified friendly name for the custom key store.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['customKeyStoreId'] = custom_key_store_id
     __args__['customKeyStoreName'] = custom_key_store_name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kms/getCustomKeyStore:getCustomKeyStore', __args__, opts=opts, typ=GetCustomKeyStoreResult)
     return __ret__.apply(lambda __response__: GetCustomKeyStoreResult(
@@ -181,4 +197,5 @@ def get_custom_key_store_output(custom_key_store_id: Optional[pulumi.Input[Optio
         custom_key_store_id=pulumi.get(__response__, 'custom_key_store_id'),
         custom_key_store_name=pulumi.get(__response__, 'custom_key_store_name'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         trust_anchor_certificate=pulumi.get(__response__, 'trust_anchor_certificate')))

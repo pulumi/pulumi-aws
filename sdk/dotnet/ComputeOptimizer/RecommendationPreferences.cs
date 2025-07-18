@@ -120,6 +120,12 @@ namespace Pulumi.Aws.ComputeOptimizer
         public Output<ImmutableArray<Outputs.RecommendationPreferencesPreferredResource>> PreferredResources { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
         /// </summary>
         [Output("resourceType")]
@@ -226,6 +232,12 @@ namespace Pulumi.Aws.ComputeOptimizer
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
         /// </summary>
         [Input("resourceType", required: true)]
@@ -298,6 +310,12 @@ namespace Pulumi.Aws.ComputeOptimizer
             get => _preferredResources ?? (_preferredResources = new InputList<Inputs.RecommendationPreferencesPreferredResourceGetArgs>());
             set => _preferredResources = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.

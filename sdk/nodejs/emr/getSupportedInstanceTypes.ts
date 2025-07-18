@@ -47,8 +47,8 @@ import * as utilities from "../utilities";
 export function getSupportedInstanceTypes(args: GetSupportedInstanceTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetSupportedInstanceTypesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes", {
+        "region": args.region,
         "releaseLabel": args.releaseLabel,
-        "supportedInstanceTypes": args.supportedInstanceTypes,
     }, opts);
 }
 
@@ -57,13 +57,13 @@ export function getSupportedInstanceTypes(args: GetSupportedInstanceTypesArgs, o
  */
 export interface GetSupportedInstanceTypesArgs {
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
      */
     releaseLabel: string;
-    /**
-     * List of supported instance types. See `supportedInstanceTypes` below.
-     */
-    supportedInstanceTypes?: inputs.emr.GetSupportedInstanceTypesSupportedInstanceType[];
 }
 
 /**
@@ -71,11 +71,12 @@ export interface GetSupportedInstanceTypesArgs {
  */
 export interface GetSupportedInstanceTypesResult {
     readonly id: string;
+    readonly region: string;
     readonly releaseLabel: string;
     /**
      * List of supported instance types. See `supportedInstanceTypes` below.
      */
-    readonly supportedInstanceTypes?: outputs.emr.GetSupportedInstanceTypesSupportedInstanceType[];
+    readonly supportedInstanceTypes: outputs.emr.GetSupportedInstanceTypesSupportedInstanceType[];
 }
 /**
  * Data source for managing AWS EMR Supported Instance Types.
@@ -117,8 +118,8 @@ export interface GetSupportedInstanceTypesResult {
 export function getSupportedInstanceTypesOutput(args: GetSupportedInstanceTypesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSupportedInstanceTypesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes", {
+        "region": args.region,
         "releaseLabel": args.releaseLabel,
-        "supportedInstanceTypes": args.supportedInstanceTypes,
     }, opts);
 }
 
@@ -127,11 +128,11 @@ export function getSupportedInstanceTypesOutput(args: GetSupportedInstanceTypesO
  */
 export interface GetSupportedInstanceTypesOutputArgs {
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
      */
     releaseLabel: pulumi.Input<string>;
-    /**
-     * List of supported instance types. See `supportedInstanceTypes` below.
-     */
-    supportedInstanceTypes?: pulumi.Input<pulumi.Input<inputs.emr.GetSupportedInstanceTypesSupportedInstanceTypeArgs>[]>;
 }

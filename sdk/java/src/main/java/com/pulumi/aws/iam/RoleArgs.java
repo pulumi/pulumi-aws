@@ -3,7 +3,9 @@
 
 package com.pulumi.aws.iam;
 
+import com.pulumi.aws.iam.inputs.PolicyDocumentArgs;
 import com.pulumi.aws.iam.inputs.RoleInlinePolicyArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -30,7 +32,7 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="assumeRolePolicy", required=true)
-    private Output<String> assumeRolePolicy;
+    private Output<Either<String,PolicyDocumentArgs>> assumeRolePolicy;
 
     /**
      * @return Policy that grants an entity permission to assume the role.
@@ -40,7 +42,7 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
      * The following arguments are optional:
      * 
      */
-    public Output<String> assumeRolePolicy() {
+    public Output<Either<String,PolicyDocumentArgs>> assumeRolePolicy() {
         return this.assumeRolePolicy;
     }
 
@@ -238,7 +240,7 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder assumeRolePolicy(Output<String> assumeRolePolicy) {
+        public Builder assumeRolePolicy(Output<Either<String,PolicyDocumentArgs>> assumeRolePolicy) {
             $.assumeRolePolicy = assumeRolePolicy;
             return this;
         }
@@ -253,8 +255,36 @@ public final class RoleArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder assumeRolePolicy(String assumeRolePolicy) {
+        public Builder assumeRolePolicy(Either<String,PolicyDocumentArgs> assumeRolePolicy) {
             return assumeRolePolicy(Output.of(assumeRolePolicy));
+        }
+
+        /**
+         * @param assumeRolePolicy Policy that grants an entity permission to assume the role.
+         * 
+         * &gt; **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder assumeRolePolicy(String assumeRolePolicy) {
+            return assumeRolePolicy(Either.ofLeft(assumeRolePolicy));
+        }
+
+        /**
+         * @param assumeRolePolicy Policy that grants an entity permission to assume the role.
+         * 
+         * &gt; **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder assumeRolePolicy(PolicyDocumentArgs assumeRolePolicy) {
+            return assumeRolePolicy(Either.ofRight(assumeRolePolicy));
         }
 
         /**

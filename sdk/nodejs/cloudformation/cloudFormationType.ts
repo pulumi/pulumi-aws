@@ -83,6 +83,10 @@ export class CloudFormationType extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningType!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * JSON document of the CloudFormation Type schema.
      */
     public /*out*/ readonly schema!: pulumi.Output<string>;
@@ -137,6 +141,7 @@ export class CloudFormationType extends pulumi.CustomResource {
             resourceInputs["isDefaultVersion"] = state ? state.isDefaultVersion : undefined;
             resourceInputs["loggingConfig"] = state ? state.loggingConfig : undefined;
             resourceInputs["provisioningType"] = state ? state.provisioningType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
             resourceInputs["schemaHandlerPackage"] = state ? state.schemaHandlerPackage : undefined;
             resourceInputs["sourceUrl"] = state ? state.sourceUrl : undefined;
@@ -155,6 +160,7 @@ export class CloudFormationType extends pulumi.CustomResource {
             }
             resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             resourceInputs["loggingConfig"] = args ? args.loggingConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["schemaHandlerPackage"] = args ? args.schemaHandlerPackage : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["typeName"] = args ? args.typeName : undefined;
@@ -217,6 +223,10 @@ export interface CloudFormationTypeState {
      */
     provisioningType?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * JSON document of the CloudFormation Type schema.
      */
     schema?: pulumi.Input<string>;
@@ -262,6 +272,10 @@ export interface CloudFormationTypeArgs {
      * Configuration block containing logging configuration.
      */
     loggingConfig?: pulumi.Input<inputs.cloudformation.CloudFormationTypeLoggingConfig>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
      */

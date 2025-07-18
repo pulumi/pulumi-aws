@@ -727,6 +727,8 @@ class TableReplica(dict):
         suggest = None
         if key == "regionName":
             suggest = "region_name"
+        elif key == "consistencyMode":
+            suggest = "consistency_mode"
         elif key == "kmsKeyArn":
             suggest = "kms_key_arn"
         elif key == "pointInTimeRecovery":
@@ -752,6 +754,7 @@ class TableReplica(dict):
     def __init__(__self__, *,
                  region_name: builtins.str,
                  arn: Optional[builtins.str] = None,
+                 consistency_mode: Optional[builtins.str] = None,
                  kms_key_arn: Optional[builtins.str] = None,
                  point_in_time_recovery: Optional[builtins.bool] = None,
                  propagate_tags: Optional[builtins.bool] = None,
@@ -760,6 +763,7 @@ class TableReplica(dict):
         """
         :param builtins.str region_name: Region name of the replica.
         :param builtins.str arn: ARN of the table
+        :param builtins.str consistency_mode: Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
         :param builtins.str kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption.
                This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
                **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
@@ -777,6 +781,8 @@ class TableReplica(dict):
         pulumi.set(__self__, "region_name", region_name)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if consistency_mode is not None:
+            pulumi.set(__self__, "consistency_mode", consistency_mode)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if point_in_time_recovery is not None:
@@ -803,6 +809,14 @@ class TableReplica(dict):
         ARN of the table
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="consistencyMode")
+    def consistency_mode(self) -> Optional[builtins.str]:
+        """
+        Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
+        """
+        return pulumi.get(self, "consistency_mode")
 
     @property
     @pulumi.getter(name="kmsKeyArn")

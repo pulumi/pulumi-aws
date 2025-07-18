@@ -67,6 +67,12 @@ namespace Pulumi.Aws.Chime
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
         /// </summary>
         [Output("targetApplications")]
@@ -144,6 +150,12 @@ namespace Pulumi.Aws.Chime
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("targetApplications", required: true)]
         private InputList<Inputs.SdkvoiceSipRuleTargetApplicationArgs>? _targetApplications;
 
@@ -189,6 +201,12 @@ namespace Pulumi.Aws.Chime
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("targetApplications")]
         private InputList<Inputs.SdkvoiceSipRuleTargetApplicationGetArgs>? _targetApplications;

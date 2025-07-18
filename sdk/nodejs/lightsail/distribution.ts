@@ -236,6 +236,10 @@ export class Distribution extends pulumi.CustomResource {
      */
     public /*out*/ readonly originPublicDns!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Lightsail resource type (e.g., Distribution).
      */
     public /*out*/ readonly resourceType!: pulumi.Output<string>;
@@ -253,8 +257,6 @@ export class Distribution extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -286,6 +288,7 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["origin"] = state ? state.origin : undefined;
             resourceInputs["originPublicDns"] = state ? state.originPublicDns : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["supportCode"] = state ? state.supportCode : undefined;
@@ -311,6 +314,7 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["origin"] = args ? args.origin : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["alternativeDomainNames"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -396,6 +400,10 @@ export interface DistributionState {
      */
     originPublicDns?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Lightsail resource type (e.g., Distribution).
      */
     resourceType?: pulumi.Input<string>;
@@ -413,8 +421,6 @@ export interface DistributionState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -461,6 +467,10 @@ export interface DistributionArgs {
      * The following arguments are optional:
      */
     origin: pulumi.Input<inputs.lightsail.DistributionOrigin>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags for the Lightsail Distribution. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

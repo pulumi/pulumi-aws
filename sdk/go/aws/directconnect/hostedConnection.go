@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ type HostedConnection struct {
 	Bandwidth pulumi.StringOutput `pulumi:"bandwidth"`
 	// The ID of the interconnect or LAG.
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
+	// The AWS Region where the connection is located.
+	ConnectionRegion pulumi.StringOutput `pulumi:"connectionRegion"`
 	// Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
 	HasLogicalRedundancy pulumi.StringOutput `pulumi:"hasLogicalRedundancy"`
 	// Boolean value representing if jumbo frames have been enabled for this connection.
@@ -70,7 +72,9 @@ type HostedConnection struct {
 	PartnerName pulumi.StringOutput `pulumi:"partnerName"`
 	// The name of the service provider associated with the connection.
 	ProviderName pulumi.StringOutput `pulumi:"providerName"`
-	// The AWS Region where the connection is located.
+	// (**Deprecated**) The AWS Region where the connection is located. Use `connectionRegion` instead.
+	//
+	// Deprecated: region is deprecated. Use connectionRegion instead.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
 	State pulumi.StringOutput `pulumi:"state"`
@@ -126,6 +130,8 @@ type hostedConnectionState struct {
 	Bandwidth *string `pulumi:"bandwidth"`
 	// The ID of the interconnect or LAG.
 	ConnectionId *string `pulumi:"connectionId"`
+	// The AWS Region where the connection is located.
+	ConnectionRegion *string `pulumi:"connectionRegion"`
 	// Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
 	HasLogicalRedundancy *string `pulumi:"hasLogicalRedundancy"`
 	// Boolean value representing if jumbo frames have been enabled for this connection.
@@ -144,7 +150,9 @@ type hostedConnectionState struct {
 	PartnerName *string `pulumi:"partnerName"`
 	// The name of the service provider associated with the connection.
 	ProviderName *string `pulumi:"providerName"`
-	// The AWS Region where the connection is located.
+	// (**Deprecated**) The AWS Region where the connection is located. Use `connectionRegion` instead.
+	//
+	// Deprecated: region is deprecated. Use connectionRegion instead.
 	Region *string `pulumi:"region"`
 	// The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
 	State *string `pulumi:"state"`
@@ -159,6 +167,8 @@ type HostedConnectionState struct {
 	Bandwidth pulumi.StringPtrInput
 	// The ID of the interconnect or LAG.
 	ConnectionId pulumi.StringPtrInput
+	// The AWS Region where the connection is located.
+	ConnectionRegion pulumi.StringPtrInput
 	// Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
 	HasLogicalRedundancy pulumi.StringPtrInput
 	// Boolean value representing if jumbo frames have been enabled for this connection.
@@ -177,7 +187,9 @@ type HostedConnectionState struct {
 	PartnerName pulumi.StringPtrInput
 	// The name of the service provider associated with the connection.
 	ProviderName pulumi.StringPtrInput
-	// The AWS Region where the connection is located.
+	// (**Deprecated**) The AWS Region where the connection is located. Use `connectionRegion` instead.
+	//
+	// Deprecated: region is deprecated. Use connectionRegion instead.
 	Region pulumi.StringPtrInput
 	// The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
 	State pulumi.StringPtrInput
@@ -318,6 +330,11 @@ func (o HostedConnectionOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConnection) pulumi.StringOutput { return v.ConnectionId }).(pulumi.StringOutput)
 }
 
+// The AWS Region where the connection is located.
+func (o HostedConnectionOutput) ConnectionRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostedConnection) pulumi.StringOutput { return v.ConnectionRegion }).(pulumi.StringOutput)
+}
+
 // Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
 func (o HostedConnectionOutput) HasLogicalRedundancy() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConnection) pulumi.StringOutput { return v.HasLogicalRedundancy }).(pulumi.StringOutput)
@@ -363,7 +380,9 @@ func (o HostedConnectionOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConnection) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
 }
 
-// The AWS Region where the connection is located.
+// (**Deprecated**) The AWS Region where the connection is located. Use `connectionRegion` instead.
+//
+// Deprecated: region is deprecated. Use connectionRegion instead.
 func (o HostedConnectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

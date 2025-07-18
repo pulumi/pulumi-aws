@@ -145,6 +145,10 @@ export class Authorizer extends pulumi.CustomResource {
      */
     public readonly providerArns!: pulumi.Output<string[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the associated REST API
      */
     public readonly restApi!: pulumi.Output<string>;
@@ -174,6 +178,7 @@ export class Authorizer extends pulumi.CustomResource {
             resourceInputs["identityValidationExpression"] = state ? state.identityValidationExpression : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["providerArns"] = state ? state.providerArns : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["restApi"] = state ? state.restApi : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
@@ -188,6 +193,7 @@ export class Authorizer extends pulumi.CustomResource {
             resourceInputs["identityValidationExpression"] = args ? args.identityValidationExpression : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["providerArns"] = args ? args.providerArns : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["restApi"] = args ? args.restApi : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -235,6 +241,10 @@ export interface AuthorizerState {
      */
     providerArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ID of the associated REST API
      */
     restApi?: pulumi.Input<string | RestApi>;
@@ -277,6 +287,10 @@ export interface AuthorizerArgs {
      * List of the Amazon Cognito user pool ARNs. Each element is of this format: `arn:aws:cognito-idp:{region}:{account_id}:userpool/{user_pool_id}`.
      */
     providerArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the associated REST API
      */

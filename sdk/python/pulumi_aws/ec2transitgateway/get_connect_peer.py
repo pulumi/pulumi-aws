@@ -29,7 +29,7 @@ class GetConnectPeerResult:
     """
     A collection of values returned by getConnectPeer.
     """
-    def __init__(__self__, arn=None, bgp_asn=None, bgp_peer_address=None, bgp_transit_gateway_addresses=None, filters=None, id=None, inside_cidr_blocks=None, peer_address=None, tags=None, transit_gateway_address=None, transit_gateway_attachment_id=None, transit_gateway_connect_peer_id=None):
+    def __init__(__self__, arn=None, bgp_asn=None, bgp_peer_address=None, bgp_transit_gateway_addresses=None, filters=None, id=None, inside_cidr_blocks=None, peer_address=None, region=None, tags=None, transit_gateway_address=None, transit_gateway_attachment_id=None, transit_gateway_connect_peer_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -54,6 +54,9 @@ class GetConnectPeerResult:
         if peer_address and not isinstance(peer_address, str):
             raise TypeError("Expected argument 'peer_address' to be a str")
         pulumi.set(__self__, "peer_address", peer_address)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -130,6 +133,11 @@ class GetConnectPeerResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Key-value tags for the EC2 Transit Gateway Connect Peer
@@ -172,6 +180,7 @@ class AwaitableGetConnectPeerResult(GetConnectPeerResult):
             id=self.id,
             inside_cidr_blocks=self.inside_cidr_blocks,
             peer_address=self.peer_address,
+            region=self.region,
             tags=self.tags,
             transit_gateway_address=self.transit_gateway_address,
             transit_gateway_attachment_id=self.transit_gateway_attachment_id,
@@ -179,6 +188,7 @@ class AwaitableGetConnectPeerResult(GetConnectPeerResult):
 
 
 def get_connect_peer(filters: Optional[Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict']]] = None,
+                     region: Optional[builtins.str] = None,
                      tags: Optional[Mapping[str, builtins.str]] = None,
                      transit_gateway_connect_peer_id: Optional[builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectPeerResult:
@@ -210,11 +220,13 @@ def get_connect_peer(filters: Optional[Sequence[Union['GetConnectPeerFilterArgs'
 
 
     :param Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the EC2 Transit Gateway Connect Peer
     :param builtins.str transit_gateway_connect_peer_id: Identifier of the EC2 Transit Gateway Connect Peer.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['transitGatewayConnectPeerId'] = transit_gateway_connect_peer_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -229,11 +241,13 @@ def get_connect_peer(filters: Optional[Sequence[Union['GetConnectPeerFilterArgs'
         id=pulumi.get(__ret__, 'id'),
         inside_cidr_blocks=pulumi.get(__ret__, 'inside_cidr_blocks'),
         peer_address=pulumi.get(__ret__, 'peer_address'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_address=pulumi.get(__ret__, 'transit_gateway_address'),
         transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'),
         transit_gateway_connect_peer_id=pulumi.get(__ret__, 'transit_gateway_connect_peer_id'))
 def get_connect_peer_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict']]]]] = None,
+                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                             transit_gateway_connect_peer_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectPeerResult]:
@@ -265,11 +279,13 @@ def get_connect_peer_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
 
 
     :param Sequence[Union['GetConnectPeerFilterArgs', 'GetConnectPeerFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the EC2 Transit Gateway Connect Peer
     :param builtins.str transit_gateway_connect_peer_id: Identifier of the EC2 Transit Gateway Connect Peer.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['transitGatewayConnectPeerId'] = transit_gateway_connect_peer_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -283,6 +299,7 @@ def get_connect_peer_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
         id=pulumi.get(__response__, 'id'),
         inside_cidr_blocks=pulumi.get(__response__, 'inside_cidr_blocks'),
         peer_address=pulumi.get(__response__, 'peer_address'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         transit_gateway_address=pulumi.get(__response__, 'transit_gateway_address'),
         transit_gateway_attachment_id=pulumi.get(__response__, 'transit_gateway_attachment_id'),

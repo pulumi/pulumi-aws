@@ -22,12 +22,14 @@ class ApiKeyArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 expires: Optional[pulumi.Input[builtins.str]] = None):
+                 expires: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
         :param pulumi.Input[builtins.str] api_id: ID of the associated AppSync API
         :param pulumi.Input[builtins.str] description: API key description. Defaults to "Managed by Pulumi".
         :param pulumi.Input[builtins.str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "api_id", api_id)
         if description is None:
@@ -36,6 +38,8 @@ class ApiKeyArgs:
             pulumi.set(__self__, "description", description)
         if expires is not None:
             pulumi.set(__self__, "expires", expires)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="apiId")
@@ -73,6 +77,18 @@ class ApiKeyArgs:
     def expires(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "expires", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ApiKeyState:
@@ -81,13 +97,15 @@ class _ApiKeyState:
                  api_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  expires: Optional[pulumi.Input[builtins.str]] = None,
-                 key: Optional[pulumi.Input[builtins.str]] = None):
+                 key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApiKey resources.
         :param pulumi.Input[builtins.str] api_id: ID of the associated AppSync API
         :param pulumi.Input[builtins.str] description: API key description. Defaults to "Managed by Pulumi".
         :param pulumi.Input[builtins.str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
         :param pulumi.Input[builtins.str] key: API key
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -101,6 +119,8 @@ class _ApiKeyState:
             pulumi.set(__self__, "expires", expires)
         if key is not None:
             pulumi.set(__self__, "key", key)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="apiId")
@@ -159,6 +179,18 @@ class _ApiKeyState:
     def key(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "key", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:appsync/apiKey:ApiKey")
 class ApiKey(pulumi.CustomResource):
@@ -169,6 +201,7 @@ class ApiKey(pulumi.CustomResource):
                  api_id: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  expires: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides an AppSync API Key.
@@ -200,6 +233,7 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_id: ID of the associated AppSync API
         :param pulumi.Input[builtins.str] description: API key description. Defaults to "Managed by Pulumi".
         :param pulumi.Input[builtins.str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -250,6 +284,7 @@ class ApiKey(pulumi.CustomResource):
                  api_id: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  expires: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -266,6 +301,7 @@ class ApiKey(pulumi.CustomResource):
                 description = 'Managed by Pulumi'
             __props__.__dict__["description"] = description
             __props__.__dict__["expires"] = expires
+            __props__.__dict__["region"] = region
             __props__.__dict__["api_key_id"] = None
             __props__.__dict__["key"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["key"])
@@ -284,7 +320,8 @@ class ApiKey(pulumi.CustomResource):
             api_key_id: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             expires: Optional[pulumi.Input[builtins.str]] = None,
-            key: Optional[pulumi.Input[builtins.str]] = None) -> 'ApiKey':
+            key: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'ApiKey':
         """
         Get an existing ApiKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -296,6 +333,7 @@ class ApiKey(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: API key description. Defaults to "Managed by Pulumi".
         :param pulumi.Input[builtins.str] expires: RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
         :param pulumi.Input[builtins.str] key: API key
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -306,6 +344,7 @@ class ApiKey(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["expires"] = expires
         __props__.__dict__["key"] = key
+        __props__.__dict__["region"] = region
         return ApiKey(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -344,4 +383,12 @@ class ApiKey(pulumi.CustomResource):
         API key
         """
         return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

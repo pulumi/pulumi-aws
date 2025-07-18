@@ -129,6 +129,10 @@ export class DataQualityRuleset extends pulumi.CustomResource {
      */
     public /*out*/ readonly recommendationRunId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      */
     public readonly ruleset!: pulumi.Output<string>;
@@ -138,8 +142,6 @@ export class DataQualityRuleset extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -166,6 +168,7 @@ export class DataQualityRuleset extends pulumi.CustomResource {
             resourceInputs["lastModifiedOn"] = state ? state.lastModifiedOn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["recommendationRunId"] = state ? state.recommendationRunId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["ruleset"] = state ? state.ruleset : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -177,6 +180,7 @@ export class DataQualityRuleset extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["ruleset"] = args ? args.ruleset : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetTable"] = args ? args.targetTable : undefined;
@@ -220,6 +224,10 @@ export interface DataQualityRulesetState {
      */
     recommendationRunId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      */
     ruleset?: pulumi.Input<string>;
@@ -229,8 +237,6 @@ export interface DataQualityRulesetState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -251,6 +257,10 @@ export interface DataQualityRulesetArgs {
      * Name of the data quality ruleset.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
      */

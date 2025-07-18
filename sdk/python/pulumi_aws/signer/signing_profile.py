@@ -25,12 +25,14 @@ class SigningProfileArgs:
                  platform_id: pulumi.Input[builtins.str],
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  signature_validity_period: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']] = None,
                  signing_material: Optional[pulumi.Input['SigningProfileSigningMaterialArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a SigningProfile resource.
         :param pulumi.Input[builtins.str] platform_id: The ID of the platform that is used by the target signing profile.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['SigningProfileSignatureValidityPeriodArgs'] signature_validity_period: The validity period for a signing job. See `signature_validity_period` Block below for details.
         :param pulumi.Input['SigningProfileSigningMaterialArgs'] signing_material: The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -40,6 +42,8 @@ class SigningProfileArgs:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
             pulumi.set(__self__, "name_prefix", name_prefix)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if signature_validity_period is not None:
             pulumi.set(__self__, "signature_validity_period", signature_validity_period)
         if signing_material is not None:
@@ -76,6 +80,18 @@ class SigningProfileArgs:
     @name_prefix.setter
     def name_prefix(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name_prefix", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="signatureValidityPeriod")
@@ -122,6 +138,7 @@ class _SigningProfileState:
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  platform_display_name: Optional[pulumi.Input[builtins.str]] = None,
                  platform_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  revocation_records: Optional[pulumi.Input[Sequence[pulumi.Input['SigningProfileRevocationRecordArgs']]]] = None,
                  signature_validity_period: Optional[pulumi.Input['SigningProfileSignatureValidityPeriodArgs']] = None,
                  signing_material: Optional[pulumi.Input['SigningProfileSigningMaterialArgs']] = None,
@@ -135,6 +152,7 @@ class _SigningProfileState:
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) for the signing profile.
         :param pulumi.Input[builtins.str] platform_display_name: A human-readable name for the signing platform associated with the signing profile.
         :param pulumi.Input[builtins.str] platform_id: The ID of the platform that is used by the target signing profile.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['SigningProfileRevocationRecordArgs']]] revocation_records: Revocation information for a signing profile. See `revocation_record` Block below for details.
         :param pulumi.Input['SigningProfileSignatureValidityPeriodArgs'] signature_validity_period: The validity period for a signing job. See `signature_validity_period` Block below for details.
         :param pulumi.Input['SigningProfileSigningMaterialArgs'] signing_material: The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
@@ -154,6 +172,8 @@ class _SigningProfileState:
             pulumi.set(__self__, "platform_display_name", platform_display_name)
         if platform_id is not None:
             pulumi.set(__self__, "platform_id", platform_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if revocation_records is not None:
             pulumi.set(__self__, "revocation_records", revocation_records)
         if signature_validity_period is not None:
@@ -164,9 +184,6 @@ class _SigningProfileState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if version is not None:
@@ -227,6 +244,18 @@ class _SigningProfileState:
     @platform_id.setter
     def platform_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "platform_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="revocationRecords")
@@ -290,7 +319,6 @@ class _SigningProfileState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -335,6 +363,7 @@ class SigningProfile(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  platform_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  signature_validity_period: Optional[pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']]] = None,
                  signing_material: Optional[pulumi.Input[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -373,6 +402,7 @@ class SigningProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] platform_id: The ID of the platform that is used by the target signing profile.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']] signature_validity_period: The validity period for a signing job. See `signature_validity_period` Block below for details.
         :param pulumi.Input[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict']] signing_material: The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of tags associated with the signing profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -432,6 +462,7 @@ class SigningProfile(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  platform_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  signature_validity_period: Optional[pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']]] = None,
                  signing_material: Optional[pulumi.Input[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -449,6 +480,7 @@ class SigningProfile(pulumi.CustomResource):
             if platform_id is None and not opts.urn:
                 raise TypeError("Missing required property 'platform_id'")
             __props__.__dict__["platform_id"] = platform_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["signature_validity_period"] = signature_validity_period
             __props__.__dict__["signing_material"] = signing_material
             __props__.__dict__["tags"] = tags
@@ -474,6 +506,7 @@ class SigningProfile(pulumi.CustomResource):
             name_prefix: Optional[pulumi.Input[builtins.str]] = None,
             platform_display_name: Optional[pulumi.Input[builtins.str]] = None,
             platform_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             revocation_records: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SigningProfileRevocationRecordArgs', 'SigningProfileRevocationRecordArgsDict']]]]] = None,
             signature_validity_period: Optional[pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']]] = None,
             signing_material: Optional[pulumi.Input[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict']]] = None,
@@ -492,6 +525,7 @@ class SigningProfile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) for the signing profile.
         :param pulumi.Input[builtins.str] platform_display_name: A human-readable name for the signing platform associated with the signing profile.
         :param pulumi.Input[builtins.str] platform_id: The ID of the platform that is used by the target signing profile.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SigningProfileRevocationRecordArgs', 'SigningProfileRevocationRecordArgsDict']]]] revocation_records: Revocation information for a signing profile. See `revocation_record` Block below for details.
         :param pulumi.Input[Union['SigningProfileSignatureValidityPeriodArgs', 'SigningProfileSignatureValidityPeriodArgsDict']] signature_validity_period: The validity period for a signing job. See `signature_validity_period` Block below for details.
         :param pulumi.Input[Union['SigningProfileSigningMaterialArgs', 'SigningProfileSigningMaterialArgsDict']] signing_material: The AWS Certificate Manager certificate that will be used to sign code with the new signing profile. See `signing_material` Block below for details.
@@ -510,6 +544,7 @@ class SigningProfile(pulumi.CustomResource):
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["platform_display_name"] = platform_display_name
         __props__.__dict__["platform_id"] = platform_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["revocation_records"] = revocation_records
         __props__.__dict__["signature_validity_period"] = signature_validity_period
         __props__.__dict__["signing_material"] = signing_material
@@ -555,6 +590,14 @@ class SigningProfile(pulumi.CustomResource):
         return pulumi.get(self, "platform_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="revocationRecords")
     def revocation_records(self) -> pulumi.Output[Sequence['outputs.SigningProfileRevocationRecord']]:
         """
@@ -596,7 +639,6 @@ class SigningProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

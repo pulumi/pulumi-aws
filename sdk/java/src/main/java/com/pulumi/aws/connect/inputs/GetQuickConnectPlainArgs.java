@@ -66,6 +66,21 @@ public final class GetQuickConnectPlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Map of tags to assign to the Quick Connect.
      * 
      */
@@ -86,6 +101,7 @@ public final class GetQuickConnectPlainArgs extends com.pulumi.resources.InvokeA
         this.instanceId = $.instanceId;
         this.name = $.name;
         this.quickConnectId = $.quickConnectId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -139,6 +155,17 @@ public final class GetQuickConnectPlainArgs extends com.pulumi.resources.InvokeA
          */
         public Builder quickConnectId(@Nullable String quickConnectId) {
             $.quickConnectId = quickConnectId;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

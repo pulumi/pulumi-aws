@@ -14,6 +14,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:redshift/getCluster:getCluster", {
         "clusterIdentifier": args.clusterIdentifier,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -26,6 +27,10 @@ export interface GetClusterArgs {
      * Cluster identifier
      */
     clusterIdentifier: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Tags associated to the cluster
      */
@@ -181,6 +186,7 @@ export interface GetClusterResult {
      * Whether the cluster is publicly accessible
      */
     readonly publiclyAccessible: boolean;
+    readonly region: string;
     /**
      * Folder inside the S3 bucket where the log files are stored
      */
@@ -205,6 +211,7 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:redshift/getCluster:getCluster", {
         "clusterIdentifier": args.clusterIdentifier,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -217,6 +224,10 @@ export interface GetClusterOutputArgs {
      * Cluster identifier
      */
     clusterIdentifier: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Tags associated to the cluster
      */

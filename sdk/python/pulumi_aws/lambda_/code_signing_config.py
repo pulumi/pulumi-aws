@@ -25,12 +25,16 @@ class CodeSigningConfigArgs:
                  allowed_publishers: pulumi.Input['CodeSigningConfigAllowedPublishersArgs'],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  policies: Optional[pulumi.Input['CodeSigningConfigPoliciesArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a CodeSigningConfig resource.
-        :param pulumi.Input['CodeSigningConfigAllowedPublishersArgs'] allowed_publishers: A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+        :param pulumi.Input['CodeSigningConfigAllowedPublishersArgs'] allowed_publishers: Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+               
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] description: Descriptive name for this code signing configuration.
-        :param pulumi.Input['CodeSigningConfigPoliciesArgs'] policies: A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+        :param pulumi.Input['CodeSigningConfigPoliciesArgs'] policies: Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "allowed_publishers", allowed_publishers)
@@ -38,6 +42,8 @@ class CodeSigningConfigArgs:
             pulumi.set(__self__, "description", description)
         if policies is not None:
             pulumi.set(__self__, "policies", policies)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -45,7 +51,9 @@ class CodeSigningConfigArgs:
     @pulumi.getter(name="allowedPublishers")
     def allowed_publishers(self) -> pulumi.Input['CodeSigningConfigAllowedPublishersArgs']:
         """
-        A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+        Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "allowed_publishers")
 
@@ -69,13 +77,25 @@ class CodeSigningConfigArgs:
     @pulumi.getter
     def policies(self) -> Optional[pulumi.Input['CodeSigningConfigPoliciesArgs']]:
         """
-        A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+        Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
         """
         return pulumi.get(self, "policies")
 
     @policies.setter
     def policies(self, value: Optional[pulumi.Input['CodeSigningConfigPoliciesArgs']]):
         pulumi.set(self, "policies", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -99,18 +119,22 @@ class _CodeSigningConfigState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  last_modified: Optional[pulumi.Input[builtins.str]] = None,
                  policies: Optional[pulumi.Input['CodeSigningConfigPoliciesArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CodeSigningConfig resources.
-        :param pulumi.Input['CodeSigningConfigAllowedPublishersArgs'] allowed_publishers: A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
-        :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) of the code signing configuration.
+        :param pulumi.Input['CodeSigningConfigAllowedPublishersArgs'] allowed_publishers: Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] arn: ARN of the code signing configuration.
         :param pulumi.Input[builtins.str] config_id: Unique identifier for the code signing configuration.
         :param pulumi.Input[builtins.str] description: Descriptive name for this code signing configuration.
-        :param pulumi.Input[builtins.str] last_modified: The date and time that the code signing configuration was last modified.
-        :param pulumi.Input['CodeSigningConfigPoliciesArgs'] policies: A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+        :param pulumi.Input[builtins.str] last_modified: Date and time that the code signing configuration was last modified.
+        :param pulumi.Input['CodeSigningConfigPoliciesArgs'] policies: Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if allowed_publishers is not None:
             pulumi.set(__self__, "allowed_publishers", allowed_publishers)
@@ -124,11 +148,10 @@ class _CodeSigningConfigState:
             pulumi.set(__self__, "last_modified", last_modified)
         if policies is not None:
             pulumi.set(__self__, "policies", policies)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -136,7 +159,9 @@ class _CodeSigningConfigState:
     @pulumi.getter(name="allowedPublishers")
     def allowed_publishers(self) -> Optional[pulumi.Input['CodeSigningConfigAllowedPublishersArgs']]:
         """
-        A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+        Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "allowed_publishers")
 
@@ -148,7 +173,7 @@ class _CodeSigningConfigState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the code signing configuration.
+        ARN of the code signing configuration.
         """
         return pulumi.get(self, "arn")
 
@@ -184,7 +209,7 @@ class _CodeSigningConfigState:
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The date and time that the code signing configuration was last modified.
+        Date and time that the code signing configuration was last modified.
         """
         return pulumi.get(self, "last_modified")
 
@@ -196,13 +221,25 @@ class _CodeSigningConfigState:
     @pulumi.getter
     def policies(self) -> Optional[pulumi.Input['CodeSigningConfigPoliciesArgs']]:
         """
-        A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+        Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
         """
         return pulumi.get(self, "policies")
 
     @policies.setter
     def policies(self, value: Optional[pulumi.Input['CodeSigningConfigPoliciesArgs']]):
         pulumi.set(self, "policies", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -218,10 +255,9 @@ class _CodeSigningConfigState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -239,48 +275,126 @@ class CodeSigningConfig(pulumi.CustomResource):
                  allowed_publishers: Optional[pulumi.Input[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  policies: Optional[pulumi.Input[Union['CodeSigningConfigPoliciesArgs', 'CodeSigningConfigPoliciesArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a Lambda Code Signing Config resource. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
+        Manages an AWS Lambda Code Signing Config. Use this resource to define allowed signing profiles and code-signing validation policies for Lambda functions to ensure code integrity and authenticity.
 
-        For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+        For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
 
         ## Example Usage
+
+        ### Basic Usage
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        new_csc = aws.lambda_.CodeSigningConfig("new_csc",
+        # Create signing profiles for different environments
+        prod = aws.signer.SigningProfile("prod",
+            platform_id="AWSLambda-SHA384-ECDSA",
+            name_prefix="prod_lambda_",
+            tags={
+                "Environment": "production",
+            })
+        dev = aws.signer.SigningProfile("dev",
+            platform_id="AWSLambda-SHA384-ECDSA",
+            name_prefix="dev_lambda_",
+            tags={
+                "Environment": "development",
+            })
+        # Code signing configuration with enforcement
+        example = aws.lambda_.CodeSigningConfig("example",
+            description="Code signing configuration for Lambda functions",
             allowed_publishers={
                 "signing_profile_version_arns": [
-                    example1["versionArn"],
-                    example2["versionArn"],
+                    prod.version_arn,
+                    dev.version_arn,
+                ],
+            },
+            policies={
+                "untrusted_artifact_on_deployment": "Enforce",
+            },
+            tags={
+                "Environment": "production",
+                "Purpose": "code-signing",
+            })
+        ```
+
+        ### Warning Only Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.CodeSigningConfig("example",
+            description="Development code signing configuration",
+            allowed_publishers={
+                "signing_profile_version_arns": [dev["versionArn"]],
+            },
+            policies={
+                "untrusted_artifact_on_deployment": "Warn",
+            },
+            tags={
+                "Environment": "development",
+                "Purpose": "code-signing",
+            })
+        ```
+
+        ### Multiple Environment Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Production signing configuration
+        prod = aws.lambda_.CodeSigningConfig("prod",
+            description="Production code signing configuration with strict enforcement",
+            allowed_publishers={
+                "signing_profile_version_arns": [prod_aws_signer_signing_profile["versionArn"]],
+            },
+            policies={
+                "untrusted_artifact_on_deployment": "Enforce",
+            },
+            tags={
+                "Environment": "production",
+                "Security": "strict",
+            })
+        # Development signing configuration
+        dev = aws.lambda_.CodeSigningConfig("dev",
+            description="Development code signing configuration with warnings",
+            allowed_publishers={
+                "signing_profile_version_arns": [
+                    dev_aws_signer_signing_profile["versionArn"],
+                    test["versionArn"],
                 ],
             },
             policies={
                 "untrusted_artifact_on_deployment": "Warn",
             },
-            description="My awesome code signing config.",
             tags={
-                "Name": "dynamodb",
+                "Environment": "development",
+                "Security": "flexible",
             })
         ```
 
         ## Import
 
-        Using `pulumi import`, import Code Signing Configs using their ARN. For example:
+        For backwards compatibility, the following legacy `pulumi import` command is also supported:
 
         ```sh
-        $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
+        $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig example arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']] allowed_publishers: A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+        :param pulumi.Input[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']] allowed_publishers: Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+               
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] description: Descriptive name for this code signing configuration.
-        :param pulumi.Input[Union['CodeSigningConfigPoliciesArgs', 'CodeSigningConfigPoliciesArgsDict']] policies: A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+        :param pulumi.Input[Union['CodeSigningConfigPoliciesArgs', 'CodeSigningConfigPoliciesArgsDict']] policies: Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -290,38 +404,112 @@ class CodeSigningConfig(pulumi.CustomResource):
                  args: CodeSigningConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Lambda Code Signing Config resource. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
+        Manages an AWS Lambda Code Signing Config. Use this resource to define allowed signing profiles and code-signing validation policies for Lambda functions to ensure code integrity and authenticity.
 
-        For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+        For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
 
         ## Example Usage
+
+        ### Basic Usage
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        new_csc = aws.lambda_.CodeSigningConfig("new_csc",
+        # Create signing profiles for different environments
+        prod = aws.signer.SigningProfile("prod",
+            platform_id="AWSLambda-SHA384-ECDSA",
+            name_prefix="prod_lambda_",
+            tags={
+                "Environment": "production",
+            })
+        dev = aws.signer.SigningProfile("dev",
+            platform_id="AWSLambda-SHA384-ECDSA",
+            name_prefix="dev_lambda_",
+            tags={
+                "Environment": "development",
+            })
+        # Code signing configuration with enforcement
+        example = aws.lambda_.CodeSigningConfig("example",
+            description="Code signing configuration for Lambda functions",
             allowed_publishers={
                 "signing_profile_version_arns": [
-                    example1["versionArn"],
-                    example2["versionArn"],
+                    prod.version_arn,
+                    dev.version_arn,
+                ],
+            },
+            policies={
+                "untrusted_artifact_on_deployment": "Enforce",
+            },
+            tags={
+                "Environment": "production",
+                "Purpose": "code-signing",
+            })
+        ```
+
+        ### Warning Only Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.CodeSigningConfig("example",
+            description="Development code signing configuration",
+            allowed_publishers={
+                "signing_profile_version_arns": [dev["versionArn"]],
+            },
+            policies={
+                "untrusted_artifact_on_deployment": "Warn",
+            },
+            tags={
+                "Environment": "development",
+                "Purpose": "code-signing",
+            })
+        ```
+
+        ### Multiple Environment Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Production signing configuration
+        prod = aws.lambda_.CodeSigningConfig("prod",
+            description="Production code signing configuration with strict enforcement",
+            allowed_publishers={
+                "signing_profile_version_arns": [prod_aws_signer_signing_profile["versionArn"]],
+            },
+            policies={
+                "untrusted_artifact_on_deployment": "Enforce",
+            },
+            tags={
+                "Environment": "production",
+                "Security": "strict",
+            })
+        # Development signing configuration
+        dev = aws.lambda_.CodeSigningConfig("dev",
+            description="Development code signing configuration with warnings",
+            allowed_publishers={
+                "signing_profile_version_arns": [
+                    dev_aws_signer_signing_profile["versionArn"],
+                    test["versionArn"],
                 ],
             },
             policies={
                 "untrusted_artifact_on_deployment": "Warn",
             },
-            description="My awesome code signing config.",
             tags={
-                "Name": "dynamodb",
+                "Environment": "development",
+                "Security": "flexible",
             })
         ```
 
         ## Import
 
-        Using `pulumi import`, import Code Signing Configs using their ARN. For example:
+        For backwards compatibility, the following legacy `pulumi import` command is also supported:
 
         ```sh
-        $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig imported_csc arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
+        $ pulumi import aws:lambda/codeSigningConfig:CodeSigningConfig example arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b
         ```
 
         :param str resource_name: The name of the resource.
@@ -342,6 +530,7 @@ class CodeSigningConfig(pulumi.CustomResource):
                  allowed_publishers: Optional[pulumi.Input[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  policies: Optional[pulumi.Input[Union['CodeSigningConfigPoliciesArgs', 'CodeSigningConfigPoliciesArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -357,6 +546,7 @@ class CodeSigningConfig(pulumi.CustomResource):
             __props__.__dict__["allowed_publishers"] = allowed_publishers
             __props__.__dict__["description"] = description
             __props__.__dict__["policies"] = policies
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["config_id"] = None
@@ -378,6 +568,7 @@ class CodeSigningConfig(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             last_modified: Optional[pulumi.Input[builtins.str]] = None,
             policies: Optional[pulumi.Input[Union['CodeSigningConfigPoliciesArgs', 'CodeSigningConfigPoliciesArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'CodeSigningConfig':
         """
@@ -387,14 +578,17 @@ class CodeSigningConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']] allowed_publishers: A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
-        :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) of the code signing configuration.
+        :param pulumi.Input[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']] allowed_publishers: Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] arn: ARN of the code signing configuration.
         :param pulumi.Input[builtins.str] config_id: Unique identifier for the code signing configuration.
         :param pulumi.Input[builtins.str] description: Descriptive name for this code signing configuration.
-        :param pulumi.Input[builtins.str] last_modified: The date and time that the code signing configuration was last modified.
-        :param pulumi.Input[Union['CodeSigningConfigPoliciesArgs', 'CodeSigningConfigPoliciesArgsDict']] policies: A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+        :param pulumi.Input[builtins.str] last_modified: Date and time that the code signing configuration was last modified.
+        :param pulumi.Input[Union['CodeSigningConfigPoliciesArgs', 'CodeSigningConfigPoliciesArgsDict']] policies: Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -406,6 +600,7 @@ class CodeSigningConfig(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["last_modified"] = last_modified
         __props__.__dict__["policies"] = policies
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return CodeSigningConfig(resource_name, opts=opts, __props__=__props__)
@@ -414,7 +609,9 @@ class CodeSigningConfig(pulumi.CustomResource):
     @pulumi.getter(name="allowedPublishers")
     def allowed_publishers(self) -> pulumi.Output['outputs.CodeSigningConfigAllowedPublishers']:
         """
-        A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+        Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "allowed_publishers")
 
@@ -422,7 +619,7 @@ class CodeSigningConfig(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the code signing configuration.
+        ARN of the code signing configuration.
         """
         return pulumi.get(self, "arn")
 
@@ -446,7 +643,7 @@ class CodeSigningConfig(pulumi.CustomResource):
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> pulumi.Output[builtins.str]:
         """
-        The date and time that the code signing configuration was last modified.
+        Date and time that the code signing configuration was last modified.
         """
         return pulumi.get(self, "last_modified")
 
@@ -454,9 +651,17 @@ class CodeSigningConfig(pulumi.CustomResource):
     @pulumi.getter
     def policies(self) -> pulumi.Output['outputs.CodeSigningConfigPolicies']:
         """
-        A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+        Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
         """
         return pulumi.get(self, "policies")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter
@@ -468,10 +673,9 @@ class CodeSigningConfig(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

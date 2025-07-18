@@ -49,6 +49,7 @@ export function getListenerRule(args?: GetListenerRuleArgs, opts?: pulumi.Invoke
         "conditions": args.conditions,
         "listenerArn": args.listenerArn,
         "priority": args.priority,
+        "region": args.region,
     }, opts);
 }
 
@@ -81,6 +82,10 @@ export interface GetListenerRuleArgs {
      * Must be set if `listenerArn` is set, otherwise must not be set.
      */
     priority?: number;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -107,6 +112,7 @@ export interface GetListenerRuleResult {
     readonly id: string;
     readonly listenerArn: string;
     readonly priority: number;
+    readonly region: string;
     /**
      * Tags assigned to the Listener Rule.
      */
@@ -154,6 +160,7 @@ export function getListenerRuleOutput(args?: GetListenerRuleOutputArgs, opts?: p
         "conditions": args.conditions,
         "listenerArn": args.listenerArn,
         "priority": args.priority,
+        "region": args.region,
     }, opts);
 }
 
@@ -186,4 +193,8 @@ export interface GetListenerRuleOutputArgs {
      * Must be set if `listenerArn` is set, otherwise must not be set.
      */
     priority?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

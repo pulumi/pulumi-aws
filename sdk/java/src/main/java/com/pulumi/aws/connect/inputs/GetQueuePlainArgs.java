@@ -66,6 +66,21 @@ public final class GetQueuePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Map of tags assigned to the Queue.
      * 
      */
@@ -86,6 +101,7 @@ public final class GetQueuePlainArgs extends com.pulumi.resources.InvokeArgs {
         this.instanceId = $.instanceId;
         this.name = $.name;
         this.queueId = $.queueId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -139,6 +155,17 @@ public final class GetQueuePlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder queueId(@Nullable String queueId) {
             $.queueId = queueId;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

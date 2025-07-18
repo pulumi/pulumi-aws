@@ -27,6 +27,7 @@ export function getContactChannel(args: GetContactChannelArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssmcontacts/getContactChannel:getContactChannel", {
         "arn": args.arn,
+        "region": args.region,
     }, opts);
 }
 
@@ -38,6 +39,10 @@ export interface GetContactChannelArgs {
      * Amazon Resource Name (ARN) of the contact channel.
      */
     arn: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -65,6 +70,7 @@ export interface GetContactChannelResult {
      * Name of the contact channel.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * Type of the contact channel.
      */
@@ -90,6 +96,7 @@ export function getContactChannelOutput(args: GetContactChannelOutputArgs, opts?
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssmcontacts/getContactChannel:getContactChannel", {
         "arn": args.arn,
+        "region": args.region,
     }, opts);
 }
 
@@ -101,4 +108,8 @@ export interface GetContactChannelOutputArgs {
      * Amazon Resource Name (ARN) of the contact channel.
      */
     arn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

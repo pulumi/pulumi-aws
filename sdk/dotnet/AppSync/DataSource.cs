@@ -189,6 +189,12 @@ namespace Pulumi.Aws.AppSync
         public Output<Outputs.DataSourceOpensearchserviceConfig?> OpensearchserviceConfig { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// AWS RDS settings. See `relational_database_config` Block for details.
         /// </summary>
         [Output("relationalDatabaseConfig")]
@@ -307,6 +313,12 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.DataSourceOpensearchserviceConfigArgs>? OpensearchserviceConfig { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// AWS RDS settings. See `relational_database_config` Block for details.
         /// </summary>
         [Input("relationalDatabaseConfig")]
@@ -391,6 +403,12 @@ namespace Pulumi.Aws.AppSync
         /// </summary>
         [Input("opensearchserviceConfig")]
         public Input<Inputs.DataSourceOpensearchserviceConfigGetArgs>? OpensearchserviceConfig { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// AWS RDS settings. See `relational_database_config` Block for details.

@@ -85,6 +85,10 @@ export class SecretVersion extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
      */
     public readonly secretBinary!: pulumi.Output<string | undefined>;
@@ -121,6 +125,7 @@ export class SecretVersion extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SecretVersionState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["secretBinary"] = state ? state.secretBinary : undefined;
             resourceInputs["secretId"] = state ? state.secretId : undefined;
             resourceInputs["secretString"] = state ? state.secretString : undefined;
@@ -131,6 +136,7 @@ export class SecretVersion extends pulumi.CustomResource {
             if ((!args || args.secretId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["secretBinary"] = args?.secretBinary ? pulumi.secret(args.secretBinary) : undefined;
             resourceInputs["secretId"] = args ? args.secretId : undefined;
             resourceInputs["secretString"] = args?.secretString ? pulumi.secret(args.secretString) : undefined;
@@ -153,6 +159,10 @@ export interface SecretVersionState {
      * The ARN of the secret.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
      */
@@ -181,6 +191,10 @@ export interface SecretVersionState {
  * The set of arguments for constructing a SecretVersion resource.
  */
 export interface SecretVersionArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
      */

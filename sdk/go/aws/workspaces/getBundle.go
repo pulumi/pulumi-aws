@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspaces"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +48,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspaces"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,6 +85,8 @@ type GetBundleArgs struct {
 	Name *string `pulumi:"name"`
 	// Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
 	Owner *string `pulumi:"owner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getBundle.
@@ -100,7 +102,8 @@ type GetBundleResult struct {
 	// Name of the compute type.
 	Name *string `pulumi:"name"`
 	// The owner of the bundle.
-	Owner *string `pulumi:"owner"`
+	Owner  *string `pulumi:"owner"`
+	Region string  `pulumi:"region"`
 	// The root volume. See supported fields below.
 	RootStorages []GetBundleRootStorage `pulumi:"rootStorages"`
 	// The user storage. See supported fields below.
@@ -124,6 +127,8 @@ type GetBundleOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
 	Owner pulumi.StringPtrInput `pulumi:"owner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetBundleOutputArgs) ElementType() reflect.Type {
@@ -173,6 +178,10 @@ func (o GetBundleResultOutput) Name() pulumi.StringPtrOutput {
 // The owner of the bundle.
 func (o GetBundleResultOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetBundleResult) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o GetBundleResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBundleResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The root volume. See supported fields below.

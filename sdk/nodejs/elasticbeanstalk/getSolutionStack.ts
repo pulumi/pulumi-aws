@@ -24,6 +24,7 @@ export function getSolutionStack(args: GetSolutionStackArgs, opts?: pulumi.Invok
     return pulumi.runtime.invoke("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", {
         "mostRecent": args.mostRecent,
         "nameRegex": args.nameRegex,
+        "region": args.region,
     }, opts);
 }
 
@@ -46,6 +47,10 @@ export interface GetSolutionStackArgs {
      * a single solution stack, or use `mostRecent` to choose the most recent one.
      */
     nameRegex: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -62,6 +67,7 @@ export interface GetSolutionStackResult {
      */
     readonly name: string;
     readonly nameRegex: string;
+    readonly region: string;
 }
 /**
  * Use this data source to get the name of a elastic beanstalk solution stack.
@@ -83,6 +89,7 @@ export function getSolutionStackOutput(args: GetSolutionStackOutputArgs, opts?: 
     return pulumi.runtime.invokeOutput("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", {
         "mostRecent": args.mostRecent,
         "nameRegex": args.nameRegex,
+        "region": args.region,
     }, opts);
 }
 
@@ -105,4 +112,8 @@ export interface GetSolutionStackOutputArgs {
      * a single solution stack, or use `mostRecent` to choose the most recent one.
      */
     nameRegex: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

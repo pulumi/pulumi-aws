@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,15 +22,15 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3control"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -90,6 +90,8 @@ type ObjectLambdaAccessPoint struct {
 	Configuration ObjectLambdaAccessPointConfigurationOutput `pulumi:"configuration"`
 	// The name for this Object Lambda Access Point.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewObjectLambdaAccessPoint registers a new resource with the given unique name, arguments, and options.
@@ -135,6 +137,8 @@ type objectLambdaAccessPointState struct {
 	Configuration *ObjectLambdaAccessPointConfiguration `pulumi:"configuration"`
 	// The name for this Object Lambda Access Point.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ObjectLambdaAccessPointState struct {
@@ -148,6 +152,8 @@ type ObjectLambdaAccessPointState struct {
 	Configuration ObjectLambdaAccessPointConfigurationPtrInput
 	// The name for this Object Lambda Access Point.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ObjectLambdaAccessPointState) ElementType() reflect.Type {
@@ -161,6 +167,8 @@ type objectLambdaAccessPointArgs struct {
 	Configuration ObjectLambdaAccessPointConfiguration `pulumi:"configuration"`
 	// The name for this Object Lambda Access Point.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ObjectLambdaAccessPoint resource.
@@ -171,6 +179,8 @@ type ObjectLambdaAccessPointArgs struct {
 	Configuration ObjectLambdaAccessPointConfigurationInput
 	// The name for this Object Lambda Access Point.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ObjectLambdaAccessPointArgs) ElementType() reflect.Type {
@@ -283,6 +293,11 @@ func (o ObjectLambdaAccessPointOutput) Configuration() ObjectLambdaAccessPointCo
 // The name for this Object Lambda Access Point.
 func (o ObjectLambdaAccessPointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ObjectLambdaAccessPointOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectLambdaAccessPoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ObjectLambdaAccessPointArrayOutput struct{ *pulumi.OutputState }

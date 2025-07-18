@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2clientvpn"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2clientvpn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,6 +56,8 @@ type NetworkAssociation struct {
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
 	// The ID of the Client VPN endpoint.
 	ClientVpnEndpointId pulumi.StringOutput `pulumi:"clientVpnEndpointId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the subnet to associate with the Client VPN endpoint.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
 	// The ID of the VPC in which the target subnet is located.
@@ -102,6 +104,8 @@ type networkAssociationState struct {
 	AssociationId *string `pulumi:"associationId"`
 	// The ID of the Client VPN endpoint.
 	ClientVpnEndpointId *string `pulumi:"clientVpnEndpointId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the subnet to associate with the Client VPN endpoint.
 	SubnetId *string `pulumi:"subnetId"`
 	// The ID of the VPC in which the target subnet is located.
@@ -113,6 +117,8 @@ type NetworkAssociationState struct {
 	AssociationId pulumi.StringPtrInput
 	// The ID of the Client VPN endpoint.
 	ClientVpnEndpointId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the subnet to associate with the Client VPN endpoint.
 	SubnetId pulumi.StringPtrInput
 	// The ID of the VPC in which the target subnet is located.
@@ -126,6 +132,8 @@ func (NetworkAssociationState) ElementType() reflect.Type {
 type networkAssociationArgs struct {
 	// The ID of the Client VPN endpoint.
 	ClientVpnEndpointId string `pulumi:"clientVpnEndpointId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the subnet to associate with the Client VPN endpoint.
 	SubnetId string `pulumi:"subnetId"`
 }
@@ -134,6 +142,8 @@ type networkAssociationArgs struct {
 type NetworkAssociationArgs struct {
 	// The ID of the Client VPN endpoint.
 	ClientVpnEndpointId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the subnet to associate with the Client VPN endpoint.
 	SubnetId pulumi.StringInput
 }
@@ -233,6 +243,11 @@ func (o NetworkAssociationOutput) AssociationId() pulumi.StringOutput {
 // The ID of the Client VPN endpoint.
 func (o NetworkAssociationOutput) ClientVpnEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkAssociation) pulumi.StringOutput { return v.ClientVpnEndpointId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o NetworkAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the subnet to associate with the Client VPN endpoint.

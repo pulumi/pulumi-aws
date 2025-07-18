@@ -69,6 +69,10 @@ export class VoiceConnectorLogging extends pulumi.CustomResource {
      */
     public readonly enableSipLogs!: pulumi.Output<boolean | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Chime Voice Connector ID.
      */
     public readonly voiceConnectorId!: pulumi.Output<string>;
@@ -88,6 +92,7 @@ export class VoiceConnectorLogging extends pulumi.CustomResource {
             const state = argsOrState as VoiceConnectorLoggingState | undefined;
             resourceInputs["enableMediaMetricLogs"] = state ? state.enableMediaMetricLogs : undefined;
             resourceInputs["enableSipLogs"] = state ? state.enableSipLogs : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["voiceConnectorId"] = state ? state.voiceConnectorId : undefined;
         } else {
             const args = argsOrState as VoiceConnectorLoggingArgs | undefined;
@@ -96,6 +101,7 @@ export class VoiceConnectorLogging extends pulumi.CustomResource {
             }
             resourceInputs["enableMediaMetricLogs"] = args ? args.enableMediaMetricLogs : undefined;
             resourceInputs["enableSipLogs"] = args ? args.enableSipLogs : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -116,6 +122,10 @@ export interface VoiceConnectorLoggingState {
      */
     enableSipLogs?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Chime Voice Connector ID.
      */
     voiceConnectorId?: pulumi.Input<string>;
@@ -133,6 +143,10 @@ export interface VoiceConnectorLoggingArgs {
      * When true, enables SIP message logs for sending to Amazon CloudWatch Logs.
      */
     enableSipLogs?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Chime Voice Connector ID.
      */

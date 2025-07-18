@@ -17,6 +17,21 @@ public final class GetVpcLinkPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetVpcLinkPlainArgs Empty = new GetVpcLinkPlainArgs();
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * VPC Link Tags.
      * 
      */
@@ -49,6 +64,7 @@ public final class GetVpcLinkPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetVpcLinkPlainArgs() {}
 
     private GetVpcLinkPlainArgs(GetVpcLinkPlainArgs $) {
+        this.region = $.region;
         this.tags = $.tags;
         this.vpcLinkId = $.vpcLinkId;
     }
@@ -69,6 +85,17 @@ public final class GetVpcLinkPlainArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetVpcLinkPlainArgs defaults) {
             $ = new GetVpcLinkPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,15 +21,15 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/identitystore"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/identitystore"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -85,6 +85,8 @@ type GroupMembership struct {
 	MemberId pulumi.StringOutput `pulumi:"memberId"`
 	// The identifier of the newly created group membership in the Identity Store.
 	MembershipId pulumi.StringOutput `pulumi:"membershipId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewGroupMembership registers a new resource with the given unique name, arguments, and options.
@@ -134,6 +136,8 @@ type groupMembershipState struct {
 	MemberId *string `pulumi:"memberId"`
 	// The identifier of the newly created group membership in the Identity Store.
 	MembershipId *string `pulumi:"membershipId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type GroupMembershipState struct {
@@ -145,6 +149,8 @@ type GroupMembershipState struct {
 	MemberId pulumi.StringPtrInput
 	// The identifier of the newly created group membership in the Identity Store.
 	MembershipId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (GroupMembershipState) ElementType() reflect.Type {
@@ -158,6 +164,8 @@ type groupMembershipArgs struct {
 	IdentityStoreId string `pulumi:"identityStoreId"`
 	// The identifier for a user in the Identity Store.
 	MemberId string `pulumi:"memberId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a GroupMembership resource.
@@ -168,6 +176,8 @@ type GroupMembershipArgs struct {
 	IdentityStoreId pulumi.StringInput
 	// The identifier for a user in the Identity Store.
 	MemberId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (GroupMembershipArgs) ElementType() reflect.Type {
@@ -275,6 +285,11 @@ func (o GroupMembershipOutput) MemberId() pulumi.StringOutput {
 // The identifier of the newly created group membership in the Identity Store.
 func (o GroupMembershipOutput) MembershipId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.MembershipId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o GroupMembershipOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type GroupMembershipArrayOutput struct{ *pulumi.OutputState }

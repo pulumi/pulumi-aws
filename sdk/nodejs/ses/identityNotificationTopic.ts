@@ -70,6 +70,10 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
      */
     public readonly notificationType!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
      */
     public readonly topicArn!: pulumi.Output<string | undefined>;
@@ -90,6 +94,7 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["includeOriginalHeaders"] = state ? state.includeOriginalHeaders : undefined;
             resourceInputs["notificationType"] = state ? state.notificationType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["topicArn"] = state ? state.topicArn : undefined;
         } else {
             const args = argsOrState as IdentityNotificationTopicArgs | undefined;
@@ -102,6 +107,7 @@ export class IdentityNotificationTopic extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["includeOriginalHeaders"] = args ? args.includeOriginalHeaders : undefined;
             resourceInputs["notificationType"] = args ? args.notificationType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["topicArn"] = args ? args.topicArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -126,6 +132,10 @@ export interface IdentityNotificationTopicState {
      */
     notificationType?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
      */
     topicArn?: pulumi.Input<string>;
@@ -147,6 +157,10 @@ export interface IdentityNotificationTopicArgs {
      * The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
      */
     notificationType: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
      */

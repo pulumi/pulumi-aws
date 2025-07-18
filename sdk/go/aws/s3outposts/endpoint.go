@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3outposts"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3outposts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,6 +66,8 @@ type Endpoint struct {
 	NetworkInterfaces EndpointNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
 	// Identifier of the Outpost to contain this endpoint.
 	OutpostId pulumi.StringOutput `pulumi:"outpostId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of the EC2 Security Group.
 	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
 	// Identifier of the EC2 Subnet.
@@ -125,6 +127,8 @@ type endpointState struct {
 	NetworkInterfaces []EndpointNetworkInterface `pulumi:"networkInterfaces"`
 	// Identifier of the Outpost to contain this endpoint.
 	OutpostId *string `pulumi:"outpostId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of the EC2 Security Group.
 	SecurityGroupId *string `pulumi:"securityGroupId"`
 	// Identifier of the EC2 Subnet.
@@ -146,6 +150,8 @@ type EndpointState struct {
 	NetworkInterfaces EndpointNetworkInterfaceArrayInput
 	// Identifier of the Outpost to contain this endpoint.
 	OutpostId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of the EC2 Security Group.
 	SecurityGroupId pulumi.StringPtrInput
 	// Identifier of the EC2 Subnet.
@@ -163,6 +169,8 @@ type endpointArgs struct {
 	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
 	// Identifier of the Outpost to contain this endpoint.
 	OutpostId string `pulumi:"outpostId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of the EC2 Security Group.
 	SecurityGroupId string `pulumi:"securityGroupId"`
 	// Identifier of the EC2 Subnet.
@@ -177,6 +185,8 @@ type EndpointArgs struct {
 	CustomerOwnedIpv4Pool pulumi.StringPtrInput
 	// Identifier of the Outpost to contain this endpoint.
 	OutpostId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of the EC2 Security Group.
 	SecurityGroupId pulumi.StringInput
 	// Identifier of the EC2 Subnet.
@@ -303,6 +313,11 @@ func (o EndpointOutput) NetworkInterfaces() EndpointNetworkInterfaceArrayOutput 
 // Identifier of the Outpost to contain this endpoint.
 func (o EndpointOutput) OutpostId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.OutpostId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o EndpointOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Identifier of the EC2 Security Group.

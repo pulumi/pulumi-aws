@@ -27,6 +27,7 @@ export function getEmailIdentityMailFromAttributes(args: GetEmailIdentityMailFro
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", {
         "emailIdentity": args.emailIdentity,
+        "region": args.region,
     }, opts);
 }
 
@@ -38,6 +39,10 @@ export interface GetEmailIdentityMailFromAttributesArgs {
      * The name of the email identity.
      */
     emailIdentity: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -57,6 +62,7 @@ export interface GetEmailIdentityMailFromAttributesResult {
      * The custom MAIL FROM domain that you want the verified identity to use.
      */
     readonly mailFromDomain: string;
+    readonly region: string;
 }
 /**
  * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
@@ -81,6 +87,7 @@ export function getEmailIdentityMailFromAttributesOutput(args: GetEmailIdentityM
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", {
         "emailIdentity": args.emailIdentity,
+        "region": args.region,
     }, opts);
 }
 
@@ -92,4 +99,8 @@ export interface GetEmailIdentityMailFromAttributesOutputArgs {
      * The name of the email identity.
      */
     emailIdentity: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

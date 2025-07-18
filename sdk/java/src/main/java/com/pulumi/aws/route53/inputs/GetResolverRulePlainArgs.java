@@ -46,6 +46,21 @@ public final class GetResolverRulePlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
      * 
      */
@@ -110,6 +125,7 @@ public final class GetResolverRulePlainArgs extends com.pulumi.resources.InvokeA
     private GetResolverRulePlainArgs(GetResolverRulePlainArgs $) {
         this.domainName = $.domainName;
         this.name = $.name;
+        this.region = $.region;
         this.resolverEndpointId = $.resolverEndpointId;
         this.resolverRuleId = $.resolverRuleId;
         this.ruleType = $.ruleType;
@@ -153,6 +169,17 @@ public final class GetResolverRulePlainArgs extends com.pulumi.resources.InvokeA
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

@@ -89,6 +89,12 @@ namespace Pulumi.Aws.SesV2
         [Output("policyName")]
         public Output<string> PolicyName { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a EmailIdentityPolicy resource with the given unique name, arguments, and options.
@@ -153,6 +159,12 @@ namespace Pulumi.Aws.SesV2
         [Input("policyName", required: true)]
         public Input<string> PolicyName { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public EmailIdentityPolicyArgs()
         {
         }
@@ -178,6 +190,12 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         [Input("policyName")]
         public Input<string>? PolicyName { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public EmailIdentityPolicyState()
         {

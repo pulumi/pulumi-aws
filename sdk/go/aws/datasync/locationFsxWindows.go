@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datasync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,6 +65,8 @@ type LocationFsxWindows struct {
 	FsxFilesystemArn pulumi.StringOutput `pulumi:"fsxFilesystemArn"`
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
 	Password pulumi.StringOutput `pulumi:"password"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
 	SecurityGroupArns pulumi.StringArrayOutput `pulumi:"securityGroupArns"`
 	// Subdirectory to perform actions as source or destination.
@@ -72,8 +74,6 @@ type LocationFsxWindows struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The URL of the FSx for Windows location that was described.
 	Uri pulumi.StringOutput `pulumi:"uri"`
@@ -140,6 +140,8 @@ type locationFsxWindowsState struct {
 	FsxFilesystemArn *string `pulumi:"fsxFilesystemArn"`
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
 	Password *string `pulumi:"password"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
 	// Subdirectory to perform actions as source or destination.
@@ -147,8 +149,6 @@ type locationFsxWindowsState struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The URL of the FSx for Windows location that was described.
 	Uri *string `pulumi:"uri"`
@@ -167,6 +167,8 @@ type LocationFsxWindowsState struct {
 	FsxFilesystemArn pulumi.StringPtrInput
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
 	Password pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
 	SecurityGroupArns pulumi.StringArrayInput
 	// Subdirectory to perform actions as source or destination.
@@ -174,8 +176,6 @@ type LocationFsxWindowsState struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The URL of the FSx for Windows location that was described.
 	Uri pulumi.StringPtrInput
@@ -194,6 +194,8 @@ type locationFsxWindowsArgs struct {
 	FsxFilesystemArn string `pulumi:"fsxFilesystemArn"`
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
 	Password string `pulumi:"password"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
 	// Subdirectory to perform actions as source or destination.
@@ -212,6 +214,8 @@ type LocationFsxWindowsArgs struct {
 	FsxFilesystemArn pulumi.StringInput
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
 	Password pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
 	SecurityGroupArns pulumi.StringArrayInput
 	// Subdirectory to perform actions as source or destination.
@@ -334,6 +338,11 @@ func (o LocationFsxWindowsOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LocationFsxWindowsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
 func (o LocationFsxWindowsOutput) SecurityGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringArrayOutput { return v.SecurityGroupArns }).(pulumi.StringArrayOutput)
@@ -350,8 +359,6 @@ func (o LocationFsxWindowsOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o LocationFsxWindowsOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

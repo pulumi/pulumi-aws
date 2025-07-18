@@ -84,6 +84,12 @@ namespace Pulumi.Aws.GuardDuty
         [Input("id")]
         public string? Id { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -109,6 +115,12 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -145,6 +157,7 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         public readonly string FindingPublishingFrequency;
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// Service-linked role that grants GuardDuty access to the resources in the AWS account.
         /// </summary>
@@ -168,6 +181,8 @@ namespace Pulumi.Aws.GuardDuty
 
             string id,
 
+            string region,
+
             string serviceRoleArn,
 
             string status,
@@ -178,6 +193,7 @@ namespace Pulumi.Aws.GuardDuty
             Features = features;
             FindingPublishingFrequency = findingPublishingFrequency;
             Id = id;
+            Region = region;
             ServiceRoleArn = serviceRoleArn;
             Status = status;
             Tags = tags;

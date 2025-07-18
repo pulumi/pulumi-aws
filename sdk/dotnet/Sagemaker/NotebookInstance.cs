@@ -84,12 +84,6 @@ namespace Pulumi.Aws.Sagemaker
     public partial class NotebookInstance : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-        /// </summary>
-        [Output("acceleratorTypes")]
-        public Output<ImmutableArray<string>> AcceleratorTypes { get; private set; } = null!;
-
-        /// <summary>
         /// An array of up to three Git repositories to associate with the notebook instance.
         /// These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
         /// </summary>
@@ -155,6 +149,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Output("platformIdentifier")]
         public Output<string> PlatformIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
@@ -250,19 +250,6 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class NotebookInstanceArgs : global::Pulumi.ResourceArgs
     {
-        [Input("acceleratorTypes")]
-        private InputList<string>? _acceleratorTypes;
-
-        /// <summary>
-        /// A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-        /// </summary>
-        [Obsolete(@"accelerator_types is deprecated. Use instance_type instead.")]
-        public InputList<string> AcceleratorTypes
-        {
-            get => _acceleratorTypes ?? (_acceleratorTypes = new InputList<string>());
-            set => _acceleratorTypes = value;
-        }
-
         [Input("additionalCodeRepositories")]
         private InputList<string>? _additionalCodeRepositories;
 
@@ -325,6 +312,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? PlatformIdentifier { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -380,19 +373,6 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class NotebookInstanceState : global::Pulumi.ResourceArgs
     {
-        [Input("acceleratorTypes")]
-        private InputList<string>? _acceleratorTypes;
-
-        /// <summary>
-        /// A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-        /// </summary>
-        [Obsolete(@"accelerator_types is deprecated. Use instance_type instead.")]
-        public InputList<string> AcceleratorTypes
-        {
-            get => _acceleratorTypes ?? (_acceleratorTypes = new InputList<string>());
-            set => _acceleratorTypes = value;
-        }
-
         [Input("additionalCodeRepositories")]
         private InputList<string>? _additionalCodeRepositories;
 
@@ -467,6 +447,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? PlatformIdentifier { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
         /// </summary>
         [Input("roleArn")]
@@ -514,7 +500,6 @@ namespace Pulumi.Aws.Sagemaker
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -34,6 +34,21 @@ public final class GetSecretVersionsPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      * 
      */
@@ -52,6 +67,7 @@ public final class GetSecretVersionsPlainArgs extends com.pulumi.resources.Invok
 
     private GetSecretVersionsPlainArgs(GetSecretVersionsPlainArgs $) {
         this.includeDeprecated = $.includeDeprecated;
+        this.region = $.region;
         this.secretId = $.secretId;
     }
 
@@ -82,6 +98,17 @@ public final class GetSecretVersionsPlainArgs extends com.pulumi.resources.Invok
          */
         public Builder includeDeprecated(@Nullable Boolean includeDeprecated) {
             $.includeDeprecated = includeDeprecated;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

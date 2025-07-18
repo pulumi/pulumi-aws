@@ -24,6 +24,7 @@ class BucketPublicAccessBlockArgs:
                  block_public_acls: Optional[pulumi.Input[builtins.bool]] = None,
                  block_public_policy: Optional[pulumi.Input[builtins.bool]] = None,
                  ignore_public_acls: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  restrict_public_buckets: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The set of arguments for constructing a BucketPublicAccessBlock resource.
@@ -35,6 +36,7 @@ class BucketPublicAccessBlockArgs:
                * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
         :param pulumi.Input[builtins.bool] ignore_public_acls: Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
                * Ignore public ACLs on this bucket and any objects that it contains.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
                * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
         """
@@ -45,6 +47,8 @@ class BucketPublicAccessBlockArgs:
             pulumi.set(__self__, "block_public_policy", block_public_policy)
         if ignore_public_acls is not None:
             pulumi.set(__self__, "ignore_public_acls", ignore_public_acls)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if restrict_public_buckets is not None:
             pulumi.set(__self__, "restrict_public_buckets", restrict_public_buckets)
 
@@ -101,6 +105,18 @@ class BucketPublicAccessBlockArgs:
         pulumi.set(self, "ignore_public_acls", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="restrictPublicBuckets")
     def restrict_public_buckets(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -121,6 +137,7 @@ class _BucketPublicAccessBlockState:
                  block_public_policy: Optional[pulumi.Input[builtins.bool]] = None,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  ignore_public_acls: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  restrict_public_buckets: Optional[pulumi.Input[builtins.bool]] = None):
         """
         Input properties used for looking up and filtering BucketPublicAccessBlock resources.
@@ -132,6 +149,7 @@ class _BucketPublicAccessBlockState:
         :param pulumi.Input[builtins.str] bucket: S3 Bucket to which this Public Access Block configuration should be applied.
         :param pulumi.Input[builtins.bool] ignore_public_acls: Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
                * Ignore public ACLs on this bucket and any objects that it contains.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
                * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
         """
@@ -143,6 +161,8 @@ class _BucketPublicAccessBlockState:
             pulumi.set(__self__, "bucket", bucket)
         if ignore_public_acls is not None:
             pulumi.set(__self__, "ignore_public_acls", ignore_public_acls)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if restrict_public_buckets is not None:
             pulumi.set(__self__, "restrict_public_buckets", restrict_public_buckets)
 
@@ -199,6 +219,18 @@ class _BucketPublicAccessBlockState:
         pulumi.set(self, "ignore_public_acls", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="restrictPublicBuckets")
     def restrict_public_buckets(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -222,6 +254,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
                  block_public_policy: Optional[pulumi.Input[builtins.bool]] = None,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  ignore_public_acls: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  restrict_public_buckets: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         """
@@ -235,7 +268,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("example",
             bucket=example.id,
             block_public_acls=True,
@@ -262,6 +295,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket: S3 Bucket to which this Public Access Block configuration should be applied.
         :param pulumi.Input[builtins.bool] ignore_public_acls: Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
                * Ignore public ACLs on this bucket and any objects that it contains.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
                * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
         """
@@ -282,7 +316,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_bucket_public_access_block = aws.s3.BucketPublicAccessBlock("example",
             bucket=example.id,
             block_public_acls=True,
@@ -318,6 +352,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
                  block_public_policy: Optional[pulumi.Input[builtins.bool]] = None,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  ignore_public_acls: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  restrict_public_buckets: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -334,6 +369,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
                 raise TypeError("Missing required property 'bucket'")
             __props__.__dict__["bucket"] = bucket
             __props__.__dict__["ignore_public_acls"] = ignore_public_acls
+            __props__.__dict__["region"] = region
             __props__.__dict__["restrict_public_buckets"] = restrict_public_buckets
         super(BucketPublicAccessBlock, __self__).__init__(
             'aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock',
@@ -349,6 +385,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
             block_public_policy: Optional[pulumi.Input[builtins.bool]] = None,
             bucket: Optional[pulumi.Input[builtins.str]] = None,
             ignore_public_acls: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             restrict_public_buckets: Optional[pulumi.Input[builtins.bool]] = None) -> 'BucketPublicAccessBlock':
         """
         Get an existing BucketPublicAccessBlock resource's state with the given name, id, and optional extra
@@ -365,6 +402,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket: S3 Bucket to which this Public Access Block configuration should be applied.
         :param pulumi.Input[builtins.bool] ignore_public_acls: Whether Amazon S3 should ignore public ACLs for this bucket. Defaults to `false`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
                * Ignore public ACLs on this bucket and any objects that it contains.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for this bucket. Defaults to `false`. Enabling this setting does not affect the previously stored bucket policy, except that public and cross-account access within the public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
                * Only the bucket owner and AWS Services can access this buckets if it has a public policy.
         """
@@ -376,6 +414,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         __props__.__dict__["block_public_policy"] = block_public_policy
         __props__.__dict__["bucket"] = bucket
         __props__.__dict__["ignore_public_acls"] = ignore_public_acls
+        __props__.__dict__["region"] = region
         __props__.__dict__["restrict_public_buckets"] = restrict_public_buckets
         return BucketPublicAccessBlock(resource_name, opts=opts, __props__=__props__)
 
@@ -414,6 +453,14 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         * Ignore public ACLs on this bucket and any objects that it contains.
         """
         return pulumi.get(self, "ignore_public_acls")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="restrictPublicBuckets")

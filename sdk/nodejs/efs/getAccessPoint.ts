@@ -25,6 +25,7 @@ export function getAccessPoint(args: GetAccessPointArgs, opts?: pulumi.InvokeOpt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:efs/getAccessPoint:getAccessPoint", {
         "accessPointId": args.accessPointId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,10 @@ export interface GetAccessPointArgs {
      * ID that identifies the file system.
      */
     accessPointId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Key-value mapping of resource tags.
      */
@@ -69,6 +74,7 @@ export interface GetAccessPointResult {
      * Single element list containing operating system user and group applied to all file system requests made using the access point.
      */
     readonly posixUsers: outputs.efs.GetAccessPointPosixUser[];
+    readonly region: string;
     /**
      * Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
      */
@@ -96,6 +102,7 @@ export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:efs/getAccessPoint:getAccessPoint", {
         "accessPointId": args.accessPointId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -108,6 +115,10 @@ export interface GetAccessPointOutputArgs {
      * ID that identifies the file system.
      */
     accessPointId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags.
      */

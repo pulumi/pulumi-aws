@@ -53,6 +53,21 @@ public final class GetTargetGroupPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Mapping of tags, each pair of which must exactly match a pair on the desired target group.
      * 
      * &gt; **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
@@ -77,6 +92,7 @@ public final class GetTargetGroupPlainArgs extends com.pulumi.resources.InvokeAr
         this.arn = $.arn;
         this.loadBalancingAnomalyMitigation = $.loadBalancingAnomalyMitigation;
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -122,6 +138,17 @@ public final class GetTargetGroupPlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
 export function getUserPoolClients(args: GetUserPoolClientsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolClientsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cognito/getUserPoolClients:getUserPoolClients", {
+        "region": args.region,
         "userPoolId": args.userPoolId,
     }, opts);
 }
@@ -29,6 +30,10 @@ export function getUserPoolClients(args: GetUserPoolClientsArgs, opts?: pulumi.I
  * A collection of arguments for invoking getUserPoolClients.
  */
 export interface GetUserPoolClientsArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Cognito user pool ID.
      */
@@ -51,6 +56,7 @@ export interface GetUserPoolClientsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     readonly userPoolId: string;
 }
 /**
@@ -70,6 +76,7 @@ export interface GetUserPoolClientsResult {
 export function getUserPoolClientsOutput(args: GetUserPoolClientsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserPoolClientsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cognito/getUserPoolClients:getUserPoolClients", {
+        "region": args.region,
         "userPoolId": args.userPoolId,
     }, opts);
 }
@@ -78,6 +85,10 @@ export function getUserPoolClientsOutput(args: GetUserPoolClientsOutputArgs, opt
  * A collection of arguments for invoking getUserPoolClients.
  */
 export interface GetUserPoolClientsOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Cognito user pool ID.
      */

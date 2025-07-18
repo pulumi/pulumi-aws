@@ -39,6 +39,7 @@ public final class GetSecurityProfileResult {
      * 
      */
     private List<String> permissions;
+    private String region;
     private String securityProfileId;
     /**
      * @return Map of tags to assign to the Security Profile.
@@ -88,6 +89,9 @@ public final class GetSecurityProfileResult {
     public List<String> permissions() {
         return this.permissions;
     }
+    public String region() {
+        return this.region;
+    }
     public String securityProfileId() {
         return this.securityProfileId;
     }
@@ -115,6 +119,7 @@ public final class GetSecurityProfileResult {
         private String name;
         private String organizationResourceId;
         private List<String> permissions;
+        private String region;
         private String securityProfileId;
         private Map<String,String> tags;
         public Builder() {}
@@ -127,6 +132,7 @@ public final class GetSecurityProfileResult {
     	      this.name = defaults.name;
     	      this.organizationResourceId = defaults.organizationResourceId;
     	      this.permissions = defaults.permissions;
+    	      this.region = defaults.region;
     	      this.securityProfileId = defaults.securityProfileId;
     	      this.tags = defaults.tags;
         }
@@ -191,6 +197,14 @@ public final class GetSecurityProfileResult {
             return permissions(List.of(permissions));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSecurityProfileResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityProfileId(String securityProfileId) {
             if (securityProfileId == null) {
               throw new MissingRequiredPropertyException("GetSecurityProfileResult", "securityProfileId");
@@ -215,6 +229,7 @@ public final class GetSecurityProfileResult {
             _resultValue.name = name;
             _resultValue.organizationResourceId = organizationResourceId;
             _resultValue.permissions = permissions;
+            _resultValue.region = region;
             _resultValue.securityProfileId = securityProfileId;
             _resultValue.tags = tags;
             return _resultValue;

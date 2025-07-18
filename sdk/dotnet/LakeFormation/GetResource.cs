@@ -93,6 +93,12 @@ namespace Pulumi.Aws.LakeFormation
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetResourceArgs()
         {
         }
@@ -106,6 +112,12 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetResourceInvokeArgs()
         {
@@ -126,6 +138,7 @@ namespace Pulumi.Aws.LakeFormation
         /// Date and time the resource was last modified in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         /// </summary>
         public readonly string LastModified;
+        public readonly string Region;
         /// <summary>
         /// Role that the resource was registered with.
         /// </summary>
@@ -139,11 +152,14 @@ namespace Pulumi.Aws.LakeFormation
 
             string lastModified,
 
+            string region,
+
             string roleArn)
         {
             Arn = arn;
             Id = id;
             LastModified = lastModified;
+            Region = region;
             RoleArn = roleArn;
         }
     }

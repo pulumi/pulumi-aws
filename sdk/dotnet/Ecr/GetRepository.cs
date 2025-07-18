@@ -94,6 +94,12 @@ namespace Pulumi.Aws.Ecr
         public string Name { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Registry ID where the repository was created.
         /// </summary>
         [Input("registryId")]
@@ -124,6 +130,12 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Registry ID where the repository was created.
@@ -178,6 +190,7 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         public readonly ImmutableArray<string> MostRecentImageTags;
         public readonly string Name;
+        public readonly string Region;
         public readonly string RegistryId;
         /// <summary>
         /// URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
@@ -204,6 +217,8 @@ namespace Pulumi.Aws.Ecr
 
             string name,
 
+            string region,
+
             string registryId,
 
             string repositoryUrl,
@@ -217,6 +232,7 @@ namespace Pulumi.Aws.Ecr
             ImageTagMutability = imageTagMutability;
             MostRecentImageTags = mostRecentImageTags;
             Name = name;
+            Region = region;
             RegistryId = registryId;
             RepositoryUrl = repositoryUrl;
             Tags = tags;

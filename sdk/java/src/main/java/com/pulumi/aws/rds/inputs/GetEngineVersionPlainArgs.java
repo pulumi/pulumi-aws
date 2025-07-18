@@ -187,6 +187,21 @@ public final class GetEngineVersionPlainArgs extends com.pulumi.resources.Invoke
         return Optional.ofNullable(this.preferredVersions);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="version")
     private @Nullable String version;
 
@@ -208,6 +223,7 @@ public final class GetEngineVersionPlainArgs extends com.pulumi.resources.Invoke
         this.preferredMajorTargets = $.preferredMajorTargets;
         this.preferredUpgradeTargets = $.preferredUpgradeTargets;
         this.preferredVersions = $.preferredVersions;
+        this.region = $.region;
         this.version = $.version;
     }
 
@@ -390,6 +406,17 @@ public final class GetEngineVersionPlainArgs extends com.pulumi.resources.Invoke
          */
         public Builder preferredVersions(String... preferredVersions) {
             return preferredVersions(List.of(preferredVersions));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         public Builder version(@Nullable String version) {

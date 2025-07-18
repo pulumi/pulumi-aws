@@ -105,6 +105,10 @@ export class AutomationRule extends pulumi.CustomResource {
      */
     public readonly isTerminal!: pulumi.Output<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the rule.
      */
     public readonly ruleName!: pulumi.Output<string>;
@@ -117,9 +121,6 @@ export class AutomationRule extends pulumi.CustomResource {
      */
     public readonly ruleStatus!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -140,6 +141,7 @@ export class AutomationRule extends pulumi.CustomResource {
             resourceInputs["criteria"] = state ? state.criteria : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["isTerminal"] = state ? state.isTerminal : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["ruleName"] = state ? state.ruleName : undefined;
             resourceInputs["ruleOrder"] = state ? state.ruleOrder : undefined;
             resourceInputs["ruleStatus"] = state ? state.ruleStatus : undefined;
@@ -160,6 +162,7 @@ export class AutomationRule extends pulumi.CustomResource {
             resourceInputs["criteria"] = args ? args.criteria : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["isTerminal"] = args ? args.isTerminal : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["ruleName"] = args ? args.ruleName : undefined;
             resourceInputs["ruleOrder"] = args ? args.ruleOrder : undefined;
             resourceInputs["ruleStatus"] = args ? args.ruleStatus : undefined;
@@ -197,6 +200,10 @@ export interface AutomationRuleState {
      */
     isTerminal?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The name of the rule.
      */
     ruleName?: pulumi.Input<string>;
@@ -209,9 +216,6 @@ export interface AutomationRuleState {
      */
     ruleStatus?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -235,6 +239,10 @@ export interface AutomationRuleArgs {
      * Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
      */
     isTerminal?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the rule.
      */

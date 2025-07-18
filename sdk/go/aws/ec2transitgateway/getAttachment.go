@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,6 +63,8 @@ func GetAttachment(ctx *pulumi.Context, args *GetAttachmentArgs, opts ...pulumi.
 type GetAttachmentArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetAttachmentFilter `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value tags for the attachment.
 	Tags map[string]string `pulumi:"tags"`
 	// ID of the attachment.
@@ -79,7 +81,8 @@ type GetAttachmentResult struct {
 	AssociationTransitGatewayRouteTableId string                `pulumi:"associationTransitGatewayRouteTableId"`
 	Filters                               []GetAttachmentFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// ID of the resource.
 	ResourceId string `pulumi:"resourceId"`
 	// ID of the AWS account that owns the resource.
@@ -110,6 +113,8 @@ func GetAttachmentOutput(ctx *pulumi.Context, args GetAttachmentOutputArgs, opts
 type GetAttachmentOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetAttachmentFilterArrayInput `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value tags for the attachment.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// ID of the attachment.
@@ -157,6 +162,10 @@ func (o GetAttachmentResultOutput) Filters() GetAttachmentFilterArrayOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetAttachmentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAttachmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetAttachmentResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAttachmentResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the resource.

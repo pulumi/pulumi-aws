@@ -71,6 +71,21 @@ public final class GetManagedPrefixListPlainArgs extends com.pulumi.resources.In
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Map of tags assigned to the resource.
      * 
      */
@@ -91,6 +106,7 @@ public final class GetManagedPrefixListPlainArgs extends com.pulumi.resources.In
         this.filters = $.filters;
         this.id = $.id;
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -160,6 +176,17 @@ public final class GetManagedPrefixListPlainArgs extends com.pulumi.resources.In
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

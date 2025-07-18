@@ -90,6 +90,10 @@ export class FileSystemPolicy extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly policy!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a FileSystemPolicy resource with the given unique name, arguments, and options.
@@ -107,6 +111,7 @@ export class FileSystemPolicy extends pulumi.CustomResource {
             resourceInputs["bypassPolicyLockoutSafetyCheck"] = state ? state.bypassPolicyLockoutSafetyCheck : undefined;
             resourceInputs["fileSystemId"] = state ? state.fileSystemId : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as FileSystemPolicyArgs | undefined;
             if ((!args || args.fileSystemId === undefined) && !opts.urn) {
@@ -118,6 +123,7 @@ export class FileSystemPolicy extends pulumi.CustomResource {
             resourceInputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
             resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FileSystemPolicy.__pulumiType, name, resourceInputs, opts);
@@ -142,6 +148,10 @@ export interface FileSystemPolicyState {
      * The following arguments are optional:
      */
     policy?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -162,4 +172,8 @@ export interface FileSystemPolicyArgs {
      * The following arguments are optional:
      */
     policy: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,6 +72,8 @@ type LogMetricFilter struct {
 	// A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
 	// for extracting metric data out of ingested log events.
 	Pattern pulumi.StringOutput `pulumi:"pattern"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLogMetricFilter registers a new resource with the given unique name, arguments, and options.
@@ -122,6 +124,8 @@ type logMetricFilterState struct {
 	// A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
 	// for extracting metric data out of ingested log events.
 	Pattern *string `pulumi:"pattern"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LogMetricFilterState struct {
@@ -134,6 +138,8 @@ type LogMetricFilterState struct {
 	// A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
 	// for extracting metric data out of ingested log events.
 	Pattern pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LogMetricFilterState) ElementType() reflect.Type {
@@ -150,6 +156,8 @@ type logMetricFilterArgs struct {
 	// A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
 	// for extracting metric data out of ingested log events.
 	Pattern string `pulumi:"pattern"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LogMetricFilter resource.
@@ -163,6 +171,8 @@ type LogMetricFilterArgs struct {
 	// A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
 	// for extracting metric data out of ingested log events.
 	Pattern pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LogMetricFilterArgs) ElementType() reflect.Type {
@@ -271,6 +281,11 @@ func (o LogMetricFilterOutput) Name() pulumi.StringOutput {
 // for extracting metric data out of ingested log events.
 func (o LogMetricFilterOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogMetricFilter) pulumi.StringOutput { return v.Pattern }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LogMetricFilterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogMetricFilter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LogMetricFilterArrayOutput struct{ *pulumi.OutputState }

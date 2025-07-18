@@ -27,7 +27,7 @@ class GetOrderableDbInstanceResult:
     """
     A collection of values returned by getOrderableDbInstance.
     """
-    def __init__(__self__, availability_zones=None, engine=None, engine_version=None, id=None, instance_class=None, license_model=None, preferred_instance_classes=None, vpc=None):
+    def __init__(__self__, availability_zones=None, engine=None, engine_version=None, id=None, instance_class=None, license_model=None, preferred_instance_classes=None, region=None, vpc=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -49,6 +49,9 @@ class GetOrderableDbInstanceResult:
         if preferred_instance_classes and not isinstance(preferred_instance_classes, list):
             raise TypeError("Expected argument 'preferred_instance_classes' to be a list")
         pulumi.set(__self__, "preferred_instance_classes", preferred_instance_classes)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if vpc and not isinstance(vpc, bool):
             raise TypeError("Expected argument 'vpc' to be a bool")
         pulumi.set(__self__, "vpc", vpc)
@@ -96,6 +99,11 @@ class GetOrderableDbInstanceResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def vpc(self) -> builtins.bool:
         return pulumi.get(self, "vpc")
 
@@ -113,6 +121,7 @@ class AwaitableGetOrderableDbInstanceResult(GetOrderableDbInstanceResult):
             instance_class=self.instance_class,
             license_model=self.license_model,
             preferred_instance_classes=self.preferred_instance_classes,
+            region=self.region,
             vpc=self.vpc)
 
 
@@ -121,6 +130,7 @@ def get_orderable_db_instance(engine: Optional[builtins.str] = None,
                               instance_class: Optional[builtins.str] = None,
                               license_model: Optional[builtins.str] = None,
                               preferred_instance_classes: Optional[Sequence[builtins.str]] = None,
+                              region: Optional[builtins.str] = None,
                               vpc: Optional[builtins.bool] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderableDbInstanceResult:
     """
@@ -148,6 +158,7 @@ def get_orderable_db_instance(engine: Optional[builtins.str] = None,
     :param builtins.str instance_class: DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferred_instance_classes`.)
     :param builtins.str license_model: License model. Default: `na`
     :param Sequence[builtins.str] preferred_instance_classes: Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instance_class`.)
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.bool vpc: Enable to show only VPC.
     """
     __args__ = dict()
@@ -156,6 +167,7 @@ def get_orderable_db_instance(engine: Optional[builtins.str] = None,
     __args__['instanceClass'] = instance_class
     __args__['licenseModel'] = license_model
     __args__['preferredInstanceClasses'] = preferred_instance_classes
+    __args__['region'] = region
     __args__['vpc'] = vpc
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:docdb/getOrderableDbInstance:getOrderableDbInstance', __args__, opts=opts, typ=GetOrderableDbInstanceResult).value
@@ -168,12 +180,14 @@ def get_orderable_db_instance(engine: Optional[builtins.str] = None,
         instance_class=pulumi.get(__ret__, 'instance_class'),
         license_model=pulumi.get(__ret__, 'license_model'),
         preferred_instance_classes=pulumi.get(__ret__, 'preferred_instance_classes'),
+        region=pulumi.get(__ret__, 'region'),
         vpc=pulumi.get(__ret__, 'vpc'))
 def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      engine_version: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      instance_class: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      license_model: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      preferred_instance_classes: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
+                                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      vpc: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrderableDbInstanceResult]:
     """
@@ -201,6 +215,7 @@ def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[buil
     :param builtins.str instance_class: DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferred_instance_classes`.)
     :param builtins.str license_model: License model. Default: `na`
     :param Sequence[builtins.str] preferred_instance_classes: Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instance_class`.)
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.bool vpc: Enable to show only VPC.
     """
     __args__ = dict()
@@ -209,6 +224,7 @@ def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[buil
     __args__['instanceClass'] = instance_class
     __args__['licenseModel'] = license_model
     __args__['preferredInstanceClasses'] = preferred_instance_classes
+    __args__['region'] = region
     __args__['vpc'] = vpc
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:docdb/getOrderableDbInstance:getOrderableDbInstance', __args__, opts=opts, typ=GetOrderableDbInstanceResult)
@@ -220,4 +236,5 @@ def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[buil
         instance_class=pulumi.get(__response__, 'instance_class'),
         license_model=pulumi.get(__response__, 'license_model'),
         preferred_instance_classes=pulumi.get(__response__, 'preferred_instance_classes'),
+        region=pulumi.get(__response__, 'region'),
         vpc=pulumi.get(__response__, 'vpc')))

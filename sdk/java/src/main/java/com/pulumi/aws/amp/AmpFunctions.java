@@ -4,6 +4,8 @@
 package com.pulumi.aws.amp;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.amp.inputs.GetDefaultScraperConfigurationArgs;
+import com.pulumi.aws.amp.inputs.GetDefaultScraperConfigurationPlainArgs;
 import com.pulumi.aws.amp.inputs.GetWorkspaceArgs;
 import com.pulumi.aws.amp.inputs.GetWorkspacePlainArgs;
 import com.pulumi.aws.amp.inputs.GetWorkspacesArgs;
@@ -16,7 +18,6 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
-import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class AmpFunctions {
@@ -34,6 +35,7 @@ public final class AmpFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
+     * import com.pulumi.aws.amp.inputs.GetDefaultScraperConfigurationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -47,7 +49,8 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getDefaultScraperConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = AmpFunctions.getDefaultScraperConfiguration(GetDefaultScraperConfigurationArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -57,7 +60,7 @@ public final class AmpFunctions {
      * 
      */
     public static Output<GetDefaultScraperConfigurationResult> getDefaultScraperConfiguration() {
-        return getDefaultScraperConfiguration(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getDefaultScraperConfiguration(GetDefaultScraperConfigurationArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Returns the default scraper configuration used when Amazon EKS creates a scraper for you.
@@ -73,6 +76,7 @@ public final class AmpFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
+     * import com.pulumi.aws.amp.inputs.GetDefaultScraperConfigurationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -86,7 +90,8 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getDefaultScraperConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = AmpFunctions.getDefaultScraperConfiguration(GetDefaultScraperConfigurationArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -96,7 +101,7 @@ public final class AmpFunctions {
      * 
      */
     public static CompletableFuture<GetDefaultScraperConfigurationResult> getDefaultScraperConfigurationPlain() {
-        return getDefaultScraperConfigurationPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getDefaultScraperConfigurationPlain(GetDefaultScraperConfigurationPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Returns the default scraper configuration used when Amazon EKS creates a scraper for you.
@@ -112,6 +117,7 @@ public final class AmpFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
+     * import com.pulumi.aws.amp.inputs.GetDefaultScraperConfigurationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -125,7 +131,8 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getDefaultScraperConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = AmpFunctions.getDefaultScraperConfiguration(GetDefaultScraperConfigurationArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -134,7 +141,7 @@ public final class AmpFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetDefaultScraperConfigurationResult> getDefaultScraperConfiguration(InvokeArgs args) {
+    public static Output<GetDefaultScraperConfigurationResult> getDefaultScraperConfiguration(GetDefaultScraperConfigurationArgs args) {
         return getDefaultScraperConfiguration(args, InvokeOptions.Empty);
     }
     /**
@@ -151,6 +158,7 @@ public final class AmpFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
+     * import com.pulumi.aws.amp.inputs.GetDefaultScraperConfigurationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -164,7 +172,8 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getDefaultScraperConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = AmpFunctions.getDefaultScraperConfiguration(GetDefaultScraperConfigurationArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -173,7 +182,7 @@ public final class AmpFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetDefaultScraperConfigurationResult> getDefaultScraperConfigurationPlain(InvokeArgs args) {
+    public static CompletableFuture<GetDefaultScraperConfigurationResult> getDefaultScraperConfigurationPlain(GetDefaultScraperConfigurationPlainArgs args) {
         return getDefaultScraperConfigurationPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -190,6 +199,7 @@ public final class AmpFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
+     * import com.pulumi.aws.amp.inputs.GetDefaultScraperConfigurationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -203,7 +213,8 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getDefaultScraperConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = AmpFunctions.getDefaultScraperConfiguration(GetDefaultScraperConfigurationArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -212,7 +223,7 @@ public final class AmpFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetDefaultScraperConfigurationResult> getDefaultScraperConfiguration(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetDefaultScraperConfigurationResult> getDefaultScraperConfiguration(GetDefaultScraperConfigurationArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", TypeShape.of(GetDefaultScraperConfigurationResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -229,6 +240,7 @@ public final class AmpFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
+     * import com.pulumi.aws.amp.inputs.GetDefaultScraperConfigurationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -242,7 +254,8 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getDefaultScraperConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = AmpFunctions.getDefaultScraperConfiguration(GetDefaultScraperConfigurationArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -251,7 +264,7 @@ public final class AmpFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetDefaultScraperConfigurationResult> getDefaultScraperConfiguration(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetDefaultScraperConfigurationResult> getDefaultScraperConfiguration(GetDefaultScraperConfigurationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", TypeShape.of(GetDefaultScraperConfigurationResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -268,6 +281,7 @@ public final class AmpFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.amp.AmpFunctions;
+     * import com.pulumi.aws.amp.inputs.GetDefaultScraperConfigurationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -281,7 +295,8 @@ public final class AmpFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = AmpFunctions.getDefaultScraperConfiguration(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = AmpFunctions.getDefaultScraperConfiguration(GetDefaultScraperConfigurationArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -290,7 +305,7 @@ public final class AmpFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetDefaultScraperConfigurationResult> getDefaultScraperConfigurationPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetDefaultScraperConfigurationResult> getDefaultScraperConfigurationPlain(GetDefaultScraperConfigurationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", TypeShape.of(GetDefaultScraperConfigurationResult.class), args, Utilities.withVersion(options));
     }
     /**

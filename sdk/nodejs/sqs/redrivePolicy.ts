@@ -79,6 +79,10 @@ export class RedrivePolicy extends pulumi.CustomResource {
      * The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
      */
     public readonly redrivePolicy!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a RedrivePolicy resource with the given unique name, arguments, and options.
@@ -95,6 +99,7 @@ export class RedrivePolicy extends pulumi.CustomResource {
             const state = argsOrState as RedrivePolicyState | undefined;
             resourceInputs["queueUrl"] = state ? state.queueUrl : undefined;
             resourceInputs["redrivePolicy"] = state ? state.redrivePolicy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as RedrivePolicyArgs | undefined;
             if ((!args || args.queueUrl === undefined) && !opts.urn) {
@@ -105,6 +110,7 @@ export class RedrivePolicy extends pulumi.CustomResource {
             }
             resourceInputs["queueUrl"] = args ? args.queueUrl : undefined;
             resourceInputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RedrivePolicy.__pulumiType, name, resourceInputs, opts);
@@ -123,6 +129,10 @@ export interface RedrivePolicyState {
      * The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
      */
     redrivePolicy?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -137,4 +147,8 @@ export interface RedrivePolicyArgs {
      * The JSON redrive policy for the SQS queue. Accepts two key/val pairs: `deadLetterTargetArn` and `maxReceiveCount`. Learn more in the [Amazon SQS dead-letter queues documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html).
      */
     redrivePolicy: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

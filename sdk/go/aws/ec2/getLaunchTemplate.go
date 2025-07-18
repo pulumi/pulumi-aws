@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +46,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,6 +89,8 @@ type LookupLaunchTemplateArgs struct {
 	Id *string `pulumi:"id"`
 	// Name of the launch template.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -105,14 +107,10 @@ type LookupLaunchTemplateResult struct {
 	DisableApiStop                    bool                                                `pulumi:"disableApiStop"`
 	DisableApiTermination             bool                                                `pulumi:"disableApiTermination"`
 	EbsOptimized                      string                                              `pulumi:"ebsOptimized"`
-	// Deprecated: elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-	ElasticGpuSpecifications []GetLaunchTemplateElasticGpuSpecification `pulumi:"elasticGpuSpecifications"`
-	// Deprecated: elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-	ElasticInferenceAccelerators []GetLaunchTemplateElasticInferenceAccelerator `pulumi:"elasticInferenceAccelerators"`
-	EnclaveOptions               []GetLaunchTemplateEnclaveOption               `pulumi:"enclaveOptions"`
-	Filters                      []GetLaunchTemplateFilter                      `pulumi:"filters"`
-	HibernationOptions           []GetLaunchTemplateHibernationOption           `pulumi:"hibernationOptions"`
-	IamInstanceProfiles          []GetLaunchTemplateIamInstanceProfile          `pulumi:"iamInstanceProfiles"`
+	EnclaveOptions                    []GetLaunchTemplateEnclaveOption                    `pulumi:"enclaveOptions"`
+	Filters                           []GetLaunchTemplateFilter                           `pulumi:"filters"`
+	HibernationOptions                []GetLaunchTemplateHibernationOption                `pulumi:"hibernationOptions"`
+	IamInstanceProfiles               []GetLaunchTemplateIamInstanceProfile               `pulumi:"iamInstanceProfiles"`
 	// ID of the launch template.
 	Id                                string                                  `pulumi:"id"`
 	ImageId                           string                                  `pulumi:"imageId"`
@@ -132,6 +130,7 @@ type LookupLaunchTemplateResult struct {
 	Placements                        []GetLaunchTemplatePlacement            `pulumi:"placements"`
 	PrivateDnsNameOptions             []GetLaunchTemplatePrivateDnsNameOption `pulumi:"privateDnsNameOptions"`
 	RamDiskId                         string                                  `pulumi:"ramDiskId"`
+	Region                            string                                  `pulumi:"region"`
 	SecurityGroupNames                []string                                `pulumi:"securityGroupNames"`
 	TagSpecifications                 []GetLaunchTemplateTagSpecification     `pulumi:"tagSpecifications"`
 	Tags                              map[string]string                       `pulumi:"tags"`
@@ -156,6 +155,8 @@ type LookupLaunchTemplateOutputArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the launch template.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired Launch Template.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -221,20 +222,6 @@ func (o LookupLaunchTemplateResultOutput) DisableApiTermination() pulumi.BoolOut
 
 func (o LookupLaunchTemplateResultOutput) EbsOptimized() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.EbsOptimized }).(pulumi.StringOutput)
-}
-
-// Deprecated: elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-func (o LookupLaunchTemplateResultOutput) ElasticGpuSpecifications() GetLaunchTemplateElasticGpuSpecificationArrayOutput {
-	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateElasticGpuSpecification {
-		return v.ElasticGpuSpecifications
-	}).(GetLaunchTemplateElasticGpuSpecificationArrayOutput)
-}
-
-// Deprecated: elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-func (o LookupLaunchTemplateResultOutput) ElasticInferenceAccelerators() GetLaunchTemplateElasticInferenceAcceleratorArrayOutput {
-	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateElasticInferenceAccelerator {
-		return v.ElasticInferenceAccelerators
-	}).(GetLaunchTemplateElasticInferenceAcceleratorArrayOutput)
 }
 
 func (o LookupLaunchTemplateResultOutput) EnclaveOptions() GetLaunchTemplateEnclaveOptionArrayOutput {
@@ -332,6 +319,10 @@ func (o LookupLaunchTemplateResultOutput) PrivateDnsNameOptions() GetLaunchTempl
 
 func (o LookupLaunchTemplateResultOutput) RamDiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.RamDiskId }).(pulumi.StringOutput)
+}
+
+func (o LookupLaunchTemplateResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupLaunchTemplateResultOutput) SecurityGroupNames() pulumi.StringArrayOutput {

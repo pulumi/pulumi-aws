@@ -27,6 +27,7 @@ class SnapshotCopyArgs:
                  encrypted: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  permanent_restore: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_tier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  temporary_restore_days: Optional[pulumi.Input[builtins.int]] = None):
@@ -39,6 +40,7 @@ class SnapshotCopyArgs:
         :param pulumi.Input[builtins.bool] encrypted: Whether the snapshot is encrypted.
         :param pulumi.Input[builtins.str] kms_key_id: The ARN for the KMS encryption key.
         :param pulumi.Input[builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags for the snapshot.
         :param pulumi.Input[builtins.int] temporary_restore_days: Specifies the number of days for which to temporarily restore an archived snapshot. Required for temporary restores only. The snapshot will be automatically re-archived after this period.
@@ -55,6 +57,8 @@ class SnapshotCopyArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if permanent_restore is not None:
             pulumi.set(__self__, "permanent_restore", permanent_restore)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if storage_tier is not None:
             pulumi.set(__self__, "storage_tier", storage_tier)
         if tags is not None:
@@ -147,6 +151,18 @@ class SnapshotCopyArgs:
         pulumi.set(self, "permanent_restore", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="storageTier")
     def storage_tier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -196,6 +212,7 @@ class _SnapshotCopyState:
                  owner_alias: Optional[pulumi.Input[builtins.str]] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
                  permanent_restore: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_region: Optional[pulumi.Input[builtins.str]] = None,
                  source_snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  storage_tier: Optional[pulumi.Input[builtins.str]] = None,
@@ -215,6 +232,7 @@ class _SnapshotCopyState:
         :param pulumi.Input[builtins.str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[builtins.str] owner_id: The AWS account ID of the snapshot owner.
         :param pulumi.Input[builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_region: The region of the source snapshot.
         :param pulumi.Input[builtins.str] source_snapshot_id: The ARN for the snapshot to be copied.
         :param pulumi.Input[builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
@@ -243,6 +261,8 @@ class _SnapshotCopyState:
             pulumi.set(__self__, "owner_id", owner_id)
         if permanent_restore is not None:
             pulumi.set(__self__, "permanent_restore", permanent_restore)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source_region is not None:
             pulumi.set(__self__, "source_region", source_region)
         if source_snapshot_id is not None:
@@ -251,9 +271,6 @@ class _SnapshotCopyState:
             pulumi.set(__self__, "storage_tier", storage_tier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if temporary_restore_days is not None:
@@ -381,6 +398,18 @@ class _SnapshotCopyState:
         pulumi.set(self, "permanent_restore", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sourceRegion")
     def source_region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -430,7 +459,6 @@ class _SnapshotCopyState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -486,6 +514,7 @@ class SnapshotCopy(pulumi.CustomResource):
                  encrypted: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  permanent_restore: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_region: Optional[pulumi.Input[builtins.str]] = None,
                  source_snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  storage_tier: Optional[pulumi.Input[builtins.str]] = None,
@@ -527,6 +556,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] encrypted: Whether the snapshot is encrypted.
         :param pulumi.Input[builtins.str] kms_key_id: The ARN for the KMS encryption key.
         :param pulumi.Input[builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_region: The region of the source snapshot.
         :param pulumi.Input[builtins.str] source_snapshot_id: The ARN for the snapshot to be copied.
         :param pulumi.Input[builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
@@ -587,6 +617,7 @@ class SnapshotCopy(pulumi.CustomResource):
                  encrypted: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  permanent_restore: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_region: Optional[pulumi.Input[builtins.str]] = None,
                  source_snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  storage_tier: Optional[pulumi.Input[builtins.str]] = None,
@@ -606,6 +637,7 @@ class SnapshotCopy(pulumi.CustomResource):
             __props__.__dict__["encrypted"] = encrypted
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["permanent_restore"] = permanent_restore
+            __props__.__dict__["region"] = region
             if source_region is None and not opts.urn:
                 raise TypeError("Missing required property 'source_region'")
             __props__.__dict__["source_region"] = source_region
@@ -643,6 +675,7 @@ class SnapshotCopy(pulumi.CustomResource):
             owner_alias: Optional[pulumi.Input[builtins.str]] = None,
             owner_id: Optional[pulumi.Input[builtins.str]] = None,
             permanent_restore: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             source_region: Optional[pulumi.Input[builtins.str]] = None,
             source_snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
             storage_tier: Optional[pulumi.Input[builtins.str]] = None,
@@ -667,6 +700,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[builtins.str] owner_id: The AWS account ID of the snapshot owner.
         :param pulumi.Input[builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_region: The region of the source snapshot.
         :param pulumi.Input[builtins.str] source_snapshot_id: The ARN for the snapshot to be copied.
         :param pulumi.Input[builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
@@ -689,6 +723,7 @@ class SnapshotCopy(pulumi.CustomResource):
         __props__.__dict__["owner_alias"] = owner_alias
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["permanent_restore"] = permanent_restore
+        __props__.__dict__["region"] = region
         __props__.__dict__["source_region"] = source_region
         __props__.__dict__["source_snapshot_id"] = source_snapshot_id
         __props__.__dict__["storage_tier"] = storage_tier
@@ -777,6 +812,14 @@ class SnapshotCopy(pulumi.CustomResource):
         return pulumi.get(self, "permanent_restore")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="sourceRegion")
     def source_region(self) -> pulumi.Output[builtins.str]:
         """
@@ -810,7 +853,6 @@ class SnapshotCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

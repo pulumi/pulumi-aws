@@ -83,14 +83,15 @@ export class TrustProvider extends pulumi.CustomResource {
      * The identifier to be used when working with policy rules.
      */
     public readonly policyReferenceName!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly sseSpecification!: pulumi.Output<outputs.verifiedaccess.TrustProviderSseSpecification>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of trust provider can be either user or device-based.
@@ -122,6 +123,7 @@ export class TrustProvider extends pulumi.CustomResource {
             resourceInputs["nativeApplicationOidcOptions"] = state ? state.nativeApplicationOidcOptions : undefined;
             resourceInputs["oidcOptions"] = state ? state.oidcOptions : undefined;
             resourceInputs["policyReferenceName"] = state ? state.policyReferenceName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sseSpecification"] = state ? state.sseSpecification : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -141,6 +143,7 @@ export class TrustProvider extends pulumi.CustomResource {
             resourceInputs["nativeApplicationOidcOptions"] = args ? args.nativeApplicationOidcOptions : undefined;
             resourceInputs["oidcOptions"] = args ? args.oidcOptions : undefined;
             resourceInputs["policyReferenceName"] = args ? args.policyReferenceName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trustProviderType"] = args ? args.trustProviderType : undefined;
@@ -180,14 +183,15 @@ export interface TrustProviderState {
      * The identifier to be used when working with policy rules.
      */
     policyReferenceName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     sseSpecification?: pulumi.Input<inputs.verifiedaccess.TrustProviderSseSpecification>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of trust provider can be either user or device-based.
@@ -229,6 +233,10 @@ export interface TrustProviderArgs {
      * The identifier to be used when working with policy rules.
      */
     policyReferenceName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     sseSpecification?: pulumi.Input<inputs.verifiedaccess.TrustProviderSseSpecification>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

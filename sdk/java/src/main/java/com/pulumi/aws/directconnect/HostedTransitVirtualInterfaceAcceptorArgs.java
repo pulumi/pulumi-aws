@@ -33,6 +33,21 @@ public final class HostedTransitVirtualInterfaceAcceptorArgs extends com.pulumi.
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -66,6 +81,7 @@ public final class HostedTransitVirtualInterfaceAcceptorArgs extends com.pulumi.
 
     private HostedTransitVirtualInterfaceAcceptorArgs(HostedTransitVirtualInterfaceAcceptorArgs $) {
         this.dxGatewayId = $.dxGatewayId;
+        this.region = $.region;
         this.tags = $.tags;
         this.virtualInterfaceId = $.virtualInterfaceId;
     }
@@ -107,6 +123,27 @@ public final class HostedTransitVirtualInterfaceAcceptorArgs extends com.pulumi.
          */
         public Builder dxGatewayId(String dxGatewayId) {
             return dxGatewayId(Output.of(dxGatewayId));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

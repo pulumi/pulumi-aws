@@ -27,7 +27,7 @@ class GetRegionResult:
     """
     A collection of values returned by getRegion.
     """
-    def __init__(__self__, description=None, endpoint=None, id=None, name=None):
+    def __init__(__self__, description=None, endpoint=None, id=None, name=None, region=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -40,6 +40,9 @@ class GetRegionResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -61,8 +64,14 @@ class GetRegionResult:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""name is deprecated. Use region instead.""")
     def name(self) -> builtins.str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
 
 class AwaitableGetRegionResult(GetRegionResult):
@@ -74,25 +83,27 @@ class AwaitableGetRegionResult(GetRegionResult):
             description=self.description,
             endpoint=self.endpoint,
             id=self.id,
-            name=self.name)
+            name=self.name,
+            region=self.region)
 
 
 def get_region(endpoint: Optional[builtins.str] = None,
                id: Optional[builtins.str] = None,
                name: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegionResult:
     """
-    `get_region` provides details about a specific AWS region.
+    `get_region` provides details about a specific AWS Region.
 
-    As well as validating a given region name this resource can be used to
-    discover the name of the region configured within the provider. The latter
+    As well as validating a given Region name this resource can be used to
+    discover the name of the Region configured within the provider. The latter
     can be useful in a child module which is inheriting an AWS provider
     configuration from its parent module.
 
     ## Example Usage
 
     The following example shows how the resource might be used to obtain
-    the name of the AWS region configured on the provider.
+    the name of the AWS Region configured on the provider.
 
     ```python
     import pulumi
@@ -103,12 +114,14 @@ def get_region(endpoint: Optional[builtins.str] = None,
 
 
     :param builtins.str endpoint: EC2 endpoint of the region to select.
-    :param builtins.str name: Full name of the region to select.
+    :param builtins.str name: Full name of the region to select. Use `region` instead.
+    :param builtins.str region: Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['endpoint'] = endpoint
     __args__['id'] = id
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:index/getRegion:getRegion', __args__, opts=opts, typ=GetRegionResult).value
 
@@ -116,23 +129,25 @@ def get_region(endpoint: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         id=pulumi.get(__ret__, 'id'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'))
 def get_region_output(endpoint: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegionResult]:
     """
-    `get_region` provides details about a specific AWS region.
+    `get_region` provides details about a specific AWS Region.
 
-    As well as validating a given region name this resource can be used to
-    discover the name of the region configured within the provider. The latter
+    As well as validating a given Region name this resource can be used to
+    discover the name of the Region configured within the provider. The latter
     can be useful in a child module which is inheriting an AWS provider
     configuration from its parent module.
 
     ## Example Usage
 
     The following example shows how the resource might be used to obtain
-    the name of the AWS region configured on the provider.
+    the name of the AWS Region configured on the provider.
 
     ```python
     import pulumi
@@ -143,16 +158,19 @@ def get_region_output(endpoint: Optional[pulumi.Input[Optional[builtins.str]]] =
 
 
     :param builtins.str endpoint: EC2 endpoint of the region to select.
-    :param builtins.str name: Full name of the region to select.
+    :param builtins.str name: Full name of the region to select. Use `region` instead.
+    :param builtins.str region: Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['endpoint'] = endpoint
     __args__['id'] = id
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:index/getRegion:getRegion', __args__, opts=opts, typ=GetRegionResult)
     return __ret__.apply(lambda __response__: GetRegionResult(
         description=pulumi.get(__response__, 'description'),
         endpoint=pulumi.get(__response__, 'endpoint'),
         id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name')))
+        name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region')))

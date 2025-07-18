@@ -79,6 +79,12 @@ namespace Pulumi.Aws.CloudWatch
         [Output("pattern")]
         public Output<string> Pattern { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a LogMetricFilter resource with the given unique name, arguments, and options.
@@ -150,6 +156,12 @@ namespace Pulumi.Aws.CloudWatch
         [Input("pattern", required: true)]
         public Input<string> Pattern { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public LogMetricFilterArgs()
         {
         }
@@ -182,6 +194,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public LogMetricFilterState()
         {

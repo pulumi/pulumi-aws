@@ -29,6 +29,7 @@ public final class GetSubnetGroupResult {
      */
     private String id;
     private String name;
+    private String region;
     /**
      * @return Set of VPC Subnet ID-s of the subnet group.
      * 
@@ -70,6 +71,9 @@ public final class GetSubnetGroupResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Set of VPC Subnet ID-s of the subnet group.
      * 
@@ -105,6 +109,7 @@ public final class GetSubnetGroupResult {
         private String description;
         private String id;
         private String name;
+        private String region;
         private List<String> subnetIds;
         private @Nullable Map<String,String> tags;
         private String vpcId;
@@ -115,6 +120,7 @@ public final class GetSubnetGroupResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.subnetIds = defaults.subnetIds;
     	      this.tags = defaults.tags;
     	      this.vpcId = defaults.vpcId;
@@ -153,6 +159,14 @@ public final class GetSubnetGroupResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSubnetGroupResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder subnetIds(List<String> subnetIds) {
             if (subnetIds == null) {
               throw new MissingRequiredPropertyException("GetSubnetGroupResult", "subnetIds");
@@ -183,6 +197,7 @@ public final class GetSubnetGroupResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.subnetIds = subnetIds;
             _resultValue.tags = tags;
             _resultValue.vpcId = vpcId;

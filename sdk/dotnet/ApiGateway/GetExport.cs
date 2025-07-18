@@ -112,6 +112,12 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Identifier of the associated REST API.
         /// </summary>
         [Input("restApiId", required: true)]
@@ -156,6 +162,12 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Identifier of the associated REST API.
         /// </summary>
         [Input("restApiId", required: true)]
@@ -196,6 +208,7 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public readonly string Id;
         public readonly ImmutableDictionary<string, string>? Parameters;
+        public readonly string Region;
         public readonly string RestApiId;
         public readonly string StageName;
 
@@ -215,6 +228,8 @@ namespace Pulumi.Aws.ApiGateway
 
             ImmutableDictionary<string, string>? parameters,
 
+            string region,
+
             string restApiId,
 
             string stageName)
@@ -226,6 +241,7 @@ namespace Pulumi.Aws.ApiGateway
             ExportType = exportType;
             Id = id;
             Parameters = parameters;
+            Region = region;
             RestApiId = restApiId;
             StageName = stageName;
         }

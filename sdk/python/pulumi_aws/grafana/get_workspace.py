@@ -27,7 +27,7 @@ class GetWorkspaceResult:
     """
     A collection of values returned by getWorkspace.
     """
-    def __init__(__self__, account_access_type=None, arn=None, authentication_providers=None, created_date=None, data_sources=None, description=None, endpoint=None, grafana_version=None, id=None, last_updated_date=None, name=None, notification_destinations=None, organization_role_name=None, organizational_units=None, permission_type=None, role_arn=None, saml_configuration_status=None, stack_set_name=None, status=None, tags=None, workspace_id=None):
+    def __init__(__self__, account_access_type=None, arn=None, authentication_providers=None, created_date=None, data_sources=None, description=None, endpoint=None, grafana_version=None, id=None, last_updated_date=None, name=None, notification_destinations=None, organization_role_name=None, organizational_units=None, permission_type=None, region=None, role_arn=None, saml_configuration_status=None, stack_set_name=None, status=None, tags=None, workspace_id=None):
         if account_access_type and not isinstance(account_access_type, str):
             raise TypeError("Expected argument 'account_access_type' to be a str")
         pulumi.set(__self__, "account_access_type", account_access_type)
@@ -73,6 +73,9 @@ class GetWorkspaceResult:
         if permission_type and not isinstance(permission_type, str):
             raise TypeError("Expected argument 'permission_type' to be a str")
         pulumi.set(__self__, "permission_type", permission_type)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -213,6 +216,11 @@ class GetWorkspaceResult:
         return pulumi.get(self, "permission_type")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> builtins.str:
         """
@@ -276,6 +284,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             organization_role_name=self.organization_role_name,
             organizational_units=self.organizational_units,
             permission_type=self.permission_type,
+            region=self.region,
             role_arn=self.role_arn,
             saml_configuration_status=self.saml_configuration_status,
             stack_set_name=self.stack_set_name,
@@ -284,7 +293,8 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             workspace_id=self.workspace_id)
 
 
-def get_workspace(tags: Optional[Mapping[str, builtins.str]] = None,
+def get_workspace(region: Optional[builtins.str] = None,
+                  tags: Optional[Mapping[str, builtins.str]] = None,
                   workspace_id: Optional[builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
@@ -302,10 +312,12 @@ def get_workspace(tags: Optional[Mapping[str, builtins.str]] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags assigned to the resource
     :param builtins.str workspace_id: Grafana workspace ID.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['workspaceId'] = workspace_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -327,13 +339,15 @@ def get_workspace(tags: Optional[Mapping[str, builtins.str]] = None,
         organization_role_name=pulumi.get(__ret__, 'organization_role_name'),
         organizational_units=pulumi.get(__ret__, 'organizational_units'),
         permission_type=pulumi.get(__ret__, 'permission_type'),
+        region=pulumi.get(__ret__, 'region'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         saml_configuration_status=pulumi.get(__ret__, 'saml_configuration_status'),
         stack_set_name=pulumi.get(__ret__, 'stack_set_name'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
+def get_workspace_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                          workspace_id: Optional[pulumi.Input[builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
@@ -351,10 +365,12 @@ def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, built
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags assigned to the resource
     :param builtins.str workspace_id: Grafana workspace ID.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['workspaceId'] = workspace_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -375,6 +391,7 @@ def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, built
         organization_role_name=pulumi.get(__response__, 'organization_role_name'),
         organizational_units=pulumi.get(__response__, 'organizational_units'),
         permission_type=pulumi.get(__response__, 'permission_type'),
+        region=pulumi.get(__response__, 'region'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         saml_configuration_status=pulumi.get(__response__, 'saml_configuration_status'),
         stack_set_name=pulumi.get(__response__, 'stack_set_name'),

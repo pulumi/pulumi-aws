@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lex"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,13 +62,13 @@ type V2modelsBotVersion struct {
 	// Version number assigned to the version.
 	BotVersion pulumi.StringOutput `pulumi:"botVersion"`
 	// A description of the version. Use the description to help identify the version in lists.
+	// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-	//
-	// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
-	// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
 	LocaleSpecification V2modelsBotVersionLocaleSpecificationMapOutput `pulumi:"localeSpecification"`
-	Timeouts            V2modelsBotVersionTimeoutsPtrOutput            `pulumi:"timeouts"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringOutput                 `pulumi:"region"`
+	Timeouts V2modelsBotVersionTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
 // NewV2modelsBotVersion registers a new resource with the given unique name, arguments, and options.
@@ -112,13 +112,13 @@ type v2modelsBotVersionState struct {
 	// Version number assigned to the version.
 	BotVersion *string `pulumi:"botVersion"`
 	// A description of the version. Use the description to help identify the version in lists.
+	// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
 	Description *string `pulumi:"description"`
 	// Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-	//
-	// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
-	// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
 	LocaleSpecification map[string]V2modelsBotVersionLocaleSpecification `pulumi:"localeSpecification"`
-	Timeouts            *V2modelsBotVersionTimeouts                      `pulumi:"timeouts"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   *string                     `pulumi:"region"`
+	Timeouts *V2modelsBotVersionTimeouts `pulumi:"timeouts"`
 }
 
 type V2modelsBotVersionState struct {
@@ -127,13 +127,13 @@ type V2modelsBotVersionState struct {
 	// Version number assigned to the version.
 	BotVersion pulumi.StringPtrInput
 	// A description of the version. Use the description to help identify the version in lists.
+	// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
 	Description pulumi.StringPtrInput
 	// Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-	//
-	// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
-	// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
 	LocaleSpecification V2modelsBotVersionLocaleSpecificationMapInput
-	Timeouts            V2modelsBotVersionTimeoutsPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts V2modelsBotVersionTimeoutsPtrInput
 }
 
 func (V2modelsBotVersionState) ElementType() reflect.Type {
@@ -146,13 +146,13 @@ type v2modelsBotVersionArgs struct {
 	// Version number assigned to the version.
 	BotVersion *string `pulumi:"botVersion"`
 	// A description of the version. Use the description to help identify the version in lists.
+	// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
 	Description *string `pulumi:"description"`
 	// Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-	//
-	// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
-	// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
 	LocaleSpecification map[string]V2modelsBotVersionLocaleSpecification `pulumi:"localeSpecification"`
-	Timeouts            *V2modelsBotVersionTimeouts                      `pulumi:"timeouts"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   *string                     `pulumi:"region"`
+	Timeouts *V2modelsBotVersionTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a V2modelsBotVersion resource.
@@ -162,13 +162,13 @@ type V2modelsBotVersionArgs struct {
 	// Version number assigned to the version.
 	BotVersion pulumi.StringPtrInput
 	// A description of the version. Use the description to help identify the version in lists.
+	// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
 	Description pulumi.StringPtrInput
 	// Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-	//
-	// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
-	// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
 	LocaleSpecification V2modelsBotVersionLocaleSpecificationMapInput
-	Timeouts            V2modelsBotVersionTimeoutsPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts V2modelsBotVersionTimeoutsPtrInput
 }
 
 func (V2modelsBotVersionArgs) ElementType() reflect.Type {
@@ -269,18 +269,21 @@ func (o V2modelsBotVersionOutput) BotVersion() pulumi.StringOutput {
 }
 
 // A description of the version. Use the description to help identify the version in lists.
+// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
 func (o V2modelsBotVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *V2modelsBotVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the locales that Amazon Lex adds to this version. You can choose the draft version or any other previously published version for each locale. When you specify a source version, the locale data is copied from the source version to the new version.
-//
-// The attribute value is a map with one or more entries, each of which has a locale name as the key and an object with the following attribute as the value:
-// * `sourceBotVersion` - (Required) The version of a bot used for a bot locale. Valid values: `DRAFT`, a numeric version.
 func (o V2modelsBotVersionOutput) LocaleSpecification() V2modelsBotVersionLocaleSpecificationMapOutput {
 	return o.ApplyT(func(v *V2modelsBotVersion) V2modelsBotVersionLocaleSpecificationMapOutput {
 		return v.LocaleSpecification
 	}).(V2modelsBotVersionLocaleSpecificationMapOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o V2modelsBotVersionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *V2modelsBotVersion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o V2modelsBotVersionOutput) Timeouts() V2modelsBotVersionTimeoutsPtrOutput {

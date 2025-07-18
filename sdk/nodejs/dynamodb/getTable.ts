@@ -25,6 +25,7 @@ export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:dynamodb/getTable:getTable", {
         "name": args.name,
+        "region": args.region,
         "serverSideEncryption": args.serverSideEncryption,
         "tags": args.tags,
     }, opts);
@@ -38,6 +39,10 @@ export interface GetTableArgs {
      * Name of the DynamoDB table.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     serverSideEncryption?: inputs.dynamodb.GetTableServerSideEncryption;
     tags?: {[key: string]: string};
 }
@@ -62,6 +67,7 @@ export interface GetTableResult {
     readonly pointInTimeRecovery: outputs.dynamodb.GetTablePointInTimeRecovery;
     readonly rangeKey: string;
     readonly readCapacity: number;
+    readonly region: string;
     readonly replicas: outputs.dynamodb.GetTableReplica[];
     readonly serverSideEncryption: outputs.dynamodb.GetTableServerSideEncryption;
     readonly streamArn: string;
@@ -91,6 +97,7 @@ export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:dynamodb/getTable:getTable", {
         "name": args.name,
+        "region": args.region,
         "serverSideEncryption": args.serverSideEncryption,
         "tags": args.tags,
     }, opts);
@@ -104,6 +111,10 @@ export interface GetTableOutputArgs {
      * Name of the DynamoDB table.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     serverSideEncryption?: pulumi.Input<inputs.dynamodb.GetTableServerSideEncryptionArgs>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

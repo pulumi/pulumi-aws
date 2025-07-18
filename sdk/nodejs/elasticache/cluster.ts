@@ -277,8 +277,6 @@ export class Cluster extends pulumi.CustomResource {
     public readonly outpostMode!: pulumi.Output<string | undefined>;
     /**
      * The name of the parameter group to associate with this cache cluster.
-     *
-     * The following arguments are optional:
      */
     public readonly parameterGroupName!: pulumi.Output<string>;
     /**
@@ -293,6 +291,10 @@ export class Cluster extends pulumi.CustomResource {
      * The outpost ARN in which the cache cluster will be created.
      */
     public readonly preferredOutpostArn!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     /**
      * ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
      */
@@ -327,8 +329,6 @@ export class Cluster extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -374,6 +374,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["preferredAvailabilityZones"] = state ? state.preferredAvailabilityZones : undefined;
             resourceInputs["preferredOutpostArn"] = state ? state.preferredOutpostArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicationGroupId"] = state ? state.replicationGroupId : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["snapshotArns"] = state ? state.snapshotArns : undefined;
@@ -406,6 +407,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["preferredAvailabilityZones"] = args ? args.preferredAvailabilityZones : undefined;
             resourceInputs["preferredOutpostArn"] = args ? args.preferredOutpostArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicationGroupId"] = args ? args.replicationGroupId : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["snapshotArns"] = args ? args.snapshotArns : undefined;
@@ -531,8 +533,6 @@ export interface ClusterState {
     outpostMode?: pulumi.Input<string>;
     /**
      * The name of the parameter group to associate with this cache cluster.
-     *
-     * The following arguments are optional:
      */
     parameterGroupName?: pulumi.Input<string>;
     /**
@@ -547,6 +547,10 @@ export interface ClusterState {
      * The outpost ARN in which the cache cluster will be created.
      */
     preferredOutpostArn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
      */
@@ -581,8 +585,6 @@ export interface ClusterState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -675,8 +677,6 @@ export interface ClusterArgs {
     outpostMode?: pulumi.Input<string>;
     /**
      * The name of the parameter group to associate with this cache cluster.
-     *
-     * The following arguments are optional:
      */
     parameterGroupName?: pulumi.Input<string>;
     /**
@@ -691,6 +691,10 @@ export interface ClusterArgs {
      * The outpost ARN in which the cache cluster will be created.
      */
     preferredOutpostArn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
      */

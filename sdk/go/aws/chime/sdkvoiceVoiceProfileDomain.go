@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chime"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,11 +73,12 @@ type SdkvoiceVoiceProfileDomain struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of Voice Profile Domain.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration for server side encryption.
 	ServerSideEncryptionConfiguration SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput `pulumi:"serverSideEncryptionConfiguration"`
 	Tags                              pulumi.StringMapOutput                                            `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll                           pulumi.StringMapOutput                                            `pulumi:"tagsAll"`
 }
 
 // NewSdkvoiceVoiceProfileDomain registers a new resource with the given unique name, arguments, and options.
@@ -119,11 +120,12 @@ type sdkvoiceVoiceProfileDomainState struct {
 	Description *string `pulumi:"description"`
 	// Name of Voice Profile Domain.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration for server side encryption.
 	ServerSideEncryptionConfiguration *SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	Tags                              map[string]string                                            `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll                           map[string]string                                            `pulumi:"tagsAll"`
 }
 
 type SdkvoiceVoiceProfileDomainState struct {
@@ -133,11 +135,12 @@ type SdkvoiceVoiceProfileDomainState struct {
 	Description pulumi.StringPtrInput
 	// Name of Voice Profile Domain.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration for server side encryption.
 	ServerSideEncryptionConfiguration SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationPtrInput
 	Tags                              pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
+	TagsAll                           pulumi.StringMapInput
 }
 
 func (SdkvoiceVoiceProfileDomainState) ElementType() reflect.Type {
@@ -149,6 +152,8 @@ type sdkvoiceVoiceProfileDomainArgs struct {
 	Description *string `pulumi:"description"`
 	// Name of Voice Profile Domain.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration for server side encryption.
 	ServerSideEncryptionConfiguration SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	Tags                              map[string]string                                           `pulumi:"tags"`
@@ -160,6 +165,8 @@ type SdkvoiceVoiceProfileDomainArgs struct {
 	Description pulumi.StringPtrInput
 	// Name of Voice Profile Domain.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration for server side encryption.
 	ServerSideEncryptionConfiguration SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationInput
 	Tags                              pulumi.StringMapInput
@@ -267,6 +274,11 @@ func (o SdkvoiceVoiceProfileDomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o SdkvoiceVoiceProfileDomainOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomain) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Configuration for server side encryption.
 func (o SdkvoiceVoiceProfileDomainOutput) ServerSideEncryptionConfiguration() SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput {
 	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomain) SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationOutput {
@@ -278,7 +290,6 @@ func (o SdkvoiceVoiceProfileDomainOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomain) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o SdkvoiceVoiceProfileDomainOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SdkvoiceVoiceProfileDomain) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/oam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/oam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -96,6 +96,8 @@ type SinkPolicy struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID string that AWS generated as part of the sink ARN.
 	SinkId pulumi.StringOutput `pulumi:"sinkId"`
 	// ARN of the sink to attach this policy to.
@@ -142,6 +144,8 @@ type sinkPolicyState struct {
 	Arn *string `pulumi:"arn"`
 	// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
 	Policy *string `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID string that AWS generated as part of the sink ARN.
 	SinkId *string `pulumi:"sinkId"`
 	// ARN of the sink to attach this policy to.
@@ -153,6 +157,8 @@ type SinkPolicyState struct {
 	Arn pulumi.StringPtrInput
 	// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
 	Policy pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID string that AWS generated as part of the sink ARN.
 	SinkId pulumi.StringPtrInput
 	// ARN of the sink to attach this policy to.
@@ -166,6 +172,8 @@ func (SinkPolicyState) ElementType() reflect.Type {
 type sinkPolicyArgs struct {
 	// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
 	Policy string `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the sink to attach this policy to.
 	SinkIdentifier string `pulumi:"sinkIdentifier"`
 }
@@ -174,6 +182,8 @@ type sinkPolicyArgs struct {
 type SinkPolicyArgs struct {
 	// JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
 	Policy pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the sink to attach this policy to.
 	SinkIdentifier pulumi.StringInput
 }
@@ -273,6 +283,11 @@ func (o SinkPolicyOutput) Arn() pulumi.StringOutput {
 // JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
 func (o SinkPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *SinkPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o SinkPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SinkPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID string that AWS generated as part of the sink ARN.

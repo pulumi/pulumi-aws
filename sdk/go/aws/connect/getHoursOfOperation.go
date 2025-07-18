@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,6 +88,8 @@ type LookupHoursOfOperationArgs struct {
 	//
 	// > **NOTE:** `instanceId` and one of either `name` or `hoursOfOperationId` is required.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the Hours of Operation.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -107,7 +109,8 @@ type LookupHoursOfOperationResult struct {
 	// Identifier of the hosting Amazon Connect Instance.
 	InstanceId string `pulumi:"instanceId"`
 	// Name of the Hours of Operation.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Map of tags to assign to the Hours of Operation.
 	Tags map[string]string `pulumi:"tags"`
 	// Time zone of the Hours of Operation.
@@ -133,6 +136,8 @@ type LookupHoursOfOperationOutputArgs struct {
 	//
 	// > **NOTE:** `instanceId` and one of either `name` or `hoursOfOperationId` is required.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags to assign to the Hours of Operation.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -189,6 +194,10 @@ func (o LookupHoursOfOperationResultOutput) InstanceId() pulumi.StringOutput {
 // Name of the Hours of Operation.
 func (o LookupHoursOfOperationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHoursOfOperationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupHoursOfOperationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHoursOfOperationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags to assign to the Hours of Operation.

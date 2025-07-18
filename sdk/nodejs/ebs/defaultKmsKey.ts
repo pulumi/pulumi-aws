@@ -63,6 +63,10 @@ export class DefaultKmsKey extends pulumi.CustomResource {
      * The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
      */
     public readonly keyArn!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DefaultKmsKey resource with the given unique name, arguments, and options.
@@ -78,12 +82,14 @@ export class DefaultKmsKey extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DefaultKmsKeyState | undefined;
             resourceInputs["keyArn"] = state ? state.keyArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DefaultKmsKeyArgs | undefined;
             if ((!args || args.keyArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'keyArn'");
             }
             resourceInputs["keyArn"] = args ? args.keyArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DefaultKmsKey.__pulumiType, name, resourceInputs, opts);
@@ -98,6 +104,10 @@ export interface DefaultKmsKeyState {
      * The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
      */
     keyArn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -108,4 +118,8 @@ export interface DefaultKmsKeyArgs {
      * The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
      */
     keyArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

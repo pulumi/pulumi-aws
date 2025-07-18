@@ -4,7 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
 import {Policy} from "./index";
 
 /**
@@ -73,9 +72,13 @@ export class PolicyAttachment extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The identity to which the policy is attached.
      */
-    public readonly target!: pulumi.Output<ARN>;
+    public readonly target!: pulumi.Output<string>;
 
     /**
      * Create a PolicyAttachment resource with the given unique name, arguments, and options.
@@ -91,6 +94,7 @@ export class PolicyAttachment extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PolicyAttachmentState | undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["target"] = state ? state.target : undefined;
         } else {
             const args = argsOrState as PolicyAttachmentArgs | undefined;
@@ -101,6 +105,7 @@ export class PolicyAttachment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'target'");
             }
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["target"] = args ? args.target : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -117,9 +122,13 @@ export interface PolicyAttachmentState {
      */
     policy?: pulumi.Input<string | Policy>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The identity to which the policy is attached.
      */
-    target?: pulumi.Input<ARN>;
+    target?: pulumi.Input<string>;
 }
 
 /**
@@ -131,7 +140,11 @@ export interface PolicyAttachmentArgs {
      */
     policy: pulumi.Input<string | Policy>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The identity to which the policy is attached.
      */
-    target: pulumi.Input<ARN>;
+    target: pulumi.Input<string>;
 }

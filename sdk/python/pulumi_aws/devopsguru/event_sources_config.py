@@ -22,13 +22,17 @@ __all__ = ['EventSourcesConfigArgs', 'EventSourcesConfig']
 @pulumi.input_type
 class EventSourcesConfigArgs:
     def __init__(__self__, *,
-                 event_sources: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceArgs']]]] = None):
+                 event_sources: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a EventSourcesConfig resource.
         :param pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceArgs']]] event_sources: Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if event_sources is not None:
             pulumi.set(__self__, "event_sources", event_sources)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="eventSources")
@@ -41,18 +45,34 @@ class EventSourcesConfigArgs:
     @event_sources.setter
     def event_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceArgs']]]]):
         pulumi.set(self, "event_sources", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
 class _EventSourcesConfigState:
     def __init__(__self__, *,
-                 event_sources: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceArgs']]]] = None):
+                 event_sources: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventSourcesConfig resources.
         :param pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceArgs']]] event_sources: Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if event_sources is not None:
             pulumi.set(__self__, "event_sources", event_sources)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="eventSources")
@@ -65,6 +85,18 @@ class _EventSourcesConfigState:
     @event_sources.setter
     def event_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceArgs']]]]):
         pulumi.set(self, "event_sources", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
 
 @pulumi.type_token("aws:devopsguru/eventSourcesConfig:EventSourcesConfig")
@@ -74,6 +106,7 @@ class EventSourcesConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  event_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventSourcesConfigEventSourceArgs', 'EventSourcesConfigEventSourceArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -93,7 +126,7 @@ class EventSourcesConfig(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import DevOps Guru Event Sources Config using the `id`. For example:
+        Using `pulumi import`, import DevOps Guru Event Sources Config using the region. For example:
 
         ```sh
         $ pulumi import aws:devopsguru/eventSourcesConfig:EventSourcesConfig example us-east-1
@@ -102,6 +135,7 @@ class EventSourcesConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventSourcesConfigEventSourceArgs', 'EventSourcesConfigEventSourceArgsDict']]]] event_sources: Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -127,7 +161,7 @@ class EventSourcesConfig(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import DevOps Guru Event Sources Config using the `id`. For example:
+        Using `pulumi import`, import DevOps Guru Event Sources Config using the region. For example:
 
         ```sh
         $ pulumi import aws:devopsguru/eventSourcesConfig:EventSourcesConfig example us-east-1
@@ -149,6 +183,7 @@ class EventSourcesConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  event_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventSourcesConfigEventSourceArgs', 'EventSourcesConfigEventSourceArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -159,6 +194,7 @@ class EventSourcesConfig(pulumi.CustomResource):
             __props__ = EventSourcesConfigArgs.__new__(EventSourcesConfigArgs)
 
             __props__.__dict__["event_sources"] = event_sources
+            __props__.__dict__["region"] = region
         super(EventSourcesConfig, __self__).__init__(
             'aws:devopsguru/eventSourcesConfig:EventSourcesConfig',
             resource_name,
@@ -169,7 +205,8 @@ class EventSourcesConfig(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            event_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventSourcesConfigEventSourceArgs', 'EventSourcesConfigEventSourceArgsDict']]]]] = None) -> 'EventSourcesConfig':
+            event_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EventSourcesConfigEventSourceArgs', 'EventSourcesConfigEventSourceArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'EventSourcesConfig':
         """
         Get an existing EventSourcesConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -178,12 +215,14 @@ class EventSourcesConfig(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EventSourcesConfigEventSourceArgs', 'EventSourcesConfigEventSourceArgsDict']]]] event_sources: Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _EventSourcesConfigState.__new__(_EventSourcesConfigState)
 
         __props__.__dict__["event_sources"] = event_sources
+        __props__.__dict__["region"] = region
         return EventSourcesConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -193,4 +232,12 @@ class EventSourcesConfig(pulumi.CustomResource):
         Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `event_sources` below.
         """
         return pulumi.get(self, "event_sources")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

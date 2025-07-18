@@ -27,6 +27,7 @@ public final class GetImageResult {
      */
     private String name;
     private String operatingSystemType;
+    private String region;
     /**
      * @return Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
      * 
@@ -66,6 +67,9 @@ public final class GetImageResult {
     public String operatingSystemType() {
         return this.operatingSystemType;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Specifies whether the image is running on dedicated hardware. When Bring Your Own License (BYOL) is enabled, this value is set to DEDICATED. For more information, see [Bring Your Own Windows Desktop Images](https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html).
      * 
@@ -95,6 +99,7 @@ public final class GetImageResult {
         private String imageId;
         private String name;
         private String operatingSystemType;
+        private String region;
         private String requiredTenancy;
         private String state;
         public Builder() {}
@@ -105,6 +110,7 @@ public final class GetImageResult {
     	      this.imageId = defaults.imageId;
     	      this.name = defaults.name;
     	      this.operatingSystemType = defaults.operatingSystemType;
+    	      this.region = defaults.region;
     	      this.requiredTenancy = defaults.requiredTenancy;
     	      this.state = defaults.state;
         }
@@ -150,6 +156,14 @@ public final class GetImageResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetImageResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder requiredTenancy(String requiredTenancy) {
             if (requiredTenancy == null) {
               throw new MissingRequiredPropertyException("GetImageResult", "requiredTenancy");
@@ -172,6 +186,7 @@ public final class GetImageResult {
             _resultValue.imageId = imageId;
             _resultValue.name = name;
             _resultValue.operatingSystemType = operatingSystemType;
+            _resultValue.region = region;
             _resultValue.requiredTenancy = requiredTenancy;
             _resultValue.state = state;
             return _resultValue;

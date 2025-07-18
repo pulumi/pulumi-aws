@@ -162,6 +162,10 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     public readonly preferredSubnetId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
      */
     public /*out*/ readonly remoteAdministrationEndpoint!: pulumi.Output<string>;
@@ -195,8 +199,6 @@ export class WindowsFileSystem extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -244,6 +246,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["preferredFileServerIp"] = state ? state.preferredFileServerIp : undefined;
             resourceInputs["preferredSubnetId"] = state ? state.preferredSubnetId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["remoteAdministrationEndpoint"] = state ? state.remoteAdministrationEndpoint : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["selfManagedActiveDirectory"] = state ? state.selfManagedActiveDirectory : undefined;
@@ -276,6 +279,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
             resourceInputs["finalBackupTags"] = args ? args.finalBackupTags : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["preferredSubnetId"] = args ? args.preferredSubnetId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["selfManagedActiveDirectory"] = args ? args.selfManagedActiveDirectory : undefined;
             resourceInputs["skipFinalBackup"] = args ? args.skipFinalBackup : undefined;
@@ -372,6 +376,10 @@ export interface WindowsFileSystemState {
      */
     preferredSubnetId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * For `MULTI_AZ_1` deployment types, use this endpoint when performing administrative tasks on the file system using Amazon FSx Remote PowerShell. For `SINGLE_AZ_1` deployment types, this is the DNS name of the file system.
      */
     remoteAdministrationEndpoint?: pulumi.Input<string>;
@@ -405,8 +413,6 @@ export interface WindowsFileSystemState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -477,6 +483,10 @@ export interface WindowsFileSystemArgs {
      * Specifies the subnet in which you want the preferred file server to be located. Required for when deployment type is `MULTI_AZ_1`.
      */
     preferredSubnetId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
      */

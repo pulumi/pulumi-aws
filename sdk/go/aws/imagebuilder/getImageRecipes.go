@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,6 +62,8 @@ type GetImageRecipesArgs struct {
 	Filters []GetImageRecipesFilter `pulumi:"filters"`
 	// Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
 	Owner *string `pulumi:"owner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getImageRecipes.
@@ -72,8 +74,9 @@ type GetImageRecipesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Set of names of the matched Image Builder Image Recipes.
-	Names []string `pulumi:"names"`
-	Owner *string  `pulumi:"owner"`
+	Names  []string `pulumi:"names"`
+	Owner  *string  `pulumi:"owner"`
+	Region string   `pulumi:"region"`
 }
 
 func GetImageRecipesOutput(ctx *pulumi.Context, args GetImageRecipesOutputArgs, opts ...pulumi.InvokeOption) GetImageRecipesResultOutput {
@@ -91,6 +94,8 @@ type GetImageRecipesOutputArgs struct {
 	Filters GetImageRecipesFilterArrayInput `pulumi:"filters"`
 	// Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
 	Owner pulumi.StringPtrInput `pulumi:"owner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetImageRecipesOutputArgs) ElementType() reflect.Type {
@@ -133,6 +138,10 @@ func (o GetImageRecipesResultOutput) Names() pulumi.StringArrayOutput {
 
 func (o GetImageRecipesResultOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetImageRecipesResult) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o GetImageRecipesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageRecipesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

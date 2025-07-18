@@ -65,6 +65,7 @@ export function getPrefixList(args?: GetPrefixListArgs, opts?: pulumi.InvokeOpti
         "filters": args.filters,
         "name": args.name,
         "prefixListId": args.prefixListId,
+        "region": args.region,
     }, opts);
 }
 
@@ -88,6 +89,10 @@ export interface GetPrefixListArgs {
      * ID of the prefix list to select.
      */
     prefixListId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -108,6 +113,7 @@ export interface GetPrefixListResult {
      */
     readonly name: string;
     readonly prefixListId?: string;
+    readonly region: string;
 }
 /**
  * `aws.ec2.getPrefixList` provides details about a specific AWS prefix list (PL)
@@ -167,6 +173,7 @@ export function getPrefixListOutput(args?: GetPrefixListOutputArgs, opts?: pulum
         "filters": args.filters,
         "name": args.name,
         "prefixListId": args.prefixListId,
+        "region": args.region,
     }, opts);
 }
 
@@ -190,4 +197,8 @@ export interface GetPrefixListOutputArgs {
      * ID of the prefix list to select.
      */
     prefixListId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

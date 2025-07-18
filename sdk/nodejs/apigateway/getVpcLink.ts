@@ -25,6 +25,7 @@ export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): P
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigateway/getVpcLink:getVpcLink", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -38,6 +39,10 @@ export interface GetVpcLinkArgs {
      * If multiple API Gateway VPC Links are found with this name, an error will be returned.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Key-value map of resource tags
      */
@@ -58,6 +63,7 @@ export interface GetVpcLinkResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Status of the VPC link.
      */
@@ -96,6 +102,7 @@ export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.Invok
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:apigateway/getVpcLink:getVpcLink", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -109,6 +116,10 @@ export interface GetVpcLinkOutputArgs {
      * If multiple API Gateway VPC Links are found with this name, an error will be returned.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags
      */

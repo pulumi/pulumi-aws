@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/msk"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func GetBootstrapBrokers(ctx *pulumi.Context, args *GetBootstrapBrokersArgs, opt
 type GetBootstrapBrokersArgs struct {
 	// ARN of the cluster the nodes belong to.
 	ClusterArn string `pulumi:"clusterArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getBootstrapBrokers.
@@ -78,7 +80,8 @@ type GetBootstrapBrokersResult struct {
 	BootstrapBrokersVpcConnectivityTls string `pulumi:"bootstrapBrokersVpcConnectivityTls"`
 	ClusterArn                         string `pulumi:"clusterArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func GetBootstrapBrokersOutput(ctx *pulumi.Context, args GetBootstrapBrokersOutputArgs, opts ...pulumi.InvokeOption) GetBootstrapBrokersResultOutput {
@@ -94,6 +97,8 @@ func GetBootstrapBrokersOutput(ctx *pulumi.Context, args GetBootstrapBrokersOutp
 type GetBootstrapBrokersOutputArgs struct {
 	// ARN of the cluster the nodes belong to.
 	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetBootstrapBrokersOutputArgs) ElementType() reflect.Type {
@@ -172,6 +177,10 @@ func (o GetBootstrapBrokersResultOutput) ClusterArn() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetBootstrapBrokersResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetBootstrapBrokersResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBootstrapBrokersResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

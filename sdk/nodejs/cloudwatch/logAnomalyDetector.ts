@@ -95,10 +95,11 @@ export class LogAnomalyDetector extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly logGroupArnLists!: pulumi.Output<string[]>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * @deprecated Please use `tags` instead.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
+    public readonly region!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -122,6 +123,7 @@ export class LogAnomalyDetector extends pulumi.CustomResource {
             resourceInputs["filterPattern"] = state ? state.filterPattern : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["logGroupArnLists"] = state ? state.logGroupArnLists : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -139,6 +141,7 @@ export class LogAnomalyDetector extends pulumi.CustomResource {
             resourceInputs["filterPattern"] = args ? args.filterPattern : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["logGroupArnLists"] = args ? args.logGroupArnLists : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -183,10 +186,11 @@ export interface LogAnomalyDetectorState {
      * The following arguments are optional:
      */
     logGroupArnLists?: pulumi.Input<pulumi.Input<string>[]>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * @deprecated Please use `tags` instead.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
+    region?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -221,5 +225,9 @@ export interface LogAnomalyDetectorArgs {
      * The following arguments are optional:
      */
     logGroupArnLists: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

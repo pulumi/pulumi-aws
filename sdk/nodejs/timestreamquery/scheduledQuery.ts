@@ -108,7 +108,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.s3.BucketV2("test", {
+ * const test = new aws.s3.Bucket("test", {
  *     bucket: "example",
  *     forceDestroy: true,
  * });
@@ -370,6 +370,10 @@ export class ScheduledQuery extends pulumi.CustomResource {
      */
     public readonly recentlyFailedRuns!: pulumi.Output<outputs.timestreamquery.ScheduledQueryRecentlyFailedRun[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block for schedule configuration for the query. See below.
      */
     public readonly scheduleConfiguration!: pulumi.Output<outputs.timestreamquery.ScheduledQueryScheduleConfiguration>;
@@ -383,8 +387,6 @@ export class ScheduledQuery extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -420,6 +422,7 @@ export class ScheduledQuery extends pulumi.CustomResource {
             resourceInputs["previousInvocationTime"] = state ? state.previousInvocationTime : undefined;
             resourceInputs["queryString"] = state ? state.queryString : undefined;
             resourceInputs["recentlyFailedRuns"] = state ? state.recentlyFailedRuns : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scheduleConfiguration"] = state ? state.scheduleConfiguration : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -454,6 +457,7 @@ export class ScheduledQuery extends pulumi.CustomResource {
             resourceInputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
             resourceInputs["queryString"] = args ? args.queryString : undefined;
             resourceInputs["recentlyFailedRuns"] = args ? args.recentlyFailedRuns : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scheduleConfiguration"] = args ? args.scheduleConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetConfiguration"] = args ? args.targetConfiguration : undefined;
@@ -523,6 +527,10 @@ export interface ScheduledQueryState {
      */
     recentlyFailedRuns?: pulumi.Input<pulumi.Input<inputs.timestreamquery.ScheduledQueryRecentlyFailedRun>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block for schedule configuration for the query. See below.
      */
     scheduleConfiguration?: pulumi.Input<inputs.timestreamquery.ScheduledQueryScheduleConfiguration>;
@@ -536,8 +544,6 @@ export interface ScheduledQueryState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -585,6 +591,10 @@ export interface ScheduledQueryArgs {
      * Runtime summary for the last five failed scheduled query runs.
      */
     recentlyFailedRuns?: pulumi.Input<pulumi.Input<inputs.timestreamquery.ScheduledQueryRecentlyFailedRun>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for schedule configuration for the query. See below.
      */

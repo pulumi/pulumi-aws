@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecommit"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codecommit"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,6 +87,8 @@ type ApprovalRuleTemplate struct {
 	LastModifiedUser pulumi.StringOutput `pulumi:"lastModifiedUser"`
 	// The name for the approval rule template. Maximum of 100 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The SHA-256 hash signature for the content of the approval rule template.
 	RuleContentSha256 pulumi.StringOutput `pulumi:"ruleContentSha256"`
 }
@@ -138,6 +140,8 @@ type approvalRuleTemplateState struct {
 	LastModifiedUser *string `pulumi:"lastModifiedUser"`
 	// The name for the approval rule template. Maximum of 100 characters.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The SHA-256 hash signature for the content of the approval rule template.
 	RuleContentSha256 *string `pulumi:"ruleContentSha256"`
 }
@@ -157,6 +161,8 @@ type ApprovalRuleTemplateState struct {
 	LastModifiedUser pulumi.StringPtrInput
 	// The name for the approval rule template. Maximum of 100 characters.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The SHA-256 hash signature for the content of the approval rule template.
 	RuleContentSha256 pulumi.StringPtrInput
 }
@@ -172,6 +178,8 @@ type approvalRuleTemplateArgs struct {
 	Description *string `pulumi:"description"`
 	// The name for the approval rule template. Maximum of 100 characters.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ApprovalRuleTemplate resource.
@@ -182,6 +190,8 @@ type ApprovalRuleTemplateArgs struct {
 	Description pulumi.StringPtrInput
 	// The name for the approval rule template. Maximum of 100 characters.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ApprovalRuleTemplateArgs) ElementType() reflect.Type {
@@ -304,6 +314,11 @@ func (o ApprovalRuleTemplateOutput) LastModifiedUser() pulumi.StringOutput {
 // The name for the approval rule template. Maximum of 100 characters.
 func (o ApprovalRuleTemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApprovalRuleTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ApprovalRuleTemplateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApprovalRuleTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The SHA-256 hash signature for the content of the approval rule template.

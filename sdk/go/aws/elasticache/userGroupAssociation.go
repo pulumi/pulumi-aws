@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,6 +87,8 @@ import (
 type UserGroupAssociation struct {
 	pulumi.CustomResourceState
 
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the user group.
 	UserGroupId pulumi.StringOutput `pulumi:"userGroupId"`
 	// ID of the user to associated with the user group.
@@ -129,6 +131,8 @@ func GetUserGroupAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserGroupAssociation resources.
 type userGroupAssociationState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the user group.
 	UserGroupId *string `pulumi:"userGroupId"`
 	// ID of the user to associated with the user group.
@@ -136,6 +140,8 @@ type userGroupAssociationState struct {
 }
 
 type UserGroupAssociationState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the user group.
 	UserGroupId pulumi.StringPtrInput
 	// ID of the user to associated with the user group.
@@ -147,6 +153,8 @@ func (UserGroupAssociationState) ElementType() reflect.Type {
 }
 
 type userGroupAssociationArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the user group.
 	UserGroupId string `pulumi:"userGroupId"`
 	// ID of the user to associated with the user group.
@@ -155,6 +163,8 @@ type userGroupAssociationArgs struct {
 
 // The set of arguments for constructing a UserGroupAssociation resource.
 type UserGroupAssociationArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the user group.
 	UserGroupId pulumi.StringInput
 	// ID of the user to associated with the user group.
@@ -246,6 +256,11 @@ func (o UserGroupAssociationOutput) ToUserGroupAssociationOutput() UserGroupAsso
 
 func (o UserGroupAssociationOutput) ToUserGroupAssociationOutputWithContext(ctx context.Context) UserGroupAssociationOutput {
 	return o
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o UserGroupAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserGroupAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the user group.

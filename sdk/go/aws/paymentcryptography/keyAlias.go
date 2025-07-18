@@ -8,13 +8,61 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource for managing an AWS Payment Cryptography Control Plane Key Alias.
 //
 // ## Example Usage
+//
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/paymentcryptography"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := paymentcryptography.NewKey(ctx, "test", &paymentcryptography.KeyArgs{
+//				Exportable: pulumi.Bool(true),
+//				KeyAttributes: paymentcryptography.KeyKeyAttributeArray{
+//					&paymentcryptography.KeyKeyAttributeArgs{
+//						KeyAlgorithm: pulumi.String("TDES_3KEY"),
+//						KeyClass:     pulumi.String("SYMMETRIC_KEY"),
+//						KeyUsage:     pulumi.String("TR31_P0_PIN_ENCRYPTION_KEY"),
+//						KeyModesOfUses: paymentcryptography.KeyKeyAttributeKeyModesOfUseArray{
+//							&paymentcryptography.KeyKeyAttributeKeyModesOfUseArgs{
+//								Decrypt: pulumi.Bool(true),
+//								Encrypt: pulumi.Bool(true),
+//								Wrap:    pulumi.Bool(true),
+//								Unwrap:  pulumi.Bool(true),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = paymentcryptography.NewKeyAlias(ctx, "test", &paymentcryptography.KeyAliasArgs{
+//				AliasName: pulumi.String("alias/test-alias"),
+//				KeyArn:    test.Arn,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -32,6 +80,8 @@ type KeyAlias struct {
 	AliasName pulumi.StringOutput `pulumi:"aliasName"`
 	// ARN of the key.
 	KeyArn pulumi.StringPtrOutput `pulumi:"keyArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewKeyAlias registers a new resource with the given unique name, arguments, and options.
@@ -73,6 +123,8 @@ type keyAliasState struct {
 	AliasName *string `pulumi:"aliasName"`
 	// ARN of the key.
 	KeyArn *string `pulumi:"keyArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type KeyAliasState struct {
@@ -82,6 +134,8 @@ type KeyAliasState struct {
 	AliasName pulumi.StringPtrInput
 	// ARN of the key.
 	KeyArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (KeyAliasState) ElementType() reflect.Type {
@@ -95,6 +149,8 @@ type keyAliasArgs struct {
 	AliasName string `pulumi:"aliasName"`
 	// ARN of the key.
 	KeyArn *string `pulumi:"keyArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a KeyAlias resource.
@@ -105,6 +161,8 @@ type KeyAliasArgs struct {
 	AliasName pulumi.StringInput
 	// ARN of the key.
 	KeyArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (KeyAliasArgs) ElementType() reflect.Type {
@@ -204,6 +262,11 @@ func (o KeyAliasOutput) AliasName() pulumi.StringOutput {
 // ARN of the key.
 func (o KeyAliasOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KeyAlias) pulumi.StringPtrOutput { return v.KeyArn }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o KeyAliasOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *KeyAlias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type KeyAliasArrayOutput struct{ *pulumi.OutputState }

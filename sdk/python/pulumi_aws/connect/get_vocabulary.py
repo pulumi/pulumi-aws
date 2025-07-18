@@ -27,7 +27,7 @@ class GetVocabularyResult:
     """
     A collection of values returned by getVocabulary.
     """
-    def __init__(__self__, arn=None, content=None, failure_reason=None, id=None, instance_id=None, language_code=None, last_modified_time=None, name=None, state=None, tags=None, vocabulary_id=None):
+    def __init__(__self__, arn=None, content=None, failure_reason=None, id=None, instance_id=None, language_code=None, last_modified_time=None, name=None, region=None, state=None, tags=None, vocabulary_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -52,6 +52,9 @@ class GetVocabularyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -122,6 +125,11 @@ class GetVocabularyResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def state(self) -> builtins.str:
         """
         The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
@@ -159,6 +167,7 @@ class AwaitableGetVocabularyResult(GetVocabularyResult):
             language_code=self.language_code,
             last_modified_time=self.last_modified_time,
             name=self.name,
+            region=self.region,
             state=self.state,
             tags=self.tags,
             vocabulary_id=self.vocabulary_id)
@@ -166,6 +175,7 @@ class AwaitableGetVocabularyResult(GetVocabularyResult):
 
 def get_vocabulary(instance_id: Optional[builtins.str] = None,
                    name: Optional[builtins.str] = None,
+                   region: Optional[builtins.str] = None,
                    tags: Optional[Mapping[str, builtins.str]] = None,
                    vocabulary_id: Optional[builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVocabularyResult:
@@ -197,6 +207,7 @@ def get_vocabulary(instance_id: Optional[builtins.str] = None,
 
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param builtins.str name: Returns information on a specific Vocabulary by name
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags to assign to the Vocabulary.
     :param builtins.str vocabulary_id: Returns information on a specific Vocabulary by Vocabulary id
            
@@ -205,6 +216,7 @@ def get_vocabulary(instance_id: Optional[builtins.str] = None,
     __args__ = dict()
     __args__['instanceId'] = instance_id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['vocabularyId'] = vocabulary_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -219,11 +231,13 @@ def get_vocabulary(instance_id: Optional[builtins.str] = None,
         language_code=pulumi.get(__ret__, 'language_code'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         vocabulary_id=pulumi.get(__ret__, 'vocabulary_id'))
 def get_vocabulary_output(instance_id: Optional[pulumi.Input[builtins.str]] = None,
                           name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                           vocabulary_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVocabularyResult]:
@@ -255,6 +269,7 @@ def get_vocabulary_output(instance_id: Optional[pulumi.Input[builtins.str]] = No
 
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param builtins.str name: Returns information on a specific Vocabulary by name
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags to assign to the Vocabulary.
     :param builtins.str vocabulary_id: Returns information on a specific Vocabulary by Vocabulary id
            
@@ -263,6 +278,7 @@ def get_vocabulary_output(instance_id: Optional[pulumi.Input[builtins.str]] = No
     __args__ = dict()
     __args__['instanceId'] = instance_id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['vocabularyId'] = vocabulary_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -276,6 +292,7 @@ def get_vocabulary_output(instance_id: Optional[pulumi.Input[builtins.str]] = No
         language_code=pulumi.get(__response__, 'language_code'),
         last_modified_time=pulumi.get(__response__, 'last_modified_time'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags'),
         vocabulary_id=pulumi.get(__response__, 'vocabulary_id')))

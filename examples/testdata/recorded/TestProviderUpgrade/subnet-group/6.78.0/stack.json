@@ -1,0 +1,259 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2025-05-14T14:54:46.035214-04:00",
+      "magic": "ddbd0ff735ffe7afff6024a5108d8161cc4d85cd0ddbd9ddcc43a35f4b02ead1",
+      "version": "v3.169.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:fzw5BegTT8E=:v1:PTcqRHgaw75LhTUD:hOK2ZGKCdE5+uxYJna0Zj33GpHJodg=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::subnet-group::pulumi:pulumi:Stack::subnet-group-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2025-05-14T18:54:39.05516Z",
+        "modified": "2025-05-14T18:54:39.05516Z"
+      },
+      {
+        "urn": "urn:pulumi:test::subnet-group::pulumi:providers:aws::default",
+        "custom": true,
+        "id": "7e2e5aae-ee85-4c7a-ab7a-8be6c8560ba4",
+        "type": "pulumi:providers:aws",
+        "inputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true"
+        },
+        "outputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true"
+        },
+        "created": "2025-05-14T18:54:41.150261Z",
+        "modified": "2025-05-14T18:54:41.150261Z"
+      },
+      {
+        "urn": "urn:pulumi:test::subnet-group::aws:ec2/vpc:Vpc::myVpc",
+        "custom": true,
+        "id": "vpc-0a676ba75d1669c4f",
+        "type": "aws:ec2/vpc:Vpc",
+        "inputs": {
+          "__defaults": [
+            "enableDnsSupport"
+          ],
+          "cidrBlock": "10.0.0.0/16",
+          "enableDnsSupport": true
+        },
+        "outputs": {
+          "__meta": "{\"schema_version\":\"1\"}",
+          "arn": "arn:aws:ec2:us-west-2:894850187425:vpc/vpc-0a676ba75d1669c4f",
+          "assignGeneratedIpv6CidrBlock": false,
+          "cidrBlock": "10.0.0.0/16",
+          "defaultNetworkAclId": "acl-018a79e5a350fec74",
+          "defaultRouteTableId": "rtb-043674f8d93a71615",
+          "defaultSecurityGroupId": "sg-07e637183fb3dce21",
+          "dhcpOptionsId": "dopt-ab822dd3",
+          "enableDnsHostnames": false,
+          "enableDnsSupport": true,
+          "enableNetworkAddressUsageMetrics": false,
+          "id": "vpc-0a676ba75d1669c4f",
+          "instanceTenancy": "default",
+          "ipv4IpamPoolId": null,
+          "ipv4NetmaskLength": null,
+          "ipv6AssociationId": "",
+          "ipv6CidrBlock": "",
+          "ipv6CidrBlockNetworkBorderGroup": "",
+          "ipv6IpamPoolId": "",
+          "ipv6NetmaskLength": 0,
+          "mainRouteTableId": "rtb-043674f8d93a71615",
+          "ownerId": "894850187425"
+        },
+        "parent": "urn:pulumi:test::subnet-group::pulumi:pulumi:Stack::subnet-group-test",
+        "provider": "urn:pulumi:test::subnet-group::pulumi:providers:aws::default::7e2e5aae-ee85-4c7a-ab7a-8be6c8560ba4",
+        "propertyDependencies": {
+          "cidrBlock": []
+        },
+        "created": "2025-05-14T18:54:43.588168Z",
+        "modified": "2025-05-14T18:54:43.588168Z"
+      },
+      {
+        "urn": "urn:pulumi:test::subnet-group::aws:ec2/subnet:Subnet::mysubnet2",
+        "custom": true,
+        "id": "subnet-0487d0a9c8f644777",
+        "type": "aws:ec2/subnet:Subnet",
+        "inputs": {
+          "__defaults": [
+            "assignIpv6AddressOnCreation",
+            "enableDns64",
+            "enableResourceNameDnsARecordOnLaunch",
+            "enableResourceNameDnsAaaaRecordOnLaunch",
+            "ipv6Native",
+            "mapPublicIpOnLaunch"
+          ],
+          "assignIpv6AddressOnCreation": false,
+          "availabilityZone": "us-west-2b",
+          "cidrBlock": "10.0.2.0/24",
+          "enableDns64": false,
+          "enableResourceNameDnsARecordOnLaunch": false,
+          "enableResourceNameDnsAaaaRecordOnLaunch": false,
+          "ipv6Native": false,
+          "mapPublicIpOnLaunch": false,
+          "vpcId": "vpc-0a676ba75d1669c4f"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+          "arn": "arn:aws:ec2:us-west-2:894850187425:subnet/subnet-0487d0a9c8f644777",
+          "assignIpv6AddressOnCreation": false,
+          "availabilityZone": "us-west-2b",
+          "availabilityZoneId": "usw2-az1",
+          "cidrBlock": "10.0.2.0/24",
+          "customerOwnedIpv4Pool": "",
+          "enableDns64": false,
+          "enableLniAtDeviceIndex": 0,
+          "enableResourceNameDnsARecordOnLaunch": false,
+          "enableResourceNameDnsAaaaRecordOnLaunch": false,
+          "id": "subnet-0487d0a9c8f644777",
+          "ipv6CidrBlock": "",
+          "ipv6CidrBlockAssociationId": "",
+          "ipv6Native": false,
+          "mapCustomerOwnedIpOnLaunch": false,
+          "mapPublicIpOnLaunch": false,
+          "outpostArn": "",
+          "ownerId": "894850187425",
+          "privateDnsHostnameTypeOnLaunch": "ip-name",
+          "vpcId": "vpc-0a676ba75d1669c4f"
+        },
+        "parent": "urn:pulumi:test::subnet-group::pulumi:pulumi:Stack::subnet-group-test",
+        "dependencies": [
+          "urn:pulumi:test::subnet-group::aws:ec2/vpc:Vpc::myVpc"
+        ],
+        "provider": "urn:pulumi:test::subnet-group::pulumi:providers:aws::default::7e2e5aae-ee85-4c7a-ab7a-8be6c8560ba4",
+        "propertyDependencies": {
+          "availabilityZone": [],
+          "cidrBlock": [],
+          "vpcId": [
+            "urn:pulumi:test::subnet-group::aws:ec2/vpc:Vpc::myVpc"
+          ]
+        },
+        "created": "2025-05-14T18:54:44.471586Z",
+        "modified": "2025-05-14T18:54:44.471586Z"
+      },
+      {
+        "urn": "urn:pulumi:test::subnet-group::aws:ec2/subnet:Subnet::mysubnet",
+        "custom": true,
+        "id": "subnet-057ee8c3da3cb98d5",
+        "type": "aws:ec2/subnet:Subnet",
+        "inputs": {
+          "__defaults": [
+            "assignIpv6AddressOnCreation",
+            "enableDns64",
+            "enableResourceNameDnsARecordOnLaunch",
+            "enableResourceNameDnsAaaaRecordOnLaunch",
+            "ipv6Native",
+            "mapPublicIpOnLaunch"
+          ],
+          "assignIpv6AddressOnCreation": false,
+          "availabilityZone": "us-west-2a",
+          "cidrBlock": "10.0.1.0/24",
+          "enableDns64": false,
+          "enableResourceNameDnsARecordOnLaunch": false,
+          "enableResourceNameDnsAaaaRecordOnLaunch": false,
+          "ipv6Native": false,
+          "mapPublicIpOnLaunch": false,
+          "vpcId": "vpc-0a676ba75d1669c4f"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+          "arn": "arn:aws:ec2:us-west-2:894850187425:subnet/subnet-057ee8c3da3cb98d5",
+          "assignIpv6AddressOnCreation": false,
+          "availabilityZone": "us-west-2a",
+          "availabilityZoneId": "usw2-az2",
+          "cidrBlock": "10.0.1.0/24",
+          "customerOwnedIpv4Pool": "",
+          "enableDns64": false,
+          "enableLniAtDeviceIndex": 0,
+          "enableResourceNameDnsARecordOnLaunch": false,
+          "enableResourceNameDnsAaaaRecordOnLaunch": false,
+          "id": "subnet-057ee8c3da3cb98d5",
+          "ipv6CidrBlock": "",
+          "ipv6CidrBlockAssociationId": "",
+          "ipv6Native": false,
+          "mapCustomerOwnedIpOnLaunch": false,
+          "mapPublicIpOnLaunch": false,
+          "outpostArn": "",
+          "ownerId": "894850187425",
+          "privateDnsHostnameTypeOnLaunch": "ip-name",
+          "vpcId": "vpc-0a676ba75d1669c4f"
+        },
+        "parent": "urn:pulumi:test::subnet-group::pulumi:pulumi:Stack::subnet-group-test",
+        "dependencies": [
+          "urn:pulumi:test::subnet-group::aws:ec2/vpc:Vpc::myVpc"
+        ],
+        "provider": "urn:pulumi:test::subnet-group::pulumi:providers:aws::default::7e2e5aae-ee85-4c7a-ab7a-8be6c8560ba4",
+        "propertyDependencies": {
+          "availabilityZone": [],
+          "cidrBlock": [],
+          "vpcId": [
+            "urn:pulumi:test::subnet-group::aws:ec2/vpc:Vpc::myVpc"
+          ]
+        },
+        "created": "2025-05-14T18:54:44.778757Z",
+        "modified": "2025-05-14T18:54:44.778757Z"
+      },
+      {
+        "urn": "urn:pulumi:test::subnet-group::aws:rds/subnetGroup:SubnetGroup::subnetgroup",
+        "custom": true,
+        "id": "subnetgroup-201aa73",
+        "type": "aws:rds/subnetGroup:SubnetGroup",
+        "inputs": {
+          "__defaults": [
+            "description",
+            "name"
+          ],
+          "description": "Managed by Pulumi",
+          "name": "subnetgroup-201aa73",
+          "subnetIds": [
+            "subnet-057ee8c3da3cb98d5",
+            "subnet-0487d0a9c8f644777"
+          ]
+        },
+        "outputs": {
+          "arn": "arn:aws:rds:us-west-2:894850187425:subgrp:subnetgroup-201aa73",
+          "description": "Managed by Pulumi",
+          "id": "subnetgroup-201aa73",
+          "name": "subnetgroup-201aa73",
+          "namePrefix": "",
+          "subnetIds": [
+            "subnet-0487d0a9c8f644777",
+            "subnet-057ee8c3da3cb98d5"
+          ],
+          "supportedNetworkTypes": [
+            "IPV4"
+          ],
+          "vpcId": "vpc-0a676ba75d1669c4f"
+        },
+        "parent": "urn:pulumi:test::subnet-group::pulumi:pulumi:Stack::subnet-group-test",
+        "dependencies": [
+          "urn:pulumi:test::subnet-group::aws:ec2/subnet:Subnet::mysubnet",
+          "urn:pulumi:test::subnet-group::aws:ec2/subnet:Subnet::mysubnet2"
+        ],
+        "provider": "urn:pulumi:test::subnet-group::pulumi:providers:aws::default::7e2e5aae-ee85-4c7a-ab7a-8be6c8560ba4",
+        "propertyDependencies": {
+          "subnetIds": [
+            "urn:pulumi:test::subnet-group::aws:ec2/subnet:Subnet::mysubnet",
+            "urn:pulumi:test::subnet-group::aws:ec2/subnet:Subnet::mysubnet2"
+          ]
+        },
+        "created": "2025-05-14T18:54:46.020243Z",
+        "modified": "2025-05-14T18:54:46.020243Z"
+      }
+    ],
+    "metadata": {}
+  }
+}

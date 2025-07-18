@@ -112,6 +112,21 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Map of tags assigned to the Instance.
      * 
      */
@@ -134,6 +149,7 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
         this.getUserData = $.getUserData;
         this.instanceId = $.instanceId;
         this.instanceTags = $.instanceTags;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -228,6 +244,17 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder instanceTags(@Nullable Map<String,String> instanceTags) {
             $.instanceTags = instanceTags;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

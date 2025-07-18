@@ -83,6 +83,10 @@ export class ArchiveRule extends pulumi.CustomResource {
      */
     public readonly filters!: pulumi.Output<outputs.accessanalyzer.ArchiveRuleFilter[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Rule name.
      */
     public readonly ruleName!: pulumi.Output<string>;
@@ -102,6 +106,7 @@ export class ArchiveRule extends pulumi.CustomResource {
             const state = argsOrState as ArchiveRuleState | undefined;
             resourceInputs["analyzerName"] = state ? state.analyzerName : undefined;
             resourceInputs["filters"] = state ? state.filters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["ruleName"] = state ? state.ruleName : undefined;
         } else {
             const args = argsOrState as ArchiveRuleArgs | undefined;
@@ -116,6 +121,7 @@ export class ArchiveRule extends pulumi.CustomResource {
             }
             resourceInputs["analyzerName"] = args ? args.analyzerName : undefined;
             resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["ruleName"] = args ? args.ruleName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -136,6 +142,10 @@ export interface ArchiveRuleState {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.accessanalyzer.ArchiveRuleFilter>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Rule name.
      */
     ruleName?: pulumi.Input<string>;
@@ -153,6 +163,10 @@ export interface ArchiveRuleArgs {
      * Filter criteria for the archive rule. See Filter for more details.
      */
     filters: pulumi.Input<pulumi.Input<inputs.accessanalyzer.ArchiveRuleFilter>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Rule name.
      */

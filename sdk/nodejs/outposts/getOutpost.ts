@@ -26,6 +26,7 @@ export function getOutpost(args?: GetOutpostArgs, opts?: pulumi.InvokeOptions): 
         "id": args.id,
         "name": args.name,
         "ownerId": args.ownerId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -50,6 +51,10 @@ export interface GetOutpostArgs {
      * AWS Account identifier of the Outpost owner.
      */
     ownerId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * The Outpost tags.
      */
@@ -80,6 +85,7 @@ export interface GetOutpostResult {
     readonly lifecycleStatus: string;
     readonly name: string;
     readonly ownerId?: string;
+    readonly region: string;
     /**
      * The Amazon Resource Name (ARN) of the site.
      */
@@ -119,6 +125,7 @@ export function getOutpostOutput(args?: GetOutpostOutputArgs, opts?: pulumi.Invo
         "id": args.id,
         "name": args.name,
         "ownerId": args.ownerId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -143,6 +150,10 @@ export interface GetOutpostOutputArgs {
      * AWS Account identifier of the Outpost owner.
      */
     ownerId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Outpost tags.
      */

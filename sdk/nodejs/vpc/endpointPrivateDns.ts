@@ -65,6 +65,10 @@ export class EndpointPrivateDns extends pulumi.CustomResource {
      */
     public readonly privateDnsEnabled!: pulumi.Output<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * VPC endpoint identifier.
      */
     public readonly vpcEndpointId!: pulumi.Output<string>;
@@ -83,6 +87,7 @@ export class EndpointPrivateDns extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EndpointPrivateDnsState | undefined;
             resourceInputs["privateDnsEnabled"] = state ? state.privateDnsEnabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
         } else {
             const args = argsOrState as EndpointPrivateDnsArgs | undefined;
@@ -93,6 +98,7 @@ export class EndpointPrivateDns extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcEndpointId'");
             }
             resourceInputs["privateDnsEnabled"] = args ? args.privateDnsEnabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -109,6 +115,10 @@ export interface EndpointPrivateDnsState {
      */
     privateDnsEnabled?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * VPC endpoint identifier.
      */
     vpcEndpointId?: pulumi.Input<string>;
@@ -122,6 +132,10 @@ export interface EndpointPrivateDnsArgs {
      * Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
      */
     privateDnsEnabled: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * VPC endpoint identifier.
      */

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,6 +88,8 @@ type LookupUserHierarchyGroupArgs struct {
 	//
 	// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the hierarchy group.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -105,7 +107,8 @@ type LookupUserHierarchyGroupResult struct {
 	// Identifier of the level in the hierarchy group.
 	LevelId string `pulumi:"levelId"`
 	// Name of the hierarchy group.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Map of tags to assign to the hierarchy group.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -129,6 +132,8 @@ type LookupUserHierarchyGroupOutputArgs struct {
 	//
 	// > **NOTE:** `instanceId` and one of either `name` or `hierarchyGroupId` is required.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags to assign to the hierarchy group.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -183,6 +188,10 @@ func (o LookupUserHierarchyGroupResultOutput) LevelId() pulumi.StringOutput {
 // Name of the hierarchy group.
 func (o LookupUserHierarchyGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserHierarchyGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupUserHierarchyGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserHierarchyGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags to assign to the hierarchy group.

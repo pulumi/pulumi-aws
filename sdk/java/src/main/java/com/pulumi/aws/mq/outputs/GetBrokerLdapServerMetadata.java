@@ -12,49 +12,137 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrokerLdapServerMetadata {
+    /**
+     * @return List of a fully qualified domain name of the LDAP server and an optional failover server.
+     * 
+     */
     private List<String> hosts;
+    /**
+     * @return Fully qualified name of the directory to search for a user&#39;s groups.
+     * 
+     */
     private String roleBase;
+    /**
+     * @return LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+     * 
+     */
     private String roleName;
+    /**
+     * @return Search criteria for groups.
+     * 
+     */
     private String roleSearchMatching;
+    /**
+     * @return Whether the directory search scope is the entire sub-tree.
+     * 
+     */
     private Boolean roleSearchSubtree;
+    /**
+     * @return Service account password.
+     * 
+     */
     private String serviceAccountPassword;
+    /**
+     * @return Service account username.
+     * 
+     */
     private String serviceAccountUsername;
+    /**
+     * @return Fully qualified name of the directory where you want to search for users.
+     * 
+     */
     private String userBase;
+    /**
+     * @return Name of the LDAP attribute for the user group membership.
+     * 
+     */
     private String userRoleName;
+    /**
+     * @return Search criteria for users.
+     * 
+     */
     private String userSearchMatching;
+    /**
+     * @return Whether the directory search scope is the entire sub-tree.
+     * 
+     */
     private Boolean userSearchSubtree;
 
     private GetBrokerLdapServerMetadata() {}
+    /**
+     * @return List of a fully qualified domain name of the LDAP server and an optional failover server.
+     * 
+     */
     public List<String> hosts() {
         return this.hosts;
     }
+    /**
+     * @return Fully qualified name of the directory to search for a user&#39;s groups.
+     * 
+     */
     public String roleBase() {
         return this.roleBase;
     }
+    /**
+     * @return LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+     * 
+     */
     public String roleName() {
         return this.roleName;
     }
+    /**
+     * @return Search criteria for groups.
+     * 
+     */
     public String roleSearchMatching() {
         return this.roleSearchMatching;
     }
+    /**
+     * @return Whether the directory search scope is the entire sub-tree.
+     * 
+     */
     public Boolean roleSearchSubtree() {
         return this.roleSearchSubtree;
     }
+    /**
+     * @return Service account password.
+     * 
+     */
     public String serviceAccountPassword() {
         return this.serviceAccountPassword;
     }
+    /**
+     * @return Service account username.
+     * 
+     */
     public String serviceAccountUsername() {
         return this.serviceAccountUsername;
     }
+    /**
+     * @return Fully qualified name of the directory where you want to search for users.
+     * 
+     */
     public String userBase() {
         return this.userBase;
     }
+    /**
+     * @return Name of the LDAP attribute for the user group membership.
+     * 
+     */
     public String userRoleName() {
         return this.userRoleName;
     }
+    /**
+     * @return Search criteria for users.
+     * 
+     */
     public String userSearchMatching() {
         return this.userSearchMatching;
     }
+    /**
+     * @return Whether the directory search scope is the entire sub-tree.
+     * 
+     */
     public Boolean userSearchSubtree() {
         return this.userSearchSubtree;
     }

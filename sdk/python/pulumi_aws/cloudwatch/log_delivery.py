@@ -26,6 +26,7 @@ class LogDeliveryArgs:
                  delivery_source_name: pulumi.Input[builtins.str],
                  field_delimiter: Optional[pulumi.Input[builtins.str]] = None,
                  record_fields: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LogDeliveryS3DeliveryConfigurationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -34,6 +35,7 @@ class LogDeliveryArgs:
         :param pulumi.Input[builtins.str] delivery_source_name: The name of the delivery source to use for this delivery.
         :param pulumi.Input[builtins.str] field_delimiter: The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] record_fields: The list of record fields to be delivered to the destination, in order.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['LogDeliveryS3DeliveryConfigurationArgs']]] s3_delivery_configurations: Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -43,6 +45,8 @@ class LogDeliveryArgs:
             pulumi.set(__self__, "field_delimiter", field_delimiter)
         if record_fields is not None:
             pulumi.set(__self__, "record_fields", record_fields)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if s3_delivery_configurations is not None:
             pulumi.set(__self__, "s3_delivery_configurations", s3_delivery_configurations)
         if tags is not None:
@@ -97,6 +101,18 @@ class LogDeliveryArgs:
         pulumi.set(self, "record_fields", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="s3DeliveryConfigurations")
     def s3_delivery_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogDeliveryS3DeliveryConfigurationArgs']]]]:
         """
@@ -129,6 +145,7 @@ class _LogDeliveryState:
                  delivery_source_name: Optional[pulumi.Input[builtins.str]] = None,
                  field_delimiter: Optional[pulumi.Input[builtins.str]] = None,
                  record_fields: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LogDeliveryS3DeliveryConfigurationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -139,6 +156,7 @@ class _LogDeliveryState:
         :param pulumi.Input[builtins.str] delivery_source_name: The name of the delivery source to use for this delivery.
         :param pulumi.Input[builtins.str] field_delimiter: The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] record_fields: The list of record fields to be delivered to the destination, in order.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['LogDeliveryS3DeliveryConfigurationArgs']]] s3_delivery_configurations: Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -153,13 +171,12 @@ class _LogDeliveryState:
             pulumi.set(__self__, "field_delimiter", field_delimiter)
         if record_fields is not None:
             pulumi.set(__self__, "record_fields", record_fields)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if s3_delivery_configurations is not None:
             pulumi.set(__self__, "s3_delivery_configurations", s3_delivery_configurations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -224,6 +241,18 @@ class _LogDeliveryState:
         pulumi.set(self, "record_fields", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="s3DeliveryConfigurations")
     def s3_delivery_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogDeliveryS3DeliveryConfigurationArgs']]]]:
         """
@@ -249,7 +278,6 @@ class _LogDeliveryState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -271,6 +299,7 @@ class LogDelivery(pulumi.CustomResource):
                  delivery_source_name: Optional[pulumi.Input[builtins.str]] = None,
                  field_delimiter: Optional[pulumi.Input[builtins.str]] = None,
                  record_fields: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryS3DeliveryConfigurationArgs', 'LogDeliveryS3DeliveryConfigurationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -309,6 +338,7 @@ class LogDelivery(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] delivery_source_name: The name of the delivery source to use for this delivery.
         :param pulumi.Input[builtins.str] field_delimiter: The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] record_fields: The list of record fields to be delivered to the destination, in order.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryS3DeliveryConfigurationArgs', 'LogDeliveryS3DeliveryConfigurationArgsDict']]]] s3_delivery_configurations: Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -366,6 +396,7 @@ class LogDelivery(pulumi.CustomResource):
                  delivery_source_name: Optional[pulumi.Input[builtins.str]] = None,
                  field_delimiter: Optional[pulumi.Input[builtins.str]] = None,
                  record_fields: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryS3DeliveryConfigurationArgs', 'LogDeliveryS3DeliveryConfigurationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -385,6 +416,7 @@ class LogDelivery(pulumi.CustomResource):
             __props__.__dict__["delivery_source_name"] = delivery_source_name
             __props__.__dict__["field_delimiter"] = field_delimiter
             __props__.__dict__["record_fields"] = record_fields
+            __props__.__dict__["region"] = region
             __props__.__dict__["s3_delivery_configurations"] = s3_delivery_configurations
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -404,6 +436,7 @@ class LogDelivery(pulumi.CustomResource):
             delivery_source_name: Optional[pulumi.Input[builtins.str]] = None,
             field_delimiter: Optional[pulumi.Input[builtins.str]] = None,
             record_fields: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             s3_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryS3DeliveryConfigurationArgs', 'LogDeliveryS3DeliveryConfigurationArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'LogDelivery':
@@ -419,6 +452,7 @@ class LogDelivery(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] delivery_source_name: The name of the delivery source to use for this delivery.
         :param pulumi.Input[builtins.str] field_delimiter: The field delimiter to use between record fields when the final output format of a delivery is in `plain`, `w3c`, or `raw` format.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] record_fields: The list of record fields to be delivered to the destination, in order.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LogDeliveryS3DeliveryConfigurationArgs', 'LogDeliveryS3DeliveryConfigurationArgsDict']]]] s3_delivery_configurations: Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -432,6 +466,7 @@ class LogDelivery(pulumi.CustomResource):
         __props__.__dict__["delivery_source_name"] = delivery_source_name
         __props__.__dict__["field_delimiter"] = field_delimiter
         __props__.__dict__["record_fields"] = record_fields
+        __props__.__dict__["region"] = region
         __props__.__dict__["s3_delivery_configurations"] = s3_delivery_configurations
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -478,6 +513,14 @@ class LogDelivery(pulumi.CustomResource):
         return pulumi.get(self, "record_fields")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="s3DeliveryConfigurations")
     def s3_delivery_configurations(self) -> pulumi.Output[Sequence['outputs.LogDeliveryS3DeliveryConfiguration']]:
         """
@@ -495,7 +538,6 @@ class LogDelivery(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

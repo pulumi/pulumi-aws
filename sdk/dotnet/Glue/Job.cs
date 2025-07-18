@@ -350,6 +350,12 @@ namespace Pulumi.Aws.Glue
         public Output<string> GlueVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+        /// </summary>
+        [Output("jobMode")]
+        public Output<string> JobMode { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
         /// </summary>
         [Output("jobRunQueuingEnabled")]
@@ -396,6 +402,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Output("numberOfWorkers")]
         public Output<int> NumberOfWorkers { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the IAM role associated with this job.
@@ -547,6 +559,12 @@ namespace Pulumi.Aws.Glue
         public Input<string>? GlueVersion { get; set; }
 
         /// <summary>
+        /// Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+        /// </summary>
+        [Input("jobMode")]
+        public Input<string>? JobMode { get; set; }
+
+        /// <summary>
         /// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
         /// </summary>
         [Input("jobRunQueuingEnabled")]
@@ -599,6 +617,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("numberOfWorkers")]
         public Input<int>? NumberOfWorkers { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ARN of the IAM role associated with this job.
@@ -718,6 +742,12 @@ namespace Pulumi.Aws.Glue
         public Input<string>? GlueVersion { get; set; }
 
         /// <summary>
+        /// Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+        /// </summary>
+        [Input("jobMode")]
+        public Input<string>? JobMode { get; set; }
+
+        /// <summary>
         /// Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
         /// </summary>
         [Input("jobRunQueuingEnabled")]
@@ -772,6 +802,12 @@ namespace Pulumi.Aws.Glue
         public Input<int>? NumberOfWorkers { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of the IAM role associated with this job.
         /// </summary>
         [Input("roleArn")]
@@ -807,7 +843,6 @@ namespace Pulumi.Aws.Glue
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

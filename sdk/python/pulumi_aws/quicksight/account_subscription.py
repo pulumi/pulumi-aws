@@ -35,7 +35,8 @@ class AccountSubscriptionArgs:
                  iam_identity_center_instance_arn: Optional[pulumi.Input[builtins.str]] = None,
                  last_name: Optional[pulumi.Input[builtins.str]] = None,
                  reader_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 realm: Optional[pulumi.Input[builtins.str]] = None):
+                 realm: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a AccountSubscription resource.
         :param pulumi.Input[builtins.str] account_name: Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
@@ -56,6 +57,7 @@ class AccountSubscriptionArgs:
         :param pulumi.Input[builtins.str] last_name: Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] reader_groups: Reader group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[builtins.str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "authentication_method", authentication_method)
@@ -85,6 +87,8 @@ class AccountSubscriptionArgs:
             pulumi.set(__self__, "reader_groups", reader_groups)
         if realm is not None:
             pulumi.set(__self__, "realm", realm)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="accountName")
@@ -280,6 +284,18 @@ class AccountSubscriptionArgs:
     def realm(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "realm", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _AccountSubscriptionState:
@@ -300,7 +316,8 @@ class _AccountSubscriptionState:
                  last_name: Optional[pulumi.Input[builtins.str]] = None,
                  notification_email: Optional[pulumi.Input[builtins.str]] = None,
                  reader_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 realm: Optional[pulumi.Input[builtins.str]] = None):
+                 realm: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountSubscription resources.
         :param pulumi.Input[builtins.str] account_name: Name of your Amazon QuickSight account. This name is unique over all of AWS, and it appears only when users sign in.
@@ -322,6 +339,7 @@ class _AccountSubscriptionState:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] reader_groups: Reader group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[builtins.str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
@@ -357,6 +375,8 @@ class _AccountSubscriptionState:
             pulumi.set(__self__, "reader_groups", reader_groups)
         if realm is not None:
             pulumi.set(__self__, "realm", realm)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="accountName")
@@ -564,6 +584,18 @@ class _AccountSubscriptionState:
     def realm(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "realm", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:quicksight/accountSubscription:AccountSubscription")
 class AccountSubscription(pulumi.CustomResource):
@@ -587,6 +619,7 @@ class AccountSubscription(pulumi.CustomResource):
                  notification_email: Optional[pulumi.Input[builtins.str]] = None,
                  reader_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  realm: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS QuickSight Account Subscription.
@@ -630,6 +663,7 @@ class AccountSubscription(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] reader_groups: Reader group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[builtins.str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -690,6 +724,7 @@ class AccountSubscription(pulumi.CustomResource):
                  notification_email: Optional[pulumi.Input[builtins.str]] = None,
                  reader_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  realm: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -723,6 +758,7 @@ class AccountSubscription(pulumi.CustomResource):
             __props__.__dict__["notification_email"] = notification_email
             __props__.__dict__["reader_groups"] = reader_groups
             __props__.__dict__["realm"] = realm
+            __props__.__dict__["region"] = region
             __props__.__dict__["account_subscription_status"] = None
         super(AccountSubscription, __self__).__init__(
             'aws:quicksight/accountSubscription:AccountSubscription',
@@ -750,7 +786,8 @@ class AccountSubscription(pulumi.CustomResource):
             last_name: Optional[pulumi.Input[builtins.str]] = None,
             notification_email: Optional[pulumi.Input[builtins.str]] = None,
             reader_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-            realm: Optional[pulumi.Input[builtins.str]] = None) -> 'AccountSubscription':
+            realm: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'AccountSubscription':
         """
         Get an existing AccountSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -777,6 +814,7 @@ class AccountSubscription(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] reader_groups: Reader group associated with your Active Directory or IAM Identity Center account.
         :param pulumi.Input[builtins.str] realm: Realm of the Active Directory that is associated with your Amazon QuickSight account.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -799,6 +837,7 @@ class AccountSubscription(pulumi.CustomResource):
         __props__.__dict__["notification_email"] = notification_email
         __props__.__dict__["reader_groups"] = reader_groups
         __props__.__dict__["realm"] = realm
+        __props__.__dict__["region"] = region
         return AccountSubscription(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -938,4 +977,12 @@ class AccountSubscription(pulumi.CustomResource):
         Realm of the Active Directory that is associated with your Amazon QuickSight account.
         """
         return pulumi.get(self, "realm")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

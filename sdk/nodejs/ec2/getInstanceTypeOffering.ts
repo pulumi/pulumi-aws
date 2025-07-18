@@ -38,6 +38,7 @@ export function getInstanceTypeOffering(args?: GetInstanceTypeOfferingArgs, opts
         "filters": args.filters,
         "locationType": args.locationType,
         "preferredInstanceTypes": args.preferredInstanceTypes,
+        "region": args.region,
     }, opts);
 }
 
@@ -57,6 +58,10 @@ export interface GetInstanceTypeOfferingArgs {
      * Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
      */
     preferredInstanceTypes?: string[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -74,6 +79,7 @@ export interface GetInstanceTypeOfferingResult {
     readonly instanceType: string;
     readonly locationType?: string;
     readonly preferredInstanceTypes?: string[];
+    readonly region: string;
 }
 /**
  * Information about single EC2 Instance Type Offering.
@@ -106,6 +112,7 @@ export function getInstanceTypeOfferingOutput(args?: GetInstanceTypeOfferingOutp
         "filters": args.filters,
         "locationType": args.locationType,
         "preferredInstanceTypes": args.preferredInstanceTypes,
+        "region": args.region,
     }, opts);
 }
 
@@ -125,4 +132,8 @@ export interface GetInstanceTypeOfferingOutputArgs {
      * Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
      */
     preferredInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

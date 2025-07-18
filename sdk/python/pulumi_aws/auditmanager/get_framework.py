@@ -15,7 +15,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetFrameworkResult',
@@ -29,7 +28,7 @@ class GetFrameworkResult:
     """
     A collection of values returned by getFramework.
     """
-    def __init__(__self__, arn=None, compliance_type=None, control_sets=None, description=None, framework_type=None, id=None, name=None, tags=None):
+    def __init__(__self__, arn=None, compliance_type=None, control_sets=None, description=None, framework_type=None, id=None, name=None, region=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -51,6 +50,9 @@ class GetFrameworkResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -67,7 +69,7 @@ class GetFrameworkResult:
 
     @property
     @pulumi.getter(name="controlSets")
-    def control_sets(self) -> Optional[Sequence['outputs.GetFrameworkControlSetResult']]:
+    def control_sets(self) -> Sequence['outputs.GetFrameworkControlSetResult']:
         return pulumi.get(self, "control_sets")
 
     @property
@@ -92,6 +94,11 @@ class GetFrameworkResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         return pulumi.get(self, "tags")
 
@@ -109,12 +116,13 @@ class AwaitableGetFrameworkResult(GetFrameworkResult):
             framework_type=self.framework_type,
             id=self.id,
             name=self.name,
+            region=self.region,
             tags=self.tags)
 
 
-def get_framework(control_sets: Optional[Sequence[Union['GetFrameworkControlSetArgs', 'GetFrameworkControlSetArgsDict']]] = None,
-                  framework_type: Optional[builtins.str] = None,
+def get_framework(framework_type: Optional[builtins.str] = None,
                   name: Optional[builtins.str] = None,
+                  region: Optional[builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrameworkResult:
     """
     Data source for managing an AWS Audit Manager Framework.
@@ -133,11 +141,12 @@ def get_framework(control_sets: Optional[Sequence[Union['GetFrameworkControlSetA
 
 
     :param builtins.str name: Name of the framework.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
-    __args__['controlSets'] = control_sets
     __args__['frameworkType'] = framework_type
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:auditmanager/getFramework:getFramework', __args__, opts=opts, typ=GetFrameworkResult).value
 
@@ -149,10 +158,11 @@ def get_framework(control_sets: Optional[Sequence[Union['GetFrameworkControlSetA
         framework_type=pulumi.get(__ret__, 'framework_type'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_framework_output(control_sets: Optional[pulumi.Input[Optional[Sequence[Union['GetFrameworkControlSetArgs', 'GetFrameworkControlSetArgsDict']]]]] = None,
-                         framework_type: Optional[pulumi.Input[builtins.str]] = None,
+def get_framework_output(framework_type: Optional[pulumi.Input[builtins.str]] = None,
                          name: Optional[pulumi.Input[builtins.str]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFrameworkResult]:
     """
     Data source for managing an AWS Audit Manager Framework.
@@ -171,11 +181,12 @@ def get_framework_output(control_sets: Optional[pulumi.Input[Optional[Sequence[U
 
 
     :param builtins.str name: Name of the framework.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
-    __args__['controlSets'] = control_sets
     __args__['frameworkType'] = framework_type
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:auditmanager/getFramework:getFramework', __args__, opts=opts, typ=GetFrameworkResult)
     return __ret__.apply(lambda __response__: GetFrameworkResult(
@@ -186,4 +197,5 @@ def get_framework_output(control_sets: Optional[pulumi.Input[Optional[Sequence[U
         framework_type=pulumi.get(__response__, 'framework_type'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

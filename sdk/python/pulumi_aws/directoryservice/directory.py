@@ -30,6 +30,7 @@ class DirectoryArgs:
                  desired_number_of_domain_controllers: Optional[pulumi.Input[builtins.int]] = None,
                  edition: Optional[pulumi.Input[builtins.str]] = None,
                  enable_sso: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  short_name: Optional[pulumi.Input[builtins.str]] = None,
                  size: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -45,6 +46,7 @@ class DirectoryArgs:
         :param pulumi.Input[builtins.int] desired_number_of_domain_controllers: The number of domain controllers desired in the directory. Minimum value of `2`. Scaling of domain controllers is only supported for `MicrosoftAD` directories.
         :param pulumi.Input[builtins.str] edition: The MicrosoftAD edition (`Standard` or `Enterprise`). Defaults to `Enterprise`.
         :param pulumi.Input[builtins.bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] short_name: The short name of the directory, such as `CORP`.
         :param pulumi.Input[builtins.str] size: (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -65,6 +67,8 @@ class DirectoryArgs:
             pulumi.set(__self__, "edition", edition)
         if enable_sso is not None:
             pulumi.set(__self__, "enable_sso", enable_sso)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if short_name is not None:
             pulumi.set(__self__, "short_name", short_name)
         if size is not None:
@@ -173,6 +177,18 @@ class DirectoryArgs:
         pulumi.set(self, "enable_sso", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="shortName")
     def short_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -246,6 +262,7 @@ class _DirectoryState:
                  enable_sso: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  short_name: Optional[pulumi.Input[builtins.str]] = None,
                  size: Optional[pulumi.Input[builtins.str]] = None,
@@ -265,6 +282,7 @@ class _DirectoryState:
         :param pulumi.Input[builtins.bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
         :param pulumi.Input[builtins.str] name: The fully qualified name for the directory, such as `corp.example.com`
         :param pulumi.Input[builtins.str] password: The password for the directory administrator or connector user.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_group_id: The ID of the security group created by the directory.
         :param pulumi.Input[builtins.str] short_name: The short name of the directory, such as `CORP`.
         :param pulumi.Input[builtins.str] size: (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
@@ -293,6 +311,8 @@ class _DirectoryState:
             pulumi.set(__self__, "name", name)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_id is not None:
             pulumi.set(__self__, "security_group_id", security_group_id)
         if short_name is not None:
@@ -301,9 +321,6 @@ class _DirectoryState:
             pulumi.set(__self__, "size", size)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
@@ -432,6 +449,18 @@ class _DirectoryState:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -481,7 +510,6 @@ class _DirectoryState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -531,6 +559,7 @@ class Directory(pulumi.CustomResource):
                  enable_sso: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  short_name: Optional[pulumi.Input[builtins.str]] = None,
                  size: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -654,6 +683,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
         :param pulumi.Input[builtins.str] name: The fully qualified name for the directory, such as `corp.example.com`
         :param pulumi.Input[builtins.str] password: The password for the directory administrator or connector user.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] short_name: The short name of the directory, such as `CORP`.
         :param pulumi.Input[builtins.str] size: (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -796,6 +826,7 @@ class Directory(pulumi.CustomResource):
                  enable_sso: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  short_name: Optional[pulumi.Input[builtins.str]] = None,
                  size: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -822,6 +853,7 @@ class Directory(pulumi.CustomResource):
             if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
+            __props__.__dict__["region"] = region
             __props__.__dict__["short_name"] = short_name
             __props__.__dict__["size"] = size
             __props__.__dict__["tags"] = tags
@@ -853,6 +885,7 @@ class Directory(pulumi.CustomResource):
             enable_sso: Optional[pulumi.Input[builtins.bool]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             password: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_group_id: Optional[pulumi.Input[builtins.str]] = None,
             short_name: Optional[pulumi.Input[builtins.str]] = None,
             size: Optional[pulumi.Input[builtins.str]] = None,
@@ -877,6 +910,7 @@ class Directory(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enable_sso: Whether to enable single-sign on for the directory. Requires `alias`. Defaults to `false`.
         :param pulumi.Input[builtins.str] name: The fully qualified name for the directory, such as `corp.example.com`
         :param pulumi.Input[builtins.str] password: The password for the directory administrator or connector user.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_group_id: The ID of the security group created by the directory.
         :param pulumi.Input[builtins.str] short_name: The short name of the directory, such as `CORP`.
         :param pulumi.Input[builtins.str] size: (For `SimpleAD` and `ADConnector` types) The size of the directory (`Small` or `Large` are accepted values). `Large` by default.
@@ -899,6 +933,7 @@ class Directory(pulumi.CustomResource):
         __props__.__dict__["enable_sso"] = enable_sso
         __props__.__dict__["name"] = name
         __props__.__dict__["password"] = password
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_group_id"] = security_group_id
         __props__.__dict__["short_name"] = short_name
         __props__.__dict__["size"] = size
@@ -989,6 +1024,14 @@ class Directory(pulumi.CustomResource):
         return pulumi.get(self, "password")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> pulumi.Output[builtins.str]:
         """
@@ -1022,7 +1065,6 @@ class Directory(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

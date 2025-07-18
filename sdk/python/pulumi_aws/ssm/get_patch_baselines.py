@@ -29,7 +29,7 @@ class GetPatchBaselinesResult:
     """
     A collection of values returned by getPatchBaselines.
     """
-    def __init__(__self__, baseline_identities=None, default_baselines=None, filters=None, id=None):
+    def __init__(__self__, baseline_identities=None, default_baselines=None, filters=None, id=None, region=None):
         if baseline_identities and not isinstance(baseline_identities, list):
             raise TypeError("Expected argument 'baseline_identities' to be a list")
         pulumi.set(__self__, "baseline_identities", baseline_identities)
@@ -42,6 +42,9 @@ class GetPatchBaselinesResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="baselineIdentities")
@@ -69,6 +72,11 @@ class GetPatchBaselinesResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetPatchBaselinesResult(GetPatchBaselinesResult):
     # pylint: disable=using-constant-test
@@ -79,11 +87,13 @@ class AwaitableGetPatchBaselinesResult(GetPatchBaselinesResult):
             baseline_identities=self.baseline_identities,
             default_baselines=self.default_baselines,
             filters=self.filters,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
 def get_patch_baselines(default_baselines: Optional[builtins.bool] = None,
                         filters: Optional[Sequence[Union['GetPatchBaselinesFilterArgs', 'GetPatchBaselinesFilterArgsDict']]] = None,
+                        region: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPatchBaselinesResult:
     """
     Data source for retrieving AWS SSM (Systems Manager) Patch Baselines.
@@ -120,10 +130,12 @@ def get_patch_baselines(default_baselines: Optional[builtins.bool] = None,
 
     :param builtins.bool default_baselines: Only return baseline identities where `default_baseline` is `true`.
     :param Sequence[Union['GetPatchBaselinesFilterArgs', 'GetPatchBaselinesFilterArgsDict']] filters: Key-value pairs used to filter the results. See `filter` below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['defaultBaselines'] = default_baselines
     __args__['filters'] = filters
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ssm/getPatchBaselines:getPatchBaselines', __args__, opts=opts, typ=GetPatchBaselinesResult).value
 
@@ -131,9 +143,11 @@ def get_patch_baselines(default_baselines: Optional[builtins.bool] = None,
         baseline_identities=pulumi.get(__ret__, 'baseline_identities'),
         default_baselines=pulumi.get(__ret__, 'default_baselines'),
         filters=pulumi.get(__ret__, 'filters'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_patch_baselines_output(default_baselines: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                filters: Optional[pulumi.Input[Optional[Sequence[Union['GetPatchBaselinesFilterArgs', 'GetPatchBaselinesFilterArgsDict']]]]] = None,
+                               region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPatchBaselinesResult]:
     """
     Data source for retrieving AWS SSM (Systems Manager) Patch Baselines.
@@ -170,14 +184,17 @@ def get_patch_baselines_output(default_baselines: Optional[pulumi.Input[Optional
 
     :param builtins.bool default_baselines: Only return baseline identities where `default_baseline` is `true`.
     :param Sequence[Union['GetPatchBaselinesFilterArgs', 'GetPatchBaselinesFilterArgsDict']] filters: Key-value pairs used to filter the results. See `filter` below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['defaultBaselines'] = default_baselines
     __args__['filters'] = filters
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssm/getPatchBaselines:getPatchBaselines', __args__, opts=opts, typ=GetPatchBaselinesResult)
     return __ret__.apply(lambda __response__: GetPatchBaselinesResult(
         baseline_identities=pulumi.get(__response__, 'baseline_identities'),
         default_baselines=pulumi.get(__response__, 'default_baselines'),
         filters=pulumi.get(__response__, 'filters'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

@@ -109,6 +109,12 @@ namespace Pulumi.Aws.Xray
         public Output<string?> KeyId { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
         /// </summary>
         [Output("type")]
@@ -167,6 +173,12 @@ namespace Pulumi.Aws.Xray
         public Input<string>? KeyId { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
         /// </summary>
         [Input("type", required: true)]
@@ -185,6 +197,12 @@ namespace Pulumi.Aws.Xray
         /// </summary>
         [Input("keyId")]
         public Input<string>? KeyId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.

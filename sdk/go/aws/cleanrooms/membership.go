@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cleanrooms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cleanrooms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,11 +87,12 @@ type Membership struct {
 	PaymentConfiguration MembershipPaymentConfigurationPtrOutput `pulumi:"paymentConfiguration"`
 	// An indicator as to whether query logging has been enabled or disabled for the membership.
 	QueryLogStatus pulumi.StringOutput `pulumi:"queryLogStatus"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The status of the membership.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key value pairs which tag the membership.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The date and time the membership was last updated.
 	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
@@ -154,11 +155,12 @@ type membershipState struct {
 	PaymentConfiguration *MembershipPaymentConfiguration `pulumi:"paymentConfiguration"`
 	// An indicator as to whether query logging has been enabled or disabled for the membership.
 	QueryLogStatus *string `pulumi:"queryLogStatus"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The status of the membership.
 	Status *string `pulumi:"status"`
 	// Key value pairs which tag the membership.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The date and time the membership was last updated.
 	UpdateTime *string `pulumi:"updateTime"`
@@ -186,11 +188,12 @@ type MembershipState struct {
 	PaymentConfiguration MembershipPaymentConfigurationPtrInput
 	// An indicator as to whether query logging has been enabled or disabled for the membership.
 	QueryLogStatus pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The status of the membership.
 	Status pulumi.StringPtrInput
 	// Key value pairs which tag the membership.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The date and time the membership was last updated.
 	UpdateTime pulumi.StringPtrInput
@@ -208,6 +211,8 @@ type membershipArgs struct {
 	PaymentConfiguration       *MembershipPaymentConfiguration       `pulumi:"paymentConfiguration"`
 	// An indicator as to whether query logging has been enabled or disabled for the membership.
 	QueryLogStatus string `pulumi:"queryLogStatus"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key value pairs which tag the membership.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -221,6 +226,8 @@ type MembershipArgs struct {
 	PaymentConfiguration       MembershipPaymentConfigurationPtrInput
 	// An indicator as to whether query logging has been enabled or disabled for the membership.
 	QueryLogStatus pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key value pairs which tag the membership.
 	Tags pulumi.StringMapInput
 }
@@ -366,6 +373,11 @@ func (o MembershipOutput) QueryLogStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.QueryLogStatus }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o MembershipOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The status of the membership.
 func (o MembershipOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
@@ -376,7 +388,6 @@ func (o MembershipOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o MembershipOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

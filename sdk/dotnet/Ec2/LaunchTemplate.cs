@@ -87,19 +87,6 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> EbsOptimized { get; private set; } = null!;
 
         /// <summary>
-        /// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-        /// below for more details.
-        /// </summary>
-        [Output("elasticGpuSpecifications")]
-        public Output<ImmutableArray<Outputs.LaunchTemplateElasticGpuSpecification>> ElasticGpuSpecifications { get; private set; } = null!;
-
-        /// <summary>
-        /// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-        /// </summary>
-        [Output("elasticInferenceAccelerator")]
-        public Output<Outputs.LaunchTemplateElasticInferenceAccelerator?> ElasticInferenceAccelerator { get; private set; } = null!;
-
-        /// <summary>
         /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         /// </summary>
         [Output("enclaveOptions")]
@@ -228,6 +215,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("ramDiskId")]
         public Output<string?> RamDiskId { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// A list of security group names to associate with. If you are creating Instances in a VPC, use
@@ -381,26 +374,6 @@ namespace Pulumi.Aws.Ec2
         [Input("ebsOptimized")]
         public Input<string>? EbsOptimized { get; set; }
 
-        [Input("elasticGpuSpecifications")]
-        private InputList<Inputs.LaunchTemplateElasticGpuSpecificationArgs>? _elasticGpuSpecifications;
-
-        /// <summary>
-        /// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-        /// below for more details.
-        /// </summary>
-        [Obsolete(@"elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.")]
-        public InputList<Inputs.LaunchTemplateElasticGpuSpecificationArgs> ElasticGpuSpecifications
-        {
-            get => _elasticGpuSpecifications ?? (_elasticGpuSpecifications = new InputList<Inputs.LaunchTemplateElasticGpuSpecificationArgs>());
-            set => _elasticGpuSpecifications = value;
-        }
-
-        /// <summary>
-        /// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-        /// </summary>
-        [Input("elasticInferenceAccelerator")]
-        public Input<Inputs.LaunchTemplateElasticInferenceAcceleratorArgs>? ElasticInferenceAccelerator { get; set; }
-
         /// <summary>
         /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         /// </summary>
@@ -536,6 +509,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("ramDiskId")]
         public Input<string>? RamDiskId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("securityGroupNames")]
         private InputList<string>? _securityGroupNames;
@@ -674,26 +653,6 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("ebsOptimized")]
         public Input<string>? EbsOptimized { get; set; }
-
-        [Input("elasticGpuSpecifications")]
-        private InputList<Inputs.LaunchTemplateElasticGpuSpecificationGetArgs>? _elasticGpuSpecifications;
-
-        /// <summary>
-        /// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-        /// below for more details.
-        /// </summary>
-        [Obsolete(@"elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.")]
-        public InputList<Inputs.LaunchTemplateElasticGpuSpecificationGetArgs> ElasticGpuSpecifications
-        {
-            get => _elasticGpuSpecifications ?? (_elasticGpuSpecifications = new InputList<Inputs.LaunchTemplateElasticGpuSpecificationGetArgs>());
-            set => _elasticGpuSpecifications = value;
-        }
-
-        /// <summary>
-        /// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-        /// </summary>
-        [Input("elasticInferenceAccelerator")]
-        public Input<Inputs.LaunchTemplateElasticInferenceAcceleratorGetArgs>? ElasticInferenceAccelerator { get; set; }
 
         /// <summary>
         /// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
@@ -837,6 +796,12 @@ namespace Pulumi.Aws.Ec2
         [Input("ramDiskId")]
         public Input<string>? RamDiskId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("securityGroupNames")]
         private InputList<string>? _securityGroupNames;
 
@@ -880,7 +845,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

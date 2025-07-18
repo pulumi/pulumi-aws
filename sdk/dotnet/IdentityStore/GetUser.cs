@@ -136,18 +136,18 @@ namespace Pulumi.Aws.IdentityStore
         public Inputs.GetUserAlternateIdentifierArgs? AlternateIdentifier { get; set; }
 
         /// <summary>
-        /// Configuration block for filtering by a unique attribute of the user. Detailed below.
-        /// </summary>
-        [Input("filter")]
-        public Inputs.GetUserFilterArgs? Filter { get; set; }
-
-        /// <summary>
         /// Identity Store ID associated with the Single Sign-On Instance.
         /// 
         /// The following arguments are optional:
         /// </summary>
         [Input("identityStoreId", required: true)]
         public string IdentityStoreId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
 
         /// <summary>
         /// The identifier for a user in the Identity Store.
@@ -172,18 +172,18 @@ namespace Pulumi.Aws.IdentityStore
         public Input<Inputs.GetUserAlternateIdentifierInputArgs>? AlternateIdentifier { get; set; }
 
         /// <summary>
-        /// Configuration block for filtering by a unique attribute of the user. Detailed below.
-        /// </summary>
-        [Input("filter")]
-        public Input<Inputs.GetUserFilterInputArgs>? Filter { get; set; }
-
-        /// <summary>
         /// Identity Store ID associated with the Single Sign-On Instance.
         /// 
         /// The following arguments are optional:
         /// </summary>
         [Input("identityStoreId", required: true)]
         public Input<string> IdentityStoreId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The identifier for a user in the Identity Store.
@@ -220,7 +220,6 @@ namespace Pulumi.Aws.IdentityStore
         /// List of identifiers issued to this resource by an external identity provider.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUserExternalIdResult> ExternalIds;
-        public readonly Outputs.GetUserFilterResult? Filter;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -251,6 +250,10 @@ namespace Pulumi.Aws.IdentityStore
         /// </summary>
         public readonly string ProfileUrl;
         /// <summary>
+        /// The region of the address.
+        /// </summary>
+        public readonly string Region;
+        /// <summary>
         /// The user's time zone.
         /// </summary>
         public readonly string Timezone;
@@ -280,8 +283,6 @@ namespace Pulumi.Aws.IdentityStore
 
             ImmutableArray<Outputs.GetUserExternalIdResult> externalIds,
 
-            Outputs.GetUserFilterResult? filter,
-
             string id,
 
             string identityStoreId,
@@ -298,6 +299,8 @@ namespace Pulumi.Aws.IdentityStore
 
             string profileUrl,
 
+            string region,
+
             string timezone,
 
             string title,
@@ -313,7 +316,6 @@ namespace Pulumi.Aws.IdentityStore
             DisplayName = displayName;
             Emails = emails;
             ExternalIds = externalIds;
-            Filter = filter;
             Id = id;
             IdentityStoreId = identityStoreId;
             Locale = locale;
@@ -322,6 +324,7 @@ namespace Pulumi.Aws.IdentityStore
             PhoneNumbers = phoneNumbers;
             PreferredLanguage = preferredLanguage;
             ProfileUrl = profileUrl;
+            Region = region;
             Timezone = timezone;
             Title = title;
             UserId = userId;

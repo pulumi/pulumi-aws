@@ -96,6 +96,10 @@ export class EventStream extends pulumi.CustomResource {
      */
     public readonly destinationStreamArn!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -115,6 +119,7 @@ export class EventStream extends pulumi.CustomResource {
             const state = argsOrState as EventStreamState | undefined;
             resourceInputs["applicationId"] = state ? state.applicationId : undefined;
             resourceInputs["destinationStreamArn"] = state ? state.destinationStreamArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as EventStreamArgs | undefined;
@@ -129,6 +134,7 @@ export class EventStream extends pulumi.CustomResource {
             }
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
             resourceInputs["destinationStreamArn"] = args ? args.destinationStreamArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -149,6 +155,10 @@ export interface EventStreamState {
      */
     destinationStreamArn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
      */
     roleArn?: pulumi.Input<string>;
@@ -166,6 +176,10 @@ export interface EventStreamArgs {
      * The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      */
     destinationStreamArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
      */

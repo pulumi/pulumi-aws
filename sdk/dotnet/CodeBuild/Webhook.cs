@@ -106,6 +106,12 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string> ProjectName { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
         /// </summary>
         [Output("scopeConfiguration")]
@@ -210,6 +216,12 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string> ProjectName { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.
         /// </summary>
         [Input("scopeConfiguration")]
@@ -264,6 +276,12 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Scope configuration for global or organization webhooks. Scope configuration blocks are documented below.

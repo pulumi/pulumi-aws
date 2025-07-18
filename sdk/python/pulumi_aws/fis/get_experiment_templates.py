@@ -27,13 +27,16 @@ class GetExperimentTemplatesResult:
     """
     A collection of values returned by getExperimentTemplates.
     """
-    def __init__(__self__, id=None, ids=None, tags=None):
+    def __init__(__self__, id=None, ids=None, region=None, tags=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if ids and not isinstance(ids, list):
             raise TypeError("Expected argument 'ids' to be a list")
         pulumi.set(__self__, "ids", ids)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -56,6 +59,11 @@ class GetExperimentTemplatesResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags")
 
@@ -68,10 +76,12 @@ class AwaitableGetExperimentTemplatesResult(GetExperimentTemplatesResult):
         return GetExperimentTemplatesResult(
             id=self.id,
             ids=self.ids,
+            region=self.region,
             tags=self.tags)
 
 
-def get_experiment_templates(tags: Optional[Mapping[str, builtins.str]] = None,
+def get_experiment_templates(region: Optional[builtins.str] = None,
+                             tags: Optional[Mapping[str, builtins.str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExperimentTemplatesResult:
     """
     This resource can be useful for getting back a set of FIS experiment template IDs.
@@ -110,10 +120,12 @@ def get_experiment_templates(tags: Optional[Mapping[str, builtins.str]] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired experiment templates.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:fis/getExperimentTemplates:getExperimentTemplates', __args__, opts=opts, typ=GetExperimentTemplatesResult).value
@@ -121,8 +133,10 @@ def get_experiment_templates(tags: Optional[Mapping[str, builtins.str]] = None,
     return AwaitableGetExperimentTemplatesResult(
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_experiment_templates_output(tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
+def get_experiment_templates_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                    tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExperimentTemplatesResult]:
     """
     This resource can be useful for getting back a set of FIS experiment template IDs.
@@ -161,14 +175,17 @@ def get_experiment_templates_output(tags: Optional[pulumi.Input[Optional[Mapping
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired experiment templates.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:fis/getExperimentTemplates:getExperimentTemplates', __args__, opts=opts, typ=GetExperimentTemplatesResult)
     return __ret__.apply(lambda __response__: GetExperimentTemplatesResult(
         id=pulumi.get(__response__, 'id'),
         ids=pulumi.get(__response__, 'ids'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

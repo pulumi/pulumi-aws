@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.inputs;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -46,6 +47,21 @@ public final class GetStreamConsumerPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ARN of the data stream the consumer is registered with.
      * 
      */
@@ -60,12 +76,21 @@ public final class GetStreamConsumerPlainArgs extends com.pulumi.resources.Invok
         return this.streamArn;
     }
 
+    @Import(name="tags")
+    private @Nullable Map<String,String> tags;
+
+    public Optional<Map<String,String>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private GetStreamConsumerPlainArgs() {}
 
     private GetStreamConsumerPlainArgs(GetStreamConsumerPlainArgs $) {
         this.arn = $.arn;
         this.name = $.name;
+        this.region = $.region;
         this.streamArn = $.streamArn;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -109,6 +134,17 @@ public final class GetStreamConsumerPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
          * @param streamArn ARN of the data stream the consumer is registered with.
          * 
          * @return builder
@@ -116,6 +152,11 @@ public final class GetStreamConsumerPlainArgs extends com.pulumi.resources.Invok
          */
         public Builder streamArn(String streamArn) {
             $.streamArn = streamArn;
+            return this;
+        }
+
+        public Builder tags(@Nullable Map<String,String> tags) {
+            $.tags = tags;
             return this;
         }
 

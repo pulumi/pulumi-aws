@@ -17,14 +17,14 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
     public static final FunctionUrlState Empty = new FunctionUrlState();
 
     /**
-     * The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
+     * Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
      * 
      */
     @Import(name="authorizationType")
     private @Nullable Output<String> authorizationType;
 
     /**
-     * @return The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
+     * @return Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
      * 
      */
     public Optional<Output<String>> authorizationType() {
@@ -32,14 +32,14 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
+     * Cross-origin resource sharing (CORS) settings for the function URL. See below.
      * 
      */
     @Import(name="cors")
     private @Nullable Output<FunctionUrlCorsArgs> cors;
 
     /**
-     * @return The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
+     * @return Cross-origin resource sharing (CORS) settings for the function URL. See below.
      * 
      */
     public Optional<Output<FunctionUrlCorsArgs>> cors() {
@@ -47,14 +47,14 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the function.
+     * ARN of the Lambda function.
      * 
      */
     @Import(name="functionArn")
     private @Nullable Output<String> functionArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the function.
+     * @return ARN of the Lambda function.
      * 
      */
     public Optional<Output<String>> functionArn() {
@@ -62,14 +62,18 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name (or ARN) of the Lambda function.
+     * Name or ARN of the Lambda function.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="functionName")
     private @Nullable Output<String> functionName;
 
     /**
-     * @return The name (or ARN) of the Lambda function.
+     * @return Name or ARN of the Lambda function.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> functionName() {
@@ -77,14 +81,14 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
+     * HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
      * 
      */
     @Import(name="functionUrl")
     private @Nullable Output<String> functionUrl;
 
     /**
-     * @return The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
+     * @return HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
      * 
      */
     public Optional<Output<String>> functionUrl() {
@@ -92,14 +96,14 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+     * How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
      * 
      */
     @Import(name="invokeMode")
     private @Nullable Output<String> invokeMode;
 
     /**
-     * @return Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+     * @return How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
      * 
      */
     public Optional<Output<String>> invokeMode() {
@@ -107,14 +111,14 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The alias name or `&#34;$LATEST&#34;`.
+     * Alias name or `$LATEST`.
      * 
      */
     @Import(name="qualifier")
     private @Nullable Output<String> qualifier;
 
     /**
-     * @return The alias name or `&#34;$LATEST&#34;`.
+     * @return Alias name or `$LATEST`.
      * 
      */
     public Optional<Output<String>> qualifier() {
@@ -122,14 +126,29 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A generated ID for the endpoint.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
+     * Generated ID for the endpoint.
      * 
      */
     @Import(name="urlId")
     private @Nullable Output<String> urlId;
 
     /**
-     * @return A generated ID for the endpoint.
+     * @return Generated ID for the endpoint.
      * 
      */
     public Optional<Output<String>> urlId() {
@@ -146,6 +165,7 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
         this.functionUrl = $.functionUrl;
         this.invokeMode = $.invokeMode;
         this.qualifier = $.qualifier;
+        this.region = $.region;
         this.urlId = $.urlId;
     }
 
@@ -168,7 +188,7 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizationType The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
+         * @param authorizationType Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
          * 
          * @return builder
          * 
@@ -179,7 +199,7 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param authorizationType The type of authentication that the function URL uses. Set to `&#34;AWS_IAM&#34;` to restrict access to authenticated IAM users only. Set to `&#34;NONE&#34;` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
+         * @param authorizationType Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
          * 
          * @return builder
          * 
@@ -189,7 +209,7 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cors The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
+         * @param cors Cross-origin resource sharing (CORS) settings for the function URL. See below.
          * 
          * @return builder
          * 
@@ -200,7 +220,7 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cors The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
+         * @param cors Cross-origin resource sharing (CORS) settings for the function URL. See below.
          * 
          * @return builder
          * 
@@ -210,7 +230,7 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionArn The Amazon Resource Name (ARN) of the function.
+         * @param functionArn ARN of the Lambda function.
          * 
          * @return builder
          * 
@@ -221,7 +241,7 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionArn The Amazon Resource Name (ARN) of the function.
+         * @param functionArn ARN of the Lambda function.
          * 
          * @return builder
          * 
@@ -231,7 +251,9 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionName The name (or ARN) of the Lambda function.
+         * @param functionName Name or ARN of the Lambda function.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -242,7 +264,9 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionName The name (or ARN) of the Lambda function.
+         * @param functionName Name or ARN of the Lambda function.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -252,7 +276,7 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionUrl The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
+         * @param functionUrl HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
          * 
          * @return builder
          * 
@@ -263,7 +287,7 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionUrl The HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
+         * @param functionUrl HTTP URL endpoint for the function in the format `https://&lt;url_id&gt;.lambda-url.&lt;region&gt;.on.aws/`.
          * 
          * @return builder
          * 
@@ -273,7 +297,7 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param invokeMode Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+         * @param invokeMode How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
          * 
          * @return builder
          * 
@@ -284,7 +308,7 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param invokeMode Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+         * @param invokeMode How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
          * 
          * @return builder
          * 
@@ -294,7 +318,7 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param qualifier The alias name or `&#34;$LATEST&#34;`.
+         * @param qualifier Alias name or `$LATEST`.
          * 
          * @return builder
          * 
@@ -305,7 +329,7 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param qualifier The alias name or `&#34;$LATEST&#34;`.
+         * @param qualifier Alias name or `$LATEST`.
          * 
          * @return builder
          * 
@@ -315,7 +339,28 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param urlId A generated ID for the endpoint.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
+         * @param urlId Generated ID for the endpoint.
          * 
          * @return builder
          * 
@@ -326,7 +371,7 @@ public final class FunctionUrlState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param urlId A generated ID for the endpoint.
+         * @param urlId Generated ID for the endpoint.
          * 
          * @return builder
          * 

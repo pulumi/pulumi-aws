@@ -14,8 +14,21 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import iam
+from .. import iam as _iam
+from ._enums import *
 
 __all__ = [
+    'LifecyclePolicyActionArgs',
+    'LifecyclePolicyActionArgsDict',
+    'LifecyclePolicyDocumentArgs',
+    'LifecyclePolicyDocumentArgsDict',
+    'LifecyclePolicyRuleArgs',
+    'LifecyclePolicyRuleArgsDict',
+    'LifecyclePolicySelectionArgs',
+    'LifecyclePolicySelectionArgsDict',
+    'PolicyDocumentArgs',
+    'PolicyDocumentArgsDict',
     'RegistryScanningConfigurationRuleArgs',
     'RegistryScanningConfigurationRuleArgsDict',
     'RegistryScanningConfigurationRuleRepositoryFilterArgs',
@@ -43,6 +56,331 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class LifecyclePolicyActionArgsDict(TypedDict):
+        type: pulumi.Input['LifecyclePolicyActionType']
+        """
+        The type of action to take. Currently only 'expire' is supported.
+        """
+elif False:
+    LifecyclePolicyActionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LifecyclePolicyActionArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['LifecyclePolicyActionType']):
+        """
+        :param pulumi.Input['LifecyclePolicyActionType'] type: The type of action to take. Currently only 'expire' is supported.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['LifecyclePolicyActionType']:
+        """
+        The type of action to take. Currently only 'expire' is supported.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['LifecyclePolicyActionType']):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class LifecyclePolicyDocumentArgsDict(TypedDict):
+        """
+        Represents an ECR lifecycle policy document.
+        """
+        rules: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyRuleArgsDict']]]
+        """
+        The rules that comprise the lifecycle policy.
+        """
+elif False:
+    LifecyclePolicyDocumentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LifecyclePolicyDocumentArgs:
+    def __init__(__self__, *,
+                 rules: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyRuleArgs']]]):
+        """
+        Represents an ECR lifecycle policy document.
+        :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyRuleArgs']]] rules: The rules that comprise the lifecycle policy.
+        """
+        pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyRuleArgs']]]:
+        """
+        The rules that comprise the lifecycle policy.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyRuleArgs']]]):
+        pulumi.set(self, "rules", value)
+
+
+if not MYPY:
+    class LifecyclePolicyRuleArgsDict(TypedDict):
+        """
+        Represents a rule in an ECR lifecycle policy.
+        """
+        action: pulumi.Input['LifecyclePolicyActionArgsDict']
+        """
+        The action to take when the rule is triggered.
+        """
+        rule_priority: pulumi.Input[builtins.int]
+        """
+        The priority of the rule, must be unique within the policy.
+        """
+        selection: pulumi.Input['LifecyclePolicySelectionArgsDict']
+        """
+        The selection criteria for the rule.
+        """
+        description: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A description of the rule.
+        """
+elif False:
+    LifecyclePolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LifecyclePolicyRuleArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['LifecyclePolicyActionArgs'],
+                 rule_priority: pulumi.Input[builtins.int],
+                 selection: pulumi.Input['LifecyclePolicySelectionArgs'],
+                 description: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Represents a rule in an ECR lifecycle policy.
+        :param pulumi.Input['LifecyclePolicyActionArgs'] action: The action to take when the rule is triggered.
+        :param pulumi.Input[builtins.int] rule_priority: The priority of the rule, must be unique within the policy.
+        :param pulumi.Input['LifecyclePolicySelectionArgs'] selection: The selection criteria for the rule.
+        :param pulumi.Input[builtins.str] description: A description of the rule.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "rule_priority", rule_priority)
+        pulumi.set(__self__, "selection", selection)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['LifecyclePolicyActionArgs']:
+        """
+        The action to take when the rule is triggered.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['LifecyclePolicyActionArgs']):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="rulePriority")
+    def rule_priority(self) -> pulumi.Input[builtins.int]:
+        """
+        The priority of the rule, must be unique within the policy.
+        """
+        return pulumi.get(self, "rule_priority")
+
+    @rule_priority.setter
+    def rule_priority(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "rule_priority", value)
+
+    @property
+    @pulumi.getter
+    def selection(self) -> pulumi.Input['LifecyclePolicySelectionArgs']:
+        """
+        The selection criteria for the rule.
+        """
+        return pulumi.get(self, "selection")
+
+    @selection.setter
+    def selection(self, value: pulumi.Input['LifecyclePolicySelectionArgs']):
+        pulumi.set(self, "selection", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A description of the rule.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "description", value)
+
+
+if not MYPY:
+    class LifecyclePolicySelectionArgsDict(TypedDict):
+        """
+        Represents selection criteria for an ECR lifecycle policy rule.
+        """
+        count_number: pulumi.Input[builtins.int]
+        """
+        The count number to use with the count type.
+        """
+        count_type: pulumi.Input['LifecyclePolicyCountType']
+        """
+        The type of count to perform. Either 'imageCountMoreThan' or 'sinceImagePushed'.
+        """
+        tag_status: pulumi.Input['LifecyclePolicyTagStatus']
+        """
+        The tag status of the image. Either 'tagged', 'untagged', or 'any'.
+        """
+        count_unit: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The unit of time for sinceImagePushed. Either 'days'.
+        """
+        tag_prefix_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        A list of image tag prefixes on which to take action.
+        """
+elif False:
+    LifecyclePolicySelectionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LifecyclePolicySelectionArgs:
+    def __init__(__self__, *,
+                 count_number: pulumi.Input[builtins.int],
+                 count_type: pulumi.Input['LifecyclePolicyCountType'],
+                 tag_status: pulumi.Input['LifecyclePolicyTagStatus'],
+                 count_unit: Optional[pulumi.Input[builtins.str]] = None,
+                 tag_prefix_list: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        """
+        Represents selection criteria for an ECR lifecycle policy rule.
+        :param pulumi.Input[builtins.int] count_number: The count number to use with the count type.
+        :param pulumi.Input['LifecyclePolicyCountType'] count_type: The type of count to perform. Either 'imageCountMoreThan' or 'sinceImagePushed'.
+        :param pulumi.Input['LifecyclePolicyTagStatus'] tag_status: The tag status of the image. Either 'tagged', 'untagged', or 'any'.
+        :param pulumi.Input[builtins.str] count_unit: The unit of time for sinceImagePushed. Either 'days'.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] tag_prefix_list: A list of image tag prefixes on which to take action.
+        """
+        pulumi.set(__self__, "count_number", count_number)
+        pulumi.set(__self__, "count_type", count_type)
+        pulumi.set(__self__, "tag_status", tag_status)
+        if count_unit is not None:
+            pulumi.set(__self__, "count_unit", count_unit)
+        if tag_prefix_list is not None:
+            pulumi.set(__self__, "tag_prefix_list", tag_prefix_list)
+
+    @property
+    @pulumi.getter(name="countNumber")
+    def count_number(self) -> pulumi.Input[builtins.int]:
+        """
+        The count number to use with the count type.
+        """
+        return pulumi.get(self, "count_number")
+
+    @count_number.setter
+    def count_number(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "count_number", value)
+
+    @property
+    @pulumi.getter(name="countType")
+    def count_type(self) -> pulumi.Input['LifecyclePolicyCountType']:
+        """
+        The type of count to perform. Either 'imageCountMoreThan' or 'sinceImagePushed'.
+        """
+        return pulumi.get(self, "count_type")
+
+    @count_type.setter
+    def count_type(self, value: pulumi.Input['LifecyclePolicyCountType']):
+        pulumi.set(self, "count_type", value)
+
+    @property
+    @pulumi.getter(name="tagStatus")
+    def tag_status(self) -> pulumi.Input['LifecyclePolicyTagStatus']:
+        """
+        The tag status of the image. Either 'tagged', 'untagged', or 'any'.
+        """
+        return pulumi.get(self, "tag_status")
+
+    @tag_status.setter
+    def tag_status(self, value: pulumi.Input['LifecyclePolicyTagStatus']):
+        pulumi.set(self, "tag_status", value)
+
+    @property
+    @pulumi.getter(name="countUnit")
+    def count_unit(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The unit of time for sinceImagePushed. Either 'days'.
+        """
+        return pulumi.get(self, "count_unit")
+
+    @count_unit.setter
+    def count_unit(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "count_unit", value)
+
+    @property
+    @pulumi.getter(name="tagPrefixList")
+    def tag_prefix_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        A list of image tag prefixes on which to take action.
+        """
+        return pulumi.get(self, "tag_prefix_list")
+
+    @tag_prefix_list.setter
+    def tag_prefix_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tag_prefix_list", value)
+
+
+if not MYPY:
+    class PolicyDocumentArgsDict(TypedDict):
+        """
+        Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
+        """
+        statement: pulumi.Input[Sequence[pulumi.Input['_iam.PolicyStatementArgsDict']]]
+        version: pulumi.Input['iam.PolicyDocumentVersion']
+        id: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    PolicyDocumentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PolicyDocumentArgs:
+    def __init__(__self__, *,
+                 statement: pulumi.Input[Sequence[pulumi.Input['_iam.PolicyStatementArgs']]],
+                 version: pulumi.Input['iam.PolicyDocumentVersion'],
+                 id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
+        """
+        pulumi.set(__self__, "statement", statement)
+        pulumi.set(__self__, "version", version)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="Statement")
+    def statement(self) -> pulumi.Input[Sequence[pulumi.Input['_iam.PolicyStatementArgs']]]:
+        return pulumi.get(self, "statement")
+
+    @statement.setter
+    def statement(self, value: pulumi.Input[Sequence[pulumi.Input['_iam.PolicyStatementArgs']]]):
+        pulumi.set(self, "statement", value)
+
+    @property
+    @pulumi.getter(name="Version")
+    def version(self) -> pulumi.Input['iam.PolicyDocumentVersion']:
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input['iam.PolicyDocumentVersion']):
+        pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter(name="Id")
+    def id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "id", value)
+
 
 if not MYPY:
     class RegistryScanningConfigurationRuleArgsDict(TypedDict):

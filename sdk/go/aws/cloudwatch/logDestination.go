@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,13 +56,13 @@ type LogDestination struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A name for the log destination.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ARN of the target Amazon Kinesis stream resource for the destination.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
@@ -108,13 +108,13 @@ type logDestinationState struct {
 	Arn *string `pulumi:"arn"`
 	// A name for the log destination.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
 	RoleArn *string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ARN of the target Amazon Kinesis stream resource for the destination.
 	TargetArn *string `pulumi:"targetArn"`
@@ -125,13 +125,13 @@ type LogDestinationState struct {
 	Arn pulumi.StringPtrInput
 	// A name for the log destination.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
 	RoleArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The ARN of the target Amazon Kinesis stream resource for the destination.
 	TargetArn pulumi.StringPtrInput
@@ -144,6 +144,8 @@ func (LogDestinationState) ElementType() reflect.Type {
 type logDestinationArgs struct {
 	// A name for the log destination.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
 	RoleArn string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -156,6 +158,8 @@ type logDestinationArgs struct {
 type LogDestinationArgs struct {
 	// A name for the log destination.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
 	RoleArn pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -261,6 +265,11 @@ func (o LogDestinationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDestination) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LogDestinationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to put data into the target.
 func (o LogDestinationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogDestination) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
@@ -272,8 +281,6 @@ func (o LogDestinationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o LogDestinationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogDestination) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -93,6 +93,12 @@ namespace Pulumi.Aws.AutoScaling
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetGroupArgs()
         {
         }
@@ -106,6 +112,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetGroupInvokeArgs()
         {
@@ -195,6 +207,7 @@ namespace Pulumi.Aws.AutoScaling
         /// Predicted capacity of the group.
         /// </summary>
         public readonly int PredictedCapacity;
+        public readonly string Region;
         /// <summary>
         /// ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
         /// </summary>
@@ -280,6 +293,8 @@ namespace Pulumi.Aws.AutoScaling
 
             int predictedCapacity,
 
+            string region,
+
             string serviceLinkedRoleArn,
 
             string status,
@@ -321,6 +336,7 @@ namespace Pulumi.Aws.AutoScaling
             NewInstancesProtectedFromScaleIn = newInstancesProtectedFromScaleIn;
             PlacementGroup = placementGroup;
             PredictedCapacity = predictedCapacity;
+            Region = region;
             ServiceLinkedRoleArn = serviceLinkedRoleArn;
             Status = status;
             SuspendedProcesses = suspendedProcesses;

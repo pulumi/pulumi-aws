@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glacier"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glacier"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,7 +80,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glacier"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glacier"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -117,6 +117,8 @@ type VaultLock struct {
 	IgnoreDeletionError pulumi.BoolPtrOutput `pulumi:"ignoreDeletionError"`
 	// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the Glacier Vault.
 	VaultName pulumi.StringOutput `pulumi:"vaultName"`
 }
@@ -166,6 +168,8 @@ type vaultLockState struct {
 	IgnoreDeletionError *bool `pulumi:"ignoreDeletionError"`
 	// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
 	Policy *string `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the Glacier Vault.
 	VaultName *string `pulumi:"vaultName"`
 }
@@ -177,6 +181,8 @@ type VaultLockState struct {
 	IgnoreDeletionError pulumi.BoolPtrInput
 	// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
 	Policy pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the Glacier Vault.
 	VaultName pulumi.StringPtrInput
 }
@@ -192,6 +198,8 @@ type vaultLockArgs struct {
 	IgnoreDeletionError *bool `pulumi:"ignoreDeletionError"`
 	// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
 	Policy string `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the Glacier Vault.
 	VaultName string `pulumi:"vaultName"`
 }
@@ -204,6 +212,8 @@ type VaultLockArgs struct {
 	IgnoreDeletionError pulumi.BoolPtrInput
 	// JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
 	Policy pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the Glacier Vault.
 	VaultName pulumi.StringInput
 }
@@ -308,6 +318,11 @@ func (o VaultLockOutput) IgnoreDeletionError() pulumi.BoolPtrOutput {
 // JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
 func (o VaultLockOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultLock) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o VaultLockOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VaultLock) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the Glacier Vault.

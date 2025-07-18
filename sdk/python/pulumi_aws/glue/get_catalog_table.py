@@ -28,7 +28,7 @@ class GetCatalogTableResult:
     """
     A collection of values returned by getCatalogTable.
     """
-    def __init__(__self__, arn=None, catalog_id=None, database_name=None, description=None, id=None, name=None, owner=None, parameters=None, partition_indices=None, partition_keys=None, query_as_of_time=None, retention=None, storage_descriptors=None, table_type=None, target_tables=None, transaction_id=None, view_expanded_text=None, view_original_text=None):
+    def __init__(__self__, arn=None, catalog_id=None, database_name=None, description=None, id=None, name=None, owner=None, parameters=None, partition_indices=None, partition_keys=None, query_as_of_time=None, region=None, retention=None, storage_descriptors=None, table_type=None, target_tables=None, transaction_id=None, view_expanded_text=None, view_original_text=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -62,6 +62,9 @@ class GetCatalogTableResult:
         if query_as_of_time and not isinstance(query_as_of_time, str):
             raise TypeError("Expected argument 'query_as_of_time' to be a str")
         pulumi.set(__self__, "query_as_of_time", query_as_of_time)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if retention and not isinstance(retention, int):
             raise TypeError("Expected argument 'retention' to be a int")
         pulumi.set(__self__, "retention", retention)
@@ -171,6 +174,14 @@ class GetCatalogTableResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        """
+        Region of the target table.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def retention(self) -> builtins.int:
         """
         Retention time for this table.
@@ -240,6 +251,7 @@ class AwaitableGetCatalogTableResult(GetCatalogTableResult):
             partition_indices=self.partition_indices,
             partition_keys=self.partition_keys,
             query_as_of_time=self.query_as_of_time,
+            region=self.region,
             retention=self.retention,
             storage_descriptors=self.storage_descriptors,
             table_type=self.table_type,
@@ -253,6 +265,7 @@ def get_catalog_table(catalog_id: Optional[builtins.str] = None,
                       database_name: Optional[builtins.str] = None,
                       name: Optional[builtins.str] = None,
                       query_as_of_time: Optional[builtins.str] = None,
+                      region: Optional[builtins.str] = None,
                       transaction_id: Optional[builtins.int] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCatalogTableResult:
     """
@@ -273,6 +286,7 @@ def get_catalog_table(catalog_id: Optional[builtins.str] = None,
     :param builtins.str database_name: Name of the metadata database where the table metadata resides.
     :param builtins.str name: Name of the table.
     :param builtins.str query_as_of_time: The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transaction_id`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.int transaction_id: The transaction ID at which to read the table contents.
     """
     __args__ = dict()
@@ -280,6 +294,7 @@ def get_catalog_table(catalog_id: Optional[builtins.str] = None,
     __args__['databaseName'] = database_name
     __args__['name'] = name
     __args__['queryAsOfTime'] = query_as_of_time
+    __args__['region'] = region
     __args__['transactionId'] = transaction_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:glue/getCatalogTable:getCatalogTable', __args__, opts=opts, typ=GetCatalogTableResult).value
@@ -296,6 +311,7 @@ def get_catalog_table(catalog_id: Optional[builtins.str] = None,
         partition_indices=pulumi.get(__ret__, 'partition_indices'),
         partition_keys=pulumi.get(__ret__, 'partition_keys'),
         query_as_of_time=pulumi.get(__ret__, 'query_as_of_time'),
+        region=pulumi.get(__ret__, 'region'),
         retention=pulumi.get(__ret__, 'retention'),
         storage_descriptors=pulumi.get(__ret__, 'storage_descriptors'),
         table_type=pulumi.get(__ret__, 'table_type'),
@@ -307,6 +323,7 @@ def get_catalog_table_output(catalog_id: Optional[pulumi.Input[Optional[builtins
                              database_name: Optional[pulumi.Input[builtins.str]] = None,
                              name: Optional[pulumi.Input[builtins.str]] = None,
                              query_as_of_time: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              transaction_id: Optional[pulumi.Input[Optional[builtins.int]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCatalogTableResult]:
     """
@@ -327,6 +344,7 @@ def get_catalog_table_output(catalog_id: Optional[pulumi.Input[Optional[builtins
     :param builtins.str database_name: Name of the metadata database where the table metadata resides.
     :param builtins.str name: Name of the table.
     :param builtins.str query_as_of_time: The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with `transaction_id`. Specified in RFC 3339 format, e.g. `2006-01-02T15:04:05Z07:00`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.int transaction_id: The transaction ID at which to read the table contents.
     """
     __args__ = dict()
@@ -334,6 +352,7 @@ def get_catalog_table_output(catalog_id: Optional[pulumi.Input[Optional[builtins
     __args__['databaseName'] = database_name
     __args__['name'] = name
     __args__['queryAsOfTime'] = query_as_of_time
+    __args__['region'] = region
     __args__['transactionId'] = transaction_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:glue/getCatalogTable:getCatalogTable', __args__, opts=opts, typ=GetCatalogTableResult)
@@ -349,6 +368,7 @@ def get_catalog_table_output(catalog_id: Optional[pulumi.Input[Optional[builtins
         partition_indices=pulumi.get(__response__, 'partition_indices'),
         partition_keys=pulumi.get(__response__, 'partition_keys'),
         query_as_of_time=pulumi.get(__response__, 'query_as_of_time'),
+        region=pulumi.get(__response__, 'region'),
         retention=pulumi.get(__response__, 'retention'),
         storage_descriptors=pulumi.get(__response__, 'storage_descriptors'),
         table_type=pulumi.get(__response__, 'table_type'),

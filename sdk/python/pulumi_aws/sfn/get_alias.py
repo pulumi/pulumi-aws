@@ -28,7 +28,7 @@ class GetAliasResult:
     """
     A collection of values returned by getAlias.
     """
-    def __init__(__self__, arn=None, creation_date=None, description=None, id=None, name=None, routing_configurations=None, statemachine_arn=None):
+    def __init__(__self__, arn=None, creation_date=None, description=None, id=None, name=None, region=None, routing_configurations=None, statemachine_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -44,6 +44,9 @@ class GetAliasResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if routing_configurations and not isinstance(routing_configurations, list):
             raise TypeError("Expected argument 'routing_configurations' to be a list")
         pulumi.set(__self__, "routing_configurations", routing_configurations)
@@ -89,6 +92,11 @@ class GetAliasResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="routingConfigurations")
     def routing_configurations(self) -> Sequence['outputs.GetAliasRoutingConfigurationResult']:
         """
@@ -113,12 +121,14 @@ class AwaitableGetAliasResult(GetAliasResult):
             description=self.description,
             id=self.id,
             name=self.name,
+            region=self.region,
             routing_configurations=self.routing_configurations,
             statemachine_arn=self.statemachine_arn)
 
 
 def get_alias(description: Optional[builtins.str] = None,
               name: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               statemachine_arn: Optional[builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAliasResult:
     """
@@ -139,11 +149,13 @@ def get_alias(description: Optional[builtins.str] = None,
 
     :param builtins.str description: Description of state machine alias.
     :param builtins.str name: Name of the State Machine alias.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str statemachine_arn: ARN of the State Machine.
     """
     __args__ = dict()
     __args__['description'] = description
     __args__['name'] = name
+    __args__['region'] = region
     __args__['statemachineArn'] = statemachine_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:sfn/getAlias:getAlias', __args__, opts=opts, typ=GetAliasResult).value
@@ -154,10 +166,12 @@ def get_alias(description: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         routing_configurations=pulumi.get(__ret__, 'routing_configurations'),
         statemachine_arn=pulumi.get(__ret__, 'statemachine_arn'))
 def get_alias_output(description: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      name: Optional[pulumi.Input[builtins.str]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      statemachine_arn: Optional[pulumi.Input[builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAliasResult]:
     """
@@ -178,11 +192,13 @@ def get_alias_output(description: Optional[pulumi.Input[Optional[builtins.str]]]
 
     :param builtins.str description: Description of state machine alias.
     :param builtins.str name: Name of the State Machine alias.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str statemachine_arn: ARN of the State Machine.
     """
     __args__ = dict()
     __args__['description'] = description
     __args__['name'] = name
+    __args__['region'] = region
     __args__['statemachineArn'] = statemachine_arn
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:sfn/getAlias:getAlias', __args__, opts=opts, typ=GetAliasResult)
@@ -192,5 +208,6 @@ def get_alias_output(description: Optional[pulumi.Input[Optional[builtins.str]]]
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         routing_configurations=pulumi.get(__response__, 'routing_configurations'),
         statemachine_arn=pulumi.get(__response__, 'statemachine_arn')))

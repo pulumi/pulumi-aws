@@ -116,6 +116,10 @@ export class TaskSet extends pulumi.CustomResource {
      */
     public readonly platformVersion!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
      */
     public readonly scale!: pulumi.Output<outputs.ecs.TaskSetScale>;
@@ -141,8 +145,6 @@ export class TaskSet extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -186,6 +188,7 @@ export class TaskSet extends pulumi.CustomResource {
             resourceInputs["loadBalancers"] = state ? state.loadBalancers : undefined;
             resourceInputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
             resourceInputs["platformVersion"] = state ? state.platformVersion : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scale"] = state ? state.scale : undefined;
             resourceInputs["service"] = state ? state.service : undefined;
             resourceInputs["serviceRegistries"] = state ? state.serviceRegistries : undefined;
@@ -216,6 +219,7 @@ export class TaskSet extends pulumi.CustomResource {
             resourceInputs["loadBalancers"] = args ? args.loadBalancers : undefined;
             resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
             resourceInputs["platformVersion"] = args ? args.platformVersion : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scale"] = args ? args.scale : undefined;
             resourceInputs["service"] = args ? args.service : undefined;
             resourceInputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
@@ -275,6 +279,10 @@ export interface TaskSetState {
      */
     platformVersion?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
      */
     scale?: pulumi.Input<inputs.ecs.TaskSetScale>;
@@ -300,8 +308,6 @@ export interface TaskSetState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -360,6 +366,10 @@ export interface TaskSetArgs {
      * The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
      */
     platformVersion?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
      */

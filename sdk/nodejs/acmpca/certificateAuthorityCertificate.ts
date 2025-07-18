@@ -122,6 +122,10 @@ export class CertificateAuthorityCertificate extends pulumi.CustomResource {
      * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
      */
     public readonly certificateChain!: pulumi.Output<string | undefined>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a CertificateAuthorityCertificate resource with the given unique name, arguments, and options.
@@ -139,6 +143,7 @@ export class CertificateAuthorityCertificate extends pulumi.CustomResource {
             resourceInputs["certificate"] = state ? state.certificate : undefined;
             resourceInputs["certificateAuthorityArn"] = state ? state.certificateAuthorityArn : undefined;
             resourceInputs["certificateChain"] = state ? state.certificateChain : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as CertificateAuthorityCertificateArgs | undefined;
             if ((!args || args.certificate === undefined) && !opts.urn) {
@@ -150,6 +155,7 @@ export class CertificateAuthorityCertificate extends pulumi.CustomResource {
             resourceInputs["certificate"] = args ? args.certificate : undefined;
             resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
             resourceInputs["certificateChain"] = args ? args.certificateChain : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(CertificateAuthorityCertificate.__pulumiType, name, resourceInputs, opts);
@@ -172,6 +178,10 @@ export interface CertificateAuthorityCertificateState {
      * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
      */
     certificateChain?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -190,4 +200,8 @@ export interface CertificateAuthorityCertificateArgs {
      * PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
      */
     certificateChain?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

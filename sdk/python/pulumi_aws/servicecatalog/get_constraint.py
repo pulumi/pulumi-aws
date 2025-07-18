@@ -27,7 +27,7 @@ class GetConstraintResult:
     """
     A collection of values returned by getConstraint.
     """
-    def __init__(__self__, accept_language=None, description=None, id=None, owner=None, parameters=None, portfolio_id=None, product_id=None, status=None, type=None):
+    def __init__(__self__, accept_language=None, description=None, id=None, owner=None, parameters=None, portfolio_id=None, product_id=None, region=None, status=None, type=None):
         if accept_language and not isinstance(accept_language, str):
             raise TypeError("Expected argument 'accept_language' to be a str")
         pulumi.set(__self__, "accept_language", accept_language)
@@ -49,6 +49,9 @@ class GetConstraintResult:
         if product_id and not isinstance(product_id, str):
             raise TypeError("Expected argument 'product_id' to be a str")
         pulumi.set(__self__, "product_id", product_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -108,6 +111,11 @@ class GetConstraintResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def status(self) -> builtins.str:
         """
         Constraint status.
@@ -136,6 +144,7 @@ class AwaitableGetConstraintResult(GetConstraintResult):
             parameters=self.parameters,
             portfolio_id=self.portfolio_id,
             product_id=self.product_id,
+            region=self.region,
             status=self.status,
             type=self.type)
 
@@ -143,6 +152,7 @@ class AwaitableGetConstraintResult(GetConstraintResult):
 def get_constraint(accept_language: Optional[builtins.str] = None,
                    description: Optional[builtins.str] = None,
                    id: Optional[builtins.str] = None,
+                   region: Optional[builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConstraintResult:
     """
     Provides information on a Service Catalog Constraint.
@@ -165,11 +175,13 @@ def get_constraint(accept_language: Optional[builtins.str] = None,
     :param builtins.str id: Constraint identifier.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
     __args__['description'] = description
     __args__['id'] = id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:servicecatalog/getConstraint:getConstraint', __args__, opts=opts, typ=GetConstraintResult).value
 
@@ -181,11 +193,13 @@ def get_constraint(accept_language: Optional[builtins.str] = None,
         parameters=pulumi.get(__ret__, 'parameters'),
         portfolio_id=pulumi.get(__ret__, 'portfolio_id'),
         product_id=pulumi.get(__ret__, 'product_id'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
 def get_constraint_output(accept_language: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           description: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           id: Optional[pulumi.Input[builtins.str]] = None,
+                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConstraintResult]:
     """
     Provides information on a Service Catalog Constraint.
@@ -208,11 +222,13 @@ def get_constraint_output(accept_language: Optional[pulumi.Input[Optional[builti
     :param builtins.str id: Constraint identifier.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
     __args__['description'] = description
     __args__['id'] = id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicecatalog/getConstraint:getConstraint', __args__, opts=opts, typ=GetConstraintResult)
     return __ret__.apply(lambda __response__: GetConstraintResult(
@@ -223,5 +239,6 @@ def get_constraint_output(accept_language: Optional[pulumi.Input[Optional[builti
         parameters=pulumi.get(__response__, 'parameters'),
         portfolio_id=pulumi.get(__response__, 'portfolio_id'),
         product_id=pulumi.get(__response__, 'product_id'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status'),
         type=pulumi.get(__response__, 'type')))

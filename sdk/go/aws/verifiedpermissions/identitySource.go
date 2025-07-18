@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedpermissions"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/verifiedpermissions"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,7 +82,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedpermissions"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/verifiedpermissions"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -144,6 +144,8 @@ type IdentitySource struct {
 	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
 	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
 	PrincipalEntityType pulumi.StringOutput `pulumi:"principalEntityType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewIdentitySource registers a new resource with the given unique name, arguments, and options.
@@ -185,6 +187,8 @@ type identitySourceState struct {
 	PolicyStoreId *string `pulumi:"policyStoreId"`
 	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
 	PrincipalEntityType *string `pulumi:"principalEntityType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type IdentitySourceState struct {
@@ -194,6 +198,8 @@ type IdentitySourceState struct {
 	PolicyStoreId pulumi.StringPtrInput
 	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
 	PrincipalEntityType pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (IdentitySourceState) ElementType() reflect.Type {
@@ -207,6 +213,8 @@ type identitySourceArgs struct {
 	PolicyStoreId string `pulumi:"policyStoreId"`
 	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
 	PrincipalEntityType *string `pulumi:"principalEntityType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a IdentitySource resource.
@@ -217,6 +225,8 @@ type IdentitySourceArgs struct {
 	PolicyStoreId pulumi.StringInput
 	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
 	PrincipalEntityType pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (IdentitySourceArgs) ElementType() reflect.Type {
@@ -319,6 +329,11 @@ func (o IdentitySourceOutput) PolicyStoreId() pulumi.StringOutput {
 // Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
 func (o IdentitySourceOutput) PrincipalEntityType() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdentitySource) pulumi.StringOutput { return v.PrincipalEntityType }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o IdentitySourceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *IdentitySource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type IdentitySourceArrayOutput struct{ *pulumi.OutputState }

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codeconnections"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codeconnections"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,9 +63,10 @@ type Host struct {
 	// The endpoint of the infrastructure to be represented by the host after it is created.
 	ProviderEndpoint pulumi.StringOutput `pulumi:"providerEndpoint"`
 	// The name of the external provider where your third-party code repository is configured.
-	ProviderType pulumi.StringOutput    `pulumi:"providerType"`
-	Tags         pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	ProviderType pulumi.StringOutput `pulumi:"providerType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringOutput    `pulumi:"region"`
+	Tags     pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput `pulumi:"tagsAll"`
 	Timeouts HostTimeoutsPtrOutput  `pulumi:"timeouts"`
 	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
@@ -115,9 +116,10 @@ type hostState struct {
 	// The endpoint of the infrastructure to be represented by the host after it is created.
 	ProviderEndpoint *string `pulumi:"providerEndpoint"`
 	// The name of the external provider where your third-party code repository is configured.
-	ProviderType *string           `pulumi:"providerType"`
-	Tags         map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	ProviderType *string `pulumi:"providerType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   *string           `pulumi:"region"`
+	Tags     map[string]string `pulumi:"tags"`
 	TagsAll  map[string]string `pulumi:"tagsAll"`
 	Timeouts *HostTimeouts     `pulumi:"timeouts"`
 	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
@@ -133,8 +135,9 @@ type HostState struct {
 	ProviderEndpoint pulumi.StringPtrInput
 	// The name of the external provider where your third-party code repository is configured.
 	ProviderType pulumi.StringPtrInput
-	Tags         pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts HostTimeoutsPtrInput
 	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
@@ -151,9 +154,11 @@ type hostArgs struct {
 	// The endpoint of the infrastructure to be represented by the host after it is created.
 	ProviderEndpoint string `pulumi:"providerEndpoint"`
 	// The name of the external provider where your third-party code repository is configured.
-	ProviderType string            `pulumi:"providerType"`
-	Tags         map[string]string `pulumi:"tags"`
-	Timeouts     *HostTimeouts     `pulumi:"timeouts"`
+	ProviderType string `pulumi:"providerType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   *string           `pulumi:"region"`
+	Tags     map[string]string `pulumi:"tags"`
+	Timeouts *HostTimeouts     `pulumi:"timeouts"`
 	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
 	VpcConfiguration *HostVpcConfiguration `pulumi:"vpcConfiguration"`
 }
@@ -166,8 +171,10 @@ type HostArgs struct {
 	ProviderEndpoint pulumi.StringInput
 	// The name of the external provider where your third-party code repository is configured.
 	ProviderType pulumi.StringInput
-	Tags         pulumi.StringMapInput
-	Timeouts     HostTimeoutsPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Tags     pulumi.StringMapInput
+	Timeouts HostTimeoutsPtrInput
 	// The VPC configuration to be provisioned for the host. A VPC must be configured, and the infrastructure to be represented by the host must already be connected to the VPC.
 	VpcConfiguration HostVpcConfigurationPtrInput
 }
@@ -279,11 +286,15 @@ func (o HostOutput) ProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.ProviderType }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o HostOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Host) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 func (o HostOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o HostOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Host) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

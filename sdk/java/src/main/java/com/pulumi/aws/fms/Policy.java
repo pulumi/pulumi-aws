@@ -220,6 +220,20 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return this.policyUpdateToken;
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
      * 
      */
@@ -238,6 +252,20 @@ public class Policy extends com.pulumi.resources.CustomResource {
 
     public Output<List<String>> resourceSetIds() {
         return this.resourceSetIds;
+    }
+    /**
+     * Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+     * 
+     */
+    @Export(name="resourceTagLogicalOperator", refs={String.class}, tree="[0]")
+    private Output<String> resourceTagLogicalOperator;
+
+    /**
+     * @return Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+     * 
+     */
+    public Output<String> resourceTagLogicalOperator() {
+        return this.resourceTagLogicalOperator;
     }
     /**
      * A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
@@ -312,11 +340,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

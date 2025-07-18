@@ -24,6 +24,7 @@ class LocationObjectStorageArgs:
                  bucket_name: pulumi.Input[builtins.str],
                  server_hostname: pulumi.Input[builtins.str],
                  access_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secret_key: Optional[pulumi.Input[builtins.str]] = None,
                  server_certificate: Optional[pulumi.Input[builtins.str]] = None,
                  server_port: Optional[pulumi.Input[builtins.int]] = None,
@@ -36,6 +37,7 @@ class LocationObjectStorageArgs:
         :param pulumi.Input[builtins.str] bucket_name: The bucket on the self-managed object storage server that is used to read data from.
         :param pulumi.Input[builtins.str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
         :param pulumi.Input[builtins.str] access_key: The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_key: The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
         :param pulumi.Input[builtins.str] server_certificate: Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
         :param pulumi.Input[builtins.int] server_port: The port that your self-managed object storage server accepts inbound network traffic on. The server port is set by default to TCP 80 (`HTTP`) or TCP 443 (`HTTPS`). You can specify a custom port if your self-managed object storage server requires one.
@@ -48,6 +50,8 @@ class LocationObjectStorageArgs:
         pulumi.set(__self__, "server_hostname", server_hostname)
         if access_key is not None:
             pulumi.set(__self__, "access_key", access_key)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if secret_key is not None:
             pulumi.set(__self__, "secret_key", secret_key)
         if server_certificate is not None:
@@ -108,6 +112,18 @@ class LocationObjectStorageArgs:
     @access_key.setter
     def access_key(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "access_key", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="secretKey")
@@ -189,6 +205,7 @@ class _LocationObjectStorageState:
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  bucket_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secret_key: Optional[pulumi.Input[builtins.str]] = None,
                  server_certificate: Optional[pulumi.Input[builtins.str]] = None,
                  server_hostname: Optional[pulumi.Input[builtins.str]] = None,
@@ -204,6 +221,7 @@ class _LocationObjectStorageState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input[builtins.str] bucket_name: The bucket on the self-managed object storage server that is used to read data from.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_key: The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
         :param pulumi.Input[builtins.str] server_certificate: Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
         :param pulumi.Input[builtins.str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
@@ -222,6 +240,8 @@ class _LocationObjectStorageState:
             pulumi.set(__self__, "arn", arn)
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if secret_key is not None:
             pulumi.set(__self__, "secret_key", secret_key)
         if server_certificate is not None:
@@ -236,9 +256,6 @@ class _LocationObjectStorageState:
             pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if uri is not None:
@@ -291,6 +308,18 @@ class _LocationObjectStorageState:
     @bucket_name.setter
     def bucket_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "bucket_name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="secretKey")
@@ -378,7 +407,6 @@ class _LocationObjectStorageState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -411,6 +439,7 @@ class LocationObjectStorage(pulumi.CustomResource):
                  access_key: Optional[pulumi.Input[builtins.str]] = None,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  bucket_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secret_key: Optional[pulumi.Input[builtins.str]] = None,
                  server_certificate: Optional[pulumi.Input[builtins.str]] = None,
                  server_hostname: Optional[pulumi.Input[builtins.str]] = None,
@@ -449,6 +478,7 @@ class LocationObjectStorage(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] access_key: The access key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
         :param pulumi.Input[builtins.str] bucket_name: The bucket on the self-managed object storage server that is used to read data from.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_key: The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
         :param pulumi.Input[builtins.str] server_certificate: Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
         :param pulumi.Input[builtins.str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
@@ -506,6 +536,7 @@ class LocationObjectStorage(pulumi.CustomResource):
                  access_key: Optional[pulumi.Input[builtins.str]] = None,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  bucket_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secret_key: Optional[pulumi.Input[builtins.str]] = None,
                  server_certificate: Optional[pulumi.Input[builtins.str]] = None,
                  server_hostname: Optional[pulumi.Input[builtins.str]] = None,
@@ -529,6 +560,7 @@ class LocationObjectStorage(pulumi.CustomResource):
             if bucket_name is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket_name'")
             __props__.__dict__["bucket_name"] = bucket_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["secret_key"] = None if secret_key is None else pulumi.Output.secret(secret_key)
             __props__.__dict__["server_certificate"] = server_certificate
             if server_hostname is None and not opts.urn:
@@ -557,6 +589,7 @@ class LocationObjectStorage(pulumi.CustomResource):
             agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             bucket_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             secret_key: Optional[pulumi.Input[builtins.str]] = None,
             server_certificate: Optional[pulumi.Input[builtins.str]] = None,
             server_hostname: Optional[pulumi.Input[builtins.str]] = None,
@@ -577,6 +610,7 @@ class LocationObjectStorage(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input[builtins.str] bucket_name: The bucket on the self-managed object storage server that is used to read data from.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_key: The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `access_key` and `secret_key` to provide the user name and password, respectively.
         :param pulumi.Input[builtins.str] server_certificate: Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
         :param pulumi.Input[builtins.str] server_hostname: The name of the self-managed object storage server. This value is the IP address or Domain Name Service (DNS) name of the object storage server. An agent uses this host name to mount the object storage server in a network.
@@ -595,6 +629,7 @@ class LocationObjectStorage(pulumi.CustomResource):
         __props__.__dict__["agent_arns"] = agent_arns
         __props__.__dict__["arn"] = arn
         __props__.__dict__["bucket_name"] = bucket_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["secret_key"] = secret_key
         __props__.__dict__["server_certificate"] = server_certificate
         __props__.__dict__["server_hostname"] = server_hostname
@@ -637,6 +672,14 @@ class LocationObjectStorage(pulumi.CustomResource):
         The bucket on the self-managed object storage server that is used to read data from.
         """
         return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="secretKey")
@@ -696,7 +739,6 @@ class LocationObjectStorage(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

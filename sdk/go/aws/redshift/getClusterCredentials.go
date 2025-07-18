@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,6 +63,8 @@ type GetClusterCredentialsArgs struct {
 	DbUser string `pulumi:"dbUser"`
 	// The number of seconds until the returned temporary password expires. Valid values are between `900` and `3600`. Default value is `900`.
 	DurationSeconds *int `pulumi:"durationSeconds"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getClusterCredentials.
@@ -78,7 +80,8 @@ type GetClusterCredentialsResult struct {
 	// Date and time the password in `dbPassword` expires.
 	Expiration string `pulumi:"expiration"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func GetClusterCredentialsOutput(ctx *pulumi.Context, args GetClusterCredentialsOutputArgs, opts ...pulumi.InvokeOption) GetClusterCredentialsResultOutput {
@@ -104,6 +107,8 @@ type GetClusterCredentialsOutputArgs struct {
 	DbUser pulumi.StringInput `pulumi:"dbUser"`
 	// The number of seconds until the returned temporary password expires. Valid values are between `900` and `3600`. Default value is `900`.
 	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetClusterCredentialsOutputArgs) ElementType() reflect.Type {
@@ -162,6 +167,10 @@ func (o GetClusterCredentialsResultOutput) Expiration() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetClusterCredentialsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterCredentialsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetClusterCredentialsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterCredentialsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

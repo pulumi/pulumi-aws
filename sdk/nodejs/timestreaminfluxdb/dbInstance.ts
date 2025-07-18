@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {
+ * const exampleBucket = new aws.s3.Bucket("example", {
  *     bucket: "example-s3-bucket",
  *     forceDestroy: true,
  * });
@@ -81,11 +81,11 @@ import * as utilities from "../utilities";
  *             type: "Service",
  *             identifiers: ["timestream-influxdb.amazonaws.com"],
  *         }],
- *         resources: [pulumi.interpolate`${exampleBucketV2.arn}/*`],
+ *         resources: [pulumi.interpolate`${exampleBucket.arn}/*`],
  *     }],
  * });
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
- *     bucket: exampleBucketV2.id,
+ *     bucket: exampleBucket.id,
  *     policy: example.apply(example => example.json),
  * });
  * const exampleDbInstance = new aws.timestreaminfluxdb.DbInstance("example", {
@@ -100,7 +100,7 @@ import * as utilities from "../utilities";
  *     name: "example-db-instance",
  *     logDeliveryConfiguration: {
  *         s3Configuration: {
- *             bucketName: exampleBucketV2.bucket,
+ *             bucketName: exampleBucket.bucket,
  *             enabled: true,
  *         },
  *     },
@@ -247,6 +247,10 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.
      */
     public /*out*/ readonly secondaryAvailabilityZone!: pulumi.Output<string>;
@@ -256,8 +260,6 @@ export class DbInstance extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.timestreaminfluxdb.DbInstanceTimeouts | undefined>;
@@ -306,6 +308,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["secondaryAvailabilityZone"] = state ? state.secondaryAvailabilityZone : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -352,6 +355,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
@@ -444,6 +448,10 @@ export interface DbInstanceState {
      */
     publiclyAccessible?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.
      */
     secondaryAvailabilityZone?: pulumi.Input<string>;
@@ -453,8 +461,6 @@ export interface DbInstanceState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.timestreaminfluxdb.DbInstanceTimeouts>;
@@ -530,6 +536,10 @@ export interface DbInstanceArgs {
      * Configures the DB instance with a public IP to facilitate access. Other resources, such as a VPC, a subnet, an internet gateway, and a route table with routes, are also required to enabled public access, in addition to this argument. See "Usage with Public Internet Access Enabled" for an example configuration with all required resources for public internet access.
      */
     publiclyAccessible?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

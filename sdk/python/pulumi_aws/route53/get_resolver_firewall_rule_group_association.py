@@ -27,7 +27,7 @@ class GetResolverFirewallRuleGroupAssociationResult:
     """
     A collection of values returned by getResolverFirewallRuleGroupAssociation.
     """
-    def __init__(__self__, arn=None, creation_time=None, creator_request_id=None, firewall_rule_group_association_id=None, firewall_rule_group_id=None, id=None, managed_owner_name=None, modification_time=None, mutation_protection=None, name=None, priority=None, status=None, status_message=None, vpc_id=None):
+    def __init__(__self__, arn=None, creation_time=None, creator_request_id=None, firewall_rule_group_association_id=None, firewall_rule_group_id=None, id=None, managed_owner_name=None, modification_time=None, mutation_protection=None, name=None, priority=None, region=None, status=None, status_message=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -61,6 +61,9 @@ class GetResolverFirewallRuleGroupAssociationResult:
         if priority and not isinstance(priority, int):
             raise TypeError("Expected argument 'priority' to be a int")
         pulumi.set(__self__, "priority", priority)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -158,6 +161,11 @@ class GetResolverFirewallRuleGroupAssociationResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def status(self) -> builtins.str:
         """
         The current status of the association.
@@ -198,12 +206,14 @@ class AwaitableGetResolverFirewallRuleGroupAssociationResult(GetResolverFirewall
             mutation_protection=self.mutation_protection,
             name=self.name,
             priority=self.priority,
+            region=self.region,
             status=self.status,
             status_message=self.status_message,
             vpc_id=self.vpc_id)
 
 
 def get_resolver_firewall_rule_group_association(firewall_rule_group_association_id: Optional[builtins.str] = None,
+                                                 region: Optional[builtins.str] = None,
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverFirewallRuleGroupAssociationResult:
     """
     `route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
@@ -223,9 +233,11 @@ def get_resolver_firewall_rule_group_association(firewall_rule_group_association
 
 
     :param builtins.str firewall_rule_group_association_id: The identifier for the association.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['firewallRuleGroupAssociationId'] = firewall_rule_group_association_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation', __args__, opts=opts, typ=GetResolverFirewallRuleGroupAssociationResult).value
 
@@ -241,10 +253,12 @@ def get_resolver_firewall_rule_group_association(firewall_rule_group_association
         mutation_protection=pulumi.get(__ret__, 'mutation_protection'),
         name=pulumi.get(__ret__, 'name'),
         priority=pulumi.get(__ret__, 'priority'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
         status_message=pulumi.get(__ret__, 'status_message'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_resolver_firewall_rule_group_association_output(firewall_rule_group_association_id: Optional[pulumi.Input[builtins.str]] = None,
+                                                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverFirewallRuleGroupAssociationResult]:
     """
     `route53.ResolverFirewallRuleGroupAssociation` Retrieves the specified firewall rule group association.
@@ -264,9 +278,11 @@ def get_resolver_firewall_rule_group_association_output(firewall_rule_group_asso
 
 
     :param builtins.str firewall_rule_group_association_id: The identifier for the association.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['firewallRuleGroupAssociationId'] = firewall_rule_group_association_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation', __args__, opts=opts, typ=GetResolverFirewallRuleGroupAssociationResult)
     return __ret__.apply(lambda __response__: GetResolverFirewallRuleGroupAssociationResult(
@@ -281,6 +297,7 @@ def get_resolver_firewall_rule_group_association_output(firewall_rule_group_asso
         mutation_protection=pulumi.get(__response__, 'mutation_protection'),
         name=pulumi.get(__response__, 'name'),
         priority=pulumi.get(__response__, 'priority'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status'),
         status_message=pulumi.get(__response__, 'status_message'),
         vpc_id=pulumi.get(__response__, 'vpc_id')))

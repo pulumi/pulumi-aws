@@ -56,6 +56,7 @@ import javax.annotation.Nullable;
  *                 "RESOURCES",
  *                 "SPLIT_COST_ALLOCATION_DATA")
  *             .s3Bucket("example-bucket-name")
+ *             .s3Prefix("example-cur-report")
  *             .s3Region("us-east-1")
  *             .additionalArtifacts(            
  *                 "REDSHIFT",
@@ -94,14 +95,14 @@ public class ReportDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.additionalArtifacts);
     }
     /**
-     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
      * 
      */
     @Export(name="additionalSchemaElements", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> additionalSchemaElements;
 
     /**
-     * @return A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+     * @return A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
      * 
      */
     public Output<List<String>> additionalSchemaElements() {
@@ -206,18 +207,18 @@ public class ReportDefinition extends com.pulumi.resources.CustomResource {
         return this.s3Bucket;
     }
     /**
-     * Report path prefix. Limited to 256 characters.
+     * Report path prefix. Limited to 256 characters. May be empty (`&#34;&#34;`) but the resource can then not be modified via the AWS Console.
      * 
      */
     @Export(name="s3Prefix", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> s3Prefix;
+    private Output<String> s3Prefix;
 
     /**
-     * @return Report path prefix. Limited to 256 characters.
+     * @return Report path prefix. Limited to 256 characters. May be empty (`&#34;&#34;`) but the resource can then not be modified via the AWS Console.
      * 
      */
-    public Output<Optional<String>> s3Prefix() {
-        return Codegen.optional(this.s3Prefix);
+    public Output<String> s3Prefix() {
+        return this.s3Prefix;
     }
     /**
      * Region of the existing S3 bucket to hold generated reports.
@@ -250,11 +251,7 @@ public class ReportDefinition extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

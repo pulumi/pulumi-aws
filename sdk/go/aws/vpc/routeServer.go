@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpc"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +52,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpc"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -97,6 +97,8 @@ type RouteServer struct {
 	PersistRoutes pulumi.StringOutput `pulumi:"persistRoutes"`
 	// The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
 	PersistRoutesDuration pulumi.IntPtrOutput `pulumi:"persistRoutesDuration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The unique identifier of the route server.
 	RouteServerId pulumi.StringOutput `pulumi:"routeServerId"`
 	// Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
@@ -106,8 +108,6 @@ type RouteServer struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput       `pulumi:"tagsAll"`
 	Timeouts RouteServerTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -155,6 +155,8 @@ type routeServerState struct {
 	PersistRoutes *string `pulumi:"persistRoutes"`
 	// The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
 	PersistRoutesDuration *int `pulumi:"persistRoutesDuration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The unique identifier of the route server.
 	RouteServerId *string `pulumi:"routeServerId"`
 	// Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
@@ -164,8 +166,6 @@ type routeServerState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string    `pulumi:"tagsAll"`
 	Timeouts *RouteServerTimeouts `pulumi:"timeouts"`
 }
@@ -181,6 +181,8 @@ type RouteServerState struct {
 	PersistRoutes pulumi.StringPtrInput
 	// The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
 	PersistRoutesDuration pulumi.IntPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The unique identifier of the route server.
 	RouteServerId pulumi.StringPtrInput
 	// Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
@@ -190,8 +192,6 @@ type RouteServerState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts RouteServerTimeoutsPtrInput
 }
@@ -209,6 +209,8 @@ type routeServerArgs struct {
 	PersistRoutes *string `pulumi:"persistRoutes"`
 	// The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
 	PersistRoutesDuration *int `pulumi:"persistRoutesDuration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
 	SnsNotificationsEnabled *bool `pulumi:"snsNotificationsEnabled"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -226,6 +228,8 @@ type RouteServerArgs struct {
 	PersistRoutes pulumi.StringPtrInput
 	// The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persistRoutes` is enabled.
 	PersistRoutesDuration pulumi.IntPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
 	SnsNotificationsEnabled pulumi.BoolPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -342,6 +346,11 @@ func (o RouteServerOutput) PersistRoutesDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RouteServer) pulumi.IntPtrOutput { return v.PersistRoutesDuration }).(pulumi.IntPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o RouteServerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteServer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The unique identifier of the route server.
 func (o RouteServerOutput) RouteServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServer) pulumi.StringOutput { return v.RouteServerId }).(pulumi.StringOutput)
@@ -363,8 +372,6 @@ func (o RouteServerOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o RouteServerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RouteServer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

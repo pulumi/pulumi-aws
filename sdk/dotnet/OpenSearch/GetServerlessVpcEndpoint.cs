@@ -88,6 +88,12 @@ namespace Pulumi.Aws.OpenSearch
     public sealed class GetServerlessVpcEndpointArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// The unique identifier of the endpoint.
         /// </summary>
         [Input("vpcEndpointId", required: true)]
@@ -101,6 +107,12 @@ namespace Pulumi.Aws.OpenSearch
 
     public sealed class GetServerlessVpcEndpointInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The unique identifier of the endpoint.
         /// </summary>
@@ -129,6 +141,7 @@ namespace Pulumi.Aws.OpenSearch
         /// The name of the endpoint.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// The IDs of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         /// </summary>
@@ -151,6 +164,8 @@ namespace Pulumi.Aws.OpenSearch
 
             string name,
 
+            string region,
+
             ImmutableArray<string> securityGroupIds,
 
             ImmutableArray<string> subnetIds,
@@ -162,6 +177,7 @@ namespace Pulumi.Aws.OpenSearch
             CreatedDate = createdDate;
             Id = id;
             Name = name;
+            Region = region;
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;
             VpcEndpointId = vpcEndpointId;

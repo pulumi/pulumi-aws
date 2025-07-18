@@ -105,21 +105,18 @@ namespace Pulumi.Aws.Quicksight
         [Input("dataSetId", required: true)]
         public string DataSetId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
         public Dictionary<string, string> Tags
         {
             get => _tags ?? (_tags = new Dictionary<string, string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private Dictionary<string, string>? _tagsAll;
-        [Obsolete(@"tags_all is deprecated. This argument will be removed in a future major version.")]
-        public Dictionary<string, string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new Dictionary<string, string>());
-            set => _tagsAll = value;
         }
 
         public GetDataSetArgs()
@@ -142,21 +139,18 @@ namespace Pulumi.Aws.Quicksight
         [Input("dataSetId", required: true)]
         public Input<string> DataSetId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        [Obsolete(@"tags_all is deprecated. This argument will be removed in a future major version.")]
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public GetDataSetInvokeArgs()
@@ -185,10 +179,10 @@ namespace Pulumi.Aws.Quicksight
         public readonly string Name;
         public readonly ImmutableArray<Outputs.GetDataSetPermissionResult> Permissions;
         public readonly ImmutableArray<Outputs.GetDataSetPhysicalTableMapResult> PhysicalTableMaps;
+        public readonly string Region;
         public readonly ImmutableArray<Outputs.GetDataSetRowLevelPermissionDataSetResult> RowLevelPermissionDataSets;
         public readonly ImmutableArray<Outputs.GetDataSetRowLevelPermissionTagConfigurationResult> RowLevelPermissionTagConfigurations;
         public readonly ImmutableDictionary<string, string> Tags;
-        public readonly ImmutableDictionary<string, string> TagsAll;
 
         [OutputConstructor]
         private GetDataSetResult(
@@ -218,13 +212,13 @@ namespace Pulumi.Aws.Quicksight
 
             ImmutableArray<Outputs.GetDataSetPhysicalTableMapResult> physicalTableMaps,
 
+            string region,
+
             ImmutableArray<Outputs.GetDataSetRowLevelPermissionDataSetResult> rowLevelPermissionDataSets,
 
             ImmutableArray<Outputs.GetDataSetRowLevelPermissionTagConfigurationResult> rowLevelPermissionTagConfigurations,
 
-            ImmutableDictionary<string, string> tags,
-
-            ImmutableDictionary<string, string> tagsAll)
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             AwsAccountId = awsAccountId;
@@ -239,10 +233,10 @@ namespace Pulumi.Aws.Quicksight
             Name = name;
             Permissions = permissions;
             PhysicalTableMaps = physicalTableMaps;
+            Region = region;
             RowLevelPermissionDataSets = rowLevelPermissionDataSets;
             RowLevelPermissionTagConfigurations = rowLevelPermissionTagConfigurations;
             Tags = tags;
-            TagsAll = tagsAll;
         }
     }
 }

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -93,6 +93,8 @@ type DataQualityJobDefinition struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies networking configuration for the monitoring job. Fields are documented below.
 	NetworkConfig DataQualityJobDefinitionNetworkConfigPtrOutput `pulumi:"networkConfig"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
@@ -100,8 +102,6 @@ type DataQualityJobDefinition struct {
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -166,6 +166,8 @@ type dataQualityJobDefinitionState struct {
 	Name *string `pulumi:"name"`
 	// Specifies networking configuration for the monitoring job. Fields are documented below.
 	NetworkConfig *DataQualityJobDefinitionNetworkConfig `pulumi:"networkConfig"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
 	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
@@ -173,8 +175,6 @@ type dataQualityJobDefinitionState struct {
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -195,6 +195,8 @@ type DataQualityJobDefinitionState struct {
 	Name pulumi.StringPtrInput
 	// Specifies networking configuration for the monitoring job. Fields are documented below.
 	NetworkConfig DataQualityJobDefinitionNetworkConfigPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringPtrInput
 	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
@@ -202,8 +204,6 @@ type DataQualityJobDefinitionState struct {
 	// A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -226,6 +226,8 @@ type dataQualityJobDefinitionArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies networking configuration for the monitoring job. Fields are documented below.
 	NetworkConfig *DataQualityJobDefinitionNetworkConfig `pulumi:"networkConfig"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
@@ -250,6 +252,8 @@ type DataQualityJobDefinitionArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies networking configuration for the monitoring job. Fields are documented below.
 	NetworkConfig DataQualityJobDefinitionNetworkConfigPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringInput
 	// A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
@@ -395,6 +399,11 @@ func (o DataQualityJobDefinitionOutput) NetworkConfig() DataQualityJobDefinition
 	}).(DataQualityJobDefinitionNetworkConfigPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DataQualityJobDefinitionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataQualityJobDefinition) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
 func (o DataQualityJobDefinitionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinition) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
@@ -413,8 +422,6 @@ func (o DataQualityJobDefinitionOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o DataQualityJobDefinitionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinition) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

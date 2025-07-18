@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securitylake"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securitylake"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -32,10 +32,12 @@ import (
 //			_, err := securitylake.NewSubscriber(ctx, "example", &securitylake.SubscriberArgs{
 //				SubscriberName: pulumi.String("example-name"),
 //				AccessType:     pulumi.String("S3"),
-//				Source: &securitylake.SubscriberSourceArgs{
-//					AwsLogSourceResource: &securitylake.SubscriberSourceAwsLogSourceResourceArgs{
-//						SourceName:    pulumi.String("ROUTE53"),
-//						SourceVersion: pulumi.String("1.0"),
+//				Sources: securitylake.SubscriberSourceArray{
+//					&securitylake.SubscriberSourceArgs{
+//						AwsLogSourceResource: &securitylake.SubscriberSourceAwsLogSourceResourceArgs{
+//							SourceName:    pulumi.String("ROUTE53"),
+//							SourceVersion: pulumi.String("1.0"),
+//						},
 //					},
 //				},
 //				SubscriberIdentity: &securitylake.SubscriberSubscriberIdentityArgs{
@@ -68,6 +70,8 @@ type Subscriber struct {
 	AccessType pulumi.StringOutput `pulumi:"accessType"`
 	// ARN of the Data Lake.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
 	ResourceShareArn pulumi.StringOutput `pulumi:"resourceShareArn"`
 	// The name of the resource share.
@@ -77,7 +81,7 @@ type Subscriber struct {
 	// The ARN for the Amazon Security Lake Amazon S3 bucket.
 	S3BucketArn pulumi.StringOutput `pulumi:"s3BucketArn"`
 	// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
-	Source SubscriberSourcePtrOutput `pulumi:"source"`
+	Sources SubscriberSourceArrayOutput `pulumi:"sources"`
 	// The description for your subscriber account in Security Lake.
 	SubscriberDescription pulumi.StringPtrOutput `pulumi:"subscriberDescription"`
 	// The subscriber endpoint to which exception messages are posted.
@@ -91,8 +95,6 @@ type Subscriber struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput      `pulumi:"tagsAll"`
 	Timeouts SubscriberTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -131,6 +133,8 @@ type subscriberState struct {
 	AccessType *string `pulumi:"accessType"`
 	// ARN of the Data Lake.
 	Arn *string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
 	ResourceShareArn *string `pulumi:"resourceShareArn"`
 	// The name of the resource share.
@@ -140,7 +144,7 @@ type subscriberState struct {
 	// The ARN for the Amazon Security Lake Amazon S3 bucket.
 	S3BucketArn *string `pulumi:"s3BucketArn"`
 	// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
-	Source *SubscriberSource `pulumi:"source"`
+	Sources []SubscriberSource `pulumi:"sources"`
 	// The description for your subscriber account in Security Lake.
 	SubscriberDescription *string `pulumi:"subscriberDescription"`
 	// The subscriber endpoint to which exception messages are posted.
@@ -154,8 +158,6 @@ type subscriberState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string   `pulumi:"tagsAll"`
 	Timeouts *SubscriberTimeouts `pulumi:"timeouts"`
 }
@@ -165,6 +167,8 @@ type SubscriberState struct {
 	AccessType pulumi.StringPtrInput
 	// ARN of the Data Lake.
 	Arn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
 	ResourceShareArn pulumi.StringPtrInput
 	// The name of the resource share.
@@ -174,7 +178,7 @@ type SubscriberState struct {
 	// The ARN for the Amazon Security Lake Amazon S3 bucket.
 	S3BucketArn pulumi.StringPtrInput
 	// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
-	Source SubscriberSourcePtrInput
+	Sources SubscriberSourceArrayInput
 	// The description for your subscriber account in Security Lake.
 	SubscriberDescription pulumi.StringPtrInput
 	// The subscriber endpoint to which exception messages are posted.
@@ -188,8 +192,6 @@ type SubscriberState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts SubscriberTimeoutsPtrInput
 }
@@ -201,8 +203,10 @@ func (SubscriberState) ElementType() reflect.Type {
 type subscriberArgs struct {
 	// The Amazon S3 or Lake Formation access type.
 	AccessType *string `pulumi:"accessType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
-	Source *SubscriberSource `pulumi:"source"`
+	Sources []SubscriberSource `pulumi:"sources"`
 	// The description for your subscriber account in Security Lake.
 	SubscriberDescription *string `pulumi:"subscriberDescription"`
 	// The AWS identity used to access your data. See `subscriberIdentity` Block below.
@@ -218,8 +222,10 @@ type subscriberArgs struct {
 type SubscriberArgs struct {
 	// The Amazon S3 or Lake Formation access type.
 	AccessType pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
-	Source SubscriberSourcePtrInput
+	Sources SubscriberSourceArrayInput
 	// The description for your subscriber account in Security Lake.
 	SubscriberDescription pulumi.StringPtrInput
 	// The AWS identity used to access your data. See `subscriberIdentity` Block below.
@@ -328,6 +334,11 @@ func (o SubscriberOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o SubscriberOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
 func (o SubscriberOutput) ResourceShareArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.ResourceShareArn }).(pulumi.StringOutput)
@@ -349,8 +360,8 @@ func (o SubscriberOutput) S3BucketArn() pulumi.StringOutput {
 }
 
 // The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
-func (o SubscriberOutput) Source() SubscriberSourcePtrOutput {
-	return o.ApplyT(func(v *Subscriber) SubscriberSourcePtrOutput { return v.Source }).(SubscriberSourcePtrOutput)
+func (o SubscriberOutput) Sources() SubscriberSourceArrayOutput {
+	return o.ApplyT(func(v *Subscriber) SubscriberSourceArrayOutput { return v.Sources }).(SubscriberSourceArrayOutput)
 }
 
 // The description for your subscriber account in Security Lake.
@@ -384,8 +395,6 @@ func (o SubscriberOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o SubscriberOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

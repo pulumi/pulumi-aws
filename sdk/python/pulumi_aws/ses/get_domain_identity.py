@@ -27,7 +27,7 @@ class GetDomainIdentityResult:
     """
     A collection of values returned by getDomainIdentity.
     """
-    def __init__(__self__, arn=None, domain=None, id=None, verification_token=None):
+    def __init__(__self__, arn=None, domain=None, id=None, region=None, verification_token=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +37,9 @@ class GetDomainIdentityResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if verification_token and not isinstance(verification_token, str):
             raise TypeError("Expected argument 'verification_token' to be a str")
         pulumi.set(__self__, "verification_token", verification_token)
@@ -66,6 +69,11 @@ class GetDomainIdentityResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="verificationToken")
     def verification_token(self) -> builtins.str:
         """
@@ -83,10 +91,12 @@ class AwaitableGetDomainIdentityResult(GetDomainIdentityResult):
             arn=self.arn,
             domain=self.domain,
             id=self.id,
+            region=self.region,
             verification_token=self.verification_token)
 
 
 def get_domain_identity(domain: Optional[builtins.str] = None,
+                        region: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainIdentityResult:
     """
     Retrieve the SES domain identity
@@ -102,9 +112,11 @@ def get_domain_identity(domain: Optional[builtins.str] = None,
 
 
     :param builtins.str domain: Name of the domain
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['domain'] = domain
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ses/getDomainIdentity:getDomainIdentity', __args__, opts=opts, typ=GetDomainIdentityResult).value
 
@@ -112,8 +124,10 @@ def get_domain_identity(domain: Optional[builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         domain=pulumi.get(__ret__, 'domain'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         verification_token=pulumi.get(__ret__, 'verification_token'))
 def get_domain_identity_output(domain: Optional[pulumi.Input[builtins.str]] = None,
+                               region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainIdentityResult]:
     """
     Retrieve the SES domain identity
@@ -129,13 +143,16 @@ def get_domain_identity_output(domain: Optional[pulumi.Input[builtins.str]] = No
 
 
     :param builtins.str domain: Name of the domain
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['domain'] = domain
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ses/getDomainIdentity:getDomainIdentity', __args__, opts=opts, typ=GetDomainIdentityResult)
     return __ret__.apply(lambda __response__: GetDomainIdentityResult(
         arn=pulumi.get(__response__, 'arn'),
         domain=pulumi.get(__response__, 'domain'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         verification_token=pulumi.get(__response__, 'verification_token')))

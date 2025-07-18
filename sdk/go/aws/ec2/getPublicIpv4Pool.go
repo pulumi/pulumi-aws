@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func GetPublicIpv4Pool(ctx *pulumi.Context, args *GetPublicIpv4PoolArgs, opts ..
 type GetPublicIpv4PoolArgs struct {
 	// AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
 	PoolId string `pulumi:"poolId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Any tags for the address pool.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -69,6 +71,7 @@ type GetPublicIpv4PoolResult struct {
 	NetworkBorderGroup string                              `pulumi:"networkBorderGroup"`
 	PoolAddressRanges  []GetPublicIpv4PoolPoolAddressRange `pulumi:"poolAddressRanges"`
 	PoolId             string                              `pulumi:"poolId"`
+	Region             string                              `pulumi:"region"`
 	// Any tags for the address pool.
 	Tags map[string]string `pulumi:"tags"`
 	// Total number of addresses in the pool.
@@ -90,6 +93,8 @@ func GetPublicIpv4PoolOutput(ctx *pulumi.Context, args GetPublicIpv4PoolOutputAr
 type GetPublicIpv4PoolOutputArgs struct {
 	// AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
 	PoolId pulumi.StringInput `pulumi:"poolId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Any tags for the address pool.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -135,6 +140,10 @@ func (o GetPublicIpv4PoolResultOutput) PoolAddressRanges() GetPublicIpv4PoolPool
 
 func (o GetPublicIpv4PoolResultOutput) PoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPublicIpv4PoolResult) string { return v.PoolId }).(pulumi.StringOutput)
+}
+
+func (o GetPublicIpv4PoolResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicIpv4PoolResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Any tags for the address pool.

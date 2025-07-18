@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,7 +50,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,8 +77,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -122,6 +122,8 @@ type AmiLaunchPermission struct {
 	OrganizationArn pulumi.StringPtrOutput `pulumi:"organizationArn"`
 	// ARN of an organizational unit for the launch permission.
 	OrganizationalUnitArn pulumi.StringPtrOutput `pulumi:"organizationalUnitArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAmiLaunchPermission registers a new resource with the given unique name, arguments, and options.
@@ -167,6 +169,8 @@ type amiLaunchPermissionState struct {
 	OrganizationArn *string `pulumi:"organizationArn"`
 	// ARN of an organizational unit for the launch permission.
 	OrganizationalUnitArn *string `pulumi:"organizationalUnitArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type AmiLaunchPermissionState struct {
@@ -180,6 +184,8 @@ type AmiLaunchPermissionState struct {
 	OrganizationArn pulumi.StringPtrInput
 	// ARN of an organizational unit for the launch permission.
 	OrganizationalUnitArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AmiLaunchPermissionState) ElementType() reflect.Type {
@@ -197,6 +203,8 @@ type amiLaunchPermissionArgs struct {
 	OrganizationArn *string `pulumi:"organizationArn"`
 	// ARN of an organizational unit for the launch permission.
 	OrganizationalUnitArn *string `pulumi:"organizationalUnitArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AmiLaunchPermission resource.
@@ -211,6 +219,8 @@ type AmiLaunchPermissionArgs struct {
 	OrganizationArn pulumi.StringPtrInput
 	// ARN of an organizational unit for the launch permission.
 	OrganizationalUnitArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AmiLaunchPermissionArgs) ElementType() reflect.Type {
@@ -323,6 +333,11 @@ func (o AmiLaunchPermissionOutput) OrganizationArn() pulumi.StringPtrOutput {
 // ARN of an organizational unit for the launch permission.
 func (o AmiLaunchPermissionOutput) OrganizationalUnitArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AmiLaunchPermission) pulumi.StringPtrOutput { return v.OrganizationalUnitArn }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AmiLaunchPermissionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AmiLaunchPermission) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type AmiLaunchPermissionArrayOutput struct{ *pulumi.OutputState }

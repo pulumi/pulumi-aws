@@ -124,6 +124,21 @@ public final class EndpointAuthorizationState extends com.pulumi.resources.Resou
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
      * 
      */
@@ -148,6 +163,7 @@ public final class EndpointAuthorizationState extends com.pulumi.resources.Resou
         this.forceDelete = $.forceDelete;
         this.grantee = $.grantee;
         this.grantor = $.grantor;
+        this.region = $.region;
         this.vpcIds = $.vpcIds;
     }
 
@@ -314,6 +330,27 @@ public final class EndpointAuthorizationState extends com.pulumi.resources.Resou
          */
         public Builder grantor(String grantor) {
             return grantor(Output.of(grantor));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

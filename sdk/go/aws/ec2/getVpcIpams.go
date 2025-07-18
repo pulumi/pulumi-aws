@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,7 +50,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -83,7 +83,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -126,6 +126,8 @@ type GetVpcIpamsArgs struct {
 	Filters []GetVpcIpamsFilter `pulumi:"filters"`
 	// IDs of the IPAM resources to query for.
 	IpamIds []string `pulumi:"ipamIds"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getVpcIpams.
@@ -135,7 +137,8 @@ type GetVpcIpamsResult struct {
 	Id      string   `pulumi:"id"`
 	IpamIds []string `pulumi:"ipamIds"`
 	// List of IPAM resources matching the provided arguments.
-	Ipams []GetVpcIpamsIpam `pulumi:"ipams"`
+	Ipams  []GetVpcIpamsIpam `pulumi:"ipams"`
+	Region string            `pulumi:"region"`
 }
 
 func GetVpcIpamsOutput(ctx *pulumi.Context, args GetVpcIpamsOutputArgs, opts ...pulumi.InvokeOption) GetVpcIpamsResultOutput {
@@ -155,6 +158,8 @@ type GetVpcIpamsOutputArgs struct {
 	Filters GetVpcIpamsFilterArrayInput `pulumi:"filters"`
 	// IDs of the IPAM resources to query for.
 	IpamIds pulumi.StringArrayInput `pulumi:"ipamIds"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetVpcIpamsOutputArgs) ElementType() reflect.Type {
@@ -192,6 +197,10 @@ func (o GetVpcIpamsResultOutput) IpamIds() pulumi.StringArrayOutput {
 // List of IPAM resources matching the provided arguments.
 func (o GetVpcIpamsResultOutput) Ipams() GetVpcIpamsIpamArrayOutput {
 	return o.ApplyT(func(v GetVpcIpamsResult) []GetVpcIpamsIpam { return v.Ipams }).(GetVpcIpamsIpamArrayOutput)
+}
+
+func (o GetVpcIpamsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

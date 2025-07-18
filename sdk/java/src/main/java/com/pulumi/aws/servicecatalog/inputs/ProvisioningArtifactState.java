@@ -152,6 +152,21 @@ public final class ProvisioningArtifactState extends com.pulumi.resources.Resour
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
      * 
      */
@@ -212,6 +227,7 @@ public final class ProvisioningArtifactState extends com.pulumi.resources.Resour
         this.name = $.name;
         this.productId = $.productId;
         this.provisioningArtifactId = $.provisioningArtifactId;
+        this.region = $.region;
         this.templatePhysicalId = $.templatePhysicalId;
         this.templateUrl = $.templateUrl;
         this.type = $.type;
@@ -422,6 +438,27 @@ public final class ProvisioningArtifactState extends com.pulumi.resources.Resour
          */
         public Builder provisioningArtifactId(String provisioningArtifactId) {
             return provisioningArtifactId(Output.of(provisioningArtifactId));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -162,6 +162,12 @@ namespace Pulumi.Aws.BedrockFoundation
         [Input("byProvider")]
         public string? ByProvider { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetModelsArgs()
         {
         }
@@ -194,6 +200,12 @@ namespace Pulumi.Aws.BedrockFoundation
         [Input("byProvider")]
         public Input<string>? ByProvider { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetModelsInvokeArgs()
         {
         }
@@ -216,6 +228,7 @@ namespace Pulumi.Aws.BedrockFoundation
         /// List of model summary objects. See `model_summaries`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetModelsModelSummaryResult> ModelSummaries;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetModelsResult(
@@ -229,7 +242,9 @@ namespace Pulumi.Aws.BedrockFoundation
 
             string id,
 
-            ImmutableArray<Outputs.GetModelsModelSummaryResult> modelSummaries)
+            ImmutableArray<Outputs.GetModelsModelSummaryResult> modelSummaries,
+
+            string region)
         {
             ByCustomizationType = byCustomizationType;
             ByInferenceType = byInferenceType;
@@ -237,6 +252,7 @@ namespace Pulumi.Aws.BedrockFoundation
             ByProvider = byProvider;
             Id = id;
             ModelSummaries = modelSummaries;
+            Region = region;
         }
     }
 }

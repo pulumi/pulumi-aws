@@ -26,6 +26,7 @@ class VoiceConnectorStreamingArgs:
                  voice_connector_id: pulumi.Input[builtins.str],
                  disabled: Optional[pulumi.Input[builtins.bool]] = None,
                  media_insights_configuration: Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  streaming_notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a VoiceConnectorStreaming resource.
@@ -33,6 +34,7 @@ class VoiceConnectorStreamingArgs:
         :param pulumi.Input[builtins.str] voice_connector_id: The Amazon Chime Voice Connector ID.
         :param pulumi.Input[builtins.bool] disabled: When true, media streaming to Amazon Kinesis is turned off. Default: `false`
         :param pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs'] media_insights_configuration: The media insights configuration. See `media_insights_configuration`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] streaming_notification_targets: The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
         """
         pulumi.set(__self__, "data_retention", data_retention)
@@ -41,6 +43,8 @@ class VoiceConnectorStreamingArgs:
             pulumi.set(__self__, "disabled", disabled)
         if media_insights_configuration is not None:
             pulumi.set(__self__, "media_insights_configuration", media_insights_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if streaming_notification_targets is not None:
             pulumi.set(__self__, "streaming_notification_targets", streaming_notification_targets)
 
@@ -93,6 +97,18 @@ class VoiceConnectorStreamingArgs:
         pulumi.set(self, "media_insights_configuration", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="streamingNotificationTargets")
     def streaming_notification_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -111,6 +127,7 @@ class _VoiceConnectorStreamingState:
                  data_retention: Optional[pulumi.Input[builtins.int]] = None,
                  disabled: Optional[pulumi.Input[builtins.bool]] = None,
                  media_insights_configuration: Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  streaming_notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  voice_connector_id: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -118,6 +135,7 @@ class _VoiceConnectorStreamingState:
         :param pulumi.Input[builtins.int] data_retention: The retention period, in hours, for the Amazon Kinesis data.
         :param pulumi.Input[builtins.bool] disabled: When true, media streaming to Amazon Kinesis is turned off. Default: `false`
         :param pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs'] media_insights_configuration: The media insights configuration. See `media_insights_configuration`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] streaming_notification_targets: The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
         :param pulumi.Input[builtins.str] voice_connector_id: The Amazon Chime Voice Connector ID.
         """
@@ -127,6 +145,8 @@ class _VoiceConnectorStreamingState:
             pulumi.set(__self__, "disabled", disabled)
         if media_insights_configuration is not None:
             pulumi.set(__self__, "media_insights_configuration", media_insights_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if streaming_notification_targets is not None:
             pulumi.set(__self__, "streaming_notification_targets", streaming_notification_targets)
         if voice_connector_id is not None:
@@ -169,6 +189,18 @@ class _VoiceConnectorStreamingState:
         pulumi.set(self, "media_insights_configuration", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="streamingNotificationTargets")
     def streaming_notification_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -202,6 +234,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
                  data_retention: Optional[pulumi.Input[builtins.int]] = None,
                  disabled: Optional[pulumi.Input[builtins.bool]] = None,
                  media_insights_configuration: Optional[pulumi.Input[Union['VoiceConnectorStreamingMediaInsightsConfigurationArgs', 'VoiceConnectorStreamingMediaInsightsConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  streaming_notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  voice_connector_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -289,6 +322,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] data_retention: The retention period, in hours, for the Amazon Kinesis data.
         :param pulumi.Input[builtins.bool] disabled: When true, media streaming to Amazon Kinesis is turned off. Default: `false`
         :param pulumi.Input[Union['VoiceConnectorStreamingMediaInsightsConfigurationArgs', 'VoiceConnectorStreamingMediaInsightsConfigurationArgsDict']] media_insights_configuration: The media insights configuration. See `media_insights_configuration`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] streaming_notification_targets: The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
         :param pulumi.Input[builtins.str] voice_connector_id: The Amazon Chime Voice Connector ID.
         """
@@ -395,6 +429,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
                  data_retention: Optional[pulumi.Input[builtins.int]] = None,
                  disabled: Optional[pulumi.Input[builtins.bool]] = None,
                  media_insights_configuration: Optional[pulumi.Input[Union['VoiceConnectorStreamingMediaInsightsConfigurationArgs', 'VoiceConnectorStreamingMediaInsightsConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  streaming_notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  voice_connector_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -411,6 +446,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             __props__.__dict__["data_retention"] = data_retention
             __props__.__dict__["disabled"] = disabled
             __props__.__dict__["media_insights_configuration"] = media_insights_configuration
+            __props__.__dict__["region"] = region
             __props__.__dict__["streaming_notification_targets"] = streaming_notification_targets
             if voice_connector_id is None and not opts.urn:
                 raise TypeError("Missing required property 'voice_connector_id'")
@@ -428,6 +464,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             data_retention: Optional[pulumi.Input[builtins.int]] = None,
             disabled: Optional[pulumi.Input[builtins.bool]] = None,
             media_insights_configuration: Optional[pulumi.Input[Union['VoiceConnectorStreamingMediaInsightsConfigurationArgs', 'VoiceConnectorStreamingMediaInsightsConfigurationArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             streaming_notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             voice_connector_id: Optional[pulumi.Input[builtins.str]] = None) -> 'VoiceConnectorStreaming':
         """
@@ -440,6 +477,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] data_retention: The retention period, in hours, for the Amazon Kinesis data.
         :param pulumi.Input[builtins.bool] disabled: When true, media streaming to Amazon Kinesis is turned off. Default: `false`
         :param pulumi.Input[Union['VoiceConnectorStreamingMediaInsightsConfigurationArgs', 'VoiceConnectorStreamingMediaInsightsConfigurationArgsDict']] media_insights_configuration: The media insights configuration. See `media_insights_configuration`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] streaming_notification_targets: The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
         :param pulumi.Input[builtins.str] voice_connector_id: The Amazon Chime Voice Connector ID.
         """
@@ -450,6 +488,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         __props__.__dict__["data_retention"] = data_retention
         __props__.__dict__["disabled"] = disabled
         __props__.__dict__["media_insights_configuration"] = media_insights_configuration
+        __props__.__dict__["region"] = region
         __props__.__dict__["streaming_notification_targets"] = streaming_notification_targets
         __props__.__dict__["voice_connector_id"] = voice_connector_id
         return VoiceConnectorStreaming(resource_name, opts=opts, __props__=__props__)
@@ -477,6 +516,14 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         The media insights configuration. See `media_insights_configuration`.
         """
         return pulumi.get(self, "media_insights_configuration")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="streamingNotificationTargets")

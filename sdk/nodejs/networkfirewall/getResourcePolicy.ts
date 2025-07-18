@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
 export function getResourcePolicy(args: GetResourcePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResourcePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:networkfirewall/getResourcePolicy:getResourcePolicy", {
+        "region": args.region,
         "resourceArn": args.resourceArn,
     }, opts);
 }
@@ -29,6 +30,10 @@ export function getResourcePolicy(args: GetResourcePolicyArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getResourcePolicy.
  */
 export interface GetResourcePolicyArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * The Amazon Resource Name (ARN) that identifies the resource policy.
      */
@@ -47,6 +52,7 @@ export interface GetResourcePolicyResult {
      * The [policy][1] for the resource.
      */
     readonly policy: string;
+    readonly region: string;
     readonly resourceArn: string;
 }
 /**
@@ -66,6 +72,7 @@ export interface GetResourcePolicyResult {
 export function getResourcePolicyOutput(args: GetResourcePolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourcePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:networkfirewall/getResourcePolicy:getResourcePolicy", {
+        "region": args.region,
         "resourceArn": args.resourceArn,
     }, opts);
 }
@@ -74,6 +81,10 @@ export function getResourcePolicyOutput(args: GetResourcePolicyOutputArgs, opts?
  * A collection of arguments for invoking getResourcePolicy.
  */
 export interface GetResourcePolicyOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) that identifies the resource policy.
      */

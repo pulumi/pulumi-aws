@@ -26,16 +26,18 @@ class FunctionEventInvokeConfigArgs:
                  destination_config: Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigArgs']] = None,
                  maximum_event_age_in_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[builtins.int]] = None,
-                 qualifier: Optional[pulumi.Input[builtins.str]] = None):
+                 qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionEventInvokeConfig resource.
-        :param pulumi.Input[builtins.str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        :param pulumi.Input[builtins.str] function_name: Name or ARN of the Lambda Function, omitting any version or alias qualifier.
                
                The following arguments are optional:
-        :param pulumi.Input['FunctionEventInvokeConfigDestinationConfigArgs'] destination_config: Configuration block with destination configuration. See below for details.
+        :param pulumi.Input['FunctionEventInvokeConfigDestinationConfigArgs'] destination_config: Configuration block with destination configuration. See below.
         :param pulumi.Input[builtins.int] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         :param pulumi.Input[builtins.int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         :param pulumi.Input[builtins.str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "function_name", function_name)
         if destination_config is not None:
@@ -46,12 +48,14 @@ class FunctionEventInvokeConfigArgs:
             pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
         if qualifier is not None:
             pulumi.set(__self__, "qualifier", qualifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Input[builtins.str]:
         """
-        Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        Name or ARN of the Lambda Function, omitting any version or alias qualifier.
 
         The following arguments are optional:
         """
@@ -65,7 +69,7 @@ class FunctionEventInvokeConfigArgs:
     @pulumi.getter(name="destinationConfig")
     def destination_config(self) -> Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigArgs']]:
         """
-        Configuration block with destination configuration. See below for details.
+        Configuration block with destination configuration. See below.
         """
         return pulumi.get(self, "destination_config")
 
@@ -109,6 +113,18 @@ class FunctionEventInvokeConfigArgs:
     def qualifier(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "qualifier", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _FunctionEventInvokeConfigState:
@@ -117,16 +133,18 @@ class _FunctionEventInvokeConfigState:
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
                  maximum_event_age_in_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[builtins.int]] = None,
-                 qualifier: Optional[pulumi.Input[builtins.str]] = None):
+                 qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionEventInvokeConfig resources.
-        :param pulumi.Input['FunctionEventInvokeConfigDestinationConfigArgs'] destination_config: Configuration block with destination configuration. See below for details.
-        :param pulumi.Input[builtins.str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        :param pulumi.Input['FunctionEventInvokeConfigDestinationConfigArgs'] destination_config: Configuration block with destination configuration. See below.
+        :param pulumi.Input[builtins.str] function_name: Name or ARN of the Lambda Function, omitting any version or alias qualifier.
                
                The following arguments are optional:
         :param pulumi.Input[builtins.int] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         :param pulumi.Input[builtins.int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         :param pulumi.Input[builtins.str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if destination_config is not None:
             pulumi.set(__self__, "destination_config", destination_config)
@@ -138,12 +156,14 @@ class _FunctionEventInvokeConfigState:
             pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
         if qualifier is not None:
             pulumi.set(__self__, "qualifier", qualifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="destinationConfig")
     def destination_config(self) -> Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigArgs']]:
         """
-        Configuration block with destination configuration. See below for details.
+        Configuration block with destination configuration. See below.
         """
         return pulumi.get(self, "destination_config")
 
@@ -155,7 +175,7 @@ class _FunctionEventInvokeConfigState:
     @pulumi.getter(name="functionName")
     def function_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        Name or ARN of the Lambda Function, omitting any version or alias qualifier.
 
         The following arguments are optional:
         """
@@ -201,6 +221,18 @@ class _FunctionEventInvokeConfigState:
     def qualifier(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "qualifier", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig")
 class FunctionEventInvokeConfig(pulumi.CustomResource):
@@ -213,56 +245,88 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
                  maximum_event_age_in_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[builtins.int]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Manages an asynchronous invocation configuration for a Lambda Function or Alias. More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
+        Manages an AWS Lambda Function Event Invoke Config. Use this resource to configure error handling and destinations for asynchronous Lambda function invocations.
+
+        More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
 
         ## Example Usage
 
-        ### Destination Configuration
+        ### Complete Error Handling and Destinations
 
-        > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
+        > **Note:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
+        # SQS queue for failed invocations
+        dlq = aws.sqs.Queue("dlq",
+            name="lambda-dlq",
+            tags={
+                "Environment": "production",
+                "Purpose": "lambda-error-handling",
+            })
+        # SNS topic for successful invocations
+        success = aws.sns.Topic("success",
+            name="lambda-success-notifications",
+            tags={
+                "Environment": "production",
+                "Purpose": "lambda-success-notifications",
+            })
+        # Complete event invoke configuration
         example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=example_aws_lambda_alias["functionName"],
+            function_name=example_aws_lambda_function["functionName"],
+            maximum_event_age_in_seconds=300,
+            maximum_retry_attempts=1,
             destination_config={
                 "on_failure": {
-                    "destination": example_aws_sqs_queue["arn"],
+                    "destination": dlq.arn,
                 },
                 "on_success": {
-                    "destination": example_aws_sns_topic["arn"],
+                    "destination": success.arn,
                 },
             })
         ```
 
-        ### Error Handling Configuration
+        ### Error Handling Only
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=example_aws_lambda_alias["functionName"],
+            function_name=example_aws_lambda_function["functionName"],
             maximum_event_age_in_seconds=60,
             maximum_retry_attempts=0)
         ```
 
-        ### Configuration for Alias Name
+        ### Configuration for Lambda Alias
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=example_aws_lambda_alias["functionName"],
-            qualifier=example_aws_lambda_alias["name"])
+        example = aws.lambda_.Alias("example",
+            name="production",
+            description="Production alias",
+            function_name=example_aws_lambda_function["functionName"],
+            function_version=example_aws_lambda_function["version"])
+        example_function_event_invoke_config = aws.lambda_.FunctionEventInvokeConfig("example",
+            function_name=example_aws_lambda_function["functionName"],
+            qualifier=example.name,
+            maximum_event_age_in_seconds=1800,
+            maximum_retry_attempts=2,
+            destination_config={
+                "on_failure": {
+                    "destination": production_dlq["arn"],
+                },
+            })
         ```
 
-        ### Configuration for Function Latest Unpublished Version
+        ### Configuration for Published Version
 
         ```python
         import pulumi
@@ -270,10 +334,20 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
         example = aws.lambda_.FunctionEventInvokeConfig("example",
             function_name=example_aws_lambda_function["functionName"],
-            qualifier="$LATEST")
+            qualifier=example_aws_lambda_function["version"],
+            maximum_event_age_in_seconds=21600,
+            maximum_retry_attempts=2,
+            destination_config={
+                "on_failure": {
+                    "destination": version_dlq["arn"],
+                },
+                "on_success": {
+                    "destination": version_success["arn"],
+                },
+            })
         ```
 
-        ### Configuration for Function Published Version
+        ### Configuration for Latest Version
 
         ```python
         import pulumi
@@ -281,7 +355,36 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
         example = aws.lambda_.FunctionEventInvokeConfig("example",
             function_name=example_aws_lambda_function["functionName"],
-            qualifier=example_aws_lambda_function["version"])
+            qualifier="$LATEST",
+            maximum_event_age_in_seconds=120,
+            maximum_retry_attempts=0,
+            destination_config={
+                "on_failure": {
+                    "destination": dev_dlq["arn"],
+                },
+            })
+        ```
+
+        ### Multiple Destination Types
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # S3 bucket for archiving successful events
+        lambda_success_archive = aws.s3.Bucket("lambda_success_archive", bucket=f"lambda-success-archive-{bucket_suffix['hex']}")
+        # EventBridge custom bus for failed events
+        lambda_failures = aws.cloudwatch.EventBus("lambda_failures", name="lambda-failure-events")
+        example = aws.lambda_.FunctionEventInvokeConfig("example",
+            function_name=example_aws_lambda_function["functionName"],
+            destination_config={
+                "on_failure": {
+                    "destination": lambda_failures.arn,
+                },
+                "on_success": {
+                    "destination": lambda_success_archive.arn,
+                },
+            })
         ```
 
         ## Import
@@ -292,38 +395,39 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
         Name with qualifier:
 
-        __Using `pulumi import` to import__ Lambda Function Event Invoke Configs using the fully qualified Function name or Amazon Resource Name (ARN). For example:
+        For backwards compatibility, the following legacy `pulumi import` commands are also supported:
 
-        ARN without qualifier (all versions and aliases):
+        Using ARN without qualifier:
 
         ```sh
-        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
+        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:lambda:us-east-1:123456789012:function:example
         ```
-        ARN with qualifier:
+        Using ARN with qualifier:
 
         ```sh
-        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
+        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:lambda:us-east-1:123456789012:function:example:production
         ```
         Name without qualifier (all versions and aliases):
 
         ```sh
-        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
+        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example example
         ```
         Name with qualifier:
 
         ```sh
-        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
+        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example example:production
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['FunctionEventInvokeConfigDestinationConfigArgs', 'FunctionEventInvokeConfigDestinationConfigArgsDict']] destination_config: Configuration block with destination configuration. See below for details.
-        :param pulumi.Input[builtins.str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        :param pulumi.Input[Union['FunctionEventInvokeConfigDestinationConfigArgs', 'FunctionEventInvokeConfigDestinationConfigArgsDict']] destination_config: Configuration block with destination configuration. See below.
+        :param pulumi.Input[builtins.str] function_name: Name or ARN of the Lambda Function, omitting any version or alias qualifier.
                
                The following arguments are optional:
         :param pulumi.Input[builtins.int] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         :param pulumi.Input[builtins.int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         :param pulumi.Input[builtins.str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -332,54 +436,85 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
                  args: FunctionEventInvokeConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an asynchronous invocation configuration for a Lambda Function or Alias. More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
+        Manages an AWS Lambda Function Event Invoke Config. Use this resource to configure error handling and destinations for asynchronous Lambda function invocations.
+
+        More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
 
         ## Example Usage
 
-        ### Destination Configuration
+        ### Complete Error Handling and Destinations
 
-        > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
+        > **Note:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
+        # SQS queue for failed invocations
+        dlq = aws.sqs.Queue("dlq",
+            name="lambda-dlq",
+            tags={
+                "Environment": "production",
+                "Purpose": "lambda-error-handling",
+            })
+        # SNS topic for successful invocations
+        success = aws.sns.Topic("success",
+            name="lambda-success-notifications",
+            tags={
+                "Environment": "production",
+                "Purpose": "lambda-success-notifications",
+            })
+        # Complete event invoke configuration
         example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=example_aws_lambda_alias["functionName"],
+            function_name=example_aws_lambda_function["functionName"],
+            maximum_event_age_in_seconds=300,
+            maximum_retry_attempts=1,
             destination_config={
                 "on_failure": {
-                    "destination": example_aws_sqs_queue["arn"],
+                    "destination": dlq.arn,
                 },
                 "on_success": {
-                    "destination": example_aws_sns_topic["arn"],
+                    "destination": success.arn,
                 },
             })
         ```
 
-        ### Error Handling Configuration
+        ### Error Handling Only
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=example_aws_lambda_alias["functionName"],
+            function_name=example_aws_lambda_function["functionName"],
             maximum_event_age_in_seconds=60,
             maximum_retry_attempts=0)
         ```
 
-        ### Configuration for Alias Name
+        ### Configuration for Lambda Alias
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=example_aws_lambda_alias["functionName"],
-            qualifier=example_aws_lambda_alias["name"])
+        example = aws.lambda_.Alias("example",
+            name="production",
+            description="Production alias",
+            function_name=example_aws_lambda_function["functionName"],
+            function_version=example_aws_lambda_function["version"])
+        example_function_event_invoke_config = aws.lambda_.FunctionEventInvokeConfig("example",
+            function_name=example_aws_lambda_function["functionName"],
+            qualifier=example.name,
+            maximum_event_age_in_seconds=1800,
+            maximum_retry_attempts=2,
+            destination_config={
+                "on_failure": {
+                    "destination": production_dlq["arn"],
+                },
+            })
         ```
 
-        ### Configuration for Function Latest Unpublished Version
+        ### Configuration for Published Version
 
         ```python
         import pulumi
@@ -387,10 +522,20 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
         example = aws.lambda_.FunctionEventInvokeConfig("example",
             function_name=example_aws_lambda_function["functionName"],
-            qualifier="$LATEST")
+            qualifier=example_aws_lambda_function["version"],
+            maximum_event_age_in_seconds=21600,
+            maximum_retry_attempts=2,
+            destination_config={
+                "on_failure": {
+                    "destination": version_dlq["arn"],
+                },
+                "on_success": {
+                    "destination": version_success["arn"],
+                },
+            })
         ```
 
-        ### Configuration for Function Published Version
+        ### Configuration for Latest Version
 
         ```python
         import pulumi
@@ -398,7 +543,36 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
         example = aws.lambda_.FunctionEventInvokeConfig("example",
             function_name=example_aws_lambda_function["functionName"],
-            qualifier=example_aws_lambda_function["version"])
+            qualifier="$LATEST",
+            maximum_event_age_in_seconds=120,
+            maximum_retry_attempts=0,
+            destination_config={
+                "on_failure": {
+                    "destination": dev_dlq["arn"],
+                },
+            })
+        ```
+
+        ### Multiple Destination Types
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # S3 bucket for archiving successful events
+        lambda_success_archive = aws.s3.Bucket("lambda_success_archive", bucket=f"lambda-success-archive-{bucket_suffix['hex']}")
+        # EventBridge custom bus for failed events
+        lambda_failures = aws.cloudwatch.EventBus("lambda_failures", name="lambda-failure-events")
+        example = aws.lambda_.FunctionEventInvokeConfig("example",
+            function_name=example_aws_lambda_function["functionName"],
+            destination_config={
+                "on_failure": {
+                    "destination": lambda_failures.arn,
+                },
+                "on_success": {
+                    "destination": lambda_success_archive.arn,
+                },
+            })
         ```
 
         ## Import
@@ -409,27 +583,27 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
 
         Name with qualifier:
 
-        __Using `pulumi import` to import__ Lambda Function Event Invoke Configs using the fully qualified Function name or Amazon Resource Name (ARN). For example:
+        For backwards compatibility, the following legacy `pulumi import` commands are also supported:
 
-        ARN without qualifier (all versions and aliases):
+        Using ARN without qualifier:
 
         ```sh
-        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
+        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:lambda:us-east-1:123456789012:function:example
         ```
-        ARN with qualifier:
+        Using ARN with qualifier:
 
         ```sh
-        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
+        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:lambda:us-east-1:123456789012:function:example:production
         ```
         Name without qualifier (all versions and aliases):
 
         ```sh
-        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
+        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example example
         ```
         Name with qualifier:
 
         ```sh
-        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
+        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example example:production
         ```
 
         :param str resource_name: The name of the resource.
@@ -452,6 +626,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
                  maximum_event_age_in_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[builtins.int]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -468,6 +643,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             __props__.__dict__["maximum_event_age_in_seconds"] = maximum_event_age_in_seconds
             __props__.__dict__["maximum_retry_attempts"] = maximum_retry_attempts
             __props__.__dict__["qualifier"] = qualifier
+            __props__.__dict__["region"] = region
         super(FunctionEventInvokeConfig, __self__).__init__(
             'aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig',
             resource_name,
@@ -482,7 +658,8 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             function_name: Optional[pulumi.Input[builtins.str]] = None,
             maximum_event_age_in_seconds: Optional[pulumi.Input[builtins.int]] = None,
             maximum_retry_attempts: Optional[pulumi.Input[builtins.int]] = None,
-            qualifier: Optional[pulumi.Input[builtins.str]] = None) -> 'FunctionEventInvokeConfig':
+            qualifier: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'FunctionEventInvokeConfig':
         """
         Get an existing FunctionEventInvokeConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -490,13 +667,14 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['FunctionEventInvokeConfigDestinationConfigArgs', 'FunctionEventInvokeConfigDestinationConfigArgsDict']] destination_config: Configuration block with destination configuration. See below for details.
-        :param pulumi.Input[builtins.str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        :param pulumi.Input[Union['FunctionEventInvokeConfigDestinationConfigArgs', 'FunctionEventInvokeConfigDestinationConfigArgsDict']] destination_config: Configuration block with destination configuration. See below.
+        :param pulumi.Input[builtins.str] function_name: Name or ARN of the Lambda Function, omitting any version or alias qualifier.
                
                The following arguments are optional:
         :param pulumi.Input[builtins.int] maximum_event_age_in_seconds: Maximum age of a request that Lambda sends to a function for processing in seconds. Valid values between 60 and 21600.
         :param pulumi.Input[builtins.int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Valid values between 0 and 2. Defaults to 2.
         :param pulumi.Input[builtins.str] qualifier: Lambda Function published version, `$LATEST`, or Lambda Alias name.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -507,13 +685,14 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         __props__.__dict__["maximum_event_age_in_seconds"] = maximum_event_age_in_seconds
         __props__.__dict__["maximum_retry_attempts"] = maximum_retry_attempts
         __props__.__dict__["qualifier"] = qualifier
+        __props__.__dict__["region"] = region
         return FunctionEventInvokeConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="destinationConfig")
     def destination_config(self) -> pulumi.Output[Optional['outputs.FunctionEventInvokeConfigDestinationConfig']]:
         """
-        Configuration block with destination configuration. See below for details.
+        Configuration block with destination configuration. See below.
         """
         return pulumi.get(self, "destination_config")
 
@@ -521,7 +700,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Output[builtins.str]:
         """
-        Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        Name or ARN of the Lambda Function, omitting any version or alias qualifier.
 
         The following arguments are optional:
         """
@@ -550,4 +729,12 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         Lambda Function published version, `$LATEST`, or Lambda Alias name.
         """
         return pulumi.get(self, "qualifier")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

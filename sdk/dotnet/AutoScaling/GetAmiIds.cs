@@ -53,10 +53,10 @@ namespace Pulumi.Aws.AutoScaling
         ///         GroupNames = groups.Apply(getAmiIdsResult =&gt; getAmiIdsResult.Names),
         ///         Notifications = new[]
         ///         {
-        ///             "autoscaling:EC2_INSTANCE_LAUNCH",
-        ///             "autoscaling:EC2_INSTANCE_TERMINATE",
-        ///             "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-        ///             "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+        ///             Aws.AutoScaling.NotificationType.InstanceLaunch,
+        ///             Aws.AutoScaling.NotificationType.InstanceTerminate,
+        ///             Aws.AutoScaling.NotificationType.InstanceLaunchError,
+        ///             Aws.AutoScaling.NotificationType.InstanceTerminateError,
         ///         },
         ///         TopicArn = "TOPIC ARN",
         ///     });
@@ -109,10 +109,10 @@ namespace Pulumi.Aws.AutoScaling
         ///         GroupNames = groups.Apply(getAmiIdsResult =&gt; getAmiIdsResult.Names),
         ///         Notifications = new[]
         ///         {
-        ///             "autoscaling:EC2_INSTANCE_LAUNCH",
-        ///             "autoscaling:EC2_INSTANCE_TERMINATE",
-        ///             "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-        ///             "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+        ///             Aws.AutoScaling.NotificationType.InstanceLaunch,
+        ///             Aws.AutoScaling.NotificationType.InstanceTerminate,
+        ///             Aws.AutoScaling.NotificationType.InstanceLaunchError,
+        ///             Aws.AutoScaling.NotificationType.InstanceTerminateError,
         ///         },
         ///         TopicArn = "TOPIC ARN",
         ///     });
@@ -165,10 +165,10 @@ namespace Pulumi.Aws.AutoScaling
         ///         GroupNames = groups.Apply(getAmiIdsResult =&gt; getAmiIdsResult.Names),
         ///         Notifications = new[]
         ///         {
-        ///             "autoscaling:EC2_INSTANCE_LAUNCH",
-        ///             "autoscaling:EC2_INSTANCE_TERMINATE",
-        ///             "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-        ///             "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+        ///             Aws.AutoScaling.NotificationType.InstanceLaunch,
+        ///             Aws.AutoScaling.NotificationType.InstanceTerminate,
+        ///             Aws.AutoScaling.NotificationType.InstanceLaunchError,
+        ///             Aws.AutoScaling.NotificationType.InstanceTerminateError,
         ///         },
         ///         TopicArn = "TOPIC ARN",
         ///     });
@@ -207,6 +207,12 @@ namespace Pulumi.Aws.AutoScaling
             set => _names = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetAmiIdsArgs()
         {
         }
@@ -239,6 +245,12 @@ namespace Pulumi.Aws.AutoScaling
             set => _names = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetAmiIdsInvokeArgs()
         {
         }
@@ -262,6 +274,7 @@ namespace Pulumi.Aws.AutoScaling
         /// List of the Autoscaling Groups in the current region.
         /// </summary>
         public readonly ImmutableArray<string> Names;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetAmiIdsResult(
@@ -271,12 +284,15 @@ namespace Pulumi.Aws.AutoScaling
 
             string id,
 
-            ImmutableArray<string> names)
+            ImmutableArray<string> names,
+
+            string region)
         {
             Arns = arns;
             Filters = filters;
             Id = id;
             Names = names;
+            Region = region;
         }
     }
 }

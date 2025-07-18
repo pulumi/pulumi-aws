@@ -24,6 +24,7 @@ export function getEventConnection(args: GetEventConnectionArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudwatch/getEventConnection:getEventConnection", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -35,6 +36,10 @@ export interface GetEventConnectionArgs {
      * Name of the connection.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -58,6 +63,7 @@ export interface GetEventConnectionResult {
      */
     readonly kmsKeyIdentifier: string;
     readonly name: string;
+    readonly region: string;
     /**
      * ARN of the secret created from the authorization parameters specified for the connection.
      */
@@ -83,6 +89,7 @@ export function getEventConnectionOutput(args: GetEventConnectionOutputArgs, opt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudwatch/getEventConnection:getEventConnection", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -94,4 +101,8 @@ export interface GetEventConnectionOutputArgs {
      * Name of the connection.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

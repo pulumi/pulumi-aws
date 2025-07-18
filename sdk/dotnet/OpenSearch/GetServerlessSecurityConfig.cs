@@ -100,10 +100,22 @@ namespace Pulumi.Aws.OpenSearch
         public string Id { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        [Input("samlOptions")]
+        private List<Inputs.GetServerlessSecurityConfigSamlOptionArgs>? _samlOptions;
+
+        /// <summary>
         /// SAML options for the security configuration.
         /// </summary>
-        [Input("samlOptions")]
-        public Inputs.GetServerlessSecurityConfigSamlOptionsArgs? SamlOptions { get; set; }
+        public List<Inputs.GetServerlessSecurityConfigSamlOptionArgs> SamlOptions
+        {
+            get => _samlOptions ?? (_samlOptions = new List<Inputs.GetServerlessSecurityConfigSamlOptionArgs>());
+            set => _samlOptions = value;
+        }
 
         public GetServerlessSecurityConfigArgs()
         {
@@ -120,10 +132,22 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        [Input("samlOptions")]
+        private InputList<Inputs.GetServerlessSecurityConfigSamlOptionInputArgs>? _samlOptions;
+
+        /// <summary>
         /// SAML options for the security configuration.
         /// </summary>
-        [Input("samlOptions")]
-        public Input<Inputs.GetServerlessSecurityConfigSamlOptionsInputArgs>? SamlOptions { get; set; }
+        public InputList<Inputs.GetServerlessSecurityConfigSamlOptionInputArgs> SamlOptions
+        {
+            get => _samlOptions ?? (_samlOptions = new InputList<Inputs.GetServerlessSecurityConfigSamlOptionInputArgs>());
+            set => _samlOptions = value;
+        }
 
         public GetServerlessSecurityConfigInvokeArgs()
         {
@@ -152,10 +176,11 @@ namespace Pulumi.Aws.OpenSearch
         /// The date the configuration was last modified.
         /// </summary>
         public readonly string LastModifiedDate;
+        public readonly string Region;
         /// <summary>
         /// SAML options for the security configuration.
         /// </summary>
-        public readonly Outputs.GetServerlessSecurityConfigSamlOptionsResult? SamlOptions;
+        public readonly ImmutableArray<Outputs.GetServerlessSecurityConfigSamlOptionResult> SamlOptions;
         /// <summary>
         /// The type of security configuration.
         /// </summary>
@@ -173,7 +198,9 @@ namespace Pulumi.Aws.OpenSearch
 
             string lastModifiedDate,
 
-            Outputs.GetServerlessSecurityConfigSamlOptionsResult? samlOptions,
+            string region,
+
+            ImmutableArray<Outputs.GetServerlessSecurityConfigSamlOptionResult> samlOptions,
 
             string type)
         {
@@ -182,6 +209,7 @@ namespace Pulumi.Aws.OpenSearch
             Description = description;
             Id = id;
             LastModifiedDate = lastModifiedDate;
+            Region = region;
             SamlOptions = samlOptions;
             Type = type;
         }

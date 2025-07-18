@@ -43,6 +43,7 @@ public final class GetEngineVersionResult {
     private @Nullable List<String> preferredMajorTargets;
     private @Nullable List<String> preferredUpgradeTargets;
     private @Nullable List<String> preferredVersions;
+    private String region;
     /**
      * @return Set of character sets supported by this engine version.
      * 
@@ -151,6 +152,9 @@ public final class GetEngineVersionResult {
     public List<String> preferredVersions() {
         return this.preferredVersions == null ? List.of() : this.preferredVersions;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Set of character sets supported by this engine version.
      * 
@@ -247,6 +251,7 @@ public final class GetEngineVersionResult {
         private @Nullable List<String> preferredMajorTargets;
         private @Nullable List<String> preferredUpgradeTargets;
         private @Nullable List<String> preferredVersions;
+        private String region;
         private List<String> supportedCharacterSets;
         private List<String> supportedTimezones;
         private Boolean supportsGlobalDatabases;
@@ -274,6 +279,7 @@ public final class GetEngineVersionResult {
     	      this.preferredMajorTargets = defaults.preferredMajorTargets;
     	      this.preferredUpgradeTargets = defaults.preferredUpgradeTargets;
     	      this.preferredVersions = defaults.preferredVersions;
+    	      this.region = defaults.region;
     	      this.supportedCharacterSets = defaults.supportedCharacterSets;
     	      this.supportedTimezones = defaults.supportedTimezones;
     	      this.supportsGlobalDatabases = defaults.supportsGlobalDatabases;
@@ -386,6 +392,14 @@ public final class GetEngineVersionResult {
         }
         public Builder preferredVersions(String... preferredVersions) {
             return preferredVersions(List.of(preferredVersions));
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "region");
+            }
+            this.region = region;
+            return this;
         }
         @CustomType.Setter
         public Builder supportedCharacterSets(List<String> supportedCharacterSets) {
@@ -505,6 +519,7 @@ public final class GetEngineVersionResult {
             _resultValue.preferredMajorTargets = preferredMajorTargets;
             _resultValue.preferredUpgradeTargets = preferredUpgradeTargets;
             _resultValue.preferredVersions = preferredVersions;
+            _resultValue.region = region;
             _resultValue.supportedCharacterSets = supportedCharacterSets;
             _resultValue.supportedTimezones = supportedTimezones;
             _resultValue.supportsGlobalDatabases = supportsGlobalDatabases;

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,6 +62,8 @@ type Device struct {
 	Device DeviceDeviceOutput `pulumi:"device"`
 	// The name of the Device Fleet.
 	DeviceFleetName pulumi.StringOutput `pulumi:"deviceFleetName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDevice registers a new resource with the given unique name, arguments, and options.
@@ -107,6 +109,8 @@ type deviceState struct {
 	Device *DeviceDevice `pulumi:"device"`
 	// The name of the Device Fleet.
 	DeviceFleetName *string `pulumi:"deviceFleetName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type DeviceState struct {
@@ -117,6 +121,8 @@ type DeviceState struct {
 	Device DeviceDevicePtrInput
 	// The name of the Device Fleet.
 	DeviceFleetName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DeviceState) ElementType() reflect.Type {
@@ -128,6 +134,8 @@ type deviceArgs struct {
 	Device DeviceDevice `pulumi:"device"`
 	// The name of the Device Fleet.
 	DeviceFleetName string `pulumi:"deviceFleetName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Device resource.
@@ -136,6 +144,8 @@ type DeviceArgs struct {
 	Device DeviceDeviceInput
 	// The name of the Device Fleet.
 	DeviceFleetName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DeviceArgs) ElementType() reflect.Type {
@@ -242,6 +252,11 @@ func (o DeviceOutput) Device() DeviceDeviceOutput {
 // The name of the Device Fleet.
 func (o DeviceOutput) DeviceFleetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.DeviceFleetName }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DeviceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type DeviceArrayOutput struct{ *pulumi.OutputState }

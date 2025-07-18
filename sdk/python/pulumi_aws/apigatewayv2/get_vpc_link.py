@@ -27,7 +27,7 @@ class GetVpcLinkResult:
     """
     A collection of values returned by getVpcLink.
     """
-    def __init__(__self__, arn=None, id=None, name=None, security_group_ids=None, subnet_ids=None, tags=None, vpc_link_id=None):
+    def __init__(__self__, arn=None, id=None, name=None, region=None, security_group_ids=None, subnet_ids=None, tags=None, vpc_link_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +37,9 @@ class GetVpcLinkResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_group_ids and not isinstance(security_group_ids, list):
             raise TypeError("Expected argument 'security_group_ids' to be a list")
         pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -73,6 +76,11 @@ class GetVpcLinkResult:
         VPC Link Name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -113,13 +121,15 @@ class AwaitableGetVpcLinkResult(GetVpcLinkResult):
             arn=self.arn,
             id=self.id,
             name=self.name,
+            region=self.region,
             security_group_ids=self.security_group_ids,
             subnet_ids=self.subnet_ids,
             tags=self.tags,
             vpc_link_id=self.vpc_link_id)
 
 
-def get_vpc_link(tags: Optional[Mapping[str, builtins.str]] = None,
+def get_vpc_link(region: Optional[builtins.str] = None,
+                 tags: Optional[Mapping[str, builtins.str]] = None,
                  vpc_link_id: Optional[builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcLinkResult:
     """
@@ -137,10 +147,12 @@ def get_vpc_link(tags: Optional[Mapping[str, builtins.str]] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: VPC Link Tags.
     :param builtins.str vpc_link_id: VPC Link ID
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['vpcLinkId'] = vpc_link_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -150,11 +162,13 @@ def get_vpc_link(tags: Optional[Mapping[str, builtins.str]] = None,
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_link_id=pulumi.get(__ret__, 'vpc_link_id'))
-def get_vpc_link_output(tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
+def get_vpc_link_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                        tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                         vpc_link_id: Optional[pulumi.Input[builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcLinkResult]:
     """
@@ -172,10 +186,12 @@ def get_vpc_link_output(tags: Optional[pulumi.Input[Optional[Mapping[str, builti
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: VPC Link Tags.
     :param builtins.str vpc_link_id: VPC Link ID
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['vpcLinkId'] = vpc_link_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -184,6 +200,7 @@ def get_vpc_link_output(tags: Optional[pulumi.Input[Optional[Mapping[str, builti
         arn=pulumi.get(__response__, 'arn'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         security_group_ids=pulumi.get(__response__, 'security_group_ids'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),
         tags=pulumi.get(__response__, 'tags'),

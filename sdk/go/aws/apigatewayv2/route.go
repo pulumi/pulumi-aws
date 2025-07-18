@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,7 +61,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -128,6 +128,8 @@ type Route struct {
 	ModelSelectionExpression pulumi.StringPtrOutput `pulumi:"modelSelectionExpression"`
 	// Operation name for the route. Must be between 1 and 64 characters in length.
 	OperationName pulumi.StringPtrOutput `pulumi:"operationName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Request models for the route. Supported only for WebSocket APIs.
 	RequestModels pulumi.StringMapOutput `pulumi:"requestModels"`
 	// Request parameters for the route. Supported only for WebSocket APIs.
@@ -193,6 +195,8 @@ type routeState struct {
 	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
 	// Operation name for the route. Must be between 1 and 64 characters in length.
 	OperationName *string `pulumi:"operationName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Request models for the route. Supported only for WebSocket APIs.
 	RequestModels map[string]string `pulumi:"requestModels"`
 	// Request parameters for the route. Supported only for WebSocket APIs.
@@ -223,6 +227,8 @@ type RouteState struct {
 	ModelSelectionExpression pulumi.StringPtrInput
 	// Operation name for the route. Must be between 1 and 64 characters in length.
 	OperationName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Request models for the route. Supported only for WebSocket APIs.
 	RequestModels pulumi.StringMapInput
 	// Request parameters for the route. Supported only for WebSocket APIs.
@@ -257,6 +263,8 @@ type routeArgs struct {
 	ModelSelectionExpression *string `pulumi:"modelSelectionExpression"`
 	// Operation name for the route. Must be between 1 and 64 characters in length.
 	OperationName *string `pulumi:"operationName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Request models for the route. Supported only for WebSocket APIs.
 	RequestModels map[string]string `pulumi:"requestModels"`
 	// Request parameters for the route. Supported only for WebSocket APIs.
@@ -288,6 +296,8 @@ type RouteArgs struct {
 	ModelSelectionExpression pulumi.StringPtrInput
 	// Operation name for the route. Must be between 1 and 64 characters in length.
 	OperationName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Request models for the route. Supported only for WebSocket APIs.
 	RequestModels pulumi.StringMapInput
 	// Request parameters for the route. Supported only for WebSocket APIs.
@@ -423,6 +433,11 @@ func (o RouteOutput) ModelSelectionExpression() pulumi.StringPtrOutput {
 // Operation name for the route. Must be between 1 and 64 characters in length.
 func (o RouteOutput) OperationName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.OperationName }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o RouteOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Request models for the route. Supported only for WebSocket APIs.

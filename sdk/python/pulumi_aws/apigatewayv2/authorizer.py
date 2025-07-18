@@ -31,7 +31,8 @@ class AuthorizerArgs:
                  enable_simple_responses: Optional[pulumi.Input[builtins.bool]] = None,
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  jwt_configuration: Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Authorizer resource.
         :param pulumi.Input[builtins.str] api_id: API identifier.
@@ -56,6 +57,7 @@ class AuthorizerArgs:
         :param pulumi.Input['AuthorizerJwtConfigurationArgs'] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
                Supported only for HTTP APIs.
         :param pulumi.Input[builtins.str] name: Name of the authorizer. Must be between 1 and 128 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "authorizer_type", authorizer_type)
@@ -75,6 +77,8 @@ class AuthorizerArgs:
             pulumi.set(__self__, "jwt_configuration", jwt_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="apiId")
@@ -208,6 +212,18 @@ class AuthorizerArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _AuthorizerState:
@@ -221,7 +237,8 @@ class _AuthorizerState:
                  enable_simple_responses: Optional[pulumi.Input[builtins.bool]] = None,
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  jwt_configuration: Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Authorizer resources.
         :param pulumi.Input[builtins.str] api_id: API identifier.
@@ -246,6 +263,7 @@ class _AuthorizerState:
         :param pulumi.Input['AuthorizerJwtConfigurationArgs'] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
                Supported only for HTTP APIs.
         :param pulumi.Input[builtins.str] name: Name of the authorizer. Must be between 1 and 128 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if api_id is not None:
             pulumi.set(__self__, "api_id", api_id)
@@ -267,6 +285,8 @@ class _AuthorizerState:
             pulumi.set(__self__, "jwt_configuration", jwt_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="apiId")
@@ -400,6 +420,18 @@ class _AuthorizerState:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:apigatewayv2/authorizer:Authorizer")
 class Authorizer(pulumi.CustomResource):
@@ -417,6 +449,7 @@ class Authorizer(pulumi.CustomResource):
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  jwt_configuration: Optional[pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Manages an Amazon API Gateway Version 2 authorizer.
@@ -485,6 +518,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
                Supported only for HTTP APIs.
         :param pulumi.Input[builtins.str] name: Name of the authorizer. Must be between 1 and 128 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -560,6 +594,7 @@ class Authorizer(pulumi.CustomResource):
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  jwt_configuration: Optional[pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -583,6 +618,7 @@ class Authorizer(pulumi.CustomResource):
             __props__.__dict__["identity_sources"] = identity_sources
             __props__.__dict__["jwt_configuration"] = jwt_configuration
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
         super(Authorizer, __self__).__init__(
             'aws:apigatewayv2/authorizer:Authorizer',
             resource_name,
@@ -602,7 +638,8 @@ class Authorizer(pulumi.CustomResource):
             enable_simple_responses: Optional[pulumi.Input[builtins.bool]] = None,
             identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             jwt_configuration: Optional[pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']]] = None,
-            name: Optional[pulumi.Input[builtins.str]] = None) -> 'Authorizer':
+            name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'Authorizer':
         """
         Get an existing Authorizer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -632,6 +669,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input[Union['AuthorizerJwtConfigurationArgs', 'AuthorizerJwtConfigurationArgsDict']] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
                Supported only for HTTP APIs.
         :param pulumi.Input[builtins.str] name: Name of the authorizer. Must be between 1 and 128 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -647,6 +685,7 @@ class Authorizer(pulumi.CustomResource):
         __props__.__dict__["identity_sources"] = identity_sources
         __props__.__dict__["jwt_configuration"] = jwt_configuration
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         return Authorizer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -740,4 +779,12 @@ class Authorizer(pulumi.CustomResource):
         Name of the authorizer. Must be between 1 and 128 characters in length.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

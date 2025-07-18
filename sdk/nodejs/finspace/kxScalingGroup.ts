@@ -94,15 +94,19 @@ export class KxScalingGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The status of scaling group.
-     * * `CREATING` – The scaling group creation is in progress.
-     * * `CREATE_FAILED` – The scaling group creation has failed.
-     * * `ACTIVE` – The scaling group is active.
-     * * `UPDATING` – The scaling group is in the process of being updated.
-     * * `UPDATE_FAILED` – The update action failed.
-     * * `DELETING` – The scaling group is in the process of being deleted.
-     * * `DELETE_FAILED` – The system failed to delete the scaling group.
-     * * `DELETED` – The scaling group is successfully deleted.
+     * * `CREATING` - The scaling group creation is in progress.
+     * * `CREATE_FAILED` - The scaling group creation has failed.
+     * * `ACTIVE` - The scaling group is active.
+     * * `UPDATING` - The scaling group is in the process of being updated.
+     * * `UPDATE_FAILED` - The update action failed.
+     * * `DELETING` - The scaling group is in the process of being deleted.
+     * * `DELETE_FAILED` - The system failed to delete the scaling group.
+     * * `DELETED` - The scaling group is successfully deleted.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
@@ -115,8 +119,6 @@ export class KxScalingGroup extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -141,6 +143,7 @@ export class KxScalingGroup extends pulumi.CustomResource {
             resourceInputs["hostType"] = state ? state.hostType : undefined;
             resourceInputs["lastModifiedTimestamp"] = state ? state.lastModifiedTimestamp : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["statusReason"] = state ? state.statusReason : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -160,6 +163,7 @@ export class KxScalingGroup extends pulumi.CustomResource {
             resourceInputs["environmentId"] = args ? args.environmentId : undefined;
             resourceInputs["hostType"] = args ? args.hostType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["clusters"] = undefined /*out*/;
@@ -213,15 +217,19 @@ export interface KxScalingGroupState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The status of scaling group.
-     * * `CREATING` – The scaling group creation is in progress.
-     * * `CREATE_FAILED` – The scaling group creation has failed.
-     * * `ACTIVE` – The scaling group is active.
-     * * `UPDATING` – The scaling group is in the process of being updated.
-     * * `UPDATE_FAILED` – The update action failed.
-     * * `DELETING` – The scaling group is in the process of being deleted.
-     * * `DELETE_FAILED` – The system failed to delete the scaling group.
-     * * `DELETED` – The scaling group is successfully deleted.
+     * * `CREATING` - The scaling group creation is in progress.
+     * * `CREATE_FAILED` - The scaling group creation has failed.
+     * * `ACTIVE` - The scaling group is active.
+     * * `UPDATING` - The scaling group is in the process of being updated.
+     * * `UPDATE_FAILED` - The update action failed.
+     * * `DELETING` - The scaling group is in the process of being deleted.
+     * * `DELETE_FAILED` - The system failed to delete the scaling group.
+     * * `DELETED` - The scaling group is successfully deleted.
      */
     status?: pulumi.Input<string>;
     /**
@@ -234,8 +242,6 @@ export interface KxScalingGroupState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -262,6 +268,10 @@ export interface KxScalingGroupArgs {
      * Unique name for the scaling group that you want to create.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
      */

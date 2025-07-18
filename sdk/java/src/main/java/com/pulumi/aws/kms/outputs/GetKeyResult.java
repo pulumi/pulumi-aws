@@ -42,7 +42,7 @@ public final class GetKeyResult {
      */
     private String customKeyStoreId;
     /**
-     * @return Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
+     * @return See `key_spec`.
      * 
      */
     private String customerMasterKeySpec;
@@ -114,6 +114,11 @@ public final class GetKeyResult {
      */
     private Integer pendingDeletionWindowInDays;
     /**
+     * @return The AWS Region of a primary or replica key in a multi-Region key.
+     * 
+     */
+    private String region;
+    /**
      * @return The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expiration_model` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
      * 
      */
@@ -161,7 +166,7 @@ public final class GetKeyResult {
         return this.customKeyStoreId;
     }
     /**
-     * @return Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
+     * @return See `key_spec`.
      * 
      */
     public String customerMasterKeySpec() {
@@ -265,6 +270,13 @@ public final class GetKeyResult {
         return this.pendingDeletionWindowInDays;
     }
     /**
+     * @return The AWS Region of a primary or replica key in a multi-Region key.
+     * 
+     */
+    public String region() {
+        return this.region;
+    }
+    /**
      * @return The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expiration_model` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
      * 
      */
@@ -309,6 +321,7 @@ public final class GetKeyResult {
         private List<GetKeyMultiRegionConfiguration> multiRegionConfigurations;
         private String origin;
         private Integer pendingDeletionWindowInDays;
+        private String region;
         private String validTo;
         private List<GetKeyXksKeyConfiguration> xksKeyConfigurations;
         public Builder() {}
@@ -335,6 +348,7 @@ public final class GetKeyResult {
     	      this.multiRegionConfigurations = defaults.multiRegionConfigurations;
     	      this.origin = defaults.origin;
     	      this.pendingDeletionWindowInDays = defaults.pendingDeletionWindowInDays;
+    	      this.region = defaults.region;
     	      this.validTo = defaults.validTo;
     	      this.xksKeyConfigurations = defaults.xksKeyConfigurations;
         }
@@ -512,6 +526,14 @@ public final class GetKeyResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetKeyResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder validTo(String validTo) {
             if (validTo == null) {
               throw new MissingRequiredPropertyException("GetKeyResult", "validTo");
@@ -553,6 +575,7 @@ public final class GetKeyResult {
             _resultValue.multiRegionConfigurations = multiRegionConfigurations;
             _resultValue.origin = origin;
             _resultValue.pendingDeletionWindowInDays = pendingDeletionWindowInDays;
+            _resultValue.region = region;
             _resultValue.validTo = validTo;
             _resultValue.xksKeyConfigurations = xksKeyConfigurations;
             return _resultValue;

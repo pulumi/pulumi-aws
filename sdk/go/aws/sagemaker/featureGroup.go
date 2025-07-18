@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,13 +80,13 @@ type FeatureGroup struct {
 	OnlineStoreConfig FeatureGroupOnlineStoreConfigPtrOutput `pulumi:"onlineStoreConfig"`
 	// The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
 	RecordIdentifierFeatureName pulumi.StringOutput `pulumi:"recordIdentifierFeatureName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll          pulumi.StringMapOutput             `pulumi:"tagsAll"`
 	ThroughputConfig FeatureGroupThroughputConfigOutput `pulumi:"throughputConfig"`
 }
@@ -152,13 +152,13 @@ type featureGroupState struct {
 	OnlineStoreConfig *FeatureGroupOnlineStoreConfig `pulumi:"onlineStoreConfig"`
 	// The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
 	RecordIdentifierFeatureName *string `pulumi:"recordIdentifierFeatureName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
 	RoleArn *string `pulumi:"roleArn"`
 	// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll          map[string]string             `pulumi:"tagsAll"`
 	ThroughputConfig *FeatureGroupThroughputConfig `pulumi:"throughputConfig"`
 }
@@ -180,13 +180,13 @@ type FeatureGroupState struct {
 	OnlineStoreConfig FeatureGroupOnlineStoreConfigPtrInput
 	// The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
 	RecordIdentifierFeatureName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
 	RoleArn pulumi.StringPtrInput
 	// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll          pulumi.StringMapInput
 	ThroughputConfig FeatureGroupThroughputConfigPtrInput
 }
@@ -210,6 +210,8 @@ type featureGroupArgs struct {
 	OnlineStoreConfig *FeatureGroupOnlineStoreConfig `pulumi:"onlineStoreConfig"`
 	// The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
 	RecordIdentifierFeatureName string `pulumi:"recordIdentifierFeatureName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
 	RoleArn string `pulumi:"roleArn"`
 	// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -233,6 +235,8 @@ type FeatureGroupArgs struct {
 	OnlineStoreConfig FeatureGroupOnlineStoreConfigPtrInput
 	// The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
 	RecordIdentifierFeatureName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
 	RoleArn pulumi.StringInput
 	// Map of resource tags for the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -367,6 +371,11 @@ func (o FeatureGroupOutput) RecordIdentifierFeatureName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.RecordIdentifierFeatureName }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o FeatureGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
 func (o FeatureGroupOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FeatureGroup) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
@@ -378,8 +387,6 @@ func (o FeatureGroupOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o FeatureGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FeatureGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

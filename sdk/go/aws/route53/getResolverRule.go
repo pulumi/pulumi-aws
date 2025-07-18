@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,6 +57,8 @@ type LookupResolverRuleArgs struct {
 	DomainName *string `pulumi:"domainName"`
 	// Friendly name of the desired resolver rule. Conflicts with `resolverRuleId`.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolverRuleId`.
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
 	// ID of the desired resolver rule. Conflicts with `domainName`, `name`, `resolverEndpointId` and `ruleType`.
@@ -77,6 +79,7 @@ type LookupResolverRuleResult struct {
 	Name string `pulumi:"name"`
 	// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
 	OwnerId            string `pulumi:"ownerId"`
+	Region             string `pulumi:"region"`
 	ResolverEndpointId string `pulumi:"resolverEndpointId"`
 	ResolverRuleId     string `pulumi:"resolverRuleId"`
 	RuleType           string `pulumi:"ruleType"`
@@ -102,6 +105,8 @@ type LookupResolverRuleOutputArgs struct {
 	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
 	// Friendly name of the desired resolver rule. Conflicts with `resolverRuleId`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolverRuleId`.
 	ResolverEndpointId pulumi.StringPtrInput `pulumi:"resolverEndpointId"`
 	// ID of the desired resolver rule. Conflicts with `domainName`, `name`, `resolverEndpointId` and `ruleType`.
@@ -152,6 +157,10 @@ func (o LookupResolverRuleResultOutput) Name() pulumi.StringOutput {
 // When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
 func (o LookupResolverRuleResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverRuleResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o LookupResolverRuleResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResolverRuleResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupResolverRuleResultOutput) ResolverEndpointId() pulumi.StringOutput {

@@ -27,6 +27,7 @@ export function getIdentityPool(args: GetIdentityPoolArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cognito/getIdentityPool:getIdentityPool", {
         "identityPoolName": args.identityPoolName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -39,6 +40,10 @@ export interface GetIdentityPoolArgs {
      * The Cognito Identity Pool name.
      */
     identityPoolName: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * A map of tags to assigned to the Identity Pool.
      */
@@ -78,6 +83,7 @@ export interface GetIdentityPoolResult {
      * Set of OpendID Connect provider ARNs.
      */
     readonly openidConnectProviderArns: string[];
+    readonly region: string;
     /**
      * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
      */
@@ -111,6 +117,7 @@ export function getIdentityPoolOutput(args: GetIdentityPoolOutputArgs, opts?: pu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cognito/getIdentityPool:getIdentityPool", {
         "identityPoolName": args.identityPoolName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -123,6 +130,10 @@ export interface GetIdentityPoolOutputArgs {
      * The Cognito Identity Pool name.
      */
     identityPoolName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assigned to the Identity Pool.
      */

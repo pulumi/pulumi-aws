@@ -100,6 +100,12 @@ namespace Pulumi.Aws.VpcLattice
         public string? Name { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// ID or Amazon Resource Name (ARN) of the service.
         /// </summary>
         [Input("serviceIdentifier")]
@@ -130,6 +136,12 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ID or Amazon Resource Name (ARN) of the service.
@@ -184,6 +196,7 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
         public readonly string ServiceIdentifier;
         /// <summary>
         /// Status of the service.
@@ -210,6 +223,8 @@ namespace Pulumi.Aws.VpcLattice
 
             string name,
 
+            string region,
+
             string serviceIdentifier,
 
             string status,
@@ -223,6 +238,7 @@ namespace Pulumi.Aws.VpcLattice
             DnsEntries = dnsEntries;
             Id = id;
             Name = name;
+            Region = region;
             ServiceIdentifier = serviceIdentifier;
             Status = status;
             Tags = tags;

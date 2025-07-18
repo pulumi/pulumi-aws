@@ -68,6 +68,10 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
      * Identifier of EC2 Local Gateway Virtual Interface Group.
      */
     public readonly localGatewayVirtualInterfaceGroupId!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LocalGatewayRoute resource with the given unique name, arguments, and options.
@@ -85,6 +89,7 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
             resourceInputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
             resourceInputs["localGatewayRouteTableId"] = state ? state.localGatewayRouteTableId : undefined;
             resourceInputs["localGatewayVirtualInterfaceGroupId"] = state ? state.localGatewayVirtualInterfaceGroupId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LocalGatewayRouteArgs | undefined;
             if ((!args || args.destinationCidrBlock === undefined) && !opts.urn) {
@@ -99,6 +104,7 @@ export class LocalGatewayRoute extends pulumi.CustomResource {
             resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
             resourceInputs["localGatewayRouteTableId"] = args ? args.localGatewayRouteTableId : undefined;
             resourceInputs["localGatewayVirtualInterfaceGroupId"] = args ? args.localGatewayVirtualInterfaceGroupId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LocalGatewayRoute.__pulumiType, name, resourceInputs, opts);
@@ -121,6 +127,10 @@ export interface LocalGatewayRouteState {
      * Identifier of EC2 Local Gateway Virtual Interface Group.
      */
     localGatewayVirtualInterfaceGroupId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -139,4 +149,8 @@ export interface LocalGatewayRouteArgs {
      * Identifier of EC2 Local Gateway Virtual Interface Group.
      */
     localGatewayVirtualInterfaceGroupId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

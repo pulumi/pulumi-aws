@@ -24,9 +24,9 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var b = new Aws.S3.BucketV2("b", new()
+    ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
-    ///         Bucket = "example-awsconfig",
+    ///         BucketName = "example-awsconfig",
     ///         ForceDestroy = true,
     ///     });
     /// 
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Cfg
     ///     var foo = new Aws.Cfg.DeliveryChannel("foo", new()
     ///     {
     ///         Name = "example",
-    ///         S3BucketName = b.Bucket,
+    ///         S3BucketName = b.BucketName,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -126,6 +126,12 @@ namespace Pulumi.Aws.Cfg
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// The name of the S3 bucket used to store the configuration history.
@@ -210,6 +216,12 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name of the S3 bucket used to store the configuration history.
         /// </summary>
         [Input("s3BucketName", required: true)]
@@ -252,6 +264,12 @@ namespace Pulumi.Aws.Cfg
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name of the S3 bucket used to store the configuration history.

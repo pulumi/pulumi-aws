@@ -69,6 +69,10 @@ export class FleetStackAssociation extends pulumi.CustomResource {
      */
     public readonly fleetName!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the stack.
      */
     public readonly stackName!: pulumi.Output<string>;
@@ -87,6 +91,7 @@ export class FleetStackAssociation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as FleetStackAssociationState | undefined;
             resourceInputs["fleetName"] = state ? state.fleetName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["stackName"] = state ? state.stackName : undefined;
         } else {
             const args = argsOrState as FleetStackAssociationArgs | undefined;
@@ -97,6 +102,7 @@ export class FleetStackAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'stackName'");
             }
             resourceInputs["fleetName"] = args ? args.fleetName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["stackName"] = args ? args.stackName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -113,6 +119,10 @@ export interface FleetStackAssociationState {
      */
     fleetName?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Name of the stack.
      */
     stackName?: pulumi.Input<string>;
@@ -126,6 +136,10 @@ export interface FleetStackAssociationArgs {
      * Name of the fleet.
      */
     fleetName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the stack.
      */

@@ -104,6 +104,12 @@ namespace Pulumi.Aws.Vpc
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// ID of the security group rule to select.
         /// </summary>
         [Input("securityGroupRuleId")]
@@ -132,6 +138,12 @@ namespace Pulumi.Aws.Vpc
             get => _filters ?? (_filters = new InputList<Inputs.GetSecurityGroupRuleFilterInputArgs>());
             set => _filters = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ID of the security group rule to select.
@@ -187,6 +199,7 @@ namespace Pulumi.Aws.Vpc
         /// The destination security group that is referenced in the rule.
         /// </summary>
         public readonly string ReferencedSecurityGroupId;
+        public readonly string Region;
         /// <summary>
         /// The ID of the security group.
         /// </summary>
@@ -225,6 +238,8 @@ namespace Pulumi.Aws.Vpc
 
             string referencedSecurityGroupId,
 
+            string region,
+
             string securityGroupId,
 
             string securityGroupRuleId,
@@ -244,6 +259,7 @@ namespace Pulumi.Aws.Vpc
             IsEgress = isEgress;
             PrefixListId = prefixListId;
             ReferencedSecurityGroupId = referencedSecurityGroupId;
+            Region = region;
             SecurityGroupId = securityGroupId;
             SecurityGroupRuleId = securityGroupRuleId;
             Tags = tags;

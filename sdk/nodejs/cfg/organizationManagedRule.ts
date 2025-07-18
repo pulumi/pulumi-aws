@@ -90,6 +90,10 @@ export class OrganizationManagedRule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Identifier of the AWS resource to evaluate
      */
     public readonly resourceIdScope!: pulumi.Output<string | undefined>;
@@ -129,6 +133,7 @@ export class OrganizationManagedRule extends pulumi.CustomResource {
             resourceInputs["inputParameters"] = state ? state.inputParameters : undefined;
             resourceInputs["maximumExecutionFrequency"] = state ? state.maximumExecutionFrequency : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceIdScope"] = state ? state.resourceIdScope : undefined;
             resourceInputs["resourceTypesScopes"] = state ? state.resourceTypesScopes : undefined;
             resourceInputs["ruleIdentifier"] = state ? state.ruleIdentifier : undefined;
@@ -144,6 +149,7 @@ export class OrganizationManagedRule extends pulumi.CustomResource {
             resourceInputs["inputParameters"] = args ? args.inputParameters : undefined;
             resourceInputs["maximumExecutionFrequency"] = args ? args.maximumExecutionFrequency : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceIdScope"] = args ? args.resourceIdScope : undefined;
             resourceInputs["resourceTypesScopes"] = args ? args.resourceTypesScopes : undefined;
             resourceInputs["ruleIdentifier"] = args ? args.ruleIdentifier : undefined;
@@ -184,6 +190,10 @@ export interface OrganizationManagedRuleState {
      * The name of the rule
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of the AWS resource to evaluate
      */
@@ -230,6 +240,10 @@ export interface OrganizationManagedRuleArgs {
      * The name of the rule
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of the AWS resource to evaluate
      */

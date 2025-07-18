@@ -16,14 +16,14 @@ public final class EventSourceMappingMetricsConfigArgs extends com.pulumi.resour
     public static final EventSourceMappingMetricsConfigArgs Empty = new EventSourceMappingMetricsConfigArgs();
 
     /**
-     * A list containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+     * List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
      * 
      */
     @Import(name="metrics", required=true)
     private Output<List<String>> metrics;
 
     /**
-     * @return A list containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+     * @return List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
      * 
      */
     public Output<List<String>> metrics() {
@@ -55,7 +55,7 @@ public final class EventSourceMappingMetricsConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param metrics A list containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+         * @param metrics List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class EventSourceMappingMetricsConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param metrics A list containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+         * @param metrics List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class EventSourceMappingMetricsConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param metrics A list containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+         * @param metrics List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
          * 
          * @return builder
          * 

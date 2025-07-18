@@ -6,7 +6,7 @@ package com.pulumi.aws.paymentcryptography;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.paymentcryptography.KeyArgs;
 import com.pulumi.aws.paymentcryptography.inputs.KeyState;
-import com.pulumi.aws.paymentcryptography.outputs.KeyKeyAttributes;
+import com.pulumi.aws.paymentcryptography.outputs.KeyKeyAttribute;
 import com.pulumi.aws.paymentcryptography.outputs.KeyTimeouts;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -15,6 +15,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -27,6 +28,48 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.paymentcryptography.Key;
+ * import com.pulumi.aws.paymentcryptography.KeyArgs;
+ * import com.pulumi.aws.paymentcryptography.inputs.KeyKeyAttributeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Key("test", KeyArgs.builder()
+ *             .exportable(true)
+ *             .keyAttributes(KeyKeyAttributeArgs.builder()
+ *                 .keyAlgorithm("TDES_3KEY")
+ *                 .keyClass("SYMMETRIC_KEY")
+ *                 .keyUsage("TR31_P0_PIN_ENCRYPTION_KEY")
+ *                 .keyModesOfUses(KeyKeyAttributeKeyModesOfUseArgs.builder()
+ *                     .decrypt(true)
+ *                     .encrypt(true)
+ *                     .wrap(true)
+ *                     .unwrap(true)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -94,8 +137,8 @@ public class Key extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    @Export(name="keyAttributes", refs={KeyKeyAttributes.class}, tree="[0]")
-    private Output</* @Nullable */ KeyKeyAttributes> keyAttributes;
+    @Export(name="keyAttributes", refs={List.class,KeyKeyAttribute.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<KeyKeyAttribute>> keyAttributes;
 
     /**
      * @return Role of the key, the algorithm it supports, and the cryptographic operations allowed with the key.
@@ -103,7 +146,7 @@ public class Key extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<KeyKeyAttributes>> keyAttributes() {
+    public Output<Optional<List<KeyKeyAttribute>>> keyAttributes() {
         return Codegen.optional(this.keyAttributes);
     }
     /**
@@ -163,6 +206,20 @@ public class Key extends com.pulumi.resources.CustomResource {
         return this.keyState;
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -179,11 +236,7 @@ public class Key extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

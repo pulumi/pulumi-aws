@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ type LookupNetworkInterfaceArgs struct {
 	Filters []GetNetworkInterfaceFilter `pulumi:"filters"`
 	// Identifier for the network interface.
 	Id *string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Any tags assigned to the network interface.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -87,6 +89,7 @@ type LookupNetworkInterfaceResult struct {
 	PrivateIp string `pulumi:"privateIp"`
 	// Private IPv4 addresses associated with the network interface.
 	PrivateIps []string `pulumi:"privateIps"`
+	Region     string   `pulumi:"region"`
 	// ID of the entity that launched the instance on your behalf.
 	RequesterId string `pulumi:"requesterId"`
 	// List of security groups for the network interface.
@@ -114,6 +117,8 @@ type LookupNetworkInterfaceOutputArgs struct {
 	Filters GetNetworkInterfaceFilterArrayInput `pulumi:"filters"`
 	// Identifier for the network interface.
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Any tags assigned to the network interface.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -207,6 +212,10 @@ func (o LookupNetworkInterfaceResultOutput) PrivateIp() pulumi.StringOutput {
 // Private IPv4 addresses associated with the network interface.
 func (o LookupNetworkInterfaceResultOutput) PrivateIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInterfaceResult) []string { return v.PrivateIps }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupNetworkInterfaceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the entity that launched the instance on your behalf.

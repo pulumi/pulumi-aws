@@ -29,13 +29,16 @@ class GetVpnAttachmentResult:
     """
     A collection of values returned by getVpnAttachment.
     """
-    def __init__(__self__, filters=None, id=None, tags=None, transit_gateway_id=None, vpn_connection_id=None):
+    def __init__(__self__, filters=None, id=None, region=None, tags=None, transit_gateway_id=None, vpn_connection_id=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -58,6 +61,11 @@ class GetVpnAttachmentResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter
@@ -86,12 +94,14 @@ class AwaitableGetVpnAttachmentResult(GetVpnAttachmentResult):
         return GetVpnAttachmentResult(
             filters=self.filters,
             id=self.id,
+            region=self.region,
             tags=self.tags,
             transit_gateway_id=self.transit_gateway_id,
             vpn_connection_id=self.vpn_connection_id)
 
 
 def get_vpn_attachment(filters: Optional[Sequence[Union['GetVpnAttachmentFilterArgs', 'GetVpnAttachmentFilterArgsDict']]] = None,
+                       region: Optional[builtins.str] = None,
                        tags: Optional[Mapping[str, builtins.str]] = None,
                        transit_gateway_id: Optional[builtins.str] = None,
                        vpn_connection_id: Optional[builtins.str] = None,
@@ -127,12 +137,14 @@ def get_vpn_attachment(filters: Optional[Sequence[Union['GetVpnAttachmentFilterA
 
 
     :param Sequence[Union['GetVpnAttachmentFilterArgs', 'GetVpnAttachmentFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
     :param builtins.str transit_gateway_id: Identifier of the EC2 Transit Gateway.
     :param builtins.str vpn_connection_id: Identifier of the EC2 VPN Connection.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['transitGatewayId'] = transit_gateway_id
     __args__['vpnConnectionId'] = vpn_connection_id
@@ -142,10 +154,12 @@ def get_vpn_attachment(filters: Optional[Sequence[Union['GetVpnAttachmentFilterA
     return AwaitableGetVpnAttachmentResult(
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         vpn_connection_id=pulumi.get(__ret__, 'vpn_connection_id'))
 def get_vpn_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpnAttachmentFilterArgs', 'GetVpnAttachmentFilterArgsDict']]]]] = None,
+                              region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                               transit_gateway_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               vpn_connection_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -181,12 +195,14 @@ def get_vpn_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[U
 
 
     :param Sequence[Union['GetVpnAttachmentFilterArgs', 'GetVpnAttachmentFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
     :param builtins.str transit_gateway_id: Identifier of the EC2 Transit Gateway.
     :param builtins.str vpn_connection_id: Identifier of the EC2 VPN Connection.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['transitGatewayId'] = transit_gateway_id
     __args__['vpnConnectionId'] = vpn_connection_id
@@ -195,6 +211,7 @@ def get_vpn_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[U
     return __ret__.apply(lambda __response__: GetVpnAttachmentResult(
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id'),
         vpn_connection_id=pulumi.get(__response__, 'vpn_connection_id')))

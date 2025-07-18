@@ -60,7 +60,7 @@ export const getFunctionUrl: typeof import("./getFunctionUrl").getFunctionUrl = 
 export const getFunctionUrlOutput: typeof import("./getFunctionUrl").getFunctionUrlOutput = null as any;
 utilities.lazyLoad(exports, ["getFunctionUrl","getFunctionUrlOutput"], () => require("./getFunctionUrl"));
 
-export { GetFunctionsResult } from "./getFunctions";
+export { GetFunctionsArgs, GetFunctionsResult, GetFunctionsOutputArgs } from "./getFunctions";
 export const getFunctions: typeof import("./getFunctions").getFunctions = null as any;
 export const getFunctionsOutput: typeof import("./getFunctions").getFunctionsOutput = null as any;
 utilities.lazyLoad(exports, ["getFunctions","getFunctionsOutput"], () => require("./getFunctions"));
@@ -106,7 +106,6 @@ export type RuntimeManagementConfig = import("./runtimeManagementConfig").Runtim
 export const RuntimeManagementConfig: typeof import("./runtimeManagementConfig").RuntimeManagementConfig = null as any;
 utilities.lazyLoad(exports, ["RuntimeManagementConfig"], () => require("./runtimeManagementConfig"));
 
-export * from "./runtimes";
 
 // Export enums:
 export * from "../types/enums/lambda";

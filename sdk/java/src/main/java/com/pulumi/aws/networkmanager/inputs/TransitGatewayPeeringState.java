@@ -17,14 +17,14 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
     public static final TransitGatewayPeeringState Empty = new TransitGatewayPeeringState();
 
     /**
-     * Peering Amazon Resource Name (ARN).
+     * Peering ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Peering Amazon Resource Name (ARN).
+     * @return Peering ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -32,14 +32,14 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ARN of the core network.
+     * ARN of the core network.
      * 
      */
     @Import(name="coreNetworkArn")
     private @Nullable Output<String> coreNetworkArn;
 
     /**
-     * @return The ARN of the core network.
+     * @return ARN of the core network.
      * 
      */
     public Optional<Output<String>> coreNetworkArn() {
@@ -47,14 +47,14 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ID of a core network.
+     * ID of a core network.
      * 
      */
     @Import(name="coreNetworkId")
     private @Nullable Output<String> coreNetworkId;
 
     /**
-     * @return The ID of a core network.
+     * @return ID of a core network.
      * 
      */
     public Optional<Output<String>> coreNetworkId() {
@@ -62,14 +62,14 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The edge location for the peer.
+     * Edge location for the peer.
      * 
      */
     @Import(name="edgeLocation")
     private @Nullable Output<String> edgeLocation;
 
     /**
-     * @return The edge location for the peer.
+     * @return Edge location for the peer.
      * 
      */
     public Optional<Output<String>> edgeLocation() {
@@ -77,14 +77,14 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ID of the account owner.
+     * ID of the account owner.
      * 
      */
     @Import(name="ownerAccountId")
     private @Nullable Output<String> ownerAccountId;
 
     /**
-     * @return The ID of the account owner.
+     * @return ID of the account owner.
      * 
      */
     public Optional<Output<String>> ownerAccountId() {
@@ -92,14 +92,14 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The type of peering. This will be `TRANSIT_GATEWAY`.
+     * Type of peering. This will be `TRANSIT_GATEWAY`.
      * 
      */
     @Import(name="peeringType")
     private @Nullable Output<String> peeringType;
 
     /**
-     * @return The type of peering. This will be `TRANSIT_GATEWAY`.
+     * @return Type of peering. This will be `TRANSIT_GATEWAY`.
      * 
      */
     public Optional<Output<String>> peeringType() {
@@ -107,14 +107,14 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The resource ARN of the peer.
+     * Resource ARN of the peer.
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return The resource ARN of the peer.
+     * @return Resource ARN of the peer.
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -137,37 +137,33 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * Please use `tags` instead.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
     /**
-     * The ARN of the transit gateway for the peering request.
+     * ARN of the transit gateway for the peering request.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="transitGatewayArn")
     private @Nullable Output<String> transitGatewayArn;
 
     /**
-     * @return The ARN of the transit gateway for the peering request.
+     * @return ARN of the transit gateway for the peering request.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> transitGatewayArn() {
@@ -175,14 +171,14 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The ID of the transit gateway peering attachment.
+     * ID of the transit gateway peering attachment.
      * 
      */
     @Import(name="transitGatewayPeeringAttachmentId")
     private @Nullable Output<String> transitGatewayPeeringAttachmentId;
 
     /**
-     * @return The ID of the transit gateway peering attachment.
+     * @return ID of the transit gateway peering attachment.
      * 
      */
     public Optional<Output<String>> transitGatewayPeeringAttachmentId() {
@@ -224,7 +220,7 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arn Peering Amazon Resource Name (ARN).
+         * @param arn Peering ARN.
          * 
          * @return builder
          * 
@@ -235,7 +231,7 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arn Peering Amazon Resource Name (ARN).
+         * @param arn Peering ARN.
          * 
          * @return builder
          * 
@@ -245,7 +241,7 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param coreNetworkArn The ARN of the core network.
+         * @param coreNetworkArn ARN of the core network.
          * 
          * @return builder
          * 
@@ -256,7 +252,7 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param coreNetworkArn The ARN of the core network.
+         * @param coreNetworkArn ARN of the core network.
          * 
          * @return builder
          * 
@@ -266,7 +262,7 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param coreNetworkId The ID of a core network.
+         * @param coreNetworkId ID of a core network.
          * 
          * @return builder
          * 
@@ -277,7 +273,7 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param coreNetworkId The ID of a core network.
+         * @param coreNetworkId ID of a core network.
          * 
          * @return builder
          * 
@@ -287,7 +283,7 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param edgeLocation The edge location for the peer.
+         * @param edgeLocation Edge location for the peer.
          * 
          * @return builder
          * 
@@ -298,7 +294,7 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param edgeLocation The edge location for the peer.
+         * @param edgeLocation Edge location for the peer.
          * 
          * @return builder
          * 
@@ -308,7 +304,7 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param ownerAccountId The ID of the account owner.
+         * @param ownerAccountId ID of the account owner.
          * 
          * @return builder
          * 
@@ -319,7 +315,7 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param ownerAccountId The ID of the account owner.
+         * @param ownerAccountId ID of the account owner.
          * 
          * @return builder
          * 
@@ -329,7 +325,7 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param peeringType The type of peering. This will be `TRANSIT_GATEWAY`.
+         * @param peeringType Type of peering. This will be `TRANSIT_GATEWAY`.
          * 
          * @return builder
          * 
@@ -340,7 +336,7 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param peeringType The type of peering. This will be `TRANSIT_GATEWAY`.
+         * @param peeringType Type of peering. This will be `TRANSIT_GATEWAY`.
          * 
          * @return builder
          * 
@@ -350,7 +346,7 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceArn The resource ARN of the peer.
+         * @param resourceArn Resource ARN of the peer.
          * 
          * @return builder
          * 
@@ -361,7 +357,7 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceArn The resource ARN of the peer.
+         * @param resourceArn Resource ARN of the peer.
          * 
          * @return builder
          * 
@@ -392,36 +388,30 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
         /**
-         * @param transitGatewayArn The ARN of the transit gateway for the peering request.
+         * @param transitGatewayArn ARN of the transit gateway for the peering request.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -432,7 +422,9 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param transitGatewayArn The ARN of the transit gateway for the peering request.
+         * @param transitGatewayArn ARN of the transit gateway for the peering request.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -442,7 +434,7 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param transitGatewayPeeringAttachmentId The ID of the transit gateway peering attachment.
+         * @param transitGatewayPeeringAttachmentId ID of the transit gateway peering attachment.
          * 
          * @return builder
          * 
@@ -453,7 +445,7 @@ public final class TransitGatewayPeeringState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param transitGatewayPeeringAttachmentId The ID of the transit gateway peering attachment.
+         * @param transitGatewayPeeringAttachmentId ID of the transit gateway peering attachment.
          * 
          * @return builder
          * 

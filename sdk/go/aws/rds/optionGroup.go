@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -105,13 +105,13 @@ type OptionGroup struct {
 	OptionGroupDescription pulumi.StringOutput `pulumi:"optionGroupDescription"`
 	// The options to apply. See `option` Block below for more details.
 	Options OptionGroupOptionArrayOutput `pulumi:"options"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -168,13 +168,13 @@ type optionGroupState struct {
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
 	// The options to apply. See `option` Block below for more details.
 	Options []OptionGroupOption `pulumi:"options"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -193,13 +193,13 @@ type OptionGroupState struct {
 	OptionGroupDescription pulumi.StringPtrInput
 	// The options to apply. See `option` Block below for more details.
 	Options OptionGroupOptionArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
 	SkipDestroy pulumi.BoolPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -220,6 +220,8 @@ type optionGroupArgs struct {
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
 	// The options to apply. See `option` Block below for more details.
 	Options []OptionGroupOption `pulumi:"options"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -240,6 +242,8 @@ type OptionGroupArgs struct {
 	OptionGroupDescription pulumi.StringPtrInput
 	// The options to apply. See `option` Block below for more details.
 	Options OptionGroupOptionArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
 	SkipDestroy pulumi.BoolPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -368,6 +372,11 @@ func (o OptionGroupOutput) Options() OptionGroupOptionArrayOutput {
 	return o.ApplyT(func(v *OptionGroup) OptionGroupOptionArrayOutput { return v.Options }).(OptionGroupOptionArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o OptionGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Set to true if you do not wish the option group to be deleted at destroy time, and instead just remove the option group from the Pulumi state.
 func (o OptionGroupOutput) SkipDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
@@ -379,8 +388,6 @@ func (o OptionGroupOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o OptionGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -116,16 +116,22 @@ namespace Pulumi.Aws.FinSpace
         public Output<ImmutableArray<Outputs.KxVolumeNas1Configuration>> Nas1Configurations { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The status of volume creation.
-        /// * `CREATING` – The volume creation is in progress.
-        /// * `CREATE_FAILED` – The volume creation has failed.
-        /// * `ACTIVE` – The volume is active.
-        /// * `UPDATING` – The volume is in the process of being updated.
-        /// * `UPDATE_FAILED` – The update action failed.
-        /// * `UPDATED` – The volume is successfully updated.
-        /// * `DELETING` – The volume is in the process of being deleted.
-        /// * `DELETE_FAILED` – The system failed to delete the volume.
-        /// * `DELETED` – The volume is successfully deleted.
+        /// * `CREATING` - The volume creation is in progress.
+        /// * `CREATE_FAILED` - The volume creation has failed.
+        /// * `ACTIVE` - The volume is active.
+        /// * `UPDATING` - The volume is in the process of being updated.
+        /// * `UPDATE_FAILED` - The update action failed.
+        /// * `UPDATED` - The volume is successfully updated.
+        /// * `DELETING` - The volume is in the process of being deleted.
+        /// * `DELETE_FAILED` - The system failed to delete the volume.
+        /// * `DELETED` - The volume is successfully deleted.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -248,6 +254,12 @@ namespace Pulumi.Aws.FinSpace
             set => _nas1Configurations = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -352,16 +364,22 @@ namespace Pulumi.Aws.FinSpace
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The status of volume creation.
-        /// * `CREATING` – The volume creation is in progress.
-        /// * `CREATE_FAILED` – The volume creation has failed.
-        /// * `ACTIVE` – The volume is active.
-        /// * `UPDATING` – The volume is in the process of being updated.
-        /// * `UPDATE_FAILED` – The update action failed.
-        /// * `UPDATED` – The volume is successfully updated.
-        /// * `DELETING` – The volume is in the process of being deleted.
-        /// * `DELETE_FAILED` – The system failed to delete the volume.
-        /// * `DELETED` – The volume is successfully deleted.
+        /// * `CREATING` - The volume creation is in progress.
+        /// * `CREATE_FAILED` - The volume creation has failed.
+        /// * `ACTIVE` - The volume is active.
+        /// * `UPDATING` - The volume is in the process of being updated.
+        /// * `UPDATE_FAILED` - The update action failed.
+        /// * `UPDATED` - The volume is successfully updated.
+        /// * `DELETING` - The volume is in the process of being deleted.
+        /// * `DELETE_FAILED` - The system failed to delete the volume.
+        /// * `DELETED` - The volume is successfully deleted.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -386,7 +404,6 @@ namespace Pulumi.Aws.FinSpace
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

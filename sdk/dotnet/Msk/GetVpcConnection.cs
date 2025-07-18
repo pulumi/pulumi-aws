@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Msk
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -154,6 +166,7 @@ namespace Pulumi.Aws.Msk
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// The security groups attached to the ENIs for the broker nodes.
         /// </summary>
@@ -181,6 +194,8 @@ namespace Pulumi.Aws.Msk
 
             string id,
 
+            string region,
+
             ImmutableArray<string> securityGroups,
 
             ImmutableDictionary<string, string> tags,
@@ -193,6 +208,7 @@ namespace Pulumi.Aws.Msk
             Authentication = authentication;
             ClientSubnets = clientSubnets;
             Id = id;
+            Region = region;
             SecurityGroups = securityGroups;
             Tags = tags;
             TargetClusterArn = targetClusterArn;

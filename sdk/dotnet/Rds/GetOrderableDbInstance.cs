@@ -274,6 +274,12 @@ namespace Pulumi.Aws.Rds
         public bool? ReadReplicaCapable { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
         /// </summary>
         [Input("storageType")]
@@ -444,6 +450,12 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? ReadReplicaCapable { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
         /// </summary>
         [Input("storageType")]
@@ -598,6 +610,7 @@ namespace Pulumi.Aws.Rds
         public readonly ImmutableArray<string> PreferredEngineVersions;
         public readonly ImmutableArray<string> PreferredInstanceClasses;
         public readonly bool ReadReplicaCapable;
+        public readonly string Region;
         public readonly string StorageType;
         public readonly ImmutableArray<string> SupportedEngineModes;
         public readonly ImmutableArray<string> SupportedNetworkTypes;
@@ -653,6 +666,8 @@ namespace Pulumi.Aws.Rds
 
             bool readReplicaCapable,
 
+            string region,
+
             string storageType,
 
             ImmutableArray<string> supportedEngineModes,
@@ -700,6 +715,7 @@ namespace Pulumi.Aws.Rds
             PreferredEngineVersions = preferredEngineVersions;
             PreferredInstanceClasses = preferredInstanceClasses;
             ReadReplicaCapable = readReplicaCapable;
+            Region = region;
             StorageType = storageType;
             SupportedEngineModes = supportedEngineModes;
             SupportedNetworkTypes = supportedNetworkTypes;

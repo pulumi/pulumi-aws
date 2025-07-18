@@ -12,6 +12,50 @@ namespace Pulumi.Aws.ResilienceHub
     /// <summary>
     /// Resource for managing an AWS Resilience Hub Resiliency Policy.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.ResilienceHub.ResiliencyPolicy("example", new()
+    ///     {
+    ///         Name = "testexample",
+    ///         Description = "testexample",
+    ///         Tier = "NonCritical",
+    ///         DataLocationConstraint = "AnyLocation",
+    ///         Policy = new Aws.ResilienceHub.Inputs.ResiliencyPolicyPolicyArgs
+    ///         {
+    ///             Region = new Aws.ResilienceHub.Inputs.ResiliencyPolicyPolicyRegionArgs
+    ///             {
+    ///                 Rpo = "24h",
+    ///                 Rto = "24h",
+    ///             },
+    ///             Az = new Aws.ResilienceHub.Inputs.ResiliencyPolicyPolicyAzArgs
+    ///             {
+    ///                 Rpo = "24h",
+    ///                 Rto = "24h",
+    ///             },
+    ///             Hardware = new Aws.ResilienceHub.Inputs.ResiliencyPolicyPolicyHardwareArgs
+    ///             {
+    ///                 Rpo = "24h",
+    ///                 Rto = "24h",
+    ///             },
+    ///             Software = new Aws.ResilienceHub.Inputs.ResiliencyPolicyPolicySoftwareArgs
+    ///             {
+    ///                 Rpo = "24h",
+    ///                 Rto = "24h",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Resilience Hub Resiliency Policy using the `arn`. For example:
@@ -63,6 +107,12 @@ namespace Pulumi.Aws.ResilienceHub
         /// </summary>
         [Output("policy")]
         public Output<Outputs.ResiliencyPolicyPolicy?> Policy { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -161,6 +211,12 @@ namespace Pulumi.Aws.ResilienceHub
         [Input("policy")]
         public Input<Inputs.ResiliencyPolicyPolicyArgs>? Policy { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -232,6 +288,12 @@ namespace Pulumi.Aws.ResilienceHub
         [Input("policy")]
         public Input<Inputs.ResiliencyPolicyPolicyGetArgs>? Policy { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -250,7 +312,6 @@ namespace Pulumi.Aws.ResilienceHub
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

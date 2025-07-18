@@ -62,9 +62,9 @@ namespace Pulumi.Aws.CodeBuild
     ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "my-test",
+    ///         BucketName = "my-test",
     ///     });
     /// 
     ///     var exampleReportGroup = new Aws.CodeBuild.ReportGroup("example", new()
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.CodeBuild
     ///             Type = "S3",
     ///             S3Destination = new Aws.CodeBuild.Inputs.ReportGroupExportConfigS3DestinationArgs
     ///             {
-    ///                 Bucket = exampleBucketV2.Id,
+    ///                 Bucket = exampleBucket.Id,
     ///                 EncryptionDisabled = false,
     ///                 EncryptionKey = exampleKey.Arn,
     ///                 Packaging = "NONE",
@@ -128,6 +128,12 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -211,6 +217,12 @@ namespace Pulumi.Aws.CodeBuild
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -267,6 +279,12 @@ namespace Pulumi.Aws.CodeBuild
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -285,7 +303,6 @@ namespace Pulumi.Aws.CodeBuild
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

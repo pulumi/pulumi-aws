@@ -26,6 +26,7 @@ export function getCustomKeyStore(args?: GetCustomKeyStoreArgs, opts?: pulumi.In
     return pulumi.runtime.invoke("aws:kms/getCustomKeyStore:getCustomKeyStore", {
         "customKeyStoreId": args.customKeyStoreId,
         "customKeyStoreName": args.customKeyStoreName,
+        "region": args.region,
     }, opts);
 }
 
@@ -41,6 +42,10 @@ export interface GetCustomKeyStoreArgs {
      * The user-specified friendly name for the custom key store.
      */
     customKeyStoreName?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -62,6 +67,7 @@ export interface GetCustomKeyStoreResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * The trust anchor certificate of the associated CloudHSM cluster.
      */
@@ -89,6 +95,7 @@ export function getCustomKeyStoreOutput(args?: GetCustomKeyStoreOutputArgs, opts
     return pulumi.runtime.invokeOutput("aws:kms/getCustomKeyStore:getCustomKeyStore", {
         "customKeyStoreId": args.customKeyStoreId,
         "customKeyStoreName": args.customKeyStoreName,
+        "region": args.region,
     }, opts);
 }
 
@@ -104,4 +111,8 @@ export interface GetCustomKeyStoreOutputArgs {
      * The user-specified friendly name for the custom key store.
      */
     customKeyStoreName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

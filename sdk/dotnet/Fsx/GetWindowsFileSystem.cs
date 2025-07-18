@@ -99,6 +99,12 @@ namespace Pulumi.Aws.Fsx
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -124,6 +130,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -209,6 +221,7 @@ namespace Pulumi.Aws.Fsx
         /// Specifies the subnet in which you want the preferred file server to be located.
         /// </summary>
         public readonly string PreferredSubnetId;
+        public readonly string Region;
         public readonly ImmutableArray<string> SecurityGroupIds;
         public readonly bool SkipFinalBackup;
         /// <summary>
@@ -276,6 +289,8 @@ namespace Pulumi.Aws.Fsx
 
             string preferredSubnetId,
 
+            string region,
+
             ImmutableArray<string> securityGroupIds,
 
             bool skipFinalBackup,
@@ -311,6 +326,7 @@ namespace Pulumi.Aws.Fsx
             OwnerId = ownerId;
             PreferredFileServerIp = preferredFileServerIp;
             PreferredSubnetId = preferredSubnetId;
+            Region = region;
             SecurityGroupIds = securityGroupIds;
             SkipFinalBackup = skipFinalBackup;
             StorageCapacity = storageCapacity;

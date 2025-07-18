@@ -76,6 +76,7 @@ export function getAvailabilityZones(args?: GetAvailabilityZonesArgs, opts?: pul
         "excludeNames": args.excludeNames,
         "excludeZoneIds": args.excludeZoneIds,
         "filters": args.filters,
+        "region": args.region,
         "state": args.state,
     }, opts);
 }
@@ -100,6 +101,10 @@ export interface GetAvailabilityZonesArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: inputs.GetAvailabilityZonesFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Allows to filter list of Availability Zones based on their
      * current state. Can be either `"available"`, `"information"`, `"impaired"` or
@@ -129,6 +134,7 @@ export interface GetAvailabilityZonesResult {
      * List of the Availability Zone names available to the account.
      */
     readonly names: string[];
+    readonly region: string;
     readonly state?: string;
     /**
      * List of the Availability Zone IDs available to the account.
@@ -204,6 +210,7 @@ export function getAvailabilityZonesOutput(args?: GetAvailabilityZonesOutputArgs
         "excludeNames": args.excludeNames,
         "excludeZoneIds": args.excludeZoneIds,
         "filters": args.filters,
+        "region": args.region,
         "state": args.state,
     }, opts);
 }
@@ -228,6 +235,10 @@ export interface GetAvailabilityZonesOutputArgs {
      * Configuration block(s) for filtering. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.GetAvailabilityZonesFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Allows to filter list of Availability Zones based on their
      * current state. Can be either `"available"`, `"information"`, `"impaired"` or

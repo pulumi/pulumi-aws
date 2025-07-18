@@ -83,6 +83,12 @@ namespace Pulumi.Aws.ElasticSearch
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The SAML authentication options for an AWS Elasticsearch Domain.
         /// </summary>
         [Output("samlOptions")]
@@ -143,6 +149,12 @@ namespace Pulumi.Aws.ElasticSearch
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The SAML authentication options for an AWS Elasticsearch Domain.
         /// </summary>
         [Input("samlOptions")]
@@ -163,6 +175,12 @@ namespace Pulumi.Aws.ElasticSearch
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The SAML authentication options for an AWS Elasticsearch Domain.

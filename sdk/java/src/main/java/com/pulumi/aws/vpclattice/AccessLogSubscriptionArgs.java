@@ -33,6 +33,21 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
      * 
      * The following arguments are optional:
@@ -77,6 +92,7 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Resour
 
     private AccessLogSubscriptionArgs(AccessLogSubscriptionArgs $) {
         this.destinationArn = $.destinationArn;
+        this.region = $.region;
         this.resourceIdentifier = $.resourceIdentifier;
         this.serviceNetworkLogType = $.serviceNetworkLogType;
         this.tags = $.tags;
@@ -119,6 +135,27 @@ public final class AccessLogSubscriptionArgs extends com.pulumi.resources.Resour
          */
         public Builder destinationArn(String destinationArn) {
             return destinationArn(Output.of(destinationArn));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

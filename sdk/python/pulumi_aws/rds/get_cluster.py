@@ -28,7 +28,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_members=None, cluster_resource_id=None, cluster_scalability_type=None, database_insights_mode=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, db_system_id=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_mode=None, engine_version=None, final_snapshot_identifier=None, hosted_zone_id=None, iam_database_authentication_enabled=None, iam_roles=None, id=None, kms_key_id=None, master_user_secrets=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, replication_source_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, arn=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, cluster_identifier=None, cluster_members=None, cluster_resource_id=None, cluster_scalability_type=None, database_insights_mode=None, database_name=None, db_cluster_parameter_group_name=None, db_subnet_group_name=None, db_system_id=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_mode=None, engine_version=None, final_snapshot_identifier=None, hosted_zone_id=None, iam_database_authentication_enabled=None, iam_roles=None, id=None, kms_key_id=None, master_user_secrets=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, reader_endpoint=None, region=None, replication_source_identifier=None, storage_encrypted=None, tags=None, vpc_security_group_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -128,6 +128,9 @@ class GetClusterResult:
         if reader_endpoint and not isinstance(reader_endpoint, str):
             raise TypeError("Expected argument 'reader_endpoint' to be a str")
         pulumi.set(__self__, "reader_endpoint", reader_endpoint)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if replication_source_identifier and not isinstance(replication_source_identifier, str):
             raise TypeError("Expected argument 'replication_source_identifier' to be a str")
         pulumi.set(__self__, "replication_source_identifier", replication_source_identifier)
@@ -310,6 +313,11 @@ class GetClusterResult:
         return pulumi.get(self, "reader_endpoint")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="replicationSourceIdentifier")
     def replication_source_identifier(self) -> builtins.str:
         return pulumi.get(self, "replication_source_identifier")
@@ -372,6 +380,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             preferred_backup_window=self.preferred_backup_window,
             preferred_maintenance_window=self.preferred_maintenance_window,
             reader_endpoint=self.reader_endpoint,
+            region=self.region,
             replication_source_identifier=self.replication_source_identifier,
             storage_encrypted=self.storage_encrypted,
             tags=self.tags,
@@ -379,6 +388,7 @@ class AwaitableGetClusterResult(GetClusterResult):
 
 
 def get_cluster(cluster_identifier: Optional[builtins.str] = None,
+                region: Optional[builtins.str] = None,
                 tags: Optional[Mapping[str, builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
@@ -395,10 +405,12 @@ def get_cluster(cluster_identifier: Optional[builtins.str] = None,
 
 
     :param builtins.str cluster_identifier: Cluster identifier of the RDS cluster.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['clusterIdentifier'] = cluster_identifier
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:rds/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
@@ -437,11 +449,13 @@ def get_cluster(cluster_identifier: Optional[builtins.str] = None,
         preferred_backup_window=pulumi.get(__ret__, 'preferred_backup_window'),
         preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
         reader_endpoint=pulumi.get(__ret__, 'reader_endpoint'),
+        region=pulumi.get(__ret__, 'region'),
         replication_source_identifier=pulumi.get(__ret__, 'replication_source_identifier'),
         storage_encrypted=pulumi.get(__ret__, 'storage_encrypted'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
 def get_cluster_output(cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
@@ -458,10 +472,12 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[builtins.str]] 
 
 
     :param builtins.str cluster_identifier: Cluster identifier of the RDS cluster.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['clusterIdentifier'] = cluster_identifier
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult)
@@ -499,6 +515,7 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[builtins.str]] 
         preferred_backup_window=pulumi.get(__response__, 'preferred_backup_window'),
         preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window'),
         reader_endpoint=pulumi.get(__response__, 'reader_endpoint'),
+        region=pulumi.get(__response__, 'region'),
         replication_source_identifier=pulumi.get(__response__, 'replication_source_identifier'),
         storage_encrypted=pulumi.get(__response__, 'storage_encrypted'),
         tags=pulumi.get(__response__, 'tags'),

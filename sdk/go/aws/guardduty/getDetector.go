@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/guardduty"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,6 +50,8 @@ func LookupDetector(ctx *pulumi.Context, args *LookupDetectorArgs, opts ...pulum
 type LookupDetectorArgs struct {
 	// ID of the detector.
 	Id *string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -63,6 +65,7 @@ type LookupDetectorResult struct {
 	// The frequency of notifications sent about subsequent finding occurrences.
 	FindingPublishingFrequency string `pulumi:"findingPublishingFrequency"`
 	Id                         string `pulumi:"id"`
+	Region                     string `pulumi:"region"`
 	// Service-linked role that grants GuardDuty access to the resources in the AWS account.
 	ServiceRoleArn string `pulumi:"serviceRoleArn"`
 	// Current status of the detector.
@@ -84,6 +87,8 @@ func LookupDetectorOutput(ctx *pulumi.Context, args LookupDetectorOutputArgs, op
 type LookupDetectorOutputArgs struct {
 	// ID of the detector.
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -124,6 +129,10 @@ func (o LookupDetectorResultOutput) FindingPublishingFrequency() pulumi.StringOu
 
 func (o LookupDetectorResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDetectorResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupDetectorResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDetectorResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Service-linked role that grants GuardDuty access to the resources in the AWS account.

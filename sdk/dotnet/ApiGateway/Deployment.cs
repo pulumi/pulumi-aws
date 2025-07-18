@@ -17,8 +17,6 @@ namespace Pulumi.Aws.ApiGateway
     /// * For REST APIs that are configured via OpenAPI specification (`aws.apigateway.RestApi` resource `body` argument), no special dependency setup is needed beyond referencing the  `id` attribute of that resource unless additional resources have further customized the REST API.
     /// * When the REST API configuration involves other resources (`aws.apigateway.Integration` resource), the dependency setup can be done with implicit resource references in the `triggers` argument or explicit resource references using the [resource `dependsOn` custom option](https://www.pulumi.com/docs/intro/concepts/resources/#dependson). The `triggers` argument should be preferred over `depends_on`, since `depends_on` can only capture dependency ordering and will not cause the resource to recreate (redeploy the REST API) with upstream configuration changes.
     /// 
-    /// !&gt; **WARNING:** It is recommended to use the `aws.apigateway.Stage` resource instead of managing an API Gateway Stage via the `stage_name` argument of this resource. When this resource is recreated (REST API redeployment) with the `stage_name` configured, the stage is deleted and recreated. This will cause a temporary service interruption, increase provide plan differences, and can require a second apply to recreate any downstream stage configuration such as associated `aws_api_method_settings` resources.
-    /// 
     /// ## Example Usage
     /// 
     /// ## Import
@@ -28,7 +26,7 @@ namespace Pulumi.Aws.ApiGateway
     /// ```sh
     /// $ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
     /// ```
-    /// The `stage_name`, `stage_description`, and `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
+    /// The `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
     /// 
     /// The `triggers` argument cannot be imported.
     /// </summary>
@@ -36,39 +34,22 @@ namespace Pulumi.Aws.ApiGateway
     public partial class Deployment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Input configuration for the canary deployment when the deployment is a canary release deployment.
-        /// See `canary_settings below.
-        /// Has no effect when `stage_name` is not set.
-        /// </summary>
-        [Output("canarySettings")]
-        public Output<Outputs.DeploymentCanarySettings?> CanarySettings { get; private set; } = null!;
-
-        /// <summary>
         /// Creation date of the deployment
         /// </summary>
         [Output("createdDate")]
         public Output<string> CreatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the deployment
+        /// Description of the deployment.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// **DEPRECATED: Use the `aws.apigateway.Stage` resource instead.** Execution ARN to be used in `lambda_permission`'s `source_arn`
-        /// when allowing API Gateway to invoke a Lambda function,
-        /// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
-        [Output("executionArn")]
-        public Output<string> ExecutionArn { get; private set; } = null!;
-
-        /// <summary>
-        /// **DEPRECATED: Use the `aws.apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
-        /// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-        /// </summary>
-        [Output("invokeUrl")]
-        public Output<string> InvokeUrl { get; private set; } = null!;
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// REST API identifier.
@@ -77,28 +58,13 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> RestApi { get; private set; } = null!;
 
         /// <summary>
-        /// Description to set on the stage managed by the `stage_name` argument.
-        /// Has no effect when `stage_name` is not set.
-        /// </summary>
-        [Output("stageDescription")]
-        public Output<string?> StageDescription { get; private set; } = null!;
-
-        /// <summary>
-        /// Name of the stage to create with this deployment.
-        /// If the specified stage already exists, it will be updated to point to the new deployment.
-        /// We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
-        /// </summary>
-        [Output("stageName")]
-        public Output<string?> StageName { get; private set; } = null!;
-
-        /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
         /// </summary>
         [Output("triggers")]
         public Output<ImmutableDictionary<string, string>?> Triggers { get; private set; } = null!;
 
         /// <summary>
-        /// Map to set on the stage managed by the `stage_name` argument.
+        /// Map to set on the related stage.
         /// </summary>
         [Output("variables")]
         public Output<ImmutableDictionary<string, string>?> Variables { get; private set; } = null!;
@@ -150,39 +116,22 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class DeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Input configuration for the canary deployment when the deployment is a canary release deployment.
-        /// See `canary_settings below.
-        /// Has no effect when `stage_name` is not set.
-        /// </summary>
-        [Input("canarySettings")]
-        public Input<Inputs.DeploymentCanarySettingsArgs>? CanarySettings { get; set; }
-
-        /// <summary>
-        /// Description of the deployment
+        /// Description of the deployment.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// REST API identifier.
         /// </summary>
         [Input("restApi", required: true)]
         public Input<string> RestApi { get; set; } = null!;
-
-        /// <summary>
-        /// Description to set on the stage managed by the `stage_name` argument.
-        /// Has no effect when `stage_name` is not set.
-        /// </summary>
-        [Input("stageDescription")]
-        public Input<string>? StageDescription { get; set; }
-
-        /// <summary>
-        /// Name of the stage to create with this deployment.
-        /// If the specified stage already exists, it will be updated to point to the new deployment.
-        /// We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
-        /// </summary>
-        [Input("stageName")]
-        public Input<string>? StageName { get; set; }
 
         [Input("triggers")]
         private InputMap<string>? _triggers;
@@ -200,7 +149,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _variables;
 
         /// <summary>
-        /// Map to set on the stage managed by the `stage_name` argument.
+        /// Map to set on the related stage.
         /// </summary>
         public InputMap<string> Variables
         {
@@ -217,60 +166,28 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class DeploymentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Input configuration for the canary deployment when the deployment is a canary release deployment.
-        /// See `canary_settings below.
-        /// Has no effect when `stage_name` is not set.
-        /// </summary>
-        [Input("canarySettings")]
-        public Input<Inputs.DeploymentCanarySettingsGetArgs>? CanarySettings { get; set; }
-
-        /// <summary>
         /// Creation date of the deployment
         /// </summary>
         [Input("createdDate")]
         public Input<string>? CreatedDate { get; set; }
 
         /// <summary>
-        /// Description of the deployment
+        /// Description of the deployment.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// **DEPRECATED: Use the `aws.apigateway.Stage` resource instead.** Execution ARN to be used in `lambda_permission`'s `source_arn`
-        /// when allowing API Gateway to invoke a Lambda function,
-        /// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
-        [Input("executionArn")]
-        public Input<string>? ExecutionArn { get; set; }
-
-        /// <summary>
-        /// **DEPRECATED: Use the `aws.apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
-        /// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-        /// </summary>
-        [Input("invokeUrl")]
-        public Input<string>? InvokeUrl { get; set; }
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// REST API identifier.
         /// </summary>
         [Input("restApi")]
         public Input<string>? RestApi { get; set; }
-
-        /// <summary>
-        /// Description to set on the stage managed by the `stage_name` argument.
-        /// Has no effect when `stage_name` is not set.
-        /// </summary>
-        [Input("stageDescription")]
-        public Input<string>? StageDescription { get; set; }
-
-        /// <summary>
-        /// Name of the stage to create with this deployment.
-        /// If the specified stage already exists, it will be updated to point to the new deployment.
-        /// We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
-        /// </summary>
-        [Input("stageName")]
-        public Input<string>? StageName { get; set; }
 
         [Input("triggers")]
         private InputMap<string>? _triggers;
@@ -288,7 +205,7 @@ namespace Pulumi.Aws.ApiGateway
         private InputMap<string>? _variables;
 
         /// <summary>
-        /// Map to set on the stage managed by the `stage_name` argument.
+        /// Map to set on the related stage.
         /// </summary>
         public InputMap<string> Variables
         {

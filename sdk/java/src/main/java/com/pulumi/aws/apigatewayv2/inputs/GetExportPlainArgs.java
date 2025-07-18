@@ -77,6 +77,21 @@ public final class GetExportPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
      * 
      */
@@ -113,6 +128,7 @@ public final class GetExportPlainArgs extends com.pulumi.resources.InvokeArgs {
         this.exportVersion = $.exportVersion;
         this.includeExtensions = $.includeExtensions;
         this.outputType = $.outputType;
+        this.region = $.region;
         this.specification = $.specification;
         this.stageName = $.stageName;
     }
@@ -176,6 +192,17 @@ public final class GetExportPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder outputType(String outputType) {
             $.outputType = outputType;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
 export function getResolverFirewallConfig(args: GetResolverFirewallConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", {
+        "region": args.region,
         "resourceId": args.resourceId,
     }, opts);
 }
@@ -33,6 +34,10 @@ export function getResolverFirewallConfig(args: GetResolverFirewallConfigArgs, o
  * A collection of arguments for invoking getResolverFirewallConfig.
  */
 export interface GetResolverFirewallConfigArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * The ID of the VPC from Amazon VPC that the configuration is for.
      */
@@ -55,6 +60,7 @@ export interface GetResolverFirewallConfigResult {
      * The Amazon Web Services account ID of the owner of the VPC that this firewall configuration applies to.
      */
     readonly ownerId: string;
+    readonly region: string;
     readonly resourceId: string;
 }
 /**
@@ -78,6 +84,7 @@ export interface GetResolverFirewallConfigResult {
 export function getResolverFirewallConfigOutput(args: GetResolverFirewallConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResolverFirewallConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", {
+        "region": args.region,
         "resourceId": args.resourceId,
     }, opts);
 }
@@ -86,6 +93,10 @@ export function getResolverFirewallConfigOutput(args: GetResolverFirewallConfigO
  * A collection of arguments for invoking getResolverFirewallConfig.
  */
 export interface GetResolverFirewallConfigOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the VPC from Amazon VPC that the configuration is for.
      */

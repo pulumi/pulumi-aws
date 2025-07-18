@@ -37,6 +37,7 @@ class DomainArgs:
                  log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]]] = None,
                  node_to_node_encryption: Optional[pulumi.Input['DomainNodeToNodeEncryptionArgs']] = None,
                  off_peak_window_options: Optional[pulumi.Input['DomainOffPeakWindowOptionsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_options: Optional[pulumi.Input['DomainSnapshotOptionsArgs']] = None,
                  software_update_options: Optional[pulumi.Input['DomainSoftwareUpdateOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -62,6 +63,7 @@ class DomainArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         :param pulumi.Input['DomainNodeToNodeEncryptionArgs'] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
         :param pulumi.Input['DomainOffPeakWindowOptionsArgs'] off_peak_window_options: Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DomainSnapshotOptionsArgs'] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
         :param pulumi.Input['DomainSoftwareUpdateOptionsArgs'] software_update_options: Software update options for the domain. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -97,6 +99,8 @@ class DomainArgs:
             pulumi.set(__self__, "node_to_node_encryption", node_to_node_encryption)
         if off_peak_window_options is not None:
             pulumi.set(__self__, "off_peak_window_options", off_peak_window_options)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if snapshot_options is not None:
             pulumi.set(__self__, "snapshot_options", snapshot_options)
         if software_update_options is not None:
@@ -291,6 +295,18 @@ class DomainArgs:
         pulumi.set(self, "off_peak_window_options", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="snapshotOptions")
     def snapshot_options(self) -> Optional[pulumi.Input['DomainSnapshotOptionsArgs']]:
         """
@@ -361,10 +377,10 @@ class _DomainState:
                  endpoint_v2: Optional[pulumi.Input[builtins.str]] = None,
                  engine_version: Optional[pulumi.Input[builtins.str]] = None,
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
-                 kibana_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]]] = None,
                  node_to_node_encryption: Optional[pulumi.Input['DomainNodeToNodeEncryptionArgs']] = None,
                  off_peak_window_options: Optional[pulumi.Input['DomainOffPeakWindowOptionsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_options: Optional[pulumi.Input['DomainSnapshotOptionsArgs']] = None,
                  software_update_options: Optional[pulumi.Input['DomainSoftwareUpdateOptionsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -395,10 +411,10 @@ class _DomainState:
                See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
                Defaults to the lastest version of OpenSearch.
         :param pulumi.Input[builtins.str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
-        :param pulumi.Input[builtins.str] kibana_endpoint: (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
         :param pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         :param pulumi.Input['DomainNodeToNodeEncryptionArgs'] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
         :param pulumi.Input['DomainOffPeakWindowOptionsArgs'] off_peak_window_options: Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DomainSnapshotOptionsArgs'] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
         :param pulumi.Input['DomainSoftwareUpdateOptionsArgs'] software_update_options: Software update options for the domain. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -443,26 +459,20 @@ class _DomainState:
             pulumi.set(__self__, "engine_version", engine_version)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
-        if kibana_endpoint is not None:
-            warnings.warn("""kibana_endpoint is deprecated. Use dashboard_endpoint instead.""", DeprecationWarning)
-            pulumi.log.warn("""kibana_endpoint is deprecated: kibana_endpoint is deprecated. Use dashboard_endpoint instead.""")
-        if kibana_endpoint is not None:
-            pulumi.set(__self__, "kibana_endpoint", kibana_endpoint)
         if log_publishing_options is not None:
             pulumi.set(__self__, "log_publishing_options", log_publishing_options)
         if node_to_node_encryption is not None:
             pulumi.set(__self__, "node_to_node_encryption", node_to_node_encryption)
         if off_peak_window_options is not None:
             pulumi.set(__self__, "off_peak_window_options", off_peak_window_options)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if snapshot_options is not None:
             pulumi.set(__self__, "snapshot_options", snapshot_options)
         if software_update_options is not None:
             pulumi.set(__self__, "software_update_options", software_update_options)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_options is not None:
@@ -701,19 +711,6 @@ class _DomainState:
         pulumi.set(self, "ip_address_type", value)
 
     @property
-    @pulumi.getter(name="kibanaEndpoint")
-    @_utilities.deprecated("""kibana_endpoint is deprecated. Use dashboard_endpoint instead.""")
-    def kibana_endpoint(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-        """
-        return pulumi.get(self, "kibana_endpoint")
-
-    @kibana_endpoint.setter
-    def kibana_endpoint(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "kibana_endpoint", value)
-
-    @property
     @pulumi.getter(name="logPublishingOptions")
     def log_publishing_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainLogPublishingOptionArgs']]]]:
         """
@@ -748,6 +745,18 @@ class _DomainState:
     @off_peak_window_options.setter
     def off_peak_window_options(self, value: Optional[pulumi.Input['DomainOffPeakWindowOptionsArgs']]):
         pulumi.set(self, "off_peak_window_options", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="snapshotOptions")
@@ -787,7 +796,6 @@ class _DomainState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -832,6 +840,7 @@ class Domain(pulumi.CustomResource):
                  log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]]] = None,
                  node_to_node_encryption: Optional[pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']]] = None,
                  off_peak_window_options: Optional[pulumi.Input[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_options: Optional[pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']]] = None,
                  software_update_options: Optional[pulumi.Input[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -897,7 +906,7 @@ class Domain(pulumi.CustomResource):
                 "identifiers": ["*"],
             }],
             "actions": ["es:*"],
-            "resources": [f"arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
+            "resources": [f"arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
             "conditions": [{
                 "test": "IpAddress",
                 "variable": "aws:SourceIp",
@@ -979,7 +988,7 @@ class Domain(pulumi.CustomResource):
                 "identifiers": ["*"],
             }],
             "actions": ["es:*"],
-            "resources": [f"arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
+            "resources": [f"arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
         }])
         example_domain = aws.opensearch.Domain("example",
             domain_name=domain,
@@ -1114,6 +1123,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         :param pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
         :param pulumi.Input[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict']] off_peak_window_options: Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
         :param pulumi.Input[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']] software_update_options: Software update options for the domain. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1185,7 +1195,7 @@ class Domain(pulumi.CustomResource):
                 "identifiers": ["*"],
             }],
             "actions": ["es:*"],
-            "resources": [f"arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
+            "resources": [f"arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
             "conditions": [{
                 "test": "IpAddress",
                 "variable": "aws:SourceIp",
@@ -1267,7 +1277,7 @@ class Domain(pulumi.CustomResource):
                 "identifiers": ["*"],
             }],
             "actions": ["es:*"],
-            "resources": [f"arn:aws:es:{current.name}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
+            "resources": [f"arn:aws:es:{current.region}:{current_get_caller_identity.account_id}:domain/{domain}/*"],
         }])
         example_domain = aws.opensearch.Domain("example",
             domain_name=domain,
@@ -1411,6 +1421,7 @@ class Domain(pulumi.CustomResource):
                  log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]]] = None,
                  node_to_node_encryption: Optional[pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']]] = None,
                  off_peak_window_options: Optional[pulumi.Input[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_options: Optional[pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']]] = None,
                  software_update_options: Optional[pulumi.Input[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -1439,6 +1450,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["log_publishing_options"] = log_publishing_options
             __props__.__dict__["node_to_node_encryption"] = node_to_node_encryption
             __props__.__dict__["off_peak_window_options"] = off_peak_window_options
+            __props__.__dict__["region"] = region
             __props__.__dict__["snapshot_options"] = snapshot_options
             __props__.__dict__["software_update_options"] = software_update_options
             __props__.__dict__["tags"] = tags
@@ -1450,7 +1462,6 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["domain_id"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["endpoint_v2"] = None
-            __props__.__dict__["kibana_endpoint"] = None
             __props__.__dict__["tags_all"] = None
         super(Domain, __self__).__init__(
             'aws:opensearch/domain:Domain',
@@ -1481,10 +1492,10 @@ class Domain(pulumi.CustomResource):
             endpoint_v2: Optional[pulumi.Input[builtins.str]] = None,
             engine_version: Optional[pulumi.Input[builtins.str]] = None,
             ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
-            kibana_endpoint: Optional[pulumi.Input[builtins.str]] = None,
             log_publishing_options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]]] = None,
             node_to_node_encryption: Optional[pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']]] = None,
             off_peak_window_options: Optional[pulumi.Input[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             snapshot_options: Optional[pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']]] = None,
             software_update_options: Optional[pulumi.Input[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -1520,10 +1531,10 @@ class Domain(pulumi.CustomResource):
                See [Creating and managing Amazon OpenSearch Service domains](http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomains).
                Defaults to the lastest version of OpenSearch.
         :param pulumi.Input[builtins.str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4` and `dualstack`.
-        :param pulumi.Input[builtins.str] kibana_endpoint: (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]] log_publishing_options: Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         :param pulumi.Input[Union['DomainNodeToNodeEncryptionArgs', 'DomainNodeToNodeEncryptionArgsDict']] node_to_node_encryption: Configuration block for node-to-node encryption options. Detailed below.
         :param pulumi.Input[Union['DomainOffPeakWindowOptionsArgs', 'DomainOffPeakWindowOptionsArgsDict']] off_peak_window_options: Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DomainSnapshotOptionsArgs', 'DomainSnapshotOptionsArgsDict']] snapshot_options: Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
         :param pulumi.Input[Union['DomainSoftwareUpdateOptionsArgs', 'DomainSoftwareUpdateOptionsArgsDict']] software_update_options: Software update options for the domain. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1553,10 +1564,10 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["endpoint_v2"] = endpoint_v2
         __props__.__dict__["engine_version"] = engine_version
         __props__.__dict__["ip_address_type"] = ip_address_type
-        __props__.__dict__["kibana_endpoint"] = kibana_endpoint
         __props__.__dict__["log_publishing_options"] = log_publishing_options
         __props__.__dict__["node_to_node_encryption"] = node_to_node_encryption
         __props__.__dict__["off_peak_window_options"] = off_peak_window_options
+        __props__.__dict__["region"] = region
         __props__.__dict__["snapshot_options"] = snapshot_options
         __props__.__dict__["software_update_options"] = software_update_options
         __props__.__dict__["tags"] = tags
@@ -1721,15 +1732,6 @@ class Domain(pulumi.CustomResource):
         return pulumi.get(self, "ip_address_type")
 
     @property
-    @pulumi.getter(name="kibanaEndpoint")
-    @_utilities.deprecated("""kibana_endpoint is deprecated. Use dashboard_endpoint instead.""")
-    def kibana_endpoint(self) -> pulumi.Output[builtins.str]:
-        """
-        (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-        """
-        return pulumi.get(self, "kibana_endpoint")
-
-    @property
     @pulumi.getter(name="logPublishingOptions")
     def log_publishing_options(self) -> pulumi.Output[Optional[Sequence['outputs.DomainLogPublishingOption']]]:
         """
@@ -1752,6 +1754,14 @@ class Domain(pulumi.CustomResource):
         Configuration to add Off Peak update options. ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html)). Detailed below.
         """
         return pulumi.get(self, "off_peak_window_options")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="snapshotOptions")
@@ -1779,7 +1789,6 @@ class Domain(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

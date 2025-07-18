@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,6 +53,8 @@ func LookupServerlessSecurityPolicy(ctx *pulumi.Context, args *LookupServerlessS
 type LookupServerlessSecurityPolicyArgs struct {
 	// Name of the policy
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Type of security policy. One of `encryption` or `network`.
 	Type string `pulumi:"type"`
 }
@@ -72,6 +74,7 @@ type LookupServerlessSecurityPolicyResult struct {
 	Policy string `pulumi:"policy"`
 	// Version of the policy.
 	PolicyVersion string `pulumi:"policyVersion"`
+	Region        string `pulumi:"region"`
 	Type          string `pulumi:"type"`
 }
 
@@ -88,6 +91,8 @@ func LookupServerlessSecurityPolicyOutput(ctx *pulumi.Context, args LookupServer
 type LookupServerlessSecurityPolicyOutputArgs struct {
 	// Name of the policy
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Type of security policy. One of `encryption` or `network`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -143,6 +148,10 @@ func (o LookupServerlessSecurityPolicyResultOutput) Policy() pulumi.StringOutput
 // Version of the policy.
 func (o LookupServerlessSecurityPolicyResultOutput) PolicyVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) string { return v.PolicyVersion }).(pulumi.StringOutput)
+}
+
+func (o LookupServerlessSecurityPolicyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerlessSecurityPolicyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupServerlessSecurityPolicyResultOutput) Type() pulumi.StringOutput {

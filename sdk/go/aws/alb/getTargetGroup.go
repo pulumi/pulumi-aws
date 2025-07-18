@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -72,6 +72,8 @@ type LookupTargetGroupArgs struct {
 	LoadBalancingAnomalyMitigation *string `pulumi:"loadBalancingAnomalyMitigation"`
 	// Unique name of the target group.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
 	//
 	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
@@ -98,6 +100,7 @@ type LookupTargetGroupResult struct {
 	Protocol                       string                   `pulumi:"protocol"`
 	ProtocolVersion                string                   `pulumi:"protocolVersion"`
 	ProxyProtocolV2                bool                     `pulumi:"proxyProtocolV2"`
+	Region                         string                   `pulumi:"region"`
 	SlowStart                      int                      `pulumi:"slowStart"`
 	Stickiness                     GetTargetGroupStickiness `pulumi:"stickiness"`
 	Tags                           map[string]string        `pulumi:"tags"`
@@ -121,6 +124,8 @@ type LookupTargetGroupOutputArgs struct {
 	LoadBalancingAnomalyMitigation pulumi.StringPtrInput `pulumi:"loadBalancingAnomalyMitigation"`
 	// Unique name of the target group.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired target group.
 	//
 	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
@@ -213,6 +218,10 @@ func (o LookupTargetGroupResultOutput) ProtocolVersion() pulumi.StringOutput {
 
 func (o LookupTargetGroupResultOutput) ProxyProtocolV2() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) bool { return v.ProxyProtocolV2 }).(pulumi.BoolOutput)
+}
+
+func (o LookupTargetGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupTargetGroupResultOutput) SlowStart() pulumi.IntOutput {

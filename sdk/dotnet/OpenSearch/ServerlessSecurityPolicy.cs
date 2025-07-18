@@ -331,6 +331,12 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> PolicyVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Type of security policy. One of `encryption` or `network`.
         /// 
         /// The following arguments are optional:
@@ -403,6 +409,12 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string> Policy { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Type of security policy. One of `encryption` or `network`.
         /// 
         /// The following arguments are optional:
@@ -441,6 +453,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("policyVersion")]
         public Input<string>? PolicyVersion { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Type of security policy. One of `encryption` or `network`.

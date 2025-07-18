@@ -47,6 +47,7 @@ public final class GetResolverFirewallRuleGroupResult {
      * 
      */
     private String ownerId;
+    private String region;
     /**
      * @return The number of rules in the rule group.
      * 
@@ -121,6 +122,9 @@ public final class GetResolverFirewallRuleGroupResult {
     public String ownerId() {
         return this.ownerId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The number of rules in the rule group.
      * 
@@ -167,6 +171,7 @@ public final class GetResolverFirewallRuleGroupResult {
         private String modificationTime;
         private String name;
         private String ownerId;
+        private String region;
         private Integer ruleCount;
         private String shareStatus;
         private String status;
@@ -182,6 +187,7 @@ public final class GetResolverFirewallRuleGroupResult {
     	      this.modificationTime = defaults.modificationTime;
     	      this.name = defaults.name;
     	      this.ownerId = defaults.ownerId;
+    	      this.region = defaults.region;
     	      this.ruleCount = defaults.ruleCount;
     	      this.shareStatus = defaults.shareStatus;
     	      this.status = defaults.status;
@@ -253,6 +259,14 @@ public final class GetResolverFirewallRuleGroupResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder ruleCount(Integer ruleCount) {
             if (ruleCount == null) {
               throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupResult", "ruleCount");
@@ -294,6 +308,7 @@ public final class GetResolverFirewallRuleGroupResult {
             _resultValue.modificationTime = modificationTime;
             _resultValue.name = name;
             _resultValue.ownerId = ownerId;
+            _resultValue.region = region;
             _resultValue.ruleCount = ruleCount;
             _resultValue.shareStatus = shareStatus;
             _resultValue.status = status;

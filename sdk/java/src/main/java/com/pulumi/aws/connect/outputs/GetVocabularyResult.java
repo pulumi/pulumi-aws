@@ -43,6 +43,7 @@ public final class GetVocabularyResult {
      */
     private String lastModifiedTime;
     private String name;
+    private String region;
     /**
      * @return The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
      * 
@@ -108,6 +109,9 @@ public final class GetVocabularyResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
      * 
@@ -147,6 +151,7 @@ public final class GetVocabularyResult {
         private String languageCode;
         private String lastModifiedTime;
         private String name;
+        private String region;
         private String state;
         private Map<String,String> tags;
         private String vocabularyId;
@@ -161,6 +166,7 @@ public final class GetVocabularyResult {
     	      this.languageCode = defaults.languageCode;
     	      this.lastModifiedTime = defaults.lastModifiedTime;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.state = defaults.state;
     	      this.tags = defaults.tags;
     	      this.vocabularyId = defaults.vocabularyId;
@@ -231,6 +237,14 @@ public final class GetVocabularyResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVocabularyResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder state(String state) {
             if (state == null) {
               throw new MissingRequiredPropertyException("GetVocabularyResult", "state");
@@ -264,6 +278,7 @@ public final class GetVocabularyResult {
             _resultValue.languageCode = languageCode;
             _resultValue.lastModifiedTime = lastModifiedTime;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.state = state;
             _resultValue.tags = tags;
             _resultValue.vocabularyId = vocabularyId;

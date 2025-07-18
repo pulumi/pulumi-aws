@@ -133,6 +133,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
         /// 
         /// More complex filters can be expressed using one or more `filter` sub-blocks,
@@ -162,6 +168,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Identifier of EC2 Transit Gateway Route Table.
         /// 
         /// More complex filters can be expressed using one or more `filter` sub-blocks,
@@ -185,6 +197,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// List of Transit Gateway Routes.
         /// </summary>
@@ -197,12 +210,15 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string id,
 
+            string region,
+
             ImmutableArray<Outputs.GetRouteTableRoutesRouteResult> routes,
 
             string transitGatewayRouteTableId)
         {
             Filters = filters;
             Id = id;
+            Region = region;
             Routes = routes;
             TransitGatewayRouteTableId = transitGatewayRouteTableId;
         }

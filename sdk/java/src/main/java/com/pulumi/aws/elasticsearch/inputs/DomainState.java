@@ -14,6 +14,8 @@ import com.pulumi.aws.elasticsearch.inputs.DomainLogPublishingOptionArgs;
 import com.pulumi.aws.elasticsearch.inputs.DomainNodeToNodeEncryptionArgs;
 import com.pulumi.aws.elasticsearch.inputs.DomainSnapshotOptionsArgs;
 import com.pulumi.aws.elasticsearch.inputs.DomainVpcOptionsArgs;
+import com.pulumi.aws.elasticsearch.inputs.PolicyDocumentArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -33,13 +35,13 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="accessPolicies")
-    private @Nullable Output<String> accessPolicies;
+    private @Nullable Output<Either<String,PolicyDocumentArgs>> accessPolicies;
 
     /**
      * @return IAM policy document specifying the access policies for the domain.
      * 
      */
-    public Optional<Output<String>> accessPolicies() {
+    public Optional<Output<Either<String,PolicyDocumentArgs>>> accessPolicies() {
         return Optional.ofNullable(this.accessPolicies);
     }
 
@@ -288,6 +290,21 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
      * 
      */
@@ -320,22 +337,14 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -375,6 +384,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         this.kibanaEndpoint = $.kibanaEndpoint;
         this.logPublishingOptions = $.logPublishingOptions;
         this.nodeToNodeEncryption = $.nodeToNodeEncryption;
+        this.region = $.region;
         this.snapshotOptions = $.snapshotOptions;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -405,7 +415,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder accessPolicies(@Nullable Output<String> accessPolicies) {
+        public Builder accessPolicies(@Nullable Output<Either<String,PolicyDocumentArgs>> accessPolicies) {
             $.accessPolicies = accessPolicies;
             return this;
         }
@@ -416,8 +426,28 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder accessPolicies(String accessPolicies) {
+        public Builder accessPolicies(Either<String,PolicyDocumentArgs> accessPolicies) {
             return accessPolicies(Output.of(accessPolicies));
+        }
+
+        /**
+         * @param accessPolicies IAM policy document specifying the access policies for the domain.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessPolicies(String accessPolicies) {
+            return accessPolicies(Either.ofLeft(accessPolicies));
+        }
+
+        /**
+         * @param accessPolicies IAM policy document specifying the access policies for the domain.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessPolicies(PolicyDocumentArgs accessPolicies) {
+            return accessPolicies(Either.ofRight(accessPolicies));
         }
 
         /**
@@ -771,6 +801,27 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param snapshotOptions Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
          * 
          * @return builder
@@ -817,11 +868,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -832,11 +879,7 @@ public final class DomainState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

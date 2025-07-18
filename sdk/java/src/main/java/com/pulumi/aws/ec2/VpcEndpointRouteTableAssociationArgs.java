@@ -8,11 +8,28 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class VpcEndpointRouteTableAssociationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final VpcEndpointRouteTableAssociationArgs Empty = new VpcEndpointRouteTableAssociationArgs();
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * Identifier of the EC2 Route Table to be associated with the VPC Endpoint.
@@ -47,6 +64,7 @@ public final class VpcEndpointRouteTableAssociationArgs extends com.pulumi.resou
     private VpcEndpointRouteTableAssociationArgs() {}
 
     private VpcEndpointRouteTableAssociationArgs(VpcEndpointRouteTableAssociationArgs $) {
+        this.region = $.region;
         this.routeTableId = $.routeTableId;
         this.vpcEndpointId = $.vpcEndpointId;
     }
@@ -67,6 +85,27 @@ public final class VpcEndpointRouteTableAssociationArgs extends com.pulumi.resou
 
         public Builder(VpcEndpointRouteTableAssociationArgs defaults) {
             $ = new VpcEndpointRouteTableAssociationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

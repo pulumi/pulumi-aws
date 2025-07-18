@@ -94,6 +94,10 @@ export class LicenseAssociation extends pulumi.CustomResource {
      */
     public readonly licenseType!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The workspace id.
      */
     public readonly workspaceId!: pulumi.Output<string>;
@@ -115,6 +119,7 @@ export class LicenseAssociation extends pulumi.CustomResource {
             resourceInputs["grafanaToken"] = state ? state.grafanaToken : undefined;
             resourceInputs["licenseExpiration"] = state ? state.licenseExpiration : undefined;
             resourceInputs["licenseType"] = state ? state.licenseType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as LicenseAssociationArgs | undefined;
@@ -126,6 +131,7 @@ export class LicenseAssociation extends pulumi.CustomResource {
             }
             resourceInputs["grafanaToken"] = args ? args.grafanaToken : undefined;
             resourceInputs["licenseType"] = args ? args.licenseType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
             resourceInputs["freeTrialExpiration"] = undefined /*out*/;
             resourceInputs["licenseExpiration"] = undefined /*out*/;
@@ -156,6 +162,10 @@ export interface LicenseAssociationState {
      */
     licenseType?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The workspace id.
      */
     workspaceId?: pulumi.Input<string>;
@@ -173,6 +183,10 @@ export interface LicenseAssociationArgs {
      * The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
      */
     licenseType: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The workspace id.
      */

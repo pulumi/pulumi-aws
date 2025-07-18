@@ -28,7 +28,7 @@ class GetLaunchConfigurationResult:
     """
     A collection of values returned by getLaunchConfiguration.
     """
-    def __init__(__self__, arn=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, id=None, image_id=None, instance_type=None, key_name=None, metadata_options=None, name=None, placement_tenancy=None, root_block_devices=None, security_groups=None, spot_price=None, user_data=None):
+    def __init__(__self__, arn=None, associate_public_ip_address=None, ebs_block_devices=None, ebs_optimized=None, enable_monitoring=None, ephemeral_block_devices=None, iam_instance_profile=None, id=None, image_id=None, instance_type=None, key_name=None, metadata_options=None, name=None, placement_tenancy=None, region=None, root_block_devices=None, security_groups=None, spot_price=None, user_data=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -71,6 +71,9 @@ class GetLaunchConfigurationResult:
         if placement_tenancy and not isinstance(placement_tenancy, str):
             raise TypeError("Expected argument 'placement_tenancy' to be a str")
         pulumi.set(__self__, "placement_tenancy", placement_tenancy)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if root_block_devices and not isinstance(root_block_devices, list):
             raise TypeError("Expected argument 'root_block_devices' to be a list")
         pulumi.set(__self__, "root_block_devices", root_block_devices)
@@ -197,6 +200,11 @@ class GetLaunchConfigurationResult:
         return pulumi.get(self, "placement_tenancy")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="rootBlockDevices")
     def root_block_devices(self) -> Sequence['outputs.GetLaunchConfigurationRootBlockDeviceResult']:
         """
@@ -249,6 +257,7 @@ class AwaitableGetLaunchConfigurationResult(GetLaunchConfigurationResult):
             metadata_options=self.metadata_options,
             name=self.name,
             placement_tenancy=self.placement_tenancy,
+            region=self.region,
             root_block_devices=self.root_block_devices,
             security_groups=self.security_groups,
             spot_price=self.spot_price,
@@ -256,6 +265,7 @@ class AwaitableGetLaunchConfigurationResult(GetLaunchConfigurationResult):
 
 
 def get_launch_configuration(name: Optional[builtins.str] = None,
+                             region: Optional[builtins.str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLaunchConfigurationResult:
     """
     Provides information about a Launch Configuration.
@@ -271,9 +281,11 @@ def get_launch_configuration(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the launch configuration.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getLaunchConfiguration:getLaunchConfiguration', __args__, opts=opts, typ=GetLaunchConfigurationResult).value
 
@@ -292,11 +304,13 @@ def get_launch_configuration(name: Optional[builtins.str] = None,
         metadata_options=pulumi.get(__ret__, 'metadata_options'),
         name=pulumi.get(__ret__, 'name'),
         placement_tenancy=pulumi.get(__ret__, 'placement_tenancy'),
+        region=pulumi.get(__ret__, 'region'),
         root_block_devices=pulumi.get(__ret__, 'root_block_devices'),
         security_groups=pulumi.get(__ret__, 'security_groups'),
         spot_price=pulumi.get(__ret__, 'spot_price'),
         user_data=pulumi.get(__ret__, 'user_data'))
 def get_launch_configuration_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                                    region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLaunchConfigurationResult]:
     """
     Provides information about a Launch Configuration.
@@ -312,9 +326,11 @@ def get_launch_configuration_output(name: Optional[pulumi.Input[builtins.str]] =
 
 
     :param builtins.str name: Name of the launch configuration.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getLaunchConfiguration:getLaunchConfiguration', __args__, opts=opts, typ=GetLaunchConfigurationResult)
     return __ret__.apply(lambda __response__: GetLaunchConfigurationResult(
@@ -332,6 +348,7 @@ def get_launch_configuration_output(name: Optional[pulumi.Input[builtins.str]] =
         metadata_options=pulumi.get(__response__, 'metadata_options'),
         name=pulumi.get(__response__, 'name'),
         placement_tenancy=pulumi.get(__response__, 'placement_tenancy'),
+        region=pulumi.get(__response__, 'region'),
         root_block_devices=pulumi.get(__response__, 'root_block_devices'),
         security_groups=pulumi.get(__response__, 'security_groups'),
         spot_price=pulumi.get(__response__, 'spot_price'),

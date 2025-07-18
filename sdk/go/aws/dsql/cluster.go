@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dsql"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dsql"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,11 +66,11 @@ type Cluster struct {
 	KmsEncryptionKey pulumi.StringOutput `pulumi:"kmsEncryptionKey"`
 	// Multi-region properties of the DSQL Cluster.
 	MultiRegionProperties ClusterMultiRegionPropertiesPtrOutput `pulumi:"multiRegionProperties"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Set of tags to be associated with the AWS DSQL Cluster resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput   `pulumi:"tagsAll"`
 	Timeouts ClusterTimeoutsPtrOutput `pulumi:"timeouts"`
 	// The DSQL Cluster's VPC endpoint service name.
@@ -119,11 +119,11 @@ type clusterState struct {
 	KmsEncryptionKey *string `pulumi:"kmsEncryptionKey"`
 	// Multi-region properties of the DSQL Cluster.
 	MultiRegionProperties *ClusterMultiRegionProperties `pulumi:"multiRegionProperties"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set of tags to be associated with the AWS DSQL Cluster resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string `pulumi:"tagsAll"`
 	Timeouts *ClusterTimeouts  `pulumi:"timeouts"`
 	// The DSQL Cluster's VPC endpoint service name.
@@ -143,11 +143,11 @@ type ClusterState struct {
 	KmsEncryptionKey pulumi.StringPtrInput
 	// Multi-region properties of the DSQL Cluster.
 	MultiRegionProperties ClusterMultiRegionPropertiesPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set of tags to be associated with the AWS DSQL Cluster resource.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts ClusterTimeoutsPtrInput
 	// The DSQL Cluster's VPC endpoint service name.
@@ -165,6 +165,8 @@ type clusterArgs struct {
 	KmsEncryptionKey *string `pulumi:"kmsEncryptionKey"`
 	// Multi-region properties of the DSQL Cluster.
 	MultiRegionProperties *ClusterMultiRegionProperties `pulumi:"multiRegionProperties"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Set of tags to be associated with the AWS DSQL Cluster resource.
 	Tags     map[string]string `pulumi:"tags"`
 	Timeouts *ClusterTimeouts  `pulumi:"timeouts"`
@@ -178,6 +180,8 @@ type ClusterArgs struct {
 	KmsEncryptionKey pulumi.StringPtrInput
 	// Multi-region properties of the DSQL Cluster.
 	MultiRegionProperties ClusterMultiRegionPropertiesPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Set of tags to be associated with the AWS DSQL Cluster resource.
 	Tags     pulumi.StringMapInput
 	Timeouts ClusterTimeoutsPtrInput
@@ -300,14 +304,17 @@ func (o ClusterOutput) MultiRegionProperties() ClusterMultiRegionPropertiesPtrOu
 	return o.ApplyT(func(v *Cluster) ClusterMultiRegionPropertiesPtrOutput { return v.MultiRegionProperties }).(ClusterMultiRegionPropertiesPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ClusterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Set of tags to be associated with the AWS DSQL Cluster resource.
 func (o ClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -107,6 +107,10 @@ export class Workforce extends pulumi.CustomResource {
      */
     public readonly oidcConfig!: pulumi.Output<outputs.sagemaker.WorkforceOidcConfig | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
      */
     public readonly sourceIpConfig!: pulumi.Output<outputs.sagemaker.WorkforceSourceIpConfig>;
@@ -139,6 +143,7 @@ export class Workforce extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["cognitoConfig"] = state ? state.cognitoConfig : undefined;
             resourceInputs["oidcConfig"] = state ? state.oidcConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sourceIpConfig"] = state ? state.sourceIpConfig : undefined;
             resourceInputs["subdomain"] = state ? state.subdomain : undefined;
             resourceInputs["workforceName"] = state ? state.workforceName : undefined;
@@ -150,6 +155,7 @@ export class Workforce extends pulumi.CustomResource {
             }
             resourceInputs["cognitoConfig"] = args ? args.cognitoConfig : undefined;
             resourceInputs["oidcConfig"] = args ? args.oidcConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sourceIpConfig"] = args ? args.sourceIpConfig : undefined;
             resourceInputs["workforceName"] = args ? args.workforceName : undefined;
             resourceInputs["workforceVpcConfig"] = args ? args.workforceVpcConfig : undefined;
@@ -177,6 +183,10 @@ export interface WorkforceState {
      * Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognitoConfig`. see OIDC Config details below.
      */
     oidcConfig?: pulumi.Input<inputs.sagemaker.WorkforceOidcConfig>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
      */
@@ -207,6 +217,10 @@ export interface WorkforceArgs {
      * Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognitoConfig`. see OIDC Config details below.
      */
     oidcConfig?: pulumi.Input<inputs.sagemaker.WorkforceOidcConfig>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
      */

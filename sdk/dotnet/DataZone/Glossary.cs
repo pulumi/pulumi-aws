@@ -179,6 +179,12 @@ namespace Pulumi.Aws.DataZone
         public Output<string> OwningProjectIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Status of business glossary. Valid values are DISABLED and ENABLED.
         /// </summary>
         [Output("status")]
@@ -254,6 +260,12 @@ namespace Pulumi.Aws.DataZone
         public Input<string> OwningProjectIdentifier { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Status of business glossary. Valid values are DISABLED and ENABLED.
         /// </summary>
         [Input("status")]
@@ -289,6 +301,12 @@ namespace Pulumi.Aws.DataZone
         /// </summary>
         [Input("owningProjectIdentifier")]
         public Input<string>? OwningProjectIdentifier { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Status of business glossary. Valid values are DISABLED and ENABLED.

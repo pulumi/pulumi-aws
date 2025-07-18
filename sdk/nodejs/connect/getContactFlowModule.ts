@@ -39,6 +39,7 @@ export function getContactFlowModule(args: GetContactFlowModuleArgs, opts?: pulu
         "contactFlowModuleId": args.contactFlowModuleId,
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -61,6 +62,10 @@ export interface GetContactFlowModuleArgs {
      * > **NOTE:** `instanceId` and one of either `name` or `contactFlowModuleId` is required.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags to assign to the Contact Flow Module.
      */
@@ -90,6 +95,7 @@ export interface GetContactFlowModuleResult {
     readonly id: string;
     readonly instanceId: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
      */
@@ -138,6 +144,7 @@ export function getContactFlowModuleOutput(args: GetContactFlowModuleOutputArgs,
         "contactFlowModuleId": args.contactFlowModuleId,
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -160,6 +167,10 @@ export interface GetContactFlowModuleOutputArgs {
      * > **NOTE:** `instanceId` and one of either `name` or `contactFlowModuleId` is required.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the Contact Flow Module.
      */

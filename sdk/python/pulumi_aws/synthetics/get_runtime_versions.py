@@ -15,7 +15,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetRuntimeVersionsResult',
@@ -29,10 +28,13 @@ class GetRuntimeVersionsResult:
     """
     A collection of values returned by getRuntimeVersions.
     """
-    def __init__(__self__, id=None, runtime_versions=None):
+    def __init__(__self__, id=None, region=None, runtime_versions=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if runtime_versions and not isinstance(runtime_versions, list):
             raise TypeError("Expected argument 'runtime_versions' to be a list")
         pulumi.set(__self__, "runtime_versions", runtime_versions)
@@ -46,8 +48,13 @@ class GetRuntimeVersionsResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="runtimeVersions")
-    def runtime_versions(self) -> Optional[Sequence['outputs.GetRuntimeVersionsRuntimeVersionResult']]:
+    def runtime_versions(self) -> Sequence['outputs.GetRuntimeVersionsRuntimeVersionResult']:
         """
         List of runtime versions. See `runtime_versions` attribute reference.
         """
@@ -61,10 +68,11 @@ class AwaitableGetRuntimeVersionsResult(GetRuntimeVersionsResult):
             yield self
         return GetRuntimeVersionsResult(
             id=self.id,
+            region=self.region,
             runtime_versions=self.runtime_versions)
 
 
-def get_runtime_versions(runtime_versions: Optional[Sequence[Union['GetRuntimeVersionsRuntimeVersionArgs', 'GetRuntimeVersionsRuntimeVersionArgsDict']]] = None,
+def get_runtime_versions(region: Optional[builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuntimeVersionsResult:
     """
     Data source for managing an AWS CloudWatch Synthetics Runtime Versions.
@@ -81,17 +89,18 @@ def get_runtime_versions(runtime_versions: Optional[Sequence[Union['GetRuntimeVe
     ```
 
 
-    :param Sequence[Union['GetRuntimeVersionsRuntimeVersionArgs', 'GetRuntimeVersionsRuntimeVersionArgsDict']] runtime_versions: List of runtime versions. See `runtime_versions` attribute reference.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
-    __args__['runtimeVersions'] = runtime_versions
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:synthetics/getRuntimeVersions:getRuntimeVersions', __args__, opts=opts, typ=GetRuntimeVersionsResult).value
 
     return AwaitableGetRuntimeVersionsResult(
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         runtime_versions=pulumi.get(__ret__, 'runtime_versions'))
-def get_runtime_versions_output(runtime_versions: Optional[pulumi.Input[Optional[Sequence[Union['GetRuntimeVersionsRuntimeVersionArgs', 'GetRuntimeVersionsRuntimeVersionArgsDict']]]]] = None,
+def get_runtime_versions_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuntimeVersionsResult]:
     """
     Data source for managing an AWS CloudWatch Synthetics Runtime Versions.
@@ -108,12 +117,13 @@ def get_runtime_versions_output(runtime_versions: Optional[pulumi.Input[Optional
     ```
 
 
-    :param Sequence[Union['GetRuntimeVersionsRuntimeVersionArgs', 'GetRuntimeVersionsRuntimeVersionArgsDict']] runtime_versions: List of runtime versions. See `runtime_versions` attribute reference.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
-    __args__['runtimeVersions'] = runtime_versions
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:synthetics/getRuntimeVersions:getRuntimeVersions', __args__, opts=opts, typ=GetRuntimeVersionsResult)
     return __ret__.apply(lambda __response__: GetRuntimeVersionsResult(
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         runtime_versions=pulumi.get(__response__, 'runtime_versions')))

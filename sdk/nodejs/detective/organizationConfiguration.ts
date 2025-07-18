@@ -51,6 +51,10 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
      * ARN of the behavior graph.
      */
     public readonly graphArn!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a OrganizationConfiguration resource with the given unique name, arguments, and options.
@@ -67,6 +71,7 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
             const state = argsOrState as OrganizationConfigurationState | undefined;
             resourceInputs["autoEnable"] = state ? state.autoEnable : undefined;
             resourceInputs["graphArn"] = state ? state.graphArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as OrganizationConfigurationArgs | undefined;
             if ((!args || args.autoEnable === undefined) && !opts.urn) {
@@ -77,6 +82,7 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
             }
             resourceInputs["autoEnable"] = args ? args.autoEnable : undefined;
             resourceInputs["graphArn"] = args ? args.graphArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OrganizationConfiguration.__pulumiType, name, resourceInputs, opts);
@@ -95,6 +101,10 @@ export interface OrganizationConfigurationState {
      * ARN of the behavior graph.
      */
     graphArn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -109,4 +119,8 @@ export interface OrganizationConfigurationArgs {
      * ARN of the behavior graph.
      */
     graphArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

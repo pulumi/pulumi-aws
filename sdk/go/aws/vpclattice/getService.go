@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.
 type LookupServiceArgs struct {
 	// Service name.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID or Amazon Resource Name (ARN) of the service.
 	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
 	// List of tags associated with the service.
@@ -75,6 +77,7 @@ type LookupServiceResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id                string `pulumi:"id"`
 	Name              string `pulumi:"name"`
+	Region            string `pulumi:"region"`
 	ServiceIdentifier string `pulumi:"serviceIdentifier"`
 	// Status of the service.
 	Status string `pulumi:"status"`
@@ -95,6 +98,8 @@ func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts
 type LookupServiceOutputArgs struct {
 	// Service name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID or Amazon Resource Name (ARN) of the service.
 	ServiceIdentifier pulumi.StringPtrInput `pulumi:"serviceIdentifier"`
 	// List of tags associated with the service.
@@ -152,6 +157,10 @@ func (o LookupServiceResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupServiceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupServiceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupServiceResultOutput) ServiceIdentifier() pulumi.StringOutput {

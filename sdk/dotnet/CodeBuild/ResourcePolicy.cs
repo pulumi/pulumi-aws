@@ -93,6 +93,12 @@ namespace Pulumi.Aws.CodeBuild
         public Output<string> Policy { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
         /// </summary>
         [Output("resourceArn")]
@@ -151,6 +157,12 @@ namespace Pulumi.Aws.CodeBuild
         public Input<string> Policy { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of the Project or ReportGroup resource you want to associate with a resource policy.
         /// </summary>
         [Input("resourceArn", required: true)]
@@ -169,6 +181,12 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ARN of the Project or ReportGroup resource you want to associate with a resource policy.

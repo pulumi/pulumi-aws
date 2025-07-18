@@ -21,20 +21,26 @@ __all__ = ['FunctionRecursionConfigArgs', 'FunctionRecursionConfig']
 class FunctionRecursionConfigArgs:
     def __init__(__self__, *,
                  function_name: pulumi.Input[builtins.str],
-                 recursive_loop: pulumi.Input[builtins.str]):
+                 recursive_loop: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionRecursionConfig resource.
-        :param pulumi.Input[builtins.str] function_name: Lambda function name.
+        :param pulumi.Input[builtins.str] function_name: Name of the Lambda function.
         :param pulumi.Input[builtins.str] recursive_loop: Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "function_name", function_name)
         pulumi.set(__self__, "recursive_loop", recursive_loop)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Input[builtins.str]:
         """
-        Lambda function name.
+        Name of the Lambda function.
         """
         return pulumi.get(self, "function_name")
 
@@ -47,6 +53,8 @@ class FunctionRecursionConfigArgs:
     def recursive_loop(self) -> pulumi.Input[builtins.str]:
         """
         Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "recursive_loop")
 
@@ -54,27 +62,45 @@ class FunctionRecursionConfigArgs:
     def recursive_loop(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "recursive_loop", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _FunctionRecursionConfigState:
     def __init__(__self__, *,
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
-                 recursive_loop: Optional[pulumi.Input[builtins.str]] = None):
+                 recursive_loop: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionRecursionConfig resources.
-        :param pulumi.Input[builtins.str] function_name: Lambda function name.
+        :param pulumi.Input[builtins.str] function_name: Name of the Lambda function.
         :param pulumi.Input[builtins.str] recursive_loop: Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if function_name is not None:
             pulumi.set(__self__, "function_name", function_name)
         if recursive_loop is not None:
             pulumi.set(__self__, "recursive_loop", recursive_loop)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="functionName")
     def function_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Lambda function name.
+        Name of the Lambda function.
         """
         return pulumi.get(self, "function_name")
 
@@ -87,12 +113,26 @@ class _FunctionRecursionConfigState:
     def recursive_loop(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "recursive_loop")
 
     @recursive_loop.setter
     def recursive_loop(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "recursive_loop", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
 
 @pulumi.type_token("aws:lambda/functionRecursionConfig:FunctionRecursionConfig")
@@ -103,35 +143,72 @@ class FunctionRecursionConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
                  recursive_loop: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Lambda Function Recursion Config.
+        Manages an AWS Lambda Function Recursion Config. Use this resource to control how Lambda handles recursive function invocations to prevent infinite loops.
 
-        > Destruction of this resource will return the `recursive_loop` configuration back to the default value of `Terminate`.
+        > **Note:** Destruction of this resource will return the `recursive_loop` configuration back to the default value of `Terminate`.
 
         ## Example Usage
+
+        ### Allow Recursive Invocations
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lambda_.FunctionRecursionConfig("example",
-            function_name="SomeFunction",
+        # Lambda function that may need to call itself
+        example = aws.lambda_.Function("example",
+            code=pulumi.FileArchive("function.zip"),
+            name="recursive_processor",
+            role=lambda_role["arn"],
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.PYTHON3D12)
+        # Allow the function to invoke itself recursively
+        example_function_recursion_config = aws.lambda_.FunctionRecursionConfig("example",
+            function_name=example.name,
             recursive_loop="Allow")
+        ```
+
+        ### Production Safety Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Production function with recursion protection
+        production_processor = aws.lambda_.Function("production_processor",
+            code=pulumi.FileArchive("processor.zip"),
+            name="production-data-processor",
+            role=lambda_role["arn"],
+            handler="app.handler",
+            runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+            tags={
+                "Environment": "production",
+                "Purpose": "data-processing",
+            })
+        # Prevent infinite loops in production
+        example = aws.lambda_.FunctionRecursionConfig("example",
+            function_name=production_processor.name,
+            recursive_loop="Terminate")
         ```
 
         ## Import
 
-        Using `pulumi import`, import AWS Lambda Function Recursion Config using the `function_name`. For example:
+        For backwards compatibility, the following legacy `pulumi import` command is also supported:
 
         ```sh
-        $ pulumi import aws:lambda/functionRecursionConfig:FunctionRecursionConfig example SomeFunction
+        $ pulumi import aws:lambda/functionRecursionConfig:FunctionRecursionConfig example recursive_processor
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] function_name: Lambda function name.
+        :param pulumi.Input[builtins.str] function_name: Name of the Lambda function.
         :param pulumi.Input[builtins.str] recursive_loop: Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -140,27 +217,60 @@ class FunctionRecursionConfig(pulumi.CustomResource):
                  args: FunctionRecursionConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Lambda Function Recursion Config.
+        Manages an AWS Lambda Function Recursion Config. Use this resource to control how Lambda handles recursive function invocations to prevent infinite loops.
 
-        > Destruction of this resource will return the `recursive_loop` configuration back to the default value of `Terminate`.
+        > **Note:** Destruction of this resource will return the `recursive_loop` configuration back to the default value of `Terminate`.
 
         ## Example Usage
+
+        ### Allow Recursive Invocations
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lambda_.FunctionRecursionConfig("example",
-            function_name="SomeFunction",
+        # Lambda function that may need to call itself
+        example = aws.lambda_.Function("example",
+            code=pulumi.FileArchive("function.zip"),
+            name="recursive_processor",
+            role=lambda_role["arn"],
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.PYTHON3D12)
+        # Allow the function to invoke itself recursively
+        example_function_recursion_config = aws.lambda_.FunctionRecursionConfig("example",
+            function_name=example.name,
             recursive_loop="Allow")
+        ```
+
+        ### Production Safety Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        # Production function with recursion protection
+        production_processor = aws.lambda_.Function("production_processor",
+            code=pulumi.FileArchive("processor.zip"),
+            name="production-data-processor",
+            role=lambda_role["arn"],
+            handler="app.handler",
+            runtime=aws.lambda_.Runtime.NODE_JS20D_X,
+            tags={
+                "Environment": "production",
+                "Purpose": "data-processing",
+            })
+        # Prevent infinite loops in production
+        example = aws.lambda_.FunctionRecursionConfig("example",
+            function_name=production_processor.name,
+            recursive_loop="Terminate")
         ```
 
         ## Import
 
-        Using `pulumi import`, import AWS Lambda Function Recursion Config using the `function_name`. For example:
+        For backwards compatibility, the following legacy `pulumi import` command is also supported:
 
         ```sh
-        $ pulumi import aws:lambda/functionRecursionConfig:FunctionRecursionConfig example SomeFunction
+        $ pulumi import aws:lambda/functionRecursionConfig:FunctionRecursionConfig example recursive_processor
         ```
 
         :param str resource_name: The name of the resource.
@@ -180,6 +290,7 @@ class FunctionRecursionConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
                  recursive_loop: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -195,6 +306,7 @@ class FunctionRecursionConfig(pulumi.CustomResource):
             if recursive_loop is None and not opts.urn:
                 raise TypeError("Missing required property 'recursive_loop'")
             __props__.__dict__["recursive_loop"] = recursive_loop
+            __props__.__dict__["region"] = region
         super(FunctionRecursionConfig, __self__).__init__(
             'aws:lambda/functionRecursionConfig:FunctionRecursionConfig',
             resource_name,
@@ -206,7 +318,8 @@ class FunctionRecursionConfig(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             function_name: Optional[pulumi.Input[builtins.str]] = None,
-            recursive_loop: Optional[pulumi.Input[builtins.str]] = None) -> 'FunctionRecursionConfig':
+            recursive_loop: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'FunctionRecursionConfig':
         """
         Get an existing FunctionRecursionConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -214,8 +327,11 @@ class FunctionRecursionConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] function_name: Lambda function name.
+        :param pulumi.Input[builtins.str] function_name: Name of the Lambda function.
         :param pulumi.Input[builtins.str] recursive_loop: Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -223,13 +339,14 @@ class FunctionRecursionConfig(pulumi.CustomResource):
 
         __props__.__dict__["function_name"] = function_name
         __props__.__dict__["recursive_loop"] = recursive_loop
+        __props__.__dict__["region"] = region
         return FunctionRecursionConfig(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Output[builtins.str]:
         """
-        Lambda function name.
+        Name of the Lambda function.
         """
         return pulumi.get(self, "function_name")
 
@@ -238,6 +355,16 @@ class FunctionRecursionConfig(pulumi.CustomResource):
     def recursive_loop(self) -> pulumi.Output[builtins.str]:
         """
         Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "recursive_loop")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

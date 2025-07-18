@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ebs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,6 +59,8 @@ type SnapshotCreateVolumePermission struct {
 
 	// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A snapshot ID
 	SnapshotId pulumi.StringOutput `pulumi:"snapshotId"`
 }
@@ -101,6 +103,8 @@ func GetSnapshotCreateVolumePermission(ctx *pulumi.Context,
 type snapshotCreateVolumePermissionState struct {
 	// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
 	AccountId *string `pulumi:"accountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A snapshot ID
 	SnapshotId *string `pulumi:"snapshotId"`
 }
@@ -108,6 +112,8 @@ type snapshotCreateVolumePermissionState struct {
 type SnapshotCreateVolumePermissionState struct {
 	// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
 	AccountId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A snapshot ID
 	SnapshotId pulumi.StringPtrInput
 }
@@ -119,6 +125,8 @@ func (SnapshotCreateVolumePermissionState) ElementType() reflect.Type {
 type snapshotCreateVolumePermissionArgs struct {
 	// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
 	AccountId string `pulumi:"accountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A snapshot ID
 	SnapshotId string `pulumi:"snapshotId"`
 }
@@ -127,6 +135,8 @@ type snapshotCreateVolumePermissionArgs struct {
 type SnapshotCreateVolumePermissionArgs struct {
 	// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
 	AccountId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A snapshot ID
 	SnapshotId pulumi.StringInput
 }
@@ -221,6 +231,11 @@ func (o SnapshotCreateVolumePermissionOutput) ToSnapshotCreateVolumePermissionOu
 // An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
 func (o SnapshotCreateVolumePermissionOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCreateVolumePermission) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o SnapshotCreateVolumePermissionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SnapshotCreateVolumePermission) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A snapshot ID

@@ -188,6 +188,12 @@ namespace Pulumi.Aws.Ssm
         [Input("owner", required: true)]
         public string Owner { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetPatchBaselineArgs()
         {
         }
@@ -221,6 +227,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("owner", required: true)]
         public Input<string> Owner { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetPatchBaselineInvokeArgs()
         {
@@ -272,6 +284,7 @@ namespace Pulumi.Aws.Ssm
         public readonly string? NamePrefix;
         public readonly string? OperatingSystem;
         public readonly string Owner;
+        public readonly string Region;
         /// <summary>
         /// List of rejected patches.
         /// </summary>
@@ -313,6 +326,8 @@ namespace Pulumi.Aws.Ssm
 
             string owner,
 
+            string region,
+
             ImmutableArray<string> rejectedPatches,
 
             string rejectedPatchesAction,
@@ -332,6 +347,7 @@ namespace Pulumi.Aws.Ssm
             NamePrefix = namePrefix;
             OperatingSystem = operatingSystem;
             Owner = owner;
+            Region = region;
             RejectedPatches = rejectedPatches;
             RejectedPatchesAction = rejectedPatchesAction;
             Sources = sources;

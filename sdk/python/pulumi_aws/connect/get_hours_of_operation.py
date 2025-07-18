@@ -28,7 +28,7 @@ class GetHoursOfOperationResult:
     """
     A collection of values returned by getHoursOfOperation.
     """
-    def __init__(__self__, arn=None, configs=None, description=None, hours_of_operation_id=None, id=None, instance_id=None, name=None, tags=None, time_zone=None):
+    def __init__(__self__, arn=None, configs=None, description=None, hours_of_operation_id=None, id=None, instance_id=None, name=None, region=None, tags=None, time_zone=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -50,6 +50,9 @@ class GetHoursOfOperationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -115,6 +118,11 @@ class GetHoursOfOperationResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Map of tags to assign to the Hours of Operation.
@@ -143,6 +151,7 @@ class AwaitableGetHoursOfOperationResult(GetHoursOfOperationResult):
             id=self.id,
             instance_id=self.instance_id,
             name=self.name,
+            region=self.region,
             tags=self.tags,
             time_zone=self.time_zone)
 
@@ -150,6 +159,7 @@ class AwaitableGetHoursOfOperationResult(GetHoursOfOperationResult):
 def get_hours_of_operation(hours_of_operation_id: Optional[builtins.str] = None,
                            instance_id: Optional[builtins.str] = None,
                            name: Optional[builtins.str] = None,
+                           region: Optional[builtins.str] = None,
                            tags: Optional[Mapping[str, builtins.str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHoursOfOperationResult:
     """
@@ -183,12 +193,14 @@ def get_hours_of_operation(hours_of_operation_id: Optional[builtins.str] = None,
     :param builtins.str name: Returns information on a specific Hours of Operation by name
            
            > **NOTE:** `instance_id` and one of either `name` or `hours_of_operation_id` is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the Hours of Operation.
     """
     __args__ = dict()
     __args__['hoursOfOperationId'] = hours_of_operation_id
     __args__['instanceId'] = instance_id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:connect/getHoursOfOperation:getHoursOfOperation', __args__, opts=opts, typ=GetHoursOfOperationResult).value
@@ -201,11 +213,13 @@ def get_hours_of_operation(hours_of_operation_id: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         instance_id=pulumi.get(__ret__, 'instance_id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         time_zone=pulumi.get(__ret__, 'time_zone'))
 def get_hours_of_operation_output(hours_of_operation_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                   instance_id: Optional[pulumi.Input[builtins.str]] = None,
                                   name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                  region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                   tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHoursOfOperationResult]:
     """
@@ -239,12 +253,14 @@ def get_hours_of_operation_output(hours_of_operation_id: Optional[pulumi.Input[O
     :param builtins.str name: Returns information on a specific Hours of Operation by name
            
            > **NOTE:** `instance_id` and one of either `name` or `hours_of_operation_id` is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the Hours of Operation.
     """
     __args__ = dict()
     __args__['hoursOfOperationId'] = hours_of_operation_id
     __args__['instanceId'] = instance_id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getHoursOfOperation:getHoursOfOperation', __args__, opts=opts, typ=GetHoursOfOperationResult)
@@ -256,5 +272,6 @@ def get_hours_of_operation_output(hours_of_operation_id: Optional[pulumi.Input[O
         id=pulumi.get(__response__, 'id'),
         instance_id=pulumi.get(__response__, 'instance_id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         time_zone=pulumi.get(__response__, 'time_zone')))

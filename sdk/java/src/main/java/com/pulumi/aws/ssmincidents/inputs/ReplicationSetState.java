@@ -80,14 +80,37 @@ public final class ReplicationSetState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+     * The replication set&#39;s Regions. Use `regions` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use regions instead.
+     * 
+     */
+    @Deprecated /* region is deprecated. Use regions instead. */
+    @Import(name="region")
+    private @Nullable Output<List<ReplicationSetRegionArgs>> region;
+
+    /**
+     * @return The replication set&#39;s Regions. Use `regions` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use regions instead.
+     * 
+     */
+    @Deprecated /* region is deprecated. Use regions instead. */
+    public Optional<Output<List<ReplicationSetRegionArgs>>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
+     * The replication set&#39;s Regions.
      * 
      */
     @Import(name="regions")
     private @Nullable Output<List<ReplicationSetRegionArgs>> regions;
 
     /**
-     * @return The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+     * @return The replication set&#39;s Regions.
      * 
      */
     public Optional<Output<List<ReplicationSetRegionArgs>>> regions() {
@@ -153,22 +176,14 @@ public final class ReplicationSetState extends com.pulumi.resources.ResourceArgs
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -180,6 +195,7 @@ public final class ReplicationSetState extends com.pulumi.resources.ResourceArgs
         this.createdBy = $.createdBy;
         this.deletionProtected = $.deletionProtected;
         this.lastModifiedBy = $.lastModifiedBy;
+        this.region = $.region;
         this.regions = $.regions;
         this.status = $.status;
         this.tags = $.tags;
@@ -289,7 +305,50 @@ public final class ReplicationSetState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param regions The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+         * @param region The replication set&#39;s Regions. Use `regions` instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * region is deprecated. Use regions instead.
+         * 
+         */
+        @Deprecated /* region is deprecated. Use regions instead. */
+        public Builder region(@Nullable Output<List<ReplicationSetRegionArgs>> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The replication set&#39;s Regions. Use `regions` instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * region is deprecated. Use regions instead.
+         * 
+         */
+        @Deprecated /* region is deprecated. Use regions instead. */
+        public Builder region(List<ReplicationSetRegionArgs> region) {
+            return region(Output.of(region));
+        }
+
+        /**
+         * @param region The replication set&#39;s Regions. Use `regions` instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * region is deprecated. Use regions instead.
+         * 
+         */
+        @Deprecated /* region is deprecated. Use regions instead. */
+        public Builder region(ReplicationSetRegionArgs... region) {
+            return region(List.of(region));
+        }
+
+        /**
+         * @param regions The replication set&#39;s Regions.
          * 
          * @return builder
          * 
@@ -300,7 +359,7 @@ public final class ReplicationSetState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param regions The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+         * @param regions The replication set&#39;s Regions.
          * 
          * @return builder
          * 
@@ -310,7 +369,7 @@ public final class ReplicationSetState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param regions The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+         * @param regions The replication set&#39;s Regions.
          * 
          * @return builder
          * 
@@ -392,11 +451,7 @@ public final class ReplicationSetState extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -407,11 +462,7 @@ public final class ReplicationSetState extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

@@ -27,13 +27,16 @@ class GetSinksResult:
     """
     A collection of values returned by getSinks.
     """
-    def __init__(__self__, arns=None, id=None):
+    def __init__(__self__, arns=None, id=None, region=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         pulumi.set(__self__, "arns", arns)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -51,6 +54,11 @@ class GetSinksResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetSinksResult(GetSinksResult):
     # pylint: disable=using-constant-test
@@ -59,10 +67,12 @@ class AwaitableGetSinksResult(GetSinksResult):
             yield self
         return GetSinksResult(
             arns=self.arns,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
-def get_sinks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSinksResult:
+def get_sinks(region: Optional[builtins.str] = None,
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSinksResult:
     """
     Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
 
@@ -76,15 +86,21 @@ def get_sinks(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSinksR
 
     example = aws.oam.get_sinks()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:oam/getSinks:getSinks', __args__, opts=opts, typ=GetSinksResult).value
 
     return AwaitableGetSinksResult(
         arns=pulumi.get(__ret__, 'arns'),
-        id=pulumi.get(__ret__, 'id'))
-def get_sinks_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSinksResult]:
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
+def get_sinks_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSinksResult]:
     """
     Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
 
@@ -98,10 +114,15 @@ def get_sinks_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOut
 
     example = aws.oam.get_sinks()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:oam/getSinks:getSinks', __args__, opts=opts, typ=GetSinksResult)
     return __ret__.apply(lambda __response__: GetSinksResult(
         arns=pulumi.get(__response__, 'arns'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

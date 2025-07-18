@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,9 +25,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,13 +38,13 @@ import (
 // if err != nil {
 // return err
 // }
-// elbLogs, err := s3.NewBucketV2(ctx, "elb_logs", &s3.BucketV2Args{
+// elbLogs, err := s3.NewBucket(ctx, "elb_logs", &s3.BucketArgs{
 // Bucket: pulumi.String("my-elb-tf-test-bucket"),
 // })
 // if err != nil {
 // return err
 // }
-// _, err = s3.NewBucketAclV2(ctx, "elb_logs_acl", &s3.BucketAclV2Args{
+// _, err = s3.NewBucketAcl(ctx, "elb_logs_acl", &s3.BucketAclArgs{
 // Bucket: elbLogs.ID(),
 // Acl: pulumi.String("private"),
 // })
@@ -118,18 +118,17 @@ func GetServiceAccount(ctx *pulumi.Context, args *GetServiceAccountArgs, opts ..
 
 // A collection of arguments for invoking getServiceAccount.
 type GetServiceAccountArgs struct {
-	// Name of the region whose AWS ELB account ID is desired.
-	// Defaults to the region from the AWS provider configuration.
+	// Name of the Region whose AWS ELB account ID is desired. Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getServiceAccount.
 type GetServiceAccountResult struct {
-	// ARN of the AWS ELB service account in the selected region.
+	// ARN of the AWS ELB service account in the selected Region.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string  `pulumi:"id"`
-	Region *string `pulumi:"region"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func GetServiceAccountOutput(ctx *pulumi.Context, args GetServiceAccountOutputArgs, opts ...pulumi.InvokeOption) GetServiceAccountResultOutput {
@@ -143,8 +142,7 @@ func GetServiceAccountOutput(ctx *pulumi.Context, args GetServiceAccountOutputAr
 
 // A collection of arguments for invoking getServiceAccount.
 type GetServiceAccountOutputArgs struct {
-	// Name of the region whose AWS ELB account ID is desired.
-	// Defaults to the region from the AWS provider configuration.
+	// Name of the Region whose AWS ELB account ID is desired. Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -167,7 +165,7 @@ func (o GetServiceAccountResultOutput) ToGetServiceAccountResultOutputWithContex
 	return o
 }
 
-// ARN of the AWS ELB service account in the selected region.
+// ARN of the AWS ELB service account in the selected Region.
 func (o GetServiceAccountResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceAccountResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -177,8 +175,8 @@ func (o GetServiceAccountResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServiceAccountResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o GetServiceAccountResultOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetServiceAccountResult) *string { return v.Region }).(pulumi.StringPtrOutput)
+func (o GetServiceAccountResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceAccountResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

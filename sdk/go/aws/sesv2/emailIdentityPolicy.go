@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -93,6 +93,8 @@ type EmailIdentityPolicy struct {
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// The name of the policy.
 	PolicyName pulumi.StringOutput `pulumi:"policyName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewEmailIdentityPolicy registers a new resource with the given unique name, arguments, and options.
@@ -140,6 +142,8 @@ type emailIdentityPolicyState struct {
 	Policy *string `pulumi:"policy"`
 	// The name of the policy.
 	PolicyName *string `pulumi:"policyName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type EmailIdentityPolicyState struct {
@@ -149,6 +153,8 @@ type EmailIdentityPolicyState struct {
 	Policy pulumi.StringPtrInput
 	// The name of the policy.
 	PolicyName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EmailIdentityPolicyState) ElementType() reflect.Type {
@@ -162,6 +168,8 @@ type emailIdentityPolicyArgs struct {
 	Policy string `pulumi:"policy"`
 	// The name of the policy.
 	PolicyName string `pulumi:"policyName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EmailIdentityPolicy resource.
@@ -172,6 +180,8 @@ type EmailIdentityPolicyArgs struct {
 	Policy pulumi.StringInput
 	// The name of the policy.
 	PolicyName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EmailIdentityPolicyArgs) ElementType() reflect.Type {
@@ -274,6 +284,11 @@ func (o EmailIdentityPolicyOutput) Policy() pulumi.StringOutput {
 // The name of the policy.
 func (o EmailIdentityPolicyOutput) PolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentityPolicy) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o EmailIdentityPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EmailIdentityPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type EmailIdentityPolicyArrayOutput struct{ *pulumi.OutputState }

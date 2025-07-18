@@ -93,33 +93,13 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
-     * The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-     * The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-     * Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
-     */
-    public readonly blockDurationMinutes!: pulumi.Output<number | undefined>;
-    /**
      * Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-     *
-     * > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
      */
     public readonly capacityReservationSpecification!: pulumi.Output<outputs.ec2.SpotInstanceRequestCapacityReservationSpecification>;
-    /**
-     * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-     *
-     * @deprecated cpu_core_count is deprecated. Use cpuOptions instead.
-     */
-    public readonly cpuCoreCount!: pulumi.Output<number>;
     /**
      * The CPU options for the instance. See CPU Options below for more details.
      */
     public readonly cpuOptions!: pulumi.Output<outputs.ec2.SpotInstanceRequestCpuOptions>;
-    /**
-     * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-     *
-     * @deprecated cpu_threads_per_core is deprecated. Use cpuOptions instead.
-     */
-    public readonly cpuThreadsPerCore!: pulumi.Output<number>;
     /**
      * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      */
@@ -257,6 +237,10 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicIp!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      */
     public readonly rootBlockDevice!: pulumi.Output<outputs.ec2.SpotInstanceRequestRootBlockDevice>;
@@ -310,8 +294,6 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -321,7 +303,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
     /**
      * User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      */
-    public readonly userData!: pulumi.Output<string>;
+    public readonly userData!: pulumi.Output<string | undefined>;
     /**
      * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
      */
@@ -372,11 +354,8 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["associatePublicIpAddress"] = state ? state.associatePublicIpAddress : undefined;
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            resourceInputs["blockDurationMinutes"] = state ? state.blockDurationMinutes : undefined;
             resourceInputs["capacityReservationSpecification"] = state ? state.capacityReservationSpecification : undefined;
-            resourceInputs["cpuCoreCount"] = state ? state.cpuCoreCount : undefined;
             resourceInputs["cpuOptions"] = state ? state.cpuOptions : undefined;
-            resourceInputs["cpuThreadsPerCore"] = state ? state.cpuThreadsPerCore : undefined;
             resourceInputs["creditSpecification"] = state ? state.creditSpecification : undefined;
             resourceInputs["disableApiStop"] = state ? state.disableApiStop : undefined;
             resourceInputs["disableApiTermination"] = state ? state.disableApiTermination : undefined;
@@ -413,6 +392,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             resourceInputs["privateIp"] = state ? state.privateIp : undefined;
             resourceInputs["publicDns"] = state ? state.publicDns : undefined;
             resourceInputs["publicIp"] = state ? state.publicIp : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rootBlockDevice"] = state ? state.rootBlockDevice : undefined;
             resourceInputs["secondaryPrivateIps"] = state ? state.secondaryPrivateIps : undefined;
             resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
@@ -439,11 +419,8 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             resourceInputs["ami"] = args ? args.ami : undefined;
             resourceInputs["associatePublicIpAddress"] = args ? args.associatePublicIpAddress : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["blockDurationMinutes"] = args ? args.blockDurationMinutes : undefined;
             resourceInputs["capacityReservationSpecification"] = args ? args.capacityReservationSpecification : undefined;
-            resourceInputs["cpuCoreCount"] = args ? args.cpuCoreCount : undefined;
             resourceInputs["cpuOptions"] = args ? args.cpuOptions : undefined;
-            resourceInputs["cpuThreadsPerCore"] = args ? args.cpuThreadsPerCore : undefined;
             resourceInputs["creditSpecification"] = args ? args.creditSpecification : undefined;
             resourceInputs["disableApiStop"] = args ? args.disableApiStop : undefined;
             resourceInputs["disableApiTermination"] = args ? args.disableApiTermination : undefined;
@@ -473,6 +450,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             resourceInputs["placementPartitionNumber"] = args ? args.placementPartitionNumber : undefined;
             resourceInputs["privateDnsNameOptions"] = args ? args.privateDnsNameOptions : undefined;
             resourceInputs["privateIp"] = args ? args.privateIp : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rootBlockDevice"] = args ? args.rootBlockDevice : undefined;
             resourceInputs["secondaryPrivateIps"] = args ? args.secondaryPrivateIps : undefined;
             resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
@@ -526,33 +504,13 @@ export interface SpotInstanceRequestState {
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-     * The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-     * Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
-     */
-    blockDurationMinutes?: pulumi.Input<number>;
-    /**
      * Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-     *
-     * > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
      */
     capacityReservationSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCapacityReservationSpecification>;
-    /**
-     * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-     *
-     * @deprecated cpu_core_count is deprecated. Use cpuOptions instead.
-     */
-    cpuCoreCount?: pulumi.Input<number>;
     /**
      * The CPU options for the instance. See CPU Options below for more details.
      */
     cpuOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestCpuOptions>;
-    /**
-     * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-     *
-     * @deprecated cpu_threads_per_core is deprecated. Use cpuOptions instead.
-     */
-    cpuThreadsPerCore?: pulumi.Input<number>;
     /**
      * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      */
@@ -690,6 +648,10 @@ export interface SpotInstanceRequestState {
      */
     publicIp?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      */
     rootBlockDevice?: pulumi.Input<inputs.ec2.SpotInstanceRequestRootBlockDevice>;
@@ -743,8 +705,6 @@ export interface SpotInstanceRequestState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -806,33 +766,13 @@ export interface SpotInstanceRequestArgs {
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * The required duration for the Spot instances, in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).
-     * The duration period starts as soon as your Spot instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
-     * Note that you can't specify an Availability Zone group or a launch group if you specify a duration.
-     */
-    blockDurationMinutes?: pulumi.Input<number>;
-    /**
      * Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-     *
-     * > **NOTE:** Changing `cpuCoreCount` and/or `cpuThreadsPerCore` will cause the resource to be destroyed and re-created.
      */
     capacityReservationSpecification?: pulumi.Input<inputs.ec2.SpotInstanceRequestCapacityReservationSpecification>;
-    /**
-     * Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-     *
-     * @deprecated cpu_core_count is deprecated. Use cpuOptions instead.
-     */
-    cpuCoreCount?: pulumi.Input<number>;
     /**
      * The CPU options for the instance. See CPU Options below for more details.
      */
     cpuOptions?: pulumi.Input<inputs.ec2.SpotInstanceRequestCpuOptions>;
-    /**
-     * If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-     *
-     * @deprecated cpu_threads_per_core is deprecated. Use cpuOptions instead.
-     */
-    cpuThreadsPerCore?: pulumi.Input<number>;
     /**
      * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      */
@@ -950,6 +890,10 @@ export interface SpotInstanceRequestArgs {
      * Private IP address to associate with the instance in a VPC.
      */
     privateIp?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      */

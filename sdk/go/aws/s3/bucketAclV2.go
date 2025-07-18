@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,14 +27,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-tf-example-bucket"),
 //			})
 //			if err != nil {
@@ -49,7 +49,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
 //				Bucket: example.ID(),
 //				Acl:    pulumi.String("private"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
@@ -74,14 +74,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-tf-example-bucket"),
 //			})
 //			if err != nil {
@@ -106,7 +106,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
 //				Bucket: example.ID(),
 //				Acl:    pulumi.String("public-read"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
@@ -129,7 +129,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -140,7 +140,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-tf-example-bucket"),
 //			})
 //			if err != nil {
@@ -155,26 +155,26 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
 //				Bucket: example.ID(),
-//				AccessControlPolicy: &s3.BucketAclV2AccessControlPolicyArgs{
-//					Grants: s3.BucketAclV2AccessControlPolicyGrantArray{
-//						&s3.BucketAclV2AccessControlPolicyGrantArgs{
-//							Grantee: &s3.BucketAclV2AccessControlPolicyGrantGranteeArgs{
+//				AccessControlPolicy: &s3.BucketAclAccessControlPolicyArgs{
+//					Grants: s3.BucketAclAccessControlPolicyGrantArray{
+//						&s3.BucketAclAccessControlPolicyGrantArgs{
+//							Grantee: &s3.BucketAclAccessControlPolicyGrantGranteeArgs{
 //								Id:   pulumi.String(current.Id),
 //								Type: pulumi.String("CanonicalUser"),
 //							},
 //							Permission: pulumi.String("READ"),
 //						},
-//						&s3.BucketAclV2AccessControlPolicyGrantArgs{
-//							Grantee: &s3.BucketAclV2AccessControlPolicyGrantGranteeArgs{
+//						&s3.BucketAclAccessControlPolicyGrantArgs{
+//							Grantee: &s3.BucketAclAccessControlPolicyGrantGranteeArgs{
 //								Type: pulumi.String("Group"),
 //								Uri:  pulumi.String("http://acs.amazonaws.com/groups/s3/LogDelivery"),
 //							},
 //							Permission: pulumi.String("READ_ACP"),
 //						},
 //					},
-//					Owner: &s3.BucketAclV2AccessControlPolicyOwnerArgs{
+//					Owner: &s3.BucketAclAccessControlPolicyOwnerArgs{
 //						Id: pulumi.String(current.Id),
 //					},
 //				},
@@ -223,6 +223,8 @@ import (
 // ```sh
 // $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012,private
 // ```
+//
+// Deprecated: aws.s3/bucketaclv2.BucketAclV2 has been deprecated in favor of aws.s3/bucketacl.BucketAcl
 type BucketAclV2 struct {
 	pulumi.CustomResourceState
 
@@ -234,6 +236,8 @@ type BucketAclV2 struct {
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewBucketAclV2 registers a new resource with the given unique name, arguments, and options.
@@ -246,6 +250,12 @@ func NewBucketAclV2(ctx *pulumi.Context,
 	if args.Bucket == nil {
 		return nil, errors.New("invalid value for required argument 'Bucket'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("aws:s3/bucketAclV2:BucketAclV2"),
+		},
+	})
+	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketAclV2
 	err := ctx.RegisterResource("aws:s3/bucketAclV2:BucketAclV2", name, args, &resource, opts...)
@@ -277,6 +287,8 @@ type bucketAclV2State struct {
 	Bucket *string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type BucketAclV2State struct {
@@ -288,6 +300,8 @@ type BucketAclV2State struct {
 	Bucket pulumi.StringPtrInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BucketAclV2State) ElementType() reflect.Type {
@@ -303,6 +317,8 @@ type bucketAclV2Args struct {
 	Bucket string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BucketAclV2 resource.
@@ -315,6 +331,8 @@ type BucketAclV2Args struct {
 	Bucket pulumi.StringInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BucketAclV2Args) ElementType() reflect.Type {
@@ -422,6 +440,11 @@ func (o BucketAclV2Output) Bucket() pulumi.StringOutput {
 // Account ID of the expected bucket owner.
 func (o BucketAclV2Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAclV2) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o BucketAclV2Output) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketAclV2) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type BucketAclV2ArrayOutput struct{ *pulumi.OutputState }

@@ -28,7 +28,7 @@ class GetIndexResult:
     """
     A collection of values returned by getIndex.
     """
-    def __init__(__self__, arn=None, capacity_units=None, created_at=None, description=None, document_metadata_configuration_updates=None, edition=None, error_message=None, id=None, index_statistics=None, name=None, role_arn=None, server_side_encryption_configurations=None, status=None, tags=None, updated_at=None, user_context_policy=None, user_group_resolution_configurations=None, user_token_configurations=None):
+    def __init__(__self__, arn=None, capacity_units=None, created_at=None, description=None, document_metadata_configuration_updates=None, edition=None, error_message=None, id=None, index_statistics=None, name=None, region=None, role_arn=None, server_side_encryption_configurations=None, status=None, tags=None, updated_at=None, user_context_policy=None, user_group_resolution_configurations=None, user_token_configurations=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -59,6 +59,9 @@ class GetIndexResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -165,6 +168,11 @@ class GetIndexResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> builtins.str:
         """
@@ -245,6 +253,7 @@ class AwaitableGetIndexResult(GetIndexResult):
             id=self.id,
             index_statistics=self.index_statistics,
             name=self.name,
+            region=self.region,
             role_arn=self.role_arn,
             server_side_encryption_configurations=self.server_side_encryption_configurations,
             status=self.status,
@@ -256,6 +265,7 @@ class AwaitableGetIndexResult(GetIndexResult):
 
 
 def get_index(id: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               tags: Optional[Mapping[str, builtins.str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIndexResult:
     """
@@ -272,10 +282,12 @@ def get_index(id: Optional[builtins.str] = None,
 
 
     :param builtins.str id: Returns information on a specific Index by id.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that helps organize the Indices you create.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:kendra/getIndex:getIndex', __args__, opts=opts, typ=GetIndexResult).value
@@ -291,6 +303,7 @@ def get_index(id: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         index_statistics=pulumi.get(__ret__, 'index_statistics'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         server_side_encryption_configurations=pulumi.get(__ret__, 'server_side_encryption_configurations'),
         status=pulumi.get(__ret__, 'status'),
@@ -300,6 +313,7 @@ def get_index(id: Optional[builtins.str] = None,
         user_group_resolution_configurations=pulumi.get(__ret__, 'user_group_resolution_configurations'),
         user_token_configurations=pulumi.get(__ret__, 'user_token_configurations'))
 def get_index_output(id: Optional[pulumi.Input[builtins.str]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIndexResult]:
     """
@@ -316,10 +330,12 @@ def get_index_output(id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str id: Returns information on a specific Index by id.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that helps organize the Indices you create.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kendra/getIndex:getIndex', __args__, opts=opts, typ=GetIndexResult)
@@ -334,6 +350,7 @@ def get_index_output(id: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         index_statistics=pulumi.get(__response__, 'index_statistics'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         server_side_encryption_configurations=pulumi.get(__response__, 'server_side_encryption_configurations'),
         status=pulumi.get(__response__, 'status'),

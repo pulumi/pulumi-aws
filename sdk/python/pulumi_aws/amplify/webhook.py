@@ -22,17 +22,21 @@ class WebhookArgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[builtins.str],
                  branch_name: pulumi.Input[builtins.str],
-                 description: Optional[pulumi.Input[builtins.str]] = None):
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Webhook resource.
         :param pulumi.Input[builtins.str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[builtins.str] branch_name: Name for a branch that is part of the Amplify app.
         :param pulumi.Input[builtins.str] description: Description for a webhook.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "app_id", app_id)
         pulumi.set(__self__, "branch_name", branch_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="appId")
@@ -70,6 +74,18 @@ class WebhookArgs:
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _WebhookState:
@@ -78,6 +94,7 @@ class _WebhookState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  branch_name: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  url: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Webhook resources.
@@ -85,6 +102,7 @@ class _WebhookState:
         :param pulumi.Input[builtins.str] arn: ARN for the webhook.
         :param pulumi.Input[builtins.str] branch_name: Name for a branch that is part of the Amplify app.
         :param pulumi.Input[builtins.str] description: Description for a webhook.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] url: URL of the webhook.
         """
         if app_id is not None:
@@ -95,6 +113,8 @@ class _WebhookState:
             pulumi.set(__self__, "branch_name", branch_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if url is not None:
             pulumi.set(__self__, "url", url)
 
@@ -148,6 +168,18 @@ class _WebhookState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def url(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         URL of the webhook.
@@ -168,6 +200,7 @@ class Webhook(pulumi.CustomResource):
                  app_id: Optional[pulumi.Input[builtins.str]] = None,
                  branch_name: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides an Amplify Webhook resource.
@@ -201,6 +234,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[builtins.str] branch_name: Name for a branch that is part of the Amplify app.
         :param pulumi.Input[builtins.str] description: Description for a webhook.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -253,6 +287,7 @@ class Webhook(pulumi.CustomResource):
                  app_id: Optional[pulumi.Input[builtins.str]] = None,
                  branch_name: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -269,6 +304,7 @@ class Webhook(pulumi.CustomResource):
                 raise TypeError("Missing required property 'branch_name'")
             __props__.__dict__["branch_name"] = branch_name
             __props__.__dict__["description"] = description
+            __props__.__dict__["region"] = region
             __props__.__dict__["arn"] = None
             __props__.__dict__["url"] = None
         super(Webhook, __self__).__init__(
@@ -285,6 +321,7 @@ class Webhook(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             branch_name: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             url: Optional[pulumi.Input[builtins.str]] = None) -> 'Webhook':
         """
         Get an existing Webhook resource's state with the given name, id, and optional extra
@@ -297,6 +334,7 @@ class Webhook(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: ARN for the webhook.
         :param pulumi.Input[builtins.str] branch_name: Name for a branch that is part of the Amplify app.
         :param pulumi.Input[builtins.str] description: Description for a webhook.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] url: URL of the webhook.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -307,6 +345,7 @@ class Webhook(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["branch_name"] = branch_name
         __props__.__dict__["description"] = description
+        __props__.__dict__["region"] = region
         __props__.__dict__["url"] = url
         return Webhook(resource_name, opts=opts, __props__=__props__)
 
@@ -341,6 +380,14 @@ class Webhook(pulumi.CustomResource):
         Description for a webhook.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

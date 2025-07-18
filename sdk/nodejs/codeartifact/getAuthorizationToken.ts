@@ -24,6 +24,7 @@ export function getAuthorizationToken(args: GetAuthorizationTokenArgs, opts?: pu
         "domain": args.domain,
         "domainOwner": args.domainOwner,
         "durationSeconds": args.durationSeconds,
+        "region": args.region,
     }, opts);
 }
 
@@ -43,6 +44,10 @@ export interface GetAuthorizationTokenArgs {
      * Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
      */
     durationSeconds?: number;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -64,6 +69,7 @@ export interface GetAuthorizationTokenResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
@@ -85,6 +91,7 @@ export function getAuthorizationTokenOutput(args: GetAuthorizationTokenOutputArg
         "domain": args.domain,
         "domainOwner": args.domainOwner,
         "durationSeconds": args.durationSeconds,
+        "region": args.region,
     }, opts);
 }
 
@@ -104,4 +111,8 @@ export interface GetAuthorizationTokenOutputArgs {
      * Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
      */
     durationSeconds?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

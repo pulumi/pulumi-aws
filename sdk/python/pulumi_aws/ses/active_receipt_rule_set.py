@@ -20,12 +20,16 @@ __all__ = ['ActiveReceiptRuleSetArgs', 'ActiveReceiptRuleSet']
 @pulumi.input_type
 class ActiveReceiptRuleSetArgs:
     def __init__(__self__, *,
-                 rule_set_name: pulumi.Input[builtins.str]):
+                 rule_set_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ActiveReceiptRuleSet resource.
         :param pulumi.Input[builtins.str] rule_set_name: The name of the rule set
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "rule_set_name", rule_set_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="ruleSetName")
@@ -39,19 +43,35 @@ class ActiveReceiptRuleSetArgs:
     def rule_set_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "rule_set_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ActiveReceiptRuleSetState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_set_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ActiveReceiptRuleSet resources.
         :param pulumi.Input[builtins.str] arn: The SES receipt rule set ARN.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_set_name: The name of the rule set
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rule_set_name is not None:
             pulumi.set(__self__, "rule_set_name", rule_set_name)
 
@@ -66,6 +86,18 @@ class _ActiveReceiptRuleSetState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="ruleSetName")
@@ -86,6 +118,7 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -110,6 +143,7 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_set_name: The name of the rule set
         """
         ...
@@ -153,6 +187,7 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -163,6 +198,7 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ActiveReceiptRuleSetArgs.__new__(ActiveReceiptRuleSetArgs)
 
+            __props__.__dict__["region"] = region
             if rule_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_set_name'")
             __props__.__dict__["rule_set_name"] = rule_set_name
@@ -178,6 +214,7 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rule_set_name: Optional[pulumi.Input[builtins.str]] = None) -> 'ActiveReceiptRuleSet':
         """
         Get an existing ActiveReceiptRuleSet resource's state with the given name, id, and optional extra
@@ -187,6 +224,7 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: The SES receipt rule set ARN.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_set_name: The name of the rule set
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -194,6 +232,7 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
         __props__ = _ActiveReceiptRuleSetState.__new__(_ActiveReceiptRuleSetState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["rule_set_name"] = rule_set_name
         return ActiveReceiptRuleSet(resource_name, opts=opts, __props__=__props__)
 
@@ -204,6 +243,14 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
         The SES receipt rule set ARN.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="ruleSetName")

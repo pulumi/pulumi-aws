@@ -68,6 +68,10 @@ export class AwsLogSource extends pulumi.CustomResource {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specify the natively-supported AWS service to add as a source in Security Lake.
      */
     public readonly source!: pulumi.Output<outputs.securitylake.AwsLogSourceSource | undefined>;
@@ -85,9 +89,11 @@ export class AwsLogSource extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AwsLogSourceState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["source"] = state ? state.source : undefined;
         } else {
             const args = argsOrState as AwsLogSourceArgs | undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -100,6 +106,10 @@ export class AwsLogSource extends pulumi.CustomResource {
  */
 export interface AwsLogSourceState {
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Specify the natively-supported AWS service to add as a source in Security Lake.
      */
     source?: pulumi.Input<inputs.securitylake.AwsLogSourceSource>;
@@ -109,6 +119,10 @@ export interface AwsLogSourceState {
  * The set of arguments for constructing a AwsLogSource resource.
  */
 export interface AwsLogSourceArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specify the natively-supported AWS service to add as a source in Security Lake.
      */

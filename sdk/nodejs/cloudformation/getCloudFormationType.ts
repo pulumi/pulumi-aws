@@ -27,6 +27,7 @@ export function getCloudFormationType(args?: GetCloudFormationTypeArgs, opts?: p
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudformation/getCloudFormationType:getCloudFormationType", {
         "arn": args.arn,
+        "region": args.region,
         "type": args.type,
         "typeName": args.typeName,
         "versionId": args.versionId,
@@ -41,6 +42,10 @@ export interface GetCloudFormationTypeArgs {
      * ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
      */
     arn?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * CloudFormation Registry Type. For example, `RESOURCE`.
      */
@@ -96,6 +101,7 @@ export interface GetCloudFormationTypeResult {
      * Provisioning behavior of the CloudFormation Type.
      */
     readonly provisioningType: string;
+    readonly region: string;
     /**
      * JSON document of the CloudFormation Type schema.
      */
@@ -133,6 +139,7 @@ export function getCloudFormationTypeOutput(args?: GetCloudFormationTypeOutputAr
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudformation/getCloudFormationType:getCloudFormationType", {
         "arn": args.arn,
+        "region": args.region,
         "type": args.type,
         "typeName": args.typeName,
         "versionId": args.versionId,
@@ -147,6 +154,10 @@ export interface GetCloudFormationTypeOutputArgs {
      * ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * CloudFormation Registry Type. For example, `RESOURCE`.
      */

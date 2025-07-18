@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,6 +49,8 @@ type MulticastGroupMember struct {
 	GroupIpAddress pulumi.StringOutput `pulumi:"groupIpAddress"`
 	// The group members' network interface ID to register with the transit gateway multicast group.
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the transit gateway multicast domain.
 	TransitGatewayMulticastDomainId pulumi.StringOutput `pulumi:"transitGatewayMulticastDomainId"`
 }
@@ -96,6 +98,8 @@ type multicastGroupMemberState struct {
 	GroupIpAddress *string `pulumi:"groupIpAddress"`
 	// The group members' network interface ID to register with the transit gateway multicast group.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the transit gateway multicast domain.
 	TransitGatewayMulticastDomainId *string `pulumi:"transitGatewayMulticastDomainId"`
 }
@@ -105,6 +109,8 @@ type MulticastGroupMemberState struct {
 	GroupIpAddress pulumi.StringPtrInput
 	// The group members' network interface ID to register with the transit gateway multicast group.
 	NetworkInterfaceId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the transit gateway multicast domain.
 	TransitGatewayMulticastDomainId pulumi.StringPtrInput
 }
@@ -118,6 +124,8 @@ type multicastGroupMemberArgs struct {
 	GroupIpAddress string `pulumi:"groupIpAddress"`
 	// The group members' network interface ID to register with the transit gateway multicast group.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the transit gateway multicast domain.
 	TransitGatewayMulticastDomainId string `pulumi:"transitGatewayMulticastDomainId"`
 }
@@ -128,6 +136,8 @@ type MulticastGroupMemberArgs struct {
 	GroupIpAddress pulumi.StringInput
 	// The group members' network interface ID to register with the transit gateway multicast group.
 	NetworkInterfaceId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the transit gateway multicast domain.
 	TransitGatewayMulticastDomainId pulumi.StringInput
 }
@@ -227,6 +237,11 @@ func (o MulticastGroupMemberOutput) GroupIpAddress() pulumi.StringOutput {
 // The group members' network interface ID to register with the transit gateway multicast group.
 func (o MulticastGroupMemberOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MulticastGroupMember) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o MulticastGroupMemberOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *MulticastGroupMember) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the transit gateway multicast domain.

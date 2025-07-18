@@ -105,6 +105,12 @@ namespace Pulumi.Aws.LB
 
     public sealed class GetLbsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -126,6 +132,12 @@ namespace Pulumi.Aws.LB
 
     public sealed class GetLbsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -157,6 +169,7 @@ namespace Pulumi.Aws.LB
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
@@ -165,10 +178,13 @@ namespace Pulumi.Aws.LB
 
             string id,
 
+            string region,
+
             ImmutableDictionary<string, string>? tags)
         {
             Arns = arns;
             Id = id;
+            Region = region;
             Tags = tags;
         }
     }

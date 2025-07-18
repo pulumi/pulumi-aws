@@ -22,9 +22,9 @@ namespace Pulumi.Aws.Athena
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var hoge = new Aws.S3.BucketV2("hoge", new()
+    ///     var hoge = new Aws.S3.Bucket("hoge", new()
     ///     {
-    ///         Bucket = "tf-test",
+    ///         BucketName = "tf-test",
     ///     });
     /// 
     ///     var test = new Aws.Kms.Key("test", new()
@@ -100,6 +100,12 @@ namespace Pulumi.Aws.Athena
         /// </summary>
         [Output("query")]
         public Output<string> Query { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Workgroup to which the query belongs. Defaults to `primary`
@@ -178,6 +184,12 @@ namespace Pulumi.Aws.Athena
         public Input<string> Query { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Workgroup to which the query belongs. Defaults to `primary`
         /// </summary>
         [Input("workgroup")]
@@ -214,6 +226,12 @@ namespace Pulumi.Aws.Athena
         /// </summary>
         [Input("query")]
         public Input<string>? Query { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Workgroup to which the query belongs. Defaults to `primary`

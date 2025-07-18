@@ -27,7 +27,7 @@ class GetIpamPreviewNextCidrResult:
     """
     A collection of values returned by getIpamPreviewNextCidr.
     """
-    def __init__(__self__, cidr=None, disallowed_cidrs=None, id=None, ipam_pool_id=None, netmask_length=None):
+    def __init__(__self__, cidr=None, disallowed_cidrs=None, id=None, ipam_pool_id=None, netmask_length=None, region=None):
         if cidr and not isinstance(cidr, str):
             raise TypeError("Expected argument 'cidr' to be a str")
         pulumi.set(__self__, "cidr", cidr)
@@ -43,6 +43,9 @@ class GetIpamPreviewNextCidrResult:
         if netmask_length and not isinstance(netmask_length, int):
             raise TypeError("Expected argument 'netmask_length' to be a int")
         pulumi.set(__self__, "netmask_length", netmask_length)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -75,6 +78,11 @@ class GetIpamPreviewNextCidrResult:
     def netmask_length(self) -> Optional[builtins.int]:
         return pulumi.get(self, "netmask_length")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetIpamPreviewNextCidrResult(GetIpamPreviewNextCidrResult):
     # pylint: disable=using-constant-test
@@ -86,12 +94,14 @@ class AwaitableGetIpamPreviewNextCidrResult(GetIpamPreviewNextCidrResult):
             disallowed_cidrs=self.disallowed_cidrs,
             id=self.id,
             ipam_pool_id=self.ipam_pool_id,
-            netmask_length=self.netmask_length)
+            netmask_length=self.netmask_length,
+            region=self.region)
 
 
 def get_ipam_preview_next_cidr(disallowed_cidrs: Optional[Sequence[builtins.str]] = None,
                                ipam_pool_id: Optional[builtins.str] = None,
                                netmask_length: Optional[builtins.int] = None,
+                               region: Optional[builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIpamPreviewNextCidrResult:
     """
     Previews a CIDR from an IPAM address pool. Only works for private IPv4.
@@ -117,11 +127,13 @@ def get_ipam_preview_next_cidr(disallowed_cidrs: Optional[Sequence[builtins.str]
     :param Sequence[builtins.str] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
     :param builtins.str ipam_pool_id: ID of the pool to which you want to assign a CIDR.
     :param builtins.int netmask_length: Netmask length of the CIDR you would like to preview from the IPAM pool.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['disallowedCidrs'] = disallowed_cidrs
     __args__['ipamPoolId'] = ipam_pool_id
     __args__['netmaskLength'] = netmask_length
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr', __args__, opts=opts, typ=GetIpamPreviewNextCidrResult).value
 
@@ -130,10 +142,12 @@ def get_ipam_preview_next_cidr(disallowed_cidrs: Optional[Sequence[builtins.str]
         disallowed_cidrs=pulumi.get(__ret__, 'disallowed_cidrs'),
         id=pulumi.get(__ret__, 'id'),
         ipam_pool_id=pulumi.get(__ret__, 'ipam_pool_id'),
-        netmask_length=pulumi.get(__ret__, 'netmask_length'))
+        netmask_length=pulumi.get(__ret__, 'netmask_length'),
+        region=pulumi.get(__ret__, 'region'))
 def get_ipam_preview_next_cidr_output(disallowed_cidrs: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                                       ipam_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                                       netmask_length: Optional[pulumi.Input[Optional[builtins.int]]] = None,
+                                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamPreviewNextCidrResult]:
     """
     Previews a CIDR from an IPAM address pool. Only works for private IPv4.
@@ -159,11 +173,13 @@ def get_ipam_preview_next_cidr_output(disallowed_cidrs: Optional[pulumi.Input[Op
     :param Sequence[builtins.str] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
     :param builtins.str ipam_pool_id: ID of the pool to which you want to assign a CIDR.
     :param builtins.int netmask_length: Netmask length of the CIDR you would like to preview from the IPAM pool.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['disallowedCidrs'] = disallowed_cidrs
     __args__['ipamPoolId'] = ipam_pool_id
     __args__['netmaskLength'] = netmask_length
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr', __args__, opts=opts, typ=GetIpamPreviewNextCidrResult)
     return __ret__.apply(lambda __response__: GetIpamPreviewNextCidrResult(
@@ -171,4 +187,5 @@ def get_ipam_preview_next_cidr_output(disallowed_cidrs: Optional[pulumi.Input[Op
         disallowed_cidrs=pulumi.get(__response__, 'disallowed_cidrs'),
         id=pulumi.get(__response__, 'id'),
         ipam_pool_id=pulumi.get(__response__, 'ipam_pool_id'),
-        netmask_length=pulumi.get(__response__, 'netmask_length')))
+        netmask_length=pulumi.get(__response__, 'netmask_length'),
+        region=pulumi.get(__response__, 'region')))

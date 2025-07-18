@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -470,7 +470,9 @@ func (o ServiceHealthCheckConfigPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type ServiceHealthCheckCustomConfig struct {
-	// The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+	// The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
+	//
+	// Deprecated: failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
 	FailureThreshold *int `pulumi:"failureThreshold"`
 }
 
@@ -486,7 +488,9 @@ type ServiceHealthCheckCustomConfigInput interface {
 }
 
 type ServiceHealthCheckCustomConfigArgs struct {
-	// The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+	// The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
+	//
+	// Deprecated: failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
 	FailureThreshold pulumi.IntPtrInput `pulumi:"failureThreshold"`
 }
 
@@ -567,7 +571,9 @@ func (o ServiceHealthCheckCustomConfigOutput) ToServiceHealthCheckCustomConfigPt
 	}).(ServiceHealthCheckCustomConfigPtrOutput)
 }
 
-// The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+// The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
+//
+// Deprecated: failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
 func (o ServiceHealthCheckCustomConfigOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceHealthCheckCustomConfig) *int { return v.FailureThreshold }).(pulumi.IntPtrOutput)
 }
@@ -596,7 +602,9 @@ func (o ServiceHealthCheckCustomConfigPtrOutput) Elem() ServiceHealthCheckCustom
 	}).(ServiceHealthCheckCustomConfigOutput)
 }
 
-// The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+// The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
+//
+// Deprecated: failure_threshold is deprecated. The argument is no longer supported by AWS and the value is always set to 1. The attribute will be removed in a future major version.
 func (o ServiceHealthCheckCustomConfigPtrOutput) FailureThreshold() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceHealthCheckCustomConfig) *int {
 		if v == nil {

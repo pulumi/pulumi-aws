@@ -23,6 +23,7 @@ export function getLogGroups(args?: GetLogGroupsArgs, opts?: pulumi.InvokeOption
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudwatch/getLogGroups:getLogGroups", {
         "logGroupNamePrefix": args.logGroupNamePrefix,
+        "region": args.region,
     }, opts);
 }
 
@@ -34,6 +35,10 @@ export interface GetLogGroupsArgs {
      * Group prefix of the Cloudwatch log groups to list
      */
     logGroupNamePrefix?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -53,6 +58,7 @@ export interface GetLogGroupsResult {
      * Set of names of the Cloudwatch log groups
      */
     readonly logGroupNames: string[];
+    readonly region: string;
 }
 /**
  * Use this data source to get a list of AWS Cloudwatch Log Groups
@@ -73,6 +79,7 @@ export function getLogGroupsOutput(args?: GetLogGroupsOutputArgs, opts?: pulumi.
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudwatch/getLogGroups:getLogGroups", {
         "logGroupNamePrefix": args.logGroupNamePrefix,
+        "region": args.region,
     }, opts);
 }
 
@@ -84,4 +91,8 @@ export interface GetLogGroupsOutputArgs {
      * Group prefix of the Cloudwatch log groups to list
      */
     logGroupNamePrefix?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

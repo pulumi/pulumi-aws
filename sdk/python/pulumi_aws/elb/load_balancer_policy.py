@@ -25,19 +25,23 @@ class LoadBalancerPolicyArgs:
                  load_balancer_name: pulumi.Input[builtins.str],
                  policy_name: pulumi.Input[builtins.str],
                  policy_type_name: pulumi.Input[builtins.str],
-                 policy_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]] = None):
+                 policy_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LoadBalancerPolicy resource.
         :param pulumi.Input[builtins.str] load_balancer_name: The load balancer on which the policy is defined.
         :param pulumi.Input[builtins.str] policy_name: The name of the load balancer policy.
         :param pulumi.Input[builtins.str] policy_type_name: The policy type.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]] policy_attributes: Policy attribute to apply to the policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "load_balancer_name", load_balancer_name)
         pulumi.set(__self__, "policy_name", policy_name)
         pulumi.set(__self__, "policy_type_name", policy_type_name)
         if policy_attributes is not None:
             pulumi.set(__self__, "policy_attributes", policy_attributes)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="loadBalancerName")
@@ -87,6 +91,18 @@ class LoadBalancerPolicyArgs:
     def policy_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]]):
         pulumi.set(self, "policy_attributes", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _LoadBalancerPolicyState:
@@ -94,13 +110,15 @@ class _LoadBalancerPolicyState:
                  load_balancer_name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]]] = None,
                  policy_name: Optional[pulumi.Input[builtins.str]] = None,
-                 policy_type_name: Optional[pulumi.Input[builtins.str]] = None):
+                 policy_type_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering LoadBalancerPolicy resources.
         :param pulumi.Input[builtins.str] load_balancer_name: The load balancer on which the policy is defined.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerPolicyPolicyAttributeArgs']]] policy_attributes: Policy attribute to apply to the policy.
         :param pulumi.Input[builtins.str] policy_name: The name of the load balancer policy.
         :param pulumi.Input[builtins.str] policy_type_name: The policy type.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if load_balancer_name is not None:
             pulumi.set(__self__, "load_balancer_name", load_balancer_name)
@@ -110,6 +128,8 @@ class _LoadBalancerPolicyState:
             pulumi.set(__self__, "policy_name", policy_name)
         if policy_type_name is not None:
             pulumi.set(__self__, "policy_type_name", policy_type_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="loadBalancerName")
@@ -159,6 +179,18 @@ class _LoadBalancerPolicyState:
     def policy_type_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "policy_type_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:elb/loadBalancerPolicy:LoadBalancerPolicy")
 class LoadBalancerPolicy(pulumi.CustomResource):
@@ -170,6 +202,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
                  policy_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerPolicyPolicyAttributeArgs', 'LoadBalancerPolicyPolicyAttributeArgsDict']]]]] = None,
                  policy_name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_type_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a load balancer policy, which can be attached to an ELB listener or backend server.
@@ -248,6 +281,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerPolicyPolicyAttributeArgs', 'LoadBalancerPolicyPolicyAttributeArgsDict']]]] policy_attributes: Policy attribute to apply to the policy.
         :param pulumi.Input[builtins.str] policy_name: The name of the load balancer policy.
         :param pulumi.Input[builtins.str] policy_type_name: The policy type.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -345,6 +379,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
                  policy_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerPolicyPolicyAttributeArgs', 'LoadBalancerPolicyPolicyAttributeArgsDict']]]]] = None,
                  policy_name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_type_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -364,6 +399,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
             if policy_type_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_type_name'")
             __props__.__dict__["policy_type_name"] = policy_type_name
+            __props__.__dict__["region"] = region
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LoadBalancerPolicy, __self__).__init__(
@@ -379,7 +415,8 @@ class LoadBalancerPolicy(pulumi.CustomResource):
             load_balancer_name: Optional[pulumi.Input[builtins.str]] = None,
             policy_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerPolicyPolicyAttributeArgs', 'LoadBalancerPolicyPolicyAttributeArgsDict']]]]] = None,
             policy_name: Optional[pulumi.Input[builtins.str]] = None,
-            policy_type_name: Optional[pulumi.Input[builtins.str]] = None) -> 'LoadBalancerPolicy':
+            policy_type_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'LoadBalancerPolicy':
         """
         Get an existing LoadBalancerPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -391,6 +428,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerPolicyPolicyAttributeArgs', 'LoadBalancerPolicyPolicyAttributeArgsDict']]]] policy_attributes: Policy attribute to apply to the policy.
         :param pulumi.Input[builtins.str] policy_name: The name of the load balancer policy.
         :param pulumi.Input[builtins.str] policy_type_name: The policy type.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -400,6 +438,7 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         __props__.__dict__["policy_attributes"] = policy_attributes
         __props__.__dict__["policy_name"] = policy_name
         __props__.__dict__["policy_type_name"] = policy_type_name
+        __props__.__dict__["region"] = region
         return LoadBalancerPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -433,4 +472,12 @@ class LoadBalancerPolicy(pulumi.CustomResource):
         The policy type.
         """
         return pulumi.get(self, "policy_type_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

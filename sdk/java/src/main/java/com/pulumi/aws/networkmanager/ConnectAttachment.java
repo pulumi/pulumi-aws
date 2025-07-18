@@ -18,7 +18,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Network Manager ConnectAttachment.
+ * Manages an AWS Network Manager Connect Attachment.
+ * 
+ * Use this resource to create a Connect attachment in AWS Network Manager. Connect attachments enable you to connect your on-premises networks to your core network through a VPC or Transit Gateway attachment.
  * 
  * ## Example Usage
  * 
@@ -121,7 +123,7 @@ import javax.annotation.Nullable;
  *                 .protocol("GRE")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(test)
+ *                 .dependsOn(exampleAttachmentAccepter)
  *                 .build());
  * 
  *         var example2 = new AttachmentAccepter("example2", AttachmentAccepterArgs.builder()
@@ -147,90 +149,98 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:networkmanager/connectAttachment:ConnectAttachment")
 public class ConnectAttachment extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the attachment.
+     * ARN of the attachment.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the attachment.
+     * @return ARN of the attachment.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * ID of the attachment.
+     * 
+     */
     @Export(name="attachmentId", refs={String.class}, tree="[0]")
     private Output<String> attachmentId;
 
+    /**
+     * @return ID of the attachment.
+     * 
+     */
     public Output<String> attachmentId() {
         return this.attachmentId;
     }
     /**
-     * The policy rule number associated with the attachment.
+     * Policy rule number associated with the attachment.
      * 
      */
     @Export(name="attachmentPolicyRuleNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> attachmentPolicyRuleNumber;
 
     /**
-     * @return The policy rule number associated with the attachment.
+     * @return Policy rule number associated with the attachment.
      * 
      */
     public Output<Integer> attachmentPolicyRuleNumber() {
         return this.attachmentPolicyRuleNumber;
     }
     /**
-     * The type of attachment.
+     * Type of attachment.
      * 
      */
     @Export(name="attachmentType", refs={String.class}, tree="[0]")
     private Output<String> attachmentType;
 
     /**
-     * @return The type of attachment.
+     * @return Type of attachment.
      * 
      */
     public Output<String> attachmentType() {
         return this.attachmentType;
     }
     /**
-     * The ARN of a core network.
+     * ARN of a core network.
      * 
      */
     @Export(name="coreNetworkArn", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkArn;
 
     /**
-     * @return The ARN of a core network.
+     * @return ARN of a core network.
      * 
      */
     public Output<String> coreNetworkArn() {
         return this.coreNetworkArn;
     }
     /**
-     * The ID of a core network where you want to create the attachment.
+     * ID of a core network where you want to create the attachment.
      * 
      */
     @Export(name="coreNetworkId", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkId;
 
     /**
-     * @return The ID of a core network where you want to create the attachment.
+     * @return ID of a core network where you want to create the attachment.
      * 
      */
     public Output<String> coreNetworkId() {
         return this.coreNetworkId;
     }
     /**
-     * The Region where the edge is located.
+     * Region where the edge is located.
      * 
      */
     @Export(name="edgeLocation", refs={String.class}, tree="[0]")
     private Output<String> edgeLocation;
 
     /**
-     * @return The Region where the edge is located.
+     * @return Region where the edge is located.
      * 
      */
     public Output<String> edgeLocation() {
@@ -239,8 +249,6 @@ public class ConnectAttachment extends com.pulumi.resources.CustomResource {
     /**
      * Options block. See options for more information.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="options", refs={ConnectAttachmentOptions.class}, tree="[0]")
     private Output<ConnectAttachmentOptions> options;
@@ -248,63 +256,61 @@ public class ConnectAttachment extends com.pulumi.resources.CustomResource {
     /**
      * @return Options block. See options for more information.
      * 
-     * The following arguments are optional:
-     * 
      */
     public Output<ConnectAttachmentOptions> options() {
         return this.options;
     }
     /**
-     * The ID of the attachment account owner.
+     * ID of the attachment account owner.
      * 
      */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
     /**
-     * @return The ID of the attachment account owner.
+     * @return ID of the attachment account owner.
      * 
      */
     public Output<String> ownerAccountId() {
         return this.ownerAccountId;
     }
     /**
-     * The attachment resource ARN.
+     * Attachment resource ARN.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return The attachment resource ARN.
+     * @return Attachment resource ARN.
      * 
      */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
     /**
-     * The name of the segment attachment.
+     * Name of the segment attachment.
      * 
      */
     @Export(name="segmentName", refs={String.class}, tree="[0]")
     private Output<String> segmentName;
 
     /**
-     * @return The name of the segment attachment.
+     * @return Name of the segment attachment.
      * 
      */
     public Output<String> segmentName() {
         return this.segmentName;
     }
     /**
-     * The state of the attachment.
+     * State of the attachment.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
-     * @return The state of the attachment.
+     * @return State of the attachment.
      * 
      */
     public Output<String> state() {
@@ -325,32 +331,32 @@ public class ConnectAttachment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The ID of the attachment between the two connections.
+     * ID of the attachment between the two connections.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="transportAttachmentId", refs={String.class}, tree="[0]")
     private Output<String> transportAttachmentId;
 
     /**
-     * @return The ID of the attachment between the two connections.
+     * @return ID of the attachment between the two connections.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> transportAttachmentId() {

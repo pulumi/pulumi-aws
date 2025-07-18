@@ -81,6 +81,10 @@ export class NotificationChannel extends pulumi.CustomResource {
      */
     public readonly filters!: pulumi.Output<outputs.devopsguru.NotificationChannelFilters | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * SNS noficiation channel configurations. See the `sns` argument reference below.
      *
      * The following arguments are optional:
@@ -101,10 +105,12 @@ export class NotificationChannel extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as NotificationChannelState | undefined;
             resourceInputs["filters"] = state ? state.filters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sns"] = state ? state.sns : undefined;
         } else {
             const args = argsOrState as NotificationChannelArgs | undefined;
             resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sns"] = args ? args.sns : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -121,6 +127,10 @@ export interface NotificationChannelState {
      */
     filters?: pulumi.Input<inputs.devopsguru.NotificationChannelFilters>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * SNS noficiation channel configurations. See the `sns` argument reference below.
      *
      * The following arguments are optional:
@@ -136,6 +146,10 @@ export interface NotificationChannelArgs {
      * Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
      */
     filters?: pulumi.Input<inputs.devopsguru.NotificationChannelFilters>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * SNS noficiation channel configurations. See the `sns` argument reference below.
      *

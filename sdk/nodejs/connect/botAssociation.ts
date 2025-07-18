@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  * const exampleBotAssociation = new aws.connect.BotAssociation("example", {
  *     instanceId: exampleAwsConnectInstance.id,
  *     lexBot: {
- *         lexRegion: current.then(current => current.name),
+ *         lexRegion: current.then(current => current.region),
  *         name: exampleBot.name,
  *     },
  * });
@@ -120,6 +120,10 @@ export class BotAssociation extends pulumi.CustomResource {
      * Configuration information of an Amazon Lex (V1) bot. Detailed below.
      */
     public readonly lexBot!: pulumi.Output<outputs.connect.BotAssociationLexBot>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a BotAssociation resource with the given unique name, arguments, and options.
@@ -136,6 +140,7 @@ export class BotAssociation extends pulumi.CustomResource {
             const state = argsOrState as BotAssociationState | undefined;
             resourceInputs["instanceId"] = state ? state.instanceId : undefined;
             resourceInputs["lexBot"] = state ? state.lexBot : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as BotAssociationArgs | undefined;
             if ((!args || args.instanceId === undefined) && !opts.urn) {
@@ -146,6 +151,7 @@ export class BotAssociation extends pulumi.CustomResource {
             }
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["lexBot"] = args ? args.lexBot : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BotAssociation.__pulumiType, name, resourceInputs, opts);
@@ -164,6 +170,10 @@ export interface BotAssociationState {
      * Configuration information of an Amazon Lex (V1) bot. Detailed below.
      */
     lexBot?: pulumi.Input<inputs.connect.BotAssociationLexBot>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -178,4 +188,8 @@ export interface BotAssociationArgs {
      * Configuration information of an Amazon Lex (V1) bot. Detailed below.
      */
     lexBot: pulumi.Input<inputs.connect.BotAssociationLexBot>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

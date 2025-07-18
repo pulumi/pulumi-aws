@@ -159,6 +159,12 @@ namespace Pulumi.Aws.Kms
             set => _plaintext = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetCipherTextArgs()
         {
         }
@@ -201,6 +207,12 @@ namespace Pulumi.Aws.Kms
             }
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetCipherTextInvokeArgs()
         {
         }
@@ -222,6 +234,7 @@ namespace Pulumi.Aws.Kms
         public readonly string Id;
         public readonly string KeyId;
         public readonly string Plaintext;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetCipherTextResult(
@@ -233,13 +246,16 @@ namespace Pulumi.Aws.Kms
 
             string keyId,
 
-            string plaintext)
+            string plaintext,
+
+            string region)
         {
             CiphertextBlob = ciphertextBlob;
             Context = context;
             Id = id;
             KeyId = keyId;
             Plaintext = plaintext;
+            Region = region;
         }
     }
 }

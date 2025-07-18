@@ -31,9 +31,11 @@ class BranchArgs:
                  enable_notification: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_performance_mode: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_pull_request_preview: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_skew_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  framework: Optional[pulumi.Input[builtins.str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  stage: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  ttl: Optional[pulumi.Input[builtins.str]] = None):
@@ -50,9 +52,11 @@ class BranchArgs:
         :param pulumi.Input[builtins.bool] enable_notification: Enables notifications for the branch.
         :param pulumi.Input[builtins.bool] enable_performance_mode: Enables performance mode for the branch.
         :param pulumi.Input[builtins.bool] enable_pull_request_preview: Enables pull request previews for this branch.
+        :param pulumi.Input[builtins.bool] enable_skew_protection: Enables skew protection for the branch.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables for the branch.
         :param pulumi.Input[builtins.str] framework: Framework for the branch.
         :param pulumi.Input[builtins.str] pull_request_environment_name: Amplify environment name for the pull request.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stage: Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] ttl: Content Time To Live (TTL) for the website in seconds.
@@ -77,12 +81,16 @@ class BranchArgs:
             pulumi.set(__self__, "enable_performance_mode", enable_performance_mode)
         if enable_pull_request_preview is not None:
             pulumi.set(__self__, "enable_pull_request_preview", enable_pull_request_preview)
+        if enable_skew_protection is not None:
+            pulumi.set(__self__, "enable_skew_protection", enable_skew_protection)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if framework is not None:
             pulumi.set(__self__, "framework", framework)
         if pull_request_environment_name is not None:
             pulumi.set(__self__, "pull_request_environment_name", pull_request_environment_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if stage is not None:
             pulumi.set(__self__, "stage", stage)
         if tags is not None:
@@ -223,6 +231,18 @@ class BranchArgs:
         pulumi.set(self, "enable_pull_request_preview", value)
 
     @property
+    @pulumi.getter(name="enableSkewProtection")
+    def enable_skew_protection(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Enables skew protection for the branch.
+        """
+        return pulumi.get(self, "enable_skew_protection")
+
+    @enable_skew_protection.setter
+    def enable_skew_protection(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enable_skew_protection", value)
+
+    @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -257,6 +277,18 @@ class BranchArgs:
     @pull_request_environment_name.setter
     def pull_request_environment_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "pull_request_environment_name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -313,9 +345,11 @@ class _BranchState:
                  enable_notification: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_performance_mode: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_pull_request_preview: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_skew_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  framework: Optional[pulumi.Input[builtins.str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_branch: Optional[pulumi.Input[builtins.str]] = None,
                  stage: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -338,9 +372,11 @@ class _BranchState:
         :param pulumi.Input[builtins.bool] enable_notification: Enables notifications for the branch.
         :param pulumi.Input[builtins.bool] enable_performance_mode: Enables performance mode for the branch.
         :param pulumi.Input[builtins.bool] enable_pull_request_preview: Enables pull request previews for this branch.
+        :param pulumi.Input[builtins.bool] enable_skew_protection: Enables skew protection for the branch.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables for the branch.
         :param pulumi.Input[builtins.str] framework: Framework for the branch.
         :param pulumi.Input[builtins.str] pull_request_environment_name: Amplify environment name for the pull request.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_branch: Source branch if the branch is a pull request branch.
         :param pulumi.Input[builtins.str] stage: Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -377,21 +413,22 @@ class _BranchState:
             pulumi.set(__self__, "enable_performance_mode", enable_performance_mode)
         if enable_pull_request_preview is not None:
             pulumi.set(__self__, "enable_pull_request_preview", enable_pull_request_preview)
+        if enable_skew_protection is not None:
+            pulumi.set(__self__, "enable_skew_protection", enable_skew_protection)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if framework is not None:
             pulumi.set(__self__, "framework", framework)
         if pull_request_environment_name is not None:
             pulumi.set(__self__, "pull_request_environment_name", pull_request_environment_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source_branch is not None:
             pulumi.set(__self__, "source_branch", source_branch)
         if stage is not None:
             pulumi.set(__self__, "stage", stage)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if ttl is not None:
@@ -578,6 +615,18 @@ class _BranchState:
         pulumi.set(self, "enable_pull_request_preview", value)
 
     @property
+    @pulumi.getter(name="enableSkewProtection")
+    def enable_skew_protection(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Enables skew protection for the branch.
+        """
+        return pulumi.get(self, "enable_skew_protection")
+
+    @enable_skew_protection.setter
+    def enable_skew_protection(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enable_skew_protection", value)
+
+    @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -612,6 +661,18 @@ class _BranchState:
     @pull_request_environment_name.setter
     def pull_request_environment_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "pull_request_environment_name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="sourceBranch")
@@ -651,7 +712,6 @@ class _BranchState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -692,9 +752,11 @@ class Branch(pulumi.CustomResource):
                  enable_notification: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_performance_mode: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_pull_request_preview: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_skew_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  framework: Optional[pulumi.Input[builtins.str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  stage: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  ttl: Optional[pulumi.Input[builtins.str]] = None,
@@ -781,20 +843,16 @@ class Branch(pulumi.CustomResource):
                 },
                 "input_template": "\\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \\"",
             })
-        amplify_app_master = pulumi.Output.all(
-            masterArn=master.arn,
-            amplifyAppMasterTopicArn=amplify_app_master_topic.arn
-        ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(statements=[{
-            "sid": f"Allow_Publish_Events {resolved_outputs['masterArn']}",
+        amplify_app_master = aws.iam.get_policy_document_output(statements=[{
+            "sid": master.arn.apply(lambda arn: f"Allow_Publish_Events {arn}"),
             "effect": "Allow",
             "actions": ["SNS:Publish"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["events.amazonaws.com"],
             }],
-            "resources": [%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)],
-        }]))
-
+            "resources": [amplify_app_master_topic.arn],
+        }])
         amplify_app_master_topic_policy = aws.sns.TopicPolicy("amplify_app_master",
             arn=amplify_app_master_topic.arn,
             policy=amplify_app_master.json)
@@ -825,9 +883,11 @@ class Branch(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enable_notification: Enables notifications for the branch.
         :param pulumi.Input[builtins.bool] enable_performance_mode: Enables performance mode for the branch.
         :param pulumi.Input[builtins.bool] enable_pull_request_preview: Enables pull request previews for this branch.
+        :param pulumi.Input[builtins.bool] enable_skew_protection: Enables skew protection for the branch.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables for the branch.
         :param pulumi.Input[builtins.str] framework: Framework for the branch.
         :param pulumi.Input[builtins.str] pull_request_environment_name: Amplify environment name for the pull request.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stage: Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] ttl: Content Time To Live (TTL) for the website in seconds.
@@ -920,20 +980,16 @@ class Branch(pulumi.CustomResource):
                 },
                 "input_template": "\\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \\"",
             })
-        amplify_app_master = pulumi.Output.all(
-            masterArn=master.arn,
-            amplifyAppMasterTopicArn=amplify_app_master_topic.arn
-        ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(statements=[{
-            "sid": f"Allow_Publish_Events {resolved_outputs['masterArn']}",
+        amplify_app_master = aws.iam.get_policy_document_output(statements=[{
+            "sid": master.arn.apply(lambda arn: f"Allow_Publish_Events {arn}"),
             "effect": "Allow",
             "actions": ["SNS:Publish"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["events.amazonaws.com"],
             }],
-            "resources": [%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)],
-        }]))
-
+            "resources": [amplify_app_master_topic.arn],
+        }])
         amplify_app_master_topic_policy = aws.sns.TopicPolicy("amplify_app_master",
             arn=amplify_app_master_topic.arn,
             policy=amplify_app_master.json)
@@ -977,9 +1033,11 @@ class Branch(pulumi.CustomResource):
                  enable_notification: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_performance_mode: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_pull_request_preview: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_skew_protection: Optional[pulumi.Input[builtins.bool]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  framework: Optional[pulumi.Input[builtins.str]] = None,
                  pull_request_environment_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  stage: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  ttl: Optional[pulumi.Input[builtins.str]] = None,
@@ -1007,9 +1065,11 @@ class Branch(pulumi.CustomResource):
             __props__.__dict__["enable_notification"] = enable_notification
             __props__.__dict__["enable_performance_mode"] = enable_performance_mode
             __props__.__dict__["enable_pull_request_preview"] = enable_pull_request_preview
+            __props__.__dict__["enable_skew_protection"] = enable_skew_protection
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["framework"] = framework
             __props__.__dict__["pull_request_environment_name"] = pull_request_environment_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["stage"] = stage
             __props__.__dict__["tags"] = tags
             __props__.__dict__["ttl"] = ttl
@@ -1046,9 +1106,11 @@ class Branch(pulumi.CustomResource):
             enable_notification: Optional[pulumi.Input[builtins.bool]] = None,
             enable_performance_mode: Optional[pulumi.Input[builtins.bool]] = None,
             enable_pull_request_preview: Optional[pulumi.Input[builtins.bool]] = None,
+            enable_skew_protection: Optional[pulumi.Input[builtins.bool]] = None,
             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             framework: Optional[pulumi.Input[builtins.str]] = None,
             pull_request_environment_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             source_branch: Optional[pulumi.Input[builtins.str]] = None,
             stage: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -1076,9 +1138,11 @@ class Branch(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enable_notification: Enables notifications for the branch.
         :param pulumi.Input[builtins.bool] enable_performance_mode: Enables performance mode for the branch.
         :param pulumi.Input[builtins.bool] enable_pull_request_preview: Enables pull request previews for this branch.
+        :param pulumi.Input[builtins.bool] enable_skew_protection: Enables skew protection for the branch.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables for the branch.
         :param pulumi.Input[builtins.str] framework: Framework for the branch.
         :param pulumi.Input[builtins.str] pull_request_environment_name: Amplify environment name for the pull request.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_branch: Source branch if the branch is a pull request branch.
         :param pulumi.Input[builtins.str] stage: Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1104,9 +1168,11 @@ class Branch(pulumi.CustomResource):
         __props__.__dict__["enable_notification"] = enable_notification
         __props__.__dict__["enable_performance_mode"] = enable_performance_mode
         __props__.__dict__["enable_pull_request_preview"] = enable_pull_request_preview
+        __props__.__dict__["enable_skew_protection"] = enable_skew_protection
         __props__.__dict__["environment_variables"] = environment_variables
         __props__.__dict__["framework"] = framework
         __props__.__dict__["pull_request_environment_name"] = pull_request_environment_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["source_branch"] = source_branch
         __props__.__dict__["stage"] = stage
         __props__.__dict__["tags"] = tags
@@ -1235,6 +1301,14 @@ class Branch(pulumi.CustomResource):
         return pulumi.get(self, "enable_pull_request_preview")
 
     @property
+    @pulumi.getter(name="enableSkewProtection")
+    def enable_skew_protection(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Enables skew protection for the branch.
+        """
+        return pulumi.get(self, "enable_skew_protection")
+
+    @property
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
@@ -1257,6 +1331,14 @@ class Branch(pulumi.CustomResource):
         Amplify environment name for the pull request.
         """
         return pulumi.get(self, "pull_request_environment_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sourceBranch")
@@ -1284,7 +1366,6 @@ class Branch(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

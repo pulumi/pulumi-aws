@@ -12,8 +12,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -23,25 +23,25 @@ public final class GetListenerRuleAction {
      * Detailed below.
      * 
      */
-    private @Nullable GetListenerRuleActionAuthenticateCognito authenticateCognito;
+    private @Nullable List<GetListenerRuleActionAuthenticateCognito> authenticateCognitos;
     /**
      * @return An action to authenticate using OIDC.
      * Detailed below.
      * 
      */
-    private @Nullable GetListenerRuleActionAuthenticateOidc authenticateOidc;
+    private @Nullable List<GetListenerRuleActionAuthenticateOidc> authenticateOidcs;
     /**
      * @return An action to return a fixed response.
      * Detailed below.
      * 
      */
-    private @Nullable GetListenerRuleActionFixedResponse fixedResponse;
+    private @Nullable List<GetListenerRuleActionFixedResponse> fixedResponses;
     /**
      * @return An action to forward the request.
      * Detailed below.
      * 
      */
-    private @Nullable GetListenerRuleActionForward forward;
+    private @Nullable List<GetListenerRuleActionForward> forwards;
     /**
      * @return The evaluation order of the action.
      * 
@@ -52,7 +52,7 @@ public final class GetListenerRuleAction {
      * Detailed below.
      * 
      */
-    private @Nullable GetListenerRuleActionRedirect redirect;
+    private @Nullable List<GetListenerRuleActionRedirect> redirects;
     /**
      * @return The type of the action, indicates which sub-block will be populated.
      * 
@@ -65,32 +65,32 @@ public final class GetListenerRuleAction {
      * Detailed below.
      * 
      */
-    public Optional<GetListenerRuleActionAuthenticateCognito> authenticateCognito() {
-        return Optional.ofNullable(this.authenticateCognito);
+    public List<GetListenerRuleActionAuthenticateCognito> authenticateCognitos() {
+        return this.authenticateCognitos == null ? List.of() : this.authenticateCognitos;
     }
     /**
      * @return An action to authenticate using OIDC.
      * Detailed below.
      * 
      */
-    public Optional<GetListenerRuleActionAuthenticateOidc> authenticateOidc() {
-        return Optional.ofNullable(this.authenticateOidc);
+    public List<GetListenerRuleActionAuthenticateOidc> authenticateOidcs() {
+        return this.authenticateOidcs == null ? List.of() : this.authenticateOidcs;
     }
     /**
      * @return An action to return a fixed response.
      * Detailed below.
      * 
      */
-    public Optional<GetListenerRuleActionFixedResponse> fixedResponse() {
-        return Optional.ofNullable(this.fixedResponse);
+    public List<GetListenerRuleActionFixedResponse> fixedResponses() {
+        return this.fixedResponses == null ? List.of() : this.fixedResponses;
     }
     /**
      * @return An action to forward the request.
      * Detailed below.
      * 
      */
-    public Optional<GetListenerRuleActionForward> forward() {
-        return Optional.ofNullable(this.forward);
+    public List<GetListenerRuleActionForward> forwards() {
+        return this.forwards == null ? List.of() : this.forwards;
     }
     /**
      * @return The evaluation order of the action.
@@ -104,8 +104,8 @@ public final class GetListenerRuleAction {
      * Detailed below.
      * 
      */
-    public Optional<GetListenerRuleActionRedirect> redirect() {
-        return Optional.ofNullable(this.redirect);
+    public List<GetListenerRuleActionRedirect> redirects() {
+        return this.redirects == null ? List.of() : this.redirects;
     }
     /**
      * @return The type of the action, indicates which sub-block will be populated.
@@ -124,48 +124,60 @@ public final class GetListenerRuleAction {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable GetListenerRuleActionAuthenticateCognito authenticateCognito;
-        private @Nullable GetListenerRuleActionAuthenticateOidc authenticateOidc;
-        private @Nullable GetListenerRuleActionFixedResponse fixedResponse;
-        private @Nullable GetListenerRuleActionForward forward;
+        private @Nullable List<GetListenerRuleActionAuthenticateCognito> authenticateCognitos;
+        private @Nullable List<GetListenerRuleActionAuthenticateOidc> authenticateOidcs;
+        private @Nullable List<GetListenerRuleActionFixedResponse> fixedResponses;
+        private @Nullable List<GetListenerRuleActionForward> forwards;
         private Integer order;
-        private @Nullable GetListenerRuleActionRedirect redirect;
+        private @Nullable List<GetListenerRuleActionRedirect> redirects;
         private String type;
         public Builder() {}
         public Builder(GetListenerRuleAction defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.authenticateCognito = defaults.authenticateCognito;
-    	      this.authenticateOidc = defaults.authenticateOidc;
-    	      this.fixedResponse = defaults.fixedResponse;
-    	      this.forward = defaults.forward;
+    	      this.authenticateCognitos = defaults.authenticateCognitos;
+    	      this.authenticateOidcs = defaults.authenticateOidcs;
+    	      this.fixedResponses = defaults.fixedResponses;
+    	      this.forwards = defaults.forwards;
     	      this.order = defaults.order;
-    	      this.redirect = defaults.redirect;
+    	      this.redirects = defaults.redirects;
     	      this.type = defaults.type;
         }
 
         @CustomType.Setter
-        public Builder authenticateCognito(@Nullable GetListenerRuleActionAuthenticateCognito authenticateCognito) {
+        public Builder authenticateCognitos(@Nullable List<GetListenerRuleActionAuthenticateCognito> authenticateCognitos) {
 
-            this.authenticateCognito = authenticateCognito;
+            this.authenticateCognitos = authenticateCognitos;
             return this;
         }
-        @CustomType.Setter
-        public Builder authenticateOidc(@Nullable GetListenerRuleActionAuthenticateOidc authenticateOidc) {
-
-            this.authenticateOidc = authenticateOidc;
-            return this;
+        public Builder authenticateCognitos(GetListenerRuleActionAuthenticateCognito... authenticateCognitos) {
+            return authenticateCognitos(List.of(authenticateCognitos));
         }
         @CustomType.Setter
-        public Builder fixedResponse(@Nullable GetListenerRuleActionFixedResponse fixedResponse) {
+        public Builder authenticateOidcs(@Nullable List<GetListenerRuleActionAuthenticateOidc> authenticateOidcs) {
 
-            this.fixedResponse = fixedResponse;
+            this.authenticateOidcs = authenticateOidcs;
             return this;
         }
+        public Builder authenticateOidcs(GetListenerRuleActionAuthenticateOidc... authenticateOidcs) {
+            return authenticateOidcs(List.of(authenticateOidcs));
+        }
         @CustomType.Setter
-        public Builder forward(@Nullable GetListenerRuleActionForward forward) {
+        public Builder fixedResponses(@Nullable List<GetListenerRuleActionFixedResponse> fixedResponses) {
 
-            this.forward = forward;
+            this.fixedResponses = fixedResponses;
             return this;
+        }
+        public Builder fixedResponses(GetListenerRuleActionFixedResponse... fixedResponses) {
+            return fixedResponses(List.of(fixedResponses));
+        }
+        @CustomType.Setter
+        public Builder forwards(@Nullable List<GetListenerRuleActionForward> forwards) {
+
+            this.forwards = forwards;
+            return this;
+        }
+        public Builder forwards(GetListenerRuleActionForward... forwards) {
+            return forwards(List.of(forwards));
         }
         @CustomType.Setter
         public Builder order(Integer order) {
@@ -176,10 +188,13 @@ public final class GetListenerRuleAction {
             return this;
         }
         @CustomType.Setter
-        public Builder redirect(@Nullable GetListenerRuleActionRedirect redirect) {
+        public Builder redirects(@Nullable List<GetListenerRuleActionRedirect> redirects) {
 
-            this.redirect = redirect;
+            this.redirects = redirects;
             return this;
+        }
+        public Builder redirects(GetListenerRuleActionRedirect... redirects) {
+            return redirects(List.of(redirects));
         }
         @CustomType.Setter
         public Builder type(String type) {
@@ -191,12 +206,12 @@ public final class GetListenerRuleAction {
         }
         public GetListenerRuleAction build() {
             final var _resultValue = new GetListenerRuleAction();
-            _resultValue.authenticateCognito = authenticateCognito;
-            _resultValue.authenticateOidc = authenticateOidc;
-            _resultValue.fixedResponse = fixedResponse;
-            _resultValue.forward = forward;
+            _resultValue.authenticateCognitos = authenticateCognitos;
+            _resultValue.authenticateOidcs = authenticateOidcs;
+            _resultValue.fixedResponses = fixedResponses;
+            _resultValue.forwards = forwards;
             _resultValue.order = order;
-            _resultValue.redirect = redirect;
+            _resultValue.redirects = redirects;
             _resultValue.type = type;
             return _resultValue;
         }

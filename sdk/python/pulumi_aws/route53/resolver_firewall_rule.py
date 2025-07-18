@@ -30,7 +30,8 @@ class ResolverFirewallRuleArgs:
                  block_response: Optional[pulumi.Input[builtins.str]] = None,
                  firewall_domain_redirection_action: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 q_type: Optional[pulumi.Input[builtins.str]] = None):
+                 q_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ResolverFirewallRule resource.
         :param pulumi.Input[builtins.str] action: The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
@@ -44,6 +45,7 @@ class ResolverFirewallRuleArgs:
         :param pulumi.Input[builtins.str] firewall_domain_redirection_action: Evaluate DNS redirection in the DNS redirection chain, such as CNAME, DNAME, ot ALIAS. Valid values are `INSPECT_REDIRECTION_DOMAIN` and `TRUST_REDIRECTION_DOMAIN`. Default value is `INSPECT_REDIRECTION_DOMAIN`.
         :param pulumi.Input[builtins.str] name: A name that lets you identify the rule, to manage and use it.
         :param pulumi.Input[builtins.str] q_type: The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "firewall_domain_list_id", firewall_domain_list_id)
@@ -63,6 +65,8 @@ class ResolverFirewallRuleArgs:
             pulumi.set(__self__, "name", name)
         if q_type is not None:
             pulumi.set(__self__, "q_type", q_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -196,6 +200,18 @@ class ResolverFirewallRuleArgs:
     def q_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "q_type", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ResolverFirewallRuleState:
@@ -210,7 +226,8 @@ class _ResolverFirewallRuleState:
                  firewall_rule_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  priority: Optional[pulumi.Input[builtins.int]] = None,
-                 q_type: Optional[pulumi.Input[builtins.str]] = None):
+                 q_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResolverFirewallRule resources.
         :param pulumi.Input[builtins.str] action: The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list. Valid values: `ALLOW`, `BLOCK`, `ALERT`.
@@ -224,6 +241,7 @@ class _ResolverFirewallRuleState:
         :param pulumi.Input[builtins.str] name: A name that lets you identify the rule, to manage and use it.
         :param pulumi.Input[builtins.int] priority: The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
         :param pulumi.Input[builtins.str] q_type: The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -247,6 +265,8 @@ class _ResolverFirewallRuleState:
             pulumi.set(__self__, "priority", priority)
         if q_type is not None:
             pulumi.set(__self__, "q_type", q_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -380,6 +400,18 @@ class _ResolverFirewallRuleState:
     def q_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "q_type", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:route53/resolverFirewallRule:ResolverFirewallRule")
 class ResolverFirewallRule(pulumi.CustomResource):
@@ -398,6 +430,7 @@ class ResolverFirewallRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  priority: Optional[pulumi.Input[builtins.int]] = None,
                  q_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a Route 53 Resolver DNS Firewall rule resource.
@@ -448,6 +481,7 @@ class ResolverFirewallRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: A name that lets you identify the rule, to manage and use it.
         :param pulumi.Input[builtins.int] priority: The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
         :param pulumi.Input[builtins.str] q_type: The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -517,6 +551,7 @@ class ResolverFirewallRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  priority: Optional[pulumi.Input[builtins.int]] = None,
                  q_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -545,6 +580,7 @@ class ResolverFirewallRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'priority'")
             __props__.__dict__["priority"] = priority
             __props__.__dict__["q_type"] = q_type
+            __props__.__dict__["region"] = region
         super(ResolverFirewallRule, __self__).__init__(
             'aws:route53/resolverFirewallRule:ResolverFirewallRule',
             resource_name,
@@ -565,7 +601,8 @@ class ResolverFirewallRule(pulumi.CustomResource):
             firewall_rule_group_id: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             priority: Optional[pulumi.Input[builtins.int]] = None,
-            q_type: Optional[pulumi.Input[builtins.str]] = None) -> 'ResolverFirewallRule':
+            q_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'ResolverFirewallRule':
         """
         Get an existing ResolverFirewallRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -584,6 +621,7 @@ class ResolverFirewallRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: A name that lets you identify the rule, to manage and use it.
         :param pulumi.Input[builtins.int] priority: The setting that determines the processing order of the rule in the rule group. DNS Firewall processes the rules in a rule group by order of priority, starting from the lowest setting.
         :param pulumi.Input[builtins.str] q_type: The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -600,6 +638,7 @@ class ResolverFirewallRule(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["priority"] = priority
         __props__.__dict__["q_type"] = q_type
+        __props__.__dict__["region"] = region
         return ResolverFirewallRule(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -689,4 +728,12 @@ class ResolverFirewallRule(pulumi.CustomResource):
         The query type you want the rule to evaluate. Additional details can be found [here](https://en.wikipedia.org/wiki/List_of_DNS_record_types)
         """
         return pulumi.get(self, "q_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

@@ -103,6 +103,41 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Job Definition of type EKS
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.batch.JobDefinition("test", {
+ *     name: " tf_test_batch_job_definition_eks",
+ *     type: "container",
+ *     eksProperties: {
+ *         podProperties: {
+ *             hostNetwork: true,
+ *             containers: [{
+ *                 image: "public.ecr.aws/amazonlinux/amazonlinux:1",
+ *                 commands: [
+ *                     "sleep",
+ *                     "60",
+ *                 ],
+ *                 resources: {
+ *                     limits: {
+ *                         cpu: "1",
+ *                         memory: "1024Mi",
+ *                     },
+ *                 },
+ *             }],
+ *             metadata: {
+ *                 labels: {
+ *                     environment: "test",
+ *                 },
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ### Fargate Platform Capability
  *
  * ```typescript
@@ -316,6 +351,10 @@ export class JobDefinition extends pulumi.CustomResource {
      */
     public readonly propagateTags!: pulumi.Output<boolean | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
      */
     public readonly retryStrategy!: pulumi.Output<outputs.batch.JobDefinitionRetryStrategy | undefined>;
@@ -333,8 +372,6 @@ export class JobDefinition extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -372,6 +409,7 @@ export class JobDefinition extends pulumi.CustomResource {
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["platformCapabilities"] = state ? state.platformCapabilities : undefined;
             resourceInputs["propagateTags"] = state ? state.propagateTags : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["retryStrategy"] = state ? state.retryStrategy : undefined;
             resourceInputs["revision"] = state ? state.revision : undefined;
             resourceInputs["schedulingPriority"] = state ? state.schedulingPriority : undefined;
@@ -393,6 +431,7 @@ export class JobDefinition extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["platformCapabilities"] = args ? args.platformCapabilities : undefined;
             resourceInputs["propagateTags"] = args ? args.propagateTags : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retryStrategy"] = args ? args.retryStrategy : undefined;
             resourceInputs["schedulingPriority"] = args ? args.schedulingPriority : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -457,6 +496,10 @@ export interface JobDefinitionState {
      */
     propagateTags?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
      */
     retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategy>;
@@ -474,8 +517,6 @@ export interface JobDefinitionState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -530,6 +571,10 @@ export interface JobDefinitionArgs {
      * Whether to propagate the tags from the job definition to the corresponding Amazon ECS task. Default is `false`.
      */
     propagateTags?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Retry strategy to use for failed jobs that are submitted with this job definition. Maximum number of `retryStrategy` is `1`.  Defined below.
      */

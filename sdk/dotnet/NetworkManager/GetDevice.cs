@@ -12,19 +12,76 @@ namespace Pulumi.Aws.NetworkManager
     public static class GetDevice
     {
         /// <summary>
-        /// Retrieve information about a device.
+        /// Provides details about an existing Network Manager device.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.NetworkManager.GetDevice.Invoke(new()
+        ///     {
+        ///         GlobalNetworkId = globalNetworkId,
+        ///         DeviceId = deviceId,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("aws:networkmanager/getDevice:getDevice", args ?? new GetDeviceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve information about a device.
+        /// Provides details about an existing Network Manager device.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.NetworkManager.GetDevice.Invoke(new()
+        ///     {
+        ///         GlobalNetworkId = globalNetworkId,
+        ///         DeviceId = deviceId,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("aws:networkmanager/getDevice:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve information about a device.
+        /// Provides details about an existing Network Manager device.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.NetworkManager.GetDevice.Invoke(new()
+        ///     {
+        ///         GlobalNetworkId = globalNetworkId,
+        ///         DeviceId = deviceId,
+        ///     });
+        /// 
+        /// });
+        /// ```
         /// </summary>
         public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("aws:networkmanager/getDevice:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());

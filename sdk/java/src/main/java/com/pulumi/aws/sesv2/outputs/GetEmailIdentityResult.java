@@ -36,6 +36,7 @@ public final class GetEmailIdentityResult {
      * 
      */
     private String identityType;
+    private String region;
     /**
      * @return Key-value mapping of resource tags.
      * 
@@ -82,6 +83,9 @@ public final class GetEmailIdentityResult {
     public String identityType() {
         return this.identityType;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Key-value mapping of resource tags.
      * 
@@ -112,6 +116,7 @@ public final class GetEmailIdentityResult {
         private String emailIdentity;
         private String id;
         private String identityType;
+        private String region;
         private Map<String,String> tags;
         private Boolean verifiedForSendingStatus;
         public Builder() {}
@@ -123,6 +128,7 @@ public final class GetEmailIdentityResult {
     	      this.emailIdentity = defaults.emailIdentity;
     	      this.id = defaults.id;
     	      this.identityType = defaults.identityType;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.verifiedForSendingStatus = defaults.verifiedForSendingStatus;
         }
@@ -179,6 +185,14 @@ public final class GetEmailIdentityResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEmailIdentityResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetEmailIdentityResult", "tags");
@@ -202,6 +216,7 @@ public final class GetEmailIdentityResult {
             _resultValue.emailIdentity = emailIdentity;
             _resultValue.id = id;
             _resultValue.identityType = identityType;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.verifiedForSendingStatus = verifiedForSendingStatus;
             return _resultValue;

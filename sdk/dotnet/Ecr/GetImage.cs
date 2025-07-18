@@ -109,6 +109,12 @@ namespace Pulumi.Aws.Ecr
         public bool? MostRecent { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// ID of the Registry where the repository resides.
         /// </summary>
         [Input("registryId")]
@@ -145,6 +151,12 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         [Input("mostRecent")]
         public Input<bool>? MostRecent { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ID of the Registry where the repository resides.
@@ -191,6 +203,7 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         public readonly string ImageUri;
         public readonly bool? MostRecent;
+        public readonly string Region;
         public readonly string RegistryId;
         public readonly string RepositoryName;
 
@@ -212,6 +225,8 @@ namespace Pulumi.Aws.Ecr
 
             bool? mostRecent,
 
+            string region,
+
             string registryId,
 
             string repositoryName)
@@ -224,6 +239,7 @@ namespace Pulumi.Aws.Ecr
             ImageTags = imageTags;
             ImageUri = imageUri;
             MostRecent = mostRecent;
+            Region = region;
             RegistryId = registryId;
             RepositoryName = repositoryName;
         }

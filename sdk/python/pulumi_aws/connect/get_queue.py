@@ -28,7 +28,7 @@ class GetQueueResult:
     """
     A collection of values returned by getQueue.
     """
-    def __init__(__self__, arn=None, description=None, hours_of_operation_id=None, id=None, instance_id=None, max_contacts=None, name=None, outbound_caller_configs=None, queue_id=None, status=None, tags=None):
+    def __init__(__self__, arn=None, description=None, hours_of_operation_id=None, id=None, instance_id=None, max_contacts=None, name=None, outbound_caller_configs=None, queue_id=None, region=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -56,6 +56,9 @@ class GetQueueResult:
         if queue_id and not isinstance(queue_id, str):
             raise TypeError("Expected argument 'queue_id' to be a str")
         pulumi.set(__self__, "queue_id", queue_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -131,6 +134,11 @@ class GetQueueResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def status(self) -> builtins.str:
         """
         Description of the Queue. Values are `ENABLED` or `DISABLED`.
@@ -161,6 +169,7 @@ class AwaitableGetQueueResult(GetQueueResult):
             name=self.name,
             outbound_caller_configs=self.outbound_caller_configs,
             queue_id=self.queue_id,
+            region=self.region,
             status=self.status,
             tags=self.tags)
 
@@ -168,6 +177,7 @@ class AwaitableGetQueueResult(GetQueueResult):
 def get_queue(instance_id: Optional[builtins.str] = None,
               name: Optional[builtins.str] = None,
               queue_id: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               tags: Optional[Mapping[str, builtins.str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueueResult:
     """
@@ -201,12 +211,14 @@ def get_queue(instance_id: Optional[builtins.str] = None,
            
            > **NOTE:** `instance_id` and one of either `name` or `queue_id` is required.
     :param builtins.str queue_id: Returns information on a specific Queue by Queue id
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the Queue.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
     __args__['name'] = name
     __args__['queueId'] = queue_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:connect/getQueue:getQueue', __args__, opts=opts, typ=GetQueueResult).value
@@ -221,11 +233,13 @@ def get_queue(instance_id: Optional[builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         outbound_caller_configs=pulumi.get(__ret__, 'outbound_caller_configs'),
         queue_id=pulumi.get(__ret__, 'queue_id'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_queue_output(instance_id: Optional[pulumi.Input[builtins.str]] = None,
                      name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      queue_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueResult]:
     """
@@ -259,12 +273,14 @@ def get_queue_output(instance_id: Optional[pulumi.Input[builtins.str]] = None,
            
            > **NOTE:** `instance_id` and one of either `name` or `queue_id` is required.
     :param builtins.str queue_id: Returns information on a specific Queue by Queue id
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the Queue.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
     __args__['name'] = name
     __args__['queueId'] = queue_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getQueue:getQueue', __args__, opts=opts, typ=GetQueueResult)
@@ -278,5 +294,6 @@ def get_queue_output(instance_id: Optional[pulumi.Input[builtins.str]] = None,
         name=pulumi.get(__response__, 'name'),
         outbound_caller_configs=pulumi.get(__response__, 'outbound_caller_configs'),
         queue_id=pulumi.get(__response__, 'queue_id'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

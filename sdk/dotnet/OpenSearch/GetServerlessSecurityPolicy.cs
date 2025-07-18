@@ -97,6 +97,12 @@ namespace Pulumi.Aws.OpenSearch
         public string Name { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Type of security policy. One of `encryption` or `network`.
         /// </summary>
         [Input("type", required: true)]
@@ -115,6 +121,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Type of security policy. One of `encryption` or `network`.
@@ -157,6 +169,7 @@ namespace Pulumi.Aws.OpenSearch
         /// Version of the policy.
         /// </summary>
         public readonly string PolicyVersion;
+        public readonly string Region;
         public readonly string Type;
 
         [OutputConstructor]
@@ -175,6 +188,8 @@ namespace Pulumi.Aws.OpenSearch
 
             string policyVersion,
 
+            string region,
+
             string type)
         {
             CreatedDate = createdDate;
@@ -184,6 +199,7 @@ namespace Pulumi.Aws.OpenSearch
             Name = name;
             Policy = policy;
             PolicyVersion = policyVersion;
+            Region = region;
             Type = type;
         }
     }

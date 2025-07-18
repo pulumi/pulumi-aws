@@ -23,7 +23,8 @@ class CertificateArgs:
                  active: pulumi.Input[builtins.bool],
                  ca_pem: Optional[pulumi.Input[builtins.str]] = None,
                  certificate_pem: Optional[pulumi.Input[builtins.str]] = None,
-                 csr: Optional[pulumi.Input[builtins.str]] = None):
+                 csr: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[builtins.bool] active: Boolean flag to indicate if the certificate should be active
@@ -38,6 +39,7 @@ class CertificateArgs:
                for more information on generating a certificate from a certificate signing request (CSR).
                If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
                for more information on generating keys and a certificate.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "active", active)
         if ca_pem is not None:
@@ -46,6 +48,8 @@ class CertificateArgs:
             pulumi.set(__self__, "certificate_pem", certificate_pem)
         if csr is not None:
             pulumi.set(__self__, "csr", csr)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -103,6 +107,18 @@ class CertificateArgs:
     def csr(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "csr", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _CertificateState:
@@ -114,7 +130,8 @@ class _CertificateState:
                  certificate_pem: Optional[pulumi.Input[builtins.str]] = None,
                  csr: Optional[pulumi.Input[builtins.str]] = None,
                  private_key: Optional[pulumi.Input[builtins.str]] = None,
-                 public_key: Optional[pulumi.Input[builtins.str]] = None):
+                 public_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
         :param pulumi.Input[builtins.bool] active: Boolean flag to indicate if the certificate should be active
@@ -133,6 +150,7 @@ class _CertificateState:
                for more information on generating keys and a certificate.
         :param pulumi.Input[builtins.str] private_key: When neither CSR nor certificate is provided, the private key.
         :param pulumi.Input[builtins.str] public_key: When neither CSR nor certificate is provided, the public key.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if active is not None:
             pulumi.set(__self__, "active", active)
@@ -150,6 +168,8 @@ class _CertificateState:
             pulumi.set(__self__, "private_key", private_key)
         if public_key is not None:
             pulumi.set(__self__, "public_key", public_key)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -255,6 +275,18 @@ class _CertificateState:
     def public_key(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "public_key", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:iot/certificate:Certificate")
 class Certificate(pulumi.CustomResource):
@@ -266,6 +298,7 @@ class Certificate(pulumi.CustomResource):
                  ca_pem: Optional[pulumi.Input[builtins.str]] = None,
                  certificate_pem: Optional[pulumi.Input[builtins.str]] = None,
                  csr: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Creates and manages an AWS IoT certificate.
@@ -319,6 +352,7 @@ class Certificate(pulumi.CustomResource):
                for more information on generating a certificate from a certificate signing request (CSR).
                If none is specified both the certificate and keys will be generated, review [CreateKeysAndCertificate](https://docs.aws.amazon.com/iot/latest/apireference/API_CreateKeysAndCertificate.html)
                for more information on generating keys and a certificate.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -383,6 +417,7 @@ class Certificate(pulumi.CustomResource):
                  ca_pem: Optional[pulumi.Input[builtins.str]] = None,
                  certificate_pem: Optional[pulumi.Input[builtins.str]] = None,
                  csr: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -398,6 +433,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["ca_pem"] = None if ca_pem is None else pulumi.Output.secret(ca_pem)
             __props__.__dict__["certificate_pem"] = None if certificate_pem is None else pulumi.Output.secret(certificate_pem)
             __props__.__dict__["csr"] = csr
+            __props__.__dict__["region"] = region
             __props__.__dict__["arn"] = None
             __props__.__dict__["ca_certificate_id"] = None
             __props__.__dict__["private_key"] = None
@@ -421,7 +457,8 @@ class Certificate(pulumi.CustomResource):
             certificate_pem: Optional[pulumi.Input[builtins.str]] = None,
             csr: Optional[pulumi.Input[builtins.str]] = None,
             private_key: Optional[pulumi.Input[builtins.str]] = None,
-            public_key: Optional[pulumi.Input[builtins.str]] = None) -> 'Certificate':
+            public_key: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -445,6 +482,7 @@ class Certificate(pulumi.CustomResource):
                for more information on generating keys and a certificate.
         :param pulumi.Input[builtins.str] private_key: When neither CSR nor certificate is provided, the private key.
         :param pulumi.Input[builtins.str] public_key: When neither CSR nor certificate is provided, the public key.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -458,6 +496,7 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["csr"] = csr
         __props__.__dict__["private_key"] = private_key
         __props__.__dict__["public_key"] = public_key
+        __props__.__dict__["region"] = region
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -531,4 +570,12 @@ class Certificate(pulumi.CustomResource):
         When neither CSR nor certificate is provided, the public key.
         """
         return pulumi.get(self, "public_key")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

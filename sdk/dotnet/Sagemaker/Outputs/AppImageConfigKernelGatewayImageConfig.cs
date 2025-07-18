@@ -20,16 +20,16 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// <summary>
         /// The default branch for the Git repository. See Kernel Spec details below.
         /// </summary>
-        public readonly Outputs.AppImageConfigKernelGatewayImageConfigKernelSpec KernelSpec;
+        public readonly ImmutableArray<Outputs.AppImageConfigKernelGatewayImageConfigKernelSpec> KernelSpecs;
 
         [OutputConstructor]
         private AppImageConfigKernelGatewayImageConfig(
             Outputs.AppImageConfigKernelGatewayImageConfigFileSystemConfig? fileSystemConfig,
 
-            Outputs.AppImageConfigKernelGatewayImageConfigKernelSpec kernelSpec)
+            ImmutableArray<Outputs.AppImageConfigKernelGatewayImageConfigKernelSpec> kernelSpecs)
         {
             FileSystemConfig = fileSystemConfig;
-            KernelSpec = kernelSpec;
+            KernelSpecs = kernelSpecs;
         }
     }
 }

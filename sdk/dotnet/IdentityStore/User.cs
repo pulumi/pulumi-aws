@@ -126,6 +126,12 @@ namespace Pulumi.Aws.IdentityStore
         public Output<string?> ProfileUrl { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The user's time zone.
         /// </summary>
         [Output("timezone")]
@@ -266,6 +272,12 @@ namespace Pulumi.Aws.IdentityStore
         public Input<string>? ProfileUrl { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The user's time zone.
         /// </summary>
         [Input("timezone")]
@@ -372,6 +384,12 @@ namespace Pulumi.Aws.IdentityStore
         /// </summary>
         [Input("profileUrl")]
         public Input<string>? ProfileUrl { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The user's time zone.

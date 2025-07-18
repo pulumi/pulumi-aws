@@ -194,6 +194,12 @@ namespace Pulumi.Aws.Ec2
         public string? Id { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Current state of the desired VPC.
         /// Can be either `"pending"` or `"available"`.
         /// </summary>
@@ -260,6 +266,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Current state of the desired VPC.
@@ -340,6 +352,7 @@ namespace Pulumi.Aws.Ec2
         /// ID of the AWS account that owns the VPC.
         /// </summary>
         public readonly string OwnerId;
+        public readonly string Region;
         /// <summary>
         /// State of the association.
         /// </summary>
@@ -378,6 +391,8 @@ namespace Pulumi.Aws.Ec2
 
             string ownerId,
 
+            string region,
+
             string state,
 
             ImmutableDictionary<string, string> tags)
@@ -397,6 +412,7 @@ namespace Pulumi.Aws.Ec2
             Ipv6CidrBlock = ipv6CidrBlock;
             MainRouteTableId = mainRouteTableId;
             OwnerId = ownerId;
+            Region = region;
             State = state;
             Tags = tags;
         }

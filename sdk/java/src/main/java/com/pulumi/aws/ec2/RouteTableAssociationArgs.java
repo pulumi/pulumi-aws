@@ -32,6 +32,21 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID of the routing table to associate with.
      * 
      * &gt; **NOTE:** Please note that one of either `subnet_id` or `gateway_id` is required.
@@ -69,6 +84,7 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Resour
 
     private RouteTableAssociationArgs(RouteTableAssociationArgs $) {
         this.gatewayId = $.gatewayId;
+        this.region = $.region;
         this.routeTableId = $.routeTableId;
         this.subnetId = $.subnetId;
     }
@@ -110,6 +126,27 @@ public final class RouteTableAssociationArgs extends com.pulumi.resources.Resour
          */
         public Builder gatewayId(String gatewayId) {
             return gatewayId(Output.of(gatewayId));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

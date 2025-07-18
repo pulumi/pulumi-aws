@@ -142,6 +142,12 @@ namespace Pulumi.Aws.Neptune
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Enable to show only VPC offerings.
         /// </summary>
         [Input("vpc")]
@@ -190,6 +196,12 @@ namespace Pulumi.Aws.Neptune
             get => _preferredInstanceClasses ?? (_preferredInstanceClasses = new InputList<string>());
             set => _preferredInstanceClasses = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Enable to show only VPC offerings.
@@ -252,6 +264,7 @@ namespace Pulumi.Aws.Neptune
         /// Whether a DB instance can have a read replica.
         /// </summary>
         public readonly bool ReadReplicaCapable;
+        public readonly string Region;
         /// <summary>
         /// Storage type for a DB instance.
         /// </summary>
@@ -310,6 +323,8 @@ namespace Pulumi.Aws.Neptune
 
             bool readReplicaCapable,
 
+            string region,
+
             string storageType,
 
             bool supportsEnhancedMonitoring,
@@ -339,6 +354,7 @@ namespace Pulumi.Aws.Neptune
             MultiAzCapable = multiAzCapable;
             PreferredInstanceClasses = preferredInstanceClasses;
             ReadReplicaCapable = readReplicaCapable;
+            Region = region;
             StorageType = storageType;
             SupportsEnhancedMonitoring = supportsEnhancedMonitoring;
             SupportsIamDatabaseAuthentication = supportsIamDatabaseAuthentication;

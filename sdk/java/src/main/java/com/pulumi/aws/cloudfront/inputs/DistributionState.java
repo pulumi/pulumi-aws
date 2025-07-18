@@ -45,6 +45,21 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * ID of the Anycast static IP list that is associated with the distribution.
+     * 
+     */
+    @Import(name="anycastIpListId")
+    private @Nullable Output<String> anycastIpListId;
+
+    /**
+     * @return ID of the Anycast static IP list that is associated with the distribution.
+     * 
+     */
+    public Optional<Output<String>> anycastIpListId() {
+        return Optional.ofNullable(this.anycastIpListId);
+    }
+
+    /**
      * ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
      * 
      */
@@ -422,22 +437,14 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -521,6 +528,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
 
     private DistributionState(DistributionState $) {
         this.aliases = $.aliases;
+        this.anycastIpListId = $.anycastIpListId;
         this.arn = $.arn;
         this.callerReference = $.callerReference;
         this.comment = $.comment;
@@ -601,6 +609,27 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder aliases(String... aliases) {
             return aliases(List.of(aliases));
+        }
+
+        /**
+         * @param anycastIpListId ID of the Anycast static IP list that is associated with the distribution.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder anycastIpListId(@Nullable Output<String> anycastIpListId) {
+            $.anycastIpListId = anycastIpListId;
+            return this;
+        }
+
+        /**
+         * @param anycastIpListId ID of the Anycast static IP list that is associated with the distribution.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder anycastIpListId(String anycastIpListId) {
+            return anycastIpListId(Output.of(anycastIpListId));
         }
 
         /**
@@ -1173,11 +1202,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -1188,11 +1213,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

@@ -132,6 +132,21 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Request models for the route. Supported only for WebSocket APIs.
      * 
      */
@@ -216,6 +231,7 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         this.authorizerId = $.authorizerId;
         this.modelSelectionExpression = $.modelSelectionExpression;
         this.operationName = $.operationName;
+        this.region = $.region;
         this.requestModels = $.requestModels;
         this.requestParameters = $.requestParameters;
         this.routeKey = $.routeKey;
@@ -402,6 +418,27 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder operationName(String operationName) {
             return operationName(Output.of(operationName));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

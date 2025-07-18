@@ -15,7 +15,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetSupportedInstanceTypesResult',
@@ -29,10 +28,13 @@ class GetSupportedInstanceTypesResult:
     """
     A collection of values returned by getSupportedInstanceTypes.
     """
-    def __init__(__self__, id=None, release_label=None, supported_instance_types=None):
+    def __init__(__self__, id=None, region=None, release_label=None, supported_instance_types=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if release_label and not isinstance(release_label, str):
             raise TypeError("Expected argument 'release_label' to be a str")
         pulumi.set(__self__, "release_label", release_label)
@@ -46,13 +48,18 @@ class GetSupportedInstanceTypesResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="releaseLabel")
     def release_label(self) -> builtins.str:
         return pulumi.get(self, "release_label")
 
     @property
     @pulumi.getter(name="supportedInstanceTypes")
-    def supported_instance_types(self) -> Optional[Sequence['outputs.GetSupportedInstanceTypesSupportedInstanceTypeResult']]:
+    def supported_instance_types(self) -> Sequence['outputs.GetSupportedInstanceTypesSupportedInstanceTypeResult']:
         """
         List of supported instance types. See `supported_instance_types` below.
         """
@@ -66,12 +73,13 @@ class AwaitableGetSupportedInstanceTypesResult(GetSupportedInstanceTypesResult):
             yield self
         return GetSupportedInstanceTypesResult(
             id=self.id,
+            region=self.region,
             release_label=self.release_label,
             supported_instance_types=self.supported_instance_types)
 
 
-def get_supported_instance_types(release_label: Optional[builtins.str] = None,
-                                 supported_instance_types: Optional[Sequence[Union['GetSupportedInstanceTypesSupportedInstanceTypeArgs', 'GetSupportedInstanceTypesSupportedInstanceTypeArgsDict']]] = None,
+def get_supported_instance_types(region: Optional[builtins.str] = None,
+                                 release_label: Optional[builtins.str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSupportedInstanceTypesResult:
     """
     Data source for managing AWS EMR Supported Instance Types.
@@ -106,21 +114,22 @@ def get_supported_instance_types(release_label: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str release_label: Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
-    :param Sequence[Union['GetSupportedInstanceTypesSupportedInstanceTypeArgs', 'GetSupportedInstanceTypesSupportedInstanceTypeArgsDict']] supported_instance_types: List of supported instance types. See `supported_instance_types` below.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['releaseLabel'] = release_label
-    __args__['supportedInstanceTypes'] = supported_instance_types
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes', __args__, opts=opts, typ=GetSupportedInstanceTypesResult).value
 
     return AwaitableGetSupportedInstanceTypesResult(
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         release_label=pulumi.get(__ret__, 'release_label'),
         supported_instance_types=pulumi.get(__ret__, 'supported_instance_types'))
-def get_supported_instance_types_output(release_label: Optional[pulumi.Input[builtins.str]] = None,
-                                        supported_instance_types: Optional[pulumi.Input[Optional[Sequence[Union['GetSupportedInstanceTypesSupportedInstanceTypeArgs', 'GetSupportedInstanceTypesSupportedInstanceTypeArgsDict']]]]] = None,
+def get_supported_instance_types_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                        release_label: Optional[pulumi.Input[builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSupportedInstanceTypesResult]:
     """
     Data source for managing AWS EMR Supported Instance Types.
@@ -155,15 +164,16 @@ def get_supported_instance_types_output(release_label: Optional[pulumi.Input[bui
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str release_label: Amazon EMR release label. For more information about Amazon EMR releases and their included application versions and features, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
-    :param Sequence[Union['GetSupportedInstanceTypesSupportedInstanceTypeArgs', 'GetSupportedInstanceTypesSupportedInstanceTypeArgsDict']] supported_instance_types: List of supported instance types. See `supported_instance_types` below.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['releaseLabel'] = release_label
-    __args__['supportedInstanceTypes'] = supported_instance_types
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes', __args__, opts=opts, typ=GetSupportedInstanceTypesResult)
     return __ret__.apply(lambda __response__: GetSupportedInstanceTypesResult(
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         release_label=pulumi.get(__response__, 'release_label'),
         supported_instance_types=pulumi.get(__response__, 'supported_instance_types')))

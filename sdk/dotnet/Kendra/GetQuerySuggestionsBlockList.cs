@@ -102,6 +102,12 @@ namespace Pulumi.Aws.Kendra
         [Input("querySuggestionsBlockListId", required: true)]
         public string QuerySuggestionsBlockListId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -133,6 +139,12 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         [Input("querySuggestionsBlockListId", required: true)]
         public Input<string> QuerySuggestionsBlockListId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -190,6 +202,7 @@ namespace Pulumi.Aws.Kendra
         /// </summary>
         public readonly string Name;
         public readonly string QuerySuggestionsBlockListId;
+        public readonly string Region;
         /// <summary>
         /// ARN of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// </summary>
@@ -233,6 +246,8 @@ namespace Pulumi.Aws.Kendra
 
             string querySuggestionsBlockListId,
 
+            string region,
+
             string roleArn,
 
             ImmutableArray<Outputs.GetQuerySuggestionsBlockListSourceS3PathResult> sourceS3Paths,
@@ -253,6 +268,7 @@ namespace Pulumi.Aws.Kendra
             ItemCount = itemCount;
             Name = name;
             QuerySuggestionsBlockListId = querySuggestionsBlockListId;
+            Region = region;
             RoleArn = roleArn;
             SourceS3Paths = sourceS3Paths;
             Status = status;

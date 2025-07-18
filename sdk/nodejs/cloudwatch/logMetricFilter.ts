@@ -82,6 +82,10 @@ export class LogMetricFilter extends pulumi.CustomResource {
      * for extracting metric data out of ingested log events.
      */
     public readonly pattern!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LogMetricFilter resource with the given unique name, arguments, and options.
@@ -100,6 +104,7 @@ export class LogMetricFilter extends pulumi.CustomResource {
             resourceInputs["metricTransformation"] = state ? state.metricTransformation : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["pattern"] = state ? state.pattern : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LogMetricFilterArgs | undefined;
             if ((!args || args.logGroupName === undefined) && !opts.urn) {
@@ -115,6 +120,7 @@ export class LogMetricFilter extends pulumi.CustomResource {
             resourceInputs["metricTransformation"] = args ? args.metricTransformation : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["pattern"] = args ? args.pattern : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogMetricFilter.__pulumiType, name, resourceInputs, opts);
@@ -142,6 +148,10 @@ export interface LogMetricFilterState {
      * for extracting metric data out of ingested log events.
      */
     pattern?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -165,4 +175,8 @@ export interface LogMetricFilterArgs {
      * for extracting metric data out of ingested log events.
      */
     pattern: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

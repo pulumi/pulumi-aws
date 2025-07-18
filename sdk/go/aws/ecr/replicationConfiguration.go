@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +20,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,8 +66,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -116,8 +116,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -171,6 +171,8 @@ import (
 type ReplicationConfiguration struct {
 	pulumi.CustomResourceState
 
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The registry ID where the replication configuration was created.
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
 	// Replication configuration for a registry. See Replication Configuration.
@@ -207,6 +209,8 @@ func GetReplicationConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicationConfiguration resources.
 type replicationConfigurationState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The registry ID where the replication configuration was created.
 	RegistryId *string `pulumi:"registryId"`
 	// Replication configuration for a registry. See Replication Configuration.
@@ -214,6 +218,8 @@ type replicationConfigurationState struct {
 }
 
 type ReplicationConfigurationState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The registry ID where the replication configuration was created.
 	RegistryId pulumi.StringPtrInput
 	// Replication configuration for a registry. See Replication Configuration.
@@ -225,12 +231,16 @@ func (ReplicationConfigurationState) ElementType() reflect.Type {
 }
 
 type replicationConfigurationArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Replication configuration for a registry. See Replication Configuration.
 	ReplicationConfiguration *ReplicationConfigurationReplicationConfiguration `pulumi:"replicationConfiguration"`
 }
 
 // The set of arguments for constructing a ReplicationConfiguration resource.
 type ReplicationConfigurationArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Replication configuration for a registry. See Replication Configuration.
 	ReplicationConfiguration ReplicationConfigurationReplicationConfigurationPtrInput
 }
@@ -320,6 +330,11 @@ func (o ReplicationConfigurationOutput) ToReplicationConfigurationOutput() Repli
 
 func (o ReplicationConfigurationOutput) ToReplicationConfigurationOutputWithContext(ctx context.Context) ReplicationConfigurationOutput {
 	return o
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ReplicationConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The registry ID where the replication configuration was created.

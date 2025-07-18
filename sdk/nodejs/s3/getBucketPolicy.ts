@@ -25,6 +25,7 @@ export function getBucketPolicy(args: GetBucketPolicyArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:s3/getBucketPolicy:getBucketPolicy", {
         "bucket": args.bucket,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,6 +37,10 @@ export interface GetBucketPolicyArgs {
      * Bucket name.
      */
     bucket: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -51,6 +56,7 @@ export interface GetBucketPolicyResult {
      * IAM bucket policy.
      */
     readonly policy: string;
+    readonly region: string;
 }
 /**
  * The bucket policy data source returns IAM policy of an S3 bucket.
@@ -73,6 +79,7 @@ export function getBucketPolicyOutput(args: GetBucketPolicyOutputArgs, opts?: pu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:s3/getBucketPolicy:getBucketPolicy", {
         "bucket": args.bucket,
+        "region": args.region,
     }, opts);
 }
 
@@ -84,4 +91,8 @@ export interface GetBucketPolicyOutputArgs {
      * Bucket name.
      */
     bucket: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

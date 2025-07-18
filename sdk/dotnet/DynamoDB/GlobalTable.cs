@@ -112,6 +112,12 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Underlying DynamoDB Table. At least 1 replica must be defined. See below.
         /// </summary>
         [Output("replicas")]
@@ -169,6 +175,12 @@ namespace Pulumi.Aws.DynamoDB
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("replicas", required: true)]
         private InputList<Inputs.GlobalTableReplicaArgs>? _replicas;
 
@@ -200,6 +212,12 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("replicas")]
         private InputList<Inputs.GlobalTableReplicaGetArgs>? _replicas;

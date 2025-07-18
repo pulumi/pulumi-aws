@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -948,9 +948,7 @@ type DistributionConfigurationDistribution struct {
 	LaunchTemplateConfigurations []DistributionConfigurationDistributionLaunchTemplateConfiguration `pulumi:"launchTemplateConfigurations"`
 	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
 	LicenseConfigurationArns []string `pulumi:"licenseConfigurationArns"`
-	// AWS Region for the distribution.
-	//
-	// The following arguments are optional:
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
 	// Configuration block with S3 export settings. Detailed below.
 	S3ExportConfiguration *DistributionConfigurationDistributionS3ExportConfiguration `pulumi:"s3ExportConfiguration"`
@@ -980,9 +978,7 @@ type DistributionConfigurationDistributionArgs struct {
 	LaunchTemplateConfigurations DistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput `pulumi:"launchTemplateConfigurations"`
 	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
 	LicenseConfigurationArns pulumi.StringArrayInput `pulumi:"licenseConfigurationArns"`
-	// AWS Region for the distribution.
-	//
-	// The following arguments are optional:
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
 	// Configuration block with S3 export settings. Detailed below.
 	S3ExportConfiguration DistributionConfigurationDistributionS3ExportConfigurationPtrInput `pulumi:"s3ExportConfiguration"`
@@ -1074,9 +1070,7 @@ func (o DistributionConfigurationDistributionOutput) LicenseConfigurationArns() 
 	return o.ApplyT(func(v DistributionConfigurationDistribution) []string { return v.LicenseConfigurationArns }).(pulumi.StringArrayOutput)
 }
 
-// AWS Region for the distribution.
-//
-// The following arguments are optional:
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o DistributionConfigurationDistributionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistribution) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -3368,7 +3362,7 @@ type ImageOutputResourceAmi struct {
 	Image *string `pulumi:"image"`
 	// Name of the AMI.
 	Name *string `pulumi:"name"`
-	// Region of the container image.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -3392,7 +3386,7 @@ type ImageOutputResourceAmiArgs struct {
 	Image pulumi.StringPtrInput `pulumi:"image"`
 	// Name of the AMI.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region of the container image.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -3467,7 +3461,7 @@ func (o ImageOutputResourceAmiOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOutputResourceAmi) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Region of the container image.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ImageOutputResourceAmiOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOutputResourceAmi) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -3495,7 +3489,7 @@ func (o ImageOutputResourceAmiArrayOutput) Index(i pulumi.IntInput) ImageOutputR
 type ImageOutputResourceContainer struct {
 	// Set of URIs for created containers.
 	ImageUris []string `pulumi:"imageUris"`
-	// Region of the container image.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -3513,7 +3507,7 @@ type ImageOutputResourceContainerInput interface {
 type ImageOutputResourceContainerArgs struct {
 	// Set of URIs for created containers.
 	ImageUris pulumi.StringArrayInput `pulumi:"imageUris"`
-	// Region of the container image.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -3573,7 +3567,7 @@ func (o ImageOutputResourceContainerOutput) ImageUris() pulumi.StringArrayOutput
 	return o.ApplyT(func(v ImageOutputResourceContainer) []string { return v.ImageUris }).(pulumi.StringArrayOutput)
 }
 
-// Region of the container image.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ImageOutputResourceContainerOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageOutputResourceContainer) *string { return v.Region }).(pulumi.StringPtrOutput)
 }
@@ -8505,7 +8499,7 @@ type GetDistributionConfigurationDistribution struct {
 	LaunchTemplateConfigurations []GetDistributionConfigurationDistributionLaunchTemplateConfiguration `pulumi:"launchTemplateConfigurations"`
 	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
 	LicenseConfigurationArns []string `pulumi:"licenseConfigurationArns"`
-	// AWS Region of distribution.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
 	// Nested list of S3 export configuration.
 	S3ExportConfigurations []GetDistributionConfigurationDistributionS3ExportConfiguration `pulumi:"s3ExportConfigurations"`
@@ -8535,7 +8529,7 @@ type GetDistributionConfigurationDistributionArgs struct {
 	LaunchTemplateConfigurations GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput `pulumi:"launchTemplateConfigurations"`
 	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
 	LicenseConfigurationArns pulumi.StringArrayInput `pulumi:"licenseConfigurationArns"`
-	// AWS Region of distribution.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
 	// Nested list of S3 export configuration.
 	S3ExportConfigurations GetDistributionConfigurationDistributionS3ExportConfigurationArrayInput `pulumi:"s3ExportConfigurations"`
@@ -8627,7 +8621,7 @@ func (o GetDistributionConfigurationDistributionOutput) LicenseConfigurationArns
 	return o.ApplyT(func(v GetDistributionConfigurationDistribution) []string { return v.LicenseConfigurationArns }).(pulumi.StringArrayOutput)
 }
 
-// AWS Region of distribution.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GetDistributionConfigurationDistributionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDistributionConfigurationDistribution) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -10439,7 +10433,7 @@ type GetImageOutputResourceAmi struct {
 	Image string `pulumi:"image"`
 	// Name of the AMI.
 	Name string `pulumi:"name"`
-	// Region of the container image.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
 }
 
@@ -10463,7 +10457,7 @@ type GetImageOutputResourceAmiArgs struct {
 	Image pulumi.StringInput `pulumi:"image"`
 	// Name of the AMI.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Region of the container image.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
 }
 
@@ -10538,7 +10532,7 @@ func (o GetImageOutputResourceAmiOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageOutputResourceAmi) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region of the container image.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GetImageOutputResourceAmiOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageOutputResourceAmi) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -10566,7 +10560,7 @@ func (o GetImageOutputResourceAmiArrayOutput) Index(i pulumi.IntInput) GetImageO
 type GetImageOutputResourceContainer struct {
 	// Set of URIs for created containers.
 	ImageUris []string `pulumi:"imageUris"`
-	// Region of the container image.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region string `pulumi:"region"`
 }
 
@@ -10584,7 +10578,7 @@ type GetImageOutputResourceContainerInput interface {
 type GetImageOutputResourceContainerArgs struct {
 	// Set of URIs for created containers.
 	ImageUris pulumi.StringArrayInput `pulumi:"imageUris"`
-	// Region of the container image.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringInput `pulumi:"region"`
 }
 
@@ -10644,7 +10638,7 @@ func (o GetImageOutputResourceContainerOutput) ImageUris() pulumi.StringArrayOut
 	return o.ApplyT(func(v GetImageOutputResourceContainer) []string { return v.ImageUris }).(pulumi.StringArrayOutput)
 }
 
-// Region of the container image.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o GetImageOutputResourceContainerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageOutputResourceContainer) string { return v.Region }).(pulumi.StringOutput)
 }

@@ -135,6 +135,12 @@ namespace Pulumi.Aws.Rds
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetClustersArgs()
         {
         }
@@ -154,6 +160,12 @@ namespace Pulumi.Aws.Rds
             get => _filters ?? (_filters = new InputList<Inputs.GetClustersFilterInputArgs>());
             set => _filters = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetClustersInvokeArgs()
         {
@@ -178,6 +190,7 @@ namespace Pulumi.Aws.Rds
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetClustersResult(
@@ -187,12 +200,15 @@ namespace Pulumi.Aws.Rds
 
             ImmutableArray<Outputs.GetClustersFilterResult> filters,
 
-            string id)
+            string id,
+
+            string region)
         {
             ClusterArns = clusterArns;
             ClusterIdentifiers = clusterIdentifiers;
             Filters = filters;
             Id = id;
+            Region = region;
         }
     }
 }

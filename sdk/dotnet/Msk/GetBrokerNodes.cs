@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Msk
         [Input("clusterArn", required: true)]
         public string ClusterArn { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetBrokerNodesArgs()
         {
         }
@@ -106,6 +112,12 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetBrokerNodesInvokeArgs()
         {
@@ -123,6 +135,7 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         public readonly string Id;
         public readonly ImmutableArray<Outputs.GetBrokerNodesNodeInfoListResult> NodeInfoLists;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetBrokerNodesResult(
@@ -130,11 +143,14 @@ namespace Pulumi.Aws.Msk
 
             string id,
 
-            ImmutableArray<Outputs.GetBrokerNodesNodeInfoListResult> nodeInfoLists)
+            ImmutableArray<Outputs.GetBrokerNodesNodeInfoListResult> nodeInfoLists,
+
+            string region)
         {
             ClusterArn = clusterArn;
             Id = id;
             NodeInfoLists = nodeInfoLists;
+            Region = region;
         }
     }
 }

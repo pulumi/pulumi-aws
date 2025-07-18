@@ -108,6 +108,12 @@ namespace Pulumi.Aws.Eks
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -133,6 +139,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -209,6 +221,7 @@ namespace Pulumi.Aws.Eks
         /// Platform version for the cluster.
         /// </summary>
         public readonly string PlatformVersion;
+        public readonly string Region;
         /// <summary>
         /// Contains remote network configuration for EKS Hybrid Nodes.
         /// </summary>
@@ -276,6 +289,8 @@ namespace Pulumi.Aws.Eks
 
             string platformVersion,
 
+            string region,
+
             ImmutableArray<Outputs.GetClusterRemoteNetworkConfigResult> remoteNetworkConfigs,
 
             string roleArn,
@@ -308,6 +323,7 @@ namespace Pulumi.Aws.Eks
             Name = name;
             OutpostConfigs = outpostConfigs;
             PlatformVersion = platformVersion;
+            Region = region;
             RemoteNetworkConfigs = remoteNetworkConfigs;
             RoleArn = roleArn;
             Status = status;

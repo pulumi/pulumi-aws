@@ -68,6 +68,10 @@ export class InstanceMetadataDefaults extends pulumi.CustomResource {
      * Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
      */
     public readonly instanceMetadataTags!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a InstanceMetadataDefaults resource with the given unique name, arguments, and options.
@@ -86,12 +90,14 @@ export class InstanceMetadataDefaults extends pulumi.CustomResource {
             resourceInputs["httpPutResponseHopLimit"] = state ? state.httpPutResponseHopLimit : undefined;
             resourceInputs["httpTokens"] = state ? state.httpTokens : undefined;
             resourceInputs["instanceMetadataTags"] = state ? state.instanceMetadataTags : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as InstanceMetadataDefaultsArgs | undefined;
             resourceInputs["httpEndpoint"] = args ? args.httpEndpoint : undefined;
             resourceInputs["httpPutResponseHopLimit"] = args ? args.httpPutResponseHopLimit : undefined;
             resourceInputs["httpTokens"] = args ? args.httpTokens : undefined;
             resourceInputs["instanceMetadataTags"] = args ? args.instanceMetadataTags : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(InstanceMetadataDefaults.__pulumiType, name, resourceInputs, opts);
@@ -118,6 +124,10 @@ export interface InstanceMetadataDefaultsState {
      * Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
      */
     instanceMetadataTags?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -140,4 +150,8 @@ export interface InstanceMetadataDefaultsArgs {
      * Enables or disables access to instance tags from the instance metadata service. Can be `"enabled"`, `"disabled"`, or `"no-preference"`. Default: `"no-preference"`.
      */
     instanceMetadataTags?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

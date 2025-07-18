@@ -43,12 +43,14 @@ export function getAmi(args?: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getAmi:getAmi", {
+        "allowUnsafeFilter": args.allowUnsafeFilter,
         "executableUsers": args.executableUsers,
         "filters": args.filters,
         "includeDeprecated": args.includeDeprecated,
         "mostRecent": args.mostRecent,
         "nameRegex": args.nameRegex,
         "owners": args.owners,
+        "region": args.region,
         "tags": args.tags,
         "uefiData": args.uefiData,
     }, opts);
@@ -58,6 +60,13 @@ export function getAmi(args?: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<
  * A collection of arguments for invoking getAmi.
  */
 export interface GetAmiArgs {
+    /**
+     * If true, allow unsafe filter values. With unsafe
+     * filters and `mostRecent` set to `true`, a third party may introduce a new image which
+     * will be returned by this data source. Consider filtering by owner or image ID rather
+     * than setting this argument.
+     */
+    allowUnsafeFilter?: boolean;
     /**
      * Limit search to users with *explicit* launch permission on
      * the image. Valid items are the numeric account ID or `self`.
@@ -96,6 +105,10 @@ export interface GetAmiArgs {
      */
     owners?: string[];
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * Any tags assigned to the image.
      * * `tags.#.key` - Key name of the tag.
      * * `tags.#.value` - Value of the tag.
@@ -111,6 +124,7 @@ export interface GetAmiArgs {
  * A collection of values returned by getAmi.
  */
 export interface GetAmiResult {
+    readonly allowUnsafeFilter?: boolean;
     /**
      * OS architecture of the AMI (ie: `i386` or `x8664`).
      */
@@ -219,6 +233,7 @@ export interface GetAmiResult {
      * for machine images.
      */
     readonly ramdiskId: string;
+    readonly region: string;
     /**
      * Device name of the root device.
      */
@@ -305,12 +320,14 @@ export function getAmiOutput(args?: GetAmiOutputArgs, opts?: pulumi.InvokeOutput
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getAmi:getAmi", {
+        "allowUnsafeFilter": args.allowUnsafeFilter,
         "executableUsers": args.executableUsers,
         "filters": args.filters,
         "includeDeprecated": args.includeDeprecated,
         "mostRecent": args.mostRecent,
         "nameRegex": args.nameRegex,
         "owners": args.owners,
+        "region": args.region,
         "tags": args.tags,
         "uefiData": args.uefiData,
     }, opts);
@@ -320,6 +337,13 @@ export function getAmiOutput(args?: GetAmiOutputArgs, opts?: pulumi.InvokeOutput
  * A collection of arguments for invoking getAmi.
  */
 export interface GetAmiOutputArgs {
+    /**
+     * If true, allow unsafe filter values. With unsafe
+     * filters and `mostRecent` set to `true`, a third party may introduce a new image which
+     * will be returned by this data source. Consider filtering by owner or image ID rather
+     * than setting this argument.
+     */
+    allowUnsafeFilter?: pulumi.Input<boolean>;
     /**
      * Limit search to users with *explicit* launch permission on
      * the image. Valid items are the numeric account ID or `self`.
@@ -357,6 +381,10 @@ export interface GetAmiOutputArgs {
      * List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
      */
     owners?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Any tags assigned to the image.
      * * `tags.#.key` - Key name of the tag.

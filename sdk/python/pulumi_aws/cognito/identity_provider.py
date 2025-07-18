@@ -25,7 +25,8 @@ class IdentityProviderArgs:
                  provider_type: pulumi.Input[builtins.str],
                  user_pool_id: pulumi.Input[builtins.str],
                  attribute_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 idp_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 idp_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a IdentityProvider resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] provider_details: The map of identity details, such as access token
@@ -34,6 +35,7 @@ class IdentityProviderArgs:
         :param pulumi.Input[builtins.str] user_pool_id: The user pool id
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] attribute_mapping: The map of attribute mapping of user pool attributes. [AttributeMapping in AWS API documentation](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-AttributeMapping)
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] idp_identifiers: The list of identity providers.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "provider_details", provider_details)
         pulumi.set(__self__, "provider_name", provider_name)
@@ -43,6 +45,8 @@ class IdentityProviderArgs:
             pulumi.set(__self__, "attribute_mapping", attribute_mapping)
         if idp_identifiers is not None:
             pulumi.set(__self__, "idp_identifiers", idp_identifiers)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="providerDetails")
@@ -116,6 +120,18 @@ class IdentityProviderArgs:
     def idp_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "idp_identifiers", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _IdentityProviderState:
@@ -125,6 +141,7 @@ class _IdentityProviderState:
                  provider_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  provider_name: Optional[pulumi.Input[builtins.str]] = None,
                  provider_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  user_pool_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering IdentityProvider resources.
@@ -133,6 +150,7 @@ class _IdentityProviderState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] provider_details: The map of identity details, such as access token
         :param pulumi.Input[builtins.str] provider_name: The provider name
         :param pulumi.Input[builtins.str] provider_type: The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool id
         """
         if attribute_mapping is not None:
@@ -145,6 +163,8 @@ class _IdentityProviderState:
             pulumi.set(__self__, "provider_name", provider_name)
         if provider_type is not None:
             pulumi.set(__self__, "provider_type", provider_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if user_pool_id is not None:
             pulumi.set(__self__, "user_pool_id", user_pool_id)
 
@@ -209,6 +229,18 @@ class _IdentityProviderState:
         pulumi.set(self, "provider_type", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -232,6 +264,7 @@ class IdentityProvider(pulumi.CustomResource):
                  provider_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  provider_name: Optional[pulumi.Input[builtins.str]] = None,
                  provider_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  user_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -276,6 +309,7 @@ class IdentityProvider(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] provider_details: The map of identity details, such as access token
         :param pulumi.Input[builtins.str] provider_name: The provider name
         :param pulumi.Input[builtins.str] provider_type: The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool id
         """
         ...
@@ -339,6 +373,7 @@ class IdentityProvider(pulumi.CustomResource):
                  provider_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  provider_name: Optional[pulumi.Input[builtins.str]] = None,
                  provider_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  user_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -360,6 +395,7 @@ class IdentityProvider(pulumi.CustomResource):
             if provider_type is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_type'")
             __props__.__dict__["provider_type"] = provider_type
+            __props__.__dict__["region"] = region
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
             __props__.__dict__["user_pool_id"] = user_pool_id
@@ -378,6 +414,7 @@ class IdentityProvider(pulumi.CustomResource):
             provider_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             provider_name: Optional[pulumi.Input[builtins.str]] = None,
             provider_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             user_pool_id: Optional[pulumi.Input[builtins.str]] = None) -> 'IdentityProvider':
         """
         Get an existing IdentityProvider resource's state with the given name, id, and optional extra
@@ -391,6 +428,7 @@ class IdentityProvider(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] provider_details: The map of identity details, such as access token
         :param pulumi.Input[builtins.str] provider_name: The provider name
         :param pulumi.Input[builtins.str] provider_type: The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool id
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -402,6 +440,7 @@ class IdentityProvider(pulumi.CustomResource):
         __props__.__dict__["provider_details"] = provider_details
         __props__.__dict__["provider_name"] = provider_name
         __props__.__dict__["provider_type"] = provider_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["user_pool_id"] = user_pool_id
         return IdentityProvider(resource_name, opts=opts, __props__=__props__)
 
@@ -444,6 +483,14 @@ class IdentityProvider(pulumi.CustomResource):
         The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
         """
         return pulumi.get(self, "provider_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="userPoolId")

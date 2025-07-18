@@ -15,7 +15,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetDataSharesResult',
@@ -29,17 +28,20 @@ class GetDataSharesResult:
     """
     A collection of values returned by getDataShares.
     """
-    def __init__(__self__, data_shares=None, id=None):
+    def __init__(__self__, data_shares=None, id=None, region=None):
         if data_shares and not isinstance(data_shares, list):
             raise TypeError("Expected argument 'data_shares' to be a list")
         pulumi.set(__self__, "data_shares", data_shares)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="dataShares")
-    def data_shares(self) -> Optional[Sequence['outputs.GetDataSharesDataShareResult']]:
+    def data_shares(self) -> Sequence['outputs.GetDataSharesDataShareResult']:
         """
         An array of all data shares in the current region. See `data_shares` below.
         """
@@ -53,6 +55,11 @@ class GetDataSharesResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetDataSharesResult(GetDataSharesResult):
     # pylint: disable=using-constant-test
@@ -61,10 +68,11 @@ class AwaitableGetDataSharesResult(GetDataSharesResult):
             yield self
         return GetDataSharesResult(
             data_shares=self.data_shares,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
-def get_data_shares(data_shares: Optional[Sequence[Union['GetDataSharesDataShareArgs', 'GetDataSharesDataShareArgsDict']]] = None,
+def get_data_shares(region: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataSharesResult:
     """
     Data source for managing AWS Redshift Data Shares.
@@ -81,17 +89,18 @@ def get_data_shares(data_shares: Optional[Sequence[Union['GetDataSharesDataShare
     ```
 
 
-    :param Sequence[Union['GetDataSharesDataShareArgs', 'GetDataSharesDataShareArgsDict']] data_shares: An array of all data shares in the current region. See `data_shares` below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
-    __args__['dataShares'] = data_shares
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:redshift/getDataShares:getDataShares', __args__, opts=opts, typ=GetDataSharesResult).value
 
     return AwaitableGetDataSharesResult(
         data_shares=pulumi.get(__ret__, 'data_shares'),
-        id=pulumi.get(__ret__, 'id'))
-def get_data_shares_output(data_shares: Optional[pulumi.Input[Optional[Sequence[Union['GetDataSharesDataShareArgs', 'GetDataSharesDataShareArgsDict']]]]] = None,
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
+def get_data_shares_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSharesResult]:
     """
     Data source for managing AWS Redshift Data Shares.
@@ -108,12 +117,13 @@ def get_data_shares_output(data_shares: Optional[pulumi.Input[Optional[Sequence[
     ```
 
 
-    :param Sequence[Union['GetDataSharesDataShareArgs', 'GetDataSharesDataShareArgsDict']] data_shares: An array of all data shares in the current region. See `data_shares` below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
-    __args__['dataShares'] = data_shares
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:redshift/getDataShares:getDataShares', __args__, opts=opts, typ=GetDataSharesResult)
     return __ret__.apply(lambda __response__: GetDataSharesResult(
         data_shares=pulumi.get(__response__, 'data_shares'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

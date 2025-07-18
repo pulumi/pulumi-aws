@@ -27,7 +27,7 @@ class GetContactFlowModuleResult:
     """
     A collection of values returned by getContactFlowModule.
     """
-    def __init__(__self__, arn=None, contact_flow_module_id=None, content=None, description=None, id=None, instance_id=None, name=None, state=None, status=None, tags=None):
+    def __init__(__self__, arn=None, contact_flow_module_id=None, content=None, description=None, id=None, instance_id=None, name=None, region=None, state=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +49,9 @@ class GetContactFlowModuleResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -108,6 +111,11 @@ class GetContactFlowModuleResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def state(self) -> builtins.str:
         """
         Type of Contact Flow Module Module. Values are either `ACTIVE` or `ARCHIVED`.
@@ -144,6 +152,7 @@ class AwaitableGetContactFlowModuleResult(GetContactFlowModuleResult):
             id=self.id,
             instance_id=self.instance_id,
             name=self.name,
+            region=self.region,
             state=self.state,
             status=self.status,
             tags=self.tags)
@@ -152,6 +161,7 @@ class AwaitableGetContactFlowModuleResult(GetContactFlowModuleResult):
 def get_contact_flow_module(contact_flow_module_id: Optional[builtins.str] = None,
                             instance_id: Optional[builtins.str] = None,
                             name: Optional[builtins.str] = None,
+                            region: Optional[builtins.str] = None,
                             tags: Optional[Mapping[str, builtins.str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactFlowModuleResult:
     """
@@ -185,12 +195,14 @@ def get_contact_flow_module(contact_flow_module_id: Optional[builtins.str] = Non
     :param builtins.str name: Returns information on a specific Contact Flow Module by name
            
            > **NOTE:** `instance_id` and one of either `name` or `contact_flow_module_id` is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the Contact Flow Module.
     """
     __args__ = dict()
     __args__['contactFlowModuleId'] = contact_flow_module_id
     __args__['instanceId'] = instance_id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:connect/getContactFlowModule:getContactFlowModule', __args__, opts=opts, typ=GetContactFlowModuleResult).value
@@ -203,12 +215,14 @@ def get_contact_flow_module(contact_flow_module_id: Optional[builtins.str] = Non
         id=pulumi.get(__ret__, 'id'),
         instance_id=pulumi.get(__ret__, 'instance_id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_contact_flow_module_output(contact_flow_module_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    instance_id: Optional[pulumi.Input[builtins.str]] = None,
                                    name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactFlowModuleResult]:
     """
@@ -242,12 +256,14 @@ def get_contact_flow_module_output(contact_flow_module_id: Optional[pulumi.Input
     :param builtins.str name: Returns information on a specific Contact Flow Module by name
            
            > **NOTE:** `instance_id` and one of either `name` or `contact_flow_module_id` is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the Contact Flow Module.
     """
     __args__ = dict()
     __args__['contactFlowModuleId'] = contact_flow_module_id
     __args__['instanceId'] = instance_id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getContactFlowModule:getContactFlowModule', __args__, opts=opts, typ=GetContactFlowModuleResult)
@@ -259,6 +275,7 @@ def get_contact_flow_module_output(contact_flow_module_id: Optional[pulumi.Input
         id=pulumi.get(__response__, 'id'),
         instance_id=pulumi.get(__response__, 'instance_id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         state=pulumi.get(__response__, 'state'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

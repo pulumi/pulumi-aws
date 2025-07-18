@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,6 +75,8 @@ type KinesisStreamingDestination struct {
 
 	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
 	ApproximateCreationDateTimePrecision pulumi.StringOutput `pulumi:"approximateCreationDateTimePrecision"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn pulumi.StringOutput `pulumi:"streamArn"`
 	// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
@@ -119,6 +121,8 @@ func GetKinesisStreamingDestination(ctx *pulumi.Context,
 type kinesisStreamingDestinationState struct {
 	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
 	ApproximateCreationDateTimePrecision *string `pulumi:"approximateCreationDateTimePrecision"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn *string `pulumi:"streamArn"`
 	// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
@@ -128,6 +132,8 @@ type kinesisStreamingDestinationState struct {
 type KinesisStreamingDestinationState struct {
 	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
 	ApproximateCreationDateTimePrecision pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn pulumi.StringPtrInput
 	// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
@@ -141,6 +147,8 @@ func (KinesisStreamingDestinationState) ElementType() reflect.Type {
 type kinesisStreamingDestinationArgs struct {
 	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
 	ApproximateCreationDateTimePrecision *string `pulumi:"approximateCreationDateTimePrecision"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn string `pulumi:"streamArn"`
 	// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
@@ -151,6 +159,8 @@ type kinesisStreamingDestinationArgs struct {
 type KinesisStreamingDestinationArgs struct {
 	// Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
 	ApproximateCreationDateTimePrecision pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
 	StreamArn pulumi.StringInput
 	// The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
@@ -249,6 +259,11 @@ func (o KinesisStreamingDestinationOutput) ApproximateCreationDateTimePrecision(
 	return o.ApplyT(func(v *KinesisStreamingDestination) pulumi.StringOutput {
 		return v.ApproximateCreationDateTimePrecision
 	}).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o KinesisStreamingDestinationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *KinesisStreamingDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.

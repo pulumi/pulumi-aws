@@ -32,7 +32,7 @@ public final class StackInstancesStackInstanceSummary {
      */
     private @Nullable String organizationalUnitId;
     /**
-     * @return Region that the stack instance is associated with.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     private @Nullable String region;
@@ -87,7 +87,7 @@ public final class StackInstancesStackInstanceSummary {
         return Optional.ofNullable(this.organizationalUnitId);
     }
     /**
-     * @return Region that the stack instance is associated with.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<String> region() {

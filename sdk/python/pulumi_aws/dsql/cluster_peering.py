@@ -25,16 +25,20 @@ class ClusterPeeringArgs:
                  clusters: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  identifier: pulumi.Input[builtins.str],
                  witness_region: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['ClusterPeeringTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a ClusterPeering resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] clusters: List of DSQL Cluster ARNs to be peered to this cluster.
         :param pulumi.Input[builtins.str] identifier: DSQL Cluster Identifier.
         :param pulumi.Input[builtins.str] witness_region: Witness region for a multi-region cluster.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "clusters", clusters)
         pulumi.set(__self__, "identifier", identifier)
         pulumi.set(__self__, "witness_region", witness_region)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -76,6 +80,18 @@ class ClusterPeeringArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['ClusterPeeringTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -89,18 +105,22 @@ class _ClusterPeeringState:
     def __init__(__self__, *,
                  clusters: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['ClusterPeeringTimeoutsArgs']] = None,
                  witness_region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ClusterPeering resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] clusters: List of DSQL Cluster ARNs to be peered to this cluster.
         :param pulumi.Input[builtins.str] identifier: DSQL Cluster Identifier.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] witness_region: Witness region for a multi-region cluster.
         """
         if clusters is not None:
             pulumi.set(__self__, "clusters", clusters)
         if identifier is not None:
             pulumi.set(__self__, "identifier", identifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
         if witness_region is not None:
@@ -132,6 +152,18 @@ class _ClusterPeeringState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['ClusterPeeringTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -160,6 +192,7 @@ class ClusterPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  clusters: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['ClusterPeeringTimeoutsArgs', 'ClusterPeeringTimeoutsArgsDict']]] = None,
                  witness_region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -202,6 +235,7 @@ class ClusterPeering(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] clusters: List of DSQL Cluster ARNs to be peered to this cluster.
         :param pulumi.Input[builtins.str] identifier: DSQL Cluster Identifier.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] witness_region: Witness region for a multi-region cluster.
         """
         ...
@@ -262,6 +296,7 @@ class ClusterPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  clusters: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['ClusterPeeringTimeoutsArgs', 'ClusterPeeringTimeoutsArgsDict']]] = None,
                  witness_region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -279,6 +314,7 @@ class ClusterPeering(pulumi.CustomResource):
             if identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'identifier'")
             __props__.__dict__["identifier"] = identifier
+            __props__.__dict__["region"] = region
             __props__.__dict__["timeouts"] = timeouts
             if witness_region is None and not opts.urn:
                 raise TypeError("Missing required property 'witness_region'")
@@ -295,6 +331,7 @@ class ClusterPeering(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             clusters: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             identifier: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             timeouts: Optional[pulumi.Input[Union['ClusterPeeringTimeoutsArgs', 'ClusterPeeringTimeoutsArgsDict']]] = None,
             witness_region: Optional[pulumi.Input[builtins.str]] = None) -> 'ClusterPeering':
         """
@@ -306,6 +343,7 @@ class ClusterPeering(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] clusters: List of DSQL Cluster ARNs to be peered to this cluster.
         :param pulumi.Input[builtins.str] identifier: DSQL Cluster Identifier.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] witness_region: Witness region for a multi-region cluster.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -314,6 +352,7 @@ class ClusterPeering(pulumi.CustomResource):
 
         __props__.__dict__["clusters"] = clusters
         __props__.__dict__["identifier"] = identifier
+        __props__.__dict__["region"] = region
         __props__.__dict__["timeouts"] = timeouts
         __props__.__dict__["witness_region"] = witness_region
         return ClusterPeering(resource_name, opts=opts, __props__=__props__)
@@ -333,6 +372,14 @@ class ClusterPeering(pulumi.CustomResource):
         DSQL Cluster Identifier.
         """
         return pulumi.get(self, "identifier")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

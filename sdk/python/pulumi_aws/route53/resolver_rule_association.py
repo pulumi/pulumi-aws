@@ -22,17 +22,21 @@ class ResolverRuleAssociationArgs:
     def __init__(__self__, *,
                  resolver_rule_id: pulumi.Input[builtins.str],
                  vpc_id: pulumi.Input[builtins.str],
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ResolverRuleAssociation resource.
         :param pulumi.Input[builtins.str] resolver_rule_id: The ID of the resolver rule that you want to associate with the VPC.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC that you want to associate the resolver rule with.
         :param pulumi.Input[builtins.str] name: A name for the association that you're creating between a resolver rule and a VPC.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "resolver_rule_id", resolver_rule_id)
         pulumi.set(__self__, "vpc_id", vpc_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="resolverRuleId")
@@ -70,21 +74,37 @@ class ResolverRuleAssociationArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ResolverRuleAssociationState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resolver_rule_id: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResolverRuleAssociation resources.
         :param pulumi.Input[builtins.str] name: A name for the association that you're creating between a resolver rule and a VPC.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resolver_rule_id: The ID of the resolver rule that you want to associate with the VPC.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC that you want to associate the resolver rule with.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resolver_rule_id is not None:
             pulumi.set(__self__, "resolver_rule_id", resolver_rule_id)
         if vpc_id is not None:
@@ -101,6 +121,18 @@ class _ResolverRuleAssociationState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resolverRuleId")
@@ -134,6 +166,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resolver_rule_id: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -162,6 +195,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: A name for the association that you're creating between a resolver rule and a VPC.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resolver_rule_id: The ID of the resolver rule that you want to associate with the VPC.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC that you want to associate the resolver rule with.
         """
@@ -209,6 +243,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resolver_rule_id: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -221,6 +256,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
             __props__ = ResolverRuleAssociationArgs.__new__(ResolverRuleAssociationArgs)
 
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if resolver_rule_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resolver_rule_id'")
             __props__.__dict__["resolver_rule_id"] = resolver_rule_id
@@ -238,6 +274,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resolver_rule_id: Optional[pulumi.Input[builtins.str]] = None,
             vpc_id: Optional[pulumi.Input[builtins.str]] = None) -> 'ResolverRuleAssociation':
         """
@@ -248,6 +285,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: A name for the association that you're creating between a resolver rule and a VPC.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resolver_rule_id: The ID of the resolver rule that you want to associate with the VPC.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC that you want to associate the resolver rule with.
         """
@@ -256,6 +294,7 @@ class ResolverRuleAssociation(pulumi.CustomResource):
         __props__ = _ResolverRuleAssociationState.__new__(_ResolverRuleAssociationState)
 
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["resolver_rule_id"] = resolver_rule_id
         __props__.__dict__["vpc_id"] = vpc_id
         return ResolverRuleAssociation(resource_name, opts=opts, __props__=__props__)
@@ -267,6 +306,14 @@ class ResolverRuleAssociation(pulumi.CustomResource):
         A name for the association that you're creating between a resolver rule and a VPC.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resolverRuleId")

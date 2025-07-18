@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,9 +23,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,7 +51,7 @@ import (
 //							"glue:CreateTable",
 //						},
 //						Resources: []string{
-//							fmt.Sprintf("arn:%v:glue:%v:%v:*", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId),
+//							fmt.Sprintf("arn:%v:glue:%v:%v:*", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
@@ -93,6 +93,8 @@ type ResourcePolicy struct {
 	EnableHybrid pulumi.StringPtrOutput `pulumi:"enableHybrid"`
 	// The policy to be applied to the aws glue data catalog.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewResourcePolicy registers a new resource with the given unique name, arguments, and options.
@@ -132,6 +134,8 @@ type resourcePolicyState struct {
 	EnableHybrid *string `pulumi:"enableHybrid"`
 	// The policy to be applied to the aws glue data catalog.
 	Policy *string `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ResourcePolicyState struct {
@@ -139,6 +143,8 @@ type ResourcePolicyState struct {
 	EnableHybrid pulumi.StringPtrInput
 	// The policy to be applied to the aws glue data catalog.
 	Policy pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ResourcePolicyState) ElementType() reflect.Type {
@@ -150,6 +156,8 @@ type resourcePolicyArgs struct {
 	EnableHybrid *string `pulumi:"enableHybrid"`
 	// The policy to be applied to the aws glue data catalog.
 	Policy string `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ResourcePolicy resource.
@@ -158,6 +166,8 @@ type ResourcePolicyArgs struct {
 	EnableHybrid pulumi.StringPtrInput
 	// The policy to be applied to the aws glue data catalog.
 	Policy pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ResourcePolicyArgs) ElementType() reflect.Type {
@@ -255,6 +265,11 @@ func (o ResourcePolicyOutput) EnableHybrid() pulumi.StringPtrOutput {
 // The policy to be applied to the aws glue data catalog.
 func (o ResourcePolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ResourcePolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ResourcePolicyArrayOutput struct{ *pulumi.OutputState }

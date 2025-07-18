@@ -22,9 +22,9 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var hogeBucketV2 = new Aws.S3.BucketV2("hoge", new()
+    ///     var hogeBucket = new Aws.S3.Bucket("hoge", new()
     ///     {
-    ///         Bucket = "tf-test-bucket-1234",
+    ///         BucketName = "tf-test-bucket-1234",
     ///     });
     /// 
     ///     var hoge = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     ///     var hogeBucketPolicy = new Aws.S3.BucketPolicy("hoge", new()
     ///     {
-    ///         Bucket = hogeBucketV2.Id,
+    ///         Bucket = hogeBucket.Id,
     ///         Policy = hoge.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
@@ -105,8 +105,8 @@ namespace Pulumi.Aws.Ssm
     ///         Name = "foo",
     ///         S3Destination = new Aws.Ssm.Inputs.ResourceDataSyncS3DestinationArgs
     ///         {
-    ///             BucketName = hogeBucketV2.Bucket,
-    ///             Region = hogeBucketV2.Region,
+    ///             BucketName = hogeBucket.BucketName,
+    ///             Region = hogeBucket.Region,
     ///         },
     ///     });
     /// 
@@ -129,6 +129,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Amazon S3 configuration details for the sync.
@@ -189,6 +195,12 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Amazon S3 configuration details for the sync.
         /// </summary>
         [Input("s3Destination", required: true)]
@@ -207,6 +219,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Amazon S3 configuration details for the sync.

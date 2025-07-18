@@ -20,12 +20,16 @@ __all__ = ['DefaultKmsKeyArgs', 'DefaultKmsKey']
 @pulumi.input_type
 class DefaultKmsKeyArgs:
     def __init__(__self__, *,
-                 key_arn: pulumi.Input[builtins.str]):
+                 key_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a DefaultKmsKey resource.
         :param pulumi.Input[builtins.str] key_arn: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "key_arn", key_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="keyArn")
@@ -39,17 +43,33 @@ class DefaultKmsKeyArgs:
     def key_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "key_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _DefaultKmsKeyState:
     def __init__(__self__, *,
-                 key_arn: Optional[pulumi.Input[builtins.str]] = None):
+                 key_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering DefaultKmsKey resources.
         :param pulumi.Input[builtins.str] key_arn: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if key_arn is not None:
             pulumi.set(__self__, "key_arn", key_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="keyArn")
@@ -63,6 +83,18 @@ class _DefaultKmsKeyState:
     def key_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "key_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:ebs/defaultKmsKey:DefaultKmsKey")
 class DefaultKmsKey(pulumi.CustomResource):
@@ -71,6 +103,7 @@ class DefaultKmsKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to manage the default customer master key (CMK) that your AWS account uses to encrypt EBS volumes.
@@ -102,6 +135,7 @@ class DefaultKmsKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] key_arn: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -152,6 +186,7 @@ class DefaultKmsKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -164,6 +199,7 @@ class DefaultKmsKey(pulumi.CustomResource):
             if key_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'key_arn'")
             __props__.__dict__["key_arn"] = key_arn
+            __props__.__dict__["region"] = region
         super(DefaultKmsKey, __self__).__init__(
             'aws:ebs/defaultKmsKey:DefaultKmsKey',
             resource_name,
@@ -174,7 +210,8 @@ class DefaultKmsKey(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            key_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'DefaultKmsKey':
+            key_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'DefaultKmsKey':
         """
         Get an existing DefaultKmsKey resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -183,12 +220,14 @@ class DefaultKmsKey(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] key_arn: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _DefaultKmsKeyState.__new__(_DefaultKmsKeyState)
 
         __props__.__dict__["key_arn"] = key_arn
+        __props__.__dict__["region"] = region
         return DefaultKmsKey(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -198,4 +237,12 @@ class DefaultKmsKey(pulumi.CustomResource):
         The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
         """
         return pulumi.get(self, "key_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

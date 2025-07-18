@@ -181,6 +181,12 @@ namespace Pulumi.Aws.Ec2
         [Input("keyPairId")]
         public string? KeyPairId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -235,6 +241,12 @@ namespace Pulumi.Aws.Ec2
         [Input("keyPairId")]
         public Input<string>? KeyPairId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -285,6 +297,7 @@ namespace Pulumi.Aws.Ec2
         /// Public key material.
         /// </summary>
         public readonly string PublicKey;
+        public readonly string Region;
         /// <summary>
         /// Any tags assigned to the Key Pair.
         /// </summary>
@@ -312,6 +325,8 @@ namespace Pulumi.Aws.Ec2
 
             string publicKey,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
@@ -324,6 +339,7 @@ namespace Pulumi.Aws.Ec2
             KeyPairId = keyPairId;
             KeyType = keyType;
             PublicKey = publicKey;
+            Region = region;
             Tags = tags;
         }
     }

@@ -31,6 +31,12 @@ namespace Pulumi.Aws.Sagemaker
         [Output("modelPackageGroupName")]
         public Output<string> ModelPackageGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("resourcePolicy")]
         public Output<string> ResourcePolicy { get; private set; } = null!;
 
@@ -86,6 +92,12 @@ namespace Pulumi.Aws.Sagemaker
         [Input("modelPackageGroupName", required: true)]
         public Input<string> ModelPackageGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resourcePolicy", required: true)]
         public Input<string> ResourcePolicy { get; set; } = null!;
 
@@ -102,6 +114,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("modelPackageGroupName")]
         public Input<string>? ModelPackageGroupName { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("resourcePolicy")]
         public Input<string>? ResourcePolicy { get; set; }

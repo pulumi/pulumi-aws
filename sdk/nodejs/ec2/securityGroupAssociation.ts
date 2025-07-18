@@ -64,6 +64,10 @@ export class SecurityGroupAssociation extends pulumi.CustomResource {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`. `false` should be used when importing resources.
      */
     public readonly replaceDefaultAssociation!: pulumi.Output<boolean | undefined>;
@@ -89,6 +93,7 @@ export class SecurityGroupAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityGroupAssociationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replaceDefaultAssociation"] = state ? state.replaceDefaultAssociation : undefined;
             resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
             resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
@@ -100,6 +105,7 @@ export class SecurityGroupAssociation extends pulumi.CustomResource {
             if ((!args || args.vpcEndpointId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcEndpointId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replaceDefaultAssociation"] = args ? args.replaceDefaultAssociation : undefined;
             resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
             resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
@@ -113,6 +119,10 @@ export class SecurityGroupAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SecurityGroupAssociation resources.
  */
 export interface SecurityGroupAssociationState {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`. `false` should be used when importing resources.
      */
@@ -131,6 +141,10 @@ export interface SecurityGroupAssociationState {
  * The set of arguments for constructing a SecurityGroupAssociation resource.
  */
 export interface SecurityGroupAssociationArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether this association should replace the association with the VPC's default security group that is created when no security groups are specified during VPC endpoint creation. At most 1 association per-VPC endpoint should be configured with `replaceDefaultAssociation = true`. `false` should be used when importing resources.
      */

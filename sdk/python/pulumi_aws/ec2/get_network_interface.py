@@ -29,7 +29,7 @@ class GetNetworkInterfaceResult:
     """
     A collection of values returned by getNetworkInterface.
     """
-    def __init__(__self__, arn=None, associations=None, attachments=None, availability_zone=None, description=None, filters=None, id=None, interface_type=None, ipv6_addresses=None, mac_address=None, outpost_arn=None, owner_id=None, private_dns_name=None, private_ip=None, private_ips=None, requester_id=None, security_groups=None, subnet_id=None, tags=None, vpc_id=None):
+    def __init__(__self__, arn=None, associations=None, attachments=None, availability_zone=None, description=None, filters=None, id=None, interface_type=None, ipv6_addresses=None, mac_address=None, outpost_arn=None, owner_id=None, private_dns_name=None, private_ip=None, private_ips=None, region=None, requester_id=None, security_groups=None, subnet_id=None, tags=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -75,6 +75,9 @@ class GetNetworkInterfaceResult:
         if private_ips and not isinstance(private_ips, list):
             raise TypeError("Expected argument 'private_ips' to be a list")
         pulumi.set(__self__, "private_ips", private_ips)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if requester_id and not isinstance(requester_id, str):
             raise TypeError("Expected argument 'requester_id' to be a str")
         pulumi.set(__self__, "requester_id", requester_id)
@@ -203,6 +206,11 @@ class GetNetworkInterfaceResult:
         return pulumi.get(self, "private_ips")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="requesterId")
     def requester_id(self) -> builtins.str:
         """
@@ -264,6 +272,7 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
             private_dns_name=self.private_dns_name,
             private_ip=self.private_ip,
             private_ips=self.private_ips,
+            region=self.region,
             requester_id=self.requester_id,
             security_groups=self.security_groups,
             subnet_id=self.subnet_id,
@@ -273,6 +282,7 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
 
 def get_network_interface(filters: Optional[Sequence[Union['GetNetworkInterfaceFilterArgs', 'GetNetworkInterfaceFilterArgsDict']]] = None,
                           id: Optional[builtins.str] = None,
+                          region: Optional[builtins.str] = None,
                           tags: Optional[Mapping[str, builtins.str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfaceResult:
     """
@@ -290,11 +300,13 @@ def get_network_interface(filters: Optional[Sequence[Union['GetNetworkInterfaceF
 
     :param Sequence[Union['GetNetworkInterfaceFilterArgs', 'GetNetworkInterfaceFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
     :param builtins.str id: Identifier for the network interface.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Any tags assigned to the network interface.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNetworkInterface:getNetworkInterface', __args__, opts=opts, typ=GetNetworkInterfaceResult).value
@@ -315,6 +327,7 @@ def get_network_interface(filters: Optional[Sequence[Union['GetNetworkInterfaceF
         private_dns_name=pulumi.get(__ret__, 'private_dns_name'),
         private_ip=pulumi.get(__ret__, 'private_ip'),
         private_ips=pulumi.get(__ret__, 'private_ips'),
+        region=pulumi.get(__ret__, 'region'),
         requester_id=pulumi.get(__ret__, 'requester_id'),
         security_groups=pulumi.get(__ret__, 'security_groups'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
@@ -322,6 +335,7 @@ def get_network_interface(filters: Optional[Sequence[Union['GetNetworkInterfaceF
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_network_interface_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkInterfaceFilterArgs', 'GetNetworkInterfaceFilterArgsDict']]]]] = None,
                                  id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                 region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
     """
@@ -339,11 +353,13 @@ def get_network_interface_output(filters: Optional[pulumi.Input[Optional[Sequenc
 
     :param Sequence[Union['GetNetworkInterfaceFilterArgs', 'GetNetworkInterfaceFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
     :param builtins.str id: Identifier for the network interface.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Any tags assigned to the network interface.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getNetworkInterface:getNetworkInterface', __args__, opts=opts, typ=GetNetworkInterfaceResult)
@@ -363,6 +379,7 @@ def get_network_interface_output(filters: Optional[pulumi.Input[Optional[Sequenc
         private_dns_name=pulumi.get(__response__, 'private_dns_name'),
         private_ip=pulumi.get(__response__, 'private_ip'),
         private_ips=pulumi.get(__response__, 'private_ips'),
+        region=pulumi.get(__response__, 'region'),
         requester_id=pulumi.get(__response__, 'requester_id'),
         security_groups=pulumi.get(__response__, 'security_groups'),
         subnet_id=pulumi.get(__response__, 'subnet_id'),

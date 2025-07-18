@@ -33,9 +33,9 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:identitystore/getGroup:getGroup", {
         "alternateIdentifier": args.alternateIdentifier,
-        "filter": args.filter,
         "groupId": args.groupId,
         "identityStoreId": args.identityStoreId,
+        "region": args.region,
     }, opts);
 }
 
@@ -48,12 +48,6 @@ export interface GetGroupArgs {
      */
     alternateIdentifier?: inputs.identitystore.GetGroupAlternateIdentifier;
     /**
-     * Configuration block for filtering by a unique attribute of the group. Detailed below.
-     *
-     * @deprecated filter is deprecated. Use alternateIdentifier instead.
-     */
-    filter?: inputs.identitystore.GetGroupFilter;
-    /**
      * The identifier for a group in the Identity Store.
      *
      * > Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
@@ -65,6 +59,10 @@ export interface GetGroupArgs {
      * The following arguments are optional:
      */
     identityStoreId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -84,16 +82,13 @@ export interface GetGroupResult {
      * List of identifiers issued to this resource by an external identity provider.
      */
     readonly externalIds: outputs.identitystore.GetGroupExternalId[];
-    /**
-     * @deprecated filter is deprecated. Use alternateIdentifier instead.
-     */
-    readonly filter?: outputs.identitystore.GetGroupFilter;
     readonly groupId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly identityStoreId: string;
+    readonly region: string;
 }
 /**
  * Use this data source to get an Identity Store Group.
@@ -121,9 +116,9 @@ export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:identitystore/getGroup:getGroup", {
         "alternateIdentifier": args.alternateIdentifier,
-        "filter": args.filter,
         "groupId": args.groupId,
         "identityStoreId": args.identityStoreId,
+        "region": args.region,
     }, opts);
 }
 
@@ -136,12 +131,6 @@ export interface GetGroupOutputArgs {
      */
     alternateIdentifier?: pulumi.Input<inputs.identitystore.GetGroupAlternateIdentifierArgs>;
     /**
-     * Configuration block for filtering by a unique attribute of the group. Detailed below.
-     *
-     * @deprecated filter is deprecated. Use alternateIdentifier instead.
-     */
-    filter?: pulumi.Input<inputs.identitystore.GetGroupFilterArgs>;
-    /**
      * The identifier for a group in the Identity Store.
      *
      * > Exactly one of the above arguments must be provided. Passing both `filter` and `groupId` is allowed for backwards compatibility.
@@ -153,4 +142,8 @@ export interface GetGroupOutputArgs {
      * The following arguments are optional:
      */
     identityStoreId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

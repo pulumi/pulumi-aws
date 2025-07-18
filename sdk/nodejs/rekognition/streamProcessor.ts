@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "example-bucket"});
+ * const example = new aws.s3.Bucket("example", {bucket: "example-bucket"});
  * const exampleTopic = new aws.sns.Topic("example", {name: "example-topic"});
  * const exampleVideoStream = new aws.kinesis.VideoStream("example", {
  *     name: "example-kinesis-input",
@@ -255,6 +255,10 @@ export class StreamProcessor extends pulumi.CustomResource {
      */
     public readonly output!: pulumi.Output<outputs.rekognition.StreamProcessorOutput | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
      */
     public readonly regionsOfInterests!: pulumi.Output<outputs.rekognition.StreamProcessorRegionsOfInterest[] | undefined>;
@@ -281,8 +285,6 @@ export class StreamProcessor extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.rekognition.StreamProcessorTimeouts | undefined>;
@@ -307,6 +309,7 @@ export class StreamProcessor extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["notificationChannel"] = state ? state.notificationChannel : undefined;
             resourceInputs["output"] = state ? state.output : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["regionsOfInterests"] = state ? state.regionsOfInterests : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["settings"] = state ? state.settings : undefined;
@@ -325,6 +328,7 @@ export class StreamProcessor extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["notificationChannel"] = args ? args.notificationChannel : undefined;
             resourceInputs["output"] = args ? args.output : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["regionsOfInterests"] = args ? args.regionsOfInterests : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["settings"] = args ? args.settings : undefined;
@@ -372,6 +376,10 @@ export interface StreamProcessorState {
      */
     output?: pulumi.Input<inputs.rekognition.StreamProcessorOutput>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
      */
     regionsOfInterests?: pulumi.Input<pulumi.Input<inputs.rekognition.StreamProcessorRegionsOfInterest>[]>;
@@ -398,8 +406,6 @@ export interface StreamProcessorState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.rekognition.StreamProcessorTimeouts>;
@@ -433,6 +439,10 @@ export interface StreamProcessorArgs {
      * Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
      */
     output?: pulumi.Input<inputs.rekognition.StreamProcessorOutput>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
      */

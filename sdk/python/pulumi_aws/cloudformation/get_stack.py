@@ -27,7 +27,7 @@ class GetStackResult:
     """
     A collection of values returned by getStack.
     """
-    def __init__(__self__, capabilities=None, description=None, disable_rollback=None, iam_role_arn=None, id=None, name=None, notification_arns=None, outputs=None, parameters=None, tags=None, template_body=None, timeout_in_minutes=None):
+    def __init__(__self__, capabilities=None, description=None, disable_rollback=None, iam_role_arn=None, id=None, name=None, notification_arns=None, outputs=None, parameters=None, region=None, tags=None, template_body=None, timeout_in_minutes=None):
         if capabilities and not isinstance(capabilities, list):
             raise TypeError("Expected argument 'capabilities' to be a list")
         pulumi.set(__self__, "capabilities", capabilities)
@@ -55,6 +55,9 @@ class GetStackResult:
         if parameters and not isinstance(parameters, dict):
             raise TypeError("Expected argument 'parameters' to be a dict")
         pulumi.set(__self__, "parameters", parameters)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -136,6 +139,11 @@ class GetStackResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Map of tags associated with this stack.
@@ -174,12 +182,14 @@ class AwaitableGetStackResult(GetStackResult):
             notification_arns=self.notification_arns,
             outputs=self.outputs,
             parameters=self.parameters,
+            region=self.region,
             tags=self.tags,
             template_body=self.template_body,
             timeout_in_minutes=self.timeout_in_minutes)
 
 
 def get_stack(name: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               tags: Optional[Mapping[str, builtins.str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStackResult:
     """
@@ -204,10 +214,12 @@ def get_stack(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the stack
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags associated with this stack.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:cloudformation/getStack:getStack', __args__, opts=opts, typ=GetStackResult).value
@@ -222,10 +234,12 @@ def get_stack(name: Optional[builtins.str] = None,
         notification_arns=pulumi.get(__ret__, 'notification_arns'),
         outputs=pulumi.get(__ret__, 'outputs'),
         parameters=pulumi.get(__ret__, 'parameters'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         template_body=pulumi.get(__ret__, 'template_body'),
         timeout_in_minutes=pulumi.get(__ret__, 'timeout_in_minutes'))
 def get_stack_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStackResult]:
     """
@@ -250,10 +264,12 @@ def get_stack_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the stack
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags associated with this stack.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudformation/getStack:getStack', __args__, opts=opts, typ=GetStackResult)
@@ -267,6 +283,7 @@ def get_stack_output(name: Optional[pulumi.Input[builtins.str]] = None,
         notification_arns=pulumi.get(__response__, 'notification_arns'),
         outputs=pulumi.get(__response__, 'outputs'),
         parameters=pulumi.get(__response__, 'parameters'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         template_body=pulumi.get(__response__, 'template_body'),
         timeout_in_minutes=pulumi.get(__response__, 'timeout_in_minutes')))

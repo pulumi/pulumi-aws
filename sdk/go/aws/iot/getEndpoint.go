@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,6 +26,8 @@ func GetEndpoint(ctx *pulumi.Context, args *GetEndpointArgs, opts ...pulumi.Invo
 type GetEndpointArgs struct {
 	// Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
 	EndpointType *string `pulumi:"endpointType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEndpoint.
@@ -39,7 +41,8 @@ type GetEndpointResult struct {
 	EndpointAddress string  `pulumi:"endpointAddress"`
 	EndpointType    *string `pulumi:"endpointType"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func GetEndpointOutput(ctx *pulumi.Context, args GetEndpointOutputArgs, opts ...pulumi.InvokeOption) GetEndpointResultOutput {
@@ -55,6 +58,8 @@ func GetEndpointOutput(ctx *pulumi.Context, args GetEndpointOutputArgs, opts ...
 type GetEndpointOutputArgs struct {
 	// Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
 	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetEndpointOutputArgs) ElementType() reflect.Type {
@@ -93,6 +98,10 @@ func (o GetEndpointResultOutput) EndpointType() pulumi.StringPtrOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetEndpointResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetEndpointResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

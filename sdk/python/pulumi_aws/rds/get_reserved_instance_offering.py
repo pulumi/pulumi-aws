@@ -27,7 +27,7 @@ class GetReservedInstanceOfferingResult:
     """
     A collection of values returned by getReservedInstanceOffering.
     """
-    def __init__(__self__, currency_code=None, db_instance_class=None, duration=None, fixed_price=None, id=None, multi_az=None, offering_id=None, offering_type=None, product_description=None):
+    def __init__(__self__, currency_code=None, db_instance_class=None, duration=None, fixed_price=None, id=None, multi_az=None, offering_id=None, offering_type=None, product_description=None, region=None):
         if currency_code and not isinstance(currency_code, str):
             raise TypeError("Expected argument 'currency_code' to be a str")
         pulumi.set(__self__, "currency_code", currency_code)
@@ -55,6 +55,9 @@ class GetReservedInstanceOfferingResult:
         if product_description and not isinstance(product_description, str):
             raise TypeError("Expected argument 'product_description' to be a str")
         pulumi.set(__self__, "product_description", product_description)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="currencyCode")
@@ -113,6 +116,11 @@ class GetReservedInstanceOfferingResult:
     def product_description(self) -> builtins.str:
         return pulumi.get(self, "product_description")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetReservedInstanceOfferingResult(GetReservedInstanceOfferingResult):
     # pylint: disable=using-constant-test
@@ -128,7 +136,8 @@ class AwaitableGetReservedInstanceOfferingResult(GetReservedInstanceOfferingResu
             multi_az=self.multi_az,
             offering_id=self.offering_id,
             offering_type=self.offering_type,
-            product_description=self.product_description)
+            product_description=self.product_description,
+            region=self.region)
 
 
 def get_reserved_instance_offering(db_instance_class: Optional[builtins.str] = None,
@@ -136,6 +145,7 @@ def get_reserved_instance_offering(db_instance_class: Optional[builtins.str] = N
                                    multi_az: Optional[builtins.bool] = None,
                                    offering_type: Optional[builtins.str] = None,
                                    product_description: Optional[builtins.str] = None,
+                                   region: Optional[builtins.str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReservedInstanceOfferingResult:
     """
     Information about a single RDS Reserved Instance Offering.
@@ -159,6 +169,7 @@ def get_reserved_instance_offering(db_instance_class: Optional[builtins.str] = N
     :param builtins.bool multi_az: Whether the reservation applies to Multi-AZ deployments.
     :param builtins.str offering_type: Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
     :param builtins.str product_description: Description of the reserved DB instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['dbInstanceClass'] = db_instance_class
@@ -166,6 +177,7 @@ def get_reserved_instance_offering(db_instance_class: Optional[builtins.str] = N
     __args__['multiAz'] = multi_az
     __args__['offeringType'] = offering_type
     __args__['productDescription'] = product_description
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:rds/getReservedInstanceOffering:getReservedInstanceOffering', __args__, opts=opts, typ=GetReservedInstanceOfferingResult).value
 
@@ -178,12 +190,14 @@ def get_reserved_instance_offering(db_instance_class: Optional[builtins.str] = N
         multi_az=pulumi.get(__ret__, 'multi_az'),
         offering_id=pulumi.get(__ret__, 'offering_id'),
         offering_type=pulumi.get(__ret__, 'offering_type'),
-        product_description=pulumi.get(__ret__, 'product_description'))
+        product_description=pulumi.get(__ret__, 'product_description'),
+        region=pulumi.get(__ret__, 'region'))
 def get_reserved_instance_offering_output(db_instance_class: Optional[pulumi.Input[builtins.str]] = None,
                                           duration: Optional[pulumi.Input[builtins.int]] = None,
                                           multi_az: Optional[pulumi.Input[builtins.bool]] = None,
                                           offering_type: Optional[pulumi.Input[builtins.str]] = None,
                                           product_description: Optional[pulumi.Input[builtins.str]] = None,
+                                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReservedInstanceOfferingResult]:
     """
     Information about a single RDS Reserved Instance Offering.
@@ -207,6 +221,7 @@ def get_reserved_instance_offering_output(db_instance_class: Optional[pulumi.Inp
     :param builtins.bool multi_az: Whether the reservation applies to Multi-AZ deployments.
     :param builtins.str offering_type: Offering type of this reserved DB instance. Valid values are `No Upfront`, `Partial Upfront`, `All Upfront`.
     :param builtins.str product_description: Description of the reserved DB instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['dbInstanceClass'] = db_instance_class
@@ -214,6 +229,7 @@ def get_reserved_instance_offering_output(db_instance_class: Optional[pulumi.Inp
     __args__['multiAz'] = multi_az
     __args__['offeringType'] = offering_type
     __args__['productDescription'] = product_description
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getReservedInstanceOffering:getReservedInstanceOffering', __args__, opts=opts, typ=GetReservedInstanceOfferingResult)
     return __ret__.apply(lambda __response__: GetReservedInstanceOfferingResult(
@@ -225,4 +241,5 @@ def get_reserved_instance_offering_output(db_instance_class: Optional[pulumi.Inp
         multi_az=pulumi.get(__response__, 'multi_az'),
         offering_id=pulumi.get(__response__, 'offering_id'),
         offering_type=pulumi.get(__response__, 'offering_type'),
-        product_description=pulumi.get(__response__, 'product_description')))
+        product_description=pulumi.get(__response__, 'product_description'),
+        region=pulumi.get(__response__, 'region')))

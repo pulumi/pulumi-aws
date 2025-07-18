@@ -33,9 +33,9 @@ import (
 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
 	"github.com/mitchellh/go-homedir"
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/batch"
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/rds"
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
+	"github.com/pulumi/pulumi-aws/provider/v7/pkg/batch"
+	"github.com/pulumi/pulumi-aws/provider/v7/pkg/rds"
+	"github.com/pulumi/pulumi-aws/provider/v7/pkg/version"
 
 	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/pf/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
@@ -200,7 +200,6 @@ const (
 	notificationsContactsMod    = "NotificationsContacts"    // Notificaitions Contacts
 	oamMod                      = "Oam"                      // Observability Access Manager
 	opensearchMod               = "OpenSearch"               // OpenSearch
-	opsworksMod                 = "OpsWorks"                 // OpsWorks
 	organizationsMod            = "Organizations"            // Organizations
 	osisMod                     = "OpenSearchIngest"         // Open Search Ingestion Service
 	outpostsMod                 = "Outposts"                 // Outposts
@@ -247,7 +246,6 @@ const (
 	servicequotasMod            = "ServiceQuotas"            // Service Quotas
 	sfnMod                      = "Sfn"                      // Step Functions (SFN)
 	shieldMod                   = "Shield"                   // Shield
-	simpledbMod                 = "SimpleDB"                 // Simple DB
 	snsMod                      = "Sns"                      // Simple Notification Service (SNS)
 	sqsMod                      = "Sqs"                      // Simple Queueing Service (SQS)
 	ssoAdminMod                 = "SsoAdmin"                 // SSO Admin
@@ -266,7 +264,6 @@ const (
 	wafMod                      = "Waf"                      // Web Application Firewall (WAF)
 	wafV2Mod                    = "WafV2"                    // Web Application Firewall V2 (WAFV2)
 	wafregionalMod              = "WafRegional"              // Web Application Firewall (WAF) Regional
-	worklinkMod                 = "WorkLink"                 // Worklink
 	workspacesMod               = "Workspaces"               // Workspaces
 	workspaceswebMod            = "WorkSpacesWeb"            // WorkSpaces Web
 	xrayMod                     = "Xray"                     // X-Ray
@@ -361,8 +358,8 @@ var moduleMap = map[string]string{
 	"dlm":                             dlmMod,
 	"dms":                             dmsMod,
 	"docdb":                           docdbMod,
-	"drs":                             drsMod,
 	"dsql":                            dsqlMod,
+	"drs":                             drsMod,
 	"dx":                              dxMod,
 	"dynamodb":                        dynamodbMod,
 	"ebs":                             ebsMod,
@@ -434,7 +431,6 @@ var moduleMap = map[string]string{
 	"notificationsContacts":           notificationsContactsMod,
 	"oam":                             oamMod,
 	"opensearch":                      opensearchMod,
-	"opsworks":                        opsworksMod,
 	"organizations":                   organizationsMod,
 	"osis":                            osisMod,
 	"outposts":                        outpostsMod,
@@ -482,7 +478,6 @@ var moduleMap = map[string]string{
 	"sfn":                             sfnMod,
 	"shield":                          shieldMod,
 	"signer":                          signerMod,
-	"simpledb":                        simpledbMod,
 	"sns":                             snsMod,
 	"sqs":                             sqsMod,
 	"ssm":                             ssmMod,
@@ -502,7 +497,6 @@ var moduleMap = map[string]string{
 	"waf":                             wafMod,
 	"wafregional":                     wafregionalMod,
 	"wafv2":                           wafV2Mod,
-	"worklink":                        worklinkMod,
 	"workspaces":                      workspacesMod,
 	"workspacesweb":                   workspaceswebMod,
 	"xray":                            xrayMod,
@@ -527,8 +521,8 @@ func awsMember(moduleTitle string, fn string, mem string) tokens.ModuleMember {
 }
 
 // awsType manufactures a type token for the AWS package and the given module, file name, and type.
-func awsType(mod string, fn string, typ string) tokens.Type {
-	return tokens.Type(awsMember(mod, fn, typ))
+func awsType(mod string, fileName string, typ string) tokens.Type {
+	return tokens.Type(awsMember(mod, fileName, typ))
 }
 
 // awsResource manufactures a standard resource token given a module and resource name.  It automatically uses the AWS
@@ -668,25 +662,28 @@ func validateCredentials(vars resource.PropertyMap, c shim.ResourceConfig) error
 		CallerDocumentationURL: "https://www.pulumi.com/registry/packages/aws/installation-configuration/",
 	}
 
-	if details, ok := vars["assumeRole"]; ok {
-		assumeRole := awsbase.AssumeRole{
-			RoleARN:           stringValue(details.ObjectValue(), "roleArn", []string{}),
-			ExternalID:        stringValue(details.ObjectValue(), "externalId", []string{}),
-			Policy:            stringValue(details.ObjectValue(), "policy", []string{}),
-			PolicyARNs:        arrayValue(details.ObjectValue(), "policyArns", []string{}),
-			SessionName:       stringValue(details.ObjectValue(), "sessionName", []string{}),
-			SourceIdentity:    stringValue(details.ObjectValue(), "sourceIdentity", []string{}),
-			TransitiveTagKeys: arrayValue(details.ObjectValue(), "transitiveTagKeys", []string{}),
-			Tags:              extractTags(details.ObjectValue(), "tags"),
+	assumeRoles := []awsbase.AssumeRole{}
+	if roles, ok := vars["assumeRole"]; ok {
+		for _, details := range roles.ArrayValue() {
+			assumeRole := awsbase.AssumeRole{
+				RoleARN:           stringValue(details.ObjectValue(), "roleArn", []string{}),
+				ExternalID:        stringValue(details.ObjectValue(), "externalId", []string{}),
+				Policy:            stringValue(details.ObjectValue(), "policy", []string{}),
+				PolicyARNs:        arrayValue(details.ObjectValue(), "policyArns", []string{}),
+				SessionName:       stringValue(details.ObjectValue(), "sessionName", []string{}),
+				SourceIdentity:    stringValue(details.ObjectValue(), "sourceIdentity", []string{}),
+				TransitiveTagKeys: arrayValue(details.ObjectValue(), "transitiveTagKeys", []string{}),
+				Tags:              extractTags(details.ObjectValue(), "tags"),
+			}
+			duration, err := durationFromConfig(details.ObjectValue(), "durationSeconds")
+			if err != nil {
+				return err
+			}
+			if duration != nil {
+				assumeRole.Duration = *duration
+			}
+			assumeRoles = append(assumeRoles, assumeRole)
 		}
-		duration, err := durationFromConfig(details.ObjectValue(), "durationSeconds")
-		if err != nil {
-			return err
-		}
-		if duration != nil {
-			assumeRole.Duration = *duration
-		}
-		config.AssumeRole = []awsbase.AssumeRole{assumeRole}
 	}
 
 	if details, ok := vars["assumeRoleWithWebIdentity"]; ok {
@@ -870,7 +867,10 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 	ctx := context.Background()
 	upstreamProvider := newUpstreamProvider(ctx)
 
-	v2p := shimv2.NewProvider(upstreamProvider.SDKV2Provider)
+	up := upstreamProvider.SDKV2Provider
+	// TODO[pulumi/pulumi-aws#5533] required for the v6-beta
+	up.TerraformVersion = "1.0.0+compatible"
+	v2p := shimv2.NewProvider(up)
 
 	p := pftfbridge.MuxShimWithDisjointgPF(ctx, v2p, upstreamProvider.PluginFrameworkProvider)
 
@@ -899,39 +899,14 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 
 		MetadataInfo: metaInfo,
 		SchemaPostProcessor: func(spec *schema.PackageSpec) {
-			r, ok := spec.Resources["aws:rds/instance:Instance"]
-			contract.Assertf(ok, "could not find rds:Instance")
-			_, ok = r.InputProperties["name"]
-			contract.Assertf(!ok, `expected that RDS does not have a "name" property already.
-
-If it does, then we need to consider if we should keep the current name property for
-backwards compatibility and rename the new property or remove the current backwards
-compatibility shim in favor of the new "name" field.`)
-			r.InputProperties["name"] = schema.PropertySpec{
-				TypeSpec:             schema.TypeSpec{Type: "string"},
-				WillReplaceOnChanges: true,
-				DeprecationMessage:   "This property has been deprecated. Please use 'dbName' instead.",
-			}
-			_, ok = r.Properties["name"]
-			contract.Assertf(!ok, "rds:Instance already has an output called name")
-			r.Properties["name"] = schema.PropertySpec{
-				TypeSpec:           schema.TypeSpec{Type: "string"},
-				DeprecationMessage: "This property has been deprecated. Please use 'dbName' instead.",
-			}
-			r.StateInputs.Properties["name"] = r.InputProperties["name"]
 			postProcessOverlays(spec)
 		},
 
 		Config: map[string]*tfbridge.SchemaInfo{
-			"assume_role": {
-				MaxItemsOne: tfbridge.True(),
-			},
 			"region": {
-				Type: awsTypeDefaultFile(awsMod, "Region"),
 				Default: &tfbridge.DefaultInfo{
 					EnvVars: []string{"AWS_REGION", "AWS_DEFAULT_REGION"},
 				},
-				ForcesProviderReplace: tfbridge.True(),
 			},
 			"skip_region_validation": {
 				Default: &tfbridge.DefaultInfo{
@@ -1063,7 +1038,7 @@ compatibility shim in favor of the new "name" field.`)
 					"rest_api_id": {
 						Name:     "restApi",
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1073,7 +1048,7 @@ compatibility shim in favor of the new "name" field.`)
 					"api_id": {
 						Name:     "restApi",
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1084,7 +1059,7 @@ compatibility shim in favor of the new "name" field.`)
 					"rest_api_id": {
 						Name:     "restApi",
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1104,7 +1079,7 @@ compatibility shim in favor of the new "name" field.`)
 					"rest_api_id": {
 						Name:     "restApi",
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 				DeleteBeforeReplace: true,
@@ -1115,7 +1090,7 @@ compatibility shim in favor of the new "name" field.`)
 					"rest_api_id": {
 						Name:     "restApi",
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1125,7 +1100,7 @@ compatibility shim in favor of the new "name" field.`)
 					"rest_api_id": {
 						Name:     "restApi",
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1135,7 +1110,7 @@ compatibility shim in favor of the new "name" field.`)
 					"rest_api_id": {
 						Name:     "restApi",
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1145,7 +1120,7 @@ compatibility shim in favor of the new "name" field.`)
 					"rest_api_id": {
 						Name:     "restApi",
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1155,7 +1130,7 @@ compatibility shim in favor of the new "name" field.`)
 					"rest_api_id": {
 						Name:     "restApi",
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1165,7 +1140,7 @@ compatibility shim in favor of the new "name" field.`)
 					"rest_api_id": {
 						Name:     "restApi",
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1180,7 +1155,7 @@ compatibility shim in favor of the new "name" field.`)
 					"rest_api_id": {
 						Name:     "restApi",
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1192,12 +1167,12 @@ compatibility shim in favor of the new "name" field.`)
 					"deployment_id": {
 						Name:     "deployment",
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "Deployment")},
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "Deployment")},
 					},
 					"rest_api_id": {
 						Name:     "restApi",
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(apigatewayMod, "RestApi")},
+						AltTypes: []tokens.Type{awsResource(apigatewayMod, "RestApi")},
 					},
 				},
 			},
@@ -1282,7 +1257,7 @@ compatibility shim in favor of the new "name" field.`)
 						AltTypes: []tokens.Type{awsResource(ec2Mod, "PlacementGroup")},
 					},
 					"enabled_metrics": {
-						Elem: &tfbridge.SchemaInfo{Type: awsType(autoscalingMod, "metrics", "Metric")},
+						Elem: &tfbridge.SchemaInfo{Type: awsType(autoscalingMod, "Metric", "Metric")},
 					},
 					"metrics_granularity": {
 						Type:     "string",
@@ -1343,7 +1318,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(autoscalingMod, "Notification"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"notifications": {
-						Elem: &tfbridge.SchemaInfo{Type: awsTypeDefaultFile(autoscalingMod, "NotificationType")},
+						Elem: &tfbridge.SchemaInfo{Type: awsType(autoscalingMod, "NotificationType", "NotificationType")},
 					},
 				},
 			},
@@ -1490,7 +1465,6 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy_document": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -1671,24 +1645,13 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_datasync_agent": {Tok: awsResource(datasyncMod, "Agent")},
 			"aws_datasync_location_efs": {
 				Tok: awsResource(datasyncMod, "EfsLocation"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"efs_file_system_arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
-				},
 			},
 			"aws_datasync_location_nfs": {Tok: awsResource(datasyncMod, "NfsLocation")},
 			"aws_datasync_location_s3": {
 				Tok: awsResource(datasyncMod, "S3Location"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"s3_bucket_arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
-				},
 			},
 			"aws_datasync_task": {
 				Tok: awsResource(datasyncMod, "Task"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"destination_location_arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
-					"source_location_arn":      {Type: awsTypeDefaultFile(awsMod, "ARN")},
-					"cloudwatch_log_group_arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
-				},
 			},
 			"aws_datasync_location_smb":                     {Tok: awsResource(datasyncMod, "LocationSmb")},
 			"aws_datasync_location_fsx_windows_file_system": {Tok: awsResource(datasyncMod, "LocationFsxWindows")},
@@ -1845,8 +1808,9 @@ compatibility shim in favor of the new "name" field.`)
 						AltTypes: []tokens.Type{awsResource(elasticbeanstalkMod, "Application")},
 					},
 					"version_label": {
-						Name: "version",
-						Type: awsResource(elasticbeanstalkMod, "ApplicationVersion"),
+						Name:     "version",
+						Type:     "string",
+						AltTypes: []tokens.Type{awsResource(elasticbeanstalkMod, "ApplicationVersion")},
 					},
 				},
 			},
@@ -1927,7 +1891,7 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"iam_instance_profile": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "InstanceProfile")},
+						AltTypes: []tokens.Type{awsResource(iamMod, "InstanceProfile")},
 					},
 					"instance_type": {
 						Type:     "string",
@@ -1965,7 +1929,7 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"iam_instance_profile": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "InstanceProfile")},
+						AltTypes: []tokens.Type{awsResource(iamMod, "InstanceProfile")},
 					},
 				},
 			},
@@ -2165,9 +2129,6 @@ compatibility shim in favor of the new "name" field.`)
 			// EC2 Transit Gateway
 			"aws_ec2_transit_gateway": {
 				Tok: awsResource(ec2TransitGatewayMod, "TransitGateway"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
-				},
 			},
 			"aws_ec2_transit_gateway_route": {
 				Tok: awsResource(ec2TransitGatewayMod, "Route"),
@@ -2203,7 +2164,6 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -2214,7 +2174,7 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsTypeDefaultFile(ecrMod, "LifecyclePolicyDocument")},
+						AltTypes:  []tokens.Type{awsType(ecrMod, "LifecyclePolicyDocument", "LifecyclePolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -2224,7 +2184,6 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -2309,6 +2268,13 @@ compatibility shim in favor of the new "name" field.`)
 				},
 			},
 			"aws_eks_cluster": {
+				Fields: map[string]*info.Schema{
+					"certificate_authority": {
+						Name: "certificateAuthority",
+						// The upstream API only returns a single item
+						MaxItemsOne: tfbridge.True(),
+					},
+				},
 				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
 					// if the defaultOutboundAccessEnabled property is not set, set it to the default value of true
 					// this prevents an unnecessary replacement when upgrading the provider
@@ -2317,6 +2283,8 @@ compatibility shim in favor of the new "name" field.`)
 					if _, ok := pm["bootstrapSelfManagedAddons"]; !ok {
 						pm["bootstrapSelfManagedAddons"] = resource.NewBoolProperty(true)
 					}
+					// Remove deprecated certificateAuthority key from state
+					delete(pm, "certificateAuthority")
 					return pm, nil
 				},
 			},
@@ -2340,7 +2308,6 @@ compatibility shim in favor of the new "name" field.`)
 					"snapshot_options": {Name: "snapshotOptions"},
 					"access_policies": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -2350,7 +2317,6 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"access_policies": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -2434,18 +2400,6 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_gamelift_game_session_queue": {Tok: awsResource(gameliftMod, "GameSessionQueue")},
 			"aws_gamelift_game_server_group":  {Tok: awsResource(gameliftMod, "GameServerGroup")},
 			"aws_gamelift_script":             {Tok: awsResource(gameliftMod, "Script")},
-
-			"aws_gamelift_matchmaking_configuration": {
-				Tok: awsResource(gameliftMod, "MatchmakingConfiguration"),
-				DeprecationMessage: "This resource will be removed in the next major version. " +
-					"Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingconfiguration/ instead",
-			},
-
-			"aws_gamelift_matchmaking_rule_set": {
-				Tok: awsResource(gameliftMod, "MatchmakingRuleSet"),
-				DeprecationMessage: "This resource will be removed in the next major version." +
-					"Consider using https://www.pulumi.com/registry/packages/aws-native/api-docs/gamelift/matchmakingruleset/ instead",
-			},
 
 			// Glacier
 			"aws_glacier_vault":      {Tok: awsResource(glacierMod, "Vault")},
@@ -2556,7 +2510,7 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
+						AltTypes:  []tokens.Type{awsType(iamMod, "PolicyDocument", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -2568,11 +2522,10 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"group": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Group")},
+						AltTypes: []tokens.Type{awsResource(iamMod, "Group")},
 					},
 					"policy_arn": {
 						Name: "policyArn",
-						Type: awsTypeDefaultFile(awsMod, "ARN"),
 					},
 				},
 				// We pass delete-before-replace: this is a leaf node and a create followed by a delete actually
@@ -2584,7 +2537,7 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"role": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Role")},
+						AltTypes: []tokens.Type{awsResource(iamMod, "Role")},
 					},
 				},
 			},
@@ -2594,7 +2547,7 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:       "string",
-						AltTypes:   []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
+						AltTypes:   []tokens.Type{awsType(iamMod, "PolicyDocument", "PolicyDocument")},
 						Transform:  tfbridge.TransformJSONDocument,
 						CSharpName: "PolicyDocument",
 					},
@@ -2606,24 +2559,23 @@ compatibility shim in favor of the new "name" field.`)
 					"users": {
 						Elem: &tfbridge.SchemaInfo{
 							Type:     "string",
-							AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "User")},
+							AltTypes: []tokens.Type{awsResource(iamMod, "User")},
 						},
 					},
 					"roles": {
 						Elem: &tfbridge.SchemaInfo{
 							Type:     "string",
-							AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Role")},
+							AltTypes: []tokens.Type{awsResource(iamMod, "Role")},
 						},
 					},
 					"groups": {
 						Elem: &tfbridge.SchemaInfo{
 							Type:     "string",
-							AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Group")},
+							AltTypes: []tokens.Type{awsResource(iamMod, "Group")},
 						},
 					},
 					"policy_arn": {
 						Name: "policyArn",
-						Type: awsTypeDefaultFile(awsMod, "ARN"),
 					},
 				},
 				// We pass delete-before-replace: this is a leaf node and a create followed by a delete actually
@@ -2635,11 +2587,10 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"role": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Role")},
+						AltTypes: []tokens.Type{awsResource(iamMod, "Role")},
 					},
 					"policy_arn": {
 						Name: "policyArn",
-						Type: awsTypeDefaultFile(awsMod, "ARN"),
 					},
 				},
 				// We pass delete-before-replace: this is a leaf node and a create followed by a delete actually
@@ -2651,11 +2602,11 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"role": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "Role")},
+						AltTypes: []tokens.Type{awsResource(iamMod, "Role")},
 					},
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
+						AltTypes:  []tokens.Type{awsType(iamMod, "PolicyDocument", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -2666,7 +2617,7 @@ compatibility shim in favor of the new "name" field.`)
 					"name": tfbridge.AutoName("name", 64, "-"),
 					"assume_role_policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
+						AltTypes:  []tokens.Type{awsType(iamMod, "PolicyDocument", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 					"inline_policy": {
@@ -2718,11 +2669,10 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"user": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iamMod, "User")},
+						AltTypes: []tokens.Type{awsResource(iamMod, "User")},
 					},
 					"policy_arn": {
 						Name: "policyArn",
-						Type: awsTypeDefaultFile(awsMod, "ARN"),
 					},
 				},
 				// We pass delete-before-replace: this is a leaf node and a create followed by a delete actually
@@ -2734,7 +2684,7 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
+						AltTypes:  []tokens.Type{awsType(iamMod, "PolicyDocument", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -2785,10 +2735,7 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(iotMod, "Policy")},
-					},
-					"target": {
-						Type: awsTypeDefaultFile(awsMod, "ARN"),
+						AltTypes: []tokens.Type{awsResource(iotMod, "Policy")},
 					},
 				},
 			},
@@ -2796,11 +2743,6 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_iot_thing":      {Tok: awsResource(iotMod, "Thing")},
 			"aws_iot_thing_principal_attachment": {
 				Tok: awsResource(iotMod, "ThingPrincipalAttachment"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"principal": {
-						Type: awsTypeDefaultFile(awsMod, "ARN"),
-					},
-				},
 			},
 			"aws_iot_thing_type": {Tok: awsResource(iotMod, "ThingType")},
 			"aws_iot_authorizer": {Tok: awsResource(iotMod, "Authorizer")},
@@ -2870,11 +2812,6 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_kinesis_video_stream":             {Tok: awsResource(kinesisMod, "VideoStream")},
 			"aws_kinesis_analytics_application": {
 				Tok: awsResource(kinesisMod, "AnalyticsApplication"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"arn": {
-						Type: awsTypeDefaultFile(awsMod, "ARN"),
-					},
-				},
 			},
 			// Kinesis Data Analytics V2
 			"aws_kinesisanalyticsv2_application":          {Tok: awsResource(kinesisAnalyticsMod, "Application")},
@@ -2913,7 +2850,6 @@ compatibility shim in favor of the new "name" field.`)
 				IDFields: []string{"function_name"},
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"function_name": tfbridge.AutoName("name", 64, "-"),
-					"role":          {Type: awsTypeDefaultFile(awsMod, "ARN")},
 					// Terraform accepts two sources for lambdas: a local filename or a S3 bucket/object.  To bridge
 					// with Pulumi's asset model, we will hijack the filename property.  A Pulumi archive is passed in
 					// its stead and we will turn around and emit the archive as a temp file that Terraform can read.
@@ -2969,7 +2905,7 @@ compatibility shim in favor of the new "name" field.`)
 					"function_name": {
 						Name:     "function",
 						Type:     "string",
-						AltTypes: []tokens.Type{awsTypeDefaultFile(lambdaMod, "Function")},
+						AltTypes: []tokens.Type{awsResource(lambdaMod, "Function")},
 					},
 					"statement_id": tfbridge.AutoName("statementId", 100, "-"),
 				},
@@ -3129,32 +3065,6 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_opensearch_inbound_connection_accepter": {Tok: awsResource(opensearchMod, "InboundConnectionAccepter")},
 			"aws_opensearch_outbound_connection":         {Tok: awsResource(opensearchMod, "OutboundConnection")},
 
-			// OpsWorks
-			"aws_opsworks_application": {Tok: awsResource(opsworksMod, "Application")},
-			"aws_opsworks_stack": {
-				Tok: awsResource(opsworksMod, "Stack"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"custom_cookbooks_source": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "customCookbooksSources",
-					},
-				},
-			},
-			"aws_opsworks_java_app_layer":    {Tok: awsResource(opsworksMod, "JavaAppLayer")},
-			"aws_opsworks_haproxy_layer":     {Tok: awsResource(opsworksMod, "HaproxyLayer")},
-			"aws_opsworks_static_web_layer":  {Tok: awsResource(opsworksMod, "StaticWebLayer")},
-			"aws_opsworks_php_app_layer":     {Tok: awsResource(opsworksMod, "PhpAppLayer")},
-			"aws_opsworks_rails_app_layer":   {Tok: awsResource(opsworksMod, "RailsAppLayer")},
-			"aws_opsworks_nodejs_app_layer":  {Tok: awsResource(opsworksMod, "NodejsAppLayer")},
-			"aws_opsworks_memcached_layer":   {Tok: awsResource(opsworksMod, "MemcachedLayer")},
-			"aws_opsworks_mysql_layer":       {Tok: awsResource(opsworksMod, "MysqlLayer")},
-			"aws_opsworks_ganglia_layer":     {Tok: awsResource(opsworksMod, "GangliaLayer")},
-			"aws_opsworks_custom_layer":      {Tok: awsResource(opsworksMod, "CustomLayer")},
-			"aws_opsworks_instance":          {Tok: awsResource(opsworksMod, "Instance")},
-			"aws_opsworks_user_profile":      {Tok: awsResource(opsworksMod, "UserProfile")},
-			"aws_opsworks_permission":        {Tok: awsResource(opsworksMod, "Permission")},
-			"aws_opsworks_rds_db_instance":   {Tok: awsResource(opsworksMod, "RdsDbInstance")},
-			"aws_opsworks_ecs_cluster_layer": {Tok: awsResource(opsworksMod, "EcsClusterLayer")},
 			// Organizations
 			"aws_organizations_account":                 {Tok: awsResource(organizationsMod, "Account")},
 			"aws_organizations_organization":            {Tok: awsResource(organizationsMod, "Organization")},
@@ -3212,7 +3122,7 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsResource(rdsMod, "ClusterInstance"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"engine": {
-						Type: awsResource(rdsMod, "EngineType"),
+						Type: awsType(rdsMod, "EngineType", "EngineType"),
 					},
 					"instance_class": {
 						Type:     "string",
@@ -3626,142 +3536,86 @@ compatibility shim in favor of the new "name" field.`)
 			// S3
 			"aws_s3_account_public_access_block": {Tok: awsResource(s3Mod, "AccountPublicAccessBlock")},
 			"aws_s3_bucket": {
-				Tok: awsResource(s3Mod, "BucketV2"),
+				Tok: awsResource(s3Mod, "Bucket"),
 				Fields: map[string]*tfbridge.SchemaInfo{
+					"acl": {
+						Type:     "string",
+						AltTypes: []tokens.Type{awsType(s3Mod, "CannedAcl", "CannedAcl")},
+					},
 					"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
 						return strings.ToLower(name)
 					}),
-					"logging": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "loggings",
-					},
-					"versioning": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "versionings",
-					},
-					"website": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "websites",
-					},
-					"server_side_encryption_configuration": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "serverSideEncryptionConfigurations",
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"rule": {
-									MaxItemsOne: tfbridge.False(),
-									Name:        "rules",
-									Elem: &tfbridge.SchemaInfo{
-										Fields: map[string]*tfbridge.SchemaInfo{
-											"apply_server_side_encryption_by_default": {
-												Name:        "applyServerSideEncryptionByDefaults",
-												MaxItemsOne: tfbridge.False(),
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-					"lifecycle_rule": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"expiration": {
-									MaxItemsOne: tfbridge.False(),
-									Name:        "expirations",
-								},
-								"noncurrent_version_expiration": {
-									MaxItemsOne: tfbridge.False(),
-									Name:        "noncurrentVersionExpirations",
-								},
-							},
-						},
-					},
-					"object_lock_configuration": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"rule": {
-									Name:        "rules",
-									MaxItemsOne: tfbridge.False(),
-									Elem: &tfbridge.SchemaInfo{
-										Fields: map[string]*tfbridge.SchemaInfo{
-											"default_retention": {
-												Name:        "defaultRetentions",
-												MaxItemsOne: tfbridge.False(),
-											},
-										},
-									},
-								},
-							},
-						},
-					},
-					"replication_configuration": {
-						MaxItemsOne: tfbridge.False(),
-						Name:        "replicationConfigurations",
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"rules": {
-									Elem: &tfbridge.SchemaInfo{
-										Fields: map[string]*tfbridge.SchemaInfo{
-											"filter": {
-												MaxItemsOne: tfbridge.False(),
-												Name:        "filters",
-											},
-											"source_selection_criteria": {
-												MaxItemsOne: tfbridge.False(),
-												Name:        "sourceSelectionCriterias",
-												Elem: &tfbridge.SchemaInfo{
-													Fields: map[string]*tfbridge.SchemaInfo{
-														"sse_kms_encrypted_objects": {
-															Name:        "sseKmsEncryptedObjects",
-															MaxItemsOne: tfbridge.False(),
-														},
-													},
-												},
-											},
-											"destination": {
-												MaxItemsOne: tfbridge.False(),
-												Name:        "destinations",
-												Elem: &tfbridge.SchemaInfo{
-													Fields: map[string]*tfbridge.SchemaInfo{
-														"metrics": {
-															MaxItemsOne: tfbridge.False(),
-														},
-														"replication_time": {
-															MaxItemsOne: tfbridge.False(),
-															Name:        "replicationTimes",
-														},
-														"access_control_translation": {
-															MaxItemsOne: tfbridge.False(),
-															Name:        "accessControlTranslations",
-														},
-													},
-												},
-											},
-										},
-									},
-								},
-							},
-						},
+					"policy": {
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod, "PolicyDocument", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
 				Aliases: []tfbridge.AliasInfo{
 					{
-						Type: ref("aws:s3/bucket:Bucket"),
+						Type: ref("aws:s3/bucketV2:BucketV2"),
 					},
 				},
 			},
-			"aws_s3_bucket_accelerate_configuration":             {Tok: awsResource(s3Mod, "BucketAccelerateConfigurationV2")},
-			"aws_s3_bucket_acl":                                  {Tok: awsResource(s3Mod, "BucketAclV2")},
-			"aws_s3_bucket_cors_configuration":                   {Tok: awsResource(s3Mod, "BucketCorsConfigurationV2")},
-			"aws_s3_bucket_lifecycle_configuration":              {Tok: awsResource(s3Mod, "BucketLifecycleConfigurationV2")},
-			"aws_s3_bucket_logging":                              {Tok: awsResource(s3Mod, "BucketLoggingV2")},
-			"aws_s3_bucket_object_lock_configuration":            {Tok: awsResource(s3Mod, "BucketObjectLockConfigurationV2")},
-			"aws_s3_bucket_request_payment_configuration":        {Tok: awsResource(s3Mod, "BucketRequestPaymentConfigurationV2")},
-			"aws_s3_bucket_server_side_encryption_configuration": {Tok: awsResource(s3Mod, "BucketServerSideEncryptionConfigurationV2")},
-			"aws_s3_bucket_versioning":                           {Tok: awsResource(s3Mod, "BucketVersioningV2")},
+			"aws_s3_bucket_accelerate_configuration": {
+				Tok: awsResource(s3Mod, "BucketAccelerateConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2")},
+				},
+			},
+			"aws_s3_bucket_acl": {
+				Tok: awsResource(s3Mod, "BucketAcl"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketAclV2:BucketAclV2")},
+				},
+			},
+			"aws_s3_bucket_cors_configuration": {
+				Tok: awsResource(s3Mod, "BucketCorsConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2")},
+				},
+			},
+			"aws_s3_bucket_lifecycle_configuration": {
+				Tok: awsResource(s3Mod, "BucketLifecycleConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2")},
+				},
+			},
+			"aws_s3_bucket_logging": {
+				Tok: awsResource(s3Mod, "BucketLogging"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketLoggingV2:BucketLoggingV2")},
+				},
+			},
+			"aws_s3_bucket_object_lock_configuration": {
+				Tok: awsResource(s3Mod, "BucketObjectLockConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2")},
+				},
+			},
+			"aws_s3_bucket_request_payment_configuration": {
+				Tok: awsResource(s3Mod, "BucketRequestPaymentConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2")},
+				},
+			},
+			"aws_s3_bucket_server_side_encryption_configuration": {
+				Tok: awsResource(s3Mod, "BucketServerSideEncryptionConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2")},
+				},
+			},
+			"aws_s3_bucket_versioning": {
+				Tok: awsResource(s3Mod, "BucketVersioning"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketVersioningV2:BucketVersioningV2")},
+				},
+			},
 			"aws_s3_bucket_website_configuration": {
-				Tok: awsResource(s3Mod, "BucketWebsiteConfigurationV2"),
+				Tok: awsResource(s3Mod, "BucketWebsiteConfiguration"),
+				Aliases: []tfbridge.AliasInfo{
+					{Type: ref("aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2")},
+				},
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"routing_rules": {
 						Name: "routingRuleDetails",
@@ -3803,40 +3657,6 @@ compatibility shim in favor of the new "name" field.`)
 					},
 				},
 			},
-			"aws_s3_bucket_legacy": {
-				Tok: awsResource(s3Mod, "Bucket"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"acl": {
-						Type:     "string",
-						AltTypes: []tokens.Type{awsType(s3Mod, "CannedAcl", "CannedAcl")},
-					},
-					"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
-						return strings.ToLower(name)
-					}),
-					// Website only accepts a single value in the AWS
-					// API but is not marked MaxItems==1 in the TF
-					// provider.
-					"website": {
-						Name: "website",
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"routing_rules": {
-									Name:      "routingRules",
-									Type:      "string",
-									AltTypes:  []tokens.Type{awsType(s3Mod, "routingRules", "RoutingRule[]")},
-									Transform: tfbridge.TransformJSONDocument,
-								},
-							},
-						},
-					},
-					"policy": {
-						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
-						Transform: tfbridge.TransformJSONDocument,
-					},
-				},
-				Docs: &tfbridge.DocInfo{Markdown: maybeReadFile("docs/resource/aws_s3_bucket_legacy.md")},
-			},
 			"aws_s3_bucket_inventory":    {Tok: awsResource(s3Mod, "Inventory")},
 			"aws_s3_bucket_metric":       {Tok: awsResource(s3Mod, "BucketMetric")},
 			"aws_s3_bucket_notification": {Tok: awsResource(s3Mod, "BucketNotification")},
@@ -3872,7 +3692,6 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -3966,8 +3785,6 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_ssmcontacts_contact_channel": {Tok: awsResource(ssmContactsMod, "ContactChannel")},
 			"aws_ssmcontacts_plan":            {Tok: awsResource(ssmContactsMod, "Plan")},
 
-			// SimpleDB
-			"aws_simpledb_domain": {Tok: awsResource(simpledbMod, "Domain")},
 			// Simple Queuing Service (SQS)
 			"aws_sqs_queue": {
 				Tok: awsResource(sqsMod, "Queue"),
@@ -3988,12 +3805,12 @@ compatibility shim in favor of the new "name" field.`)
 					}),
 				},
 			},
+
 			"aws_sqs_queue_policy": {
 				Tok: awsResource(sqsMod, "QueuePolicy"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -4033,7 +3850,6 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_sns_topic": {
 				Tok: awsResource(snsMod, "Topic"),
 				Fields: map[string]*tfbridge.SchemaInfo{
-					"arn": {Type: awsTypeDefaultFile(awsMod, "ARN")},
 					"name": tfbridge.AutoNameWithCustomOptions("name", tfbridge.AutoNameOptions{
 						Separator: "-",
 						Maxlen:    80,
@@ -4055,7 +3871,6 @@ compatibility shim in favor of the new "name" field.`)
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
 						Type:      "string",
-						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
@@ -4150,11 +3965,6 @@ compatibility shim in favor of the new "name" field.`)
 			"aws_wafregional_web_acl":                 {Tok: awsResource(wafregionalMod, "WebAcl")},
 			"aws_wafregional_web_acl_association":     {Tok: awsResource(wafregionalMod, "WebAclAssociation")},
 			"aws_wafregional_xss_match_set":           {Tok: awsResource(wafregionalMod, "XssMatchSet")},
-			// Worklink
-			"aws_worklink_fleet": {Tok: awsResource(worklinkMod, "Fleet")},
-			"aws_worklink_website_certificate_authority_association": {
-				Tok: awsResource(worklinkMod, "WebsiteCertificateAuthorityAssociation"),
-			},
 			// Xray
 			"aws_xray_sampling_rule":     {Tok: awsResource(xrayMod, "SamplingRule")},
 			"aws_xray_encryption_config": {Tok: awsResource(xrayMod, "EncryptionConfig")},
@@ -4502,9 +4312,8 @@ compatibility shim in favor of the new "name" field.`)
 				Tok: awsDataSource(vpcMod, "getSecurityGroupRules"),
 			},
 			"aws_vpc_endpoint_associations": {
-				Tok: awsDataSource(vpcMod, "getVpcEndpointAssociations"),
+				Tok: awsDataSource(vpcMod, "getEndpointAssociations"),
 			},
-
 			// AWS
 			"aws_arn":                     {Tok: awsDataSource(awsMod, "getArn")},
 			"aws_availability_zone":       {Tok: awsDataSource(awsMod, "getAvailabilityZone")},
@@ -5337,30 +5146,10 @@ compatibility shim in favor of the new "name" field.`)
 			},
 			Overlay: &tfbridge.OverlayInfo{
 				DestFiles: []string{
-					"arn.ts",    // ARN typedef
-					"region.ts", // Region constants
-					"tags.ts",   // Tags typedef (currently unused but left for compatibility)
-					"utils.ts",  // Helpers
+					"tags.ts",  // Tags typedef (currently unused but left for compatibility)
+					"utils.ts", // Helpers
 				},
 				Modules: map[string]*tfbridge.OverlayInfo{
-					"autoscaling": {
-						DestFiles: []string{
-							"metrics.ts",          // Metric and MetricsGranularity constants
-							"notificationType.ts", // NotificationType constants
-						},
-					},
-					"alb": {
-						DestFiles: []string{
-							"ipAddressType.ts",    // IpAddressType constants
-							"loadBalancerType.ts", // LoadBalancerType constants
-						},
-					},
-					"applicationloadbalancing": {
-						DestFiles: []string{
-							"ipAddressType.ts",    // IpAddressType constants
-							"loadBalancerType.ts", // LoadBalancerType constants
-						},
-					},
 					"cloudwatch": {
 						DestFiles: []string{
 							"cloudwatchMixins.ts",
@@ -5378,15 +5167,6 @@ compatibility shim in favor of the new "name" field.`)
 							"dynamodbMixins.ts",
 						},
 					},
-					"ec2": {
-						DestFiles: []string{
-							"instanceType.ts",      // InstanceType constants
-							"instancePlatform.ts",  // InstancePlatform constants
-							"placementStrategy.ts", // PlacementStrategy constants
-							"protocolType.ts",      // ProtocolType constants
-							"tenancy.ts",           // Tenancy constants
-						},
-					},
 					"ecr": {
 						DestFiles: []string{
 							"lifecyclePolicyDocument.ts",
@@ -5399,9 +5179,8 @@ compatibility shim in favor of the new "name" field.`)
 					},
 					"iam": {
 						DestFiles: []string{
-							"documents.ts",       // policy document schemas.
-							"managedPolicies.ts", // Deprecated ManagedPolicy constants.
-							"principals.ts",      // Pre-defined objects representing Service Principals
+							"documents.ts",  // policy document schemas.
+							"principals.ts", // Pre-defined objects representing Service Principals
 						},
 					},
 					"kinesis": {
@@ -5411,26 +5190,11 @@ compatibility shim in favor of the new "name" field.`)
 					},
 					"lambda": {
 						DestFiles: []string{
-							"runtimes.ts", // Runtime constants
 							"lambdaMixins.ts",
-						},
-					},
-					"rds": {
-						DestFiles: []string{
-							"engineMode.ts",   // EngineMode constants
-							"engineType.ts",   // EngineType constants
-							"instanceType.ts", // InstanceType constants
-							"storageType.ts",  // StorageType constants
-						},
-					},
-					"route53": {
-						DestFiles: []string{
-							"recordType.ts", // RecordType constants
 						},
 					},
 					"s3": {
 						DestFiles: []string{
-							"cannedAcl.ts", // CannedAcl constants
 							"routingRules.ts",
 							"s3Mixins.ts",
 						},
@@ -5444,11 +5208,6 @@ compatibility shim in favor of the new "name" field.`)
 						DestFiles: []string{
 							"redrive.ts", // schema definitions for SQS redrive policies.
 							"sqsMixins.ts",
-						},
-					},
-					"ssm": {
-						DestFiles: []string{
-							"parameterType.ts", // Deprecated ParameterType constants
 						},
 					},
 				},
@@ -5567,8 +5326,11 @@ compatibility shim in favor of the new "name" field.`)
 	rAlias("aws_alb", awsResource(legacyAlbMod, "LoadBalancer"),
 		awsResource(albMod, "LoadBalancer"), &tfbridge.ResourceInfo{
 			Fields: map[string]*tfbridge.SchemaInfo{
-				"load_balancer_type": {Type: awsResource(albMod, "LoadBalancerType")},
-				"ip_address_type":    {Type: awsResource(albMod, "IpAddressType")},
+				"load_balancer_type": {Type: awsType(albMod, "LoadBalancerType", "LoadBalancerType")},
+				"ip_address_type": {
+					Type:     "string",
+					AltTypes: []tokens.Type{awsType(albMod, "IpAddressType", "IpAddressType")},
+				},
 			},
 			Docs: &tfbridge.DocInfo{Source: "lb.html.markdown"},
 		})
@@ -5599,7 +5361,7 @@ compatibility shim in favor of the new "name" field.`)
 		})
 
 	// Add a CSharp-specific override for aws_s3_bucket.bucket.
-	prov.Resources["aws_s3_bucket_legacy"].Fields["bucket"].CSharpName = "BucketName"
+	prov.Resources["aws_s3_bucket"].Fields["bucket"].CSharpName = "BucketName"
 
 	pluginFrameworkResoures := map[string]*tfbridge.ResourceInfo{
 		"aws_auditmanager_account_registration": {
@@ -5701,59 +5463,181 @@ compatibility shim in favor of the new "name" field.`)
 		}))
 
 	prov.P.ResourcesMap().Range(func(key string, res shim.Resource) bool {
-		if !hasNonComputedTagsAndTagsAllOptimized(key, res) {
-			return true
-		}
+		if _, ok := prov.Resources[key]; ok {
 
-		// We have ensured that this resource is using upstream's generic tagging
-		// mechanism, so override check so it works.
-		if callback := prov.Resources[key].PreCheckCallback; callback != nil {
-			prov.Resources[key].PreCheckCallback = func(
-				ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
-			) (resource.PropertyMap, error) {
-				config, err := callback(ctx, config, meta)
-				if err != nil {
-					return nil, err
-				}
-				return applyTags(ctx, config, meta)
-			}
-		} else {
-			prov.Resources[key].PreCheckCallback = applyTags
-		}
+			applyRegionPreCheckCallback(prov, key, res)
 
-		// also override read so that it works during import
-		// as a side effect this will also run during create and update, but since
-		// `tags` and `defaultTags` should always be equal then it doesn't really matter.
-		// One extra place that we make sure `tags=defaultTags` is fine.
-		if transform := prov.Resources[key].TransformOutputs; transform != nil {
-			prov.Resources[key].TransformOutputs = func(ctx context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
-				config, err := transform(ctx, pm)
-				if err != nil {
-					return nil, err
-				}
-				return applyTagsOutputs(ctx, config)
-			}
-		} else {
-			prov.Resources[key].TransformOutputs = applyTagsOutputs
+			applyTagsPreCheckCallback(prov, up, key, res)
 		}
-
-		if prov.Resources[key].GetFields() == nil {
-			prov.Resources[key].Fields = map[string]*tfbridge.SchemaInfo{}
-		}
-		fields := prov.Resources[key].GetFields()
-
-		if _, ok := fields["tags_all"]; !ok {
-			fields["tags_all"] = &tfbridge.SchemaInfo{}
-		}
-
-		// Upstream provider is edited to unmark tags_all as computed internally so that
-		// Pulumi provider internals can set it, but the user should not be able to set it.
-		fields["tags_all"].MarkAsComputedOnly = tfbridge.True()
-		fields["tags_all"].DeprecationMessage = "Please use `tags` instead."
-		fields["tags_all"].MarkAsOptional = tfbridge.False()
 
 		return true
 	})
+
+	legacyInfo := &info.Resource{
+		Tok:                awsResource(s3Mod, "BucketV2"),
+		DeprecationMessage: "s3.BucketV2 has been deprecated in favor of s3.Bucket",
+		Docs: &info.Doc{
+			Source: "s3_bucket.html.markdown",
+		},
+		Fields: map[string]*tfbridge.SchemaInfo{
+			"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
+				return strings.ToLower(name)
+			}),
+			"logging": {
+				MaxItemsOne: tfbridge.False(),
+				Name:        "loggings",
+			},
+			"versioning": {
+				MaxItemsOne: tfbridge.False(),
+				Name:        "versionings",
+			},
+			"website": {
+				MaxItemsOne: tfbridge.False(),
+				Name:        "websites",
+			},
+			"server_side_encryption_configuration": {
+				MaxItemsOne: tfbridge.False(),
+				Name:        "serverSideEncryptionConfigurations",
+				Elem: &tfbridge.SchemaInfo{
+					Fields: map[string]*tfbridge.SchemaInfo{
+						"rule": {
+							MaxItemsOne: tfbridge.False(),
+							Name:        "rules",
+							Elem: &tfbridge.SchemaInfo{
+								Fields: map[string]*tfbridge.SchemaInfo{
+									"apply_server_side_encryption_by_default": {
+										Name:        "applyServerSideEncryptionByDefaults",
+										MaxItemsOne: tfbridge.False(),
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+			"lifecycle_rule": {
+				Elem: &tfbridge.SchemaInfo{
+					Fields: map[string]*tfbridge.SchemaInfo{
+						"expiration": {
+							MaxItemsOne: tfbridge.False(),
+							Name:        "expirations",
+						},
+						"noncurrent_version_expiration": {
+							MaxItemsOne: tfbridge.False(),
+							Name:        "noncurrentVersionExpirations",
+						},
+					},
+				},
+			},
+			"object_lock_configuration": {
+				Elem: &tfbridge.SchemaInfo{
+					Fields: map[string]*tfbridge.SchemaInfo{
+						"rule": {
+							Name:        "rules",
+							MaxItemsOne: tfbridge.False(),
+							Elem: &tfbridge.SchemaInfo{
+								Fields: map[string]*tfbridge.SchemaInfo{
+									"default_retention": {
+										Name:        "defaultRetentions",
+										MaxItemsOne: tfbridge.False(),
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+			"replication_configuration": {
+				MaxItemsOne: tfbridge.False(),
+				Name:        "replicationConfigurations",
+				Elem: &tfbridge.SchemaInfo{
+					Fields: map[string]*tfbridge.SchemaInfo{
+						"rules": {
+							Elem: &tfbridge.SchemaInfo{
+								Fields: map[string]*tfbridge.SchemaInfo{
+									"filter": {
+										MaxItemsOne: tfbridge.False(),
+										Name:        "filters",
+									},
+									"source_selection_criteria": {
+										MaxItemsOne: tfbridge.False(),
+										Name:        "sourceSelectionCriterias",
+										Elem: &tfbridge.SchemaInfo{
+											Fields: map[string]*tfbridge.SchemaInfo{
+												"sse_kms_encrypted_objects": {
+													Name:        "sseKmsEncryptedObjects",
+													MaxItemsOne: tfbridge.False(),
+												},
+											},
+										},
+									},
+									"destination": {
+										MaxItemsOne: tfbridge.False(),
+										Name:        "destinations",
+										Elem: &tfbridge.SchemaInfo{
+											Fields: map[string]*tfbridge.SchemaInfo{
+												"metrics": {
+													MaxItemsOne: tfbridge.False(),
+												},
+												"replication_time": {
+													MaxItemsOne: tfbridge.False(),
+													Name:        "replicationTimes",
+												},
+												"access_control_translation": {
+													MaxItemsOne: tfbridge.False(),
+													Name:        "accessControlTranslations",
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	}
+	prov.Resources["aws_s3_bucket_v2_compat"] = legacyInfo
+	err := shim.CloneResource(prov.P.ResourcesMap(), "aws_s3_bucket", "aws_s3_bucket_v2_compat")
+	contract.AssertNoErrorf(err, "Failed to rename the resource")
+
+	policyDocumentResources := map[string]map[string]string{
+		cloudwatchMod: {
+			"aws_cloudwatch_log_resource_policy": "policy_document",
+		},
+		ecrMod: {
+			"aws_ecr_repository_policy": "policy",
+			"aws_ecr_registry_policy":   "policy",
+		},
+		elasticsearchMod: {
+			"aws_elasticsearch_domain":        "access_policies",
+			"aws_elasticsearch_domain_policy": "access_policies",
+		},
+		s3Mod: {
+			"aws_s3_bucket_policy": "policy",
+			"aws_s3_bucket":        "policy",
+		},
+		snsMod: {
+			"aws_sns_topic_policy": "policy",
+		},
+		sqsMod: {
+			"aws_sqs_queue_policy": "policy",
+		},
+	}
+
+	// TODO[pulumi/pulumi#8324] Required workaround since these module do not already import from iam
+	iamDoc, ok := prov.ExtraTypes["aws:iam/PolicyDocument:PolicyDocument"]
+	contract.Assertf(ok, "aws:iam/PolicyDocument:PolicyDocument type not found")
+	for mod, resources := range policyDocumentResources {
+		typ := awsType(mod, "PolicyDocument", "PolicyDocument")
+		prov.ExtraTypes[typ.String()] = iamDoc
+		for name, prop := range resources {
+			res := prov.Resources[name]
+			res.Fields[prop].AltTypes = []tokens.Type{typ}
+			prov.Resources[name] = res
+		}
+	}
 
 	prov.SkipExamples = func(args tfbridge.SkipExamplesArgs) bool {
 		// These examples hang on Go generation. Issue tracking to unblock:
@@ -5833,16 +5717,6 @@ func hasOptionalOrRequiredNamePropertyOptimized(p shim.Provider, tfResourceName 
 		"aws_wafv2_web_acl_logging_configuration":
 		return false
 	case "aws_medialive_channel",
-		"aws_opsworks_custom_layer",
-		"aws_opsworks_ecs_cluster_layer",
-		"aws_opsworks_ganglia_layer",
-		"aws_opsworks_haproxy_layer",
-		"aws_opsworks_java_app_layer",
-		"aws_opsworks_memcached_layer",
-		"aws_opsworks_mysql_layer",
-		"aws_opsworks_nodejs_app_layer",
-		"aws_opsworks_php_app_layer",
-		"aws_opsworks_rails_app_layer",
 		"aws_quicksight_analysis",
 		"aws_quicksight_dashboard",
 		"aws_quicksight_data_set",
@@ -5853,8 +5727,7 @@ func hasOptionalOrRequiredNamePropertyOptimized(p shim.Provider, tfResourceName 
 		"aws_wafv2_regex_pattern_set",
 		"aws_wafv2_rule_group",
 		"aws_wafv2_web_acl",
-		"aws_kinesis_firehose_delivery_stream",
-		"aws_opsworks_static_web_layer":
+		"aws_kinesis_firehose_delivery_stream":
 		return true
 	}
 	return hasOptionalOrRequiredNameProperty(p, tfResourceName)
@@ -5865,17 +5738,6 @@ func hasOptionalOrRequiredNamePropertyOptimized(p shim.Provider, tfResourceName 
 func hasNonComputedTagsAndTagsAllOptimized(tfResourceName string, res shim.Resource) bool {
 	switch tfResourceName {
 	case "aws_kinesis_firehose_delivery_stream",
-		"aws_opsworks_custom_layer",
-		"aws_opsworks_ecs_cluster_layer",
-		"aws_opsworks_ganglia_layer",
-		"aws_opsworks_haproxy_layer",
-		"aws_opsworks_java_app_layer",
-		"aws_opsworks_memcached_layer",
-		"aws_opsworks_mysql_layer",
-		"aws_opsworks_nodejs_app_layer",
-		"aws_opsworks_php_app_layer",
-		"aws_opsworks_rails_app_layer",
-		"aws_opsworks_static_web_layer",
 		"aws_quicksight_analysis",
 		"aws_quicksight_dashboard",
 		"aws_quicksight_data_set",
@@ -5912,7 +5774,7 @@ func hasNonComputedTagsAndTagsAll(tfResourceName string, res shim.Resource) bool
 		return false
 	}
 	// tags must be non-computed.
-	if tagsF.Computed() {
+	if tagsF.Computed() && !tagsF.Optional() {
 		return false
 	}
 	return true
@@ -6150,6 +6012,7 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	prov.Resources["aws_wafv2_api_key"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attrWithSeparator(state, ",", "apiKey", "scope"), nil
 	}
+
 	prov.Resources["aws_s3control_directory_bucket_access_point_scope"].ComputeID = func(ctx context.Context, state resource.PropertyMap) (resource.ID, error) {
 		return attrWithSeparator(state, ",", "name", "accountId"), nil
 	}
@@ -6158,42 +6021,37 @@ func setupComputedIDs(prov *tfbridge.ProviderInfo) {
 	}
 
 	computeIDPartsByTfResourceID := map[string][]resource.PropertyKey{
-		"aws_cloudwatch_log_index_policy":                       {"logGroupName"},
-		"aws_cloudwatch_log_delivery_source":                    {"name"},
-		"aws_cloudwatch_log_delivery_destination_policy":        {"deliveryDestinationName"},
-		"aws_cloudwatch_log_delivery_destination":               {"name"},
-		"aws_media_packagev2_channel_group":                     {"name"},
-		"aws_timestreamquery_scheduled_query":                   {"arn"},
-		"aws_route53domains_domain":                             {"domainName"},
-		"aws_api_gateway_rest_api_put":                          {"restApiId"},
-		"aws_ec2_default_credit_specification":                  {"instanceFamily"},
-		"aws_inspector2_filter":                                 {"arn"},
-		"aws_cloudfrontkeyvaluestore_keys_exclusive":            {"keyValueStoreArn"},
-		"aws_workspacesweb_network_settings":                    {"networkSettingsArn"},
-		"aws_workspacesweb_browser_settings":                    {"browserSettingsArn"},
-		"aws_workspacesweb_user_settings":                       {"userSettingsArn"},
-		"aws_workspacesweb_data_protection_settings":            {"dataProtectionSettingsArn"},
-		"aws_workspacesweb_user_access_logging_settings":        {"userAccessLoggingSettingsArn"},
-		"aws_workspacesweb_ip_access_settings":                  {"ipAccessSettingsArn"},
-		"aws_workspacesweb_network_settings_legacy":             {"networkSettingsArn"},
-		"aws_workspacesweb_browser_settings_legacy":             {"browserSettingsArn"},
-		"aws_workspacesweb_user_settings_legacy":                {"userSettingsArn"},
-		"aws_workspacesweb_data_protection_settings_legacy":     {"dataProtectionSettingsArn"},
-		"aws_workspacesweb_user_access_logging_settings_legacy": {"userAccessLoggingSettingsArn"},
-		"aws_workspacesweb_ip_access_settings_legacy":           {"ipAccessSettingsArn"},
-		"aws_quicksight_account_settings":                       {"awsAccountId"},
-		"aws_notificationscontacts_email_contact":               {"arn"},
-		"aws_notifications_notification_configuration":          {"arn"},
-		"aws_notifications_notification_hub":                    {"notificationHubRegion"},
-		"aws_notifications_event_rule":                          {"arn"},
-		"aws_notifications_channel_association":                 {"notificationConfigurationArn", "arn"},
-		"aws_prometheus_workspace_configuration":                {"workspaceId"},
-		"aws_vpc_route_server":                                  {"routeServerId"},
-		"aws_vpc_route_server_propagation":                      {"routeServerPropagationId"},
-		"aws_vpc_route_server_endpoint":                         {"routeServerEndpointId"},
-		"aws_vpc_route_server_peer":                             {"routeServerPeerId"},
-		"aws_dsql_cluster_peering":                              {"identifier"},
-		"aws_dsql_cluster":                                      {"identifier"},
+		"aws_cloudwatch_log_index_policy":                {"logGroupName"},
+		"aws_cloudwatch_log_delivery_source":             {"name"},
+		"aws_cloudwatch_log_delivery_destination_policy": {"deliveryDestinationName"},
+		"aws_cloudwatch_log_delivery_destination":        {"name"},
+		"aws_media_packagev2_channel_group":              {"name"},
+		"aws_timestreamquery_scheduled_query":            {"arn"},
+		"aws_route53domains_domain":                      {"domainName"},
+		"aws_api_gateway_rest_api_put":                   {"restApiId"},
+		"aws_ec2_default_credit_specification":           {"instanceFamily"},
+		"aws_inspector2_filter":                          {"arn"},
+		"aws_cloudfrontkeyvaluestore_keys_exclusive":     {"keyValueStoreArn"},
+		"aws_workspacesweb_network_settings":             {"networkSettingsArn"},
+		"aws_workspacesweb_browser_settings":             {"browserSettingsArn"},
+		"aws_workspacesweb_user_settings":                {"userSettingsArn"},
+		"aws_workspacesweb_data_protection_settings":     {"dataProtectionSettingsArn"},
+		"aws_workspacesweb_user_access_logging_settings": {"userAccessLoggingSettingsArn"},
+		"aws_workspacesweb_ip_access_settings":           {"ipAccessSettingsArn"},
+		"aws_quicksight_account_settings":                {"awsAccountId"},
+		"aws_notificationscontacts_email_contact":        {"arn"},
+		"aws_notifications_notification_configuration":   {"arn"},
+		"aws_notifications_notification_hub":             {"notificationHubRegion"},
+		"aws_notifications_event_rule":                   {"arn"},
+		"aws_notifications_channel_association":          {"notificationConfigurationArn", "arn"},
+		"aws_prometheus_workspace_configuration":         {"workspaceId"},
+		"aws_vpc_route_server":                           {"routeServerId"},
+		"aws_vpc_route_server_propagation":               {"routeServerPropagationId"},
+		"aws_vpc_route_server_endpoint":                  {"routeServerEndpointId"},
+		"aws_vpc_route_server_peer":                      {"routeServerPeerId"},
+		"aws_dsql_cluster_peering":                       {"identifier"},
+		"aws_dsql_cluster":                               {"identifier"},
+		"aws_prometheus_query_logging_configuration":     {"workspaceId"},
 	}
 
 	for tfResourceID, computeIDParts := range computeIDPartsByTfResourceID {

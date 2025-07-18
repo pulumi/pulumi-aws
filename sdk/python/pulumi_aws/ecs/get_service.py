@@ -27,7 +27,7 @@ class GetServiceResult:
     """
     A collection of values returned by getService.
     """
-    def __init__(__self__, arn=None, availability_zone_rebalancing=None, cluster_arn=None, desired_count=None, id=None, launch_type=None, scheduling_strategy=None, service_name=None, tags=None, task_definition=None):
+    def __init__(__self__, arn=None, availability_zone_rebalancing=None, cluster_arn=None, desired_count=None, id=None, launch_type=None, region=None, scheduling_strategy=None, service_name=None, tags=None, task_definition=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -46,6 +46,9 @@ class GetServiceResult:
         if launch_type and not isinstance(launch_type, str):
             raise TypeError("Expected argument 'launch_type' to be a str")
         pulumi.set(__self__, "launch_type", launch_type)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if scheduling_strategy and not isinstance(scheduling_strategy, str):
             raise TypeError("Expected argument 'scheduling_strategy' to be a str")
         pulumi.set(__self__, "scheduling_strategy", scheduling_strategy)
@@ -102,6 +105,11 @@ class GetServiceResult:
         return pulumi.get(self, "launch_type")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="schedulingStrategy")
     def scheduling_strategy(self) -> builtins.str:
         """
@@ -143,6 +151,7 @@ class AwaitableGetServiceResult(GetServiceResult):
             desired_count=self.desired_count,
             id=self.id,
             launch_type=self.launch_type,
+            region=self.region,
             scheduling_strategy=self.scheduling_strategy,
             service_name=self.service_name,
             tags=self.tags,
@@ -150,6 +159,7 @@ class AwaitableGetServiceResult(GetServiceResult):
 
 
 def get_service(cluster_arn: Optional[builtins.str] = None,
+                region: Optional[builtins.str] = None,
                 service_name: Optional[builtins.str] = None,
                 tags: Optional[Mapping[str, builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
@@ -169,11 +179,13 @@ def get_service(cluster_arn: Optional[builtins.str] = None,
 
 
     :param builtins.str cluster_arn: ARN of the ECS Cluster
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_name: Name of the ECS Service
     :param Mapping[str, builtins.str] tags: Resource tags.
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn
+    __args__['region'] = region
     __args__['serviceName'] = service_name
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -186,11 +198,13 @@ def get_service(cluster_arn: Optional[builtins.str] = None,
         desired_count=pulumi.get(__ret__, 'desired_count'),
         id=pulumi.get(__ret__, 'id'),
         launch_type=pulumi.get(__ret__, 'launch_type'),
+        region=pulumi.get(__ret__, 'region'),
         scheduling_strategy=pulumi.get(__ret__, 'scheduling_strategy'),
         service_name=pulumi.get(__ret__, 'service_name'),
         tags=pulumi.get(__ret__, 'tags'),
         task_definition=pulumi.get(__ret__, 'task_definition'))
 def get_service_output(cluster_arn: Optional[pulumi.Input[builtins.str]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        service_name: Optional[pulumi.Input[builtins.str]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
@@ -210,11 +224,13 @@ def get_service_output(cluster_arn: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str cluster_arn: ARN of the ECS Cluster
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_name: Name of the ECS Service
     :param Mapping[str, builtins.str] tags: Resource tags.
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn
+    __args__['region'] = region
     __args__['serviceName'] = service_name
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -226,6 +242,7 @@ def get_service_output(cluster_arn: Optional[pulumi.Input[builtins.str]] = None,
         desired_count=pulumi.get(__response__, 'desired_count'),
         id=pulumi.get(__response__, 'id'),
         launch_type=pulumi.get(__response__, 'launch_type'),
+        region=pulumi.get(__response__, 'region'),
         scheduling_strategy=pulumi.get(__response__, 'scheduling_strategy'),
         service_name=pulumi.get(__response__, 'service_name'),
         tags=pulumi.get(__response__, 'tags'),

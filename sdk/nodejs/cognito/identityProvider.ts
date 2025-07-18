@@ -90,6 +90,10 @@ export class IdentityProvider extends pulumi.CustomResource {
      */
     public readonly providerType!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The user pool id
      */
     public readonly userPoolId!: pulumi.Output<string>;
@@ -112,6 +116,7 @@ export class IdentityProvider extends pulumi.CustomResource {
             resourceInputs["providerDetails"] = state ? state.providerDetails : undefined;
             resourceInputs["providerName"] = state ? state.providerName : undefined;
             resourceInputs["providerType"] = state ? state.providerType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
         } else {
             const args = argsOrState as IdentityProviderArgs | undefined;
@@ -132,6 +137,7 @@ export class IdentityProvider extends pulumi.CustomResource {
             resourceInputs["providerDetails"] = args ? args.providerDetails : undefined;
             resourceInputs["providerName"] = args ? args.providerName : undefined;
             resourceInputs["providerType"] = args ? args.providerType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -164,6 +170,10 @@ export interface IdentityProviderState {
      */
     providerType?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The user pool id
      */
     userPoolId?: pulumi.Input<string>;
@@ -193,6 +203,10 @@ export interface IdentityProviderArgs {
      * The provider type.  [See AWS API for valid values](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html#CognitoUserPools-CreateIdentityProvider-request-ProviderType)
      */
     providerType: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The user pool id
      */

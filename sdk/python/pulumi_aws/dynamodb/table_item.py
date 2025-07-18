@@ -23,7 +23,8 @@ class TableItemArgs:
                  hash_key: pulumi.Input[builtins.str],
                  item: pulumi.Input[builtins.str],
                  table_name: pulumi.Input[builtins.str],
-                 range_key: Optional[pulumi.Input[builtins.str]] = None):
+                 range_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a TableItem resource.
         :param pulumi.Input[builtins.str] hash_key: Hash key to use for lookups and identification of the item
@@ -32,12 +33,15 @@ class TableItemArgs:
                
                > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
         :param pulumi.Input[builtins.str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "hash_key", hash_key)
         pulumi.set(__self__, "item", item)
         pulumi.set(__self__, "table_name", table_name)
         if range_key is not None:
             pulumi.set(__self__, "range_key", range_key)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="hashKey")
@@ -89,6 +93,18 @@ class TableItemArgs:
     def range_key(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "range_key", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _TableItemState:
@@ -96,12 +112,14 @@ class _TableItemState:
                  hash_key: Optional[pulumi.Input[builtins.str]] = None,
                  item: Optional[pulumi.Input[builtins.str]] = None,
                  range_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering TableItem resources.
         :param pulumi.Input[builtins.str] hash_key: Hash key to use for lookups and identification of the item
         :param pulumi.Input[builtins.str] item: JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         :param pulumi.Input[builtins.str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_name: Name of the table to contain the item.
                
                > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
@@ -112,6 +130,8 @@ class _TableItemState:
             pulumi.set(__self__, "item", item)
         if range_key is not None:
             pulumi.set(__self__, "range_key", range_key)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
 
@@ -152,6 +172,18 @@ class _TableItemState:
         pulumi.set(self, "range_key", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -175,6 +207,7 @@ class TableItem(pulumi.CustomResource):
                  hash_key: Optional[pulumi.Input[builtins.str]] = None,
                  item: Optional[pulumi.Input[builtins.str]] = None,
                  range_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -220,6 +253,7 @@ class TableItem(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] hash_key: Hash key to use for lookups and identification of the item
         :param pulumi.Input[builtins.str] item: JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         :param pulumi.Input[builtins.str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_name: Name of the table to contain the item.
                
                > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
@@ -286,6 +320,7 @@ class TableItem(pulumi.CustomResource):
                  hash_key: Optional[pulumi.Input[builtins.str]] = None,
                  item: Optional[pulumi.Input[builtins.str]] = None,
                  range_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -303,6 +338,7 @@ class TableItem(pulumi.CustomResource):
                 raise TypeError("Missing required property 'item'")
             __props__.__dict__["item"] = item
             __props__.__dict__["range_key"] = range_key
+            __props__.__dict__["region"] = region
             if table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_name'")
             __props__.__dict__["table_name"] = table_name
@@ -319,6 +355,7 @@ class TableItem(pulumi.CustomResource):
             hash_key: Optional[pulumi.Input[builtins.str]] = None,
             item: Optional[pulumi.Input[builtins.str]] = None,
             range_key: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             table_name: Optional[pulumi.Input[builtins.str]] = None) -> 'TableItem':
         """
         Get an existing TableItem resource's state with the given name, id, and optional extra
@@ -330,6 +367,7 @@ class TableItem(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] hash_key: Hash key to use for lookups and identification of the item
         :param pulumi.Input[builtins.str] item: JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         :param pulumi.Input[builtins.str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_name: Name of the table to contain the item.
                
                > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
@@ -341,6 +379,7 @@ class TableItem(pulumi.CustomResource):
         __props__.__dict__["hash_key"] = hash_key
         __props__.__dict__["item"] = item
         __props__.__dict__["range_key"] = range_key
+        __props__.__dict__["region"] = region
         __props__.__dict__["table_name"] = table_name
         return TableItem(resource_name, opts=opts, __props__=__props__)
 
@@ -367,6 +406,14 @@ class TableItem(pulumi.CustomResource):
         Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         """
         return pulumi.get(self, "range_key")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="tableName")

@@ -28,6 +28,7 @@ class RuleArgs:
                  input_parameters: Optional[pulumi.Input[builtins.str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scope: Optional[pulumi.Input['RuleScopeArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -38,6 +39,7 @@ class RuleArgs:
         :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
         :param pulumi.Input[builtins.str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
         :param pulumi.Input[builtins.str] name: The name of the rule
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['RuleScopeArgs'] scope: Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -52,6 +54,8 @@ class RuleArgs:
             pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
         if tags is not None:
@@ -131,6 +135,18 @@ class RuleArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def scope(self) -> Optional[pulumi.Input['RuleScopeArgs']]:
         """
         Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
@@ -163,6 +179,7 @@ class _RuleState:
                  input_parameters: Optional[pulumi.Input[builtins.str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_id: Optional[pulumi.Input[builtins.str]] = None,
                  scope: Optional[pulumi.Input['RuleScopeArgs']] = None,
                  source: Optional[pulumi.Input['RuleSourceArgs']] = None,
@@ -176,6 +193,7 @@ class _RuleState:
         :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
         :param pulumi.Input[builtins.str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
         :param pulumi.Input[builtins.str] name: The name of the rule
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_id: The ID of the config rule
         :param pulumi.Input['RuleScopeArgs'] scope: Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         :param pulumi.Input['RuleSourceArgs'] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
@@ -194,6 +212,8 @@ class _RuleState:
             pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rule_id is not None:
             pulumi.set(__self__, "rule_id", rule_id)
         if scope is not None:
@@ -202,9 +222,6 @@ class _RuleState:
             pulumi.set(__self__, "source", source)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -281,6 +298,18 @@ class _RuleState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -330,7 +359,6 @@ class _RuleState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -353,6 +381,7 @@ class Rule(pulumi.CustomResource):
                  input_parameters: Optional[pulumi.Input[builtins.str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scope: Optional[pulumi.Input[Union['RuleScopeArgs', 'RuleScopeArgsDict']]] = None,
                  source: Optional[pulumi.Input[Union['RuleSourceArgs', 'RuleSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -474,6 +503,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
         :param pulumi.Input[builtins.str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
         :param pulumi.Input[builtins.str] name: The name of the rule
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['RuleScopeArgs', 'RuleScopeArgsDict']] scope: Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         :param pulumi.Input[Union['RuleSourceArgs', 'RuleSourceArgsDict']] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -614,6 +644,7 @@ class Rule(pulumi.CustomResource):
                  input_parameters: Optional[pulumi.Input[builtins.str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scope: Optional[pulumi.Input[Union['RuleScopeArgs', 'RuleScopeArgsDict']]] = None,
                  source: Optional[pulumi.Input[Union['RuleSourceArgs', 'RuleSourceArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -631,6 +662,7 @@ class Rule(pulumi.CustomResource):
             __props__.__dict__["input_parameters"] = input_parameters
             __props__.__dict__["maximum_execution_frequency"] = maximum_execution_frequency
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["scope"] = scope
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
@@ -655,6 +687,7 @@ class Rule(pulumi.CustomResource):
             input_parameters: Optional[pulumi.Input[builtins.str]] = None,
             maximum_execution_frequency: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rule_id: Optional[pulumi.Input[builtins.str]] = None,
             scope: Optional[pulumi.Input[Union['RuleScopeArgs', 'RuleScopeArgsDict']]] = None,
             source: Optional[pulumi.Input[Union['RuleSourceArgs', 'RuleSourceArgsDict']]] = None,
@@ -673,6 +706,7 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
         :param pulumi.Input[builtins.str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
         :param pulumi.Input[builtins.str] name: The name of the rule
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_id: The ID of the config rule
         :param pulumi.Input[Union['RuleScopeArgs', 'RuleScopeArgsDict']] scope: Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
         :param pulumi.Input[Union['RuleSourceArgs', 'RuleSourceArgsDict']] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Source Below.
@@ -689,6 +723,7 @@ class Rule(pulumi.CustomResource):
         __props__.__dict__["input_parameters"] = input_parameters
         __props__.__dict__["maximum_execution_frequency"] = maximum_execution_frequency
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["rule_id"] = rule_id
         __props__.__dict__["scope"] = scope
         __props__.__dict__["source"] = source
@@ -745,6 +780,14 @@ class Rule(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="ruleId")
     def rule_id(self) -> pulumi.Output[builtins.str]:
         """
@@ -778,7 +821,6 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

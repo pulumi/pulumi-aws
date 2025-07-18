@@ -78,6 +78,21 @@ public final class LoadBalancerPolicyArgs extends com.pulumi.resources.ResourceA
         return this.policyTypeName;
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private LoadBalancerPolicyArgs() {}
 
     private LoadBalancerPolicyArgs(LoadBalancerPolicyArgs $) {
@@ -85,6 +100,7 @@ public final class LoadBalancerPolicyArgs extends com.pulumi.resources.ResourceA
         this.policyAttributes = $.policyAttributes;
         this.policyName = $.policyName;
         this.policyTypeName = $.policyTypeName;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -197,6 +213,27 @@ public final class LoadBalancerPolicyArgs extends com.pulumi.resources.ResourceA
          */
         public Builder policyTypeName(String policyTypeName) {
             return policyTypeName(Output.of(policyTypeName));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public LoadBalancerPolicyArgs build() {

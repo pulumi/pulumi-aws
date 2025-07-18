@@ -28,7 +28,7 @@ class GetImageResult:
     """
     A collection of values returned by getImage.
     """
-    def __init__(__self__, arn=None, build_version_arn=None, container_recipe_arn=None, date_created=None, distribution_configuration_arn=None, enhanced_image_metadata_enabled=None, id=None, image_recipe_arn=None, image_scanning_configurations=None, image_tests_configurations=None, infrastructure_configuration_arn=None, name=None, os_version=None, output_resources=None, platform=None, tags=None, version=None):
+    def __init__(__self__, arn=None, build_version_arn=None, container_recipe_arn=None, date_created=None, distribution_configuration_arn=None, enhanced_image_metadata_enabled=None, id=None, image_recipe_arn=None, image_scanning_configurations=None, image_tests_configurations=None, infrastructure_configuration_arn=None, name=None, os_version=None, output_resources=None, platform=None, region=None, tags=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -74,6 +74,9 @@ class GetImageResult:
         if platform and not isinstance(platform, str):
             raise TypeError("Expected argument 'platform' to be a str")
         pulumi.set(__self__, "platform", platform)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -200,6 +203,14 @@ class GetImageResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        """
+        Region of the container image.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Key-value map of resource tags for the image.
@@ -236,11 +247,13 @@ class AwaitableGetImageResult(GetImageResult):
             os_version=self.os_version,
             output_resources=self.output_resources,
             platform=self.platform,
+            region=self.region,
             tags=self.tags,
             version=self.version)
 
 
 def get_image(arn: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               tags: Optional[Mapping[str, builtins.str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
@@ -259,10 +272,12 @@ def get_image(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the image.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:imagebuilder/getImage:getImage', __args__, opts=opts, typ=GetImageResult).value
@@ -283,9 +298,11 @@ def get_image(arn: Optional[builtins.str] = None,
         os_version=pulumi.get(__ret__, 'os_version'),
         output_resources=pulumi.get(__ret__, 'output_resources'),
         platform=pulumi.get(__ret__, 'platform'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
 def get_image_output(arn: Optional[pulumi.Input[builtins.str]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
@@ -304,10 +321,12 @@ def get_image_output(arn: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str arn: ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the image.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getImage:getImage', __args__, opts=opts, typ=GetImageResult)
@@ -327,5 +346,6 @@ def get_image_output(arn: Optional[pulumi.Input[builtins.str]] = None,
         os_version=pulumi.get(__response__, 'os_version'),
         output_resources=pulumi.get(__response__, 'output_resources'),
         platform=pulumi.get(__response__, 'platform'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         version=pulumi.get(__response__, 'version')))

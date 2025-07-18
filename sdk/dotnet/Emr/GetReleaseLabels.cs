@@ -105,6 +105,12 @@ namespace Pulumi.Aws.Emr
         [Input("filters")]
         public Inputs.GetReleaseLabelsFiltersArgs? Filters { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetReleaseLabelsArgs()
         {
         }
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.Emr
         /// </summary>
         [Input("filters")]
         public Input<Inputs.GetReleaseLabelsFiltersInputArgs>? Filters { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetReleaseLabelsInvokeArgs()
         {
@@ -134,6 +146,7 @@ namespace Pulumi.Aws.Emr
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// Returned release labels.
         /// </summary>
@@ -145,10 +158,13 @@ namespace Pulumi.Aws.Emr
 
             string id,
 
+            string region,
+
             ImmutableArray<string> releaseLabels)
         {
             Filters = filters;
             Id = id;
+            Region = region;
             ReleaseLabels = releaseLabels;
         }
     }

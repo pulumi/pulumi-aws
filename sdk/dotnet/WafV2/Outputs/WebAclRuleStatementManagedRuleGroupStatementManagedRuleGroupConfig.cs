@@ -18,6 +18,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet? AwsManagedRulesAcfpRuleSet;
         /// <summary>
+        /// Configuration for using the anti-DDoS managed rule group. See `aws_managed_rules_anti_ddos_rule_set` for more details.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet? AwsManagedRulesAntiDdosRuleSet;
+        /// <summary>
         /// Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet? AwsManagedRulesAtpRuleSet;
@@ -46,6 +50,8 @@ namespace Pulumi.Aws.WafV2.Outputs
         private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig(
             Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet? awsManagedRulesAcfpRuleSet,
 
+            Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet? awsManagedRulesAntiDdosRuleSet,
+
             Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet? awsManagedRulesAtpRuleSet,
 
             Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet? awsManagedRulesBotControlRuleSet,
@@ -59,6 +65,7 @@ namespace Pulumi.Aws.WafV2.Outputs
             Outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField? usernameField)
         {
             AwsManagedRulesAcfpRuleSet = awsManagedRulesAcfpRuleSet;
+            AwsManagedRulesAntiDdosRuleSet = awsManagedRulesAntiDdosRuleSet;
             AwsManagedRulesAtpRuleSet = awsManagedRulesAtpRuleSet;
             AwsManagedRulesBotControlRuleSet = awsManagedRulesBotControlRuleSet;
             LoginPath = loginPath;

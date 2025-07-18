@@ -28,7 +28,7 @@ class GetPlanResult:
     """
     A collection of values returned by getPlan.
     """
-    def __init__(__self__, arn=None, id=None, name=None, plan_id=None, rules=None, tags=None, version=None):
+    def __init__(__self__, arn=None, id=None, name=None, plan_id=None, region=None, rules=None, tags=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -41,6 +41,9 @@ class GetPlanResult:
         if plan_id and not isinstance(plan_id, str):
             raise TypeError("Expected argument 'plan_id' to be a str")
         pulumi.set(__self__, "plan_id", plan_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if rules and not isinstance(rules, list):
             raise TypeError("Expected argument 'rules' to be a list")
         pulumi.set(__self__, "rules", rules)
@@ -82,6 +85,11 @@ class GetPlanResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def rules(self) -> Sequence['outputs.GetPlanRuleResult']:
         """
         Rules of a backup plan.
@@ -115,12 +123,14 @@ class AwaitableGetPlanResult(GetPlanResult):
             id=self.id,
             name=self.name,
             plan_id=self.plan_id,
+            region=self.region,
             rules=self.rules,
             tags=self.tags,
             version=self.version)
 
 
 def get_plan(plan_id: Optional[builtins.str] = None,
+             region: Optional[builtins.str] = None,
              tags: Optional[Mapping[str, builtins.str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPlanResult:
     """
@@ -137,10 +147,12 @@ def get_plan(plan_id: Optional[builtins.str] = None,
 
 
     :param builtins.str plan_id: Backup plan ID.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that you can assign to help organize the plans you create.
     """
     __args__ = dict()
     __args__['planId'] = plan_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:backup/getPlan:getPlan', __args__, opts=opts, typ=GetPlanResult).value
@@ -150,10 +162,12 @@ def get_plan(plan_id: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         plan_id=pulumi.get(__ret__, 'plan_id'),
+        region=pulumi.get(__ret__, 'region'),
         rules=pulumi.get(__ret__, 'rules'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
 def get_plan_output(plan_id: Optional[pulumi.Input[builtins.str]] = None,
+                    region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlanResult]:
     """
@@ -170,10 +184,12 @@ def get_plan_output(plan_id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str plan_id: Backup plan ID.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that you can assign to help organize the plans you create.
     """
     __args__ = dict()
     __args__['planId'] = plan_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:backup/getPlan:getPlan', __args__, opts=opts, typ=GetPlanResult)
@@ -182,6 +198,7 @@ def get_plan_output(plan_id: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         plan_id=pulumi.get(__response__, 'plan_id'),
+        region=pulumi.get(__response__, 'region'),
         rules=pulumi.get(__response__, 'rules'),
         tags=pulumi.get(__response__, 'tags'),
         version=pulumi.get(__response__, 'version')))

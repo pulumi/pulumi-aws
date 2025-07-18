@@ -108,6 +108,12 @@ namespace Pulumi.Aws.CodeArtifact
         public Output<string> PolicyRevision { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the resource associated with the resource policy.
         /// </summary>
         [Output("resourceArn")]
@@ -174,14 +180,20 @@ namespace Pulumi.Aws.CodeArtifact
         /// <summary>
         /// A JSON policy string to be set as the access control resource policy on the provided domain.
         /// </summary>
-        [Input("policyDocument", required: true)]
-        public Input<string> PolicyDocument { get; set; } = null!;
+        [Input("policyDocument")]
+        public Input<string>? PolicyDocument { get; set; }
 
         /// <summary>
         /// The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
         /// </summary>
         [Input("policyRevision")]
         public Input<string>? PolicyRevision { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public DomainPermissionsArgs()
         {
@@ -214,6 +226,12 @@ namespace Pulumi.Aws.CodeArtifact
         /// </summary>
         [Input("policyRevision")]
         public Input<string>? PolicyRevision { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ARN of the resource associated with the resource policy.

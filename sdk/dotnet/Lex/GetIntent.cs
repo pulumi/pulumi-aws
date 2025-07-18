@@ -97,6 +97,12 @@ namespace Pulumi.Aws.Lex
         public string Name { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Version of the intent.
         /// </summary>
         [Input("version")]
@@ -115,6 +121,12 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Version of the intent.
@@ -168,6 +180,7 @@ namespace Pulumi.Aws.Lex
         /// in the Alexa Skills Kit.
         /// </summary>
         public readonly string ParentIntentSignature;
+        public readonly string Region;
         /// <summary>
         /// Version of the bot.
         /// </summary>
@@ -191,6 +204,8 @@ namespace Pulumi.Aws.Lex
 
             string parentIntentSignature,
 
+            string region,
+
             string? version)
         {
             Arn = arn;
@@ -201,6 +216,7 @@ namespace Pulumi.Aws.Lex
             LastUpdatedDate = lastUpdatedDate;
             Name = name;
             ParentIntentSignature = parentIntentSignature;
+            Region = region;
             Version = version;
         }
     }

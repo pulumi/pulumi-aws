@@ -26,6 +26,7 @@ class SlotTypeArgs:
                  create_version: Optional[pulumi.Input[builtins.bool]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  value_selection_strategy: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a SlotType resource.
@@ -37,6 +38,7 @@ class SlotTypeArgs:
                update. Defaults to `false`.
         :param pulumi.Input[builtins.str] description: A description of the slot type. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[builtins.str] name: The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] value_selection_strategy: Determines the slot resolution strategy that Amazon Lex
                uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
                value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
@@ -49,6 +51,8 @@ class SlotTypeArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if value_selection_strategy is not None:
             pulumi.set(__self__, "value_selection_strategy", value_selection_strategy)
 
@@ -105,6 +109,18 @@ class SlotTypeArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="valueSelectionStrategy")
     def value_selection_strategy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -130,6 +146,7 @@ class _SlotTypeState:
                  enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]]] = None,
                  last_updated_date: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  value_selection_strategy: Optional[pulumi.Input[builtins.str]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -146,6 +163,7 @@ class _SlotTypeState:
                documented under enumeration_value.
         :param pulumi.Input[builtins.str] last_updated_date: The date when the `$LATEST` version of this slot type was updated.
         :param pulumi.Input[builtins.str] name: The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] value_selection_strategy: Determines the slot resolution strategy that Amazon Lex
                uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
                value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
@@ -166,6 +184,8 @@ class _SlotTypeState:
             pulumi.set(__self__, "last_updated_date", last_updated_date)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if value_selection_strategy is not None:
             pulumi.set(__self__, "value_selection_strategy", value_selection_strategy)
         if version is not None:
@@ -261,6 +281,18 @@ class _SlotTypeState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="valueSelectionStrategy")
     def value_selection_strategy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -298,6 +330,7 @@ class SlotType(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  value_selection_strategy: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -351,6 +384,7 @@ class SlotType(pulumi.CustomResource):
                train the machine learning model about the values that it resolves for a slot. Attributes are
                documented under enumeration_value.
         :param pulumi.Input[builtins.str] name: The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] value_selection_strategy: Determines the slot resolution strategy that Amazon Lex
                uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
                value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
@@ -422,6 +456,7 @@ class SlotType(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  value_selection_strategy: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -438,6 +473,7 @@ class SlotType(pulumi.CustomResource):
                 raise TypeError("Missing required property 'enumeration_values'")
             __props__.__dict__["enumeration_values"] = enumeration_values
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["value_selection_strategy"] = value_selection_strategy
             __props__.__dict__["checksum"] = None
             __props__.__dict__["created_date"] = None
@@ -460,6 +496,7 @@ class SlotType(pulumi.CustomResource):
             enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SlotTypeEnumerationValueArgs', 'SlotTypeEnumerationValueArgsDict']]]]] = None,
             last_updated_date: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             value_selection_strategy: Optional[pulumi.Input[builtins.str]] = None,
             version: Optional[pulumi.Input[builtins.str]] = None) -> 'SlotType':
         """
@@ -481,6 +518,7 @@ class SlotType(pulumi.CustomResource):
                documented under enumeration_value.
         :param pulumi.Input[builtins.str] last_updated_date: The date when the `$LATEST` version of this slot type was updated.
         :param pulumi.Input[builtins.str] name: The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] value_selection_strategy: Determines the slot resolution strategy that Amazon Lex
                uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
                value is similar to the slot value. `TOP_RESOLUTION` returns the first value in the resolution list
@@ -498,6 +536,7 @@ class SlotType(pulumi.CustomResource):
         __props__.__dict__["enumeration_values"] = enumeration_values
         __props__.__dict__["last_updated_date"] = last_updated_date
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["value_selection_strategy"] = value_selection_strategy
         __props__.__dict__["version"] = version
         return SlotType(resource_name, opts=opts, __props__=__props__)
@@ -562,6 +601,14 @@ class SlotType(pulumi.CustomResource):
         The name of the slot type. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="valueSelectionStrategy")

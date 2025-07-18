@@ -16,50 +16,50 @@ namespace Pulumi.Aws.LB.Outputs
         /// <summary>
         /// Contains a single attribute `values`, which contains a set of host names.
         /// </summary>
-        public readonly Outputs.GetListenerRuleConditionHostHeaderResult? HostHeader;
+        public readonly ImmutableArray<Outputs.GetListenerRuleConditionHostHeaderResult> HostHeaders;
         /// <summary>
         /// HTTP header and values to match.
         /// Detailed below.
         /// </summary>
-        public readonly Outputs.GetListenerRuleConditionHttpHeaderResult? HttpHeader;
+        public readonly ImmutableArray<Outputs.GetListenerRuleConditionHttpHeaderResult> HttpHeaders;
         /// <summary>
         /// Contains a single attribute `values`, which contains a set of HTTP request methods.
         /// </summary>
-        public readonly Outputs.GetListenerRuleConditionHttpRequestMethodResult? HttpRequestMethod;
+        public readonly ImmutableArray<Outputs.GetListenerRuleConditionHttpRequestMethodResult> HttpRequestMethods;
         /// <summary>
         /// Contains a single attribute `values`, which contains a set of path patterns to compare against the request URL.
         /// </summary>
-        public readonly Outputs.GetListenerRuleConditionPathPatternResult? PathPattern;
+        public readonly ImmutableArray<Outputs.GetListenerRuleConditionPathPatternResult> PathPatterns;
         /// <summary>
         /// Query string parameters to match.
         /// Detailed below.
         /// </summary>
-        public readonly Outputs.GetListenerRuleConditionQueryStringResult? QueryString;
+        public readonly ImmutableArray<Outputs.GetListenerRuleConditionQueryStringResult> QueryStrings;
         /// <summary>
         /// Contains a single attribute `values`, which contains a set of source IPs in CIDR notation.
         /// </summary>
-        public readonly Outputs.GetListenerRuleConditionSourceIpResult? SourceIp;
+        public readonly ImmutableArray<Outputs.GetListenerRuleConditionSourceIpResult> SourceIps;
 
         [OutputConstructor]
         private GetListenerRuleConditionResult(
-            Outputs.GetListenerRuleConditionHostHeaderResult? hostHeader,
+            ImmutableArray<Outputs.GetListenerRuleConditionHostHeaderResult> hostHeaders,
 
-            Outputs.GetListenerRuleConditionHttpHeaderResult? httpHeader,
+            ImmutableArray<Outputs.GetListenerRuleConditionHttpHeaderResult> httpHeaders,
 
-            Outputs.GetListenerRuleConditionHttpRequestMethodResult? httpRequestMethod,
+            ImmutableArray<Outputs.GetListenerRuleConditionHttpRequestMethodResult> httpRequestMethods,
 
-            Outputs.GetListenerRuleConditionPathPatternResult? pathPattern,
+            ImmutableArray<Outputs.GetListenerRuleConditionPathPatternResult> pathPatterns,
 
-            Outputs.GetListenerRuleConditionQueryStringResult? queryString,
+            ImmutableArray<Outputs.GetListenerRuleConditionQueryStringResult> queryStrings,
 
-            Outputs.GetListenerRuleConditionSourceIpResult? sourceIp)
+            ImmutableArray<Outputs.GetListenerRuleConditionSourceIpResult> sourceIps)
         {
-            HostHeader = hostHeader;
-            HttpHeader = httpHeader;
-            HttpRequestMethod = httpRequestMethod;
-            PathPattern = pathPattern;
-            QueryString = queryString;
-            SourceIp = sourceIp;
+            HostHeaders = hostHeaders;
+            HttpHeaders = httpHeaders;
+            HttpRequestMethods = httpRequestMethods;
+            PathPatterns = pathPatterns;
+            QueryStrings = queryStrings;
+            SourceIps = sourceIps;
         }
     }
 }

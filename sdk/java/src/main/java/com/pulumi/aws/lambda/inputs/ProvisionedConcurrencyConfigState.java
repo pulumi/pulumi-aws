@@ -33,14 +33,14 @@ public final class ProvisionedConcurrencyConfigState extends com.pulumi.resource
     }
 
     /**
-     * Amount of capacity to allocate. Must be greater than or equal to `1`.
+     * Amount of capacity to allocate. Must be greater than or equal to 1.
      * 
      */
     @Import(name="provisionedConcurrentExecutions")
     private @Nullable Output<Integer> provisionedConcurrentExecutions;
 
     /**
-     * @return Amount of capacity to allocate. Must be greater than or equal to `1`.
+     * @return Amount of capacity to allocate. Must be greater than or equal to 1.
      * 
      */
     public Optional<Output<Integer>> provisionedConcurrentExecutions() {
@@ -67,14 +67,29 @@ public final class ProvisionedConcurrencyConfigState extends com.pulumi.resource
     }
 
     /**
-     * Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
+     * Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
      * 
      */
     @Import(name="skipDestroy")
     private @Nullable Output<Boolean> skipDestroy;
 
     /**
-     * @return Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+     * @return Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
      * 
      */
     public Optional<Output<Boolean>> skipDestroy() {
@@ -87,6 +102,7 @@ public final class ProvisionedConcurrencyConfigState extends com.pulumi.resource
         this.functionName = $.functionName;
         this.provisionedConcurrentExecutions = $.provisionedConcurrentExecutions;
         this.qualifier = $.qualifier;
+        this.region = $.region;
         this.skipDestroy = $.skipDestroy;
     }
 
@@ -130,7 +146,7 @@ public final class ProvisionedConcurrencyConfigState extends com.pulumi.resource
         }
 
         /**
-         * @param provisionedConcurrentExecutions Amount of capacity to allocate. Must be greater than or equal to `1`.
+         * @param provisionedConcurrentExecutions Amount of capacity to allocate. Must be greater than or equal to 1.
          * 
          * @return builder
          * 
@@ -141,7 +157,7 @@ public final class ProvisionedConcurrencyConfigState extends com.pulumi.resource
         }
 
         /**
-         * @param provisionedConcurrentExecutions Amount of capacity to allocate. Must be greater than or equal to `1`.
+         * @param provisionedConcurrentExecutions Amount of capacity to allocate. Must be greater than or equal to 1.
          * 
          * @return builder
          * 
@@ -176,7 +192,28 @@ public final class ProvisionedConcurrencyConfigState extends com.pulumi.resource
         }
 
         /**
-         * @param skipDestroy Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
+         * @param skipDestroy Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
          * 
          * @return builder
          * 
@@ -187,7 +224,7 @@ public final class ProvisionedConcurrencyConfigState extends com.pulumi.resource
         }
 
         /**
-         * @param skipDestroy Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+         * @param skipDestroy Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
          * 
          * @return builder
          * 

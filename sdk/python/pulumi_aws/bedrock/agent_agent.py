@@ -34,6 +34,7 @@ class AgentAgentArgs:
                  memory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]]] = None,
                  prepare_agent: Optional[pulumi.Input[builtins.bool]] = None,
                  prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_resource_in_use_check: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['AgentAgentTimeoutsArgs']] = None):
@@ -53,6 +54,7 @@ class AgentAgentArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentMemoryConfigurationArgs']]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
         :param pulumi.Input[builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -77,6 +79,8 @@ class AgentAgentArgs:
             pulumi.set(__self__, "prepare_agent", prepare_agent)
         if prompt_override_configurations is not None:
             pulumi.set(__self__, "prompt_override_configurations", prompt_override_configurations)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if skip_resource_in_use_check is not None:
             pulumi.set(__self__, "skip_resource_in_use_check", skip_resource_in_use_check)
         if tags is not None:
@@ -231,6 +235,18 @@ class AgentAgentArgs:
         pulumi.set(self, "prompt_override_configurations", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="skipResourceInUseCheck")
     def skip_resource_in_use_check(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -283,6 +299,7 @@ class _AgentAgentState:
                  prepare_agent: Optional[pulumi.Input[builtins.bool]] = None,
                  prepared_at: Optional[pulumi.Input[builtins.str]] = None,
                  prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_resource_in_use_check: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -307,6 +324,7 @@ class _AgentAgentState:
         :param pulumi.Input[builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[builtins.str] prepared_at: Timestamp of when the agent was last prepared.
         :param pulumi.Input[Sequence[pulumi.Input['AgentAgentPromptOverrideConfigurationArgs']]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -343,13 +361,12 @@ class _AgentAgentState:
             pulumi.set(__self__, "prepared_at", prepared_at)
         if prompt_override_configurations is not None:
             pulumi.set(__self__, "prompt_override_configurations", prompt_override_configurations)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if skip_resource_in_use_check is not None:
             pulumi.set(__self__, "skip_resource_in_use_check", skip_resource_in_use_check)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
@@ -550,6 +567,18 @@ class _AgentAgentState:
         pulumi.set(self, "prompt_override_configurations", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="skipResourceInUseCheck")
     def skip_resource_in_use_check(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -575,7 +604,6 @@ class _AgentAgentState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -614,6 +642,7 @@ class AgentAgent(pulumi.CustomResource):
                  memory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict']]]]] = None,
                  prepare_agent: Optional[pulumi.Input[builtins.bool]] = None,
                  prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_resource_in_use_check: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['AgentAgentTimeoutsArgs', 'AgentAgentTimeoutsArgsDict']]] = None,
@@ -646,14 +675,14 @@ class AgentAgent(pulumi.CustomResource):
                 },
                 {
                     "test": "ArnLike",
-                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}:{current.account_id}:agent/*"],
+                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}:{current.account_id}:agent/*"],
                     "variable": "AWS:SourceArn",
                 },
             ],
         }])
         example_agent_permissions = aws.iam.get_policy_document(statements=[{
             "actions": ["bedrock:InvokeModel"],
-            "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}::foundation-model/anthropic.claude-v2"],
+            "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}::foundation-model/anthropic.claude-v2"],
         }])
         example = aws.iam.Role("example",
             assume_role_policy=example_agent_trust.json,
@@ -692,6 +721,7 @@ class AgentAgent(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict']]]] memory_configurations: Configurations for the agent's ability to retain the conversational context.
         :param pulumi.Input[builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -729,14 +759,14 @@ class AgentAgent(pulumi.CustomResource):
                 },
                 {
                     "test": "ArnLike",
-                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}:{current.account_id}:agent/*"],
+                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}:{current.account_id}:agent/*"],
                     "variable": "AWS:SourceArn",
                 },
             ],
         }])
         example_agent_permissions = aws.iam.get_policy_document(statements=[{
             "actions": ["bedrock:InvokeModel"],
-            "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}::foundation-model/anthropic.claude-v2"],
+            "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}::foundation-model/anthropic.claude-v2"],
         }])
         example = aws.iam.Role("example",
             assume_role_policy=example_agent_trust.json,
@@ -786,6 +816,7 @@ class AgentAgent(pulumi.CustomResource):
                  memory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentMemoryConfigurationArgs', 'AgentAgentMemoryConfigurationArgsDict']]]]] = None,
                  prepare_agent: Optional[pulumi.Input[builtins.bool]] = None,
                  prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_resource_in_use_check: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['AgentAgentTimeoutsArgs', 'AgentAgentTimeoutsArgsDict']]] = None,
@@ -816,6 +847,7 @@ class AgentAgent(pulumi.CustomResource):
             __props__.__dict__["memory_configurations"] = memory_configurations
             __props__.__dict__["prepare_agent"] = prepare_agent
             __props__.__dict__["prompt_override_configurations"] = prompt_override_configurations
+            __props__.__dict__["region"] = region
             __props__.__dict__["skip_resource_in_use_check"] = skip_resource_in_use_check
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
@@ -850,6 +882,7 @@ class AgentAgent(pulumi.CustomResource):
             prepare_agent: Optional[pulumi.Input[builtins.bool]] = None,
             prepared_at: Optional[pulumi.Input[builtins.str]] = None,
             prompt_override_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             skip_resource_in_use_check: Optional[pulumi.Input[builtins.bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -879,6 +912,7 @@ class AgentAgent(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
         :param pulumi.Input[builtins.str] prepared_at: Timestamp of when the agent was last prepared.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentAgentPromptOverrideConfigurationArgs', 'AgentAgentPromptOverrideConfigurationArgsDict']]]] prompt_override_configurations: Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `prompt_override_configuration` Block for details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the agent.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -903,6 +937,7 @@ class AgentAgent(pulumi.CustomResource):
         __props__.__dict__["prepare_agent"] = prepare_agent
         __props__.__dict__["prepared_at"] = prepared_at
         __props__.__dict__["prompt_override_configurations"] = prompt_override_configurations
+        __props__.__dict__["region"] = region
         __props__.__dict__["skip_resource_in_use_check"] = skip_resource_in_use_check
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -1040,6 +1075,14 @@ class AgentAgent(pulumi.CustomResource):
         return pulumi.get(self, "prompt_override_configurations")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="skipResourceInUseCheck")
     def skip_resource_in_use_check(self) -> pulumi.Output[builtins.bool]:
         """
@@ -1057,7 +1100,6 @@ class AgentAgent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -23,19 +23,23 @@ class VaultLockArgs:
                  complete_lock: pulumi.Input[builtins.bool],
                  policy: pulumi.Input[builtins.str],
                  vault_name: pulumi.Input[builtins.str],
-                 ignore_deletion_error: Optional[pulumi.Input[builtins.bool]] = None):
+                 ignore_deletion_error: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a VaultLock resource.
         :param pulumi.Input[builtins.bool] complete_lock: Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
         :param pulumi.Input[builtins.str] policy: JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
         :param pulumi.Input[builtins.str] vault_name: The name of the Glacier Vault.
         :param pulumi.Input[builtins.bool] ignore_deletion_error: Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "complete_lock", complete_lock)
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "vault_name", vault_name)
         if ignore_deletion_error is not None:
             pulumi.set(__self__, "ignore_deletion_error", ignore_deletion_error)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="completeLock")
@@ -85,6 +89,18 @@ class VaultLockArgs:
     def ignore_deletion_error(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "ignore_deletion_error", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _VaultLockState:
@@ -92,12 +108,14 @@ class _VaultLockState:
                  complete_lock: Optional[pulumi.Input[builtins.bool]] = None,
                  ignore_deletion_error: Optional[pulumi.Input[builtins.bool]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vault_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering VaultLock resources.
         :param pulumi.Input[builtins.bool] complete_lock: Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
         :param pulumi.Input[builtins.bool] ignore_deletion_error: Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
         :param pulumi.Input[builtins.str] policy: JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vault_name: The name of the Glacier Vault.
         """
         if complete_lock is not None:
@@ -106,6 +124,8 @@ class _VaultLockState:
             pulumi.set(__self__, "ignore_deletion_error", ignore_deletion_error)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if vault_name is not None:
             pulumi.set(__self__, "vault_name", vault_name)
 
@@ -146,6 +166,18 @@ class _VaultLockState:
         pulumi.set(self, "policy", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="vaultName")
     def vault_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -167,6 +199,7 @@ class VaultLock(pulumi.CustomResource):
                  complete_lock: Optional[pulumi.Input[builtins.bool]] = None,
                  ignore_deletion_error: Optional[pulumi.Input[builtins.bool]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vault_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -220,6 +253,7 @@ class VaultLock(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] complete_lock: Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
         :param pulumi.Input[builtins.bool] ignore_deletion_error: Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
         :param pulumi.Input[builtins.str] policy: JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vault_name: The name of the Glacier Vault.
         """
         ...
@@ -292,6 +326,7 @@ class VaultLock(pulumi.CustomResource):
                  complete_lock: Optional[pulumi.Input[builtins.bool]] = None,
                  ignore_deletion_error: Optional[pulumi.Input[builtins.bool]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vault_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -309,6 +344,7 @@ class VaultLock(pulumi.CustomResource):
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
+            __props__.__dict__["region"] = region
             if vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_name'")
             __props__.__dict__["vault_name"] = vault_name
@@ -325,6 +361,7 @@ class VaultLock(pulumi.CustomResource):
             complete_lock: Optional[pulumi.Input[builtins.bool]] = None,
             ignore_deletion_error: Optional[pulumi.Input[builtins.bool]] = None,
             policy: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             vault_name: Optional[pulumi.Input[builtins.str]] = None) -> 'VaultLock':
         """
         Get an existing VaultLock resource's state with the given name, id, and optional extra
@@ -336,6 +373,7 @@ class VaultLock(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] complete_lock: Boolean whether to permanently apply this Glacier Lock Policy. Once completed, this cannot be undone. If set to `false`, the Glacier Lock Policy remains in a testing mode for 24 hours. After that time, the Glacier Lock Policy is automatically removed by Glacier and the this provider resource will show as needing recreation. Changing this from `false` to `true` will show as resource recreation, which is expected. Changing this from `true` to `false` is not possible unless the Glacier Vault is recreated at the same time.
         :param pulumi.Input[builtins.bool] ignore_deletion_error: Allow this provider to ignore the error returned when attempting to delete the Glacier Lock Policy. This can be used to delete or recreate the Glacier Vault via this provider, for example, if the Glacier Vault Lock policy permits that action. This should only be used in conjunction with `complete_lock` being set to `true`.
         :param pulumi.Input[builtins.str] policy: JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vault_name: The name of the Glacier Vault.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -345,6 +383,7 @@ class VaultLock(pulumi.CustomResource):
         __props__.__dict__["complete_lock"] = complete_lock
         __props__.__dict__["ignore_deletion_error"] = ignore_deletion_error
         __props__.__dict__["policy"] = policy
+        __props__.__dict__["region"] = region
         __props__.__dict__["vault_name"] = vault_name
         return VaultLock(resource_name, opts=opts, __props__=__props__)
 
@@ -371,6 +410,14 @@ class VaultLock(pulumi.CustomResource):
         JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="vaultName")

@@ -23,6 +23,7 @@ class BrowserSettingsArgs:
                  browser_policy: pulumi.Input[builtins.str],
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  customer_managed_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a BrowserSettings resource.
@@ -31,6 +32,7 @@ class BrowserSettingsArgs:
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] additional_encryption_context: Additional encryption context for the browser settings.
         :param pulumi.Input[builtins.str] customer_managed_key: ARN of the customer managed KMS key.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "browser_policy", browser_policy)
@@ -38,6 +40,8 @@ class BrowserSettingsArgs:
             pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
         if customer_managed_key is not None:
             pulumi.set(__self__, "customer_managed_key", customer_managed_key)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -81,6 +85,18 @@ class BrowserSettingsArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -100,6 +116,7 @@ class _BrowserSettingsState:
                  browser_policy: Optional[pulumi.Input[builtins.str]] = None,
                  browser_settings_arn: Optional[pulumi.Input[builtins.str]] = None,
                  customer_managed_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -111,6 +128,7 @@ class _BrowserSettingsState:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] browser_settings_arn: ARN of the browser settings resource.
         :param pulumi.Input[builtins.str] customer_managed_key: ARN of the customer managed KMS key.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -124,11 +142,10 @@ class _BrowserSettingsState:
             pulumi.set(__self__, "browser_settings_arn", browser_settings_arn)
         if customer_managed_key is not None:
             pulumi.set(__self__, "customer_managed_key", customer_managed_key)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -196,6 +213,18 @@ class _BrowserSettingsState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -208,7 +237,6 @@ class _BrowserSettingsState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -229,6 +257,7 @@ class BrowserSettings(pulumi.CustomResource):
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  browser_policy: Optional[pulumi.Input[builtins.str]] = None,
                  customer_managed_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -294,6 +323,7 @@ class BrowserSettings(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] customer_managed_key: ARN of the customer managed KMS key.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -376,6 +406,7 @@ class BrowserSettings(pulumi.CustomResource):
                  additional_encryption_context: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  browser_policy: Optional[pulumi.Input[builtins.str]] = None,
                  customer_managed_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -391,6 +422,7 @@ class BrowserSettings(pulumi.CustomResource):
                 raise TypeError("Missing required property 'browser_policy'")
             __props__.__dict__["browser_policy"] = browser_policy
             __props__.__dict__["customer_managed_key"] = customer_managed_key
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["associated_portal_arns"] = None
             __props__.__dict__["browser_settings_arn"] = None
@@ -412,6 +444,7 @@ class BrowserSettings(pulumi.CustomResource):
             browser_policy: Optional[pulumi.Input[builtins.str]] = None,
             browser_settings_arn: Optional[pulumi.Input[builtins.str]] = None,
             customer_managed_key: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'BrowserSettings':
         """
@@ -428,6 +461,7 @@ class BrowserSettings(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] browser_settings_arn: ARN of the browser settings resource.
         :param pulumi.Input[builtins.str] customer_managed_key: ARN of the customer managed KMS key.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -440,6 +474,7 @@ class BrowserSettings(pulumi.CustomResource):
         __props__.__dict__["browser_policy"] = browser_policy
         __props__.__dict__["browser_settings_arn"] = browser_settings_arn
         __props__.__dict__["customer_managed_key"] = customer_managed_key
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return BrowserSettings(resource_name, opts=opts, __props__=__props__)
@@ -488,6 +523,14 @@ class BrowserSettings(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -496,7 +539,6 @@ class BrowserSettings(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -79,6 +79,10 @@ export class EndpointAccess extends pulumi.CustomResource {
      */
     public /*out*/ readonly port!: pulumi.Output<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * An array of VPC subnet IDs to associate with the endpoint.
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
@@ -113,6 +117,7 @@ export class EndpointAccess extends pulumi.CustomResource {
             resourceInputs["endpointName"] = state ? state.endpointName : undefined;
             resourceInputs["ownerAccount"] = state ? state.ownerAccount : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["vpcEndpoints"] = state ? state.vpcEndpoints : undefined;
             resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
@@ -130,6 +135,7 @@ export class EndpointAccess extends pulumi.CustomResource {
             }
             resourceInputs["endpointName"] = args ? args.endpointName : undefined;
             resourceInputs["ownerAccount"] = args ? args.ownerAccount : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["workgroupName"] = args ? args.workgroupName : undefined;
@@ -168,6 +174,10 @@ export interface EndpointAccessState {
      */
     port?: pulumi.Input<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * An array of VPC subnet IDs to associate with the endpoint.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -197,6 +207,10 @@ export interface EndpointAccessArgs {
      * The owner Amazon Web Services account for the Amazon Redshift Serverless workgroup.
      */
     ownerAccount?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * An array of VPC subnet IDs to associate with the endpoint.
      */

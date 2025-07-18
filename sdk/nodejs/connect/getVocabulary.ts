@@ -38,6 +38,7 @@ export function getVocabulary(args: GetVocabularyArgs, opts?: pulumi.InvokeOptio
     return pulumi.runtime.invoke("aws:connect/getVocabulary:getVocabulary", {
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
         "vocabularyId": args.vocabularyId,
     }, opts);
@@ -55,6 +56,10 @@ export interface GetVocabularyArgs {
      * Returns information on a specific Vocabulary by name
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * A map of tags to assign to the Vocabulary.
      */
@@ -97,6 +102,7 @@ export interface GetVocabularyResult {
      */
     readonly lastModifiedTime: string;
     readonly name: string;
+    readonly region: string;
     /**
      * The current state of the custom vocabulary. Valid values are `CREATION_IN_PROGRESS`, `ACTIVE`, `CREATION_FAILED`, `DELETE_IN_PROGRESS`.
      */
@@ -144,6 +150,7 @@ export function getVocabularyOutput(args: GetVocabularyOutputArgs, opts?: pulumi
     return pulumi.runtime.invokeOutput("aws:connect/getVocabulary:getVocabulary", {
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
         "vocabularyId": args.vocabularyId,
     }, opts);
@@ -161,6 +168,10 @@ export interface GetVocabularyOutputArgs {
      * Returns information on a specific Vocabulary by name
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the Vocabulary.
      */

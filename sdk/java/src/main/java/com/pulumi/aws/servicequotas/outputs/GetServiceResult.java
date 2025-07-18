@@ -15,6 +15,7 @@ public final class GetServiceResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return Code of the service.
      * 
@@ -29,6 +30,9 @@ public final class GetServiceResult {
      */
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return Code of the service.
@@ -51,12 +55,14 @@ public final class GetServiceResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private String region;
         private String serviceCode;
         private String serviceName;
         public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.serviceCode = defaults.serviceCode;
     	      this.serviceName = defaults.serviceName;
         }
@@ -67,6 +73,14 @@ public final class GetServiceResult {
               throw new MissingRequiredPropertyException("GetServiceResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetServiceResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -88,6 +102,7 @@ public final class GetServiceResult {
         public GetServiceResult build() {
             final var _resultValue = new GetServiceResult();
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.serviceCode = serviceCode;
             _resultValue.serviceName = serviceName;
             return _resultValue;

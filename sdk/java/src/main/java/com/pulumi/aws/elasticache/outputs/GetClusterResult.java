@@ -106,6 +106,7 @@ public final class GetClusterResult {
      * 
      */
     private String preferredOutpostArn;
+    private String region;
     /**
      * @return The replication group to which this cache cluster belongs.
      * 
@@ -269,6 +270,9 @@ public final class GetClusterResult {
     public String preferredOutpostArn() {
         return this.preferredOutpostArn;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The replication group to which this cache cluster belongs.
      * 
@@ -342,6 +346,7 @@ public final class GetClusterResult {
         private String parameterGroupName;
         private Integer port;
         private String preferredOutpostArn;
+        private String region;
         private String replicationGroupId;
         private List<String> securityGroupIds;
         private Integer snapshotRetentionLimit;
@@ -370,6 +375,7 @@ public final class GetClusterResult {
     	      this.parameterGroupName = defaults.parameterGroupName;
     	      this.port = defaults.port;
     	      this.preferredOutpostArn = defaults.preferredOutpostArn;
+    	      this.region = defaults.region;
     	      this.replicationGroupId = defaults.replicationGroupId;
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.snapshotRetentionLimit = defaults.snapshotRetentionLimit;
@@ -537,6 +543,14 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder replicationGroupId(String replicationGroupId) {
             if (replicationGroupId == null) {
               throw new MissingRequiredPropertyException("GetClusterResult", "replicationGroupId");
@@ -608,6 +622,7 @@ public final class GetClusterResult {
             _resultValue.parameterGroupName = parameterGroupName;
             _resultValue.port = port;
             _resultValue.preferredOutpostArn = preferredOutpostArn;
+            _resultValue.region = region;
             _resultValue.replicationGroupId = replicationGroupId;
             _resultValue.securityGroupIds = securityGroupIds;
             _resultValue.snapshotRetentionLimit = snapshotRetentionLimit;

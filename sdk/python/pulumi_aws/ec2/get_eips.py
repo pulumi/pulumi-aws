@@ -29,7 +29,7 @@ class GetEipsResult:
     """
     A collection of values returned by getEips.
     """
-    def __init__(__self__, allocation_ids=None, filters=None, id=None, public_ips=None, tags=None):
+    def __init__(__self__, allocation_ids=None, filters=None, id=None, public_ips=None, region=None, tags=None):
         if allocation_ids and not isinstance(allocation_ids, list):
             raise TypeError("Expected argument 'allocation_ids' to be a list")
         pulumi.set(__self__, "allocation_ids", allocation_ids)
@@ -42,6 +42,9 @@ class GetEipsResult:
         if public_ips and not isinstance(public_ips, list):
             raise TypeError("Expected argument 'public_ips' to be a list")
         pulumi.set(__self__, "public_ips", public_ips)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -77,6 +80,11 @@ class GetEipsResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags")
 
@@ -91,10 +99,12 @@ class AwaitableGetEipsResult(GetEipsResult):
             filters=self.filters,
             id=self.id,
             public_ips=self.public_ips,
+            region=self.region,
             tags=self.tags)
 
 
 def get_eips(filters: Optional[Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict']]] = None,
+             region: Optional[builtins.str] = None,
              tags: Optional[Mapping[str, builtins.str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEipsResult:
     """
@@ -117,10 +127,12 @@ def get_eips(filters: Optional[Sequence[Union['GetEipsFilterArgs', 'GetEipsFilte
 
 
     :param Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getEips:getEips', __args__, opts=opts, typ=GetEipsResult).value
@@ -130,8 +142,10 @@ def get_eips(filters: Optional[Sequence[Union['GetEipsFilterArgs', 'GetEipsFilte
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         public_ips=pulumi.get(__ret__, 'public_ips'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_eips_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict']]]]] = None,
+                    region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEipsResult]:
     """
@@ -154,10 +168,12 @@ def get_eips_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetE
 
 
     :param Sequence[Union['GetEipsFilterArgs', 'GetEipsFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getEips:getEips', __args__, opts=opts, typ=GetEipsResult)
@@ -166,4 +182,5 @@ def get_eips_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetE
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         public_ips=pulumi.get(__response__, 'public_ips'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

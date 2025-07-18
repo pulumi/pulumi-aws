@@ -32,6 +32,7 @@ public final class GetFirewallPolicyResult {
      */
     private String id;
     private @Nullable String name;
+    private String region;
     /**
      * @return Key-value tags for the firewall policy.
      * 
@@ -71,6 +72,9 @@ public final class GetFirewallPolicyResult {
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Key-value tags for the firewall policy.
      * 
@@ -100,6 +104,7 @@ public final class GetFirewallPolicyResult {
         private List<GetFirewallPolicyFirewallPolicy> firewallPolicies;
         private String id;
         private @Nullable String name;
+        private String region;
         private Map<String,String> tags;
         private String updateToken;
         public Builder() {}
@@ -110,6 +115,7 @@ public final class GetFirewallPolicyResult {
     	      this.firewallPolicies = defaults.firewallPolicies;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.updateToken = defaults.updateToken;
         }
@@ -154,6 +160,14 @@ public final class GetFirewallPolicyResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetFirewallPolicyResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetFirewallPolicyResult", "tags");
@@ -176,6 +190,7 @@ public final class GetFirewallPolicyResult {
             _resultValue.firewallPolicies = firewallPolicies;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.updateToken = updateToken;
             return _resultValue;

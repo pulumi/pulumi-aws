@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *         }],
  *     }),
  * });
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example-bucket"});
+ * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example-bucket"});
  * const exampleCluster = new aws.redshift.Cluster("example", {
  *     clusterIdentifier: "example_cluster",
  *     databaseName: "example_db",
@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  *         },
  *         connectorProfileProperties: {
  *             redshift: {
- *                 bucketName: exampleBucketV2.name,
+ *                 bucketName: exampleBucket.name,
  *                 databaseUrl: pulumi.interpolate`jdbc:redshift://${exampleCluster.endpoint}/${exampleCluster.databaseName}`,
  *                 roleArn: exampleRole.arn,
  *             },
@@ -71,10 +71,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import AppFlow Connector Profile using the connector profile `arn`. For example:
+ * Using `pulumi import`, import AppFlow Connector Profile using the connector profile `name`. For example:
  *
  * ```sh
- * $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
+ * $ pulumi import aws:appflow/connectorProfile:ConnectorProfile example example-profile
  * ```
  */
 export class ConnectorProfile extends pulumi.CustomResource {
@@ -134,6 +134,11 @@ export class ConnectorProfile extends pulumi.CustomResource {
      */
     public readonly kmsArn!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ConnectorProfile resource with the given unique name, arguments, and options.
@@ -156,6 +161,7 @@ export class ConnectorProfile extends pulumi.CustomResource {
             resourceInputs["credentialsArn"] = state ? state.credentialsArn : undefined;
             resourceInputs["kmsArn"] = state ? state.kmsArn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ConnectorProfileArgs | undefined;
             if ((!args || args.connectionMode === undefined) && !opts.urn) {
@@ -173,6 +179,7 @@ export class ConnectorProfile extends pulumi.CustomResource {
             resourceInputs["connectorType"] = args ? args.connectorType : undefined;
             resourceInputs["kmsArn"] = args ? args.kmsArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["credentialsArn"] = undefined /*out*/;
         }
@@ -214,6 +221,11 @@ export interface ConnectorProfileState {
      */
     kmsArn?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -241,4 +253,9 @@ export interface ConnectorProfileArgs {
      */
     kmsArn?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -25,6 +25,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elasticache/getCluster:getCluster", {
         "clusterId": args.clusterId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,10 @@ export interface GetClusterArgs {
      * Group identifier.
      */
     clusterId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Tags assigned to the resource
      */
@@ -121,6 +126,7 @@ export interface GetClusterResult {
      * The outpost ARN in which the cache cluster was created if created in outpost.
      */
     readonly preferredOutpostArn: string;
+    readonly region: string;
     /**
      * The replication group to which this cache cluster belongs.
      */
@@ -166,6 +172,7 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:elasticache/getCluster:getCluster", {
         "clusterId": args.clusterId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -178,6 +185,10 @@ export interface GetClusterOutputArgs {
      * Group identifier.
      */
     clusterId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Tags assigned to the resource
      */

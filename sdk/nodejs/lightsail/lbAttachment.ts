@@ -82,8 +82,14 @@ export class LbAttachment extends pulumi.CustomResource {
     public readonly instanceName!: pulumi.Output<string>;
     /**
      * Name of the Lightsail load balancer.
+     *
+     * The following arguments are optional:
      */
     public readonly lbName!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LbAttachment resource with the given unique name, arguments, and options.
@@ -100,6 +106,7 @@ export class LbAttachment extends pulumi.CustomResource {
             const state = argsOrState as LbAttachmentState | undefined;
             resourceInputs["instanceName"] = state ? state.instanceName : undefined;
             resourceInputs["lbName"] = state ? state.lbName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LbAttachmentArgs | undefined;
             if ((!args || args.instanceName === undefined) && !opts.urn) {
@@ -110,6 +117,7 @@ export class LbAttachment extends pulumi.CustomResource {
             }
             resourceInputs["instanceName"] = args ? args.instanceName : undefined;
             resourceInputs["lbName"] = args ? args.lbName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LbAttachment.__pulumiType, name, resourceInputs, opts);
@@ -126,8 +134,14 @@ export interface LbAttachmentState {
     instanceName?: pulumi.Input<string>;
     /**
      * Name of the Lightsail load balancer.
+     *
+     * The following arguments are optional:
      */
     lbName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -140,6 +154,12 @@ export interface LbAttachmentArgs {
     instanceName: pulumi.Input<string>;
     /**
      * Name of the Lightsail load balancer.
+     *
+     * The following arguments are optional:
      */
     lbName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

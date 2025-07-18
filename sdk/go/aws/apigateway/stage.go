@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -92,7 +92,7 @@ type Stage struct {
 	Deployment pulumi.StringOutput `pulumi:"deployment"`
 	// Description of the stage.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Version of the associated API documentation
+	// Version of the associated API documentation.
 	DocumentationVersion pulumi.StringPtrOutput `pulumi:"documentationVersion"`
 	// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
@@ -101,6 +101,8 @@ type Stage struct {
 	// URL to invoke the API pointing to the stage,
 	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl pulumi.StringOutput `pulumi:"invokeUrl"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the associated REST API
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
 	// Name of the stage
@@ -108,10 +110,8 @@ type Stage struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Map that defines the stage variables
+	// Map that defines the stage variables.
 	Variables pulumi.StringMapOutput `pulumi:"variables"`
 	// ARN of the WebAcl associated with the Stage.
 	WebAclArn pulumi.StringOutput `pulumi:"webAclArn"`
@@ -174,7 +174,7 @@ type stageState struct {
 	Deployment interface{} `pulumi:"deployment"`
 	// Description of the stage.
 	Description *string `pulumi:"description"`
-	// Version of the associated API documentation
+	// Version of the associated API documentation.
 	DocumentationVersion *string `pulumi:"documentationVersion"`
 	// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
@@ -183,6 +183,8 @@ type stageState struct {
 	// URL to invoke the API pointing to the stage,
 	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl *string `pulumi:"invokeUrl"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the associated REST API
 	RestApi interface{} `pulumi:"restApi"`
 	// Name of the stage
@@ -190,10 +192,8 @@ type stageState struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Map that defines the stage variables
+	// Map that defines the stage variables.
 	Variables map[string]string `pulumi:"variables"`
 	// ARN of the WebAcl associated with the Stage.
 	WebAclArn *string `pulumi:"webAclArn"`
@@ -218,7 +218,7 @@ type StageState struct {
 	Deployment pulumi.Input
 	// Description of the stage.
 	Description pulumi.StringPtrInput
-	// Version of the associated API documentation
+	// Version of the associated API documentation.
 	DocumentationVersion pulumi.StringPtrInput
 	// Execution ARN to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
@@ -227,6 +227,8 @@ type StageState struct {
 	// URL to invoke the API pointing to the stage,
 	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the associated REST API
 	RestApi pulumi.Input
 	// Name of the stage
@@ -234,10 +236,8 @@ type StageState struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
-	// Map that defines the stage variables
+	// Map that defines the stage variables.
 	Variables pulumi.StringMapInput
 	// ARN of the WebAcl associated with the Stage.
 	WebAclArn pulumi.StringPtrInput
@@ -264,15 +264,17 @@ type stageArgs struct {
 	Deployment interface{} `pulumi:"deployment"`
 	// Description of the stage.
 	Description *string `pulumi:"description"`
-	// Version of the associated API documentation
+	// Version of the associated API documentation.
 	DocumentationVersion *string `pulumi:"documentationVersion"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the associated REST API
 	RestApi interface{} `pulumi:"restApi"`
 	// Name of the stage
 	StageName string `pulumi:"stageName"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Map that defines the stage variables
+	// Map that defines the stage variables.
 	Variables map[string]string `pulumi:"variables"`
 	// Whether active tracing with X-ray is enabled. Defaults to `false`.
 	XrayTracingEnabled *bool `pulumi:"xrayTracingEnabled"`
@@ -294,15 +296,17 @@ type StageArgs struct {
 	Deployment pulumi.Input
 	// Description of the stage.
 	Description pulumi.StringPtrInput
-	// Version of the associated API documentation
+	// Version of the associated API documentation.
 	DocumentationVersion pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the associated REST API
 	RestApi pulumi.Input
 	// Name of the stage
 	StageName pulumi.StringInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Map that defines the stage variables
+	// Map that defines the stage variables.
 	Variables pulumi.StringMapInput
 	// Whether active tracing with X-ray is enabled. Defaults to `false`.
 	XrayTracingEnabled pulumi.BoolPtrInput
@@ -435,7 +439,7 @@ func (o StageOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Version of the associated API documentation
+// Version of the associated API documentation.
 func (o StageOutput) DocumentationVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.DocumentationVersion }).(pulumi.StringPtrOutput)
 }
@@ -451,6 +455,11 @@ func (o StageOutput) ExecutionArn() pulumi.StringOutput {
 // e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 func (o StageOutput) InvokeUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.InvokeUrl }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o StageOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the associated REST API
@@ -469,13 +478,11 @@ func (o StageOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o StageOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Map that defines the stage variables
+// Map that defines the stage variables.
 func (o StageOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringMapOutput { return v.Variables }).(pulumi.StringMapOutput)
 }

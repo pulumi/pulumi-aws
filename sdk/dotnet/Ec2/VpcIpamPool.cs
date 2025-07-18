@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
     ///             {
-    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             },
     ///         },
     ///     });
@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         AddressFamily = "ipv4",
     ///         IpamScopeId = example.PrivateDefaultScopeId,
-    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///     });
     /// 
     /// });
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
     ///             {
-    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             },
     ///         },
     ///     });
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         AddressFamily = "ipv4",
     ///         IpamScopeId = example.PrivateDefaultScopeId,
-    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///         SourceIpamPoolId = parent.Id,
     ///     });
     /// 
@@ -200,6 +200,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("publiclyAdvertisable")]
         public Output<bool?> PubliclyAdvertisable { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
@@ -357,6 +363,12 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? PubliclyAdvertisable { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
         /// </summary>
         [Input("sourceIpamPoolId")]
@@ -480,6 +492,12 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? PubliclyAdvertisable { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
         /// </summary>
         [Input("sourceIpamPoolId")]
@@ -509,7 +527,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

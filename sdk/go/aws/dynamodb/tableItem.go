@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dynamodb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,6 +82,8 @@ type TableItem struct {
 	Item pulumi.StringOutput `pulumi:"item"`
 	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 	RangeKey pulumi.StringPtrOutput `pulumi:"rangeKey"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Name of the table to contain the item.
 	//
 	// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
@@ -133,6 +135,8 @@ type tableItemState struct {
 	Item *string `pulumi:"item"`
 	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 	RangeKey *string `pulumi:"rangeKey"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the table to contain the item.
 	//
 	// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
@@ -146,6 +150,8 @@ type TableItemState struct {
 	Item pulumi.StringPtrInput
 	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 	RangeKey pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the table to contain the item.
 	//
 	// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
@@ -163,6 +169,8 @@ type tableItemArgs struct {
 	Item string `pulumi:"item"`
 	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 	RangeKey *string `pulumi:"rangeKey"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the table to contain the item.
 	//
 	// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
@@ -177,6 +185,8 @@ type TableItemArgs struct {
 	Item pulumi.StringInput
 	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 	RangeKey pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the table to contain the item.
 	//
 	// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
@@ -283,6 +293,11 @@ func (o TableItemOutput) Item() pulumi.StringOutput {
 // Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 func (o TableItemOutput) RangeKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableItem) pulumi.StringPtrOutput { return v.RangeKey }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o TableItemOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TableItem) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Name of the table to contain the item.

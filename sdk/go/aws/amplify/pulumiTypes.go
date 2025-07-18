@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -582,6 +582,143 @@ func (o AppCustomRuleArrayOutput) Index(i pulumi.IntInput) AppCustomRuleOutput {
 	}).(AppCustomRuleOutput)
 }
 
+type AppJobConfig struct {
+	// Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
+	BuildComputeType *string `pulumi:"buildComputeType"`
+}
+
+// AppJobConfigInput is an input type that accepts AppJobConfigArgs and AppJobConfigOutput values.
+// You can construct a concrete instance of `AppJobConfigInput` via:
+//
+//	AppJobConfigArgs{...}
+type AppJobConfigInput interface {
+	pulumi.Input
+
+	ToAppJobConfigOutput() AppJobConfigOutput
+	ToAppJobConfigOutputWithContext(context.Context) AppJobConfigOutput
+}
+
+type AppJobConfigArgs struct {
+	// Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
+	BuildComputeType pulumi.StringPtrInput `pulumi:"buildComputeType"`
+}
+
+func (AppJobConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppJobConfig)(nil)).Elem()
+}
+
+func (i AppJobConfigArgs) ToAppJobConfigOutput() AppJobConfigOutput {
+	return i.ToAppJobConfigOutputWithContext(context.Background())
+}
+
+func (i AppJobConfigArgs) ToAppJobConfigOutputWithContext(ctx context.Context) AppJobConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppJobConfigOutput)
+}
+
+func (i AppJobConfigArgs) ToAppJobConfigPtrOutput() AppJobConfigPtrOutput {
+	return i.ToAppJobConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AppJobConfigArgs) ToAppJobConfigPtrOutputWithContext(ctx context.Context) AppJobConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppJobConfigOutput).ToAppJobConfigPtrOutputWithContext(ctx)
+}
+
+// AppJobConfigPtrInput is an input type that accepts AppJobConfigArgs, AppJobConfigPtr and AppJobConfigPtrOutput values.
+// You can construct a concrete instance of `AppJobConfigPtrInput` via:
+//
+//	        AppJobConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AppJobConfigPtrInput interface {
+	pulumi.Input
+
+	ToAppJobConfigPtrOutput() AppJobConfigPtrOutput
+	ToAppJobConfigPtrOutputWithContext(context.Context) AppJobConfigPtrOutput
+}
+
+type appJobConfigPtrType AppJobConfigArgs
+
+func AppJobConfigPtr(v *AppJobConfigArgs) AppJobConfigPtrInput {
+	return (*appJobConfigPtrType)(v)
+}
+
+func (*appJobConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppJobConfig)(nil)).Elem()
+}
+
+func (i *appJobConfigPtrType) ToAppJobConfigPtrOutput() AppJobConfigPtrOutput {
+	return i.ToAppJobConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *appJobConfigPtrType) ToAppJobConfigPtrOutputWithContext(ctx context.Context) AppJobConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AppJobConfigPtrOutput)
+}
+
+type AppJobConfigOutput struct{ *pulumi.OutputState }
+
+func (AppJobConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AppJobConfig)(nil)).Elem()
+}
+
+func (o AppJobConfigOutput) ToAppJobConfigOutput() AppJobConfigOutput {
+	return o
+}
+
+func (o AppJobConfigOutput) ToAppJobConfigOutputWithContext(ctx context.Context) AppJobConfigOutput {
+	return o
+}
+
+func (o AppJobConfigOutput) ToAppJobConfigPtrOutput() AppJobConfigPtrOutput {
+	return o.ToAppJobConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AppJobConfigOutput) ToAppJobConfigPtrOutputWithContext(ctx context.Context) AppJobConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppJobConfig) *AppJobConfig {
+		return &v
+	}).(AppJobConfigPtrOutput)
+}
+
+// Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
+func (o AppJobConfigOutput) BuildComputeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AppJobConfig) *string { return v.BuildComputeType }).(pulumi.StringPtrOutput)
+}
+
+type AppJobConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AppJobConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AppJobConfig)(nil)).Elem()
+}
+
+func (o AppJobConfigPtrOutput) ToAppJobConfigPtrOutput() AppJobConfigPtrOutput {
+	return o
+}
+
+func (o AppJobConfigPtrOutput) ToAppJobConfigPtrOutputWithContext(ctx context.Context) AppJobConfigPtrOutput {
+	return o
+}
+
+func (o AppJobConfigPtrOutput) Elem() AppJobConfigOutput {
+	return o.ApplyT(func(v *AppJobConfig) AppJobConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AppJobConfig
+		return ret
+	}).(AppJobConfigOutput)
+}
+
+// Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
+func (o AppJobConfigPtrOutput) BuildComputeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AppJobConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BuildComputeType
+	}).(pulumi.StringPtrOutput)
+}
+
 type AppProductionBranch struct {
 	// Branch name for the production branch.
 	BranchName *string `pulumi:"branchName"`
@@ -1020,6 +1157,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppCacheConfigPtrInput)(nil)).Elem(), AppCacheConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppCustomRuleInput)(nil)).Elem(), AppCustomRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppCustomRuleArrayInput)(nil)).Elem(), AppCustomRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppJobConfigInput)(nil)).Elem(), AppJobConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppJobConfigPtrInput)(nil)).Elem(), AppJobConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppProductionBranchInput)(nil)).Elem(), AppProductionBranchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppProductionBranchArrayInput)(nil)).Elem(), AppProductionBranchArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAssociationCertificateSettingsInput)(nil)).Elem(), DomainAssociationCertificateSettingsArgs{})
@@ -1032,6 +1171,8 @@ func init() {
 	pulumi.RegisterOutputType(AppCacheConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppCustomRuleOutput{})
 	pulumi.RegisterOutputType(AppCustomRuleArrayOutput{})
+	pulumi.RegisterOutputType(AppJobConfigOutput{})
+	pulumi.RegisterOutputType(AppJobConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppProductionBranchOutput{})
 	pulumi.RegisterOutputType(AppProductionBranchArrayOutput{})
 	pulumi.RegisterOutputType(DomainAssociationCertificateSettingsOutput{})

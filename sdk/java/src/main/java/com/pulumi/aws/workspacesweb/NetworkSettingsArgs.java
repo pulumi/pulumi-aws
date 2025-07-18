@@ -19,6 +19,21 @@ public final class NetworkSettingsArgs extends com.pulumi.resources.ResourceArgs
     public static final NetworkSettingsArgs Empty = new NetworkSettingsArgs();
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * One or more security groups used to control access from streaming instances to your VPC.
      * 
      */
@@ -85,6 +100,7 @@ public final class NetworkSettingsArgs extends com.pulumi.resources.ResourceArgs
     private NetworkSettingsArgs() {}
 
     private NetworkSettingsArgs(NetworkSettingsArgs $) {
+        this.region = $.region;
         this.securityGroupIds = $.securityGroupIds;
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
@@ -107,6 +123,27 @@ public final class NetworkSettingsArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder(NetworkSettingsArgs defaults) {
             $ = new NetworkSettingsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

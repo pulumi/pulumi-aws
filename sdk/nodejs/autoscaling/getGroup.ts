@@ -25,6 +25,7 @@ export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:autoscaling/getGroup:getGroup", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,6 +37,10 @@ export interface GetGroupArgs {
      * Specify the exact name of the desired autoscaling group.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -120,6 +125,7 @@ export interface GetGroupResult {
      * Predicted capacity of the group.
      */
     readonly predictedCapacity: number;
+    readonly region: string;
     /**
      * ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
      */
@@ -179,6 +185,7 @@ export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:autoscaling/getGroup:getGroup", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -190,4 +197,8 @@ export interface GetGroupOutputArgs {
      * Specify the exact name of the desired autoscaling group.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

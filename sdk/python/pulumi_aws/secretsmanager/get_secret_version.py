@@ -27,7 +27,7 @@ class GetSecretVersionResult:
     """
     A collection of values returned by getSecretVersion.
     """
-    def __init__(__self__, arn=None, created_date=None, id=None, secret_binary=None, secret_id=None, secret_string=None, version_id=None, version_stage=None, version_stages=None):
+    def __init__(__self__, arn=None, created_date=None, id=None, region=None, secret_binary=None, secret_id=None, secret_string=None, version_id=None, version_stage=None, version_stages=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +37,9 @@ class GetSecretVersionResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if secret_binary and not isinstance(secret_binary, str):
             raise TypeError("Expected argument 'secret_binary' to be a str")
         pulumi.set(__self__, "secret_binary", secret_binary)
@@ -79,6 +82,11 @@ class GetSecretVersionResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="secretBinary")
@@ -129,6 +137,7 @@ class AwaitableGetSecretVersionResult(GetSecretVersionResult):
             arn=self.arn,
             created_date=self.created_date,
             id=self.id,
+            region=self.region,
             secret_binary=self.secret_binary,
             secret_id=self.secret_id,
             secret_string=self.secret_string,
@@ -137,7 +146,8 @@ class AwaitableGetSecretVersionResult(GetSecretVersionResult):
             version_stages=self.version_stages)
 
 
-def get_secret_version(secret_id: Optional[builtins.str] = None,
+def get_secret_version(region: Optional[builtins.str] = None,
+                       secret_id: Optional[builtins.str] = None,
                        version_id: Optional[builtins.str] = None,
                        version_stage: Optional[builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretVersionResult:
@@ -168,11 +178,13 @@ def get_secret_version(secret_id: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
     :param builtins.str version_id: Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
     :param builtins.str version_stage: Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['secretId'] = secret_id
     __args__['versionId'] = version_id
     __args__['versionStage'] = version_stage
@@ -183,13 +195,15 @@ def get_secret_version(secret_id: Optional[builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         created_date=pulumi.get(__ret__, 'created_date'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         secret_binary=pulumi.get(__ret__, 'secret_binary'),
         secret_id=pulumi.get(__ret__, 'secret_id'),
         secret_string=pulumi.get(__ret__, 'secret_string'),
         version_id=pulumi.get(__ret__, 'version_id'),
         version_stage=pulumi.get(__ret__, 'version_stage'),
         version_stages=pulumi.get(__ret__, 'version_stages'))
-def get_secret_version_output(secret_id: Optional[pulumi.Input[builtins.str]] = None,
+def get_secret_version_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                              secret_id: Optional[pulumi.Input[builtins.str]] = None,
                               version_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               version_stage: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretVersionResult]:
@@ -220,11 +234,13 @@ def get_secret_version_output(secret_id: Optional[pulumi.Input[builtins.str]] = 
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
     :param builtins.str version_id: Specifies the unique identifier of the version of the secret that you want to retrieve. Overrides `version_stage`.
     :param builtins.str version_stage: Specifies the secret version that you want to retrieve by the staging label attached to the version. Defaults to `AWSCURRENT`.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['secretId'] = secret_id
     __args__['versionId'] = version_id
     __args__['versionStage'] = version_stage
@@ -234,6 +250,7 @@ def get_secret_version_output(secret_id: Optional[pulumi.Input[builtins.str]] = 
         arn=pulumi.get(__response__, 'arn'),
         created_date=pulumi.get(__response__, 'created_date'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         secret_binary=pulumi.get(__response__, 'secret_binary'),
         secret_id=pulumi.get(__response__, 'secret_id'),
         secret_string=pulumi.get(__response__, 'secret_string'),

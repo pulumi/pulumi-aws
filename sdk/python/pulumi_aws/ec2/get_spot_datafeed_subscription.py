@@ -27,7 +27,7 @@ class GetSpotDatafeedSubscriptionResult:
     """
     A collection of values returned by getSpotDatafeedSubscription.
     """
-    def __init__(__self__, bucket=None, id=None, prefix=None):
+    def __init__(__self__, bucket=None, id=None, prefix=None, region=None):
         if bucket and not isinstance(bucket, str):
             raise TypeError("Expected argument 'bucket' to be a str")
         pulumi.set(__self__, "bucket", bucket)
@@ -37,6 +37,9 @@ class GetSpotDatafeedSubscriptionResult:
         if prefix and not isinstance(prefix, str):
             raise TypeError("Expected argument 'prefix' to be a str")
         pulumi.set(__self__, "prefix", prefix)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -62,6 +65,11 @@ class GetSpotDatafeedSubscriptionResult:
         """
         return pulumi.get(self, "prefix")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetSpotDatafeedSubscriptionResult(GetSpotDatafeedSubscriptionResult):
     # pylint: disable=using-constant-test
@@ -71,10 +79,12 @@ class AwaitableGetSpotDatafeedSubscriptionResult(GetSpotDatafeedSubscriptionResu
         return GetSpotDatafeedSubscriptionResult(
             bucket=self.bucket,
             id=self.id,
-            prefix=self.prefix)
+            prefix=self.prefix,
+            region=self.region)
 
 
-def get_spot_datafeed_subscription(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpotDatafeedSubscriptionResult:
+def get_spot_datafeed_subscription(region: Optional[builtins.str] = None,
+                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpotDatafeedSubscriptionResult:
     """
     > There is only a single spot data feed subscription per account.
 
@@ -88,16 +98,22 @@ def get_spot_datafeed_subscription(opts: Optional[pulumi.InvokeOptions] = None) 
 
     default = aws.ec2.get_spot_datafeed_subscription()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription', __args__, opts=opts, typ=GetSpotDatafeedSubscriptionResult).value
 
     return AwaitableGetSpotDatafeedSubscriptionResult(
         bucket=pulumi.get(__ret__, 'bucket'),
         id=pulumi.get(__ret__, 'id'),
-        prefix=pulumi.get(__ret__, 'prefix'))
-def get_spot_datafeed_subscription_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpotDatafeedSubscriptionResult]:
+        prefix=pulumi.get(__ret__, 'prefix'),
+        region=pulumi.get(__ret__, 'region'))
+def get_spot_datafeed_subscription_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpotDatafeedSubscriptionResult]:
     """
     > There is only a single spot data feed subscription per account.
 
@@ -111,11 +127,16 @@ def get_spot_datafeed_subscription_output(opts: Optional[Union[pulumi.InvokeOpti
 
     default = aws.ec2.get_spot_datafeed_subscription()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription', __args__, opts=opts, typ=GetSpotDatafeedSubscriptionResult)
     return __ret__.apply(lambda __response__: GetSpotDatafeedSubscriptionResult(
         bucket=pulumi.get(__response__, 'bucket'),
         id=pulumi.get(__response__, 'id'),
-        prefix=pulumi.get(__response__, 'prefix')))
+        prefix=pulumi.get(__response__, 'prefix'),
+        region=pulumi.get(__response__, 'region')))

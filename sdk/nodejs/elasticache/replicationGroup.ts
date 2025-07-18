@@ -250,7 +250,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly authToken!: pulumi.Output<string | undefined>;
     /**
-     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
      */
     public readonly authTokenUpdateStrategy!: pulumi.Output<string | undefined>;
     /**
@@ -386,6 +386,10 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly readerEndpointAddress!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Number of replica nodes in each node group.
      * Changing this number will trigger a resizing operation before other settings modifications.
      * Valid values are 0 to 5.
@@ -433,8 +437,6 @@ export class ReplicationGroup extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -501,6 +503,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["preferredCacheClusterAzs"] = state ? state.preferredCacheClusterAzs : undefined;
             resourceInputs["primaryEndpointAddress"] = state ? state.primaryEndpointAddress : undefined;
             resourceInputs["readerEndpointAddress"] = state ? state.readerEndpointAddress : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicasPerNodeGroup"] = state ? state.replicasPerNodeGroup : undefined;
             resourceInputs["replicationGroupId"] = state ? state.replicationGroupId : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
@@ -546,6 +549,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["preferredCacheClusterAzs"] = args ? args.preferredCacheClusterAzs : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicasPerNodeGroup"] = args ? args.replicasPerNodeGroup : undefined;
             resourceInputs["replicationGroupId"] = args ? args.replicationGroupId : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
@@ -598,7 +602,7 @@ export interface ReplicationGroupState {
      */
     authToken?: pulumi.Input<string>;
     /**
-     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
      */
     authTokenUpdateStrategy?: pulumi.Input<string>;
     /**
@@ -734,6 +738,10 @@ export interface ReplicationGroupState {
      */
     readerEndpointAddress?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Number of replica nodes in each node group.
      * Changing this number will trigger a resizing operation before other settings modifications.
      * Valid values are 0 to 5.
@@ -781,8 +789,6 @@ export interface ReplicationGroupState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -823,7 +829,7 @@ export interface ReplicationGroupArgs {
      */
     authToken?: pulumi.Input<string>;
     /**
-     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Defaults to `ROTATE`.
+     * Strategy to use when updating the `authToken`. Valid values are `SET`, `ROTATE`, and `DELETE`. Required if `authToken` is set.
      */
     authTokenUpdateStrategy?: pulumi.Input<string>;
     /**
@@ -934,6 +940,10 @@ export interface ReplicationGroupArgs {
      * List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is considered. The first item in the list will be the primary node. Ignored when updating.
      */
     preferredCacheClusterAzs?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Number of replica nodes in each node group.
      * Changing this number will trigger a resizing operation before other settings modifications.

@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
-
 /**
  * Manages an AWS DataSync EFS Location.
  *
@@ -80,7 +78,7 @@ export class EfsLocation extends pulumi.CustomResource {
     /**
      * Amazon Resource Name (ARN) of EFS File System.
      */
-    public readonly efsFileSystemArn!: pulumi.Output<ARN>;
+    public readonly efsFileSystemArn!: pulumi.Output<string>;
     /**
      * Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
      */
@@ -89,6 +87,10 @@ export class EfsLocation extends pulumi.CustomResource {
      * Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
      */
     public readonly inTransitEncryption!: pulumi.Output<string | undefined>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     /**
      * Subdirectory to perform actions as source or destination. Default `/`.
      */
@@ -99,8 +101,6 @@ export class EfsLocation extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly uri!: pulumi.Output<string>;
@@ -124,6 +124,7 @@ export class EfsLocation extends pulumi.CustomResource {
             resourceInputs["efsFileSystemArn"] = state ? state.efsFileSystemArn : undefined;
             resourceInputs["fileSystemAccessRoleArn"] = state ? state.fileSystemAccessRoleArn : undefined;
             resourceInputs["inTransitEncryption"] = state ? state.inTransitEncryption : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -141,6 +142,7 @@ export class EfsLocation extends pulumi.CustomResource {
             resourceInputs["efsFileSystemArn"] = args ? args.efsFileSystemArn : undefined;
             resourceInputs["fileSystemAccessRoleArn"] = args ? args.fileSystemAccessRoleArn : undefined;
             resourceInputs["inTransitEncryption"] = args ? args.inTransitEncryption : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -171,7 +173,7 @@ export interface EfsLocationState {
     /**
      * Amazon Resource Name (ARN) of EFS File System.
      */
-    efsFileSystemArn?: pulumi.Input<ARN>;
+    efsFileSystemArn?: pulumi.Input<string>;
     /**
      * Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
      */
@@ -180,6 +182,10 @@ export interface EfsLocationState {
      * Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
      */
     inTransitEncryption?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Subdirectory to perform actions as source or destination. Default `/`.
      */
@@ -190,8 +196,6 @@ export interface EfsLocationState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     uri?: pulumi.Input<string>;
@@ -212,7 +216,7 @@ export interface EfsLocationArgs {
     /**
      * Amazon Resource Name (ARN) of EFS File System.
      */
-    efsFileSystemArn: pulumi.Input<ARN>;
+    efsFileSystemArn: pulumi.Input<string>;
     /**
      * Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
      */
@@ -221,6 +225,10 @@ export interface EfsLocationArgs {
      * Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
      */
     inTransitEncryption?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Subdirectory to perform actions as source or destination. Default `/`.
      */

@@ -22,12 +22,14 @@ class AccountArgs:
     def __init__(__self__, *,
                  auto_enable_controls: Optional[pulumi.Input[builtins.bool]] = None,
                  control_finding_generator: Optional[pulumi.Input[builtins.str]] = None,
-                 enable_default_standards: Optional[pulumi.Input[builtins.bool]] = None):
+                 enable_default_standards: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[builtins.bool] auto_enable_controls: Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
         :param pulumi.Input[builtins.str] control_finding_generator: Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
         :param pulumi.Input[builtins.bool] enable_default_standards: Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if auto_enable_controls is not None:
             pulumi.set(__self__, "auto_enable_controls", auto_enable_controls)
@@ -35,6 +37,8 @@ class AccountArgs:
             pulumi.set(__self__, "control_finding_generator", control_finding_generator)
         if enable_default_standards is not None:
             pulumi.set(__self__, "enable_default_standards", enable_default_standards)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="autoEnableControls")
@@ -72,6 +76,18 @@ class AccountArgs:
     def enable_default_standards(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enable_default_standards", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _AccountState:
@@ -79,13 +95,15 @@ class _AccountState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  auto_enable_controls: Optional[pulumi.Input[builtins.bool]] = None,
                  control_finding_generator: Optional[pulumi.Input[builtins.str]] = None,
-                 enable_default_standards: Optional[pulumi.Input[builtins.bool]] = None):
+                 enable_default_standards: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input[builtins.str] arn: ARN of the SecurityHub Hub created in the account.
         :param pulumi.Input[builtins.bool] auto_enable_controls: Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
         :param pulumi.Input[builtins.str] control_finding_generator: Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
         :param pulumi.Input[builtins.bool] enable_default_standards: Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -95,6 +113,8 @@ class _AccountState:
             pulumi.set(__self__, "control_finding_generator", control_finding_generator)
         if enable_default_standards is not None:
             pulumi.set(__self__, "enable_default_standards", enable_default_standards)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -144,6 +164,18 @@ class _AccountState:
     def enable_default_standards(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enable_default_standards", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:securityhub/account:Account")
 class Account(pulumi.CustomResource):
@@ -154,6 +186,7 @@ class Account(pulumi.CustomResource):
                  auto_enable_controls: Optional[pulumi.Input[builtins.bool]] = None,
                  control_finding_generator: Optional[pulumi.Input[builtins.str]] = None,
                  enable_default_standards: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Enables Security Hub for this AWS account.
@@ -182,6 +215,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] auto_enable_controls: Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
         :param pulumi.Input[builtins.str] control_finding_generator: Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
         :param pulumi.Input[builtins.bool] enable_default_standards: Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -229,6 +263,7 @@ class Account(pulumi.CustomResource):
                  auto_enable_controls: Optional[pulumi.Input[builtins.bool]] = None,
                  control_finding_generator: Optional[pulumi.Input[builtins.str]] = None,
                  enable_default_standards: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -241,6 +276,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["auto_enable_controls"] = auto_enable_controls
             __props__.__dict__["control_finding_generator"] = control_finding_generator
             __props__.__dict__["enable_default_standards"] = enable_default_standards
+            __props__.__dict__["region"] = region
             __props__.__dict__["arn"] = None
         super(Account, __self__).__init__(
             'aws:securityhub/account:Account',
@@ -255,7 +291,8 @@ class Account(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             auto_enable_controls: Optional[pulumi.Input[builtins.bool]] = None,
             control_finding_generator: Optional[pulumi.Input[builtins.str]] = None,
-            enable_default_standards: Optional[pulumi.Input[builtins.bool]] = None) -> 'Account':
+            enable_default_standards: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -267,6 +304,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] auto_enable_controls: Whether to automatically enable new controls when they are added to standards that are enabled. By default, this is set to true, and new controls are enabled automatically. To not automatically enable new controls, set this to false.
         :param pulumi.Input[builtins.str] control_finding_generator: Updates whether the calling account has consolidated control findings turned on. If the value for this field is set to `SECURITY_CONTROL`, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards. If the value for this field is set to `STANDARD_CONTROL`, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards. For accounts that are part of an organization, this value can only be updated in the administrator account.
         :param pulumi.Input[builtins.bool] enable_default_standards: Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -276,6 +314,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["auto_enable_controls"] = auto_enable_controls
         __props__.__dict__["control_finding_generator"] = control_finding_generator
         __props__.__dict__["enable_default_standards"] = enable_default_standards
+        __props__.__dict__["region"] = region
         return Account(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -309,4 +348,12 @@ class Account(pulumi.CustomResource):
         Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
         """
         return pulumi.get(self, "enable_default_standards")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

@@ -141,6 +141,10 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
      */
     public readonly prefix!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The registry ID the repository creation template applies to.
      */
     public /*out*/ readonly registryId!: pulumi.Output<string>;
@@ -170,6 +174,7 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
             resourceInputs["imageTagMutability"] = state ? state.imageTagMutability : undefined;
             resourceInputs["lifecyclePolicy"] = state ? state.lifecyclePolicy : undefined;
             resourceInputs["prefix"] = state ? state.prefix : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["registryId"] = state ? state.registryId : undefined;
             resourceInputs["repositoryPolicy"] = state ? state.repositoryPolicy : undefined;
             resourceInputs["resourceTags"] = state ? state.resourceTags : undefined;
@@ -188,6 +193,7 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
             resourceInputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
             resourceInputs["lifecyclePolicy"] = args ? args.lifecyclePolicy : undefined;
             resourceInputs["prefix"] = args ? args.prefix : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["repositoryPolicy"] = args ? args.repositoryPolicy : undefined;
             resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
             resourceInputs["registryId"] = undefined /*out*/;
@@ -229,6 +235,10 @@ export interface RepositoryCreationTemplateState {
      * The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
      */
     prefix?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The registry ID the repository creation template applies to.
      */
@@ -272,6 +282,10 @@ export interface RepositoryCreationTemplateArgs {
      * The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
      */
     prefix: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     repositoryPolicy?: pulumi.Input<string>;
     /**
      * A map of tags to assign to any created repositories.

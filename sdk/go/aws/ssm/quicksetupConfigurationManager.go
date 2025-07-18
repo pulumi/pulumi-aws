@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,13 +35,13 @@ type QuicksetupConfigurationManager struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `statusSummaries` below.
 	StatusSummaries QuicksetupConfigurationManagerStatusSummaryArrayOutput `pulumi:"statusSummaries"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput                          `pulumi:"tagsAll"`
 	Timeouts QuicksetupConfigurationManagerTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -86,13 +86,13 @@ type quicksetupConfigurationManagerState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `statusSummaries` below.
 	StatusSummaries []QuicksetupConfigurationManagerStatusSummary `pulumi:"statusSummaries"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string                       `pulumi:"tagsAll"`
 	Timeouts *QuicksetupConfigurationManagerTimeouts `pulumi:"timeouts"`
 }
@@ -108,13 +108,13 @@ type QuicksetupConfigurationManagerState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `statusSummaries` below.
 	StatusSummaries QuicksetupConfigurationManagerStatusSummaryArrayInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts QuicksetupConfigurationManagerTimeoutsPtrInput
 }
@@ -132,6 +132,8 @@ type quicksetupConfigurationManagerArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string                       `pulumi:"tags"`
 	Timeouts *QuicksetupConfigurationManagerTimeouts `pulumi:"timeouts"`
@@ -147,6 +149,8 @@ type QuicksetupConfigurationManagerArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts QuicksetupConfigurationManagerTimeoutsPtrInput
@@ -263,6 +267,11 @@ func (o QuicksetupConfigurationManagerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuicksetupConfigurationManager) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o QuicksetupConfigurationManagerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *QuicksetupConfigurationManager) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `statusSummaries` below.
 func (o QuicksetupConfigurationManagerOutput) StatusSummaries() QuicksetupConfigurationManagerStatusSummaryArrayOutput {
 	return o.ApplyT(func(v *QuicksetupConfigurationManager) QuicksetupConfigurationManagerStatusSummaryArrayOutput {
@@ -276,8 +285,6 @@ func (o QuicksetupConfigurationManagerOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o QuicksetupConfigurationManagerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *QuicksetupConfigurationManager) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

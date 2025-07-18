@@ -102,6 +102,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly pointInTimeRecovery!: pulumi.Output<outputs.keyspaces.TablePointInTimeRecovery>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Describes the schema of the table.
      */
     public readonly schemaDefinition!: pulumi.Output<outputs.keyspaces.TableSchemaDefinition>;
@@ -117,8 +121,6 @@ export class Table extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -147,6 +149,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["encryptionSpecification"] = state ? state.encryptionSpecification : undefined;
             resourceInputs["keyspaceName"] = state ? state.keyspaceName : undefined;
             resourceInputs["pointInTimeRecovery"] = state ? state.pointInTimeRecovery : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["schemaDefinition"] = state ? state.schemaDefinition : undefined;
             resourceInputs["tableName"] = state ? state.tableName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -170,6 +173,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["encryptionSpecification"] = args ? args.encryptionSpecification : undefined;
             resourceInputs["keyspaceName"] = args ? args.keyspaceName : undefined;
             resourceInputs["pointInTimeRecovery"] = args ? args.pointInTimeRecovery : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["schemaDefinition"] = args ? args.schemaDefinition : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -219,6 +223,10 @@ export interface TableState {
      */
     pointInTimeRecovery?: pulumi.Input<inputs.keyspaces.TablePointInTimeRecovery>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Describes the schema of the table.
      */
     schemaDefinition?: pulumi.Input<inputs.keyspaces.TableSchemaDefinition>;
@@ -234,8 +242,6 @@ export interface TableState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -276,6 +282,10 @@ export interface TableArgs {
      * Specifies if point-in-time recovery is enabled or disabled for the table. More information can be found in the [Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery.html).
      */
     pointInTimeRecovery?: pulumi.Input<inputs.keyspaces.TablePointInTimeRecovery>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Describes the schema of the table.
      */

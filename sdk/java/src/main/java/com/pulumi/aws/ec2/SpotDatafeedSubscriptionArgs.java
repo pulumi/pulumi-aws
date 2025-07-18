@@ -46,11 +46,27 @@ public final class SpotDatafeedSubscriptionArgs extends com.pulumi.resources.Res
         return Optional.ofNullable(this.prefix);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private SpotDatafeedSubscriptionArgs() {}
 
     private SpotDatafeedSubscriptionArgs(SpotDatafeedSubscriptionArgs $) {
         this.bucket = $.bucket;
         this.prefix = $.prefix;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -111,6 +127,27 @@ public final class SpotDatafeedSubscriptionArgs extends com.pulumi.resources.Res
          */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public SpotDatafeedSubscriptionArgs build() {

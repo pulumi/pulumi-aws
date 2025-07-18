@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
 export function getReplicationGroup(args: GetReplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:elasticache/getReplicationGroup:getReplicationGroup", {
+        "region": args.region,
         "replicationGroupId": args.replicationGroupId,
     }, opts);
 }
@@ -32,6 +33,10 @@ export function getReplicationGroup(args: GetReplicationGroupArgs, opts?: pulumi
  * A collection of arguments for invoking getReplicationGroup.
  */
 export interface GetReplicationGroupArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Identifier for the replication group.
      */
@@ -106,6 +111,7 @@ export interface GetReplicationGroupResult {
      * The endpoint of the reader node in this node group (shard).
      */
     readonly readerEndpointAddress: string;
+    readonly region: string;
     /**
      * Number of replica nodes in each node group.
      */
@@ -137,6 +143,7 @@ export interface GetReplicationGroupResult {
 export function getReplicationGroupOutput(args: GetReplicationGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:elasticache/getReplicationGroup:getReplicationGroup", {
+        "region": args.region,
         "replicationGroupId": args.replicationGroupId,
     }, opts);
 }
@@ -145,6 +152,10 @@ export function getReplicationGroupOutput(args: GetReplicationGroupOutputArgs, o
  * A collection of arguments for invoking getReplicationGroup.
  */
 export interface GetReplicationGroupOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier for the replication group.
      */

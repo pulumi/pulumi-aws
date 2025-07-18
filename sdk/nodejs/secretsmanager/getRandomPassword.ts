@@ -30,6 +30,7 @@ export function getRandomPassword(args?: GetRandomPasswordArgs, opts?: pulumi.In
         "excludeUppercase": args.excludeUppercase,
         "includeSpace": args.includeSpace,
         "passwordLength": args.passwordLength,
+        "region": args.region,
         "requireEachIncludedType": args.requireEachIncludedType,
     }, opts);
 }
@@ -67,6 +68,10 @@ export interface GetRandomPasswordArgs {
      */
     passwordLength?: number;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
      */
     requireEachIncludedType?: boolean;
@@ -91,6 +96,7 @@ export interface GetRandomPasswordResult {
      * Random password.
      */
     readonly randomPassword: string;
+    readonly region: string;
     readonly requireEachIncludedType?: boolean;
 }
 /**
@@ -119,6 +125,7 @@ export function getRandomPasswordOutput(args?: GetRandomPasswordOutputArgs, opts
         "excludeUppercase": args.excludeUppercase,
         "includeSpace": args.includeSpace,
         "passwordLength": args.passwordLength,
+        "region": args.region,
         "requireEachIncludedType": args.requireEachIncludedType,
     }, opts);
 }
@@ -155,6 +162,10 @@ export interface GetRandomPasswordOutputArgs {
      * Length of the password.
      */
     passwordLength?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
      */

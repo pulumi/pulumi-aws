@@ -929,25 +929,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * This property has been deprecated. Please use &#39;dbName&#39; instead.
-     * 
-     */
-    @Deprecated /* This property has been deprecated. Please use 'dbName' instead. */
-    @Import(name="name")
-    private @Nullable Output<String> name;
-
-    /**
-     * @deprecated
-     * This property has been deprecated. Please use &#39;dbName&#39; instead.
-     * 
-     */
-    @Deprecated /* This property has been deprecated. Please use 'dbName' instead. */
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
-    }
-
-    /**
      * The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can&#39;t be changed. See [Oracle Character Sets
      * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
      * 
@@ -1099,6 +1080,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> publiclyAccessible() {
         return Optional.ofNullable(this.publiclyAccessible);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -1329,22 +1325,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -1479,7 +1467,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.monitoringInterval = $.monitoringInterval;
         this.monitoringRoleArn = $.monitoringRoleArn;
         this.multiAz = $.multiAz;
-        this.name = $.name;
         this.ncharCharacterSetName = $.ncharCharacterSetName;
         this.networkType = $.networkType;
         this.optionGroupName = $.optionGroupName;
@@ -1490,6 +1477,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.performanceInsightsRetentionPeriod = $.performanceInsightsRetentionPeriod;
         this.port = $.port;
         this.publiclyAccessible = $.publiclyAccessible;
+        this.region = $.region;
         this.replicaMode = $.replicaMode;
         this.replicas = $.replicas;
         this.replicateSourceDb = $.replicateSourceDb;
@@ -2808,31 +2796,6 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been deprecated. Please use &#39;dbName&#39; instead.
-         * 
-         */
-        @Deprecated /* This property has been deprecated. Please use 'dbName' instead. */
-        public Builder name(@Nullable Output<String> name) {
-            $.name = name;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This property has been deprecated. Please use &#39;dbName&#39; instead.
-         * 
-         */
-        @Deprecated /* This property has been deprecated. Please use 'dbName' instead. */
-        public Builder name(String name) {
-            return name(Output.of(name));
-        }
-
-        /**
          * @param ncharCharacterSetName The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can&#39;t be changed. See [Oracle Character Sets
          * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
          * 
@@ -3044,6 +3007,27 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder publiclyAccessible(Boolean publiclyAccessible) {
             return publiclyAccessible(Output.of(publiclyAccessible));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -3380,11 +3364,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -3395,11 +3375,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

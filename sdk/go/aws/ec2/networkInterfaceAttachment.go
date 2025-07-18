@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,6 +60,8 @@ type NetworkInterfaceAttachment struct {
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 	// ENI ID to attach.
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The status of the Network Interface Attachment.
 	Status pulumi.StringOutput `pulumi:"status"`
 }
@@ -111,6 +113,8 @@ type networkInterfaceAttachmentState struct {
 	InstanceId *string `pulumi:"instanceId"`
 	// ENI ID to attach.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The status of the Network Interface Attachment.
 	Status *string `pulumi:"status"`
 }
@@ -124,6 +128,8 @@ type NetworkInterfaceAttachmentState struct {
 	InstanceId pulumi.StringPtrInput
 	// ENI ID to attach.
 	NetworkInterfaceId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The status of the Network Interface Attachment.
 	Status pulumi.StringPtrInput
 }
@@ -139,6 +145,8 @@ type networkInterfaceAttachmentArgs struct {
 	InstanceId string `pulumi:"instanceId"`
 	// ENI ID to attach.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a NetworkInterfaceAttachment resource.
@@ -149,6 +157,8 @@ type NetworkInterfaceAttachmentArgs struct {
 	InstanceId pulumi.StringInput
 	// ENI ID to attach.
 	NetworkInterfaceId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (NetworkInterfaceAttachmentArgs) ElementType() reflect.Type {
@@ -256,6 +266,11 @@ func (o NetworkInterfaceAttachmentOutput) InstanceId() pulumi.StringOutput {
 // ENI ID to attach.
 func (o NetworkInterfaceAttachmentOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o NetworkInterfaceAttachmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetworkInterfaceAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The status of the Network Interface Attachment.

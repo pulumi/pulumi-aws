@@ -66,6 +66,12 @@ namespace Pulumi.Aws.Kms
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the target key identifier.
         /// </summary>
         [Output("targetKeyArn")]
@@ -137,6 +143,12 @@ namespace Pulumi.Aws.Kms
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Identifier for the key for which the alias is for, can be either an ARN or key_id.
         /// </summary>
         [Input("targetKeyId", required: true)]
@@ -168,6 +180,12 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the target key identifier.

@@ -91,6 +91,10 @@ export class SinkPolicy extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID string that AWS generated as part of the sink ARN.
      */
     public /*out*/ readonly sinkId!: pulumi.Output<string>;
@@ -114,6 +118,7 @@ export class SinkPolicy extends pulumi.CustomResource {
             const state = argsOrState as SinkPolicyState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sinkId"] = state ? state.sinkId : undefined;
             resourceInputs["sinkIdentifier"] = state ? state.sinkIdentifier : undefined;
         } else {
@@ -125,6 +130,7 @@ export class SinkPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sinkIdentifier'");
             }
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sinkIdentifier"] = args ? args.sinkIdentifier : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["sinkId"] = undefined /*out*/;
@@ -147,6 +153,10 @@ export interface SinkPolicyState {
      */
     policy?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ID string that AWS generated as part of the sink ARN.
      */
     sinkId?: pulumi.Input<string>;
@@ -164,6 +174,10 @@ export interface SinkPolicyArgs {
      * JSON policy to use. If you are updating an existing policy, the entire existing policy is replaced by what you specify here.
      */
     policy: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the sink to attach this policy to.
      */

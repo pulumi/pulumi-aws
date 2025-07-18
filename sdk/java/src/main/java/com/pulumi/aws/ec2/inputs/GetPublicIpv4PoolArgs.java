@@ -33,6 +33,21 @@ public final class GetPublicIpv4PoolArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Any tags for the address pool.
      * 
      */
@@ -51,6 +66,7 @@ public final class GetPublicIpv4PoolArgs extends com.pulumi.resources.InvokeArgs
 
     private GetPublicIpv4PoolArgs(GetPublicIpv4PoolArgs $) {
         this.poolId = $.poolId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -91,6 +107,27 @@ public final class GetPublicIpv4PoolArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder poolId(String poolId) {
             return poolId(Output.of(poolId));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

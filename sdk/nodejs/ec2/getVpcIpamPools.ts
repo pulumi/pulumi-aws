@@ -39,6 +39,7 @@ export function getVpcIpamPools(args?: GetVpcIpamPoolsArgs, opts?: pulumi.Invoke
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getVpcIpamPools:getVpcIpamPools", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -52,6 +53,10 @@ export interface GetVpcIpamPoolsArgs {
      * The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
      */
     filters?: inputs.ec2.GetVpcIpamPoolsFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -67,6 +72,7 @@ export interface GetVpcIpamPoolsResult {
      * List of IPAM pools and their attributes. See below for details
      */
     readonly ipamPools: outputs.ec2.GetVpcIpamPoolsIpamPool[];
+    readonly region: string;
 }
 /**
  * `aws.ec2.getVpcIpamPools` provides details about IPAM pools.
@@ -100,6 +106,7 @@ export function getVpcIpamPoolsOutput(args?: GetVpcIpamPoolsOutputArgs, opts?: p
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getVpcIpamPools:getVpcIpamPools", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -113,4 +120,8 @@ export interface GetVpcIpamPoolsOutputArgs {
      * The arguments of this data source act as filters for querying the available IPAM Pools in the current region.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcIpamPoolsFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

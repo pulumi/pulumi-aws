@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,6 +86,8 @@ type LookupSecurityProfileArgs struct {
 	//
 	// > **NOTE:** `instanceId` and one of either `name` or `securityProfileId` is required.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Returns information on a specific Security Profile by Security Profile id
 	SecurityProfileId *string `pulumi:"securityProfileId"`
 	// Map of tags to assign to the Security Profile.
@@ -106,6 +108,7 @@ type LookupSecurityProfileResult struct {
 	OrganizationResourceId string `pulumi:"organizationResourceId"`
 	// List of permissions assigned to the security profile.
 	Permissions       []string `pulumi:"permissions"`
+	Region            string   `pulumi:"region"`
 	SecurityProfileId string   `pulumi:"securityProfileId"`
 	// Map of tags to assign to the Security Profile.
 	Tags map[string]string `pulumi:"tags"`
@@ -128,6 +131,8 @@ type LookupSecurityProfileOutputArgs struct {
 	//
 	// > **NOTE:** `instanceId` and one of either `name` or `securityProfileId` is required.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Returns information on a specific Security Profile by Security Profile id
 	SecurityProfileId pulumi.StringPtrInput `pulumi:"securityProfileId"`
 	// Map of tags to assign to the Security Profile.
@@ -184,6 +189,10 @@ func (o LookupSecurityProfileResultOutput) OrganizationResourceId() pulumi.Strin
 // List of permissions assigned to the security profile.
 func (o LookupSecurityProfileResultOutput) Permissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSecurityProfileResult) []string { return v.Permissions }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupSecurityProfileResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecurityProfileResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupSecurityProfileResultOutput) SecurityProfileId() pulumi.StringOutput {

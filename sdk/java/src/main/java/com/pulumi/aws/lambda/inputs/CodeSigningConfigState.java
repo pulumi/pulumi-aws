@@ -19,14 +19,18 @@ public final class CodeSigningConfigState extends com.pulumi.resources.ResourceA
     public static final CodeSigningConfigState Empty = new CodeSigningConfigState();
 
     /**
-     * A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+     * Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="allowedPublishers")
     private @Nullable Output<CodeSigningConfigAllowedPublishersArgs> allowedPublishers;
 
     /**
-     * @return A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+     * @return Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<CodeSigningConfigAllowedPublishersArgs>> allowedPublishers() {
@@ -34,14 +38,14 @@ public final class CodeSigningConfigState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the code signing configuration.
+     * ARN of the code signing configuration.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the code signing configuration.
+     * @return ARN of the code signing configuration.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -79,14 +83,14 @@ public final class CodeSigningConfigState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The date and time that the code signing configuration was last modified.
+     * Date and time that the code signing configuration was last modified.
      * 
      */
     @Import(name="lastModified")
     private @Nullable Output<String> lastModified;
 
     /**
-     * @return The date and time that the code signing configuration was last modified.
+     * @return Date and time that the code signing configuration was last modified.
      * 
      */
     public Optional<Output<String>> lastModified() {
@@ -94,18 +98,33 @@ public final class CodeSigningConfigState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+     * Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
      * 
      */
     @Import(name="policies")
     private @Nullable Output<CodeSigningConfigPoliciesArgs> policies;
 
     /**
-     * @return A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+     * @return Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
      * 
      */
     public Optional<Output<CodeSigningConfigPoliciesArgs>> policies() {
         return Optional.ofNullable(this.policies);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -124,24 +143,16 @@ public final class CodeSigningConfigState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * Please use `tags` instead.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -155,6 +166,7 @@ public final class CodeSigningConfigState extends com.pulumi.resources.ResourceA
         this.description = $.description;
         this.lastModified = $.lastModified;
         this.policies = $.policies;
+        this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -178,7 +190,9 @@ public final class CodeSigningConfigState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param allowedPublishers A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+         * @param allowedPublishers Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -189,7 +203,9 @@ public final class CodeSigningConfigState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param allowedPublishers A configuration block of allowed publishers as signing profiles for this code signing configuration. Detailed below.
+         * @param allowedPublishers Configuration block of allowed publishers as signing profiles for this code signing configuration. See below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -199,7 +215,7 @@ public final class CodeSigningConfigState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the code signing configuration.
+         * @param arn ARN of the code signing configuration.
          * 
          * @return builder
          * 
@@ -210,7 +226,7 @@ public final class CodeSigningConfigState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the code signing configuration.
+         * @param arn ARN of the code signing configuration.
          * 
          * @return builder
          * 
@@ -262,7 +278,7 @@ public final class CodeSigningConfigState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param lastModified The date and time that the code signing configuration was last modified.
+         * @param lastModified Date and time that the code signing configuration was last modified.
          * 
          * @return builder
          * 
@@ -273,7 +289,7 @@ public final class CodeSigningConfigState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param lastModified The date and time that the code signing configuration was last modified.
+         * @param lastModified Date and time that the code signing configuration was last modified.
          * 
          * @return builder
          * 
@@ -283,7 +299,7 @@ public final class CodeSigningConfigState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param policies A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+         * @param policies Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
          * 
          * @return builder
          * 
@@ -294,13 +310,34 @@ public final class CodeSigningConfigState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param policies A configuration block of code signing policies that define the actions to take if the validation checks fail. Detailed below.
+         * @param policies Configuration block of code signing policies that define the actions to take if the validation checks fail. See below.
          * 
          * @return builder
          * 
          */
         public Builder policies(CodeSigningConfigPoliciesArgs policies) {
             return policies(Output.of(policies));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -325,30 +362,22 @@ public final class CodeSigningConfigState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

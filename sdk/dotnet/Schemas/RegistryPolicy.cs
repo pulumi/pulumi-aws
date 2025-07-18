@@ -83,6 +83,12 @@ namespace Pulumi.Aws.Schemas
         public Output<string> Policy { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Name of EventBridge Schema Registry
         /// </summary>
         [Output("registryName")]
@@ -141,6 +147,12 @@ namespace Pulumi.Aws.Schemas
         public Input<string> Policy { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Name of EventBridge Schema Registry
         /// </summary>
         [Input("registryName", required: true)]
@@ -159,6 +171,12 @@ namespace Pulumi.Aws.Schemas
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Name of EventBridge Schema Registry

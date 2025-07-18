@@ -55,12 +55,12 @@ namespace Pulumi.Aws.S3
     ///         DeletionWindowInDays = 7,
     ///     });
     /// 
-    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
+    ///     var examplebucket = new Aws.S3.Bucket("examplebucket", new()
     ///     {
-    ///         Bucket = "examplebuckettftest",
+    ///         BucketName = "examplebuckettftest",
     ///     });
     /// 
-    ///     var example = new Aws.S3.BucketAclV2("example", new()
+    ///     var example = new Aws.S3.BucketAcl("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
     ///         Acl = "private",
@@ -87,12 +87,12 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
+    ///     var examplebucket = new Aws.S3.Bucket("examplebucket", new()
     ///     {
-    ///         Bucket = "examplebuckettftest",
+    ///         BucketName = "examplebuckettftest",
     ///     });
     /// 
-    ///     var example = new Aws.S3.BucketAclV2("example", new()
+    ///     var example = new Aws.S3.BucketAcl("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
     ///         Acl = "private",
@@ -119,12 +119,12 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
+    ///     var examplebucket = new Aws.S3.Bucket("examplebucket", new()
     ///     {
-    ///         Bucket = "examplebuckettftest",
+    ///         BucketName = "examplebuckettftest",
     ///     });
     /// 
-    ///     var example = new Aws.S3.BucketAclV2("example", new()
+    ///     var example = new Aws.S3.BucketAcl("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
     ///         Acl = "private",
@@ -151,22 +151,22 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
+    ///     var examplebucket = new Aws.S3.Bucket("examplebucket", new()
     ///     {
-    ///         Bucket = "examplebuckettftest",
+    ///         BucketName = "examplebuckettftest",
     ///         ObjectLockEnabled = true,
     ///     });
     /// 
-    ///     var example = new Aws.S3.BucketAclV2("example", new()
+    ///     var example = new Aws.S3.BucketAcl("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("example", new()
+    ///     var exampleBucketVersioning = new Aws.S3.BucketVersioning("example", new()
     ///     {
     ///         Bucket = examplebucket.Id,
-    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         DependsOn =
     ///         {
-    ///             exampleBucketVersioningV2,
+    ///             exampleBucketVersioning,
     ///         },
     ///     });
     /// 
@@ -207,9 +207,9 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var examplebucket = new Aws.S3.BucketV2("examplebucket", new()
+    ///     var examplebucket = new Aws.S3.Bucket("examplebucket", new()
     ///     {
-    ///         Bucket = "examplebuckettftest",
+    ///         BucketName = "examplebuckettftest",
     ///     });
     /// 
     ///     var examplebucketObject = new Aws.S3.BucketObjectv2("examplebucket_object", new()
@@ -410,6 +410,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("overrideProvider")]
         public Output<Outputs.BucketObjectv2OverrideProvider?> OverrideProvider { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
@@ -644,6 +650,12 @@ namespace Pulumi.Aws.S3
         public Input<Inputs.BucketObjectv2OverrideProviderArgs>? OverrideProvider { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         /// </summary>
         [Input("serverSideEncryption")]
@@ -864,6 +876,12 @@ namespace Pulumi.Aws.S3
         public Input<Inputs.BucketObjectv2OverrideProviderGetArgs>? OverrideProvider { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         /// </summary>
         [Input("serverSideEncryption")]
@@ -905,7 +923,6 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

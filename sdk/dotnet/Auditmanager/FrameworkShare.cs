@@ -72,6 +72,12 @@ namespace Pulumi.Aws.Auditmanager
         public Output<string> FrameworkId { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Status of the share request.
         /// </summary>
         [Output("status")]
@@ -149,6 +155,12 @@ namespace Pulumi.Aws.Auditmanager
         [Input("frameworkId", required: true)]
         public Input<string> FrameworkId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public FrameworkShareArgs()
         {
         }
@@ -182,6 +194,12 @@ namespace Pulumi.Aws.Auditmanager
         /// </summary>
         [Input("frameworkId")]
         public Input<string>? FrameworkId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Status of the share request.

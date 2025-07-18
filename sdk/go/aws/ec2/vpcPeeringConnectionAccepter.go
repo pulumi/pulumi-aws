@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,13 +23,15 @@ import (
 //
 // ## Example Usage
 //
+// ### Cross-Account Peering Or Cross-Region Peering AWS Provider v6 (and below)
+//
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -83,6 +85,64 @@ import (
 //
 // ```
 //
+// ### Cross-Region Peering (Same Account) AWS Provider v7 (and above)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			main, err := ec2.NewVpc(ctx, "main", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			peer, err := ec2.NewVpc(ctx, "peer", &ec2.VpcArgs{
+//				Region:    pulumi.String("us-west-2"),
+//				CidrBlock: pulumi.String("10.1.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Requester's side of the connection.
+//			peerVpcPeeringConnection, err := ec2.NewVpcPeeringConnection(ctx, "peer", &ec2.VpcPeeringConnectionArgs{
+//				VpcId:      main.ID(),
+//				PeerVpcId:  peer.ID(),
+//				PeerRegion: pulumi.String("us-west-2"),
+//				AutoAccept: pulumi.Bool(false),
+//				Tags: pulumi.StringMap{
+//					"Side": pulumi.String("Requester"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Accepter's side of the connection.
+//			_, err = ec2.NewVpcPeeringConnectionAccepter(ctx, "peer", &ec2.VpcPeeringConnectionAccepterArgs{
+//				Region:                 pulumi.String("us-west-2"),
+//				VpcPeeringConnectionId: peerVpcPeeringConnection.ID(),
+//				AutoAccept:             pulumi.Bool(true),
+//				Tags: pulumi.StringMap{
+//					"Side": pulumi.String("Accepter"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import VPC Peering Connection Accepters using the Peering Connection ID. For example:
@@ -107,14 +167,14 @@ type VpcPeeringConnectionAccepter struct {
 	PeerRegion pulumi.StringOutput `pulumi:"peerRegion"`
 	// The ID of the requester VPC.
 	PeerVpcId pulumi.StringOutput `pulumi:"peerVpcId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A configuration block that describes [VPC Peering Connection]
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester VpcPeeringConnectionAccepterRequesterOutput `pulumi:"requester"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the accepter VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -168,14 +228,14 @@ type vpcPeeringConnectionAccepterState struct {
 	PeerRegion *string `pulumi:"peerRegion"`
 	// The ID of the requester VPC.
 	PeerVpcId *string `pulumi:"peerVpcId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A configuration block that describes [VPC Peering Connection]
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester *VpcPeeringConnectionAccepterRequester `pulumi:"requester"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the accepter VPC.
 	VpcId *string `pulumi:"vpcId"`
@@ -197,14 +257,14 @@ type VpcPeeringConnectionAccepterState struct {
 	PeerRegion pulumi.StringPtrInput
 	// The ID of the requester VPC.
 	PeerVpcId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A configuration block that describes [VPC Peering Connection]
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester VpcPeeringConnectionAccepterRequesterPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The ID of the accepter VPC.
 	VpcId pulumi.StringPtrInput
@@ -222,6 +282,8 @@ type vpcPeeringConnectionAccepterArgs struct {
 	Accepter *VpcPeeringConnectionAccepterAccepter `pulumi:"accepter"`
 	// Whether or not to accept the peering request. Defaults to `false`.
 	AutoAccept *bool `pulumi:"autoAccept"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A configuration block that describes [VPC Peering Connection]
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester *VpcPeeringConnectionAccepterRequester `pulumi:"requester"`
@@ -238,6 +300,8 @@ type VpcPeeringConnectionAccepterArgs struct {
 	Accepter VpcPeeringConnectionAccepterAccepterPtrInput
 	// Whether or not to accept the peering request. Defaults to `false`.
 	AutoAccept pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A configuration block that describes [VPC Peering Connection]
 	// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 	Requester VpcPeeringConnectionAccepterRequesterPtrInput
@@ -365,6 +429,11 @@ func (o VpcPeeringConnectionAccepterOutput) PeerVpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) pulumi.StringOutput { return v.PeerVpcId }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o VpcPeeringConnectionAccepterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // A configuration block that describes [VPC Peering Connection]
 // (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
 func (o VpcPeeringConnectionAccepterOutput) Requester() VpcPeeringConnectionAccepterRequesterOutput {
@@ -377,8 +446,6 @@ func (o VpcPeeringConnectionAccepterOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o VpcPeeringConnectionAccepterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcPeeringConnectionAccepter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

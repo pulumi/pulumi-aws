@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/batch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,6 +53,8 @@ func LookupJobQueue(ctx *pulumi.Context, args *LookupJobQueueArgs, opts ...pulum
 type LookupJobQueueArgs struct {
 	// Name of the job queue.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -77,7 +79,8 @@ type LookupJobQueueResult struct {
 	Name                     string                               `pulumi:"name"`
 	// Priority of the job queue. Job queues with a higher priority are evaluated first when
 	// associated with the same compute environment.
-	Priority int `pulumi:"priority"`
+	Priority int    `pulumi:"priority"`
+	Region   string `pulumi:"region"`
 	// The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.
 	SchedulingPolicyArn string `pulumi:"schedulingPolicyArn"`
 	// Describes the ability of the queue to accept new jobs (for example, `ENABLED` or `DISABLED`).
@@ -104,6 +107,8 @@ func LookupJobQueueOutput(ctx *pulumi.Context, args LookupJobQueueOutputArgs, op
 type LookupJobQueueOutputArgs struct {
 	// Name of the job queue.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -162,6 +167,10 @@ func (o LookupJobQueueResultOutput) Name() pulumi.StringOutput {
 // associated with the same compute environment.
 func (o LookupJobQueueResultOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupJobQueueResult) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+func (o LookupJobQueueResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobQueueResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of the fair share scheduling policy. If this attribute has a value, the job queue uses a fair share scheduling policy. If this attribute does not have a value, the job queue uses a first in, first out (FIFO) scheduling policy.

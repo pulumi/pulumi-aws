@@ -56,6 +56,12 @@ namespace Pulumi.Aws.Amp
         public Output<string> Definition { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ID of the prometheus workspace the alert manager definition should be linked to
         /// </summary>
         [Output("workspaceId")]
@@ -114,6 +120,12 @@ namespace Pulumi.Aws.Amp
         public Input<string> Definition { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ID of the prometheus workspace the alert manager definition should be linked to
         /// </summary>
         [Input("workspaceId", required: true)]
@@ -132,6 +144,12 @@ namespace Pulumi.Aws.Amp
         /// </summary>
         [Input("definition")]
         public Input<string>? Definition { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ID of the prometheus workspace the alert manager definition should be linked to

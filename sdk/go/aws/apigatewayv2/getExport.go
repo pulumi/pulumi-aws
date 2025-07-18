@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,6 +60,8 @@ type GetExportArgs struct {
 	IncludeExtensions *bool `pulumi:"includeExtensions"`
 	// Output type of the exported definition file. Valid values are `JSON` and `YAML`.
 	OutputType string `pulumi:"outputType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
 	Specification string `pulumi:"specification"`
 	// Name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
@@ -76,6 +78,7 @@ type GetExportResult struct {
 	Id                string  `pulumi:"id"`
 	IncludeExtensions *bool   `pulumi:"includeExtensions"`
 	OutputType        string  `pulumi:"outputType"`
+	Region            string  `pulumi:"region"`
 	Specification     string  `pulumi:"specification"`
 	StageName         *string `pulumi:"stageName"`
 }
@@ -99,6 +102,8 @@ type GetExportOutputArgs struct {
 	IncludeExtensions pulumi.BoolPtrInput `pulumi:"includeExtensions"`
 	// Output type of the exported definition file. Valid values are `JSON` and `YAML`.
 	OutputType pulumi.StringInput `pulumi:"outputType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Version of the API specification to use. `OAS30`, for OpenAPI 3.0, is the only supported value.
 	Specification pulumi.StringInput `pulumi:"specification"`
 	// Name of the API stage to export. If you don't specify this property, a representation of the latest API configuration is exported.
@@ -148,6 +153,10 @@ func (o GetExportResultOutput) IncludeExtensions() pulumi.BoolPtrOutput {
 
 func (o GetExportResultOutput) OutputType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExportResult) string { return v.OutputType }).(pulumi.StringOutput)
+}
+
+func (o GetExportResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExportResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetExportResultOutput) Specification() pulumi.StringOutput {

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -92,6 +92,8 @@ type DomainDkim struct {
 	DkimTokens pulumi.StringArrayOutput `pulumi:"dkimTokens"`
 	// Verified domain name to generate DKIM tokens for.
 	Domain pulumi.StringOutput `pulumi:"domain"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDomainDkim registers a new resource with the given unique name, arguments, and options.
@@ -136,6 +138,8 @@ type domainDkimState struct {
 	DkimTokens []string `pulumi:"dkimTokens"`
 	// Verified domain name to generate DKIM tokens for.
 	Domain *string `pulumi:"domain"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type DomainDkimState struct {
@@ -148,6 +152,8 @@ type DomainDkimState struct {
 	DkimTokens pulumi.StringArrayInput
 	// Verified domain name to generate DKIM tokens for.
 	Domain pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DomainDkimState) ElementType() reflect.Type {
@@ -157,12 +163,16 @@ func (DomainDkimState) ElementType() reflect.Type {
 type domainDkimArgs struct {
 	// Verified domain name to generate DKIM tokens for.
 	Domain string `pulumi:"domain"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DomainDkim resource.
 type DomainDkimArgs struct {
 	// Verified domain name to generate DKIM tokens for.
 	Domain pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DomainDkimArgs) ElementType() reflect.Type {
@@ -265,6 +275,11 @@ func (o DomainDkimOutput) DkimTokens() pulumi.StringArrayOutput {
 // Verified domain name to generate DKIM tokens for.
 func (o DomainDkimOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainDkim) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DomainDkimOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainDkim) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type DomainDkimArrayOutput struct{ *pulumi.OutputState }

@@ -28,7 +28,7 @@ class GetBundleResult:
     """
     A collection of values returned by getBundle.
     """
-    def __init__(__self__, bundle_id=None, compute_types=None, description=None, id=None, name=None, owner=None, root_storages=None, user_storages=None):
+    def __init__(__self__, bundle_id=None, compute_types=None, description=None, id=None, name=None, owner=None, region=None, root_storages=None, user_storages=None):
         if bundle_id and not isinstance(bundle_id, str):
             raise TypeError("Expected argument 'bundle_id' to be a str")
         pulumi.set(__self__, "bundle_id", bundle_id)
@@ -47,6 +47,9 @@ class GetBundleResult:
         if owner and not isinstance(owner, str):
             raise TypeError("Expected argument 'owner' to be a str")
         pulumi.set(__self__, "owner", owner)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if root_storages and not isinstance(root_storages, list):
             raise TypeError("Expected argument 'root_storages' to be a list")
         pulumi.set(__self__, "root_storages", root_storages)
@@ -103,6 +106,11 @@ class GetBundleResult:
         return pulumi.get(self, "owner")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="rootStorages")
     def root_storages(self) -> Sequence['outputs.GetBundleRootStorageResult']:
         """
@@ -131,6 +139,7 @@ class AwaitableGetBundleResult(GetBundleResult):
             id=self.id,
             name=self.name,
             owner=self.owner,
+            region=self.region,
             root_storages=self.root_storages,
             user_storages=self.user_storages)
 
@@ -138,6 +147,7 @@ class AwaitableGetBundleResult(GetBundleResult):
 def get_bundle(bundle_id: Optional[builtins.str] = None,
                name: Optional[builtins.str] = None,
                owner: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBundleResult:
     """
     Retrieve information about an AWS WorkSpaces bundle.
@@ -167,11 +177,13 @@ def get_bundle(bundle_id: Optional[builtins.str] = None,
     :param builtins.str bundle_id: ID of the bundle.
     :param builtins.str name: Name of the bundle. You cannot combine this parameter with `bundle_id`.
     :param builtins.str owner: Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['bundleId'] = bundle_id
     __args__['name'] = name
     __args__['owner'] = owner
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:workspaces/getBundle:getBundle', __args__, opts=opts, typ=GetBundleResult).value
 
@@ -182,11 +194,13 @@ def get_bundle(bundle_id: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         owner=pulumi.get(__ret__, 'owner'),
+        region=pulumi.get(__ret__, 'region'),
         root_storages=pulumi.get(__ret__, 'root_storages'),
         user_storages=pulumi.get(__ret__, 'user_storages'))
 def get_bundle_output(bundle_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       owner: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBundleResult]:
     """
     Retrieve information about an AWS WorkSpaces bundle.
@@ -216,11 +230,13 @@ def get_bundle_output(bundle_id: Optional[pulumi.Input[Optional[builtins.str]]] 
     :param builtins.str bundle_id: ID of the bundle.
     :param builtins.str name: Name of the bundle. You cannot combine this parameter with `bundle_id`.
     :param builtins.str owner: Owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['bundleId'] = bundle_id
     __args__['name'] = name
     __args__['owner'] = owner
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:workspaces/getBundle:getBundle', __args__, opts=opts, typ=GetBundleResult)
     return __ret__.apply(lambda __response__: GetBundleResult(
@@ -230,5 +246,6 @@ def get_bundle_output(bundle_id: Optional[pulumi.Input[Optional[builtins.str]]] 
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         owner=pulumi.get(__response__, 'owner'),
+        region=pulumi.get(__response__, 'region'),
         root_storages=pulumi.get(__response__, 'root_storages'),
         user_storages=pulumi.get(__response__, 'user_storages')))

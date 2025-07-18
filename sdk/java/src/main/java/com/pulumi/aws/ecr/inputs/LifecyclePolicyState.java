@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.ecr.inputs;
 
+import com.pulumi.aws.ecr.inputs.LifecyclePolicyDocumentArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -20,14 +22,29 @@ public final class LifecyclePolicyState extends com.pulumi.resources.ResourceArg
      * 
      */
     @Import(name="policy")
-    private @Nullable Output<String> policy;
+    private @Nullable Output<Either<String,LifecyclePolicyDocumentArgs>> policy;
 
     /**
      * @return The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `policy` argument.
      * 
      */
-    public Optional<Output<String>> policy() {
+    public Optional<Output<Either<String,LifecyclePolicyDocumentArgs>>> policy() {
         return Optional.ofNullable(this.policy);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -64,6 +81,7 @@ public final class LifecyclePolicyState extends com.pulumi.resources.ResourceArg
 
     private LifecyclePolicyState(LifecyclePolicyState $) {
         this.policy = $.policy;
+        this.region = $.region;
         this.registryId = $.registryId;
         this.repository = $.repository;
     }
@@ -92,7 +110,7 @@ public final class LifecyclePolicyState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder policy(@Nullable Output<String> policy) {
+        public Builder policy(@Nullable Output<Either<String,LifecyclePolicyDocumentArgs>> policy) {
             $.policy = policy;
             return this;
         }
@@ -103,8 +121,49 @@ public final class LifecyclePolicyState extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder policy(String policy) {
+        public Builder policy(Either<String,LifecyclePolicyDocumentArgs> policy) {
             return policy(Output.of(policy));
+        }
+
+        /**
+         * @param policy The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `policy` argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(String policy) {
+            return policy(Either.ofLeft(policy));
+        }
+
+        /**
+         * @param policy The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` data_source to generate/manage the JSON document used for the `policy` argument.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder policy(LifecyclePolicyDocumentArgs policy) {
+            return policy(Either.ofRight(policy));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

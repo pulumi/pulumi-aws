@@ -101,11 +101,16 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Name of the application to which attribute groups are associated.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// &gt; Exactly one of `id`or `name` must be set.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
 
         public GetAppregistryAttributeGroupAssociationsArgs()
         {
@@ -123,11 +128,16 @@ namespace Pulumi.Aws.ServiceCatalog
 
         /// <summary>
         /// Name of the application to which attribute groups are associated.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// &gt; Exactly one of `id`or `name` must be set.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetAppregistryAttributeGroupAssociationsInvokeArgs()
         {
@@ -145,6 +155,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public readonly ImmutableArray<string> AttributeGroupIds;
         public readonly string? Id;
         public readonly string? Name;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetAppregistryAttributeGroupAssociationsResult(
@@ -152,11 +163,14 @@ namespace Pulumi.Aws.ServiceCatalog
 
             string? id,
 
-            string? name)
+            string? name,
+
+            string region)
         {
             AttributeGroupIds = attributeGroupIds;
             Id = id;
             Name = name;
+            Region = region;
         }
     }
 }

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,7 +38,7 @@ import (
 //			exampleVpcIpam, err := ec2.NewVpcIpam(ctx, "example", &ec2.VpcIpamArgs{
 //				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
 //					&ec2.VpcIpamOperatingRegionArgs{
-//						RegionName: pulumi.String(current.Name),
+//						RegionName: pulumi.String(current.Region),
 //					},
 //				},
 //			})
@@ -48,7 +48,7 @@ import (
 //			exampleVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "example", &ec2.VpcIpamPoolArgs{
 //				AddressFamily: pulumi.String("ipv4"),
 //				IpamScopeId:   exampleVpcIpam.PrivateDefaultScopeId,
-//				Locale:        pulumi.String(current.Name),
+//				Locale:        pulumi.String(current.Region),
 //			})
 //			if err != nil {
 //				return err
@@ -88,6 +88,8 @@ type VpcIpamPreviewNextCidr struct {
 	IpamPoolId pulumi.StringOutput `pulumi:"ipamPoolId"`
 	// The netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength pulumi.IntPtrOutput `pulumi:"netmaskLength"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewVpcIpamPreviewNextCidr registers a new resource with the given unique name, arguments, and options.
@@ -131,6 +133,8 @@ type vpcIpamPreviewNextCidrState struct {
 	IpamPoolId *string `pulumi:"ipamPoolId"`
 	// The netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength *int `pulumi:"netmaskLength"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type VpcIpamPreviewNextCidrState struct {
@@ -142,6 +146,8 @@ type VpcIpamPreviewNextCidrState struct {
 	IpamPoolId pulumi.StringPtrInput
 	// The netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength pulumi.IntPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (VpcIpamPreviewNextCidrState) ElementType() reflect.Type {
@@ -155,6 +161,8 @@ type vpcIpamPreviewNextCidrArgs struct {
 	IpamPoolId string `pulumi:"ipamPoolId"`
 	// The netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength *int `pulumi:"netmaskLength"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a VpcIpamPreviewNextCidr resource.
@@ -165,6 +173,8 @@ type VpcIpamPreviewNextCidrArgs struct {
 	IpamPoolId pulumi.StringInput
 	// The netmask length of the CIDR you would like to preview from the IPAM pool.
 	NetmaskLength pulumi.IntPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (VpcIpamPreviewNextCidrArgs) ElementType() reflect.Type {
@@ -272,6 +282,11 @@ func (o VpcIpamPreviewNextCidrOutput) IpamPoolId() pulumi.StringOutput {
 // The netmask length of the CIDR you would like to preview from the IPAM pool.
 func (o VpcIpamPreviewNextCidrOutput) NetmaskLength() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPreviewNextCidr) pulumi.IntPtrOutput { return v.NetmaskLength }).(pulumi.IntPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o VpcIpamPreviewNextCidrOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcIpamPreviewNextCidr) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type VpcIpamPreviewNextCidrArrayOutput struct{ *pulumi.OutputState }

@@ -85,6 +85,7 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
      * Unique identifier of the block list.
      */
     public /*out*/ readonly querySuggestionsBlockListId!: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * IAM (Identity and Access Management) role used to access the block list text file in S3.
      */
@@ -97,8 +98,6 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -120,6 +119,7 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
             resourceInputs["indexId"] = state ? state.indexId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["querySuggestionsBlockListId"] = state ? state.querySuggestionsBlockListId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["sourceS3Path"] = state ? state.sourceS3Path : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -139,6 +139,7 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["indexId"] = args ? args.indexId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["sourceS3Path"] = args ? args.sourceS3Path : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -173,6 +174,7 @@ export interface QuerySuggestionsBlockListState {
      * Unique identifier of the block list.
      */
     querySuggestionsBlockListId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * IAM (Identity and Access Management) role used to access the block list text file in S3.
      */
@@ -185,8 +187,6 @@ export interface QuerySuggestionsBlockListState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider's defaultTags configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -204,6 +204,7 @@ export interface QuerySuggestionsBlockListArgs {
      * Name for the block list.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * IAM (Identity and Access Management) role used to access the block list text file in S3.
      */

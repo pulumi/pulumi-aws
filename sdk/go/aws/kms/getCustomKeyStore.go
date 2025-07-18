@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,6 +56,8 @@ type LookupCustomKeyStoreArgs struct {
 	CustomKeyStoreId *string `pulumi:"customKeyStoreId"`
 	// The user-specified friendly name for the custom key store.
 	CustomKeyStoreName *string `pulumi:"customKeyStoreName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCustomKeyStore.
@@ -68,7 +70,8 @@ type LookupCustomKeyStoreResult struct {
 	CustomKeyStoreId   string `pulumi:"customKeyStoreId"`
 	CustomKeyStoreName string `pulumi:"customKeyStoreName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// The trust anchor certificate of the associated CloudHSM cluster.
 	TrustAnchorCertificate string `pulumi:"trustAnchorCertificate"`
 }
@@ -88,6 +91,8 @@ type LookupCustomKeyStoreOutputArgs struct {
 	CustomKeyStoreId pulumi.StringPtrInput `pulumi:"customKeyStoreId"`
 	// The user-specified friendly name for the custom key store.
 	CustomKeyStoreName pulumi.StringPtrInput `pulumi:"customKeyStoreName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupCustomKeyStoreOutputArgs) ElementType() reflect.Type {
@@ -134,6 +139,10 @@ func (o LookupCustomKeyStoreResultOutput) CustomKeyStoreName() pulumi.StringOutp
 // The provider-assigned unique ID for this managed resource.
 func (o LookupCustomKeyStoreResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomKeyStoreResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupCustomKeyStoreResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomKeyStoreResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The trust anchor certificate of the associated CloudHSM cluster.

@@ -72,6 +72,10 @@ export class GroupMembership extends pulumi.CustomResource {
      * The namespace that you want the user to be a part of. Defaults to `default`.
      */
     public readonly namespace!: pulumi.Output<string | undefined>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a GroupMembership resource with the given unique name, arguments, and options.
@@ -91,6 +95,7 @@ export class GroupMembership extends pulumi.CustomResource {
             resourceInputs["groupName"] = state ? state.groupName : undefined;
             resourceInputs["memberName"] = state ? state.memberName : undefined;
             resourceInputs["namespace"] = state ? state.namespace : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as GroupMembershipArgs | undefined;
             if ((!args || args.groupName === undefined) && !opts.urn) {
@@ -103,6 +108,7 @@ export class GroupMembership extends pulumi.CustomResource {
             resourceInputs["groupName"] = args ? args.groupName : undefined;
             resourceInputs["memberName"] = args ? args.memberName : undefined;
             resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -131,6 +137,10 @@ export interface GroupMembershipState {
      * The namespace that you want the user to be a part of. Defaults to `default`.
      */
     namespace?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -153,4 +163,8 @@ export interface GroupMembershipArgs {
      * The namespace that you want the user to be a part of. Defaults to `default`.
      */
     namespace?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

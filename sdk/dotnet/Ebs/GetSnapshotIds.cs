@@ -160,9 +160,7 @@ namespace Pulumi.Aws.Ebs
         private List<Inputs.GetSnapshotIdsFilterArgs>? _filters;
 
         /// <summary>
-        /// One or more name/value pairs to filter off of. There are
-        /// several valid keys, for a full reference, check out
-        /// [describe-volumes in the AWS CLI reference][1].
+        /// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
         /// </summary>
         public List<Inputs.GetSnapshotIdsFilterArgs> Filters
         {
@@ -181,6 +179,12 @@ namespace Pulumi.Aws.Ebs
             get => _owners ?? (_owners = new List<string>());
             set => _owners = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
 
         [Input("restorableByUserIds")]
         private List<string>? _restorableByUserIds;
@@ -206,9 +210,7 @@ namespace Pulumi.Aws.Ebs
         private InputList<Inputs.GetSnapshotIdsFilterInputArgs>? _filters;
 
         /// <summary>
-        /// One or more name/value pairs to filter off of. There are
-        /// several valid keys, for a full reference, check out
-        /// [describe-volumes in the AWS CLI reference][1].
+        /// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
         /// </summary>
         public InputList<Inputs.GetSnapshotIdsFilterInputArgs> Filters
         {
@@ -227,6 +229,12 @@ namespace Pulumi.Aws.Ebs
             get => _owners ?? (_owners = new InputList<string>());
             set => _owners = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("restorableByUserIds")]
         private InputList<string>? _restorableByUserIds;
@@ -260,6 +268,7 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly ImmutableArray<string> Owners;
+        public readonly string Region;
         public readonly ImmutableArray<string> RestorableByUserIds;
 
         [OutputConstructor]
@@ -272,12 +281,15 @@ namespace Pulumi.Aws.Ebs
 
             ImmutableArray<string> owners,
 
+            string region,
+
             ImmutableArray<string> restorableByUserIds)
         {
             Filters = filters;
             Id = id;
             Ids = ids;
             Owners = owners;
+            Region = region;
             RestorableByUserIds = restorableByUserIds;
         }
     }

@@ -93,6 +93,12 @@ namespace Pulumi.Aws.ElastiCache
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -154,6 +166,7 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Set of VPC Subnet ID-s of the subnet group.
         /// </summary>
@@ -177,6 +190,8 @@ namespace Pulumi.Aws.ElastiCache
 
             string name,
 
+            string region,
+
             ImmutableArray<string> subnetIds,
 
             ImmutableDictionary<string, string>? tags,
@@ -187,6 +202,7 @@ namespace Pulumi.Aws.ElastiCache
             Description = description;
             Id = id;
             Name = name;
+            Region = region;
             SubnetIds = subnetIds;
             Tags = tags;
             VpcId = vpcId;

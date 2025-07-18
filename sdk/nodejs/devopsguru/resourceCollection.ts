@@ -115,6 +115,10 @@ export class ResourceCollection extends pulumi.CustomResource {
      */
     public readonly cloudformation!: pulumi.Output<outputs.devopsguru.ResourceCollectionCloudformation | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
      */
     public readonly tags!: pulumi.Output<outputs.devopsguru.ResourceCollectionTags | undefined>;
@@ -139,6 +143,7 @@ export class ResourceCollection extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ResourceCollectionState | undefined;
             resourceInputs["cloudformation"] = state ? state.cloudformation : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
@@ -147,6 +152,7 @@ export class ResourceCollection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["cloudformation"] = args ? args.cloudformation : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
         }
@@ -163,6 +169,10 @@ export interface ResourceCollectionState {
      * A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
      */
     cloudformation?: pulumi.Input<inputs.devopsguru.ResourceCollectionCloudformation>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
      */
@@ -183,6 +193,10 @@ export interface ResourceCollectionArgs {
      * A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
      */
     cloudformation?: pulumi.Input<inputs.devopsguru.ResourceCollectionCloudformation>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
      */

@@ -170,7 +170,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Example Using `containerDefinitions` and `inferenceAccelerator`
+ * ### Example Using `containerDefinitions`
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -195,20 +195,10 @@ import * as utilities from "../utilities";
  *         "containerPort": 80,
  *         "hostPort": 8080
  *       }
- *     ],
- *         "resourceRequirements":[
- *             {
- *                 "type":"InferenceAccelerator",
- *                 "value":"device_1"
- *             }
- *         ]
+ *     ]
  *   }
  * ]
  * `,
- *     inferenceAccelerators: [{
- *         deviceName: "device_1",
- *         deviceType: "eia1.medium",
- *     }],
  * });
  * ```
  *
@@ -295,8 +285,6 @@ export class TaskDefinition extends pulumi.CustomResource {
     public readonly cpu!: pulumi.Output<string | undefined>;
     /**
      * Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-     *
-     * **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
      */
     public readonly enableFaultInjection!: pulumi.Output<boolean>;
     /**
@@ -313,10 +301,6 @@ export class TaskDefinition extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly family!: pulumi.Output<string>;
-    /**
-     * Configuration block(s) with Inference Accelerators settings. Detailed below.
-     */
-    public readonly inferenceAccelerators!: pulumi.Output<outputs.ecs.TaskDefinitionInferenceAccelerator[] | undefined>;
     /**
      * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      */
@@ -342,6 +326,10 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public readonly proxyConfiguration!: pulumi.Output<outputs.ecs.TaskDefinitionProxyConfiguration | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
     public readonly requiresCompatibilities!: pulumi.Output<string[] | undefined>;
@@ -363,8 +351,6 @@ export class TaskDefinition extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -379,6 +365,8 @@ export class TaskDefinition extends pulumi.CustomResource {
      * Configuration block for volumes that containers in your task may use. Detailed below.
      *
      * > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+     *
+     * > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
      */
     public readonly volumes!: pulumi.Output<outputs.ecs.TaskDefinitionVolume[] | undefined>;
 
@@ -403,13 +391,13 @@ export class TaskDefinition extends pulumi.CustomResource {
             resourceInputs["ephemeralStorage"] = state ? state.ephemeralStorage : undefined;
             resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
             resourceInputs["family"] = state ? state.family : undefined;
-            resourceInputs["inferenceAccelerators"] = state ? state.inferenceAccelerators : undefined;
             resourceInputs["ipcMode"] = state ? state.ipcMode : undefined;
             resourceInputs["memory"] = state ? state.memory : undefined;
             resourceInputs["networkMode"] = state ? state.networkMode : undefined;
             resourceInputs["pidMode"] = state ? state.pidMode : undefined;
             resourceInputs["placementConstraints"] = state ? state.placementConstraints : undefined;
             resourceInputs["proxyConfiguration"] = state ? state.proxyConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requiresCompatibilities"] = state ? state.requiresCompatibilities : undefined;
             resourceInputs["revision"] = state ? state.revision : undefined;
             resourceInputs["runtimePlatform"] = state ? state.runtimePlatform : undefined;
@@ -433,13 +421,13 @@ export class TaskDefinition extends pulumi.CustomResource {
             resourceInputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
             resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             resourceInputs["family"] = args ? args.family : undefined;
-            resourceInputs["inferenceAccelerators"] = args ? args.inferenceAccelerators : undefined;
             resourceInputs["ipcMode"] = args ? args.ipcMode : undefined;
             resourceInputs["memory"] = args ? args.memory : undefined;
             resourceInputs["networkMode"] = args ? args.networkMode : undefined;
             resourceInputs["pidMode"] = args ? args.pidMode : undefined;
             resourceInputs["placementConstraints"] = args ? args.placementConstraints : undefined;
             resourceInputs["proxyConfiguration"] = args ? args.proxyConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["requiresCompatibilities"] = args ? args.requiresCompatibilities : undefined;
             resourceInputs["runtimePlatform"] = args ? args.runtimePlatform : undefined;
             resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
@@ -479,8 +467,6 @@ export interface TaskDefinitionState {
     cpu?: pulumi.Input<string>;
     /**
      * Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-     *
-     * **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
      */
     enableFaultInjection?: pulumi.Input<boolean>;
     /**
@@ -497,10 +483,6 @@ export interface TaskDefinitionState {
      * The following arguments are optional:
      */
     family?: pulumi.Input<string>;
-    /**
-     * Configuration block(s) with Inference Accelerators settings. Detailed below.
-     */
-    inferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionInferenceAccelerator>[]>;
     /**
      * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      */
@@ -525,6 +507,10 @@ export interface TaskDefinitionState {
      * Configuration block for the App Mesh proxy. Detailed below.
      */
     proxyConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionProxyConfiguration>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
@@ -547,8 +533,6 @@ export interface TaskDefinitionState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -563,6 +547,8 @@ export interface TaskDefinitionState {
      * Configuration block for volumes that containers in your task may use. Detailed below.
      *
      * > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+     *
+     * > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
      */
     volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolume>[]>;
 }
@@ -581,8 +567,6 @@ export interface TaskDefinitionArgs {
     cpu?: pulumi.Input<string>;
     /**
      * Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-     *
-     * **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
      */
     enableFaultInjection?: pulumi.Input<boolean>;
     /**
@@ -599,10 +583,6 @@ export interface TaskDefinitionArgs {
      * The following arguments are optional:
      */
     family: pulumi.Input<string>;
-    /**
-     * Configuration block(s) with Inference Accelerators settings. Detailed below.
-     */
-    inferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionInferenceAccelerator>[]>;
     /**
      * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      */
@@ -627,6 +607,10 @@ export interface TaskDefinitionArgs {
      * Configuration block for the App Mesh proxy. Detailed below.
      */
     proxyConfiguration?: pulumi.Input<inputs.ecs.TaskDefinitionProxyConfiguration>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
@@ -655,6 +639,8 @@ export interface TaskDefinitionArgs {
      * Configuration block for volumes that containers in your task may use. Detailed below.
      *
      * > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\"` in the JSON,  e.g., `"value": "I \"love\" escaped quotes"`. If using a variable value, they should be escaped as `\\\"` in the variable, e.g., `value = "I \\\"love\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+     *
+     * > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
      */
     volumes?: pulumi.Input<pulumi.Input<inputs.ecs.TaskDefinitionVolume>[]>;
 }

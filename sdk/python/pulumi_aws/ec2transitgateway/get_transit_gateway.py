@@ -29,7 +29,7 @@ class GetTransitGatewayResult:
     """
     A collection of values returned by getTransitGateway.
     """
-    def __init__(__self__, amazon_side_asn=None, arn=None, association_default_route_table_id=None, auto_accept_shared_attachments=None, default_route_table_association=None, default_route_table_propagation=None, description=None, dns_support=None, filters=None, id=None, multicast_support=None, owner_id=None, propagation_default_route_table_id=None, security_group_referencing_support=None, tags=None, transit_gateway_cidr_blocks=None, vpn_ecmp_support=None):
+    def __init__(__self__, amazon_side_asn=None, arn=None, association_default_route_table_id=None, auto_accept_shared_attachments=None, default_route_table_association=None, default_route_table_propagation=None, description=None, dns_support=None, filters=None, id=None, multicast_support=None, owner_id=None, propagation_default_route_table_id=None, region=None, security_group_referencing_support=None, tags=None, transit_gateway_cidr_blocks=None, vpn_ecmp_support=None):
         if amazon_side_asn and not isinstance(amazon_side_asn, int):
             raise TypeError("Expected argument 'amazon_side_asn' to be a int")
         pulumi.set(__self__, "amazon_side_asn", amazon_side_asn)
@@ -69,6 +69,9 @@ class GetTransitGatewayResult:
         if propagation_default_route_table_id and not isinstance(propagation_default_route_table_id, str):
             raise TypeError("Expected argument 'propagation_default_route_table_id' to be a str")
         pulumi.set(__self__, "propagation_default_route_table_id", propagation_default_route_table_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_group_referencing_support and not isinstance(security_group_referencing_support, str):
             raise TypeError("Expected argument 'security_group_referencing_support' to be a str")
         pulumi.set(__self__, "security_group_referencing_support", security_group_referencing_support)
@@ -184,6 +187,11 @@ class GetTransitGatewayResult:
         return pulumi.get(self, "propagation_default_route_table_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroupReferencingSupport")
     def security_group_referencing_support(self) -> builtins.str:
         """
@@ -235,6 +243,7 @@ class AwaitableGetTransitGatewayResult(GetTransitGatewayResult):
             multicast_support=self.multicast_support,
             owner_id=self.owner_id,
             propagation_default_route_table_id=self.propagation_default_route_table_id,
+            region=self.region,
             security_group_referencing_support=self.security_group_referencing_support,
             tags=self.tags,
             transit_gateway_cidr_blocks=self.transit_gateway_cidr_blocks,
@@ -243,6 +252,7 @@ class AwaitableGetTransitGatewayResult(GetTransitGatewayResult):
 
 def get_transit_gateway(filters: Optional[Sequence[Union['GetTransitGatewayFilterArgs', 'GetTransitGatewayFilterArgsDict']]] = None,
                         id: Optional[builtins.str] = None,
+                        region: Optional[builtins.str] = None,
                         tags: Optional[Mapping[str, builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTransitGatewayResult:
     """
@@ -274,11 +284,13 @@ def get_transit_gateway(filters: Optional[Sequence[Union['GetTransitGatewayFilte
 
     :param Sequence[Union['GetTransitGatewayFilterArgs', 'GetTransitGatewayFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param builtins.str id: Identifier of the EC2 Transit Gateway.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the EC2 Transit Gateway
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getTransitGateway:getTransitGateway', __args__, opts=opts, typ=GetTransitGatewayResult).value
@@ -297,12 +309,14 @@ def get_transit_gateway(filters: Optional[Sequence[Union['GetTransitGatewayFilte
         multicast_support=pulumi.get(__ret__, 'multicast_support'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         propagation_default_route_table_id=pulumi.get(__ret__, 'propagation_default_route_table_id'),
+        region=pulumi.get(__ret__, 'region'),
         security_group_referencing_support=pulumi.get(__ret__, 'security_group_referencing_support'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_cidr_blocks=pulumi.get(__ret__, 'transit_gateway_cidr_blocks'),
         vpn_ecmp_support=pulumi.get(__ret__, 'vpn_ecmp_support'))
 def get_transit_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetTransitGatewayFilterArgs', 'GetTransitGatewayFilterArgsDict']]]]] = None,
                                id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                               region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayResult]:
     """
@@ -334,11 +348,13 @@ def get_transit_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[
 
     :param Sequence[Union['GetTransitGatewayFilterArgs', 'GetTransitGatewayFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param builtins.str id: Identifier of the EC2 Transit Gateway.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the EC2 Transit Gateway
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getTransitGateway:getTransitGateway', __args__, opts=opts, typ=GetTransitGatewayResult)
@@ -356,6 +372,7 @@ def get_transit_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[
         multicast_support=pulumi.get(__response__, 'multicast_support'),
         owner_id=pulumi.get(__response__, 'owner_id'),
         propagation_default_route_table_id=pulumi.get(__response__, 'propagation_default_route_table_id'),
+        region=pulumi.get(__response__, 'region'),
         security_group_referencing_support=pulumi.get(__response__, 'security_group_referencing_support'),
         tags=pulumi.get(__response__, 'tags'),
         transit_gateway_cidr_blocks=pulumi.get(__response__, 'transit_gateway_cidr_blocks'),

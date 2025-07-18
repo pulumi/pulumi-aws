@@ -74,6 +74,10 @@ export class Ciphertext extends pulumi.CustomResource {
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      */
     public readonly plaintext!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Ciphertext resource with the given unique name, arguments, and options.
@@ -92,6 +96,7 @@ export class Ciphertext extends pulumi.CustomResource {
             resourceInputs["context"] = state ? state.context : undefined;
             resourceInputs["keyId"] = state ? state.keyId : undefined;
             resourceInputs["plaintext"] = state ? state.plaintext : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as CiphertextArgs | undefined;
             if ((!args || args.keyId === undefined) && !opts.urn) {
@@ -103,6 +108,7 @@ export class Ciphertext extends pulumi.CustomResource {
             resourceInputs["context"] = args ? args.context : undefined;
             resourceInputs["keyId"] = args ? args.keyId : undefined;
             resourceInputs["plaintext"] = args?.plaintext ? pulumi.secret(args.plaintext) : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["ciphertextBlob"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -132,6 +138,10 @@ export interface CiphertextState {
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      */
     plaintext?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -150,4 +160,8 @@ export interface CiphertextArgs {
      * Data to be encrypted. Note that this may show up in logs, and it will be stored in the state file.
      */
     plaintext: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

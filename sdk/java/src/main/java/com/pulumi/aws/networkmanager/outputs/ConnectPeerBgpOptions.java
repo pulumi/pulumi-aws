@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ConnectPeerBgpOptions {
+    /**
+     * @return Peer ASN.
+     * 
+     */
     private @Nullable Integer peerAsn;
 
     private ConnectPeerBgpOptions() {}
+    /**
+     * @return Peer ASN.
+     * 
+     */
     public Optional<Integer> peerAsn() {
         return Optional.ofNullable(this.peerAsn);
     }

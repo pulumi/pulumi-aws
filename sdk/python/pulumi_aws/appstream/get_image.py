@@ -28,7 +28,7 @@ class GetImageResult:
     """
     A collection of values returned by getImage.
     """
-    def __init__(__self__, applications=None, appstream_agent_version=None, arn=None, base_image_arn=None, created_time=None, description=None, display_name=None, id=None, image_builder_name=None, image_builder_supported=None, image_permissions=None, most_recent=None, name=None, name_regex=None, platform=None, public_base_image_released_date=None, state=None, state_change_reasons=None, type=None):
+    def __init__(__self__, applications=None, appstream_agent_version=None, arn=None, base_image_arn=None, created_time=None, description=None, display_name=None, id=None, image_builder_name=None, image_builder_supported=None, image_permissions=None, most_recent=None, name=None, name_regex=None, platform=None, public_base_image_released_date=None, region=None, state=None, state_change_reasons=None, type=None):
         if applications and not isinstance(applications, list):
             raise TypeError("Expected argument 'applications' to be a list")
         pulumi.set(__self__, "applications", applications)
@@ -77,6 +77,9 @@ class GetImageResult:
         if public_base_image_released_date and not isinstance(public_base_image_released_date, str):
             raise TypeError("Expected argument 'public_base_image_released_date' to be a str")
         pulumi.set(__self__, "public_base_image_released_date", public_base_image_released_date)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -203,6 +206,11 @@ class GetImageResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def state(self) -> builtins.str:
         """
         Current state of image. Image starts in PENDING state which changes to AVAILABLE if creation passes and FAILED if it fails. Values will be from: PENDING | AVAILABLE | FAILED | COPYING | DELETING | CREATING | IMPORTING.
@@ -242,6 +250,7 @@ class AwaitableGetImageResult(GetImageResult):
             name_regex=self.name_regex,
             platform=self.platform,
             public_base_image_released_date=self.public_base_image_released_date,
+            region=self.region,
             state=self.state,
             state_change_reasons=self.state_change_reasons,
             type=self.type)
@@ -251,6 +260,7 @@ def get_image(arn: Optional[builtins.str] = None,
               most_recent: Optional[builtins.bool] = None,
               name: Optional[builtins.str] = None,
               name_regex: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               type: Optional[builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
@@ -272,6 +282,7 @@ def get_image(arn: Optional[builtins.str] = None,
     :param builtins.bool most_recent: Boolean that if it is set to true and there are multiple images returned the most recent will be returned. If it is set to false and there are multiple images return the datasource will error.
     :param builtins.str name: Name of the image being searched for. Cannot be used with name_regex or arn.
     :param builtins.str name_regex: Regular expression name of the image being searched for. Cannot be used with arn or name.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str type: The type of image which must be (PUBLIC, PRIVATE, or SHARED).
     """
     __args__ = dict()
@@ -279,6 +290,7 @@ def get_image(arn: Optional[builtins.str] = None,
     __args__['mostRecent'] = most_recent
     __args__['name'] = name
     __args__['nameRegex'] = name_regex
+    __args__['region'] = region
     __args__['type'] = type
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:appstream/getImage:getImage', __args__, opts=opts, typ=GetImageResult).value
@@ -300,6 +312,7 @@ def get_image(arn: Optional[builtins.str] = None,
         name_regex=pulumi.get(__ret__, 'name_regex'),
         platform=pulumi.get(__ret__, 'platform'),
         public_base_image_released_date=pulumi.get(__ret__, 'public_base_image_released_date'),
+        region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'),
         state_change_reasons=pulumi.get(__ret__, 'state_change_reasons'),
         type=pulumi.get(__ret__, 'type'))
@@ -307,6 +320,7 @@ def get_image_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      most_recent: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                      name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      name_regex: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
@@ -328,6 +342,7 @@ def get_image_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
     :param builtins.bool most_recent: Boolean that if it is set to true and there are multiple images returned the most recent will be returned. If it is set to false and there are multiple images return the datasource will error.
     :param builtins.str name: Name of the image being searched for. Cannot be used with name_regex or arn.
     :param builtins.str name_regex: Regular expression name of the image being searched for. Cannot be used with arn or name.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str type: The type of image which must be (PUBLIC, PRIVATE, or SHARED).
     """
     __args__ = dict()
@@ -335,6 +350,7 @@ def get_image_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
     __args__['mostRecent'] = most_recent
     __args__['name'] = name
     __args__['nameRegex'] = name_regex
+    __args__['region'] = region
     __args__['type'] = type
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:appstream/getImage:getImage', __args__, opts=opts, typ=GetImageResult)
@@ -355,6 +371,7 @@ def get_image_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
         name_regex=pulumi.get(__response__, 'name_regex'),
         platform=pulumi.get(__response__, 'platform'),
         public_base_image_released_date=pulumi.get(__response__, 'public_base_image_released_date'),
+        region=pulumi.get(__response__, 'region'),
         state=pulumi.get(__response__, 'state'),
         state_change_reasons=pulumi.get(__response__, 'state_change_reasons'),
         type=pulumi.get(__response__, 'type')))

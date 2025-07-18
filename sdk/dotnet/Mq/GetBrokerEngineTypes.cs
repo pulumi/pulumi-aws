@@ -12,11 +12,9 @@ namespace Pulumi.Aws.Mq
     public static class GetBrokerEngineTypes
     {
         /// <summary>
-        /// Retrieve information about available broker engines.
+        /// Provides details about available MQ broker engine types. Use this data source to retrieve supported engine types and their versions for Amazon MQ brokers.
         /// 
         /// ## Example Usage
-        /// 
-        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -38,11 +36,9 @@ namespace Pulumi.Aws.Mq
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBrokerEngineTypesResult>("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", args ?? new GetBrokerEngineTypesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve information about available broker engines.
+        /// Provides details about available MQ broker engine types. Use this data source to retrieve supported engine types and their versions for Amazon MQ brokers.
         /// 
         /// ## Example Usage
-        /// 
-        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -64,11 +60,9 @@ namespace Pulumi.Aws.Mq
             => global::Pulumi.Deployment.Instance.Invoke<GetBrokerEngineTypesResult>("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", args ?? new GetBrokerEngineTypesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve information about available broker engines.
+        /// Provides details about available MQ broker engine types. Use this data source to retrieve supported engine types and their versions for Amazon MQ brokers.
         /// 
         /// ## Example Usage
-        /// 
-        /// ### Basic Usage
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -94,10 +88,16 @@ namespace Pulumi.Aws.Mq
     public sealed class GetBrokerEngineTypesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The MQ engine type to return version details for.
+        /// MQ engine type to return version details for.
         /// </summary>
         [Input("engineType")]
         public string? EngineType { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
 
         public GetBrokerEngineTypesArgs()
         {
@@ -108,10 +108,16 @@ namespace Pulumi.Aws.Mq
     public sealed class GetBrokerEngineTypesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The MQ engine type to return version details for.
+        /// MQ engine type to return version details for.
         /// </summary>
         [Input("engineType")]
         public Input<string>? EngineType { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetBrokerEngineTypesInvokeArgs()
         {
@@ -124,17 +130,18 @@ namespace Pulumi.Aws.Mq
     public sealed class GetBrokerEngineTypesResult
     {
         /// <summary>
-        /// A list of available engine types and versions. See Engine Types.
+        /// List of available engine types and versions. See Engine Types.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBrokerEngineTypesBrokerEngineTypeResult> BrokerEngineTypes;
         /// <summary>
-        /// The broker's engine type.
+        /// Broker's engine type.
         /// </summary>
         public readonly string? EngineType;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetBrokerEngineTypesResult(
@@ -142,11 +149,14 @@ namespace Pulumi.Aws.Mq
 
             string? engineType,
 
-            string id)
+            string id,
+
+            string region)
         {
             BrokerEngineTypes = brokerEngineTypes;
             EngineType = engineType;
             Id = id;
+            Region = region;
         }
     }
 }

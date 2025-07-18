@@ -25,6 +25,7 @@ class DefaultNetworkAclArgs:
                  default_network_acl_id: pulumi.Input[builtins.str],
                  egress: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultNetworkAclEgressArgs']]]] = None,
                  ingress: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultNetworkAclIngressArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -34,6 +35,7 @@ class DefaultNetworkAclArgs:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['DefaultNetworkAclEgressArgs']]] egress: Configuration block for an egress rule. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['DefaultNetworkAclIngressArgs']]] ingress: Configuration block for an ingress rule. Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -42,6 +44,8 @@ class DefaultNetworkAclArgs:
             pulumi.set(__self__, "egress", egress)
         if ingress is not None:
             pulumi.set(__self__, "ingress", ingress)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
@@ -86,6 +90,18 @@ class DefaultNetworkAclArgs:
         pulumi.set(self, "ingress", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -118,6 +134,7 @@ class _DefaultNetworkAclState:
                  egress: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultNetworkAclEgressArgs']]]] = None,
                  ingress: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultNetworkAclIngressArgs']]]] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -131,6 +148,7 @@ class _DefaultNetworkAclState:
         :param pulumi.Input[Sequence[pulumi.Input['DefaultNetworkAclEgressArgs']]] egress: Configuration block for an egress rule. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['DefaultNetworkAclIngressArgs']]] ingress: Configuration block for an ingress rule. Detailed below.
         :param pulumi.Input[builtins.str] owner_id: ID of the AWS account that owns the Default Network ACL
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -146,13 +164,12 @@ class _DefaultNetworkAclState:
             pulumi.set(__self__, "ingress", ingress)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_id is not None:
@@ -221,6 +238,18 @@ class _DefaultNetworkAclState:
         pulumi.set(self, "owner_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -246,7 +275,6 @@ class _DefaultNetworkAclState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -279,6 +307,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                  default_network_acl_id: Optional[pulumi.Input[builtins.str]] = None,
                  egress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultNetworkAclEgressArgs', 'DefaultNetworkAclEgressArgsDict']]]]] = None,
                  ingress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultNetworkAclIngressArgs', 'DefaultNetworkAclIngressArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -393,6 +422,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultNetworkAclEgressArgs', 'DefaultNetworkAclEgressArgsDict']]]] egress: Configuration block for an egress rule. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultNetworkAclIngressArgs', 'DefaultNetworkAclIngressArgsDict']]]] ingress: Configuration block for an ingress rule. Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -524,6 +554,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                  default_network_acl_id: Optional[pulumi.Input[builtins.str]] = None,
                  egress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultNetworkAclEgressArgs', 'DefaultNetworkAclEgressArgsDict']]]]] = None,
                  ingress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultNetworkAclIngressArgs', 'DefaultNetworkAclIngressArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -540,6 +571,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
             __props__.__dict__["default_network_acl_id"] = default_network_acl_id
             __props__.__dict__["egress"] = egress
             __props__.__dict__["ingress"] = ingress
+            __props__.__dict__["region"] = region
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -561,6 +593,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
             egress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultNetworkAclEgressArgs', 'DefaultNetworkAclEgressArgsDict']]]]] = None,
             ingress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultNetworkAclIngressArgs', 'DefaultNetworkAclIngressArgsDict']]]]] = None,
             owner_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -579,6 +612,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultNetworkAclEgressArgs', 'DefaultNetworkAclEgressArgsDict']]]] egress: Configuration block for an egress rule. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultNetworkAclIngressArgs', 'DefaultNetworkAclIngressArgsDict']]]] ingress: Configuration block for an ingress rule. Detailed below.
         :param pulumi.Input[builtins.str] owner_id: ID of the AWS account that owns the Default Network ACL
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: List of Subnet IDs to apply the ACL to. See the notes above on Managing Subnets in the Default Network ACL
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -593,6 +627,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         __props__.__dict__["egress"] = egress
         __props__.__dict__["ingress"] = ingress
         __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["subnet_ids"] = subnet_ids
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -642,6 +677,14 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         return pulumi.get(self, "owner_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
@@ -659,7 +702,6 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

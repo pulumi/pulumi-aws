@@ -90,6 +90,12 @@ namespace Pulumi.Aws.ApiGateway
         [Input("includeValues")]
         public bool? IncludeValues { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetApiKeysArgs()
         {
         }
@@ -109,6 +115,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("includeValues")]
         public Input<bool>? IncludeValues { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetApiKeysInvokeArgs()
         {
@@ -133,6 +145,7 @@ namespace Pulumi.Aws.ApiGateway
         /// List of objects containing API Key information. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApiKeysItemResult> Items;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetApiKeysResult(
@@ -142,12 +155,15 @@ namespace Pulumi.Aws.ApiGateway
 
             bool? includeValues,
 
-            ImmutableArray<Outputs.GetApiKeysItemResult> items)
+            ImmutableArray<Outputs.GetApiKeysItemResult> items,
+
+            string region)
         {
             CustomerId = customerId;
             Id = id;
             IncludeValues = includeValues;
             Items = items;
+            Region = region;
         }
     }
 }

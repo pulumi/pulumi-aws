@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshiftserverless"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshiftserverless"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ type GetCredentialsArgs struct {
 	DbName *string `pulumi:"dbName"`
 	// The number of seconds until the returned temporary password expires. The minimum is 900 seconds, and the maximum is 3600 seconds.
 	DurationSeconds *int `pulumi:"durationSeconds"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the workgroup associated with the database.
 	WorkgroupName string `pulumi:"workgroupName"`
 }
@@ -70,6 +72,7 @@ type GetCredentialsResult struct {
 	Expiration string `pulumi:"expiration"`
 	// The provider-assigned unique ID for this managed resource.
 	Id            string `pulumi:"id"`
+	Region        string `pulumi:"region"`
 	WorkgroupName string `pulumi:"workgroupName"`
 }
 
@@ -88,6 +91,8 @@ type GetCredentialsOutputArgs struct {
 	DbName pulumi.StringPtrInput `pulumi:"dbName"`
 	// The number of seconds until the returned temporary password expires. The minimum is 900 seconds, and the maximum is 3600 seconds.
 	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The name of the workgroup associated with the database.
 	WorkgroupName pulumi.StringInput `pulumi:"workgroupName"`
 }
@@ -137,6 +142,10 @@ func (o GetCredentialsResultOutput) Expiration() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetCredentialsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCredentialsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetCredentialsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCredentialsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetCredentialsResultOutput) WorkgroupName() pulumi.StringOutput {

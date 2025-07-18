@@ -45,6 +45,12 @@ namespace Pulumi.Aws.Vpc
     public partial class RouteServerVpcAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The unique identifier for the route server to be associated.
         /// </summary>
         [Output("routeServerId")]
@@ -55,6 +61,8 @@ namespace Pulumi.Aws.Vpc
 
         /// <summary>
         /// The ID of the VPC to associate with the route server.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -106,6 +114,12 @@ namespace Pulumi.Aws.Vpc
     public sealed class RouteServerVpcAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The unique identifier for the route server to be associated.
         /// </summary>
         [Input("routeServerId", required: true)]
@@ -116,6 +130,8 @@ namespace Pulumi.Aws.Vpc
 
         /// <summary>
         /// The ID of the VPC to associate with the route server.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
@@ -129,6 +145,12 @@ namespace Pulumi.Aws.Vpc
     public sealed class RouteServerVpcAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The unique identifier for the route server to be associated.
         /// </summary>
         [Input("routeServerId")]
@@ -139,6 +161,8 @@ namespace Pulumi.Aws.Vpc
 
         /// <summary>
         /// The ID of the VPC to associate with the route server.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

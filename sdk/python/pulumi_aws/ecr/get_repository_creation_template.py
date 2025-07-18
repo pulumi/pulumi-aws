@@ -28,7 +28,7 @@ class GetRepositoryCreationTemplateResult:
     """
     A collection of values returned by getRepositoryCreationTemplate.
     """
-    def __init__(__self__, applied_fors=None, custom_role_arn=None, description=None, encryption_configurations=None, id=None, image_tag_mutability=None, lifecycle_policy=None, prefix=None, registry_id=None, repository_policy=None, resource_tags=None):
+    def __init__(__self__, applied_fors=None, custom_role_arn=None, description=None, encryption_configurations=None, id=None, image_tag_mutability=None, lifecycle_policy=None, prefix=None, region=None, registry_id=None, repository_policy=None, resource_tags=None):
         if applied_fors and not isinstance(applied_fors, list):
             raise TypeError("Expected argument 'applied_fors' to be a list")
         pulumi.set(__self__, "applied_fors", applied_fors)
@@ -53,6 +53,9 @@ class GetRepositoryCreationTemplateResult:
         if prefix and not isinstance(prefix, str):
             raise TypeError("Expected argument 'prefix' to be a str")
         pulumi.set(__self__, "prefix", prefix)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if registry_id and not isinstance(registry_id, str):
             raise TypeError("Expected argument 'registry_id' to be a str")
         pulumi.set(__self__, "registry_id", registry_id)
@@ -125,6 +128,11 @@ class GetRepositoryCreationTemplateResult:
         return pulumi.get(self, "prefix")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="registryId")
     def registry_id(self) -> builtins.str:
         """
@@ -163,12 +171,14 @@ class AwaitableGetRepositoryCreationTemplateResult(GetRepositoryCreationTemplate
             image_tag_mutability=self.image_tag_mutability,
             lifecycle_policy=self.lifecycle_policy,
             prefix=self.prefix,
+            region=self.region,
             registry_id=self.registry_id,
             repository_policy=self.repository_policy,
             resource_tags=self.resource_tags)
 
 
 def get_repository_creation_template(prefix: Optional[builtins.str] = None,
+                                     region: Optional[builtins.str] = None,
                                      resource_tags: Optional[Mapping[str, builtins.str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryCreationTemplateResult:
     """
@@ -185,10 +195,12 @@ def get_repository_creation_template(prefix: Optional[builtins.str] = None,
 
 
     :param builtins.str prefix: The repository name prefix that the template matches against.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] resource_tags: A map of tags to assign to any created repositories.
     """
     __args__ = dict()
     __args__['prefix'] = prefix
+    __args__['region'] = region
     __args__['resourceTags'] = resource_tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ecr/getRepositoryCreationTemplate:getRepositoryCreationTemplate', __args__, opts=opts, typ=GetRepositoryCreationTemplateResult).value
@@ -202,10 +214,12 @@ def get_repository_creation_template(prefix: Optional[builtins.str] = None,
         image_tag_mutability=pulumi.get(__ret__, 'image_tag_mutability'),
         lifecycle_policy=pulumi.get(__ret__, 'lifecycle_policy'),
         prefix=pulumi.get(__ret__, 'prefix'),
+        region=pulumi.get(__ret__, 'region'),
         registry_id=pulumi.get(__ret__, 'registry_id'),
         repository_policy=pulumi.get(__ret__, 'repository_policy'),
         resource_tags=pulumi.get(__ret__, 'resource_tags'))
 def get_repository_creation_template_output(prefix: Optional[pulumi.Input[builtins.str]] = None,
+                                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                             resource_tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryCreationTemplateResult]:
     """
@@ -222,10 +236,12 @@ def get_repository_creation_template_output(prefix: Optional[pulumi.Input[builti
 
 
     :param builtins.str prefix: The repository name prefix that the template matches against.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] resource_tags: A map of tags to assign to any created repositories.
     """
     __args__ = dict()
     __args__['prefix'] = prefix
+    __args__['region'] = region
     __args__['resourceTags'] = resource_tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ecr/getRepositoryCreationTemplate:getRepositoryCreationTemplate', __args__, opts=opts, typ=GetRepositoryCreationTemplateResult)
@@ -238,6 +254,7 @@ def get_repository_creation_template_output(prefix: Optional[pulumi.Input[builti
         image_tag_mutability=pulumi.get(__response__, 'image_tag_mutability'),
         lifecycle_policy=pulumi.get(__response__, 'lifecycle_policy'),
         prefix=pulumi.get(__response__, 'prefix'),
+        region=pulumi.get(__response__, 'region'),
         registry_id=pulumi.get(__response__, 'registry_id'),
         repository_policy=pulumi.get(__response__, 'repository_policy'),
         resource_tags=pulumi.get(__response__, 'resource_tags')))

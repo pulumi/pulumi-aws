@@ -27,6 +27,7 @@ export function getAppregistryAttributeGroup(args?: GetAppregistryAttributeGroup
         "arn": args.arn,
         "id": args.id,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -46,6 +47,11 @@ export interface GetAppregistryAttributeGroupArgs {
      * Name of the Attribute Group to find.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * > Exactly one of `arn`, `id`, or `name` must be set.
+     */
+    region?: string;
 }
 
 /**
@@ -63,6 +69,7 @@ export interface GetAppregistryAttributeGroupResult {
     readonly description: string;
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * A map of tags assigned to the Attribute Group. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -91,6 +98,7 @@ export function getAppregistryAttributeGroupOutput(args?: GetAppregistryAttribut
         "arn": args.arn,
         "id": args.id,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -110,4 +118,9 @@ export interface GetAppregistryAttributeGroupOutputArgs {
      * Name of the Attribute Group to find.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * > Exactly one of `arn`, `id`, or `name` must be set.
+     */
+    region?: pulumi.Input<string>;
 }

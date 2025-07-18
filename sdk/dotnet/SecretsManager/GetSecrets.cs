@@ -129,6 +129,12 @@ namespace Pulumi.Aws.SecretsManager
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetSecretsArgs()
         {
         }
@@ -148,6 +154,12 @@ namespace Pulumi.Aws.SecretsManager
             get => _filters ?? (_filters = new InputList<Inputs.GetSecretsFilterInputArgs>());
             set => _filters = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetSecretsInvokeArgs()
         {
@@ -172,6 +184,7 @@ namespace Pulumi.Aws.SecretsManager
         /// Set of names of the matched Secrets Manager secrets.
         /// </summary>
         public readonly ImmutableArray<string> Names;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetSecretsResult(
@@ -181,12 +194,15 @@ namespace Pulumi.Aws.SecretsManager
 
             string id,
 
-            ImmutableArray<string> names)
+            ImmutableArray<string> names,
+
+            string region)
         {
             Arns = arns;
             Filters = filters;
             Id = id;
             Names = names;
+            Region = region;
         }
     }
 }

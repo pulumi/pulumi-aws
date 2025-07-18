@@ -163,6 +163,12 @@ namespace Pulumi.Aws.Kms
         [Input("keyId", required: true)]
         public string KeyId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetKeyArgs()
         {
         }
@@ -192,6 +198,12 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetKeyInvokeArgs()
         {
@@ -224,7 +236,7 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public readonly string CustomKeyStoreId;
         /// <summary>
-        /// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
+        /// See `key_spec`.
         /// </summary>
         public readonly string CustomerMasterKeySpec;
         /// <summary>
@@ -282,6 +294,10 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public readonly int PendingDeletionWindowInDays;
         /// <summary>
+        /// The AWS Region of a primary or replica key in a multi-Region key.
+        /// </summary>
+        public readonly string Region;
+        /// <summary>
         /// The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expiration_model` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
         /// </summary>
         public readonly string ValidTo;
@@ -334,6 +350,8 @@ namespace Pulumi.Aws.Kms
 
             int pendingDeletionWindowInDays,
 
+            string region,
+
             string validTo,
 
             ImmutableArray<Outputs.GetKeyXksKeyConfigurationResult> xksKeyConfigurations)
@@ -359,6 +377,7 @@ namespace Pulumi.Aws.Kms
             MultiRegionConfigurations = multiRegionConfigurations;
             Origin = origin;
             PendingDeletionWindowInDays = pendingDeletionWindowInDays;
+            Region = region;
             ValidTo = validTo;
             XksKeyConfigurations = xksKeyConfigurations;
         }

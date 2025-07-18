@@ -28,7 +28,7 @@ class GetSigningJobResult:
     """
     A collection of values returned by getSigningJob.
     """
-    def __init__(__self__, completed_at=None, created_at=None, id=None, job_id=None, job_invoker=None, job_owner=None, platform_display_name=None, platform_id=None, profile_name=None, profile_version=None, requested_by=None, revocation_records=None, signature_expires_at=None, signed_objects=None, sources=None, status=None, status_reason=None):
+    def __init__(__self__, completed_at=None, created_at=None, id=None, job_id=None, job_invoker=None, job_owner=None, platform_display_name=None, platform_id=None, profile_name=None, profile_version=None, region=None, requested_by=None, revocation_records=None, signature_expires_at=None, signed_objects=None, sources=None, status=None, status_reason=None):
         if completed_at and not isinstance(completed_at, str):
             raise TypeError("Expected argument 'completed_at' to be a str")
         pulumi.set(__self__, "completed_at", completed_at)
@@ -59,6 +59,9 @@ class GetSigningJobResult:
         if profile_version and not isinstance(profile_version, str):
             raise TypeError("Expected argument 'profile_version' to be a str")
         pulumi.set(__self__, "profile_version", profile_version)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if requested_by and not isinstance(requested_by, str):
             raise TypeError("Expected argument 'requested_by' to be a str")
         pulumi.set(__self__, "requested_by", requested_by)
@@ -159,6 +162,11 @@ class GetSigningJobResult:
         return pulumi.get(self, "profile_version")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="requestedBy")
     def requested_by(self) -> builtins.str:
         """
@@ -231,6 +239,7 @@ class AwaitableGetSigningJobResult(GetSigningJobResult):
             platform_id=self.platform_id,
             profile_name=self.profile_name,
             profile_version=self.profile_version,
+            region=self.region,
             requested_by=self.requested_by,
             revocation_records=self.revocation_records,
             signature_expires_at=self.signature_expires_at,
@@ -241,6 +250,7 @@ class AwaitableGetSigningJobResult(GetSigningJobResult):
 
 
 def get_signing_job(job_id: Optional[builtins.str] = None,
+                    region: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSigningJobResult:
     """
     Provides information about a Signer Signing Job.
@@ -256,9 +266,11 @@ def get_signing_job(job_id: Optional[builtins.str] = None,
 
 
     :param builtins.str job_id: ID of the signing job on output.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['jobId'] = job_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:signer/getSigningJob:getSigningJob', __args__, opts=opts, typ=GetSigningJobResult).value
 
@@ -273,6 +285,7 @@ def get_signing_job(job_id: Optional[builtins.str] = None,
         platform_id=pulumi.get(__ret__, 'platform_id'),
         profile_name=pulumi.get(__ret__, 'profile_name'),
         profile_version=pulumi.get(__ret__, 'profile_version'),
+        region=pulumi.get(__ret__, 'region'),
         requested_by=pulumi.get(__ret__, 'requested_by'),
         revocation_records=pulumi.get(__ret__, 'revocation_records'),
         signature_expires_at=pulumi.get(__ret__, 'signature_expires_at'),
@@ -281,6 +294,7 @@ def get_signing_job(job_id: Optional[builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         status_reason=pulumi.get(__ret__, 'status_reason'))
 def get_signing_job_output(job_id: Optional[pulumi.Input[builtins.str]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSigningJobResult]:
     """
     Provides information about a Signer Signing Job.
@@ -296,9 +310,11 @@ def get_signing_job_output(job_id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str job_id: ID of the signing job on output.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['jobId'] = job_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:signer/getSigningJob:getSigningJob', __args__, opts=opts, typ=GetSigningJobResult)
     return __ret__.apply(lambda __response__: GetSigningJobResult(
@@ -312,6 +328,7 @@ def get_signing_job_output(job_id: Optional[pulumi.Input[builtins.str]] = None,
         platform_id=pulumi.get(__response__, 'platform_id'),
         profile_name=pulumi.get(__response__, 'profile_name'),
         profile_version=pulumi.get(__response__, 'profile_version'),
+        region=pulumi.get(__response__, 'region'),
         requested_by=pulumi.get(__response__, 'requested_by'),
         revocation_records=pulumi.get(__response__, 'revocation_records'),
         signature_expires_at=pulumi.get(__response__, 'signature_expires_at'),

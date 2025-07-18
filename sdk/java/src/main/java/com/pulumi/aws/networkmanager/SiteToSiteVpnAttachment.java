@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Network Manager SiteToSiteAttachment.
+ * Manages a Network Manager site-to-site VPN attachment.
  * 
  * ## Example Usage
  * 
@@ -69,140 +69,140 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment")
 public class SiteToSiteVpnAttachment extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the attachment.
+     * ARN of the attachment.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the attachment.
+     * @return ARN of the attachment.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The policy rule number associated with the attachment.
+     * Policy rule number associated with the attachment.
      * 
      */
     @Export(name="attachmentPolicyRuleNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> attachmentPolicyRuleNumber;
 
     /**
-     * @return The policy rule number associated with the attachment.
+     * @return Policy rule number associated with the attachment.
      * 
      */
     public Output<Integer> attachmentPolicyRuleNumber() {
         return this.attachmentPolicyRuleNumber;
     }
     /**
-     * The type of attachment.
+     * Type of attachment.
      * 
      */
     @Export(name="attachmentType", refs={String.class}, tree="[0]")
     private Output<String> attachmentType;
 
     /**
-     * @return The type of attachment.
+     * @return Type of attachment.
      * 
      */
     public Output<String> attachmentType() {
         return this.attachmentType;
     }
     /**
-     * The ARN of a core network.
+     * ARN of a core network.
      * 
      */
     @Export(name="coreNetworkArn", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkArn;
 
     /**
-     * @return The ARN of a core network.
+     * @return ARN of a core network.
      * 
      */
     public Output<String> coreNetworkArn() {
         return this.coreNetworkArn;
     }
     /**
-     * The ID of a core network for the VPN attachment.
+     * ID of a core network for the VPN attachment.
      * 
      */
     @Export(name="coreNetworkId", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkId;
 
     /**
-     * @return The ID of a core network for the VPN attachment.
+     * @return ID of a core network for the VPN attachment.
      * 
      */
     public Output<String> coreNetworkId() {
         return this.coreNetworkId;
     }
     /**
-     * The Region where the edge is located.
+     * Region where the edge is located.
      * 
      */
     @Export(name="edgeLocation", refs={String.class}, tree="[0]")
     private Output<String> edgeLocation;
 
     /**
-     * @return The Region where the edge is located.
+     * @return Region where the edge is located.
      * 
      */
     public Output<String> edgeLocation() {
         return this.edgeLocation;
     }
     /**
-     * The ID of the attachment account owner.
+     * ID of the attachment account owner.
      * 
      */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
     /**
-     * @return The ID of the attachment account owner.
+     * @return ID of the attachment account owner.
      * 
      */
     public Output<String> ownerAccountId() {
         return this.ownerAccountId;
     }
     /**
-     * The attachment resource ARN.
+     * Attachment resource ARN.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return The attachment resource ARN.
+     * @return Attachment resource ARN.
      * 
      */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
     /**
-     * The name of the segment attachment.
+     * Name of the segment attachment.
      * 
      */
     @Export(name="segmentName", refs={String.class}, tree="[0]")
     private Output<String> segmentName;
 
     /**
-     * @return The name of the segment attachment.
+     * @return Name of the segment attachment.
      * 
      */
     public Output<String> segmentName() {
         return this.segmentName;
     }
     /**
-     * The state of the attachment.
+     * State of the attachment.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
-     * @return The state of the attachment.
+     * @return State of the attachment.
      * 
      */
     public Output<String> state() {
@@ -223,25 +223,21 @@ public class SiteToSiteVpnAttachment extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The ARN of the site-to-site VPN connection.
+     * ARN of the site-to-site VPN connection.
      * 
      * The following arguments are optional:
      * 
@@ -250,7 +246,7 @@ public class SiteToSiteVpnAttachment extends com.pulumi.resources.CustomResource
     private Output<String> vpnConnectionArn;
 
     /**
-     * @return The ARN of the site-to-site VPN connection.
+     * @return ARN of the site-to-site VPN connection.
      * 
      * The following arguments are optional:
      * 

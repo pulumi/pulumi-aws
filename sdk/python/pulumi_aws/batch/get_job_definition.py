@@ -28,7 +28,7 @@ class GetJobDefinitionResult:
     """
     A collection of values returned by getJobDefinition.
     """
-    def __init__(__self__, arn=None, arn_prefix=None, container_orchestration_type=None, eks_properties=None, id=None, name=None, node_properties=None, retry_strategies=None, revision=None, scheduling_priority=None, status=None, tags=None, timeouts=None, type=None):
+    def __init__(__self__, arn=None, arn_prefix=None, container_orchestration_type=None, eks_properties=None, id=None, name=None, node_properties=None, region=None, retry_strategies=None, revision=None, scheduling_priority=None, status=None, tags=None, timeouts=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -50,6 +50,9 @@ class GetJobDefinitionResult:
         if node_properties and not isinstance(node_properties, list):
             raise TypeError("Expected argument 'node_properties' to be a list")
         pulumi.set(__self__, "node_properties", node_properties)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if retry_strategies and not isinstance(retry_strategies, list):
             raise TypeError("Expected argument 'retry_strategies' to be a list")
         pulumi.set(__self__, "retry_strategies", retry_strategies)
@@ -123,6 +126,11 @@ class GetJobDefinitionResult:
         return pulumi.get(self, "node_properties")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="retryStrategies")
     def retry_strategies(self) -> Sequence['outputs.GetJobDefinitionRetryStrategyResult']:
         """
@@ -183,6 +191,7 @@ class AwaitableGetJobDefinitionResult(GetJobDefinitionResult):
             id=self.id,
             name=self.name,
             node_properties=self.node_properties,
+            region=self.region,
             retry_strategies=self.retry_strategies,
             revision=self.revision,
             scheduling_priority=self.scheduling_priority,
@@ -194,6 +203,7 @@ class AwaitableGetJobDefinitionResult(GetJobDefinitionResult):
 
 def get_job_definition(arn: Optional[builtins.str] = None,
                        name: Optional[builtins.str] = None,
+                       region: Optional[builtins.str] = None,
                        revision: Optional[builtins.int] = None,
                        status: Optional[builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobDefinitionResult:
@@ -224,12 +234,14 @@ def get_job_definition(arn: Optional[builtins.str] = None,
 
     :param builtins.str arn: ARN of the Job Definition. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
     :param builtins.str name: The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.int revision: The revision of the job definition.
     :param builtins.str status: The status of the job definition.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
+    __args__['region'] = region
     __args__['revision'] = revision
     __args__['status'] = status
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -243,6 +255,7 @@ def get_job_definition(arn: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         node_properties=pulumi.get(__ret__, 'node_properties'),
+        region=pulumi.get(__ret__, 'region'),
         retry_strategies=pulumi.get(__ret__, 'retry_strategies'),
         revision=pulumi.get(__ret__, 'revision'),
         scheduling_priority=pulumi.get(__ret__, 'scheduling_priority'),
@@ -252,6 +265,7 @@ def get_job_definition(arn: Optional[builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_job_definition_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                              region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               revision: Optional[pulumi.Input[Optional[builtins.int]]] = None,
                               status: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobDefinitionResult]:
@@ -282,12 +296,14 @@ def get_job_definition_output(arn: Optional[pulumi.Input[Optional[builtins.str]]
 
     :param builtins.str arn: ARN of the Job Definition. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
     :param builtins.str name: The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.int revision: The revision of the job definition.
     :param builtins.str status: The status of the job definition.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
+    __args__['region'] = region
     __args__['revision'] = revision
     __args__['status'] = status
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -300,6 +316,7 @@ def get_job_definition_output(arn: Optional[pulumi.Input[Optional[builtins.str]]
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         node_properties=pulumi.get(__response__, 'node_properties'),
+        region=pulumi.get(__response__, 'region'),
         retry_strategies=pulumi.get(__response__, 'retry_strategies'),
         revision=pulumi.get(__response__, 'revision'),
         scheduling_priority=pulumi.get(__response__, 'scheduling_priority'),

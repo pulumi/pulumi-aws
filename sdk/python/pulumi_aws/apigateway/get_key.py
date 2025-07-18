@@ -27,7 +27,7 @@ class GetKeyResult:
     """
     A collection of values returned by getKey.
     """
-    def __init__(__self__, arn=None, created_date=None, customer_id=None, description=None, enabled=None, id=None, last_updated_date=None, name=None, tags=None, value=None):
+    def __init__(__self__, arn=None, created_date=None, customer_id=None, description=None, enabled=None, id=None, last_updated_date=None, name=None, region=None, tags=None, value=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -52,6 +52,9 @@ class GetKeyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -122,6 +125,11 @@ class GetKeyResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Map of tags for the resource.
@@ -151,11 +159,13 @@ class AwaitableGetKeyResult(GetKeyResult):
             id=self.id,
             last_updated_date=self.last_updated_date,
             name=self.name,
+            region=self.region,
             tags=self.tags,
             value=self.value)
 
 
 def get_key(id: Optional[builtins.str] = None,
+            region: Optional[builtins.str] = None,
             tags: Optional[Mapping[str, builtins.str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
@@ -173,10 +183,12 @@ def get_key(id: Optional[builtins.str] = None,
 
 
     :param builtins.str id: ID of the API Key to look up.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getKey:getKey', __args__, opts=opts, typ=GetKeyResult).value
@@ -190,9 +202,11 @@ def get_key(id: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         value=pulumi.get(__ret__, 'value'))
 def get_key_output(id: Optional[pulumi.Input[builtins.str]] = None,
+                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyResult]:
     """
@@ -210,10 +224,12 @@ def get_key_output(id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str id: ID of the API Key to look up.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getKey:getKey', __args__, opts=opts, typ=GetKeyResult)
@@ -226,5 +242,6 @@ def get_key_output(id: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         last_updated_date=pulumi.get(__response__, 'last_updated_date'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         value=pulumi.get(__response__, 'value')))

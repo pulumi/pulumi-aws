@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/oam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/oam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,7 +70,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/oam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/oam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -107,7 +107,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/oam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/oam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -157,6 +157,8 @@ type Link struct {
 	LinkConfiguration LinkLinkConfigurationPtrOutput `pulumi:"linkConfiguration"`
 	// ID string that AWS generated as part of the link ARN.
 	LinkId pulumi.StringOutput `pulumi:"linkId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Types of data that the source account shares with the monitoring account.
 	ResourceTypes pulumi.StringArrayOutput `pulumi:"resourceTypes"`
 	// ARN of the sink that is used for this link.
@@ -166,8 +168,7 @@ type Link struct {
 	// The following arguments are optional:
 	SinkIdentifier pulumi.StringOutput `pulumi:"sinkIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -220,6 +221,8 @@ type linkState struct {
 	LinkConfiguration *LinkLinkConfiguration `pulumi:"linkConfiguration"`
 	// ID string that AWS generated as part of the link ARN.
 	LinkId *string `pulumi:"linkId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Types of data that the source account shares with the monitoring account.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 	// ARN of the sink that is used for this link.
@@ -229,8 +232,7 @@ type linkState struct {
 	// The following arguments are optional:
 	SinkIdentifier *string `pulumi:"sinkIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -245,6 +247,8 @@ type LinkState struct {
 	LinkConfiguration LinkLinkConfigurationPtrInput
 	// ID string that AWS generated as part of the link ARN.
 	LinkId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Types of data that the source account shares with the monitoring account.
 	ResourceTypes pulumi.StringArrayInput
 	// ARN of the sink that is used for this link.
@@ -254,8 +258,7 @@ type LinkState struct {
 	// The following arguments are optional:
 	SinkIdentifier pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -268,6 +271,8 @@ type linkArgs struct {
 	LabelTemplate string `pulumi:"labelTemplate"`
 	// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
 	LinkConfiguration *LinkLinkConfiguration `pulumi:"linkConfiguration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Types of data that the source account shares with the monitoring account.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 	// Identifier of the sink to use to create this link.
@@ -284,6 +289,8 @@ type LinkArgs struct {
 	LabelTemplate pulumi.StringInput
 	// Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
 	LinkConfiguration LinkLinkConfigurationPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Types of data that the source account shares with the monitoring account.
 	ResourceTypes pulumi.StringArrayInput
 	// Identifier of the sink to use to create this link.
@@ -406,6 +413,11 @@ func (o LinkOutput) LinkId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.LinkId }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LinkOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Link) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Types of data that the source account shares with the monitoring account.
 func (o LinkOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringArrayOutput { return v.ResourceTypes }).(pulumi.StringArrayOutput)
@@ -428,7 +440,6 @@ func (o LinkOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o LinkOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Link) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

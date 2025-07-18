@@ -177,6 +177,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A list of security group IDs to assign to the ELB.
      * Only valid if creating an ELB within a VPC
      */
@@ -206,8 +210,6 @@ export class LoadBalancer extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -243,6 +245,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["listeners"] = state ? state.listeners : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
             resourceInputs["sourceSecurityGroup"] = state ? state.sourceSecurityGroup : undefined;
             resourceInputs["sourceSecurityGroupId"] = state ? state.sourceSecurityGroupId : undefined;
@@ -268,6 +271,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["listeners"] = args ? args.listeners : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
             resourceInputs["sourceSecurityGroup"] = args ? args.sourceSecurityGroup : undefined;
             resourceInputs["subnets"] = args ? args.subnets : undefined;
@@ -351,6 +355,10 @@ export interface LoadBalancerState {
      */
     namePrefix?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A list of security group IDs to assign to the ELB.
      * Only valid if creating an ELB within a VPC
      */
@@ -380,8 +388,6 @@ export interface LoadBalancerState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -447,6 +453,10 @@ export interface LoadBalancerArgs {
      * prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of security group IDs to assign to the ELB.
      * Only valid if creating an ELB within a VPC

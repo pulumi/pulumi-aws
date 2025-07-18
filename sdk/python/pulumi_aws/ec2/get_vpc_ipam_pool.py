@@ -29,7 +29,7 @@ class GetVpcIpamPoolResult:
     """
     A collection of values returned by getVpcIpamPool.
     """
-    def __init__(__self__, address_family=None, allocation_default_netmask_length=None, allocation_max_netmask_length=None, allocation_min_netmask_length=None, allocation_resource_tags=None, arn=None, auto_import=None, aws_service=None, description=None, filters=None, id=None, ipam_pool_id=None, ipam_scope_id=None, ipam_scope_type=None, locale=None, pool_depth=None, publicly_advertisable=None, source_ipam_pool_id=None, state=None, tags=None):
+    def __init__(__self__, address_family=None, allocation_default_netmask_length=None, allocation_max_netmask_length=None, allocation_min_netmask_length=None, allocation_resource_tags=None, arn=None, auto_import=None, aws_service=None, description=None, filters=None, id=None, ipam_pool_id=None, ipam_scope_id=None, ipam_scope_type=None, locale=None, pool_depth=None, publicly_advertisable=None, region=None, source_ipam_pool_id=None, state=None, tags=None):
         if address_family and not isinstance(address_family, str):
             raise TypeError("Expected argument 'address_family' to be a str")
         pulumi.set(__self__, "address_family", address_family)
@@ -81,6 +81,9 @@ class GetVpcIpamPoolResult:
         if publicly_advertisable and not isinstance(publicly_advertisable, bool):
             raise TypeError("Expected argument 'publicly_advertisable' to be a bool")
         pulumi.set(__self__, "publicly_advertisable", publicly_advertisable)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if source_ipam_pool_id and not isinstance(source_ipam_pool_id, str):
             raise TypeError("Expected argument 'source_ipam_pool_id' to be a str")
         pulumi.set(__self__, "source_ipam_pool_id", source_ipam_pool_id)
@@ -216,6 +219,11 @@ class GetVpcIpamPoolResult:
         return pulumi.get(self, "publicly_advertisable")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="sourceIpamPoolId")
     def source_ipam_pool_id(self) -> builtins.str:
         """
@@ -260,6 +268,7 @@ class AwaitableGetVpcIpamPoolResult(GetVpcIpamPoolResult):
             locale=self.locale,
             pool_depth=self.pool_depth,
             publicly_advertisable=self.publicly_advertisable,
+            region=self.region,
             source_ipam_pool_id=self.source_ipam_pool_id,
             state=self.state,
             tags=self.tags)
@@ -269,6 +278,7 @@ def get_vpc_ipam_pool(allocation_resource_tags: Optional[Mapping[str, builtins.s
                       filters: Optional[Sequence[Union['GetVpcIpamPoolFilterArgs', 'GetVpcIpamPoolFilterArgsDict']]] = None,
                       id: Optional[builtins.str] = None,
                       ipam_pool_id: Optional[builtins.str] = None,
+                      region: Optional[builtins.str] = None,
                       tags: Optional[Mapping[str, builtins.str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIpamPoolResult:
     """
@@ -308,6 +318,7 @@ def get_vpc_ipam_pool(allocation_resource_tags: Optional[Mapping[str, builtins.s
     :param Sequence[Union['GetVpcIpamPoolFilterArgs', 'GetVpcIpamPoolFilterArgsDict']] filters: Custom filter block as described below.
     :param builtins.str id: ID of the IPAM pool.
     :param builtins.str ipam_pool_id: ID of the IPAM pool you would like information on.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assigned to the resource.
     """
     __args__ = dict()
@@ -315,6 +326,7 @@ def get_vpc_ipam_pool(allocation_resource_tags: Optional[Mapping[str, builtins.s
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['ipamPoolId'] = ipam_pool_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcIpamPool:getVpcIpamPool', __args__, opts=opts, typ=GetVpcIpamPoolResult).value
@@ -337,6 +349,7 @@ def get_vpc_ipam_pool(allocation_resource_tags: Optional[Mapping[str, builtins.s
         locale=pulumi.get(__ret__, 'locale'),
         pool_depth=pulumi.get(__ret__, 'pool_depth'),
         publicly_advertisable=pulumi.get(__ret__, 'publicly_advertisable'),
+        region=pulumi.get(__ret__, 'region'),
         source_ipam_pool_id=pulumi.get(__ret__, 'source_ipam_pool_id'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -344,6 +357,7 @@ def get_vpc_ipam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opt
                              filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcIpamPoolFilterArgs', 'GetVpcIpamPoolFilterArgsDict']]]]] = None,
                              id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              ipam_pool_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcIpamPoolResult]:
     """
@@ -383,6 +397,7 @@ def get_vpc_ipam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opt
     :param Sequence[Union['GetVpcIpamPoolFilterArgs', 'GetVpcIpamPoolFilterArgsDict']] filters: Custom filter block as described below.
     :param builtins.str id: ID of the IPAM pool.
     :param builtins.str ipam_pool_id: ID of the IPAM pool you would like information on.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assigned to the resource.
     """
     __args__ = dict()
@@ -390,6 +405,7 @@ def get_vpc_ipam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opt
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['ipamPoolId'] = ipam_pool_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcIpamPool:getVpcIpamPool', __args__, opts=opts, typ=GetVpcIpamPoolResult)
@@ -411,6 +427,7 @@ def get_vpc_ipam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opt
         locale=pulumi.get(__response__, 'locale'),
         pool_depth=pulumi.get(__response__, 'pool_depth'),
         publicly_advertisable=pulumi.get(__response__, 'publicly_advertisable'),
+        region=pulumi.get(__response__, 'region'),
         source_ipam_pool_id=pulumi.get(__response__, 'source_ipam_pool_id'),
         state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags')))

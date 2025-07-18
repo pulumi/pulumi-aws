@@ -34,8 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleSourceBucketV2 = new BucketV2("exampleSourceBucketV2", BucketV2Args.builder()
+ *         var exampleSourceBucket = new Bucket("exampleSourceBucket", BucketArgs.builder()
  *             .bucket("example-source")
  *             .build());
  * 
@@ -90,17 +90,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSourceBucketPolicy = new BucketPolicy("exampleSourceBucketPolicy", BucketPolicyArgs.builder()
- *             .bucket(exampleSourceBucketV2.id())
+ *             .bucket(exampleSourceBucket.id())
  *             .policy(exampleSource.json())
  *             .build());
  * 
  *         var example = new BucketObjectv2("example", BucketObjectv2Args.builder()
- *             .bucket(exampleSourceBucketV2.id())
+ *             .bucket(exampleSourceBucket.id())
  *             .key("example_source.csv")
  *             .source(new FileAsset("example_source.csv"))
  *             .build());
  * 
- *         var exampleDestinationBucketV2 = new BucketV2("exampleDestinationBucketV2", BucketV2Args.builder()
+ *         var exampleDestinationBucket = new Bucket("exampleDestinationBucket", BucketArgs.builder()
  *             .bucket("example-destination")
  *             .build());
  * 
@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDestinationBucketPolicy = new BucketPolicy("exampleDestinationBucketPolicy", BucketPolicyArgs.builder()
- *             .bucket(exampleDestinationBucketV2.id())
+ *             .bucket(exampleDestinationBucket.id())
  *             .policy(exampleDestination.json())
  *             .build());
  * 
@@ -175,10 +175,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import AppFlow flows using the `arn`. For example:
+ * Using `pulumi import`, import AppFlow flows using the `name`. For example:
  * 
  * ```sh
- * $ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
+ * $ pulumi import aws:appflow/flow:Flow example example-flow
  * ```
  * 
  */
@@ -283,6 +283,20 @@ public class Flow extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
      * 
      */
@@ -313,11 +327,7 @@ public class Flow extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/transfer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupConnector(ctx *pulumi.Context, args *LookupConnectorArgs, opts ...pul
 type LookupConnectorArgs struct {
 	// Unique identifier for connector
 	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getConnector.
@@ -65,6 +67,7 @@ type LookupConnectorResult struct {
 	Id         string                  `pulumi:"id"`
 	// ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
 	LoggingRole string `pulumi:"loggingRole"`
+	Region      string `pulumi:"region"`
 	// Name of security policy.
 	SecurityPolicyName string `pulumi:"securityPolicyName"`
 	// List of egress Ip addresses.
@@ -90,6 +93,8 @@ func LookupConnectorOutput(ctx *pulumi.Context, args LookupConnectorOutputArgs, 
 type LookupConnectorOutputArgs struct {
 	// Unique identifier for connector
 	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupConnectorOutputArgs) ElementType() reflect.Type {
@@ -133,6 +138,10 @@ func (o LookupConnectorResultOutput) Id() pulumi.StringOutput {
 // ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
 func (o LookupConnectorResultOutput) LoggingRole() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectorResult) string { return v.LoggingRole }).(pulumi.StringOutput)
+}
+
+func (o LookupConnectorResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectorResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Name of security policy.

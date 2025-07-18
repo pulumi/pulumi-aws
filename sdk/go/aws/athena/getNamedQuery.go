@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/athena"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/athena"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupNamedQuery(ctx *pulumi.Context, args *LookupNamedQueryArgs, opts ...p
 type LookupNamedQueryArgs struct {
 	// The plain language name for the query. Maximum length of 128.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The workgroup to which the query belongs. Defaults to `primary`.
 	Workgroup *string `pulumi:"workgroup"`
 }
@@ -66,6 +68,7 @@ type LookupNamedQueryResult struct {
 	Id          string  `pulumi:"id"`
 	Name        string  `pulumi:"name"`
 	Querystring string  `pulumi:"querystring"`
+	Region      string  `pulumi:"region"`
 	Workgroup   *string `pulumi:"workgroup"`
 }
 
@@ -82,6 +85,8 @@ func LookupNamedQueryOutput(ctx *pulumi.Context, args LookupNamedQueryOutputArgs
 type LookupNamedQueryOutputArgs struct {
 	// The plain language name for the query. Maximum length of 128.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The workgroup to which the query belongs. Defaults to `primary`.
 	Workgroup pulumi.StringPtrInput `pulumi:"workgroup"`
 }
@@ -126,6 +131,10 @@ func (o LookupNamedQueryResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupNamedQueryResultOutput) Querystring() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamedQueryResult) string { return v.Querystring }).(pulumi.StringOutput)
+}
+
+func (o LookupNamedQueryResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamedQueryResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupNamedQueryResultOutput) Workgroup() pulumi.StringPtrOutput {

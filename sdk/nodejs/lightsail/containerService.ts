@@ -159,6 +159,10 @@ export class ContainerService extends pulumi.CustomResource {
      */
     public readonly publicDomainNames!: pulumi.Output<outputs.lightsail.ContainerServicePublicDomainNames | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Lightsail resource type of the container service (i.e., ContainerService).
      */
     public /*out*/ readonly resourceType!: pulumi.Output<string>;
@@ -178,8 +182,6 @@ export class ContainerService extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -211,6 +213,7 @@ export class ContainerService extends pulumi.CustomResource {
             resourceInputs["privateDomainName"] = state ? state.privateDomainName : undefined;
             resourceInputs["privateRegistryAccess"] = state ? state.privateRegistryAccess : undefined;
             resourceInputs["publicDomainNames"] = state ? state.publicDomainNames : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
             resourceInputs["scale"] = state ? state.scale : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
@@ -230,6 +233,7 @@ export class ContainerService extends pulumi.CustomResource {
             resourceInputs["power"] = args ? args.power : undefined;
             resourceInputs["privateRegistryAccess"] = args ? args.privateRegistryAccess : undefined;
             resourceInputs["publicDomainNames"] = args ? args.publicDomainNames : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scale"] = args ? args.scale : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -297,6 +301,10 @@ export interface ContainerServiceState {
      */
     publicDomainNames?: pulumi.Input<inputs.lightsail.ContainerServicePublicDomainNames>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Lightsail resource type of the container service (i.e., ContainerService).
      */
     resourceType?: pulumi.Input<string>;
@@ -316,8 +324,6 @@ export interface ContainerServiceState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -350,6 +356,10 @@ export interface ContainerServiceArgs {
      * Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
      */
     publicDomainNames?: pulumi.Input<inputs.lightsail.ContainerServicePublicDomainNames>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
      *

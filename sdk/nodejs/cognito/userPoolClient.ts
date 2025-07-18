@@ -252,6 +252,10 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly refreshTokenValidity!: pulumi.Output<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of provider names for the identity providers that are supported on this client. It uses the `providerName` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      */
     public readonly supportedIdentityProviders!: pulumi.Output<string[]>;
@@ -303,6 +307,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             resourceInputs["readAttributes"] = state ? state.readAttributes : undefined;
             resourceInputs["refreshTokenRotation"] = state ? state.refreshTokenRotation : undefined;
             resourceInputs["refreshTokenValidity"] = state ? state.refreshTokenValidity : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["supportedIdentityProviders"] = state ? state.supportedIdentityProviders : undefined;
             resourceInputs["tokenValidityUnits"] = state ? state.tokenValidityUnits : undefined;
             resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
@@ -331,6 +336,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             resourceInputs["readAttributes"] = args ? args.readAttributes : undefined;
             resourceInputs["refreshTokenRotation"] = args ? args.refreshTokenRotation : undefined;
             resourceInputs["refreshTokenValidity"] = args ? args.refreshTokenValidity : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["supportedIdentityProviders"] = args ? args.supportedIdentityProviders : undefined;
             resourceInputs["tokenValidityUnits"] = args ? args.tokenValidityUnits : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
@@ -428,6 +434,10 @@ export interface UserPoolClientState {
      * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
      */
     refreshTokenValidity?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of provider names for the identity providers that are supported on this client. It uses the `providerName` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      */
@@ -528,6 +538,10 @@ export interface UserPoolClientArgs {
      * Time limit, between 60 minutes and 10 years, after which the refresh token is no longer valid and cannot be used. By default, the unit is days. The unit can be overridden by a value in `token_validity_units.refresh_token`.
      */
     refreshTokenValidity?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of provider names for the identity providers that are supported on this client. It uses the `providerName` attribute of the `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      */

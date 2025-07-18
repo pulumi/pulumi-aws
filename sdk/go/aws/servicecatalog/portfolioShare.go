@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,7 +31,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,6 +70,8 @@ type PortfolioShare struct {
 	PortfolioId pulumi.StringOutput `pulumi:"portfolioId"`
 	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
 	SharePrincipals pulumi.BoolPtrOutput `pulumi:"sharePrincipals"`
 	// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
@@ -129,6 +131,8 @@ type portfolioShareState struct {
 	PortfolioId *string `pulumi:"portfolioId"`
 	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
 	PrincipalId *string `pulumi:"principalId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
 	SharePrincipals *bool `pulumi:"sharePrincipals"`
 	// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
@@ -150,6 +154,8 @@ type PortfolioShareState struct {
 	PortfolioId pulumi.StringPtrInput
 	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
 	PrincipalId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
 	SharePrincipals pulumi.BoolPtrInput
 	// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
@@ -173,6 +179,8 @@ type portfolioShareArgs struct {
 	PortfolioId string `pulumi:"portfolioId"`
 	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
 	PrincipalId string `pulumi:"principalId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
 	SharePrincipals *bool `pulumi:"sharePrincipals"`
 	// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
@@ -193,6 +201,8 @@ type PortfolioShareArgs struct {
 	PortfolioId pulumi.StringInput
 	// Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
 	PrincipalId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
 	SharePrincipals pulumi.BoolPtrInput
 	// Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
@@ -310,6 +320,11 @@ func (o PortfolioShareOutput) PortfolioId() pulumi.StringOutput {
 // Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
 func (o PortfolioShareOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PortfolioShare) pulumi.StringOutput { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o PortfolioShareOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *PortfolioShare) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.

@@ -39,6 +39,7 @@ export function getKeyPair(args?: GetKeyPairArgs, opts?: pulumi.InvokeOptions): 
         "includePublicKey": args.includePublicKey,
         "keyName": args.keyName,
         "keyPairId": args.keyPairId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -67,6 +68,10 @@ export interface GetKeyPairArgs {
      * Key Pair ID.
      */
     keyPairId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Any tags assigned to the Key Pair.
      */
@@ -105,6 +110,7 @@ export interface GetKeyPairResult {
      * Public key material.
      */
     readonly publicKey: string;
+    readonly region: string;
     /**
      * Any tags assigned to the Key Pair.
      */
@@ -142,6 +148,7 @@ export function getKeyPairOutput(args?: GetKeyPairOutputArgs, opts?: pulumi.Invo
         "includePublicKey": args.includePublicKey,
         "keyName": args.keyName,
         "keyPairId": args.keyPairId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -170,6 +177,10 @@ export interface GetKeyPairOutputArgs {
      * Key Pair ID.
      */
     keyPairId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Any tags assigned to the Key Pair.
      */

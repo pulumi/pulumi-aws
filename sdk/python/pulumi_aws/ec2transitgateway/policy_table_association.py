@@ -21,14 +21,18 @@ __all__ = ['PolicyTableAssociationArgs', 'PolicyTableAssociation']
 class PolicyTableAssociationArgs:
     def __init__(__self__, *,
                  transit_gateway_attachment_id: pulumi.Input[builtins.str],
-                 transit_gateway_policy_table_id: pulumi.Input[builtins.str]):
+                 transit_gateway_policy_table_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyTableAssociation resource.
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[builtins.str] transit_gateway_policy_table_id: Identifier of EC2 Transit Gateway Policy Table.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         pulumi.set(__self__, "transit_gateway_policy_table_id", transit_gateway_policy_table_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")
@@ -54,21 +58,37 @@ class PolicyTableAssociationArgs:
     def transit_gateway_policy_table_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "transit_gateway_policy_table_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _PolicyTableAssociationState:
     def __init__(__self__, *,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_policy_table_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering PolicyTableAssociation resources.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id: Identifier of the resource
         :param pulumi.Input[builtins.str] resource_type: Type of the resource
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[builtins.str] transit_gateway_policy_table_id: Identifier of EC2 Transit Gateway Policy Table.
         """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
         if resource_type is not None:
@@ -77,6 +97,18 @@ class _PolicyTableAssociationState:
             pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         if transit_gateway_policy_table_id is not None:
             pulumi.set(__self__, "transit_gateway_policy_table_id", transit_gateway_policy_table_id)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -133,6 +165,7 @@ class PolicyTableAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_policy_table_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -160,6 +193,7 @@ class PolicyTableAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[builtins.str] transit_gateway_policy_table_id: Identifier of EC2 Transit Gateway Policy Table.
         """
@@ -206,6 +240,7 @@ class PolicyTableAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_policy_table_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -217,6 +252,7 @@ class PolicyTableAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyTableAssociationArgs.__new__(PolicyTableAssociationArgs)
 
+            __props__.__dict__["region"] = region
             if transit_gateway_attachment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_attachment_id'")
             __props__.__dict__["transit_gateway_attachment_id"] = transit_gateway_attachment_id
@@ -235,6 +271,7 @@ class PolicyTableAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_id: Optional[pulumi.Input[builtins.str]] = None,
             resource_type: Optional[pulumi.Input[builtins.str]] = None,
             transit_gateway_attachment_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -246,6 +283,7 @@ class PolicyTableAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id: Identifier of the resource
         :param pulumi.Input[builtins.str] resource_type: Type of the resource
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
@@ -255,11 +293,20 @@ class PolicyTableAssociation(pulumi.CustomResource):
 
         __props__ = _PolicyTableAssociationState.__new__(_PolicyTableAssociationState)
 
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_id"] = resource_id
         __props__.__dict__["resource_type"] = resource_type
         __props__.__dict__["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         __props__.__dict__["transit_gateway_policy_table_id"] = transit_gateway_policy_table_id
         return PolicyTableAssociation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceId")

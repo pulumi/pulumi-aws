@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,6 +63,8 @@ type ConnectionAssociation struct {
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
 	// The ID of the LAG with which to associate the connection.
 	LagId pulumi.StringOutput `pulumi:"lagId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewConnectionAssociation registers a new resource with the given unique name, arguments, and options.
@@ -105,6 +107,8 @@ type connectionAssociationState struct {
 	ConnectionId *string `pulumi:"connectionId"`
 	// The ID of the LAG with which to associate the connection.
 	LagId *string `pulumi:"lagId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ConnectionAssociationState struct {
@@ -112,6 +116,8 @@ type ConnectionAssociationState struct {
 	ConnectionId pulumi.StringPtrInput
 	// The ID of the LAG with which to associate the connection.
 	LagId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ConnectionAssociationState) ElementType() reflect.Type {
@@ -123,6 +129,8 @@ type connectionAssociationArgs struct {
 	ConnectionId string `pulumi:"connectionId"`
 	// The ID of the LAG with which to associate the connection.
 	LagId string `pulumi:"lagId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ConnectionAssociation resource.
@@ -131,6 +139,8 @@ type ConnectionAssociationArgs struct {
 	ConnectionId pulumi.StringInput
 	// The ID of the LAG with which to associate the connection.
 	LagId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ConnectionAssociationArgs) ElementType() reflect.Type {
@@ -228,6 +238,11 @@ func (o ConnectionAssociationOutput) ConnectionId() pulumi.StringOutput {
 // The ID of the LAG with which to associate the connection.
 func (o ConnectionAssociationOutput) LagId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionAssociation) pulumi.StringOutput { return v.LagId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ConnectionAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectionAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ConnectionAssociationArrayOutput struct{ *pulumi.OutputState }

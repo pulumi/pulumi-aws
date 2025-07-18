@@ -117,6 +117,10 @@ export class Snapshot extends pulumi.CustomResource {
     public /*out*/ readonly optionGroupName!: pulumi.Output<string>;
     public /*out*/ readonly port!: pulumi.Output<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
     public readonly sharedAccounts!: pulumi.Output<string[] | undefined>;
@@ -143,8 +147,6 @@ export class Snapshot extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -178,6 +180,7 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["licenseModel"] = state ? state.licenseModel : undefined;
             resourceInputs["optionGroupName"] = state ? state.optionGroupName : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sharedAccounts"] = state ? state.sharedAccounts : undefined;
             resourceInputs["snapshotType"] = state ? state.snapshotType : undefined;
             resourceInputs["sourceDbSnapshotIdentifier"] = state ? state.sourceDbSnapshotIdentifier : undefined;
@@ -197,6 +200,7 @@ export class Snapshot extends pulumi.CustomResource {
             }
             resourceInputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;
             resourceInputs["dbSnapshotIdentifier"] = args ? args.dbSnapshotIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sharedAccounts"] = args ? args.sharedAccounts : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["allocatedStorage"] = undefined /*out*/;
@@ -277,6 +281,10 @@ export interface SnapshotState {
     optionGroupName?: pulumi.Input<string>;
     port?: pulumi.Input<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
     sharedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
@@ -303,8 +311,6 @@ export interface SnapshotState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -325,6 +331,10 @@ export interface SnapshotArgs {
      * The Identifier for the snapshot.
      */
     dbSnapshotIdentifier: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */

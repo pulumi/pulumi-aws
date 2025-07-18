@@ -2862,7 +2862,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake(
         :param builtins.str stage: Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
         :param builtins.str warehouse: The name of the Snowflake warehouse.
         :param builtins.str account_name: The name of the account.
-        :param builtins.str region: AWS Region of the Snowflake account.
+        :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+               * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "stage", stage)
@@ -2919,7 +2920,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake(
     @pulumi.getter
     def region(self) -> Optional[builtins.str]:
         """
-        AWS Region of the Snowflake account.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         """
         return pulumi.get(self, "region")
 

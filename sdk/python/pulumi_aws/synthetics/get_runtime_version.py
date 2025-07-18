@@ -27,7 +27,7 @@ class GetRuntimeVersionResult:
     """
     A collection of values returned by getRuntimeVersion.
     """
-    def __init__(__self__, deprecation_date=None, description=None, id=None, latest=None, prefix=None, release_date=None, version=None, version_name=None):
+    def __init__(__self__, deprecation_date=None, description=None, id=None, latest=None, prefix=None, region=None, release_date=None, version=None, version_name=None):
         if deprecation_date and not isinstance(deprecation_date, str):
             raise TypeError("Expected argument 'deprecation_date' to be a str")
         pulumi.set(__self__, "deprecation_date", deprecation_date)
@@ -43,6 +43,9 @@ class GetRuntimeVersionResult:
         if prefix and not isinstance(prefix, str):
             raise TypeError("Expected argument 'prefix' to be a str")
         pulumi.set(__self__, "prefix", prefix)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if release_date and not isinstance(release_date, str):
             raise TypeError("Expected argument 'release_date' to be a str")
         pulumi.set(__self__, "release_date", release_date)
@@ -88,6 +91,11 @@ class GetRuntimeVersionResult:
         return pulumi.get(self, "prefix")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="releaseDate")
     def release_date(self) -> builtins.str:
         """
@@ -120,6 +128,7 @@ class AwaitableGetRuntimeVersionResult(GetRuntimeVersionResult):
             id=self.id,
             latest=self.latest,
             prefix=self.prefix,
+            region=self.region,
             release_date=self.release_date,
             version=self.version,
             version_name=self.version_name)
@@ -127,6 +136,7 @@ class AwaitableGetRuntimeVersionResult(GetRuntimeVersionResult):
 
 def get_runtime_version(latest: Optional[builtins.bool] = None,
                         prefix: Optional[builtins.str] = None,
+                        region: Optional[builtins.str] = None,
                         version: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuntimeVersionResult:
     """
@@ -159,11 +169,13 @@ def get_runtime_version(latest: Optional[builtins.bool] = None,
     :param builtins.str prefix: Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str version: Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
     """
     __args__ = dict()
     __args__['latest'] = latest
     __args__['prefix'] = prefix
+    __args__['region'] = region
     __args__['version'] = version
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:synthetics/getRuntimeVersion:getRuntimeVersion', __args__, opts=opts, typ=GetRuntimeVersionResult).value
@@ -174,11 +186,13 @@ def get_runtime_version(latest: Optional[builtins.bool] = None,
         id=pulumi.get(__ret__, 'id'),
         latest=pulumi.get(__ret__, 'latest'),
         prefix=pulumi.get(__ret__, 'prefix'),
+        region=pulumi.get(__ret__, 'region'),
         release_date=pulumi.get(__ret__, 'release_date'),
         version=pulumi.get(__ret__, 'version'),
         version_name=pulumi.get(__ret__, 'version_name'))
 def get_runtime_version_output(latest: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                prefix: Optional[pulumi.Input[builtins.str]] = None,
+                               region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                version: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuntimeVersionResult]:
     """
@@ -211,11 +225,13 @@ def get_runtime_version_output(latest: Optional[pulumi.Input[Optional[builtins.b
     :param builtins.str prefix: Name prefix of the runtime version (for example, `syn-nodejs-puppeteer`).
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str version: Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
     """
     __args__ = dict()
     __args__['latest'] = latest
     __args__['prefix'] = prefix
+    __args__['region'] = region
     __args__['version'] = version
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:synthetics/getRuntimeVersion:getRuntimeVersion', __args__, opts=opts, typ=GetRuntimeVersionResult)
@@ -225,6 +241,7 @@ def get_runtime_version_output(latest: Optional[pulumi.Input[Optional[builtins.b
         id=pulumi.get(__response__, 'id'),
         latest=pulumi.get(__response__, 'latest'),
         prefix=pulumi.get(__response__, 'prefix'),
+        region=pulumi.get(__response__, 'region'),
         release_date=pulumi.get(__response__, 'release_date'),
         version=pulumi.get(__response__, 'version'),
         version_name=pulumi.get(__response__, 'version_name')))

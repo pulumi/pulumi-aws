@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const b = new aws.s3.BucketV2("b", {
+ * const b = new aws.s3.Bucket("b", {
  *     bucket: "example-awsconfig",
  *     forceDestroy: true,
  * });
@@ -104,6 +104,10 @@ export class DeliveryChannel extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the S3 bucket used to store the configuration history.
      */
     public readonly s3BucketName!: pulumi.Output<string>;
@@ -138,6 +142,7 @@ export class DeliveryChannel extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DeliveryChannelState | undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["s3BucketName"] = state ? state.s3BucketName : undefined;
             resourceInputs["s3KeyPrefix"] = state ? state.s3KeyPrefix : undefined;
             resourceInputs["s3KmsKeyArn"] = state ? state.s3KmsKeyArn : undefined;
@@ -149,6 +154,7 @@ export class DeliveryChannel extends pulumi.CustomResource {
                 throw new Error("Missing required property 's3BucketName'");
             }
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["s3BucketName"] = args ? args.s3BucketName : undefined;
             resourceInputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
             resourceInputs["s3KmsKeyArn"] = args ? args.s3KmsKeyArn : undefined;
@@ -168,6 +174,10 @@ export interface DeliveryChannelState {
      * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the S3 bucket used to store the configuration history.
      */
@@ -198,6 +208,10 @@ export interface DeliveryChannelArgs {
      * The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the S3 bucket used to store the configuration history.
      */

@@ -3,11 +3,9 @@
 
 package com.pulumi.aws.auditmanager.inputs;
 
-import com.pulumi.aws.auditmanager.inputs.GetFrameworkControlSet;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,13 +14,6 @@ import javax.annotation.Nullable;
 public final class GetFrameworkPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetFrameworkPlainArgs Empty = new GetFrameworkPlainArgs();
-
-    @Import(name="controlSets")
-    private @Nullable List<GetFrameworkControlSet> controlSets;
-
-    public Optional<List<GetFrameworkControlSet>> controlSets() {
-        return Optional.ofNullable(this.controlSets);
-    }
 
     @Import(name="frameworkType", required=true)
     private String frameworkType;
@@ -46,12 +37,27 @@ public final class GetFrameworkPlainArgs extends com.pulumi.resources.InvokeArgs
         return this.name;
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetFrameworkPlainArgs() {}
 
     private GetFrameworkPlainArgs(GetFrameworkPlainArgs $) {
-        this.controlSets = $.controlSets;
         this.frameworkType = $.frameworkType;
         this.name = $.name;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -72,15 +78,6 @@ public final class GetFrameworkPlainArgs extends com.pulumi.resources.InvokeArgs
             $ = new GetFrameworkPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder controlSets(@Nullable List<GetFrameworkControlSet> controlSets) {
-            $.controlSets = controlSets;
-            return this;
-        }
-
-        public Builder controlSets(GetFrameworkControlSet... controlSets) {
-            return controlSets(List.of(controlSets));
-        }
-
         public Builder frameworkType(String frameworkType) {
             $.frameworkType = frameworkType;
             return this;
@@ -94,6 +91,17 @@ public final class GetFrameworkPlainArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

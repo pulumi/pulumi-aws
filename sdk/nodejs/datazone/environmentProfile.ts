@@ -175,6 +175,10 @@ export class EnvironmentProfile extends pulumi.CustomResource {
      */
     public readonly projectIdentifier!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Time of last update to environment profile.
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
@@ -205,6 +209,7 @@ export class EnvironmentProfile extends pulumi.CustomResource {
             resourceInputs["environmentBlueprintIdentifier"] = state ? state.environmentBlueprintIdentifier : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["projectIdentifier"] = state ? state.projectIdentifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
             resourceInputs["userParameters"] = state ? state.userParameters : undefined;
         } else {
@@ -228,6 +233,7 @@ export class EnvironmentProfile extends pulumi.CustomResource {
             resourceInputs["environmentBlueprintIdentifier"] = args ? args.environmentBlueprintIdentifier : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["projectIdentifier"] = args ? args.projectIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["userParameters"] = args ? args.userParameters : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
@@ -279,6 +285,10 @@ export interface EnvironmentProfileState {
      */
     projectIdentifier?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Time of last update to environment profile.
      */
     updatedAt?: pulumi.Input<string>;
@@ -320,6 +330,10 @@ export interface EnvironmentProfileArgs {
      * Project identifier for environment profile.
      */
     projectIdentifier: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Array of user parameters of the environment profile with the following attributes:
      */

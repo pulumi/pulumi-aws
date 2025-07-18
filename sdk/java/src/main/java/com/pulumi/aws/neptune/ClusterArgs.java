@@ -343,6 +343,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
      * 
      */
@@ -418,14 +433,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+     * Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
      * 
      */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
     /**
-     * @return Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+     * @return Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
      * 
      */
     public Optional<Output<String>> storageType() {
@@ -487,6 +502,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.port = $.port;
         this.preferredBackupWindow = $.preferredBackupWindow;
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
+        this.region = $.region;
         this.replicationSourceIdentifier = $.replicationSourceIdentifier;
         this.serverlessV2ScalingConfiguration = $.serverlessV2ScalingConfiguration;
         this.skipFinalSnapshot = $.skipFinalSnapshot;
@@ -996,6 +1012,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param replicationSourceIdentifier ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
          * 
          * @return builder
@@ -1101,7 +1138,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageType Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+         * @param storageType Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
          * 
          * @return builder
          * 
@@ -1112,7 +1149,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageType Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+         * @param storageType Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
          * 
          * @return builder
          * 

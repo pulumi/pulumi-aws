@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,6 +67,8 @@ type ApiKey struct {
 	Expires pulumi.StringPtrOutput `pulumi:"expires"`
 	// API key
 	Key pulumi.StringOutput `pulumi:"key"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewApiKey registers a new resource with the given unique name, arguments, and options.
@@ -118,6 +120,8 @@ type apiKeyState struct {
 	Expires *string `pulumi:"expires"`
 	// API key
 	Key *string `pulumi:"key"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ApiKeyState struct {
@@ -130,6 +134,8 @@ type ApiKeyState struct {
 	Expires pulumi.StringPtrInput
 	// API key
 	Key pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ApiKeyState) ElementType() reflect.Type {
@@ -143,6 +149,8 @@ type apiKeyArgs struct {
 	Description *string `pulumi:"description"`
 	// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
 	Expires *string `pulumi:"expires"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ApiKey resource.
@@ -153,6 +161,8 @@ type ApiKeyArgs struct {
 	Description pulumi.StringPtrInput
 	// RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
 	Expires pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ApiKeyArgs) ElementType() reflect.Type {
@@ -264,6 +274,11 @@ func (o ApiKeyOutput) Expires() pulumi.StringPtrOutput {
 // API key
 func (o ApiKeyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ApiKeyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApiKey) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ApiKeyArrayOutput struct{ *pulumi.OutputState }

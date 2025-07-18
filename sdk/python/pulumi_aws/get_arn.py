@@ -81,7 +81,7 @@ class GetArnResult:
     def region(self) -> builtins.str:
         """
         Region the resource resides in.
-        Note that the ARNs for some resources do not require a region, so this component might be omitted.
+        Note that the ARNs for some resources do not include a Region, so this component might be omitted.
         """
         return pulumi.get(self, "region")
 

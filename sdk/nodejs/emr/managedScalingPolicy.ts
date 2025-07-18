@@ -82,6 +82,10 @@ export class ManagedScalingPolicy extends pulumi.CustomResource {
      * Configuration block with compute limit settings. Described below.
      */
     public readonly computeLimits!: pulumi.Output<outputs.emr.ManagedScalingPolicyComputeLimit[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ManagedScalingPolicy resource with the given unique name, arguments, and options.
@@ -98,6 +102,7 @@ export class ManagedScalingPolicy extends pulumi.CustomResource {
             const state = argsOrState as ManagedScalingPolicyState | undefined;
             resourceInputs["clusterId"] = state ? state.clusterId : undefined;
             resourceInputs["computeLimits"] = state ? state.computeLimits : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ManagedScalingPolicyArgs | undefined;
             if ((!args || args.clusterId === undefined) && !opts.urn) {
@@ -108,6 +113,7 @@ export class ManagedScalingPolicy extends pulumi.CustomResource {
             }
             resourceInputs["clusterId"] = args ? args.clusterId : undefined;
             resourceInputs["computeLimits"] = args ? args.computeLimits : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ManagedScalingPolicy.__pulumiType, name, resourceInputs, opts);
@@ -126,6 +132,10 @@ export interface ManagedScalingPolicyState {
      * Configuration block with compute limit settings. Described below.
      */
     computeLimits?: pulumi.Input<pulumi.Input<inputs.emr.ManagedScalingPolicyComputeLimit>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -140,4 +150,8 @@ export interface ManagedScalingPolicyArgs {
      * Configuration block with compute limit settings. Described below.
      */
     computeLimits: pulumi.Input<pulumi.Input<inputs.emr.ManagedScalingPolicyComputeLimit>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

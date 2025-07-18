@@ -28,6 +28,7 @@ class EventDataStoreArgs:
                  multi_region_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  organization_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  suspend: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -40,6 +41,7 @@ class EventDataStoreArgs:
         :param pulumi.Input[builtins.bool] multi_region_enabled: Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
         :param pulumi.Input[builtins.str] name: The name of the event data store.
         :param pulumi.Input[builtins.bool] organization_enabled: Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period: The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
         :param pulumi.Input[builtins.str] suspend: Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -57,6 +59,8 @@ class EventDataStoreArgs:
             pulumi.set(__self__, "name", name)
         if organization_enabled is not None:
             pulumi.set(__self__, "organization_enabled", organization_enabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retention_period is not None:
             pulumi.set(__self__, "retention_period", retention_period)
         if suspend is not None:
@@ -139,6 +143,18 @@ class EventDataStoreArgs:
         pulumi.set(self, "organization_enabled", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -197,6 +213,7 @@ class _EventDataStoreState:
                  multi_region_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  organization_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  suspend: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -211,6 +228,7 @@ class _EventDataStoreState:
         :param pulumi.Input[builtins.bool] multi_region_enabled: Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
         :param pulumi.Input[builtins.str] name: The name of the event data store.
         :param pulumi.Input[builtins.bool] organization_enabled: Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period: The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
         :param pulumi.Input[builtins.str] suspend: Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -231,15 +249,14 @@ class _EventDataStoreState:
             pulumi.set(__self__, "name", name)
         if organization_enabled is not None:
             pulumi.set(__self__, "organization_enabled", organization_enabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retention_period is not None:
             pulumi.set(__self__, "retention_period", retention_period)
         if suspend is not None:
             pulumi.set(__self__, "suspend", suspend)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if termination_protection_enabled is not None:
@@ -330,6 +347,18 @@ class _EventDataStoreState:
         pulumi.set(self, "organization_enabled", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -367,7 +396,6 @@ class _EventDataStoreState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -403,6 +431,7 @@ class EventDataStore(pulumi.CustomResource):
                  multi_region_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  organization_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  suspend: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -480,6 +509,7 @@ class EventDataStore(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] multi_region_enabled: Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
         :param pulumi.Input[builtins.str] name: The name of the event data store.
         :param pulumi.Input[builtins.bool] organization_enabled: Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period: The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
         :param pulumi.Input[builtins.str] suspend: Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -576,6 +606,7 @@ class EventDataStore(pulumi.CustomResource):
                  multi_region_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  organization_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  suspend: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -595,6 +626,7 @@ class EventDataStore(pulumi.CustomResource):
             __props__.__dict__["multi_region_enabled"] = multi_region_enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["organization_enabled"] = organization_enabled
+            __props__.__dict__["region"] = region
             __props__.__dict__["retention_period"] = retention_period
             __props__.__dict__["suspend"] = suspend
             __props__.__dict__["tags"] = tags
@@ -618,6 +650,7 @@ class EventDataStore(pulumi.CustomResource):
             multi_region_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             organization_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             retention_period: Optional[pulumi.Input[builtins.int]] = None,
             suspend: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -637,6 +670,7 @@ class EventDataStore(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] multi_region_enabled: Specifies whether the event data store includes events from all regions, or only from the region in which the event data store is created. Default: `true`.
         :param pulumi.Input[builtins.str] name: The name of the event data store.
         :param pulumi.Input[builtins.bool] organization_enabled: Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period: The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
         :param pulumi.Input[builtins.str] suspend: Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -654,6 +688,7 @@ class EventDataStore(pulumi.CustomResource):
         __props__.__dict__["multi_region_enabled"] = multi_region_enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["organization_enabled"] = organization_enabled
+        __props__.__dict__["region"] = region
         __props__.__dict__["retention_period"] = retention_period
         __props__.__dict__["suspend"] = suspend
         __props__.__dict__["tags"] = tags
@@ -718,6 +753,14 @@ class EventDataStore(pulumi.CustomResource):
         return pulumi.get(self, "organization_enabled")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> pulumi.Output[Optional[builtins.int]]:
         """
@@ -743,7 +786,6 @@ class EventDataStore(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

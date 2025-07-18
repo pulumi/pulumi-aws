@@ -233,6 +233,12 @@ namespace Pulumi.Aws.Cognito
         public Output<Outputs.UserPoolPasswordPolicy> PasswordPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for the schema attributes of a user pool. Detailed below. Schema attributes from the [standard attribute set](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#cognito-user-pools-standard-attributes) only need to be specified if they are different from the default configuration. Attributes can be added, but not modified or removed. Maximum of 50 attributes.
         /// </summary>
         [Output("schemas")]
@@ -463,6 +469,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("passwordPolicy")]
         public Input<Inputs.UserPoolPasswordPolicyArgs>? PasswordPolicy { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("schemas")]
         private InputList<Inputs.UserPoolSchemaArgs>? _schemas;
@@ -712,6 +724,12 @@ namespace Pulumi.Aws.Cognito
         [Input("passwordPolicy")]
         public Input<Inputs.UserPoolPasswordPolicyGetArgs>? PasswordPolicy { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("schemas")]
         private InputList<Inputs.UserPoolSchemaGetArgs>? _schemas;
 
@@ -772,7 +790,6 @@ namespace Pulumi.Aws.Cognito
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

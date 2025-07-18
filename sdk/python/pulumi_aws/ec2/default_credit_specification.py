@@ -24,14 +24,18 @@ class DefaultCreditSpecificationArgs:
     def __init__(__self__, *,
                  cpu_credits: pulumi.Input[builtins.str],
                  instance_family: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['DefaultCreditSpecificationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a DefaultCreditSpecification resource.
         :param pulumi.Input[builtins.str] cpu_credits: Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
         :param pulumi.Input[builtins.str] instance_family: Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cpu_credits", cpu_credits)
         pulumi.set(__self__, "instance_family", instance_family)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -61,6 +65,18 @@ class DefaultCreditSpecificationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['DefaultCreditSpecificationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -74,16 +90,20 @@ class _DefaultCreditSpecificationState:
     def __init__(__self__, *,
                  cpu_credits: Optional[pulumi.Input[builtins.str]] = None,
                  instance_family: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['DefaultCreditSpecificationTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering DefaultCreditSpecification resources.
         :param pulumi.Input[builtins.str] cpu_credits: Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
         :param pulumi.Input[builtins.str] instance_family: Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if cpu_credits is not None:
             pulumi.set(__self__, "cpu_credits", cpu_credits)
         if instance_family is not None:
             pulumi.set(__self__, "instance_family", instance_family)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -113,6 +133,18 @@ class _DefaultCreditSpecificationState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['DefaultCreditSpecificationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -129,6 +161,7 @@ class DefaultCreditSpecification(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cpu_credits: Optional[pulumi.Input[builtins.str]] = None,
                  instance_family: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['DefaultCreditSpecificationTimeoutsArgs', 'DefaultCreditSpecificationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
@@ -159,6 +192,7 @@ class DefaultCreditSpecification(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cpu_credits: Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
         :param pulumi.Input[builtins.str] instance_family: Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -207,6 +241,7 @@ class DefaultCreditSpecification(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cpu_credits: Optional[pulumi.Input[builtins.str]] = None,
                  instance_family: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['DefaultCreditSpecificationTimeoutsArgs', 'DefaultCreditSpecificationTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -223,6 +258,7 @@ class DefaultCreditSpecification(pulumi.CustomResource):
             if instance_family is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_family'")
             __props__.__dict__["instance_family"] = instance_family
+            __props__.__dict__["region"] = region
             __props__.__dict__["timeouts"] = timeouts
         super(DefaultCreditSpecification, __self__).__init__(
             'aws:ec2/defaultCreditSpecification:DefaultCreditSpecification',
@@ -236,6 +272,7 @@ class DefaultCreditSpecification(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cpu_credits: Optional[pulumi.Input[builtins.str]] = None,
             instance_family: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             timeouts: Optional[pulumi.Input[Union['DefaultCreditSpecificationTimeoutsArgs', 'DefaultCreditSpecificationTimeoutsArgsDict']]] = None) -> 'DefaultCreditSpecification':
         """
         Get an existing DefaultCreditSpecification resource's state with the given name, id, and optional extra
@@ -246,6 +283,7 @@ class DefaultCreditSpecification(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cpu_credits: Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
         :param pulumi.Input[builtins.str] instance_family: Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -253,6 +291,7 @@ class DefaultCreditSpecification(pulumi.CustomResource):
 
         __props__.__dict__["cpu_credits"] = cpu_credits
         __props__.__dict__["instance_family"] = instance_family
+        __props__.__dict__["region"] = region
         __props__.__dict__["timeouts"] = timeouts
         return DefaultCreditSpecification(resource_name, opts=opts, __props__=__props__)
 
@@ -271,6 +310,14 @@ class DefaultCreditSpecification(pulumi.CustomResource):
         Instance family. Valid values are `t2`, `t3`, `t3a`, `t4g`.
         """
         return pulumi.get(self, "instance_family")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

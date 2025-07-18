@@ -24,7 +24,8 @@ class HostedConfigurationVersionArgs:
                  configuration_profile_id: pulumi.Input[builtins.str],
                  content: pulumi.Input[builtins.str],
                  content_type: pulumi.Input[builtins.str],
-                 description: Optional[pulumi.Input[builtins.str]] = None):
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a HostedConfigurationVersion resource.
         :param pulumi.Input[builtins.str] application_id: Application ID.
@@ -32,6 +33,7 @@ class HostedConfigurationVersionArgs:
         :param pulumi.Input[builtins.str] content: Content of the configuration or the configuration data.
         :param pulumi.Input[builtins.str] content_type: Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
         :param pulumi.Input[builtins.str] description: Description of the configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "configuration_profile_id", configuration_profile_id)
@@ -39,6 +41,8 @@ class HostedConfigurationVersionArgs:
         pulumi.set(__self__, "content_type", content_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -100,6 +104,18 @@ class HostedConfigurationVersionArgs:
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _HostedConfigurationVersionState:
@@ -110,6 +126,7 @@ class _HostedConfigurationVersionState:
                  content: Optional[pulumi.Input[builtins.str]] = None,
                  content_type: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  version_number: Optional[pulumi.Input[builtins.int]] = None):
         """
         Input properties used for looking up and filtering HostedConfigurationVersion resources.
@@ -119,6 +136,7 @@ class _HostedConfigurationVersionState:
         :param pulumi.Input[builtins.str] content: Content of the configuration or the configuration data.
         :param pulumi.Input[builtins.str] content_type: Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
         :param pulumi.Input[builtins.str] description: Description of the configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] version_number: Version number of the hosted configuration.
         """
         if application_id is not None:
@@ -133,6 +151,8 @@ class _HostedConfigurationVersionState:
             pulumi.set(__self__, "content_type", content_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if version_number is not None:
             pulumi.set(__self__, "version_number", version_number)
 
@@ -209,6 +229,18 @@ class _HostedConfigurationVersionState:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -232,6 +264,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                  content: Optional[pulumi.Input[builtins.str]] = None,
                  content_type: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides an AppConfig Hosted Configuration Version resource.
@@ -328,6 +361,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] content: Content of the configuration or the configuration data.
         :param pulumi.Input[builtins.str] content_type: Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
         :param pulumi.Input[builtins.str] description: Description of the configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -443,6 +477,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                  content: Optional[pulumi.Input[builtins.str]] = None,
                  content_type: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -465,6 +500,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'content_type'")
             __props__.__dict__["content_type"] = content_type
             __props__.__dict__["description"] = description
+            __props__.__dict__["region"] = region
             __props__.__dict__["arn"] = None
             __props__.__dict__["version_number"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["content"])
@@ -485,6 +521,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
             content: Optional[pulumi.Input[builtins.str]] = None,
             content_type: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             version_number: Optional[pulumi.Input[builtins.int]] = None) -> 'HostedConfigurationVersion':
         """
         Get an existing HostedConfigurationVersion resource's state with the given name, id, and optional extra
@@ -499,6 +536,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] content: Content of the configuration or the configuration data.
         :param pulumi.Input[builtins.str] content_type: Standard MIME type describing the format of the configuration content. For more information, see [Content-Type](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17).
         :param pulumi.Input[builtins.str] description: Description of the configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] version_number: Version number of the hosted configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -511,6 +549,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         __props__.__dict__["content"] = content
         __props__.__dict__["content_type"] = content_type
         __props__.__dict__["description"] = description
+        __props__.__dict__["region"] = region
         __props__.__dict__["version_number"] = version_number
         return HostedConfigurationVersion(resource_name, opts=opts, __props__=__props__)
 
@@ -561,6 +600,14 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         Description of the configuration.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="versionNumber")

@@ -45,12 +45,12 @@ import * as utilities from "../utilities";
  *     description: "example",
  *     deletionWindowInDays: 10,
  * });
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {
+ * const exampleBucket = new aws.s3.Bucket("example", {
  *     bucket: "example",
  *     forceDestroy: true,
  * });
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
- *     bucket: exampleBucketV2.id,
+ *     bucket: exampleBucket.id,
  *     policy: pulumi.jsonStringify({
  *         Version: "2012-10-17",
  *         Statement: [{
@@ -62,8 +62,8 @@ import * as utilities from "../utilities";
  *                 "s3:ListBucket",
  *             ],
  *             Resource: [
- *                 exampleBucketV2.arn,
- *                 pulumi.interpolate`${exampleBucketV2.arn}/*`,
+ *                 exampleBucket.arn,
+ *                 pulumi.interpolate`${exampleBucket.arn}/*`,
  *             ],
  *             Principal: {
  *                 Service: "profile.amazonaws.com",
@@ -142,6 +142,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly matching!: pulumi.Output<outputs.customerprofiles.DomainMatching | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
      */
     public readonly ruleBasedMatching!: pulumi.Output<outputs.customerprofiles.DomainRuleBasedMatching | undefined>;
@@ -151,8 +155,6 @@ export class Domain extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -175,6 +177,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["defaultExpirationDays"] = state ? state.defaultExpirationDays : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["matching"] = state ? state.matching : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["ruleBasedMatching"] = state ? state.ruleBasedMatching : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -191,6 +194,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["defaultExpirationDays"] = args ? args.defaultExpirationDays : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["matching"] = args ? args.matching : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["ruleBasedMatching"] = args ? args.ruleBasedMatching : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -232,6 +236,10 @@ export interface DomainState {
      */
     matching?: pulumi.Input<inputs.customerprofiles.DomainMatching>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
      */
     ruleBasedMatching?: pulumi.Input<inputs.customerprofiles.DomainRuleBasedMatching>;
@@ -241,8 +249,6 @@ export interface DomainState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -273,6 +279,10 @@ export interface DomainArgs {
      * A block that specifies the process of matching duplicate profiles. Documented below.
      */
     matching?: pulumi.Input<inputs.customerprofiles.DomainMatching>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
      */

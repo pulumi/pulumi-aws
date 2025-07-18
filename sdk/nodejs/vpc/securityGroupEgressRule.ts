@@ -97,6 +97,10 @@ export class SecurityGroupEgressRule extends pulumi.CustomResource {
      */
     public readonly referencedSecurityGroupId!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the security group.
      */
     public readonly securityGroupId!: pulumi.Output<string>;
@@ -110,8 +114,6 @@ export class SecurityGroupEgressRule extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -142,6 +144,7 @@ export class SecurityGroupEgressRule extends pulumi.CustomResource {
             resourceInputs["ipProtocol"] = state ? state.ipProtocol : undefined;
             resourceInputs["prefixListId"] = state ? state.prefixListId : undefined;
             resourceInputs["referencedSecurityGroupId"] = state ? state.referencedSecurityGroupId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
             resourceInputs["securityGroupRuleId"] = state ? state.securityGroupRuleId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -162,6 +165,7 @@ export class SecurityGroupEgressRule extends pulumi.CustomResource {
             resourceInputs["ipProtocol"] = args ? args.ipProtocol : undefined;
             resourceInputs["prefixListId"] = args ? args.prefixListId : undefined;
             resourceInputs["referencedSecurityGroupId"] = args ? args.referencedSecurityGroupId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["toPort"] = args ? args.toPort : undefined;
@@ -211,6 +215,10 @@ export interface SecurityGroupEgressRuleState {
      */
     referencedSecurityGroupId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the security group.
      */
     securityGroupId?: pulumi.Input<string>;
@@ -224,8 +232,6 @@ export interface SecurityGroupEgressRuleState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -268,6 +274,10 @@ export interface SecurityGroupEgressRuleArgs {
      * The destination security group that is referenced in the rule.
      */
     referencedSecurityGroupId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the security group.
      */

@@ -166,7 +166,7 @@ namespace Pulumi.Aws.LB
         public Output<Outputs.LoadBalancerAccessLogs?> AccessLogs { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the load balancer (matches `id`).
+        /// ARN of the load balancer.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -203,6 +203,7 @@ namespace Pulumi.Aws.LB
 
         /// <summary>
         /// DNS name of the load balancer.
+        /// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
         /// </summary>
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
@@ -320,6 +321,12 @@ namespace Pulumi.Aws.LB
         /// </summary>
         [Output("preserveHostHeader")]
         public Output<bool?> PreserveHostHeader { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
@@ -564,6 +571,12 @@ namespace Pulumi.Aws.LB
         [Input("preserveHostHeader")]
         public Input<bool>? PreserveHostHeader { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
 
@@ -637,7 +650,7 @@ namespace Pulumi.Aws.LB
         public Input<Inputs.LoadBalancerAccessLogsGetArgs>? AccessLogs { get; set; }
 
         /// <summary>
-        /// ARN of the load balancer (matches `id`).
+        /// ARN of the load balancer.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -674,6 +687,7 @@ namespace Pulumi.Aws.LB
 
         /// <summary>
         /// DNS name of the load balancer.
+        /// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
         /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
@@ -792,6 +806,12 @@ namespace Pulumi.Aws.LB
         [Input("preserveHostHeader")]
         public Input<bool>? PreserveHostHeader { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
 
@@ -846,7 +866,6 @@ namespace Pulumi.Aws.LB
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -64,6 +64,10 @@ export class NetworkAclAssociation extends pulumi.CustomResource {
      */
     public readonly networkAclId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the associated Subnet.
      */
     public readonly subnetId!: pulumi.Output<string>;
@@ -82,6 +86,7 @@ export class NetworkAclAssociation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as NetworkAclAssociationState | undefined;
             resourceInputs["networkAclId"] = state ? state.networkAclId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as NetworkAclAssociationArgs | undefined;
@@ -92,6 +97,7 @@ export class NetworkAclAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subnetId'");
             }
             resourceInputs["networkAclId"] = args ? args.networkAclId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -108,6 +114,10 @@ export interface NetworkAclAssociationState {
      */
     networkAclId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the associated Subnet.
      */
     subnetId?: pulumi.Input<string>;
@@ -121,6 +131,10 @@ export interface NetworkAclAssociationArgs {
      * The ID of the network ACL.
      */
     networkAclId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the associated Subnet.
      */

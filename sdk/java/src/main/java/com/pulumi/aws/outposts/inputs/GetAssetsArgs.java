@@ -48,6 +48,21 @@ public final class GetAssetsArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Filters by list of state status. Valid values: &#34;ACTIVE&#34;, &#34;RETIRING&#34;.
      * 
      */
@@ -67,6 +82,7 @@ public final class GetAssetsArgs extends com.pulumi.resources.InvokeArgs {
     private GetAssetsArgs(GetAssetsArgs $) {
         this.arn = $.arn;
         this.hostIdFilters = $.hostIdFilters;
+        this.region = $.region;
         this.statusIdFilters = $.statusIdFilters;
     }
 
@@ -138,6 +154,27 @@ public final class GetAssetsArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder hostIdFilters(String... hostIdFilters) {
             return hostIdFilters(List.of(hostIdFilters));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

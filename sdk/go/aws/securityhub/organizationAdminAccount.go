@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,6 +75,8 @@ type OrganizationAdminAccount struct {
 
 	// The AWS account identifier of the account to designate as the Security Hub administrator account.
 	AdminAccountId pulumi.StringOutput `pulumi:"adminAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewOrganizationAdminAccount registers a new resource with the given unique name, arguments, and options.
@@ -112,11 +114,15 @@ func GetOrganizationAdminAccount(ctx *pulumi.Context,
 type organizationAdminAccountState struct {
 	// The AWS account identifier of the account to designate as the Security Hub administrator account.
 	AdminAccountId *string `pulumi:"adminAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type OrganizationAdminAccountState struct {
 	// The AWS account identifier of the account to designate as the Security Hub administrator account.
 	AdminAccountId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (OrganizationAdminAccountState) ElementType() reflect.Type {
@@ -126,12 +132,16 @@ func (OrganizationAdminAccountState) ElementType() reflect.Type {
 type organizationAdminAccountArgs struct {
 	// The AWS account identifier of the account to designate as the Security Hub administrator account.
 	AdminAccountId string `pulumi:"adminAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a OrganizationAdminAccount resource.
 type OrganizationAdminAccountArgs struct {
 	// The AWS account identifier of the account to designate as the Security Hub administrator account.
 	AdminAccountId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (OrganizationAdminAccountArgs) ElementType() reflect.Type {
@@ -224,6 +234,11 @@ func (o OrganizationAdminAccountOutput) ToOrganizationAdminAccountOutputWithCont
 // The AWS account identifier of the account to designate as the Security Hub administrator account.
 func (o OrganizationAdminAccountOutput) AdminAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationAdminAccount) pulumi.StringOutput { return v.AdminAccountId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o OrganizationAdminAccountOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationAdminAccount) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type OrganizationAdminAccountArrayOutput struct{ *pulumi.OutputState }

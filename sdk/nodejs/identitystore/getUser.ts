@@ -33,8 +33,8 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:identitystore/getUser:getUser", {
         "alternateIdentifier": args.alternateIdentifier,
-        "filter": args.filter,
         "identityStoreId": args.identityStoreId,
+        "region": args.region,
         "userId": args.userId,
     }, opts);
 }
@@ -48,17 +48,15 @@ export interface GetUserArgs {
      */
     alternateIdentifier?: inputs.identitystore.GetUserAlternateIdentifier;
     /**
-     * Configuration block for filtering by a unique attribute of the user. Detailed below.
-     *
-     * @deprecated filter is deprecated. Use alternateIdentifier instead.
-     */
-    filter?: inputs.identitystore.GetUserFilter;
-    /**
      * Identity Store ID associated with the Single Sign-On Instance.
      *
      * The following arguments are optional:
      */
     identityStoreId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * The identifier for a user in the Identity Store.
      *
@@ -89,10 +87,6 @@ export interface GetUserResult {
      */
     readonly externalIds: outputs.identitystore.GetUserExternalId[];
     /**
-     * @deprecated filter is deprecated. Use alternateIdentifier instead.
-     */
-    readonly filter?: outputs.identitystore.GetUserFilter;
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
@@ -121,6 +115,10 @@ export interface GetUserResult {
      * An URL that may be associated with the user.
      */
     readonly profileUrl: string;
+    /**
+     * The region of the address.
+     */
+    readonly region: string;
     /**
      * The user's time zone.
      */
@@ -165,8 +163,8 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOutpu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:identitystore/getUser:getUser", {
         "alternateIdentifier": args.alternateIdentifier,
-        "filter": args.filter,
         "identityStoreId": args.identityStoreId,
+        "region": args.region,
         "userId": args.userId,
     }, opts);
 }
@@ -180,17 +178,15 @@ export interface GetUserOutputArgs {
      */
     alternateIdentifier?: pulumi.Input<inputs.identitystore.GetUserAlternateIdentifierArgs>;
     /**
-     * Configuration block for filtering by a unique attribute of the user. Detailed below.
-     *
-     * @deprecated filter is deprecated. Use alternateIdentifier instead.
-     */
-    filter?: pulumi.Input<inputs.identitystore.GetUserFilterArgs>;
-    /**
      * Identity Store ID associated with the Single Sign-On Instance.
      *
      * The following arguments are optional:
      */
     identityStoreId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The identifier for a user in the Identity Store.
      *

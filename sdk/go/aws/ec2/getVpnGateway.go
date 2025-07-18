@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,6 +72,8 @@ type LookupVpnGatewayArgs struct {
 	Filters []GetVpnGatewayFilter `pulumi:"filters"`
 	// ID of the specific VPN Gateway to retrieve.
 	Id *string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// State of the specific VPN Gateway to retrieve.
 	State *string `pulumi:"state"`
 	// Map of tags, each pair of which must exactly match
@@ -87,6 +89,7 @@ type LookupVpnGatewayResult struct {
 	AvailabilityZone string                `pulumi:"availabilityZone"`
 	Filters          []GetVpnGatewayFilter `pulumi:"filters"`
 	Id               string                `pulumi:"id"`
+	Region           string                `pulumi:"region"`
 	State            string                `pulumi:"state"`
 	Tags             map[string]string     `pulumi:"tags"`
 }
@@ -115,6 +118,8 @@ type LookupVpnGatewayOutputArgs struct {
 	Filters GetVpnGatewayFilterArrayInput `pulumi:"filters"`
 	// ID of the specific VPN Gateway to retrieve.
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// State of the specific VPN Gateway to retrieve.
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Map of tags, each pair of which must exactly match
@@ -163,6 +168,10 @@ func (o LookupVpnGatewayResultOutput) Filters() GetVpnGatewayFilterArrayOutput {
 
 func (o LookupVpnGatewayResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupVpnGatewayResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpnGatewayResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupVpnGatewayResultOutput) State() pulumi.StringOutput {

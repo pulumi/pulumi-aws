@@ -154,6 +154,12 @@ namespace Pulumi.Aws.SecurityHub
         public Output<string> LinkingMode { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// List of regions to include or exclude (required if `linking_mode` is set to `ALL_REGIONS_EXCEPT_SPECIFIED` or `SPECIFIED_REGIONS`)
         /// </summary>
         [Output("specifiedRegions")]
@@ -211,6 +217,12 @@ namespace Pulumi.Aws.SecurityHub
         [Input("linkingMode", required: true)]
         public Input<string> LinkingMode { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("specifiedRegions")]
         private InputList<string>? _specifiedRegions;
 
@@ -236,6 +248,12 @@ namespace Pulumi.Aws.SecurityHub
         /// </summary>
         [Input("linkingMode")]
         public Input<string>? LinkingMode { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("specifiedRegions")]
         private InputList<string>? _specifiedRegions;

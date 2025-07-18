@@ -26,6 +26,7 @@ class LinkArgs:
                  resource_types: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  sink_identifier: pulumi.Input[builtins.str],
                  link_configuration: Optional[pulumi.Input['LinkLinkConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Link resource.
@@ -35,6 +36,7 @@ class LinkArgs:
                
                The following arguments are optional:
         :param pulumi.Input['LinkLinkConfigurationArgs'] link_configuration: Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "label_template", label_template)
@@ -42,6 +44,8 @@ class LinkArgs:
         pulumi.set(__self__, "sink_identifier", sink_identifier)
         if link_configuration is not None:
             pulumi.set(__self__, "link_configuration", link_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -97,6 +101,18 @@ class LinkArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -116,6 +132,7 @@ class _LinkState:
                  label_template: Optional[pulumi.Input[builtins.str]] = None,
                  link_configuration: Optional[pulumi.Input['LinkLinkConfigurationArgs']] = None,
                  link_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  sink_arn: Optional[pulumi.Input[builtins.str]] = None,
                  sink_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -128,6 +145,7 @@ class _LinkState:
         :param pulumi.Input[builtins.str] label_template: Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
         :param pulumi.Input['LinkLinkConfigurationArgs'] link_configuration: Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
         :param pulumi.Input[builtins.str] link_id: ID string that AWS generated as part of the link ARN.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types: Types of data that the source account shares with the monitoring account.
         :param pulumi.Input[builtins.str] sink_arn: ARN of the sink that is used for this link.
         :param pulumi.Input[builtins.str] sink_identifier: Identifier of the sink to use to create this link.
@@ -145,6 +163,8 @@ class _LinkState:
             pulumi.set(__self__, "link_configuration", link_configuration)
         if link_id is not None:
             pulumi.set(__self__, "link_id", link_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_types is not None:
             pulumi.set(__self__, "resource_types", resource_types)
         if sink_arn is not None:
@@ -153,9 +173,6 @@ class _LinkState:
             pulumi.set(__self__, "sink_identifier", sink_identifier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -220,6 +237,18 @@ class _LinkState:
         pulumi.set(self, "link_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -271,7 +300,6 @@ class _LinkState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -288,6 +316,7 @@ class Link(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  label_template: Optional[pulumi.Input[builtins.str]] = None,
                  link_configuration: Optional[pulumi.Input[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  sink_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -365,6 +394,7 @@ class Link(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] label_template: Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
         :param pulumi.Input[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict']] link_configuration: Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types: Types of data that the source account shares with the monitoring account.
         :param pulumi.Input[builtins.str] sink_identifier: Identifier of the sink to use to create this link.
                
@@ -463,6 +493,7 @@ class Link(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  label_template: Optional[pulumi.Input[builtins.str]] = None,
                  link_configuration: Optional[pulumi.Input[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  sink_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -479,6 +510,7 @@ class Link(pulumi.CustomResource):
                 raise TypeError("Missing required property 'label_template'")
             __props__.__dict__["label_template"] = label_template
             __props__.__dict__["link_configuration"] = link_configuration
+            __props__.__dict__["region"] = region
             if resource_types is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_types'")
             __props__.__dict__["resource_types"] = resource_types
@@ -506,6 +538,7 @@ class Link(pulumi.CustomResource):
             label_template: Optional[pulumi.Input[builtins.str]] = None,
             link_configuration: Optional[pulumi.Input[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict']]] = None,
             link_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             sink_arn: Optional[pulumi.Input[builtins.str]] = None,
             sink_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -523,6 +556,7 @@ class Link(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] label_template: Human-readable name to use to identify this source account when you are viewing data from it in the monitoring account.
         :param pulumi.Input[Union['LinkLinkConfigurationArgs', 'LinkLinkConfigurationArgsDict']] link_configuration: Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `link_configuration` Block for details.
         :param pulumi.Input[builtins.str] link_id: ID string that AWS generated as part of the link ARN.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types: Types of data that the source account shares with the monitoring account.
         :param pulumi.Input[builtins.str] sink_arn: ARN of the sink that is used for this link.
         :param pulumi.Input[builtins.str] sink_identifier: Identifier of the sink to use to create this link.
@@ -539,6 +573,7 @@ class Link(pulumi.CustomResource):
         __props__.__dict__["label_template"] = label_template
         __props__.__dict__["link_configuration"] = link_configuration
         __props__.__dict__["link_id"] = link_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_types"] = resource_types
         __props__.__dict__["sink_arn"] = sink_arn
         __props__.__dict__["sink_identifier"] = sink_identifier
@@ -587,6 +622,14 @@ class Link(pulumi.CustomResource):
         return pulumi.get(self, "link_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
@@ -622,7 +665,6 @@ class Link(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

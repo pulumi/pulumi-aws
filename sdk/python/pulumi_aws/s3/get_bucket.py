@@ -27,7 +27,7 @@ class GetBucketResult:
     """
     A collection of values returned by getBucket.
     """
-    def __init__(__self__, arn=None, bucket=None, bucket_domain_name=None, bucket_regional_domain_name=None, hosted_zone_id=None, id=None, region=None, website_domain=None, website_endpoint=None):
+    def __init__(__self__, arn=None, bucket=None, bucket_domain_name=None, bucket_region=None, bucket_regional_domain_name=None, hosted_zone_id=None, id=None, region=None, website_domain=None, website_endpoint=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +37,9 @@ class GetBucketResult:
         if bucket_domain_name and not isinstance(bucket_domain_name, str):
             raise TypeError("Expected argument 'bucket_domain_name' to be a str")
         pulumi.set(__self__, "bucket_domain_name", bucket_domain_name)
+        if bucket_region and not isinstance(bucket_region, str):
+            raise TypeError("Expected argument 'bucket_region' to be a str")
+        pulumi.set(__self__, "bucket_region", bucket_region)
         if bucket_regional_domain_name and not isinstance(bucket_regional_domain_name, str):
             raise TypeError("Expected argument 'bucket_regional_domain_name' to be a str")
         pulumi.set(__self__, "bucket_regional_domain_name", bucket_regional_domain_name)
@@ -78,6 +81,14 @@ class GetBucketResult:
         return pulumi.get(self, "bucket_domain_name")
 
     @property
+    @pulumi.getter(name="bucketRegion")
+    def bucket_region(self) -> builtins.str:
+        """
+        AWS region this bucket resides in.
+        """
+        return pulumi.get(self, "bucket_region")
+
+    @property
     @pulumi.getter(name="bucketRegionalDomainName")
     def bucket_regional_domain_name(self) -> builtins.str:
         """
@@ -104,9 +115,6 @@ class GetBucketResult:
     @property
     @pulumi.getter
     def region(self) -> builtins.str:
-        """
-        AWS region this bucket resides in.
-        """
         return pulumi.get(self, "region")
 
     @property
@@ -135,6 +143,7 @@ class AwaitableGetBucketResult(GetBucketResult):
             arn=self.arn,
             bucket=self.bucket,
             bucket_domain_name=self.bucket_domain_name,
+            bucket_region=self.bucket_region,
             bucket_regional_domain_name=self.bucket_regional_domain_name,
             hosted_zone_id=self.hosted_zone_id,
             id=self.id,
@@ -144,6 +153,7 @@ class AwaitableGetBucketResult(GetBucketResult):
 
 
 def get_bucket(bucket: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBucketResult:
     """
     Provides details about a specific S3 bucket.
@@ -186,9 +196,11 @@ def get_bucket(bucket: Optional[builtins.str] = None,
 
 
     :param builtins.str bucket: Name of the bucket
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['bucket'] = bucket
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:s3/getBucket:getBucket', __args__, opts=opts, typ=GetBucketResult).value
 
@@ -196,6 +208,7 @@ def get_bucket(bucket: Optional[builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         bucket=pulumi.get(__ret__, 'bucket'),
         bucket_domain_name=pulumi.get(__ret__, 'bucket_domain_name'),
+        bucket_region=pulumi.get(__ret__, 'bucket_region'),
         bucket_regional_domain_name=pulumi.get(__ret__, 'bucket_regional_domain_name'),
         hosted_zone_id=pulumi.get(__ret__, 'hosted_zone_id'),
         id=pulumi.get(__ret__, 'id'),
@@ -203,6 +216,7 @@ def get_bucket(bucket: Optional[builtins.str] = None,
         website_domain=pulumi.get(__ret__, 'website_domain'),
         website_endpoint=pulumi.get(__ret__, 'website_endpoint'))
 def get_bucket_output(bucket: Optional[pulumi.Input[builtins.str]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketResult]:
     """
     Provides details about a specific S3 bucket.
@@ -245,15 +259,18 @@ def get_bucket_output(bucket: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str bucket: Name of the bucket
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['bucket'] = bucket
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:s3/getBucket:getBucket', __args__, opts=opts, typ=GetBucketResult)
     return __ret__.apply(lambda __response__: GetBucketResult(
         arn=pulumi.get(__response__, 'arn'),
         bucket=pulumi.get(__response__, 'bucket'),
         bucket_domain_name=pulumi.get(__response__, 'bucket_domain_name'),
+        bucket_region=pulumi.get(__response__, 'bucket_region'),
         bucket_regional_domain_name=pulumi.get(__response__, 'bucket_regional_domain_name'),
         hosted_zone_id=pulumi.get(__response__, 'hosted_zone_id'),
         id=pulumi.get(__response__, 'id'),

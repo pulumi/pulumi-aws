@@ -27,6 +27,7 @@ export function getNetworkInsightsAnalysis(args?: GetNetworkInsightsAnalysisArgs
     return pulumi.runtime.invoke("aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis", {
         "filters": args.filters,
         "networkInsightsAnalysisId": args.networkInsightsAnalysisId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -47,6 +48,10 @@ export interface GetNetworkInsightsAnalysisArgs {
      * ID of the Network Insights Analysis to select.
      */
     networkInsightsAnalysisId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     tags?: {[key: string]: string};
 }
 
@@ -88,6 +93,7 @@ export interface GetNetworkInsightsAnalysisResult {
      * Set to `true` if the destination was reachable.
      */
     readonly pathFound: boolean;
+    readonly region: string;
     /**
      * The components in the path from destination to source.
      */
@@ -130,6 +136,7 @@ export function getNetworkInsightsAnalysisOutput(args?: GetNetworkInsightsAnalys
     return pulumi.runtime.invokeOutput("aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis", {
         "filters": args.filters,
         "networkInsightsAnalysisId": args.networkInsightsAnalysisId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -150,5 +157,9 @@ export interface GetNetworkInsightsAnalysisOutputArgs {
      * ID of the Network Insights Analysis to select.
      */
     networkInsightsAnalysisId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

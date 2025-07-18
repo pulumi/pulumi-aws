@@ -178,6 +178,12 @@ namespace Pulumi.Aws.Glue
         public Output<ImmutableArray<Outputs.CatalogTablePartitionKey>> PartitionKeys { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Retention time for this table.
         /// </summary>
         [Output("retention")]
@@ -334,6 +340,12 @@ namespace Pulumi.Aws.Glue
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Retention time for this table.
         /// </summary>
         [Input("retention")]
@@ -456,6 +468,12 @@ namespace Pulumi.Aws.Glue
             get => _partitionKeys ?? (_partitionKeys = new InputList<Inputs.CatalogTablePartitionKeyGetArgs>());
             set => _partitionKeys = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Retention time for this table.

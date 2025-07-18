@@ -93,6 +93,12 @@ namespace Pulumi.Aws.ImageBuilder
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -199,6 +211,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// Platform of the image pipeline.
         /// </summary>
         public readonly string Platform;
+        public readonly string Region;
         /// <summary>
         /// List of an object with schedule settings.
         /// </summary>
@@ -246,6 +259,8 @@ namespace Pulumi.Aws.ImageBuilder
 
             string platform,
 
+            string region,
+
             ImmutableArray<Outputs.GetImagePipelineScheduleResult> schedules,
 
             string status,
@@ -268,6 +283,7 @@ namespace Pulumi.Aws.ImageBuilder
             InfrastructureConfigurationArn = infrastructureConfigurationArn;
             Name = name;
             Platform = platform;
+            Region = region;
             Schedules = schedules;
             Status = status;
             Tags = tags;

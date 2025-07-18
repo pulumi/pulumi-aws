@@ -27,6 +27,7 @@ class AgentDataSourceArgs:
                  data_source_configuration: Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs']] = None,
                  timeouts: Optional[pulumi.Input['AgentDataSourceTimeoutsArgs']] = None,
                  vector_ingestion_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs']] = None):
@@ -39,6 +40,7 @@ class AgentDataSourceArgs:
         :param pulumi.Input[builtins.str] name: Name of the data source.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
         :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs'] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         """
@@ -51,6 +53,8 @@ class AgentDataSourceArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if server_side_encryption_configuration is not None:
             pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
         if timeouts is not None:
@@ -121,6 +125,18 @@ class AgentDataSourceArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> Optional[pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs']]:
         """
@@ -163,6 +179,7 @@ class _AgentDataSourceState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  knowledge_base_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs']] = None,
                  timeouts: Optional[pulumi.Input['AgentDataSourceTimeoutsArgs']] = None,
                  vector_ingestion_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs']] = None):
@@ -176,6 +193,7 @@ class _AgentDataSourceState:
         :param pulumi.Input[builtins.str] name: Name of the data source.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
         :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationArgs'] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         """
@@ -191,6 +209,8 @@ class _AgentDataSourceState:
             pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if server_side_encryption_configuration is not None:
             pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
         if timeouts is not None:
@@ -273,6 +293,18 @@ class _AgentDataSourceState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> Optional[pulumi.Input['AgentDataSourceServerSideEncryptionConfigurationArgs']]:
         """
@@ -317,6 +349,7 @@ class AgentDataSource(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  knowledge_base_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']]] = None,
                  timeouts: Optional[pulumi.Input[Union['AgentDataSourceTimeoutsArgs', 'AgentDataSourceTimeoutsArgsDict']]] = None,
                  vector_ingestion_configuration: Optional[pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']]] = None,
@@ -360,6 +393,7 @@ class AgentDataSource(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the data source.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
         :param pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         """
@@ -419,6 +453,7 @@ class AgentDataSource(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  knowledge_base_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption_configuration: Optional[pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']]] = None,
                  timeouts: Optional[pulumi.Input[Union['AgentDataSourceTimeoutsArgs', 'AgentDataSourceTimeoutsArgsDict']]] = None,
                  vector_ingestion_configuration: Optional[pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']]] = None,
@@ -438,6 +473,7 @@ class AgentDataSource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'knowledge_base_id'")
             __props__.__dict__["knowledge_base_id"] = knowledge_base_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["server_side_encryption_configuration"] = server_side_encryption_configuration
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["vector_ingestion_configuration"] = vector_ingestion_configuration
@@ -458,6 +494,7 @@ class AgentDataSource(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             knowledge_base_id: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             server_side_encryption_configuration: Optional[pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']]] = None,
             timeouts: Optional[pulumi.Input[Union['AgentDataSourceTimeoutsArgs', 'AgentDataSourceTimeoutsArgsDict']]] = None,
             vector_ingestion_configuration: Optional[pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']]] = None) -> 'AgentDataSource':
@@ -476,6 +513,7 @@ class AgentDataSource(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the data source.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['AgentDataSourceServerSideEncryptionConfigurationArgs', 'AgentDataSourceServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Details about the configuration of the server-side encryption. See `server_side_encryption_configuration` block for details.
         :param pulumi.Input[Union['AgentDataSourceVectorIngestionConfigurationArgs', 'AgentDataSourceVectorIngestionConfigurationArgsDict']] vector_ingestion_configuration: Details about the configuration of the server-side encryption. See `vector_ingestion_configuration` block for details.
         """
@@ -489,6 +527,7 @@ class AgentDataSource(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["knowledge_base_id"] = knowledge_base_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["server_side_encryption_configuration"] = server_side_encryption_configuration
         __props__.__dict__["timeouts"] = timeouts
         __props__.__dict__["vector_ingestion_configuration"] = vector_ingestion_configuration
@@ -543,6 +582,14 @@ class AgentDataSource(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serverSideEncryptionConfiguration")

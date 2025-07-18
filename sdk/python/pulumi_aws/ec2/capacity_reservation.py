@@ -32,6 +32,7 @@ class CapacityReservationArgs:
                  instance_match_criteria: Optional[pulumi.Input[builtins.str]] = None,
                  outpost_arn: Optional[pulumi.Input[builtins.str]] = None,
                  placement_group_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tenancy: Optional[pulumi.Input[Union[builtins.str, 'Tenancy']]] = None):
         """
@@ -47,6 +48,7 @@ class CapacityReservationArgs:
         :param pulumi.Input[builtins.str] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
         :param pulumi.Input[builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
         :param pulumi.Input[builtins.str] placement_group_arn: The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union[builtins.str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         """
@@ -68,6 +70,8 @@ class CapacityReservationArgs:
             pulumi.set(__self__, "outpost_arn", outpost_arn)
         if placement_group_arn is not None:
             pulumi.set(__self__, "placement_group_arn", placement_group_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tenancy is not None:
@@ -207,6 +211,18 @@ class CapacityReservationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -246,6 +262,7 @@ class _CapacityReservationState:
                  outpost_arn: Optional[pulumi.Input[builtins.str]] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
                  placement_group_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tenancy: Optional[pulumi.Input[Union[builtins.str, 'Tenancy']]] = None):
@@ -264,6 +281,7 @@ class _CapacityReservationState:
         :param pulumi.Input[builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
         :param pulumi.Input[builtins.str] owner_id: The ID of the AWS account that owns the Capacity Reservation.
         :param pulumi.Input[builtins.str] placement_group_arn: The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
         :param pulumi.Input[Union[builtins.str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
@@ -294,11 +312,10 @@ class _CapacityReservationState:
             pulumi.set(__self__, "owner_id", owner_id)
         if placement_group_arn is not None:
             pulumi.set(__self__, "placement_group_arn", placement_group_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tenancy is not None:
@@ -462,6 +479,18 @@ class _CapacityReservationState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -474,7 +503,6 @@ class _CapacityReservationState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
@@ -515,6 +543,7 @@ class CapacityReservation(pulumi.CustomResource):
                  instance_type: Optional[pulumi.Input[Union[builtins.str, 'InstanceType']]] = None,
                  outpost_arn: Optional[pulumi.Input[builtins.str]] = None,
                  placement_group_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tenancy: Optional[pulumi.Input[Union[builtins.str, 'Tenancy']]] = None,
                  __props__=None):
@@ -555,6 +584,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.Input[Union[builtins.str, 'InstanceType']] instance_type: The instance type for which to reserve capacity.
         :param pulumi.Input[builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
         :param pulumi.Input[builtins.str] placement_group_arn: The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union[builtins.str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
         """
@@ -614,6 +644,7 @@ class CapacityReservation(pulumi.CustomResource):
                  instance_type: Optional[pulumi.Input[Union[builtins.str, 'InstanceType']]] = None,
                  outpost_arn: Optional[pulumi.Input[builtins.str]] = None,
                  placement_group_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tenancy: Optional[pulumi.Input[Union[builtins.str, 'Tenancy']]] = None,
                  __props__=None):
@@ -644,6 +675,7 @@ class CapacityReservation(pulumi.CustomResource):
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["outpost_arn"] = outpost_arn
             __props__.__dict__["placement_group_arn"] = placement_group_arn
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tenancy"] = tenancy
             __props__.__dict__["arn"] = None
@@ -672,6 +704,7 @@ class CapacityReservation(pulumi.CustomResource):
             outpost_arn: Optional[pulumi.Input[builtins.str]] = None,
             owner_id: Optional[pulumi.Input[builtins.str]] = None,
             placement_group_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tenancy: Optional[pulumi.Input[Union[builtins.str, 'Tenancy']]] = None) -> 'CapacityReservation':
@@ -695,6 +728,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
         :param pulumi.Input[builtins.str] owner_id: The ID of the AWS account that owns the Capacity Reservation.
         :param pulumi.Input[builtins.str] placement_group_arn: The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
         :param pulumi.Input[Union[builtins.str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
@@ -716,6 +750,7 @@ class CapacityReservation(pulumi.CustomResource):
         __props__.__dict__["outpost_arn"] = outpost_arn
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["placement_group_arn"] = placement_group_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["tenancy"] = tenancy
@@ -827,6 +862,14 @@ class CapacityReservation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -835,7 +878,6 @@ class CapacityReservation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block

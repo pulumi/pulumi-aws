@@ -28,12 +28,12 @@ public final class GetTemplatesTemplate {
      */
     private String quotaName;
     /**
-     * @return AWS Region to which the quota increases apply.
+     * @return AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
      * 
      */
     private String region;
     /**
-     * @return (Required) Service identifier.
+     * @return Service identifier.
      * 
      */
     private String serviceCode;
@@ -48,7 +48,7 @@ public final class GetTemplatesTemplate {
      */
     private String unit;
     /**
-     * @return (Required) The new, increased value for the quota.
+     * @return The new, increased value for the quota.
      * 
      */
     private Double value;
@@ -76,14 +76,14 @@ public final class GetTemplatesTemplate {
         return this.quotaName;
     }
     /**
-     * @return AWS Region to which the quota increases apply.
+     * @return AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
      * 
      */
     public String region() {
         return this.region;
     }
     /**
-     * @return (Required) Service identifier.
+     * @return Service identifier.
      * 
      */
     public String serviceCode() {
@@ -104,7 +104,7 @@ public final class GetTemplatesTemplate {
         return this.unit;
     }
     /**
-     * @return (Required) The new, increased value for the quota.
+     * @return The new, increased value for the quota.
      * 
      */
     public Double value() {

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,6 +55,8 @@ func GetLocation(ctx *pulumi.Context, args *GetLocationArgs, opts ...pulumi.Invo
 type GetLocationArgs struct {
 	// Code for the location to retrieve.
 	LocationCode string `pulumi:"locationCode"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLocation.
@@ -70,6 +72,7 @@ type GetLocationResult struct {
 	LocationCode string `pulumi:"locationCode"`
 	// Name of the location. This includes the name of the colocation partner and the physical site of the building.
 	LocationName string `pulumi:"locationName"`
+	Region       string `pulumi:"region"`
 }
 
 func GetLocationOutput(ctx *pulumi.Context, args GetLocationOutputArgs, opts ...pulumi.InvokeOption) GetLocationResultOutput {
@@ -85,6 +88,8 @@ func GetLocationOutput(ctx *pulumi.Context, args GetLocationOutputArgs, opts ...
 type GetLocationOutputArgs struct {
 	// Code for the location to retrieve.
 	LocationCode pulumi.StringInput `pulumi:"locationCode"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetLocationOutputArgs) ElementType() reflect.Type {
@@ -133,6 +138,10 @@ func (o GetLocationResultOutput) LocationCode() pulumi.StringOutput {
 // Name of the location. This includes the name of the colocation partner and the physical site of the building.
 func (o GetLocationResultOutput) LocationName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocationResult) string { return v.LocationName }).(pulumi.StringOutput)
+}
+
+func (o GetLocationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

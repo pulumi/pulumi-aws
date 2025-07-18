@@ -34,6 +34,7 @@ export function getVpcAttachments(args?: GetVpcAttachmentsArgs, opts?: pulumi.In
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -45,6 +46,10 @@ export interface GetVpcAttachmentsArgs {
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
     filters?: inputs.ec2transitgateway.GetVpcAttachmentsFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -60,6 +65,7 @@ export interface GetVpcAttachmentsResult {
      * A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [aws.ec2transitgateway.VpcAttachment][2] data source, searching by identifier.
      */
     readonly ids: string[];
+    readonly region: string;
 }
 /**
  * Get information on EC2 Transit Gateway VPC Attachments.
@@ -88,6 +94,7 @@ export function getVpcAttachmentsOutput(args?: GetVpcAttachmentsOutputArgs, opts
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -99,4 +106,8 @@ export interface GetVpcAttachmentsOutputArgs {
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetVpcAttachmentsFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -97,6 +97,12 @@ namespace Pulumi.Aws.Lex
         public string Name { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Version of the slot type.
         /// </summary>
         [Input("version")]
@@ -115,6 +121,12 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Version of the slot type.
@@ -163,6 +175,7 @@ namespace Pulumi.Aws.Lex
         /// Name of the slot type. The name is not case sensitive.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Determines the slot resolution strategy that Amazon Lex
         /// uses to return slot type values. `ORIGINAL_VALUE` returns the value entered by the user if the user
@@ -191,6 +204,8 @@ namespace Pulumi.Aws.Lex
 
             string name,
 
+            string region,
+
             string valueSelectionStrategy,
 
             string? version)
@@ -202,6 +217,7 @@ namespace Pulumi.Aws.Lex
             Id = id;
             LastUpdatedDate = lastUpdatedDate;
             Name = name;
+            Region = region;
             ValueSelectionStrategy = valueSelectionStrategy;
             Version = version;
         }

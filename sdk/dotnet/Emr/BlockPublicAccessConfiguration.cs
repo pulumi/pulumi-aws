@@ -140,6 +140,12 @@ namespace Pulumi.Aws.Emr
         [Output("permittedPublicSecurityGroupRuleRanges")]
         public Output<ImmutableArray<Outputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange>> PermittedPublicSecurityGroupRuleRanges { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a BlockPublicAccessConfiguration resource with the given unique name, arguments, and options.
@@ -206,6 +212,12 @@ namespace Pulumi.Aws.Emr
             set => _permittedPublicSecurityGroupRuleRanges = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public BlockPublicAccessConfigurationArgs()
         {
         }
@@ -233,6 +245,12 @@ namespace Pulumi.Aws.Emr
             get => _permittedPublicSecurityGroupRuleRanges ?? (_permittedPublicSecurityGroupRuleRanges = new InputList<Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeGetArgs>());
             set => _permittedPublicSecurityGroupRuleRanges = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public BlockPublicAccessConfigurationState()
         {

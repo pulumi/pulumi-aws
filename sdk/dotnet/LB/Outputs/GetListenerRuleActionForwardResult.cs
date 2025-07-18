@@ -17,7 +17,7 @@ namespace Pulumi.Aws.LB.Outputs
         /// Target group stickiness for the rule.
         /// Detailed below.
         /// </summary>
-        public readonly Outputs.GetListenerRuleActionForwardStickinessResult? Stickiness;
+        public readonly ImmutableArray<Outputs.GetListenerRuleActionForwardStickinessResult> Stickinesses;
         /// <summary>
         /// Set of target groups for the action.
         /// Detailed below.
@@ -26,11 +26,11 @@ namespace Pulumi.Aws.LB.Outputs
 
         [OutputConstructor]
         private GetListenerRuleActionForwardResult(
-            Outputs.GetListenerRuleActionForwardStickinessResult? stickiness,
+            ImmutableArray<Outputs.GetListenerRuleActionForwardStickinessResult> stickinesses,
 
             ImmutableArray<Outputs.GetListenerRuleActionForwardTargetGroupResult> targetGroups)
         {
-            Stickiness = stickiness;
+            Stickinesses = stickinesses;
             TargetGroups = targetGroups;
         }
     }

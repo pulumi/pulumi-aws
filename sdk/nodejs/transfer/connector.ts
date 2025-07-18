@@ -107,6 +107,10 @@ export class Connector extends pulumi.CustomResource {
      */
     public readonly loggingRole!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the security policy for the connector.
      */
     public readonly securityPolicyName!: pulumi.Output<string>;
@@ -118,9 +122,6 @@ export class Connector extends pulumi.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The URL of the partners AS2 endpoint or SFTP endpoint.
@@ -145,6 +146,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["as2Config"] = state ? state.as2Config : undefined;
             resourceInputs["connectorId"] = state ? state.connectorId : undefined;
             resourceInputs["loggingRole"] = state ? state.loggingRole : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityPolicyName"] = state ? state.securityPolicyName : undefined;
             resourceInputs["sftpConfig"] = state ? state.sftpConfig : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -161,6 +163,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["accessRole"] = args ? args.accessRole : undefined;
             resourceInputs["as2Config"] = args ? args.as2Config : undefined;
             resourceInputs["loggingRole"] = args ? args.loggingRole : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
             resourceInputs["sftpConfig"] = args ? args.sftpConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -199,6 +202,10 @@ export interface ConnectorState {
      */
     loggingRole?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Name of the security policy for the connector.
      */
     securityPolicyName?: pulumi.Input<string>;
@@ -210,9 +217,6 @@ export interface ConnectorState {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The URL of the partners AS2 endpoint or SFTP endpoint.
@@ -236,6 +240,10 @@ export interface ConnectorArgs {
      * The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
      */
     loggingRole?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the security policy for the connector.
      */

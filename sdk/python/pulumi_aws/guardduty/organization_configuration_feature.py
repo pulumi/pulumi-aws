@@ -25,13 +25,15 @@ class OrganizationConfigurationFeatureArgs:
                  auto_enable: pulumi.Input[builtins.str],
                  detector_id: pulumi.Input[builtins.str],
                  additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationConfigurationFeature resource.
         :param pulumi.Input[builtins.str] auto_enable: The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
         :param pulumi.Input[builtins.str] detector_id: The ID of the detector that configures the delegated administrator.
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
         :param pulumi.Input[builtins.str] name: The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "auto_enable", auto_enable)
         pulumi.set(__self__, "detector_id", detector_id)
@@ -39,6 +41,8 @@ class OrganizationConfigurationFeatureArgs:
             pulumi.set(__self__, "additional_configurations", additional_configurations)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="autoEnable")
@@ -88,6 +92,18 @@ class OrganizationConfigurationFeatureArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _OrganizationConfigurationFeatureState:
@@ -95,13 +111,15 @@ class _OrganizationConfigurationFeatureState:
                  additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]]] = None,
                  auto_enable: Optional[pulumi.Input[builtins.str]] = None,
                  detector_id: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationConfigurationFeature resources.
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationConfigurationFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block for features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING`. See below.
         :param pulumi.Input[builtins.str] auto_enable: The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
         :param pulumi.Input[builtins.str] detector_id: The ID of the detector that configures the delegated administrator.
         :param pulumi.Input[builtins.str] name: The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if additional_configurations is not None:
             pulumi.set(__self__, "additional_configurations", additional_configurations)
@@ -111,6 +129,8 @@ class _OrganizationConfigurationFeatureState:
             pulumi.set(__self__, "detector_id", detector_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="additionalConfigurations")
@@ -160,6 +180,18 @@ class _OrganizationConfigurationFeatureState:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature")
 class OrganizationConfigurationFeature(pulumi.CustomResource):
@@ -171,11 +203,12 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
                  auto_enable: Optional[pulumi.Input[builtins.str]] = None,
                  detector_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to manage a single Amazon GuardDuty [organization configuration feature](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-features-activation-model.html#guardduty-features).
 
-        > **NOTE:** Deleting this resource does not disable the organization configuration feature, the resource in simply removed from state instead.
+        > **NOTE:** Deleting this resource does not disable the organization configuration feature, the resource is simply removed from state instead.
 
         ## Example Usage
 
@@ -200,6 +233,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] auto_enable: The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
         :param pulumi.Input[builtins.str] detector_id: The ID of the detector that configures the delegated administrator.
         :param pulumi.Input[builtins.str] name: The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -210,7 +244,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
         """
         Provides a resource to manage a single Amazon GuardDuty [organization configuration feature](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-features-activation-model.html#guardduty-features).
 
-        > **NOTE:** Deleting this resource does not disable the organization configuration feature, the resource in simply removed from state instead.
+        > **NOTE:** Deleting this resource does not disable the organization configuration feature, the resource is simply removed from state instead.
 
         ## Example Usage
 
@@ -248,6 +282,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
                  auto_enable: Optional[pulumi.Input[builtins.str]] = None,
                  detector_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -265,6 +300,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
                 raise TypeError("Missing required property 'detector_id'")
             __props__.__dict__["detector_id"] = detector_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
         super(OrganizationConfigurationFeature, __self__).__init__(
             'aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature',
             resource_name,
@@ -278,7 +314,8 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
             additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrganizationConfigurationFeatureAdditionalConfigurationArgs', 'OrganizationConfigurationFeatureAdditionalConfigurationArgsDict']]]]] = None,
             auto_enable: Optional[pulumi.Input[builtins.str]] = None,
             detector_id: Optional[pulumi.Input[builtins.str]] = None,
-            name: Optional[pulumi.Input[builtins.str]] = None) -> 'OrganizationConfigurationFeature':
+            name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'OrganizationConfigurationFeature':
         """
         Get an existing OrganizationConfigurationFeature resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -290,6 +327,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] auto_enable: The status of the feature that is configured for the member accounts within the organization. Valid values: `NEW`, `ALL`, `NONE`.
         :param pulumi.Input[builtins.str] detector_id: The ID of the detector that configures the delegated administrator.
         :param pulumi.Input[builtins.str] name: The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -299,6 +337,7 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
         __props__.__dict__["auto_enable"] = auto_enable
         __props__.__dict__["detector_id"] = detector_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         return OrganizationConfigurationFeature(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -332,4 +371,12 @@ class OrganizationConfigurationFeature(pulumi.CustomResource):
         The name of the feature that will be configured for the organization. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`, `RUNTIME_MONITORING`. Only one of two features `EKS_RUNTIME_MONITORING` or `RUNTIME_MONITORING` can be added, adding both features will cause an error. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorFeatureConfiguration.html) for the current list of supported values.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafregional"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,13 +52,16 @@ func GetRateBasedMod(ctx *pulumi.Context, args *GetRateBasedModArgs, opts ...pul
 type GetRateBasedModArgs struct {
 	// Name of the WAF Regional rate based rule.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getRateBasedMod.
 type GetRateBasedModResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 }
 
 func GetRateBasedModOutput(ctx *pulumi.Context, args GetRateBasedModOutputArgs, opts ...pulumi.InvokeOption) GetRateBasedModResultOutput {
@@ -74,6 +77,8 @@ func GetRateBasedModOutput(ctx *pulumi.Context, args GetRateBasedModOutputArgs, 
 type GetRateBasedModOutputArgs struct {
 	// Name of the WAF Regional rate based rule.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetRateBasedModOutputArgs) ElementType() reflect.Type {
@@ -102,6 +107,10 @@ func (o GetRateBasedModResultOutput) Id() pulumi.StringOutput {
 
 func (o GetRateBasedModResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRateBasedModResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetRateBasedModResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRateBasedModResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

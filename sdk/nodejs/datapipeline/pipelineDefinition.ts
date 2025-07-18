@@ -130,6 +130,10 @@ export class PipelineDefinition extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly pipelineObjects!: pulumi.Output<outputs.datapipeline.PipelineDefinitionPipelineObject[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a PipelineDefinition resource with the given unique name, arguments, and options.
@@ -148,6 +152,7 @@ export class PipelineDefinition extends pulumi.CustomResource {
             resourceInputs["parameterValues"] = state ? state.parameterValues : undefined;
             resourceInputs["pipelineId"] = state ? state.pipelineId : undefined;
             resourceInputs["pipelineObjects"] = state ? state.pipelineObjects : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as PipelineDefinitionArgs | undefined;
             if ((!args || args.pipelineId === undefined) && !opts.urn) {
@@ -160,6 +165,7 @@ export class PipelineDefinition extends pulumi.CustomResource {
             resourceInputs["parameterValues"] = args ? args.parameterValues : undefined;
             resourceInputs["pipelineId"] = args ? args.pipelineId : undefined;
             resourceInputs["pipelineObjects"] = args ? args.pipelineObjects : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PipelineDefinition.__pulumiType, name, resourceInputs, opts);
@@ -188,6 +194,10 @@ export interface PipelineDefinitionState {
      * The following arguments are optional:
      */
     pipelineObjects?: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionPipelineObject>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -212,4 +222,8 @@ export interface PipelineDefinitionArgs {
      * The following arguments are optional:
      */
     pipelineObjects: pulumi.Input<pulumi.Input<inputs.datapipeline.PipelineDefinitionPipelineObject>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

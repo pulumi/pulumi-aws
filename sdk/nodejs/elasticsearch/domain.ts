@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "../iam";
-
 /**
  * Manages an AWS Elasticsearch Domain.
  *
@@ -53,7 +51,7 @@ import {PolicyDocument} from "../iam";
  *       "Action": "es:*",
  *       "Principal": "*",
  *       "Effect": "Allow",
- *       "Resource": "arn:aws:es:${current.name}:${currentGetCallerIdentity.accountId}:domain/${domain}/*",
+ *       "Resource": "arn:aws:es:${current.region}:${currentGetCallerIdentity.accountId}:domain/${domain}/*",
  *       "Condition": {
  *         "IpAddress": {"aws:SourceIp": ["66.193.100.22/32"]}
  *       }
@@ -157,7 +155,7 @@ import {PolicyDocument} from "../iam";
  * 			"Action": "es:*",
  * 			"Principal": "*",
  * 			"Effect": "Allow",
- * 			"Resource": "arn:aws:es:${current.name}:${currentGetCallerIdentity.accountId}:domain/${domain}/*"
+ * 			"Resource": "arn:aws:es:${current.region}:${currentGetCallerIdentity.accountId}:domain/${domain}/*"
  * 		}
  * 	]
  * }
@@ -277,6 +275,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly nodeToNodeEncryption!: pulumi.Output<outputs.elasticsearch.DomainNodeToNodeEncryption>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
      */
     public readonly snapshotOptions!: pulumi.Output<outputs.elasticsearch.DomainSnapshotOptions | undefined>;
@@ -286,8 +288,6 @@ export class Domain extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -325,6 +325,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["kibanaEndpoint"] = state ? state.kibanaEndpoint : undefined;
             resourceInputs["logPublishingOptions"] = state ? state.logPublishingOptions : undefined;
             resourceInputs["nodeToNodeEncryption"] = state ? state.nodeToNodeEncryption : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["snapshotOptions"] = state ? state.snapshotOptions : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -344,6 +345,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["encryptAtRest"] = args ? args.encryptAtRest : undefined;
             resourceInputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
             resourceInputs["nodeToNodeEncryption"] = args ? args.nodeToNodeEncryption : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["snapshotOptions"] = args ? args.snapshotOptions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
@@ -365,7 +367,7 @@ export interface DomainState {
     /**
      * IAM policy document specifying the access policies for the domain.
      */
-    accessPolicies?: pulumi.Input<string | PolicyDocument>;
+    accessPolicies?: pulumi.Input<string | inputs.elasticsearch.PolicyDocument>;
     /**
      * Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
      */
@@ -433,6 +435,10 @@ export interface DomainState {
      */
     nodeToNodeEncryption?: pulumi.Input<inputs.elasticsearch.DomainNodeToNodeEncryption>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
      */
     snapshotOptions?: pulumi.Input<inputs.elasticsearch.DomainSnapshotOptions>;
@@ -442,8 +448,6 @@ export interface DomainState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -459,7 +463,7 @@ export interface DomainArgs {
     /**
      * IAM policy document specifying the access policies for the domain.
      */
-    accessPolicies?: pulumi.Input<string | PolicyDocument>;
+    accessPolicies?: pulumi.Input<string | inputs.elasticsearch.PolicyDocument>;
     /**
      * Key-value string pairs to specify advanced configuration options. Note that the values for these configuration options must be strings (wrapped in quotes) or they may be wrong and cause a perpetual diff, causing the provider to want to recreate your Elasticsearch domain on every apply.
      */
@@ -510,6 +514,10 @@ export interface DomainArgs {
      * Configuration block for node-to-node encryption options. Detailed below.
      */
     nodeToNodeEncryption?: pulumi.Input<inputs.elasticsearch.DomainNodeToNodeEncryption>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running Elasticsearch 5.3 and later, Amazon ES takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions of Elasticsearch, Amazon ES takes daily automated snapshots.
      */

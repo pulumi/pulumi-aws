@@ -64,6 +64,21 @@ public final class MlflowTrackingServerArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
      * 
      */
@@ -144,6 +159,7 @@ public final class MlflowTrackingServerArgs extends com.pulumi.resources.Resourc
         this.artifactStoreUri = $.artifactStoreUri;
         this.automaticModelRegistration = $.automaticModelRegistration;
         this.mlflowVersion = $.mlflowVersion;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.tags = $.tags;
         this.trackingServerName = $.trackingServerName;
@@ -230,6 +246,27 @@ public final class MlflowTrackingServerArgs extends com.pulumi.resources.Resourc
          */
         public Builder mlflowVersion(String mlflowVersion) {
             return mlflowVersion(Output.of(mlflowVersion));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

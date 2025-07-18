@@ -100,6 +100,12 @@ namespace Pulumi.Aws.Ecs
         public string ContainerName { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// ARN of the task definition which contains the container
         /// </summary>
         [Input("taskDefinition", required: true)]
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of the task definition which contains the container
@@ -172,6 +184,7 @@ namespace Pulumi.Aws.Ecs
         /// Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
         /// </summary>
         public readonly int MemoryReservation;
+        public readonly string Region;
         public readonly string TaskDefinition;
 
         [OutputConstructor]
@@ -196,6 +209,8 @@ namespace Pulumi.Aws.Ecs
 
             int memoryReservation,
 
+            string region,
+
             string taskDefinition)
         {
             ContainerName = containerName;
@@ -208,6 +223,7 @@ namespace Pulumi.Aws.Ecs
             ImageDigest = imageDigest;
             Memory = memory;
             MemoryReservation = memoryReservation;
+            Region = region;
             TaskDefinition = taskDefinition;
         }
     }

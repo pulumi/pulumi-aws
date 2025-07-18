@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.batch.ComputeEnvironment("example", {
- *     computeEnvironmentName: "example",
+ *     name: "example",
  *     serviceRole: exampleAwsIamRole.arn,
  *     type: "UNMANAGED",
  * });
@@ -70,6 +70,10 @@ export class Tag extends pulumi.CustomResource {
      */
     public readonly key!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) of the ECS resource to tag.
      */
     public readonly resourceArn!: pulumi.Output<string>;
@@ -92,6 +96,7 @@ export class Tag extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as TagState | undefined;
             resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
             resourceInputs["value"] = state ? state.value : undefined;
         } else {
@@ -106,6 +111,7 @@ export class Tag extends pulumi.CustomResource {
                 throw new Error("Missing required property 'value'");
             }
             resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
             resourceInputs["value"] = args ? args.value : undefined;
         }
@@ -122,6 +128,10 @@ export interface TagState {
      * Tag name.
      */
     key?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the ECS resource to tag.
      */
@@ -140,6 +150,10 @@ export interface TagArgs {
      * Tag name.
      */
     key: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the ECS resource to tag.
      */

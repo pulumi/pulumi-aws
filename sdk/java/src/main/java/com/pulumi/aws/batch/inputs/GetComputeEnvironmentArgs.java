@@ -21,15 +21,30 @@ public final class GetComputeEnvironmentArgs extends com.pulumi.resources.Invoke
      * Name of the Batch Compute Environment
      * 
      */
-    @Import(name="computeEnvironmentName", required=true)
-    private Output<String> computeEnvironmentName;
+    @Import(name="name", required=true)
+    private Output<String> name;
 
     /**
      * @return Name of the Batch Compute Environment
      * 
      */
-    public Output<String> computeEnvironmentName() {
-        return this.computeEnvironmentName;
+    public Output<String> name() {
+        return this.name;
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -50,7 +65,8 @@ public final class GetComputeEnvironmentArgs extends com.pulumi.resources.Invoke
     private GetComputeEnvironmentArgs() {}
 
     private GetComputeEnvironmentArgs(GetComputeEnvironmentArgs $) {
-        this.computeEnvironmentName = $.computeEnvironmentName;
+        this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -73,24 +89,45 @@ public final class GetComputeEnvironmentArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param computeEnvironmentName Name of the Batch Compute Environment
+         * @param name Name of the Batch Compute Environment
          * 
          * @return builder
          * 
          */
-        public Builder computeEnvironmentName(Output<String> computeEnvironmentName) {
-            $.computeEnvironmentName = computeEnvironmentName;
+        public Builder name(Output<String> name) {
+            $.name = name;
             return this;
         }
 
         /**
-         * @param computeEnvironmentName Name of the Batch Compute Environment
+         * @param name Name of the Batch Compute Environment
          * 
          * @return builder
          * 
          */
-        public Builder computeEnvironmentName(String computeEnvironmentName) {
-            return computeEnvironmentName(Output.of(computeEnvironmentName));
+        public Builder name(String name) {
+            return name(Output.of(name));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -115,8 +152,8 @@ public final class GetComputeEnvironmentArgs extends com.pulumi.resources.Invoke
         }
 
         public GetComputeEnvironmentArgs build() {
-            if ($.computeEnvironmentName == null) {
-                throw new MissingRequiredPropertyException("GetComputeEnvironmentArgs", "computeEnvironmentName");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("GetComputeEnvironmentArgs", "name");
             }
             return $;
         }

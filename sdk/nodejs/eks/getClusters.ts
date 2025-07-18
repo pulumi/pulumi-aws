@@ -7,10 +7,22 @@ import * as utilities from "../utilities";
 /**
  * Retrieve EKS Clusters list
  */
-export function getClusters(opts?: pulumi.InvokeOptions): Promise<GetClustersResult> {
+export function getClusters(args?: GetClustersArgs, opts?: pulumi.InvokeOptions): Promise<GetClustersResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:eks/getClusters:getClusters", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getClusters.
+ */
+export interface GetClustersArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -25,12 +37,25 @@ export interface GetClustersResult {
      * Set of EKS clusters names
      */
     readonly names: string[];
+    readonly region: string;
 }
 /**
  * Retrieve EKS Clusters list
  */
-export function getClustersOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClustersResult> {
+export function getClustersOutput(args?: GetClustersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClustersResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:eks/getClusters:getClusters", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getClusters.
+ */
+export interface GetClustersOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

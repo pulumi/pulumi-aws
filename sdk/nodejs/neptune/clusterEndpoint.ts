@@ -81,6 +81,10 @@ export class ClusterEndpoint extends pulumi.CustomResource {
      */
     public readonly excludedMembers!: pulumi.Output<string[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of DB instance identifiers that are part of the custom endpoint group.
      */
     public readonly staticMembers!: pulumi.Output<string[] | undefined>;
@@ -90,8 +94,6 @@ export class ClusterEndpoint extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -114,6 +116,7 @@ export class ClusterEndpoint extends pulumi.CustomResource {
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["endpointType"] = state ? state.endpointType : undefined;
             resourceInputs["excludedMembers"] = state ? state.excludedMembers : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["staticMembers"] = state ? state.staticMembers : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -132,6 +135,7 @@ export class ClusterEndpoint extends pulumi.CustomResource {
             resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             resourceInputs["endpointType"] = args ? args.endpointType : undefined;
             resourceInputs["excludedMembers"] = args ? args.excludedMembers : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["staticMembers"] = args ? args.staticMembers : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -172,6 +176,10 @@ export interface ClusterEndpointState {
      */
     excludedMembers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of DB instance identifiers that are part of the custom endpoint group.
      */
     staticMembers?: pulumi.Input<pulumi.Input<string>[]>;
@@ -181,8 +189,6 @@ export interface ClusterEndpointState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -207,6 +213,10 @@ export interface ClusterEndpointArgs {
      * List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
      */
     excludedMembers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of DB instance identifiers that are part of the custom endpoint group.
      */

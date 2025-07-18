@@ -70,6 +70,10 @@ export class StudioSessionMapping extends pulumi.CustomResource {
      */
     public readonly identityType!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
      */
     public readonly sessionPolicyArn!: pulumi.Output<string>;
@@ -94,6 +98,7 @@ export class StudioSessionMapping extends pulumi.CustomResource {
             resourceInputs["identityId"] = state ? state.identityId : undefined;
             resourceInputs["identityName"] = state ? state.identityName : undefined;
             resourceInputs["identityType"] = state ? state.identityType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sessionPolicyArn"] = state ? state.sessionPolicyArn : undefined;
             resourceInputs["studioId"] = state ? state.studioId : undefined;
         } else {
@@ -110,6 +115,7 @@ export class StudioSessionMapping extends pulumi.CustomResource {
             resourceInputs["identityId"] = args ? args.identityId : undefined;
             resourceInputs["identityName"] = args ? args.identityName : undefined;
             resourceInputs["identityType"] = args ? args.identityType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sessionPolicyArn"] = args ? args.sessionPolicyArn : undefined;
             resourceInputs["studioId"] = args ? args.studioId : undefined;
         }
@@ -134,6 +140,10 @@ export interface StudioSessionMappingState {
      * Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
      */
     identityType?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
      */
@@ -160,6 +170,10 @@ export interface StudioSessionMappingArgs {
      * Specifies whether the identity to map to the Amazon EMR Studio is a `USER` or a `GROUP`.
      */
     identityType: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
      */

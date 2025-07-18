@@ -53,6 +53,12 @@ namespace Pulumi.Aws.LB
     public partial class TrustStoreRevocation : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// AWS assigned RevocationId, (number).
         /// </summary>
         [Output("revocationId")]
@@ -129,6 +135,12 @@ namespace Pulumi.Aws.LB
     public sealed class TrustStoreRevocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// S3 Bucket name holding the client certificate CA bundle.
         /// </summary>
         [Input("revocationsS3Bucket", required: true)]
@@ -160,6 +172,12 @@ namespace Pulumi.Aws.LB
 
     public sealed class TrustStoreRevocationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// AWS assigned RevocationId, (number).
         /// </summary>

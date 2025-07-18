@@ -39,7 +39,7 @@ export const getSite: typeof import("./getSite").getSite = null as any;
 export const getSiteOutput: typeof import("./getSite").getSiteOutput = null as any;
 utilities.lazyLoad(exports, ["getSite","getSiteOutput"], () => require("./getSite"));
 
-export { GetSitesResult } from "./getSites";
+export { GetSitesArgs, GetSitesResult, GetSitesOutputArgs } from "./getSites";
 export const getSites: typeof import("./getSites").getSites = null as any;
 export const getSitesOutput: typeof import("./getSites").getSitesOutput = null as any;
 utilities.lazyLoad(exports, ["getSites","getSitesOutput"], () => require("./getSites"));

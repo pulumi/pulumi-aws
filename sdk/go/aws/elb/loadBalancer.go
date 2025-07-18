@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,7 +30,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -141,6 +141,8 @@ type LoadBalancer struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of security group IDs to assign to the ELB.
 	// Only valid if creating an ELB within a VPC
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
@@ -160,8 +162,6 @@ type LoadBalancer struct {
 	// determines if the ELB exists in a VPC or in EC2-classic.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
 	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
@@ -237,6 +237,8 @@ type loadBalancerState struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of security group IDs to assign to the ELB.
 	// Only valid if creating an ELB within a VPC
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -256,8 +258,6 @@ type loadBalancerState struct {
 	// determines if the ELB exists in a VPC or in EC2-classic.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
 	ZoneId *string `pulumi:"zoneId"`
@@ -295,6 +295,8 @@ type LoadBalancerState struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of security group IDs to assign to the ELB.
 	// Only valid if creating an ELB within a VPC
 	SecurityGroups pulumi.StringArrayInput
@@ -314,8 +316,6 @@ type LoadBalancerState struct {
 	// determines if the ELB exists in a VPC or in EC2-classic.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
 	ZoneId pulumi.StringPtrInput
@@ -353,6 +353,8 @@ type loadBalancerArgs struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix *string `pulumi:"namePrefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of security group IDs to assign to the ELB.
 	// Only valid if creating an ELB within a VPC
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -398,6 +400,8 @@ type LoadBalancerArgs struct {
 	// Creates a unique name beginning with the specified
 	// prefix. Conflicts with `name`.
 	NamePrefix pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of security group IDs to assign to the ELB.
 	// Only valid if creating an ELB within a VPC
 	SecurityGroups pulumi.StringArrayInput
@@ -577,6 +581,11 @@ func (o LoadBalancerOutput) NamePrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.NamePrefix }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LoadBalancerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // A list of security group IDs to assign to the ELB.
 // Only valid if creating an ELB within a VPC
 func (o LoadBalancerOutput) SecurityGroups() pulumi.StringArrayOutput {
@@ -611,8 +620,6 @@ func (o LoadBalancerOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o LoadBalancerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

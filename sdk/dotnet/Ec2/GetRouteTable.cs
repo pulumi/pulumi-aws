@@ -145,6 +145,12 @@ namespace Pulumi.Aws.Ec2
         public string? GatewayId { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// ID of the specific Route Table to retrieve.
         /// </summary>
         [Input("routeTableId")]
@@ -199,6 +205,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("gatewayId")]
         public Input<string>? GatewayId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ID of the specific Route Table to retrieve.
@@ -261,6 +273,7 @@ namespace Pulumi.Aws.Ec2
         /// ID of the AWS account that owns the route table.
         /// </summary>
         public readonly string OwnerId;
+        public readonly string Region;
         /// <summary>
         /// Route Table ID.
         /// </summary>
@@ -290,6 +303,8 @@ namespace Pulumi.Aws.Ec2
 
             string ownerId,
 
+            string region,
+
             string routeTableId,
 
             ImmutableArray<Outputs.GetRouteTableRouteResult> routes,
@@ -306,6 +321,7 @@ namespace Pulumi.Aws.Ec2
             GatewayId = gatewayId;
             Id = id;
             OwnerId = ownerId;
+            Region = region;
             RouteTableId = routeTableId;
             Routes = routes;
             SubnetId = subnetId;

@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Evidently
     /// <summary>
     /// Provides a CloudWatch Evidently Launch resource.
     /// 
+    /// &gt; **Warning:** This resource is deprecated. Use [AWS AppConfig feature flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/) instead.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Basic
@@ -470,6 +472,12 @@ namespace Pulumi.Aws.Evidently
         public Output<string?> RandomizationSalt { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         /// </summary>
         [Output("scheduledSplitsConfig")]
@@ -600,6 +608,12 @@ namespace Pulumi.Aws.Evidently
         public Input<string>? RandomizationSalt { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         /// </summary>
         [Input("scheduledSplitsConfig")]
@@ -704,6 +718,12 @@ namespace Pulumi.Aws.Evidently
         public Input<string>? RandomizationSalt { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
         /// </summary>
         [Input("scheduledSplitsConfig")]
@@ -739,7 +759,6 @@ namespace Pulumi.Aws.Evidently
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

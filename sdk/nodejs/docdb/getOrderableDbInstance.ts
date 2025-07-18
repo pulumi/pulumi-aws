@@ -34,6 +34,7 @@ export function getOrderableDbInstance(args?: GetOrderableDbInstanceArgs, opts?:
         "instanceClass": args.instanceClass,
         "licenseModel": args.licenseModel,
         "preferredInstanceClasses": args.preferredInstanceClasses,
+        "region": args.region,
         "vpc": args.vpc,
     }, opts);
 }
@@ -63,6 +64,10 @@ export interface GetOrderableDbInstanceArgs {
      */
     preferredInstanceClasses?: string[];
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * Enable to show only VPC.
      */
     vpc?: boolean;
@@ -85,6 +90,7 @@ export interface GetOrderableDbInstanceResult {
     readonly instanceClass: string;
     readonly licenseModel?: string;
     readonly preferredInstanceClasses?: string[];
+    readonly region: string;
     readonly vpc: boolean;
 }
 /**
@@ -117,6 +123,7 @@ export function getOrderableDbInstanceOutput(args?: GetOrderableDbInstanceOutput
         "instanceClass": args.instanceClass,
         "licenseModel": args.licenseModel,
         "preferredInstanceClasses": args.preferredInstanceClasses,
+        "region": args.region,
         "vpc": args.vpc,
     }, opts);
 }
@@ -145,6 +152,10 @@ export interface GetOrderableDbInstanceOutputArgs {
      * Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instanceClass`.)
      */
     preferredInstanceClasses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Enable to show only VPC.
      */

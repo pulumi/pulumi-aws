@@ -41,6 +41,7 @@ export function getAddonVersion(args: GetAddonVersionArgs, opts?: pulumi.InvokeO
         "addonName": args.addonName,
         "kubernetesVersion": args.kubernetesVersion,
         "mostRecent": args.mostRecent,
+        "region": args.region,
     }, opts);
 }
 
@@ -61,6 +62,10 @@ export interface GetAddonVersionArgs {
      * Determines if the most recent or default version of the addon should be returned.
      */
     mostRecent?: boolean;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -74,6 +79,7 @@ export interface GetAddonVersionResult {
     readonly id: string;
     readonly kubernetesVersion: string;
     readonly mostRecent?: boolean;
+    readonly region: string;
     /**
      * Version of the EKS add-on.
      */
@@ -116,6 +122,7 @@ export function getAddonVersionOutput(args: GetAddonVersionOutputArgs, opts?: pu
         "addonName": args.addonName,
         "kubernetesVersion": args.kubernetesVersion,
         "mostRecent": args.mostRecent,
+        "region": args.region,
     }, opts);
 }
 
@@ -136,4 +143,8 @@ export interface GetAddonVersionOutputArgs {
      * Determines if the most recent or default version of the addon should be returned.
      */
     mostRecent?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

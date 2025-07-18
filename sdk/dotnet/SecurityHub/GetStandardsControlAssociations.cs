@@ -100,6 +100,12 @@ namespace Pulumi.Aws.SecurityHub
     public sealed class GetStandardsControlAssociationsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
         /// </summary>
         [Input("securityControlId", required: true)]
@@ -113,6 +119,12 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class GetStandardsControlAssociationsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
         /// </summary>
@@ -130,6 +142,7 @@ namespace Pulumi.Aws.SecurityHub
     public sealed class GetStandardsControlAssociationsResult
     {
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// ID of the security control.
         /// </summary>
@@ -144,11 +157,14 @@ namespace Pulumi.Aws.SecurityHub
         private GetStandardsControlAssociationsResult(
             string id,
 
+            string region,
+
             string securityControlId,
 
             ImmutableArray<Outputs.GetStandardsControlAssociationsStandardsControlAssociationResult> standardsControlAssociations)
         {
             Id = id;
+            Region = region;
             SecurityControlId = securityControlId;
             StandardsControlAssociations = standardsControlAssociations;
         }

@@ -28,7 +28,7 @@ class GetNodeGroupResult:
     """
     A collection of values returned by getNodeGroup.
     """
-    def __init__(__self__, ami_type=None, arn=None, capacity_type=None, cluster_name=None, disk_size=None, id=None, instance_types=None, labels=None, launch_templates=None, node_group_name=None, node_role_arn=None, release_version=None, remote_accesses=None, resources=None, scaling_configs=None, status=None, subnet_ids=None, tags=None, taints=None, version=None):
+    def __init__(__self__, ami_type=None, arn=None, capacity_type=None, cluster_name=None, disk_size=None, id=None, instance_types=None, labels=None, launch_templates=None, node_group_name=None, node_role_arn=None, region=None, release_version=None, remote_accesses=None, resources=None, scaling_configs=None, status=None, subnet_ids=None, tags=None, taints=None, version=None):
         if ami_type and not isinstance(ami_type, str):
             raise TypeError("Expected argument 'ami_type' to be a str")
         pulumi.set(__self__, "ami_type", ami_type)
@@ -62,6 +62,9 @@ class GetNodeGroupResult:
         if node_role_arn and not isinstance(node_role_arn, str):
             raise TypeError("Expected argument 'node_role_arn' to be a str")
         pulumi.set(__self__, "node_role_arn", node_role_arn)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if release_version and not isinstance(release_version, str):
             raise TypeError("Expected argument 'release_version' to be a str")
         pulumi.set(__self__, "release_version", release_version)
@@ -173,6 +176,11 @@ class GetNodeGroupResult:
         return pulumi.get(self, "node_role_arn")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="releaseVersion")
     def release_version(self) -> builtins.str:
         """
@@ -262,6 +270,7 @@ class AwaitableGetNodeGroupResult(GetNodeGroupResult):
             launch_templates=self.launch_templates,
             node_group_name=self.node_group_name,
             node_role_arn=self.node_role_arn,
+            region=self.region,
             release_version=self.release_version,
             remote_accesses=self.remote_accesses,
             resources=self.resources,
@@ -275,6 +284,7 @@ class AwaitableGetNodeGroupResult(GetNodeGroupResult):
 
 def get_node_group(cluster_name: Optional[builtins.str] = None,
                    node_group_name: Optional[builtins.str] = None,
+                   region: Optional[builtins.str] = None,
                    tags: Optional[Mapping[str, builtins.str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNodeGroupResult:
     """
@@ -293,11 +303,13 @@ def get_node_group(cluster_name: Optional[builtins.str] = None,
 
     :param builtins.str cluster_name: Name of the cluster.
     :param builtins.str node_group_name: Name of the node group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['nodeGroupName'] = node_group_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:eks/getNodeGroup:getNodeGroup', __args__, opts=opts, typ=GetNodeGroupResult).value
@@ -314,6 +326,7 @@ def get_node_group(cluster_name: Optional[builtins.str] = None,
         launch_templates=pulumi.get(__ret__, 'launch_templates'),
         node_group_name=pulumi.get(__ret__, 'node_group_name'),
         node_role_arn=pulumi.get(__ret__, 'node_role_arn'),
+        region=pulumi.get(__ret__, 'region'),
         release_version=pulumi.get(__ret__, 'release_version'),
         remote_accesses=pulumi.get(__ret__, 'remote_accesses'),
         resources=pulumi.get(__ret__, 'resources'),
@@ -325,6 +338,7 @@ def get_node_group(cluster_name: Optional[builtins.str] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_node_group_output(cluster_name: Optional[pulumi.Input[builtins.str]] = None,
                           node_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNodeGroupResult]:
     """
@@ -343,11 +357,13 @@ def get_node_group_output(cluster_name: Optional[pulumi.Input[builtins.str]] = N
 
     :param builtins.str cluster_name: Name of the cluster.
     :param builtins.str node_group_name: Name of the node group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['nodeGroupName'] = node_group_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:eks/getNodeGroup:getNodeGroup', __args__, opts=opts, typ=GetNodeGroupResult)
@@ -363,6 +379,7 @@ def get_node_group_output(cluster_name: Optional[pulumi.Input[builtins.str]] = N
         launch_templates=pulumi.get(__response__, 'launch_templates'),
         node_group_name=pulumi.get(__response__, 'node_group_name'),
         node_role_arn=pulumi.get(__response__, 'node_role_arn'),
+        region=pulumi.get(__response__, 'region'),
         release_version=pulumi.get(__response__, 'release_version'),
         remote_accesses=pulumi.get(__response__, 'remote_accesses'),
         resources=pulumi.get(__response__, 'resources'),

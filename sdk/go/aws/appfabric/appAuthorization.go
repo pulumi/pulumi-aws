@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appfabric"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appfabric"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -74,9 +74,10 @@ type AppAuthorization struct {
 	// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
 	Credential AppAuthorizationCredentialPtrOutput `pulumi:"credential"`
 	// The user persona of the app authorization.
-	Persona pulumi.StringOutput    `pulumi:"persona"`
+	Persona pulumi.StringOutput `pulumi:"persona"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region  pulumi.StringOutput    `pulumi:"region"`
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Contains information about an application tenant, such as the application display name and identifier.
 	Tenants   AppAuthorizationTenantArrayOutput `pulumi:"tenants"`
@@ -138,9 +139,10 @@ type appAuthorizationState struct {
 	// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
 	Credential *AppAuthorizationCredential `pulumi:"credential"`
 	// The user persona of the app authorization.
-	Persona *string           `pulumi:"persona"`
+	Persona *string `pulumi:"persona"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region  *string           `pulumi:"region"`
 	Tags    map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Contains information about an application tenant, such as the application display name and identifier.
 	Tenants   []AppAuthorizationTenant  `pulumi:"tenants"`
@@ -165,8 +167,9 @@ type AppAuthorizationState struct {
 	Credential AppAuthorizationCredentialPtrInput
 	// The user persona of the app authorization.
 	Persona pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region  pulumi.StringPtrInput
 	Tags    pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Contains information about an application tenant, such as the application display name and identifier.
 	Tenants   AppAuthorizationTenantArrayInput
@@ -188,7 +191,9 @@ type appAuthorizationArgs struct {
 	// Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
 	// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
 	Credential *AppAuthorizationCredential `pulumi:"credential"`
-	Tags       map[string]string           `pulumi:"tags"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 	// Contains information about an application tenant, such as the application display name and identifier.
 	Tenants  []AppAuthorizationTenant  `pulumi:"tenants"`
 	Timeouts *AppAuthorizationTimeouts `pulumi:"timeouts"`
@@ -205,7 +210,9 @@ type AppAuthorizationArgs struct {
 	// Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
 	// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
 	Credential AppAuthorizationCredentialPtrInput
-	Tags       pulumi.StringMapInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
 	// Contains information about an application tenant, such as the application display name and identifier.
 	Tenants  AppAuthorizationTenantArrayInput
 	Timeouts AppAuthorizationTimeoutsPtrInput
@@ -338,11 +345,15 @@ func (o AppAuthorizationOutput) Persona() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppAuthorization) pulumi.StringOutput { return v.Persona }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AppAuthorizationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AppAuthorization) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 func (o AppAuthorizationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppAuthorization) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o AppAuthorizationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AppAuthorization) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

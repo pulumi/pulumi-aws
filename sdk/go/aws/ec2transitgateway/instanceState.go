@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,6 +91,8 @@ type InstanceState struct {
 	Force pulumi.BoolPtrOutput `pulumi:"force"`
 	// ID of the instance.
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// State of the instance. Valid values are `stopped`, `running`.
 	//
 	// The following arguments are optional:
@@ -137,6 +139,8 @@ type instanceStateState struct {
 	Force *bool `pulumi:"force"`
 	// ID of the instance.
 	InstanceId *string `pulumi:"instanceId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// State of the instance. Valid values are `stopped`, `running`.
 	//
 	// The following arguments are optional:
@@ -148,6 +152,8 @@ type InstanceStateState struct {
 	Force pulumi.BoolPtrInput
 	// ID of the instance.
 	InstanceId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// State of the instance. Valid values are `stopped`, `running`.
 	//
 	// The following arguments are optional:
@@ -163,6 +169,8 @@ type instanceStateArgs struct {
 	Force *bool `pulumi:"force"`
 	// ID of the instance.
 	InstanceId string `pulumi:"instanceId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// State of the instance. Valid values are `stopped`, `running`.
 	//
 	// The following arguments are optional:
@@ -175,6 +183,8 @@ type InstanceStateArgs struct {
 	Force pulumi.BoolPtrInput
 	// ID of the instance.
 	InstanceId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// State of the instance. Valid values are `stopped`, `running`.
 	//
 	// The following arguments are optional:
@@ -276,6 +286,11 @@ func (o InstanceStateOutput) Force() pulumi.BoolPtrOutput {
 // ID of the instance.
 func (o InstanceStateOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceState) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o InstanceStateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceState) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // State of the instance. Valid values are `stopped`, `running`.

@@ -27,6 +27,7 @@ class ScheduleArgs:
                  max_size: Optional[pulumi.Input[builtins.int]] = None,
                  min_size: Optional[pulumi.Input[builtins.int]] = None,
                  recurrence: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  start_time: Optional[pulumi.Input[builtins.str]] = None,
                  time_zone: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -40,6 +41,7 @@ class ScheduleArgs:
         :param pulumi.Input[builtins.int] max_size: The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
         :param pulumi.Input[builtins.int] min_size: The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
         :param pulumi.Input[builtins.str] recurrence: The recurring schedule for this action specified using the Unix cron syntax format.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] start_time: The date and time for the recurring schedule to start, in UTC with the format `"YYYY-MM-DDThh:mm:ssZ"` (e.g. `"2021-06-01T00:00:00Z"`).
         :param pulumi.Input[builtins.str] time_zone: Specifies the time zone for a cron expression. Valid values are the canonical names of the IANA time zones (such as `Etc/GMT+9` or `Pacific/Tahiti`).
                
@@ -57,6 +59,8 @@ class ScheduleArgs:
             pulumi.set(__self__, "min_size", min_size)
         if recurrence is not None:
             pulumi.set(__self__, "recurrence", recurrence)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if start_time is not None:
             pulumi.set(__self__, "start_time", start_time)
         if time_zone is not None:
@@ -149,6 +153,18 @@ class ScheduleArgs:
         pulumi.set(self, "recurrence", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -185,6 +201,7 @@ class _ScheduleState:
                  max_size: Optional[pulumi.Input[builtins.int]] = None,
                  min_size: Optional[pulumi.Input[builtins.int]] = None,
                  recurrence: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scheduled_action_name: Optional[pulumi.Input[builtins.str]] = None,
                  start_time: Optional[pulumi.Input[builtins.str]] = None,
                  time_zone: Optional[pulumi.Input[builtins.str]] = None):
@@ -197,6 +214,7 @@ class _ScheduleState:
         :param pulumi.Input[builtins.int] max_size: The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
         :param pulumi.Input[builtins.int] min_size: The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
         :param pulumi.Input[builtins.str] recurrence: The recurring schedule for this action specified using the Unix cron syntax format.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] scheduled_action_name: The name of this scaling action.
                
                The following arguments are optional:
@@ -219,6 +237,8 @@ class _ScheduleState:
             pulumi.set(__self__, "min_size", min_size)
         if recurrence is not None:
             pulumi.set(__self__, "recurrence", recurrence)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scheduled_action_name is not None:
             pulumi.set(__self__, "scheduled_action_name", scheduled_action_name)
         if start_time is not None:
@@ -311,6 +331,18 @@ class _ScheduleState:
         pulumi.set(self, "recurrence", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="scheduledActionName")
     def scheduled_action_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -363,6 +395,7 @@ class Schedule(pulumi.CustomResource):
                  max_size: Optional[pulumi.Input[builtins.int]] = None,
                  min_size: Optional[pulumi.Input[builtins.int]] = None,
                  recurrence: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scheduled_action_name: Optional[pulumi.Input[builtins.str]] = None,
                  start_time: Optional[pulumi.Input[builtins.str]] = None,
                  time_zone: Optional[pulumi.Input[builtins.str]] = None,
@@ -411,6 +444,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] max_size: The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
         :param pulumi.Input[builtins.int] min_size: The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
         :param pulumi.Input[builtins.str] recurrence: The recurring schedule for this action specified using the Unix cron syntax format.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] scheduled_action_name: The name of this scaling action.
                
                The following arguments are optional:
@@ -482,6 +516,7 @@ class Schedule(pulumi.CustomResource):
                  max_size: Optional[pulumi.Input[builtins.int]] = None,
                  min_size: Optional[pulumi.Input[builtins.int]] = None,
                  recurrence: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scheduled_action_name: Optional[pulumi.Input[builtins.str]] = None,
                  start_time: Optional[pulumi.Input[builtins.str]] = None,
                  time_zone: Optional[pulumi.Input[builtins.str]] = None,
@@ -502,6 +537,7 @@ class Schedule(pulumi.CustomResource):
             __props__.__dict__["max_size"] = max_size
             __props__.__dict__["min_size"] = min_size
             __props__.__dict__["recurrence"] = recurrence
+            __props__.__dict__["region"] = region
             if scheduled_action_name is None and not opts.urn:
                 raise TypeError("Missing required property 'scheduled_action_name'")
             __props__.__dict__["scheduled_action_name"] = scheduled_action_name
@@ -525,6 +561,7 @@ class Schedule(pulumi.CustomResource):
             max_size: Optional[pulumi.Input[builtins.int]] = None,
             min_size: Optional[pulumi.Input[builtins.int]] = None,
             recurrence: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             scheduled_action_name: Optional[pulumi.Input[builtins.str]] = None,
             start_time: Optional[pulumi.Input[builtins.str]] = None,
             time_zone: Optional[pulumi.Input[builtins.str]] = None) -> 'Schedule':
@@ -542,6 +579,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] max_size: The maximum size of the Auto Scaling group. Set to `-1` if you don't want to change the maximum size at the scheduled time. Defaults to `0`.
         :param pulumi.Input[builtins.int] min_size: The minimum size of the Auto Scaling group. Set to `-1` if you don't want to change the minimum size at the scheduled time. Defaults to `0`.
         :param pulumi.Input[builtins.str] recurrence: The recurring schedule for this action specified using the Unix cron syntax format.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] scheduled_action_name: The name of this scaling action.
                
                The following arguments are optional:
@@ -561,6 +599,7 @@ class Schedule(pulumi.CustomResource):
         __props__.__dict__["max_size"] = max_size
         __props__.__dict__["min_size"] = min_size
         __props__.__dict__["recurrence"] = recurrence
+        __props__.__dict__["region"] = region
         __props__.__dict__["scheduled_action_name"] = scheduled_action_name
         __props__.__dict__["start_time"] = start_time
         __props__.__dict__["time_zone"] = time_zone
@@ -621,6 +660,14 @@ class Schedule(pulumi.CustomResource):
         The recurring schedule for this action specified using the Unix cron syntax format.
         """
         return pulumi.get(self, "recurrence")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="scheduledActionName")

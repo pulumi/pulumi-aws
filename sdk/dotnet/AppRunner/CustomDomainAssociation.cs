@@ -69,6 +69,12 @@ namespace Pulumi.Aws.AppRunner
         public Output<bool?> EnableWwwSubdomain { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the App Runner service.
         /// </summary>
         [Output("serviceArn")]
@@ -139,6 +145,12 @@ namespace Pulumi.Aws.AppRunner
         public Input<bool>? EnableWwwSubdomain { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ARN of the App Runner service.
         /// </summary>
         [Input("serviceArn", required: true)]
@@ -181,6 +193,12 @@ namespace Pulumi.Aws.AppRunner
         /// </summary>
         [Input("enableWwwSubdomain")]
         public Input<bool>? EnableWwwSubdomain { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of the App Runner service.

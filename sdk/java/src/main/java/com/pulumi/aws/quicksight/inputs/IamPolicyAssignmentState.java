@@ -125,6 +125,21 @@ public final class IamPolicyAssignmentState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.policyArn);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private IamPolicyAssignmentState() {}
 
     private IamPolicyAssignmentState(IamPolicyAssignmentState $) {
@@ -135,6 +150,7 @@ public final class IamPolicyAssignmentState extends com.pulumi.resources.Resourc
         this.identities = $.identities;
         this.namespace = $.namespace;
         this.policyArn = $.policyArn;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -304,6 +320,27 @@ public final class IamPolicyAssignmentState extends com.pulumi.resources.Resourc
          */
         public Builder policyArn(String policyArn) {
             return policyArn(Output.of(policyArn));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public IamPolicyAssignmentState build() {

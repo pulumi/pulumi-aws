@@ -89,6 +89,10 @@ export class DomainSamlOptions extends pulumi.CustomResource {
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * SAML authentication options for an AWS OpenSearch Domain.
      */
     public readonly samlOptions!: pulumi.Output<outputs.opensearch.DomainSamlOptionsSamlOptions | undefined>;
@@ -107,6 +111,7 @@ export class DomainSamlOptions extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as DomainSamlOptionsState | undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["samlOptions"] = state ? state.samlOptions : undefined;
         } else {
             const args = argsOrState as DomainSamlOptionsArgs | undefined;
@@ -114,6 +119,7 @@ export class DomainSamlOptions extends pulumi.CustomResource {
                 throw new Error("Missing required property 'domainName'");
             }
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["samlOptions"] = args ? args.samlOptions : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -132,6 +138,10 @@ export interface DomainSamlOptionsState {
      */
     domainName?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * SAML authentication options for an AWS OpenSearch Domain.
      */
     samlOptions?: pulumi.Input<inputs.opensearch.DomainSamlOptionsSamlOptions>;
@@ -147,6 +157,10 @@ export interface DomainSamlOptionsArgs {
      * The following arguments are optional:
      */
     domainName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * SAML authentication options for an AWS OpenSearch Domain.
      */

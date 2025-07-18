@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,10 +25,10 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datazone"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -201,6 +201,8 @@ type EnvironmentProfile struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Project identifier for environment profile.
 	ProjectIdentifier pulumi.StringOutput `pulumi:"projectIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Time of last update to environment profile.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 	// Array of user parameters of the environment profile with the following attributes:
@@ -267,6 +269,8 @@ type environmentProfileState struct {
 	Name *string `pulumi:"name"`
 	// Project identifier for environment profile.
 	ProjectIdentifier *string `pulumi:"projectIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Time of last update to environment profile.
 	UpdatedAt *string `pulumi:"updatedAt"`
 	// Array of user parameters of the environment profile with the following attributes:
@@ -292,6 +296,8 @@ type EnvironmentProfileState struct {
 	Name pulumi.StringPtrInput
 	// Project identifier for environment profile.
 	ProjectIdentifier pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Time of last update to environment profile.
 	UpdatedAt pulumi.StringPtrInput
 	// Array of user parameters of the environment profile with the following attributes:
@@ -317,6 +323,8 @@ type environmentProfileArgs struct {
 	Name *string `pulumi:"name"`
 	// Project identifier for environment profile.
 	ProjectIdentifier string `pulumi:"projectIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Array of user parameters of the environment profile with the following attributes:
 	UserParameters []EnvironmentProfileUserParameter `pulumi:"userParameters"`
 }
@@ -337,6 +345,8 @@ type EnvironmentProfileArgs struct {
 	Name pulumi.StringPtrInput
 	// Project identifier for environment profile.
 	ProjectIdentifier pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Array of user parameters of the environment profile with the following attributes:
 	UserParameters EnvironmentProfileUserParameterArrayInput
 }
@@ -471,6 +481,11 @@ func (o EnvironmentProfileOutput) Name() pulumi.StringOutput {
 // Project identifier for environment profile.
 func (o EnvironmentProfileOutput) ProjectIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentProfile) pulumi.StringOutput { return v.ProjectIdentifier }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o EnvironmentProfileOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnvironmentProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Time of last update to environment profile.

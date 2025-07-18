@@ -71,6 +71,10 @@ export class VpcConnection extends pulumi.CustomResource {
      */
     public readonly clientSubnets!: pulumi.Output<string[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The security groups to attach to the ENIs for the broker nodes.
      */
     public readonly securityGroups!: pulumi.Output<string[]>;
@@ -80,8 +84,6 @@ export class VpcConnection extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -109,6 +111,7 @@ export class VpcConnection extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["authentication"] = state ? state.authentication : undefined;
             resourceInputs["clientSubnets"] = state ? state.clientSubnets : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -133,6 +136,7 @@ export class VpcConnection extends pulumi.CustomResource {
             }
             resourceInputs["authentication"] = args ? args.authentication : undefined;
             resourceInputs["clientSubnets"] = args ? args.clientSubnets : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetClusterArn"] = args ? args.targetClusterArn : undefined;
@@ -162,6 +166,10 @@ export interface VpcConnectionState {
      */
     clientSubnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The security groups to attach to the ENIs for the broker nodes.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -171,8 +179,6 @@ export interface VpcConnectionState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -197,6 +203,10 @@ export interface VpcConnectionArgs {
      * The list of subnets in the client VPC to connect to.
      */
     clientSubnets: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The security groups to attach to the ENIs for the broker nodes.
      */

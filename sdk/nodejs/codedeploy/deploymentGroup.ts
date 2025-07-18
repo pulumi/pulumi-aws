@@ -267,6 +267,10 @@ export class DeploymentGroup extends pulumi.CustomResource {
      */
     public readonly outdatedInstancesStrategy!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The service role ARN that allows deployments.
      */
     public readonly serviceRoleArn!: pulumi.Output<string>;
@@ -276,8 +280,6 @@ export class DeploymentGroup extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -319,6 +321,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
             resourceInputs["loadBalancerInfo"] = state ? state.loadBalancerInfo : undefined;
             resourceInputs["onPremisesInstanceTagFilters"] = state ? state.onPremisesInstanceTagFilters : undefined;
             resourceInputs["outdatedInstancesStrategy"] = state ? state.outdatedInstancesStrategy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -349,6 +352,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
             resourceInputs["loadBalancerInfo"] = args ? args.loadBalancerInfo : undefined;
             resourceInputs["onPremisesInstanceTagFilters"] = args ? args.onPremisesInstanceTagFilters : undefined;
             resourceInputs["outdatedInstancesStrategy"] = args ? args.outdatedInstancesStrategy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["terminationHookEnabled"] = args ? args.terminationHookEnabled : undefined;
@@ -436,6 +440,10 @@ export interface DeploymentGroupState {
      */
     outdatedInstancesStrategy?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The service role ARN that allows deployments.
      */
     serviceRoleArn?: pulumi.Input<string>;
@@ -445,8 +453,6 @@ export interface DeploymentGroupState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -519,6 +525,10 @@ export interface DeploymentGroupArgs {
      * Configuration block of Indicates what happens when new Amazon EC2 instances are launched mid-deployment and do not receive the deployed application revision. Valid values are `UPDATE` and `IGNORE`. Defaults to `UPDATE`.
      */
     outdatedInstancesStrategy?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The service role ARN that allows deployments.
      */

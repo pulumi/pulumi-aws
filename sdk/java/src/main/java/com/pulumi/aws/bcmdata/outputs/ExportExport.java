@@ -31,10 +31,6 @@ public final class ExportExport {
      * 
      */
     private @Nullable List<ExportExportDestinationConfiguration> destinationConfigurations;
-    /**
-     * @return Amazon Resource Name (ARN) for this export.
-     * 
-     */
     private @Nullable String exportArn;
     /**
      * @return Name of this specific data export.
@@ -69,10 +65,6 @@ public final class ExportExport {
     public List<ExportExportDestinationConfiguration> destinationConfigurations() {
         return this.destinationConfigurations == null ? List.of() : this.destinationConfigurations;
     }
-    /**
-     * @return Amazon Resource Name (ARN) for this export.
-     * 
-     */
     public Optional<String> exportArn() {
         return Optional.ofNullable(this.exportArn);
     }

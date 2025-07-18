@@ -74,13 +74,8 @@ namespace Pulumi.Aws.GuardDuty
     public partial class OrganizationConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
-        /// </summary>
-        [Output("autoEnable")]
-        public Output<bool> AutoEnable { get; private set; } = null!;
-
-        /// <summary>
-        /// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+        /// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
+        /// Valid values are `ALL`, `NEW`, `NONE`.
         /// </summary>
         [Output("autoEnableOrganizationMembers")]
         public Output<string> AutoEnableOrganizationMembers { get; private set; } = null!;
@@ -98,6 +93,12 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Output("detectorId")]
         public Output<string> DetectorId { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
 
         /// <summary>
@@ -146,16 +147,11 @@ namespace Pulumi.Aws.GuardDuty
     public sealed class OrganizationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+        /// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
+        /// Valid values are `ALL`, `NEW`, `NONE`.
         /// </summary>
-        [Input("autoEnable")]
-        public Input<bool>? AutoEnable { get; set; }
-
-        /// <summary>
-        /// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
-        /// </summary>
-        [Input("autoEnableOrganizationMembers")]
-        public Input<string>? AutoEnableOrganizationMembers { get; set; }
+        [Input("autoEnableOrganizationMembers", required: true)]
+        public Input<string> AutoEnableOrganizationMembers { get; set; } = null!;
 
         /// <summary>
         /// Configuration for the collected datasources. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `aws.guardduty.OrganizationConfigurationFeature` resources.
@@ -171,6 +167,12 @@ namespace Pulumi.Aws.GuardDuty
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public OrganizationConfigurationArgs()
         {
         }
@@ -180,13 +182,8 @@ namespace Pulumi.Aws.GuardDuty
     public sealed class OrganizationConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// *Deprecated:* Use `auto_enable_organization_members` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
-        /// </summary>
-        [Input("autoEnable")]
-        public Input<bool>? AutoEnable { get; set; }
-
-        /// <summary>
-        /// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization. Valid values are `ALL`, `NEW`, `NONE`.
+        /// Indicates the auto-enablement configuration of GuardDuty for the member accounts in the organization.
+        /// Valid values are `ALL`, `NEW`, `NONE`.
         /// </summary>
         [Input("autoEnableOrganizationMembers")]
         public Input<string>? AutoEnableOrganizationMembers { get; set; }
@@ -204,6 +201,12 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Input("detectorId")]
         public Input<string>? DetectorId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public OrganizationConfigurationState()
         {

@@ -22,16 +22,20 @@ class ApplicationAssignmentArgs:
     def __init__(__self__, *,
                  application_arn: pulumi.Input[builtins.str],
                  principal_id: pulumi.Input[builtins.str],
-                 principal_type: pulumi.Input[builtins.str]):
+                 principal_type: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ApplicationAssignment resource.
         :param pulumi.Input[builtins.str] application_arn: ARN of the application.
         :param pulumi.Input[builtins.str] principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
         :param pulumi.Input[builtins.str] principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_arn", application_arn)
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "principal_type", principal_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="applicationArn")
@@ -69,18 +73,32 @@ class ApplicationAssignmentArgs:
     def principal_type(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "principal_type", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ApplicationAssignmentState:
     def __init__(__self__, *,
                  application_arn: Optional[pulumi.Input[builtins.str]] = None,
                  principal_id: Optional[pulumi.Input[builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[builtins.str]] = None):
+                 principal_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApplicationAssignment resources.
         :param pulumi.Input[builtins.str] application_arn: ARN of the application.
         :param pulumi.Input[builtins.str] principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
         :param pulumi.Input[builtins.str] principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if application_arn is not None:
             pulumi.set(__self__, "application_arn", application_arn)
@@ -88,6 +106,8 @@ class _ApplicationAssignmentState:
             pulumi.set(__self__, "principal_id", principal_id)
         if principal_type is not None:
             pulumi.set(__self__, "principal_type", principal_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="applicationArn")
@@ -125,6 +145,18 @@ class _ApplicationAssignmentState:
     def principal_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "principal_type", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:ssoadmin/applicationAssignment:ApplicationAssignment")
 class ApplicationAssignment(pulumi.CustomResource):
@@ -135,6 +167,7 @@ class ApplicationAssignment(pulumi.CustomResource):
                  application_arn: Optional[pulumi.Input[builtins.str]] = None,
                  principal_id: Optional[pulumi.Input[builtins.str]] = None,
                  principal_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS SSO Admin Application Assignment.
@@ -148,7 +181,7 @@ class ApplicationAssignment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssoadmin.ApplicationAssignment("example",
-            application_arn=example_aws_ssoadmin_application["applicationArn"],
+            application_arn=example_aws_ssoadmin_application["arn"],
             principal_id=example_aws_identitystore_user["userId"],
             principal_type="USER")
         ```
@@ -160,7 +193,7 @@ class ApplicationAssignment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssoadmin.ApplicationAssignment("example",
-            application_arn=example_aws_ssoadmin_application["applicationArn"],
+            application_arn=example_aws_ssoadmin_application["arn"],
             principal_id=example_aws_identitystore_group["groupId"],
             principal_type="GROUP")
         ```
@@ -178,6 +211,7 @@ class ApplicationAssignment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] application_arn: ARN of the application.
         :param pulumi.Input[builtins.str] principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
         :param pulumi.Input[builtins.str] principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -197,7 +231,7 @@ class ApplicationAssignment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssoadmin.ApplicationAssignment("example",
-            application_arn=example_aws_ssoadmin_application["applicationArn"],
+            application_arn=example_aws_ssoadmin_application["arn"],
             principal_id=example_aws_identitystore_user["userId"],
             principal_type="USER")
         ```
@@ -209,7 +243,7 @@ class ApplicationAssignment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssoadmin.ApplicationAssignment("example",
-            application_arn=example_aws_ssoadmin_application["applicationArn"],
+            application_arn=example_aws_ssoadmin_application["arn"],
             principal_id=example_aws_identitystore_group["groupId"],
             principal_type="GROUP")
         ```
@@ -240,6 +274,7 @@ class ApplicationAssignment(pulumi.CustomResource):
                  application_arn: Optional[pulumi.Input[builtins.str]] = None,
                  principal_id: Optional[pulumi.Input[builtins.str]] = None,
                  principal_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -258,6 +293,7 @@ class ApplicationAssignment(pulumi.CustomResource):
             if principal_type is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_type'")
             __props__.__dict__["principal_type"] = principal_type
+            __props__.__dict__["region"] = region
         super(ApplicationAssignment, __self__).__init__(
             'aws:ssoadmin/applicationAssignment:ApplicationAssignment',
             resource_name,
@@ -270,7 +306,8 @@ class ApplicationAssignment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             application_arn: Optional[pulumi.Input[builtins.str]] = None,
             principal_id: Optional[pulumi.Input[builtins.str]] = None,
-            principal_type: Optional[pulumi.Input[builtins.str]] = None) -> 'ApplicationAssignment':
+            principal_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'ApplicationAssignment':
         """
         Get an existing ApplicationAssignment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -281,6 +318,7 @@ class ApplicationAssignment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] application_arn: ARN of the application.
         :param pulumi.Input[builtins.str] principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
         :param pulumi.Input[builtins.str] principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -289,6 +327,7 @@ class ApplicationAssignment(pulumi.CustomResource):
         __props__.__dict__["application_arn"] = application_arn
         __props__.__dict__["principal_id"] = principal_id
         __props__.__dict__["principal_type"] = principal_type
+        __props__.__dict__["region"] = region
         return ApplicationAssignment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -314,4 +353,12 @@ class ApplicationAssignment(pulumi.CustomResource):
         Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
         """
         return pulumi.get(self, "principal_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

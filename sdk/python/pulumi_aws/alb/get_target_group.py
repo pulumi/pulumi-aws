@@ -28,7 +28,7 @@ class GetTargetGroupResult:
     """
     A collection of values returned by getTargetGroup.
     """
-    def __init__(__self__, arn=None, arn_suffix=None, connection_termination=None, deregistration_delay=None, health_check=None, id=None, lambda_multi_value_headers_enabled=None, load_balancer_arns=None, load_balancing_algorithm_type=None, load_balancing_anomaly_mitigation=None, load_balancing_cross_zone_enabled=None, name=None, port=None, preserve_client_ip=None, protocol=None, protocol_version=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
+    def __init__(__self__, arn=None, arn_suffix=None, connection_termination=None, deregistration_delay=None, health_check=None, id=None, lambda_multi_value_headers_enabled=None, load_balancer_arns=None, load_balancing_algorithm_type=None, load_balancing_anomaly_mitigation=None, load_balancing_cross_zone_enabled=None, name=None, port=None, preserve_client_ip=None, protocol=None, protocol_version=None, proxy_protocol_v2=None, region=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -80,6 +80,9 @@ class GetTargetGroupResult:
         if proxy_protocol_v2 and not isinstance(proxy_protocol_v2, bool):
             raise TypeError("Expected argument 'proxy_protocol_v2' to be a bool")
         pulumi.set(__self__, "proxy_protocol_v2", proxy_protocol_v2)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if slow_start and not isinstance(slow_start, int):
             raise TypeError("Expected argument 'slow_start' to be a int")
         pulumi.set(__self__, "slow_start", slow_start)
@@ -185,6 +188,11 @@ class GetTargetGroupResult:
         return pulumi.get(self, "proxy_protocol_v2")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="slowStart")
     def slow_start(self) -> builtins.int:
         return pulumi.get(self, "slow_start")
@@ -233,6 +241,7 @@ class AwaitableGetTargetGroupResult(GetTargetGroupResult):
             protocol=self.protocol,
             protocol_version=self.protocol_version,
             proxy_protocol_v2=self.proxy_protocol_v2,
+            region=self.region,
             slow_start=self.slow_start,
             stickiness=self.stickiness,
             tags=self.tags,
@@ -243,6 +252,7 @@ class AwaitableGetTargetGroupResult(GetTargetGroupResult):
 def get_target_group(arn: Optional[builtins.str] = None,
                      load_balancing_anomaly_mitigation: Optional[builtins.str] = None,
                      name: Optional[builtins.str] = None,
+                     region: Optional[builtins.str] = None,
                      tags: Optional[Mapping[str, builtins.str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTargetGroupResult:
     """
@@ -274,6 +284,7 @@ def get_target_group(arn: Optional[builtins.str] = None,
 
     :param builtins.str arn: Full ARN of the target group.
     :param builtins.str name: Unique name of the target group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired target group.
            
            > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
@@ -282,6 +293,7 @@ def get_target_group(arn: Optional[builtins.str] = None,
     __args__['arn'] = arn
     __args__['loadBalancingAnomalyMitigation'] = load_balancing_anomaly_mitigation
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:alb/getTargetGroup:getTargetGroup', __args__, opts=opts, typ=GetTargetGroupResult).value
@@ -304,6 +316,7 @@ def get_target_group(arn: Optional[builtins.str] = None,
         protocol=pulumi.get(__ret__, 'protocol'),
         protocol_version=pulumi.get(__ret__, 'protocol_version'),
         proxy_protocol_v2=pulumi.get(__ret__, 'proxy_protocol_v2'),
+        region=pulumi.get(__ret__, 'region'),
         slow_start=pulumi.get(__ret__, 'slow_start'),
         stickiness=pulumi.get(__ret__, 'stickiness'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -312,6 +325,7 @@ def get_target_group(arn: Optional[builtins.str] = None,
 def get_target_group_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             load_balancing_anomaly_mitigation: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetGroupResult]:
     """
@@ -343,6 +357,7 @@ def get_target_group_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] 
 
     :param builtins.str arn: Full ARN of the target group.
     :param builtins.str name: Unique name of the target group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired target group.
            
            > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has the lowest precedence.
@@ -351,6 +366,7 @@ def get_target_group_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] 
     __args__['arn'] = arn
     __args__['loadBalancingAnomalyMitigation'] = load_balancing_anomaly_mitigation
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:alb/getTargetGroup:getTargetGroup', __args__, opts=opts, typ=GetTargetGroupResult)
@@ -372,6 +388,7 @@ def get_target_group_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] 
         protocol=pulumi.get(__response__, 'protocol'),
         protocol_version=pulumi.get(__response__, 'protocol_version'),
         proxy_protocol_v2=pulumi.get(__response__, 'proxy_protocol_v2'),
+        region=pulumi.get(__response__, 'region'),
         slow_start=pulumi.get(__response__, 'slow_start'),
         stickiness=pulumi.get(__response__, 'stickiness'),
         tags=pulumi.get(__response__, 'tags'),

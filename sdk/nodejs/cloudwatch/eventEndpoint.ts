@@ -102,6 +102,10 @@ export class EventEndpoint extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Parameters used for replication. Documented below.
      */
     public readonly replicationConfig!: pulumi.Output<outputs.cloudwatch.EventEndpointReplicationConfig | undefined>;
@@ -132,6 +136,7 @@ export class EventEndpoint extends pulumi.CustomResource {
             resourceInputs["endpointUrl"] = state ? state.endpointUrl : undefined;
             resourceInputs["eventBuses"] = state ? state.eventBuses : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicationConfig"] = state ? state.replicationConfig : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["routingConfig"] = state ? state.routingConfig : undefined;
@@ -146,6 +151,7 @@ export class EventEndpoint extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["eventBuses"] = args ? args.eventBuses : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicationConfig"] = args ? args.replicationConfig : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["routingConfig"] = args ? args.routingConfig : undefined;
@@ -182,6 +188,10 @@ export interface EventEndpointState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Parameters used for replication. Documented below.
      */
     replicationConfig?: pulumi.Input<inputs.cloudwatch.EventEndpointReplicationConfig>;
@@ -211,6 +221,10 @@ export interface EventEndpointArgs {
      * The name of the global endpoint.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Parameters used for replication. Documented below.
      */

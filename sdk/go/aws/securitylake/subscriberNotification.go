@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securitylake"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securitylake"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +52,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securitylake"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securitylake"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -85,6 +85,8 @@ type SubscriberNotification struct {
 	//
 	// Deprecated: Use subscriberEndpoint instead
 	EndpointId pulumi.StringOutput `pulumi:"endpointId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The subscriber endpoint to which exception messages are posted.
 	SubscriberEndpoint pulumi.StringOutput `pulumi:"subscriberEndpoint"`
 	// The subscriber ID for the notification subscription.
@@ -130,6 +132,8 @@ type subscriberNotificationState struct {
 	//
 	// Deprecated: Use subscriberEndpoint instead
 	EndpointId *string `pulumi:"endpointId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The subscriber endpoint to which exception messages are posted.
 	SubscriberEndpoint *string `pulumi:"subscriberEndpoint"`
 	// The subscriber ID for the notification subscription.
@@ -143,6 +147,8 @@ type SubscriberNotificationState struct {
 	//
 	// Deprecated: Use subscriberEndpoint instead
 	EndpointId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The subscriber endpoint to which exception messages are posted.
 	SubscriberEndpoint pulumi.StringPtrInput
 	// The subscriber ID for the notification subscription.
@@ -156,6 +162,8 @@ func (SubscriberNotificationState) ElementType() reflect.Type {
 type subscriberNotificationArgs struct {
 	// Specify the configuration using which you want to create the subscriber notification..
 	Configuration *SubscriberNotificationConfiguration `pulumi:"configuration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The subscriber ID for the notification subscription.
 	SubscriberId string `pulumi:"subscriberId"`
 }
@@ -164,6 +172,8 @@ type subscriberNotificationArgs struct {
 type SubscriberNotificationArgs struct {
 	// Specify the configuration using which you want to create the subscriber notification..
 	Configuration SubscriberNotificationConfigurationPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The subscriber ID for the notification subscription.
 	SubscriberId pulumi.StringInput
 }
@@ -265,6 +275,11 @@ func (o SubscriberNotificationOutput) Configuration() SubscriberNotificationConf
 // Deprecated: Use subscriberEndpoint instead
 func (o SubscriberNotificationOutput) EndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubscriberNotification) pulumi.StringOutput { return v.EndpointId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o SubscriberNotificationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubscriberNotification) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The subscriber endpoint to which exception messages are posted.

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,6 +60,8 @@ type Group struct {
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
 	// The namespace. Currently, you should set this to `default`.
 	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -105,6 +107,8 @@ type groupState struct {
 	GroupName *string `pulumi:"groupName"`
 	// The namespace. Currently, you should set this to `default`.
 	Namespace *string `pulumi:"namespace"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type GroupState struct {
@@ -118,6 +122,8 @@ type GroupState struct {
 	GroupName pulumi.StringPtrInput
 	// The namespace. Currently, you should set this to `default`.
 	Namespace pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (GroupState) ElementType() reflect.Type {
@@ -133,6 +139,8 @@ type groupArgs struct {
 	GroupName string `pulumi:"groupName"`
 	// The namespace. Currently, you should set this to `default`.
 	Namespace *string `pulumi:"namespace"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Group resource.
@@ -145,6 +153,8 @@ type GroupArgs struct {
 	GroupName pulumi.StringInput
 	// The namespace. Currently, you should set this to `default`.
 	Namespace pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (GroupArgs) ElementType() reflect.Type {
@@ -257,6 +267,11 @@ func (o GroupOutput) GroupName() pulumi.StringOutput {
 // The namespace. Currently, you should set this to `default`.
 func (o GroupOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o GroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type GroupArrayOutput struct{ *pulumi.OutputState }

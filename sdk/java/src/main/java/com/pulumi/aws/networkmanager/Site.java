@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates a site in a global network.
+ * Manages a Network Manager site. Use this resource to create a site in a global network.
  * 
  * ## Example Usage
  * 
@@ -69,14 +69,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:networkmanager/site:Site")
 public class Site extends com.pulumi.resources.CustomResource {
     /**
-     * Site Amazon Resource Name (ARN)
+     * Site ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Site Amazon Resource Name (ARN)
+     * @return Site ARN.
      * 
      */
     public Output<String> arn() {
@@ -97,28 +97,32 @@ public class Site extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The ID of the Global Network to create the site in.
+     * ID of the Global Network to create the site in.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="globalNetworkId", refs={String.class}, tree="[0]")
     private Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the Global Network to create the site in.
+     * @return ID of the Global Network to create the site in.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
     /**
-     * The site location as documented below.
+     * Site location. See below.
      * 
      */
     @Export(name="location", refs={SiteLocation.class}, tree="[0]")
     private Output</* @Nullable */ SiteLocation> location;
 
     /**
-     * @return The site location as documented below.
+     * @return Site location. See below.
      * 
      */
     public Output<Optional<SiteLocation>> location() {
@@ -139,18 +143,14 @@ public class Site extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

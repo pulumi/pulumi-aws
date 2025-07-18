@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,6 +67,8 @@ type DomainEntry struct {
 	IsAlias pulumi.BoolPtrOutput `pulumi:"isAlias"`
 	// Name of the entry record.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Target of the domain entry.
 	Target pulumi.StringOutput `pulumi:"target"`
 	// Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
@@ -120,6 +122,8 @@ type domainEntryState struct {
 	IsAlias *bool `pulumi:"isAlias"`
 	// Name of the entry record.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Target of the domain entry.
 	Target *string `pulumi:"target"`
 	// Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
@@ -135,6 +139,8 @@ type DomainEntryState struct {
 	IsAlias pulumi.BoolPtrInput
 	// Name of the entry record.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Target of the domain entry.
 	Target pulumi.StringPtrInput
 	// Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
@@ -154,6 +160,8 @@ type domainEntryArgs struct {
 	IsAlias *bool `pulumi:"isAlias"`
 	// Name of the entry record.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Target of the domain entry.
 	Target string `pulumi:"target"`
 	// Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
@@ -170,6 +178,8 @@ type DomainEntryArgs struct {
 	IsAlias pulumi.BoolPtrInput
 	// Name of the entry record.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Target of the domain entry.
 	Target pulumi.StringInput
 	// Type of record. Valid values: `A`, `AAAA`, `CNAME`, `MX`, `NS`, `SOA`, `SRV`, `TXT`.
@@ -278,6 +288,11 @@ func (o DomainEntryOutput) IsAlias() pulumi.BoolPtrOutput {
 // Name of the entry record.
 func (o DomainEntryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainEntry) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DomainEntryOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DomainEntry) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Target of the domain entry.

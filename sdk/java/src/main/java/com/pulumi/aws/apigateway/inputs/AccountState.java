@@ -6,7 +6,6 @@ package com.pulumi.aws.apigateway.inputs;
 import com.pulumi.aws.apigateway.inputs.AccountThrottleSettingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -64,30 +63,18 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-     * Defaults to `false`.
-     * Will be removed in a future major version of the provider.
-     * 
-     * @deprecated
-     * The &#34;reset_on_delete&#34; attribute will be removed in a future version of the provider
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    @Deprecated /* The ""reset_on_delete"" attribute will be removed in a future version of the provider */
-    @Import(name="resetOnDelete")
-    private @Nullable Output<Boolean> resetOnDelete;
+    @Import(name="region")
+    private @Nullable Output<String> region;
 
     /**
-     * @return If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-     * Defaults to `false`.
-     * Will be removed in a future major version of the provider.
-     * 
-     * @deprecated
-     * The &#34;reset_on_delete&#34; attribute will be removed in a future version of the provider
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    @Deprecated /* The ""reset_on_delete"" attribute will be removed in a future version of the provider */
-    public Optional<Output<Boolean>> resetOnDelete() {
-        return Optional.ofNullable(this.resetOnDelete);
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -111,7 +98,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.apiKeyVersion = $.apiKeyVersion;
         this.cloudwatchRoleArn = $.cloudwatchRoleArn;
         this.features = $.features;
-        this.resetOnDelete = $.resetOnDelete;
+        this.region = $.region;
         this.throttleSettings = $.throttleSettings;
     }
 
@@ -207,36 +194,24 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resetOnDelete If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-         * Defaults to `false`.
-         * Will be removed in a future major version of the provider.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
-         * @deprecated
-         * The &#34;reset_on_delete&#34; attribute will be removed in a future version of the provider
-         * 
          */
-        @Deprecated /* The ""reset_on_delete"" attribute will be removed in a future version of the provider */
-        public Builder resetOnDelete(@Nullable Output<Boolean> resetOnDelete) {
-            $.resetOnDelete = resetOnDelete;
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
             return this;
         }
 
         /**
-         * @param resetOnDelete If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-         * Defaults to `false`.
-         * Will be removed in a future major version of the provider.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
-         * @deprecated
-         * The &#34;reset_on_delete&#34; attribute will be removed in a future version of the provider
-         * 
          */
-        @Deprecated /* The ""reset_on_delete"" attribute will be removed in a future version of the provider */
-        public Builder resetOnDelete(Boolean resetOnDelete) {
-            return resetOnDelete(Output.of(resetOnDelete));
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

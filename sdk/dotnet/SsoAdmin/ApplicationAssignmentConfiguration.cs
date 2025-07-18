@@ -31,7 +31,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// {
     ///     var example = new Aws.SsoAdmin.ApplicationAssignmentConfiguration("example", new()
     ///     {
-    ///         ApplicationArn = exampleAwsSsoadminApplication.ApplicationArn,
+    ///         ApplicationArn = exampleAwsSsoadminApplication.Arn,
     ///         AssignmentRequired = true,
     ///     });
     /// 
@@ -60,6 +60,12 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         [Output("assignmentRequired")]
         public Output<bool> AssignmentRequired { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
 
         /// <summary>
@@ -119,6 +125,12 @@ namespace Pulumi.Aws.SsoAdmin
         [Input("assignmentRequired", required: true)]
         public Input<bool> AssignmentRequired { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public ApplicationAssignmentConfigurationArgs()
         {
         }
@@ -138,6 +150,12 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         [Input("assignmentRequired")]
         public Input<bool>? AssignmentRequired { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public ApplicationAssignmentConfigurationState()
         {

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -111,6 +111,8 @@ type UserGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The precedence of the user group.
 	Precedence pulumi.IntPtrOutput `pulumi:"precedence"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the IAM role to be associated with the user group.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The user pool ID.
@@ -156,6 +158,8 @@ type userGroupState struct {
 	Name *string `pulumi:"name"`
 	// The precedence of the user group.
 	Precedence *int `pulumi:"precedence"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the IAM role to be associated with the user group.
 	RoleArn *string `pulumi:"roleArn"`
 	// The user pool ID.
@@ -169,6 +173,8 @@ type UserGroupState struct {
 	Name pulumi.StringPtrInput
 	// The precedence of the user group.
 	Precedence pulumi.IntPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the IAM role to be associated with the user group.
 	RoleArn pulumi.StringPtrInput
 	// The user pool ID.
@@ -186,6 +192,8 @@ type userGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// The precedence of the user group.
 	Precedence *int `pulumi:"precedence"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the IAM role to be associated with the user group.
 	RoleArn *string `pulumi:"roleArn"`
 	// The user pool ID.
@@ -200,6 +208,8 @@ type UserGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// The precedence of the user group.
 	Precedence pulumi.IntPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the IAM role to be associated with the user group.
 	RoleArn pulumi.StringPtrInput
 	// The user pool ID.
@@ -306,6 +316,11 @@ func (o UserGroupOutput) Name() pulumi.StringOutput {
 // The precedence of the user group.
 func (o UserGroupOutput) Precedence() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.IntPtrOutput { return v.Precedence }).(pulumi.IntPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o UserGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of the IAM role to be associated with the user group.

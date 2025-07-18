@@ -20,29 +20,6 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
     public static final NotebookInstanceState Empty = new NotebookInstanceState();
 
     /**
-     * A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-     * 
-     * @deprecated
-     * accelerator_types is deprecated. Use instance_type instead.
-     * 
-     */
-    @Deprecated /* accelerator_types is deprecated. Use instance_type instead. */
-    @Import(name="acceleratorTypes")
-    private @Nullable Output<List<String>> acceleratorTypes;
-
-    /**
-     * @return A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-     * 
-     * @deprecated
-     * accelerator_types is deprecated. Use instance_type instead.
-     * 
-     */
-    @Deprecated /* accelerator_types is deprecated. Use instance_type instead. */
-    public Optional<Output<List<String>>> acceleratorTypes() {
-        return Optional.ofNullable(this.acceleratorTypes);
-    }
-
-    /**
      * An array of up to three Git repositories to associate with the notebook instance.
      * These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
      * 
@@ -210,6 +187,21 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
      * 
      */
@@ -287,22 +279,14 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -340,7 +324,6 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
     private NotebookInstanceState() {}
 
     private NotebookInstanceState(NotebookInstanceState $) {
-        this.acceleratorTypes = $.acceleratorTypes;
         this.additionalCodeRepositories = $.additionalCodeRepositories;
         this.arn = $.arn;
         this.defaultCodeRepository = $.defaultCodeRepository;
@@ -352,6 +335,7 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
         this.name = $.name;
         this.networkInterfaceId = $.networkInterfaceId;
         this.platformIdentifier = $.platformIdentifier;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.rootAccess = $.rootAccess;
         this.securityGroups = $.securityGroups;
@@ -378,49 +362,6 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
 
         public Builder(NotebookInstanceState defaults) {
             $ = new NotebookInstanceState(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param acceleratorTypes A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * accelerator_types is deprecated. Use instance_type instead.
-         * 
-         */
-        @Deprecated /* accelerator_types is deprecated. Use instance_type instead. */
-        public Builder acceleratorTypes(@Nullable Output<List<String>> acceleratorTypes) {
-            $.acceleratorTypes = acceleratorTypes;
-            return this;
-        }
-
-        /**
-         * @param acceleratorTypes A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * accelerator_types is deprecated. Use instance_type instead.
-         * 
-         */
-        @Deprecated /* accelerator_types is deprecated. Use instance_type instead. */
-        public Builder acceleratorTypes(List<String> acceleratorTypes) {
-            return acceleratorTypes(Output.of(acceleratorTypes));
-        }
-
-        /**
-         * @param acceleratorTypes A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * accelerator_types is deprecated. Use instance_type instead.
-         * 
-         */
-        @Deprecated /* accelerator_types is deprecated. Use instance_type instead. */
-        public Builder acceleratorTypes(String... acceleratorTypes) {
-            return acceleratorTypes(List.of(acceleratorTypes));
         }
 
         /**
@@ -668,6 +609,27 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param roleArn The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
          * 
          * @return builder
@@ -787,11 +749,7 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -802,11 +760,7 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

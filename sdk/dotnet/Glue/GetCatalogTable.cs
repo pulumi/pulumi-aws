@@ -115,6 +115,12 @@ namespace Pulumi.Aws.Glue
         public string? QueryAsOfTime { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// The transaction ID at which to read the table contents.
         /// </summary>
         [Input("transactionId")]
@@ -151,6 +157,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("queryAsOfTime")]
         public Input<string>? QueryAsOfTime { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The transaction ID at which to read the table contents.
@@ -210,6 +222,10 @@ namespace Pulumi.Aws.Glue
         public readonly ImmutableArray<Outputs.GetCatalogTablePartitionKeyResult> PartitionKeys;
         public readonly string? QueryAsOfTime;
         /// <summary>
+        /// Region of the target table.
+        /// </summary>
+        public readonly string Region;
+        /// <summary>
         /// Retention time for this table.
         /// </summary>
         public readonly int Retention;
@@ -259,6 +275,8 @@ namespace Pulumi.Aws.Glue
 
             string? queryAsOfTime,
 
+            string region,
+
             int retention,
 
             ImmutableArray<Outputs.GetCatalogTableStorageDescriptorResult> storageDescriptors,
@@ -284,6 +302,7 @@ namespace Pulumi.Aws.Glue
             PartitionIndices = partitionIndices;
             PartitionKeys = partitionKeys;
             QueryAsOfTime = queryAsOfTime;
+            Region = region;
             Retention = retention;
             StorageDescriptors = storageDescriptors;
             TableType = tableType;

@@ -34,6 +34,7 @@ public final class GetParameterResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      * 
@@ -80,6 +81,9 @@ public final class GetParameterResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      * 
@@ -118,6 +122,7 @@ public final class GetParameterResult {
         private String id;
         private String insecureValue;
         private String name;
+        private String region;
         private String type;
         private String value;
         private Integer version;
@@ -129,6 +134,7 @@ public final class GetParameterResult {
     	      this.id = defaults.id;
     	      this.insecureValue = defaults.insecureValue;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.type = defaults.type;
     	      this.value = defaults.value;
     	      this.version = defaults.version;
@@ -168,6 +174,14 @@ public final class GetParameterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetParameterResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("GetParameterResult", "type");
@@ -203,6 +217,7 @@ public final class GetParameterResult {
             _resultValue.id = id;
             _resultValue.insecureValue = insecureValue;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.type = type;
             _resultValue.value = value;
             _resultValue.version = version;

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.LookupManagedPrefixList(ctx, &ec2.LookupManagedPrefixListArgs{
-//				Name: pulumi.StringRef(fmt.Sprintf("com.amazonaws.%v.dynamodb", current.Name)),
+//				Name: pulumi.StringRef(fmt.Sprintf("com.amazonaws.%v.dynamodb", current.Region)),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -56,7 +56,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -103,6 +103,8 @@ type LookupManagedPrefixListArgs struct {
 	Id *string `pulumi:"id"`
 	// Name of the prefix list to select.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -124,6 +126,7 @@ type LookupManagedPrefixListResult struct {
 	Name string `pulumi:"name"`
 	// Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
 	OwnerId string `pulumi:"ownerId"`
+	Region  string `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags    map[string]string `pulumi:"tags"`
 	Version int               `pulumi:"version"`
@@ -150,6 +153,8 @@ type LookupManagedPrefixListOutputArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the prefix list to select.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -210,6 +215,10 @@ func (o LookupManagedPrefixListResultOutput) Name() pulumi.StringOutput {
 // Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
 func (o LookupManagedPrefixListResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedPrefixListResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o LookupManagedPrefixListResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedPrefixListResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags assigned to the resource.

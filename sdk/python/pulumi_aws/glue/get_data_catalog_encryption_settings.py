@@ -28,7 +28,7 @@ class GetDataCatalogEncryptionSettingsResult:
     """
     A collection of values returned by getDataCatalogEncryptionSettings.
     """
-    def __init__(__self__, catalog_id=None, data_catalog_encryption_settings=None, id=None):
+    def __init__(__self__, catalog_id=None, data_catalog_encryption_settings=None, id=None, region=None):
         if catalog_id and not isinstance(catalog_id, str):
             raise TypeError("Expected argument 'catalog_id' to be a str")
         pulumi.set(__self__, "catalog_id", catalog_id)
@@ -38,6 +38,9 @@ class GetDataCatalogEncryptionSettingsResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -60,6 +63,11 @@ class GetDataCatalogEncryptionSettingsResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetDataCatalogEncryptionSettingsResult(GetDataCatalogEncryptionSettingsResult):
     # pylint: disable=using-constant-test
@@ -69,39 +77,48 @@ class AwaitableGetDataCatalogEncryptionSettingsResult(GetDataCatalogEncryptionSe
         return GetDataCatalogEncryptionSettingsResult(
             catalog_id=self.catalog_id,
             data_catalog_encryption_settings=self.data_catalog_encryption_settings,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
 def get_data_catalog_encryption_settings(catalog_id: Optional[builtins.str] = None,
+                                         region: Optional[builtins.str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataCatalogEncryptionSettingsResult:
     """
     This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
 
 
     :param builtins.str catalog_id: ID of the Data Catalog. This is typically the AWS account ID.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings', __args__, opts=opts, typ=GetDataCatalogEncryptionSettingsResult).value
 
     return AwaitableGetDataCatalogEncryptionSettingsResult(
         catalog_id=pulumi.get(__ret__, 'catalog_id'),
         data_catalog_encryption_settings=pulumi.get(__ret__, 'data_catalog_encryption_settings'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_data_catalog_encryption_settings_output(catalog_id: Optional[pulumi.Input[builtins.str]] = None,
+                                                region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataCatalogEncryptionSettingsResult]:
     """
     This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
 
 
     :param builtins.str catalog_id: ID of the Data Catalog. This is typically the AWS account ID.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings', __args__, opts=opts, typ=GetDataCatalogEncryptionSettingsResult)
     return __ret__.apply(lambda __response__: GetDataCatalogEncryptionSettingsResult(
         catalog_id=pulumi.get(__response__, 'catalog_id'),
         data_catalog_encryption_settings=pulumi.get(__response__, 'data_catalog_encryption_settings'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

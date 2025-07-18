@@ -128,6 +128,10 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
      */
     public /*out*/ readonly networkInterfacePort!: pulumi.Output<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
      */
     public readonly snapshotId!: pulumi.Output<string | undefined>;
@@ -141,8 +145,6 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -187,6 +189,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
             resourceInputs["lunNumber"] = state ? state.lunNumber : undefined;
             resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             resourceInputs["networkInterfacePort"] = state ? state.networkInterfacePort : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["snapshotId"] = state ? state.snapshotId : undefined;
             resourceInputs["sourceVolumeArn"] = state ? state.sourceVolumeArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -214,6 +217,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
             resourceInputs["kmsEncrypted"] = args ? args.kmsEncrypted : undefined;
             resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
             resourceInputs["sourceVolumeArn"] = args ? args.sourceVolumeArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -270,6 +274,10 @@ export interface CachesIscsiVolumeState {
      */
     networkInterfacePort?: pulumi.Input<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
      */
     snapshotId?: pulumi.Input<string>;
@@ -283,8 +291,6 @@ export interface CachesIscsiVolumeState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -329,6 +335,10 @@ export interface CachesIscsiVolumeArgs {
      * The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
      */
     networkInterfaceId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
      */

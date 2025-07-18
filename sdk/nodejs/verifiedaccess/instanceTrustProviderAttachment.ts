@@ -65,6 +65,10 @@ export class InstanceTrustProviderAttachment extends pulumi.CustomResource {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the Verified Access instance to attach the Trust Provider to.
      */
     public readonly verifiedaccessInstanceId!: pulumi.Output<string>;
@@ -86,6 +90,7 @@ export class InstanceTrustProviderAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceTrustProviderAttachmentState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["verifiedaccessInstanceId"] = state ? state.verifiedaccessInstanceId : undefined;
             resourceInputs["verifiedaccessTrustProviderId"] = state ? state.verifiedaccessTrustProviderId : undefined;
         } else {
@@ -96,6 +101,7 @@ export class InstanceTrustProviderAttachment extends pulumi.CustomResource {
             if ((!args || args.verifiedaccessTrustProviderId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'verifiedaccessTrustProviderId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["verifiedaccessInstanceId"] = args ? args.verifiedaccessInstanceId : undefined;
             resourceInputs["verifiedaccessTrustProviderId"] = args ? args.verifiedaccessTrustProviderId : undefined;
         }
@@ -108,6 +114,10 @@ export class InstanceTrustProviderAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering InstanceTrustProviderAttachment resources.
  */
 export interface InstanceTrustProviderAttachmentState {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the Verified Access instance to attach the Trust Provider to.
      */
@@ -122,6 +132,10 @@ export interface InstanceTrustProviderAttachmentState {
  * The set of arguments for constructing a InstanceTrustProviderAttachment resource.
  */
 export interface InstanceTrustProviderAttachmentArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the Verified Access instance to attach the Trust Provider to.
      */

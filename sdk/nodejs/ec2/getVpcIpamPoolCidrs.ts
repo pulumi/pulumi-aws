@@ -67,6 +67,7 @@ export function getVpcIpamPoolCidrs(args: GetVpcIpamPoolCidrsArgs, opts?: pulumi
     return pulumi.runtime.invoke("aws:ec2/getVpcIpamPoolCidrs:getVpcIpamPoolCidrs", {
         "filters": args.filters,
         "ipamPoolId": args.ipamPoolId,
+        "region": args.region,
     }, opts);
 }
 
@@ -82,6 +83,10 @@ export interface GetVpcIpamPoolCidrsArgs {
      * ID of the IPAM pool you would like the list of provisioned CIDRs.
      */
     ipamPoolId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -98,6 +103,7 @@ export interface GetVpcIpamPoolCidrsResult {
      */
     readonly ipamPoolCidrs: outputs.ec2.GetVpcIpamPoolCidrsIpamPoolCidr[];
     readonly ipamPoolId: string;
+    readonly region: string;
 }
 /**
  * `aws.ec2.getVpcIpamPoolCidrs` provides details about an IPAM pool.
@@ -159,6 +165,7 @@ export function getVpcIpamPoolCidrsOutput(args: GetVpcIpamPoolCidrsOutputArgs, o
     return pulumi.runtime.invokeOutput("aws:ec2/getVpcIpamPoolCidrs:getVpcIpamPoolCidrs", {
         "filters": args.filters,
         "ipamPoolId": args.ipamPoolId,
+        "region": args.region,
     }, opts);
 }
 
@@ -174,4 +181,8 @@ export interface GetVpcIpamPoolCidrsOutputArgs {
      * ID of the IPAM pool you would like the list of provisioned CIDRs.
      */
     ipamPoolId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

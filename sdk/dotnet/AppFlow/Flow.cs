@@ -22,9 +22,9 @@ namespace Pulumi.Aws.AppFlow
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSourceBucketV2 = new Aws.S3.BucketV2("example_source", new()
+    ///     var exampleSourceBucket = new Aws.S3.Bucket("example_source", new()
     ///     {
-    ///         Bucket = "example-source",
+    ///         BucketName = "example-source",
     ///     });
     /// 
     ///     var exampleSource = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -62,20 +62,20 @@ namespace Pulumi.Aws.AppFlow
     /// 
     ///     var exampleSourceBucketPolicy = new Aws.S3.BucketPolicy("example_source", new()
     ///     {
-    ///         Bucket = exampleSourceBucketV2.Id,
+    ///         Bucket = exampleSourceBucket.Id,
     ///         Policy = exampleSource.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     ///     var example = new Aws.S3.BucketObjectv2("example", new()
     ///     {
-    ///         Bucket = exampleSourceBucketV2.Id,
+    ///         Bucket = exampleSourceBucket.Id,
     ///         Key = "example_source.csv",
     ///         Source = new FileAsset("example_source.csv"),
     ///     });
     /// 
-    ///     var exampleDestinationBucketV2 = new Aws.S3.BucketV2("example_destination", new()
+    ///     var exampleDestinationBucket = new Aws.S3.Bucket("example_destination", new()
     ///     {
-    ///         Bucket = "example-destination",
+    ///         BucketName = "example-destination",
     ///     });
     /// 
     ///     var exampleDestination = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.AppFlow
     /// 
     ///     var exampleDestinationBucketPolicy = new Aws.S3.BucketPolicy("example_destination", new()
     ///     {
-    ///         Bucket = exampleDestinationBucketV2.Id,
+    ///         Bucket = exampleDestinationBucket.Id,
     ///         Policy = exampleDestination.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
@@ -187,10 +187,10 @@ namespace Pulumi.Aws.AppFlow
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import AppFlow flows using the `arn`. For example:
+    /// Using `pulumi import`, import AppFlow flows using the `name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
+    /// $ pulumi import aws:appflow/flow:Flow example example-flow
     /// ```
     /// </summary>
     [AwsResourceType("aws:appflow/flow:Flow")]
@@ -237,6 +237,12 @@ namespace Pulumi.Aws.AppFlow
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
@@ -351,6 +357,12 @@ namespace Pulumi.Aws.AppFlow
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
         /// </summary>
         [Input("sourceFlowConfig", required: true)]
@@ -443,6 +455,12 @@ namespace Pulumi.Aws.AppFlow
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
         /// </summary>
         [Input("sourceFlowConfig")]
@@ -466,7 +484,6 @@ namespace Pulumi.Aws.AppFlow
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

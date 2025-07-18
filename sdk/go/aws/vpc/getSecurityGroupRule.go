@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpc"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,6 +56,8 @@ type GetSecurityGroupRuleArgs struct {
 	// security group rules. The given filters must match exactly one security group rule
 	// whose data will be exported as attributes.
 	Filters []GetSecurityGroupRuleFilter `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the security group rule to select.
 	SecurityGroupRuleId *string `pulumi:"securityGroupRuleId"`
 }
@@ -82,6 +84,7 @@ type GetSecurityGroupRuleResult struct {
 	PrefixListId string `pulumi:"prefixListId"`
 	// The destination security group that is referenced in the rule.
 	ReferencedSecurityGroupId string `pulumi:"referencedSecurityGroupId"`
+	Region                    string `pulumi:"region"`
 	// The ID of the security group.
 	SecurityGroupId     string `pulumi:"securityGroupId"`
 	SecurityGroupRuleId string `pulumi:"securityGroupRuleId"`
@@ -108,6 +111,8 @@ type GetSecurityGroupRuleOutputArgs struct {
 	// security group rules. The given filters must match exactly one security group rule
 	// whose data will be exported as attributes.
 	Filters GetSecurityGroupRuleFilterArrayInput `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the security group rule to select.
 	SecurityGroupRuleId pulumi.StringPtrInput `pulumi:"securityGroupRuleId"`
 }
@@ -182,6 +187,10 @@ func (o GetSecurityGroupRuleResultOutput) PrefixListId() pulumi.StringOutput {
 // The destination security group that is referenced in the rule.
 func (o GetSecurityGroupRuleResultOutput) ReferencedSecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityGroupRuleResult) string { return v.ReferencedSecurityGroupId }).(pulumi.StringOutput)
+}
+
+func (o GetSecurityGroupRuleResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecurityGroupRuleResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the security group.

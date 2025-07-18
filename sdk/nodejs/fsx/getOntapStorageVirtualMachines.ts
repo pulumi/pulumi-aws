@@ -31,6 +31,7 @@ export function getOntapStorageVirtualMachines(args?: GetOntapStorageVirtualMach
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -42,6 +43,10 @@ export interface GetOntapStorageVirtualMachinesArgs {
      * Configuration block. Detailed below.
      */
     filters?: inputs.fsx.GetOntapStorageVirtualMachinesFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -57,6 +62,7 @@ export interface GetOntapStorageVirtualMachinesResult {
      * List of all SVM IDs found.
      */
     readonly ids: string[];
+    readonly region: string;
 }
 /**
  * This resource can be useful for getting back a set of FSx ONTAP Storage Virtual Machine (SVM) IDs.
@@ -82,6 +88,7 @@ export function getOntapStorageVirtualMachinesOutput(args?: GetOntapStorageVirtu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:fsx/getOntapStorageVirtualMachines:getOntapStorageVirtualMachines", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -93,4 +100,8 @@ export interface GetOntapStorageVirtualMachinesOutputArgs {
      * Configuration block. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.fsx.GetOntapStorageVirtualMachinesFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

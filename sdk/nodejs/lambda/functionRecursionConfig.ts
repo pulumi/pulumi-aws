@@ -5,28 +5,64 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS Lambda Function Recursion Config.
+ * Manages an AWS Lambda Function Recursion Config. Use this resource to control how Lambda handles recursive function invocations to prevent infinite loops.
  *
- * > Destruction of this resource will return the `recursiveLoop` configuration back to the default value of `Terminate`.
+ * > **Note:** Destruction of this resource will return the `recursiveLoop` configuration back to the default value of `Terminate`.
  *
  * ## Example Usage
+ *
+ * ### Allow Recursive Invocations
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.lambda.FunctionRecursionConfig("example", {
- *     functionName: "SomeFunction",
+ * // Lambda function that may need to call itself
+ * const example = new aws.lambda.Function("example", {
+ *     code: new pulumi.asset.FileArchive("function.zip"),
+ *     name: "recursive_processor",
+ *     role: lambdaRole.arn,
+ *     handler: "index.handler",
+ *     runtime: aws.lambda.Runtime.Python3d12,
+ * });
+ * // Allow the function to invoke itself recursively
+ * const exampleFunctionRecursionConfig = new aws.lambda.FunctionRecursionConfig("example", {
+ *     functionName: example.name,
  *     recursiveLoop: "Allow",
+ * });
+ * ```
+ *
+ * ### Production Safety Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Production function with recursion protection
+ * const productionProcessor = new aws.lambda.Function("production_processor", {
+ *     code: new pulumi.asset.FileArchive("processor.zip"),
+ *     name: "production-data-processor",
+ *     role: lambdaRole.arn,
+ *     handler: "app.handler",
+ *     runtime: aws.lambda.Runtime.NodeJS20dX,
+ *     tags: {
+ *         Environment: "production",
+ *         Purpose: "data-processing",
+ *     },
+ * });
+ * // Prevent infinite loops in production
+ * const example = new aws.lambda.FunctionRecursionConfig("example", {
+ *     functionName: productionProcessor.name,
+ *     recursiveLoop: "Terminate",
  * });
  * ```
  *
  * ## Import
  *
- * Using `pulumi import`, import AWS Lambda Function Recursion Config using the `function_name`. For example:
+ * For backwards compatibility, the following legacy `pulumi import` command is also supported:
  *
  * ```sh
- * $ pulumi import aws:lambda/functionRecursionConfig:FunctionRecursionConfig example SomeFunction
+ * $ pulumi import aws:lambda/functionRecursionConfig:FunctionRecursionConfig example recursive_processor
  * ```
  */
 export class FunctionRecursionConfig extends pulumi.CustomResource {
@@ -58,13 +94,19 @@ export class FunctionRecursionConfig extends pulumi.CustomResource {
     }
 
     /**
-     * Lambda function name.
+     * Name of the Lambda function.
      */
     public readonly functionName!: pulumi.Output<string>;
     /**
      * Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+     *
+     * The following arguments are optional:
      */
     public readonly recursiveLoop!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a FunctionRecursionConfig resource with the given unique name, arguments, and options.
@@ -81,6 +123,7 @@ export class FunctionRecursionConfig extends pulumi.CustomResource {
             const state = argsOrState as FunctionRecursionConfigState | undefined;
             resourceInputs["functionName"] = state ? state.functionName : undefined;
             resourceInputs["recursiveLoop"] = state ? state.recursiveLoop : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as FunctionRecursionConfigArgs | undefined;
             if ((!args || args.functionName === undefined) && !opts.urn) {
@@ -91,6 +134,7 @@ export class FunctionRecursionConfig extends pulumi.CustomResource {
             }
             resourceInputs["functionName"] = args ? args.functionName : undefined;
             resourceInputs["recursiveLoop"] = args ? args.recursiveLoop : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FunctionRecursionConfig.__pulumiType, name, resourceInputs, opts);
@@ -102,13 +146,19 @@ export class FunctionRecursionConfig extends pulumi.CustomResource {
  */
 export interface FunctionRecursionConfigState {
     /**
-     * Lambda function name.
+     * Name of the Lambda function.
      */
     functionName?: pulumi.Input<string>;
     /**
      * Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+     *
+     * The following arguments are optional:
      */
     recursiveLoop?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -116,11 +166,17 @@ export interface FunctionRecursionConfigState {
  */
 export interface FunctionRecursionConfigArgs {
     /**
-     * Lambda function name.
+     * Name of the Lambda function.
      */
     functionName: pulumi.Input<string>;
     /**
      * Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+     *
+     * The following arguments are optional:
      */
     recursiveLoop: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

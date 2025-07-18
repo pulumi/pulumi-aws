@@ -82,6 +82,10 @@ export class SubscriberNotification extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpointId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The subscriber endpoint to which exception messages are posted.
      */
     public /*out*/ readonly subscriberEndpoint!: pulumi.Output<string>;
@@ -105,6 +109,7 @@ export class SubscriberNotification extends pulumi.CustomResource {
             const state = argsOrState as SubscriberNotificationState | undefined;
             resourceInputs["configuration"] = state ? state.configuration : undefined;
             resourceInputs["endpointId"] = state ? state.endpointId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["subscriberEndpoint"] = state ? state.subscriberEndpoint : undefined;
             resourceInputs["subscriberId"] = state ? state.subscriberId : undefined;
         } else {
@@ -113,6 +118,7 @@ export class SubscriberNotification extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subscriberId'");
             }
             resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subscriberId"] = args ? args.subscriberId : undefined;
             resourceInputs["endpointId"] = undefined /*out*/;
             resourceInputs["subscriberEndpoint"] = undefined /*out*/;
@@ -137,6 +143,10 @@ export interface SubscriberNotificationState {
      */
     endpointId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The subscriber endpoint to which exception messages are posted.
      */
     subscriberEndpoint?: pulumi.Input<string>;
@@ -154,6 +164,10 @@ export interface SubscriberNotificationArgs {
      * Specify the configuration using which you want to create the subscriber notification..
      */
     configuration?: pulumi.Input<inputs.securitylake.SubscriberNotificationConfiguration>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The subscriber ID for the notification subscription.
      */

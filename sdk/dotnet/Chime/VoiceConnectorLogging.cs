@@ -62,6 +62,12 @@ namespace Pulumi.Aws.Chime
         public Output<bool?> EnableSipLogs { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Chime Voice Connector ID.
         /// </summary>
         [Output("voiceConnectorId")]
@@ -126,6 +132,12 @@ namespace Pulumi.Aws.Chime
         public Input<bool>? EnableSipLogs { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Amazon Chime Voice Connector ID.
         /// </summary>
         [Input("voiceConnectorId", required: true)]
@@ -150,6 +162,12 @@ namespace Pulumi.Aws.Chime
         /// </summary>
         [Input("enableSipLogs")]
         public Input<bool>? EnableSipLogs { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Amazon Chime Voice Connector ID.

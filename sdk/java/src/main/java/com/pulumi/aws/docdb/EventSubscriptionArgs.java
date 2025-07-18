@@ -79,6 +79,21 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.namePrefix);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="snsTopicArn", required=true)
     private Output<String> snsTopicArn;
 
@@ -138,6 +153,7 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
         this.eventCategories = $.eventCategories;
         this.name = $.name;
         this.namePrefix = $.namePrefix;
+        this.region = $.region;
         this.snsTopicArn = $.snsTopicArn;
         this.sourceIds = $.sourceIds;
         this.sourceType = $.sourceType;
@@ -254,6 +270,27 @@ public final class EventSubscriptionArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder namePrefix(String namePrefix) {
             return namePrefix(Output.of(namePrefix));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder snsTopicArn(Output<String> snsTopicArn) {

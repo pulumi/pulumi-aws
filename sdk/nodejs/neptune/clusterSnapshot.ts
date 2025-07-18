@@ -95,6 +95,10 @@ export class ClusterSnapshot extends pulumi.CustomResource {
      * Port that the DB cluster was listening on at the time of the snapshot.
      */
     public /*out*/ readonly port!: pulumi.Output<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public /*out*/ readonly snapshotType!: pulumi.Output<string>;
     public /*out*/ readonly sourceDbClusterSnapshotArn!: pulumi.Output<string>;
     /**
@@ -133,6 +137,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["licenseModel"] = state ? state.licenseModel : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["snapshotType"] = state ? state.snapshotType : undefined;
             resourceInputs["sourceDbClusterSnapshotArn"] = state ? state.sourceDbClusterSnapshotArn : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -148,6 +153,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
             }
             resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
             resourceInputs["dbClusterSnapshotIdentifier"] = args ? args.dbClusterSnapshotIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["allocatedStorage"] = undefined /*out*/;
             resourceInputs["availabilityZones"] = undefined /*out*/;
             resourceInputs["dbClusterSnapshotArn"] = undefined /*out*/;
@@ -211,6 +217,10 @@ export interface ClusterSnapshotState {
      * Port that the DB cluster was listening on at the time of the snapshot.
      */
     port?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     snapshotType?: pulumi.Input<string>;
     sourceDbClusterSnapshotArn?: pulumi.Input<string>;
     /**
@@ -239,4 +249,8 @@ export interface ClusterSnapshotArgs {
      * The Identifier for the snapshot.
      */
     dbClusterSnapshotIdentifier: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

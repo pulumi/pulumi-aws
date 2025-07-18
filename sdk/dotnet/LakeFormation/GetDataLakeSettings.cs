@@ -93,6 +93,12 @@ namespace Pulumi.Aws.LakeFormation
         [Input("catalogId")]
         public string? CatalogId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetDataLakeSettingsArgs()
         {
         }
@@ -106,6 +112,12 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetDataLakeSettingsInvokeArgs()
         {
@@ -158,6 +170,7 @@ namespace Pulumi.Aws.LakeFormation
         /// List of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
         /// </summary>
         public readonly ImmutableArray<string> ReadOnlyAdmins;
+        public readonly string Region;
         /// <summary>
         /// List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
         /// </summary>
@@ -187,6 +200,8 @@ namespace Pulumi.Aws.LakeFormation
 
             ImmutableArray<string> readOnlyAdmins,
 
+            string region,
+
             ImmutableArray<string> trustedResourceOwners)
         {
             Admins = admins;
@@ -200,6 +215,7 @@ namespace Pulumi.Aws.LakeFormation
             Id = id;
             Parameters = parameters;
             ReadOnlyAdmins = readOnlyAdmins;
+            Region = region;
             TrustedResourceOwners = trustedResourceOwners;
         }
     }

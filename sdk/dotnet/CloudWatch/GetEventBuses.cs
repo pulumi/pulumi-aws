@@ -99,6 +99,12 @@ namespace Pulumi.Aws.CloudWatch
         [Input("namePrefix")]
         public string? NamePrefix { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetEventBusesArgs()
         {
         }
@@ -112,6 +118,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetEventBusesInvokeArgs()
         {
@@ -132,6 +144,7 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         public readonly string Id;
         public readonly string? NamePrefix;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetEventBusesResult(
@@ -139,11 +152,14 @@ namespace Pulumi.Aws.CloudWatch
 
             string id,
 
-            string? namePrefix)
+            string? namePrefix,
+
+            string region)
         {
             EventBuses = eventBuses;
             Id = id;
             NamePrefix = namePrefix;
+            Region = region;
         }
     }
 }

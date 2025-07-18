@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datapipeline"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datapipeline"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ type LookupPipelineDefinitionArgs struct {
 	ParameterValues []GetPipelineDefinitionParameterValue `pulumi:"parameterValues"`
 	// ID of the pipeline.
 	PipelineId string `pulumi:"pipelineId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPipelineDefinition.
@@ -67,6 +69,7 @@ type LookupPipelineDefinitionResult struct {
 	PipelineId      string                                `pulumi:"pipelineId"`
 	// Objects defined in the pipeline. See below
 	PipelineObjects []GetPipelineDefinitionPipelineObject `pulumi:"pipelineObjects"`
+	Region          string                                `pulumi:"region"`
 }
 
 func LookupPipelineDefinitionOutput(ctx *pulumi.Context, args LookupPipelineDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupPipelineDefinitionResultOutput {
@@ -84,6 +87,8 @@ type LookupPipelineDefinitionOutputArgs struct {
 	ParameterValues GetPipelineDefinitionParameterValueArrayInput `pulumi:"parameterValues"`
 	// ID of the pipeline.
 	PipelineId pulumi.StringInput `pulumi:"pipelineId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupPipelineDefinitionOutputArgs) ElementType() reflect.Type {
@@ -129,6 +134,10 @@ func (o LookupPipelineDefinitionResultOutput) PipelineId() pulumi.StringOutput {
 // Objects defined in the pipeline. See below
 func (o LookupPipelineDefinitionResultOutput) PipelineObjects() GetPipelineDefinitionPipelineObjectArrayOutput {
 	return o.ApplyT(func(v LookupPipelineDefinitionResult) []GetPipelineDefinitionPipelineObject { return v.PipelineObjects }).(GetPipelineDefinitionPipelineObjectArrayOutput)
+}
+
+func (o LookupPipelineDefinitionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPipelineDefinitionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -5,6 +5,7 @@ package com.pulumi.aws.s3tables;
 
 import com.pulumi.aws.s3tables.inputs.TableEncryptionConfigurationArgs;
 import com.pulumi.aws.s3tables.inputs.TableMaintenanceConfigurationArgs;
+import com.pulumi.aws.s3tables.inputs.TableMetadataArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -70,6 +71,23 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+     * See `metadata` below.
+     * 
+     */
+    @Import(name="metadata")
+    private @Nullable Output<TableMetadataArgs> metadata;
+
+    /**
+     * @return Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+     * See `metadata` below.
+     * 
+     */
+    public Optional<Output<TableMetadataArgs>> metadata() {
+        return Optional.ofNullable(this.metadata);
+    }
+
+    /**
      * Name of the table.
      * Must be between 1 and 255 characters in length.
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
@@ -110,6 +128,21 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ARN referencing the Table Bucket that contains this Namespace.
      * 
      * The following arguments are optional:
@@ -134,8 +167,10 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         this.encryptionConfiguration = $.encryptionConfiguration;
         this.format = $.format;
         this.maintenanceConfiguration = $.maintenanceConfiguration;
+        this.metadata = $.metadata;
         this.name = $.name;
         this.namespace = $.namespace;
+        this.region = $.region;
         this.tableBucketArn = $.tableBucketArn;
     }
 
@@ -227,6 +262,29 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param metadata Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+         * See `metadata` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadata(@Nullable Output<TableMetadataArgs> metadata) {
+            $.metadata = metadata;
+            return this;
+        }
+
+        /**
+         * @param metadata Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+         * See `metadata` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadata(TableMetadataArgs metadata) {
+            return metadata(Output.of(metadata));
+        }
+
+        /**
          * @param name Name of the table.
          * Must be between 1 and 255 characters in length.
          * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
@@ -276,6 +334,27 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

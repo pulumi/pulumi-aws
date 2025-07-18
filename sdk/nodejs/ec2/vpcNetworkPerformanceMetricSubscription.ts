@@ -60,6 +60,10 @@ export class VpcNetworkPerformanceMetricSubscription extends pulumi.CustomResour
      */
     public /*out*/ readonly period!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
      */
     public readonly source!: pulumi.Output<string>;
@@ -84,6 +88,7 @@ export class VpcNetworkPerformanceMetricSubscription extends pulumi.CustomResour
             resourceInputs["destination"] = state ? state.destination : undefined;
             resourceInputs["metric"] = state ? state.metric : undefined;
             resourceInputs["period"] = state ? state.period : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["source"] = state ? state.source : undefined;
             resourceInputs["statistic"] = state ? state.statistic : undefined;
         } else {
@@ -96,6 +101,7 @@ export class VpcNetworkPerformanceMetricSubscription extends pulumi.CustomResour
             }
             resourceInputs["destination"] = args ? args.destination : undefined;
             resourceInputs["metric"] = args ? args.metric : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["statistic"] = args ? args.statistic : undefined;
             resourceInputs["period"] = undefined /*out*/;
@@ -122,6 +128,10 @@ export interface VpcNetworkPerformanceMetricSubscriptionState {
      */
     period?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
      */
     source?: pulumi.Input<string>;
@@ -143,6 +153,10 @@ export interface VpcNetworkPerformanceMetricSubscriptionArgs {
      * The metric used for the enabled subscription. Valid values: `aggregate-latency`. Default: `aggregate-latency`.
      */
     metric?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
      */

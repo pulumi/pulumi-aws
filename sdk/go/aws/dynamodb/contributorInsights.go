@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dynamodb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ type ContributorInsights struct {
 
 	// The global secondary index name
 	IndexName pulumi.StringPtrOutput `pulumi:"indexName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the table to enable contributor insights
 	TableName pulumi.StringOutput `pulumi:"tableName"`
 }
@@ -91,6 +93,8 @@ func GetContributorInsights(ctx *pulumi.Context,
 type contributorInsightsState struct {
 	// The global secondary index name
 	IndexName *string `pulumi:"indexName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the table to enable contributor insights
 	TableName *string `pulumi:"tableName"`
 }
@@ -98,6 +102,8 @@ type contributorInsightsState struct {
 type ContributorInsightsState struct {
 	// The global secondary index name
 	IndexName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the table to enable contributor insights
 	TableName pulumi.StringPtrInput
 }
@@ -109,6 +115,8 @@ func (ContributorInsightsState) ElementType() reflect.Type {
 type contributorInsightsArgs struct {
 	// The global secondary index name
 	IndexName *string `pulumi:"indexName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the table to enable contributor insights
 	TableName string `pulumi:"tableName"`
 }
@@ -117,6 +125,8 @@ type contributorInsightsArgs struct {
 type ContributorInsightsArgs struct {
 	// The global secondary index name
 	IndexName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the table to enable contributor insights
 	TableName pulumi.StringInput
 }
@@ -211,6 +221,11 @@ func (o ContributorInsightsOutput) ToContributorInsightsOutputWithContext(ctx co
 // The global secondary index name
 func (o ContributorInsightsOutput) IndexName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContributorInsights) pulumi.StringPtrOutput { return v.IndexName }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ContributorInsightsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContributorInsights) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the table to enable contributor insights

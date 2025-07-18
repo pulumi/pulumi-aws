@@ -12,6 +12,8 @@ import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
 import com.pulumi.aws.lambda.inputs.GetFunctionPlainArgs;
 import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
 import com.pulumi.aws.lambda.inputs.GetFunctionUrlPlainArgs;
+import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
+import com.pulumi.aws.lambda.inputs.GetFunctionsPlainArgs;
 import com.pulumi.aws.lambda.inputs.GetInvocationArgs;
 import com.pulumi.aws.lambda.inputs.GetInvocationPlainArgs;
 import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
@@ -28,14 +30,15 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
-import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class LambdaFunctions {
     /**
-     * Provides information about a Lambda Alias.
+     * Provides details about an AWS Lambda Alias. Use this data source to retrieve information about an existing Lambda function alias for traffic management, deployment strategies, or API integrations.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -60,9 +63,142 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var production = LambdaFunctions.getAlias(GetAliasArgs.builder()
-     *             .functionName("my-lambda-func")
+     *         final var example = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("my-lambda-function")
      *             .name("production")
+     *             .build());
+     * 
+     *         ctx.export("aliasArn", example.arn());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### API Gateway Integration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
+     * import com.pulumi.aws.apigateway.Integration;
+     * import com.pulumi.aws.apigateway.IntegrationArgs;
+     * import com.pulumi.aws.lambda.Permission;
+     * import com.pulumi.aws.lambda.PermissionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var apiHandler = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("api-handler")
+     *             .name("live")
+     *             .build());
+     * 
+     *         var example = new Integration("example", IntegrationArgs.builder()
+     *             .restApi(exampleAwsApiGatewayRestApi.id())
+     *             .resourceId(exampleAwsApiGatewayResource.id())
+     *             .httpMethod(exampleAwsApiGatewayMethod.httpMethod())
+     *             .integrationHttpMethod("POST")
+     *             .type("AWS_PROXY")
+     *             .uri(apiHandler.invokeArn())
+     *             .build());
+     * 
+     *         // Grant API Gateway permission to invoke the alias
+     *         var apiGateway = new Permission("apiGateway", PermissionArgs.builder()
+     *             .statementId("AllowExecutionFromAPIGateway")
+     *             .action("lambda:InvokeFunction")
+     *             .function(apiHandler.functionName())
+     *             .principal("apigateway.amazonaws.com")
+     *             .qualifier(apiHandler.name())
+     *             .sourceArn(String.format("%s/*}&#47;{@code *", exampleAwsApiGatewayRestApi.executionArn()))
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Deployment Version Tracking
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### EventBridge Rule Target
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
+     * import com.pulumi.aws.cloudwatch.EventRule;
+     * import com.pulumi.aws.cloudwatch.EventRuleArgs;
+     * import com.pulumi.aws.cloudwatch.EventTarget;
+     * import com.pulumi.aws.cloudwatch.EventTargetArgs;
+     * import com.pulumi.aws.lambda.Permission;
+     * import com.pulumi.aws.lambda.PermissionArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var eventProcessor = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("event-processor")
+     *             .name("stable")
+     *             .build());
+     * 
+     *         var example = new EventRule("example", EventRuleArgs.builder()
+     *             .name("capture-events")
+     *             .description("Capture events for processing")
+     *             .eventPattern(serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty("source", jsonArray("myapp.orders")),
+     *                     jsonProperty("detail-type", jsonArray("Order Placed"))
+     *                 )))
+     *             .build());
+     * 
+     *         var lambda = new EventTarget("lambda", EventTargetArgs.builder()
+     *             .rule(example.name())
+     *             .targetId("SendToLambda")
+     *             .arn(eventProcessor.arn())
+     *             .build());
+     * 
+     *         var allowEventbridge = new Permission("allowEventbridge", PermissionArgs.builder()
+     *             .statementId("AllowExecutionFromEventBridge")
+     *             .action("lambda:InvokeFunction")
+     *             .function(eventProcessor.functionName())
+     *             .principal("events.amazonaws.com")
+     *             .qualifier(eventProcessor.name())
+     *             .sourceArn(example.arn())
      *             .build());
      * 
      *     }
@@ -76,9 +212,11 @@ public final class LambdaFunctions {
         return getAlias(args, InvokeOptions.Empty);
     }
     /**
-     * Provides information about a Lambda Alias.
+     * Provides details about an AWS Lambda Alias. Use this data source to retrieve information about an existing Lambda function alias for traffic management, deployment strategies, or API integrations.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -103,9 +241,142 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var production = LambdaFunctions.getAlias(GetAliasArgs.builder()
-     *             .functionName("my-lambda-func")
+     *         final var example = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("my-lambda-function")
      *             .name("production")
+     *             .build());
+     * 
+     *         ctx.export("aliasArn", example.arn());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### API Gateway Integration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
+     * import com.pulumi.aws.apigateway.Integration;
+     * import com.pulumi.aws.apigateway.IntegrationArgs;
+     * import com.pulumi.aws.lambda.Permission;
+     * import com.pulumi.aws.lambda.PermissionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var apiHandler = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("api-handler")
+     *             .name("live")
+     *             .build());
+     * 
+     *         var example = new Integration("example", IntegrationArgs.builder()
+     *             .restApi(exampleAwsApiGatewayRestApi.id())
+     *             .resourceId(exampleAwsApiGatewayResource.id())
+     *             .httpMethod(exampleAwsApiGatewayMethod.httpMethod())
+     *             .integrationHttpMethod("POST")
+     *             .type("AWS_PROXY")
+     *             .uri(apiHandler.invokeArn())
+     *             .build());
+     * 
+     *         // Grant API Gateway permission to invoke the alias
+     *         var apiGateway = new Permission("apiGateway", PermissionArgs.builder()
+     *             .statementId("AllowExecutionFromAPIGateway")
+     *             .action("lambda:InvokeFunction")
+     *             .function(apiHandler.functionName())
+     *             .principal("apigateway.amazonaws.com")
+     *             .qualifier(apiHandler.name())
+     *             .sourceArn(String.format("%s/*}&#47;{@code *", exampleAwsApiGatewayRestApi.executionArn()))
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Deployment Version Tracking
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### EventBridge Rule Target
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
+     * import com.pulumi.aws.cloudwatch.EventRule;
+     * import com.pulumi.aws.cloudwatch.EventRuleArgs;
+     * import com.pulumi.aws.cloudwatch.EventTarget;
+     * import com.pulumi.aws.cloudwatch.EventTargetArgs;
+     * import com.pulumi.aws.lambda.Permission;
+     * import com.pulumi.aws.lambda.PermissionArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var eventProcessor = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("event-processor")
+     *             .name("stable")
+     *             .build());
+     * 
+     *         var example = new EventRule("example", EventRuleArgs.builder()
+     *             .name("capture-events")
+     *             .description("Capture events for processing")
+     *             .eventPattern(serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty("source", jsonArray("myapp.orders")),
+     *                     jsonProperty("detail-type", jsonArray("Order Placed"))
+     *                 )))
+     *             .build());
+     * 
+     *         var lambda = new EventTarget("lambda", EventTargetArgs.builder()
+     *             .rule(example.name())
+     *             .targetId("SendToLambda")
+     *             .arn(eventProcessor.arn())
+     *             .build());
+     * 
+     *         var allowEventbridge = new Permission("allowEventbridge", PermissionArgs.builder()
+     *             .statementId("AllowExecutionFromEventBridge")
+     *             .action("lambda:InvokeFunction")
+     *             .function(eventProcessor.functionName())
+     *             .principal("events.amazonaws.com")
+     *             .qualifier(eventProcessor.name())
+     *             .sourceArn(example.arn())
      *             .build());
      * 
      *     }
@@ -119,9 +390,11 @@ public final class LambdaFunctions {
         return getAliasPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Provides information about a Lambda Alias.
+     * Provides details about an AWS Lambda Alias. Use this data source to retrieve information about an existing Lambda function alias for traffic management, deployment strategies, or API integrations.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -146,9 +419,142 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var production = LambdaFunctions.getAlias(GetAliasArgs.builder()
-     *             .functionName("my-lambda-func")
+     *         final var example = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("my-lambda-function")
      *             .name("production")
+     *             .build());
+     * 
+     *         ctx.export("aliasArn", example.arn());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### API Gateway Integration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
+     * import com.pulumi.aws.apigateway.Integration;
+     * import com.pulumi.aws.apigateway.IntegrationArgs;
+     * import com.pulumi.aws.lambda.Permission;
+     * import com.pulumi.aws.lambda.PermissionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var apiHandler = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("api-handler")
+     *             .name("live")
+     *             .build());
+     * 
+     *         var example = new Integration("example", IntegrationArgs.builder()
+     *             .restApi(exampleAwsApiGatewayRestApi.id())
+     *             .resourceId(exampleAwsApiGatewayResource.id())
+     *             .httpMethod(exampleAwsApiGatewayMethod.httpMethod())
+     *             .integrationHttpMethod("POST")
+     *             .type("AWS_PROXY")
+     *             .uri(apiHandler.invokeArn())
+     *             .build());
+     * 
+     *         // Grant API Gateway permission to invoke the alias
+     *         var apiGateway = new Permission("apiGateway", PermissionArgs.builder()
+     *             .statementId("AllowExecutionFromAPIGateway")
+     *             .action("lambda:InvokeFunction")
+     *             .function(apiHandler.functionName())
+     *             .principal("apigateway.amazonaws.com")
+     *             .qualifier(apiHandler.name())
+     *             .sourceArn(String.format("%s/*}&#47;{@code *", exampleAwsApiGatewayRestApi.executionArn()))
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Deployment Version Tracking
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### EventBridge Rule Target
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
+     * import com.pulumi.aws.cloudwatch.EventRule;
+     * import com.pulumi.aws.cloudwatch.EventRuleArgs;
+     * import com.pulumi.aws.cloudwatch.EventTarget;
+     * import com.pulumi.aws.cloudwatch.EventTargetArgs;
+     * import com.pulumi.aws.lambda.Permission;
+     * import com.pulumi.aws.lambda.PermissionArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var eventProcessor = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("event-processor")
+     *             .name("stable")
+     *             .build());
+     * 
+     *         var example = new EventRule("example", EventRuleArgs.builder()
+     *             .name("capture-events")
+     *             .description("Capture events for processing")
+     *             .eventPattern(serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty("source", jsonArray("myapp.orders")),
+     *                     jsonProperty("detail-type", jsonArray("Order Placed"))
+     *                 )))
+     *             .build());
+     * 
+     *         var lambda = new EventTarget("lambda", EventTargetArgs.builder()
+     *             .rule(example.name())
+     *             .targetId("SendToLambda")
+     *             .arn(eventProcessor.arn())
+     *             .build());
+     * 
+     *         var allowEventbridge = new Permission("allowEventbridge", PermissionArgs.builder()
+     *             .statementId("AllowExecutionFromEventBridge")
+     *             .action("lambda:InvokeFunction")
+     *             .function(eventProcessor.functionName())
+     *             .principal("events.amazonaws.com")
+     *             .qualifier(eventProcessor.name())
+     *             .sourceArn(example.arn())
      *             .build());
      * 
      *     }
@@ -162,9 +568,11 @@ public final class LambdaFunctions {
         return Deployment.getInstance().invoke("aws:lambda/getAlias:getAlias", TypeShape.of(GetAliasResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information about a Lambda Alias.
+     * Provides details about an AWS Lambda Alias. Use this data source to retrieve information about an existing Lambda function alias for traffic management, deployment strategies, or API integrations.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -189,9 +597,142 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var production = LambdaFunctions.getAlias(GetAliasArgs.builder()
-     *             .functionName("my-lambda-func")
+     *         final var example = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("my-lambda-function")
      *             .name("production")
+     *             .build());
+     * 
+     *         ctx.export("aliasArn", example.arn());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### API Gateway Integration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
+     * import com.pulumi.aws.apigateway.Integration;
+     * import com.pulumi.aws.apigateway.IntegrationArgs;
+     * import com.pulumi.aws.lambda.Permission;
+     * import com.pulumi.aws.lambda.PermissionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var apiHandler = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("api-handler")
+     *             .name("live")
+     *             .build());
+     * 
+     *         var example = new Integration("example", IntegrationArgs.builder()
+     *             .restApi(exampleAwsApiGatewayRestApi.id())
+     *             .resourceId(exampleAwsApiGatewayResource.id())
+     *             .httpMethod(exampleAwsApiGatewayMethod.httpMethod())
+     *             .integrationHttpMethod("POST")
+     *             .type("AWS_PROXY")
+     *             .uri(apiHandler.invokeArn())
+     *             .build());
+     * 
+     *         // Grant API Gateway permission to invoke the alias
+     *         var apiGateway = new Permission("apiGateway", PermissionArgs.builder()
+     *             .statementId("AllowExecutionFromAPIGateway")
+     *             .action("lambda:InvokeFunction")
+     *             .function(apiHandler.functionName())
+     *             .principal("apigateway.amazonaws.com")
+     *             .qualifier(apiHandler.name())
+     *             .sourceArn(String.format("%s/*}&#47;{@code *", exampleAwsApiGatewayRestApi.executionArn()))
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Deployment Version Tracking
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### EventBridge Rule Target
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
+     * import com.pulumi.aws.cloudwatch.EventRule;
+     * import com.pulumi.aws.cloudwatch.EventRuleArgs;
+     * import com.pulumi.aws.cloudwatch.EventTarget;
+     * import com.pulumi.aws.cloudwatch.EventTargetArgs;
+     * import com.pulumi.aws.lambda.Permission;
+     * import com.pulumi.aws.lambda.PermissionArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var eventProcessor = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("event-processor")
+     *             .name("stable")
+     *             .build());
+     * 
+     *         var example = new EventRule("example", EventRuleArgs.builder()
+     *             .name("capture-events")
+     *             .description("Capture events for processing")
+     *             .eventPattern(serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty("source", jsonArray("myapp.orders")),
+     *                     jsonProperty("detail-type", jsonArray("Order Placed"))
+     *                 )))
+     *             .build());
+     * 
+     *         var lambda = new EventTarget("lambda", EventTargetArgs.builder()
+     *             .rule(example.name())
+     *             .targetId("SendToLambda")
+     *             .arn(eventProcessor.arn())
+     *             .build());
+     * 
+     *         var allowEventbridge = new Permission("allowEventbridge", PermissionArgs.builder()
+     *             .statementId("AllowExecutionFromEventBridge")
+     *             .action("lambda:InvokeFunction")
+     *             .function(eventProcessor.functionName())
+     *             .principal("events.amazonaws.com")
+     *             .qualifier(eventProcessor.name())
+     *             .sourceArn(example.arn())
      *             .build());
      * 
      *     }
@@ -205,9 +746,11 @@ public final class LambdaFunctions {
         return Deployment.getInstance().invoke("aws:lambda/getAlias:getAlias", TypeShape.of(GetAliasResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information about a Lambda Alias.
+     * Provides details about an AWS Lambda Alias. Use this data source to retrieve information about an existing Lambda function alias for traffic management, deployment strategies, or API integrations.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -232,9 +775,142 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var production = LambdaFunctions.getAlias(GetAliasArgs.builder()
-     *             .functionName("my-lambda-func")
+     *         final var example = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("my-lambda-function")
      *             .name("production")
+     *             .build());
+     * 
+     *         ctx.export("aliasArn", example.arn());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### API Gateway Integration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
+     * import com.pulumi.aws.apigateway.Integration;
+     * import com.pulumi.aws.apigateway.IntegrationArgs;
+     * import com.pulumi.aws.lambda.Permission;
+     * import com.pulumi.aws.lambda.PermissionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
+     *         Pulumi.run(App::stack);
+     *     }}{@code
+     * 
+     *     public static void stack(Context ctx) }{{@code
+     *         final var apiHandler = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("api-handler")
+     *             .name("live")
+     *             .build());
+     * 
+     *         var example = new Integration("example", IntegrationArgs.builder()
+     *             .restApi(exampleAwsApiGatewayRestApi.id())
+     *             .resourceId(exampleAwsApiGatewayResource.id())
+     *             .httpMethod(exampleAwsApiGatewayMethod.httpMethod())
+     *             .integrationHttpMethod("POST")
+     *             .type("AWS_PROXY")
+     *             .uri(apiHandler.invokeArn())
+     *             .build());
+     * 
+     *         // Grant API Gateway permission to invoke the alias
+     *         var apiGateway = new Permission("apiGateway", PermissionArgs.builder()
+     *             .statementId("AllowExecutionFromAPIGateway")
+     *             .action("lambda:InvokeFunction")
+     *             .function(apiHandler.functionName())
+     *             .principal("apigateway.amazonaws.com")
+     *             .qualifier(apiHandler.name())
+     *             .sourceArn(String.format("%s/*}&#47;{@code *", exampleAwsApiGatewayRestApi.executionArn()))
+     *             .build());
+     * 
+     *     }}{@code
+     * }}{@code
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Deployment Version Tracking
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### EventBridge Rule Target
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
+     * import com.pulumi.aws.cloudwatch.EventRule;
+     * import com.pulumi.aws.cloudwatch.EventRuleArgs;
+     * import com.pulumi.aws.cloudwatch.EventTarget;
+     * import com.pulumi.aws.cloudwatch.EventTargetArgs;
+     * import com.pulumi.aws.lambda.Permission;
+     * import com.pulumi.aws.lambda.PermissionArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var eventProcessor = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("event-processor")
+     *             .name("stable")
+     *             .build());
+     * 
+     *         var example = new EventRule("example", EventRuleArgs.builder()
+     *             .name("capture-events")
+     *             .description("Capture events for processing")
+     *             .eventPattern(serializeJson(
+     *                 jsonObject(
+     *                     jsonProperty("source", jsonArray("myapp.orders")),
+     *                     jsonProperty("detail-type", jsonArray("Order Placed"))
+     *                 )))
+     *             .build());
+     * 
+     *         var lambda = new EventTarget("lambda", EventTargetArgs.builder()
+     *             .rule(example.name())
+     *             .targetId("SendToLambda")
+     *             .arn(eventProcessor.arn())
+     *             .build());
+     * 
+     *         var allowEventbridge = new Permission("allowEventbridge", PermissionArgs.builder()
+     *             .statementId("AllowExecutionFromEventBridge")
+     *             .action("lambda:InvokeFunction")
+     *             .function(eventProcessor.functionName())
+     *             .principal("events.amazonaws.com")
+     *             .qualifier(eventProcessor.name())
+     *             .sourceArn(example.arn())
      *             .build());
      * 
      *     }
@@ -248,11 +924,13 @@ public final class LambdaFunctions {
         return Deployment.getInstance().invokeAsync("aws:lambda/getAlias:getAlias", TypeShape.of(GetAliasResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
+     * Provides details about an AWS Lambda Code Signing Config. Use this data source to retrieve information about an existing code signing configuration for Lambda functions to ensure code integrity and authenticity.
      * 
-     * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+     * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -277,10 +955,120 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
-     *             .arn(String.format("arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b", awsRegion,awsAccount))
+     *         final var example = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn("arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b")
      *             .build());
      * 
+     *         ctx.export("configDetails", Map.ofEntries(
+     *             Map.entry("configId", example.configId()),
+     *             Map.entry("description", example.description()),
+     *             Map.entry("policy", example.policies()[0].untrustedArtifactOnDeployment())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Use in Lambda Function
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get existing code signing configuration
+     *         final var securityConfig = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn(codeSigningConfigArn)
+     *             .build());
+     * 
+     *         // Create Lambda function with code signing
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("secure-function")
+     *             .role(lambdaRole.arn())
+     *             .handler("index.handler")
+     *             .runtime("nodejs20.x")
+     *             .codeSigningConfigArn(securityConfig.arn())
+     *             .tags(Map.ofEntries(
+     *                 Map.entry("Environment", "production"),
+     *                 Map.entry("Security", "code-signed")
+     *             ))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Multi-Environment Configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Production code signing config
+     *         final var prod = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn("arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-prod-123")
+     *             .build());
+     * 
+     *         // Development code signing config
+     *         final var dev = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn("arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-dev-456")
+     *             .build());
+     * 
+     *         final var prodPolicy = prod.policies()[0].untrustedArtifactOnDeployment();
+     * 
+     *         final var devPolicy = dev.policies()[0].untrustedArtifactOnDeployment();
+     * 
+     *         final var configComparison = Map.ofEntries(
+     *             Map.entry("prodEnforcement", prodPolicy),
+     *             Map.entry("devEnforcement", devPolicy),
+     *             Map.entry("policiesMatch", prodPolicy == devPolicy)
+     *         );
+     * 
+     *         ctx.export("environmentComparison", configComparison);
      *     }
      * }
      * }
@@ -292,11 +1080,13 @@ public final class LambdaFunctions {
         return getCodeSigningConfig(args, InvokeOptions.Empty);
     }
     /**
-     * Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
+     * Provides details about an AWS Lambda Code Signing Config. Use this data source to retrieve information about an existing code signing configuration for Lambda functions to ensure code integrity and authenticity.
      * 
-     * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+     * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -321,10 +1111,120 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
-     *             .arn(String.format("arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b", awsRegion,awsAccount))
+     *         final var example = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn("arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b")
      *             .build());
      * 
+     *         ctx.export("configDetails", Map.ofEntries(
+     *             Map.entry("configId", example.configId()),
+     *             Map.entry("description", example.description()),
+     *             Map.entry("policy", example.policies()[0].untrustedArtifactOnDeployment())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Use in Lambda Function
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get existing code signing configuration
+     *         final var securityConfig = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn(codeSigningConfigArn)
+     *             .build());
+     * 
+     *         // Create Lambda function with code signing
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("secure-function")
+     *             .role(lambdaRole.arn())
+     *             .handler("index.handler")
+     *             .runtime("nodejs20.x")
+     *             .codeSigningConfigArn(securityConfig.arn())
+     *             .tags(Map.ofEntries(
+     *                 Map.entry("Environment", "production"),
+     *                 Map.entry("Security", "code-signed")
+     *             ))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Multi-Environment Configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Production code signing config
+     *         final var prod = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn("arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-prod-123")
+     *             .build());
+     * 
+     *         // Development code signing config
+     *         final var dev = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn("arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-dev-456")
+     *             .build());
+     * 
+     *         final var prodPolicy = prod.policies()[0].untrustedArtifactOnDeployment();
+     * 
+     *         final var devPolicy = dev.policies()[0].untrustedArtifactOnDeployment();
+     * 
+     *         final var configComparison = Map.ofEntries(
+     *             Map.entry("prodEnforcement", prodPolicy),
+     *             Map.entry("devEnforcement", devPolicy),
+     *             Map.entry("policiesMatch", prodPolicy == devPolicy)
+     *         );
+     * 
+     *         ctx.export("environmentComparison", configComparison);
      *     }
      * }
      * }
@@ -336,11 +1236,13 @@ public final class LambdaFunctions {
         return getCodeSigningConfigPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
+     * Provides details about an AWS Lambda Code Signing Config. Use this data source to retrieve information about an existing code signing configuration for Lambda functions to ensure code integrity and authenticity.
      * 
-     * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+     * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -365,10 +1267,120 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
-     *             .arn(String.format("arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b", awsRegion,awsAccount))
+     *         final var example = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn("arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b")
      *             .build());
      * 
+     *         ctx.export("configDetails", Map.ofEntries(
+     *             Map.entry("configId", example.configId()),
+     *             Map.entry("description", example.description()),
+     *             Map.entry("policy", example.policies()[0].untrustedArtifactOnDeployment())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Use in Lambda Function
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get existing code signing configuration
+     *         final var securityConfig = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn(codeSigningConfigArn)
+     *             .build());
+     * 
+     *         // Create Lambda function with code signing
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("secure-function")
+     *             .role(lambdaRole.arn())
+     *             .handler("index.handler")
+     *             .runtime("nodejs20.x")
+     *             .codeSigningConfigArn(securityConfig.arn())
+     *             .tags(Map.ofEntries(
+     *                 Map.entry("Environment", "production"),
+     *                 Map.entry("Security", "code-signed")
+     *             ))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Multi-Environment Configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Production code signing config
+     *         final var prod = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn("arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-prod-123")
+     *             .build());
+     * 
+     *         // Development code signing config
+     *         final var dev = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn("arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-dev-456")
+     *             .build());
+     * 
+     *         final var prodPolicy = prod.policies()[0].untrustedArtifactOnDeployment();
+     * 
+     *         final var devPolicy = dev.policies()[0].untrustedArtifactOnDeployment();
+     * 
+     *         final var configComparison = Map.ofEntries(
+     *             Map.entry("prodEnforcement", prodPolicy),
+     *             Map.entry("devEnforcement", devPolicy),
+     *             Map.entry("policiesMatch", prodPolicy == devPolicy)
+     *         );
+     * 
+     *         ctx.export("environmentComparison", configComparison);
      *     }
      * }
      * }
@@ -380,11 +1392,13 @@ public final class LambdaFunctions {
         return Deployment.getInstance().invoke("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", TypeShape.of(GetCodeSigningConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
+     * Provides details about an AWS Lambda Code Signing Config. Use this data source to retrieve information about an existing code signing configuration for Lambda functions to ensure code integrity and authenticity.
      * 
-     * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+     * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -409,10 +1423,120 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
-     *             .arn(String.format("arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b", awsRegion,awsAccount))
+     *         final var example = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn("arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b")
      *             .build());
      * 
+     *         ctx.export("configDetails", Map.ofEntries(
+     *             Map.entry("configId", example.configId()),
+     *             Map.entry("description", example.description()),
+     *             Map.entry("policy", example.policies()[0].untrustedArtifactOnDeployment())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Use in Lambda Function
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get existing code signing configuration
+     *         final var securityConfig = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn(codeSigningConfigArn)
+     *             .build());
+     * 
+     *         // Create Lambda function with code signing
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("secure-function")
+     *             .role(lambdaRole.arn())
+     *             .handler("index.handler")
+     *             .runtime("nodejs20.x")
+     *             .codeSigningConfigArn(securityConfig.arn())
+     *             .tags(Map.ofEntries(
+     *                 Map.entry("Environment", "production"),
+     *                 Map.entry("Security", "code-signed")
+     *             ))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Multi-Environment Configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Production code signing config
+     *         final var prod = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn("arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-prod-123")
+     *             .build());
+     * 
+     *         // Development code signing config
+     *         final var dev = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn("arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-dev-456")
+     *             .build());
+     * 
+     *         final var prodPolicy = prod.policies()[0].untrustedArtifactOnDeployment();
+     * 
+     *         final var devPolicy = dev.policies()[0].untrustedArtifactOnDeployment();
+     * 
+     *         final var configComparison = Map.ofEntries(
+     *             Map.entry("prodEnforcement", prodPolicy),
+     *             Map.entry("devEnforcement", devPolicy),
+     *             Map.entry("policiesMatch", prodPolicy == devPolicy)
+     *         );
+     * 
+     *         ctx.export("environmentComparison", configComparison);
      *     }
      * }
      * }
@@ -424,11 +1548,13 @@ public final class LambdaFunctions {
         return Deployment.getInstance().invoke("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", TypeShape.of(GetCodeSigningConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
+     * Provides details about an AWS Lambda Code Signing Config. Use this data source to retrieve information about an existing code signing configuration for Lambda functions to ensure code integrity and authenticity.
      * 
-     * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+     * For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html).
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -453,10 +1579,120 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
-     *             .arn(String.format("arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b", awsRegion,awsAccount))
+     *         final var example = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn("arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-0f6c334abcdea4d8b")
      *             .build());
      * 
+     *         ctx.export("configDetails", Map.ofEntries(
+     *             Map.entry("configId", example.configId()),
+     *             Map.entry("description", example.description()),
+     *             Map.entry("policy", example.policies()[0].untrustedArtifactOnDeployment())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Use in Lambda Function
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get existing code signing configuration
+     *         final var securityConfig = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn(codeSigningConfigArn)
+     *             .build());
+     * 
+     *         // Create Lambda function with code signing
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("secure-function")
+     *             .role(lambdaRole.arn())
+     *             .handler("index.handler")
+     *             .runtime("nodejs20.x")
+     *             .codeSigningConfigArn(securityConfig.arn())
+     *             .tags(Map.ofEntries(
+     *                 Map.entry("Environment", "production"),
+     *                 Map.entry("Security", "code-signed")
+     *             ))
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Multi-Environment Configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Production code signing config
+     *         final var prod = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn("arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-prod-123")
+     *             .build());
+     * 
+     *         // Development code signing config
+     *         final var dev = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *             .arn("arn:aws:lambda:us-west-2:123456789012:code-signing-config:csc-dev-456")
+     *             .build());
+     * 
+     *         final var prodPolicy = prod.policies()[0].untrustedArtifactOnDeployment();
+     * 
+     *         final var devPolicy = dev.policies()[0].untrustedArtifactOnDeployment();
+     * 
+     *         final var configComparison = Map.ofEntries(
+     *             Map.entry("prodEnforcement", prodPolicy),
+     *             Map.entry("devEnforcement", devPolicy),
+     *             Map.entry("policiesMatch", prodPolicy == devPolicy)
+     *         );
+     * 
+     *         ctx.export("environmentComparison", configComparison);
      *     }
      * }
      * }
@@ -468,9 +1704,13 @@ public final class LambdaFunctions {
         return Deployment.getInstance().invokeAsync("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", TypeShape.of(GetCodeSigningConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information about a Lambda Function.
+     * Provides details about an AWS Lambda Function. Use this data source to obtain information about an existing Lambda function for use in other resources or as a reference for function configurations.
+     * 
+     * &gt; **Note:** This data source returns information about the latest version or alias specified by the `qualifier`. If no `qualifier` is provided, it returns information about the most recent published version, or `$LATEST` if no published version exists.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -495,12 +1735,167 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var functionName = config.get("functionName");
-     *         final var existing = LambdaFunctions.getFunction(GetFunctionArgs.builder()
-     *             .functionName(functionName)
+     *         final var example = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("my-lambda-function")
      *             .build());
      * 
+     *         ctx.export("functionArn", example.arn());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Using Function Alias
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
+     * import com.pulumi.aws.apigateway.Integration;
+     * import com.pulumi.aws.apigateway.IntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("api-handler")
+     *             .qualifier("production")
+     *             .build());
+     * 
+     *         // Use in API Gateway integration
+     *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()
+     *             .restApi(exampleAwsApiGatewayRestApi.id())
+     *             .resourceId(exampleAwsApiGatewayResource.id())
+     *             .httpMethod(exampleAwsApiGatewayMethod.httpMethod())
+     *             .integrationHttpMethod("POST")
+     *             .type("AWS_PROXY")
+     *             .uri(example.invokeArn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Function Configuration Reference
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.aws.lambda.inputs.FunctionVpcConfigArgs;
+     * import com.pulumi.aws.lambda.inputs.FunctionEnvironmentArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get existing function details
+     *         final var reference = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("existing-function")
+     *             .build());
+     * 
+     *         // Create new function with similar configuration
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("new-function.zip"))
+     *             .name("new-function")
+     *             .role(reference.role())
+     *             .handler(reference.handler())
+     *             .runtime(reference.runtime())
+     *             .memorySize(reference.memorySize())
+     *             .timeout(reference.timeout())
+     *             .architectures(reference.architectures())
+     *             .vpcConfig(FunctionVpcConfigArgs.builder()
+     *                 .subnetIds(reference.vpcConfig().subnetIds())
+     *                 .securityGroupIds(reference.vpcConfig().securityGroupIds())
+     *                 .build())
+     *             .environment(FunctionEnvironmentArgs.builder()
+     *                 .variables(reference.environment().variables())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Function Version Management
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get details about specific version
+     *         final var version = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("my-function")
+     *             .qualifier("3")
+     *             .build());
+     * 
+     *         // Get details about latest version
+     *         final var latest = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("my-function")
+     *             .qualifier("$LATEST")
+     *             .build());
+     * 
+     *         ctx.export("versionComparison", Map.ofEntries(
+     *             Map.entry("specificVersion", version.version()),
+     *             Map.entry("latestVersion", latest.version()),
+     *             Map.entry("codeDifference", version.codeSha256() != latest.codeSha256())
+     *         ));
      *     }
      * }
      * }
@@ -512,9 +1907,13 @@ public final class LambdaFunctions {
         return getFunction(args, InvokeOptions.Empty);
     }
     /**
-     * Provides information about a Lambda Function.
+     * Provides details about an AWS Lambda Function. Use this data source to obtain information about an existing Lambda function for use in other resources or as a reference for function configurations.
+     * 
+     * &gt; **Note:** This data source returns information about the latest version or alias specified by the `qualifier`. If no `qualifier` is provided, it returns information about the most recent published version, or `$LATEST` if no published version exists.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -539,12 +1938,167 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var functionName = config.get("functionName");
-     *         final var existing = LambdaFunctions.getFunction(GetFunctionArgs.builder()
-     *             .functionName(functionName)
+     *         final var example = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("my-lambda-function")
      *             .build());
      * 
+     *         ctx.export("functionArn", example.arn());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Using Function Alias
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
+     * import com.pulumi.aws.apigateway.Integration;
+     * import com.pulumi.aws.apigateway.IntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("api-handler")
+     *             .qualifier("production")
+     *             .build());
+     * 
+     *         // Use in API Gateway integration
+     *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()
+     *             .restApi(exampleAwsApiGatewayRestApi.id())
+     *             .resourceId(exampleAwsApiGatewayResource.id())
+     *             .httpMethod(exampleAwsApiGatewayMethod.httpMethod())
+     *             .integrationHttpMethod("POST")
+     *             .type("AWS_PROXY")
+     *             .uri(example.invokeArn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Function Configuration Reference
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.aws.lambda.inputs.FunctionVpcConfigArgs;
+     * import com.pulumi.aws.lambda.inputs.FunctionEnvironmentArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get existing function details
+     *         final var reference = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("existing-function")
+     *             .build());
+     * 
+     *         // Create new function with similar configuration
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("new-function.zip"))
+     *             .name("new-function")
+     *             .role(reference.role())
+     *             .handler(reference.handler())
+     *             .runtime(reference.runtime())
+     *             .memorySize(reference.memorySize())
+     *             .timeout(reference.timeout())
+     *             .architectures(reference.architectures())
+     *             .vpcConfig(FunctionVpcConfigArgs.builder()
+     *                 .subnetIds(reference.vpcConfig().subnetIds())
+     *                 .securityGroupIds(reference.vpcConfig().securityGroupIds())
+     *                 .build())
+     *             .environment(FunctionEnvironmentArgs.builder()
+     *                 .variables(reference.environment().variables())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Function Version Management
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get details about specific version
+     *         final var version = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("my-function")
+     *             .qualifier("3")
+     *             .build());
+     * 
+     *         // Get details about latest version
+     *         final var latest = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("my-function")
+     *             .qualifier("$LATEST")
+     *             .build());
+     * 
+     *         ctx.export("versionComparison", Map.ofEntries(
+     *             Map.entry("specificVersion", version.version()),
+     *             Map.entry("latestVersion", latest.version()),
+     *             Map.entry("codeDifference", version.codeSha256() != latest.codeSha256())
+     *         ));
      *     }
      * }
      * }
@@ -556,9 +2110,13 @@ public final class LambdaFunctions {
         return getFunctionPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Provides information about a Lambda Function.
+     * Provides details about an AWS Lambda Function. Use this data source to obtain information about an existing Lambda function for use in other resources or as a reference for function configurations.
+     * 
+     * &gt; **Note:** This data source returns information about the latest version or alias specified by the `qualifier`. If no `qualifier` is provided, it returns information about the most recent published version, or `$LATEST` if no published version exists.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -583,12 +2141,167 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var functionName = config.get("functionName");
-     *         final var existing = LambdaFunctions.getFunction(GetFunctionArgs.builder()
-     *             .functionName(functionName)
+     *         final var example = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("my-lambda-function")
      *             .build());
      * 
+     *         ctx.export("functionArn", example.arn());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Using Function Alias
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
+     * import com.pulumi.aws.apigateway.Integration;
+     * import com.pulumi.aws.apigateway.IntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("api-handler")
+     *             .qualifier("production")
+     *             .build());
+     * 
+     *         // Use in API Gateway integration
+     *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()
+     *             .restApi(exampleAwsApiGatewayRestApi.id())
+     *             .resourceId(exampleAwsApiGatewayResource.id())
+     *             .httpMethod(exampleAwsApiGatewayMethod.httpMethod())
+     *             .integrationHttpMethod("POST")
+     *             .type("AWS_PROXY")
+     *             .uri(example.invokeArn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Function Configuration Reference
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.aws.lambda.inputs.FunctionVpcConfigArgs;
+     * import com.pulumi.aws.lambda.inputs.FunctionEnvironmentArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get existing function details
+     *         final var reference = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("existing-function")
+     *             .build());
+     * 
+     *         // Create new function with similar configuration
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("new-function.zip"))
+     *             .name("new-function")
+     *             .role(reference.role())
+     *             .handler(reference.handler())
+     *             .runtime(reference.runtime())
+     *             .memorySize(reference.memorySize())
+     *             .timeout(reference.timeout())
+     *             .architectures(reference.architectures())
+     *             .vpcConfig(FunctionVpcConfigArgs.builder()
+     *                 .subnetIds(reference.vpcConfig().subnetIds())
+     *                 .securityGroupIds(reference.vpcConfig().securityGroupIds())
+     *                 .build())
+     *             .environment(FunctionEnvironmentArgs.builder()
+     *                 .variables(reference.environment().variables())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Function Version Management
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get details about specific version
+     *         final var version = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("my-function")
+     *             .qualifier("3")
+     *             .build());
+     * 
+     *         // Get details about latest version
+     *         final var latest = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("my-function")
+     *             .qualifier("$LATEST")
+     *             .build());
+     * 
+     *         ctx.export("versionComparison", Map.ofEntries(
+     *             Map.entry("specificVersion", version.version()),
+     *             Map.entry("latestVersion", latest.version()),
+     *             Map.entry("codeDifference", version.codeSha256() != latest.codeSha256())
+     *         ));
      *     }
      * }
      * }
@@ -600,9 +2313,13 @@ public final class LambdaFunctions {
         return Deployment.getInstance().invoke("aws:lambda/getFunction:getFunction", TypeShape.of(GetFunctionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information about a Lambda Function.
+     * Provides details about an AWS Lambda Function. Use this data source to obtain information about an existing Lambda function for use in other resources or as a reference for function configurations.
+     * 
+     * &gt; **Note:** This data source returns information about the latest version or alias specified by the `qualifier`. If no `qualifier` is provided, it returns information about the most recent published version, or `$LATEST` if no published version exists.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -627,12 +2344,167 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var functionName = config.get("functionName");
-     *         final var existing = LambdaFunctions.getFunction(GetFunctionArgs.builder()
-     *             .functionName(functionName)
+     *         final var example = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("my-lambda-function")
      *             .build());
      * 
+     *         ctx.export("functionArn", example.arn());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Using Function Alias
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
+     * import com.pulumi.aws.apigateway.Integration;
+     * import com.pulumi.aws.apigateway.IntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("api-handler")
+     *             .qualifier("production")
+     *             .build());
+     * 
+     *         // Use in API Gateway integration
+     *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()
+     *             .restApi(exampleAwsApiGatewayRestApi.id())
+     *             .resourceId(exampleAwsApiGatewayResource.id())
+     *             .httpMethod(exampleAwsApiGatewayMethod.httpMethod())
+     *             .integrationHttpMethod("POST")
+     *             .type("AWS_PROXY")
+     *             .uri(example.invokeArn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Function Configuration Reference
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.aws.lambda.inputs.FunctionVpcConfigArgs;
+     * import com.pulumi.aws.lambda.inputs.FunctionEnvironmentArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get existing function details
+     *         final var reference = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("existing-function")
+     *             .build());
+     * 
+     *         // Create new function with similar configuration
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("new-function.zip"))
+     *             .name("new-function")
+     *             .role(reference.role())
+     *             .handler(reference.handler())
+     *             .runtime(reference.runtime())
+     *             .memorySize(reference.memorySize())
+     *             .timeout(reference.timeout())
+     *             .architectures(reference.architectures())
+     *             .vpcConfig(FunctionVpcConfigArgs.builder()
+     *                 .subnetIds(reference.vpcConfig().subnetIds())
+     *                 .securityGroupIds(reference.vpcConfig().securityGroupIds())
+     *                 .build())
+     *             .environment(FunctionEnvironmentArgs.builder()
+     *                 .variables(reference.environment().variables())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Function Version Management
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get details about specific version
+     *         final var version = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("my-function")
+     *             .qualifier("3")
+     *             .build());
+     * 
+     *         // Get details about latest version
+     *         final var latest = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("my-function")
+     *             .qualifier("$LATEST")
+     *             .build());
+     * 
+     *         ctx.export("versionComparison", Map.ofEntries(
+     *             Map.entry("specificVersion", version.version()),
+     *             Map.entry("latestVersion", latest.version()),
+     *             Map.entry("codeDifference", version.codeSha256() != latest.codeSha256())
+     *         ));
      *     }
      * }
      * }
@@ -644,9 +2516,13 @@ public final class LambdaFunctions {
         return Deployment.getInstance().invoke("aws:lambda/getFunction:getFunction", TypeShape.of(GetFunctionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information about a Lambda Function.
+     * Provides details about an AWS Lambda Function. Use this data source to obtain information about an existing Lambda function for use in other resources or as a reference for function configurations.
+     * 
+     * &gt; **Note:** This data source returns information about the latest version or alias specified by the `qualifier`. If no `qualifier` is provided, it returns information about the most recent published version, or `$LATEST` if no published version exists.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -671,12 +2547,167 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var functionName = config.get("functionName");
-     *         final var existing = LambdaFunctions.getFunction(GetFunctionArgs.builder()
-     *             .functionName(functionName)
+     *         final var example = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("my-lambda-function")
      *             .build());
      * 
+     *         ctx.export("functionArn", example.arn());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Using Function Alias
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
+     * import com.pulumi.aws.apigateway.Integration;
+     * import com.pulumi.aws.apigateway.IntegrationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("api-handler")
+     *             .qualifier("production")
+     *             .build());
+     * 
+     *         // Use in API Gateway integration
+     *         var exampleIntegration = new Integration("exampleIntegration", IntegrationArgs.builder()
+     *             .restApi(exampleAwsApiGatewayRestApi.id())
+     *             .resourceId(exampleAwsApiGatewayResource.id())
+     *             .httpMethod(exampleAwsApiGatewayMethod.httpMethod())
+     *             .integrationHttpMethod("POST")
+     *             .type("AWS_PROXY")
+     *             .uri(example.invokeArn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Function Configuration Reference
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.aws.lambda.inputs.FunctionVpcConfigArgs;
+     * import com.pulumi.aws.lambda.inputs.FunctionEnvironmentArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get existing function details
+     *         final var reference = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("existing-function")
+     *             .build());
+     * 
+     *         // Create new function with similar configuration
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("new-function.zip"))
+     *             .name("new-function")
+     *             .role(reference.role())
+     *             .handler(reference.handler())
+     *             .runtime(reference.runtime())
+     *             .memorySize(reference.memorySize())
+     *             .timeout(reference.timeout())
+     *             .architectures(reference.architectures())
+     *             .vpcConfig(FunctionVpcConfigArgs.builder()
+     *                 .subnetIds(reference.vpcConfig().subnetIds())
+     *                 .securityGroupIds(reference.vpcConfig().securityGroupIds())
+     *                 .build())
+     *             .environment(FunctionEnvironmentArgs.builder()
+     *                 .variables(reference.environment().variables())
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Function Version Management
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get details about specific version
+     *         final var version = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("my-function")
+     *             .qualifier("3")
+     *             .build());
+     * 
+     *         // Get details about latest version
+     *         final var latest = LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *             .functionName("my-function")
+     *             .qualifier("$LATEST")
+     *             .build());
+     * 
+     *         ctx.export("versionComparison", Map.ofEntries(
+     *             Map.entry("specificVersion", version.version()),
+     *             Map.entry("latestVersion", latest.version()),
+     *             Map.entry("codeDifference", version.codeSha256() != latest.codeSha256())
+     *         ));
      *     }
      * }
      * }
@@ -688,9 +2719,11 @@ public final class LambdaFunctions {
         return Deployment.getInstance().invokeAsync("aws:lambda/getFunction:getFunction", TypeShape.of(GetFunctionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information about a Lambda function URL.
+     * Provides details about an AWS Lambda Function URL. Use this data source to retrieve information about an existing function URL configuration.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -715,12 +2748,104 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var functionName = config.get("functionName");
-     *         final var existing = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
-     *             .functionName(functionName)
+     *         final var example = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
+     *             .functionName("my_lambda_function")
      *             .build());
      * 
+     *         ctx.export("functionUrl", example.functionUrl());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### With Qualifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.ReplaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
+     *             .functionName(exampleAwsLambdaFunction.functionName())
+     *             .qualifier("production")
+     *             .build());
+     * 
+     *         // Use the URL in other resources
+     *         var lambdaAlias = new Record("lambdaAlias", RecordArgs.builder()
+     *             .zoneId(exampleAwsRoute53Zone.zoneId())
+     *             .name("api.example.com")
+     *             .type("CNAME")
+     *             .ttl(300)
+     *             .records(StdFunctions.replace(ReplaceArgs.builder()
+     *                 .text(example.functionUrl())
+     *                 .search("https://")
+     *                 .replace("")
+     *                 .build()).result())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Retrieve CORS Configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
+     *             .functionName("api_function")
+     *             .build());
+     * 
+     *         final var corsConfig = example.cors().length().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
+     * 
+     *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : List.of();
+     * 
+     *         ctx.export("corsAllowedOrigins", allowedOrigins);
      *     }
      * }
      * }
@@ -732,9 +2857,11 @@ public final class LambdaFunctions {
         return getFunctionUrl(args, InvokeOptions.Empty);
     }
     /**
-     * Provides information about a Lambda function URL.
+     * Provides details about an AWS Lambda Function URL. Use this data source to retrieve information about an existing function URL configuration.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -759,12 +2886,104 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var functionName = config.get("functionName");
-     *         final var existing = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
-     *             .functionName(functionName)
+     *         final var example = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
+     *             .functionName("my_lambda_function")
      *             .build());
      * 
+     *         ctx.export("functionUrl", example.functionUrl());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### With Qualifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.ReplaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
+     *             .functionName(exampleAwsLambdaFunction.functionName())
+     *             .qualifier("production")
+     *             .build());
+     * 
+     *         // Use the URL in other resources
+     *         var lambdaAlias = new Record("lambdaAlias", RecordArgs.builder()
+     *             .zoneId(exampleAwsRoute53Zone.zoneId())
+     *             .name("api.example.com")
+     *             .type("CNAME")
+     *             .ttl(300)
+     *             .records(StdFunctions.replace(ReplaceArgs.builder()
+     *                 .text(example.functionUrl())
+     *                 .search("https://")
+     *                 .replace("")
+     *                 .build()).result())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Retrieve CORS Configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
+     *             .functionName("api_function")
+     *             .build());
+     * 
+     *         final var corsConfig = example.cors().length().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
+     * 
+     *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : List.of();
+     * 
+     *         ctx.export("corsAllowedOrigins", allowedOrigins);
      *     }
      * }
      * }
@@ -776,9 +2995,11 @@ public final class LambdaFunctions {
         return getFunctionUrlPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Provides information about a Lambda function URL.
+     * Provides details about an AWS Lambda Function URL. Use this data source to retrieve information about an existing function URL configuration.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -803,12 +3024,104 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var functionName = config.get("functionName");
-     *         final var existing = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
-     *             .functionName(functionName)
+     *         final var example = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
+     *             .functionName("my_lambda_function")
      *             .build());
      * 
+     *         ctx.export("functionUrl", example.functionUrl());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### With Qualifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.ReplaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
+     *             .functionName(exampleAwsLambdaFunction.functionName())
+     *             .qualifier("production")
+     *             .build());
+     * 
+     *         // Use the URL in other resources
+     *         var lambdaAlias = new Record("lambdaAlias", RecordArgs.builder()
+     *             .zoneId(exampleAwsRoute53Zone.zoneId())
+     *             .name("api.example.com")
+     *             .type("CNAME")
+     *             .ttl(300)
+     *             .records(StdFunctions.replace(ReplaceArgs.builder()
+     *                 .text(example.functionUrl())
+     *                 .search("https://")
+     *                 .replace("")
+     *                 .build()).result())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Retrieve CORS Configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
+     *             .functionName("api_function")
+     *             .build());
+     * 
+     *         final var corsConfig = example.cors().length().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
+     * 
+     *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : List.of();
+     * 
+     *         ctx.export("corsAllowedOrigins", allowedOrigins);
      *     }
      * }
      * }
@@ -820,9 +3133,11 @@ public final class LambdaFunctions {
         return Deployment.getInstance().invoke("aws:lambda/getFunctionUrl:getFunctionUrl", TypeShape.of(GetFunctionUrlResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information about a Lambda function URL.
+     * Provides details about an AWS Lambda Function URL. Use this data source to retrieve information about an existing function URL configuration.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -847,12 +3162,104 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var functionName = config.get("functionName");
-     *         final var existing = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
-     *             .functionName(functionName)
+     *         final var example = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
+     *             .functionName("my_lambda_function")
      *             .build());
      * 
+     *         ctx.export("functionUrl", example.functionUrl());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### With Qualifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.ReplaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
+     *             .functionName(exampleAwsLambdaFunction.functionName())
+     *             .qualifier("production")
+     *             .build());
+     * 
+     *         // Use the URL in other resources
+     *         var lambdaAlias = new Record("lambdaAlias", RecordArgs.builder()
+     *             .zoneId(exampleAwsRoute53Zone.zoneId())
+     *             .name("api.example.com")
+     *             .type("CNAME")
+     *             .ttl(300)
+     *             .records(StdFunctions.replace(ReplaceArgs.builder()
+     *                 .text(example.functionUrl())
+     *                 .search("https://")
+     *                 .replace("")
+     *                 .build()).result())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Retrieve CORS Configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
+     *             .functionName("api_function")
+     *             .build());
+     * 
+     *         final var corsConfig = example.cors().length().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
+     * 
+     *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : List.of();
+     * 
+     *         ctx.export("corsAllowedOrigins", allowedOrigins);
      *     }
      * }
      * }
@@ -864,9 +3271,11 @@ public final class LambdaFunctions {
         return Deployment.getInstance().invoke("aws:lambda/getFunctionUrl:getFunctionUrl", TypeShape.of(GetFunctionUrlResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information about a Lambda function URL.
+     * Provides details about an AWS Lambda Function URL. Use this data source to retrieve information about an existing function URL configuration.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -891,12 +3300,104 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var functionName = config.get("functionName");
-     *         final var existing = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
-     *             .functionName(functionName)
+     *         final var example = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
+     *             .functionName("my_lambda_function")
      *             .build());
      * 
+     *         ctx.export("functionUrl", example.functionUrl());
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### With Qualifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import com.pulumi.std.StdFunctions;
+     * import com.pulumi.std.inputs.ReplaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
+     *             .functionName(exampleAwsLambdaFunction.functionName())
+     *             .qualifier("production")
+     *             .build());
+     * 
+     *         // Use the URL in other resources
+     *         var lambdaAlias = new Record("lambdaAlias", RecordArgs.builder()
+     *             .zoneId(exampleAwsRoute53Zone.zoneId())
+     *             .name("api.example.com")
+     *             .type("CNAME")
+     *             .ttl(300)
+     *             .records(StdFunctions.replace(ReplaceArgs.builder()
+     *                 .text(example.functionUrl())
+     *                 .search("https://")
+     *                 .replace("")
+     *                 .build()).result())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Retrieve CORS Configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
+     *             .functionName("api_function")
+     *             .build());
+     * 
+     *         final var corsConfig = example.cors().length().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
+     * 
+     *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : List.of();
+     * 
+     *         ctx.export("corsAllowedOrigins", allowedOrigins);
      *     }
      * }
      * }
@@ -908,9 +3409,11 @@ public final class LambdaFunctions {
         return Deployment.getInstance().invokeAsync("aws:lambda/getFunctionUrl:getFunctionUrl", TypeShape.of(GetFunctionUrlResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data resource to get a list of Lambda Functions.
+     * Provides a list of AWS Lambda Functions in the current region. Use this data source to discover existing Lambda functions for inventory, monitoring, or bulk operations.
      * 
      * ## Example Usage
+     * 
+     * ### List All Functions
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -921,6 +3424,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -934,22 +3438,91 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
      * 
+     *         ctx.export("functionCount", all.functionNames().length());
+     *         ctx.export("allFunctionNames", all.functionNames());
      *     }
      * }
      * }
      * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Use Function List for Bulk Operations
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
+     * import com.pulumi.aws.cloudwatch.MetricAlarm;
+     * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get all Lambda functions
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
+     * 
+     *         // Create CloudWatch alarms for all functions
+     *         for (var i = 0; i < all.functionNames().length(); i++) {
+     *             new MetricAlarm("lambdaErrors-" + i, MetricAlarmArgs.builder()
+     *                 .name(String.format("%s-errors", all.functionNames()[range.value()]))
+     *                 .comparisonOperator("GreaterThanThreshold")
+     *                 .evaluationPeriods(2)
+     *                 .metricName("Errors")
+     *                 .namespace("AWS/Lambda")
+     *                 .period(300)
+     *                 .statistic("Sum")
+     *                 .threshold(5.0)
+     *                 .alarmDescription("This metric monitors lambda errors")
+     *                 .dimensions(Map.of("FunctionName", all.functionNames()[range.value()]))
+     *                 .tags(Map.ofEntries(
+     *                     Map.entry("Environment", "monitoring"),
+     *                     Map.entry("Purpose", "lambda-error-tracking")
+     *                 ))
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Create Function Inventory
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFunctionsResult> getFunctions() {
-        return getFunctions(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getFunctions(GetFunctionsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Data resource to get a list of Lambda Functions.
+     * Provides a list of AWS Lambda Functions in the current region. Use this data source to discover existing Lambda functions for inventory, monitoring, or bulk operations.
      * 
      * ## Example Usage
+     * 
+     * ### List All Functions
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -960,6 +3533,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -973,22 +3547,91 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
      * 
+     *         ctx.export("functionCount", all.functionNames().length());
+     *         ctx.export("allFunctionNames", all.functionNames());
      *     }
      * }
      * }
      * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Use Function List for Bulk Operations
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
+     * import com.pulumi.aws.cloudwatch.MetricAlarm;
+     * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get all Lambda functions
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
+     * 
+     *         // Create CloudWatch alarms for all functions
+     *         for (var i = 0; i < all.functionNames().length(); i++) {
+     *             new MetricAlarm("lambdaErrors-" + i, MetricAlarmArgs.builder()
+     *                 .name(String.format("%s-errors", all.functionNames()[range.value()]))
+     *                 .comparisonOperator("GreaterThanThreshold")
+     *                 .evaluationPeriods(2)
+     *                 .metricName("Errors")
+     *                 .namespace("AWS/Lambda")
+     *                 .period(300)
+     *                 .statistic("Sum")
+     *                 .threshold(5.0)
+     *                 .alarmDescription("This metric monitors lambda errors")
+     *                 .dimensions(Map.of("FunctionName", all.functionNames()[range.value()]))
+     *                 .tags(Map.ofEntries(
+     *                     Map.entry("Environment", "monitoring"),
+     *                     Map.entry("Purpose", "lambda-error-tracking")
+     *                 ))
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Create Function Inventory
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFunctionsResult> getFunctionsPlain() {
-        return getFunctionsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getFunctionsPlain(GetFunctionsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Data resource to get a list of Lambda Functions.
+     * Provides a list of AWS Lambda Functions in the current region. Use this data source to discover existing Lambda functions for inventory, monitoring, or bulk operations.
      * 
      * ## Example Usage
+     * 
+     * ### List All Functions
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -999,6 +3642,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1012,22 +3656,91 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
      * 
+     *         ctx.export("functionCount", all.functionNames().length());
+     *         ctx.export("allFunctionNames", all.functionNames());
      *     }
      * }
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ### Use Function List for Bulk Operations
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
+     * import com.pulumi.aws.cloudwatch.MetricAlarm;
+     * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get all Lambda functions
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
+     * 
+     *         // Create CloudWatch alarms for all functions
+     *         for (var i = 0; i < all.functionNames().length(); i++) {
+     *             new MetricAlarm("lambdaErrors-" + i, MetricAlarmArgs.builder()
+     *                 .name(String.format("%s-errors", all.functionNames()[range.value()]))
+     *                 .comparisonOperator("GreaterThanThreshold")
+     *                 .evaluationPeriods(2)
+     *                 .metricName("Errors")
+     *                 .namespace("AWS/Lambda")
+     *                 .period(300)
+     *                 .statistic("Sum")
+     *                 .threshold(5.0)
+     *                 .alarmDescription("This metric monitors lambda errors")
+     *                 .dimensions(Map.of("FunctionName", all.functionNames()[range.value()]))
+     *                 .tags(Map.ofEntries(
+     *                     Map.entry("Environment", "monitoring"),
+     *                     Map.entry("Purpose", "lambda-error-tracking")
+     *                 ))
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Create Function Inventory
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
-    public static Output<GetFunctionsResult> getFunctions(InvokeArgs args) {
+    public static Output<GetFunctionsResult> getFunctions(GetFunctionsArgs args) {
         return getFunctions(args, InvokeOptions.Empty);
     }
     /**
-     * Data resource to get a list of Lambda Functions.
+     * Provides a list of AWS Lambda Functions in the current region. Use this data source to discover existing Lambda functions for inventory, monitoring, or bulk operations.
      * 
      * ## Example Usage
+     * 
+     * ### List All Functions
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -1038,6 +3751,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1051,22 +3765,91 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
      * 
+     *         ctx.export("functionCount", all.functionNames().length());
+     *         ctx.export("allFunctionNames", all.functionNames());
      *     }
      * }
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ### Use Function List for Bulk Operations
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
+     * import com.pulumi.aws.cloudwatch.MetricAlarm;
+     * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get all Lambda functions
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
+     * 
+     *         // Create CloudWatch alarms for all functions
+     *         for (var i = 0; i < all.functionNames().length(); i++) {
+     *             new MetricAlarm("lambdaErrors-" + i, MetricAlarmArgs.builder()
+     *                 .name(String.format("%s-errors", all.functionNames()[range.value()]))
+     *                 .comparisonOperator("GreaterThanThreshold")
+     *                 .evaluationPeriods(2)
+     *                 .metricName("Errors")
+     *                 .namespace("AWS/Lambda")
+     *                 .period(300)
+     *                 .statistic("Sum")
+     *                 .threshold(5.0)
+     *                 .alarmDescription("This metric monitors lambda errors")
+     *                 .dimensions(Map.of("FunctionName", all.functionNames()[range.value()]))
+     *                 .tags(Map.ofEntries(
+     *                     Map.entry("Environment", "monitoring"),
+     *                     Map.entry("Purpose", "lambda-error-tracking")
+     *                 ))
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Create Function Inventory
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
-    public static CompletableFuture<GetFunctionsResult> getFunctionsPlain(InvokeArgs args) {
+    public static CompletableFuture<GetFunctionsResult> getFunctionsPlain(GetFunctionsPlainArgs args) {
         return getFunctionsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data resource to get a list of Lambda Functions.
+     * Provides a list of AWS Lambda Functions in the current region. Use this data source to discover existing Lambda functions for inventory, monitoring, or bulk operations.
      * 
      * ## Example Usage
+     * 
+     * ### List All Functions
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -1077,6 +3860,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1090,22 +3874,91 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
      * 
+     *         ctx.export("functionCount", all.functionNames().length());
+     *         ctx.export("allFunctionNames", all.functionNames());
      *     }
      * }
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ### Use Function List for Bulk Operations
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
+     * import com.pulumi.aws.cloudwatch.MetricAlarm;
+     * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get all Lambda functions
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
+     * 
+     *         // Create CloudWatch alarms for all functions
+     *         for (var i = 0; i < all.functionNames().length(); i++) {
+     *             new MetricAlarm("lambdaErrors-" + i, MetricAlarmArgs.builder()
+     *                 .name(String.format("%s-errors", all.functionNames()[range.value()]))
+     *                 .comparisonOperator("GreaterThanThreshold")
+     *                 .evaluationPeriods(2)
+     *                 .metricName("Errors")
+     *                 .namespace("AWS/Lambda")
+     *                 .period(300)
+     *                 .statistic("Sum")
+     *                 .threshold(5.0)
+     *                 .alarmDescription("This metric monitors lambda errors")
+     *                 .dimensions(Map.of("FunctionName", all.functionNames()[range.value()]))
+     *                 .tags(Map.ofEntries(
+     *                     Map.entry("Environment", "monitoring"),
+     *                     Map.entry("Purpose", "lambda-error-tracking")
+     *                 ))
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Create Function Inventory
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
-    public static Output<GetFunctionsResult> getFunctions(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetFunctionsResult> getFunctions(GetFunctionsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:lambda/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data resource to get a list of Lambda Functions.
+     * Provides a list of AWS Lambda Functions in the current region. Use this data source to discover existing Lambda functions for inventory, monitoring, or bulk operations.
      * 
      * ## Example Usage
+     * 
+     * ### List All Functions
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -1116,6 +3969,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1129,22 +3983,91 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
      * 
+     *         ctx.export("functionCount", all.functionNames().length());
+     *         ctx.export("allFunctionNames", all.functionNames());
      *     }
      * }
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ### Use Function List for Bulk Operations
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
+     * import com.pulumi.aws.cloudwatch.MetricAlarm;
+     * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get all Lambda functions
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
+     * 
+     *         // Create CloudWatch alarms for all functions
+     *         for (var i = 0; i < all.functionNames().length(); i++) {
+     *             new MetricAlarm("lambdaErrors-" + i, MetricAlarmArgs.builder()
+     *                 .name(String.format("%s-errors", all.functionNames()[range.value()]))
+     *                 .comparisonOperator("GreaterThanThreshold")
+     *                 .evaluationPeriods(2)
+     *                 .metricName("Errors")
+     *                 .namespace("AWS/Lambda")
+     *                 .period(300)
+     *                 .statistic("Sum")
+     *                 .threshold(5.0)
+     *                 .alarmDescription("This metric monitors lambda errors")
+     *                 .dimensions(Map.of("FunctionName", all.functionNames()[range.value()]))
+     *                 .tags(Map.ofEntries(
+     *                     Map.entry("Environment", "monitoring"),
+     *                     Map.entry("Purpose", "lambda-error-tracking")
+     *                 ))
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Create Function Inventory
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
-    public static Output<GetFunctionsResult> getFunctions(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetFunctionsResult> getFunctions(GetFunctionsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:lambda/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data resource to get a list of Lambda Functions.
+     * Provides a list of AWS Lambda Functions in the current region. Use this data source to discover existing Lambda functions for inventory, monitoring, or bulk operations.
      * 
      * ## Example Usage
+     * 
+     * ### List All Functions
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -1155,6 +4078,7 @@ public final class LambdaFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1168,87 +4092,214 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = LambdaFunctions.getFunctions(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
      * 
+     *         ctx.export("functionCount", all.functionNames().length());
+     *         ctx.export("allFunctionNames", all.functionNames());
      *     }
      * }
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * ### Use Function List for Bulk Operations
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionsArgs;
+     * import com.pulumi.aws.cloudwatch.MetricAlarm;
+     * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get all Lambda functions
+     *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
+     *             .build());
+     * 
+     *         // Create CloudWatch alarms for all functions
+     *         for (var i = 0; i < all.functionNames().length(); i++) {
+     *             new MetricAlarm("lambdaErrors-" + i, MetricAlarmArgs.builder()
+     *                 .name(String.format("%s-errors", all.functionNames()[range.value()]))
+     *                 .comparisonOperator("GreaterThanThreshold")
+     *                 .evaluationPeriods(2)
+     *                 .metricName("Errors")
+     *                 .namespace("AWS/Lambda")
+     *                 .period(300)
+     *                 .statistic("Sum")
+     *                 .threshold(5.0)
+     *                 .alarmDescription("This metric monitors lambda errors")
+     *                 .dimensions(Map.of("FunctionName", all.functionNames()[range.value()]))
+     *                 .tags(Map.ofEntries(
+     *                     Map.entry("Environment", "monitoring"),
+     *                     Map.entry("Purpose", "lambda-error-tracking")
+     *                 ))
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Create Function Inventory
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
-    public static CompletableFuture<GetFunctionsResult> getFunctionsPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetFunctionsResult> getFunctionsPlain(GetFunctionsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:lambda/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to invoke custom lambda functions as data source.
-     * The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
-     * invocation type.
+     * Invokes an AWS Lambda Function and returns its results. Use this data source to execute Lambda functions during Pulumi operations and use their results in other resources or outputs.
      * 
-     * &gt; **NOTE:** The `aws.lambda.Invocation` data source invokes the function during the first `apply` and every subsequent `plan` when the function is known.
+     * The Lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
      * 
-     * &gt; **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
+     * &gt; **Note:** The `aws.lambda.Invocation` data source invokes the function during the first `apply` and every subsequent `plan` when the function is known.
+     * 
+     * &gt; **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
+     * 
+     * ## Example Usage
      * 
      */
     public static Output<GetInvocationResult> getInvocation(GetInvocationArgs args) {
         return getInvocation(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to invoke custom lambda functions as data source.
-     * The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
-     * invocation type.
+     * Invokes an AWS Lambda Function and returns its results. Use this data source to execute Lambda functions during Pulumi operations and use their results in other resources or outputs.
      * 
-     * &gt; **NOTE:** The `aws.lambda.Invocation` data source invokes the function during the first `apply` and every subsequent `plan` when the function is known.
+     * The Lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
      * 
-     * &gt; **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
+     * &gt; **Note:** The `aws.lambda.Invocation` data source invokes the function during the first `apply` and every subsequent `plan` when the function is known.
+     * 
+     * &gt; **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetInvocationResult> getInvocationPlain(GetInvocationPlainArgs args) {
         return getInvocationPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to invoke custom lambda functions as data source.
-     * The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
-     * invocation type.
+     * Invokes an AWS Lambda Function and returns its results. Use this data source to execute Lambda functions during Pulumi operations and use their results in other resources or outputs.
      * 
-     * &gt; **NOTE:** The `aws.lambda.Invocation` data source invokes the function during the first `apply` and every subsequent `plan` when the function is known.
+     * The Lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
      * 
-     * &gt; **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
+     * &gt; **Note:** The `aws.lambda.Invocation` data source invokes the function during the first `apply` and every subsequent `plan` when the function is known.
+     * 
+     * &gt; **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
+     * 
+     * ## Example Usage
      * 
      */
     public static Output<GetInvocationResult> getInvocation(GetInvocationArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:lambda/getInvocation:getInvocation", TypeShape.of(GetInvocationResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to invoke custom lambda functions as data source.
-     * The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
-     * invocation type.
+     * Invokes an AWS Lambda Function and returns its results. Use this data source to execute Lambda functions during Pulumi operations and use their results in other resources or outputs.
      * 
-     * &gt; **NOTE:** The `aws.lambda.Invocation` data source invokes the function during the first `apply` and every subsequent `plan` when the function is known.
+     * The Lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
      * 
-     * &gt; **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
+     * &gt; **Note:** The `aws.lambda.Invocation` data source invokes the function during the first `apply` and every subsequent `plan` when the function is known.
+     * 
+     * &gt; **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
+     * 
+     * ## Example Usage
      * 
      */
     public static Output<GetInvocationResult> getInvocation(GetInvocationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:lambda/getInvocation:getInvocation", TypeShape.of(GetInvocationResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to invoke custom lambda functions as data source.
-     * The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
-     * invocation type.
+     * Invokes an AWS Lambda Function and returns its results. Use this data source to execute Lambda functions during Pulumi operations and use their results in other resources or outputs.
      * 
-     * &gt; **NOTE:** The `aws.lambda.Invocation` data source invokes the function during the first `apply` and every subsequent `plan` when the function is known.
+     * The Lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
      * 
-     * &gt; **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
+     * &gt; **Note:** The `aws.lambda.Invocation` data source invokes the function during the first `apply` and every subsequent `plan` when the function is known.
+     * 
+     * &gt; **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetInvocationResult> getInvocationPlain(GetInvocationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:lambda/getInvocation:getInvocation", TypeShape.of(GetInvocationResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information about a Lambda Layer Version.
+     * Provides details about an AWS Lambda Layer Version. Use this data source to retrieve information about a specific layer version or find the latest version compatible with your runtime and architecture requirements.
      * 
      * ## Example Usage
+     * 
+     * ### Get Latest Layer Version
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("my-shared-utilities")
+     *             .build());
+     * 
+     *         // Use the layer in a Lambda function
+     *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("example_function")
+     *             .role(lambdaRole.arn())
+     *             .handler("index.handler")
+     *             .runtime("nodejs20.x")
+     *             .layers(example.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Get Specific Layer Version
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -1273,12 +4324,122 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var layerName = config.get("layerName");
-     *         final var existing = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
-     *             .layerName(layerName)
+     *         final var example = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("production-utilities")
+     *             .version(5)
      *             .build());
      * 
+     *         ctx.export("layerInfo", Map.ofEntries(
+     *             Map.entry("arn", example.arn()),
+     *             Map.entry("version", example.version()),
+     *             Map.entry("description", example.description())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Get Latest Compatible Layer Version
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Find latest layer version compatible with Python 3.12
+     *         final var pythonLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("python-dependencies")
+     *             .compatibleRuntime("python3.12")
+     *             .build());
+     * 
+     *         // Find latest layer version compatible with ARM64 architecture
+     *         final var armLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("optimized-libraries")
+     *             .compatibleArchitecture("arm64")
+     *             .build());
+     * 
+     *         // Use both layers in a function
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("multi_layer_function")
+     *             .role(lambdaRole.arn())
+     *             .handler("app.handler")
+     *             .runtime("python3.12")
+     *             .architectures("arm64")
+     *             .layers(            
+     *                 pythonLayer.arn(),
+     *                 armLayer.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Compare Layer Versions
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get latest version
+     *         final var latest = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("shared-layer")
+     *             .build());
+     * 
+     *         // Get specific version for comparison
+     *         final var stable = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("shared-layer")
+     *             .version(3)
+     *             .build());
+     * 
+     *         final var useLatestLayer = latest.version() > 5;
+     * 
+     *         final var selectedLayer = useLatestLayer ? latest.arn() : stable.arn();
+     * 
+     *         ctx.export("selectedLayerVersion", useLatestLayer ? latest.version() : stable.version());
      *     }
      * }
      * }
@@ -1290,9 +4451,59 @@ public final class LambdaFunctions {
         return getLayerVersion(args, InvokeOptions.Empty);
     }
     /**
-     * Provides information about a Lambda Layer Version.
+     * Provides details about an AWS Lambda Layer Version. Use this data source to retrieve information about a specific layer version or find the latest version compatible with your runtime and architecture requirements.
      * 
      * ## Example Usage
+     * 
+     * ### Get Latest Layer Version
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("my-shared-utilities")
+     *             .build());
+     * 
+     *         // Use the layer in a Lambda function
+     *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("example_function")
+     *             .role(lambdaRole.arn())
+     *             .handler("index.handler")
+     *             .runtime("nodejs20.x")
+     *             .layers(example.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Get Specific Layer Version
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -1317,12 +4528,122 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var layerName = config.get("layerName");
-     *         final var existing = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
-     *             .layerName(layerName)
+     *         final var example = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("production-utilities")
+     *             .version(5)
      *             .build());
      * 
+     *         ctx.export("layerInfo", Map.ofEntries(
+     *             Map.entry("arn", example.arn()),
+     *             Map.entry("version", example.version()),
+     *             Map.entry("description", example.description())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Get Latest Compatible Layer Version
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Find latest layer version compatible with Python 3.12
+     *         final var pythonLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("python-dependencies")
+     *             .compatibleRuntime("python3.12")
+     *             .build());
+     * 
+     *         // Find latest layer version compatible with ARM64 architecture
+     *         final var armLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("optimized-libraries")
+     *             .compatibleArchitecture("arm64")
+     *             .build());
+     * 
+     *         // Use both layers in a function
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("multi_layer_function")
+     *             .role(lambdaRole.arn())
+     *             .handler("app.handler")
+     *             .runtime("python3.12")
+     *             .architectures("arm64")
+     *             .layers(            
+     *                 pythonLayer.arn(),
+     *                 armLayer.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Compare Layer Versions
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get latest version
+     *         final var latest = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("shared-layer")
+     *             .build());
+     * 
+     *         // Get specific version for comparison
+     *         final var stable = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("shared-layer")
+     *             .version(3)
+     *             .build());
+     * 
+     *         final var useLatestLayer = latest.version() > 5;
+     * 
+     *         final var selectedLayer = useLatestLayer ? latest.arn() : stable.arn();
+     * 
+     *         ctx.export("selectedLayerVersion", useLatestLayer ? latest.version() : stable.version());
      *     }
      * }
      * }
@@ -1334,9 +4655,59 @@ public final class LambdaFunctions {
         return getLayerVersionPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Provides information about a Lambda Layer Version.
+     * Provides details about an AWS Lambda Layer Version. Use this data source to retrieve information about a specific layer version or find the latest version compatible with your runtime and architecture requirements.
      * 
      * ## Example Usage
+     * 
+     * ### Get Latest Layer Version
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("my-shared-utilities")
+     *             .build());
+     * 
+     *         // Use the layer in a Lambda function
+     *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("example_function")
+     *             .role(lambdaRole.arn())
+     *             .handler("index.handler")
+     *             .runtime("nodejs20.x")
+     *             .layers(example.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Get Specific Layer Version
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -1361,12 +4732,122 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var layerName = config.get("layerName");
-     *         final var existing = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
-     *             .layerName(layerName)
+     *         final var example = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("production-utilities")
+     *             .version(5)
      *             .build());
      * 
+     *         ctx.export("layerInfo", Map.ofEntries(
+     *             Map.entry("arn", example.arn()),
+     *             Map.entry("version", example.version()),
+     *             Map.entry("description", example.description())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Get Latest Compatible Layer Version
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Find latest layer version compatible with Python 3.12
+     *         final var pythonLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("python-dependencies")
+     *             .compatibleRuntime("python3.12")
+     *             .build());
+     * 
+     *         // Find latest layer version compatible with ARM64 architecture
+     *         final var armLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("optimized-libraries")
+     *             .compatibleArchitecture("arm64")
+     *             .build());
+     * 
+     *         // Use both layers in a function
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("multi_layer_function")
+     *             .role(lambdaRole.arn())
+     *             .handler("app.handler")
+     *             .runtime("python3.12")
+     *             .architectures("arm64")
+     *             .layers(            
+     *                 pythonLayer.arn(),
+     *                 armLayer.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Compare Layer Versions
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get latest version
+     *         final var latest = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("shared-layer")
+     *             .build());
+     * 
+     *         // Get specific version for comparison
+     *         final var stable = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("shared-layer")
+     *             .version(3)
+     *             .build());
+     * 
+     *         final var useLatestLayer = latest.version() > 5;
+     * 
+     *         final var selectedLayer = useLatestLayer ? latest.arn() : stable.arn();
+     * 
+     *         ctx.export("selectedLayerVersion", useLatestLayer ? latest.version() : stable.version());
      *     }
      * }
      * }
@@ -1378,9 +4859,59 @@ public final class LambdaFunctions {
         return Deployment.getInstance().invoke("aws:lambda/getLayerVersion:getLayerVersion", TypeShape.of(GetLayerVersionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information about a Lambda Layer Version.
+     * Provides details about an AWS Lambda Layer Version. Use this data source to retrieve information about a specific layer version or find the latest version compatible with your runtime and architecture requirements.
      * 
      * ## Example Usage
+     * 
+     * ### Get Latest Layer Version
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("my-shared-utilities")
+     *             .build());
+     * 
+     *         // Use the layer in a Lambda function
+     *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("example_function")
+     *             .role(lambdaRole.arn())
+     *             .handler("index.handler")
+     *             .runtime("nodejs20.x")
+     *             .layers(example.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Get Specific Layer Version
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -1405,12 +4936,122 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var layerName = config.get("layerName");
-     *         final var existing = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
-     *             .layerName(layerName)
+     *         final var example = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("production-utilities")
+     *             .version(5)
      *             .build());
      * 
+     *         ctx.export("layerInfo", Map.ofEntries(
+     *             Map.entry("arn", example.arn()),
+     *             Map.entry("version", example.version()),
+     *             Map.entry("description", example.description())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Get Latest Compatible Layer Version
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Find latest layer version compatible with Python 3.12
+     *         final var pythonLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("python-dependencies")
+     *             .compatibleRuntime("python3.12")
+     *             .build());
+     * 
+     *         // Find latest layer version compatible with ARM64 architecture
+     *         final var armLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("optimized-libraries")
+     *             .compatibleArchitecture("arm64")
+     *             .build());
+     * 
+     *         // Use both layers in a function
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("multi_layer_function")
+     *             .role(lambdaRole.arn())
+     *             .handler("app.handler")
+     *             .runtime("python3.12")
+     *             .architectures("arm64")
+     *             .layers(            
+     *                 pythonLayer.arn(),
+     *                 armLayer.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Compare Layer Versions
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get latest version
+     *         final var latest = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("shared-layer")
+     *             .build());
+     * 
+     *         // Get specific version for comparison
+     *         final var stable = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("shared-layer")
+     *             .version(3)
+     *             .build());
+     * 
+     *         final var useLatestLayer = latest.version() > 5;
+     * 
+     *         final var selectedLayer = useLatestLayer ? latest.arn() : stable.arn();
+     * 
+     *         ctx.export("selectedLayerVersion", useLatestLayer ? latest.version() : stable.version());
      *     }
      * }
      * }
@@ -1422,9 +5063,59 @@ public final class LambdaFunctions {
         return Deployment.getInstance().invoke("aws:lambda/getLayerVersion:getLayerVersion", TypeShape.of(GetLayerVersionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information about a Lambda Layer Version.
+     * Provides details about an AWS Lambda Layer Version. Use this data source to retrieve information about a specific layer version or find the latest version compatible with your runtime and architecture requirements.
      * 
      * ## Example Usage
+     * 
+     * ### Get Latest Layer Version
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("my-shared-utilities")
+     *             .build());
+     * 
+     *         // Use the layer in a Lambda function
+     *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("example_function")
+     *             .role(lambdaRole.arn())
+     *             .handler("index.handler")
+     *             .runtime("nodejs20.x")
+     *             .layers(example.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Get Specific Layer Version
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -1449,12 +5140,122 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var layerName = config.get("layerName");
-     *         final var existing = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
-     *             .layerName(layerName)
+     *         final var example = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("production-utilities")
+     *             .version(5)
      *             .build());
      * 
+     *         ctx.export("layerInfo", Map.ofEntries(
+     *             Map.entry("arn", example.arn()),
+     *             Map.entry("version", example.version()),
+     *             Map.entry("description", example.description())
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Get Latest Compatible Layer Version
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import com.pulumi.asset.FileArchive;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Find latest layer version compatible with Python 3.12
+     *         final var pythonLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("python-dependencies")
+     *             .compatibleRuntime("python3.12")
+     *             .build());
+     * 
+     *         // Find latest layer version compatible with ARM64 architecture
+     *         final var armLayer = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("optimized-libraries")
+     *             .compatibleArchitecture("arm64")
+     *             .build());
+     * 
+     *         // Use both layers in a function
+     *         var example = new Function("example", FunctionArgs.builder()
+     *             .code(new FileArchive("function.zip"))
+     *             .name("multi_layer_function")
+     *             .role(lambdaRole.arn())
+     *             .handler("app.handler")
+     *             .runtime("python3.12")
+     *             .architectures("arm64")
+     *             .layers(            
+     *                 pythonLayer.arn(),
+     *                 armLayer.arn())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * ### Compare Layer Versions
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get latest version
+     *         final var latest = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("shared-layer")
+     *             .build());
+     * 
+     *         // Get specific version for comparison
+     *         final var stable = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *             .layerName("shared-layer")
+     *             .version(3)
+     *             .build());
+     * 
+     *         final var useLatestLayer = latest.version() > 5;
+     * 
+     *         final var selectedLayer = useLatestLayer ? latest.arn() : stable.arn();
+     * 
+     *         ctx.export("selectedLayerVersion", useLatestLayer ? latest.version() : stable.version());
      *     }
      * }
      * }

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,8 +50,8 @@ func GetDataShares(ctx *pulumi.Context, args *GetDataSharesArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getDataShares.
 type GetDataSharesArgs struct {
-	// An array of all data shares in the current region. See `dataShares` below.
-	DataShares []GetDataSharesDataShare `pulumi:"dataShares"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDataShares.
@@ -59,7 +59,8 @@ type GetDataSharesResult struct {
 	// An array of all data shares in the current region. See `dataShares` below.
 	DataShares []GetDataSharesDataShare `pulumi:"dataShares"`
 	// AWS region.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func GetDataSharesOutput(ctx *pulumi.Context, args GetDataSharesOutputArgs, opts ...pulumi.InvokeOption) GetDataSharesResultOutput {
@@ -73,8 +74,8 @@ func GetDataSharesOutput(ctx *pulumi.Context, args GetDataSharesOutputArgs, opts
 
 // A collection of arguments for invoking getDataShares.
 type GetDataSharesOutputArgs struct {
-	// An array of all data shares in the current region. See `dataShares` below.
-	DataShares GetDataSharesDataShareArrayInput `pulumi:"dataShares"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetDataSharesOutputArgs) ElementType() reflect.Type {
@@ -104,6 +105,10 @@ func (o GetDataSharesResultOutput) DataShares() GetDataSharesDataShareArrayOutpu
 // AWS region.
 func (o GetDataSharesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataSharesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetDataSharesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataSharesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

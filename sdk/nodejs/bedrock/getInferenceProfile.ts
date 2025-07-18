@@ -28,6 +28,7 @@ export function getInferenceProfile(args: GetInferenceProfileArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:bedrock/getInferenceProfile:getInferenceProfile", {
         "inferenceProfileId": args.inferenceProfileId,
+        "region": args.region,
     }, opts);
 }
 
@@ -39,6 +40,10 @@ export interface GetInferenceProfileArgs {
      * Inference Profile identifier.
      */
     inferenceProfileId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -70,6 +75,7 @@ export interface GetInferenceProfileResult {
      * A list of information about each model in the inference profile. See `models`.
      */
     readonly models: outputs.bedrock.GetInferenceProfileModel[];
+    readonly region: string;
     /**
      * The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
      */
@@ -104,6 +110,7 @@ export function getInferenceProfileOutput(args: GetInferenceProfileOutputArgs, o
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:bedrock/getInferenceProfile:getInferenceProfile", {
         "inferenceProfileId": args.inferenceProfileId,
+        "region": args.region,
     }, opts);
 }
 
@@ -115,4 +122,8 @@ export interface GetInferenceProfileOutputArgs {
      * Inference Profile identifier.
      */
     inferenceProfileId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

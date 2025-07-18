@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = securityhub.NewProductSubscription(ctx, "example", &securityhub.ProductSubscriptionArgs{
-//				ProductArn: pulumi.Sprintf("arn:aws:securityhub:%v:733251395267:product/alertlogic/althreatmanagement", current.Name),
+//				ProductArn: pulumi.Sprintf("arn:aws:securityhub:%v:733251395267:product/alertlogic/althreatmanagement", current.Region),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				example,
 //			}))
@@ -105,6 +105,8 @@ type ProductSubscription struct {
 	// * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
 	// * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
 	ProductArn pulumi.StringOutput `pulumi:"productArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewProductSubscription registers a new resource with the given unique name, arguments, and options.
@@ -182,6 +184,8 @@ type productSubscriptionState struct {
 	// * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
 	// * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
 	ProductArn *string `pulumi:"productArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ProductSubscriptionState struct {
@@ -227,6 +231,8 @@ type ProductSubscriptionState struct {
 	// * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
 	// * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
 	ProductArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ProductSubscriptionState) ElementType() reflect.Type {
@@ -274,6 +280,8 @@ type productSubscriptionArgs struct {
 	// * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
 	// * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
 	ProductArn string `pulumi:"productArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ProductSubscription resource.
@@ -318,6 +326,8 @@ type ProductSubscriptionArgs struct {
 	// * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
 	// * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
 	ProductArn pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ProductSubscriptionArgs) ElementType() reflect.Type {
@@ -453,6 +463,11 @@ func (o ProductSubscriptionOutput) Arn() pulumi.StringOutput {
 // * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
 func (o ProductSubscriptionOutput) ProductArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProductSubscription) pulumi.StringOutput { return v.ProductArn }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ProductSubscriptionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProductSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ProductSubscriptionArrayOutput struct{ *pulumi.OutputState }

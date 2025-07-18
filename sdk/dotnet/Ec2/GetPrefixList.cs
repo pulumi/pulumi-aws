@@ -292,6 +292,12 @@ namespace Pulumi.Aws.Ec2
         [Input("prefixListId")]
         public string? PrefixListId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetPrefixListArgs()
         {
         }
@@ -328,6 +334,12 @@ namespace Pulumi.Aws.Ec2
         [Input("prefixListId")]
         public Input<string>? PrefixListId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetPrefixListInvokeArgs()
         {
         }
@@ -352,6 +364,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Name;
         public readonly string? PrefixListId;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetPrefixListResult(
@@ -363,13 +376,16 @@ namespace Pulumi.Aws.Ec2
 
             string name,
 
-            string? prefixListId)
+            string? prefixListId,
+
+            string region)
         {
             CidrBlocks = cidrBlocks;
             Filters = filters;
             Id = id;
             Name = name;
             PrefixListId = prefixListId;
+            Region = region;
         }
     }
 }

@@ -12,6 +12,28 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.paymentcryptography.Key("test", {
+ *     exportable: true,
+ *     keyAttributes: [{
+ *         keyAlgorithm: "TDES_3KEY",
+ *         keyClass: "SYMMETRIC_KEY",
+ *         keyUsage: "TR31_P0_PIN_ENCRYPTION_KEY",
+ *         keyModesOfUses: [{
+ *             decrypt: true,
+ *             encrypt: true,
+ *             wrap: true,
+ *             unwrap: true,
+ *         }],
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Payment Cryptography Control Plane Key using the `arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf`. For example:
@@ -66,7 +88,7 @@ export class Key extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    public readonly keyAttributes!: pulumi.Output<outputs.paymentcryptography.KeyKeyAttributes | undefined>;
+    public readonly keyAttributes!: pulumi.Output<outputs.paymentcryptography.KeyKeyAttribute[] | undefined>;
     /**
      * Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
      */
@@ -84,13 +106,15 @@ export class Key extends pulumi.CustomResource {
      */
     public /*out*/ readonly keyState!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.paymentcryptography.KeyTimeouts | undefined>;
@@ -117,6 +141,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["keyCheckValueAlgorithm"] = state ? state.keyCheckValueAlgorithm : undefined;
             resourceInputs["keyOrigin"] = state ? state.keyOrigin : undefined;
             resourceInputs["keyState"] = state ? state.keyState : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -130,6 +155,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["exportable"] = args ? args.exportable : undefined;
             resourceInputs["keyAttributes"] = args ? args.keyAttributes : undefined;
             resourceInputs["keyCheckValueAlgorithm"] = args ? args.keyCheckValueAlgorithm : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -165,7 +191,7 @@ export interface KeyState {
      *
      * The following arguments are optional:
      */
-    keyAttributes?: pulumi.Input<inputs.paymentcryptography.KeyKeyAttributes>;
+    keyAttributes?: pulumi.Input<pulumi.Input<inputs.paymentcryptography.KeyKeyAttribute>[]>;
     /**
      * Key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed.
      */
@@ -183,13 +209,15 @@ export interface KeyState {
      */
     keyState?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.paymentcryptography.KeyTimeouts>;
@@ -213,11 +241,15 @@ export interface KeyArgs {
      *
      * The following arguments are optional:
      */
-    keyAttributes?: pulumi.Input<inputs.paymentcryptography.KeyKeyAttributes>;
+    keyAttributes?: pulumi.Input<pulumi.Input<inputs.paymentcryptography.KeyKeyAttribute>[]>;
     /**
      * Algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV).
      */
     keyCheckValueAlgorithm?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

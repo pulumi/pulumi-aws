@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appintegrations"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appintegrations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func GetEventIntegration(ctx *pulumi.Context, args *GetEventIntegrationArgs, opt
 type GetEventIntegrationArgs struct {
 	// The AppIntegrations Event Integration name.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Metadata that you can assign to help organize the report plans you create.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -67,8 +69,9 @@ type GetEventIntegrationResult struct {
 	// The EventBridge bus.
 	EventbridgeBus string `pulumi:"eventbridgeBus"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Metadata that you can assign to help organize the report plans you create.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -86,6 +89,8 @@ func GetEventIntegrationOutput(ctx *pulumi.Context, args GetEventIntegrationOutp
 type GetEventIntegrationOutputArgs struct {
 	// The AppIntegrations Event Integration name.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Metadata that you can assign to help organize the report plans you create.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -136,6 +141,10 @@ func (o GetEventIntegrationResultOutput) Id() pulumi.StringOutput {
 
 func (o GetEventIntegrationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEventIntegrationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetEventIntegrationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventIntegrationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Metadata that you can assign to help organize the report plans you create.

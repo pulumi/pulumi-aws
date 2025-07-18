@@ -27,7 +27,7 @@ class GetQuicksightGroupResult:
     """
     A collection of values returned by getQuicksightGroup.
     """
-    def __init__(__self__, arn=None, aws_account_id=None, description=None, group_name=None, id=None, namespace=None, principal_id=None):
+    def __init__(__self__, arn=None, aws_account_id=None, description=None, group_name=None, id=None, namespace=None, principal_id=None, region=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +49,9 @@ class GetQuicksightGroupResult:
         if principal_id and not isinstance(principal_id, str):
             raise TypeError("Expected argument 'principal_id' to be a str")
         pulumi.set(__self__, "principal_id", principal_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -97,6 +100,11 @@ class GetQuicksightGroupResult:
         """
         return pulumi.get(self, "principal_id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetQuicksightGroupResult(GetQuicksightGroupResult):
     # pylint: disable=using-constant-test
@@ -110,12 +118,14 @@ class AwaitableGetQuicksightGroupResult(GetQuicksightGroupResult):
             group_name=self.group_name,
             id=self.id,
             namespace=self.namespace,
-            principal_id=self.principal_id)
+            principal_id=self.principal_id,
+            region=self.region)
 
 
 def get_quicksight_group(aws_account_id: Optional[builtins.str] = None,
                          group_name: Optional[builtins.str] = None,
                          namespace: Optional[builtins.str] = None,
+                         region: Optional[builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQuicksightGroupResult:
     """
     This data source can be used to fetch information about a specific
@@ -139,11 +149,13 @@ def get_quicksight_group(aws_account_id: Optional[builtins.str] = None,
            
            The following arguments are optional:
     :param builtins.str namespace: QuickSight namespace. Defaults to `default`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
     __args__['groupName'] = group_name
     __args__['namespace'] = namespace
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:quicksight/getQuicksightGroup:getQuicksightGroup', __args__, opts=opts, typ=GetQuicksightGroupResult).value
 
@@ -154,10 +166,12 @@ def get_quicksight_group(aws_account_id: Optional[builtins.str] = None,
         group_name=pulumi.get(__ret__, 'group_name'),
         id=pulumi.get(__ret__, 'id'),
         namespace=pulumi.get(__ret__, 'namespace'),
-        principal_id=pulumi.get(__ret__, 'principal_id'))
+        principal_id=pulumi.get(__ret__, 'principal_id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_quicksight_group_output(aws_account_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 group_name: Optional[pulumi.Input[builtins.str]] = None,
                                 namespace: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQuicksightGroupResult]:
     """
     This data source can be used to fetch information about a specific
@@ -181,11 +195,13 @@ def get_quicksight_group_output(aws_account_id: Optional[pulumi.Input[Optional[b
            
            The following arguments are optional:
     :param builtins.str namespace: QuickSight namespace. Defaults to `default`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
     __args__['groupName'] = group_name
     __args__['namespace'] = namespace
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:quicksight/getQuicksightGroup:getQuicksightGroup', __args__, opts=opts, typ=GetQuicksightGroupResult)
     return __ret__.apply(lambda __response__: GetQuicksightGroupResult(
@@ -195,4 +211,5 @@ def get_quicksight_group_output(aws_account_id: Optional[pulumi.Input[Optional[b
         group_name=pulumi.get(__response__, 'group_name'),
         id=pulumi.get(__response__, 'id'),
         namespace=pulumi.get(__response__, 'namespace'),
-        principal_id=pulumi.get(__response__, 'principal_id')))
+        principal_id=pulumi.get(__response__, 'principal_id'),
+        region=pulumi.get(__response__, 'region')))

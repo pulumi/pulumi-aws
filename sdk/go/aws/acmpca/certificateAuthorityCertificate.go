@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acmpca"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/acmpca"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,8 +88,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acmpca"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/acmpca"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -160,6 +160,8 @@ type CertificateAuthorityCertificate struct {
 	CertificateAuthorityArn pulumi.StringOutput `pulumi:"certificateAuthorityArn"`
 	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
 	CertificateChain pulumi.StringPtrOutput `pulumi:"certificateChain"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewCertificateAuthorityCertificate registers a new resource with the given unique name, arguments, and options.
@@ -204,6 +206,8 @@ type certificateAuthorityCertificateState struct {
 	CertificateAuthorityArn *string `pulumi:"certificateAuthorityArn"`
 	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
 	CertificateChain *string `pulumi:"certificateChain"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type CertificateAuthorityCertificateState struct {
@@ -213,6 +217,8 @@ type CertificateAuthorityCertificateState struct {
 	CertificateAuthorityArn pulumi.StringPtrInput
 	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
 	CertificateChain pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (CertificateAuthorityCertificateState) ElementType() reflect.Type {
@@ -226,6 +232,8 @@ type certificateAuthorityCertificateArgs struct {
 	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
 	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
 	CertificateChain *string `pulumi:"certificateChain"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a CertificateAuthorityCertificate resource.
@@ -236,6 +244,8 @@ type CertificateAuthorityCertificateArgs struct {
 	CertificateAuthorityArn pulumi.StringInput
 	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
 	CertificateChain pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (CertificateAuthorityCertificateArgs) ElementType() reflect.Type {
@@ -338,6 +348,11 @@ func (o CertificateAuthorityCertificateOutput) CertificateAuthorityArn() pulumi.
 // PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA. Required for subordinate Certificate Authorities. Not allowed for root Certificate Authorities.
 func (o CertificateAuthorityCertificateOutput) CertificateChain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityCertificate) pulumi.StringPtrOutput { return v.CertificateChain }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o CertificateAuthorityCertificateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CertificateAuthorityCertificate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type CertificateAuthorityCertificateArrayOutput struct{ *pulumi.OutputState }

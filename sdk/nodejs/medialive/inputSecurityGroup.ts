@@ -73,12 +73,13 @@ export class InputSecurityGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly inputs!: pulumi.Output<string[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Whitelist rules. See Whitelist Rules for more details.
@@ -102,6 +103,7 @@ export class InputSecurityGroup extends pulumi.CustomResource {
             const state = argsOrState as InputSecurityGroupState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["inputs"] = state ? state.inputs : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["whitelistRules"] = state ? state.whitelistRules : undefined;
@@ -110,6 +112,7 @@ export class InputSecurityGroup extends pulumi.CustomResource {
             if ((!args || args.whitelistRules === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'whitelistRules'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["whitelistRules"] = args ? args.whitelistRules : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -134,12 +137,13 @@ export interface InputSecurityGroupState {
      */
     inputs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whitelist rules. See Whitelist Rules for more details.
@@ -153,6 +157,10 @@ export interface InputSecurityGroupState {
  * The set of arguments for constructing a InputSecurityGroup resource.
  */
 export interface InputSecurityGroupArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the InputSecurityGroup. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

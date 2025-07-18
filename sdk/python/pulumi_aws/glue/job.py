@@ -30,6 +30,7 @@ class JobArgs:
                  execution_class: Optional[pulumi.Input[builtins.str]] = None,
                  execution_property: Optional[pulumi.Input['JobExecutionPropertyArgs']] = None,
                  glue_version: Optional[pulumi.Input[builtins.str]] = None,
+                 job_mode: Optional[pulumi.Input[builtins.str]] = None,
                  job_run_queuing_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  max_capacity: Optional[pulumi.Input[builtins.float]] = None,
@@ -38,6 +39,7 @@ class JobArgs:
                  non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  notification_property: Optional[pulumi.Input['JobNotificationPropertyArgs']] = None,
                  number_of_workers: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_configuration: Optional[pulumi.Input[builtins.str]] = None,
                  source_control_details: Optional[pulumi.Input['JobSourceControlDetailsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -53,6 +55,7 @@ class JobArgs:
         :param pulumi.Input[builtins.str] execution_class: Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
         :param pulumi.Input['JobExecutionPropertyArgs'] execution_property: Execution property of the job. Defined below.
         :param pulumi.Input[builtins.str] glue_version: The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        :param pulumi.Input[builtins.str] job_mode: Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
         :param pulumi.Input[builtins.bool] job_run_queuing_enabled: Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
         :param pulumi.Input[builtins.str] maintenance_window: Specifies the day of the week and hour for the maintenance window for streaming jobs.
         :param pulumi.Input[builtins.float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
@@ -61,6 +64,7 @@ class JobArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] non_overridable_arguments: Non-overridable arguments for this job, specified as name-value pairs.
         :param pulumi.Input['JobNotificationPropertyArgs'] notification_property: Notification property of the job. Defined below.
         :param pulumi.Input[builtins.int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_configuration: The name of the Security Configuration to be associated with the job.
         :param pulumi.Input['JobSourceControlDetailsArgs'] source_control_details: The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -88,6 +92,8 @@ class JobArgs:
             pulumi.set(__self__, "execution_property", execution_property)
         if glue_version is not None:
             pulumi.set(__self__, "glue_version", glue_version)
+        if job_mode is not None:
+            pulumi.set(__self__, "job_mode", job_mode)
         if job_run_queuing_enabled is not None:
             pulumi.set(__self__, "job_run_queuing_enabled", job_run_queuing_enabled)
         if maintenance_window is not None:
@@ -104,6 +110,8 @@ class JobArgs:
             pulumi.set(__self__, "notification_property", notification_property)
         if number_of_workers is not None:
             pulumi.set(__self__, "number_of_workers", number_of_workers)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_configuration is not None:
             pulumi.set(__self__, "security_configuration", security_configuration)
         if source_control_details is not None:
@@ -212,6 +220,18 @@ class JobArgs:
         pulumi.set(self, "glue_version", value)
 
     @property
+    @pulumi.getter(name="jobMode")
+    def job_mode(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+        """
+        return pulumi.get(self, "job_mode")
+
+    @job_mode.setter
+    def job_mode(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "job_mode", value)
+
+    @property
     @pulumi.getter(name="jobRunQueuingEnabled")
     def job_run_queuing_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -308,6 +328,18 @@ class JobArgs:
         pulumi.set(self, "number_of_workers", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityConfiguration")
     def security_configuration(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -386,6 +418,7 @@ class _JobState:
                  execution_class: Optional[pulumi.Input[builtins.str]] = None,
                  execution_property: Optional[pulumi.Input['JobExecutionPropertyArgs']] = None,
                  glue_version: Optional[pulumi.Input[builtins.str]] = None,
+                 job_mode: Optional[pulumi.Input[builtins.str]] = None,
                  job_run_queuing_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  max_capacity: Optional[pulumi.Input[builtins.float]] = None,
@@ -394,6 +427,7 @@ class _JobState:
                  non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  notification_property: Optional[pulumi.Input['JobNotificationPropertyArgs']] = None,
                  number_of_workers: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  security_configuration: Optional[pulumi.Input[builtins.str]] = None,
                  source_control_details: Optional[pulumi.Input['JobSourceControlDetailsArgs']] = None,
@@ -411,6 +445,7 @@ class _JobState:
         :param pulumi.Input[builtins.str] execution_class: Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
         :param pulumi.Input['JobExecutionPropertyArgs'] execution_property: Execution property of the job. Defined below.
         :param pulumi.Input[builtins.str] glue_version: The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        :param pulumi.Input[builtins.str] job_mode: Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
         :param pulumi.Input[builtins.bool] job_run_queuing_enabled: Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
         :param pulumi.Input[builtins.str] maintenance_window: Specifies the day of the week and hour for the maintenance window for streaming jobs.
         :param pulumi.Input[builtins.float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
@@ -419,6 +454,7 @@ class _JobState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] non_overridable_arguments: Non-overridable arguments for this job, specified as name-value pairs.
         :param pulumi.Input['JobNotificationPropertyArgs'] notification_property: Notification property of the job. Defined below.
         :param pulumi.Input[builtins.int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[builtins.str] security_configuration: The name of the Security Configuration to be associated with the job.
         :param pulumi.Input['JobSourceControlDetailsArgs'] source_control_details: The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
@@ -450,6 +486,8 @@ class _JobState:
             pulumi.set(__self__, "execution_property", execution_property)
         if glue_version is not None:
             pulumi.set(__self__, "glue_version", glue_version)
+        if job_mode is not None:
+            pulumi.set(__self__, "job_mode", job_mode)
         if job_run_queuing_enabled is not None:
             pulumi.set(__self__, "job_run_queuing_enabled", job_run_queuing_enabled)
         if maintenance_window is not None:
@@ -466,6 +504,8 @@ class _JobState:
             pulumi.set(__self__, "notification_property", notification_property)
         if number_of_workers is not None:
             pulumi.set(__self__, "number_of_workers", number_of_workers)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if security_configuration is not None:
@@ -474,9 +514,6 @@ class _JobState:
             pulumi.set(__self__, "source_control_details", source_control_details)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeout is not None:
@@ -581,6 +618,18 @@ class _JobState:
         pulumi.set(self, "glue_version", value)
 
     @property
+    @pulumi.getter(name="jobMode")
+    def job_mode(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+        """
+        return pulumi.get(self, "job_mode")
+
+    @job_mode.setter
+    def job_mode(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "job_mode", value)
+
+    @property
     @pulumi.getter(name="jobRunQueuingEnabled")
     def job_run_queuing_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -677,6 +726,18 @@ class _JobState:
         pulumi.set(self, "number_of_workers", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -726,7 +787,6 @@ class _JobState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -782,6 +842,7 @@ class Job(pulumi.CustomResource):
                  execution_class: Optional[pulumi.Input[builtins.str]] = None,
                  execution_property: Optional[pulumi.Input[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']]] = None,
                  glue_version: Optional[pulumi.Input[builtins.str]] = None,
+                 job_mode: Optional[pulumi.Input[builtins.str]] = None,
                  job_run_queuing_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  max_capacity: Optional[pulumi.Input[builtins.float]] = None,
@@ -790,6 +851,7 @@ class Job(pulumi.CustomResource):
                  non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  notification_property: Optional[pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
                  number_of_workers: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  security_configuration: Optional[pulumi.Input[builtins.str]] = None,
                  source_control_details: Optional[pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']]] = None,
@@ -999,6 +1061,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] execution_class: Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
         :param pulumi.Input[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']] execution_property: Execution property of the job. Defined below.
         :param pulumi.Input[builtins.str] glue_version: The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        :param pulumi.Input[builtins.str] job_mode: Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
         :param pulumi.Input[builtins.bool] job_run_queuing_enabled: Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
         :param pulumi.Input[builtins.str] maintenance_window: Specifies the day of the week and hour for the maintenance window for streaming jobs.
         :param pulumi.Input[builtins.float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
@@ -1007,6 +1070,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] non_overridable_arguments: Non-overridable arguments for this job, specified as name-value pairs.
         :param pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']] notification_property: Notification property of the job. Defined below.
         :param pulumi.Input[builtins.int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[builtins.str] security_configuration: The name of the Security Configuration to be associated with the job.
         :param pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']] source_control_details: The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
@@ -1242,6 +1306,7 @@ class Job(pulumi.CustomResource):
                  execution_class: Optional[pulumi.Input[builtins.str]] = None,
                  execution_property: Optional[pulumi.Input[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']]] = None,
                  glue_version: Optional[pulumi.Input[builtins.str]] = None,
+                 job_mode: Optional[pulumi.Input[builtins.str]] = None,
                  job_run_queuing_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  max_capacity: Optional[pulumi.Input[builtins.float]] = None,
@@ -1250,6 +1315,7 @@ class Job(pulumi.CustomResource):
                  non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  notification_property: Optional[pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
                  number_of_workers: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  security_configuration: Optional[pulumi.Input[builtins.str]] = None,
                  source_control_details: Optional[pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']]] = None,
@@ -1274,6 +1340,7 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["execution_class"] = execution_class
             __props__.__dict__["execution_property"] = execution_property
             __props__.__dict__["glue_version"] = glue_version
+            __props__.__dict__["job_mode"] = job_mode
             __props__.__dict__["job_run_queuing_enabled"] = job_run_queuing_enabled
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["max_capacity"] = max_capacity
@@ -1282,6 +1349,7 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["non_overridable_arguments"] = non_overridable_arguments
             __props__.__dict__["notification_property"] = notification_property
             __props__.__dict__["number_of_workers"] = number_of_workers
+            __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -1310,6 +1378,7 @@ class Job(pulumi.CustomResource):
             execution_class: Optional[pulumi.Input[builtins.str]] = None,
             execution_property: Optional[pulumi.Input[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']]] = None,
             glue_version: Optional[pulumi.Input[builtins.str]] = None,
+            job_mode: Optional[pulumi.Input[builtins.str]] = None,
             job_run_queuing_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
             max_capacity: Optional[pulumi.Input[builtins.float]] = None,
@@ -1318,6 +1387,7 @@ class Job(pulumi.CustomResource):
             non_overridable_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             notification_property: Optional[pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']]] = None,
             number_of_workers: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             security_configuration: Optional[pulumi.Input[builtins.str]] = None,
             source_control_details: Optional[pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']]] = None,
@@ -1340,6 +1410,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] execution_class: Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources. Valid value: `FLEX`, `STANDARD`.
         :param pulumi.Input[Union['JobExecutionPropertyArgs', 'JobExecutionPropertyArgsDict']] execution_property: Execution property of the job. Defined below.
         :param pulumi.Input[builtins.str] glue_version: The version of glue to use, for example "1.0". Ray jobs should set this to 4.0 or greater. For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+        :param pulumi.Input[builtins.str] job_mode: Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
         :param pulumi.Input[builtins.bool] job_run_queuing_enabled: Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
         :param pulumi.Input[builtins.str] maintenance_window: Specifies the day of the week and hour for the maintenance window for streaming jobs.
         :param pulumi.Input[builtins.float] max_capacity: The maximum number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. `Required` when `pythonshell` is set, accept either `0.0625` or `1.0`. Use `number_of_workers` and `worker_type` arguments instead with `glue_version` `2.0` and above.
@@ -1348,6 +1419,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] non_overridable_arguments: Non-overridable arguments for this job, specified as name-value pairs.
         :param pulumi.Input[Union['JobNotificationPropertyArgs', 'JobNotificationPropertyArgsDict']] notification_property: Notification property of the job. Defined below.
         :param pulumi.Input[builtins.int] number_of_workers: The number of workers of a defined workerType that are allocated when a job runs.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[builtins.str] security_configuration: The name of the Security Configuration to be associated with the job.
         :param pulumi.Input[Union['JobSourceControlDetailsArgs', 'JobSourceControlDetailsArgsDict']] source_control_details: The details for a source control configuration for a job, allowing synchronization of job artifacts to or from a remote repository. Defined below.
@@ -1375,6 +1447,7 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["execution_class"] = execution_class
         __props__.__dict__["execution_property"] = execution_property
         __props__.__dict__["glue_version"] = glue_version
+        __props__.__dict__["job_mode"] = job_mode
         __props__.__dict__["job_run_queuing_enabled"] = job_run_queuing_enabled
         __props__.__dict__["maintenance_window"] = maintenance_window
         __props__.__dict__["max_capacity"] = max_capacity
@@ -1383,6 +1456,7 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["non_overridable_arguments"] = non_overridable_arguments
         __props__.__dict__["notification_property"] = notification_property
         __props__.__dict__["number_of_workers"] = number_of_workers
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["security_configuration"] = security_configuration
         __props__.__dict__["source_control_details"] = source_control_details
@@ -1457,6 +1531,14 @@ class Job(pulumi.CustomResource):
         return pulumi.get(self, "glue_version")
 
     @property
+    @pulumi.getter(name="jobMode")
+    def job_mode(self) -> pulumi.Output[builtins.str]:
+        """
+        Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+        """
+        return pulumi.get(self, "job_mode")
+
+    @property
     @pulumi.getter(name="jobRunQueuingEnabled")
     def job_run_queuing_enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
@@ -1521,6 +1603,14 @@ class Job(pulumi.CustomResource):
         return pulumi.get(self, "number_of_workers")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[builtins.str]:
         """
@@ -1554,7 +1644,6 @@ class Job(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

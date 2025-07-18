@@ -40,7 +40,7 @@ export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as a
 export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
 
-export { GetRegistrationCodeResult } from "./getRegistrationCode";
+export { GetRegistrationCodeArgs, GetRegistrationCodeResult, GetRegistrationCodeOutputArgs } from "./getRegistrationCode";
 export const getRegistrationCode: typeof import("./getRegistrationCode").getRegistrationCode = null as any;
 export const getRegistrationCodeOutput: typeof import("./getRegistrationCode").getRegistrationCodeOutput = null as any;
 utilities.lazyLoad(exports, ["getRegistrationCode","getRegistrationCodeOutput"], () => require("./getRegistrationCode"));

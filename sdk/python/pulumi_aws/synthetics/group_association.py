@@ -21,14 +21,18 @@ __all__ = ['GroupAssociationArgs', 'GroupAssociation']
 class GroupAssociationArgs:
     def __init__(__self__, *,
                  canary_arn: pulumi.Input[builtins.str],
-                 group_name: pulumi.Input[builtins.str]):
+                 group_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a GroupAssociation resource.
         :param pulumi.Input[builtins.str] canary_arn: ARN of the canary.
         :param pulumi.Input[builtins.str] group_name: Name of the group that the canary will be associated with.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "canary_arn", canary_arn)
         pulumi.set(__self__, "group_name", group_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="canaryArn")
@@ -54,6 +58,18 @@ class GroupAssociationArgs:
     def group_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "group_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _GroupAssociationState:
@@ -61,12 +77,14 @@ class _GroupAssociationState:
                  canary_arn: Optional[pulumi.Input[builtins.str]] = None,
                  group_arn: Optional[pulumi.Input[builtins.str]] = None,
                  group_id: Optional[pulumi.Input[builtins.str]] = None,
-                 group_name: Optional[pulumi.Input[builtins.str]] = None):
+                 group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupAssociation resources.
         :param pulumi.Input[builtins.str] canary_arn: ARN of the canary.
         :param pulumi.Input[builtins.str] group_id: ID of the Group.
         :param pulumi.Input[builtins.str] group_name: Name of the group that the canary will be associated with.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if canary_arn is not None:
             pulumi.set(__self__, "canary_arn", canary_arn)
@@ -76,6 +94,8 @@ class _GroupAssociationState:
             pulumi.set(__self__, "group_id", group_id)
         if group_name is not None:
             pulumi.set(__self__, "group_name", group_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="canaryArn")
@@ -122,6 +142,18 @@ class _GroupAssociationState:
     def group_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "group_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:synthetics/groupAssociation:GroupAssociation")
 class GroupAssociation(pulumi.CustomResource):
@@ -131,6 +163,7 @@ class GroupAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  canary_arn: Optional[pulumi.Input[builtins.str]] = None,
                  group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a Synthetics Group Association resource.
@@ -160,6 +193,7 @@ class GroupAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] canary_arn: ARN of the canary.
         :param pulumi.Input[builtins.str] group_name: Name of the group that the canary will be associated with.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -208,6 +242,7 @@ class GroupAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  canary_arn: Optional[pulumi.Input[builtins.str]] = None,
                  group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -223,6 +258,7 @@ class GroupAssociation(pulumi.CustomResource):
             if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")
             __props__.__dict__["group_name"] = group_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["group_arn"] = None
             __props__.__dict__["group_id"] = None
         super(GroupAssociation, __self__).__init__(
@@ -238,7 +274,8 @@ class GroupAssociation(pulumi.CustomResource):
             canary_arn: Optional[pulumi.Input[builtins.str]] = None,
             group_arn: Optional[pulumi.Input[builtins.str]] = None,
             group_id: Optional[pulumi.Input[builtins.str]] = None,
-            group_name: Optional[pulumi.Input[builtins.str]] = None) -> 'GroupAssociation':
+            group_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'GroupAssociation':
         """
         Get an existing GroupAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -249,6 +286,7 @@ class GroupAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] canary_arn: ARN of the canary.
         :param pulumi.Input[builtins.str] group_id: ID of the Group.
         :param pulumi.Input[builtins.str] group_name: Name of the group that the canary will be associated with.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -258,6 +296,7 @@ class GroupAssociation(pulumi.CustomResource):
         __props__.__dict__["group_arn"] = group_arn
         __props__.__dict__["group_id"] = group_id
         __props__.__dict__["group_name"] = group_name
+        __props__.__dict__["region"] = region
         return GroupAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -288,4 +327,12 @@ class GroupAssociation(pulumi.CustomResource):
         Name of the group that the canary will be associated with.
         """
         return pulumi.get(self, "group_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

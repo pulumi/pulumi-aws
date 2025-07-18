@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func LookupImage(ctx *pulumi.Context, args *LookupImageArgs, opts ...pulumi.Invo
 type LookupImageArgs struct {
 	// ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
 	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the image.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -89,6 +91,8 @@ type LookupImageResult struct {
 	OutputResources []GetImageOutputResource `pulumi:"outputResources"`
 	// Platform of the image.
 	Platform string `pulumi:"platform"`
+	// Region of the container image.
+	Region string `pulumi:"region"`
 	// Key-value map of resource tags for the image.
 	Tags map[string]string `pulumi:"tags"`
 	// Version of the image.
@@ -108,6 +112,8 @@ func LookupImageOutput(ctx *pulumi.Context, args LookupImageOutputArgs, opts ...
 type LookupImageOutputArgs struct {
 	// ARN of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
 	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the image.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -203,6 +209,11 @@ func (o LookupImageResultOutput) OutputResources() GetImageOutputResourceArrayOu
 // Platform of the image.
 func (o LookupImageResultOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupImageResult) string { return v.Platform }).(pulumi.StringOutput)
+}
+
+// Region of the container image.
+func (o LookupImageResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupImageResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags for the image.

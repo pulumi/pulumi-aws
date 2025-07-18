@@ -27,13 +27,16 @@ class GetSerialConsoleAccessResult:
     """
     A collection of values returned by getSerialConsoleAccess.
     """
-    def __init__(__self__, enabled=None, id=None):
+    def __init__(__self__, enabled=None, id=None, region=None):
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -51,6 +54,11 @@ class GetSerialConsoleAccessResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetSerialConsoleAccessResult(GetSerialConsoleAccessResult):
     # pylint: disable=using-constant-test
@@ -59,10 +67,12 @@ class AwaitableGetSerialConsoleAccessResult(GetSerialConsoleAccessResult):
             yield self
         return GetSerialConsoleAccessResult(
             enabled=self.enabled,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
-def get_serial_console_access(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSerialConsoleAccessResult:
+def get_serial_console_access(region: Optional[builtins.str] = None,
+                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSerialConsoleAccessResult:
     """
     Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
 
@@ -74,15 +84,21 @@ def get_serial_console_access(opts: Optional[pulumi.InvokeOptions] = None) -> Aw
 
     current = aws.ec2.get_serial_console_access()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess', __args__, opts=opts, typ=GetSerialConsoleAccessResult).value
 
     return AwaitableGetSerialConsoleAccessResult(
         enabled=pulumi.get(__ret__, 'enabled'),
-        id=pulumi.get(__ret__, 'id'))
-def get_serial_console_access_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSerialConsoleAccessResult]:
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
+def get_serial_console_access_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSerialConsoleAccessResult]:
     """
     Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
 
@@ -94,10 +110,15 @@ def get_serial_console_access_output(opts: Optional[Union[pulumi.InvokeOptions, 
 
     current = aws.ec2.get_serial_console_access()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getSerialConsoleAccess:getSerialConsoleAccess', __args__, opts=opts, typ=GetSerialConsoleAccessResult)
     return __ret__.apply(lambda __response__: GetSerialConsoleAccessResult(
         enabled=pulumi.get(__response__, 'enabled'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

@@ -85,13 +85,11 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
      * The ID of the AWS account that owns the DHCP options set.
      */
     public readonly ownerId!: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -115,11 +113,13 @@ export class DefaultVpcDhcpOptions extends pulumi.CustomResource {
             resourceInputs["netbiosNodeType"] = state ? state.netbiosNodeType : undefined;
             resourceInputs["ntpServers"] = state ? state.ntpServers : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DefaultVpcDhcpOptionsArgs | undefined;
             resourceInputs["ownerId"] = args ? args.ownerId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
@@ -159,13 +159,11 @@ export interface DefaultVpcDhcpOptionsState {
      * The ID of the AWS account that owns the DHCP options set.
      */
     ownerId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -177,6 +175,7 @@ export interface DefaultVpcDhcpOptionsArgs {
      * The ID of the AWS account that owns the DHCP options set.
      */
     ownerId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource.
      */

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,7 +77,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -133,7 +133,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -219,6 +219,8 @@ type ServerlessCache struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
 	ReaderEndpoints ServerlessCacheReaderEndpointArrayOutput `pulumi:"readerEndpoints"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
@@ -230,8 +232,7 @@ type ServerlessCache struct {
 	// A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags     pulumi.StringMapOutput           `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput           `pulumi:"tagsAll"`
 	Timeouts ServerlessCacheTimeoutsPtrOutput `pulumi:"timeouts"`
 	// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
@@ -298,6 +299,8 @@ type serverlessCacheState struct {
 	Name *string `pulumi:"name"`
 	// Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
 	ReaderEndpoints []ServerlessCacheReaderEndpoint `pulumi:"readerEndpoints"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
@@ -309,8 +312,7 @@ type serverlessCacheState struct {
 	// A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags     map[string]string        `pulumi:"tags"`
 	TagsAll  map[string]string        `pulumi:"tagsAll"`
 	Timeouts *ServerlessCacheTimeouts `pulumi:"timeouts"`
 	// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
@@ -345,6 +347,8 @@ type ServerlessCacheState struct {
 	Name pulumi.StringPtrInput
 	// Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
 	ReaderEndpoints ServerlessCacheReaderEndpointArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
@@ -356,8 +360,7 @@ type ServerlessCacheState struct {
 	// A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
 	SubnetIds pulumi.StringArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts ServerlessCacheTimeoutsPtrInput
 	// The identifier of the UserGroup to be associated with the serverless cache. Available for Redis only. Default is NULL.
@@ -386,6 +389,8 @@ type serverlessCacheArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
@@ -420,6 +425,8 @@ type ServerlessCacheArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
@@ -585,6 +592,11 @@ func (o ServerlessCacheOutput) ReaderEndpoints() ServerlessCacheReaderEndpointAr
 	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheReaderEndpointArrayOutput { return v.ReaderEndpoints }).(ServerlessCacheReaderEndpointArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ServerlessCacheOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerlessCache) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 func (o ServerlessCacheOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -615,7 +627,6 @@ func (o ServerlessCacheOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ServerlessCacheOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

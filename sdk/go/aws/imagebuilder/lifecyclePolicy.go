@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,9 +24,9 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -127,6 +127,8 @@ type LifecyclePolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block with policy details. Detailed below.
 	PolicyDetails LifecyclePolicyPolicyDetailArrayOutput `pulumi:"policyDetails"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 	//
 	// The following arguments are optional:
@@ -138,8 +140,6 @@ type LifecyclePolicy struct {
 	// Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -189,6 +189,8 @@ type lifecyclePolicyState struct {
 	Name *string `pulumi:"name"`
 	// Configuration block with policy details. Detailed below.
 	PolicyDetails []LifecyclePolicyPolicyDetail `pulumi:"policyDetails"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 	//
 	// The following arguments are optional:
@@ -200,8 +202,6 @@ type lifecyclePolicyState struct {
 	// Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -216,6 +216,8 @@ type LifecyclePolicyState struct {
 	Name pulumi.StringPtrInput
 	// Configuration block with policy details. Detailed below.
 	PolicyDetails LifecyclePolicyPolicyDetailArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 	//
 	// The following arguments are optional:
@@ -227,8 +229,6 @@ type LifecyclePolicyState struct {
 	// Key-value map of resource tags for the Image Builder Lifecycle Policy. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -245,6 +245,8 @@ type lifecyclePolicyArgs struct {
 	Name *string `pulumi:"name"`
 	// Configuration block with policy details. Detailed below.
 	PolicyDetails []LifecyclePolicyPolicyDetail `pulumi:"policyDetails"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 	//
 	// The following arguments are optional:
@@ -267,6 +269,8 @@ type LifecyclePolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// Configuration block with policy details. Detailed below.
 	PolicyDetails LifecyclePolicyPolicyDetailArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 	//
 	// The following arguments are optional:
@@ -391,6 +395,11 @@ func (o LifecyclePolicyOutput) PolicyDetails() LifecyclePolicyPolicyDetailArrayO
 	return o.ApplyT(func(v *LifecyclePolicy) LifecyclePolicyPolicyDetailArrayOutput { return v.PolicyDetails }).(LifecyclePolicyPolicyDetailArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LifecyclePolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 //
 // The following arguments are optional:
@@ -414,8 +423,6 @@ func (o LifecyclePolicyOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o LifecyclePolicyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

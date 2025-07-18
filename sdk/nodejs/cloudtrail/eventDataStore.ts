@@ -130,6 +130,10 @@ export class EventDataStore extends pulumi.CustomResource {
      */
     public readonly organizationEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
      */
     public readonly retentionPeriod!: pulumi.Output<number | undefined>;
@@ -143,8 +147,6 @@ export class EventDataStore extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -172,6 +174,7 @@ export class EventDataStore extends pulumi.CustomResource {
             resourceInputs["multiRegionEnabled"] = state ? state.multiRegionEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["organizationEnabled"] = state ? state.organizationEnabled : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["retentionPeriod"] = state ? state.retentionPeriod : undefined;
             resourceInputs["suspend"] = state ? state.suspend : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -185,6 +188,7 @@ export class EventDataStore extends pulumi.CustomResource {
             resourceInputs["multiRegionEnabled"] = args ? args.multiRegionEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["organizationEnabled"] = args ? args.organizationEnabled : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
             resourceInputs["suspend"] = args ? args.suspend : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -230,6 +234,10 @@ export interface EventDataStoreState {
      */
     organizationEnabled?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
      */
     retentionPeriod?: pulumi.Input<number>;
@@ -243,8 +251,6 @@ export interface EventDataStoreState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -281,6 +287,10 @@ export interface EventDataStoreArgs {
      * Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
      */
     organizationEnabled?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
      */

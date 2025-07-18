@@ -138,6 +138,12 @@ namespace Pulumi.Aws.ImageBuilder
         [Input("owner")]
         public string? Owner { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetContainerRecipesArgs()
         {
         }
@@ -164,6 +170,12 @@ namespace Pulumi.Aws.ImageBuilder
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetContainerRecipesInvokeArgs()
         {
         }
@@ -188,6 +200,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly ImmutableArray<string> Names;
         public readonly string? Owner;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetContainerRecipesResult(
@@ -199,13 +212,16 @@ namespace Pulumi.Aws.ImageBuilder
 
             ImmutableArray<string> names,
 
-            string? owner)
+            string? owner,
+
+            string region)
         {
             Arns = arns;
             Filters = filters;
             Id = id;
             Names = names;
             Owner = owner;
+            Region = region;
         }
     }
 }

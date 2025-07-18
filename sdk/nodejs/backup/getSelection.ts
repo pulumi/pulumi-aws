@@ -23,6 +23,7 @@ export function getSelection(args: GetSelectionArgs, opts?: pulumi.InvokeOptions
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:backup/getSelection:getSelection", {
         "planId": args.planId,
+        "region": args.region,
         "selectionId": args.selectionId,
     }, opts);
 }
@@ -35,6 +36,10 @@ export interface GetSelectionArgs {
      * Backup plan ID associated with the selection of resources.
      */
     planId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Backup selection ID.
      */
@@ -58,6 +63,7 @@ export interface GetSelectionResult {
      */
     readonly name: string;
     readonly planId: string;
+    readonly region: string;
     /**
      * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
      */
@@ -83,6 +89,7 @@ export function getSelectionOutput(args: GetSelectionOutputArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:backup/getSelection:getSelection", {
         "planId": args.planId,
+        "region": args.region,
         "selectionId": args.selectionId,
     }, opts);
 }
@@ -95,6 +102,10 @@ export interface GetSelectionOutputArgs {
      * Backup plan ID associated with the selection of resources.
      */
     planId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Backup selection ID.
      */

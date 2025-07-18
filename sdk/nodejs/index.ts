@@ -5,7 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
-export * from "./arn";
 export { GetArnArgs, GetArnResult, GetArnOutputArgs } from "./getArn";
 export const getArn: typeof import("./getArn").getArn = null as any;
 export const getArnOutput: typeof import("./getArn").getArnOutput = null as any;
@@ -69,7 +68,6 @@ utilities.lazyLoad(exports, ["getServicePrincipal","getServicePrincipalOutput"],
 export * from "./provider";
 import { Provider } from "./provider";
 
-export * from "./region";
 export * from "./tags";
 export * from "./utils";
 
@@ -228,7 +226,6 @@ import * as notifications from "./notifications";
 import * as oam from "./oam";
 import * as opensearch from "./opensearch";
 import * as opensearchingest from "./opensearchingest";
-import * as opsworks from "./opsworks";
 import * as organizations from "./organizations";
 import * as outposts from "./outposts";
 import * as paymentcryptography from "./paymentcryptography";
@@ -275,7 +272,6 @@ import * as sesv2 from "./sesv2";
 import * as sfn from "./sfn";
 import * as shield from "./shield";
 import * as signer from "./signer";
-import * as simpledb from "./simpledb";
 import * as sns from "./sns";
 import * as sqs from "./sqs";
 import * as ssm from "./ssm";
@@ -298,7 +294,6 @@ import * as vpclattice from "./vpclattice";
 import * as waf from "./waf";
 import * as wafregional from "./wafregional";
 import * as wafv2 from "./wafv2";
-import * as worklink from "./worklink";
 import * as workspaces from "./workspaces";
 import * as workspacesweb from "./workspacesweb";
 import * as xray from "./xray";
@@ -455,7 +450,6 @@ export {
     oam,
     opensearch,
     opensearchingest,
-    opsworks,
     organizations,
     outposts,
     paymentcryptography,
@@ -502,7 +496,6 @@ export {
     sfn,
     shield,
     signer,
-    simpledb,
     sns,
     sqs,
     ssm,
@@ -525,7 +518,6 @@ export {
     waf,
     wafregional,
     wafv2,
-    worklink,
     workspaces,
     workspacesweb,
     xray,

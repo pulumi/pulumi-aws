@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Acmpca
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.Acmpca
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -167,6 +179,7 @@ namespace Pulumi.Aws.Acmpca
         /// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         /// </summary>
         public readonly string NotBefore;
+        public readonly string Region;
         /// <summary>
         /// Nested attribute containing revocation configuration.
         /// </summary>
@@ -210,6 +223,8 @@ namespace Pulumi.Aws.Acmpca
 
             string notBefore,
 
+            string region,
+
             ImmutableArray<Outputs.GetCertificateAuthorityRevocationConfigurationResult> revocationConfigurations,
 
             string serial,
@@ -230,6 +245,7 @@ namespace Pulumi.Aws.Acmpca
             KeyStorageSecurityStandard = keyStorageSecurityStandard;
             NotAfter = notAfter;
             NotBefore = notBefore;
+            Region = region;
             RevocationConfigurations = revocationConfigurations;
             Serial = serial;
             Status = status;

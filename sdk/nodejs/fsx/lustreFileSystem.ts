@@ -158,6 +158,10 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     public readonly perUnitStorageThroughput!: pulumi.Output<number | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
      */
     public readonly rootSquashConfiguration!: pulumi.Output<outputs.fsx.LustreFileSystemRootSquashConfiguration | undefined>;
@@ -191,8 +195,6 @@ export class LustreFileSystem extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -245,6 +247,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["perUnitStorageThroughput"] = state ? state.perUnitStorageThroughput : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rootSquashConfiguration"] = state ? state.rootSquashConfiguration : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["skipFinalBackup"] = state ? state.skipFinalBackup : undefined;
@@ -280,6 +283,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
             resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
             resourceInputs["metadataConfiguration"] = args ? args.metadataConfiguration : undefined;
             resourceInputs["perUnitStorageThroughput"] = args ? args.perUnitStorageThroughput : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rootSquashConfiguration"] = args ? args.rootSquashConfiguration : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["skipFinalBackup"] = args ? args.skipFinalBackup : undefined;
@@ -402,6 +406,10 @@ export interface LustreFileSystemState {
      */
     perUnitStorageThroughput?: pulumi.Input<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
      */
     rootSquashConfiguration?: pulumi.Input<inputs.fsx.LustreFileSystemRootSquashConfiguration>;
@@ -435,8 +443,6 @@ export interface LustreFileSystemState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -532,6 +538,10 @@ export interface LustreFileSystemArgs {
      * Describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB, required for the `PERSISTENT_1` and `PERSISTENT_2` deployment_type. Valid values for `PERSISTENT_1` deploymentType and `SSD` storageType are 50, 100, 200. Valid values for `PERSISTENT_1` deploymentType and `HDD` storageType are 12, 40. Valid values for `PERSISTENT_2` deploymentType and ` SSD` storageType are 125, 250, 500, 1000.
      */
     perUnitStorageThroughput?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Lustre root squash configuration used when creating an Amazon FSx for Lustre file system. When enabled, root squash restricts root-level access from clients that try to access your file system as a root user. See `rootSquashConfiguration` Block for details.
      */

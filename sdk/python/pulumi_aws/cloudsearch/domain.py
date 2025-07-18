@@ -26,6 +26,7 @@ class DomainArgs:
                  index_fields: Optional[pulumi.Input[Sequence[pulumi.Input['DomainIndexFieldArgs']]]] = None,
                  multi_az: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_parameters: Optional[pulumi.Input['DomainScalingParametersArgs']] = None):
         """
         The set of arguments for constructing a Domain resource.
@@ -33,6 +34,7 @@ class DomainArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DomainIndexFieldArgs']]] index_fields: The index fields for documents added to the domain. Documented below.
         :param pulumi.Input[builtins.bool] multi_az: Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
         :param pulumi.Input[builtins.str] name: The name of the CloudSearch domain.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DomainScalingParametersArgs'] scaling_parameters: Domain scaling parameters. Documented below.
         """
         if endpoint_options is not None:
@@ -43,6 +45,8 @@ class DomainArgs:
             pulumi.set(__self__, "multi_az", multi_az)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scaling_parameters is not None:
             pulumi.set(__self__, "scaling_parameters", scaling_parameters)
 
@@ -95,6 +99,18 @@ class DomainArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="scalingParameters")
     def scaling_parameters(self) -> Optional[pulumi.Input['DomainScalingParametersArgs']]:
         """
@@ -117,6 +133,7 @@ class _DomainState:
                  index_fields: Optional[pulumi.Input[Sequence[pulumi.Input['DomainIndexFieldArgs']]]] = None,
                  multi_az: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_parameters: Optional[pulumi.Input['DomainScalingParametersArgs']] = None,
                  search_service_endpoint: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -128,6 +145,7 @@ class _DomainState:
         :param pulumi.Input[Sequence[pulumi.Input['DomainIndexFieldArgs']]] index_fields: The index fields for documents added to the domain. Documented below.
         :param pulumi.Input[builtins.bool] multi_az: Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
         :param pulumi.Input[builtins.str] name: The name of the CloudSearch domain.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DomainScalingParametersArgs'] scaling_parameters: Domain scaling parameters. Documented below.
         :param pulumi.Input[builtins.str] search_service_endpoint: The service endpoint for requesting search results from a search domain.
         """
@@ -145,6 +163,8 @@ class _DomainState:
             pulumi.set(__self__, "multi_az", multi_az)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scaling_parameters is not None:
             pulumi.set(__self__, "scaling_parameters", scaling_parameters)
         if search_service_endpoint is not None:
@@ -235,6 +255,18 @@ class _DomainState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="scalingParameters")
     def scaling_parameters(self) -> Optional[pulumi.Input['DomainScalingParametersArgs']]:
         """
@@ -269,6 +301,7 @@ class Domain(pulumi.CustomResource):
                  index_fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict']]]]] = None,
                  multi_az: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_parameters: Optional[pulumi.Input[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict']]] = None,
                  __props__=None):
         """
@@ -323,6 +356,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict']]]] index_fields: The index fields for documents added to the domain. Documented below.
         :param pulumi.Input[builtins.bool] multi_az: Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
         :param pulumi.Input[builtins.str] name: The name of the CloudSearch domain.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict']] scaling_parameters: Domain scaling parameters. Documented below.
         """
         ...
@@ -396,6 +430,7 @@ class Domain(pulumi.CustomResource):
                  index_fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict']]]]] = None,
                  multi_az: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_parameters: Optional[pulumi.Input[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -410,6 +445,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["index_fields"] = index_fields
             __props__.__dict__["multi_az"] = multi_az
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["scaling_parameters"] = scaling_parameters
             __props__.__dict__["arn"] = None
             __props__.__dict__["document_service_endpoint"] = None
@@ -432,6 +468,7 @@ class Domain(pulumi.CustomResource):
             index_fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict']]]]] = None,
             multi_az: Optional[pulumi.Input[builtins.bool]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             scaling_parameters: Optional[pulumi.Input[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict']]] = None,
             search_service_endpoint: Optional[pulumi.Input[builtins.str]] = None) -> 'Domain':
         """
@@ -448,6 +485,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['DomainIndexFieldArgs', 'DomainIndexFieldArgsDict']]]] index_fields: The index fields for documents added to the domain. Documented below.
         :param pulumi.Input[builtins.bool] multi_az: Whether or not to maintain extra instances for the domain in a second Availability Zone to ensure high availability.
         :param pulumi.Input[builtins.str] name: The name of the CloudSearch domain.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DomainScalingParametersArgs', 'DomainScalingParametersArgsDict']] scaling_parameters: Domain scaling parameters. Documented below.
         :param pulumi.Input[builtins.str] search_service_endpoint: The service endpoint for requesting search results from a search domain.
         """
@@ -462,6 +500,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["index_fields"] = index_fields
         __props__.__dict__["multi_az"] = multi_az
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["scaling_parameters"] = scaling_parameters
         __props__.__dict__["search_service_endpoint"] = search_service_endpoint
         return Domain(resource_name, opts=opts, __props__=__props__)
@@ -521,6 +560,14 @@ class Domain(pulumi.CustomResource):
         The name of the CloudSearch domain.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="scalingParameters")

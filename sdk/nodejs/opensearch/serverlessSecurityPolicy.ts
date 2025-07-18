@@ -220,6 +220,10 @@ export class ServerlessSecurityPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly policyVersion!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Type of security policy. One of `encryption` or `network`.
      *
      * The following arguments are optional:
@@ -243,6 +247,7 @@ export class ServerlessSecurityPolicy extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
             resourceInputs["policyVersion"] = state ? state.policyVersion : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ServerlessSecurityPolicyArgs | undefined;
@@ -255,6 +260,7 @@ export class ServerlessSecurityPolicy extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["policyVersion"] = undefined /*out*/;
         }
@@ -284,6 +290,10 @@ export interface ServerlessSecurityPolicyState {
      */
     policyVersion?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Type of security policy. One of `encryption` or `network`.
      *
      * The following arguments are optional:
@@ -307,6 +317,10 @@ export interface ServerlessSecurityPolicyArgs {
      * JSON policy document to use as the content for the new policy
      */
     policy: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Type of security policy. One of `encryption` or `network`.
      *

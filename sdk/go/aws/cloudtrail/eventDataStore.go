@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,7 +28,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudtrail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,8 +60,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudtrail"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudtrail"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dynamodb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -140,6 +140,8 @@ type EventDataStore struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
 	OrganizationEnabled pulumi.BoolPtrOutput `pulumi:"organizationEnabled"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
 	RetentionPeriod pulumi.IntPtrOutput `pulumi:"retentionPeriod"`
 	// Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
@@ -147,8 +149,6 @@ type EventDataStore struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
 	TerminationProtectionEnabled pulumi.BoolPtrOutput `pulumi:"terminationProtectionEnabled"`
@@ -198,6 +198,8 @@ type eventDataStoreState struct {
 	Name *string `pulumi:"name"`
 	// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
 	OrganizationEnabled *bool `pulumi:"organizationEnabled"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
 	// Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
@@ -205,8 +207,6 @@ type eventDataStoreState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
 	TerminationProtectionEnabled *bool `pulumi:"terminationProtectionEnabled"`
@@ -227,6 +227,8 @@ type EventDataStoreState struct {
 	Name pulumi.StringPtrInput
 	// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
 	OrganizationEnabled pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
 	RetentionPeriod pulumi.IntPtrInput
 	// Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
@@ -234,8 +236,6 @@ type EventDataStoreState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Specifies whether termination protection is enabled for the event data store. If termination protection is enabled, you cannot delete the event data store until termination protection is disabled. Default: `true`.
 	TerminationProtectionEnabled pulumi.BoolPtrInput
@@ -258,6 +258,8 @@ type eventDataStoreArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
 	OrganizationEnabled *bool `pulumi:"organizationEnabled"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
 	// Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
@@ -282,6 +284,8 @@ type EventDataStoreArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies whether an event data store collects events logged for an organization in AWS Organizations. Default: `false`.
 	OrganizationEnabled pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
 	RetentionPeriod pulumi.IntPtrInput
 	// Specifies whether to stop ingesting new events into the event data store. If set to `true`, ingestion is suspended while maintaining the ability to query existing events. If set to `false`, ingestion is active.
@@ -416,6 +420,11 @@ func (o EventDataStoreOutput) OrganizationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.BoolPtrOutput { return v.OrganizationEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o EventDataStoreOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventDataStore) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
 func (o EventDataStoreOutput) RetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.IntPtrOutput { return v.RetentionPeriod }).(pulumi.IntPtrOutput)
@@ -432,8 +441,6 @@ func (o EventDataStoreOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o EventDataStoreOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

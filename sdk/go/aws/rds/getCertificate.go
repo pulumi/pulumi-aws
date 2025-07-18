@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,6 +56,8 @@ type LookupCertificateArgs struct {
 	Id *string `pulumi:"id"`
 	// When enabled, returns the certificate with the latest `ValidTill`.
 	LatestValidTill *bool `pulumi:"latestValidTill"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCertificate.
@@ -71,6 +73,7 @@ type LookupCertificateResult struct {
 	DefaultForNewLaunches     *bool  `pulumi:"defaultForNewLaunches"`
 	Id                        string `pulumi:"id"`
 	LatestValidTill           *bool  `pulumi:"latestValidTill"`
+	Region                    string `pulumi:"region"`
 	// Thumbprint of the certificate.
 	Thumbprint string `pulumi:"thumbprint"`
 	// [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of certificate starting validity date.
@@ -96,6 +99,8 @@ type LookupCertificateOutputArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// When enabled, returns the certificate with the latest `ValidTill`.
 	LatestValidTill pulumi.BoolPtrInput `pulumi:"latestValidTill"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupCertificateOutputArgs) ElementType() reflect.Type {
@@ -147,6 +152,10 @@ func (o LookupCertificateResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupCertificateResultOutput) LatestValidTill() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupCertificateResult) *bool { return v.LatestValidTill }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupCertificateResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Thumbprint of the certificate.

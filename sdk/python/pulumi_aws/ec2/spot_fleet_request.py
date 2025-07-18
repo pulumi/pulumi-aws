@@ -36,6 +36,7 @@ class SpotFleetRequestArgs:
                  on_demand_allocation_strategy: Optional[pulumi.Input[builtins.str]] = None,
                  on_demand_max_total_price: Optional[pulumi.Input[builtins.str]] = None,
                  on_demand_target_capacity: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[builtins.bool]] = None,
                  spot_maintenance_strategies: Optional[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs']] = None,
                  spot_price: Optional[pulumi.Input[builtins.str]] = None,
@@ -86,6 +87,7 @@ class SpotFleetRequestArgs:
         :param pulumi.Input[builtins.str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
         :param pulumi.Input[builtins.str] on_demand_max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
         :param pulumi.Input[builtins.int] on_demand_target_capacity: The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
         :param pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs'] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         :param pulumi.Input[builtins.str] spot_price: The maximum bid price per unit hour.
@@ -129,6 +131,8 @@ class SpotFleetRequestArgs:
             pulumi.set(__self__, "on_demand_max_total_price", on_demand_max_total_price)
         if on_demand_target_capacity is not None:
             pulumi.set(__self__, "on_demand_target_capacity", on_demand_target_capacity)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replace_unhealthy_instances is not None:
             pulumi.set(__self__, "replace_unhealthy_instances", replace_unhealthy_instances)
         if spot_maintenance_strategies is not None:
@@ -344,6 +348,18 @@ class SpotFleetRequestArgs:
         pulumi.set(self, "on_demand_target_capacity", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replaceUnhealthyInstances")
     def replace_unhealthy_instances(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -498,6 +514,7 @@ class _SpotFleetRequestState:
                  on_demand_allocation_strategy: Optional[pulumi.Input[builtins.str]] = None,
                  on_demand_max_total_price: Optional[pulumi.Input[builtins.str]] = None,
                  on_demand_target_capacity: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[builtins.bool]] = None,
                  spot_maintenance_strategies: Optional[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs']] = None,
                  spot_price: Optional[pulumi.Input[builtins.str]] = None,
@@ -548,6 +565,7 @@ class _SpotFleetRequestState:
         :param pulumi.Input[builtins.str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
         :param pulumi.Input[builtins.str] on_demand_max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
         :param pulumi.Input[builtins.int] on_demand_target_capacity: The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
         :param pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesArgs'] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         :param pulumi.Input[builtins.str] spot_price: The maximum bid price per unit hour.
@@ -598,6 +616,8 @@ class _SpotFleetRequestState:
             pulumi.set(__self__, "on_demand_max_total_price", on_demand_max_total_price)
         if on_demand_target_capacity is not None:
             pulumi.set(__self__, "on_demand_target_capacity", on_demand_target_capacity)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replace_unhealthy_instances is not None:
             pulumi.set(__self__, "replace_unhealthy_instances", replace_unhealthy_instances)
         if spot_maintenance_strategies is not None:
@@ -608,9 +628,6 @@ class _SpotFleetRequestState:
             pulumi.set(__self__, "spot_request_state", spot_request_state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if target_capacity is not None:
@@ -817,6 +834,18 @@ class _SpotFleetRequestState:
         pulumi.set(self, "on_demand_target_capacity", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replaceUnhealthyInstances")
     def replace_unhealthy_instances(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -878,7 +907,6 @@ class _SpotFleetRequestState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1012,6 +1040,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                  on_demand_allocation_strategy: Optional[pulumi.Input[builtins.str]] = None,
                  on_demand_max_total_price: Optional[pulumi.Input[builtins.str]] = None,
                  on_demand_target_capacity: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[builtins.bool]] = None,
                  spot_maintenance_strategies: Optional[pulumi.Input[Union['SpotFleetRequestSpotMaintenanceStrategiesArgs', 'SpotFleetRequestSpotMaintenanceStrategiesArgsDict']]] = None,
                  spot_price: Optional[pulumi.Input[builtins.str]] = None,
@@ -1249,6 +1278,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
         :param pulumi.Input[builtins.str] on_demand_max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
         :param pulumi.Input[builtins.int] on_demand_target_capacity: The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
         :param pulumi.Input[Union['SpotFleetRequestSpotMaintenanceStrategiesArgs', 'SpotFleetRequestSpotMaintenanceStrategiesArgsDict']] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         :param pulumi.Input[builtins.str] spot_price: The maximum bid price per unit hour.
@@ -1491,6 +1521,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                  on_demand_allocation_strategy: Optional[pulumi.Input[builtins.str]] = None,
                  on_demand_max_total_price: Optional[pulumi.Input[builtins.str]] = None,
                  on_demand_target_capacity: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replace_unhealthy_instances: Optional[pulumi.Input[builtins.bool]] = None,
                  spot_maintenance_strategies: Optional[pulumi.Input[Union['SpotFleetRequestSpotMaintenanceStrategiesArgs', 'SpotFleetRequestSpotMaintenanceStrategiesArgsDict']]] = None,
                  spot_price: Optional[pulumi.Input[builtins.str]] = None,
@@ -1527,6 +1558,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             __props__.__dict__["on_demand_allocation_strategy"] = on_demand_allocation_strategy
             __props__.__dict__["on_demand_max_total_price"] = on_demand_max_total_price
             __props__.__dict__["on_demand_target_capacity"] = on_demand_target_capacity
+            __props__.__dict__["region"] = region
             __props__.__dict__["replace_unhealthy_instances"] = replace_unhealthy_instances
             __props__.__dict__["spot_maintenance_strategies"] = spot_maintenance_strategies
             __props__.__dict__["spot_price"] = spot_price
@@ -1568,6 +1600,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             on_demand_allocation_strategy: Optional[pulumi.Input[builtins.str]] = None,
             on_demand_max_total_price: Optional[pulumi.Input[builtins.str]] = None,
             on_demand_target_capacity: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replace_unhealthy_instances: Optional[pulumi.Input[builtins.bool]] = None,
             spot_maintenance_strategies: Optional[pulumi.Input[Union['SpotFleetRequestSpotMaintenanceStrategiesArgs', 'SpotFleetRequestSpotMaintenanceStrategiesArgsDict']]] = None,
             spot_price: Optional[pulumi.Input[builtins.str]] = None,
@@ -1623,6 +1656,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. the possible values are: `lowestPrice` and `prioritized`. the default is `lowestPrice`.
         :param pulumi.Input[builtins.str] on_demand_max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
         :param pulumi.Input[builtins.int] on_demand_target_capacity: The number of On-Demand units to request. If the request type is `maintain`, you can specify a target capacity of 0 and add capacity later.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] replace_unhealthy_instances: Indicates whether Spot fleet should replace unhealthy instances. Default `false`.
         :param pulumi.Input[Union['SpotFleetRequestSpotMaintenanceStrategiesArgs', 'SpotFleetRequestSpotMaintenanceStrategiesArgsDict']] spot_maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         :param pulumi.Input[builtins.str] spot_price: The maximum bid price per unit hour.
@@ -1663,6 +1697,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         __props__.__dict__["on_demand_allocation_strategy"] = on_demand_allocation_strategy
         __props__.__dict__["on_demand_max_total_price"] = on_demand_max_total_price
         __props__.__dict__["on_demand_target_capacity"] = on_demand_target_capacity
+        __props__.__dict__["region"] = region
         __props__.__dict__["replace_unhealthy_instances"] = replace_unhealthy_instances
         __props__.__dict__["spot_maintenance_strategies"] = spot_maintenance_strategies
         __props__.__dict__["spot_price"] = spot_price
@@ -1810,6 +1845,14 @@ class SpotFleetRequest(pulumi.CustomResource):
         return pulumi.get(self, "on_demand_target_capacity")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="replaceUnhealthyInstances")
     def replace_unhealthy_instances(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
@@ -1851,7 +1894,6 @@ class SpotFleetRequest(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

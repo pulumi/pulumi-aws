@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,6 +69,8 @@ type BucketResourceAccess struct {
 
 	// Name of the bucket to grant access to.
 	BucketName pulumi.StringOutput `pulumi:"bucketName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Name of the resource to grant bucket access.
 	ResourceName pulumi.StringOutput `pulumi:"resourceName"`
 }
@@ -111,6 +113,8 @@ func GetBucketResourceAccess(ctx *pulumi.Context,
 type bucketResourceAccessState struct {
 	// Name of the bucket to grant access to.
 	BucketName *string `pulumi:"bucketName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the resource to grant bucket access.
 	ResourceName *string `pulumi:"resourceName"`
 }
@@ -118,6 +122,8 @@ type bucketResourceAccessState struct {
 type BucketResourceAccessState struct {
 	// Name of the bucket to grant access to.
 	BucketName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the resource to grant bucket access.
 	ResourceName pulumi.StringPtrInput
 }
@@ -129,6 +135,8 @@ func (BucketResourceAccessState) ElementType() reflect.Type {
 type bucketResourceAccessArgs struct {
 	// Name of the bucket to grant access to.
 	BucketName string `pulumi:"bucketName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the resource to grant bucket access.
 	ResourceName string `pulumi:"resourceName"`
 }
@@ -137,6 +145,8 @@ type bucketResourceAccessArgs struct {
 type BucketResourceAccessArgs struct {
 	// Name of the bucket to grant access to.
 	BucketName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the resource to grant bucket access.
 	ResourceName pulumi.StringInput
 }
@@ -231,6 +241,11 @@ func (o BucketResourceAccessOutput) ToBucketResourceAccessOutputWithContext(ctx 
 // Name of the bucket to grant access to.
 func (o BucketResourceAccessOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketResourceAccess) pulumi.StringOutput { return v.BucketName }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o BucketResourceAccessOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketResourceAccess) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Name of the resource to grant bucket access.

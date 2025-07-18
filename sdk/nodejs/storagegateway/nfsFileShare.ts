@@ -133,6 +133,10 @@ export class NfsFileShare extends pulumi.CustomResource {
      */
     public readonly readOnly!: pulumi.Output<boolean | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      */
     public readonly requesterPays!: pulumi.Output<boolean | undefined>;
@@ -150,8 +154,6 @@ export class NfsFileShare extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -190,6 +192,7 @@ export class NfsFileShare extends pulumi.CustomResource {
             resourceInputs["objectAcl"] = state ? state.objectAcl : undefined;
             resourceInputs["path"] = state ? state.path : undefined;
             resourceInputs["readOnly"] = state ? state.readOnly : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requesterPays"] = state ? state.requesterPays : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["squash"] = state ? state.squash : undefined;
@@ -225,6 +228,7 @@ export class NfsFileShare extends pulumi.CustomResource {
             resourceInputs["notificationPolicy"] = args ? args.notificationPolicy : undefined;
             resourceInputs["objectAcl"] = args ? args.objectAcl : undefined;
             resourceInputs["readOnly"] = args ? args.readOnly : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["requesterPays"] = args ? args.requesterPays : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["squash"] = args ? args.squash : undefined;
@@ -317,6 +321,10 @@ export interface NfsFileShareState {
      */
     readOnly?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      */
     requesterPays?: pulumi.Input<boolean>;
@@ -334,8 +342,6 @@ export interface NfsFileShareState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -408,6 +414,10 @@ export interface NfsFileShareArgs {
      * Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
      */
     readOnly?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      */

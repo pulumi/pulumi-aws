@@ -128,6 +128,21 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
      * 
      */
@@ -147,6 +162,21 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public Optional<Output<List<String>>> resourceSetIds() {
         return Optional.ofNullable(this.resourceSetIds);
+    }
+
+    /**
+     * Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+     * 
+     */
+    @Import(name="resourceTagLogicalOperator")
+    private @Nullable Output<String> resourceTagLogicalOperator;
+
+    /**
+     * @return Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+     * 
+     */
+    public Optional<Output<String>> resourceTagLogicalOperator() {
+        return Optional.ofNullable(this.resourceTagLogicalOperator);
     }
 
     /**
@@ -234,8 +264,10 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         this.excludeResourceTags = $.excludeResourceTags;
         this.includeMap = $.includeMap;
         this.name = $.name;
+        this.region = $.region;
         this.remediationEnabled = $.remediationEnabled;
         this.resourceSetIds = $.resourceSetIds;
+        this.resourceTagLogicalOperator = $.resourceTagLogicalOperator;
         this.resourceTags = $.resourceTags;
         this.resourceType = $.resourceType;
         this.resourceTypeLists = $.resourceTypeLists;
@@ -409,6 +441,27 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param remediationEnabled A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
          * 
          * @return builder
@@ -440,6 +493,27 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder resourceSetIds(String... resourceSetIds) {
             return resourceSetIds(List.of(resourceSetIds));
+        }
+
+        /**
+         * @param resourceTagLogicalOperator Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceTagLogicalOperator(@Nullable Output<String> resourceTagLogicalOperator) {
+            $.resourceTagLogicalOperator = resourceTagLogicalOperator;
+            return this;
+        }
+
+        /**
+         * @param resourceTagLogicalOperator Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceTagLogicalOperator(String resourceTagLogicalOperator) {
+            return resourceTagLogicalOperator(Output.of(resourceTagLogicalOperator));
         }
 
         /**

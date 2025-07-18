@@ -29,8 +29,8 @@ namespace Pulumi.Aws.Ebs
         /// });
         /// ```
         /// </summary>
-        public static Task<GetEncryptionByDefaultResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionByDefaultResult>("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetEncryptionByDefaultResult> InvokeAsync(GetEncryptionByDefaultArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEncryptionByDefaultResult>("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", args ?? new GetEncryptionByDefaultArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
@@ -50,8 +50,8 @@ namespace Pulumi.Aws.Ebs
         /// });
         /// ```
         /// </summary>
-        public static Output<GetEncryptionByDefaultResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionByDefaultResult>("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetEncryptionByDefaultResult> Invoke(GetEncryptionByDefaultInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionByDefaultResult>("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", args ?? new GetEncryptionByDefaultInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
@@ -71,8 +71,37 @@ namespace Pulumi.Aws.Ebs
         /// });
         /// ```
         /// </summary>
-        public static Output<GetEncryptionByDefaultResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionByDefaultResult>("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetEncryptionByDefaultResult> Invoke(GetEncryptionByDefaultInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEncryptionByDefaultResult>("aws:ebs/getEncryptionByDefault:getEncryptionByDefault", args ?? new GetEncryptionByDefaultInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetEncryptionByDefaultArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetEncryptionByDefaultArgs()
+        {
+        }
+        public static new GetEncryptionByDefaultArgs Empty => new GetEncryptionByDefaultArgs();
+    }
+
+    public sealed class GetEncryptionByDefaultInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetEncryptionByDefaultInvokeArgs()
+        {
+        }
+        public static new GetEncryptionByDefaultInvokeArgs Empty => new GetEncryptionByDefaultInvokeArgs();
     }
 
 
@@ -87,15 +116,19 @@ namespace Pulumi.Aws.Ebs
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetEncryptionByDefaultResult(
             bool enabled,
 
-            string id)
+            string id,
+
+            string region)
         {
             Enabled = enabled;
             Id = id;
+            Region = region;
         }
     }
 }

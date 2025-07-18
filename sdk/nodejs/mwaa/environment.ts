@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * A MWAA Environment requires an IAM role (`aws.iam.Role`), two subnets in the private zone (`aws.ec2.Subnet`) and a versioned S3 bucket (`aws.s3.BucketV2`).
+ * A MWAA Environment requires an IAM role (`aws.iam.Role`), two subnets in the private zone (`aws.ec2.Subnet`) and a versioned S3 bucket (`aws.s3.Bucket`).
  *
  * ### Basic Usage
  *
@@ -233,6 +233,10 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly pluginsS3Path!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The requirements.txt file version you want to use.
      */
     public readonly requirementsS3ObjectVersion!: pulumi.Output<string>;
@@ -270,8 +274,6 @@ export class Environment extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -324,6 +326,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
             resourceInputs["pluginsS3ObjectVersion"] = state ? state.pluginsS3ObjectVersion : undefined;
             resourceInputs["pluginsS3Path"] = state ? state.pluginsS3Path : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requirementsS3ObjectVersion"] = state ? state.requirementsS3ObjectVersion : undefined;
             resourceInputs["requirementsS3Path"] = state ? state.requirementsS3Path : undefined;
             resourceInputs["schedulers"] = state ? state.schedulers : undefined;
@@ -368,6 +371,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
             resourceInputs["pluginsS3ObjectVersion"] = args ? args.pluginsS3ObjectVersion : undefined;
             resourceInputs["pluginsS3Path"] = args ? args.pluginsS3Path : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["requirementsS3ObjectVersion"] = args ? args.requirementsS3ObjectVersion : undefined;
             resourceInputs["requirementsS3Path"] = args ? args.requirementsS3Path : undefined;
             resourceInputs["schedulers"] = args ? args.schedulers : undefined;
@@ -477,6 +481,10 @@ export interface EnvironmentState {
      */
     pluginsS3Path?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The requirements.txt file version you want to use.
      */
     requirementsS3ObjectVersion?: pulumi.Input<string>;
@@ -514,8 +522,6 @@ export interface EnvironmentState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -604,6 +610,10 @@ export interface EnvironmentArgs {
      * The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then pluginsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
      */
     pluginsS3Path?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The requirements.txt file version you want to use.
      */

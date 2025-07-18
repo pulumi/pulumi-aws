@@ -22,7 +22,8 @@ class SecretPolicyArgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[builtins.str],
                  secret_arn: pulumi.Input[builtins.str],
-                 block_public_policy: Optional[pulumi.Input[builtins.bool]] = None):
+                 block_public_policy: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a SecretPolicy resource.
         :param pulumi.Input[builtins.str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
@@ -30,11 +31,14 @@ class SecretPolicyArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.bool] block_public_policy: Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "secret_arn", secret_arn)
         if block_public_policy is not None:
             pulumi.set(__self__, "block_public_policy", block_public_policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -74,17 +78,31 @@ class SecretPolicyArgs:
     def block_public_policy(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "block_public_policy", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _SecretPolicyState:
     def __init__(__self__, *,
                  block_public_policy: Optional[pulumi.Input[builtins.bool]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secret_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering SecretPolicy resources.
         :param pulumi.Input[builtins.bool] block_public_policy: Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
         :param pulumi.Input[builtins.str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_arn: Secret ARN.
                
                The following arguments are optional:
@@ -93,6 +111,8 @@ class _SecretPolicyState:
             pulumi.set(__self__, "block_public_policy", block_public_policy)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if secret_arn is not None:
             pulumi.set(__self__, "secret_arn", secret_arn)
 
@@ -121,6 +141,18 @@ class _SecretPolicyState:
         pulumi.set(self, "policy", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -143,6 +175,7 @@ class SecretPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  block_public_policy: Optional[pulumi.Input[builtins.bool]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secret_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -184,6 +217,7 @@ class SecretPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] block_public_policy: Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
         :param pulumi.Input[builtins.str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_arn: Secret ARN.
                
                The following arguments are optional:
@@ -246,6 +280,7 @@ class SecretPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  block_public_policy: Optional[pulumi.Input[builtins.bool]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secret_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -260,6 +295,7 @@ class SecretPolicy(pulumi.CustomResource):
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
+            __props__.__dict__["region"] = region
             if secret_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_arn'")
             __props__.__dict__["secret_arn"] = secret_arn
@@ -275,6 +311,7 @@ class SecretPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             block_public_policy: Optional[pulumi.Input[builtins.bool]] = None,
             policy: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             secret_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'SecretPolicy':
         """
         Get an existing SecretPolicy resource's state with the given name, id, and optional extra
@@ -285,6 +322,7 @@ class SecretPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] block_public_policy: Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
         :param pulumi.Input[builtins.str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_arn: Secret ARN.
                
                The following arguments are optional:
@@ -295,6 +333,7 @@ class SecretPolicy(pulumi.CustomResource):
 
         __props__.__dict__["block_public_policy"] = block_public_policy
         __props__.__dict__["policy"] = policy
+        __props__.__dict__["region"] = region
         __props__.__dict__["secret_arn"] = secret_arn
         return SecretPolicy(resource_name, opts=opts, __props__=__props__)
 
@@ -313,6 +352,14 @@ class SecretPolicy(pulumi.CustomResource):
         Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="secretArn")

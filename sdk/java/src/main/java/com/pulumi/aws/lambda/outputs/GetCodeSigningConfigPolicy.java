@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetCodeSigningConfigPolicy {
     /**
-     * @return Code signing configuration policy for deployment validation failure.
+     * @return Code signing configuration policy for deployment validation failure. Valid values: `Warn`, `Enforce`.
      * 
      */
     private String untrustedArtifactOnDeployment;
 
     private GetCodeSigningConfigPolicy() {}
     /**
-     * @return Code signing configuration policy for deployment validation failure.
+     * @return Code signing configuration policy for deployment validation failure. Valid values: `Warn`, `Enforce`.
      * 
      */
     public String untrustedArtifactOnDeployment() {

@@ -105,6 +105,12 @@ namespace Pulumi.Aws.Rds
         [Input("latestValidTill")]
         public bool? LatestValidTill { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetCertificateArgs()
         {
         }
@@ -130,6 +136,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("latestValidTill")]
         public Input<bool>? LatestValidTill { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetCertificateInvokeArgs()
         {
@@ -160,6 +172,7 @@ namespace Pulumi.Aws.Rds
         public readonly bool? DefaultForNewLaunches;
         public readonly string Id;
         public readonly bool? LatestValidTill;
+        public readonly string Region;
         /// <summary>
         /// Thumbprint of the certificate.
         /// </summary>
@@ -189,6 +202,8 @@ namespace Pulumi.Aws.Rds
 
             bool? latestValidTill,
 
+            string region,
+
             string thumbprint,
 
             string validFrom,
@@ -202,6 +217,7 @@ namespace Pulumi.Aws.Rds
             DefaultForNewLaunches = defaultForNewLaunches;
             Id = id;
             LatestValidTill = latestValidTill;
+            Region = region;
             Thumbprint = thumbprint;
             ValidFrom = validFrom;
             ValidTill = validTill;

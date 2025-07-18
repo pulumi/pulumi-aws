@@ -211,22 +211,18 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var amplifyAppMaster = Output.tuple(master.arn(), amplifyAppMasterTopic.arn()).applyValue(values -> }{{@code
- *             var masterArn = values.t1;
- *             var amplifyAppMasterTopicArn = values.t2;
- *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *                 .statements(GetPolicyDocumentStatementArgs.builder()
- *                     .sid(String.format("Allow_Publish_Events %s", masterArn))
- *                     .effect("Allow")
- *                     .actions("SNS:Publish")
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("Service")
- *                         .identifiers("events.amazonaws.com")
- *                         .build())
- *                     .resources(amplifyAppMasterTopicArn)
+ *         final var amplifyAppMaster = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .sid(master.arn().applyValue(_arn -> String.format("Allow_Publish_Events %s", _arn)))
+ *                 .effect("Allow")
+ *                 .actions("SNS:Publish")
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("events.amazonaws.com")
  *                     .build())
- *                 .build());
- *         }}{@code );
+ *                 .resources(amplifyAppMasterTopic.arn())
+ *                 .build())
+ *             .build());
  * 
  *         var amplifyAppMasterTopicPolicy = new TopicPolicy("amplifyAppMasterTopicPolicy", TopicPolicyArgs.builder()
  *             .arn(amplifyAppMasterTopic.arn())
@@ -467,6 +463,20 @@ public class Branch extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enablePullRequestPreview);
     }
     /**
+     * Enables skew protection for the branch.
+     * 
+     */
+    @Export(name="enableSkewProtection", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> enableSkewProtection;
+
+    /**
+     * @return Enables skew protection for the branch.
+     * 
+     */
+    public Output<Optional<Boolean>> enableSkewProtection() {
+        return Codegen.optional(this.enableSkewProtection);
+    }
+    /**
      * Environment variables for the branch.
      * 
      */
@@ -507,6 +517,20 @@ public class Branch extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> pullRequestEnvironmentName() {
         return Codegen.optional(this.pullRequestEnvironmentName);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * Source branch if the branch is a pull request branch.
@@ -553,11 +577,7 @@ public class Branch extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

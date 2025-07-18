@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AlertManagerDefinitionArgs extends com.pulumi.resources.ResourceArgs {
@@ -30,6 +32,21 @@ public final class AlertManagerDefinitionArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ID of the prometheus workspace the alert manager definition should be linked to
      * 
      */
@@ -48,6 +65,7 @@ public final class AlertManagerDefinitionArgs extends com.pulumi.resources.Resou
 
     private AlertManagerDefinitionArgs(AlertManagerDefinitionArgs $) {
         this.definition = $.definition;
+        this.region = $.region;
         this.workspaceId = $.workspaceId;
     }
 
@@ -88,6 +106,27 @@ public final class AlertManagerDefinitionArgs extends com.pulumi.resources.Resou
          */
         public Builder definition(String definition) {
             return definition(Output.of(definition));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

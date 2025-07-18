@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cleanrooms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cleanrooms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,13 +78,14 @@ type ConfiguredTable struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the configured table.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A reference to the AWS Glue table which will be used to create the configured table.
 	// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
 	// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
 	TableReference ConfiguredTableTableReferenceOutput `pulumi:"tableReference"`
 	// Key value pairs which tag the configured table.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The date and time the configured table was last updated.
 	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
@@ -141,13 +142,14 @@ type configuredTableState struct {
 	Description *string `pulumi:"description"`
 	// The name of the configured table.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A reference to the AWS Glue table which will be used to create the configured table.
 	// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
 	// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
 	TableReference *ConfiguredTableTableReference `pulumi:"tableReference"`
 	// Key value pairs which tag the configured table.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The date and time the configured table was last updated.
 	UpdateTime *string `pulumi:"updateTime"`
@@ -166,13 +168,14 @@ type ConfiguredTableState struct {
 	Description pulumi.StringPtrInput
 	// The name of the configured table.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A reference to the AWS Glue table which will be used to create the configured table.
 	// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
 	// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
 	TableReference ConfiguredTableTableReferencePtrInput
 	// Key value pairs which tag the configured table.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The date and time the configured table was last updated.
 	UpdateTime pulumi.StringPtrInput
@@ -191,6 +194,8 @@ type configuredTableArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the configured table.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A reference to the AWS Glue table which will be used to create the configured table.
 	// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
 	// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
@@ -209,6 +214,8 @@ type ConfiguredTableArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the configured table.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A reference to the AWS Glue table which will be used to create the configured table.
 	// * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
 	// * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
@@ -334,6 +341,11 @@ func (o ConfiguredTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ConfiguredTableOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // A reference to the AWS Glue table which will be used to create the configured table.
 // * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
 // * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
@@ -346,7 +358,6 @@ func (o ConfiguredTableOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ConfiguredTableOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -94,7 +94,24 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID of the route server endpoint for which to create a peer.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="routeServerEndpointId")
@@ -102,6 +119,8 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
 
     /**
      * @return The ID of the route server endpoint for which to create a peer.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> routeServerEndpointId() {
@@ -153,9 +172,17 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.subnetId);
     }
 
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -163,22 +190,14 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -213,6 +232,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         this.endpointEniAddress = $.endpointEniAddress;
         this.endpointEniId = $.endpointEniId;
         this.peerAddress = $.peerAddress;
+        this.region = $.region;
         this.routeServerEndpointId = $.routeServerEndpointId;
         this.routeServerId = $.routeServerId;
         this.routeServerPeerId = $.routeServerPeerId;
@@ -347,7 +367,30 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param routeServerEndpointId The ID of the route server endpoint for which to create a peer.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -359,6 +402,8 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param routeServerEndpointId The ID of the route server endpoint for which to create a peer.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -430,11 +475,23 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
             return subnetId(Output.of(subnetId));
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
@@ -444,11 +501,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -459,11 +512,7 @@ public final class RouteServerPeerState extends com.pulumi.resources.ResourceArg
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

@@ -51,6 +51,7 @@ import * as utilities from "../utilities";
 export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecs/getTaskDefinition:getTaskDefinition", {
+        "region": args.region,
         "taskDefinition": args.taskDefinition,
     }, opts);
 }
@@ -59,6 +60,10 @@ export function getTaskDefinition(args: GetTaskDefinitionArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getTaskDefinition.
  */
 export interface GetTaskDefinitionArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
      */
@@ -107,10 +112,6 @@ export interface GetTaskDefinitionResult {
      */
     readonly id: string;
     /**
-     * Configuration block(s) with Inference Accelerators settings. Detailed below.
-     */
-    readonly inferenceAccelerators: outputs.ecs.GetTaskDefinitionInferenceAccelerator[];
-    /**
      * IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      */
     readonly ipcMode: string;
@@ -134,6 +135,7 @@ export interface GetTaskDefinitionResult {
      * Configuration block for the App Mesh proxy. Detailed below.
      */
     readonly proxyConfigurations: outputs.ecs.GetTaskDefinitionProxyConfiguration[];
+    readonly region: string;
     /**
      * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
@@ -204,6 +206,7 @@ export interface GetTaskDefinitionResult {
 export function getTaskDefinitionOutput(args: GetTaskDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTaskDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecs/getTaskDefinition:getTaskDefinition", {
+        "region": args.region,
         "taskDefinition": args.taskDefinition,
     }, opts);
 }
@@ -212,6 +215,10 @@ export function getTaskDefinitionOutput(args: GetTaskDefinitionOutputArgs, opts?
  * A collection of arguments for invoking getTaskDefinition.
  */
 export interface GetTaskDefinitionOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
      */

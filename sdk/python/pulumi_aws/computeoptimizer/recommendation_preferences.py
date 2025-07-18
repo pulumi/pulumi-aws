@@ -28,6 +28,7 @@ class RecommendationPreferencesArgs:
                  inferred_workload_types: Optional[pulumi.Input[builtins.str]] = None,
                  look_back_period: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_resources: Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  savings_estimation_mode: Optional[pulumi.Input[builtins.str]] = None,
                  scope: Optional[pulumi.Input['RecommendationPreferencesScopeArgs']] = None,
                  utilization_preferences: Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]]] = None):
@@ -39,6 +40,7 @@ class RecommendationPreferencesArgs:
         :param pulumi.Input[builtins.str] inferred_workload_types: The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
         :param pulumi.Input[builtins.str] look_back_period: The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
         :param pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]] preferred_resources: The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] savings_estimation_mode: The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
         :param pulumi.Input['RecommendationPreferencesScopeArgs'] scope: The scope of the recommendation preferences. See Scope below.
         :param pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesUtilizationPreferenceArgs']]] utilization_preferences: The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
@@ -54,6 +56,8 @@ class RecommendationPreferencesArgs:
             pulumi.set(__self__, "look_back_period", look_back_period)
         if preferred_resources is not None:
             pulumi.set(__self__, "preferred_resources", preferred_resources)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if savings_estimation_mode is not None:
             pulumi.set(__self__, "savings_estimation_mode", savings_estimation_mode)
         if scope is not None:
@@ -134,6 +138,18 @@ class RecommendationPreferencesArgs:
         pulumi.set(self, "preferred_resources", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="savingsEstimationMode")
     def savings_estimation_mode(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -178,6 +194,7 @@ class _RecommendationPreferencesState:
                  inferred_workload_types: Optional[pulumi.Input[builtins.str]] = None,
                  look_back_period: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_resources: Optional[pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
                  savings_estimation_mode: Optional[pulumi.Input[builtins.str]] = None,
                  scope: Optional[pulumi.Input['RecommendationPreferencesScopeArgs']] = None,
@@ -189,6 +206,7 @@ class _RecommendationPreferencesState:
         :param pulumi.Input[builtins.str] inferred_workload_types: The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
         :param pulumi.Input[builtins.str] look_back_period: The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
         :param pulumi.Input[Sequence[pulumi.Input['RecommendationPreferencesPreferredResourceArgs']]] preferred_resources: The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_type: The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
         :param pulumi.Input[builtins.str] savings_estimation_mode: The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
         :param pulumi.Input['RecommendationPreferencesScopeArgs'] scope: The scope of the recommendation preferences. See Scope below.
@@ -204,6 +222,8 @@ class _RecommendationPreferencesState:
             pulumi.set(__self__, "look_back_period", look_back_period)
         if preferred_resources is not None:
             pulumi.set(__self__, "preferred_resources", preferred_resources)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
         if savings_estimation_mode is not None:
@@ -274,6 +294,18 @@ class _RecommendationPreferencesState:
         pulumi.set(self, "preferred_resources", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -333,6 +365,7 @@ class RecommendationPreferences(pulumi.CustomResource):
                  inferred_workload_types: Optional[pulumi.Input[builtins.str]] = None,
                  look_back_period: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecommendationPreferencesPreferredResourceArgs', 'RecommendationPreferencesPreferredResourceArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
                  savings_estimation_mode: Optional[pulumi.Input[builtins.str]] = None,
                  scope: Optional[pulumi.Input[Union['RecommendationPreferencesScopeArgs', 'RecommendationPreferencesScopeArgsDict']]] = None,
@@ -398,6 +431,7 @@ class RecommendationPreferences(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] inferred_workload_types: The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
         :param pulumi.Input[builtins.str] look_back_period: The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecommendationPreferencesPreferredResourceArgs', 'RecommendationPreferencesPreferredResourceArgsDict']]]] preferred_resources: The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_type: The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
         :param pulumi.Input[builtins.str] savings_estimation_mode: The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
         :param pulumi.Input[Union['RecommendationPreferencesScopeArgs', 'RecommendationPreferencesScopeArgsDict']] scope: The scope of the recommendation preferences. See Scope below.
@@ -482,6 +516,7 @@ class RecommendationPreferences(pulumi.CustomResource):
                  inferred_workload_types: Optional[pulumi.Input[builtins.str]] = None,
                  look_back_period: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecommendationPreferencesPreferredResourceArgs', 'RecommendationPreferencesPreferredResourceArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
                  savings_estimation_mode: Optional[pulumi.Input[builtins.str]] = None,
                  scope: Optional[pulumi.Input[Union['RecommendationPreferencesScopeArgs', 'RecommendationPreferencesScopeArgsDict']]] = None,
@@ -500,6 +535,7 @@ class RecommendationPreferences(pulumi.CustomResource):
             __props__.__dict__["inferred_workload_types"] = inferred_workload_types
             __props__.__dict__["look_back_period"] = look_back_period
             __props__.__dict__["preferred_resources"] = preferred_resources
+            __props__.__dict__["region"] = region
             if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
             __props__.__dict__["resource_type"] = resource_type
@@ -521,6 +557,7 @@ class RecommendationPreferences(pulumi.CustomResource):
             inferred_workload_types: Optional[pulumi.Input[builtins.str]] = None,
             look_back_period: Optional[pulumi.Input[builtins.str]] = None,
             preferred_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RecommendationPreferencesPreferredResourceArgs', 'RecommendationPreferencesPreferredResourceArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_type: Optional[pulumi.Input[builtins.str]] = None,
             savings_estimation_mode: Optional[pulumi.Input[builtins.str]] = None,
             scope: Optional[pulumi.Input[Union['RecommendationPreferencesScopeArgs', 'RecommendationPreferencesScopeArgsDict']]] = None,
@@ -537,6 +574,7 @@ class RecommendationPreferences(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] inferred_workload_types: The status of the inferred workload types recommendation preference. Valid values: `Active`, `Inactive`.
         :param pulumi.Input[builtins.str] look_back_period: The preference to control the number of days the utilization metrics of the AWS resource are analyzed. Valid values: `DAYS_14`, `DAYS_32`, `DAYS_93`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecommendationPreferencesPreferredResourceArgs', 'RecommendationPreferencesPreferredResourceArgsDict']]]] preferred_resources: The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_type: The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
         :param pulumi.Input[builtins.str] savings_estimation_mode: The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
         :param pulumi.Input[Union['RecommendationPreferencesScopeArgs', 'RecommendationPreferencesScopeArgsDict']] scope: The scope of the recommendation preferences. See Scope below.
@@ -551,6 +589,7 @@ class RecommendationPreferences(pulumi.CustomResource):
         __props__.__dict__["inferred_workload_types"] = inferred_workload_types
         __props__.__dict__["look_back_period"] = look_back_period
         __props__.__dict__["preferred_resources"] = preferred_resources
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_type"] = resource_type
         __props__.__dict__["savings_estimation_mode"] = savings_estimation_mode
         __props__.__dict__["scope"] = scope
@@ -596,6 +635,14 @@ class RecommendationPreferences(pulumi.CustomResource):
         The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
         """
         return pulumi.get(self, "preferred_resources")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceType")

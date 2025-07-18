@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     instanceArn: example.then(example => example.arns?.[0]),
  * });
  * const exampleApplicationAccessScope = new aws.ssoadmin.ApplicationAccessScope("example", {
- *     applicationArn: exampleApplication.applicationArn,
+ *     applicationArn: exampleApplication.arn,
  *     authorizedTargets: ["arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012"],
  *     scope: "sso:account:access",
  * });
@@ -73,6 +73,10 @@ export class ApplicationAccessScope extends pulumi.CustomResource {
      */
     public readonly authorizedTargets!: pulumi.Output<string[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies the name of the access scope to be associated with the specified targets.
      *
      * The following arguments are optional:
@@ -94,6 +98,7 @@ export class ApplicationAccessScope extends pulumi.CustomResource {
             const state = argsOrState as ApplicationAccessScopeState | undefined;
             resourceInputs["applicationArn"] = state ? state.applicationArn : undefined;
             resourceInputs["authorizedTargets"] = state ? state.authorizedTargets : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scope"] = state ? state.scope : undefined;
         } else {
             const args = argsOrState as ApplicationAccessScopeArgs | undefined;
@@ -105,6 +110,7 @@ export class ApplicationAccessScope extends pulumi.CustomResource {
             }
             resourceInputs["applicationArn"] = args ? args.applicationArn : undefined;
             resourceInputs["authorizedTargets"] = args ? args.authorizedTargets : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -125,6 +131,10 @@ export interface ApplicationAccessScopeState {
      */
     authorizedTargets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Specifies the name of the access scope to be associated with the specified targets.
      *
      * The following arguments are optional:
@@ -144,6 +154,10 @@ export interface ApplicationAccessScopeArgs {
      * Specifies an array list of ARNs that represent the authorized targets for this access scope.
      */
     authorizedTargets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the name of the access scope to be associated with the specified targets.
      *

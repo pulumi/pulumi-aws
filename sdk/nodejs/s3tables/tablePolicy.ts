@@ -58,6 +58,10 @@ export class TablePolicy extends pulumi.CustomResource {
      */
     public readonly namespace!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon Web Services resource-based policy document in JSON format.
      */
     public readonly resourcePolicy!: pulumi.Output<string>;
@@ -81,6 +85,7 @@ export class TablePolicy extends pulumi.CustomResource {
             const state = argsOrState as TablePolicyState | undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namespace"] = state ? state.namespace : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourcePolicy"] = state ? state.resourcePolicy : undefined;
             resourceInputs["tableBucketArn"] = state ? state.tableBucketArn : undefined;
         } else {
@@ -96,6 +101,7 @@ export class TablePolicy extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
             resourceInputs["tableBucketArn"] = args ? args.tableBucketArn : undefined;
         }
@@ -120,6 +126,10 @@ export interface TablePolicyState {
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      */
     namespace?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Web Services resource-based policy document in JSON format.
      */
@@ -146,6 +156,10 @@ export interface TablePolicyArgs {
      * Can consist of lowercase letters, numbers, and underscores, and must begin and end with a lowercase letter or number.
      */
     namespace: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Web Services resource-based policy document in JSON format.
      */

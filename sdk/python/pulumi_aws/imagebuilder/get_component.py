@@ -27,7 +27,7 @@ class GetComponentResult:
     """
     A collection of values returned by getComponent.
     """
-    def __init__(__self__, arn=None, change_description=None, data=None, date_created=None, description=None, encrypted=None, id=None, kms_key_id=None, name=None, owner=None, platform=None, supported_os_versions=None, tags=None, type=None, version=None):
+    def __init__(__self__, arn=None, change_description=None, data=None, date_created=None, description=None, encrypted=None, id=None, kms_key_id=None, name=None, owner=None, platform=None, region=None, supported_os_versions=None, tags=None, type=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -61,6 +61,9 @@ class GetComponentResult:
         if platform and not isinstance(platform, str):
             raise TypeError("Expected argument 'platform' to be a str")
         pulumi.set(__self__, "platform", platform)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if supported_os_versions and not isinstance(supported_os_versions, list):
             raise TypeError("Expected argument 'supported_os_versions' to be a list")
         pulumi.set(__self__, "supported_os_versions", supported_os_versions)
@@ -160,6 +163,11 @@ class GetComponentResult:
         return pulumi.get(self, "platform")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="supportedOsVersions")
     def supported_os_versions(self) -> Sequence[builtins.str]:
         """
@@ -209,6 +217,7 @@ class AwaitableGetComponentResult(GetComponentResult):
             name=self.name,
             owner=self.owner,
             platform=self.platform,
+            region=self.region,
             supported_os_versions=self.supported_os_versions,
             tags=self.tags,
             type=self.type,
@@ -216,6 +225,7 @@ class AwaitableGetComponentResult(GetComponentResult):
 
 
 def get_component(arn: Optional[builtins.str] = None,
+                  region: Optional[builtins.str] = None,
                   tags: Optional[Mapping[str, builtins.str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComponentResult:
     """
@@ -232,10 +242,12 @@ def get_component(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: ARN of the component.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the component.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:imagebuilder/getComponent:getComponent', __args__, opts=opts, typ=GetComponentResult).value
@@ -252,11 +264,13 @@ def get_component(arn: Optional[builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         owner=pulumi.get(__ret__, 'owner'),
         platform=pulumi.get(__ret__, 'platform'),
+        region=pulumi.get(__ret__, 'region'),
         supported_os_versions=pulumi.get(__ret__, 'supported_os_versions'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
 def get_component_output(arn: Optional[pulumi.Input[builtins.str]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComponentResult]:
     """
@@ -273,10 +287,12 @@ def get_component_output(arn: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str arn: ARN of the component.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the component.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getComponent:getComponent', __args__, opts=opts, typ=GetComponentResult)
@@ -292,6 +308,7 @@ def get_component_output(arn: Optional[pulumi.Input[builtins.str]] = None,
         name=pulumi.get(__response__, 'name'),
         owner=pulumi.get(__response__, 'owner'),
         platform=pulumi.get(__response__, 'platform'),
+        region=pulumi.get(__response__, 'region'),
         supported_os_versions=pulumi.get(__response__, 'supported_os_versions'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),

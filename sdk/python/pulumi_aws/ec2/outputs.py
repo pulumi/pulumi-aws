@@ -78,8 +78,6 @@ __all__ = [
     'LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget',
     'LaunchTemplateCpuOptions',
     'LaunchTemplateCreditSpecification',
-    'LaunchTemplateElasticGpuSpecification',
-    'LaunchTemplateElasticInferenceAccelerator',
     'LaunchTemplateEnclaveOptions',
     'LaunchTemplateHibernationOptions',
     'LaunchTemplateIamInstanceProfile',
@@ -298,8 +296,6 @@ __all__ = [
     'GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTargetResult',
     'GetLaunchTemplateCpuOptionResult',
     'GetLaunchTemplateCreditSpecificationResult',
-    'GetLaunchTemplateElasticGpuSpecificationResult',
-    'GetLaunchTemplateElasticInferenceAcceleratorResult',
     'GetLaunchTemplateEnclaveOptionResult',
     'GetLaunchTemplateFilterResult',
     'GetLaunchTemplateHibernationOptionResult',
@@ -450,11 +446,6 @@ __all__ = [
     'GetVpcEndpointFilterResult',
     'GetVpcEndpointServiceFilterResult',
     'GetVpcFilterResult',
-    'GetVpcIamPoolCidrsFilterResult',
-    'GetVpcIamPoolCidrsIpamPoolCidrResult',
-    'GetVpcIamPoolFilterResult',
-    'GetVpcIamPoolsFilterResult',
-    'GetVpcIamPoolsIpamPoolResult',
     'GetVpcIpamOperatingRegionResult',
     'GetVpcIpamPoolCidrsFilterResult',
     'GetVpcIpamPoolCidrsIpamPoolCidrResult',
@@ -3396,7 +3387,7 @@ class FlowLogDestinationOptions(dict):
                  hive_compatible_partitions: Optional[builtins.bool] = None,
                  per_hour_partition: Optional[builtins.bool] = None):
         """
-        :param builtins.str file_format: The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+        :param builtins.str file_format: File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
         :param builtins.bool hive_compatible_partitions: Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
         :param builtins.bool per_hour_partition: Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
         """
@@ -3411,7 +3402,7 @@ class FlowLogDestinationOptions(dict):
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> Optional[builtins.str]:
         """
-        The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+        File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
         """
         return pulumi.get(self, "file_format")
 
@@ -5264,42 +5255,6 @@ class LaunchTemplateCreditSpecification(dict):
         T2 instances are launched as `standard` by default.
         """
         return pulumi.get(self, "cpu_credits")
-
-
-@pulumi.output_type
-class LaunchTemplateElasticGpuSpecification(dict):
-    def __init__(__self__, *,
-                 type: builtins.str):
-        """
-        :param builtins.str type: The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
-        """
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> builtins.str:
-        """
-        The [Elastic GPU Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-graphics.html#elastic-graphics-basics)
-        """
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class LaunchTemplateElasticInferenceAccelerator(dict):
-    def __init__(__self__, *,
-                 type: builtins.str):
-        """
-        :param builtins.str type: Accelerator type.
-        """
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> builtins.str:
-        """
-        Accelerator type.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -18093,30 +18048,6 @@ class GetLaunchTemplateCreditSpecificationResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchTemplateElasticGpuSpecificationResult(dict):
-    def __init__(__self__, *,
-                 type: builtins.str):
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> builtins.str:
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
-class GetLaunchTemplateElasticInferenceAcceleratorResult(dict):
-    def __init__(__self__, *,
-                 type: builtins.str):
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> builtins.str:
-        return pulumi.get(self, "type")
-
-
-@pulumi.output_type
 class GetLaunchTemplateEnclaveOptionResult(dict):
     def __init__(__self__, *,
                  enabled: builtins.bool):
@@ -23792,317 +23723,6 @@ class GetVpcFilterResult(dict):
         A VPC will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class GetVpcIamPoolCidrsFilterResult(dict):
-    def __init__(__self__, *,
-                 name: builtins.str,
-                 values: Sequence[builtins.str]):
-        """
-        :param builtins.str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
-        :param Sequence[builtins.str] values: Set of values that are accepted for the given field.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetIpamPoolCidrs.html).
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[builtins.str]:
-        """
-        Set of values that are accepted for the given field.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class GetVpcIamPoolCidrsIpamPoolCidrResult(dict):
-    def __init__(__self__, *,
-                 cidr: builtins.str,
-                 state: builtins.str):
-        """
-        :param builtins.str cidr: A network CIDR.
-        :param builtins.str state: The provisioning state of that CIDR.
-        """
-        pulumi.set(__self__, "cidr", cidr)
-        pulumi.set(__self__, "state", state)
-
-    @property
-    @pulumi.getter
-    def cidr(self) -> builtins.str:
-        """
-        A network CIDR.
-        """
-        return pulumi.get(self, "cidr")
-
-    @property
-    @pulumi.getter
-    def state(self) -> builtins.str:
-        """
-        The provisioning state of that CIDR.
-        """
-        return pulumi.get(self, "state")
-
-
-@pulumi.output_type
-class GetVpcIamPoolFilterResult(dict):
-    def __init__(__self__, *,
-                 name: builtins.str,
-                 values: Sequence[builtins.str]):
-        """
-        :param builtins.str name: The name of the filter. Filter names are case-sensitive.
-        :param Sequence[builtins.str] values: The filter values. Filter values are case-sensitive.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        The name of the filter. Filter names are case-sensitive.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[builtins.str]:
-        """
-        The filter values. Filter values are case-sensitive.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class GetVpcIamPoolsFilterResult(dict):
-    def __init__(__self__, *,
-                 name: builtins.str,
-                 values: Sequence[builtins.str]):
-        """
-        :param builtins.str name: The name of the filter. Filter names are case-sensitive.
-        :param Sequence[builtins.str] values: The filter values. Filter values are case-sensitive.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        """
-        The name of the filter. Filter names are case-sensitive.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[builtins.str]:
-        """
-        The filter values. Filter values are case-sensitive.
-        """
-        return pulumi.get(self, "values")
-
-
-@pulumi.output_type
-class GetVpcIamPoolsIpamPoolResult(dict):
-    def __init__(__self__, *,
-                 address_family: builtins.str,
-                 allocation_default_netmask_length: builtins.int,
-                 allocation_max_netmask_length: builtins.int,
-                 allocation_min_netmask_length: builtins.int,
-                 allocation_resource_tags: Mapping[str, builtins.str],
-                 arn: builtins.str,
-                 auto_import: builtins.bool,
-                 aws_service: builtins.str,
-                 description: builtins.str,
-                 id: builtins.str,
-                 ipam_scope_id: builtins.str,
-                 ipam_scope_type: builtins.str,
-                 locale: builtins.str,
-                 pool_depth: builtins.int,
-                 publicly_advertisable: builtins.bool,
-                 source_ipam_pool_id: builtins.str,
-                 state: builtins.str,
-                 tags: Mapping[str, builtins.str]):
-        """
-        :param builtins.str address_family: IP protocol assigned to this pool.
-        :param builtins.int allocation_default_netmask_length: A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
-        :param builtins.int allocation_max_netmask_length: The maximum netmask length that will be required for CIDR allocations in this pool.
-        :param builtins.int allocation_min_netmask_length: The minimum netmask length that will be required for CIDR allocations in this pool.
-        :param Mapping[str, builtins.str] allocation_resource_tags: Tags that are required to create resources in using this pool.
-        :param builtins.str arn: ARN of the pool
-        :param builtins.bool auto_import: If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
-        :param builtins.str aws_service: Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
-        :param builtins.str description: Description for the IPAM pool.
-        :param builtins.str id: ID of the IPAM pool.
-        :param builtins.str ipam_scope_id: ID of the scope the pool belongs to.
-        :param builtins.str locale: Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
-        :param builtins.bool publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet.
-        :param builtins.str source_ipam_pool_id: ID of the source IPAM pool.
-        :param Mapping[str, builtins.str] tags: Map of tags to assigned to the resource.
-        """
-        pulumi.set(__self__, "address_family", address_family)
-        pulumi.set(__self__, "allocation_default_netmask_length", allocation_default_netmask_length)
-        pulumi.set(__self__, "allocation_max_netmask_length", allocation_max_netmask_length)
-        pulumi.set(__self__, "allocation_min_netmask_length", allocation_min_netmask_length)
-        pulumi.set(__self__, "allocation_resource_tags", allocation_resource_tags)
-        pulumi.set(__self__, "arn", arn)
-        pulumi.set(__self__, "auto_import", auto_import)
-        pulumi.set(__self__, "aws_service", aws_service)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "ipam_scope_id", ipam_scope_id)
-        pulumi.set(__self__, "ipam_scope_type", ipam_scope_type)
-        pulumi.set(__self__, "locale", locale)
-        pulumi.set(__self__, "pool_depth", pool_depth)
-        pulumi.set(__self__, "publicly_advertisable", publicly_advertisable)
-        pulumi.set(__self__, "source_ipam_pool_id", source_ipam_pool_id)
-        pulumi.set(__self__, "state", state)
-        pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="addressFamily")
-    def address_family(self) -> builtins.str:
-        """
-        IP protocol assigned to this pool.
-        """
-        return pulumi.get(self, "address_family")
-
-    @property
-    @pulumi.getter(name="allocationDefaultNetmaskLength")
-    def allocation_default_netmask_length(self) -> builtins.int:
-        """
-        A default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is `10.0.0.0/8` and you enter 16 here, new allocations will default to `10.0.0.0/16`.
-        """
-        return pulumi.get(self, "allocation_default_netmask_length")
-
-    @property
-    @pulumi.getter(name="allocationMaxNetmaskLength")
-    def allocation_max_netmask_length(self) -> builtins.int:
-        """
-        The maximum netmask length that will be required for CIDR allocations in this pool.
-        """
-        return pulumi.get(self, "allocation_max_netmask_length")
-
-    @property
-    @pulumi.getter(name="allocationMinNetmaskLength")
-    def allocation_min_netmask_length(self) -> builtins.int:
-        """
-        The minimum netmask length that will be required for CIDR allocations in this pool.
-        """
-        return pulumi.get(self, "allocation_min_netmask_length")
-
-    @property
-    @pulumi.getter(name="allocationResourceTags")
-    def allocation_resource_tags(self) -> Mapping[str, builtins.str]:
-        """
-        Tags that are required to create resources in using this pool.
-        """
-        return pulumi.get(self, "allocation_resource_tags")
-
-    @property
-    @pulumi.getter
-    def arn(self) -> builtins.str:
-        """
-        ARN of the pool
-        """
-        return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter(name="autoImport")
-    def auto_import(self) -> builtins.bool:
-        """
-        If enabled, IPAM will continuously look for resources within the CIDR range of this pool and automatically import them as allocations into your IPAM.
-        """
-        return pulumi.get(self, "auto_import")
-
-    @property
-    @pulumi.getter(name="awsService")
-    def aws_service(self) -> builtins.str:
-        """
-        Limits which service in AWS that the pool can be used in. `ec2` for example, allows users to use space for Elastic IP addresses and VPCs.
-        """
-        return pulumi.get(self, "aws_service")
-
-    @property
-    @pulumi.getter
-    def description(self) -> builtins.str:
-        """
-        Description for the IPAM pool.
-        """
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def id(self) -> builtins.str:
-        """
-        ID of the IPAM pool.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="ipamScopeId")
-    def ipam_scope_id(self) -> builtins.str:
-        """
-        ID of the scope the pool belongs to.
-        """
-        return pulumi.get(self, "ipam_scope_id")
-
-    @property
-    @pulumi.getter(name="ipamScopeType")
-    def ipam_scope_type(self) -> builtins.str:
-        return pulumi.get(self, "ipam_scope_type")
-
-    @property
-    @pulumi.getter
-    def locale(self) -> builtins.str:
-        """
-        Locale is the Region where your pool is available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region.
-        """
-        return pulumi.get(self, "locale")
-
-    @property
-    @pulumi.getter(name="poolDepth")
-    def pool_depth(self) -> builtins.int:
-        return pulumi.get(self, "pool_depth")
-
-    @property
-    @pulumi.getter(name="publiclyAdvertisable")
-    def publicly_advertisable(self) -> builtins.bool:
-        """
-        Defines whether or not IPv6 pool space is publicly advertisable over the internet.
-        """
-        return pulumi.get(self, "publicly_advertisable")
-
-    @property
-    @pulumi.getter(name="sourceIpamPoolId")
-    def source_ipam_pool_id(self) -> builtins.str:
-        """
-        ID of the source IPAM pool.
-        """
-        return pulumi.get(self, "source_ipam_pool_id")
-
-    @property
-    @pulumi.getter
-    def state(self) -> builtins.str:
-        return pulumi.get(self, "state")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Mapping[str, builtins.str]:
-        """
-        Map of tags to assigned to the resource.
-        """
-        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type

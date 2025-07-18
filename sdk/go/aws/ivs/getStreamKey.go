@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ivs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ivs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func GetStreamKey(ctx *pulumi.Context, args *GetStreamKeyArgs, opts ...pulumi.In
 type GetStreamKeyArgs struct {
 	// ARN of the Channel.
 	ChannelArn string `pulumi:"channelArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -64,7 +66,8 @@ type GetStreamKeyResult struct {
 	Arn        string `pulumi:"arn"`
 	ChannelArn string `pulumi:"channelArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Stream Key value.
@@ -84,6 +87,8 @@ func GetStreamKeyOutput(ctx *pulumi.Context, args GetStreamKeyOutputArgs, opts .
 type GetStreamKeyOutputArgs struct {
 	// ARN of the Channel.
 	ChannelArn pulumi.StringInput `pulumi:"channelArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -119,6 +124,10 @@ func (o GetStreamKeyResultOutput) ChannelArn() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetStreamKeyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStreamKeyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetStreamKeyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStreamKeyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags assigned to the resource.

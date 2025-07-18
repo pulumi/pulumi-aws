@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,6 +42,8 @@ type CloudFormationType struct {
 	LoggingConfig CloudFormationTypeLoggingConfigPtrOutput `pulumi:"loggingConfig"`
 	// Provisioning behavior of the CloudFormation Type.
 	ProvisioningType pulumi.StringOutput `pulumi:"provisioningType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// JSON document of the CloudFormation Type schema.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
@@ -114,6 +116,8 @@ type cloudFormationTypeState struct {
 	LoggingConfig *CloudFormationTypeLoggingConfig `pulumi:"loggingConfig"`
 	// Provisioning behavior of the CloudFormation Type.
 	ProvisioningType *string `pulumi:"provisioningType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// JSON document of the CloudFormation Type schema.
 	Schema *string `pulumi:"schema"`
 	// URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
@@ -151,6 +155,8 @@ type CloudFormationTypeState struct {
 	LoggingConfig CloudFormationTypeLoggingConfigPtrInput
 	// Provisioning behavior of the CloudFormation Type.
 	ProvisioningType pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// JSON document of the CloudFormation Type schema.
 	Schema pulumi.StringPtrInput
 	// URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
@@ -178,6 +184,8 @@ type cloudFormationTypeArgs struct {
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// Configuration block containing logging configuration.
 	LoggingConfig *CloudFormationTypeLoggingConfig `pulumi:"loggingConfig"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
 	SchemaHandlerPackage string `pulumi:"schemaHandlerPackage"`
 	// CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
@@ -192,6 +200,8 @@ type CloudFormationTypeArgs struct {
 	ExecutionRoleArn pulumi.StringPtrInput
 	// Configuration block containing logging configuration.
 	LoggingConfig CloudFormationTypeLoggingConfigPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// URL to the S3 bucket containing the extension project package that contains the necessary files for the extension you want to register. Must begin with `s3://` or `https://`. For example, `s3://example-bucket/example-object`.
 	SchemaHandlerPackage pulumi.StringInput
 	// CloudFormation Registry Type. For example, `RESOURCE` or `MODULE`.
@@ -330,6 +340,11 @@ func (o CloudFormationTypeOutput) LoggingConfig() CloudFormationTypeLoggingConfi
 // Provisioning behavior of the CloudFormation Type.
 func (o CloudFormationTypeOutput) ProvisioningType() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudFormationType) pulumi.StringOutput { return v.ProvisioningType }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o CloudFormationTypeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudFormationType) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // JSON document of the CloudFormation Type schema.

@@ -141,6 +141,55 @@ namespace Pulumi.Aws.DynamoDB
     /// });
     /// ```
     /// 
+    /// ### Global Tables with Multi-Region Strong Consistency
+    /// 
+    /// A global table configured for Multi-Region strong consistency (MRSC) provides the ability to perform a strongly consistent read with multi-Region scope. Performing a strongly consistent read on an MRSC table ensures you're always reading the latest version of an item, irrespective of the Region in which you're performing the read.
+    /// 
+    /// **Note** Please see detailed information, restrictions, caveats etc on the [AWS Support Page](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/multi-region-strong-consistency-gt.html).
+    /// 
+    /// Consistency Mode (`consistency_mode`) is a new argument on the embedded `replica` that allows you to configure consistency mode for Global Tables.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.DynamoDB.Table("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         HashKey = "TestTableHashKey",
+    ///         BillingMode = "PAY_PER_REQUEST",
+    ///         StreamEnabled = true,
+    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
+    ///         Attributes = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "TestTableHashKey",
+    ///                 Type = "S",
+    ///             },
+    ///         },
+    ///         Replicas = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableReplicaArgs
+    ///             {
+    ///                 RegionName = "us-east-2",
+    ///                 ConsistencyMode = "STRONG",
+    ///             },
+    ///             new Aws.DynamoDB.Inputs.TableReplicaArgs
+    ///             {
+    ///                 RegionName = "us-west-2",
+    ///                 ConsistencyMode = "STRONG",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Replica Tagging
     /// 
     /// You can manage global table replicas' tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `aws.dynamodb.Tag` resource for the other.
@@ -204,7 +253,7 @@ namespace Pulumi.Aws.DynamoDB
     ///             return Std.Replace.Invoke(new()
     ///             {
     ///                 Text = arn,
-    ///                 Search = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///                 Search = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///                 Replace = alternate.Apply(getRegionResult =&gt; getRegionResult.Name),
     ///             });
     ///         }).Apply(invoke =&gt; invoke.Result),
@@ -305,6 +354,12 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Output("readCapacity")]
         public Output<int> ReadCapacity { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
@@ -536,6 +591,12 @@ namespace Pulumi.Aws.DynamoDB
         [Input("readCapacity")]
         public Input<int>? ReadCapacity { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("replicas")]
         private InputList<Inputs.TableReplicaArgs>? _replicas;
 
@@ -728,6 +789,12 @@ namespace Pulumi.Aws.DynamoDB
         [Input("readCapacity")]
         public Input<int>? ReadCapacity { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("replicas")]
         private InputList<Inputs.TableReplicaGetArgs>? _replicas;
 
@@ -820,7 +887,6 @@ namespace Pulumi.Aws.DynamoDB
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

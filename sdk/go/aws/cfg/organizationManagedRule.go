@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cfg"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/organizations"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cfg"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,6 +79,8 @@ type OrganizationManagedRule struct {
 	MaximumExecutionFrequency pulumi.StringPtrOutput `pulumi:"maximumExecutionFrequency"`
 	// The name of the rule
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope pulumi.StringPtrOutput `pulumi:"resourceIdScope"`
 	// List of types of AWS resources to evaluate
@@ -136,6 +138,8 @@ type organizationManagedRuleState struct {
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
 	// The name of the rule
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope *string `pulumi:"resourceIdScope"`
 	// List of types of AWS resources to evaluate
@@ -161,6 +165,8 @@ type OrganizationManagedRuleState struct {
 	MaximumExecutionFrequency pulumi.StringPtrInput
 	// The name of the rule
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope pulumi.StringPtrInput
 	// List of types of AWS resources to evaluate
@@ -188,6 +194,8 @@ type organizationManagedRuleArgs struct {
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
 	// The name of the rule
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope *string `pulumi:"resourceIdScope"`
 	// List of types of AWS resources to evaluate
@@ -212,6 +220,8 @@ type OrganizationManagedRuleArgs struct {
 	MaximumExecutionFrequency pulumi.StringPtrInput
 	// The name of the rule
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of the AWS resource to evaluate
 	ResourceIdScope pulumi.StringPtrInput
 	// List of types of AWS resources to evaluate
@@ -339,6 +349,11 @@ func (o OrganizationManagedRuleOutput) MaximumExecutionFrequency() pulumi.String
 // The name of the rule
 func (o OrganizationManagedRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationManagedRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o OrganizationManagedRuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *OrganizationManagedRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Identifier of the AWS resource to evaluate

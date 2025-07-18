@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,7 +57,7 @@ import (
 //					},
 //				},
 //				Name:        pulumi.String("example"),
-//				ParentImage: pulumi.Sprintf("arn:%v:imagebuilder:%v:aws:image/amazon-linux-2-x86/x.x.x", current.Partition, currentAwsRegion.Name),
+//				ParentImage: pulumi.Sprintf("arn:%v:imagebuilder:%v:aws:image/amazon-linux-2-x86/x.x.x", current.Partition, currentAwsRegion.Region),
 //				Version:     pulumi.String("1.0.0"),
 //			})
 //			if err != nil {
@@ -97,13 +97,13 @@ type ImageRecipe struct {
 	ParentImage pulumi.StringOutput `pulumi:"parentImage"`
 	// Platform of the image recipe.
 	Platform pulumi.StringOutput `pulumi:"platform"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
 	SystemsManagerAgent ImageRecipeSystemsManagerAgentOutput `pulumi:"systemsManagerAgent"`
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
 	UserDataBase64 pulumi.StringOutput `pulumi:"userDataBase64"`
@@ -172,13 +172,13 @@ type imageRecipeState struct {
 	ParentImage *string `pulumi:"parentImage"`
 	// Platform of the image recipe.
 	Platform *string `pulumi:"platform"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
 	SystemsManagerAgent *ImageRecipeSystemsManagerAgent `pulumi:"systemsManagerAgent"`
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
@@ -209,13 +209,13 @@ type ImageRecipeState struct {
 	ParentImage pulumi.StringPtrInput
 	// Platform of the image recipe.
 	Platform pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
 	SystemsManagerAgent ImageRecipeSystemsManagerAgentPtrInput
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Base64 encoded user data. Use this to provide commands or a command script to run when you launch your build instance.
 	UserDataBase64 pulumi.StringPtrInput
@@ -242,6 +242,8 @@ type imageRecipeArgs struct {
 	Name *string `pulumi:"name"`
 	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
 	ParentImage string `pulumi:"parentImage"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
 	SystemsManagerAgent *ImageRecipeSystemsManagerAgent `pulumi:"systemsManagerAgent"`
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -268,6 +270,8 @@ type ImageRecipeArgs struct {
 	Name pulumi.StringPtrInput
 	// The image recipe uses this image as a base from which to build your customized image. The value can be the base image ARN or an AMI ID.
 	ParentImage pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
 	SystemsManagerAgent ImageRecipeSystemsManagerAgentPtrInput
 	// Key-value map of resource tags for the image recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -414,6 +418,11 @@ func (o ImageRecipeOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ImageRecipeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImageRecipe) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
 func (o ImageRecipeOutput) SystemsManagerAgent() ImageRecipeSystemsManagerAgentOutput {
 	return o.ApplyT(func(v *ImageRecipe) ImageRecipeSystemsManagerAgentOutput { return v.SystemsManagerAgent }).(ImageRecipeSystemsManagerAgentOutput)
@@ -425,8 +434,6 @@ func (o ImageRecipeOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ImageRecipeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ImageRecipe) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

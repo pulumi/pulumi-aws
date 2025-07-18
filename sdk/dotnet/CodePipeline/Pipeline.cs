@@ -28,9 +28,9 @@ namespace Pulumi.Aws.CodePipeline
     ///         ProviderType = "GitHub",
     ///     });
     /// 
-    ///     var codepipelineBucket = new Aws.S3.BucketV2("codepipeline_bucket", new()
+    ///     var codepipelineBucket = new Aws.S3.Bucket("codepipeline_bucket", new()
     ///     {
-    ///         Bucket = "test-bucket",
+    ///         BucketName = "test-bucket",
     ///     });
     /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.CodePipeline
     ///         {
     ///             new Aws.CodePipeline.Inputs.PipelineArtifactStoreArgs
     ///             {
-    ///                 Location = codepipelineBucket.Bucket,
+    ///                 Location = codepipelineBucket.BucketName,
     ///                 Type = "S3",
     ///                 EncryptionKey = new Aws.CodePipeline.Inputs.PipelineArtifactStoreEncryptionKeyArgs
     ///                 {
@@ -264,8 +264,6 @@ namespace Pulumi.Aws.CodePipeline
 
         /// <summary>
         /// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-        /// 
-        /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         /// </summary>
         [Output("executionMode")]
         public Output<string?> ExecutionMode { get; private set; } = null!;
@@ -281,6 +279,12 @@ namespace Pulumi.Aws.CodePipeline
         /// </summary>
         [Output("pipelineType")]
         public Output<string?> PipelineType { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
@@ -320,6 +324,8 @@ namespace Pulumi.Aws.CodePipeline
 
         /// <summary>
         /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        /// 
+        /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         /// </summary>
         [Output("variables")]
         public Output<ImmutableArray<Outputs.PipelineVariable>> Variables { get; private set; } = null!;
@@ -384,8 +390,6 @@ namespace Pulumi.Aws.CodePipeline
 
         /// <summary>
         /// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-        /// 
-        /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         /// </summary>
         [Input("executionMode")]
         public Input<string>? ExecutionMode { get; set; }
@@ -401,6 +405,12 @@ namespace Pulumi.Aws.CodePipeline
         /// </summary>
         [Input("pipelineType")]
         public Input<string>? PipelineType { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
@@ -449,6 +459,8 @@ namespace Pulumi.Aws.CodePipeline
 
         /// <summary>
         /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        /// 
+        /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         /// </summary>
         public InputList<Inputs.PipelineVariableArgs> Variables
         {
@@ -484,8 +496,6 @@ namespace Pulumi.Aws.CodePipeline
 
         /// <summary>
         /// The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
-        /// 
-        /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         /// </summary>
         [Input("executionMode")]
         public Input<string>? ExecutionMode { get; set; }
@@ -501,6 +511,12 @@ namespace Pulumi.Aws.CodePipeline
         /// </summary>
         [Input("pipelineType")]
         public Input<string>? PipelineType { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
@@ -538,7 +554,6 @@ namespace Pulumi.Aws.CodePipeline
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -574,6 +589,8 @@ namespace Pulumi.Aws.CodePipeline
 
         /// <summary>
         /// A pipeline-level variable block. Valid only when `pipeline_type` is `V2`. Variable are documented below.
+        /// 
+        /// **Note:** `QUEUED` or `PARALLEL` mode can only be used with V2 pipelines.
         /// </summary>
         public InputList<Inputs.PipelineVariableGetArgs> Variables
         {

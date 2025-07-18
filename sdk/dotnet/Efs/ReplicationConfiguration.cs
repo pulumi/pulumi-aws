@@ -122,6 +122,12 @@ namespace Pulumi.Aws.Efs
         public Output<string> OriginalSourceFileSystemArn { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
         /// </summary>
         [Output("sourceFileSystemArn")]
@@ -192,6 +198,12 @@ namespace Pulumi.Aws.Efs
         public Input<Inputs.ReplicationConfigurationDestinationArgs> Destination { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID of the file system that is to be replicated.
         /// </summary>
         [Input("sourceFileSystemId", required: true)]
@@ -224,6 +236,12 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         [Input("originalSourceFileSystemArn")]
         public Input<string>? OriginalSourceFileSystemArn { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the current source file system in the replication configuration.

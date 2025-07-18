@@ -35,6 +35,21 @@ public final class GetSecretVersionsArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      * 
      */
@@ -53,6 +68,7 @@ public final class GetSecretVersionsArgs extends com.pulumi.resources.InvokeArgs
 
     private GetSecretVersionsArgs(GetSecretVersionsArgs $) {
         this.includeDeprecated = $.includeDeprecated;
+        this.region = $.region;
         this.secretId = $.secretId;
     }
 
@@ -95,6 +111,27 @@ public final class GetSecretVersionsArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder includeDeprecated(Boolean includeDeprecated) {
             return includeDeprecated(Output.of(includeDeprecated));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

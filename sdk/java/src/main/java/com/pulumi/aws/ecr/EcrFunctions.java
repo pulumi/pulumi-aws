@@ -6,20 +6,19 @@ package com.pulumi.aws.ecr;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenArgs;
 import com.pulumi.aws.ecr.inputs.GetAuthorizationTokenPlainArgs;
-import com.pulumi.aws.ecr.inputs.GetCredentialsArgs;
-import com.pulumi.aws.ecr.inputs.GetCredentialsPlainArgs;
 import com.pulumi.aws.ecr.inputs.GetImageArgs;
 import com.pulumi.aws.ecr.inputs.GetImagePlainArgs;
 import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentArgs;
 import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentPlainArgs;
 import com.pulumi.aws.ecr.inputs.GetPullThroughCacheRuleArgs;
 import com.pulumi.aws.ecr.inputs.GetPullThroughCacheRulePlainArgs;
+import com.pulumi.aws.ecr.inputs.GetRepositoriesArgs;
+import com.pulumi.aws.ecr.inputs.GetRepositoriesPlainArgs;
 import com.pulumi.aws.ecr.inputs.GetRepositoryArgs;
 import com.pulumi.aws.ecr.inputs.GetRepositoryCreationTemplateArgs;
 import com.pulumi.aws.ecr.inputs.GetRepositoryCreationTemplatePlainArgs;
 import com.pulumi.aws.ecr.inputs.GetRepositoryPlainArgs;
 import com.pulumi.aws.ecr.outputs.GetAuthorizationTokenResult;
-import com.pulumi.aws.ecr.outputs.GetCredentialsResult;
 import com.pulumi.aws.ecr.outputs.GetImageResult;
 import com.pulumi.aws.ecr.outputs.GetLifecyclePolicyDocumentResult;
 import com.pulumi.aws.ecr.outputs.GetPullThroughCacheRuleResult;
@@ -31,7 +30,6 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
-import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class EcrFunctions {
@@ -321,21 +319,6 @@ public final class EcrFunctions {
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(GetAuthorizationTokenPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ecr/getAuthorizationToken:getAuthorizationToken", TypeShape.of(GetAuthorizationTokenResult.class), args, Utilities.withVersion(options));
-    }
-    public static Output<GetCredentialsResult> getCredentials(GetCredentialsArgs args) {
-        return getCredentials(args, InvokeOptions.Empty);
-    }
-    public static CompletableFuture<GetCredentialsResult> getCredentialsPlain(GetCredentialsPlainArgs args) {
-        return getCredentialsPlain(args, InvokeOptions.Empty);
-    }
-    public static Output<GetCredentialsResult> getCredentials(GetCredentialsArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("aws:ecr/getCredentials:getCredentials", TypeShape.of(GetCredentialsResult.class), args, Utilities.withVersion(options));
-    }
-    public static Output<GetCredentialsResult> getCredentials(GetCredentialsArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("aws:ecr/getCredentials:getCredentials", TypeShape.of(GetCredentialsResult.class), args, Utilities.withVersion(options));
-    }
-    public static CompletableFuture<GetCredentialsResult> getCredentialsPlain(GetCredentialsPlainArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invokeAsync("aws:ecr/getCredentials:getCredentials", TypeShape.of(GetCredentialsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
@@ -1198,6 +1181,7 @@ public final class EcrFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetRepositoriesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1211,7 +1195,8 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcrFunctions.getRepositories(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = EcrFunctions.getRepositories(GetRepositoriesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1221,7 +1206,7 @@ public final class EcrFunctions {
      * 
      */
     public static Output<GetRepositoriesResult> getRepositories() {
-        return getRepositories(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getRepositories(GetRepositoriesArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
@@ -1239,6 +1224,7 @@ public final class EcrFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetRepositoriesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1252,7 +1238,8 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcrFunctions.getRepositories(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = EcrFunctions.getRepositories(GetRepositoriesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1262,7 +1249,7 @@ public final class EcrFunctions {
      * 
      */
     public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain() {
-        return getRepositoriesPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getRepositoriesPlain(GetRepositoriesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
@@ -1280,6 +1267,7 @@ public final class EcrFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetRepositoriesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1293,7 +1281,8 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcrFunctions.getRepositories(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = EcrFunctions.getRepositories(GetRepositoriesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1302,7 +1291,7 @@ public final class EcrFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetRepositoriesResult> getRepositories(InvokeArgs args) {
+    public static Output<GetRepositoriesResult> getRepositories(GetRepositoriesArgs args) {
         return getRepositories(args, InvokeOptions.Empty);
     }
     /**
@@ -1321,6 +1310,7 @@ public final class EcrFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetRepositoriesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1334,7 +1324,8 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcrFunctions.getRepositories(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = EcrFunctions.getRepositories(GetRepositoriesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1343,7 +1334,7 @@ public final class EcrFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain(InvokeArgs args) {
+    public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain(GetRepositoriesPlainArgs args) {
         return getRepositoriesPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -1362,6 +1353,7 @@ public final class EcrFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetRepositoriesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1375,7 +1367,8 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcrFunctions.getRepositories(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = EcrFunctions.getRepositories(GetRepositoriesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1384,7 +1377,7 @@ public final class EcrFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetRepositoriesResult> getRepositories(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetRepositoriesResult> getRepositories(GetRepositoriesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ecr/getRepositories:getRepositories", TypeShape.of(GetRepositoriesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1403,6 +1396,7 @@ public final class EcrFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetRepositoriesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1416,7 +1410,8 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcrFunctions.getRepositories(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = EcrFunctions.getRepositories(GetRepositoriesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1425,7 +1420,7 @@ public final class EcrFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetRepositoriesResult> getRepositories(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetRepositoriesResult> getRepositories(GetRepositoriesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ecr/getRepositories:getRepositories", TypeShape.of(GetRepositoriesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1444,6 +1439,7 @@ public final class EcrFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
+     * import com.pulumi.aws.ecr.inputs.GetRepositoriesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1457,7 +1453,8 @@ public final class EcrFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = EcrFunctions.getRepositories(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = EcrFunctions.getRepositories(GetRepositoriesArgs.builder()
+     *             .build());
      * 
      *     }
      * }
@@ -1466,7 +1463,7 @@ public final class EcrFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain(GetRepositoriesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ecr/getRepositories:getRepositories", TypeShape.of(GetRepositoriesResult.class), args, Utilities.withVersion(options));
     }
     /**

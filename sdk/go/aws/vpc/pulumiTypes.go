@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -310,8 +310,6 @@ type RouteServerPeerBgpOptions struct {
 	// The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
 	PeerAsn int `pulumi:"peerAsn"`
 	// The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
-	//
-	// The following arguments are optional:
 	PeerLivenessDetection *string `pulumi:"peerLivenessDetection"`
 }
 
@@ -330,8 +328,6 @@ type RouteServerPeerBgpOptionsArgs struct {
 	// The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
 	PeerAsn pulumi.IntInput `pulumi:"peerAsn"`
 	// The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
-	//
-	// The following arguments are optional:
 	PeerLivenessDetection pulumi.StringPtrInput `pulumi:"peerLivenessDetection"`
 }
 
@@ -418,8 +414,6 @@ func (o RouteServerPeerBgpOptionsOutput) PeerAsn() pulumi.IntOutput {
 }
 
 // The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
-//
-// The following arguments are optional:
 func (o RouteServerPeerBgpOptionsOutput) PeerLivenessDetection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteServerPeerBgpOptions) *string { return v.PeerLivenessDetection }).(pulumi.StringPtrOutput)
 }
@@ -459,8 +453,6 @@ func (o RouteServerPeerBgpOptionsPtrOutput) PeerAsn() pulumi.IntPtrOutput {
 }
 
 // The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
-//
-// The following arguments are optional:
 func (o RouteServerPeerBgpOptionsPtrOutput) PeerLivenessDetection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RouteServerPeerBgpOptions) *string {
 		if v == nil {
@@ -1269,6 +1261,388 @@ func (o SecurityGroupVpcAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetEndpointAssociationsAssociation struct {
+	// Accessibility of the resource.
+	AssociatedResourceAccessibility string `pulumi:"associatedResourceAccessibility"`
+	// ARN of the resource for this association.
+	AssociatedResourceArn string `pulumi:"associatedResourceArn"`
+	// DNS entries for the Association. DNS entry blocks are documented below.
+	DnsEntries []GetEndpointAssociationsAssociationDnsEntry `pulumi:"dnsEntries"`
+	Id         string                                       `pulumi:"id"`
+	// DNS entries for the Association. Private DNS entry blocks are documented below.
+	PrivateDnsEntries []GetEndpointAssociationsAssociationPrivateDnsEntry `pulumi:"privateDnsEntries"`
+	// ARN of the Resource Group if the Resource is a member of a group.
+	ResourceConfigurationGroupArn string `pulumi:"resourceConfigurationGroupArn"`
+	// Service Network ARN. Applicable for endpoints of type `ServiceNetwork`.
+	ServiceNetworkArn string `pulumi:"serviceNetworkArn"`
+	// Service Network Name. Applicable for endpoints of type `ServiceNetwork`.
+	ServiceNetworkName string `pulumi:"serviceNetworkName"`
+	// Tags of the association.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// GetEndpointAssociationsAssociationInput is an input type that accepts GetEndpointAssociationsAssociationArgs and GetEndpointAssociationsAssociationOutput values.
+// You can construct a concrete instance of `GetEndpointAssociationsAssociationInput` via:
+//
+//	GetEndpointAssociationsAssociationArgs{...}
+type GetEndpointAssociationsAssociationInput interface {
+	pulumi.Input
+
+	ToGetEndpointAssociationsAssociationOutput() GetEndpointAssociationsAssociationOutput
+	ToGetEndpointAssociationsAssociationOutputWithContext(context.Context) GetEndpointAssociationsAssociationOutput
+}
+
+type GetEndpointAssociationsAssociationArgs struct {
+	// Accessibility of the resource.
+	AssociatedResourceAccessibility pulumi.StringInput `pulumi:"associatedResourceAccessibility"`
+	// ARN of the resource for this association.
+	AssociatedResourceArn pulumi.StringInput `pulumi:"associatedResourceArn"`
+	// DNS entries for the Association. DNS entry blocks are documented below.
+	DnsEntries GetEndpointAssociationsAssociationDnsEntryArrayInput `pulumi:"dnsEntries"`
+	Id         pulumi.StringInput                                   `pulumi:"id"`
+	// DNS entries for the Association. Private DNS entry blocks are documented below.
+	PrivateDnsEntries GetEndpointAssociationsAssociationPrivateDnsEntryArrayInput `pulumi:"privateDnsEntries"`
+	// ARN of the Resource Group if the Resource is a member of a group.
+	ResourceConfigurationGroupArn pulumi.StringInput `pulumi:"resourceConfigurationGroupArn"`
+	// Service Network ARN. Applicable for endpoints of type `ServiceNetwork`.
+	ServiceNetworkArn pulumi.StringInput `pulumi:"serviceNetworkArn"`
+	// Service Network Name. Applicable for endpoints of type `ServiceNetwork`.
+	ServiceNetworkName pulumi.StringInput `pulumi:"serviceNetworkName"`
+	// Tags of the association.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (GetEndpointAssociationsAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointAssociationsAssociation)(nil)).Elem()
+}
+
+func (i GetEndpointAssociationsAssociationArgs) ToGetEndpointAssociationsAssociationOutput() GetEndpointAssociationsAssociationOutput {
+	return i.ToGetEndpointAssociationsAssociationOutputWithContext(context.Background())
+}
+
+func (i GetEndpointAssociationsAssociationArgs) ToGetEndpointAssociationsAssociationOutputWithContext(ctx context.Context) GetEndpointAssociationsAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointAssociationsAssociationOutput)
+}
+
+// GetEndpointAssociationsAssociationArrayInput is an input type that accepts GetEndpointAssociationsAssociationArray and GetEndpointAssociationsAssociationArrayOutput values.
+// You can construct a concrete instance of `GetEndpointAssociationsAssociationArrayInput` via:
+//
+//	GetEndpointAssociationsAssociationArray{ GetEndpointAssociationsAssociationArgs{...} }
+type GetEndpointAssociationsAssociationArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointAssociationsAssociationArrayOutput() GetEndpointAssociationsAssociationArrayOutput
+	ToGetEndpointAssociationsAssociationArrayOutputWithContext(context.Context) GetEndpointAssociationsAssociationArrayOutput
+}
+
+type GetEndpointAssociationsAssociationArray []GetEndpointAssociationsAssociationInput
+
+func (GetEndpointAssociationsAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointAssociationsAssociation)(nil)).Elem()
+}
+
+func (i GetEndpointAssociationsAssociationArray) ToGetEndpointAssociationsAssociationArrayOutput() GetEndpointAssociationsAssociationArrayOutput {
+	return i.ToGetEndpointAssociationsAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointAssociationsAssociationArray) ToGetEndpointAssociationsAssociationArrayOutputWithContext(ctx context.Context) GetEndpointAssociationsAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointAssociationsAssociationArrayOutput)
+}
+
+type GetEndpointAssociationsAssociationOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointAssociationsAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointAssociationsAssociation)(nil)).Elem()
+}
+
+func (o GetEndpointAssociationsAssociationOutput) ToGetEndpointAssociationsAssociationOutput() GetEndpointAssociationsAssociationOutput {
+	return o
+}
+
+func (o GetEndpointAssociationsAssociationOutput) ToGetEndpointAssociationsAssociationOutputWithContext(ctx context.Context) GetEndpointAssociationsAssociationOutput {
+	return o
+}
+
+// Accessibility of the resource.
+func (o GetEndpointAssociationsAssociationOutput) AssociatedResourceAccessibility() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointAssociationsAssociation) string { return v.AssociatedResourceAccessibility }).(pulumi.StringOutput)
+}
+
+// ARN of the resource for this association.
+func (o GetEndpointAssociationsAssociationOutput) AssociatedResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointAssociationsAssociation) string { return v.AssociatedResourceArn }).(pulumi.StringOutput)
+}
+
+// DNS entries for the Association. DNS entry blocks are documented below.
+func (o GetEndpointAssociationsAssociationOutput) DnsEntries() GetEndpointAssociationsAssociationDnsEntryArrayOutput {
+	return o.ApplyT(func(v GetEndpointAssociationsAssociation) []GetEndpointAssociationsAssociationDnsEntry {
+		return v.DnsEntries
+	}).(GetEndpointAssociationsAssociationDnsEntryArrayOutput)
+}
+
+func (o GetEndpointAssociationsAssociationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointAssociationsAssociation) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// DNS entries for the Association. Private DNS entry blocks are documented below.
+func (o GetEndpointAssociationsAssociationOutput) PrivateDnsEntries() GetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput {
+	return o.ApplyT(func(v GetEndpointAssociationsAssociation) []GetEndpointAssociationsAssociationPrivateDnsEntry {
+		return v.PrivateDnsEntries
+	}).(GetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput)
+}
+
+// ARN of the Resource Group if the Resource is a member of a group.
+func (o GetEndpointAssociationsAssociationOutput) ResourceConfigurationGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointAssociationsAssociation) string { return v.ResourceConfigurationGroupArn }).(pulumi.StringOutput)
+}
+
+// Service Network ARN. Applicable for endpoints of type `ServiceNetwork`.
+func (o GetEndpointAssociationsAssociationOutput) ServiceNetworkArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointAssociationsAssociation) string { return v.ServiceNetworkArn }).(pulumi.StringOutput)
+}
+
+// Service Network Name. Applicable for endpoints of type `ServiceNetwork`.
+func (o GetEndpointAssociationsAssociationOutput) ServiceNetworkName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointAssociationsAssociation) string { return v.ServiceNetworkName }).(pulumi.StringOutput)
+}
+
+// Tags of the association.
+func (o GetEndpointAssociationsAssociationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetEndpointAssociationsAssociation) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type GetEndpointAssociationsAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointAssociationsAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointAssociationsAssociation)(nil)).Elem()
+}
+
+func (o GetEndpointAssociationsAssociationArrayOutput) ToGetEndpointAssociationsAssociationArrayOutput() GetEndpointAssociationsAssociationArrayOutput {
+	return o
+}
+
+func (o GetEndpointAssociationsAssociationArrayOutput) ToGetEndpointAssociationsAssociationArrayOutputWithContext(ctx context.Context) GetEndpointAssociationsAssociationArrayOutput {
+	return o
+}
+
+func (o GetEndpointAssociationsAssociationArrayOutput) Index(i pulumi.IntInput) GetEndpointAssociationsAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointAssociationsAssociation {
+		return vs[0].([]GetEndpointAssociationsAssociation)[vs[1].(int)]
+	}).(GetEndpointAssociationsAssociationOutput)
+}
+
+type GetEndpointAssociationsAssociationDnsEntry struct {
+	// DNS name.
+	DnsName string `pulumi:"dnsName"`
+	// ID of the private hosted zone.
+	HostedZoneId string `pulumi:"hostedZoneId"`
+}
+
+// GetEndpointAssociationsAssociationDnsEntryInput is an input type that accepts GetEndpointAssociationsAssociationDnsEntryArgs and GetEndpointAssociationsAssociationDnsEntryOutput values.
+// You can construct a concrete instance of `GetEndpointAssociationsAssociationDnsEntryInput` via:
+//
+//	GetEndpointAssociationsAssociationDnsEntryArgs{...}
+type GetEndpointAssociationsAssociationDnsEntryInput interface {
+	pulumi.Input
+
+	ToGetEndpointAssociationsAssociationDnsEntryOutput() GetEndpointAssociationsAssociationDnsEntryOutput
+	ToGetEndpointAssociationsAssociationDnsEntryOutputWithContext(context.Context) GetEndpointAssociationsAssociationDnsEntryOutput
+}
+
+type GetEndpointAssociationsAssociationDnsEntryArgs struct {
+	// DNS name.
+	DnsName pulumi.StringInput `pulumi:"dnsName"`
+	// ID of the private hosted zone.
+	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
+}
+
+func (GetEndpointAssociationsAssociationDnsEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointAssociationsAssociationDnsEntry)(nil)).Elem()
+}
+
+func (i GetEndpointAssociationsAssociationDnsEntryArgs) ToGetEndpointAssociationsAssociationDnsEntryOutput() GetEndpointAssociationsAssociationDnsEntryOutput {
+	return i.ToGetEndpointAssociationsAssociationDnsEntryOutputWithContext(context.Background())
+}
+
+func (i GetEndpointAssociationsAssociationDnsEntryArgs) ToGetEndpointAssociationsAssociationDnsEntryOutputWithContext(ctx context.Context) GetEndpointAssociationsAssociationDnsEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointAssociationsAssociationDnsEntryOutput)
+}
+
+// GetEndpointAssociationsAssociationDnsEntryArrayInput is an input type that accepts GetEndpointAssociationsAssociationDnsEntryArray and GetEndpointAssociationsAssociationDnsEntryArrayOutput values.
+// You can construct a concrete instance of `GetEndpointAssociationsAssociationDnsEntryArrayInput` via:
+//
+//	GetEndpointAssociationsAssociationDnsEntryArray{ GetEndpointAssociationsAssociationDnsEntryArgs{...} }
+type GetEndpointAssociationsAssociationDnsEntryArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointAssociationsAssociationDnsEntryArrayOutput() GetEndpointAssociationsAssociationDnsEntryArrayOutput
+	ToGetEndpointAssociationsAssociationDnsEntryArrayOutputWithContext(context.Context) GetEndpointAssociationsAssociationDnsEntryArrayOutput
+}
+
+type GetEndpointAssociationsAssociationDnsEntryArray []GetEndpointAssociationsAssociationDnsEntryInput
+
+func (GetEndpointAssociationsAssociationDnsEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointAssociationsAssociationDnsEntry)(nil)).Elem()
+}
+
+func (i GetEndpointAssociationsAssociationDnsEntryArray) ToGetEndpointAssociationsAssociationDnsEntryArrayOutput() GetEndpointAssociationsAssociationDnsEntryArrayOutput {
+	return i.ToGetEndpointAssociationsAssociationDnsEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointAssociationsAssociationDnsEntryArray) ToGetEndpointAssociationsAssociationDnsEntryArrayOutputWithContext(ctx context.Context) GetEndpointAssociationsAssociationDnsEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointAssociationsAssociationDnsEntryArrayOutput)
+}
+
+type GetEndpointAssociationsAssociationDnsEntryOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointAssociationsAssociationDnsEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointAssociationsAssociationDnsEntry)(nil)).Elem()
+}
+
+func (o GetEndpointAssociationsAssociationDnsEntryOutput) ToGetEndpointAssociationsAssociationDnsEntryOutput() GetEndpointAssociationsAssociationDnsEntryOutput {
+	return o
+}
+
+func (o GetEndpointAssociationsAssociationDnsEntryOutput) ToGetEndpointAssociationsAssociationDnsEntryOutputWithContext(ctx context.Context) GetEndpointAssociationsAssociationDnsEntryOutput {
+	return o
+}
+
+// DNS name.
+func (o GetEndpointAssociationsAssociationDnsEntryOutput) DnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointAssociationsAssociationDnsEntry) string { return v.DnsName }).(pulumi.StringOutput)
+}
+
+// ID of the private hosted zone.
+func (o GetEndpointAssociationsAssociationDnsEntryOutput) HostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointAssociationsAssociationDnsEntry) string { return v.HostedZoneId }).(pulumi.StringOutput)
+}
+
+type GetEndpointAssociationsAssociationDnsEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointAssociationsAssociationDnsEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointAssociationsAssociationDnsEntry)(nil)).Elem()
+}
+
+func (o GetEndpointAssociationsAssociationDnsEntryArrayOutput) ToGetEndpointAssociationsAssociationDnsEntryArrayOutput() GetEndpointAssociationsAssociationDnsEntryArrayOutput {
+	return o
+}
+
+func (o GetEndpointAssociationsAssociationDnsEntryArrayOutput) ToGetEndpointAssociationsAssociationDnsEntryArrayOutputWithContext(ctx context.Context) GetEndpointAssociationsAssociationDnsEntryArrayOutput {
+	return o
+}
+
+func (o GetEndpointAssociationsAssociationDnsEntryArrayOutput) Index(i pulumi.IntInput) GetEndpointAssociationsAssociationDnsEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointAssociationsAssociationDnsEntry {
+		return vs[0].([]GetEndpointAssociationsAssociationDnsEntry)[vs[1].(int)]
+	}).(GetEndpointAssociationsAssociationDnsEntryOutput)
+}
+
+type GetEndpointAssociationsAssociationPrivateDnsEntry struct {
+	// DNS name.
+	DnsName string `pulumi:"dnsName"`
+	// ID of the private hosted zone.
+	HostedZoneId string `pulumi:"hostedZoneId"`
+}
+
+// GetEndpointAssociationsAssociationPrivateDnsEntryInput is an input type that accepts GetEndpointAssociationsAssociationPrivateDnsEntryArgs and GetEndpointAssociationsAssociationPrivateDnsEntryOutput values.
+// You can construct a concrete instance of `GetEndpointAssociationsAssociationPrivateDnsEntryInput` via:
+//
+//	GetEndpointAssociationsAssociationPrivateDnsEntryArgs{...}
+type GetEndpointAssociationsAssociationPrivateDnsEntryInput interface {
+	pulumi.Input
+
+	ToGetEndpointAssociationsAssociationPrivateDnsEntryOutput() GetEndpointAssociationsAssociationPrivateDnsEntryOutput
+	ToGetEndpointAssociationsAssociationPrivateDnsEntryOutputWithContext(context.Context) GetEndpointAssociationsAssociationPrivateDnsEntryOutput
+}
+
+type GetEndpointAssociationsAssociationPrivateDnsEntryArgs struct {
+	// DNS name.
+	DnsName pulumi.StringInput `pulumi:"dnsName"`
+	// ID of the private hosted zone.
+	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
+}
+
+func (GetEndpointAssociationsAssociationPrivateDnsEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointAssociationsAssociationPrivateDnsEntry)(nil)).Elem()
+}
+
+func (i GetEndpointAssociationsAssociationPrivateDnsEntryArgs) ToGetEndpointAssociationsAssociationPrivateDnsEntryOutput() GetEndpointAssociationsAssociationPrivateDnsEntryOutput {
+	return i.ToGetEndpointAssociationsAssociationPrivateDnsEntryOutputWithContext(context.Background())
+}
+
+func (i GetEndpointAssociationsAssociationPrivateDnsEntryArgs) ToGetEndpointAssociationsAssociationPrivateDnsEntryOutputWithContext(ctx context.Context) GetEndpointAssociationsAssociationPrivateDnsEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointAssociationsAssociationPrivateDnsEntryOutput)
+}
+
+// GetEndpointAssociationsAssociationPrivateDnsEntryArrayInput is an input type that accepts GetEndpointAssociationsAssociationPrivateDnsEntryArray and GetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput values.
+// You can construct a concrete instance of `GetEndpointAssociationsAssociationPrivateDnsEntryArrayInput` via:
+//
+//	GetEndpointAssociationsAssociationPrivateDnsEntryArray{ GetEndpointAssociationsAssociationPrivateDnsEntryArgs{...} }
+type GetEndpointAssociationsAssociationPrivateDnsEntryArrayInput interface {
+	pulumi.Input
+
+	ToGetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput() GetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput
+	ToGetEndpointAssociationsAssociationPrivateDnsEntryArrayOutputWithContext(context.Context) GetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput
+}
+
+type GetEndpointAssociationsAssociationPrivateDnsEntryArray []GetEndpointAssociationsAssociationPrivateDnsEntryInput
+
+func (GetEndpointAssociationsAssociationPrivateDnsEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointAssociationsAssociationPrivateDnsEntry)(nil)).Elem()
+}
+
+func (i GetEndpointAssociationsAssociationPrivateDnsEntryArray) ToGetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput() GetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput {
+	return i.ToGetEndpointAssociationsAssociationPrivateDnsEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GetEndpointAssociationsAssociationPrivateDnsEntryArray) ToGetEndpointAssociationsAssociationPrivateDnsEntryArrayOutputWithContext(ctx context.Context) GetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput)
+}
+
+type GetEndpointAssociationsAssociationPrivateDnsEntryOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointAssociationsAssociationPrivateDnsEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEndpointAssociationsAssociationPrivateDnsEntry)(nil)).Elem()
+}
+
+func (o GetEndpointAssociationsAssociationPrivateDnsEntryOutput) ToGetEndpointAssociationsAssociationPrivateDnsEntryOutput() GetEndpointAssociationsAssociationPrivateDnsEntryOutput {
+	return o
+}
+
+func (o GetEndpointAssociationsAssociationPrivateDnsEntryOutput) ToGetEndpointAssociationsAssociationPrivateDnsEntryOutputWithContext(ctx context.Context) GetEndpointAssociationsAssociationPrivateDnsEntryOutput {
+	return o
+}
+
+// DNS name.
+func (o GetEndpointAssociationsAssociationPrivateDnsEntryOutput) DnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointAssociationsAssociationPrivateDnsEntry) string { return v.DnsName }).(pulumi.StringOutput)
+}
+
+// ID of the private hosted zone.
+func (o GetEndpointAssociationsAssociationPrivateDnsEntryOutput) HostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEndpointAssociationsAssociationPrivateDnsEntry) string { return v.HostedZoneId }).(pulumi.StringOutput)
+}
+
+type GetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEndpointAssociationsAssociationPrivateDnsEntry)(nil)).Elem()
+}
+
+func (o GetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput) ToGetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput() GetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput {
+	return o
+}
+
+func (o GetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput) ToGetEndpointAssociationsAssociationPrivateDnsEntryArrayOutputWithContext(ctx context.Context) GetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput {
+	return o
+}
+
+func (o GetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput) Index(i pulumi.IntInput) GetEndpointAssociationsAssociationPrivateDnsEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEndpointAssociationsAssociationPrivateDnsEntry {
+		return vs[0].([]GetEndpointAssociationsAssociationPrivateDnsEntry)[vs[1].(int)]
+	}).(GetEndpointAssociationsAssociationPrivateDnsEntryOutput)
+}
+
 type GetSecurityGroupRuleFilter struct {
 	// Name of the filter field. Valid values can be found in the EC2 [`DescribeSecurityGroupRules`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html) API Reference.
 	Name string `pulumi:"name"`
@@ -1490,388 +1864,6 @@ func (o GetSecurityGroupRulesFilterArrayOutput) Index(i pulumi.IntInput) GetSecu
 	}).(GetSecurityGroupRulesFilterOutput)
 }
 
-type GetVpcEndpointAssociationsAssociation struct {
-	// Accessibility of the resource.
-	AssociatedResourceAccessibility string `pulumi:"associatedResourceAccessibility"`
-	// ARN of the resource for this association.
-	AssociatedResourceArn string `pulumi:"associatedResourceArn"`
-	// DNS entries for the Association. DNS entry blocks are documented below.
-	DnsEntries []GetVpcEndpointAssociationsAssociationDnsEntry `pulumi:"dnsEntries"`
-	Id         string                                          `pulumi:"id"`
-	// DNS entries for the Association. Private DNS entry blocks are documented below.
-	PrivateDnsEntries []GetVpcEndpointAssociationsAssociationPrivateDnsEntry `pulumi:"privateDnsEntries"`
-	// ARN of the Resource Group if the Resource is a member of a group.
-	ResourceConfigurationGroupArn string `pulumi:"resourceConfigurationGroupArn"`
-	// Service Network ARN. Applicable for endpoints of type `ServiceNetwork`.
-	ServiceNetworkArn string `pulumi:"serviceNetworkArn"`
-	// Service Network Name. Applicable for endpoints of type `ServiceNetwork`.
-	ServiceNetworkName string `pulumi:"serviceNetworkName"`
-	// Tags of the association.
-	Tags map[string]string `pulumi:"tags"`
-}
-
-// GetVpcEndpointAssociationsAssociationInput is an input type that accepts GetVpcEndpointAssociationsAssociationArgs and GetVpcEndpointAssociationsAssociationOutput values.
-// You can construct a concrete instance of `GetVpcEndpointAssociationsAssociationInput` via:
-//
-//	GetVpcEndpointAssociationsAssociationArgs{...}
-type GetVpcEndpointAssociationsAssociationInput interface {
-	pulumi.Input
-
-	ToGetVpcEndpointAssociationsAssociationOutput() GetVpcEndpointAssociationsAssociationOutput
-	ToGetVpcEndpointAssociationsAssociationOutputWithContext(context.Context) GetVpcEndpointAssociationsAssociationOutput
-}
-
-type GetVpcEndpointAssociationsAssociationArgs struct {
-	// Accessibility of the resource.
-	AssociatedResourceAccessibility pulumi.StringInput `pulumi:"associatedResourceAccessibility"`
-	// ARN of the resource for this association.
-	AssociatedResourceArn pulumi.StringInput `pulumi:"associatedResourceArn"`
-	// DNS entries for the Association. DNS entry blocks are documented below.
-	DnsEntries GetVpcEndpointAssociationsAssociationDnsEntryArrayInput `pulumi:"dnsEntries"`
-	Id         pulumi.StringInput                                      `pulumi:"id"`
-	// DNS entries for the Association. Private DNS entry blocks are documented below.
-	PrivateDnsEntries GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayInput `pulumi:"privateDnsEntries"`
-	// ARN of the Resource Group if the Resource is a member of a group.
-	ResourceConfigurationGroupArn pulumi.StringInput `pulumi:"resourceConfigurationGroupArn"`
-	// Service Network ARN. Applicable for endpoints of type `ServiceNetwork`.
-	ServiceNetworkArn pulumi.StringInput `pulumi:"serviceNetworkArn"`
-	// Service Network Name. Applicable for endpoints of type `ServiceNetwork`.
-	ServiceNetworkName pulumi.StringInput `pulumi:"serviceNetworkName"`
-	// Tags of the association.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-}
-
-func (GetVpcEndpointAssociationsAssociationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVpcEndpointAssociationsAssociation)(nil)).Elem()
-}
-
-func (i GetVpcEndpointAssociationsAssociationArgs) ToGetVpcEndpointAssociationsAssociationOutput() GetVpcEndpointAssociationsAssociationOutput {
-	return i.ToGetVpcEndpointAssociationsAssociationOutputWithContext(context.Background())
-}
-
-func (i GetVpcEndpointAssociationsAssociationArgs) ToGetVpcEndpointAssociationsAssociationOutputWithContext(ctx context.Context) GetVpcEndpointAssociationsAssociationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetVpcEndpointAssociationsAssociationOutput)
-}
-
-// GetVpcEndpointAssociationsAssociationArrayInput is an input type that accepts GetVpcEndpointAssociationsAssociationArray and GetVpcEndpointAssociationsAssociationArrayOutput values.
-// You can construct a concrete instance of `GetVpcEndpointAssociationsAssociationArrayInput` via:
-//
-//	GetVpcEndpointAssociationsAssociationArray{ GetVpcEndpointAssociationsAssociationArgs{...} }
-type GetVpcEndpointAssociationsAssociationArrayInput interface {
-	pulumi.Input
-
-	ToGetVpcEndpointAssociationsAssociationArrayOutput() GetVpcEndpointAssociationsAssociationArrayOutput
-	ToGetVpcEndpointAssociationsAssociationArrayOutputWithContext(context.Context) GetVpcEndpointAssociationsAssociationArrayOutput
-}
-
-type GetVpcEndpointAssociationsAssociationArray []GetVpcEndpointAssociationsAssociationInput
-
-func (GetVpcEndpointAssociationsAssociationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetVpcEndpointAssociationsAssociation)(nil)).Elem()
-}
-
-func (i GetVpcEndpointAssociationsAssociationArray) ToGetVpcEndpointAssociationsAssociationArrayOutput() GetVpcEndpointAssociationsAssociationArrayOutput {
-	return i.ToGetVpcEndpointAssociationsAssociationArrayOutputWithContext(context.Background())
-}
-
-func (i GetVpcEndpointAssociationsAssociationArray) ToGetVpcEndpointAssociationsAssociationArrayOutputWithContext(ctx context.Context) GetVpcEndpointAssociationsAssociationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetVpcEndpointAssociationsAssociationArrayOutput)
-}
-
-type GetVpcEndpointAssociationsAssociationOutput struct{ *pulumi.OutputState }
-
-func (GetVpcEndpointAssociationsAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVpcEndpointAssociationsAssociation)(nil)).Elem()
-}
-
-func (o GetVpcEndpointAssociationsAssociationOutput) ToGetVpcEndpointAssociationsAssociationOutput() GetVpcEndpointAssociationsAssociationOutput {
-	return o
-}
-
-func (o GetVpcEndpointAssociationsAssociationOutput) ToGetVpcEndpointAssociationsAssociationOutputWithContext(ctx context.Context) GetVpcEndpointAssociationsAssociationOutput {
-	return o
-}
-
-// Accessibility of the resource.
-func (o GetVpcEndpointAssociationsAssociationOutput) AssociatedResourceAccessibility() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcEndpointAssociationsAssociation) string { return v.AssociatedResourceAccessibility }).(pulumi.StringOutput)
-}
-
-// ARN of the resource for this association.
-func (o GetVpcEndpointAssociationsAssociationOutput) AssociatedResourceArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcEndpointAssociationsAssociation) string { return v.AssociatedResourceArn }).(pulumi.StringOutput)
-}
-
-// DNS entries for the Association. DNS entry blocks are documented below.
-func (o GetVpcEndpointAssociationsAssociationOutput) DnsEntries() GetVpcEndpointAssociationsAssociationDnsEntryArrayOutput {
-	return o.ApplyT(func(v GetVpcEndpointAssociationsAssociation) []GetVpcEndpointAssociationsAssociationDnsEntry {
-		return v.DnsEntries
-	}).(GetVpcEndpointAssociationsAssociationDnsEntryArrayOutput)
-}
-
-func (o GetVpcEndpointAssociationsAssociationOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcEndpointAssociationsAssociation) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// DNS entries for the Association. Private DNS entry blocks are documented below.
-func (o GetVpcEndpointAssociationsAssociationOutput) PrivateDnsEntries() GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutput {
-	return o.ApplyT(func(v GetVpcEndpointAssociationsAssociation) []GetVpcEndpointAssociationsAssociationPrivateDnsEntry {
-		return v.PrivateDnsEntries
-	}).(GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutput)
-}
-
-// ARN of the Resource Group if the Resource is a member of a group.
-func (o GetVpcEndpointAssociationsAssociationOutput) ResourceConfigurationGroupArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcEndpointAssociationsAssociation) string { return v.ResourceConfigurationGroupArn }).(pulumi.StringOutput)
-}
-
-// Service Network ARN. Applicable for endpoints of type `ServiceNetwork`.
-func (o GetVpcEndpointAssociationsAssociationOutput) ServiceNetworkArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcEndpointAssociationsAssociation) string { return v.ServiceNetworkArn }).(pulumi.StringOutput)
-}
-
-// Service Network Name. Applicable for endpoints of type `ServiceNetwork`.
-func (o GetVpcEndpointAssociationsAssociationOutput) ServiceNetworkName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcEndpointAssociationsAssociation) string { return v.ServiceNetworkName }).(pulumi.StringOutput)
-}
-
-// Tags of the association.
-func (o GetVpcEndpointAssociationsAssociationOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GetVpcEndpointAssociationsAssociation) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-type GetVpcEndpointAssociationsAssociationArrayOutput struct{ *pulumi.OutputState }
-
-func (GetVpcEndpointAssociationsAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetVpcEndpointAssociationsAssociation)(nil)).Elem()
-}
-
-func (o GetVpcEndpointAssociationsAssociationArrayOutput) ToGetVpcEndpointAssociationsAssociationArrayOutput() GetVpcEndpointAssociationsAssociationArrayOutput {
-	return o
-}
-
-func (o GetVpcEndpointAssociationsAssociationArrayOutput) ToGetVpcEndpointAssociationsAssociationArrayOutputWithContext(ctx context.Context) GetVpcEndpointAssociationsAssociationArrayOutput {
-	return o
-}
-
-func (o GetVpcEndpointAssociationsAssociationArrayOutput) Index(i pulumi.IntInput) GetVpcEndpointAssociationsAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcEndpointAssociationsAssociation {
-		return vs[0].([]GetVpcEndpointAssociationsAssociation)[vs[1].(int)]
-	}).(GetVpcEndpointAssociationsAssociationOutput)
-}
-
-type GetVpcEndpointAssociationsAssociationDnsEntry struct {
-	// DNS name.
-	DnsName string `pulumi:"dnsName"`
-	// ID of the private hosted zone.
-	HostedZoneId string `pulumi:"hostedZoneId"`
-}
-
-// GetVpcEndpointAssociationsAssociationDnsEntryInput is an input type that accepts GetVpcEndpointAssociationsAssociationDnsEntryArgs and GetVpcEndpointAssociationsAssociationDnsEntryOutput values.
-// You can construct a concrete instance of `GetVpcEndpointAssociationsAssociationDnsEntryInput` via:
-//
-//	GetVpcEndpointAssociationsAssociationDnsEntryArgs{...}
-type GetVpcEndpointAssociationsAssociationDnsEntryInput interface {
-	pulumi.Input
-
-	ToGetVpcEndpointAssociationsAssociationDnsEntryOutput() GetVpcEndpointAssociationsAssociationDnsEntryOutput
-	ToGetVpcEndpointAssociationsAssociationDnsEntryOutputWithContext(context.Context) GetVpcEndpointAssociationsAssociationDnsEntryOutput
-}
-
-type GetVpcEndpointAssociationsAssociationDnsEntryArgs struct {
-	// DNS name.
-	DnsName pulumi.StringInput `pulumi:"dnsName"`
-	// ID of the private hosted zone.
-	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
-}
-
-func (GetVpcEndpointAssociationsAssociationDnsEntryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVpcEndpointAssociationsAssociationDnsEntry)(nil)).Elem()
-}
-
-func (i GetVpcEndpointAssociationsAssociationDnsEntryArgs) ToGetVpcEndpointAssociationsAssociationDnsEntryOutput() GetVpcEndpointAssociationsAssociationDnsEntryOutput {
-	return i.ToGetVpcEndpointAssociationsAssociationDnsEntryOutputWithContext(context.Background())
-}
-
-func (i GetVpcEndpointAssociationsAssociationDnsEntryArgs) ToGetVpcEndpointAssociationsAssociationDnsEntryOutputWithContext(ctx context.Context) GetVpcEndpointAssociationsAssociationDnsEntryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetVpcEndpointAssociationsAssociationDnsEntryOutput)
-}
-
-// GetVpcEndpointAssociationsAssociationDnsEntryArrayInput is an input type that accepts GetVpcEndpointAssociationsAssociationDnsEntryArray and GetVpcEndpointAssociationsAssociationDnsEntryArrayOutput values.
-// You can construct a concrete instance of `GetVpcEndpointAssociationsAssociationDnsEntryArrayInput` via:
-//
-//	GetVpcEndpointAssociationsAssociationDnsEntryArray{ GetVpcEndpointAssociationsAssociationDnsEntryArgs{...} }
-type GetVpcEndpointAssociationsAssociationDnsEntryArrayInput interface {
-	pulumi.Input
-
-	ToGetVpcEndpointAssociationsAssociationDnsEntryArrayOutput() GetVpcEndpointAssociationsAssociationDnsEntryArrayOutput
-	ToGetVpcEndpointAssociationsAssociationDnsEntryArrayOutputWithContext(context.Context) GetVpcEndpointAssociationsAssociationDnsEntryArrayOutput
-}
-
-type GetVpcEndpointAssociationsAssociationDnsEntryArray []GetVpcEndpointAssociationsAssociationDnsEntryInput
-
-func (GetVpcEndpointAssociationsAssociationDnsEntryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetVpcEndpointAssociationsAssociationDnsEntry)(nil)).Elem()
-}
-
-func (i GetVpcEndpointAssociationsAssociationDnsEntryArray) ToGetVpcEndpointAssociationsAssociationDnsEntryArrayOutput() GetVpcEndpointAssociationsAssociationDnsEntryArrayOutput {
-	return i.ToGetVpcEndpointAssociationsAssociationDnsEntryArrayOutputWithContext(context.Background())
-}
-
-func (i GetVpcEndpointAssociationsAssociationDnsEntryArray) ToGetVpcEndpointAssociationsAssociationDnsEntryArrayOutputWithContext(ctx context.Context) GetVpcEndpointAssociationsAssociationDnsEntryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetVpcEndpointAssociationsAssociationDnsEntryArrayOutput)
-}
-
-type GetVpcEndpointAssociationsAssociationDnsEntryOutput struct{ *pulumi.OutputState }
-
-func (GetVpcEndpointAssociationsAssociationDnsEntryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVpcEndpointAssociationsAssociationDnsEntry)(nil)).Elem()
-}
-
-func (o GetVpcEndpointAssociationsAssociationDnsEntryOutput) ToGetVpcEndpointAssociationsAssociationDnsEntryOutput() GetVpcEndpointAssociationsAssociationDnsEntryOutput {
-	return o
-}
-
-func (o GetVpcEndpointAssociationsAssociationDnsEntryOutput) ToGetVpcEndpointAssociationsAssociationDnsEntryOutputWithContext(ctx context.Context) GetVpcEndpointAssociationsAssociationDnsEntryOutput {
-	return o
-}
-
-// DNS name.
-func (o GetVpcEndpointAssociationsAssociationDnsEntryOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcEndpointAssociationsAssociationDnsEntry) string { return v.DnsName }).(pulumi.StringOutput)
-}
-
-// ID of the private hosted zone.
-func (o GetVpcEndpointAssociationsAssociationDnsEntryOutput) HostedZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcEndpointAssociationsAssociationDnsEntry) string { return v.HostedZoneId }).(pulumi.StringOutput)
-}
-
-type GetVpcEndpointAssociationsAssociationDnsEntryArrayOutput struct{ *pulumi.OutputState }
-
-func (GetVpcEndpointAssociationsAssociationDnsEntryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetVpcEndpointAssociationsAssociationDnsEntry)(nil)).Elem()
-}
-
-func (o GetVpcEndpointAssociationsAssociationDnsEntryArrayOutput) ToGetVpcEndpointAssociationsAssociationDnsEntryArrayOutput() GetVpcEndpointAssociationsAssociationDnsEntryArrayOutput {
-	return o
-}
-
-func (o GetVpcEndpointAssociationsAssociationDnsEntryArrayOutput) ToGetVpcEndpointAssociationsAssociationDnsEntryArrayOutputWithContext(ctx context.Context) GetVpcEndpointAssociationsAssociationDnsEntryArrayOutput {
-	return o
-}
-
-func (o GetVpcEndpointAssociationsAssociationDnsEntryArrayOutput) Index(i pulumi.IntInput) GetVpcEndpointAssociationsAssociationDnsEntryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcEndpointAssociationsAssociationDnsEntry {
-		return vs[0].([]GetVpcEndpointAssociationsAssociationDnsEntry)[vs[1].(int)]
-	}).(GetVpcEndpointAssociationsAssociationDnsEntryOutput)
-}
-
-type GetVpcEndpointAssociationsAssociationPrivateDnsEntry struct {
-	// DNS name.
-	DnsName string `pulumi:"dnsName"`
-	// ID of the private hosted zone.
-	HostedZoneId string `pulumi:"hostedZoneId"`
-}
-
-// GetVpcEndpointAssociationsAssociationPrivateDnsEntryInput is an input type that accepts GetVpcEndpointAssociationsAssociationPrivateDnsEntryArgs and GetVpcEndpointAssociationsAssociationPrivateDnsEntryOutput values.
-// You can construct a concrete instance of `GetVpcEndpointAssociationsAssociationPrivateDnsEntryInput` via:
-//
-//	GetVpcEndpointAssociationsAssociationPrivateDnsEntryArgs{...}
-type GetVpcEndpointAssociationsAssociationPrivateDnsEntryInput interface {
-	pulumi.Input
-
-	ToGetVpcEndpointAssociationsAssociationPrivateDnsEntryOutput() GetVpcEndpointAssociationsAssociationPrivateDnsEntryOutput
-	ToGetVpcEndpointAssociationsAssociationPrivateDnsEntryOutputWithContext(context.Context) GetVpcEndpointAssociationsAssociationPrivateDnsEntryOutput
-}
-
-type GetVpcEndpointAssociationsAssociationPrivateDnsEntryArgs struct {
-	// DNS name.
-	DnsName pulumi.StringInput `pulumi:"dnsName"`
-	// ID of the private hosted zone.
-	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
-}
-
-func (GetVpcEndpointAssociationsAssociationPrivateDnsEntryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVpcEndpointAssociationsAssociationPrivateDnsEntry)(nil)).Elem()
-}
-
-func (i GetVpcEndpointAssociationsAssociationPrivateDnsEntryArgs) ToGetVpcEndpointAssociationsAssociationPrivateDnsEntryOutput() GetVpcEndpointAssociationsAssociationPrivateDnsEntryOutput {
-	return i.ToGetVpcEndpointAssociationsAssociationPrivateDnsEntryOutputWithContext(context.Background())
-}
-
-func (i GetVpcEndpointAssociationsAssociationPrivateDnsEntryArgs) ToGetVpcEndpointAssociationsAssociationPrivateDnsEntryOutputWithContext(ctx context.Context) GetVpcEndpointAssociationsAssociationPrivateDnsEntryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetVpcEndpointAssociationsAssociationPrivateDnsEntryOutput)
-}
-
-// GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayInput is an input type that accepts GetVpcEndpointAssociationsAssociationPrivateDnsEntryArray and GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutput values.
-// You can construct a concrete instance of `GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayInput` via:
-//
-//	GetVpcEndpointAssociationsAssociationPrivateDnsEntryArray{ GetVpcEndpointAssociationsAssociationPrivateDnsEntryArgs{...} }
-type GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayInput interface {
-	pulumi.Input
-
-	ToGetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutput() GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutput
-	ToGetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutputWithContext(context.Context) GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutput
-}
-
-type GetVpcEndpointAssociationsAssociationPrivateDnsEntryArray []GetVpcEndpointAssociationsAssociationPrivateDnsEntryInput
-
-func (GetVpcEndpointAssociationsAssociationPrivateDnsEntryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetVpcEndpointAssociationsAssociationPrivateDnsEntry)(nil)).Elem()
-}
-
-func (i GetVpcEndpointAssociationsAssociationPrivateDnsEntryArray) ToGetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutput() GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutput {
-	return i.ToGetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutputWithContext(context.Background())
-}
-
-func (i GetVpcEndpointAssociationsAssociationPrivateDnsEntryArray) ToGetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutputWithContext(ctx context.Context) GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutput)
-}
-
-type GetVpcEndpointAssociationsAssociationPrivateDnsEntryOutput struct{ *pulumi.OutputState }
-
-func (GetVpcEndpointAssociationsAssociationPrivateDnsEntryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetVpcEndpointAssociationsAssociationPrivateDnsEntry)(nil)).Elem()
-}
-
-func (o GetVpcEndpointAssociationsAssociationPrivateDnsEntryOutput) ToGetVpcEndpointAssociationsAssociationPrivateDnsEntryOutput() GetVpcEndpointAssociationsAssociationPrivateDnsEntryOutput {
-	return o
-}
-
-func (o GetVpcEndpointAssociationsAssociationPrivateDnsEntryOutput) ToGetVpcEndpointAssociationsAssociationPrivateDnsEntryOutputWithContext(ctx context.Context) GetVpcEndpointAssociationsAssociationPrivateDnsEntryOutput {
-	return o
-}
-
-// DNS name.
-func (o GetVpcEndpointAssociationsAssociationPrivateDnsEntryOutput) DnsName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcEndpointAssociationsAssociationPrivateDnsEntry) string { return v.DnsName }).(pulumi.StringOutput)
-}
-
-// ID of the private hosted zone.
-func (o GetVpcEndpointAssociationsAssociationPrivateDnsEntryOutput) HostedZoneId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetVpcEndpointAssociationsAssociationPrivateDnsEntry) string { return v.HostedZoneId }).(pulumi.StringOutput)
-}
-
-type GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutput struct{ *pulumi.OutputState }
-
-func (GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetVpcEndpointAssociationsAssociationPrivateDnsEntry)(nil)).Elem()
-}
-
-func (o GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutput) ToGetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutput() GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutput {
-	return o
-}
-
-func (o GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutput) ToGetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutputWithContext(ctx context.Context) GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutput {
-	return o
-}
-
-func (o GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutput) Index(i pulumi.IntInput) GetVpcEndpointAssociationsAssociationPrivateDnsEntryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcEndpointAssociationsAssociationPrivateDnsEntry {
-		return vs[0].([]GetVpcEndpointAssociationsAssociationPrivateDnsEntry)[vs[1].(int)]
-	}).(GetVpcEndpointAssociationsAssociationPrivateDnsEntryOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointServicePrivateDnsVerificationTimeoutsInput)(nil)).Elem(), EndpointServicePrivateDnsVerificationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointServicePrivateDnsVerificationTimeoutsPtrInput)(nil)).Elem(), EndpointServicePrivateDnsVerificationTimeoutsArgs{})
@@ -1889,16 +1881,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerVpcAssociationTimeoutsPtrInput)(nil)).Elem(), RouteServerVpcAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupVpcAssociationTimeoutsInput)(nil)).Elem(), SecurityGroupVpcAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupVpcAssociationTimeoutsPtrInput)(nil)).Elem(), SecurityGroupVpcAssociationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointAssociationsAssociationInput)(nil)).Elem(), GetEndpointAssociationsAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointAssociationsAssociationArrayInput)(nil)).Elem(), GetEndpointAssociationsAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointAssociationsAssociationDnsEntryInput)(nil)).Elem(), GetEndpointAssociationsAssociationDnsEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointAssociationsAssociationDnsEntryArrayInput)(nil)).Elem(), GetEndpointAssociationsAssociationDnsEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointAssociationsAssociationPrivateDnsEntryInput)(nil)).Elem(), GetEndpointAssociationsAssociationPrivateDnsEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointAssociationsAssociationPrivateDnsEntryArrayInput)(nil)).Elem(), GetEndpointAssociationsAssociationPrivateDnsEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupRuleFilterInput)(nil)).Elem(), GetSecurityGroupRuleFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupRuleFilterArrayInput)(nil)).Elem(), GetSecurityGroupRuleFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupRulesFilterInput)(nil)).Elem(), GetSecurityGroupRulesFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecurityGroupRulesFilterArrayInput)(nil)).Elem(), GetSecurityGroupRulesFilterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointAssociationsAssociationInput)(nil)).Elem(), GetVpcEndpointAssociationsAssociationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointAssociationsAssociationArrayInput)(nil)).Elem(), GetVpcEndpointAssociationsAssociationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointAssociationsAssociationDnsEntryInput)(nil)).Elem(), GetVpcEndpointAssociationsAssociationDnsEntryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointAssociationsAssociationDnsEntryArrayInput)(nil)).Elem(), GetVpcEndpointAssociationsAssociationDnsEntryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointAssociationsAssociationPrivateDnsEntryInput)(nil)).Elem(), GetVpcEndpointAssociationsAssociationPrivateDnsEntryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayInput)(nil)).Elem(), GetVpcEndpointAssociationsAssociationPrivateDnsEntryArray{})
 	pulumi.RegisterOutputType(EndpointServicePrivateDnsVerificationTimeoutsOutput{})
 	pulumi.RegisterOutputType(EndpointServicePrivateDnsVerificationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(RouteServerEndpointTimeoutsOutput{})
@@ -1915,14 +1907,14 @@ func init() {
 	pulumi.RegisterOutputType(RouteServerVpcAssociationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(SecurityGroupVpcAssociationTimeoutsOutput{})
 	pulumi.RegisterOutputType(SecurityGroupVpcAssociationTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(GetEndpointAssociationsAssociationOutput{})
+	pulumi.RegisterOutputType(GetEndpointAssociationsAssociationArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointAssociationsAssociationDnsEntryOutput{})
+	pulumi.RegisterOutputType(GetEndpointAssociationsAssociationDnsEntryArrayOutput{})
+	pulumi.RegisterOutputType(GetEndpointAssociationsAssociationPrivateDnsEntryOutput{})
+	pulumi.RegisterOutputType(GetEndpointAssociationsAssociationPrivateDnsEntryArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupRuleFilterOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupRuleFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupRulesFilterOutput{})
 	pulumi.RegisterOutputType(GetSecurityGroupRulesFilterArrayOutput{})
-	pulumi.RegisterOutputType(GetVpcEndpointAssociationsAssociationOutput{})
-	pulumi.RegisterOutputType(GetVpcEndpointAssociationsAssociationArrayOutput{})
-	pulumi.RegisterOutputType(GetVpcEndpointAssociationsAssociationDnsEntryOutput{})
-	pulumi.RegisterOutputType(GetVpcEndpointAssociationsAssociationDnsEntryArrayOutput{})
-	pulumi.RegisterOutputType(GetVpcEndpointAssociationsAssociationPrivateDnsEntryOutput{})
-	pulumi.RegisterOutputType(GetVpcEndpointAssociationsAssociationPrivateDnsEntryArrayOutput{})
 }

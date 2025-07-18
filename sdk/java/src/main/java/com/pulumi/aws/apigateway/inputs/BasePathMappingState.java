@@ -61,6 +61,21 @@ public final class BasePathMappingState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ID of the API to connect.
      * 
      */
@@ -96,6 +111,7 @@ public final class BasePathMappingState extends com.pulumi.resources.ResourceArg
         this.basePath = $.basePath;
         this.domainName = $.domainName;
         this.domainNameId = $.domainNameId;
+        this.region = $.region;
         this.restApi = $.restApi;
         this.stageName = $.stageName;
     }
@@ -179,6 +195,27 @@ public final class BasePathMappingState extends com.pulumi.resources.ResourceArg
          */
         public Builder domainNameId(String domainNameId) {
             return domainNameId(Output.of(domainNameId));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Signer
         [Input("jobId", required: true)]
         public string JobId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetSigningJobArgs()
         {
         }
@@ -106,6 +112,12 @@ namespace Pulumi.Aws.Signer
         /// </summary>
         [Input("jobId", required: true)]
         public Input<string> JobId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetSigningJobInvokeArgs()
         {
@@ -154,6 +166,7 @@ namespace Pulumi.Aws.Signer
         /// Version of the signing profile used to initiate the signing job.
         /// </summary>
         public readonly string ProfileVersion;
+        public readonly string Region;
         /// <summary>
         /// IAM principal that requested the signing job.
         /// </summary>
@@ -205,6 +218,8 @@ namespace Pulumi.Aws.Signer
 
             string profileVersion,
 
+            string region,
+
             string requestedBy,
 
             ImmutableArray<Outputs.GetSigningJobRevocationRecordResult> revocationRecords,
@@ -229,6 +244,7 @@ namespace Pulumi.Aws.Signer
             PlatformId = platformId;
             ProfileName = profileName;
             ProfileVersion = profileVersion;
+            Region = region;
             RequestedBy = requestedBy;
             RevocationRecords = revocationRecords;
             SignatureExpiresAt = signatureExpiresAt;

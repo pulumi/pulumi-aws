@@ -28,12 +28,14 @@ class CustomActionTypeArgs:
                  provider_name: pulumi.Input[builtins.str],
                  version: pulumi.Input[builtins.str],
                  configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  settings: Optional[pulumi.Input['CustomActionTypeSettingsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomActionType resource.
         :param pulumi.Input[builtins.str] category: The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
         :param pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]] configuration_properties: The configuration properties for the custom action. Max 10 items.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "input_artifact_details", input_artifact_details)
@@ -42,6 +44,8 @@ class CustomActionTypeArgs:
         pulumi.set(__self__, "version", version)
         if configuration_properties is not None:
             pulumi.set(__self__, "configuration_properties", configuration_properties)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
         if tags is not None:
@@ -109,6 +113,18 @@ class CustomActionTypeArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def settings(self) -> Optional[pulumi.Input['CustomActionTypeSettingsArgs']]:
         return pulumi.get(self, "settings")
 
@@ -136,6 +152,7 @@ class _CustomActionTypeState:
                  output_artifact_details: Optional[pulumi.Input['CustomActionTypeOutputArtifactDetailsArgs']] = None,
                  owner: Optional[pulumi.Input[builtins.str]] = None,
                  provider_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  settings: Optional[pulumi.Input['CustomActionTypeSettingsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -146,6 +163,7 @@ class _CustomActionTypeState:
         :param pulumi.Input[builtins.str] category: The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
         :param pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]] configuration_properties: The configuration properties for the custom action. Max 10 items.
         :param pulumi.Input[builtins.str] owner: The creator of the action being called.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -162,13 +180,12 @@ class _CustomActionTypeState:
             pulumi.set(__self__, "owner", owner)
         if provider_name is not None:
             pulumi.set(__self__, "provider_name", provider_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if version is not None:
@@ -251,6 +268,18 @@ class _CustomActionTypeState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def settings(self) -> Optional[pulumi.Input['CustomActionTypeSettingsArgs']]:
         return pulumi.get(self, "settings")
 
@@ -269,7 +298,6 @@ class _CustomActionTypeState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -301,6 +329,7 @@ class CustomActionType(pulumi.CustomResource):
                  input_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeInputArtifactDetailsArgs', 'CustomActionTypeInputArtifactDetailsArgsDict']]] = None,
                  output_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeOutputArtifactDetailsArgs', 'CustomActionTypeOutputArtifactDetailsArgsDict']]] = None,
                  provider_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  settings: Optional[pulumi.Input[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
@@ -340,6 +369,7 @@ class CustomActionType(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] category: The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
         :param pulumi.Input[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertyArgs', 'CustomActionTypeConfigurationPropertyArgsDict']]]] configuration_properties: The configuration properties for the custom action. Max 10 items.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -398,6 +428,7 @@ class CustomActionType(pulumi.CustomResource):
                  input_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeInputArtifactDetailsArgs', 'CustomActionTypeInputArtifactDetailsArgsDict']]] = None,
                  output_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeOutputArtifactDetailsArgs', 'CustomActionTypeOutputArtifactDetailsArgsDict']]] = None,
                  provider_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  settings: Optional[pulumi.Input[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
@@ -423,6 +454,7 @@ class CustomActionType(pulumi.CustomResource):
             if provider_name is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_name'")
             __props__.__dict__["provider_name"] = provider_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["settings"] = settings
             __props__.__dict__["tags"] = tags
             if version is None and not opts.urn:
@@ -448,6 +480,7 @@ class CustomActionType(pulumi.CustomResource):
             output_artifact_details: Optional[pulumi.Input[Union['CustomActionTypeOutputArtifactDetailsArgs', 'CustomActionTypeOutputArtifactDetailsArgsDict']]] = None,
             owner: Optional[pulumi.Input[builtins.str]] = None,
             provider_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             settings: Optional[pulumi.Input[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -463,6 +496,7 @@ class CustomActionType(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] category: The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
         :param pulumi.Input[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertyArgs', 'CustomActionTypeConfigurationPropertyArgsDict']]]] configuration_properties: The configuration properties for the custom action. Max 10 items.
         :param pulumi.Input[builtins.str] owner: The creator of the action being called.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -476,6 +510,7 @@ class CustomActionType(pulumi.CustomResource):
         __props__.__dict__["output_artifact_details"] = output_artifact_details
         __props__.__dict__["owner"] = owner
         __props__.__dict__["provider_name"] = provider_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["settings"] = settings
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -531,6 +566,14 @@ class CustomActionType(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def settings(self) -> pulumi.Output[Optional['outputs.CustomActionTypeSettings']]:
         return pulumi.get(self, "settings")
 
@@ -541,7 +584,6 @@ class CustomActionType(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

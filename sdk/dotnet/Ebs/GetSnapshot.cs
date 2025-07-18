@@ -160,9 +160,7 @@ namespace Pulumi.Aws.Ebs
         private List<Inputs.GetSnapshotFilterArgs>? _filters;
 
         /// <summary>
-        /// One or more name/value pairs to filter off of. There are
-        /// several valid keys, for a full reference, check out
-        /// [describe-snapshots in the AWS CLI reference][1].
+        /// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
         /// </summary>
         public List<Inputs.GetSnapshotFilterArgs> Filters
         {
@@ -187,6 +185,12 @@ namespace Pulumi.Aws.Ebs
             get => _owners ?? (_owners = new List<string>());
             set => _owners = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
 
         [Input("restorableByUserIds")]
         private List<string>? _restorableByUserIds;
@@ -236,9 +240,7 @@ namespace Pulumi.Aws.Ebs
         private InputList<Inputs.GetSnapshotFilterInputArgs>? _filters;
 
         /// <summary>
-        /// One or more name/value pairs to filter off of. There are
-        /// several valid keys, for a full reference, check out
-        /// [describe-snapshots in the AWS CLI reference][1].
+        /// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
         /// </summary>
         public InputList<Inputs.GetSnapshotFilterInputArgs> Filters
         {
@@ -263,6 +265,12 @@ namespace Pulumi.Aws.Ebs
             get => _owners ?? (_owners = new InputList<string>());
             set => _owners = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("restorableByUserIds")]
         private InputList<string>? _restorableByUserIds;
@@ -349,6 +357,7 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public readonly string OwnerId;
         public readonly ImmutableArray<string> Owners;
+        public readonly string Region;
         public readonly ImmutableArray<string> RestorableByUserIds;
         /// <summary>
         /// Snapshot ID (e.g., snap-59fcb34e).
@@ -406,6 +415,8 @@ namespace Pulumi.Aws.Ebs
 
             ImmutableArray<string> owners,
 
+            string region,
+
             ImmutableArray<string> restorableByUserIds,
 
             string snapshotId,
@@ -436,6 +447,7 @@ namespace Pulumi.Aws.Ebs
             OwnerAlias = ownerAlias;
             OwnerId = ownerId;
             Owners = owners;
+            Region = region;
             RestorableByUserIds = restorableByUserIds;
             SnapshotId = snapshotId;
             SnapshotIds = snapshotIds;

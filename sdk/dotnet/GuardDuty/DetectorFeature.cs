@@ -29,6 +29,40 @@ namespace Pulumi.Aws.GuardDuty
     ///         Enable = true,
     ///     });
     /// 
+    ///     var s3Protection = new Aws.GuardDuty.DetectorFeature("s3_protection", new()
+    ///     {
+    ///         DetectorId = example.Id,
+    ///         Name = "S3_DATA_EVENTS",
+    ///         Status = "ENABLED",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Extended Threat Detection for EKS
+    /// 
+    /// To enable GuardDuty [Extended Threat Detection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-extended-threat-detection.html) for EKS, you need at least one of these features enabled: [EKS Protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html) or [Runtime Monitoring](https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring-configuration.html). For maximum detection coverage, enabling both is recommended to enhance detection capabilities.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.GuardDuty.Detector("example", new()
+    ///     {
+    ///         Enable = true,
+    ///     });
+    /// 
+    ///     var eksProtection = new Aws.GuardDuty.DetectorFeature("eks_protection", new()
+    ///     {
+    ///         DetectorId = example.Id,
+    ///         Name = "EKS_AUDIT_LOGS",
+    ///         Status = "ENABLED",
+    ///     });
+    /// 
     ///     var eksRuntimeMonitoring = new Aws.GuardDuty.DetectorFeature("eks_runtime_monitoring", new()
     ///     {
     ///         DetectorId = example.Id,
@@ -67,6 +101,12 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
@@ -145,6 +185,12 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
         [Input("status", required: true)]
@@ -181,6 +227,12 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.

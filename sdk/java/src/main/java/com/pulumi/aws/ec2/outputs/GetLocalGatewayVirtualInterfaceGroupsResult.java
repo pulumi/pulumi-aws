@@ -30,6 +30,7 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
      * 
      */
     private List<String> localGatewayVirtualInterfaceIds;
+    private String region;
     private @Nullable Map<String,String> tags;
 
     private GetLocalGatewayVirtualInterfaceGroupsResult() {}
@@ -57,6 +58,9 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
     public List<String> localGatewayVirtualInterfaceIds() {
         return this.localGatewayVirtualInterfaceIds;
     }
+    public String region() {
+        return this.region;
+    }
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
@@ -74,6 +78,7 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
         private String id;
         private List<String> ids;
         private List<String> localGatewayVirtualInterfaceIds;
+        private String region;
         private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetLocalGatewayVirtualInterfaceGroupsResult defaults) {
@@ -82,6 +87,7 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
     	      this.id = defaults.id;
     	      this.ids = defaults.ids;
     	      this.localGatewayVirtualInterfaceIds = defaults.localGatewayVirtualInterfaceIds;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -125,6 +131,14 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
             return localGatewayVirtualInterfaceIds(List.of(localGatewayVirtualInterfaceIds));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayVirtualInterfaceGroupsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
 
             this.tags = tags;
@@ -136,6 +150,7 @@ public final class GetLocalGatewayVirtualInterfaceGroupsResult {
             _resultValue.id = id;
             _resultValue.ids = ids;
             _resultValue.localGatewayVirtualInterfaceIds = localGatewayVirtualInterfaceIds;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

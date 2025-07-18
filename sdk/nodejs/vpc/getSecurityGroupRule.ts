@@ -26,6 +26,7 @@ export function getSecurityGroupRule(args?: GetSecurityGroupRuleArgs, opts?: pul
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:vpc/getSecurityGroupRule:getSecurityGroupRule", {
         "filters": args.filters,
+        "region": args.region,
         "securityGroupRuleId": args.securityGroupRuleId,
     }, opts);
 }
@@ -42,6 +43,10 @@ export interface GetSecurityGroupRuleArgs {
      * whose data will be exported as attributes.
      */
     filters?: inputs.vpc.GetSecurityGroupRuleFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * ID of the security group rule to select.
      */
@@ -90,6 +95,7 @@ export interface GetSecurityGroupRuleResult {
      * The destination security group that is referenced in the rule.
      */
     readonly referencedSecurityGroupId: string;
+    readonly region: string;
     /**
      * The ID of the security group.
      */
@@ -123,6 +129,7 @@ export function getSecurityGroupRuleOutput(args?: GetSecurityGroupRuleOutputArgs
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:vpc/getSecurityGroupRule:getSecurityGroupRule", {
         "filters": args.filters,
+        "region": args.region,
         "securityGroupRuleId": args.securityGroupRuleId,
     }, opts);
 }
@@ -139,6 +146,10 @@ export interface GetSecurityGroupRuleOutputArgs {
      * whose data will be exported as attributes.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.vpc.GetSecurityGroupRuleFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the security group rule to select.
      */

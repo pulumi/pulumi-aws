@@ -183,6 +183,21 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The role assertion.
      * 
      */
@@ -245,6 +260,7 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
         this.loginValidityDuration = $.loginValidityDuration;
         this.nameAssertion = $.nameAssertion;
         this.orgAssertion = $.orgAssertion;
+        this.region = $.region;
         this.roleAssertion = $.roleAssertion;
         this.status = $.status;
         this.workspaceId = $.workspaceId;
@@ -527,6 +543,27 @@ public final class WorkspaceSamlConfigurationState extends com.pulumi.resources.
          */
         public Builder orgAssertion(String orgAssertion) {
             return orgAssertion(Output.of(orgAssertion));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

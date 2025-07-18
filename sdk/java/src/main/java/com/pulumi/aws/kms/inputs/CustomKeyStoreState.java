@@ -64,6 +64,21 @@ public final class CustomKeyStoreState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.keyStorePassword);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="trustAnchorCertificate")
     private @Nullable Output<String> trustAnchorCertificate;
 
@@ -113,6 +128,7 @@ public final class CustomKeyStoreState extends com.pulumi.resources.ResourceArgs
         this.customKeyStoreName = $.customKeyStoreName;
         this.customKeyStoreType = $.customKeyStoreType;
         this.keyStorePassword = $.keyStorePassword;
+        this.region = $.region;
         this.trustAnchorCertificate = $.trustAnchorCertificate;
         this.xksProxyAuthenticationCredential = $.xksProxyAuthenticationCredential;
         this.xksProxyConnectivity = $.xksProxyConnectivity;
@@ -201,6 +217,27 @@ public final class CustomKeyStoreState extends com.pulumi.resources.ResourceArgs
 
         public Builder keyStorePassword(String keyStorePassword) {
             return keyStorePassword(Output.of(keyStorePassword));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder trustAnchorCertificate(@Nullable Output<String> trustAnchorCertificate) {

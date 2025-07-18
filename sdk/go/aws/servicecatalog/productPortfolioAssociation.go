@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,6 +61,8 @@ type ProductPortfolioAssociation struct {
 	//
 	// The following arguments are optional:
 	ProductId pulumi.StringOutput `pulumi:"productId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of the source portfolio.
 	SourcePortfolioId pulumi.StringPtrOutput `pulumi:"sourcePortfolioId"`
 }
@@ -109,6 +111,8 @@ type productPortfolioAssociationState struct {
 	//
 	// The following arguments are optional:
 	ProductId *string `pulumi:"productId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of the source portfolio.
 	SourcePortfolioId *string `pulumi:"sourcePortfolioId"`
 }
@@ -122,6 +126,8 @@ type ProductPortfolioAssociationState struct {
 	//
 	// The following arguments are optional:
 	ProductId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of the source portfolio.
 	SourcePortfolioId pulumi.StringPtrInput
 }
@@ -139,6 +145,8 @@ type productPortfolioAssociationArgs struct {
 	//
 	// The following arguments are optional:
 	ProductId string `pulumi:"productId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of the source portfolio.
 	SourcePortfolioId *string `pulumi:"sourcePortfolioId"`
 }
@@ -153,6 +161,8 @@ type ProductPortfolioAssociationArgs struct {
 	//
 	// The following arguments are optional:
 	ProductId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of the source portfolio.
 	SourcePortfolioId pulumi.StringPtrInput
 }
@@ -259,6 +269,11 @@ func (o ProductPortfolioAssociationOutput) PortfolioId() pulumi.StringOutput {
 // The following arguments are optional:
 func (o ProductPortfolioAssociationOutput) ProductId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProductPortfolioAssociation) pulumi.StringOutput { return v.ProductId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ProductPortfolioAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProductPortfolioAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Identifier of the source portfolio.

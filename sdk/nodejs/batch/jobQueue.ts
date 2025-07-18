@@ -115,12 +115,6 @@ export class JobQueue extends pulumi.CustomResource {
      */
     public readonly computeEnvironmentOrders!: pulumi.Output<outputs.batch.JobQueueComputeEnvironmentOrder[] | undefined>;
     /**
-     * (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
-     *
-     * @deprecated This parameter will be replaced by `computeEnvironmentOrder`.
-     */
-    public readonly computeEnvironments!: pulumi.Output<string[] | undefined>;
-    /**
      * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
      */
     public readonly jobStateTimeLimitActions!: pulumi.Output<outputs.batch.JobQueueJobStateTimeLimitAction[] | undefined>;
@@ -133,6 +127,10 @@ export class JobQueue extends pulumi.CustomResource {
      * are evaluated first when associated with the same compute environment.
      */
     public readonly priority!: pulumi.Output<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     /**
      * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
      */
@@ -147,8 +145,6 @@ export class JobQueue extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.batch.JobQueueTimeouts | undefined>;
@@ -168,10 +164,10 @@ export class JobQueue extends pulumi.CustomResource {
             const state = argsOrState as JobQueueState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["computeEnvironmentOrders"] = state ? state.computeEnvironmentOrders : undefined;
-            resourceInputs["computeEnvironments"] = state ? state.computeEnvironments : undefined;
             resourceInputs["jobStateTimeLimitActions"] = state ? state.jobStateTimeLimitActions : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["schedulingPolicyArn"] = state ? state.schedulingPolicyArn : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -186,10 +182,10 @@ export class JobQueue extends pulumi.CustomResource {
                 throw new Error("Missing required property 'state'");
             }
             resourceInputs["computeEnvironmentOrders"] = args ? args.computeEnvironmentOrders : undefined;
-            resourceInputs["computeEnvironments"] = args ? args.computeEnvironments : undefined;
             resourceInputs["jobStateTimeLimitActions"] = args ? args.jobStateTimeLimitActions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["schedulingPolicyArn"] = args ? args.schedulingPolicyArn : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -215,12 +211,6 @@ export interface JobQueueState {
      */
     computeEnvironmentOrders?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueComputeEnvironmentOrder>[]>;
     /**
-     * (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
-     *
-     * @deprecated This parameter will be replaced by `computeEnvironmentOrder`.
-     */
-    computeEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
      */
     jobStateTimeLimitActions?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueJobStateTimeLimitAction>[]>;
@@ -233,6 +223,10 @@ export interface JobQueueState {
      * are evaluated first when associated with the same compute environment.
      */
     priority?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
      */
@@ -247,8 +241,6 @@ export interface JobQueueState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.batch.JobQueueTimeouts>;
@@ -263,12 +255,6 @@ export interface JobQueueArgs {
      */
     computeEnvironmentOrders?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueComputeEnvironmentOrder>[]>;
     /**
-     * (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
-     *
-     * @deprecated This parameter will be replaced by `computeEnvironmentOrder`.
-     */
-    computeEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
      */
     jobStateTimeLimitActions?: pulumi.Input<pulumi.Input<inputs.batch.JobQueueJobStateTimeLimitAction>[]>;
@@ -281,6 +267,10 @@ export interface JobQueueArgs {
      * are evaluated first when associated with the same compute environment.
      */
     priority: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn't specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can't remove the fair share scheduling policy.
      */

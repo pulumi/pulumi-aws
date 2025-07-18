@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,7 +56,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -94,7 +94,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -141,6 +141,8 @@ type RefreshSchedule struct {
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The ID of the dataset.
 	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
 	//
 	// The following arguments are optional:
@@ -191,6 +193,8 @@ type refreshScheduleState struct {
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The ID of the dataset.
 	DataSetId *string `pulumi:"dataSetId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
 	//
 	// The following arguments are optional:
@@ -206,6 +210,8 @@ type RefreshScheduleState struct {
 	AwsAccountId pulumi.StringPtrInput
 	// The ID of the dataset.
 	DataSetId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
 	//
 	// The following arguments are optional:
@@ -223,6 +229,8 @@ type refreshScheduleArgs struct {
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The ID of the dataset.
 	DataSetId string `pulumi:"dataSetId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
 	//
 	// The following arguments are optional:
@@ -237,6 +245,8 @@ type RefreshScheduleArgs struct {
 	AwsAccountId pulumi.StringPtrInput
 	// The ID of the dataset.
 	DataSetId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
 	//
 	// The following arguments are optional:
@@ -345,6 +355,11 @@ func (o RefreshScheduleOutput) AwsAccountId() pulumi.StringOutput {
 // The ID of the dataset.
 func (o RefreshScheduleOutput) DataSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringOutput { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o RefreshScheduleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule

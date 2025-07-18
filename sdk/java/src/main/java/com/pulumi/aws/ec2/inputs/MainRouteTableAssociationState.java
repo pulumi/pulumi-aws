@@ -31,6 +31,21 @@ public final class MainRouteTableAssociationState extends com.pulumi.resources.R
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID of the Route Table to set as the new
      * main route table for the target VPC
      * 
@@ -66,6 +81,7 @@ public final class MainRouteTableAssociationState extends com.pulumi.resources.R
 
     private MainRouteTableAssociationState(MainRouteTableAssociationState $) {
         this.originalRouteTableId = $.originalRouteTableId;
+        this.region = $.region;
         this.routeTableId = $.routeTableId;
         this.vpcId = $.vpcId;
     }
@@ -107,6 +123,27 @@ public final class MainRouteTableAssociationState extends com.pulumi.resources.R
          */
         public Builder originalRouteTableId(String originalRouteTableId) {
             return originalRouteTableId(Output.of(originalRouteTableId));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

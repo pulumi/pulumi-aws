@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ServiceDiscovery.Outputs
     public sealed class ServiceHealthCheckCustomConfig
     {
         /// <summary>
-        /// The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+        /// The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
         /// </summary>
         public readonly int? FailureThreshold;
 

@@ -260,6 +260,10 @@ export class EventConnection extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
      */
     public /*out*/ readonly secretArn!: pulumi.Output<string>;
@@ -284,6 +288,7 @@ export class EventConnection extends pulumi.CustomResource {
             resourceInputs["invocationConnectivityParameters"] = state ? state.invocationConnectivityParameters : undefined;
             resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["secretArn"] = state ? state.secretArn : undefined;
         } else {
             const args = argsOrState as EventConnectionArgs | undefined;
@@ -299,6 +304,7 @@ export class EventConnection extends pulumi.CustomResource {
             resourceInputs["invocationConnectivityParameters"] = args ? args.invocationConnectivityParameters : undefined;
             resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["secretArn"] = undefined /*out*/;
         }
@@ -340,6 +346,10 @@ export interface EventConnectionState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
      */
     secretArn?: pulumi.Input<string>;
@@ -373,4 +383,8 @@ export interface EventConnectionArgs {
      * The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

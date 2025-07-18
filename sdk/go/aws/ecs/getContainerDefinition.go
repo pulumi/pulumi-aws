@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func GetContainerDefinition(ctx *pulumi.Context, args *GetContainerDefinitionArg
 type GetContainerDefinitionArgs struct {
 	// Name of the container definition
 	ContainerName string `pulumi:"containerName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the task definition which contains the container
 	TaskDefinition string `pulumi:"taskDefinition"`
 }
@@ -79,6 +81,7 @@ type GetContainerDefinitionResult struct {
 	Memory int `pulumi:"memory"`
 	// Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
 	MemoryReservation int    `pulumi:"memoryReservation"`
+	Region            string `pulumi:"region"`
 	TaskDefinition    string `pulumi:"taskDefinition"`
 }
 
@@ -95,6 +98,8 @@ func GetContainerDefinitionOutput(ctx *pulumi.Context, args GetContainerDefiniti
 type GetContainerDefinitionOutputArgs struct {
 	// Name of the container definition
 	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ARN of the task definition which contains the container
 	TaskDefinition pulumi.StringInput `pulumi:"taskDefinition"`
 }
@@ -165,6 +170,10 @@ func (o GetContainerDefinitionResultOutput) Memory() pulumi.IntOutput {
 // Soft limit (in MiB) of memory to reserve for the container. When system memory is under contention, Docker attempts to keep the container memory to this soft limit
 func (o GetContainerDefinitionResultOutput) MemoryReservation() pulumi.IntOutput {
 	return o.ApplyT(func(v GetContainerDefinitionResult) int { return v.MemoryReservation }).(pulumi.IntOutput)
+}
+
+func (o GetContainerDefinitionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetContainerDefinitionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetContainerDefinitionResultOutput) TaskDefinition() pulumi.StringOutput {

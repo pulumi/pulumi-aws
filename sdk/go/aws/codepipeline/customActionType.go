@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codepipeline"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codepipeline"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,13 +69,13 @@ type CustomActionType struct {
 	InputArtifactDetails    CustomActionTypeInputArtifactDetailsOutput       `pulumi:"inputArtifactDetails"`
 	OutputArtifactDetails   CustomActionTypeOutputArtifactDetailsOutput      `pulumi:"outputArtifactDetails"`
 	// The creator of the action being called.
-	Owner        pulumi.StringOutput               `pulumi:"owner"`
-	ProviderName pulumi.StringOutput               `pulumi:"providerName"`
-	Settings     CustomActionTypeSettingsPtrOutput `pulumi:"settings"`
-	Tags         pulumi.StringMapOutput            `pulumi:"tags"`
+	Owner        pulumi.StringOutput `pulumi:"owner"`
+	ProviderName pulumi.StringOutput `pulumi:"providerName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringOutput               `pulumi:"region"`
+	Settings CustomActionTypeSettingsPtrOutput `pulumi:"settings"`
+	Tags     pulumi.StringMapOutput            `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	Version pulumi.StringOutput    `pulumi:"version"`
 }
@@ -134,13 +134,13 @@ type customActionTypeState struct {
 	InputArtifactDetails    *CustomActionTypeInputArtifactDetails   `pulumi:"inputArtifactDetails"`
 	OutputArtifactDetails   *CustomActionTypeOutputArtifactDetails  `pulumi:"outputArtifactDetails"`
 	// The creator of the action being called.
-	Owner        *string                   `pulumi:"owner"`
-	ProviderName *string                   `pulumi:"providerName"`
-	Settings     *CustomActionTypeSettings `pulumi:"settings"`
-	Tags         map[string]string         `pulumi:"tags"`
+	Owner        *string `pulumi:"owner"`
+	ProviderName *string `pulumi:"providerName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   *string                   `pulumi:"region"`
+	Settings *CustomActionTypeSettings `pulumi:"settings"`
+	Tags     map[string]string         `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	Version *string           `pulumi:"version"`
 }
@@ -157,11 +157,11 @@ type CustomActionTypeState struct {
 	// The creator of the action being called.
 	Owner        pulumi.StringPtrInput
 	ProviderName pulumi.StringPtrInput
-	Settings     CustomActionTypeSettingsPtrInput
-	Tags         pulumi.StringMapInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Settings CustomActionTypeSettingsPtrInput
+	Tags     pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	Version pulumi.StringPtrInput
 }
@@ -178,9 +178,11 @@ type customActionTypeArgs struct {
 	InputArtifactDetails    CustomActionTypeInputArtifactDetails    `pulumi:"inputArtifactDetails"`
 	OutputArtifactDetails   CustomActionTypeOutputArtifactDetails   `pulumi:"outputArtifactDetails"`
 	ProviderName            string                                  `pulumi:"providerName"`
-	Settings                *CustomActionTypeSettings               `pulumi:"settings"`
-	Tags                    map[string]string                       `pulumi:"tags"`
-	Version                 string                                  `pulumi:"version"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   *string                   `pulumi:"region"`
+	Settings *CustomActionTypeSettings `pulumi:"settings"`
+	Tags     map[string]string         `pulumi:"tags"`
+	Version  string                    `pulumi:"version"`
 }
 
 // The set of arguments for constructing a CustomActionType resource.
@@ -192,9 +194,11 @@ type CustomActionTypeArgs struct {
 	InputArtifactDetails    CustomActionTypeInputArtifactDetailsInput
 	OutputArtifactDetails   CustomActionTypeOutputArtifactDetailsInput
 	ProviderName            pulumi.StringInput
-	Settings                CustomActionTypeSettingsPtrInput
-	Tags                    pulumi.StringMapInput
-	Version                 pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Settings CustomActionTypeSettingsPtrInput
+	Tags     pulumi.StringMapInput
+	Version  pulumi.StringInput
 }
 
 func (CustomActionTypeArgs) ElementType() reflect.Type {
@@ -318,6 +322,11 @@ func (o CustomActionTypeOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomActionType) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o CustomActionTypeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomActionType) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 func (o CustomActionTypeOutput) Settings() CustomActionTypeSettingsPtrOutput {
 	return o.ApplyT(func(v *CustomActionType) CustomActionTypeSettingsPtrOutput { return v.Settings }).(CustomActionTypeSettingsPtrOutput)
 }
@@ -327,8 +336,6 @@ func (o CustomActionTypeOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o CustomActionTypeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CustomActionType) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

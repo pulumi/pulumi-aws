@@ -28,7 +28,7 @@ class GetFirewallPolicyResult:
     """
     A collection of values returned by getFirewallPolicy.
     """
-    def __init__(__self__, arn=None, description=None, firewall_policies=None, id=None, name=None, tags=None, update_token=None):
+    def __init__(__self__, arn=None, description=None, firewall_policies=None, id=None, name=None, region=None, tags=None, update_token=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -44,6 +44,9 @@ class GetFirewallPolicyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -87,6 +90,11 @@ class GetFirewallPolicyResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Key-value tags for the firewall policy.
@@ -113,12 +121,14 @@ class AwaitableGetFirewallPolicyResult(GetFirewallPolicyResult):
             firewall_policies=self.firewall_policies,
             id=self.id,
             name=self.name,
+            region=self.region,
             tags=self.tags,
             update_token=self.update_token)
 
 
 def get_firewall_policy(arn: Optional[builtins.str] = None,
                         name: Optional[builtins.str] = None,
+                        region: Optional[builtins.str] = None,
                         tags: Optional[Mapping[str, builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallPolicyResult:
     """
@@ -163,11 +173,13 @@ def get_firewall_policy(arn: Optional[builtins.str] = None,
     :param builtins.str name: Descriptive name of the firewall policy.
            
            One or more of these arguments is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the firewall policy.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:networkfirewall/getFirewallPolicy:getFirewallPolicy', __args__, opts=opts, typ=GetFirewallPolicyResult).value
@@ -178,10 +190,12 @@ def get_firewall_policy(arn: Optional[builtins.str] = None,
         firewall_policies=pulumi.get(__ret__, 'firewall_policies'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         update_token=pulumi.get(__ret__, 'update_token'))
 def get_firewall_policy_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                               region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallPolicyResult]:
     """
@@ -226,11 +240,13 @@ def get_firewall_policy_output(arn: Optional[pulumi.Input[Optional[builtins.str]
     :param builtins.str name: Descriptive name of the firewall policy.
            
            One or more of these arguments is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the firewall policy.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:networkfirewall/getFirewallPolicy:getFirewallPolicy', __args__, opts=opts, typ=GetFirewallPolicyResult)
@@ -240,5 +256,6 @@ def get_firewall_policy_output(arn: Optional[pulumi.Input[Optional[builtins.str]
         firewall_policies=pulumi.get(__response__, 'firewall_policies'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         update_token=pulumi.get(__response__, 'update_token')))

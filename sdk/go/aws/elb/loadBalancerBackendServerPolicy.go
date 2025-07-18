@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elb"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -108,6 +108,8 @@ type LoadBalancerBackendServerPolicy struct {
 	LoadBalancerName pulumi.StringOutput `pulumi:"loadBalancerName"`
 	// List of Policy Names to apply to the backend server.
 	PolicyNames pulumi.StringArrayOutput `pulumi:"policyNames"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLoadBalancerBackendServerPolicy registers a new resource with the given unique name, arguments, and options.
@@ -158,6 +160,8 @@ type loadBalancerBackendServerPolicyState struct {
 	LoadBalancerName *string `pulumi:"loadBalancerName"`
 	// List of Policy Names to apply to the backend server.
 	PolicyNames []string `pulumi:"policyNames"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LoadBalancerBackendServerPolicyState struct {
@@ -167,6 +171,8 @@ type LoadBalancerBackendServerPolicyState struct {
 	LoadBalancerName pulumi.StringPtrInput
 	// List of Policy Names to apply to the backend server.
 	PolicyNames pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LoadBalancerBackendServerPolicyState) ElementType() reflect.Type {
@@ -180,6 +186,8 @@ type loadBalancerBackendServerPolicyArgs struct {
 	LoadBalancerName string `pulumi:"loadBalancerName"`
 	// List of Policy Names to apply to the backend server.
 	PolicyNames []string `pulumi:"policyNames"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LoadBalancerBackendServerPolicy resource.
@@ -190,6 +198,8 @@ type LoadBalancerBackendServerPolicyArgs struct {
 	LoadBalancerName pulumi.StringInput
 	// List of Policy Names to apply to the backend server.
 	PolicyNames pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LoadBalancerBackendServerPolicyArgs) ElementType() reflect.Type {
@@ -292,6 +302,11 @@ func (o LoadBalancerBackendServerPolicyOutput) LoadBalancerName() pulumi.StringO
 // List of Policy Names to apply to the backend server.
 func (o LoadBalancerBackendServerPolicyOutput) PolicyNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancerBackendServerPolicy) pulumi.StringArrayOutput { return v.PolicyNames }).(pulumi.StringArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LoadBalancerBackendServerPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LoadBalancerBackendServerPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LoadBalancerBackendServerPolicyArrayOutput struct{ *pulumi.OutputState }

@@ -83,6 +83,10 @@ export class PortfolioShare extends pulumi.CustomResource {
      */
     public readonly principalId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
      */
     public readonly sharePrincipals!: pulumi.Output<boolean | undefined>;
@@ -118,6 +122,7 @@ export class PortfolioShare extends pulumi.CustomResource {
             resourceInputs["accepted"] = state ? state.accepted : undefined;
             resourceInputs["portfolioId"] = state ? state.portfolioId : undefined;
             resourceInputs["principalId"] = state ? state.principalId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sharePrincipals"] = state ? state.sharePrincipals : undefined;
             resourceInputs["shareTagOptions"] = state ? state.shareTagOptions : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -136,6 +141,7 @@ export class PortfolioShare extends pulumi.CustomResource {
             resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
             resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
             resourceInputs["principalId"] = args ? args.principalId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sharePrincipals"] = args ? args.sharePrincipals : undefined;
             resourceInputs["shareTagOptions"] = args ? args.shareTagOptions : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -167,6 +173,10 @@ export interface PortfolioShareState {
      * Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
      */
     principalId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
      */
@@ -203,6 +213,10 @@ export interface PortfolioShareArgs {
      * Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
      */
     principalId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
      */

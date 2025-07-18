@@ -35,7 +35,7 @@ namespace Pulumi.Aws.ControlTower
     /// 
     ///     var exampleControlTowerControl = new Aws.ControlTower.ControlTowerControl("example", new()
     ///     {
-    ///         ControlIdentifier = $"arn:aws:controltower:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK",
+    ///         ControlIdentifier = $"arn:aws:controltower:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK",
     ///         TargetIdentifier = .Where(x =&gt; x.Name == "Infrastructure").Select(x =&gt; 
     ///         {
     ///             return x.Arn;
@@ -84,6 +84,12 @@ namespace Pulumi.Aws.ControlTower
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableArray<Outputs.ControlTowerControlParameter>> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the organizational unit.
@@ -158,6 +164,12 @@ namespace Pulumi.Aws.ControlTower
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of the organizational unit.
         /// 
         /// The following arguments are optional:
@@ -196,6 +208,12 @@ namespace Pulumi.Aws.ControlTower
             get => _parameters ?? (_parameters = new InputList<Inputs.ControlTowerControlParameterGetArgs>());
             set => _parameters = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ARN of the organizational unit.

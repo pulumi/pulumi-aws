@@ -99,6 +99,12 @@ namespace Pulumi.Aws.VerifiedPermissions
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetPolicyStoreArgs()
         {
         }
@@ -112,6 +118,12 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetPolicyStoreInvokeArgs()
         {
@@ -137,6 +149,7 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// The date the Policy Store was last updated.
         /// </summary>
         public readonly string LastUpdatedDate;
+        public readonly string Region;
         /// <summary>
         /// Map of key-value pairs associated with the policy store.
         /// </summary>
@@ -158,6 +171,8 @@ namespace Pulumi.Aws.VerifiedPermissions
 
             string lastUpdatedDate,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             ImmutableArray<Outputs.GetPolicyStoreValidationSettingResult> validationSettings)
@@ -167,6 +182,7 @@ namespace Pulumi.Aws.VerifiedPermissions
             Description = description;
             Id = id;
             LastUpdatedDate = lastUpdatedDate;
+            Region = region;
             Tags = tags;
             ValidationSettings = validationSettings;
         }

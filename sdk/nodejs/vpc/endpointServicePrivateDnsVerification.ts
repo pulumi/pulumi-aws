@@ -60,6 +60,10 @@ export class EndpointServicePrivateDnsVerification extends pulumi.CustomResource
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the endpoint service.
      *
      * The following arguments are optional:
@@ -84,6 +88,7 @@ export class EndpointServicePrivateDnsVerification extends pulumi.CustomResource
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointServicePrivateDnsVerificationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceId"] = state ? state.serviceId : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
             resourceInputs["waitForVerification"] = state ? state.waitForVerification : undefined;
@@ -92,6 +97,7 @@ export class EndpointServicePrivateDnsVerification extends pulumi.CustomResource
             if ((!args || args.serviceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceId"] = args ? args.serviceId : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["waitForVerification"] = args ? args.waitForVerification : undefined;
@@ -105,6 +111,10 @@ export class EndpointServicePrivateDnsVerification extends pulumi.CustomResource
  * Input properties used for looking up and filtering EndpointServicePrivateDnsVerification resources.
  */
 export interface EndpointServicePrivateDnsVerificationState {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the endpoint service.
      *
@@ -122,6 +132,10 @@ export interface EndpointServicePrivateDnsVerificationState {
  * The set of arguments for constructing a EndpointServicePrivateDnsVerification resource.
  */
 export interface EndpointServicePrivateDnsVerificationArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the endpoint service.
      *

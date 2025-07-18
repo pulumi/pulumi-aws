@@ -31,6 +31,7 @@ export function getTransitGatewayRouteTables(args?: GetTransitGatewayRouteTables
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getTransitGatewayRouteTables:getTransitGatewayRouteTables", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -43,6 +44,10 @@ export interface GetTransitGatewayRouteTablesArgs {
      * Custom filter block as described below.
      */
     filters?: inputs.ec2.GetTransitGatewayRouteTablesFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired transit gateway route table.
@@ -66,6 +71,7 @@ export interface GetTransitGatewayRouteTablesResult {
      * Set of Transit Gateway Route Table identifiers.
      */
     readonly ids: string[];
+    readonly region: string;
     readonly tags: {[key: string]: string};
 }
 /**
@@ -92,6 +98,7 @@ export function getTransitGatewayRouteTablesOutput(args?: GetTransitGatewayRoute
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getTransitGatewayRouteTables:getTransitGatewayRouteTables", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -104,6 +111,10 @@ export interface GetTransitGatewayRouteTablesOutputArgs {
      * Custom filter block as described below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetTransitGatewayRouteTablesFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired transit gateway route table.

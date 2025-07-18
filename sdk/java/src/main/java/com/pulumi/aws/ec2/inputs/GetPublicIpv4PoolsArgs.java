@@ -34,6 +34,21 @@ public final class GetPublicIpv4PoolsArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Map of tags, each pair of which must exactly match a pair on the desired pools.
      * 
      * More complex filters can be expressed using one or more `filter` sub-blocks,
@@ -58,6 +73,7 @@ public final class GetPublicIpv4PoolsArgs extends com.pulumi.resources.InvokeArg
 
     private GetPublicIpv4PoolsArgs(GetPublicIpv4PoolsArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -108,6 +124,27 @@ public final class GetPublicIpv4PoolsArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder filters(GetPublicIpv4PoolsFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

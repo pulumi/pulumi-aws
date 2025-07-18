@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *             },
  *             {
  *                 test: "ArnLike",
- *                 values: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.name}:${current1.accountId}:agent/*`],
+ *                 values: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.region}:${current1.accountId}:agent/*`],
  *                 variable: "AWS:SourceArn",
  *             },
  *         ],
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *     statements: [
  *         {
  *             actions: ["bedrock:InvokeModel"],
- *             resources: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.name}::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0`],
+ *             resources: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.region}::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0`],
  *         },
  *         {
  *             actions: [
@@ -54,8 +54,8 @@ import * as utilities from "../utilities";
  *                 "bedrock:InvokeAgent",
  *             ],
  *             resources: [
- *                 `arn:${currentAgent.partition}:bedrock:${currentGetRegion1.name}:${current.accountId}:agent/*`,
- *                 `arn:${currentAgent.partition}:bedrock:${currentGetRegion2.name}:${current1.accountId}:agent-alias/*`,
+ *                 `arn:${currentAgent.partition}:bedrock:${currentGetRegion1.region}:${current.accountId}:agent/*`,
+ *                 `arn:${currentAgent.partition}:bedrock:${currentGetRegion2.region}:${current1.accountId}:agent-alias/*`,
  *             ],
  *         },
  *     ],
@@ -156,6 +156,10 @@ export class AgentAgentCollaborator extends pulumi.CustomResource {
      */
     public readonly prepareAgent!: pulumi.Output<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configure relaying the history to the collaborator.
      */
     public readonly relayConversationHistory!: pulumi.Output<string>;
@@ -181,6 +185,7 @@ export class AgentAgentCollaborator extends pulumi.CustomResource {
             resourceInputs["collaboratorId"] = state ? state.collaboratorId : undefined;
             resourceInputs["collaboratorName"] = state ? state.collaboratorName : undefined;
             resourceInputs["prepareAgent"] = state ? state.prepareAgent : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["relayConversationHistory"] = state ? state.relayConversationHistory : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
@@ -200,6 +205,7 @@ export class AgentAgentCollaborator extends pulumi.CustomResource {
             resourceInputs["collaborationInstruction"] = args ? args.collaborationInstruction : undefined;
             resourceInputs["collaboratorName"] = args ? args.collaboratorName : undefined;
             resourceInputs["prepareAgent"] = args ? args.prepareAgent : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["relayConversationHistory"] = args ? args.relayConversationHistory : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["collaboratorId"] = undefined /*out*/;
@@ -233,6 +239,10 @@ export interface AgentAgentCollaboratorState {
      */
     prepareAgent?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configure relaying the history to the collaborator.
      */
     relayConversationHistory?: pulumi.Input<string>;
@@ -258,6 +268,10 @@ export interface AgentAgentCollaboratorArgs {
      * Whether to prepare the agent after creation or modification. Defaults to `true`.
      */
     prepareAgent?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configure relaying the history to the collaborator.
      */

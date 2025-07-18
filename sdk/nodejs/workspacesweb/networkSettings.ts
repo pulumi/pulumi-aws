@@ -94,6 +94,10 @@ export class NetworkSettings extends pulumi.CustomResource {
      */
     public /*out*/ readonly networkSettingsArn!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * One or more security groups used to control access from streaming instances to your VPC.
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
@@ -107,8 +111,6 @@ export class NetworkSettings extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -133,6 +135,7 @@ export class NetworkSettings extends pulumi.CustomResource {
             const state = argsOrState as NetworkSettingsState | undefined;
             resourceInputs["associatedPortalArns"] = state ? state.associatedPortalArns : undefined;
             resourceInputs["networkSettingsArn"] = state ? state.networkSettingsArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -149,6 +152,7 @@ export class NetworkSettings extends pulumi.CustomResource {
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -177,6 +181,10 @@ export interface NetworkSettingsState {
      */
     networkSettingsArn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * One or more security groups used to control access from streaming instances to your VPC.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -190,8 +198,6 @@ export interface NetworkSettingsState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -206,6 +212,10 @@ export interface NetworkSettingsState {
  * The set of arguments for constructing a NetworkSettings resource.
  */
 export interface NetworkSettingsArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * One or more security groups used to control access from streaming instances to your VPC.
      */

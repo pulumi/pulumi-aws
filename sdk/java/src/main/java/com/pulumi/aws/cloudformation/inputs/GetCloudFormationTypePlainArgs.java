@@ -30,6 +30,21 @@ public final class GetCloudFormationTypePlainArgs extends com.pulumi.resources.I
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * CloudFormation Registry Type. For example, `RESOURCE`.
      * 
      */
@@ -78,6 +93,7 @@ public final class GetCloudFormationTypePlainArgs extends com.pulumi.resources.I
 
     private GetCloudFormationTypePlainArgs(GetCloudFormationTypePlainArgs $) {
         this.arn = $.arn;
+        this.region = $.region;
         this.type = $.type;
         this.typeName = $.typeName;
         this.versionId = $.versionId;
@@ -109,6 +125,17 @@ public final class GetCloudFormationTypePlainArgs extends com.pulumi.resources.I
          */
         public Builder arn(@Nullable String arn) {
             $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

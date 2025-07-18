@@ -75,7 +75,13 @@ export class StaticIpAttachment extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the allocated static IP.
+     *
+     * The following arguments are optional:
      */
     public readonly staticIpName!: pulumi.Output<string>;
 
@@ -94,6 +100,7 @@ export class StaticIpAttachment extends pulumi.CustomResource {
             const state = argsOrState as StaticIpAttachmentState | undefined;
             resourceInputs["instanceName"] = state ? state.instanceName : undefined;
             resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["staticIpName"] = state ? state.staticIpName : undefined;
         } else {
             const args = argsOrState as StaticIpAttachmentArgs | undefined;
@@ -104,6 +111,7 @@ export class StaticIpAttachment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'staticIpName'");
             }
             resourceInputs["instanceName"] = args ? args.instanceName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["staticIpName"] = args ? args.staticIpName : undefined;
             resourceInputs["ipAddress"] = undefined /*out*/;
         }
@@ -125,7 +133,13 @@ export interface StaticIpAttachmentState {
      */
     ipAddress?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Name of the allocated static IP.
+     *
+     * The following arguments are optional:
      */
     staticIpName?: pulumi.Input<string>;
 }
@@ -139,7 +153,13 @@ export interface StaticIpAttachmentArgs {
      */
     instanceName: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Name of the allocated static IP.
+     *
+     * The following arguments are optional:
      */
     staticIpName: pulumi.Input<string>;
 }

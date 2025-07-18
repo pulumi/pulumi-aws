@@ -127,6 +127,10 @@ export class AccountAssignment extends pulumi.CustomResource {
      */
     public readonly principalType!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * An AWS account identifier, typically a 10-12 digit string.
      */
     public readonly targetId!: pulumi.Output<string>;
@@ -152,6 +156,7 @@ export class AccountAssignment extends pulumi.CustomResource {
             resourceInputs["permissionSetArn"] = state ? state.permissionSetArn : undefined;
             resourceInputs["principalId"] = state ? state.principalId : undefined;
             resourceInputs["principalType"] = state ? state.principalType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["targetId"] = state ? state.targetId : undefined;
             resourceInputs["targetType"] = state ? state.targetType : undefined;
         } else {
@@ -175,6 +180,7 @@ export class AccountAssignment extends pulumi.CustomResource {
             resourceInputs["permissionSetArn"] = args ? args.permissionSetArn : undefined;
             resourceInputs["principalId"] = args ? args.principalId : undefined;
             resourceInputs["principalType"] = args ? args.principalType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["targetId"] = args ? args.targetId : undefined;
             resourceInputs["targetType"] = args ? args.targetType : undefined;
         }
@@ -203,6 +209,10 @@ export interface AccountAssignmentState {
      * The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
      */
     principalType?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * An AWS account identifier, typically a 10-12 digit string.
      */
@@ -233,6 +243,10 @@ export interface AccountAssignmentArgs {
      * The entity type for which the assignment will be created. Valid values: `USER`, `GROUP`.
      */
     principalType: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * An AWS account identifier, typically a 10-12 digit string.
      */

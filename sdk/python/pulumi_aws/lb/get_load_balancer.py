@@ -28,7 +28,7 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, client_keep_alive=None, connection_logs=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, dns_record_client_routing_policy=None, drop_invalid_header_fields=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, enable_tls_version_and_cipher_suite_headers=None, enable_waf_fail_open=None, enable_xff_client_port=None, enable_zonal_shift=None, enforce_security_group_inbound_rules_on_private_link_traffic=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, ipam_pools=None, load_balancer_type=None, name=None, preserve_host_header=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, xff_header_processing_mode=None, zone_id=None):
+    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, client_keep_alive=None, connection_logs=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, dns_record_client_routing_policy=None, drop_invalid_header_fields=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, enable_tls_version_and_cipher_suite_headers=None, enable_waf_fail_open=None, enable_xff_client_port=None, enable_zonal_shift=None, enforce_security_group_inbound_rules_on_private_link_traffic=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, ipam_pools=None, load_balancer_type=None, name=None, preserve_host_header=None, region=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, xff_header_processing_mode=None, zone_id=None):
         if access_logs and not isinstance(access_logs, dict):
             raise TypeError("Expected argument 'access_logs' to be a dict")
         pulumi.set(__self__, "access_logs", access_logs)
@@ -107,6 +107,9 @@ class GetLoadBalancerResult:
         if preserve_host_header and not isinstance(preserve_host_header, bool):
             raise TypeError("Expected argument 'preserve_host_header' to be a bool")
         pulumi.set(__self__, "preserve_host_header", preserve_host_header)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_groups and not isinstance(security_groups, list):
             raise TypeError("Expected argument 'security_groups' to be a list")
         pulumi.set(__self__, "security_groups", security_groups)
@@ -263,6 +266,11 @@ class GetLoadBalancerResult:
         return pulumi.get(self, "preserve_host_header")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[builtins.str]:
         return pulumi.get(self, "security_groups")
@@ -330,6 +338,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             load_balancer_type=self.load_balancer_type,
             name=self.name,
             preserve_host_header=self.preserve_host_header,
+            region=self.region,
             security_groups=self.security_groups,
             subnet_mappings=self.subnet_mappings,
             subnets=self.subnets,
@@ -341,6 +350,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
 
 def get_load_balancer(arn: Optional[builtins.str] = None,
                       name: Optional[builtins.str] = None,
+                      region: Optional[builtins.str] = None,
                       tags: Optional[Mapping[str, builtins.str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerResult:
     """
@@ -372,6 +382,7 @@ def get_load_balancer(arn: Optional[builtins.str] = None,
 
     :param builtins.str arn: Full ARN of the load balancer.
     :param builtins.str name: Unique name of the load balancer.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
            
            > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
@@ -379,6 +390,7 @@ def get_load_balancer(arn: Optional[builtins.str] = None,
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:lb/getLoadBalancer:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult).value
@@ -410,6 +422,7 @@ def get_load_balancer(arn: Optional[builtins.str] = None,
         load_balancer_type=pulumi.get(__ret__, 'load_balancer_type'),
         name=pulumi.get(__ret__, 'name'),
         preserve_host_header=pulumi.get(__ret__, 'preserve_host_header'),
+        region=pulumi.get(__ret__, 'region'),
         security_groups=pulumi.get(__ret__, 'security_groups'),
         subnet_mappings=pulumi.get(__ret__, 'subnet_mappings'),
         subnets=pulumi.get(__ret__, 'subnets'),
@@ -419,6 +432,7 @@ def get_load_balancer(arn: Optional[builtins.str] = None,
         zone_id=pulumi.get(__ret__, 'zone_id'))
 def get_load_balancer_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
@@ -450,6 +464,7 @@ def get_load_balancer_output(arn: Optional[pulumi.Input[Optional[builtins.str]]]
 
     :param builtins.str arn: Full ARN of the load balancer.
     :param builtins.str name: Unique name of the load balancer.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
            
            > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
@@ -457,6 +472,7 @@ def get_load_balancer_output(arn: Optional[pulumi.Input[Optional[builtins.str]]]
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lb/getLoadBalancer:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult)
@@ -487,6 +503,7 @@ def get_load_balancer_output(arn: Optional[pulumi.Input[Optional[builtins.str]]]
         load_balancer_type=pulumi.get(__response__, 'load_balancer_type'),
         name=pulumi.get(__response__, 'name'),
         preserve_host_header=pulumi.get(__response__, 'preserve_host_header'),
+        region=pulumi.get(__response__, 'region'),
         security_groups=pulumi.get(__response__, 'security_groups'),
         subnet_mappings=pulumi.get(__response__, 'subnet_mappings'),
         subnets=pulumi.get(__response__, 'subnets'),

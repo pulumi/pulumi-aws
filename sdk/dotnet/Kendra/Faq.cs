@@ -151,6 +151,9 @@ namespace Pulumi.Aws.Kendra
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// </summary>
@@ -251,6 +254,9 @@ namespace Pulumi.Aws.Kendra
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// </summary>
@@ -324,6 +330,9 @@ namespace Pulumi.Aws.Kendra
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// </summary>
@@ -356,7 +365,6 @@ namespace Pulumi.Aws.Kendra
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

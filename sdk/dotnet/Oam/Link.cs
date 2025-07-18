@@ -170,6 +170,12 @@ namespace Pulumi.Aws.Oam
         public Output<string> LinkId { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Types of data that the source account shares with the monitoring account.
         /// </summary>
         [Output("resourceTypes")]
@@ -256,6 +262,12 @@ namespace Pulumi.Aws.Oam
         [Input("linkConfiguration")]
         public Input<Inputs.LinkLinkConfigurationArgs>? LinkConfiguration { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resourceTypes", required: true)]
         private InputList<string>? _resourceTypes;
 
@@ -326,6 +338,12 @@ namespace Pulumi.Aws.Oam
         [Input("linkId")]
         public Input<string>? LinkId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resourceTypes")]
         private InputList<string>? _resourceTypes;
 
@@ -366,7 +384,6 @@ namespace Pulumi.Aws.Oam
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

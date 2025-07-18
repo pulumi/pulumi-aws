@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Ecr
         [Input("ecrRepositoryPrefix", required: true)]
         public string EcrRepositoryPrefix { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetPullThroughCacheRuleArgs()
         {
         }
@@ -106,6 +112,12 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         [Input("ecrRepositoryPrefix", required: true)]
         public Input<string> EcrRepositoryPrefix { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetPullThroughCacheRuleInvokeArgs()
         {
@@ -130,6 +142,7 @@ namespace Pulumi.Aws.Ecr
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// The registry ID where the repository was created.
         /// </summary>
@@ -153,6 +166,8 @@ namespace Pulumi.Aws.Ecr
 
             string id,
 
+            string region,
+
             string registryId,
 
             string upstreamRegistryUrl,
@@ -163,6 +178,7 @@ namespace Pulumi.Aws.Ecr
             CustomRoleArn = customRoleArn;
             EcrRepositoryPrefix = ecrRepositoryPrefix;
             Id = id;
+            Region = region;
             RegistryId = registryId;
             UpstreamRegistryUrl = upstreamRegistryUrl;
             UpstreamRepositoryPrefix = upstreamRepositoryPrefix;

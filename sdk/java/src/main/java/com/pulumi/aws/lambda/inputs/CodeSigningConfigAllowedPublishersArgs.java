@@ -16,14 +16,14 @@ public final class CodeSigningConfigAllowedPublishersArgs extends com.pulumi.res
     public static final CodeSigningConfigAllowedPublishersArgs Empty = new CodeSigningConfigAllowedPublishersArgs();
 
     /**
-     * The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+     * Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
      * 
      */
     @Import(name="signingProfileVersionArns", required=true)
     private Output<List<String>> signingProfileVersionArns;
 
     /**
-     * @return The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+     * @return Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
      * 
      */
     public Output<List<String>> signingProfileVersionArns() {
@@ -55,7 +55,7 @@ public final class CodeSigningConfigAllowedPublishersArgs extends com.pulumi.res
         }
 
         /**
-         * @param signingProfileVersionArns The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+         * @param signingProfileVersionArns Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class CodeSigningConfigAllowedPublishersArgs extends com.pulumi.res
         }
 
         /**
-         * @param signingProfileVersionArns The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+         * @param signingProfileVersionArns Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class CodeSigningConfigAllowedPublishersArgs extends com.pulumi.res
         }
 
         /**
-         * @param signingProfileVersionArns The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+         * @param signingProfileVersionArns Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
          * 
          * @return builder
          * 

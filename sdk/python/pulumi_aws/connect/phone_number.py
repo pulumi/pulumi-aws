@@ -27,6 +27,7 @@ class PhoneNumberArgs:
                  type: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  prefix: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a PhoneNumber resource.
@@ -35,6 +36,7 @@ class PhoneNumberArgs:
         :param pulumi.Input[builtins.str] type: The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
         :param pulumi.Input[builtins.str] description: The description of the phone number.
         :param pulumi.Input[builtins.str] prefix: The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "country_code", country_code)
@@ -44,6 +46,8 @@ class PhoneNumberArgs:
             pulumi.set(__self__, "description", description)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -109,6 +113,18 @@ class PhoneNumberArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -128,6 +144,7 @@ class _PhoneNumberState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  phone_number: Optional[pulumi.Input[builtins.str]] = None,
                  prefix: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  statuses: Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberStatusArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -140,6 +157,7 @@ class _PhoneNumberState:
         :param pulumi.Input[builtins.str] description: The description of the phone number.
         :param pulumi.Input[builtins.str] phone_number: The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
         :param pulumi.Input[builtins.str] prefix: The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['PhoneNumberStatusArgs']]] statuses: The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -156,13 +174,12 @@ class _PhoneNumberState:
             pulumi.set(__self__, "phone_number", phone_number)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if statuses is not None:
             pulumi.set(__self__, "statuses", statuses)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if target_arn is not None:
@@ -232,6 +249,18 @@ class _PhoneNumberState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberStatusArgs']]]]:
         """
         The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
@@ -256,7 +285,6 @@ class _PhoneNumberState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -301,6 +329,7 @@ class PhoneNumber(pulumi.CustomResource):
                  country_code: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  prefix: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_arn: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
@@ -365,6 +394,7 @@ class PhoneNumber(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] country_code: The ISO country code. For a list of Valid values, refer to [PhoneNumberCountryCode](https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html#connect-SearchAvailablePhoneNumbers-request-PhoneNumberCountryCode).
         :param pulumi.Input[builtins.str] description: The description of the phone number.
         :param pulumi.Input[builtins.str] prefix: The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] target_arn: The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
         :param pulumi.Input[builtins.str] type: The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
@@ -448,6 +478,7 @@ class PhoneNumber(pulumi.CustomResource):
                  country_code: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  prefix: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_arn: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
@@ -465,6 +496,7 @@ class PhoneNumber(pulumi.CustomResource):
             __props__.__dict__["country_code"] = country_code
             __props__.__dict__["description"] = description
             __props__.__dict__["prefix"] = prefix
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             if target_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'target_arn'")
@@ -491,6 +523,7 @@ class PhoneNumber(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             phone_number: Optional[pulumi.Input[builtins.str]] = None,
             prefix: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             statuses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PhoneNumberStatusArgs', 'PhoneNumberStatusArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -508,6 +541,7 @@ class PhoneNumber(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The description of the phone number.
         :param pulumi.Input[builtins.str] phone_number: The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
         :param pulumi.Input[builtins.str] prefix: The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PhoneNumberStatusArgs', 'PhoneNumberStatusArgsDict']]]] statuses: The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -523,6 +557,7 @@ class PhoneNumber(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["phone_number"] = phone_number
         __props__.__dict__["prefix"] = prefix
+        __props__.__dict__["region"] = region
         __props__.__dict__["statuses"] = statuses
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -572,6 +607,14 @@ class PhoneNumber(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def statuses(self) -> pulumi.Output[Sequence['outputs.PhoneNumberStatus']]:
         """
         The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
@@ -588,7 +631,6 @@ class PhoneNumber(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

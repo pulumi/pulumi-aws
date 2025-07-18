@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,14 +27,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -59,14 +59,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -103,10 +103,14 @@ type Application struct {
 
 	// AWS account ID.
 	ApplicationAccount pulumi.StringOutput `pulumi:"applicationAccount"`
-	// ARN of the application.
+	// (**Deprecated** Reference `arn` instead) ARN of the application.
+	//
+	// Deprecated: Use 'arn' instead. This attribute will be removed in a future verion of the provider.
 	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
 	// ARN of the application provider.
 	ApplicationProviderArn pulumi.StringOutput `pulumi:"applicationProviderArn"`
+	// ARN of the application.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
 	ClientToken pulumi.StringPtrOutput `pulumi:"clientToken"`
 	// Description of the application.
@@ -119,13 +123,13 @@ type Application struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Options for the portal associated with an application. See `portalOptions` below.
 	PortalOptions ApplicationPortalOptionsPtrOutput `pulumi:"portalOptions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Status of the application. Valid values are `ENABLED` and `DISABLED`.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -167,10 +171,14 @@ func GetApplication(ctx *pulumi.Context,
 type applicationState struct {
 	// AWS account ID.
 	ApplicationAccount *string `pulumi:"applicationAccount"`
-	// ARN of the application.
+	// (**Deprecated** Reference `arn` instead) ARN of the application.
+	//
+	// Deprecated: Use 'arn' instead. This attribute will be removed in a future verion of the provider.
 	ApplicationArn *string `pulumi:"applicationArn"`
 	// ARN of the application provider.
 	ApplicationProviderArn *string `pulumi:"applicationProviderArn"`
+	// ARN of the application.
+	Arn *string `pulumi:"arn"`
 	// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
 	ClientToken *string `pulumi:"clientToken"`
 	// Description of the application.
@@ -183,23 +191,27 @@ type applicationState struct {
 	Name *string `pulumi:"name"`
 	// Options for the portal associated with an application. See `portalOptions` below.
 	PortalOptions *ApplicationPortalOptions `pulumi:"portalOptions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Status of the application. Valid values are `ENABLED` and `DISABLED`.
 	Status *string `pulumi:"status"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ApplicationState struct {
 	// AWS account ID.
 	ApplicationAccount pulumi.StringPtrInput
-	// ARN of the application.
+	// (**Deprecated** Reference `arn` instead) ARN of the application.
+	//
+	// Deprecated: Use 'arn' instead. This attribute will be removed in a future verion of the provider.
 	ApplicationArn pulumi.StringPtrInput
 	// ARN of the application provider.
 	ApplicationProviderArn pulumi.StringPtrInput
+	// ARN of the application.
+	Arn pulumi.StringPtrInput
 	// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
 	ClientToken pulumi.StringPtrInput
 	// Description of the application.
@@ -212,13 +224,13 @@ type ApplicationState struct {
 	Name pulumi.StringPtrInput
 	// Options for the portal associated with an application. See `portalOptions` below.
 	PortalOptions ApplicationPortalOptionsPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Status of the application. Valid values are `ENABLED` and `DISABLED`.
 	Status pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -241,6 +253,8 @@ type applicationArgs struct {
 	Name *string `pulumi:"name"`
 	// Options for the portal associated with an application. See `portalOptions` below.
 	PortalOptions *ApplicationPortalOptions `pulumi:"portalOptions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Status of the application. Valid values are `ENABLED` and `DISABLED`.
 	Status *string `pulumi:"status"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -263,6 +277,8 @@ type ApplicationArgs struct {
 	Name pulumi.StringPtrInput
 	// Options for the portal associated with an application. See `portalOptions` below.
 	PortalOptions ApplicationPortalOptionsPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Status of the application. Valid values are `ENABLED` and `DISABLED`.
 	Status pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -361,7 +377,9 @@ func (o ApplicationOutput) ApplicationAccount() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationAccount }).(pulumi.StringOutput)
 }
 
-// ARN of the application.
+// (**Deprecated** Reference `arn` instead) ARN of the application.
+//
+// Deprecated: Use 'arn' instead. This attribute will be removed in a future verion of the provider.
 func (o ApplicationOutput) ApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationArn }).(pulumi.StringOutput)
 }
@@ -369,6 +387,11 @@ func (o ApplicationOutput) ApplicationArn() pulumi.StringOutput {
 // ARN of the application provider.
 func (o ApplicationOutput) ApplicationProviderArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationProviderArn }).(pulumi.StringOutput)
+}
+
+// ARN of the application.
+func (o ApplicationOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
@@ -398,6 +421,11 @@ func (o ApplicationOutput) PortalOptions() ApplicationPortalOptionsPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationPortalOptionsPtrOutput { return v.PortalOptions }).(ApplicationPortalOptionsPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ApplicationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Status of the application. Valid values are `ENABLED` and `DISABLED`.
 func (o ApplicationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
@@ -409,8 +437,6 @@ func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

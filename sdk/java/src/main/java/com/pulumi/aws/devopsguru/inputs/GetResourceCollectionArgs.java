@@ -3,13 +3,10 @@
 
 package com.pulumi.aws.devopsguru.inputs;
 
-import com.pulumi.aws.devopsguru.inputs.GetResourceCollectionCloudformationArgs;
-import com.pulumi.aws.devopsguru.inputs.GetResourceCollectionTagArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,33 +17,18 @@ public final class GetResourceCollectionArgs extends com.pulumi.resources.Invoke
     public static final GetResourceCollectionArgs Empty = new GetResourceCollectionArgs();
 
     /**
-     * A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    @Import(name="cloudformations")
-    private @Nullable Output<List<GetResourceCollectionCloudformationArgs>> cloudformations;
+    @Import(name="region")
+    private @Nullable Output<String> region;
 
     /**
-     * @return A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    public Optional<Output<List<GetResourceCollectionCloudformationArgs>>> cloudformations() {
-        return Optional.ofNullable(this.cloudformations);
-    }
-
-    /**
-     * AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-     * 
-     */
-    @Import(name="tags")
-    private @Nullable Output<List<GetResourceCollectionTagArgs>> tags;
-
-    /**
-     * @return AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-     * 
-     */
-    public Optional<Output<List<GetResourceCollectionTagArgs>>> tags() {
-        return Optional.ofNullable(this.tags);
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -67,8 +49,7 @@ public final class GetResourceCollectionArgs extends com.pulumi.resources.Invoke
     private GetResourceCollectionArgs() {}
 
     private GetResourceCollectionArgs(GetResourceCollectionArgs $) {
-        this.cloudformations = $.cloudformations;
-        this.tags = $.tags;
+        this.region = $.region;
         this.type = $.type;
     }
 
@@ -91,65 +72,24 @@ public final class GetResourceCollectionArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param cloudformations A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
          */
-        public Builder cloudformations(@Nullable Output<List<GetResourceCollectionCloudformationArgs>> cloudformations) {
-            $.cloudformations = cloudformations;
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
             return this;
         }
 
         /**
-         * @param cloudformations A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
          */
-        public Builder cloudformations(List<GetResourceCollectionCloudformationArgs> cloudformations) {
-            return cloudformations(Output.of(cloudformations));
-        }
-
-        /**
-         * @param cloudformations A collection of AWS CloudFormation stacks. See `cloudformation` below for additional details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder cloudformations(GetResourceCollectionCloudformationArgs... cloudformations) {
-            return cloudformations(List.of(cloudformations));
-        }
-
-        /**
-         * @param tags AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tags(@Nullable Output<List<GetResourceCollectionTagArgs>> tags) {
-            $.tags = tags;
-            return this;
-        }
-
-        /**
-         * @param tags AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tags(List<GetResourceCollectionTagArgs> tags) {
-            return tags(Output.of(tags));
-        }
-
-        /**
-         * @param tags AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tags(GetResourceCollectionTagArgs... tags) {
-            return tags(List.of(tags));
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

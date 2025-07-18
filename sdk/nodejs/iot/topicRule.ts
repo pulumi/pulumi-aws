@@ -51,13 +51,13 @@ import * as utilities from "../utilities";
  *     name: "myrole",
  *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
- * const mypolicy = mytopic.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
+ * const mypolicy = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["sns:Publish"],
- *         resources: [arn],
+ *         resources: [mytopic.arn],
  *     }],
- * }));
+ * });
  * const mypolicyRolePolicy = new aws.iam.RolePolicy("mypolicy", {
  *     name: "mypolicy",
  *     role: myrole.id,
@@ -134,6 +134,10 @@ export class TopicRule extends pulumi.CustomResource {
      * The name of the rule.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly republishes!: pulumi.Output<outputs.iot.TopicRuleRepublish[] | undefined>;
     public readonly s3!: pulumi.Output<outputs.iot.TopicRuleS3[] | undefined>;
     public readonly sns!: pulumi.Output<outputs.iot.TopicRuleSns[] | undefined>;
@@ -153,8 +157,6 @@ export class TopicRule extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timestreams!: pulumi.Output<outputs.iot.TopicRuleTimestream[] | undefined>;
@@ -190,6 +192,7 @@ export class TopicRule extends pulumi.CustomResource {
             resourceInputs["kineses"] = state ? state.kineses : undefined;
             resourceInputs["lambdas"] = state ? state.lambdas : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["republishes"] = state ? state.republishes : undefined;
             resourceInputs["s3"] = state ? state.s3 : undefined;
             resourceInputs["sns"] = state ? state.sns : undefined;
@@ -228,6 +231,7 @@ export class TopicRule extends pulumi.CustomResource {
             resourceInputs["kineses"] = args ? args.kineses : undefined;
             resourceInputs["lambdas"] = args ? args.lambdas : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["republishes"] = args ? args.republishes : undefined;
             resourceInputs["s3"] = args ? args.s3 : undefined;
             resourceInputs["sns"] = args ? args.sns : undefined;
@@ -282,6 +286,10 @@ export interface TopicRuleState {
      * The name of the rule.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     republishes?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleRepublish>[]>;
     s3?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleS3>[]>;
     sns?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSns>[]>;
@@ -301,8 +309,6 @@ export interface TopicRuleState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timestreams?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleTimestream>[]>;
@@ -341,6 +347,10 @@ export interface TopicRuleArgs {
      * The name of the rule.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     republishes?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleRepublish>[]>;
     s3?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleS3>[]>;
     sns?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleSns>[]>;

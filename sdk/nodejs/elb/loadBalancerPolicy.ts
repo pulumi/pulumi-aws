@@ -131,6 +131,10 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
      * The policy type.
      */
     public readonly policyTypeName!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LoadBalancerPolicy resource with the given unique name, arguments, and options.
@@ -149,6 +153,7 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
             resourceInputs["policyAttributes"] = state ? state.policyAttributes : undefined;
             resourceInputs["policyName"] = state ? state.policyName : undefined;
             resourceInputs["policyTypeName"] = state ? state.policyTypeName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LoadBalancerPolicyArgs | undefined;
             if ((!args || args.loadBalancerName === undefined) && !opts.urn) {
@@ -164,6 +169,7 @@ export class LoadBalancerPolicy extends pulumi.CustomResource {
             resourceInputs["policyAttributes"] = args ? args.policyAttributes : undefined;
             resourceInputs["policyName"] = args ? args.policyName : undefined;
             resourceInputs["policyTypeName"] = args ? args.policyTypeName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/loadBalancerPolicy:LoadBalancerPolicy" }] };
@@ -192,6 +198,10 @@ export interface LoadBalancerPolicyState {
      * The policy type.
      */
     policyTypeName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -214,4 +224,8 @@ export interface LoadBalancerPolicyArgs {
      * The policy type.
      */
     policyTypeName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

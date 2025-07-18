@@ -22,16 +22,22 @@ class LbStickinessPolicyArgs:
     def __init__(__self__, *,
                  cookie_duration: pulumi.Input[builtins.int],
                  enabled: pulumi.Input[builtins.bool],
-                 lb_name: pulumi.Input[builtins.str]):
+                 lb_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LbStickinessPolicy resource.
         :param pulumi.Input[builtins.int] cookie_duration: Cookie duration in seconds. This determines the length of the session stickiness.
         :param pulumi.Input[builtins.bool] enabled: Whether to enable session stickiness for the load balancer.
         :param pulumi.Input[builtins.str] lb_name: Name of the load balancer to which you want to enable session stickiness.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cookie_duration", cookie_duration)
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "lb_name", lb_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="cookieDuration")
@@ -62,6 +68,8 @@ class LbStickinessPolicyArgs:
     def lb_name(self) -> pulumi.Input[builtins.str]:
         """
         Name of the load balancer to which you want to enable session stickiness.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "lb_name")
 
@@ -69,18 +77,34 @@ class LbStickinessPolicyArgs:
     def lb_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "lb_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _LbStickinessPolicyState:
     def __init__(__self__, *,
                  cookie_duration: Optional[pulumi.Input[builtins.int]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
-                 lb_name: Optional[pulumi.Input[builtins.str]] = None):
+                 lb_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering LbStickinessPolicy resources.
         :param pulumi.Input[builtins.int] cookie_duration: Cookie duration in seconds. This determines the length of the session stickiness.
         :param pulumi.Input[builtins.bool] enabled: Whether to enable session stickiness for the load balancer.
         :param pulumi.Input[builtins.str] lb_name: Name of the load balancer to which you want to enable session stickiness.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if cookie_duration is not None:
             pulumi.set(__self__, "cookie_duration", cookie_duration)
@@ -88,6 +112,8 @@ class _LbStickinessPolicyState:
             pulumi.set(__self__, "enabled", enabled)
         if lb_name is not None:
             pulumi.set(__self__, "lb_name", lb_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="cookieDuration")
@@ -118,12 +144,26 @@ class _LbStickinessPolicyState:
     def lb_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Name of the load balancer to which you want to enable session stickiness.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "lb_name")
 
     @lb_name.setter
     def lb_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "lb_name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
 
 @pulumi.type_token("aws:lightsail/lbStickinessPolicy:LbStickinessPolicy")
@@ -135,6 +175,7 @@ class LbStickinessPolicy(pulumi.CustomResource):
                  cookie_duration: Optional[pulumi.Input[builtins.int]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  lb_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Manages session stickiness for a Lightsail Load Balancer.
@@ -173,6 +214,9 @@ class LbStickinessPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] cookie_duration: Cookie duration in seconds. This determines the length of the session stickiness.
         :param pulumi.Input[builtins.bool] enabled: Whether to enable session stickiness for the load balancer.
         :param pulumi.Input[builtins.str] lb_name: Name of the load balancer to which you want to enable session stickiness.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -230,6 +274,7 @@ class LbStickinessPolicy(pulumi.CustomResource):
                  cookie_duration: Optional[pulumi.Input[builtins.int]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  lb_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -248,6 +293,7 @@ class LbStickinessPolicy(pulumi.CustomResource):
             if lb_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lb_name'")
             __props__.__dict__["lb_name"] = lb_name
+            __props__.__dict__["region"] = region
         super(LbStickinessPolicy, __self__).__init__(
             'aws:lightsail/lbStickinessPolicy:LbStickinessPolicy',
             resource_name,
@@ -260,7 +306,8 @@ class LbStickinessPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cookie_duration: Optional[pulumi.Input[builtins.int]] = None,
             enabled: Optional[pulumi.Input[builtins.bool]] = None,
-            lb_name: Optional[pulumi.Input[builtins.str]] = None) -> 'LbStickinessPolicy':
+            lb_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'LbStickinessPolicy':
         """
         Get an existing LbStickinessPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -271,6 +318,9 @@ class LbStickinessPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] cookie_duration: Cookie duration in seconds. This determines the length of the session stickiness.
         :param pulumi.Input[builtins.bool] enabled: Whether to enable session stickiness for the load balancer.
         :param pulumi.Input[builtins.str] lb_name: Name of the load balancer to which you want to enable session stickiness.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -279,6 +329,7 @@ class LbStickinessPolicy(pulumi.CustomResource):
         __props__.__dict__["cookie_duration"] = cookie_duration
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["lb_name"] = lb_name
+        __props__.__dict__["region"] = region
         return LbStickinessPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -302,6 +353,16 @@ class LbStickinessPolicy(pulumi.CustomResource):
     def lb_name(self) -> pulumi.Output[builtins.str]:
         """
         Name of the load balancer to which you want to enable session stickiness.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "lb_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

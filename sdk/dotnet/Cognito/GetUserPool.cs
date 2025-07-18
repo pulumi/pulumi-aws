@@ -94,6 +94,12 @@ namespace Pulumi.Aws.Cognito
     public sealed class GetUserPoolArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// The cognito pool ID
         /// </summary>
         [Input("userPoolId", required: true)]
@@ -107,6 +113,12 @@ namespace Pulumi.Aws.Cognito
 
     public sealed class GetUserPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The cognito pool ID
         /// </summary>
@@ -174,6 +186,7 @@ namespace Pulumi.Aws.Cognito
         /// - Name of the attribute.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         public readonly ImmutableArray<Outputs.GetUserPoolSchemaAttributeResult> SchemaAttributes;
         /// <summary>
         /// The contents of the SMS authentication message.
@@ -237,6 +250,8 @@ namespace Pulumi.Aws.Cognito
 
             string name,
 
+            string region,
+
             ImmutableArray<Outputs.GetUserPoolSchemaAttributeResult> schemaAttributes,
 
             string smsAuthenticationMessage,
@@ -271,6 +286,7 @@ namespace Pulumi.Aws.Cognito
             LastModifiedDate = lastModifiedDate;
             MfaConfiguration = mfaConfiguration;
             Name = name;
+            Region = region;
             SchemaAttributes = schemaAttributes;
             SmsAuthenticationMessage = smsAuthenticationMessage;
             SmsConfigurationFailure = smsConfigurationFailure;

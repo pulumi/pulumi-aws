@@ -39,6 +39,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Output("originalDefaultRouteTableId")]
         public Output<string> OriginalDefaultRouteTableId { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("timeouts")]
         public Output<Outputs.DefaultRouteTablePropagationTimeouts?> Timeouts { get; private set; } = null!;
 
@@ -100,6 +106,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
     public sealed class DefaultRouteTablePropagationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("timeouts")]
         public Input<Inputs.DefaultRouteTablePropagationTimeoutsArgs>? Timeouts { get; set; }
 
@@ -125,6 +137,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
     {
         [Input("originalDefaultRouteTableId")]
         public Input<string>? OriginalDefaultRouteTableId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.DefaultRouteTablePropagationTimeoutsGetArgs>? Timeouts { get; set; }

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedpermissions"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/verifiedpermissions"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func LookupPolicyStore(ctx *pulumi.Context, args *LookupPolicyStoreArgs, opts ..
 type LookupPolicyStoreArgs struct {
 	// The ID of the Policy Store.
 	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPolicyStore.
@@ -66,6 +68,7 @@ type LookupPolicyStoreResult struct {
 	Id          string `pulumi:"id"`
 	// The date the Policy Store was last updated.
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
+	Region          string `pulumi:"region"`
 	// Map of key-value pairs associated with the policy store.
 	Tags map[string]string `pulumi:"tags"`
 	// Validation settings for the policy store.
@@ -85,6 +88,8 @@ func LookupPolicyStoreOutput(ctx *pulumi.Context, args LookupPolicyStoreOutputAr
 type LookupPolicyStoreOutputArgs struct {
 	// The ID of the Policy Store.
 	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupPolicyStoreOutputArgs) ElementType() reflect.Type {
@@ -127,6 +132,10 @@ func (o LookupPolicyStoreResultOutput) Id() pulumi.StringOutput {
 // The date the Policy Store was last updated.
 func (o LookupPolicyStoreResultOutput) LastUpdatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyStoreResult) string { return v.LastUpdatedDate }).(pulumi.StringOutput)
+}
+
+func (o LookupPolicyStoreResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyStoreResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of key-value pairs associated with the policy store.

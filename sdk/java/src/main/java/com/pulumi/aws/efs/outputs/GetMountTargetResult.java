@@ -61,6 +61,7 @@ public final class GetMountTargetResult {
      * 
      */
     private String ownerId;
+    private String region;
     /**
      * @return List of VPC security group IDs attached to the mount target.
      * 
@@ -145,6 +146,9 @@ public final class GetMountTargetResult {
     public String ownerId() {
         return this.ownerId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return List of VPC security group IDs attached to the mount target.
      * 
@@ -181,6 +185,7 @@ public final class GetMountTargetResult {
         private String mountTargetId;
         private String networkInterfaceId;
         private String ownerId;
+        private String region;
         private List<String> securityGroups;
         private String subnetId;
         public Builder() {}
@@ -198,6 +203,7 @@ public final class GetMountTargetResult {
     	      this.mountTargetId = defaults.mountTargetId;
     	      this.networkInterfaceId = defaults.networkInterfaceId;
     	      this.ownerId = defaults.ownerId;
+    	      this.region = defaults.region;
     	      this.securityGroups = defaults.securityGroups;
     	      this.subnetId = defaults.subnetId;
         }
@@ -297,6 +303,14 @@ public final class GetMountTargetResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetMountTargetResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
             if (securityGroups == null) {
               throw new MissingRequiredPropertyException("GetMountTargetResult", "securityGroups");
@@ -329,6 +343,7 @@ public final class GetMountTargetResult {
             _resultValue.mountTargetId = mountTargetId;
             _resultValue.networkInterfaceId = networkInterfaceId;
             _resultValue.ownerId = ownerId;
+            _resultValue.region = region;
             _resultValue.securityGroups = securityGroups;
             _resultValue.subnetId = subnetId;
             return _resultValue;

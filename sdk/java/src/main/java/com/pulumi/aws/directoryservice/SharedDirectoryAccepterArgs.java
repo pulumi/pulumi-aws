@@ -8,11 +8,28 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class SharedDirectoryAccepterArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final SharedDirectoryAccepterArgs Empty = new SharedDirectoryAccepterArgs();
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
@@ -32,6 +49,7 @@ public final class SharedDirectoryAccepterArgs extends com.pulumi.resources.Reso
     private SharedDirectoryAccepterArgs() {}
 
     private SharedDirectoryAccepterArgs(SharedDirectoryAccepterArgs $) {
+        this.region = $.region;
         this.sharedDirectoryId = $.sharedDirectoryId;
     }
 
@@ -51,6 +69,27 @@ public final class SharedDirectoryAccepterArgs extends com.pulumi.resources.Reso
 
         public Builder(SharedDirectoryAccepterArgs defaults) {
             $ = new SharedDirectoryAccepterArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

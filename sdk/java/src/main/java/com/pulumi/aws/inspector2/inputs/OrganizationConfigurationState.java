@@ -7,6 +7,7 @@ import com.pulumi.aws.inspector2.inputs.OrganizationConfigurationAutoEnableArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -46,11 +47,27 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
         return Optional.ofNullable(this.maxAccountLimitReached);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private OrganizationConfigurationState() {}
 
     private OrganizationConfigurationState(OrganizationConfigurationState $) {
         this.autoEnable = $.autoEnable;
         this.maxAccountLimitReached = $.maxAccountLimitReached;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -111,6 +128,27 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
          */
         public Builder maxAccountLimitReached(Boolean maxAccountLimitReached) {
             return maxAccountLimitReached(Output.of(maxAccountLimitReached));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public OrganizationConfigurationState build() {

@@ -28,13 +28,16 @@ class GetUsersResult:
     """
     A collection of values returned by getUsers.
     """
-    def __init__(__self__, id=None, identity_store_id=None, users=None):
+    def __init__(__self__, id=None, identity_store_id=None, region=None, users=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if identity_store_id and not isinstance(identity_store_id, str):
             raise TypeError("Expected argument 'identity_store_id' to be a str")
         pulumi.set(__self__, "identity_store_id", identity_store_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if users and not isinstance(users, list):
             raise TypeError("Expected argument 'users' to be a list")
         pulumi.set(__self__, "users", users)
@@ -54,6 +57,14 @@ class GetUsersResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        """
+        Region of the address.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def users(self) -> Sequence['outputs.GetUsersUserResult']:
         """
         List of Identity Store Users
@@ -69,10 +80,12 @@ class AwaitableGetUsersResult(GetUsersResult):
         return GetUsersResult(
             id=self.id,
             identity_store_id=self.identity_store_id,
+            region=self.region,
             users=self.users)
 
 
 def get_users(identity_store_id: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUsersResult:
     """
     Use this data source to get a list of users in an Identity Store instance.
@@ -91,17 +104,21 @@ def get_users(identity_store_id: Optional[builtins.str] = None,
 
 
     :param builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['identityStoreId'] = identity_store_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:identitystore/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult).value
 
     return AwaitableGetUsersResult(
         id=pulumi.get(__ret__, 'id'),
         identity_store_id=pulumi.get(__ret__, 'identity_store_id'),
+        region=pulumi.get(__ret__, 'region'),
         users=pulumi.get(__ret__, 'users'))
 def get_users_output(identity_store_id: Optional[pulumi.Input[builtins.str]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsersResult]:
     """
     Use this data source to get a list of users in an Identity Store instance.
@@ -120,12 +137,15 @@ def get_users_output(identity_store_id: Optional[pulumi.Input[builtins.str]] = N
 
 
     :param builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['identityStoreId'] = identity_store_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:identitystore/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult)
     return __ret__.apply(lambda __response__: GetUsersResult(
         id=pulumi.get(__response__, 'id'),
         identity_store_id=pulumi.get(__response__, 'identity_store_id'),
+        region=pulumi.get(__response__, 'region'),
         users=pulumi.get(__response__, 'users')))

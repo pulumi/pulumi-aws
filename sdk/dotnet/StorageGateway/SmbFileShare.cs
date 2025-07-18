@@ -109,8 +109,6 @@ namespace Pulumi.Aws.StorageGateway
 
         /// <summary>
         /// Refresh cache information. see `cache_attributes` Block for more details.
-        /// 
-        /// **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         /// </summary>
         [Output("cacheAttributes")]
         public Output<Outputs.SmbFileShareCacheAttributes?> CacheAttributes { get; private set; } = null!;
@@ -206,6 +204,12 @@ namespace Pulumi.Aws.StorageGateway
         public Output<bool?> ReadOnly { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         /// </summary>
         [Output("requesterPays")]
@@ -225,6 +229,8 @@ namespace Pulumi.Aws.StorageGateway
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -331,8 +337,6 @@ namespace Pulumi.Aws.StorageGateway
 
         /// <summary>
         /// Refresh cache information. see `cache_attributes` Block for more details.
-        /// 
-        /// **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         /// </summary>
         [Input("cacheAttributes")]
         public Input<Inputs.SmbFileShareCacheAttributesArgs>? CacheAttributes { get; set; }
@@ -422,6 +426,12 @@ namespace Pulumi.Aws.StorageGateway
         public Input<bool>? ReadOnly { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         /// </summary>
         [Input("requesterPays")]
@@ -444,6 +454,8 @@ namespace Pulumi.Aws.StorageGateway
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -521,8 +533,6 @@ namespace Pulumi.Aws.StorageGateway
 
         /// <summary>
         /// Refresh cache information. see `cache_attributes` Block for more details.
-        /// 
-        /// **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         /// </summary>
         [Input("cacheAttributes")]
         public Input<Inputs.SmbFileShareCacheAttributesGetArgs>? CacheAttributes { get; set; }
@@ -624,6 +634,12 @@ namespace Pulumi.Aws.StorageGateway
         public Input<bool>? ReadOnly { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         /// </summary>
         [Input("requesterPays")]
@@ -646,6 +662,8 @@ namespace Pulumi.Aws.StorageGateway
 
         /// <summary>
         /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// 
+        /// **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -659,7 +677,6 @@ namespace Pulumi.Aws.StorageGateway
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -157,22 +157,12 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      * 
-     * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-     * - Format: `ddd:hh24:mi-ddd:hh24:mi`
-     * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-     * - Constraints: Minimum 30-minute window.
-     * 
      */
     @Import(name="preferredMaintenanceWindow")
     private @Nullable Output<String> preferredMaintenanceWindow;
 
     /**
      * @return The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-     * 
-     * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-     * - Format: `ddd:hh24:mi-ddd:hh24:mi`
-     * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-     * - Constraints: Minimum 30-minute window.
      * 
      */
     public Optional<Output<String>> preferredMaintenanceWindow() {
@@ -192,6 +182,21 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
      */
     public Optional<Output<Boolean>> publiclyAccessible() {
         return Optional.ofNullable(this.publiclyAccessible);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -227,22 +232,12 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
     /**
      * The replication instance identifier. This parameter is stored as a lowercase string.
      * 
-     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
-     * - First character must be a letter.
-     * - Cannot end with a hyphen
-     * - Cannot contain two consecutive hyphens.
-     * 
      */
     @Import(name="replicationInstanceId")
     private @Nullable Output<String> replicationInstanceId;
 
     /**
      * @return The replication instance identifier. This parameter is stored as a lowercase string.
-     * 
-     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
-     * - First character must be a letter.
-     * - Cannot end with a hyphen
-     * - Cannot contain two consecutive hyphens.
      * 
      */
     public Optional<Output<String>> replicationInstanceId() {
@@ -312,22 +307,14 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -361,6 +348,7 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
         this.networkType = $.networkType;
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
         this.publiclyAccessible = $.publiclyAccessible;
+        this.region = $.region;
         this.replicationInstanceArn = $.replicationInstanceArn;
         this.replicationInstanceClass = $.replicationInstanceClass;
         this.replicationInstanceId = $.replicationInstanceId;
@@ -582,11 +570,6 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
         /**
          * @param preferredMaintenanceWindow The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
          * 
-         * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-         * - Format: `ddd:hh24:mi-ddd:hh24:mi`
-         * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-         * - Constraints: Minimum 30-minute window.
-         * 
          * @return builder
          * 
          */
@@ -597,11 +580,6 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
 
         /**
          * @param preferredMaintenanceWindow The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-         * 
-         * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-         * - Format: `ddd:hh24:mi-ddd:hh24:mi`
-         * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-         * - Constraints: Minimum 30-minute window.
          * 
          * @return builder
          * 
@@ -629,6 +607,27 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
          */
         public Builder publiclyAccessible(Boolean publiclyAccessible) {
             return publiclyAccessible(Output.of(publiclyAccessible));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -676,11 +675,6 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
         /**
          * @param replicationInstanceId The replication instance identifier. This parameter is stored as a lowercase string.
          * 
-         * - Must contain from 1 to 63 alphanumeric characters or hyphens.
-         * - First character must be a letter.
-         * - Cannot end with a hyphen
-         * - Cannot contain two consecutive hyphens.
-         * 
          * @return builder
          * 
          */
@@ -691,11 +685,6 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
 
         /**
          * @param replicationInstanceId The replication instance identifier. This parameter is stored as a lowercase string.
-         * 
-         * - Must contain from 1 to 63 alphanumeric characters or hyphens.
-         * - First character must be a letter.
-         * - Cannot end with a hyphen
-         * - Cannot contain two consecutive hyphens.
          * 
          * @return builder
          * 
@@ -813,11 +802,7 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -828,11 +813,7 @@ public final class ReplicationInstanceState extends com.pulumi.resources.Resourc
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

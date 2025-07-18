@@ -20,8 +20,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "example"});
- * const analytics = new aws.s3.BucketV2("analytics", {bucket: "analytics-destination"});
+ * const example = new aws.s3.Bucket("example", {bucket: "example"});
+ * const analytics = new aws.s3.Bucket("analytics", {bucket: "analytics-destination"});
  * const example_entire_bucket = new aws.s3.AnalyticsConfiguration("example-entire-bucket", {
  *     bucket: example.id,
  *     name: "EntireBucket",
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const example = new aws.s3.Bucket("example", {bucket: "example"});
  * const example_filtered = new aws.s3.AnalyticsConfiguration("example-filtered", {
  *     bucket: example.id,
  *     name: "ImportantBlueDocuments",
@@ -106,6 +106,10 @@ export class AnalyticsConfiguration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration for the analytics data export (documented below).
      */
     public readonly storageClassAnalysis!: pulumi.Output<outputs.s3.AnalyticsConfigurationStorageClassAnalysis | undefined>;
@@ -126,6 +130,7 @@ export class AnalyticsConfiguration extends pulumi.CustomResource {
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["filter"] = state ? state.filter : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["storageClassAnalysis"] = state ? state.storageClassAnalysis : undefined;
         } else {
             const args = argsOrState as AnalyticsConfigurationArgs | undefined;
@@ -135,6 +140,7 @@ export class AnalyticsConfiguration extends pulumi.CustomResource {
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["filter"] = args ? args.filter : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["storageClassAnalysis"] = args ? args.storageClassAnalysis : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -159,6 +165,10 @@ export interface AnalyticsConfigurationState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration for the analytics data export (documented below).
      */
     storageClassAnalysis?: pulumi.Input<inputs.s3.AnalyticsConfigurationStorageClassAnalysis>;
@@ -180,6 +190,10 @@ export interface AnalyticsConfigurationArgs {
      * Unique identifier of the analytics configuration for the bucket.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration for the analytics data export (documented below).
      */

@@ -39,7 +39,7 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     ///     var pci321 = new Aws.SecurityHub.StandardsSubscription("pci_321", new()
     ///     {
-    ///         StandardsArn = $"arn:aws:securityhub:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}::standards/pci-dss/v/3.2.1",
+    ///         StandardsArn = $"arn:aws:securityhub:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}::standards/pci-dss/v/3.2.1",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -68,6 +68,12 @@ namespace Pulumi.Aws.SecurityHub
     [AwsResourceType("aws:securityhub/standardsSubscription:StandardsSubscription")]
     public partial class StandardsSubscription : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         /// <summary>
         /// The ARN of a standard - see below.
         /// 
@@ -133,6 +139,12 @@ namespace Pulumi.Aws.SecurityHub
     public sealed class StandardsSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of a standard - see below.
         /// 
         /// Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):
@@ -158,6 +170,12 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class StandardsSubscriptionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The ARN of a standard - see below.
         /// 

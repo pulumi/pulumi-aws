@@ -28,7 +28,7 @@ class GetMeshResult:
     """
     A collection of values returned by getMesh.
     """
-    def __init__(__self__, arn=None, created_date=None, id=None, last_updated_date=None, mesh_owner=None, name=None, resource_owner=None, specs=None, tags=None):
+    def __init__(__self__, arn=None, created_date=None, id=None, last_updated_date=None, mesh_owner=None, name=None, region=None, resource_owner=None, specs=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -47,6 +47,9 @@ class GetMeshResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if resource_owner and not isinstance(resource_owner, str):
             raise TypeError("Expected argument 'resource_owner' to be a str")
         pulumi.set(__self__, "resource_owner", resource_owner)
@@ -100,6 +103,11 @@ class GetMeshResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resourceOwner")
     def resource_owner(self) -> builtins.str:
         """
@@ -136,6 +144,7 @@ class AwaitableGetMeshResult(GetMeshResult):
             last_updated_date=self.last_updated_date,
             mesh_owner=self.mesh_owner,
             name=self.name,
+            region=self.region,
             resource_owner=self.resource_owner,
             specs=self.specs,
             tags=self.tags)
@@ -143,6 +152,7 @@ class AwaitableGetMeshResult(GetMeshResult):
 
 def get_mesh(mesh_owner: Optional[builtins.str] = None,
              name: Optional[builtins.str] = None,
+             region: Optional[builtins.str] = None,
              tags: Optional[Mapping[str, builtins.str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMeshResult:
     """
@@ -169,11 +179,13 @@ def get_mesh(mesh_owner: Optional[builtins.str] = None,
 
     :param builtins.str mesh_owner: AWS account ID of the service mesh's owner.
     :param builtins.str name: Name of the service mesh.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags.
     """
     __args__ = dict()
     __args__['meshOwner'] = mesh_owner
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:appmesh/getMesh:getMesh', __args__, opts=opts, typ=GetMeshResult).value
@@ -185,11 +197,13 @@ def get_mesh(mesh_owner: Optional[builtins.str] = None,
         last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
         mesh_owner=pulumi.get(__ret__, 'mesh_owner'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         resource_owner=pulumi.get(__ret__, 'resource_owner'),
         specs=pulumi.get(__ret__, 'specs'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_mesh_output(mesh_owner: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     name: Optional[pulumi.Input[builtins.str]] = None,
+                    region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMeshResult]:
     """
@@ -216,11 +230,13 @@ def get_mesh_output(mesh_owner: Optional[pulumi.Input[Optional[builtins.str]]] =
 
     :param builtins.str mesh_owner: AWS account ID of the service mesh's owner.
     :param builtins.str name: Name of the service mesh.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags.
     """
     __args__ = dict()
     __args__['meshOwner'] = mesh_owner
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:appmesh/getMesh:getMesh', __args__, opts=opts, typ=GetMeshResult)
@@ -231,6 +247,7 @@ def get_mesh_output(mesh_owner: Optional[pulumi.Input[Optional[builtins.str]]] =
         last_updated_date=pulumi.get(__response__, 'last_updated_date'),
         mesh_owner=pulumi.get(__response__, 'mesh_owner'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         resource_owner=pulumi.get(__response__, 'resource_owner'),
         specs=pulumi.get(__response__, 'specs'),
         tags=pulumi.get(__response__, 'tags')))

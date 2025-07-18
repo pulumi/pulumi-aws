@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,7 +50,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,7 +79,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -115,6 +115,8 @@ type GetResolverRulesArgs struct {
 	NameRegex *string `pulumi:"nameRegex"`
 	// When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
 	OwnerId *string `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the outbound resolver endpoint for the desired resolver rules.
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
 	// Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
@@ -129,6 +131,7 @@ type GetResolverRulesResult struct {
 	Id                 string  `pulumi:"id"`
 	NameRegex          *string `pulumi:"nameRegex"`
 	OwnerId            *string `pulumi:"ownerId"`
+	Region             string  `pulumi:"region"`
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
 	// IDs of the matched resolver rules.
 	ResolverRuleIds []string `pulumi:"resolverRuleIds"`
@@ -153,6 +156,8 @@ type GetResolverRulesOutputArgs struct {
 	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
 	// When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
 	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the outbound resolver endpoint for the desired resolver rules.
 	ResolverEndpointId pulumi.StringPtrInput `pulumi:"resolverEndpointId"`
 	// Rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
@@ -191,6 +196,10 @@ func (o GetResolverRulesResultOutput) NameRegex() pulumi.StringPtrOutput {
 
 func (o GetResolverRulesResultOutput) OwnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetResolverRulesResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
+}
+
+func (o GetResolverRulesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverRulesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetResolverRulesResultOutput) ResolverEndpointId() pulumi.StringPtrOutput {

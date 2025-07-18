@@ -16,14 +16,14 @@ public final class TransitGatewayConnectPeerAssociationState extends com.pulumi.
     public static final TransitGatewayConnectPeerAssociationState Empty = new TransitGatewayConnectPeerAssociationState();
 
     /**
-     * The ID of the device.
+     * ID of the device.
      * 
      */
     @Import(name="deviceId")
     private @Nullable Output<String> deviceId;
 
     /**
-     * @return The ID of the device.
+     * @return ID of the device.
      * 
      */
     public Optional<Output<String>> deviceId() {
@@ -31,14 +31,14 @@ public final class TransitGatewayConnectPeerAssociationState extends com.pulumi.
     }
 
     /**
-     * The ID of the global network.
+     * ID of the global network.
      * 
      */
     @Import(name="globalNetworkId")
     private @Nullable Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the global network.
+     * @return ID of the global network.
      * 
      */
     public Optional<Output<String>> globalNetworkId() {
@@ -46,14 +46,14 @@ public final class TransitGatewayConnectPeerAssociationState extends com.pulumi.
     }
 
     /**
-     * The ID of the link.
+     * ID of the link.
      * 
      */
     @Import(name="linkId")
     private @Nullable Output<String> linkId;
 
     /**
-     * @return The ID of the link.
+     * @return ID of the link.
      * 
      */
     public Optional<Output<String>> linkId() {
@@ -61,14 +61,18 @@ public final class TransitGatewayConnectPeerAssociationState extends com.pulumi.
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Connect peer.
+     * ARN of the Connect peer.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="transitGatewayConnectPeerArn")
     private @Nullable Output<String> transitGatewayConnectPeerArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Connect peer.
+     * @return ARN of the Connect peer.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> transitGatewayConnectPeerArn() {
@@ -103,7 +107,7 @@ public final class TransitGatewayConnectPeerAssociationState extends com.pulumi.
         }
 
         /**
-         * @param deviceId The ID of the device.
+         * @param deviceId ID of the device.
          * 
          * @return builder
          * 
@@ -114,7 +118,7 @@ public final class TransitGatewayConnectPeerAssociationState extends com.pulumi.
         }
 
         /**
-         * @param deviceId The ID of the device.
+         * @param deviceId ID of the device.
          * 
          * @return builder
          * 
@@ -124,7 +128,7 @@ public final class TransitGatewayConnectPeerAssociationState extends com.pulumi.
         }
 
         /**
-         * @param globalNetworkId The ID of the global network.
+         * @param globalNetworkId ID of the global network.
          * 
          * @return builder
          * 
@@ -135,7 +139,7 @@ public final class TransitGatewayConnectPeerAssociationState extends com.pulumi.
         }
 
         /**
-         * @param globalNetworkId The ID of the global network.
+         * @param globalNetworkId ID of the global network.
          * 
          * @return builder
          * 
@@ -145,7 +149,7 @@ public final class TransitGatewayConnectPeerAssociationState extends com.pulumi.
         }
 
         /**
-         * @param linkId The ID of the link.
+         * @param linkId ID of the link.
          * 
          * @return builder
          * 
@@ -156,7 +160,7 @@ public final class TransitGatewayConnectPeerAssociationState extends com.pulumi.
         }
 
         /**
-         * @param linkId The ID of the link.
+         * @param linkId ID of the link.
          * 
          * @return builder
          * 
@@ -166,7 +170,9 @@ public final class TransitGatewayConnectPeerAssociationState extends com.pulumi.
         }
 
         /**
-         * @param transitGatewayConnectPeerArn The Amazon Resource Name (ARN) of the Connect peer.
+         * @param transitGatewayConnectPeerArn ARN of the Connect peer.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -177,7 +183,9 @@ public final class TransitGatewayConnectPeerAssociationState extends com.pulumi.
         }
 
         /**
-         * @param transitGatewayConnectPeerArn The Amazon Resource Name (ARN) of the Connect peer.
+         * @param transitGatewayConnectPeerArn ARN of the Connect peer.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

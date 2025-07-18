@@ -29,7 +29,7 @@ class GetInternetGatewayResult:
     """
     A collection of values returned by getInternetGateway.
     """
-    def __init__(__self__, arn=None, attachments=None, filters=None, id=None, internet_gateway_id=None, owner_id=None, tags=None):
+    def __init__(__self__, arn=None, attachments=None, filters=None, id=None, internet_gateway_id=None, owner_id=None, region=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -48,6 +48,9 @@ class GetInternetGatewayResult:
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -93,6 +96,11 @@ class GetInternetGatewayResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         return pulumi.get(self, "tags")
 
@@ -109,11 +117,13 @@ class AwaitableGetInternetGatewayResult(GetInternetGatewayResult):
             id=self.id,
             internet_gateway_id=self.internet_gateway_id,
             owner_id=self.owner_id,
+            region=self.region,
             tags=self.tags)
 
 
 def get_internet_gateway(filters: Optional[Sequence[Union['GetInternetGatewayFilterArgs', 'GetInternetGatewayFilterArgsDict']]] = None,
                          internet_gateway_id: Optional[builtins.str] = None,
+                         region: Optional[builtins.str] = None,
                          tags: Optional[Mapping[str, builtins.str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInternetGatewayResult:
     """
@@ -139,12 +149,14 @@ def get_internet_gateway(filters: Optional[Sequence[Union['GetInternetGatewayFil
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
     :param builtins.str internet_gateway_id: ID of the specific Internet Gateway to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired Internet Gateway.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['internetGatewayId'] = internet_gateway_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInternetGateway:getInternetGateway', __args__, opts=opts, typ=GetInternetGatewayResult).value
@@ -156,9 +168,11 @@ def get_internet_gateway(filters: Optional[Sequence[Union['GetInternetGatewayFil
         id=pulumi.get(__ret__, 'id'),
         internet_gateway_id=pulumi.get(__ret__, 'internet_gateway_id'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_internet_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInternetGatewayFilterArgs', 'GetInternetGatewayFilterArgsDict']]]]] = None,
                                 internet_gateway_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInternetGatewayResult]:
     """
@@ -184,12 +198,14 @@ def get_internet_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
     :param builtins.str internet_gateway_id: ID of the specific Internet Gateway to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired Internet Gateway.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['internetGatewayId'] = internet_gateway_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInternetGateway:getInternetGateway', __args__, opts=opts, typ=GetInternetGatewayResult)
@@ -200,4 +216,5 @@ def get_internet_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
         id=pulumi.get(__response__, 'id'),
         internet_gateway_id=pulumi.get(__response__, 'internet_gateway_id'),
         owner_id=pulumi.get(__response__, 'owner_id'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

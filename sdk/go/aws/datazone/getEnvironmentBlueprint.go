@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datazone"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,6 +64,8 @@ type GetEnvironmentBlueprintArgs struct {
 	Managed bool `pulumi:"managed"`
 	// Name of the blueprint.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEnvironmentBlueprint.
@@ -77,6 +79,7 @@ type GetEnvironmentBlueprintResult struct {
 	Id      string `pulumi:"id"`
 	Managed bool   `pulumi:"managed"`
 	Name    string `pulumi:"name"`
+	Region  string `pulumi:"region"`
 }
 
 func GetEnvironmentBlueprintOutput(ctx *pulumi.Context, args GetEnvironmentBlueprintOutputArgs, opts ...pulumi.InvokeOption) GetEnvironmentBlueprintResultOutput {
@@ -96,6 +99,8 @@ type GetEnvironmentBlueprintOutputArgs struct {
 	Managed pulumi.BoolInput `pulumi:"managed"`
 	// Name of the blueprint.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetEnvironmentBlueprintOutputArgs) ElementType() reflect.Type {
@@ -142,6 +147,10 @@ func (o GetEnvironmentBlueprintResultOutput) Managed() pulumi.BoolOutput {
 
 func (o GetEnvironmentBlueprintResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEnvironmentBlueprintResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetEnvironmentBlueprintResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEnvironmentBlueprintResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

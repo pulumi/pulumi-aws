@@ -92,6 +92,21 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Enable to show only VPC offerings.
      * 
      */
@@ -114,6 +129,7 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
         this.instanceClass = $.instanceClass;
         this.licenseModel = $.licenseModel;
         this.preferredInstanceClasses = $.preferredInstanceClasses;
+        this.region = $.region;
         this.vpc = $.vpc;
     }
 
@@ -198,6 +214,17 @@ public final class GetOrderableDbInstancePlainArgs extends com.pulumi.resources.
          */
         public Builder preferredInstanceClasses(String... preferredInstanceClasses) {
             return preferredInstanceClasses(List.of(preferredInstanceClasses));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

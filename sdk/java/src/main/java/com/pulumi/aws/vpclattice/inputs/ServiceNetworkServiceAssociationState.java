@@ -79,6 +79,21 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
      * 
      */
@@ -95,7 +110,6 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
 
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
      * 
      */
     @Import(name="serviceNetworkIdentifier")
@@ -103,7 +117,6 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
 
     /**
      * @return The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> serviceNetworkIdentifier() {
@@ -143,22 +156,14 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -170,6 +175,7 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
         this.createdBy = $.createdBy;
         this.customDomainName = $.customDomainName;
         this.dnsEntries = $.dnsEntries;
+        this.region = $.region;
         this.serviceIdentifier = $.serviceIdentifier;
         this.serviceNetworkIdentifier = $.serviceNetworkIdentifier;
         this.status = $.status;
@@ -290,6 +296,27 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param serviceIdentifier The ID or Amazon Resource Identifier (ARN) of the service.
          * 
          * @return builder
@@ -312,7 +339,6 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
 
         /**
          * @param serviceNetworkIdentifier The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -324,7 +350,6 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
 
         /**
          * @param serviceNetworkIdentifier The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -380,11 +405,7 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -395,11 +416,7 @@ public final class ServiceNetworkServiceAssociationState extends com.pulumi.reso
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

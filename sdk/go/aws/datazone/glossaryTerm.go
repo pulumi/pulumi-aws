@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,9 +23,9 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datazone"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -166,6 +166,8 @@ type GlossaryTerm struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Short description of entry.
 	ShortDescription pulumi.StringPtrOutput `pulumi:"shortDescription"`
 	// If glossary term is ENABLED or DISABLED.
@@ -222,6 +224,8 @@ type glossaryTermState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Short description of entry.
 	ShortDescription *string `pulumi:"shortDescription"`
 	// If glossary term is ENABLED or DISABLED.
@@ -246,6 +250,8 @@ type GlossaryTermState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Short description of entry.
 	ShortDescription pulumi.StringPtrInput
 	// If glossary term is ENABLED or DISABLED.
@@ -270,6 +276,8 @@ type glossaryTermArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Short description of entry.
 	ShortDescription *string `pulumi:"shortDescription"`
 	// If glossary term is ENABLED or DISABLED.
@@ -291,6 +299,8 @@ type GlossaryTermArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Short description of entry.
 	ShortDescription pulumi.StringPtrInput
 	// If glossary term is ENABLED or DISABLED.
@@ -417,6 +427,11 @@ func (o GlossaryTermOutput) LongDescription() pulumi.StringPtrOutput {
 // The following arguments are optional:
 func (o GlossaryTermOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlossaryTerm) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o GlossaryTermOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *GlossaryTerm) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Short description of entry.

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudformation"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,6 +65,8 @@ func LookupStack(ctx *pulumi.Context, args *LookupStackArgs, opts ...pulumi.Invo
 type LookupStackArgs struct {
 	// Name of the stack
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags associated with this stack.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -88,6 +90,7 @@ type LookupStackResult struct {
 	Outputs map[string]string `pulumi:"outputs"`
 	// Map of parameters that specify input parameters for the stack.
 	Parameters map[string]string `pulumi:"parameters"`
+	Region     string            `pulumi:"region"`
 	// Map of tags associated with this stack.
 	Tags map[string]string `pulumi:"tags"`
 	// Structure containing the template body.
@@ -109,6 +112,8 @@ func LookupStackOutput(ctx *pulumi.Context, args LookupStackOutputArgs, opts ...
 type LookupStackOutputArgs struct {
 	// Name of the stack
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags associated with this stack.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -174,6 +179,10 @@ func (o LookupStackResultOutput) Outputs() pulumi.StringMapOutput {
 // Map of parameters that specify input parameters for the stack.
 func (o LookupStackResultOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupStackResult) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+func (o LookupStackResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStackResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags associated with this stack.

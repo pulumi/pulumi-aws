@@ -106,6 +106,10 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The SNS topic to send events to.
      */
     public readonly snsTopic!: pulumi.Output<string>;
@@ -123,8 +127,6 @@ export class EventSubscription extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -147,6 +149,7 @@ export class EventSubscription extends pulumi.CustomResource {
             resourceInputs["eventCategories"] = state ? state.eventCategories : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["snsTopic"] = state ? state.snsTopic : undefined;
             resourceInputs["sourceIds"] = state ? state.sourceIds : undefined;
             resourceInputs["sourceType"] = state ? state.sourceType : undefined;
@@ -161,6 +164,7 @@ export class EventSubscription extends pulumi.CustomResource {
             resourceInputs["eventCategories"] = args ? args.eventCategories : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["snsTopic"] = args ? args.snsTopic : undefined;
             resourceInputs["sourceIds"] = args ? args.sourceIds : undefined;
             resourceInputs["sourceType"] = args ? args.sourceType : undefined;
@@ -203,6 +207,10 @@ export interface EventSubscriptionState {
      */
     namePrefix?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The SNS topic to send events to.
      */
     snsTopic?: pulumi.Input<string>;
@@ -220,8 +228,6 @@ export interface EventSubscriptionState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -246,6 +252,10 @@ export interface EventSubscriptionArgs {
      * The name of the DB event subscription. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The SNS topic to send events to.
      */

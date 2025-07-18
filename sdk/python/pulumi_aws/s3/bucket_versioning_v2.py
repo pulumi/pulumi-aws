@@ -25,13 +25,15 @@ class BucketVersioningV2Args:
                  bucket: pulumi.Input[builtins.str],
                  versioning_configuration: pulumi.Input['BucketVersioningV2VersioningConfigurationArgs'],
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
-                 mfa: Optional[pulumi.Input[builtins.str]] = None):
+                 mfa: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a BucketVersioningV2 resource.
         :param pulumi.Input[builtins.str] bucket: Name of the S3 bucket.
         :param pulumi.Input['BucketVersioningV2VersioningConfigurationArgs'] versioning_configuration: Configuration block for the versioning parameters. See below.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[builtins.str] mfa: Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "versioning_configuration", versioning_configuration)
@@ -39,6 +41,8 @@ class BucketVersioningV2Args:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if mfa is not None:
             pulumi.set(__self__, "mfa", mfa)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -88,6 +92,18 @@ class BucketVersioningV2Args:
     def mfa(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "mfa", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _BucketVersioningV2State:
@@ -95,12 +111,14 @@ class _BucketVersioningV2State:
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
                  mfa: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  versioning_configuration: Optional[pulumi.Input['BucketVersioningV2VersioningConfigurationArgs']] = None):
         """
         Input properties used for looking up and filtering BucketVersioningV2 resources.
         :param pulumi.Input[builtins.str] bucket: Name of the S3 bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[builtins.str] mfa: Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['BucketVersioningV2VersioningConfigurationArgs'] versioning_configuration: Configuration block for the versioning parameters. See below.
         """
         if bucket is not None:
@@ -109,6 +127,8 @@ class _BucketVersioningV2State:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if mfa is not None:
             pulumi.set(__self__, "mfa", mfa)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if versioning_configuration is not None:
             pulumi.set(__self__, "versioning_configuration", versioning_configuration)
 
@@ -149,6 +169,18 @@ class _BucketVersioningV2State:
         pulumi.set(self, "mfa", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="versioningConfiguration")
     def versioning_configuration(self) -> Optional[pulumi.Input['BucketVersioningV2VersioningConfigurationArgs']]:
         """
@@ -161,8 +193,13 @@ class _BucketVersioningV2State:
         pulumi.set(self, "versioning_configuration", value)
 
 
+warnings.warn("""aws.s3/bucketversioningv2.BucketVersioningV2 has been deprecated in favor of aws.s3/bucketversioning.BucketVersioning""", DeprecationWarning)
+
+
 @pulumi.type_token("aws:s3/bucketVersioningV2:BucketVersioningV2")
 class BucketVersioningV2(pulumi.CustomResource):
+    warnings.warn("""aws.s3/bucketversioningv2.BucketVersioningV2 has been deprecated in favor of aws.s3/bucketversioning.BucketVersioning""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -170,6 +207,7 @@ class BucketVersioningV2(pulumi.CustomResource):
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
                  mfa: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  versioning_configuration: Optional[pulumi.Input[Union['BucketVersioningV2VersioningConfigurationArgs', 'BucketVersioningV2VersioningConfigurationArgsDict']]] = None,
                  __props__=None):
         """
@@ -191,11 +229,11 @@ class BucketVersioningV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example-bucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+        example = aws.s3.Bucket("example", bucket="example-bucket")
+        example_bucket_acl = aws.s3.BucketAcl("example",
             bucket=example.id,
             acl="private")
-        versioning_example = aws.s3.BucketVersioningV2("versioning_example",
+        versioning_example = aws.s3.BucketVersioning("versioning_example",
             bucket=example.id,
             versioning_configuration={
                 "status": "Enabled",
@@ -208,11 +246,11 @@ class BucketVersioningV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example-bucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+        example = aws.s3.Bucket("example", bucket="example-bucket")
+        example_bucket_acl = aws.s3.BucketAcl("example",
             bucket=example.id,
             acl="private")
-        versioning_example = aws.s3.BucketVersioningV2("versioning_example",
+        versioning_example = aws.s3.BucketVersioning("versioning_example",
             bucket=example.id,
             versioning_configuration={
                 "status": "Disabled",
@@ -221,7 +259,7 @@ class BucketVersioningV2(pulumi.CustomResource):
 
         ### Object Dependency On Versioning
 
-        When you create an object whose `version_id` you need and an `s3.BucketVersioningV2` resource in the same configuration, you are more likely to have success by ensuring the `s3_object` depends either implicitly (see below) or explicitly (i.e., using `depends_on = [aws_s3_bucket_versioning.example]`) on the `s3.BucketVersioningV2` resource.
+        When you create an object whose `version_id` you need and an `s3.BucketVersioning` resource in the same configuration, you are more likely to have success by ensuring the `s3_object` depends either implicitly (see below) or explicitly (i.e., using `depends_on = [aws_s3_bucket_versioning.example]`) on the `s3.BucketVersioning` resource.
 
         > **NOTE:** For critical and/or production S3 objects, do not create a bucket, enable versioning, and create an object in the bucket within the same configuration. Doing so will not allow the AWS-recommended 15 minutes between enabling versioning and writing to the bucket.
 
@@ -231,14 +269,14 @@ class BucketVersioningV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="yotto")
-        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("example",
+        example = aws.s3.Bucket("example", bucket="yotto")
+        example_bucket_versioning = aws.s3.BucketVersioning("example",
             bucket=example.id,
             versioning_configuration={
                 "status": "Enabled",
             })
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
-            bucket=example_bucket_versioning_v2.id,
+            bucket=example_bucket_versioning.id,
             key="droeloe",
             source=pulumi.FileAsset("example.txt"))
         ```
@@ -265,6 +303,7 @@ class BucketVersioningV2(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket: Name of the S3 bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[builtins.str] mfa: Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['BucketVersioningV2VersioningConfigurationArgs', 'BucketVersioningV2VersioningConfigurationArgsDict']] versioning_configuration: Configuration block for the versioning parameters. See below.
         """
         ...
@@ -292,11 +331,11 @@ class BucketVersioningV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example-bucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+        example = aws.s3.Bucket("example", bucket="example-bucket")
+        example_bucket_acl = aws.s3.BucketAcl("example",
             bucket=example.id,
             acl="private")
-        versioning_example = aws.s3.BucketVersioningV2("versioning_example",
+        versioning_example = aws.s3.BucketVersioning("versioning_example",
             bucket=example.id,
             versioning_configuration={
                 "status": "Enabled",
@@ -309,11 +348,11 @@ class BucketVersioningV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example-bucket")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
+        example = aws.s3.Bucket("example", bucket="example-bucket")
+        example_bucket_acl = aws.s3.BucketAcl("example",
             bucket=example.id,
             acl="private")
-        versioning_example = aws.s3.BucketVersioningV2("versioning_example",
+        versioning_example = aws.s3.BucketVersioning("versioning_example",
             bucket=example.id,
             versioning_configuration={
                 "status": "Disabled",
@@ -322,7 +361,7 @@ class BucketVersioningV2(pulumi.CustomResource):
 
         ### Object Dependency On Versioning
 
-        When you create an object whose `version_id` you need and an `s3.BucketVersioningV2` resource in the same configuration, you are more likely to have success by ensuring the `s3_object` depends either implicitly (see below) or explicitly (i.e., using `depends_on = [aws_s3_bucket_versioning.example]`) on the `s3.BucketVersioningV2` resource.
+        When you create an object whose `version_id` you need and an `s3.BucketVersioning` resource in the same configuration, you are more likely to have success by ensuring the `s3_object` depends either implicitly (see below) or explicitly (i.e., using `depends_on = [aws_s3_bucket_versioning.example]`) on the `s3.BucketVersioning` resource.
 
         > **NOTE:** For critical and/or production S3 objects, do not create a bucket, enable versioning, and create an object in the bucket within the same configuration. Doing so will not allow the AWS-recommended 15 minutes between enabling versioning and writing to the bucket.
 
@@ -332,14 +371,14 @@ class BucketVersioningV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="yotto")
-        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("example",
+        example = aws.s3.Bucket("example", bucket="yotto")
+        example_bucket_versioning = aws.s3.BucketVersioning("example",
             bucket=example.id,
             versioning_configuration={
                 "status": "Enabled",
             })
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
-            bucket=example_bucket_versioning_v2.id,
+            bucket=example_bucket_versioning.id,
             key="droeloe",
             source=pulumi.FileAsset("example.txt"))
         ```
@@ -379,8 +418,10 @@ class BucketVersioningV2(pulumi.CustomResource):
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
                  mfa: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  versioning_configuration: Optional[pulumi.Input[Union['BucketVersioningV2VersioningConfigurationArgs', 'BucketVersioningV2VersioningConfigurationArgsDict']]] = None,
                  __props__=None):
+        pulumi.log.warn("""BucketVersioningV2 is deprecated: aws.s3/bucketversioningv2.BucketVersioningV2 has been deprecated in favor of aws.s3/bucketversioning.BucketVersioning""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -394,9 +435,12 @@ class BucketVersioningV2(pulumi.CustomResource):
             __props__.__dict__["bucket"] = bucket
             __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
             __props__.__dict__["mfa"] = mfa
+            __props__.__dict__["region"] = region
             if versioning_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'versioning_configuration'")
             __props__.__dict__["versioning_configuration"] = versioning_configuration
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketVersioningV2:BucketVersioningV2")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BucketVersioningV2, __self__).__init__(
             'aws:s3/bucketVersioningV2:BucketVersioningV2',
             resource_name,
@@ -410,6 +454,7 @@ class BucketVersioningV2(pulumi.CustomResource):
             bucket: Optional[pulumi.Input[builtins.str]] = None,
             expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
             mfa: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             versioning_configuration: Optional[pulumi.Input[Union['BucketVersioningV2VersioningConfigurationArgs', 'BucketVersioningV2VersioningConfigurationArgsDict']]] = None) -> 'BucketVersioningV2':
         """
         Get an existing BucketVersioningV2 resource's state with the given name, id, and optional extra
@@ -421,6 +466,7 @@ class BucketVersioningV2(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket: Name of the S3 bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[builtins.str] mfa: Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['BucketVersioningV2VersioningConfigurationArgs', 'BucketVersioningV2VersioningConfigurationArgsDict']] versioning_configuration: Configuration block for the versioning parameters. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -430,6 +476,7 @@ class BucketVersioningV2(pulumi.CustomResource):
         __props__.__dict__["bucket"] = bucket
         __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
         __props__.__dict__["mfa"] = mfa
+        __props__.__dict__["region"] = region
         __props__.__dict__["versioning_configuration"] = versioning_configuration
         return BucketVersioningV2(resource_name, opts=opts, __props__=__props__)
 
@@ -456,6 +503,14 @@ class BucketVersioningV2(pulumi.CustomResource):
         Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
         """
         return pulumi.get(self, "mfa")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="versioningConfiguration")

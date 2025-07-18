@@ -25,6 +25,7 @@ class ClusterArgs:
                  deletion_protection_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_encryption_key: Optional[pulumi.Input[builtins.str]] = None,
                  multi_region_properties: Optional[pulumi.Input['ClusterMultiRegionPropertiesArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ClusterTimeoutsArgs']] = None):
         """
@@ -32,6 +33,7 @@ class ClusterArgs:
         :param pulumi.Input[builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
         :param pulumi.Input[builtins.str] kms_encryption_key: The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
         :param pulumi.Input['ClusterMultiRegionPropertiesArgs'] multi_region_properties: Multi-region properties of the DSQL Cluster.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Set of tags to be associated with the AWS DSQL Cluster resource.
         """
         if deletion_protection_enabled is not None:
@@ -40,6 +42,8 @@ class ClusterArgs:
             pulumi.set(__self__, "kms_encryption_key", kms_encryption_key)
         if multi_region_properties is not None:
             pulumi.set(__self__, "multi_region_properties", multi_region_properties)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -83,6 +87,18 @@ class ClusterArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Set of tags to be associated with the AWS DSQL Cluster resource.
@@ -112,6 +128,7 @@ class _ClusterState:
                  identifier: Optional[pulumi.Input[builtins.str]] = None,
                  kms_encryption_key: Optional[pulumi.Input[builtins.str]] = None,
                  multi_region_properties: Optional[pulumi.Input['ClusterMultiRegionPropertiesArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ClusterTimeoutsArgs']] = None,
@@ -124,6 +141,7 @@ class _ClusterState:
         :param pulumi.Input[builtins.str] identifier: Cluster Identifier.
         :param pulumi.Input[builtins.str] kms_encryption_key: The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
         :param pulumi.Input['ClusterMultiRegionPropertiesArgs'] multi_region_properties: Multi-region properties of the DSQL Cluster.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Set of tags to be associated with the AWS DSQL Cluster resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] vpc_endpoint_service_name: The DSQL Cluster's VPC endpoint service name.
@@ -140,11 +158,10 @@ class _ClusterState:
             pulumi.set(__self__, "kms_encryption_key", kms_encryption_key)
         if multi_region_properties is not None:
             pulumi.set(__self__, "multi_region_properties", multi_region_properties)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
@@ -226,6 +243,18 @@ class _ClusterState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Set of tags to be associated with the AWS DSQL Cluster resource.
@@ -238,7 +267,6 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -280,6 +308,7 @@ class Cluster(pulumi.CustomResource):
                  deletion_protection_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_encryption_key: Optional[pulumi.Input[builtins.str]] = None,
                  multi_region_properties: Optional[pulumi.Input[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['ClusterTimeoutsArgs', 'ClusterTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -314,6 +343,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
         :param pulumi.Input[builtins.str] kms_encryption_key: The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
         :param pulumi.Input[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']] multi_region_properties: Multi-region properties of the DSQL Cluster.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Set of tags to be associated with the AWS DSQL Cluster resource.
         """
         ...
@@ -366,6 +396,7 @@ class Cluster(pulumi.CustomResource):
                  deletion_protection_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_encryption_key: Optional[pulumi.Input[builtins.str]] = None,
                  multi_region_properties: Optional[pulumi.Input[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['ClusterTimeoutsArgs', 'ClusterTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -380,6 +411,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["deletion_protection_enabled"] = deletion_protection_enabled
             __props__.__dict__["kms_encryption_key"] = kms_encryption_key
             __props__.__dict__["multi_region_properties"] = multi_region_properties
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["arn"] = None
@@ -403,6 +435,7 @@ class Cluster(pulumi.CustomResource):
             identifier: Optional[pulumi.Input[builtins.str]] = None,
             kms_encryption_key: Optional[pulumi.Input[builtins.str]] = None,
             multi_region_properties: Optional[pulumi.Input[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             timeouts: Optional[pulumi.Input[Union['ClusterTimeoutsArgs', 'ClusterTimeoutsArgsDict']]] = None,
@@ -420,6 +453,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] identifier: Cluster Identifier.
         :param pulumi.Input[builtins.str] kms_encryption_key: The ARN of the AWS KMS key that encrypts data in the DSQL Cluster, or `"AWS_OWNED_KMS_KEY"`.
         :param pulumi.Input[Union['ClusterMultiRegionPropertiesArgs', 'ClusterMultiRegionPropertiesArgsDict']] multi_region_properties: Multi-region properties of the DSQL Cluster.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Set of tags to be associated with the AWS DSQL Cluster resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] vpc_endpoint_service_name: The DSQL Cluster's VPC endpoint service name.
@@ -434,6 +468,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["identifier"] = identifier
         __props__.__dict__["kms_encryption_key"] = kms_encryption_key
         __props__.__dict__["multi_region_properties"] = multi_region_properties
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -490,6 +525,14 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         Set of tags to be associated with the AWS DSQL Cluster resource.
@@ -498,7 +541,6 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

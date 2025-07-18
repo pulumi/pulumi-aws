@@ -22,12 +22,16 @@ __all__ = ['OrganizationConfigurationArgs', 'OrganizationConfiguration']
 @pulumi.input_type
 class OrganizationConfigurationArgs:
     def __init__(__self__, *,
-                 auto_enable: pulumi.Input['OrganizationConfigurationAutoEnableArgs']):
+                 auto_enable: pulumi.Input['OrganizationConfigurationAutoEnableArgs'],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationConfiguration resource.
         :param pulumi.Input['OrganizationConfigurationAutoEnableArgs'] auto_enable: Configuration block for auto enabling. See below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "auto_enable", auto_enable)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="autoEnable")
@@ -41,21 +45,37 @@ class OrganizationConfigurationArgs:
     def auto_enable(self, value: pulumi.Input['OrganizationConfigurationAutoEnableArgs']):
         pulumi.set(self, "auto_enable", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _OrganizationConfigurationState:
     def __init__(__self__, *,
                  auto_enable: Optional[pulumi.Input['OrganizationConfigurationAutoEnableArgs']] = None,
-                 max_account_limit_reached: Optional[pulumi.Input[builtins.bool]] = None):
+                 max_account_limit_reached: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationConfiguration resources.
         :param pulumi.Input['OrganizationConfigurationAutoEnableArgs'] auto_enable: Configuration block for auto enabling. See below.
         :param pulumi.Input[builtins.bool] max_account_limit_reached: Whether your configuration reached the max account limit.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if auto_enable is not None:
             pulumi.set(__self__, "auto_enable", auto_enable)
         if max_account_limit_reached is not None:
             pulumi.set(__self__, "max_account_limit_reached", max_account_limit_reached)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="autoEnable")
@@ -81,6 +101,18 @@ class _OrganizationConfigurationState:
     def max_account_limit_reached(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "max_account_limit_reached", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:inspector2/organizationConfiguration:OrganizationConfiguration")
 class OrganizationConfiguration(pulumi.CustomResource):
@@ -89,6 +121,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_enable: Optional[pulumi.Input[Union['OrganizationConfigurationAutoEnableArgs', 'OrganizationConfigurationAutoEnableArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an Amazon Inspector Organization Configuration.
@@ -116,6 +149,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['OrganizationConfigurationAutoEnableArgs', 'OrganizationConfigurationAutoEnableArgsDict']] auto_enable: Configuration block for auto enabling. See below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -162,6 +196,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_enable: Optional[pulumi.Input[Union['OrganizationConfigurationAutoEnableArgs', 'OrganizationConfigurationAutoEnableArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -174,6 +209,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
             if auto_enable is None and not opts.urn:
                 raise TypeError("Missing required property 'auto_enable'")
             __props__.__dict__["auto_enable"] = auto_enable
+            __props__.__dict__["region"] = region
             __props__.__dict__["max_account_limit_reached"] = None
         super(OrganizationConfiguration, __self__).__init__(
             'aws:inspector2/organizationConfiguration:OrganizationConfiguration',
@@ -186,7 +222,8 @@ class OrganizationConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_enable: Optional[pulumi.Input[Union['OrganizationConfigurationAutoEnableArgs', 'OrganizationConfigurationAutoEnableArgsDict']]] = None,
-            max_account_limit_reached: Optional[pulumi.Input[builtins.bool]] = None) -> 'OrganizationConfiguration':
+            max_account_limit_reached: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'OrganizationConfiguration':
         """
         Get an existing OrganizationConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -196,6 +233,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['OrganizationConfigurationAutoEnableArgs', 'OrganizationConfigurationAutoEnableArgsDict']] auto_enable: Configuration block for auto enabling. See below.
         :param pulumi.Input[builtins.bool] max_account_limit_reached: Whether your configuration reached the max account limit.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -203,6 +241,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         __props__.__dict__["auto_enable"] = auto_enable
         __props__.__dict__["max_account_limit_reached"] = max_account_limit_reached
+        __props__.__dict__["region"] = region
         return OrganizationConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -220,4 +259,12 @@ class OrganizationConfiguration(pulumi.CustomResource):
         Whether your configuration reached the max account limit.
         """
         return pulumi.get(self, "max_account_limit_reached")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

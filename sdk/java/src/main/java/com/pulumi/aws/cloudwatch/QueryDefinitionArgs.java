@@ -62,12 +62,28 @@ public final class QueryDefinitionArgs extends com.pulumi.resources.ResourceArgs
         return this.queryString;
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private QueryDefinitionArgs() {}
 
     private QueryDefinitionArgs(QueryDefinitionArgs $) {
         this.logGroupNames = $.logGroupNames;
         this.name = $.name;
         this.queryString = $.queryString;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -159,6 +175,27 @@ public final class QueryDefinitionArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder queryString(String queryString) {
             return queryString(Output.of(queryString));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public QueryDefinitionArgs build() {

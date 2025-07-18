@@ -35,6 +35,7 @@ class BotArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  nlu_intent_confidence_threshold: Optional[pulumi.Input[builtins.float]] = None,
                  process_behavior: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  voice_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Bot resource.
@@ -51,6 +52,7 @@ class BotArgs:
         :param pulumi.Input[builtins.str] name: The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
         :param pulumi.Input[builtins.float] nlu_intent_confidence_threshold: Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
         :param pulumi.Input[builtins.str] process_behavior: If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] voice_id: The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
         """
         pulumi.set(__self__, "abort_statement", abort_statement)
@@ -76,6 +78,8 @@ class BotArgs:
             pulumi.set(__self__, "nlu_intent_confidence_threshold", nlu_intent_confidence_threshold)
         if process_behavior is not None:
             pulumi.set(__self__, "process_behavior", process_behavior)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if voice_id is not None:
             pulumi.set(__self__, "voice_id", voice_id)
 
@@ -236,6 +240,18 @@ class BotArgs:
         pulumi.set(self, "process_behavior", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="voiceId")
     def voice_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -269,6 +285,7 @@ class _BotState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  nlu_intent_confidence_threshold: Optional[pulumi.Input[builtins.float]] = None,
                  process_behavior: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
                  voice_id: Optional[pulumi.Input[builtins.str]] = None):
@@ -292,6 +309,7 @@ class _BotState:
         :param pulumi.Input[builtins.str] name: The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
         :param pulumi.Input[builtins.float] nlu_intent_confidence_threshold: Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
         :param pulumi.Input[builtins.str] process_behavior: If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: When you send a request to create or update a bot, Amazon Lex sets the status response
                element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can't
                build the bot, it sets status to FAILED. Amazon Lex returns the reason for the failure in the
@@ -335,6 +353,8 @@ class _BotState:
             pulumi.set(__self__, "nlu_intent_confidence_threshold", nlu_intent_confidence_threshold)
         if process_behavior is not None:
             pulumi.set(__self__, "process_behavior", process_behavior)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if version is not None:
@@ -558,6 +578,18 @@ class _BotState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         When you send a request to create or update a bot, Amazon Lex sets the status response
@@ -615,6 +647,7 @@ class Bot(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  nlu_intent_confidence_threshold: Optional[pulumi.Input[builtins.float]] = None,
                  process_behavior: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  voice_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -678,6 +711,7 @@ class Bot(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
         :param pulumi.Input[builtins.float] nlu_intent_confidence_threshold: Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
         :param pulumi.Input[builtins.str] process_behavior: If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] voice_id: The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with the user. The locale configured for the voice must match the locale of the bot. For more information, see [Available Voices](http://docs.aws.amazon.com/polly/latest/dg/voicelist.html) in the Amazon Polly Developer Guide.
         """
         ...
@@ -760,6 +794,7 @@ class Bot(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  nlu_intent_confidence_threshold: Optional[pulumi.Input[builtins.float]] = None,
                  process_behavior: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  voice_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -789,6 +824,7 @@ class Bot(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["nlu_intent_confidence_threshold"] = nlu_intent_confidence_threshold
             __props__.__dict__["process_behavior"] = process_behavior
+            __props__.__dict__["region"] = region
             __props__.__dict__["voice_id"] = voice_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["checksum"] = None
@@ -825,6 +861,7 @@ class Bot(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             nlu_intent_confidence_threshold: Optional[pulumi.Input[builtins.float]] = None,
             process_behavior: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             version: Optional[pulumi.Input[builtins.str]] = None,
             voice_id: Optional[pulumi.Input[builtins.str]] = None) -> 'Bot':
@@ -853,6 +890,7 @@ class Bot(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
         :param pulumi.Input[builtins.float] nlu_intent_confidence_threshold: Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
         :param pulumi.Input[builtins.str] process_behavior: If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: When you send a request to create or update a bot, Amazon Lex sets the status response
                element to BUILDING. After Amazon Lex builds the bot, it sets status to READY. If Amazon Lex can't
                build the bot, it sets status to FAILED. Amazon Lex returns the reason for the failure in the
@@ -882,6 +920,7 @@ class Bot(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["nlu_intent_confidence_threshold"] = nlu_intent_confidence_threshold
         __props__.__dict__["process_behavior"] = process_behavior
+        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         __props__.__dict__["version"] = version
         __props__.__dict__["voice_id"] = voice_id
@@ -1028,6 +1067,14 @@ class Bot(pulumi.CustomResource):
         If you set the `process_behavior` element to `BUILD`, Amazon Lex builds the bot so that it can be run. If you set the element to `SAVE` Amazon Lex saves the bot, but doesn't build it. Default is `SAVE`.
         """
         return pulumi.get(self, "process_behavior")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

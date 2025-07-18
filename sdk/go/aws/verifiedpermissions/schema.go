@@ -8,11 +8,60 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // ## Example Usage
+//
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/verifiedpermissions"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"Namespace": map[string]interface{}{
+//					"entityTypes": map[string]interface{}{},
+//					"actions":     map[string]interface{}{},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = verifiedpermissions.NewSchema(ctx, "example", &verifiedpermissions.SchemaArgs{
+//				PolicyStoreId: pulumi.Any(exampleAwsVerifiedpermissionsPolicyStore.PolicyStoreId),
+//				Definition: &verifiedpermissions.SchemaDefinitionArgs{
+//					Value: pulumi.String(json0),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Import
+//
+// Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policy_store_id`. For example:
+//
+// console
+//
+//	% pulumi import aws_verifiedpermissions_schema.example DxQg2j8xvXJQ1tQCYNWj9T
 type Schema struct {
 	pulumi.CustomResourceState
 
@@ -22,6 +71,8 @@ type Schema struct {
 	Namespaces pulumi.StringArrayOutput `pulumi:"namespaces"`
 	// The ID of the Policy Store.
 	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewSchema registers a new resource with the given unique name, arguments, and options.
@@ -63,6 +114,8 @@ type schemaState struct {
 	Namespaces []string `pulumi:"namespaces"`
 	// The ID of the Policy Store.
 	PolicyStoreId *string `pulumi:"policyStoreId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type SchemaState struct {
@@ -72,6 +125,8 @@ type SchemaState struct {
 	Namespaces pulumi.StringArrayInput
 	// The ID of the Policy Store.
 	PolicyStoreId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (SchemaState) ElementType() reflect.Type {
@@ -83,6 +138,8 @@ type schemaArgs struct {
 	Definition *SchemaDefinition `pulumi:"definition"`
 	// The ID of the Policy Store.
 	PolicyStoreId string `pulumi:"policyStoreId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Schema resource.
@@ -91,6 +148,8 @@ type SchemaArgs struct {
 	Definition SchemaDefinitionPtrInput
 	// The ID of the Policy Store.
 	PolicyStoreId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (SchemaArgs) ElementType() reflect.Type {
@@ -193,6 +252,11 @@ func (o SchemaOutput) Namespaces() pulumi.StringArrayOutput {
 // The ID of the Policy Store.
 func (o SchemaOutput) PolicyStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.PolicyStoreId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o SchemaOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type SchemaArrayOutput struct{ *pulumi.OutputState }

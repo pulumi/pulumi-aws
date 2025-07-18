@@ -25,6 +25,7 @@ export function getEventSource(args?: GetEventSourceArgs, opts?: pulumi.InvokeOp
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudwatch/getEventSource:getEventSource", {
         "namePrefix": args.namePrefix,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,6 +37,10 @@ export interface GetEventSourceArgs {
      * Specifying this limits the results to only those partner event sources with names that start with the specified prefix
      */
     namePrefix?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -59,6 +64,7 @@ export interface GetEventSourceResult {
      */
     readonly name: string;
     readonly namePrefix?: string;
+    readonly region: string;
     /**
      * State of the event source (`ACTIVE` or `PENDING`)
      */
@@ -85,6 +91,7 @@ export function getEventSourceOutput(args?: GetEventSourceOutputArgs, opts?: pul
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudwatch/getEventSource:getEventSource", {
         "namePrefix": args.namePrefix,
+        "region": args.region,
     }, opts);
 }
 
@@ -96,4 +103,8 @@ export interface GetEventSourceOutputArgs {
      * Specifying this limits the results to only those partner event sources with names that start with the specified prefix
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

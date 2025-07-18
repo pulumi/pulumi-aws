@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/efs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -62,6 +62,8 @@ type LookupMountTargetArgs struct {
 	FileSystemId *string `pulumi:"fileSystemId"`
 	// ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
 	MountTargetId *string `pulumi:"mountTargetId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getMountTarget.
@@ -87,6 +89,7 @@ type LookupMountTargetResult struct {
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 	// AWS account ID that owns the resource.
 	OwnerId string `pulumi:"ownerId"`
+	Region  string `pulumi:"region"`
 	// List of VPC security group IDs attached to the mount target.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// ID of the mount target's subnet.
@@ -110,6 +113,8 @@ type LookupMountTargetOutputArgs struct {
 	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
 	// ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
 	MountTargetId pulumi.StringPtrInput `pulumi:"mountTargetId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupMountTargetOutputArgs) ElementType() reflect.Type {
@@ -186,6 +191,10 @@ func (o LookupMountTargetResultOutput) NetworkInterfaceId() pulumi.StringOutput 
 // AWS account ID that owns the resource.
 func (o LookupMountTargetResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMountTargetResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o LookupMountTargetResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMountTargetResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of VPC security group IDs attached to the mount target.

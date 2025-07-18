@@ -29,7 +29,8 @@ class HostedTransitVirtualInterfaceArgs:
                  bgp_auth_key: Optional[pulumi.Input[builtins.str]] = None,
                  customer_address: Optional[pulumi.Input[builtins.str]] = None,
                  mtu: Optional[pulumi.Input[builtins.int]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a HostedTransitVirtualInterface resource.
         :param pulumi.Input[builtins.str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -42,6 +43,7 @@ class HostedTransitVirtualInterfaceArgs:
         :param pulumi.Input[builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         :param pulumi.Input[builtins.int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
         :param pulumi.Input[builtins.str] name: The name for the virtual interface.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "address_family", address_family)
         pulumi.set(__self__, "bgp_asn", bgp_asn)
@@ -58,6 +60,8 @@ class HostedTransitVirtualInterfaceArgs:
             pulumi.set(__self__, "mtu", mtu)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -179,6 +183,18 @@ class HostedTransitVirtualInterfaceArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _HostedTransitVirtualInterfaceState:
@@ -196,6 +212,7 @@ class _HostedTransitVirtualInterfaceState:
                  mtu: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vlan: Optional[pulumi.Input[builtins.int]] = None):
         """
         Input properties used for looking up and filtering HostedTransitVirtualInterface resources.
@@ -211,6 +228,7 @@ class _HostedTransitVirtualInterfaceState:
         :param pulumi.Input[builtins.int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
         :param pulumi.Input[builtins.str] name: The name for the virtual interface.
         :param pulumi.Input[builtins.str] owner_account_id: The AWS account that will own the new virtual interface.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] vlan: The VLAN ID.
         """
         if address_family is not None:
@@ -239,6 +257,8 @@ class _HostedTransitVirtualInterfaceState:
             pulumi.set(__self__, "name", name)
         if owner_account_id is not None:
             pulumi.set(__self__, "owner_account_id", owner_account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if vlan is not None:
             pulumi.set(__self__, "vlan", vlan)
 
@@ -397,6 +417,18 @@ class _HostedTransitVirtualInterfaceState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def vlan(self) -> Optional[pulumi.Input[builtins.int]]:
         """
         The VLAN ID.
@@ -423,6 +455,7 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
                  mtu: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vlan: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
         """
@@ -463,6 +496,7 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
         :param pulumi.Input[builtins.str] name: The name for the virtual interface.
         :param pulumi.Input[builtins.str] owner_account_id: The AWS account that will own the new virtual interface.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] vlan: The VLAN ID.
         """
         ...
@@ -522,6 +556,7 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
                  mtu: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vlan: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -549,6 +584,7 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
             if owner_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'owner_account_id'")
             __props__.__dict__["owner_account_id"] = owner_account_id
+            __props__.__dict__["region"] = region
             if vlan is None and not opts.urn:
                 raise TypeError("Missing required property 'vlan'")
             __props__.__dict__["vlan"] = vlan
@@ -579,6 +615,7 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
             mtu: Optional[pulumi.Input[builtins.int]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             vlan: Optional[pulumi.Input[builtins.int]] = None) -> 'HostedTransitVirtualInterface':
         """
         Get an existing HostedTransitVirtualInterface resource's state with the given name, id, and optional extra
@@ -599,6 +636,7 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] mtu: The maximum transmission unit (MTU) is the size, in bytes, of the largest permissible packet that can be passed over the connection. The MTU of a virtual transit interface can be either `1500` or `8500` (jumbo frames). Default is `1500`.
         :param pulumi.Input[builtins.str] name: The name for the virtual interface.
         :param pulumi.Input[builtins.str] owner_account_id: The AWS account that will own the new virtual interface.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] vlan: The VLAN ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -618,6 +656,7 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
         __props__.__dict__["mtu"] = mtu
         __props__.__dict__["name"] = name
         __props__.__dict__["owner_account_id"] = owner_account_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["vlan"] = vlan
         return HostedTransitVirtualInterface(resource_name, opts=opts, __props__=__props__)
 
@@ -721,6 +760,14 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
         The AWS account that will own the new virtual interface.
         """
         return pulumi.get(self, "owner_account_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

@@ -21,13 +21,17 @@ __all__ = ['CertificateValidationArgs', 'CertificateValidation']
 class CertificateValidationArgs:
     def __init__(__self__, *,
                  certificate_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  validation_record_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a CertificateValidation resource.
         :param pulumi.Input[builtins.str] certificate_arn: ARN of the certificate that is being validated.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         """
         pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if validation_record_fqdns is not None:
             pulumi.set(__self__, "validation_record_fqdns", validation_record_fqdns)
 
@@ -42,6 +46,18 @@ class CertificateValidationArgs:
     @certificate_arn.setter
     def certificate_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "certificate_arn", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="validationRecordFqdns")
@@ -60,14 +76,18 @@ class CertificateValidationArgs:
 class _CertificateValidationState:
     def __init__(__self__, *,
                  certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  validation_record_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering CertificateValidation resources.
         :param pulumi.Input[builtins.str] certificate_arn: ARN of the certificate that is being validated.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         """
         if certificate_arn is not None:
             pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if validation_record_fqdns is not None:
             pulumi.set(__self__, "validation_record_fqdns", validation_record_fqdns)
 
@@ -82,6 +102,18 @@ class _CertificateValidationState:
     @certificate_arn.setter
     def certificate_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "certificate_arn", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="validationRecordFqdns")
@@ -103,6 +135,7 @@ class CertificateValidation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  validation_record_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -207,6 +240,7 @@ class CertificateValidation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] certificate_arn: ARN of the certificate that is being validated.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         """
         ...
@@ -330,6 +364,7 @@ class CertificateValidation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  validation_record_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -343,6 +378,7 @@ class CertificateValidation(pulumi.CustomResource):
             if certificate_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_arn'")
             __props__.__dict__["certificate_arn"] = certificate_arn
+            __props__.__dict__["region"] = region
             __props__.__dict__["validation_record_fqdns"] = validation_record_fqdns
         super(CertificateValidation, __self__).__init__(
             'aws:acm/certificateValidation:CertificateValidation',
@@ -355,6 +391,7 @@ class CertificateValidation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             certificate_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             validation_record_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None) -> 'CertificateValidation':
         """
         Get an existing CertificateValidation resource's state with the given name, id, and optional extra
@@ -364,6 +401,7 @@ class CertificateValidation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] certificate_arn: ARN of the certificate that is being validated.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] validation_record_fqdns: List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -371,6 +409,7 @@ class CertificateValidation(pulumi.CustomResource):
         __props__ = _CertificateValidationState.__new__(_CertificateValidationState)
 
         __props__.__dict__["certificate_arn"] = certificate_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["validation_record_fqdns"] = validation_record_fqdns
         return CertificateValidation(resource_name, opts=opts, __props__=__props__)
 
@@ -381,6 +420,14 @@ class CertificateValidation(pulumi.CustomResource):
         ARN of the certificate that is being validated.
         """
         return pulumi.get(self, "certificate_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="validationRecordFqdns")

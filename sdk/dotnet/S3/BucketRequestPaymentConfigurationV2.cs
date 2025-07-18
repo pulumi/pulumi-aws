@@ -12,7 +12,7 @@ namespace Pulumi.Aws.S3
     /// <summary>
     /// Provides an S3 bucket request payment configuration resource. For more information, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html).
     /// 
-    /// &gt; **NOTE:** Destroying an `aws.s3.BucketRequestPaymentConfigurationV2` resource resets the bucket's `payer` to the S3 default: the bucket owner.
+    /// &gt; **NOTE:** Destroying an `aws.s3.BucketRequestPaymentConfiguration` resource resets the bucket's `payer` to the S3 default: the bucket owner.
     /// 
     /// &gt; This resource cannot be used with S3 directory buckets.
     /// 
@@ -26,7 +26,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketRequestPaymentConfigurationV2("example", new()
+    ///     var example = new Aws.S3.BucketRequestPaymentConfiguration("example", new()
     ///     {
     ///         Bucket = exampleAwsS3Bucket.Id,
     ///         Payer = "Requester",
@@ -52,6 +52,7 @@ namespace Pulumi.Aws.S3
     /// $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name,123456789012
     /// ```
     /// </summary>
+    [Obsolete(@"aws.s3/bucketrequestpaymentconfigurationv2.BucketRequestPaymentConfigurationV2 has been deprecated in favor of aws.s3/bucketrequestpaymentconfiguration.BucketRequestPaymentConfiguration")]
     [AwsResourceType("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2")]
     public partial class BucketRequestPaymentConfigurationV2 : global::Pulumi.CustomResource
     {
@@ -72,6 +73,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("payer")]
         public Output<string> Payer { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
 
         /// <summary>
@@ -96,6 +103,10 @@ namespace Pulumi.Aws.S3
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2" },
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -137,6 +148,12 @@ namespace Pulumi.Aws.S3
         [Input("payer", required: true)]
         public Input<string> Payer { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public BucketRequestPaymentConfigurationV2Args()
         {
         }
@@ -162,6 +179,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("payer")]
         public Input<string>? Payer { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public BucketRequestPaymentConfigurationV2State()
         {

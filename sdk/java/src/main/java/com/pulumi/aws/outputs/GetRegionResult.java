@@ -17,7 +17,14 @@ public final class GetRegionResult {
     private String description;
     private String endpoint;
     private String id;
+    /**
+     * @deprecated
+     * name is deprecated. Use region instead.
+     * 
+     */
+    @Deprecated /* name is deprecated. Use region instead. */
     private String name;
+    private String region;
 
     private GetRegionResult() {}
     /**
@@ -33,8 +40,17 @@ public final class GetRegionResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @deprecated
+     * name is deprecated. Use region instead.
+     * 
+     */
+    @Deprecated /* name is deprecated. Use region instead. */
     public String name() {
         return this.name;
+    }
+    public String region() {
+        return this.region;
     }
 
     public static Builder builder() {
@@ -50,6 +66,7 @@ public final class GetRegionResult {
         private String endpoint;
         private String id;
         private String name;
+        private String region;
         public Builder() {}
         public Builder(GetRegionResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -57,6 +74,7 @@ public final class GetRegionResult {
     	      this.endpoint = defaults.endpoint;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -91,12 +109,21 @@ public final class GetRegionResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRegionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetRegionResult build() {
             final var _resultValue = new GetRegionResult();
             _resultValue.description = description;
             _resultValue.endpoint = endpoint;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

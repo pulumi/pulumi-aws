@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const example = new aws.s3.Bucket("example", {bucket: "example"});
  * const example_entire_bucket = new aws.s3.BucketMetric("example-entire-bucket", {
  *     bucket: example.id,
  *     name: "EntireBucket",
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const example = new aws.s3.Bucket("example", {bucket: "example"});
  * const example_filtered = new aws.s3.BucketMetric("example-filtered", {
  *     bucket: example.id,
  *     name: "ImportantBlueDocuments",
@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const example = new aws.s3.Bucket("example", {bucket: "example"});
  * const example_access_point = new aws.s3.AccessPoint("example-access-point", {
  *     bucket: example.id,
  *     name: "example-access-point",
@@ -119,6 +119,10 @@ export class BucketMetric extends pulumi.CustomResource {
      * Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a BucketMetric resource with the given unique name, arguments, and options.
@@ -136,6 +140,7 @@ export class BucketMetric extends pulumi.CustomResource {
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["filter"] = state ? state.filter : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as BucketMetricArgs | undefined;
             if ((!args || args.bucket === undefined) && !opts.urn) {
@@ -144,6 +149,7 @@ export class BucketMetric extends pulumi.CustomResource {
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["filter"] = args ? args.filter : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BucketMetric.__pulumiType, name, resourceInputs, opts);
@@ -166,6 +172,10 @@ export interface BucketMetricState {
      * Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -184,4 +194,8 @@ export interface BucketMetricArgs {
      * Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

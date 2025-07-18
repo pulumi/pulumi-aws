@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func LookupTheme(ctx *pulumi.Context, args *LookupThemeArgs, opts ...pulumi.Invo
 type LookupThemeArgs struct {
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	Tags map[string]string `pulumi:"tags"`
 	// Identifier of the theme.
@@ -81,6 +83,7 @@ type LookupThemeResult struct {
 	Name string `pulumi:"name"`
 	// A set of resource permissions on the theme. See permissions.
 	Permissions []GetThemePermission `pulumi:"permissions"`
+	Region      string               `pulumi:"region"`
 	// The theme creation status.
 	Status string `pulumi:"status"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -105,6 +108,8 @@ func LookupThemeOutput(ctx *pulumi.Context, args LookupThemeOutputArgs, opts ...
 type LookupThemeOutputArgs struct {
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Identifier of the theme.
@@ -174,6 +179,10 @@ func (o LookupThemeResultOutput) Name() pulumi.StringOutput {
 // A set of resource permissions on the theme. See permissions.
 func (o LookupThemeResultOutput) Permissions() GetThemePermissionArrayOutput {
 	return o.ApplyT(func(v LookupThemeResult) []GetThemePermission { return v.Permissions }).(GetThemePermissionArrayOutput)
+}
+
+func (o LookupThemeResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupThemeResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The theme creation status.

@@ -169,6 +169,12 @@ namespace Pulumi.Aws.Elb
         public Output<ImmutableArray<string>> PolicyNames { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Map of arbitrary keys and values that, when changed, will trigger an update.
         /// </summary>
         [Output("triggers")]
@@ -248,6 +254,12 @@ namespace Pulumi.Aws.Elb
             set => _policyNames = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("triggers")]
         private InputMap<string>? _triggers;
 
@@ -291,6 +303,12 @@ namespace Pulumi.Aws.Elb
             get => _policyNames ?? (_policyNames = new InputList<string>());
             set => _policyNames = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("triggers")]
         private InputMap<string>? _triggers;

@@ -30,6 +30,7 @@ public final class GetAmiIdsResult {
     private @Nullable Boolean includeDeprecated;
     private @Nullable String nameRegex;
     private List<String> owners;
+    private String region;
     private @Nullable Boolean sortAscending;
 
     private GetAmiIdsResult() {}
@@ -62,6 +63,9 @@ public final class GetAmiIdsResult {
     public List<String> owners() {
         return this.owners;
     }
+    public String region() {
+        return this.region;
+    }
     public Optional<Boolean> sortAscending() {
         return Optional.ofNullable(this.sortAscending);
     }
@@ -82,6 +86,7 @@ public final class GetAmiIdsResult {
         private @Nullable Boolean includeDeprecated;
         private @Nullable String nameRegex;
         private List<String> owners;
+        private String region;
         private @Nullable Boolean sortAscending;
         public Builder() {}
         public Builder(GetAmiIdsResult defaults) {
@@ -93,6 +98,7 @@ public final class GetAmiIdsResult {
     	      this.includeDeprecated = defaults.includeDeprecated;
     	      this.nameRegex = defaults.nameRegex;
     	      this.owners = defaults.owners;
+    	      this.region = defaults.region;
     	      this.sortAscending = defaults.sortAscending;
         }
 
@@ -157,6 +163,14 @@ public final class GetAmiIdsResult {
             return owners(List.of(owners));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAmiIdsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sortAscending(@Nullable Boolean sortAscending) {
 
             this.sortAscending = sortAscending;
@@ -171,6 +185,7 @@ public final class GetAmiIdsResult {
             _resultValue.includeDeprecated = includeDeprecated;
             _resultValue.nameRegex = nameRegex;
             _resultValue.owners = owners;
+            _resultValue.region = region;
             _resultValue.sortAscending = sortAscending;
             return _resultValue;
         }

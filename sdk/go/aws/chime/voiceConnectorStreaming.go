@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chime"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,10 +60,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chime"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chime"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -170,6 +170,8 @@ type VoiceConnectorStreaming struct {
 	Disabled pulumi.BoolPtrOutput `pulumi:"disabled"`
 	// The media insights configuration. See `mediaInsightsConfiguration`.
 	MediaInsightsConfiguration VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput `pulumi:"mediaInsightsConfiguration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 	StreamingNotificationTargets pulumi.StringArrayOutput `pulumi:"streamingNotificationTargets"`
 	// The Amazon Chime Voice Connector ID.
@@ -218,6 +220,8 @@ type voiceConnectorStreamingState struct {
 	Disabled *bool `pulumi:"disabled"`
 	// The media insights configuration. See `mediaInsightsConfiguration`.
 	MediaInsightsConfiguration *VoiceConnectorStreamingMediaInsightsConfiguration `pulumi:"mediaInsightsConfiguration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 	StreamingNotificationTargets []string `pulumi:"streamingNotificationTargets"`
 	// The Amazon Chime Voice Connector ID.
@@ -231,6 +235,8 @@ type VoiceConnectorStreamingState struct {
 	Disabled pulumi.BoolPtrInput
 	// The media insights configuration. See `mediaInsightsConfiguration`.
 	MediaInsightsConfiguration VoiceConnectorStreamingMediaInsightsConfigurationPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 	StreamingNotificationTargets pulumi.StringArrayInput
 	// The Amazon Chime Voice Connector ID.
@@ -248,6 +254,8 @@ type voiceConnectorStreamingArgs struct {
 	Disabled *bool `pulumi:"disabled"`
 	// The media insights configuration. See `mediaInsightsConfiguration`.
 	MediaInsightsConfiguration *VoiceConnectorStreamingMediaInsightsConfiguration `pulumi:"mediaInsightsConfiguration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 	StreamingNotificationTargets []string `pulumi:"streamingNotificationTargets"`
 	// The Amazon Chime Voice Connector ID.
@@ -262,6 +270,8 @@ type VoiceConnectorStreamingArgs struct {
 	Disabled pulumi.BoolPtrInput
 	// The media insights configuration. See `mediaInsightsConfiguration`.
 	MediaInsightsConfiguration VoiceConnectorStreamingMediaInsightsConfigurationPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
 	StreamingNotificationTargets pulumi.StringArrayInput
 	// The Amazon Chime Voice Connector ID.
@@ -370,6 +380,11 @@ func (o VoiceConnectorStreamingOutput) MediaInsightsConfiguration() VoiceConnect
 	return o.ApplyT(func(v *VoiceConnectorStreaming) VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput {
 		return v.MediaInsightsConfiguration
 	}).(VoiceConnectorStreamingMediaInsightsConfigurationPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o VoiceConnectorStreamingOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VoiceConnectorStreaming) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`

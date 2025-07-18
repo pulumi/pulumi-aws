@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,6 +78,8 @@ type ConfigurationSet struct {
 	ConfigurationSetName pulumi.StringOutput `pulumi:"configurationSetName"`
 	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `deliveryOptions` Block for details.
 	DeliveryOptions ConfigurationSetDeliveryOptionsPtrOutput `pulumi:"deliveryOptions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputationOptions` Block for details.
 	ReputationOptions ConfigurationSetReputationOptionsOutput `pulumi:"reputationOptions"`
 	// An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sendingOptions` Block for details.
@@ -85,8 +87,7 @@ type ConfigurationSet struct {
 	// An object that contains information about the suppression list preferences for your account. See `suppressionOptions` Block for details.
 	SuppressionOptions ConfigurationSetSuppressionOptionsPtrOutput `pulumi:"suppressionOptions"`
 	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// An object that defines the open and click tracking options for emails that you send using the configuration set. See `trackingOptions` Block for details.
 	TrackingOptions ConfigurationSetTrackingOptionsPtrOutput `pulumi:"trackingOptions"`
@@ -133,6 +134,8 @@ type configurationSetState struct {
 	ConfigurationSetName *string `pulumi:"configurationSetName"`
 	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `deliveryOptions` Block for details.
 	DeliveryOptions *ConfigurationSetDeliveryOptions `pulumi:"deliveryOptions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputationOptions` Block for details.
 	ReputationOptions *ConfigurationSetReputationOptions `pulumi:"reputationOptions"`
 	// An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sendingOptions` Block for details.
@@ -140,8 +143,7 @@ type configurationSetState struct {
 	// An object that contains information about the suppression list preferences for your account. See `suppressionOptions` Block for details.
 	SuppressionOptions *ConfigurationSetSuppressionOptions `pulumi:"suppressionOptions"`
 	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// An object that defines the open and click tracking options for emails that you send using the configuration set. See `trackingOptions` Block for details.
 	TrackingOptions *ConfigurationSetTrackingOptions `pulumi:"trackingOptions"`
@@ -156,6 +158,8 @@ type ConfigurationSetState struct {
 	ConfigurationSetName pulumi.StringPtrInput
 	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `deliveryOptions` Block for details.
 	DeliveryOptions ConfigurationSetDeliveryOptionsPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputationOptions` Block for details.
 	ReputationOptions ConfigurationSetReputationOptionsPtrInput
 	// An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sendingOptions` Block for details.
@@ -163,8 +167,7 @@ type ConfigurationSetState struct {
 	// An object that contains information about the suppression list preferences for your account. See `suppressionOptions` Block for details.
 	SuppressionOptions ConfigurationSetSuppressionOptionsPtrInput
 	// A map of tags to assign to the service. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// An object that defines the open and click tracking options for emails that you send using the configuration set. See `trackingOptions` Block for details.
 	TrackingOptions ConfigurationSetTrackingOptionsPtrInput
@@ -181,6 +184,8 @@ type configurationSetArgs struct {
 	ConfigurationSetName string `pulumi:"configurationSetName"`
 	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `deliveryOptions` Block for details.
 	DeliveryOptions *ConfigurationSetDeliveryOptions `pulumi:"deliveryOptions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputationOptions` Block for details.
 	ReputationOptions *ConfigurationSetReputationOptions `pulumi:"reputationOptions"`
 	// An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sendingOptions` Block for details.
@@ -201,6 +206,8 @@ type ConfigurationSetArgs struct {
 	ConfigurationSetName pulumi.StringInput
 	// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set. See `deliveryOptions` Block for details.
 	DeliveryOptions ConfigurationSetDeliveryOptionsPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputationOptions` Block for details.
 	ReputationOptions ConfigurationSetReputationOptionsPtrInput
 	// An object that defines whether or not Amazon SES can send email that you send using the configuration set. See `sendingOptions` Block for details.
@@ -317,6 +324,11 @@ func (o ConfigurationSetOutput) DeliveryOptions() ConfigurationSetDeliveryOption
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetDeliveryOptionsPtrOutput { return v.DeliveryOptions }).(ConfigurationSetDeliveryOptionsPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ConfigurationSetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputationOptions` Block for details.
 func (o ConfigurationSetOutput) ReputationOptions() ConfigurationSetReputationOptionsOutput {
 	return o.ApplyT(func(v *ConfigurationSet) ConfigurationSetReputationOptionsOutput { return v.ReputationOptions }).(ConfigurationSetReputationOptionsOutput)
@@ -337,7 +349,6 @@ func (o ConfigurationSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ConfigurationSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConfigurationSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

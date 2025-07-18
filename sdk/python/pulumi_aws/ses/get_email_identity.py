@@ -27,7 +27,7 @@ class GetEmailIdentityResult:
     """
     A collection of values returned by getEmailIdentity.
     """
-    def __init__(__self__, arn=None, email=None, id=None):
+    def __init__(__self__, arn=None, email=None, id=None, region=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +37,9 @@ class GetEmailIdentityResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -62,6 +65,11 @@ class GetEmailIdentityResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetEmailIdentityResult(GetEmailIdentityResult):
     # pylint: disable=using-constant-test
@@ -71,10 +79,12 @@ class AwaitableGetEmailIdentityResult(GetEmailIdentityResult):
         return GetEmailIdentityResult(
             arn=self.arn,
             email=self.email,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
 def get_email_identity(email: Optional[builtins.str] = None,
+                       region: Optional[builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEmailIdentityResult:
     """
     Retrieve the active SES email identity
@@ -90,17 +100,21 @@ def get_email_identity(email: Optional[builtins.str] = None,
 
 
     :param builtins.str email: Email identity.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['email'] = email
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ses/getEmailIdentity:getEmailIdentity', __args__, opts=opts, typ=GetEmailIdentityResult).value
 
     return AwaitableGetEmailIdentityResult(
         arn=pulumi.get(__ret__, 'arn'),
         email=pulumi.get(__ret__, 'email'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_email_identity_output(email: Optional[pulumi.Input[builtins.str]] = None,
+                              region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailIdentityResult]:
     """
     Retrieve the active SES email identity
@@ -116,12 +130,15 @@ def get_email_identity_output(email: Optional[pulumi.Input[builtins.str]] = None
 
 
     :param builtins.str email: Email identity.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['email'] = email
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ses/getEmailIdentity:getEmailIdentity', __args__, opts=opts, typ=GetEmailIdentityResult)
     return __ret__.apply(lambda __response__: GetEmailIdentityResult(
         arn=pulumi.get(__response__, 'arn'),
         email=pulumi.get(__response__, 'email'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

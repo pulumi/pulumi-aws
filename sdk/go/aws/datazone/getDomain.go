@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datazone"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,6 +56,8 @@ type LookupDomainArgs struct {
 	Id *string `pulumi:"id"`
 	// Name of the Domain. One of `name` or `id` is required.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDomain.
@@ -76,6 +78,7 @@ type LookupDomainResult struct {
 	Name             string `pulumi:"name"`
 	// URL of the Domain.
 	PortalUrl string `pulumi:"portalUrl"`
+	Region    string `pulumi:"region"`
 	// Status of the Domain.
 	Status string `pulumi:"status"`
 }
@@ -95,6 +98,8 @@ type LookupDomainOutputArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the Domain. One of `name` or `id` is required.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupDomainOutputArgs) ElementType() reflect.Type {
@@ -157,6 +162,10 @@ func (o LookupDomainResultOutput) Name() pulumi.StringOutput {
 // URL of the Domain.
 func (o LookupDomainResultOutput) PortalUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.PortalUrl }).(pulumi.StringOutput)
+}
+
+func (o LookupDomainResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDomainResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Status of the Domain.

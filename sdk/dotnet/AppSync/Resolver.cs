@@ -217,6 +217,12 @@ namespace Pulumi.Aws.AppSync
         public Output<Outputs.ResolverPipelineConfig?> PipelineConfig { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         /// </summary>
         [Output("requestTemplate")]
@@ -341,6 +347,12 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.ResolverPipelineConfigArgs>? PipelineConfig { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         /// </summary>
         [Input("requestTemplate")]
@@ -431,6 +443,12 @@ namespace Pulumi.Aws.AppSync
         /// </summary>
         [Input("pipelineConfig")]
         public Input<Inputs.ResolverPipelineConfigGetArgs>? PipelineConfig { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.

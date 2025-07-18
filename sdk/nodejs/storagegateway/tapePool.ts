@@ -64,6 +64,10 @@ export class TapePool extends pulumi.CustomResource {
      */
     public readonly poolName!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
      */
     public readonly retentionLockTimeInDays!: pulumi.Output<number | undefined>;
@@ -81,8 +85,6 @@ export class TapePool extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -101,6 +103,7 @@ export class TapePool extends pulumi.CustomResource {
             const state = argsOrState as TapePoolState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["poolName"] = state ? state.poolName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["retentionLockTimeInDays"] = state ? state.retentionLockTimeInDays : undefined;
             resourceInputs["retentionLockType"] = state ? state.retentionLockType : undefined;
             resourceInputs["storageClass"] = state ? state.storageClass : undefined;
@@ -115,6 +118,7 @@ export class TapePool extends pulumi.CustomResource {
                 throw new Error("Missing required property 'storageClass'");
             }
             resourceInputs["poolName"] = args ? args.poolName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retentionLockTimeInDays"] = args ? args.retentionLockTimeInDays : undefined;
             resourceInputs["retentionLockType"] = args ? args.retentionLockType : undefined;
             resourceInputs["storageClass"] = args ? args.storageClass : undefined;
@@ -140,6 +144,10 @@ export interface TapePoolState {
      */
     poolName?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
      */
     retentionLockTimeInDays?: pulumi.Input<number>;
@@ -157,8 +165,6 @@ export interface TapePoolState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -171,6 +177,10 @@ export interface TapePoolArgs {
      * The name of the new custom tape pool.
      */
     poolName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
      */

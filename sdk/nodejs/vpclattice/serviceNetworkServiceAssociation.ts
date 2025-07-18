@@ -77,12 +77,15 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly dnsEntries!: pulumi.Output<outputs.vpclattice.ServiceNetworkServiceAssociationDnsEntry[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
      */
     public readonly serviceIdentifier!: pulumi.Output<string>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
      */
     public readonly serviceNetworkIdentifier!: pulumi.Output<string>;
     /**
@@ -95,8 +98,6 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -117,6 +118,7 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
             resourceInputs["createdBy"] = state ? state.createdBy : undefined;
             resourceInputs["customDomainName"] = state ? state.customDomainName : undefined;
             resourceInputs["dnsEntries"] = state ? state.dnsEntries : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceIdentifier"] = state ? state.serviceIdentifier : undefined;
             resourceInputs["serviceNetworkIdentifier"] = state ? state.serviceNetworkIdentifier : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -130,6 +132,7 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
             if ((!args || args.serviceNetworkIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceNetworkIdentifier'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceIdentifier"] = args ? args.serviceIdentifier : undefined;
             resourceInputs["serviceNetworkIdentifier"] = args ? args.serviceNetworkIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -166,12 +169,15 @@ export interface ServiceNetworkServiceAssociationState {
      */
     dnsEntries?: pulumi.Input<pulumi.Input<inputs.vpclattice.ServiceNetworkServiceAssociationDnsEntry>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
      */
     serviceIdentifier?: pulumi.Input<string>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
      */
     serviceNetworkIdentifier?: pulumi.Input<string>;
     /**
@@ -184,8 +190,6 @@ export interface ServiceNetworkServiceAssociationState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -195,12 +199,15 @@ export interface ServiceNetworkServiceAssociationState {
  */
 export interface ServiceNetworkServiceAssociationArgs {
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
      */
     serviceIdentifier: pulumi.Input<string>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
      */
     serviceNetworkIdentifier: pulumi.Input<string>;
     /**

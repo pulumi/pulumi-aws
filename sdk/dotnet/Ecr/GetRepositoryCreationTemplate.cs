@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Ecr
         [Input("prefix", required: true)]
         public string Prefix { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("resourceTags")]
         private Dictionary<string, string>? _resourceTags;
 
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         [Input("prefix", required: true)]
         public Input<string> Prefix { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("resourceTags")]
         private InputMap<string>? _resourceTags;
@@ -170,6 +182,7 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         public readonly string LifecyclePolicy;
         public readonly string Prefix;
+        public readonly string Region;
         /// <summary>
         /// The registry ID the repository creation template applies to.
         /// </summary>
@@ -201,6 +214,8 @@ namespace Pulumi.Aws.Ecr
 
             string prefix,
 
+            string region,
+
             string registryId,
 
             string repositoryPolicy,
@@ -215,6 +230,7 @@ namespace Pulumi.Aws.Ecr
             ImageTagMutability = imageTagMutability;
             LifecyclePolicy = lifecyclePolicy;
             Prefix = prefix;
+            Region = region;
             RegistryId = registryId;
             RepositoryPolicy = repositoryPolicy;
             ResourceTags = resourceTags;

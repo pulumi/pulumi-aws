@@ -75,6 +75,10 @@ export class DomainName extends pulumi.CustomResource {
      * ID of your Amazon Route 53 hosted zone.
      */
     public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DomainName resource with the given unique name, arguments, and options.
@@ -94,6 +98,7 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DomainNameArgs | undefined;
             if ((!args || args.certificateArn === undefined) && !opts.urn) {
@@ -105,6 +110,7 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["appsyncDomainName"] = undefined /*out*/;
             resourceInputs["hostedZoneId"] = undefined /*out*/;
         }
@@ -137,6 +143,10 @@ export interface DomainNameState {
      * ID of your Amazon Route 53 hosted zone.
      */
     hostedZoneId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -155,4 +165,8 @@ export interface DomainNameArgs {
      * Domain name.
      */
     domainName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

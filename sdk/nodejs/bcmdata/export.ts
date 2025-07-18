@@ -87,13 +87,15 @@ export class Export extends pulumi.CustomResource {
     }
 
     /**
+     * Amazon Resource Name (ARN) for this export.
+     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
      */
     public readonly export!: pulumi.Output<outputs.bcmdata.ExportExport | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.bcmdata.ExportTimeouts | undefined>;
 
@@ -110,6 +112,7 @@ export class Export extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ExportState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["export"] = state ? state.export : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -119,6 +122,7 @@ export class Export extends pulumi.CustomResource {
             resourceInputs["export"] = args ? args.export : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -131,13 +135,15 @@ export class Export extends pulumi.CustomResource {
  */
 export interface ExportState {
     /**
+     * Amazon Resource Name (ARN) for this export.
+     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+     */
+    arn?: pulumi.Input<string>;
+    /**
      * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
      */
     export?: pulumi.Input<inputs.bcmdata.ExportExport>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bcmdata.ExportTimeouts>;
 }

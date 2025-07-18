@@ -162,6 +162,10 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
      */
     public readonly requestMappingTemplate!: pulumi.Output<string | undefined>;
@@ -200,6 +204,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["functionVersion"] = state ? state.functionVersion : undefined;
             resourceInputs["maxBatchSize"] = state ? state.maxBatchSize : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requestMappingTemplate"] = state ? state.requestMappingTemplate : undefined;
             resourceInputs["responseMappingTemplate"] = state ? state.responseMappingTemplate : undefined;
             resourceInputs["runtime"] = state ? state.runtime : undefined;
@@ -219,6 +224,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["functionVersion"] = args ? args.functionVersion : undefined;
             resourceInputs["maxBatchSize"] = args ? args.maxBatchSize : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["requestMappingTemplate"] = args ? args.requestMappingTemplate : undefined;
             resourceInputs["responseMappingTemplate"] = args ? args.responseMappingTemplate : undefined;
             resourceInputs["runtime"] = args ? args.runtime : undefined;
@@ -272,6 +278,10 @@ export interface FunctionState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
      */
     requestMappingTemplate?: pulumi.Input<string>;
@@ -321,6 +331,10 @@ export interface FunctionArgs {
      * Function name. The function name does not have to be unique.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Function request mapping template. Functions support only the 2018-05-29 version of the request mapping template.
      */

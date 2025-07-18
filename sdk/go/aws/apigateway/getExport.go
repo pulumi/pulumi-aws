@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -18,7 +18,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,6 +56,8 @@ type GetExportArgs struct {
 	ExportType string `pulumi:"exportType"`
 	// Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
 	Parameters map[string]string `pulumi:"parameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of the associated REST API.
 	RestApiId string `pulumi:"restApiId"`
 	// Name of the Stage that will be exported.
@@ -75,6 +77,7 @@ type GetExportResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id         string            `pulumi:"id"`
 	Parameters map[string]string `pulumi:"parameters"`
+	Region     string            `pulumi:"region"`
 	RestApiId  string            `pulumi:"restApiId"`
 	StageName  string            `pulumi:"stageName"`
 }
@@ -96,6 +99,8 @@ type GetExportOutputArgs struct {
 	ExportType pulumi.StringInput `pulumi:"exportType"`
 	// Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
 	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Identifier of the associated REST API.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 	// Name of the Stage that will be exported.
@@ -151,6 +156,10 @@ func (o GetExportResultOutput) Id() pulumi.StringOutput {
 
 func (o GetExportResultOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetExportResult) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+func (o GetExportResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExportResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetExportResultOutput) RestApiId() pulumi.StringOutput {

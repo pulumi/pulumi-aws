@@ -23,6 +23,7 @@ class StandardsControlAssociationArgs:
                  association_status: pulumi.Input[builtins.str],
                  security_control_id: pulumi.Input[builtins.str],
                  standards_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  updated_reason: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a StandardsControlAssociation resource.
@@ -31,11 +32,14 @@ class StandardsControlAssociationArgs:
         :param pulumi.Input[builtins.str] standards_arn: The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] updated_reason: The reason for updating the control's enablement status in the standard. Required when `association_status` is `DISABLED`.
         """
         pulumi.set(__self__, "association_status", association_status)
         pulumi.set(__self__, "security_control_id", security_control_id)
         pulumi.set(__self__, "standards_arn", standards_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if updated_reason is not None:
             pulumi.set(__self__, "updated_reason", updated_reason)
 
@@ -78,6 +82,18 @@ class StandardsControlAssociationArgs:
         pulumi.set(self, "standards_arn", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="updatedReason")
     def updated_reason(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -94,12 +110,14 @@ class StandardsControlAssociationArgs:
 class _StandardsControlAssociationState:
     def __init__(__self__, *,
                  association_status: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_control_id: Optional[pulumi.Input[builtins.str]] = None,
                  standards_arn: Optional[pulumi.Input[builtins.str]] = None,
                  updated_reason: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering StandardsControlAssociation resources.
         :param pulumi.Input[builtins.str] association_status: The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_control_id: The unique identifier for the security control whose enablement status you want to update.
         :param pulumi.Input[builtins.str] standards_arn: The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
                
@@ -108,6 +126,8 @@ class _StandardsControlAssociationState:
         """
         if association_status is not None:
             pulumi.set(__self__, "association_status", association_status)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_control_id is not None:
             pulumi.set(__self__, "security_control_id", security_control_id)
         if standards_arn is not None:
@@ -126,6 +146,18 @@ class _StandardsControlAssociationState:
     @association_status.setter
     def association_status(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "association_status", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="securityControlId")
@@ -173,6 +205,7 @@ class StandardsControlAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  association_status: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_control_id: Optional[pulumi.Input[builtins.str]] = None,
                  standards_arn: Optional[pulumi.Input[builtins.str]] = None,
                  updated_reason: Optional[pulumi.Input[builtins.str]] = None,
@@ -199,6 +232,7 @@ class StandardsControlAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] association_status: The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_control_id: The unique identifier for the security control whose enablement status you want to update.
         :param pulumi.Input[builtins.str] standards_arn: The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
                
@@ -246,6 +280,7 @@ class StandardsControlAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  association_status: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_control_id: Optional[pulumi.Input[builtins.str]] = None,
                  standards_arn: Optional[pulumi.Input[builtins.str]] = None,
                  updated_reason: Optional[pulumi.Input[builtins.str]] = None,
@@ -261,6 +296,7 @@ class StandardsControlAssociation(pulumi.CustomResource):
             if association_status is None and not opts.urn:
                 raise TypeError("Missing required property 'association_status'")
             __props__.__dict__["association_status"] = association_status
+            __props__.__dict__["region"] = region
             if security_control_id is None and not opts.urn:
                 raise TypeError("Missing required property 'security_control_id'")
             __props__.__dict__["security_control_id"] = security_control_id
@@ -279,6 +315,7 @@ class StandardsControlAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             association_status: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_control_id: Optional[pulumi.Input[builtins.str]] = None,
             standards_arn: Optional[pulumi.Input[builtins.str]] = None,
             updated_reason: Optional[pulumi.Input[builtins.str]] = None) -> 'StandardsControlAssociation':
@@ -290,6 +327,7 @@ class StandardsControlAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] association_status: The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_control_id: The unique identifier for the security control whose enablement status you want to update.
         :param pulumi.Input[builtins.str] standards_arn: The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
                
@@ -301,6 +339,7 @@ class StandardsControlAssociation(pulumi.CustomResource):
         __props__ = _StandardsControlAssociationState.__new__(_StandardsControlAssociationState)
 
         __props__.__dict__["association_status"] = association_status
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_control_id"] = security_control_id
         __props__.__dict__["standards_arn"] = standards_arn
         __props__.__dict__["updated_reason"] = updated_reason
@@ -313,6 +352,14 @@ class StandardsControlAssociation(pulumi.CustomResource):
         The desired enablement status of the control in the standard. Valid values: `ENABLED`, `DISABLED`.
         """
         return pulumi.get(self, "association_status")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="securityControlId")

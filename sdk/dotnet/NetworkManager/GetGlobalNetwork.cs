@@ -12,7 +12,7 @@ namespace Pulumi.Aws.NetworkManager
     public static class GetGlobalNetwork
     {
         /// <summary>
-        /// Retrieve information about a global network.
+        /// Provides details about an existing Network Manager global network.
         /// 
         /// ## Example Usage
         /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.NetworkManager
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalNetworkResult>("aws:networkmanager/getGlobalNetwork:getGlobalNetwork", args ?? new GetGlobalNetworkArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve information about a global network.
+        /// Provides details about an existing Network Manager global network.
         /// 
         /// ## Example Usage
         /// 
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.NetworkManager
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalNetworkResult>("aws:networkmanager/getGlobalNetwork:getGlobalNetwork", args ?? new GetGlobalNetworkInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve information about a global network.
+        /// Provides details about an existing Network Manager global network.
         /// 
         /// ## Example Usage
         /// 

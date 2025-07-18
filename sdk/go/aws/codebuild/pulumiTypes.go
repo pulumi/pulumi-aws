@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -1645,6 +1645,8 @@ type ProjectEnvironment struct {
 	// the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
 	ComputeType string `pulumi:"computeType"`
 	// Configuration block. Detailed below.
+	DockerServer *ProjectEnvironmentDockerServer `pulumi:"dockerServer"`
+	// Configuration block. Detailed below.
 	EnvironmentVariables []ProjectEnvironmentEnvironmentVariable `pulumi:"environmentVariables"`
 	// Configuration block. Detailed below.
 	Fleet *ProjectEnvironmentFleet `pulumi:"fleet"`
@@ -1689,6 +1691,8 @@ type ProjectEnvironmentArgs struct {
 	// `BUILD_LAMBDA_2GB`, `BUILD_LAMBDA_4GB`, `BUILD_LAMBDA_8GB`, `BUILD_LAMBDA_10GB`. For additional information, see
 	// the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html).
 	ComputeType pulumi.StringInput `pulumi:"computeType"`
+	// Configuration block. Detailed below.
+	DockerServer ProjectEnvironmentDockerServerPtrInput `pulumi:"dockerServer"`
 	// Configuration block. Detailed below.
 	EnvironmentVariables ProjectEnvironmentEnvironmentVariableArrayInput `pulumi:"environmentVariables"`
 	// Configuration block. Detailed below.
@@ -1806,6 +1810,11 @@ func (o ProjectEnvironmentOutput) ComputeType() pulumi.StringOutput {
 }
 
 // Configuration block. Detailed below.
+func (o ProjectEnvironmentOutput) DockerServer() ProjectEnvironmentDockerServerPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironment) *ProjectEnvironmentDockerServer { return v.DockerServer }).(ProjectEnvironmentDockerServerPtrOutput)
+}
+
+// Configuration block. Detailed below.
 func (o ProjectEnvironmentOutput) EnvironmentVariables() ProjectEnvironmentEnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v ProjectEnvironment) []ProjectEnvironmentEnvironmentVariable { return v.EnvironmentVariables }).(ProjectEnvironmentEnvironmentVariableArrayOutput)
 }
@@ -1898,6 +1907,16 @@ func (o ProjectEnvironmentPtrOutput) ComputeType() pulumi.StringPtrOutput {
 }
 
 // Configuration block. Detailed below.
+func (o ProjectEnvironmentPtrOutput) DockerServer() ProjectEnvironmentDockerServerPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironment) *ProjectEnvironmentDockerServer {
+		if v == nil {
+			return nil
+		}
+		return v.DockerServer
+	}).(ProjectEnvironmentDockerServerPtrOutput)
+}
+
+// Configuration block. Detailed below.
 func (o ProjectEnvironmentPtrOutput) EnvironmentVariables() ProjectEnvironmentEnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v *ProjectEnvironment) []ProjectEnvironmentEnvironmentVariable {
 		if v == nil {
@@ -1975,6 +1994,162 @@ func (o ProjectEnvironmentPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+type ProjectEnvironmentDockerServer struct {
+	// Compute type for the Docker server. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, and `BUILD_GENERAL1_2XLARGE`.
+	ComputeType string `pulumi:"computeType"`
+	// List of security group IDs to assign to the Docker server.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+}
+
+// ProjectEnvironmentDockerServerInput is an input type that accepts ProjectEnvironmentDockerServerArgs and ProjectEnvironmentDockerServerOutput values.
+// You can construct a concrete instance of `ProjectEnvironmentDockerServerInput` via:
+//
+//	ProjectEnvironmentDockerServerArgs{...}
+type ProjectEnvironmentDockerServerInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentDockerServerOutput() ProjectEnvironmentDockerServerOutput
+	ToProjectEnvironmentDockerServerOutputWithContext(context.Context) ProjectEnvironmentDockerServerOutput
+}
+
+type ProjectEnvironmentDockerServerArgs struct {
+	// Compute type for the Docker server. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, and `BUILD_GENERAL1_2XLARGE`.
+	ComputeType pulumi.StringInput `pulumi:"computeType"`
+	// List of security group IDs to assign to the Docker server.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+}
+
+func (ProjectEnvironmentDockerServerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectEnvironmentDockerServer)(nil)).Elem()
+}
+
+func (i ProjectEnvironmentDockerServerArgs) ToProjectEnvironmentDockerServerOutput() ProjectEnvironmentDockerServerOutput {
+	return i.ToProjectEnvironmentDockerServerOutputWithContext(context.Background())
+}
+
+func (i ProjectEnvironmentDockerServerArgs) ToProjectEnvironmentDockerServerOutputWithContext(ctx context.Context) ProjectEnvironmentDockerServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentDockerServerOutput)
+}
+
+func (i ProjectEnvironmentDockerServerArgs) ToProjectEnvironmentDockerServerPtrOutput() ProjectEnvironmentDockerServerPtrOutput {
+	return i.ToProjectEnvironmentDockerServerPtrOutputWithContext(context.Background())
+}
+
+func (i ProjectEnvironmentDockerServerArgs) ToProjectEnvironmentDockerServerPtrOutputWithContext(ctx context.Context) ProjectEnvironmentDockerServerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentDockerServerOutput).ToProjectEnvironmentDockerServerPtrOutputWithContext(ctx)
+}
+
+// ProjectEnvironmentDockerServerPtrInput is an input type that accepts ProjectEnvironmentDockerServerArgs, ProjectEnvironmentDockerServerPtr and ProjectEnvironmentDockerServerPtrOutput values.
+// You can construct a concrete instance of `ProjectEnvironmentDockerServerPtrInput` via:
+//
+//	        ProjectEnvironmentDockerServerArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProjectEnvironmentDockerServerPtrInput interface {
+	pulumi.Input
+
+	ToProjectEnvironmentDockerServerPtrOutput() ProjectEnvironmentDockerServerPtrOutput
+	ToProjectEnvironmentDockerServerPtrOutputWithContext(context.Context) ProjectEnvironmentDockerServerPtrOutput
+}
+
+type projectEnvironmentDockerServerPtrType ProjectEnvironmentDockerServerArgs
+
+func ProjectEnvironmentDockerServerPtr(v *ProjectEnvironmentDockerServerArgs) ProjectEnvironmentDockerServerPtrInput {
+	return (*projectEnvironmentDockerServerPtrType)(v)
+}
+
+func (*projectEnvironmentDockerServerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectEnvironmentDockerServer)(nil)).Elem()
+}
+
+func (i *projectEnvironmentDockerServerPtrType) ToProjectEnvironmentDockerServerPtrOutput() ProjectEnvironmentDockerServerPtrOutput {
+	return i.ToProjectEnvironmentDockerServerPtrOutputWithContext(context.Background())
+}
+
+func (i *projectEnvironmentDockerServerPtrType) ToProjectEnvironmentDockerServerPtrOutputWithContext(ctx context.Context) ProjectEnvironmentDockerServerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectEnvironmentDockerServerPtrOutput)
+}
+
+type ProjectEnvironmentDockerServerOutput struct{ *pulumi.OutputState }
+
+func (ProjectEnvironmentDockerServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectEnvironmentDockerServer)(nil)).Elem()
+}
+
+func (o ProjectEnvironmentDockerServerOutput) ToProjectEnvironmentDockerServerOutput() ProjectEnvironmentDockerServerOutput {
+	return o
+}
+
+func (o ProjectEnvironmentDockerServerOutput) ToProjectEnvironmentDockerServerOutputWithContext(ctx context.Context) ProjectEnvironmentDockerServerOutput {
+	return o
+}
+
+func (o ProjectEnvironmentDockerServerOutput) ToProjectEnvironmentDockerServerPtrOutput() ProjectEnvironmentDockerServerPtrOutput {
+	return o.ToProjectEnvironmentDockerServerPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectEnvironmentDockerServerOutput) ToProjectEnvironmentDockerServerPtrOutputWithContext(ctx context.Context) ProjectEnvironmentDockerServerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectEnvironmentDockerServer) *ProjectEnvironmentDockerServer {
+		return &v
+	}).(ProjectEnvironmentDockerServerPtrOutput)
+}
+
+// Compute type for the Docker server. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, and `BUILD_GENERAL1_2XLARGE`.
+func (o ProjectEnvironmentDockerServerOutput) ComputeType() pulumi.StringOutput {
+	return o.ApplyT(func(v ProjectEnvironmentDockerServer) string { return v.ComputeType }).(pulumi.StringOutput)
+}
+
+// List of security group IDs to assign to the Docker server.
+func (o ProjectEnvironmentDockerServerOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProjectEnvironmentDockerServer) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+type ProjectEnvironmentDockerServerPtrOutput struct{ *pulumi.OutputState }
+
+func (ProjectEnvironmentDockerServerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectEnvironmentDockerServer)(nil)).Elem()
+}
+
+func (o ProjectEnvironmentDockerServerPtrOutput) ToProjectEnvironmentDockerServerPtrOutput() ProjectEnvironmentDockerServerPtrOutput {
+	return o
+}
+
+func (o ProjectEnvironmentDockerServerPtrOutput) ToProjectEnvironmentDockerServerPtrOutputWithContext(ctx context.Context) ProjectEnvironmentDockerServerPtrOutput {
+	return o
+}
+
+func (o ProjectEnvironmentDockerServerPtrOutput) Elem() ProjectEnvironmentDockerServerOutput {
+	return o.ApplyT(func(v *ProjectEnvironmentDockerServer) ProjectEnvironmentDockerServer {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectEnvironmentDockerServer
+		return ret
+	}).(ProjectEnvironmentDockerServerOutput)
+}
+
+// Compute type for the Docker server. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_XLARGE`, and `BUILD_GENERAL1_2XLARGE`.
+func (o ProjectEnvironmentDockerServerPtrOutput) ComputeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProjectEnvironmentDockerServer) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ComputeType
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of security group IDs to assign to the Docker server.
+func (o ProjectEnvironmentDockerServerPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProjectEnvironmentDockerServer) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
 }
 
 type ProjectEnvironmentEnvironmentVariable struct {
@@ -6434,6 +6609,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectCachePtrInput)(nil)).Elem(), ProjectCacheArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentInput)(nil)).Elem(), ProjectEnvironmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentPtrInput)(nil)).Elem(), ProjectEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentDockerServerInput)(nil)).Elem(), ProjectEnvironmentDockerServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentDockerServerPtrInput)(nil)).Elem(), ProjectEnvironmentDockerServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentEnvironmentVariableInput)(nil)).Elem(), ProjectEnvironmentEnvironmentVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentEnvironmentVariableArrayInput)(nil)).Elem(), ProjectEnvironmentEnvironmentVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectEnvironmentFleetInput)(nil)).Elem(), ProjectEnvironmentFleetArgs{})
@@ -6510,6 +6687,8 @@ func init() {
 	pulumi.RegisterOutputType(ProjectCachePtrOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentPtrOutput{})
+	pulumi.RegisterOutputType(ProjectEnvironmentDockerServerOutput{})
+	pulumi.RegisterOutputType(ProjectEnvironmentDockerServerPtrOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentEnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentEnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(ProjectEnvironmentFleetOutput{})

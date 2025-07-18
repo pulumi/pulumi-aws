@@ -147,6 +147,12 @@ namespace Pulumi.Aws.SsoAdmin
         public Output<string> PrincipalType { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// An AWS account identifier, typically a 10-12 digit string.
         /// </summary>
         [Output("targetId")]
@@ -229,6 +235,12 @@ namespace Pulumi.Aws.SsoAdmin
         public Input<string> PrincipalType { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// An AWS account identifier, typically a 10-12 digit string.
         /// </summary>
         [Input("targetId", required: true)]
@@ -271,6 +283,12 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         [Input("principalType")]
         public Input<string>? PrincipalType { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// An AWS account identifier, typically a 10-12 digit string.

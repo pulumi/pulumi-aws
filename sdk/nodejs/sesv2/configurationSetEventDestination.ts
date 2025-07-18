@@ -167,6 +167,10 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
      * An object that defines the event destination. See `eventDestination` Block for details.
      */
     public readonly eventDestinationName!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ConfigurationSetEventDestination resource with the given unique name, arguments, and options.
@@ -184,6 +188,7 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
             resourceInputs["configurationSetName"] = state ? state.configurationSetName : undefined;
             resourceInputs["eventDestination"] = state ? state.eventDestination : undefined;
             resourceInputs["eventDestinationName"] = state ? state.eventDestinationName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ConfigurationSetEventDestinationArgs | undefined;
             if ((!args || args.configurationSetName === undefined) && !opts.urn) {
@@ -198,6 +203,7 @@ export class ConfigurationSetEventDestination extends pulumi.CustomResource {
             resourceInputs["configurationSetName"] = args ? args.configurationSetName : undefined;
             resourceInputs["eventDestination"] = args ? args.eventDestination : undefined;
             resourceInputs["eventDestinationName"] = args ? args.eventDestinationName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ConfigurationSetEventDestination.__pulumiType, name, resourceInputs, opts);
@@ -220,6 +226,10 @@ export interface ConfigurationSetEventDestinationState {
      * An object that defines the event destination. See `eventDestination` Block for details.
      */
     eventDestinationName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -238,4 +248,8 @@ export interface ConfigurationSetEventDestinationArgs {
      * An object that defines the event destination. See `eventDestination` Block for details.
      */
     eventDestinationName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

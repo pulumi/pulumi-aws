@@ -76,8 +76,14 @@ export class LbStickinessPolicy extends pulumi.CustomResource {
     public readonly enabled!: pulumi.Output<boolean>;
     /**
      * Name of the load balancer to which you want to enable session stickiness.
+     *
+     * The following arguments are optional:
      */
     public readonly lbName!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LbStickinessPolicy resource with the given unique name, arguments, and options.
@@ -95,6 +101,7 @@ export class LbStickinessPolicy extends pulumi.CustomResource {
             resourceInputs["cookieDuration"] = state ? state.cookieDuration : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["lbName"] = state ? state.lbName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LbStickinessPolicyArgs | undefined;
             if ((!args || args.cookieDuration === undefined) && !opts.urn) {
@@ -109,6 +116,7 @@ export class LbStickinessPolicy extends pulumi.CustomResource {
             resourceInputs["cookieDuration"] = args ? args.cookieDuration : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["lbName"] = args ? args.lbName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LbStickinessPolicy.__pulumiType, name, resourceInputs, opts);
@@ -129,8 +137,14 @@ export interface LbStickinessPolicyState {
     enabled?: pulumi.Input<boolean>;
     /**
      * Name of the load balancer to which you want to enable session stickiness.
+     *
+     * The following arguments are optional:
      */
     lbName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -147,6 +161,12 @@ export interface LbStickinessPolicyArgs {
     enabled: pulumi.Input<boolean>;
     /**
      * Name of the load balancer to which you want to enable session stickiness.
+     *
+     * The following arguments are optional:
      */
     lbName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

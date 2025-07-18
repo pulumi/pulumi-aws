@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/finspace"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/finspace"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,23 +73,23 @@ type KxScalingGroup struct {
 	LastModifiedTimestamp pulumi.StringOutput `pulumi:"lastModifiedTimestamp"`
 	// Unique name for the scaling group that you want to create.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The status of scaling group.
-	// * `CREATING` – The scaling group creation is in progress.
-	// * `CREATE_FAILED` – The scaling group creation has failed.
-	// * `ACTIVE` – The scaling group is active.
-	// * `UPDATING` – The scaling group is in the process of being updated.
-	// * `UPDATE_FAILED` – The update action failed.
-	// * `DELETING` – The scaling group is in the process of being deleted.
-	// * `DELETE_FAILED` – The system failed to delete the scaling group.
-	// * `DELETED` – The scaling group is successfully deleted.
+	// * `CREATING` - The scaling group creation is in progress.
+	// * `CREATE_FAILED` - The scaling group creation has failed.
+	// * `ACTIVE` - The scaling group is active.
+	// * `UPDATING` - The scaling group is in the process of being updated.
+	// * `UPDATE_FAILED` - The update action failed.
+	// * `DELETING` - The scaling group is in the process of being deleted.
+	// * `DELETE_FAILED` - The system failed to delete the scaling group.
+	// * `DELETED` - The scaling group is successfully deleted.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// The error message when a failed state occurs.
 	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -150,23 +150,23 @@ type kxScalingGroupState struct {
 	LastModifiedTimestamp *string `pulumi:"lastModifiedTimestamp"`
 	// Unique name for the scaling group that you want to create.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The status of scaling group.
-	// * `CREATING` – The scaling group creation is in progress.
-	// * `CREATE_FAILED` – The scaling group creation has failed.
-	// * `ACTIVE` – The scaling group is active.
-	// * `UPDATING` – The scaling group is in the process of being updated.
-	// * `UPDATE_FAILED` – The update action failed.
-	// * `DELETING` – The scaling group is in the process of being deleted.
-	// * `DELETE_FAILED` – The system failed to delete the scaling group.
-	// * `DELETED` – The scaling group is successfully deleted.
+	// * `CREATING` - The scaling group creation is in progress.
+	// * `CREATE_FAILED` - The scaling group creation has failed.
+	// * `ACTIVE` - The scaling group is active.
+	// * `UPDATING` - The scaling group is in the process of being updated.
+	// * `UPDATE_FAILED` - The update action failed.
+	// * `DELETING` - The scaling group is in the process of being deleted.
+	// * `DELETE_FAILED` - The system failed to delete the scaling group.
+	// * `DELETED` - The scaling group is successfully deleted.
 	Status *string `pulumi:"status"`
 	// The error message when a failed state occurs.
 	StatusReason *string `pulumi:"statusReason"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -189,23 +189,23 @@ type KxScalingGroupState struct {
 	LastModifiedTimestamp pulumi.StringPtrInput
 	// Unique name for the scaling group that you want to create.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The status of scaling group.
-	// * `CREATING` – The scaling group creation is in progress.
-	// * `CREATE_FAILED` – The scaling group creation has failed.
-	// * `ACTIVE` – The scaling group is active.
-	// * `UPDATING` – The scaling group is in the process of being updated.
-	// * `UPDATE_FAILED` – The update action failed.
-	// * `DELETING` – The scaling group is in the process of being deleted.
-	// * `DELETE_FAILED` – The system failed to delete the scaling group.
-	// * `DELETED` – The scaling group is successfully deleted.
+	// * `CREATING` - The scaling group creation is in progress.
+	// * `CREATE_FAILED` - The scaling group creation has failed.
+	// * `ACTIVE` - The scaling group is active.
+	// * `UPDATING` - The scaling group is in the process of being updated.
+	// * `UPDATE_FAILED` - The update action failed.
+	// * `DELETING` - The scaling group is in the process of being deleted.
+	// * `DELETE_FAILED` - The system failed to delete the scaling group.
+	// * `DELETED` - The scaling group is successfully deleted.
 	Status pulumi.StringPtrInput
 	// The error message when a failed state occurs.
 	StatusReason pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -224,6 +224,8 @@ type kxScalingGroupArgs struct {
 	HostType string `pulumi:"hostType"`
 	// Unique name for the scaling group that you want to create.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -240,6 +242,8 @@ type KxScalingGroupArgs struct {
 	HostType pulumi.StringInput
 	// Unique name for the scaling group that you want to create.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. You can add up to 50 tags to a scaling group.
 	Tags pulumi.StringMapInput
 }
@@ -373,15 +377,20 @@ func (o KxScalingGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxScalingGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o KxScalingGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *KxScalingGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The status of scaling group.
-// * `CREATING` – The scaling group creation is in progress.
-// * `CREATE_FAILED` – The scaling group creation has failed.
-// * `ACTIVE` – The scaling group is active.
-// * `UPDATING` – The scaling group is in the process of being updated.
-// * `UPDATE_FAILED` – The update action failed.
-// * `DELETING` – The scaling group is in the process of being deleted.
-// * `DELETE_FAILED` – The system failed to delete the scaling group.
-// * `DELETED` – The scaling group is successfully deleted.
+// * `CREATING` - The scaling group creation is in progress.
+// * `CREATE_FAILED` - The scaling group creation has failed.
+// * `ACTIVE` - The scaling group is active.
+// * `UPDATING` - The scaling group is in the process of being updated.
+// * `UPDATE_FAILED` - The update action failed.
+// * `DELETING` - The scaling group is in the process of being deleted.
+// * `DELETE_FAILED` - The system failed to delete the scaling group.
+// * `DELETED` - The scaling group is successfully deleted.
 func (o KxScalingGroupOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxScalingGroup) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
@@ -397,8 +406,6 @@ func (o KxScalingGroupOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o KxScalingGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KxScalingGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

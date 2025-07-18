@@ -4,8 +4,6 @@
 package com.pulumi.aws.redshift.inputs;
 
 import com.pulumi.aws.redshift.inputs.ClusterClusterNodeArgs;
-import com.pulumi.aws.redshift.inputs.ClusterLoggingArgs;
-import com.pulumi.aws.redshift.inputs.ClusterSnapshotCopyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -340,16 +338,18 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * If true , the data in the cluster is encrypted at rest.
+     * Default is `true`.
      * 
      */
     @Import(name="encrypted")
-    private @Nullable Output<Boolean> encrypted;
+    private @Nullable Output<String> encrypted;
 
     /**
      * @return If true , the data in the cluster is encrypted at rest.
+     * Default is `true`.
      * 
      */
-    public Optional<Output<Boolean>> encrypted() {
+    public Optional<Output<String>> encrypted() {
         return Optional.ofNullable(this.encrypted);
     }
 
@@ -426,29 +426,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
-    }
-
-    /**
-     * Logging, documented below.
-     * 
-     * @deprecated
-     * logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
-    @Import(name="logging")
-    private @Nullable Output<ClusterLoggingArgs> logging;
-
-    /**
-     * @return Logging, documented below.
-     * 
-     * @deprecated
-     * logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
-    public Optional<Output<ClusterLoggingArgs>> logging() {
-        return Optional.ofNullable(this.logging);
     }
 
     /**
@@ -667,18 +644,33 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If true, the cluster can be accessed from a public network. Default is `true`.
+     * If true, the cluster can be accessed from a public network. Default is `false`.
      * 
      */
     @Import(name="publiclyAccessible")
     private @Nullable Output<Boolean> publiclyAccessible;
 
     /**
-     * @return If true, the cluster can be accessed from a public network. Default is `true`.
+     * @return If true, the cluster can be accessed from a public network. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> publiclyAccessible() {
         return Optional.ofNullable(this.publiclyAccessible);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -727,29 +719,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration of automatic copy of snapshots from one region to another. Documented below.
-     * 
-     * @deprecated
-     * snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
-    @Import(name="snapshotCopy")
-    private @Nullable Output<ClusterSnapshotCopyArgs> snapshotCopy;
-
-    /**
-     * @return Configuration of automatic copy of snapshots from one region to another. Documented below.
-     * 
-     * @deprecated
-     * snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
-    public Optional<Output<ClusterSnapshotCopyArgs>> snapshotCopy() {
-        return Optional.ofNullable(this.snapshotCopy);
-    }
-
-    /**
      * The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
      * 
      */
@@ -788,22 +757,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -852,7 +813,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.finalSnapshotIdentifier = $.finalSnapshotIdentifier;
         this.iamRoles = $.iamRoles;
         this.kmsKeyId = $.kmsKeyId;
-        this.logging = $.logging;
         this.maintenanceTrackName = $.maintenanceTrackName;
         this.manageMasterPassword = $.manageMasterPassword;
         this.manualSnapshotRetentionPeriod = $.manualSnapshotRetentionPeriod;
@@ -867,10 +827,10 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.port = $.port;
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
         this.publiclyAccessible = $.publiclyAccessible;
+        this.region = $.region;
         this.skipFinalSnapshot = $.skipFinalSnapshot;
         this.snapshotArn = $.snapshotArn;
         this.snapshotClusterIdentifier = $.snapshotClusterIdentifier;
-        this.snapshotCopy = $.snapshotCopy;
         this.snapshotIdentifier = $.snapshotIdentifier;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -1343,22 +1303,24 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param encrypted If true , the data in the cluster is encrypted at rest.
+         * Default is `true`.
          * 
          * @return builder
          * 
          */
-        public Builder encrypted(@Nullable Output<Boolean> encrypted) {
+        public Builder encrypted(@Nullable Output<String> encrypted) {
             $.encrypted = encrypted;
             return this;
         }
 
         /**
          * @param encrypted If true , the data in the cluster is encrypted at rest.
+         * Default is `true`.
          * 
          * @return builder
          * 
          */
-        public Builder encrypted(Boolean encrypted) {
+        public Builder encrypted(String encrypted) {
             return encrypted(Output.of(encrypted));
         }
 
@@ -1475,35 +1437,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
-        }
-
-        /**
-         * @param logging Logging, documented below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
-         * 
-         */
-        @Deprecated /* logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
-        public Builder logging(@Nullable Output<ClusterLoggingArgs> logging) {
-            $.logging = logging;
-            return this;
-        }
-
-        /**
-         * @param logging Logging, documented below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
-         * 
-         */
-        @Deprecated /* logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
-        public Builder logging(ClusterLoggingArgs logging) {
-            return logging(Output.of(logging));
         }
 
         /**
@@ -1800,7 +1733,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publiclyAccessible If true, the cluster can be accessed from a public network. Default is `true`.
+         * @param publiclyAccessible If true, the cluster can be accessed from a public network. Default is `false`.
          * 
          * @return builder
          * 
@@ -1811,13 +1744,34 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publiclyAccessible If true, the cluster can be accessed from a public network. Default is `true`.
+         * @param publiclyAccessible If true, the cluster can be accessed from a public network. Default is `false`.
          * 
          * @return builder
          * 
          */
         public Builder publiclyAccessible(Boolean publiclyAccessible) {
             return publiclyAccessible(Output.of(publiclyAccessible));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -1884,35 +1838,6 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snapshotCopy Configuration of automatic copy of snapshots from one region to another. Documented below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
-         * 
-         */
-        @Deprecated /* snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
-        public Builder snapshotCopy(@Nullable Output<ClusterSnapshotCopyArgs> snapshotCopy) {
-            $.snapshotCopy = snapshotCopy;
-            return this;
-        }
-
-        /**
-         * @param snapshotCopy Configuration of automatic copy of snapshots from one region to another. Documented below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
-         * 
-         */
-        @Deprecated /* snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
-        public Builder snapshotCopy(ClusterSnapshotCopyArgs snapshotCopy) {
-            return snapshotCopy(Output.of(snapshotCopy));
-        }
-
-        /**
          * @param snapshotIdentifier The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
          * 
          * @return builder
@@ -1965,11 +1890,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -1980,11 +1901,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

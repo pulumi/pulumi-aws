@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,6 +53,8 @@ func LookupCloudFormationType(ctx *pulumi.Context, args *LookupCloudFormationTyp
 type LookupCloudFormationTypeArgs struct {
 	// ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
 	Arn *string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// CloudFormation Registry Type. For example, `RESOURCE`.
 	Type *string `pulumi:"type"`
 	// CloudFormation Type name. For example, `AWS::EC2::VPC`.
@@ -82,6 +84,7 @@ type LookupCloudFormationTypeResult struct {
 	LoggingConfigs []GetCloudFormationTypeLoggingConfig `pulumi:"loggingConfigs"`
 	// Provisioning behavior of the CloudFormation Type.
 	ProvisioningType string `pulumi:"provisioningType"`
+	Region           string `pulumi:"region"`
 	// JSON document of the CloudFormation Type schema.
 	Schema string `pulumi:"schema"`
 	// URL of the source code for the CloudFormation Type.
@@ -107,6 +110,8 @@ func LookupCloudFormationTypeOutput(ctx *pulumi.Context, args LookupCloudFormati
 type LookupCloudFormationTypeOutputArgs struct {
 	// ARN of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// CloudFormation Registry Type. For example, `RESOURCE`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// CloudFormation Type name. For example, `AWS::EC2::VPC`.
@@ -181,6 +186,10 @@ func (o LookupCloudFormationTypeResultOutput) LoggingConfigs() GetCloudFormation
 // Provisioning behavior of the CloudFormation Type.
 func (o LookupCloudFormationTypeResultOutput) ProvisioningType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudFormationTypeResult) string { return v.ProvisioningType }).(pulumi.StringOutput)
+}
+
+func (o LookupCloudFormationTypeResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCloudFormationTypeResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // JSON document of the CloudFormation Type schema.

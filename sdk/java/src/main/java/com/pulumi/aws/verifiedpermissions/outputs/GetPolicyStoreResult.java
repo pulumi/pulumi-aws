@@ -30,6 +30,7 @@ public final class GetPolicyStoreResult {
      * 
      */
     private String lastUpdatedDate;
+    private String region;
     /**
      * @return Map of key-value pairs associated with the policy store.
      * 
@@ -69,6 +70,9 @@ public final class GetPolicyStoreResult {
     public String lastUpdatedDate() {
         return this.lastUpdatedDate;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Map of key-value pairs associated with the policy store.
      * 
@@ -98,6 +102,7 @@ public final class GetPolicyStoreResult {
         private String description;
         private String id;
         private String lastUpdatedDate;
+        private String region;
         private Map<String,String> tags;
         private List<GetPolicyStoreValidationSetting> validationSettings;
         public Builder() {}
@@ -108,6 +113,7 @@ public final class GetPolicyStoreResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.lastUpdatedDate = defaults.lastUpdatedDate;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.validationSettings = defaults.validationSettings;
         }
@@ -153,6 +159,14 @@ public final class GetPolicyStoreResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPolicyStoreResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetPolicyStoreResult", "tags");
@@ -178,6 +192,7 @@ public final class GetPolicyStoreResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.lastUpdatedDate = lastUpdatedDate;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.validationSettings = validationSettings;
             return _resultValue;

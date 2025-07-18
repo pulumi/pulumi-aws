@@ -10,6 +10,38 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing an AWS Resilience Hub Resiliency Policy.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.resiliencehub.ResiliencyPolicy("example", {
+ *     name: "testexample",
+ *     description: "testexample",
+ *     tier: "NonCritical",
+ *     dataLocationConstraint: "AnyLocation",
+ *     policy: {
+ *         region: {
+ *             rpo: "24h",
+ *             rto: "24h",
+ *         },
+ *         az: {
+ *             rpo: "24h",
+ *             rto: "24h",
+ *         },
+ *         hardware: {
+ *             rpo: "24h",
+ *             rto: "24h",
+ *         },
+ *         software: {
+ *             rpo: "24h",
+ *             rto: "24h",
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Resilience Hub Resiliency Policy using the `arn`. For example:
@@ -76,13 +108,15 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<outputs.resiliencehub.ResiliencyPolicyPolicy | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -111,6 +145,7 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
             resourceInputs["estimatedCostTier"] = state ? state.estimatedCostTier : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["tier"] = state ? state.tier : undefined;
@@ -124,6 +159,7 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tier"] = args ? args.tier : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -170,13 +206,15 @@ export interface ResiliencyPolicyState {
      */
     policy?: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyPolicy>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -212,6 +250,10 @@ export interface ResiliencyPolicyArgs {
      * The following arguments are optional:
      */
     policy?: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyPolicy>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

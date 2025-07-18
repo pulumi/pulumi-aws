@@ -37,6 +37,7 @@ export function getEngineVersion(args?: GetEngineVersionArgs, opts?: pulumi.Invo
         "preferredMajorTargets": args.preferredMajorTargets,
         "preferredUpgradeTargets": args.preferredUpgradeTargets,
         "preferredVersions": args.preferredVersions,
+        "region": args.region,
         "version": args.version,
     }, opts);
 }
@@ -82,6 +83,10 @@ export interface GetEngineVersionArgs {
      */
     preferredVersions?: string[];
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
      */
     version?: string;
@@ -116,6 +121,7 @@ export interface GetEngineVersionResult {
     readonly preferredMajorTargets?: string[];
     readonly preferredUpgradeTargets?: string[];
     readonly preferredVersions?: string[];
+    readonly region: string;
     /**
      * Set of character sets supported by this engine version.
      */
@@ -191,6 +197,7 @@ export function getEngineVersionOutput(args?: GetEngineVersionOutputArgs, opts?:
         "preferredMajorTargets": args.preferredMajorTargets,
         "preferredUpgradeTargets": args.preferredUpgradeTargets,
         "preferredVersions": args.preferredVersions,
+        "region": args.region,
         "version": args.version,
     }, opts);
 }
@@ -235,6 +242,10 @@ export interface GetEngineVersionOutputArgs {
      * Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
      */
     preferredVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
      */

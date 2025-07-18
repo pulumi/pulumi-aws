@@ -270,22 +270,12 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      * 
-     * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-     * - Format: `ddd:hh24:mi-ddd:hh24:mi`
-     * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-     * - Constraints: Minimum 30-minute window.
-     * 
      */
     @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
     private Output<String> preferredMaintenanceWindow;
 
     /**
      * @return The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-     * 
-     * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-     * - Format: `ddd:hh24:mi-ddd:hh24:mi`
-     * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-     * - Constraints: Minimum 30-minute window.
      * 
      */
     public Output<String> preferredMaintenanceWindow() {
@@ -304,6 +294,20 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
      */
     public Output<Boolean> publiclyAccessible() {
         return this.publiclyAccessible;
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * The Amazon Resource Name (ARN) of the replication instance.
@@ -336,22 +340,12 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
     /**
      * The replication instance identifier. This parameter is stored as a lowercase string.
      * 
-     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
-     * - First character must be a letter.
-     * - Cannot end with a hyphen
-     * - Cannot contain two consecutive hyphens.
-     * 
      */
     @Export(name="replicationInstanceId", refs={String.class}, tree="[0]")
     private Output<String> replicationInstanceId;
 
     /**
      * @return The replication instance identifier. This parameter is stored as a lowercase string.
-     * 
-     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
-     * - First character must be a letter.
-     * - Cannot end with a hyphen
-     * - Cannot contain two consecutive hyphens.
      * 
      */
     public Output<String> replicationInstanceId() {
@@ -416,11 +410,7 @@ public class ReplicationInstance extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

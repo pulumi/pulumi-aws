@@ -158,22 +158,12 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
     /**
      * The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
      * 
-     * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-     * - Format: `ddd:hh24:mi-ddd:hh24:mi`
-     * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-     * - Constraints: Minimum 30-minute window.
-     * 
      */
     @Import(name="preferredMaintenanceWindow")
     private @Nullable Output<String> preferredMaintenanceWindow;
 
     /**
      * @return The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-     * 
-     * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-     * - Format: `ddd:hh24:mi-ddd:hh24:mi`
-     * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-     * - Constraints: Minimum 30-minute window.
      * 
      */
     public Optional<Output<String>> preferredMaintenanceWindow() {
@@ -196,6 +186,21 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
      * 
      */
@@ -213,22 +218,12 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
     /**
      * The replication instance identifier. This parameter is stored as a lowercase string.
      * 
-     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
-     * - First character must be a letter.
-     * - Cannot end with a hyphen
-     * - Cannot contain two consecutive hyphens.
-     * 
      */
     @Import(name="replicationInstanceId", required=true)
     private Output<String> replicationInstanceId;
 
     /**
      * @return The replication instance identifier. This parameter is stored as a lowercase string.
-     * 
-     * - Must contain from 1 to 63 alphanumeric characters or hyphens.
-     * - First character must be a letter.
-     * - Cannot end with a hyphen
-     * - Cannot contain two consecutive hyphens.
      * 
      */
     public Output<String> replicationInstanceId() {
@@ -294,6 +289,7 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
         this.networkType = $.networkType;
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
         this.publiclyAccessible = $.publiclyAccessible;
+        this.region = $.region;
         this.replicationInstanceClass = $.replicationInstanceClass;
         this.replicationInstanceId = $.replicationInstanceId;
         this.replicationSubnetGroupId = $.replicationSubnetGroupId;
@@ -511,11 +507,6 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
         /**
          * @param preferredMaintenanceWindow The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
          * 
-         * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-         * - Format: `ddd:hh24:mi-ddd:hh24:mi`
-         * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-         * - Constraints: Minimum 30-minute window.
-         * 
          * @return builder
          * 
          */
@@ -526,11 +517,6 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
 
         /**
          * @param preferredMaintenanceWindow The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-         * 
-         * - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-         * - Format: `ddd:hh24:mi-ddd:hh24:mi`
-         * - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-         * - Constraints: Minimum 30-minute window.
          * 
          * @return builder
          * 
@@ -561,6 +547,27 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param replicationInstanceClass The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
          * 
          * @return builder
@@ -584,11 +591,6 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
         /**
          * @param replicationInstanceId The replication instance identifier. This parameter is stored as a lowercase string.
          * 
-         * - Must contain from 1 to 63 alphanumeric characters or hyphens.
-         * - First character must be a letter.
-         * - Cannot end with a hyphen
-         * - Cannot contain two consecutive hyphens.
-         * 
          * @return builder
          * 
          */
@@ -599,11 +601,6 @@ public final class ReplicationInstanceArgs extends com.pulumi.resources.Resource
 
         /**
          * @param replicationInstanceId The replication instance identifier. This parameter is stored as a lowercase string.
-         * 
-         * - Must contain from 1 to 63 alphanumeric characters or hyphens.
-         * - First character must be a letter.
-         * - Cannot end with a hyphen
-         * - Cannot contain two consecutive hyphens.
          * 
          * @return builder
          * 

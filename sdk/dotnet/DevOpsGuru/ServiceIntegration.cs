@@ -77,7 +77,7 @@ namespace Pulumi.Aws.DevOpsGuru
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DevOps Guru Service Integration using the `id`. For example:
+    /// Using `pulumi import`, import DevOps Guru Service Integration using the region. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:devopsguru/serviceIntegration:ServiceIntegration example us-east-1
@@ -103,6 +103,12 @@ namespace Pulumi.Aws.DevOpsGuru
         /// </summary>
         [Output("opsCenter")]
         public Output<Outputs.ServiceIntegrationOpsCenter?> OpsCenter { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
 
         /// <summary>
@@ -168,6 +174,12 @@ namespace Pulumi.Aws.DevOpsGuru
         [Input("opsCenter")]
         public Input<Inputs.ServiceIntegrationOpsCenterArgs>? OpsCenter { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public ServiceIntegrationArgs()
         {
         }
@@ -193,6 +205,12 @@ namespace Pulumi.Aws.DevOpsGuru
         /// </summary>
         [Input("opsCenter")]
         public Input<Inputs.ServiceIntegrationOpsCenterGetArgs>? OpsCenter { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public ServiceIntegrationState()
         {

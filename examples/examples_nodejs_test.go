@@ -10,6 +10,7 @@ import (
 	"context"
 	"crypto/rand"
 	"encoding/json"
+	"fmt"
 	"io"
 	"os"
 	"path/filepath"
@@ -23,11 +24,15 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/lambda"
 	"github.com/aws/aws-sdk-go/service/s3"
+	"github.com/pulumi/providertest/optproviderupgrade"
 	"github.com/pulumi/providertest/pulumitest"
+	"github.com/pulumi/providertest/pulumitest/optnewstack"
 	"github.com/pulumi/providertest/pulumitest/opttest"
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/elb"
+	"github.com/pulumi/pulumi-aws/provider/v7/pkg/elb"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optpreview"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -340,6 +345,15 @@ func TestAccSsmParameter(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "ssmparameter"),
 			RunUpdateTest: true,
+			ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+				tier, ok := stack.Outputs["tier"]
+				require.Equalf(t, true, ok, "tier not found in outputs")
+				assert.Equal(t, "Standard", tier)
+
+				tier2, ok := stack.Outputs["tier2"]
+				require.Equalf(t, true, ok, "tier2 not found in outputs")
+				assert.Equal(t, "Standard", tier2)
+			},
 		})
 
 	integration.ProgramTest(t, &test)
@@ -377,6 +391,8 @@ func TestAccLambdaLayer(t *testing.T) {
 }
 
 func TestAccLambdaContainerImages(t *testing.T) {
+	// TODO[pulumi/pulumi-awsx#1612]
+	t.Skipf("Skipping test until awsx is update to use getAuthorizationToken %s", t.Name())
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "lambda-container-image"),
@@ -592,6 +608,9 @@ func TestRegress2868(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "regress-2868"),
+			// TODO[pulumi/pulumi-aws#5521] `region` causes permanent diff without refresh
+			PreviewCommandlineFlags: []string{"--refresh"},
+			UpdateCommandlineFlags:  []string{"--refresh"},
 		})
 	// Disable envRegion mangling
 	test.Config = nil
@@ -641,6 +660,8 @@ func TestRegress3421(t *testing.T) {
 }
 
 func TestRegress3421Update(t *testing.T) {
+	skipIfShort(t)
+	t.Parallel()
 	test := pulumitest.NewPulumiTest(t, "regress-3421",
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
 	)
@@ -680,29 +701,113 @@ func getAwsSession(t *testing.T) *session.Session {
 }
 
 func TestUpdateImportedLambda(t *testing.T) {
+	skipIfShort(t)
+	t.Parallel()
 	test := pulumitest.NewPulumiTest(t, "lambda-import-ts",
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
 	)
 
 	test.SetConfig(t, "runtime", "nodejs18.x")
+	test.SetConfig(t, "aws:region", "us-west-2")
 	res := test.Up(t)
 	lambdaName := res.Outputs["lambda_name"]
 	lambdaRole := res.Outputs["lambda_role"]
+	runtime := "nodejs18.x"
 
 	secondStack := test.InstallStack(t, "new_stack")
 
 	// Check that we can reimport the lambda.
 	secondStack.SetConfig(t, "lambda_name", lambdaName.Value.(string))
-	secondStack.SetConfig(t, "runtime", "nodejs18.x")
+	secondStack.SetConfig(t, "runtime", runtime)
+	secondStack.SetConfig(t, "aws:region", "us-west-2")
 	secondStack.SetConfig(t, "lambda_role", lambdaRole.Value.(string))
-	secondStack.Up(t)
+	up2Res := secondStack.Up(t)
+	assert.Equal(t, map[string]int{
+		"create": 2, // the stack and the provider
+		"import": 2, // the role and the lambda
+	}, *up2Res.Summary.ResourceChanges)
 
 	// Check that we can change a property on the lambda
-	secondStack.SetConfig(t, "runtime", "nodejs16.x")
+	runtime = "nodejs20.x"
+	secondStack.SetConfig(t, "runtime", runtime)
 	secondStack.Up(t)
+
+	thirdStack := test.InstallStack(t, "region_stack")
+
+	// Check that we can reimport the lambda in a different region
+	thirdStack.SetConfig(t, "lambda_name", fmt.Sprintf("%s@us-west-2", lambdaName.Value.(string)))
+	thirdStack.SetConfig(t, "runtime", runtime)
+	thirdStack.SetConfig(t, "lambda_role", lambdaRole.Value.(string))
+	thirdStack.SetConfig(t, "aws:region", "us-east-1")
+	thirdStack.SetConfig(t, "lambda_region", "us-west-2")
+	up3Res := thirdStack.Up(t)
+	assert.Equal(t, map[string]int{
+		"create": 2, // the stack and the provider
+		"import": 2, // the role and the lambda
+	}, *up3Res.Summary.ResourceChanges)
+}
+
+func TestImportResourceNew(t *testing.T) {
+	skipIfShort(t)
+	t.Parallel()
+	test := pulumitest.NewPulumiTest(t, filepath.Join(getCwd(t), "test-programs", "resource-import-ts"),
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+	)
+
+	test.SetConfig(t, "aws:region", "us-west-2")
+	res := test.Up(t)
+	queueArn := res.Outputs["queue_arn"]
+	reportGroupArn := res.Outputs["report_group_arn"]
+	vpcId := res.Outputs["vpc_id"]
+	subnetId := res.Outputs["subnet_id"]
+	computeEnvArn := res.Outputs["compute_env_arn"]
+	securityGroupId := res.Outputs["security_group_id"]
+	roleName := res.Outputs["role_name"]
+	policyAttachmentArn := res.Outputs["policy_attachment_arn"]
+
+	secondStack := test.InstallStack(t, "new_stack", optnewstack.DisableAutoDestroy())
+
+	// Check that we can reimport the resources in the same region.
+	secondStack.SetConfig(t, "queue_arn", queueArn.Value.(string))
+	secondStack.SetConfig(t, "aws:region", "us-west-2")
+	secondStack.SetConfig(t, "report_group_arn", reportGroupArn.Value.(string))
+	secondStack.SetConfig(t, "vpc_id", vpcId.Value.(string))
+	secondStack.SetConfig(t, "subnet_id", subnetId.Value.(string))
+	secondStack.SetConfig(t, "compute_env_arn", computeEnvArn.Value.(string))
+	secondStack.SetConfig(t, "security_group_id", securityGroupId.Value.(string))
+	secondStack.SetConfig(t, "role_name", roleName.Value.(string))
+	secondStack.SetConfig(t, "policy_attachment_arn", policyAttachmentArn.Value.(string))
+	up2Res := secondStack.Up(t)
+	assert.Equal(t, map[string]int{
+		"create": 2, // the stack and the provider
+		"import": 8,
+	}, *up2Res.Summary.ResourceChanges)
+
+	thirdStack := test.InstallStack(t, "region_stack", optnewstack.DisableAutoDestroy())
+
+	// Check that we can reimport the resources in a different region
+	thirdStack.SetConfig(t, "queue_arn", queueArn.Value.(string))
+	thirdStack.SetConfig(t, "report_group_arn", reportGroupArn.Value.(string))
+	thirdStack.SetConfig(t, "vpc_id", vpcId.Value.(string))
+	thirdStack.SetConfig(t, "subnet_id", subnetId.Value.(string))
+	thirdStack.SetConfig(t, "compute_env_arn", computeEnvArn.Value.(string))
+	thirdStack.SetConfig(t, "security_group_id", securityGroupId.Value.(string))
+	thirdStack.SetConfig(t, "role_name", roleName.Value.(string))
+	thirdStack.SetConfig(t, "policy_attachment_arn", policyAttachmentArn.Value.(string))
+	thirdStack.SetConfig(t, "aws:region", "us-east-1")
+	thirdStack.SetConfig(t, "import_region", "us-west-2")
+	up3Res := thirdStack.Up(t)
+	assert.Equal(t, map[string]int{
+		"create": 2, // the stack and the provider
+		"import": 8,
+	}, *up3Res.Summary.ResourceChanges)
 }
 
 func TestNoCodeLambda(t *testing.T) {
+	skipIfShort(t)
+	t.Parallel()
 	test := pulumitest.NewPulumiTest(t, "no-code-lambda",
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
 	)
@@ -717,6 +822,8 @@ type InlinePolicy struct {
 }
 
 func TestRoleInlinePolicyAutoName(t *testing.T) {
+	skipIfShort(t)
+	t.Parallel()
 	test := pulumitest.NewPulumiTest(t, "role-inline-policy-auto-name",
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
 	)
@@ -743,6 +850,8 @@ func TestRoleInlinePolicyAutoName(t *testing.T) {
 }
 
 func TestRdsGetEngineVersion(t *testing.T) {
+	skipIfShort(t)
+	t.Parallel()
 	test := pulumitest.NewPulumiTest(t, "rds-getengineversion",
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
 	)
@@ -777,6 +886,9 @@ func TestServerlessAppRepositoryApplication(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir: filepath.Join(getCwd(t), "serverless-app-repository-application"),
+			Config: map[string]string{
+				"functionName": "athena-cloudwatch-connector-" + randomString(10),
+			},
 		})
 
 	integration.ProgramTest(t, &test)
@@ -800,6 +912,17 @@ func TestLambdaLayerNewUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("lambda-layer-new"), nodeProviderUpgradeOpts())
 }
 
+func TestPolicyDocumentUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("iam-policy-document", "ts"), &testProviderUpgradeOptions{
+		linkNodeSDK: false,
+		installDeps: true,
+	})
+}
+
+func TestLifecyclePolicyDocumentUpgrade(t *testing.T) {
+	testProviderUpgrade(t, filepath.Join("ecr"), nodeProviderUpgradeOpts())
+}
+
 func TestCloudWatchUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("cloudwatch"), nodeProviderUpgradeOpts())
 }
@@ -812,18 +935,75 @@ func TestQueueUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("queue"), nodeProviderUpgradeOpts())
 }
 
+func TestSsmParameterUpgrade(t *testing.T) {
+	testProviderUpgrade(t, "ssmparameter", nodeProviderUpgradeOpts())
+}
+
 func TestRoute53Upgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("route53"), nodeProviderUpgradeOpts())
 }
 
+// This test requires `--refresh` to perform the state migrations
+// `--refresh` means we have to disable the cache to run the initial deployment
 func TestJobQueueUpgrade(t *testing.T) {
 	opts := nodeProviderUpgradeOpts()
 	opts.setEnvRegion = false
-	opts.region = "us-west-2" // has to match the snapshot-recorded region
-	opts.extraOpts = []opttest.Option{
-		opttest.Env("PULUMI_ENABLE_PLAN_RESOURCE_CHANGE", "true"),
-	}
-	testProviderUpgrade(t, filepath.Join("test-programs", "job-queue"), opts)
+	opts.skipCache = true
+	opts.skipDefaultPreviewTest = true
+	test, _ := testProviderUpgrade(t, filepath.Join("test-programs", "job-queue"), opts,
+		optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "job-queue", "step1")))
+
+	test.Preview(t, optpreview.Refresh(), optpreview.Diff(), optpreview.ExpectNoChanges())
+}
+
+// This test requires `--refresh` to perform the state migrations
+// `--refresh` means we have to disable the cache to run the initial deployment
+func TestBucketToBucketUpgradeTs(t *testing.T) {
+	opts := nodeProviderUpgradeOpts()
+	opts.setEnvRegion = false
+	opts.skipCache = true
+	opts.skipDefaultPreviewTest = true
+	opts.runProgram = true
+	test, _ := testProviderUpgrade(t, filepath.Join("bucket-to-bucket", "ts"), opts,
+		optproviderupgrade.NewSourcePath(filepath.Join("bucket-to-bucket", "ts", "step1")))
+
+	res := test.Preview(t, optpreview.Refresh(), optpreview.Diff(), optpreview.ProgressStreams(os.Stdout), optpreview.ErrorProgressStreams(os.Stderr))
+	assert.Equal(t, map[apitype.OpType]int{
+		apitype.OpUpdate: 1, // the provider gets updated because of the version update
+		apitype.OpSame:   9,
+	}, res.ChangeSummary)
+}
+
+// This test requires `--refresh` to perform the state migrations
+// `--refresh` means we have to disable the cache to run the initial deployment
+func TestBucketV2ToBucketV2UpgradeTs(t *testing.T) {
+	opts := nodeProviderUpgradeOpts()
+	opts.setEnvRegion = false
+	testProviderUpgrade(t, "bucketv2-to-bucketv2", opts)
+}
+
+func TestMultipleRegionsUpgrade(t *testing.T) {
+	skipIfShort(t)
+	t.Parallel()
+	test := pulumitest.NewPulumiTest(t, filepath.Join(getCwd(t), "multiple-regions"),
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+	)
+
+	test.Up(t)
+
+	exported := test.ExportStack(t)
+
+	upgradeStack := test.CopyToTempDir(t, opttest.NewStackOptions(optnewstack.DisableAutoDestroy()))
+	upgradeStack.UpdateSource(t, filepath.Join(getCwd(t), "multiple-regions-v7"))
+	upgradeStack.ImportStack(t, exported)
+
+	res := upgradeStack.Preview(t, optpreview.Diff(), optpreview.Refresh())
+
+	assert.Equal(t, map[apitype.OpType]int{
+		apitype.OpDelete: 1, // One of the providers is removed
+		apitype.OpSame:   10,
+	}, res.ChangeSummary)
 }
 
 func nodeProviderUpgradeOpts() *testProviderUpgradeOptions {
@@ -836,6 +1016,7 @@ func nodeProviderUpgradeOpts() *testProviderUpgradeOptions {
 
 func TestRegress3094(t *testing.T) {
 	skipIfShort(t)
+	t.Parallel()
 	dir := filepath.Join("test-programs", "regress-3094")
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
@@ -851,6 +1032,7 @@ func TestRegress3094(t *testing.T) {
 
 func TestRegress3835(t *testing.T) {
 	skipIfShort(t)
+	t.Parallel()
 	dir := filepath.Join("test-programs", "regress-3835")
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
@@ -866,6 +1048,7 @@ func TestRegress3835(t *testing.T) {
 
 func TestChangingRegion(t *testing.T) {
 	skipIfShort(t)
+	t.Parallel()
 	dir := filepath.Join("test-programs", "changing-region")
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
@@ -877,18 +1060,34 @@ func TestChangingRegion(t *testing.T) {
 
 	t.Run("default provider", func(t *testing.T) {
 		test := pulumitest.NewPulumiTest(t, dir, options...)
-		for _, region := range []string{"us-east-1", "us-west-1"} {
+		for i, region := range []string{"us-east-1", "us-west-1"} {
 			test.SetConfig(t, "aws:region", region)
-			res := test.Up(t)
+			res := test.Up(t, optup.Diff())
+			t.Log(res.Summary.ResourceChanges)
+			if i == 1 {
+				assert.Equal(t, *res.Summary.ResourceChanges, map[string]int{
+					"replace": 1,
+					"same":    1,
+				})
+			}
+
 			require.Equal(t, region, res.Outputs["actualRegion"].Value)
 		}
 	})
 
 	t.Run("explicit provider", func(t *testing.T) {
 		test := pulumitest.NewPulumiTest(t, dir, options...)
-		for _, region := range []string{"us-east-1", "us-west-1"} {
+		for i, region := range []string{"us-east-1", "us-west-1"} {
 			test.SetConfig(t, "desired-region", region)
-			res := test.Up(t)
+			res := test.Up(t, optup.Diff())
+			t.Log(res.Summary.ResourceChanges)
+			if i == 1 {
+				assert.Equal(t, *res.Summary.ResourceChanges, map[string]int{
+					"replace": 1,
+					"same":    1,
+					"update":  1,
+				})
+			}
 			require.Equal(t, region, res.Outputs["actualRegion"].Value)
 		}
 	})
@@ -897,6 +1096,7 @@ func TestChangingRegion(t *testing.T) {
 func TestRegressAttributeMustBeWholeNumber(t *testing.T) {
 	// pulumi/pulumi-terraform-bridge#1940
 	skipIfShort(t)
+	t.Parallel()
 	dir := filepath.Join("test-programs", "ec2-string-for-int")
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
@@ -911,6 +1111,7 @@ func TestRegressAttributeMustBeWholeNumber(t *testing.T) {
 }
 
 func TestRegress4079(t *testing.T) {
+	t.Parallel()
 	skipIfShort(t)
 	ctx := context.Background()
 	dir := filepath.Join("test-programs", "regress-4079")
@@ -1017,23 +1218,9 @@ func TestRegress4128(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestGameLift(t *testing.T) {
-	if testing.Short() {
-		t.Skipf("Skipping test in -short mode because it needs cloud credentials")
-		return
-	}
-
-	ptest := pulumiTest(t, filepath.Join("test-programs", "gamelift-typescript"))
-	ptest.SetConfig(t, "customData", "A")
-	result1 := ptest.Up(t)
-	require.Equal(t, "A", result1.Outputs["CustomEventData"].Value)
-	ptest.SetConfig(t, "customData", "B")
-	result2 := ptest.Up(t)
-	require.Equal(t, "B", result2.Outputs["CustomEventData"].Value)
-}
-
 func TestRegress4446(t *testing.T) {
 	skipIfShort(t)
+	t.Parallel()
 	dir := filepath.Join("test-programs", "regress-4446")
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
@@ -1049,45 +1236,9 @@ func TestRegress4446(t *testing.T) {
 	t.Logf("#%v", result.ChangeSummary)
 }
 
-func TestRegress4568(t *testing.T) {
-	skipIfShort(t)
-	dir := filepath.Join("test-programs", "regress-4568")
-	cwd, err := os.Getwd()
-	require.NoError(t, err)
-	providerName := "aws"
-	options := []opttest.Option{
-		opttest.LocalProviderPath(providerName, filepath.Join(cwd, "..", "bin")),
-		opttest.YarnLink("@pulumi/aws"),
-	}
-	test := pulumitest.NewPulumiTest(t, dir, options...)
-	upResult := test.Up(t)
-	t.Logf("#%v", upResult.Summary)
-
-	// The singular lifecyclePolicy should contain the first value
-	assert.Equal(t, map[string]interface{}{
-		"transitionToIa":                  "AFTER_30_DAYS",
-		"transitionToArchive":             "",
-		"transitionToPrimaryStorageClass": "",
-	}, upResult.Outputs["lifecyclePolicy"].Value, "lifecyclePolicy should be set")
-
-	// The plural lifecyclePolicies should contain both values
-	lifecyclePolicies := upResult.Outputs["lifecyclePolicies"].Value.([]interface{})
-	assert.Len(t, lifecyclePolicies, 2, "lifecyclePolicies should have two elements")
-
-	assert.Contains(t, lifecyclePolicies, map[string]interface{}{
-		"transitionToIa":                  "AFTER_30_DAYS",
-		"transitionToArchive":             "",
-		"transitionToPrimaryStorageClass": "",
-	})
-	assert.Contains(t, lifecyclePolicies, map[string]interface{}{
-		"transitionToPrimaryStorageClass": "AFTER_1_ACCESS",
-		"transitionToIa":                  "",
-		"transitionToArchive":             "",
-	})
-}
-
 func TestRegress5219(t *testing.T) {
 	skipIfShort(t)
+	t.Parallel()
 	dir := filepath.Join("test-programs", "regress-5219")
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
@@ -1118,6 +1269,7 @@ func (ef *expectFailure) FailNow() {
 
 // Tests that there are no diagnostics by default on simple programs.
 func TestNoExtranousLogOutput(t *testing.T) {
+	t.Parallel()
 	skipIfShort(t)
 	dir := filepath.Join("test-programs", "bucket-obj")
 	cwd, err := os.Getwd()
@@ -1139,6 +1291,7 @@ func TestNoExtranousLogOutput(t *testing.T) {
 // exists. Emulate this situation and assert that the message has propagated.
 func TestUpstreamWarningsPropagated(t *testing.T) {
 	skipIfShort(t)
+	t.Parallel()
 	dir := filepath.Join("test-programs", "disappearing-bucket-object")
 	cwd, err := os.Getwd()
 	require.NoError(t, err)
@@ -1170,10 +1323,46 @@ func TestUpstreamWarningsPropagated(t *testing.T) {
 	//
 	//     log.Printf("[WARN] S3 Object (%s) not found, removing from state", d.Id())
 	//
+	outputs, err := test.CurrentStack().Outputs(test.Context())
+	require.NoError(t, err)
+	bucketName, ok := outputs["bucketName"].Value.(string)
+	require.True(t, ok)
 	assert.Containsf(t,
 		rr.StdErr+rr.StdOut,
-		"warning: S3 Object (index.ts) not found, removing from state",
+		fmt.Sprintf("warning: S3 Object (%s/index.ts) not found, removing from state", bucketName),
 		"Expected upstream log.Printf to propagate under TF_LOG=DEBUG")
+}
+
+func TestAccProviderRoleChaining(t *testing.T) {
+	region := getEnvRegion(t)
+	test := integration.ProgramTestOptions{
+		Dir: filepath.Join(getCwd(t), "provider-role-chaining"),
+		Dependencies: []string{
+			"@pulumi/aws",
+		},
+		Config: map[string]string{
+			"aws-native:region": region,
+			"aws:region":        region,
+		},
+	}
+	skipRefresh(&test)
+	integration.ProgramTest(t, &test)
+}
+
+// also test the release verification test so it will also fail in CI
+func TestReleaseVerification(t *testing.T) {
+	region := getEnvRegion(t)
+	test := integration.ProgramTestOptions{
+		Dir: filepath.Join(getCwd(t), "release-verification"),
+		Dependencies: []string{
+			"@pulumi/aws",
+		},
+		Config: map[string]string{
+			"aws:region": region,
+		},
+	}
+	skipRefresh(&test)
+	integration.ProgramTest(t, &test)
 }
 
 func createLambdaArchive(size int64) (string, error) {
@@ -1221,4 +1410,51 @@ func createLambdaArchive(size int64) (string, error) {
 	}
 
 	return archivePath, nil
+}
+
+func TestResourceRefsMigrateCleanlyToStringRefs(t *testing.T) {
+	// See pulumi/pulumi-aws#5540
+	t.Skip("Skipping for now since we are not removing resource references")
+	skipIfShort(t)
+	t.Parallel()
+	resourceRefMigrateDir := "migrate-resource-refs"
+	dirs := []string{
+		filepath.Join(resourceRefMigrateDir, "autoscalinggroup"),
+		filepath.Join(resourceRefMigrateDir, "elasticbeanstalk"),
+		filepath.Join(resourceRefMigrateDir, "cloudwatch-with-topic"),
+		filepath.Join(resourceRefMigrateDir, "bucketobject"),
+		filepath.Join(resourceRefMigrateDir, "iamresources"),
+		filepath.Join(resourceRefMigrateDir, "apigatewaystage"),
+		filepath.Join(resourceRefMigrateDir, "iotpolicy"),
+		filepath.Join(resourceRefMigrateDir, "lambdapermission"),
+		filepath.Join(resourceRefMigrateDir, "managedpolicy"),
+	}
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+
+	for _, dir := range dirs {
+		t.Run(dir, func(t *testing.T) {
+			t.Parallel()
+			options := []opttest.Option{
+				opttest.AttachDownloadedPlugin("aws", "6.80.0"),
+			}
+			test := pulumitest.NewPulumiTest(t, dir, options...)
+			result := test.Up(t)
+			t.Logf("Deployment result: %v", result.Summary)
+			state := test.ExportStack(t)
+
+			v7Options := []opttest.Option{
+				opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
+				opttest.YarnLink("@pulumi/aws"),
+			}
+			v7Test := pulumitest.NewPulumiTest(t, dir, v7Options...)
+			v7Test.ImportStack(t, state)
+			// TODO[pulumi/pulumi-aws#5521] `region` and tagsAll cause permanent diff without refresh
+			v7Test.Refresh(t)
+
+			v7Test.UpdateSource(t, filepath.Join(dir, "v7"))
+			updatePreviewResult := v7Test.Preview(t, optpreview.ExpectNoChanges())
+			t.Logf("Updated preview result: %v", updatePreviewResult.ChangeSummary)
+		})
+	}
 }

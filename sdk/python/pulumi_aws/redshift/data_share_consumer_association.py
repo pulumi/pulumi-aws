@@ -24,7 +24,8 @@ class DataShareConsumerAssociationArgs:
                  allow_writes: Optional[pulumi.Input[builtins.bool]] = None,
                  associate_entire_account: Optional[pulumi.Input[builtins.bool]] = None,
                  consumer_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 consumer_region: Optional[pulumi.Input[builtins.str]] = None):
+                 consumer_region: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a DataShareConsumerAssociation resource.
         :param pulumi.Input[builtins.str] data_share_arn: Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
@@ -34,6 +35,7 @@ class DataShareConsumerAssociationArgs:
         :param pulumi.Input[builtins.bool] associate_entire_account: Whether the datashare is associated with the entire account. Conflicts with `consumer_arn` and `consumer_region`.
         :param pulumi.Input[builtins.str] consumer_arn: Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associate_entire_account` and `consumer_region`.
         :param pulumi.Input[builtins.str] consumer_region: From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified AWS Region. Conflicts with `associate_entire_account` and `consumer_arn`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "data_share_arn", data_share_arn)
         if allow_writes is not None:
@@ -44,6 +46,8 @@ class DataShareConsumerAssociationArgs:
             pulumi.set(__self__, "consumer_arn", consumer_arn)
         if consumer_region is not None:
             pulumi.set(__self__, "consumer_region", consumer_region)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="dataShareArn")
@@ -107,6 +111,18 @@ class DataShareConsumerAssociationArgs:
     def consumer_region(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "consumer_region", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _DataShareConsumerAssociationState:
@@ -117,7 +133,8 @@ class _DataShareConsumerAssociationState:
                  consumer_region: Optional[pulumi.Input[builtins.str]] = None,
                  data_share_arn: Optional[pulumi.Input[builtins.str]] = None,
                  managed_by: Optional[pulumi.Input[builtins.str]] = None,
-                 producer_arn: Optional[pulumi.Input[builtins.str]] = None):
+                 producer_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering DataShareConsumerAssociation resources.
         :param pulumi.Input[builtins.bool] allow_writes: Whether to allow write operations for a datashare.
@@ -129,6 +146,7 @@ class _DataShareConsumerAssociationState:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] managed_by: Identifier of a datashare to show its managing entity.
         :param pulumi.Input[builtins.str] producer_arn: Amazon Resource Name (ARN) of the producer.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if allow_writes is not None:
             pulumi.set(__self__, "allow_writes", allow_writes)
@@ -144,6 +162,8 @@ class _DataShareConsumerAssociationState:
             pulumi.set(__self__, "managed_by", managed_by)
         if producer_arn is not None:
             pulumi.set(__self__, "producer_arn", producer_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="allowWrites")
@@ -231,6 +251,18 @@ class _DataShareConsumerAssociationState:
     def producer_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "producer_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation")
 class DataShareConsumerAssociation(pulumi.CustomResource):
@@ -243,6 +275,7 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
                  consumer_arn: Optional[pulumi.Input[builtins.str]] = None,
                  consumer_region: Optional[pulumi.Input[builtins.str]] = None,
                  data_share_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Redshift Data Share Consumer Association.
@@ -288,6 +321,7 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] data_share_arn: Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -350,6 +384,7 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
                  consumer_arn: Optional[pulumi.Input[builtins.str]] = None,
                  consumer_region: Optional[pulumi.Input[builtins.str]] = None,
                  data_share_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -366,6 +401,7 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
             if data_share_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'data_share_arn'")
             __props__.__dict__["data_share_arn"] = data_share_arn
+            __props__.__dict__["region"] = region
             __props__.__dict__["managed_by"] = None
             __props__.__dict__["producer_arn"] = None
         super(DataShareConsumerAssociation, __self__).__init__(
@@ -384,7 +420,8 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
             consumer_region: Optional[pulumi.Input[builtins.str]] = None,
             data_share_arn: Optional[pulumi.Input[builtins.str]] = None,
             managed_by: Optional[pulumi.Input[builtins.str]] = None,
-            producer_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'DataShareConsumerAssociation':
+            producer_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'DataShareConsumerAssociation':
         """
         Get an existing DataShareConsumerAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -401,6 +438,7 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] managed_by: Identifier of a datashare to show its managing entity.
         :param pulumi.Input[builtins.str] producer_arn: Amazon Resource Name (ARN) of the producer.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -413,6 +451,7 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
         __props__.__dict__["data_share_arn"] = data_share_arn
         __props__.__dict__["managed_by"] = managed_by
         __props__.__dict__["producer_arn"] = producer_arn
+        __props__.__dict__["region"] = region
         return DataShareConsumerAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -472,4 +511,12 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
         Amazon Resource Name (ARN) of the producer.
         """
         return pulumi.get(self, "producer_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

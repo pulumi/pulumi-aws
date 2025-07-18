@@ -5,17 +5,107 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides information about a Lambda Alias.
+ * Provides details about an AWS Lambda Alias. Use this data source to retrieve information about an existing Lambda function alias for traffic management, deployment strategies, or API integrations.
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const production = aws.lambda.getAlias({
- *     functionName: "my-lambda-func",
+ * const example = aws.lambda.getAlias({
+ *     functionName: "my-lambda-function",
  *     name: "production",
+ * });
+ * export const aliasArn = example.then(example => example.arn);
+ * ```
+ *
+ * ### API Gateway Integration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const apiHandler = aws.lambda.getAlias({
+ *     functionName: "api-handler",
+ *     name: "live",
+ * });
+ * const example = new aws.apigateway.Integration("example", {
+ *     restApi: exampleAwsApiGatewayRestApi.id,
+ *     resourceId: exampleAwsApiGatewayResource.id,
+ *     httpMethod: exampleAwsApiGatewayMethod.httpMethod,
+ *     integrationHttpMethod: "POST",
+ *     type: "AWS_PROXY",
+ *     uri: apiHandler.then(apiHandler => apiHandler.invokeArn),
+ * });
+ * // Grant API Gateway permission to invoke the alias
+ * const apiGateway = new aws.lambda.Permission("api_gateway", {
+ *     statementId: "AllowExecutionFromAPIGateway",
+ *     action: "lambda:InvokeFunction",
+ *     "function": apiHandler.then(apiHandler => apiHandler.functionName),
+ *     principal: "apigateway.amazonaws.com",
+ *     qualifier: apiHandler.then(apiHandler => apiHandler.name),
+ *     sourceArn: `${exampleAwsApiGatewayRestApi.executionArn}/*&#47;*`,
+ * });
+ * ```
+ *
+ * ### Deployment Version Tracking
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Get production alias details
+ * const production = aws.lambda.getAlias({
+ *     functionName: "payment-processor",
+ *     name: "production",
+ * });
+ * // Get staging alias details
+ * const staging = aws.lambda.getAlias({
+ *     functionName: "payment-processor",
+ *     name: "staging",
+ * });
+ * const versionDrift = Promise.all([production, staging]).then(([production, staging]) => production.functionVersion != staging.functionVersion);
+ * export const deploymentStatus = {
+ *     productionVersion: production.then(production => production.functionVersion),
+ *     stagingVersion: staging.then(staging => staging.functionVersion),
+ *     versionDrift: versionDrift,
+ *     readyForPromotion: !versionDrift,
+ * };
+ * ```
+ *
+ * ### EventBridge Rule Target
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const eventProcessor = aws.lambda.getAlias({
+ *     functionName: "event-processor",
+ *     name: "stable",
+ * });
+ * const example = new aws.cloudwatch.EventRule("example", {
+ *     name: "capture-events",
+ *     description: "Capture events for processing",
+ *     eventPattern: JSON.stringify({
+ *         source: ["myapp.orders"],
+ *         "detail-type": ["Order Placed"],
+ *     }),
+ * });
+ * const lambda = new aws.cloudwatch.EventTarget("lambda", {
+ *     rule: example.name,
+ *     targetId: "SendToLambda",
+ *     arn: eventProcessor.then(eventProcessor => eventProcessor.arn),
+ * });
+ * const allowEventbridge = new aws.lambda.Permission("allow_eventbridge", {
+ *     statementId: "AllowExecutionFromEventBridge",
+ *     action: "lambda:InvokeFunction",
+ *     "function": eventProcessor.then(eventProcessor => eventProcessor.functionName),
+ *     principal: "events.amazonaws.com",
+ *     qualifier: eventProcessor.then(eventProcessor => eventProcessor.name),
+ *     sourceArn: example.arn,
  * });
  * ```
  */
@@ -24,6 +114,7 @@ export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promi
     return pulumi.runtime.invoke("aws:lambda/getAlias:getAlias", {
         "functionName": args.functionName,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -37,8 +128,14 @@ export interface GetAliasArgs {
     functionName: string;
     /**
      * Name of the Lambda alias.
+     *
+     * The following arguments are optional:
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -50,7 +147,7 @@ export interface GetAliasResult {
      */
     readonly arn: string;
     /**
-     * Description of alias.
+     * Description of the alias.
      */
     readonly description: string;
     readonly functionName: string;
@@ -63,23 +160,114 @@ export interface GetAliasResult {
      */
     readonly id: string;
     /**
-     * ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
+     * ARN to be used for invoking Lambda Function from API Gateway - to be used in `aws.apigateway.Integration`'s `uri`.
      */
     readonly invokeArn: string;
     readonly name: string;
+    readonly region: string;
 }
 /**
- * Provides information about a Lambda Alias.
+ * Provides details about an AWS Lambda Alias. Use this data source to retrieve information about an existing Lambda function alias for traffic management, deployment strategies, or API integrations.
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const production = aws.lambda.getAlias({
- *     functionName: "my-lambda-func",
+ * const example = aws.lambda.getAlias({
+ *     functionName: "my-lambda-function",
  *     name: "production",
+ * });
+ * export const aliasArn = example.then(example => example.arn);
+ * ```
+ *
+ * ### API Gateway Integration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const apiHandler = aws.lambda.getAlias({
+ *     functionName: "api-handler",
+ *     name: "live",
+ * });
+ * const example = new aws.apigateway.Integration("example", {
+ *     restApi: exampleAwsApiGatewayRestApi.id,
+ *     resourceId: exampleAwsApiGatewayResource.id,
+ *     httpMethod: exampleAwsApiGatewayMethod.httpMethod,
+ *     integrationHttpMethod: "POST",
+ *     type: "AWS_PROXY",
+ *     uri: apiHandler.then(apiHandler => apiHandler.invokeArn),
+ * });
+ * // Grant API Gateway permission to invoke the alias
+ * const apiGateway = new aws.lambda.Permission("api_gateway", {
+ *     statementId: "AllowExecutionFromAPIGateway",
+ *     action: "lambda:InvokeFunction",
+ *     "function": apiHandler.then(apiHandler => apiHandler.functionName),
+ *     principal: "apigateway.amazonaws.com",
+ *     qualifier: apiHandler.then(apiHandler => apiHandler.name),
+ *     sourceArn: `${exampleAwsApiGatewayRestApi.executionArn}/*&#47;*`,
+ * });
+ * ```
+ *
+ * ### Deployment Version Tracking
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // Get production alias details
+ * const production = aws.lambda.getAlias({
+ *     functionName: "payment-processor",
+ *     name: "production",
+ * });
+ * // Get staging alias details
+ * const staging = aws.lambda.getAlias({
+ *     functionName: "payment-processor",
+ *     name: "staging",
+ * });
+ * const versionDrift = Promise.all([production, staging]).then(([production, staging]) => production.functionVersion != staging.functionVersion);
+ * export const deploymentStatus = {
+ *     productionVersion: production.then(production => production.functionVersion),
+ *     stagingVersion: staging.then(staging => staging.functionVersion),
+ *     versionDrift: versionDrift,
+ *     readyForPromotion: !versionDrift,
+ * };
+ * ```
+ *
+ * ### EventBridge Rule Target
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const eventProcessor = aws.lambda.getAlias({
+ *     functionName: "event-processor",
+ *     name: "stable",
+ * });
+ * const example = new aws.cloudwatch.EventRule("example", {
+ *     name: "capture-events",
+ *     description: "Capture events for processing",
+ *     eventPattern: JSON.stringify({
+ *         source: ["myapp.orders"],
+ *         "detail-type": ["Order Placed"],
+ *     }),
+ * });
+ * const lambda = new aws.cloudwatch.EventTarget("lambda", {
+ *     rule: example.name,
+ *     targetId: "SendToLambda",
+ *     arn: eventProcessor.then(eventProcessor => eventProcessor.arn),
+ * });
+ * const allowEventbridge = new aws.lambda.Permission("allow_eventbridge", {
+ *     statementId: "AllowExecutionFromEventBridge",
+ *     action: "lambda:InvokeFunction",
+ *     "function": eventProcessor.then(eventProcessor => eventProcessor.functionName),
+ *     principal: "events.amazonaws.com",
+ *     qualifier: eventProcessor.then(eventProcessor => eventProcessor.name),
+ *     sourceArn: example.arn,
  * });
  * ```
  */
@@ -88,6 +276,7 @@ export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOut
     return pulumi.runtime.invokeOutput("aws:lambda/getAlias:getAlias", {
         "functionName": args.functionName,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -101,6 +290,12 @@ export interface GetAliasOutputArgs {
     functionName: pulumi.Input<string>;
     /**
      * Name of the Lambda alias.
+     *
+     * The following arguments are optional:
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

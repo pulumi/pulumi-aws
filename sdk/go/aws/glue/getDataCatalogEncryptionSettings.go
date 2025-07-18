@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,6 +26,8 @@ func LookupDataCatalogEncryptionSettings(ctx *pulumi.Context, args *LookupDataCa
 type LookupDataCatalogEncryptionSettingsArgs struct {
 	// ID of the Data Catalog. This is typically the AWS account ID.
 	CatalogId string `pulumi:"catalogId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDataCatalogEncryptionSettings.
@@ -34,7 +36,8 @@ type LookupDataCatalogEncryptionSettingsResult struct {
 	// The security configuration to set. see Data Catalog Encryption Settings.
 	DataCatalogEncryptionSettings []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting `pulumi:"dataCatalogEncryptionSettings"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func LookupDataCatalogEncryptionSettingsOutput(ctx *pulumi.Context, args LookupDataCatalogEncryptionSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupDataCatalogEncryptionSettingsResultOutput {
@@ -50,6 +53,8 @@ func LookupDataCatalogEncryptionSettingsOutput(ctx *pulumi.Context, args LookupD
 type LookupDataCatalogEncryptionSettingsOutputArgs struct {
 	// ID of the Data Catalog. This is typically the AWS account ID.
 	CatalogId pulumi.StringInput `pulumi:"catalogId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupDataCatalogEncryptionSettingsOutputArgs) ElementType() reflect.Type {
@@ -85,6 +90,10 @@ func (o LookupDataCatalogEncryptionSettingsResultOutput) DataCatalogEncryptionSe
 // The provider-assigned unique ID for this managed resource.
 func (o LookupDataCatalogEncryptionSettingsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDataCatalogEncryptionSettingsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupDataCatalogEncryptionSettingsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataCatalogEncryptionSettingsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

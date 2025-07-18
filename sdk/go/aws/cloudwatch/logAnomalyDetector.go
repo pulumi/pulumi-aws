@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,8 +89,9 @@ type LogAnomalyDetector struct {
 	//
 	// The following arguments are optional:
 	LogGroupArnLists pulumi.StringArrayOutput `pulumi:"logGroupArnLists"`
-	Tags             pulumi.StringMapOutput   `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region  pulumi.StringOutput    `pulumi:"region"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -146,9 +147,10 @@ type logAnomalyDetectorState struct {
 	// Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
 	//
 	// The following arguments are optional:
-	LogGroupArnLists []string          `pulumi:"logGroupArnLists"`
-	Tags             map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	LogGroupArnLists []string `pulumi:"logGroupArnLists"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region  *string           `pulumi:"region"`
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -170,8 +172,9 @@ type LogAnomalyDetectorState struct {
 	//
 	// The following arguments are optional:
 	LogGroupArnLists pulumi.StringArrayInput
-	Tags             pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region  pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -194,8 +197,10 @@ type logAnomalyDetectorArgs struct {
 	// Array containing the ARN of the log group that this anomaly detector will watch. You can specify only one log group ARN.
 	//
 	// The following arguments are optional:
-	LogGroupArnLists []string          `pulumi:"logGroupArnLists"`
-	Tags             map[string]string `pulumi:"tags"`
+	LogGroupArnLists []string `pulumi:"logGroupArnLists"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LogAnomalyDetector resource.
@@ -215,7 +220,9 @@ type LogAnomalyDetectorArgs struct {
 	//
 	// The following arguments are optional:
 	LogGroupArnLists pulumi.StringArrayInput
-	Tags             pulumi.StringMapInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
 }
 
 func (LogAnomalyDetectorArgs) ElementType() reflect.Type {
@@ -346,11 +353,15 @@ func (o LogAnomalyDetectorOutput) LogGroupArnLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogAnomalyDetector) pulumi.StringArrayOutput { return v.LogGroupArnLists }).(pulumi.StringArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LogAnomalyDetectorOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogAnomalyDetector) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 func (o LogAnomalyDetectorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogAnomalyDetector) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o LogAnomalyDetectorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogAnomalyDetector) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

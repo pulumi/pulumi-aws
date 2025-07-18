@@ -107,6 +107,10 @@ export class ClusterSnapshotCopy extends pulumi.CustomResource {
      */
     public readonly presignedUrl!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
     public readonly sharedAccounts!: pulumi.Output<string[] | undefined>;
@@ -129,8 +133,6 @@ export class ClusterSnapshotCopy extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -167,6 +169,7 @@ export class ClusterSnapshotCopy extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["licenseModel"] = state ? state.licenseModel : undefined;
             resourceInputs["presignedUrl"] = state ? state.presignedUrl : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sharedAccounts"] = state ? state.sharedAccounts : undefined;
             resourceInputs["snapshotType"] = state ? state.snapshotType : undefined;
             resourceInputs["sourceDbClusterSnapshotIdentifier"] = state ? state.sourceDbClusterSnapshotIdentifier : undefined;
@@ -189,6 +192,7 @@ export class ClusterSnapshotCopy extends pulumi.CustomResource {
             resourceInputs["destinationRegion"] = args ? args.destinationRegion : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["presignedUrl"] = args ? args.presignedUrl : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sharedAccounts"] = args ? args.sharedAccounts : undefined;
             resourceInputs["sourceDbClusterSnapshotIdentifier"] = args ? args.sourceDbClusterSnapshotIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -251,6 +255,10 @@ export interface ClusterSnapshotCopyState {
      */
     presignedUrl?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
     sharedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
@@ -273,8 +281,6 @@ export interface ClusterSnapshotCopyState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -310,6 +316,10 @@ export interface ClusterSnapshotCopyArgs {
      * URL that contains a Signature Version 4 signed request.
      */
     presignedUrl?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */

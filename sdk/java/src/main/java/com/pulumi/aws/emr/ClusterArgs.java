@@ -431,6 +431,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+     * 
+     */
+    @Import(name="osReleaseLabel")
+    private @Nullable Output<String> osReleaseLabel;
+
+    /**
+     * @return Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+     * 
+     */
+    public Optional<Output<String>> osReleaseLabel() {
+        return Optional.ofNullable(this.osReleaseLabel);
+    }
+
+    /**
      * The specified placement group configuration for an Amazon EMR cluster.
      * 
      */
@@ -443,6 +458,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<ClusterPlacementGroupConfigArgs>>> placementGroupConfigs() {
         return Optional.ofNullable(this.placementGroupConfigs);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -622,7 +652,9 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.masterInstanceFleet = $.masterInstanceFleet;
         this.masterInstanceGroup = $.masterInstanceGroup;
         this.name = $.name;
+        this.osReleaseLabel = $.osReleaseLabel;
         this.placementGroupConfigs = $.placementGroupConfigs;
+        this.region = $.region;
         this.releaseLabel = $.releaseLabel;
         this.scaleDownBehavior = $.scaleDownBehavior;
         this.securityConfiguration = $.securityConfiguration;
@@ -1204,6 +1236,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param osReleaseLabel Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder osReleaseLabel(@Nullable Output<String> osReleaseLabel) {
+            $.osReleaseLabel = osReleaseLabel;
+            return this;
+        }
+
+        /**
+         * @param osReleaseLabel Amazon Linux release for all nodes in a cluster launch RunJobFlow request. If not specified, Amazon EMR uses the latest validated Amazon Linux release for cluster launch.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder osReleaseLabel(String osReleaseLabel) {
+            return osReleaseLabel(Output.of(osReleaseLabel));
+        }
+
+        /**
          * @param placementGroupConfigs The specified placement group configuration for an Amazon EMR cluster.
          * 
          * @return builder
@@ -1232,6 +1285,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder placementGroupConfigs(ClusterPlacementGroupConfigArgs... placementGroupConfigs) {
             return placementGroupConfigs(List.of(placementGroupConfigs));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -103,6 +103,10 @@ export class Workteam extends pulumi.CustomResource {
      */
     public readonly notificationConfiguration!: pulumi.Output<outputs.sagemaker.WorkteamNotificationConfiguration | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The subdomain for your OIDC Identity Provider.
      */
     public /*out*/ readonly subdomain!: pulumi.Output<string>;
@@ -112,8 +116,6 @@ export class Workteam extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -146,6 +148,7 @@ export class Workteam extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["memberDefinitions"] = state ? state.memberDefinitions : undefined;
             resourceInputs["notificationConfiguration"] = state ? state.notificationConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["subdomain"] = state ? state.subdomain : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -166,6 +169,7 @@ export class Workteam extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["memberDefinitions"] = args ? args.memberDefinitions : undefined;
             resourceInputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workerAccessConfiguration"] = args ? args.workerAccessConfiguration : undefined;
             resourceInputs["workforceName"] = args ? args.workforceName : undefined;
@@ -200,6 +204,10 @@ export interface WorkteamState {
      */
     notificationConfiguration?: pulumi.Input<inputs.sagemaker.WorkteamNotificationConfiguration>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The subdomain for your OIDC Identity Provider.
      */
     subdomain?: pulumi.Input<string>;
@@ -209,8 +217,6 @@ export interface WorkteamState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -243,6 +249,10 @@ export interface WorkteamArgs {
      * Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
      */
     notificationConfiguration?: pulumi.Input<inputs.sagemaker.WorkteamNotificationConfiguration>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

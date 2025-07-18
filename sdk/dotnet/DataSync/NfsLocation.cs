@@ -70,6 +70,12 @@ namespace Pulumi.Aws.DataSync
         public Output<Outputs.NfsLocationOnPremConfig> OnPremConfig { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
         /// </summary>
         [Output("serverHostname")]
@@ -155,6 +161,12 @@ namespace Pulumi.Aws.DataSync
         public Input<Inputs.NfsLocationOnPremConfigArgs> OnPremConfig { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
         /// </summary>
         [Input("serverHostname", required: true)]
@@ -205,6 +217,12 @@ namespace Pulumi.Aws.DataSync
         public Input<Inputs.NfsLocationOnPremConfigGetArgs>? OnPremConfig { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
         /// </summary>
         [Input("serverHostname")]
@@ -234,7 +252,6 @@ namespace Pulumi.Aws.DataSync
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

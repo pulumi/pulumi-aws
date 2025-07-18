@@ -22,17 +22,21 @@ class LicenseAssociationArgs:
     def __init__(__self__, *,
                  license_type: pulumi.Input[builtins.str],
                  workspace_id: pulumi.Input[builtins.str],
-                 grafana_token: Optional[pulumi.Input[builtins.str]] = None):
+                 grafana_token: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LicenseAssociation resource.
         :param pulumi.Input[builtins.str] license_type: The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
         :param pulumi.Input[builtins.str] workspace_id: The workspace id.
         :param pulumi.Input[builtins.str] grafana_token: A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "license_type", license_type)
         pulumi.set(__self__, "workspace_id", workspace_id)
         if grafana_token is not None:
             pulumi.set(__self__, "grafana_token", grafana_token)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="licenseType")
@@ -70,6 +74,18 @@ class LicenseAssociationArgs:
     def grafana_token(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "grafana_token", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _LicenseAssociationState:
@@ -78,6 +94,7 @@ class _LicenseAssociationState:
                  grafana_token: Optional[pulumi.Input[builtins.str]] = None,
                  license_expiration: Optional[pulumi.Input[builtins.str]] = None,
                  license_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering LicenseAssociation resources.
@@ -85,6 +102,7 @@ class _LicenseAssociationState:
         :param pulumi.Input[builtins.str] grafana_token: A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
         :param pulumi.Input[builtins.str] license_expiration: If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
         :param pulumi.Input[builtins.str] license_type: The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workspace_id: The workspace id.
         """
         if free_trial_expiration is not None:
@@ -95,6 +113,8 @@ class _LicenseAssociationState:
             pulumi.set(__self__, "license_expiration", license_expiration)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if workspace_id is not None:
             pulumi.set(__self__, "workspace_id", workspace_id)
 
@@ -147,6 +167,18 @@ class _LicenseAssociationState:
         pulumi.set(self, "license_type", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -167,6 +199,7 @@ class LicenseAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  grafana_token: Optional[pulumi.Input[builtins.str]] = None,
                  license_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -216,6 +249,7 @@ class LicenseAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] grafana_token: A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
         :param pulumi.Input[builtins.str] license_type: The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workspace_id: The workspace id.
         """
         ...
@@ -284,6 +318,7 @@ class LicenseAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  grafana_token: Optional[pulumi.Input[builtins.str]] = None,
                  license_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -298,6 +333,7 @@ class LicenseAssociation(pulumi.CustomResource):
             if license_type is None and not opts.urn:
                 raise TypeError("Missing required property 'license_type'")
             __props__.__dict__["license_type"] = license_type
+            __props__.__dict__["region"] = region
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
             __props__.__dict__["workspace_id"] = workspace_id
@@ -317,6 +353,7 @@ class LicenseAssociation(pulumi.CustomResource):
             grafana_token: Optional[pulumi.Input[builtins.str]] = None,
             license_expiration: Optional[pulumi.Input[builtins.str]] = None,
             license_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             workspace_id: Optional[pulumi.Input[builtins.str]] = None) -> 'LicenseAssociation':
         """
         Get an existing LicenseAssociation resource's state with the given name, id, and optional extra
@@ -329,6 +366,7 @@ class LicenseAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] grafana_token: A token from Grafana Labs that ties your AWS account with a Grafana Labs account.
         :param pulumi.Input[builtins.str] license_expiration: If `license_type` is set to `ENTERPRISE`, this is the expiration date of the enterprise license.
         :param pulumi.Input[builtins.str] license_type: The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] workspace_id: The workspace id.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -339,6 +377,7 @@ class LicenseAssociation(pulumi.CustomResource):
         __props__.__dict__["grafana_token"] = grafana_token
         __props__.__dict__["license_expiration"] = license_expiration
         __props__.__dict__["license_type"] = license_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["workspace_id"] = workspace_id
         return LicenseAssociation(resource_name, opts=opts, __props__=__props__)
 
@@ -373,6 +412,14 @@ class LicenseAssociation(pulumi.CustomResource):
         The type of license for the workspace license association. Valid values are `ENTERPRISE` and `ENTERPRISE_FREE_TRIAL`.
         """
         return pulumi.get(self, "license_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="workspaceId")

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,6 +62,8 @@ type GetOrderableClusterArgs struct {
 	NodeType *string `pulumi:"nodeType"`
 	// Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
 	PreferredNodeTypes []string `pulumi:"preferredNodeTypes"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getOrderableCluster.
@@ -74,6 +76,7 @@ type GetOrderableClusterResult struct {
 	Id                 string   `pulumi:"id"`
 	NodeType           string   `pulumi:"nodeType"`
 	PreferredNodeTypes []string `pulumi:"preferredNodeTypes"`
+	Region             string   `pulumi:"region"`
 }
 
 func GetOrderableClusterOutput(ctx *pulumi.Context, args GetOrderableClusterOutputArgs, opts ...pulumi.InvokeOption) GetOrderableClusterResultOutput {
@@ -95,6 +98,8 @@ type GetOrderableClusterOutputArgs struct {
 	NodeType pulumi.StringPtrInput `pulumi:"nodeType"`
 	// Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
 	PreferredNodeTypes pulumi.StringArrayInput `pulumi:"preferredNodeTypes"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetOrderableClusterOutputArgs) ElementType() reflect.Type {
@@ -140,6 +145,10 @@ func (o GetOrderableClusterResultOutput) NodeType() pulumi.StringOutput {
 
 func (o GetOrderableClusterResultOutput) PreferredNodeTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOrderableClusterResult) []string { return v.PreferredNodeTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetOrderableClusterResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrderableClusterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

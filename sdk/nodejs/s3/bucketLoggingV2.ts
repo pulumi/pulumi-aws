@@ -22,17 +22,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "my-tf-example-bucket"});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
+ * const example = new aws.s3.Bucket("example", {bucket: "my-tf-example-bucket"});
+ * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
  *     bucket: example.id,
  *     acl: "private",
  * });
- * const logBucket = new aws.s3.BucketV2("log_bucket", {bucket: "my-tf-log-bucket"});
- * const logBucketAcl = new aws.s3.BucketAclV2("log_bucket_acl", {
+ * const logBucket = new aws.s3.Bucket("log_bucket", {bucket: "my-tf-log-bucket"});
+ * const logBucketAcl = new aws.s3.BucketAcl("log_bucket_acl", {
  *     bucket: logBucket.id,
  *     acl: "log-delivery-write",
  * });
- * const exampleBucketLoggingV2 = new aws.s3.BucketLoggingV2("example", {
+ * const exampleBucketLogging = new aws.s3.BucketLogging("example", {
  *     bucket: example.id,
  *     targetBucket: logBucket.id,
  *     targetPrefix: "log/",
@@ -55,6 +55,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name,123456789012
  * ```
+ *
+ * @deprecated aws.s3/bucketloggingv2.BucketLoggingV2 has been deprecated in favor of aws.s3/bucketlogging.BucketLogging
  */
 export class BucketLoggingV2 extends pulumi.CustomResource {
     /**
@@ -67,6 +69,7 @@ export class BucketLoggingV2 extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BucketLoggingV2State, opts?: pulumi.CustomResourceOptions): BucketLoggingV2 {
+        pulumi.log.warn("BucketLoggingV2 is deprecated: aws.s3/bucketloggingv2.BucketLoggingV2 has been deprecated in favor of aws.s3/bucketlogging.BucketLogging")
         return new BucketLoggingV2(name, <any>state, { ...opts, id: id });
     }
 
@@ -93,6 +96,10 @@ export class BucketLoggingV2 extends pulumi.CustomResource {
      */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the bucket where you want Amazon S3 to store server access logs.
      */
     public readonly targetBucket!: pulumi.Output<string>;
@@ -116,14 +123,18 @@ export class BucketLoggingV2 extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.s3/bucketloggingv2.BucketLoggingV2 has been deprecated in favor of aws.s3/bucketlogging.BucketLogging */
     constructor(name: string, args: BucketLoggingV2Args, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.s3/bucketloggingv2.BucketLoggingV2 has been deprecated in favor of aws.s3/bucketlogging.BucketLogging */
     constructor(name: string, argsOrState?: BucketLoggingV2Args | BucketLoggingV2State, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BucketLoggingV2 is deprecated: aws.s3/bucketloggingv2.BucketLoggingV2 has been deprecated in favor of aws.s3/bucketlogging.BucketLogging")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketLoggingV2State | undefined;
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["targetBucket"] = state ? state.targetBucket : undefined;
             resourceInputs["targetGrants"] = state ? state.targetGrants : undefined;
             resourceInputs["targetObjectKeyFormat"] = state ? state.targetObjectKeyFormat : undefined;
@@ -141,12 +152,15 @@ export class BucketLoggingV2 extends pulumi.CustomResource {
             }
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["targetBucket"] = args ? args.targetBucket : undefined;
             resourceInputs["targetGrants"] = args ? args.targetGrants : undefined;
             resourceInputs["targetObjectKeyFormat"] = args ? args.targetObjectKeyFormat : undefined;
             resourceInputs["targetPrefix"] = args ? args.targetPrefix : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "aws:s3/bucketLoggingV2:BucketLoggingV2" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BucketLoggingV2.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -163,6 +177,10 @@ export interface BucketLoggingV2State {
      * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the bucket where you want Amazon S3 to store server access logs.
      */
@@ -193,6 +211,10 @@ export interface BucketLoggingV2Args {
      * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the bucket where you want Amazon S3 to store server access logs.
      */

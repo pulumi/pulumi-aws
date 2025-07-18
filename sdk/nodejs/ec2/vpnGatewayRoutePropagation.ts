@@ -52,6 +52,10 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The id of the `aws.ec2.RouteTable` to propagate routes into.
      */
     public readonly routeTableId!: pulumi.Output<string>;
@@ -73,6 +77,7 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpnGatewayRoutePropagationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routeTableId"] = state ? state.routeTableId : undefined;
             resourceInputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
         } else {
@@ -83,6 +88,7 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
             if ((!args || args.vpnGatewayId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpnGatewayId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
             resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
         }
@@ -95,6 +101,10 @@ export class VpnGatewayRoutePropagation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VpnGatewayRoutePropagation resources.
  */
 export interface VpnGatewayRoutePropagationState {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The id of the `aws.ec2.RouteTable` to propagate routes into.
      */
@@ -109,6 +119,10 @@ export interface VpnGatewayRoutePropagationState {
  * The set of arguments for constructing a VpnGatewayRoutePropagation resource.
  */
 export interface VpnGatewayRoutePropagationArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The id of the `aws.ec2.RouteTable` to propagate routes into.
      */

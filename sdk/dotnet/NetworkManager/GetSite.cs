@@ -12,7 +12,7 @@ namespace Pulumi.Aws.NetworkManager
     public static class GetSite
     {
         /// <summary>
-        /// Retrieve information about a site.
+        /// Provides details about an existing Network Manager site.
         /// 
         /// ## Example Usage
         /// 
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.NetworkManager
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSiteResult>("aws:networkmanager/getSite:getSite", args ?? new GetSiteArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve information about a site.
+        /// Provides details about an existing Network Manager site.
         /// 
         /// ## Example Usage
         /// 
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.NetworkManager
             => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("aws:networkmanager/getSite:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Retrieve information about a site.
+        /// Provides details about an existing Network Manager site.
         /// 
         /// ## Example Usage
         /// 

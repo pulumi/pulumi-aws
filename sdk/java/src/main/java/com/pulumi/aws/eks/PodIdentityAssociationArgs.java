@@ -6,6 +6,7 @@ package com.pulumi.aws.eks;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -33,6 +34,21 @@ public final class PodIdentityAssociationArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Disable the tags that are automatically added to role session by Amazon EKS.
+     * 
+     */
+    @Import(name="disableSessionTags")
+    private @Nullable Output<Boolean> disableSessionTags;
+
+    /**
+     * @return Disable the tags that are automatically added to role session by Amazon EKS.
+     * 
+     */
+    public Optional<Output<Boolean>> disableSessionTags() {
+        return Optional.ofNullable(this.disableSessionTags);
+    }
+
+    /**
      * The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
      * 
      */
@@ -45,6 +61,21 @@ public final class PodIdentityAssociationArgs extends com.pulumi.resources.Resou
      */
     public Output<String> namespace() {
         return this.namespace;
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -96,14 +127,32 @@ public final class PodIdentityAssociationArgs extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+     * 
+     */
+    @Import(name="targetRoleArn")
+    private @Nullable Output<String> targetRoleArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+     * 
+     */
+    public Optional<Output<String>> targetRoleArn() {
+        return Optional.ofNullable(this.targetRoleArn);
+    }
+
     private PodIdentityAssociationArgs() {}
 
     private PodIdentityAssociationArgs(PodIdentityAssociationArgs $) {
         this.clusterName = $.clusterName;
+        this.disableSessionTags = $.disableSessionTags;
         this.namespace = $.namespace;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.serviceAccount = $.serviceAccount;
         this.tags = $.tags;
+        this.targetRoleArn = $.targetRoleArn;
     }
 
     public static Builder builder() {
@@ -146,6 +195,27 @@ public final class PodIdentityAssociationArgs extends com.pulumi.resources.Resou
         }
 
         /**
+         * @param disableSessionTags Disable the tags that are automatically added to role session by Amazon EKS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableSessionTags(@Nullable Output<Boolean> disableSessionTags) {
+            $.disableSessionTags = disableSessionTags;
+            return this;
+        }
+
+        /**
+         * @param disableSessionTags Disable the tags that are automatically added to role session by Amazon EKS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableSessionTags(Boolean disableSessionTags) {
+            return disableSessionTags(Output.of(disableSessionTags));
+        }
+
+        /**
          * @param namespace The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
          * 
          * @return builder
@@ -164,6 +234,27 @@ public final class PodIdentityAssociationArgs extends com.pulumi.resources.Resou
          */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -231,6 +322,27 @@ public final class PodIdentityAssociationArgs extends com.pulumi.resources.Resou
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param targetRoleArn The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetRoleArn(@Nullable Output<String> targetRoleArn) {
+            $.targetRoleArn = targetRoleArn;
+            return this;
+        }
+
+        /**
+         * @param targetRoleArn The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetRoleArn(String targetRoleArn) {
+            return targetRoleArn(Output.of(targetRoleArn));
         }
 
         public PodIdentityAssociationArgs build() {

@@ -28,7 +28,7 @@ class GetCertificateAuthorityResult:
     """
     A collection of values returned by getCertificateAuthority.
     """
-    def __init__(__self__, arn=None, certificate=None, certificate_chain=None, certificate_signing_request=None, id=None, key_storage_security_standard=None, not_after=None, not_before=None, revocation_configurations=None, serial=None, status=None, tags=None, type=None, usage_mode=None):
+    def __init__(__self__, arn=None, certificate=None, certificate_chain=None, certificate_signing_request=None, id=None, key_storage_security_standard=None, not_after=None, not_before=None, region=None, revocation_configurations=None, serial=None, status=None, tags=None, type=None, usage_mode=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -53,6 +53,9 @@ class GetCertificateAuthorityResult:
         if not_before and not isinstance(not_before, str):
             raise TypeError("Expected argument 'not_before' to be a str")
         pulumi.set(__self__, "not_before", not_before)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if revocation_configurations and not isinstance(revocation_configurations, list):
             raise TypeError("Expected argument 'revocation_configurations' to be a list")
         pulumi.set(__self__, "revocation_configurations", revocation_configurations)
@@ -131,6 +134,11 @@ class GetCertificateAuthorityResult:
         return pulumi.get(self, "not_before")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="revocationConfigurations")
     def revocation_configurations(self) -> Sequence['outputs.GetCertificateAuthorityRevocationConfigurationResult']:
         """
@@ -193,6 +201,7 @@ class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
             key_storage_security_standard=self.key_storage_security_standard,
             not_after=self.not_after,
             not_before=self.not_before,
+            region=self.region,
             revocation_configurations=self.revocation_configurations,
             serial=self.serial,
             status=self.status,
@@ -202,6 +211,7 @@ class AwaitableGetCertificateAuthorityResult(GetCertificateAuthorityResult):
 
 
 def get_certificate_authority(arn: Optional[builtins.str] = None,
+                              region: Optional[builtins.str] = None,
                               tags: Optional[Mapping[str, builtins.str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateAuthorityResult:
     """
@@ -218,10 +228,12 @@ def get_certificate_authority(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: ARN of the certificate authority.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of user-defined tags that are attached to the certificate authority.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:acmpca/getCertificateAuthority:getCertificateAuthority', __args__, opts=opts, typ=GetCertificateAuthorityResult).value
@@ -235,6 +247,7 @@ def get_certificate_authority(arn: Optional[builtins.str] = None,
         key_storage_security_standard=pulumi.get(__ret__, 'key_storage_security_standard'),
         not_after=pulumi.get(__ret__, 'not_after'),
         not_before=pulumi.get(__ret__, 'not_before'),
+        region=pulumi.get(__ret__, 'region'),
         revocation_configurations=pulumi.get(__ret__, 'revocation_configurations'),
         serial=pulumi.get(__ret__, 'serial'),
         status=pulumi.get(__ret__, 'status'),
@@ -242,6 +255,7 @@ def get_certificate_authority(arn: Optional[builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         usage_mode=pulumi.get(__ret__, 'usage_mode'))
 def get_certificate_authority_output(arn: Optional[pulumi.Input[builtins.str]] = None,
+                                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateAuthorityResult]:
     """
@@ -258,10 +272,12 @@ def get_certificate_authority_output(arn: Optional[pulumi.Input[builtins.str]] =
 
 
     :param builtins.str arn: ARN of the certificate authority.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of user-defined tags that are attached to the certificate authority.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:acmpca/getCertificateAuthority:getCertificateAuthority', __args__, opts=opts, typ=GetCertificateAuthorityResult)
@@ -274,6 +290,7 @@ def get_certificate_authority_output(arn: Optional[pulumi.Input[builtins.str]] =
         key_storage_security_standard=pulumi.get(__response__, 'key_storage_security_standard'),
         not_after=pulumi.get(__response__, 'not_after'),
         not_before=pulumi.get(__response__, 'not_before'),
+        region=pulumi.get(__response__, 'region'),
         revocation_configurations=pulumi.get(__response__, 'revocation_configurations'),
         serial=pulumi.get(__response__, 'serial'),
         status=pulumi.get(__response__, 'status'),

@@ -25,6 +25,7 @@ export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:transfer/getConnector:getConnector", {
         "id": args.id,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,6 +37,10 @@ export interface GetConnectorArgs {
      * Unique identifier for connector
      */
     id: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -59,6 +64,7 @@ export interface GetConnectorResult {
      * ARN of the IAM role that allows a connector to turn on CLoudwatch logging for Amazon S3 events.
      */
     readonly loggingRole: string;
+    readonly region: string;
     /**
      * Name of security policy.
      */
@@ -98,6 +104,7 @@ export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:transfer/getConnector:getConnector", {
         "id": args.id,
+        "region": args.region,
     }, opts);
 }
 
@@ -109,4 +116,8 @@ export interface GetConnectorOutputArgs {
      * Unique identifier for connector
      */
     id: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

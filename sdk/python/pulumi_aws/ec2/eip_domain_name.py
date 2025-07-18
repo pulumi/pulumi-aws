@@ -24,14 +24,18 @@ class EipDomainNameArgs:
     def __init__(__self__, *,
                  allocation_id: pulumi.Input[builtins.str],
                  domain_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['EipDomainNameTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a EipDomainName resource.
         :param pulumi.Input[builtins.str] allocation_id: The allocation ID.
         :param pulumi.Input[builtins.str] domain_name: The domain name to modify for the IP address.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "allocation_id", allocation_id)
         pulumi.set(__self__, "domain_name", domain_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -61,6 +65,18 @@ class EipDomainNameArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['EipDomainNameTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -75,12 +91,14 @@ class _EipDomainNameState:
                  allocation_id: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  ptr_record: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['EipDomainNameTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering EipDomainName resources.
         :param pulumi.Input[builtins.str] allocation_id: The allocation ID.
         :param pulumi.Input[builtins.str] domain_name: The domain name to modify for the IP address.
         :param pulumi.Input[builtins.str] ptr_record: The DNS pointer (PTR) record for the IP address.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if allocation_id is not None:
             pulumi.set(__self__, "allocation_id", allocation_id)
@@ -88,6 +106,8 @@ class _EipDomainNameState:
             pulumi.set(__self__, "domain_name", domain_name)
         if ptr_record is not None:
             pulumi.set(__self__, "ptr_record", ptr_record)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -129,6 +149,18 @@ class _EipDomainNameState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['EipDomainNameTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -145,6 +177,7 @@ class EipDomainName(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_id: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['EipDomainNameTimeoutsArgs', 'EipDomainNameTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
@@ -171,6 +204,7 @@ class EipDomainName(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] allocation_id: The allocation ID.
         :param pulumi.Input[builtins.str] domain_name: The domain name to modify for the IP address.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -215,6 +249,7 @@ class EipDomainName(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allocation_id: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['EipDomainNameTimeoutsArgs', 'EipDomainNameTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -231,6 +266,7 @@ class EipDomainName(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["ptr_record"] = None
         super(EipDomainName, __self__).__init__(
@@ -246,6 +282,7 @@ class EipDomainName(pulumi.CustomResource):
             allocation_id: Optional[pulumi.Input[builtins.str]] = None,
             domain_name: Optional[pulumi.Input[builtins.str]] = None,
             ptr_record: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             timeouts: Optional[pulumi.Input[Union['EipDomainNameTimeoutsArgs', 'EipDomainNameTimeoutsArgsDict']]] = None) -> 'EipDomainName':
         """
         Get an existing EipDomainName resource's state with the given name, id, and optional extra
@@ -257,6 +294,7 @@ class EipDomainName(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] allocation_id: The allocation ID.
         :param pulumi.Input[builtins.str] domain_name: The domain name to modify for the IP address.
         :param pulumi.Input[builtins.str] ptr_record: The DNS pointer (PTR) record for the IP address.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -265,6 +303,7 @@ class EipDomainName(pulumi.CustomResource):
         __props__.__dict__["allocation_id"] = allocation_id
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["ptr_record"] = ptr_record
+        __props__.__dict__["region"] = region
         __props__.__dict__["timeouts"] = timeouts
         return EipDomainName(resource_name, opts=opts, __props__=__props__)
 
@@ -291,6 +330,14 @@ class EipDomainName(pulumi.CustomResource):
         The DNS pointer (PTR) record for the IP address.
         """
         return pulumi.get(self, "ptr_record")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/verifiedaccess"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,8 +49,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/verifiedaccess"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -92,11 +92,12 @@ type Group struct {
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// The policy document that is associated with this resource.
 	PolicyDocument pulumi.StringPtrOutput `pulumi:"policyDocument"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block to use KMS keys for server-side encryption.
 	SseConfiguration GroupSseConfigurationOutput `pulumi:"sseConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// ARN of this verified acess group.
 	VerifiedaccessGroupArn pulumi.StringOutput `pulumi:"verifiedaccessGroupArn"`
@@ -153,11 +154,12 @@ type groupState struct {
 	Owner *string `pulumi:"owner"`
 	// The policy document that is associated with this resource.
 	PolicyDocument *string `pulumi:"policyDocument"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block to use KMS keys for server-side encryption.
 	SseConfiguration *GroupSseConfiguration `pulumi:"sseConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// ARN of this verified acess group.
 	VerifiedaccessGroupArn *string `pulumi:"verifiedaccessGroupArn"`
@@ -182,11 +184,12 @@ type GroupState struct {
 	Owner pulumi.StringPtrInput
 	// The policy document that is associated with this resource.
 	PolicyDocument pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block to use KMS keys for server-side encryption.
 	SseConfiguration GroupSseConfigurationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// ARN of this verified acess group.
 	VerifiedaccessGroupArn pulumi.StringPtrInput
@@ -207,6 +210,8 @@ type groupArgs struct {
 	Description *string `pulumi:"description"`
 	// The policy document that is associated with this resource.
 	PolicyDocument *string `pulumi:"policyDocument"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block to use KMS keys for server-side encryption.
 	SseConfiguration *GroupSseConfiguration `pulumi:"sseConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -223,6 +228,8 @@ type GroupArgs struct {
 	Description pulumi.StringPtrInput
 	// The policy document that is associated with this resource.
 	PolicyDocument pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block to use KMS keys for server-side encryption.
 	SseConfiguration GroupSseConfigurationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -350,6 +357,11 @@ func (o GroupOutput) PolicyDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.PolicyDocument }).(pulumi.StringPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o GroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Configuration block to use KMS keys for server-side encryption.
 func (o GroupOutput) SseConfiguration() GroupSseConfigurationOutput {
 	return o.ApplyT(func(v *Group) GroupSseConfigurationOutput { return v.SseConfiguration }).(GroupSseConfigurationOutput)
@@ -360,7 +372,6 @@ func (o GroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o GroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -97,6 +97,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipAddress!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Indicates whether the data stored on the root volume is encrypted.
      */
     public readonly rootVolumeEncryptionEnabled!: pulumi.Output<boolean | undefined>;
@@ -110,8 +114,6 @@ export class Workspace extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -148,6 +150,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["computerName"] = state ? state.computerName : undefined;
             resourceInputs["directoryId"] = state ? state.directoryId : undefined;
             resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rootVolumeEncryptionEnabled"] = state ? state.rootVolumeEncryptionEnabled : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -169,6 +172,7 @@ export class Workspace extends pulumi.CustomResource {
             }
             resourceInputs["bundleId"] = args ? args.bundleId : undefined;
             resourceInputs["directoryId"] = args ? args.directoryId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rootVolumeEncryptionEnabled"] = args ? args.rootVolumeEncryptionEnabled : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
@@ -206,6 +210,10 @@ export interface WorkspaceState {
      */
     ipAddress?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Indicates whether the data stored on the root volume is encrypted.
      */
     rootVolumeEncryptionEnabled?: pulumi.Input<boolean>;
@@ -219,8 +227,6 @@ export interface WorkspaceState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -253,6 +259,10 @@ export interface WorkspaceArgs {
      * The ID of the directory for the WorkSpace.
      */
     directoryId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Indicates whether the data stored on the root volume is encrypted.
      */

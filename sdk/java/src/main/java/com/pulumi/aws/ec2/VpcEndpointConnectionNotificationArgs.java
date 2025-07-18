@@ -52,6 +52,21 @@ public final class VpcEndpointConnectionNotificationArgs extends com.pulumi.reso
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ID of the VPC Endpoint to receive notifications for.
      * 
      */
@@ -86,6 +101,7 @@ public final class VpcEndpointConnectionNotificationArgs extends com.pulumi.reso
     private VpcEndpointConnectionNotificationArgs(VpcEndpointConnectionNotificationArgs $) {
         this.connectionEvents = $.connectionEvents;
         this.connectionNotificationArn = $.connectionNotificationArn;
+        this.region = $.region;
         this.vpcEndpointId = $.vpcEndpointId;
         this.vpcEndpointServiceId = $.vpcEndpointServiceId;
     }
@@ -164,6 +180,27 @@ public final class VpcEndpointConnectionNotificationArgs extends com.pulumi.reso
          */
         public Builder connectionNotificationArn(String connectionNotificationArn) {
             return connectionNotificationArn(Output.of(connectionNotificationArn));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,13 +72,13 @@ type VpcIpamResourceDiscoveryAssociation struct {
 	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
 	// The account ID for the account that manages the Resource Discovery
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The lifecycle state of the association when you associate or disassociate a resource discovery.
 	State pulumi.StringOutput `pulumi:"state"`
 	// A map of tags to add to the IPAM resource discovery association resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -132,13 +132,13 @@ type vpcIpamResourceDiscoveryAssociationState struct {
 	IsDefault *bool `pulumi:"isDefault"`
 	// The account ID for the account that manages the Resource Discovery
 	OwnerId *string `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The lifecycle state of the association when you associate or disassociate a resource discovery.
 	State *string `pulumi:"state"`
 	// A map of tags to add to the IPAM resource discovery association resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -157,13 +157,13 @@ type VpcIpamResourceDiscoveryAssociationState struct {
 	IsDefault pulumi.BoolPtrInput
 	// The account ID for the account that manages the Resource Discovery
 	OwnerId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The lifecycle state of the association when you associate or disassociate a resource discovery.
 	State pulumi.StringPtrInput
 	// A map of tags to add to the IPAM resource discovery association resource.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -176,6 +176,8 @@ type vpcIpamResourceDiscoveryAssociationArgs struct {
 	IpamId string `pulumi:"ipamId"`
 	// The ID of the Resource Discovery to associate.
 	IpamResourceDiscoveryId string `pulumi:"ipamResourceDiscoveryId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to add to the IPAM resource discovery association resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -186,6 +188,8 @@ type VpcIpamResourceDiscoveryAssociationArgs struct {
 	IpamId pulumi.StringInput
 	// The ID of the Resource Discovery to associate.
 	IpamResourceDiscoveryId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to add to the IPAM resource discovery association resource.
 	Tags pulumi.StringMapInput
 }
@@ -312,6 +316,11 @@ func (o VpcIpamResourceDiscoveryAssociationOutput) OwnerId() pulumi.StringOutput
 	return o.ApplyT(func(v *VpcIpamResourceDiscoveryAssociation) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o VpcIpamResourceDiscoveryAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcIpamResourceDiscoveryAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The lifecycle state of the association when you associate or disassociate a resource discovery.
 func (o VpcIpamResourceDiscoveryAssociationOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamResourceDiscoveryAssociation) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
@@ -323,8 +332,6 @@ func (o VpcIpamResourceDiscoveryAssociationOutput) Tags() pulumi.StringMapOutput
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o VpcIpamResourceDiscoveryAssociationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcIpamResourceDiscoveryAssociation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

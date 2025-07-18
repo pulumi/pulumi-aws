@@ -30,6 +30,7 @@ class InstanceArgs:
                  early_media_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  instance_alias: Optional[pulumi.Input[builtins.str]] = None,
                  multi_party_conference_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Instance resource.
@@ -43,6 +44,7 @@ class InstanceArgs:
         :param pulumi.Input[builtins.bool] early_media_enabled: Specifies whether early media for outbound calls is enabled . Defaults to `true` if outbound calls is enabled.
         :param pulumi.Input[builtins.str] instance_alias: Specifies the name of the instance. Required if `directory_id` not specified.
         :param pulumi.Input[builtins.bool] multi_party_conference_enabled: Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
         """
@@ -63,6 +65,8 @@ class InstanceArgs:
             pulumi.set(__self__, "instance_alias", instance_alias)
         if multi_party_conference_enabled is not None:
             pulumi.set(__self__, "multi_party_conference_enabled", multi_party_conference_enabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -188,6 +192,18 @@ class InstanceArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -215,6 +231,7 @@ class _InstanceState:
                  instance_alias: Optional[pulumi.Input[builtins.str]] = None,
                  multi_party_conference_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  outbound_calls_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_role: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -233,6 +250,7 @@ class _InstanceState:
         :param pulumi.Input[builtins.str] instance_alias: Specifies the name of the instance. Required if `directory_id` not specified.
         :param pulumi.Input[builtins.bool] multi_party_conference_enabled: Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
         :param pulumi.Input[builtins.bool] outbound_calls_enabled: Specifies whether outbound calls are enabled.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_role: The service role of the instance.
         :param pulumi.Input[builtins.str] status: The state of the instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -263,15 +281,14 @@ class _InstanceState:
             pulumi.set(__self__, "multi_party_conference_enabled", multi_party_conference_enabled)
         if outbound_calls_enabled is not None:
             pulumi.set(__self__, "outbound_calls_enabled", outbound_calls_enabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if service_role is not None:
             pulumi.set(__self__, "service_role", service_role)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -420,6 +437,18 @@ class _InstanceState:
         pulumi.set(self, "outbound_calls_enabled", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -458,7 +487,6 @@ class _InstanceState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -486,6 +514,7 @@ class Instance(pulumi.CustomResource):
                  instance_alias: Optional[pulumi.Input[builtins.str]] = None,
                  multi_party_conference_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  outbound_calls_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -557,6 +586,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] instance_alias: Specifies the name of the instance. Required if `directory_id` not specified.
         :param pulumi.Input[builtins.bool] multi_party_conference_enabled: Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
         :param pulumi.Input[builtins.bool] outbound_calls_enabled: Specifies whether outbound calls are enabled.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                <!-- * `use_custom_tts_voices` - (Optional) Whether use custom tts voices is enabled. Defaults to `false` -->
         """
@@ -648,6 +678,7 @@ class Instance(pulumi.CustomResource):
                  instance_alias: Optional[pulumi.Input[builtins.str]] = None,
                  multi_party_conference_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  outbound_calls_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -674,6 +705,7 @@ class Instance(pulumi.CustomResource):
             if outbound_calls_enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'outbound_calls_enabled'")
             __props__.__dict__["outbound_calls_enabled"] = outbound_calls_enabled
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
@@ -702,6 +734,7 @@ class Instance(pulumi.CustomResource):
             instance_alias: Optional[pulumi.Input[builtins.str]] = None,
             multi_party_conference_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             outbound_calls_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             service_role: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -725,6 +758,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] instance_alias: Specifies the name of the instance. Required if `directory_id` not specified.
         :param pulumi.Input[builtins.bool] multi_party_conference_enabled: Specifies whether multi-party calls/conference is enabled. Defaults to `false`.
         :param pulumi.Input[builtins.bool] outbound_calls_enabled: Specifies whether outbound calls are enabled.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_role: The service role of the instance.
         :param pulumi.Input[builtins.str] status: The state of the instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -747,6 +781,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["instance_alias"] = instance_alias
         __props__.__dict__["multi_party_conference_enabled"] = multi_party_conference_enabled
         __props__.__dict__["outbound_calls_enabled"] = outbound_calls_enabled
+        __props__.__dict__["region"] = region
         __props__.__dict__["service_role"] = service_role
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
@@ -850,6 +885,14 @@ class Instance(pulumi.CustomResource):
         return pulumi.get(self, "outbound_calls_enabled")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> pulumi.Output[builtins.str]:
         """
@@ -876,7 +919,6 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

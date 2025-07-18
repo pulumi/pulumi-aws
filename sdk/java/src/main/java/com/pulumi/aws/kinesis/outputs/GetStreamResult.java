@@ -54,6 +54,7 @@ public final class GetStreamResult {
      * 
      */
     private List<String> openShards;
+    private String region;
     /**
      * @return Length of time (in hours) data records are accessible after they are added to the stream.
      * 
@@ -137,6 +138,9 @@ public final class GetStreamResult {
     public List<String> openShards() {
         return this.openShards;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Length of time (in hours) data records are accessible after they are added to the stream.
      * 
@@ -190,6 +194,7 @@ public final class GetStreamResult {
         private String kmsKeyId;
         private String name;
         private List<String> openShards;
+        private String region;
         private Integer retentionPeriod;
         private List<String> shardLevelMetrics;
         private String status;
@@ -206,6 +211,7 @@ public final class GetStreamResult {
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.name = defaults.name;
     	      this.openShards = defaults.openShards;
+    	      this.region = defaults.region;
     	      this.retentionPeriod = defaults.retentionPeriod;
     	      this.shardLevelMetrics = defaults.shardLevelMetrics;
     	      this.status = defaults.status;
@@ -284,6 +290,14 @@ public final class GetStreamResult {
             return openShards(List.of(openShards));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetStreamResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder retentionPeriod(Integer retentionPeriod) {
             if (retentionPeriod == null) {
               throw new MissingRequiredPropertyException("GetStreamResult", "retentionPeriod");
@@ -339,6 +353,7 @@ public final class GetStreamResult {
             _resultValue.kmsKeyId = kmsKeyId;
             _resultValue.name = name;
             _resultValue.openShards = openShards;
+            _resultValue.region = region;
             _resultValue.retentionPeriod = retentionPeriod;
             _resultValue.shardLevelMetrics = shardLevelMetrics;
             _resultValue.status = status;

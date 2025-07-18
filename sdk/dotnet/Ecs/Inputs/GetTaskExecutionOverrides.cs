@@ -36,19 +36,6 @@ namespace Pulumi.Aws.Ecs.Inputs
         [Input("executionRoleArn")]
         public string? ExecutionRoleArn { get; set; }
 
-        [Input("inferenceAcceleratorOverrides")]
-        private List<Inputs.GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs>? _inferenceAcceleratorOverrides;
-
-        /// <summary>
-        /// **DEPRECATED** Elastic Inference accelerator override for the task. See below.
-        /// </summary>
-        [Obsolete(@"inference_accelerator_overrides is deprecated. AWS no longer supports the Elastic Inference service.")]
-        public List<Inputs.GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs> InferenceAcceleratorOverrides
-        {
-            get => _inferenceAcceleratorOverrides ?? (_inferenceAcceleratorOverrides = new List<Inputs.GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs>());
-            set => _inferenceAcceleratorOverrides = value;
-        }
-
         /// <summary>
         /// The memory override for the task.
         /// </summary>

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,7 +32,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,9 +86,9 @@ type DefaultVpc struct {
 	Ipv6NetmaskLength               pulumi.IntPtrOutput    `pulumi:"ipv6NetmaskLength"`
 	MainRouteTableId                pulumi.StringOutput    `pulumi:"mainRouteTableId"`
 	OwnerId                         pulumi.StringOutput    `pulumi:"ownerId"`
+	Region                          pulumi.StringOutput    `pulumi:"region"`
 	Tags                            pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll                         pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewDefaultVpc registers a new resource with the given unique name, arguments, and options.
@@ -144,9 +144,9 @@ type defaultVpcState struct {
 	Ipv6NetmaskLength               *int              `pulumi:"ipv6NetmaskLength"`
 	MainRouteTableId                *string           `pulumi:"mainRouteTableId"`
 	OwnerId                         *string           `pulumi:"ownerId"`
+	Region                          *string           `pulumi:"region"`
 	Tags                            map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll                         map[string]string `pulumi:"tagsAll"`
 }
 
 type DefaultVpcState struct {
@@ -173,9 +173,9 @@ type DefaultVpcState struct {
 	Ipv6NetmaskLength               pulumi.IntPtrInput
 	MainRouteTableId                pulumi.StringPtrInput
 	OwnerId                         pulumi.StringPtrInput
+	Region                          pulumi.StringPtrInput
 	Tags                            pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
+	TagsAll                         pulumi.StringMapInput
 }
 
 func (DefaultVpcState) ElementType() reflect.Type {
@@ -193,6 +193,7 @@ type defaultVpcArgs struct {
 	Ipv6CidrBlockNetworkBorderGroup *string           `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
 	Ipv6IpamPoolId                  *string           `pulumi:"ipv6IpamPoolId"`
 	Ipv6NetmaskLength               *int              `pulumi:"ipv6NetmaskLength"`
+	Region                          *string           `pulumi:"region"`
 	Tags                            map[string]string `pulumi:"tags"`
 }
 
@@ -208,6 +209,7 @@ type DefaultVpcArgs struct {
 	Ipv6CidrBlockNetworkBorderGroup pulumi.StringPtrInput
 	Ipv6IpamPoolId                  pulumi.StringPtrInput
 	Ipv6NetmaskLength               pulumi.IntPtrInput
+	Region                          pulumi.StringPtrInput
 	Tags                            pulumi.StringMapInput
 }
 
@@ -381,11 +383,14 @@ func (o DefaultVpcOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
+func (o DefaultVpcOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 func (o DefaultVpcOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DefaultVpc) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o DefaultVpcOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DefaultVpc) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

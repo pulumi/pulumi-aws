@@ -29,6 +29,7 @@ class UserArgs:
                  authentication_mode: Optional[pulumi.Input['UserAuthenticationModeArgs']] = None,
                  no_password_required: Optional[pulumi.Input[builtins.bool]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a User resource.
@@ -41,6 +42,7 @@ class UserArgs:
         :param pulumi.Input['UserAuthenticationModeArgs'] authentication_mode: Denotes the user's authentication properties. Detailed below.
         :param pulumi.Input[builtins.bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         """
         pulumi.set(__self__, "access_string", access_string)
@@ -53,6 +55,8 @@ class UserArgs:
             pulumi.set(__self__, "no_password_required", no_password_required)
         if passwords is not None:
             pulumi.set(__self__, "passwords", passwords)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -144,6 +148,18 @@ class UserArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A list of tags to be added to this resource. A tag is a key-value pair.
@@ -164,6 +180,7 @@ class _UserState:
                  engine: Optional[pulumi.Input[builtins.str]] = None,
                  no_password_required: Optional[pulumi.Input[builtins.bool]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -176,6 +193,7 @@ class _UserState:
         :param pulumi.Input[builtins.str] engine: The current supported values are `redis`, `valkey` (case insensitive).
         :param pulumi.Input[builtins.bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         :param pulumi.Input[builtins.str] user_id: The ID of the user.
         :param pulumi.Input[builtins.str] user_name: The username of the user.
@@ -194,11 +212,10 @@ class _UserState:
             pulumi.set(__self__, "no_password_required", no_password_required)
         if passwords is not None:
             pulumi.set(__self__, "passwords", passwords)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if user_id is not None:
@@ -280,6 +297,18 @@ class _UserState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A list of tags to be added to this resource. A tag is a key-value pair.
@@ -292,7 +321,6 @@ class _UserState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -338,6 +366,7 @@ class User(pulumi.CustomResource):
                  engine: Optional[pulumi.Input[builtins.str]] = None,
                  no_password_required: Optional[pulumi.Input[builtins.bool]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_id: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -407,6 +436,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] engine: The current supported values are `redis`, `valkey` (case insensitive).
         :param pulumi.Input[builtins.bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         :param pulumi.Input[builtins.str] user_id: The ID of the user.
         :param pulumi.Input[builtins.str] user_name: The username of the user.
@@ -497,6 +527,7 @@ class User(pulumi.CustomResource):
                  engine: Optional[pulumi.Input[builtins.str]] = None,
                  no_password_required: Optional[pulumi.Input[builtins.bool]] = None,
                  passwords: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_id: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -518,6 +549,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["engine"] = engine
             __props__.__dict__["no_password_required"] = no_password_required
             __props__.__dict__["passwords"] = None if passwords is None else pulumi.Output.secret(passwords)
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             if user_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_id'")
@@ -545,6 +577,7 @@ class User(pulumi.CustomResource):
             engine: Optional[pulumi.Input[builtins.str]] = None,
             no_password_required: Optional[pulumi.Input[builtins.bool]] = None,
             passwords: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             user_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -562,6 +595,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] engine: The current supported values are `redis`, `valkey` (case insensitive).
         :param pulumi.Input[builtins.bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         :param pulumi.Input[builtins.str] user_id: The ID of the user.
         :param pulumi.Input[builtins.str] user_name: The username of the user.
@@ -578,6 +612,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["engine"] = engine
         __props__.__dict__["no_password_required"] = no_password_required
         __props__.__dict__["passwords"] = passwords
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["user_id"] = user_id
@@ -634,6 +669,14 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         A list of tags to be added to this resource. A tag is a key-value pair.
@@ -642,7 +685,6 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

@@ -60,6 +60,10 @@ export class ApiKey extends pulumi.CustomResource {
      */
     public /*out*/ readonly apiKey!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
      */
     public readonly scope!: pulumi.Output<string>;
@@ -82,6 +86,7 @@ export class ApiKey extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ApiKeyState | undefined;
             resourceInputs["apiKey"] = state ? state.apiKey : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scope"] = state ? state.scope : undefined;
             resourceInputs["tokenDomains"] = state ? state.tokenDomains : undefined;
         } else {
@@ -92,6 +97,7 @@ export class ApiKey extends pulumi.CustomResource {
             if ((!args || args.tokenDomains === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tokenDomains'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["tokenDomains"] = args ? args.tokenDomains : undefined;
             resourceInputs["apiKey"] = undefined /*out*/;
@@ -112,6 +118,10 @@ export interface ApiKeyState {
      */
     apiKey?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
      */
     scope?: pulumi.Input<string>;
@@ -125,6 +135,10 @@ export interface ApiKeyState {
  * The set of arguments for constructing a ApiKey resource.
  */
 export interface ApiKeyArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. Changing this forces a new resource to be created. **NOTE:** WAFv2 API Keys deployed for `CLOUDFRONT` must be created within the `us-east-1` region.
      */

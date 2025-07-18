@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,9 +24,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -108,8 +108,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -197,7 +197,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chimesdkmediapipelines"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -268,7 +268,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chimesdkmediapipelines"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -319,7 +319,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chimesdkmediapipelines"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -379,7 +379,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chimesdkmediapipelines"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chimesdkmediapipelines"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -425,11 +425,12 @@ type MediaInsightsPipelineConfiguration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
 	RealTimeAlertConfiguration MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput `pulumi:"realTimeAlertConfiguration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
 	ResourceAccessRoleArn pulumi.StringOutput `pulumi:"resourceAccessRoleArn"`
 	// Key-value map of tags for the resource.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -477,11 +478,12 @@ type mediaInsightsPipelineConfigurationState struct {
 	Name *string `pulumi:"name"`
 	// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
 	RealTimeAlertConfiguration *MediaInsightsPipelineConfigurationRealTimeAlertConfiguration `pulumi:"realTimeAlertConfiguration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
 	ResourceAccessRoleArn *string `pulumi:"resourceAccessRoleArn"`
 	// Key-value map of tags for the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -494,11 +496,12 @@ type MediaInsightsPipelineConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
 	RealTimeAlertConfiguration MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
 	ResourceAccessRoleArn pulumi.StringPtrInput
 	// Key-value map of tags for the resource.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
 
@@ -513,6 +516,8 @@ type mediaInsightsPipelineConfigurationArgs struct {
 	Name *string `pulumi:"name"`
 	// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
 	RealTimeAlertConfiguration *MediaInsightsPipelineConfigurationRealTimeAlertConfiguration `pulumi:"realTimeAlertConfiguration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
 	ResourceAccessRoleArn string `pulumi:"resourceAccessRoleArn"`
 	// Key-value map of tags for the resource.
@@ -527,6 +532,8 @@ type MediaInsightsPipelineConfigurationArgs struct {
 	Name pulumi.StringPtrInput
 	// Configuration for real-time alert rules to send EventBridge notifications when certain conditions are met.
 	RealTimeAlertConfiguration MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
 	ResourceAccessRoleArn pulumi.StringInput
 	// Key-value map of tags for the resource.
@@ -644,6 +651,11 @@ func (o MediaInsightsPipelineConfigurationOutput) RealTimeAlertConfiguration() M
 	}).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o MediaInsightsPipelineConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // ARN of IAM Role used by service to invoke processors and sinks specified by configuration elements.
 func (o MediaInsightsPipelineConfigurationOutput) ResourceAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfiguration) pulumi.StringOutput { return v.ResourceAccessRoleArn }).(pulumi.StringOutput)
@@ -654,7 +666,6 @@ func (o MediaInsightsPipelineConfigurationOutput) Tags() pulumi.StringMapOutput 
 	return o.ApplyT(func(v *MediaInsightsPipelineConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o MediaInsightsPipelineConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MediaInsightsPipelineConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

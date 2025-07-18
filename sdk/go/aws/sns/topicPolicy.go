@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,7 +70,7 @@ import (
 // },
 // },
 // },
-// Resources: interface{}{
+// Resources: []string{
 // arn,
 // },
 // Sid: "__default_statement_ID",
@@ -108,6 +108,8 @@ type TopicPolicy struct {
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// The fully-formed AWS policy as JSON.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewTopicPolicy registers a new resource with the given unique name, arguments, and options.
@@ -152,6 +154,8 @@ type topicPolicyState struct {
 	Owner *string `pulumi:"owner"`
 	// The fully-formed AWS policy as JSON.
 	Policy interface{} `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type TopicPolicyState struct {
@@ -161,6 +165,8 @@ type TopicPolicyState struct {
 	Owner pulumi.StringPtrInput
 	// The fully-formed AWS policy as JSON.
 	Policy pulumi.Input
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (TopicPolicyState) ElementType() reflect.Type {
@@ -172,6 +178,8 @@ type topicPolicyArgs struct {
 	Arn string `pulumi:"arn"`
 	// The fully-formed AWS policy as JSON.
 	Policy interface{} `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a TopicPolicy resource.
@@ -180,6 +188,8 @@ type TopicPolicyArgs struct {
 	Arn pulumi.StringInput
 	// The fully-formed AWS policy as JSON.
 	Policy pulumi.Input
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (TopicPolicyArgs) ElementType() reflect.Type {
@@ -282,6 +292,11 @@ func (o TopicPolicyOutput) Owner() pulumi.StringOutput {
 // The fully-formed AWS policy as JSON.
 func (o TopicPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o TopicPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TopicPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type TopicPolicyArrayOutput struct{ *pulumi.OutputState }

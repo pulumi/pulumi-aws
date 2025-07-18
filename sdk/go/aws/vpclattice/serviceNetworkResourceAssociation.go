@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,6 +60,8 @@ type ServiceNetworkResourceAssociation struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// DNS entry of the association in the service network.
 	DnsEntries ServiceNetworkResourceAssociationDnsEntryArrayOutput `pulumi:"dnsEntries"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Identifier of Resource Configuration to associate to the Service Network.
 	ResourceConfigurationIdentifier pulumi.StringOutput `pulumi:"resourceConfigurationIdentifier"`
 	// Identifier of the Service Network to associate the Resource to.
@@ -69,8 +71,6 @@ type ServiceNetworkResourceAssociation struct {
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput                             `pulumi:"tagsAll"`
 	Timeouts ServiceNetworkResourceAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -115,6 +115,8 @@ type serviceNetworkResourceAssociationState struct {
 	Arn *string `pulumi:"arn"`
 	// DNS entry of the association in the service network.
 	DnsEntries []ServiceNetworkResourceAssociationDnsEntry `pulumi:"dnsEntries"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of Resource Configuration to associate to the Service Network.
 	ResourceConfigurationIdentifier *string `pulumi:"resourceConfigurationIdentifier"`
 	// Identifier of the Service Network to associate the Resource to.
@@ -124,8 +126,6 @@ type serviceNetworkResourceAssociationState struct {
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string                          `pulumi:"tagsAll"`
 	Timeouts *ServiceNetworkResourceAssociationTimeouts `pulumi:"timeouts"`
 }
@@ -135,6 +135,8 @@ type ServiceNetworkResourceAssociationState struct {
 	Arn pulumi.StringPtrInput
 	// DNS entry of the association in the service network.
 	DnsEntries ServiceNetworkResourceAssociationDnsEntryArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of Resource Configuration to associate to the Service Network.
 	ResourceConfigurationIdentifier pulumi.StringPtrInput
 	// Identifier of the Service Network to associate the Resource to.
@@ -144,8 +146,6 @@ type ServiceNetworkResourceAssociationState struct {
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts ServiceNetworkResourceAssociationTimeoutsPtrInput
 }
@@ -155,6 +155,8 @@ func (ServiceNetworkResourceAssociationState) ElementType() reflect.Type {
 }
 
 type serviceNetworkResourceAssociationArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of Resource Configuration to associate to the Service Network.
 	ResourceConfigurationIdentifier string `pulumi:"resourceConfigurationIdentifier"`
 	// Identifier of the Service Network to associate the Resource to.
@@ -168,6 +170,8 @@ type serviceNetworkResourceAssociationArgs struct {
 
 // The set of arguments for constructing a ServiceNetworkResourceAssociation resource.
 type ServiceNetworkResourceAssociationArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Identifier of Resource Configuration to associate to the Service Network.
 	ResourceConfigurationIdentifier pulumi.StringInput
 	// Identifier of the Service Network to associate the Resource to.
@@ -278,6 +282,11 @@ func (o ServiceNetworkResourceAssociationOutput) DnsEntries() ServiceNetworkReso
 	}).(ServiceNetworkResourceAssociationDnsEntryArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ServiceNetworkResourceAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Identifier of Resource Configuration to associate to the Service Network.
 func (o ServiceNetworkResourceAssociationOutput) ResourceConfigurationIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) pulumi.StringOutput {
@@ -298,8 +307,6 @@ func (o ServiceNetworkResourceAssociationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ServiceNetworkResourceAssociationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

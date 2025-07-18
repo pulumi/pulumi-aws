@@ -50,15 +50,16 @@ export class ContributorManagedInsightRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
      */
     public readonly resourceArn!: pulumi.Output<string>;
     public /*out*/ readonly ruleName!: pulumi.Output<string>;
     public readonly state!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
@@ -81,6 +82,7 @@ export class ContributorManagedInsightRule extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ContributorManagedInsightRuleState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
             resourceInputs["ruleName"] = state ? state.ruleName : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
@@ -95,6 +97,7 @@ export class ContributorManagedInsightRule extends pulumi.CustomResource {
             if ((!args || args.templateName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'templateName'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -117,15 +120,16 @@ export interface ContributorManagedInsightRuleState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
      */
     resourceArn?: pulumi.Input<string>;
     ruleName?: pulumi.Input<string>;
     state?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
@@ -139,6 +143,10 @@ export interface ContributorManagedInsightRuleState {
  * The set of arguments for constructing a ContributorManagedInsightRule resource.
  */
 export interface ContributorManagedInsightRuleArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
      */

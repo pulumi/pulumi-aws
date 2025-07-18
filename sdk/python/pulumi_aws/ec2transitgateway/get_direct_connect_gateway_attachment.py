@@ -29,7 +29,7 @@ class GetDirectConnectGatewayAttachmentResult:
     """
     A collection of values returned by getDirectConnectGatewayAttachment.
     """
-    def __init__(__self__, arn=None, dx_gateway_id=None, filters=None, id=None, tags=None, transit_gateway_id=None):
+    def __init__(__self__, arn=None, dx_gateway_id=None, filters=None, id=None, region=None, tags=None, transit_gateway_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +42,9 @@ class GetDirectConnectGatewayAttachmentResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -77,6 +80,11 @@ class GetDirectConnectGatewayAttachmentResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Key-value tags for the EC2 Transit Gateway Attachment.
@@ -99,12 +107,14 @@ class AwaitableGetDirectConnectGatewayAttachmentResult(GetDirectConnectGatewayAt
             dx_gateway_id=self.dx_gateway_id,
             filters=self.filters,
             id=self.id,
+            region=self.region,
             tags=self.tags,
             transit_gateway_id=self.transit_gateway_id)
 
 
 def get_direct_connect_gateway_attachment(dx_gateway_id: Optional[builtins.str] = None,
                                           filters: Optional[Sequence[Union['GetDirectConnectGatewayAttachmentFilterArgs', 'GetDirectConnectGatewayAttachmentFilterArgsDict']]] = None,
+                                          region: Optional[builtins.str] = None,
                                           tags: Optional[Mapping[str, builtins.str]] = None,
                                           transit_gateway_id: Optional[builtins.str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDirectConnectGatewayAttachmentResult:
@@ -126,12 +136,14 @@ def get_direct_connect_gateway_attachment(dx_gateway_id: Optional[builtins.str] 
 
     :param builtins.str dx_gateway_id: Identifier of the Direct Connect Gateway.
     :param Sequence[Union['GetDirectConnectGatewayAttachmentFilterArgs', 'GetDirectConnectGatewayAttachmentFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
     :param builtins.str transit_gateway_id: Identifier of the EC2 Transit Gateway.
     """
     __args__ = dict()
     __args__['dxGatewayId'] = dx_gateway_id
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['transitGatewayId'] = transit_gateway_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -142,10 +154,12 @@ def get_direct_connect_gateway_attachment(dx_gateway_id: Optional[builtins.str] 
         dx_gateway_id=pulumi.get(__ret__, 'dx_gateway_id'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
 def get_direct_connect_gateway_attachment_output(dx_gateway_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                                  filters: Optional[pulumi.Input[Optional[Sequence[Union['GetDirectConnectGatewayAttachmentFilterArgs', 'GetDirectConnectGatewayAttachmentFilterArgsDict']]]]] = None,
+                                                 region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                                  tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                                  transit_gateway_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectConnectGatewayAttachmentResult]:
@@ -167,12 +181,14 @@ def get_direct_connect_gateway_attachment_output(dx_gateway_id: Optional[pulumi.
 
     :param builtins.str dx_gateway_id: Identifier of the Direct Connect Gateway.
     :param Sequence[Union['GetDirectConnectGatewayAttachmentFilterArgs', 'GetDirectConnectGatewayAttachmentFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
     :param builtins.str transit_gateway_id: Identifier of the EC2 Transit Gateway.
     """
     __args__ = dict()
     __args__['dxGatewayId'] = dx_gateway_id
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['transitGatewayId'] = transit_gateway_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -182,5 +198,6 @@ def get_direct_connect_gateway_attachment_output(dx_gateway_id: Optional[pulumi.
         dx_gateway_id=pulumi.get(__response__, 'dx_gateway_id'),
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id')))

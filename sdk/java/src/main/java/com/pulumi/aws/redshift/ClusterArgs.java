@@ -3,8 +3,6 @@
 
 package com.pulumi.aws.redshift;
 
-import com.pulumi.aws.redshift.inputs.ClusterLoggingArgs;
-import com.pulumi.aws.redshift.inputs.ClusterSnapshotCopyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -155,36 +153,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The public key for the cluster
-     * 
-     */
-    @Import(name="clusterPublicKey")
-    private @Nullable Output<String> clusterPublicKey;
-
-    /**
-     * @return The public key for the cluster
-     * 
-     */
-    public Optional<Output<String>> clusterPublicKey() {
-        return Optional.ofNullable(this.clusterPublicKey);
-    }
-
-    /**
-     * The specific revision number of the database in the cluster
-     * 
-     */
-    @Import(name="clusterRevisionNumber")
-    private @Nullable Output<String> clusterRevisionNumber;
-
-    /**
-     * @return The specific revision number of the database in the cluster
-     * 
-     */
-    public Optional<Output<String>> clusterRevisionNumber() {
-        return Optional.ofNullable(this.clusterRevisionNumber);
-    }
-
-    /**
      * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
      * 
      */
@@ -280,32 +248,19 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * If true , the data in the cluster is encrypted at rest.
+     * Default is `true`.
      * 
      */
     @Import(name="encrypted")
-    private @Nullable Output<Boolean> encrypted;
+    private @Nullable Output<String> encrypted;
 
     /**
      * @return If true , the data in the cluster is encrypted at rest.
+     * Default is `true`.
      * 
      */
-    public Optional<Output<Boolean>> encrypted() {
+    public Optional<Output<String>> encrypted() {
         return Optional.ofNullable(this.encrypted);
-    }
-
-    /**
-     * The connection endpoint
-     * 
-     */
-    @Import(name="endpoint")
-    private @Nullable Output<String> endpoint;
-
-    /**
-     * @return The connection endpoint
-     * 
-     */
-    public Optional<Output<String>> endpoint() {
-        return Optional.ofNullable(this.endpoint);
     }
 
     /**
@@ -366,29 +321,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> kmsKeyId() {
         return Optional.ofNullable(this.kmsKeyId);
-    }
-
-    /**
-     * Logging, documented below.
-     * 
-     * @deprecated
-     * logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
-    @Import(name="logging")
-    private @Nullable Output<ClusterLoggingArgs> logging;
-
-    /**
-     * @return Logging, documented below.
-     * 
-     * @deprecated
-     * logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
-    public Optional<Output<ClusterLoggingArgs>> logging() {
-        return Optional.ofNullable(this.logging);
     }
 
     /**
@@ -592,18 +524,33 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If true, the cluster can be accessed from a public network. Default is `true`.
+     * If true, the cluster can be accessed from a public network. Default is `false`.
      * 
      */
     @Import(name="publiclyAccessible")
     private @Nullable Output<Boolean> publiclyAccessible;
 
     /**
-     * @return If true, the cluster can be accessed from a public network. Default is `true`.
+     * @return If true, the cluster can be accessed from a public network. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> publiclyAccessible() {
         return Optional.ofNullable(this.publiclyAccessible);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -649,29 +596,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> snapshotClusterIdentifier() {
         return Optional.ofNullable(this.snapshotClusterIdentifier);
-    }
-
-    /**
-     * Configuration of automatic copy of snapshots from one region to another. Documented below.
-     * 
-     * @deprecated
-     * snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
-    @Import(name="snapshotCopy")
-    private @Nullable Output<ClusterSnapshotCopyArgs> snapshotCopy;
-
-    /**
-     * @return Configuration of automatic copy of snapshots from one region to another. Documented below.
-     * 
-     * @deprecated
-     * snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
-    public Optional<Output<ClusterSnapshotCopyArgs>> snapshotCopy() {
-        return Optional.ofNullable(this.snapshotCopy);
     }
 
     /**
@@ -736,8 +660,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.availabilityZoneRelocationEnabled = $.availabilityZoneRelocationEnabled;
         this.clusterIdentifier = $.clusterIdentifier;
         this.clusterParameterGroupName = $.clusterParameterGroupName;
-        this.clusterPublicKey = $.clusterPublicKey;
-        this.clusterRevisionNumber = $.clusterRevisionNumber;
         this.clusterSubnetGroupName = $.clusterSubnetGroupName;
         this.clusterType = $.clusterType;
         this.clusterVersion = $.clusterVersion;
@@ -745,12 +667,10 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.defaultIamRoleArn = $.defaultIamRoleArn;
         this.elasticIp = $.elasticIp;
         this.encrypted = $.encrypted;
-        this.endpoint = $.endpoint;
         this.enhancedVpcRouting = $.enhancedVpcRouting;
         this.finalSnapshotIdentifier = $.finalSnapshotIdentifier;
         this.iamRoles = $.iamRoles;
         this.kmsKeyId = $.kmsKeyId;
-        this.logging = $.logging;
         this.maintenanceTrackName = $.maintenanceTrackName;
         this.manageMasterPassword = $.manageMasterPassword;
         this.manualSnapshotRetentionPeriod = $.manualSnapshotRetentionPeriod;
@@ -764,10 +684,10 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.port = $.port;
         this.preferredMaintenanceWindow = $.preferredMaintenanceWindow;
         this.publiclyAccessible = $.publiclyAccessible;
+        this.region = $.region;
         this.skipFinalSnapshot = $.skipFinalSnapshot;
         this.snapshotArn = $.snapshotArn;
         this.snapshotClusterIdentifier = $.snapshotClusterIdentifier;
-        this.snapshotCopy = $.snapshotCopy;
         this.snapshotIdentifier = $.snapshotIdentifier;
         this.tags = $.tags;
         this.vpcSecurityGroupIds = $.vpcSecurityGroupIds;
@@ -972,48 +892,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterPublicKey The public key for the cluster
-         * 
-         * @return builder
-         * 
-         */
-        public Builder clusterPublicKey(@Nullable Output<String> clusterPublicKey) {
-            $.clusterPublicKey = clusterPublicKey;
-            return this;
-        }
-
-        /**
-         * @param clusterPublicKey The public key for the cluster
-         * 
-         * @return builder
-         * 
-         */
-        public Builder clusterPublicKey(String clusterPublicKey) {
-            return clusterPublicKey(Output.of(clusterPublicKey));
-        }
-
-        /**
-         * @param clusterRevisionNumber The specific revision number of the database in the cluster
-         * 
-         * @return builder
-         * 
-         */
-        public Builder clusterRevisionNumber(@Nullable Output<String> clusterRevisionNumber) {
-            $.clusterRevisionNumber = clusterRevisionNumber;
-            return this;
-        }
-
-        /**
-         * @param clusterRevisionNumber The specific revision number of the database in the cluster
-         * 
-         * @return builder
-         * 
-         */
-        public Builder clusterRevisionNumber(String clusterRevisionNumber) {
-            return clusterRevisionNumber(Output.of(clusterRevisionNumber));
-        }
-
-        /**
          * @param clusterSubnetGroupName The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
          * 
          * @return builder
@@ -1145,44 +1023,25 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param encrypted If true , the data in the cluster is encrypted at rest.
+         * Default is `true`.
          * 
          * @return builder
          * 
          */
-        public Builder encrypted(@Nullable Output<Boolean> encrypted) {
+        public Builder encrypted(@Nullable Output<String> encrypted) {
             $.encrypted = encrypted;
             return this;
         }
 
         /**
          * @param encrypted If true , the data in the cluster is encrypted at rest.
+         * Default is `true`.
          * 
          * @return builder
          * 
          */
-        public Builder encrypted(Boolean encrypted) {
+        public Builder encrypted(String encrypted) {
             return encrypted(Output.of(encrypted));
-        }
-
-        /**
-         * @param endpoint The connection endpoint
-         * 
-         * @return builder
-         * 
-         */
-        public Builder endpoint(@Nullable Output<String> endpoint) {
-            $.endpoint = endpoint;
-            return this;
-        }
-
-        /**
-         * @param endpoint The connection endpoint
-         * 
-         * @return builder
-         * 
-         */
-        public Builder endpoint(String endpoint) {
-            return endpoint(Output.of(endpoint));
         }
 
         /**
@@ -1277,35 +1136,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder kmsKeyId(String kmsKeyId) {
             return kmsKeyId(Output.of(kmsKeyId));
-        }
-
-        /**
-         * @param logging Logging, documented below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
-         * 
-         */
-        @Deprecated /* logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
-        public Builder logging(@Nullable Output<ClusterLoggingArgs> logging) {
-            $.logging = logging;
-            return this;
-        }
-
-        /**
-         * @param logging Logging, documented below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version.
-         * 
-         */
-        @Deprecated /* logging is deprecated. Use the aws.redshift.Logging resource instead. This argument will be removed in a future major version. */
-        public Builder logging(ClusterLoggingArgs logging) {
-            return logging(Output.of(logging));
         }
 
         /**
@@ -1581,7 +1411,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publiclyAccessible If true, the cluster can be accessed from a public network. Default is `true`.
+         * @param publiclyAccessible If true, the cluster can be accessed from a public network. Default is `false`.
          * 
          * @return builder
          * 
@@ -1592,13 +1422,34 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param publiclyAccessible If true, the cluster can be accessed from a public network. Default is `true`.
+         * @param publiclyAccessible If true, the cluster can be accessed from a public network. Default is `false`.
          * 
          * @return builder
          * 
          */
         public Builder publiclyAccessible(Boolean publiclyAccessible) {
             return publiclyAccessible(Output.of(publiclyAccessible));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -1662,35 +1513,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder snapshotClusterIdentifier(String snapshotClusterIdentifier) {
             return snapshotClusterIdentifier(Output.of(snapshotClusterIdentifier));
-        }
-
-        /**
-         * @param snapshotCopy Configuration of automatic copy of snapshots from one region to another. Documented below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
-         * 
-         */
-        @Deprecated /* snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
-        public Builder snapshotCopy(@Nullable Output<ClusterSnapshotCopyArgs> snapshotCopy) {
-            $.snapshotCopy = snapshotCopy;
-            return this;
-        }
-
-        /**
-         * @param snapshotCopy Configuration of automatic copy of snapshots from one region to another. Documented below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
-         * 
-         */
-        @Deprecated /* snapshot_copy is deprecated. Use the aws.redshift.SnapshotCopy resource instead. This argument will be removed in a future major version. */
-        public Builder snapshotCopy(ClusterSnapshotCopyArgs snapshotCopy) {
-            return snapshotCopy(Output.of(snapshotCopy));
         }
 
         /**

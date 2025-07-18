@@ -49,6 +49,10 @@ export class ModelPackageGroupPolicy extends pulumi.CustomResource {
      * The name of the model package group.
      */
     public readonly modelPackageGroupName!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly resourcePolicy!: pulumi.Output<string>;
 
     /**
@@ -65,6 +69,7 @@ export class ModelPackageGroupPolicy extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ModelPackageGroupPolicyState | undefined;
             resourceInputs["modelPackageGroupName"] = state ? state.modelPackageGroupName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourcePolicy"] = state ? state.resourcePolicy : undefined;
         } else {
             const args = argsOrState as ModelPackageGroupPolicyArgs | undefined;
@@ -75,6 +80,7 @@ export class ModelPackageGroupPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourcePolicy'");
             }
             resourceInputs["modelPackageGroupName"] = args ? args.modelPackageGroupName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourcePolicy"] = args ? args.resourcePolicy : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -90,6 +96,10 @@ export interface ModelPackageGroupPolicyState {
      * The name of the model package group.
      */
     modelPackageGroupName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     resourcePolicy?: pulumi.Input<string>;
 }
 
@@ -101,5 +111,9 @@ export interface ModelPackageGroupPolicyArgs {
      * The name of the model package group.
      */
     modelPackageGroupName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     resourcePolicy: pulumi.Input<string>;
 }

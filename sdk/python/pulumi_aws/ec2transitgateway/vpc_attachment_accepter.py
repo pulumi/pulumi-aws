@@ -21,17 +21,21 @@ __all__ = ['VpcAttachmentAccepterArgs', 'VpcAttachmentAccepter']
 class VpcAttachmentAccepterArgs:
     def __init__(__self__, *,
                  transit_gateway_attachment_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_gateway_default_route_table_association: Optional[pulumi.Input[builtins.bool]] = None,
                  transit_gateway_default_route_table_propagation: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The set of arguments for constructing a VpcAttachmentAccepter resource.
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: The ID of the EC2 Transit Gateway Attachment to manage.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.bool] transit_gateway_default_route_table_association: Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
         :param pulumi.Input[builtins.bool] transit_gateway_default_route_table_propagation: Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. Default value: `true`.
         """
         pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if transit_gateway_default_route_table_association is not None:
@@ -50,6 +54,18 @@ class VpcAttachmentAccepterArgs:
     @transit_gateway_attachment_id.setter
     def transit_gateway_attachment_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "transit_gateway_attachment_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -94,6 +110,7 @@ class _VpcAttachmentAccepterState:
                  appliance_mode_support: Optional[pulumi.Input[builtins.str]] = None,
                  dns_support: Optional[pulumi.Input[builtins.str]] = None,
                  ipv6_support: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_referencing_support: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -109,6 +126,7 @@ class _VpcAttachmentAccepterState:
         :param pulumi.Input[builtins.str] appliance_mode_support: Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
         :param pulumi.Input[builtins.str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`.
         :param pulumi.Input[builtins.str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: Identifiers of EC2 Subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -126,15 +144,14 @@ class _VpcAttachmentAccepterState:
             pulumi.set(__self__, "dns_support", dns_support)
         if ipv6_support is not None:
             pulumi.set(__self__, "ipv6_support", ipv6_support)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_referencing_support is not None:
             pulumi.set(__self__, "security_group_referencing_support", security_group_referencing_support)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if transit_gateway_attachment_id is not None:
@@ -187,6 +204,18 @@ class _VpcAttachmentAccepterState:
         pulumi.set(self, "ipv6_support", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupReferencingSupport")
     def security_group_referencing_support(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -224,7 +253,6 @@ class _VpcAttachmentAccepterState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -314,6 +342,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_default_route_table_association: Optional[pulumi.Input[builtins.bool]] = None,
@@ -351,6 +380,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: The ID of the EC2 Transit Gateway Attachment to manage.
         :param pulumi.Input[builtins.bool] transit_gateway_default_route_table_association: Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
@@ -407,6 +437,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_default_route_table_association: Optional[pulumi.Input[builtins.bool]] = None,
@@ -420,6 +451,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VpcAttachmentAccepterArgs.__new__(VpcAttachmentAccepterArgs)
 
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             if transit_gateway_attachment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_attachment_id'")
@@ -448,6 +480,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
             appliance_mode_support: Optional[pulumi.Input[builtins.str]] = None,
             dns_support: Optional[pulumi.Input[builtins.str]] = None,
             ipv6_support: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_group_referencing_support: Optional[pulumi.Input[builtins.str]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -468,6 +501,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] appliance_mode_support: Whether Appliance Mode support is enabled. Valid values: `disable`, `enable`.
         :param pulumi.Input[builtins.str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`.
         :param pulumi.Input[builtins.str] ipv6_support: Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_group_referencing_support: Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: Identifiers of EC2 Subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -486,6 +520,7 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
         __props__.__dict__["appliance_mode_support"] = appliance_mode_support
         __props__.__dict__["dns_support"] = dns_support
         __props__.__dict__["ipv6_support"] = ipv6_support
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_group_referencing_support"] = security_group_referencing_support
         __props__.__dict__["subnet_ids"] = subnet_ids
         __props__.__dict__["tags"] = tags
@@ -523,6 +558,14 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
         return pulumi.get(self, "ipv6_support")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroupReferencingSupport")
     def security_group_referencing_support(self) -> pulumi.Output[builtins.str]:
         """
@@ -548,7 +591,6 @@ class VpcAttachmentAccepter(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

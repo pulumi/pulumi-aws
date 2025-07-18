@@ -27,6 +27,7 @@ export function getNetworkInsightsPath(args?: GetNetworkInsightsPathArgs, opts?:
     return pulumi.runtime.invoke("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", {
         "filters": args.filters,
         "networkInsightsPathId": args.networkInsightsPathId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -47,6 +48,10 @@ export interface GetNetworkInsightsPathArgs {
      * ID of the Network Insights Path to select.
      */
     networkInsightsPathId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags assigned to the resource.
      */
@@ -95,6 +100,7 @@ export interface GetNetworkInsightsPathResult {
      * Protocol.
      */
     readonly protocol: string;
+    readonly region: string;
     /**
      * AWS resource that is the source of the path.
      */
@@ -132,6 +138,7 @@ export function getNetworkInsightsPathOutput(args?: GetNetworkInsightsPathOutput
     return pulumi.runtime.invokeOutput("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", {
         "filters": args.filters,
         "networkInsightsPathId": args.networkInsightsPathId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -152,6 +159,10 @@ export interface GetNetworkInsightsPathOutputArgs {
      * ID of the Network Insights Path to select.
      */
     networkInsightsPathId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the resource.
      */

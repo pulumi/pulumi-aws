@@ -31,6 +31,7 @@ class DistributionArgs:
                  ip_address_type: Optional[pulumi.Input[builtins.str]] = None,
                  is_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Distribution resource.
@@ -45,6 +46,7 @@ class DistributionArgs:
         :param pulumi.Input[builtins.str] ip_address_type: IP address type of the distribution. Valid values: `dualstack`, `ipv4`. Default: `dualstack`.
         :param pulumi.Input[builtins.bool] is_enabled: Whether the distribution is enabled. Default: `true`.
         :param pulumi.Input[builtins.str] name: Name of the distribution.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags for the Lightsail Distribution. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "bundle_id", bundle_id)
@@ -62,6 +64,8 @@ class DistributionArgs:
             pulumi.set(__self__, "is_enabled", is_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -177,6 +181,18 @@ class DistributionArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags for the Lightsail Distribution. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -206,6 +222,7 @@ class _DistributionState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  origin: Optional[pulumi.Input['DistributionOriginArgs']] = None,
                  origin_public_dns: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  support_code: Optional[pulumi.Input[builtins.str]] = None,
@@ -231,6 +248,7 @@ class _DistributionState:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] origin_public_dns: Public DNS of the origin.
                * `origin[0].resource_type` - Resource type of the origin resource (e.g., Instance).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_type: Lightsail resource type (e.g., Distribution).
         :param pulumi.Input[builtins.str] status: Status of the distribution.
         :param pulumi.Input[builtins.str] support_code: Support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
@@ -267,6 +285,8 @@ class _DistributionState:
             pulumi.set(__self__, "origin", origin)
         if origin_public_dns is not None:
             pulumi.set(__self__, "origin_public_dns", origin_public_dns)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
         if status is not None:
@@ -275,9 +295,6 @@ class _DistributionState:
             pulumi.set(__self__, "support_code", support_code)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -465,6 +482,18 @@ class _DistributionState:
         pulumi.set(self, "origin_public_dns", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -514,7 +543,6 @@ class _DistributionState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -541,6 +569,7 @@ class Distribution(pulumi.CustomResource):
                  is_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  origin: Optional[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -678,6 +707,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']] origin: Origin resource of the distribution, such as a Lightsail instance, bucket, or load balancer. See below.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags for the Lightsail Distribution. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -832,6 +862,7 @@ class Distribution(pulumi.CustomResource):
                  is_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  origin: Optional[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -857,6 +888,7 @@ class Distribution(pulumi.CustomResource):
             if origin is None and not opts.urn:
                 raise TypeError("Missing required property 'origin'")
             __props__.__dict__["origin"] = origin
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["alternative_domain_names"] = None
             __props__.__dict__["arn"] = None
@@ -893,6 +925,7 @@ class Distribution(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             origin: Optional[pulumi.Input[Union['DistributionOriginArgs', 'DistributionOriginArgsDict']]] = None,
             origin_public_dns: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_type: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             support_code: Optional[pulumi.Input[builtins.str]] = None,
@@ -923,6 +956,7 @@ class Distribution(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] origin_public_dns: Public DNS of the origin.
                * `origin[0].resource_type` - Resource type of the origin resource (e.g., Instance).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_type: Lightsail resource type (e.g., Distribution).
         :param pulumi.Input[builtins.str] status: Status of the distribution.
         :param pulumi.Input[builtins.str] support_code: Support code. Include this code in your email to support when you have questions about your Lightsail distribution. This code enables our support team to look up your Lightsail information more easily.
@@ -948,6 +982,7 @@ class Distribution(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["origin"] = origin
         __props__.__dict__["origin_public_dns"] = origin_public_dns
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_type"] = resource_type
         __props__.__dict__["status"] = status
         __props__.__dict__["support_code"] = support_code
@@ -1079,6 +1114,14 @@ class Distribution(pulumi.CustomResource):
         return pulumi.get(self, "origin_public_dns")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[builtins.str]:
         """
@@ -1112,7 +1155,6 @@ class Distribution(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

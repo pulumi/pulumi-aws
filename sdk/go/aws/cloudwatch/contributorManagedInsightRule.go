@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,13 +28,14 @@ type ContributorManagedInsightRule struct {
 
 	// ARN of the Contributor Managed Insight Rule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
 	ResourceArn pulumi.StringOutput    `pulumi:"resourceArn"`
 	RuleName    pulumi.StringOutput    `pulumi:"ruleName"`
 	State       pulumi.StringOutput    `pulumi:"state"`
 	Tags        pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
 	//
 	// The following arguments are optional:
@@ -79,13 +80,14 @@ func GetContributorManagedInsightRule(ctx *pulumi.Context,
 type contributorManagedInsightRuleState struct {
 	// ARN of the Contributor Managed Insight Rule.
 	Arn *string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
 	ResourceArn *string           `pulumi:"resourceArn"`
 	RuleName    *string           `pulumi:"ruleName"`
 	State       *string           `pulumi:"state"`
 	Tags        map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 	// Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
 	//
 	// The following arguments are optional:
@@ -95,13 +97,14 @@ type contributorManagedInsightRuleState struct {
 type ContributorManagedInsightRuleState struct {
 	// ARN of the Contributor Managed Insight Rule.
 	Arn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
 	ResourceArn pulumi.StringPtrInput
 	RuleName    pulumi.StringPtrInput
 	State       pulumi.StringPtrInput
 	Tags        pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 	// Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
 	//
 	// The following arguments are optional:
@@ -113,6 +116,8 @@ func (ContributorManagedInsightRuleState) ElementType() reflect.Type {
 }
 
 type contributorManagedInsightRuleArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
 	ResourceArn string            `pulumi:"resourceArn"`
 	State       *string           `pulumi:"state"`
@@ -125,6 +130,8 @@ type contributorManagedInsightRuleArgs struct {
 
 // The set of arguments for constructing a ContributorManagedInsightRule resource.
 type ContributorManagedInsightRuleArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
 	ResourceArn pulumi.StringInput
 	State       pulumi.StringPtrInput
@@ -227,6 +234,11 @@ func (o ContributorManagedInsightRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContributorManagedInsightRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ContributorManagedInsightRuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContributorManagedInsightRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
 func (o ContributorManagedInsightRuleOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContributorManagedInsightRule) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
@@ -244,7 +256,6 @@ func (o ContributorManagedInsightRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContributorManagedInsightRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ContributorManagedInsightRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContributorManagedInsightRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

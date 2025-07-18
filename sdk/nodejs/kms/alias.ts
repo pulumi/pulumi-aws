@@ -72,6 +72,10 @@ export class Alias extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the target key identifier.
      */
     public /*out*/ readonly targetKeyArn!: pulumi.Output<string>;
@@ -96,6 +100,7 @@ export class Alias extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["targetKeyArn"] = state ? state.targetKeyArn : undefined;
             resourceInputs["targetKeyId"] = state ? state.targetKeyId : undefined;
         } else {
@@ -105,6 +110,7 @@ export class Alias extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["targetKeyId"] = args ? args.targetKeyId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["targetKeyArn"] = undefined /*out*/;
@@ -132,6 +138,10 @@ export interface AliasState {
      */
     namePrefix?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) of the target key identifier.
      */
     targetKeyArn?: pulumi.Input<string>;
@@ -154,6 +164,10 @@ export interface AliasArgs {
      * The name must start with the word "alias" followed by a forward slash (alias/).  Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier for the key for which the alias is for, can be either an ARN or key_id.
      */

@@ -28,6 +28,7 @@ public final class GetResolverFirewallRulesResult {
      */
     private String id;
     private @Nullable Integer priority;
+    private String region;
 
     private GetResolverFirewallRulesResult() {}
     public Optional<String> action() {
@@ -53,6 +54,9 @@ public final class GetResolverFirewallRulesResult {
     public Optional<Integer> priority() {
         return Optional.ofNullable(this.priority);
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -68,6 +72,7 @@ public final class GetResolverFirewallRulesResult {
         private List<GetResolverFirewallRulesFirewallRule> firewallRules;
         private String id;
         private @Nullable Integer priority;
+        private String region;
         public Builder() {}
         public Builder(GetResolverFirewallRulesResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -76,6 +81,7 @@ public final class GetResolverFirewallRulesResult {
     	      this.firewallRules = defaults.firewallRules;
     	      this.id = defaults.id;
     	      this.priority = defaults.priority;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -117,6 +123,14 @@ public final class GetResolverFirewallRulesResult {
             this.priority = priority;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRulesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetResolverFirewallRulesResult build() {
             final var _resultValue = new GetResolverFirewallRulesResult();
             _resultValue.action = action;
@@ -124,6 +138,7 @@ public final class GetResolverFirewallRulesResult {
             _resultValue.firewallRules = firewallRules;
             _resultValue.id = id;
             _resultValue.priority = priority;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

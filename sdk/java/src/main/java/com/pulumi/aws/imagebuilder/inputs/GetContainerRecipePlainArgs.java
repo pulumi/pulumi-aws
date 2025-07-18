@@ -32,6 +32,21 @@ public final class GetContainerRecipePlainArgs extends com.pulumi.resources.Invo
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key-value map of resource tags for the container recipe.
      * 
      */
@@ -50,6 +65,7 @@ public final class GetContainerRecipePlainArgs extends com.pulumi.resources.Invo
 
     private GetContainerRecipePlainArgs(GetContainerRecipePlainArgs $) {
         this.arn = $.arn;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -79,6 +95,17 @@ public final class GetContainerRecipePlainArgs extends com.pulumi.resources.Invo
          */
         public Builder arn(String arn) {
             $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

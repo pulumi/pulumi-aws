@@ -14,7 +14,6 @@
 
 import * as pulumi from "@pulumi/pulumi";
 
-import * as arn from "../arn";
 import * as iam from "../iam";
 import * as utils from "../utils";
 
@@ -185,7 +184,7 @@ export type BaseCallbackFunctionArgs = utils.Overwrite<FunctionArgs, {
     /**
      * A pre-created role to use for the Function. If not provided, [policies] will be used.
      */
-    role?: iam.Role | pulumi.Input<arn.ARN>;
+    role?: iam.Role | pulumi.Input<string>;
 
     /**
      * A list of IAM policy ARNs to attach to the Function.  Will be used if [role] is not provide.
@@ -221,7 +220,7 @@ export type BaseCallbackFunctionArgs = utils.Overwrite<FunctionArgs, {
      * ```
      */
 
-    policies?: Record<string, pulumi.Input<arn.ARN>> | arn.ARN[];
+    policies?: Record<string, pulumi.Input<string>> | string[];
 
     /**
      * The Lambda runtime to use.  If not provided, will default to [aws.lambda.Runtime.NodeJS20dX].
@@ -331,7 +330,7 @@ export class CallbackFunction<E, R> extends LambdaFunction {
             throw new Error("One of [callback] or [callbackFactory] must be provided.");
         }
 
-        let role: iam.Role | pulumi.Input<arn.ARN>;
+        let role: iam.Role | pulumi.Input<string>;
         if (args.role) {
             role = args.role;
         } else {
@@ -351,14 +350,14 @@ export class CallbackFunction<E, R> extends LambdaFunction {
 
                 for (const policy of policies) {
                     const attachment = new iam.RolePolicyAttachment(`${name}-${utils.sha1hash(policy)}`, {
-                        role: role,
+                        role: role.name,
                         policyArn: policy,
                     }, opts);
                 }
             }
 
             if (args.policies) {
-                const policies: [string, pulumi.Input<arn.ARN>][] = Array.isArray(args.policies)
+                const policies: [string, pulumi.Input<string>][] = Array.isArray(args.policies)
                     ? args.policies.map(arn => [utils.sha1hash(arn), arn])
                     : Object.entries(args.policies);
 
@@ -367,7 +366,7 @@ export class CallbackFunction<E, R> extends LambdaFunction {
                     // structurally based on the `role` and `policyArn`.  So we need to make sure our Pulumi name matches the
                     // structural identity by using a name that includes the role name and policyArn.
                     const attachment = new iam.RolePolicyAttachment(`${name}-${key}`, {
-                        role: role,
+                        role: role.name,
                         policyArn,
                     }, opts);
                 }

@@ -27,7 +27,7 @@ class GetEmailIdentityMailFromAttributesResult:
     """
     A collection of values returned by getEmailIdentityMailFromAttributes.
     """
-    def __init__(__self__, behavior_on_mx_failure=None, email_identity=None, id=None, mail_from_domain=None):
+    def __init__(__self__, behavior_on_mx_failure=None, email_identity=None, id=None, mail_from_domain=None, region=None):
         if behavior_on_mx_failure and not isinstance(behavior_on_mx_failure, str):
             raise TypeError("Expected argument 'behavior_on_mx_failure' to be a str")
         pulumi.set(__self__, "behavior_on_mx_failure", behavior_on_mx_failure)
@@ -40,6 +40,9 @@ class GetEmailIdentityMailFromAttributesResult:
         if mail_from_domain and not isinstance(mail_from_domain, str):
             raise TypeError("Expected argument 'mail_from_domain' to be a str")
         pulumi.set(__self__, "mail_from_domain", mail_from_domain)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="behaviorOnMxFailure")
@@ -70,6 +73,11 @@ class GetEmailIdentityMailFromAttributesResult:
         """
         return pulumi.get(self, "mail_from_domain")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetEmailIdentityMailFromAttributesResult(GetEmailIdentityMailFromAttributesResult):
     # pylint: disable=using-constant-test
@@ -80,10 +88,12 @@ class AwaitableGetEmailIdentityMailFromAttributesResult(GetEmailIdentityMailFrom
             behavior_on_mx_failure=self.behavior_on_mx_failure,
             email_identity=self.email_identity,
             id=self.id,
-            mail_from_domain=self.mail_from_domain)
+            mail_from_domain=self.mail_from_domain,
+            region=self.region)
 
 
 def get_email_identity_mail_from_attributes(email_identity: Optional[builtins.str] = None,
+                                            region: Optional[builtins.str] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEmailIdentityMailFromAttributesResult:
     """
     Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
@@ -102,9 +112,11 @@ def get_email_identity_mail_from_attributes(email_identity: Optional[builtins.st
 
 
     :param builtins.str email_identity: The name of the email identity.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['emailIdentity'] = email_identity
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes', __args__, opts=opts, typ=GetEmailIdentityMailFromAttributesResult).value
 
@@ -112,8 +124,10 @@ def get_email_identity_mail_from_attributes(email_identity: Optional[builtins.st
         behavior_on_mx_failure=pulumi.get(__ret__, 'behavior_on_mx_failure'),
         email_identity=pulumi.get(__ret__, 'email_identity'),
         id=pulumi.get(__ret__, 'id'),
-        mail_from_domain=pulumi.get(__ret__, 'mail_from_domain'))
+        mail_from_domain=pulumi.get(__ret__, 'mail_from_domain'),
+        region=pulumi.get(__ret__, 'region'))
 def get_email_identity_mail_from_attributes_output(email_identity: Optional[pulumi.Input[builtins.str]] = None,
+                                                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailIdentityMailFromAttributesResult]:
     """
     Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
@@ -132,13 +146,16 @@ def get_email_identity_mail_from_attributes_output(email_identity: Optional[pulu
 
 
     :param builtins.str email_identity: The name of the email identity.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['emailIdentity'] = email_identity
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes', __args__, opts=opts, typ=GetEmailIdentityMailFromAttributesResult)
     return __ret__.apply(lambda __response__: GetEmailIdentityMailFromAttributesResult(
         behavior_on_mx_failure=pulumi.get(__response__, 'behavior_on_mx_failure'),
         email_identity=pulumi.get(__response__, 'email_identity'),
         id=pulumi.get(__response__, 'id'),
-        mail_from_domain=pulumi.get(__response__, 'mail_from_domain')))
+        mail_from_domain=pulumi.get(__response__, 'mail_from_domain'),
+        region=pulumi.get(__response__, 'region')))

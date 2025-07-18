@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/resourcegroupstaggingapi"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/resourcegroupstaggingapi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +46,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/resourcegroupstaggingapi"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/resourcegroupstaggingapi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,7 +80,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/resourcegroupstaggingapi"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/resourcegroupstaggingapi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -116,6 +116,8 @@ type GetResourcesArgs struct {
 	ExcludeCompliantResources *bool `pulumi:"excludeCompliantResources"`
 	// Specifies whether to include details regarding the compliance with the effective tag policy.
 	IncludeComplianceDetails *bool `pulumi:"includeComplianceDetails"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
 	ResourceArnLists []string `pulumi:"resourceArnLists"`
 	// Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
@@ -130,6 +132,7 @@ type GetResourcesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id                       string   `pulumi:"id"`
 	IncludeComplianceDetails *bool    `pulumi:"includeComplianceDetails"`
+	Region                   string   `pulumi:"region"`
 	ResourceArnLists         []string `pulumi:"resourceArnLists"`
 	// List of objects matching the search criteria.
 	ResourceTagMappingLists []GetResourcesResourceTagMappingList `pulumi:"resourceTagMappingLists"`
@@ -152,6 +155,8 @@ type GetResourcesOutputArgs struct {
 	ExcludeCompliantResources pulumi.BoolPtrInput `pulumi:"excludeCompliantResources"`
 	// Specifies whether to include details regarding the compliance with the effective tag policy.
 	IncludeComplianceDetails pulumi.BoolPtrInput `pulumi:"includeComplianceDetails"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
 	ResourceArnLists pulumi.StringArrayInput `pulumi:"resourceArnLists"`
 	// Constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
@@ -190,6 +195,10 @@ func (o GetResourcesResultOutput) Id() pulumi.StringOutput {
 
 func (o GetResourcesResultOutput) IncludeComplianceDetails() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetResourcesResult) *bool { return v.IncludeComplianceDetails }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetResourcesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResourcesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetResourcesResultOutput) ResourceArnLists() pulumi.StringArrayOutput {

@@ -15,6 +15,13 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
     /**
+     * @return Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
+     * 
+     * For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
+     * 
+     */
+    private @Nullable String deepThreatInspection;
+    /**
      * @return Configuration block for override values
      * 
      */
@@ -31,6 +38,15 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
     private String resourceArn;
 
     private FirewallPolicyFirewallPolicyStatefulRuleGroupReference() {}
+    /**
+     * @return Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
+     * 
+     * For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
+     * 
+     */
+    public Optional<String> deepThreatInspection() {
+        return Optional.ofNullable(this.deepThreatInspection);
+    }
     /**
      * @return Configuration block for override values
      * 
@@ -62,17 +78,25 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String deepThreatInspection;
         private @Nullable FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride override;
         private @Nullable Integer priority;
         private String resourceArn;
         public Builder() {}
         public Builder(FirewallPolicyFirewallPolicyStatefulRuleGroupReference defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.deepThreatInspection = defaults.deepThreatInspection;
     	      this.override = defaults.override;
     	      this.priority = defaults.priority;
     	      this.resourceArn = defaults.resourceArn;
         }
 
+        @CustomType.Setter
+        public Builder deepThreatInspection(@Nullable String deepThreatInspection) {
+
+            this.deepThreatInspection = deepThreatInspection;
+            return this;
+        }
         @CustomType.Setter
         public Builder override(@Nullable FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride override) {
 
@@ -95,6 +119,7 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
         }
         public FirewallPolicyFirewallPolicyStatefulRuleGroupReference build() {
             final var _resultValue = new FirewallPolicyFirewallPolicyStatefulRuleGroupReference();
+            _resultValue.deepThreatInspection = deepThreatInspection;
             _resultValue.override = override;
             _resultValue.priority = priority;
             _resultValue.resourceArn = resourceArn;

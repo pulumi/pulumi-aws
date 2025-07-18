@@ -71,8 +71,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sqs.QueueArgs;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
  * import com.pulumi.aws.s3.BucketPolicyArgs;
  * import com.pulumi.aws.customerprofiles.Domain;
@@ -113,16 +113,16 @@ import javax.annotation.Nullable;
  *             .deletionWindowInDays(10)
  *             .build());
  * 
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
+ *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
  *             .bucket("example")
  *             .forceDestroy(true)
  *             .build());
  * 
  *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
- *             .bucket(exampleBucketV2.id())
- *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -> {
- *                 var exampleBucketV2Arn = values.t1;
- *                 var exampleBucketV2Arn1 = values.t2;
+ *             .bucket(exampleBucket.id())
+ *             .policy(Output.tuple(exampleBucket.arn(), exampleBucket.arn()).applyValue(values -> {
+ *                 var exampleBucketArn = values.t1;
+ *                 var exampleBucketArn1 = values.t2;
  *                 return serializeJson(
  *                     jsonObject(
  *                         jsonProperty("Version", "2012-10-17"),
@@ -135,8 +135,8 @@ import javax.annotation.Nullable;
  *                                 "s3:ListBucket"
  *                             )),
  *                             jsonProperty("Resource", jsonArray(
- *                                 exampleBucketV2Arn, 
- *                                 String.format("%s/*", exampleBucketV2Arn1)
+ *                                 exampleBucketArn, 
+ *                                 String.format("%s/*", exampleBucketArn1)
  *                             )),
  *                             jsonProperty("Principal", jsonObject(
  *                                 jsonProperty("Service", "profile.amazonaws.com")
@@ -259,6 +259,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.matching);
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * A block that specifies the process of matching duplicate profiles using the Rule-Based matching. Documented below.
      * 
      */
@@ -289,11 +303,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

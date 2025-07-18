@@ -28,7 +28,7 @@ class GetUserPoolResult:
     """
     A collection of values returned by getUserPool.
     """
-    def __init__(__self__, account_recovery_settings=None, admin_create_user_configs=None, arn=None, auto_verified_attributes=None, creation_date=None, custom_domain=None, deletion_protection=None, device_configurations=None, domain=None, email_configurations=None, estimated_number_of_users=None, id=None, lambda_configs=None, last_modified_date=None, mfa_configuration=None, name=None, schema_attributes=None, sms_authentication_message=None, sms_configuration_failure=None, sms_verification_message=None, tags=None, user_pool_add_ons=None, user_pool_id=None, user_pool_tags=None, username_attributes=None):
+    def __init__(__self__, account_recovery_settings=None, admin_create_user_configs=None, arn=None, auto_verified_attributes=None, creation_date=None, custom_domain=None, deletion_protection=None, device_configurations=None, domain=None, email_configurations=None, estimated_number_of_users=None, id=None, lambda_configs=None, last_modified_date=None, mfa_configuration=None, name=None, region=None, schema_attributes=None, sms_authentication_message=None, sms_configuration_failure=None, sms_verification_message=None, tags=None, user_pool_add_ons=None, user_pool_id=None, user_pool_tags=None, username_attributes=None):
         if account_recovery_settings and not isinstance(account_recovery_settings, list):
             raise TypeError("Expected argument 'account_recovery_settings' to be a list")
         pulumi.set(__self__, "account_recovery_settings", account_recovery_settings)
@@ -77,6 +77,9 @@ class GetUserPoolResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if schema_attributes and not isinstance(schema_attributes, list):
             raise TypeError("Expected argument 'schema_attributes' to be a list")
         pulumi.set(__self__, "schema_attributes", schema_attributes)
@@ -221,6 +224,11 @@ class GetUserPoolResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="schemaAttributes")
     def schema_attributes(self) -> Sequence['outputs.GetUserPoolSchemaAttributeResult']:
         return pulumi.get(self, "schema_attributes")
@@ -308,6 +316,7 @@ class AwaitableGetUserPoolResult(GetUserPoolResult):
             last_modified_date=self.last_modified_date,
             mfa_configuration=self.mfa_configuration,
             name=self.name,
+            region=self.region,
             schema_attributes=self.schema_attributes,
             sms_authentication_message=self.sms_authentication_message,
             sms_configuration_failure=self.sms_configuration_failure,
@@ -319,7 +328,8 @@ class AwaitableGetUserPoolResult(GetUserPoolResult):
             username_attributes=self.username_attributes)
 
 
-def get_user_pool(user_pool_id: Optional[builtins.str] = None,
+def get_user_pool(region: Optional[builtins.str] = None,
+                  user_pool_id: Optional[builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolResult:
     """
     Data source for managing an AWS Cognito User Pool.
@@ -336,9 +346,11 @@ def get_user_pool(user_pool_id: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_pool_id: The cognito pool ID
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['userPoolId'] = user_pool_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:cognito/getUserPool:getUserPool', __args__, opts=opts, typ=GetUserPoolResult).value
@@ -360,6 +372,7 @@ def get_user_pool(user_pool_id: Optional[builtins.str] = None,
         last_modified_date=pulumi.get(__ret__, 'last_modified_date'),
         mfa_configuration=pulumi.get(__ret__, 'mfa_configuration'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         schema_attributes=pulumi.get(__ret__, 'schema_attributes'),
         sms_authentication_message=pulumi.get(__ret__, 'sms_authentication_message'),
         sms_configuration_failure=pulumi.get(__ret__, 'sms_configuration_failure'),
@@ -369,7 +382,8 @@ def get_user_pool(user_pool_id: Optional[builtins.str] = None,
         user_pool_id=pulumi.get(__ret__, 'user_pool_id'),
         user_pool_tags=pulumi.get(__ret__, 'user_pool_tags'),
         username_attributes=pulumi.get(__ret__, 'username_attributes'))
-def get_user_pool_output(user_pool_id: Optional[pulumi.Input[builtins.str]] = None,
+def get_user_pool_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         user_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolResult]:
     """
     Data source for managing an AWS Cognito User Pool.
@@ -386,9 +400,11 @@ def get_user_pool_output(user_pool_id: Optional[pulumi.Input[builtins.str]] = No
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_pool_id: The cognito pool ID
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['userPoolId'] = user_pool_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cognito/getUserPool:getUserPool', __args__, opts=opts, typ=GetUserPoolResult)
@@ -409,6 +425,7 @@ def get_user_pool_output(user_pool_id: Optional[pulumi.Input[builtins.str]] = No
         last_modified_date=pulumi.get(__response__, 'last_modified_date'),
         mfa_configuration=pulumi.get(__response__, 'mfa_configuration'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         schema_attributes=pulumi.get(__response__, 'schema_attributes'),
         sms_authentication_message=pulumi.get(__response__, 'sms_authentication_message'),
         sms_configuration_failure=pulumi.get(__response__, 'sms_configuration_failure'),

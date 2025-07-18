@@ -136,12 +136,6 @@ namespace Pulumi.Aws.IdentityStore
         public Inputs.GetGroupAlternateIdentifierArgs? AlternateIdentifier { get; set; }
 
         /// <summary>
-        /// Configuration block for filtering by a unique attribute of the group. Detailed below.
-        /// </summary>
-        [Input("filter")]
-        public Inputs.GetGroupFilterArgs? Filter { get; set; }
-
-        /// <summary>
         /// The identifier for a group in the Identity Store.
         /// 
         /// &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
@@ -156,6 +150,12 @@ namespace Pulumi.Aws.IdentityStore
         /// </summary>
         [Input("identityStoreId", required: true)]
         public string IdentityStoreId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
 
         public GetGroupArgs()
         {
@@ -172,12 +172,6 @@ namespace Pulumi.Aws.IdentityStore
         public Input<Inputs.GetGroupAlternateIdentifierInputArgs>? AlternateIdentifier { get; set; }
 
         /// <summary>
-        /// Configuration block for filtering by a unique attribute of the group. Detailed below.
-        /// </summary>
-        [Input("filter")]
-        public Input<Inputs.GetGroupFilterInputArgs>? Filter { get; set; }
-
-        /// <summary>
         /// The identifier for a group in the Identity Store.
         /// 
         /// &gt; Exactly one of the above arguments must be provided. Passing both `filter` and `group_id` is allowed for backwards compatibility.
@@ -192,6 +186,12 @@ namespace Pulumi.Aws.IdentityStore
         /// </summary>
         [Input("identityStoreId", required: true)]
         public Input<string> IdentityStoreId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetGroupInvokeArgs()
         {
@@ -216,13 +216,13 @@ namespace Pulumi.Aws.IdentityStore
         /// List of identifiers issued to this resource by an external identity provider.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupExternalIdResult> ExternalIds;
-        public readonly Outputs.GetGroupFilterResult? Filter;
         public readonly string GroupId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly string IdentityStoreId;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetGroupResult(
@@ -234,22 +234,22 @@ namespace Pulumi.Aws.IdentityStore
 
             ImmutableArray<Outputs.GetGroupExternalIdResult> externalIds,
 
-            Outputs.GetGroupFilterResult? filter,
-
             string groupId,
 
             string id,
 
-            string identityStoreId)
+            string identityStoreId,
+
+            string region)
         {
             AlternateIdentifier = alternateIdentifier;
             Description = description;
             DisplayName = displayName;
             ExternalIds = externalIds;
-            Filter = filter;
             GroupId = groupId;
             Id = id;
             IdentityStoreId = identityStoreId;
+            Region = region;
         }
     }
 }

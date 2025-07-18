@@ -84,6 +84,10 @@ export class DevicePool extends pulumi.CustomResource {
      */
     public readonly projectArn!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The device pool's rules. See Rule.
      */
     public readonly rules!: pulumi.Output<outputs.devicefarm.DevicePoolRule[]>;
@@ -93,8 +97,6 @@ export class DevicePool extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -117,6 +119,7 @@ export class DevicePool extends pulumi.CustomResource {
             resourceInputs["maxDevices"] = state ? state.maxDevices : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["projectArn"] = state ? state.projectArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rules"] = state ? state.rules : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -133,6 +136,7 @@ export class DevicePool extends pulumi.CustomResource {
             resourceInputs["maxDevices"] = args ? args.maxDevices : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["projectArn"] = args ? args.projectArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -169,6 +173,10 @@ export interface DevicePoolState {
      */
     projectArn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The device pool's rules. See Rule.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.devicefarm.DevicePoolRule>[]>;
@@ -178,8 +186,6 @@ export interface DevicePoolState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     type?: pulumi.Input<string>;
@@ -205,6 +211,10 @@ export interface DevicePoolArgs {
      * The ARN of the project for the device pool.
      */
     projectArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The device pool's rules. See Rule.
      */

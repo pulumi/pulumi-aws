@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Ssm
     ///                 { "ConfigurationOptionsPatchOperation", "Scan" },
     ///                 { "ConfigurationOptionsScanValue", "cron(0 1 * * ? *)" },
     ///                 { "ConfigurationOptionsScanNextInterval", "false" },
-    ///                 { "PatchBaselineRegion", currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name) },
+    ///                 { "PatchBaselineRegion", currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region) },
     ///                 { "PatchBaselineUseDefault", "default" },
     ///                 { "PatchPolicyName", "example" },
     ///                 { "SelectedPatchBaselines", selectedPatchBaselines },
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Ssm
     ///                 { "RateControlErrorThreshold", "2%" },
     ///                 { "IsPolicyAttachAllowed", "false" },
     ///                 { "TargetAccounts", current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId) },
-    ///                 { "TargetRegions", currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name) },
+    ///                 { "TargetRegions", currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region) },
     ///                 { "TargetType", "*" },
     ///             },
     ///         },
@@ -124,6 +124,12 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `status_summaries` below.
@@ -212,6 +218,12 @@ namespace Pulumi.Aws.Ssm
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -261,6 +273,12 @@ namespace Pulumi.Aws.Ssm
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("statusSummaries")]
         private InputList<Inputs.QuicksetupConfigurationManagerStatusSummaryGetArgs>? _statusSummaries;
 
@@ -291,7 +309,6 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -30,7 +30,6 @@ export function getAccelerator(args?: GetAcceleratorArgs, opts?: pulumi.InvokeOp
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:globalaccelerator/getAccelerator:getAccelerator", {
         "arn": args.arn,
-        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -43,7 +42,6 @@ export interface GetAcceleratorArgs {
      * Full ARN of the Global Accelerator.
      */
     arn?: string;
-    id?: string;
     /**
      * Unique name of the Global Accelerator.
      *
@@ -91,7 +89,6 @@ export function getAcceleratorOutput(args?: GetAcceleratorOutputArgs, opts?: pul
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:globalaccelerator/getAccelerator:getAccelerator", {
         "arn": args.arn,
-        "id": args.id,
         "name": args.name,
     }, opts);
 }
@@ -104,7 +101,6 @@ export interface GetAcceleratorOutputArgs {
      * Full ARN of the Global Accelerator.
      */
     arn?: pulumi.Input<string>;
-    id?: pulumi.Input<string>;
     /**
      * Unique name of the Global Accelerator.
      *

@@ -147,6 +147,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Set of VPC Security Group ID-s to associate with this cluster.
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
@@ -184,8 +188,6 @@ export class Cluster extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -226,6 +228,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["numShards"] = state ? state.numShards : undefined;
             resourceInputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["shards"] = state ? state.shards : undefined;
             resourceInputs["snapshotArns"] = state ? state.snapshotArns : undefined;
@@ -262,6 +265,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["numShards"] = args ? args.numShards : undefined;
             resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["snapshotArns"] = args ? args.snapshotArns : undefined;
             resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
@@ -366,6 +370,10 @@ export interface ClusterState {
      */
     port?: pulumi.Input<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Set of VPC Security Group ID-s to associate with this cluster.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -403,8 +411,6 @@ export interface ClusterState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -487,6 +493,10 @@ export interface ClusterArgs {
      * The port number on which each of the nodes accepts connections. Defaults to `6379`.
      */
     port?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Set of VPC Security Group ID-s to associate with this cluster.
      */

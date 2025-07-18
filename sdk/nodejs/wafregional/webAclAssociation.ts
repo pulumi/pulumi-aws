@@ -109,6 +109,10 @@ export class WebAclAssociation extends pulumi.CustomResource {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
      */
     public readonly resourceArn!: pulumi.Output<string>;
@@ -130,6 +134,7 @@ export class WebAclAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebAclAssociationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
             resourceInputs["webAclId"] = state ? state.webAclId : undefined;
         } else {
@@ -140,6 +145,7 @@ export class WebAclAssociation extends pulumi.CustomResource {
             if ((!args || args.webAclId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'webAclId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
             resourceInputs["webAclId"] = args ? args.webAclId : undefined;
         }
@@ -152,6 +158,10 @@ export class WebAclAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WebAclAssociation resources.
  */
 export interface WebAclAssociationState {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
      */
@@ -166,6 +176,10 @@ export interface WebAclAssociationState {
  * The set of arguments for constructing a WebAclAssociation resource.
  */
 export interface WebAclAssociationArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the resource to associate with. For example, an Application Load Balancer or API Gateway Stage.
      */

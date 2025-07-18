@@ -27,13 +27,16 @@ class GetControlsResult:
     """
     A collection of values returned by getControls.
     """
-    def __init__(__self__, enabled_controls=None, id=None, target_identifier=None):
+    def __init__(__self__, enabled_controls=None, id=None, region=None, target_identifier=None):
         if enabled_controls and not isinstance(enabled_controls, list):
             raise TypeError("Expected argument 'enabled_controls' to be a list")
         pulumi.set(__self__, "enabled_controls", enabled_controls)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if target_identifier and not isinstance(target_identifier, str):
             raise TypeError("Expected argument 'target_identifier' to be a str")
         pulumi.set(__self__, "target_identifier", target_identifier)
@@ -55,6 +58,11 @@ class GetControlsResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="targetIdentifier")
     def target_identifier(self) -> builtins.str:
         return pulumi.get(self, "target_identifier")
@@ -68,10 +76,12 @@ class AwaitableGetControlsResult(GetControlsResult):
         return GetControlsResult(
             enabled_controls=self.enabled_controls,
             id=self.id,
+            region=self.region,
             target_identifier=self.target_identifier)
 
 
-def get_controls(target_identifier: Optional[builtins.str] = None,
+def get_controls(region: Optional[builtins.str] = None,
+                 target_identifier: Optional[builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetControlsResult:
     """
     List of Control Tower controls applied to an OU.
@@ -88,9 +98,11 @@ def get_controls(target_identifier: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str target_identifier: The ARN of the organizational unit.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['targetIdentifier'] = target_identifier
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:controltower/getControls:getControls', __args__, opts=opts, typ=GetControlsResult).value
@@ -98,8 +110,10 @@ def get_controls(target_identifier: Optional[builtins.str] = None,
     return AwaitableGetControlsResult(
         enabled_controls=pulumi.get(__ret__, 'enabled_controls'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         target_identifier=pulumi.get(__ret__, 'target_identifier'))
-def get_controls_output(target_identifier: Optional[pulumi.Input[builtins.str]] = None,
+def get_controls_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                        target_identifier: Optional[pulumi.Input[builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetControlsResult]:
     """
     List of Control Tower controls applied to an OU.
@@ -116,13 +130,16 @@ def get_controls_output(target_identifier: Optional[pulumi.Input[builtins.str]] 
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str target_identifier: The ARN of the organizational unit.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['targetIdentifier'] = target_identifier
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:controltower/getControls:getControls', __args__, opts=opts, typ=GetControlsResult)
     return __ret__.apply(lambda __response__: GetControlsResult(
         enabled_controls=pulumi.get(__response__, 'enabled_controls'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         target_identifier=pulumi.get(__response__, 'target_identifier')))

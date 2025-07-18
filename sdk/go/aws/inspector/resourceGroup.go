@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/inspector"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,6 +47,8 @@ type ResourceGroup struct {
 
 	// The resource group ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -86,6 +88,8 @@ func GetResourceGroup(ctx *pulumi.Context,
 type resourceGroupState struct {
 	// The resource group ARN.
 	Arn *string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -93,6 +97,8 @@ type resourceGroupState struct {
 type ResourceGroupState struct {
 	// The resource group ARN.
 	Arn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
 	Tags pulumi.StringMapInput
 }
@@ -102,12 +108,16 @@ func (ResourceGroupState) ElementType() reflect.Type {
 }
 
 type resourceGroupArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceGroup resource.
 type ResourceGroupArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.
 	Tags pulumi.StringMapInput
 }
@@ -202,6 +212,11 @@ func (o ResourceGroupOutput) ToResourceGroupOutputWithContext(ctx context.Contex
 // The resource group ARN.
 func (o ResourceGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ResourceGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of tags that are used to select the EC2 instances to be included in an Amazon Inspector assessment target.

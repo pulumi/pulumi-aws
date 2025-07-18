@@ -94,6 +94,10 @@ export class IamPolicyAssignment extends pulumi.CustomResource {
      * ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
      */
     public readonly policyArn!: pulumi.Output<string | undefined>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a IamPolicyAssignment resource with the given unique name, arguments, and options.
@@ -115,6 +119,7 @@ export class IamPolicyAssignment extends pulumi.CustomResource {
             resourceInputs["identities"] = state ? state.identities : undefined;
             resourceInputs["namespace"] = state ? state.namespace : undefined;
             resourceInputs["policyArn"] = state ? state.policyArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as IamPolicyAssignmentArgs | undefined;
             if ((!args || args.assignmentName === undefined) && !opts.urn) {
@@ -129,6 +134,7 @@ export class IamPolicyAssignment extends pulumi.CustomResource {
             resourceInputs["identities"] = args ? args.identities : undefined;
             resourceInputs["namespace"] = args ? args.namespace : undefined;
             resourceInputs["policyArn"] = args ? args.policyArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["assignmentId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -170,6 +176,10 @@ export interface IamPolicyAssignmentState {
      * ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
      */
     policyArn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -202,4 +212,8 @@ export interface IamPolicyAssignmentArgs {
      * ARN of the IAM policy to apply to the Amazon QuickSight users and groups specified in this assignment.
      */
     policyArn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

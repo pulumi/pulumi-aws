@@ -29,9 +29,9 @@ namespace Pulumi.Aws.Rekognition
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example-bucket",
+    ///         BucketName = "example-bucket",
     ///     });
     /// 
     ///     var exampleTopic = new Aws.Sns.Topic("example", new()
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Rekognition
     ///         {
     ///             S3Destination = new Aws.Rekognition.Inputs.StreamProcessorOutputS3DestinationArgs
     ///             {
-    ///                 Bucket = example.Bucket,
+    ///                 Bucket = example.BucketName,
     ///             },
     ///         },
     ///         Settings = new Aws.Rekognition.Inputs.StreamProcessorSettingsArgs
@@ -363,6 +363,12 @@ namespace Pulumi.Aws.Rekognition
         public Output<Outputs.StreamProcessorOutput?> Output { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regions_of_interest`.
         /// </summary>
         [Output("regionsOfInterests")]
@@ -486,6 +492,12 @@ namespace Pulumi.Aws.Rekognition
         [Input("output")]
         public Input<Inputs.StreamProcessorOutputArgs>? Output { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("regionsOfInterests")]
         private InputList<Inputs.StreamProcessorRegionsOfInterestArgs>? _regionsOfInterests;
 
@@ -577,6 +589,12 @@ namespace Pulumi.Aws.Rekognition
         [Input("output")]
         public Input<Inputs.StreamProcessorOutputGetArgs>? Output { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("regionsOfInterests")]
         private InputList<Inputs.StreamProcessorRegionsOfInterestGetArgs>? _regionsOfInterests;
 
@@ -628,7 +646,6 @@ namespace Pulumi.Aws.Rekognition
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

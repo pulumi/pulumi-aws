@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptune"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/neptune"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -74,6 +74,8 @@ type GetEngineVersionArgs struct {
 	PreferredUpgradeTargets []string `pulumi:"preferredUpgradeTargets"`
 	// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
 	PreferredVersions []string `pulumi:"preferredVersions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
 	Version *string `pulumi:"version"`
 }
@@ -97,6 +99,7 @@ type GetEngineVersionResult struct {
 	PreferredMajorTargets   []string `pulumi:"preferredMajorTargets"`
 	PreferredUpgradeTargets []string `pulumi:"preferredUpgradeTargets"`
 	PreferredVersions       []string `pulumi:"preferredVersions"`
+	Region                  string   `pulumi:"region"`
 	// Set of character sets supported by this engine version.
 	SupportedCharacterSets []string `pulumi:"supportedCharacterSets"`
 	// Set of time zones supported by this engine.
@@ -149,6 +152,8 @@ type GetEngineVersionOutputArgs struct {
 	PreferredUpgradeTargets pulumi.StringArrayInput `pulumi:"preferredUpgradeTargets"`
 	// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
 	PreferredVersions pulumi.StringArrayInput `pulumi:"preferredVersions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Version of the DB engine. For example, `1.0.1.0`, `1.0.2.2`, and `1.0.3.0`. If both the `version` and `preferredVersions` arguments are not configured, the data source will return the default version for the engine.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
@@ -226,6 +231,10 @@ func (o GetEngineVersionResultOutput) PreferredUpgradeTargets() pulumi.StringArr
 
 func (o GetEngineVersionResultOutput) PreferredVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) []string { return v.PreferredVersions }).(pulumi.StringArrayOutput)
+}
+
+func (o GetEngineVersionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Set of character sets supported by this engine version.

@@ -28,7 +28,7 @@ class GetQuicksightAnalysisResult:
     """
     A collection of values returned by getQuicksightAnalysis.
     """
-    def __init__(__self__, analysis_id=None, arn=None, aws_account_id=None, created_time=None, id=None, last_published_time=None, last_updated_time=None, name=None, permissions=None, status=None, tags=None, theme_arn=None):
+    def __init__(__self__, analysis_id=None, arn=None, aws_account_id=None, created_time=None, id=None, last_published_time=None, last_updated_time=None, name=None, permissions=None, region=None, status=None, tags=None, theme_arn=None):
         if analysis_id and not isinstance(analysis_id, str):
             raise TypeError("Expected argument 'analysis_id' to be a str")
         pulumi.set(__self__, "analysis_id", analysis_id)
@@ -56,6 +56,9 @@ class GetQuicksightAnalysisResult:
         if permissions and not isinstance(permissions, list):
             raise TypeError("Expected argument 'permissions' to be a list")
         pulumi.set(__self__, "permissions", permissions)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -116,6 +119,11 @@ class GetQuicksightAnalysisResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def status(self) -> builtins.str:
         return pulumi.get(self, "status")
 
@@ -145,6 +153,7 @@ class AwaitableGetQuicksightAnalysisResult(GetQuicksightAnalysisResult):
             last_updated_time=self.last_updated_time,
             name=self.name,
             permissions=self.permissions,
+            region=self.region,
             status=self.status,
             tags=self.tags,
             theme_arn=self.theme_arn)
@@ -152,6 +161,7 @@ class AwaitableGetQuicksightAnalysisResult(GetQuicksightAnalysisResult):
 
 def get_quicksight_analysis(analysis_id: Optional[builtins.str] = None,
                             aws_account_id: Optional[builtins.str] = None,
+                            region: Optional[builtins.str] = None,
                             tags: Optional[Mapping[str, builtins.str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQuicksightAnalysisResult:
     """
@@ -171,10 +181,12 @@ def get_quicksight_analysis(analysis_id: Optional[builtins.str] = None,
 
     :param builtins.str analysis_id: Identifier for the analysis.
     :param builtins.str aws_account_id: AWS account ID.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['analysisId'] = analysis_id
     __args__['awsAccountId'] = aws_account_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis', __args__, opts=opts, typ=GetQuicksightAnalysisResult).value
@@ -189,11 +201,13 @@ def get_quicksight_analysis(analysis_id: Optional[builtins.str] = None,
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         name=pulumi.get(__ret__, 'name'),
         permissions=pulumi.get(__ret__, 'permissions'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         theme_arn=pulumi.get(__ret__, 'theme_arn'))
 def get_quicksight_analysis_output(analysis_id: Optional[pulumi.Input[builtins.str]] = None,
                                    aws_account_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQuicksightAnalysisResult]:
     """
@@ -213,10 +227,12 @@ def get_quicksight_analysis_output(analysis_id: Optional[pulumi.Input[builtins.s
 
     :param builtins.str analysis_id: Identifier for the analysis.
     :param builtins.str aws_account_id: AWS account ID.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['analysisId'] = analysis_id
     __args__['awsAccountId'] = aws_account_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis', __args__, opts=opts, typ=GetQuicksightAnalysisResult)
@@ -230,6 +246,7 @@ def get_quicksight_analysis_output(analysis_id: Optional[pulumi.Input[builtins.s
         last_updated_time=pulumi.get(__response__, 'last_updated_time'),
         name=pulumi.get(__response__, 'name'),
         permissions=pulumi.get(__response__, 'permissions'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),
         theme_arn=pulumi.get(__response__, 'theme_arn')))

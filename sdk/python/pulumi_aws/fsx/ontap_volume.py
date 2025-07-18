@@ -30,6 +30,7 @@ class OntapVolumeArgs:
                  junction_path: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  ontap_volume_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_style: Optional[pulumi.Input[builtins.str]] = None,
                  size_in_bytes: Optional[pulumi.Input[builtins.str]] = None,
                  size_in_megabytes: Optional[pulumi.Input[builtins.int]] = None,
@@ -53,6 +54,7 @@ class OntapVolumeArgs:
         :param pulumi.Input[builtins.str] junction_path: Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         :param pulumi.Input[builtins.str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[builtins.str] ontap_volume_type: Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_style: Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         :param pulumi.Input[builtins.str] size_in_bytes: Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         :param pulumi.Input[builtins.int] size_in_megabytes: Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
@@ -80,6 +82,8 @@ class OntapVolumeArgs:
             pulumi.set(__self__, "name", name)
         if ontap_volume_type is not None:
             pulumi.set(__self__, "ontap_volume_type", ontap_volume_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_style is not None:
             pulumi.set(__self__, "security_style", security_style)
         if size_in_bytes is not None:
@@ -200,6 +204,18 @@ class OntapVolumeArgs:
     @ontap_volume_type.setter
     def ontap_volume_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "ontap_volume_type", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="securityStyle")
@@ -347,6 +363,7 @@ class _OntapVolumeState:
                  junction_path: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  ontap_volume_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_style: Optional[pulumi.Input[builtins.str]] = None,
                  size_in_bytes: Optional[pulumi.Input[builtins.str]] = None,
                  size_in_megabytes: Optional[pulumi.Input[builtins.int]] = None,
@@ -373,6 +390,7 @@ class _OntapVolumeState:
         :param pulumi.Input[builtins.str] junction_path: Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         :param pulumi.Input[builtins.str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[builtins.str] ontap_volume_type: Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_style: Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         :param pulumi.Input[builtins.str] size_in_bytes: Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         :param pulumi.Input[builtins.int] size_in_megabytes: Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
@@ -410,6 +428,8 @@ class _OntapVolumeState:
             pulumi.set(__self__, "name", name)
         if ontap_volume_type is not None:
             pulumi.set(__self__, "ontap_volume_type", ontap_volume_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_style is not None:
             pulumi.set(__self__, "security_style", security_style)
         if size_in_bytes is not None:
@@ -428,9 +448,6 @@ class _OntapVolumeState:
             pulumi.set(__self__, "storage_virtual_machine_id", storage_virtual_machine_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tiering_policy is not None:
@@ -563,6 +580,18 @@ class _OntapVolumeState:
         pulumi.set(self, "ontap_volume_type", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityStyle")
     def security_style(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -674,7 +703,6 @@ class _OntapVolumeState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -747,6 +775,7 @@ class OntapVolume(pulumi.CustomResource):
                  junction_path: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  ontap_volume_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_style: Optional[pulumi.Input[builtins.str]] = None,
                  size_in_bytes: Optional[pulumi.Input[builtins.str]] = None,
                  size_in_megabytes: Optional[pulumi.Input[builtins.int]] = None,
@@ -817,6 +846,7 @@ class OntapVolume(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] junction_path: Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         :param pulumi.Input[builtins.str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[builtins.str] ontap_volume_type: Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_style: Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         :param pulumi.Input[builtins.str] size_in_bytes: Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         :param pulumi.Input[builtins.int] size_in_megabytes: Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
@@ -908,6 +938,7 @@ class OntapVolume(pulumi.CustomResource):
                  junction_path: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  ontap_volume_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_style: Optional[pulumi.Input[builtins.str]] = None,
                  size_in_bytes: Optional[pulumi.Input[builtins.str]] = None,
                  size_in_megabytes: Optional[pulumi.Input[builtins.int]] = None,
@@ -936,6 +967,7 @@ class OntapVolume(pulumi.CustomResource):
             __props__.__dict__["junction_path"] = junction_path
             __props__.__dict__["name"] = name
             __props__.__dict__["ontap_volume_type"] = ontap_volume_type
+            __props__.__dict__["region"] = region
             __props__.__dict__["security_style"] = security_style
             __props__.__dict__["size_in_bytes"] = size_in_bytes
             __props__.__dict__["size_in_megabytes"] = size_in_megabytes
@@ -975,6 +1007,7 @@ class OntapVolume(pulumi.CustomResource):
             junction_path: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             ontap_volume_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_style: Optional[pulumi.Input[builtins.str]] = None,
             size_in_bytes: Optional[pulumi.Input[builtins.str]] = None,
             size_in_megabytes: Optional[pulumi.Input[builtins.int]] = None,
@@ -1006,6 +1039,7 @@ class OntapVolume(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] junction_path: Specifies the location in the storage virtual machine's namespace where the volume is mounted. The junction_path must have a leading forward slash, such as `/vol3`
         :param pulumi.Input[builtins.str] name: The name of the Volume. You can use a maximum of 203 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[builtins.str] ontap_volume_type: Specifies the type of volume, valid values are `RW`, `DP`. Default value is `RW`. These can be set by the ONTAP CLI or API. This setting is used as part of migration and replication [Migrating to Amazon FSx for NetApp ONTAP](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/migrating-fsx-ontap.html)
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_style: Specifies the volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`.
         :param pulumi.Input[builtins.str] size_in_bytes: Specifies the size of the volume, in megabytes (MB), that you are creating. Can be used for any size but required for volumes over 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
         :param pulumi.Input[builtins.int] size_in_megabytes: Specifies the size of the volume, in megabytes (MB), that you are creating. Supported when creating volumes under 2 PB. Either size_in_bytes or size_in_megabytes must be specified. Minimum size for `FLEXGROUP` volumes are 100GiB per constituent.
@@ -1037,6 +1071,7 @@ class OntapVolume(pulumi.CustomResource):
         __props__.__dict__["junction_path"] = junction_path
         __props__.__dict__["name"] = name
         __props__.__dict__["ontap_volume_type"] = ontap_volume_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_style"] = security_style
         __props__.__dict__["size_in_bytes"] = size_in_bytes
         __props__.__dict__["size_in_megabytes"] = size_in_megabytes
@@ -1134,6 +1169,14 @@ class OntapVolume(pulumi.CustomResource):
         return pulumi.get(self, "ontap_volume_type")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityStyle")
     def security_style(self) -> pulumi.Output[builtins.str]:
         """
@@ -1209,7 +1252,6 @@ class OntapVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

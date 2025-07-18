@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
 
     public static final ImageVersionState Empty = new ImageVersionState();
+
+    /**
+     * A list of aliases for the image version.
+     * 
+     */
+    @Import(name="aliases")
+    private @Nullable Output<List<String>> aliases;
+
+    /**
+     * @return A list of aliases for the image version.
+     * 
+     */
+    public Optional<Output<List<String>>> aliases() {
+        return Optional.ofNullable(this.aliases);
+    }
 
     /**
      * The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
@@ -160,6 +176,21 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The maintainer description of the image version.
      * 
      */
@@ -207,6 +238,7 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
     private ImageVersionState() {}
 
     private ImageVersionState(ImageVersionState $) {
+        this.aliases = $.aliases;
         this.arn = $.arn;
         this.baseImage = $.baseImage;
         this.containerImage = $.containerImage;
@@ -217,6 +249,7 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
         this.mlFramework = $.mlFramework;
         this.processor = $.processor;
         this.programmingLang = $.programmingLang;
+        this.region = $.region;
         this.releaseNotes = $.releaseNotes;
         this.vendorGuidance = $.vendorGuidance;
         this.version = $.version;
@@ -238,6 +271,37 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(ImageVersionState defaults) {
             $ = new ImageVersionState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param aliases A list of aliases for the image version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aliases(@Nullable Output<List<String>> aliases) {
+            $.aliases = aliases;
+            return this;
+        }
+
+        /**
+         * @param aliases A list of aliases for the image version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aliases(List<String> aliases) {
+            return aliases(Output.of(aliases));
+        }
+
+        /**
+         * @param aliases A list of aliases for the image version.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder aliases(String... aliases) {
+            return aliases(List.of(aliases));
         }
 
         /**
@@ -436,6 +500,27 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder programmingLang(String programmingLang) {
             return programmingLang(Output.of(programmingLang));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

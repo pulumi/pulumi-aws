@@ -28,7 +28,7 @@ class GetUserHierarchyGroupResult:
     """
     A collection of values returned by getUserHierarchyGroup.
     """
-    def __init__(__self__, arn=None, hierarchy_group_id=None, hierarchy_paths=None, id=None, instance_id=None, level_id=None, name=None, tags=None):
+    def __init__(__self__, arn=None, hierarchy_group_id=None, hierarchy_paths=None, id=None, instance_id=None, level_id=None, name=None, region=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -50,6 +50,9 @@ class GetUserHierarchyGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -106,6 +109,11 @@ class GetUserHierarchyGroupResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Map of tags to assign to the hierarchy group.
@@ -126,12 +134,14 @@ class AwaitableGetUserHierarchyGroupResult(GetUserHierarchyGroupResult):
             instance_id=self.instance_id,
             level_id=self.level_id,
             name=self.name,
+            region=self.region,
             tags=self.tags)
 
 
 def get_user_hierarchy_group(hierarchy_group_id: Optional[builtins.str] = None,
                              instance_id: Optional[builtins.str] = None,
                              name: Optional[builtins.str] = None,
+                             region: Optional[builtins.str] = None,
                              tags: Optional[Mapping[str, builtins.str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserHierarchyGroupResult:
     """
@@ -165,12 +175,14 @@ def get_user_hierarchy_group(hierarchy_group_id: Optional[builtins.str] = None,
     :param builtins.str name: Returns information on a specific hierarchy group by name
            
            > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the hierarchy group.
     """
     __args__ = dict()
     __args__['hierarchyGroupId'] = hierarchy_group_id
     __args__['instanceId'] = instance_id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:connect/getUserHierarchyGroup:getUserHierarchyGroup', __args__, opts=opts, typ=GetUserHierarchyGroupResult).value
@@ -183,10 +195,12 @@ def get_user_hierarchy_group(hierarchy_group_id: Optional[builtins.str] = None,
         instance_id=pulumi.get(__ret__, 'instance_id'),
         level_id=pulumi.get(__ret__, 'level_id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_user_hierarchy_group_output(hierarchy_group_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                     instance_id: Optional[pulumi.Input[builtins.str]] = None,
                                     name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                    region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserHierarchyGroupResult]:
     """
@@ -220,12 +234,14 @@ def get_user_hierarchy_group_output(hierarchy_group_id: Optional[pulumi.Input[Op
     :param builtins.str name: Returns information on a specific hierarchy group by name
            
            > **NOTE:** `instance_id` and one of either `name` or `hierarchy_group_id` is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the hierarchy group.
     """
     __args__ = dict()
     __args__['hierarchyGroupId'] = hierarchy_group_id
     __args__['instanceId'] = instance_id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getUserHierarchyGroup:getUserHierarchyGroup', __args__, opts=opts, typ=GetUserHierarchyGroupResult)
@@ -237,4 +253,5 @@ def get_user_hierarchy_group_output(hierarchy_group_id: Optional[pulumi.Input[Op
         instance_id=pulumi.get(__response__, 'instance_id'),
         level_id=pulumi.get(__response__, 'level_id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

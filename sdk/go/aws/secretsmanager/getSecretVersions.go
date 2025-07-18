@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,6 +26,8 @@ type GetSecretVersionsArgs struct {
 	// If true, all deprecated secret versions are included in the response.
 	// If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
 	IncludeDeprecated *bool `pulumi:"includeDeprecated"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
 	SecretId string `pulumi:"secretId"`
 }
@@ -38,6 +40,7 @@ type GetSecretVersionsResult struct {
 	Id                string `pulumi:"id"`
 	IncludeDeprecated *bool  `pulumi:"includeDeprecated"`
 	Name              string `pulumi:"name"`
+	Region            string `pulumi:"region"`
 	SecretId          string `pulumi:"secretId"`
 	// List of the versions of the secret. Attributes are specified below.
 	Versions []GetSecretVersionsVersion `pulumi:"versions"`
@@ -57,6 +60,8 @@ type GetSecretVersionsOutputArgs struct {
 	// If true, all deprecated secret versions are included in the response.
 	// If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
 	IncludeDeprecated pulumi.BoolPtrInput `pulumi:"includeDeprecated"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
 }
@@ -96,6 +101,10 @@ func (o GetSecretVersionsResultOutput) IncludeDeprecated() pulumi.BoolPtrOutput 
 
 func (o GetSecretVersionsResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretVersionsResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetSecretVersionsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretVersionsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetSecretVersionsResultOutput) SecretId() pulumi.StringOutput {

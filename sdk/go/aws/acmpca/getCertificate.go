@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acmpca"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/acmpca"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,6 +55,8 @@ type LookupCertificateArgs struct {
 	Arn string `pulumi:"arn"`
 	// ARN of the certificate authority.
 	CertificateAuthorityArn string `pulumi:"certificateAuthorityArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getCertificate.
@@ -66,7 +68,8 @@ type LookupCertificateResult struct {
 	// PEM-encoded certificate chain that includes any intermediate certificates and chains up to root CA.
 	CertificateChain string `pulumi:"certificateChain"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
@@ -84,6 +87,8 @@ type LookupCertificateOutputArgs struct {
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// ARN of the certificate authority.
 	CertificateAuthorityArn pulumi.StringInput `pulumi:"certificateAuthorityArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupCertificateOutputArgs) ElementType() reflect.Type {
@@ -126,6 +131,10 @@ func (o LookupCertificateResultOutput) CertificateChain() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupCertificateResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupCertificateResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

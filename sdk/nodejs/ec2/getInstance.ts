@@ -40,6 +40,7 @@ export function getInstance(args?: GetInstanceArgs, opts?: pulumi.InvokeOptions)
         "getUserData": args.getUserData,
         "instanceId": args.instanceId,
         "instanceTags": args.instanceTags,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -77,6 +78,10 @@ export interface GetInstanceArgs {
      * exactly match a pair on the desired Instance.
      */
     instanceTags?: {[key: string]: string};
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags assigned to the Instance.
      */
@@ -224,6 +229,7 @@ export interface GetInstanceResult {
      * Public IP address assigned to the Instance, if applicable. **NOTE**: If you are using an `aws.ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `publicIp`, as this field will change after the EIP is attached.
      */
     readonly publicIp: string;
+    readonly region: string;
     /**
      * Root block device mappings of the Instance
      */
@@ -298,6 +304,7 @@ export function getInstanceOutput(args?: GetInstanceOutputArgs, opts?: pulumi.In
         "getUserData": args.getUserData,
         "instanceId": args.instanceId,
         "instanceTags": args.instanceTags,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -335,6 +342,10 @@ export interface GetInstanceOutputArgs {
      * exactly match a pair on the desired Instance.
      */
     instanceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the Instance.
      */

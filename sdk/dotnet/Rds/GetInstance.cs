@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Rds
         [Input("dbInstanceIdentifier")]
         public string? DbInstanceIdentifier { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("dbInstanceIdentifier")]
         public Input<string>? DbInstanceIdentifier { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -282,6 +294,7 @@ namespace Pulumi.Aws.Rds
         /// Accessibility options for the DB instance.
         /// </summary>
         public readonly bool PubliclyAccessible;
+        public readonly string Region;
         /// <summary>
         /// Identifier of the source DB that this is a replica of.
         /// </summary>
@@ -386,6 +399,8 @@ namespace Pulumi.Aws.Rds
 
             bool publiclyAccessible,
 
+            string region,
+
             string replicateSourceDb,
 
             string resourceId,
@@ -438,6 +453,7 @@ namespace Pulumi.Aws.Rds
             PreferredBackupWindow = preferredBackupWindow;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;
             PubliclyAccessible = publiclyAccessible;
+            Region = region;
             ReplicateSourceDb = replicateSourceDb;
             ResourceId = resourceId;
             StorageEncrypted = storageEncrypted;

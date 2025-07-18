@@ -93,6 +93,12 @@ namespace Pulumi.Aws.ImageBuilder
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -182,6 +194,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// Platform of the component.
         /// </summary>
         public readonly string Platform;
+        public readonly string Region;
         /// <summary>
         /// Operating Systems (OSes) supported by the component.
         /// </summary>
@@ -223,6 +236,8 @@ namespace Pulumi.Aws.ImageBuilder
 
             string platform,
 
+            string region,
+
             ImmutableArray<string> supportedOsVersions,
 
             ImmutableDictionary<string, string> tags,
@@ -242,6 +257,7 @@ namespace Pulumi.Aws.ImageBuilder
             Name = name;
             Owner = owner;
             Platform = platform;
+            Region = region;
             SupportedOsVersions = supportedOsVersions;
             Tags = tags;
             Type = type;

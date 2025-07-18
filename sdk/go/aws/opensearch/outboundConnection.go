@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,12 +44,12 @@ import (
 //				ConnectionMode:  pulumi.String("DIRECT"),
 //				LocalDomainInfo: &opensearch.OutboundConnectionLocalDomainInfoArgs{
 //					OwnerId:    pulumi.String(current.AccountId),
-//					Region:     pulumi.String(currentGetRegion.Name),
+//					Region:     pulumi.String(currentGetRegion.Region),
 //					DomainName: pulumi.Any(localDomain.DomainName),
 //				},
 //				RemoteDomainInfo: &opensearch.OutboundConnectionRemoteDomainInfoArgs{
 //					OwnerId:    pulumi.String(current.AccountId),
-//					Region:     pulumi.String(currentGetRegion.Name),
+//					Region:     pulumi.String(currentGetRegion.Region),
 //					DomainName: pulumi.Any(remoteDomain.DomainName),
 //				},
 //			})
@@ -84,6 +84,8 @@ type OutboundConnection struct {
 	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
 	// Configuration block for the local Opensearch domain.
 	LocalDomainInfo OutboundConnectionLocalDomainInfoOutput `pulumi:"localDomainInfo"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for the remote Opensearch domain.
 	RemoteDomainInfo OutboundConnectionRemoteDomainInfoOutput `pulumi:"remoteDomainInfo"`
 }
@@ -139,6 +141,8 @@ type outboundConnectionState struct {
 	ConnectionStatus *string `pulumi:"connectionStatus"`
 	// Configuration block for the local Opensearch domain.
 	LocalDomainInfo *OutboundConnectionLocalDomainInfo `pulumi:"localDomainInfo"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block for the remote Opensearch domain.
 	RemoteDomainInfo *OutboundConnectionRemoteDomainInfo `pulumi:"remoteDomainInfo"`
 }
@@ -156,6 +160,8 @@ type OutboundConnectionState struct {
 	ConnectionStatus pulumi.StringPtrInput
 	// Configuration block for the local Opensearch domain.
 	LocalDomainInfo OutboundConnectionLocalDomainInfoPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block for the remote Opensearch domain.
 	RemoteDomainInfo OutboundConnectionRemoteDomainInfoPtrInput
 }
@@ -175,6 +181,8 @@ type outboundConnectionArgs struct {
 	ConnectionProperties *OutboundConnectionConnectionProperties `pulumi:"connectionProperties"`
 	// Configuration block for the local Opensearch domain.
 	LocalDomainInfo OutboundConnectionLocalDomainInfo `pulumi:"localDomainInfo"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block for the remote Opensearch domain.
 	RemoteDomainInfo OutboundConnectionRemoteDomainInfo `pulumi:"remoteDomainInfo"`
 }
@@ -191,6 +199,8 @@ type OutboundConnectionArgs struct {
 	ConnectionProperties OutboundConnectionConnectionPropertiesPtrInput
 	// Configuration block for the local Opensearch domain.
 	LocalDomainInfo OutboundConnectionLocalDomainInfoInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block for the remote Opensearch domain.
 	RemoteDomainInfo OutboundConnectionRemoteDomainInfoInput
 }
@@ -312,6 +322,11 @@ func (o OutboundConnectionOutput) ConnectionStatus() pulumi.StringOutput {
 // Configuration block for the local Opensearch domain.
 func (o OutboundConnectionOutput) LocalDomainInfo() OutboundConnectionLocalDomainInfoOutput {
 	return o.ApplyT(func(v *OutboundConnection) OutboundConnectionLocalDomainInfoOutput { return v.LocalDomainInfo }).(OutboundConnectionLocalDomainInfoOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o OutboundConnectionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *OutboundConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Configuration block for the remote Opensearch domain.

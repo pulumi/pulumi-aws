@@ -80,6 +80,10 @@ export class InstanceAccessControlAttributes extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the SSO Instance.
      */
     public readonly instanceArn!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     public /*out*/ readonly statusReason!: pulumi.Output<string>;
 
@@ -98,6 +102,7 @@ export class InstanceAccessControlAttributes extends pulumi.CustomResource {
             const state = argsOrState as InstanceAccessControlAttributesState | undefined;
             resourceInputs["attributes"] = state ? state.attributes : undefined;
             resourceInputs["instanceArn"] = state ? state.instanceArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["statusReason"] = state ? state.statusReason : undefined;
         } else {
@@ -110,6 +115,7 @@ export class InstanceAccessControlAttributes extends pulumi.CustomResource {
             }
             resourceInputs["attributes"] = args ? args.attributes : undefined;
             resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusReason"] = undefined /*out*/;
         }
@@ -130,6 +136,10 @@ export interface InstanceAccessControlAttributesState {
      * The Amazon Resource Name (ARN) of the SSO Instance.
      */
     instanceArn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
     statusReason?: pulumi.Input<string>;
 }
@@ -146,4 +156,8 @@ export interface InstanceAccessControlAttributesArgs {
      * The Amazon Resource Name (ARN) of the SSO Instance.
      */
     instanceArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

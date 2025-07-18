@@ -82,6 +82,12 @@ namespace Pulumi.Aws.S3
         public string? Prefix { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
         /// </summary>
         [Input("startAfter")]
@@ -132,6 +138,12 @@ namespace Pulumi.Aws.S3
         public Input<string>? Prefix { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
         /// </summary>
         [Input("startAfter")]
@@ -169,6 +181,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly ImmutableArray<string> Owners;
         public readonly string? Prefix;
+        public readonly string Region;
         public readonly string? StartAfter;
 
         [OutputConstructor]
@@ -193,6 +206,8 @@ namespace Pulumi.Aws.S3
 
             string? prefix,
 
+            string region,
+
             string? startAfter)
         {
             Bucket = bucket;
@@ -205,6 +220,7 @@ namespace Pulumi.Aws.S3
             MaxKeys = maxKeys;
             Owners = owners;
             Prefix = prefix;
+            Region = region;
             StartAfter = startAfter;
         }
     }

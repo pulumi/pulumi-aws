@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,6 +66,8 @@ type SecurityConfiguration struct {
 	EncryptionConfiguration SecurityConfigurationEncryptionConfigurationOutput `pulumi:"encryptionConfiguration"`
 	// Name of the security configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewSecurityConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -105,6 +107,8 @@ type securityConfigurationState struct {
 	EncryptionConfiguration *SecurityConfigurationEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// Name of the security configuration.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type SecurityConfigurationState struct {
@@ -112,6 +116,8 @@ type SecurityConfigurationState struct {
 	EncryptionConfiguration SecurityConfigurationEncryptionConfigurationPtrInput
 	// Name of the security configuration.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (SecurityConfigurationState) ElementType() reflect.Type {
@@ -123,6 +129,8 @@ type securityConfigurationArgs struct {
 	EncryptionConfiguration SecurityConfigurationEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// Name of the security configuration.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a SecurityConfiguration resource.
@@ -131,6 +139,8 @@ type SecurityConfigurationArgs struct {
 	EncryptionConfiguration SecurityConfigurationEncryptionConfigurationInput
 	// Name of the security configuration.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (SecurityConfigurationArgs) ElementType() reflect.Type {
@@ -230,6 +240,11 @@ func (o SecurityConfigurationOutput) EncryptionConfiguration() SecurityConfigura
 // Name of the security configuration.
 func (o SecurityConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o SecurityConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecurityConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type SecurityConfigurationArrayOutput struct{ *pulumi.OutputState }

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,11 +23,11 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/guardduty"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,7 +42,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			gdBucket, err := s3.NewBucketV2(ctx, "gd_bucket", &s3.BucketV2Args{
+//			gdBucket, err := s3.NewBucket(ctx, "gd_bucket", &s3.BucketArgs{
 //				Bucket:       pulumi.String("example"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
@@ -97,7 +97,7 @@ import (
 //							"kms:GenerateDataKey",
 //						},
 //						Resources: []string{
-//							fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentGetRegion.Name, current.AccountId),
+//							fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentGetRegion.Region, current.AccountId),
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
@@ -114,7 +114,7 @@ import (
 //							"kms:*",
 //						},
 //						Resources: []string{
-//							fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentGetRegion.Name, current.AccountId),
+//							fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentGetRegion.Region, current.AccountId),
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
@@ -136,7 +136,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "gd_bucket_acl", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAcl(ctx, "gd_bucket_acl", &s3.BucketAclArgs{
 //				Bucket: gdBucket.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
@@ -198,6 +198,8 @@ type PublishingDestination struct {
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
 	// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewPublishingDestination registers a new resource with the given unique name, arguments, and options.
@@ -249,6 +251,8 @@ type publishingDestinationState struct {
 	DetectorId *string `pulumi:"detectorId"`
 	// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type PublishingDestinationState struct {
@@ -262,6 +266,8 @@ type PublishingDestinationState struct {
 	DetectorId pulumi.StringPtrInput
 	// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
 	KmsKeyArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PublishingDestinationState) ElementType() reflect.Type {
@@ -279,6 +285,8 @@ type publishingDestinationArgs struct {
 	DetectorId string `pulumi:"detectorId"`
 	// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a PublishingDestination resource.
@@ -293,6 +301,8 @@ type PublishingDestinationArgs struct {
 	DetectorId pulumi.StringInput
 	// The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
 	KmsKeyArn pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PublishingDestinationArgs) ElementType() reflect.Type {
@@ -402,6 +412,11 @@ func (o PublishingDestinationOutput) DetectorId() pulumi.StringOutput {
 // The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
 func (o PublishingDestinationOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PublishingDestination) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o PublishingDestinationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *PublishingDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type PublishingDestinationArrayOutput struct{ *pulumi.OutputState }

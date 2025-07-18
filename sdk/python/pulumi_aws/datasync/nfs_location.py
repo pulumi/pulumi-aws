@@ -26,6 +26,7 @@ class NfsLocationArgs:
                  server_hostname: pulumi.Input[builtins.str],
                  subdirectory: pulumi.Input[builtins.str],
                  mount_options: Optional[pulumi.Input['NfsLocationMountOptionsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a NfsLocation resource.
@@ -33,6 +34,7 @@ class NfsLocationArgs:
         :param pulumi.Input[builtins.str] server_hostname: Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         :param pulumi.Input['NfsLocationMountOptionsArgs'] mount_options: Configuration block containing mount options used by DataSync to access the NFS Server.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "on_prem_config", on_prem_config)
@@ -40,6 +42,8 @@ class NfsLocationArgs:
         pulumi.set(__self__, "subdirectory", subdirectory)
         if mount_options is not None:
             pulumi.set(__self__, "mount_options", mount_options)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -93,6 +97,18 @@ class NfsLocationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -110,6 +126,7 @@ class _NfsLocationState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  mount_options: Optional[pulumi.Input['NfsLocationMountOptionsArgs']] = None,
                  on_prem_config: Optional[pulumi.Input['NfsLocationOnPremConfigArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_hostname: Optional[pulumi.Input[builtins.str]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -120,6 +137,7 @@ class _NfsLocationState:
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input['NfsLocationMountOptionsArgs'] mount_options: Configuration block containing mount options used by DataSync to access the NFS Server.
         :param pulumi.Input['NfsLocationOnPremConfigArgs'] on_prem_config: Configuration block containing information for connecting to the NFS File System.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_hostname: Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -131,15 +149,14 @@ class _NfsLocationState:
             pulumi.set(__self__, "mount_options", mount_options)
         if on_prem_config is not None:
             pulumi.set(__self__, "on_prem_config", on_prem_config)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if server_hostname is not None:
             pulumi.set(__self__, "server_hostname", server_hostname)
         if subdirectory is not None:
             pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if uri is not None:
@@ -182,6 +199,18 @@ class _NfsLocationState:
         pulumi.set(self, "on_prem_config", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serverHostname")
     def server_hostname(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -219,7 +248,6 @@ class _NfsLocationState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -248,6 +276,7 @@ class NfsLocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  mount_options: Optional[pulumi.Input[Union['NfsLocationMountOptionsArgs', 'NfsLocationMountOptionsArgsDict']]] = None,
                  on_prem_config: Optional[pulumi.Input[Union['NfsLocationOnPremConfigArgs', 'NfsLocationOnPremConfigArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_hostname: Optional[pulumi.Input[builtins.str]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -283,6 +312,7 @@ class NfsLocation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['NfsLocationMountOptionsArgs', 'NfsLocationMountOptionsArgsDict']] mount_options: Configuration block containing mount options used by DataSync to access the NFS Server.
         :param pulumi.Input[Union['NfsLocationOnPremConfigArgs', 'NfsLocationOnPremConfigArgsDict']] on_prem_config: Configuration block containing information for connecting to the NFS File System.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_hostname: Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -337,6 +367,7 @@ class NfsLocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  mount_options: Optional[pulumi.Input[Union['NfsLocationMountOptionsArgs', 'NfsLocationMountOptionsArgsDict']]] = None,
                  on_prem_config: Optional[pulumi.Input[Union['NfsLocationOnPremConfigArgs', 'NfsLocationOnPremConfigArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_hostname: Optional[pulumi.Input[builtins.str]] = None,
                  subdirectory: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -353,6 +384,7 @@ class NfsLocation(pulumi.CustomResource):
             if on_prem_config is None and not opts.urn:
                 raise TypeError("Missing required property 'on_prem_config'")
             __props__.__dict__["on_prem_config"] = on_prem_config
+            __props__.__dict__["region"] = region
             if server_hostname is None and not opts.urn:
                 raise TypeError("Missing required property 'server_hostname'")
             __props__.__dict__["server_hostname"] = server_hostname
@@ -376,6 +408,7 @@ class NfsLocation(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             mount_options: Optional[pulumi.Input[Union['NfsLocationMountOptionsArgs', 'NfsLocationMountOptionsArgsDict']]] = None,
             on_prem_config: Optional[pulumi.Input[Union['NfsLocationOnPremConfigArgs', 'NfsLocationOnPremConfigArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             server_hostname: Optional[pulumi.Input[builtins.str]] = None,
             subdirectory: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -391,6 +424,7 @@ class NfsLocation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
         :param pulumi.Input[Union['NfsLocationMountOptionsArgs', 'NfsLocationMountOptionsArgsDict']] mount_options: Configuration block containing mount options used by DataSync to access the NFS Server.
         :param pulumi.Input[Union['NfsLocationOnPremConfigArgs', 'NfsLocationOnPremConfigArgsDict']] on_prem_config: Configuration block containing information for connecting to the NFS File System.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_hostname: Specifies the IP address or DNS name of the NFS server. The DataSync Agent(s) use this to mount the NFS server.
         :param pulumi.Input[builtins.str] subdirectory: Subdirectory to perform actions as source or destination. Should be exported by the NFS server.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -403,6 +437,7 @@ class NfsLocation(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["mount_options"] = mount_options
         __props__.__dict__["on_prem_config"] = on_prem_config
+        __props__.__dict__["region"] = region
         __props__.__dict__["server_hostname"] = server_hostname
         __props__.__dict__["subdirectory"] = subdirectory
         __props__.__dict__["tags"] = tags
@@ -435,6 +470,14 @@ class NfsLocation(pulumi.CustomResource):
         return pulumi.get(self, "on_prem_config")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="serverHostname")
     def server_hostname(self) -> pulumi.Output[builtins.str]:
         """
@@ -460,7 +503,6 @@ class NfsLocation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

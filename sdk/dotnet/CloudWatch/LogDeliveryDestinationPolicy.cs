@@ -56,6 +56,12 @@ namespace Pulumi.Aws.CloudWatch
         [Output("deliveryDestinationPolicy")]
         public Output<string> DeliveryDestinationPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a LogDeliveryDestinationPolicy resource with the given unique name, arguments, and options.
@@ -114,6 +120,12 @@ namespace Pulumi.Aws.CloudWatch
         [Input("deliveryDestinationPolicy", required: true)]
         public Input<string> DeliveryDestinationPolicy { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public LogDeliveryDestinationPolicyArgs()
         {
         }
@@ -133,6 +145,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("deliveryDestinationPolicy")]
         public Input<string>? DeliveryDestinationPolicy { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public LogDeliveryDestinationPolicyState()
         {

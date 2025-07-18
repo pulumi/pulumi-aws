@@ -39,6 +39,21 @@ public final class GetRouteTableAssociationsPlainArgs extends com.pulumi.resourc
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Identifier of EC2 Transit Gateway Route Table.
      * 
      * The following arguments are optional:
@@ -61,6 +76,7 @@ public final class GetRouteTableAssociationsPlainArgs extends com.pulumi.resourc
 
     private GetRouteTableAssociationsPlainArgs(GetRouteTableAssociationsPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
         this.transitGatewayRouteTableId = $.transitGatewayRouteTableId;
     }
 
@@ -107,6 +123,17 @@ public final class GetRouteTableAssociationsPlainArgs extends com.pulumi.resourc
          */
         public Builder filters(GetRouteTableAssociationsFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

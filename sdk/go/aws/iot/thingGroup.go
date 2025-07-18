@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,9 +77,10 @@ type ThingGroup struct {
 	ParentGroupName pulumi.StringPtrOutput `pulumi:"parentGroupName"`
 	// The Thing Group properties. Defined below.
 	Properties ThingGroupPropertiesPtrOutput `pulumi:"properties"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value mapping of resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The current version of the Thing Group record in the registry.
 	Version pulumi.IntOutput `pulumi:"version"`
@@ -124,9 +125,10 @@ type thingGroupState struct {
 	ParentGroupName *string `pulumi:"parentGroupName"`
 	// The Thing Group properties. Defined below.
 	Properties *ThingGroupProperties `pulumi:"properties"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The current version of the Thing Group record in the registry.
 	Version *int `pulumi:"version"`
@@ -142,9 +144,10 @@ type ThingGroupState struct {
 	ParentGroupName pulumi.StringPtrInput
 	// The Thing Group properties. Defined below.
 	Properties ThingGroupPropertiesPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The current version of the Thing Group record in the registry.
 	Version pulumi.IntPtrInput
@@ -161,6 +164,8 @@ type thingGroupArgs struct {
 	ParentGroupName *string `pulumi:"parentGroupName"`
 	// The Thing Group properties. Defined below.
 	Properties *ThingGroupProperties `pulumi:"properties"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -173,6 +178,8 @@ type ThingGroupArgs struct {
 	ParentGroupName pulumi.StringPtrInput
 	// The Thing Group properties. Defined below.
 	Properties ThingGroupPropertiesPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags
 	Tags pulumi.StringMapInput
 }
@@ -288,12 +295,16 @@ func (o ThingGroupOutput) Properties() ThingGroupPropertiesPtrOutput {
 	return o.ApplyT(func(v *ThingGroup) ThingGroupPropertiesPtrOutput { return v.Properties }).(ThingGroupPropertiesPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ThingGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThingGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Key-value mapping of resource tags
 func (o ThingGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ThingGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ThingGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ThingGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

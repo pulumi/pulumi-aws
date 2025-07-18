@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Each S3 Control Bucket can only have one Lifecycle Configuration. Using multiple of this resource against the same S3 Control Bucket will result in perpetual differences each provider run.
  *
- * > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Lifecycle Configurations in an AWS Partition, see the `aws.s3.BucketV2` resource.
+ * > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Lifecycle Configurations in an AWS Partition, see the `aws.s3.Bucket` resource.
  *
  * ## Example Usage
  *
@@ -86,6 +86,10 @@ export class BucketLifecycleConfiguration extends pulumi.CustomResource {
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block(s) containing lifecycle rules for the bucket.
      */
     public readonly rules!: pulumi.Output<outputs.s3control.BucketLifecycleConfigurationRule[]>;
@@ -104,6 +108,7 @@ export class BucketLifecycleConfiguration extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as BucketLifecycleConfigurationState | undefined;
             resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rules"] = state ? state.rules : undefined;
         } else {
             const args = argsOrState as BucketLifecycleConfigurationArgs | undefined;
@@ -114,6 +119,7 @@ export class BucketLifecycleConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'rules'");
             }
             resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -130,6 +136,10 @@ export interface BucketLifecycleConfigurationState {
      */
     bucket?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block(s) containing lifecycle rules for the bucket.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.s3control.BucketLifecycleConfigurationRule>[]>;
@@ -143,6 +153,10 @@ export interface BucketLifecycleConfigurationArgs {
      * Amazon Resource Name (ARN) of the bucket.
      */
     bucket: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block(s) containing lifecycle rules for the bucket.
      */

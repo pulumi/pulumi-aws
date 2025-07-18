@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/inspector2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,6 +56,8 @@ type MemberAssociation struct {
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Account ID of the delegated administrator account
 	DelegatedAdminAccountId pulumi.StringOutput `pulumi:"delegatedAdminAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Status of the member relationship
 	RelationshipStatus pulumi.StringOutput `pulumi:"relationshipStatus"`
 	// Date and time of the last update of the relationship
@@ -99,6 +101,8 @@ type memberAssociationState struct {
 	AccountId *string `pulumi:"accountId"`
 	// Account ID of the delegated administrator account
 	DelegatedAdminAccountId *string `pulumi:"delegatedAdminAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Status of the member relationship
 	RelationshipStatus *string `pulumi:"relationshipStatus"`
 	// Date and time of the last update of the relationship
@@ -110,6 +114,8 @@ type MemberAssociationState struct {
 	AccountId pulumi.StringPtrInput
 	// Account ID of the delegated administrator account
 	DelegatedAdminAccountId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Status of the member relationship
 	RelationshipStatus pulumi.StringPtrInput
 	// Date and time of the last update of the relationship
@@ -123,12 +129,16 @@ func (MemberAssociationState) ElementType() reflect.Type {
 type memberAssociationArgs struct {
 	// ID of the account to associate
 	AccountId string `pulumi:"accountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a MemberAssociation resource.
 type MemberAssociationArgs struct {
 	// ID of the account to associate
 	AccountId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (MemberAssociationArgs) ElementType() reflect.Type {
@@ -226,6 +236,11 @@ func (o MemberAssociationOutput) AccountId() pulumi.StringOutput {
 // Account ID of the delegated administrator account
 func (o MemberAssociationOutput) DelegatedAdminAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MemberAssociation) pulumi.StringOutput { return v.DelegatedAdminAccountId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o MemberAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *MemberAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Status of the member relationship

@@ -89,7 +89,7 @@ namespace Pulumi.Aws.SsoAdmin
         public Output<string> ApplicationAccount { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the application.
+        /// (**Deprecated** Reference `arn` instead) ARN of the application.
         /// </summary>
         [Output("applicationArn")]
         public Output<string> ApplicationArn { get; private set; } = null!;
@@ -99,6 +99,12 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         [Output("applicationProviderArn")]
         public Output<string> ApplicationProviderArn { get; private set; } = null!;
+
+        /// <summary>
+        /// ARN of the application.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
         /// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
@@ -131,6 +137,12 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         [Output("portalOptions")]
         public Output<Outputs.ApplicationPortalOptions?> PortalOptions { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Status of the application. Valid values are `ENABLED` and `DISABLED`.
@@ -235,6 +247,12 @@ namespace Pulumi.Aws.SsoAdmin
         public Input<Inputs.ApplicationPortalOptionsArgs>? PortalOptions { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Status of the application. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
         [Input("status")]
@@ -267,7 +285,7 @@ namespace Pulumi.Aws.SsoAdmin
         public Input<string>? ApplicationAccount { get; set; }
 
         /// <summary>
-        /// ARN of the application.
+        /// (**Deprecated** Reference `arn` instead) ARN of the application.
         /// </summary>
         [Input("applicationArn")]
         public Input<string>? ApplicationArn { get; set; }
@@ -277,6 +295,12 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         [Input("applicationProviderArn")]
         public Input<string>? ApplicationProviderArn { get; set; }
+
+        /// <summary>
+        /// ARN of the application.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
@@ -311,6 +335,12 @@ namespace Pulumi.Aws.SsoAdmin
         public Input<Inputs.ApplicationPortalOptionsGetArgs>? PortalOptions { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Status of the application. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
         [Input("status")]
@@ -334,7 +364,6 @@ namespace Pulumi.Aws.SsoAdmin
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

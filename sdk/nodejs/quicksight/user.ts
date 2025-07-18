@@ -110,6 +110,10 @@ export class User extends pulumi.CustomResource {
      */
     public readonly namespace!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
      */
     public readonly sessionName!: pulumi.Output<string | undefined>;
@@ -147,6 +151,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["iamArn"] = state ? state.iamArn : undefined;
             resourceInputs["identityType"] = state ? state.identityType : undefined;
             resourceInputs["namespace"] = state ? state.namespace : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sessionName"] = state ? state.sessionName : undefined;
             resourceInputs["userInvitationUrl"] = state ? state.userInvitationUrl : undefined;
             resourceInputs["userName"] = state ? state.userName : undefined;
@@ -167,6 +172,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["iamArn"] = args ? args.iamArn : undefined;
             resourceInputs["identityType"] = args ? args.identityType : undefined;
             resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sessionName"] = args ? args.sessionName : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
             resourceInputs["userRole"] = args ? args.userRole : undefined;
@@ -206,6 +212,10 @@ export interface UserState {
      * The Amazon Quicksight namespace to create the user in. Defaults to `default`.
      */
     namespace?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
      */
@@ -250,6 +260,10 @@ export interface UserArgs {
      * The Amazon Quicksight namespace to create the user in. Defaults to `default`.
      */
     namespace?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
      */

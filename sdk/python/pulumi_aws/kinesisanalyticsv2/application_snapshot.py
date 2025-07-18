@@ -21,14 +21,18 @@ __all__ = ['ApplicationSnapshotArgs', 'ApplicationSnapshot']
 class ApplicationSnapshotArgs:
     def __init__(__self__, *,
                  application_name: pulumi.Input[builtins.str],
-                 snapshot_name: pulumi.Input[builtins.str]):
+                 snapshot_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ApplicationSnapshot resource.
         :param pulumi.Input[builtins.str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         :param pulumi.Input[builtins.str] snapshot_name: The name of the application snapshot.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_name", application_name)
         pulumi.set(__self__, "snapshot_name", snapshot_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="applicationName")
@@ -54,18 +58,32 @@ class ApplicationSnapshotArgs:
     def snapshot_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "snapshot_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ApplicationSnapshotState:
     def __init__(__self__, *,
                  application_name: Optional[pulumi.Input[builtins.str]] = None,
                  application_version_id: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_creation_timestamp: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ApplicationSnapshot resources.
         :param pulumi.Input[builtins.str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         :param pulumi.Input[builtins.int] application_version_id: The current application version ID when the snapshot was created.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] snapshot_creation_timestamp: The timestamp of the application snapshot.
         :param pulumi.Input[builtins.str] snapshot_name: The name of the application snapshot.
         """
@@ -73,6 +91,8 @@ class _ApplicationSnapshotState:
             pulumi.set(__self__, "application_name", application_name)
         if application_version_id is not None:
             pulumi.set(__self__, "application_version_id", application_version_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if snapshot_creation_timestamp is not None:
             pulumi.set(__self__, "snapshot_creation_timestamp", snapshot_creation_timestamp)
         if snapshot_name is not None:
@@ -101,6 +121,18 @@ class _ApplicationSnapshotState:
     @application_version_id.setter
     def application_version_id(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "application_version_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="snapshotCreationTimestamp")
@@ -134,6 +166,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -162,6 +195,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] snapshot_name: The name of the application snapshot.
         """
         ...
@@ -209,6 +243,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -222,6 +257,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
             if application_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_name'")
             __props__.__dict__["application_name"] = application_name
+            __props__.__dict__["region"] = region
             if snapshot_name is None and not opts.urn:
                 raise TypeError("Missing required property 'snapshot_name'")
             __props__.__dict__["snapshot_name"] = snapshot_name
@@ -239,6 +275,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             application_name: Optional[pulumi.Input[builtins.str]] = None,
             application_version_id: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             snapshot_creation_timestamp: Optional[pulumi.Input[builtins.str]] = None,
             snapshot_name: Optional[pulumi.Input[builtins.str]] = None) -> 'ApplicationSnapshot':
         """
@@ -250,6 +287,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] application_name: The name of an existing  Kinesis Analytics v2 Application. Note that the application must be running for a snapshot to be created.
         :param pulumi.Input[builtins.int] application_version_id: The current application version ID when the snapshot was created.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] snapshot_creation_timestamp: The timestamp of the application snapshot.
         :param pulumi.Input[builtins.str] snapshot_name: The name of the application snapshot.
         """
@@ -259,6 +297,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
 
         __props__.__dict__["application_name"] = application_name
         __props__.__dict__["application_version_id"] = application_version_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["snapshot_creation_timestamp"] = snapshot_creation_timestamp
         __props__.__dict__["snapshot_name"] = snapshot_name
         return ApplicationSnapshot(resource_name, opts=opts, __props__=__props__)
@@ -278,6 +317,14 @@ class ApplicationSnapshot(pulumi.CustomResource):
         The current application version ID when the snapshot was created.
         """
         return pulumi.get(self, "application_version_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="snapshotCreationTimestamp")

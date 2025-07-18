@@ -7,60 +7,139 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data resource to get a list of Lambda Functions.
+// Provides a list of AWS Lambda Functions in the current region. Use this data source to discover existing Lambda functions for inventory, monitoring, or bulk operations.
 //
 // ## Example Usage
+//
+// ### List All Functions
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.GetFunctions(ctx, map[string]interface{}{}, nil)
+//			all, err := lambda.GetFunctions(ctx, &lambda.GetFunctionsArgs{}, nil)
 //			if err != nil {
 //				return err
+//			}
+//			ctx.Export("functionCount", len(all.FunctionNames))
+//			ctx.Export("allFunctionNames", all.FunctionNames)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Use Function List for Bulk Operations
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Get all Lambda functions
+//			all, err := lambda.GetFunctions(ctx, &lambda.GetFunctionsArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// Create CloudWatch alarms for all functions
+//			var lambdaErrors []*cloudwatch.MetricAlarm
+//			for index := 0; index < int(len(all.FunctionNames)); index++ {
+//				key0 := index
+//				val0 := index
+//				__res, err := cloudwatch.NewMetricAlarm(ctx, fmt.Sprintf("lambda_errors-%v", key0), &cloudwatch.MetricAlarmArgs{
+//					Name:               pulumi.Sprintf("%v-errors", all.FunctionNames[val0]),
+//					ComparisonOperator: pulumi.String("GreaterThanThreshold"),
+//					EvaluationPeriods:  pulumi.Int(2),
+//					MetricName:         pulumi.String("Errors"),
+//					Namespace:          pulumi.String("AWS/Lambda"),
+//					Period:             pulumi.Int(300),
+//					Statistic:          pulumi.String("Sum"),
+//					Threshold:          pulumi.Float64(5),
+//					AlarmDescription:   pulumi.String("This metric monitors lambda errors"),
+//					Dimensions: pulumi.StringMap{
+//						"FunctionName": pulumi.String(all.FunctionNames[val0]),
+//					},
+//					Tags: pulumi.StringMap{
+//						"Environment": pulumi.String("monitoring"),
+//						"Purpose":     pulumi.String("lambda-error-tracking"),
+//					},
+//				})
+//				if err != nil {
+//					return err
+//				}
+//				lambdaErrors = append(lambdaErrors, __res)
 //			}
 //			return nil
 //		})
 //	}
 //
 // ```
-func GetFunctions(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetFunctionsResult, error) {
+func GetFunctions(ctx *pulumi.Context, args *GetFunctionsArgs, opts ...pulumi.InvokeOption) (*GetFunctionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFunctionsResult
-	err := ctx.Invoke("aws:lambda/getFunctions:getFunctions", nil, &rv, opts...)
+	err := ctx.Invoke("aws:lambda/getFunctions:getFunctions", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
-// A collection of values returned by getFunctions.
-type GetFunctionsResult struct {
-	// A list of Lambda Function ARNs.
-	FunctionArns []string `pulumi:"functionArns"`
-	// A list of Lambda Function names.
-	FunctionNames []string `pulumi:"functionNames"`
-	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+// A collection of arguments for invoking getFunctions.
+type GetFunctionsArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
-func GetFunctionsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetFunctionsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetFunctionsResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:lambda/getFunctions:getFunctions", nil, GetFunctionsResultOutput{}, options).(GetFunctionsResultOutput), nil
-	}).(GetFunctionsResultOutput)
+// A collection of values returned by getFunctions.
+type GetFunctionsResult struct {
+	// List of Lambda Function ARNs.
+	FunctionArns []string `pulumi:"functionArns"`
+	// List of Lambda Function names.
+	FunctionNames []string `pulumi:"functionNames"`
+	// The provider-assigned unique ID for this managed resource.
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
+}
+
+func GetFunctionsOutput(ctx *pulumi.Context, args GetFunctionsOutputArgs, opts ...pulumi.InvokeOption) GetFunctionsResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetFunctionsResultOutput, error) {
+			args := v.(GetFunctionsArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:lambda/getFunctions:getFunctions", args, GetFunctionsResultOutput{}, options).(GetFunctionsResultOutput), nil
+		}).(GetFunctionsResultOutput)
+}
+
+// A collection of arguments for invoking getFunctions.
+type GetFunctionsOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetFunctionsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFunctionsArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getFunctions.
@@ -78,12 +157,12 @@ func (o GetFunctionsResultOutput) ToGetFunctionsResultOutputWithContext(ctx cont
 	return o
 }
 
-// A list of Lambda Function ARNs.
+// List of Lambda Function ARNs.
 func (o GetFunctionsResultOutput) FunctionArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFunctionsResult) []string { return v.FunctionArns }).(pulumi.StringArrayOutput)
 }
 
-// A list of Lambda Function names.
+// List of Lambda Function names.
 func (o GetFunctionsResultOutput) FunctionNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFunctionsResult) []string { return v.FunctionNames }).(pulumi.StringArrayOutput)
 }
@@ -91,6 +170,10 @@ func (o GetFunctionsResultOutput) FunctionNames() pulumi.StringArrayOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetFunctionsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetFunctionsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFunctionsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

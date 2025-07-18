@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
 export function getReplicationSubnetGroup(args: GetReplicationSubnetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationSubnetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", {
+        "region": args.region,
         "replicationSubnetGroupId": args.replicationSubnetGroupId,
         "tags": args.tags,
     }, opts);
@@ -32,6 +33,10 @@ export function getReplicationSubnetGroup(args: GetReplicationSubnetGroupArgs, o
  * A collection of arguments for invoking getReplicationSubnetGroup.
  */
 export interface GetReplicationSubnetGroupArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
      */
@@ -47,6 +52,7 @@ export interface GetReplicationSubnetGroupResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     readonly replicationSubnetGroupArn: string;
     /**
      * Description for the subnet group.
@@ -83,6 +89,7 @@ export interface GetReplicationSubnetGroupResult {
 export function getReplicationSubnetGroupOutput(args: GetReplicationSubnetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationSubnetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", {
+        "region": args.region,
         "replicationSubnetGroupId": args.replicationSubnetGroupId,
         "tags": args.tags,
     }, opts);
@@ -92,6 +99,10 @@ export function getReplicationSubnetGroupOutput(args: GetReplicationSubnetGroupO
  * A collection of arguments for invoking getReplicationSubnetGroup.
  */
 export interface GetReplicationSubnetGroupOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
      */

@@ -116,6 +116,12 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetConstraintArgs()
         {
         }
@@ -143,6 +149,12 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetConstraintInvokeArgs()
         {
@@ -176,6 +188,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Product identifier.
         /// </summary>
         public readonly string ProductId;
+        public readonly string Region;
         /// <summary>
         /// Constraint status.
         /// </summary>
@@ -201,6 +214,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
             string productId,
 
+            string region,
+
             string status,
 
             string type)
@@ -212,6 +227,7 @@ namespace Pulumi.Aws.ServiceCatalog
             Parameters = parameters;
             PortfolioId = portfolioId;
             ProductId = productId;
+            Region = region;
             Status = status;
             Type = type;
         }

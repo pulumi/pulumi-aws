@@ -19,10 +19,22 @@ import * as utilities from "../utilities";
  * export const tableNames = all.then(all => all.names);
  * ```
  */
-export function getTables(opts?: pulumi.InvokeOptions): Promise<GetTablesResult> {
+export function getTables(args?: GetTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetTablesResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:dynamodb/getTables:getTables", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getTables.
+ */
+export interface GetTablesArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -37,6 +49,7 @@ export interface GetTablesResult {
      * A list of all the DynamoDB table names found.
      */
     readonly names: string[];
+    readonly region: string;
 }
 /**
  * Returns a list of all AWS DynamoDB table names in a region.
@@ -53,8 +66,20 @@ export interface GetTablesResult {
  * export const tableNames = all.then(all => all.names);
  * ```
  */
-export function getTablesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTablesResult> {
+export function getTablesOutput(args?: GetTablesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTablesResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:dynamodb/getTables:getTables", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getTables.
+ */
+export interface GetTablesOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

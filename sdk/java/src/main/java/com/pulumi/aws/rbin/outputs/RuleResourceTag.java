@@ -13,21 +13,21 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RuleResourceTag {
     /**
-     * @return The tag key.
+     * @return Tag key.
      * 
      * The following argument is optional:
      * 
      */
     private String resourceTagKey;
     /**
-     * @return The tag value.
+     * @return Tag value.
      * 
      */
     private @Nullable String resourceTagValue;
 
     private RuleResourceTag() {}
     /**
-     * @return The tag key.
+     * @return Tag key.
      * 
      * The following argument is optional:
      * 
@@ -36,7 +36,7 @@ public final class RuleResourceTag {
         return this.resourceTagKey;
     }
     /**
-     * @return The tag value.
+     * @return Tag value.
      * 
      */
     public Optional<String> resourceTagValue() {

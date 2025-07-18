@@ -31,6 +31,7 @@ export function getImage(args?: GetImageArgs, opts?: pulumi.InvokeOptions): Prom
         "mostRecent": args.mostRecent,
         "name": args.name,
         "nameRegex": args.nameRegex,
+        "region": args.region,
         "type": args.type,
     }, opts);
 }
@@ -55,6 +56,10 @@ export interface GetImageArgs {
      * Regular expression name of the image being searched for. Cannot be used with arn or name.
      */
     nameRegex?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * The type of image which must be (PUBLIC, PRIVATE, or SHARED).
      */
@@ -115,6 +120,7 @@ export interface GetImageResult {
      */
     readonly platform: string;
     readonly publicBaseImageReleasedDate: string;
+    readonly region: string;
     /**
      * Current state of image. Image starts in PENDING state which changes to AVAILABLE if creation passes and FAILED if it fails. Values will be from: PENDING | AVAILABLE | FAILED | COPYING | DELETING | CREATING | IMPORTING.
      */
@@ -146,6 +152,7 @@ export function getImageOutput(args?: GetImageOutputArgs, opts?: pulumi.InvokeOu
         "mostRecent": args.mostRecent,
         "name": args.name,
         "nameRegex": args.nameRegex,
+        "region": args.region,
         "type": args.type,
     }, opts);
 }
@@ -170,6 +177,10 @@ export interface GetImageOutputArgs {
      * Regular expression name of the image being searched for. Cannot be used with arn or name.
      */
     nameRegex?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The type of image which must be (PUBLIC, PRIVATE, or SHARED).
      */

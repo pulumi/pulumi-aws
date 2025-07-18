@@ -186,6 +186,12 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// ID of the Route53 Resolver Endpoint.
         /// </summary>
         [Input("resolverEndpointId")]
@@ -212,6 +218,12 @@ namespace Pulumi.Aws.Route53
             get => _filters ?? (_filters = new InputList<Inputs.GetResolverEndpointFilterInputArgs>());
             set => _filters = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ID of the Route53 Resolver Endpoint.
@@ -251,6 +263,7 @@ namespace Pulumi.Aws.Route53
         /// The protocols used by the Resolver endpoint.
         /// </summary>
         public readonly ImmutableArray<string> Protocols;
+        public readonly string Region;
         public readonly string? ResolverEndpointId;
         /// <summary>
         /// The Resolver endpoint IP address type.
@@ -281,6 +294,8 @@ namespace Pulumi.Aws.Route53
 
             ImmutableArray<string> protocols,
 
+            string region,
+
             string? resolverEndpointId,
 
             string resolverEndpointType,
@@ -296,6 +311,7 @@ namespace Pulumi.Aws.Route53
             IpAddresses = ipAddresses;
             Name = name;
             Protocols = protocols;
+            Region = region;
             ResolverEndpointId = resolverEndpointId;
             ResolverEndpointType = resolverEndpointType;
             Status = status;

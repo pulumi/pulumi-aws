@@ -8,31 +8,88 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS Lambda Function Recursion Config.
+// Manages an AWS Lambda Function Recursion Config. Use this resource to control how Lambda handles recursive function invocations to prevent infinite loops.
 //
-// > Destruction of this resource will return the `recursiveLoop` configuration back to the default value of `Terminate`.
+// > **Note:** Destruction of this resource will return the `recursiveLoop` configuration back to the default value of `Terminate`.
 //
 // ## Example Usage
+//
+// ### Allow Recursive Invocations
 //
 // ```go
 // package main
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lambda.NewFunctionRecursionConfig(ctx, "example", &lambda.FunctionRecursionConfigArgs{
-//				FunctionName:  pulumi.String("SomeFunction"),
+//			// Lambda function that may need to call itself
+//			example, err := lambda.NewFunction(ctx, "example", &lambda.FunctionArgs{
+//				Code:    pulumi.NewFileArchive("function.zip"),
+//				Name:    pulumi.String("recursive_processor"),
+//				Role:    pulumi.Any(lambdaRole.Arn),
+//				Handler: pulumi.String("index.handler"),
+//				Runtime: pulumi.String(lambda.RuntimePython3d12),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Allow the function to invoke itself recursively
+//			_, err = lambda.NewFunctionRecursionConfig(ctx, "example", &lambda.FunctionRecursionConfigArgs{
+//				FunctionName:  example.Name,
 //				RecursiveLoop: pulumi.String("Allow"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Production Safety Configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Production function with recursion protection
+//			productionProcessor, err := lambda.NewFunction(ctx, "production_processor", &lambda.FunctionArgs{
+//				Code:    pulumi.NewFileArchive("processor.zip"),
+//				Name:    pulumi.String("production-data-processor"),
+//				Role:    pulumi.Any(lambdaRole.Arn),
+//				Handler: pulumi.String("app.handler"),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS20dX),
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("production"),
+//					"Purpose":     pulumi.String("data-processing"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Prevent infinite loops in production
+//			_, err = lambda.NewFunctionRecursionConfig(ctx, "example", &lambda.FunctionRecursionConfigArgs{
+//				FunctionName:  productionProcessor.Name,
+//				RecursiveLoop: pulumi.String("Terminate"),
 //			})
 //			if err != nil {
 //				return err
@@ -45,18 +102,22 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import AWS Lambda Function Recursion Config using the `function_name`. For example:
+// For backwards compatibility, the following legacy `pulumi import` command is also supported:
 //
 // ```sh
-// $ pulumi import aws:lambda/functionRecursionConfig:FunctionRecursionConfig example SomeFunction
+// $ pulumi import aws:lambda/functionRecursionConfig:FunctionRecursionConfig example recursive_processor
 // ```
 type FunctionRecursionConfig struct {
 	pulumi.CustomResourceState
 
-	// Lambda function name.
+	// Name of the Lambda function.
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
 	// Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+	//
+	// The following arguments are optional:
 	RecursiveLoop pulumi.StringOutput `pulumi:"recursiveLoop"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewFunctionRecursionConfig registers a new resource with the given unique name, arguments, and options.
@@ -95,17 +156,25 @@ func GetFunctionRecursionConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FunctionRecursionConfig resources.
 type functionRecursionConfigState struct {
-	// Lambda function name.
+	// Name of the Lambda function.
 	FunctionName *string `pulumi:"functionName"`
 	// Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+	//
+	// The following arguments are optional:
 	RecursiveLoop *string `pulumi:"recursiveLoop"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type FunctionRecursionConfigState struct {
-	// Lambda function name.
+	// Name of the Lambda function.
 	FunctionName pulumi.StringPtrInput
 	// Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+	//
+	// The following arguments are optional:
 	RecursiveLoop pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (FunctionRecursionConfigState) ElementType() reflect.Type {
@@ -113,18 +182,26 @@ func (FunctionRecursionConfigState) ElementType() reflect.Type {
 }
 
 type functionRecursionConfigArgs struct {
-	// Lambda function name.
+	// Name of the Lambda function.
 	FunctionName string `pulumi:"functionName"`
 	// Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+	//
+	// The following arguments are optional:
 	RecursiveLoop string `pulumi:"recursiveLoop"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a FunctionRecursionConfig resource.
 type FunctionRecursionConfigArgs struct {
-	// Lambda function name.
+	// Name of the Lambda function.
 	FunctionName pulumi.StringInput
 	// Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+	//
+	// The following arguments are optional:
 	RecursiveLoop pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (FunctionRecursionConfigArgs) ElementType() reflect.Type {
@@ -214,14 +291,21 @@ func (o FunctionRecursionConfigOutput) ToFunctionRecursionConfigOutputWithContex
 	return o
 }
 
-// Lambda function name.
+// Name of the Lambda function.
 func (o FunctionRecursionConfigOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionRecursionConfig) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
 }
 
 // Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+//
+// The following arguments are optional:
 func (o FunctionRecursionConfigOutput) RecursiveLoop() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionRecursionConfig) pulumi.StringOutput { return v.RecursiveLoop }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o FunctionRecursionConfigOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *FunctionRecursionConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type FunctionRecursionConfigArrayOutput struct{ *pulumi.OutputState }

@@ -24,17 +24,21 @@ class InsightArgs:
     def __init__(__self__, *,
                  filters: pulumi.Input['InsightFiltersArgs'],
                  group_by_attribute: pulumi.Input[builtins.str],
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Insight resource.
         :param pulumi.Input['InsightFiltersArgs'] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
         :param pulumi.Input[builtins.str] group_by_attribute: The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         :param pulumi.Input[builtins.str] name: The name of the custom insight.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "filters", filters)
         pulumi.set(__self__, "group_by_attribute", group_by_attribute)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -72,6 +76,18 @@ class InsightArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _InsightState:
@@ -79,13 +95,15 @@ class _InsightState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  filters: Optional[pulumi.Input['InsightFiltersArgs']] = None,
                  group_by_attribute: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Insight resources.
         :param pulumi.Input[builtins.str] arn: ARN of the insight.
         :param pulumi.Input['InsightFiltersArgs'] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
         :param pulumi.Input[builtins.str] group_by_attribute: The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         :param pulumi.Input[builtins.str] name: The name of the custom insight.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -95,6 +113,8 @@ class _InsightState:
             pulumi.set(__self__, "group_by_attribute", group_by_attribute)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -144,6 +164,18 @@ class _InsightState:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:securityhub/insight:Insight")
 class Insight(pulumi.CustomResource):
@@ -154,6 +186,7 @@ class Insight(pulumi.CustomResource):
                  filters: Optional[pulumi.Input[Union['InsightFiltersArgs', 'InsightFiltersArgsDict']]] = None,
                  group_by_attribute: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a Security Hub custom insight resource. See the [Managing custom insights section](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-custom-insights.html) of the AWS User Guide for more information.
@@ -275,6 +308,7 @@ class Insight(pulumi.CustomResource):
         :param pulumi.Input[Union['InsightFiltersArgs', 'InsightFiltersArgsDict']] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
         :param pulumi.Input[builtins.str] group_by_attribute: The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         :param pulumi.Input[builtins.str] name: The name of the custom insight.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -415,6 +449,7 @@ class Insight(pulumi.CustomResource):
                  filters: Optional[pulumi.Input[Union['InsightFiltersArgs', 'InsightFiltersArgsDict']]] = None,
                  group_by_attribute: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -431,6 +466,7 @@ class Insight(pulumi.CustomResource):
                 raise TypeError("Missing required property 'group_by_attribute'")
             __props__.__dict__["group_by_attribute"] = group_by_attribute
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["arn"] = None
         super(Insight, __self__).__init__(
             'aws:securityhub/insight:Insight',
@@ -445,7 +481,8 @@ class Insight(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             filters: Optional[pulumi.Input[Union['InsightFiltersArgs', 'InsightFiltersArgsDict']]] = None,
             group_by_attribute: Optional[pulumi.Input[builtins.str]] = None,
-            name: Optional[pulumi.Input[builtins.str]] = None) -> 'Insight':
+            name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'Insight':
         """
         Get an existing Insight resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -457,6 +494,7 @@ class Insight(pulumi.CustomResource):
         :param pulumi.Input[Union['InsightFiltersArgs', 'InsightFiltersArgsDict']] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
         :param pulumi.Input[builtins.str] group_by_attribute: The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         :param pulumi.Input[builtins.str] name: The name of the custom insight.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -466,6 +504,7 @@ class Insight(pulumi.CustomResource):
         __props__.__dict__["filters"] = filters
         __props__.__dict__["group_by_attribute"] = group_by_attribute
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         return Insight(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -499,4 +538,12 @@ class Insight(pulumi.CustomResource):
         The name of the custom insight.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

@@ -45,6 +45,21 @@ public final class GetInstanceTypeOfferingsPlainArgs extends com.pulumi.resource
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Filter response by storage type.
      * 
      */
@@ -64,6 +79,7 @@ public final class GetInstanceTypeOfferingsPlainArgs extends com.pulumi.resource
     private GetInstanceTypeOfferingsPlainArgs(GetInstanceTypeOfferingsPlainArgs $) {
         this.engineType = $.engineType;
         this.hostInstanceType = $.hostInstanceType;
+        this.region = $.region;
         this.storageType = $.storageType;
     }
 
@@ -104,6 +120,17 @@ public final class GetInstanceTypeOfferingsPlainArgs extends com.pulumi.resource
          */
         public Builder hostInstanceType(@Nullable String hostInstanceType) {
             $.hostInstanceType = hostInstanceType;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

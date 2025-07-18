@@ -25,12 +25,14 @@ class LogDeliveryDestinationArgs:
                  delivery_destination_configuration: Optional[pulumi.Input['LogDeliveryDestinationDeliveryDestinationConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_format: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a LogDeliveryDestination resource.
         :param pulumi.Input['LogDeliveryDestinationDeliveryDestinationConfigurationArgs'] delivery_destination_configuration: The AWS resource that will receive the logs.
         :param pulumi.Input[builtins.str] name: The name for this delivery destination.
         :param pulumi.Input[builtins.str] output_format: The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if delivery_destination_configuration is not None:
@@ -39,6 +41,8 @@ class LogDeliveryDestinationArgs:
             pulumi.set(__self__, "name", name)
         if output_format is not None:
             pulumi.set(__self__, "output_format", output_format)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -80,6 +84,18 @@ class LogDeliveryDestinationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -99,6 +115,7 @@ class _LogDeliveryDestinationState:
                  delivery_destination_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_format: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -108,6 +125,7 @@ class _LogDeliveryDestinationState:
         :param pulumi.Input[builtins.str] delivery_destination_type: Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
         :param pulumi.Input[builtins.str] name: The name for this delivery destination.
         :param pulumi.Input[builtins.str] output_format: The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -121,11 +139,10 @@ class _LogDeliveryDestinationState:
             pulumi.set(__self__, "name", name)
         if output_format is not None:
             pulumi.set(__self__, "output_format", output_format)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -191,6 +208,18 @@ class _LogDeliveryDestinationState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -203,7 +232,6 @@ class _LogDeliveryDestinationState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -224,6 +252,7 @@ class LogDeliveryDestination(pulumi.CustomResource):
                  delivery_destination_configuration: Optional[pulumi.Input[Union['LogDeliveryDestinationDeliveryDestinationConfigurationArgs', 'LogDeliveryDestinationDeliveryDestinationConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_format: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -257,6 +286,7 @@ class LogDeliveryDestination(pulumi.CustomResource):
         :param pulumi.Input[Union['LogDeliveryDestinationDeliveryDestinationConfigurationArgs', 'LogDeliveryDestinationDeliveryDestinationConfigurationArgsDict']] delivery_destination_configuration: The AWS resource that will receive the logs.
         :param pulumi.Input[builtins.str] name: The name for this delivery destination.
         :param pulumi.Input[builtins.str] output_format: The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -309,6 +339,7 @@ class LogDeliveryDestination(pulumi.CustomResource):
                  delivery_destination_configuration: Optional[pulumi.Input[Union['LogDeliveryDestinationDeliveryDestinationConfigurationArgs', 'LogDeliveryDestinationDeliveryDestinationConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_format: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -322,6 +353,7 @@ class LogDeliveryDestination(pulumi.CustomResource):
             __props__.__dict__["delivery_destination_configuration"] = delivery_destination_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["output_format"] = output_format
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["delivery_destination_type"] = None
@@ -341,6 +373,7 @@ class LogDeliveryDestination(pulumi.CustomResource):
             delivery_destination_type: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             output_format: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'LogDeliveryDestination':
         """
@@ -355,6 +388,7 @@ class LogDeliveryDestination(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] delivery_destination_type: Whether this delivery destination is CloudWatch Logs, Amazon S3, or Firehose.
         :param pulumi.Input[builtins.str] name: The name for this delivery destination.
         :param pulumi.Input[builtins.str] output_format: The format of the logs that are sent to this delivery destination. Valid values: `json`, `plain`, `w3c`, `raw`, `parquet`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -367,6 +401,7 @@ class LogDeliveryDestination(pulumi.CustomResource):
         __props__.__dict__["delivery_destination_type"] = delivery_destination_type
         __props__.__dict__["name"] = name
         __props__.__dict__["output_format"] = output_format
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return LogDeliveryDestination(resource_name, opts=opts, __props__=__props__)
@@ -413,6 +448,14 @@ class LogDeliveryDestination(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -421,7 +464,6 @@ class LogDeliveryDestination(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

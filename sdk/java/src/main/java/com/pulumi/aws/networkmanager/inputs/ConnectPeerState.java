@@ -20,14 +20,14 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
     public static final ConnectPeerState Empty = new ConnectPeerState();
 
     /**
-     * The ARN of the attachment.
+     * ARN of the Connect peer.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the attachment.
+     * @return ARN of the Connect peer.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -35,14 +35,14 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Connect peer BGP options.
+     * Connect peer BGP options. See bgp_options for more information.
      * 
      */
     @Import(name="bgpOptions")
     private @Nullable Output<ConnectPeerBgpOptionsArgs> bgpOptions;
 
     /**
-     * @return The Connect peer BGP options.
+     * @return Connect peer BGP options. See bgp_options for more information.
      * 
      */
     public Optional<Output<ConnectPeerBgpOptionsArgs>> bgpOptions() {
@@ -50,14 +50,14 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The configuration of the Connect peer.
+     * Configuration of the Connect peer.
      * 
      */
     @Import(name="configurations")
     private @Nullable Output<List<ConnectPeerConfigurationArgs>> configurations;
 
     /**
-     * @return The configuration of the Connect peer.
+     * @return Configuration of the Connect peer.
      * 
      */
     public Optional<Output<List<ConnectPeerConfigurationArgs>>> configurations() {
@@ -65,36 +65,44 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the connection attachment.
+     * ID of the connection attachment.
      * 
      */
     @Import(name="connectAttachmentId")
     private @Nullable Output<String> connectAttachmentId;
 
     /**
-     * @return The ID of the connection attachment.
+     * @return ID of the connection attachment.
      * 
      */
     public Optional<Output<String>> connectAttachmentId() {
         return Optional.ofNullable(this.connectAttachmentId);
     }
 
+    /**
+     * ID of the Connect peer.
+     * 
+     */
     @Import(name="connectPeerId")
     private @Nullable Output<String> connectPeerId;
 
+    /**
+     * @return ID of the Connect peer.
+     * 
+     */
     public Optional<Output<String>> connectPeerId() {
         return Optional.ofNullable(this.connectPeerId);
     }
 
     /**
-     * A Connect peer core network address.
+     * Connect peer core network address.
      * 
      */
     @Import(name="coreNetworkAddress")
     private @Nullable Output<String> coreNetworkAddress;
 
     /**
-     * @return A Connect peer core network address.
+     * @return Connect peer core network address.
      * 
      */
     public Optional<Output<String>> coreNetworkAddress() {
@@ -102,36 +110,44 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of a core network.
+     * ID of a core network.
      * 
      */
     @Import(name="coreNetworkId")
     private @Nullable Output<String> coreNetworkId;
 
     /**
-     * @return The ID of a core network.
+     * @return ID of a core network.
      * 
      */
     public Optional<Output<String>> coreNetworkId() {
         return Optional.ofNullable(this.coreNetworkId);
     }
 
+    /**
+     * Timestamp when the Connect peer was created.
+     * 
+     */
     @Import(name="createdAt")
     private @Nullable Output<String> createdAt;
 
+    /**
+     * @return Timestamp when the Connect peer was created.
+     * 
+     */
     public Optional<Output<String>> createdAt() {
         return Optional.ofNullable(this.createdAt);
     }
 
     /**
-     * The Region where the peer is located.
+     * Region where the peer is located.
      * 
      */
     @Import(name="edgeLocation")
     private @Nullable Output<String> edgeLocation;
 
     /**
-     * @return The Region where the peer is located.
+     * @return Region where the peer is located.
      * 
      */
     public Optional<Output<String>> edgeLocation() {
@@ -139,14 +155,14 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
+     * Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     @Import(name="insideCidrBlocks")
     private @Nullable Output<List<String>> insideCidrBlocks;
 
     /**
-     * @return The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
+     * @return Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     public Optional<Output<List<String>>> insideCidrBlocks() {
@@ -154,7 +170,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Connect peer address.
+     * Connect peer address.
      * 
      * The following arguments are optional:
      * 
@@ -163,7 +179,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> peerAddress;
 
     /**
-     * @return The Connect peer address.
+     * @return Connect peer address.
      * 
      * The following arguments are optional:
      * 
@@ -173,14 +189,14 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The state of the Connect peer.
+     * State of the Connect peer.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return The state of the Connect peer.
+     * @return State of the Connect peer.
      * 
      */
     public Optional<Output<String>> state() {
@@ -188,14 +204,14 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+     * Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     @Import(name="subnetArn")
     private @Nullable Output<String> subnetArn;
 
     /**
-     * @return The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+     * @return Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     public Optional<Output<String>> subnetArn() {
@@ -218,24 +234,16 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * Please use `tags` instead.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -279,7 +287,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the attachment.
+         * @param arn ARN of the Connect peer.
          * 
          * @return builder
          * 
@@ -290,7 +298,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the attachment.
+         * @param arn ARN of the Connect peer.
          * 
          * @return builder
          * 
@@ -300,7 +308,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bgpOptions The Connect peer BGP options.
+         * @param bgpOptions Connect peer BGP options. See bgp_options for more information.
          * 
          * @return builder
          * 
@@ -311,7 +319,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bgpOptions The Connect peer BGP options.
+         * @param bgpOptions Connect peer BGP options. See bgp_options for more information.
          * 
          * @return builder
          * 
@@ -321,7 +329,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configurations The configuration of the Connect peer.
+         * @param configurations Configuration of the Connect peer.
          * 
          * @return builder
          * 
@@ -332,7 +340,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configurations The configuration of the Connect peer.
+         * @param configurations Configuration of the Connect peer.
          * 
          * @return builder
          * 
@@ -342,7 +350,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configurations The configuration of the Connect peer.
+         * @param configurations Configuration of the Connect peer.
          * 
          * @return builder
          * 
@@ -352,7 +360,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectAttachmentId The ID of the connection attachment.
+         * @param connectAttachmentId ID of the connection attachment.
          * 
          * @return builder
          * 
@@ -363,7 +371,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param connectAttachmentId The ID of the connection attachment.
+         * @param connectAttachmentId ID of the connection attachment.
          * 
          * @return builder
          * 
@@ -372,17 +380,29 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
             return connectAttachmentId(Output.of(connectAttachmentId));
         }
 
+        /**
+         * @param connectPeerId ID of the Connect peer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectPeerId(@Nullable Output<String> connectPeerId) {
             $.connectPeerId = connectPeerId;
             return this;
         }
 
+        /**
+         * @param connectPeerId ID of the Connect peer.
+         * 
+         * @return builder
+         * 
+         */
         public Builder connectPeerId(String connectPeerId) {
             return connectPeerId(Output.of(connectPeerId));
         }
 
         /**
-         * @param coreNetworkAddress A Connect peer core network address.
+         * @param coreNetworkAddress Connect peer core network address.
          * 
          * @return builder
          * 
@@ -393,7 +413,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param coreNetworkAddress A Connect peer core network address.
+         * @param coreNetworkAddress Connect peer core network address.
          * 
          * @return builder
          * 
@@ -403,7 +423,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param coreNetworkId The ID of a core network.
+         * @param coreNetworkId ID of a core network.
          * 
          * @return builder
          * 
@@ -414,7 +434,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param coreNetworkId The ID of a core network.
+         * @param coreNetworkId ID of a core network.
          * 
          * @return builder
          * 
@@ -423,17 +443,29 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
             return coreNetworkId(Output.of(coreNetworkId));
         }
 
+        /**
+         * @param createdAt Timestamp when the Connect peer was created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createdAt(@Nullable Output<String> createdAt) {
             $.createdAt = createdAt;
             return this;
         }
 
+        /**
+         * @param createdAt Timestamp when the Connect peer was created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder createdAt(String createdAt) {
             return createdAt(Output.of(createdAt));
         }
 
         /**
-         * @param edgeLocation The Region where the peer is located.
+         * @param edgeLocation Region where the peer is located.
          * 
          * @return builder
          * 
@@ -444,7 +476,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param edgeLocation The Region where the peer is located.
+         * @param edgeLocation Region where the peer is located.
          * 
          * @return builder
          * 
@@ -454,7 +486,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insideCidrBlocks The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
+         * @param insideCidrBlocks Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 
@@ -465,7 +497,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insideCidrBlocks The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
+         * @param insideCidrBlocks Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 
@@ -475,7 +507,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insideCidrBlocks The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
+         * @param insideCidrBlocks Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 
@@ -485,7 +517,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param peerAddress The Connect peer address.
+         * @param peerAddress Connect peer address.
          * 
          * The following arguments are optional:
          * 
@@ -498,7 +530,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param peerAddress The Connect peer address.
+         * @param peerAddress Connect peer address.
          * 
          * The following arguments are optional:
          * 
@@ -510,7 +542,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param state The state of the Connect peer.
+         * @param state State of the Connect peer.
          * 
          * @return builder
          * 
@@ -521,7 +553,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param state The state of the Connect peer.
+         * @param state State of the Connect peer.
          * 
          * @return builder
          * 
@@ -531,7 +563,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetArn The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+         * @param subnetArn Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 
@@ -542,7 +574,7 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetArn The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+         * @param subnetArn Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
          * 
          * @return builder
          * 
@@ -573,30 +605,22 @@ public final class ConnectPeerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

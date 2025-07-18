@@ -27,7 +27,7 @@ class GetConfigurationProfilesResult:
     """
     A collection of values returned by getConfigurationProfiles.
     """
-    def __init__(__self__, application_id=None, configuration_profile_ids=None, id=None):
+    def __init__(__self__, application_id=None, configuration_profile_ids=None, id=None, region=None):
         if application_id and not isinstance(application_id, str):
             raise TypeError("Expected argument 'application_id' to be a str")
         pulumi.set(__self__, "application_id", application_id)
@@ -37,6 +37,9 @@ class GetConfigurationProfilesResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -59,6 +62,11 @@ class GetConfigurationProfilesResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetConfigurationProfilesResult(GetConfigurationProfilesResult):
     # pylint: disable=using-constant-test
@@ -68,10 +76,12 @@ class AwaitableGetConfigurationProfilesResult(GetConfigurationProfilesResult):
         return GetConfigurationProfilesResult(
             application_id=self.application_id,
             configuration_profile_ids=self.configuration_profile_ids,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
 def get_configuration_profiles(application_id: Optional[builtins.str] = None,
+                               region: Optional[builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfilesResult:
     """
     Provides access to all Configuration Properties for an AppConfig Application. This will allow you to pass Configuration
@@ -92,17 +102,21 @@ def get_configuration_profiles(application_id: Optional[builtins.str] = None,
 
 
     :param builtins.str application_id: ID of the AppConfig Application.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:appconfig/getConfigurationProfiles:getConfigurationProfiles', __args__, opts=opts, typ=GetConfigurationProfilesResult).value
 
     return AwaitableGetConfigurationProfilesResult(
         application_id=pulumi.get(__ret__, 'application_id'),
         configuration_profile_ids=pulumi.get(__ret__, 'configuration_profile_ids'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_configuration_profiles_output(application_id: Optional[pulumi.Input[builtins.str]] = None,
+                                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfilesResult]:
     """
     Provides access to all Configuration Properties for an AppConfig Application. This will allow you to pass Configuration
@@ -123,12 +137,15 @@ def get_configuration_profiles_output(application_id: Optional[pulumi.Input[buil
 
 
     :param builtins.str application_id: ID of the AppConfig Application.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:appconfig/getConfigurationProfiles:getConfigurationProfiles', __args__, opts=opts, typ=GetConfigurationProfilesResult)
     return __ret__.apply(lambda __response__: GetConfigurationProfilesResult(
         application_id=pulumi.get(__response__, 'application_id'),
         configuration_profile_ids=pulumi.get(__response__, 'configuration_profile_ids'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

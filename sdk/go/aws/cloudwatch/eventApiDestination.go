@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,6 +71,8 @@ type EventApiDestination struct {
 	InvocationRateLimitPerSecond pulumi.IntPtrOutput `pulumi:"invocationRateLimitPerSecond"`
 	// The name of the new API Destination. The name must be unique for your account. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewEventApiDestination registers a new resource with the given unique name, arguments, and options.
@@ -126,6 +128,8 @@ type eventApiDestinationState struct {
 	InvocationRateLimitPerSecond *int `pulumi:"invocationRateLimitPerSecond"`
 	// The name of the new API Destination. The name must be unique for your account. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type EventApiDestinationState struct {
@@ -143,6 +147,8 @@ type EventApiDestinationState struct {
 	InvocationRateLimitPerSecond pulumi.IntPtrInput
 	// The name of the new API Destination. The name must be unique for your account. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EventApiDestinationState) ElementType() reflect.Type {
@@ -162,6 +168,8 @@ type eventApiDestinationArgs struct {
 	InvocationRateLimitPerSecond *int `pulumi:"invocationRateLimitPerSecond"`
 	// The name of the new API Destination. The name must be unique for your account. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EventApiDestination resource.
@@ -178,6 +186,8 @@ type EventApiDestinationArgs struct {
 	InvocationRateLimitPerSecond pulumi.IntPtrInput
 	// The name of the new API Destination. The name must be unique for your account. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EventApiDestinationArgs) ElementType() reflect.Type {
@@ -300,6 +310,11 @@ func (o EventApiDestinationOutput) InvocationRateLimitPerSecond() pulumi.IntPtrO
 // The name of the new API Destination. The name must be unique for your account. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 func (o EventApiDestinationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventApiDestination) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o EventApiDestinationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventApiDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type EventApiDestinationArrayOutput struct{ *pulumi.OutputState }

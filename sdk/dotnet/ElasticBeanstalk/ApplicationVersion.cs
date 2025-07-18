@@ -32,9 +32,9 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var @default = new Aws.S3.BucketV2("default", new()
+    ///     var @default = new Aws.S3.Bucket("default", new()
     ///     {
-    ///         Bucket = "tftest.applicationversion.bucket",
+    ///         BucketName = "tftest.applicationversion.bucket",
     ///     });
     /// 
     ///     var defaultBucketObjectv2 = new Aws.S3.BucketObjectv2("default", new()
@@ -114,6 +114,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// </summary>
         [Output("process")]
         public Output<bool?> Process { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -217,6 +223,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
         [Input("process")]
         public Input<bool>? Process { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -287,6 +299,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
         [Input("process")]
         public Input<bool>? Process { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -305,7 +323,6 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

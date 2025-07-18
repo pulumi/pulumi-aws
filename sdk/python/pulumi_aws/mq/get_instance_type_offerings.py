@@ -28,7 +28,7 @@ class GetInstanceTypeOfferingsResult:
     """
     A collection of values returned by getInstanceTypeOfferings.
     """
-    def __init__(__self__, broker_instance_options=None, engine_type=None, host_instance_type=None, id=None, storage_type=None):
+    def __init__(__self__, broker_instance_options=None, engine_type=None, host_instance_type=None, id=None, region=None, storage_type=None):
         if broker_instance_options and not isinstance(broker_instance_options, list):
             raise TypeError("Expected argument 'broker_instance_options' to be a list")
         pulumi.set(__self__, "broker_instance_options", broker_instance_options)
@@ -41,6 +41,9 @@ class GetInstanceTypeOfferingsResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if storage_type and not isinstance(storage_type, str):
             raise TypeError("Expected argument 'storage_type' to be a str")
         pulumi.set(__self__, "storage_type", storage_type)
@@ -49,7 +52,7 @@ class GetInstanceTypeOfferingsResult:
     @pulumi.getter(name="brokerInstanceOptions")
     def broker_instance_options(self) -> Sequence['outputs.GetInstanceTypeOfferingsBrokerInstanceOptionResult']:
         """
-        Option for host instance type. See Broker Instance Options below.
+        List of broker instance options. See Broker Instance Options below.
         """
         return pulumi.get(self, "broker_instance_options")
 
@@ -78,6 +81,11 @@ class GetInstanceTypeOfferingsResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[builtins.str]:
         """
@@ -96,15 +104,17 @@ class AwaitableGetInstanceTypeOfferingsResult(GetInstanceTypeOfferingsResult):
             engine_type=self.engine_type,
             host_instance_type=self.host_instance_type,
             id=self.id,
+            region=self.region,
             storage_type=self.storage_type)
 
 
 def get_instance_type_offerings(engine_type: Optional[builtins.str] = None,
                                 host_instance_type: Optional[builtins.str] = None,
+                                region: Optional[builtins.str] = None,
                                 storage_type: Optional[builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceTypeOfferingsResult:
     """
-    Provides information about a MQ Broker Instance Offerings.
+    Provides details about available MQ broker instance type offerings. Use this data source to discover supported instance types, storage types, and deployment modes for Amazon MQ brokers.
 
     ## Example Usage
 
@@ -112,23 +122,30 @@ def get_instance_type_offerings(engine_type: Optional[builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    empty = aws.mq.get_instance_type_offerings()
-    engine = aws.mq.get_instance_type_offerings(engine_type="ACTIVEMQ")
-    storage = aws.mq.get_instance_type_offerings(storage_type="EBS")
-    instance = aws.mq.get_instance_type_offerings(host_instance_type="mq.m5.large")
-    all = aws.mq.get_instance_type_offerings(host_instance_type="mq.m5.large",
+    # Get all instance type offerings
+    all = aws.mq.get_instance_type_offerings()
+    # Filter by engine type
+    activemq = aws.mq.get_instance_type_offerings(engine_type="ACTIVEMQ")
+    # Filter by storage type
+    ebs = aws.mq.get_instance_type_offerings(storage_type="EBS")
+    # Filter by instance type
+    m5 = aws.mq.get_instance_type_offerings(host_instance_type="mq.m5.large")
+    # Filter by multiple criteria
+    filtered = aws.mq.get_instance_type_offerings(engine_type="ACTIVEMQ",
         storage_type="EBS",
-        engine_type="ACTIVEMQ")
+        host_instance_type="mq.m5.large")
     ```
 
 
     :param builtins.str engine_type: Filter response by engine type.
     :param builtins.str host_instance_type: Filter response by host instance type.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str storage_type: Filter response by storage type.
     """
     __args__ = dict()
     __args__['engineType'] = engine_type
     __args__['hostInstanceType'] = host_instance_type
+    __args__['region'] = region
     __args__['storageType'] = storage_type
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings', __args__, opts=opts, typ=GetInstanceTypeOfferingsResult).value
@@ -138,13 +155,15 @@ def get_instance_type_offerings(engine_type: Optional[builtins.str] = None,
         engine_type=pulumi.get(__ret__, 'engine_type'),
         host_instance_type=pulumi.get(__ret__, 'host_instance_type'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         storage_type=pulumi.get(__ret__, 'storage_type'))
 def get_instance_type_offerings_output(engine_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                        host_instance_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                        storage_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceTypeOfferingsResult]:
     """
-    Provides information about a MQ Broker Instance Offerings.
+    Provides details about available MQ broker instance type offerings. Use this data source to discover supported instance types, storage types, and deployment modes for Amazon MQ brokers.
 
     ## Example Usage
 
@@ -152,23 +171,30 @@ def get_instance_type_offerings_output(engine_type: Optional[pulumi.Input[Option
     import pulumi
     import pulumi_aws as aws
 
-    empty = aws.mq.get_instance_type_offerings()
-    engine = aws.mq.get_instance_type_offerings(engine_type="ACTIVEMQ")
-    storage = aws.mq.get_instance_type_offerings(storage_type="EBS")
-    instance = aws.mq.get_instance_type_offerings(host_instance_type="mq.m5.large")
-    all = aws.mq.get_instance_type_offerings(host_instance_type="mq.m5.large",
+    # Get all instance type offerings
+    all = aws.mq.get_instance_type_offerings()
+    # Filter by engine type
+    activemq = aws.mq.get_instance_type_offerings(engine_type="ACTIVEMQ")
+    # Filter by storage type
+    ebs = aws.mq.get_instance_type_offerings(storage_type="EBS")
+    # Filter by instance type
+    m5 = aws.mq.get_instance_type_offerings(host_instance_type="mq.m5.large")
+    # Filter by multiple criteria
+    filtered = aws.mq.get_instance_type_offerings(engine_type="ACTIVEMQ",
         storage_type="EBS",
-        engine_type="ACTIVEMQ")
+        host_instance_type="mq.m5.large")
     ```
 
 
     :param builtins.str engine_type: Filter response by engine type.
     :param builtins.str host_instance_type: Filter response by host instance type.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str storage_type: Filter response by storage type.
     """
     __args__ = dict()
     __args__['engineType'] = engine_type
     __args__['hostInstanceType'] = host_instance_type
+    __args__['region'] = region
     __args__['storageType'] = storage_type
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings', __args__, opts=opts, typ=GetInstanceTypeOfferingsResult)
@@ -177,4 +203,5 @@ def get_instance_type_offerings_output(engine_type: Optional[pulumi.Input[Option
         engine_type=pulumi.get(__response__, 'engine_type'),
         host_instance_type=pulumi.get(__response__, 'host_instance_type'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         storage_type=pulumi.get(__response__, 'storage_type')))

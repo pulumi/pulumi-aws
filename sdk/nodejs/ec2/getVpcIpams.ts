@@ -57,6 +57,7 @@ export function getVpcIpams(args?: GetVpcIpamsArgs, opts?: pulumi.InvokeOptions)
     return pulumi.runtime.invoke("aws:ec2/getVpcIpams:getVpcIpams", {
         "filters": args.filters,
         "ipamIds": args.ipamIds,
+        "region": args.region,
     }, opts);
 }
 
@@ -74,6 +75,10 @@ export interface GetVpcIpamsArgs {
      * IDs of the IPAM resources to query for.
      */
     ipamIds?: string[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -90,6 +95,7 @@ export interface GetVpcIpamsResult {
      * List of IPAM resources matching the provided arguments.
      */
     readonly ipams: outputs.ec2.GetVpcIpamsIpam[];
+    readonly region: string;
 }
 /**
  * Data source for managing VPC IPAMs.
@@ -141,6 +147,7 @@ export function getVpcIpamsOutput(args?: GetVpcIpamsOutputArgs, opts?: pulumi.In
     return pulumi.runtime.invokeOutput("aws:ec2/getVpcIpams:getVpcIpams", {
         "filters": args.filters,
         "ipamIds": args.ipamIds,
+        "region": args.region,
     }, opts);
 }
 
@@ -158,4 +165,8 @@ export interface GetVpcIpamsOutputArgs {
      * IDs of the IPAM resources to query for.
      */
     ipamIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

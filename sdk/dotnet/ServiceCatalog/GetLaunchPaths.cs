@@ -107,6 +107,12 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("productId", required: true)]
         public string ProductId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetLaunchPathsArgs()
         {
         }
@@ -129,6 +135,12 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("productId", required: true)]
         public Input<string> ProductId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetLaunchPathsInvokeArgs()
         {
         }
@@ -145,6 +157,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         public readonly string Id;
         public readonly string ProductId;
+        public readonly string Region;
         /// <summary>
         /// Block with information about the launch path. See details below.
         /// </summary>
@@ -158,11 +171,14 @@ namespace Pulumi.Aws.ServiceCatalog
 
             string productId,
 
+            string region,
+
             ImmutableArray<Outputs.GetLaunchPathsSummaryResult> summaries)
         {
             AcceptLanguage = acceptLanguage;
             Id = id;
             ProductId = productId;
+            Region = region;
             Summaries = summaries;
         }
     }

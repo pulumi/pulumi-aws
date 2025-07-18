@@ -139,6 +139,12 @@ namespace Pulumi.Aws.Iot
         public Output<string> GenerationId { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Information about the registration configuration. See below.
         /// </summary>
         [Output("registrationConfig")]
@@ -255,6 +261,12 @@ namespace Pulumi.Aws.Iot
         public Input<string>? CertificateMode { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Information about the registration configuration. See below.
         /// </summary>
         [Input("registrationConfig")]
@@ -350,6 +362,12 @@ namespace Pulumi.Aws.Iot
         public Input<string>? GenerationId { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Information about the registration configuration. See below.
         /// </summary>
         [Input("registrationConfig")]
@@ -373,7 +391,6 @@ namespace Pulumi.Aws.Iot
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

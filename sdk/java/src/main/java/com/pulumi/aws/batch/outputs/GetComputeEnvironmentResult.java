@@ -18,7 +18,6 @@ public final class GetComputeEnvironmentResult {
      * 
      */
     private String arn;
-    private String computeEnvironmentName;
     /**
      * @return ARN of the underlying Amazon ECS cluster used by the compute environment.
      * 
@@ -29,6 +28,8 @@ public final class GetComputeEnvironmentResult {
      * 
      */
     private String id;
+    private String name;
+    private String region;
     /**
      * @return ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      * 
@@ -73,9 +74,6 @@ public final class GetComputeEnvironmentResult {
     public String arn() {
         return this.arn;
     }
-    public String computeEnvironmentName() {
-        return this.computeEnvironmentName;
-    }
     /**
      * @return ARN of the underlying Amazon ECS cluster used by the compute environment.
      * 
@@ -89,6 +87,12 @@ public final class GetComputeEnvironmentResult {
      */
     public String id() {
         return this.id;
+    }
+    public String name() {
+        return this.name;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
@@ -150,9 +154,10 @@ public final class GetComputeEnvironmentResult {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
-        private String computeEnvironmentName;
         private String ecsClusterArn;
         private String id;
+        private String name;
+        private String region;
         private String serviceRole;
         private String state;
         private String status;
@@ -164,9 +169,10 @@ public final class GetComputeEnvironmentResult {
         public Builder(GetComputeEnvironmentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
-    	      this.computeEnvironmentName = defaults.computeEnvironmentName;
     	      this.ecsClusterArn = defaults.ecsClusterArn;
     	      this.id = defaults.id;
+    	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.serviceRole = defaults.serviceRole;
     	      this.state = defaults.state;
     	      this.status = defaults.status;
@@ -185,14 +191,6 @@ public final class GetComputeEnvironmentResult {
             return this;
         }
         @CustomType.Setter
-        public Builder computeEnvironmentName(String computeEnvironmentName) {
-            if (computeEnvironmentName == null) {
-              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "computeEnvironmentName");
-            }
-            this.computeEnvironmentName = computeEnvironmentName;
-            return this;
-        }
-        @CustomType.Setter
         public Builder ecsClusterArn(String ecsClusterArn) {
             if (ecsClusterArn == null) {
               throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "ecsClusterArn");
@@ -206,6 +204,22 @@ public final class GetComputeEnvironmentResult {
               throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "id");
             }
             this.id = id;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder name(String name) {
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "name");
+            }
+            this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetComputeEnvironmentResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -270,9 +284,10 @@ public final class GetComputeEnvironmentResult {
         public GetComputeEnvironmentResult build() {
             final var _resultValue = new GetComputeEnvironmentResult();
             _resultValue.arn = arn;
-            _resultValue.computeEnvironmentName = computeEnvironmentName;
             _resultValue.ecsClusterArn = ecsClusterArn;
             _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.serviceRole = serviceRole;
             _resultValue.state = state;
             _resultValue.status = status;

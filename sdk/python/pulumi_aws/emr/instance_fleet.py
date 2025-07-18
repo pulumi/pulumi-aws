@@ -26,6 +26,7 @@ class InstanceFleetArgs:
                  instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]]] = None,
                  launch_specifications: Optional[pulumi.Input['InstanceFleetLaunchSpecificationsArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_on_demand_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  target_spot_capacity: Optional[pulumi.Input[builtins.int]] = None):
         """
@@ -34,6 +35,7 @@ class InstanceFleetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigArgs']]] instance_type_configs: Configuration block for instance fleet
         :param pulumi.Input['InstanceFleetLaunchSpecificationsArgs'] launch_specifications: Configuration block for launch specification
         :param pulumi.Input[builtins.str] name: Friendly name given to the instance fleet.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         :param pulumi.Input[builtins.int] target_spot_capacity: The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         """
@@ -44,6 +46,8 @@ class InstanceFleetArgs:
             pulumi.set(__self__, "launch_specifications", launch_specifications)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if target_on_demand_capacity is not None:
             pulumi.set(__self__, "target_on_demand_capacity", target_on_demand_capacity)
         if target_spot_capacity is not None:
@@ -98,6 +102,18 @@ class InstanceFleetArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="targetOnDemandCapacity")
     def target_on_demand_capacity(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -131,6 +147,7 @@ class _InstanceFleetState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  provisioned_on_demand_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  provisioned_spot_capacity: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_on_demand_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  target_spot_capacity: Optional[pulumi.Input[builtins.int]] = None):
         """
@@ -143,6 +160,7 @@ class _InstanceFleetState:
                fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
         :param pulumi.Input[builtins.int] provisioned_spot_capacity: The number of Spot units that have been provisioned for this instance fleet
                to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         :param pulumi.Input[builtins.int] target_spot_capacity: The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         """
@@ -158,6 +176,8 @@ class _InstanceFleetState:
             pulumi.set(__self__, "provisioned_on_demand_capacity", provisioned_on_demand_capacity)
         if provisioned_spot_capacity is not None:
             pulumi.set(__self__, "provisioned_spot_capacity", provisioned_spot_capacity)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if target_on_demand_capacity is not None:
             pulumi.set(__self__, "target_on_demand_capacity", target_on_demand_capacity)
         if target_spot_capacity is not None:
@@ -238,6 +258,18 @@ class _InstanceFleetState:
         pulumi.set(self, "provisioned_spot_capacity", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="targetOnDemandCapacity")
     def target_on_demand_capacity(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -272,6 +304,7 @@ class InstanceFleet(pulumi.CustomResource):
                  instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]]] = None,
                  launch_specifications: Optional[pulumi.Input[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_on_demand_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  target_spot_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
@@ -340,6 +373,7 @@ class InstanceFleet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]] instance_type_configs: Configuration block for instance fleet
         :param pulumi.Input[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']] launch_specifications: Configuration block for launch specification
         :param pulumi.Input[builtins.str] name: Friendly name given to the instance fleet.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         :param pulumi.Input[builtins.int] target_spot_capacity: The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         """
@@ -427,6 +461,7 @@ class InstanceFleet(pulumi.CustomResource):
                  instance_type_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InstanceFleetInstanceTypeConfigArgs', 'InstanceFleetInstanceTypeConfigArgsDict']]]]] = None,
                  launch_specifications: Optional[pulumi.Input[Union['InstanceFleetLaunchSpecificationsArgs', 'InstanceFleetLaunchSpecificationsArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_on_demand_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  target_spot_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
@@ -444,6 +479,7 @@ class InstanceFleet(pulumi.CustomResource):
             __props__.__dict__["instance_type_configs"] = instance_type_configs
             __props__.__dict__["launch_specifications"] = launch_specifications
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["target_on_demand_capacity"] = target_on_demand_capacity
             __props__.__dict__["target_spot_capacity"] = target_spot_capacity
             __props__.__dict__["provisioned_on_demand_capacity"] = None
@@ -464,6 +500,7 @@ class InstanceFleet(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             provisioned_on_demand_capacity: Optional[pulumi.Input[builtins.int]] = None,
             provisioned_spot_capacity: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             target_on_demand_capacity: Optional[pulumi.Input[builtins.int]] = None,
             target_spot_capacity: Optional[pulumi.Input[builtins.int]] = None) -> 'InstanceFleet':
         """
@@ -481,6 +518,7 @@ class InstanceFleet(pulumi.CustomResource):
                fleet to fulfill TargetOnDemandCapacity. This provisioned capacity might be less than or greater than TargetOnDemandCapacity.
         :param pulumi.Input[builtins.int] provisioned_spot_capacity: The number of Spot units that have been provisioned for this instance fleet
                to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         :param pulumi.Input[builtins.int] target_spot_capacity: The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         """
@@ -494,6 +532,7 @@ class InstanceFleet(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["provisioned_on_demand_capacity"] = provisioned_on_demand_capacity
         __props__.__dict__["provisioned_spot_capacity"] = provisioned_spot_capacity
+        __props__.__dict__["region"] = region
         __props__.__dict__["target_on_demand_capacity"] = target_on_demand_capacity
         __props__.__dict__["target_spot_capacity"] = target_spot_capacity
         return InstanceFleet(resource_name, opts=opts, __props__=__props__)
@@ -547,6 +586,14 @@ class InstanceFleet(pulumi.CustomResource):
         to fulfill TargetSpotCapacity. This provisioned capacity might be less than or greater than TargetSpotCapacity.
         """
         return pulumi.get(self, "provisioned_spot_capacity")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="targetOnDemandCapacity")

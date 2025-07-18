@@ -70,6 +70,21 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
      * 
      */
@@ -112,6 +127,7 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
         this.amazonSideAsn = $.amazonSideAsn;
         this.persistRoutes = $.persistRoutes;
         this.persistRoutesDuration = $.persistRoutesDuration;
+        this.region = $.region;
         this.snsNotificationsEnabled = $.snsNotificationsEnabled;
         this.tags = $.tags;
         this.timeouts = $.timeouts;
@@ -200,6 +216,27 @@ public final class RouteServerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder persistRoutesDuration(Integer persistRoutesDuration) {
             return persistRoutesDuration(Output.of(persistRoutesDuration));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

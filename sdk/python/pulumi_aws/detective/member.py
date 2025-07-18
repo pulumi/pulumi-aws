@@ -24,7 +24,8 @@ class MemberArgs:
                  email_address: pulumi.Input[builtins.str],
                  graph_arn: pulumi.Input[builtins.str],
                  disable_email_notification: Optional[pulumi.Input[builtins.bool]] = None,
-                 message: Optional[pulumi.Input[builtins.str]] = None):
+                 message: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Member resource.
         :param pulumi.Input[builtins.str] account_id: AWS account ID for the account.
@@ -32,6 +33,7 @@ class MemberArgs:
         :param pulumi.Input[builtins.str] graph_arn: ARN of the behavior graph to invite the member accounts to contribute their data to.
         :param pulumi.Input[builtins.bool] disable_email_notification: If set to true, then the root user of the invited account will _not_ receive an email notification. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. By default, this is set to `false`.
         :param pulumi.Input[builtins.str] message: A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "email_address", email_address)
@@ -40,6 +42,8 @@ class MemberArgs:
             pulumi.set(__self__, "disable_email_notification", disable_email_notification)
         if message is not None:
             pulumi.set(__self__, "message", message)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="accountId")
@@ -101,6 +105,18 @@ class MemberArgs:
     def message(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "message", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _MemberState:
@@ -113,6 +129,7 @@ class _MemberState:
                  graph_arn: Optional[pulumi.Input[builtins.str]] = None,
                  invited_time: Optional[pulumi.Input[builtins.str]] = None,
                  message: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  updated_time: Optional[pulumi.Input[builtins.str]] = None,
                  volume_usage_in_bytes: Optional[pulumi.Input[builtins.str]] = None):
@@ -125,6 +142,7 @@ class _MemberState:
         :param pulumi.Input[builtins.str] graph_arn: ARN of the behavior graph to invite the member accounts to contribute their data to.
         :param pulumi.Input[builtins.str] invited_time: Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
         :param pulumi.Input[builtins.str] message: A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Current membership status of the member account.
         :param pulumi.Input[builtins.str] updated_time: Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
         :param pulumi.Input[builtins.str] volume_usage_in_bytes: Data volume in bytes per day for the member account.
@@ -145,6 +163,8 @@ class _MemberState:
             pulumi.set(__self__, "invited_time", invited_time)
         if message is not None:
             pulumi.set(__self__, "message", message)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if updated_time is not None:
@@ -247,6 +267,18 @@ class _MemberState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Current membership status of the member account.
@@ -293,6 +325,7 @@ class Member(pulumi.CustomResource):
                  email_address: Optional[pulumi.Input[builtins.str]] = None,
                  graph_arn: Optional[pulumi.Input[builtins.str]] = None,
                  message: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to manage an [Amazon Detective Member](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateMembers.html).
@@ -327,6 +360,7 @@ class Member(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] email_address: Email address for the account.
         :param pulumi.Input[builtins.str] graph_arn: ARN of the behavior graph to invite the member accounts to contribute their data to.
         :param pulumi.Input[builtins.str] message: A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -380,6 +414,7 @@ class Member(pulumi.CustomResource):
                  email_address: Optional[pulumi.Input[builtins.str]] = None,
                  graph_arn: Optional[pulumi.Input[builtins.str]] = None,
                  message: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -400,6 +435,7 @@ class Member(pulumi.CustomResource):
                 raise TypeError("Missing required property 'graph_arn'")
             __props__.__dict__["graph_arn"] = graph_arn
             __props__.__dict__["message"] = message
+            __props__.__dict__["region"] = region
             __props__.__dict__["administrator_id"] = None
             __props__.__dict__["disabled_reason"] = None
             __props__.__dict__["invited_time"] = None
@@ -424,6 +460,7 @@ class Member(pulumi.CustomResource):
             graph_arn: Optional[pulumi.Input[builtins.str]] = None,
             invited_time: Optional[pulumi.Input[builtins.str]] = None,
             message: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             updated_time: Optional[pulumi.Input[builtins.str]] = None,
             volume_usage_in_bytes: Optional[pulumi.Input[builtins.str]] = None) -> 'Member':
@@ -441,6 +478,7 @@ class Member(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] graph_arn: ARN of the behavior graph to invite the member accounts to contribute their data to.
         :param pulumi.Input[builtins.str] invited_time: Date and time, in UTC and extended RFC 3339 format, when an Amazon Detective membership invitation was last sent to the account.
         :param pulumi.Input[builtins.str] message: A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Current membership status of the member account.
         :param pulumi.Input[builtins.str] updated_time: Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
         :param pulumi.Input[builtins.str] volume_usage_in_bytes: Data volume in bytes per day for the member account.
@@ -457,6 +495,7 @@ class Member(pulumi.CustomResource):
         __props__.__dict__["graph_arn"] = graph_arn
         __props__.__dict__["invited_time"] = invited_time
         __props__.__dict__["message"] = message
+        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         __props__.__dict__["updated_time"] = updated_time
         __props__.__dict__["volume_usage_in_bytes"] = volume_usage_in_bytes
@@ -522,6 +561,14 @@ class Member(pulumi.CustomResource):
         A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
         """
         return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

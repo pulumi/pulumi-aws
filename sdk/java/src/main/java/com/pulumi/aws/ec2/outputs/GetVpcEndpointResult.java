@@ -65,6 +65,7 @@ public final class GetVpcEndpointResult {
      * 
      */
     private Boolean privateDnsEnabled;
+    private String region;
     /**
      * @return Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
      * 
@@ -168,6 +169,9 @@ public final class GetVpcEndpointResult {
     public Boolean privateDnsEnabled() {
         return this.privateDnsEnabled;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
      * 
@@ -237,6 +241,7 @@ public final class GetVpcEndpointResult {
         private String policy;
         private String prefixListId;
         private Boolean privateDnsEnabled;
+        private String region;
         private Boolean requesterManaged;
         private List<String> routeTableIds;
         private List<String> securityGroupIds;
@@ -261,6 +266,7 @@ public final class GetVpcEndpointResult {
     	      this.policy = defaults.policy;
     	      this.prefixListId = defaults.prefixListId;
     	      this.privateDnsEnabled = defaults.privateDnsEnabled;
+    	      this.region = defaults.region;
     	      this.requesterManaged = defaults.requesterManaged;
     	      this.routeTableIds = defaults.routeTableIds;
     	      this.securityGroupIds = defaults.securityGroupIds;
@@ -382,6 +388,14 @@ public final class GetVpcEndpointResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVpcEndpointResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder requesterManaged(Boolean requesterManaged) {
             if (requesterManaged == null) {
               throw new MissingRequiredPropertyException("GetVpcEndpointResult", "requesterManaged");
@@ -476,6 +490,7 @@ public final class GetVpcEndpointResult {
             _resultValue.policy = policy;
             _resultValue.prefixListId = prefixListId;
             _resultValue.privateDnsEnabled = privateDnsEnabled;
+            _resultValue.region = region;
             _resultValue.requesterManaged = requesterManaged;
             _resultValue.routeTableIds = routeTableIds;
             _resultValue.securityGroupIds = securityGroupIds;

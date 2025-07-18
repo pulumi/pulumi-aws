@@ -23,16 +23,20 @@ __all__ = ['NotificationChannelArgs', 'NotificationChannel']
 class NotificationChannelArgs:
     def __init__(__self__, *,
                  filters: Optional[pulumi.Input['NotificationChannelFiltersArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sns: Optional[pulumi.Input['NotificationChannelSnsArgs']] = None):
         """
         The set of arguments for constructing a NotificationChannel resource.
         :param pulumi.Input['NotificationChannelFiltersArgs'] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['NotificationChannelSnsArgs'] sns: SNS noficiation channel configurations. See the `sns` argument reference below.
                
                The following arguments are optional:
         """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sns is not None:
             pulumi.set(__self__, "sns", sns)
 
@@ -47,6 +51,18 @@ class NotificationChannelArgs:
     @filters.setter
     def filters(self, value: Optional[pulumi.Input['NotificationChannelFiltersArgs']]):
         pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -67,16 +83,20 @@ class NotificationChannelArgs:
 class _NotificationChannelState:
     def __init__(__self__, *,
                  filters: Optional[pulumi.Input['NotificationChannelFiltersArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sns: Optional[pulumi.Input['NotificationChannelSnsArgs']] = None):
         """
         Input properties used for looking up and filtering NotificationChannel resources.
         :param pulumi.Input['NotificationChannelFiltersArgs'] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['NotificationChannelSnsArgs'] sns: SNS noficiation channel configurations. See the `sns` argument reference below.
                
                The following arguments are optional:
         """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sns is not None:
             pulumi.set(__self__, "sns", sns)
 
@@ -91,6 +111,18 @@ class _NotificationChannelState:
     @filters.setter
     def filters(self, value: Optional[pulumi.Input['NotificationChannelFiltersArgs']]):
         pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -114,6 +146,7 @@ class NotificationChannel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  filters: Optional[pulumi.Input[Union['NotificationChannelFiltersArgs', 'NotificationChannelFiltersArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sns: Optional[pulumi.Input[Union['NotificationChannelSnsArgs', 'NotificationChannelSnsArgsDict']]] = None,
                  __props__=None):
         """
@@ -159,6 +192,7 @@ class NotificationChannel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['NotificationChannelFiltersArgs', 'NotificationChannelFiltersArgsDict']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['NotificationChannelSnsArgs', 'NotificationChannelSnsArgsDict']] sns: SNS noficiation channel configurations. See the `sns` argument reference below.
                
                The following arguments are optional:
@@ -225,6 +259,7 @@ class NotificationChannel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  filters: Optional[pulumi.Input[Union['NotificationChannelFiltersArgs', 'NotificationChannelFiltersArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sns: Optional[pulumi.Input[Union['NotificationChannelSnsArgs', 'NotificationChannelSnsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -236,6 +271,7 @@ class NotificationChannel(pulumi.CustomResource):
             __props__ = NotificationChannelArgs.__new__(NotificationChannelArgs)
 
             __props__.__dict__["filters"] = filters
+            __props__.__dict__["region"] = region
             __props__.__dict__["sns"] = sns
         super(NotificationChannel, __self__).__init__(
             'aws:devopsguru/notificationChannel:NotificationChannel',
@@ -248,6 +284,7 @@ class NotificationChannel(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             filters: Optional[pulumi.Input[Union['NotificationChannelFiltersArgs', 'NotificationChannelFiltersArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             sns: Optional[pulumi.Input[Union['NotificationChannelSnsArgs', 'NotificationChannelSnsArgsDict']]] = None) -> 'NotificationChannel':
         """
         Get an existing NotificationChannel resource's state with the given name, id, and optional extra
@@ -257,6 +294,7 @@ class NotificationChannel(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['NotificationChannelFiltersArgs', 'NotificationChannelFiltersArgsDict']] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['NotificationChannelSnsArgs', 'NotificationChannelSnsArgsDict']] sns: SNS noficiation channel configurations. See the `sns` argument reference below.
                
                The following arguments are optional:
@@ -266,6 +304,7 @@ class NotificationChannel(pulumi.CustomResource):
         __props__ = _NotificationChannelState.__new__(_NotificationChannelState)
 
         __props__.__dict__["filters"] = filters
+        __props__.__dict__["region"] = region
         __props__.__dict__["sns"] = sns
         return NotificationChannel(resource_name, opts=opts, __props__=__props__)
 
@@ -276,6 +315,14 @@ class NotificationChannel(pulumi.CustomResource):
         Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
         """
         return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

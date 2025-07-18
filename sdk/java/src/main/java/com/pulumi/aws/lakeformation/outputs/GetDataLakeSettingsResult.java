@@ -68,6 +68,7 @@ public final class GetDataLakeSettingsResult {
      * 
      */
     private List<String> readOnlyAdmins;
+    private String region;
     /**
      * @return List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
      * 
@@ -148,6 +149,9 @@ public final class GetDataLakeSettingsResult {
     public List<String> readOnlyAdmins() {
         return this.readOnlyAdmins;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return List of the resource-owning account IDs that the caller&#39;s account can use to share their user access details (user ARNs).
      * 
@@ -176,6 +180,7 @@ public final class GetDataLakeSettingsResult {
         private String id;
         private Map<String,String> parameters;
         private List<String> readOnlyAdmins;
+        private String region;
         private List<String> trustedResourceOwners;
         public Builder() {}
         public Builder(GetDataLakeSettingsResult defaults) {
@@ -191,6 +196,7 @@ public final class GetDataLakeSettingsResult {
     	      this.id = defaults.id;
     	      this.parameters = defaults.parameters;
     	      this.readOnlyAdmins = defaults.readOnlyAdmins;
+    	      this.region = defaults.region;
     	      this.trustedResourceOwners = defaults.trustedResourceOwners;
         }
 
@@ -299,6 +305,14 @@ public final class GetDataLakeSettingsResult {
             return readOnlyAdmins(List.of(readOnlyAdmins));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDataLakeSettingsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder trustedResourceOwners(List<String> trustedResourceOwners) {
             if (trustedResourceOwners == null) {
               throw new MissingRequiredPropertyException("GetDataLakeSettingsResult", "trustedResourceOwners");
@@ -322,6 +336,7 @@ public final class GetDataLakeSettingsResult {
             _resultValue.id = id;
             _resultValue.parameters = parameters;
             _resultValue.readOnlyAdmins = readOnlyAdmins;
+            _resultValue.region = region;
             _resultValue.trustedResourceOwners = trustedResourceOwners;
             return _resultValue;
         }

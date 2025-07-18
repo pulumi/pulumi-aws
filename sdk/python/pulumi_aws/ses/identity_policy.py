@@ -22,17 +22,21 @@ class IdentityPolicyArgs:
     def __init__(__self__, *,
                  identity: pulumi.Input[builtins.str],
                  policy: pulumi.Input[builtins.str],
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a IdentityPolicy resource.
         :param pulumi.Input[builtins.str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.
         :param pulumi.Input[builtins.str] policy: JSON string of the policy.
         :param pulumi.Input[builtins.str] name: Name of the policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "identity", identity)
         pulumi.set(__self__, "policy", policy)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -70,18 +74,32 @@ class IdentityPolicyArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _IdentityPolicyState:
     def __init__(__self__, *,
                  identity: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 policy: Optional[pulumi.Input[builtins.str]] = None):
+                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering IdentityPolicy resources.
         :param pulumi.Input[builtins.str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.
         :param pulumi.Input[builtins.str] name: Name of the policy.
         :param pulumi.Input[builtins.str] policy: JSON string of the policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
@@ -89,6 +107,8 @@ class _IdentityPolicyState:
             pulumi.set(__self__, "name", name)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -126,6 +146,18 @@ class _IdentityPolicyState:
     def policy(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "policy", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:ses/identityPolicy:IdentityPolicy")
 class IdentityPolicy(pulumi.CustomResource):
@@ -136,6 +168,7 @@ class IdentityPolicy(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
@@ -177,6 +210,7 @@ class IdentityPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.
         :param pulumi.Input[builtins.str] name: Name of the policy.
         :param pulumi.Input[builtins.str] policy: JSON string of the policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -237,6 +271,7 @@ class IdentityPolicy(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -253,6 +288,7 @@ class IdentityPolicy(pulumi.CustomResource):
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
+            __props__.__dict__["region"] = region
         super(IdentityPolicy, __self__).__init__(
             'aws:ses/identityPolicy:IdentityPolicy',
             resource_name,
@@ -265,7 +301,8 @@ class IdentityPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             identity: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
-            policy: Optional[pulumi.Input[builtins.str]] = None) -> 'IdentityPolicy':
+            policy: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'IdentityPolicy':
         """
         Get an existing IdentityPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -276,6 +313,7 @@ class IdentityPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.
         :param pulumi.Input[builtins.str] name: Name of the policy.
         :param pulumi.Input[builtins.str] policy: JSON string of the policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -284,6 +322,7 @@ class IdentityPolicy(pulumi.CustomResource):
         __props__.__dict__["identity"] = identity
         __props__.__dict__["name"] = name
         __props__.__dict__["policy"] = policy
+        __props__.__dict__["region"] = region
         return IdentityPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -309,4 +348,12 @@ class IdentityPolicy(pulumi.CustomResource):
         JSON string of the policy.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

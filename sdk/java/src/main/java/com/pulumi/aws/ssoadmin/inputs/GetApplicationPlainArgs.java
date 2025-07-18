@@ -3,11 +3,9 @@
 
 package com.pulumi.aws.ssoadmin.inputs;
 
-import com.pulumi.aws.ssoadmin.inputs.GetApplicationPortalOption;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -33,25 +31,25 @@ public final class GetApplicationPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    @Import(name="portalOptions")
-    private @Nullable List<GetApplicationPortalOption> portalOptions;
+    @Import(name="region")
+    private @Nullable String region;
 
     /**
-     * @return Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    public Optional<List<GetApplicationPortalOption>> portalOptions() {
-        return Optional.ofNullable(this.portalOptions);
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetApplicationPlainArgs() {}
 
     private GetApplicationPlainArgs(GetApplicationPlainArgs $) {
         this.applicationArn = $.applicationArn;
-        this.portalOptions = $.portalOptions;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -84,24 +82,14 @@ public final class GetApplicationPlainArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param portalOptions Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
          */
-        public Builder portalOptions(@Nullable List<GetApplicationPortalOption> portalOptions) {
-            $.portalOptions = portalOptions;
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
-        }
-
-        /**
-         * @param portalOptions Options for the portal associated with an application. See the `aws.ssoadmin.Application` resource documentation. The attributes are the same.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder portalOptions(GetApplicationPortalOption... portalOptions) {
-            return portalOptions(List.of(portalOptions));
         }
 
         public GetApplicationPlainArgs build() {

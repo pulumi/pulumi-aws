@@ -129,6 +129,12 @@ namespace Pulumi.Aws.Ssm
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetMaintenanceWindowsArgs()
         {
         }
@@ -149,6 +155,12 @@ namespace Pulumi.Aws.Ssm
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetMaintenanceWindowsInvokeArgs()
         {
         }
@@ -168,6 +180,7 @@ namespace Pulumi.Aws.Ssm
         /// List of window IDs of the matched SSM maintenance windows.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetMaintenanceWindowsResult(
@@ -175,11 +188,14 @@ namespace Pulumi.Aws.Ssm
 
             string id,
 
-            ImmutableArray<string> ids)
+            ImmutableArray<string> ids,
+
+            string region)
         {
             Filters = filters;
             Id = id;
             Ids = ids;
+            Region = region;
         }
     }
 }

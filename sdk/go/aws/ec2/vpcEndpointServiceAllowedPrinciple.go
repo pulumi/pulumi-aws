@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,8 +29,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,6 +58,8 @@ type VpcEndpointServiceAllowedPrinciple struct {
 
 	// The ARN of the principal to allow permissions.
 	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the VPC endpoint service to allow permission.
 	VpcEndpointServiceId pulumi.StringOutput `pulumi:"vpcEndpointServiceId"`
 }
@@ -100,6 +102,8 @@ func GetVpcEndpointServiceAllowedPrinciple(ctx *pulumi.Context,
 type vpcEndpointServiceAllowedPrincipleState struct {
 	// The ARN of the principal to allow permissions.
 	PrincipalArn *string `pulumi:"principalArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the VPC endpoint service to allow permission.
 	VpcEndpointServiceId *string `pulumi:"vpcEndpointServiceId"`
 }
@@ -107,6 +111,8 @@ type vpcEndpointServiceAllowedPrincipleState struct {
 type VpcEndpointServiceAllowedPrincipleState struct {
 	// The ARN of the principal to allow permissions.
 	PrincipalArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the VPC endpoint service to allow permission.
 	VpcEndpointServiceId pulumi.StringPtrInput
 }
@@ -118,6 +124,8 @@ func (VpcEndpointServiceAllowedPrincipleState) ElementType() reflect.Type {
 type vpcEndpointServiceAllowedPrincipleArgs struct {
 	// The ARN of the principal to allow permissions.
 	PrincipalArn string `pulumi:"principalArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the VPC endpoint service to allow permission.
 	VpcEndpointServiceId string `pulumi:"vpcEndpointServiceId"`
 }
@@ -126,6 +134,8 @@ type vpcEndpointServiceAllowedPrincipleArgs struct {
 type VpcEndpointServiceAllowedPrincipleArgs struct {
 	// The ARN of the principal to allow permissions.
 	PrincipalArn pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the VPC endpoint service to allow permission.
 	VpcEndpointServiceId pulumi.StringInput
 }
@@ -220,6 +230,11 @@ func (o VpcEndpointServiceAllowedPrincipleOutput) ToVpcEndpointServiceAllowedPri
 // The ARN of the principal to allow permissions.
 func (o VpcEndpointServiceAllowedPrincipleOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointServiceAllowedPrinciple) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o VpcEndpointServiceAllowedPrincipleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcEndpointServiceAllowedPrinciple) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the VPC endpoint service to allow permission.

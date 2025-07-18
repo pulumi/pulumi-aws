@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codeartifact"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codeartifact"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,6 +58,8 @@ type GetRepositoryEndpointArgs struct {
 	DomainOwner *string `pulumi:"domainOwner"`
 	// Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
 	Format string `pulumi:"format"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the repository.
 	Repository string `pulumi:"repository"`
 }
@@ -69,6 +71,7 @@ type GetRepositoryEndpointResult struct {
 	Format      string `pulumi:"format"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
+	Region     string `pulumi:"region"`
 	Repository string `pulumi:"repository"`
 	// URL of the returned endpoint.
 	RepositoryEndpoint string `pulumi:"repositoryEndpoint"`
@@ -91,6 +94,8 @@ type GetRepositoryEndpointOutputArgs struct {
 	DomainOwner pulumi.StringPtrInput `pulumi:"domainOwner"`
 	// Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
 	Format pulumi.StringInput `pulumi:"format"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Name of the repository.
 	Repository pulumi.StringInput `pulumi:"repository"`
 }
@@ -129,6 +134,10 @@ func (o GetRepositoryEndpointResultOutput) Format() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetRepositoryEndpointResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRepositoryEndpointResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetRepositoryEndpointResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoryEndpointResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetRepositoryEndpointResultOutput) Repository() pulumi.StringOutput {

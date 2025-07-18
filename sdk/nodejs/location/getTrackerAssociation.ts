@@ -25,6 +25,7 @@ export function getTrackerAssociation(args: GetTrackerAssociationArgs, opts?: pu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:location/getTrackerAssociation:getTrackerAssociation", {
         "consumerArn": args.consumerArn,
+        "region": args.region,
         "trackerName": args.trackerName,
     }, opts);
 }
@@ -37,6 +38,10 @@ export interface GetTrackerAssociationArgs {
      * ARN of the geofence collection associated to tracker resource.
      */
     consumerArn: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Name of the tracker resource associated with a geofence collection.
      */
@@ -52,6 +57,7 @@ export interface GetTrackerAssociationResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     readonly trackerName: string;
 }
 /**
@@ -75,6 +81,7 @@ export function getTrackerAssociationOutput(args: GetTrackerAssociationOutputArg
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:location/getTrackerAssociation:getTrackerAssociation", {
         "consumerArn": args.consumerArn,
+        "region": args.region,
         "trackerName": args.trackerName,
     }, opts);
 }
@@ -87,6 +94,10 @@ export interface GetTrackerAssociationOutputArgs {
      * ARN of the geofence collection associated to tracker resource.
      */
     consumerArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the tracker resource associated with a geofence collection.
      */

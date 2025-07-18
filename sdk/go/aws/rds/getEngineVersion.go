@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +52,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -116,7 +116,9 @@ type GetEngineVersionArgs struct {
 	PreferredUpgradeTargets []string `pulumi:"preferredUpgradeTargets"`
 	// Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferredVersions`.
 	PreferredVersions []string `pulumi:"preferredVersions"`
-	Version           *string  `pulumi:"version"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region  *string `pulumi:"region"`
+	Version *string `pulumi:"version"`
 }
 
 // A collection of values returned by getEngineVersion.
@@ -140,6 +142,7 @@ type GetEngineVersionResult struct {
 	PreferredMajorTargets   []string `pulumi:"preferredMajorTargets"`
 	PreferredUpgradeTargets []string `pulumi:"preferredUpgradeTargets"`
 	PreferredVersions       []string `pulumi:"preferredVersions"`
+	Region                  string   `pulumi:"region"`
 	// Status of the engine version, either `available` or `deprecated`.
 	Status string `pulumi:"status"`
 	// Set of character sets supported by th engine version.
@@ -214,7 +217,9 @@ type GetEngineVersionOutputArgs struct {
 	PreferredUpgradeTargets pulumi.StringArrayInput `pulumi:"preferredUpgradeTargets"`
 	// Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferredVersions`.
 	PreferredVersions pulumi.StringArrayInput `pulumi:"preferredVersions"`
-	Version           pulumi.StringPtrInput   `pulumi:"version"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region  pulumi.StringPtrInput `pulumi:"region"`
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (GetEngineVersionOutputArgs) ElementType() reflect.Type {
@@ -298,6 +303,10 @@ func (o GetEngineVersionResultOutput) PreferredUpgradeTargets() pulumi.StringArr
 
 func (o GetEngineVersionResultOutput) PreferredVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEngineVersionResult) []string { return v.PreferredVersions }).(pulumi.StringArrayOutput)
+}
+
+func (o GetEngineVersionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEngineVersionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Status of the engine version, either `available` or `deprecated`.

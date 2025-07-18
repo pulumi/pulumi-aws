@@ -29,7 +29,7 @@ class GetQueryLogConfigResult:
     """
     A collection of values returned by getQueryLogConfig.
     """
-    def __init__(__self__, arn=None, destination_arn=None, filters=None, id=None, name=None, owner_id=None, resolver_query_log_config_id=None, share_status=None, tags=None):
+    def __init__(__self__, arn=None, destination_arn=None, filters=None, id=None, name=None, owner_id=None, region=None, resolver_query_log_config_id=None, share_status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -48,6 +48,9 @@ class GetQueryLogConfigResult:
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if resolver_query_log_config_id and not isinstance(resolver_query_log_config_id, str):
             raise TypeError("Expected argument 'resolver_query_log_config_id' to be a str")
         pulumi.set(__self__, "resolver_query_log_config_id", resolver_query_log_config_id)
@@ -104,6 +107,11 @@ class GetQueryLogConfigResult:
         return pulumi.get(self, "owner_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resolverQueryLogConfigId")
     def resolver_query_log_config_id(self) -> Optional[builtins.str]:
         return pulumi.get(self, "resolver_query_log_config_id")
@@ -137,6 +145,7 @@ class AwaitableGetQueryLogConfigResult(GetQueryLogConfigResult):
             id=self.id,
             name=self.name,
             owner_id=self.owner_id,
+            region=self.region,
             resolver_query_log_config_id=self.resolver_query_log_config_id,
             share_status=self.share_status,
             tags=self.tags)
@@ -144,6 +153,7 @@ class AwaitableGetQueryLogConfigResult(GetQueryLogConfigResult):
 
 def get_query_log_config(filters: Optional[Sequence[Union['GetQueryLogConfigFilterArgs', 'GetQueryLogConfigFilterArgsDict']]] = None,
                          name: Optional[builtins.str] = None,
+                         region: Optional[builtins.str] = None,
                          resolver_query_log_config_id: Optional[builtins.str] = None,
                          tags: Optional[Mapping[str, builtins.str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueryLogConfigResult:
@@ -180,12 +190,14 @@ def get_query_log_config(filters: Optional[Sequence[Union['GetQueryLogConfigFilt
            several valid keys, for a full reference, check out
            [Route53resolver Filter value in the AWS API reference][1].
     :param builtins.str name: The name of the query logging configuration.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resolver_query_log_config_id: ID of the Route53 Resolver Query Logging Configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the service.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['name'] = name
+    __args__['region'] = region
     __args__['resolverQueryLogConfigId'] = resolver_query_log_config_id
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -198,11 +210,13 @@ def get_query_log_config(filters: Optional[Sequence[Union['GetQueryLogConfigFilt
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
+        region=pulumi.get(__ret__, 'region'),
         resolver_query_log_config_id=pulumi.get(__ret__, 'resolver_query_log_config_id'),
         share_status=pulumi.get(__ret__, 'share_status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_query_log_config_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetQueryLogConfigFilterArgs', 'GetQueryLogConfigFilterArgsDict']]]]] = None,
                                 name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 resolver_query_log_config_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueryLogConfigResult]:
@@ -239,12 +253,14 @@ def get_query_log_config_output(filters: Optional[pulumi.Input[Optional[Sequence
            several valid keys, for a full reference, check out
            [Route53resolver Filter value in the AWS API reference][1].
     :param builtins.str name: The name of the query logging configuration.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resolver_query_log_config_id: ID of the Route53 Resolver Query Logging Configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the service.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['name'] = name
+    __args__['region'] = region
     __args__['resolverQueryLogConfigId'] = resolver_query_log_config_id
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -256,6 +272,7 @@ def get_query_log_config_output(filters: Optional[pulumi.Input[Optional[Sequence
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         owner_id=pulumi.get(__response__, 'owner_id'),
+        region=pulumi.get(__response__, 'region'),
         resolver_query_log_config_id=pulumi.get(__response__, 'resolver_query_log_config_id'),
         share_status=pulumi.get(__response__, 'share_status'),
         tags=pulumi.get(__response__, 'tags')))

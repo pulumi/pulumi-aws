@@ -28,7 +28,7 @@ class GetInstanceTypeResult:
     """
     A collection of values returned by getInstanceType.
     """
-    def __init__(__self__, auto_recovery_supported=None, bandwidth_weightings=None, bare_metal=None, boot_modes=None, burstable_performance_supported=None, current_generation=None, dedicated_hosts_supported=None, default_cores=None, default_network_card_index=None, default_threads_per_core=None, default_vcpus=None, ebs_encryption_support=None, ebs_nvme_support=None, ebs_optimized_support=None, ebs_performance_baseline_bandwidth=None, ebs_performance_baseline_iops=None, ebs_performance_baseline_throughput=None, ebs_performance_maximum_bandwidth=None, ebs_performance_maximum_iops=None, ebs_performance_maximum_throughput=None, efa_maximum_interfaces=None, efa_supported=None, ena_srd_supported=None, ena_support=None, encryption_in_transit_supported=None, fpgas=None, free_tier_eligible=None, gpuses=None, hibernation_supported=None, hypervisor=None, id=None, inference_accelerators=None, instance_disks=None, instance_storage_supported=None, instance_type=None, ipv6_supported=None, maximum_ipv4_addresses_per_interface=None, maximum_ipv6_addresses_per_interface=None, maximum_network_cards=None, maximum_network_interfaces=None, media_accelerators=None, memory_size=None, network_cards=None, network_performance=None, neuron_devices=None, nitro_enclaves_support=None, nitro_tpm_support=None, nitro_tpm_supported_versions=None, phc_support=None, supported_architectures=None, supported_cpu_features=None, supported_placement_strategies=None, supported_root_device_types=None, supported_usages_classes=None, supported_virtualization_types=None, sustained_clock_speed=None, total_fpga_memory=None, total_gpu_memory=None, total_inference_memory=None, total_instance_storage=None, total_media_memory=None, total_neuron_device_memory=None, valid_cores=None, valid_threads_per_cores=None):
+    def __init__(__self__, auto_recovery_supported=None, bandwidth_weightings=None, bare_metal=None, boot_modes=None, burstable_performance_supported=None, current_generation=None, dedicated_hosts_supported=None, default_cores=None, default_network_card_index=None, default_threads_per_core=None, default_vcpus=None, ebs_encryption_support=None, ebs_nvme_support=None, ebs_optimized_support=None, ebs_performance_baseline_bandwidth=None, ebs_performance_baseline_iops=None, ebs_performance_baseline_throughput=None, ebs_performance_maximum_bandwidth=None, ebs_performance_maximum_iops=None, ebs_performance_maximum_throughput=None, efa_maximum_interfaces=None, efa_supported=None, ena_srd_supported=None, ena_support=None, encryption_in_transit_supported=None, fpgas=None, free_tier_eligible=None, gpuses=None, hibernation_supported=None, hypervisor=None, id=None, inference_accelerators=None, instance_disks=None, instance_storage_supported=None, instance_type=None, ipv6_supported=None, maximum_ipv4_addresses_per_interface=None, maximum_ipv6_addresses_per_interface=None, maximum_network_cards=None, maximum_network_interfaces=None, media_accelerators=None, memory_size=None, network_cards=None, network_performance=None, neuron_devices=None, nitro_enclaves_support=None, nitro_tpm_support=None, nitro_tpm_supported_versions=None, phc_support=None, region=None, supported_architectures=None, supported_cpu_features=None, supported_placement_strategies=None, supported_root_device_types=None, supported_usages_classes=None, supported_virtualization_types=None, sustained_clock_speed=None, total_fpga_memory=None, total_gpu_memory=None, total_inference_memory=None, total_instance_storage=None, total_media_memory=None, total_neuron_device_memory=None, valid_cores=None, valid_threads_per_cores=None):
         if auto_recovery_supported and not isinstance(auto_recovery_supported, bool):
             raise TypeError("Expected argument 'auto_recovery_supported' to be a bool")
         pulumi.set(__self__, "auto_recovery_supported", auto_recovery_supported)
@@ -176,6 +176,9 @@ class GetInstanceTypeResult:
         if phc_support and not isinstance(phc_support, str):
             raise TypeError("Expected argument 'phc_support' to be a str")
         pulumi.set(__self__, "phc_support", phc_support)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if supported_architectures and not isinstance(supported_architectures, list):
             raise TypeError("Expected argument 'supported_architectures' to be a list")
         pulumi.set(__self__, "supported_architectures", supported_architectures)
@@ -641,6 +644,11 @@ class GetInstanceTypeResult:
         return pulumi.get(self, "phc_support")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="supportedArchitectures")
     def supported_architectures(self) -> Sequence[builtins.str]:
         """
@@ -816,6 +824,7 @@ class AwaitableGetInstanceTypeResult(GetInstanceTypeResult):
             nitro_tpm_support=self.nitro_tpm_support,
             nitro_tpm_supported_versions=self.nitro_tpm_supported_versions,
             phc_support=self.phc_support,
+            region=self.region,
             supported_architectures=self.supported_architectures,
             supported_cpu_features=self.supported_cpu_features,
             supported_placement_strategies=self.supported_placement_strategies,
@@ -834,6 +843,7 @@ class AwaitableGetInstanceTypeResult(GetInstanceTypeResult):
 
 
 def get_instance_type(instance_type: Optional[builtins.str] = None,
+                      region: Optional[builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceTypeResult:
     """
     Get characteristics for a single EC2 Instance Type.
@@ -849,9 +859,11 @@ def get_instance_type(instance_type: Optional[builtins.str] = None,
 
 
     :param builtins.str instance_type: Instance
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['instanceType'] = instance_type
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInstanceType:getInstanceType', __args__, opts=opts, typ=GetInstanceTypeResult).value
 
@@ -905,6 +917,7 @@ def get_instance_type(instance_type: Optional[builtins.str] = None,
         nitro_tpm_support=pulumi.get(__ret__, 'nitro_tpm_support'),
         nitro_tpm_supported_versions=pulumi.get(__ret__, 'nitro_tpm_supported_versions'),
         phc_support=pulumi.get(__ret__, 'phc_support'),
+        region=pulumi.get(__ret__, 'region'),
         supported_architectures=pulumi.get(__ret__, 'supported_architectures'),
         supported_cpu_features=pulumi.get(__ret__, 'supported_cpu_features'),
         supported_placement_strategies=pulumi.get(__ret__, 'supported_placement_strategies'),
@@ -921,6 +934,7 @@ def get_instance_type(instance_type: Optional[builtins.str] = None,
         valid_cores=pulumi.get(__ret__, 'valid_cores'),
         valid_threads_per_cores=pulumi.get(__ret__, 'valid_threads_per_cores'))
 def get_instance_type_output(instance_type: Optional[pulumi.Input[builtins.str]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceTypeResult]:
     """
     Get characteristics for a single EC2 Instance Type.
@@ -936,9 +950,11 @@ def get_instance_type_output(instance_type: Optional[pulumi.Input[builtins.str]]
 
 
     :param builtins.str instance_type: Instance
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['instanceType'] = instance_type
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInstanceType:getInstanceType', __args__, opts=opts, typ=GetInstanceTypeResult)
     return __ret__.apply(lambda __response__: GetInstanceTypeResult(
@@ -991,6 +1007,7 @@ def get_instance_type_output(instance_type: Optional[pulumi.Input[builtins.str]]
         nitro_tpm_support=pulumi.get(__response__, 'nitro_tpm_support'),
         nitro_tpm_supported_versions=pulumi.get(__response__, 'nitro_tpm_supported_versions'),
         phc_support=pulumi.get(__response__, 'phc_support'),
+        region=pulumi.get(__response__, 'region'),
         supported_architectures=pulumi.get(__response__, 'supported_architectures'),
         supported_cpu_features=pulumi.get(__response__, 'supported_cpu_features'),
         supported_placement_strategies=pulumi.get(__response__, 'supported_placement_strategies'),

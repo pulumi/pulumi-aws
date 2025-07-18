@@ -132,6 +132,10 @@ export class Authorizer extends pulumi.CustomResource {
      * Name of the authorizer. Must be between 1 and 128 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Authorizer resource with the given unique name, arguments, and options.
@@ -156,6 +160,7 @@ export class Authorizer extends pulumi.CustomResource {
             resourceInputs["identitySources"] = state ? state.identitySources : undefined;
             resourceInputs["jwtConfiguration"] = state ? state.jwtConfiguration : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AuthorizerArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -174,6 +179,7 @@ export class Authorizer extends pulumi.CustomResource {
             resourceInputs["identitySources"] = args ? args.identitySources : undefined;
             resourceInputs["jwtConfiguration"] = args ? args.jwtConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Authorizer.__pulumiType, name, resourceInputs, opts);
@@ -236,6 +242,10 @@ export interface AuthorizerState {
      * Name of the authorizer. Must be between 1 and 128 characters in length.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -294,4 +304,8 @@ export interface AuthorizerArgs {
      * Name of the authorizer. Must be between 1 and 128 characters in length.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

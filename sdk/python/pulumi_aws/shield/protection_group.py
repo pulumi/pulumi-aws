@@ -155,9 +155,6 @@ class _ProtectionGroupState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
     @property
@@ -246,7 +243,6 @@ class _ProtectionGroupState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -301,12 +297,12 @@ class ProtectionGroup(pulumi.CustomResource):
         example = aws.ec2.Eip("example", domain="vpc")
         example_protection = aws.shield.Protection("example",
             name="example",
-            resource_arn=example.id.apply(lambda id: f"arn:aws:ec2:{current.name}:{current_get_caller_identity.account_id}:eip-allocation/{id}"))
+            resource_arn=example.id.apply(lambda id: f"arn:aws:ec2:{current.region}:{current_get_caller_identity.account_id}:eip-allocation/{id}"))
         example_protection_group = aws.shield.ProtectionGroup("example",
             protection_group_id="example",
             aggregation="MEAN",
             pattern="ARBITRARY",
-            members=[example.id.apply(lambda id: f"arn:aws:ec2:{current.name}:{current_get_caller_identity.account_id}:eip-allocation/{id}")],
+            members=[example.id.apply(lambda id: f"arn:aws:ec2:{current.region}:{current_get_caller_identity.account_id}:eip-allocation/{id}")],
             opts = pulumi.ResourceOptions(depends_on=[example_protection]))
         ```
 
@@ -376,12 +372,12 @@ class ProtectionGroup(pulumi.CustomResource):
         example = aws.ec2.Eip("example", domain="vpc")
         example_protection = aws.shield.Protection("example",
             name="example",
-            resource_arn=example.id.apply(lambda id: f"arn:aws:ec2:{current.name}:{current_get_caller_identity.account_id}:eip-allocation/{id}"))
+            resource_arn=example.id.apply(lambda id: f"arn:aws:ec2:{current.region}:{current_get_caller_identity.account_id}:eip-allocation/{id}"))
         example_protection_group = aws.shield.ProtectionGroup("example",
             protection_group_id="example",
             aggregation="MEAN",
             pattern="ARBITRARY",
-            members=[example.id.apply(lambda id: f"arn:aws:ec2:{current.name}:{current_get_caller_identity.account_id}:eip-allocation/{id}")],
+            members=[example.id.apply(lambda id: f"arn:aws:ec2:{current.region}:{current_get_caller_identity.account_id}:eip-allocation/{id}")],
             opts = pulumi.ResourceOptions(depends_on=[example_protection]))
         ```
 
@@ -556,7 +552,6 @@ class ProtectionGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

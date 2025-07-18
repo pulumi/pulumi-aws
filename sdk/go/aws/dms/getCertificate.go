@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,8 +53,10 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 // A collection of arguments for invoking getCertificate.
 type LookupCertificateArgs struct {
 	// A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
-	CertificateId string            `pulumi:"certificateId"`
-	Tags          map[string]string `pulumi:"tags"`
+	CertificateId string `pulumi:"certificateId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCertificate.
@@ -73,7 +75,8 @@ type LookupCertificateResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The key length of the cryptographic algorithm being used.
-	KeyLength int `pulumi:"keyLength"`
+	KeyLength int    `pulumi:"keyLength"`
+	Region    string `pulumi:"region"`
 	// The algorithm for the certificate.
 	SigningAlgorithm string            `pulumi:"signingAlgorithm"`
 	Tags             map[string]string `pulumi:"tags"`
@@ -95,8 +98,10 @@ func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputAr
 // A collection of arguments for invoking getCertificate.
 type LookupCertificateOutputArgs struct {
 	// A customer-assigned name for the certificate. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two consecutive hyphens.
-	CertificateId pulumi.StringInput    `pulumi:"certificateId"`
-	Tags          pulumi.StringMapInput `pulumi:"tags"`
+	CertificateId pulumi.StringInput `pulumi:"certificateId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupCertificateOutputArgs) ElementType() reflect.Type {
@@ -155,6 +160,10 @@ func (o LookupCertificateResultOutput) Id() pulumi.StringOutput {
 // The key length of the cryptographic algorithm being used.
 func (o LookupCertificateResultOutput) KeyLength() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupCertificateResult) int { return v.KeyLength }).(pulumi.IntOutput)
+}
+
+func (o LookupCertificateResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The algorithm for the certificate.

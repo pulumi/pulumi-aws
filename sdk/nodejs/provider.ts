@@ -7,8 +7,6 @@ import * as outputs from "./types/output";
 import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
-import {Region} from "./index";
-
 /**
  * The provider type for the aws package. By default, resources use package-wide configuration
  * settings, however an explicit `Provider` instance may be created and passed during resource
@@ -71,7 +69,7 @@ export class Provider extends pulumi.ProviderResource {
     /**
      * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
      */
-    public readonly region!: pulumi.Output<Region | undefined>;
+    public readonly region!: pulumi.Output<string | undefined>;
     /**
      * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
      * `AWS_RETRY_MODE` environment variable.
@@ -109,8 +107,8 @@ export class Provider extends pulumi.ProviderResource {
         {
             resourceInputs["accessKey"] = args?.accessKey ? pulumi.secret(args.accessKey) : undefined;
             resourceInputs["allowedAccountIds"] = pulumi.output(args ? args.allowedAccountIds : undefined).apply(JSON.stringify);
-            resourceInputs["assumeRole"] = pulumi.output(args ? args.assumeRole : undefined).apply(JSON.stringify);
             resourceInputs["assumeRoleWithWebIdentity"] = pulumi.output(args ? args.assumeRoleWithWebIdentity : undefined).apply(JSON.stringify);
+            resourceInputs["assumeRoles"] = pulumi.output(args ? args.assumeRoles : undefined).apply(JSON.stringify);
             resourceInputs["customCaBundle"] = args ? args.customCaBundle : undefined;
             resourceInputs["defaultTags"] = pulumi.output(args ? args.defaultTags : undefined).apply(JSON.stringify);
             resourceInputs["ec2MetadataServiceEndpoint"] = args ? args.ec2MetadataServiceEndpoint : undefined;
@@ -124,7 +122,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
             resourceInputs["noProxy"] = args ? args.noProxy : undefined;
             resourceInputs["profile"] = args ? args.profile : undefined;
-            resourceInputs["region"] = (args ? args.region : undefined) ?? <any>utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
+            resourceInputs["region"] = (args ? args.region : undefined) ?? utilities.getEnv("AWS_REGION", "AWS_DEFAULT_REGION");
             resourceInputs["retryMode"] = args ? args.retryMode : undefined;
             resourceInputs["s3UsEast1RegionalEndpoint"] = args ? args.s3UsEast1RegionalEndpoint : undefined;
             resourceInputs["s3UsePathStyle"] = pulumi.output(args ? args.s3UsePathStyle : undefined).apply(JSON.stringify);
@@ -166,8 +164,8 @@ export interface ProviderArgs {
      */
     accessKey?: pulumi.Input<string>;
     allowedAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
-    assumeRole?: pulumi.Input<inputs.ProviderAssumeRole>;
     assumeRoleWithWebIdentity?: pulumi.Input<inputs.ProviderAssumeRoleWithWebIdentity>;
+    assumeRoles?: pulumi.Input<pulumi.Input<inputs.ProviderAssumeRole>[]>;
     /**
      * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
      * variable. (Setting `caBundle` in the shared config file is not supported.)
@@ -223,7 +221,7 @@ export interface ProviderArgs {
     /**
      * The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
      */
-    region?: pulumi.Input<Region>;
+    region?: pulumi.Input<string>;
     /**
      * Specifies how retries are attempted. Valid values are `standard` and `adaptive`. Can also be configured using the
      * `AWS_RETRY_MODE` environment variable.

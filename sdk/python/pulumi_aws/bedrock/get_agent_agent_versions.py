@@ -29,7 +29,7 @@ class GetAgentAgentVersionsResult:
     """
     A collection of values returned by getAgentAgentVersions.
     """
-    def __init__(__self__, agent_id=None, agent_version_summaries=None, id=None):
+    def __init__(__self__, agent_id=None, agent_version_summaries=None, id=None, region=None):
         if agent_id and not isinstance(agent_id, str):
             raise TypeError("Expected argument 'agent_id' to be a str")
         pulumi.set(__self__, "agent_id", agent_id)
@@ -39,6 +39,9 @@ class GetAgentAgentVersionsResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="agentId")
@@ -61,6 +64,11 @@ class GetAgentAgentVersionsResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetAgentAgentVersionsResult(GetAgentAgentVersionsResult):
     # pylint: disable=using-constant-test
@@ -70,11 +78,13 @@ class AwaitableGetAgentAgentVersionsResult(GetAgentAgentVersionsResult):
         return GetAgentAgentVersionsResult(
             agent_id=self.agent_id,
             agent_version_summaries=self.agent_version_summaries,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
 def get_agent_agent_versions(agent_id: Optional[builtins.str] = None,
                              agent_version_summaries: Optional[Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict']]] = None,
+                             region: Optional[builtins.str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAgentAgentVersionsResult:
     """
     Data source for managing an AWS Amazon BedrockAgent Agent Versions.
@@ -93,19 +103,23 @@ def get_agent_agent_versions(agent_id: Optional[builtins.str] = None,
 
     :param builtins.str agent_id: Unique identifier of the agent.
     :param Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict']] agent_version_summaries: List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['agentId'] = agent_id
     __args__['agentVersionSummaries'] = agent_version_summaries
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:bedrock/getAgentAgentVersions:getAgentAgentVersions', __args__, opts=opts, typ=GetAgentAgentVersionsResult).value
 
     return AwaitableGetAgentAgentVersionsResult(
         agent_id=pulumi.get(__ret__, 'agent_id'),
         agent_version_summaries=pulumi.get(__ret__, 'agent_version_summaries'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_agent_agent_versions_output(agent_id: Optional[pulumi.Input[builtins.str]] = None,
                                     agent_version_summaries: Optional[pulumi.Input[Optional[Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict']]]]] = None,
+                                    region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentAgentVersionsResult]:
     """
     Data source for managing an AWS Amazon BedrockAgent Agent Versions.
@@ -124,13 +138,16 @@ def get_agent_agent_versions_output(agent_id: Optional[pulumi.Input[builtins.str
 
     :param builtins.str agent_id: Unique identifier of the agent.
     :param Sequence[Union['GetAgentAgentVersionsAgentVersionSummaryArgs', 'GetAgentAgentVersionsAgentVersionSummaryArgsDict']] agent_version_summaries: List of objects, each of which contains information about a version of the agent. See Agent Version Summaries
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['agentId'] = agent_id
     __args__['agentVersionSummaries'] = agent_version_summaries
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:bedrock/getAgentAgentVersions:getAgentAgentVersions', __args__, opts=opts, typ=GetAgentAgentVersionsResult)
     return __ret__.apply(lambda __response__: GetAgentAgentVersionsResult(
         agent_id=pulumi.get(__response__, 'agent_id'),
         agent_version_summaries=pulumi.get(__response__, 'agent_version_summaries'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

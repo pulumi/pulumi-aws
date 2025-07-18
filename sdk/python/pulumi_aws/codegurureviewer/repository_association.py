@@ -24,6 +24,7 @@ class RepositoryAssociationArgs:
     def __init__(__self__, *,
                  repository: pulumi.Input['RepositoryAssociationRepositoryArgs'],
                  kms_key_details: Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a RepositoryAssociation resource.
@@ -31,10 +32,13 @@ class RepositoryAssociationArgs:
                
                The following arguments are optional:
         :param pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs'] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "repository", repository)
         if kms_key_details is not None:
             pulumi.set(__self__, "kms_key_details", kms_key_details)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -66,6 +70,18 @@ class RepositoryAssociationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags")
 
@@ -84,6 +100,7 @@ class _RepositoryAssociationState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owner: Optional[pulumi.Input[builtins.str]] = None,
                  provider_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository: Optional[pulumi.Input['RepositoryAssociationRepositoryArgs']] = None,
                  s3_repository_details: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailArgs']]]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
@@ -99,6 +116,7 @@ class _RepositoryAssociationState:
         :param pulumi.Input[builtins.str] name: The name of the repository.
         :param pulumi.Input[builtins.str] owner: The owner of the repository.
         :param pulumi.Input[builtins.str] provider_type: The provider type of the repository association.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['RepositoryAssociationRepositoryArgs'] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
                
                The following arguments are optional:
@@ -119,6 +137,8 @@ class _RepositoryAssociationState:
             pulumi.set(__self__, "owner", owner)
         if provider_type is not None:
             pulumi.set(__self__, "provider_type", provider_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
         if s3_repository_details is not None:
@@ -129,9 +149,6 @@ class _RepositoryAssociationState:
             pulumi.set(__self__, "state_reason", state_reason)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -221,6 +238,18 @@ class _RepositoryAssociationState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def repository(self) -> Optional[pulumi.Input['RepositoryAssociationRepositoryArgs']]:
         """
         An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
@@ -277,7 +306,6 @@ class _RepositoryAssociationState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -293,6 +321,7 @@ class RepositoryAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  kms_key_details: Optional[pulumi.Input[Union['RepositoryAssociationKmsKeyDetailsArgs', 'RepositoryAssociationKmsKeyDetailsArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository: Optional[pulumi.Input[Union['RepositoryAssociationRepositoryArgs', 'RepositoryAssociationRepositoryArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -322,6 +351,7 @@ class RepositoryAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RepositoryAssociationKmsKeyDetailsArgs', 'RepositoryAssociationKmsKeyDetailsArgsDict']] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['RepositoryAssociationRepositoryArgs', 'RepositoryAssociationRepositoryArgsDict']] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
                
                The following arguments are optional:
@@ -371,6 +401,7 @@ class RepositoryAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  kms_key_details: Optional[pulumi.Input[Union['RepositoryAssociationKmsKeyDetailsArgs', 'RepositoryAssociationKmsKeyDetailsArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository: Optional[pulumi.Input[Union['RepositoryAssociationRepositoryArgs', 'RepositoryAssociationRepositoryArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -383,6 +414,7 @@ class RepositoryAssociation(pulumi.CustomResource):
             __props__ = RepositoryAssociationArgs.__new__(RepositoryAssociationArgs)
 
             __props__.__dict__["kms_key_details"] = kms_key_details
+            __props__.__dict__["region"] = region
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
@@ -414,6 +446,7 @@ class RepositoryAssociation(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             owner: Optional[pulumi.Input[builtins.str]] = None,
             provider_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             repository: Optional[pulumi.Input[Union['RepositoryAssociationRepositoryArgs', 'RepositoryAssociationRepositoryArgsDict']]] = None,
             s3_repository_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RepositoryAssociationS3RepositoryDetailArgs', 'RepositoryAssociationS3RepositoryDetailArgsDict']]]]] = None,
             state: Optional[pulumi.Input[builtins.str]] = None,
@@ -434,6 +467,7 @@ class RepositoryAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the repository.
         :param pulumi.Input[builtins.str] owner: The owner of the repository.
         :param pulumi.Input[builtins.str] provider_type: The provider type of the repository association.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['RepositoryAssociationRepositoryArgs', 'RepositoryAssociationRepositoryArgsDict']] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
                
                The following arguments are optional:
@@ -451,6 +485,7 @@ class RepositoryAssociation(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["owner"] = owner
         __props__.__dict__["provider_type"] = provider_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["repository"] = repository
         __props__.__dict__["s3_repository_details"] = s3_repository_details
         __props__.__dict__["state"] = state
@@ -517,6 +552,14 @@ class RepositoryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def repository(self) -> pulumi.Output['outputs.RepositoryAssociationRepository']:
         """
         An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
@@ -553,7 +596,6 @@ class RepositoryAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -78,45 +78,29 @@ func (i ProviderAssumeRoleArgs) ToProviderAssumeRoleOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderAssumeRoleOutput)
 }
 
-func (i ProviderAssumeRoleArgs) ToProviderAssumeRolePtrOutput() ProviderAssumeRolePtrOutput {
-	return i.ToProviderAssumeRolePtrOutputWithContext(context.Background())
-}
-
-func (i ProviderAssumeRoleArgs) ToProviderAssumeRolePtrOutputWithContext(ctx context.Context) ProviderAssumeRolePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProviderAssumeRoleOutput).ToProviderAssumeRolePtrOutputWithContext(ctx)
-}
-
-// ProviderAssumeRolePtrInput is an input type that accepts ProviderAssumeRoleArgs, ProviderAssumeRolePtr and ProviderAssumeRolePtrOutput values.
-// You can construct a concrete instance of `ProviderAssumeRolePtrInput` via:
+// ProviderAssumeRoleArrayInput is an input type that accepts ProviderAssumeRoleArray and ProviderAssumeRoleArrayOutput values.
+// You can construct a concrete instance of `ProviderAssumeRoleArrayInput` via:
 //
-//	        ProviderAssumeRoleArgs{...}
-//
-//	or:
-//
-//	        nil
-type ProviderAssumeRolePtrInput interface {
+//	ProviderAssumeRoleArray{ ProviderAssumeRoleArgs{...} }
+type ProviderAssumeRoleArrayInput interface {
 	pulumi.Input
 
-	ToProviderAssumeRolePtrOutput() ProviderAssumeRolePtrOutput
-	ToProviderAssumeRolePtrOutputWithContext(context.Context) ProviderAssumeRolePtrOutput
+	ToProviderAssumeRoleArrayOutput() ProviderAssumeRoleArrayOutput
+	ToProviderAssumeRoleArrayOutputWithContext(context.Context) ProviderAssumeRoleArrayOutput
 }
 
-type providerAssumeRolePtrType ProviderAssumeRoleArgs
+type ProviderAssumeRoleArray []ProviderAssumeRoleInput
 
-func ProviderAssumeRolePtr(v *ProviderAssumeRoleArgs) ProviderAssumeRolePtrInput {
-	return (*providerAssumeRolePtrType)(v)
+func (ProviderAssumeRoleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProviderAssumeRole)(nil)).Elem()
 }
 
-func (*providerAssumeRolePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProviderAssumeRole)(nil)).Elem()
+func (i ProviderAssumeRoleArray) ToProviderAssumeRoleArrayOutput() ProviderAssumeRoleArrayOutput {
+	return i.ToProviderAssumeRoleArrayOutputWithContext(context.Background())
 }
 
-func (i *providerAssumeRolePtrType) ToProviderAssumeRolePtrOutput() ProviderAssumeRolePtrOutput {
-	return i.ToProviderAssumeRolePtrOutputWithContext(context.Background())
-}
-
-func (i *providerAssumeRolePtrType) ToProviderAssumeRolePtrOutputWithContext(ctx context.Context) ProviderAssumeRolePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProviderAssumeRolePtrOutput)
+func (i ProviderAssumeRoleArray) ToProviderAssumeRoleArrayOutputWithContext(ctx context.Context) ProviderAssumeRoleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderAssumeRoleArrayOutput)
 }
 
 type ProviderAssumeRoleOutput struct{ *pulumi.OutputState }
@@ -131,16 +115,6 @@ func (o ProviderAssumeRoleOutput) ToProviderAssumeRoleOutput() ProviderAssumeRol
 
 func (o ProviderAssumeRoleOutput) ToProviderAssumeRoleOutputWithContext(ctx context.Context) ProviderAssumeRoleOutput {
 	return o
-}
-
-func (o ProviderAssumeRoleOutput) ToProviderAssumeRolePtrOutput() ProviderAssumeRolePtrOutput {
-	return o.ToProviderAssumeRolePtrOutputWithContext(context.Background())
-}
-
-func (o ProviderAssumeRoleOutput) ToProviderAssumeRolePtrOutputWithContext(ctx context.Context) ProviderAssumeRolePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderAssumeRole) *ProviderAssumeRole {
-		return &v
-	}).(ProviderAssumeRolePtrOutput)
 }
 
 // The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
@@ -188,118 +162,24 @@ func (o ProviderAssumeRoleOutput) TransitiveTagKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ProviderAssumeRole) []string { return v.TransitiveTagKeys }).(pulumi.StringArrayOutput)
 }
 
-type ProviderAssumeRolePtrOutput struct{ *pulumi.OutputState }
+type ProviderAssumeRoleArrayOutput struct{ *pulumi.OutputState }
 
-func (ProviderAssumeRolePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProviderAssumeRole)(nil)).Elem()
+func (ProviderAssumeRoleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProviderAssumeRole)(nil)).Elem()
 }
 
-func (o ProviderAssumeRolePtrOutput) ToProviderAssumeRolePtrOutput() ProviderAssumeRolePtrOutput {
+func (o ProviderAssumeRoleArrayOutput) ToProviderAssumeRoleArrayOutput() ProviderAssumeRoleArrayOutput {
 	return o
 }
 
-func (o ProviderAssumeRolePtrOutput) ToProviderAssumeRolePtrOutputWithContext(ctx context.Context) ProviderAssumeRolePtrOutput {
+func (o ProviderAssumeRoleArrayOutput) ToProviderAssumeRoleArrayOutputWithContext(ctx context.Context) ProviderAssumeRoleArrayOutput {
 	return o
 }
 
-func (o ProviderAssumeRolePtrOutput) Elem() ProviderAssumeRoleOutput {
-	return o.ApplyT(func(v *ProviderAssumeRole) ProviderAssumeRole {
-		if v != nil {
-			return *v
-		}
-		var ret ProviderAssumeRole
-		return ret
+func (o ProviderAssumeRoleArrayOutput) Index(i pulumi.IntInput) ProviderAssumeRoleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProviderAssumeRole {
+		return vs[0].([]ProviderAssumeRole)[vs[1].(int)]
 	}).(ProviderAssumeRoleOutput)
-}
-
-// The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
-func (o ProviderAssumeRolePtrOutput) Duration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProviderAssumeRole) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Duration
-	}).(pulumi.StringPtrOutput)
-}
-
-// A unique identifier that might be required when you assume a role in another account.
-func (o ProviderAssumeRolePtrOutput) ExternalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProviderAssumeRole) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ExternalId
-	}).(pulumi.StringPtrOutput)
-}
-
-// IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
-func (o ProviderAssumeRolePtrOutput) Policy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProviderAssumeRole) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Policy
-	}).(pulumi.StringPtrOutput)
-}
-
-// Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
-func (o ProviderAssumeRolePtrOutput) PolicyArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ProviderAssumeRole) []string {
-		if v == nil {
-			return nil
-		}
-		return v.PolicyArns
-	}).(pulumi.StringArrayOutput)
-}
-
-// Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
-func (o ProviderAssumeRolePtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProviderAssumeRole) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RoleArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// An identifier for the assumed role session.
-func (o ProviderAssumeRolePtrOutput) SessionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProviderAssumeRole) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SessionName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Source identity specified by the principal assuming the role.
-func (o ProviderAssumeRolePtrOutput) SourceIdentity() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProviderAssumeRole) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SourceIdentity
-	}).(pulumi.StringPtrOutput)
-}
-
-// Assume role session tags.
-func (o ProviderAssumeRolePtrOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *ProviderAssumeRole) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(pulumi.StringMapOutput)
-}
-
-// Assume role session tag keys to pass to any subsequent sessions.
-func (o ProviderAssumeRolePtrOutput) TransitiveTagKeys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ProviderAssumeRole) []string {
-		if v == nil {
-			return nil
-		}
-		return v.TransitiveTagKeys
-	}).(pulumi.StringArrayOutput)
 }
 
 type ProviderAssumeRoleWithWebIdentity struct {
@@ -990,10 +870,6 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Iot *string `pulumi:"iot"`
 	// Use this to override the default service endpoint URL
-	Iotanalytics *string `pulumi:"iotanalytics"`
-	// Use this to override the default service endpoint URL
-	Iotevents *string `pulumi:"iotevents"`
-	// Use this to override the default service endpoint URL
 	Ivs *string `pulumi:"ivs"`
 	// Use this to override the default service endpoint URL
 	Ivschat *string `pulumi:"ivschat"`
@@ -1100,8 +976,6 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Opensearchservice *string `pulumi:"opensearchservice"`
 	// Use this to override the default service endpoint URL
-	Opsworks *string `pulumi:"opsworks"`
-	// Use this to override the default service endpoint URL
 	Organizations *string `pulumi:"organizations"`
 	// Use this to override the default service endpoint URL
 	Osis *string `pulumi:"osis"`
@@ -1194,8 +1068,6 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Schemas *string `pulumi:"schemas"`
 	// Use this to override the default service endpoint URL
-	Sdb *string `pulumi:"sdb"`
-	// Use this to override the default service endpoint URL
 	Secretsmanager *string `pulumi:"secretsmanager"`
 	// Use this to override the default service endpoint URL
 	Securityhub *string `pulumi:"securityhub"`
@@ -1225,8 +1097,6 @@ type ProviderEndpoint struct {
 	Shield *string `pulumi:"shield"`
 	// Use this to override the default service endpoint URL
 	Signer *string `pulumi:"signer"`
-	// Use this to override the default service endpoint URL
-	Simpledb *string `pulumi:"simpledb"`
 	// Use this to override the default service endpoint URL
 	Sns *string `pulumi:"sns"`
 	// Use this to override the default service endpoint URL
@@ -1281,8 +1151,6 @@ type ProviderEndpoint struct {
 	Wafv2 *string `pulumi:"wafv2"`
 	// Use this to override the default service endpoint URL
 	Wellarchitected *string `pulumi:"wellarchitected"`
-	// Use this to override the default service endpoint URL
-	Worklink *string `pulumi:"worklink"`
 	// Use this to override the default service endpoint URL
 	Workspaces *string `pulumi:"workspaces"`
 	// Use this to override the default service endpoint URL
@@ -1610,10 +1478,6 @@ type ProviderEndpointArgs struct {
 	// Use this to override the default service endpoint URL
 	Iot pulumi.StringPtrInput `pulumi:"iot"`
 	// Use this to override the default service endpoint URL
-	Iotanalytics pulumi.StringPtrInput `pulumi:"iotanalytics"`
-	// Use this to override the default service endpoint URL
-	Iotevents pulumi.StringPtrInput `pulumi:"iotevents"`
-	// Use this to override the default service endpoint URL
 	Ivs pulumi.StringPtrInput `pulumi:"ivs"`
 	// Use this to override the default service endpoint URL
 	Ivschat pulumi.StringPtrInput `pulumi:"ivschat"`
@@ -1720,8 +1584,6 @@ type ProviderEndpointArgs struct {
 	// Use this to override the default service endpoint URL
 	Opensearchservice pulumi.StringPtrInput `pulumi:"opensearchservice"`
 	// Use this to override the default service endpoint URL
-	Opsworks pulumi.StringPtrInput `pulumi:"opsworks"`
-	// Use this to override the default service endpoint URL
 	Organizations pulumi.StringPtrInput `pulumi:"organizations"`
 	// Use this to override the default service endpoint URL
 	Osis pulumi.StringPtrInput `pulumi:"osis"`
@@ -1814,8 +1676,6 @@ type ProviderEndpointArgs struct {
 	// Use this to override the default service endpoint URL
 	Schemas pulumi.StringPtrInput `pulumi:"schemas"`
 	// Use this to override the default service endpoint URL
-	Sdb pulumi.StringPtrInput `pulumi:"sdb"`
-	// Use this to override the default service endpoint URL
 	Secretsmanager pulumi.StringPtrInput `pulumi:"secretsmanager"`
 	// Use this to override the default service endpoint URL
 	Securityhub pulumi.StringPtrInput `pulumi:"securityhub"`
@@ -1845,8 +1705,6 @@ type ProviderEndpointArgs struct {
 	Shield pulumi.StringPtrInput `pulumi:"shield"`
 	// Use this to override the default service endpoint URL
 	Signer pulumi.StringPtrInput `pulumi:"signer"`
-	// Use this to override the default service endpoint URL
-	Simpledb pulumi.StringPtrInput `pulumi:"simpledb"`
 	// Use this to override the default service endpoint URL
 	Sns pulumi.StringPtrInput `pulumi:"sns"`
 	// Use this to override the default service endpoint URL
@@ -1901,8 +1759,6 @@ type ProviderEndpointArgs struct {
 	Wafv2 pulumi.StringPtrInput `pulumi:"wafv2"`
 	// Use this to override the default service endpoint URL
 	Wellarchitected pulumi.StringPtrInput `pulumi:"wellarchitected"`
-	// Use this to override the default service endpoint URL
-	Worklink pulumi.StringPtrInput `pulumi:"worklink"`
 	// Use this to override the default service endpoint URL
 	Workspaces pulumi.StringPtrInput `pulumi:"workspaces"`
 	// Use this to override the default service endpoint URL
@@ -2728,16 +2584,6 @@ func (o ProviderEndpointOutput) Iot() pulumi.StringPtrOutput {
 }
 
 // Use this to override the default service endpoint URL
-func (o ProviderEndpointOutput) Iotanalytics() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Iotanalytics }).(pulumi.StringPtrOutput)
-}
-
-// Use this to override the default service endpoint URL
-func (o ProviderEndpointOutput) Iotevents() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Iotevents }).(pulumi.StringPtrOutput)
-}
-
-// Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Ivs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Ivs }).(pulumi.StringPtrOutput)
 }
@@ -3003,11 +2849,6 @@ func (o ProviderEndpointOutput) Opensearchservice() pulumi.StringPtrOutput {
 }
 
 // Use this to override the default service endpoint URL
-func (o ProviderEndpointOutput) Opsworks() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Opsworks }).(pulumi.StringPtrOutput)
-}
-
-// Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Organizations() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Organizations }).(pulumi.StringPtrOutput)
 }
@@ -3238,11 +3079,6 @@ func (o ProviderEndpointOutput) Schemas() pulumi.StringPtrOutput {
 }
 
 // Use this to override the default service endpoint URL
-func (o ProviderEndpointOutput) Sdb() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Sdb }).(pulumi.StringPtrOutput)
-}
-
-// Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Secretsmanager() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Secretsmanager }).(pulumi.StringPtrOutput)
 }
@@ -3315,11 +3151,6 @@ func (o ProviderEndpointOutput) Shield() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Signer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Signer }).(pulumi.StringPtrOutput)
-}
-
-// Use this to override the default service endpoint URL
-func (o ProviderEndpointOutput) Simpledb() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Simpledb }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL
@@ -3455,11 +3286,6 @@ func (o ProviderEndpointOutput) Wafv2() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Wellarchitected() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Wellarchitected }).(pulumi.StringPtrOutput)
-}
-
-// Use this to override the default service endpoint URL
-func (o ProviderEndpointOutput) Worklink() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Worklink }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL
@@ -3973,7 +3799,7 @@ func (o GetRegionsFilterArrayOutput) Index(i pulumi.IntInput) GetRegionsFilterOu
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAssumeRoleInput)(nil)).Elem(), ProviderAssumeRoleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAssumeRolePtrInput)(nil)).Elem(), ProviderAssumeRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAssumeRoleArrayInput)(nil)).Elem(), ProviderAssumeRoleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAssumeRoleWithWebIdentityInput)(nil)).Elem(), ProviderAssumeRoleWithWebIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAssumeRoleWithWebIdentityPtrInput)(nil)).Elem(), ProviderAssumeRoleWithWebIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderDefaultTagsInput)(nil)).Elem(), ProviderDefaultTagsArgs{})
@@ -3989,7 +3815,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRegionsFilterInput)(nil)).Elem(), GetRegionsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRegionsFilterArrayInput)(nil)).Elem(), GetRegionsFilterArray{})
 	pulumi.RegisterOutputType(ProviderAssumeRoleOutput{})
-	pulumi.RegisterOutputType(ProviderAssumeRolePtrOutput{})
+	pulumi.RegisterOutputType(ProviderAssumeRoleArrayOutput{})
 	pulumi.RegisterOutputType(ProviderAssumeRoleWithWebIdentityOutput{})
 	pulumi.RegisterOutputType(ProviderAssumeRoleWithWebIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ProviderDefaultTagsOutput{})

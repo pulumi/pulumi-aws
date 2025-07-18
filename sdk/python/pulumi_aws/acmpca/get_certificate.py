@@ -27,7 +27,7 @@ class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
     """
-    def __init__(__self__, arn=None, certificate=None, certificate_authority_arn=None, certificate_chain=None, id=None):
+    def __init__(__self__, arn=None, certificate=None, certificate_authority_arn=None, certificate_chain=None, id=None, region=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -43,6 +43,9 @@ class GetCertificateResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -78,6 +81,11 @@ class GetCertificateResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetCertificateResult(GetCertificateResult):
     # pylint: disable=using-constant-test
@@ -89,11 +97,13 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             certificate=self.certificate,
             certificate_authority_arn=self.certificate_authority_arn,
             certificate_chain=self.certificate_chain,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
 def get_certificate(arn: Optional[builtins.str] = None,
                     certificate_authority_arn: Optional[builtins.str] = None,
+                    region: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
     Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
@@ -111,10 +121,12 @@ def get_certificate(arn: Optional[builtins.str] = None,
 
     :param builtins.str arn: ARN of the certificate issued by the private certificate authority.
     :param builtins.str certificate_authority_arn: ARN of the certificate authority.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['certificateAuthorityArn'] = certificate_authority_arn
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:acmpca/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
@@ -123,9 +135,11 @@ def get_certificate(arn: Optional[builtins.str] = None,
         certificate=pulumi.get(__ret__, 'certificate'),
         certificate_authority_arn=pulumi.get(__ret__, 'certificate_authority_arn'),
         certificate_chain=pulumi.get(__ret__, 'certificate_chain'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_certificate_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                            certificate_authority_arn: Optional[pulumi.Input[builtins.str]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
@@ -143,10 +157,12 @@ def get_certificate_output(arn: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str arn: ARN of the certificate issued by the private certificate authority.
     :param builtins.str certificate_authority_arn: ARN of the certificate authority.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['certificateAuthorityArn'] = certificate_authority_arn
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:acmpca/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult)
     return __ret__.apply(lambda __response__: GetCertificateResult(
@@ -154,4 +170,5 @@ def get_certificate_output(arn: Optional[pulumi.Input[builtins.str]] = None,
         certificate=pulumi.get(__response__, 'certificate'),
         certificate_authority_arn=pulumi.get(__response__, 'certificate_authority_arn'),
         certificate_chain=pulumi.get(__response__, 'certificate_chain'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

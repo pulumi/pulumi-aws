@@ -29,6 +29,7 @@ class OrganizationCustomPolicyRuleArgs:
                  input_parameters: Optional[pulumi.Input[builtins.str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id_scope: Optional[pulumi.Input[builtins.str]] = None,
                  resource_types_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tag_key_scope: Optional[pulumi.Input[builtins.str]] = None,
@@ -46,6 +47,7 @@ class OrganizationCustomPolicyRuleArgs:
         :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config Rule Lambda Function
         :param pulumi.Input[builtins.str] maximum_execution_frequency: Maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
         :param pulumi.Input[builtins.str] name: name of the rule
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id_scope: Identifier of the AWS resource to evaluate
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types_scopes: List of types of AWS resources to evaluate
         :param pulumi.Input[builtins.str] tag_key_scope: Tag key of AWS resources to evaluate
@@ -66,6 +68,8 @@ class OrganizationCustomPolicyRuleArgs:
             pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_id_scope is not None:
             pulumi.set(__self__, "resource_id_scope", resource_id_scope)
         if resource_types_scopes is not None:
@@ -186,6 +190,18 @@ class OrganizationCustomPolicyRuleArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceIdScope")
     def resource_id_scope(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -246,6 +262,7 @@ class _OrganizationCustomPolicyRuleState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_runtime: Optional[pulumi.Input[builtins.str]] = None,
                  policy_text: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id_scope: Optional[pulumi.Input[builtins.str]] = None,
                  resource_types_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tag_key_scope: Optional[pulumi.Input[builtins.str]] = None,
@@ -262,6 +279,7 @@ class _OrganizationCustomPolicyRuleState:
         :param pulumi.Input[builtins.str] name: name of the rule
         :param pulumi.Input[builtins.str] policy_runtime: runtime system for your organization AWS Config Custom Policy rules
         :param pulumi.Input[builtins.str] policy_text: policy definition containing the logic for your organization AWS Config Custom Policy rule
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id_scope: Identifier of the AWS resource to evaluate
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types_scopes: List of types of AWS resources to evaluate
         :param pulumi.Input[builtins.str] tag_key_scope: Tag key of AWS resources to evaluate
@@ -288,6 +306,8 @@ class _OrganizationCustomPolicyRuleState:
             pulumi.set(__self__, "policy_runtime", policy_runtime)
         if policy_text is not None:
             pulumi.set(__self__, "policy_text", policy_text)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_id_scope is not None:
             pulumi.set(__self__, "resource_id_scope", resource_id_scope)
         if resource_types_scopes is not None:
@@ -408,6 +428,18 @@ class _OrganizationCustomPolicyRuleState:
         pulumi.set(self, "policy_text", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceIdScope")
     def resource_id_scope(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -484,6 +516,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_runtime: Optional[pulumi.Input[builtins.str]] = None,
                  policy_text: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id_scope: Optional[pulumi.Input[builtins.str]] = None,
                  resource_types_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tag_key_scope: Optional[pulumi.Input[builtins.str]] = None,
@@ -541,6 +574,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: name of the rule
         :param pulumi.Input[builtins.str] policy_runtime: runtime system for your organization AWS Config Custom Policy rules
         :param pulumi.Input[builtins.str] policy_text: policy definition containing the logic for your organization AWS Config Custom Policy rule
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id_scope: Identifier of the AWS resource to evaluate
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types_scopes: List of types of AWS resources to evaluate
         :param pulumi.Input[builtins.str] tag_key_scope: Tag key of AWS resources to evaluate
@@ -619,6 +653,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_runtime: Optional[pulumi.Input[builtins.str]] = None,
                  policy_text: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id_scope: Optional[pulumi.Input[builtins.str]] = None,
                  resource_types_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tag_key_scope: Optional[pulumi.Input[builtins.str]] = None,
@@ -645,6 +680,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
             if policy_text is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_text'")
             __props__.__dict__["policy_text"] = policy_text
+            __props__.__dict__["region"] = region
             __props__.__dict__["resource_id_scope"] = resource_id_scope
             __props__.__dict__["resource_types_scopes"] = resource_types_scopes
             __props__.__dict__["tag_key_scope"] = tag_key_scope
@@ -672,6 +708,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             policy_runtime: Optional[pulumi.Input[builtins.str]] = None,
             policy_text: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_id_scope: Optional[pulumi.Input[builtins.str]] = None,
             resource_types_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             tag_key_scope: Optional[pulumi.Input[builtins.str]] = None,
@@ -693,6 +730,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: name of the rule
         :param pulumi.Input[builtins.str] policy_runtime: runtime system for your organization AWS Config Custom Policy rules
         :param pulumi.Input[builtins.str] policy_text: policy definition containing the logic for your organization AWS Config Custom Policy rule
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id_scope: Identifier of the AWS resource to evaluate
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types_scopes: List of types of AWS resources to evaluate
         :param pulumi.Input[builtins.str] tag_key_scope: Tag key of AWS resources to evaluate
@@ -714,6 +752,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["policy_runtime"] = policy_runtime
         __props__.__dict__["policy_text"] = policy_text
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_id_scope"] = resource_id_scope
         __props__.__dict__["resource_types_scopes"] = resource_types_scopes
         __props__.__dict__["tag_key_scope"] = tag_key_scope
@@ -792,6 +831,14 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         policy definition containing the logic for your organization AWS Config Custom Policy rule
         """
         return pulumi.get(self, "policy_text")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceIdScope")

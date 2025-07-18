@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NeptuneGraph
 {
     /// <summary>
-    /// The aws.neptunegraph.Graph resource creates an Amazon Analytics Graph.
+    /// The `aws.neptunegraph.Graph` resource creates an Amazon Analytics Graph.
     /// 
     /// ## Example Usage
     /// 
@@ -114,17 +114,26 @@ namespace Pulumi.Aws.NeptuneGraph
         public Output<bool> PublicConnectivity { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
         /// </summary>
         [Output("replicaCount")]
         public Output<int> ReplicaCount { get; private set; } = null!;
 
         /// <summary>
-        /// The tags associated with this graph. (see below for nested schema of tags)
+        /// Key-value tags for the graph. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -225,6 +234,12 @@ namespace Pulumi.Aws.NeptuneGraph
         public Input<bool>? PublicConnectivity { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
         /// </summary>
         [Input("replicaCount")]
@@ -234,7 +249,7 @@ namespace Pulumi.Aws.NeptuneGraph
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags associated with this graph. (see below for nested schema of tags)
+        /// Key-value tags for the graph. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -313,6 +328,12 @@ namespace Pulumi.Aws.NeptuneGraph
         public Input<bool>? PublicConnectivity { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
         /// </summary>
         [Input("replicaCount")]
@@ -322,7 +343,7 @@ namespace Pulumi.Aws.NeptuneGraph
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// The tags associated with this graph. (see below for nested schema of tags)
+        /// Key-value tags for the graph. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -332,7 +353,10 @@ namespace Pulumi.Aws.NeptuneGraph
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-        [Obsolete(@"Please use `tags` instead.")]
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -150,9 +150,9 @@ export class GatewayAssociation extends pulumi.CustomResource {
      */
     public readonly proposalId!: pulumi.Output<string | undefined>;
     /**
-     * @deprecated vpn_gateway_id is deprecated. Use associatedGatewayId instead.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    public readonly vpnGatewayId!: pulumi.Output<string | undefined>;
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a GatewayAssociation resource with the given unique name, arguments, and options.
@@ -175,7 +175,7 @@ export class GatewayAssociation extends pulumi.CustomResource {
             resourceInputs["dxGatewayId"] = state ? state.dxGatewayId : undefined;
             resourceInputs["dxGatewayOwnerAccountId"] = state ? state.dxGatewayOwnerAccountId : undefined;
             resourceInputs["proposalId"] = state ? state.proposalId : undefined;
-            resourceInputs["vpnGatewayId"] = state ? state.vpnGatewayId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as GatewayAssociationArgs | undefined;
             if ((!args || args.dxGatewayId === undefined) && !opts.urn) {
@@ -186,7 +186,7 @@ export class GatewayAssociation extends pulumi.CustomResource {
             resourceInputs["associatedGatewayOwnerAccountId"] = args ? args.associatedGatewayOwnerAccountId : undefined;
             resourceInputs["dxGatewayId"] = args ? args.dxGatewayId : undefined;
             resourceInputs["proposalId"] = args ? args.proposalId : undefined;
-            resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["associatedGatewayType"] = undefined /*out*/;
             resourceInputs["dxGatewayAssociationId"] = undefined /*out*/;
             resourceInputs["dxGatewayOwnerAccountId"] = undefined /*out*/;
@@ -240,9 +240,9 @@ export interface GatewayAssociationState {
      */
     proposalId?: pulumi.Input<string>;
     /**
-     * @deprecated vpn_gateway_id is deprecated. Use associatedGatewayId instead.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    vpnGatewayId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -277,7 +277,7 @@ export interface GatewayAssociationArgs {
      */
     proposalId?: pulumi.Input<string>;
     /**
-     * @deprecated vpn_gateway_id is deprecated. Use associatedGatewayId instead.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    vpnGatewayId?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
 }

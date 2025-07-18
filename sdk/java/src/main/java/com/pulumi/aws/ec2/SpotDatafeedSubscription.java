@@ -30,8 +30,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.ec2.SpotDatafeedSubscription;
  * import com.pulumi.aws.ec2.SpotDatafeedSubscriptionArgs;
  * import java.util.List;
@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var default_ = new BucketV2("default", BucketV2Args.builder()
+ *         var default_ = new Bucket("default", BucketArgs.builder()
  *             .bucket("tf-spot-datafeed")
  *             .build());
  * 
@@ -100,6 +100,20 @@ public class SpotDatafeedSubscription extends com.pulumi.resources.CustomResourc
      */
     public Output<Optional<String>> prefix() {
         return Codegen.optional(this.prefix);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
 
     /**

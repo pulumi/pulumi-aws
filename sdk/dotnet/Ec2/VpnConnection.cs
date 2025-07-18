@@ -232,6 +232,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PresharedKeyStorage { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The IPv4 CIDR on the AWS side of the VPN connection.
         /// </summary>
         [Output("remoteIpv4NetworkCidr")]
@@ -696,6 +702,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("presharedKeyStorage")]
         public Input<string>? PresharedKeyStorage { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The IPv4 CIDR on the AWS side of the VPN connection.
@@ -1186,6 +1198,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PresharedKeyStorage { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The IPv4 CIDR on the AWS side of the VPN connection.
         /// </summary>
         [Input("remoteIpv4NetworkCidr")]
@@ -1233,7 +1251,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

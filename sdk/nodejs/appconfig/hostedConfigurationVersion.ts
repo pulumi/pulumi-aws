@@ -145,6 +145,10 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Version number of the hosted configuration.
      */
     public /*out*/ readonly versionNumber!: pulumi.Output<number>;
@@ -168,6 +172,7 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
             resourceInputs["content"] = state ? state.content : undefined;
             resourceInputs["contentType"] = state ? state.contentType : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["versionNumber"] = state ? state.versionNumber : undefined;
         } else {
             const args = argsOrState as HostedConfigurationVersionArgs | undefined;
@@ -188,6 +193,7 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
             resourceInputs["content"] = args?.content ? pulumi.secret(args.content) : undefined;
             resourceInputs["contentType"] = args ? args.contentType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["versionNumber"] = undefined /*out*/;
         }
@@ -227,6 +233,10 @@ export interface HostedConfigurationVersionState {
      */
     description?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Version number of the hosted configuration.
      */
     versionNumber?: pulumi.Input<number>;
@@ -256,4 +266,8 @@ export interface HostedConfigurationVersionArgs {
      * Description of the configuration.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

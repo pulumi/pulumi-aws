@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,6 +60,8 @@ type GroupMembership struct {
 	MemberName pulumi.StringOutput `pulumi:"memberName"`
 	// The namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewGroupMembership registers a new resource with the given unique name, arguments, and options.
@@ -107,6 +109,8 @@ type groupMembershipState struct {
 	MemberName *string `pulumi:"memberName"`
 	// The namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type GroupMembershipState struct {
@@ -119,6 +123,8 @@ type GroupMembershipState struct {
 	MemberName pulumi.StringPtrInput
 	// The namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (GroupMembershipState) ElementType() reflect.Type {
@@ -134,6 +140,8 @@ type groupMembershipArgs struct {
 	MemberName string `pulumi:"memberName"`
 	// The namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a GroupMembership resource.
@@ -146,6 +154,8 @@ type GroupMembershipArgs struct {
 	MemberName pulumi.StringInput
 	// The namespace that you want the user to be a part of. Defaults to `default`.
 	Namespace pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (GroupMembershipArgs) ElementType() reflect.Type {
@@ -257,6 +267,11 @@ func (o GroupMembershipOutput) MemberName() pulumi.StringOutput {
 // The namespace that you want the user to be a part of. Defaults to `default`.
 func (o GroupMembershipOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o GroupMembershipOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type GroupMembershipArrayOutput struct{ *pulumi.OutputState }

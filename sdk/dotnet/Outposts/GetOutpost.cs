@@ -111,6 +111,12 @@ namespace Pulumi.Aws.Outposts
         [Input("ownerId")]
         public string? OwnerId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -155,6 +161,12 @@ namespace Pulumi.Aws.Outposts
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -197,6 +209,7 @@ namespace Pulumi.Aws.Outposts
         public readonly string LifecycleStatus;
         public readonly string Name;
         public readonly string? OwnerId;
+        public readonly string Region;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the site.
         /// </summary>
@@ -232,6 +245,8 @@ namespace Pulumi.Aws.Outposts
 
             string? ownerId,
 
+            string region,
+
             string siteArn,
 
             string siteId,
@@ -248,6 +263,7 @@ namespace Pulumi.Aws.Outposts
             LifecycleStatus = lifecycleStatus;
             Name = name;
             OwnerId = ownerId;
+            Region = region;
             SiteArn = siteArn;
             SiteId = siteId;
             SupportedHardwareType = supportedHardwareType;

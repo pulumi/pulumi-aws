@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/notifications"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/notifications"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,8 +72,6 @@ type ContactsEmailContact struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider
 	// `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -126,8 +124,6 @@ type contactsEmailContactState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider
 	// `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -148,8 +144,6 @@ type ContactsEmailContactState struct {
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider
 	// `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -303,8 +297,6 @@ func (o ContactsEmailContactOutput) Tags() pulumi.StringMapOutput {
 
 // Map of tags assigned to the resource, including those inherited from the provider
 // `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ContactsEmailContactOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContactsEmailContact) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

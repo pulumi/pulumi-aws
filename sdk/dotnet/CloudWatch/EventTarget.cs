@@ -945,6 +945,12 @@ namespace Pulumi.Aws.CloudWatch
         public Output<Outputs.EventTargetRedshiftTarget?> RedshiftTarget { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Output("retryPolicy")]
@@ -1114,6 +1120,12 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventTargetRedshiftTargetArgs>? RedshiftTarget { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         /// </summary>
         [Input("retryPolicy")]
@@ -1249,6 +1261,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("redshiftTarget")]
         public Input<Inputs.EventTargetRedshiftTargetGetArgs>? RedshiftTarget { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.

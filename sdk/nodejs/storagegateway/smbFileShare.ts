@@ -106,8 +106,6 @@ export class SmbFileShare extends pulumi.CustomResource {
     public readonly bucketRegion!: pulumi.Output<string | undefined>;
     /**
      * Refresh cache information. see `cacheAttributes` Block for more details.
-     *
-     * **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      */
     public readonly cacheAttributes!: pulumi.Output<outputs.storagegateway.SmbFileShareCacheAttributes | undefined>;
     /**
@@ -171,6 +169,10 @@ export class SmbFileShare extends pulumi.CustomResource {
      */
     public readonly readOnly!: pulumi.Output<boolean | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      */
     public readonly requesterPays!: pulumi.Output<boolean | undefined>;
@@ -184,12 +186,12 @@ export class SmbFileShare extends pulumi.CustomResource {
     public readonly smbAclEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -236,6 +238,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             resourceInputs["oplocksEnabled"] = state ? state.oplocksEnabled : undefined;
             resourceInputs["path"] = state ? state.path : undefined;
             resourceInputs["readOnly"] = state ? state.readOnly : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requesterPays"] = state ? state.requesterPays : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["smbAclEnabled"] = state ? state.smbAclEnabled : undefined;
@@ -273,6 +276,7 @@ export class SmbFileShare extends pulumi.CustomResource {
             resourceInputs["objectAcl"] = args ? args.objectAcl : undefined;
             resourceInputs["oplocksEnabled"] = args ? args.oplocksEnabled : undefined;
             resourceInputs["readOnly"] = args ? args.readOnly : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["requesterPays"] = args ? args.requesterPays : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["smbAclEnabled"] = args ? args.smbAclEnabled : undefined;
@@ -319,8 +323,6 @@ export interface SmbFileShareState {
     bucketRegion?: pulumi.Input<string>;
     /**
      * Refresh cache information. see `cacheAttributes` Block for more details.
-     *
-     * **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      */
     cacheAttributes?: pulumi.Input<inputs.storagegateway.SmbFileShareCacheAttributes>;
     /**
@@ -384,6 +386,10 @@ export interface SmbFileShareState {
      */
     readOnly?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      */
     requesterPays?: pulumi.Input<boolean>;
@@ -397,12 +403,12 @@ export interface SmbFileShareState {
     smbAclEnabled?: pulumi.Input<boolean>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -441,8 +447,6 @@ export interface SmbFileShareArgs {
     bucketRegion?: pulumi.Input<string>;
     /**
      * Refresh cache information. see `cacheAttributes` Block for more details.
-     *
-     * **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      */
     cacheAttributes?: pulumi.Input<inputs.storagegateway.SmbFileShareCacheAttributes>;
     /**
@@ -498,6 +502,10 @@ export interface SmbFileShareArgs {
      */
     readOnly?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      */
     requesterPays?: pulumi.Input<boolean>;
@@ -511,6 +519,8 @@ export interface SmbFileShareArgs {
     smbAclEnabled?: pulumi.Input<boolean>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     *
+     * **Note:** If you have previously included a `cacheAttributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

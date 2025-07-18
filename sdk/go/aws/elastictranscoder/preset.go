@@ -8,11 +8,13 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides an Elastic Transcoder preset resource.
+//
+// > **Warning:** This resource is deprecated. Use [AWS Elemental MediaConvert](https://aws.amazon.com/blogs/media/migrating-workflows-from-amazon-elastic-transcoder-to-aws-elemental-mediaconvert/) instead. AWS will [discontinue support for Amazon Elastic Transcoder](https://aws.amazon.com/blogs/media/support-for-amazon-elastic-transcoder-ending-soon/), effective November 13, 2025.
 //
 // ## Example Usage
 //
@@ -21,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elastictranscoder"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elastictranscoder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -116,6 +118,8 @@ type Preset struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the preset. (maximum 40 characters)
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Thumbnail parameters object (documented below)
 	Thumbnails PresetThumbnailsPtrOutput `pulumi:"thumbnails"`
 	Type       pulumi.StringOutput       `pulumi:"type"`
@@ -174,6 +178,8 @@ type presetState struct {
 	Description *string `pulumi:"description"`
 	// The name of the preset. (maximum 40 characters)
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Thumbnail parameters object (documented below)
 	Thumbnails *PresetThumbnails `pulumi:"thumbnails"`
 	Type       *string           `pulumi:"type"`
@@ -200,6 +206,8 @@ type PresetState struct {
 	Description pulumi.StringPtrInput
 	// The name of the preset. (maximum 40 characters)
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Thumbnail parameters object (documented below)
 	Thumbnails PresetThumbnailsPtrInput
 	Type       pulumi.StringPtrInput
@@ -228,6 +236,8 @@ type presetArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the preset. (maximum 40 characters)
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Thumbnail parameters object (documented below)
 	Thumbnails *PresetThumbnails `pulumi:"thumbnails"`
 	Type       *string           `pulumi:"type"`
@@ -253,6 +263,8 @@ type PresetArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the preset. (maximum 40 characters)
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Thumbnail parameters object (documented below)
 	Thumbnails PresetThumbnailsPtrInput
 	Type       pulumi.StringPtrInput
@@ -381,6 +393,11 @@ func (o PresetOutput) Description() pulumi.StringPtrOutput {
 // The name of the preset. (maximum 40 characters)
 func (o PresetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Preset) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o PresetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Preset) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Thumbnail parameters object (documented below)

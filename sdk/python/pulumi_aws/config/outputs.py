@@ -16,15 +16,98 @@ else:
 from .. import _utilities
 
 __all__ = [
-    'AssumeRole',
     'AssumeRoleWithWebIdentity',
+    'AssumeRoles',
     'DefaultTags',
     'Endpoints',
     'IgnoreTags',
 ]
 
 @pulumi.output_type
-class AssumeRole(dict):
+class AssumeRoleWithWebIdentity(dict):
+    def __init__(__self__, *,
+                 duration: Optional[builtins.str] = None,
+                 policy: Optional[builtins.str] = None,
+                 policy_arns: Optional[Sequence[builtins.str]] = None,
+                 role_arn: Optional[builtins.str] = None,
+                 session_name: Optional[builtins.str] = None,
+                 web_identity_token: Optional[builtins.str] = None,
+                 web_identity_token_file: Optional[builtins.str] = None):
+        """
+        :param builtins.str duration: The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+        :param builtins.str policy: IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+        :param Sequence[builtins.str] policy_arns: Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+        :param builtins.str role_arn: Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+        :param builtins.str session_name: An identifier for the assumed role session.
+        """
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+        if policy_arns is not None:
+            pulumi.set(__self__, "policy_arns", policy_arns)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if session_name is not None:
+            pulumi.set(__self__, "session_name", session_name)
+        if web_identity_token is not None:
+            pulumi.set(__self__, "web_identity_token", web_identity_token)
+        if web_identity_token_file is not None:
+            pulumi.set(__self__, "web_identity_token_file", web_identity_token_file)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[builtins.str]:
+        """
+        The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[builtins.str]:
+        """
+        IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+        """
+        return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter(name="policyArns")
+    def policy_arns(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+        """
+        return pulumi.get(self, "policy_arns")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[builtins.str]:
+        """
+        Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="sessionName")
+    def session_name(self) -> Optional[builtins.str]:
+        """
+        An identifier for the assumed role session.
+        """
+        return pulumi.get(self, "session_name")
+
+    @property
+    @pulumi.getter(name="webIdentityToken")
+    def web_identity_token(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "web_identity_token")
+
+    @property
+    @pulumi.getter(name="webIdentityTokenFile")
+    def web_identity_token_file(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "web_identity_token_file")
+
+
+@pulumi.output_type
+class AssumeRoles(dict):
     def __init__(__self__, *,
                  duration: Optional[builtins.str] = None,
                  external_id: Optional[builtins.str] = None,
@@ -136,89 +219,6 @@ class AssumeRole(dict):
         Assume role session tag keys to pass to any subsequent sessions.
         """
         return pulumi.get(self, "transitive_tag_keys")
-
-
-@pulumi.output_type
-class AssumeRoleWithWebIdentity(dict):
-    def __init__(__self__, *,
-                 duration: Optional[builtins.str] = None,
-                 policy: Optional[builtins.str] = None,
-                 policy_arns: Optional[Sequence[builtins.str]] = None,
-                 role_arn: Optional[builtins.str] = None,
-                 session_name: Optional[builtins.str] = None,
-                 web_identity_token: Optional[builtins.str] = None,
-                 web_identity_token_file: Optional[builtins.str] = None):
-        """
-        :param builtins.str duration: The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
-        :param builtins.str policy: IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
-        :param Sequence[builtins.str] policy_arns: Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
-        :param builtins.str role_arn: Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
-        :param builtins.str session_name: An identifier for the assumed role session.
-        """
-        if duration is not None:
-            pulumi.set(__self__, "duration", duration)
-        if policy is not None:
-            pulumi.set(__self__, "policy", policy)
-        if policy_arns is not None:
-            pulumi.set(__self__, "policy_arns", policy_arns)
-        if role_arn is not None:
-            pulumi.set(__self__, "role_arn", role_arn)
-        if session_name is not None:
-            pulumi.set(__self__, "session_name", session_name)
-        if web_identity_token is not None:
-            pulumi.set(__self__, "web_identity_token", web_identity_token)
-        if web_identity_token_file is not None:
-            pulumi.set(__self__, "web_identity_token_file", web_identity_token_file)
-
-    @property
-    @pulumi.getter
-    def duration(self) -> Optional[builtins.str]:
-        """
-        The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
-        """
-        return pulumi.get(self, "duration")
-
-    @property
-    @pulumi.getter
-    def policy(self) -> Optional[builtins.str]:
-        """
-        IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
-        """
-        return pulumi.get(self, "policy")
-
-    @property
-    @pulumi.getter(name="policyArns")
-    def policy_arns(self) -> Optional[Sequence[builtins.str]]:
-        """
-        Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
-        """
-        return pulumi.get(self, "policy_arns")
-
-    @property
-    @pulumi.getter(name="roleArn")
-    def role_arn(self) -> Optional[builtins.str]:
-        """
-        Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
-        """
-        return pulumi.get(self, "role_arn")
-
-    @property
-    @pulumi.getter(name="sessionName")
-    def session_name(self) -> Optional[builtins.str]:
-        """
-        An identifier for the assumed role session.
-        """
-        return pulumi.get(self, "session_name")
-
-    @property
-    @pulumi.getter(name="webIdentityToken")
-    def web_identity_token(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "web_identity_token")
-
-    @property
-    @pulumi.getter(name="webIdentityTokenFile")
-    def web_identity_token_file(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "web_identity_token_file")
 
 
 @pulumi.output_type
@@ -396,8 +396,6 @@ class Endpoints(dict):
                  internetmonitor: Optional[builtins.str] = None,
                  invoicing: Optional[builtins.str] = None,
                  iot: Optional[builtins.str] = None,
-                 iotanalytics: Optional[builtins.str] = None,
-                 iotevents: Optional[builtins.str] = None,
                  ivs: Optional[builtins.str] = None,
                  ivschat: Optional[builtins.str] = None,
                  kafka: Optional[builtins.str] = None,
@@ -451,7 +449,6 @@ class Endpoints(dict):
                  opensearchingestion: Optional[builtins.str] = None,
                  opensearchserverless: Optional[builtins.str] = None,
                  opensearchservice: Optional[builtins.str] = None,
-                 opsworks: Optional[builtins.str] = None,
                  organizations: Optional[builtins.str] = None,
                  osis: Optional[builtins.str] = None,
                  outposts: Optional[builtins.str] = None,
@@ -498,7 +495,6 @@ class Endpoints(dict):
                  sagemaker: Optional[builtins.str] = None,
                  scheduler: Optional[builtins.str] = None,
                  schemas: Optional[builtins.str] = None,
-                 sdb: Optional[builtins.str] = None,
                  secretsmanager: Optional[builtins.str] = None,
                  securityhub: Optional[builtins.str] = None,
                  securitylake: Optional[builtins.str] = None,
@@ -514,7 +510,6 @@ class Endpoints(dict):
                  sfn: Optional[builtins.str] = None,
                  shield: Optional[builtins.str] = None,
                  signer: Optional[builtins.str] = None,
-                 simpledb: Optional[builtins.str] = None,
                  sns: Optional[builtins.str] = None,
                  sqs: Optional[builtins.str] = None,
                  ssm: Optional[builtins.str] = None,
@@ -542,7 +537,6 @@ class Endpoints(dict):
                  wafregional: Optional[builtins.str] = None,
                  wafv2: Optional[builtins.str] = None,
                  wellarchitected: Optional[builtins.str] = None,
-                 worklink: Optional[builtins.str] = None,
                  workspaces: Optional[builtins.str] = None,
                  workspacesweb: Optional[builtins.str] = None,
                  xray: Optional[builtins.str] = None):
@@ -700,8 +694,6 @@ class Endpoints(dict):
         :param builtins.str internetmonitor: Use this to override the default service endpoint URL
         :param builtins.str invoicing: Use this to override the default service endpoint URL
         :param builtins.str iot: Use this to override the default service endpoint URL
-        :param builtins.str iotanalytics: Use this to override the default service endpoint URL
-        :param builtins.str iotevents: Use this to override the default service endpoint URL
         :param builtins.str ivs: Use this to override the default service endpoint URL
         :param builtins.str ivschat: Use this to override the default service endpoint URL
         :param builtins.str kafka: Use this to override the default service endpoint URL
@@ -755,7 +747,6 @@ class Endpoints(dict):
         :param builtins.str opensearchingestion: Use this to override the default service endpoint URL
         :param builtins.str opensearchserverless: Use this to override the default service endpoint URL
         :param builtins.str opensearchservice: Use this to override the default service endpoint URL
-        :param builtins.str opsworks: Use this to override the default service endpoint URL
         :param builtins.str organizations: Use this to override the default service endpoint URL
         :param builtins.str osis: Use this to override the default service endpoint URL
         :param builtins.str outposts: Use this to override the default service endpoint URL
@@ -802,7 +793,6 @@ class Endpoints(dict):
         :param builtins.str sagemaker: Use this to override the default service endpoint URL
         :param builtins.str scheduler: Use this to override the default service endpoint URL
         :param builtins.str schemas: Use this to override the default service endpoint URL
-        :param builtins.str sdb: Use this to override the default service endpoint URL
         :param builtins.str secretsmanager: Use this to override the default service endpoint URL
         :param builtins.str securityhub: Use this to override the default service endpoint URL
         :param builtins.str securitylake: Use this to override the default service endpoint URL
@@ -818,7 +808,6 @@ class Endpoints(dict):
         :param builtins.str sfn: Use this to override the default service endpoint URL
         :param builtins.str shield: Use this to override the default service endpoint URL
         :param builtins.str signer: Use this to override the default service endpoint URL
-        :param builtins.str simpledb: Use this to override the default service endpoint URL
         :param builtins.str sns: Use this to override the default service endpoint URL
         :param builtins.str sqs: Use this to override the default service endpoint URL
         :param builtins.str ssm: Use this to override the default service endpoint URL
@@ -846,7 +835,6 @@ class Endpoints(dict):
         :param builtins.str wafregional: Use this to override the default service endpoint URL
         :param builtins.str wafv2: Use this to override the default service endpoint URL
         :param builtins.str wellarchitected: Use this to override the default service endpoint URL
-        :param builtins.str worklink: Use this to override the default service endpoint URL
         :param builtins.str workspaces: Use this to override the default service endpoint URL
         :param builtins.str workspacesweb: Use this to override the default service endpoint URL
         :param builtins.str xray: Use this to override the default service endpoint URL
@@ -1157,10 +1145,6 @@ class Endpoints(dict):
             pulumi.set(__self__, "invoicing", invoicing)
         if iot is not None:
             pulumi.set(__self__, "iot", iot)
-        if iotanalytics is not None:
-            pulumi.set(__self__, "iotanalytics", iotanalytics)
-        if iotevents is not None:
-            pulumi.set(__self__, "iotevents", iotevents)
         if ivs is not None:
             pulumi.set(__self__, "ivs", ivs)
         if ivschat is not None:
@@ -1267,8 +1251,6 @@ class Endpoints(dict):
             pulumi.set(__self__, "opensearchserverless", opensearchserverless)
         if opensearchservice is not None:
             pulumi.set(__self__, "opensearchservice", opensearchservice)
-        if opsworks is not None:
-            pulumi.set(__self__, "opsworks", opsworks)
         if organizations is not None:
             pulumi.set(__self__, "organizations", organizations)
         if osis is not None:
@@ -1361,8 +1343,6 @@ class Endpoints(dict):
             pulumi.set(__self__, "scheduler", scheduler)
         if schemas is not None:
             pulumi.set(__self__, "schemas", schemas)
-        if sdb is not None:
-            pulumi.set(__self__, "sdb", sdb)
         if secretsmanager is not None:
             pulumi.set(__self__, "secretsmanager", secretsmanager)
         if securityhub is not None:
@@ -1393,8 +1373,6 @@ class Endpoints(dict):
             pulumi.set(__self__, "shield", shield)
         if signer is not None:
             pulumi.set(__self__, "signer", signer)
-        if simpledb is not None:
-            pulumi.set(__self__, "simpledb", simpledb)
         if sns is not None:
             pulumi.set(__self__, "sns", sns)
         if sqs is not None:
@@ -1449,8 +1427,6 @@ class Endpoints(dict):
             pulumi.set(__self__, "wafv2", wafv2)
         if wellarchitected is not None:
             pulumi.set(__self__, "wellarchitected", wellarchitected)
-        if worklink is not None:
-            pulumi.set(__self__, "worklink", worklink)
         if workspaces is not None:
             pulumi.set(__self__, "workspaces", workspaces)
         if workspacesweb is not None:
@@ -2684,22 +2660,6 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
-    def iotanalytics(self) -> Optional[builtins.str]:
-        """
-        Use this to override the default service endpoint URL
-        """
-        return pulumi.get(self, "iotanalytics")
-
-    @property
-    @pulumi.getter
-    def iotevents(self) -> Optional[builtins.str]:
-        """
-        Use this to override the default service endpoint URL
-        """
-        return pulumi.get(self, "iotevents")
-
-    @property
-    @pulumi.getter
     def ivs(self) -> Optional[builtins.str]:
         """
         Use this to override the default service endpoint URL
@@ -3124,14 +3084,6 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
-    def opsworks(self) -> Optional[builtins.str]:
-        """
-        Use this to override the default service endpoint URL
-        """
-        return pulumi.get(self, "opsworks")
-
-    @property
-    @pulumi.getter
     def organizations(self) -> Optional[builtins.str]:
         """
         Use this to override the default service endpoint URL
@@ -3500,14 +3452,6 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
-    def sdb(self) -> Optional[builtins.str]:
-        """
-        Use this to override the default service endpoint URL
-        """
-        return pulumi.get(self, "sdb")
-
-    @property
-    @pulumi.getter
     def secretsmanager(self) -> Optional[builtins.str]:
         """
         Use this to override the default service endpoint URL
@@ -3625,14 +3569,6 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "signer")
-
-    @property
-    @pulumi.getter
-    def simpledb(self) -> Optional[builtins.str]:
-        """
-        Use this to override the default service endpoint URL
-        """
-        return pulumi.get(self, "simpledb")
 
     @property
     @pulumi.getter
@@ -3849,14 +3785,6 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "wellarchitected")
-
-    @property
-    @pulumi.getter
-    def worklink(self) -> Optional[builtins.str]:
-        """
-        Use this to override the default service endpoint URL
-        """
-        return pulumi.get(self, "worklink")
 
     @property
     @pulumi.getter

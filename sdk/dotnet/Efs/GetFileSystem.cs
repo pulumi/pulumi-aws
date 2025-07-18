@@ -129,6 +129,12 @@ namespace Pulumi.Aws.Efs
         [Input("fileSystemId")]
         public string? FileSystemId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -160,6 +166,12 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -213,11 +225,10 @@ namespace Pulumi.Aws.Efs
         /// ARN for the KMS encryption key.
         /// </summary>
         public readonly string KmsKeyId;
-        public readonly ImmutableArray<Outputs.GetFileSystemLifecyclePolicyResult> LifecyclePolicies;
         /// <summary>
         /// File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
         /// </summary>
-        public readonly Outputs.GetFileSystemLifecyclePolicyResult LifecyclePolicy;
+        public readonly ImmutableArray<Outputs.GetFileSystemLifecyclePolicyResult> LifecyclePolicies;
         /// <summary>
         /// The value of the file system's `Name` tag.
         /// </summary>
@@ -231,6 +242,7 @@ namespace Pulumi.Aws.Efs
         /// The throughput, measured in MiB/s, that you want to provision for the file system.
         /// </summary>
         public readonly double ProvisionedThroughputInMibps;
+        public readonly string Region;
         /// <summary>
         /// Current byte count used by the file system.
         /// </summary>
@@ -266,8 +278,6 @@ namespace Pulumi.Aws.Efs
 
             ImmutableArray<Outputs.GetFileSystemLifecyclePolicyResult> lifecyclePolicies,
 
-            Outputs.GetFileSystemLifecyclePolicyResult lifecyclePolicy,
-
             string name,
 
             string performanceMode,
@@ -275,6 +285,8 @@ namespace Pulumi.Aws.Efs
             ImmutableArray<Outputs.GetFileSystemProtectionResult> protections,
 
             double provisionedThroughputInMibps,
+
+            string region,
 
             int sizeInBytes,
 
@@ -292,11 +304,11 @@ namespace Pulumi.Aws.Efs
             Id = id;
             KmsKeyId = kmsKeyId;
             LifecyclePolicies = lifecyclePolicies;
-            LifecyclePolicy = lifecyclePolicy;
             Name = name;
             PerformanceMode = performanceMode;
             Protections = protections;
             ProvisionedThroughputInMibps = provisionedThroughputInMibps;
+            Region = region;
             SizeInBytes = sizeInBytes;
             Tags = tags;
             ThroughputMode = throughputMode;

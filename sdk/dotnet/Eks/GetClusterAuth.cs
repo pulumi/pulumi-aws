@@ -129,6 +129,12 @@ namespace Pulumi.Aws.Eks
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetClusterAuthArgs()
         {
         }
@@ -142,6 +148,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetClusterAuthInvokeArgs()
         {
@@ -158,6 +170,7 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Token to use to authenticate with the cluster.
         /// </summary>
@@ -169,10 +182,13 @@ namespace Pulumi.Aws.Eks
 
             string name,
 
+            string region,
+
             string token)
         {
             Id = id;
             Name = name;
+            Region = region;
             Token = token;
         }
     }

@@ -193,6 +193,21 @@ public final class IntentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * When the user answers &#34;no&#34; to the question defined in
      * `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
      * canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
@@ -261,6 +276,7 @@ public final class IntentArgs extends com.pulumi.resources.ResourceArgs {
         this.fulfillmentActivity = $.fulfillmentActivity;
         this.name = $.name;
         this.parentIntentSignature = $.parentIntentSignature;
+        this.region = $.region;
         this.rejectionStatement = $.rejectionStatement;
         this.sampleUtterances = $.sampleUtterances;
         this.slots = $.slots;
@@ -503,6 +519,27 @@ public final class IntentArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder parentIntentSignature(String parentIntentSignature) {
             return parentIntentSignature(Output.of(parentIntentSignature));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -29,13 +29,16 @@ class GetRouteTableRoutesResult:
     """
     A collection of values returned by getRouteTableRoutes.
     """
-    def __init__(__self__, filters=None, id=None, routes=None, transit_gateway_route_table_id=None):
+    def __init__(__self__, filters=None, id=None, region=None, routes=None, transit_gateway_route_table_id=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if routes and not isinstance(routes, list):
             raise TypeError("Expected argument 'routes' to be a list")
         pulumi.set(__self__, "routes", routes)
@@ -55,6 +58,11 @@ class GetRouteTableRoutesResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter
@@ -78,11 +86,13 @@ class AwaitableGetRouteTableRoutesResult(GetRouteTableRoutesResult):
         return GetRouteTableRoutesResult(
             filters=self.filters,
             id=self.id,
+            region=self.region,
             routes=self.routes,
             transit_gateway_route_table_id=self.transit_gateway_route_table_id)
 
 
 def get_route_table_routes(filters: Optional[Sequence[Union['GetRouteTableRoutesFilterArgs', 'GetRouteTableRoutesFilterArgsDict']]] = None,
+                           region: Optional[builtins.str] = None,
                            transit_gateway_route_table_id: Optional[builtins.str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteTableRoutesResult:
     """
@@ -103,6 +113,7 @@ def get_route_table_routes(filters: Optional[Sequence[Union['GetRouteTableRoutes
 
 
     :param Sequence[Union['GetRouteTableRoutesFilterArgs', 'GetRouteTableRoutesFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
@@ -110,6 +121,7 @@ def get_route_table_routes(filters: Optional[Sequence[Union['GetRouteTableRoutes
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['transitGatewayRouteTableId'] = transit_gateway_route_table_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getRouteTableRoutes:getRouteTableRoutes', __args__, opts=opts, typ=GetRouteTableRoutesResult).value
@@ -117,9 +129,11 @@ def get_route_table_routes(filters: Optional[Sequence[Union['GetRouteTableRoutes
     return AwaitableGetRouteTableRoutesResult(
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         routes=pulumi.get(__ret__, 'routes'),
         transit_gateway_route_table_id=pulumi.get(__ret__, 'transit_gateway_route_table_id'))
 def get_route_table_routes_output(filters: Optional[pulumi.Input[Sequence[Union['GetRouteTableRoutesFilterArgs', 'GetRouteTableRoutesFilterArgsDict']]]] = None,
+                                  region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                   transit_gateway_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteTableRoutesResult]:
     """
@@ -140,6 +154,7 @@ def get_route_table_routes_output(filters: Optional[pulumi.Input[Sequence[Union[
 
 
     :param Sequence[Union['GetRouteTableRoutesFilterArgs', 'GetRouteTableRoutesFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
@@ -147,11 +162,13 @@ def get_route_table_routes_output(filters: Optional[pulumi.Input[Sequence[Union[
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['transitGatewayRouteTableId'] = transit_gateway_route_table_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getRouteTableRoutes:getRouteTableRoutes', __args__, opts=opts, typ=GetRouteTableRoutesResult)
     return __ret__.apply(lambda __response__: GetRouteTableRoutesResult(
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         routes=pulumi.get(__response__, 'routes'),
         transit_gateway_route_table_id=pulumi.get(__response__, 'transit_gateway_route_table_id')))

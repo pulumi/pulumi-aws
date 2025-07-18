@@ -16,15 +16,15 @@ import * as utilities from "../utilities";
  *
  * const current = aws.s3.getCanonicalUserId({});
  * const example = aws.cloudfront.getLogDeliveryCanonicalUserId({});
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
  * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
- *     bucket: exampleBucketV2.id,
+ *     bucket: exampleBucket.id,
  *     rule: {
  *         objectOwnership: "BucketOwnerPreferred",
  *     },
  * });
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
- *     bucket: exampleBucketV2.id,
+ * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
+ *     bucket: exampleBucket.id,
  *     accessControlPolicy: {
  *         grants: [{
  *             grantee: {
@@ -55,7 +55,7 @@ export function getLogDeliveryCanonicalUserId(args?: GetLogDeliveryCanonicalUser
  */
 export interface GetLogDeliveryCanonicalUserIdArgs {
     /**
-     * Region you'd like the zone for. By default, fetches the current region.
+     * Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
      */
     region?: string;
 }
@@ -82,15 +82,15 @@ export interface GetLogDeliveryCanonicalUserIdResult {
  *
  * const current = aws.s3.getCanonicalUserId({});
  * const example = aws.cloudfront.getLogDeliveryCanonicalUserId({});
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
  * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
- *     bucket: exampleBucketV2.id,
+ *     bucket: exampleBucket.id,
  *     rule: {
  *         objectOwnership: "BucketOwnerPreferred",
  *     },
  * });
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
- *     bucket: exampleBucketV2.id,
+ * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
+ *     bucket: exampleBucket.id,
  *     accessControlPolicy: {
  *         grants: [{
  *             grantee: {
@@ -121,7 +121,7 @@ export function getLogDeliveryCanonicalUserIdOutput(args?: GetLogDeliveryCanonic
  */
 export interface GetLogDeliveryCanonicalUserIdOutputArgs {
     /**
-     * Region you'd like the zone for. By default, fetches the current region.
+     * Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
 }

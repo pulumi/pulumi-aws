@@ -24,6 +24,7 @@ class SecurityProfileArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a SecurityProfile resource.
@@ -31,6 +32,7 @@ class SecurityProfileArgs:
         :param pulumi.Input[builtins.str] description: Specifies the description of the Security Profile.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Security Profile.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] permissions: Specifies a list of permissions assigned to the security profile.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Security Profile. If configured with a provider
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -41,6 +43,8 @@ class SecurityProfileArgs:
             pulumi.set(__self__, "name", name)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -94,6 +98,18 @@ class SecurityProfileArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Tags to apply to the Security Profile. If configured with a provider
@@ -115,6 +131,7 @@ class _SecurityProfileState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  organization_resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_profile_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -126,6 +143,7 @@ class _SecurityProfileState:
         :param pulumi.Input[builtins.str] name: Specifies the name of the Security Profile.
         :param pulumi.Input[builtins.str] organization_resource_id: The organization resource identifier for the security profile.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] permissions: Specifies a list of permissions assigned to the security profile.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_profile_id: The identifier for the Security Profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Security Profile. If configured with a provider
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -143,13 +161,12 @@ class _SecurityProfileState:
             pulumi.set(__self__, "organization_resource_id", organization_resource_id)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_profile_id is not None:
             pulumi.set(__self__, "security_profile_id", security_profile_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -226,6 +243,18 @@ class _SecurityProfileState:
         pulumi.set(self, "permissions", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityProfileId")
     def security_profile_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -252,7 +281,6 @@ class _SecurityProfileState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -274,6 +302,7 @@ class SecurityProfile(pulumi.CustomResource):
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -313,6 +342,7 @@ class SecurityProfile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Security Profile.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] permissions: Specifies a list of permissions assigned to the security profile.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Security Profile. If configured with a provider
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -372,6 +402,7 @@ class SecurityProfile(pulumi.CustomResource):
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -388,6 +419,7 @@ class SecurityProfile(pulumi.CustomResource):
             __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["organization_resource_id"] = None
@@ -409,6 +441,7 @@ class SecurityProfile(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             organization_resource_id: Optional[pulumi.Input[builtins.str]] = None,
             permissions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_profile_id: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'SecurityProfile':
@@ -425,6 +458,7 @@ class SecurityProfile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Specifies the name of the Security Profile.
         :param pulumi.Input[builtins.str] organization_resource_id: The organization resource identifier for the security profile.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] permissions: Specifies a list of permissions assigned to the security profile.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_profile_id: The identifier for the Security Profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tags to apply to the Security Profile. If configured with a provider
                `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -440,6 +474,7 @@ class SecurityProfile(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["organization_resource_id"] = organization_resource_id
         __props__.__dict__["permissions"] = permissions
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_profile_id"] = security_profile_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -494,6 +529,14 @@ class SecurityProfile(pulumi.CustomResource):
         return pulumi.get(self, "permissions")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityProfileId")
     def security_profile_id(self) -> pulumi.Output[builtins.str]:
         """
@@ -512,7 +555,6 @@ class SecurityProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

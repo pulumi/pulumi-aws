@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,8 +29,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,7 +72,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -107,7 +107,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -152,6 +152,8 @@ type GetAvailabilityZonesArgs struct {
 	ExcludeZoneIds []string `pulumi:"excludeZoneIds"`
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetAvailabilityZonesFilter `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Allows to filter list of Availability Zones based on their
 	// current state. Can be either `"available"`, `"information"`, `"impaired"` or
 	// `"unavailable"`. By default the list includes a complete set of Availability Zones
@@ -170,8 +172,9 @@ type GetAvailabilityZonesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of the Availability Zone names available to the account.
-	Names []string `pulumi:"names"`
-	State *string  `pulumi:"state"`
+	Names  []string `pulumi:"names"`
+	Region string   `pulumi:"region"`
+	State  *string  `pulumi:"state"`
 	// List of the Availability Zone IDs available to the account.
 	ZoneIds []string `pulumi:"zoneIds"`
 }
@@ -195,6 +198,8 @@ type GetAvailabilityZonesOutputArgs struct {
 	ExcludeZoneIds pulumi.StringArrayInput `pulumi:"excludeZoneIds"`
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetAvailabilityZonesFilterArrayInput `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Allows to filter list of Availability Zones based on their
 	// current state. Can be either `"available"`, `"information"`, `"impaired"` or
 	// `"unavailable"`. By default the list includes a complete set of Availability Zones
@@ -250,6 +255,10 @@ func (o GetAvailabilityZonesResultOutput) Id() pulumi.StringOutput {
 // List of the Availability Zone names available to the account.
 func (o GetAvailabilityZonesResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAvailabilityZonesResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAvailabilityZonesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAvailabilityZonesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetAvailabilityZonesResultOutput) State() pulumi.StringPtrOutput {

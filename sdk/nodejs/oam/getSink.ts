@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
 export function getSink(args: GetSinkArgs, opts?: pulumi.InvokeOptions): Promise<GetSinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:oam/getSink:getSink", {
+        "region": args.region,
         "sinkIdentifier": args.sinkIdentifier,
         "tags": args.tags,
     }, opts);
@@ -32,6 +33,10 @@ export function getSink(args: GetSinkArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getSink.
  */
 export interface GetSinkArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * ARN of the sink.
      */
@@ -58,6 +63,7 @@ export interface GetSinkResult {
      * Name of the sink.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * Random ID string that AWS generated as part of the sink ARN.
      */
@@ -87,6 +93,7 @@ export interface GetSinkResult {
 export function getSinkOutput(args: GetSinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:oam/getSink:getSink", {
+        "region": args.region,
         "sinkIdentifier": args.sinkIdentifier,
         "tags": args.tags,
     }, opts);
@@ -96,6 +103,10 @@ export function getSinkOutput(args: GetSinkOutputArgs, opts?: pulumi.InvokeOutpu
  * A collection of arguments for invoking getSink.
  */
 export interface GetSinkOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the sink.
      */

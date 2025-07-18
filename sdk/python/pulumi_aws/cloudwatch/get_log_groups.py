@@ -27,7 +27,7 @@ class GetLogGroupsResult:
     """
     A collection of values returned by getLogGroups.
     """
-    def __init__(__self__, arns=None, id=None, log_group_name_prefix=None, log_group_names=None):
+    def __init__(__self__, arns=None, id=None, log_group_name_prefix=None, log_group_names=None, region=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         pulumi.set(__self__, "arns", arns)
@@ -40,6 +40,9 @@ class GetLogGroupsResult:
         if log_group_names and not isinstance(log_group_names, list):
             raise TypeError("Expected argument 'log_group_names' to be a list")
         pulumi.set(__self__, "log_group_names", log_group_names)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -70,6 +73,11 @@ class GetLogGroupsResult:
         """
         return pulumi.get(self, "log_group_names")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetLogGroupsResult(GetLogGroupsResult):
     # pylint: disable=using-constant-test
@@ -80,10 +88,12 @@ class AwaitableGetLogGroupsResult(GetLogGroupsResult):
             arns=self.arns,
             id=self.id,
             log_group_name_prefix=self.log_group_name_prefix,
-            log_group_names=self.log_group_names)
+            log_group_names=self.log_group_names,
+            region=self.region)
 
 
 def get_log_groups(log_group_name_prefix: Optional[builtins.str] = None,
+                   region: Optional[builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogGroupsResult:
     """
     Use this data source to get a list of AWS Cloudwatch Log Groups
@@ -99,9 +109,11 @@ def get_log_groups(log_group_name_prefix: Optional[builtins.str] = None,
 
 
     :param builtins.str log_group_name_prefix: Group prefix of the Cloudwatch log groups to list
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['logGroupNamePrefix'] = log_group_name_prefix
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:cloudwatch/getLogGroups:getLogGroups', __args__, opts=opts, typ=GetLogGroupsResult).value
 
@@ -109,8 +121,10 @@ def get_log_groups(log_group_name_prefix: Optional[builtins.str] = None,
         arns=pulumi.get(__ret__, 'arns'),
         id=pulumi.get(__ret__, 'id'),
         log_group_name_prefix=pulumi.get(__ret__, 'log_group_name_prefix'),
-        log_group_names=pulumi.get(__ret__, 'log_group_names'))
+        log_group_names=pulumi.get(__ret__, 'log_group_names'),
+        region=pulumi.get(__ret__, 'region'))
 def get_log_groups_output(log_group_name_prefix: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogGroupsResult]:
     """
     Use this data source to get a list of AWS Cloudwatch Log Groups
@@ -126,13 +140,16 @@ def get_log_groups_output(log_group_name_prefix: Optional[pulumi.Input[Optional[
 
 
     :param builtins.str log_group_name_prefix: Group prefix of the Cloudwatch log groups to list
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['logGroupNamePrefix'] = log_group_name_prefix
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudwatch/getLogGroups:getLogGroups', __args__, opts=opts, typ=GetLogGroupsResult)
     return __ret__.apply(lambda __response__: GetLogGroupsResult(
         arns=pulumi.get(__response__, 'arns'),
         id=pulumi.get(__response__, 'id'),
         log_group_name_prefix=pulumi.get(__response__, 'log_group_name_prefix'),
-        log_group_names=pulumi.get(__response__, 'log_group_names')))
+        log_group_names=pulumi.get(__response__, 'log_group_names'),
+        region=pulumi.get(__response__, 'region')))

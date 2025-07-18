@@ -133,6 +133,12 @@ namespace Pulumi.Aws.Ec2
         public string? Id { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
         /// </summary>
         [Input("serviceName")]
@@ -191,6 +197,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
@@ -275,6 +287,7 @@ namespace Pulumi.Aws.Ec2
         /// Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
         /// </summary>
         public readonly bool PrivateDnsEnabled;
+        public readonly string Region;
         /// <summary>
         /// Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
         /// </summary>
@@ -326,6 +339,8 @@ namespace Pulumi.Aws.Ec2
 
             bool privateDnsEnabled,
 
+            string region,
+
             bool requesterManaged,
 
             ImmutableArray<string> routeTableIds,
@@ -356,6 +371,7 @@ namespace Pulumi.Aws.Ec2
             Policy = policy;
             PrefixListId = prefixListId;
             PrivateDnsEnabled = privateDnsEnabled;
+            Region = region;
             RequesterManaged = requesterManaged;
             RouteTableIds = routeTableIds;
             SecurityGroupIds = securityGroupIds;

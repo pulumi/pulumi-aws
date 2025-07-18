@@ -27,13 +27,16 @@ class GetKafkaVersionResult:
     """
     A collection of values returned by getKafkaVersion.
     """
-    def __init__(__self__, id=None, preferred_versions=None, status=None, version=None):
+    def __init__(__self__, id=None, preferred_versions=None, region=None, status=None, version=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if preferred_versions and not isinstance(preferred_versions, list):
             raise TypeError("Expected argument 'preferred_versions' to be a list")
         pulumi.set(__self__, "preferred_versions", preferred_versions)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -53,6 +56,11 @@ class GetKafkaVersionResult:
     @pulumi.getter(name="preferredVersions")
     def preferred_versions(self) -> Optional[Sequence[builtins.str]]:
         return pulumi.get(self, "preferred_versions")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter
@@ -76,11 +84,13 @@ class AwaitableGetKafkaVersionResult(GetKafkaVersionResult):
         return GetKafkaVersionResult(
             id=self.id,
             preferred_versions=self.preferred_versions,
+            region=self.region,
             status=self.status,
             version=self.version)
 
 
 def get_kafka_version(preferred_versions: Optional[Sequence[builtins.str]] = None,
+                      region: Optional[builtins.str] = None,
                       version: Optional[builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKafkaVersionResult:
     """
@@ -102,10 +112,12 @@ def get_kafka_version(preferred_versions: Optional[Sequence[builtins.str]] = Non
 
 
     :param Sequence[builtins.str] preferred_versions: Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferred_versions` or `version` must be set.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str version: Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferred_versions` or `version` must be set.
     """
     __args__ = dict()
     __args__['preferredVersions'] = preferred_versions
+    __args__['region'] = region
     __args__['version'] = version
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:msk/getKafkaVersion:getKafkaVersion', __args__, opts=opts, typ=GetKafkaVersionResult).value
@@ -113,9 +125,11 @@ def get_kafka_version(preferred_versions: Optional[Sequence[builtins.str]] = Non
     return AwaitableGetKafkaVersionResult(
         id=pulumi.get(__ret__, 'id'),
         preferred_versions=pulumi.get(__ret__, 'preferred_versions'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
         version=pulumi.get(__ret__, 'version'))
 def get_kafka_version_output(preferred_versions: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              version: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKafkaVersionResult]:
     """
@@ -137,15 +151,18 @@ def get_kafka_version_output(preferred_versions: Optional[pulumi.Input[Optional[
 
 
     :param Sequence[builtins.str] preferred_versions: Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferred_versions` or `version` must be set.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str version: Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferred_versions` or `version` must be set.
     """
     __args__ = dict()
     __args__['preferredVersions'] = preferred_versions
+    __args__['region'] = region
     __args__['version'] = version
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:msk/getKafkaVersion:getKafkaVersion', __args__, opts=opts, typ=GetKafkaVersionResult)
     return __ret__.apply(lambda __response__: GetKafkaVersionResult(
         id=pulumi.get(__response__, 'id'),
         preferred_versions=pulumi.get(__response__, 'preferred_versions'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status'),
         version=pulumi.get(__response__, 'version')))

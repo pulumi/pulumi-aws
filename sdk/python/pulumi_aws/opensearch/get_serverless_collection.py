@@ -27,7 +27,7 @@ class GetServerlessCollectionResult:
     """
     A collection of values returned by getServerlessCollection.
     """
-    def __init__(__self__, arn=None, collection_endpoint=None, created_date=None, dashboard_endpoint=None, description=None, failure_code=None, failure_message=None, id=None, kms_key_arn=None, last_modified_date=None, name=None, standby_replicas=None, tags=None, type=None):
+    def __init__(__self__, arn=None, collection_endpoint=None, created_date=None, dashboard_endpoint=None, description=None, failure_code=None, failure_message=None, id=None, kms_key_arn=None, last_modified_date=None, name=None, region=None, standby_replicas=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -61,6 +61,9 @@ class GetServerlessCollectionResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if standby_replicas and not isinstance(standby_replicas, str):
             raise TypeError("Expected argument 'standby_replicas' to be a str")
         pulumi.set(__self__, "standby_replicas", standby_replicas)
@@ -151,6 +154,11 @@ class GetServerlessCollectionResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="standbyReplicas")
     def standby_replicas(self) -> builtins.str:
         """
@@ -192,6 +200,7 @@ class AwaitableGetServerlessCollectionResult(GetServerlessCollectionResult):
             kms_key_arn=self.kms_key_arn,
             last_modified_date=self.last_modified_date,
             name=self.name,
+            region=self.region,
             standby_replicas=self.standby_replicas,
             tags=self.tags,
             type=self.type)
@@ -199,6 +208,7 @@ class AwaitableGetServerlessCollectionResult(GetServerlessCollectionResult):
 
 def get_serverless_collection(id: Optional[builtins.str] = None,
                               name: Optional[builtins.str] = None,
+                              region: Optional[builtins.str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerlessCollectionResult:
     """
     Data source for managing an AWS OpenSearch Serverless Collection.
@@ -217,10 +227,14 @@ def get_serverless_collection(id: Optional[builtins.str] = None,
 
     :param builtins.str id: ID of the collection.
     :param builtins.str name: Name of the collection.
+           
+           > Exactly one of `id` or `name` is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:opensearch/getServerlessCollection:getServerlessCollection', __args__, opts=opts, typ=GetServerlessCollectionResult).value
 
@@ -236,11 +250,13 @@ def get_serverless_collection(id: Optional[builtins.str] = None,
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         last_modified_date=pulumi.get(__ret__, 'last_modified_date'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         standby_replicas=pulumi.get(__ret__, 'standby_replicas'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_serverless_collection_output(id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessCollectionResult]:
     """
     Data source for managing an AWS OpenSearch Serverless Collection.
@@ -259,10 +275,14 @@ def get_serverless_collection_output(id: Optional[pulumi.Input[Optional[builtins
 
     :param builtins.str id: ID of the collection.
     :param builtins.str name: Name of the collection.
+           
+           > Exactly one of `id` or `name` is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:opensearch/getServerlessCollection:getServerlessCollection', __args__, opts=opts, typ=GetServerlessCollectionResult)
     return __ret__.apply(lambda __response__: GetServerlessCollectionResult(
@@ -277,6 +297,7 @@ def get_serverless_collection_output(id: Optional[pulumi.Input[Optional[builtins
         kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
         last_modified_date=pulumi.get(__response__, 'last_modified_date'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         standby_replicas=pulumi.get(__response__, 'standby_replicas'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

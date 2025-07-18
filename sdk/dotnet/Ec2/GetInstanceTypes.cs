@@ -204,6 +204,12 @@ namespace Pulumi.Aws.Ec2
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetInstanceTypesArgs()
         {
         }
@@ -224,6 +230,12 @@ namespace Pulumi.Aws.Ec2
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetInstanceTypesInvokeArgs()
         {
         }
@@ -243,6 +255,7 @@ namespace Pulumi.Aws.Ec2
         /// List of EC2 Instance Types.
         /// </summary>
         public readonly ImmutableArray<string> InstanceTypes;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetInstanceTypesResult(
@@ -250,11 +263,14 @@ namespace Pulumi.Aws.Ec2
 
             string id,
 
-            ImmutableArray<string> instanceTypes)
+            ImmutableArray<string> instanceTypes,
+
+            string region)
         {
             Filters = filters;
             Id = id;
             InstanceTypes = instanceTypes;
+            Region = region;
         }
     }
 }

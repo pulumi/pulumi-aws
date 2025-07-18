@@ -459,9 +459,6 @@ namespace Pulumi.Aws.Eks
         [Output("bootstrapSelfManagedAddons")]
         public Output<bool?> BootstrapSelfManagedAddons { get; private set; } = null!;
 
-        [Output("certificateAuthorities")]
-        public Output<ImmutableArray<Outputs.ClusterCertificateAuthority>> CertificateAuthorities { get; private set; } = null!;
-
         /// <summary>
         /// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         /// </summary>
@@ -485,9 +482,6 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
-
-        [Output("defaultAddonsToRemoves")]
-        public Output<ImmutableArray<string>> DefaultAddonsToRemoves { get; private set; } = null!;
 
         /// <summary>
         /// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
@@ -542,6 +536,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Output("platformVersion")]
         public Output<string> PlatformVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
@@ -669,14 +669,6 @@ namespace Pulumi.Aws.Eks
         [Input("computeConfig")]
         public Input<Inputs.ClusterComputeConfigArgs>? ComputeConfig { get; set; }
 
-        [Input("defaultAddonsToRemoves")]
-        private InputList<string>? _defaultAddonsToRemoves;
-        public InputList<string> DefaultAddonsToRemoves
-        {
-            get => _defaultAddonsToRemoves ?? (_defaultAddonsToRemoves = new InputList<string>());
-            set => _defaultAddonsToRemoves = value;
-        }
-
         [Input("enabledClusterLogTypes")]
         private InputList<string>? _enabledClusterLogTypes;
 
@@ -718,6 +710,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("outpostConfig")]
         public Input<Inputs.ClusterOutpostConfigArgs>? OutpostConfig { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
@@ -801,14 +799,6 @@ namespace Pulumi.Aws.Eks
         [Input("bootstrapSelfManagedAddons")]
         public Input<bool>? BootstrapSelfManagedAddons { get; set; }
 
-        [Input("certificateAuthorities")]
-        private InputList<Inputs.ClusterCertificateAuthorityGetArgs>? _certificateAuthorities;
-        public InputList<Inputs.ClusterCertificateAuthorityGetArgs> CertificateAuthorities
-        {
-            get => _certificateAuthorities ?? (_certificateAuthorities = new InputList<Inputs.ClusterCertificateAuthorityGetArgs>());
-            set => _certificateAuthorities = value;
-        }
-
         /// <summary>
         /// Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         /// </summary>
@@ -832,14 +822,6 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
-
-        [Input("defaultAddonsToRemoves")]
-        private InputList<string>? _defaultAddonsToRemoves;
-        public InputList<string> DefaultAddonsToRemoves
-        {
-            get => _defaultAddonsToRemoves ?? (_defaultAddonsToRemoves = new InputList<string>());
-            set => _defaultAddonsToRemoves = value;
-        }
 
         [Input("enabledClusterLogTypes")]
         private InputList<string>? _enabledClusterLogTypes;
@@ -908,6 +890,12 @@ namespace Pulumi.Aws.Eks
         public Input<string>? PlatformVersion { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block with remote network configuration for EKS Hybrid Nodes. Detailed below.
         /// </summary>
         [Input("remoteNetworkConfig")]
@@ -949,7 +937,6 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

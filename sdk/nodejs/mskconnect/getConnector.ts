@@ -22,6 +22,7 @@ export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mskconnect/getConnector:getConnector", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -34,6 +35,10 @@ export interface GetConnectorArgs {
      * Name of the connector.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * A map of tags assigned to the resource.
      */
@@ -57,6 +62,7 @@ export interface GetConnectorResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * A map of tags assigned to the resource.
      */
@@ -84,6 +90,7 @@ export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:mskconnect/getConnector:getConnector", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -96,6 +103,10 @@ export interface GetConnectorOutputArgs {
      * Name of the connector.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags assigned to the resource.
      */

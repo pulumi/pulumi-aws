@@ -62,6 +62,21 @@ public final class GetRepositoryEndpointArgs extends com.pulumi.resources.Invoke
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Name of the repository.
      * 
      */
@@ -82,6 +97,7 @@ public final class GetRepositoryEndpointArgs extends com.pulumi.resources.Invoke
         this.domain = $.domain;
         this.domainOwner = $.domainOwner;
         this.format = $.format;
+        this.region = $.region;
         this.repository = $.repository;
     }
 
@@ -164,6 +180,27 @@ public final class GetRepositoryEndpointArgs extends com.pulumi.resources.Invoke
          */
         public Builder format(String format) {
             return format(Output.of(format));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

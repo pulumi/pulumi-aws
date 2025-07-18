@@ -105,6 +105,12 @@ namespace Pulumi.Aws.Route53
         [Input("firewallRuleGroupAssociationId", required: true)]
         public string FirewallRuleGroupAssociationId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetResolverFirewallRuleGroupAssociationArgs()
         {
         }
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Input("firewallRuleGroupAssociationId", required: true)]
         public Input<string> FirewallRuleGroupAssociationId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetResolverFirewallRuleGroupAssociationInvokeArgs()
         {
@@ -170,6 +182,7 @@ namespace Pulumi.Aws.Route53
         /// The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC.
         /// </summary>
         public readonly int Priority;
+        public readonly string Region;
         /// <summary>
         /// The current status of the association.
         /// </summary>
@@ -207,6 +220,8 @@ namespace Pulumi.Aws.Route53
 
             int priority,
 
+            string region,
+
             string status,
 
             string statusMessage,
@@ -224,6 +239,7 @@ namespace Pulumi.Aws.Route53
             MutationProtection = mutationProtection;
             Name = name;
             Priority = priority;
+            Region = region;
             Status = status;
             StatusMessage = statusMessage;
             VpcId = vpcId;

@@ -29,6 +29,7 @@ class DevEnvironmentArgs:
                  space_name: pulumi.Input[builtins.str],
                  alias: Optional[pulumi.Input[builtins.str]] = None,
                  inactivity_timeout_minutes: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]] = None):
         """
         The set of arguments for constructing a DevEnvironment resource.
@@ -40,6 +41,7 @@ class DevEnvironmentArgs:
         :param pulumi.Input[builtins.str] project_name: The name of the project in the space.
         :param pulumi.Input[builtins.str] space_name: The name of the space.
         :param pulumi.Input[builtins.int] inactivity_timeout_minutes: The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]] repositories: The source repository that contains the branch to clone into the Dev Environment.
         """
         pulumi.set(__self__, "ides", ides)
@@ -51,6 +53,8 @@ class DevEnvironmentArgs:
             pulumi.set(__self__, "alias", alias)
         if inactivity_timeout_minutes is not None:
             pulumi.set(__self__, "inactivity_timeout_minutes", inactivity_timeout_minutes)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if repositories is not None:
             pulumi.set(__self__, "repositories", repositories)
 
@@ -139,6 +143,18 @@ class DevEnvironmentArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]]:
         """
         The source repository that contains the branch to clone into the Dev Environment.
@@ -159,6 +175,7 @@ class _DevEnvironmentState:
                  instance_type: Optional[pulumi.Input[builtins.str]] = None,
                  persistent_storage: Optional[pulumi.Input['DevEnvironmentPersistentStorageArgs']] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]] = None,
                  space_name: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -170,6 +187,7 @@ class _DevEnvironmentState:
                The following arguments are optional:
         :param pulumi.Input['DevEnvironmentPersistentStorageArgs'] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
         :param pulumi.Input[builtins.str] project_name: The name of the project in the space.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]] repositories: The source repository that contains the branch to clone into the Dev Environment.
         :param pulumi.Input[builtins.str] space_name: The name of the space.
         """
@@ -185,6 +203,8 @@ class _DevEnvironmentState:
             pulumi.set(__self__, "persistent_storage", persistent_storage)
         if project_name is not None:
             pulumi.set(__self__, "project_name", project_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if repositories is not None:
             pulumi.set(__self__, "repositories", repositories)
         if space_name is not None:
@@ -263,6 +283,18 @@ class _DevEnvironmentState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]]:
         """
         The source repository that contains the branch to clone into the Dev Environment.
@@ -298,6 +330,7 @@ class DevEnvironment(pulumi.CustomResource):
                  instance_type: Optional[pulumi.Input[builtins.str]] = None,
                  persistent_storage: Optional[pulumi.Input[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict']]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict']]]]] = None,
                  space_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -338,6 +371,7 @@ class DevEnvironment(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict']] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
         :param pulumi.Input[builtins.str] project_name: The name of the project in the space.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict']]]] repositories: The source repository that contains the branch to clone into the Dev Environment.
         :param pulumi.Input[builtins.str] space_name: The name of the space.
         """
@@ -396,6 +430,7 @@ class DevEnvironment(pulumi.CustomResource):
                  instance_type: Optional[pulumi.Input[builtins.str]] = None,
                  persistent_storage: Optional[pulumi.Input[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict']]] = None,
                  project_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict']]]]] = None,
                  space_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -421,6 +456,7 @@ class DevEnvironment(pulumi.CustomResource):
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")
             __props__.__dict__["project_name"] = project_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["repositories"] = repositories
             if space_name is None and not opts.urn:
                 raise TypeError("Missing required property 'space_name'")
@@ -441,6 +477,7 @@ class DevEnvironment(pulumi.CustomResource):
             instance_type: Optional[pulumi.Input[builtins.str]] = None,
             persistent_storage: Optional[pulumi.Input[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict']]] = None,
             project_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             repositories: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict']]]]] = None,
             space_name: Optional[pulumi.Input[builtins.str]] = None) -> 'DevEnvironment':
         """
@@ -457,6 +494,7 @@ class DevEnvironment(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[Union['DevEnvironmentPersistentStorageArgs', 'DevEnvironmentPersistentStorageArgsDict']] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
         :param pulumi.Input[builtins.str] project_name: The name of the project in the space.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DevEnvironmentRepositoryArgs', 'DevEnvironmentRepositoryArgsDict']]]] repositories: The source repository that contains the branch to clone into the Dev Environment.
         :param pulumi.Input[builtins.str] space_name: The name of the space.
         """
@@ -470,6 +508,7 @@ class DevEnvironment(pulumi.CustomResource):
         __props__.__dict__["instance_type"] = instance_type
         __props__.__dict__["persistent_storage"] = persistent_storage
         __props__.__dict__["project_name"] = project_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["repositories"] = repositories
         __props__.__dict__["space_name"] = space_name
         return DevEnvironment(resource_name, opts=opts, __props__=__props__)
@@ -520,6 +559,14 @@ class DevEnvironment(pulumi.CustomResource):
         The name of the project in the space.
         """
         return pulumi.get(self, "project_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

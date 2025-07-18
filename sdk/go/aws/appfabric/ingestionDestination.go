@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appfabric"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appfabric"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,11 +70,11 @@ type IngestionDestination struct {
 	IngestionArn pulumi.StringOutput `pulumi:"ingestionArn"`
 	// Contains information about how ingested data is processed.
 	ProcessingConfiguration IngestionDestinationProcessingConfigurationPtrOutput `pulumi:"processingConfiguration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput                `pulumi:"tagsAll"`
 	Timeouts IngestionDestinationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -125,11 +125,11 @@ type ingestionDestinationState struct {
 	IngestionArn *string `pulumi:"ingestionArn"`
 	// Contains information about how ingested data is processed.
 	ProcessingConfiguration *IngestionDestinationProcessingConfiguration `pulumi:"processingConfiguration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string             `pulumi:"tagsAll"`
 	Timeouts *IngestionDestinationTimeouts `pulumi:"timeouts"`
 }
@@ -145,11 +145,11 @@ type IngestionDestinationState struct {
 	IngestionArn pulumi.StringPtrInput
 	// Contains information about how ingested data is processed.
 	ProcessingConfiguration IngestionDestinationProcessingConfigurationPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts IngestionDestinationTimeoutsPtrInput
 }
@@ -167,6 +167,8 @@ type ingestionDestinationArgs struct {
 	IngestionArn string `pulumi:"ingestionArn"`
 	// Contains information about how ingested data is processed.
 	ProcessingConfiguration *IngestionDestinationProcessingConfiguration `pulumi:"processingConfiguration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string             `pulumi:"tags"`
 	Timeouts *IngestionDestinationTimeouts `pulumi:"timeouts"`
@@ -182,6 +184,8 @@ type IngestionDestinationArgs struct {
 	IngestionArn pulumi.StringInput
 	// Contains information about how ingested data is processed.
 	ProcessingConfiguration IngestionDestinationProcessingConfigurationPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts IngestionDestinationTimeoutsPtrInput
@@ -303,14 +307,17 @@ func (o IngestionDestinationOutput) ProcessingConfiguration() IngestionDestinati
 	}).(IngestionDestinationProcessingConfigurationPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o IngestionDestinationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *IngestionDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o IngestionDestinationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IngestionDestination) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o IngestionDestinationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *IngestionDestination) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

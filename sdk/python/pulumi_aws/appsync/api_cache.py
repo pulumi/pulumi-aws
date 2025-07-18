@@ -25,6 +25,7 @@ class ApiCacheArgs:
                  ttl: pulumi.Input[builtins.int],
                  type: pulumi.Input[builtins.str],
                  at_rest_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The set of arguments for constructing a ApiCache resource.
@@ -33,6 +34,7 @@ class ApiCacheArgs:
         :param pulumi.Input[builtins.int] ttl: TTL in seconds for cache entries.
         :param pulumi.Input[builtins.str] type: Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
         :param pulumi.Input[builtins.bool] at_rest_encryption_enabled: At-rest encryption flag for cache. You cannot update this setting after creation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] transit_encryption_enabled: Transit encryption flag when connecting to cache. You cannot update this setting after creation.
         """
         pulumi.set(__self__, "api_caching_behavior", api_caching_behavior)
@@ -41,6 +43,8 @@ class ApiCacheArgs:
         pulumi.set(__self__, "type", type)
         if at_rest_encryption_enabled is not None:
             pulumi.set(__self__, "at_rest_encryption_enabled", at_rest_encryption_enabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if transit_encryption_enabled is not None:
             pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
 
@@ -105,6 +109,18 @@ class ApiCacheArgs:
         pulumi.set(self, "at_rest_encryption_enabled", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="transitEncryptionEnabled")
     def transit_encryption_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -123,6 +139,7 @@ class _ApiCacheState:
                  api_caching_behavior: Optional[pulumi.Input[builtins.str]] = None,
                  api_id: Optional[pulumi.Input[builtins.str]] = None,
                  at_rest_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  ttl: Optional[pulumi.Input[builtins.int]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
@@ -131,6 +148,7 @@ class _ApiCacheState:
         :param pulumi.Input[builtins.str] api_caching_behavior: Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
         :param pulumi.Input[builtins.str] api_id: GraphQL API ID.
         :param pulumi.Input[builtins.bool] at_rest_encryption_enabled: At-rest encryption flag for cache. You cannot update this setting after creation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] transit_encryption_enabled: Transit encryption flag when connecting to cache. You cannot update this setting after creation.
         :param pulumi.Input[builtins.int] ttl: TTL in seconds for cache entries.
         :param pulumi.Input[builtins.str] type: Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
@@ -141,6 +159,8 @@ class _ApiCacheState:
             pulumi.set(__self__, "api_id", api_id)
         if at_rest_encryption_enabled is not None:
             pulumi.set(__self__, "at_rest_encryption_enabled", at_rest_encryption_enabled)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if transit_encryption_enabled is not None:
             pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
         if ttl is not None:
@@ -183,6 +203,18 @@ class _ApiCacheState:
     @at_rest_encryption_enabled.setter
     def at_rest_encryption_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "at_rest_encryption_enabled", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="transitEncryptionEnabled")
@@ -230,6 +262,7 @@ class ApiCache(pulumi.CustomResource):
                  api_caching_behavior: Optional[pulumi.Input[builtins.str]] = None,
                  api_id: Optional[pulumi.Input[builtins.str]] = None,
                  at_rest_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  ttl: Optional[pulumi.Input[builtins.int]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
@@ -266,6 +299,7 @@ class ApiCache(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_caching_behavior: Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
         :param pulumi.Input[builtins.str] api_id: GraphQL API ID.
         :param pulumi.Input[builtins.bool] at_rest_encryption_enabled: At-rest encryption flag for cache. You cannot update this setting after creation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] transit_encryption_enabled: Transit encryption flag when connecting to cache. You cannot update this setting after creation.
         :param pulumi.Input[builtins.int] ttl: TTL in seconds for cache entries.
         :param pulumi.Input[builtins.str] type: Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
@@ -321,6 +355,7 @@ class ApiCache(pulumi.CustomResource):
                  api_caching_behavior: Optional[pulumi.Input[builtins.str]] = None,
                  api_id: Optional[pulumi.Input[builtins.str]] = None,
                  at_rest_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  ttl: Optional[pulumi.Input[builtins.int]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
@@ -340,6 +375,7 @@ class ApiCache(pulumi.CustomResource):
                 raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
             __props__.__dict__["at_rest_encryption_enabled"] = at_rest_encryption_enabled
+            __props__.__dict__["region"] = region
             __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
             if ttl is None and not opts.urn:
                 raise TypeError("Missing required property 'ttl'")
@@ -360,6 +396,7 @@ class ApiCache(pulumi.CustomResource):
             api_caching_behavior: Optional[pulumi.Input[builtins.str]] = None,
             api_id: Optional[pulumi.Input[builtins.str]] = None,
             at_rest_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             transit_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             ttl: Optional[pulumi.Input[builtins.int]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None) -> 'ApiCache':
@@ -373,6 +410,7 @@ class ApiCache(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_caching_behavior: Caching behavior. Valid values are `FULL_REQUEST_CACHING` and `PER_RESOLVER_CACHING`.
         :param pulumi.Input[builtins.str] api_id: GraphQL API ID.
         :param pulumi.Input[builtins.bool] at_rest_encryption_enabled: At-rest encryption flag for cache. You cannot update this setting after creation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] transit_encryption_enabled: Transit encryption flag when connecting to cache. You cannot update this setting after creation.
         :param pulumi.Input[builtins.int] ttl: TTL in seconds for cache entries.
         :param pulumi.Input[builtins.str] type: Cache instance type. Valid values are `SMALL`, `MEDIUM`, `LARGE`, `XLARGE`, `LARGE_2X`, `LARGE_4X`, `LARGE_8X`, `LARGE_12X`, `T2_SMALL`, `T2_MEDIUM`, `R4_LARGE`, `R4_XLARGE`, `R4_2XLARGE`, `R4_4XLARGE`, `R4_8XLARGE`.
@@ -384,6 +422,7 @@ class ApiCache(pulumi.CustomResource):
         __props__.__dict__["api_caching_behavior"] = api_caching_behavior
         __props__.__dict__["api_id"] = api_id
         __props__.__dict__["at_rest_encryption_enabled"] = at_rest_encryption_enabled
+        __props__.__dict__["region"] = region
         __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
         __props__.__dict__["ttl"] = ttl
         __props__.__dict__["type"] = type
@@ -412,6 +451,14 @@ class ApiCache(pulumi.CustomResource):
         At-rest encryption flag for cache. You cannot update this setting after creation.
         """
         return pulumi.get(self, "at_rest_encryption_enabled")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="transitEncryptionEnabled")

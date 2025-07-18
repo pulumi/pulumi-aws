@@ -25,6 +25,7 @@ class UserArgs:
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  first_name: Optional[pulumi.Input[builtins.str]] = None,
                  last_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  send_email_notification: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The set of arguments for constructing a User resource.
@@ -35,6 +36,7 @@ class UserArgs:
         :param pulumi.Input[builtins.bool] enabled: Whether the user in the user pool is enabled.
         :param pulumi.Input[builtins.str] first_name: First name, or given name, of the user.
         :param pulumi.Input[builtins.str] last_name: Last name, or surname, of the user.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] send_email_notification: Send an email notification.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
@@ -45,6 +47,8 @@ class UserArgs:
             pulumi.set(__self__, "first_name", first_name)
         if last_name is not None:
             pulumi.set(__self__, "last_name", last_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if send_email_notification is not None:
             pulumi.set(__self__, "send_email_notification", send_email_notification)
 
@@ -111,6 +115,18 @@ class UserArgs:
         pulumi.set(self, "last_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sendEmailNotification")
     def send_email_notification(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -132,6 +148,7 @@ class _UserState:
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  first_name: Optional[pulumi.Input[builtins.str]] = None,
                  last_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  send_email_notification: Optional[pulumi.Input[builtins.bool]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -142,6 +159,7 @@ class _UserState:
         :param pulumi.Input[builtins.bool] enabled: Whether the user in the user pool is enabled.
         :param pulumi.Input[builtins.str] first_name: First name, or given name, of the user.
         :param pulumi.Input[builtins.str] last_name: Last name, or surname, of the user.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] send_email_notification: Send an email notification.
         :param pulumi.Input[builtins.str] user_name: Email address of the user.
                
@@ -159,6 +177,8 @@ class _UserState:
             pulumi.set(__self__, "first_name", first_name)
         if last_name is not None:
             pulumi.set(__self__, "last_name", last_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if send_email_notification is not None:
             pulumi.set(__self__, "send_email_notification", send_email_notification)
         if user_name is not None:
@@ -237,6 +257,18 @@ class _UserState:
         pulumi.set(self, "last_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sendEmailNotification")
     def send_email_notification(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -273,6 +305,7 @@ class User(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  first_name: Optional[pulumi.Input[builtins.str]] = None,
                  last_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  send_email_notification: Optional[pulumi.Input[builtins.bool]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -306,6 +339,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: Whether the user in the user pool is enabled.
         :param pulumi.Input[builtins.str] first_name: First name, or given name, of the user.
         :param pulumi.Input[builtins.str] last_name: Last name, or surname, of the user.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] send_email_notification: Send an email notification.
         :param pulumi.Input[builtins.str] user_name: Email address of the user.
                
@@ -360,6 +394,7 @@ class User(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  first_name: Optional[pulumi.Input[builtins.str]] = None,
                  last_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  send_email_notification: Optional[pulumi.Input[builtins.bool]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -377,6 +412,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["first_name"] = first_name
             __props__.__dict__["last_name"] = last_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["send_email_notification"] = send_email_notification
             if user_name is None and not opts.urn:
                 raise TypeError("Missing required property 'user_name'")
@@ -399,6 +435,7 @@ class User(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[builtins.bool]] = None,
             first_name: Optional[pulumi.Input[builtins.str]] = None,
             last_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             send_email_notification: Optional[pulumi.Input[builtins.bool]] = None,
             user_name: Optional[pulumi.Input[builtins.str]] = None) -> 'User':
         """
@@ -414,6 +451,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: Whether the user in the user pool is enabled.
         :param pulumi.Input[builtins.str] first_name: First name, or given name, of the user.
         :param pulumi.Input[builtins.str] last_name: Last name, or surname, of the user.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] send_email_notification: Send an email notification.
         :param pulumi.Input[builtins.str] user_name: Email address of the user.
                
@@ -429,6 +467,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["first_name"] = first_name
         __props__.__dict__["last_name"] = last_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["send_email_notification"] = send_email_notification
         __props__.__dict__["user_name"] = user_name
         return User(resource_name, opts=opts, __props__=__props__)
@@ -480,6 +519,14 @@ class User(pulumi.CustomResource):
         Last name, or surname, of the user.
         """
         return pulumi.get(self, "last_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sendEmailNotification")

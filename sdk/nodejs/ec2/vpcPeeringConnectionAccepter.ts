@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Cross-Account Peering Or Cross-Region Peering AWS Provider v6 (and below)
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -39,6 +41,38 @@ import * as utilities from "../utilities";
  * });
  * // Accepter's side of the connection.
  * const peerVpcPeeringConnectionAccepter = new aws.ec2.VpcPeeringConnectionAccepter("peer", {
+ *     vpcPeeringConnectionId: peerVpcPeeringConnection.id,
+ *     autoAccept: true,
+ *     tags: {
+ *         Side: "Accepter",
+ *     },
+ * });
+ * ```
+ *
+ * ### Cross-Region Peering (Same Account) AWS Provider v7 (and above)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
+ * const peer = new aws.ec2.Vpc("peer", {
+ *     region: "us-west-2",
+ *     cidrBlock: "10.1.0.0/16",
+ * });
+ * // Requester's side of the connection.
+ * const peerVpcPeeringConnection = new aws.ec2.VpcPeeringConnection("peer", {
+ *     vpcId: main.id,
+ *     peerVpcId: peer.id,
+ *     peerRegion: "us-west-2",
+ *     autoAccept: false,
+ *     tags: {
+ *         Side: "Requester",
+ *     },
+ * });
+ * // Accepter's side of the connection.
+ * const peerVpcPeeringConnectionAccepter = new aws.ec2.VpcPeeringConnectionAccepter("peer", {
+ *     region: "us-west-2",
  *     vpcPeeringConnectionId: peerVpcPeeringConnection.id,
  *     autoAccept: true,
  *     tags: {
@@ -110,6 +144,10 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
      */
     public /*out*/ readonly peerVpcId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      */
@@ -120,8 +158,6 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -152,6 +188,7 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
             resourceInputs["peerOwnerId"] = state ? state.peerOwnerId : undefined;
             resourceInputs["peerRegion"] = state ? state.peerRegion : undefined;
             resourceInputs["peerVpcId"] = state ? state.peerVpcId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requester"] = state ? state.requester : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -164,6 +201,7 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
             }
             resourceInputs["accepter"] = args ? args.accepter : undefined;
             resourceInputs["autoAccept"] = args ? args.autoAccept : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["requester"] = args ? args.requester : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
@@ -209,6 +247,10 @@ export interface VpcPeeringConnectionAccepterState {
      */
     peerVpcId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      */
@@ -219,8 +261,6 @@ export interface VpcPeeringConnectionAccepterState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -246,6 +286,10 @@ export interface VpcPeeringConnectionAccepterArgs {
      * Whether or not to accept the peering request. Defaults to `false`.
      */
     autoAccept?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.

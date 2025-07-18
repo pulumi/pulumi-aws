@@ -31,6 +31,7 @@ class TrafficMirrorFilterRuleArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  destination_port_range: Optional[pulumi.Input['TrafficMirrorFilterRuleDestinationPortRangeArgs']] = None,
                  protocol: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_port_range: Optional[pulumi.Input['TrafficMirrorFilterRuleSourcePortRangeArgs']] = None):
         """
         The set of arguments for constructing a TrafficMirrorFilterRule resource.
@@ -45,6 +46,7 @@ class TrafficMirrorFilterRuleArgs:
         :param pulumi.Input[builtins.str] description: Description of the traffic mirror filter rule.
         :param pulumi.Input['TrafficMirrorFilterRuleDestinationPortRangeArgs'] destination_port_range: Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         :param pulumi.Input[builtins.int] protocol: Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['TrafficMirrorFilterRuleSourcePortRangeArgs'] source_port_range: Source port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         """
         pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
@@ -59,6 +61,8 @@ class TrafficMirrorFilterRuleArgs:
             pulumi.set(__self__, "destination_port_range", destination_port_range)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source_port_range is not None:
             pulumi.set(__self__, "source_port_range", source_port_range)
 
@@ -173,6 +177,18 @@ class TrafficMirrorFilterRuleArgs:
         pulumi.set(self, "protocol", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sourcePortRange")
     def source_port_range(self) -> Optional[pulumi.Input['TrafficMirrorFilterRuleSourcePortRangeArgs']]:
         """
@@ -193,6 +209,7 @@ class _TrafficMirrorFilterRuleState:
                  destination_cidr_block: Optional[pulumi.Input[builtins.str]] = None,
                  destination_port_range: Optional[pulumi.Input['TrafficMirrorFilterRuleDestinationPortRangeArgs']] = None,
                  protocol: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_action: Optional[pulumi.Input[builtins.str]] = None,
                  rule_number: Optional[pulumi.Input[builtins.int]] = None,
                  source_cidr_block: Optional[pulumi.Input[builtins.str]] = None,
@@ -206,6 +223,7 @@ class _TrafficMirrorFilterRuleState:
         :param pulumi.Input[builtins.str] destination_cidr_block: Destination CIDR block to assign to the Traffic Mirror rule.
         :param pulumi.Input['TrafficMirrorFilterRuleDestinationPortRangeArgs'] destination_port_range: Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         :param pulumi.Input[builtins.int] protocol: Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_action: Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
         :param pulumi.Input[builtins.int] rule_number: Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
         :param pulumi.Input[builtins.str] source_cidr_block: Source CIDR block to assign to the Traffic Mirror rule.
@@ -225,6 +243,8 @@ class _TrafficMirrorFilterRuleState:
             pulumi.set(__self__, "destination_port_range", destination_port_range)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rule_action is not None:
             pulumi.set(__self__, "rule_action", rule_action)
         if rule_number is not None:
@@ -297,6 +317,18 @@ class _TrafficMirrorFilterRuleState:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="ruleAction")
@@ -383,6 +415,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
                  destination_cidr_block: Optional[pulumi.Input[builtins.str]] = None,
                  destination_port_range: Optional[pulumi.Input[Union['TrafficMirrorFilterRuleDestinationPortRangeArgs', 'TrafficMirrorFilterRuleDestinationPortRangeArgsDict']]] = None,
                  protocol: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_action: Optional[pulumi.Input[builtins.str]] = None,
                  rule_number: Optional[pulumi.Input[builtins.int]] = None,
                  source_cidr_block: Optional[pulumi.Input[builtins.str]] = None,
@@ -446,6 +479,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] destination_cidr_block: Destination CIDR block to assign to the Traffic Mirror rule.
         :param pulumi.Input[Union['TrafficMirrorFilterRuleDestinationPortRangeArgs', 'TrafficMirrorFilterRuleDestinationPortRangeArgsDict']] destination_port_range: Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         :param pulumi.Input[builtins.int] protocol: Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_action: Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
         :param pulumi.Input[builtins.int] rule_number: Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
         :param pulumi.Input[builtins.str] source_cidr_block: Source CIDR block to assign to the Traffic Mirror rule.
@@ -530,6 +564,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
                  destination_cidr_block: Optional[pulumi.Input[builtins.str]] = None,
                  destination_port_range: Optional[pulumi.Input[Union['TrafficMirrorFilterRuleDestinationPortRangeArgs', 'TrafficMirrorFilterRuleDestinationPortRangeArgsDict']]] = None,
                  protocol: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_action: Optional[pulumi.Input[builtins.str]] = None,
                  rule_number: Optional[pulumi.Input[builtins.int]] = None,
                  source_cidr_block: Optional[pulumi.Input[builtins.str]] = None,
@@ -551,6 +586,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
             __props__.__dict__["destination_cidr_block"] = destination_cidr_block
             __props__.__dict__["destination_port_range"] = destination_port_range
             __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["region"] = region
             if rule_action is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_action'")
             __props__.__dict__["rule_action"] = rule_action
@@ -583,6 +619,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
             destination_cidr_block: Optional[pulumi.Input[builtins.str]] = None,
             destination_port_range: Optional[pulumi.Input[Union['TrafficMirrorFilterRuleDestinationPortRangeArgs', 'TrafficMirrorFilterRuleDestinationPortRangeArgsDict']]] = None,
             protocol: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rule_action: Optional[pulumi.Input[builtins.str]] = None,
             rule_number: Optional[pulumi.Input[builtins.int]] = None,
             source_cidr_block: Optional[pulumi.Input[builtins.str]] = None,
@@ -601,6 +638,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] destination_cidr_block: Destination CIDR block to assign to the Traffic Mirror rule.
         :param pulumi.Input[Union['TrafficMirrorFilterRuleDestinationPortRangeArgs', 'TrafficMirrorFilterRuleDestinationPortRangeArgsDict']] destination_port_range: Destination port range. Supported only when the protocol is set to TCP(6) or UDP(17). See Traffic mirror port range documented below
         :param pulumi.Input[builtins.int] protocol: Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_action: Action to take (accept | reject) on the filtered traffic. Valid values are `accept` and `reject`
         :param pulumi.Input[builtins.int] rule_number: Number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given direction. The rules are processed in ascending order by rule number.
         :param pulumi.Input[builtins.str] source_cidr_block: Source CIDR block to assign to the Traffic Mirror rule.
@@ -619,6 +657,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         __props__.__dict__["destination_cidr_block"] = destination_cidr_block
         __props__.__dict__["destination_port_range"] = destination_port_range
         __props__.__dict__["protocol"] = protocol
+        __props__.__dict__["region"] = region
         __props__.__dict__["rule_action"] = rule_action
         __props__.__dict__["rule_number"] = rule_number
         __props__.__dict__["source_cidr_block"] = source_cidr_block
@@ -666,6 +705,14 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         Protocol number, for example 17 (UDP), to assign to the Traffic Mirror rule. For information about the protocol value, see [Protocol Numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml) on the Internet Assigned Numbers Authority (IANA) website.
         """
         return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="ruleAction")

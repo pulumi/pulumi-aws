@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,15 +23,15 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/athena"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/athena"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := s3.NewBucketV2(ctx, "test", &s3.BucketV2Args{
+//			test, err := s3.NewBucket(ctx, "test", &s3.BucketArgs{
 //				Bucket:       pulumi.String("tf-test"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
@@ -83,6 +83,8 @@ type PreparedStatement struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The query string for the prepared statement.
 	QueryStatement pulumi.StringOutput `pulumi:"queryStatement"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the workgroup to which the prepared statement belongs.
 	Workgroup pulumi.StringOutput `pulumi:"workgroup"`
 }
@@ -129,6 +131,8 @@ type preparedStatementState struct {
 	Name *string `pulumi:"name"`
 	// The query string for the prepared statement.
 	QueryStatement *string `pulumi:"queryStatement"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the workgroup to which the prepared statement belongs.
 	Workgroup *string `pulumi:"workgroup"`
 }
@@ -140,6 +144,8 @@ type PreparedStatementState struct {
 	Name pulumi.StringPtrInput
 	// The query string for the prepared statement.
 	QueryStatement pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the workgroup to which the prepared statement belongs.
 	Workgroup pulumi.StringPtrInput
 }
@@ -155,6 +161,8 @@ type preparedStatementArgs struct {
 	Name *string `pulumi:"name"`
 	// The query string for the prepared statement.
 	QueryStatement string `pulumi:"queryStatement"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the workgroup to which the prepared statement belongs.
 	Workgroup string `pulumi:"workgroup"`
 }
@@ -167,6 +175,8 @@ type PreparedStatementArgs struct {
 	Name pulumi.StringPtrInput
 	// The query string for the prepared statement.
 	QueryStatement pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the workgroup to which the prepared statement belongs.
 	Workgroup pulumi.StringInput
 }
@@ -271,6 +281,11 @@ func (o PreparedStatementOutput) Name() pulumi.StringOutput {
 // The query string for the prepared statement.
 func (o PreparedStatementOutput) QueryStatement() pulumi.StringOutput {
 	return o.ApplyT(func(v *PreparedStatement) pulumi.StringOutput { return v.QueryStatement }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o PreparedStatementOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *PreparedStatement) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the workgroup to which the prepared statement belongs.

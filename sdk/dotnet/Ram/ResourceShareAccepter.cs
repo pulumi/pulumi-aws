@@ -76,6 +76,12 @@ namespace Pulumi.Aws.Ram
         public Output<string> ReceiverAccountId { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A list of the resource ARNs shared via the resource share.
         /// </summary>
         [Output("resources")]
@@ -158,6 +164,12 @@ namespace Pulumi.Aws.Ram
     public sealed class ResourceShareAccepterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of the resource share.
         /// </summary>
         [Input("shareArn", required: true)]
@@ -182,6 +194,12 @@ namespace Pulumi.Aws.Ram
         /// </summary>
         [Input("receiverAccountId")]
         public Input<string>? ReceiverAccountId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("resources")]
         private InputList<string>? _resources;

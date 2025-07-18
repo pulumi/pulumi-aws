@@ -28,7 +28,7 @@ class GetBrokerNodesResult:
     """
     A collection of values returned by getBrokerNodes.
     """
-    def __init__(__self__, cluster_arn=None, id=None, node_info_lists=None):
+    def __init__(__self__, cluster_arn=None, id=None, node_info_lists=None, region=None):
         if cluster_arn and not isinstance(cluster_arn, str):
             raise TypeError("Expected argument 'cluster_arn' to be a str")
         pulumi.set(__self__, "cluster_arn", cluster_arn)
@@ -38,6 +38,9 @@ class GetBrokerNodesResult:
         if node_info_lists and not isinstance(node_info_lists, list):
             raise TypeError("Expected argument 'node_info_lists' to be a list")
         pulumi.set(__self__, "node_info_lists", node_info_lists)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="clusterArn")
@@ -57,6 +60,11 @@ class GetBrokerNodesResult:
     def node_info_lists(self) -> Sequence['outputs.GetBrokerNodesNodeInfoListResult']:
         return pulumi.get(self, "node_info_lists")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetBrokerNodesResult(GetBrokerNodesResult):
     # pylint: disable=using-constant-test
@@ -66,10 +74,12 @@ class AwaitableGetBrokerNodesResult(GetBrokerNodesResult):
         return GetBrokerNodesResult(
             cluster_arn=self.cluster_arn,
             id=self.id,
-            node_info_lists=self.node_info_lists)
+            node_info_lists=self.node_info_lists,
+            region=self.region)
 
 
 def get_broker_nodes(cluster_arn: Optional[builtins.str] = None,
+                     region: Optional[builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrokerNodesResult:
     """
     Get information on an Amazon MSK Broker Nodes.
@@ -85,17 +95,21 @@ def get_broker_nodes(cluster_arn: Optional[builtins.str] = None,
 
 
     :param builtins.str cluster_arn: ARN of the cluster the nodes belong to.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:msk/getBrokerNodes:getBrokerNodes', __args__, opts=opts, typ=GetBrokerNodesResult).value
 
     return AwaitableGetBrokerNodesResult(
         cluster_arn=pulumi.get(__ret__, 'cluster_arn'),
         id=pulumi.get(__ret__, 'id'),
-        node_info_lists=pulumi.get(__ret__, 'node_info_lists'))
+        node_info_lists=pulumi.get(__ret__, 'node_info_lists'),
+        region=pulumi.get(__ret__, 'region'))
 def get_broker_nodes_output(cluster_arn: Optional[pulumi.Input[builtins.str]] = None,
+                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrokerNodesResult]:
     """
     Get information on an Amazon MSK Broker Nodes.
@@ -111,12 +125,15 @@ def get_broker_nodes_output(cluster_arn: Optional[pulumi.Input[builtins.str]] = 
 
 
     :param builtins.str cluster_arn: ARN of the cluster the nodes belong to.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:msk/getBrokerNodes:getBrokerNodes', __args__, opts=opts, typ=GetBrokerNodesResult)
     return __ret__.apply(lambda __response__: GetBrokerNodesResult(
         cluster_arn=pulumi.get(__response__, 'cluster_arn'),
         id=pulumi.get(__response__, 'id'),
-        node_info_lists=pulumi.get(__response__, 'node_info_lists')))
+        node_info_lists=pulumi.get(__response__, 'node_info_lists'),
+        region=pulumi.get(__response__, 'region')))

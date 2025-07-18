@@ -115,6 +115,10 @@ export class Membership extends pulumi.CustomResource {
      */
     public readonly queryLogStatus!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The status of the membership.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -122,9 +126,6 @@ export class Membership extends pulumi.CustomResource {
      * Key value pairs which tag the membership.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The date and time the membership was last updated.
@@ -155,6 +156,7 @@ export class Membership extends pulumi.CustomResource {
             resourceInputs["memberAbilities"] = state ? state.memberAbilities : undefined;
             resourceInputs["paymentConfiguration"] = state ? state.paymentConfiguration : undefined;
             resourceInputs["queryLogStatus"] = state ? state.queryLogStatus : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -171,6 +173,7 @@ export class Membership extends pulumi.CustomResource {
             resourceInputs["defaultResultConfiguration"] = args ? args.defaultResultConfiguration : undefined;
             resourceInputs["paymentConfiguration"] = args ? args.paymentConfiguration : undefined;
             resourceInputs["queryLogStatus"] = args ? args.queryLogStatus : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collaborationArn"] = undefined /*out*/;
@@ -234,6 +237,10 @@ export interface MembershipState {
      */
     queryLogStatus?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The status of the membership.
      */
     status?: pulumi.Input<string>;
@@ -241,9 +248,6 @@ export interface MembershipState {
      * Key value pairs which tag the membership.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The date and time the membership was last updated.
@@ -268,6 +272,10 @@ export interface MembershipArgs {
      * An indicator as to whether query logging has been enabled or disabled for the membership.
      */
     queryLogStatus: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key value pairs which tag the membership.
      */

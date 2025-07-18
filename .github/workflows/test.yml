@@ -55,29 +55,41 @@ jobs:
         submodules: true
         persist-credentials: false
     - name: Checkout p/examples
-      if: matrix.testTarget == 'pulumiExamples'
       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
         repository: pulumi/examples
         path: p-examples
     - name: Setup tools
       uses: ./.github/actions/setup-tools
-      with:
-        tools: pulumictl, pulumicli, ${{ matrix.language }}
     - name: Prepare local workspace
       run: make prepare_local_workspace
     - name: Download bin
       uses: ./.github/actions/download-provider
-    - name: Download SDK
+    - name: Download nodejs SDK
       uses: ./.github/actions/download-sdk
       with:
-        language: ${{ matrix.language }}
+        language: nodejs
+    - name: Download python SDK
+      uses: ./.github/actions/download-sdk
+      with:
+        language: python
+    - name: Download dotnet SDK
+      uses: ./.github/actions/download-sdk
+      with:
+        language: dotnet
+    - name: Download go SDK
+      uses: ./.github/actions/download-sdk
+      with:
+        language: go
+    - name: Download java SDK
+      uses: ./.github/actions/download-sdk
+      with:
+        language: java
     - name: Restore makefile progress
-      run: make --touch provider schema build_${{ matrix.language }}
+      run: make --touch provider schema build_sdks
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
     - name: Install Python deps
-      if: matrix.language == 'python'
       run: |-
         pip3 install virtualenv==20.0.23
         pip3 install pipenv
@@ -94,21 +106,29 @@ jobs:
         PULUMI_ACCESS_TOKEN: ${{ steps.generate_pulumi_token.outputs.pulumi-access-token }}
       with:
         environment: logins/pulumi-ci
-    - name: Install dependencies
-      run: make install_${{ matrix.language}}_sdk
+    - name: Install prebuilt SDKs
+      run: make install_sdks
+    - name: Generate test shards
+      run: |-
+        cd examples
+        go run github.com/pulumi/shard@861c9ce4aa851e98c19f8376892bf7e47238fa1b \
+            --total ${{ matrix.total-shards }} \
+            --index ${{ matrix.current-shard }} \
+            --output env >> "$GITHUB_ENV"
     - name: Run tests
-      if: matrix.testTarget == 'local'
-      run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 4 .
-    - name: Run pulumi/examples tests
-      if: matrix.testTarget == 'pulumiExamples'
-      run: cd examples && go test -v -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -run TestPulumiExamples -parallel 4 .
+      run: |
+        make GOTESTARGS="-test.run ${SHARD_TESTS} ${SHARD_PATHS}" test
     strategy:
       fail-fast: false
       matrix:
-        language:
-        - nodejs
-        - python
-        - dotnet
-        - go
-        - java
-        testTarget: [local]
+        total-shards:
+          - 8
+        current-shard:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7

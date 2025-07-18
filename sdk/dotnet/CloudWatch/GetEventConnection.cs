@@ -99,6 +99,12 @@ namespace Pulumi.Aws.CloudWatch
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetEventConnectionArgs()
         {
         }
@@ -112,6 +118,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetEventConnectionInvokeArgs()
         {
@@ -140,6 +152,7 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         public readonly string KmsKeyIdentifier;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// ARN of the secret created from the authorization parameters specified for the connection.
         /// </summary>
@@ -157,6 +170,8 @@ namespace Pulumi.Aws.CloudWatch
 
             string name,
 
+            string region,
+
             string secretArn)
         {
             Arn = arn;
@@ -164,6 +179,7 @@ namespace Pulumi.Aws.CloudWatch
             Id = id;
             KmsKeyIdentifier = kmsKeyIdentifier;
             Name = name;
+            Region = region;
             SecretArn = secretArn;
         }
     }

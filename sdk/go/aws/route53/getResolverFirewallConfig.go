@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func LookupResolverFirewallConfig(ctx *pulumi.Context, args *LookupResolverFirew
 
 // A collection of arguments for invoking getResolverFirewallConfig.
 type LookupResolverFirewallConfigArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the VPC from Amazon VPC that the configuration is for.
 	ResourceId string `pulumi:"resourceId"`
 }
@@ -66,6 +68,7 @@ type LookupResolverFirewallConfigResult struct {
 	Id string `pulumi:"id"`
 	// The Amazon Web Services account ID of the owner of the VPC that this firewall configuration applies to.
 	OwnerId    string `pulumi:"ownerId"`
+	Region     string `pulumi:"region"`
 	ResourceId string `pulumi:"resourceId"`
 }
 
@@ -80,6 +83,8 @@ func LookupResolverFirewallConfigOutput(ctx *pulumi.Context, args LookupResolver
 
 // A collection of arguments for invoking getResolverFirewallConfig.
 type LookupResolverFirewallConfigOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The ID of the VPC from Amazon VPC that the configuration is for.
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 }
@@ -116,6 +121,10 @@ func (o LookupResolverFirewallConfigResultOutput) Id() pulumi.StringOutput {
 // The Amazon Web Services account ID of the owner of the VPC that this firewall configuration applies to.
 func (o LookupResolverFirewallConfigResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallConfigResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o LookupResolverFirewallConfigResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResolverFirewallConfigResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupResolverFirewallConfigResultOutput) ResourceId() pulumi.StringOutput {

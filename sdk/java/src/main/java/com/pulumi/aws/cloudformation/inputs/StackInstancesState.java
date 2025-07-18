@@ -97,6 +97,21 @@ public final class StackInstancesState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Regions where you want to create stack instances in the specified `accounts`.
      * 
      */
@@ -183,6 +198,7 @@ public final class StackInstancesState extends com.pulumi.resources.ResourceArgs
         this.deploymentTargets = $.deploymentTargets;
         this.operationPreferences = $.operationPreferences;
         this.parameterOverrides = $.parameterOverrides;
+        this.region = $.region;
         this.regions = $.regions;
         this.retainStacks = $.retainStacks;
         this.stackInstanceSummaries = $.stackInstanceSummaries;
@@ -321,6 +337,27 @@ public final class StackInstancesState extends com.pulumi.resources.ResourceArgs
          */
         public Builder parameterOverrides(Map<String,String> parameterOverrides) {
             return parameterOverrides(Output.of(parameterOverrides));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -29,7 +29,7 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, addresses=None, alternate_identifier=None, display_name=None, emails=None, external_ids=None, filter=None, id=None, identity_store_id=None, locale=None, names=None, nickname=None, phone_numbers=None, preferred_language=None, profile_url=None, timezone=None, title=None, user_id=None, user_name=None, user_type=None):
+    def __init__(__self__, addresses=None, alternate_identifier=None, display_name=None, emails=None, external_ids=None, id=None, identity_store_id=None, locale=None, names=None, nickname=None, phone_numbers=None, preferred_language=None, profile_url=None, region=None, timezone=None, title=None, user_id=None, user_name=None, user_type=None):
         if addresses and not isinstance(addresses, list):
             raise TypeError("Expected argument 'addresses' to be a list")
         pulumi.set(__self__, "addresses", addresses)
@@ -45,9 +45,6 @@ class GetUserResult:
         if external_ids and not isinstance(external_ids, list):
             raise TypeError("Expected argument 'external_ids' to be a list")
         pulumi.set(__self__, "external_ids", external_ids)
-        if filter and not isinstance(filter, dict):
-            raise TypeError("Expected argument 'filter' to be a dict")
-        pulumi.set(__self__, "filter", filter)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -72,6 +69,9 @@ class GetUserResult:
         if profile_url and not isinstance(profile_url, str):
             raise TypeError("Expected argument 'profile_url' to be a str")
         pulumi.set(__self__, "profile_url", profile_url)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if timezone and not isinstance(timezone, str):
             raise TypeError("Expected argument 'timezone' to be a str")
         pulumi.set(__self__, "timezone", timezone)
@@ -124,12 +124,6 @@ class GetUserResult:
         List of identifiers issued to this resource by an external identity provider.
         """
         return pulumi.get(self, "external_ids")
-
-    @property
-    @pulumi.getter
-    @_utilities.deprecated("""filter is deprecated. Use alternate_identifier instead.""")
-    def filter(self) -> Optional['outputs.GetUserFilterResult']:
-        return pulumi.get(self, "filter")
 
     @property
     @pulumi.getter
@@ -194,6 +188,14 @@ class GetUserResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        """
+        The region of the address.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def timezone(self) -> builtins.str:
         """
         The user's time zone.
@@ -241,7 +243,6 @@ class AwaitableGetUserResult(GetUserResult):
             display_name=self.display_name,
             emails=self.emails,
             external_ids=self.external_ids,
-            filter=self.filter,
             id=self.id,
             identity_store_id=self.identity_store_id,
             locale=self.locale,
@@ -250,6 +251,7 @@ class AwaitableGetUserResult(GetUserResult):
             phone_numbers=self.phone_numbers,
             preferred_language=self.preferred_language,
             profile_url=self.profile_url,
+            region=self.region,
             timezone=self.timezone,
             title=self.title,
             user_id=self.user_id,
@@ -258,8 +260,8 @@ class AwaitableGetUserResult(GetUserResult):
 
 
 def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict']] = None,
-             filter: Optional[Union['GetUserFilterArgs', 'GetUserFilterArgsDict']] = None,
              identity_store_id: Optional[builtins.str] = None,
+             region: Optional[builtins.str] = None,
              user_id: Optional[builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
@@ -284,18 +286,18 @@ def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArg
 
 
     :param Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-    :param Union['GetUserFilterArgs', 'GetUserFilterArgsDict'] filter: Configuration block for filtering by a unique attribute of the user. Detailed below.
     :param builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_id: The identifier for a user in the Identity Store.
            
            > Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
     """
     __args__ = dict()
     __args__['alternateIdentifier'] = alternate_identifier
-    __args__['filter'] = filter
     __args__['identityStoreId'] = identity_store_id
+    __args__['region'] = region
     __args__['userId'] = user_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:identitystore/getUser:getUser', __args__, opts=opts, typ=GetUserResult).value
@@ -306,7 +308,6 @@ def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArg
         display_name=pulumi.get(__ret__, 'display_name'),
         emails=pulumi.get(__ret__, 'emails'),
         external_ids=pulumi.get(__ret__, 'external_ids'),
-        filter=pulumi.get(__ret__, 'filter'),
         id=pulumi.get(__ret__, 'id'),
         identity_store_id=pulumi.get(__ret__, 'identity_store_id'),
         locale=pulumi.get(__ret__, 'locale'),
@@ -315,14 +316,15 @@ def get_user(alternate_identifier: Optional[Union['GetUserAlternateIdentifierArg
         phone_numbers=pulumi.get(__ret__, 'phone_numbers'),
         preferred_language=pulumi.get(__ret__, 'preferred_language'),
         profile_url=pulumi.get(__ret__, 'profile_url'),
+        region=pulumi.get(__ret__, 'region'),
         timezone=pulumi.get(__ret__, 'timezone'),
         title=pulumi.get(__ret__, 'title'),
         user_id=pulumi.get(__ret__, 'user_id'),
         user_name=pulumi.get(__ret__, 'user_name'),
         user_type=pulumi.get(__ret__, 'user_type'))
 def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict']]]] = None,
-                    filter: Optional[pulumi.Input[Optional[Union['GetUserFilterArgs', 'GetUserFilterArgsDict']]]] = None,
                     identity_store_id: Optional[pulumi.Input[builtins.str]] = None,
+                    region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     user_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
@@ -347,18 +349,18 @@ def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['
 
 
     :param Union['GetUserAlternateIdentifierArgs', 'GetUserAlternateIdentifierArgsDict'] alternate_identifier: A unique identifier for a user or group that is not the primary identifier. Conflicts with `user_id` and `filter`. Detailed below.
-    :param Union['GetUserFilterArgs', 'GetUserFilterArgsDict'] filter: Configuration block for filtering by a unique attribute of the user. Detailed below.
     :param builtins.str identity_store_id: Identity Store ID associated with the Single Sign-On Instance.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_id: The identifier for a user in the Identity Store.
            
            > Exactly one of the above arguments must be provided. Passing both `filter` and `user_id` is allowed for backwards compatibility.
     """
     __args__ = dict()
     __args__['alternateIdentifier'] = alternate_identifier
-    __args__['filter'] = filter
     __args__['identityStoreId'] = identity_store_id
+    __args__['region'] = region
     __args__['userId'] = user_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:identitystore/getUser:getUser', __args__, opts=opts, typ=GetUserResult)
@@ -368,7 +370,6 @@ def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['
         display_name=pulumi.get(__response__, 'display_name'),
         emails=pulumi.get(__response__, 'emails'),
         external_ids=pulumi.get(__response__, 'external_ids'),
-        filter=pulumi.get(__response__, 'filter'),
         id=pulumi.get(__response__, 'id'),
         identity_store_id=pulumi.get(__response__, 'identity_store_id'),
         locale=pulumi.get(__response__, 'locale'),
@@ -377,6 +378,7 @@ def get_user_output(alternate_identifier: Optional[pulumi.Input[Optional[Union['
         phone_numbers=pulumi.get(__response__, 'phone_numbers'),
         preferred_language=pulumi.get(__response__, 'preferred_language'),
         profile_url=pulumi.get(__response__, 'profile_url'),
+        region=pulumi.get(__response__, 'region'),
         timezone=pulumi.get(__response__, 'timezone'),
         title=pulumi.get(__response__, 'title'),
         user_id=pulumi.get(__response__, 'user_id'),

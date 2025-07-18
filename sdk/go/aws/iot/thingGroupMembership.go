@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ type ThingGroupMembership struct {
 
 	// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
 	OverrideDynamicGroup pulumi.BoolPtrOutput `pulumi:"overrideDynamicGroup"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the group to which you are adding a thing.
 	ThingGroupName pulumi.StringOutput `pulumi:"thingGroupName"`
 	// The name of the thing to add to a group.
@@ -98,6 +100,8 @@ func GetThingGroupMembership(ctx *pulumi.Context,
 type thingGroupMembershipState struct {
 	// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
 	OverrideDynamicGroup *bool `pulumi:"overrideDynamicGroup"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the group to which you are adding a thing.
 	ThingGroupName *string `pulumi:"thingGroupName"`
 	// The name of the thing to add to a group.
@@ -107,6 +111,8 @@ type thingGroupMembershipState struct {
 type ThingGroupMembershipState struct {
 	// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
 	OverrideDynamicGroup pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the group to which you are adding a thing.
 	ThingGroupName pulumi.StringPtrInput
 	// The name of the thing to add to a group.
@@ -120,6 +126,8 @@ func (ThingGroupMembershipState) ElementType() reflect.Type {
 type thingGroupMembershipArgs struct {
 	// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
 	OverrideDynamicGroup *bool `pulumi:"overrideDynamicGroup"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the group to which you are adding a thing.
 	ThingGroupName string `pulumi:"thingGroupName"`
 	// The name of the thing to add to a group.
@@ -130,6 +138,8 @@ type thingGroupMembershipArgs struct {
 type ThingGroupMembershipArgs struct {
 	// Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
 	OverrideDynamicGroup pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the group to which you are adding a thing.
 	ThingGroupName pulumi.StringInput
 	// The name of the thing to add to a group.
@@ -226,6 +236,11 @@ func (o ThingGroupMembershipOutput) ToThingGroupMembershipOutputWithContext(ctx 
 // Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
 func (o ThingGroupMembershipOutput) OverrideDynamicGroup() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ThingGroupMembership) pulumi.BoolPtrOutput { return v.OverrideDynamicGroup }).(pulumi.BoolPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ThingGroupMembershipOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThingGroupMembership) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the group to which you are adding a thing.

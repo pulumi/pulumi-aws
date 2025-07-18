@@ -197,6 +197,12 @@ namespace Pulumi.Aws.Rds
         public bool? MostRecent { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Type of snapshots to be returned. If you don't specify a SnapshotType
         /// value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
         /// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
@@ -260,6 +266,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("mostRecent")]
         public Input<bool>? MostRecent { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Type of snapshots to be returned. If you don't specify a SnapshotType
@@ -348,6 +360,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string OriginalSnapshotCreateTime;
         public readonly int Port;
+        public readonly string Region;
         /// <summary>
         /// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes for the copy when the snapshot is copied.
         /// </summary>
@@ -413,6 +426,8 @@ namespace Pulumi.Aws.Rds
 
             int port,
 
+            string region,
+
             string snapshotCreateTime,
 
             string? snapshotType,
@@ -447,6 +462,7 @@ namespace Pulumi.Aws.Rds
             OptionGroupName = optionGroupName;
             OriginalSnapshotCreateTime = originalSnapshotCreateTime;
             Port = port;
+            Region = region;
             SnapshotCreateTime = snapshotCreateTime;
             SnapshotType = snapshotType;
             SourceDbSnapshotIdentifier = sourceDbSnapshotIdentifier;

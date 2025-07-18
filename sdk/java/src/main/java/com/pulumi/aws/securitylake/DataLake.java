@@ -176,6 +176,20 @@ public class DataLake extends com.pulumi.resources.CustomResource {
         return this.metaStoreManagerRoleArn;
     }
     /**
+     * The AWS Regions where Security Lake is automatically enabled.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return The AWS Regions where Security Lake is automatically enabled.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The ARN for the Amazon Security Lake Amazon S3 bucket.
      * 
      */
@@ -206,11 +220,7 @@ public class DataLake extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

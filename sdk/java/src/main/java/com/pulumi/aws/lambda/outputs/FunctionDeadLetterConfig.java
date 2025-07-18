@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class FunctionDeadLetterConfig {
     /**
-     * @return ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function&#39;s IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
+     * @return ARN of an SNS topic or SQS queue to notify when an invocation fails.
      * 
      */
     private String targetArn;
 
     private FunctionDeadLetterConfig() {}
     /**
-     * @return ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function&#39;s IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
+     * @return ARN of an SNS topic or SQS queue to notify when an invocation fails.
      * 
      */
     public String targetArn() {

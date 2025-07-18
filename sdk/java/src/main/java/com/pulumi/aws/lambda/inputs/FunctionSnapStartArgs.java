@@ -17,14 +17,14 @@ public final class FunctionSnapStartArgs extends com.pulumi.resources.ResourceAr
     public static final FunctionSnapStartArgs Empty = new FunctionSnapStartArgs();
 
     /**
-     * Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+     * When to apply snap start optimization. Valid value: `PublishedVersions`.
      * 
      */
     @Import(name="applyOn", required=true)
     private Output<String> applyOn;
 
     /**
-     * @return Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+     * @return When to apply snap start optimization. Valid value: `PublishedVersions`.
      * 
      */
     public Output<String> applyOn() {
@@ -72,7 +72,7 @@ public final class FunctionSnapStartArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param applyOn Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+         * @param applyOn When to apply snap start optimization. Valid value: `PublishedVersions`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class FunctionSnapStartArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param applyOn Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+         * @param applyOn When to apply snap start optimization. Valid value: `PublishedVersions`.
          * 
          * @return builder
          * 

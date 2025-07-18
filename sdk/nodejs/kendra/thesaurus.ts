@@ -79,6 +79,7 @@ export class Thesaurus extends pulumi.CustomResource {
      * The name for the thesaurus.
      */
     public readonly name!: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     /**
      * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
      */
@@ -94,8 +95,6 @@ export class Thesaurus extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly thesaurusId!: pulumi.Output<string>;
@@ -117,6 +116,7 @@ export class Thesaurus extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["indexId"] = state ? state.indexId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["sourceS3Path"] = state ? state.sourceS3Path : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -137,6 +137,7 @@ export class Thesaurus extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["indexId"] = args ? args.indexId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["sourceS3Path"] = args ? args.sourceS3Path : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -167,6 +168,7 @@ export interface ThesaurusState {
      * The name for the thesaurus.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
      */
@@ -182,8 +184,6 @@ export interface ThesaurusState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     thesaurusId?: pulumi.Input<string>;
@@ -202,6 +202,7 @@ export interface ThesaurusArgs {
      * The name for the thesaurus.
      */
     name?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
      */

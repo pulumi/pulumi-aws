@@ -25,7 +25,8 @@ class LogMetricFilterArgs:
                  log_group_name: pulumi.Input[builtins.str],
                  metric_transformation: pulumi.Input['LogMetricFilterMetricTransformationArgs'],
                  pattern: pulumi.Input[builtins.str],
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LogMetricFilter resource.
         :param pulumi.Input[builtins.str] log_group_name: The name of the log group to associate the metric filter with.
@@ -33,12 +34,15 @@ class LogMetricFilterArgs:
         :param pulumi.Input[builtins.str] pattern: A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
                for extracting metric data out of ingested log events.
         :param pulumi.Input[builtins.str] name: A name for the metric filter.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "log_group_name", log_group_name)
         pulumi.set(__self__, "metric_transformation", metric_transformation)
         pulumi.set(__self__, "pattern", pattern)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -89,6 +93,18 @@ class LogMetricFilterArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _LogMetricFilterState:
@@ -96,7 +112,8 @@ class _LogMetricFilterState:
                  log_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  metric_transformation: Optional[pulumi.Input['LogMetricFilterMetricTransformationArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 pattern: Optional[pulumi.Input[builtins.str]] = None):
+                 pattern: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogMetricFilter resources.
         :param pulumi.Input[builtins.str] log_group_name: The name of the log group to associate the metric filter with.
@@ -104,6 +121,7 @@ class _LogMetricFilterState:
         :param pulumi.Input[builtins.str] name: A name for the metric filter.
         :param pulumi.Input[builtins.str] pattern: A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
                for extracting metric data out of ingested log events.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if log_group_name is not None:
             pulumi.set(__self__, "log_group_name", log_group_name)
@@ -113,6 +131,8 @@ class _LogMetricFilterState:
             pulumi.set(__self__, "name", name)
         if pattern is not None:
             pulumi.set(__self__, "pattern", pattern)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="logGroupName")
@@ -163,6 +183,18 @@ class _LogMetricFilterState:
     def pattern(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "pattern", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:cloudwatch/logMetricFilter:LogMetricFilter")
 class LogMetricFilter(pulumi.CustomResource):
@@ -174,6 +206,7 @@ class LogMetricFilter(pulumi.CustomResource):
                  metric_transformation: Optional[pulumi.Input[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  pattern: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a CloudWatch Log Metric Filter resource.
@@ -211,6 +244,7 @@ class LogMetricFilter(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: A name for the metric filter.
         :param pulumi.Input[builtins.str] pattern: A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
                for extracting metric data out of ingested log events.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -266,6 +300,7 @@ class LogMetricFilter(pulumi.CustomResource):
                  metric_transformation: Optional[pulumi.Input[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  pattern: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -285,6 +320,7 @@ class LogMetricFilter(pulumi.CustomResource):
             if pattern is None and not opts.urn:
                 raise TypeError("Missing required property 'pattern'")
             __props__.__dict__["pattern"] = pattern
+            __props__.__dict__["region"] = region
         super(LogMetricFilter, __self__).__init__(
             'aws:cloudwatch/logMetricFilter:LogMetricFilter',
             resource_name,
@@ -298,7 +334,8 @@ class LogMetricFilter(pulumi.CustomResource):
             log_group_name: Optional[pulumi.Input[builtins.str]] = None,
             metric_transformation: Optional[pulumi.Input[Union['LogMetricFilterMetricTransformationArgs', 'LogMetricFilterMetricTransformationArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
-            pattern: Optional[pulumi.Input[builtins.str]] = None) -> 'LogMetricFilter':
+            pattern: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'LogMetricFilter':
         """
         Get an existing LogMetricFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -311,6 +348,7 @@ class LogMetricFilter(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: A name for the metric filter.
         :param pulumi.Input[builtins.str] pattern: A valid [CloudWatch Logs filter pattern](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/FilterAndPatternSyntax.html)
                for extracting metric data out of ingested log events.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -320,6 +358,7 @@ class LogMetricFilter(pulumi.CustomResource):
         __props__.__dict__["metric_transformation"] = metric_transformation
         __props__.__dict__["name"] = name
         __props__.__dict__["pattern"] = pattern
+        __props__.__dict__["region"] = region
         return LogMetricFilter(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -354,4 +393,12 @@ class LogMetricFilter(pulumi.CustomResource):
         for extracting metric data out of ingested log events.
         """
         return pulumi.get(self, "pattern")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

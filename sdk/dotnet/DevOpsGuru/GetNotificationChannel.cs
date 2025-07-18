@@ -111,6 +111,12 @@ namespace Pulumi.Aws.DevOpsGuru
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("sns")]
         private List<Inputs.GetNotificationChannelSnArgs>? _sns;
 
@@ -149,6 +155,12 @@ namespace Pulumi.Aws.DevOpsGuru
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("sns")]
         private InputList<Inputs.GetNotificationChannelSnInputArgs>? _sns;
 
@@ -176,6 +188,7 @@ namespace Pulumi.Aws.DevOpsGuru
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNotificationChannelFilterResult> Filters;
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// SNS noficiation channel configurations. See the `sns` attribute reference below.
         /// </summary>
@@ -187,10 +200,13 @@ namespace Pulumi.Aws.DevOpsGuru
 
             string id,
 
+            string region,
+
             ImmutableArray<Outputs.GetNotificationChannelSnResult> sns)
         {
             Filters = filters;
             Id = id;
+            Region = region;
             Sns = sns;
         }
     }

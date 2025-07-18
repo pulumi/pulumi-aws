@@ -28,13 +28,16 @@ class GetProfilesProfilesResult:
     """
     A collection of values returned by getProfilesProfiles.
     """
-    def __init__(__self__, id=None, profiles=None):
+    def __init__(__self__, id=None, profiles=None, region=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if profiles and not isinstance(profiles, list):
             raise TypeError("Expected argument 'profiles' to be a list")
         pulumi.set(__self__, "profiles", profiles)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -52,6 +55,11 @@ class GetProfilesProfilesResult:
         """
         return pulumi.get(self, "profiles")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetProfilesProfilesResult(GetProfilesProfilesResult):
     # pylint: disable=using-constant-test
@@ -60,10 +68,12 @@ class AwaitableGetProfilesProfilesResult(GetProfilesProfilesResult):
             yield self
         return GetProfilesProfilesResult(
             id=self.id,
-            profiles=self.profiles)
+            profiles=self.profiles,
+            region=self.region)
 
 
-def get_profiles_profiles(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfilesProfilesResult:
+def get_profiles_profiles(region: Optional[builtins.str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfilesProfilesResult:
     """
     Data source for managing an AWS Route 53 Profiles.
 
@@ -77,15 +87,21 @@ def get_profiles_profiles(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
 
     example = aws.route53.get_profiles_profiles()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:route53/getProfilesProfiles:getProfilesProfiles', __args__, opts=opts, typ=GetProfilesProfilesResult).value
 
     return AwaitableGetProfilesProfilesResult(
         id=pulumi.get(__ret__, 'id'),
-        profiles=pulumi.get(__ret__, 'profiles'))
-def get_profiles_profiles_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfilesProfilesResult]:
+        profiles=pulumi.get(__ret__, 'profiles'),
+        region=pulumi.get(__ret__, 'region'))
+def get_profiles_profiles_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfilesProfilesResult]:
     """
     Data source for managing an AWS Route 53 Profiles.
 
@@ -99,10 +115,15 @@ def get_profiles_profiles_output(opts: Optional[Union[pulumi.InvokeOptions, pulu
 
     example = aws.route53.get_profiles_profiles()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getProfilesProfiles:getProfilesProfiles', __args__, opts=opts, typ=GetProfilesProfilesResult)
     return __ret__.apply(lambda __response__: GetProfilesProfilesResult(
         id=pulumi.get(__response__, 'id'),
-        profiles=pulumi.get(__response__, 'profiles')))
+        profiles=pulumi.get(__response__, 'profiles'),
+        region=pulumi.get(__response__, 'region')))

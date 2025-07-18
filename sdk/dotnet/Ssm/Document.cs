@@ -199,6 +199,12 @@ namespace Pulumi.Aws.Ssm
         public Output<ImmutableArray<string>> PlatformTypes { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The schema version of the document.
         /// </summary>
         [Output("schemaVersion")]
@@ -327,6 +333,12 @@ namespace Pulumi.Aws.Ssm
             get => _permissions ?? (_permissions = new InputMap<string>());
             set => _permissions = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -487,6 +499,12 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The schema version of the document.
         /// </summary>
         [Input("schemaVersion")]
@@ -516,7 +534,6 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

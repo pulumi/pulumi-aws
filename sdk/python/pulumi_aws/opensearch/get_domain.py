@@ -29,7 +29,7 @@ class GetDomainResult:
     """
     A collection of values returned by getDomain.
     """
-    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, auto_tune_options=None, cluster_configs=None, cognito_options=None, created=None, dashboard_endpoint=None, dashboard_endpoint_v2=None, deleted=None, domain_endpoint_v2_hosted_zone_id=None, domain_id=None, domain_name=None, ebs_options=None, encryption_at_rests=None, endpoint=None, endpoint_v2=None, engine_version=None, id=None, ip_address_type=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryptions=None, off_peak_window_options=None, processing=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, auto_tune_options=None, cluster_configs=None, cognito_options=None, created=None, dashboard_endpoint=None, dashboard_endpoint_v2=None, deleted=None, domain_endpoint_v2_hosted_zone_id=None, domain_id=None, domain_name=None, ebs_options=None, encryption_at_rests=None, endpoint=None, endpoint_v2=None, engine_version=None, id=None, ip_address_type=None, log_publishing_options=None, node_to_node_encryptions=None, off_peak_window_options=None, processing=None, region=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
         if access_policies and not isinstance(access_policies, str):
             raise TypeError("Expected argument 'access_policies' to be a str")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -93,9 +93,6 @@ class GetDomainResult:
         if ip_address_type and not isinstance(ip_address_type, str):
             raise TypeError("Expected argument 'ip_address_type' to be a str")
         pulumi.set(__self__, "ip_address_type", ip_address_type)
-        if kibana_endpoint and not isinstance(kibana_endpoint, str):
-            raise TypeError("Expected argument 'kibana_endpoint' to be a str")
-        pulumi.set(__self__, "kibana_endpoint", kibana_endpoint)
         if log_publishing_options and not isinstance(log_publishing_options, list):
             raise TypeError("Expected argument 'log_publishing_options' to be a list")
         pulumi.set(__self__, "log_publishing_options", log_publishing_options)
@@ -108,6 +105,9 @@ class GetDomainResult:
         if processing and not isinstance(processing, bool):
             raise TypeError("Expected argument 'processing' to be a bool")
         pulumi.set(__self__, "processing", processing)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if snapshot_options and not isinstance(snapshot_options, list):
             raise TypeError("Expected argument 'snapshot_options' to be a list")
         pulumi.set(__self__, "snapshot_options", snapshot_options)
@@ -287,15 +287,6 @@ class GetDomainResult:
         return pulumi.get(self, "ip_address_type")
 
     @property
-    @pulumi.getter(name="kibanaEndpoint")
-    @_utilities.deprecated("""kibana_endpoint is deprecated. Use dashboard_endpoint instead.""")
-    def kibana_endpoint(self) -> builtins.str:
-        """
-        (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-        """
-        return pulumi.get(self, "kibana_endpoint")
-
-    @property
     @pulumi.getter(name="logPublishingOptions")
     def log_publishing_options(self) -> Sequence['outputs.GetDomainLogPublishingOptionResult']:
         """
@@ -326,6 +317,11 @@ class GetDomainResult:
         Status of a configuration change in the domain.
         """
         return pulumi.get(self, "processing")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="snapshotOptions")
@@ -387,11 +383,11 @@ class AwaitableGetDomainResult(GetDomainResult):
             engine_version=self.engine_version,
             id=self.id,
             ip_address_type=self.ip_address_type,
-            kibana_endpoint=self.kibana_endpoint,
             log_publishing_options=self.log_publishing_options,
             node_to_node_encryptions=self.node_to_node_encryptions,
             off_peak_window_options=self.off_peak_window_options,
             processing=self.processing,
+            region=self.region,
             snapshot_options=self.snapshot_options,
             software_update_options=self.software_update_options,
             tags=self.tags,
@@ -400,6 +396,7 @@ class AwaitableGetDomainResult(GetDomainResult):
 
 def get_domain(domain_name: Optional[builtins.str] = None,
                off_peak_window_options: Optional[Union['GetDomainOffPeakWindowOptionsArgs', 'GetDomainOffPeakWindowOptionsArgsDict']] = None,
+               region: Optional[builtins.str] = None,
                tags: Optional[Mapping[str, builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
@@ -417,11 +414,13 @@ def get_domain(domain_name: Optional[builtins.str] = None,
 
     :param builtins.str domain_name: Name of the domain.
     :param Union['GetDomainOffPeakWindowOptionsArgs', 'GetDomainOffPeakWindowOptionsArgsDict'] off_peak_window_options: Off Peak update options
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags assigned to the domain.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['offPeakWindowOptions'] = off_peak_window_options
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:opensearch/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult).value
@@ -448,17 +447,18 @@ def get_domain(domain_name: Optional[builtins.str] = None,
         engine_version=pulumi.get(__ret__, 'engine_version'),
         id=pulumi.get(__ret__, 'id'),
         ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
-        kibana_endpoint=pulumi.get(__ret__, 'kibana_endpoint'),
         log_publishing_options=pulumi.get(__ret__, 'log_publishing_options'),
         node_to_node_encryptions=pulumi.get(__ret__, 'node_to_node_encryptions'),
         off_peak_window_options=pulumi.get(__ret__, 'off_peak_window_options'),
         processing=pulumi.get(__ret__, 'processing'),
+        region=pulumi.get(__ret__, 'region'),
         snapshot_options=pulumi.get(__ret__, 'snapshot_options'),
         software_update_options=pulumi.get(__ret__, 'software_update_options'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_options=pulumi.get(__ret__, 'vpc_options'))
 def get_domain_output(domain_name: Optional[pulumi.Input[builtins.str]] = None,
                       off_peak_window_options: Optional[pulumi.Input[Optional[Union['GetDomainOffPeakWindowOptionsArgs', 'GetDomainOffPeakWindowOptionsArgsDict']]]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
@@ -476,11 +476,13 @@ def get_domain_output(domain_name: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str domain_name: Name of the domain.
     :param Union['GetDomainOffPeakWindowOptionsArgs', 'GetDomainOffPeakWindowOptionsArgsDict'] off_peak_window_options: Off Peak update options
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags assigned to the domain.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['offPeakWindowOptions'] = off_peak_window_options
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:opensearch/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult)
@@ -506,11 +508,11 @@ def get_domain_output(domain_name: Optional[pulumi.Input[builtins.str]] = None,
         engine_version=pulumi.get(__response__, 'engine_version'),
         id=pulumi.get(__response__, 'id'),
         ip_address_type=pulumi.get(__response__, 'ip_address_type'),
-        kibana_endpoint=pulumi.get(__response__, 'kibana_endpoint'),
         log_publishing_options=pulumi.get(__response__, 'log_publishing_options'),
         node_to_node_encryptions=pulumi.get(__response__, 'node_to_node_encryptions'),
         off_peak_window_options=pulumi.get(__response__, 'off_peak_window_options'),
         processing=pulumi.get(__response__, 'processing'),
+        region=pulumi.get(__response__, 'region'),
         snapshot_options=pulumi.get(__response__, 'snapshot_options'),
         software_update_options=pulumi.get(__response__, 'software_update_options'),
         tags=pulumi.get(__response__, 'tags'),

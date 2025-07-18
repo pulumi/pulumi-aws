@@ -18,6 +18,21 @@ public final class RouteServerPropagationArgs extends com.pulumi.resources.Resou
     public static final RouteServerPropagationArgs Empty = new RouteServerPropagationArgs();
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The unique identifier for the route server to be associated.
      * 
      */
@@ -35,12 +50,16 @@ public final class RouteServerPropagationArgs extends com.pulumi.resources.Resou
     /**
      * The ID of the route table to which route server will propagate routes.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="routeTableId", required=true)
     private Output<String> routeTableId;
 
     /**
      * @return The ID of the route table to which route server will propagate routes.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> routeTableId() {
@@ -57,6 +76,7 @@ public final class RouteServerPropagationArgs extends com.pulumi.resources.Resou
     private RouteServerPropagationArgs() {}
 
     private RouteServerPropagationArgs(RouteServerPropagationArgs $) {
+        this.region = $.region;
         this.routeServerId = $.routeServerId;
         this.routeTableId = $.routeTableId;
         this.timeouts = $.timeouts;
@@ -78,6 +98,27 @@ public final class RouteServerPropagationArgs extends com.pulumi.resources.Resou
 
         public Builder(RouteServerPropagationArgs defaults) {
             $ = new RouteServerPropagationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -104,6 +145,8 @@ public final class RouteServerPropagationArgs extends com.pulumi.resources.Resou
         /**
          * @param routeTableId The ID of the route table to which route server will propagate routes.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -114,6 +157,8 @@ public final class RouteServerPropagationArgs extends com.pulumi.resources.Resou
 
         /**
          * @param routeTableId The ID of the route table to which route server will propagate routes.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

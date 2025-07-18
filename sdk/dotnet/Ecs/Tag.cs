@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Batch.ComputeEnvironment("example", new()
     ///     {
-    ///         ComputeEnvironmentName = "example",
+    ///         Name = "example",
     ///         ServiceRole = exampleAwsIamRole.Arn,
     ///         Type = "UNMANAGED",
     ///     });
@@ -59,6 +59,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the ECS resource to tag.
@@ -125,6 +131,12 @@ namespace Pulumi.Aws.Ecs
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the ECS resource to tag.
         /// </summary>
         [Input("resourceArn", required: true)]
@@ -149,6 +161,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the ECS resource to tag.

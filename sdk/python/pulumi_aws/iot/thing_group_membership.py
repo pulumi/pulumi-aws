@@ -22,17 +22,21 @@ class ThingGroupMembershipArgs:
     def __init__(__self__, *,
                  thing_group_name: pulumi.Input[builtins.str],
                  thing_name: pulumi.Input[builtins.str],
-                 override_dynamic_group: Optional[pulumi.Input[builtins.bool]] = None):
+                 override_dynamic_group: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ThingGroupMembership resource.
         :param pulumi.Input[builtins.str] thing_group_name: The name of the group to which you are adding a thing.
         :param pulumi.Input[builtins.str] thing_name: The name of the thing to add to a group.
         :param pulumi.Input[builtins.bool] override_dynamic_group: Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "thing_group_name", thing_group_name)
         pulumi.set(__self__, "thing_name", thing_name)
         if override_dynamic_group is not None:
             pulumi.set(__self__, "override_dynamic_group", override_dynamic_group)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="thingGroupName")
@@ -70,21 +74,37 @@ class ThingGroupMembershipArgs:
     def override_dynamic_group(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "override_dynamic_group", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ThingGroupMembershipState:
     def __init__(__self__, *,
                  override_dynamic_group: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  thing_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  thing_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ThingGroupMembership resources.
         :param pulumi.Input[builtins.bool] override_dynamic_group: Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] thing_group_name: The name of the group to which you are adding a thing.
         :param pulumi.Input[builtins.str] thing_name: The name of the thing to add to a group.
         """
         if override_dynamic_group is not None:
             pulumi.set(__self__, "override_dynamic_group", override_dynamic_group)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if thing_group_name is not None:
             pulumi.set(__self__, "thing_group_name", thing_group_name)
         if thing_name is not None:
@@ -101,6 +121,18 @@ class _ThingGroupMembershipState:
     @override_dynamic_group.setter
     def override_dynamic_group(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "override_dynamic_group", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="thingGroupName")
@@ -134,6 +166,7 @@ class ThingGroupMembership(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  override_dynamic_group: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  thing_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  thing_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -163,6 +196,7 @@ class ThingGroupMembership(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] override_dynamic_group: Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] thing_group_name: The name of the group to which you are adding a thing.
         :param pulumi.Input[builtins.str] thing_name: The name of the thing to add to a group.
         """
@@ -211,6 +245,7 @@ class ThingGroupMembership(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  override_dynamic_group: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  thing_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  thing_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -223,6 +258,7 @@ class ThingGroupMembership(pulumi.CustomResource):
             __props__ = ThingGroupMembershipArgs.__new__(ThingGroupMembershipArgs)
 
             __props__.__dict__["override_dynamic_group"] = override_dynamic_group
+            __props__.__dict__["region"] = region
             if thing_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'thing_group_name'")
             __props__.__dict__["thing_group_name"] = thing_group_name
@@ -240,6 +276,7 @@ class ThingGroupMembership(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             override_dynamic_group: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             thing_group_name: Optional[pulumi.Input[builtins.str]] = None,
             thing_name: Optional[pulumi.Input[builtins.str]] = None) -> 'ThingGroupMembership':
         """
@@ -250,6 +287,7 @@ class ThingGroupMembership(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] override_dynamic_group: Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] thing_group_name: The name of the group to which you are adding a thing.
         :param pulumi.Input[builtins.str] thing_name: The name of the thing to add to a group.
         """
@@ -258,6 +296,7 @@ class ThingGroupMembership(pulumi.CustomResource):
         __props__ = _ThingGroupMembershipState.__new__(_ThingGroupMembershipState)
 
         __props__.__dict__["override_dynamic_group"] = override_dynamic_group
+        __props__.__dict__["region"] = region
         __props__.__dict__["thing_group_name"] = thing_group_name
         __props__.__dict__["thing_name"] = thing_name
         return ThingGroupMembership(resource_name, opts=opts, __props__=__props__)
@@ -269,6 +308,14 @@ class ThingGroupMembership(pulumi.CustomResource):
         Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
         """
         return pulumi.get(self, "override_dynamic_group")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="thingGroupName")

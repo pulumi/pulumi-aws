@@ -23,7 +23,8 @@ class TargetGroupAttachmentArgs:
                  target_group_arn: pulumi.Input[builtins.str],
                  target_id: pulumi.Input[builtins.str],
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
-                 port: Optional[pulumi.Input[builtins.int]] = None):
+                 port: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a TargetGroupAttachment resource.
         :param pulumi.Input[builtins.str] target_group_arn: The ARN of the target group with which to register targets.
@@ -32,6 +33,7 @@ class TargetGroupAttachmentArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] availability_zone: The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
         :param pulumi.Input[builtins.int] port: The port on which targets receive traffic.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "target_group_arn", target_group_arn)
         pulumi.set(__self__, "target_id", target_id)
@@ -39,6 +41,8 @@ class TargetGroupAttachmentArgs:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="targetGroupArn")
@@ -90,18 +94,32 @@ class TargetGroupAttachmentArgs:
     def port(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "port", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _TargetGroupAttachmentState:
     def __init__(__self__, *,
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_group_arn: Optional[pulumi.Input[builtins.str]] = None,
                  target_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering TargetGroupAttachment resources.
         :param pulumi.Input[builtins.str] availability_zone: The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
         :param pulumi.Input[builtins.int] port: The port on which targets receive traffic.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_group_arn: The ARN of the target group with which to register targets.
         :param pulumi.Input[builtins.str] target_id: The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
                
@@ -111,6 +129,8 @@ class _TargetGroupAttachmentState:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if target_group_arn is not None:
             pulumi.set(__self__, "target_group_arn", target_group_arn)
         if target_id is not None:
@@ -139,6 +159,18 @@ class _TargetGroupAttachmentState:
     @port.setter
     def port(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="targetGroupArn")
@@ -175,6 +207,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_group_arn: Optional[pulumi.Input[builtins.str]] = None,
                  target_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -229,6 +262,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] availability_zone: The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
         :param pulumi.Input[builtins.int] port: The port on which targets receive traffic.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_group_arn: The ARN of the target group with which to register targets.
         :param pulumi.Input[builtins.str] target_id: The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
                
@@ -304,6 +338,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  target_group_arn: Optional[pulumi.Input[builtins.str]] = None,
                  target_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -317,6 +352,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["port"] = port
+            __props__.__dict__["region"] = region
             if target_group_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'target_group_arn'")
             __props__.__dict__["target_group_arn"] = target_group_arn
@@ -337,6 +373,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             availability_zone: Optional[pulumi.Input[builtins.str]] = None,
             port: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             target_group_arn: Optional[pulumi.Input[builtins.str]] = None,
             target_id: Optional[pulumi.Input[builtins.str]] = None) -> 'TargetGroupAttachment':
         """
@@ -348,6 +385,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] availability_zone: The Availability Zone where the IP address of the target is to be registered. If the private IP address is outside of the VPC scope, this value must be set to `all`.
         :param pulumi.Input[builtins.int] port: The port on which targets receive traffic.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] target_group_arn: The ARN of the target group with which to register targets.
         :param pulumi.Input[builtins.str] target_id: The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is `ip`, specify an IP address. If the target type is `lambda`, specify the Lambda function ARN. If the target type is `alb`, specify the ALB ARN.
                
@@ -359,6 +397,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["port"] = port
+        __props__.__dict__["region"] = region
         __props__.__dict__["target_group_arn"] = target_group_arn
         __props__.__dict__["target_id"] = target_id
         return TargetGroupAttachment(resource_name, opts=opts, __props__=__props__)
@@ -378,6 +417,14 @@ class TargetGroupAttachment(pulumi.CustomResource):
         The port on which targets receive traffic.
         """
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="targetGroupArn")

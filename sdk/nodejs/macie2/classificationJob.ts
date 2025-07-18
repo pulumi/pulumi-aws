@@ -102,6 +102,10 @@ export class ClassificationJob extends pulumi.CustomResource {
      */
     public readonly namePrefix!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
      */
     public readonly s3JobDefinition!: pulumi.Output<outputs.macie2.ClassificationJobS3JobDefinition>;
@@ -119,8 +123,6 @@ export class ClassificationJob extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -151,6 +153,7 @@ export class ClassificationJob extends pulumi.CustomResource {
             resourceInputs["jobType"] = state ? state.jobType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["s3JobDefinition"] = state ? state.s3JobDefinition : undefined;
             resourceInputs["samplingPercentage"] = state ? state.samplingPercentage : undefined;
             resourceInputs["scheduleFrequency"] = state ? state.scheduleFrequency : undefined;
@@ -172,6 +175,7 @@ export class ClassificationJob extends pulumi.CustomResource {
             resourceInputs["jobType"] = args ? args.jobType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["s3JobDefinition"] = args ? args.s3JobDefinition : undefined;
             resourceInputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
             resourceInputs["scheduleFrequency"] = args ? args.scheduleFrequency : undefined;
@@ -226,6 +230,10 @@ export interface ClassificationJobState {
      */
     namePrefix?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
      */
     s3JobDefinition?: pulumi.Input<inputs.macie2.ClassificationJobS3JobDefinition>;
@@ -243,8 +251,6 @@ export interface ClassificationJobState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -285,6 +291,10 @@ export interface ClassificationJobArgs {
      * Creates a unique name beginning with the specified prefix. Conflicts with `name`.
      */
     namePrefix?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
      */

@@ -118,6 +118,12 @@ namespace Pulumi.Aws.ServerlessRepository
         public string ApplicationId { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Requested version of the application. By default, retrieves the latest version.
         /// </summary>
         [Input("semanticVersion")]
@@ -136,6 +142,12 @@ namespace Pulumi.Aws.ServerlessRepository
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Requested version of the application. By default, retrieves the latest version.
@@ -165,6 +177,7 @@ namespace Pulumi.Aws.ServerlessRepository
         /// Name of the application.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// A list of capabilities describing the permissions needed to deploy the application.
         /// </summary>
@@ -187,6 +200,8 @@ namespace Pulumi.Aws.ServerlessRepository
 
             string name,
 
+            string region,
+
             ImmutableArray<string> requiredCapabilities,
 
             string semanticVersion,
@@ -198,6 +213,7 @@ namespace Pulumi.Aws.ServerlessRepository
             ApplicationId = applicationId;
             Id = id;
             Name = name;
+            Region = region;
             RequiredCapabilities = requiredCapabilities;
             SemanticVersion = semanticVersion;
             SourceCodeUrl = sourceCodeUrl;

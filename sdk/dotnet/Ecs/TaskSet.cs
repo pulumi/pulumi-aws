@@ -132,6 +132,12 @@ namespace Pulumi.Aws.Ecs
         public Output<string> PlatformVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         /// </summary>
         [Output("scale")]
@@ -306,6 +312,12 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? PlatformVersion { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         /// </summary>
         [Input("scale")]
@@ -430,6 +442,12 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? PlatformVersion { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         /// </summary>
         [Input("scale")]
@@ -477,7 +495,6 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

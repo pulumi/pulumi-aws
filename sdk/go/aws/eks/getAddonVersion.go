@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,6 +76,8 @@ type GetAddonVersionArgs struct {
 	KubernetesVersion string `pulumi:"kubernetesVersion"`
 	// Determines if the most recent or default version of the addon should be returned.
 	MostRecent *bool `pulumi:"mostRecent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAddonVersion.
@@ -85,6 +87,7 @@ type GetAddonVersionResult struct {
 	Id                string `pulumi:"id"`
 	KubernetesVersion string `pulumi:"kubernetesVersion"`
 	MostRecent        *bool  `pulumi:"mostRecent"`
+	Region            string `pulumi:"region"`
 	// Version of the EKS add-on.
 	Version string `pulumi:"version"`
 }
@@ -107,6 +110,8 @@ type GetAddonVersionOutputArgs struct {
 	KubernetesVersion pulumi.StringInput `pulumi:"kubernetesVersion"`
 	// Determines if the most recent or default version of the addon should be returned.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetAddonVersionOutputArgs) ElementType() reflect.Type {
@@ -143,6 +148,10 @@ func (o GetAddonVersionResultOutput) KubernetesVersion() pulumi.StringOutput {
 
 func (o GetAddonVersionResultOutput) MostRecent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetAddonVersionResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetAddonVersionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAddonVersionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Version of the EKS add-on.

@@ -1,0 +1,103 @@
+name: test-aws-bucket-migration
+runtime: yaml
+resources:
+  aws:
+    type: pulumi:providers:aws
+    defaultProvider: true
+    options:
+      version: 6.78.0
+  loggingBucket:
+    type: aws:s3:BucketV2
+    properties:
+      forceDestroy: true
+  exampleBucketOwnershipControls:
+    type: aws:s3:BucketOwnershipControls
+    properties:
+      bucket: ${loggingBucket.id}
+      rule:
+        objectOwnership: BucketOwnerPreferred
+  bucketAcl:
+    type: aws:s3:BucketAclV2
+    properties:
+      bucket: ${loggingBucket.id}
+      acl: log-delivery-write
+    options:
+      dependsOn:
+        - ${exampleBucketOwnershipControls}
+  bucketSse:
+    type: aws:s3:BucketServerSideEncryptionConfigurationV2
+    properties:
+      bucket: ${migrationBucket.bucket}
+      rules:
+        - applyServerSideEncryptionByDefault:
+            sseAlgorithm: "AES256"
+  bucketVersioning:
+    type: aws:s3:BucketVersioningV2
+    properties:
+      bucket: ${migrationBucket.bucket}
+      versioningConfiguration:
+        status: Enabled
+  bucketWebsiteConfig:
+    type: aws:s3:BucketWebsiteConfigurationV2
+    properties:
+      bucket: ${migrationBucket.bucket}
+      indexDocument:
+        suffix: index.html
+      errorDocument:
+        key: error.html
+      routingRules:
+        - condition:
+            keyPrefixEquals: docs/
+          redirect:
+            replaceKeyPrefixWith: documents/
+  bucketLifecycleConfig:
+    type: aws:s3:BucketLifecycleConfigurationV2
+    properties:
+      bucket: ${migrationBucket.bucket}
+      rules:
+        - id: noncurrent
+          status: Enabled
+          # different between v1 & v2
+          expiration:
+            days: 30
+          noncurrentVersionExpiration:
+            noncurrentDays: 30
+        - id: log
+          status: Enabled
+          filter:
+            and:
+              prefix: log/
+              tags:
+                rule: log
+                autoclean: 'true'
+          transitions:
+            - days: 30
+              storageClass: STANDARD_IA
+  bucketCorsConfig:
+    type: aws:s3:BucketCorsConfigurationV2
+    properties:
+      bucket: ${migrationBucket.bucket}
+      corsRules:
+        - allowedHeaders:
+            - '*'
+          allowedMethods:
+            - PUT
+            - POST
+          allowedOrigins:
+            - https://s3-website-test.mydomain.com
+          exposeHeaders:
+            - ETag
+          maxAgeSeconds: 3000
+
+  bucketLogging:
+    type: aws:s3:BucketLoggingV2
+    properties:
+      bucket: ${migrationBucket.bucket}
+      targetBucket: ${loggingBucket.bucket}
+      targetPrefix: /log
+
+  migrationBucket:
+    type: aws:s3:BucketV2
+    properties:
+      forceDestroy: true
+

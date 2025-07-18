@@ -191,8 +191,11 @@ namespace Pulumi.Aws.DirectConnect
         [Output("proposalId")]
         public Output<string?> ProposalId { get; private set; } = null!;
 
-        [Output("vpnGatewayId")]
-        public Output<string?> VpnGatewayId { get; private set; } = null!;
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
 
         /// <summary>
@@ -283,8 +286,11 @@ namespace Pulumi.Aws.DirectConnect
         [Input("proposalId")]
         public Input<string>? ProposalId { get; set; }
 
-        [Input("vpnGatewayId")]
-        public Input<string>? VpnGatewayId { get; set; }
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GatewayAssociationArgs()
         {
@@ -355,8 +361,11 @@ namespace Pulumi.Aws.DirectConnect
         [Input("proposalId")]
         public Input<string>? ProposalId { get; set; }
 
-        [Input("vpnGatewayId")]
-        public Input<string>? VpnGatewayId { get; set; }
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GatewayAssociationState()
         {

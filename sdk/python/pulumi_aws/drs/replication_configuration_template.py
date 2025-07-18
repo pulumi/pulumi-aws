@@ -36,6 +36,7 @@ class ReplicationConfigurationTemplateArgs:
                  auto_replicate_new_disks: Optional[pulumi.Input[builtins.bool]] = None,
                  ebs_encryption_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  pit_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ReplicationConfigurationTemplateTimeoutsArgs']] = None):
         """
@@ -56,6 +57,7 @@ class ReplicationConfigurationTemplateArgs:
         :param pulumi.Input[builtins.bool] auto_replicate_new_disks: Whether to allow the AWS replication agent to automatically replicate newly added disks.
         :param pulumi.Input[builtins.str] ebs_encryption_key_arn: ARN of the EBS encryption key to be used during replication.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]] pit_policies: Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Set of tags to be associated with the Replication Configuration Template resource.
         """
         pulumi.set(__self__, "associate_default_security_group", associate_default_security_group)
@@ -75,6 +77,8 @@ class ReplicationConfigurationTemplateArgs:
             pulumi.set(__self__, "ebs_encryption_key_arn", ebs_encryption_key_arn)
         if pit_policies is not None:
             pulumi.set(__self__, "pit_policies", pit_policies)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -252,6 +256,18 @@ class ReplicationConfigurationTemplateArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Set of tags to be associated with the Replication Configuration Template resource.
@@ -285,6 +301,7 @@ class _ReplicationConfigurationTemplateState:
                  ebs_encryption: Optional[pulumi.Input[builtins.str]] = None,
                  ebs_encryption_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  pit_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_server_instance_type: Optional[pulumi.Input[builtins.str]] = None,
                  replication_servers_security_groups_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  staging_area_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -305,6 +322,7 @@ class _ReplicationConfigurationTemplateState:
         :param pulumi.Input[builtins.str] ebs_encryption: Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
         :param pulumi.Input[builtins.str] ebs_encryption_key_arn: ARN of the EBS encryption key to be used during replication.
         :param pulumi.Input[Sequence[pulumi.Input['ReplicationConfigurationTemplatePitPolicyArgs']]] pit_policies: Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_server_instance_type: Instance type to be used for the replication server.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] replication_servers_security_groups_ids: Security group IDs that will be used by the replication server.
         :param pulumi.Input[builtins.str] staging_area_subnet_id: Subnet to be used by the replication staging area.
@@ -335,6 +353,8 @@ class _ReplicationConfigurationTemplateState:
             pulumi.set(__self__, "ebs_encryption_key_arn", ebs_encryption_key_arn)
         if pit_policies is not None:
             pulumi.set(__self__, "pit_policies", pit_policies)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replication_server_instance_type is not None:
             pulumi.set(__self__, "replication_server_instance_type", replication_server_instance_type)
         if replication_servers_security_groups_ids is not None:
@@ -345,9 +365,6 @@ class _ReplicationConfigurationTemplateState:
             pulumi.set(__self__, "staging_area_tags", staging_area_tags)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
@@ -476,6 +493,18 @@ class _ReplicationConfigurationTemplateState:
         pulumi.set(self, "pit_policies", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replicationServerInstanceType")
     def replication_server_instance_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -537,7 +566,6 @@ class _ReplicationConfigurationTemplateState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -587,6 +615,7 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
                  ebs_encryption: Optional[pulumi.Input[builtins.str]] = None,
                  ebs_encryption_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  pit_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_server_instance_type: Optional[pulumi.Input[builtins.str]] = None,
                  replication_servers_security_groups_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  staging_area_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -664,6 +693,7 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ebs_encryption: Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
         :param pulumi.Input[builtins.str] ebs_encryption_key_arn: ARN of the EBS encryption key to be used during replication.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict']]]] pit_policies: Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_server_instance_type: Instance type to be used for the replication server.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] replication_servers_security_groups_ids: Security group IDs that will be used by the replication server.
         :param pulumi.Input[builtins.str] staging_area_subnet_id: Subnet to be used by the replication staging area.
@@ -761,6 +791,7 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
                  ebs_encryption: Optional[pulumi.Input[builtins.str]] = None,
                  ebs_encryption_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  pit_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_server_instance_type: Optional[pulumi.Input[builtins.str]] = None,
                  replication_servers_security_groups_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  staging_area_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -798,6 +829,7 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
             __props__.__dict__["ebs_encryption"] = ebs_encryption
             __props__.__dict__["ebs_encryption_key_arn"] = ebs_encryption_key_arn
             __props__.__dict__["pit_policies"] = pit_policies
+            __props__.__dict__["region"] = region
             if replication_server_instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'replication_server_instance_type'")
             __props__.__dict__["replication_server_instance_type"] = replication_server_instance_type
@@ -837,6 +869,7 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
             ebs_encryption: Optional[pulumi.Input[builtins.str]] = None,
             ebs_encryption_key_arn: Optional[pulumi.Input[builtins.str]] = None,
             pit_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replication_server_instance_type: Optional[pulumi.Input[builtins.str]] = None,
             replication_servers_security_groups_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             staging_area_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -862,6 +895,7 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ebs_encryption: Type of EBS encryption to be used during replication. Valid values are `DEFAULT` and `CUSTOM`.
         :param pulumi.Input[builtins.str] ebs_encryption_key_arn: ARN of the EBS encryption key to be used during replication.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationConfigurationTemplatePitPolicyArgs', 'ReplicationConfigurationTemplatePitPolicyArgsDict']]]] pit_policies: Configuration block for Point in time (PIT) policy to manage snapshots taken during replication. See below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_server_instance_type: Instance type to be used for the replication server.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] replication_servers_security_groups_ids: Security group IDs that will be used by the replication server.
         :param pulumi.Input[builtins.str] staging_area_subnet_id: Subnet to be used by the replication staging area.
@@ -886,6 +920,7 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
         __props__.__dict__["ebs_encryption"] = ebs_encryption
         __props__.__dict__["ebs_encryption_key_arn"] = ebs_encryption_key_arn
         __props__.__dict__["pit_policies"] = pit_policies
+        __props__.__dict__["region"] = region
         __props__.__dict__["replication_server_instance_type"] = replication_server_instance_type
         __props__.__dict__["replication_servers_security_groups_ids"] = replication_servers_security_groups_ids
         __props__.__dict__["staging_area_subnet_id"] = staging_area_subnet_id
@@ -977,6 +1012,14 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
         return pulumi.get(self, "pit_policies")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="replicationServerInstanceType")
     def replication_server_instance_type(self) -> pulumi.Output[builtins.str]:
         """
@@ -1018,7 +1061,6 @@ class ReplicationConfigurationTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

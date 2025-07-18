@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  *             .name("backup-vault-events")
  *             .build());
  * 
- *         final var test = testTopic.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .policyId("__default_policy_ID")
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions("SNS:Publish")
@@ -61,10 +61,10 @@ import javax.annotation.Nullable;
  *                     .type("Service")
  *                     .identifiers("backup.amazonaws.com")
  *                     .build())
- *                 .resources(_arn)
+ *                 .resources(testTopic.arn())
  *                 .sid("__default_statement_ID")
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var testTopicPolicy = new TopicPolicy("testTopicPolicy", TopicPolicyArgs.builder()
  *             .arn(testTopic.arn())
@@ -137,6 +137,20 @@ public class VaultNotifications extends com.pulumi.resources.CustomResource {
      */
     public Output<String> backupVaultName() {
         return this.backupVaultName;
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events

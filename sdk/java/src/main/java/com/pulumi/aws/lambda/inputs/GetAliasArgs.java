@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetAliasArgs extends com.pulumi.resources.InvokeArgs {
@@ -32,6 +34,8 @@ public final class GetAliasArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * Name of the Lambda alias.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
@@ -39,9 +43,26 @@ public final class GetAliasArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return Name of the Lambda alias.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> name() {
         return this.name;
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetAliasArgs() {}
@@ -49,6 +70,7 @@ public final class GetAliasArgs extends com.pulumi.resources.InvokeArgs {
     private GetAliasArgs(GetAliasArgs $) {
         this.functionName = $.functionName;
         this.name = $.name;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -93,6 +115,8 @@ public final class GetAliasArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param name Name of the Lambda alias.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -104,11 +128,34 @@ public final class GetAliasArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param name Name of the Lambda alias.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetAliasArgs build() {

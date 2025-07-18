@@ -29,7 +29,7 @@ class GetTaskExecutionResult:
     """
     A collection of values returned by getTaskExecution.
     """
-    def __init__(__self__, capacity_provider_strategies=None, client_token=None, cluster=None, desired_count=None, enable_ecs_managed_tags=None, enable_execute_command=None, group=None, id=None, launch_type=None, network_configuration=None, overrides=None, placement_constraints=None, placement_strategies=None, platform_version=None, propagate_tags=None, reference_id=None, started_by=None, tags=None, task_arns=None, task_definition=None):
+    def __init__(__self__, capacity_provider_strategies=None, client_token=None, cluster=None, desired_count=None, enable_ecs_managed_tags=None, enable_execute_command=None, group=None, id=None, launch_type=None, network_configuration=None, overrides=None, placement_constraints=None, placement_strategies=None, platform_version=None, propagate_tags=None, reference_id=None, region=None, started_by=None, tags=None, task_arns=None, task_definition=None):
         if capacity_provider_strategies and not isinstance(capacity_provider_strategies, list):
             raise TypeError("Expected argument 'capacity_provider_strategies' to be a list")
         pulumi.set(__self__, "capacity_provider_strategies", capacity_provider_strategies)
@@ -78,6 +78,9 @@ class GetTaskExecutionResult:
         if reference_id and not isinstance(reference_id, str):
             raise TypeError("Expected argument 'reference_id' to be a str")
         pulumi.set(__self__, "reference_id", reference_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if started_by and not isinstance(started_by, str):
             raise TypeError("Expected argument 'started_by' to be a str")
         pulumi.set(__self__, "started_by", started_by)
@@ -175,6 +178,11 @@ class GetTaskExecutionResult:
         return pulumi.get(self, "reference_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="startedBy")
     def started_by(self) -> Optional[builtins.str]:
         return pulumi.get(self, "started_by")
@@ -220,6 +228,7 @@ class AwaitableGetTaskExecutionResult(GetTaskExecutionResult):
             platform_version=self.platform_version,
             propagate_tags=self.propagate_tags,
             reference_id=self.reference_id,
+            region=self.region,
             started_by=self.started_by,
             tags=self.tags,
             task_arns=self.task_arns,
@@ -241,6 +250,7 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[Union['Ge
                        platform_version: Optional[builtins.str] = None,
                        propagate_tags: Optional[builtins.str] = None,
                        reference_id: Optional[builtins.str] = None,
+                       region: Optional[builtins.str] = None,
                        started_by: Optional[builtins.str] = None,
                        tags: Optional[Mapping[str, builtins.str]] = None,
                        task_definition: Optional[builtins.str] = None,
@@ -285,6 +295,7 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[Union['Ge
     :param builtins.str platform_version: The platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
     :param builtins.str propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
     :param builtins.str reference_id: The reference ID to use for the task.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str started_by: An optional tag specified when a task is started.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     :param builtins.str task_definition: The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
@@ -307,6 +318,7 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[Union['Ge
     __args__['platformVersion'] = platform_version
     __args__['propagateTags'] = propagate_tags
     __args__['referenceId'] = reference_id
+    __args__['region'] = region
     __args__['startedBy'] = started_by
     __args__['tags'] = tags
     __args__['taskDefinition'] = task_definition
@@ -330,6 +342,7 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[Union['Ge
         platform_version=pulumi.get(__ret__, 'platform_version'),
         propagate_tags=pulumi.get(__ret__, 'propagate_tags'),
         reference_id=pulumi.get(__ret__, 'reference_id'),
+        region=pulumi.get(__ret__, 'region'),
         started_by=pulumi.get(__ret__, 'started_by'),
         tags=pulumi.get(__ret__, 'tags'),
         task_arns=pulumi.get(__ret__, 'task_arns'),
@@ -349,6 +362,7 @@ def get_task_execution_output(capacity_provider_strategies: Optional[pulumi.Inpu
                               platform_version: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               propagate_tags: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               reference_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                              region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               started_by: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                               task_definition: Optional[pulumi.Input[builtins.str]] = None,
@@ -393,6 +407,7 @@ def get_task_execution_output(capacity_provider_strategies: Optional[pulumi.Inpu
     :param builtins.str platform_version: The platform version the task uses. A platform version is only specified for tasks hosted on Fargate. If one isn't specified, the `LATEST` platform version is used.
     :param builtins.str propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags aren't propagated. An error will be received if you specify the `SERVICE` option when running a task. Valid values are `TASK_DEFINITION` or `NONE`.
     :param builtins.str reference_id: The reference ID to use for the task.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str started_by: An optional tag specified when a task is started.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     :param builtins.str task_definition: The `family` and `revision` (`family:revision`) or full ARN of the task definition to run. If a revision isn't specified, the latest `ACTIVE` revision is used.
@@ -415,6 +430,7 @@ def get_task_execution_output(capacity_provider_strategies: Optional[pulumi.Inpu
     __args__['platformVersion'] = platform_version
     __args__['propagateTags'] = propagate_tags
     __args__['referenceId'] = reference_id
+    __args__['region'] = region
     __args__['startedBy'] = started_by
     __args__['tags'] = tags
     __args__['taskDefinition'] = task_definition
@@ -437,6 +453,7 @@ def get_task_execution_output(capacity_provider_strategies: Optional[pulumi.Inpu
         platform_version=pulumi.get(__response__, 'platform_version'),
         propagate_tags=pulumi.get(__response__, 'propagate_tags'),
         reference_id=pulumi.get(__response__, 'reference_id'),
+        region=pulumi.get(__response__, 'region'),
         started_by=pulumi.get(__response__, 'started_by'),
         tags=pulumi.get(__response__, 'tags'),
         task_arns=pulumi.get(__response__, 'task_arns'),

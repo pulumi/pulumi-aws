@@ -32,6 +32,7 @@ class AmiCopyArgs:
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEphemeralBlockDeviceArgs']]]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a AmiCopy resource.
@@ -50,6 +51,7 @@ class AmiCopyArgs:
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[builtins.str] kms_key_id: Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
         :param pulumi.Input[builtins.str] name: Region-unique name for the AMI.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "source_ami_id", source_ami_id)
@@ -70,6 +72,8 @@ class AmiCopyArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -200,6 +204,18 @@ class AmiCopyArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -239,6 +255,7 @@ class _AmiCopyState:
                  platform_details: Optional[pulumi.Input[builtins.str]] = None,
                  public: Optional[pulumi.Input[builtins.bool]] = None,
                  ramdisk_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  root_device_name: Optional[pulumi.Input[builtins.str]] = None,
                  root_snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  source_ami_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -275,6 +292,7 @@ class _AmiCopyState:
         :param pulumi.Input[builtins.str] name: Region-unique name for the AMI.
         :param pulumi.Input[builtins.str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
                created instances.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         :param pulumi.Input[builtins.str] source_ami_id: Id of the AMI to copy. This id must be valid in the region
                given by `source_ami_region`.
@@ -339,6 +357,8 @@ class _AmiCopyState:
             pulumi.set(__self__, "public", public)
         if ramdisk_id is not None:
             pulumi.set(__self__, "ramdisk_id", ramdisk_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if root_device_name is not None:
             pulumi.set(__self__, "root_device_name", root_device_name)
         if root_snapshot_id is not None:
@@ -351,9 +371,6 @@ class _AmiCopyState:
             pulumi.set(__self__, "sriov_net_support", sriov_net_support)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tpm_support is not None:
@@ -648,6 +665,18 @@ class _AmiCopyState:
         pulumi.set(self, "ramdisk_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="rootDeviceName")
     def root_device_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -721,7 +750,6 @@ class _AmiCopyState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -791,6 +819,7 @@ class AmiCopy(pulumi.CustomResource):
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiCopyEphemeralBlockDeviceArgs', 'AmiCopyEphemeralBlockDeviceArgsDict']]]]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_ami_id: Optional[pulumi.Input[builtins.str]] = None,
                  source_ami_region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -836,6 +865,7 @@ class AmiCopy(pulumi.CustomResource):
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[builtins.str] kms_key_id: Full ARN of the KMS Key to use when encrypting the snapshots of an image during a copy operation. If not specified, then the default AWS KMS Key will be used
         :param pulumi.Input[builtins.str] name: Region-unique name for the AMI.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_ami_id: Id of the AMI to copy. This id must be valid in the region
                given by `source_ami_region`.
         :param pulumi.Input[builtins.str] source_ami_region: Region from which the AMI will be copied. This may be the
@@ -899,6 +929,7 @@ class AmiCopy(pulumi.CustomResource):
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AmiCopyEphemeralBlockDeviceArgs', 'AmiCopyEphemeralBlockDeviceArgsDict']]]]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_ami_id: Optional[pulumi.Input[builtins.str]] = None,
                  source_ami_region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -919,6 +950,7 @@ class AmiCopy(pulumi.CustomResource):
             __props__.__dict__["ephemeral_block_devices"] = ephemeral_block_devices
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if source_ami_id is None and not opts.urn:
                 raise TypeError("Missing required property 'source_ami_id'")
             __props__.__dict__["source_ami_id"] = source_ami_id
@@ -986,6 +1018,7 @@ class AmiCopy(pulumi.CustomResource):
             platform_details: Optional[pulumi.Input[builtins.str]] = None,
             public: Optional[pulumi.Input[builtins.bool]] = None,
             ramdisk_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             root_device_name: Optional[pulumi.Input[builtins.str]] = None,
             root_snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
             source_ami_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -1027,6 +1060,7 @@ class AmiCopy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Region-unique name for the AMI.
         :param pulumi.Input[builtins.str] ramdisk_id: ID of an initrd image (ARI) that will be used when booting the
                created instances.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         :param pulumi.Input[builtins.str] source_ami_id: Id of the AMI to copy. This id must be valid in the region
                given by `source_ami_region`.
@@ -1070,6 +1104,7 @@ class AmiCopy(pulumi.CustomResource):
         __props__.__dict__["platform_details"] = platform_details
         __props__.__dict__["public"] = public
         __props__.__dict__["ramdisk_id"] = ramdisk_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["root_device_name"] = root_device_name
         __props__.__dict__["root_snapshot_id"] = root_snapshot_id
         __props__.__dict__["source_ami_id"] = source_ami_id
@@ -1266,6 +1301,14 @@ class AmiCopy(pulumi.CustomResource):
         return pulumi.get(self, "ramdisk_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="rootDeviceName")
     def root_device_name(self) -> pulumi.Output[builtins.str]:
         """
@@ -1315,7 +1358,6 @@ class AmiCopy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

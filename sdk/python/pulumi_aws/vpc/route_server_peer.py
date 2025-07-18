@@ -25,18 +25,25 @@ class RouteServerPeerArgs:
                  peer_address: pulumi.Input[builtins.str],
                  route_server_endpoint_id: pulumi.Input[builtins.str],
                  bgp_options: Optional[pulumi.Input['RouteServerPeerBgpOptionsArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['RouteServerPeerTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a RouteServerPeer resource.
         :param pulumi.Input[builtins.str] peer_address: The IPv4 address of the peer device.
         :param pulumi.Input[builtins.str] route_server_endpoint_id: The ID of the route server endpoint for which to create a peer.
+               
+               The following arguments are optional:
         :param pulumi.Input['RouteServerPeerBgpOptionsArgs'] bgp_options: The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "peer_address", peer_address)
         pulumi.set(__self__, "route_server_endpoint_id", route_server_endpoint_id)
         if bgp_options is not None:
             pulumi.set(__self__, "bgp_options", bgp_options)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -59,6 +66,8 @@ class RouteServerPeerArgs:
     def route_server_endpoint_id(self) -> pulumi.Input[builtins.str]:
         """
         The ID of the route server endpoint for which to create a peer.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "route_server_endpoint_id")
 
@@ -80,7 +89,22 @@ class RouteServerPeerArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -105,6 +129,7 @@ class _RouteServerPeerState:
                  endpoint_eni_address: Optional[pulumi.Input[builtins.str]] = None,
                  endpoint_eni_id: Optional[pulumi.Input[builtins.str]] = None,
                  peer_address: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_server_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
                  route_server_id: Optional[pulumi.Input[builtins.str]] = None,
                  route_server_peer_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -120,10 +145,14 @@ class _RouteServerPeerState:
         :param pulumi.Input[builtins.str] endpoint_eni_address: The IP address of the Elastic network interface for the route server endpoint.
         :param pulumi.Input[builtins.str] endpoint_eni_id: The ID of the Elastic network interface for the route server endpoint.
         :param pulumi.Input[builtins.str] peer_address: The IPv4 address of the peer device.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_server_endpoint_id: The ID of the route server endpoint for which to create a peer.
+               
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] route_server_id: The ID of the route server associated with this peer.
         :param pulumi.Input[builtins.str] route_server_peer_id: The unique identifier of the route server peer.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet containing the route server peer.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC containing the route server peer.
         """
@@ -137,6 +166,8 @@ class _RouteServerPeerState:
             pulumi.set(__self__, "endpoint_eni_id", endpoint_eni_id)
         if peer_address is not None:
             pulumi.set(__self__, "peer_address", peer_address)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if route_server_endpoint_id is not None:
             pulumi.set(__self__, "route_server_endpoint_id", route_server_endpoint_id)
         if route_server_id is not None:
@@ -147,9 +178,6 @@ class _RouteServerPeerState:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
@@ -218,10 +246,24 @@ class _RouteServerPeerState:
         pulumi.set(self, "peer_address", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="routeServerEndpointId")
     def route_server_endpoint_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The ID of the route server endpoint for which to create a peer.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "route_server_endpoint_id")
 
@@ -268,6 +310,9 @@ class _RouteServerPeerState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -276,7 +321,6 @@ class _RouteServerPeerState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -317,6 +361,7 @@ class RouteServerPeer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_options: Optional[pulumi.Input[Union['RouteServerPeerBgpOptionsArgs', 'RouteServerPeerBgpOptionsArgsDict']]] = None,
                  peer_address: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_server_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['RouteServerPeerTimeoutsArgs', 'RouteServerPeerTimeoutsArgsDict']]] = None,
@@ -392,7 +437,11 @@ class RouteServerPeer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RouteServerPeerBgpOptionsArgs', 'RouteServerPeerBgpOptionsArgsDict']] bgp_options: The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
         :param pulumi.Input[builtins.str] peer_address: The IPv4 address of the peer device.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_server_endpoint_id: The ID of the route server endpoint for which to create a peer.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -484,6 +533,7 @@ class RouteServerPeer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bgp_options: Optional[pulumi.Input[Union['RouteServerPeerBgpOptionsArgs', 'RouteServerPeerBgpOptionsArgsDict']]] = None,
                  peer_address: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_server_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['RouteServerPeerTimeoutsArgs', 'RouteServerPeerTimeoutsArgsDict']]] = None,
@@ -500,6 +550,7 @@ class RouteServerPeer(pulumi.CustomResource):
             if peer_address is None and not opts.urn:
                 raise TypeError("Missing required property 'peer_address'")
             __props__.__dict__["peer_address"] = peer_address
+            __props__.__dict__["region"] = region
             if route_server_endpoint_id is None and not opts.urn:
                 raise TypeError("Missing required property 'route_server_endpoint_id'")
             __props__.__dict__["route_server_endpoint_id"] = route_server_endpoint_id
@@ -528,6 +579,7 @@ class RouteServerPeer(pulumi.CustomResource):
             endpoint_eni_address: Optional[pulumi.Input[builtins.str]] = None,
             endpoint_eni_id: Optional[pulumi.Input[builtins.str]] = None,
             peer_address: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             route_server_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
             route_server_id: Optional[pulumi.Input[builtins.str]] = None,
             route_server_peer_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -548,10 +600,14 @@ class RouteServerPeer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] endpoint_eni_address: The IP address of the Elastic network interface for the route server endpoint.
         :param pulumi.Input[builtins.str] endpoint_eni_id: The ID of the Elastic network interface for the route server endpoint.
         :param pulumi.Input[builtins.str] peer_address: The IPv4 address of the peer device.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_server_endpoint_id: The ID of the route server endpoint for which to create a peer.
+               
+               The following arguments are optional:
         :param pulumi.Input[builtins.str] route_server_id: The ID of the route server associated with this peer.
         :param pulumi.Input[builtins.str] route_server_peer_id: The unique identifier of the route server peer.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet containing the route server peer.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC containing the route server peer.
         """
@@ -564,6 +620,7 @@ class RouteServerPeer(pulumi.CustomResource):
         __props__.__dict__["endpoint_eni_address"] = endpoint_eni_address
         __props__.__dict__["endpoint_eni_id"] = endpoint_eni_id
         __props__.__dict__["peer_address"] = peer_address
+        __props__.__dict__["region"] = region
         __props__.__dict__["route_server_endpoint_id"] = route_server_endpoint_id
         __props__.__dict__["route_server_id"] = route_server_id
         __props__.__dict__["route_server_peer_id"] = route_server_peer_id
@@ -615,10 +672,20 @@ class RouteServerPeer(pulumi.CustomResource):
         return pulumi.get(self, "peer_address")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="routeServerEndpointId")
     def route_server_endpoint_id(self) -> pulumi.Output[builtins.str]:
         """
         The ID of the route server endpoint for which to create a peer.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "route_server_endpoint_id")
 
@@ -649,11 +716,13 @@ class RouteServerPeer(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

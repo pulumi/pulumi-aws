@@ -93,6 +93,12 @@ namespace Pulumi.Aws.ImageBuilder
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("resourceTags")]
         private Dictionary<string, string>? _resourceTags;
 
@@ -130,6 +136,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("resourceTags")]
         private InputMap<string>? _resourceTags;
@@ -207,6 +219,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// Placement settings that define where the instances that are launched from your image will run.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInfrastructureConfigurationPlacementResult> Placements;
+        public readonly string Region;
         /// <summary>
         /// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
         /// </summary>
@@ -258,6 +271,8 @@ namespace Pulumi.Aws.ImageBuilder
 
             ImmutableArray<Outputs.GetInfrastructureConfigurationPlacementResult> placements,
 
+            string region,
+
             ImmutableDictionary<string, string> resourceTags,
 
             ImmutableArray<string> securityGroupIds,
@@ -282,6 +297,7 @@ namespace Pulumi.Aws.ImageBuilder
             Loggings = loggings;
             Name = name;
             Placements = placements;
+            Region = region;
             ResourceTags = resourceTags;
             SecurityGroupIds = securityGroupIds;
             SnsTopicArn = snsTopicArn;

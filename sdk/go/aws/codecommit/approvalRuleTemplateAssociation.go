@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecommit"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codecommit"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,6 +53,8 @@ type ApprovalRuleTemplateAssociation struct {
 
 	// The name for the approval rule template.
 	ApprovalRuleTemplateName pulumi.StringOutput `pulumi:"approvalRuleTemplateName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the repository that you want to associate with the template.
 	RepositoryName pulumi.StringOutput `pulumi:"repositoryName"`
 }
@@ -95,6 +97,8 @@ func GetApprovalRuleTemplateAssociation(ctx *pulumi.Context,
 type approvalRuleTemplateAssociationState struct {
 	// The name for the approval rule template.
 	ApprovalRuleTemplateName *string `pulumi:"approvalRuleTemplateName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the repository that you want to associate with the template.
 	RepositoryName *string `pulumi:"repositoryName"`
 }
@@ -102,6 +106,8 @@ type approvalRuleTemplateAssociationState struct {
 type ApprovalRuleTemplateAssociationState struct {
 	// The name for the approval rule template.
 	ApprovalRuleTemplateName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the repository that you want to associate with the template.
 	RepositoryName pulumi.StringPtrInput
 }
@@ -113,6 +119,8 @@ func (ApprovalRuleTemplateAssociationState) ElementType() reflect.Type {
 type approvalRuleTemplateAssociationArgs struct {
 	// The name for the approval rule template.
 	ApprovalRuleTemplateName string `pulumi:"approvalRuleTemplateName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the repository that you want to associate with the template.
 	RepositoryName string `pulumi:"repositoryName"`
 }
@@ -121,6 +129,8 @@ type approvalRuleTemplateAssociationArgs struct {
 type ApprovalRuleTemplateAssociationArgs struct {
 	// The name for the approval rule template.
 	ApprovalRuleTemplateName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the repository that you want to associate with the template.
 	RepositoryName pulumi.StringInput
 }
@@ -215,6 +225,11 @@ func (o ApprovalRuleTemplateAssociationOutput) ToApprovalRuleTemplateAssociation
 // The name for the approval rule template.
 func (o ApprovalRuleTemplateAssociationOutput) ApprovalRuleTemplateName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApprovalRuleTemplateAssociation) pulumi.StringOutput { return v.ApprovalRuleTemplateName }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ApprovalRuleTemplateAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApprovalRuleTemplateAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the repository that you want to associate with the template.

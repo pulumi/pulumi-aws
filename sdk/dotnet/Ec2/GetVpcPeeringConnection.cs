@@ -181,22 +181,10 @@ namespace Pulumi.Aws.Ec2
         public string? PeerOwnerId { get; set; }
 
         /// <summary>
-        /// Region of the accepter VPC of the specific VPC Peering Connection to retrieve.
-        /// </summary>
-        [Input("peerRegion")]
-        public string? PeerRegion { get; set; }
-
-        /// <summary>
         /// ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
         /// </summary>
         [Input("peerVpcId")]
         public string? PeerVpcId { get; set; }
-
-        /// <summary>
-        /// Region of the requester VPC of the specific VPC Peering Connection to retrieve.
-        /// </summary>
-        [Input("region")]
-        public string? Region { get; set; }
 
         /// <summary>
         /// Status of the specific VPC Peering Connection to retrieve.
@@ -277,22 +265,10 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PeerOwnerId { get; set; }
 
         /// <summary>
-        /// Region of the accepter VPC of the specific VPC Peering Connection to retrieve.
-        /// </summary>
-        [Input("peerRegion")]
-        public Input<string>? PeerRegion { get; set; }
-
-        /// <summary>
         /// ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
         /// </summary>
         [Input("peerVpcId")]
         public Input<string>? PeerVpcId { get; set; }
-
-        /// <summary>
-        /// Region of the requester VPC of the specific VPC Peering Connection to retrieve.
-        /// </summary>
-        [Input("region")]
-        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Status of the specific VPC Peering Connection to retrieve.
@@ -362,14 +338,24 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionPeerIpv6CidrBlockSetResult> PeerIpv6CidrBlockSets;
         public readonly string PeerOwnerId;
+        /// <summary>
+        /// Region of the accepter VPC.
+        /// </summary>
         public readonly string PeerRegion;
         public readonly string PeerVpcId;
+        /// <summary>
+        /// (**Deprecated**) Region of the requester VPC. Use `requester_region` instead.
+        /// </summary>
         public readonly string Region;
         /// <summary>
         /// Configuration block that describes [VPC Peering Connection]
         /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         /// </summary>
         public readonly ImmutableDictionary<string, bool> Requester;
+        /// <summary>
+        /// Region of the requester VPC.
+        /// </summary>
+        public readonly string RequesterRegion;
         public readonly string Status;
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string VpcId;
@@ -406,6 +392,8 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableDictionary<string, bool> requester,
 
+            string requesterRegion,
+
             string status,
 
             ImmutableDictionary<string, string> tags,
@@ -427,6 +415,7 @@ namespace Pulumi.Aws.Ec2
             PeerVpcId = peerVpcId;
             Region = region;
             Requester = requester;
+            RequesterRegion = requesterRegion;
             Status = status;
             Tags = tags;
             VpcId = vpcId;

@@ -160,6 +160,12 @@ namespace Pulumi.Aws.Efs
         public Output<double?> ProvisionedThroughputInMibps { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
         /// </summary>
         [Output("sizeInBytes")]
@@ -286,6 +292,12 @@ namespace Pulumi.Aws.Efs
         [Input("provisionedThroughputInMibps")]
         public Input<double>? ProvisionedThroughputInMibps { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -405,6 +417,12 @@ namespace Pulumi.Aws.Efs
         [Input("provisionedThroughputInMibps")]
         public Input<double>? ProvisionedThroughputInMibps { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("sizeInBytes")]
         private InputList<Inputs.FileSystemSizeInByteGetArgs>? _sizeInBytes;
 
@@ -435,7 +453,6 @@ namespace Pulumi.Aws.Efs
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

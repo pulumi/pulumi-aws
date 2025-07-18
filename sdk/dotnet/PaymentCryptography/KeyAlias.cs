@@ -14,6 +14,49 @@ namespace Pulumi.Aws.PaymentCryptography
     /// 
     /// ## Example Usage
     /// 
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.PaymentCryptography.Key("test", new()
+    ///     {
+    ///         Exportable = true,
+    ///         KeyAttributes = new[]
+    ///         {
+    ///             new Aws.PaymentCryptography.Inputs.KeyKeyAttributeArgs
+    ///             {
+    ///                 KeyAlgorithm = "TDES_3KEY",
+    ///                 KeyClass = "SYMMETRIC_KEY",
+    ///                 KeyUsage = "TR31_P0_PIN_ENCRYPTION_KEY",
+    ///                 KeyModesOfUses = new[]
+    ///                 {
+    ///                     new Aws.PaymentCryptography.Inputs.KeyKeyAttributeKeyModesOfUseArgs
+    ///                     {
+    ///                         Decrypt = true,
+    ///                         Encrypt = true,
+    ///                         Wrap = true,
+    ///                         Unwrap = true,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var testKeyAlias = new Aws.PaymentCryptography.KeyAlias("test", new()
+    ///     {
+    ///         AliasName = "alias/test-alias",
+    ///         KeyArn = test.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Payment Cryptography Control Plane Key Alias using the `alias/4681482429376900170`. For example:
@@ -38,6 +81,12 @@ namespace Pulumi.Aws.PaymentCryptography
         /// </summary>
         [Output("keyArn")]
         public Output<string?> KeyArn { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
 
         /// <summary>
@@ -99,6 +148,12 @@ namespace Pulumi.Aws.PaymentCryptography
         [Input("keyArn")]
         public Input<string>? KeyArn { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public KeyAliasArgs()
         {
         }
@@ -120,6 +175,12 @@ namespace Pulumi.Aws.PaymentCryptography
         /// </summary>
         [Input("keyArn")]
         public Input<string>? KeyArn { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public KeyAliasState()
         {

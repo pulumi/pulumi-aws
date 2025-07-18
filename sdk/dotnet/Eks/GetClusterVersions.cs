@@ -220,6 +220,12 @@ namespace Pulumi.Aws.Eks
         public bool? IncludeAll { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Status of the EKS cluster versions to list.
         /// Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
         /// </summary>
@@ -262,6 +268,12 @@ namespace Pulumi.Aws.Eks
         public Input<bool>? IncludeAll { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Status of the EKS cluster versions to list.
         /// Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
         /// </summary>
@@ -290,6 +302,7 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public readonly string Id;
         public readonly bool? IncludeAll;
+        public readonly string Region;
         /// <summary>
         /// Status of the EKS cluster version.
         /// </summary>
@@ -309,6 +322,8 @@ namespace Pulumi.Aws.Eks
 
             bool? includeAll,
 
+            string region,
+
             string? versionStatus)
         {
             ClusterType = clusterType;
@@ -317,6 +332,7 @@ namespace Pulumi.Aws.Eks
             DefaultOnly = defaultOnly;
             Id = id;
             IncludeAll = includeAll;
+            Region = region;
             VersionStatus = versionStatus;
         }
     }

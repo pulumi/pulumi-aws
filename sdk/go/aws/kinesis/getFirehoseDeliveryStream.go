@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kinesis"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func LookupFirehoseDeliveryStream(ctx *pulumi.Context, args *LookupFirehoseDeliv
 type LookupFirehoseDeliveryStreamArgs struct {
 	// Name of the Kinesis Firehose Delivery Stream.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getFirehoseDeliveryStream.
@@ -61,8 +63,9 @@ type LookupFirehoseDeliveryStreamResult struct {
 	// ARN of the Kinesis Firehose Delivery Stream (same as `id`).
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 }
 
 func LookupFirehoseDeliveryStreamOutput(ctx *pulumi.Context, args LookupFirehoseDeliveryStreamOutputArgs, opts ...pulumi.InvokeOption) LookupFirehoseDeliveryStreamResultOutput {
@@ -78,6 +81,8 @@ func LookupFirehoseDeliveryStreamOutput(ctx *pulumi.Context, args LookupFirehose
 type LookupFirehoseDeliveryStreamOutputArgs struct {
 	// Name of the Kinesis Firehose Delivery Stream.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupFirehoseDeliveryStreamOutputArgs) ElementType() reflect.Type {
@@ -111,6 +116,10 @@ func (o LookupFirehoseDeliveryStreamResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupFirehoseDeliveryStreamResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFirehoseDeliveryStreamResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupFirehoseDeliveryStreamResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFirehoseDeliveryStreamResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

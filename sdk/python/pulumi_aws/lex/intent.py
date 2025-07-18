@@ -31,6 +31,7 @@ class IntentArgs:
                  follow_up_prompt: Optional[pulumi.Input['IntentFollowUpPromptArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parent_intent_signature: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rejection_statement: Optional[pulumi.Input['IntentRejectionStatementArgs']] = None,
                  sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  slots: Optional[pulumi.Input[Sequence[pulumi.Input['IntentSlotArgs']]]] = None):
@@ -61,6 +62,7 @@ class IntentArgs:
                intent on. To find the signature for an intent, see
                [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
                in the Alexa Skills Kit.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['IntentRejectionStatementArgs'] rejection_statement: When the user answers "no" to the question defined in
                `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
                canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
@@ -88,6 +90,8 @@ class IntentArgs:
             pulumi.set(__self__, "name", name)
         if parent_intent_signature is not None:
             pulumi.set(__self__, "parent_intent_signature", parent_intent_signature)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rejection_statement is not None:
             pulumi.set(__self__, "rejection_statement", rejection_statement)
         if sample_utterances is not None:
@@ -220,6 +224,18 @@ class IntentArgs:
         pulumi.set(self, "parent_intent_signature", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="rejectionStatement")
     def rejection_statement(self) -> Optional[pulumi.Input['IntentRejectionStatementArgs']]:
         """
@@ -278,6 +294,7 @@ class _IntentState:
                  last_updated_date: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parent_intent_signature: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rejection_statement: Optional[pulumi.Input['IntentRejectionStatementArgs']] = None,
                  sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  slots: Optional[pulumi.Input[Sequence[pulumi.Input['IntentSlotArgs']]]] = None,
@@ -314,6 +331,7 @@ class _IntentState:
                intent on. To find the signature for an intent, see
                [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
                in the Alexa Skills Kit.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['IntentRejectionStatementArgs'] rejection_statement: When the user answers "no" to the question defined in
                `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
                canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
@@ -351,6 +369,8 @@ class _IntentState:
             pulumi.set(__self__, "name", name)
         if parent_intent_signature is not None:
             pulumi.set(__self__, "parent_intent_signature", parent_intent_signature)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rejection_statement is not None:
             pulumi.set(__self__, "rejection_statement", rejection_statement)
         if sample_utterances is not None:
@@ -534,6 +554,18 @@ class _IntentState:
         pulumi.set(self, "parent_intent_signature", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="rejectionStatement")
     def rejection_statement(self) -> Optional[pulumi.Input['IntentRejectionStatementArgs']]:
         """
@@ -603,6 +635,7 @@ class Intent(pulumi.CustomResource):
                  fulfillment_activity: Optional[pulumi.Input[Union['IntentFulfillmentActivityArgs', 'IntentFulfillmentActivityArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parent_intent_signature: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rejection_statement: Optional[pulumi.Input[Union['IntentRejectionStatementArgs', 'IntentRejectionStatementArgsDict']]] = None,
                  sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  slots: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntentSlotArgs', 'IntentSlotArgsDict']]]]] = None,
@@ -728,6 +761,7 @@ class Intent(pulumi.CustomResource):
                intent on. To find the signature for an intent, see
                [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
                in the Alexa Skills Kit.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['IntentRejectionStatementArgs', 'IntentRejectionStatementArgsDict']] rejection_statement: When the user answers "no" to the question defined in
                `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
                canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
@@ -862,6 +896,7 @@ class Intent(pulumi.CustomResource):
                  fulfillment_activity: Optional[pulumi.Input[Union['IntentFulfillmentActivityArgs', 'IntentFulfillmentActivityArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  parent_intent_signature: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rejection_statement: Optional[pulumi.Input[Union['IntentRejectionStatementArgs', 'IntentRejectionStatementArgsDict']]] = None,
                  sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  slots: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntentSlotArgs', 'IntentSlotArgsDict']]]]] = None,
@@ -885,6 +920,7 @@ class Intent(pulumi.CustomResource):
             __props__.__dict__["fulfillment_activity"] = fulfillment_activity
             __props__.__dict__["name"] = name
             __props__.__dict__["parent_intent_signature"] = parent_intent_signature
+            __props__.__dict__["region"] = region
             __props__.__dict__["rejection_statement"] = rejection_statement
             __props__.__dict__["sample_utterances"] = sample_utterances
             __props__.__dict__["slots"] = slots
@@ -916,6 +952,7 @@ class Intent(pulumi.CustomResource):
             last_updated_date: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             parent_intent_signature: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rejection_statement: Optional[pulumi.Input[Union['IntentRejectionStatementArgs', 'IntentRejectionStatementArgsDict']]] = None,
             sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             slots: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntentSlotArgs', 'IntentSlotArgsDict']]]]] = None,
@@ -957,6 +994,7 @@ class Intent(pulumi.CustomResource):
                intent on. To find the signature for an intent, see
                [Standard Built-in Intents](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents)
                in the Alexa Skills Kit.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['IntentRejectionStatementArgs', 'IntentRejectionStatementArgsDict']] rejection_statement: When the user answers "no" to the question defined in
                `confirmation_prompt`, Amazon Lex responds with this statement to acknowledge that the intent was
                canceled. You must provide both the `rejection_statement` and the `confirmation_prompt`, or neither.
@@ -985,6 +1023,7 @@ class Intent(pulumi.CustomResource):
         __props__.__dict__["last_updated_date"] = last_updated_date
         __props__.__dict__["name"] = name
         __props__.__dict__["parent_intent_signature"] = parent_intent_signature
+        __props__.__dict__["region"] = region
         __props__.__dict__["rejection_statement"] = rejection_statement
         __props__.__dict__["sample_utterances"] = sample_utterances
         __props__.__dict__["slots"] = slots
@@ -1111,6 +1150,14 @@ class Intent(pulumi.CustomResource):
         in the Alexa Skills Kit.
         """
         return pulumi.get(self, "parent_intent_signature")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="rejectionStatement")

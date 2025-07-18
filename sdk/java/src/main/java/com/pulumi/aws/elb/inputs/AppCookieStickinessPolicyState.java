@@ -82,6 +82,21 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private AppCookieStickinessPolicyState() {}
 
     private AppCookieStickinessPolicyState(AppCookieStickinessPolicyState $) {
@@ -89,6 +104,7 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
         this.lbPort = $.lbPort;
         this.loadBalancer = $.loadBalancer;
         this.name = $.name;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -197,6 +213,27 @@ public final class AppCookieStickinessPolicyState extends com.pulumi.resources.R
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public AppCookieStickinessPolicyState build() {

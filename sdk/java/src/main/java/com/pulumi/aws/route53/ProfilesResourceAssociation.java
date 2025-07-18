@@ -71,6 +71,20 @@ public class ProfilesResourceAssociation extends com.pulumi.resources.CustomReso
         return this.profileId;
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Resource ID of the resource to be associated with the profile.
      * 
      */
@@ -89,14 +103,14 @@ public class ProfilesResourceAssociation extends com.pulumi.resources.CustomReso
      * 
      */
     @Export(name="resourceProperties", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> resourceProperties;
+    private Output<String> resourceProperties;
 
     /**
      * @return Resource properties for the resource to be associated with the profile.
      * 
      */
-    public Output<Optional<String>> resourceProperties() {
-        return Codegen.optional(this.resourceProperties);
+    public Output<String> resourceProperties() {
+        return this.resourceProperties;
     }
     /**
      * Type of resource associated with the profile.

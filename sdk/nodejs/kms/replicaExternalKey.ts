@@ -118,13 +118,15 @@ export class ReplicaExternalKey extends pulumi.CustomResource {
      */
     public readonly primaryKeyArn!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -157,6 +159,7 @@ export class ReplicaExternalKey extends pulumi.CustomResource {
             resourceInputs["keyUsage"] = state ? state.keyUsage : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
             resourceInputs["primaryKeyArn"] = state ? state.primaryKeyArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["validTo"] = state ? state.validTo : undefined;
@@ -172,6 +175,7 @@ export class ReplicaExternalKey extends pulumi.CustomResource {
             resourceInputs["keyMaterialBase64"] = args?.keyMaterialBase64 ? pulumi.secret(args.keyMaterialBase64) : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["primaryKeyArn"] = args ? args.primaryKeyArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["validTo"] = args ? args.validTo : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -245,13 +249,15 @@ export interface ReplicaExternalKeyState {
      */
     primaryKeyArn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -296,6 +302,10 @@ export interface ReplicaExternalKeyArgs {
      * The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
      */
     primaryKeyArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

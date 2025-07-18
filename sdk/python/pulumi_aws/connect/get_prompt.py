@@ -27,7 +27,7 @@ class GetPromptResult:
     """
     A collection of values returned by getPrompt.
     """
-    def __init__(__self__, arn=None, id=None, instance_id=None, name=None, prompt_id=None):
+    def __init__(__self__, arn=None, id=None, instance_id=None, name=None, prompt_id=None, region=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -43,6 +43,9 @@ class GetPromptResult:
         if prompt_id and not isinstance(prompt_id, str):
             raise TypeError("Expected argument 'prompt_id' to be a str")
         pulumi.set(__self__, "prompt_id", prompt_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -78,6 +81,11 @@ class GetPromptResult:
         """
         return pulumi.get(self, "prompt_id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetPromptResult(GetPromptResult):
     # pylint: disable=using-constant-test
@@ -89,11 +97,13 @@ class AwaitableGetPromptResult(GetPromptResult):
             id=self.id,
             instance_id=self.instance_id,
             name=self.name,
-            prompt_id=self.prompt_id)
+            prompt_id=self.prompt_id,
+            region=self.region)
 
 
 def get_prompt(instance_id: Optional[builtins.str] = None,
                name: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPromptResult:
     """
     Provides details about a specific Amazon Connect Prompt.
@@ -113,10 +123,12 @@ def get_prompt(instance_id: Optional[builtins.str] = None,
 
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param builtins.str name: Returns information on a specific Prompt by name
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:connect/getPrompt:getPrompt', __args__, opts=opts, typ=GetPromptResult).value
 
@@ -125,9 +137,11 @@ def get_prompt(instance_id: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         instance_id=pulumi.get(__ret__, 'instance_id'),
         name=pulumi.get(__ret__, 'name'),
-        prompt_id=pulumi.get(__ret__, 'prompt_id'))
+        prompt_id=pulumi.get(__ret__, 'prompt_id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_prompt_output(instance_id: Optional[pulumi.Input[builtins.str]] = None,
                       name: Optional[pulumi.Input[builtins.str]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPromptResult]:
     """
     Provides details about a specific Amazon Connect Prompt.
@@ -147,10 +161,12 @@ def get_prompt_output(instance_id: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param builtins.str name: Returns information on a specific Prompt by name
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getPrompt:getPrompt', __args__, opts=opts, typ=GetPromptResult)
     return __ret__.apply(lambda __response__: GetPromptResult(
@@ -158,4 +174,5 @@ def get_prompt_output(instance_id: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         instance_id=pulumi.get(__response__, 'instance_id'),
         name=pulumi.get(__response__, 'name'),
-        prompt_id=pulumi.get(__response__, 'prompt_id')))
+        prompt_id=pulumi.get(__response__, 'prompt_id'),
+        region=pulumi.get(__response__, 'region')))

@@ -166,6 +166,10 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      */
     public readonly peerVpcId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
@@ -176,8 +180,6 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -204,6 +206,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
             resourceInputs["peerOwnerId"] = state ? state.peerOwnerId : undefined;
             resourceInputs["peerRegion"] = state ? state.peerRegion : undefined;
             resourceInputs["peerVpcId"] = state ? state.peerVpcId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requester"] = state ? state.requester : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -221,6 +224,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
             resourceInputs["peerOwnerId"] = args ? args.peerOwnerId : undefined;
             resourceInputs["peerRegion"] = args ? args.peerRegion : undefined;
             resourceInputs["peerVpcId"] = args ? args.peerVpcId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["requester"] = args ? args.requester : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
@@ -264,6 +268,10 @@ export interface VpcPeeringConnectionState {
      */
     peerVpcId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
      * the peering connection (a maximum of one).
      */
@@ -274,8 +282,6 @@ export interface VpcPeeringConnectionState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -311,6 +317,10 @@ export interface VpcPeeringConnectionArgs {
      * The ID of the target VPC with which you are creating the VPC Peering Connection.
      */
     peerVpcId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A optional configuration block that allows for [VPC Peering Connection](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options to be set for the VPC that requests
      * the peering connection (a maximum of one).

@@ -38,16 +38,10 @@ public final class GetDataSetResult {
     private String name;
     private List<GetDataSetPermission> permissions;
     private List<GetDataSetPhysicalTableMap> physicalTableMaps;
+    private String region;
     private List<GetDataSetRowLevelPermissionDataSet> rowLevelPermissionDataSets;
     private List<GetDataSetRowLevelPermissionTagConfiguration> rowLevelPermissionTagConfigurations;
     private Map<String,String> tags;
-    /**
-     * @deprecated
-     * tags_all is deprecated. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
-    private Map<String,String> tagsAll;
 
     private GetDataSetResult() {}
     public String arn() {
@@ -93,6 +87,9 @@ public final class GetDataSetResult {
     public List<GetDataSetPhysicalTableMap> physicalTableMaps() {
         return this.physicalTableMaps;
     }
+    public String region() {
+        return this.region;
+    }
     public List<GetDataSetRowLevelPermissionDataSet> rowLevelPermissionDataSets() {
         return this.rowLevelPermissionDataSets;
     }
@@ -101,15 +98,6 @@ public final class GetDataSetResult {
     }
     public Map<String,String> tags() {
         return this.tags;
-    }
-    /**
-     * @deprecated
-     * tags_all is deprecated. This argument will be removed in a future major version.
-     * 
-     */
-    @Deprecated /* tags_all is deprecated. This argument will be removed in a future major version. */
-    public Map<String,String> tagsAll() {
-        return this.tagsAll;
     }
 
     public static Builder builder() {
@@ -134,10 +122,10 @@ public final class GetDataSetResult {
         private String name;
         private List<GetDataSetPermission> permissions;
         private List<GetDataSetPhysicalTableMap> physicalTableMaps;
+        private String region;
         private List<GetDataSetRowLevelPermissionDataSet> rowLevelPermissionDataSets;
         private List<GetDataSetRowLevelPermissionTagConfiguration> rowLevelPermissionTagConfigurations;
         private Map<String,String> tags;
-        private Map<String,String> tagsAll;
         public Builder() {}
         public Builder(GetDataSetResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -154,10 +142,10 @@ public final class GetDataSetResult {
     	      this.name = defaults.name;
     	      this.permissions = defaults.permissions;
     	      this.physicalTableMaps = defaults.physicalTableMaps;
+    	      this.region = defaults.region;
     	      this.rowLevelPermissionDataSets = defaults.rowLevelPermissionDataSets;
     	      this.rowLevelPermissionTagConfigurations = defaults.rowLevelPermissionTagConfigurations;
     	      this.tags = defaults.tags;
-    	      this.tagsAll = defaults.tagsAll;
         }
 
         @CustomType.Setter
@@ -286,6 +274,14 @@ public final class GetDataSetResult {
             return physicalTableMaps(List.of(physicalTableMaps));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetDataSetResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder rowLevelPermissionDataSets(List<GetDataSetRowLevelPermissionDataSet> rowLevelPermissionDataSets) {
             if (rowLevelPermissionDataSets == null) {
               throw new MissingRequiredPropertyException("GetDataSetResult", "rowLevelPermissionDataSets");
@@ -315,14 +311,6 @@ public final class GetDataSetResult {
             this.tags = tags;
             return this;
         }
-        @CustomType.Setter
-        public Builder tagsAll(Map<String,String> tagsAll) {
-            if (tagsAll == null) {
-              throw new MissingRequiredPropertyException("GetDataSetResult", "tagsAll");
-            }
-            this.tagsAll = tagsAll;
-            return this;
-        }
         public GetDataSetResult build() {
             final var _resultValue = new GetDataSetResult();
             _resultValue.arn = arn;
@@ -338,10 +326,10 @@ public final class GetDataSetResult {
             _resultValue.name = name;
             _resultValue.permissions = permissions;
             _resultValue.physicalTableMaps = physicalTableMaps;
+            _resultValue.region = region;
             _resultValue.rowLevelPermissionDataSets = rowLevelPermissionDataSets;
             _resultValue.rowLevelPermissionTagConfigurations = rowLevelPermissionTagConfigurations;
             _resultValue.tags = tags;
-            _resultValue.tagsAll = tagsAll;
             return _resultValue;
         }
     }

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,6 +70,8 @@ type AccessPolicyAssociation struct {
 	PolicyArn pulumi.StringOutput `pulumi:"policyArn"`
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn pulumi.StringOutput `pulumi:"principalArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAccessPolicyAssociation registers a new resource with the given unique name, arguments, and options.
@@ -126,6 +128,8 @@ type accessPolicyAssociationState struct {
 	PolicyArn *string `pulumi:"policyArn"`
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn *string `pulumi:"principalArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type AccessPolicyAssociationState struct {
@@ -141,6 +145,8 @@ type AccessPolicyAssociationState struct {
 	PolicyArn pulumi.StringPtrInput
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AccessPolicyAssociationState) ElementType() reflect.Type {
@@ -156,6 +162,8 @@ type accessPolicyAssociationArgs struct {
 	PolicyArn string `pulumi:"policyArn"`
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn string `pulumi:"principalArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AccessPolicyAssociation resource.
@@ -168,6 +176,8 @@ type AccessPolicyAssociationArgs struct {
 	PolicyArn pulumi.StringInput
 	// The IAM Principal ARN which requires Authentication access to the EKS cluster.
 	PrincipalArn pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AccessPolicyAssociationArgs) ElementType() reflect.Type {
@@ -285,6 +295,11 @@ func (o AccessPolicyAssociationOutput) PolicyArn() pulumi.StringOutput {
 // The IAM Principal ARN which requires Authentication access to the EKS cluster.
 func (o AccessPolicyAssociationOutput) PrincipalArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessPolicyAssociation) pulumi.StringOutput { return v.PrincipalArn }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AccessPolicyAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPolicyAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type AccessPolicyAssociationArrayOutput struct{ *pulumi.OutputState }

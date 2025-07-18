@@ -28,7 +28,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, acl_name=None, arn=None, auto_minor_version_upgrade=None, cluster_endpoints=None, data_tiering=None, description=None, engine=None, engine_patch_version=None, engine_version=None, final_snapshot_name=None, id=None, kms_key_arn=None, maintenance_window=None, name=None, node_type=None, num_replicas_per_shard=None, num_shards=None, parameter_group_name=None, port=None, security_group_ids=None, shards=None, snapshot_retention_limit=None, snapshot_window=None, sns_topic_arn=None, subnet_group_name=None, tags=None, tls_enabled=None):
+    def __init__(__self__, acl_name=None, arn=None, auto_minor_version_upgrade=None, cluster_endpoints=None, data_tiering=None, description=None, engine=None, engine_patch_version=None, engine_version=None, final_snapshot_name=None, id=None, kms_key_arn=None, maintenance_window=None, name=None, node_type=None, num_replicas_per_shard=None, num_shards=None, parameter_group_name=None, port=None, region=None, security_group_ids=None, shards=None, snapshot_retention_limit=None, snapshot_window=None, sns_topic_arn=None, subnet_group_name=None, tags=None, tls_enabled=None):
         if acl_name and not isinstance(acl_name, str):
             raise TypeError("Expected argument 'acl_name' to be a str")
         pulumi.set(__self__, "acl_name", acl_name)
@@ -86,6 +86,9 @@ class GetClusterResult:
         if port and not isinstance(port, int):
             raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_group_ids and not isinstance(security_group_ids, list):
             raise TypeError("Expected argument 'security_group_ids' to be a list")
         pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -261,6 +264,11 @@ class GetClusterResult:
         return pulumi.get(self, "port")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[builtins.str]:
         """
@@ -350,6 +358,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             num_shards=self.num_shards,
             parameter_group_name=self.parameter_group_name,
             port=self.port,
+            region=self.region,
             security_group_ids=self.security_group_ids,
             shards=self.shards,
             snapshot_retention_limit=self.snapshot_retention_limit,
@@ -361,6 +370,7 @@ class AwaitableGetClusterResult(GetClusterResult):
 
 
 def get_cluster(name: Optional[builtins.str] = None,
+                region: Optional[builtins.str] = None,
                 tags: Optional[Mapping[str, builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
@@ -377,10 +387,12 @@ def get_cluster(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the cluster.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the cluster.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:memorydb/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
@@ -405,6 +417,7 @@ def get_cluster(name: Optional[builtins.str] = None,
         num_shards=pulumi.get(__ret__, 'num_shards'),
         parameter_group_name=pulumi.get(__ret__, 'parameter_group_name'),
         port=pulumi.get(__ret__, 'port'),
+        region=pulumi.get(__ret__, 'region'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         shards=pulumi.get(__ret__, 'shards'),
         snapshot_retention_limit=pulumi.get(__ret__, 'snapshot_retention_limit'),
@@ -414,6 +427,7 @@ def get_cluster(name: Optional[builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tls_enabled=pulumi.get(__ret__, 'tls_enabled'))
 def get_cluster_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
@@ -430,10 +444,12 @@ def get_cluster_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the cluster.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the cluster.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:memorydb/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult)
@@ -457,6 +473,7 @@ def get_cluster_output(name: Optional[pulumi.Input[builtins.str]] = None,
         num_shards=pulumi.get(__response__, 'num_shards'),
         parameter_group_name=pulumi.get(__response__, 'parameter_group_name'),
         port=pulumi.get(__response__, 'port'),
+        region=pulumi.get(__response__, 'region'),
         security_group_ids=pulumi.get(__response__, 'security_group_ids'),
         shards=pulumi.get(__response__, 'shards'),
         snapshot_retention_limit=pulumi.get(__response__, 'snapshot_retention_limit'),

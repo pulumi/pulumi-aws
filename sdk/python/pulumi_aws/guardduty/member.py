@@ -25,7 +25,8 @@ class MemberArgs:
                  email: pulumi.Input[builtins.str],
                  disable_email_notification: Optional[pulumi.Input[builtins.bool]] = None,
                  invitation_message: Optional[pulumi.Input[builtins.str]] = None,
-                 invite: Optional[pulumi.Input[builtins.bool]] = None):
+                 invite: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Member resource.
         :param pulumi.Input[builtins.str] account_id: AWS account ID for member account.
@@ -34,6 +35,7 @@ class MemberArgs:
         :param pulumi.Input[builtins.bool] disable_email_notification: Boolean whether an email notification is sent to the accounts. Defaults to `false`.
         :param pulumi.Input[builtins.str] invitation_message: Message for invitation.
         :param pulumi.Input[builtins.bool] invite: Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "detector_id", detector_id)
@@ -44,6 +46,8 @@ class MemberArgs:
             pulumi.set(__self__, "invitation_message", invitation_message)
         if invite is not None:
             pulumi.set(__self__, "invite", invite)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="accountId")
@@ -117,6 +121,18 @@ class MemberArgs:
     def invite(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "invite", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _MemberState:
@@ -127,6 +143,7 @@ class _MemberState:
                  email: Optional[pulumi.Input[builtins.str]] = None,
                  invitation_message: Optional[pulumi.Input[builtins.str]] = None,
                  invite: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  relationship_status: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Member resources.
@@ -136,6 +153,7 @@ class _MemberState:
         :param pulumi.Input[builtins.str] email: Email address for member account.
         :param pulumi.Input[builtins.str] invitation_message: Message for invitation.
         :param pulumi.Input[builtins.bool] invite: Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] relationship_status: The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
         """
         if account_id is not None:
@@ -150,6 +168,8 @@ class _MemberState:
             pulumi.set(__self__, "invitation_message", invitation_message)
         if invite is not None:
             pulumi.set(__self__, "invite", invite)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if relationship_status is not None:
             pulumi.set(__self__, "relationship_status", relationship_status)
 
@@ -226,6 +246,18 @@ class _MemberState:
         pulumi.set(self, "invite", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="relationshipStatus")
     def relationship_status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -250,6 +282,7 @@ class Member(pulumi.CustomResource):
                  email: Optional[pulumi.Input[builtins.str]] = None,
                  invitation_message: Optional[pulumi.Input[builtins.str]] = None,
                  invite: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to manage a GuardDuty member. To accept invitations in member accounts, see the `guardduty.InviteAccepter` resource.
@@ -286,6 +319,7 @@ class Member(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] email: Email address for member account.
         :param pulumi.Input[builtins.str] invitation_message: Message for invitation.
         :param pulumi.Input[builtins.bool] invite: Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -341,6 +375,7 @@ class Member(pulumi.CustomResource):
                  email: Optional[pulumi.Input[builtins.str]] = None,
                  invitation_message: Optional[pulumi.Input[builtins.str]] = None,
                  invite: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -362,6 +397,7 @@ class Member(pulumi.CustomResource):
             __props__.__dict__["email"] = email
             __props__.__dict__["invitation_message"] = invitation_message
             __props__.__dict__["invite"] = invite
+            __props__.__dict__["region"] = region
             __props__.__dict__["relationship_status"] = None
         super(Member, __self__).__init__(
             'aws:guardduty/member:Member',
@@ -379,6 +415,7 @@ class Member(pulumi.CustomResource):
             email: Optional[pulumi.Input[builtins.str]] = None,
             invitation_message: Optional[pulumi.Input[builtins.str]] = None,
             invite: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             relationship_status: Optional[pulumi.Input[builtins.str]] = None) -> 'Member':
         """
         Get an existing Member resource's state with the given name, id, and optional extra
@@ -393,6 +430,7 @@ class Member(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] email: Email address for member account.
         :param pulumi.Input[builtins.str] invitation_message: Message for invitation.
         :param pulumi.Input[builtins.bool] invite: Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] relationship_status: The status of the relationship between the member account and its primary account. More information can be found in [Amazon GuardDuty API Reference](https://docs.aws.amazon.com/guardduty/latest/ug/get-members.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -405,6 +443,7 @@ class Member(pulumi.CustomResource):
         __props__.__dict__["email"] = email
         __props__.__dict__["invitation_message"] = invitation_message
         __props__.__dict__["invite"] = invite
+        __props__.__dict__["region"] = region
         __props__.__dict__["relationship_status"] = relationship_status
         return Member(resource_name, opts=opts, __props__=__props__)
 
@@ -455,6 +494,14 @@ class Member(pulumi.CustomResource):
         Boolean whether to invite the account to GuardDuty as a member. Defaults to `false`. To detect if an invitation needs to be (re-)sent, the this provider state value is `true` based on a `relationship_status` of `Disabled`, `Enabled`, `Invited`, or `EmailVerificationInProgress`.
         """
         return pulumi.get(self, "invite")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="relationshipStatus")

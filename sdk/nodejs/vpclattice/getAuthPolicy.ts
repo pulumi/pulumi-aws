@@ -24,6 +24,7 @@ export function getAuthPolicy(args: GetAuthPolicyArgs, opts?: pulumi.InvokeOptio
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:vpclattice/getAuthPolicy:getAuthPolicy", {
         "policy": args.policy,
+        "region": args.region,
         "resourceIdentifier": args.resourceIdentifier,
         "state": args.state,
     }, opts);
@@ -37,6 +38,10 @@ export interface GetAuthPolicyArgs {
      * The auth policy. The policy string in JSON must not contain newlines or blank lines.
      */
     policy?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      */
@@ -59,6 +64,7 @@ export interface GetAuthPolicyResult {
      * The auth policy. The policy string in JSON must not contain newlines or blank lines.
      */
     readonly policy?: string;
+    readonly region: string;
     readonly resourceIdentifier: string;
     /**
      * The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
@@ -85,6 +91,7 @@ export function getAuthPolicyOutput(args: GetAuthPolicyOutputArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:vpclattice/getAuthPolicy:getAuthPolicy", {
         "policy": args.policy,
+        "region": args.region,
         "resourceIdentifier": args.resourceIdentifier,
         "state": args.state,
     }, opts);
@@ -98,6 +105,10 @@ export interface GetAuthPolicyOutputArgs {
      * The auth policy. The policy string in JSON must not contain newlines or blank lines.
      */
     policy?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
      */

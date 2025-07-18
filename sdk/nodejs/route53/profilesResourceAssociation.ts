@@ -58,13 +58,17 @@ export class ProfilesResourceAssociation extends pulumi.CustomResource {
      */
     public readonly profileId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Resource ID of the resource to be associated with the profile.
      */
     public readonly resourceArn!: pulumi.Output<string>;
     /**
      * Resource properties for the resource to be associated with the profile.
      */
-    public readonly resourceProperties!: pulumi.Output<string | undefined>;
+    public readonly resourceProperties!: pulumi.Output<string>;
     /**
      * Type of resource associated with the profile.
      */
@@ -95,6 +99,7 @@ export class ProfilesResourceAssociation extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["profileId"] = state ? state.profileId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
             resourceInputs["resourceProperties"] = state ? state.resourceProperties : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
@@ -111,6 +116,7 @@ export class ProfilesResourceAssociation extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["profileId"] = args ? args.profileId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
             resourceInputs["resourceProperties"] = args ? args.resourceProperties : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -137,6 +143,10 @@ export interface ProfilesResourceAssociationState {
      * ID of the profile associated with the VPC.
      */
     profileId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Resource ID of the resource to be associated with the profile.
      */
@@ -172,6 +182,10 @@ export interface ProfilesResourceAssociationArgs {
      * ID of the profile associated with the VPC.
      */
     profileId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Resource ID of the resource to be associated with the profile.
      */

@@ -410,6 +410,9 @@ class MultiRegionAccessPointDetails(dict):
                  name: builtins.str,
                  regions: Sequence['outputs.MultiRegionAccessPointDetailsRegion'],
                  public_access_block: Optional['outputs.MultiRegionAccessPointDetailsPublicAccessBlock'] = None):
+        """
+        :param Sequence['MultiRegionAccessPointDetailsRegionArgs'] regions: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "regions", regions)
         if public_access_block is not None:
@@ -423,6 +426,9 @@ class MultiRegionAccessPointDetails(dict):
     @property
     @pulumi.getter
     def regions(self) -> Sequence['outputs.MultiRegionAccessPointDetailsRegion']:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
         return pulumi.get(self, "regions")
 
     @property
@@ -514,6 +520,9 @@ class MultiRegionAccessPointDetailsRegion(dict):
                  bucket: builtins.str,
                  bucket_account_id: Optional[builtins.str] = None,
                  region: Optional[builtins.str] = None):
+        """
+        :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
         pulumi.set(__self__, "bucket", bucket)
         if bucket_account_id is not None:
             pulumi.set(__self__, "bucket_account_id", bucket_account_id)
@@ -533,6 +542,9 @@ class MultiRegionAccessPointDetailsRegion(dict):
     @property
     @pulumi.getter
     def region(self) -> Optional[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
         return pulumi.get(self, "region")
 
 
@@ -1758,7 +1770,7 @@ class GetMultiRegionAccessPointRegionResult(dict):
         """
         :param builtins.str bucket: The name of the bucket.
         :param builtins.str bucket_account_id: The AWS account ID that owns the bucket.
-        :param builtins.str region: The name of the region.
+        :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "bucket_account_id", bucket_account_id)
@@ -1784,7 +1796,7 @@ class GetMultiRegionAccessPointRegionResult(dict):
     @pulumi.getter
     def region(self) -> builtins.str:
         """
-        The name of the region.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

@@ -20,14 +20,14 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
     public static final VpcAttachmentState Empty = new VpcAttachmentState();
 
     /**
-     * The ARN of the attachment.
+     * ARN of the attachment.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the attachment.
+     * @return ARN of the attachment.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -35,14 +35,14 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The policy rule number associated with the attachment.
+     * Policy rule number associated with the attachment.
      * 
      */
     @Import(name="attachmentPolicyRuleNumber")
     private @Nullable Output<Integer> attachmentPolicyRuleNumber;
 
     /**
-     * @return The policy rule number associated with the attachment.
+     * @return Policy rule number associated with the attachment.
      * 
      */
     public Optional<Output<Integer>> attachmentPolicyRuleNumber() {
@@ -50,14 +50,14 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The type of attachment.
+     * Type of attachment.
      * 
      */
     @Import(name="attachmentType")
     private @Nullable Output<String> attachmentType;
 
     /**
-     * @return The type of attachment.
+     * @return Type of attachment.
      * 
      */
     public Optional<Output<String>> attachmentType() {
@@ -65,14 +65,14 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The ARN of a core network.
+     * ARN of a core network.
      * 
      */
     @Import(name="coreNetworkArn")
     private @Nullable Output<String> coreNetworkArn;
 
     /**
-     * @return The ARN of a core network.
+     * @return ARN of a core network.
      * 
      */
     public Optional<Output<String>> coreNetworkArn() {
@@ -80,14 +80,14 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The ID of a core network for the VPC attachment.
+     * ID of a core network for the VPC attachment.
      * 
      */
     @Import(name="coreNetworkId")
     private @Nullable Output<String> coreNetworkId;
 
     /**
-     * @return The ID of a core network for the VPC attachment.
+     * @return ID of a core network for the VPC attachment.
      * 
      */
     public Optional<Output<String>> coreNetworkId() {
@@ -95,14 +95,14 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The Region where the edge is located.
+     * Region where the edge is located.
      * 
      */
     @Import(name="edgeLocation")
     private @Nullable Output<String> edgeLocation;
 
     /**
-     * @return The Region where the edge is located.
+     * @return Region where the edge is located.
      * 
      */
     public Optional<Output<String>> edgeLocation() {
@@ -110,14 +110,14 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Options for the VPC attachment.
+     * Options for the VPC attachment. See below.
      * 
      */
     @Import(name="options")
     private @Nullable Output<VpcAttachmentOptionsArgs> options;
 
     /**
-     * @return Options for the VPC attachment.
+     * @return Options for the VPC attachment. See below.
      * 
      */
     public Optional<Output<VpcAttachmentOptionsArgs>> options() {
@@ -125,14 +125,14 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The ID of the attachment account owner.
+     * ID of the attachment account owner.
      * 
      */
     @Import(name="ownerAccountId")
     private @Nullable Output<String> ownerAccountId;
 
     /**
-     * @return The ID of the attachment account owner.
+     * @return ID of the attachment account owner.
      * 
      */
     public Optional<Output<String>> ownerAccountId() {
@@ -140,14 +140,14 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The attachment resource ARN.
+     * Attachment resource ARN.
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return The attachment resource ARN.
+     * @return Attachment resource ARN.
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -155,14 +155,14 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name of the segment attachment.
+     * Name of the segment attachment.
      * 
      */
     @Import(name="segmentName")
     private @Nullable Output<String> segmentName;
 
     /**
-     * @return The name of the segment attachment.
+     * @return Name of the segment attachment.
      * 
      */
     public Optional<Output<String>> segmentName() {
@@ -170,14 +170,14 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The state of the attachment.
+     * State of the attachment.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return The state of the attachment.
+     * @return State of the attachment.
      * 
      */
     public Optional<Output<String>> state() {
@@ -185,14 +185,14 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The subnet ARN of the VPC attachment.
+     * Subnet ARNs of the VPC attachment.
      * 
      */
     @Import(name="subnetArns")
     private @Nullable Output<List<String>> subnetArns;
 
     /**
-     * @return The subnet ARN of the VPC attachment.
+     * @return Subnet ARNs of the VPC attachment.
      * 
      */
     public Optional<Output<List<String>>> subnetArns() {
@@ -215,30 +215,22 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * Please use `tags` instead.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
 
     /**
-     * The ARN of the VPC.
+     * ARN of the VPC.
      * 
      * The following arguments are optional:
      * 
@@ -247,7 +239,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
     private @Nullable Output<String> vpcArn;
 
     /**
-     * @return The ARN of the VPC.
+     * @return ARN of the VPC.
      * 
      * The following arguments are optional:
      * 
@@ -295,7 +287,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The ARN of the attachment.
+         * @param arn ARN of the attachment.
          * 
          * @return builder
          * 
@@ -306,7 +298,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The ARN of the attachment.
+         * @param arn ARN of the attachment.
          * 
          * @return builder
          * 
@@ -316,7 +308,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param attachmentPolicyRuleNumber The policy rule number associated with the attachment.
+         * @param attachmentPolicyRuleNumber Policy rule number associated with the attachment.
          * 
          * @return builder
          * 
@@ -327,7 +319,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param attachmentPolicyRuleNumber The policy rule number associated with the attachment.
+         * @param attachmentPolicyRuleNumber Policy rule number associated with the attachment.
          * 
          * @return builder
          * 
@@ -337,7 +329,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param attachmentType The type of attachment.
+         * @param attachmentType Type of attachment.
          * 
          * @return builder
          * 
@@ -348,7 +340,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param attachmentType The type of attachment.
+         * @param attachmentType Type of attachment.
          * 
          * @return builder
          * 
@@ -358,7 +350,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param coreNetworkArn The ARN of a core network.
+         * @param coreNetworkArn ARN of a core network.
          * 
          * @return builder
          * 
@@ -369,7 +361,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param coreNetworkArn The ARN of a core network.
+         * @param coreNetworkArn ARN of a core network.
          * 
          * @return builder
          * 
@@ -379,7 +371,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param coreNetworkId The ID of a core network for the VPC attachment.
+         * @param coreNetworkId ID of a core network for the VPC attachment.
          * 
          * @return builder
          * 
@@ -390,7 +382,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param coreNetworkId The ID of a core network for the VPC attachment.
+         * @param coreNetworkId ID of a core network for the VPC attachment.
          * 
          * @return builder
          * 
@@ -400,7 +392,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param edgeLocation The Region where the edge is located.
+         * @param edgeLocation Region where the edge is located.
          * 
          * @return builder
          * 
@@ -411,7 +403,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param edgeLocation The Region where the edge is located.
+         * @param edgeLocation Region where the edge is located.
          * 
          * @return builder
          * 
@@ -421,7 +413,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param options Options for the VPC attachment.
+         * @param options Options for the VPC attachment. See below.
          * 
          * @return builder
          * 
@@ -432,7 +424,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param options Options for the VPC attachment.
+         * @param options Options for the VPC attachment. See below.
          * 
          * @return builder
          * 
@@ -442,7 +434,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ownerAccountId The ID of the attachment account owner.
+         * @param ownerAccountId ID of the attachment account owner.
          * 
          * @return builder
          * 
@@ -453,7 +445,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ownerAccountId The ID of the attachment account owner.
+         * @param ownerAccountId ID of the attachment account owner.
          * 
          * @return builder
          * 
@@ -463,7 +455,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceArn The attachment resource ARN.
+         * @param resourceArn Attachment resource ARN.
          * 
          * @return builder
          * 
@@ -474,7 +466,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param resourceArn The attachment resource ARN.
+         * @param resourceArn Attachment resource ARN.
          * 
          * @return builder
          * 
@@ -484,7 +476,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param segmentName The name of the segment attachment.
+         * @param segmentName Name of the segment attachment.
          * 
          * @return builder
          * 
@@ -495,7 +487,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param segmentName The name of the segment attachment.
+         * @param segmentName Name of the segment attachment.
          * 
          * @return builder
          * 
@@ -505,7 +497,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param state The state of the attachment.
+         * @param state State of the attachment.
          * 
          * @return builder
          * 
@@ -516,7 +508,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param state The state of the attachment.
+         * @param state State of the attachment.
          * 
          * @return builder
          * 
@@ -526,7 +518,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param subnetArns The subnet ARN of the VPC attachment.
+         * @param subnetArns Subnet ARNs of the VPC attachment.
          * 
          * @return builder
          * 
@@ -537,7 +529,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param subnetArns The subnet ARN of the VPC attachment.
+         * @param subnetArns Subnet ARNs of the VPC attachment.
          * 
          * @return builder
          * 
@@ -547,7 +539,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param subnetArns The subnet ARN of the VPC attachment.
+         * @param subnetArns Subnet ARNs of the VPC attachment.
          * 
          * @return builder
          * 
@@ -578,36 +570,28 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }
 
         /**
-         * @param vpcArn The ARN of the VPC.
+         * @param vpcArn ARN of the VPC.
          * 
          * The following arguments are optional:
          * 
@@ -620,7 +604,7 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param vpcArn The ARN of the VPC.
+         * @param vpcArn ARN of the VPC.
          * 
          * The following arguments are optional:
          * 

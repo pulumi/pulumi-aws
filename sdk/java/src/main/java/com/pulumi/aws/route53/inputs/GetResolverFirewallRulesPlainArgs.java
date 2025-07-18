@@ -61,12 +61,28 @@ public final class GetResolverFirewallRulesPlainArgs extends com.pulumi.resource
         return Optional.ofNullable(this.priority);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetResolverFirewallRulesPlainArgs() {}
 
     private GetResolverFirewallRulesPlainArgs(GetResolverFirewallRulesPlainArgs $) {
         this.action = $.action;
         this.firewallRuleGroupId = $.firewallRuleGroupId;
         this.priority = $.priority;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -117,6 +133,17 @@ public final class GetResolverFirewallRulesPlainArgs extends com.pulumi.resource
          */
         public Builder priority(@Nullable Integer priority) {
             $.priority = priority;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

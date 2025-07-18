@@ -27,7 +27,7 @@ class GetAssetsResult:
     """
     A collection of values returned by getAssets.
     """
-    def __init__(__self__, arn=None, asset_ids=None, host_id_filters=None, id=None, status_id_filters=None):
+    def __init__(__self__, arn=None, asset_ids=None, host_id_filters=None, id=None, region=None, status_id_filters=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +40,9 @@ class GetAssetsResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status_id_filters and not isinstance(status_id_filters, list):
             raise TypeError("Expected argument 'status_id_filters' to be a list")
         pulumi.set(__self__, "status_id_filters", status_id_filters)
@@ -71,6 +74,11 @@ class GetAssetsResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="statusIdFilters")
     def status_id_filters(self) -> Optional[Sequence[builtins.str]]:
         return pulumi.get(self, "status_id_filters")
@@ -86,11 +94,13 @@ class AwaitableGetAssetsResult(GetAssetsResult):
             asset_ids=self.asset_ids,
             host_id_filters=self.host_id_filters,
             id=self.id,
+            region=self.region,
             status_id_filters=self.status_id_filters)
 
 
 def get_assets(arn: Optional[builtins.str] = None,
                host_id_filters: Optional[Sequence[builtins.str]] = None,
+               region: Optional[builtins.str] = None,
                status_id_filters: Optional[Sequence[builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssetsResult:
     """
@@ -130,11 +140,13 @@ def get_assets(arn: Optional[builtins.str] = None,
 
     :param builtins.str arn: Outpost ARN.
     :param Sequence[builtins.str] host_id_filters: Filters by list of Host IDs of a Dedicated Host.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[builtins.str] status_id_filters: Filters by list of state status. Valid values: "ACTIVE", "RETIRING".
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['hostIdFilters'] = host_id_filters
+    __args__['region'] = region
     __args__['statusIdFilters'] = status_id_filters
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:outposts/getAssets:getAssets', __args__, opts=opts, typ=GetAssetsResult).value
@@ -144,9 +156,11 @@ def get_assets(arn: Optional[builtins.str] = None,
         asset_ids=pulumi.get(__ret__, 'asset_ids'),
         host_id_filters=pulumi.get(__ret__, 'host_id_filters'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         status_id_filters=pulumi.get(__ret__, 'status_id_filters'))
 def get_assets_output(arn: Optional[pulumi.Input[builtins.str]] = None,
                       host_id_filters: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       status_id_filters: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssetsResult]:
     """
@@ -186,11 +200,13 @@ def get_assets_output(arn: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str arn: Outpost ARN.
     :param Sequence[builtins.str] host_id_filters: Filters by list of Host IDs of a Dedicated Host.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[builtins.str] status_id_filters: Filters by list of state status. Valid values: "ACTIVE", "RETIRING".
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['hostIdFilters'] = host_id_filters
+    __args__['region'] = region
     __args__['statusIdFilters'] = status_id_filters
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:outposts/getAssets:getAssets', __args__, opts=opts, typ=GetAssetsResult)
@@ -199,4 +215,5 @@ def get_assets_output(arn: Optional[pulumi.Input[builtins.str]] = None,
         asset_ids=pulumi.get(__response__, 'asset_ids'),
         host_id_filters=pulumi.get(__response__, 'host_id_filters'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         status_id_filters=pulumi.get(__response__, 'status_id_filters')))

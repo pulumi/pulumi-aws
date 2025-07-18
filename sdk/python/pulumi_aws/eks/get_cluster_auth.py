@@ -27,13 +27,16 @@ class GetClusterAuthResult:
     """
     A collection of values returned by getClusterAuth.
     """
-    def __init__(__self__, id=None, name=None, token=None):
+    def __init__(__self__, id=None, name=None, region=None, token=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if token and not isinstance(token, str):
             raise TypeError("Expected argument 'token' to be a str")
         pulumi.set(__self__, "token", token)
@@ -53,6 +56,11 @@ class GetClusterAuthResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def token(self) -> builtins.str:
         """
         Token to use to authenticate with the cluster.
@@ -68,10 +76,12 @@ class AwaitableGetClusterAuthResult(GetClusterAuthResult):
         return GetClusterAuthResult(
             id=self.id,
             name=self.name,
+            region=self.region,
             token=self.token)
 
 
 def get_cluster_auth(name: Optional[builtins.str] = None,
+                     region: Optional[builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterAuthResult:
     """
     Get an authentication token to communicate with an EKS cluster.
@@ -93,17 +103,21 @@ def get_cluster_auth(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the cluster
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:eks/getClusterAuth:getClusterAuth', __args__, opts=opts, typ=GetClusterAuthResult).value
 
     return AwaitableGetClusterAuthResult(
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         token=pulumi.get(__ret__, 'token'))
 def get_cluster_auth_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterAuthResult]:
     """
     Get an authentication token to communicate with an EKS cluster.
@@ -125,12 +139,15 @@ def get_cluster_auth_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the cluster
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:eks/getClusterAuth:getClusterAuth', __args__, opts=opts, typ=GetClusterAuthResult)
     return __ret__.apply(lambda __response__: GetClusterAuthResult(
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         token=pulumi.get(__response__, 'token')))

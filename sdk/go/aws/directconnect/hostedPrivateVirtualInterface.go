@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -80,6 +80,8 @@ type HostedPrivateVirtualInterface struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The AWS account that will own the new virtual interface.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The VLAN ID.
 	Vlan pulumi.IntOutput `pulumi:"vlan"`
 }
@@ -154,6 +156,8 @@ type hostedPrivateVirtualInterfaceState struct {
 	Name *string `pulumi:"name"`
 	// The AWS account that will own the new virtual interface.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The VLAN ID.
 	Vlan *int `pulumi:"vlan"`
 }
@@ -184,6 +188,8 @@ type HostedPrivateVirtualInterfaceState struct {
 	Name pulumi.StringPtrInput
 	// The AWS account that will own the new virtual interface.
 	OwnerAccountId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The VLAN ID.
 	Vlan pulumi.IntPtrInput
 }
@@ -211,6 +217,8 @@ type hostedPrivateVirtualInterfaceArgs struct {
 	Name *string `pulumi:"name"`
 	// The AWS account that will own the new virtual interface.
 	OwnerAccountId string `pulumi:"ownerAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The VLAN ID.
 	Vlan int `pulumi:"vlan"`
 }
@@ -235,6 +243,8 @@ type HostedPrivateVirtualInterfaceArgs struct {
 	Name pulumi.StringPtrInput
 	// The AWS account that will own the new virtual interface.
 	OwnerAccountId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The VLAN ID.
 	Vlan pulumi.IntInput
 }
@@ -388,6 +398,11 @@ func (o HostedPrivateVirtualInterfaceOutput) Name() pulumi.StringOutput {
 // The AWS account that will own the new virtual interface.
 func (o HostedPrivateVirtualInterfaceOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedPrivateVirtualInterface) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o HostedPrivateVirtualInterfaceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostedPrivateVirtualInterface) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The VLAN ID.

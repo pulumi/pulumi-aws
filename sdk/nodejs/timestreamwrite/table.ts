@@ -111,6 +111,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly magneticStoreWriteProperties!: pulumi.Output<outputs.timestreamwrite.TableMagneticStoreWriteProperties>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
      */
     public readonly retentionProperties!: pulumi.Output<outputs.timestreamwrite.TableRetentionProperties>;
@@ -128,8 +132,6 @@ export class Table extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -149,6 +151,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
             resourceInputs["magneticStoreWriteProperties"] = state ? state.magneticStoreWriteProperties : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["retentionProperties"] = state ? state.retentionProperties : undefined;
             resourceInputs["schema"] = state ? state.schema : undefined;
             resourceInputs["tableName"] = state ? state.tableName : undefined;
@@ -164,6 +167,7 @@ export class Table extends pulumi.CustomResource {
             }
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["magneticStoreWriteProperties"] = args ? args.magneticStoreWriteProperties : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retentionProperties"] = args ? args.retentionProperties : undefined;
             resourceInputs["schema"] = args ? args.schema : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
@@ -193,6 +197,10 @@ export interface TableState {
      */
     magneticStoreWriteProperties?: pulumi.Input<inputs.timestreamwrite.TableMagneticStoreWriteProperties>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
      */
     retentionProperties?: pulumi.Input<inputs.timestreamwrite.TableRetentionProperties>;
@@ -210,8 +218,6 @@ export interface TableState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -228,6 +234,10 @@ export interface TableArgs {
      * Contains properties to set on the table when enabling magnetic store writes. See Magnetic Store Write Properties below for more details.
      */
     magneticStoreWriteProperties?: pulumi.Input<inputs.timestreamwrite.TableMagneticStoreWriteProperties>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
      */

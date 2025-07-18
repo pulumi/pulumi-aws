@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -32,6 +32,8 @@ type ProfilesAssociation struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// ID of the profile associated with the VPC.
 	ProfileId pulumi.StringOutput `pulumi:"profileId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Resource ID of the VPC the profile to be associated with.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// Status of the Profile Association.
@@ -41,8 +43,6 @@ type ProfilesAssociation struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput               `pulumi:"tagsAll"`
 	Timeouts ProfilesAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -89,6 +89,8 @@ type profilesAssociationState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// ID of the profile associated with the VPC.
 	ProfileId *string `pulumi:"profileId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Resource ID of the VPC the profile to be associated with.
 	ResourceId *string `pulumi:"resourceId"`
 	// Status of the Profile Association.
@@ -98,8 +100,6 @@ type profilesAssociationState struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string            `pulumi:"tagsAll"`
 	Timeouts *ProfilesAssociationTimeouts `pulumi:"timeouts"`
 }
@@ -111,6 +111,8 @@ type ProfilesAssociationState struct {
 	OwnerId pulumi.StringPtrInput
 	// ID of the profile associated with the VPC.
 	ProfileId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Resource ID of the VPC the profile to be associated with.
 	ResourceId pulumi.StringPtrInput
 	// Status of the Profile Association.
@@ -120,8 +122,6 @@ type ProfilesAssociationState struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts ProfilesAssociationTimeoutsPtrInput
 }
@@ -135,6 +135,8 @@ type profilesAssociationArgs struct {
 	Name *string `pulumi:"name"`
 	// ID of the profile associated with the VPC.
 	ProfileId string `pulumi:"profileId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Resource ID of the VPC the profile to be associated with.
 	ResourceId string `pulumi:"resourceId"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -148,6 +150,8 @@ type ProfilesAssociationArgs struct {
 	Name pulumi.StringPtrInput
 	// ID of the profile associated with the VPC.
 	ProfileId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Resource ID of the VPC the profile to be associated with.
 	ResourceId pulumi.StringInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -260,6 +264,11 @@ func (o ProfilesAssociationOutput) ProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringOutput { return v.ProfileId }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ProfilesAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Resource ID of the VPC the profile to be associated with.
 func (o ProfilesAssociationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
@@ -281,8 +290,6 @@ func (o ProfilesAssociationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ProfilesAssociationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProfilesAssociation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -23,6 +23,7 @@ class PermissionSetArgs:
                  instance_arn: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  relay_state: Optional[pulumi.Input[builtins.str]] = None,
                  session_duration: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -31,6 +32,7 @@ class PermissionSetArgs:
         :param pulumi.Input[builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[builtins.str] description: The description of the Permission Set.
         :param pulumi.Input[builtins.str] name: The name of the Permission Set.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] relay_state: The relay state URL used to redirect users within the application during the federation authentication process.
         :param pulumi.Input[builtins.str] session_duration: The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -40,6 +42,8 @@ class PermissionSetArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if relay_state is not None:
             pulumi.set(__self__, "relay_state", relay_state)
         if session_duration is not None:
@@ -82,6 +86,18 @@ class PermissionSetArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="relayState")
@@ -128,6 +144,7 @@ class _PermissionSetState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  instance_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  relay_state: Optional[pulumi.Input[builtins.str]] = None,
                  session_duration: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -139,6 +156,7 @@ class _PermissionSetState:
         :param pulumi.Input[builtins.str] description: The description of the Permission Set.
         :param pulumi.Input[builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[builtins.str] name: The name of the Permission Set.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] relay_state: The relay state URL used to redirect users within the application during the federation authentication process.
         :param pulumi.Input[builtins.str] session_duration: The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -154,15 +172,14 @@ class _PermissionSetState:
             pulumi.set(__self__, "instance_arn", instance_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if relay_state is not None:
             pulumi.set(__self__, "relay_state", relay_state)
         if session_duration is not None:
             pulumi.set(__self__, "session_duration", session_duration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -227,6 +244,18 @@ class _PermissionSetState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="relayState")
     def relay_state(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -264,7 +293,6 @@ class _PermissionSetState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -285,6 +313,7 @@ class PermissionSet(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  instance_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  relay_state: Optional[pulumi.Input[builtins.str]] = None,
                  session_duration: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -322,6 +351,7 @@ class PermissionSet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The description of the Permission Set.
         :param pulumi.Input[builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[builtins.str] name: The name of the Permission Set.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] relay_state: The relay state URL used to redirect users within the application during the federation authentication process.
         :param pulumi.Input[builtins.str] session_duration: The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -378,6 +408,7 @@ class PermissionSet(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  instance_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  relay_state: Optional[pulumi.Input[builtins.str]] = None,
                  session_duration: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -395,6 +426,7 @@ class PermissionSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["relay_state"] = relay_state
             __props__.__dict__["session_duration"] = session_duration
             __props__.__dict__["tags"] = tags
@@ -416,6 +448,7 @@ class PermissionSet(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             instance_arn: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             relay_state: Optional[pulumi.Input[builtins.str]] = None,
             session_duration: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -432,6 +465,7 @@ class PermissionSet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: The description of the Permission Set.
         :param pulumi.Input[builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[builtins.str] name: The name of the Permission Set.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] relay_state: The relay state URL used to redirect users within the application during the federation authentication process.
         :param pulumi.Input[builtins.str] session_duration: The length of time that the application user sessions are valid in the ISO-8601 standard. Default: `PT1H`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -446,6 +480,7 @@ class PermissionSet(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["instance_arn"] = instance_arn
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["relay_state"] = relay_state
         __props__.__dict__["session_duration"] = session_duration
         __props__.__dict__["tags"] = tags
@@ -493,6 +528,14 @@ class PermissionSet(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="relayState")
     def relay_state(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -518,7 +561,6 @@ class PermissionSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

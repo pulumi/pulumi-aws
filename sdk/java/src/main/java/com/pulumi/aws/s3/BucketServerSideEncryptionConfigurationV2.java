@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.s3.BucketServerSideEncryptionConfigurationV2Args;
 import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationV2State;
 import com.pulumi.aws.s3.outputs.BucketServerSideEncryptionConfigurationV2Rule;
+import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -19,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Provides a S3 bucket server-side encryption configuration resource.
  * 
- * &gt; **NOTE:** Destroying an `aws.s3.BucketServerSideEncryptionConfigurationV2` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
+ * &gt; **NOTE:** Destroying an `aws.s3.BucketServerSideEncryptionConfiguration` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
  * 
  * ## Example Usage
  * 
@@ -33,12 +34,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.BucketServerSideEncryptionConfigurationV2;
- * import com.pulumi.aws.s3.BucketServerSideEncryptionConfigurationV2Args;
- * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationV2RuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.s3.BucketServerSideEncryptionConfiguration;
+ * import com.pulumi.aws.s3.BucketServerSideEncryptionConfigurationArgs;
+ * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationRuleArgs;
+ * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -57,14 +58,14 @@ import javax.annotation.Nullable;
  *             .deletionWindowInDays(10)
  *             .build());
  * 
- *         var mybucket = new BucketV2("mybucket", BucketV2Args.builder()
+ *         var mybucket = new Bucket("mybucket", BucketArgs.builder()
  *             .bucket("mybucket")
  *             .build());
  * 
- *         var example = new BucketServerSideEncryptionConfigurationV2("example", BucketServerSideEncryptionConfigurationV2Args.builder()
+ *         var example = new BucketServerSideEncryptionConfiguration("example", BucketServerSideEncryptionConfigurationArgs.builder()
  *             .bucket(mybucket.id())
- *             .rules(BucketServerSideEncryptionConfigurationV2RuleArgs.builder()
- *                 .applyServerSideEncryptionByDefault(BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs.builder()
+ *             .rules(BucketServerSideEncryptionConfigurationRuleArgs.builder()
+ *                 .applyServerSideEncryptionByDefault(BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs.builder()
  *                     .kmsMasterKeyId(mykey.arn())
  *                     .sseAlgorithm("aws:kms")
  *                     .build())
@@ -94,7 +95,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name,123456789012
  * ```
  * 
+ * @deprecated
+ * aws.s3/bucketserversideencryptionconfigurationv2.BucketServerSideEncryptionConfigurationV2 has been deprecated in favor of aws.s3/bucketserversideencryptionconfiguration.BucketServerSideEncryptionConfiguration
+ * 
  */
+@Deprecated /* aws.s3/bucketserversideencryptionconfigurationv2.BucketServerSideEncryptionConfigurationV2 has been deprecated in favor of aws.s3/bucketserversideencryptionconfiguration.BucketServerSideEncryptionConfiguration */
 @ResourceType(type="aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2")
 public class BucketServerSideEncryptionConfigurationV2 extends com.pulumi.resources.CustomResource {
     /**
@@ -124,6 +129,20 @@ public class BucketServerSideEncryptionConfigurationV2 extends com.pulumi.resour
      */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
@@ -179,6 +198,9 @@ public class BucketServerSideEncryptionConfigurationV2 extends com.pulumi.resour
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .aliases(List.of(
+                Output.of(Alias.builder().type("aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2").build())
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

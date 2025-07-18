@@ -47,7 +47,7 @@ namespace Pulumi.Aws.DataSync
     /// 
     ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("example", new()
     ///     {
-    ///         ServiceName = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.datasync",
+    ///         ServiceName = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Region)}.datasync",
     ///         VpcId = exampleAwsVpc.Id,
     ///         SecurityGroupIds = new[]
     ///         {
@@ -124,6 +124,12 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Output("privateLinkEndpoint")]
         public Output<string> PrivateLinkEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// The ARNs of the security groups used to protect your data transfer task subnets.
@@ -225,6 +231,12 @@ namespace Pulumi.Aws.DataSync
         [Input("privateLinkEndpoint")]
         public Input<string>? PrivateLinkEndpoint { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("securityGroupArns")]
         private InputList<string>? _securityGroupArns;
 
@@ -305,6 +317,12 @@ namespace Pulumi.Aws.DataSync
         [Input("privateLinkEndpoint")]
         public Input<string>? PrivateLinkEndpoint { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("securityGroupArns")]
         private InputList<string>? _securityGroupArns;
 
@@ -347,7 +365,6 @@ namespace Pulumi.Aws.DataSync
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

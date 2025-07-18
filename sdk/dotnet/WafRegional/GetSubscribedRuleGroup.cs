@@ -173,6 +173,12 @@ namespace Pulumi.Aws.WafRegional
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetSubscribedRuleGroupArgs()
         {
         }
@@ -195,6 +201,12 @@ namespace Pulumi.Aws.WafRegional
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetSubscribedRuleGroupInvokeArgs()
         {
         }
@@ -211,6 +223,7 @@ namespace Pulumi.Aws.WafRegional
         public readonly string Id;
         public readonly string? MetricName;
         public readonly string? Name;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetSubscribedRuleGroupResult(
@@ -218,11 +231,14 @@ namespace Pulumi.Aws.WafRegional
 
             string? metricName,
 
-            string? name)
+            string? name,
+
+            string region)
         {
             Id = id;
             MetricName = metricName;
             Name = name;
+            Region = region;
         }
     }
 }

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/detective"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/detective"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,6 +73,8 @@ type Member struct {
 	InvitedTime pulumi.StringOutput `pulumi:"invitedTime"`
 	// A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
 	Message pulumi.StringPtrOutput `pulumi:"message"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Current membership status of the member account.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
@@ -135,6 +137,8 @@ type memberState struct {
 	InvitedTime *string `pulumi:"invitedTime"`
 	// A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
 	Message *string `pulumi:"message"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Current membership status of the member account.
 	Status *string `pulumi:"status"`
 	// Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
@@ -159,6 +163,8 @@ type MemberState struct {
 	InvitedTime pulumi.StringPtrInput
 	// A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
 	Message pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Current membership status of the member account.
 	Status pulumi.StringPtrInput
 	// Date and time, in UTC and extended RFC 3339 format, of the most recent change to the member account's status.
@@ -182,6 +188,8 @@ type memberArgs struct {
 	GraphArn string `pulumi:"graphArn"`
 	// A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
 	Message *string `pulumi:"message"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Member resource.
@@ -196,6 +204,8 @@ type MemberArgs struct {
 	GraphArn pulumi.StringInput
 	// A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
 	Message pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (MemberArgs) ElementType() reflect.Type {
@@ -322,6 +332,11 @@ func (o MemberOutput) InvitedTime() pulumi.StringOutput {
 // A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
 func (o MemberOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringPtrOutput { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o MemberOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Current membership status of the member account.

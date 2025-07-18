@@ -8,6 +8,7 @@ import com.pulumi.aws.s3.BucketLoggingV2Args;
 import com.pulumi.aws.s3.inputs.BucketLoggingV2State;
 import com.pulumi.aws.s3.outputs.BucketLoggingV2TargetGrant;
 import com.pulumi.aws.s3.outputs.BucketLoggingV2TargetObjectKeyFormat;
+import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -36,12 +37,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
- * import com.pulumi.aws.s3.BucketLoggingV2;
- * import com.pulumi.aws.s3.BucketLoggingV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
+ * import com.pulumi.aws.s3.BucketLogging;
+ * import com.pulumi.aws.s3.BucketLoggingArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,25 +56,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()
+ *         var example = new Bucket("example", BucketArgs.builder()
  *             .bucket("my-tf-example-bucket")
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
+ *         var exampleBucketAcl = new BucketAcl("exampleBucketAcl", BucketAclArgs.builder()
  *             .bucket(example.id())
  *             .acl("private")
  *             .build());
  * 
- *         var logBucket = new BucketV2("logBucket", BucketV2Args.builder()
+ *         var logBucket = new Bucket("logBucket", BucketArgs.builder()
  *             .bucket("my-tf-log-bucket")
  *             .build());
  * 
- *         var logBucketAcl = new BucketAclV2("logBucketAcl", BucketAclV2Args.builder()
+ *         var logBucketAcl = new BucketAcl("logBucketAcl", BucketAclArgs.builder()
  *             .bucket(logBucket.id())
  *             .acl("log-delivery-write")
  *             .build());
  * 
- *         var exampleBucketLoggingV2 = new BucketLoggingV2("exampleBucketLoggingV2", BucketLoggingV2Args.builder()
+ *         var exampleBucketLogging = new BucketLogging("exampleBucketLogging", BucketLoggingArgs.builder()
  *             .bucket(example.id())
  *             .targetBucket(logBucket.id())
  *             .targetPrefix("log/")
@@ -102,7 +103,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:s3/bucketLoggingV2:BucketLoggingV2 example bucket-name,123456789012
  * ```
  * 
+ * @deprecated
+ * aws.s3/bucketloggingv2.BucketLoggingV2 has been deprecated in favor of aws.s3/bucketlogging.BucketLogging
+ * 
  */
+@Deprecated /* aws.s3/bucketloggingv2.BucketLoggingV2 has been deprecated in favor of aws.s3/bucketlogging.BucketLogging */
 @ResourceType(type="aws:s3/bucketLoggingV2:BucketLoggingV2")
 public class BucketLoggingV2 extends com.pulumi.resources.CustomResource {
     /**
@@ -132,6 +137,20 @@ public class BucketLoggingV2 extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * Name of the bucket where you want Amazon S3 to store server access logs.
@@ -229,6 +248,9 @@ public class BucketLoggingV2 extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .aliases(List.of(
+                Output.of(Alias.builder().type("aws:s3/bucketLoggingV2:BucketLoggingV2").build())
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

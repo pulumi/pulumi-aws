@@ -24,15 +24,19 @@ class EnrollmentStatusArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[builtins.str],
                  include_member_accounts: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['EnrollmentStatusTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a EnrollmentStatus resource.
         :param pulumi.Input[builtins.str] status: The enrollment status of the account. Valid values: `Active`, `Inactive`.
         :param pulumi.Input[builtins.bool] include_member_accounts: Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "status", status)
         if include_member_accounts is not None:
             pulumi.set(__self__, "include_member_accounts", include_member_accounts)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -62,6 +66,18 @@ class EnrollmentStatusArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['EnrollmentStatusTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -75,18 +91,22 @@ class _EnrollmentStatusState:
     def __init__(__self__, *,
                  include_member_accounts: Optional[pulumi.Input[builtins.bool]] = None,
                  number_of_member_accounts_opted_in: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['EnrollmentStatusTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering EnrollmentStatus resources.
         :param pulumi.Input[builtins.bool] include_member_accounts: Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
         :param pulumi.Input[builtins.int] number_of_member_accounts_opted_in: The count of organization member accounts that are opted in to the service, if your account is an organization management account.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The enrollment status of the account. Valid values: `Active`, `Inactive`.
         """
         if include_member_accounts is not None:
             pulumi.set(__self__, "include_member_accounts", include_member_accounts)
         if number_of_member_accounts_opted_in is not None:
             pulumi.set(__self__, "number_of_member_accounts_opted_in", number_of_member_accounts_opted_in)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if timeouts is not None:
@@ -118,6 +138,18 @@ class _EnrollmentStatusState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The enrollment status of the account. Valid values: `Active`, `Inactive`.
@@ -145,6 +177,7 @@ class EnrollmentStatus(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  include_member_accounts: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['EnrollmentStatusTimeoutsArgs', 'EnrollmentStatusTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -171,6 +204,7 @@ class EnrollmentStatus(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] include_member_accounts: Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The enrollment status of the account. Valid values: `Active`, `Inactive`.
         """
         ...
@@ -215,6 +249,7 @@ class EnrollmentStatus(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  include_member_accounts: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['EnrollmentStatusTimeoutsArgs', 'EnrollmentStatusTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -227,6 +262,7 @@ class EnrollmentStatus(pulumi.CustomResource):
             __props__ = EnrollmentStatusArgs.__new__(EnrollmentStatusArgs)
 
             __props__.__dict__["include_member_accounts"] = include_member_accounts
+            __props__.__dict__["region"] = region
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
             __props__.__dict__["status"] = status
@@ -244,6 +280,7 @@ class EnrollmentStatus(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             include_member_accounts: Optional[pulumi.Input[builtins.bool]] = None,
             number_of_member_accounts_opted_in: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             timeouts: Optional[pulumi.Input[Union['EnrollmentStatusTimeoutsArgs', 'EnrollmentStatusTimeoutsArgsDict']]] = None) -> 'EnrollmentStatus':
         """
@@ -255,6 +292,7 @@ class EnrollmentStatus(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] include_member_accounts: Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
         :param pulumi.Input[builtins.int] number_of_member_accounts_opted_in: The count of organization member accounts that are opted in to the service, if your account is an organization management account.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The enrollment status of the account. Valid values: `Active`, `Inactive`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -263,6 +301,7 @@ class EnrollmentStatus(pulumi.CustomResource):
 
         __props__.__dict__["include_member_accounts"] = include_member_accounts
         __props__.__dict__["number_of_member_accounts_opted_in"] = number_of_member_accounts_opted_in
+        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         __props__.__dict__["timeouts"] = timeouts
         return EnrollmentStatus(resource_name, opts=opts, __props__=__props__)
@@ -282,6 +321,14 @@ class EnrollmentStatus(pulumi.CustomResource):
         The count of organization member accounts that are opted in to the service, if your account is an organization management account.
         """
         return pulumi.get(self, "number_of_member_accounts_opted_in")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

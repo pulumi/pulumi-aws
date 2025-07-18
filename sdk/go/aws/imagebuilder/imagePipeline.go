@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -60,6 +60,8 @@ type ImagePipeline struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Platform of the image pipeline.
 	Platform pulumi.StringOutput `pulumi:"platform"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block with schedule settings. Detailed below.
 	Schedule ImagePipelineSchedulePtrOutput `pulumi:"schedule"`
 	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
@@ -67,8 +69,6 @@ type ImagePipeline struct {
 	// Key-value map of resource tags for the image pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block with the workflow configuration. Detailed below.
 	Workflows ImagePipelineWorkflowArrayOutput `pulumi:"workflows"`
@@ -141,6 +141,8 @@ type imagePipelineState struct {
 	Name *string `pulumi:"name"`
 	// Platform of the image pipeline.
 	Platform *string `pulumi:"platform"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block with schedule settings. Detailed below.
 	Schedule *ImagePipelineSchedule `pulumi:"schedule"`
 	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
@@ -148,8 +150,6 @@ type imagePipelineState struct {
 	// Key-value map of resource tags for the image pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block with the workflow configuration. Detailed below.
 	Workflows []ImagePipelineWorkflow `pulumi:"workflows"`
@@ -190,6 +190,8 @@ type ImagePipelineState struct {
 	Name pulumi.StringPtrInput
 	// Platform of the image pipeline.
 	Platform pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block with schedule settings. Detailed below.
 	Schedule ImagePipelineSchedulePtrInput
 	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
@@ -197,8 +199,6 @@ type ImagePipelineState struct {
 	// Key-value map of resource tags for the image pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Configuration block with the workflow configuration. Detailed below.
 	Workflows ImagePipelineWorkflowArrayInput
@@ -231,6 +231,8 @@ type imagePipelineArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block with schedule settings. Detailed below.
 	Schedule *ImagePipelineSchedule `pulumi:"schedule"`
 	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
@@ -265,6 +267,8 @@ type ImagePipelineArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block with schedule settings. Detailed below.
 	Schedule ImagePipelineSchedulePtrInput
 	// Status of the image pipeline. Valid values are `DISABLED` and `ENABLED`. Defaults to `ENABLED`.
@@ -446,6 +450,11 @@ func (o ImagePipelineOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ImagePipelineOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ImagePipeline) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Configuration block with schedule settings. Detailed below.
 func (o ImagePipelineOutput) Schedule() ImagePipelineSchedulePtrOutput {
 	return o.ApplyT(func(v *ImagePipeline) ImagePipelineSchedulePtrOutput { return v.Schedule }).(ImagePipelineSchedulePtrOutput)
@@ -462,8 +471,6 @@ func (o ImagePipelineOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ImagePipelineOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ImagePipeline) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

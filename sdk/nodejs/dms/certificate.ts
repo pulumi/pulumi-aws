@@ -65,8 +65,6 @@ export class Certificate extends pulumi.CustomResource {
     public /*out*/ readonly certificateArn!: pulumi.Output<string>;
     /**
      * The certificate identifier.
-     *
-     * - Must contain from 1 to 255 alphanumeric characters and hyphens.
      */
     public readonly certificateId!: pulumi.Output<string>;
     /**
@@ -78,13 +76,15 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly certificateWallet!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -105,6 +105,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["certificateId"] = state ? state.certificateId : undefined;
             resourceInputs["certificatePem"] = state ? state.certificatePem : undefined;
             resourceInputs["certificateWallet"] = state ? state.certificateWallet : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -115,6 +116,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["certificateId"] = args ? args.certificateId : undefined;
             resourceInputs["certificatePem"] = args?.certificatePem ? pulumi.secret(args.certificatePem) : undefined;
             resourceInputs["certificateWallet"] = args?.certificateWallet ? pulumi.secret(args.certificateWallet) : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["certificateArn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -136,8 +138,6 @@ export interface CertificateState {
     certificateArn?: pulumi.Input<string>;
     /**
      * The certificate identifier.
-     *
-     * - Must contain from 1 to 255 alphanumeric characters and hyphens.
      */
     certificateId?: pulumi.Input<string>;
     /**
@@ -149,13 +149,15 @@ export interface CertificateState {
      */
     certificateWallet?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -166,8 +168,6 @@ export interface CertificateState {
 export interface CertificateArgs {
     /**
      * The certificate identifier.
-     *
-     * - Must contain from 1 to 255 alphanumeric characters and hyphens.
      */
     certificateId: pulumi.Input<string>;
     /**
@@ -178,6 +178,10 @@ export interface CertificateArgs {
      * The contents of the Oracle Wallet certificate for use with SSL, provided as a base64-encoded String. Either `certificatePem` or `certificateWallet` must be set.
      */
     certificateWallet?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -85,6 +85,10 @@ export class DomainServiceAccessPolicy extends pulumi.CustomResource {
      * The CloudSearch domain name the policy applies to.
      */
     public readonly domainName!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DomainServiceAccessPolicy resource with the given unique name, arguments, and options.
@@ -101,6 +105,7 @@ export class DomainServiceAccessPolicy extends pulumi.CustomResource {
             const state = argsOrState as DomainServiceAccessPolicyState | undefined;
             resourceInputs["accessPolicy"] = state ? state.accessPolicy : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DomainServiceAccessPolicyArgs | undefined;
             if ((!args || args.accessPolicy === undefined) && !opts.urn) {
@@ -111,6 +116,7 @@ export class DomainServiceAccessPolicy extends pulumi.CustomResource {
             }
             resourceInputs["accessPolicy"] = args ? args.accessPolicy : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DomainServiceAccessPolicy.__pulumiType, name, resourceInputs, opts);
@@ -129,6 +135,10 @@ export interface DomainServiceAccessPolicyState {
      * The CloudSearch domain name the policy applies to.
      */
     domainName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -143,4 +153,8 @@ export interface DomainServiceAccessPolicyArgs {
      * The CloudSearch domain name the policy applies to.
      */
     domainName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

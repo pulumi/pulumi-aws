@@ -27,6 +27,7 @@ export function getLocalGatewayVirtualInterface(args?: GetLocalGatewayVirtualInt
     return pulumi.runtime.invoke("aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -43,6 +44,10 @@ export interface GetLocalGatewayVirtualInterfaceArgs {
      * Identifier of EC2 Local Gateway Virtual Interface.
      */
     id?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
      */
@@ -76,6 +81,7 @@ export interface GetLocalGatewayVirtualInterfaceResult {
      * Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the peer.
      */
     readonly peerBgpAsn: number;
+    readonly region: string;
     readonly tags: {[key: string]: string};
     /**
      * Virtual Local Area Network.
@@ -102,6 +108,7 @@ export function getLocalGatewayVirtualInterfaceOutput(args?: GetLocalGatewayVirt
     return pulumi.runtime.invokeOutput("aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -118,6 +125,10 @@ export interface GetLocalGatewayVirtualInterfaceOutputArgs {
      * Identifier of EC2 Local Gateway Virtual Interface.
      */
     id?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
      */

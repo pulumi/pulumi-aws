@@ -28,7 +28,7 @@ class GetTaskDefinitionResult:
     """
     A collection of values returned by getTaskDefinition.
     """
-    def __init__(__self__, arn=None, arn_without_revision=None, container_definitions=None, cpu=None, enable_fault_injection=None, ephemeral_storages=None, execution_role_arn=None, family=None, id=None, inference_accelerators=None, ipc_mode=None, memory=None, network_mode=None, pid_mode=None, placement_constraints=None, proxy_configurations=None, requires_compatibilities=None, revision=None, runtime_platforms=None, status=None, task_definition=None, task_role_arn=None, volumes=None):
+    def __init__(__self__, arn=None, arn_without_revision=None, container_definitions=None, cpu=None, enable_fault_injection=None, ephemeral_storages=None, execution_role_arn=None, family=None, id=None, ipc_mode=None, memory=None, network_mode=None, pid_mode=None, placement_constraints=None, proxy_configurations=None, region=None, requires_compatibilities=None, revision=None, runtime_platforms=None, status=None, task_definition=None, task_role_arn=None, volumes=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -56,9 +56,6 @@ class GetTaskDefinitionResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if inference_accelerators and not isinstance(inference_accelerators, list):
-            raise TypeError("Expected argument 'inference_accelerators' to be a list")
-        pulumi.set(__self__, "inference_accelerators", inference_accelerators)
         if ipc_mode and not isinstance(ipc_mode, str):
             raise TypeError("Expected argument 'ipc_mode' to be a str")
         pulumi.set(__self__, "ipc_mode", ipc_mode)
@@ -77,6 +74,9 @@ class GetTaskDefinitionResult:
         if proxy_configurations and not isinstance(proxy_configurations, list):
             raise TypeError("Expected argument 'proxy_configurations' to be a list")
         pulumi.set(__self__, "proxy_configurations", proxy_configurations)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if requires_compatibilities and not isinstance(requires_compatibilities, list):
             raise TypeError("Expected argument 'requires_compatibilities' to be a list")
         pulumi.set(__self__, "requires_compatibilities", requires_compatibilities)
@@ -173,14 +173,6 @@ class GetTaskDefinitionResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="inferenceAccelerators")
-    def inference_accelerators(self) -> Sequence['outputs.GetTaskDefinitionInferenceAcceleratorResult']:
-        """
-        Configuration block(s) with Inference Accelerators settings. Detailed below.
-        """
-        return pulumi.get(self, "inference_accelerators")
-
-    @property
     @pulumi.getter(name="ipcMode")
     def ipc_mode(self) -> builtins.str:
         """
@@ -227,6 +219,11 @@ class GetTaskDefinitionResult:
         Configuration block for the App Mesh proxy. Detailed below.
         """
         return pulumi.get(self, "proxy_configurations")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="requiresCompatibilities")
@@ -297,13 +294,13 @@ class AwaitableGetTaskDefinitionResult(GetTaskDefinitionResult):
             execution_role_arn=self.execution_role_arn,
             family=self.family,
             id=self.id,
-            inference_accelerators=self.inference_accelerators,
             ipc_mode=self.ipc_mode,
             memory=self.memory,
             network_mode=self.network_mode,
             pid_mode=self.pid_mode,
             placement_constraints=self.placement_constraints,
             proxy_configurations=self.proxy_configurations,
+            region=self.region,
             requires_compatibilities=self.requires_compatibilities,
             revision=self.revision,
             runtime_platforms=self.runtime_platforms,
@@ -313,7 +310,8 @@ class AwaitableGetTaskDefinitionResult(GetTaskDefinitionResult):
             volumes=self.volumes)
 
 
-def get_task_definition(task_definition: Optional[builtins.str] = None,
+def get_task_definition(region: Optional[builtins.str] = None,
+                        task_definition: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTaskDefinitionResult:
     """
     The ECS task definition data source allows access to details of
@@ -353,9 +351,11 @@ def get_task_definition(task_definition: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str task_definition: Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['taskDefinition'] = task_definition
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ecs/getTaskDefinition:getTaskDefinition', __args__, opts=opts, typ=GetTaskDefinitionResult).value
@@ -370,13 +370,13 @@ def get_task_definition(task_definition: Optional[builtins.str] = None,
         execution_role_arn=pulumi.get(__ret__, 'execution_role_arn'),
         family=pulumi.get(__ret__, 'family'),
         id=pulumi.get(__ret__, 'id'),
-        inference_accelerators=pulumi.get(__ret__, 'inference_accelerators'),
         ipc_mode=pulumi.get(__ret__, 'ipc_mode'),
         memory=pulumi.get(__ret__, 'memory'),
         network_mode=pulumi.get(__ret__, 'network_mode'),
         pid_mode=pulumi.get(__ret__, 'pid_mode'),
         placement_constraints=pulumi.get(__ret__, 'placement_constraints'),
         proxy_configurations=pulumi.get(__ret__, 'proxy_configurations'),
+        region=pulumi.get(__ret__, 'region'),
         requires_compatibilities=pulumi.get(__ret__, 'requires_compatibilities'),
         revision=pulumi.get(__ret__, 'revision'),
         runtime_platforms=pulumi.get(__ret__, 'runtime_platforms'),
@@ -384,7 +384,8 @@ def get_task_definition(task_definition: Optional[builtins.str] = None,
         task_definition=pulumi.get(__ret__, 'task_definition'),
         task_role_arn=pulumi.get(__ret__, 'task_role_arn'),
         volumes=pulumi.get(__ret__, 'volumes'))
-def get_task_definition_output(task_definition: Optional[pulumi.Input[builtins.str]] = None,
+def get_task_definition_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                               task_definition: Optional[pulumi.Input[builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskDefinitionResult]:
     """
     The ECS task definition data source allows access to details of
@@ -424,9 +425,11 @@ def get_task_definition_output(task_definition: Optional[pulumi.Input[builtins.s
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str task_definition: Family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['taskDefinition'] = task_definition
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ecs/getTaskDefinition:getTaskDefinition', __args__, opts=opts, typ=GetTaskDefinitionResult)
@@ -440,13 +443,13 @@ def get_task_definition_output(task_definition: Optional[pulumi.Input[builtins.s
         execution_role_arn=pulumi.get(__response__, 'execution_role_arn'),
         family=pulumi.get(__response__, 'family'),
         id=pulumi.get(__response__, 'id'),
-        inference_accelerators=pulumi.get(__response__, 'inference_accelerators'),
         ipc_mode=pulumi.get(__response__, 'ipc_mode'),
         memory=pulumi.get(__response__, 'memory'),
         network_mode=pulumi.get(__response__, 'network_mode'),
         pid_mode=pulumi.get(__response__, 'pid_mode'),
         placement_constraints=pulumi.get(__response__, 'placement_constraints'),
         proxy_configurations=pulumi.get(__response__, 'proxy_configurations'),
+        region=pulumi.get(__response__, 'region'),
         requires_compatibilities=pulumi.get(__response__, 'requires_compatibilities'),
         revision=pulumi.get(__response__, 'revision'),
         runtime_platforms=pulumi.get(__response__, 'runtime_platforms'),

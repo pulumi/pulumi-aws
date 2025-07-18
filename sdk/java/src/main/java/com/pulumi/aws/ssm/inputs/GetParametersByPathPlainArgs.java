@@ -47,6 +47,21 @@ public final class GetParametersByPathPlainArgs extends com.pulumi.resources.Inv
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
      * 
      */
@@ -66,6 +81,7 @@ public final class GetParametersByPathPlainArgs extends com.pulumi.resources.Inv
     private GetParametersByPathPlainArgs(GetParametersByPathPlainArgs $) {
         this.path = $.path;
         this.recursive = $.recursive;
+        this.region = $.region;
         this.withDecryption = $.withDecryption;
     }
 
@@ -106,6 +122,17 @@ public final class GetParametersByPathPlainArgs extends com.pulumi.resources.Inv
          */
         public Builder recursive(@Nullable Boolean recursive) {
             $.recursive = recursive;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

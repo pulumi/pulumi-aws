@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulum
 type LookupInstanceArgs struct {
 	// Name of the RDS instance.
 	DbInstanceIdentifier *string `pulumi:"dbInstanceIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired instance.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -128,7 +130,8 @@ type LookupInstanceResult struct {
 	// Specifies the weekly time range during which system maintenance can occur in UTC.
 	PreferredMaintenanceWindow string `pulumi:"preferredMaintenanceWindow"`
 	// Accessibility options for the DB instance.
-	PubliclyAccessible bool `pulumi:"publiclyAccessible"`
+	PubliclyAccessible bool   `pulumi:"publiclyAccessible"`
+	Region             string `pulumi:"region"`
 	// Identifier of the source DB that this is a replica of.
 	ReplicateSourceDb string `pulumi:"replicateSourceDb"`
 	// RDS Resource ID of this instance.
@@ -159,6 +162,8 @@ func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, op
 type LookupInstanceOutputArgs struct {
 	// Name of the RDS instance.
 	DbInstanceIdentifier pulumi.StringPtrInput `pulumi:"dbInstanceIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired instance.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -359,6 +364,10 @@ func (o LookupInstanceResultOutput) PreferredMaintenanceWindow() pulumi.StringOu
 // Accessibility options for the DB instance.
 func (o LookupInstanceResultOutput) PubliclyAccessible() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupInstanceResult) bool { return v.PubliclyAccessible }).(pulumi.BoolOutput)
+}
+
+func (o LookupInstanceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInstanceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Identifier of the source DB that this is a replica of.

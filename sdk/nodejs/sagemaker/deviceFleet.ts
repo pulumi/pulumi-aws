@@ -85,6 +85,10 @@ export class DeviceFleet extends pulumi.CustomResource {
      */
     public readonly outputConfig!: pulumi.Output<outputs.sagemaker.DeviceFleetOutputConfig>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -94,8 +98,6 @@ export class DeviceFleet extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -118,6 +120,7 @@ export class DeviceFleet extends pulumi.CustomResource {
             resourceInputs["enableIotRoleAlias"] = state ? state.enableIotRoleAlias : undefined;
             resourceInputs["iotRoleAlias"] = state ? state.iotRoleAlias : undefined;
             resourceInputs["outputConfig"] = state ? state.outputConfig : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -136,6 +139,7 @@ export class DeviceFleet extends pulumi.CustomResource {
             resourceInputs["deviceFleetName"] = args ? args.deviceFleetName : undefined;
             resourceInputs["enableIotRoleAlias"] = args ? args.enableIotRoleAlias : undefined;
             resourceInputs["outputConfig"] = args ? args.outputConfig : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -173,6 +177,10 @@ export interface DeviceFleetState {
      */
     outputConfig?: pulumi.Input<inputs.sagemaker.DeviceFleetOutputConfig>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
      */
     roleArn?: pulumi.Input<string>;
@@ -182,8 +190,6 @@ export interface DeviceFleetState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -208,6 +214,10 @@ export interface DeviceFleetArgs {
      * Specifies details about the repository. see Output Config details below.
      */
     outputConfig: pulumi.Input<inputs.sagemaker.DeviceFleetOutputConfig>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
      */

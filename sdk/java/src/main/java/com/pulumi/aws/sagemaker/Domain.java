@@ -90,6 +90,76 @@ import javax.annotation.Nullable;
  * ### Using Custom Images
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sagemaker.Image;
+ * import com.pulumi.aws.sagemaker.ImageArgs;
+ * import com.pulumi.aws.sagemaker.AppImageConfig;
+ * import com.pulumi.aws.sagemaker.AppImageConfigArgs;
+ * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigArgs;
+ * import com.pulumi.aws.sagemaker.ImageVersion;
+ * import com.pulumi.aws.sagemaker.ImageVersionArgs;
+ * import com.pulumi.aws.sagemaker.Domain;
+ * import com.pulumi.aws.sagemaker.DomainArgs;
+ * import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsArgs;
+ * import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Image("example", ImageArgs.builder()
+ *             .imageName("example")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .build());
+ * 
+ *         var exampleAppImageConfig = new AppImageConfig("exampleAppImageConfig", AppImageConfigArgs.builder()
+ *             .appImageConfigName("example")
+ *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
+ *                 .kernelSpecs(AppImageConfigKernelGatewayImageConfigKernelSpecArgs.builder()
+ *                     .name("example")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleImageVersion = new ImageVersion("exampleImageVersion", ImageVersionArgs.builder()
+ *             .imageName(example.id())
+ *             .baseImage("base-image")
+ *             .build());
+ * 
+ *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
+ *             .domainName("example")
+ *             .authMode("IAM")
+ *             .vpcId(exampleAwsVpc.id())
+ *             .subnetIds(exampleAwsSubnet.id())
+ *             .defaultUserSettings(DomainDefaultUserSettingsArgs.builder()
+ *                 .executionRole(exampleAwsIamRole.arn())
+ *                 .kernelGatewayAppSettings(DomainDefaultUserSettingsKernelGatewayAppSettingsArgs.builder()
+ *                     .customImages(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs.builder()
+ *                         .appImageConfigName(exampleAppImageConfig.appImageConfigName())
+ *                         .imageName(exampleImageVersion.imageName())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -244,6 +314,20 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsKeyId);
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retention_policy` Block below.
      * 
      */
@@ -344,11 +428,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

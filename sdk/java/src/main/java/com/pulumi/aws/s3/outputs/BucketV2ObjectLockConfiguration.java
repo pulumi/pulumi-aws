@@ -26,10 +26,10 @@ public final class BucketV2ObjectLockConfiguration {
      * @return Object Lock rule in place for this bucket (documented below).
      * 
      * @deprecated
-     * rule is deprecated. Use the aws.s3.BucketObjectLockConfigurationV2 resource instead.
+     * rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead.
      * 
      */
-    @Deprecated /* rule is deprecated. Use the aws.s3.BucketObjectLockConfigurationV2 resource instead. */
+    @Deprecated /* rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead. */
     private @Nullable List<BucketV2ObjectLockConfigurationRule> rules;
 
     private BucketV2ObjectLockConfiguration() {}
@@ -48,10 +48,10 @@ public final class BucketV2ObjectLockConfiguration {
      * @return Object Lock rule in place for this bucket (documented below).
      * 
      * @deprecated
-     * rule is deprecated. Use the aws.s3.BucketObjectLockConfigurationV2 resource instead.
+     * rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead.
      * 
      */
-    @Deprecated /* rule is deprecated. Use the aws.s3.BucketObjectLockConfigurationV2 resource instead. */
+    @Deprecated /* rule is deprecated. Use the aws.s3.BucketObjectLockConfiguration resource instead. */
     public List<BucketV2ObjectLockConfigurationRule> rules() {
         return this.rules == null ? List.of() : this.rules;
     }

@@ -28,26 +28,26 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "mybucket",
+    ///         BucketName = "mybucket",
     ///     });
     /// 
-    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("example", new()
+    ///     var exampleBucketVersioning = new Aws.S3.BucketVersioning("example", new()
     ///     {
     ///         Bucket = example.Id,
-    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
     ///     });
     /// 
-    ///     var exampleBucketObjectLockConfigurationV2 = new Aws.S3.BucketObjectLockConfigurationV2("example", new()
+    ///     var exampleBucketObjectLockConfiguration = new Aws.S3.BucketObjectLockConfiguration("example", new()
     ///     {
     ///         Bucket = example.Id,
-    ///         Rule = new Aws.S3.Inputs.BucketObjectLockConfigurationV2RuleArgs
+    ///         Rule = new Aws.S3.Inputs.BucketObjectLockConfigurationRuleArgs
     ///         {
-    ///             DefaultRetention = new Aws.S3.Inputs.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs
+    ///             DefaultRetention = new Aws.S3.Inputs.BucketObjectLockConfigurationRuleDefaultRetentionArgs
     ///             {
     ///                 Mode = "COMPLIANCE",
     ///                 Days = 5,
@@ -73,6 +73,7 @@ namespace Pulumi.Aws.S3
     /// $ pulumi import aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2 example bucket-name,123456789012
     /// ```
     /// </summary>
+    [Obsolete(@"aws.s3/bucketobjectlockconfigurationv2.BucketObjectLockConfigurationV2 has been deprecated in favor of aws.s3/bucketobjectlockconfiguration.BucketObjectLockConfiguration")]
     [AwsResourceType("aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2")]
     public partial class BucketObjectLockConfigurationV2 : global::Pulumi.CustomResource
     {
@@ -95,6 +96,12 @@ namespace Pulumi.Aws.S3
         public Output<string?> ObjectLockEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for specifying the Object Lock rule for the specified object. See below.
         /// </summary>
         [Output("rule")]
@@ -102,7 +109,7 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// This argument is deprecated and no longer needed to enable Object Lock.
-        /// To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
+        /// To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
         /// </summary>
         [Output("token")]
         public Output<string?> Token { get; private set; } = null!;
@@ -130,6 +137,10 @@ namespace Pulumi.Aws.S3
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "aws:s3/bucketObjectLockConfigurationV2:BucketObjectLockConfigurationV2" },
+                },
                 AdditionalSecretOutputs =
                 {
                     "token",
@@ -176,6 +187,12 @@ namespace Pulumi.Aws.S3
         public Input<string>? ObjectLockEnabled { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for specifying the Object Lock rule for the specified object. See below.
         /// </summary>
         [Input("rule")]
@@ -186,7 +203,7 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// This argument is deprecated and no longer needed to enable Object Lock.
-        /// To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
+        /// To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
         /// </summary>
         public Input<string>? Token
         {
@@ -225,6 +242,12 @@ namespace Pulumi.Aws.S3
         public Input<string>? ObjectLockEnabled { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for specifying the Object Lock rule for the specified object. See below.
         /// </summary>
         [Input("rule")]
@@ -235,7 +258,7 @@ namespace Pulumi.Aws.S3
 
         /// <summary>
         /// This argument is deprecated and no longer needed to enable Object Lock.
-        /// To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioningV2` resource.
+        /// To enable Object Lock for an existing bucket, you must first enable versioning on the bucket and then enable Object Lock. For more details on versioning, see the `aws.s3.BucketVersioning` resource.
         /// </summary>
         public Input<string>? Token
         {

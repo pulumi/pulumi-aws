@@ -27,7 +27,7 @@ class GetQuicksightUserResult:
     """
     A collection of values returned by getQuicksightUser.
     """
-    def __init__(__self__, active=None, arn=None, aws_account_id=None, email=None, id=None, identity_type=None, namespace=None, principal_id=None, user_name=None, user_role=None):
+    def __init__(__self__, active=None, arn=None, aws_account_id=None, email=None, id=None, identity_type=None, namespace=None, principal_id=None, region=None, user_name=None, user_role=None):
         if active and not isinstance(active, bool):
             raise TypeError("Expected argument 'active' to be a bool")
         pulumi.set(__self__, "active", active)
@@ -52,6 +52,9 @@ class GetQuicksightUserResult:
         if principal_id and not isinstance(principal_id, str):
             raise TypeError("Expected argument 'principal_id' to be a str")
         pulumi.set(__self__, "principal_id", principal_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if user_name and not isinstance(user_name, str):
             raise TypeError("Expected argument 'user_name' to be a str")
         pulumi.set(__self__, "user_name", user_name)
@@ -118,6 +121,11 @@ class GetQuicksightUserResult:
         return pulumi.get(self, "principal_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="userName")
     def user_name(self) -> builtins.str:
         return pulumi.get(self, "user_name")
@@ -148,12 +156,14 @@ class AwaitableGetQuicksightUserResult(GetQuicksightUserResult):
             identity_type=self.identity_type,
             namespace=self.namespace,
             principal_id=self.principal_id,
+            region=self.region,
             user_name=self.user_name,
             user_role=self.user_role)
 
 
 def get_quicksight_user(aws_account_id: Optional[builtins.str] = None,
                         namespace: Optional[builtins.str] = None,
+                        region: Optional[builtins.str] = None,
                         user_name: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQuicksightUserResult:
     """
@@ -175,6 +185,7 @@ def get_quicksight_user(aws_account_id: Optional[builtins.str] = None,
 
     :param builtins.str aws_account_id: AWS account ID.
     :param builtins.str namespace: QuickSight namespace. Defaults to `default`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_name: The name of the user that you want to match.
            
            The following arguments are optional:
@@ -182,6 +193,7 @@ def get_quicksight_user(aws_account_id: Optional[builtins.str] = None,
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
     __args__['namespace'] = namespace
+    __args__['region'] = region
     __args__['userName'] = user_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:quicksight/getQuicksightUser:getQuicksightUser', __args__, opts=opts, typ=GetQuicksightUserResult).value
@@ -195,10 +207,12 @@ def get_quicksight_user(aws_account_id: Optional[builtins.str] = None,
         identity_type=pulumi.get(__ret__, 'identity_type'),
         namespace=pulumi.get(__ret__, 'namespace'),
         principal_id=pulumi.get(__ret__, 'principal_id'),
+        region=pulumi.get(__ret__, 'region'),
         user_name=pulumi.get(__ret__, 'user_name'),
         user_role=pulumi.get(__ret__, 'user_role'))
 def get_quicksight_user_output(aws_account_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                namespace: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                               region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                user_name: Optional[pulumi.Input[builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQuicksightUserResult]:
     """
@@ -220,6 +234,7 @@ def get_quicksight_user_output(aws_account_id: Optional[pulumi.Input[Optional[bu
 
     :param builtins.str aws_account_id: AWS account ID.
     :param builtins.str namespace: QuickSight namespace. Defaults to `default`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_name: The name of the user that you want to match.
            
            The following arguments are optional:
@@ -227,6 +242,7 @@ def get_quicksight_user_output(aws_account_id: Optional[pulumi.Input[Optional[bu
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
     __args__['namespace'] = namespace
+    __args__['region'] = region
     __args__['userName'] = user_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:quicksight/getQuicksightUser:getQuicksightUser', __args__, opts=opts, typ=GetQuicksightUserResult)
@@ -239,5 +255,6 @@ def get_quicksight_user_output(aws_account_id: Optional[pulumi.Input[Optional[bu
         identity_type=pulumi.get(__response__, 'identity_type'),
         namespace=pulumi.get(__response__, 'namespace'),
         principal_id=pulumi.get(__response__, 'principal_id'),
+        region=pulumi.get(__response__, 'region'),
         user_name=pulumi.get(__response__, 'user_name'),
         user_role=pulumi.get(__response__, 'user_role')))

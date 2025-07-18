@@ -83,6 +83,10 @@ export class ServiceQuota extends pulumi.CustomResource {
      * Name of the quota.
      */
     public /*out*/ readonly quotaName!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public /*out*/ readonly requestId!: pulumi.Output<string>;
     public /*out*/ readonly requestStatus!: pulumi.Output<string>;
     /**
@@ -120,6 +124,7 @@ export class ServiceQuota extends pulumi.CustomResource {
             resourceInputs["defaultValue"] = state ? state.defaultValue : undefined;
             resourceInputs["quotaCode"] = state ? state.quotaCode : undefined;
             resourceInputs["quotaName"] = state ? state.quotaName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["requestId"] = state ? state.requestId : undefined;
             resourceInputs["requestStatus"] = state ? state.requestStatus : undefined;
             resourceInputs["serviceCode"] = state ? state.serviceCode : undefined;
@@ -138,6 +143,7 @@ export class ServiceQuota extends pulumi.CustomResource {
                 throw new Error("Missing required property 'value'");
             }
             resourceInputs["quotaCode"] = args ? args.quotaCode : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceCode"] = args ? args.serviceCode : undefined;
             resourceInputs["value"] = args ? args.value : undefined;
             resourceInputs["adjustable"] = undefined /*out*/;
@@ -178,6 +184,10 @@ export interface ServiceQuotaState {
      * Name of the quota.
      */
     quotaName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     requestId?: pulumi.Input<string>;
     requestStatus?: pulumi.Input<string>;
     /**
@@ -206,6 +216,10 @@ export interface ServiceQuotaArgs {
      * Code of the service quota to track. For example: `L-F678F1CE`. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
      */
     quotaCode: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Code of the service to track. For example: `vpc`. Available values can be found with the [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      */

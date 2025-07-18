@@ -77,6 +77,12 @@ namespace Pulumi.Aws.Sqs
         [Output("redriveAllowPolicy")]
         public Output<string> RedriveAllowPolicyName { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a RedriveAllowPolicy resource with the given unique name, arguments, and options.
@@ -135,6 +141,12 @@ namespace Pulumi.Aws.Sqs
         [Input("redriveAllowPolicy", required: true)]
         public Input<string> RedriveAllowPolicyName { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public RedriveAllowPolicyArgs()
         {
         }
@@ -154,6 +166,12 @@ namespace Pulumi.Aws.Sqs
         /// </summary>
         [Input("redriveAllowPolicy")]
         public Input<string>? RedriveAllowPolicyName { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public RedriveAllowPolicyState()
         {

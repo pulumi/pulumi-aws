@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datazone"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datazone"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,6 +71,8 @@ type Project struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
 	ProjectStatus pulumi.StringOutput `pulumi:"projectStatus"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Optional flag to delete all child entities within the project.
 	SkipDeletionCheck pulumi.BoolPtrOutput     `pulumi:"skipDeletionCheck"`
 	Timeouts          ProjectTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -129,6 +131,8 @@ type projectState struct {
 	Name *string `pulumi:"name"`
 	// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
 	ProjectStatus *string `pulumi:"projectStatus"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Optional flag to delete all child entities within the project.
 	SkipDeletionCheck *bool            `pulumi:"skipDeletionCheck"`
 	Timeouts          *ProjectTimeouts `pulumi:"timeouts"`
@@ -155,6 +159,8 @@ type ProjectState struct {
 	Name pulumi.StringPtrInput
 	// Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
 	ProjectStatus pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Optional flag to delete all child entities within the project.
 	SkipDeletionCheck pulumi.BoolPtrInput
 	Timeouts          ProjectTimeoutsPtrInput
@@ -175,6 +181,8 @@ type projectArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Optional flag to delete all child entities within the project.
 	SkipDeletionCheck *bool            `pulumi:"skipDeletionCheck"`
 	Timeouts          *ProjectTimeouts `pulumi:"timeouts"`
@@ -192,6 +200,8 @@ type ProjectArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Optional flag to delete all child entities within the project.
 	SkipDeletionCheck pulumi.BoolPtrInput
 	Timeouts          ProjectTimeoutsPtrInput
@@ -329,6 +339,11 @@ func (o ProjectOutput) Name() pulumi.StringOutput {
 // Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
 func (o ProjectOutput) ProjectStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ProjectStatus }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ProjectOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Optional flag to delete all child entities within the project.

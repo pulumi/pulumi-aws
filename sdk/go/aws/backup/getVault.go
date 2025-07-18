@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupVault(ctx *pulumi.Context, args *LookupVaultArgs, opts ...pulumi.Invo
 type LookupVaultArgs struct {
 	// Name of the backup vault.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Metadata that you can assign to help organize the resources that you create.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -66,7 +68,8 @@ type LookupVaultResult struct {
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 	Name      string `pulumi:"name"`
 	// Number of recovery points that are stored in a backup vault.
-	RecoveryPoints int `pulumi:"recoveryPoints"`
+	RecoveryPoints int    `pulumi:"recoveryPoints"`
+	Region         string `pulumi:"region"`
 	// Metadata that you can assign to help organize the resources that you create.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -84,6 +87,8 @@ func LookupVaultOutput(ctx *pulumi.Context, args LookupVaultOutputArgs, opts ...
 type LookupVaultOutputArgs struct {
 	// Name of the backup vault.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Metadata that you can assign to help organize the resources that you create.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -129,6 +134,10 @@ func (o LookupVaultResultOutput) Name() pulumi.StringOutput {
 // Number of recovery points that are stored in a backup vault.
 func (o LookupVaultResultOutput) RecoveryPoints() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupVaultResult) int { return v.RecoveryPoints }).(pulumi.IntOutput)
+}
+
+func (o LookupVaultResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVaultResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Metadata that you can assign to help organize the resources that you create.

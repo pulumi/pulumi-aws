@@ -26,6 +26,7 @@ class InternetMonitorArgs:
                  health_events_config: Optional[pulumi.Input['InternetMonitorHealthEventsConfigArgs']] = None,
                  internet_measurements_log_delivery: Optional[pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryArgs']] = None,
                  max_city_networks_to_monitor: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -38,6 +39,7 @@ class InternetMonitorArgs:
         :param pulumi.Input['InternetMonitorHealthEventsConfigArgs'] health_events_config: Health event thresholds. A health event threshold percentage, for performance and availability, determines when Internet Monitor creates a health event when there's an internet issue that affects your application end users. See Health Events Config below.
         :param pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryArgs'] internet_measurements_log_delivery: Publish internet measurements for Internet Monitor to an Amazon S3 bucket in addition to CloudWatch Logs.
         :param pulumi.Input[builtins.int] max_city_networks_to_monitor: The maximum number of city-networks to monitor for your resources. A city-network is the location (city) where clients access your application resources from and the network or ASN, such as an internet service provider (ISP), that clients access the resources through. This limit helps control billing costs.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resources: The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
         :param pulumi.Input[builtins.str] status: The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -50,6 +52,8 @@ class InternetMonitorArgs:
             pulumi.set(__self__, "internet_measurements_log_delivery", internet_measurements_log_delivery)
         if max_city_networks_to_monitor is not None:
             pulumi.set(__self__, "max_city_networks_to_monitor", max_city_networks_to_monitor)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resources is not None:
             pulumi.set(__self__, "resources", resources)
         if status is not None:
@@ -111,6 +115,18 @@ class InternetMonitorArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
         The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
@@ -166,6 +182,7 @@ class _InternetMonitorState:
                  internet_measurements_log_delivery: Optional[pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryArgs']] = None,
                  max_city_networks_to_monitor: Optional[pulumi.Input[builtins.int]] = None,
                  monitor_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -180,6 +197,7 @@ class _InternetMonitorState:
         :param pulumi.Input[builtins.str] monitor_name: The name of the monitor.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resources: The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
         :param pulumi.Input[builtins.str] status: The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -196,15 +214,14 @@ class _InternetMonitorState:
             pulumi.set(__self__, "max_city_networks_to_monitor", max_city_networks_to_monitor)
         if monitor_name is not None:
             pulumi.set(__self__, "monitor_name", monitor_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resources is not None:
             pulumi.set(__self__, "resources", resources)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if traffic_percentage_to_monitor is not None:
@@ -274,6 +291,18 @@ class _InternetMonitorState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
         The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
@@ -310,7 +339,6 @@ class _InternetMonitorState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -344,6 +372,7 @@ class InternetMonitor(pulumi.CustomResource):
                  internet_measurements_log_delivery: Optional[pulumi.Input[Union['InternetMonitorInternetMeasurementsLogDeliveryArgs', 'InternetMonitorInternetMeasurementsLogDeliveryArgsDict']]] = None,
                  max_city_networks_to_monitor: Optional[pulumi.Input[builtins.int]] = None,
                  monitor_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -377,6 +406,7 @@ class InternetMonitor(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] monitor_name: The name of the monitor.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resources: The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
         :param pulumi.Input[builtins.str] status: The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -427,6 +457,7 @@ class InternetMonitor(pulumi.CustomResource):
                  internet_measurements_log_delivery: Optional[pulumi.Input[Union['InternetMonitorInternetMeasurementsLogDeliveryArgs', 'InternetMonitorInternetMeasurementsLogDeliveryArgsDict']]] = None,
                  max_city_networks_to_monitor: Optional[pulumi.Input[builtins.int]] = None,
                  monitor_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -446,6 +477,7 @@ class InternetMonitor(pulumi.CustomResource):
             if monitor_name is None and not opts.urn:
                 raise TypeError("Missing required property 'monitor_name'")
             __props__.__dict__["monitor_name"] = monitor_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["resources"] = resources
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
@@ -467,6 +499,7 @@ class InternetMonitor(pulumi.CustomResource):
             internet_measurements_log_delivery: Optional[pulumi.Input[Union['InternetMonitorInternetMeasurementsLogDeliveryArgs', 'InternetMonitorInternetMeasurementsLogDeliveryArgsDict']]] = None,
             max_city_networks_to_monitor: Optional[pulumi.Input[builtins.int]] = None,
             monitor_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -486,6 +519,7 @@ class InternetMonitor(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] monitor_name: The name of the monitor.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resources: The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
         :param pulumi.Input[builtins.str] status: The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -501,6 +535,7 @@ class InternetMonitor(pulumi.CustomResource):
         __props__.__dict__["internet_measurements_log_delivery"] = internet_measurements_log_delivery
         __props__.__dict__["max_city_networks_to_monitor"] = max_city_networks_to_monitor
         __props__.__dict__["monitor_name"] = monitor_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["resources"] = resources
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
@@ -552,6 +587,14 @@ class InternetMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def resources(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
         The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
@@ -576,7 +619,6 @@ class InternetMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

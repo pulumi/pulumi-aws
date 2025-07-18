@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,9 +25,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/bedrock"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,7 +73,7 @@ import (
 // {
 // Test: "ArnLike",
 // Values: []string{
-// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent/*", currentGetPartition.Partition, currentGetRegion.Name, current.AccountId),
+// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent/*", currentGetPartition.Partition, currentGetRegion.Region, current.AccountId),
 // },
 // Variable: "AWS:SourceArn",
 // },
@@ -91,7 +91,7 @@ import (
 // "bedrock:InvokeModel",
 // },
 // Resources: []string{
-// fmt.Sprintf("arn:%v:bedrock:%v::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0", currentGetPartition.Partition, currentGetRegion.Name),
+// fmt.Sprintf("arn:%v:bedrock:%v::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0", currentGetPartition.Partition, currentGetRegion.Region),
 // },
 // },
 // {
@@ -100,8 +100,8 @@ import (
 // "bedrock:InvokeAgent",
 // },
 // Resources: []string{
-// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent/*", currentAgent.Partition, currentGetRegion.Name, current.AccountId),
-// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent-alias/*", currentAgent.Partition, currentGetRegion.Name, current.AccountId),
+// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent/*", currentAgent.Partition, currentGetRegion.Region, current.AccountId),
+// fmt.Sprintf("arn:%v:bedrock:%v:%v:agent-alias/*", currentAgent.Partition, currentGetRegion.Region, current.AccountId),
 // },
 // },
 // },
@@ -191,6 +191,8 @@ type AgentAgentCollaborator struct {
 	CollaboratorName pulumi.StringOutput `pulumi:"collaboratorName"`
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolOutput `pulumi:"prepareAgent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configure relaying the history to the collaborator.
 	RelayConversationHistory pulumi.StringOutput                     `pulumi:"relayConversationHistory"`
 	Timeouts                 AgentAgentCollaboratorTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -246,6 +248,8 @@ type agentAgentCollaboratorState struct {
 	CollaboratorName *string `pulumi:"collaboratorName"`
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent *bool `pulumi:"prepareAgent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configure relaying the history to the collaborator.
 	RelayConversationHistory *string                         `pulumi:"relayConversationHistory"`
 	Timeouts                 *AgentAgentCollaboratorTimeouts `pulumi:"timeouts"`
@@ -263,6 +267,8 @@ type AgentAgentCollaboratorState struct {
 	CollaboratorName pulumi.StringPtrInput
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configure relaying the history to the collaborator.
 	RelayConversationHistory pulumi.StringPtrInput
 	Timeouts                 AgentAgentCollaboratorTimeoutsPtrInput
@@ -282,6 +288,8 @@ type agentAgentCollaboratorArgs struct {
 	CollaboratorName         string `pulumi:"collaboratorName"`
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent *bool `pulumi:"prepareAgent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configure relaying the history to the collaborator.
 	RelayConversationHistory *string                         `pulumi:"relayConversationHistory"`
 	Timeouts                 *AgentAgentCollaboratorTimeouts `pulumi:"timeouts"`
@@ -298,6 +306,8 @@ type AgentAgentCollaboratorArgs struct {
 	CollaboratorName         pulumi.StringInput
 	// Whether to prepare the agent after creation or modification. Defaults to `true`.
 	PrepareAgent pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configure relaying the history to the collaborator.
 	RelayConversationHistory pulumi.StringPtrInput
 	Timeouts                 AgentAgentCollaboratorTimeoutsPtrInput
@@ -422,6 +432,11 @@ func (o AgentAgentCollaboratorOutput) CollaboratorName() pulumi.StringOutput {
 // Whether to prepare the agent after creation or modification. Defaults to `true`.
 func (o AgentAgentCollaboratorOutput) PrepareAgent() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AgentAgentCollaborator) pulumi.BoolOutput { return v.PrepareAgent }).(pulumi.BoolOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AgentAgentCollaboratorOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentAgentCollaborator) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Configure relaying the history to the collaborator.

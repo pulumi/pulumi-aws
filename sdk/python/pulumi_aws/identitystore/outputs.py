@@ -27,7 +27,6 @@ __all__ = [
     'GetGroupAlternateIdentifierExternalIdResult',
     'GetGroupAlternateIdentifierUniqueAttributeResult',
     'GetGroupExternalIdResult',
-    'GetGroupFilterResult',
     'GetGroupMembershipsGroupMembershipResult',
     'GetGroupMembershipsGroupMembershipMemberIdResult',
     'GetGroupsGroupResult',
@@ -38,7 +37,6 @@ __all__ = [
     'GetUserAlternateIdentifierUniqueAttributeResult',
     'GetUserEmailResult',
     'GetUserExternalIdResult',
-    'GetUserFilterResult',
     'GetUserNameResult',
     'GetUserPhoneNumberResult',
     'GetUsersUserResult',
@@ -548,35 +546,6 @@ class GetGroupExternalIdResult(dict):
 
 
 @pulumi.output_type
-class GetGroupFilterResult(dict):
-    def __init__(__self__, *,
-                 attribute_path: builtins.str,
-                 attribute_value: builtins.str):
-        """
-        :param builtins.str attribute_path: Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
-        :param builtins.str attribute_value: Value for an attribute.
-        """
-        pulumi.set(__self__, "attribute_path", attribute_path)
-        pulumi.set(__self__, "attribute_value", attribute_value)
-
-    @property
-    @pulumi.getter(name="attributePath")
-    def attribute_path(self) -> builtins.str:
-        """
-        Attribute path that is used to specify which attribute name to search. Currently, `DisplayName` is the only valid attribute path.
-        """
-        return pulumi.get(self, "attribute_path")
-
-    @property
-    @pulumi.getter(name="attributeValue")
-    def attribute_value(self) -> builtins.str:
-        """
-        Value for an attribute.
-        """
-        return pulumi.get(self, "attribute_value")
-
-
-@pulumi.output_type
 class GetGroupMembershipsGroupMembershipResult(dict):
     def __init__(__self__, *,
                  group_id: builtins.str,
@@ -749,7 +718,7 @@ class GetUserAddressResult(dict):
         :param builtins.str locality: The address locality.
         :param builtins.str postal_code: The postal code of the address.
         :param builtins.bool primary: When `true`, this is the primary phone number associated with the user.
-        :param builtins.str region: The region of the address.
+        :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param builtins.str street_address: The street of the address.
         :param builtins.str type: The type of phone number.
         """
@@ -806,7 +775,7 @@ class GetUserAddressResult(dict):
     @pulumi.getter
     def region(self) -> builtins.str:
         """
-        The region of the address.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -987,35 +956,6 @@ class GetUserExternalIdResult(dict):
         The issuer for an external identifier.
         """
         return pulumi.get(self, "issuer")
-
-
-@pulumi.output_type
-class GetUserFilterResult(dict):
-    def __init__(__self__, *,
-                 attribute_path: builtins.str,
-                 attribute_value: builtins.str):
-        """
-        :param builtins.str attribute_path: Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
-        :param builtins.str attribute_value: Value for an attribute.
-        """
-        pulumi.set(__self__, "attribute_path", attribute_path)
-        pulumi.set(__self__, "attribute_value", attribute_value)
-
-    @property
-    @pulumi.getter(name="attributePath")
-    def attribute_path(self) -> builtins.str:
-        """
-        Attribute path that is used to specify which attribute name to search. Currently, `UserName` is the only valid attribute path.
-        """
-        return pulumi.get(self, "attribute_path")
-
-    @property
-    @pulumi.getter(name="attributeValue")
-    def attribute_value(self) -> builtins.str:
-        """
-        Value for an attribute.
-        """
-        return pulumi.get(self, "attribute_value")
 
 
 @pulumi.output_type
@@ -1331,7 +1271,7 @@ class GetUsersUserAddressResult(dict):
         :param builtins.str locality: Address locality.
         :param builtins.str postal_code: Postal code of the address.
         :param builtins.bool primary: When `true`, this is the primary phone number associated with the user.
-        :param builtins.str region: Region of the address.
+        :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param builtins.str street_address: Street of the address.
         :param builtins.str type: Type of phone number.
         """
@@ -1388,7 +1328,7 @@ class GetUsersUserAddressResult(dict):
     @pulumi.getter
     def region(self) -> builtins.str:
         """
-        Region of the address.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

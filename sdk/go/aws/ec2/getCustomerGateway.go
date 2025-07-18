@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,6 +79,8 @@ type LookupCustomerGatewayArgs struct {
 	Filters []GetCustomerGatewayFilter `pulumi:"filters"`
 	// ID of the gateway.
 	Id *string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of key-value pairs assigned to the gateway.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -99,6 +101,7 @@ type LookupCustomerGatewayResult struct {
 	Id         string                     `pulumi:"id"`
 	// IP address of the gateway's Internet-routable external interface.
 	IpAddress string `pulumi:"ipAddress"`
+	Region    string `pulumi:"region"`
 	// Map of key-value pairs assigned to the gateway.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of customer gateway. The only type AWS supports at this time is "ipsec.1".
@@ -122,6 +125,8 @@ type LookupCustomerGatewayOutputArgs struct {
 	Filters GetCustomerGatewayFilterArrayInput `pulumi:"filters"`
 	// ID of the gateway.
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of key-value pairs assigned to the gateway.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -181,6 +186,10 @@ func (o LookupCustomerGatewayResultOutput) Id() pulumi.StringOutput {
 // IP address of the gateway's Internet-routable external interface.
 func (o LookupCustomerGatewayResultOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomerGatewayResult) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+func (o LookupCustomerGatewayResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomerGatewayResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of key-value pairs assigned to the gateway.

@@ -10,89 +10,59 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda
 {
     /// <summary>
-    /// Provides a Lambda Function resource. Lambda allows you to trigger execution of code in response to events in AWS, enabling serverless backend solutions. The Lambda Function itself includes source code and runtime configuration.
+    /// Manages an AWS Lambda Function. Use this resource to create serverless functions that run code in response to events without provisioning or managing servers.
     /// 
-    /// For information about Lambda and how to use it, see [What is AWS Lambda?](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
+    /// For information about Lambda and how to use it, see [What is AWS Lambda?](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html). For a detailed example of setting up Lambda and API Gateway, see Serverless Applications with AWS Lambda and API Gateway.
     /// 
-    /// &gt; **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), EC2 subnets and security groups associated with Lambda Functions can take up to 45 minutes to successfully delete. To allow for successful deletion, the provider will wait for at least 45 minutes even if a shorter delete timeout is specified.
+    /// &gt; **Note:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), EC2 subnets and security groups associated with Lambda Functions can take up to 45 minutes to successfully delete. Pulumi AWS Provider version 2.31.0 and later automatically handles this increased timeout, however prior versions require setting the customizable deletion timeouts of those Pulumi resources to 45 minutes (`delete = "45m"`). AWS and HashiCorp are working together to reduce the amount of time required for resource deletion and updates can be tracked in this GitHub issue.
     /// 
-    /// &gt; **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
+    /// &gt; **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function's role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function's IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function's role or recreating the function causes Lambda to update the grant.)
     /// 
-    /// &gt; To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `aws.lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
+    /// &gt; **Tip:** To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `aws.lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
     /// 
     /// ## Example Usage
     /// 
-    /// ### Basic Example
+    /// ### Container Image Function
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
-    /// using Archive = Pulumi.Archive;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = new Aws.Lambda.Function("example", new()
     ///     {
-    ///         Statements = new[]
+    ///         Name = "example_container_function",
+    ///         Role = exampleAwsIamRole.Arn,
+    ///         PackageType = "Image",
+    ///         ImageUri = $"{exampleAwsEcrRepository.RepositoryUrl}:latest",
+    ///         ImageConfig = new Aws.Lambda.Inputs.FunctionImageConfigArgs
     ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             EntryPoints = new[]
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "lambda.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
+    ///                 "/lambda-entrypoint.sh",
+    ///             },
+    ///             Commands = new[]
+    ///             {
+    ///                 "app.handler",
     ///             },
     ///         },
-    ///     });
-    /// 
-    ///     var iamForLambda = new Aws.Iam.Role("iam_for_lambda", new()
-    ///     {
-    ///         Name = "iam_for_lambda",
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var lambda = Archive.GetFile.Invoke(new()
-    ///     {
-    ///         Type = "zip",
-    ///         SourceFile = "lambda.js",
-    ///         OutputPath = "lambda_function_payload.zip",
-    ///     });
-    /// 
-    ///     var testLambda = new Aws.Lambda.Function("test_lambda", new()
-    ///     {
-    ///         Code = new FileArchive("lambda_function_payload.zip"),
-    ///         Name = "lambda_function_name",
-    ///         Role = iamForLambda.Arn,
-    ///         Handler = "index.test",
-    ///         SourceCodeHash = lambda.Apply(getFileResult =&gt; getFileResult.OutputBase64sha256),
-    ///         Runtime = Aws.Lambda.Runtime.NodeJS18dX,
-    ///         Environment = new Aws.Lambda.Inputs.FunctionEnvironmentArgs
+    ///         MemorySize = 512,
+    ///         Timeout = 30,
+    ///         Architectures = new[]
     ///         {
-    ///             Variables = 
-    ///             {
-    ///                 { "foo", "bar" },
-    ///             },
+    ///             "arm64",
     ///         },
     ///     });
     /// 
     /// });
     /// ```
     /// 
-    /// ### Lambda Layers
+    /// ### Function with Lambda Layers
+    /// 
+    /// &gt; **Note:** The `aws.lambda.LayerVersion` attribute values for `arn` and `layer_arn` were swapped in version 2.0.0 of the Pulumi AWS Provider. For version 2.x, use `arn` references.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -102,22 +72,46 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Lambda.LayerVersion("example");
+    ///     // Common dependencies layer
+    ///     var example = new Aws.Lambda.LayerVersion("example", new()
+    ///     {
+    ///         Code = new FileArchive("layer.zip"),
+    ///         LayerName = "example_dependencies_layer",
+    ///         Description = "Common dependencies for Lambda functions",
+    ///         CompatibleRuntimes = new[]
+    ///         {
+    ///             "nodejs20.x",
+    ///             "python3.12",
+    ///         },
+    ///         CompatibleArchitectures = new[]
+    ///         {
+    ///             "x86_64",
+    ///             "arm64",
+    ///         },
+    ///     });
     /// 
+    ///     // Function using the layer
     ///     var exampleFunction = new Aws.Lambda.Function("example", new()
     ///     {
+    ///         Code = new FileArchive("function.zip"),
+    ///         Name = "example_layered_function",
+    ///         Role = exampleAwsIamRole.Arn,
+    ///         Handler = "index.handler",
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
     ///         Layers = new[]
     ///         {
     ///             example.Arn,
     ///         },
+    ///         TracingConfig = new Aws.Lambda.Inputs.FunctionTracingConfigArgs
+    ///         {
+    ///             Mode = "Active",
+    ///         },
     ///     });
     /// 
     /// });
     /// ```
     /// 
-    /// ### Lambda Ephemeral Storage
-    /// 
-    /// Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
+    /// ### VPC Function with Enhanced Networking
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -127,57 +121,42 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var example = new Aws.Lambda.Function("example", new()
     ///     {
-    ///         Statements = new[]
+    ///         Code = new FileArchive("function.zip"),
+    ///         Name = "example_vpc_function",
+    ///         Role = exampleAwsIamRole.Arn,
+    ///         Handler = "app.handler",
+    ///         Runtime = Aws.Lambda.Runtime.Python3d12,
+    ///         MemorySize = 1024,
+    ///         Timeout = 30,
+    ///         VpcConfig = new Aws.Lambda.Inputs.FunctionVpcConfigArgs
     ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             SubnetIds = new[]
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "Service",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "lambda.amazonaws.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
+    ///                 examplePrivate1.Id,
+    ///                 examplePrivate2.Id,
     ///             },
+    ///             SecurityGroupIds = new[]
+    ///             {
+    ///                 exampleLambda.Id,
+    ///             },
+    ///             Ipv6AllowedForDualStack = true,
     ///         },
-    ///     });
-    /// 
-    ///     var iamForLambda = new Aws.Iam.Role("iam_for_lambda", new()
-    ///     {
-    ///         Name = "iam_for_lambda",
-    ///         AssumeRolePolicy = assumeRole.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var testLambda = new Aws.Lambda.Function("test_lambda", new()
-    ///     {
-    ///         Code = new FileArchive("lambda_function_payload.zip"),
-    ///         Name = "lambda_function_name",
-    ///         Role = iamForLambda.Arn,
-    ///         Handler = "index.test",
-    ///         Runtime = Aws.Lambda.Runtime.NodeJS18dX,
     ///         EphemeralStorage = new Aws.Lambda.Inputs.FunctionEphemeralStorageArgs
     ///         {
-    ///             Size = 10240,
+    ///             Size = 5120,
+    ///         },
+    ///         SnapStart = new Aws.Lambda.Inputs.FunctionSnapStartArgs
+    ///         {
+    ///             ApplyOn = "PublishedVersions",
     ///         },
     ///     });
     /// 
     /// });
     /// ```
     /// 
-    /// ### Lambda File Systems
-    /// 
-    /// Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
+    /// ### Function with EFS Integration
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -187,30 +166,42 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     // EFS file system
-    ///     var efsForLambda = new Aws.Efs.FileSystem("efs_for_lambda", new()
+    ///     // EFS file system for Lambda
+    ///     var example = new Aws.Efs.FileSystem("example", new()
     ///     {
+    ///         Encrypted = true,
     ///         Tags = 
     ///         {
-    ///             { "Name", "efs_for_lambda" },
+    ///             { "Name", "lambda-efs" },
     ///         },
     ///     });
     /// 
-    ///     // Mount target connects the file system to the subnet
-    ///     var alpha = new Aws.Efs.MountTarget("alpha", new()
+    ///     var config = new Config();
+    ///     // List of subnet IDs for EFS mount targets
+    ///     var subnetIds = config.GetObject&lt;string[]&gt;("subnetIds") ?? new[]
     ///     {
-    ///         FileSystemId = efsForLambda.Id,
-    ///         SubnetId = subnetForLambda.Id,
-    ///         SecurityGroups = new[]
+    ///         "subnet-12345678",
+    ///         "subnet-87654321",
+    ///     };
+    ///     // Mount target in each subnet
+    ///     var exampleMountTarget = new List&lt;Aws.Efs.MountTarget&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; subnetIds.Length; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         exampleMountTarget.Add(new Aws.Efs.MountTarget($"example-{range.Value}", new()
     ///         {
-    ///             sgForLambda.Id,
-    ///         },
-    ///     });
-    /// 
-    ///     // EFS access point used by lambda file system
-    ///     var accessPointForLambda = new Aws.Efs.AccessPoint("access_point_for_lambda", new()
+    ///             FileSystemId = example.Id,
+    ///             SubnetId = subnetIds[range.Value],
+    ///             SecurityGroups = new[]
+    ///             {
+    ///                 efs.Id,
+    ///             },
+    ///         }));
+    ///     }
+    ///     // Access point for Lambda
+    ///     var exampleAccessPoint = new Aws.Efs.AccessPoint("example", new()
     ///     {
-    ///         FileSystemId = efsForLambda.Id,
+    ///         FileSystemId = example.Id,
     ///         RootDirectory = new Aws.Efs.Inputs.AccessPointRootDirectoryArgs
     ///         {
     ///             Path = "/lambda",
@@ -218,7 +209,7 @@ namespace Pulumi.Aws.Lambda
     ///             {
     ///                 OwnerGid = 1000,
     ///                 OwnerUid = 1000,
-    ///                 Permissions = "777",
+    ///                 Permissions = "755",
     ///             },
     ///         },
     ///         PosixUser = new Aws.Efs.Inputs.AccessPointPosixUserArgs
@@ -228,43 +219,39 @@ namespace Pulumi.Aws.Lambda
     ///         },
     ///     });
     /// 
-    ///     // A lambda function connected to an EFS file system
-    ///     var example = new Aws.Lambda.Function("example", new()
+    ///     // Lambda function with EFS
+    ///     var exampleFunction = new Aws.Lambda.Function("example", new()
     ///     {
-    ///         FileSystemConfig = new Aws.Lambda.Inputs.FunctionFileSystemConfigArgs
-    ///         {
-    ///             Arn = accessPointForLambda.Arn,
-    ///             LocalMountPath = "/mnt/efs",
-    ///         },
+    ///         Code = new FileArchive("function.zip"),
+    ///         Name = "example_efs_function",
+    ///         Role = exampleAwsIamRole.Arn,
+    ///         Handler = "index.handler",
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
     ///         VpcConfig = new Aws.Lambda.Inputs.FunctionVpcConfigArgs
     ///         {
-    ///             SubnetIds = new[]
-    ///             {
-    ///                 subnetForLambda.Id,
-    ///             },
+    ///             SubnetIds = subnetIds,
     ///             SecurityGroupIds = new[]
     ///             {
-    ///                 sgForLambda.Id,
+    ///                 lambda.Id,
     ///             },
+    ///         },
+    ///         FileSystemConfig = new Aws.Lambda.Inputs.FunctionFileSystemConfigArgs
+    ///         {
+    ///             Arn = exampleAccessPoint.Arn,
+    ///             LocalMountPath = "/mnt/data",
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
     ///         {
-    ///             alpha,
+    ///             exampleMountTarget,
     ///         },
     ///     });
     /// 
     /// });
     /// ```
     /// 
-    /// ### Lambda retries
-    /// 
-    /// Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the aws.lambda.FunctionEventInvokeConfig resource.
-    /// 
-    /// ## CloudWatch Logging and Permissions
-    /// 
-    /// For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
+    /// ### Function with Advanced Logging
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -274,58 +261,184 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var config = new Config();
-    ///     var lambdaFunctionName = config.Get("lambdaFunctionName") ?? "lambda_function_name";
-    ///     // This is to optionally manage the CloudWatch Log Group for the Lambda Function.
-    ///     // If skipping this resource configuration, also add "logs:CreateLogGroup" to the IAM policy below.
     ///     var example = new Aws.CloudWatch.LogGroup("example", new()
     ///     {
-    ///         Name = $"/aws/lambda/{lambdaFunctionName}",
+    ///         Name = "/aws/lambda/example_function",
     ///         RetentionInDays = 14,
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "production" },
+    ///             { "Application", "example" },
+    ///         },
     ///     });
     /// 
-    ///     // See also the following AWS managed policy: AWSLambdaBasicExecutionRole
-    ///     var lambdaLogging = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var exampleFunction = new Aws.Lambda.Function("example", new()
     ///     {
-    ///         Statements = new[]
+    ///         Code = new FileArchive("function.zip"),
+    ///         Name = "example_function",
+    ///         Role = exampleAwsIamRole.Arn,
+    ///         Handler = "index.handler",
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+    ///         LoggingConfig = new Aws.Lambda.Inputs.FunctionLoggingConfigArgs
     ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             LogFormat = "JSON",
+    ///             ApplicationLogLevel = "INFO",
+    ///             SystemLogLevel = "WARN",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Function with Error Handling
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Main Lambda function
+    ///     var example = new Aws.Lambda.Function("example", new()
+    ///     {
+    ///         Code = new FileArchive("function.zip"),
+    ///         Name = "example_function",
+    ///         Role = exampleAwsIamRole.Arn,
+    ///         Handler = "index.handler",
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+    ///         DeadLetterConfig = new Aws.Lambda.Inputs.FunctionDeadLetterConfigArgs
+    ///         {
+    ///             TargetArn = dlq.Arn,
+    ///         },
+    ///     });
+    /// 
+    ///     // Event invoke configuration for retries
+    ///     var exampleFunctionEventInvokeConfig = new Aws.Lambda.FunctionEventInvokeConfig("example", new()
+    ///     {
+    ///         FunctionName = example.Name,
+    ///         MaximumEventAgeInSeconds = 60,
+    ///         MaximumRetryAttempts = 2,
+    ///         DestinationConfig = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigArgs
+    ///         {
+    ///             OnFailure = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "logs:CreateLogGroup",
-    ///                     "logs:CreateLogStream",
-    ///                     "logs:PutLogEvents",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "arn:aws:logs:*:*:*",
-    ///                 },
+    ///                 Destination = dlq.Arn,
+    ///             },
+    ///             OnSuccess = new Aws.Lambda.Inputs.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs
+    ///             {
+    ///                 Destination = success.Arn,
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var lambdaLoggingPolicy = new Aws.Iam.Policy("lambda_logging", new()
+    /// });
+    /// ```
+    /// 
+    /// ### CloudWatch Logging and Permissions
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var config = new Config();
+    ///     // Name of the Lambda function
+    ///     var functionName = config.Get("functionName") ?? "example_function";
+    ///     // CloudWatch Log Group with retention
+    ///     var example = new Aws.CloudWatch.LogGroup("example", new()
+    ///     {
+    ///         Name = $"/aws/lambda/{functionName}",
+    ///         RetentionInDays = 14,
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "production" },
+    ///             { "Function", functionName },
+    ///         },
+    ///     });
+    /// 
+    ///     // Lambda execution role
+    ///     var exampleRole = new Aws.Iam.Role("example", new()
+    ///     {
+    ///         Name = "lambda_execution_role",
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Service"] = "lambda.amazonaws.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    ///     // CloudWatch Logs policy
+    ///     var lambdaLogging = new Aws.Iam.Policy("lambda_logging", new()
     ///     {
     ///         Name = "lambda_logging",
     ///         Path = "/",
-    ///         Description = "IAM policy for logging from a lambda",
-    ///         PolicyDocument = lambdaLogging.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///         Description = "IAM policy for logging from Lambda",
+    ///         PolicyDocument = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Action"] = new[]
+    ///                     {
+    ///                         "logs:CreateLogGroup",
+    ///                         "logs:CreateLogStream",
+    ///                         "logs:PutLogEvents",
+    ///                     },
+    ///                     ["Resource"] = new[]
+    ///                     {
+    ///                         "arn:aws:logs:*:*:*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
     ///     });
     /// 
+    ///     // Attach logging policy to Lambda role
     ///     var lambdaLogs = new Aws.Iam.RolePolicyAttachment("lambda_logs", new()
     ///     {
-    ///         Role = iamForLambda.Name,
-    ///         PolicyArn = lambdaLoggingPolicy.Arn,
+    ///         Role = exampleRole.Name,
+    ///         PolicyArn = lambdaLogging.Arn,
     ///     });
     /// 
-    ///     var testLambda = new Aws.Lambda.Function("test_lambda", new()
+    ///     // Lambda function with logging
+    ///     var exampleFunction = new Aws.Lambda.Function("example", new()
     ///     {
-    ///         Name = lambdaFunctionName,
+    ///         Code = new FileArchive("function.zip"),
+    ///         Name = functionName,
+    ///         Role = exampleRole.Arn,
+    ///         Handler = "index.handler",
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
     ///         LoggingConfig = new Aws.Lambda.Inputs.FunctionLoggingConfigArgs
     ///         {
-    ///             LogFormat = "Text",
+    ///             LogFormat = "JSON",
+    ///             ApplicationLogLevel = "INFO",
+    ///             SystemLogLevel = "WARN",
     ///         },
     ///     }, new CustomResourceOptions
     ///     {
@@ -352,26 +465,26 @@ namespace Pulumi.Aws.Lambda
     /// Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
+    /// $ pulumi import aws:lambda/function:Function example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/function:Function")]
     public partial class Function : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
+        /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stays the same.
         /// </summary>
         [Output("architectures")]
         public Output<ImmutableArray<string>> Architectures { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) identifying your Lambda Function.
+        /// ARN identifying your Lambda Function.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
+        /// Path to the function's deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
         /// </summary>
         [Output("code")]
         public Output<Archive?> Code { get; private set; } = null!;
@@ -383,13 +496,13 @@ namespace Pulumi.Aws.Lambda
         public Output<string> CodeSha256 { get; private set; } = null!;
 
         /// <summary>
-        /// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
+        /// ARN of a code-signing configuration to enable code signing for this function.
         /// </summary>
         [Output("codeSigningConfigArn")]
         public Output<string?> CodeSigningConfigArn { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Configuration block for dead letter queue. See below.
         /// </summary>
         [Output("deadLetterConfig")]
         public Output<Outputs.FunctionDeadLetterConfig?> DeadLetterConfig { get; private set; } = null!;
@@ -401,37 +514,37 @@ namespace Pulumi.Aws.Lambda
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Configuration block for environment variables. See below.
         /// </summary>
         [Output("environment")]
         public Output<Outputs.FunctionEnvironment?> Environment { get; private set; } = null!;
 
         /// <summary>
-        /// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+        /// Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
         /// </summary>
         [Output("ephemeralStorage")]
         public Output<Outputs.FunctionEphemeralStorage> EphemeralStorage { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Configuration block for EFS file system. See below.
         /// </summary>
         [Output("fileSystemConfig")]
         public Output<Outputs.FunctionFileSystemConfig?> FileSystemConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
+        /// Function entry point in your code. Required if `package_type` is `Zip`.
         /// </summary>
         [Output("handler")]
         public Output<string?> Handler { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Container image configuration values. See below.
         /// </summary>
         [Output("imageConfig")]
         public Output<Outputs.FunctionImageConfig?> ImageConfig { get; private set; } = null!;
 
         /// <summary>
-        /// ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
+        /// ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
         /// </summary>
         [Output("imageUri")]
         public Output<string?> ImageUri { get; private set; } = null!;
@@ -443,7 +556,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> InvokeArn { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
+        /// ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
@@ -455,19 +568,19 @@ namespace Pulumi.Aws.Lambda
         public Output<string> LastModified { get; private set; } = null!;
 
         /// <summary>
-        /// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+        /// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
         /// </summary>
         [Output("layers")]
         public Output<ImmutableArray<string>> Layers { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block used to specify advanced logging settings. Detailed below.
+        /// Configuration block for advanced logging settings. See below.
         /// </summary>
         [Output("loggingConfig")]
         public Output<Outputs.FunctionLoggingConfig> LoggingConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
+        /// Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
         /// </summary>
         [Output("memorySize")]
         public Output<int?> MemorySize { get; private set; } = null!;
@@ -503,29 +616,31 @@ namespace Pulumi.Aws.Lambda
         public Output<string> QualifiedInvokeArn { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to replace the security groups on the function's VPC configuration prior to destruction.
-        /// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
-        /// By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
-        /// Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to replace the security groups on the function's VPC configuration prior to destruction. Default is `false`.
         /// </summary>
         [Output("replaceSecurityGroupsOnDestroy")]
         public Output<bool?> ReplaceSecurityGroupsOnDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// List of security group IDs to assign to the function's VPC configuration prior to destruction.
-        /// `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+        /// List of security group IDs to assign to the function's VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
         /// </summary>
         [Output("replacementSecurityGroupIds")]
         public Output<ImmutableArray<string>> ReplacementSecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
+        /// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`.
         /// </summary>
         [Output("reservedConcurrentExecutions")]
         public Output<int?> ReservedConcurrentExecutions { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+        /// ARN of the function's execution role. The role provides the function's identity and access to AWS services and resources.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -533,19 +648,19 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Role { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+        /// Identifier of the function's runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         /// </summary>
         [Output("runtime")]
         public Output<string?> Runtime { get; private set; } = null!;
 
         /// <summary>
-        /// S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
+        /// S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
         /// </summary>
         [Output("s3Bucket")]
         public Output<string?> S3Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
+        /// S3 key of an object containing the function's deployment package. Required if `s3_bucket` is set.
         /// </summary>
         [Output("s3Key")]
         public Output<string?> S3Key { get; private set; } = null!;
@@ -569,19 +684,19 @@ namespace Pulumi.Aws.Lambda
         public Output<string> SigningProfileVersionArn { get; private set; } = null!;
 
         /// <summary>
-        /// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+        /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
         /// </summary>
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
         /// <summary>
-        /// Snap start settings block. Detailed below.
+        /// Configuration block for snap start settings. See below.
         /// </summary>
         [Output("snapStart")]
         public Output<Outputs.FunctionSnapStart?> SnapStart { get; private set; } = null!;
 
         /// <summary>
-        /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        /// Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
         /// </summary>
         [Output("sourceCodeHash")]
         public Output<string> SourceCodeHash { get; private set; } = null!;
@@ -593,25 +708,25 @@ namespace Pulumi.Aws.Lambda
         public Output<int> SourceCodeSize { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
+        /// Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
         /// </summary>
         [Output("timeout")]
         public Output<int?> Timeout { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Configuration block for X-Ray tracing. See below.
         /// </summary>
         [Output("tracingConfig")]
         public Output<Outputs.FunctionTracingConfig> TracingConfig { get; private set; } = null!;
@@ -623,7 +738,7 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Version { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Configuration block for VPC. See below.
         /// </summary>
         [Output("vpcConfig")]
         public Output<Outputs.FunctionVpcConfig?> VpcConfig { get; private set; } = null!;
@@ -678,7 +793,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _architectures;
 
         /// <summary>
-        /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
+        /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stays the same.
         /// </summary>
         public InputList<string> Architectures
         {
@@ -687,19 +802,19 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
-        /// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
+        /// Path to the function's deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
         /// </summary>
         [Input("code")]
         public Input<Archive>? Code { get; set; }
 
         /// <summary>
-        /// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
+        /// ARN of a code-signing configuration to enable code signing for this function.
         /// </summary>
         [Input("codeSigningConfigArn")]
         public Input<string>? CodeSigningConfigArn { get; set; }
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Configuration block for dead letter queue. See below.
         /// </summary>
         [Input("deadLetterConfig")]
         public Input<Inputs.FunctionDeadLetterConfigArgs>? DeadLetterConfig { get; set; }
@@ -711,43 +826,43 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Configuration block for environment variables. See below.
         /// </summary>
         [Input("environment")]
         public Input<Inputs.FunctionEnvironmentArgs>? Environment { get; set; }
 
         /// <summary>
-        /// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+        /// Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
         /// </summary>
         [Input("ephemeralStorage")]
         public Input<Inputs.FunctionEphemeralStorageArgs>? EphemeralStorage { get; set; }
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Configuration block for EFS file system. See below.
         /// </summary>
         [Input("fileSystemConfig")]
         public Input<Inputs.FunctionFileSystemConfigArgs>? FileSystemConfig { get; set; }
 
         /// <summary>
-        /// Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
+        /// Function entry point in your code. Required if `package_type` is `Zip`.
         /// </summary>
         [Input("handler")]
         public Input<string>? Handler { get; set; }
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Container image configuration values. See below.
         /// </summary>
         [Input("imageConfig")]
         public Input<Inputs.FunctionImageConfigArgs>? ImageConfig { get; set; }
 
         /// <summary>
-        /// ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
+        /// ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
         /// </summary>
         [Input("imageUri")]
         public Input<string>? ImageUri { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
+        /// ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -756,7 +871,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _layers;
 
         /// <summary>
-        /// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+        /// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
         /// </summary>
         public InputList<string> Layers
         {
@@ -765,13 +880,13 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
-        /// Configuration block used to specify advanced logging settings. Detailed below.
+        /// Configuration block for advanced logging settings. See below.
         /// </summary>
         [Input("loggingConfig")]
         public Input<Inputs.FunctionLoggingConfigArgs>? LoggingConfig { get; set; }
 
         /// <summary>
-        /// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
+        /// Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
         /// </summary>
         [Input("memorySize")]
         public Input<int>? MemorySize { get; set; }
@@ -795,10 +910,13 @@ namespace Pulumi.Aws.Lambda
         public Input<bool>? Publish { get; set; }
 
         /// <summary>
-        /// Whether to replace the security groups on the function's VPC configuration prior to destruction.
-        /// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
-        /// By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
-        /// Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// Whether to replace the security groups on the function's VPC configuration prior to destruction. Default is `false`.
         /// </summary>
         [Input("replaceSecurityGroupsOnDestroy")]
         public Input<bool>? ReplaceSecurityGroupsOnDestroy { get; set; }
@@ -807,8 +925,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _replacementSecurityGroupIds;
 
         /// <summary>
-        /// List of security group IDs to assign to the function's VPC configuration prior to destruction.
-        /// `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+        /// List of security group IDs to assign to the function's VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
         /// </summary>
         public InputList<string> ReplacementSecurityGroupIds
         {
@@ -817,13 +934,13 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
-        /// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
+        /// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`.
         /// </summary>
         [Input("reservedConcurrentExecutions")]
         public Input<int>? ReservedConcurrentExecutions { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+        /// ARN of the function's execution role. The role provides the function's identity and access to AWS services and resources.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -831,19 +948,19 @@ namespace Pulumi.Aws.Lambda
         public Input<string> Role { get; set; } = null!;
 
         /// <summary>
-        /// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+        /// Identifier of the function's runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         /// </summary>
         [Input("runtime")]
         public InputUnion<string, Pulumi.Aws.Lambda.Runtime>? Runtime { get; set; }
 
         /// <summary>
-        /// S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
+        /// S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
         /// </summary>
         [Input("s3Bucket")]
         public Input<string>? S3Bucket { get; set; }
 
         /// <summary>
-        /// S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
+        /// S3 key of an object containing the function's deployment package. Required if `s3_bucket` is set.
         /// </summary>
         [Input("s3Key")]
         public Input<string>? S3Key { get; set; }
@@ -855,19 +972,19 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? S3ObjectVersion { get; set; }
 
         /// <summary>
-        /// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+        /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
         /// <summary>
-        /// Snap start settings block. Detailed below.
+        /// Configuration block for snap start settings. See below.
         /// </summary>
         [Input("snapStart")]
         public Input<Inputs.FunctionSnapStartArgs>? SnapStart { get; set; }
 
         /// <summary>
-        /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        /// Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
         /// </summary>
         [Input("sourceCodeHash")]
         public Input<string>? SourceCodeHash { get; set; }
@@ -876,7 +993,7 @@ namespace Pulumi.Aws.Lambda
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -885,19 +1002,19 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
-        /// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
+        /// Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Configuration block for X-Ray tracing. See below.
         /// </summary>
         [Input("tracingConfig")]
         public Input<Inputs.FunctionTracingConfigArgs>? TracingConfig { get; set; }
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Configuration block for VPC. See below.
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.FunctionVpcConfigArgs>? VpcConfig { get; set; }
@@ -914,7 +1031,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _architectures;
 
         /// <summary>
-        /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
+        /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stays the same.
         /// </summary>
         public InputList<string> Architectures
         {
@@ -923,13 +1040,13 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) identifying your Lambda Function.
+        /// ARN identifying your Lambda Function.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Path to the function's deployment package within the local filesystem. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified.
+        /// Path to the function's deployment package within the local filesystem. Conflicts with `image_uri` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
         /// </summary>
         [Input("code")]
         public Input<Archive>? Code { get; set; }
@@ -941,13 +1058,13 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? CodeSha256 { get; set; }
 
         /// <summary>
-        /// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
+        /// ARN of a code-signing configuration to enable code signing for this function.
         /// </summary>
         [Input("codeSigningConfigArn")]
         public Input<string>? CodeSigningConfigArn { get; set; }
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Configuration block for dead letter queue. See below.
         /// </summary>
         [Input("deadLetterConfig")]
         public Input<Inputs.FunctionDeadLetterConfigGetArgs>? DeadLetterConfig { get; set; }
@@ -959,37 +1076,37 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Configuration block for environment variables. See below.
         /// </summary>
         [Input("environment")]
         public Input<Inputs.FunctionEnvironmentGetArgs>? Environment { get; set; }
 
         /// <summary>
-        /// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+        /// Amount of ephemeral storage (`/tmp`) to allocate for the Lambda Function. See below.
         /// </summary>
         [Input("ephemeralStorage")]
         public Input<Inputs.FunctionEphemeralStorageGetArgs>? EphemeralStorage { get; set; }
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Configuration block for EFS file system. See below.
         /// </summary>
         [Input("fileSystemConfig")]
         public Input<Inputs.FunctionFileSystemConfigGetArgs>? FileSystemConfig { get; set; }
 
         /// <summary>
-        /// Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
+        /// Function entry point in your code. Required if `package_type` is `Zip`.
         /// </summary>
         [Input("handler")]
         public Input<string>? Handler { get; set; }
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Container image configuration values. See below.
         /// </summary>
         [Input("imageConfig")]
         public Input<Inputs.FunctionImageConfigGetArgs>? ImageConfig { get; set; }
 
         /// <summary>
-        /// ECR image URI containing the function's deployment package. Exactly one of `filename`, `image_uri`,  or `s3_bucket` must be specified.
+        /// ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
         /// </summary>
         [Input("imageUri")]
         public Input<string>? ImageUri { get; set; }
@@ -1001,7 +1118,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? InvokeArn { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key that is used to encrypt environment variables. If this configuration is not provided when environment variables are in use, AWS Lambda uses a default service key. If this configuration is provided when environment variables are not in use, the AWS Lambda API does not save this configuration and the provider will show a perpetual difference of adding the key. To fix the perpetual difference, remove this configuration.
+        /// ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -1016,7 +1133,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _layers;
 
         /// <summary>
-        /// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function. See [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
+        /// List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
         /// </summary>
         public InputList<string> Layers
         {
@@ -1025,13 +1142,13 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
-        /// Configuration block used to specify advanced logging settings. Detailed below.
+        /// Configuration block for advanced logging settings. See below.
         /// </summary>
         [Input("loggingConfig")]
         public Input<Inputs.FunctionLoggingConfigGetArgs>? LoggingConfig { get; set; }
 
         /// <summary>
-        /// Amount of memory in MB your Lambda Function can use at runtime. Defaults to `128`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html)
+        /// Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
         /// </summary>
         [Input("memorySize")]
         public Input<int>? MemorySize { get; set; }
@@ -1067,10 +1184,13 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? QualifiedInvokeArn { get; set; }
 
         /// <summary>
-        /// Whether to replace the security groups on the function's VPC configuration prior to destruction.
-        /// Removing these security group associations prior to function destruction can speed up security group deletion times of AWS's internal cleanup operations.
-        /// By default, the security groups will be replaced with the `default` security group in the function's configured VPC.
-        /// Set the `replacement_security_group_ids` attribute to use a custom list of security groups for replacement.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// Whether to replace the security groups on the function's VPC configuration prior to destruction. Default is `false`.
         /// </summary>
         [Input("replaceSecurityGroupsOnDestroy")]
         public Input<bool>? ReplaceSecurityGroupsOnDestroy { get; set; }
@@ -1079,8 +1199,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _replacementSecurityGroupIds;
 
         /// <summary>
-        /// List of security group IDs to assign to the function's VPC configuration prior to destruction.
-        /// `replace_security_groups_on_destroy` must be set to `true` to use this attribute.
+        /// List of security group IDs to assign to the function's VPC configuration prior to destruction. Required if `replace_security_groups_on_destroy` is `true`.
         /// </summary>
         public InputList<string> ReplacementSecurityGroupIds
         {
@@ -1089,13 +1208,13 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
-        /// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`. See [Managing Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html)
+        /// Amount of reserved concurrent executions for this lambda function. A value of `0` disables lambda from being triggered and `-1` removes any concurrency limitations. Defaults to Unreserved Concurrency Limits `-1`.
         /// </summary>
         [Input("reservedConcurrentExecutions")]
         public Input<int>? ReservedConcurrentExecutions { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+        /// ARN of the function's execution role. The role provides the function's identity and access to AWS services and resources.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -1103,19 +1222,19 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Role { get; set; }
 
         /// <summary>
-        /// Identifier of the function's runtime. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
+        /// Identifier of the function's runtime. Required if `package_type` is `Zip`. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for valid values.
         /// </summary>
         [Input("runtime")]
         public InputUnion<string, Pulumi.Aws.Lambda.Runtime>? Runtime { get; set; }
 
         /// <summary>
-        /// S3 bucket location containing the function's deployment package. This bucket must reside in the same AWS region where you are creating the Lambda function. Exactly one of `filename`, `image_uri`, or `s3_bucket` must be specified. When `s3_bucket` is set, `s3_key` is required.
+        /// S3 bucket location containing the function's deployment package. Conflicts with `filename` and `image_uri`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
         /// </summary>
         [Input("s3Bucket")]
         public Input<string>? S3Bucket { get; set; }
 
         /// <summary>
-        /// S3 key of an object containing the function's deployment package. When `s3_bucket` is set, `s3_key` is required.
+        /// S3 key of an object containing the function's deployment package. Required if `s3_bucket` is set.
         /// </summary>
         [Input("s3Key")]
         public Input<string>? S3Key { get; set; }
@@ -1139,19 +1258,19 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? SigningProfileVersionArn { get; set; }
 
         /// <summary>
-        /// Set to true if you do not wish the function to be deleted at destroy time, and instead just remove the function from the Pulumi state.
+        /// Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
         /// <summary>
-        /// Snap start settings block. Detailed below.
+        /// Configuration block for snap start settings. See below.
         /// </summary>
         [Input("snapStart")]
         public Input<Inputs.FunctionSnapStartGetArgs>? SnapStart { get; set; }
 
         /// <summary>
-        /// Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+        /// Base64-encoded SHA256 hash of the package file. Used to trigger updates when source code changes.
         /// </summary>
         [Input("sourceCodeHash")]
         public Input<string>? SourceCodeHash { get; set; }
@@ -1166,7 +1285,7 @@ namespace Pulumi.Aws.Lambda
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -1178,9 +1297,8 @@ namespace Pulumi.Aws.Lambda
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -1188,13 +1306,13 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
-        /// Amount of time your Lambda Function has to run in seconds. Defaults to `3`. See [Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
+        /// Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Configuration block for X-Ray tracing. See below.
         /// </summary>
         [Input("tracingConfig")]
         public Input<Inputs.FunctionTracingConfigGetArgs>? TracingConfig { get; set; }
@@ -1206,7 +1324,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? Version { get; set; }
 
         /// <summary>
-        /// Configuration block. Detailed below.
+        /// Configuration block for VPC. See below.
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.FunctionVpcConfigGetArgs>? VpcConfig { get; set; }

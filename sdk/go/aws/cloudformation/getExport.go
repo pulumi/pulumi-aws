@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudformation"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,6 +64,8 @@ func GetExport(ctx *pulumi.Context, args *GetExportArgs, opts ...pulumi.InvokeOp
 type GetExportArgs struct {
 	// Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getExport.
@@ -71,8 +73,9 @@ type GetExportResult struct {
 	// ARN of stack that contains the exported output name and value.
 	ExportingStackId string `pulumi:"exportingStackId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
 	Value string `pulumi:"value"`
 }
@@ -90,6 +93,8 @@ func GetExportOutput(ctx *pulumi.Context, args GetExportOutputArgs, opts ...pulu
 type GetExportOutputArgs struct {
 	// Name of the export as it appears in the console or from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetExportOutputArgs) ElementType() reflect.Type {
@@ -123,6 +128,10 @@ func (o GetExportResultOutput) Id() pulumi.StringOutput {
 
 func (o GetExportResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExportResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetExportResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExportResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Value from Cloudformation export identified by the export name found from [list-exports](http://docs.aws.amazon.com/cli/latest/reference/cloudformation/list-exports.html)

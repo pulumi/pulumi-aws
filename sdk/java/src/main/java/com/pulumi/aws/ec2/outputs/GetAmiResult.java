@@ -18,6 +18,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAmiResult {
+    private @Nullable Boolean allowUnsafeFilter;
     /**
      * @return OS architecture of the AMI (ie: `i386` or `x86_64`).
      * 
@@ -150,6 +151,7 @@ public final class GetAmiResult {
      * 
      */
     private String ramdiskId;
+    private String region;
     /**
      * @return Device name of the root device.
      * 
@@ -212,6 +214,9 @@ public final class GetAmiResult {
     private String virtualizationType;
 
     private GetAmiResult() {}
+    public Optional<Boolean> allowUnsafeFilter() {
+        return Optional.ofNullable(this.allowUnsafeFilter);
+    }
     /**
      * @return OS architecture of the AMI (ie: `i386` or `x86_64`).
      * 
@@ -404,6 +409,9 @@ public final class GetAmiResult {
     public String ramdiskId() {
         return this.ramdiskId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Device name of the root device.
      * 
@@ -496,6 +504,7 @@ public final class GetAmiResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean allowUnsafeFilter;
         private String architecture;
         private String arn;
         private List<GetAmiBlockDeviceMapping> blockDeviceMappings;
@@ -526,6 +535,7 @@ public final class GetAmiResult {
         private List<GetAmiProductCode> productCodes;
         private Boolean public_;
         private String ramdiskId;
+        private String region;
         private String rootDeviceName;
         private String rootDeviceType;
         private String rootSnapshotId;
@@ -540,6 +550,7 @@ public final class GetAmiResult {
         public Builder() {}
         public Builder(GetAmiResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.allowUnsafeFilter = defaults.allowUnsafeFilter;
     	      this.architecture = defaults.architecture;
     	      this.arn = defaults.arn;
     	      this.blockDeviceMappings = defaults.blockDeviceMappings;
@@ -570,6 +581,7 @@ public final class GetAmiResult {
     	      this.productCodes = defaults.productCodes;
     	      this.public_ = defaults.public_;
     	      this.ramdiskId = defaults.ramdiskId;
+    	      this.region = defaults.region;
     	      this.rootDeviceName = defaults.rootDeviceName;
     	      this.rootDeviceType = defaults.rootDeviceType;
     	      this.rootSnapshotId = defaults.rootSnapshotId;
@@ -583,6 +595,12 @@ public final class GetAmiResult {
     	      this.virtualizationType = defaults.virtualizationType;
         }
 
+        @CustomType.Setter
+        public Builder allowUnsafeFilter(@Nullable Boolean allowUnsafeFilter) {
+
+            this.allowUnsafeFilter = allowUnsafeFilter;
+            return this;
+        }
         @CustomType.Setter
         public Builder architecture(String architecture) {
             if (architecture == null) {
@@ -827,6 +845,14 @@ public final class GetAmiResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAmiResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder rootDeviceName(String rootDeviceName) {
             if (rootDeviceName == null) {
               throw new MissingRequiredPropertyException("GetAmiResult", "rootDeviceName");
@@ -914,6 +940,7 @@ public final class GetAmiResult {
         }
         public GetAmiResult build() {
             final var _resultValue = new GetAmiResult();
+            _resultValue.allowUnsafeFilter = allowUnsafeFilter;
             _resultValue.architecture = architecture;
             _resultValue.arn = arn;
             _resultValue.blockDeviceMappings = blockDeviceMappings;
@@ -944,6 +971,7 @@ public final class GetAmiResult {
             _resultValue.productCodes = productCodes;
             _resultValue.public_ = public_;
             _resultValue.ramdiskId = ramdiskId;
+            _resultValue.region = region;
             _resultValue.rootDeviceName = rootDeviceName;
             _resultValue.rootDeviceType = rootDeviceType;
             _resultValue.rootSnapshotId = rootSnapshotId;

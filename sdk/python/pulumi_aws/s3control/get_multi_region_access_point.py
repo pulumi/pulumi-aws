@@ -28,7 +28,7 @@ class GetMultiRegionAccessPointResult:
     """
     A collection of values returned by getMultiRegionAccessPoint.
     """
-    def __init__(__self__, account_id=None, alias=None, arn=None, created_at=None, domain_name=None, id=None, name=None, public_access_blocks=None, regions=None, status=None):
+    def __init__(__self__, account_id=None, alias=None, arn=None, created_at=None, domain_name=None, id=None, name=None, public_access_blocks=None, region=None, regions=None, status=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -53,6 +53,9 @@ class GetMultiRegionAccessPointResult:
         if public_access_blocks and not isinstance(public_access_blocks, list):
             raise TypeError("Expected argument 'public_access_blocks' to be a list")
         pulumi.set(__self__, "public_access_blocks", public_access_blocks)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if regions and not isinstance(regions, list):
             raise TypeError("Expected argument 'regions' to be a list")
         pulumi.set(__self__, "regions", regions)
@@ -120,6 +123,14 @@ class GetMultiRegionAccessPointResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        """
+        The name of the region.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def regions(self) -> Sequence['outputs.GetMultiRegionAccessPointRegionResult']:
         """
         A collection of the regions and buckets associated with the Multi-Region Access Point.
@@ -149,12 +160,14 @@ class AwaitableGetMultiRegionAccessPointResult(GetMultiRegionAccessPointResult):
             id=self.id,
             name=self.name,
             public_access_blocks=self.public_access_blocks,
+            region=self.region,
             regions=self.regions,
             status=self.status)
 
 
 def get_multi_region_access_point(account_id: Optional[builtins.str] = None,
                                   name: Optional[builtins.str] = None,
+                                  region: Optional[builtins.str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMultiRegionAccessPointResult:
     """
     Provides details on a specific S3 Multi-Region Access Point.
@@ -171,10 +184,12 @@ def get_multi_region_access_point(account_id: Optional[builtins.str] = None,
 
     :param builtins.str account_id: The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
     :param builtins.str name: The name of the Multi-Region Access Point.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint', __args__, opts=opts, typ=GetMultiRegionAccessPointResult).value
 
@@ -187,10 +202,12 @@ def get_multi_region_access_point(account_id: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         public_access_blocks=pulumi.get(__ret__, 'public_access_blocks'),
+        region=pulumi.get(__ret__, 'region'),
         regions=pulumi.get(__ret__, 'regions'),
         status=pulumi.get(__ret__, 'status'))
 def get_multi_region_access_point_output(account_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                          name: Optional[pulumi.Input[builtins.str]] = None,
+                                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMultiRegionAccessPointResult]:
     """
     Provides details on a specific S3 Multi-Region Access Point.
@@ -207,10 +224,12 @@ def get_multi_region_access_point_output(account_id: Optional[pulumi.Input[Optio
 
     :param builtins.str account_id: The AWS account ID of the S3 Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
     :param builtins.str name: The name of the Multi-Region Access Point.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['accountId'] = account_id
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint', __args__, opts=opts, typ=GetMultiRegionAccessPointResult)
     return __ret__.apply(lambda __response__: GetMultiRegionAccessPointResult(
@@ -222,5 +241,6 @@ def get_multi_region_access_point_output(account_id: Optional[pulumi.Input[Optio
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         public_access_blocks=pulumi.get(__response__, 'public_access_blocks'),
+        region=pulumi.get(__response__, 'region'),
         regions=pulumi.get(__response__, 'regions'),
         status=pulumi.get(__response__, 'status')))

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,6 +43,8 @@ type Cluster struct {
 	HsmType pulumi.StringOutput `pulumi:"hsmType"`
 	// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsmType` is `hsm2m.medium`.
 	Mode pulumi.StringOutput `pulumi:"mode"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the security group associated with the CloudHSM cluster.
 	SecurityGroupId pulumi.StringOutput `pulumi:"securityGroupId"`
 	// ID of Cloud HSM v2 cluster backup to be restored.
@@ -52,8 +54,6 @@ type Cluster struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The id of the VPC that the CloudHSM cluster resides in.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -105,6 +105,8 @@ type clusterState struct {
 	HsmType *string `pulumi:"hsmType"`
 	// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsmType` is `hsm2m.medium`.
 	Mode *string `pulumi:"mode"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the security group associated with the CloudHSM cluster.
 	SecurityGroupId *string `pulumi:"securityGroupId"`
 	// ID of Cloud HSM v2 cluster backup to be restored.
@@ -114,8 +116,6 @@ type clusterState struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The id of the VPC that the CloudHSM cluster resides in.
 	VpcId *string `pulumi:"vpcId"`
@@ -132,6 +132,8 @@ type ClusterState struct {
 	HsmType pulumi.StringPtrInput
 	// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsmType` is `hsm2m.medium`.
 	Mode pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the security group associated with the CloudHSM cluster.
 	SecurityGroupId pulumi.StringPtrInput
 	// ID of Cloud HSM v2 cluster backup to be restored.
@@ -141,8 +143,6 @@ type ClusterState struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The id of the VPC that the CloudHSM cluster resides in.
 	VpcId pulumi.StringPtrInput
@@ -157,6 +157,8 @@ type clusterArgs struct {
 	HsmType string `pulumi:"hsmType"`
 	// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsmType` is `hsm2m.medium`.
 	Mode *string `pulumi:"mode"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of Cloud HSM v2 cluster backup to be restored.
 	SourceBackupIdentifier *string `pulumi:"sourceBackupIdentifier"`
 	// The IDs of subnets in which cluster will operate.
@@ -171,6 +173,8 @@ type ClusterArgs struct {
 	HsmType pulumi.StringInput
 	// The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsmType` is `hsm2m.medium`.
 	Mode pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of Cloud HSM v2 cluster backup to be restored.
 	SourceBackupIdentifier pulumi.StringPtrInput
 	// The IDs of subnets in which cluster will operate.
@@ -291,6 +295,11 @@ func (o ClusterOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ClusterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The ID of the security group associated with the CloudHSM cluster.
 func (o ClusterOutput) SecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.SecurityGroupId }).(pulumi.StringOutput)
@@ -312,8 +321,6 @@ func (o ClusterOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

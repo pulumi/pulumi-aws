@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['RoleArgs', 'Role']
@@ -22,7 +23,7 @@ __all__ = ['RoleArgs', 'Role']
 @pulumi.input_type
 class RoleArgs:
     def __init__(__self__, *,
-                 assume_role_policy: pulumi.Input[builtins.str],
+                 assume_role_policy: pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  force_detach_policies: Optional[pulumi.Input[builtins.bool]] = None,
                  inline_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RoleInlinePolicyArgs']]]] = None,
@@ -35,7 +36,7 @@ class RoleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Role resource.
-        :param pulumi.Input[builtins.str] assume_role_policy: Policy that grants an entity permission to assume the role.
+        :param pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']] assume_role_policy: Policy that grants an entity permission to assume the role.
                
                > **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam_get_policy_document` data source. See the example above of how this works.
                
@@ -75,7 +76,7 @@ class RoleArgs:
 
     @property
     @pulumi.getter(name="assumeRolePolicy")
-    def assume_role_policy(self) -> pulumi.Input[builtins.str]:
+    def assume_role_policy(self) -> pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]:
         """
         Policy that grants an entity permission to assume the role.
 
@@ -86,7 +87,7 @@ class RoleArgs:
         return pulumi.get(self, "assume_role_policy")
 
     @assume_role_policy.setter
-    def assume_role_policy(self, value: pulumi.Input[builtins.str]):
+    def assume_role_policy(self, value: pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]):
         pulumi.set(self, "assume_role_policy", value)
 
     @property
@@ -214,7 +215,7 @@ class RoleArgs:
 class _RoleState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
-                 assume_role_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 assume_role_policy: Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]] = None,
                  create_date: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  force_detach_policies: Optional[pulumi.Input[builtins.bool]] = None,
@@ -231,7 +232,7 @@ class _RoleState:
         """
         Input properties used for looking up and filtering Role resources.
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) specifying the role.
-        :param pulumi.Input[builtins.str] assume_role_policy: Policy that grants an entity permission to assume the role.
+        :param pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']] assume_role_policy: Policy that grants an entity permission to assume the role.
                
                > **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam_get_policy_document` data source. See the example above of how this works.
                
@@ -277,9 +278,6 @@ class _RoleState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if unique_id is not None:
             pulumi.set(__self__, "unique_id", unique_id)
@@ -298,7 +296,7 @@ class _RoleState:
 
     @property
     @pulumi.getter(name="assumeRolePolicy")
-    def assume_role_policy(self) -> Optional[pulumi.Input[builtins.str]]:
+    def assume_role_policy(self) -> Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]:
         """
         Policy that grants an entity permission to assume the role.
 
@@ -309,7 +307,7 @@ class _RoleState:
         return pulumi.get(self, "assume_role_policy")
 
     @assume_role_policy.setter
-    def assume_role_policy(self, value: Optional[pulumi.Input[builtins.str]]):
+    def assume_role_policy(self, value: Optional[pulumi.Input[Union[builtins.str, 'PolicyDocumentArgs']]]):
         pulumi.set(self, "assume_role_policy", value)
 
     @property
@@ -446,7 +444,6 @@ class _RoleState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -476,7 +473,7 @@ class Role(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assume_role_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 assume_role_policy: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  force_detach_policies: Optional[pulumi.Input[builtins.bool]] = None,
                  inline_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoleInlinePolicyArgs', 'RoleInlinePolicyArgsDict']]]]] = None,
@@ -666,7 +663,7 @@ class Role(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] assume_role_policy: Policy that grants an entity permission to assume the role.
+        :param pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] assume_role_policy: Policy that grants an entity permission to assume the role.
                
                > **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam_get_policy_document` data source. See the example above of how this works.
                
@@ -879,7 +876,7 @@ class Role(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assume_role_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 assume_role_policy: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  force_detach_policies: Optional[pulumi.Input[builtins.bool]] = None,
                  inline_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoleInlinePolicyArgs', 'RoleInlinePolicyArgsDict']]]]] = None,
@@ -927,7 +924,7 @@ class Role(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
-            assume_role_policy: Optional[pulumi.Input[builtins.str]] = None,
+            assume_role_policy: Optional[pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]]] = None,
             create_date: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             force_detach_policies: Optional[pulumi.Input[builtins.bool]] = None,
@@ -949,7 +946,7 @@ class Role(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: Amazon Resource Name (ARN) specifying the role.
-        :param pulumi.Input[builtins.str] assume_role_policy: Policy that grants an entity permission to assume the role.
+        :param pulumi.Input[Union[builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] assume_role_policy: Policy that grants an entity permission to assume the role.
                
                > **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `iam.Policy` resource.  However, it _can_ use an `iam_get_policy_document` data source. See the example above of how this works.
                
@@ -1099,7 +1096,6 @@ class Role(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

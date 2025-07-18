@@ -28,7 +28,7 @@ class GetInstanceStorageConfigResult:
     """
     A collection of values returned by getInstanceStorageConfig.
     """
-    def __init__(__self__, association_id=None, id=None, instance_id=None, resource_type=None, storage_configs=None):
+    def __init__(__self__, association_id=None, id=None, instance_id=None, region=None, resource_type=None, storage_configs=None):
         if association_id and not isinstance(association_id, str):
             raise TypeError("Expected argument 'association_id' to be a str")
         pulumi.set(__self__, "association_id", association_id)
@@ -38,6 +38,9 @@ class GetInstanceStorageConfigResult:
         if instance_id and not isinstance(instance_id, str):
             raise TypeError("Expected argument 'instance_id' to be a str")
         pulumi.set(__self__, "instance_id", instance_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if resource_type and not isinstance(resource_type, str):
             raise TypeError("Expected argument 'resource_type' to be a str")
         pulumi.set(__self__, "resource_type", resource_type)
@@ -64,6 +67,11 @@ class GetInstanceStorageConfigResult:
         return pulumi.get(self, "instance_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> builtins.str:
         return pulumi.get(self, "resource_type")
@@ -86,12 +94,14 @@ class AwaitableGetInstanceStorageConfigResult(GetInstanceStorageConfigResult):
             association_id=self.association_id,
             id=self.id,
             instance_id=self.instance_id,
+            region=self.region,
             resource_type=self.resource_type,
             storage_configs=self.storage_configs)
 
 
 def get_instance_storage_config(association_id: Optional[builtins.str] = None,
                                 instance_id: Optional[builtins.str] = None,
+                                region: Optional[builtins.str] = None,
                                 resource_type: Optional[builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceStorageConfigResult:
     """
@@ -111,11 +121,13 @@ def get_instance_storage_config(association_id: Optional[builtins.str] = None,
 
     :param builtins.str association_id: The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resource_type: A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
     """
     __args__ = dict()
     __args__['associationId'] = association_id
     __args__['instanceId'] = instance_id
+    __args__['region'] = region
     __args__['resourceType'] = resource_type
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:connect/getInstanceStorageConfig:getInstanceStorageConfig', __args__, opts=opts, typ=GetInstanceStorageConfigResult).value
@@ -124,10 +136,12 @@ def get_instance_storage_config(association_id: Optional[builtins.str] = None,
         association_id=pulumi.get(__ret__, 'association_id'),
         id=pulumi.get(__ret__, 'id'),
         instance_id=pulumi.get(__ret__, 'instance_id'),
+        region=pulumi.get(__ret__, 'region'),
         resource_type=pulumi.get(__ret__, 'resource_type'),
         storage_configs=pulumi.get(__ret__, 'storage_configs'))
 def get_instance_storage_config_output(association_id: Optional[pulumi.Input[builtins.str]] = None,
                                        instance_id: Optional[pulumi.Input[builtins.str]] = None,
+                                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                        resource_type: Optional[pulumi.Input[builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceStorageConfigResult]:
     """
@@ -147,11 +161,13 @@ def get_instance_storage_config_output(association_id: Optional[pulumi.Input[bui
 
     :param builtins.str association_id: The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resource_type: A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
     """
     __args__ = dict()
     __args__['associationId'] = association_id
     __args__['instanceId'] = instance_id
+    __args__['region'] = region
     __args__['resourceType'] = resource_type
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getInstanceStorageConfig:getInstanceStorageConfig', __args__, opts=opts, typ=GetInstanceStorageConfigResult)
@@ -159,5 +175,6 @@ def get_instance_storage_config_output(association_id: Optional[pulumi.Input[bui
         association_id=pulumi.get(__response__, 'association_id'),
         id=pulumi.get(__response__, 'id'),
         instance_id=pulumi.get(__response__, 'instance_id'),
+        region=pulumi.get(__response__, 'region'),
         resource_type=pulumi.get(__response__, 'resource_type'),
         storage_configs=pulumi.get(__response__, 'storage_configs')))

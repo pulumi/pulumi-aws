@@ -28,6 +28,7 @@ class MaintenanceWindowArgs:
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  end_date: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_offset: Optional[pulumi.Input[builtins.int]] = None,
                  schedule_timezone: Optional[pulumi.Input[builtins.str]] = None,
                  start_date: Optional[pulumi.Input[builtins.str]] = None,
@@ -42,6 +43,7 @@ class MaintenanceWindowArgs:
         :param pulumi.Input[builtins.bool] enabled: Whether the maintenance window is enabled. Default: `true`.
         :param pulumi.Input[builtins.str] end_date: Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
         :param pulumi.Input[builtins.str] name: The name of the maintenance window.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] schedule_offset: The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
         :param pulumi.Input[builtins.str] schedule_timezone: Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
         :param pulumi.Input[builtins.str] start_date: Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to begin the maintenance window.
@@ -60,6 +62,8 @@ class MaintenanceWindowArgs:
             pulumi.set(__self__, "end_date", end_date)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schedule_offset is not None:
             pulumi.set(__self__, "schedule_offset", schedule_offset)
         if schedule_timezone is not None:
@@ -166,6 +170,18 @@ class MaintenanceWindowArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="scheduleOffset")
     def schedule_offset(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -224,6 +240,7 @@ class _MaintenanceWindowState:
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  end_date: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_offset: Optional[pulumi.Input[builtins.int]] = None,
                  schedule_timezone: Optional[pulumi.Input[builtins.str]] = None,
@@ -239,6 +256,7 @@ class _MaintenanceWindowState:
         :param pulumi.Input[builtins.bool] enabled: Whether the maintenance window is enabled. Default: `true`.
         :param pulumi.Input[builtins.str] end_date: Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
         :param pulumi.Input[builtins.str] name: The name of the maintenance window.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule: The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
         :param pulumi.Input[builtins.int] schedule_offset: The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
         :param pulumi.Input[builtins.str] schedule_timezone: Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
@@ -260,6 +278,8 @@ class _MaintenanceWindowState:
             pulumi.set(__self__, "end_date", end_date)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
         if schedule_offset is not None:
@@ -270,9 +290,6 @@ class _MaintenanceWindowState:
             pulumi.set(__self__, "start_date", start_date)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -362,6 +379,18 @@ class _MaintenanceWindowState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
@@ -422,7 +451,6 @@ class _MaintenanceWindowState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -447,6 +475,7 @@ class MaintenanceWindow(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  end_date: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_offset: Optional[pulumi.Input[builtins.int]] = None,
                  schedule_timezone: Optional[pulumi.Input[builtins.str]] = None,
@@ -486,6 +515,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: Whether the maintenance window is enabled. Default: `true`.
         :param pulumi.Input[builtins.str] end_date: Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
         :param pulumi.Input[builtins.str] name: The name of the maintenance window.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule: The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
         :param pulumi.Input[builtins.int] schedule_offset: The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
         :param pulumi.Input[builtins.str] schedule_timezone: Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
@@ -544,6 +574,7 @@ class MaintenanceWindow(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  end_date: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_offset: Optional[pulumi.Input[builtins.int]] = None,
                  schedule_timezone: Optional[pulumi.Input[builtins.str]] = None,
@@ -569,6 +600,7 @@ class MaintenanceWindow(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["end_date"] = end_date
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if schedule is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule'")
             __props__.__dict__["schedule"] = schedule
@@ -594,6 +626,7 @@ class MaintenanceWindow(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[builtins.bool]] = None,
             end_date: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             schedule: Optional[pulumi.Input[builtins.str]] = None,
             schedule_offset: Optional[pulumi.Input[builtins.int]] = None,
             schedule_timezone: Optional[pulumi.Input[builtins.str]] = None,
@@ -614,6 +647,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: Whether the maintenance window is enabled. Default: `true`.
         :param pulumi.Input[builtins.str] end_date: Timestamp in [ISO-8601 extended format](https://www.iso.org/iso-8601-date-and-time-format.html) when to no longer run the maintenance window.
         :param pulumi.Input[builtins.str] name: The name of the maintenance window.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule: The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
         :param pulumi.Input[builtins.int] schedule_offset: The number of days to wait after the date and time specified by a CRON expression before running the maintenance window. Valid range is `1` to `6`.
         :param pulumi.Input[builtins.str] schedule_timezone: Timezone for schedule in [Internet Assigned Numbers Authority (IANA) Time Zone Database format](https://www.iana.org/time-zones). For example: `America/Los_Angeles`, `etc/UTC`, or `Asia/Seoul`.
@@ -632,6 +666,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["end_date"] = end_date
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["schedule"] = schedule
         __props__.__dict__["schedule_offset"] = schedule_offset
         __props__.__dict__["schedule_timezone"] = schedule_timezone
@@ -698,6 +733,14 @@ class MaintenanceWindow(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def schedule(self) -> pulumi.Output[builtins.str]:
         """
         The schedule of the Maintenance Window in the form of a [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html).
@@ -738,7 +781,6 @@ class MaintenanceWindow(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

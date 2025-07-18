@@ -22,9 +22,9 @@ namespace Pulumi.Aws.Athena
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.S3.BucketV2("test", new()
+    ///     var test = new Aws.S3.Bucket("test", new()
     ///     {
-    ///         Bucket = "tf-test",
+    ///         BucketName = "tf-test",
     ///         ForceDestroy = true,
     ///     });
     /// 
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Athena
     ///     var testDatabase = new Aws.Athena.Database("test", new()
     ///     {
     ///         Name = "example",
-    ///         Bucket = test.Bucket,
+    ///         Bucket = test.BucketName,
     ///     });
     /// 
     ///     var testPreparedStatement = new Aws.Athena.PreparedStatement("test", new()
@@ -77,6 +77,12 @@ namespace Pulumi.Aws.Athena
         /// </summary>
         [Output("queryStatement")]
         public Output<string> QueryStatement { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// The name of the workgroup to which the prepared statement belongs.
@@ -149,6 +155,12 @@ namespace Pulumi.Aws.Athena
         public Input<string> QueryStatement { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name of the workgroup to which the prepared statement belongs.
         /// </summary>
         [Input("workgroup", required: true)]
@@ -179,6 +191,12 @@ namespace Pulumi.Aws.Athena
         /// </summary>
         [Input("queryStatement")]
         public Input<string>? QueryStatement { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The name of the workgroup to which the prepared statement belongs.

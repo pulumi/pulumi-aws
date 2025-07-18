@@ -173,6 +173,12 @@ namespace Pulumi.Aws.Connect
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -212,6 +218,12 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -263,6 +275,7 @@ namespace Pulumi.Aws.Connect
         /// Name of the Hours of Operation.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Map of tags to assign to the Hours of Operation.
         /// </summary>
@@ -288,6 +301,8 @@ namespace Pulumi.Aws.Connect
 
             string name,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             string timeZone)
@@ -299,6 +314,7 @@ namespace Pulumi.Aws.Connect
             Id = id;
             InstanceId = instanceId;
             Name = name;
+            Region = region;
             Tags = tags;
             TimeZone = timeZone;
         }

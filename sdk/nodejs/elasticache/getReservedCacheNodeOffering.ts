@@ -28,6 +28,7 @@ export function getReservedCacheNodeOffering(args: GetReservedCacheNodeOfferingA
         "duration": args.duration,
         "offeringType": args.offeringType,
         "productDescription": args.productDescription,
+        "region": args.region,
     }, opts);
 }
 
@@ -58,6 +59,10 @@ export interface GetReservedCacheNodeOfferingArgs {
      * Valid values are `redis`, `valkey` and `memcached`.
      */
     productDescription: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -80,6 +85,7 @@ export interface GetReservedCacheNodeOfferingResult {
     readonly offeringId: string;
     readonly offeringType: string;
     readonly productDescription: string;
+    readonly region: string;
 }
 /**
  * Information about a single ElastiCache Reserved Cache Node Offering.
@@ -105,6 +111,7 @@ export function getReservedCacheNodeOfferingOutput(args: GetReservedCacheNodeOff
         "duration": args.duration,
         "offeringType": args.offeringType,
         "productDescription": args.productDescription,
+        "region": args.region,
     }, opts);
 }
 
@@ -135,4 +142,8 @@ export interface GetReservedCacheNodeOfferingOutputArgs {
      * Valid values are `redis`, `valkey` and `memcached`.
      */
     productDescription: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

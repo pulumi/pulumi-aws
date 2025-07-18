@@ -29,6 +29,7 @@ class ListenerArgs:
                  mutual_authentication: Optional[pulumi.Input['ListenerMutualAuthenticationArgs']] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  routing_http_request_x_amzn_mtls_clientcert_header_name: Optional[pulumi.Input[builtins.str]] = None,
                  routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: Optional[pulumi.Input[builtins.str]] = None,
                  routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -62,6 +63,7 @@ class ListenerArgs:
         :param pulumi.Input['ListenerMutualAuthenticationArgs'] mutual_authentication: The mutual authentication configuration information. See below.
         :param pulumi.Input[builtins.int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         :param pulumi.Input[builtins.str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
@@ -99,6 +101,8 @@ class ListenerArgs:
             pulumi.set(__self__, "port", port)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if routing_http_request_x_amzn_mtls_clientcert_header_name is not None:
             pulumi.set(__self__, "routing_http_request_x_amzn_mtls_clientcert_header_name", routing_http_request_x_amzn_mtls_clientcert_header_name)
         if routing_http_request_x_amzn_mtls_clientcert_issuer_header_name is not None:
@@ -229,6 +233,18 @@ class ListenerArgs:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="routingHttpRequestXAmznMtlsClientcertHeaderName")
@@ -508,6 +524,7 @@ class _ListenerState:
                  mutual_authentication: Optional[pulumi.Input['ListenerMutualAuthenticationArgs']] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  routing_http_request_x_amzn_mtls_clientcert_header_name: Optional[pulumi.Input[builtins.str]] = None,
                  routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: Optional[pulumi.Input[builtins.str]] = None,
                  routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -534,7 +551,7 @@ class _ListenerState:
         """
         Input properties used for looking up and filtering Listener resources.
         :param pulumi.Input[builtins.str] alpn_policy: Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
-        :param pulumi.Input[builtins.str] arn: ARN of the listener (matches `id`).
+        :param pulumi.Input[builtins.str] arn: ARN of the listener.
         :param pulumi.Input[builtins.str] certificate_arn: ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
         :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]] default_actions: Configuration block for default actions. See below.
         :param pulumi.Input[builtins.str] load_balancer_arn: ARN of the load balancer.
@@ -543,6 +560,7 @@ class _ListenerState:
         :param pulumi.Input['ListenerMutualAuthenticationArgs'] mutual_authentication: The mutual authentication configuration information. See below.
         :param pulumi.Input[builtins.int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         :param pulumi.Input[builtins.str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
@@ -585,6 +603,8 @@ class _ListenerState:
             pulumi.set(__self__, "port", port)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if routing_http_request_x_amzn_mtls_clientcert_header_name is not None:
             pulumi.set(__self__, "routing_http_request_x_amzn_mtls_clientcert_header_name", routing_http_request_x_amzn_mtls_clientcert_header_name)
         if routing_http_request_x_amzn_mtls_clientcert_issuer_header_name is not None:
@@ -628,9 +648,6 @@ class _ListenerState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tcp_idle_timeout_seconds is not None:
             pulumi.set(__self__, "tcp_idle_timeout_seconds", tcp_idle_timeout_seconds)
@@ -651,7 +668,7 @@ class _ListenerState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        ARN of the listener (matches `id`).
+        ARN of the listener.
         """
         return pulumi.get(self, "arn")
 
@@ -732,6 +749,18 @@ class _ListenerState:
     @protocol.setter
     def protocol(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="routingHttpRequestXAmznMtlsClientcertHeaderName")
@@ -989,7 +1018,6 @@ class _ListenerState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1026,6 +1054,7 @@ class Listener(pulumi.CustomResource):
                  mutual_authentication: Optional[pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  routing_http_request_x_amzn_mtls_clientcert_header_name: Optional[pulumi.Input[builtins.str]] = None,
                  routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: Optional[pulumi.Input[builtins.str]] = None,
                  routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1267,6 +1296,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']] mutual_authentication: The mutual authentication configuration information. See below.
         :param pulumi.Input[builtins.int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         :param pulumi.Input[builtins.str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
@@ -1527,6 +1557,7 @@ class Listener(pulumi.CustomResource):
                  mutual_authentication: Optional[pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  routing_http_request_x_amzn_mtls_clientcert_header_name: Optional[pulumi.Input[builtins.str]] = None,
                  routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: Optional[pulumi.Input[builtins.str]] = None,
                  routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1569,6 +1600,7 @@ class Listener(pulumi.CustomResource):
             __props__.__dict__["mutual_authentication"] = mutual_authentication
             __props__.__dict__["port"] = port
             __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["region"] = region
             __props__.__dict__["routing_http_request_x_amzn_mtls_clientcert_header_name"] = routing_http_request_x_amzn_mtls_clientcert_header_name
             __props__.__dict__["routing_http_request_x_amzn_mtls_clientcert_issuer_header_name"] = routing_http_request_x_amzn_mtls_clientcert_issuer_header_name
             __props__.__dict__["routing_http_request_x_amzn_mtls_clientcert_leaf_header_name"] = routing_http_request_x_amzn_mtls_clientcert_leaf_header_name
@@ -1613,6 +1645,7 @@ class Listener(pulumi.CustomResource):
             mutual_authentication: Optional[pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']]] = None,
             port: Optional[pulumi.Input[builtins.int]] = None,
             protocol: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             routing_http_request_x_amzn_mtls_clientcert_header_name: Optional[pulumi.Input[builtins.str]] = None,
             routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: Optional[pulumi.Input[builtins.str]] = None,
             routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1644,7 +1677,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] alpn_policy: Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
-        :param pulumi.Input[builtins.str] arn: ARN of the listener (matches `id`).
+        :param pulumi.Input[builtins.str] arn: ARN of the listener.
         :param pulumi.Input[builtins.str] certificate_arn: ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerDefaultActionArgs', 'ListenerDefaultActionArgsDict']]]] default_actions: Configuration block for default actions. See below.
         :param pulumi.Input[builtins.str] load_balancer_arn: ARN of the load balancer.
@@ -1653,6 +1686,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']] mutual_authentication: The mutual authentication configuration information. See below.
         :param pulumi.Input[builtins.int] port: Port on which the load balancer is listening. Not valid for Gateway Load Balancers.
         :param pulumi.Input[builtins.str] protocol: Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_issuer_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Issuer` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
         :param pulumi.Input[builtins.str] routing_http_request_x_amzn_mtls_clientcert_leaf_header_name: Enables you to modify the header name of the `X-Amzn-Mtls-Clientcert-Leaf` HTTP request header. Can only be set if protocol is `HTTPS` for Application Load Balancers.
@@ -1691,6 +1725,7 @@ class Listener(pulumi.CustomResource):
         __props__.__dict__["mutual_authentication"] = mutual_authentication
         __props__.__dict__["port"] = port
         __props__.__dict__["protocol"] = protocol
+        __props__.__dict__["region"] = region
         __props__.__dict__["routing_http_request_x_amzn_mtls_clientcert_header_name"] = routing_http_request_x_amzn_mtls_clientcert_header_name
         __props__.__dict__["routing_http_request_x_amzn_mtls_clientcert_issuer_header_name"] = routing_http_request_x_amzn_mtls_clientcert_issuer_header_name
         __props__.__dict__["routing_http_request_x_amzn_mtls_clientcert_leaf_header_name"] = routing_http_request_x_amzn_mtls_clientcert_leaf_header_name
@@ -1728,7 +1763,7 @@ class Listener(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
         """
-        ARN of the listener (matches `id`).
+        ARN of the listener.
         """
         return pulumi.get(self, "arn")
 
@@ -1781,6 +1816,14 @@ class Listener(pulumi.CustomResource):
         Protocol for connections from clients to the load balancer. For Application Load Balancers, valid values are `HTTP` and `HTTPS`, with a default of `HTTP`. For Network Load Balancers, valid values are `TCP`, `TLS`, `UDP`, and `TCP_UDP`. Not valid to use `UDP` or `TCP_UDP` if dual-stack mode is enabled. Not valid for Gateway Load Balancers.
         """
         return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="routingHttpRequestXAmznMtlsClientcertHeaderName")
@@ -1954,7 +1997,6 @@ class Listener(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -26,14 +26,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.S3.BucketV2("test", new()
+    ///     var test = new Aws.S3.Bucket("test", new()
     ///     {
-    ///         Bucket = "my-tf-test-bucket",
+    ///         BucketName = "my-tf-test-bucket",
     ///     });
     /// 
-    ///     var inventory = new Aws.S3.BucketV2("inventory", new()
+    ///     var inventory = new Aws.S3.Bucket("inventory", new()
     ///     {
-    ///         Bucket = "my-tf-inventory-bucket",
+    ///         BucketName = "my-tf-inventory-bucket",
     ///     });
     /// 
     ///     var testInventory = new Aws.S3.Inventory("test", new()
@@ -68,14 +68,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.S3.BucketV2("test", new()
+    ///     var test = new Aws.S3.Bucket("test", new()
     ///     {
-    ///         Bucket = "my-tf-test-bucket",
+    ///         BucketName = "my-tf-test-bucket",
     ///     });
     /// 
-    ///     var inventory = new Aws.S3.BucketV2("inventory", new()
+    ///     var inventory = new Aws.S3.Bucket("inventory", new()
     ///     {
-    ///         Bucket = "my-tf-inventory-bucket",
+    ///         BucketName = "my-tf-inventory-bucket",
     ///     });
     /// 
     ///     var test_prefix = new Aws.S3.Inventory("test-prefix", new()
@@ -157,6 +157,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("optionalFields")]
         public Output<ImmutableArray<string>> OptionalFields { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the schedule for generating inventory results (documented below).
@@ -259,6 +265,12 @@ namespace Pulumi.Aws.S3
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Specifies the schedule for generating inventory results (documented below).
         /// </summary>
         [Input("schedule", required: true)]
@@ -319,6 +331,12 @@ namespace Pulumi.Aws.S3
             get => _optionalFields ?? (_optionalFields = new InputList<string>());
             set => _optionalFields = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specifies the schedule for generating inventory results (documented below).

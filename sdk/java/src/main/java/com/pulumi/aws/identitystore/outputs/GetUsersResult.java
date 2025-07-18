@@ -19,6 +19,11 @@ public final class GetUsersResult {
     private String id;
     private String identityStoreId;
     /**
+     * @return Region of the address.
+     * 
+     */
+    private String region;
+    /**
      * @return List of Identity Store Users
      * 
      */
@@ -34,6 +39,13 @@ public final class GetUsersResult {
     }
     public String identityStoreId() {
         return this.identityStoreId;
+    }
+    /**
+     * @return Region of the address.
+     * 
+     */
+    public String region() {
+        return this.region;
     }
     /**
      * @return List of Identity Store Users
@@ -54,12 +66,14 @@ public final class GetUsersResult {
     public static final class Builder {
         private String id;
         private String identityStoreId;
+        private String region;
         private List<GetUsersUser> users;
         public Builder() {}
         public Builder(GetUsersResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.identityStoreId = defaults.identityStoreId;
+    	      this.region = defaults.region;
     	      this.users = defaults.users;
         }
 
@@ -80,6 +94,14 @@ public final class GetUsersResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetUsersResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder users(List<GetUsersUser> users) {
             if (users == null) {
               throw new MissingRequiredPropertyException("GetUsersResult", "users");
@@ -94,6 +116,7 @@ public final class GetUsersResult {
             final var _resultValue = new GetUsersResult();
             _resultValue.id = id;
             _resultValue.identityStoreId = identityStoreId;
+            _resultValue.region = region;
             _resultValue.users = users;
             return _resultValue;
         }

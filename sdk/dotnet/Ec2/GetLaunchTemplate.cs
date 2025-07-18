@@ -195,6 +195,12 @@ namespace Pulumi.Aws.Ec2
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -239,6 +245,12 @@ namespace Pulumi.Aws.Ec2
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -271,8 +283,6 @@ namespace Pulumi.Aws.Ec2
         public readonly bool DisableApiStop;
         public readonly bool DisableApiTermination;
         public readonly string EbsOptimized;
-        public readonly ImmutableArray<Outputs.GetLaunchTemplateElasticGpuSpecificationResult> ElasticGpuSpecifications;
-        public readonly ImmutableArray<Outputs.GetLaunchTemplateElasticInferenceAcceleratorResult> ElasticInferenceAccelerators;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateEnclaveOptionResult> EnclaveOptions;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateFilterResult> Filters;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateHibernationOptionResult> HibernationOptions;
@@ -298,6 +308,7 @@ namespace Pulumi.Aws.Ec2
         public readonly ImmutableArray<Outputs.GetLaunchTemplatePlacementResult> Placements;
         public readonly ImmutableArray<Outputs.GetLaunchTemplatePrivateDnsNameOptionResult> PrivateDnsNameOptions;
         public readonly string RamDiskId;
+        public readonly string Region;
         public readonly ImmutableArray<string> SecurityGroupNames;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateTagSpecificationResult> TagSpecifications;
         public readonly ImmutableDictionary<string, string> Tags;
@@ -325,10 +336,6 @@ namespace Pulumi.Aws.Ec2
             bool disableApiTermination,
 
             string ebsOptimized,
-
-            ImmutableArray<Outputs.GetLaunchTemplateElasticGpuSpecificationResult> elasticGpuSpecifications,
-
-            ImmutableArray<Outputs.GetLaunchTemplateElasticInferenceAcceleratorResult> elasticInferenceAccelerators,
 
             ImmutableArray<Outputs.GetLaunchTemplateEnclaveOptionResult> enclaveOptions,
 
@@ -374,6 +381,8 @@ namespace Pulumi.Aws.Ec2
 
             string ramDiskId,
 
+            string region,
+
             ImmutableArray<string> securityGroupNames,
 
             ImmutableArray<Outputs.GetLaunchTemplateTagSpecificationResult> tagSpecifications,
@@ -394,8 +403,6 @@ namespace Pulumi.Aws.Ec2
             DisableApiStop = disableApiStop;
             DisableApiTermination = disableApiTermination;
             EbsOptimized = ebsOptimized;
-            ElasticGpuSpecifications = elasticGpuSpecifications;
-            ElasticInferenceAccelerators = elasticInferenceAccelerators;
             EnclaveOptions = enclaveOptions;
             Filters = filters;
             HibernationOptions = hibernationOptions;
@@ -418,6 +425,7 @@ namespace Pulumi.Aws.Ec2
             Placements = placements;
             PrivateDnsNameOptions = privateDnsNameOptions;
             RamDiskId = ramDiskId;
+            Region = region;
             SecurityGroupNames = securityGroupNames;
             TagSpecifications = tagSpecifications;
             Tags = tags;

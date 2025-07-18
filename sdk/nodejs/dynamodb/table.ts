@@ -105,6 +105,41 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Global Tables with Multi-Region Strong Consistency
+ *
+ * A global table configured for Multi-Region strong consistency (MRSC) provides the ability to perform a strongly consistent read with multi-Region scope. Performing a strongly consistent read on an MRSC table ensures you're always reading the latest version of an item, irrespective of the Region in which you're performing the read.
+ *
+ * **Note** Please see detailed information, restrictions, caveats etc on the [AWS Support Page](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/multi-region-strong-consistency-gt.html).
+ *
+ * Consistency Mode (`consistencyMode`) is a new argument on the embedded `replica` that allows you to configure consistency mode for Global Tables.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.dynamodb.Table("example", {
+ *     name: "example",
+ *     hashKey: "TestTableHashKey",
+ *     billingMode: "PAY_PER_REQUEST",
+ *     streamEnabled: true,
+ *     streamViewType: "NEW_AND_OLD_IMAGES",
+ *     attributes: [{
+ *         name: "TestTableHashKey",
+ *         type: "S",
+ *     }],
+ *     replicas: [
+ *         {
+ *             regionName: "us-east-2",
+ *             consistencyMode: "STRONG",
+ *         },
+ *         {
+ *             regionName: "us-west-2",
+ *             consistencyMode: "STRONG",
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ### Replica Tagging
  *
  * You can manage global table replicas' tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `aws.dynamodb.Tag` resource for the other.
@@ -144,7 +179,7 @@ import * as utilities from "../utilities";
  * const exampleTag = new aws.dynamodb.Tag("example", {
  *     resourceArn: pulumi.all([example.arn, current, alternate]).apply(([arn, current, alternate]) => std.replaceOutput({
  *         text: arn,
- *         search: current.name,
+ *         search: current.region,
  *         replace: alternate.name,
  *     })).apply(invoke => invoke.result),
  *     key: "Architect",
@@ -243,6 +278,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly readCapacity!: pulumi.Output<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      */
     public readonly replicas!: pulumi.Output<outputs.dynamodb.TableReplica[] | undefined>;
@@ -294,8 +333,6 @@ export class Table extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -333,6 +370,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["pointInTimeRecovery"] = state ? state.pointInTimeRecovery : undefined;
             resourceInputs["rangeKey"] = state ? state.rangeKey : undefined;
             resourceInputs["readCapacity"] = state ? state.readCapacity : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicas"] = state ? state.replicas : undefined;
             resourceInputs["restoreDateTime"] = state ? state.restoreDateTime : undefined;
             resourceInputs["restoreSourceName"] = state ? state.restoreSourceName : undefined;
@@ -362,6 +400,7 @@ export class Table extends pulumi.CustomResource {
             resourceInputs["pointInTimeRecovery"] = args ? args.pointInTimeRecovery : undefined;
             resourceInputs["rangeKey"] = args ? args.rangeKey : undefined;
             resourceInputs["readCapacity"] = args ? args.readCapacity : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicas"] = args ? args.replicas : undefined;
             resourceInputs["restoreDateTime"] = args ? args.restoreDateTime : undefined;
             resourceInputs["restoreSourceName"] = args ? args.restoreSourceName : undefined;
@@ -443,6 +482,10 @@ export interface TableState {
      */
     readCapacity?: pulumi.Input<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      */
     replicas?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableReplica>[]>;
@@ -494,8 +537,6 @@ export interface TableState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -562,6 +603,10 @@ export interface TableArgs {
      * Number of read units for this table. If the `billingMode` is `PROVISIONED`, this field is required.
      */
     readCapacity?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      */

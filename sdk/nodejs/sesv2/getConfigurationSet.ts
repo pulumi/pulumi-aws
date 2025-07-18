@@ -27,6 +27,7 @@ export function getConfigurationSet(args: GetConfigurationSetArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sesv2/getConfigurationSet:getConfigurationSet", {
         "configurationSetName": args.configurationSetName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -39,6 +40,10 @@ export interface GetConfigurationSetArgs {
      * The name of the configuration set.
      */
     configurationSetName: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Key-value map of resource tags for the container recipe.
      */
@@ -59,6 +64,7 @@ export interface GetConfigurationSetResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
      */
@@ -104,6 +110,7 @@ export function getConfigurationSetOutput(args: GetConfigurationSetOutputArgs, o
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sesv2/getConfigurationSet:getConfigurationSet", {
         "configurationSetName": args.configurationSetName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -116,6 +123,10 @@ export interface GetConfigurationSetOutputArgs {
      * The name of the configuration set.
      */
     configurationSetName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the container recipe.
      */

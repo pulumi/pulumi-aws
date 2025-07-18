@@ -32,6 +32,8 @@ public final class GetServerlessCollectionPlainArgs extends com.pulumi.resources
     /**
      * Name of the collection.
      * 
+     * &gt; Exactly one of `id` or `name` is required.
+     * 
      */
     @Import(name="name")
     private @Nullable String name;
@@ -39,9 +41,26 @@ public final class GetServerlessCollectionPlainArgs extends com.pulumi.resources
     /**
      * @return Name of the collection.
      * 
+     * &gt; Exactly one of `id` or `name` is required.
+     * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetServerlessCollectionPlainArgs() {}
@@ -49,6 +68,7 @@ public final class GetServerlessCollectionPlainArgs extends com.pulumi.resources
     private GetServerlessCollectionPlainArgs(GetServerlessCollectionPlainArgs $) {
         this.id = $.id;
         this.name = $.name;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -83,11 +103,24 @@ public final class GetServerlessCollectionPlainArgs extends com.pulumi.resources
         /**
          * @param name Name of the collection.
          * 
+         * &gt; Exactly one of `id` or `name` is required.
+         * 
          * @return builder
          * 
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

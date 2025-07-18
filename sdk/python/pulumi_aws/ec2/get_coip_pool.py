@@ -29,7 +29,7 @@ class GetCoipPoolResult:
     """
     A collection of values returned by getCoipPool.
     """
-    def __init__(__self__, arn=None, filters=None, id=None, local_gateway_route_table_id=None, pool_cidrs=None, pool_id=None, tags=None):
+    def __init__(__self__, arn=None, filters=None, id=None, local_gateway_route_table_id=None, pool_cidrs=None, pool_id=None, region=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -48,6 +48,9 @@ class GetCoipPoolResult:
         if pool_id and not isinstance(pool_id, str):
             raise TypeError("Expected argument 'pool_id' to be a str")
         pulumi.set(__self__, "pool_id", pool_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -93,6 +96,11 @@ class GetCoipPoolResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         return pulumi.get(self, "tags")
 
@@ -109,12 +117,14 @@ class AwaitableGetCoipPoolResult(GetCoipPoolResult):
             local_gateway_route_table_id=self.local_gateway_route_table_id,
             pool_cidrs=self.pool_cidrs,
             pool_id=self.pool_id,
+            region=self.region,
             tags=self.tags)
 
 
 def get_coip_pool(filters: Optional[Sequence[Union['GetCoipPoolFilterArgs', 'GetCoipPoolFilterArgsDict']]] = None,
                   local_gateway_route_table_id: Optional[builtins.str] = None,
                   pool_id: Optional[builtins.str] = None,
+                  region: Optional[builtins.str] = None,
                   tags: Optional[Mapping[str, builtins.str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCoipPoolResult:
     """
@@ -127,6 +137,7 @@ def get_coip_pool(filters: Optional[Sequence[Union['GetCoipPoolFilterArgs', 'Get
 
     :param builtins.str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired COIP Pool
     :param builtins.str pool_id: ID of the specific COIP Pool to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired COIP Pool.
            
@@ -137,6 +148,7 @@ def get_coip_pool(filters: Optional[Sequence[Union['GetCoipPoolFilterArgs', 'Get
     __args__['filters'] = filters
     __args__['localGatewayRouteTableId'] = local_gateway_route_table_id
     __args__['poolId'] = pool_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getCoipPool:getCoipPool', __args__, opts=opts, typ=GetCoipPoolResult).value
@@ -148,10 +160,12 @@ def get_coip_pool(filters: Optional[Sequence[Union['GetCoipPoolFilterArgs', 'Get
         local_gateway_route_table_id=pulumi.get(__ret__, 'local_gateway_route_table_id'),
         pool_cidrs=pulumi.get(__ret__, 'pool_cidrs'),
         pool_id=pulumi.get(__ret__, 'pool_id'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_coip_pool_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetCoipPoolFilterArgs', 'GetCoipPoolFilterArgsDict']]]]] = None,
                          local_gateway_route_table_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          pool_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCoipPoolResult]:
     """
@@ -164,6 +178,7 @@ def get_coip_pool_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
 
     :param builtins.str local_gateway_route_table_id: Local Gateway Route Table Id assigned to desired COIP Pool
     :param builtins.str pool_id: ID of the specific COIP Pool to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Mapping of tags, each pair of which must exactly match
            a pair on the desired COIP Pool.
            
@@ -174,6 +189,7 @@ def get_coip_pool_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
     __args__['filters'] = filters
     __args__['localGatewayRouteTableId'] = local_gateway_route_table_id
     __args__['poolId'] = pool_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getCoipPool:getCoipPool', __args__, opts=opts, typ=GetCoipPoolResult)
@@ -184,4 +200,5 @@ def get_coip_pool_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
         local_gateway_route_table_id=pulumi.get(__response__, 'local_gateway_route_table_id'),
         pool_cidrs=pulumi.get(__response__, 'pool_cidrs'),
         pool_id=pulumi.get(__response__, 'pool_id'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

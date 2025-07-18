@@ -64,6 +64,10 @@ export class TrustStoreRevocation extends pulumi.CustomResource {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * AWS assigned RevocationId, (number).
      */
     public /*out*/ readonly revocationId!: pulumi.Output<number>;
@@ -97,6 +101,7 @@ export class TrustStoreRevocation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrustStoreRevocationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["revocationId"] = state ? state.revocationId : undefined;
             resourceInputs["revocationsS3Bucket"] = state ? state.revocationsS3Bucket : undefined;
             resourceInputs["revocationsS3Key"] = state ? state.revocationsS3Key : undefined;
@@ -113,6 +118,7 @@ export class TrustStoreRevocation extends pulumi.CustomResource {
             if ((!args || args.trustStoreArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trustStoreArn'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["revocationsS3Bucket"] = args ? args.revocationsS3Bucket : undefined;
             resourceInputs["revocationsS3Key"] = args ? args.revocationsS3Key : undefined;
             resourceInputs["revocationsS3ObjectVersion"] = args ? args.revocationsS3ObjectVersion : undefined;
@@ -128,6 +134,10 @@ export class TrustStoreRevocation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TrustStoreRevocation resources.
  */
 export interface TrustStoreRevocationState {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * AWS assigned RevocationId, (number).
      */
@@ -154,6 +164,10 @@ export interface TrustStoreRevocationState {
  * The set of arguments for constructing a TrustStoreRevocation resource.
  */
 export interface TrustStoreRevocationArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * S3 Bucket name holding the client certificate CA bundle.
      */

@@ -25,18 +25,22 @@ class MethodSettingsArgs:
                  method_path: pulumi.Input[builtins.str],
                  rest_api: pulumi.Input[builtins.str],
                  settings: pulumi.Input['MethodSettingsSettingsArgs'],
-                 stage_name: pulumi.Input[builtins.str]):
+                 stage_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a MethodSettings resource.
         :param pulumi.Input[builtins.str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         :param pulumi.Input[builtins.str] rest_api: ID of the REST API
         :param pulumi.Input['MethodSettingsSettingsArgs'] settings: Settings block, see below.
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "method_path", method_path)
         pulumi.set(__self__, "rest_api", rest_api)
         pulumi.set(__self__, "settings", settings)
         pulumi.set(__self__, "stage_name", stage_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="methodPath")
@@ -86,23 +90,39 @@ class MethodSettingsArgs:
     def stage_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "stage_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _MethodSettingsState:
     def __init__(__self__, *,
                  method_path: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
                  settings: Optional[pulumi.Input['MethodSettingsSettingsArgs']] = None,
                  stage_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering MethodSettings resources.
         :param pulumi.Input[builtins.str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the REST API
         :param pulumi.Input['MethodSettingsSettingsArgs'] settings: Settings block, see below.
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
         """
         if method_path is not None:
             pulumi.set(__self__, "method_path", method_path)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rest_api is not None:
             pulumi.set(__self__, "rest_api", rest_api)
         if settings is not None:
@@ -121,6 +141,18 @@ class _MethodSettingsState:
     @method_path.setter
     def method_path(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "method_path", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="restApi")
@@ -166,6 +198,7 @@ class MethodSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  method_path: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
                  settings: Optional[pulumi.Input[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict']]] = None,
                  stage_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -256,6 +289,7 @@ class MethodSettings(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the REST API
         :param pulumi.Input[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict']] settings: Settings block, see below.
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
@@ -365,6 +399,7 @@ class MethodSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  method_path: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
                  settings: Optional[pulumi.Input[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict']]] = None,
                  stage_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -380,6 +415,7 @@ class MethodSettings(pulumi.CustomResource):
             if method_path is None and not opts.urn:
                 raise TypeError("Missing required property 'method_path'")
             __props__.__dict__["method_path"] = method_path
+            __props__.__dict__["region"] = region
             if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
             __props__.__dict__["rest_api"] = rest_api
@@ -400,6 +436,7 @@ class MethodSettings(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             method_path: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rest_api: Optional[pulumi.Input[builtins.str]] = None,
             settings: Optional[pulumi.Input[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict']]] = None,
             stage_name: Optional[pulumi.Input[builtins.str]] = None) -> 'MethodSettings':
@@ -411,6 +448,7 @@ class MethodSettings(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the REST API
         :param pulumi.Input[Union['MethodSettingsSettingsArgs', 'MethodSettingsSettingsArgsDict']] settings: Settings block, see below.
         :param pulumi.Input[builtins.str] stage_name: Name of the stage
@@ -420,6 +458,7 @@ class MethodSettings(pulumi.CustomResource):
         __props__ = _MethodSettingsState.__new__(_MethodSettingsState)
 
         __props__.__dict__["method_path"] = method_path
+        __props__.__dict__["region"] = region
         __props__.__dict__["rest_api"] = rest_api
         __props__.__dict__["settings"] = settings
         __props__.__dict__["stage_name"] = stage_name
@@ -432,6 +471,14 @@ class MethodSettings(pulumi.CustomResource):
         Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         """
         return pulumi.get(self, "method_path")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="restApi")

@@ -299,12 +299,6 @@ export class Association extends pulumi.CustomResource {
      */
     public readonly documentVersion!: pulumi.Output<string>;
     /**
-     * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-     *
-     * @deprecated instance_id is deprecated. Use targets instead.
-     */
-    public readonly instanceId!: pulumi.Output<string | undefined>;
-    /**
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      */
     public readonly maxConcurrency!: pulumi.Output<string | undefined>;
@@ -325,6 +319,10 @@ export class Association extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string}>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      */
     public readonly scheduleExpression!: pulumi.Output<string | undefined>;
@@ -338,8 +336,6 @@ export class Association extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -373,12 +369,12 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["automationTargetParameterName"] = state ? state.automationTargetParameterName : undefined;
             resourceInputs["complianceSeverity"] = state ? state.complianceSeverity : undefined;
             resourceInputs["documentVersion"] = state ? state.documentVersion : undefined;
-            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
             resourceInputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
             resourceInputs["maxErrors"] = state ? state.maxErrors : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outputLocation"] = state ? state.outputLocation : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scheduleExpression"] = state ? state.scheduleExpression : undefined;
             resourceInputs["syncCompliance"] = state ? state.syncCompliance : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -392,12 +388,12 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["automationTargetParameterName"] = args ? args.automationTargetParameterName : undefined;
             resourceInputs["complianceSeverity"] = args ? args.complianceSeverity : undefined;
             resourceInputs["documentVersion"] = args ? args.documentVersion : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
             resourceInputs["maxErrors"] = args ? args.maxErrors : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["outputLocation"] = args ? args.outputLocation : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
             resourceInputs["syncCompliance"] = args ? args.syncCompliance : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -445,12 +441,6 @@ export interface AssociationState {
      */
     documentVersion?: pulumi.Input<string>;
     /**
-     * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-     *
-     * @deprecated instance_id is deprecated. Use targets instead.
-     */
-    instanceId?: pulumi.Input<string>;
-    /**
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      */
     maxConcurrency?: pulumi.Input<string>;
@@ -471,6 +461,10 @@ export interface AssociationState {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      */
     scheduleExpression?: pulumi.Input<string>;
@@ -484,8 +478,6 @@ export interface AssociationState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -525,12 +517,6 @@ export interface AssociationArgs {
      */
     documentVersion?: pulumi.Input<string>;
     /**
-     * The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-     *
-     * @deprecated instance_id is deprecated. Use targets instead.
-     */
-    instanceId?: pulumi.Input<string>;
-    /**
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
      */
     maxConcurrency?: pulumi.Input<string>;
@@ -550,6 +536,10 @@ export interface AssociationArgs {
      * A block of arbitrary string parameters to pass to the SSM document.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
      */

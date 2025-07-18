@@ -35,7 +35,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     ///     var exampleApplicationAccessScope = new Aws.SsoAdmin.ApplicationAccessScope("example", new()
     ///     {
-    ///         ApplicationArn = exampleApplication.ApplicationArn,
+    ///         ApplicationArn = exampleApplication.Arn,
     ///         AuthorizedTargets = new[]
     ///         {
     ///             "arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012",
@@ -68,6 +68,12 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         [Output("authorizedTargets")]
         public Output<ImmutableArray<string>> AuthorizedTargets { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the access scope to be associated with the specified targets.
@@ -142,6 +148,12 @@ namespace Pulumi.Aws.SsoAdmin
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Specifies the name of the access scope to be associated with the specified targets.
         /// 
         /// The following arguments are optional:
@@ -174,6 +186,12 @@ namespace Pulumi.Aws.SsoAdmin
             get => _authorizedTargets ?? (_authorizedTargets = new InputList<string>());
             set => _authorizedTargets = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specifies the name of the access scope to be associated with the specified targets.

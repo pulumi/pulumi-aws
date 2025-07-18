@@ -68,6 +68,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:vpc/routeServerPropagation:RouteServerPropagation")
 public class RouteServerPropagation extends com.pulumi.resources.CustomResource {
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The unique identifier for the route server to be associated.
      * 
      */
@@ -84,12 +98,16 @@ public class RouteServerPropagation extends com.pulumi.resources.CustomResource 
     /**
      * The ID of the route table to which route server will propagate routes.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="routeTableId", refs={String.class}, tree="[0]")
     private Output<String> routeTableId;
 
     /**
      * @return The ID of the route table to which route server will propagate routes.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> routeTableId() {

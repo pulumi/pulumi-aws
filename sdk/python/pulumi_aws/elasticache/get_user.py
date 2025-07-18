@@ -29,7 +29,7 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, access_string=None, authentication_modes=None, engine=None, id=None, no_password_required=None, passwords=None, user_id=None, user_name=None):
+    def __init__(__self__, access_string=None, authentication_modes=None, engine=None, id=None, no_password_required=None, passwords=None, region=None, user_id=None, user_name=None):
         if access_string and not isinstance(access_string, str):
             raise TypeError("Expected argument 'access_string' to be a str")
         pulumi.set(__self__, "access_string", access_string)
@@ -48,6 +48,9 @@ class GetUserResult:
         if passwords and not isinstance(passwords, list):
             raise TypeError("Expected argument 'passwords' to be a list")
         pulumi.set(__self__, "passwords", passwords)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if user_id and not isinstance(user_id, str):
             raise TypeError("Expected argument 'user_id' to be a str")
         pulumi.set(__self__, "user_id", user_id)
@@ -92,6 +95,11 @@ class GetUserResult:
         return pulumi.get(self, "passwords")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="userId")
     def user_id(self) -> builtins.str:
         """
@@ -120,6 +128,7 @@ class AwaitableGetUserResult(GetUserResult):
             id=self.id,
             no_password_required=self.no_password_required,
             passwords=self.passwords,
+            region=self.region,
             user_id=self.user_id,
             user_name=self.user_name)
 
@@ -129,6 +138,7 @@ def get_user(access_string: Optional[builtins.str] = None,
              engine: Optional[builtins.str] = None,
              no_password_required: Optional[builtins.bool] = None,
              passwords: Optional[Sequence[builtins.str]] = None,
+             region: Optional[builtins.str] = None,
              user_id: Optional[builtins.str] = None,
              user_name: Optional[builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
@@ -146,6 +156,7 @@ def get_user(access_string: Optional[builtins.str] = None,
 
 
     :param builtins.str access_string: String for what access a user possesses within the associated ElastiCache replication groups or clusters.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_id: Identifier for the user.
     :param builtins.str user_name: User name of the user.
     """
@@ -155,6 +166,7 @@ def get_user(access_string: Optional[builtins.str] = None,
     __args__['engine'] = engine
     __args__['noPasswordRequired'] = no_password_required
     __args__['passwords'] = passwords
+    __args__['region'] = region
     __args__['userId'] = user_id
     __args__['userName'] = user_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -167,6 +179,7 @@ def get_user(access_string: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         no_password_required=pulumi.get(__ret__, 'no_password_required'),
         passwords=pulumi.get(__ret__, 'passwords'),
+        region=pulumi.get(__ret__, 'region'),
         user_id=pulumi.get(__ret__, 'user_id'),
         user_name=pulumi.get(__ret__, 'user_name'))
 def get_user_output(access_string: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -174,6 +187,7 @@ def get_user_output(access_string: Optional[pulumi.Input[Optional[builtins.str]]
                     engine: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     no_password_required: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                     passwords: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
+                    region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     user_id: Optional[pulumi.Input[builtins.str]] = None,
                     user_name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
@@ -191,6 +205,7 @@ def get_user_output(access_string: Optional[pulumi.Input[Optional[builtins.str]]
 
 
     :param builtins.str access_string: String for what access a user possesses within the associated ElastiCache replication groups or clusters.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_id: Identifier for the user.
     :param builtins.str user_name: User name of the user.
     """
@@ -200,6 +215,7 @@ def get_user_output(access_string: Optional[pulumi.Input[Optional[builtins.str]]
     __args__['engine'] = engine
     __args__['noPasswordRequired'] = no_password_required
     __args__['passwords'] = passwords
+    __args__['region'] = region
     __args__['userId'] = user_id
     __args__['userName'] = user_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -211,5 +227,6 @@ def get_user_output(access_string: Optional[pulumi.Input[Optional[builtins.str]]
         id=pulumi.get(__response__, 'id'),
         no_password_required=pulumi.get(__response__, 'no_password_required'),
         passwords=pulumi.get(__response__, 'passwords'),
+        region=pulumi.get(__response__, 'region'),
         user_id=pulumi.get(__response__, 'user_id'),
         user_name=pulumi.get(__response__, 'user_name')))

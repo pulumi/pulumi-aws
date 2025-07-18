@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +48,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,7 +81,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -107,7 +107,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -145,6 +145,8 @@ type GetElasticIpArgs struct {
 	Id *string `pulumi:"id"`
 	// Public IP of the specific EIP to retrieve.
 	PublicIp *string `pulumi:"publicIp"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
 	//
 	// The arguments of this data source act as filters for querying the available
@@ -189,6 +191,7 @@ type GetElasticIpResult struct {
 	PublicIp string `pulumi:"publicIp"`
 	// ID of an address pool.
 	PublicIpv4Pool string `pulumi:"publicIpv4Pool"`
+	Region         string `pulumi:"region"`
 	// Key-value map of tags associated with Elastic IP.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -210,6 +213,8 @@ type GetElasticIpOutputArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Public IP of the specific EIP to retrieve.
 	PublicIp pulumi.StringPtrInput `pulumi:"publicIp"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
 	//
 	// The arguments of this data source act as filters for querying the available
@@ -323,6 +328,10 @@ func (o GetElasticIpResultOutput) PublicIp() pulumi.StringOutput {
 // ID of an address pool.
 func (o GetElasticIpResultOutput) PublicIpv4Pool() pulumi.StringOutput {
 	return o.ApplyT(func(v GetElasticIpResult) string { return v.PublicIpv4Pool }).(pulumi.StringOutput)
+}
+
+func (o GetElasticIpResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetElasticIpResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of tags associated with Elastic IP.

@@ -29,6 +29,7 @@ public final class GetNamedQueryResult {
     private String id;
     private String name;
     private String querystring;
+    private String region;
     private @Nullable String workgroup;
 
     private GetNamedQueryResult() {}
@@ -59,6 +60,9 @@ public final class GetNamedQueryResult {
     public String querystring() {
         return this.querystring;
     }
+    public String region() {
+        return this.region;
+    }
     public Optional<String> workgroup() {
         return Optional.ofNullable(this.workgroup);
     }
@@ -77,6 +81,7 @@ public final class GetNamedQueryResult {
         private String id;
         private String name;
         private String querystring;
+        private String region;
         private @Nullable String workgroup;
         public Builder() {}
         public Builder(GetNamedQueryResult defaults) {
@@ -86,6 +91,7 @@ public final class GetNamedQueryResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.querystring = defaults.querystring;
+    	      this.region = defaults.region;
     	      this.workgroup = defaults.workgroup;
         }
 
@@ -130,6 +136,14 @@ public final class GetNamedQueryResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetNamedQueryResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder workgroup(@Nullable String workgroup) {
 
             this.workgroup = workgroup;
@@ -142,6 +156,7 @@ public final class GetNamedQueryResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.querystring = querystring;
+            _resultValue.region = region;
             _resultValue.workgroup = workgroup;
             return _resultValue;
         }

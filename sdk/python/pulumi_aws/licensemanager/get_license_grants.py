@@ -29,7 +29,7 @@ class GetLicenseGrantsResult:
     """
     A collection of values returned by getLicenseGrants.
     """
-    def __init__(__self__, arns=None, filters=None, id=None):
+    def __init__(__self__, arns=None, filters=None, id=None, region=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         pulumi.set(__self__, "arns", arns)
@@ -39,6 +39,9 @@ class GetLicenseGrantsResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -61,6 +64,11 @@ class GetLicenseGrantsResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetLicenseGrantsResult(GetLicenseGrantsResult):
     # pylint: disable=using-constant-test
@@ -70,10 +78,12 @@ class AwaitableGetLicenseGrantsResult(GetLicenseGrantsResult):
         return GetLicenseGrantsResult(
             arns=self.arns,
             filters=self.filters,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
 def get_license_grants(filters: Optional[Sequence[Union['GetLicenseGrantsFilterArgs', 'GetLicenseGrantsFilterArgsDict']]] = None,
+                       region: Optional[builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLicenseGrantsResult:
     """
     This resource can be used to get a set of license grant ARNs matching a filter.
@@ -95,17 +105,21 @@ def get_license_grants(filters: Optional[Sequence[Union['GetLicenseGrantsFilterA
 
 
     :param Sequence[Union['GetLicenseGrantsFilterArgs', 'GetLicenseGrantsFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:licensemanager/getLicenseGrants:getLicenseGrants', __args__, opts=opts, typ=GetLicenseGrantsResult).value
 
     return AwaitableGetLicenseGrantsResult(
         arns=pulumi.get(__ret__, 'arns'),
         filters=pulumi.get(__ret__, 'filters'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_license_grants_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetLicenseGrantsFilterArgs', 'GetLicenseGrantsFilterArgsDict']]]]] = None,
+                              region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLicenseGrantsResult]:
     """
     This resource can be used to get a set of license grant ARNs matching a filter.
@@ -127,12 +141,15 @@ def get_license_grants_output(filters: Optional[pulumi.Input[Optional[Sequence[U
 
 
     :param Sequence[Union['GetLicenseGrantsFilterArgs', 'GetLicenseGrantsFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:licensemanager/getLicenseGrants:getLicenseGrants', __args__, opts=opts, typ=GetLicenseGrantsResult)
     return __ret__.apply(lambda __response__: GetLicenseGrantsResult(
         arns=pulumi.get(__response__, 'arns'),
         filters=pulumi.get(__response__, 'filters'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

@@ -92,6 +92,10 @@ export class ReportPlan extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      */
     public readonly reportDeliveryChannel!: pulumi.Output<outputs.backup.ReportPlanReportDeliveryChannel>;
@@ -105,8 +109,6 @@ export class ReportPlan extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -128,6 +130,7 @@ export class ReportPlan extends pulumi.CustomResource {
             resourceInputs["deploymentStatus"] = state ? state.deploymentStatus : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["reportDeliveryChannel"] = state ? state.reportDeliveryChannel : undefined;
             resourceInputs["reportSetting"] = state ? state.reportSetting : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -142,6 +145,7 @@ export class ReportPlan extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["reportDeliveryChannel"] = args ? args.reportDeliveryChannel : undefined;
             resourceInputs["reportSetting"] = args ? args.reportSetting : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -180,6 +184,10 @@ export interface ReportPlanState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      */
     reportDeliveryChannel?: pulumi.Input<inputs.backup.ReportPlanReportDeliveryChannel>;
@@ -193,8 +201,6 @@ export interface ReportPlanState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -211,6 +217,10 @@ export interface ReportPlanArgs {
      * The unique name of the report plan. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      */

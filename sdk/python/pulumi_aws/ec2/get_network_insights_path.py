@@ -29,7 +29,7 @@ class GetNetworkInsightsPathResult:
     """
     A collection of values returned by getNetworkInsightsPath.
     """
-    def __init__(__self__, arn=None, destination=None, destination_arn=None, destination_ip=None, destination_port=None, filter_at_destinations=None, filter_at_sources=None, filters=None, id=None, network_insights_path_id=None, protocol=None, source=None, source_arn=None, source_ip=None, tags=None):
+    def __init__(__self__, arn=None, destination=None, destination_arn=None, destination_ip=None, destination_port=None, filter_at_destinations=None, filter_at_sources=None, filters=None, id=None, network_insights_path_id=None, protocol=None, region=None, source=None, source_arn=None, source_ip=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -63,6 +63,9 @@ class GetNetworkInsightsPathResult:
         if protocol and not isinstance(protocol, str):
             raise TypeError("Expected argument 'protocol' to be a str")
         pulumi.set(__self__, "protocol", protocol)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if source and not isinstance(source, str):
             raise TypeError("Expected argument 'source' to be a str")
         pulumi.set(__self__, "source", source)
@@ -160,6 +163,11 @@ class GetNetworkInsightsPathResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def source(self) -> builtins.str:
         """
         AWS resource that is the source of the path.
@@ -208,6 +216,7 @@ class AwaitableGetNetworkInsightsPathResult(GetNetworkInsightsPathResult):
             id=self.id,
             network_insights_path_id=self.network_insights_path_id,
             protocol=self.protocol,
+            region=self.region,
             source=self.source,
             source_arn=self.source_arn,
             source_ip=self.source_ip,
@@ -216,6 +225,7 @@ class AwaitableGetNetworkInsightsPathResult(GetNetworkInsightsPathResult):
 
 def get_network_insights_path(filters: Optional[Sequence[Union['GetNetworkInsightsPathFilterArgs', 'GetNetworkInsightsPathFilterArgsDict']]] = None,
                               network_insights_path_id: Optional[builtins.str] = None,
+                              region: Optional[builtins.str] = None,
                               tags: Optional[Mapping[str, builtins.str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInsightsPathResult:
     """
@@ -237,11 +247,13 @@ def get_network_insights_path(filters: Optional[Sequence[Union['GetNetworkInsigh
            Network Insights Paths. The given filters must match exactly one Network Insights Path
            whose data will be exported as attributes.
     :param builtins.str network_insights_path_id: ID of the Network Insights Path to select.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['networkInsightsPathId'] = network_insights_path_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath', __args__, opts=opts, typ=GetNetworkInsightsPathResult).value
@@ -258,12 +270,14 @@ def get_network_insights_path(filters: Optional[Sequence[Union['GetNetworkInsigh
         id=pulumi.get(__ret__, 'id'),
         network_insights_path_id=pulumi.get(__ret__, 'network_insights_path_id'),
         protocol=pulumi.get(__ret__, 'protocol'),
+        region=pulumi.get(__ret__, 'region'),
         source=pulumi.get(__ret__, 'source'),
         source_arn=pulumi.get(__ret__, 'source_arn'),
         source_ip=pulumi.get(__ret__, 'source_ip'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_network_insights_path_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkInsightsPathFilterArgs', 'GetNetworkInsightsPathFilterArgsDict']]]]] = None,
                                      network_insights_path_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInsightsPathResult]:
     """
@@ -285,11 +299,13 @@ def get_network_insights_path_output(filters: Optional[pulumi.Input[Optional[Seq
            Network Insights Paths. The given filters must match exactly one Network Insights Path
            whose data will be exported as attributes.
     :param builtins.str network_insights_path_id: ID of the Network Insights Path to select.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['networkInsightsPathId'] = network_insights_path_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath', __args__, opts=opts, typ=GetNetworkInsightsPathResult)
@@ -305,6 +321,7 @@ def get_network_insights_path_output(filters: Optional[pulumi.Input[Optional[Seq
         id=pulumi.get(__response__, 'id'),
         network_insights_path_id=pulumi.get(__response__, 'network_insights_path_id'),
         protocol=pulumi.get(__response__, 'protocol'),
+        region=pulumi.get(__response__, 'region'),
         source=pulumi.get(__response__, 'source'),
         source_arn=pulumi.get(__response__, 'source_arn'),
         source_ip=pulumi.get(__response__, 'source_ip'),

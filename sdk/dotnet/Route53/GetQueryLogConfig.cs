@@ -210,6 +210,12 @@ namespace Pulumi.Aws.Route53
         public string? Name { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// ID of the Route53 Resolver Query Logging Configuration.
         /// </summary>
         [Input("resolverQueryLogConfigId")]
@@ -254,6 +260,12 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ID of the Route53 Resolver Query Logging Configuration.
@@ -304,6 +316,7 @@ namespace Pulumi.Aws.Route53
         /// The AWS account ID for the account that created the query logging configuration.
         /// </summary>
         public readonly string OwnerId;
+        public readonly string Region;
         public readonly string? ResolverQueryLogConfigId;
         /// <summary>
         /// An indication of whether the query logging configuration is shared with other AWS accounts or was shared with the current account by another AWS account.
@@ -328,6 +341,8 @@ namespace Pulumi.Aws.Route53
 
             string ownerId,
 
+            string region,
+
             string? resolverQueryLogConfigId,
 
             string shareStatus,
@@ -340,6 +355,7 @@ namespace Pulumi.Aws.Route53
             Id = id;
             Name = name;
             OwnerId = ownerId;
+            Region = region;
             ResolverQueryLogConfigId = resolverQueryLogConfigId;
             ShareStatus = shareStatus;
             Tags = tags;

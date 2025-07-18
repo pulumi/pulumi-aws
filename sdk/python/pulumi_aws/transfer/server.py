@@ -37,6 +37,7 @@ class ServerArgs:
                  pre_authentication_login_banner: Optional[pulumi.Input[builtins.str]] = None,
                  protocol_details: Optional[pulumi.Input['ServerProtocolDetailsArgs']] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_storage_options: Optional[pulumi.Input['ServerS3StorageOptionsArgs']] = None,
                  security_policy_name: Optional[pulumi.Input[builtins.str]] = None,
                  sftp_authentication_methods: Optional[pulumi.Input[builtins.str]] = None,
@@ -65,6 +66,7 @@ class ServerArgs:
                * `SFTP`: File transfer over SSH
                * `FTPS`: File transfer with TLS encryption
                * `FTP`: Unencrypted file transfer
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ServerS3StorageOptionsArgs'] s3_storage_options: Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
         :param pulumi.Input[builtins.str] security_policy_name: Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
                * `TransferSecurityPolicy-2018-11`
@@ -122,6 +124,8 @@ class ServerArgs:
             pulumi.set(__self__, "protocol_details", protocol_details)
         if protocols is not None:
             pulumi.set(__self__, "protocols", protocols)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if s3_storage_options is not None:
             pulumi.set(__self__, "s3_storage_options", s3_storage_options)
         if security_policy_name is not None:
@@ -322,6 +326,18 @@ class ServerArgs:
         pulumi.set(self, "protocols", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="s3StorageOptions")
     def s3_storage_options(self) -> Optional[pulumi.Input['ServerS3StorageOptionsArgs']]:
         """
@@ -446,6 +462,7 @@ class _ServerState:
                  pre_authentication_login_banner: Optional[pulumi.Input[builtins.str]] = None,
                  protocol_details: Optional[pulumi.Input['ServerProtocolDetailsArgs']] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_storage_options: Optional[pulumi.Input['ServerS3StorageOptionsArgs']] = None,
                  security_policy_name: Optional[pulumi.Input[builtins.str]] = None,
                  sftp_authentication_methods: Optional[pulumi.Input[builtins.str]] = None,
@@ -478,6 +495,7 @@ class _ServerState:
                * `SFTP`: File transfer over SSH
                * `FTPS`: File transfer with TLS encryption
                * `FTP`: Unencrypted file transfer
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ServerS3StorageOptionsArgs'] s3_storage_options: Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
         :param pulumi.Input[builtins.str] security_policy_name: Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
                * `TransferSecurityPolicy-2018-11`
@@ -542,6 +560,8 @@ class _ServerState:
             pulumi.set(__self__, "protocol_details", protocol_details)
         if protocols is not None:
             pulumi.set(__self__, "protocols", protocols)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if s3_storage_options is not None:
             pulumi.set(__self__, "s3_storage_options", s3_storage_options)
         if security_policy_name is not None:
@@ -552,9 +572,6 @@ class _ServerState:
             pulumi.set(__self__, "structured_log_destinations", structured_log_destinations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if url is not None:
@@ -783,6 +800,18 @@ class _ServerState:
         pulumi.set(self, "protocols", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="s3StorageOptions")
     def s3_storage_options(self) -> Optional[pulumi.Input['ServerS3StorageOptionsArgs']]:
         """
@@ -863,7 +892,6 @@ class _ServerState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -920,6 +948,7 @@ class Server(pulumi.CustomResource):
                  pre_authentication_login_banner: Optional[pulumi.Input[builtins.str]] = None,
                  protocol_details: Optional[pulumi.Input[Union['ServerProtocolDetailsArgs', 'ServerProtocolDetailsArgsDict']]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_storage_options: Optional[pulumi.Input[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict']]] = None,
                  security_policy_name: Optional[pulumi.Input[builtins.str]] = None,
                  sftp_authentication_methods: Optional[pulumi.Input[builtins.str]] = None,
@@ -1073,6 +1102,7 @@ class Server(pulumi.CustomResource):
                * `SFTP`: File transfer over SSH
                * `FTPS`: File transfer with TLS encryption
                * `FTP`: Unencrypted file transfer
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict']] s3_storage_options: Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
         :param pulumi.Input[builtins.str] security_policy_name: Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
                * `TransferSecurityPolicy-2018-11`
@@ -1260,6 +1290,7 @@ class Server(pulumi.CustomResource):
                  pre_authentication_login_banner: Optional[pulumi.Input[builtins.str]] = None,
                  protocol_details: Optional[pulumi.Input[Union['ServerProtocolDetailsArgs', 'ServerProtocolDetailsArgsDict']]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_storage_options: Optional[pulumi.Input[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict']]] = None,
                  security_policy_name: Optional[pulumi.Input[builtins.str]] = None,
                  sftp_authentication_methods: Optional[pulumi.Input[builtins.str]] = None,
@@ -1291,6 +1322,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["pre_authentication_login_banner"] = None if pre_authentication_login_banner is None else pulumi.Output.secret(pre_authentication_login_banner)
             __props__.__dict__["protocol_details"] = protocol_details
             __props__.__dict__["protocols"] = protocols
+            __props__.__dict__["region"] = region
             __props__.__dict__["s3_storage_options"] = s3_storage_options
             __props__.__dict__["security_policy_name"] = security_policy_name
             __props__.__dict__["sftp_authentication_methods"] = sftp_authentication_methods
@@ -1332,6 +1364,7 @@ class Server(pulumi.CustomResource):
             pre_authentication_login_banner: Optional[pulumi.Input[builtins.str]] = None,
             protocol_details: Optional[pulumi.Input[Union['ServerProtocolDetailsArgs', 'ServerProtocolDetailsArgsDict']]] = None,
             protocols: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             s3_storage_options: Optional[pulumi.Input[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict']]] = None,
             security_policy_name: Optional[pulumi.Input[builtins.str]] = None,
             sftp_authentication_methods: Optional[pulumi.Input[builtins.str]] = None,
@@ -1369,6 +1402,7 @@ class Server(pulumi.CustomResource):
                * `SFTP`: File transfer over SSH
                * `FTPS`: File transfer with TLS encryption
                * `FTP`: Unencrypted file transfer
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ServerS3StorageOptionsArgs', 'ServerS3StorageOptionsArgsDict']] s3_storage_options: Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3_storage_options` Block below for details.
         :param pulumi.Input[builtins.str] security_policy_name: Specifies the name of the security policy that is attached to the server. Default value is: `TransferSecurityPolicy-2018-11`. The available values are:
                * `TransferSecurityPolicy-2018-11`
@@ -1419,6 +1453,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["pre_authentication_login_banner"] = pre_authentication_login_banner
         __props__.__dict__["protocol_details"] = protocol_details
         __props__.__dict__["protocols"] = protocols
+        __props__.__dict__["region"] = region
         __props__.__dict__["s3_storage_options"] = s3_storage_options
         __props__.__dict__["security_policy_name"] = security_policy_name
         __props__.__dict__["sftp_authentication_methods"] = sftp_authentication_methods
@@ -1578,6 +1613,14 @@ class Server(pulumi.CustomResource):
         return pulumi.get(self, "protocols")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="s3StorageOptions")
     def s3_storage_options(self) -> pulumi.Output['outputs.ServerS3StorageOptions']:
         """
@@ -1638,7 +1681,6 @@ class Server(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

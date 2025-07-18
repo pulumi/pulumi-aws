@@ -31,6 +31,7 @@ class OpenZfsVolumeArgs:
                  origin_snapshot: Optional[pulumi.Input['OpenZfsVolumeOriginSnapshotArgs']] = None,
                  read_only: Optional[pulumi.Input[builtins.bool]] = None,
                  record_size_kib: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_capacity_quota_gib: Optional[pulumi.Input[builtins.int]] = None,
                  storage_capacity_reservation_gib: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -47,6 +48,7 @@ class OpenZfsVolumeArgs:
         :param pulumi.Input['OpenZfsVolumeOriginSnapshotArgs'] origin_snapshot: Specifies the configuration to use when creating the OpenZFS volume. See `origin_snapshot` Block below for details.
         :param pulumi.Input[builtins.bool] read_only: specifies whether the volume is read-only. Default is false.
         :param pulumi.Input[builtins.int] record_size_kib: The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] storage_capacity_quota_gib: The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
         :param pulumi.Input[builtins.int] storage_capacity_reservation_gib: The amount of storage in gibibytes (GiB) to reserve from the parent volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -69,6 +71,8 @@ class OpenZfsVolumeArgs:
             pulumi.set(__self__, "read_only", read_only)
         if record_size_kib is not None:
             pulumi.set(__self__, "record_size_kib", record_size_kib)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if storage_capacity_quota_gib is not None:
             pulumi.set(__self__, "storage_capacity_quota_gib", storage_capacity_quota_gib)
         if storage_capacity_reservation_gib is not None:
@@ -189,6 +193,18 @@ class OpenZfsVolumeArgs:
         pulumi.set(self, "record_size_kib", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="storageCapacityQuotaGib")
     def storage_capacity_quota_gib(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -259,6 +275,7 @@ class _OpenZfsVolumeState:
                  parent_volume_id: Optional[pulumi.Input[builtins.str]] = None,
                  read_only: Optional[pulumi.Input[builtins.bool]] = None,
                  record_size_kib: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_capacity_quota_gib: Optional[pulumi.Input[builtins.int]] = None,
                  storage_capacity_reservation_gib: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -277,6 +294,7 @@ class _OpenZfsVolumeState:
         :param pulumi.Input[builtins.str] parent_volume_id: The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `fsx.OpenZfsVolume`.
         :param pulumi.Input[builtins.bool] read_only: specifies whether the volume is read-only. Default is false.
         :param pulumi.Input[builtins.int] record_size_kib: The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] storage_capacity_quota_gib: The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
         :param pulumi.Input[builtins.int] storage_capacity_reservation_gib: The amount of storage in gibibytes (GiB) to reserve from the parent volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -303,15 +321,14 @@ class _OpenZfsVolumeState:
             pulumi.set(__self__, "read_only", read_only)
         if record_size_kib is not None:
             pulumi.set(__self__, "record_size_kib", record_size_kib)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if storage_capacity_quota_gib is not None:
             pulumi.set(__self__, "storage_capacity_quota_gib", storage_capacity_quota_gib)
         if storage_capacity_reservation_gib is not None:
             pulumi.set(__self__, "storage_capacity_reservation_gib", storage_capacity_reservation_gib)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if user_and_group_quotas is not None:
@@ -440,6 +457,18 @@ class _OpenZfsVolumeState:
         pulumi.set(self, "record_size_kib", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="storageCapacityQuotaGib")
     def storage_capacity_quota_gib(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -477,7 +506,6 @@ class _OpenZfsVolumeState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -525,6 +553,7 @@ class OpenZfsVolume(pulumi.CustomResource):
                  parent_volume_id: Optional[pulumi.Input[builtins.str]] = None,
                  read_only: Optional[pulumi.Input[builtins.bool]] = None,
                  record_size_kib: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_capacity_quota_gib: Optional[pulumi.Input[builtins.int]] = None,
                  storage_capacity_reservation_gib: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -565,6 +594,7 @@ class OpenZfsVolume(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] parent_volume_id: The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `fsx.OpenZfsVolume`.
         :param pulumi.Input[builtins.bool] read_only: specifies whether the volume is read-only. Default is false.
         :param pulumi.Input[builtins.int] record_size_kib: The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] storage_capacity_quota_gib: The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
         :param pulumi.Input[builtins.int] storage_capacity_reservation_gib: The amount of storage in gibibytes (GiB) to reserve from the parent volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -623,6 +653,7 @@ class OpenZfsVolume(pulumi.CustomResource):
                  parent_volume_id: Optional[pulumi.Input[builtins.str]] = None,
                  read_only: Optional[pulumi.Input[builtins.bool]] = None,
                  record_size_kib: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_capacity_quota_gib: Optional[pulumi.Input[builtins.int]] = None,
                  storage_capacity_reservation_gib: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -648,6 +679,7 @@ class OpenZfsVolume(pulumi.CustomResource):
             __props__.__dict__["parent_volume_id"] = parent_volume_id
             __props__.__dict__["read_only"] = read_only
             __props__.__dict__["record_size_kib"] = record_size_kib
+            __props__.__dict__["region"] = region
             __props__.__dict__["storage_capacity_quota_gib"] = storage_capacity_quota_gib
             __props__.__dict__["storage_capacity_reservation_gib"] = storage_capacity_reservation_gib
             __props__.__dict__["tags"] = tags
@@ -675,6 +707,7 @@ class OpenZfsVolume(pulumi.CustomResource):
             parent_volume_id: Optional[pulumi.Input[builtins.str]] = None,
             read_only: Optional[pulumi.Input[builtins.bool]] = None,
             record_size_kib: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             storage_capacity_quota_gib: Optional[pulumi.Input[builtins.int]] = None,
             storage_capacity_reservation_gib: Optional[pulumi.Input[builtins.int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -698,6 +731,7 @@ class OpenZfsVolume(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] parent_volume_id: The volume id of volume that will be the parent volume for the volume being created, this could be the root volume created from the `fsx.OpenZfsFileSystem` resource with the `root_volume_id` or the `id` property of another `fsx.OpenZfsVolume`.
         :param pulumi.Input[builtins.bool] read_only: specifies whether the volume is read-only. Default is false.
         :param pulumi.Input[builtins.int] record_size_kib: The record size of an OpenZFS volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] storage_capacity_quota_gib: The maximum amount of storage in gibibytes (GiB) that the volume can use from its parent.
         :param pulumi.Input[builtins.int] storage_capacity_reservation_gib: The amount of storage in gibibytes (GiB) to reserve from the parent volume.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the file system. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -718,6 +752,7 @@ class OpenZfsVolume(pulumi.CustomResource):
         __props__.__dict__["parent_volume_id"] = parent_volume_id
         __props__.__dict__["read_only"] = read_only
         __props__.__dict__["record_size_kib"] = record_size_kib
+        __props__.__dict__["region"] = region
         __props__.__dict__["storage_capacity_quota_gib"] = storage_capacity_quota_gib
         __props__.__dict__["storage_capacity_reservation_gib"] = storage_capacity_reservation_gib
         __props__.__dict__["tags"] = tags
@@ -807,6 +842,14 @@ class OpenZfsVolume(pulumi.CustomResource):
         return pulumi.get(self, "record_size_kib")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="storageCapacityQuotaGib")
     def storage_capacity_quota_gib(self) -> pulumi.Output[builtins.int]:
         """
@@ -832,7 +875,6 @@ class OpenZfsVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -89,14 +89,14 @@ namespace Pulumi.Aws.Cfg
     ///         FeatureSet = "ALL",
     ///     });
     /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example",
+    ///         BucketName = "example",
     ///     });
     /// 
     ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("example", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = exampleBucket.Id,
     ///         Key = "example-key",
     ///         Content = @"Resources:
     ///   IAMPasswordPolicy:
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Cfg
     ///     var example = new Aws.Cfg.OrganizationConformancePack("example", new()
     ///     {
     ///         Name = "example",
-    ///         TemplateS3Uri = Output.Tuple(exampleBucketV2.Bucket, exampleBucketObjectv2.Key).Apply(values =&gt;
+    ///         TemplateS3Uri = Output.Tuple(exampleBucket.BucketName, exampleBucketObjectv2.Key).Apply(values =&gt;
     ///         {
     ///             var bucket = values.Item1;
     ///             var key = values.Item2;
@@ -176,6 +176,12 @@ namespace Pulumi.Aws.Cfg
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
@@ -278,6 +284,12 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
         /// </summary>
         [Input("templateBody")]
@@ -344,6 +356,12 @@ namespace Pulumi.Aws.Cfg
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.

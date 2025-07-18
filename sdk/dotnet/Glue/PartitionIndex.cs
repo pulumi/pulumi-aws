@@ -167,6 +167,12 @@ namespace Pulumi.Aws.Glue
         public Output<Outputs.PartitionIndexPartitionIndex> PartitionIndexConfig { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the table. For Hive compatibility, this must be entirely lowercase.
         /// </summary>
         [Output("tableName")]
@@ -237,6 +243,12 @@ namespace Pulumi.Aws.Glue
         public Input<Inputs.PartitionIndexPartitionIndexArgs> PartitionIndexConfig { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Name of the table. For Hive compatibility, this must be entirely lowercase.
         /// </summary>
         [Input("tableName", required: true)]
@@ -267,6 +279,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("partitionIndex")]
         public Input<Inputs.PartitionIndexPartitionIndexGetArgs>? PartitionIndexConfig { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Name of the table. For Hive compatibility, this must be entirely lowercase.

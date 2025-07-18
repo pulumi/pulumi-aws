@@ -56,6 +56,12 @@ namespace Pulumi.Aws.StorageGateway
         [Output("gatewayArn")]
         public Output<string> GatewayArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Cache resource with the given unique name, arguments, and options.
@@ -114,6 +120,12 @@ namespace Pulumi.Aws.StorageGateway
         [Input("gatewayArn", required: true)]
         public Input<string> GatewayArn { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public CacheArgs()
         {
         }
@@ -133,6 +145,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("gatewayArn")]
         public Input<string>? GatewayArn { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public CacheState()
         {

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -32,7 +32,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			myOpensearchPackages, err := s3.NewBucketV2(ctx, "my_opensearch_packages", &s3.BucketV2Args{
+//			myOpensearchPackages, err := s3.NewBucket(ctx, "my_opensearch_packages", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-opensearch-packages"),
 //			})
 //			if err != nil {
@@ -91,6 +91,8 @@ type Package struct {
 	PackageSource PackagePackageSourceOutput `pulumi:"packageSource"`
 	// The type of package.
 	PackageType pulumi.StringOutput `pulumi:"packageType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewPackage registers a new resource with the given unique name, arguments, and options.
@@ -143,6 +145,8 @@ type packageState struct {
 	PackageSource *PackagePackageSource `pulumi:"packageSource"`
 	// The type of package.
 	PackageType *string `pulumi:"packageType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type PackageState struct {
@@ -157,6 +161,8 @@ type PackageState struct {
 	PackageSource PackagePackageSourcePtrInput
 	// The type of package.
 	PackageType pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PackageState) ElementType() reflect.Type {
@@ -172,6 +178,8 @@ type packageArgs struct {
 	PackageSource PackagePackageSource `pulumi:"packageSource"`
 	// The type of package.
 	PackageType string `pulumi:"packageType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Package resource.
@@ -184,6 +192,8 @@ type PackageArgs struct {
 	PackageSource PackagePackageSourceInput
 	// The type of package.
 	PackageType pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PackageArgs) ElementType() reflect.Type {
@@ -300,6 +310,11 @@ func (o PackageOutput) PackageSource() PackagePackageSourceOutput {
 // The type of package.
 func (o PackageOutput) PackageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.PackageType }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o PackageOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Package) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type PackageArrayOutput struct{ *pulumi.OutputState }

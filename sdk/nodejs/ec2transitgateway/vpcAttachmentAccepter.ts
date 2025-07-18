@@ -76,6 +76,10 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipv6Support!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
      */
     public /*out*/ readonly securityGroupReferencingSupport!: pulumi.Output<string>;
@@ -89,8 +93,6 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -134,6 +136,7 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
             resourceInputs["applianceModeSupport"] = state ? state.applianceModeSupport : undefined;
             resourceInputs["dnsSupport"] = state ? state.dnsSupport : undefined;
             resourceInputs["ipv6Support"] = state ? state.ipv6Support : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupReferencingSupport"] = state ? state.securityGroupReferencingSupport : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -149,6 +152,7 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
             if ((!args || args.transitGatewayAttachmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayAttachmentId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
             resourceInputs["transitGatewayDefaultRouteTableAssociation"] = args ? args.transitGatewayDefaultRouteTableAssociation : undefined;
@@ -185,6 +189,10 @@ export interface VpcAttachmentAccepterState {
      */
     ipv6Support?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
      */
     securityGroupReferencingSupport?: pulumi.Input<string>;
@@ -198,8 +206,6 @@ export interface VpcAttachmentAccepterState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -232,6 +238,10 @@ export interface VpcAttachmentAccepterState {
  * The set of arguments for constructing a VpcAttachmentAccepter resource.
  */
 export interface VpcAttachmentAccepterArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

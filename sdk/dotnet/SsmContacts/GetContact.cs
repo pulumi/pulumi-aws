@@ -99,6 +99,12 @@ namespace Pulumi.Aws.SsmContacts
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -124,6 +130,12 @@ namespace Pulumi.Aws.SsmContacts
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -160,6 +172,7 @@ namespace Pulumi.Aws.SsmContacts
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// Map of tags to assign to the resource.
         /// </summary>
@@ -179,6 +192,8 @@ namespace Pulumi.Aws.SsmContacts
 
             string id,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             string type)
@@ -187,6 +202,7 @@ namespace Pulumi.Aws.SsmContacts
             Arn = arn;
             DisplayName = displayName;
             Id = id;
+            Region = region;
             Tags = tags;
             Type = type;
         }

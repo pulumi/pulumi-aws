@@ -5,6 +5,7 @@ package com.pulumi.aws.s3tables.inputs;
 
 import com.pulumi.aws.s3tables.inputs.TableEncryptionConfigurationArgs;
 import com.pulumi.aws.s3tables.inputs.TableMaintenanceConfigurationArgs;
+import com.pulumi.aws.s3tables.inputs.TableMetadataArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -114,6 +115,23 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+     * See `metadata` below.
+     * 
+     */
+    @Import(name="metadata")
+    private @Nullable Output<TableMetadataArgs> metadata;
+
+    /**
+     * @return Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+     * See `metadata` below.
+     * 
+     */
+    public Optional<Output<TableMetadataArgs>> metadata() {
+        return Optional.ofNullable(this.metadata);
+    }
+
+    /**
      * Location of table metadata.
      * 
      */
@@ -214,6 +232,21 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ARN referencing the Table Bucket that contains this Namespace.
      * 
      * The following arguments are optional:
@@ -288,12 +321,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         this.encryptionConfiguration = $.encryptionConfiguration;
         this.format = $.format;
         this.maintenanceConfiguration = $.maintenanceConfiguration;
+        this.metadata = $.metadata;
         this.metadataLocation = $.metadataLocation;
         this.modifiedAt = $.modifiedAt;
         this.modifiedBy = $.modifiedBy;
         this.name = $.name;
         this.namespace = $.namespace;
         this.ownerAccountId = $.ownerAccountId;
+        this.region = $.region;
         this.tableBucketArn = $.tableBucketArn;
         this.type = $.type;
         this.versionToken = $.versionToken;
@@ -451,6 +486,29 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param metadata Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+         * See `metadata` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadata(@Nullable Output<TableMetadataArgs> metadata) {
+            $.metadata = metadata;
+            return this;
+        }
+
+        /**
+         * @param metadata Contains details about the table metadata. This configuration specifies the metadata format and schema for the table. Currently only supports Iceberg format.
+         * See `metadata` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metadata(TableMetadataArgs metadata) {
+            return metadata(Output.of(metadata));
+        }
+
+        /**
          * @param metadataLocation Location of table metadata.
          * 
          * @return builder
@@ -584,6 +642,27 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ownerAccountId(String ownerAccountId) {
             return ownerAccountId(Output.of(ownerAccountId));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

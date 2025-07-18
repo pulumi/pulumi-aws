@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,6 +68,8 @@ type Member struct {
 	MasterId pulumi.StringOutput `pulumi:"masterId"`
 	// The status of the member account relationship.
 	MemberStatus pulumi.StringOutput `pulumi:"memberStatus"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewMember registers a new resource with the given unique name, arguments, and options.
@@ -113,6 +115,8 @@ type memberState struct {
 	MasterId *string `pulumi:"masterId"`
 	// The status of the member account relationship.
 	MemberStatus *string `pulumi:"memberStatus"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type MemberState struct {
@@ -126,6 +130,8 @@ type MemberState struct {
 	MasterId pulumi.StringPtrInput
 	// The status of the member account relationship.
 	MemberStatus pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (MemberState) ElementType() reflect.Type {
@@ -139,6 +145,8 @@ type memberArgs struct {
 	Email *string `pulumi:"email"`
 	// Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
 	Invite *bool `pulumi:"invite"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Member resource.
@@ -149,6 +157,8 @@ type MemberArgs struct {
 	Email pulumi.StringPtrInput
 	// Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
 	Invite pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (MemberArgs) ElementType() reflect.Type {
@@ -261,6 +271,11 @@ func (o MemberOutput) MasterId() pulumi.StringOutput {
 // The status of the member account relationship.
 func (o MemberOutput) MemberStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.MemberStatus }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o MemberOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type MemberArrayOutput struct{ *pulumi.OutputState }

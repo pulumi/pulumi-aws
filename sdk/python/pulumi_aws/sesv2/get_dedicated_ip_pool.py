@@ -28,7 +28,7 @@ class GetDedicatedIpPoolResult:
     """
     A collection of values returned by getDedicatedIpPool.
     """
-    def __init__(__self__, arn=None, dedicated_ips=None, id=None, pool_name=None, scaling_mode=None, tags=None):
+    def __init__(__self__, arn=None, dedicated_ips=None, id=None, pool_name=None, region=None, scaling_mode=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -41,6 +41,9 @@ class GetDedicatedIpPoolResult:
         if pool_name and not isinstance(pool_name, str):
             raise TypeError("Expected argument 'pool_name' to be a str")
         pulumi.set(__self__, "pool_name", pool_name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if scaling_mode and not isinstance(scaling_mode, str):
             raise TypeError("Expected argument 'scaling_mode' to be a str")
         pulumi.set(__self__, "scaling_mode", scaling_mode)
@@ -78,6 +81,11 @@ class GetDedicatedIpPoolResult:
         return pulumi.get(self, "pool_name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="scalingMode")
     def scaling_mode(self) -> builtins.str:
         """
@@ -104,11 +112,13 @@ class AwaitableGetDedicatedIpPoolResult(GetDedicatedIpPoolResult):
             dedicated_ips=self.dedicated_ips,
             id=self.id,
             pool_name=self.pool_name,
+            region=self.region,
             scaling_mode=self.scaling_mode,
             tags=self.tags)
 
 
 def get_dedicated_ip_pool(pool_name: Optional[builtins.str] = None,
+                          region: Optional[builtins.str] = None,
                           tags: Optional[Mapping[str, builtins.str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedIpPoolResult:
     """
@@ -127,10 +137,12 @@ def get_dedicated_ip_pool(pool_name: Optional[builtins.str] = None,
 
 
     :param builtins.str pool_name: Name of the dedicated IP pool.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags attached to the pool.
     """
     __args__ = dict()
     __args__['poolName'] = pool_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:sesv2/getDedicatedIpPool:getDedicatedIpPool', __args__, opts=opts, typ=GetDedicatedIpPoolResult).value
@@ -140,9 +152,11 @@ def get_dedicated_ip_pool(pool_name: Optional[builtins.str] = None,
         dedicated_ips=pulumi.get(__ret__, 'dedicated_ips'),
         id=pulumi.get(__ret__, 'id'),
         pool_name=pulumi.get(__ret__, 'pool_name'),
+        region=pulumi.get(__ret__, 'region'),
         scaling_mode=pulumi.get(__ret__, 'scaling_mode'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_dedicated_ip_pool_output(pool_name: Optional[pulumi.Input[builtins.str]] = None,
+                                 region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedIpPoolResult]:
     """
@@ -161,10 +175,12 @@ def get_dedicated_ip_pool_output(pool_name: Optional[pulumi.Input[builtins.str]]
 
 
     :param builtins.str pool_name: Name of the dedicated IP pool.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags attached to the pool.
     """
     __args__ = dict()
     __args__['poolName'] = pool_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:sesv2/getDedicatedIpPool:getDedicatedIpPool', __args__, opts=opts, typ=GetDedicatedIpPoolResult)
@@ -173,5 +189,6 @@ def get_dedicated_ip_pool_output(pool_name: Optional[pulumi.Input[builtins.str]]
         dedicated_ips=pulumi.get(__response__, 'dedicated_ips'),
         id=pulumi.get(__response__, 'id'),
         pool_name=pulumi.get(__response__, 'pool_name'),
+        region=pulumi.get(__response__, 'region'),
         scaling_mode=pulumi.get(__response__, 'scaling_mode'),
         tags=pulumi.get(__response__, 'tags')))

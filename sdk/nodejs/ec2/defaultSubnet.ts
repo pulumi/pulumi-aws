@@ -100,10 +100,8 @@ export class DefaultSubnet extends pulumi.CustomResource {
     public /*out*/ readonly outpostArn!: pulumi.Output<string>;
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     public readonly privateDnsHostnameTypeOnLaunch!: pulumi.Output<string>;
+    public readonly region!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the VPC the subnet is in
@@ -143,6 +141,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
             resourceInputs["outpostArn"] = state ? state.outpostArn : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["privateDnsHostnameTypeOnLaunch"] = state ? state.privateDnsHostnameTypeOnLaunch : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
@@ -163,6 +162,7 @@ export class DefaultSubnet extends pulumi.CustomResource {
             resourceInputs["mapCustomerOwnedIpOnLaunch"] = args ? args.mapCustomerOwnedIpOnLaunch : undefined;
             resourceInputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
             resourceInputs["privateDnsHostnameTypeOnLaunch"] = args ? args.privateDnsHostnameTypeOnLaunch : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZoneId"] = undefined /*out*/;
@@ -220,10 +220,8 @@ export interface DefaultSubnetState {
     outpostArn?: pulumi.Input<string>;
     ownerId?: pulumi.Input<string>;
     privateDnsHostnameTypeOnLaunch?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the VPC the subnet is in
@@ -257,5 +255,6 @@ export interface DefaultSubnetArgs {
     mapCustomerOwnedIpOnLaunch?: pulumi.Input<boolean>;
     mapPublicIpOnLaunch?: pulumi.Input<boolean>;
     privateDnsHostnameTypeOnLaunch?: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

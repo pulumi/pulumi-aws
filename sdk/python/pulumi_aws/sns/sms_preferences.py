@@ -25,6 +25,7 @@ class SmsPreferencesArgs:
                  delivery_status_iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  delivery_status_success_sampling_rate: Optional[pulumi.Input[builtins.str]] = None,
                  monthly_spend_limit: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  usage_report_s3_bucket: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a SmsPreferences resource.
@@ -33,6 +34,7 @@ class SmsPreferencesArgs:
         :param pulumi.Input[builtins.str] delivery_status_iam_role_arn: The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
         :param pulumi.Input[builtins.str] delivery_status_success_sampling_rate: The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
         :param pulumi.Input[builtins.int] monthly_spend_limit: The maximum amount in USD that you are willing to spend each month to send SMS messages.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] usage_report_s3_bucket: The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
         """
         if default_sender_id is not None:
@@ -45,6 +47,8 @@ class SmsPreferencesArgs:
             pulumi.set(__self__, "delivery_status_success_sampling_rate", delivery_status_success_sampling_rate)
         if monthly_spend_limit is not None:
             pulumi.set(__self__, "monthly_spend_limit", monthly_spend_limit)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if usage_report_s3_bucket is not None:
             pulumi.set(__self__, "usage_report_s3_bucket", usage_report_s3_bucket)
 
@@ -107,6 +111,18 @@ class SmsPreferencesArgs:
     @monthly_spend_limit.setter
     def monthly_spend_limit(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "monthly_spend_limit", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="usageReportS3Bucket")
@@ -129,6 +145,7 @@ class _SmsPreferencesState:
                  delivery_status_iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  delivery_status_success_sampling_rate: Optional[pulumi.Input[builtins.str]] = None,
                  monthly_spend_limit: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  usage_report_s3_bucket: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering SmsPreferences resources.
@@ -137,6 +154,7 @@ class _SmsPreferencesState:
         :param pulumi.Input[builtins.str] delivery_status_iam_role_arn: The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
         :param pulumi.Input[builtins.str] delivery_status_success_sampling_rate: The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
         :param pulumi.Input[builtins.int] monthly_spend_limit: The maximum amount in USD that you are willing to spend each month to send SMS messages.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] usage_report_s3_bucket: The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
         """
         if default_sender_id is not None:
@@ -149,6 +167,8 @@ class _SmsPreferencesState:
             pulumi.set(__self__, "delivery_status_success_sampling_rate", delivery_status_success_sampling_rate)
         if monthly_spend_limit is not None:
             pulumi.set(__self__, "monthly_spend_limit", monthly_spend_limit)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if usage_report_s3_bucket is not None:
             pulumi.set(__self__, "usage_report_s3_bucket", usage_report_s3_bucket)
 
@@ -211,6 +231,18 @@ class _SmsPreferencesState:
     @monthly_spend_limit.setter
     def monthly_spend_limit(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "monthly_spend_limit", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="usageReportS3Bucket")
@@ -236,6 +268,7 @@ class SmsPreferences(pulumi.CustomResource):
                  delivery_status_iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  delivery_status_success_sampling_rate: Optional[pulumi.Input[builtins.str]] = None,
                  monthly_spend_limit: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  usage_report_s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -261,6 +294,7 @@ class SmsPreferences(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] delivery_status_iam_role_arn: The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
         :param pulumi.Input[builtins.str] delivery_status_success_sampling_rate: The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
         :param pulumi.Input[builtins.int] monthly_spend_limit: The maximum amount in USD that you are willing to spend each month to send SMS messages.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] usage_report_s3_bucket: The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
         """
         ...
@@ -305,6 +339,7 @@ class SmsPreferences(pulumi.CustomResource):
                  delivery_status_iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  delivery_status_success_sampling_rate: Optional[pulumi.Input[builtins.str]] = None,
                  monthly_spend_limit: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  usage_report_s3_bucket: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -320,6 +355,7 @@ class SmsPreferences(pulumi.CustomResource):
             __props__.__dict__["delivery_status_iam_role_arn"] = delivery_status_iam_role_arn
             __props__.__dict__["delivery_status_success_sampling_rate"] = delivery_status_success_sampling_rate
             __props__.__dict__["monthly_spend_limit"] = monthly_spend_limit
+            __props__.__dict__["region"] = region
             __props__.__dict__["usage_report_s3_bucket"] = usage_report_s3_bucket
         super(SmsPreferences, __self__).__init__(
             'aws:sns/smsPreferences:SmsPreferences',
@@ -336,6 +372,7 @@ class SmsPreferences(pulumi.CustomResource):
             delivery_status_iam_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             delivery_status_success_sampling_rate: Optional[pulumi.Input[builtins.str]] = None,
             monthly_spend_limit: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             usage_report_s3_bucket: Optional[pulumi.Input[builtins.str]] = None) -> 'SmsPreferences':
         """
         Get an existing SmsPreferences resource's state with the given name, id, and optional extra
@@ -349,6 +386,7 @@ class SmsPreferences(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] delivery_status_iam_role_arn: The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs.
         :param pulumi.Input[builtins.str] delivery_status_success_sampling_rate: The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
         :param pulumi.Input[builtins.int] monthly_spend_limit: The maximum amount in USD that you are willing to spend each month to send SMS messages.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] usage_report_s3_bucket: The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -360,6 +398,7 @@ class SmsPreferences(pulumi.CustomResource):
         __props__.__dict__["delivery_status_iam_role_arn"] = delivery_status_iam_role_arn
         __props__.__dict__["delivery_status_success_sampling_rate"] = delivery_status_success_sampling_rate
         __props__.__dict__["monthly_spend_limit"] = monthly_spend_limit
+        __props__.__dict__["region"] = region
         __props__.__dict__["usage_report_s3_bucket"] = usage_report_s3_bucket
         return SmsPreferences(resource_name, opts=opts, __props__=__props__)
 
@@ -402,6 +441,14 @@ class SmsPreferences(pulumi.CustomResource):
         The maximum amount in USD that you are willing to spend each month to send SMS messages.
         """
         return pulumi.get(self, "monthly_spend_limit")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="usageReportS3Bucket")

@@ -49,6 +49,7 @@ public final class GetRepositoryCreationTemplateResult {
      */
     private String lifecyclePolicy;
     private String prefix;
+    private String region;
     /**
      * @return The registry ID the repository creation template applies to.
      * 
@@ -118,6 +119,9 @@ public final class GetRepositoryCreationTemplateResult {
     public String prefix() {
         return this.prefix;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The registry ID the repository creation template applies to.
      * 
@@ -157,6 +161,7 @@ public final class GetRepositoryCreationTemplateResult {
         private String imageTagMutability;
         private String lifecyclePolicy;
         private String prefix;
+        private String region;
         private String registryId;
         private String repositoryPolicy;
         private Map<String,String> resourceTags;
@@ -171,6 +176,7 @@ public final class GetRepositoryCreationTemplateResult {
     	      this.imageTagMutability = defaults.imageTagMutability;
     	      this.lifecyclePolicy = defaults.lifecyclePolicy;
     	      this.prefix = defaults.prefix;
+    	      this.region = defaults.region;
     	      this.registryId = defaults.registryId;
     	      this.repositoryPolicy = defaults.repositoryPolicy;
     	      this.resourceTags = defaults.resourceTags;
@@ -247,6 +253,14 @@ public final class GetRepositoryCreationTemplateResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetRepositoryCreationTemplateResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder registryId(String registryId) {
             if (registryId == null) {
               throw new MissingRequiredPropertyException("GetRepositoryCreationTemplateResult", "registryId");
@@ -280,6 +294,7 @@ public final class GetRepositoryCreationTemplateResult {
             _resultValue.imageTagMutability = imageTagMutability;
             _resultValue.lifecyclePolicy = lifecyclePolicy;
             _resultValue.prefix = prefix;
+            _resultValue.region = region;
             _resultValue.registryId = registryId;
             _resultValue.repositoryPolicy = repositoryPolicy;
             _resultValue.resourceTags = resourceTags;

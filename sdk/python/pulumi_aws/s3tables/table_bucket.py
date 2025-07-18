@@ -24,7 +24,8 @@ class TableBucketArgs:
     def __init__(__self__, *,
                  encryption_configuration: Optional[pulumi.Input['TableBucketEncryptionConfigurationArgs']] = None,
                  maintenance_configuration: Optional[pulumi.Input['TableBucketMaintenanceConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a TableBucket resource.
         :param pulumi.Input['TableBucketEncryptionConfigurationArgs'] encryption_configuration: A single table bucket encryption configuration object.
@@ -37,6 +38,7 @@ class TableBucketArgs:
                A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if encryption_configuration is not None:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
@@ -44,6 +46,8 @@ class TableBucketArgs:
             pulumi.set(__self__, "maintenance_configuration", maintenance_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="encryptionConfiguration")
@@ -88,6 +92,18 @@ class TableBucketArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _TableBucketState:
@@ -97,7 +113,8 @@ class _TableBucketState:
                  encryption_configuration: Optional[pulumi.Input['TableBucketEncryptionConfigurationArgs']] = None,
                  maintenance_configuration: Optional[pulumi.Input['TableBucketMaintenanceConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 owner_account_id: Optional[pulumi.Input[builtins.str]] = None):
+                 owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering TableBucket resources.
         :param pulumi.Input[builtins.str] arn: ARN of the table bucket.
@@ -113,6 +130,7 @@ class _TableBucketState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] owner_account_id: Account ID of the account that owns the table bucket.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -126,6 +144,8 @@ class _TableBucketState:
             pulumi.set(__self__, "name", name)
         if owner_account_id is not None:
             pulumi.set(__self__, "owner_account_id", owner_account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -206,6 +226,18 @@ class _TableBucketState:
     def owner_account_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "owner_account_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:s3tables/tableBucket:TableBucket")
 class TableBucket(pulumi.CustomResource):
@@ -216,6 +248,7 @@ class TableBucket(pulumi.CustomResource):
                  encryption_configuration: Optional[pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']]] = None,
                  maintenance_configuration: Optional[pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an Amazon S3 Tables Table Bucket.
@@ -251,6 +284,7 @@ class TableBucket(pulumi.CustomResource):
                A full list of bucket naming rules can be found in the [S3 Tables documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html#table-buckets-naming-rules).
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -298,6 +332,7 @@ class TableBucket(pulumi.CustomResource):
                  encryption_configuration: Optional[pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']]] = None,
                  maintenance_configuration: Optional[pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -310,6 +345,7 @@ class TableBucket(pulumi.CustomResource):
             __props__.__dict__["encryption_configuration"] = encryption_configuration
             __props__.__dict__["maintenance_configuration"] = maintenance_configuration
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["owner_account_id"] = None
@@ -328,7 +364,8 @@ class TableBucket(pulumi.CustomResource):
             encryption_configuration: Optional[pulumi.Input[Union['TableBucketEncryptionConfigurationArgs', 'TableBucketEncryptionConfigurationArgsDict']]] = None,
             maintenance_configuration: Optional[pulumi.Input[Union['TableBucketMaintenanceConfigurationArgs', 'TableBucketMaintenanceConfigurationArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
-            owner_account_id: Optional[pulumi.Input[builtins.str]] = None) -> 'TableBucket':
+            owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'TableBucket':
         """
         Get an existing TableBucket resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -349,6 +386,7 @@ class TableBucket(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] owner_account_id: Account ID of the account that owns the table bucket.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -360,6 +398,7 @@ class TableBucket(pulumi.CustomResource):
         __props__.__dict__["maintenance_configuration"] = maintenance_configuration
         __props__.__dict__["name"] = name
         __props__.__dict__["owner_account_id"] = owner_account_id
+        __props__.__dict__["region"] = region
         return TableBucket(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -416,4 +455,12 @@ class TableBucket(pulumi.CustomResource):
         Account ID of the account that owns the table bucket.
         """
         return pulumi.get(self, "owner_account_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

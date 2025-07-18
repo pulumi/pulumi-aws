@@ -58,6 +58,10 @@ export class Scraper extends pulumi.CustomResource {
      */
     public readonly destination!: pulumi.Output<outputs.amp.ScraperDestination | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
      */
     public /*out*/ readonly roleArn!: pulumi.Output<string>;
@@ -76,9 +80,6 @@ export class Scraper extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<outputs.amp.ScraperSource | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.amp.ScraperTimeouts | undefined>;
 
@@ -98,6 +99,7 @@ export class Scraper extends pulumi.CustomResource {
             resourceInputs["alias"] = state ? state.alias : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["destination"] = state ? state.destination : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["roleConfiguration"] = state ? state.roleConfiguration : undefined;
             resourceInputs["scrapeConfiguration"] = state ? state.scrapeConfiguration : undefined;
@@ -112,6 +114,7 @@ export class Scraper extends pulumi.CustomResource {
             }
             resourceInputs["alias"] = args ? args.alias : undefined;
             resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleConfiguration"] = args ? args.roleConfiguration : undefined;
             resourceInputs["scrapeConfiguration"] = args ? args.scrapeConfiguration : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
@@ -143,6 +146,10 @@ export interface ScraperState {
      */
     destination?: pulumi.Input<inputs.amp.ScraperDestination>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to discover, collect, and produce metrics
      */
     roleArn?: pulumi.Input<string>;
@@ -161,9 +168,6 @@ export interface ScraperState {
      */
     source?: pulumi.Input<inputs.amp.ScraperSource>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.amp.ScraperTimeouts>;
 }
@@ -180,6 +184,10 @@ export interface ScraperArgs {
      * Configuration block for the managed scraper to send metrics to. See `destination`.
      */
     destination?: pulumi.Input<inputs.amp.ScraperDestination>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block to enable writing to an Amazon Managed Service for Prometheus workspace in a different account. See `roleConfiguration` below.
      */

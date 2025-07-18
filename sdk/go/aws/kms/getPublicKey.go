@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,6 +76,8 @@ type GetPublicKeyArgs struct {
 	// * Alias name. E.g. - `alias/my-key`
 	// * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
 	KeyId string `pulumi:"keyId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPublicKey.
@@ -96,6 +98,7 @@ type GetPublicKeyResult struct {
 	PublicKey string `pulumi:"publicKey"`
 	// Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
 	PublicKeyPem string `pulumi:"publicKeyPem"`
+	Region       string `pulumi:"region"`
 	// Signing algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `SIGN_VERIFY`.
 	SigningAlgorithms []string `pulumi:"signingAlgorithms"`
 }
@@ -119,6 +122,8 @@ type GetPublicKeyOutputArgs struct {
 	// * Alias name. E.g. - `alias/my-key`
 	// * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
 	KeyId pulumi.StringInput `pulumi:"keyId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetPublicKeyOutputArgs) ElementType() reflect.Type {
@@ -181,6 +186,10 @@ func (o GetPublicKeyResultOutput) PublicKey() pulumi.StringOutput {
 // Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
 func (o GetPublicKeyResultOutput) PublicKeyPem() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPublicKeyResult) string { return v.PublicKeyPem }).(pulumi.StringOutput)
+}
+
+func (o GetPublicKeyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPublicKeyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Signing algorithms that AWS KMS supports for this key. Only set when the `keyUsage` of the public key is `SIGN_VERIFY`.

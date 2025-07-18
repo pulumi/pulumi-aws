@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/timestreamwrite"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/timestreamwrite"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,6 +57,8 @@ type LookupTableArgs struct {
 	DatabaseName string `pulumi:"databaseName"`
 	// Name of the Timestream table.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getTable.
@@ -74,7 +76,8 @@ type LookupTableResult struct {
 	// Object containing the following attributes to desribe magnetic store writes.
 	MagneticStoreWriteProperties []GetTableMagneticStoreWriteProperty `pulumi:"magneticStoreWriteProperties"`
 	// Name of the table.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Object containing the following attributes to describe the retention duration for the memory and magnetic stores.
 	RetentionProperties []GetTableRetentionProperty `pulumi:"retentionProperties"`
 	// Object containing the following attributes to describe the schema of the table.
@@ -98,6 +101,8 @@ type LookupTableOutputArgs struct {
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Name of the Timestream table.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupTableOutputArgs) ElementType() reflect.Type {
@@ -152,6 +157,10 @@ func (o LookupTableResultOutput) MagneticStoreWriteProperties() GetTableMagnetic
 // Name of the table.
 func (o LookupTableResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupTableResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Object containing the following attributes to describe the retention duration for the memory and magnetic stores.

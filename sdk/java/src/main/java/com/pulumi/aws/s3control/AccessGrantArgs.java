@@ -87,6 +87,21 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
      * 
      */
@@ -124,6 +139,7 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
         this.accountId = $.accountId;
         this.grantee = $.grantee;
         this.permission = $.permission;
+        this.region = $.region;
         this.s3PrefixType = $.s3PrefixType;
         this.tags = $.tags;
     }
@@ -237,6 +253,27 @@ public final class AccessGrantArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder permission(String permission) {
             return permission(Output.of(permission));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

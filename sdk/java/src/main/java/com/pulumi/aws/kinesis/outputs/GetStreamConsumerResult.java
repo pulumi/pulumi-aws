@@ -6,6 +6,7 @@ package com.pulumi.aws.kinesis.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -22,12 +23,14 @@ public final class GetStreamConsumerResult {
      */
     private String id;
     private String name;
+    private String region;
     /**
      * @return Current status of the stream consumer.
      * 
      */
     private String status;
     private String streamArn;
+    private Map<String,String> tags;
 
     private GetStreamConsumerResult() {}
     public String arn() {
@@ -50,6 +53,9 @@ public final class GetStreamConsumerResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Current status of the stream consumer.
      * 
@@ -59,6 +65,9 @@ public final class GetStreamConsumerResult {
     }
     public String streamArn() {
         return this.streamArn;
+    }
+    public Map<String,String> tags() {
+        return this.tags;
     }
 
     public static Builder builder() {
@@ -74,8 +83,10 @@ public final class GetStreamConsumerResult {
         private String creationTimestamp;
         private String id;
         private String name;
+        private String region;
         private String status;
         private String streamArn;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetStreamConsumerResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -83,8 +94,10 @@ public final class GetStreamConsumerResult {
     	      this.creationTimestamp = defaults.creationTimestamp;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
     	      this.streamArn = defaults.streamArn;
+    	      this.tags = defaults.tags;
         }
 
         @CustomType.Setter
@@ -120,6 +133,14 @@ public final class GetStreamConsumerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetStreamConsumerResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetStreamConsumerResult", "status");
@@ -135,14 +156,24 @@ public final class GetStreamConsumerResult {
             this.streamArn = streamArn;
             return this;
         }
+        @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetStreamConsumerResult", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
         public GetStreamConsumerResult build() {
             final var _resultValue = new GetStreamConsumerResult();
             _resultValue.arn = arn;
             _resultValue.creationTimestamp = creationTimestamp;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.status = status;
             _resultValue.streamArn = streamArn;
+            _resultValue.tags = tags;
             return _resultValue;
         }
     }

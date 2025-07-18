@@ -61,6 +61,10 @@ export class ThingGroupMembership extends pulumi.CustomResource {
      */
     public readonly overrideDynamicGroup!: pulumi.Output<boolean | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the group to which you are adding a thing.
      */
     public readonly thingGroupName!: pulumi.Output<string>;
@@ -83,6 +87,7 @@ export class ThingGroupMembership extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ThingGroupMembershipState | undefined;
             resourceInputs["overrideDynamicGroup"] = state ? state.overrideDynamicGroup : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["thingGroupName"] = state ? state.thingGroupName : undefined;
             resourceInputs["thingName"] = state ? state.thingName : undefined;
         } else {
@@ -94,6 +99,7 @@ export class ThingGroupMembership extends pulumi.CustomResource {
                 throw new Error("Missing required property 'thingName'");
             }
             resourceInputs["overrideDynamicGroup"] = args ? args.overrideDynamicGroup : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["thingGroupName"] = args ? args.thingGroupName : undefined;
             resourceInputs["thingName"] = args ? args.thingName : undefined;
         }
@@ -110,6 +116,10 @@ export interface ThingGroupMembershipState {
      * Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
      */
     overrideDynamicGroup?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the group to which you are adding a thing.
      */
@@ -128,6 +138,10 @@ export interface ThingGroupMembershipArgs {
      * Override dynamic thing groups with static thing groups when 10-group limit is reached. If a thing belongs to 10 thing groups, and one or more of those groups are dynamic thing groups, adding a thing to a static group removes the thing from the last dynamic group.
      */
     overrideDynamicGroup?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the group to which you are adding a thing.
      */

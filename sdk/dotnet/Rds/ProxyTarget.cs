@@ -140,6 +140,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> RdsResourceId { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
         /// </summary>
         [Output("targetArn")]
@@ -230,6 +236,12 @@ namespace Pulumi.Aws.Rds
         public Input<string> DbProxyName { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name of the target group.
         /// </summary>
         [Input("targetGroupName", required: true)]
@@ -280,6 +292,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("rdsResourceId")]
         public Input<string>? RdsResourceId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.

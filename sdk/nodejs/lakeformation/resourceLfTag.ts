@@ -76,6 +76,10 @@ export class ResourceLfTag extends pulumi.CustomResource {
      */
     public readonly lfTag!: pulumi.Output<outputs.lakeformation.ResourceLfTagLfTag | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block for a table resource. See Table for more details.
      */
     public readonly table!: pulumi.Output<outputs.lakeformation.ResourceLfTagTable | undefined>;
@@ -103,6 +107,7 @@ export class ResourceLfTag extends pulumi.CustomResource {
             resourceInputs["catalogId"] = state ? state.catalogId : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["lfTag"] = state ? state.lfTag : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["table"] = state ? state.table : undefined;
             resourceInputs["tableWithColumns"] = state ? state.tableWithColumns : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -111,6 +116,7 @@ export class ResourceLfTag extends pulumi.CustomResource {
             resourceInputs["catalogId"] = args ? args.catalogId : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["lfTag"] = args ? args.lfTag : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["table"] = args ? args.table : undefined;
             resourceInputs["tableWithColumns"] = args ? args.tableWithColumns : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -138,6 +144,10 @@ export interface ResourceLfTagState {
      * Exactly one of the following is required:
      */
     lfTag?: pulumi.Input<inputs.lakeformation.ResourceLfTagLfTag>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for a table resource. See Table for more details.
      */
@@ -169,6 +179,10 @@ export interface ResourceLfTagArgs {
      * Exactly one of the following is required:
      */
     lfTag?: pulumi.Input<inputs.lakeformation.ResourceLfTagLfTag>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for a table resource. See Table for more details.
      */

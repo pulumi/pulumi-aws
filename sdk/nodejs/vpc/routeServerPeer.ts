@@ -131,7 +131,13 @@ export class RouteServerPeer extends pulumi.CustomResource {
      */
     public readonly peerAddress!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the route server endpoint for which to create a peer.
+     *
+     * The following arguments are optional:
      */
     public readonly routeServerEndpointId!: pulumi.Output<string>;
     /**
@@ -146,11 +152,12 @@ export class RouteServerPeer extends pulumi.CustomResource {
      * The ID of the subnet containing the route server peer.
      */
     public /*out*/ readonly subnetId!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.vpc.RouteServerPeerTimeouts | undefined>;
@@ -177,6 +184,7 @@ export class RouteServerPeer extends pulumi.CustomResource {
             resourceInputs["endpointEniAddress"] = state ? state.endpointEniAddress : undefined;
             resourceInputs["endpointEniId"] = state ? state.endpointEniId : undefined;
             resourceInputs["peerAddress"] = state ? state.peerAddress : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routeServerEndpointId"] = state ? state.routeServerEndpointId : undefined;
             resourceInputs["routeServerId"] = state ? state.routeServerId : undefined;
             resourceInputs["routeServerPeerId"] = state ? state.routeServerPeerId : undefined;
@@ -195,6 +203,7 @@ export class RouteServerPeer extends pulumi.CustomResource {
             }
             resourceInputs["bgpOptions"] = args ? args.bgpOptions : undefined;
             resourceInputs["peerAddress"] = args ? args.peerAddress : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routeServerEndpointId"] = args ? args.routeServerEndpointId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -237,7 +246,13 @@ export interface RouteServerPeerState {
      */
     peerAddress?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the route server endpoint for which to create a peer.
+     *
+     * The following arguments are optional:
      */
     routeServerEndpointId?: pulumi.Input<string>;
     /**
@@ -252,11 +267,12 @@ export interface RouteServerPeerState {
      * The ID of the subnet containing the route server peer.
      */
     subnetId?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.vpc.RouteServerPeerTimeouts>;
@@ -279,9 +295,18 @@ export interface RouteServerPeerArgs {
      */
     peerAddress: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the route server endpoint for which to create a peer.
+     *
+     * The following arguments are optional:
      */
     routeServerEndpointId: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.vpc.RouteServerPeerTimeouts>;
 }

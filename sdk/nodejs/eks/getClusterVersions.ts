@@ -51,6 +51,7 @@ export function getClusterVersions(args?: GetClusterVersionsArgs, opts?: pulumi.
         "clusterVersionsOnlies": args.clusterVersionsOnlies,
         "defaultOnly": args.defaultOnly,
         "includeAll": args.includeAll,
+        "region": args.region,
         "versionStatus": args.versionStatus,
     }, opts);
 }
@@ -74,6 +75,10 @@ export interface GetClusterVersionsArgs {
      */
     includeAll?: boolean;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * Status of the EKS cluster versions to list.
      * Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.
      */
@@ -96,6 +101,7 @@ export interface GetClusterVersionsResult {
      */
     readonly id: string;
     readonly includeAll?: boolean;
+    readonly region: string;
     /**
      * Status of the EKS cluster version.
      */
@@ -145,6 +151,7 @@ export function getClusterVersionsOutput(args?: GetClusterVersionsOutputArgs, op
         "clusterVersionsOnlies": args.clusterVersionsOnlies,
         "defaultOnly": args.defaultOnly,
         "includeAll": args.includeAll,
+        "region": args.region,
         "versionStatus": args.versionStatus,
     }, opts);
 }
@@ -167,6 +174,10 @@ export interface GetClusterVersionsOutputArgs {
      * Whether to include all kubernetes versions in the response.
      */
     includeAll?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Status of the EKS cluster versions to list.
      * Valid values are `STANDARD_SUPPORT` or `UNSUPPORTED` or `EXTENDED_SUPPORT`.

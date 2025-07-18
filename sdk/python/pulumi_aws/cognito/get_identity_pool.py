@@ -28,7 +28,7 @@ class GetIdentityPoolResult:
     """
     A collection of values returned by getIdentityPool.
     """
-    def __init__(__self__, allow_classic_flow=None, allow_unauthenticated_identities=None, arn=None, cognito_identity_providers=None, developer_provider_name=None, id=None, identity_pool_name=None, openid_connect_provider_arns=None, saml_provider_arns=None, supported_login_providers=None, tags=None):
+    def __init__(__self__, allow_classic_flow=None, allow_unauthenticated_identities=None, arn=None, cognito_identity_providers=None, developer_provider_name=None, id=None, identity_pool_name=None, openid_connect_provider_arns=None, region=None, saml_provider_arns=None, supported_login_providers=None, tags=None):
         if allow_classic_flow and not isinstance(allow_classic_flow, bool):
             raise TypeError("Expected argument 'allow_classic_flow' to be a bool")
         pulumi.set(__self__, "allow_classic_flow", allow_classic_flow)
@@ -53,6 +53,9 @@ class GetIdentityPoolResult:
         if openid_connect_provider_arns and not isinstance(openid_connect_provider_arns, list):
             raise TypeError("Expected argument 'openid_connect_provider_arns' to be a list")
         pulumi.set(__self__, "openid_connect_provider_arns", openid_connect_provider_arns)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if saml_provider_arns and not isinstance(saml_provider_arns, list):
             raise TypeError("Expected argument 'saml_provider_arns' to be a list")
         pulumi.set(__self__, "saml_provider_arns", saml_provider_arns)
@@ -125,6 +128,11 @@ class GetIdentityPoolResult:
         return pulumi.get(self, "openid_connect_provider_arns")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="samlProviderArns")
     def saml_provider_arns(self) -> Sequence[builtins.str]:
         """
@@ -163,12 +171,14 @@ class AwaitableGetIdentityPoolResult(GetIdentityPoolResult):
             id=self.id,
             identity_pool_name=self.identity_pool_name,
             openid_connect_provider_arns=self.openid_connect_provider_arns,
+            region=self.region,
             saml_provider_arns=self.saml_provider_arns,
             supported_login_providers=self.supported_login_providers,
             tags=self.tags)
 
 
 def get_identity_pool(identity_pool_name: Optional[builtins.str] = None,
+                      region: Optional[builtins.str] = None,
                       tags: Optional[Mapping[str, builtins.str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIdentityPoolResult:
     """
@@ -187,10 +197,12 @@ def get_identity_pool(identity_pool_name: Optional[builtins.str] = None,
 
 
     :param builtins.str identity_pool_name: The Cognito Identity Pool name.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags to assigned to the Identity Pool.
     """
     __args__ = dict()
     __args__['identityPoolName'] = identity_pool_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:cognito/getIdentityPool:getIdentityPool', __args__, opts=opts, typ=GetIdentityPoolResult).value
@@ -204,10 +216,12 @@ def get_identity_pool(identity_pool_name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         identity_pool_name=pulumi.get(__ret__, 'identity_pool_name'),
         openid_connect_provider_arns=pulumi.get(__ret__, 'openid_connect_provider_arns'),
+        region=pulumi.get(__ret__, 'region'),
         saml_provider_arns=pulumi.get(__ret__, 'saml_provider_arns'),
         supported_login_providers=pulumi.get(__ret__, 'supported_login_providers'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_identity_pool_output(identity_pool_name: Optional[pulumi.Input[builtins.str]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityPoolResult]:
     """
@@ -226,10 +240,12 @@ def get_identity_pool_output(identity_pool_name: Optional[pulumi.Input[builtins.
 
 
     :param builtins.str identity_pool_name: The Cognito Identity Pool name.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags to assigned to the Identity Pool.
     """
     __args__ = dict()
     __args__['identityPoolName'] = identity_pool_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cognito/getIdentityPool:getIdentityPool', __args__, opts=opts, typ=GetIdentityPoolResult)
@@ -242,6 +258,7 @@ def get_identity_pool_output(identity_pool_name: Optional[pulumi.Input[builtins.
         id=pulumi.get(__response__, 'id'),
         identity_pool_name=pulumi.get(__response__, 'identity_pool_name'),
         openid_connect_provider_arns=pulumi.get(__response__, 'openid_connect_provider_arns'),
+        region=pulumi.get(__response__, 'region'),
         saml_provider_arns=pulumi.get(__response__, 'saml_provider_arns'),
         supported_login_providers=pulumi.get(__response__, 'supported_login_providers'),
         tags=pulumi.get(__response__, 'tags')))

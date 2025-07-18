@@ -27,7 +27,7 @@ class GetOrderableClusterResult:
     """
     A collection of values returned by getOrderableCluster.
     """
-    def __init__(__self__, availability_zones=None, cluster_type=None, cluster_version=None, id=None, node_type=None, preferred_node_types=None):
+    def __init__(__self__, availability_zones=None, cluster_type=None, cluster_version=None, id=None, node_type=None, preferred_node_types=None, region=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -46,6 +46,9 @@ class GetOrderableClusterResult:
         if preferred_node_types and not isinstance(preferred_node_types, list):
             raise TypeError("Expected argument 'preferred_node_types' to be a list")
         pulumi.set(__self__, "preferred_node_types", preferred_node_types)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="availabilityZones")
@@ -83,6 +86,11 @@ class GetOrderableClusterResult:
     def preferred_node_types(self) -> Optional[Sequence[builtins.str]]:
         return pulumi.get(self, "preferred_node_types")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetOrderableClusterResult(GetOrderableClusterResult):
     # pylint: disable=using-constant-test
@@ -95,13 +103,15 @@ class AwaitableGetOrderableClusterResult(GetOrderableClusterResult):
             cluster_version=self.cluster_version,
             id=self.id,
             node_type=self.node_type,
-            preferred_node_types=self.preferred_node_types)
+            preferred_node_types=self.preferred_node_types,
+            region=self.region)
 
 
 def get_orderable_cluster(cluster_type: Optional[builtins.str] = None,
                           cluster_version: Optional[builtins.str] = None,
                           node_type: Optional[builtins.str] = None,
                           preferred_node_types: Optional[Sequence[builtins.str]] = None,
+                          region: Optional[builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrderableClusterResult:
     """
     Information about Redshift Orderable Clusters and valid parameter combinations.
@@ -124,12 +134,14 @@ def get_orderable_cluster(cluster_type: Optional[builtins.str] = None,
     :param builtins.str cluster_version: Redshift Cluster versionE.g., `1.0`
     :param builtins.str node_type: Redshift Cluster node typeE.g., `dc2.8xlarge`
     :param Sequence[builtins.str] preferred_node_types: Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['clusterType'] = cluster_type
     __args__['clusterVersion'] = cluster_version
     __args__['nodeType'] = node_type
     __args__['preferredNodeTypes'] = preferred_node_types
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:redshift/getOrderableCluster:getOrderableCluster', __args__, opts=opts, typ=GetOrderableClusterResult).value
 
@@ -139,11 +151,13 @@ def get_orderable_cluster(cluster_type: Optional[builtins.str] = None,
         cluster_version=pulumi.get(__ret__, 'cluster_version'),
         id=pulumi.get(__ret__, 'id'),
         node_type=pulumi.get(__ret__, 'node_type'),
-        preferred_node_types=pulumi.get(__ret__, 'preferred_node_types'))
+        preferred_node_types=pulumi.get(__ret__, 'preferred_node_types'),
+        region=pulumi.get(__ret__, 'region'))
 def get_orderable_cluster_output(cluster_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  cluster_version: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  node_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  preferred_node_types: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
+                                 region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrderableClusterResult]:
     """
     Information about Redshift Orderable Clusters and valid parameter combinations.
@@ -166,12 +180,14 @@ def get_orderable_cluster_output(cluster_type: Optional[pulumi.Input[Optional[bu
     :param builtins.str cluster_version: Redshift Cluster versionE.g., `1.0`
     :param builtins.str node_type: Redshift Cluster node typeE.g., `dc2.8xlarge`
     :param Sequence[builtins.str] preferred_node_types: Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['clusterType'] = cluster_type
     __args__['clusterVersion'] = cluster_version
     __args__['nodeType'] = node_type
     __args__['preferredNodeTypes'] = preferred_node_types
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:redshift/getOrderableCluster:getOrderableCluster', __args__, opts=opts, typ=GetOrderableClusterResult)
     return __ret__.apply(lambda __response__: GetOrderableClusterResult(
@@ -180,4 +196,5 @@ def get_orderable_cluster_output(cluster_type: Optional[pulumi.Input[Optional[bu
         cluster_version=pulumi.get(__response__, 'cluster_version'),
         id=pulumi.get(__response__, 'id'),
         node_type=pulumi.get(__response__, 'node_type'),
-        preferred_node_types=pulumi.get(__response__, 'preferred_node_types')))
+        preferred_node_types=pulumi.get(__response__, 'preferred_node_types'),
+        region=pulumi.get(__response__, 'region')))

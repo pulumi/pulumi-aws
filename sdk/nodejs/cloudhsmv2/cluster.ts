@@ -76,6 +76,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly mode!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the security group associated with the CloudHSM cluster.
      */
     public /*out*/ readonly securityGroupId!: pulumi.Output<string>;
@@ -93,8 +97,6 @@ export class Cluster extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -120,6 +122,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterState"] = state ? state.clusterState : undefined;
             resourceInputs["hsmType"] = state ? state.hsmType : undefined;
             resourceInputs["mode"] = state ? state.mode : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
             resourceInputs["sourceBackupIdentifier"] = state ? state.sourceBackupIdentifier : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -136,6 +139,7 @@ export class Cluster extends pulumi.CustomResource {
             }
             resourceInputs["hsmType"] = args ? args.hsmType : undefined;
             resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sourceBackupIdentifier"] = args ? args.sourceBackupIdentifier : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -176,6 +180,10 @@ export interface ClusterState {
      */
     mode?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the security group associated with the CloudHSM cluster.
      */
     securityGroupId?: pulumi.Input<string>;
@@ -193,8 +201,6 @@ export interface ClusterState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -215,6 +221,10 @@ export interface ClusterArgs {
      * The mode to use in the cluster. The allowed values are `FIPS` and `NON_FIPS`. This field is required if `hsmType` is `hsm2m.medium`.
      */
     mode?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of Cloud HSM v2 cluster backup to be restored.
      */

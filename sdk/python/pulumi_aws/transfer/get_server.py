@@ -27,7 +27,7 @@ class GetServerResult:
     """
     A collection of values returned by getServer.
     """
-    def __init__(__self__, arn=None, certificate=None, domain=None, endpoint=None, endpoint_type=None, id=None, identity_provider_type=None, invocation_role=None, logging_role=None, protocols=None, security_policy_name=None, server_id=None, structured_log_destinations=None, tags=None, url=None):
+    def __init__(__self__, arn=None, certificate=None, domain=None, endpoint=None, endpoint_type=None, id=None, identity_provider_type=None, invocation_role=None, logging_role=None, protocols=None, region=None, security_policy_name=None, server_id=None, structured_log_destinations=None, tags=None, url=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -58,6 +58,9 @@ class GetServerResult:
         if protocols and not isinstance(protocols, list):
             raise TypeError("Expected argument 'protocols' to be a list")
         pulumi.set(__self__, "protocols", protocols)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_policy_name and not isinstance(security_policy_name, str):
             raise TypeError("Expected argument 'security_policy_name' to be a str")
         pulumi.set(__self__, "security_policy_name", security_policy_name)
@@ -155,6 +158,11 @@ class GetServerResult:
         return pulumi.get(self, "protocols")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityPolicyName")
     def security_policy_name(self) -> builtins.str:
         """
@@ -208,6 +216,7 @@ class AwaitableGetServerResult(GetServerResult):
             invocation_role=self.invocation_role,
             logging_role=self.logging_role,
             protocols=self.protocols,
+            region=self.region,
             security_policy_name=self.security_policy_name,
             server_id=self.server_id,
             structured_log_destinations=self.structured_log_destinations,
@@ -215,7 +224,8 @@ class AwaitableGetServerResult(GetServerResult):
             url=self.url)
 
 
-def get_server(server_id: Optional[builtins.str] = None,
+def get_server(region: Optional[builtins.str] = None,
+               server_id: Optional[builtins.str] = None,
                tags: Optional[Mapping[str, builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
@@ -232,10 +242,12 @@ def get_server(server_id: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str server_id: ID for an SFTP server.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['serverId'] = server_id
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -252,12 +264,14 @@ def get_server(server_id: Optional[builtins.str] = None,
         invocation_role=pulumi.get(__ret__, 'invocation_role'),
         logging_role=pulumi.get(__ret__, 'logging_role'),
         protocols=pulumi.get(__ret__, 'protocols'),
+        region=pulumi.get(__ret__, 'region'),
         security_policy_name=pulumi.get(__ret__, 'security_policy_name'),
         server_id=pulumi.get(__ret__, 'server_id'),
         structured_log_destinations=pulumi.get(__ret__, 'structured_log_destinations'),
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
-def get_server_output(server_id: Optional[pulumi.Input[builtins.str]] = None,
+def get_server_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                      server_id: Optional[pulumi.Input[builtins.str]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
@@ -274,10 +288,12 @@ def get_server_output(server_id: Optional[pulumi.Input[builtins.str]] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str server_id: ID for an SFTP server.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['serverId'] = server_id
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -293,6 +309,7 @@ def get_server_output(server_id: Optional[pulumi.Input[builtins.str]] = None,
         invocation_role=pulumi.get(__response__, 'invocation_role'),
         logging_role=pulumi.get(__response__, 'logging_role'),
         protocols=pulumi.get(__response__, 'protocols'),
+        region=pulumi.get(__response__, 'region'),
         security_policy_name=pulumi.get(__response__, 'security_policy_name'),
         server_id=pulumi.get(__response__, 'server_id'),
         structured_log_destinations=pulumi.get(__response__, 'structured_log_destinations'),

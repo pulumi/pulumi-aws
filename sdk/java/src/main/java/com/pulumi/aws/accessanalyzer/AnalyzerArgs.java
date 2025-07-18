@@ -38,18 +38,33 @@ public final class AnalyzerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A block that specifies the configuration of the analyzer. Documented below
+     * A block that specifies the configuration of the analyzer. See `configuration` Block for details.
      * 
      */
     @Import(name="configuration")
     private @Nullable Output<AnalyzerConfigurationArgs> configuration;
 
     /**
-     * @return A block that specifies the configuration of the analyzer. Documented below
+     * @return A block that specifies the configuration of the analyzer. See `configuration` Block for details.
      * 
      */
     public Optional<Output<AnalyzerConfigurationArgs>> configuration() {
         return Optional.ofNullable(this.configuration);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -68,14 +83,14 @@ public final class AnalyzerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
+     * Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
+     * @return Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -87,6 +102,7 @@ public final class AnalyzerArgs extends com.pulumi.resources.ResourceArgs {
     private AnalyzerArgs(AnalyzerArgs $) {
         this.analyzerName = $.analyzerName;
         this.configuration = $.configuration;
+        this.region = $.region;
         this.tags = $.tags;
         this.type = $.type;
     }
@@ -135,7 +151,7 @@ public final class AnalyzerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration A block that specifies the configuration of the analyzer. Documented below
+         * @param configuration A block that specifies the configuration of the analyzer. See `configuration` Block for details.
          * 
          * @return builder
          * 
@@ -146,13 +162,34 @@ public final class AnalyzerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configuration A block that specifies the configuration of the analyzer. Documented below
+         * @param configuration A block that specifies the configuration of the analyzer. See `configuration` Block for details.
          * 
          * @return builder
          * 
          */
         public Builder configuration(AnalyzerConfigurationArgs configuration) {
             return configuration(Output.of(configuration));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -177,7 +214,7 @@ public final class AnalyzerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
+         * @param type Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
          * 
          * @return builder
          * 
@@ -188,7 +225,7 @@ public final class AnalyzerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type Type of Analyzer. Valid values are `ACCOUNT`, `ORGANIZATION`, ` ACCOUNT_UNUSED_ACCESS  `, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
+         * @param type Type that represents the zone of trust or scope for the analyzer. Valid values are `ACCOUNT`, `ACCOUNT_INTERNAL_ACCESS`, `ACCOUNT_UNUSED_ACCESS`, `ORGANIZATION`, `ORGANIZATION_INTERNAL_ACCESS`, `ORGANIZATION_UNUSED_ACCESS`. Defaults to `ACCOUNT`.
          * 
          * @return builder
          * 

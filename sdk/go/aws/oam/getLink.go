@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/oam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/oam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,8 +53,10 @@ func LookupLink(ctx *pulumi.Context, args *LookupLinkArgs, opts ...pulumi.Invoke
 // A collection of arguments for invoking getLink.
 type LookupLinkArgs struct {
 	// ARN of the link.
-	LinkIdentifier string            `pulumi:"linkIdentifier"`
-	Tags           map[string]string `pulumi:"tags"`
+	LinkIdentifier string `pulumi:"linkIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getLink.
@@ -72,6 +74,7 @@ type LookupLinkResult struct {
 	// ID string that AWS generated as part of the link ARN.
 	LinkId         string `pulumi:"linkId"`
 	LinkIdentifier string `pulumi:"linkIdentifier"`
+	Region         string `pulumi:"region"`
 	// Types of data that the source account shares with the monitoring account.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 	// ARN of the sink that is used for this link.
@@ -91,8 +94,10 @@ func LookupLinkOutput(ctx *pulumi.Context, args LookupLinkOutputArgs, opts ...pu
 // A collection of arguments for invoking getLink.
 type LookupLinkOutputArgs struct {
 	// ARN of the link.
-	LinkIdentifier pulumi.StringInput    `pulumi:"linkIdentifier"`
-	Tags           pulumi.StringMapInput `pulumi:"tags"`
+	LinkIdentifier pulumi.StringInput `pulumi:"linkIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupLinkOutputArgs) ElementType() reflect.Type {
@@ -146,6 +151,10 @@ func (o LookupLinkResultOutput) LinkId() pulumi.StringOutput {
 
 func (o LookupLinkResultOutput) LinkIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLinkResult) string { return v.LinkIdentifier }).(pulumi.StringOutput)
+}
+
+func (o LookupLinkResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLinkResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Types of data that the source account shares with the monitoring account.

@@ -139,9 +139,9 @@ namespace Pulumi.Aws.TimestreamQuery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.S3.BucketV2("test", new()
+    ///     var test = new Aws.S3.Bucket("test", new()
     ///     {
-    ///         Bucket = "example",
+    ///         BucketName = "example",
     ///         ForceDestroy = true,
     ///     });
     /// 
@@ -481,6 +481,12 @@ namespace Pulumi.Aws.TimestreamQuery
         public Output<ImmutableArray<Outputs.ScheduledQueryRecentlyFailedRun>> RecentlyFailedRuns { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for schedule configuration for the query. See below.
         /// </summary>
         [Output("scheduleConfiguration")]
@@ -622,6 +628,12 @@ namespace Pulumi.Aws.TimestreamQuery
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for schedule configuration for the query. See below.
         /// </summary>
         [Input("scheduleConfiguration", required: true)]
@@ -743,6 +755,12 @@ namespace Pulumi.Aws.TimestreamQuery
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for schedule configuration for the query. See below.
         /// </summary>
         [Input("scheduleConfiguration")]
@@ -772,7 +790,6 @@ namespace Pulumi.Aws.TimestreamQuery
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

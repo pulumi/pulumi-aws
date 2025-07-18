@@ -19,6 +19,21 @@ public final class ReplicationSubnetGroupArgs extends com.pulumi.resources.Resou
     public static final ReplicationSubnetGroupArgs Empty = new ReplicationSubnetGroupArgs();
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Description for the subnet group.
      * 
      */
@@ -81,6 +96,7 @@ public final class ReplicationSubnetGroupArgs extends com.pulumi.resources.Resou
     private ReplicationSubnetGroupArgs() {}
 
     private ReplicationSubnetGroupArgs(ReplicationSubnetGroupArgs $) {
+        this.region = $.region;
         this.replicationSubnetGroupDescription = $.replicationSubnetGroupDescription;
         this.replicationSubnetGroupId = $.replicationSubnetGroupId;
         this.subnetIds = $.subnetIds;
@@ -103,6 +119,27 @@ public final class ReplicationSubnetGroupArgs extends com.pulumi.resources.Resou
 
         public Builder(ReplicationSubnetGroupArgs defaults) {
             $ = new ReplicationSubnetGroupArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

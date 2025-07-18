@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupUserPool(ctx *pulumi.Context, args *LookupUserPoolArgs, opts ...pulum
 
 // A collection of arguments for invoking getUserPool.
 type LookupUserPoolArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The cognito pool ID
 	UserPoolId string `pulumi:"userPoolId"`
 }
@@ -89,6 +91,7 @@ type LookupUserPoolResult struct {
 	MfaConfiguration string `pulumi:"mfaConfiguration"`
 	// - Name of the attribute.
 	Name             string                       `pulumi:"name"`
+	Region           string                       `pulumi:"region"`
 	SchemaAttributes []GetUserPoolSchemaAttribute `pulumi:"schemaAttributes"`
 	// The contents of the SMS authentication message.
 	SmsAuthenticationMessage string `pulumi:"smsAuthenticationMessage"`
@@ -120,6 +123,8 @@ func LookupUserPoolOutput(ctx *pulumi.Context, args LookupUserPoolOutputArgs, op
 
 // A collection of arguments for invoking getUserPool.
 type LookupUserPoolOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The cognito pool ID
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
@@ -220,6 +225,10 @@ func (o LookupUserPoolResultOutput) MfaConfiguration() pulumi.StringOutput {
 // - Name of the attribute.
 func (o LookupUserPoolResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserPoolResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupUserPoolResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserPoolResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupUserPoolResultOutput) SchemaAttributes() GetUserPoolSchemaAttributeArrayOutput {

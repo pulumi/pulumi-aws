@@ -28,7 +28,7 @@ class GetVirtualClusterResult:
     """
     A collection of values returned by getVirtualCluster.
     """
-    def __init__(__self__, arn=None, container_providers=None, created_at=None, id=None, name=None, state=None, tags=None, virtual_cluster_id=None):
+    def __init__(__self__, arn=None, container_providers=None, created_at=None, id=None, name=None, region=None, state=None, tags=None, virtual_cluster_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -44,6 +44,9 @@ class GetVirtualClusterResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -96,6 +99,11 @@ class GetVirtualClusterResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def state(self) -> builtins.str:
         """
         Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
@@ -127,12 +135,14 @@ class AwaitableGetVirtualClusterResult(GetVirtualClusterResult):
             created_at=self.created_at,
             id=self.id,
             name=self.name,
+            region=self.region,
             state=self.state,
             tags=self.tags,
             virtual_cluster_id=self.virtual_cluster_id)
 
 
-def get_virtual_cluster(tags: Optional[Mapping[str, builtins.str]] = None,
+def get_virtual_cluster(region: Optional[builtins.str] = None,
+                        tags: Optional[Mapping[str, builtins.str]] = None,
                         virtual_cluster_id: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualClusterResult:
     """
@@ -150,10 +160,12 @@ def get_virtual_cluster(tags: Optional[Mapping[str, builtins.str]] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value mapping of resource tags.
     :param builtins.str virtual_cluster_id: ID of the cluster.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['virtualClusterId'] = virtual_cluster_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -165,10 +177,12 @@ def get_virtual_cluster(tags: Optional[Mapping[str, builtins.str]] = None,
         created_at=pulumi.get(__ret__, 'created_at'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         virtual_cluster_id=pulumi.get(__ret__, 'virtual_cluster_id'))
-def get_virtual_cluster_output(tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
+def get_virtual_cluster_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                               tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                virtual_cluster_id: Optional[pulumi.Input[builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualClusterResult]:
     """
@@ -186,10 +200,12 @@ def get_virtual_cluster_output(tags: Optional[pulumi.Input[Optional[Mapping[str,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value mapping of resource tags.
     :param builtins.str virtual_cluster_id: ID of the cluster.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['virtualClusterId'] = virtual_cluster_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -200,6 +216,7 @@ def get_virtual_cluster_output(tags: Optional[pulumi.Input[Optional[Mapping[str,
         created_at=pulumi.get(__response__, 'created_at'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags'),
         virtual_cluster_id=pulumi.get(__response__, 'virtual_cluster_id')))

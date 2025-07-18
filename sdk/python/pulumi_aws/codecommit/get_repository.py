@@ -27,7 +27,7 @@ class GetRepositoryResult:
     """
     A collection of values returned by getRepository.
     """
-    def __init__(__self__, arn=None, clone_url_http=None, clone_url_ssh=None, id=None, kms_key_id=None, repository_id=None, repository_name=None):
+    def __init__(__self__, arn=None, clone_url_http=None, clone_url_ssh=None, id=None, kms_key_id=None, region=None, repository_id=None, repository_name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -43,6 +43,9 @@ class GetRepositoryResult:
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
         pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if repository_id and not isinstance(repository_id, str):
             raise TypeError("Expected argument 'repository_id' to be a str")
         pulumi.set(__self__, "repository_id", repository_id)
@@ -91,6 +94,11 @@ class GetRepositoryResult:
         return pulumi.get(self, "kms_key_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="repositoryId")
     def repository_id(self) -> builtins.str:
         """
@@ -115,11 +123,13 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             clone_url_ssh=self.clone_url_ssh,
             id=self.id,
             kms_key_id=self.kms_key_id,
+            region=self.region,
             repository_id=self.repository_id,
             repository_name=self.repository_name)
 
 
-def get_repository(repository_name: Optional[builtins.str] = None,
+def get_repository(region: Optional[builtins.str] = None,
+                   repository_name: Optional[builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryResult:
     """
     The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
@@ -134,9 +144,11 @@ def get_repository(repository_name: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str repository_name: Name for the repository. This needs to be less than 100 characters.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['repositoryName'] = repository_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:codecommit/getRepository:getRepository', __args__, opts=opts, typ=GetRepositoryResult).value
@@ -147,9 +159,11 @@ def get_repository(repository_name: Optional[builtins.str] = None,
         clone_url_ssh=pulumi.get(__ret__, 'clone_url_ssh'),
         id=pulumi.get(__ret__, 'id'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        region=pulumi.get(__ret__, 'region'),
         repository_id=pulumi.get(__ret__, 'repository_id'),
         repository_name=pulumi.get(__ret__, 'repository_name'))
-def get_repository_output(repository_name: Optional[pulumi.Input[builtins.str]] = None,
+def get_repository_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                          repository_name: Optional[pulumi.Input[builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryResult]:
     """
     The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
@@ -164,9 +178,11 @@ def get_repository_output(repository_name: Optional[pulumi.Input[builtins.str]] 
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str repository_name: Name for the repository. This needs to be less than 100 characters.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['repositoryName'] = repository_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:codecommit/getRepository:getRepository', __args__, opts=opts, typ=GetRepositoryResult)
@@ -176,5 +192,6 @@ def get_repository_output(repository_name: Optional[pulumi.Input[builtins.str]] 
         clone_url_ssh=pulumi.get(__response__, 'clone_url_ssh'),
         id=pulumi.get(__response__, 'id'),
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
+        region=pulumi.get(__response__, 'region'),
         repository_id=pulumi.get(__response__, 'repository_id'),
         repository_name=pulumi.get(__response__, 'repository_name')))

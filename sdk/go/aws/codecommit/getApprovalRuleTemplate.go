@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecommit"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codecommit"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupApprovalRuleTemplate(ctx *pulumi.Context, args *LookupApprovalRuleTem
 type LookupApprovalRuleTemplateArgs struct {
 	// Name for the approval rule template. This needs to be less than 100 characters.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getApprovalRuleTemplate.
@@ -71,6 +73,7 @@ type LookupApprovalRuleTemplateResult struct {
 	// ARN of the user who made the most recent changes to the approval rule template.
 	LastModifiedUser string `pulumi:"lastModifiedUser"`
 	Name             string `pulumi:"name"`
+	Region           string `pulumi:"region"`
 	// SHA-256 hash signature for the content of the approval rule template.
 	RuleContentSha256 string `pulumi:"ruleContentSha256"`
 }
@@ -88,6 +91,8 @@ func LookupApprovalRuleTemplateOutput(ctx *pulumi.Context, args LookupApprovalRu
 type LookupApprovalRuleTemplateOutputArgs struct {
 	// Name for the approval rule template. This needs to be less than 100 characters.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupApprovalRuleTemplateOutputArgs) ElementType() reflect.Type {
@@ -146,6 +151,10 @@ func (o LookupApprovalRuleTemplateResultOutput) LastModifiedUser() pulumi.String
 
 func (o LookupApprovalRuleTemplateResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupApprovalRuleTemplateResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupApprovalRuleTemplateResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // SHA-256 hash signature for the content of the approval rule template.

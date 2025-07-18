@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var pci321 = new StandardsSubscription("pci321", StandardsSubscriptionArgs.builder()
- *             .standardsArn(String.format("arn:aws:securityhub:%s::standards/pci-dss/v/3.2.1", current.name()))
+ *             .standardsArn(String.format("arn:aws:securityhub:%s::standards/pci-dss/v/3.2.1", current.region()))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
@@ -85,6 +85,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:securityhub/standardsSubscription:StandardsSubscription")
 public class StandardsSubscription extends com.pulumi.resources.CustomResource {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
     /**
      * The ARN of a standard - see below.
      * 

@@ -61,6 +61,21 @@ public final class EipDomainNameState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.ptrRecord);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="timeouts")
     private @Nullable Output<EipDomainNameTimeoutsArgs> timeouts;
 
@@ -74,6 +89,7 @@ public final class EipDomainNameState extends com.pulumi.resources.ResourceArgs 
         this.allocationId = $.allocationId;
         this.domainName = $.domainName;
         this.ptrRecord = $.ptrRecord;
+        this.region = $.region;
         this.timeouts = $.timeouts;
     }
 
@@ -156,6 +172,27 @@ public final class EipDomainNameState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder ptrRecord(String ptrRecord) {
             return ptrRecord(Output.of(ptrRecord));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder timeouts(@Nullable Output<EipDomainNameTimeoutsArgs> timeouts) {

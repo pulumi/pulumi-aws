@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/devicefarm"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/devicefarm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,13 +68,13 @@ type DevicePool struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of the project for the device pool.
 	ProjectArn pulumi.StringOutput `pulumi:"projectArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The device pool's rules. See Rule.
 	Rules DevicePoolRuleArrayOutput `pulumi:"rules"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	Type    pulumi.StringOutput    `pulumi:"type"`
 }
@@ -125,13 +125,13 @@ type devicePoolState struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the project for the device pool.
 	ProjectArn *string `pulumi:"projectArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The device pool's rules. See Rule.
 	Rules []DevicePoolRule `pulumi:"rules"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	Type    *string           `pulumi:"type"`
 }
@@ -147,13 +147,13 @@ type DevicePoolState struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the project for the device pool.
 	ProjectArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The device pool's rules. See Rule.
 	Rules DevicePoolRuleArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	Type    pulumi.StringPtrInput
 }
@@ -171,6 +171,8 @@ type devicePoolArgs struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the project for the device pool.
 	ProjectArn string `pulumi:"projectArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The device pool's rules. See Rule.
 	Rules []DevicePoolRule `pulumi:"rules"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -187,6 +189,8 @@ type DevicePoolArgs struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the project for the device pool.
 	ProjectArn pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The device pool's rules. See Rule.
 	Rules DevicePoolRuleArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -305,6 +309,11 @@ func (o DevicePoolOutput) ProjectArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DevicePool) pulumi.StringOutput { return v.ProjectArn }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DevicePoolOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DevicePool) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The device pool's rules. See Rule.
 func (o DevicePoolOutput) Rules() DevicePoolRuleArrayOutput {
 	return o.ApplyT(func(v *DevicePool) DevicePoolRuleArrayOutput { return v.Rules }).(DevicePoolRuleArrayOutput)
@@ -316,8 +325,6 @@ func (o DevicePoolOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o DevicePoolOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DevicePool) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

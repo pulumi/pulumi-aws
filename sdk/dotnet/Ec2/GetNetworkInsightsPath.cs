@@ -109,6 +109,12 @@ namespace Pulumi.Aws.Ec2
         [Input("networkInsightsPathId")]
         public string? NetworkInsightsPathId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -150,6 +156,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("networkInsightsPathId")]
         public Input<string>? NetworkInsightsPathId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -211,6 +223,7 @@ namespace Pulumi.Aws.Ec2
         /// Protocol.
         /// </summary>
         public readonly string Protocol;
+        public readonly string Region;
         /// <summary>
         /// AWS resource that is the source of the path.
         /// </summary>
@@ -252,6 +265,8 @@ namespace Pulumi.Aws.Ec2
 
             string protocol,
 
+            string region,
+
             string source,
 
             string sourceArn,
@@ -271,6 +286,7 @@ namespace Pulumi.Aws.Ec2
             Id = id;
             NetworkInsightsPathId = networkInsightsPathId;
             Protocol = protocol;
+            Region = region;
             Source = source;
             SourceArn = sourceArn;
             SourceIp = sourceIp;

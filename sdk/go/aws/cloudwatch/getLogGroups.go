@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func GetLogGroups(ctx *pulumi.Context, args *GetLogGroupsArgs, opts ...pulumi.In
 type GetLogGroupsArgs struct {
 	// Group prefix of the Cloudwatch log groups to list
 	LogGroupNamePrefix *string `pulumi:"logGroupNamePrefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLogGroups.
@@ -63,6 +65,7 @@ type GetLogGroupsResult struct {
 	LogGroupNamePrefix *string `pulumi:"logGroupNamePrefix"`
 	// Set of names of the Cloudwatch log groups
 	LogGroupNames []string `pulumi:"logGroupNames"`
+	Region        string   `pulumi:"region"`
 }
 
 func GetLogGroupsOutput(ctx *pulumi.Context, args GetLogGroupsOutputArgs, opts ...pulumi.InvokeOption) GetLogGroupsResultOutput {
@@ -78,6 +81,8 @@ func GetLogGroupsOutput(ctx *pulumi.Context, args GetLogGroupsOutputArgs, opts .
 type GetLogGroupsOutputArgs struct {
 	// Group prefix of the Cloudwatch log groups to list
 	LogGroupNamePrefix pulumi.StringPtrInput `pulumi:"logGroupNamePrefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetLogGroupsOutputArgs) ElementType() reflect.Type {
@@ -116,6 +121,10 @@ func (o GetLogGroupsResultOutput) LogGroupNamePrefix() pulumi.StringPtrOutput {
 // Set of names of the Cloudwatch log groups
 func (o GetLogGroupsResultOutput) LogGroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLogGroupsResult) []string { return v.LogGroupNames }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLogGroupsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLogGroupsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

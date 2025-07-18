@@ -48,11 +48,27 @@ public final class GetVpcIpamPoolCidrsArgs extends com.pulumi.resources.InvokeAr
         return this.ipamPoolId;
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetVpcIpamPoolCidrsArgs() {}
 
     private GetVpcIpamPoolCidrsArgs(GetVpcIpamPoolCidrsArgs $) {
         this.filters = $.filters;
         this.ipamPoolId = $.ipamPoolId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -123,6 +139,27 @@ public final class GetVpcIpamPoolCidrsArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder ipamPoolId(String ipamPoolId) {
             return ipamPoolId(Output.of(ipamPoolId));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetVpcIpamPoolCidrsArgs build() {

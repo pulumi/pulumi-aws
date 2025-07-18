@@ -28,7 +28,7 @@ class GetSigningProfileResult:
     """
     A collection of values returned by getSigningProfile.
     """
-    def __init__(__self__, arn=None, id=None, name=None, platform_display_name=None, platform_id=None, revocation_records=None, signature_validity_periods=None, status=None, tags=None, version=None, version_arn=None):
+    def __init__(__self__, arn=None, id=None, name=None, platform_display_name=None, platform_id=None, region=None, revocation_records=None, signature_validity_periods=None, status=None, tags=None, version=None, version_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -44,6 +44,9 @@ class GetSigningProfileResult:
         if platform_id and not isinstance(platform_id, str):
             raise TypeError("Expected argument 'platform_id' to be a str")
         pulumi.set(__self__, "platform_id", platform_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if revocation_records and not isinstance(revocation_records, list):
             raise TypeError("Expected argument 'revocation_records' to be a list")
         pulumi.set(__self__, "revocation_records", revocation_records)
@@ -99,6 +102,11 @@ class GetSigningProfileResult:
         ID of the platform that is used by the target signing profile.
         """
         return pulumi.get(self, "platform_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="revocationRecords")
@@ -160,6 +168,7 @@ class AwaitableGetSigningProfileResult(GetSigningProfileResult):
             name=self.name,
             platform_display_name=self.platform_display_name,
             platform_id=self.platform_id,
+            region=self.region,
             revocation_records=self.revocation_records,
             signature_validity_periods=self.signature_validity_periods,
             status=self.status,
@@ -169,6 +178,7 @@ class AwaitableGetSigningProfileResult(GetSigningProfileResult):
 
 
 def get_signing_profile(name: Optional[builtins.str] = None,
+                        region: Optional[builtins.str] = None,
                         tags: Optional[Mapping[str, builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSigningProfileResult:
     """
@@ -185,10 +195,12 @@ def get_signing_profile(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the target signing profile.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: List of tags associated with the signing profile.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:signer/getSigningProfile:getSigningProfile', __args__, opts=opts, typ=GetSigningProfileResult).value
@@ -199,6 +211,7 @@ def get_signing_profile(name: Optional[builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         platform_display_name=pulumi.get(__ret__, 'platform_display_name'),
         platform_id=pulumi.get(__ret__, 'platform_id'),
+        region=pulumi.get(__ret__, 'region'),
         revocation_records=pulumi.get(__ret__, 'revocation_records'),
         signature_validity_periods=pulumi.get(__ret__, 'signature_validity_periods'),
         status=pulumi.get(__ret__, 'status'),
@@ -206,6 +219,7 @@ def get_signing_profile(name: Optional[builtins.str] = None,
         version=pulumi.get(__ret__, 'version'),
         version_arn=pulumi.get(__ret__, 'version_arn'))
 def get_signing_profile_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                               region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSigningProfileResult]:
     """
@@ -222,10 +236,12 @@ def get_signing_profile_output(name: Optional[pulumi.Input[builtins.str]] = None
 
 
     :param builtins.str name: Name of the target signing profile.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: List of tags associated with the signing profile.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:signer/getSigningProfile:getSigningProfile', __args__, opts=opts, typ=GetSigningProfileResult)
@@ -235,6 +251,7 @@ def get_signing_profile_output(name: Optional[pulumi.Input[builtins.str]] = None
         name=pulumi.get(__response__, 'name'),
         platform_display_name=pulumi.get(__response__, 'platform_display_name'),
         platform_id=pulumi.get(__response__, 'platform_id'),
+        region=pulumi.get(__response__, 'region'),
         revocation_records=pulumi.get(__response__, 'revocation_records'),
         signature_validity_periods=pulumi.get(__response__, 'signature_validity_periods'),
         status=pulumi.get(__response__, 'status'),

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.servicequotas.Template("example", {
- *     region: "us-east-1",
+ *     awsRegion: "us-east-1",
  *     quotaCode: "L-2ACBD22F",
  *     serviceCode: "lambda",
  *     value: 80,
@@ -62,6 +62,10 @@ export class Template extends pulumi.CustomResource {
     }
 
     /**
+     * AWS Region to which the template applies.
+     */
+    public readonly awsRegion!: pulumi.Output<string>;
+    /**
      * Indicates whether the quota is global.
      */
     public /*out*/ readonly globalQuota!: pulumi.Output<boolean>;
@@ -74,7 +78,9 @@ export class Template extends pulumi.CustomResource {
      */
     public /*out*/ readonly quotaName!: pulumi.Output<string>;
     /**
-     * AWS Region to which the template applies.
+     * AWS Region to which the template applies. Use `aws.getRegion` instead.
+     *
+     * @deprecated region is deprecated. Use aws.getRegion instead.
      */
     public readonly region!: pulumi.Output<string>;
     /**
@@ -107,6 +113,7 @@ export class Template extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TemplateState | undefined;
+            resourceInputs["awsRegion"] = state ? state.awsRegion : undefined;
             resourceInputs["globalQuota"] = state ? state.globalQuota : undefined;
             resourceInputs["quotaCode"] = state ? state.quotaCode : undefined;
             resourceInputs["quotaName"] = state ? state.quotaName : undefined;
@@ -120,15 +127,13 @@ export class Template extends pulumi.CustomResource {
             if ((!args || args.quotaCode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'quotaCode'");
             }
-            if ((!args || args.region === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'region'");
-            }
             if ((!args || args.serviceCode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceCode'");
             }
             if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
+            resourceInputs["awsRegion"] = args ? args.awsRegion : undefined;
             resourceInputs["quotaCode"] = args ? args.quotaCode : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceCode"] = args ? args.serviceCode : undefined;
@@ -148,6 +153,10 @@ export class Template extends pulumi.CustomResource {
  */
 export interface TemplateState {
     /**
+     * AWS Region to which the template applies.
+     */
+    awsRegion?: pulumi.Input<string>;
+    /**
      * Indicates whether the quota is global.
      */
     globalQuota?: pulumi.Input<boolean>;
@@ -160,7 +169,9 @@ export interface TemplateState {
      */
     quotaName?: pulumi.Input<string>;
     /**
-     * AWS Region to which the template applies.
+     * AWS Region to which the template applies. Use `aws.getRegion` instead.
+     *
+     * @deprecated region is deprecated. Use aws.getRegion instead.
      */
     region?: pulumi.Input<string>;
     /**
@@ -186,13 +197,19 @@ export interface TemplateState {
  */
 export interface TemplateArgs {
     /**
+     * AWS Region to which the template applies.
+     */
+    awsRegion?: pulumi.Input<string>;
+    /**
      * Quota identifier. To find the quota code for a specific quota, use the aws.servicequotas.ServiceQuota data source.
      */
     quotaCode: pulumi.Input<string>;
     /**
-     * AWS Region to which the template applies.
+     * AWS Region to which the template applies. Use `aws.getRegion` instead.
+     *
+     * @deprecated region is deprecated. Use aws.getRegion instead.
      */
-    region: pulumi.Input<string>;
+    region?: pulumi.Input<string>;
     /**
      * Service identifier. To find the service code value for an AWS service, use the aws.servicequotas.getService data source.
      */

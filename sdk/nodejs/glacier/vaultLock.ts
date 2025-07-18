@@ -95,6 +95,10 @@ export class VaultLock extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the Glacier Vault.
      */
     public readonly vaultName!: pulumi.Output<string>;
@@ -115,6 +119,7 @@ export class VaultLock extends pulumi.CustomResource {
             resourceInputs["completeLock"] = state ? state.completeLock : undefined;
             resourceInputs["ignoreDeletionError"] = state ? state.ignoreDeletionError : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["vaultName"] = state ? state.vaultName : undefined;
         } else {
             const args = argsOrState as VaultLockArgs | undefined;
@@ -130,6 +135,7 @@ export class VaultLock extends pulumi.CustomResource {
             resourceInputs["completeLock"] = args ? args.completeLock : undefined;
             resourceInputs["ignoreDeletionError"] = args ? args.ignoreDeletionError : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["vaultName"] = args ? args.vaultName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -154,6 +160,10 @@ export interface VaultLockState {
      */
     policy?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The name of the Glacier Vault.
      */
     vaultName?: pulumi.Input<string>;
@@ -175,6 +185,10 @@ export interface VaultLockArgs {
      * JSON string containing the IAM policy to apply as the Glacier Vault Lock policy.
      */
     policy: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the Glacier Vault.
      */

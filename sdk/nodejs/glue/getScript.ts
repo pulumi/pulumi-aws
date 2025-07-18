@@ -206,6 +206,7 @@ export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Pro
         "dagEdges": args.dagEdges,
         "dagNodes": args.dagNodes,
         "language": args.language,
+        "region": args.region,
     }, opts);
 }
 
@@ -225,6 +226,10 @@ export interface GetScriptArgs {
      * Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
      */
     language?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -242,6 +247,7 @@ export interface GetScriptResult {
      * Python script generated from the DAG when the `language` argument is set to `PYTHON`.
      */
     readonly pythonScript: string;
+    readonly region: string;
     /**
      * Scala code generated from the DAG when the `language` argument is set to `SCALA`.
      */
@@ -446,6 +452,7 @@ export function getScriptOutput(args: GetScriptOutputArgs, opts?: pulumi.InvokeO
         "dagEdges": args.dagEdges,
         "dagNodes": args.dagNodes,
         "language": args.language,
+        "region": args.region,
     }, opts);
 }
 
@@ -465,4 +472,8 @@ export interface GetScriptOutputArgs {
      * Programming language of the resulting code from the DAG. Defaults to `PYTHON`. Valid values are `PYTHON` and `SCALA`.
      */
     language?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

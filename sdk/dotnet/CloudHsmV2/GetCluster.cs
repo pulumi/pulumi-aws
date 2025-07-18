@@ -99,6 +99,12 @@ namespace Pulumi.Aws.CloudHsmV2
         [Input("clusterState")]
         public string? ClusterState { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetClusterArgs()
         {
         }
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.CloudHsmV2
         /// </summary>
         [Input("clusterState")]
         public Input<string>? ClusterState { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetClusterInvokeArgs()
         {
@@ -139,6 +151,7 @@ namespace Pulumi.Aws.CloudHsmV2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// ID of the security group associated with the CloudHSM cluster.
         /// </summary>
@@ -162,6 +175,8 @@ namespace Pulumi.Aws.CloudHsmV2
 
             string id,
 
+            string region,
+
             string securityGroupId,
 
             ImmutableArray<string> subnetIds,
@@ -172,6 +187,7 @@ namespace Pulumi.Aws.CloudHsmV2
             ClusterId = clusterId;
             ClusterState = clusterState;
             Id = id;
+            Region = region;
             SecurityGroupId = securityGroupId;
             SubnetIds = subnetIds;
             VpcId = vpcId;

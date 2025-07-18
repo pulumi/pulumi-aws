@@ -27,6 +27,7 @@ export function getRouteTablePropagations(args: GetRouteTablePropagationsArgs, o
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations", {
         "filters": args.filters,
+        "region": args.region,
         "transitGatewayRouteTableId": args.transitGatewayRouteTableId,
     }, opts);
 }
@@ -42,6 +43,10 @@ export interface GetRouteTablePropagationsArgs {
      * which take the following arguments:
      */
     filters?: inputs.ec2transitgateway.GetRouteTablePropagationsFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      */
@@ -61,6 +66,7 @@ export interface GetRouteTablePropagationsResult {
      * Set of Transit Gateway Route Table Association identifiers.
      */
     readonly ids: string[];
+    readonly region: string;
     readonly transitGatewayRouteTableId: string;
 }
 /**
@@ -83,6 +89,7 @@ export function getRouteTablePropagationsOutput(args: GetRouteTablePropagationsO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations", {
         "filters": args.filters,
+        "region": args.region,
         "transitGatewayRouteTableId": args.transitGatewayRouteTableId,
     }, opts);
 }
@@ -98,6 +105,10 @@ export interface GetRouteTablePropagationsOutputArgs {
      * which take the following arguments:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetRouteTablePropagationsFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Route Table.
      */

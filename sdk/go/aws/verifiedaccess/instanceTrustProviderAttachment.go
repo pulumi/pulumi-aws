@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/verifiedaccess"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,6 +66,8 @@ import (
 type InstanceTrustProviderAttachment struct {
 	pulumi.CustomResourceState
 
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the Verified Access instance to attach the Trust Provider to.
 	VerifiedaccessInstanceId pulumi.StringOutput `pulumi:"verifiedaccessInstanceId"`
 	// The ID of the Verified Access trust provider.
@@ -108,6 +110,8 @@ func GetInstanceTrustProviderAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InstanceTrustProviderAttachment resources.
 type instanceTrustProviderAttachmentState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the Verified Access instance to attach the Trust Provider to.
 	VerifiedaccessInstanceId *string `pulumi:"verifiedaccessInstanceId"`
 	// The ID of the Verified Access trust provider.
@@ -115,6 +119,8 @@ type instanceTrustProviderAttachmentState struct {
 }
 
 type InstanceTrustProviderAttachmentState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the Verified Access instance to attach the Trust Provider to.
 	VerifiedaccessInstanceId pulumi.StringPtrInput
 	// The ID of the Verified Access trust provider.
@@ -126,6 +132,8 @@ func (InstanceTrustProviderAttachmentState) ElementType() reflect.Type {
 }
 
 type instanceTrustProviderAttachmentArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the Verified Access instance to attach the Trust Provider to.
 	VerifiedaccessInstanceId string `pulumi:"verifiedaccessInstanceId"`
 	// The ID of the Verified Access trust provider.
@@ -134,6 +142,8 @@ type instanceTrustProviderAttachmentArgs struct {
 
 // The set of arguments for constructing a InstanceTrustProviderAttachment resource.
 type InstanceTrustProviderAttachmentArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the Verified Access instance to attach the Trust Provider to.
 	VerifiedaccessInstanceId pulumi.StringInput
 	// The ID of the Verified Access trust provider.
@@ -225,6 +235,11 @@ func (o InstanceTrustProviderAttachmentOutput) ToInstanceTrustProviderAttachment
 
 func (o InstanceTrustProviderAttachmentOutput) ToInstanceTrustProviderAttachmentOutputWithContext(ctx context.Context) InstanceTrustProviderAttachmentOutput {
 	return o
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o InstanceTrustProviderAttachmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceTrustProviderAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the Verified Access instance to attach the Trust Provider to.

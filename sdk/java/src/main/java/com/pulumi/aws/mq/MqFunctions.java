@@ -22,354 +22,58 @@ import java.util.concurrent.CompletableFuture;
 
 public final class MqFunctions {
     /**
-     * Provides information about a MQ Broker.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.mq.MqFunctions;
-     * import com.pulumi.aws.mq.inputs.GetBrokerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var brokerId = config.get("brokerId").orElse("");
-     *         final var brokerName = config.get("brokerName").orElse("");
-     *         final var byId = MqFunctions.getBroker(GetBrokerArgs.builder()
-     *             .brokerId(brokerId)
-     *             .build());
-     * 
-     *         final var byName = MqFunctions.getBroker(GetBrokerArgs.builder()
-     *             .brokerName(brokerName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
+     * Provides details about an existing Amazon MQ broker. Use this data source to retrieve configuration and metadata for an Amazon MQ broker by ID or name.
      * 
      */
     public static Output<GetBrokerResult> getBroker() {
         return getBroker(GetBrokerArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Provides information about a MQ Broker.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.mq.MqFunctions;
-     * import com.pulumi.aws.mq.inputs.GetBrokerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var brokerId = config.get("brokerId").orElse("");
-     *         final var brokerName = config.get("brokerName").orElse("");
-     *         final var byId = MqFunctions.getBroker(GetBrokerArgs.builder()
-     *             .brokerId(brokerId)
-     *             .build());
-     * 
-     *         final var byName = MqFunctions.getBroker(GetBrokerArgs.builder()
-     *             .brokerName(brokerName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
+     * Provides details about an existing Amazon MQ broker. Use this data source to retrieve configuration and metadata for an Amazon MQ broker by ID or name.
      * 
      */
     public static CompletableFuture<GetBrokerResult> getBrokerPlain() {
         return getBrokerPlain(GetBrokerPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Provides information about a MQ Broker.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.mq.MqFunctions;
-     * import com.pulumi.aws.mq.inputs.GetBrokerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var brokerId = config.get("brokerId").orElse("");
-     *         final var brokerName = config.get("brokerName").orElse("");
-     *         final var byId = MqFunctions.getBroker(GetBrokerArgs.builder()
-     *             .brokerId(brokerId)
-     *             .build());
-     * 
-     *         final var byName = MqFunctions.getBroker(GetBrokerArgs.builder()
-     *             .brokerName(brokerName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
+     * Provides details about an existing Amazon MQ broker. Use this data source to retrieve configuration and metadata for an Amazon MQ broker by ID or name.
      * 
      */
     public static Output<GetBrokerResult> getBroker(GetBrokerArgs args) {
         return getBroker(args, InvokeOptions.Empty);
     }
     /**
-     * Provides information about a MQ Broker.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.mq.MqFunctions;
-     * import com.pulumi.aws.mq.inputs.GetBrokerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var brokerId = config.get("brokerId").orElse("");
-     *         final var brokerName = config.get("brokerName").orElse("");
-     *         final var byId = MqFunctions.getBroker(GetBrokerArgs.builder()
-     *             .brokerId(brokerId)
-     *             .build());
-     * 
-     *         final var byName = MqFunctions.getBroker(GetBrokerArgs.builder()
-     *             .brokerName(brokerName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
+     * Provides details about an existing Amazon MQ broker. Use this data source to retrieve configuration and metadata for an Amazon MQ broker by ID or name.
      * 
      */
     public static CompletableFuture<GetBrokerResult> getBrokerPlain(GetBrokerPlainArgs args) {
         return getBrokerPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Provides information about a MQ Broker.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.mq.MqFunctions;
-     * import com.pulumi.aws.mq.inputs.GetBrokerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var brokerId = config.get("brokerId").orElse("");
-     *         final var brokerName = config.get("brokerName").orElse("");
-     *         final var byId = MqFunctions.getBroker(GetBrokerArgs.builder()
-     *             .brokerId(brokerId)
-     *             .build());
-     * 
-     *         final var byName = MqFunctions.getBroker(GetBrokerArgs.builder()
-     *             .brokerName(brokerName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
+     * Provides details about an existing Amazon MQ broker. Use this data source to retrieve configuration and metadata for an Amazon MQ broker by ID or name.
      * 
      */
     public static Output<GetBrokerResult> getBroker(GetBrokerArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:mq/getBroker:getBroker", TypeShape.of(GetBrokerResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information about a MQ Broker.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.mq.MqFunctions;
-     * import com.pulumi.aws.mq.inputs.GetBrokerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var brokerId = config.get("brokerId").orElse("");
-     *         final var brokerName = config.get("brokerName").orElse("");
-     *         final var byId = MqFunctions.getBroker(GetBrokerArgs.builder()
-     *             .brokerId(brokerId)
-     *             .build());
-     * 
-     *         final var byName = MqFunctions.getBroker(GetBrokerArgs.builder()
-     *             .brokerName(brokerName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
+     * Provides details about an existing Amazon MQ broker. Use this data source to retrieve configuration and metadata for an Amazon MQ broker by ID or name.
      * 
      */
     public static Output<GetBrokerResult> getBroker(GetBrokerArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:mq/getBroker:getBroker", TypeShape.of(GetBrokerResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information about a MQ Broker.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.aws.mq.MqFunctions;
-     * import com.pulumi.aws.mq.inputs.GetBrokerArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var config = ctx.config();
-     *         final var brokerId = config.get("brokerId").orElse("");
-     *         final var brokerName = config.get("brokerName").orElse("");
-     *         final var byId = MqFunctions.getBroker(GetBrokerArgs.builder()
-     *             .brokerId(brokerId)
-     *             .build());
-     * 
-     *         final var byName = MqFunctions.getBroker(GetBrokerArgs.builder()
-     *             .brokerName(brokerName)
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
+     * Provides details about an existing Amazon MQ broker. Use this data source to retrieve configuration and metadata for an Amazon MQ broker by ID or name.
      * 
      */
     public static CompletableFuture<GetBrokerResult> getBrokerPlain(GetBrokerPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:mq/getBroker:getBroker", TypeShape.of(GetBrokerResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about available broker engines.
+     * Provides details about available MQ broker engine types. Use this data source to retrieve supported engine types and their versions for Amazon MQ brokers.
      * 
      * ## Example Usage
-     * 
-     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -409,11 +113,9 @@ public final class MqFunctions {
         return getBrokerEngineTypes(GetBrokerEngineTypesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about available broker engines.
+     * Provides details about available MQ broker engine types. Use this data source to retrieve supported engine types and their versions for Amazon MQ brokers.
      * 
      * ## Example Usage
-     * 
-     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -453,11 +155,9 @@ public final class MqFunctions {
         return getBrokerEngineTypesPlain(GetBrokerEngineTypesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about available broker engines.
+     * Provides details about available MQ broker engine types. Use this data source to retrieve supported engine types and their versions for Amazon MQ brokers.
      * 
      * ## Example Usage
-     * 
-     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -497,11 +197,9 @@ public final class MqFunctions {
         return getBrokerEngineTypes(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about available broker engines.
+     * Provides details about available MQ broker engine types. Use this data source to retrieve supported engine types and their versions for Amazon MQ brokers.
      * 
      * ## Example Usage
-     * 
-     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -541,11 +239,9 @@ public final class MqFunctions {
         return getBrokerEngineTypesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Retrieve information about available broker engines.
+     * Provides details about available MQ broker engine types. Use this data source to retrieve supported engine types and their versions for Amazon MQ brokers.
      * 
      * ## Example Usage
-     * 
-     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -585,11 +281,9 @@ public final class MqFunctions {
         return Deployment.getInstance().invoke("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", TypeShape.of(GetBrokerEngineTypesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about available broker engines.
+     * Provides details about available MQ broker engine types. Use this data source to retrieve supported engine types and their versions for Amazon MQ brokers.
      * 
      * ## Example Usage
-     * 
-     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -629,11 +323,9 @@ public final class MqFunctions {
         return Deployment.getInstance().invoke("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", TypeShape.of(GetBrokerEngineTypesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Retrieve information about available broker engines.
+     * Provides details about available MQ broker engine types. Use this data source to retrieve supported engine types and their versions for Amazon MQ brokers.
      * 
      * ## Example Usage
-     * 
-     * ### Basic Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -673,7 +365,7 @@ public final class MqFunctions {
         return Deployment.getInstance().invokeAsync("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", TypeShape.of(GetBrokerEngineTypesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information about a MQ Broker Instance Offerings.
+     * Provides details about available MQ broker instance type offerings. Use this data source to discover supported instance types, storage types, and deployment modes for Amazon MQ brokers.
      * 
      * ## Example Usage
      * 
@@ -700,25 +392,30 @@ public final class MqFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var empty = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .build());
-     * 
-     *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType("ACTIVEMQ")
-     *             .build());
-     * 
-     *         final var storage = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .storageType("EBS")
-     *             .build());
-     * 
-     *         final var instance = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType("mq.m5.large")
-     *             .build());
-     * 
+     *         // Get all instance type offerings
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType("mq.m5.large")
-     *             .storageType("EBS")
+     *             .build());
+     * 
+     *         // Filter by engine type
+     *         final var activemq = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType("ACTIVEMQ")
+     *             .build());
+     * 
+     *         // Filter by storage type
+     *         final var ebs = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .storageType("EBS")
+     *             .build());
+     * 
+     *         // Filter by instance type
+     *         final var m5 = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .hostInstanceType("mq.m5.large")
+     *             .build());
+     * 
+     *         // Filter by multiple criteria
+     *         final var filtered = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .engineType("ACTIVEMQ")
+     *             .storageType("EBS")
+     *             .hostInstanceType("mq.m5.large")
      *             .build());
      * 
      *     }
@@ -732,7 +429,7 @@ public final class MqFunctions {
         return getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Provides information about a MQ Broker Instance Offerings.
+     * Provides details about available MQ broker instance type offerings. Use this data source to discover supported instance types, storage types, and deployment modes for Amazon MQ brokers.
      * 
      * ## Example Usage
      * 
@@ -759,25 +456,30 @@ public final class MqFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var empty = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .build());
-     * 
-     *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType("ACTIVEMQ")
-     *             .build());
-     * 
-     *         final var storage = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .storageType("EBS")
-     *             .build());
-     * 
-     *         final var instance = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType("mq.m5.large")
-     *             .build());
-     * 
+     *         // Get all instance type offerings
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType("mq.m5.large")
-     *             .storageType("EBS")
+     *             .build());
+     * 
+     *         // Filter by engine type
+     *         final var activemq = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType("ACTIVEMQ")
+     *             .build());
+     * 
+     *         // Filter by storage type
+     *         final var ebs = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .storageType("EBS")
+     *             .build());
+     * 
+     *         // Filter by instance type
+     *         final var m5 = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .hostInstanceType("mq.m5.large")
+     *             .build());
+     * 
+     *         // Filter by multiple criteria
+     *         final var filtered = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .engineType("ACTIVEMQ")
+     *             .storageType("EBS")
+     *             .hostInstanceType("mq.m5.large")
      *             .build());
      * 
      *     }
@@ -791,7 +493,7 @@ public final class MqFunctions {
         return getInstanceTypeOfferingsPlain(GetInstanceTypeOfferingsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Provides information about a MQ Broker Instance Offerings.
+     * Provides details about available MQ broker instance type offerings. Use this data source to discover supported instance types, storage types, and deployment modes for Amazon MQ brokers.
      * 
      * ## Example Usage
      * 
@@ -818,25 +520,30 @@ public final class MqFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var empty = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .build());
-     * 
-     *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType("ACTIVEMQ")
-     *             .build());
-     * 
-     *         final var storage = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .storageType("EBS")
-     *             .build());
-     * 
-     *         final var instance = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType("mq.m5.large")
-     *             .build());
-     * 
+     *         // Get all instance type offerings
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType("mq.m5.large")
-     *             .storageType("EBS")
+     *             .build());
+     * 
+     *         // Filter by engine type
+     *         final var activemq = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType("ACTIVEMQ")
+     *             .build());
+     * 
+     *         // Filter by storage type
+     *         final var ebs = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .storageType("EBS")
+     *             .build());
+     * 
+     *         // Filter by instance type
+     *         final var m5 = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .hostInstanceType("mq.m5.large")
+     *             .build());
+     * 
+     *         // Filter by multiple criteria
+     *         final var filtered = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .engineType("ACTIVEMQ")
+     *             .storageType("EBS")
+     *             .hostInstanceType("mq.m5.large")
      *             .build());
      * 
      *     }
@@ -850,7 +557,7 @@ public final class MqFunctions {
         return getInstanceTypeOfferings(args, InvokeOptions.Empty);
     }
     /**
-     * Provides information about a MQ Broker Instance Offerings.
+     * Provides details about available MQ broker instance type offerings. Use this data source to discover supported instance types, storage types, and deployment modes for Amazon MQ brokers.
      * 
      * ## Example Usage
      * 
@@ -877,25 +584,30 @@ public final class MqFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var empty = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .build());
-     * 
-     *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType("ACTIVEMQ")
-     *             .build());
-     * 
-     *         final var storage = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .storageType("EBS")
-     *             .build());
-     * 
-     *         final var instance = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType("mq.m5.large")
-     *             .build());
-     * 
+     *         // Get all instance type offerings
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType("mq.m5.large")
-     *             .storageType("EBS")
+     *             .build());
+     * 
+     *         // Filter by engine type
+     *         final var activemq = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType("ACTIVEMQ")
+     *             .build());
+     * 
+     *         // Filter by storage type
+     *         final var ebs = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .storageType("EBS")
+     *             .build());
+     * 
+     *         // Filter by instance type
+     *         final var m5 = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .hostInstanceType("mq.m5.large")
+     *             .build());
+     * 
+     *         // Filter by multiple criteria
+     *         final var filtered = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .engineType("ACTIVEMQ")
+     *             .storageType("EBS")
+     *             .hostInstanceType("mq.m5.large")
      *             .build());
      * 
      *     }
@@ -909,7 +621,7 @@ public final class MqFunctions {
         return getInstanceTypeOfferingsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Provides information about a MQ Broker Instance Offerings.
+     * Provides details about available MQ broker instance type offerings. Use this data source to discover supported instance types, storage types, and deployment modes for Amazon MQ brokers.
      * 
      * ## Example Usage
      * 
@@ -936,25 +648,30 @@ public final class MqFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var empty = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .build());
-     * 
-     *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType("ACTIVEMQ")
-     *             .build());
-     * 
-     *         final var storage = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .storageType("EBS")
-     *             .build());
-     * 
-     *         final var instance = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType("mq.m5.large")
-     *             .build());
-     * 
+     *         // Get all instance type offerings
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType("mq.m5.large")
-     *             .storageType("EBS")
+     *             .build());
+     * 
+     *         // Filter by engine type
+     *         final var activemq = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType("ACTIVEMQ")
+     *             .build());
+     * 
+     *         // Filter by storage type
+     *         final var ebs = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .storageType("EBS")
+     *             .build());
+     * 
+     *         // Filter by instance type
+     *         final var m5 = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .hostInstanceType("mq.m5.large")
+     *             .build());
+     * 
+     *         // Filter by multiple criteria
+     *         final var filtered = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .engineType("ACTIVEMQ")
+     *             .storageType("EBS")
+     *             .hostInstanceType("mq.m5.large")
      *             .build());
      * 
      *     }
@@ -968,7 +685,7 @@ public final class MqFunctions {
         return Deployment.getInstance().invoke("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", TypeShape.of(GetInstanceTypeOfferingsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information about a MQ Broker Instance Offerings.
+     * Provides details about available MQ broker instance type offerings. Use this data source to discover supported instance types, storage types, and deployment modes for Amazon MQ brokers.
      * 
      * ## Example Usage
      * 
@@ -995,25 +712,30 @@ public final class MqFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var empty = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .build());
-     * 
-     *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType("ACTIVEMQ")
-     *             .build());
-     * 
-     *         final var storage = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .storageType("EBS")
-     *             .build());
-     * 
-     *         final var instance = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType("mq.m5.large")
-     *             .build());
-     * 
+     *         // Get all instance type offerings
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType("mq.m5.large")
-     *             .storageType("EBS")
+     *             .build());
+     * 
+     *         // Filter by engine type
+     *         final var activemq = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType("ACTIVEMQ")
+     *             .build());
+     * 
+     *         // Filter by storage type
+     *         final var ebs = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .storageType("EBS")
+     *             .build());
+     * 
+     *         // Filter by instance type
+     *         final var m5 = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .hostInstanceType("mq.m5.large")
+     *             .build());
+     * 
+     *         // Filter by multiple criteria
+     *         final var filtered = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .engineType("ACTIVEMQ")
+     *             .storageType("EBS")
+     *             .hostInstanceType("mq.m5.large")
      *             .build());
      * 
      *     }
@@ -1027,7 +749,7 @@ public final class MqFunctions {
         return Deployment.getInstance().invoke("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", TypeShape.of(GetInstanceTypeOfferingsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides information about a MQ Broker Instance Offerings.
+     * Provides details about available MQ broker instance type offerings. Use this data source to discover supported instance types, storage types, and deployment modes for Amazon MQ brokers.
      * 
      * ## Example Usage
      * 
@@ -1054,25 +776,30 @@ public final class MqFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var empty = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .build());
-     * 
-     *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .engineType("ACTIVEMQ")
-     *             .build());
-     * 
-     *         final var storage = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .storageType("EBS")
-     *             .build());
-     * 
-     *         final var instance = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType("mq.m5.large")
-     *             .build());
-     * 
+     *         // Get all instance type offerings
      *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
-     *             .hostInstanceType("mq.m5.large")
-     *             .storageType("EBS")
+     *             .build());
+     * 
+     *         // Filter by engine type
+     *         final var activemq = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType("ACTIVEMQ")
+     *             .build());
+     * 
+     *         // Filter by storage type
+     *         final var ebs = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .storageType("EBS")
+     *             .build());
+     * 
+     *         // Filter by instance type
+     *         final var m5 = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .hostInstanceType("mq.m5.large")
+     *             .build());
+     * 
+     *         // Filter by multiple criteria
+     *         final var filtered = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *             .engineType("ACTIVEMQ")
+     *             .storageType("EBS")
+     *             .hostInstanceType("mq.m5.large")
      *             .build());
      * 
      *     }

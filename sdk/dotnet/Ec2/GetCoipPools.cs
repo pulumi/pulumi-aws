@@ -48,6 +48,12 @@ namespace Pulumi.Aws.Ec2
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -84,6 +90,12 @@ namespace Pulumi.Aws.Ec2
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -116,6 +128,7 @@ namespace Pulumi.Aws.Ec2
         /// Set of COIP Pool Identifiers
         /// </summary>
         public readonly ImmutableArray<string> PoolIds;
+        public readonly string Region;
         public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
@@ -126,11 +139,14 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<string> poolIds,
 
+            string region,
+
             ImmutableDictionary<string, string>? tags)
         {
             Filters = filters;
             Id = id;
             PoolIds = poolIds;
+            Region = region;
             Tags = tags;
         }
     }

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3control"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,13 +90,13 @@ type AccessGrant struct {
 	Grantee AccessGrantGranteePtrOutput `pulumi:"grantee"`
 	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
 	Permission pulumi.StringOutput `pulumi:"permission"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
 	S3PrefixType pulumi.StringPtrOutput `pulumi:"s3PrefixType"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -151,13 +151,13 @@ type accessGrantState struct {
 	Grantee *AccessGrantGrantee `pulumi:"grantee"`
 	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
 	Permission *string `pulumi:"permission"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
 	S3PrefixType *string `pulumi:"s3PrefixType"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -177,13 +177,13 @@ type AccessGrantState struct {
 	Grantee AccessGrantGranteePtrInput
 	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
 	Permission pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
 	S3PrefixType pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -201,6 +201,8 @@ type accessGrantArgs struct {
 	Grantee *AccessGrantGrantee `pulumi:"grantee"`
 	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
 	Permission string `pulumi:"permission"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
 	S3PrefixType *string `pulumi:"s3PrefixType"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -218,6 +220,8 @@ type AccessGrantArgs struct {
 	Grantee AccessGrantGranteePtrInput
 	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
 	Permission pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
 	S3PrefixType pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -352,6 +356,11 @@ func (o AccessGrantOutput) Permission() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringOutput { return v.Permission }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AccessGrantOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessGrant) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
 func (o AccessGrantOutput) S3PrefixType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringPtrOutput { return v.S3PrefixType }).(pulumi.StringPtrOutput)
@@ -363,8 +372,6 @@ func (o AccessGrantOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o AccessGrantOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

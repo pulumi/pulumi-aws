@@ -20,18 +20,26 @@ __all__ = ['DomainArgs', 'Domain']
 @pulumi.input_type
 class DomainArgs:
     def __init__(__self__, *,
-                 domain_name: pulumi.Input[builtins.str]):
+                 domain_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Domain resource.
         :param pulumi.Input[builtins.str] domain_name: Name of the Lightsail domain to manage.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "domain_name", domain_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[builtins.str]:
         """
         Name of the Lightsail domain to manage.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "domain_name")
 
@@ -39,21 +47,39 @@ class DomainArgs:
     def domain_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "domain_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _DomainState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
-                 domain_name: Optional[pulumi.Input[builtins.str]] = None):
+                 domain_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Domain resources.
         :param pulumi.Input[builtins.str] arn: ARN of the Lightsail domain.
         :param pulumi.Input[builtins.str] domain_name: Name of the Lightsail domain to manage.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -72,12 +98,26 @@ class _DomainState:
     def domain_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Name of the Lightsail domain to manage.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
     def domain_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
 
 @pulumi.type_token("aws:lightsail/domain:Domain")
@@ -87,6 +127,7 @@ class Domain(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Manages a Lightsail domain for DNS management. Use this resource to manage DNS records for a domain that you have already registered with a domain registrar.
@@ -107,6 +148,9 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] domain_name: Name of the Lightsail domain to manage.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -146,6 +190,7 @@ class Domain(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -158,6 +203,7 @@ class Domain(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["arn"] = None
         super(Domain, __self__).__init__(
             'aws:lightsail/domain:Domain',
@@ -170,7 +216,8 @@ class Domain(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
-            domain_name: Optional[pulumi.Input[builtins.str]] = None) -> 'Domain':
+            domain_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'Domain':
         """
         Get an existing Domain resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -180,6 +227,9 @@ class Domain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: ARN of the Lightsail domain.
         :param pulumi.Input[builtins.str] domain_name: Name of the Lightsail domain to manage.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -187,6 +237,7 @@ class Domain(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["domain_name"] = domain_name
+        __props__.__dict__["region"] = region
         return Domain(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -202,6 +253,16 @@ class Domain(pulumi.CustomResource):
     def domain_name(self) -> pulumi.Output[builtins.str]:
         """
         Name of the Lightsail domain to manage.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

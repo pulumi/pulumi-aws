@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -77,6 +78,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:securitylake/awsLogSource:AwsLogSource")
 public class AwsLogSource extends com.pulumi.resources.CustomResource {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
     /**
      * Specify the natively-supported AWS service to add as a source in Security Lake.
      * 

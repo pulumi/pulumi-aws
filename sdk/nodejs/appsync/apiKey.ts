@@ -76,6 +76,10 @@ export class ApiKey extends pulumi.CustomResource {
      * API key
      */
     public /*out*/ readonly key!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ApiKey resource with the given unique name, arguments, and options.
@@ -95,6 +99,7 @@ export class ApiKey extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["expires"] = state ? state.expires : undefined;
             resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ApiKeyArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -103,6 +108,7 @@ export class ApiKey extends pulumi.CustomResource {
             resourceInputs["apiId"] = args ? args.apiId : undefined;
             resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
             resourceInputs["expires"] = args ? args.expires : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["apiKeyId"] = undefined /*out*/;
             resourceInputs["key"] = undefined /*out*/;
         }
@@ -134,6 +140,10 @@ export interface ApiKeyState {
      * API key
      */
     key?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -152,4 +162,8 @@ export interface ApiKeyArgs {
      * RFC3339 string representation of the expiry date. Rounded down to nearest hour. By default, it is 7 days from the date of creation.
      */
     expires?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

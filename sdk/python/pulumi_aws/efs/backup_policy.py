@@ -23,14 +23,18 @@ __all__ = ['BackupPolicyArgs', 'BackupPolicy']
 class BackupPolicyArgs:
     def __init__(__self__, *,
                  backup_policy: pulumi.Input['BackupPolicyBackupPolicyArgs'],
-                 file_system_id: pulumi.Input[builtins.str]):
+                 file_system_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a BackupPolicy resource.
         :param pulumi.Input['BackupPolicyBackupPolicyArgs'] backup_policy: A backup_policy object (documented below).
         :param pulumi.Input[builtins.str] file_system_id: The ID of the EFS file system.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "backup_policy", backup_policy)
         pulumi.set(__self__, "file_system_id", file_system_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="backupPolicy")
@@ -56,21 +60,37 @@ class BackupPolicyArgs:
     def file_system_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "file_system_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _BackupPolicyState:
     def __init__(__self__, *,
                  backup_policy: Optional[pulumi.Input['BackupPolicyBackupPolicyArgs']] = None,
-                 file_system_id: Optional[pulumi.Input[builtins.str]] = None):
+                 file_system_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering BackupPolicy resources.
         :param pulumi.Input['BackupPolicyBackupPolicyArgs'] backup_policy: A backup_policy object (documented below).
         :param pulumi.Input[builtins.str] file_system_id: The ID of the EFS file system.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if backup_policy is not None:
             pulumi.set(__self__, "backup_policy", backup_policy)
         if file_system_id is not None:
             pulumi.set(__self__, "file_system_id", file_system_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="backupPolicy")
@@ -96,6 +116,18 @@ class _BackupPolicyState:
     def file_system_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "file_system_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:efs/backupPolicy:BackupPolicy")
 class BackupPolicy(pulumi.CustomResource):
@@ -105,6 +137,7 @@ class BackupPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_policy: Optional[pulumi.Input[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict']]] = None,
                  file_system_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides an Elastic File System (EFS) Backup Policy resource.
@@ -136,6 +169,7 @@ class BackupPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict']] backup_policy: A backup_policy object (documented below).
         :param pulumi.Input[builtins.str] file_system_id: The ID of the EFS file system.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -186,6 +220,7 @@ class BackupPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_policy: Optional[pulumi.Input[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict']]] = None,
                  file_system_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -201,6 +236,7 @@ class BackupPolicy(pulumi.CustomResource):
             if file_system_id is None and not opts.urn:
                 raise TypeError("Missing required property 'file_system_id'")
             __props__.__dict__["file_system_id"] = file_system_id
+            __props__.__dict__["region"] = region
         super(BackupPolicy, __self__).__init__(
             'aws:efs/backupPolicy:BackupPolicy',
             resource_name,
@@ -212,7 +248,8 @@ class BackupPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             backup_policy: Optional[pulumi.Input[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict']]] = None,
-            file_system_id: Optional[pulumi.Input[builtins.str]] = None) -> 'BackupPolicy':
+            file_system_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'BackupPolicy':
         """
         Get an existing BackupPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -222,6 +259,7 @@ class BackupPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['BackupPolicyBackupPolicyArgs', 'BackupPolicyBackupPolicyArgsDict']] backup_policy: A backup_policy object (documented below).
         :param pulumi.Input[builtins.str] file_system_id: The ID of the EFS file system.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -229,6 +267,7 @@ class BackupPolicy(pulumi.CustomResource):
 
         __props__.__dict__["backup_policy"] = backup_policy
         __props__.__dict__["file_system_id"] = file_system_id
+        __props__.__dict__["region"] = region
         return BackupPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -246,4 +285,12 @@ class BackupPolicy(pulumi.CustomResource):
         The ID of the EFS file system.
         """
         return pulumi.get(self, "file_system_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

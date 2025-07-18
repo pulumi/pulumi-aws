@@ -25,6 +25,7 @@ class LogicallyAirGappedVaultArgs:
                  max_retention_days: pulumi.Input[builtins.int],
                  min_retention_days: pulumi.Input[builtins.int],
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['LogicallyAirGappedVaultTimeoutsArgs']] = None):
         """
@@ -32,12 +33,15 @@ class LogicallyAirGappedVaultArgs:
         :param pulumi.Input[builtins.int] max_retention_days: Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[builtins.int] min_retention_days: Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[builtins.str] name: Name of the Logically Air Gapped Backup Vault to create.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "max_retention_days", max_retention_days)
         pulumi.set(__self__, "min_retention_days", min_retention_days)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -81,6 +85,18 @@ class LogicallyAirGappedVaultArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -108,6 +124,7 @@ class _LogicallyAirGappedVaultState:
                  max_retention_days: Optional[pulumi.Input[builtins.int]] = None,
                  min_retention_days: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['LogicallyAirGappedVaultTimeoutsArgs']] = None):
@@ -117,6 +134,7 @@ class _LogicallyAirGappedVaultState:
         :param pulumi.Input[builtins.int] max_retention_days: Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[builtins.int] min_retention_days: Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[builtins.str] name: Name of the Logically Air Gapped Backup Vault to create.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -128,11 +146,10 @@ class _LogicallyAirGappedVaultState:
             pulumi.set(__self__, "min_retention_days", min_retention_days)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
@@ -188,6 +205,18 @@ class _LogicallyAirGappedVaultState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -200,7 +229,6 @@ class _LogicallyAirGappedVaultState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -230,6 +258,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
                  max_retention_days: Optional[pulumi.Input[builtins.int]] = None,
                  min_retention_days: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['LogicallyAirGappedVaultTimeoutsArgs', 'LogicallyAirGappedVaultTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -263,6 +292,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] max_retention_days: Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[builtins.int] min_retention_days: Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[builtins.str] name: Name of the Logically Air Gapped Backup Vault to create.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -314,6 +344,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
                  max_retention_days: Optional[pulumi.Input[builtins.int]] = None,
                  min_retention_days: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['LogicallyAirGappedVaultTimeoutsArgs', 'LogicallyAirGappedVaultTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -332,6 +363,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
                 raise TypeError("Missing required property 'min_retention_days'")
             __props__.__dict__["min_retention_days"] = min_retention_days
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["arn"] = None
@@ -350,6 +382,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
             max_retention_days: Optional[pulumi.Input[builtins.int]] = None,
             min_retention_days: Optional[pulumi.Input[builtins.int]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             timeouts: Optional[pulumi.Input[Union['LogicallyAirGappedVaultTimeoutsArgs', 'LogicallyAirGappedVaultTimeoutsArgsDict']]] = None) -> 'LogicallyAirGappedVault':
@@ -364,6 +397,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] max_retention_days: Maximum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[builtins.int] min_retention_days: Minimum retention period that the Logically Air Gapped Backup Vault retains recovery points.
         :param pulumi.Input[builtins.str] name: Name of the Logically Air Gapped Backup Vault to create.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -375,6 +409,7 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
         __props__.__dict__["max_retention_days"] = max_retention_days
         __props__.__dict__["min_retention_days"] = min_retention_days
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -414,6 +449,14 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         Metadata that you can assign to help organize the resources that you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -422,7 +465,6 @@ class LogicallyAirGappedVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -80,8 +80,14 @@ export class LbHttpsRedirectionPolicy extends pulumi.CustomResource {
     public readonly enabled!: pulumi.Output<boolean>;
     /**
      * Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
+     *
+     * The following arguments are optional:
      */
     public readonly lbName!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LbHttpsRedirectionPolicy resource with the given unique name, arguments, and options.
@@ -98,6 +104,7 @@ export class LbHttpsRedirectionPolicy extends pulumi.CustomResource {
             const state = argsOrState as LbHttpsRedirectionPolicyState | undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["lbName"] = state ? state.lbName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LbHttpsRedirectionPolicyArgs | undefined;
             if ((!args || args.enabled === undefined) && !opts.urn) {
@@ -108,6 +115,7 @@ export class LbHttpsRedirectionPolicy extends pulumi.CustomResource {
             }
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["lbName"] = args ? args.lbName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LbHttpsRedirectionPolicy.__pulumiType, name, resourceInputs, opts);
@@ -124,8 +132,14 @@ export interface LbHttpsRedirectionPolicyState {
     enabled?: pulumi.Input<boolean>;
     /**
      * Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
+     *
+     * The following arguments are optional:
      */
     lbName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -138,6 +152,12 @@ export interface LbHttpsRedirectionPolicyArgs {
     enabled: pulumi.Input<boolean>;
     /**
      * Name of the load balancer to which you want to enable HTTP to HTTPS redirection.
+     *
+     * The following arguments are optional:
      */
     lbName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

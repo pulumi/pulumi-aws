@@ -19,13 +19,15 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Lambda Layer Version resource. Lambda Layers allow you to reuse shared bits of code across multiple lambda functions.
+ * Manages an AWS Lambda Layer Version. Use this resource to share code and dependencies across multiple Lambda functions.
  * 
  * For information about Lambda Layers and how to use them, see [AWS Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
  * 
- * &gt; **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy any layer version, even when running destroy. Layer versions are thus intentional dangling resources that are _not_ managed by the provider and may incur extra expense in your AWS account.
+ * &gt; **Note:** Setting `skip_destroy` to `true` means that the AWS Provider will not destroy any layer version, even when running `pulumi destroy`. Layer versions are thus intentional dangling resources that are not managed by Pulumi and may incur extra expense in your AWS account.
  * 
  * ## Example Usage
+ * 
+ * ### Basic Layer
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -51,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var lambdaLayer = new LayerVersion("lambdaLayer", LayerVersionArgs.builder()
+ *         var example = new LayerVersion("example", LayerVersionArgs.builder()
  *             .code(new FileArchive("lambda_layer_payload.zip"))
  *             .layerName("lambda_layer_name")
  *             .compatibleRuntimes("nodejs20.x")
@@ -63,14 +65,106 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Layer with S3 Source
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.LayerVersion;
+ * import com.pulumi.aws.lambda.LayerVersionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new LayerVersion("example", LayerVersionArgs.builder()
+ *             .s3Bucket(lambdaLayerZip.bucket())
+ *             .s3Key(lambdaLayerZip.key())
+ *             .layerName("lambda_layer_name")
+ *             .compatibleRuntimes(            
+ *                 "nodejs20.x",
+ *                 "python3.12")
+ *             .compatibleArchitectures(            
+ *                 "x86_64",
+ *                 "arm64")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Layer with Multiple Runtimes and Architectures
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.LayerVersion;
+ * import com.pulumi.aws.lambda.LayerVersionArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.Filebase64sha256Args;
+ * import com.pulumi.asset.FileArchive;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new LayerVersion("example", LayerVersionArgs.builder()
+ *             .code(new FileArchive("lambda_layer_payload.zip"))
+ *             .layerName("multi_runtime_layer")
+ *             .description("Shared utilities for Lambda functions")
+ *             .licenseInfo("MIT")
+ *             .sourceCodeHash(StdFunctions.filebase64sha256(Filebase64sha256Args.builder()
+ *                 .input("lambda_layer_payload.zip")
+ *                 .build()).result())
+ *             .compatibleRuntimes(            
+ *                 "nodejs18.x",
+ *                 "nodejs20.x",
+ *                 "python3.11",
+ *                 "python3.12")
+ *             .compatibleArchitectures(            
+ *                 "x86_64",
+ *                 "arm64")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Specifying the Deployment Package
  * 
- * AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies.
- * See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `compatible_runtimes`.
+ * AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `compatible_runtimes`.
  * 
- * Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or
- * indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment
- * package via S3 it may be useful to use the `aws.s3.BucketObjectv2` resource to upload it.
+ * Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment package via S3 it may be useful to use the `aws.s3.BucketObjectv2` resource to upload it.
  * 
  * For larger deployment packages it is recommended by Amazon to upload via S3, since the S3 API has better support for uploading large files efficiently.
  * 
@@ -79,7 +173,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import Lambda Layers using `arn`. For example:
  * 
  * ```sh
- * $ pulumi import aws:lambda/layerVersion:LayerVersion test_layer arn:aws:lambda:_REGION_:_ACCOUNT_ID_:layer:_LAYER_NAME_:_LAYER_VERSION_
+ * $ pulumi import aws:lambda/layerVersion:LayerVersion example arn:aws:lambda:us-west-2:123456789012:layer:example:1
  * ```
  * 
  */
@@ -198,7 +292,7 @@ public class LayerVersion extends com.pulumi.resources.CustomResource {
         return this.layerArn;
     }
     /**
-     * Unique name for your Lambda Layer
+     * Unique name for your Lambda Layer.
      * 
      * The following arguments are optional:
      * 
@@ -207,7 +301,7 @@ public class LayerVersion extends com.pulumi.resources.CustomResource {
     private Output<String> layerName;
 
     /**
-     * @return Unique name for your Lambda Layer
+     * @return Unique name for your Lambda Layer.
      * 
      * The following arguments are optional:
      * 
@@ -228,6 +322,20 @@ public class LayerVersion extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> licenseInfo() {
         return Codegen.optional(this.licenseInfo);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * S3 bucket location containing the function&#39;s deployment package. Conflicts with `filename`. This bucket must reside in the same AWS region where you are creating the Lambda function.
@@ -314,14 +422,14 @@ public class LayerVersion extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skipDestroy);
     }
     /**
-     * Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+     * Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256(&#34;file.zip&#34;)` or `base64sha256(file(&#34;file.zip&#34;))`, where &#34;file.zip&#34; is the local filename of the lambda layer source archive.
      * 
      */
     @Export(name="sourceCodeHash", refs={String.class}, tree="[0]")
     private Output<String> sourceCodeHash;
 
     /**
-     * @return Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+     * @return Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256(&#34;file.zip&#34;)` or `base64sha256(file(&#34;file.zip&#34;))`, where &#34;file.zip&#34; is the local filename of the lambda layer source archive.
      * 
      */
     public Output<String> sourceCodeHash() {

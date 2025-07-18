@@ -68,6 +68,12 @@ namespace Pulumi.Aws.Sagemaker
         [Output("deviceFleetName")]
         public Output<string> DeviceFleetName { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Device resource with the given unique name, arguments, and options.
@@ -126,6 +132,12 @@ namespace Pulumi.Aws.Sagemaker
         [Input("deviceFleetName", required: true)]
         public Input<string> DeviceFleetName { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public DeviceArgs()
         {
         }
@@ -154,6 +166,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("deviceFleetName")]
         public Input<string>? DeviceFleetName { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public DeviceState()
         {

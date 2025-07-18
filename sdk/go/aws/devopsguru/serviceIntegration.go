@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/devopsguru"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/devopsguru"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,8 +55,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/devopsguru"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/devopsguru"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,7 +91,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import DevOps Guru Service Integration using the `id`. For example:
+// Using `pulumi import`, import DevOps Guru Service Integration using the region. For example:
 //
 // ```sh
 // $ pulumi import aws:devopsguru/serviceIntegration:ServiceIntegration example us-east-1
@@ -105,6 +105,8 @@ type ServiceIntegration struct {
 	LogsAnomalyDetection ServiceIntegrationLogsAnomalyDetectionPtrOutput `pulumi:"logsAnomalyDetection"`
 	// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
 	OpsCenter ServiceIntegrationOpsCenterPtrOutput `pulumi:"opsCenter"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewServiceIntegration registers a new resource with the given unique name, arguments, and options.
@@ -143,6 +145,8 @@ type serviceIntegrationState struct {
 	LogsAnomalyDetection *ServiceIntegrationLogsAnomalyDetection `pulumi:"logsAnomalyDetection"`
 	// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
 	OpsCenter *ServiceIntegrationOpsCenter `pulumi:"opsCenter"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ServiceIntegrationState struct {
@@ -152,6 +156,8 @@ type ServiceIntegrationState struct {
 	LogsAnomalyDetection ServiceIntegrationLogsAnomalyDetectionPtrInput
 	// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
 	OpsCenter ServiceIntegrationOpsCenterPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ServiceIntegrationState) ElementType() reflect.Type {
@@ -165,6 +171,8 @@ type serviceIntegrationArgs struct {
 	LogsAnomalyDetection *ServiceIntegrationLogsAnomalyDetection `pulumi:"logsAnomalyDetection"`
 	// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
 	OpsCenter *ServiceIntegrationOpsCenter `pulumi:"opsCenter"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ServiceIntegration resource.
@@ -175,6 +183,8 @@ type ServiceIntegrationArgs struct {
 	LogsAnomalyDetection ServiceIntegrationLogsAnomalyDetectionPtrInput
 	// Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
 	OpsCenter ServiceIntegrationOpsCenterPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ServiceIntegrationArgs) ElementType() reflect.Type {
@@ -281,6 +291,11 @@ func (o ServiceIntegrationOutput) LogsAnomalyDetection() ServiceIntegrationLogsA
 // Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
 func (o ServiceIntegrationOutput) OpsCenter() ServiceIntegrationOpsCenterPtrOutput {
 	return o.ApplyT(func(v *ServiceIntegration) ServiceIntegrationOpsCenterPtrOutput { return v.OpsCenter }).(ServiceIntegrationOpsCenterPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ServiceIntegrationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceIntegration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ServiceIntegrationArrayOutput struct{ *pulumi.OutputState }

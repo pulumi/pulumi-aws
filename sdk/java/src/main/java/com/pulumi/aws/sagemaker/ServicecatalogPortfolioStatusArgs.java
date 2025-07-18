@@ -8,11 +8,28 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ServicecatalogPortfolioStatusArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ServicecatalogPortfolioStatusArgs Empty = new ServicecatalogPortfolioStatusArgs();
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
 
     /**
      * Whether Service Catalog is enabled or disabled in SageMaker. Valid values are `Enabled` and `Disabled`.
@@ -32,6 +49,7 @@ public final class ServicecatalogPortfolioStatusArgs extends com.pulumi.resource
     private ServicecatalogPortfolioStatusArgs() {}
 
     private ServicecatalogPortfolioStatusArgs(ServicecatalogPortfolioStatusArgs $) {
+        this.region = $.region;
         this.status = $.status;
     }
 
@@ -51,6 +69,27 @@ public final class ServicecatalogPortfolioStatusArgs extends com.pulumi.resource
 
         public Builder(ServicecatalogPortfolioStatusArgs defaults) {
             $ = new ServicecatalogPortfolioStatusArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

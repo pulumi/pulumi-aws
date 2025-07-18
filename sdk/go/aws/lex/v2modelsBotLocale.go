@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lex"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +52,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lex"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -101,7 +101,9 @@ type V2modelsBotLocale struct {
 	// The following arguments are optional:
 	NLuIntentConfidenceThreshold pulumi.Float64Output `pulumi:"nLuIntentConfidenceThreshold"`
 	// Specified locale name.
-	Name     pulumi.StringOutput                `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringOutput                `pulumi:"region"`
 	Timeouts V2modelsBotLocaleTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
 	VoiceSettings V2modelsBotLocaleVoiceSettingsPtrOutput `pulumi:"voiceSettings"`
@@ -162,7 +164,9 @@ type v2modelsBotLocaleState struct {
 	// The following arguments are optional:
 	NLuIntentConfidenceThreshold *float64 `pulumi:"nLuIntentConfidenceThreshold"`
 	// Specified locale name.
-	Name     *string                    `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   *string                    `pulumi:"region"`
 	Timeouts *V2modelsBotLocaleTimeouts `pulumi:"timeouts"`
 	// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
 	VoiceSettings *V2modelsBotLocaleVoiceSettings `pulumi:"voiceSettings"`
@@ -182,7 +186,9 @@ type V2modelsBotLocaleState struct {
 	// The following arguments are optional:
 	NLuIntentConfidenceThreshold pulumi.Float64PtrInput
 	// Specified locale name.
-	Name     pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
 	Timeouts V2modelsBotLocaleTimeoutsPtrInput
 	// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
 	VoiceSettings V2modelsBotLocaleVoiceSettingsPtrInput
@@ -206,7 +212,9 @@ type v2modelsBotLocaleArgs struct {
 	// The following arguments are optional:
 	NLuIntentConfidenceThreshold float64 `pulumi:"nLuIntentConfidenceThreshold"`
 	// Specified locale name.
-	Name     *string                    `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   *string                    `pulumi:"region"`
 	Timeouts *V2modelsBotLocaleTimeouts `pulumi:"timeouts"`
 	// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
 	VoiceSettings *V2modelsBotLocaleVoiceSettings `pulumi:"voiceSettings"`
@@ -227,7 +235,9 @@ type V2modelsBotLocaleArgs struct {
 	// The following arguments are optional:
 	NLuIntentConfidenceThreshold pulumi.Float64Input
 	// Specified locale name.
-	Name     pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
 	Timeouts V2modelsBotLocaleTimeoutsPtrInput
 	// Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
 	VoiceSettings V2modelsBotLocaleVoiceSettingsPtrInput
@@ -350,6 +360,11 @@ func (o V2modelsBotLocaleOutput) NLuIntentConfidenceThreshold() pulumi.Float64Ou
 // Specified locale name.
 func (o V2modelsBotLocaleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsBotLocale) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o V2modelsBotLocaleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *V2modelsBotLocale) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o V2modelsBotLocaleOutput) Timeouts() V2modelsBotLocaleTimeoutsPtrOutput {

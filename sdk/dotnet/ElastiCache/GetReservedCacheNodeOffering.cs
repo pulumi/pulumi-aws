@@ -127,6 +127,12 @@ namespace Pulumi.Aws.ElastiCache
         [Input("productDescription", required: true)]
         public string ProductDescription { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetReservedCacheNodeOfferingArgs()
         {
         }
@@ -166,6 +172,12 @@ namespace Pulumi.Aws.ElastiCache
         [Input("productDescription", required: true)]
         public Input<string> ProductDescription { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetReservedCacheNodeOfferingInvokeArgs()
         {
         }
@@ -192,6 +204,7 @@ namespace Pulumi.Aws.ElastiCache
         public readonly string OfferingId;
         public readonly string OfferingType;
         public readonly string ProductDescription;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetReservedCacheNodeOfferingResult(
@@ -207,7 +220,9 @@ namespace Pulumi.Aws.ElastiCache
 
             string offeringType,
 
-            string productDescription)
+            string productDescription,
+
+            string region)
         {
             CacheNodeType = cacheNodeType;
             Duration = duration;
@@ -216,6 +231,7 @@ namespace Pulumi.Aws.ElastiCache
             OfferingId = offeringId;
             OfferingType = offeringType;
             ProductDescription = productDescription;
+            Region = region;
         }
     }
 }

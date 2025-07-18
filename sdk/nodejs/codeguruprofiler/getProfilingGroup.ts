@@ -27,6 +27,7 @@ export function getProfilingGroup(args: GetProfilingGroupArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:codeguruprofiler/getProfilingGroup:getProfilingGroup", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -38,6 +39,10 @@ export interface GetProfilingGroupArgs {
      * The name of the profiling group.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -66,6 +71,7 @@ export interface GetProfilingGroupResult {
      * The status of the Profiling Group.
      */
     readonly profilingStatuses: outputs.codeguruprofiler.GetProfilingGroupProfilingStatus[];
+    readonly region: string;
     /**
      * Mapping of Key-Value tags for the resource.
      */
@@ -95,6 +101,7 @@ export function getProfilingGroupOutput(args: GetProfilingGroupOutputArgs, opts?
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:codeguruprofiler/getProfilingGroup:getProfilingGroup", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -106,4 +113,8 @@ export interface GetProfilingGroupOutputArgs {
      * The name of the profiling group.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

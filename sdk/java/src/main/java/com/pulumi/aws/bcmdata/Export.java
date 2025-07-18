@@ -96,6 +96,22 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:bcmdata/export:Export")
 public class Export extends com.pulumi.resources.CustomResource {
     /**
+     * Amazon Resource Name (ARN) for this export.
+     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+     * 
+     */
+    @com.pulumi.core.annotations.Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return Amazon Resource Name (ARN) for this export.
+     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
      * 
      */
@@ -115,12 +131,6 @@ public class Export extends com.pulumi.resources.CustomResource {
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
-    /**
-     * @deprecated
-     * Please use `tags` instead.
-     * 
-     */
-    @Deprecated /* Please use `tags` instead. */
     @com.pulumi.core.annotations.Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

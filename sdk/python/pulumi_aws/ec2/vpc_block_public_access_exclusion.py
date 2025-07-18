@@ -23,6 +23,7 @@ __all__ = ['VpcBlockPublicAccessExclusionArgs', 'VpcBlockPublicAccessExclusion']
 class VpcBlockPublicAccessExclusionArgs:
     def __init__(__self__, *,
                  internet_gateway_exclusion_mode: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['VpcBlockPublicAccessExclusionTimeoutsArgs']] = None,
@@ -32,11 +33,14 @@ class VpcBlockPublicAccessExclusionArgs:
         :param pulumi.Input[builtins.str] internet_gateway_exclusion_mode: Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subnet_id: Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] vpc_id: Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
         """
         pulumi.set(__self__, "internet_gateway_exclusion_mode", internet_gateway_exclusion_mode)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
@@ -59,6 +63,18 @@ class VpcBlockPublicAccessExclusionArgs:
     @internet_gateway_exclusion_mode.setter
     def internet_gateway_exclusion_mode(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "internet_gateway_exclusion_mode", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -110,6 +126,7 @@ class VpcBlockPublicAccessExclusionArgs:
 class _VpcBlockPublicAccessExclusionState:
     def __init__(__self__, *,
                  internet_gateway_exclusion_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -121,6 +138,7 @@ class _VpcBlockPublicAccessExclusionState:
         :param pulumi.Input[builtins.str] internet_gateway_exclusion_mode: Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: The Amazon Resource Name (ARN) the excluded resource.
         :param pulumi.Input[builtins.str] subnet_id: Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -129,15 +147,14 @@ class _VpcBlockPublicAccessExclusionState:
         """
         if internet_gateway_exclusion_mode is not None:
             pulumi.set(__self__, "internet_gateway_exclusion_mode", internet_gateway_exclusion_mode)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_arn is not None:
             pulumi.set(__self__, "resource_arn", resource_arn)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
@@ -158,6 +175,18 @@ class _VpcBlockPublicAccessExclusionState:
     @internet_gateway_exclusion_mode.setter
     def internet_gateway_exclusion_mode(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "internet_gateway_exclusion_mode", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -197,7 +226,6 @@ class _VpcBlockPublicAccessExclusionState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -237,6 +265,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  internet_gateway_exclusion_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['VpcBlockPublicAccessExclusionTimeoutsArgs', 'VpcBlockPublicAccessExclusionTimeoutsArgsDict']]] = None,
@@ -287,6 +316,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] internet_gateway_exclusion_mode: Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] subnet_id: Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] vpc_id: Id of the VPC to which this exclusion applies. Either this or the subnet_id needs to be provided.
@@ -353,6 +383,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  internet_gateway_exclusion_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['VpcBlockPublicAccessExclusionTimeoutsArgs', 'VpcBlockPublicAccessExclusionTimeoutsArgsDict']]] = None,
@@ -369,6 +400,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
             if internet_gateway_exclusion_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'internet_gateway_exclusion_mode'")
             __props__.__dict__["internet_gateway_exclusion_mode"] = internet_gateway_exclusion_mode
+            __props__.__dict__["region"] = region
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
@@ -386,6 +418,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             internet_gateway_exclusion_mode: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_arn: Optional[pulumi.Input[builtins.str]] = None,
             subnet_id: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -402,6 +435,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] internet_gateway_exclusion_mode: Mode of exclusion from Block Public Access. The allowed values are `allow-egress` and `allow-bidirectional`.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: The Amazon Resource Name (ARN) the excluded resource.
         :param pulumi.Input[builtins.str] subnet_id: Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -413,6 +447,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
         __props__ = _VpcBlockPublicAccessExclusionState.__new__(_VpcBlockPublicAccessExclusionState)
 
         __props__.__dict__["internet_gateway_exclusion_mode"] = internet_gateway_exclusion_mode
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_arn"] = resource_arn
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
@@ -430,6 +465,14 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "internet_gateway_exclusion_mode")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -457,7 +500,6 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

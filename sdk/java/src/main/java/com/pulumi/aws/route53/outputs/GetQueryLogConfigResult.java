@@ -41,6 +41,7 @@ public final class GetQueryLogConfigResult {
      * 
      */
     private String ownerId;
+    private String region;
     private @Nullable String resolverQueryLogConfigId;
     /**
      * @return An indication of whether the query logging configuration is shared with other AWS accounts or was shared with the current account by another AWS account.
@@ -92,6 +93,9 @@ public final class GetQueryLogConfigResult {
     public String ownerId() {
         return this.ownerId;
     }
+    public String region() {
+        return this.region;
+    }
     public Optional<String> resolverQueryLogConfigId() {
         return Optional.ofNullable(this.resolverQueryLogConfigId);
     }
@@ -125,6 +129,7 @@ public final class GetQueryLogConfigResult {
         private String id;
         private @Nullable String name;
         private String ownerId;
+        private String region;
         private @Nullable String resolverQueryLogConfigId;
         private String shareStatus;
         private Map<String,String> tags;
@@ -137,6 +142,7 @@ public final class GetQueryLogConfigResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.ownerId = defaults.ownerId;
+    	      this.region = defaults.region;
     	      this.resolverQueryLogConfigId = defaults.resolverQueryLogConfigId;
     	      this.shareStatus = defaults.shareStatus;
     	      this.tags = defaults.tags;
@@ -190,6 +196,14 @@ public final class GetQueryLogConfigResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetQueryLogConfigResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resolverQueryLogConfigId(@Nullable String resolverQueryLogConfigId) {
 
             this.resolverQueryLogConfigId = resolverQueryLogConfigId;
@@ -219,6 +233,7 @@ public final class GetQueryLogConfigResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.ownerId = ownerId;
+            _resultValue.region = region;
             _resultValue.resolverQueryLogConfigId = resolverQueryLogConfigId;
             _resultValue.shareStatus = shareStatus;
             _resultValue.tags = tags;

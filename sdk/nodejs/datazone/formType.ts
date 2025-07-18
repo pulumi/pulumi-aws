@@ -171,6 +171,10 @@ export class FormType extends pulumi.CustomResource {
      */
     public readonly owningProjectIdentifier!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Revision of the Form Type.
      */
     public /*out*/ readonly revision!: pulumi.Output<string>;
@@ -200,6 +204,7 @@ export class FormType extends pulumi.CustomResource {
             resourceInputs["originDomainId"] = state ? state.originDomainId : undefined;
             resourceInputs["originProjectId"] = state ? state.originProjectId : undefined;
             resourceInputs["owningProjectIdentifier"] = state ? state.owningProjectIdentifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["revision"] = state ? state.revision : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -216,6 +221,7 @@ export class FormType extends pulumi.CustomResource {
             resourceInputs["model"] = args ? args.model : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["owningProjectIdentifier"] = args ? args.owningProjectIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -272,6 +278,10 @@ export interface FormTypeState {
      */
     owningProjectIdentifier?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Revision of the Form Type.
      */
     revision?: pulumi.Input<string>;
@@ -303,6 +313,10 @@ export interface FormTypeArgs {
      * Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
      */
     owningProjectIdentifier: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.datazone.FormTypeTimeouts>;
 }

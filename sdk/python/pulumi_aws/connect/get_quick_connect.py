@@ -28,7 +28,7 @@ class GetQuickConnectResult:
     """
     A collection of values returned by getQuickConnect.
     """
-    def __init__(__self__, arn=None, description=None, id=None, instance_id=None, name=None, quick_connect_configs=None, quick_connect_id=None, tags=None):
+    def __init__(__self__, arn=None, description=None, id=None, instance_id=None, name=None, quick_connect_configs=None, quick_connect_id=None, region=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -50,6 +50,9 @@ class GetQuickConnectResult:
         if quick_connect_id and not isinstance(quick_connect_id, str):
             raise TypeError("Expected argument 'quick_connect_id' to be a str")
         pulumi.set(__self__, "quick_connect_id", quick_connect_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -106,6 +109,11 @@ class GetQuickConnectResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Map of tags to assign to the Quick Connect.
@@ -126,12 +134,14 @@ class AwaitableGetQuickConnectResult(GetQuickConnectResult):
             name=self.name,
             quick_connect_configs=self.quick_connect_configs,
             quick_connect_id=self.quick_connect_id,
+            region=self.region,
             tags=self.tags)
 
 
 def get_quick_connect(instance_id: Optional[builtins.str] = None,
                       name: Optional[builtins.str] = None,
                       quick_connect_id: Optional[builtins.str] = None,
+                      region: Optional[builtins.str] = None,
                       tags: Optional[Mapping[str, builtins.str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQuickConnectResult:
     """
@@ -165,12 +175,14 @@ def get_quick_connect(instance_id: Optional[builtins.str] = None,
            
            > **NOTE:** `instance_id` and one of either `name` or `quick_connect_id` is required.
     :param builtins.str quick_connect_id: Returns information on a specific Quick Connect by Quick Connect id
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the Quick Connect.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
     __args__['name'] = name
     __args__['quickConnectId'] = quick_connect_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:connect/getQuickConnect:getQuickConnect', __args__, opts=opts, typ=GetQuickConnectResult).value
@@ -183,10 +195,12 @@ def get_quick_connect(instance_id: Optional[builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         quick_connect_configs=pulumi.get(__ret__, 'quick_connect_configs'),
         quick_connect_id=pulumi.get(__ret__, 'quick_connect_id'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_quick_connect_output(instance_id: Optional[pulumi.Input[builtins.str]] = None,
                              name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              quick_connect_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQuickConnectResult]:
     """
@@ -220,12 +234,14 @@ def get_quick_connect_output(instance_id: Optional[pulumi.Input[builtins.str]] =
            
            > **NOTE:** `instance_id` and one of either `name` or `quick_connect_id` is required.
     :param builtins.str quick_connect_id: Returns information on a specific Quick Connect by Quick Connect id
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assign to the Quick Connect.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
     __args__['name'] = name
     __args__['quickConnectId'] = quick_connect_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getQuickConnect:getQuickConnect', __args__, opts=opts, typ=GetQuickConnectResult)
@@ -237,4 +253,5 @@ def get_quick_connect_output(instance_id: Optional[pulumi.Input[builtins.str]] =
         name=pulumi.get(__response__, 'name'),
         quick_connect_configs=pulumi.get(__response__, 'quick_connect_configs'),
         quick_connect_id=pulumi.get(__response__, 'quick_connect_id'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

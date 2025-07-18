@@ -26,6 +26,7 @@ export function getUserPoolClient(args: GetUserPoolClientArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cognito/getUserPoolClient:getUserPoolClient", {
         "clientId": args.clientId,
+        "region": args.region,
         "userPoolId": args.userPoolId,
     }, opts);
 }
@@ -38,6 +39,10 @@ export interface GetUserPoolClientArgs {
      * Client Id of the user pool.
      */
     clientId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * User pool the client belongs to.
      */
@@ -123,6 +128,7 @@ export interface GetUserPoolClientResult {
      * (Optional) Time limit in days refresh tokens are valid for.
      */
     readonly refreshTokenValidity: number;
+    readonly region: string;
     /**
      * (Optional) List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      */
@@ -156,6 +162,7 @@ export function getUserPoolClientOutput(args: GetUserPoolClientOutputArgs, opts?
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cognito/getUserPoolClient:getUserPoolClient", {
         "clientId": args.clientId,
+        "region": args.region,
         "userPoolId": args.userPoolId,
     }, opts);
 }
@@ -168,6 +175,10 @@ export interface GetUserPoolClientOutputArgs {
      * Client Id of the user pool.
      */
     clientId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * User pool the client belongs to.
      */

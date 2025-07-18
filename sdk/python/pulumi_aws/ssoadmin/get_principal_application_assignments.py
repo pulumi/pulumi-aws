@@ -29,7 +29,7 @@ class GetPrincipalApplicationAssignmentsResult:
     """
     A collection of values returned by getPrincipalApplicationAssignments.
     """
-    def __init__(__self__, application_assignments=None, id=None, instance_arn=None, principal_id=None, principal_type=None):
+    def __init__(__self__, application_assignments=None, id=None, instance_arn=None, principal_id=None, principal_type=None, region=None):
         if application_assignments and not isinstance(application_assignments, list):
             raise TypeError("Expected argument 'application_assignments' to be a list")
         pulumi.set(__self__, "application_assignments", application_assignments)
@@ -45,6 +45,9 @@ class GetPrincipalApplicationAssignmentsResult:
         if principal_type and not isinstance(principal_type, str):
             raise TypeError("Expected argument 'principal_type' to be a str")
         pulumi.set(__self__, "principal_type", principal_type)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="applicationAssignments")
@@ -80,6 +83,11 @@ class GetPrincipalApplicationAssignmentsResult:
         """
         return pulumi.get(self, "principal_type")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetPrincipalApplicationAssignmentsResult(GetPrincipalApplicationAssignmentsResult):
     # pylint: disable=using-constant-test
@@ -91,13 +99,15 @@ class AwaitableGetPrincipalApplicationAssignmentsResult(GetPrincipalApplicationA
             id=self.id,
             instance_arn=self.instance_arn,
             principal_id=self.principal_id,
-            principal_type=self.principal_type)
+            principal_type=self.principal_type,
+            region=self.region)
 
 
 def get_principal_application_assignments(application_assignments: Optional[Sequence[Union['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs', 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict']]] = None,
                                           instance_arn: Optional[builtins.str] = None,
                                           principal_id: Optional[builtins.str] = None,
                                           principal_type: Optional[builtins.str] = None,
+                                          region: Optional[builtins.str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrincipalApplicationAssignmentsResult:
     """
     Data source for viewing AWS SSO Admin Principal Application Assignments.
@@ -120,12 +130,14 @@ def get_principal_application_assignments(application_assignments: Optional[Sequ
     :param builtins.str instance_arn: ARN of the instance of IAM Identity Center.
     :param builtins.str principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
     :param builtins.str principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['applicationAssignments'] = application_assignments
     __args__['instanceArn'] = instance_arn
     __args__['principalId'] = principal_id
     __args__['principalType'] = principal_type
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ssoadmin/getPrincipalApplicationAssignments:getPrincipalApplicationAssignments', __args__, opts=opts, typ=GetPrincipalApplicationAssignmentsResult).value
 
@@ -134,11 +146,13 @@ def get_principal_application_assignments(application_assignments: Optional[Sequ
         id=pulumi.get(__ret__, 'id'),
         instance_arn=pulumi.get(__ret__, 'instance_arn'),
         principal_id=pulumi.get(__ret__, 'principal_id'),
-        principal_type=pulumi.get(__ret__, 'principal_type'))
+        principal_type=pulumi.get(__ret__, 'principal_type'),
+        region=pulumi.get(__ret__, 'region'))
 def get_principal_application_assignments_output(application_assignments: Optional[pulumi.Input[Optional[Sequence[Union['GetPrincipalApplicationAssignmentsApplicationAssignmentArgs', 'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict']]]]] = None,
                                                  instance_arn: Optional[pulumi.Input[builtins.str]] = None,
                                                  principal_id: Optional[pulumi.Input[builtins.str]] = None,
                                                  principal_type: Optional[pulumi.Input[builtins.str]] = None,
+                                                 region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrincipalApplicationAssignmentsResult]:
     """
     Data source for viewing AWS SSO Admin Principal Application Assignments.
@@ -161,12 +175,14 @@ def get_principal_application_assignments_output(application_assignments: Option
     :param builtins.str instance_arn: ARN of the instance of IAM Identity Center.
     :param builtins.str principal_id: An identifier for an object in IAM Identity Center, such as a user or group.
     :param builtins.str principal_type: Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['applicationAssignments'] = application_assignments
     __args__['instanceArn'] = instance_arn
     __args__['principalId'] = principal_id
     __args__['principalType'] = principal_type
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssoadmin/getPrincipalApplicationAssignments:getPrincipalApplicationAssignments', __args__, opts=opts, typ=GetPrincipalApplicationAssignmentsResult)
     return __ret__.apply(lambda __response__: GetPrincipalApplicationAssignmentsResult(
@@ -174,4 +190,5 @@ def get_principal_application_assignments_output(application_assignments: Option
         id=pulumi.get(__response__, 'id'),
         instance_arn=pulumi.get(__response__, 'instance_arn'),
         principal_id=pulumi.get(__response__, 'principal_id'),
-        principal_type=pulumi.get(__response__, 'principal_type')))
+        principal_type=pulumi.get(__response__, 'principal_type'),
+        region=pulumi.get(__response__, 'region')))

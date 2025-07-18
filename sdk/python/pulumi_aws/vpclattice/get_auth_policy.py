@@ -27,13 +27,16 @@ class GetAuthPolicyResult:
     """
     A collection of values returned by getAuthPolicy.
     """
-    def __init__(__self__, id=None, policy=None, resource_identifier=None, state=None):
+    def __init__(__self__, id=None, policy=None, region=None, resource_identifier=None, state=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if policy and not isinstance(policy, str):
             raise TypeError("Expected argument 'policy' to be a str")
         pulumi.set(__self__, "policy", policy)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if resource_identifier and not isinstance(resource_identifier, str):
             raise TypeError("Expected argument 'resource_identifier' to be a str")
         pulumi.set(__self__, "resource_identifier", resource_identifier)
@@ -58,6 +61,11 @@ class GetAuthPolicyResult:
         return pulumi.get(self, "policy")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> builtins.str:
         return pulumi.get(self, "resource_identifier")
@@ -79,11 +87,13 @@ class AwaitableGetAuthPolicyResult(GetAuthPolicyResult):
         return GetAuthPolicyResult(
             id=self.id,
             policy=self.policy,
+            region=self.region,
             resource_identifier=self.resource_identifier,
             state=self.state)
 
 
 def get_auth_policy(policy: Optional[builtins.str] = None,
+                    region: Optional[builtins.str] = None,
                     resource_identifier: Optional[builtins.str] = None,
                     state: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthPolicyResult:
@@ -103,11 +113,13 @@ def get_auth_policy(policy: Optional[builtins.str] = None,
 
 
     :param builtins.str policy: The auth policy. The policy string in JSON must not contain newlines or blank lines.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
     :param builtins.str state: The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
     """
     __args__ = dict()
     __args__['policy'] = policy
+    __args__['region'] = region
     __args__['resourceIdentifier'] = resource_identifier
     __args__['state'] = state
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -116,9 +128,11 @@ def get_auth_policy(policy: Optional[builtins.str] = None,
     return AwaitableGetAuthPolicyResult(
         id=pulumi.get(__ret__, 'id'),
         policy=pulumi.get(__ret__, 'policy'),
+        region=pulumi.get(__ret__, 'region'),
         resource_identifier=pulumi.get(__ret__, 'resource_identifier'),
         state=pulumi.get(__ret__, 'state'))
 def get_auth_policy_output(policy: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            resource_identifier: Optional[pulumi.Input[builtins.str]] = None,
                            state: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthPolicyResult]:
@@ -138,11 +152,13 @@ def get_auth_policy_output(policy: Optional[pulumi.Input[Optional[builtins.str]]
 
 
     :param builtins.str policy: The auth policy. The policy string in JSON must not contain newlines or blank lines.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
     :param builtins.str state: The state of the auth policy. The auth policy is only active when the auth type is set to AWS_IAM. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is NONE, then, any auth policy you provide will remain inactive.
     """
     __args__ = dict()
     __args__['policy'] = policy
+    __args__['region'] = region
     __args__['resourceIdentifier'] = resource_identifier
     __args__['state'] = state
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -150,5 +166,6 @@ def get_auth_policy_output(policy: Optional[pulumi.Input[Optional[builtins.str]]
     return __ret__.apply(lambda __response__: GetAuthPolicyResult(
         id=pulumi.get(__response__, 'id'),
         policy=pulumi.get(__response__, 'policy'),
+        region=pulumi.get(__response__, 'region'),
         resource_identifier=pulumi.get(__response__, 'resource_identifier'),
         state=pulumi.get(__response__, 'state')))

@@ -73,6 +73,10 @@ export class DomainEntry extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Target of the domain entry.
      */
     public readonly target!: pulumi.Output<string>;
@@ -99,6 +103,7 @@ export class DomainEntry extends pulumi.CustomResource {
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["isAlias"] = state ? state.isAlias : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["target"] = state ? state.target : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
@@ -115,6 +120,7 @@ export class DomainEntry extends pulumi.CustomResource {
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["isAlias"] = args ? args.isAlias : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["target"] = args ? args.target : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
         }
@@ -139,6 +145,10 @@ export interface DomainEntryState {
      * Name of the entry record.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Target of the domain entry.
      */
@@ -167,6 +177,10 @@ export interface DomainEntryArgs {
      * Name of the entry record.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Target of the domain entry.
      */

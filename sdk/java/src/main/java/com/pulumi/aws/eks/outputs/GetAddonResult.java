@@ -50,6 +50,7 @@ public final class GetAddonResult {
      * 
      */
     private List<GetAddonPodIdentityAssociation> podIdentityAssociations;
+    private String region;
     /**
      * @return ARN of IAM role used for EKS add-on. If value is empty -
      * then add-on uses the IAM role assigned to the EKS Cluster node.
@@ -114,6 +115,9 @@ public final class GetAddonResult {
     public List<GetAddonPodIdentityAssociation> podIdentityAssociations() {
         return this.podIdentityAssociations;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return ARN of IAM role used for EKS add-on. If value is empty -
      * then add-on uses the IAM role assigned to the EKS Cluster node.
@@ -144,6 +148,7 @@ public final class GetAddonResult {
         private String id;
         private String modifiedAt;
         private List<GetAddonPodIdentityAssociation> podIdentityAssociations;
+        private String region;
         private String serviceAccountRoleArn;
         private Map<String,String> tags;
         public Builder() {}
@@ -158,6 +163,7 @@ public final class GetAddonResult {
     	      this.id = defaults.id;
     	      this.modifiedAt = defaults.modifiedAt;
     	      this.podIdentityAssociations = defaults.podIdentityAssociations;
+    	      this.region = defaults.region;
     	      this.serviceAccountRoleArn = defaults.serviceAccountRoleArn;
     	      this.tags = defaults.tags;
         }
@@ -238,6 +244,14 @@ public final class GetAddonResult {
             return podIdentityAssociations(List.of(podIdentityAssociations));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetAddonResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serviceAccountRoleArn(String serviceAccountRoleArn) {
             if (serviceAccountRoleArn == null) {
               throw new MissingRequiredPropertyException("GetAddonResult", "serviceAccountRoleArn");
@@ -264,6 +278,7 @@ public final class GetAddonResult {
             _resultValue.id = id;
             _resultValue.modifiedAt = modifiedAt;
             _resultValue.podIdentityAssociations = podIdentityAssociations;
+            _resultValue.region = region;
             _resultValue.serviceAccountRoleArn = serviceAccountRoleArn;
             _resultValue.tags = tags;
             return _resultValue;

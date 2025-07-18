@@ -11,6 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -24,6 +25,95 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.s3.BucketPolicy;
+ * import com.pulumi.aws.s3.BucketPolicyArgs;
+ * import com.pulumi.aws.bedrockmodel.InvocationLoggingConfiguration;
+ * import com.pulumi.aws.bedrockmodel.InvocationLoggingConfigurationArgs;
+ * import com.pulumi.aws.bedrockmodel.inputs.InvocationLoggingConfigurationLoggingConfigArgs;
+ * import com.pulumi.aws.bedrockmodel.inputs.InvocationLoggingConfigurationLoggingConfigS3ConfigArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
+ * 
+ *         var example = new Bucket("example", BucketArgs.builder()
+ *             .bucket("example")
+ *             .forceDestroy(true)
+ *             .build());
+ * 
+ *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
+ *             .bucket(example.bucket())
+ *             .policy(example.arn().applyValue(_arn -> """
+ * {
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "Service": "bedrock.amazonaws.com"
+ *       },
+ *       "Action": [
+ *         "s3:*"
+ *       ],
+ *       "Resource": [
+ *         "%s/*"
+ *       ],
+ *       "Condition": {
+ *         "StringEquals": {
+ *           "aws:SourceAccount": "%s"
+ *         },
+ *         "ArnLike": {
+ *           "aws:SourceArn": "arn:aws:bedrock:us-east-1:%s:*"
+ *         }
+ *       }
+ *     }
+ *   ]
+ * }
+ * ", _arn,current.accountId(),current.accountId())))
+ *             .build());
+ * 
+ *         var exampleInvocationLoggingConfiguration = new InvocationLoggingConfiguration("exampleInvocationLoggingConfiguration", InvocationLoggingConfigurationArgs.builder()
+ *             .loggingConfig(InvocationLoggingConfigurationLoggingConfigArgs.builder()
+ *                 .embeddingDataDeliveryEnabled(true)
+ *                 .imageDataDeliveryEnabled(true)
+ *                 .textDataDeliveryEnabled(true)
+ *                 .videoDataDeliveryEnabled(true)
+ *                 .s3Config(InvocationLoggingConfigurationLoggingConfigS3ConfigArgs.builder()
+ *                     .bucketName(example.id())
+ *                     .keyPrefix("bedrock")
+ *                     .build())
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleBucketPolicy)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -50,6 +140,20 @@ public class InvocationLoggingConfiguration extends com.pulumi.resources.CustomR
      */
     public Output<Optional<InvocationLoggingConfigurationLoggingConfig>> loggingConfig() {
         return Codegen.optional(this.loggingConfig);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
 
     /**

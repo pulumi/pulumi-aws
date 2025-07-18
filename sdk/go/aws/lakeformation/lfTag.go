@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lakeformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,6 +59,8 @@ type LfTag struct {
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// Key-name for the tag.
 	Key pulumi.StringOutput `pulumi:"key"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// List of possible values an attribute can take.
 	Values pulumi.StringArrayOutput `pulumi:"values"`
 }
@@ -103,6 +105,8 @@ type lfTagState struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// Key-name for the tag.
 	Key *string `pulumi:"key"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of possible values an attribute can take.
 	Values []string `pulumi:"values"`
 }
@@ -112,6 +116,8 @@ type LfTagState struct {
 	CatalogId pulumi.StringPtrInput
 	// Key-name for the tag.
 	Key pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of possible values an attribute can take.
 	Values pulumi.StringArrayInput
 }
@@ -125,6 +131,8 @@ type lfTagArgs struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// Key-name for the tag.
 	Key string `pulumi:"key"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of possible values an attribute can take.
 	Values []string `pulumi:"values"`
 }
@@ -135,6 +143,8 @@ type LfTagArgs struct {
 	CatalogId pulumi.StringPtrInput
 	// Key-name for the tag.
 	Key pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of possible values an attribute can take.
 	Values pulumi.StringArrayInput
 }
@@ -234,6 +244,11 @@ func (o LfTagOutput) CatalogId() pulumi.StringOutput {
 // Key-name for the tag.
 func (o LfTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *LfTag) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LfTagOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LfTag) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of possible values an attribute can take.

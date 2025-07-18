@@ -30,6 +30,7 @@ class ApplicationArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  force_stop: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  start_application: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -42,6 +43,7 @@ class ApplicationArgs:
         :param pulumi.Input[builtins.str] description: A summary description of the application.
         :param pulumi.Input[builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.
         :param pulumi.Input[builtins.str] name: The name of the application.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] start_application: Whether to start or stop the application.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
         """
@@ -59,6 +61,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "force_stop", force_stop)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if start_application is not None:
             pulumi.set(__self__, "start_application", start_application)
         if tags is not None:
@@ -161,6 +165,18 @@ class ApplicationArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="startApplication")
     def start_application(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -197,6 +213,7 @@ class _ApplicationState:
                  force_stop: Optional[pulumi.Input[builtins.bool]] = None,
                  last_update_timestamp: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  runtime_environment: Optional[pulumi.Input[builtins.str]] = None,
                  service_execution_role: Optional[pulumi.Input[builtins.str]] = None,
                  start_application: Optional[pulumi.Input[builtins.bool]] = None,
@@ -215,6 +232,7 @@ class _ApplicationState:
         :param pulumi.Input[builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.
         :param pulumi.Input[builtins.str] last_update_timestamp: The current timestamp when the application was last updated.
         :param pulumi.Input[builtins.str] name: The name of the application.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
         :param pulumi.Input[builtins.str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input[builtins.bool] start_application: Whether to start or stop the application.
@@ -241,6 +259,8 @@ class _ApplicationState:
             pulumi.set(__self__, "last_update_timestamp", last_update_timestamp)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if runtime_environment is not None:
             pulumi.set(__self__, "runtime_environment", runtime_environment)
         if service_execution_role is not None:
@@ -251,9 +271,6 @@ class _ApplicationState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if version_id is not None:
@@ -368,6 +385,18 @@ class _ApplicationState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="runtimeEnvironment")
     def runtime_environment(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -429,7 +458,6 @@ class _ApplicationState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -465,6 +493,7 @@ class Application(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  force_stop: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  runtime_environment: Optional[pulumi.Input[builtins.str]] = None,
                  service_execution_role: Optional[pulumi.Input[builtins.str]] = None,
                  start_application: Optional[pulumi.Input[builtins.bool]] = None,
@@ -484,7 +513,7 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example-flink-application")
+        example = aws.s3.Bucket("example", bucket="example-flink-application")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             bucket=example.id,
             key="example-flink-application",
@@ -650,7 +679,7 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example-flink-application")
+        example = aws.s3.Bucket("example", bucket="example-flink-application")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             bucket=example.id,
             key="example-flink-application",
@@ -695,6 +724,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A summary description of the application.
         :param pulumi.Input[builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.
         :param pulumi.Input[builtins.str] name: The name of the application.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
         :param pulumi.Input[builtins.str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input[builtins.bool] start_application: Whether to start or stop the application.
@@ -720,7 +750,7 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example-flink-application")
+        example = aws.s3.Bucket("example", bucket="example-flink-application")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             bucket=example.id,
             key="example-flink-application",
@@ -886,7 +916,7 @@ class Application(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example-flink-application")
+        example = aws.s3.Bucket("example", bucket="example-flink-application")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             bucket=example.id,
             key="example-flink-application",
@@ -944,6 +974,7 @@ class Application(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  force_stop: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  runtime_environment: Optional[pulumi.Input[builtins.str]] = None,
                  service_execution_role: Optional[pulumi.Input[builtins.str]] = None,
                  start_application: Optional[pulumi.Input[builtins.bool]] = None,
@@ -963,6 +994,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["force_stop"] = force_stop
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if runtime_environment is None and not opts.urn:
                 raise TypeError("Missing required property 'runtime_environment'")
             __props__.__dict__["runtime_environment"] = runtime_environment
@@ -996,6 +1028,7 @@ class Application(pulumi.CustomResource):
             force_stop: Optional[pulumi.Input[builtins.bool]] = None,
             last_update_timestamp: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             runtime_environment: Optional[pulumi.Input[builtins.str]] = None,
             service_execution_role: Optional[pulumi.Input[builtins.str]] = None,
             start_application: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1019,6 +1052,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] force_stop: Whether to force stop an unresponsive Flink-based application.
         :param pulumi.Input[builtins.str] last_update_timestamp: The current timestamp when the application was last updated.
         :param pulumi.Input[builtins.str] name: The name of the application.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`, `FLINK-1_13`, `FLINK-1_15`, `FLINK-1_18`, `FLINK-1_19`.
         :param pulumi.Input[builtins.str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input[builtins.bool] start_application: Whether to start or stop the application.
@@ -1040,6 +1074,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["force_stop"] = force_stop
         __props__.__dict__["last_update_timestamp"] = last_update_timestamp
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["runtime_environment"] = runtime_environment
         __props__.__dict__["service_execution_role"] = service_execution_role
         __props__.__dict__["start_application"] = start_application
@@ -1122,6 +1157,14 @@ class Application(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="runtimeEnvironment")
     def runtime_environment(self) -> pulumi.Output[builtins.str]:
         """
@@ -1163,7 +1206,6 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -28,13 +28,16 @@ class GetPlanResult:
     """
     A collection of values returned by getPlan.
     """
-    def __init__(__self__, contact_id=None, id=None, stages=None):
+    def __init__(__self__, contact_id=None, id=None, region=None, stages=None):
         if contact_id and not isinstance(contact_id, str):
             raise TypeError("Expected argument 'contact_id' to be a str")
         pulumi.set(__self__, "contact_id", contact_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if stages and not isinstance(stages, list):
             raise TypeError("Expected argument 'stages' to be a list")
         pulumi.set(__self__, "stages", stages)
@@ -54,6 +57,11 @@ class GetPlanResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def stages(self) -> Sequence['outputs.GetPlanStageResult']:
         """
         List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
@@ -69,10 +77,12 @@ class AwaitableGetPlanResult(GetPlanResult):
         return GetPlanResult(
             contact_id=self.contact_id,
             id=self.id,
+            region=self.region,
             stages=self.stages)
 
 
 def get_plan(contact_id: Optional[builtins.str] = None,
+             region: Optional[builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPlanResult:
     """
     Data source for managing a Plan of an AWS SSM Contact.
@@ -90,17 +100,21 @@ def get_plan(contact_id: Optional[builtins.str] = None,
 
 
     :param builtins.str contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['contactId'] = contact_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ssmcontacts/getPlan:getPlan', __args__, opts=opts, typ=GetPlanResult).value
 
     return AwaitableGetPlanResult(
         contact_id=pulumi.get(__ret__, 'contact_id'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         stages=pulumi.get(__ret__, 'stages'))
 def get_plan_output(contact_id: Optional[pulumi.Input[builtins.str]] = None,
+                    region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlanResult]:
     """
     Data source for managing a Plan of an AWS SSM Contact.
@@ -118,12 +132,15 @@ def get_plan_output(contact_id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['contactId'] = contact_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssmcontacts/getPlan:getPlan', __args__, opts=opts, typ=GetPlanResult)
     return __ret__.apply(lambda __response__: GetPlanResult(
         contact_id=pulumi.get(__response__, 'contact_id'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         stages=pulumi.get(__response__, 'stages')))

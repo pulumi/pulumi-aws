@@ -28,13 +28,16 @@ class GetCustomModelsResult:
     """
     A collection of values returned by getCustomModels.
     """
-    def __init__(__self__, id=None, model_summaries=None):
+    def __init__(__self__, id=None, model_summaries=None, region=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if model_summaries and not isinstance(model_summaries, list):
             raise TypeError("Expected argument 'model_summaries' to be a list")
         pulumi.set(__self__, "model_summaries", model_summaries)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -49,6 +52,11 @@ class GetCustomModelsResult:
         """
         return pulumi.get(self, "model_summaries")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetCustomModelsResult(GetCustomModelsResult):
     # pylint: disable=using-constant-test
@@ -57,10 +65,12 @@ class AwaitableGetCustomModelsResult(GetCustomModelsResult):
             yield self
         return GetCustomModelsResult(
             id=self.id,
-            model_summaries=self.model_summaries)
+            model_summaries=self.model_summaries,
+            region=self.region)
 
 
-def get_custom_models(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomModelsResult:
+def get_custom_models(region: Optional[builtins.str] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomModelsResult:
     """
     Returns a list of Amazon Bedrock custom models.
 
@@ -72,15 +82,21 @@ def get_custom_models(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
 
     test = aws.bedrock.get_custom_models()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:bedrock/getCustomModels:getCustomModels', __args__, opts=opts, typ=GetCustomModelsResult).value
 
     return AwaitableGetCustomModelsResult(
         id=pulumi.get(__ret__, 'id'),
-        model_summaries=pulumi.get(__ret__, 'model_summaries'))
-def get_custom_models_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomModelsResult]:
+        model_summaries=pulumi.get(__ret__, 'model_summaries'),
+        region=pulumi.get(__ret__, 'region'))
+def get_custom_models_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomModelsResult]:
     """
     Returns a list of Amazon Bedrock custom models.
 
@@ -92,10 +108,15 @@ def get_custom_models_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.I
 
     test = aws.bedrock.get_custom_models()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:bedrock/getCustomModels:getCustomModels', __args__, opts=opts, typ=GetCustomModelsResult)
     return __ret__.apply(lambda __response__: GetCustomModelsResult(
         id=pulumi.get(__response__, 'id'),
-        model_summaries=pulumi.get(__response__, 'model_summaries')))
+        model_summaries=pulumi.get(__response__, 'model_summaries'),
+        region=pulumi.get(__response__, 'region')))

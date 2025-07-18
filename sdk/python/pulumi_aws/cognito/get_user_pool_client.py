@@ -28,7 +28,7 @@ class GetUserPoolClientResult:
     """
     A collection of values returned by getUserPoolClient.
     """
-    def __init__(__self__, access_token_validity=None, allowed_oauth_flows=None, allowed_oauth_flows_user_pool_client=None, allowed_oauth_scopes=None, analytics_configurations=None, callback_urls=None, client_id=None, client_secret=None, default_redirect_uri=None, enable_propagate_additional_user_context_data=None, enable_token_revocation=None, explicit_auth_flows=None, generate_secret=None, id=None, id_token_validity=None, logout_urls=None, name=None, prevent_user_existence_errors=None, read_attributes=None, refresh_token_rotations=None, refresh_token_validity=None, supported_identity_providers=None, token_validity_units=None, user_pool_id=None, write_attributes=None):
+    def __init__(__self__, access_token_validity=None, allowed_oauth_flows=None, allowed_oauth_flows_user_pool_client=None, allowed_oauth_scopes=None, analytics_configurations=None, callback_urls=None, client_id=None, client_secret=None, default_redirect_uri=None, enable_propagate_additional_user_context_data=None, enable_token_revocation=None, explicit_auth_flows=None, generate_secret=None, id=None, id_token_validity=None, logout_urls=None, name=None, prevent_user_existence_errors=None, read_attributes=None, refresh_token_rotations=None, refresh_token_validity=None, region=None, supported_identity_providers=None, token_validity_units=None, user_pool_id=None, write_attributes=None):
         if access_token_validity and not isinstance(access_token_validity, int):
             raise TypeError("Expected argument 'access_token_validity' to be a int")
         pulumi.set(__self__, "access_token_validity", access_token_validity)
@@ -92,6 +92,9 @@ class GetUserPoolClientResult:
         if refresh_token_validity and not isinstance(refresh_token_validity, int):
             raise TypeError("Expected argument 'refresh_token_validity' to be a int")
         pulumi.set(__self__, "refresh_token_validity", refresh_token_validity)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if supported_identity_providers and not isinstance(supported_identity_providers, list):
             raise TypeError("Expected argument 'supported_identity_providers' to be a list")
         pulumi.set(__self__, "supported_identity_providers", supported_identity_providers)
@@ -265,6 +268,11 @@ class GetUserPoolClientResult:
         return pulumi.get(self, "refresh_token_validity")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="supportedIdentityProviders")
     def supported_identity_providers(self) -> Sequence[builtins.str]:
         """
@@ -321,6 +329,7 @@ class AwaitableGetUserPoolClientResult(GetUserPoolClientResult):
             read_attributes=self.read_attributes,
             refresh_token_rotations=self.refresh_token_rotations,
             refresh_token_validity=self.refresh_token_validity,
+            region=self.region,
             supported_identity_providers=self.supported_identity_providers,
             token_validity_units=self.token_validity_units,
             user_pool_id=self.user_pool_id,
@@ -328,6 +337,7 @@ class AwaitableGetUserPoolClientResult(GetUserPoolClientResult):
 
 
 def get_user_pool_client(client_id: Optional[builtins.str] = None,
+                         region: Optional[builtins.str] = None,
                          user_pool_id: Optional[builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolClientResult:
     """
@@ -345,10 +355,12 @@ def get_user_pool_client(client_id: Optional[builtins.str] = None,
 
 
     :param builtins.str client_id: Client Id of the user pool.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_pool_id: User pool the client belongs to.
     """
     __args__ = dict()
     __args__['clientId'] = client_id
+    __args__['region'] = region
     __args__['userPoolId'] = user_pool_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:cognito/getUserPoolClient:getUserPoolClient', __args__, opts=opts, typ=GetUserPoolClientResult).value
@@ -375,11 +387,13 @@ def get_user_pool_client(client_id: Optional[builtins.str] = None,
         read_attributes=pulumi.get(__ret__, 'read_attributes'),
         refresh_token_rotations=pulumi.get(__ret__, 'refresh_token_rotations'),
         refresh_token_validity=pulumi.get(__ret__, 'refresh_token_validity'),
+        region=pulumi.get(__ret__, 'region'),
         supported_identity_providers=pulumi.get(__ret__, 'supported_identity_providers'),
         token_validity_units=pulumi.get(__ret__, 'token_validity_units'),
         user_pool_id=pulumi.get(__ret__, 'user_pool_id'),
         write_attributes=pulumi.get(__ret__, 'write_attributes'))
 def get_user_pool_client_output(client_id: Optional[pulumi.Input[builtins.str]] = None,
+                                region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 user_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolClientResult]:
     """
@@ -397,10 +411,12 @@ def get_user_pool_client_output(client_id: Optional[pulumi.Input[builtins.str]] 
 
 
     :param builtins.str client_id: Client Id of the user pool.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str user_pool_id: User pool the client belongs to.
     """
     __args__ = dict()
     __args__['clientId'] = client_id
+    __args__['region'] = region
     __args__['userPoolId'] = user_pool_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cognito/getUserPoolClient:getUserPoolClient', __args__, opts=opts, typ=GetUserPoolClientResult)
@@ -426,6 +442,7 @@ def get_user_pool_client_output(client_id: Optional[pulumi.Input[builtins.str]] 
         read_attributes=pulumi.get(__response__, 'read_attributes'),
         refresh_token_rotations=pulumi.get(__response__, 'refresh_token_rotations'),
         refresh_token_validity=pulumi.get(__response__, 'refresh_token_validity'),
+        region=pulumi.get(__response__, 'region'),
         supported_identity_providers=pulumi.get(__response__, 'supported_identity_providers'),
         token_validity_units=pulumi.get(__response__, 'token_validity_units'),
         user_pool_id=pulumi.get(__response__, 'user_pool_id'),

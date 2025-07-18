@@ -26,6 +26,7 @@ class NotificationRuleArgs:
                  event_type_ids: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  resource: pulumi.Input[builtins.str],
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  targets: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]]] = None):
@@ -36,6 +37,7 @@ class NotificationRuleArgs:
                For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
         :param pulumi.Input[builtins.str] resource: The ARN of the resource to associate with the notification rule.
         :param pulumi.Input[builtins.str] name: The name of notification rule.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
@@ -45,6 +47,8 @@ class NotificationRuleArgs:
         pulumi.set(__self__, "resource", resource)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -103,6 +107,18 @@ class NotificationRuleArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
@@ -145,6 +161,7 @@ class _NotificationRuleState:
                  detail_type: Optional[pulumi.Input[builtins.str]] = None,
                  event_type_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -157,6 +174,7 @@ class _NotificationRuleState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_type_ids: A list of event types associated with this notification rule.
                For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
         :param pulumi.Input[builtins.str] name: The name of notification rule.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource: The ARN of the resource to associate with the notification rule.
         :param pulumi.Input[builtins.str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -171,15 +189,14 @@ class _NotificationRuleState:
             pulumi.set(__self__, "event_type_ids", event_type_ids)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource is not None:
             pulumi.set(__self__, "resource", resource)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if targets is not None:
@@ -236,6 +253,18 @@ class _NotificationRuleState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def resource(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The ARN of the resource to associate with the notification rule.
@@ -272,7 +301,6 @@ class _NotificationRuleState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -305,6 +333,7 @@ class NotificationRule(pulumi.CustomResource):
                  detail_type: Optional[pulumi.Input[builtins.str]] = None,
                  event_type_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -321,14 +350,14 @@ class NotificationRule(pulumi.CustomResource):
 
         code = aws.codecommit.Repository("code", repository_name="example-code-repo")
         notif = aws.sns.Topic("notif", name="notification")
-        notif_access = notif.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+        notif_access = aws.iam.get_policy_document_output(statements=[{
             "actions": ["sns:Publish"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["codestar-notifications.amazonaws.com"],
             }],
-            "resources": [arn],
-        }]))
+            "resources": [notif.arn],
+        }])
         default = aws.sns.TopicPolicy("default",
             arn=notif.arn,
             policy=notif_access.json)
@@ -356,6 +385,7 @@ class NotificationRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_type_ids: A list of event types associated with this notification rule.
                For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
         :param pulumi.Input[builtins.str] name: The name of notification rule.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource: The ARN of the resource to associate with the notification rule.
         :param pulumi.Input[builtins.str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -378,14 +408,14 @@ class NotificationRule(pulumi.CustomResource):
 
         code = aws.codecommit.Repository("code", repository_name="example-code-repo")
         notif = aws.sns.Topic("notif", name="notification")
-        notif_access = notif.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+        notif_access = aws.iam.get_policy_document_output(statements=[{
             "actions": ["sns:Publish"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["codestar-notifications.amazonaws.com"],
             }],
-            "resources": [arn],
-        }]))
+            "resources": [notif.arn],
+        }])
         default = aws.sns.TopicPolicy("default",
             arn=notif.arn,
             policy=notif_access.json)
@@ -425,6 +455,7 @@ class NotificationRule(pulumi.CustomResource):
                  detail_type: Optional[pulumi.Input[builtins.str]] = None,
                  event_type_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -445,6 +476,7 @@ class NotificationRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'event_type_ids'")
             __props__.__dict__["event_type_ids"] = event_type_ids
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if resource is None and not opts.urn:
                 raise TypeError("Missing required property 'resource'")
             __props__.__dict__["resource"] = resource
@@ -467,6 +499,7 @@ class NotificationRule(pulumi.CustomResource):
             detail_type: Optional[pulumi.Input[builtins.str]] = None,
             event_type_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -484,6 +517,7 @@ class NotificationRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_type_ids: A list of event types associated with this notification rule.
                For list of allowed events see [here](https://docs.aws.amazon.com/codestar-notifications/latest/userguide/concepts.html#concepts-api).
         :param pulumi.Input[builtins.str] name: The name of notification rule.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource: The ARN of the resource to associate with the notification rule.
         :param pulumi.Input[builtins.str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -498,6 +532,7 @@ class NotificationRule(pulumi.CustomResource):
         __props__.__dict__["detail_type"] = detail_type
         __props__.__dict__["event_type_ids"] = event_type_ids
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource"] = resource
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
@@ -540,6 +575,14 @@ class NotificationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def resource(self) -> pulumi.Output[builtins.str]:
         """
         The ARN of the resource to associate with the notification rule.
@@ -564,7 +607,6 @@ class NotificationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

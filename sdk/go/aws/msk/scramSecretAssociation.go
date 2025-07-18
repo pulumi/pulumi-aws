@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,10 +35,10 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/msk"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -144,6 +144,8 @@ type ScramSecretAssociation struct {
 
 	// Amazon Resource Name (ARN) of the MSK cluster.
 	ClusterArn pulumi.StringOutput `pulumi:"clusterArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// List of AWS Secrets Manager secret ARNs.
 	SecretArnLists pulumi.StringArrayOutput `pulumi:"secretArnLists"`
 }
@@ -186,6 +188,8 @@ func GetScramSecretAssociation(ctx *pulumi.Context,
 type scramSecretAssociationState struct {
 	// Amazon Resource Name (ARN) of the MSK cluster.
 	ClusterArn *string `pulumi:"clusterArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of AWS Secrets Manager secret ARNs.
 	SecretArnLists []string `pulumi:"secretArnLists"`
 }
@@ -193,6 +197,8 @@ type scramSecretAssociationState struct {
 type ScramSecretAssociationState struct {
 	// Amazon Resource Name (ARN) of the MSK cluster.
 	ClusterArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of AWS Secrets Manager secret ARNs.
 	SecretArnLists pulumi.StringArrayInput
 }
@@ -204,6 +210,8 @@ func (ScramSecretAssociationState) ElementType() reflect.Type {
 type scramSecretAssociationArgs struct {
 	// Amazon Resource Name (ARN) of the MSK cluster.
 	ClusterArn string `pulumi:"clusterArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of AWS Secrets Manager secret ARNs.
 	SecretArnLists []string `pulumi:"secretArnLists"`
 }
@@ -212,6 +220,8 @@ type scramSecretAssociationArgs struct {
 type ScramSecretAssociationArgs struct {
 	// Amazon Resource Name (ARN) of the MSK cluster.
 	ClusterArn pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of AWS Secrets Manager secret ARNs.
 	SecretArnLists pulumi.StringArrayInput
 }
@@ -306,6 +316,11 @@ func (o ScramSecretAssociationOutput) ToScramSecretAssociationOutputWithContext(
 // Amazon Resource Name (ARN) of the MSK cluster.
 func (o ScramSecretAssociationOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScramSecretAssociation) pulumi.StringOutput { return v.ClusterArn }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ScramSecretAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScramSecretAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of AWS Secrets Manager secret ARNs.

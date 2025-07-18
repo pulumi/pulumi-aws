@@ -25,6 +25,7 @@ export function getDirectory(args: GetDirectoryArgs, opts?: pulumi.InvokeOptions
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:workspaces/getDirectory:getDirectory", {
         "directoryId": args.directoryId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,10 @@ export interface GetDirectoryArgs {
      * Directory identifier for registration in WorkSpaces service.
      */
     directoryId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * A map of tags assigned to the WorkSpaces directory.
      */
@@ -85,6 +90,7 @@ export interface GetDirectoryResult {
      * Identifiers of the IP access control groups associated with the directory.
      */
     readonly ipGroupIds: string[];
+    readonly region: string;
     /**
      * Registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      */
@@ -149,6 +155,7 @@ export function getDirectoryOutput(args: GetDirectoryOutputArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:workspaces/getDirectory:getDirectory", {
         "directoryId": args.directoryId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -161,6 +168,10 @@ export interface GetDirectoryOutputArgs {
      * Directory identifier for registration in WorkSpaces service.
      */
     directoryId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags assigned to the WorkSpaces directory.
      */

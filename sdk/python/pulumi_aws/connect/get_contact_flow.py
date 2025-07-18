@@ -27,7 +27,7 @@ class GetContactFlowResult:
     """
     A collection of values returned by getContactFlow.
     """
-    def __init__(__self__, arn=None, contact_flow_id=None, content=None, description=None, id=None, instance_id=None, name=None, tags=None, type=None):
+    def __init__(__self__, arn=None, contact_flow_id=None, content=None, description=None, id=None, instance_id=None, name=None, region=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +49,9 @@ class GetContactFlowResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -105,6 +108,11 @@ class GetContactFlowResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Tags to assign to the Contact Flow.
@@ -133,6 +141,7 @@ class AwaitableGetContactFlowResult(GetContactFlowResult):
             id=self.id,
             instance_id=self.instance_id,
             name=self.name,
+            region=self.region,
             tags=self.tags,
             type=self.type)
 
@@ -140,6 +149,7 @@ class AwaitableGetContactFlowResult(GetContactFlowResult):
 def get_contact_flow(contact_flow_id: Optional[builtins.str] = None,
                      instance_id: Optional[builtins.str] = None,
                      name: Optional[builtins.str] = None,
+                     region: Optional[builtins.str] = None,
                      tags: Optional[Mapping[str, builtins.str]] = None,
                      type: Optional[builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactFlowResult:
@@ -174,6 +184,7 @@ def get_contact_flow(contact_flow_id: Optional[builtins.str] = None,
     :param builtins.str name: Returns information on a specific Contact Flow by name
            
            > **NOTE:** `instance_id` and one of either `name` or `contact_flow_id` is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags to assign to the Contact Flow.
     :param builtins.str type: Type of Contact Flow.
     """
@@ -181,6 +192,7 @@ def get_contact_flow(contact_flow_id: Optional[builtins.str] = None,
     __args__['contactFlowId'] = contact_flow_id
     __args__['instanceId'] = instance_id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['type'] = type
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -194,11 +206,13 @@ def get_contact_flow(contact_flow_id: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         instance_id=pulumi.get(__ret__, 'instance_id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_contact_flow_output(contact_flow_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             instance_id: Optional[pulumi.Input[builtins.str]] = None,
                             name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                             type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactFlowResult]:
@@ -233,6 +247,7 @@ def get_contact_flow_output(contact_flow_id: Optional[pulumi.Input[Optional[buil
     :param builtins.str name: Returns information on a specific Contact Flow by name
            
            > **NOTE:** `instance_id` and one of either `name` or `contact_flow_id` is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags to assign to the Contact Flow.
     :param builtins.str type: Type of Contact Flow.
     """
@@ -240,6 +255,7 @@ def get_contact_flow_output(contact_flow_id: Optional[pulumi.Input[Optional[buil
     __args__['contactFlowId'] = contact_flow_id
     __args__['instanceId'] = instance_id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['type'] = type
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -252,5 +268,6 @@ def get_contact_flow_output(contact_flow_id: Optional[pulumi.Input[Optional[buil
         id=pulumi.get(__response__, 'id'),
         instance_id=pulumi.get(__response__, 'instance_id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

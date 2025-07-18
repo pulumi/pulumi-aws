@@ -8,5 +8,4 @@ const efsFilesystem = new aws.efs.FileSystem("my-efs", {
     }],
 });
 
-export const lifecyclePolicy = aws.efs.getFileSystemOutput({ fileSystemId: efsFilesystem.id }).lifecyclePolicy;
 export const lifecyclePolicies = aws.efs.getFileSystemOutput({ fileSystemId: efsFilesystem.id }).lifecyclePolicies;

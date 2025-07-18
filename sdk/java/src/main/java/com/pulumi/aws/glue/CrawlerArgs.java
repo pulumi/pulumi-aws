@@ -256,6 +256,21 @@ public final class CrawlerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
      * 
      */
@@ -382,6 +397,7 @@ public final class CrawlerArgs extends com.pulumi.resources.ResourceArgs {
         this.mongodbTargets = $.mongodbTargets;
         this.name = $.name;
         this.recrawlPolicy = $.recrawlPolicy;
+        this.region = $.region;
         this.role = $.role;
         this.s3Targets = $.s3Targets;
         this.schedule = $.schedule;
@@ -802,6 +818,27 @@ public final class CrawlerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder recrawlPolicy(CrawlerRecrawlPolicyArgs recrawlPolicy) {
             return recrawlPolicy(Output.of(recrawlPolicy));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

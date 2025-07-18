@@ -181,6 +181,10 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     public readonly presharedKeyStorage!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      */
     public readonly remoteIpv4NetworkCidr!: pulumi.Output<string>;
@@ -202,8 +206,6 @@ export class VpnConnection extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -459,6 +461,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["outsideIpAddressType"] = state ? state.outsideIpAddressType : undefined;
             resourceInputs["presharedKeyArn"] = state ? state.presharedKeyArn : undefined;
             resourceInputs["presharedKeyStorage"] = state ? state.presharedKeyStorage : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["remoteIpv4NetworkCidr"] = state ? state.remoteIpv4NetworkCidr : undefined;
             resourceInputs["remoteIpv6NetworkCidr"] = state ? state.remoteIpv6NetworkCidr : undefined;
             resourceInputs["routes"] = state ? state.routes : undefined;
@@ -536,6 +539,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["localIpv6NetworkCidr"] = args ? args.localIpv6NetworkCidr : undefined;
             resourceInputs["outsideIpAddressType"] = args ? args.outsideIpAddressType : undefined;
             resourceInputs["presharedKeyStorage"] = args ? args.presharedKeyStorage : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["remoteIpv4NetworkCidr"] = args ? args.remoteIpv4NetworkCidr : undefined;
             resourceInputs["remoteIpv6NetworkCidr"] = args ? args.remoteIpv6NetworkCidr : undefined;
             resourceInputs["staticRoutesOnly"] = args ? args.staticRoutesOnly : undefined;
@@ -661,6 +665,10 @@ export interface VpnConnectionState {
      */
     presharedKeyStorage?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      */
     remoteIpv4NetworkCidr?: pulumi.Input<string>;
@@ -682,8 +690,6 @@ export interface VpnConnectionState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -944,6 +950,10 @@ export interface VpnConnectionArgs {
      * Storage mode for the pre-shared key (PSK). Valid values are `Standard` (stored in the Site-to-Site VPN service) or `SecretsManager` (stored in AWS Secrets Manager).
      */
     presharedKeyStorage?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      */

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/msk"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupConfiguration(ctx *pulumi.Context, args *LookupConfigurationArgs, opt
 type LookupConfigurationArgs struct {
 	// Name of the configuration.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getConfiguration.
@@ -67,6 +69,7 @@ type LookupConfigurationResult struct {
 	// Latest revision of the configuration.
 	LatestRevision int    `pulumi:"latestRevision"`
 	Name           string `pulumi:"name"`
+	Region         string `pulumi:"region"`
 	// Contents of the server.properties file.
 	ServerProperties string `pulumi:"serverProperties"`
 }
@@ -84,6 +87,8 @@ func LookupConfigurationOutput(ctx *pulumi.Context, args LookupConfigurationOutp
 type LookupConfigurationOutputArgs struct {
 	// Name of the configuration.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupConfigurationOutputArgs) ElementType() reflect.Type {
@@ -132,6 +137,10 @@ func (o LookupConfigurationResultOutput) LatestRevision() pulumi.IntOutput {
 
 func (o LookupConfigurationResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupConfigurationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Contents of the server.properties file.

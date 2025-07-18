@@ -64,6 +64,10 @@ export class EnrollmentStatus extends pulumi.CustomResource {
      */
     public /*out*/ readonly numberOfMemberAccountsOptedIn!: pulumi.Output<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The enrollment status of the account. Valid values: `Active`, `Inactive`.
      */
     public readonly status!: pulumi.Output<string>;
@@ -84,6 +88,7 @@ export class EnrollmentStatus extends pulumi.CustomResource {
             const state = argsOrState as EnrollmentStatusState | undefined;
             resourceInputs["includeMemberAccounts"] = state ? state.includeMemberAccounts : undefined;
             resourceInputs["numberOfMemberAccountsOptedIn"] = state ? state.numberOfMemberAccountsOptedIn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
@@ -92,6 +97,7 @@ export class EnrollmentStatus extends pulumi.CustomResource {
                 throw new Error("Missing required property 'status'");
             }
             resourceInputs["includeMemberAccounts"] = args ? args.includeMemberAccounts : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["numberOfMemberAccountsOptedIn"] = undefined /*out*/;
@@ -114,6 +120,10 @@ export interface EnrollmentStatusState {
      */
     numberOfMemberAccountsOptedIn?: pulumi.Input<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The enrollment status of the account. Valid values: `Active`, `Inactive`.
      */
     status?: pulumi.Input<string>;
@@ -128,6 +138,10 @@ export interface EnrollmentStatusArgs {
      * Whether to enroll member accounts of the organization if the account is the management account of an organization. Default is `false`.
      */
     includeMemberAccounts?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The enrollment status of the account. Valid values: `Active`, `Inactive`.
      */

@@ -27,13 +27,16 @@ class GetDefaultScraperConfigurationResult:
     """
     A collection of values returned by getDefaultScraperConfiguration.
     """
-    def __init__(__self__, configuration=None, id=None):
+    def __init__(__self__, configuration=None, id=None, region=None):
         if configuration and not isinstance(configuration, str):
             raise TypeError("Expected argument 'configuration' to be a str")
         pulumi.set(__self__, "configuration", configuration)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -51,6 +54,11 @@ class GetDefaultScraperConfigurationResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetDefaultScraperConfigurationResult(GetDefaultScraperConfigurationResult):
     # pylint: disable=using-constant-test
@@ -59,10 +67,12 @@ class AwaitableGetDefaultScraperConfigurationResult(GetDefaultScraperConfigurati
             yield self
         return GetDefaultScraperConfigurationResult(
             configuration=self.configuration,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
-def get_default_scraper_configuration(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultScraperConfigurationResult:
+def get_default_scraper_configuration(region: Optional[builtins.str] = None,
+                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefaultScraperConfigurationResult:
     """
     Returns the default scraper configuration used when Amazon EKS creates a scraper for you.
 
@@ -74,15 +84,21 @@ def get_default_scraper_configuration(opts: Optional[pulumi.InvokeOptions] = Non
 
     example = aws.amp.get_default_scraper_configuration()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration', __args__, opts=opts, typ=GetDefaultScraperConfigurationResult).value
 
     return AwaitableGetDefaultScraperConfigurationResult(
         configuration=pulumi.get(__ret__, 'configuration'),
-        id=pulumi.get(__ret__, 'id'))
-def get_default_scraper_configuration_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefaultScraperConfigurationResult]:
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
+def get_default_scraper_configuration_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDefaultScraperConfigurationResult]:
     """
     Returns the default scraper configuration used when Amazon EKS creates a scraper for you.
 
@@ -94,10 +110,15 @@ def get_default_scraper_configuration_output(opts: Optional[Union[pulumi.InvokeO
 
     example = aws.amp.get_default_scraper_configuration()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration', __args__, opts=opts, typ=GetDefaultScraperConfigurationResult)
     return __ret__.apply(lambda __response__: GetDefaultScraperConfigurationResult(
         configuration=pulumi.get(__response__, 'configuration'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

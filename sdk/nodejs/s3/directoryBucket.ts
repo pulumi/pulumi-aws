@@ -82,7 +82,7 @@ export class DirectoryBucket extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.BucketV2` resource to manage general purpose buckets.
+     * Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.Bucket` resource to manage general purpose buckets.
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
@@ -97,6 +97,18 @@ export class DirectoryBucket extends pulumi.CustomResource {
      * Bucket location. See Location below for more details.
      */
     public readonly location!: pulumi.Output<outputs.s3.DirectoryBucketLocation | undefined>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
+     * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Bucket type. Valid values: `Directory`.
      */
@@ -120,6 +132,9 @@ export class DirectoryBucket extends pulumi.CustomResource {
             resourceInputs["dataRedundancy"] = state ? state.dataRedundancy : undefined;
             resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as DirectoryBucketArgs | undefined;
@@ -130,8 +145,11 @@ export class DirectoryBucket extends pulumi.CustomResource {
             resourceInputs["dataRedundancy"] = args ? args.dataRedundancy : undefined;
             resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DirectoryBucket.__pulumiType, name, resourceInputs, opts);
@@ -147,7 +165,7 @@ export interface DirectoryBucketState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.BucketV2` resource to manage general purpose buckets.
+     * Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.Bucket` resource to manage general purpose buckets.
      */
     bucket?: pulumi.Input<string>;
     /**
@@ -163,6 +181,18 @@ export interface DirectoryBucketState {
      */
     location?: pulumi.Input<inputs.s3.DirectoryBucketLocation>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Bucket type. Valid values: `Directory`.
      */
     type?: pulumi.Input<string>;
@@ -173,7 +203,7 @@ export interface DirectoryBucketState {
  */
 export interface DirectoryBucketArgs {
     /**
-     * Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.BucketV2` resource to manage general purpose buckets.
+     * Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `aws.s3.Bucket` resource to manage general purpose buckets.
      */
     bucket: pulumi.Input<string>;
     /**
@@ -188,6 +218,14 @@ export interface DirectoryBucketArgs {
      * Bucket location. See Location below for more details.
      */
     location?: pulumi.Input<inputs.s3.DirectoryBucketLocation>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Bucket type. Valid values: `Directory`.
      */

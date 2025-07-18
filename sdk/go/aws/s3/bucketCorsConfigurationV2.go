@@ -8,13 +8,13 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides an S3 bucket CORS configuration resource. For more information about CORS, go to [Enabling Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/userguide/cors.html) in the Amazon S3 User Guide.
 //
-// > **NOTE:** S3 Buckets only support a single CORS configuration. Declaring multiple `s3.BucketCorsConfigurationV2` resources to the same S3 Bucket will cause a perpetual difference in configuration.
+// > **NOTE:** S3 Buckets only support a single CORS configuration. Declaring multiple `s3.BucketCorsConfiguration` resources to the same S3 Bucket will cause a perpetual difference in configuration.
 //
 // > This resource cannot be used with S3 directory buckets.
 //
@@ -25,23 +25,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("mybucket"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketCorsConfigurationV2(ctx, "example", &s3.BucketCorsConfigurationV2Args{
+//			_, err = s3.NewBucketCorsConfiguration(ctx, "example", &s3.BucketCorsConfigurationArgs{
 //				Bucket: example.ID(),
-//				CorsRules: s3.BucketCorsConfigurationV2CorsRuleArray{
-//					&s3.BucketCorsConfigurationV2CorsRuleArgs{
+//				CorsRules: s3.BucketCorsConfigurationCorsRuleArray{
+//					&s3.BucketCorsConfigurationCorsRuleArgs{
 //						AllowedHeaders: pulumi.StringArray{
 //							pulumi.String("*"),
 //						},
@@ -57,7 +57,7 @@ import (
 //						},
 //						MaxAgeSeconds: pulumi.Int(3000),
 //					},
-//					&s3.BucketCorsConfigurationV2CorsRuleArgs{
+//					&s3.BucketCorsConfigurationCorsRuleArgs{
 //						AllowedMethods: pulumi.StringArray{
 //							pulumi.String("GET"),
 //						},
@@ -92,6 +92,8 @@ import (
 // ```sh
 // $ pulumi import aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2 example bucket-name,123456789012
 // ```
+//
+// Deprecated: aws.s3/bucketcorsconfigurationv2.BucketCorsConfigurationV2 has been deprecated in favor of aws.s3/bucketcorsconfiguration.BucketCorsConfiguration
 type BucketCorsConfigurationV2 struct {
 	pulumi.CustomResourceState
 
@@ -101,6 +103,8 @@ type BucketCorsConfigurationV2 struct {
 	CorsRules BucketCorsConfigurationV2CorsRuleArrayOutput `pulumi:"corsRules"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewBucketCorsConfigurationV2 registers a new resource with the given unique name, arguments, and options.
@@ -116,6 +120,12 @@ func NewBucketCorsConfigurationV2(ctx *pulumi.Context,
 	if args.CorsRules == nil {
 		return nil, errors.New("invalid value for required argument 'CorsRules'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2"),
+		},
+	})
+	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketCorsConfigurationV2
 	err := ctx.RegisterResource("aws:s3/bucketCorsConfigurationV2:BucketCorsConfigurationV2", name, args, &resource, opts...)
@@ -145,6 +155,8 @@ type bucketCorsConfigurationV2State struct {
 	CorsRules []BucketCorsConfigurationV2CorsRule `pulumi:"corsRules"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type BucketCorsConfigurationV2State struct {
@@ -154,6 +166,8 @@ type BucketCorsConfigurationV2State struct {
 	CorsRules BucketCorsConfigurationV2CorsRuleArrayInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BucketCorsConfigurationV2State) ElementType() reflect.Type {
@@ -167,6 +181,8 @@ type bucketCorsConfigurationV2Args struct {
 	CorsRules []BucketCorsConfigurationV2CorsRule `pulumi:"corsRules"`
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BucketCorsConfigurationV2 resource.
@@ -177,6 +193,8 @@ type BucketCorsConfigurationV2Args struct {
 	CorsRules BucketCorsConfigurationV2CorsRuleArrayInput
 	// Account ID of the expected bucket owner.
 	ExpectedBucketOwner pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BucketCorsConfigurationV2Args) ElementType() reflect.Type {
@@ -279,6 +297,11 @@ func (o BucketCorsConfigurationV2Output) CorsRules() BucketCorsConfigurationV2Co
 // Account ID of the expected bucket owner.
 func (o BucketCorsConfigurationV2Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketCorsConfigurationV2) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o BucketCorsConfigurationV2Output) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketCorsConfigurationV2) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type BucketCorsConfigurationV2ArrayOutput struct{ *pulumi.OutputState }

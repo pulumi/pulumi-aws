@@ -36,8 +36,8 @@ namespace Pulumi.Aws.Ebs
         /// });
         /// ```
         /// </summary>
-        public static Task<GetDefaultKmsKeyResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefaultKmsKeyResult>("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetDefaultKmsKeyResult> InvokeAsync(GetDefaultKmsKeyArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefaultKmsKeyResult>("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", args ?? new GetDefaultKmsKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the default EBS encryption KMS key in the current region.
@@ -64,8 +64,8 @@ namespace Pulumi.Aws.Ebs
         /// });
         /// ```
         /// </summary>
-        public static Output<GetDefaultKmsKeyResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDefaultKmsKeyResult>("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetDefaultKmsKeyResult> Invoke(GetDefaultKmsKeyInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDefaultKmsKeyResult>("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", args ?? new GetDefaultKmsKeyInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get the default EBS encryption KMS key in the current region.
@@ -92,8 +92,37 @@ namespace Pulumi.Aws.Ebs
         /// });
         /// ```
         /// </summary>
-        public static Output<GetDefaultKmsKeyResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDefaultKmsKeyResult>("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetDefaultKmsKeyResult> Invoke(GetDefaultKmsKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDefaultKmsKeyResult>("aws:ebs/getDefaultKmsKey:getDefaultKmsKey", args ?? new GetDefaultKmsKeyInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetDefaultKmsKeyArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetDefaultKmsKeyArgs()
+        {
+        }
+        public static new GetDefaultKmsKeyArgs Empty => new GetDefaultKmsKeyArgs();
+    }
+
+    public sealed class GetDefaultKmsKeyInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetDefaultKmsKeyInvokeArgs()
+        {
+        }
+        public static new GetDefaultKmsKeyInvokeArgs Empty => new GetDefaultKmsKeyInvokeArgs();
     }
 
 
@@ -108,15 +137,19 @@ namespace Pulumi.Aws.Ebs
         /// ARN of the default KMS key uses to encrypt an EBS volume in this region when no key is specified in an API call that creates the volume and encryption by default is enabled.
         /// </summary>
         public readonly string KeyArn;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetDefaultKmsKeyResult(
             string id,
 
-            string keyArn)
+            string keyArn,
+
+            string region)
         {
             Id = id;
             KeyArn = keyArn;
+            Region = region;
         }
     }
 }

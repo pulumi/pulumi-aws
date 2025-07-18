@@ -79,6 +79,10 @@ export class ParameterGroup extends pulumi.CustomResource {
      * The parameters of the parameter group.
      */
     public readonly parameters!: pulumi.Output<outputs.dax.ParameterGroupParameter[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ParameterGroup resource with the given unique name, arguments, and options.
@@ -96,11 +100,13 @@ export class ParameterGroup extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ParameterGroupArgs | undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ParameterGroup.__pulumiType, name, resourceInputs, opts);
@@ -123,6 +129,10 @@ export interface ParameterGroupState {
      * The parameters of the parameter group.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.dax.ParameterGroupParameter>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -141,4 +151,8 @@ export interface ParameterGroupArgs {
      * The parameters of the parameter group.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.dax.ParameterGroupParameter>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

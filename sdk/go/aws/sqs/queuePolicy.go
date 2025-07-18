@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sqs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -96,16 +96,15 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sqs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("brodobaggins"),
 //			})
 //			if err != nil {
@@ -171,6 +170,8 @@ type QueuePolicy struct {
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl pulumi.StringOutput `pulumi:"queueUrl"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewQueuePolicy registers a new resource with the given unique name, arguments, and options.
@@ -212,12 +213,16 @@ type queuePolicyState struct {
 	Policy interface{} `pulumi:"policy"`
 	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl *string `pulumi:"queueUrl"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type QueuePolicyState struct {
 	Policy pulumi.Input
 	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (QueuePolicyState) ElementType() reflect.Type {
@@ -228,6 +233,8 @@ type queuePolicyArgs struct {
 	Policy interface{} `pulumi:"policy"`
 	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl string `pulumi:"queueUrl"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a QueuePolicy resource.
@@ -235,6 +242,8 @@ type QueuePolicyArgs struct {
 	Policy pulumi.Input
 	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (QueuePolicyArgs) ElementType() reflect.Type {
@@ -331,6 +340,11 @@ func (o QueuePolicyOutput) Policy() pulumi.StringOutput {
 // URL of the SQS Queue to which to attach the policy.
 func (o QueuePolicyOutput) QueueUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueuePolicy) pulumi.StringOutput { return v.QueueUrl }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o QueuePolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueuePolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type QueuePolicyArrayOutput struct{ *pulumi.OutputState }

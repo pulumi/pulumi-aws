@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
  *         "SPLIT_COST_ALLOCATION_DATA",
  *     ],
  *     s3Bucket: "example-bucket-name",
+ *     s3Prefix: "example-cur-report",
  *     s3Region: "us-east-1",
  *     additionalArtifacts: [
  *         "REDSHIFT",
@@ -74,7 +75,7 @@ export class ReportDefinition extends pulumi.CustomResource {
      */
     public readonly additionalArtifacts!: pulumi.Output<string[] | undefined>;
     /**
-     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
      */
     public readonly additionalSchemaElements!: pulumi.Output<string[]>;
     /**
@@ -106,9 +107,9 @@ export class ReportDefinition extends pulumi.CustomResource {
      */
     public readonly s3Bucket!: pulumi.Output<string>;
     /**
-     * Report path prefix. Limited to 256 characters.
+     * Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
      */
-    public readonly s3Prefix!: pulumi.Output<string | undefined>;
+    public readonly s3Prefix!: pulumi.Output<string>;
     /**
      * Region of the existing S3 bucket to hold generated reports.
      */
@@ -119,8 +120,6 @@ export class ReportDefinition extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -172,6 +171,9 @@ export class ReportDefinition extends pulumi.CustomResource {
             if ((!args || args.s3Bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3Bucket'");
             }
+            if ((!args || args.s3Prefix === undefined) && !opts.urn) {
+                throw new Error("Missing required property 's3Prefix'");
+            }
             if ((!args || args.s3Region === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3Region'");
             }
@@ -207,7 +209,7 @@ export interface ReportDefinitionState {
      */
     additionalArtifacts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
      */
     additionalSchemaElements?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -239,7 +241,7 @@ export interface ReportDefinitionState {
      */
     s3Bucket?: pulumi.Input<string>;
     /**
-     * Report path prefix. Limited to 256 characters.
+     * Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
      */
     s3Prefix?: pulumi.Input<string>;
     /**
@@ -252,8 +254,6 @@ export interface ReportDefinitionState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -271,7 +271,7 @@ export interface ReportDefinitionArgs {
      */
     additionalArtifacts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+     * A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
      */
     additionalSchemaElements: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -299,9 +299,9 @@ export interface ReportDefinitionArgs {
      */
     s3Bucket: pulumi.Input<string>;
     /**
-     * Report path prefix. Limited to 256 characters.
+     * Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
      */
-    s3Prefix?: pulumi.Input<string>;
+    s3Prefix: pulumi.Input<string>;
     /**
      * Region of the existing S3 bucket to hold generated reports.
      */

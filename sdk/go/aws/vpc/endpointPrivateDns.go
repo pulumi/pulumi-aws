@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpc"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,6 +58,8 @@ type EndpointPrivateDns struct {
 
 	// Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
 	PrivateDnsEnabled pulumi.BoolOutput `pulumi:"privateDnsEnabled"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// VPC endpoint identifier.
 	VpcEndpointId pulumi.StringOutput `pulumi:"vpcEndpointId"`
 }
@@ -100,6 +102,8 @@ func GetEndpointPrivateDns(ctx *pulumi.Context,
 type endpointPrivateDnsState struct {
 	// Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
 	PrivateDnsEnabled *bool `pulumi:"privateDnsEnabled"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// VPC endpoint identifier.
 	VpcEndpointId *string `pulumi:"vpcEndpointId"`
 }
@@ -107,6 +111,8 @@ type endpointPrivateDnsState struct {
 type EndpointPrivateDnsState struct {
 	// Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
 	PrivateDnsEnabled pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// VPC endpoint identifier.
 	VpcEndpointId pulumi.StringPtrInput
 }
@@ -118,6 +124,8 @@ func (EndpointPrivateDnsState) ElementType() reflect.Type {
 type endpointPrivateDnsArgs struct {
 	// Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
 	PrivateDnsEnabled bool `pulumi:"privateDnsEnabled"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// VPC endpoint identifier.
 	VpcEndpointId string `pulumi:"vpcEndpointId"`
 }
@@ -126,6 +134,8 @@ type endpointPrivateDnsArgs struct {
 type EndpointPrivateDnsArgs struct {
 	// Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
 	PrivateDnsEnabled pulumi.BoolInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// VPC endpoint identifier.
 	VpcEndpointId pulumi.StringInput
 }
@@ -220,6 +230,11 @@ func (o EndpointPrivateDnsOutput) ToEndpointPrivateDnsOutputWithContext(ctx cont
 // Indicates whether a private hosted zone is associated with the VPC. Only applicable for `Interface` endpoints.
 func (o EndpointPrivateDnsOutput) PrivateDnsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *EndpointPrivateDns) pulumi.BoolOutput { return v.PrivateDnsEnabled }).(pulumi.BoolOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o EndpointPrivateDnsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointPrivateDns) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // VPC endpoint identifier.

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,8 +27,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -100,6 +100,8 @@ type RestApiPolicy struct {
 
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the REST API.
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 }
@@ -142,6 +144,8 @@ func GetRestApiPolicy(ctx *pulumi.Context,
 type restApiPolicyState struct {
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy *string `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the REST API.
 	RestApiId *string `pulumi:"restApiId"`
 }
@@ -149,6 +153,8 @@ type restApiPolicyState struct {
 type RestApiPolicyState struct {
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the REST API.
 	RestApiId pulumi.StringPtrInput
 }
@@ -160,6 +166,8 @@ func (RestApiPolicyState) ElementType() reflect.Type {
 type restApiPolicyArgs struct {
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy string `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the REST API.
 	RestApiId string `pulumi:"restApiId"`
 }
@@ -168,6 +176,8 @@ type restApiPolicyArgs struct {
 type RestApiPolicyArgs struct {
 	// JSON formatted policy document that controls access to the API Gateway.
 	Policy pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the REST API.
 	RestApiId pulumi.StringInput
 }
@@ -262,6 +272,11 @@ func (o RestApiPolicyOutput) ToRestApiPolicyOutputWithContext(ctx context.Contex
 // JSON formatted policy document that controls access to the API Gateway.
 func (o RestApiPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestApiPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o RestApiPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RestApiPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the REST API.

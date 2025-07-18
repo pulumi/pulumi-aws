@@ -68,6 +68,7 @@ public final class GetIndexResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
      * 
@@ -180,6 +181,9 @@ public final class GetIndexResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return An AWS Identity and Access Management (IAM) role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role you use when you call the `BatchPutDocument` API to index documents from an Amazon S3 bucket.
      * 
@@ -256,6 +260,7 @@ public final class GetIndexResult {
         private String id;
         private List<GetIndexIndexStatistic> indexStatistics;
         private String name;
+        private String region;
         private String roleArn;
         private List<GetIndexServerSideEncryptionConfiguration> serverSideEncryptionConfigurations;
         private String status;
@@ -277,6 +282,7 @@ public final class GetIndexResult {
     	      this.id = defaults.id;
     	      this.indexStatistics = defaults.indexStatistics;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.roleArn = defaults.roleArn;
     	      this.serverSideEncryptionConfigurations = defaults.serverSideEncryptionConfigurations;
     	      this.status = defaults.status;
@@ -377,6 +383,14 @@ public final class GetIndexResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetIndexResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder roleArn(String roleArn) {
             if (roleArn == null) {
               throw new MissingRequiredPropertyException("GetIndexResult", "roleArn");
@@ -461,6 +475,7 @@ public final class GetIndexResult {
             _resultValue.id = id;
             _resultValue.indexStatistics = indexStatistics;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.roleArn = roleArn;
             _resultValue.serverSideEncryptionConfigurations = serverSideEncryptionConfigurations;
             _resultValue.status = status;

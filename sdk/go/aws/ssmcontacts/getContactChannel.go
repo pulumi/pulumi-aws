@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssmcontacts"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssmcontacts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func LookupContactChannel(ctx *pulumi.Context, args *LookupContactChannelArgs, o
 type LookupContactChannelArgs struct {
 	// Amazon Resource Name (ARN) of the contact channel.
 	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getContactChannel.
@@ -68,7 +70,8 @@ type LookupContactChannelResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Name of the contact channel.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Type of the contact channel.
 	Type string `pulumi:"type"`
 }
@@ -86,6 +89,8 @@ func LookupContactChannelOutput(ctx *pulumi.Context, args LookupContactChannelOu
 type LookupContactChannelOutputArgs struct {
 	// Amazon Resource Name (ARN) of the contact channel.
 	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupContactChannelOutputArgs) ElementType() reflect.Type {
@@ -134,6 +139,10 @@ func (o LookupContactChannelResultOutput) Id() pulumi.StringOutput {
 // Name of the contact channel.
 func (o LookupContactChannelResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactChannelResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupContactChannelResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContactChannelResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Type of the contact channel.

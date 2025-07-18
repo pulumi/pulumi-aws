@@ -356,29 +356,15 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-        /// 
-        /// &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Output("capacityReservationSpecification")]
         public Output<Outputs.InstanceCapacityReservationSpecification> CapacityReservationSpecification { get; private set; } = null!;
-
-        /// <summary>
-        /// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-        /// </summary>
-        [Output("cpuCoreCount")]
-        public Output<int> CpuCoreCount { get; private set; } = null!;
 
         /// <summary>
         /// The CPU options for the instance. See CPU Options below for more details.
         /// </summary>
         [Output("cpuOptions")]
         public Output<Outputs.InstanceCpuOptions> CpuOptions { get; private set; } = null!;
-
-        /// <summary>
-        /// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-        /// </summary>
-        [Output("cpuThreadsPerCore")]
-        public Output<int> CpuThreadsPerCore { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
@@ -597,6 +583,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PublicIp { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         /// </summary>
         [Output("rootBlockDevice")]
@@ -656,7 +648,7 @@ namespace Pulumi.Aws.Ec2
         /// User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
         /// </summary>
         [Output("userData")]
-        public Output<string> UserData { get; private set; } = null!;
+        public Output<string?> UserData { get; private set; } = null!;
 
         /// <summary>
         /// Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate of the EC2 instance.
@@ -750,29 +742,15 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-        /// 
-        /// &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("capacityReservationSpecification")]
         public Input<Inputs.InstanceCapacityReservationSpecificationArgs>? CapacityReservationSpecification { get; set; }
-
-        /// <summary>
-        /// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-        /// </summary>
-        [Input("cpuCoreCount")]
-        public Input<int>? CpuCoreCount { get; set; }
 
         /// <summary>
         /// The CPU options for the instance. See CPU Options below for more details.
         /// </summary>
         [Input("cpuOptions")]
         public Input<Inputs.InstanceCpuOptionsArgs>? CpuOptions { get; set; }
-
-        /// <summary>
-        /// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-        /// </summary>
-        [Input("cpuThreadsPerCore")]
-        public Input<int>? CpuThreadsPerCore { get; set; }
 
         /// <summary>
         /// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
@@ -967,6 +945,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PrivateIp { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         /// </summary>
         [Input("rootBlockDevice")]
@@ -1107,29 +1091,15 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
-        /// 
-        /// &gt; **NOTE:** Changing `cpu_core_count` and/or `cpu_threads_per_core` will cause the resource to be destroyed and re-created.
         /// </summary>
         [Input("capacityReservationSpecification")]
         public Input<Inputs.InstanceCapacityReservationSpecificationGetArgs>? CapacityReservationSpecification { get; set; }
-
-        /// <summary>
-        /// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
-        /// </summary>
-        [Input("cpuCoreCount")]
-        public Input<int>? CpuCoreCount { get; set; }
 
         /// <summary>
         /// The CPU options for the instance. See CPU Options below for more details.
         /// </summary>
         [Input("cpuOptions")]
         public Input<Inputs.InstanceCpuOptionsGetArgs>? CpuOptions { get; set; }
-
-        /// <summary>
-        /// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-        /// </summary>
-        [Input("cpuThreadsPerCore")]
-        public Input<int>? CpuThreadsPerCore { get; set; }
 
         /// <summary>
         /// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
@@ -1372,6 +1342,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PublicIp { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         /// </summary>
         [Input("rootBlockDevice")]
@@ -1440,7 +1416,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

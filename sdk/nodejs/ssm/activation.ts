@@ -103,6 +103,10 @@ export class Activation extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The number of managed instances that are currently registered using this activation.
      */
     public /*out*/ readonly registrationCount!: pulumi.Output<number>;
@@ -116,8 +120,6 @@ export class Activation extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -140,6 +142,7 @@ export class Activation extends pulumi.CustomResource {
             resourceInputs["expired"] = state ? state.expired : undefined;
             resourceInputs["iamRole"] = state ? state.iamRole : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["registrationCount"] = state ? state.registrationCount : undefined;
             resourceInputs["registrationLimit"] = state ? state.registrationLimit : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -153,6 +156,7 @@ export class Activation extends pulumi.CustomResource {
             resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
             resourceInputs["iamRole"] = args ? args.iamRole : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["registrationLimit"] = args ? args.registrationLimit : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["activationCode"] = undefined /*out*/;
@@ -194,6 +198,10 @@ export interface ActivationState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The number of managed instances that are currently registered using this activation.
      */
     registrationCount?: pulumi.Input<number>;
@@ -207,8 +215,6 @@ export interface ActivationState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -233,6 +239,10 @@ export interface ActivationArgs {
      * The default name of the registered managed instance.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The maximum number of managed instances you want to register. The default value is 1 instance.
      */

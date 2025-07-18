@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/memorydb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/memorydb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulum
 type LookupSnapshotArgs struct {
 	// Name of the snapshot.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the snapshot.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -69,7 +71,8 @@ type LookupSnapshotResult struct {
 	// ARN of the KMS key used to encrypt the snapshot at rest.
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 	// Name of the cluster.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
 	Source string `pulumi:"source"`
 	// Map of tags assigned to the snapshot.
@@ -89,6 +92,8 @@ func LookupSnapshotOutput(ctx *pulumi.Context, args LookupSnapshotOutputArgs, op
 type LookupSnapshotOutputArgs struct {
 	// Name of the snapshot.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the snapshot.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -140,6 +145,10 @@ func (o LookupSnapshotResultOutput) KmsKeyArn() pulumi.StringOutput {
 // Name of the cluster.
 func (o LookupSnapshotResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupSnapshotResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).

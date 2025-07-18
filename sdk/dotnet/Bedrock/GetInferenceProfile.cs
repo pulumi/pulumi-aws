@@ -105,6 +105,12 @@ namespace Pulumi.Aws.Bedrock
         [Input("inferenceProfileId", required: true)]
         public string InferenceProfileId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetInferenceProfileArgs()
         {
         }
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Input("inferenceProfileId", required: true)]
         public Input<string> InferenceProfileId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetInferenceProfileInvokeArgs()
         {
@@ -154,6 +166,7 @@ namespace Pulumi.Aws.Bedrock
         /// A list of information about each model in the inference profile. See `models`.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInferenceProfileModelResult> Models;
+        public readonly string Region;
         /// <summary>
         /// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
         /// </summary>
@@ -183,6 +196,8 @@ namespace Pulumi.Aws.Bedrock
 
             ImmutableArray<Outputs.GetInferenceProfileModelResult> models,
 
+            string region,
+
             string status,
 
             string type,
@@ -196,6 +211,7 @@ namespace Pulumi.Aws.Bedrock
             InferenceProfileId = inferenceProfileId;
             InferenceProfileName = inferenceProfileName;
             Models = models;
+            Region = region;
             Status = status;
             Type = type;
             UpdatedAt = updatedAt;

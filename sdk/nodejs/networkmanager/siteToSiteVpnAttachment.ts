@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS Network Manager SiteToSiteAttachment.
+ * Manages a Network Manager site-to-site VPN attachment.
  *
  * ## Example Usage
  *
@@ -58,43 +58,43 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the attachment.
+     * ARN of the attachment.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The policy rule number associated with the attachment.
+     * Policy rule number associated with the attachment.
      */
     public /*out*/ readonly attachmentPolicyRuleNumber!: pulumi.Output<number>;
     /**
-     * The type of attachment.
+     * Type of attachment.
      */
     public /*out*/ readonly attachmentType!: pulumi.Output<string>;
     /**
-     * The ARN of a core network.
+     * ARN of a core network.
      */
     public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
     /**
-     * The ID of a core network for the VPN attachment.
+     * ID of a core network for the VPN attachment.
      */
     public readonly coreNetworkId!: pulumi.Output<string>;
     /**
-     * The Region where the edge is located.
+     * Region where the edge is located.
      */
     public /*out*/ readonly edgeLocation!: pulumi.Output<string>;
     /**
-     * The ID of the attachment account owner.
+     * ID of the attachment account owner.
      */
     public /*out*/ readonly ownerAccountId!: pulumi.Output<string>;
     /**
-     * The attachment resource ARN.
+     * Attachment resource ARN.
      */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
     /**
-     * The name of the segment attachment.
+     * Name of the segment attachment.
      */
     public /*out*/ readonly segmentName!: pulumi.Output<string>;
     /**
-     * The state of the attachment.
+     * State of the attachment.
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
@@ -102,13 +102,11 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The ARN of the site-to-site VPN connection.
+     * ARN of the site-to-site VPN connection.
      *
      * The following arguments are optional:
      */
@@ -172,43 +170,43 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
  */
 export interface SiteToSiteVpnAttachmentState {
     /**
-     * The ARN of the attachment.
+     * ARN of the attachment.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The policy rule number associated with the attachment.
+     * Policy rule number associated with the attachment.
      */
     attachmentPolicyRuleNumber?: pulumi.Input<number>;
     /**
-     * The type of attachment.
+     * Type of attachment.
      */
     attachmentType?: pulumi.Input<string>;
     /**
-     * The ARN of a core network.
+     * ARN of a core network.
      */
     coreNetworkArn?: pulumi.Input<string>;
     /**
-     * The ID of a core network for the VPN attachment.
+     * ID of a core network for the VPN attachment.
      */
     coreNetworkId?: pulumi.Input<string>;
     /**
-     * The Region where the edge is located.
+     * Region where the edge is located.
      */
     edgeLocation?: pulumi.Input<string>;
     /**
-     * The ID of the attachment account owner.
+     * ID of the attachment account owner.
      */
     ownerAccountId?: pulumi.Input<string>;
     /**
-     * The attachment resource ARN.
+     * Attachment resource ARN.
      */
     resourceArn?: pulumi.Input<string>;
     /**
-     * The name of the segment attachment.
+     * Name of the segment attachment.
      */
     segmentName?: pulumi.Input<string>;
     /**
-     * The state of the attachment.
+     * State of the attachment.
      */
     state?: pulumi.Input<string>;
     /**
@@ -216,13 +214,11 @@ export interface SiteToSiteVpnAttachmentState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ARN of the site-to-site VPN connection.
+     * ARN of the site-to-site VPN connection.
      *
      * The following arguments are optional:
      */
@@ -234,7 +230,7 @@ export interface SiteToSiteVpnAttachmentState {
  */
 export interface SiteToSiteVpnAttachmentArgs {
     /**
-     * The ID of a core network for the VPN attachment.
+     * ID of a core network for the VPN attachment.
      */
     coreNetworkId: pulumi.Input<string>;
     /**
@@ -242,7 +238,7 @@ export interface SiteToSiteVpnAttachmentArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The ARN of the site-to-site VPN connection.
+     * ARN of the site-to-site VPN connection.
      *
      * The following arguments are optional:
      */

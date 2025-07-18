@@ -22,6 +22,7 @@ export function getPullThroughCacheRule(args: GetPullThroughCacheRuleArgs, opts?
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", {
         "ecrRepositoryPrefix": args.ecrRepositoryPrefix,
+        "region": args.region,
     }, opts);
 }
 
@@ -33,6 +34,10 @@ export interface GetPullThroughCacheRuleArgs {
      * The repository name prefix to use when caching images from the source registry.
      */
     ecrRepositoryPrefix: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -52,6 +57,7 @@ export interface GetPullThroughCacheRuleResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * The registry ID where the repository was created.
      */
@@ -83,6 +89,7 @@ export function getPullThroughCacheRuleOutput(args: GetPullThroughCacheRuleOutpu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", {
         "ecrRepositoryPrefix": args.ecrRepositoryPrefix,
+        "region": args.region,
     }, opts);
 }
 
@@ -94,4 +101,8 @@ export interface GetPullThroughCacheRuleOutputArgs {
      * The repository name prefix to use when caching images from the source registry.
      */
     ecrRepositoryPrefix: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

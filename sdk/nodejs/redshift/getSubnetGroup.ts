@@ -22,6 +22,7 @@ export function getSubnetGroup(args: GetSubnetGroupArgs, opts?: pulumi.InvokeOpt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:redshift/getSubnetGroup:getSubnetGroup", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -34,6 +35,10 @@ export interface GetSubnetGroupArgs {
      * Name of the cluster subnet group for which information is requested.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Tags associated to the Subnet Group
      */
@@ -57,6 +62,7 @@ export interface GetSubnetGroupResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * An array of VPC subnet IDs.
      */
@@ -84,6 +90,7 @@ export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:redshift/getSubnetGroup:getSubnetGroup", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -96,6 +103,10 @@ export interface GetSubnetGroupOutputArgs {
      * Name of the cluster subnet group for which information is requested.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Tags associated to the Subnet Group
      */

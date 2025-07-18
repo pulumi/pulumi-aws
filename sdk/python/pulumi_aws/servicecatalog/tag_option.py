@@ -22,7 +22,8 @@ class TagOptionArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[builtins.str],
                  value: pulumi.Input[builtins.str],
-                 active: Optional[pulumi.Input[builtins.bool]] = None):
+                 active: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a TagOption resource.
         :param pulumi.Input[builtins.str] key: Tag option key.
@@ -30,11 +31,14 @@ class TagOptionArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.bool] active: Whether tag option is active. Default is `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
         if active is not None:
             pulumi.set(__self__, "active", active)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -74,6 +78,18 @@ class TagOptionArgs:
     def active(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "active", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _TagOptionState:
@@ -81,11 +97,13 @@ class _TagOptionState:
                  active: Optional[pulumi.Input[builtins.bool]] = None,
                  key: Optional[pulumi.Input[builtins.str]] = None,
                  owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering TagOption resources.
         :param pulumi.Input[builtins.bool] active: Whether tag option is active. Default is `true`.
         :param pulumi.Input[builtins.str] key: Tag option key.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] value: Tag option value.
                
                The following arguments are optional:
@@ -96,6 +114,8 @@ class _TagOptionState:
             pulumi.set(__self__, "key", key)
         if owner is not None:
             pulumi.set(__self__, "owner", owner)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -134,6 +154,18 @@ class _TagOptionState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def value(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Tag option value.
@@ -155,6 +187,7 @@ class TagOption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[builtins.bool]] = None,
                  key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -185,6 +218,7 @@ class TagOption(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] active: Whether tag option is active. Default is `true`.
         :param pulumi.Input[builtins.str] key: Tag option key.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] value: Tag option value.
                
                The following arguments are optional:
@@ -236,6 +270,7 @@ class TagOption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  active: Optional[pulumi.Input[builtins.bool]] = None,
                  key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -250,6 +285,7 @@ class TagOption(pulumi.CustomResource):
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")
             __props__.__dict__["key"] = key
+            __props__.__dict__["region"] = region
             if value is None and not opts.urn:
                 raise TypeError("Missing required property 'value'")
             __props__.__dict__["value"] = value
@@ -267,6 +303,7 @@ class TagOption(pulumi.CustomResource):
             active: Optional[pulumi.Input[builtins.bool]] = None,
             key: Optional[pulumi.Input[builtins.str]] = None,
             owner: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             value: Optional[pulumi.Input[builtins.str]] = None) -> 'TagOption':
         """
         Get an existing TagOption resource's state with the given name, id, and optional extra
@@ -277,6 +314,7 @@ class TagOption(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] active: Whether tag option is active. Default is `true`.
         :param pulumi.Input[builtins.str] key: Tag option key.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] value: Tag option value.
                
                The following arguments are optional:
@@ -288,6 +326,7 @@ class TagOption(pulumi.CustomResource):
         __props__.__dict__["active"] = active
         __props__.__dict__["key"] = key
         __props__.__dict__["owner"] = owner
+        __props__.__dict__["region"] = region
         __props__.__dict__["value"] = value
         return TagOption(resource_name, opts=opts, __props__=__props__)
 
@@ -311,6 +350,14 @@ class TagOption(pulumi.CustomResource):
     @pulumi.getter
     def owner(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

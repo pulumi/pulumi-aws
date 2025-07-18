@@ -24,6 +24,7 @@ class DefaultSecurityGroupArgs:
     def __init__(__self__, *,
                  egress: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupEgressArgs']]]] = None,
                  ingress: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupIngressArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  revoke_rules_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None):
@@ -31,6 +32,7 @@ class DefaultSecurityGroupArgs:
         The set of arguments for constructing a DefaultSecurityGroup resource.
         :param pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupEgressArgs']]] egress: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupIngressArgs']]] ingress: Configuration block. Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] vpc_id: VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
         """
@@ -38,6 +40,8 @@ class DefaultSecurityGroupArgs:
             pulumi.set(__self__, "egress", egress)
         if ingress is not None:
             pulumi.set(__self__, "ingress", ingress)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if revoke_rules_on_delete is not None:
             pulumi.set(__self__, "revoke_rules_on_delete", revoke_rules_on_delete)
         if tags is not None:
@@ -68,6 +72,18 @@ class DefaultSecurityGroupArgs:
     @ingress.setter
     def ingress(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupIngressArgs']]]]):
         pulumi.set(self, "ingress", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="revokeRulesOnDelete")
@@ -113,6 +129,7 @@ class _DefaultSecurityGroupState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  revoke_rules_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -125,6 +142,7 @@ class _DefaultSecurityGroupState:
         :param pulumi.Input[Sequence[pulumi.Input['DefaultSecurityGroupIngressArgs']]] ingress: Configuration block. Detailed below.
         :param pulumi.Input[builtins.str] name: Name of the security group.
         :param pulumi.Input[builtins.str] owner_id: Owner ID.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] vpc_id: VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
@@ -143,13 +161,12 @@ class _DefaultSecurityGroupState:
             pulumi.set(__self__, "name_prefix", name_prefix)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if revoke_rules_on_delete is not None:
             pulumi.set(__self__, "revoke_rules_on_delete", revoke_rules_on_delete)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_id is not None:
@@ -237,6 +254,18 @@ class _DefaultSecurityGroupState:
         pulumi.set(self, "owner_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="revokeRulesOnDelete")
     def revoke_rules_on_delete(self) -> Optional[pulumi.Input[builtins.bool]]:
         return pulumi.get(self, "revoke_rules_on_delete")
@@ -259,7 +288,6 @@ class _DefaultSecurityGroupState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -291,6 +319,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  egress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupEgressArgs', 'DefaultSecurityGroupEgressArgsDict']]]]] = None,
                  ingress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupIngressArgs', 'DefaultSecurityGroupIngressArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  revoke_rules_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -366,6 +395,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupEgressArgs', 'DefaultSecurityGroupEgressArgsDict']]]] egress: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupIngressArgs', 'DefaultSecurityGroupIngressArgsDict']]]] ingress: Configuration block. Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] vpc_id: VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
         """
@@ -459,6 +489,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  egress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupEgressArgs', 'DefaultSecurityGroupEgressArgsDict']]]]] = None,
                  ingress: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupIngressArgs', 'DefaultSecurityGroupIngressArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  revoke_rules_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -473,6 +504,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
             __props__.__dict__["egress"] = egress
             __props__.__dict__["ingress"] = ingress
+            __props__.__dict__["region"] = region
             __props__.__dict__["revoke_rules_on_delete"] = revoke_rules_on_delete
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_id"] = vpc_id
@@ -499,6 +531,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             name_prefix: Optional[pulumi.Input[builtins.str]] = None,
             owner_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             revoke_rules_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -516,6 +549,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['DefaultSecurityGroupIngressArgs', 'DefaultSecurityGroupIngressArgsDict']]]] ingress: Configuration block. Detailed below.
         :param pulumi.Input[builtins.str] name: Name of the security group.
         :param pulumi.Input[builtins.str] owner_id: Owner ID.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] vpc_id: VPC ID. **Note that changing the `vpc_id` will _not_ restore any default security group rules that were modified, added, or removed.** It will be left in its current state.
@@ -531,6 +565,7 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["revoke_rules_on_delete"] = revoke_rules_on_delete
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -591,6 +626,14 @@ class DefaultSecurityGroup(pulumi.CustomResource):
         return pulumi.get(self, "owner_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="revokeRulesOnDelete")
     def revoke_rules_on_delete(self) -> pulumi.Output[Optional[builtins.bool]]:
         return pulumi.get(self, "revoke_rules_on_delete")
@@ -605,7 +648,6 @@ class DefaultSecurityGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

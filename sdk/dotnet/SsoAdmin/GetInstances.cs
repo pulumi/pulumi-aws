@@ -34,8 +34,8 @@ namespace Pulumi.Aws.SsoAdmin
         /// });
         /// ```
         /// </summary>
-        public static Task<GetInstancesResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:ssoadmin/getInstances:getInstances", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetInstancesResult> InvokeAsync(GetInstancesArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:ssoadmin/getInstances:getInstances", args ?? new GetInstancesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
@@ -60,8 +60,8 @@ namespace Pulumi.Aws.SsoAdmin
         /// });
         /// ```
         /// </summary>
-        public static Output<GetInstancesResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetInstancesResult>("aws:ssoadmin/getInstances:getInstances", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetInstancesResult> Invoke(GetInstancesInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstancesResult>("aws:ssoadmin/getInstances:getInstances", args ?? new GetInstancesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
@@ -86,8 +86,37 @@ namespace Pulumi.Aws.SsoAdmin
         /// });
         /// ```
         /// </summary>
-        public static Output<GetInstancesResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetInstancesResult>("aws:ssoadmin/getInstances:getInstances", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetInstancesResult> Invoke(GetInstancesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstancesResult>("aws:ssoadmin/getInstances:getInstances", args ?? new GetInstancesInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetInstancesArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetInstancesArgs()
+        {
+        }
+        public static new GetInstancesArgs Empty => new GetInstancesArgs();
+    }
+
+    public sealed class GetInstancesInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetInstancesInvokeArgs()
+        {
+        }
+        public static new GetInstancesInvokeArgs Empty => new GetInstancesInvokeArgs();
     }
 
 
@@ -106,6 +135,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// Set of identifiers of the identity stores connected to the SSO Instances.
         /// </summary>
         public readonly ImmutableArray<string> IdentityStoreIds;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetInstancesResult(
@@ -113,11 +143,14 @@ namespace Pulumi.Aws.SsoAdmin
 
             string id,
 
-            ImmutableArray<string> identityStoreIds)
+            ImmutableArray<string> identityStoreIds,
+
+            string region)
         {
             Arns = arns;
             Id = id;
             IdentityStoreIds = identityStoreIds;
+            Region = region;
         }
     }
 }

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,7 +57,7 @@ func GetServicePrincipal(ctx *pulumi.Context, args *GetServicePrincipalArgs, opt
 
 // A collection of arguments for invoking getServicePrincipal.
 type GetServicePrincipalArgs struct {
-	// Region you'd like the SPN for. By default, uses the current region.
+	// Region you'd like the SPN for. Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Name of the service you want to generate a Service Principal Name for.
 	ServiceName string `pulumi:"serviceName"`
@@ -65,11 +65,10 @@ type GetServicePrincipalArgs struct {
 
 // A collection of values returned by getServicePrincipal.
 type GetServicePrincipalResult struct {
-	// Identifier of the current Service Principal (compound of service, region and suffix). (e.g. `logs.us-east-1.amazonaws.com`in AWS Commercial, `logs.cn-north-1.amazonaws.com.cn` in AWS China).
+	// Identifier of the current Service Principal (compound of service, Region and suffix). (e.g. `logs.us-east-1.amazonaws.com`in AWS Commercial, `logs.cn-north-1.amazonaws.com.cn` in AWS China).
 	Id string `pulumi:"id"`
 	// Service Principal Name (e.g., `logs.amazonaws.com` in AWS Commercial, `logs.amazonaws.com.cn` in AWS China).
-	Name string `pulumi:"name"`
-	// Region identifier of the generated SPN (e.g., `us-east-1` in AWS Commercial, `cn-north-1` in AWS China).
+	Name        string `pulumi:"name"`
 	Region      string `pulumi:"region"`
 	ServiceName string `pulumi:"serviceName"`
 	// Suffix of the SPN (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
@@ -87,7 +86,7 @@ func GetServicePrincipalOutput(ctx *pulumi.Context, args GetServicePrincipalOutp
 
 // A collection of arguments for invoking getServicePrincipal.
 type GetServicePrincipalOutputArgs struct {
-	// Region you'd like the SPN for. By default, uses the current region.
+	// Region you'd like the SPN for. Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Name of the service you want to generate a Service Principal Name for.
 	ServiceName pulumi.StringInput `pulumi:"serviceName"`
@@ -112,7 +111,7 @@ func (o GetServicePrincipalResultOutput) ToGetServicePrincipalResultOutputWithCo
 	return o
 }
 
-// Identifier of the current Service Principal (compound of service, region and suffix). (e.g. `logs.us-east-1.amazonaws.com`in AWS Commercial, `logs.cn-north-1.amazonaws.com.cn` in AWS China).
+// Identifier of the current Service Principal (compound of service, Region and suffix). (e.g. `logs.us-east-1.amazonaws.com`in AWS Commercial, `logs.cn-north-1.amazonaws.com.cn` in AWS China).
 func (o GetServicePrincipalResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServicePrincipalResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -122,7 +121,6 @@ func (o GetServicePrincipalResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServicePrincipalResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Region identifier of the generated SPN (e.g., `us-east-1` in AWS Commercial, `cn-north-1` in AWS China).
 func (o GetServicePrincipalResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServicePrincipalResult) string { return v.Region }).(pulumi.StringOutput)
 }

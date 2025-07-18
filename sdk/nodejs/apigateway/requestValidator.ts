@@ -64,6 +64,10 @@ export class RequestValidator extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the associated Rest API
      */
     public readonly restApi!: pulumi.Output<string>;
@@ -90,6 +94,7 @@ export class RequestValidator extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as RequestValidatorState | undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["restApi"] = state ? state.restApi : undefined;
             resourceInputs["validateRequestBody"] = state ? state.validateRequestBody : undefined;
             resourceInputs["validateRequestParameters"] = state ? state.validateRequestParameters : undefined;
@@ -99,6 +104,7 @@ export class RequestValidator extends pulumi.CustomResource {
                 throw new Error("Missing required property 'restApi'");
             }
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["restApi"] = args ? args.restApi : undefined;
             resourceInputs["validateRequestBody"] = args ? args.validateRequestBody : undefined;
             resourceInputs["validateRequestParameters"] = args ? args.validateRequestParameters : undefined;
@@ -116,6 +122,10 @@ export interface RequestValidatorState {
      * Name of the request validator
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the associated Rest API
      */
@@ -138,6 +148,10 @@ export interface RequestValidatorArgs {
      * Name of the request validator
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the associated Rest API
      */

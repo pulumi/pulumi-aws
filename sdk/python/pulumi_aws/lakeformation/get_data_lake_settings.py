@@ -28,7 +28,7 @@ class GetDataLakeSettingsResult:
     """
     A collection of values returned by getDataLakeSettings.
     """
-    def __init__(__self__, admins=None, allow_external_data_filtering=None, allow_full_table_external_data_access=None, authorized_session_tag_value_lists=None, catalog_id=None, create_database_default_permissions=None, create_table_default_permissions=None, external_data_filtering_allow_lists=None, id=None, parameters=None, read_only_admins=None, trusted_resource_owners=None):
+    def __init__(__self__, admins=None, allow_external_data_filtering=None, allow_full_table_external_data_access=None, authorized_session_tag_value_lists=None, catalog_id=None, create_database_default_permissions=None, create_table_default_permissions=None, external_data_filtering_allow_lists=None, id=None, parameters=None, read_only_admins=None, region=None, trusted_resource_owners=None):
         if admins and not isinstance(admins, list):
             raise TypeError("Expected argument 'admins' to be a list")
         pulumi.set(__self__, "admins", admins)
@@ -62,6 +62,9 @@ class GetDataLakeSettingsResult:
         if read_only_admins and not isinstance(read_only_admins, list):
             raise TypeError("Expected argument 'read_only_admins' to be a list")
         pulumi.set(__self__, "read_only_admins", read_only_admins)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if trusted_resource_owners and not isinstance(trusted_resource_owners, list):
             raise TypeError("Expected argument 'trusted_resource_owners' to be a list")
         pulumi.set(__self__, "trusted_resource_owners", trusted_resource_owners)
@@ -152,6 +155,11 @@ class GetDataLakeSettingsResult:
         return pulumi.get(self, "read_only_admins")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="trustedResourceOwners")
     def trusted_resource_owners(self) -> Sequence[builtins.str]:
         """
@@ -177,10 +185,12 @@ class AwaitableGetDataLakeSettingsResult(GetDataLakeSettingsResult):
             id=self.id,
             parameters=self.parameters,
             read_only_admins=self.read_only_admins,
+            region=self.region,
             trusted_resource_owners=self.trusted_resource_owners)
 
 
 def get_data_lake_settings(catalog_id: Optional[builtins.str] = None,
+                           region: Optional[builtins.str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataLakeSettingsResult:
     """
     Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
@@ -196,9 +206,11 @@ def get_data_lake_settings(catalog_id: Optional[builtins.str] = None,
 
 
     :param builtins.str catalog_id: Identifier for the Data Catalog. By default, the account ID.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:lakeformation/getDataLakeSettings:getDataLakeSettings', __args__, opts=opts, typ=GetDataLakeSettingsResult).value
 
@@ -214,8 +226,10 @@ def get_data_lake_settings(catalog_id: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         parameters=pulumi.get(__ret__, 'parameters'),
         read_only_admins=pulumi.get(__ret__, 'read_only_admins'),
+        region=pulumi.get(__ret__, 'region'),
         trusted_resource_owners=pulumi.get(__ret__, 'trusted_resource_owners'))
 def get_data_lake_settings_output(catalog_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                  region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataLakeSettingsResult]:
     """
     Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
@@ -231,9 +245,11 @@ def get_data_lake_settings_output(catalog_id: Optional[pulumi.Input[Optional[bui
 
 
     :param builtins.str catalog_id: Identifier for the Data Catalog. By default, the account ID.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['catalogId'] = catalog_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lakeformation/getDataLakeSettings:getDataLakeSettings', __args__, opts=opts, typ=GetDataLakeSettingsResult)
     return __ret__.apply(lambda __response__: GetDataLakeSettingsResult(
@@ -248,4 +264,5 @@ def get_data_lake_settings_output(catalog_id: Optional[pulumi.Input[Optional[bui
         id=pulumi.get(__response__, 'id'),
         parameters=pulumi.get(__response__, 'parameters'),
         read_only_admins=pulumi.get(__response__, 'read_only_admins'),
+        region=pulumi.get(__response__, 'region'),
         trusted_resource_owners=pulumi.get(__response__, 'trusted_resource_owners')))

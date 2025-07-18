@@ -88,6 +88,12 @@ namespace Pulumi.Aws.CodeCommit
     public sealed class GetRepositoryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Name for the repository. This needs to be less than 100 characters.
         /// </summary>
         [Input("repositoryName", required: true)]
@@ -101,6 +107,12 @@ namespace Pulumi.Aws.CodeCommit
 
     public sealed class GetRepositoryInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Name for the repository. This needs to be less than 100 characters.
         /// </summary>
@@ -137,6 +149,7 @@ namespace Pulumi.Aws.CodeCommit
         /// The ID of the encryption key.
         /// </summary>
         public readonly string KmsKeyId;
+        public readonly string Region;
         /// <summary>
         /// ID of the repository.
         /// </summary>
@@ -155,6 +168,8 @@ namespace Pulumi.Aws.CodeCommit
 
             string kmsKeyId,
 
+            string region,
+
             string repositoryId,
 
             string repositoryName)
@@ -164,6 +179,7 @@ namespace Pulumi.Aws.CodeCommit
             CloneUrlSsh = cloneUrlSsh;
             Id = id;
             KmsKeyId = kmsKeyId;
+            Region = region;
             RepositoryId = repositoryId;
             RepositoryName = repositoryName;
         }

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * For more information see the Amazon S3 User Guide on [`Lifecycle Configuration Elements`](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html).
  *
- * > S3 Buckets only support a single lifecycle configuration. Declaring multiple `aws.s3.BucketLifecycleConfigurationV2` resources to the same S3 Bucket will cause a perpetual difference in configuration.
+ * > S3 Buckets only support a single lifecycle configuration. Declaring multiple `aws.s3.BucketLifecycleConfiguration` resources to the same S3 Bucket will cause a perpetual difference in configuration.
  *
  * > Lifecycle configurations may take some time to fully propagate to all AWS S3 systems.
  * Running Pulumi operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence.
@@ -31,13 +31,13 @@ import * as utilities from "../utilities";
  * The Lifecycle rule applies to a subset of objects based on the key name prefix (`""`).
  *
  * This configuration is intended to replicate the default behavior of the `lifecycleRule`
- * parameter in the AWS Provider `aws.s3.BucketV2` resource prior to `v4.0`.
+ * parameter in the AWS Provider `aws.s3.Bucket` resource prior to `v4.0`.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
+ * const example = new aws.s3.BucketLifecycleConfiguration("example", {
  *     bucket: bucket.id,
  *     rules: [{
  *         id: "rule-1",
@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
+ * const example = new aws.s3.BucketLifecycleConfiguration("example", {
  *     bucket: bucket.id,
  *     rules: [{
  *         id: "rule-1",
@@ -72,7 +72,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
+ * const example = new aws.s3.BucketLifecycleConfiguration("example", {
  *     bucket: bucket.id,
  *     rules: [{
  *         id: "rule-1",
@@ -90,7 +90,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
+ * const example = new aws.s3.BucketLifecycleConfiguration("example", {
  *     bucket: bucket.id,
  *     rules: [
  *         {
@@ -119,7 +119,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
+ * const example = new aws.s3.BucketLifecycleConfiguration("example", {
  *     bucket: bucket.id,
  *     rules: [{
  *         id: "rule-1",
@@ -142,7 +142,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
+ * const example = new aws.s3.BucketLifecycleConfiguration("example", {
  *     bucket: bucket.id,
  *     rules: [{
  *         id: "rule-1",
@@ -167,7 +167,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
+ * const example = new aws.s3.BucketLifecycleConfiguration("example", {
  *     bucket: bucket.id,
  *     rules: [{
  *         id: "rule-1",
@@ -193,7 +193,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
+ * const example = new aws.s3.BucketLifecycleConfiguration("example", {
  *     bucket: bucket.id,
  *     rules: [{
  *         id: "Allow small object transitions",
@@ -217,7 +217,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketLifecycleConfigurationV2("example", {
+ * const example = new aws.s3.BucketLifecycleConfiguration("example", {
  *     bucket: bucket.id,
  *     rules: [{
  *         id: "rule-1",
@@ -239,12 +239,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const bucket = new aws.s3.BucketV2("bucket", {bucket: "my-bucket"});
- * const bucketAcl = new aws.s3.BucketAclV2("bucket_acl", {
+ * const bucket = new aws.s3.Bucket("bucket", {bucket: "my-bucket"});
+ * const bucketAcl = new aws.s3.BucketAcl("bucket_acl", {
  *     bucket: bucket.id,
  *     acl: "private",
  * });
- * const bucket_config = new aws.s3.BucketLifecycleConfigurationV2("bucket-config", {
+ * const bucket_config = new aws.s3.BucketLifecycleConfiguration("bucket-config", {
  *     bucket: bucket.id,
  *     rules: [
  *         {
@@ -285,18 +285,18 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const versioningBucket = new aws.s3.BucketV2("versioning_bucket", {bucket: "my-versioning-bucket"});
- * const versioningBucketAcl = new aws.s3.BucketAclV2("versioning_bucket_acl", {
+ * const versioningBucket = new aws.s3.Bucket("versioning_bucket", {bucket: "my-versioning-bucket"});
+ * const versioningBucketAcl = new aws.s3.BucketAcl("versioning_bucket_acl", {
  *     bucket: versioningBucket.id,
  *     acl: "private",
  * });
- * const versioning = new aws.s3.BucketVersioningV2("versioning", {
+ * const versioning = new aws.s3.BucketVersioning("versioning", {
  *     bucket: versioningBucket.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
  * });
- * const versioning_bucket_config = new aws.s3.BucketLifecycleConfigurationV2("versioning-bucket-config", {
+ * const versioning_bucket_config = new aws.s3.BucketLifecycleConfiguration("versioning-bucket-config", {
  *     bucket: versioningBucket.id,
  *     rules: [{
  *         id: "config",
@@ -339,6 +339,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name,123456789012
  * ```
+ *
+ * @deprecated aws.s3/bucketlifecycleconfigurationv2.BucketLifecycleConfigurationV2 has been deprecated in favor of aws.s3/bucketlifecycleconfiguration.BucketLifecycleConfiguration
  */
 export class BucketLifecycleConfigurationV2 extends pulumi.CustomResource {
     /**
@@ -351,6 +353,7 @@ export class BucketLifecycleConfigurationV2 extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BucketLifecycleConfigurationV2State, opts?: pulumi.CustomResourceOptions): BucketLifecycleConfigurationV2 {
+        pulumi.log.warn("BucketLifecycleConfigurationV2 is deprecated: aws.s3/bucketlifecycleconfigurationv2.BucketLifecycleConfigurationV2 has been deprecated in favor of aws.s3/bucketlifecycleconfiguration.BucketLifecycleConfiguration")
         return new BucketLifecycleConfigurationV2(name, <any>state, { ...opts, id: id });
     }
 
@@ -377,6 +380,10 @@ export class BucketLifecycleConfigurationV2 extends pulumi.CustomResource {
      */
     public readonly expectedBucketOwner!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of configuration blocks describing the rules managing the replication. See below.
      */
     public readonly rules!: pulumi.Output<outputs.s3.BucketLifecycleConfigurationV2Rule[] | undefined>;
@@ -393,14 +400,18 @@ export class BucketLifecycleConfigurationV2 extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.s3/bucketlifecycleconfigurationv2.BucketLifecycleConfigurationV2 has been deprecated in favor of aws.s3/bucketlifecycleconfiguration.BucketLifecycleConfiguration */
     constructor(name: string, args: BucketLifecycleConfigurationV2Args, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.s3/bucketlifecycleconfigurationv2.BucketLifecycleConfigurationV2 has been deprecated in favor of aws.s3/bucketlifecycleconfiguration.BucketLifecycleConfiguration */
     constructor(name: string, argsOrState?: BucketLifecycleConfigurationV2Args | BucketLifecycleConfigurationV2State, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BucketLifecycleConfigurationV2 is deprecated: aws.s3/bucketlifecycleconfigurationv2.BucketLifecycleConfigurationV2 has been deprecated in favor of aws.s3/bucketlifecycleconfiguration.BucketLifecycleConfiguration")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketLifecycleConfigurationV2State | undefined;
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rules"] = state ? state.rules : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
             resourceInputs["transitionDefaultMinimumObjectSize"] = state ? state.transitionDefaultMinimumObjectSize : undefined;
@@ -411,11 +422,14 @@ export class BucketLifecycleConfigurationV2 extends pulumi.CustomResource {
             }
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["transitionDefaultMinimumObjectSize"] = args ? args.transitionDefaultMinimumObjectSize : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BucketLifecycleConfigurationV2.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -432,6 +446,10 @@ export interface BucketLifecycleConfigurationV2State {
      * Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
      */
@@ -455,6 +473,10 @@ export interface BucketLifecycleConfigurationV2Args {
      * Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
      */

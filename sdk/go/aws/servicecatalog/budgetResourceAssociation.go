@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,6 +57,8 @@ type BudgetResourceAssociation struct {
 
 	// Budget name.
 	BudgetName pulumi.StringOutput `pulumi:"budgetName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Resource identifier.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 }
@@ -99,6 +101,8 @@ func GetBudgetResourceAssociation(ctx *pulumi.Context,
 type budgetResourceAssociationState struct {
 	// Budget name.
 	BudgetName *string `pulumi:"budgetName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Resource identifier.
 	ResourceId *string `pulumi:"resourceId"`
 }
@@ -106,6 +110,8 @@ type budgetResourceAssociationState struct {
 type BudgetResourceAssociationState struct {
 	// Budget name.
 	BudgetName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Resource identifier.
 	ResourceId pulumi.StringPtrInput
 }
@@ -117,6 +123,8 @@ func (BudgetResourceAssociationState) ElementType() reflect.Type {
 type budgetResourceAssociationArgs struct {
 	// Budget name.
 	BudgetName string `pulumi:"budgetName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Resource identifier.
 	ResourceId string `pulumi:"resourceId"`
 }
@@ -125,6 +133,8 @@ type budgetResourceAssociationArgs struct {
 type BudgetResourceAssociationArgs struct {
 	// Budget name.
 	BudgetName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Resource identifier.
 	ResourceId pulumi.StringInput
 }
@@ -219,6 +229,11 @@ func (o BudgetResourceAssociationOutput) ToBudgetResourceAssociationOutputWithCo
 // Budget name.
 func (o BudgetResourceAssociationOutput) BudgetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BudgetResourceAssociation) pulumi.StringOutput { return v.BudgetName }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o BudgetResourceAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BudgetResourceAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Resource identifier.

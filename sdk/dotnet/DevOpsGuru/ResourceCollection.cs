@@ -138,6 +138,12 @@ namespace Pulumi.Aws.DevOpsGuru
         public Output<Outputs.ResourceCollectionCloudformation?> Cloudformation { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
         /// </summary>
         [Output("tags")]
@@ -204,6 +210,12 @@ namespace Pulumi.Aws.DevOpsGuru
         public Input<Inputs.ResourceCollectionCloudformationArgs>? Cloudformation { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.
         /// </summary>
         [Input("tags")]
@@ -230,6 +242,12 @@ namespace Pulumi.Aws.DevOpsGuru
         /// </summary>
         [Input("cloudformation")]
         public Input<Inputs.ResourceCollectionCloudformationGetArgs>? Cloudformation { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// AWS tags used to filter the resources in the resource collection. See `tags` below for additional details.

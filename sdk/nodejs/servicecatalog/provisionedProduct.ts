@@ -155,6 +155,10 @@ export class ProvisionedProduct extends pulumi.CustomResource {
      */
     public readonly provisioningParameters!: pulumi.Output<outputs.servicecatalog.ProvisionedProductProvisioningParameter[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
      */
     public readonly retainPhysicalResources!: pulumi.Output<boolean | undefined>;
@@ -176,8 +180,6 @@ export class ProvisionedProduct extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -217,6 +219,7 @@ export class ProvisionedProduct extends pulumi.CustomResource {
             resourceInputs["provisioningArtifactId"] = state ? state.provisioningArtifactId : undefined;
             resourceInputs["provisioningArtifactName"] = state ? state.provisioningArtifactName : undefined;
             resourceInputs["provisioningParameters"] = state ? state.provisioningParameters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["retainPhysicalResources"] = state ? state.retainPhysicalResources : undefined;
             resourceInputs["stackSetProvisioningPreferences"] = state ? state.stackSetProvisioningPreferences : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -237,6 +240,7 @@ export class ProvisionedProduct extends pulumi.CustomResource {
             resourceInputs["provisioningArtifactId"] = args ? args.provisioningArtifactId : undefined;
             resourceInputs["provisioningArtifactName"] = args ? args.provisioningArtifactName : undefined;
             resourceInputs["provisioningParameters"] = args ? args.provisioningParameters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retainPhysicalResources"] = args ? args.retainPhysicalResources : undefined;
             resourceInputs["stackSetProvisioningPreferences"] = args ? args.stackSetProvisioningPreferences : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -341,6 +345,10 @@ export interface ProvisionedProductState {
      */
     provisioningParameters?: pulumi.Input<pulumi.Input<inputs.servicecatalog.ProvisionedProductProvisioningParameter>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
      */
     retainPhysicalResources?: pulumi.Input<boolean>;
@@ -362,8 +370,6 @@ export interface ProvisionedProductState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -422,6 +428,10 @@ export interface ProvisionedProductArgs {
      * Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
      */
     provisioningParameters?: pulumi.Input<pulumi.Input<inputs.servicecatalog.ProvisionedProductProvisioningParameter>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
      */

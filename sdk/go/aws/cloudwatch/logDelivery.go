@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,13 +68,13 @@ type LogDelivery struct {
 	FieldDelimiter pulumi.StringOutput `pulumi:"fieldDelimiter"`
 	// The list of record fields to be delivered to the destination, in order.
 	RecordFields pulumi.StringArrayOutput `pulumi:"recordFields"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
 	S3DeliveryConfigurations LogDeliveryS3DeliveryConfigurationArrayOutput `pulumi:"s3DeliveryConfigurations"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -124,13 +124,13 @@ type logDeliveryState struct {
 	FieldDelimiter *string `pulumi:"fieldDelimiter"`
 	// The list of record fields to be delivered to the destination, in order.
 	RecordFields []string `pulumi:"recordFields"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
 	S3DeliveryConfigurations []LogDeliveryS3DeliveryConfiguration `pulumi:"s3DeliveryConfigurations"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -145,13 +145,13 @@ type LogDeliveryState struct {
 	FieldDelimiter pulumi.StringPtrInput
 	// The list of record fields to be delivered to the destination, in order.
 	RecordFields pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
 	S3DeliveryConfigurations LogDeliveryS3DeliveryConfigurationArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -168,6 +168,8 @@ type logDeliveryArgs struct {
 	FieldDelimiter *string `pulumi:"fieldDelimiter"`
 	// The list of record fields to be delivered to the destination, in order.
 	RecordFields []string `pulumi:"recordFields"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
 	S3DeliveryConfigurations []LogDeliveryS3DeliveryConfiguration `pulumi:"s3DeliveryConfigurations"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -184,6 +186,8 @@ type LogDeliveryArgs struct {
 	FieldDelimiter pulumi.StringPtrInput
 	// The list of record fields to be delivered to the destination, in order.
 	RecordFields pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
 	S3DeliveryConfigurations LogDeliveryS3DeliveryConfigurationArrayInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -302,6 +306,11 @@ func (o LogDeliveryOutput) RecordFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogDelivery) pulumi.StringArrayOutput { return v.RecordFields }).(pulumi.StringArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LogDeliveryOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LogDelivery) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Parameters that are valid only when the delivery's delivery destination is an S3 bucket.
 func (o LogDeliveryOutput) S3DeliveryConfigurations() LogDeliveryS3DeliveryConfigurationArrayOutput {
 	return o.ApplyT(func(v *LogDelivery) LogDeliveryS3DeliveryConfigurationArrayOutput { return v.S3DeliveryConfigurations }).(LogDeliveryS3DeliveryConfigurationArrayOutput)
@@ -313,8 +322,6 @@ func (o LogDeliveryOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o LogDeliveryOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogDelivery) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

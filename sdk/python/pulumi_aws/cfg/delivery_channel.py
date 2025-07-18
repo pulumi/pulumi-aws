@@ -24,6 +24,7 @@ class DeliveryChannelArgs:
     def __init__(__self__, *,
                  s3_bucket_name: pulumi.Input[builtins.str],
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  s3_kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  snapshot_delivery_properties: Optional[pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs']] = None,
@@ -32,6 +33,7 @@ class DeliveryChannelArgs:
         The set of arguments for constructing a DeliveryChannel resource.
         :param pulumi.Input[builtins.str] s3_bucket_name: The name of the S3 bucket used to store the configuration history.
         :param pulumi.Input[builtins.str] name: The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_key_prefix: The prefix for the specified S3 bucket.
         :param pulumi.Input[builtins.str] s3_kms_key_arn: The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
         :param pulumi.Input['DeliveryChannelSnapshotDeliveryPropertiesArgs'] snapshot_delivery_properties: Options for how AWS Config delivers configuration snapshots. See below
@@ -40,6 +42,8 @@ class DeliveryChannelArgs:
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if s3_key_prefix is not None:
             pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
         if s3_kms_key_arn is not None:
@@ -72,6 +76,18 @@ class DeliveryChannelArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="s3KeyPrefix")
@@ -126,6 +142,7 @@ class DeliveryChannelArgs:
 class _DeliveryChannelState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket_name: Optional[pulumi.Input[builtins.str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  s3_kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -134,6 +151,7 @@ class _DeliveryChannelState:
         """
         Input properties used for looking up and filtering DeliveryChannel resources.
         :param pulumi.Input[builtins.str] name: The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_name: The name of the S3 bucket used to store the configuration history.
         :param pulumi.Input[builtins.str] s3_key_prefix: The prefix for the specified S3 bucket.
         :param pulumi.Input[builtins.str] s3_kms_key_arn: The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
@@ -142,6 +160,8 @@ class _DeliveryChannelState:
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if s3_bucket_name is not None:
             pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_key_prefix is not None:
@@ -164,6 +184,18 @@ class _DeliveryChannelState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="s3BucketName")
@@ -233,6 +265,7 @@ class DeliveryChannel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket_name: Optional[pulumi.Input[builtins.str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  s3_kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -250,7 +283,7 @@ class DeliveryChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        b = aws.s3.BucketV2("b",
+        b = aws.s3.Bucket("b",
             bucket="example-awsconfig",
             force_destroy=True)
         assume_role = aws.iam.get_policy_document(statements=[{
@@ -296,6 +329,7 @@ class DeliveryChannel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_name: The name of the S3 bucket used to store the configuration history.
         :param pulumi.Input[builtins.str] s3_key_prefix: The prefix for the specified S3 bucket.
         :param pulumi.Input[builtins.str] s3_kms_key_arn: The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
@@ -319,7 +353,7 @@ class DeliveryChannel(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        b = aws.s3.BucketV2("b",
+        b = aws.s3.Bucket("b",
             bucket="example-awsconfig",
             force_destroy=True)
         assume_role = aws.iam.get_policy_document(statements=[{
@@ -378,6 +412,7 @@ class DeliveryChannel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket_name: Optional[pulumi.Input[builtins.str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  s3_kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -393,6 +428,7 @@ class DeliveryChannel(pulumi.CustomResource):
             __props__ = DeliveryChannelArgs.__new__(DeliveryChannelArgs)
 
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if s3_bucket_name is None and not opts.urn:
                 raise TypeError("Missing required property 's3_bucket_name'")
             __props__.__dict__["s3_bucket_name"] = s3_bucket_name
@@ -411,6 +447,7 @@ class DeliveryChannel(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             s3_bucket_name: Optional[pulumi.Input[builtins.str]] = None,
             s3_key_prefix: Optional[pulumi.Input[builtins.str]] = None,
             s3_kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -424,6 +461,7 @@ class DeliveryChannel(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_name: The name of the S3 bucket used to store the configuration history.
         :param pulumi.Input[builtins.str] s3_key_prefix: The prefix for the specified S3 bucket.
         :param pulumi.Input[builtins.str] s3_kms_key_arn: The ARN of the AWS KMS key used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
@@ -435,6 +473,7 @@ class DeliveryChannel(pulumi.CustomResource):
         __props__ = _DeliveryChannelState.__new__(_DeliveryChannelState)
 
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["s3_bucket_name"] = s3_bucket_name
         __props__.__dict__["s3_key_prefix"] = s3_key_prefix
         __props__.__dict__["s3_kms_key_arn"] = s3_kms_key_arn
@@ -449,6 +488,14 @@ class DeliveryChannel(pulumi.CustomResource):
         The name of the delivery channel. Defaults to `default`. Changing it recreates the resource.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="s3BucketName")

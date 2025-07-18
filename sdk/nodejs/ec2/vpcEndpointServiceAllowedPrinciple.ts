@@ -61,6 +61,10 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
      */
     public readonly principalArn!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the VPC endpoint service to allow permission.
      */
     public readonly vpcEndpointServiceId!: pulumi.Output<string>;
@@ -79,6 +83,7 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VpcEndpointServiceAllowedPrincipleState | undefined;
             resourceInputs["principalArn"] = state ? state.principalArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["vpcEndpointServiceId"] = state ? state.vpcEndpointServiceId : undefined;
         } else {
             const args = argsOrState as VpcEndpointServiceAllowedPrincipleArgs | undefined;
@@ -89,6 +94,7 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcEndpointServiceId'");
             }
             resourceInputs["principalArn"] = args ? args.principalArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["vpcEndpointServiceId"] = args ? args.vpcEndpointServiceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -105,6 +111,10 @@ export interface VpcEndpointServiceAllowedPrincipleState {
      */
     principalArn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the VPC endpoint service to allow permission.
      */
     vpcEndpointServiceId?: pulumi.Input<string>;
@@ -118,6 +128,10 @@ export interface VpcEndpointServiceAllowedPrincipleArgs {
      * The ARN of the principal to allow permissions.
      */
     principalArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the VPC endpoint service to allow permission.
      */

@@ -1340,18 +1340,6 @@ public class Instance extends com.pulumi.resources.CustomResource {
         return this.multiAz;
     }
     /**
-     * @deprecated
-     * This property has been deprecated. Please use &#39;dbName&#39; instead.
-     * 
-     */
-    @Deprecated /* This property has been deprecated. Please use 'dbName' instead. */
-    @Export(name="name", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> name;
-
-    public Output<Optional<String>> name() {
-        return Codegen.optional(this.name);
-    }
-    /**
      * The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can&#39;t be changed. See [Oracle Character Sets
      * Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
      * 
@@ -1494,6 +1482,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> publiclyAccessible() {
         return Codegen.optional(this.publiclyAccessible);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
@@ -1710,11 +1712,7 @@ public class Instance extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

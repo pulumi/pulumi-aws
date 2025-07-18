@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amplify"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,7 +59,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amplify"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -106,145 +106,145 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amplify"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amplify"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// example, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-// Name: pulumi.String("app"),
-// })
-// if err != nil {
-// return err
-// }
-// master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
-// AppId: example.ID(),
-// BranchName: pulumi.String("master"),
-// EnableNotification: pulumi.Bool(true),
-// })
-// if err != nil {
-// return err
-// }
-// // EventBridge Rule for Amplify notifications
-// amplifyAppMasterEventRule, err := cloudwatch.NewEventRule(ctx, "amplify_app_master", &cloudwatch.EventRuleArgs{
-// Name: master.BranchName.ApplyT(func(branchName string) (string, error) {
-// return fmt.Sprintf("amplify-%v-%v-branch-notification", app.Id, branchName), nil
-// }).(pulumi.StringOutput),
-// Description: master.BranchName.ApplyT(func(branchName string) (string, error) {
-// return fmt.Sprintf("AWS Amplify build notifications for :  App: %v Branch: %v", app.Id, branchName), nil
-// }).(pulumi.StringOutput),
-// EventPattern: pulumi.All(example.ID(),master.BranchName).ApplyT(func(_args []interface{}) (string, error) {
-// id := _args[0].(string)
-// branchName := _args[1].(string)
-// var _zero string
-// tmpJSON0, err := json.Marshal(map[string]interface{}{
-// "detail": map[string]interface{}{
-// "appId": []string{
-// id,
-// },
-// "branchName": []string{
-// branchName,
-// },
-// "jobStatus": []string{
-// "SUCCEED",
-// "FAILED",
-// "STARTED",
-// },
-// },
-// "detail-type": []string{
-// "Amplify Deployment Status Change",
-// },
-// "source": []string{
-// "aws.amplify",
-// },
-// })
-// if err != nil {
-// return _zero, err
-// }
-// json0 := string(tmpJSON0)
-// return json0, nil
-// }).(pulumi.StringOutput),
-// })
-// if err != nil {
-// return err
-// }
-// // SNS Topic for Amplify notifications
-// amplifyAppMasterTopic, err := sns.NewTopic(ctx, "amplify_app_master", &sns.TopicArgs{
-// Name: master.BranchName.ApplyT(func(branchName string) (string, error) {
-// return fmt.Sprintf("amplify-%v_%v", app.Id, branchName), nil
-// }).(pulumi.StringOutput),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = cloudwatch.NewEventTarget(ctx, "amplify_app_master", &cloudwatch.EventTargetArgs{
-// Rule: amplifyAppMasterEventRule.Name,
-// TargetId: master.BranchName,
-// Arn: amplifyAppMasterTopic.Arn,
-// InputTransformer: &cloudwatch.EventTargetInputTransformerArgs{
-// InputPaths: pulumi.StringMap{
-// "jobId": pulumi.String("$.detail.jobId"),
-// "appId": pulumi.String("$.detail.appId"),
-// "region": pulumi.String("$.region"),
-// "branch": pulumi.String("$.detail.branchName"),
-// "status": pulumi.String("$.detail.jobStatus"),
-// },
-// InputTemplate: pulumi.String("\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \""),
-// },
-// })
-// if err != nil {
-// return err
-// }
-// amplifyAppMaster := pulumi.All(master.Arn,amplifyAppMasterTopic.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-// masterArn := _args[0].(string)
-// amplifyAppMasterTopicArn := _args[1].(string)
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Sid: fmt.Sprintf("Allow_Publish_Events %v", masterArn),
-// Effect: "Allow",
-// Actions: []string{
-// "SNS:Publish",
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "Service",
-// Identifiers: []string{
-// "events.amazonaws.com",
-// },
-// },
-// },
-// Resources: interface{}{
-// amplifyAppMasterTopicArn,
-// },
-// },
-// },
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = sns.NewTopicPolicy(ctx, "amplify_app_master", &sns.TopicPolicyArgs{
-// Arn: amplifyAppMasterTopic.Arn,
-// Policy: pulumi.String(amplifyAppMaster.ApplyT(func(amplifyAppMaster iam.GetPolicyDocumentResult) (*string, error) {
-// return &amplifyAppMaster.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = sns.NewTopicSubscription(ctx, "this", &sns.TopicSubscriptionArgs{
-// Topic: amplifyAppMasterTopic.Arn,
-// Protocol: pulumi.String("email"),
-// Endpoint: pulumi.String("user@acme.com"),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				Name: pulumi.String("app"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			master, err := amplify.NewBranch(ctx, "master", &amplify.BranchArgs{
+//				AppId:              example.ID(),
+//				BranchName:         pulumi.String("master"),
+//				EnableNotification: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// EventBridge Rule for Amplify notifications
+//			amplifyAppMasterEventRule, err := cloudwatch.NewEventRule(ctx, "amplify_app_master", &cloudwatch.EventRuleArgs{
+//				Name: master.BranchName.ApplyT(func(branchName string) (string, error) {
+//					return fmt.Sprintf("amplify-%v-%v-branch-notification", app.Id, branchName), nil
+//				}).(pulumi.StringOutput),
+//				Description: master.BranchName.ApplyT(func(branchName string) (string, error) {
+//					return fmt.Sprintf("AWS Amplify build notifications for :  App: %v Branch: %v", app.Id, branchName), nil
+//				}).(pulumi.StringOutput),
+//				EventPattern: pulumi.All(example.ID(), master.BranchName).ApplyT(func(_args []interface{}) (string, error) {
+//					id := _args[0].(string)
+//					branchName := _args[1].(string)
+//					var _zero string
+//					tmpJSON0, err := json.Marshal(map[string]interface{}{
+//						"detail": map[string]interface{}{
+//							"appId": []string{
+//								id,
+//							},
+//							"branchName": []string{
+//								branchName,
+//							},
+//							"jobStatus": []string{
+//								"SUCCEED",
+//								"FAILED",
+//								"STARTED",
+//							},
+//						},
+//						"detail-type": []string{
+//							"Amplify Deployment Status Change",
+//						},
+//						"source": []string{
+//							"aws.amplify",
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json0 := string(tmpJSON0)
+//					return json0, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// SNS Topic for Amplify notifications
+//			amplifyAppMasterTopic, err := sns.NewTopic(ctx, "amplify_app_master", &sns.TopicArgs{
+//				Name: master.BranchName.ApplyT(func(branchName string) (string, error) {
+//					return fmt.Sprintf("amplify-%v_%v", app.Id, branchName), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewEventTarget(ctx, "amplify_app_master", &cloudwatch.EventTargetArgs{
+//				Rule:     amplifyAppMasterEventRule.Name,
+//				TargetId: master.BranchName,
+//				Arn:      amplifyAppMasterTopic.Arn,
+//				InputTransformer: &cloudwatch.EventTargetInputTransformerArgs{
+//					InputPaths: pulumi.StringMap{
+//						"jobId":  pulumi.String("$.detail.jobId"),
+//						"appId":  pulumi.String("$.detail.appId"),
+//						"region": pulumi.String("$.region"),
+//						"branch": pulumi.String("$.detail.branchName"),
+//						"status": pulumi.String("$.detail.jobStatus"),
+//					},
+//					InputTemplate: pulumi.String("\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \""),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			amplifyAppMaster := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Sid: master.Arn.ApplyT(func(arn string) (string, error) {
+//							return fmt.Sprintf("Allow_Publish_Events %v", arn), nil
+//						}).(pulumi.StringOutput),
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("SNS:Publish"),
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("events.amazonaws.com"),
+//								},
+//							},
+//						},
+//						Resources: pulumi.StringArray{
+//							amplifyAppMasterTopic.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = sns.NewTopicPolicy(ctx, "amplify_app_master", &sns.TopicPolicyArgs{
+//				Arn: amplifyAppMasterTopic.Arn,
+//				Policy: pulumi.String(amplifyAppMaster.ApplyT(func(amplifyAppMaster iam.GetPolicyDocumentResult) (*string, error) {
+//					return &amplifyAppMaster.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sns.NewTopicSubscription(ctx, "this", &sns.TopicSubscriptionArgs{
+//				Topic:    amplifyAppMasterTopic.Arn,
+//				Protocol: pulumi.String("email"),
+//				Endpoint: pulumi.String("user@acme.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -287,12 +287,16 @@ type Branch struct {
 	EnablePerformanceMode pulumi.BoolPtrOutput `pulumi:"enablePerformanceMode"`
 	// Enables pull request previews for this branch.
 	EnablePullRequestPreview pulumi.BoolPtrOutput `pulumi:"enablePullRequestPreview"`
+	// Enables skew protection for the branch.
+	EnableSkewProtection pulumi.BoolPtrOutput `pulumi:"enableSkewProtection"`
 	// Environment variables for the branch.
 	EnvironmentVariables pulumi.StringMapOutput `pulumi:"environmentVariables"`
 	// Framework for the branch.
 	Framework pulumi.StringPtrOutput `pulumi:"framework"`
 	// Amplify environment name for the pull request.
 	PullRequestEnvironmentName pulumi.StringPtrOutput `pulumi:"pullRequestEnvironmentName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Source branch if the branch is a pull request branch.
 	SourceBranch pulumi.StringOutput `pulumi:"sourceBranch"`
 	// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
@@ -300,8 +304,6 @@ type Branch struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Content Time To Live (TTL) for the website in seconds.
 	Ttl pulumi.StringPtrOutput `pulumi:"ttl"`
@@ -380,12 +382,16 @@ type branchState struct {
 	EnablePerformanceMode *bool `pulumi:"enablePerformanceMode"`
 	// Enables pull request previews for this branch.
 	EnablePullRequestPreview *bool `pulumi:"enablePullRequestPreview"`
+	// Enables skew protection for the branch.
+	EnableSkewProtection *bool `pulumi:"enableSkewProtection"`
 	// Environment variables for the branch.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// Framework for the branch.
 	Framework *string `pulumi:"framework"`
 	// Amplify environment name for the pull request.
 	PullRequestEnvironmentName *string `pulumi:"pullRequestEnvironmentName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Source branch if the branch is a pull request branch.
 	SourceBranch *string `pulumi:"sourceBranch"`
 	// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
@@ -393,8 +399,6 @@ type branchState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Content Time To Live (TTL) for the website in seconds.
 	Ttl *string `pulumi:"ttl"`
@@ -431,12 +435,16 @@ type BranchState struct {
 	EnablePerformanceMode pulumi.BoolPtrInput
 	// Enables pull request previews for this branch.
 	EnablePullRequestPreview pulumi.BoolPtrInput
+	// Enables skew protection for the branch.
+	EnableSkewProtection pulumi.BoolPtrInput
 	// Environment variables for the branch.
 	EnvironmentVariables pulumi.StringMapInput
 	// Framework for the branch.
 	Framework pulumi.StringPtrInput
 	// Amplify environment name for the pull request.
 	PullRequestEnvironmentName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Source branch if the branch is a pull request branch.
 	SourceBranch pulumi.StringPtrInput
 	// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
@@ -444,8 +452,6 @@ type BranchState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Content Time To Live (TTL) for the website in seconds.
 	Ttl pulumi.StringPtrInput
@@ -478,12 +484,16 @@ type branchArgs struct {
 	EnablePerformanceMode *bool `pulumi:"enablePerformanceMode"`
 	// Enables pull request previews for this branch.
 	EnablePullRequestPreview *bool `pulumi:"enablePullRequestPreview"`
+	// Enables skew protection for the branch.
+	EnableSkewProtection *bool `pulumi:"enableSkewProtection"`
 	// Environment variables for the branch.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
 	// Framework for the branch.
 	Framework *string `pulumi:"framework"`
 	// Amplify environment name for the pull request.
 	PullRequestEnvironmentName *string `pulumi:"pullRequestEnvironmentName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
 	Stage *string `pulumi:"stage"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -516,12 +526,16 @@ type BranchArgs struct {
 	EnablePerformanceMode pulumi.BoolPtrInput
 	// Enables pull request previews for this branch.
 	EnablePullRequestPreview pulumi.BoolPtrInput
+	// Enables skew protection for the branch.
+	EnableSkewProtection pulumi.BoolPtrInput
 	// Environment variables for the branch.
 	EnvironmentVariables pulumi.StringMapInput
 	// Framework for the branch.
 	Framework pulumi.StringPtrInput
 	// Amplify environment name for the pull request.
 	PullRequestEnvironmentName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
 	Stage pulumi.StringPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -692,6 +706,11 @@ func (o BranchOutput) EnablePullRequestPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Branch) pulumi.BoolPtrOutput { return v.EnablePullRequestPreview }).(pulumi.BoolPtrOutput)
 }
 
+// Enables skew protection for the branch.
+func (o BranchOutput) EnableSkewProtection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Branch) pulumi.BoolPtrOutput { return v.EnableSkewProtection }).(pulumi.BoolPtrOutput)
+}
+
 // Environment variables for the branch.
 func (o BranchOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringMapOutput { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
@@ -705,6 +724,11 @@ func (o BranchOutput) Framework() pulumi.StringPtrOutput {
 // Amplify environment name for the pull request.
 func (o BranchOutput) PullRequestEnvironmentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringPtrOutput { return v.PullRequestEnvironmentName }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o BranchOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Source branch if the branch is a pull request branch.
@@ -723,8 +747,6 @@ func (o BranchOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o BranchOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

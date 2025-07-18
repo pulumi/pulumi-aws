@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +52,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,7 +87,7 @@ type DirectoryBucket struct {
 
 	// ARN of the bucket.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
+	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
 	DataRedundancy pulumi.StringOutput `pulumi:"dataRedundancy"`
@@ -95,6 +95,12 @@ type DirectoryBucket struct {
 	ForceDestroy pulumi.BoolOutput `pulumi:"forceDestroy"`
 	// Bucket location. See Location below for more details.
 	Location DirectoryBucketLocationPtrOutput `pulumi:"location"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
+	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Bucket type. Valid values: `Directory`.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -134,7 +140,7 @@ func GetDirectoryBucket(ctx *pulumi.Context,
 type directoryBucketState struct {
 	// ARN of the bucket.
 	Arn *string `pulumi:"arn"`
-	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
+	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
 	Bucket *string `pulumi:"bucket"`
 	// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
 	DataRedundancy *string `pulumi:"dataRedundancy"`
@@ -142,6 +148,12 @@ type directoryBucketState struct {
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Bucket location. See Location below for more details.
 	Location *DirectoryBucketLocation `pulumi:"location"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
+	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Bucket type. Valid values: `Directory`.
 	Type *string `pulumi:"type"`
 }
@@ -149,7 +161,7 @@ type directoryBucketState struct {
 type DirectoryBucketState struct {
 	// ARN of the bucket.
 	Arn pulumi.StringPtrInput
-	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
+	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
 	Bucket pulumi.StringPtrInput
 	// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
 	DataRedundancy pulumi.StringPtrInput
@@ -157,6 +169,12 @@ type DirectoryBucketState struct {
 	ForceDestroy pulumi.BoolPtrInput
 	// Bucket location. See Location below for more details.
 	Location DirectoryBucketLocationPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
+	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Bucket type. Valid values: `Directory`.
 	Type pulumi.StringPtrInput
 }
@@ -166,7 +184,7 @@ func (DirectoryBucketState) ElementType() reflect.Type {
 }
 
 type directoryBucketArgs struct {
-	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
+	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
 	Bucket string `pulumi:"bucket"`
 	// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
 	DataRedundancy *string `pulumi:"dataRedundancy"`
@@ -174,13 +192,17 @@ type directoryBucketArgs struct {
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Bucket location. See Location below for more details.
 	Location *DirectoryBucketLocation `pulumi:"location"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
+	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// Bucket type. Valid values: `Directory`.
 	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a DirectoryBucket resource.
 type DirectoryBucketArgs struct {
-	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
+	// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
 	Bucket pulumi.StringInput
 	// Data redundancy. Valid values: `SingleAvailabilityZone`, `SingleLocalZone`. The default value depends on the value of the `location.type` attribute.
 	DataRedundancy pulumi.StringPtrInput
@@ -188,6 +210,10 @@ type DirectoryBucketArgs struct {
 	ForceDestroy pulumi.BoolPtrInput
 	// Bucket location. See Location below for more details.
 	Location DirectoryBucketLocationPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
+	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// Bucket type. Valid values: `Directory`.
 	Type pulumi.StringPtrInput
 }
@@ -284,7 +310,7 @@ func (o DirectoryBucketOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.BucketV2` resource to manage general purpose buckets.
+// Name of the bucket. The name must be in the format `[bucketName]--[azid]--x-s3`. Use the `s3.Bucket` resource to manage general purpose buckets.
 func (o DirectoryBucketOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
@@ -302,6 +328,21 @@ func (o DirectoryBucketOutput) ForceDestroy() pulumi.BoolOutput {
 // Bucket location. See Location below for more details.
 func (o DirectoryBucketOutput) Location() DirectoryBucketLocationPtrOutput {
 	return o.ApplyT(func(v *DirectoryBucket) DirectoryBucketLocationPtrOutput { return v.Location }).(DirectoryBucketLocationPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DirectoryBucketOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o DirectoryBucketOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o DirectoryBucketOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 // Bucket type. Valid values: `Directory`.

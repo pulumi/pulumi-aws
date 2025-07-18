@@ -81,6 +81,7 @@ public final class GetUserPoolResult {
      * 
      */
     private String name;
+    private String region;
     private List<GetUserPoolSchemaAttribute> schemaAttributes;
     /**
      * @return The contents of the SMS authentication message.
@@ -214,6 +215,9 @@ public final class GetUserPoolResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     public List<GetUserPoolSchemaAttribute> schemaAttributes() {
         return this.schemaAttributes;
     }
@@ -296,6 +300,7 @@ public final class GetUserPoolResult {
         private String lastModifiedDate;
         private String mfaConfiguration;
         private String name;
+        private String region;
         private List<GetUserPoolSchemaAttribute> schemaAttributes;
         private String smsAuthenticationMessage;
         private String smsConfigurationFailure;
@@ -324,6 +329,7 @@ public final class GetUserPoolResult {
     	      this.lastModifiedDate = defaults.lastModifiedDate;
     	      this.mfaConfiguration = defaults.mfaConfiguration;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.schemaAttributes = defaults.schemaAttributes;
     	      this.smsAuthenticationMessage = defaults.smsAuthenticationMessage;
     	      this.smsConfigurationFailure = defaults.smsConfigurationFailure;
@@ -482,6 +488,14 @@ public final class GetUserPoolResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetUserPoolResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder schemaAttributes(List<GetUserPoolSchemaAttribute> schemaAttributes) {
             if (schemaAttributes == null) {
               throw new MissingRequiredPropertyException("GetUserPoolResult", "schemaAttributes");
@@ -580,6 +594,7 @@ public final class GetUserPoolResult {
             _resultValue.lastModifiedDate = lastModifiedDate;
             _resultValue.mfaConfiguration = mfaConfiguration;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.schemaAttributes = schemaAttributes;
             _resultValue.smsAuthenticationMessage = smsAuthenticationMessage;
             _resultValue.smsConfigurationFailure = smsConfigurationFailure;

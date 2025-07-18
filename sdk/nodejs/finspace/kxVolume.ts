@@ -108,16 +108,20 @@ export class KxVolume extends pulumi.CustomResource {
      */
     public readonly nas1Configurations!: pulumi.Output<outputs.finspace.KxVolumeNas1Configuration[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The status of volume creation.
-     * * `CREATING` – The volume creation is in progress.
-     * * `CREATE_FAILED` – The volume creation has failed.
-     * * `ACTIVE` – The volume is active.
-     * * `UPDATING` – The volume is in the process of being updated.
-     * * `UPDATE_FAILED` – The update action failed.
-     * * `UPDATED` – The volume is successfully updated.
-     * * `DELETING` – The volume is in the process of being deleted.
-     * * `DELETE_FAILED` – The system failed to delete the volume.
-     * * `DELETED` – The volume is successfully deleted.
+     * * `CREATING` - The volume creation is in progress.
+     * * `CREATE_FAILED` - The volume creation has failed.
+     * * `ACTIVE` - The volume is active.
+     * * `UPDATING` - The volume is in the process of being updated.
+     * * `UPDATE_FAILED` - The update action failed.
+     * * `UPDATED` - The volume is successfully updated.
+     * * `DELETING` - The volume is in the process of being deleted.
+     * * `DELETE_FAILED` - The system failed to delete the volume.
+     * * `DELETED` - The volume is successfully deleted.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
@@ -128,9 +132,6 @@ export class KxVolume extends pulumi.CustomResource {
      * A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
@@ -160,6 +161,7 @@ export class KxVolume extends pulumi.CustomResource {
             resourceInputs["lastModifiedTimestamp"] = state ? state.lastModifiedTimestamp : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nas1Configurations"] = state ? state.nas1Configurations : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["statusReason"] = state ? state.statusReason : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -185,6 +187,7 @@ export class KxVolume extends pulumi.CustomResource {
             resourceInputs["environmentId"] = args ? args.environmentId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nas1Configurations"] = args ? args.nas1Configurations : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -245,16 +248,20 @@ export interface KxVolumeState {
      */
     nas1Configurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxVolumeNas1Configuration>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The status of volume creation.
-     * * `CREATING` – The volume creation is in progress.
-     * * `CREATE_FAILED` – The volume creation has failed.
-     * * `ACTIVE` – The volume is active.
-     * * `UPDATING` – The volume is in the process of being updated.
-     * * `UPDATE_FAILED` – The update action failed.
-     * * `UPDATED` – The volume is successfully updated.
-     * * `DELETING` – The volume is in the process of being deleted.
-     * * `DELETE_FAILED` – The system failed to delete the volume.
-     * * `DELETED` – The volume is successfully deleted.
+     * * `CREATING` - The volume creation is in progress.
+     * * `CREATE_FAILED` - The volume creation has failed.
+     * * `ACTIVE` - The volume is active.
+     * * `UPDATING` - The volume is in the process of being updated.
+     * * `UPDATE_FAILED` - The update action failed.
+     * * `UPDATED` - The volume is successfully updated.
+     * * `DELETING` - The volume is in the process of being deleted.
+     * * `DELETE_FAILED` - The system failed to delete the volume.
+     * * `DELETED` - The volume is successfully deleted.
      */
     status?: pulumi.Input<string>;
     /**
@@ -265,9 +272,6 @@ export interface KxVolumeState {
      * A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of file system volume. Currently, FinSpace only supports the `NAS_1` volume type. When you select the `NAS_1` volume type, you must also provide `nas1Configuration`.
@@ -306,6 +310,10 @@ export interface KxVolumeArgs {
      * Specifies the configuration for the Network attached storage (`NAS_1`) file system volume. This parameter is required when `volumeType` is `NAS_1`. See `nas1Configuration` Argument Reference below.
      */
     nas1Configurations?: pulumi.Input<pulumi.Input<inputs.finspace.KxVolumeNas1Configuration>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of key-value pairs to label the volume. You can add up to 50 tags to a volume
      */

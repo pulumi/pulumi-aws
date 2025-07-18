@@ -152,6 +152,21 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * current user status.
      * 
      */
@@ -263,6 +278,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         this.mfaSettingLists = $.mfaSettingLists;
         this.password = $.password;
         this.preferredMfaSetting = $.preferredMfaSetting;
+        this.region = $.region;
         this.status = $.status;
         this.sub = $.sub;
         this.temporaryPassword = $.temporaryPassword;
@@ -484,6 +500,27 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
 
         public Builder preferredMfaSetting(String preferredMfaSetting) {
             return preferredMfaSetting(Output.of(preferredMfaSetting));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

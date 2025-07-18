@@ -94,6 +94,12 @@ namespace Pulumi.Aws.Glue
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -120,6 +126,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -180,6 +192,7 @@ namespace Pulumi.Aws.Glue
         /// A map of physical connection requirements, such as VPC and SecurityGroup.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectionPhysicalConnectionRequirementResult> PhysicalConnectionRequirements;
+        public readonly string Region;
         /// <summary>
         /// Tags assigned to the resource
         /// </summary>
@@ -207,6 +220,8 @@ namespace Pulumi.Aws.Glue
 
             ImmutableArray<Outputs.GetConnectionPhysicalConnectionRequirementResult> physicalConnectionRequirements,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
@@ -219,6 +234,7 @@ namespace Pulumi.Aws.Glue
             MatchCriterias = matchCriterias;
             Name = name;
             PhysicalConnectionRequirements = physicalConnectionRequirements;
+            Region = region;
             Tags = tags;
         }
     }

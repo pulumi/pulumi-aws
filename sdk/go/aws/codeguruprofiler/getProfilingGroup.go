@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codeguruprofiler"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codeguruprofiler"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func LookupProfilingGroup(ctx *pulumi.Context, args *LookupProfilingGroupArgs, o
 type LookupProfilingGroupArgs struct {
 	// The name of the profiling group.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getProfilingGroup.
@@ -70,6 +72,7 @@ type LookupProfilingGroupResult struct {
 	Name      string `pulumi:"name"`
 	// The status of the Profiling Group.
 	ProfilingStatuses []GetProfilingGroupProfilingStatus `pulumi:"profilingStatuses"`
+	Region            string                             `pulumi:"region"`
 	// Mapping of Key-Value tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Timestamp when Profiling Group was updated.
@@ -89,6 +92,8 @@ func LookupProfilingGroupOutput(ctx *pulumi.Context, args LookupProfilingGroupOu
 type LookupProfilingGroupOutputArgs struct {
 	// The name of the profiling group.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupProfilingGroupOutputArgs) ElementType() reflect.Type {
@@ -143,6 +148,10 @@ func (o LookupProfilingGroupResultOutput) Name() pulumi.StringOutput {
 // The status of the Profiling Group.
 func (o LookupProfilingGroupResultOutput) ProfilingStatuses() GetProfilingGroupProfilingStatusArrayOutput {
 	return o.ApplyT(func(v LookupProfilingGroupResult) []GetProfilingGroupProfilingStatus { return v.ProfilingStatuses }).(GetProfilingGroupProfilingStatusArrayOutput)
+}
+
+func (o LookupProfilingGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProfilingGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Mapping of Key-Value tags for the resource.

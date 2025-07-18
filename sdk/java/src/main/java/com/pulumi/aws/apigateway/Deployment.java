@@ -6,7 +6,6 @@ package com.pulumi.aws.apigateway;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.apigateway.DeploymentArgs;
 import com.pulumi.aws.apigateway.inputs.DeploymentState;
-import com.pulumi.aws.apigateway.outputs.DeploymentCanarySettings;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -24,8 +23,6 @@ import javax.annotation.Nullable;
  * * For REST APIs that are configured via OpenAPI specification (`aws.apigateway.RestApi` resource `body` argument), no special dependency setup is needed beyond referencing the  `id` attribute of that resource unless additional resources have further customized the REST API.
  * * When the REST API configuration involves other resources (`aws.apigateway.Integration` resource), the dependency setup can be done with implicit resource references in the `triggers` argument or explicit resource references using the [resource `dependsOn` custom option](https://www.pulumi.com/docs/intro/concepts/resources/#dependson). The `triggers` argument should be preferred over `depends_on`, since `depends_on` can only capture dependency ordering and will not cause the resource to recreate (redeploy the REST API) with upstream configuration changes.
  * 
- * !&gt; **WARNING:** It is recommended to use the `aws.apigateway.Stage` resource instead of managing an API Gateway Stage via the `stage_name` argument of this resource. When this resource is recreated (REST API redeployment) with the `stage_name` configured, the stage is deleted and recreated. This will cause a temporary service interruption, increase provide plan differences, and can require a second apply to recreate any downstream stage configuration such as associated `aws_api_method_settings` resources.
- * 
  * ## Example Usage
  * 
  * ## Import
@@ -35,35 +32,13 @@ import javax.annotation.Nullable;
  * ```sh
  * $ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
  * ```
- * The `stage_name`, `stage_description`, and `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
+ * The `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
  * 
  * The `triggers` argument cannot be imported.
  * 
  */
 @ResourceType(type="aws:apigateway/deployment:Deployment")
 public class Deployment extends com.pulumi.resources.CustomResource {
-    /**
-     * Input configuration for the canary deployment when the deployment is a canary release deployment.
-     * See `canary_settings below.
-     * Has no effect when `stage_name` is not set.
-     * 
-     * @deprecated
-     * canary_settings is deprecated. Use the aws.apigateway.Stage resource instead.
-     * 
-     */
-    @Deprecated /* canary_settings is deprecated. Use the aws.apigateway.Stage resource instead. */
-    @Export(name="canarySettings", refs={DeploymentCanarySettings.class}, tree="[0]")
-    private Output</* @Nullable */ DeploymentCanarySettings> canarySettings;
-
-    /**
-     * @return Input configuration for the canary deployment when the deployment is a canary release deployment.
-     * See `canary_settings below.
-     * Has no effect when `stage_name` is not set.
-     * 
-     */
-    public Output<Optional<DeploymentCanarySettings>> canarySettings() {
-        return Codegen.optional(this.canarySettings);
-    }
     /**
      * Creation date of the deployment
      * 
@@ -79,60 +54,32 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return this.createdDate;
     }
     /**
-     * Description of the deployment
+     * Description of the deployment.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Description of the deployment
+     * @return Description of the deployment.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * **DEPRECATED: Use the `aws.apigateway.Stage` resource instead.** Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
-     * when allowing API Gateway to invoke a Lambda function,
-     * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-     * 
-     * @deprecated
-     * execution_arn is deprecated. Use the aws.apigateway.Stage resource instead.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    @Deprecated /* execution_arn is deprecated. Use the aws.apigateway.Stage resource instead. */
-    @Export(name="executionArn", refs={String.class}, tree="[0]")
-    private Output<String> executionArn;
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
 
     /**
-     * @return **DEPRECATED: Use the `aws.apigateway.Stage` resource instead.** Execution ARN to be used in `lambda_permission`&#39;s `source_arn`
-     * when allowing API Gateway to invoke a Lambda function,
-     * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    public Output<String> executionArn() {
-        return this.executionArn;
-    }
-    /**
-     * **DEPRECATED: Use the `aws.apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
-     * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-     * 
-     * @deprecated
-     * invoke_url is deprecated. Use the aws.apigateway.Stage resource instead.
-     * 
-     */
-    @Deprecated /* invoke_url is deprecated. Use the aws.apigateway.Stage resource instead. */
-    @Export(name="invokeUrl", refs={String.class}, tree="[0]")
-    private Output<String> invokeUrl;
-
-    /**
-     * @return **DEPRECATED: Use the `aws.apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
-     * e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-     * 
-     */
-    public Output<String> invokeUrl() {
-        return this.invokeUrl;
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * REST API identifier.
@@ -149,48 +96,6 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return this.restApi;
     }
     /**
-     * Description to set on the stage managed by the `stage_name` argument.
-     * Has no effect when `stage_name` is not set.
-     * 
-     * @deprecated
-     * stage_description is deprecated. Use the aws.apigateway.Stage resource instead.
-     * 
-     */
-    @Deprecated /* stage_description is deprecated. Use the aws.apigateway.Stage resource instead. */
-    @Export(name="stageDescription", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> stageDescription;
-
-    /**
-     * @return Description to set on the stage managed by the `stage_name` argument.
-     * Has no effect when `stage_name` is not set.
-     * 
-     */
-    public Output<Optional<String>> stageDescription() {
-        return Codegen.optional(this.stageDescription);
-    }
-    /**
-     * Name of the stage to create with this deployment.
-     * If the specified stage already exists, it will be updated to point to the new deployment.
-     * We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
-     * 
-     * @deprecated
-     * stage_name is deprecated. Use the aws.apigateway.Stage resource instead.
-     * 
-     */
-    @Deprecated /* stage_name is deprecated. Use the aws.apigateway.Stage resource instead. */
-    @Export(name="stageName", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> stageName;
-
-    /**
-     * @return Name of the stage to create with this deployment.
-     * If the specified stage already exists, it will be updated to point to the new deployment.
-     * We recommend using the `aws.apigateway.Stage` resource instead to manage stages.
-     * 
-     */
-    public Output<Optional<String>> stageName() {
-        return Codegen.optional(this.stageName);
-    }
-    /**
      * Map of arbitrary keys and values that, when changed, will trigger a redeployment.
      * 
      */
@@ -205,14 +110,14 @@ public class Deployment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.triggers);
     }
     /**
-     * Map to set on the stage managed by the `stage_name` argument.
+     * Map to set on the related stage.
      * 
      */
     @Export(name="variables", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> variables;
 
     /**
-     * @return Map to set on the stage managed by the `stage_name` argument.
+     * @return Map to set on the related stage.
      * 
      */
     public Output<Optional<Map<String,String>>> variables() {

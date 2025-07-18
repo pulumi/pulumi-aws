@@ -53,7 +53,7 @@ class GetHostedZoneIdResult:
 
     @property
     @pulumi.getter
-    def region(self) -> Optional[builtins.str]:
+    def region(self) -> builtins.str:
         return pulumi.get(self, "region")
 
 
@@ -94,8 +94,7 @@ def get_hosted_zone_id(load_balancer_type: Optional[builtins.str] = None,
 
 
     :param builtins.str load_balancer_type: Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
-    :param builtins.str region: Name of the region whose AWS ELB HostedZoneId is desired.
-           Defaults to the region from the AWS provider configuration.
+    :param builtins.str region: Name of the Region whose AWS ELB HostedZoneId is desired. Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['loadBalancerType'] = load_balancer_type
@@ -133,8 +132,7 @@ def get_hosted_zone_id_output(load_balancer_type: Optional[pulumi.Input[Optional
 
 
     :param builtins.str load_balancer_type: Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
-    :param builtins.str region: Name of the region whose AWS ELB HostedZoneId is desired.
-           Defaults to the region from the AWS provider configuration.
+    :param builtins.str region: Name of the Region whose AWS ELB HostedZoneId is desired. Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['loadBalancerType'] = load_balancer_type

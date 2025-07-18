@@ -59,6 +59,10 @@ export class ContributorInsightRule extends pulumi.CustomResource {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of the Contributor Insight Rule.
      */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
@@ -77,9 +81,6 @@ export class ContributorInsightRule extends pulumi.CustomResource {
      */
     public readonly ruleState!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -95,6 +96,7 @@ export class ContributorInsightRule extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContributorInsightRuleState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
             resourceInputs["ruleDefinition"] = state ? state.ruleDefinition : undefined;
             resourceInputs["ruleName"] = state ? state.ruleName : undefined;
@@ -109,6 +111,7 @@ export class ContributorInsightRule extends pulumi.CustomResource {
             if ((!args || args.ruleName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleName'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["ruleDefinition"] = args ? args.ruleDefinition : undefined;
             resourceInputs["ruleName"] = args ? args.ruleName : undefined;
             resourceInputs["ruleState"] = args ? args.ruleState : undefined;
@@ -125,6 +128,10 @@ export class ContributorInsightRule extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ContributorInsightRule resources.
  */
 export interface ContributorInsightRuleState {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the Contributor Insight Rule.
      */
@@ -144,9 +151,6 @@ export interface ContributorInsightRuleState {
      */
     ruleState?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -154,6 +158,10 @@ export interface ContributorInsightRuleState {
  * The set of arguments for constructing a ContributorInsightRule resource.
  */
 export interface ContributorInsightRuleArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
      */

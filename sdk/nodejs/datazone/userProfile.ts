@@ -70,6 +70,10 @@ export class UserProfile extends pulumi.CustomResource {
      */
     public readonly domainIdentifier!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The user profile status.
      */
     public readonly status!: pulumi.Output<string>;
@@ -104,6 +108,7 @@ export class UserProfile extends pulumi.CustomResource {
             const state = argsOrState as UserProfileState | undefined;
             resourceInputs["details"] = state ? state.details : undefined;
             resourceInputs["domainIdentifier"] = state ? state.domainIdentifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -118,6 +123,7 @@ export class UserProfile extends pulumi.CustomResource {
                 throw new Error("Missing required property 'userIdentifier'");
             }
             resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["userIdentifier"] = args ? args.userIdentifier : undefined;
@@ -142,6 +148,10 @@ export interface UserProfileState {
      * The domain identifier.
      */
     domainIdentifier?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The user profile status.
      */
@@ -171,6 +181,10 @@ export interface UserProfileArgs {
      * The domain identifier.
      */
     domainIdentifier: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The user profile status.
      */

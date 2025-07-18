@@ -210,6 +210,12 @@ namespace Pulumi.Aws.Ec2
         [Input("hostId")]
         public string? HostId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
         public Dictionary<string, string> Tags
@@ -246,6 +252,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("hostId")]
         public Input<string>? HostId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -311,6 +323,7 @@ namespace Pulumi.Aws.Ec2
         /// ID of the AWS account that owns the Dedicated Host.
         /// </summary>
         public readonly string OwnerId;
+        public readonly string Region;
         /// <summary>
         /// Number of sockets on the Dedicated Host.
         /// </summary>
@@ -349,6 +362,8 @@ namespace Pulumi.Aws.Ec2
 
             string ownerId,
 
+            string region,
+
             int sockets,
 
             ImmutableDictionary<string, string> tags,
@@ -368,6 +383,7 @@ namespace Pulumi.Aws.Ec2
             InstanceType = instanceType;
             OutpostArn = outpostArn;
             OwnerId = ownerId;
+            Region = region;
             Sockets = sockets;
             Tags = tags;
             TotalVcpus = totalVcpus;

@@ -49,10 +49,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
  * import com.pulumi.aws.cloudfront.Distribution;
  * import com.pulumi.aws.cloudfront.DistributionArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
@@ -79,12 +79,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var b = new BucketV2("b", BucketV2Args.builder()
+ *         var b = new Bucket("b", BucketArgs.builder()
  *             .bucket("mybucket")
  *             .tags(Map.of("Name", "My bucket"))
  *             .build());
  * 
- *         var bAcl = new BucketAclV2("bAcl", BucketAclV2Args.builder()
+ *         var bAcl = new BucketAcl("bAcl", BucketAclArgs.builder()
  *             .bucket(b.id())
  *             .acl("private")
  *             .build());
@@ -370,8 +370,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudfront.Distribution;
  * import com.pulumi.aws.cloudwatch.LogDeliverySource;
  * import com.pulumi.aws.cloudwatch.LogDeliverySourceArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.cloudwatch.LogDeliveryDestination;
  * import com.pulumi.aws.cloudwatch.LogDeliveryDestinationArgs;
  * import com.pulumi.aws.cloudwatch.inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs;
@@ -399,7 +399,7 @@ import javax.annotation.Nullable;
  *             .resourceArn(example.arn())
  *             .build());
  * 
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
+ *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
  *             .bucket("testbucket")
  *             .forceDestroy(true)
  *             .build());
@@ -408,7 +408,7 @@ import javax.annotation.Nullable;
  *             .name("s3-destination")
  *             .outputFormat("parquet")
  *             .deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs.builder()
- *                 .destinationResourceArn(exampleBucketV2.arn().applyValue(_arn -> String.format("%s/prefix", _arn)))
+ *                 .destinationResourceArn(exampleBucket.arn().applyValue(_arn -> String.format("%s/prefix", _arn)))
  *                 .build())
  *             .build());
  * 
@@ -450,6 +450,20 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> aliases() {
         return Codegen.optional(this.aliases);
+    }
+    /**
+     * ID of the Anycast static IP list that is associated with the distribution.
+     * 
+     */
+    @Export(name="anycastIpListId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> anycastIpListId;
+
+    /**
+     * @return ID of the Anycast static IP list that is associated with the distribution.
+     * 
+     */
+    public Output<Optional<String>> anycastIpListId() {
+        return Codegen.optional(this.anycastIpListId);
     }
     /**
      * ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
@@ -804,11 +818,7 @@ public class Distribution extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

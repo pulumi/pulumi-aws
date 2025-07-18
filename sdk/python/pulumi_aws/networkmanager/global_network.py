@@ -66,10 +66,10 @@ class _GlobalNetworkState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering GlobalNetwork resources.
-        :param pulumi.Input[builtins.str] arn: Global Network Amazon Resource Name (ARN)
+        :param pulumi.Input[builtins.str] arn: Global Network ARN.
         :param pulumi.Input[builtins.str] description: Description of the Global Network.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the Global Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -78,16 +78,13 @@ class _GlobalNetworkState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Global Network Amazon Resource Name (ARN)
+        Global Network ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -121,10 +118,9 @@ class _GlobalNetworkState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -143,7 +139,9 @@ class GlobalNetwork(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a global network resource.
+        Manages a Network Manager Global Network.
+
+        Use this resource to create and manage a global network, which is a single private network that acts as the high-level container for your network objects.
 
         ## Example Usage
 
@@ -174,7 +172,9 @@ class GlobalNetwork(pulumi.CustomResource):
                  args: Optional[GlobalNetworkArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a global network resource.
+        Manages a Network Manager Global Network.
+
+        Use this resource to create and manage a global network, which is a single private network that acts as the high-level container for your network objects.
 
         ## Example Usage
 
@@ -244,10 +244,10 @@ class GlobalNetwork(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] arn: Global Network Amazon Resource Name (ARN)
+        :param pulumi.Input[builtins.str] arn: Global Network ARN.
         :param pulumi.Input[builtins.str] description: Description of the Global Network.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the Global Network. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -263,7 +263,7 @@ class GlobalNetwork(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
         """
-        Global Network Amazon Resource Name (ARN)
+        Global Network ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -285,10 +285,9 @@ class GlobalNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

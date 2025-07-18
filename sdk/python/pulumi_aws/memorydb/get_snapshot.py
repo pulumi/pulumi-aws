@@ -28,7 +28,7 @@ class GetSnapshotResult:
     """
     A collection of values returned by getSnapshot.
     """
-    def __init__(__self__, arn=None, cluster_configurations=None, cluster_name=None, id=None, kms_key_arn=None, name=None, source=None, tags=None):
+    def __init__(__self__, arn=None, cluster_configurations=None, cluster_name=None, id=None, kms_key_arn=None, name=None, region=None, source=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -47,6 +47,9 @@ class GetSnapshotResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if source and not isinstance(source, str):
             raise TypeError("Expected argument 'source' to be a str")
         pulumi.set(__self__, "source", source)
@@ -104,6 +107,11 @@ class GetSnapshotResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def source(self) -> builtins.str:
         """
         Whether the snapshot is from an automatic backup (`automated`) or was created manually (`manual`).
@@ -131,11 +139,13 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             id=self.id,
             kms_key_arn=self.kms_key_arn,
             name=self.name,
+            region=self.region,
             source=self.source,
             tags=self.tags)
 
 
 def get_snapshot(name: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
                  tags: Optional[Mapping[str, builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotResult:
     """
@@ -152,10 +162,12 @@ def get_snapshot(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the snapshot.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the snapshot.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:memorydb/getSnapshot:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult).value
@@ -167,9 +179,11 @@ def get_snapshot(name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         source=pulumi.get(__ret__, 'source'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_snapshot_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotResult]:
     """
@@ -186,10 +200,12 @@ def get_snapshot_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the snapshot.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the snapshot.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:memorydb/getSnapshot:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult)
@@ -200,5 +216,6 @@ def get_snapshot_output(name: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         kms_key_arn=pulumi.get(__response__, 'kms_key_arn'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         source=pulumi.get(__response__, 'source'),
         tags=pulumi.get(__response__, 'tags')))

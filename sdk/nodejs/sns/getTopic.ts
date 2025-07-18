@@ -24,6 +24,7 @@ export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sns/getTopic:getTopic", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -36,6 +37,10 @@ export interface GetTopicArgs {
      * Friendly name of the topic to match.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags for the resource.
      */
@@ -55,6 +60,7 @@ export interface GetTopicResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Map of tags for the resource.
      */
@@ -80,6 +86,7 @@ export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sns/getTopic:getTopic", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -92,6 +99,10 @@ export interface GetTopicOutputArgs {
      * Friendly name of the topic to match.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags for the resource.
      */

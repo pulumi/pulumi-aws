@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,6 +61,8 @@ type ClusterIamRoles struct {
 	DefaultIamRoleArn pulumi.StringOutput `pulumi:"defaultIamRoleArn"`
 	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
 	IamRoleArns pulumi.StringArrayOutput `pulumi:"iamRoleArns"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewClusterIamRoles registers a new resource with the given unique name, arguments, and options.
@@ -102,6 +104,8 @@ type clusterIamRolesState struct {
 	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
 	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
 	IamRoleArns []string `pulumi:"iamRoleArns"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ClusterIamRolesState struct {
@@ -111,6 +115,8 @@ type ClusterIamRolesState struct {
 	DefaultIamRoleArn pulumi.StringPtrInput
 	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
 	IamRoleArns pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ClusterIamRolesState) ElementType() reflect.Type {
@@ -124,6 +130,8 @@ type clusterIamRolesArgs struct {
 	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
 	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
 	IamRoleArns []string `pulumi:"iamRoleArns"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ClusterIamRoles resource.
@@ -134,6 +142,8 @@ type ClusterIamRolesArgs struct {
 	DefaultIamRoleArn pulumi.StringPtrInput
 	// A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
 	IamRoleArns pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ClusterIamRolesArgs) ElementType() reflect.Type {
@@ -236,6 +246,11 @@ func (o ClusterIamRolesOutput) DefaultIamRoleArn() pulumi.StringOutput {
 // A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
 func (o ClusterIamRolesOutput) IamRoleArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterIamRoles) pulumi.StringArrayOutput { return v.IamRoleArns }).(pulumi.StringArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ClusterIamRolesOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterIamRoles) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ClusterIamRolesArrayOutput struct{ *pulumi.OutputState }

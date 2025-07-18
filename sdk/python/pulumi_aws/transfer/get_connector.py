@@ -28,7 +28,7 @@ class GetConnectorResult:
     """
     A collection of values returned by getConnector.
     """
-    def __init__(__self__, access_role=None, arn=None, as2_configs=None, id=None, logging_role=None, security_policy_name=None, service_managed_egress_ip_addresses=None, sftp_configs=None, tags=None, url=None):
+    def __init__(__self__, access_role=None, arn=None, as2_configs=None, id=None, logging_role=None, region=None, security_policy_name=None, service_managed_egress_ip_addresses=None, sftp_configs=None, tags=None, url=None):
         if access_role and not isinstance(access_role, str):
             raise TypeError("Expected argument 'access_role' to be a str")
         pulumi.set(__self__, "access_role", access_role)
@@ -44,6 +44,9 @@ class GetConnectorResult:
         if logging_role and not isinstance(logging_role, str):
             raise TypeError("Expected argument 'logging_role' to be a str")
         pulumi.set(__self__, "logging_role", logging_role)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_policy_name and not isinstance(security_policy_name, str):
             raise TypeError("Expected argument 'security_policy_name' to be a str")
         pulumi.set(__self__, "security_policy_name", security_policy_name)
@@ -98,6 +101,11 @@ class GetConnectorResult:
         return pulumi.get(self, "logging_role")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityPolicyName")
     def security_policy_name(self) -> builtins.str:
         """
@@ -149,6 +157,7 @@ class AwaitableGetConnectorResult(GetConnectorResult):
             as2_configs=self.as2_configs,
             id=self.id,
             logging_role=self.logging_role,
+            region=self.region,
             security_policy_name=self.security_policy_name,
             service_managed_egress_ip_addresses=self.service_managed_egress_ip_addresses,
             sftp_configs=self.sftp_configs,
@@ -157,6 +166,7 @@ class AwaitableGetConnectorResult(GetConnectorResult):
 
 
 def get_connector(id: Optional[builtins.str] = None,
+                  region: Optional[builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectorResult:
     """
     Data source for managing an AWS Transfer Family Connector.
@@ -172,9 +182,11 @@ def get_connector(id: Optional[builtins.str] = None,
 
 
     :param builtins.str id: Unique identifier for connector
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:transfer/getConnector:getConnector', __args__, opts=opts, typ=GetConnectorResult).value
 
@@ -184,12 +196,14 @@ def get_connector(id: Optional[builtins.str] = None,
         as2_configs=pulumi.get(__ret__, 'as2_configs'),
         id=pulumi.get(__ret__, 'id'),
         logging_role=pulumi.get(__ret__, 'logging_role'),
+        region=pulumi.get(__ret__, 'region'),
         security_policy_name=pulumi.get(__ret__, 'security_policy_name'),
         service_managed_egress_ip_addresses=pulumi.get(__ret__, 'service_managed_egress_ip_addresses'),
         sftp_configs=pulumi.get(__ret__, 'sftp_configs'),
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
 def get_connector_output(id: Optional[pulumi.Input[builtins.str]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Data source for managing an AWS Transfer Family Connector.
@@ -205,9 +219,11 @@ def get_connector_output(id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str id: Unique identifier for connector
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:transfer/getConnector:getConnector', __args__, opts=opts, typ=GetConnectorResult)
     return __ret__.apply(lambda __response__: GetConnectorResult(
@@ -216,6 +232,7 @@ def get_connector_output(id: Optional[pulumi.Input[builtins.str]] = None,
         as2_configs=pulumi.get(__response__, 'as2_configs'),
         id=pulumi.get(__response__, 'id'),
         logging_role=pulumi.get(__response__, 'logging_role'),
+        region=pulumi.get(__response__, 'region'),
         security_policy_name=pulumi.get(__response__, 'security_policy_name'),
         service_managed_egress_ip_addresses=pulumi.get(__response__, 'service_managed_egress_ip_addresses'),
         sftp_configs=pulumi.get(__response__, 'sftp_configs'),

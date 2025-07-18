@@ -50,6 +50,7 @@ public final class GetUserResult {
      * 
      */
     private List<GetUserPhoneConfig> phoneConfigs;
+    private String region;
     /**
      * @return The identifier of the routing profile for the user.
      * 
@@ -120,6 +121,9 @@ public final class GetUserResult {
     public List<GetUserPhoneConfig> phoneConfigs() {
         return this.phoneConfigs;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The identifier of the routing profile for the user.
      * 
@@ -162,6 +166,7 @@ public final class GetUserResult {
         private String instanceId;
         private String name;
         private List<GetUserPhoneConfig> phoneConfigs;
+        private String region;
         private String routingProfileId;
         private List<String> securityProfileIds;
         private Map<String,String> tags;
@@ -177,6 +182,7 @@ public final class GetUserResult {
     	      this.instanceId = defaults.instanceId;
     	      this.name = defaults.name;
     	      this.phoneConfigs = defaults.phoneConfigs;
+    	      this.region = defaults.region;
     	      this.routingProfileId = defaults.routingProfileId;
     	      this.securityProfileIds = defaults.securityProfileIds;
     	      this.tags = defaults.tags;
@@ -254,6 +260,14 @@ public final class GetUserResult {
             return phoneConfigs(List.of(phoneConfigs));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetUserResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder routingProfileId(String routingProfileId) {
             if (routingProfileId == null) {
               throw new MissingRequiredPropertyException("GetUserResult", "routingProfileId");
@@ -298,6 +312,7 @@ public final class GetUserResult {
             _resultValue.instanceId = instanceId;
             _resultValue.name = name;
             _resultValue.phoneConfigs = phoneConfigs;
+            _resultValue.region = region;
             _resultValue.routingProfileId = routingProfileId;
             _resultValue.securityProfileIds = securityProfileIds;
             _resultValue.tags = tags;

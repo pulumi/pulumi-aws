@@ -8,62 +8,13 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Resource for managing an AWS DataZone Environment Blueprint Configuration.
 //
 // ## Example Usage
-//
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datazone"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := datazone.NewDomain(ctx, "example", &datazone.DomainArgs{
-//				Name:                pulumi.String("example_domain"),
-//				DomainExecutionRole: pulumi.Any(domainExecutionRole.Arn),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			defaultDataLake := datazone.GetEnvironmentBlueprintOutput(ctx, datazone.GetEnvironmentBlueprintOutputArgs{
-//				DomainId: example.ID(),
-//				Name:     pulumi.String("DefaultDataLake"),
-//				Managed:  pulumi.Bool(true),
-//			}, nil)
-//			_, err = datazone.NewEnvironmentBlueprintConfiguration(ctx, "example", &datazone.EnvironmentBlueprintConfigurationArgs{
-//				DomainId: example.ID(),
-//				EnvironmentBlueprintId: pulumi.String(defaultDataLake.ApplyT(func(defaultDataLake datazone.GetEnvironmentBlueprintResult) (*string, error) {
-//					return &defaultDataLake.Id, nil
-//				}).(pulumi.StringPtrOutput)),
-//				EnabledRegions: pulumi.StringArray{
-//					pulumi.String("us-east-1"),
-//				},
-//				RegionalParameters: pulumi.StringMapMap{
-//					"us-east-1": pulumi.StringMap{
-//						"s3Location": pulumi.String("s3://my-amazon-datazone-bucket"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
@@ -87,8 +38,10 @@ type EnvironmentBlueprintConfiguration struct {
 	ManageAccessRoleArn pulumi.StringPtrOutput `pulumi:"manageAccessRoleArn"`
 	// ARN of the provisioning role with which this blueprint is created.
 	ProvisioningRoleArn pulumi.StringPtrOutput `pulumi:"provisioningRoleArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Parameters for each region in which the blueprint is enabled
-	RegionalParameters pulumi.StringMapMapOutput `pulumi:"regionalParameters"`
+	RegionalParameters pulumi.StringMapOutput `pulumi:"regionalParameters"`
 }
 
 // NewEnvironmentBlueprintConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -142,8 +95,10 @@ type environmentBlueprintConfigurationState struct {
 	ManageAccessRoleArn *string `pulumi:"manageAccessRoleArn"`
 	// ARN of the provisioning role with which this blueprint is created.
 	ProvisioningRoleArn *string `pulumi:"provisioningRoleArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Parameters for each region in which the blueprint is enabled
-	RegionalParameters map[string]map[string]string `pulumi:"regionalParameters"`
+	RegionalParameters map[string]string `pulumi:"regionalParameters"`
 }
 
 type EnvironmentBlueprintConfigurationState struct {
@@ -159,8 +114,10 @@ type EnvironmentBlueprintConfigurationState struct {
 	ManageAccessRoleArn pulumi.StringPtrInput
 	// ARN of the provisioning role with which this blueprint is created.
 	ProvisioningRoleArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Parameters for each region in which the blueprint is enabled
-	RegionalParameters pulumi.StringMapMapInput
+	RegionalParameters pulumi.StringMapInput
 }
 
 func (EnvironmentBlueprintConfigurationState) ElementType() reflect.Type {
@@ -180,8 +137,10 @@ type environmentBlueprintConfigurationArgs struct {
 	ManageAccessRoleArn *string `pulumi:"manageAccessRoleArn"`
 	// ARN of the provisioning role with which this blueprint is created.
 	ProvisioningRoleArn *string `pulumi:"provisioningRoleArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Parameters for each region in which the blueprint is enabled
-	RegionalParameters map[string]map[string]string `pulumi:"regionalParameters"`
+	RegionalParameters map[string]string `pulumi:"regionalParameters"`
 }
 
 // The set of arguments for constructing a EnvironmentBlueprintConfiguration resource.
@@ -198,8 +157,10 @@ type EnvironmentBlueprintConfigurationArgs struct {
 	ManageAccessRoleArn pulumi.StringPtrInput
 	// ARN of the provisioning role with which this blueprint is created.
 	ProvisioningRoleArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Parameters for each region in which the blueprint is enabled
-	RegionalParameters pulumi.StringMapMapInput
+	RegionalParameters pulumi.StringMapInput
 }
 
 func (EnvironmentBlueprintConfigurationArgs) ElementType() reflect.Type {
@@ -316,9 +277,14 @@ func (o EnvironmentBlueprintConfigurationOutput) ProvisioningRoleArn() pulumi.St
 	return o.ApplyT(func(v *EnvironmentBlueprintConfiguration) pulumi.StringPtrOutput { return v.ProvisioningRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o EnvironmentBlueprintConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnvironmentBlueprintConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Parameters for each region in which the blueprint is enabled
-func (o EnvironmentBlueprintConfigurationOutput) RegionalParameters() pulumi.StringMapMapOutput {
-	return o.ApplyT(func(v *EnvironmentBlueprintConfiguration) pulumi.StringMapMapOutput { return v.RegionalParameters }).(pulumi.StringMapMapOutput)
+func (o EnvironmentBlueprintConfigurationOutput) RegionalParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EnvironmentBlueprintConfiguration) pulumi.StringMapOutput { return v.RegionalParameters }).(pulumi.StringMapOutput)
 }
 
 type EnvironmentBlueprintConfigurationArrayOutput struct{ *pulumi.OutputState }

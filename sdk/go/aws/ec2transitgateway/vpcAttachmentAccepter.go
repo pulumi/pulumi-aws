@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,6 +65,8 @@ type VpcAttachmentAccepter struct {
 	DnsSupport pulumi.StringOutput `pulumi:"dnsSupport"`
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
 	Ipv6Support pulumi.StringOutput `pulumi:"ipv6Support"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
 	SecurityGroupReferencingSupport pulumi.StringOutput `pulumi:"securityGroupReferencingSupport"`
 	// Identifiers of EC2 Subnets.
@@ -72,8 +74,6 @@ type VpcAttachmentAccepter struct {
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the EC2 Transit Gateway Attachment to manage.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
@@ -128,6 +128,8 @@ type vpcAttachmentAccepterState struct {
 	DnsSupport *string `pulumi:"dnsSupport"`
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
 	Ipv6Support *string `pulumi:"ipv6Support"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
 	SecurityGroupReferencingSupport *string `pulumi:"securityGroupReferencingSupport"`
 	// Identifiers of EC2 Subnets.
@@ -135,8 +137,6 @@ type vpcAttachmentAccepterState struct {
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the EC2 Transit Gateway Attachment to manage.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
@@ -159,6 +159,8 @@ type VpcAttachmentAccepterState struct {
 	DnsSupport pulumi.StringPtrInput
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
 	Ipv6Support pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
 	SecurityGroupReferencingSupport pulumi.StringPtrInput
 	// Identifiers of EC2 Subnets.
@@ -166,8 +168,6 @@ type VpcAttachmentAccepterState struct {
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The ID of the EC2 Transit Gateway Attachment to manage.
 	TransitGatewayAttachmentId pulumi.StringPtrInput
@@ -188,6 +188,8 @@ func (VpcAttachmentAccepterState) ElementType() reflect.Type {
 }
 
 type vpcAttachmentAccepterArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the EC2 Transit Gateway Attachment to manage.
@@ -200,6 +202,8 @@ type vpcAttachmentAccepterArgs struct {
 
 // The set of arguments for constructing a VpcAttachmentAccepter resource.
 type VpcAttachmentAccepterArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The ID of the EC2 Transit Gateway Attachment to manage.
@@ -312,6 +316,11 @@ func (o VpcAttachmentAccepterOutput) Ipv6Support() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringOutput { return v.Ipv6Support }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o VpcAttachmentAccepterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`.
 func (o VpcAttachmentAccepterOutput) SecurityGroupReferencingSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringOutput { return v.SecurityGroupReferencingSupport }).(pulumi.StringOutput)
@@ -328,8 +337,6 @@ func (o VpcAttachmentAccepterOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o VpcAttachmentAccepterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcAttachmentAccepter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codebuild"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codebuild"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codebuild"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codebuild"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -83,7 +83,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codebuild"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codebuild"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -120,6 +120,8 @@ type SourceCredential struct {
 	// repository. Valid values are `BASIC_AUTH`,
 	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
 	AuthType pulumi.StringOutput `pulumi:"authType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The source provider used for this project.
 	ServerType pulumi.StringOutput `pulumi:"serverType"`
 	// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
@@ -183,6 +185,8 @@ type sourceCredentialState struct {
 	// repository. Valid values are `BASIC_AUTH`,
 	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
 	AuthType *string `pulumi:"authType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The source provider used for this project.
 	ServerType *string `pulumi:"serverType"`
 	// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
@@ -201,6 +205,8 @@ type SourceCredentialState struct {
 	// repository. Valid values are `BASIC_AUTH`,
 	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
 	AuthType pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The source provider used for this project.
 	ServerType pulumi.StringPtrInput
 	// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
@@ -221,6 +227,8 @@ type sourceCredentialArgs struct {
 	// repository. Valid values are `BASIC_AUTH`,
 	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
 	AuthType string `pulumi:"authType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The source provider used for this project.
 	ServerType string `pulumi:"serverType"`
 	// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
@@ -238,6 +246,8 @@ type SourceCredentialArgs struct {
 	// repository. Valid values are `BASIC_AUTH`,
 	// `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
 	AuthType pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The source provider used for this project.
 	ServerType pulumi.StringInput
 	// For a GitHub and GitHub Enterprise, this is the personal access token. For Bitbucket, this is the
@@ -346,6 +356,11 @@ func (o SourceCredentialOutput) Arn() pulumi.StringOutput {
 // `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
 func (o SourceCredentialOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SourceCredential) pulumi.StringOutput { return v.AuthType }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o SourceCredentialOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SourceCredential) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The source provider used for this project.

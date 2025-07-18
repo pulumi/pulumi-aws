@@ -29,7 +29,7 @@ class GetAvailabilityZonesResult:
     """
     A collection of values returned by getAvailabilityZones.
     """
-    def __init__(__self__, all_availability_zones=None, exclude_names=None, exclude_zone_ids=None, filters=None, group_names=None, id=None, names=None, state=None, zone_ids=None):
+    def __init__(__self__, all_availability_zones=None, exclude_names=None, exclude_zone_ids=None, filters=None, group_names=None, id=None, names=None, region=None, state=None, zone_ids=None):
         if all_availability_zones and not isinstance(all_availability_zones, bool):
             raise TypeError("Expected argument 'all_availability_zones' to be a bool")
         pulumi.set(__self__, "all_availability_zones", all_availability_zones)
@@ -51,6 +51,9 @@ class GetAvailabilityZonesResult:
         if names and not isinstance(names, list):
             raise TypeError("Expected argument 'names' to be a list")
         pulumi.set(__self__, "names", names)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -104,6 +107,11 @@ class GetAvailabilityZonesResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def state(self) -> Optional[builtins.str]:
         return pulumi.get(self, "state")
 
@@ -129,6 +137,7 @@ class AwaitableGetAvailabilityZonesResult(GetAvailabilityZonesResult):
             group_names=self.group_names,
             id=self.id,
             names=self.names,
+            region=self.region,
             state=self.state,
             zone_ids=self.zone_ids)
 
@@ -137,6 +146,7 @@ def get_availability_zones(all_availability_zones: Optional[builtins.bool] = Non
                            exclude_names: Optional[Sequence[builtins.str]] = None,
                            exclude_zone_ids: Optional[Sequence[builtins.str]] = None,
                            filters: Optional[Sequence[Union['GetAvailabilityZonesFilterArgs', 'GetAvailabilityZonesFilterArgsDict']]] = None,
+                           region: Optional[builtins.str] = None,
                            state: Optional[builtins.str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAvailabilityZonesResult:
     """
@@ -199,6 +209,7 @@ def get_availability_zones(all_availability_zones: Optional[builtins.bool] = Non
     :param Sequence[builtins.str] exclude_names: List of Availability Zone names to exclude.
     :param Sequence[builtins.str] exclude_zone_ids: List of Availability Zone IDs to exclude.
     :param Sequence[Union['GetAvailabilityZonesFilterArgs', 'GetAvailabilityZonesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: Allows to filter list of Availability Zones based on their
            current state. Can be either `"available"`, `"information"`, `"impaired"` or
            `"unavailable"`. By default the list includes a complete set of Availability Zones
@@ -209,6 +220,7 @@ def get_availability_zones(all_availability_zones: Optional[builtins.bool] = Non
     __args__['excludeNames'] = exclude_names
     __args__['excludeZoneIds'] = exclude_zone_ids
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['state'] = state
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:index/getAvailabilityZones:getAvailabilityZones', __args__, opts=opts, typ=GetAvailabilityZonesResult).value
@@ -221,12 +233,14 @@ def get_availability_zones(all_availability_zones: Optional[builtins.bool] = Non
         group_names=pulumi.get(__ret__, 'group_names'),
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'),
+        region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'),
         zone_ids=pulumi.get(__ret__, 'zone_ids'))
 def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                   exclude_names: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                                   exclude_zone_ids: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                                   filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAvailabilityZonesFilterArgs', 'GetAvailabilityZonesFilterArgsDict']]]]] = None,
+                                  region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                   state: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAvailabilityZonesResult]:
     """
@@ -289,6 +303,7 @@ def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[
     :param Sequence[builtins.str] exclude_names: List of Availability Zone names to exclude.
     :param Sequence[builtins.str] exclude_zone_ids: List of Availability Zone IDs to exclude.
     :param Sequence[Union['GetAvailabilityZonesFilterArgs', 'GetAvailabilityZonesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: Allows to filter list of Availability Zones based on their
            current state. Can be either `"available"`, `"information"`, `"impaired"` or
            `"unavailable"`. By default the list includes a complete set of Availability Zones
@@ -299,6 +314,7 @@ def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[
     __args__['excludeNames'] = exclude_names
     __args__['excludeZoneIds'] = exclude_zone_ids
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['state'] = state
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:index/getAvailabilityZones:getAvailabilityZones', __args__, opts=opts, typ=GetAvailabilityZonesResult)
@@ -310,5 +326,6 @@ def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[
         group_names=pulumi.get(__response__, 'group_names'),
         id=pulumi.get(__response__, 'id'),
         names=pulumi.get(__response__, 'names'),
+        region=pulumi.get(__response__, 'region'),
         state=pulumi.get(__response__, 'state'),
         zone_ids=pulumi.get(__response__, 'zone_ids')))

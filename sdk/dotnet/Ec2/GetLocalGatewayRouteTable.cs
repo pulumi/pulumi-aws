@@ -135,6 +135,12 @@ namespace Pulumi.Aws.Ec2
         public string? OutpostArn { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// State of the local gateway route table.
         /// </summary>
         [Input("state")]
@@ -192,6 +198,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// State of the local gateway route table.
         /// </summary>
         [Input("state")]
@@ -232,6 +244,7 @@ namespace Pulumi.Aws.Ec2
         public readonly string LocalGatewayId;
         public readonly string LocalGatewayRouteTableId;
         public readonly string OutpostArn;
+        public readonly string Region;
         public readonly string State;
         public readonly ImmutableDictionary<string, string> Tags;
 
@@ -247,6 +260,8 @@ namespace Pulumi.Aws.Ec2
 
             string outpostArn,
 
+            string region,
+
             string state,
 
             ImmutableDictionary<string, string> tags)
@@ -256,6 +271,7 @@ namespace Pulumi.Aws.Ec2
             LocalGatewayId = localGatewayId;
             LocalGatewayRouteTableId = localGatewayRouteTableId;
             OutpostArn = outpostArn;
+            Region = region;
             State = state;
             Tags = tags;
         }

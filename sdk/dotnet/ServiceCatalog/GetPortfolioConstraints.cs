@@ -113,6 +113,12 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("productId")]
         public string? ProductId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetPortfolioConstraintsArgs()
         {
         }
@@ -141,6 +147,12 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("productId")]
         public Input<string>? ProductId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetPortfolioConstraintsInvokeArgs()
         {
         }
@@ -168,6 +180,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Identifier of the product the constraint applies to. A constraint applies to a specific instance of a product within a certain portfolio.
         /// </summary>
         public readonly string? ProductId;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetPortfolioConstraintsResult(
@@ -179,13 +192,16 @@ namespace Pulumi.Aws.ServiceCatalog
 
             string portfolioId,
 
-            string? productId)
+            string? productId,
+
+            string region)
         {
             AcceptLanguage = acceptLanguage;
             Details = details;
             Id = id;
             PortfolioId = portfolioId;
             ProductId = productId;
+            Region = region;
         }
     }
 }

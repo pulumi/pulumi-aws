@@ -74,7 +74,7 @@ class AwaitableGetGlobalNetworksResult(GetGlobalNetworksResult):
 def get_global_networks(tags: Optional[Mapping[str, builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalNetworksResult:
     """
-    Retrieve information about global networks.
+    Provides details about existing Network Manager global networks.
 
     ## Example Usage
 
@@ -102,7 +102,7 @@ def get_global_networks(tags: Optional[Mapping[str, builtins.str]] = None,
 def get_global_networks_output(tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalNetworksResult]:
     """
-    Retrieve information about global networks.
+    Provides details about existing Network Manager global networks.
 
     ## Example Usage
 

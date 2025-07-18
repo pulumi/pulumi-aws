@@ -29,7 +29,7 @@ class GetNetworkInsightsAnalysisResult:
     """
     A collection of values returned by getNetworkInsightsAnalysis.
     """
-    def __init__(__self__, alternate_path_hints=None, arn=None, explanations=None, filter_in_arns=None, filters=None, forward_path_components=None, id=None, network_insights_analysis_id=None, network_insights_path_id=None, path_found=None, return_path_components=None, start_date=None, status=None, status_message=None, tags=None, warning_message=None):
+    def __init__(__self__, alternate_path_hints=None, arn=None, explanations=None, filter_in_arns=None, filters=None, forward_path_components=None, id=None, network_insights_analysis_id=None, network_insights_path_id=None, path_found=None, region=None, return_path_components=None, start_date=None, status=None, status_message=None, tags=None, warning_message=None):
         if alternate_path_hints and not isinstance(alternate_path_hints, list):
             raise TypeError("Expected argument 'alternate_path_hints' to be a list")
         pulumi.set(__self__, "alternate_path_hints", alternate_path_hints)
@@ -60,6 +60,9 @@ class GetNetworkInsightsAnalysisResult:
         if path_found and not isinstance(path_found, bool):
             raise TypeError("Expected argument 'path_found' to be a bool")
         pulumi.set(__self__, "path_found", path_found)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if return_path_components and not isinstance(return_path_components, list):
             raise TypeError("Expected argument 'return_path_components' to be a list")
         pulumi.set(__self__, "return_path_components", return_path_components)
@@ -154,6 +157,11 @@ class GetNetworkInsightsAnalysisResult:
         return pulumi.get(self, "path_found")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="returnPathComponents")
     def return_path_components(self) -> Sequence['outputs.GetNetworkInsightsAnalysisReturnPathComponentResult']:
         """
@@ -215,6 +223,7 @@ class AwaitableGetNetworkInsightsAnalysisResult(GetNetworkInsightsAnalysisResult
             network_insights_analysis_id=self.network_insights_analysis_id,
             network_insights_path_id=self.network_insights_path_id,
             path_found=self.path_found,
+            region=self.region,
             return_path_components=self.return_path_components,
             start_date=self.start_date,
             status=self.status,
@@ -225,6 +234,7 @@ class AwaitableGetNetworkInsightsAnalysisResult(GetNetworkInsightsAnalysisResult
 
 def get_network_insights_analysis(filters: Optional[Sequence[Union['GetNetworkInsightsAnalysisFilterArgs', 'GetNetworkInsightsAnalysisFilterArgsDict']]] = None,
                                   network_insights_analysis_id: Optional[builtins.str] = None,
+                                  region: Optional[builtins.str] = None,
                                   tags: Optional[Mapping[str, builtins.str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInsightsAnalysisResult:
     """
@@ -246,10 +256,12 @@ def get_network_insights_analysis(filters: Optional[Sequence[Union['GetNetworkIn
            Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
            whose data will be exported as attributes.
     :param builtins.str network_insights_analysis_id: ID of the Network Insights Analysis to select.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['networkInsightsAnalysisId'] = network_insights_analysis_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis', __args__, opts=opts, typ=GetNetworkInsightsAnalysisResult).value
@@ -265,6 +277,7 @@ def get_network_insights_analysis(filters: Optional[Sequence[Union['GetNetworkIn
         network_insights_analysis_id=pulumi.get(__ret__, 'network_insights_analysis_id'),
         network_insights_path_id=pulumi.get(__ret__, 'network_insights_path_id'),
         path_found=pulumi.get(__ret__, 'path_found'),
+        region=pulumi.get(__ret__, 'region'),
         return_path_components=pulumi.get(__ret__, 'return_path_components'),
         start_date=pulumi.get(__ret__, 'start_date'),
         status=pulumi.get(__ret__, 'status'),
@@ -273,6 +286,7 @@ def get_network_insights_analysis(filters: Optional[Sequence[Union['GetNetworkIn
         warning_message=pulumi.get(__ret__, 'warning_message'))
 def get_network_insights_analysis_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkInsightsAnalysisFilterArgs', 'GetNetworkInsightsAnalysisFilterArgsDict']]]]] = None,
                                          network_insights_analysis_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                          tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInsightsAnalysisResult]:
     """
@@ -294,10 +308,12 @@ def get_network_insights_analysis_output(filters: Optional[pulumi.Input[Optional
            Network Insights Analyzes. The given filters must match exactly one Network Insights Analysis
            whose data will be exported as attributes.
     :param builtins.str network_insights_analysis_id: ID of the Network Insights Analysis to select.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['networkInsightsAnalysisId'] = network_insights_analysis_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getNetworkInsightsAnalysis:getNetworkInsightsAnalysis', __args__, opts=opts, typ=GetNetworkInsightsAnalysisResult)
@@ -312,6 +328,7 @@ def get_network_insights_analysis_output(filters: Optional[pulumi.Input[Optional
         network_insights_analysis_id=pulumi.get(__response__, 'network_insights_analysis_id'),
         network_insights_path_id=pulumi.get(__response__, 'network_insights_path_id'),
         path_found=pulumi.get(__response__, 'path_found'),
+        region=pulumi.get(__response__, 'region'),
         return_path_components=pulumi.get(__response__, 'return_path_components'),
         start_date=pulumi.get(__response__, 'start_date'),
         status=pulumi.get(__response__, 'status'),

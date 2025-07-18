@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var s3 = Aws.Ec2.GetPrefixList.Invoke(new()
     ///     {
-    ///         Name = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.s3",
+    ///         Name = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Region)}.s3",
     ///     });
     /// 
     ///     var s3GatewayEgress = new Aws.Ec2.SecurityGroupRule("s3_gateway_egress", new()
@@ -216,6 +216,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Protocol { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Security group to apply this rule to.
         /// </summary>
         [Output("securityGroupId")]
@@ -250,8 +257,6 @@ namespace Pulumi.Aws.Ec2
         /// or `egress` (outbound).
         /// 
         /// The following arguments are optional:
-        /// 
-        /// &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -357,6 +362,13 @@ namespace Pulumi.Aws.Ec2
         public InputUnion<string, Pulumi.Aws.Ec2.ProtocolType> Protocol { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Security group to apply this rule to.
         /// </summary>
         [Input("securityGroupId", required: true)]
@@ -385,8 +397,6 @@ namespace Pulumi.Aws.Ec2
         /// or `egress` (outbound).
         /// 
         /// The following arguments are optional:
-        /// 
-        /// &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -454,6 +464,13 @@ namespace Pulumi.Aws.Ec2
         public InputUnion<string, Pulumi.Aws.Ec2.ProtocolType>? Protocol { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Security group to apply this rule to.
         /// </summary>
         [Input("securityGroupId")]
@@ -488,8 +505,6 @@ namespace Pulumi.Aws.Ec2
         /// or `egress` (outbound).
         /// 
         /// The following arguments are optional:
-        /// 
-        /// &gt; **Note** Although `cidr_blocks`, `ipv6_cidr_blocks`, `prefix_list_ids`, and `source_security_group_id` are all marked as optional, you _must_ provide one of them in order to configure the source of the traffic.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

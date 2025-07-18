@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -92,6 +92,8 @@ type LookupRouteArgs struct {
 	NatGatewayId *string `pulumi:"natGatewayId"`
 	// Network Interface ID of the Route belonging to the Route Table.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the specific Route Table containing the Route entry.
 	RouteTableId string `pulumi:"routeTableId"`
 	// EC2 Transit Gateway ID of the Route belonging to the Route Table.
@@ -117,6 +119,7 @@ type LookupRouteResult struct {
 	LocalGatewayId         string `pulumi:"localGatewayId"`
 	NatGatewayId           string `pulumi:"natGatewayId"`
 	NetworkInterfaceId     string `pulumi:"networkInterfaceId"`
+	Region                 string `pulumi:"region"`
 	RouteTableId           string `pulumi:"routeTableId"`
 	TransitGatewayId       string `pulumi:"transitGatewayId"`
 	VpcPeeringConnectionId string `pulumi:"vpcPeeringConnectionId"`
@@ -155,6 +158,8 @@ type LookupRouteOutputArgs struct {
 	NatGatewayId pulumi.StringPtrInput `pulumi:"natGatewayId"`
 	// Network Interface ID of the Route belonging to the Route Table.
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the specific Route Table containing the Route entry.
 	RouteTableId pulumi.StringInput `pulumi:"routeTableId"`
 	// EC2 Transit Gateway ID of the Route belonging to the Route Table.
@@ -231,6 +236,10 @@ func (o LookupRouteResultOutput) NatGatewayId() pulumi.StringOutput {
 
 func (o LookupRouteResultOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRouteResult) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+}
+
+func (o LookupRouteResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRouteResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupRouteResultOutput) RouteTableId() pulumi.StringOutput {

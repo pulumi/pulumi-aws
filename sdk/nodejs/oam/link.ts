@@ -131,6 +131,10 @@ export class Link extends pulumi.CustomResource {
      */
     public /*out*/ readonly linkId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Types of data that the source account shares with the monitoring account.
      */
     public readonly resourceTypes!: pulumi.Output<string[]>;
@@ -148,9 +152,6 @@ export class Link extends pulumi.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -171,6 +172,7 @@ export class Link extends pulumi.CustomResource {
             resourceInputs["labelTemplate"] = state ? state.labelTemplate : undefined;
             resourceInputs["linkConfiguration"] = state ? state.linkConfiguration : undefined;
             resourceInputs["linkId"] = state ? state.linkId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceTypes"] = state ? state.resourceTypes : undefined;
             resourceInputs["sinkArn"] = state ? state.sinkArn : undefined;
             resourceInputs["sinkIdentifier"] = state ? state.sinkIdentifier : undefined;
@@ -189,6 +191,7 @@ export class Link extends pulumi.CustomResource {
             }
             resourceInputs["labelTemplate"] = args ? args.labelTemplate : undefined;
             resourceInputs["linkConfiguration"] = args ? args.linkConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceTypes"] = args ? args.resourceTypes : undefined;
             resourceInputs["sinkIdentifier"] = args ? args.sinkIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -228,6 +231,10 @@ export interface LinkState {
      */
     linkId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Types of data that the source account shares with the monitoring account.
      */
     resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
@@ -245,9 +252,6 @@ export interface LinkState {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -263,6 +267,10 @@ export interface LinkArgs {
      * Configuration for creating filters that specify that only some metric namespaces or log groups are to be shared from the source account to the monitoring account. See `linkConfiguration` Block for details.
      */
     linkConfiguration?: pulumi.Input<inputs.oam.LinkLinkConfiguration>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Types of data that the source account shares with the monitoring account.
      */

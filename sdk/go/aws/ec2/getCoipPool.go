@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,6 +33,8 @@ type GetCoipPoolArgs struct {
 	LocalGatewayRouteTableId *string `pulumi:"localGatewayRouteTableId"`
 	// ID of the specific COIP Pool to retrieve.
 	PoolId *string `pulumi:"poolId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired COIP Pool.
 	//
@@ -52,6 +54,7 @@ type GetCoipPoolResult struct {
 	// Set of CIDR blocks in pool
 	PoolCidrs []string          `pulumi:"poolCidrs"`
 	PoolId    string            `pulumi:"poolId"`
+	Region    string            `pulumi:"region"`
 	Tags      map[string]string `pulumi:"tags"`
 }
 
@@ -71,6 +74,8 @@ type GetCoipPoolOutputArgs struct {
 	LocalGatewayRouteTableId pulumi.StringPtrInput `pulumi:"localGatewayRouteTableId"`
 	// ID of the specific COIP Pool to retrieve.
 	PoolId pulumi.StringPtrInput `pulumi:"poolId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired COIP Pool.
 	//
@@ -123,6 +128,10 @@ func (o GetCoipPoolResultOutput) PoolCidrs() pulumi.StringArrayOutput {
 
 func (o GetCoipPoolResultOutput) PoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCoipPoolResult) string { return v.PoolId }).(pulumi.StringOutput)
+}
+
+func (o GetCoipPoolResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoipPoolResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetCoipPoolResultOutput) Tags() pulumi.StringMapOutput {

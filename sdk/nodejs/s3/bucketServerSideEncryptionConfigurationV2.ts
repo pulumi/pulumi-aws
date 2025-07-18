@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a S3 bucket server-side encryption configuration resource.
  *
- * > **NOTE:** Destroying an `aws.s3.BucketServerSideEncryptionConfigurationV2` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
+ * > **NOTE:** Destroying an `aws.s3.BucketServerSideEncryptionConfiguration` resource resets the bucket to [Amazon S3 bucket default encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-encryption-faq.html).
  *
  * ## Example Usage
  *
@@ -22,8 +22,8 @@ import * as utilities from "../utilities";
  *     description: "This key is used to encrypt bucket objects",
  *     deletionWindowInDays: 10,
  * });
- * const mybucket = new aws.s3.BucketV2("mybucket", {bucket: "mybucket"});
- * const example = new aws.s3.BucketServerSideEncryptionConfigurationV2("example", {
+ * const mybucket = new aws.s3.Bucket("mybucket", {bucket: "mybucket"});
+ * const example = new aws.s3.BucketServerSideEncryptionConfiguration("example", {
  *     bucket: mybucket.id,
  *     rules: [{
  *         applyServerSideEncryptionByDefault: {
@@ -50,6 +50,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2 example bucket-name,123456789012
  * ```
+ *
+ * @deprecated aws.s3/bucketserversideencryptionconfigurationv2.BucketServerSideEncryptionConfigurationV2 has been deprecated in favor of aws.s3/bucketserversideencryptionconfiguration.BucketServerSideEncryptionConfiguration
  */
 export class BucketServerSideEncryptionConfigurationV2 extends pulumi.CustomResource {
     /**
@@ -62,6 +64,7 @@ export class BucketServerSideEncryptionConfigurationV2 extends pulumi.CustomReso
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BucketServerSideEncryptionConfigurationV2State, opts?: pulumi.CustomResourceOptions): BucketServerSideEncryptionConfigurationV2 {
+        pulumi.log.warn("BucketServerSideEncryptionConfigurationV2 is deprecated: aws.s3/bucketserversideencryptionconfigurationv2.BucketServerSideEncryptionConfigurationV2 has been deprecated in favor of aws.s3/bucketserversideencryptionconfiguration.BucketServerSideEncryptionConfiguration")
         return new BucketServerSideEncryptionConfigurationV2(name, <any>state, { ...opts, id: id });
     }
 
@@ -88,6 +91,10 @@ export class BucketServerSideEncryptionConfigurationV2 extends pulumi.CustomReso
      */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      */
     public readonly rules!: pulumi.Output<outputs.s3.BucketServerSideEncryptionConfigurationV2Rule[]>;
@@ -99,14 +106,18 @@ export class BucketServerSideEncryptionConfigurationV2 extends pulumi.CustomReso
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.s3/bucketserversideencryptionconfigurationv2.BucketServerSideEncryptionConfigurationV2 has been deprecated in favor of aws.s3/bucketserversideencryptionconfiguration.BucketServerSideEncryptionConfiguration */
     constructor(name: string, args: BucketServerSideEncryptionConfigurationV2Args, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.s3/bucketserversideencryptionconfigurationv2.BucketServerSideEncryptionConfigurationV2 has been deprecated in favor of aws.s3/bucketserversideencryptionconfiguration.BucketServerSideEncryptionConfiguration */
     constructor(name: string, argsOrState?: BucketServerSideEncryptionConfigurationV2Args | BucketServerSideEncryptionConfigurationV2State, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BucketServerSideEncryptionConfigurationV2 is deprecated: aws.s3/bucketserversideencryptionconfigurationv2.BucketServerSideEncryptionConfigurationV2 has been deprecated in favor of aws.s3/bucketserversideencryptionconfiguration.BucketServerSideEncryptionConfiguration")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketServerSideEncryptionConfigurationV2State | undefined;
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rules"] = state ? state.rules : undefined;
         } else {
             const args = argsOrState as BucketServerSideEncryptionConfigurationV2Args | undefined;
@@ -118,9 +129,12 @@ export class BucketServerSideEncryptionConfigurationV2 extends pulumi.CustomReso
             }
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "aws:s3/bucketServerSideEncryptionConfigurationV2:BucketServerSideEncryptionConfigurationV2" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BucketServerSideEncryptionConfigurationV2.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -137,6 +151,10 @@ export interface BucketServerSideEncryptionConfigurationV2State {
      * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      */
@@ -155,6 +173,10 @@ export interface BucketServerSideEncryptionConfigurationV2Args {
      * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Set of server-side encryption configuration rules. See below. Currently, only a single rule is supported.
      */

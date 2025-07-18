@@ -8,13 +8,13 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides an S3 bucket request payment configuration resource. For more information, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html).
 //
-// > **NOTE:** Destroying an `s3.BucketRequestPaymentConfigurationV2` resource resets the bucket's `payer` to the S3 default: the bucket owner.
+// > **NOTE:** Destroying an `s3.BucketRequestPaymentConfiguration` resource resets the bucket's `payer` to the S3 default: the bucket owner.
 //
 // > This resource cannot be used with S3 directory buckets.
 //
@@ -25,14 +25,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.NewBucketRequestPaymentConfigurationV2(ctx, "example", &s3.BucketRequestPaymentConfigurationV2Args{
+//			_, err := s3.NewBucketRequestPaymentConfiguration(ctx, "example", &s3.BucketRequestPaymentConfigurationArgs{
 //				Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
 //				Payer:  pulumi.String("Requester"),
 //			})
@@ -61,6 +61,8 @@ import (
 // ```sh
 // $ pulumi import aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2 example bucket-name,123456789012
 // ```
+//
+// Deprecated: aws.s3/bucketrequestpaymentconfigurationv2.BucketRequestPaymentConfigurationV2 has been deprecated in favor of aws.s3/bucketrequestpaymentconfiguration.BucketRequestPaymentConfiguration
 type BucketRequestPaymentConfigurationV2 struct {
 	pulumi.CustomResourceState
 
@@ -70,6 +72,8 @@ type BucketRequestPaymentConfigurationV2 struct {
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringOutput `pulumi:"payer"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewBucketRequestPaymentConfigurationV2 registers a new resource with the given unique name, arguments, and options.
@@ -85,6 +89,12 @@ func NewBucketRequestPaymentConfigurationV2(ctx *pulumi.Context,
 	if args.Payer == nil {
 		return nil, errors.New("invalid value for required argument 'Payer'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2"),
+		},
+	})
+	opts = append(opts, aliases)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketRequestPaymentConfigurationV2
 	err := ctx.RegisterResource("aws:s3/bucketRequestPaymentConfigurationV2:BucketRequestPaymentConfigurationV2", name, args, &resource, opts...)
@@ -114,6 +124,8 @@ type bucketRequestPaymentConfigurationV2State struct {
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer *string `pulumi:"payer"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type BucketRequestPaymentConfigurationV2State struct {
@@ -123,6 +135,8 @@ type BucketRequestPaymentConfigurationV2State struct {
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BucketRequestPaymentConfigurationV2State) ElementType() reflect.Type {
@@ -136,6 +150,8 @@ type bucketRequestPaymentConfigurationV2Args struct {
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer string `pulumi:"payer"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a BucketRequestPaymentConfigurationV2 resource.
@@ -146,6 +162,8 @@ type BucketRequestPaymentConfigurationV2Args struct {
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (BucketRequestPaymentConfigurationV2Args) ElementType() reflect.Type {
@@ -248,6 +266,11 @@ func (o BucketRequestPaymentConfigurationV2Output) ExpectedBucketOwner() pulumi.
 // Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 func (o BucketRequestPaymentConfigurationV2Output) Payer() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketRequestPaymentConfigurationV2) pulumi.StringOutput { return v.Payer }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o BucketRequestPaymentConfigurationV2Output) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketRequestPaymentConfigurationV2) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type BucketRequestPaymentConfigurationV2ArrayOutput struct{ *pulumi.OutputState }

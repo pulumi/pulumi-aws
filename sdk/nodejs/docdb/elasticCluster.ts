@@ -105,6 +105,10 @@ export class ElasticCluster extends pulumi.CustomResource {
      */
     public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
      */
     public readonly shardCapacity!: pulumi.Output<number>;
@@ -122,9 +126,6 @@ export class ElasticCluster extends pulumi.CustomResource {
      * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.docdb.ElasticClusterTimeouts | undefined>;
     /**
@@ -158,6 +159,7 @@ export class ElasticCluster extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["shardCapacity"] = state ? state.shardCapacity : undefined;
             resourceInputs["shardCount"] = state ? state.shardCount : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -190,6 +192,7 @@ export class ElasticCluster extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["shardCapacity"] = args ? args.shardCapacity : undefined;
             resourceInputs["shardCount"] = args ? args.shardCount : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -252,6 +255,10 @@ export interface ElasticClusterState {
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
      */
     shardCapacity?: pulumi.Input<number>;
@@ -269,9 +276,6 @@ export interface ElasticClusterState {
      * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.docdb.ElasticClusterTimeouts>;
     /**
@@ -319,6 +323,10 @@ export interface ElasticClusterArgs {
      * Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
      */

@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Location
         [Input("calculatorName", required: true)]
         public string CalculatorName { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.Location
         /// </summary>
         [Input("calculatorName", required: true)]
         public Input<string> CalculatorName { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -162,6 +174,7 @@ namespace Pulumi.Aws.Location
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// Key-value map of resource tags for the route calculator.
         /// </summary>
@@ -185,6 +198,8 @@ namespace Pulumi.Aws.Location
 
             string id,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             string updateTime)
@@ -195,6 +210,7 @@ namespace Pulumi.Aws.Location
             DataSource = dataSource;
             Description = description;
             Id = id;
+            Region = region;
             Tags = tags;
             UpdateTime = updateTime;
         }

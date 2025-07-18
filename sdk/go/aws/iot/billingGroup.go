@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,9 +62,10 @@ type BillingGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Billing Group properties. Defined below.
 	Properties BillingGroupPropertiesPtrOutput `pulumi:"properties"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value mapping of resource tags
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The current version of the Billing Group record in the registry.
 	Version pulumi.IntOutput `pulumi:"version"`
@@ -107,9 +108,10 @@ type billingGroupState struct {
 	Name *string `pulumi:"name"`
 	// The Billing Group properties. Defined below.
 	Properties *BillingGroupProperties `pulumi:"properties"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The current version of the Billing Group record in the registry.
 	Version *int `pulumi:"version"`
@@ -123,9 +125,10 @@ type BillingGroupState struct {
 	Name pulumi.StringPtrInput
 	// The Billing Group properties. Defined below.
 	Properties BillingGroupPropertiesPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The current version of the Billing Group record in the registry.
 	Version pulumi.IntPtrInput
@@ -140,6 +143,8 @@ type billingGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// The Billing Group properties. Defined below.
 	Properties *BillingGroupProperties `pulumi:"properties"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -150,6 +155,8 @@ type BillingGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// The Billing Group properties. Defined below.
 	Properties BillingGroupPropertiesPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags
 	Tags pulumi.StringMapInput
 }
@@ -260,12 +267,16 @@ func (o BillingGroupOutput) Properties() BillingGroupPropertiesPtrOutput {
 	return o.ApplyT(func(v *BillingGroup) BillingGroupPropertiesPtrOutput { return v.Properties }).(BillingGroupPropertiesPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o BillingGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BillingGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Key-value mapping of resource tags
 func (o BillingGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BillingGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o BillingGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BillingGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

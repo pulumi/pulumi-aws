@@ -80,6 +80,21 @@ public final class GetPatchBaselinePlainArgs extends com.pulumi.resources.Invoke
         return this.owner;
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetPatchBaselinePlainArgs() {}
 
     private GetPatchBaselinePlainArgs(GetPatchBaselinePlainArgs $) {
@@ -87,6 +102,7 @@ public final class GetPatchBaselinePlainArgs extends com.pulumi.resources.Invoke
         this.namePrefix = $.namePrefix;
         this.operatingSystem = $.operatingSystem;
         this.owner = $.owner;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -150,6 +166,17 @@ public final class GetPatchBaselinePlainArgs extends com.pulumi.resources.Invoke
          */
         public Builder owner(String owner) {
             $.owner = owner;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

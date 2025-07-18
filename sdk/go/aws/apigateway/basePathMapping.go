@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -48,6 +48,8 @@ type BasePathMapping struct {
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// The identifier for the domain name resource. Supported only for private custom domain names.
 	DomainNameId pulumi.StringPtrOutput `pulumi:"domainNameId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the API to connect.
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
 	// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
@@ -96,6 +98,8 @@ type basePathMappingState struct {
 	DomainName *string `pulumi:"domainName"`
 	// The identifier for the domain name resource. Supported only for private custom domain names.
 	DomainNameId *string `pulumi:"domainNameId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the API to connect.
 	RestApi interface{} `pulumi:"restApi"`
 	// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
@@ -109,6 +113,8 @@ type BasePathMappingState struct {
 	DomainName pulumi.StringPtrInput
 	// The identifier for the domain name resource. Supported only for private custom domain names.
 	DomainNameId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the API to connect.
 	RestApi pulumi.Input
 	// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
@@ -126,6 +132,8 @@ type basePathMappingArgs struct {
 	DomainName string `pulumi:"domainName"`
 	// The identifier for the domain name resource. Supported only for private custom domain names.
 	DomainNameId *string `pulumi:"domainNameId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the API to connect.
 	RestApi interface{} `pulumi:"restApi"`
 	// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
@@ -140,6 +148,8 @@ type BasePathMappingArgs struct {
 	DomainName pulumi.StringInput
 	// The identifier for the domain name resource. Supported only for private custom domain names.
 	DomainNameId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the API to connect.
 	RestApi pulumi.Input
 	// Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
@@ -246,6 +256,11 @@ func (o BasePathMappingOutput) DomainName() pulumi.StringOutput {
 // The identifier for the domain name resource. Supported only for private custom domain names.
 func (o BasePathMappingOutput) DomainNameId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BasePathMapping) pulumi.StringPtrOutput { return v.DomainNameId }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o BasePathMappingOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *BasePathMapping) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the API to connect.

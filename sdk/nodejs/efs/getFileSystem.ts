@@ -34,6 +34,7 @@ export function getFileSystem(args?: GetFileSystemArgs, opts?: pulumi.InvokeOpti
     return pulumi.runtime.invoke("aws:efs/getFileSystem:getFileSystem", {
         "creationToken": args.creationToken,
         "fileSystemId": args.fileSystemId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -50,6 +51,10 @@ export interface GetFileSystemArgs {
      * ID that identifies the file system (e.g., fs-ccfc0d65).
      */
     fileSystemId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Restricts the list to the file system with these tags.
      */
@@ -90,13 +95,10 @@ export interface GetFileSystemResult {
      * ARN for the KMS encryption key.
      */
     readonly kmsKeyId: string;
-    readonly lifecyclePolicies: outputs.efs.GetFileSystemLifecyclePolicy[];
     /**
      * File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
-     *
-     * @deprecated Use `lifecyclePolicies` instead. This field will be removed in the next major version.
      */
-    readonly lifecyclePolicy: outputs.efs.GetFileSystemLifecyclePolicy;
+    readonly lifecyclePolicies: outputs.efs.GetFileSystemLifecyclePolicy[];
     /**
      * The value of the file system's `Name` tag.
      */
@@ -110,6 +112,7 @@ export interface GetFileSystemResult {
      * The throughput, measured in MiB/s, that you want to provision for the file system.
      */
     readonly provisionedThroughputInMibps: number;
+    readonly region: string;
     /**
      * Current byte count used by the file system.
      */
@@ -150,6 +153,7 @@ export function getFileSystemOutput(args?: GetFileSystemOutputArgs, opts?: pulum
     return pulumi.runtime.invokeOutput("aws:efs/getFileSystem:getFileSystem", {
         "creationToken": args.creationToken,
         "fileSystemId": args.fileSystemId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -166,6 +170,10 @@ export interface GetFileSystemOutputArgs {
      * ID that identifies the file system (e.g., fs-ccfc0d65).
      */
     fileSystemId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Restricts the list to the file system with these tags.
      */

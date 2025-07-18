@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,6 +55,8 @@ type LookupLambdaFunctionAssociationArgs struct {
 	FunctionArn string `pulumi:"functionArn"`
 	// Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId string `pulumi:"instanceId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLambdaFunctionAssociation.
@@ -63,6 +65,7 @@ type LookupLambdaFunctionAssociationResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id         string `pulumi:"id"`
 	InstanceId string `pulumi:"instanceId"`
+	Region     string `pulumi:"region"`
 }
 
 func LookupLambdaFunctionAssociationOutput(ctx *pulumi.Context, args LookupLambdaFunctionAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupLambdaFunctionAssociationResultOutput {
@@ -80,6 +83,8 @@ type LookupLambdaFunctionAssociationOutputArgs struct {
 	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
 	// Identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupLambdaFunctionAssociationOutputArgs) ElementType() reflect.Type {
@@ -112,6 +117,10 @@ func (o LookupLambdaFunctionAssociationResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupLambdaFunctionAssociationResultOutput) InstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLambdaFunctionAssociationResult) string { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+func (o LookupLambdaFunctionAssociationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLambdaFunctionAssociationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

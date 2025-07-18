@@ -27,7 +27,7 @@ class GetNamedQueryResult:
     """
     A collection of values returned by getNamedQuery.
     """
-    def __init__(__self__, database=None, description=None, id=None, name=None, querystring=None, workgroup=None):
+    def __init__(__self__, database=None, description=None, id=None, name=None, querystring=None, region=None, workgroup=None):
         if database and not isinstance(database, str):
             raise TypeError("Expected argument 'database' to be a str")
         pulumi.set(__self__, "database", database)
@@ -43,6 +43,9 @@ class GetNamedQueryResult:
         if querystring and not isinstance(querystring, str):
             raise TypeError("Expected argument 'querystring' to be a str")
         pulumi.set(__self__, "querystring", querystring)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if workgroup and not isinstance(workgroup, str):
             raise TypeError("Expected argument 'workgroup' to be a str")
         pulumi.set(__self__, "workgroup", workgroup)
@@ -83,6 +86,11 @@ class GetNamedQueryResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def workgroup(self) -> Optional[builtins.str]:
         return pulumi.get(self, "workgroup")
 
@@ -98,10 +106,12 @@ class AwaitableGetNamedQueryResult(GetNamedQueryResult):
             id=self.id,
             name=self.name,
             querystring=self.querystring,
+            region=self.region,
             workgroup=self.workgroup)
 
 
 def get_named_query(name: Optional[builtins.str] = None,
+                    region: Optional[builtins.str] = None,
                     workgroup: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamedQueryResult:
     """
@@ -118,10 +128,12 @@ def get_named_query(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: The plain language name for the query. Maximum length of 128.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str workgroup: The workgroup to which the query belongs. Defaults to `primary`.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['workgroup'] = workgroup
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:athena/getNamedQuery:getNamedQuery', __args__, opts=opts, typ=GetNamedQueryResult).value
@@ -132,8 +144,10 @@ def get_named_query(name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         querystring=pulumi.get(__ret__, 'querystring'),
+        region=pulumi.get(__ret__, 'region'),
         workgroup=pulumi.get(__ret__, 'workgroup'))
 def get_named_query_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            workgroup: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamedQueryResult]:
     """
@@ -150,10 +164,12 @@ def get_named_query_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: The plain language name for the query. Maximum length of 128.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str workgroup: The workgroup to which the query belongs. Defaults to `primary`.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['workgroup'] = workgroup
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:athena/getNamedQuery:getNamedQuery', __args__, opts=opts, typ=GetNamedQueryResult)
@@ -163,4 +179,5 @@ def get_named_query_output(name: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         querystring=pulumi.get(__response__, 'querystring'),
+        region=pulumi.get(__response__, 'region'),
         workgroup=pulumi.get(__response__, 'workgroup')))

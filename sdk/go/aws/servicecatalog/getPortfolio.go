@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,6 +56,8 @@ type LookupPortfolioArgs struct {
 	//
 	// The following arguments are optional:
 	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags applied to the portfolio.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -74,6 +76,7 @@ type LookupPortfolioResult struct {
 	Name string `pulumi:"name"`
 	// Name of the person or organization who owns the portfolio.
 	ProviderName string `pulumi:"providerName"`
+	Region       string `pulumi:"region"`
 	// Tags applied to the portfolio.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -95,6 +98,8 @@ type LookupPortfolioOutputArgs struct {
 	//
 	// The following arguments are optional:
 	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags applied to the portfolio.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -149,6 +154,10 @@ func (o LookupPortfolioResultOutput) Name() pulumi.StringOutput {
 // Name of the person or organization who owns the portfolio.
 func (o LookupPortfolioResultOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPortfolioResult) string { return v.ProviderName }).(pulumi.StringOutput)
+}
+
+func (o LookupPortfolioResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPortfolioResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Tags applied to the portfolio.

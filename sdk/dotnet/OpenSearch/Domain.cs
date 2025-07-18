@@ -100,7 +100,7 @@ namespace Pulumi.Aws.OpenSearch
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*",
+    ///                     $"arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*",
     ///                 },
     ///                 Conditions = new[]
     ///                 {
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.OpenSearch
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*",
+    ///                     $"arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*",
     ///                 },
     ///             },
     ///         },
@@ -575,12 +575,6 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> IpAddressType { get; private set; } = null!;
 
         /// <summary>
-        /// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-        /// </summary>
-        [Output("kibanaEndpoint")]
-        public Output<string> KibanaEndpoint { get; private set; } = null!;
-
-        /// <summary>
         /// Configuration block for publishing slow and application logs to CloudWatch Logs. This block can be declared multiple times, for each log_type, within the same resource. Detailed below.
         /// </summary>
         [Output("logPublishingOptions")]
@@ -597,6 +591,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Output("offPeakWindowOptions")]
         public Output<Outputs.DomainOffPeakWindowOptions> OffPeakWindowOptions { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
@@ -781,6 +781,12 @@ namespace Pulumi.Aws.OpenSearch
         public Input<Inputs.DomainOffPeakWindowOptionsArgs>? OffPeakWindowOptions { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
         /// </summary>
         [Input("snapshotOptions")]
@@ -942,12 +948,6 @@ namespace Pulumi.Aws.OpenSearch
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 
-        /// <summary>
-        /// (**Deprecated**) Domain-specific endpoint for kibana without https scheme. Use the `dashboard_endpoint` attribute instead.
-        /// </summary>
-        [Input("kibanaEndpoint")]
-        public Input<string>? KibanaEndpoint { get; set; }
-
         [Input("logPublishingOptions")]
         private InputList<Inputs.DomainLogPublishingOptionGetArgs>? _logPublishingOptions;
 
@@ -971,6 +971,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("offPeakWindowOptions")]
         public Input<Inputs.DomainOffPeakWindowOptionsGetArgs>? OffPeakWindowOptions { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
@@ -1002,7 +1008,6 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -248,6 +248,10 @@ export class Permissions extends pulumi.CustomResource {
      */
     public readonly principal!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block for a table resource. Detailed below.
      */
     public readonly table!: pulumi.Output<outputs.lakeformation.PermissionsTable>;
@@ -281,6 +285,7 @@ export class Permissions extends pulumi.CustomResource {
             resourceInputs["permissions"] = state ? state.permissions : undefined;
             resourceInputs["permissionsWithGrantOptions"] = state ? state.permissionsWithGrantOptions : undefined;
             resourceInputs["principal"] = state ? state.principal : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["table"] = state ? state.table : undefined;
             resourceInputs["tableWithColumns"] = state ? state.tableWithColumns : undefined;
         } else {
@@ -301,6 +306,7 @@ export class Permissions extends pulumi.CustomResource {
             resourceInputs["permissions"] = args ? args.permissions : undefined;
             resourceInputs["permissionsWithGrantOptions"] = args ? args.permissionsWithGrantOptions : undefined;
             resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["table"] = args ? args.table : undefined;
             resourceInputs["tableWithColumns"] = args ? args.tableWithColumns : undefined;
         }
@@ -357,6 +363,10 @@ export interface PermissionsState {
      * One of the following is required:
      */
     principal?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for a table resource. Detailed below.
      */
@@ -417,6 +427,10 @@ export interface PermissionsArgs {
      * One of the following is required:
      */
     principal: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for a table resource. Detailed below.
      */

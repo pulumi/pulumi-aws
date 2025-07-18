@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/transfer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -51,6 +51,8 @@ func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getServer.
 type LookupServerArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID for an SFTP server.
 	ServerId string `pulumi:"serverId"`
 	// Map of tags assigned to the resource.
@@ -79,6 +81,7 @@ type LookupServerResult struct {
 	LoggingRole string `pulumi:"loggingRole"`
 	// File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
 	Protocols []string `pulumi:"protocols"`
+	Region    string   `pulumi:"region"`
 	// The name of the security policy that is attached to the server.
 	SecurityPolicyName string `pulumi:"securityPolicyName"`
 	ServerId           string `pulumi:"serverId"`
@@ -101,6 +104,8 @@ func LookupServerOutput(ctx *pulumi.Context, args LookupServerOutputArgs, opts .
 
 // A collection of arguments for invoking getServer.
 type LookupServerOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID for an SFTP server.
 	ServerId pulumi.StringInput `pulumi:"serverId"`
 	// Map of tags assigned to the resource.
@@ -174,6 +179,10 @@ func (o LookupServerResultOutput) LoggingRole() pulumi.StringOutput {
 // File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
 func (o LookupServerResultOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupServerResult) []string { return v.Protocols }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupServerResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the security policy that is attached to the server.

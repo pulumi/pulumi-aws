@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,8 +27,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,7 +73,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -152,7 +152,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -219,7 +219,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -305,6 +305,8 @@ type Policy struct {
 	PolicyType pulumi.StringPtrOutput `pulumi:"policyType"`
 	// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
 	PredictiveScalingConfiguration PolicyPredictiveScalingConfigurationPtrOutput `pulumi:"predictiveScalingConfiguration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Number of members by which to
 	// scale, when the adjustment bounds are breached. A positive value scales
 	// up. A negative value scales down.
@@ -316,7 +318,7 @@ type Policy struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -352,7 +354,7 @@ type Policy struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -437,6 +439,8 @@ type policyState struct {
 	PolicyType *string `pulumi:"policyType"`
 	// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
 	PredictiveScalingConfiguration *PolicyPredictiveScalingConfiguration `pulumi:"predictiveScalingConfiguration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Number of members by which to
 	// scale, when the adjustment bounds are breached. A positive value scales
 	// up. A negative value scales down.
@@ -448,7 +452,7 @@ type policyState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -484,7 +488,7 @@ type policyState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -537,6 +541,8 @@ type PolicyState struct {
 	PolicyType pulumi.StringPtrInput
 	// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
 	PredictiveScalingConfiguration PolicyPredictiveScalingConfigurationPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Number of members by which to
 	// scale, when the adjustment bounds are breached. A positive value scales
 	// up. A negative value scales down.
@@ -548,7 +554,7 @@ type PolicyState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -584,7 +590,7 @@ type PolicyState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -639,6 +645,8 @@ type policyArgs struct {
 	PolicyType *string `pulumi:"policyType"`
 	// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
 	PredictiveScalingConfiguration *PolicyPredictiveScalingConfiguration `pulumi:"predictiveScalingConfiguration"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Number of members by which to
 	// scale, when the adjustment bounds are breached. A positive value scales
 	// up. A negative value scales down.
@@ -650,7 +658,7 @@ type policyArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -686,7 +694,7 @@ type policyArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -738,6 +746,8 @@ type PolicyArgs struct {
 	PolicyType pulumi.StringPtrInput
 	// Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
 	PredictiveScalingConfiguration PolicyPredictiveScalingConfigurationPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Number of members by which to
 	// scale, when the adjustment bounds are breached. A positive value scales
 	// up. A negative value scales down.
@@ -749,7 +759,7 @@ type PolicyArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -785,7 +795,7 @@ type PolicyArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -957,6 +967,11 @@ func (o PolicyOutput) PredictiveScalingConfiguration() PolicyPredictiveScalingCo
 	return o.ApplyT(func(v *Policy) PolicyPredictiveScalingConfigurationPtrOutput { return v.PredictiveScalingConfiguration }).(PolicyPredictiveScalingConfigurationPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o PolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Number of members by which to
 // scale, when the adjustment bounds are breached. A positive value scales
 // up. A negative value scales down.
@@ -972,7 +987,7 @@ func (o PolicyOutput) ScalingAdjustment() pulumi.IntPtrOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -1014,7 +1029,7 @@ func (o PolicyOutput) StepAdjustments() PolicyStepAdjustmentArrayOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

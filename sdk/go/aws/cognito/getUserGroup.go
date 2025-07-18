@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,6 +55,8 @@ func LookupUserGroup(ctx *pulumi.Context, args *LookupUserGroupArgs, opts ...pul
 type LookupUserGroupArgs struct {
 	// Name of the user group.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// User pool the client belongs to.
 	UserPoolId string `pulumi:"userPoolId"`
 }
@@ -67,7 +69,8 @@ type LookupUserGroupResult struct {
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// Precedence of the user group.
-	Precedence int `pulumi:"precedence"`
+	Precedence int    `pulumi:"precedence"`
+	Region     string `pulumi:"region"`
 	// ARN of the IAM role to be associated with the user group.
 	RoleArn    string `pulumi:"roleArn"`
 	UserPoolId string `pulumi:"userPoolId"`
@@ -86,6 +89,8 @@ func LookupUserGroupOutput(ctx *pulumi.Context, args LookupUserGroupOutputArgs, 
 type LookupUserGroupOutputArgs struct {
 	// Name of the user group.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// User pool the client belongs to.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
@@ -126,6 +131,10 @@ func (o LookupUserGroupResultOutput) Name() pulumi.StringOutput {
 // Precedence of the user group.
 func (o LookupUserGroupResultOutput) Precedence() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupUserGroupResult) int { return v.Precedence }).(pulumi.IntOutput)
+}
+
+func (o LookupUserGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of the IAM role to be associated with the user group.

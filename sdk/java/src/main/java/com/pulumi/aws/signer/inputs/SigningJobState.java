@@ -187,6 +187,21 @@ public final class SigningJobState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The IAM principal that requested the signing job.
      * 
      */
@@ -305,6 +320,7 @@ public final class SigningJobState extends com.pulumi.resources.ResourceArgs {
         this.platformId = $.platformId;
         this.profileName = $.profileName;
         this.profileVersion = $.profileVersion;
+        this.region = $.region;
         this.requestedBy = $.requestedBy;
         this.revocationRecords = $.revocationRecords;
         this.signatureExpiresAt = $.signatureExpiresAt;
@@ -561,6 +577,27 @@ public final class SigningJobState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder profileVersion(String profileVersion) {
             return profileVersion(Output.of(profileVersion));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

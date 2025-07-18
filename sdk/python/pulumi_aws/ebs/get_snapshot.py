@@ -29,7 +29,7 @@ class GetSnapshotResult:
     """
     A collection of values returned by getSnapshot.
     """
-    def __init__(__self__, arn=None, data_encryption_key_id=None, description=None, encrypted=None, filters=None, id=None, kms_key_id=None, most_recent=None, outpost_arn=None, owner_alias=None, owner_id=None, owners=None, restorable_by_user_ids=None, snapshot_id=None, snapshot_ids=None, start_time=None, state=None, storage_tier=None, tags=None, volume_id=None, volume_size=None):
+    def __init__(__self__, arn=None, data_encryption_key_id=None, description=None, encrypted=None, filters=None, id=None, kms_key_id=None, most_recent=None, outpost_arn=None, owner_alias=None, owner_id=None, owners=None, region=None, restorable_by_user_ids=None, snapshot_id=None, snapshot_ids=None, start_time=None, state=None, storage_tier=None, tags=None, volume_id=None, volume_size=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -66,6 +66,9 @@ class GetSnapshotResult:
         if owners and not isinstance(owners, list):
             raise TypeError("Expected argument 'owners' to be a list")
         pulumi.set(__self__, "owners", owners)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if restorable_by_user_ids and not isinstance(restorable_by_user_ids, list):
             raise TypeError("Expected argument 'restorable_by_user_ids' to be a list")
         pulumi.set(__self__, "restorable_by_user_ids", restorable_by_user_ids)
@@ -182,6 +185,11 @@ class GetSnapshotResult:
         return pulumi.get(self, "owners")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="restorableByUserIds")
     def restorable_by_user_ids(self) -> Optional[Sequence[builtins.str]]:
         return pulumi.get(self, "restorable_by_user_ids")
@@ -266,6 +274,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
             owner_alias=self.owner_alias,
             owner_id=self.owner_id,
             owners=self.owners,
+            region=self.region,
             restorable_by_user_ids=self.restorable_by_user_ids,
             snapshot_id=self.snapshot_id,
             snapshot_ids=self.snapshot_ids,
@@ -280,6 +289,7 @@ class AwaitableGetSnapshotResult(GetSnapshotResult):
 def get_snapshot(filters: Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']]] = None,
                  most_recent: Optional[builtins.bool] = None,
                  owners: Optional[Sequence[builtins.str]] = None,
+                 region: Optional[builtins.str] = None,
                  restorable_by_user_ids: Optional[Sequence[builtins.str]] = None,
                  snapshot_ids: Optional[Sequence[builtins.str]] = None,
                  tags: Optional[Mapping[str, builtins.str]] = None,
@@ -308,11 +318,10 @@ def get_snapshot(filters: Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetS
     ```
 
 
-    :param Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
-           several valid keys, for a full reference, check out
-           [describe-snapshots in the AWS CLI reference][1].
+    :param Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
     :param builtins.bool most_recent: If more than one result is returned, use the most recent snapshot.
     :param Sequence[builtins.str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[builtins.str] restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
     :param Sequence[builtins.str] snapshot_ids: Returns information on a specific snapshot_id.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
@@ -321,6 +330,7 @@ def get_snapshot(filters: Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetS
     __args__['filters'] = filters
     __args__['mostRecent'] = most_recent
     __args__['owners'] = owners
+    __args__['region'] = region
     __args__['restorableByUserIds'] = restorable_by_user_ids
     __args__['snapshotIds'] = snapshot_ids
     __args__['tags'] = tags
@@ -340,6 +350,7 @@ def get_snapshot(filters: Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetS
         owner_alias=pulumi.get(__ret__, 'owner_alias'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         owners=pulumi.get(__ret__, 'owners'),
+        region=pulumi.get(__ret__, 'region'),
         restorable_by_user_ids=pulumi.get(__ret__, 'restorable_by_user_ids'),
         snapshot_id=pulumi.get(__ret__, 'snapshot_id'),
         snapshot_ids=pulumi.get(__ret__, 'snapshot_ids'),
@@ -352,6 +363,7 @@ def get_snapshot(filters: Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetS
 def get_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']]]]] = None,
                         most_recent: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                         owners: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         restorable_by_user_ids: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                         snapshot_ids: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
@@ -380,11 +392,10 @@ def get_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
     ```
 
 
-    :param Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
-           several valid keys, for a full reference, check out
-           [describe-snapshots in the AWS CLI reference][1].
+    :param Sequence[Union['GetSnapshotFilterArgs', 'GetSnapshotFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
     :param builtins.bool most_recent: If more than one result is returned, use the most recent snapshot.
     :param Sequence[builtins.str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[builtins.str] restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
     :param Sequence[builtins.str] snapshot_ids: Returns information on a specific snapshot_id.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
@@ -393,6 +404,7 @@ def get_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
     __args__['filters'] = filters
     __args__['mostRecent'] = most_recent
     __args__['owners'] = owners
+    __args__['region'] = region
     __args__['restorableByUserIds'] = restorable_by_user_ids
     __args__['snapshotIds'] = snapshot_ids
     __args__['tags'] = tags
@@ -411,6 +423,7 @@ def get_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['
         owner_alias=pulumi.get(__response__, 'owner_alias'),
         owner_id=pulumi.get(__response__, 'owner_id'),
         owners=pulumi.get(__response__, 'owners'),
+        region=pulumi.get(__response__, 'region'),
         restorable_by_user_ids=pulumi.get(__response__, 'restorable_by_user_ids'),
         snapshot_id=pulumi.get(__response__, 'snapshot_id'),
         snapshot_ids=pulumi.get(__response__, 'snapshot_ids'),

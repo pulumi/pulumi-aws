@@ -43,6 +43,7 @@ export function getOntapStorageVirtualMachine(args?: GetOntapStorageVirtualMachi
     return pulumi.runtime.invoke("aws:fsx/getOntapStorageVirtualMachine:getOntapStorageVirtualMachine", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -61,6 +62,10 @@ export interface GetOntapStorageVirtualMachineArgs {
      * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
      */
     id?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     tags?: {[key: string]: string};
 }
 
@@ -105,6 +110,7 @@ export interface GetOntapStorageVirtualMachineResult {
      * The name of the SVM, if provisioned.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * The SVM's subtype.
      */
@@ -151,6 +157,7 @@ export function getOntapStorageVirtualMachineOutput(args?: GetOntapStorageVirtua
     return pulumi.runtime.invokeOutput("aws:fsx/getOntapStorageVirtualMachine:getOntapStorageVirtualMachine", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -169,5 +176,9 @@ export interface GetOntapStorageVirtualMachineOutputArgs {
      * The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
      */
     id?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

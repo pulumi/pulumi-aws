@@ -46,6 +46,7 @@ export function getInstanceTypes(args?: GetInstanceTypesArgs, opts?: pulumi.Invo
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getInstanceTypes:getInstanceTypes", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -57,6 +58,10 @@ export interface GetInstanceTypesArgs {
      * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
      */
     filters?: inputs.ec2.GetInstanceTypesFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -72,6 +77,7 @@ export interface GetInstanceTypesResult {
      * List of EC2 Instance Types.
      */
     readonly instanceTypes: string[];
+    readonly region: string;
 }
 /**
  * Information about EC2 Instance Types.
@@ -112,6 +118,7 @@ export function getInstanceTypesOutput(args?: GetInstanceTypesOutputArgs, opts?:
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getInstanceTypes:getInstanceTypes", {
         "filters": args.filters,
+        "region": args.region,
     }, opts);
 }
 
@@ -123,4 +130,8 @@ export interface GetInstanceTypesOutputArgs {
      * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetInstanceTypesFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

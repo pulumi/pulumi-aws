@@ -33,16 +33,24 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the application.
+     * (**Deprecated** Reference `arn` instead) ARN of the application.
+     * 
+     * @deprecated
+     * Use &#39;arn&#39; instead. This attribute will be removed in a future verion of the provider.
      * 
      */
+    @Deprecated /* Use 'arn' instead. This attribute will be removed in a future verion of the provider. */
     @Import(name="applicationArn")
     private @Nullable Output<String> applicationArn;
 
     /**
-     * @return ARN of the application.
+     * @return (**Deprecated** Reference `arn` instead) ARN of the application.
+     * 
+     * @deprecated
+     * Use &#39;arn&#39; instead. This attribute will be removed in a future verion of the provider.
      * 
      */
+    @Deprecated /* Use 'arn' instead. This attribute will be removed in a future verion of the provider. */
     public Optional<Output<String>> applicationArn() {
         return Optional.ofNullable(this.applicationArn);
     }
@@ -60,6 +68,21 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> applicationProviderArn() {
         return Optional.ofNullable(this.applicationProviderArn);
+    }
+
+    /**
+     * ARN of the application.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return ARN of the application.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
     }
 
     /**
@@ -142,6 +165,21 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Status of the application. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
@@ -174,22 +212,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -200,11 +230,13 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         this.applicationAccount = $.applicationAccount;
         this.applicationArn = $.applicationArn;
         this.applicationProviderArn = $.applicationProviderArn;
+        this.arn = $.arn;
         this.clientToken = $.clientToken;
         this.description = $.description;
         this.instanceArn = $.instanceArn;
         this.name = $.name;
         this.portalOptions = $.portalOptions;
+        this.region = $.region;
         this.status = $.status;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -250,22 +282,30 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationArn ARN of the application.
+         * @param applicationArn (**Deprecated** Reference `arn` instead) ARN of the application.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use &#39;arn&#39; instead. This attribute will be removed in a future verion of the provider.
+         * 
          */
+        @Deprecated /* Use 'arn' instead. This attribute will be removed in a future verion of the provider. */
         public Builder applicationArn(@Nullable Output<String> applicationArn) {
             $.applicationArn = applicationArn;
             return this;
         }
 
         /**
-         * @param applicationArn ARN of the application.
+         * @param applicationArn (**Deprecated** Reference `arn` instead) ARN of the application.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use &#39;arn&#39; instead. This attribute will be removed in a future verion of the provider.
+         * 
          */
+        @Deprecated /* Use 'arn' instead. This attribute will be removed in a future verion of the provider. */
         public Builder applicationArn(String applicationArn) {
             return applicationArn(Output.of(applicationArn));
         }
@@ -289,6 +329,27 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder applicationProviderArn(String applicationProviderArn) {
             return applicationProviderArn(Output.of(applicationProviderArn));
+        }
+
+        /**
+         * @param arn ARN of the application.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn ARN of the application.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**
@@ -401,6 +462,27 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param status Status of the application. Valid values are `ENABLED` and `DISABLED`.
          * 
          * @return builder
@@ -447,11 +529,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -462,11 +540,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

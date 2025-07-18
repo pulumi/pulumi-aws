@@ -22,6 +22,7 @@ export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafregional/getRule:getRule", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -33,6 +34,10 @@ export interface GetRuleArgs {
      * Name of the WAF Regional rule.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -44,6 +49,7 @@ export interface GetRuleResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
 }
 /**
  * `aws.wafregional.Rule` Retrieves a WAF Regional Rule Resource Id.
@@ -63,6 +69,7 @@ export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOutpu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:wafregional/getRule:getRule", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -74,4 +81,8 @@ export interface GetRuleOutputArgs {
      * Name of the WAF Regional rule.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

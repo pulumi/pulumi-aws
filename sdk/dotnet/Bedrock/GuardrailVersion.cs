@@ -60,6 +60,12 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> GuardrailArn { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
         /// </summary>
         [Output("skipDestroy")]
@@ -135,6 +141,12 @@ namespace Pulumi.Aws.Bedrock
         public Input<string> GuardrailArn { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Whether to retain the old version of a previously deployed Guardrail. Default is `false`
         /// </summary>
         [Input("skipDestroy")]
@@ -164,6 +176,12 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Input("guardrailArn")]
         public Input<string>? GuardrailArn { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Whether to retain the old version of a previously deployed Guardrail. Default is `false`

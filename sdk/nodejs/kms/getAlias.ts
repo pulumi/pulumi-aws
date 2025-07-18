@@ -24,6 +24,7 @@ export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kms/getAlias:getAlias", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -35,6 +36,10 @@ export interface GetAliasArgs {
      * Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -53,6 +58,7 @@ export interface GetAliasResult {
      * Name of the alias
      */
     readonly name: string;
+    readonly region: string;
     /**
      * ARN pointed to by the alias.
      */
@@ -82,6 +88,7 @@ export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:kms/getAlias:getAlias", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -93,4 +100,8 @@ export interface GetAliasOutputArgs {
      * Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

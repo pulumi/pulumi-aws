@@ -70,7 +70,7 @@ if not MYPY:
     class ConnectAttachmentOptionsArgsDict(TypedDict):
         protocol: NotRequired[pulumi.Input[builtins.str]]
         """
-        The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
+        Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
         """
 elif False:
     ConnectAttachmentOptionsArgsDict: TypeAlias = Mapping[str, Any]
@@ -80,7 +80,7 @@ class ConnectAttachmentOptionsArgs:
     def __init__(__self__, *,
                  protocol: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] protocol: The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
+        :param pulumi.Input[builtins.str] protocol: Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
         """
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
@@ -89,7 +89,7 @@ class ConnectAttachmentOptionsArgs:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The protocol used for the attachment connection. Possible values are `GRE` and `NO_ENCAP`.
+        Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
         """
         return pulumi.get(self, "protocol")
 
@@ -101,6 +101,9 @@ class ConnectAttachmentOptionsArgs:
 if not MYPY:
     class ConnectPeerBgpOptionsArgsDict(TypedDict):
         peer_asn: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Peer ASN.
+        """
 elif False:
     ConnectPeerBgpOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -108,12 +111,18 @@ elif False:
 class ConnectPeerBgpOptionsArgs:
     def __init__(__self__, *,
                  peer_asn: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        :param pulumi.Input[builtins.int] peer_asn: Peer ASN.
+        """
         if peer_asn is not None:
             pulumi.set(__self__, "peer_asn", peer_asn)
 
     @property
     @pulumi.getter(name="peerAsn")
     def peer_asn(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Peer ASN.
+        """
         return pulumi.get(self, "peer_asn")
 
     @peer_asn.setter
@@ -126,15 +135,15 @@ if not MYPY:
         bgp_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationBgpConfigurationArgsDict']]]]
         core_network_address: NotRequired[pulumi.Input[builtins.str]]
         """
-        A Connect peer core network address.
+        Connect peer core network address.
         """
         inside_cidr_blocks: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
         """
-        The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
+        Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
         """
         peer_address: NotRequired[pulumi.Input[builtins.str]]
         """
-        The Connect peer address.
+        Connect peer address.
 
         The following arguments are optional:
         """
@@ -151,9 +160,9 @@ class ConnectPeerConfigurationArgs:
                  peer_address: Optional[pulumi.Input[builtins.str]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] core_network_address: A Connect peer core network address.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
-        :param pulumi.Input[builtins.str] peer_address: The Connect peer address.
+        :param pulumi.Input[builtins.str] core_network_address: Connect peer core network address.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] inside_cidr_blocks: Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
+        :param pulumi.Input[builtins.str] peer_address: Connect peer address.
                
                The following arguments are optional:
         """
@@ -181,7 +190,7 @@ class ConnectPeerConfigurationArgs:
     @pulumi.getter(name="coreNetworkAddress")
     def core_network_address(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A Connect peer core network address.
+        Connect peer core network address.
         """
         return pulumi.get(self, "core_network_address")
 
@@ -193,7 +202,7 @@ class ConnectPeerConfigurationArgs:
     @pulumi.getter(name="insideCidrBlocks")
     def inside_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
+        Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
         """
         return pulumi.get(self, "inside_cidr_blocks")
 
@@ -205,7 +214,7 @@ class ConnectPeerConfigurationArgs:
     @pulumi.getter(name="peerAddress")
     def peer_address(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Connect peer address.
+        Connect peer address.
 
         The following arguments are optional:
         """
@@ -229,16 +238,19 @@ if not MYPY:
     class ConnectPeerConfigurationBgpConfigurationArgsDict(TypedDict):
         core_network_address: NotRequired[pulumi.Input[builtins.str]]
         """
-        A Connect peer core network address.
+        Connect peer core network address.
         """
         core_network_asn: NotRequired[pulumi.Input[builtins.int]]
         peer_address: NotRequired[pulumi.Input[builtins.str]]
         """
-        The Connect peer address.
+        Connect peer address.
 
         The following arguments are optional:
         """
         peer_asn: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Peer ASN.
+        """
 elif False:
     ConnectPeerConfigurationBgpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -250,10 +262,11 @@ class ConnectPeerConfigurationBgpConfigurationArgs:
                  peer_address: Optional[pulumi.Input[builtins.str]] = None,
                  peer_asn: Optional[pulumi.Input[builtins.int]] = None):
         """
-        :param pulumi.Input[builtins.str] core_network_address: A Connect peer core network address.
-        :param pulumi.Input[builtins.str] peer_address: The Connect peer address.
+        :param pulumi.Input[builtins.str] core_network_address: Connect peer core network address.
+        :param pulumi.Input[builtins.str] peer_address: Connect peer address.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.int] peer_asn: Peer ASN.
         """
         if core_network_address is not None:
             pulumi.set(__self__, "core_network_address", core_network_address)
@@ -268,7 +281,7 @@ class ConnectPeerConfigurationBgpConfigurationArgs:
     @pulumi.getter(name="coreNetworkAddress")
     def core_network_address(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A Connect peer core network address.
+        Connect peer core network address.
         """
         return pulumi.get(self, "core_network_address")
 
@@ -289,7 +302,7 @@ class ConnectPeerConfigurationBgpConfigurationArgs:
     @pulumi.getter(name="peerAddress")
     def peer_address(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Connect peer address.
+        Connect peer address.
 
         The following arguments are optional:
         """
@@ -302,6 +315,9 @@ class ConnectPeerConfigurationBgpConfigurationArgs:
     @property
     @pulumi.getter(name="peerAsn")
     def peer_asn(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Peer ASN.
+        """
         return pulumi.get(self, "peer_asn")
 
     @peer_asn.setter
@@ -457,11 +473,11 @@ if not MYPY:
     class DeviceAwsLocationArgsDict(TypedDict):
         subnet_arn: NotRequired[pulumi.Input[builtins.str]]
         """
-        The Amazon Resource Name (ARN) of the subnet that the device is located in.
+        ARN of the subnet that the device is located in.
         """
         zone: NotRequired[pulumi.Input[builtins.str]]
         """
-        The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+        Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
         """
 elif False:
     DeviceAwsLocationArgsDict: TypeAlias = Mapping[str, Any]
@@ -472,8 +488,8 @@ class DeviceAwsLocationArgs:
                  subnet_arn: Optional[pulumi.Input[builtins.str]] = None,
                  zone: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] subnet_arn: The Amazon Resource Name (ARN) of the subnet that the device is located in.
-        :param pulumi.Input[builtins.str] zone: The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+        :param pulumi.Input[builtins.str] subnet_arn: ARN of the subnet that the device is located in.
+        :param pulumi.Input[builtins.str] zone: Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
         """
         if subnet_arn is not None:
             pulumi.set(__self__, "subnet_arn", subnet_arn)
@@ -484,7 +500,7 @@ class DeviceAwsLocationArgs:
     @pulumi.getter(name="subnetArn")
     def subnet_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the subnet that the device is located in.
+        ARN of the subnet that the device is located in.
         """
         return pulumi.get(self, "subnet_arn")
 
@@ -496,7 +512,7 @@ class DeviceAwsLocationArgs:
     @pulumi.getter
     def zone(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+        Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
         """
         return pulumi.get(self, "zone")
 
@@ -509,15 +525,15 @@ if not MYPY:
     class DeviceLocationArgsDict(TypedDict):
         address: NotRequired[pulumi.Input[builtins.str]]
         """
-        The physical address.
+        Physical address.
         """
         latitude: NotRequired[pulumi.Input[builtins.str]]
         """
-        The latitude.
+        Latitude.
         """
         longitude: NotRequired[pulumi.Input[builtins.str]]
         """
-        The longitude.
+        Longitude.
         """
 elif False:
     DeviceLocationArgsDict: TypeAlias = Mapping[str, Any]
@@ -529,9 +545,9 @@ class DeviceLocationArgs:
                  latitude: Optional[pulumi.Input[builtins.str]] = None,
                  longitude: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] address: The physical address.
-        :param pulumi.Input[builtins.str] latitude: The latitude.
-        :param pulumi.Input[builtins.str] longitude: The longitude.
+        :param pulumi.Input[builtins.str] address: Physical address.
+        :param pulumi.Input[builtins.str] latitude: Latitude.
+        :param pulumi.Input[builtins.str] longitude: Longitude.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -544,7 +560,7 @@ class DeviceLocationArgs:
     @pulumi.getter
     def address(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The physical address.
+        Physical address.
         """
         return pulumi.get(self, "address")
 
@@ -556,7 +572,7 @@ class DeviceLocationArgs:
     @pulumi.getter
     def latitude(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The latitude.
+        Latitude.
         """
         return pulumi.get(self, "latitude")
 
@@ -568,7 +584,7 @@ class DeviceLocationArgs:
     @pulumi.getter
     def longitude(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The longitude.
+        Longitude.
         """
         return pulumi.get(self, "longitude")
 
@@ -777,14 +793,11 @@ if not MYPY:
     class VpcAttachmentOptionsArgsDict(TypedDict):
         appliance_mode_support: NotRequired[pulumi.Input[builtins.bool]]
         """
-        Indicates whether appliance mode is supported.
-        If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
-        If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+        Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         """
         ipv6_support: NotRequired[pulumi.Input[builtins.bool]]
         """
-        Indicates whether IPv6 is supported.
-        If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+        Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         """
 elif False:
     VpcAttachmentOptionsArgsDict: TypeAlias = Mapping[str, Any]
@@ -795,11 +808,8 @@ class VpcAttachmentOptionsArgs:
                  appliance_mode_support: Optional[pulumi.Input[builtins.bool]] = None,
                  ipv6_support: Optional[pulumi.Input[builtins.bool]] = None):
         """
-        :param pulumi.Input[builtins.bool] appliance_mode_support: Indicates whether appliance mode is supported.
-               If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
-               If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-        :param pulumi.Input[builtins.bool] ipv6_support: Indicates whether IPv6 is supported.
-               If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+        :param pulumi.Input[builtins.bool] appliance_mode_support: Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+        :param pulumi.Input[builtins.bool] ipv6_support: Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         """
         if appliance_mode_support is not None:
             pulumi.set(__self__, "appliance_mode_support", appliance_mode_support)
@@ -810,9 +820,7 @@ class VpcAttachmentOptionsArgs:
     @pulumi.getter(name="applianceModeSupport")
     def appliance_mode_support(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Indicates whether appliance mode is supported.
-        If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow.
-        If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+        Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         """
         return pulumi.get(self, "appliance_mode_support")
 
@@ -824,8 +832,7 @@ class VpcAttachmentOptionsArgs:
     @pulumi.getter(name="ipv6Support")
     def ipv6_support(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Indicates whether IPv6 is supported.
-        If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+        Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
         """
         return pulumi.get(self, "ipv6_support")
 
@@ -1156,9 +1163,17 @@ if not MYPY:
         """
         A block value of AWS Region locations where you're creating Core Network Edges. Detailed below.
         """
+        dns_support: NotRequired[builtins.bool]
+        """
+        Indicates whether DNS resolution is enabled for the core network. The value can be either `true` or `false`. When set to `true`, DNS resolution is enabled for VPCs attached to the core network, allowing resources in different VPCs to resolve each other's domain names. The default is `true`.
+        """
         inside_cidr_blocks: NotRequired[Sequence[builtins.str]]
         """
         The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
+        """
+        security_group_referencing_support: NotRequired[builtins.bool]
+        """
+        — (Optional) Indicates whether security group referencing is enabled for the core network. The value can be either `true` or `false`. When set to `true`, security groups in one VPC can reference security groups in another VPC attached to the core network, enabling more flexible security configurations across your network. The default is `false`.
         """
         vpn_ecmp_support: NotRequired[builtins.bool]
         """
@@ -1172,18 +1187,26 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs:
     def __init__(__self__, *,
                  asn_ranges: Sequence[builtins.str],
                  edge_locations: Sequence['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs'],
+                 dns_support: Optional[builtins.bool] = None,
                  inside_cidr_blocks: Optional[Sequence[builtins.str]] = None,
+                 security_group_referencing_support: Optional[builtins.bool] = None,
                  vpn_ecmp_support: Optional[builtins.bool] = None):
         """
         :param Sequence[builtins.str] asn_ranges: List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `"64512-65534"`. No other ASN ranges can be used.
         :param Sequence['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs'] edge_locations: A block value of AWS Region locations where you're creating Core Network Edges. Detailed below.
+        :param builtins.bool dns_support: Indicates whether DNS resolution is enabled for the core network. The value can be either `true` or `false`. When set to `true`, DNS resolution is enabled for VPCs attached to the core network, allowing resources in different VPCs to resolve each other's domain names. The default is `true`.
         :param Sequence[builtins.str] inside_cidr_blocks: The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
+        :param builtins.bool security_group_referencing_support: — (Optional) Indicates whether security group referencing is enabled for the core network. The value can be either `true` or `false`. When set to `true`, security groups in one VPC can reference security groups in another VPC attached to the core network, enabling more flexible security configurations across your network. The default is `false`.
         :param builtins.bool vpn_ecmp_support: Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
         """
         pulumi.set(__self__, "asn_ranges", asn_ranges)
         pulumi.set(__self__, "edge_locations", edge_locations)
+        if dns_support is not None:
+            pulumi.set(__self__, "dns_support", dns_support)
         if inside_cidr_blocks is not None:
             pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
+        if security_group_referencing_support is not None:
+            pulumi.set(__self__, "security_group_referencing_support", security_group_referencing_support)
         if vpn_ecmp_support is not None:
             pulumi.set(__self__, "vpn_ecmp_support", vpn_ecmp_support)
 
@@ -1212,6 +1235,18 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs:
         pulumi.set(self, "edge_locations", value)
 
     @property
+    @pulumi.getter(name="dnsSupport")
+    def dns_support(self) -> Optional[builtins.bool]:
+        """
+        Indicates whether DNS resolution is enabled for the core network. The value can be either `true` or `false`. When set to `true`, DNS resolution is enabled for VPCs attached to the core network, allowing resources in different VPCs to resolve each other's domain names. The default is `true`.
+        """
+        return pulumi.get(self, "dns_support")
+
+    @dns_support.setter
+    def dns_support(self, value: Optional[builtins.bool]):
+        pulumi.set(self, "dns_support", value)
+
+    @property
     @pulumi.getter(name="insideCidrBlocks")
     def inside_cidr_blocks(self) -> Optional[Sequence[builtins.str]]:
         """
@@ -1222,6 +1257,18 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs:
     @inside_cidr_blocks.setter
     def inside_cidr_blocks(self, value: Optional[Sequence[builtins.str]]):
         pulumi.set(self, "inside_cidr_blocks", value)
+
+    @property
+    @pulumi.getter(name="securityGroupReferencingSupport")
+    def security_group_referencing_support(self) -> Optional[builtins.bool]:
+        """
+        — (Optional) Indicates whether security group referencing is enabled for the core network. The value can be either `true` or `false`. When set to `true`, security groups in one VPC can reference security groups in another VPC attached to the core network, enabling more flexible security configurations across your network. The default is `false`.
+        """
+        return pulumi.get(self, "security_group_referencing_support")
+
+    @security_group_referencing_support.setter
+    def security_group_referencing_support(self, value: Optional[builtins.bool]):
+        pulumi.set(self, "security_group_referencing_support", value)
 
     @property
     @pulumi.getter(name="vpnEcmpSupport")

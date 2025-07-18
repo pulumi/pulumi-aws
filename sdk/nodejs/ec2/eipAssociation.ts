@@ -99,6 +99,10 @@ export class EipAssociation extends pulumi.CustomResource {
      * ) Address of the associated Elastic IP.
      */
     public readonly publicIp!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a EipAssociation resource with the given unique name, arguments, and options.
@@ -119,6 +123,7 @@ export class EipAssociation extends pulumi.CustomResource {
             resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             resourceInputs["privateIpAddress"] = state ? state.privateIpAddress : undefined;
             resourceInputs["publicIp"] = state ? state.publicIp : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as EipAssociationArgs | undefined;
             resourceInputs["allocationId"] = args ? args.allocationId : undefined;
@@ -127,6 +132,7 @@ export class EipAssociation extends pulumi.CustomResource {
             resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
             resourceInputs["privateIpAddress"] = args ? args.privateIpAddress : undefined;
             resourceInputs["publicIp"] = args ? args.publicIp : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EipAssociation.__pulumiType, name, resourceInputs, opts);
@@ -168,6 +174,10 @@ export interface EipAssociationState {
      * ) Address of the associated Elastic IP.
      */
     publicIp?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -205,4 +215,8 @@ export interface EipAssociationArgs {
      * ) Address of the associated Elastic IP.
      */
     publicIp?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

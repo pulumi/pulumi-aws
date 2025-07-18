@@ -104,6 +104,10 @@ export class ReceiptRule extends pulumi.CustomResource {
      */
     public readonly recipients!: pulumi.Output<string[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the rule set
      */
     public readonly ruleSetName!: pulumi.Output<string>;
@@ -153,6 +157,7 @@ export class ReceiptRule extends pulumi.CustomResource {
             resourceInputs["lambdaActions"] = state ? state.lambdaActions : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["recipients"] = state ? state.recipients : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["ruleSetName"] = state ? state.ruleSetName : undefined;
             resourceInputs["s3Actions"] = state ? state.s3Actions : undefined;
             resourceInputs["scanEnabled"] = state ? state.scanEnabled : undefined;
@@ -172,6 +177,7 @@ export class ReceiptRule extends pulumi.CustomResource {
             resourceInputs["lambdaActions"] = args ? args.lambdaActions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["recipients"] = args ? args.recipients : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["ruleSetName"] = args ? args.ruleSetName : undefined;
             resourceInputs["s3Actions"] = args ? args.s3Actions : undefined;
             resourceInputs["scanEnabled"] = args ? args.scanEnabled : undefined;
@@ -222,6 +228,10 @@ export interface ReceiptRuleState {
      * A list of email addresses
      */
     recipients?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the rule set
      */
@@ -284,6 +294,10 @@ export interface ReceiptRuleArgs {
      * A list of email addresses
      */
     recipients?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the rule set
      */

@@ -30,6 +30,7 @@ export function getReservedInstanceOffering(args: GetReservedInstanceOfferingArg
         "multiAz": args.multiAz,
         "offeringType": args.offeringType,
         "productDescription": args.productDescription,
+        "region": args.region,
     }, opts);
 }
 
@@ -57,6 +58,10 @@ export interface GetReservedInstanceOfferingArgs {
      * Description of the reserved DB instance.
      */
     productDescription: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -84,6 +89,7 @@ export interface GetReservedInstanceOfferingResult {
     readonly offeringId: string;
     readonly offeringType: string;
     readonly productDescription: string;
+    readonly region: string;
 }
 /**
  * Information about a single RDS Reserved Instance Offering.
@@ -111,6 +117,7 @@ export function getReservedInstanceOfferingOutput(args: GetReservedInstanceOffer
         "multiAz": args.multiAz,
         "offeringType": args.offeringType,
         "productDescription": args.productDescription,
+        "region": args.region,
     }, opts);
 }
 
@@ -138,4 +145,8 @@ export interface GetReservedInstanceOfferingOutputArgs {
      * Description of the reserved DB instance.
      */
     productDescription: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

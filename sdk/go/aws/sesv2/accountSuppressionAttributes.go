@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ import (
 type AccountSuppressionAttributes struct {
 	pulumi.CustomResourceState
 
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
 	SuppressedReasons pulumi.StringArrayOutput `pulumi:"suppressedReasons"`
 }
@@ -89,11 +91,15 @@ func GetAccountSuppressionAttributes(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountSuppressionAttributes resources.
 type accountSuppressionAttributesState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
 	SuppressedReasons []string `pulumi:"suppressedReasons"`
 }
 
 type AccountSuppressionAttributesState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
 	SuppressedReasons pulumi.StringArrayInput
 }
@@ -103,12 +109,16 @@ func (AccountSuppressionAttributesState) ElementType() reflect.Type {
 }
 
 type accountSuppressionAttributesArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
 	SuppressedReasons []string `pulumi:"suppressedReasons"`
 }
 
 // The set of arguments for constructing a AccountSuppressionAttributes resource.
 type AccountSuppressionAttributesArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
 	SuppressedReasons pulumi.StringArrayInput
 }
@@ -198,6 +208,11 @@ func (o AccountSuppressionAttributesOutput) ToAccountSuppressionAttributesOutput
 
 func (o AccountSuppressionAttributesOutput) ToAccountSuppressionAttributesOutputWithContext(ctx context.Context) AccountSuppressionAttributesOutput {
 	return o
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AccountSuppressionAttributesOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccountSuppressionAttributes) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.

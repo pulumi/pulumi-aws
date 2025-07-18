@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,14 +20,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/amp"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := amp.GetDefaultScraperConfiguration(ctx, map[string]interface{}{}, nil)
+//			_, err := amp.GetDefaultScraperConfiguration(ctx, &amp.GetDefaultScraperConfigurationArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -36,14 +36,20 @@ import (
 //	}
 //
 // ```
-func GetDefaultScraperConfiguration(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetDefaultScraperConfigurationResult, error) {
+func GetDefaultScraperConfiguration(ctx *pulumi.Context, args *GetDefaultScraperConfigurationArgs, opts ...pulumi.InvokeOption) (*GetDefaultScraperConfigurationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDefaultScraperConfigurationResult
-	err := ctx.Invoke("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", nil, &rv, opts...)
+	err := ctx.Invoke("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getDefaultScraperConfiguration.
+type GetDefaultScraperConfigurationArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDefaultScraperConfiguration.
@@ -51,14 +57,27 @@ type GetDefaultScraperConfigurationResult struct {
 	// The configuration file.
 	Configuration string `pulumi:"configuration"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
-func GetDefaultScraperConfigurationOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetDefaultScraperConfigurationResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetDefaultScraperConfigurationResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", nil, GetDefaultScraperConfigurationResultOutput{}, options).(GetDefaultScraperConfigurationResultOutput), nil
-	}).(GetDefaultScraperConfigurationResultOutput)
+func GetDefaultScraperConfigurationOutput(ctx *pulumi.Context, args GetDefaultScraperConfigurationOutputArgs, opts ...pulumi.InvokeOption) GetDefaultScraperConfigurationResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetDefaultScraperConfigurationResultOutput, error) {
+			args := v.(GetDefaultScraperConfigurationArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", args, GetDefaultScraperConfigurationResultOutput{}, options).(GetDefaultScraperConfigurationResultOutput), nil
+		}).(GetDefaultScraperConfigurationResultOutput)
+}
+
+// A collection of arguments for invoking getDefaultScraperConfiguration.
+type GetDefaultScraperConfigurationOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetDefaultScraperConfigurationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDefaultScraperConfigurationArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getDefaultScraperConfiguration.
@@ -84,6 +103,10 @@ func (o GetDefaultScraperConfigurationResultOutput) Configuration() pulumi.Strin
 // The provider-assigned unique ID for this managed resource.
 func (o GetDefaultScraperConfigurationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDefaultScraperConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetDefaultScraperConfigurationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDefaultScraperConfigurationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

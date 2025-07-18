@@ -25,7 +25,8 @@ class ConstraintArgs:
                  product_id: pulumi.Input[builtins.str],
                  type: pulumi.Input[builtins.str],
                  accept_language: Optional[pulumi.Input[builtins.str]] = None,
-                 description: Optional[pulumi.Input[builtins.str]] = None):
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Constraint resource.
         :param pulumi.Input[builtins.str] parameters: Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
@@ -36,6 +37,7 @@ class ConstraintArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[builtins.str] description: Description of the constraint.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "parameters", parameters)
         pulumi.set(__self__, "portfolio_id", portfolio_id)
@@ -45,6 +47,8 @@ class ConstraintArgs:
             pulumi.set(__self__, "accept_language", accept_language)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -120,6 +124,18 @@ class ConstraintArgs:
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ConstraintState:
@@ -130,6 +146,7 @@ class _ConstraintState:
                  parameters: Optional[pulumi.Input[builtins.str]] = None,
                  portfolio_id: Optional[pulumi.Input[builtins.str]] = None,
                  product_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -140,6 +157,7 @@ class _ConstraintState:
         :param pulumi.Input[builtins.str] parameters: Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
         :param pulumi.Input[builtins.str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[builtins.str] product_id: Product identifier.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
                
                The following arguments are optional:
@@ -156,6 +174,8 @@ class _ConstraintState:
             pulumi.set(__self__, "portfolio_id", portfolio_id)
         if product_id is not None:
             pulumi.set(__self__, "product_id", product_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if type is not None:
@@ -235,6 +255,18 @@ class _ConstraintState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "status")
 
@@ -268,6 +300,7 @@ class Constraint(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[builtins.str]] = None,
                  portfolio_id: Optional[pulumi.Input[builtins.str]] = None,
                  product_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -309,6 +342,7 @@ class Constraint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] parameters: Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
         :param pulumi.Input[builtins.str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[builtins.str] product_id: Product identifier.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
                
                The following arguments are optional:
@@ -371,6 +405,7 @@ class Constraint(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[builtins.str]] = None,
                  portfolio_id: Optional[pulumi.Input[builtins.str]] = None,
                  product_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -392,6 +427,7 @@ class Constraint(pulumi.CustomResource):
             if product_id is None and not opts.urn:
                 raise TypeError("Missing required property 'product_id'")
             __props__.__dict__["product_id"] = product_id
+            __props__.__dict__["region"] = region
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
@@ -413,6 +449,7 @@ class Constraint(pulumi.CustomResource):
             parameters: Optional[pulumi.Input[builtins.str]] = None,
             portfolio_id: Optional[pulumi.Input[builtins.str]] = None,
             product_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None) -> 'Constraint':
         """
@@ -428,6 +465,7 @@ class Constraint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] parameters: Constraint parameters in JSON format. The syntax depends on the constraint type. See details below.
         :param pulumi.Input[builtins.str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[builtins.str] product_id: Product identifier.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] type: Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
                
                The following arguments are optional:
@@ -442,6 +480,7 @@ class Constraint(pulumi.CustomResource):
         __props__.__dict__["parameters"] = parameters
         __props__.__dict__["portfolio_id"] = portfolio_id
         __props__.__dict__["product_id"] = product_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         __props__.__dict__["type"] = type
         return Constraint(resource_name, opts=opts, __props__=__props__)
@@ -493,6 +532,14 @@ class Constraint(pulumi.CustomResource):
         Product identifier.
         """
         return pulumi.get(self, "product_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

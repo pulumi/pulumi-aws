@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,7 +56,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigatewayv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigatewayv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -124,6 +124,8 @@ type Authorizer struct {
 	JwtConfiguration AuthorizerJwtConfigurationPtrOutput `pulumi:"jwtConfiguration"`
 	// Name of the authorizer. Must be between 1 and 128 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAuthorizer registers a new resource with the given unique name, arguments, and options.
@@ -194,6 +196,8 @@ type authorizerState struct {
 	JwtConfiguration *AuthorizerJwtConfiguration `pulumi:"jwtConfiguration"`
 	// Name of the authorizer. Must be between 1 and 128 characters in length.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type AuthorizerState struct {
@@ -229,6 +233,8 @@ type AuthorizerState struct {
 	JwtConfiguration AuthorizerJwtConfigurationPtrInput
 	// Name of the authorizer. Must be between 1 and 128 characters in length.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AuthorizerState) ElementType() reflect.Type {
@@ -268,6 +274,8 @@ type authorizerArgs struct {
 	JwtConfiguration *AuthorizerJwtConfiguration `pulumi:"jwtConfiguration"`
 	// Name of the authorizer. Must be between 1 and 128 characters in length.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Authorizer resource.
@@ -304,6 +312,8 @@ type AuthorizerArgs struct {
 	JwtConfiguration AuthorizerJwtConfigurationPtrInput
 	// Name of the authorizer. Must be between 1 and 128 characters in length.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AuthorizerArgs) ElementType() reflect.Type {
@@ -453,6 +463,11 @@ func (o AuthorizerOutput) JwtConfiguration() AuthorizerJwtConfigurationPtrOutput
 // Name of the authorizer. Must be between 1 and 128 characters in length.
 func (o AuthorizerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AuthorizerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Authorizer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type AuthorizerArrayOutput struct{ *pulumi.OutputState }

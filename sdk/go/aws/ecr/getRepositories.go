@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,14 +22,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ecr.GetRepositories(ctx, map[string]interface{}{}, nil)
+//			_, err := ecr.GetRepositories(ctx, &ecr.GetRepositoriesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -38,14 +38,20 @@ import (
 //	}
 //
 // ```
-func GetRepositories(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRepositoriesResult, error) {
+func GetRepositories(ctx *pulumi.Context, args *GetRepositoriesArgs, opts ...pulumi.InvokeOption) (*GetRepositoriesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRepositoriesResult
-	err := ctx.Invoke("aws:ecr/getRepositories:getRepositories", nil, &rv, opts...)
+	err := ctx.Invoke("aws:ecr/getRepositories:getRepositories", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getRepositories.
+type GetRepositoriesArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getRepositories.
@@ -53,14 +59,27 @@ type GetRepositoriesResult struct {
 	// AWS Region.
 	Id string `pulumi:"id"`
 	// A list if AWS Elastic Container Registries for the region.
-	Names []string `pulumi:"names"`
+	Names  []string `pulumi:"names"`
+	Region string   `pulumi:"region"`
 }
 
-func GetRepositoriesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetRepositoriesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetRepositoriesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:ecr/getRepositories:getRepositories", nil, GetRepositoriesResultOutput{}, options).(GetRepositoriesResultOutput), nil
-	}).(GetRepositoriesResultOutput)
+func GetRepositoriesOutput(ctx *pulumi.Context, args GetRepositoriesOutputArgs, opts ...pulumi.InvokeOption) GetRepositoriesResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetRepositoriesResultOutput, error) {
+			args := v.(GetRepositoriesArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:ecr/getRepositories:getRepositories", args, GetRepositoriesResultOutput{}, options).(GetRepositoriesResultOutput), nil
+		}).(GetRepositoriesResultOutput)
+}
+
+// A collection of arguments for invoking getRepositories.
+type GetRepositoriesOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetRepositoriesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoriesArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getRepositories.
@@ -86,6 +105,10 @@ func (o GetRepositoriesResultOutput) Id() pulumi.StringOutput {
 // A list if AWS Elastic Container Registries for the region.
 func (o GetRepositoriesResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRepositoriesResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+func (o GetRepositoriesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoriesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

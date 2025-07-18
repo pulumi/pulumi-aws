@@ -23,19 +23,23 @@ class SubnetCidrReservationArgs:
                  cidr_block: pulumi.Input[builtins.str],
                  reservation_type: pulumi.Input[builtins.str],
                  subnet_id: pulumi.Input[builtins.str],
-                 description: Optional[pulumi.Input[builtins.str]] = None):
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a SubnetCidrReservation resource.
         :param pulumi.Input[builtins.str] cidr_block: The CIDR block for the reservation.
         :param pulumi.Input[builtins.str] reservation_type: The type of reservation to create. Valid values: `explicit`, `prefix`
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet to create the reservation for.
         :param pulumi.Input[builtins.str] description: A brief description of the reservation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cidr_block", cidr_block)
         pulumi.set(__self__, "reservation_type", reservation_type)
         pulumi.set(__self__, "subnet_id", subnet_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="cidrBlock")
@@ -85,6 +89,18 @@ class SubnetCidrReservationArgs:
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _SubnetCidrReservationState:
@@ -92,6 +108,7 @@ class _SubnetCidrReservationState:
                  cidr_block: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reservation_type: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -99,6 +116,7 @@ class _SubnetCidrReservationState:
         :param pulumi.Input[builtins.str] cidr_block: The CIDR block for the reservation.
         :param pulumi.Input[builtins.str] description: A brief description of the reservation.
         :param pulumi.Input[builtins.str] owner_id: ID of the AWS account that owns this CIDR reservation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] reservation_type: The type of reservation to create. Valid values: `explicit`, `prefix`
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet to create the reservation for.
         """
@@ -108,6 +126,8 @@ class _SubnetCidrReservationState:
             pulumi.set(__self__, "description", description)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if reservation_type is not None:
             pulumi.set(__self__, "reservation_type", reservation_type)
         if subnet_id is not None:
@@ -150,6 +170,18 @@ class _SubnetCidrReservationState:
         pulumi.set(self, "owner_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="reservationType")
     def reservation_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -182,6 +214,7 @@ class SubnetCidrReservation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cidr_block: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reservation_type: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -212,6 +245,7 @@ class SubnetCidrReservation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cidr_block: The CIDR block for the reservation.
         :param pulumi.Input[builtins.str] description: A brief description of the reservation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] reservation_type: The type of reservation to create. Valid values: `explicit`, `prefix`
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet to create the reservation for.
         """
@@ -261,6 +295,7 @@ class SubnetCidrReservation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cidr_block: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  reservation_type: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -276,6 +311,7 @@ class SubnetCidrReservation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cidr_block'")
             __props__.__dict__["cidr_block"] = cidr_block
             __props__.__dict__["description"] = description
+            __props__.__dict__["region"] = region
             if reservation_type is None and not opts.urn:
                 raise TypeError("Missing required property 'reservation_type'")
             __props__.__dict__["reservation_type"] = reservation_type
@@ -296,6 +332,7 @@ class SubnetCidrReservation(pulumi.CustomResource):
             cidr_block: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             owner_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             reservation_type: Optional[pulumi.Input[builtins.str]] = None,
             subnet_id: Optional[pulumi.Input[builtins.str]] = None) -> 'SubnetCidrReservation':
         """
@@ -308,6 +345,7 @@ class SubnetCidrReservation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cidr_block: The CIDR block for the reservation.
         :param pulumi.Input[builtins.str] description: A brief description of the reservation.
         :param pulumi.Input[builtins.str] owner_id: ID of the AWS account that owns this CIDR reservation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] reservation_type: The type of reservation to create. Valid values: `explicit`, `prefix`
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet to create the reservation for.
         """
@@ -318,6 +356,7 @@ class SubnetCidrReservation(pulumi.CustomResource):
         __props__.__dict__["cidr_block"] = cidr_block
         __props__.__dict__["description"] = description
         __props__.__dict__["owner_id"] = owner_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["reservation_type"] = reservation_type
         __props__.__dict__["subnet_id"] = subnet_id
         return SubnetCidrReservation(resource_name, opts=opts, __props__=__props__)
@@ -345,6 +384,14 @@ class SubnetCidrReservation(pulumi.CustomResource):
         ID of the AWS account that owns this CIDR reservation.
         """
         return pulumi.get(self, "owner_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="reservationType")

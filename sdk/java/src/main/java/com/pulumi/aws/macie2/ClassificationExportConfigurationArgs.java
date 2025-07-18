@@ -6,6 +6,8 @@ package com.pulumi.aws.macie2;
 import com.pulumi.aws.macie2.inputs.ClassificationExportConfigurationS3DestinationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,23 +18,39 @@ public final class ClassificationExportConfigurationArgs extends com.pulumi.reso
     public static final ClassificationExportConfigurationArgs Empty = new ClassificationExportConfigurationArgs();
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration block for a S3 Destination. Defined below
      * 
      */
-    @Import(name="s3Destination")
-    private @Nullable Output<ClassificationExportConfigurationS3DestinationArgs> s3Destination;
+    @Import(name="s3Destination", required=true)
+    private Output<ClassificationExportConfigurationS3DestinationArgs> s3Destination;
 
     /**
      * @return Configuration block for a S3 Destination. Defined below
      * 
      */
-    public Optional<Output<ClassificationExportConfigurationS3DestinationArgs>> s3Destination() {
-        return Optional.ofNullable(this.s3Destination);
+    public Output<ClassificationExportConfigurationS3DestinationArgs> s3Destination() {
+        return this.s3Destination;
     }
 
     private ClassificationExportConfigurationArgs() {}
 
     private ClassificationExportConfigurationArgs(ClassificationExportConfigurationArgs $) {
+        this.region = $.region;
         this.s3Destination = $.s3Destination;
     }
 
@@ -55,12 +73,33 @@ public final class ClassificationExportConfigurationArgs extends com.pulumi.reso
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param s3Destination Configuration block for a S3 Destination. Defined below
          * 
          * @return builder
          * 
          */
-        public Builder s3Destination(@Nullable Output<ClassificationExportConfigurationS3DestinationArgs> s3Destination) {
+        public Builder s3Destination(Output<ClassificationExportConfigurationS3DestinationArgs> s3Destination) {
             $.s3Destination = s3Destination;
             return this;
         }
@@ -76,6 +115,9 @@ public final class ClassificationExportConfigurationArgs extends com.pulumi.reso
         }
 
         public ClassificationExportConfigurationArgs build() {
+            if ($.s3Destination == null) {
+                throw new MissingRequiredPropertyException("ClassificationExportConfigurationArgs", "s3Destination");
+            }
             return $;
         }
     }

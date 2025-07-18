@@ -36,6 +36,7 @@ public final class GetPeeringAttachmentResult {
      * 
      */
     private String peerTransitGatewayId;
+    private String region;
     private String state;
     private Map<String,String> tags;
     /**
@@ -79,6 +80,9 @@ public final class GetPeeringAttachmentResult {
     public String peerTransitGatewayId() {
         return this.peerTransitGatewayId;
     }
+    public String region() {
+        return this.region;
+    }
     public String state() {
         return this.state;
     }
@@ -108,6 +112,7 @@ public final class GetPeeringAttachmentResult {
         private String peerAccountId;
         private String peerRegion;
         private String peerTransitGatewayId;
+        private String region;
         private String state;
         private Map<String,String> tags;
         private String transitGatewayId;
@@ -120,6 +125,7 @@ public final class GetPeeringAttachmentResult {
     	      this.peerAccountId = defaults.peerAccountId;
     	      this.peerRegion = defaults.peerRegion;
     	      this.peerTransitGatewayId = defaults.peerTransitGatewayId;
+    	      this.region = defaults.region;
     	      this.state = defaults.state;
     	      this.tags = defaults.tags;
     	      this.transitGatewayId = defaults.transitGatewayId;
@@ -175,6 +181,14 @@ public final class GetPeeringAttachmentResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPeeringAttachmentResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder state(String state) {
             if (state == null) {
               throw new MissingRequiredPropertyException("GetPeeringAttachmentResult", "state");
@@ -206,6 +220,7 @@ public final class GetPeeringAttachmentResult {
             _resultValue.peerAccountId = peerAccountId;
             _resultValue.peerRegion = peerRegion;
             _resultValue.peerTransitGatewayId = peerTransitGatewayId;
+            _resultValue.region = region;
             _resultValue.state = state;
             _resultValue.tags = tags;
             _resultValue.transitGatewayId = transitGatewayId;

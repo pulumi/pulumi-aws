@@ -22,17 +22,21 @@ class ClusterSnapshotArgs:
     def __init__(__self__, *,
                  db_cluster_identifier: pulumi.Input[builtins.str],
                  db_cluster_snapshot_identifier: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ClusterSnapshot resource.
         :param pulumi.Input[builtins.str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
         :param pulumi.Input[builtins.str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
         pulumi.set(__self__, "db_cluster_snapshot_identifier", db_cluster_snapshot_identifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if shared_accounts is not None:
             pulumi.set(__self__, "shared_accounts", shared_accounts)
         if tags is not None:
@@ -61,6 +65,18 @@ class ClusterSnapshotArgs:
     @db_cluster_snapshot_identifier.setter
     def db_cluster_snapshot_identifier(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "db_cluster_snapshot_identifier", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="sharedAccounts")
@@ -100,6 +116,7 @@ class _ClusterSnapshotState:
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  license_model: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  snapshot_type: Optional[pulumi.Input[builtins.str]] = None,
                  source_db_cluster_snapshot_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -120,6 +137,7 @@ class _ClusterSnapshotState:
         :param pulumi.Input[builtins.str] kms_key_id: If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
         :param pulumi.Input[builtins.str] license_model: License model information for the restored DB cluster.
         :param pulumi.Input[builtins.int] port: Port that the DB cluster was listening on at the time of the snapshot.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[builtins.str] status: The status of this DB Cluster Snapshot.
         :param pulumi.Input[builtins.bool] storage_encrypted: Whether the DB cluster snapshot is encrypted.
@@ -147,6 +165,8 @@ class _ClusterSnapshotState:
             pulumi.set(__self__, "license_model", license_model)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if shared_accounts is not None:
             pulumi.set(__self__, "shared_accounts", shared_accounts)
         if snapshot_type is not None:
@@ -159,9 +179,6 @@ class _ClusterSnapshotState:
             pulumi.set(__self__, "storage_encrypted", storage_encrypted)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_id is not None:
@@ -288,6 +305,18 @@ class _ClusterSnapshotState:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sharedAccounts")
     def shared_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -355,7 +384,6 @@ class _ClusterSnapshotState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -387,6 +415,7 @@ class ClusterSnapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  db_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  db_cluster_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -416,6 +445,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
         :param pulumi.Input[builtins.str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -464,6 +494,7 @@ class ClusterSnapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  db_cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  db_cluster_snapshot_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -481,6 +512,7 @@ class ClusterSnapshot(pulumi.CustomResource):
             if db_cluster_snapshot_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'db_cluster_snapshot_identifier'")
             __props__.__dict__["db_cluster_snapshot_identifier"] = db_cluster_snapshot_identifier
+            __props__.__dict__["region"] = region
             __props__.__dict__["shared_accounts"] = shared_accounts
             __props__.__dict__["tags"] = tags
             __props__.__dict__["allocated_storage"] = None
@@ -517,6 +549,7 @@ class ClusterSnapshot(pulumi.CustomResource):
             kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
             license_model: Optional[pulumi.Input[builtins.str]] = None,
             port: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             snapshot_type: Optional[pulumi.Input[builtins.str]] = None,
             source_db_cluster_snapshot_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -542,6 +575,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] kms_key_id: If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
         :param pulumi.Input[builtins.str] license_model: License model information for the restored DB cluster.
         :param pulumi.Input[builtins.int] port: Port that the DB cluster was listening on at the time of the snapshot.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[builtins.str] status: The status of this DB Cluster Snapshot.
         :param pulumi.Input[builtins.bool] storage_encrypted: Whether the DB cluster snapshot is encrypted.
@@ -563,6 +597,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["license_model"] = license_model
         __props__.__dict__["port"] = port
+        __props__.__dict__["region"] = region
         __props__.__dict__["shared_accounts"] = shared_accounts
         __props__.__dict__["snapshot_type"] = snapshot_type
         __props__.__dict__["source_db_cluster_snapshot_arn"] = source_db_cluster_snapshot_arn
@@ -654,6 +689,14 @@ class ClusterSnapshot(pulumi.CustomResource):
         return pulumi.get(self, "port")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="sharedAccounts")
     def shared_accounts(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
@@ -697,7 +740,6 @@ class ClusterSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

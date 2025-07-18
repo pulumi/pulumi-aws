@@ -27,7 +27,7 @@ class GetWorkspacesResult:
     """
     A collection of values returned by getWorkspaces.
     """
-    def __init__(__self__, alias_prefix=None, aliases=None, arns=None, id=None, workspace_ids=None):
+    def __init__(__self__, alias_prefix=None, aliases=None, arns=None, id=None, region=None, workspace_ids=None):
         if alias_prefix and not isinstance(alias_prefix, str):
             raise TypeError("Expected argument 'alias_prefix' to be a str")
         pulumi.set(__self__, "alias_prefix", alias_prefix)
@@ -40,6 +40,9 @@ class GetWorkspacesResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if workspace_ids and not isinstance(workspace_ids, list):
             raise TypeError("Expected argument 'workspace_ids' to be a list")
         pulumi.set(__self__, "workspace_ids", workspace_ids)
@@ -74,6 +77,11 @@ class GetWorkspacesResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="workspaceIds")
     def workspace_ids(self) -> Sequence[builtins.str]:
         """
@@ -92,10 +100,12 @@ class AwaitableGetWorkspacesResult(GetWorkspacesResult):
             aliases=self.aliases,
             arns=self.arns,
             id=self.id,
+            region=self.region,
             workspace_ids=self.workspace_ids)
 
 
 def get_workspaces(alias_prefix: Optional[builtins.str] = None,
+                   region: Optional[builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspacesResult:
     """
     Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
@@ -123,9 +133,11 @@ def get_workspaces(alias_prefix: Optional[builtins.str] = None,
 
 
     :param builtins.str alias_prefix: Limits results to workspaces with aliases that begin with this value.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['aliasPrefix'] = alias_prefix
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:amp/getWorkspaces:getWorkspaces', __args__, opts=opts, typ=GetWorkspacesResult).value
 
@@ -134,8 +146,10 @@ def get_workspaces(alias_prefix: Optional[builtins.str] = None,
         aliases=pulumi.get(__ret__, 'aliases'),
         arns=pulumi.get(__ret__, 'arns'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         workspace_ids=pulumi.get(__ret__, 'workspace_ids'))
 def get_workspaces_output(alias_prefix: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspacesResult]:
     """
     Provides the aliases, ARNs, and workspace IDs of Amazon Prometheus workspaces.
@@ -163,9 +177,11 @@ def get_workspaces_output(alias_prefix: Optional[pulumi.Input[Optional[builtins.
 
 
     :param builtins.str alias_prefix: Limits results to workspaces with aliases that begin with this value.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['aliasPrefix'] = alias_prefix
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:amp/getWorkspaces:getWorkspaces', __args__, opts=opts, typ=GetWorkspacesResult)
     return __ret__.apply(lambda __response__: GetWorkspacesResult(
@@ -173,4 +189,5 @@ def get_workspaces_output(alias_prefix: Optional[pulumi.Input[Optional[builtins.
         aliases=pulumi.get(__response__, 'aliases'),
         arns=pulumi.get(__response__, 'arns'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         workspace_ids=pulumi.get(__response__, 'workspace_ids')))

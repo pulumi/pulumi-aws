@@ -28,7 +28,7 @@ class GetPatchBaselineResult:
     """
     A collection of values returned by getPatchBaseline.
     """
-    def __init__(__self__, approval_rules=None, approved_patches=None, approved_patches_compliance_level=None, approved_patches_enable_non_security=None, default_baseline=None, description=None, global_filters=None, id=None, json=None, name=None, name_prefix=None, operating_system=None, owner=None, rejected_patches=None, rejected_patches_action=None, sources=None):
+    def __init__(__self__, approval_rules=None, approved_patches=None, approved_patches_compliance_level=None, approved_patches_enable_non_security=None, default_baseline=None, description=None, global_filters=None, id=None, json=None, name=None, name_prefix=None, operating_system=None, owner=None, region=None, rejected_patches=None, rejected_patches_action=None, sources=None):
         if approval_rules and not isinstance(approval_rules, list):
             raise TypeError("Expected argument 'approval_rules' to be a list")
         pulumi.set(__self__, "approval_rules", approval_rules)
@@ -68,6 +68,9 @@ class GetPatchBaselineResult:
         if owner and not isinstance(owner, str):
             raise TypeError("Expected argument 'owner' to be a str")
         pulumi.set(__self__, "owner", owner)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if rejected_patches and not isinstance(rejected_patches, list):
             raise TypeError("Expected argument 'rejected_patches' to be a list")
         pulumi.set(__self__, "rejected_patches", rejected_patches)
@@ -171,6 +174,11 @@ class GetPatchBaselineResult:
         return pulumi.get(self, "owner")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="rejectedPatches")
     def rejected_patches(self) -> Sequence[builtins.str]:
         """
@@ -214,6 +222,7 @@ class AwaitableGetPatchBaselineResult(GetPatchBaselineResult):
             name_prefix=self.name_prefix,
             operating_system=self.operating_system,
             owner=self.owner,
+            region=self.region,
             rejected_patches=self.rejected_patches,
             rejected_patches_action=self.rejected_patches_action,
             sources=self.sources)
@@ -223,6 +232,7 @@ def get_patch_baseline(default_baseline: Optional[builtins.bool] = None,
                        name_prefix: Optional[builtins.str] = None,
                        operating_system: Optional[builtins.str] = None,
                        owner: Optional[builtins.str] = None,
+                       region: Optional[builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPatchBaselineResult:
     """
     Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
@@ -259,12 +269,14 @@ def get_patch_baseline(default_baseline: Optional[builtins.bool] = None,
     :param builtins.str owner: Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['defaultBaseline'] = default_baseline
     __args__['namePrefix'] = name_prefix
     __args__['operatingSystem'] = operating_system
     __args__['owner'] = owner
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ssm/getPatchBaseline:getPatchBaseline', __args__, opts=opts, typ=GetPatchBaselineResult).value
 
@@ -282,6 +294,7 @@ def get_patch_baseline(default_baseline: Optional[builtins.bool] = None,
         name_prefix=pulumi.get(__ret__, 'name_prefix'),
         operating_system=pulumi.get(__ret__, 'operating_system'),
         owner=pulumi.get(__ret__, 'owner'),
+        region=pulumi.get(__ret__, 'region'),
         rejected_patches=pulumi.get(__ret__, 'rejected_patches'),
         rejected_patches_action=pulumi.get(__ret__, 'rejected_patches_action'),
         sources=pulumi.get(__ret__, 'sources'))
@@ -289,6 +302,7 @@ def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[b
                               name_prefix: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               operating_system: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               owner: Optional[pulumi.Input[builtins.str]] = None,
+                              region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPatchBaselineResult]:
     """
     Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
@@ -325,12 +339,14 @@ def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[b
     :param builtins.str owner: Owner of the baseline. Valid values: `All`, `AWS`, `Self` (the current account).
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['defaultBaseline'] = default_baseline
     __args__['namePrefix'] = name_prefix
     __args__['operatingSystem'] = operating_system
     __args__['owner'] = owner
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssm/getPatchBaseline:getPatchBaseline', __args__, opts=opts, typ=GetPatchBaselineResult)
     return __ret__.apply(lambda __response__: GetPatchBaselineResult(
@@ -347,6 +363,7 @@ def get_patch_baseline_output(default_baseline: Optional[pulumi.Input[Optional[b
         name_prefix=pulumi.get(__response__, 'name_prefix'),
         operating_system=pulumi.get(__response__, 'operating_system'),
         owner=pulumi.get(__response__, 'owner'),
+        region=pulumi.get(__response__, 'region'),
         rejected_patches=pulumi.get(__response__, 'rejected_patches'),
         rejected_patches_action=pulumi.get(__response__, 'rejected_patches_action'),
         sources=pulumi.get(__response__, 'sources')))

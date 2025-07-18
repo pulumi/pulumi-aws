@@ -25,6 +25,7 @@ export function getDistributionConfiguration(args: GetDistributionConfigurationA
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", {
         "arn": args.arn,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,10 @@ export interface GetDistributionConfigurationArgs {
      * ARN of the distribution configuration.
      */
     arn: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Key-value map of resource tags for the distribution configuration.
      */
@@ -73,6 +78,10 @@ export interface GetDistributionConfigurationResult {
      */
     readonly name: string;
     /**
+     * AWS Region of distribution.
+     */
+    readonly region: string;
+    /**
      * Key-value map of resource tags for the distribution configuration.
      */
     readonly tags: {[key: string]: string};
@@ -95,6 +104,7 @@ export function getDistributionConfigurationOutput(args: GetDistributionConfigur
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", {
         "arn": args.arn,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -107,6 +117,10 @@ export interface GetDistributionConfigurationOutputArgs {
      * ARN of the distribution configuration.
      */
     arn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the distribution configuration.
      */

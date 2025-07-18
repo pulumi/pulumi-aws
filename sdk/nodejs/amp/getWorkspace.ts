@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:amp/getWorkspace:getWorkspace", {
+        "region": args.region,
         "tags": args.tags,
         "workspaceId": args.workspaceId,
     }, opts);
@@ -32,6 +33,10 @@ export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getWorkspace.
  */
 export interface GetWorkspaceArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Tags assigned to the resource.
      */
@@ -70,6 +75,7 @@ export interface GetWorkspaceResult {
      * Endpoint of the Prometheus workspace.
      */
     readonly prometheusEndpoint: string;
+    readonly region: string;
     /**
      * Status of the Prometheus workspace.
      */
@@ -99,6 +105,7 @@ export interface GetWorkspaceResult {
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:amp/getWorkspace:getWorkspace", {
+        "region": args.region,
         "tags": args.tags,
         "workspaceId": args.workspaceId,
     }, opts);
@@ -108,6 +115,10 @@ export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getWorkspace.
  */
 export interface GetWorkspaceOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Tags assigned to the resource.
      */

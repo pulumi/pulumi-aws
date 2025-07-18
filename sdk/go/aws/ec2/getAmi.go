@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,6 +78,11 @@ func LookupAmi(ctx *pulumi.Context, args *LookupAmiArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getAmi.
 type LookupAmiArgs struct {
+	// If true, allow unsafe filter values. With unsafe
+	// filters and `mostRecent` set to `true`, a third party may introduce a new image which
+	// will be returned by this data source. Consider filtering by owner or image ID rather
+	// than setting this argument.
+	AllowUnsafeFilter *bool `pulumi:"allowUnsafeFilter"`
 	// Limit search to users with *explicit* launch permission on
 	// the image. Valid items are the numeric account ID or `self`.
 	ExecutableUsers []string `pulumi:"executableUsers"`
@@ -103,6 +108,8 @@ type LookupAmiArgs struct {
 	NameRegex *string `pulumi:"nameRegex"`
 	// List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
 	Owners []string `pulumi:"owners"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Any tags assigned to the image.
 	// * `tags.#.key` - Key name of the tag.
 	// * `tags.#.value` - Value of the tag.
@@ -113,6 +120,7 @@ type LookupAmiArgs struct {
 
 // A collection of values returned by getAmi.
 type LookupAmiResult struct {
+	AllowUnsafeFilter *bool `pulumi:"allowUnsafeFilter"`
 	// OS architecture of the AMI (ie: `i386` or `x8664`).
 	Architecture string `pulumi:"architecture"`
 	// ARN of the AMI.
@@ -173,6 +181,7 @@ type LookupAmiResult struct {
 	// RAM disk associated with the image, if any. Only applicable
 	// for machine images.
 	RamdiskId string `pulumi:"ramdiskId"`
+	Region    string `pulumi:"region"`
 	// Device name of the root device.
 	RootDeviceName string `pulumi:"rootDeviceName"`
 	// Type of root device (ie: `ebs` or `instance-store`).
@@ -213,6 +222,11 @@ func LookupAmiOutput(ctx *pulumi.Context, args LookupAmiOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getAmi.
 type LookupAmiOutputArgs struct {
+	// If true, allow unsafe filter values. With unsafe
+	// filters and `mostRecent` set to `true`, a third party may introduce a new image which
+	// will be returned by this data source. Consider filtering by owner or image ID rather
+	// than setting this argument.
+	AllowUnsafeFilter pulumi.BoolPtrInput `pulumi:"allowUnsafeFilter"`
 	// Limit search to users with *explicit* launch permission on
 	// the image. Valid items are the numeric account ID or `self`.
 	ExecutableUsers pulumi.StringArrayInput `pulumi:"executableUsers"`
@@ -238,6 +252,8 @@ type LookupAmiOutputArgs struct {
 	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
 	// List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
 	Owners pulumi.StringArrayInput `pulumi:"owners"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Any tags assigned to the image.
 	// * `tags.#.key` - Key name of the tag.
 	// * `tags.#.value` - Value of the tag.
@@ -263,6 +279,10 @@ func (o LookupAmiResultOutput) ToLookupAmiResultOutput() LookupAmiResultOutput {
 
 func (o LookupAmiResultOutput) ToLookupAmiResultOutputWithContext(ctx context.Context) LookupAmiResultOutput {
 	return o
+}
+
+func (o LookupAmiResultOutput) AllowUnsafeFilter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupAmiResult) *bool { return v.AllowUnsafeFilter }).(pulumi.BoolPtrOutput)
 }
 
 // OS architecture of the AMI (ie: `i386` or `x8664`).
@@ -413,6 +433,10 @@ func (o LookupAmiResultOutput) Public() pulumi.BoolOutput {
 // for machine images.
 func (o LookupAmiResultOutput) RamdiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.RamdiskId }).(pulumi.StringOutput)
+}
+
+func (o LookupAmiResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAmiResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Device name of the root device.

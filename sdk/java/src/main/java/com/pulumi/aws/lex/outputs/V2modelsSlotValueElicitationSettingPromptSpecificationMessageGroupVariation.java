@@ -8,21 +8,20 @@ import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingPromptSpeci
 import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage;
 import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage;
 import com.pulumi.core.annotations.CustomType;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation {
-    private @Nullable List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload> customPayloads;
+    private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload customPayload;
     private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard imageResponseCard;
     private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage plainTextMessage;
     private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage ssmlMessage;
 
     private V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation() {}
-    public List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload> customPayloads() {
-        return this.customPayloads == null ? List.of() : this.customPayloads;
+    public Optional<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload> customPayload() {
+        return Optional.ofNullable(this.customPayload);
     }
     public Optional<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard> imageResponseCard() {
         return Optional.ofNullable(this.imageResponseCard);
@@ -43,27 +42,24 @@ public final class V2modelsSlotValueElicitationSettingPromptSpecificationMessage
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload> customPayloads;
+        private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload customPayload;
         private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard imageResponseCard;
         private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage plainTextMessage;
         private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage ssmlMessage;
         public Builder() {}
         public Builder(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.customPayloads = defaults.customPayloads;
+    	      this.customPayload = defaults.customPayload;
     	      this.imageResponseCard = defaults.imageResponseCard;
     	      this.plainTextMessage = defaults.plainTextMessage;
     	      this.ssmlMessage = defaults.ssmlMessage;
         }
 
         @CustomType.Setter
-        public Builder customPayloads(@Nullable List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload> customPayloads) {
+        public Builder customPayload(@Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload customPayload) {
 
-            this.customPayloads = customPayloads;
+            this.customPayload = customPayload;
             return this;
-        }
-        public Builder customPayloads(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload... customPayloads) {
-            return customPayloads(List.of(customPayloads));
         }
         @CustomType.Setter
         public Builder imageResponseCard(@Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard imageResponseCard) {
@@ -85,7 +81,7 @@ public final class V2modelsSlotValueElicitationSettingPromptSpecificationMessage
         }
         public V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation build() {
             final var _resultValue = new V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation();
-            _resultValue.customPayloads = customPayloads;
+            _resultValue.customPayload = customPayload;
             _resultValue.imageResponseCard = imageResponseCard;
             _resultValue.plainTextMessage = plainTextMessage;
             _resultValue.ssmlMessage = ssmlMessage;

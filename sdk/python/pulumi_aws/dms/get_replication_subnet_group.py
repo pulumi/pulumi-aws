@@ -27,10 +27,13 @@ class GetReplicationSubnetGroupResult:
     """
     A collection of values returned by getReplicationSubnetGroup.
     """
-    def __init__(__self__, id=None, replication_subnet_group_arn=None, replication_subnet_group_description=None, replication_subnet_group_id=None, subnet_group_status=None, subnet_ids=None, tags=None, vpc_id=None):
+    def __init__(__self__, id=None, region=None, replication_subnet_group_arn=None, replication_subnet_group_description=None, replication_subnet_group_id=None, subnet_group_status=None, subnet_ids=None, tags=None, vpc_id=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if replication_subnet_group_arn and not isinstance(replication_subnet_group_arn, str):
             raise TypeError("Expected argument 'replication_subnet_group_arn' to be a str")
         pulumi.set(__self__, "replication_subnet_group_arn", replication_subnet_group_arn)
@@ -60,6 +63,11 @@ class GetReplicationSubnetGroupResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="replicationSubnetGroupArn")
@@ -113,6 +121,7 @@ class AwaitableGetReplicationSubnetGroupResult(GetReplicationSubnetGroupResult):
             yield self
         return GetReplicationSubnetGroupResult(
             id=self.id,
+            region=self.region,
             replication_subnet_group_arn=self.replication_subnet_group_arn,
             replication_subnet_group_description=self.replication_subnet_group_description,
             replication_subnet_group_id=self.replication_subnet_group_id,
@@ -122,7 +131,8 @@ class AwaitableGetReplicationSubnetGroupResult(GetReplicationSubnetGroupResult):
             vpc_id=self.vpc_id)
 
 
-def get_replication_subnet_group(replication_subnet_group_id: Optional[builtins.str] = None,
+def get_replication_subnet_group(region: Optional[builtins.str] = None,
+                                 replication_subnet_group_id: Optional[builtins.str] = None,
                                  tags: Optional[Mapping[str, builtins.str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationSubnetGroupResult:
     """
@@ -140,9 +150,11 @@ def get_replication_subnet_group(replication_subnet_group_id: Optional[builtins.
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str replication_subnet_group_id: Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['replicationSubnetGroupId'] = replication_subnet_group_id
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -150,6 +162,7 @@ def get_replication_subnet_group(replication_subnet_group_id: Optional[builtins.
 
     return AwaitableGetReplicationSubnetGroupResult(
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         replication_subnet_group_arn=pulumi.get(__ret__, 'replication_subnet_group_arn'),
         replication_subnet_group_description=pulumi.get(__ret__, 'replication_subnet_group_description'),
         replication_subnet_group_id=pulumi.get(__ret__, 'replication_subnet_group_id'),
@@ -157,7 +170,8 @@ def get_replication_subnet_group(replication_subnet_group_id: Optional[builtins.
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_replication_subnet_group_output(replication_subnet_group_id: Optional[pulumi.Input[builtins.str]] = None,
+def get_replication_subnet_group_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                        replication_subnet_group_id: Optional[pulumi.Input[builtins.str]] = None,
                                         tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationSubnetGroupResult]:
     """
@@ -175,15 +189,18 @@ def get_replication_subnet_group_output(replication_subnet_group_id: Optional[pu
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str replication_subnet_group_id: Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['replicationSubnetGroupId'] = replication_subnet_group_id
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup', __args__, opts=opts, typ=GetReplicationSubnetGroupResult)
     return __ret__.apply(lambda __response__: GetReplicationSubnetGroupResult(
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         replication_subnet_group_arn=pulumi.get(__response__, 'replication_subnet_group_arn'),
         replication_subnet_group_description=pulumi.get(__response__, 'replication_subnet_group_description'),
         replication_subnet_group_id=pulumi.get(__response__, 'replication_subnet_group_id'),

@@ -25,6 +25,7 @@ class InferenceProfileArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  model_source: Optional[pulumi.Input['InferenceProfileModelSourceArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['InferenceProfileTimeoutsArgs']] = None):
         """
@@ -34,6 +35,7 @@ class InferenceProfileArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] name: The name of the inference profile.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags for the inference profile.
         """
         if description is not None:
@@ -42,6 +44,8 @@ class InferenceProfileArgs:
             pulumi.set(__self__, "model_source", model_source)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -87,6 +91,18 @@ class InferenceProfileArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value mapping of resource tags for the inference profile.
@@ -116,6 +132,7 @@ class _InferenceProfileState:
                  model_source: Optional[pulumi.Input['InferenceProfileModelSourceArgs']] = None,
                  models: Optional[pulumi.Input[Sequence[pulumi.Input['InferenceProfileModelArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -132,6 +149,7 @@ class _InferenceProfileState:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['InferenceProfileModelArgs']]] models: A list of information about each model in the inference profile. See `models`.
         :param pulumi.Input[builtins.str] name: The name of the inference profile.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags for the inference profile.
         :param pulumi.Input[builtins.str] type: The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
@@ -149,13 +167,12 @@ class _InferenceProfileState:
             pulumi.set(__self__, "models", models)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
@@ -241,6 +258,18 @@ class _InferenceProfileState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
@@ -265,7 +294,6 @@ class _InferenceProfileState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -316,6 +344,7 @@ class InferenceProfile(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  model_source: Optional[pulumi.Input[Union['InferenceProfileModelSourceArgs', 'InferenceProfileModelSourceArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['InferenceProfileTimeoutsArgs', 'InferenceProfileTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -357,6 +386,7 @@ class InferenceProfile(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] name: The name of the inference profile.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags for the inference profile.
         """
         ...
@@ -414,6 +444,7 @@ class InferenceProfile(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  model_source: Optional[pulumi.Input[Union['InferenceProfileModelSourceArgs', 'InferenceProfileModelSourceArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['InferenceProfileTimeoutsArgs', 'InferenceProfileTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -428,6 +459,7 @@ class InferenceProfile(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["model_source"] = model_source
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["arn"] = None
@@ -453,6 +485,7 @@ class InferenceProfile(pulumi.CustomResource):
             model_source: Optional[pulumi.Input[Union['InferenceProfileModelSourceArgs', 'InferenceProfileModelSourceArgsDict']]] = None,
             models: Optional[pulumi.Input[Sequence[pulumi.Input[Union['InferenceProfileModelArgs', 'InferenceProfileModelArgsDict']]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -474,6 +507,7 @@ class InferenceProfile(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['InferenceProfileModelArgs', 'InferenceProfileModelArgsDict']]]] models: A list of information about each model in the inference profile. See `models`.
         :param pulumi.Input[builtins.str] name: The name of the inference profile.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags for the inference profile.
         :param pulumi.Input[builtins.str] type: The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
@@ -489,6 +523,7 @@ class InferenceProfile(pulumi.CustomResource):
         __props__.__dict__["model_source"] = model_source
         __props__.__dict__["models"] = models
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -549,6 +584,14 @@ class InferenceProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def status(self) -> pulumi.Output[builtins.str]:
         """
         The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
@@ -565,7 +608,6 @@ class InferenceProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

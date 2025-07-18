@@ -87,6 +87,10 @@ export class VoiceConnectorGroup extends pulumi.CustomResource {
      * The name of the Amazon Chime Voice Connector group.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a VoiceConnectorGroup resource with the given unique name, arguments, and options.
@@ -103,10 +107,12 @@ export class VoiceConnectorGroup extends pulumi.CustomResource {
             const state = argsOrState as VoiceConnectorGroupState | undefined;
             resourceInputs["connectors"] = state ? state.connectors : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as VoiceConnectorGroupArgs | undefined;
             resourceInputs["connectors"] = args ? args.connectors : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VoiceConnectorGroup.__pulumiType, name, resourceInputs, opts);
@@ -125,6 +131,10 @@ export interface VoiceConnectorGroupState {
      * The name of the Amazon Chime Voice Connector group.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -139,4 +149,8 @@ export interface VoiceConnectorGroupArgs {
      * The name of the Amazon Chime Voice Connector group.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

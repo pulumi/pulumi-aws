@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -27,16 +28,16 @@ public final class GetListenerRuleActionArgs extends com.pulumi.resources.Resour
      * Detailed below.
      * 
      */
-    @Import(name="authenticateCognito")
-    private @Nullable Output<GetListenerRuleActionAuthenticateCognitoArgs> authenticateCognito;
+    @Import(name="authenticateCognitos")
+    private @Nullable Output<List<GetListenerRuleActionAuthenticateCognitoArgs>> authenticateCognitos;
 
     /**
      * @return An action to authenticate using Amazon Cognito.
      * Detailed below.
      * 
      */
-    public Optional<Output<GetListenerRuleActionAuthenticateCognitoArgs>> authenticateCognito() {
-        return Optional.ofNullable(this.authenticateCognito);
+    public Optional<Output<List<GetListenerRuleActionAuthenticateCognitoArgs>>> authenticateCognitos() {
+        return Optional.ofNullable(this.authenticateCognitos);
     }
 
     /**
@@ -44,16 +45,16 @@ public final class GetListenerRuleActionArgs extends com.pulumi.resources.Resour
      * Detailed below.
      * 
      */
-    @Import(name="authenticateOidc")
-    private @Nullable Output<GetListenerRuleActionAuthenticateOidcArgs> authenticateOidc;
+    @Import(name="authenticateOidcs")
+    private @Nullable Output<List<GetListenerRuleActionAuthenticateOidcArgs>> authenticateOidcs;
 
     /**
      * @return An action to authenticate using OIDC.
      * Detailed below.
      * 
      */
-    public Optional<Output<GetListenerRuleActionAuthenticateOidcArgs>> authenticateOidc() {
-        return Optional.ofNullable(this.authenticateOidc);
+    public Optional<Output<List<GetListenerRuleActionAuthenticateOidcArgs>>> authenticateOidcs() {
+        return Optional.ofNullable(this.authenticateOidcs);
     }
 
     /**
@@ -61,16 +62,16 @@ public final class GetListenerRuleActionArgs extends com.pulumi.resources.Resour
      * Detailed below.
      * 
      */
-    @Import(name="fixedResponse")
-    private @Nullable Output<GetListenerRuleActionFixedResponseArgs> fixedResponse;
+    @Import(name="fixedResponses")
+    private @Nullable Output<List<GetListenerRuleActionFixedResponseArgs>> fixedResponses;
 
     /**
      * @return An action to return a fixed response.
      * Detailed below.
      * 
      */
-    public Optional<Output<GetListenerRuleActionFixedResponseArgs>> fixedResponse() {
-        return Optional.ofNullable(this.fixedResponse);
+    public Optional<Output<List<GetListenerRuleActionFixedResponseArgs>>> fixedResponses() {
+        return Optional.ofNullable(this.fixedResponses);
     }
 
     /**
@@ -78,16 +79,16 @@ public final class GetListenerRuleActionArgs extends com.pulumi.resources.Resour
      * Detailed below.
      * 
      */
-    @Import(name="forward")
-    private @Nullable Output<GetListenerRuleActionForwardArgs> forward;
+    @Import(name="forwards")
+    private @Nullable Output<List<GetListenerRuleActionForwardArgs>> forwards;
 
     /**
      * @return An action to forward the request.
      * Detailed below.
      * 
      */
-    public Optional<Output<GetListenerRuleActionForwardArgs>> forward() {
-        return Optional.ofNullable(this.forward);
+    public Optional<Output<List<GetListenerRuleActionForwardArgs>>> forwards() {
+        return Optional.ofNullable(this.forwards);
     }
 
     /**
@@ -110,16 +111,16 @@ public final class GetListenerRuleActionArgs extends com.pulumi.resources.Resour
      * Detailed below.
      * 
      */
-    @Import(name="redirect")
-    private @Nullable Output<GetListenerRuleActionRedirectArgs> redirect;
+    @Import(name="redirects")
+    private @Nullable Output<List<GetListenerRuleActionRedirectArgs>> redirects;
 
     /**
      * @return An action to redirect the request.
      * Detailed below.
      * 
      */
-    public Optional<Output<GetListenerRuleActionRedirectArgs>> redirect() {
-        return Optional.ofNullable(this.redirect);
+    public Optional<Output<List<GetListenerRuleActionRedirectArgs>>> redirects() {
+        return Optional.ofNullable(this.redirects);
     }
 
     /**
@@ -140,12 +141,12 @@ public final class GetListenerRuleActionArgs extends com.pulumi.resources.Resour
     private GetListenerRuleActionArgs() {}
 
     private GetListenerRuleActionArgs(GetListenerRuleActionArgs $) {
-        this.authenticateCognito = $.authenticateCognito;
-        this.authenticateOidc = $.authenticateOidc;
-        this.fixedResponse = $.fixedResponse;
-        this.forward = $.forward;
+        this.authenticateCognitos = $.authenticateCognitos;
+        this.authenticateOidcs = $.authenticateOidcs;
+        this.fixedResponses = $.fixedResponses;
+        this.forwards = $.forwards;
         this.order = $.order;
-        this.redirect = $.redirect;
+        this.redirects = $.redirects;
         this.type = $.type;
     }
 
@@ -168,95 +169,139 @@ public final class GetListenerRuleActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param authenticateCognito An action to authenticate using Amazon Cognito.
+         * @param authenticateCognitos An action to authenticate using Amazon Cognito.
          * Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder authenticateCognito(@Nullable Output<GetListenerRuleActionAuthenticateCognitoArgs> authenticateCognito) {
-            $.authenticateCognito = authenticateCognito;
+        public Builder authenticateCognitos(@Nullable Output<List<GetListenerRuleActionAuthenticateCognitoArgs>> authenticateCognitos) {
+            $.authenticateCognitos = authenticateCognitos;
             return this;
         }
 
         /**
-         * @param authenticateCognito An action to authenticate using Amazon Cognito.
+         * @param authenticateCognitos An action to authenticate using Amazon Cognito.
          * Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder authenticateCognito(GetListenerRuleActionAuthenticateCognitoArgs authenticateCognito) {
-            return authenticateCognito(Output.of(authenticateCognito));
+        public Builder authenticateCognitos(List<GetListenerRuleActionAuthenticateCognitoArgs> authenticateCognitos) {
+            return authenticateCognitos(Output.of(authenticateCognitos));
         }
 
         /**
-         * @param authenticateOidc An action to authenticate using OIDC.
+         * @param authenticateCognitos An action to authenticate using Amazon Cognito.
          * Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder authenticateOidc(@Nullable Output<GetListenerRuleActionAuthenticateOidcArgs> authenticateOidc) {
-            $.authenticateOidc = authenticateOidc;
+        public Builder authenticateCognitos(GetListenerRuleActionAuthenticateCognitoArgs... authenticateCognitos) {
+            return authenticateCognitos(List.of(authenticateCognitos));
+        }
+
+        /**
+         * @param authenticateOidcs An action to authenticate using OIDC.
+         * Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticateOidcs(@Nullable Output<List<GetListenerRuleActionAuthenticateOidcArgs>> authenticateOidcs) {
+            $.authenticateOidcs = authenticateOidcs;
             return this;
         }
 
         /**
-         * @param authenticateOidc An action to authenticate using OIDC.
+         * @param authenticateOidcs An action to authenticate using OIDC.
          * Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder authenticateOidc(GetListenerRuleActionAuthenticateOidcArgs authenticateOidc) {
-            return authenticateOidc(Output.of(authenticateOidc));
+        public Builder authenticateOidcs(List<GetListenerRuleActionAuthenticateOidcArgs> authenticateOidcs) {
+            return authenticateOidcs(Output.of(authenticateOidcs));
         }
 
         /**
-         * @param fixedResponse An action to return a fixed response.
+         * @param authenticateOidcs An action to authenticate using OIDC.
          * Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder fixedResponse(@Nullable Output<GetListenerRuleActionFixedResponseArgs> fixedResponse) {
-            $.fixedResponse = fixedResponse;
+        public Builder authenticateOidcs(GetListenerRuleActionAuthenticateOidcArgs... authenticateOidcs) {
+            return authenticateOidcs(List.of(authenticateOidcs));
+        }
+
+        /**
+         * @param fixedResponses An action to return a fixed response.
+         * Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fixedResponses(@Nullable Output<List<GetListenerRuleActionFixedResponseArgs>> fixedResponses) {
+            $.fixedResponses = fixedResponses;
             return this;
         }
 
         /**
-         * @param fixedResponse An action to return a fixed response.
+         * @param fixedResponses An action to return a fixed response.
          * Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder fixedResponse(GetListenerRuleActionFixedResponseArgs fixedResponse) {
-            return fixedResponse(Output.of(fixedResponse));
+        public Builder fixedResponses(List<GetListenerRuleActionFixedResponseArgs> fixedResponses) {
+            return fixedResponses(Output.of(fixedResponses));
         }
 
         /**
-         * @param forward An action to forward the request.
+         * @param fixedResponses An action to return a fixed response.
          * Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder forward(@Nullable Output<GetListenerRuleActionForwardArgs> forward) {
-            $.forward = forward;
+        public Builder fixedResponses(GetListenerRuleActionFixedResponseArgs... fixedResponses) {
+            return fixedResponses(List.of(fixedResponses));
+        }
+
+        /**
+         * @param forwards An action to forward the request.
+         * Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forwards(@Nullable Output<List<GetListenerRuleActionForwardArgs>> forwards) {
+            $.forwards = forwards;
             return this;
         }
 
         /**
-         * @param forward An action to forward the request.
+         * @param forwards An action to forward the request.
          * Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder forward(GetListenerRuleActionForwardArgs forward) {
-            return forward(Output.of(forward));
+        public Builder forwards(List<GetListenerRuleActionForwardArgs> forwards) {
+            return forwards(Output.of(forwards));
+        }
+
+        /**
+         * @param forwards An action to forward the request.
+         * Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forwards(GetListenerRuleActionForwardArgs... forwards) {
+            return forwards(List.of(forwards));
         }
 
         /**
@@ -281,26 +326,37 @@ public final class GetListenerRuleActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param redirect An action to redirect the request.
+         * @param redirects An action to redirect the request.
          * Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder redirect(@Nullable Output<GetListenerRuleActionRedirectArgs> redirect) {
-            $.redirect = redirect;
+        public Builder redirects(@Nullable Output<List<GetListenerRuleActionRedirectArgs>> redirects) {
+            $.redirects = redirects;
             return this;
         }
 
         /**
-         * @param redirect An action to redirect the request.
+         * @param redirects An action to redirect the request.
          * Detailed below.
          * 
          * @return builder
          * 
          */
-        public Builder redirect(GetListenerRuleActionRedirectArgs redirect) {
-            return redirect(Output.of(redirect));
+        public Builder redirects(List<GetListenerRuleActionRedirectArgs> redirects) {
+            return redirects(Output.of(redirects));
+        }
+
+        /**
+         * @param redirects An action to redirect the request.
+         * Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder redirects(GetListenerRuleActionRedirectArgs... redirects) {
+            return redirects(List.of(redirects));
         }
 
         /**

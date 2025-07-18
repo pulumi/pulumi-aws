@@ -26,11 +26,124 @@ import javax.annotation.Nullable;
  * ### Basic usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sagemaker.AppImageConfig;
+ * import com.pulumi.aws.sagemaker.AppImageConfigArgs;
+ * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new AppImageConfig("test", AppImageConfigArgs.builder()
+ *             .appImageConfigName("example")
+ *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
+ *                 .kernelSpecs(AppImageConfigKernelGatewayImageConfigKernelSpecArgs.builder()
+ *                     .name("example")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Using Code Editor with empty configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sagemaker.AppImageConfig;
+ * import com.pulumi.aws.sagemaker.AppImageConfigArgs;
+ * import com.pulumi.aws.sagemaker.inputs.AppImageConfigCodeEditorAppImageConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new AppImageConfig("test", AppImageConfigArgs.builder()
+ *             .appImageConfigName("example")
+ *             .codeEditorAppImageConfig(AppImageConfigCodeEditorAppImageConfigArgs.builder()
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Default File System Config
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sagemaker.AppImageConfig;
+ * import com.pulumi.aws.sagemaker.AppImageConfigArgs;
+ * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigArgs;
+ * import com.pulumi.aws.sagemaker.inputs.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new AppImageConfig("test", AppImageConfigArgs.builder()
+ *             .appImageConfigName("example")
+ *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
+ *                 .kernelSpecs(AppImageConfigKernelGatewayImageConfigKernelSpecArgs.builder()
+ *                     .name("example")
+ *                     .build())
+ *                 .fileSystemConfig(AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs.builder()
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -73,28 +186,28 @@ public class AppImageConfig extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+     * The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
      * 
      */
     @Export(name="codeEditorAppImageConfig", refs={AppImageConfigCodeEditorAppImageConfig.class}, tree="[0]")
     private Output</* @Nullable */ AppImageConfigCodeEditorAppImageConfig> codeEditorAppImageConfig;
 
     /**
-     * @return The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+     * @return The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
      * 
      */
     public Output<Optional<AppImageConfigCodeEditorAppImageConfig>> codeEditorAppImageConfig() {
         return Codegen.optional(this.codeEditorAppImageConfig);
     }
     /**
-     * The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+     * The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
      * 
      */
     @Export(name="jupyterLabImageConfig", refs={AppImageConfigJupyterLabImageConfig.class}, tree="[0]")
     private Output</* @Nullable */ AppImageConfigJupyterLabImageConfig> jupyterLabImageConfig;
 
     /**
-     * @return The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+     * @return The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
      * 
      */
     public Output<Optional<AppImageConfigJupyterLabImageConfig>> jupyterLabImageConfig() {
@@ -115,7 +228,23 @@ public class AppImageConfig extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kernelGatewayImageConfig);
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * &gt; **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -124,6 +253,8 @@ public class AppImageConfig extends com.pulumi.resources.CustomResource {
     /**
      * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * &gt; **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
+     * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
@@ -131,11 +262,7 @@ public class AppImageConfig extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

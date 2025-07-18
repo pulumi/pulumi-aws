@@ -27,7 +27,7 @@ class GetWebAclResult:
     """
     A collection of values returned by getWebAcl.
     """
-    def __init__(__self__, arn=None, description=None, id=None, name=None, scope=None):
+    def __init__(__self__, arn=None, description=None, id=None, name=None, region=None, scope=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +40,9 @@ class GetWebAclResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if scope and not isinstance(scope, str):
             raise TypeError("Expected argument 'scope' to be a str")
         pulumi.set(__self__, "scope", scope)
@@ -75,6 +78,11 @@ class GetWebAclResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def scope(self) -> builtins.str:
         return pulumi.get(self, "scope")
 
@@ -89,10 +97,12 @@ class AwaitableGetWebAclResult(GetWebAclResult):
             description=self.description,
             id=self.id,
             name=self.name,
+            region=self.region,
             scope=self.scope)
 
 
 def get_web_acl(name: Optional[builtins.str] = None,
+                region: Optional[builtins.str] = None,
                 scope: Optional[builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAclResult:
     """
@@ -110,10 +120,12 @@ def get_web_acl(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the WAFv2 Web ACL.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['scope'] = scope
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:wafv2/getWebAcl:getWebAcl', __args__, opts=opts, typ=GetWebAclResult).value
@@ -123,8 +135,10 @@ def get_web_acl(name: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         scope=pulumi.get(__ret__, 'scope'))
 def get_web_acl_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        scope: Optional[pulumi.Input[builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAclResult]:
     """
@@ -142,10 +156,12 @@ def get_web_acl_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the WAFv2 Web ACL.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['scope'] = scope
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:wafv2/getWebAcl:getWebAcl', __args__, opts=opts, typ=GetWebAclResult)
@@ -154,4 +170,5 @@ def get_web_acl_output(name: Optional[pulumi.Input[builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         scope=pulumi.get(__response__, 'scope')))

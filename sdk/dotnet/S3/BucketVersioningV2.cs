@@ -32,21 +32,21 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example-bucket",
+    ///         BucketName = "example-bucket",
     ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
+    ///     var exampleBucketAcl = new Aws.S3.BucketAcl("example", new()
     ///     {
     ///         Bucket = example.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var versioningExample = new Aws.S3.BucketVersioningV2("versioning_example", new()
+    ///     var versioningExample = new Aws.S3.BucketVersioning("versioning_example", new()
     ///     {
     ///         Bucket = example.Id,
-    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
@@ -65,21 +65,21 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example-bucket",
+    ///         BucketName = "example-bucket",
     ///     });
     /// 
-    ///     var exampleBucketAclV2 = new Aws.S3.BucketAclV2("example", new()
+    ///     var exampleBucketAcl = new Aws.S3.BucketAcl("example", new()
     ///     {
     ///         Bucket = example.Id,
     ///         Acl = "private",
     ///     });
     /// 
-    ///     var versioningExample = new Aws.S3.BucketVersioningV2("versioning_example", new()
+    ///     var versioningExample = new Aws.S3.BucketVersioning("versioning_example", new()
     ///     {
     ///         Bucket = example.Id,
-    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Disabled",
     ///         },
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ### Object Dependency On Versioning
     /// 
-    /// When you create an object whose `version_id` you need and an `aws.s3.BucketVersioningV2` resource in the same configuration, you are more likely to have success by ensuring the `s3_object` depends either implicitly (see below) or explicitly (i.e., using `depends_on = [aws_s3_bucket_versioning.example]`) on the `aws.s3.BucketVersioningV2` resource.
+    /// When you create an object whose `version_id` you need and an `aws.s3.BucketVersioning` resource in the same configuration, you are more likely to have success by ensuring the `s3_object` depends either implicitly (see below) or explicitly (i.e., using `depends_on = [aws_s3_bucket_versioning.example]`) on the `aws.s3.BucketVersioning` resource.
     /// 
     /// &gt; **NOTE:** For critical and/or production S3 objects, do not create a bucket, enable versioning, and create an object in the bucket within the same configuration. Doing so will not allow the AWS-recommended 15 minutes between enabling versioning and writing to the bucket.
     /// 
@@ -104,15 +104,15 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketV2("example", new()
+    ///     var example = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "yotto",
+    ///         BucketName = "yotto",
     ///     });
     /// 
-    ///     var exampleBucketVersioningV2 = new Aws.S3.BucketVersioningV2("example", new()
+    ///     var exampleBucketVersioning = new Aws.S3.BucketVersioning("example", new()
     ///     {
     ///         Bucket = example.Id,
-    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningV2VersioningConfigurationArgs
+    ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var exampleBucketObjectv2 = new Aws.S3.BucketObjectv2("example", new()
     ///     {
-    ///         Bucket = exampleBucketVersioningV2.Id,
+    ///         Bucket = exampleBucketVersioning.Id,
     ///         Key = "droeloe",
     ///         Source = new FileAsset("example.txt"),
     ///     });
@@ -145,6 +145,7 @@ namespace Pulumi.Aws.S3
     /// $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012
     /// ```
     /// </summary>
+    [Obsolete(@"aws.s3/bucketversioningv2.BucketVersioningV2 has been deprecated in favor of aws.s3/bucketversioning.BucketVersioning")]
     [AwsResourceType("aws:s3/bucketVersioningV2:BucketVersioningV2")]
     public partial class BucketVersioningV2 : global::Pulumi.CustomResource
     {
@@ -165,6 +166,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("mfa")]
         public Output<string?> Mfa { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for the versioning parameters. See below.
@@ -195,6 +202,10 @@ namespace Pulumi.Aws.S3
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "aws:s3/bucketVersioningV2:BucketVersioningV2" },
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -237,6 +248,12 @@ namespace Pulumi.Aws.S3
         public Input<string>? Mfa { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for the versioning parameters. See below.
         /// </summary>
         [Input("versioningConfiguration", required: true)]
@@ -267,6 +284,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("mfa")]
         public Input<string>? Mfa { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configuration block for the versioning parameters. See below.

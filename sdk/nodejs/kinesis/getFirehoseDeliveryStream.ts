@@ -24,6 +24,7 @@ export function getFirehoseDeliveryStream(args: GetFirehoseDeliveryStreamArgs, o
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:kinesis/getFirehoseDeliveryStream:getFirehoseDeliveryStream", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -35,6 +36,10 @@ export interface GetFirehoseDeliveryStreamArgs {
      * Name of the Kinesis Firehose Delivery Stream.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -50,6 +55,7 @@ export interface GetFirehoseDeliveryStreamResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
 }
 /**
  * Use this data source to get information about a Kinesis Firehose Delivery Stream for use in other resources.
@@ -71,6 +77,7 @@ export function getFirehoseDeliveryStreamOutput(args: GetFirehoseDeliveryStreamO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:kinesis/getFirehoseDeliveryStream:getFirehoseDeliveryStream", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -82,4 +89,8 @@ export interface GetFirehoseDeliveryStreamOutputArgs {
      * Name of the Kinesis Firehose Delivery Stream.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

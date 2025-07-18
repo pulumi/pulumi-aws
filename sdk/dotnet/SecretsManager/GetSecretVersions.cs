@@ -32,6 +32,12 @@ namespace Pulumi.Aws.SecretsManager
         public bool? IncludeDeprecated { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
         /// </summary>
         [Input("secretId", required: true)]
@@ -51,6 +57,12 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         [Input("includeDeprecated")]
         public Input<bool>? IncludeDeprecated { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
@@ -78,6 +90,7 @@ namespace Pulumi.Aws.SecretsManager
         public readonly string Id;
         public readonly bool? IncludeDeprecated;
         public readonly string Name;
+        public readonly string Region;
         public readonly string SecretId;
         /// <summary>
         /// List of the versions of the secret. Attributes are specified below.
@@ -94,6 +107,8 @@ namespace Pulumi.Aws.SecretsManager
 
             string name,
 
+            string region,
+
             string secretId,
 
             ImmutableArray<Outputs.GetSecretVersionsVersionResult> versions)
@@ -102,6 +117,7 @@ namespace Pulumi.Aws.SecretsManager
             Id = id;
             IncludeDeprecated = includeDeprecated;
             Name = name;
+            Region = region;
             SecretId = secretId;
             Versions = versions;
         }

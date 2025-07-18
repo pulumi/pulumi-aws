@@ -38,6 +38,7 @@ class ProjectArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  project_visibility: Optional[pulumi.Input[builtins.str]] = None,
                  queued_timeout: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_access_role: Optional[pulumi.Input[builtins.str]] = None,
                  secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]] = None,
                  secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]] = None,
@@ -74,6 +75,7 @@ class ProjectArgs:
                and `PRIVATE`. Default value is `PRIVATE`.
         :param pulumi.Input[builtins.int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
                times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_access_role: The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
                Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
                `project_visibility` is `PUBLIC_READ`.
@@ -115,6 +117,8 @@ class ProjectArgs:
             pulumi.set(__self__, "project_visibility", project_visibility)
         if queued_timeout is not None:
             pulumi.set(__self__, "queued_timeout", queued_timeout)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_access_role is not None:
             pulumi.set(__self__, "resource_access_role", resource_access_role)
         if secondary_artifacts is not None:
@@ -334,6 +338,18 @@ class ProjectArgs:
         pulumi.set(self, "queued_timeout", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceAccessRole")
     def resource_access_role(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -443,6 +459,7 @@ class _ProjectState:
                  project_visibility: Optional[pulumi.Input[builtins.str]] = None,
                  public_project_alias: Optional[pulumi.Input[builtins.str]] = None,
                  queued_timeout: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_access_role: Optional[pulumi.Input[builtins.str]] = None,
                  secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondaryArtifactArgs']]]] = None,
                  secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceVersionArgs']]]] = None,
@@ -480,6 +497,7 @@ class _ProjectState:
         :param pulumi.Input[builtins.str] public_project_alias: The project identifier used with the public build APIs.
         :param pulumi.Input[builtins.int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
                times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_access_role: The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
                Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
                `project_visibility` is `PUBLIC_READ`.
@@ -534,6 +552,8 @@ class _ProjectState:
             pulumi.set(__self__, "public_project_alias", public_project_alias)
         if queued_timeout is not None:
             pulumi.set(__self__, "queued_timeout", queued_timeout)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_access_role is not None:
             pulumi.set(__self__, "resource_access_role", resource_access_role)
         if secondary_artifacts is not None:
@@ -550,9 +570,6 @@ class _ProjectState:
             pulumi.set(__self__, "source_version", source_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_config is not None:
@@ -771,6 +788,18 @@ class _ProjectState:
         pulumi.set(self, "queued_timeout", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceAccessRole")
     def resource_access_role(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -876,7 +905,6 @@ class _ProjectState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider 
@@ -921,6 +949,7 @@ class Project(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  project_visibility: Optional[pulumi.Input[builtins.str]] = None,
                  queued_timeout: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_access_role: Optional[pulumi.Input[builtins.str]] = None,
                  secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondaryArtifactArgs', 'ProjectSecondaryArtifactArgsDict']]]]] = None,
                  secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceVersionArgs', 'ProjectSecondarySourceVersionArgsDict']]]]] = None,
@@ -942,9 +971,9 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
-            bucket=example_bucket_v2.id,
+        example_bucket = aws.s3.Bucket("example", bucket="example")
+        example_bucket_acl = aws.s3.BucketAcl("example",
+            bucket=example_bucket.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
@@ -958,8 +987,8 @@ class Project(pulumi.CustomResource):
             name="example",
             assume_role_policy=assume_role.json)
         example = pulumi.Output.all(
-            exampleBucketV2Arn=example_bucket_v2.arn,
-            exampleBucketV2Arn1=example_bucket_v2.arn
+            exampleBucketArn=example_bucket.arn,
+            exampleBucketArn1=example_bucket.arn
         ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(statements=[
             {
                 "effect": "Allow",
@@ -1007,8 +1036,8 @@ class Project(pulumi.CustomResource):
                 "effect": "Allow",
                 "actions": ["s3:*"],
                 "resources": [
-                    resolved_outputs['exampleBucketV2Arn'],
-                    f"{resolved_outputs['exampleBucketV2Arn1']}/*",
+                    resolved_outputs['exampleBucketArn'],
+                    f"{resolved_outputs['exampleBucketArn1']}/*",
                 ],
             },
             {
@@ -1034,7 +1063,7 @@ class Project(pulumi.CustomResource):
             },
             cache={
                 "type": "S3",
-                "location": example_bucket_v2.bucket,
+                "location": example_bucket.bucket,
             },
             environment={
                 "compute_type": "BUILD_GENERAL1_SMALL",
@@ -1060,7 +1089,7 @@ class Project(pulumi.CustomResource):
                 },
                 "s3_logs": {
                     "status": "ENABLED",
-                    "location": example_bucket_v2.id.apply(lambda id: f"{id}/build-log"),
+                    "location": example_bucket.id.apply(lambda id: f"{id}/build-log"),
                 },
             },
             source={
@@ -1175,6 +1204,7 @@ class Project(pulumi.CustomResource):
                and `PRIVATE`. Default value is `PRIVATE`.
         :param pulumi.Input[builtins.int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
                times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_access_role: The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
                Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
                `project_visibility` is `PUBLIC_READ`.
@@ -1210,9 +1240,9 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
-        example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
-            bucket=example_bucket_v2.id,
+        example_bucket = aws.s3.Bucket("example", bucket="example")
+        example_bucket_acl = aws.s3.BucketAcl("example",
+            bucket=example_bucket.id,
             acl="private")
         assume_role = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
@@ -1226,8 +1256,8 @@ class Project(pulumi.CustomResource):
             name="example",
             assume_role_policy=assume_role.json)
         example = pulumi.Output.all(
-            exampleBucketV2Arn=example_bucket_v2.arn,
-            exampleBucketV2Arn1=example_bucket_v2.arn
+            exampleBucketArn=example_bucket.arn,
+            exampleBucketArn1=example_bucket.arn
         ).apply(lambda resolved_outputs: aws.iam.get_policy_document_output(statements=[
             {
                 "effect": "Allow",
@@ -1275,8 +1305,8 @@ class Project(pulumi.CustomResource):
                 "effect": "Allow",
                 "actions": ["s3:*"],
                 "resources": [
-                    resolved_outputs['exampleBucketV2Arn'],
-                    f"{resolved_outputs['exampleBucketV2Arn1']}/*",
+                    resolved_outputs['exampleBucketArn'],
+                    f"{resolved_outputs['exampleBucketArn1']}/*",
                 ],
             },
             {
@@ -1302,7 +1332,7 @@ class Project(pulumi.CustomResource):
             },
             cache={
                 "type": "S3",
-                "location": example_bucket_v2.bucket,
+                "location": example_bucket.bucket,
             },
             environment={
                 "compute_type": "BUILD_GENERAL1_SMALL",
@@ -1328,7 +1358,7 @@ class Project(pulumi.CustomResource):
                 },
                 "s3_logs": {
                     "status": "ENABLED",
-                    "location": example_bucket_v2.id.apply(lambda id: f"{id}/build-log"),
+                    "location": example_bucket.id.apply(lambda id: f"{id}/build-log"),
                 },
             },
             source={
@@ -1448,6 +1478,7 @@ class Project(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  project_visibility: Optional[pulumi.Input[builtins.str]] = None,
                  queued_timeout: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_access_role: Optional[pulumi.Input[builtins.str]] = None,
                  secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondaryArtifactArgs', 'ProjectSecondaryArtifactArgsDict']]]]] = None,
                  secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceVersionArgs', 'ProjectSecondarySourceVersionArgsDict']]]]] = None,
@@ -1484,6 +1515,7 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["project_visibility"] = project_visibility
             __props__.__dict__["queued_timeout"] = queued_timeout
+            __props__.__dict__["region"] = region
             __props__.__dict__["resource_access_role"] = resource_access_role
             __props__.__dict__["secondary_artifacts"] = secondary_artifacts
             __props__.__dict__["secondary_source_versions"] = secondary_source_versions
@@ -1528,6 +1560,7 @@ class Project(pulumi.CustomResource):
             project_visibility: Optional[pulumi.Input[builtins.str]] = None,
             public_project_alias: Optional[pulumi.Input[builtins.str]] = None,
             queued_timeout: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_access_role: Optional[pulumi.Input[builtins.str]] = None,
             secondary_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondaryArtifactArgs', 'ProjectSecondaryArtifactArgsDict']]]]] = None,
             secondary_source_versions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProjectSecondarySourceVersionArgs', 'ProjectSecondarySourceVersionArgsDict']]]]] = None,
@@ -1570,6 +1603,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] public_project_alias: The project identifier used with the public build APIs.
         :param pulumi.Input[builtins.int] queued_timeout: Number of minutes, from 5 to 480 (8 hours), a build is allowed to be queued before it
                times out. The default is 8 hours. The `queued_timeout` property is not available on the `Lambda` compute type.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_access_role: The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
                Amazon S3 artifacts for the project's builds in order to display them publicly. Only applicable if
                `project_visibility` is `PUBLIC_READ`.
@@ -1611,6 +1645,7 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["project_visibility"] = project_visibility
         __props__.__dict__["public_project_alias"] = public_project_alias
         __props__.__dict__["queued_timeout"] = queued_timeout
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_access_role"] = resource_access_role
         __props__.__dict__["secondary_artifacts"] = secondary_artifacts
         __props__.__dict__["secondary_source_versions"] = secondary_source_versions
@@ -1768,6 +1803,14 @@ class Project(pulumi.CustomResource):
         return pulumi.get(self, "queued_timeout")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resourceAccessRole")
     def resource_access_role(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -1841,7 +1884,6 @@ class Project(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider 

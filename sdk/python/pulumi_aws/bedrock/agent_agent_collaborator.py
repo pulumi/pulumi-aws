@@ -28,6 +28,7 @@ class AgentAgentCollaboratorArgs:
                  agent_descriptor: Optional[pulumi.Input['AgentAgentCollaboratorAgentDescriptorArgs']] = None,
                  agent_version: Optional[pulumi.Input[builtins.str]] = None,
                  prepare_agent: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  relay_conversation_history: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['AgentAgentCollaboratorTimeoutsArgs']] = None):
         """
@@ -35,6 +36,7 @@ class AgentAgentCollaboratorArgs:
         :param pulumi.Input[builtins.str] agent_id: ID if the agent to associate the collaborator.
         :param pulumi.Input[builtins.str] collaboration_instruction: Instruction to give the collaborator.
         :param pulumi.Input[builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] relay_conversation_history: Configure relaying the history to the collaborator.
         """
         pulumi.set(__self__, "agent_id", agent_id)
@@ -46,6 +48,8 @@ class AgentAgentCollaboratorArgs:
             pulumi.set(__self__, "agent_version", agent_version)
         if prepare_agent is not None:
             pulumi.set(__self__, "prepare_agent", prepare_agent)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if relay_conversation_history is not None:
             pulumi.set(__self__, "relay_conversation_history", relay_conversation_history)
         if timeouts is not None:
@@ -115,6 +119,18 @@ class AgentAgentCollaboratorArgs:
         pulumi.set(self, "prepare_agent", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="relayConversationHistory")
     def relay_conversation_history(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -146,6 +162,7 @@ class _AgentAgentCollaboratorState:
                  collaborator_id: Optional[pulumi.Input[builtins.str]] = None,
                  collaborator_name: Optional[pulumi.Input[builtins.str]] = None,
                  prepare_agent: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  relay_conversation_history: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['AgentAgentCollaboratorTimeoutsArgs']] = None):
         """
@@ -154,6 +171,7 @@ class _AgentAgentCollaboratorState:
         :param pulumi.Input[builtins.str] collaboration_instruction: Instruction to give the collaborator.
         :param pulumi.Input[builtins.str] collaborator_id: ID of the Agent Collaborator.
         :param pulumi.Input[builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] relay_conversation_history: Configure relaying the history to the collaborator.
         """
         if agent_descriptor is not None:
@@ -170,6 +188,8 @@ class _AgentAgentCollaboratorState:
             pulumi.set(__self__, "collaborator_name", collaborator_name)
         if prepare_agent is not None:
             pulumi.set(__self__, "prepare_agent", prepare_agent)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if relay_conversation_history is not None:
             pulumi.set(__self__, "relay_conversation_history", relay_conversation_history)
         if timeouts is not None:
@@ -251,6 +271,18 @@ class _AgentAgentCollaboratorState:
         pulumi.set(self, "prepare_agent", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="relayConversationHistory")
     def relay_conversation_history(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -284,6 +316,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                  collaboration_instruction: Optional[pulumi.Input[builtins.str]] = None,
                  collaborator_name: Optional[pulumi.Input[builtins.str]] = None,
                  prepare_agent: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  relay_conversation_history: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['AgentAgentCollaboratorTimeoutsArgs', 'AgentAgentCollaboratorTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -315,7 +348,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                 },
                 {
                     "test": "ArnLike",
-                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}:{current.account_id}:agent/*"],
+                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}:{current.account_id}:agent/*"],
                     "variable": "AWS:SourceArn",
                 },
             ],
@@ -323,7 +356,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
         example_agent_permissions = aws.iam.get_policy_document(statements=[
             {
                 "actions": ["bedrock:InvokeModel"],
-                "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0"],
+                "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0"],
             },
             {
                 "actions": [
@@ -331,8 +364,8 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                     "bedrock:InvokeAgent",
                 ],
                 "resources": [
-                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.name}:{current.account_id}:agent/*",
-                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.name}:{current.account_id}:agent-alias/*",
+                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.region}:{current.account_id}:agent/*",
+                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.region}:{current.account_id}:agent-alias/*",
                 ],
             },
         ])
@@ -383,6 +416,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] agent_id: ID if the agent to associate the collaborator.
         :param pulumi.Input[builtins.str] collaboration_instruction: Instruction to give the collaborator.
         :param pulumi.Input[builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] relay_conversation_history: Configure relaying the history to the collaborator.
         """
         ...
@@ -419,7 +453,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                 },
                 {
                     "test": "ArnLike",
-                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}:{current.account_id}:agent/*"],
+                    "values": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}:{current.account_id}:agent/*"],
                     "variable": "AWS:SourceArn",
                 },
             ],
@@ -427,7 +461,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
         example_agent_permissions = aws.iam.get_policy_document(statements=[
             {
                 "actions": ["bedrock:InvokeModel"],
-                "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.name}::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0"],
+                "resources": [f"arn:{current_get_partition.partition}:bedrock:{current_get_region.region}::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0"],
             },
             {
                 "actions": [
@@ -435,8 +469,8 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                     "bedrock:InvokeAgent",
                 ],
                 "resources": [
-                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.name}:{current.account_id}:agent/*",
-                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.name}:{current.account_id}:agent-alias/*",
+                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.region}:{current.account_id}:agent/*",
+                    f"arn:{current_agent['partition']}:bedrock:{current_get_region.region}:{current.account_id}:agent-alias/*",
                 ],
             },
         ])
@@ -503,6 +537,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                  collaboration_instruction: Optional[pulumi.Input[builtins.str]] = None,
                  collaborator_name: Optional[pulumi.Input[builtins.str]] = None,
                  prepare_agent: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  relay_conversation_history: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['AgentAgentCollaboratorTimeoutsArgs', 'AgentAgentCollaboratorTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -526,6 +561,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                 raise TypeError("Missing required property 'collaborator_name'")
             __props__.__dict__["collaborator_name"] = collaborator_name
             __props__.__dict__["prepare_agent"] = prepare_agent
+            __props__.__dict__["region"] = region
             __props__.__dict__["relay_conversation_history"] = relay_conversation_history
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["collaborator_id"] = None
@@ -546,6 +582,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
             collaborator_id: Optional[pulumi.Input[builtins.str]] = None,
             collaborator_name: Optional[pulumi.Input[builtins.str]] = None,
             prepare_agent: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             relay_conversation_history: Optional[pulumi.Input[builtins.str]] = None,
             timeouts: Optional[pulumi.Input[Union['AgentAgentCollaboratorTimeoutsArgs', 'AgentAgentCollaboratorTimeoutsArgsDict']]] = None) -> 'AgentAgentCollaborator':
         """
@@ -559,6 +596,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] collaboration_instruction: Instruction to give the collaborator.
         :param pulumi.Input[builtins.str] collaborator_id: ID of the Agent Collaborator.
         :param pulumi.Input[builtins.bool] prepare_agent: Whether to prepare the agent after creation or modification. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] relay_conversation_history: Configure relaying the history to the collaborator.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -572,6 +610,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
         __props__.__dict__["collaborator_id"] = collaborator_id
         __props__.__dict__["collaborator_name"] = collaborator_name
         __props__.__dict__["prepare_agent"] = prepare_agent
+        __props__.__dict__["region"] = region
         __props__.__dict__["relay_conversation_history"] = relay_conversation_history
         __props__.__dict__["timeouts"] = timeouts
         return AgentAgentCollaborator(resource_name, opts=opts, __props__=__props__)
@@ -622,6 +661,14 @@ class AgentAgentCollaborator(pulumi.CustomResource):
         Whether to prepare the agent after creation or modification. Defaults to `true`.
         """
         return pulumi.get(self, "prepare_agent")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="relayConversationHistory")

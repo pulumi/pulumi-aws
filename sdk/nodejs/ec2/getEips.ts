@@ -32,6 +32,7 @@ export function getEips(args?: GetEipsArgs, opts?: pulumi.InvokeOptions): Promis
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getEips:getEips", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -44,6 +45,10 @@ export interface GetEipsArgs {
      * Custom filter block as described below.
      */
     filters?: inputs.ec2.GetEipsFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
      */
@@ -67,6 +72,7 @@ export interface GetEipsResult {
      * List of all the Elastic IP addresses.
      */
     readonly publicIps: string[];
+    readonly region: string;
     readonly tags?: {[key: string]: string};
 }
 /**
@@ -94,6 +100,7 @@ export function getEipsOutput(args?: GetEipsOutputArgs, opts?: pulumi.InvokeOutp
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getEips:getEips", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -106,6 +113,10 @@ export interface GetEipsOutputArgs {
      * Custom filter block as described below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetEipsFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
      */

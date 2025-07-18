@@ -45,9 +45,7 @@ public final class DistributionConfigurationDistribution {
      */
     private @Nullable List<String> licenseConfigurationArns;
     /**
-     * @return AWS Region for the distribution.
-     * 
-     * The following arguments are optional:
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     private String region;
@@ -99,9 +97,7 @@ public final class DistributionConfigurationDistribution {
         return this.licenseConfigurationArns == null ? List.of() : this.licenseConfigurationArns;
     }
     /**
-     * @return AWS Region for the distribution.
-     * 
-     * The following arguments are optional:
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public String region() {

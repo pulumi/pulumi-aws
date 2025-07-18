@@ -76,6 +76,10 @@ export class EndpointAccess extends pulumi.CustomResource {
      */
     public /*out*/ readonly port!: pulumi.Output<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
      */
     public readonly resourceOwner!: pulumi.Output<string>;
@@ -109,6 +113,7 @@ export class EndpointAccess extends pulumi.CustomResource {
             resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
             resourceInputs["endpointName"] = state ? state.endpointName : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceOwner"] = state ? state.resourceOwner : undefined;
             resourceInputs["subnetGroupName"] = state ? state.subnetGroupName : undefined;
             resourceInputs["vpcEndpoints"] = state ? state.vpcEndpoints : undefined;
@@ -126,6 +131,7 @@ export class EndpointAccess extends pulumi.CustomResource {
             }
             resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             resourceInputs["endpointName"] = args ? args.endpointName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceOwner"] = args ? args.resourceOwner : undefined;
             resourceInputs["subnetGroupName"] = args ? args.subnetGroupName : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
@@ -159,6 +165,10 @@ export interface EndpointAccessState {
      */
     port?: pulumi.Input<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
      */
     resourceOwner?: pulumi.Input<string>;
@@ -188,6 +198,10 @@ export interface EndpointAccessArgs {
      * The Redshift-managed VPC endpoint name.
      */
     endpointName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
      */

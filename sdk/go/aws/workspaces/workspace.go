@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspaces"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,6 +88,8 @@ type Workspace struct {
 	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
 	// The IP address of the WorkSpace.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"rootVolumeEncryptionEnabled"`
 	// The operational state of the WorkSpace.
@@ -95,8 +97,6 @@ type Workspace struct {
 	// The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
 	UserName pulumi.StringOutput `pulumi:"userName"`
@@ -155,6 +155,8 @@ type workspaceState struct {
 	DirectoryId *string `pulumi:"directoryId"`
 	// The IP address of the WorkSpace.
 	IpAddress *string `pulumi:"ipAddress"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled *bool `pulumi:"rootVolumeEncryptionEnabled"`
 	// The operational state of the WorkSpace.
@@ -162,8 +164,6 @@ type workspaceState struct {
 	// The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
 	UserName *string `pulumi:"userName"`
@@ -184,6 +184,8 @@ type WorkspaceState struct {
 	DirectoryId pulumi.StringPtrInput
 	// The IP address of the WorkSpace.
 	IpAddress pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled pulumi.BoolPtrInput
 	// The operational state of the WorkSpace.
@@ -191,8 +193,6 @@ type WorkspaceState struct {
 	// The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace.
 	UserName pulumi.StringPtrInput
@@ -213,6 +213,8 @@ type workspaceArgs struct {
 	BundleId string `pulumi:"bundleId"`
 	// The ID of the directory for the WorkSpace.
 	DirectoryId string `pulumi:"directoryId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled *bool `pulumi:"rootVolumeEncryptionEnabled"`
 	// The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -233,6 +235,8 @@ type WorkspaceArgs struct {
 	BundleId pulumi.StringInput
 	// The ID of the directory for the WorkSpace.
 	DirectoryId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Indicates whether the data stored on the root volume is encrypted.
 	RootVolumeEncryptionEnabled pulumi.BoolPtrInput
 	// The tags for the WorkSpace. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -354,6 +358,11 @@ func (o WorkspaceOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o WorkspaceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Indicates whether the data stored on the root volume is encrypted.
 func (o WorkspaceOutput) RootVolumeEncryptionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.RootVolumeEncryptionEnabled }).(pulumi.BoolPtrOutput)
@@ -370,8 +379,6 @@ func (o WorkspaceOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o WorkspaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

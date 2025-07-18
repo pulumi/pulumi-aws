@@ -2,9 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
-
-import {LifecyclePolicyDocument} from "./index";
 
 /**
  * Manages an ECR repository lifecycle policy.
@@ -116,6 +117,10 @@ export class LifecyclePolicy extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The registry ID where the repository was created.
      */
     public /*out*/ readonly registryId!: pulumi.Output<string>;
@@ -138,6 +143,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as LifecyclePolicyState | undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["registryId"] = state ? state.registryId : undefined;
             resourceInputs["repository"] = state ? state.repository : undefined;
         } else {
@@ -149,6 +155,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'repository'");
             }
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
             resourceInputs["registryId"] = undefined /*out*/;
         }
@@ -164,7 +171,11 @@ export interface LifecyclePolicyState {
     /**
      * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `policy` argument.
      */
-    policy?: pulumi.Input<string | LifecyclePolicyDocument>;
+    policy?: pulumi.Input<string | inputs.ecr.LifecyclePolicyDocument>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The registry ID where the repository was created.
      */
@@ -182,7 +193,11 @@ export interface LifecyclePolicyArgs {
     /**
      * The policy document. This is a JSON formatted string. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `aws.ecr.getLifecyclePolicyDocument` dataSource to generate/manage the JSON document used for the `policy` argument.
      */
-    policy: pulumi.Input<string | LifecyclePolicyDocument>;
+    policy: pulumi.Input<string | inputs.ecr.LifecyclePolicyDocument>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the repository to apply the policy.
      */

@@ -66,6 +66,10 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
      * Whether your configuration reached the max account limit.
      */
     public /*out*/ readonly maxAccountLimitReached!: pulumi.Output<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a OrganizationConfiguration resource with the given unique name, arguments, and options.
@@ -82,12 +86,14 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
             const state = argsOrState as OrganizationConfigurationState | undefined;
             resourceInputs["autoEnable"] = state ? state.autoEnable : undefined;
             resourceInputs["maxAccountLimitReached"] = state ? state.maxAccountLimitReached : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as OrganizationConfigurationArgs | undefined;
             if ((!args || args.autoEnable === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoEnable'");
             }
             resourceInputs["autoEnable"] = args ? args.autoEnable : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["maxAccountLimitReached"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -107,6 +113,10 @@ export interface OrganizationConfigurationState {
      * Whether your configuration reached the max account limit.
      */
     maxAccountLimitReached?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -117,4 +127,8 @@ export interface OrganizationConfigurationArgs {
      * Configuration block for auto enabling. See below.
      */
     autoEnable: pulumi.Input<inputs.inspector2.OrganizationConfigurationAutoEnable>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

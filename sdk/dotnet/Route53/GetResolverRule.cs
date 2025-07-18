@@ -109,6 +109,12 @@ namespace Pulumi.Aws.Route53
         public string? Name { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
         /// </summary>
         [Input("resolverEndpointId")]
@@ -157,6 +163,12 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
@@ -212,6 +224,7 @@ namespace Pulumi.Aws.Route53
         /// When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
         /// </summary>
         public readonly string OwnerId;
+        public readonly string Region;
         public readonly string ResolverEndpointId;
         public readonly string ResolverRuleId;
         public readonly string RuleType;
@@ -237,6 +250,8 @@ namespace Pulumi.Aws.Route53
 
             string ownerId,
 
+            string region,
+
             string resolverEndpointId,
 
             string resolverRuleId,
@@ -252,6 +267,7 @@ namespace Pulumi.Aws.Route53
             Id = id;
             Name = name;
             OwnerId = ownerId;
+            Region = region;
             ResolverEndpointId = resolverEndpointId;
             ResolverRuleId = resolverRuleId;
             RuleType = ruleType;

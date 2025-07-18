@@ -79,6 +79,10 @@ export class StandardsControl extends pulumi.CustomResource {
      */
     public readonly disabledReason!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The list of requirements that are related to this control.
      */
     public /*out*/ readonly relatedRequirements!: pulumi.Output<string[]>;
@@ -117,6 +121,7 @@ export class StandardsControl extends pulumi.CustomResource {
             resourceInputs["controlStatusUpdatedAt"] = state ? state.controlStatusUpdatedAt : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["disabledReason"] = state ? state.disabledReason : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["relatedRequirements"] = state ? state.relatedRequirements : undefined;
             resourceInputs["remediationUrl"] = state ? state.remediationUrl : undefined;
             resourceInputs["severityRating"] = state ? state.severityRating : undefined;
@@ -132,6 +137,7 @@ export class StandardsControl extends pulumi.CustomResource {
             }
             resourceInputs["controlStatus"] = args ? args.controlStatus : undefined;
             resourceInputs["disabledReason"] = args ? args.disabledReason : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["standardsControlArn"] = args ? args.standardsControlArn : undefined;
             resourceInputs["controlId"] = undefined /*out*/;
             resourceInputs["controlStatusUpdatedAt"] = undefined /*out*/;
@@ -171,6 +177,10 @@ export interface StandardsControlState {
      */
     disabledReason?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The list of requirements that are related to this control.
      */
     relatedRequirements?: pulumi.Input<pulumi.Input<string>[]>;
@@ -204,6 +214,10 @@ export interface StandardsControlArgs {
      * A description of the reason why you are disabling a security standard control. If you specify this attribute, `controlStatus` will be set to `DISABLED` automatically.
      */
     disabledReason?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
      */

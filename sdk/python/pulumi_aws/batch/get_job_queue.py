@@ -28,7 +28,7 @@ class GetJobQueueResult:
     """
     A collection of values returned by getJobQueue.
     """
-    def __init__(__self__, arn=None, compute_environment_orders=None, id=None, job_state_time_limit_actions=None, name=None, priority=None, scheduling_policy_arn=None, state=None, status=None, status_reason=None, tags=None):
+    def __init__(__self__, arn=None, compute_environment_orders=None, id=None, job_state_time_limit_actions=None, name=None, priority=None, region=None, scheduling_policy_arn=None, state=None, status=None, status_reason=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -47,6 +47,9 @@ class GetJobQueueResult:
         if priority and not isinstance(priority, int):
             raise TypeError("Expected argument 'priority' to be a int")
         pulumi.set(__self__, "priority", priority)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if scheduling_policy_arn and not isinstance(scheduling_policy_arn, str):
             raise TypeError("Expected argument 'scheduling_policy_arn' to be a str")
         pulumi.set(__self__, "scheduling_policy_arn", scheduling_policy_arn)
@@ -117,6 +120,11 @@ class GetJobQueueResult:
         return pulumi.get(self, "priority")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="schedulingPolicyArn")
     def scheduling_policy_arn(self) -> builtins.str:
         """
@@ -170,6 +178,7 @@ class AwaitableGetJobQueueResult(GetJobQueueResult):
             job_state_time_limit_actions=self.job_state_time_limit_actions,
             name=self.name,
             priority=self.priority,
+            region=self.region,
             scheduling_policy_arn=self.scheduling_policy_arn,
             state=self.state,
             status=self.status,
@@ -178,6 +187,7 @@ class AwaitableGetJobQueueResult(GetJobQueueResult):
 
 
 def get_job_queue(name: Optional[builtins.str] = None,
+                  region: Optional[builtins.str] = None,
                   tags: Optional[Mapping[str, builtins.str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobQueueResult:
     """
@@ -195,10 +205,12 @@ def get_job_queue(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the job queue.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:batch/getJobQueue:getJobQueue', __args__, opts=opts, typ=GetJobQueueResult).value
@@ -210,12 +222,14 @@ def get_job_queue(name: Optional[builtins.str] = None,
         job_state_time_limit_actions=pulumi.get(__ret__, 'job_state_time_limit_actions'),
         name=pulumi.get(__ret__, 'name'),
         priority=pulumi.get(__ret__, 'priority'),
+        region=pulumi.get(__ret__, 'region'),
         scheduling_policy_arn=pulumi.get(__ret__, 'scheduling_policy_arn'),
         state=pulumi.get(__ret__, 'state'),
         status=pulumi.get(__ret__, 'status'),
         status_reason=pulumi.get(__ret__, 'status_reason'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_job_queue_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobQueueResult]:
     """
@@ -233,10 +247,12 @@ def get_job_queue_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the job queue.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:batch/getJobQueue:getJobQueue', __args__, opts=opts, typ=GetJobQueueResult)
@@ -247,6 +263,7 @@ def get_job_queue_output(name: Optional[pulumi.Input[builtins.str]] = None,
         job_state_time_limit_actions=pulumi.get(__response__, 'job_state_time_limit_actions'),
         name=pulumi.get(__response__, 'name'),
         priority=pulumi.get(__response__, 'priority'),
+        region=pulumi.get(__response__, 'region'),
         scheduling_policy_arn=pulumi.get(__response__, 'scheduling_policy_arn'),
         state=pulumi.get(__response__, 'state'),
         status=pulumi.get(__response__, 'status'),

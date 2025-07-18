@@ -133,6 +133,12 @@ namespace Pulumi.Aws.SecretsManager
         public int? PasswordLength { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
         /// </summary>
         [Input("requireEachIncludedType")]
@@ -189,6 +195,12 @@ namespace Pulumi.Aws.SecretsManager
         public Input<int>? PasswordLength { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
         /// </summary>
         [Input("requireEachIncludedType")]
@@ -219,6 +231,7 @@ namespace Pulumi.Aws.SecretsManager
         /// Random password.
         /// </summary>
         public readonly string RandomPassword;
+        public readonly string Region;
         public readonly bool? RequireEachIncludedType;
 
         [OutputConstructor]
@@ -241,6 +254,8 @@ namespace Pulumi.Aws.SecretsManager
 
             string randomPassword,
 
+            string region,
+
             bool? requireEachIncludedType)
         {
             ExcludeCharacters = excludeCharacters;
@@ -252,6 +267,7 @@ namespace Pulumi.Aws.SecretsManager
             IncludeSpace = includeSpace;
             PasswordLength = passwordLength;
             RandomPassword = randomPassword;
+            Region = region;
             RequireEachIncludedType = requireEachIncludedType;
         }
     }

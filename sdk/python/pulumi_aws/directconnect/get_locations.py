@@ -27,13 +27,16 @@ class GetLocationsResult:
     """
     A collection of values returned by getLocations.
     """
-    def __init__(__self__, id=None, location_codes=None):
+    def __init__(__self__, id=None, location_codes=None, region=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if location_codes and not isinstance(location_codes, list):
             raise TypeError("Expected argument 'location_codes' to be a list")
         pulumi.set(__self__, "location_codes", location_codes)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -51,6 +54,11 @@ class GetLocationsResult:
         """
         return pulumi.get(self, "location_codes")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetLocationsResult(GetLocationsResult):
     # pylint: disable=using-constant-test
@@ -59,10 +67,12 @@ class AwaitableGetLocationsResult(GetLocationsResult):
             yield self
         return GetLocationsResult(
             id=self.id,
-            location_codes=self.location_codes)
+            location_codes=self.location_codes,
+            region=self.region)
 
 
-def get_locations(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationsResult:
+def get_locations(region: Optional[builtins.str] = None,
+                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationsResult:
     """
     Retrieve information about the AWS Direct Connect locations in the current AWS Region.
     These are the locations that can be specified when configuring `directconnect.Connection` or `directconnect.LinkAggregationGroup` resources.
@@ -77,15 +87,21 @@ def get_locations(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLo
 
     available = aws.directconnect.get_locations()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:directconnect/getLocations:getLocations', __args__, opts=opts, typ=GetLocationsResult).value
 
     return AwaitableGetLocationsResult(
         id=pulumi.get(__ret__, 'id'),
-        location_codes=pulumi.get(__ret__, 'location_codes'))
-def get_locations_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationsResult]:
+        location_codes=pulumi.get(__ret__, 'location_codes'),
+        region=pulumi.get(__ret__, 'region'))
+def get_locations_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationsResult]:
     """
     Retrieve information about the AWS Direct Connect locations in the current AWS Region.
     These are the locations that can be specified when configuring `directconnect.Connection` or `directconnect.LinkAggregationGroup` resources.
@@ -100,10 +116,15 @@ def get_locations_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.Invok
 
     available = aws.directconnect.get_locations()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:directconnect/getLocations:getLocations', __args__, opts=opts, typ=GetLocationsResult)
     return __ret__.apply(lambda __response__: GetLocationsResult(
         id=pulumi.get(__response__, 'id'),
-        location_codes=pulumi.get(__response__, 'location_codes')))
+        location_codes=pulumi.get(__response__, 'location_codes'),
+        region=pulumi.get(__response__, 'region')))

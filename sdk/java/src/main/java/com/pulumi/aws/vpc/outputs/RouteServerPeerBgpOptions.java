@@ -21,8 +21,6 @@ public final class RouteServerPeerBgpOptions {
     /**
      * @return The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
      * 
-     * The following arguments are optional:
-     * 
      */
     private @Nullable String peerLivenessDetection;
 
@@ -36,8 +34,6 @@ public final class RouteServerPeerBgpOptions {
     }
     /**
      * @return The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<String> peerLivenessDetection() {

@@ -22,6 +22,7 @@ export function getRouteCalculator(args: GetRouteCalculatorArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:location/getRouteCalculator:getRouteCalculator", {
         "calculatorName": args.calculatorName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -34,6 +35,10 @@ export interface GetRouteCalculatorArgs {
      * Name of the route calculator resource.
      */
     calculatorName: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Key-value map of resource tags for the route calculator.
      */
@@ -65,6 +70,7 @@ export interface GetRouteCalculatorResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * Key-value map of resource tags for the route calculator.
      */
@@ -92,6 +98,7 @@ export function getRouteCalculatorOutput(args: GetRouteCalculatorOutputArgs, opt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:location/getRouteCalculator:getRouteCalculator", {
         "calculatorName": args.calculatorName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -104,6 +111,10 @@ export interface GetRouteCalculatorOutputArgs {
      * Name of the route calculator resource.
      */
     calculatorName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the route calculator.
      */

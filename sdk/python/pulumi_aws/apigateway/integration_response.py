@@ -25,6 +25,7 @@ class IntegrationResponseArgs:
                  rest_api: pulumi.Input[builtins.str],
                  status_code: pulumi.Input[builtins.str],
                  content_handling: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  selection_pattern: Optional[pulumi.Input[builtins.str]] = None):
@@ -37,6 +38,7 @@ class IntegrationResponseArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] content_handling: How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_parameters: Map of response parameters that can be read from the backend response. For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_templates: Map of templates used to transform the integration response body.
         :param pulumi.Input[builtins.str] selection_pattern: Regular expression pattern used to choose an integration response based on the response from the backend. Omit configuring this to make the integration the default one. If the backend is an `AWS` Lambda function, the AWS Lambda function error header is matched. For all other `HTTP` and `AWS` backends, the HTTP status code is matched.
@@ -47,6 +49,8 @@ class IntegrationResponseArgs:
         pulumi.set(__self__, "status_code", status_code)
         if content_handling is not None:
             pulumi.set(__self__, "content_handling", content_handling)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if response_parameters is not None:
             pulumi.set(__self__, "response_parameters", response_parameters)
         if response_templates is not None:
@@ -117,6 +121,18 @@ class IntegrationResponseArgs:
         pulumi.set(self, "content_handling", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="responseParameters")
     def response_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -158,6 +174,7 @@ class _IntegrationResponseState:
     def __init__(__self__, *,
                  content_handling: Optional[pulumi.Input[builtins.str]] = None,
                  http_method: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -168,6 +185,7 @@ class _IntegrationResponseState:
         Input properties used for looking up and filtering IntegrationResponse resources.
         :param pulumi.Input[builtins.str] content_handling: How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
         :param pulumi.Input[builtins.str] http_method: HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id: API resource ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_parameters: Map of response parameters that can be read from the backend response. For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_templates: Map of templates used to transform the integration response body.
@@ -181,6 +199,8 @@ class _IntegrationResponseState:
             pulumi.set(__self__, "content_handling", content_handling)
         if http_method is not None:
             pulumi.set(__self__, "http_method", http_method)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
         if response_parameters is not None:
@@ -217,6 +237,18 @@ class _IntegrationResponseState:
     @http_method.setter
     def http_method(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "http_method", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -301,6 +333,7 @@ class IntegrationResponse(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_handling: Optional[pulumi.Input[builtins.str]] = None,
                  http_method: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -369,6 +402,7 @@ class IntegrationResponse(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] content_handling: How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
         :param pulumi.Input[builtins.str] http_method: HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id: API resource ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_parameters: Map of response parameters that can be read from the backend response. For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_templates: Map of templates used to transform the integration response body.
@@ -458,6 +492,7 @@ class IntegrationResponse(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_handling: Optional[pulumi.Input[builtins.str]] = None,
                  http_method: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -477,6 +512,7 @@ class IntegrationResponse(pulumi.CustomResource):
             if http_method is None and not opts.urn:
                 raise TypeError("Missing required property 'http_method'")
             __props__.__dict__["http_method"] = http_method
+            __props__.__dict__["region"] = region
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
@@ -501,6 +537,7 @@ class IntegrationResponse(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             content_handling: Optional[pulumi.Input[builtins.str]] = None,
             http_method: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_id: Optional[pulumi.Input[builtins.str]] = None,
             response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -516,6 +553,7 @@ class IntegrationResponse(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] content_handling: How to handle request payload content type conversions. Supported values are `CONVERT_TO_BINARY` and `CONVERT_TO_TEXT`. If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.
         :param pulumi.Input[builtins.str] http_method: HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id: API resource ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_parameters: Map of response parameters that can be read from the backend response. For example: `response_parameters = { "method.response.header.X-Some-Header" = "integration.response.header.X-Some-Other-Header" }`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_templates: Map of templates used to transform the integration response body.
@@ -531,6 +569,7 @@ class IntegrationResponse(pulumi.CustomResource):
 
         __props__.__dict__["content_handling"] = content_handling
         __props__.__dict__["http_method"] = http_method
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_id"] = resource_id
         __props__.__dict__["response_parameters"] = response_parameters
         __props__.__dict__["response_templates"] = response_templates
@@ -554,6 +593,14 @@ class IntegrationResponse(pulumi.CustomResource):
         HTTP method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`).
         """
         return pulumi.get(self, "http_method")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceId")

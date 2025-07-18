@@ -10,6 +10,7 @@ import com.pulumi.aws.s3.outputs.BucketWebsiteConfigurationV2ErrorDocument;
 import com.pulumi.aws.s3.outputs.BucketWebsiteConfigurationV2IndexDocument;
 import com.pulumi.aws.s3.outputs.BucketWebsiteConfigurationV2RedirectAllRequestsTo;
 import com.pulumi.aws.s3.outputs.BucketWebsiteConfigurationV2RoutingRule;
+import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -36,13 +37,13 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketWebsiteConfigurationV2;
- * import com.pulumi.aws.s3.BucketWebsiteConfigurationV2Args;
- * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2IndexDocumentArgs;
- * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2ErrorDocumentArgs;
- * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2RoutingRuleArgs;
- * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2RoutingRuleConditionArgs;
- * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs;
+ * import com.pulumi.aws.s3.BucketWebsiteConfiguration;
+ * import com.pulumi.aws.s3.BucketWebsiteConfigurationArgs;
+ * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationIndexDocumentArgs;
+ * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationErrorDocumentArgs;
+ * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationRoutingRuleArgs;
+ * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationRoutingRuleConditionArgs;
+ * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationRoutingRuleRedirectArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -56,19 +57,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketWebsiteConfigurationV2("example", BucketWebsiteConfigurationV2Args.builder()
+ *         var example = new BucketWebsiteConfiguration("example", BucketWebsiteConfigurationArgs.builder()
  *             .bucket(exampleAwsS3Bucket.id())
- *             .indexDocument(BucketWebsiteConfigurationV2IndexDocumentArgs.builder()
+ *             .indexDocument(BucketWebsiteConfigurationIndexDocumentArgs.builder()
  *                 .suffix("index.html")
  *                 .build())
- *             .errorDocument(BucketWebsiteConfigurationV2ErrorDocumentArgs.builder()
+ *             .errorDocument(BucketWebsiteConfigurationErrorDocumentArgs.builder()
  *                 .key("error.html")
  *                 .build())
- *             .routingRules(BucketWebsiteConfigurationV2RoutingRuleArgs.builder()
- *                 .condition(BucketWebsiteConfigurationV2RoutingRuleConditionArgs.builder()
+ *             .routingRules(BucketWebsiteConfigurationRoutingRuleArgs.builder()
+ *                 .condition(BucketWebsiteConfigurationRoutingRuleConditionArgs.builder()
  *                     .keyPrefixEquals("docs/")
  *                     .build())
- *                 .redirect(BucketWebsiteConfigurationV2RoutingRuleRedirectArgs.builder()
+ *                 .redirect(BucketWebsiteConfigurationRoutingRuleRedirectArgs.builder()
  *                     .replaceKeyPrefixWith("documents/")
  *                     .build())
  *                 .build())
@@ -90,10 +91,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketWebsiteConfigurationV2;
- * import com.pulumi.aws.s3.BucketWebsiteConfigurationV2Args;
- * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2IndexDocumentArgs;
- * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationV2ErrorDocumentArgs;
+ * import com.pulumi.aws.s3.BucketWebsiteConfiguration;
+ * import com.pulumi.aws.s3.BucketWebsiteConfigurationArgs;
+ * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationIndexDocumentArgs;
+ * import com.pulumi.aws.s3.inputs.BucketWebsiteConfigurationErrorDocumentArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -107,12 +108,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketWebsiteConfigurationV2("example", BucketWebsiteConfigurationV2Args.builder()
+ *         var example = new BucketWebsiteConfiguration("example", BucketWebsiteConfigurationArgs.builder()
  *             .bucket(exampleAwsS3Bucket.id())
- *             .indexDocument(BucketWebsiteConfigurationV2IndexDocumentArgs.builder()
+ *             .indexDocument(BucketWebsiteConfigurationIndexDocumentArgs.builder()
  *                 .suffix("index.html")
  *                 .build())
- *             .errorDocument(BucketWebsiteConfigurationV2ErrorDocumentArgs.builder()
+ *             .errorDocument(BucketWebsiteConfigurationErrorDocumentArgs.builder()
  *                 .key("error.html")
  *                 .build())
  *             .routingRuleDetails("""
@@ -150,7 +151,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name,123456789012
  * ```
  * 
+ * @deprecated
+ * aws.s3/bucketwebsiteconfigurationv2.BucketWebsiteConfigurationV2 has been deprecated in favor of aws.s3/bucketwebsiteconfiguration.BucketWebsiteConfiguration
+ * 
  */
+@Deprecated /* aws.s3/bucketwebsiteconfigurationv2.BucketWebsiteConfigurationV2 has been deprecated in favor of aws.s3/bucketwebsiteconfiguration.BucketWebsiteConfiguration */
 @ResourceType(type="aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2")
 public class BucketWebsiteConfigurationV2 extends com.pulumi.resources.CustomResource {
     /**
@@ -222,6 +227,20 @@ public class BucketWebsiteConfigurationV2 extends com.pulumi.resources.CustomRes
      */
     public Output<Optional<BucketWebsiteConfigurationV2RedirectAllRequestsTo>> redirectAllRequestsTo() {
         return Codegen.optional(this.redirectAllRequestsTo);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
@@ -321,6 +340,9 @@ public class BucketWebsiteConfigurationV2 extends com.pulumi.resources.CustomRes
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .aliases(List.of(
+                Output.of(Alias.builder().type("aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2").build())
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

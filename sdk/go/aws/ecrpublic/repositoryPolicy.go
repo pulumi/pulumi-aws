@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecrpublic"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecrpublic"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -99,6 +99,8 @@ type RepositoryPolicy struct {
 
 	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The registry ID where the repository was created.
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
 	// Name of the repository to apply the policy.
@@ -143,6 +145,8 @@ func GetRepositoryPolicy(ctx *pulumi.Context,
 type repositoryPolicyState struct {
 	// The policy document. This is a JSON formatted string.
 	Policy *string `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The registry ID where the repository was created.
 	RegistryId *string `pulumi:"registryId"`
 	// Name of the repository to apply the policy.
@@ -152,6 +156,8 @@ type repositoryPolicyState struct {
 type RepositoryPolicyState struct {
 	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The registry ID where the repository was created.
 	RegistryId pulumi.StringPtrInput
 	// Name of the repository to apply the policy.
@@ -165,6 +171,8 @@ func (RepositoryPolicyState) ElementType() reflect.Type {
 type repositoryPolicyArgs struct {
 	// The policy document. This is a JSON formatted string.
 	Policy string `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the repository to apply the policy.
 	RepositoryName string `pulumi:"repositoryName"`
 }
@@ -173,6 +181,8 @@ type repositoryPolicyArgs struct {
 type RepositoryPolicyArgs struct {
 	// The policy document. This is a JSON formatted string.
 	Policy pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the repository to apply the policy.
 	RepositoryName pulumi.StringInput
 }
@@ -267,6 +277,11 @@ func (o RepositoryPolicyOutput) ToRepositoryPolicyOutputWithContext(ctx context.
 // The policy document. This is a JSON formatted string.
 func (o RepositoryPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o RepositoryPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The registry ID where the repository was created.

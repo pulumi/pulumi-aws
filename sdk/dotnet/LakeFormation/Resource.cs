@@ -53,8 +53,6 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Flag to enable AWS LakeFormation hybrid access permission mode.
-        /// 
-        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         /// </summary>
         [Output("hybridAccessEnabled")]
         public Output<bool> HybridAccessEnabled { get; private set; } = null!;
@@ -64,6 +62,12 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         [Output("lastModified")]
         public Output<string> LastModified { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Role that has read/write access to the resource.
@@ -77,6 +81,11 @@ namespace Pulumi.Aws.LakeFormation
         [Output("useServiceLinkedRole")]
         public Output<bool?> UseServiceLinkedRole { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+        /// 
+        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        /// </summary>
         [Output("withFederation")]
         public Output<bool> WithFederation { get; private set; } = null!;
 
@@ -136,11 +145,15 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Flag to enable AWS LakeFormation hybrid access permission mode.
-        /// 
-        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         /// </summary>
         [Input("hybridAccessEnabled")]
         public Input<bool>? HybridAccessEnabled { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Role that has read/write access to the resource.
@@ -154,6 +167,11 @@ namespace Pulumi.Aws.LakeFormation
         [Input("useServiceLinkedRole")]
         public Input<bool>? UseServiceLinkedRole { get; set; }
 
+        /// <summary>
+        /// Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+        /// 
+        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        /// </summary>
         [Input("withFederation")]
         public Input<bool>? WithFederation { get; set; }
 
@@ -175,8 +193,6 @@ namespace Pulumi.Aws.LakeFormation
 
         /// <summary>
         /// Flag to enable AWS LakeFormation hybrid access permission mode.
-        /// 
-        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
         /// </summary>
         [Input("hybridAccessEnabled")]
         public Input<bool>? HybridAccessEnabled { get; set; }
@@ -186,6 +202,12 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         [Input("lastModified")]
         public Input<string>? LastModified { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Role that has read/write access to the resource.
@@ -199,6 +221,11 @@ namespace Pulumi.Aws.LakeFormation
         [Input("useServiceLinkedRole")]
         public Input<bool>? UseServiceLinkedRole { get; set; }
 
+        /// <summary>
+        /// Whether or not the resource is a federated resource. Set to true when registering AWS Glue connections for federated catalog functionality.
+        /// 
+        /// &gt; **NOTE:** AWS does not support registering an S3 location with an IAM role and subsequently updating the S3 location registration to a service-linked role.
+        /// </summary>
         [Input("withFederation")]
         public Input<bool>? WithFederation { get; set; }
 

@@ -51,6 +51,7 @@ public final class GetQueueResult {
      * 
      */
     private String queueId;
+    private String region;
     /**
      * @return Description of the Queue. Values are `ENABLED` or `DISABLED`.
      * 
@@ -118,6 +119,9 @@ public final class GetQueueResult {
     public String queueId() {
         return this.queueId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Description of the Queue. Values are `ENABLED` or `DISABLED`.
      * 
@@ -151,6 +155,7 @@ public final class GetQueueResult {
         private String name;
         private List<GetQueueOutboundCallerConfig> outboundCallerConfigs;
         private String queueId;
+        private String region;
         private String status;
         private Map<String,String> tags;
         public Builder() {}
@@ -165,6 +170,7 @@ public final class GetQueueResult {
     	      this.name = defaults.name;
     	      this.outboundCallerConfigs = defaults.outboundCallerConfigs;
     	      this.queueId = defaults.queueId;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
     	      this.tags = defaults.tags;
         }
@@ -245,6 +251,14 @@ public final class GetQueueResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetQueueResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetQueueResult", "status");
@@ -271,6 +285,7 @@ public final class GetQueueResult {
             _resultValue.name = name;
             _resultValue.outboundCallerConfigs = outboundCallerConfigs;
             _resultValue.queueId = queueId;
+            _resultValue.region = region;
             _resultValue.status = status;
             _resultValue.tags = tags;
             return _resultValue;

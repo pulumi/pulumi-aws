@@ -7,14 +7,14 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 var _ = internal.GetEnvOrDefault
 
 type AliasRoutingConfig struct {
-	// A map that defines the proportion of events that should be sent to different versions of a lambda function.
+	// Map that defines the proportion of events that should be sent to different versions of a Lambda function.
 	AdditionalVersionWeights map[string]float64 `pulumi:"additionalVersionWeights"`
 }
 
@@ -30,7 +30,7 @@ type AliasRoutingConfigInput interface {
 }
 
 type AliasRoutingConfigArgs struct {
-	// A map that defines the proportion of events that should be sent to different versions of a lambda function.
+	// Map that defines the proportion of events that should be sent to different versions of a Lambda function.
 	AdditionalVersionWeights pulumi.Float64MapInput `pulumi:"additionalVersionWeights"`
 }
 
@@ -111,7 +111,7 @@ func (o AliasRoutingConfigOutput) ToAliasRoutingConfigPtrOutputWithContext(ctx c
 	}).(AliasRoutingConfigPtrOutput)
 }
 
-// A map that defines the proportion of events that should be sent to different versions of a lambda function.
+// Map that defines the proportion of events that should be sent to different versions of a Lambda function.
 func (o AliasRoutingConfigOutput) AdditionalVersionWeights() pulumi.Float64MapOutput {
 	return o.ApplyT(func(v AliasRoutingConfig) map[string]float64 { return v.AdditionalVersionWeights }).(pulumi.Float64MapOutput)
 }
@@ -140,7 +140,7 @@ func (o AliasRoutingConfigPtrOutput) Elem() AliasRoutingConfigOutput {
 	}).(AliasRoutingConfigOutput)
 }
 
-// A map that defines the proportion of events that should be sent to different versions of a lambda function.
+// Map that defines the proportion of events that should be sent to different versions of a Lambda function.
 func (o AliasRoutingConfigPtrOutput) AdditionalVersionWeights() pulumi.Float64MapOutput {
 	return o.ApplyT(func(v *AliasRoutingConfig) map[string]float64 {
 		if v == nil {
@@ -151,7 +151,7 @@ func (o AliasRoutingConfigPtrOutput) AdditionalVersionWeights() pulumi.Float64Ma
 }
 
 type CodeSigningConfigAllowedPublishers struct {
-	// The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+	// Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
 	SigningProfileVersionArns []string `pulumi:"signingProfileVersionArns"`
 }
 
@@ -167,7 +167,7 @@ type CodeSigningConfigAllowedPublishersInput interface {
 }
 
 type CodeSigningConfigAllowedPublishersArgs struct {
-	// The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+	// Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
 	SigningProfileVersionArns pulumi.StringArrayInput `pulumi:"signingProfileVersionArns"`
 }
 
@@ -248,7 +248,7 @@ func (o CodeSigningConfigAllowedPublishersOutput) ToCodeSigningConfigAllowedPubl
 	}).(CodeSigningConfigAllowedPublishersPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+// Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
 func (o CodeSigningConfigAllowedPublishersOutput) SigningProfileVersionArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CodeSigningConfigAllowedPublishers) []string { return v.SigningProfileVersionArns }).(pulumi.StringArrayOutput)
 }
@@ -277,7 +277,7 @@ func (o CodeSigningConfigAllowedPublishersPtrOutput) Elem() CodeSigningConfigAll
 	}).(CodeSigningConfigAllowedPublishersOutput)
 }
 
-// The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+// Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. Maximum of 20 signing profiles.
 func (o CodeSigningConfigAllowedPublishersPtrOutput) SigningProfileVersionArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CodeSigningConfigAllowedPublishers) []string {
 		if v == nil {
@@ -288,7 +288,7 @@ func (o CodeSigningConfigAllowedPublishersPtrOutput) SigningProfileVersionArns()
 }
 
 type CodeSigningConfigPolicies struct {
-	// Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
+	// Code signing configuration policy for deployment validation failure. If you set the policy to `Enforce`, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to `Warn`, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
 	UntrustedArtifactOnDeployment string `pulumi:"untrustedArtifactOnDeployment"`
 }
 
@@ -304,7 +304,7 @@ type CodeSigningConfigPoliciesInput interface {
 }
 
 type CodeSigningConfigPoliciesArgs struct {
-	// Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
+	// Code signing configuration policy for deployment validation failure. If you set the policy to `Enforce`, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to `Warn`, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
 	UntrustedArtifactOnDeployment pulumi.StringInput `pulumi:"untrustedArtifactOnDeployment"`
 }
 
@@ -385,7 +385,7 @@ func (o CodeSigningConfigPoliciesOutput) ToCodeSigningConfigPoliciesPtrOutputWit
 	}).(CodeSigningConfigPoliciesPtrOutput)
 }
 
-// Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
+// Code signing configuration policy for deployment validation failure. If you set the policy to `Enforce`, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to `Warn`, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
 func (o CodeSigningConfigPoliciesOutput) UntrustedArtifactOnDeployment() pulumi.StringOutput {
 	return o.ApplyT(func(v CodeSigningConfigPolicies) string { return v.UntrustedArtifactOnDeployment }).(pulumi.StringOutput)
 }
@@ -414,7 +414,7 @@ func (o CodeSigningConfigPoliciesPtrOutput) Elem() CodeSigningConfigPoliciesOutp
 	}).(CodeSigningConfigPoliciesOutput)
 }
 
-// Code signing configuration policy for deployment validation failure. If you set the policy to Enforce, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to Warn, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
+// Code signing configuration policy for deployment validation failure. If you set the policy to `Enforce`, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to `Warn`, Lambda allows the deployment and creates a CloudWatch log. Valid values: `Warn`, `Enforce`. Default value: `Warn`.
 func (o CodeSigningConfigPoliciesPtrOutput) UntrustedArtifactOnDeployment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CodeSigningConfigPolicies) *string {
 		if v == nil {
@@ -425,7 +425,7 @@ func (o CodeSigningConfigPoliciesPtrOutput) UntrustedArtifactOnDeployment() pulu
 }
 
 type EventSourceMappingAmazonManagedKafkaEventSourceConfig struct {
-	// A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
+	// Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
 	ConsumerGroupId *string `pulumi:"consumerGroupId"`
 }
 
@@ -441,7 +441,7 @@ type EventSourceMappingAmazonManagedKafkaEventSourceConfigInput interface {
 }
 
 type EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs struct {
-	// A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
+	// Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
 	ConsumerGroupId pulumi.StringPtrInput `pulumi:"consumerGroupId"`
 }
 
@@ -522,7 +522,7 @@ func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput) ToEventSour
 	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput)
 }
 
-// A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
+// Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
 func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput) ConsumerGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingAmazonManagedKafkaEventSourceConfig) *string { return v.ConsumerGroupId }).(pulumi.StringPtrOutput)
 }
@@ -551,7 +551,7 @@ func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) Elem() E
 	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigOutput)
 }
 
-// A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
+// Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
 func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) ConsumerGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingAmazonManagedKafkaEventSourceConfig) *string {
 		if v == nil {
@@ -562,7 +562,7 @@ func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) Consumer
 }
 
 type EventSourceMappingDestinationConfig struct {
-	// The destination configuration for failed invocations. Detailed below.
+	// Destination configuration for failed invocations. See below.
 	OnFailure *EventSourceMappingDestinationConfigOnFailure `pulumi:"onFailure"`
 }
 
@@ -578,7 +578,7 @@ type EventSourceMappingDestinationConfigInput interface {
 }
 
 type EventSourceMappingDestinationConfigArgs struct {
-	// The destination configuration for failed invocations. Detailed below.
+	// Destination configuration for failed invocations. See below.
 	OnFailure EventSourceMappingDestinationConfigOnFailurePtrInput `pulumi:"onFailure"`
 }
 
@@ -659,7 +659,7 @@ func (o EventSourceMappingDestinationConfigOutput) ToEventSourceMappingDestinati
 	}).(EventSourceMappingDestinationConfigPtrOutput)
 }
 
-// The destination configuration for failed invocations. Detailed below.
+// Destination configuration for failed invocations. See below.
 func (o EventSourceMappingDestinationConfigOutput) OnFailure() EventSourceMappingDestinationConfigOnFailurePtrOutput {
 	return o.ApplyT(func(v EventSourceMappingDestinationConfig) *EventSourceMappingDestinationConfigOnFailure {
 		return v.OnFailure
@@ -690,7 +690,7 @@ func (o EventSourceMappingDestinationConfigPtrOutput) Elem() EventSourceMappingD
 	}).(EventSourceMappingDestinationConfigOutput)
 }
 
-// The destination configuration for failed invocations. Detailed below.
+// Destination configuration for failed invocations. See below.
 func (o EventSourceMappingDestinationConfigPtrOutput) OnFailure() EventSourceMappingDestinationConfigOnFailurePtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingDestinationConfig) *EventSourceMappingDestinationConfigOnFailure {
 		if v == nil {
@@ -701,7 +701,7 @@ func (o EventSourceMappingDestinationConfigPtrOutput) OnFailure() EventSourceMap
 }
 
 type EventSourceMappingDestinationConfigOnFailure struct {
-	// The Amazon Resource Name (ARN) of the destination resource.
+	// ARN of the destination resource.
 	DestinationArn string `pulumi:"destinationArn"`
 }
 
@@ -717,7 +717,7 @@ type EventSourceMappingDestinationConfigOnFailureInput interface {
 }
 
 type EventSourceMappingDestinationConfigOnFailureArgs struct {
-	// The Amazon Resource Name (ARN) of the destination resource.
+	// ARN of the destination resource.
 	DestinationArn pulumi.StringInput `pulumi:"destinationArn"`
 }
 
@@ -798,7 +798,7 @@ func (o EventSourceMappingDestinationConfigOnFailureOutput) ToEventSourceMapping
 	}).(EventSourceMappingDestinationConfigOnFailurePtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the destination resource.
+// ARN of the destination resource.
 func (o EventSourceMappingDestinationConfigOnFailureOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSourceMappingDestinationConfigOnFailure) string { return v.DestinationArn }).(pulumi.StringOutput)
 }
@@ -827,7 +827,7 @@ func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) Elem() EventSourc
 	}).(EventSourceMappingDestinationConfigOnFailureOutput)
 }
 
-// The Amazon Resource Name (ARN) of the destination resource.
+// ARN of the destination resource.
 func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) DestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingDestinationConfigOnFailure) *string {
 		if v == nil {
@@ -838,9 +838,9 @@ func (o EventSourceMappingDestinationConfigOnFailurePtrOutput) DestinationArn() 
 }
 
 type EventSourceMappingDocumentDbEventSourceConfig struct {
-	// The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+	// Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
 	CollectionName *string `pulumi:"collectionName"`
-	// The name of the database to consume within the DocumentDB cluster.
+	// Name of the database to consume within the DocumentDB cluster.
 	DatabaseName string `pulumi:"databaseName"`
 	// Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
 	FullDocument *string `pulumi:"fullDocument"`
@@ -858,9 +858,9 @@ type EventSourceMappingDocumentDbEventSourceConfigInput interface {
 }
 
 type EventSourceMappingDocumentDbEventSourceConfigArgs struct {
-	// The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+	// Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
 	CollectionName pulumi.StringPtrInput `pulumi:"collectionName"`
-	// The name of the database to consume within the DocumentDB cluster.
+	// Name of the database to consume within the DocumentDB cluster.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
 	FullDocument pulumi.StringPtrInput `pulumi:"fullDocument"`
@@ -943,12 +943,12 @@ func (o EventSourceMappingDocumentDbEventSourceConfigOutput) ToEventSourceMappin
 	}).(EventSourceMappingDocumentDbEventSourceConfigPtrOutput)
 }
 
-// The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+// Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
 func (o EventSourceMappingDocumentDbEventSourceConfigOutput) CollectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingDocumentDbEventSourceConfig) *string { return v.CollectionName }).(pulumi.StringPtrOutput)
 }
 
-// The name of the database to consume within the DocumentDB cluster.
+// Name of the database to consume within the DocumentDB cluster.
 func (o EventSourceMappingDocumentDbEventSourceConfigOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSourceMappingDocumentDbEventSourceConfig) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
@@ -982,7 +982,7 @@ func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) Elem() EventSour
 	}).(EventSourceMappingDocumentDbEventSourceConfigOutput)
 }
 
-// The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+// Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
 func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) CollectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingDocumentDbEventSourceConfig) *string {
 		if v == nil {
@@ -992,7 +992,7 @@ func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) CollectionName()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the database to consume within the DocumentDB cluster.
+// Name of the database to consume within the DocumentDB cluster.
 func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingDocumentDbEventSourceConfig) *string {
 		if v == nil {
@@ -1013,7 +1013,7 @@ func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) FullDocument() p
 }
 
 type EventSourceMappingFilterCriteria struct {
-	// A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+	// Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below.
 	Filters []EventSourceMappingFilterCriteriaFilter `pulumi:"filters"`
 }
 
@@ -1029,7 +1029,7 @@ type EventSourceMappingFilterCriteriaInput interface {
 }
 
 type EventSourceMappingFilterCriteriaArgs struct {
-	// A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+	// Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below.
 	Filters EventSourceMappingFilterCriteriaFilterArrayInput `pulumi:"filters"`
 }
 
@@ -1110,7 +1110,7 @@ func (o EventSourceMappingFilterCriteriaOutput) ToEventSourceMappingFilterCriter
 	}).(EventSourceMappingFilterCriteriaPtrOutput)
 }
 
-// A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+// Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below.
 func (o EventSourceMappingFilterCriteriaOutput) Filters() EventSourceMappingFilterCriteriaFilterArrayOutput {
 	return o.ApplyT(func(v EventSourceMappingFilterCriteria) []EventSourceMappingFilterCriteriaFilter { return v.Filters }).(EventSourceMappingFilterCriteriaFilterArrayOutput)
 }
@@ -1139,7 +1139,7 @@ func (o EventSourceMappingFilterCriteriaPtrOutput) Elem() EventSourceMappingFilt
 	}).(EventSourceMappingFilterCriteriaOutput)
 }
 
-// A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+// Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below.
 func (o EventSourceMappingFilterCriteriaPtrOutput) Filters() EventSourceMappingFilterCriteriaFilterArrayOutput {
 	return o.ApplyT(func(v *EventSourceMappingFilterCriteria) []EventSourceMappingFilterCriteriaFilter {
 		if v == nil {
@@ -1150,7 +1150,7 @@ func (o EventSourceMappingFilterCriteriaPtrOutput) Filters() EventSourceMappingF
 }
 
 type EventSourceMappingFilterCriteriaFilter struct {
-	// A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
+	// Filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
 	Pattern *string `pulumi:"pattern"`
 }
 
@@ -1166,7 +1166,7 @@ type EventSourceMappingFilterCriteriaFilterInput interface {
 }
 
 type EventSourceMappingFilterCriteriaFilterArgs struct {
-	// A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
+	// Filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
 	Pattern pulumi.StringPtrInput `pulumi:"pattern"`
 }
 
@@ -1221,7 +1221,7 @@ func (o EventSourceMappingFilterCriteriaFilterOutput) ToEventSourceMappingFilter
 	return o
 }
 
-// A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
+// Filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
 func (o EventSourceMappingFilterCriteriaFilterOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingFilterCriteriaFilter) *string { return v.Pattern }).(pulumi.StringPtrOutput)
 }
@@ -1247,7 +1247,7 @@ func (o EventSourceMappingFilterCriteriaFilterArrayOutput) Index(i pulumi.IntInp
 }
 
 type EventSourceMappingMetricsConfig struct {
-	// A list containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+	// List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
 	Metrics []string `pulumi:"metrics"`
 }
 
@@ -1263,7 +1263,7 @@ type EventSourceMappingMetricsConfigInput interface {
 }
 
 type EventSourceMappingMetricsConfigArgs struct {
-	// A list containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+	// List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
 	Metrics pulumi.StringArrayInput `pulumi:"metrics"`
 }
 
@@ -1344,7 +1344,7 @@ func (o EventSourceMappingMetricsConfigOutput) ToEventSourceMappingMetricsConfig
 	}).(EventSourceMappingMetricsConfigPtrOutput)
 }
 
-// A list containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+// List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
 func (o EventSourceMappingMetricsConfigOutput) Metrics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EventSourceMappingMetricsConfig) []string { return v.Metrics }).(pulumi.StringArrayOutput)
 }
@@ -1373,7 +1373,7 @@ func (o EventSourceMappingMetricsConfigPtrOutput) Elem() EventSourceMappingMetri
 	}).(EventSourceMappingMetricsConfigOutput)
 }
 
-// A list containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
+// List containing the metrics to be produced by the event source mapping. Valid values: `EventCount`.
 func (o EventSourceMappingMetricsConfigPtrOutput) Metrics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EventSourceMappingMetricsConfig) []string {
 		if v == nil {
@@ -1384,9 +1384,9 @@ func (o EventSourceMappingMetricsConfigPtrOutput) Metrics() pulumi.StringArrayOu
 }
 
 type EventSourceMappingProvisionedPollerConfig struct {
-	// The maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
+	// Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
 	MaximumPollers *int `pulumi:"maximumPollers"`
-	// The minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
+	// Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
 	MinimumPollers *int `pulumi:"minimumPollers"`
 }
 
@@ -1402,9 +1402,9 @@ type EventSourceMappingProvisionedPollerConfigInput interface {
 }
 
 type EventSourceMappingProvisionedPollerConfigArgs struct {
-	// The maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
+	// Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
 	MaximumPollers pulumi.IntPtrInput `pulumi:"maximumPollers"`
-	// The minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
+	// Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
 	MinimumPollers pulumi.IntPtrInput `pulumi:"minimumPollers"`
 }
 
@@ -1485,12 +1485,12 @@ func (o EventSourceMappingProvisionedPollerConfigOutput) ToEventSourceMappingPro
 	}).(EventSourceMappingProvisionedPollerConfigPtrOutput)
 }
 
-// The maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
+// Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
 func (o EventSourceMappingProvisionedPollerConfigOutput) MaximumPollers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingProvisionedPollerConfig) *int { return v.MaximumPollers }).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
+// Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
 func (o EventSourceMappingProvisionedPollerConfigOutput) MinimumPollers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingProvisionedPollerConfig) *int { return v.MinimumPollers }).(pulumi.IntPtrOutput)
 }
@@ -1519,7 +1519,7 @@ func (o EventSourceMappingProvisionedPollerConfigPtrOutput) Elem() EventSourceMa
 	}).(EventSourceMappingProvisionedPollerConfigOutput)
 }
 
-// The maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
+// Maximum number of event pollers this event source can scale up to. The range is between 1 and 2000.
 func (o EventSourceMappingProvisionedPollerConfigPtrOutput) MaximumPollers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingProvisionedPollerConfig) *int {
 		if v == nil {
@@ -1529,7 +1529,7 @@ func (o EventSourceMappingProvisionedPollerConfigPtrOutput) MaximumPollers() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
+// Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
 func (o EventSourceMappingProvisionedPollerConfigPtrOutput) MinimumPollers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingProvisionedPollerConfig) *int {
 		if v == nil {
@@ -1540,7 +1540,7 @@ func (o EventSourceMappingProvisionedPollerConfigPtrOutput) MinimumPollers() pul
 }
 
 type EventSourceMappingScalingConfig struct {
-	// Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be greater than or equal to `2`. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency). You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase the concurrency beyond 1000.
+	// Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be greater than or equal to 2. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency). You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase the concurrency beyond 1000.
 	MaximumConcurrency *int `pulumi:"maximumConcurrency"`
 }
 
@@ -1556,7 +1556,7 @@ type EventSourceMappingScalingConfigInput interface {
 }
 
 type EventSourceMappingScalingConfigArgs struct {
-	// Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be greater than or equal to `2`. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency). You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase the concurrency beyond 1000.
+	// Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be greater than or equal to 2. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency). You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase the concurrency beyond 1000.
 	MaximumConcurrency pulumi.IntPtrInput `pulumi:"maximumConcurrency"`
 }
 
@@ -1637,7 +1637,7 @@ func (o EventSourceMappingScalingConfigOutput) ToEventSourceMappingScalingConfig
 	}).(EventSourceMappingScalingConfigPtrOutput)
 }
 
-// Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be greater than or equal to `2`. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency). You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase the concurrency beyond 1000.
+// Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be greater than or equal to 2. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency). You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase the concurrency beyond 1000.
 func (o EventSourceMappingScalingConfigOutput) MaximumConcurrency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingScalingConfig) *int { return v.MaximumConcurrency }).(pulumi.IntPtrOutput)
 }
@@ -1666,7 +1666,7 @@ func (o EventSourceMappingScalingConfigPtrOutput) Elem() EventSourceMappingScali
 	}).(EventSourceMappingScalingConfigOutput)
 }
 
-// Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be greater than or equal to `2`. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency). You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase the concurrency beyond 1000.
+// Limits the number of concurrent instances that the Amazon SQS event source can invoke. Must be greater than or equal to 2. See [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency). You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase the concurrency beyond 1000.
 func (o EventSourceMappingScalingConfigPtrOutput) MaximumConcurrency() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingScalingConfig) *int {
 		if v == nil {
@@ -1677,7 +1677,7 @@ func (o EventSourceMappingScalingConfigPtrOutput) MaximumConcurrency() pulumi.In
 }
 
 type EventSourceMappingSelfManagedEventSource struct {
-	// A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
+	// Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
 	Endpoints map[string]string `pulumi:"endpoints"`
 }
 
@@ -1693,7 +1693,7 @@ type EventSourceMappingSelfManagedEventSourceInput interface {
 }
 
 type EventSourceMappingSelfManagedEventSourceArgs struct {
-	// A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
+	// Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
 	Endpoints pulumi.StringMapInput `pulumi:"endpoints"`
 }
 
@@ -1774,7 +1774,7 @@ func (o EventSourceMappingSelfManagedEventSourceOutput) ToEventSourceMappingSelf
 	}).(EventSourceMappingSelfManagedEventSourcePtrOutput)
 }
 
-// A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
+// Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
 func (o EventSourceMappingSelfManagedEventSourceOutput) Endpoints() pulumi.StringMapOutput {
 	return o.ApplyT(func(v EventSourceMappingSelfManagedEventSource) map[string]string { return v.Endpoints }).(pulumi.StringMapOutput)
 }
@@ -1803,7 +1803,7 @@ func (o EventSourceMappingSelfManagedEventSourcePtrOutput) Elem() EventSourceMap
 	}).(EventSourceMappingSelfManagedEventSourceOutput)
 }
 
-// A map of endpoints for the self managed source.  For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
+// Map of endpoints for the self managed source. For Kafka self-managed sources, the key should be `KAFKA_BOOTSTRAP_SERVERS` and the value should be a string with a comma separated list of broker endpoints.
 func (o EventSourceMappingSelfManagedEventSourcePtrOutput) Endpoints() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EventSourceMappingSelfManagedEventSource) map[string]string {
 		if v == nil {
@@ -1814,7 +1814,7 @@ func (o EventSourceMappingSelfManagedEventSourcePtrOutput) Endpoints() pulumi.St
 }
 
 type EventSourceMappingSelfManagedKafkaEventSourceConfig struct {
-	// A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+	// Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
 	ConsumerGroupId *string `pulumi:"consumerGroupId"`
 }
 
@@ -1830,7 +1830,7 @@ type EventSourceMappingSelfManagedKafkaEventSourceConfigInput interface {
 }
 
 type EventSourceMappingSelfManagedKafkaEventSourceConfigArgs struct {
-	// A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+	// Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
 	ConsumerGroupId pulumi.StringPtrInput `pulumi:"consumerGroupId"`
 }
 
@@ -1911,7 +1911,7 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) ToEventSource
 	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput)
 }
 
-// A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+// Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
 func (o EventSourceMappingSelfManagedKafkaEventSourceConfigOutput) ConsumerGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfig) *string { return v.ConsumerGroupId }).(pulumi.StringPtrOutput)
 }
@@ -1940,7 +1940,7 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) Elem() Eve
 	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigOutput)
 }
 
-// A Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
+// Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
 func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) ConsumerGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingSelfManagedKafkaEventSourceConfig) *string {
 		if v == nil {
@@ -1951,9 +1951,9 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) ConsumerGr
 }
 
 type EventSourceMappingSourceAccessConfiguration struct {
-	// The type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
+	// Type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
 	Type string `pulumi:"type"`
-	// The URI for this configuration.  For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnetId` is the value you would find in an ec2.Subnet resource's id attribute.  For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `securityGroupId` is the value you would find in an ec2.SecurityGroup resource's id attribute.
+	// URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnetId` is the value you would find in an ec2.Subnet resource's id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `securityGroupId` is the value you would find in an ec2.SecurityGroup resource's id attribute.
 	Uri string `pulumi:"uri"`
 }
 
@@ -1969,9 +1969,9 @@ type EventSourceMappingSourceAccessConfigurationInput interface {
 }
 
 type EventSourceMappingSourceAccessConfigurationArgs struct {
-	// The type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
+	// Type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
 	Type pulumi.StringInput `pulumi:"type"`
-	// The URI for this configuration.  For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnetId` is the value you would find in an ec2.Subnet resource's id attribute.  For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `securityGroupId` is the value you would find in an ec2.SecurityGroup resource's id attribute.
+	// URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnetId` is the value you would find in an ec2.Subnet resource's id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `securityGroupId` is the value you would find in an ec2.SecurityGroup resource's id attribute.
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
 
@@ -2026,12 +2026,12 @@ func (o EventSourceMappingSourceAccessConfigurationOutput) ToEventSourceMappingS
 	return o
 }
 
-// The type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
+// Type of authentication protocol, VPC components, or virtual host for your event source. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html).
 func (o EventSourceMappingSourceAccessConfigurationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSourceMappingSourceAccessConfiguration) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The URI for this configuration.  For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnetId` is the value you would find in an ec2.Subnet resource's id attribute.  For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `securityGroupId` is the value you would find in an ec2.SecurityGroup resource's id attribute.
+// URI for this configuration. For type `VPC_SUBNET` the value should be `subnet:subnet_id` where `subnetId` is the value you would find in an ec2.Subnet resource's id attribute. For type `VPC_SECURITY_GROUP` the value should be `security_group:security_group_id` where `securityGroupId` is the value you would find in an ec2.SecurityGroup resource's id attribute.
 func (o EventSourceMappingSourceAccessConfigurationOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v EventSourceMappingSourceAccessConfiguration) string { return v.Uri }).(pulumi.StringOutput)
 }
@@ -2057,7 +2057,7 @@ func (o EventSourceMappingSourceAccessConfigurationArrayOutput) Index(i pulumi.I
 }
 
 type FunctionDeadLetterConfig struct {
-	// ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
+	// ARN of an SNS topic or SQS queue to notify when an invocation fails.
 	TargetArn string `pulumi:"targetArn"`
 }
 
@@ -2073,7 +2073,7 @@ type FunctionDeadLetterConfigInput interface {
 }
 
 type FunctionDeadLetterConfigArgs struct {
-	// ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
+	// ARN of an SNS topic or SQS queue to notify when an invocation fails.
 	TargetArn pulumi.StringInput `pulumi:"targetArn"`
 }
 
@@ -2154,7 +2154,7 @@ func (o FunctionDeadLetterConfigOutput) ToFunctionDeadLetterConfigPtrOutputWithC
 	}).(FunctionDeadLetterConfigPtrOutput)
 }
 
-// ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
+// ARN of an SNS topic or SQS queue to notify when an invocation fails.
 func (o FunctionDeadLetterConfigOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionDeadLetterConfig) string { return v.TargetArn }).(pulumi.StringOutput)
 }
@@ -2183,7 +2183,7 @@ func (o FunctionDeadLetterConfigPtrOutput) Elem() FunctionDeadLetterConfigOutput
 	}).(FunctionDeadLetterConfigOutput)
 }
 
-// ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the `sns:Publish` or `sqs:SendMessage` action on this ARN, depending on which service is targeted.
+// ARN of an SNS topic or SQS queue to notify when an invocation fails.
 func (o FunctionDeadLetterConfigPtrOutput) TargetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionDeadLetterConfig) *string {
 		if v == nil {
@@ -2194,7 +2194,7 @@ func (o FunctionDeadLetterConfigPtrOutput) TargetArn() pulumi.StringPtrOutput {
 }
 
 type FunctionEnvironment struct {
-	// Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
+	// Map of environment variables available to your Lambda function during execution.
 	Variables map[string]string `pulumi:"variables"`
 }
 
@@ -2210,7 +2210,7 @@ type FunctionEnvironmentInput interface {
 }
 
 type FunctionEnvironmentArgs struct {
-	// Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
+	// Map of environment variables available to your Lambda function during execution.
 	Variables pulumi.StringMapInput `pulumi:"variables"`
 }
 
@@ -2291,7 +2291,7 @@ func (o FunctionEnvironmentOutput) ToFunctionEnvironmentPtrOutputWithContext(ctx
 	}).(FunctionEnvironmentPtrOutput)
 }
 
-// Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
+// Map of environment variables available to your Lambda function during execution.
 func (o FunctionEnvironmentOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FunctionEnvironment) map[string]string { return v.Variables }).(pulumi.StringMapOutput)
 }
@@ -2320,7 +2320,7 @@ func (o FunctionEnvironmentPtrOutput) Elem() FunctionEnvironmentOutput {
 	}).(FunctionEnvironmentOutput)
 }
 
-// Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
+// Map of environment variables available to your Lambda function during execution.
 func (o FunctionEnvironmentPtrOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FunctionEnvironment) map[string]string {
 		if v == nil {
@@ -2331,7 +2331,7 @@ func (o FunctionEnvironmentPtrOutput) Variables() pulumi.StringMapOutput {
 }
 
 type FunctionEphemeralStorage struct {
-	// The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeralStorage` value defaults to `512`MB and the maximum supported value is `10240`MB.
+	// Amount of ephemeral storage (`/tmp`) in MB. Valid between 512 MB and 10,240 MB (10 GB).
 	Size *int `pulumi:"size"`
 }
 
@@ -2347,7 +2347,7 @@ type FunctionEphemeralStorageInput interface {
 }
 
 type FunctionEphemeralStorageArgs struct {
-	// The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeralStorage` value defaults to `512`MB and the maximum supported value is `10240`MB.
+	// Amount of ephemeral storage (`/tmp`) in MB. Valid between 512 MB and 10,240 MB (10 GB).
 	Size pulumi.IntPtrInput `pulumi:"size"`
 }
 
@@ -2428,7 +2428,7 @@ func (o FunctionEphemeralStorageOutput) ToFunctionEphemeralStoragePtrOutputWithC
 	}).(FunctionEphemeralStoragePtrOutput)
 }
 
-// The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeralStorage` value defaults to `512`MB and the maximum supported value is `10240`MB.
+// Amount of ephemeral storage (`/tmp`) in MB. Valid between 512 MB and 10,240 MB (10 GB).
 func (o FunctionEphemeralStorageOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FunctionEphemeralStorage) *int { return v.Size }).(pulumi.IntPtrOutput)
 }
@@ -2457,7 +2457,7 @@ func (o FunctionEphemeralStoragePtrOutput) Elem() FunctionEphemeralStorageOutput
 	}).(FunctionEphemeralStorageOutput)
 }
 
-// The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeralStorage` value defaults to `512`MB and the maximum supported value is `10240`MB.
+// Amount of ephemeral storage (`/tmp`) in MB. Valid between 512 MB and 10,240 MB (10 GB).
 func (o FunctionEphemeralStoragePtrOutput) Size() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FunctionEphemeralStorage) *int {
 		if v == nil {
@@ -2468,9 +2468,9 @@ func (o FunctionEphemeralStoragePtrOutput) Size() pulumi.IntPtrOutput {
 }
 
 type FunctionEventInvokeConfigDestinationConfig struct {
-	// Configuration block with destination configuration for failed asynchronous invocations. See below for details.
+	// Configuration block with destination configuration for failed asynchronous invocations. See below.
 	OnFailure *FunctionEventInvokeConfigDestinationConfigOnFailure `pulumi:"onFailure"`
-	// Configuration block with destination configuration for successful asynchronous invocations. See below for details.
+	// Configuration block with destination configuration for successful asynchronous invocations. See below.
 	OnSuccess *FunctionEventInvokeConfigDestinationConfigOnSuccess `pulumi:"onSuccess"`
 }
 
@@ -2486,9 +2486,9 @@ type FunctionEventInvokeConfigDestinationConfigInput interface {
 }
 
 type FunctionEventInvokeConfigDestinationConfigArgs struct {
-	// Configuration block with destination configuration for failed asynchronous invocations. See below for details.
+	// Configuration block with destination configuration for failed asynchronous invocations. See below.
 	OnFailure FunctionEventInvokeConfigDestinationConfigOnFailurePtrInput `pulumi:"onFailure"`
-	// Configuration block with destination configuration for successful asynchronous invocations. See below for details.
+	// Configuration block with destination configuration for successful asynchronous invocations. See below.
 	OnSuccess FunctionEventInvokeConfigDestinationConfigOnSuccessPtrInput `pulumi:"onSuccess"`
 }
 
@@ -2569,14 +2569,14 @@ func (o FunctionEventInvokeConfigDestinationConfigOutput) ToFunctionEventInvokeC
 	}).(FunctionEventInvokeConfigDestinationConfigPtrOutput)
 }
 
-// Configuration block with destination configuration for failed asynchronous invocations. See below for details.
+// Configuration block with destination configuration for failed asynchronous invocations. See below.
 func (o FunctionEventInvokeConfigDestinationConfigOutput) OnFailure() FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput {
 	return o.ApplyT(func(v FunctionEventInvokeConfigDestinationConfig) *FunctionEventInvokeConfigDestinationConfigOnFailure {
 		return v.OnFailure
 	}).(FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput)
 }
 
-// Configuration block with destination configuration for successful asynchronous invocations. See below for details.
+// Configuration block with destination configuration for successful asynchronous invocations. See below.
 func (o FunctionEventInvokeConfigDestinationConfigOutput) OnSuccess() FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput {
 	return o.ApplyT(func(v FunctionEventInvokeConfigDestinationConfig) *FunctionEventInvokeConfigDestinationConfigOnSuccess {
 		return v.OnSuccess
@@ -2607,7 +2607,7 @@ func (o FunctionEventInvokeConfigDestinationConfigPtrOutput) Elem() FunctionEven
 	}).(FunctionEventInvokeConfigDestinationConfigOutput)
 }
 
-// Configuration block with destination configuration for failed asynchronous invocations. See below for details.
+// Configuration block with destination configuration for failed asynchronous invocations. See below.
 func (o FunctionEventInvokeConfigDestinationConfigPtrOutput) OnFailure() FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput {
 	return o.ApplyT(func(v *FunctionEventInvokeConfigDestinationConfig) *FunctionEventInvokeConfigDestinationConfigOnFailure {
 		if v == nil {
@@ -2617,7 +2617,7 @@ func (o FunctionEventInvokeConfigDestinationConfigPtrOutput) OnFailure() Functio
 	}).(FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput)
 }
 
-// Configuration block with destination configuration for successful asynchronous invocations. See below for details.
+// Configuration block with destination configuration for successful asynchronous invocations. See below.
 func (o FunctionEventInvokeConfigDestinationConfigPtrOutput) OnSuccess() FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput {
 	return o.ApplyT(func(v *FunctionEventInvokeConfigDestinationConfig) *FunctionEventInvokeConfigDestinationConfigOnSuccess {
 		if v == nil {
@@ -2628,7 +2628,7 @@ func (o FunctionEventInvokeConfigDestinationConfigPtrOutput) OnSuccess() Functio
 }
 
 type FunctionEventInvokeConfigDestinationConfigOnFailure struct {
-	// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
+	// ARN of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
 	Destination string `pulumi:"destination"`
 }
 
@@ -2644,7 +2644,7 @@ type FunctionEventInvokeConfigDestinationConfigOnFailureInput interface {
 }
 
 type FunctionEventInvokeConfigDestinationConfigOnFailureArgs struct {
-	// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
+	// ARN of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
 	Destination pulumi.StringInput `pulumi:"destination"`
 }
 
@@ -2725,7 +2725,7 @@ func (o FunctionEventInvokeConfigDestinationConfigOnFailureOutput) ToFunctionEve
 	}).(FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
+// ARN of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
 func (o FunctionEventInvokeConfigDestinationConfigOnFailureOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionEventInvokeConfigDestinationConfigOnFailure) string { return v.Destination }).(pulumi.StringOutput)
 }
@@ -2754,7 +2754,7 @@ func (o FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput) Elem() Fun
 	}).(FunctionEventInvokeConfigDestinationConfigOnFailureOutput)
 }
 
-// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
+// ARN of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
 func (o FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionEventInvokeConfigDestinationConfigOnFailure) *string {
 		if v == nil {
@@ -2765,7 +2765,7 @@ func (o FunctionEventInvokeConfigDestinationConfigOnFailurePtrOutput) Destinatio
 }
 
 type FunctionEventInvokeConfigDestinationConfigOnSuccess struct {
-	// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
+	// ARN of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
 	Destination string `pulumi:"destination"`
 }
 
@@ -2781,7 +2781,7 @@ type FunctionEventInvokeConfigDestinationConfigOnSuccessInput interface {
 }
 
 type FunctionEventInvokeConfigDestinationConfigOnSuccessArgs struct {
-	// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
+	// ARN of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
 	Destination pulumi.StringInput `pulumi:"destination"`
 }
 
@@ -2862,7 +2862,7 @@ func (o FunctionEventInvokeConfigDestinationConfigOnSuccessOutput) ToFunctionEve
 	}).(FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
+// ARN of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
 func (o FunctionEventInvokeConfigDestinationConfigOnSuccessOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionEventInvokeConfigDestinationConfigOnSuccess) string { return v.Destination }).(pulumi.StringOutput)
 }
@@ -2891,7 +2891,7 @@ func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) Elem() Fun
 	}).(FunctionEventInvokeConfigDestinationConfigOnSuccessOutput)
 }
 
-// Amazon Resource Name (ARN) of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
+// ARN of the destination resource. See the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations) for acceptable resource types and associated IAM permissions.
 func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionEventInvokeConfigDestinationConfigOnSuccess) *string {
 		if v == nil {
@@ -2902,9 +2902,9 @@ func (o FunctionEventInvokeConfigDestinationConfigOnSuccessPtrOutput) Destinatio
 }
 
 type FunctionFileSystemConfig struct {
-	// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+	// ARN of the Amazon EFS Access Point.
 	Arn string `pulumi:"arn"`
-	// Path where the function can access the file system, starting with /mnt/.
+	// Path where the function can access the file system. Must start with `/mnt/`.
 	LocalMountPath string `pulumi:"localMountPath"`
 }
 
@@ -2920,9 +2920,9 @@ type FunctionFileSystemConfigInput interface {
 }
 
 type FunctionFileSystemConfigArgs struct {
-	// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+	// ARN of the Amazon EFS Access Point.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// Path where the function can access the file system, starting with /mnt/.
+	// Path where the function can access the file system. Must start with `/mnt/`.
 	LocalMountPath pulumi.StringInput `pulumi:"localMountPath"`
 }
 
@@ -3003,12 +3003,12 @@ func (o FunctionFileSystemConfigOutput) ToFunctionFileSystemConfigPtrOutputWithC
 	}).(FunctionFileSystemConfigPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+// ARN of the Amazon EFS Access Point.
 func (o FunctionFileSystemConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionFileSystemConfig) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Path where the function can access the file system, starting with /mnt/.
+// Path where the function can access the file system. Must start with `/mnt/`.
 func (o FunctionFileSystemConfigOutput) LocalMountPath() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionFileSystemConfig) string { return v.LocalMountPath }).(pulumi.StringOutput)
 }
@@ -3037,7 +3037,7 @@ func (o FunctionFileSystemConfigPtrOutput) Elem() FunctionFileSystemConfigOutput
 	}).(FunctionFileSystemConfigOutput)
 }
 
-// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
+// ARN of the Amazon EFS Access Point.
 func (o FunctionFileSystemConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionFileSystemConfig) *string {
 		if v == nil {
@@ -3047,7 +3047,7 @@ func (o FunctionFileSystemConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Path where the function can access the file system, starting with /mnt/.
+// Path where the function can access the file system. Must start with `/mnt/`.
 func (o FunctionFileSystemConfigPtrOutput) LocalMountPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionFileSystemConfig) *string {
 		if v == nil {
@@ -3058,11 +3058,11 @@ func (o FunctionFileSystemConfigPtrOutput) LocalMountPath() pulumi.StringPtrOutp
 }
 
 type FunctionImageConfig struct {
-	// Parameters that you want to pass in with `entryPoint`.
+	// Parameters to pass to the container image.
 	Commands []string `pulumi:"commands"`
-	// Entry point to your application, which is typically the location of the runtime executable.
+	// Entry point to your application.
 	EntryPoints []string `pulumi:"entryPoints"`
-	// Working directory.
+	// Working directory for the container image.
 	WorkingDirectory *string `pulumi:"workingDirectory"`
 }
 
@@ -3078,11 +3078,11 @@ type FunctionImageConfigInput interface {
 }
 
 type FunctionImageConfigArgs struct {
-	// Parameters that you want to pass in with `entryPoint`.
+	// Parameters to pass to the container image.
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// Entry point to your application, which is typically the location of the runtime executable.
+	// Entry point to your application.
 	EntryPoints pulumi.StringArrayInput `pulumi:"entryPoints"`
-	// Working directory.
+	// Working directory for the container image.
 	WorkingDirectory pulumi.StringPtrInput `pulumi:"workingDirectory"`
 }
 
@@ -3163,17 +3163,17 @@ func (o FunctionImageConfigOutput) ToFunctionImageConfigPtrOutputWithContext(ctx
 	}).(FunctionImageConfigPtrOutput)
 }
 
-// Parameters that you want to pass in with `entryPoint`.
+// Parameters to pass to the container image.
 func (o FunctionImageConfigOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionImageConfig) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// Entry point to your application, which is typically the location of the runtime executable.
+// Entry point to your application.
 func (o FunctionImageConfigOutput) EntryPoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionImageConfig) []string { return v.EntryPoints }).(pulumi.StringArrayOutput)
 }
 
-// Working directory.
+// Working directory for the container image.
 func (o FunctionImageConfigOutput) WorkingDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionImageConfig) *string { return v.WorkingDirectory }).(pulumi.StringPtrOutput)
 }
@@ -3202,7 +3202,7 @@ func (o FunctionImageConfigPtrOutput) Elem() FunctionImageConfigOutput {
 	}).(FunctionImageConfigOutput)
 }
 
-// Parameters that you want to pass in with `entryPoint`.
+// Parameters to pass to the container image.
 func (o FunctionImageConfigPtrOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FunctionImageConfig) []string {
 		if v == nil {
@@ -3212,7 +3212,7 @@ func (o FunctionImageConfigPtrOutput) Commands() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Entry point to your application, which is typically the location of the runtime executable.
+// Entry point to your application.
 func (o FunctionImageConfigPtrOutput) EntryPoints() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FunctionImageConfig) []string {
 		if v == nil {
@@ -3222,7 +3222,7 @@ func (o FunctionImageConfigPtrOutput) EntryPoints() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Working directory.
+// Working directory for the container image.
 func (o FunctionImageConfigPtrOutput) WorkingDirectory() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionImageConfig) *string {
 		if v == nil {
@@ -3233,13 +3233,13 @@ func (o FunctionImageConfigPtrOutput) WorkingDirectory() pulumi.StringPtrOutput 
 }
 
 type FunctionLoggingConfig struct {
-	// for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+	// Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
 	ApplicationLogLevel *string `pulumi:"applicationLogLevel"`
-	// select between `Text` and structured `JSON` format for your function's logs.
+	// Log format. Valid values: `Text`, `JSON`.
 	LogFormat string `pulumi:"logFormat"`
-	// the CloudWatch log group your function sends logs to.
+	// CloudWatch log group where logs are sent.
 	LogGroup *string `pulumi:"logGroup"`
-	// for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
+	// Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
 	SystemLogLevel *string `pulumi:"systemLogLevel"`
 }
 
@@ -3255,13 +3255,13 @@ type FunctionLoggingConfigInput interface {
 }
 
 type FunctionLoggingConfigArgs struct {
-	// for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+	// Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
 	ApplicationLogLevel pulumi.StringPtrInput `pulumi:"applicationLogLevel"`
-	// select between `Text` and structured `JSON` format for your function's logs.
+	// Log format. Valid values: `Text`, `JSON`.
 	LogFormat pulumi.StringInput `pulumi:"logFormat"`
-	// the CloudWatch log group your function sends logs to.
+	// CloudWatch log group where logs are sent.
 	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
-	// for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
+	// Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
 	SystemLogLevel pulumi.StringPtrInput `pulumi:"systemLogLevel"`
 }
 
@@ -3342,22 +3342,22 @@ func (o FunctionLoggingConfigOutput) ToFunctionLoggingConfigPtrOutputWithContext
 	}).(FunctionLoggingConfigPtrOutput)
 }
 
-// for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+// Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
 func (o FunctionLoggingConfigOutput) ApplicationLogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionLoggingConfig) *string { return v.ApplicationLogLevel }).(pulumi.StringPtrOutput)
 }
 
-// select between `Text` and structured `JSON` format for your function's logs.
+// Log format. Valid values: `Text`, `JSON`.
 func (o FunctionLoggingConfigOutput) LogFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionLoggingConfig) string { return v.LogFormat }).(pulumi.StringOutput)
 }
 
-// the CloudWatch log group your function sends logs to.
+// CloudWatch log group where logs are sent.
 func (o FunctionLoggingConfigOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionLoggingConfig) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
 }
 
-// for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
+// Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
 func (o FunctionLoggingConfigOutput) SystemLogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionLoggingConfig) *string { return v.SystemLogLevel }).(pulumi.StringPtrOutput)
 }
@@ -3386,7 +3386,7 @@ func (o FunctionLoggingConfigPtrOutput) Elem() FunctionLoggingConfigOutput {
 	}).(FunctionLoggingConfigOutput)
 }
 
-// for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+// Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
 func (o FunctionLoggingConfigPtrOutput) ApplicationLogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionLoggingConfig) *string {
 		if v == nil {
@@ -3396,7 +3396,7 @@ func (o FunctionLoggingConfigPtrOutput) ApplicationLogLevel() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// select between `Text` and structured `JSON` format for your function's logs.
+// Log format. Valid values: `Text`, `JSON`.
 func (o FunctionLoggingConfigPtrOutput) LogFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionLoggingConfig) *string {
 		if v == nil {
@@ -3406,7 +3406,7 @@ func (o FunctionLoggingConfigPtrOutput) LogFormat() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// the CloudWatch log group your function sends logs to.
+// CloudWatch log group where logs are sent.
 func (o FunctionLoggingConfigPtrOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionLoggingConfig) *string {
 		if v == nil {
@@ -3416,7 +3416,7 @@ func (o FunctionLoggingConfigPtrOutput) LogGroup() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
+// Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
 func (o FunctionLoggingConfigPtrOutput) SystemLogLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionLoggingConfig) *string {
 		if v == nil {
@@ -3427,7 +3427,7 @@ func (o FunctionLoggingConfigPtrOutput) SystemLogLevel() pulumi.StringPtrOutput 
 }
 
 type FunctionSnapStart struct {
-	// Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+	// When to apply snap start optimization. Valid value: `PublishedVersions`.
 	ApplyOn string `pulumi:"applyOn"`
 	// Optimization status of the snap start configuration. Valid values are `On` and `Off`.
 	OptimizationStatus *string `pulumi:"optimizationStatus"`
@@ -3445,7 +3445,7 @@ type FunctionSnapStartInput interface {
 }
 
 type FunctionSnapStartArgs struct {
-	// Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+	// When to apply snap start optimization. Valid value: `PublishedVersions`.
 	ApplyOn pulumi.StringInput `pulumi:"applyOn"`
 	// Optimization status of the snap start configuration. Valid values are `On` and `Off`.
 	OptimizationStatus pulumi.StringPtrInput `pulumi:"optimizationStatus"`
@@ -3528,7 +3528,7 @@ func (o FunctionSnapStartOutput) ToFunctionSnapStartPtrOutputWithContext(ctx con
 	}).(FunctionSnapStartPtrOutput)
 }
 
-// Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+// When to apply snap start optimization. Valid value: `PublishedVersions`.
 func (o FunctionSnapStartOutput) ApplyOn() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionSnapStart) string { return v.ApplyOn }).(pulumi.StringOutput)
 }
@@ -3562,7 +3562,7 @@ func (o FunctionSnapStartPtrOutput) Elem() FunctionSnapStartOutput {
 	}).(FunctionSnapStartOutput)
 }
 
-// Conditions where snap start is enabled. Valid values are `PublishedVersions`.
+// When to apply snap start optimization. Valid value: `PublishedVersions`.
 func (o FunctionSnapStartPtrOutput) ApplyOn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionSnapStart) *string {
 		if v == nil {
@@ -3583,7 +3583,7 @@ func (o FunctionSnapStartPtrOutput) OptimizationStatus() pulumi.StringPtrOutput 
 }
 
 type FunctionTracingConfig struct {
-	// Whether to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
+	// X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
 	Mode string `pulumi:"mode"`
 }
 
@@ -3599,7 +3599,7 @@ type FunctionTracingConfigInput interface {
 }
 
 type FunctionTracingConfigArgs struct {
-	// Whether to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
+	// X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
 	Mode pulumi.StringInput `pulumi:"mode"`
 }
 
@@ -3680,7 +3680,7 @@ func (o FunctionTracingConfigOutput) ToFunctionTracingConfigPtrOutputWithContext
 	}).(FunctionTracingConfigPtrOutput)
 }
 
-// Whether to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
+// X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
 func (o FunctionTracingConfigOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionTracingConfig) string { return v.Mode }).(pulumi.StringOutput)
 }
@@ -3709,7 +3709,7 @@ func (o FunctionTracingConfigPtrOutput) Elem() FunctionTracingConfigOutput {
 	}).(FunctionTracingConfigOutput)
 }
 
-// Whether to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
+// X-Ray tracing mode. Valid values: `Active`, `PassThrough`.
 func (o FunctionTracingConfigPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionTracingConfig) *string {
 		if v == nil {
@@ -3720,17 +3720,17 @@ func (o FunctionTracingConfigPtrOutput) Mode() pulumi.StringPtrOutput {
 }
 
 type FunctionUrlCors struct {
-	// Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
+	// Whether to allow cookies or other credentials in requests to the function URL.
 	AllowCredentials *bool `pulumi:"allowCredentials"`
-	// The HTTP headers that origins can include in requests to the function URL. For example: `["date", "keep-alive", "x-custom-header"]`.
+	// HTTP headers that origins can include in requests to the function URL.
 	AllowHeaders []string `pulumi:"allowHeaders"`
-	// The HTTP methods that are allowed when calling the function URL. For example: `["GET", "POST", "DELETE"]`, or the wildcard character (`["*"]`).
+	// HTTP methods that are allowed when calling the function URL.
 	AllowMethods []string `pulumi:"allowMethods"`
-	// The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`"*"`)), separated by a comma. For example: `["https://www.example.com", "http://localhost:60905"]`.
+	// Origins that can access the function URL.
 	AllowOrigins []string `pulumi:"allowOrigins"`
-	// The HTTP headers in your function response that you want to expose to origins that call the function URL.
+	// HTTP headers in your function response that you want to expose to origins that call the function URL.
 	ExposeHeaders []string `pulumi:"exposeHeaders"`
-	// The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn't cache results. The maximum value is `86400`.
+	// Maximum amount of time, in seconds, that web browsers can cache results of a preflight request. Maximum value is `86400`.
 	MaxAge *int `pulumi:"maxAge"`
 }
 
@@ -3746,17 +3746,17 @@ type FunctionUrlCorsInput interface {
 }
 
 type FunctionUrlCorsArgs struct {
-	// Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
+	// Whether to allow cookies or other credentials in requests to the function URL.
 	AllowCredentials pulumi.BoolPtrInput `pulumi:"allowCredentials"`
-	// The HTTP headers that origins can include in requests to the function URL. For example: `["date", "keep-alive", "x-custom-header"]`.
+	// HTTP headers that origins can include in requests to the function URL.
 	AllowHeaders pulumi.StringArrayInput `pulumi:"allowHeaders"`
-	// The HTTP methods that are allowed when calling the function URL. For example: `["GET", "POST", "DELETE"]`, or the wildcard character (`["*"]`).
+	// HTTP methods that are allowed when calling the function URL.
 	AllowMethods pulumi.StringArrayInput `pulumi:"allowMethods"`
-	// The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`"*"`)), separated by a comma. For example: `["https://www.example.com", "http://localhost:60905"]`.
+	// Origins that can access the function URL.
 	AllowOrigins pulumi.StringArrayInput `pulumi:"allowOrigins"`
-	// The HTTP headers in your function response that you want to expose to origins that call the function URL.
+	// HTTP headers in your function response that you want to expose to origins that call the function URL.
 	ExposeHeaders pulumi.StringArrayInput `pulumi:"exposeHeaders"`
-	// The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn't cache results. The maximum value is `86400`.
+	// Maximum amount of time, in seconds, that web browsers can cache results of a preflight request. Maximum value is `86400`.
 	MaxAge pulumi.IntPtrInput `pulumi:"maxAge"`
 }
 
@@ -3837,32 +3837,32 @@ func (o FunctionUrlCorsOutput) ToFunctionUrlCorsPtrOutputWithContext(ctx context
 	}).(FunctionUrlCorsPtrOutput)
 }
 
-// Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
+// Whether to allow cookies or other credentials in requests to the function URL.
 func (o FunctionUrlCorsOutput) AllowCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FunctionUrlCors) *bool { return v.AllowCredentials }).(pulumi.BoolPtrOutput)
 }
 
-// The HTTP headers that origins can include in requests to the function URL. For example: `["date", "keep-alive", "x-custom-header"]`.
+// HTTP headers that origins can include in requests to the function URL.
 func (o FunctionUrlCorsOutput) AllowHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionUrlCors) []string { return v.AllowHeaders }).(pulumi.StringArrayOutput)
 }
 
-// The HTTP methods that are allowed when calling the function URL. For example: `["GET", "POST", "DELETE"]`, or the wildcard character (`["*"]`).
+// HTTP methods that are allowed when calling the function URL.
 func (o FunctionUrlCorsOutput) AllowMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionUrlCors) []string { return v.AllowMethods }).(pulumi.StringArrayOutput)
 }
 
-// The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`"*"`)), separated by a comma. For example: `["https://www.example.com", "http://localhost:60905"]`.
+// Origins that can access the function URL.
 func (o FunctionUrlCorsOutput) AllowOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionUrlCors) []string { return v.AllowOrigins }).(pulumi.StringArrayOutput)
 }
 
-// The HTTP headers in your function response that you want to expose to origins that call the function URL.
+// HTTP headers in your function response that you want to expose to origins that call the function URL.
 func (o FunctionUrlCorsOutput) ExposeHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FunctionUrlCors) []string { return v.ExposeHeaders }).(pulumi.StringArrayOutput)
 }
 
-// The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn't cache results. The maximum value is `86400`.
+// Maximum amount of time, in seconds, that web browsers can cache results of a preflight request. Maximum value is `86400`.
 func (o FunctionUrlCorsOutput) MaxAge() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FunctionUrlCors) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
 }
@@ -3891,7 +3891,7 @@ func (o FunctionUrlCorsPtrOutput) Elem() FunctionUrlCorsOutput {
 	}).(FunctionUrlCorsOutput)
 }
 
-// Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
+// Whether to allow cookies or other credentials in requests to the function URL.
 func (o FunctionUrlCorsPtrOutput) AllowCredentials() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FunctionUrlCors) *bool {
 		if v == nil {
@@ -3901,7 +3901,7 @@ func (o FunctionUrlCorsPtrOutput) AllowCredentials() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The HTTP headers that origins can include in requests to the function URL. For example: `["date", "keep-alive", "x-custom-header"]`.
+// HTTP headers that origins can include in requests to the function URL.
 func (o FunctionUrlCorsPtrOutput) AllowHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FunctionUrlCors) []string {
 		if v == nil {
@@ -3911,7 +3911,7 @@ func (o FunctionUrlCorsPtrOutput) AllowHeaders() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The HTTP methods that are allowed when calling the function URL. For example: `["GET", "POST", "DELETE"]`, or the wildcard character (`["*"]`).
+// HTTP methods that are allowed when calling the function URL.
 func (o FunctionUrlCorsPtrOutput) AllowMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FunctionUrlCors) []string {
 		if v == nil {
@@ -3921,7 +3921,7 @@ func (o FunctionUrlCorsPtrOutput) AllowMethods() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`"*"`)), separated by a comma. For example: `["https://www.example.com", "http://localhost:60905"]`.
+// Origins that can access the function URL.
 func (o FunctionUrlCorsPtrOutput) AllowOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FunctionUrlCors) []string {
 		if v == nil {
@@ -3931,7 +3931,7 @@ func (o FunctionUrlCorsPtrOutput) AllowOrigins() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The HTTP headers in your function response that you want to expose to origins that call the function URL.
+// HTTP headers in your function response that you want to expose to origins that call the function URL.
 func (o FunctionUrlCorsPtrOutput) ExposeHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FunctionUrlCors) []string {
 		if v == nil {
@@ -3941,7 +3941,7 @@ func (o FunctionUrlCorsPtrOutput) ExposeHeaders() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn't cache results. The maximum value is `86400`.
+// Maximum amount of time, in seconds, that web browsers can cache results of a preflight request. Maximum value is `86400`.
 func (o FunctionUrlCorsPtrOutput) MaxAge() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FunctionUrlCors) *int {
 		if v == nil {
@@ -3952,7 +3952,7 @@ func (o FunctionUrlCorsPtrOutput) MaxAge() pulumi.IntPtrOutput {
 }
 
 type FunctionVpcConfig struct {
-	// Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
+	// Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
 	Ipv6AllowedForDualStack *bool `pulumi:"ipv6AllowedForDualStack"`
 	// List of security group IDs associated with the Lambda function.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -3974,7 +3974,7 @@ type FunctionVpcConfigInput interface {
 }
 
 type FunctionVpcConfigArgs struct {
-	// Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
+	// Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
 	Ipv6AllowedForDualStack pulumi.BoolPtrInput `pulumi:"ipv6AllowedForDualStack"`
 	// List of security group IDs associated with the Lambda function.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
@@ -4061,7 +4061,7 @@ func (o FunctionVpcConfigOutput) ToFunctionVpcConfigPtrOutputWithContext(ctx con
 	}).(FunctionVpcConfigPtrOutput)
 }
 
-// Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
+// Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
 func (o FunctionVpcConfigOutput) Ipv6AllowedForDualStack() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FunctionVpcConfig) *bool { return v.Ipv6AllowedForDualStack }).(pulumi.BoolPtrOutput)
 }
@@ -4105,7 +4105,7 @@ func (o FunctionVpcConfigPtrOutput) Elem() FunctionVpcConfigOutput {
 	}).(FunctionVpcConfigOutput)
 }
 
-// Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
+// Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
 func (o FunctionVpcConfigPtrOutput) Ipv6AllowedForDualStack() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FunctionVpcConfig) *bool {
 		if v == nil {
@@ -4146,7 +4146,7 @@ func (o FunctionVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 type GetCodeSigningConfigAllowedPublisher struct {
-	// The ARN for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+	// Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
 	SigningProfileVersionArns []string `pulumi:"signingProfileVersionArns"`
 }
 
@@ -4162,7 +4162,7 @@ type GetCodeSigningConfigAllowedPublisherInput interface {
 }
 
 type GetCodeSigningConfigAllowedPublisherArgs struct {
-	// The ARN for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+	// Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
 	SigningProfileVersionArns pulumi.StringArrayInput `pulumi:"signingProfileVersionArns"`
 }
 
@@ -4217,7 +4217,7 @@ func (o GetCodeSigningConfigAllowedPublisherOutput) ToGetCodeSigningConfigAllowe
 	return o
 }
 
-// The ARN for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
+// Set of ARNs for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
 func (o GetCodeSigningConfigAllowedPublisherOutput) SigningProfileVersionArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetCodeSigningConfigAllowedPublisher) []string { return v.SigningProfileVersionArns }).(pulumi.StringArrayOutput)
 }
@@ -4243,7 +4243,7 @@ func (o GetCodeSigningConfigAllowedPublisherArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetCodeSigningConfigPolicy struct {
-	// Code signing configuration policy for deployment validation failure.
+	// Code signing configuration policy for deployment validation failure. Valid values: `Warn`, `Enforce`.
 	UntrustedArtifactOnDeployment string `pulumi:"untrustedArtifactOnDeployment"`
 }
 
@@ -4259,7 +4259,7 @@ type GetCodeSigningConfigPolicyInput interface {
 }
 
 type GetCodeSigningConfigPolicyArgs struct {
-	// Code signing configuration policy for deployment validation failure.
+	// Code signing configuration policy for deployment validation failure. Valid values: `Warn`, `Enforce`.
 	UntrustedArtifactOnDeployment pulumi.StringInput `pulumi:"untrustedArtifactOnDeployment"`
 }
 
@@ -4314,7 +4314,7 @@ func (o GetCodeSigningConfigPolicyOutput) ToGetCodeSigningConfigPolicyOutputWith
 	return o
 }
 
-// Code signing configuration policy for deployment validation failure.
+// Code signing configuration policy for deployment validation failure. Valid values: `Warn`, `Enforce`.
 func (o GetCodeSigningConfigPolicyOutput) UntrustedArtifactOnDeployment() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCodeSigningConfigPolicy) string { return v.UntrustedArtifactOnDeployment }).(pulumi.StringOutput)
 }
@@ -4340,6 +4340,7 @@ func (o GetCodeSigningConfigPolicyArrayOutput) Index(i pulumi.IntInput) GetCodeS
 }
 
 type GetFunctionDeadLetterConfig struct {
+	// ARN of an SNS topic or SQS queue to notify when an invocation fails.
 	TargetArn string `pulumi:"targetArn"`
 }
 
@@ -4355,6 +4356,7 @@ type GetFunctionDeadLetterConfigInput interface {
 }
 
 type GetFunctionDeadLetterConfigArgs struct {
+	// ARN of an SNS topic or SQS queue to notify when an invocation fails.
 	TargetArn pulumi.StringInput `pulumi:"targetArn"`
 }
 
@@ -4384,11 +4386,13 @@ func (o GetFunctionDeadLetterConfigOutput) ToGetFunctionDeadLetterConfigOutputWi
 	return o
 }
 
+// ARN of an SNS topic or SQS queue to notify when an invocation fails.
 func (o GetFunctionDeadLetterConfigOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionDeadLetterConfig) string { return v.TargetArn }).(pulumi.StringOutput)
 }
 
 type GetFunctionEnvironment struct {
+	// Map of environment variables that are accessible from the function code during execution.
 	Variables map[string]string `pulumi:"variables"`
 }
 
@@ -4404,6 +4408,7 @@ type GetFunctionEnvironmentInput interface {
 }
 
 type GetFunctionEnvironmentArgs struct {
+	// Map of environment variables that are accessible from the function code during execution.
 	Variables pulumi.StringMapInput `pulumi:"variables"`
 }
 
@@ -4433,11 +4438,13 @@ func (o GetFunctionEnvironmentOutput) ToGetFunctionEnvironmentOutputWithContext(
 	return o
 }
 
+// Map of environment variables that are accessible from the function code during execution.
 func (o GetFunctionEnvironmentOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetFunctionEnvironment) map[string]string { return v.Variables }).(pulumi.StringMapOutput)
 }
 
 type GetFunctionEphemeralStorage struct {
+	// Size of the Lambda function ephemeral storage (`/tmp`) in MB.
 	Size int `pulumi:"size"`
 }
 
@@ -4453,6 +4460,7 @@ type GetFunctionEphemeralStorageInput interface {
 }
 
 type GetFunctionEphemeralStorageArgs struct {
+	// Size of the Lambda function ephemeral storage (`/tmp`) in MB.
 	Size pulumi.IntInput `pulumi:"size"`
 }
 
@@ -4507,6 +4515,7 @@ func (o GetFunctionEphemeralStorageOutput) ToGetFunctionEphemeralStorageOutputWi
 	return o
 }
 
+// Size of the Lambda function ephemeral storage (`/tmp`) in MB.
 func (o GetFunctionEphemeralStorageOutput) Size() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFunctionEphemeralStorage) int { return v.Size }).(pulumi.IntOutput)
 }
@@ -4532,8 +4541,9 @@ func (o GetFunctionEphemeralStorageArrayOutput) Index(i pulumi.IntInput) GetFunc
 }
 
 type GetFunctionFileSystemConfig struct {
-	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualifiedArn`.
-	Arn            string `pulumi:"arn"`
+	// ARN of the Amazon EFS Access Point that provides access to the file system.
+	Arn string `pulumi:"arn"`
+	// Path where the function can access the file system, starting with `/mnt/`.
 	LocalMountPath string `pulumi:"localMountPath"`
 }
 
@@ -4549,8 +4559,9 @@ type GetFunctionFileSystemConfigInput interface {
 }
 
 type GetFunctionFileSystemConfigArgs struct {
-	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualifiedArn`.
-	Arn            pulumi.StringInput `pulumi:"arn"`
+	// ARN of the Amazon EFS Access Point that provides access to the file system.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// Path where the function can access the file system, starting with `/mnt/`.
 	LocalMountPath pulumi.StringInput `pulumi:"localMountPath"`
 }
 
@@ -4605,11 +4616,12 @@ func (o GetFunctionFileSystemConfigOutput) ToGetFunctionFileSystemConfigOutputWi
 	return o
 }
 
-// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) ARN identifying your Lambda Function. See also `qualifiedArn`.
+// ARN of the Amazon EFS Access Point that provides access to the file system.
 func (o GetFunctionFileSystemConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionFileSystemConfig) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Path where the function can access the file system, starting with `/mnt/`.
 func (o GetFunctionFileSystemConfigOutput) LocalMountPath() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionFileSystemConfig) string { return v.LocalMountPath }).(pulumi.StringOutput)
 }
@@ -4635,10 +4647,14 @@ func (o GetFunctionFileSystemConfigArrayOutput) Index(i pulumi.IntInput) GetFunc
 }
 
 type GetFunctionLoggingConfig struct {
+	// Detail level of the logs your application sends to CloudWatch when using supported logging libraries.
 	ApplicationLogLevel string `pulumi:"applicationLogLevel"`
-	LogFormat           string `pulumi:"logFormat"`
-	LogGroup            string `pulumi:"logGroup"`
-	SystemLogLevel      string `pulumi:"systemLogLevel"`
+	// Format for your function's logs. Valid values: `Text`, `JSON`.
+	LogFormat string `pulumi:"logFormat"`
+	// CloudWatch log group your function sends logs to.
+	LogGroup string `pulumi:"logGroup"`
+	// Detail level of the Lambda platform event logs sent to CloudWatch.
+	SystemLogLevel string `pulumi:"systemLogLevel"`
 }
 
 // GetFunctionLoggingConfigInput is an input type that accepts GetFunctionLoggingConfigArgs and GetFunctionLoggingConfigOutput values.
@@ -4653,10 +4669,14 @@ type GetFunctionLoggingConfigInput interface {
 }
 
 type GetFunctionLoggingConfigArgs struct {
+	// Detail level of the logs your application sends to CloudWatch when using supported logging libraries.
 	ApplicationLogLevel pulumi.StringInput `pulumi:"applicationLogLevel"`
-	LogFormat           pulumi.StringInput `pulumi:"logFormat"`
-	LogGroup            pulumi.StringInput `pulumi:"logGroup"`
-	SystemLogLevel      pulumi.StringInput `pulumi:"systemLogLevel"`
+	// Format for your function's logs. Valid values: `Text`, `JSON`.
+	LogFormat pulumi.StringInput `pulumi:"logFormat"`
+	// CloudWatch log group your function sends logs to.
+	LogGroup pulumi.StringInput `pulumi:"logGroup"`
+	// Detail level of the Lambda platform event logs sent to CloudWatch.
+	SystemLogLevel pulumi.StringInput `pulumi:"systemLogLevel"`
 }
 
 func (GetFunctionLoggingConfigArgs) ElementType() reflect.Type {
@@ -4710,18 +4730,22 @@ func (o GetFunctionLoggingConfigOutput) ToGetFunctionLoggingConfigOutputWithCont
 	return o
 }
 
+// Detail level of the logs your application sends to CloudWatch when using supported logging libraries.
 func (o GetFunctionLoggingConfigOutput) ApplicationLogLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionLoggingConfig) string { return v.ApplicationLogLevel }).(pulumi.StringOutput)
 }
 
+// Format for your function's logs. Valid values: `Text`, `JSON`.
 func (o GetFunctionLoggingConfigOutput) LogFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionLoggingConfig) string { return v.LogFormat }).(pulumi.StringOutput)
 }
 
+// CloudWatch log group your function sends logs to.
 func (o GetFunctionLoggingConfigOutput) LogGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionLoggingConfig) string { return v.LogGroup }).(pulumi.StringOutput)
 }
 
+// Detail level of the Lambda platform event logs sent to CloudWatch.
 func (o GetFunctionLoggingConfigOutput) SystemLogLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionLoggingConfig) string { return v.SystemLogLevel }).(pulumi.StringOutput)
 }
@@ -4747,6 +4771,7 @@ func (o GetFunctionLoggingConfigArrayOutput) Index(i pulumi.IntInput) GetFunctio
 }
 
 type GetFunctionTracingConfig struct {
+	// Tracing mode. Valid values: `Active`, `PassThrough`.
 	Mode string `pulumi:"mode"`
 }
 
@@ -4762,6 +4787,7 @@ type GetFunctionTracingConfigInput interface {
 }
 
 type GetFunctionTracingConfigArgs struct {
+	// Tracing mode. Valid values: `Active`, `PassThrough`.
 	Mode pulumi.StringInput `pulumi:"mode"`
 }
 
@@ -4791,17 +4817,24 @@ func (o GetFunctionTracingConfigOutput) ToGetFunctionTracingConfigOutputWithCont
 	return o
 }
 
+// Tracing mode. Valid values: `Active`, `PassThrough`.
 func (o GetFunctionTracingConfigOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionTracingConfig) string { return v.Mode }).(pulumi.StringOutput)
 }
 
 type GetFunctionUrlCor struct {
-	AllowCredentials bool     `pulumi:"allowCredentials"`
-	AllowHeaders     []string `pulumi:"allowHeaders"`
-	AllowMethods     []string `pulumi:"allowMethods"`
-	AllowOrigins     []string `pulumi:"allowOrigins"`
-	ExposeHeaders    []string `pulumi:"exposeHeaders"`
-	MaxAge           int      `pulumi:"maxAge"`
+	// Whether credentials are included in the CORS request.
+	AllowCredentials bool `pulumi:"allowCredentials"`
+	// List of headers that are specified in the Access-Control-Request-Headers header.
+	AllowHeaders []string `pulumi:"allowHeaders"`
+	// List of HTTP methods that are allowed when calling the function URL.
+	AllowMethods []string `pulumi:"allowMethods"`
+	// List of origins that are allowed to make requests to the function URL.
+	AllowOrigins []string `pulumi:"allowOrigins"`
+	// List of headers in the response that you want to expose to the origin that called the function URL.
+	ExposeHeaders []string `pulumi:"exposeHeaders"`
+	// Maximum amount of time, in seconds, that web browsers can cache results of a preflight request.
+	MaxAge int `pulumi:"maxAge"`
 }
 
 // GetFunctionUrlCorInput is an input type that accepts GetFunctionUrlCorArgs and GetFunctionUrlCorOutput values.
@@ -4816,12 +4849,18 @@ type GetFunctionUrlCorInput interface {
 }
 
 type GetFunctionUrlCorArgs struct {
-	AllowCredentials pulumi.BoolInput        `pulumi:"allowCredentials"`
-	AllowHeaders     pulumi.StringArrayInput `pulumi:"allowHeaders"`
-	AllowMethods     pulumi.StringArrayInput `pulumi:"allowMethods"`
-	AllowOrigins     pulumi.StringArrayInput `pulumi:"allowOrigins"`
-	ExposeHeaders    pulumi.StringArrayInput `pulumi:"exposeHeaders"`
-	MaxAge           pulumi.IntInput         `pulumi:"maxAge"`
+	// Whether credentials are included in the CORS request.
+	AllowCredentials pulumi.BoolInput `pulumi:"allowCredentials"`
+	// List of headers that are specified in the Access-Control-Request-Headers header.
+	AllowHeaders pulumi.StringArrayInput `pulumi:"allowHeaders"`
+	// List of HTTP methods that are allowed when calling the function URL.
+	AllowMethods pulumi.StringArrayInput `pulumi:"allowMethods"`
+	// List of origins that are allowed to make requests to the function URL.
+	AllowOrigins pulumi.StringArrayInput `pulumi:"allowOrigins"`
+	// List of headers in the response that you want to expose to the origin that called the function URL.
+	ExposeHeaders pulumi.StringArrayInput `pulumi:"exposeHeaders"`
+	// Maximum amount of time, in seconds, that web browsers can cache results of a preflight request.
+	MaxAge pulumi.IntInput `pulumi:"maxAge"`
 }
 
 func (GetFunctionUrlCorArgs) ElementType() reflect.Type {
@@ -4875,26 +4914,32 @@ func (o GetFunctionUrlCorOutput) ToGetFunctionUrlCorOutputWithContext(ctx contex
 	return o
 }
 
+// Whether credentials are included in the CORS request.
 func (o GetFunctionUrlCorOutput) AllowCredentials() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetFunctionUrlCor) bool { return v.AllowCredentials }).(pulumi.BoolOutput)
 }
 
+// List of headers that are specified in the Access-Control-Request-Headers header.
 func (o GetFunctionUrlCorOutput) AllowHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFunctionUrlCor) []string { return v.AllowHeaders }).(pulumi.StringArrayOutput)
 }
 
+// List of HTTP methods that are allowed when calling the function URL.
 func (o GetFunctionUrlCorOutput) AllowMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFunctionUrlCor) []string { return v.AllowMethods }).(pulumi.StringArrayOutput)
 }
 
+// List of origins that are allowed to make requests to the function URL.
 func (o GetFunctionUrlCorOutput) AllowOrigins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFunctionUrlCor) []string { return v.AllowOrigins }).(pulumi.StringArrayOutput)
 }
 
+// List of headers in the response that you want to expose to the origin that called the function URL.
 func (o GetFunctionUrlCorOutput) ExposeHeaders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFunctionUrlCor) []string { return v.ExposeHeaders }).(pulumi.StringArrayOutput)
 }
 
+// Maximum amount of time, in seconds, that web browsers can cache results of a preflight request.
 func (o GetFunctionUrlCorOutput) MaxAge() pulumi.IntOutput {
 	return o.ApplyT(func(v GetFunctionUrlCor) int { return v.MaxAge }).(pulumi.IntOutput)
 }
@@ -4920,10 +4965,13 @@ func (o GetFunctionUrlCorArrayOutput) Index(i pulumi.IntInput) GetFunctionUrlCor
 }
 
 type GetFunctionVpcConfig struct {
-	Ipv6AllowedForDualStack bool     `pulumi:"ipv6AllowedForDualStack"`
-	SecurityGroupIds        []string `pulumi:"securityGroupIds"`
-	SubnetIds               []string `pulumi:"subnetIds"`
-	VpcId                   string   `pulumi:"vpcId"`
+	Ipv6AllowedForDualStack bool `pulumi:"ipv6AllowedForDualStack"`
+	// List of security group IDs associated with the Lambda function.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// List of subnet IDs associated with the Lambda function.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// ID of the VPC.
+	VpcId string `pulumi:"vpcId"`
 }
 
 // GetFunctionVpcConfigInput is an input type that accepts GetFunctionVpcConfigArgs and GetFunctionVpcConfigOutput values.
@@ -4938,10 +4986,13 @@ type GetFunctionVpcConfigInput interface {
 }
 
 type GetFunctionVpcConfigArgs struct {
-	Ipv6AllowedForDualStack pulumi.BoolInput        `pulumi:"ipv6AllowedForDualStack"`
-	SecurityGroupIds        pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds               pulumi.StringArrayInput `pulumi:"subnetIds"`
-	VpcId                   pulumi.StringInput      `pulumi:"vpcId"`
+	Ipv6AllowedForDualStack pulumi.BoolInput `pulumi:"ipv6AllowedForDualStack"`
+	// List of security group IDs associated with the Lambda function.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// List of subnet IDs associated with the Lambda function.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// ID of the VPC.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
 }
 
 func (GetFunctionVpcConfigArgs) ElementType() reflect.Type {
@@ -4974,14 +5025,17 @@ func (o GetFunctionVpcConfigOutput) Ipv6AllowedForDualStack() pulumi.BoolOutput 
 	return o.ApplyT(func(v GetFunctionVpcConfig) bool { return v.Ipv6AllowedForDualStack }).(pulumi.BoolOutput)
 }
 
+// List of security group IDs associated with the Lambda function.
 func (o GetFunctionVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFunctionVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// List of subnet IDs associated with the Lambda function.
 func (o GetFunctionVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetFunctionVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// ID of the VPC.
 func (o GetFunctionVpcConfigOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionVpcConfig) string { return v.VpcId }).(pulumi.StringOutput)
 }

@@ -154,6 +154,21 @@ public final class GetOrderableDbInstanceArgs extends com.pulumi.resources.Invok
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
      * 
      */
@@ -375,6 +390,7 @@ public final class GetOrderableDbInstanceArgs extends com.pulumi.resources.Invok
         this.preferredEngineVersions = $.preferredEngineVersions;
         this.preferredInstanceClasses = $.preferredInstanceClasses;
         this.readReplicaCapable = $.readReplicaCapable;
+        this.region = $.region;
         this.storageType = $.storageType;
         this.supportedEngineModes = $.supportedEngineModes;
         this.supportedNetworkTypes = $.supportedNetworkTypes;
@@ -616,6 +632,27 @@ public final class GetOrderableDbInstanceArgs extends com.pulumi.resources.Invok
          */
         public Builder readReplicaCapable(Boolean readReplicaCapable) {
             return readReplicaCapable(Output.of(readReplicaCapable));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

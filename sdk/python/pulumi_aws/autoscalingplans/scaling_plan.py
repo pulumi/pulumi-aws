@@ -24,17 +24,21 @@ class ScalingPlanArgs:
     def __init__(__self__, *,
                  application_source: pulumi.Input['ScalingPlanApplicationSourceArgs'],
                  scaling_instructions: pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]],
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ScalingPlan resource.
         :param pulumi.Input['ScalingPlanApplicationSourceArgs'] application_source: CloudFormation stack or set of tags. You can create one scaling plan per application source.
         :param pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]] scaling_instructions: Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         :param pulumi.Input[builtins.str] name: Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_source", application_source)
         pulumi.set(__self__, "scaling_instructions", scaling_instructions)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="applicationSource")
@@ -72,18 +76,32 @@ class ScalingPlanArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ScalingPlanState:
     def __init__(__self__, *,
                  application_source: Optional[pulumi.Input['ScalingPlanApplicationSourceArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]]] = None,
                  scaling_plan_version: Optional[pulumi.Input[builtins.int]] = None):
         """
         Input properties used for looking up and filtering ScalingPlan resources.
         :param pulumi.Input['ScalingPlanApplicationSourceArgs'] application_source: CloudFormation stack or set of tags. You can create one scaling plan per application source.
         :param pulumi.Input[builtins.str] name: Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ScalingPlanScalingInstructionArgs']]] scaling_instructions: Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         :param pulumi.Input[builtins.int] scaling_plan_version: The version number of the scaling plan. This value is always 1.
         """
@@ -91,6 +109,8 @@ class _ScalingPlanState:
             pulumi.set(__self__, "application_source", application_source)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scaling_instructions is not None:
             pulumi.set(__self__, "scaling_instructions", scaling_instructions)
         if scaling_plan_version is not None:
@@ -119,6 +139,18 @@ class _ScalingPlanState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="scalingInstructions")
@@ -153,6 +185,7 @@ class ScalingPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_source: Optional[pulumi.Input[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScalingInstructionArgs', 'ScalingPlanScalingInstructionArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -177,6 +210,7 @@ class ScalingPlan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict']] application_source: CloudFormation stack or set of tags. You can create one scaling plan per application source.
         :param pulumi.Input[builtins.str] name: Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScalingInstructionArgs', 'ScalingPlanScalingInstructionArgsDict']]]] scaling_instructions: Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         """
         ...
@@ -220,6 +254,7 @@ class ScalingPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_source: Optional[pulumi.Input[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScalingInstructionArgs', 'ScalingPlanScalingInstructionArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -234,6 +269,7 @@ class ScalingPlan(pulumi.CustomResource):
                 raise TypeError("Missing required property 'application_source'")
             __props__.__dict__["application_source"] = application_source
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if scaling_instructions is None and not opts.urn:
                 raise TypeError("Missing required property 'scaling_instructions'")
             __props__.__dict__["scaling_instructions"] = scaling_instructions
@@ -250,6 +286,7 @@ class ScalingPlan(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             application_source: Optional[pulumi.Input[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             scaling_instructions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScalingInstructionArgs', 'ScalingPlanScalingInstructionArgsDict']]]]] = None,
             scaling_plan_version: Optional[pulumi.Input[builtins.int]] = None) -> 'ScalingPlan':
         """
@@ -261,6 +298,7 @@ class ScalingPlan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ScalingPlanApplicationSourceArgs', 'ScalingPlanApplicationSourceArgsDict']] application_source: CloudFormation stack or set of tags. You can create one scaling plan per application source.
         :param pulumi.Input[builtins.str] name: Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingPlanScalingInstructionArgs', 'ScalingPlanScalingInstructionArgsDict']]]] scaling_instructions: Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         :param pulumi.Input[builtins.int] scaling_plan_version: The version number of the scaling plan. This value is always 1.
         """
@@ -270,6 +308,7 @@ class ScalingPlan(pulumi.CustomResource):
 
         __props__.__dict__["application_source"] = application_source
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["scaling_instructions"] = scaling_instructions
         __props__.__dict__["scaling_plan_version"] = scaling_plan_version
         return ScalingPlan(resource_name, opts=opts, __props__=__props__)
@@ -289,6 +328,14 @@ class ScalingPlan(pulumi.CustomResource):
         Name of the scaling plan. Names cannot contain vertical bars, colons, or forward slashes.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="scalingInstructions")

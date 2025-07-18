@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/grafana"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/grafana"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 
 // A collection of arguments for invoking getWorkspace.
 type LookupWorkspaceArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags assigned to the resource
 	Tags map[string]string `pulumi:"tags"`
 	// Grafana workspace ID.
@@ -90,6 +92,7 @@ type LookupWorkspaceResult struct {
 	OrganizationalUnits []string `pulumi:"organizationalUnits"`
 	// Permission type of the workspace.
 	PermissionType string `pulumi:"permissionType"`
+	Region         string `pulumi:"region"`
 	// IAM role ARN that the workspace assumes.
 	RoleArn                 string `pulumi:"roleArn"`
 	SamlConfigurationStatus string `pulumi:"samlConfigurationStatus"`
@@ -113,6 +116,8 @@ func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, 
 
 // A collection of arguments for invoking getWorkspace.
 type LookupWorkspaceOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags assigned to the resource
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Grafana workspace ID.
@@ -211,6 +216,10 @@ func (o LookupWorkspaceResultOutput) OrganizationalUnits() pulumi.StringArrayOut
 // Permission type of the workspace.
 func (o LookupWorkspaceResultOutput) PermissionType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.PermissionType }).(pulumi.StringOutput)
+}
+
+func (o LookupWorkspaceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // IAM role ARN that the workspace assumes.

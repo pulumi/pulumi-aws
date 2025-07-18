@@ -29,7 +29,7 @@ class GetVpcDhcpOptionsResult:
     """
     A collection of values returned by getVpcDhcpOptions.
     """
-    def __init__(__self__, arn=None, dhcp_options_id=None, domain_name=None, domain_name_servers=None, filters=None, id=None, ipv6_address_preferred_lease_time=None, netbios_name_servers=None, netbios_node_type=None, ntp_servers=None, owner_id=None, tags=None):
+    def __init__(__self__, arn=None, dhcp_options_id=None, domain_name=None, domain_name_servers=None, filters=None, id=None, ipv6_address_preferred_lease_time=None, netbios_name_servers=None, netbios_node_type=None, ntp_servers=None, owner_id=None, region=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -63,6 +63,9 @@ class GetVpcDhcpOptionsResult:
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -154,6 +157,11 @@ class GetVpcDhcpOptionsResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Map of tags assigned to the resource.
@@ -178,11 +186,13 @@ class AwaitableGetVpcDhcpOptionsResult(GetVpcDhcpOptionsResult):
             netbios_node_type=self.netbios_node_type,
             ntp_servers=self.ntp_servers,
             owner_id=self.owner_id,
+            region=self.region,
             tags=self.tags)
 
 
 def get_vpc_dhcp_options(dhcp_options_id: Optional[builtins.str] = None,
                          filters: Optional[Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict']]] = None,
+                         region: Optional[builtins.str] = None,
                          tags: Optional[Mapping[str, builtins.str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcDhcpOptionsResult:
     """
@@ -220,11 +230,13 @@ def get_vpc_dhcp_options(dhcp_options_id: Optional[builtins.str] = None,
 
     :param builtins.str dhcp_options_id: EC2 DHCP Options ID.
     :param Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict']] filters: List of custom filters as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['dhcpOptionsId'] = dhcp_options_id
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions', __args__, opts=opts, typ=GetVpcDhcpOptionsResult).value
@@ -241,9 +253,11 @@ def get_vpc_dhcp_options(dhcp_options_id: Optional[builtins.str] = None,
         netbios_node_type=pulumi.get(__ret__, 'netbios_node_type'),
         ntp_servers=pulumi.get(__ret__, 'ntp_servers'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_vpc_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict']]]]] = None,
+                                region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcDhcpOptionsResult]:
     """
@@ -281,11 +295,13 @@ def get_vpc_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[Optional[
 
     :param builtins.str dhcp_options_id: EC2 DHCP Options ID.
     :param Sequence[Union['GetVpcDhcpOptionsFilterArgs', 'GetVpcDhcpOptionsFilterArgsDict']] filters: List of custom filters as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['dhcpOptionsId'] = dhcp_options_id
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions', __args__, opts=opts, typ=GetVpcDhcpOptionsResult)
@@ -301,4 +317,5 @@ def get_vpc_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[Optional[
         netbios_node_type=pulumi.get(__response__, 'netbios_node_type'),
         ntp_servers=pulumi.get(__response__, 'ntp_servers'),
         owner_id=pulumi.get(__response__, 'owner_id'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

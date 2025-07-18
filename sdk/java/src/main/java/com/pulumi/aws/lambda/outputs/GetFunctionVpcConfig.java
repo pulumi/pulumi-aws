@@ -13,20 +13,44 @@ import java.util.Objects;
 @CustomType
 public final class GetFunctionVpcConfig {
     private Boolean ipv6AllowedForDualStack;
+    /**
+     * @return List of security group IDs associated with the Lambda function.
+     * 
+     */
     private List<String> securityGroupIds;
+    /**
+     * @return List of subnet IDs associated with the Lambda function.
+     * 
+     */
     private List<String> subnetIds;
+    /**
+     * @return ID of the VPC.
+     * 
+     */
     private String vpcId;
 
     private GetFunctionVpcConfig() {}
     public Boolean ipv6AllowedForDualStack() {
         return this.ipv6AllowedForDualStack;
     }
+    /**
+     * @return List of security group IDs associated with the Lambda function.
+     * 
+     */
     public List<String> securityGroupIds() {
         return this.securityGroupIds;
     }
+    /**
+     * @return List of subnet IDs associated with the Lambda function.
+     * 
+     */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
+    /**
+     * @return ID of the VPC.
+     * 
+     */
     public String vpcId() {
         return this.vpcId;
     }

@@ -59,6 +59,7 @@ public final class GetConnectionResult {
      * 
      */
     private List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements;
+    private String region;
     /**
      * @return Tags assigned to the resource
      * 
@@ -132,6 +133,9 @@ public final class GetConnectionResult {
     public List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements() {
         return this.physicalConnectionRequirements;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Tags assigned to the resource
      * 
@@ -159,6 +163,7 @@ public final class GetConnectionResult {
         private List<String> matchCriterias;
         private String name;
         private List<GetConnectionPhysicalConnectionRequirement> physicalConnectionRequirements;
+        private String region;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetConnectionResult defaults) {
@@ -173,6 +178,7 @@ public final class GetConnectionResult {
     	      this.matchCriterias = defaults.matchCriterias;
     	      this.name = defaults.name;
     	      this.physicalConnectionRequirements = defaults.physicalConnectionRequirements;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -263,6 +269,14 @@ public final class GetConnectionResult {
             return physicalConnectionRequirements(List.of(physicalConnectionRequirements));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetConnectionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetConnectionResult", "tags");
@@ -282,6 +296,7 @@ public final class GetConnectionResult {
             _resultValue.matchCriterias = matchCriterias;
             _resultValue.name = name;
             _resultValue.physicalConnectionRequirements = physicalConnectionRequirements;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

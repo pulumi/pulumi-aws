@@ -28,7 +28,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, allow_version_upgrade=None, aqua_configuration_status=None, arn=None, automated_snapshot_retention_period=None, availability_zone=None, availability_zone_relocation_enabled=None, bucket_name=None, cluster_identifier=None, cluster_namespace_arn=None, cluster_nodes=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, default_iam_role_arn=None, elastic_ip=None, enable_logging=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, iam_roles=None, id=None, kms_key_id=None, log_destination_type=None, log_exports=None, maintenance_track_name=None, manual_snapshot_retention_period=None, master_username=None, multi_az=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, s3_key_prefix=None, tags=None, vpc_id=None, vpc_security_group_ids=None):
+    def __init__(__self__, allow_version_upgrade=None, aqua_configuration_status=None, arn=None, automated_snapshot_retention_period=None, availability_zone=None, availability_zone_relocation_enabled=None, bucket_name=None, cluster_identifier=None, cluster_namespace_arn=None, cluster_nodes=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, default_iam_role_arn=None, elastic_ip=None, enable_logging=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, iam_roles=None, id=None, kms_key_id=None, log_destination_type=None, log_exports=None, maintenance_track_name=None, manual_snapshot_retention_period=None, master_username=None, multi_az=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, region=None, s3_key_prefix=None, tags=None, vpc_id=None, vpc_security_group_ids=None):
         if allow_version_upgrade and not isinstance(allow_version_upgrade, bool):
             raise TypeError("Expected argument 'allow_version_upgrade' to be a bool")
         pulumi.set(__self__, "allow_version_upgrade", allow_version_upgrade)
@@ -140,6 +140,9 @@ class GetClusterResult:
         if publicly_accessible and not isinstance(publicly_accessible, bool):
             raise TypeError("Expected argument 'publicly_accessible' to be a bool")
         pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if s3_key_prefix and not isinstance(s3_key_prefix, str):
             raise TypeError("Expected argument 's3_key_prefix' to be a str")
         pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
@@ -447,6 +450,11 @@ class GetClusterResult:
         return pulumi.get(self, "publicly_accessible")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> builtins.str:
         """
@@ -522,6 +530,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             port=self.port,
             preferred_maintenance_window=self.preferred_maintenance_window,
             publicly_accessible=self.publicly_accessible,
+            region=self.region,
             s3_key_prefix=self.s3_key_prefix,
             tags=self.tags,
             vpc_id=self.vpc_id,
@@ -529,6 +538,7 @@ class AwaitableGetClusterResult(GetClusterResult):
 
 
 def get_cluster(cluster_identifier: Optional[builtins.str] = None,
+                region: Optional[builtins.str] = None,
                 tags: Optional[Mapping[str, builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
@@ -536,10 +546,12 @@ def get_cluster(cluster_identifier: Optional[builtins.str] = None,
 
 
     :param builtins.str cluster_identifier: Cluster identifier
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags associated to the cluster
     """
     __args__ = dict()
     __args__['clusterIdentifier'] = cluster_identifier
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:redshift/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
@@ -582,11 +594,13 @@ def get_cluster(cluster_identifier: Optional[builtins.str] = None,
         port=pulumi.get(__ret__, 'port'),
         preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
         publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
+        region=pulumi.get(__ret__, 'region'),
         s3_key_prefix=pulumi.get(__ret__, 's3_key_prefix'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
 def get_cluster_output(cluster_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
@@ -594,10 +608,12 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[builtins.str]] 
 
 
     :param builtins.str cluster_identifier: Cluster identifier
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags associated to the cluster
     """
     __args__ = dict()
     __args__['clusterIdentifier'] = cluster_identifier
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:redshift/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult)
@@ -639,6 +655,7 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[builtins.str]] 
         port=pulumi.get(__response__, 'port'),
         preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window'),
         publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
+        region=pulumi.get(__response__, 'region'),
         s3_key_prefix=pulumi.get(__response__, 's3_key_prefix'),
         tags=pulumi.get(__response__, 'tags'),
         vpc_id=pulumi.get(__response__, 'vpc_id'),

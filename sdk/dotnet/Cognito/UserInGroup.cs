@@ -56,6 +56,14 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Using `pulumi import`, import a Cognito Group User using a comma-delimited string concatenating the `user_pool_id`, `group_name`, and `username` arguments. For example:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:cognito/userInGroup:UserInGroup example us-east-1_vG78M4goG,example-group,example-user
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/userInGroup:UserInGroup")]
     public partial class UserInGroup : global::Pulumi.CustomResource
@@ -65,6 +73,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Output("groupName")]
         public Output<string> GroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// The user pool ID of the user and group.
@@ -131,6 +145,12 @@ namespace Pulumi.Aws.Cognito
         public Input<string> GroupName { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The user pool ID of the user and group.
         /// </summary>
         [Input("userPoolId", required: true)]
@@ -155,6 +175,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The user pool ID of the user and group.

@@ -93,6 +93,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Input("apiId", required: true)]
         public string ApiId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -187,6 +199,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// API protocol.
         /// </summary>
         public readonly string ProtocolType;
+        public readonly string Region;
         /// <summary>
         /// The [route selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-selection-expressions) for the API.
         /// </summary>
@@ -226,6 +239,8 @@ namespace Pulumi.Aws.ApiGatewayV2
 
             string protocolType,
 
+            string region,
+
             string routeSelectionExpression,
 
             ImmutableDictionary<string, string> tags,
@@ -244,6 +259,7 @@ namespace Pulumi.Aws.ApiGatewayV2
             IpAddressType = ipAddressType;
             Name = name;
             ProtocolType = protocolType;
+            Region = region;
             RouteSelectionExpression = routeSelectionExpression;
             Tags = tags;
             Version = version;

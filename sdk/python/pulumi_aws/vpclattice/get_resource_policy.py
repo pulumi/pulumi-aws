@@ -27,13 +27,16 @@ class GetResourcePolicyResult:
     """
     A collection of values returned by getResourcePolicy.
     """
-    def __init__(__self__, id=None, policy=None, resource_arn=None):
+    def __init__(__self__, id=None, policy=None, region=None, resource_arn=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if policy and not isinstance(policy, str):
             raise TypeError("Expected argument 'policy' to be a str")
         pulumi.set(__self__, "policy", policy)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if resource_arn and not isinstance(resource_arn, str):
             raise TypeError("Expected argument 'resource_arn' to be a str")
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -55,6 +58,11 @@ class GetResourcePolicyResult:
         return pulumi.get(self, "policy")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> builtins.str:
         return pulumi.get(self, "resource_arn")
@@ -68,10 +76,12 @@ class AwaitableGetResourcePolicyResult(GetResourcePolicyResult):
         return GetResourcePolicyResult(
             id=self.id,
             policy=self.policy,
+            region=self.region,
             resource_arn=self.resource_arn)
 
 
-def get_resource_policy(resource_arn: Optional[builtins.str] = None,
+def get_resource_policy(region: Optional[builtins.str] = None,
+                        resource_arn: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourcePolicyResult:
     """
     Data source for managing an AWS VPC Lattice Resource Policy.
@@ -88,9 +98,11 @@ def get_resource_policy(resource_arn: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resource_arn: Resource ARN of the resource for which a policy is retrieved.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['resourceArn'] = resource_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:vpclattice/getResourcePolicy:getResourcePolicy', __args__, opts=opts, typ=GetResourcePolicyResult).value
@@ -98,8 +110,10 @@ def get_resource_policy(resource_arn: Optional[builtins.str] = None,
     return AwaitableGetResourcePolicyResult(
         id=pulumi.get(__ret__, 'id'),
         policy=pulumi.get(__ret__, 'policy'),
+        region=pulumi.get(__ret__, 'region'),
         resource_arn=pulumi.get(__ret__, 'resource_arn'))
-def get_resource_policy_output(resource_arn: Optional[pulumi.Input[builtins.str]] = None,
+def get_resource_policy_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                               resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
     Data source for managing an AWS VPC Lattice Resource Policy.
@@ -116,13 +130,16 @@ def get_resource_policy_output(resource_arn: Optional[pulumi.Input[builtins.str]
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resource_arn: Resource ARN of the resource for which a policy is retrieved.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['resourceArn'] = resource_arn
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:vpclattice/getResourcePolicy:getResourcePolicy', __args__, opts=opts, typ=GetResourcePolicyResult)
     return __ret__.apply(lambda __response__: GetResourcePolicyResult(
         id=pulumi.get(__response__, 'id'),
         policy=pulumi.get(__response__, 'policy'),
+        region=pulumi.get(__response__, 'region'),
         resource_arn=pulumi.get(__response__, 'resource_arn')))

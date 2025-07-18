@@ -23,6 +23,7 @@ __all__ = ['EndpointServicePrivateDnsVerificationArgs', 'EndpointServicePrivateD
 class EndpointServicePrivateDnsVerificationArgs:
     def __init__(__self__, *,
                  service_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['EndpointServicePrivateDnsVerificationTimeoutsArgs']] = None,
                  wait_for_verification: Optional[pulumi.Input[builtins.bool]] = None):
         """
@@ -30,9 +31,12 @@ class EndpointServicePrivateDnsVerificationArgs:
         :param pulumi.Input[builtins.str] service_id: ID of the endpoint service.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] wait_for_verification: Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
         """
         pulumi.set(__self__, "service_id", service_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
         if wait_for_verification is not None:
@@ -51,6 +55,18 @@ class EndpointServicePrivateDnsVerificationArgs:
     @service_id.setter
     def service_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "service_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -77,22 +93,38 @@ class EndpointServicePrivateDnsVerificationArgs:
 @pulumi.input_type
 class _EndpointServicePrivateDnsVerificationState:
     def __init__(__self__, *,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_id: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['EndpointServicePrivateDnsVerificationTimeoutsArgs']] = None,
                  wait_for_verification: Optional[pulumi.Input[builtins.bool]] = None):
         """
         Input properties used for looking up and filtering EndpointServicePrivateDnsVerification resources.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_id: ID of the endpoint service.
                
                The following arguments are optional:
         :param pulumi.Input[builtins.bool] wait_for_verification: Whether to wait until the endpoint service returns a `Verified` status for the configured private DNS name.
         """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if service_id is not None:
             pulumi.set(__self__, "service_id", service_id)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
         if wait_for_verification is not None:
             pulumi.set(__self__, "wait_for_verification", wait_for_verification)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="serviceId")
@@ -136,6 +168,7 @@ class EndpointServicePrivateDnsVerification(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_id: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['EndpointServicePrivateDnsVerificationTimeoutsArgs', 'EndpointServicePrivateDnsVerificationTimeoutsArgsDict']]] = None,
                  wait_for_verification: Optional[pulumi.Input[builtins.bool]] = None,
@@ -166,6 +199,7 @@ class EndpointServicePrivateDnsVerification(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_id: ID of the endpoint service.
                
                The following arguments are optional:
@@ -216,6 +250,7 @@ class EndpointServicePrivateDnsVerification(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_id: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['EndpointServicePrivateDnsVerificationTimeoutsArgs', 'EndpointServicePrivateDnsVerificationTimeoutsArgsDict']]] = None,
                  wait_for_verification: Optional[pulumi.Input[builtins.bool]] = None,
@@ -228,6 +263,7 @@ class EndpointServicePrivateDnsVerification(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EndpointServicePrivateDnsVerificationArgs.__new__(EndpointServicePrivateDnsVerificationArgs)
 
+            __props__.__dict__["region"] = region
             if service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'service_id'")
             __props__.__dict__["service_id"] = service_id
@@ -243,6 +279,7 @@ class EndpointServicePrivateDnsVerification(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             service_id: Optional[pulumi.Input[builtins.str]] = None,
             timeouts: Optional[pulumi.Input[Union['EndpointServicePrivateDnsVerificationTimeoutsArgs', 'EndpointServicePrivateDnsVerificationTimeoutsArgsDict']]] = None,
             wait_for_verification: Optional[pulumi.Input[builtins.bool]] = None) -> 'EndpointServicePrivateDnsVerification':
@@ -253,6 +290,7 @@ class EndpointServicePrivateDnsVerification(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_id: ID of the endpoint service.
                
                The following arguments are optional:
@@ -262,10 +300,19 @@ class EndpointServicePrivateDnsVerification(pulumi.CustomResource):
 
         __props__ = _EndpointServicePrivateDnsVerificationState.__new__(_EndpointServicePrivateDnsVerificationState)
 
+        __props__.__dict__["region"] = region
         __props__.__dict__["service_id"] = service_id
         __props__.__dict__["timeouts"] = timeouts
         __props__.__dict__["wait_for_verification"] = wait_for_verification
         return EndpointServicePrivateDnsVerification(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serviceId")

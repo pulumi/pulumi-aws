@@ -77,6 +77,10 @@ export class UserGroupAssociation extends pulumi.CustomResource {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the user group.
      */
     public readonly userGroupId!: pulumi.Output<string>;
@@ -98,6 +102,7 @@ export class UserGroupAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserGroupAssociationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["userGroupId"] = state ? state.userGroupId : undefined;
             resourceInputs["userId"] = state ? state.userId : undefined;
         } else {
@@ -108,6 +113,7 @@ export class UserGroupAssociation extends pulumi.CustomResource {
             if ((!args || args.userId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["userGroupId"] = args ? args.userGroupId : undefined;
             resourceInputs["userId"] = args ? args.userId : undefined;
         }
@@ -120,6 +126,10 @@ export class UserGroupAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering UserGroupAssociation resources.
  */
 export interface UserGroupAssociationState {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the user group.
      */
@@ -134,6 +144,10 @@ export interface UserGroupAssociationState {
  * The set of arguments for constructing a UserGroupAssociation resource.
  */
 export interface UserGroupAssociationArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the user group.
      */

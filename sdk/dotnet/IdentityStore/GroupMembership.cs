@@ -88,6 +88,12 @@ namespace Pulumi.Aws.IdentityStore
         [Output("membershipId")]
         public Output<string> MembershipId { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a GroupMembership resource with the given unique name, arguments, and options.
@@ -152,6 +158,12 @@ namespace Pulumi.Aws.IdentityStore
         [Input("memberId", required: true)]
         public Input<string> MemberId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GroupMembershipArgs()
         {
         }
@@ -183,6 +195,12 @@ namespace Pulumi.Aws.IdentityStore
         /// </summary>
         [Input("membershipId")]
         public Input<string>? MembershipId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GroupMembershipState()
         {

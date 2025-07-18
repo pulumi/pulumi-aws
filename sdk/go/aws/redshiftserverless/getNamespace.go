@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshiftserverless"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshiftserverless"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pul
 type LookupNamespaceArgs struct {
 	// The name of the namespace.
 	NamespaceName string `pulumi:"namespaceName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getNamespace.
@@ -75,6 +77,7 @@ type LookupNamespaceResult struct {
 	// The Redshift Namespace ID.
 	NamespaceId   string `pulumi:"namespaceId"`
 	NamespaceName string `pulumi:"namespaceName"`
+	Region        string `pulumi:"region"`
 }
 
 func LookupNamespaceOutput(ctx *pulumi.Context, args LookupNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceResultOutput {
@@ -90,6 +93,8 @@ func LookupNamespaceOutput(ctx *pulumi.Context, args LookupNamespaceOutputArgs, 
 type LookupNamespaceOutputArgs struct {
 	// The name of the namespace.
 	NamespaceName pulumi.StringInput `pulumi:"namespaceName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupNamespaceOutputArgs) ElementType() reflect.Type {
@@ -158,6 +163,10 @@ func (o LookupNamespaceResultOutput) NamespaceId() pulumi.StringOutput {
 
 func (o LookupNamespaceResultOutput) NamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamespaceResult) string { return v.NamespaceName }).(pulumi.StringOutput)
+}
+
+func (o LookupNamespaceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNamespaceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

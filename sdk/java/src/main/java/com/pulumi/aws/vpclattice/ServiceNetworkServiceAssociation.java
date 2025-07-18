@@ -126,6 +126,20 @@ public class ServiceNetworkServiceAssociation extends com.pulumi.resources.Custo
         return this.dnsEntries;
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The ID or Amazon Resource Identifier (ARN) of the service.
      * 
      */
@@ -141,7 +155,6 @@ public class ServiceNetworkServiceAssociation extends com.pulumi.resources.Custo
     }
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
      * 
      */
     @Export(name="serviceNetworkIdentifier", refs={String.class}, tree="[0]")
@@ -149,7 +162,6 @@ public class ServiceNetworkServiceAssociation extends com.pulumi.resources.Custo
 
     /**
      * @return The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-     * The following arguments are optional:
      * 
      */
     public Output<String> serviceNetworkIdentifier() {
@@ -186,11 +198,7 @@ public class ServiceNetworkServiceAssociation extends com.pulumi.resources.Custo
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

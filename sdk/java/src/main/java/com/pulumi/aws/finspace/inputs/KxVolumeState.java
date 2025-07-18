@@ -168,16 +168,31 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The status of volume creation.
-     * * `CREATING` – The volume creation is in progress.
-     * * `CREATE_FAILED` – The volume creation has failed.
-     * * `ACTIVE` – The volume is active.
-     * * `UPDATING` – The volume is in the process of being updated.
-     * * `UPDATE_FAILED` – The update action failed.
-     * * `UPDATED` – The volume is successfully updated.
-     * * `DELETING` – The volume is in the process of being deleted.
-     * * `DELETE_FAILED` – The system failed to delete the volume.
-     * * `DELETED` – The volume is successfully deleted.
+     * * `CREATING` - The volume creation is in progress.
+     * * `CREATE_FAILED` - The volume creation has failed.
+     * * `ACTIVE` - The volume is active.
+     * * `UPDATING` - The volume is in the process of being updated.
+     * * `UPDATE_FAILED` - The update action failed.
+     * * `UPDATED` - The volume is successfully updated.
+     * * `DELETING` - The volume is in the process of being deleted.
+     * * `DELETE_FAILED` - The system failed to delete the volume.
+     * * `DELETED` - The volume is successfully deleted.
      * 
      */
     @Import(name="status")
@@ -185,15 +200,15 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The status of volume creation.
-     * * `CREATING` – The volume creation is in progress.
-     * * `CREATE_FAILED` – The volume creation has failed.
-     * * `ACTIVE` – The volume is active.
-     * * `UPDATING` – The volume is in the process of being updated.
-     * * `UPDATE_FAILED` – The update action failed.
-     * * `UPDATED` – The volume is successfully updated.
-     * * `DELETING` – The volume is in the process of being deleted.
-     * * `DELETE_FAILED` – The system failed to delete the volume.
-     * * `DELETED` – The volume is successfully deleted.
+     * * `CREATING` - The volume creation is in progress.
+     * * `CREATE_FAILED` - The volume creation has failed.
+     * * `ACTIVE` - The volume is active.
+     * * `UPDATING` - The volume is in the process of being updated.
+     * * `UPDATE_FAILED` - The update action failed.
+     * * `UPDATED` - The volume is successfully updated.
+     * * `DELETING` - The volume is in the process of being deleted.
+     * * `DELETE_FAILED` - The system failed to delete the volume.
+     * * `DELETED` - The volume is successfully deleted.
      * 
      */
     public Optional<Output<String>> status() {
@@ -230,21 +245,9 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
-    /**
-     * @deprecated
-     * Please use `tags` instead.
-     * 
-     */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
-    /**
-     * @deprecated
-     * Please use `tags` instead.
-     * 
-     */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -277,6 +280,7 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
         this.lastModifiedTimestamp = $.lastModifiedTimestamp;
         this.name = $.name;
         this.nas1Configurations = $.nas1Configurations;
+        this.region = $.region;
         this.status = $.status;
         this.statusReason = $.statusReason;
         this.tags = $.tags;
@@ -533,16 +537,37 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param status The status of volume creation.
-         * * `CREATING` – The volume creation is in progress.
-         * * `CREATE_FAILED` – The volume creation has failed.
-         * * `ACTIVE` – The volume is active.
-         * * `UPDATING` – The volume is in the process of being updated.
-         * * `UPDATE_FAILED` – The update action failed.
-         * * `UPDATED` – The volume is successfully updated.
-         * * `DELETING` – The volume is in the process of being deleted.
-         * * `DELETE_FAILED` – The system failed to delete the volume.
-         * * `DELETED` – The volume is successfully deleted.
+         * * `CREATING` - The volume creation is in progress.
+         * * `CREATE_FAILED` - The volume creation has failed.
+         * * `ACTIVE` - The volume is active.
+         * * `UPDATING` - The volume is in the process of being updated.
+         * * `UPDATE_FAILED` - The update action failed.
+         * * `UPDATED` - The volume is successfully updated.
+         * * `DELETING` - The volume is in the process of being deleted.
+         * * `DELETE_FAILED` - The system failed to delete the volume.
+         * * `DELETED` - The volume is successfully deleted.
          * 
          * @return builder
          * 
@@ -554,15 +579,15 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param status The status of volume creation.
-         * * `CREATING` – The volume creation is in progress.
-         * * `CREATE_FAILED` – The volume creation has failed.
-         * * `ACTIVE` – The volume is active.
-         * * `UPDATING` – The volume is in the process of being updated.
-         * * `UPDATE_FAILED` – The update action failed.
-         * * `UPDATED` – The volume is successfully updated.
-         * * `DELETING` – The volume is in the process of being deleted.
-         * * `DELETE_FAILED` – The system failed to delete the volume.
-         * * `DELETED` – The volume is successfully deleted.
+         * * `CREATING` - The volume creation is in progress.
+         * * `CREATE_FAILED` - The volume creation has failed.
+         * * `ACTIVE` - The volume is active.
+         * * `UPDATING` - The volume is in the process of being updated.
+         * * `UPDATE_FAILED` - The update action failed.
+         * * `UPDATED` - The volume is successfully updated.
+         * * `DELETING` - The volume is in the process of being deleted.
+         * * `DELETE_FAILED` - The system failed to delete the volume.
+         * * `DELETED` - The volume is successfully deleted.
          * 
          * @return builder
          * 
@@ -613,27 +638,11 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
             return tags(Output.of(tags));
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
-         */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
         }
 
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
-         */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

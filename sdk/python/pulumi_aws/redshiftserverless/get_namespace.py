@@ -27,7 +27,7 @@ class GetNamespaceResult:
     """
     A collection of values returned by getNamespace.
     """
-    def __init__(__self__, admin_username=None, arn=None, db_name=None, default_iam_role_arn=None, iam_roles=None, id=None, kms_key_id=None, log_exports=None, namespace_id=None, namespace_name=None):
+    def __init__(__self__, admin_username=None, arn=None, db_name=None, default_iam_role_arn=None, iam_roles=None, id=None, kms_key_id=None, log_exports=None, namespace_id=None, namespace_name=None, region=None):
         if admin_username and not isinstance(admin_username, str):
             raise TypeError("Expected argument 'admin_username' to be a str")
         pulumi.set(__self__, "admin_username", admin_username)
@@ -58,6 +58,9 @@ class GetNamespaceResult:
         if namespace_name and not isinstance(namespace_name, str):
             raise TypeError("Expected argument 'namespace_name' to be a str")
         pulumi.set(__self__, "namespace_name", namespace_name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="adminUsername")
@@ -136,6 +139,11 @@ class GetNamespaceResult:
     def namespace_name(self) -> builtins.str:
         return pulumi.get(self, "namespace_name")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetNamespaceResult(GetNamespaceResult):
     # pylint: disable=using-constant-test
@@ -152,10 +160,12 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
             kms_key_id=self.kms_key_id,
             log_exports=self.log_exports,
             namespace_id=self.namespace_id,
-            namespace_name=self.namespace_name)
+            namespace_name=self.namespace_name,
+            region=self.region)
 
 
 def get_namespace(namespace_name: Optional[builtins.str] = None,
+                  region: Optional[builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceResult:
     """
     Data source for managing an AWS Redshift Serverless Namespace.
@@ -171,9 +181,11 @@ def get_namespace(namespace_name: Optional[builtins.str] = None,
 
 
     :param builtins.str namespace_name: The name of the namespace.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:redshiftserverless/getNamespace:getNamespace', __args__, opts=opts, typ=GetNamespaceResult).value
 
@@ -187,8 +199,10 @@ def get_namespace(namespace_name: Optional[builtins.str] = None,
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         log_exports=pulumi.get(__ret__, 'log_exports'),
         namespace_id=pulumi.get(__ret__, 'namespace_id'),
-        namespace_name=pulumi.get(__ret__, 'namespace_name'))
+        namespace_name=pulumi.get(__ret__, 'namespace_name'),
+        region=pulumi.get(__ret__, 'region'))
 def get_namespace_output(namespace_name: Optional[pulumi.Input[builtins.str]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceResult]:
     """
     Data source for managing an AWS Redshift Serverless Namespace.
@@ -204,9 +218,11 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[builtins.str]] = 
 
 
     :param builtins.str namespace_name: The name of the namespace.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:redshiftserverless/getNamespace:getNamespace', __args__, opts=opts, typ=GetNamespaceResult)
     return __ret__.apply(lambda __response__: GetNamespaceResult(
@@ -219,4 +235,5 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[builtins.str]] = 
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
         log_exports=pulumi.get(__response__, 'log_exports'),
         namespace_id=pulumi.get(__response__, 'namespace_id'),
-        namespace_name=pulumi.get(__response__, 'namespace_name')))
+        namespace_name=pulumi.get(__response__, 'namespace_name'),
+        region=pulumi.get(__response__, 'region')))

@@ -35,6 +35,7 @@ export function getVpnGateway(args?: GetVpnGatewayArgs, opts?: pulumi.InvokeOpti
         "availabilityZone": args.availabilityZone,
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "state": args.state,
         "tags": args.tags,
     }, opts);
@@ -68,6 +69,10 @@ export interface GetVpnGatewayArgs {
      */
     id?: string;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * State of the specific VPN Gateway to retrieve.
      */
     state?: string;
@@ -88,6 +93,7 @@ export interface GetVpnGatewayResult {
     readonly availabilityZone: string;
     readonly filters?: outputs.ec2.GetVpnGatewayFilter[];
     readonly id: string;
+    readonly region: string;
     readonly state: string;
     readonly tags: {[key: string]: string};
 }
@@ -119,6 +125,7 @@ export function getVpnGatewayOutput(args?: GetVpnGatewayOutputArgs, opts?: pulum
         "availabilityZone": args.availabilityZone,
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "state": args.state,
         "tags": args.tags,
     }, opts);
@@ -151,6 +158,10 @@ export interface GetVpnGatewayOutputArgs {
      * ID of the specific VPN Gateway to retrieve.
      */
     id?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * State of the specific VPN Gateway to retrieve.
      */

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,13 +73,13 @@ type TransitGateway struct {
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Identifier of the default propagation route table
 	PropagationDefaultRouteTableId pulumi.StringOutput `pulumi:"propagationDefaultRouteTableId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	SecurityGroupReferencingSupport pulumi.StringPtrOutput `pulumi:"securityGroupReferencingSupport"`
 	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
 	TransitGatewayCidrBlocks pulumi.StringArrayOutput `pulumi:"transitGatewayCidrBlocks"`
@@ -141,13 +141,13 @@ type transitGatewayState struct {
 	OwnerId *string `pulumi:"ownerId"`
 	// Identifier of the default propagation route table
 	PropagationDefaultRouteTableId *string `pulumi:"propagationDefaultRouteTableId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	SecurityGroupReferencingSupport *string `pulumi:"securityGroupReferencingSupport"`
 	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
 	TransitGatewayCidrBlocks []string `pulumi:"transitGatewayCidrBlocks"`
@@ -180,13 +180,13 @@ type TransitGatewayState struct {
 	OwnerId pulumi.StringPtrInput
 	// Identifier of the default propagation route table
 	PropagationDefaultRouteTableId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	SecurityGroupReferencingSupport pulumi.StringPtrInput
 	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.
 	TransitGatewayCidrBlocks pulumi.StringArrayInput
@@ -215,6 +215,8 @@ type transitGatewayArgs struct {
 	DnsSupport *string `pulumi:"dnsSupport"`
 	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
 	MulticastSupport *string `pulumi:"multicastSupport"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	SecurityGroupReferencingSupport *string `pulumi:"securityGroupReferencingSupport"`
 	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -243,6 +245,8 @@ type TransitGatewayArgs struct {
 	DnsSupport pulumi.StringPtrInput
 	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
 	MulticastSupport pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 	SecurityGroupReferencingSupport pulumi.StringPtrInput
 	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -397,6 +401,11 @@ func (o TransitGatewayOutput) PropagationDefaultRouteTableId() pulumi.StringOutp
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.PropagationDefaultRouteTableId }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o TransitGatewayOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Whether Security Group Referencing Support is enabled. Valid values: `disable`, `enable`. Default value: `disable`.
 func (o TransitGatewayOutput) SecurityGroupReferencingSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.SecurityGroupReferencingSupport }).(pulumi.StringPtrOutput)
@@ -408,8 +417,6 @@ func (o TransitGatewayOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o TransitGatewayOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

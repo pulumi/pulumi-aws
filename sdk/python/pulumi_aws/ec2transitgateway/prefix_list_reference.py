@@ -23,6 +23,7 @@ class PrefixListReferenceArgs:
                  prefix_list_id: pulumi.Input[builtins.str],
                  transit_gateway_route_table_id: pulumi.Input[builtins.str],
                  blackhole: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a PrefixListReference resource.
@@ -31,12 +32,15 @@ class PrefixListReferenceArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.bool] blackhole: Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         """
         pulumi.set(__self__, "prefix_list_id", prefix_list_id)
         pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
         if blackhole is not None:
             pulumi.set(__self__, "blackhole", blackhole)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if transit_gateway_attachment_id is not None:
             pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
 
@@ -79,6 +83,18 @@ class PrefixListReferenceArgs:
         pulumi.set(self, "blackhole", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -97,12 +113,14 @@ class _PrefixListReferenceState:
                  blackhole: Optional[pulumi.Input[builtins.bool]] = None,
                  prefix_list_id: Optional[pulumi.Input[builtins.str]] = None,
                  prefix_list_owner_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_route_table_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering PrefixListReference resources.
         :param pulumi.Input[builtins.bool] blackhole: Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
         :param pulumi.Input[builtins.str] prefix_list_id: Identifier of EC2 Prefix List.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[builtins.str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
                
@@ -114,6 +132,8 @@ class _PrefixListReferenceState:
             pulumi.set(__self__, "prefix_list_id", prefix_list_id)
         if prefix_list_owner_id is not None:
             pulumi.set(__self__, "prefix_list_owner_id", prefix_list_owner_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if transit_gateway_attachment_id is not None:
             pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         if transit_gateway_route_table_id is not None:
@@ -153,6 +173,18 @@ class _PrefixListReferenceState:
         pulumi.set(self, "prefix_list_owner_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="transitGatewayAttachmentId")
     def transit_gateway_attachment_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -187,6 +219,7 @@ class PrefixListReference(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  blackhole: Optional[pulumi.Input[builtins.bool]] = None,
                  prefix_list_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -231,6 +264,7 @@ class PrefixListReference(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] blackhole: Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
         :param pulumi.Input[builtins.str] prefix_list_id: Identifier of EC2 Prefix List.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[builtins.str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
                
@@ -296,6 +330,7 @@ class PrefixListReference(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  blackhole: Optional[pulumi.Input[builtins.bool]] = None,
                  prefix_list_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -311,6 +346,7 @@ class PrefixListReference(pulumi.CustomResource):
             if prefix_list_id is None and not opts.urn:
                 raise TypeError("Missing required property 'prefix_list_id'")
             __props__.__dict__["prefix_list_id"] = prefix_list_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["transit_gateway_attachment_id"] = transit_gateway_attachment_id
             if transit_gateway_route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_route_table_id'")
@@ -329,6 +365,7 @@ class PrefixListReference(pulumi.CustomResource):
             blackhole: Optional[pulumi.Input[builtins.bool]] = None,
             prefix_list_id: Optional[pulumi.Input[builtins.str]] = None,
             prefix_list_owner_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             transit_gateway_attachment_id: Optional[pulumi.Input[builtins.str]] = None,
             transit_gateway_route_table_id: Optional[pulumi.Input[builtins.str]] = None) -> 'PrefixListReference':
         """
@@ -340,6 +377,7 @@ class PrefixListReference(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] blackhole: Indicates whether to drop traffic that matches the Prefix List. Defaults to `false`.
         :param pulumi.Input[builtins.str] prefix_list_id: Identifier of EC2 Prefix List.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] transit_gateway_attachment_id: Identifier of EC2 Transit Gateway Attachment.
         :param pulumi.Input[builtins.str] transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
                
@@ -352,6 +390,7 @@ class PrefixListReference(pulumi.CustomResource):
         __props__.__dict__["blackhole"] = blackhole
         __props__.__dict__["prefix_list_id"] = prefix_list_id
         __props__.__dict__["prefix_list_owner_id"] = prefix_list_owner_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         __props__.__dict__["transit_gateway_route_table_id"] = transit_gateway_route_table_id
         return PrefixListReference(resource_name, opts=opts, __props__=__props__)
@@ -376,6 +415,14 @@ class PrefixListReference(pulumi.CustomResource):
     @pulumi.getter(name="prefixListOwnerId")
     def prefix_list_owner_id(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "prefix_list_owner_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="transitGatewayAttachmentId")

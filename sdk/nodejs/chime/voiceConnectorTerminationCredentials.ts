@@ -84,6 +84,10 @@ export class VoiceConnectorTerminationCredentials extends pulumi.CustomResource 
      */
     public readonly credentials!: pulumi.Output<outputs.chime.VoiceConnectorTerminationCredentialsCredential[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon Chime Voice Connector ID.
      */
     public readonly voiceConnectorId!: pulumi.Output<string>;
@@ -102,6 +106,7 @@ export class VoiceConnectorTerminationCredentials extends pulumi.CustomResource 
         if (opts.id) {
             const state = argsOrState as VoiceConnectorTerminationCredentialsState | undefined;
             resourceInputs["credentials"] = state ? state.credentials : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["voiceConnectorId"] = state ? state.voiceConnectorId : undefined;
         } else {
             const args = argsOrState as VoiceConnectorTerminationCredentialsArgs | undefined;
@@ -112,6 +117,7 @@ export class VoiceConnectorTerminationCredentials extends pulumi.CustomResource 
                 throw new Error("Missing required property 'voiceConnectorId'");
             }
             resourceInputs["credentials"] = args ? args.credentials : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -128,6 +134,10 @@ export interface VoiceConnectorTerminationCredentialsState {
      */
     credentials?: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorTerminationCredentialsCredential>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Amazon Chime Voice Connector ID.
      */
     voiceConnectorId?: pulumi.Input<string>;
@@ -141,6 +151,10 @@ export interface VoiceConnectorTerminationCredentialsArgs {
      * List of termination SIP credentials.
      */
     credentials: pulumi.Input<pulumi.Input<inputs.chime.VoiceConnectorTerminationCredentialsCredential>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Chime Voice Connector ID.
      */

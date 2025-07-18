@@ -79,6 +79,10 @@ export class AccountSettingDefault extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public /*out*/ readonly principalArn!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * State of the setting.
      */
     public readonly value!: pulumi.Output<string>;
@@ -98,6 +102,7 @@ export class AccountSettingDefault extends pulumi.CustomResource {
             const state = argsOrState as AccountSettingDefaultState | undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["principalArn"] = state ? state.principalArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as AccountSettingDefaultArgs | undefined;
@@ -105,6 +110,7 @@ export class AccountSettingDefault extends pulumi.CustomResource {
                 throw new Error("Missing required property 'value'");
             }
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["value"] = args ? args.value : undefined;
             resourceInputs["principalArn"] = undefined /*out*/;
         }
@@ -123,6 +129,10 @@ export interface AccountSettingDefaultState {
     name?: pulumi.Input<string>;
     principalArn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * State of the setting.
      */
     value?: pulumi.Input<string>;
@@ -136,6 +146,10 @@ export interface AccountSettingDefaultArgs {
      * Name of the account setting to set.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * State of the setting.
      */

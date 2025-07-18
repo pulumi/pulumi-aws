@@ -12,33 +12,57 @@ namespace Pulumi.Aws.LB.Inputs
 
     public sealed class GetListenerRuleActionArgs : global::Pulumi.InvokeArgs
     {
+        [Input("authenticateCognitos")]
+        private List<Inputs.GetListenerRuleActionAuthenticateCognitoArgs>? _authenticateCognitos;
+
         /// <summary>
         /// An action to authenticate using Amazon Cognito.
         /// Detailed below.
         /// </summary>
-        [Input("authenticateCognito")]
-        public Inputs.GetListenerRuleActionAuthenticateCognitoArgs? AuthenticateCognito { get; set; }
+        public List<Inputs.GetListenerRuleActionAuthenticateCognitoArgs> AuthenticateCognitos
+        {
+            get => _authenticateCognitos ?? (_authenticateCognitos = new List<Inputs.GetListenerRuleActionAuthenticateCognitoArgs>());
+            set => _authenticateCognitos = value;
+        }
+
+        [Input("authenticateOidcs")]
+        private List<Inputs.GetListenerRuleActionAuthenticateOidcArgs>? _authenticateOidcs;
 
         /// <summary>
         /// An action to authenticate using OIDC.
         /// Detailed below.
         /// </summary>
-        [Input("authenticateOidc")]
-        public Inputs.GetListenerRuleActionAuthenticateOidcArgs? AuthenticateOidc { get; set; }
+        public List<Inputs.GetListenerRuleActionAuthenticateOidcArgs> AuthenticateOidcs
+        {
+            get => _authenticateOidcs ?? (_authenticateOidcs = new List<Inputs.GetListenerRuleActionAuthenticateOidcArgs>());
+            set => _authenticateOidcs = value;
+        }
+
+        [Input("fixedResponses")]
+        private List<Inputs.GetListenerRuleActionFixedResponseArgs>? _fixedResponses;
 
         /// <summary>
         /// An action to return a fixed response.
         /// Detailed below.
         /// </summary>
-        [Input("fixedResponse")]
-        public Inputs.GetListenerRuleActionFixedResponseArgs? FixedResponse { get; set; }
+        public List<Inputs.GetListenerRuleActionFixedResponseArgs> FixedResponses
+        {
+            get => _fixedResponses ?? (_fixedResponses = new List<Inputs.GetListenerRuleActionFixedResponseArgs>());
+            set => _fixedResponses = value;
+        }
+
+        [Input("forwards")]
+        private List<Inputs.GetListenerRuleActionForwardArgs>? _forwards;
 
         /// <summary>
         /// An action to forward the request.
         /// Detailed below.
         /// </summary>
-        [Input("forward")]
-        public Inputs.GetListenerRuleActionForwardArgs? Forward { get; set; }
+        public List<Inputs.GetListenerRuleActionForwardArgs> Forwards
+        {
+            get => _forwards ?? (_forwards = new List<Inputs.GetListenerRuleActionForwardArgs>());
+            set => _forwards = value;
+        }
 
         /// <summary>
         /// The evaluation order of the action.
@@ -46,12 +70,18 @@ namespace Pulumi.Aws.LB.Inputs
         [Input("order", required: true)]
         public int Order { get; set; }
 
+        [Input("redirects")]
+        private List<Inputs.GetListenerRuleActionRedirectArgs>? _redirects;
+
         /// <summary>
         /// An action to redirect the request.
         /// Detailed below.
         /// </summary>
-        [Input("redirect")]
-        public Inputs.GetListenerRuleActionRedirectArgs? Redirect { get; set; }
+        public List<Inputs.GetListenerRuleActionRedirectArgs> Redirects
+        {
+            get => _redirects ?? (_redirects = new List<Inputs.GetListenerRuleActionRedirectArgs>());
+            set => _redirects = value;
+        }
 
         /// <summary>
         /// The type of the action, indicates which sub-block will be populated.

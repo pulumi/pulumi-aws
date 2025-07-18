@@ -213,6 +213,12 @@ namespace Pulumi.Aws.CodeBuild
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -238,6 +244,12 @@ namespace Pulumi.Aws.CodeBuild
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -306,6 +318,7 @@ namespace Pulumi.Aws.CodeBuild
         /// Overflow behavior for compute fleet.
         /// </summary>
         public readonly string OverflowBehavior;
+        public readonly string Region;
         /// <summary>
         /// Nested attribute containing information about the scaling configuration.
         /// </summary>
@@ -349,6 +362,8 @@ namespace Pulumi.Aws.CodeBuild
 
             string overflowBehavior,
 
+            string region,
+
             ImmutableArray<Outputs.GetFleetScalingConfigurationResult> scalingConfigurations,
 
             ImmutableArray<Outputs.GetFleetStatusResult> statuses,
@@ -369,6 +384,7 @@ namespace Pulumi.Aws.CodeBuild
             LastModified = lastModified;
             Name = name;
             OverflowBehavior = overflowBehavior;
+            Region = region;
             ScalingConfigurations = scalingConfigurations;
             Statuses = statuses;
             Tags = tags;

@@ -26,6 +26,7 @@ class ClassifierArgs:
                  grok_classifier: Optional[pulumi.Input['ClassifierGrokClassifierArgs']] = None,
                  json_classifier: Optional[pulumi.Input['ClassifierJsonClassifierArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  xml_classifier: Optional[pulumi.Input['ClassifierXmlClassifierArgs']] = None):
         """
         The set of arguments for constructing a Classifier resource.
@@ -33,6 +34,7 @@ class ClassifierArgs:
         :param pulumi.Input['ClassifierGrokClassifierArgs'] grok_classifier: A classifier that uses grok patterns. Defined below.
         :param pulumi.Input['ClassifierJsonClassifierArgs'] json_classifier: A classifier for JSON content. Defined below.
         :param pulumi.Input[builtins.str] name: The name of the classifier.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ClassifierXmlClassifierArgs'] xml_classifier: A classifier for XML content. Defined below.
         """
         if csv_classifier is not None:
@@ -43,6 +45,8 @@ class ClassifierArgs:
             pulumi.set(__self__, "json_classifier", json_classifier)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if xml_classifier is not None:
             pulumi.set(__self__, "xml_classifier", xml_classifier)
 
@@ -93,6 +97,18 @@ class ClassifierArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="xmlClassifier")
@@ -114,6 +130,7 @@ class _ClassifierState:
                  grok_classifier: Optional[pulumi.Input['ClassifierGrokClassifierArgs']] = None,
                  json_classifier: Optional[pulumi.Input['ClassifierJsonClassifierArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  xml_classifier: Optional[pulumi.Input['ClassifierXmlClassifierArgs']] = None):
         """
         Input properties used for looking up and filtering Classifier resources.
@@ -121,6 +138,7 @@ class _ClassifierState:
         :param pulumi.Input['ClassifierGrokClassifierArgs'] grok_classifier: A classifier that uses grok patterns. Defined below.
         :param pulumi.Input['ClassifierJsonClassifierArgs'] json_classifier: A classifier for JSON content. Defined below.
         :param pulumi.Input[builtins.str] name: The name of the classifier.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['ClassifierXmlClassifierArgs'] xml_classifier: A classifier for XML content. Defined below.
         """
         if csv_classifier is not None:
@@ -131,6 +149,8 @@ class _ClassifierState:
             pulumi.set(__self__, "json_classifier", json_classifier)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if xml_classifier is not None:
             pulumi.set(__self__, "xml_classifier", xml_classifier)
 
@@ -181,6 +201,18 @@ class _ClassifierState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="xmlClassifier")
@@ -205,6 +237,7 @@ class Classifier(pulumi.CustomResource):
                  grok_classifier: Optional[pulumi.Input[Union['ClassifierGrokClassifierArgs', 'ClassifierGrokClassifierArgsDict']]] = None,
                  json_classifier: Optional[pulumi.Input[Union['ClassifierJsonClassifierArgs', 'ClassifierJsonClassifierArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  xml_classifier: Optional[pulumi.Input[Union['ClassifierXmlClassifierArgs', 'ClassifierXmlClassifierArgsDict']]] = None,
                  __props__=None):
         """
@@ -290,6 +323,7 @@ class Classifier(pulumi.CustomResource):
         :param pulumi.Input[Union['ClassifierGrokClassifierArgs', 'ClassifierGrokClassifierArgsDict']] grok_classifier: A classifier that uses grok patterns. Defined below.
         :param pulumi.Input[Union['ClassifierJsonClassifierArgs', 'ClassifierJsonClassifierArgsDict']] json_classifier: A classifier for JSON content. Defined below.
         :param pulumi.Input[builtins.str] name: The name of the classifier.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ClassifierXmlClassifierArgs', 'ClassifierXmlClassifierArgsDict']] xml_classifier: A classifier for XML content. Defined below.
         """
         ...
@@ -394,6 +428,7 @@ class Classifier(pulumi.CustomResource):
                  grok_classifier: Optional[pulumi.Input[Union['ClassifierGrokClassifierArgs', 'ClassifierGrokClassifierArgsDict']]] = None,
                  json_classifier: Optional[pulumi.Input[Union['ClassifierJsonClassifierArgs', 'ClassifierJsonClassifierArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  xml_classifier: Optional[pulumi.Input[Union['ClassifierXmlClassifierArgs', 'ClassifierXmlClassifierArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -408,6 +443,7 @@ class Classifier(pulumi.CustomResource):
             __props__.__dict__["grok_classifier"] = grok_classifier
             __props__.__dict__["json_classifier"] = json_classifier
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["xml_classifier"] = xml_classifier
         super(Classifier, __self__).__init__(
             'aws:glue/classifier:Classifier',
@@ -423,6 +459,7 @@ class Classifier(pulumi.CustomResource):
             grok_classifier: Optional[pulumi.Input[Union['ClassifierGrokClassifierArgs', 'ClassifierGrokClassifierArgsDict']]] = None,
             json_classifier: Optional[pulumi.Input[Union['ClassifierJsonClassifierArgs', 'ClassifierJsonClassifierArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             xml_classifier: Optional[pulumi.Input[Union['ClassifierXmlClassifierArgs', 'ClassifierXmlClassifierArgsDict']]] = None) -> 'Classifier':
         """
         Get an existing Classifier resource's state with the given name, id, and optional extra
@@ -435,6 +472,7 @@ class Classifier(pulumi.CustomResource):
         :param pulumi.Input[Union['ClassifierGrokClassifierArgs', 'ClassifierGrokClassifierArgsDict']] grok_classifier: A classifier that uses grok patterns. Defined below.
         :param pulumi.Input[Union['ClassifierJsonClassifierArgs', 'ClassifierJsonClassifierArgsDict']] json_classifier: A classifier for JSON content. Defined below.
         :param pulumi.Input[builtins.str] name: The name of the classifier.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['ClassifierXmlClassifierArgs', 'ClassifierXmlClassifierArgsDict']] xml_classifier: A classifier for XML content. Defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -445,6 +483,7 @@ class Classifier(pulumi.CustomResource):
         __props__.__dict__["grok_classifier"] = grok_classifier
         __props__.__dict__["json_classifier"] = json_classifier
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["xml_classifier"] = xml_classifier
         return Classifier(resource_name, opts=opts, __props__=__props__)
 
@@ -479,6 +518,14 @@ class Classifier(pulumi.CustomResource):
         The name of the classifier.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="xmlClassifier")

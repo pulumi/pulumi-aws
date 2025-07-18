@@ -28,7 +28,7 @@ class GetPublicIpv4PoolResult:
     """
     A collection of values returned by getPublicIpv4Pool.
     """
-    def __init__(__self__, description=None, id=None, network_border_group=None, pool_address_ranges=None, pool_id=None, tags=None, total_address_count=None, total_available_address_count=None):
+    def __init__(__self__, description=None, id=None, network_border_group=None, pool_address_ranges=None, pool_id=None, region=None, tags=None, total_address_count=None, total_available_address_count=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -44,6 +44,9 @@ class GetPublicIpv4PoolResult:
         if pool_id and not isinstance(pool_id, str):
             raise TypeError("Expected argument 'pool_id' to be a str")
         pulumi.set(__self__, "pool_id", pool_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -91,6 +94,11 @@ class GetPublicIpv4PoolResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Any tags for the address pool.
@@ -125,12 +133,14 @@ class AwaitableGetPublicIpv4PoolResult(GetPublicIpv4PoolResult):
             network_border_group=self.network_border_group,
             pool_address_ranges=self.pool_address_ranges,
             pool_id=self.pool_id,
+            region=self.region,
             tags=self.tags,
             total_address_count=self.total_address_count,
             total_available_address_count=self.total_available_address_count)
 
 
 def get_public_ipv4_pool(pool_id: Optional[builtins.str] = None,
+                         region: Optional[builtins.str] = None,
                          tags: Optional[Mapping[str, builtins.str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicIpv4PoolResult:
     """
@@ -149,10 +159,12 @@ def get_public_ipv4_pool(pool_id: Optional[builtins.str] = None,
 
 
     :param builtins.str pool_id: AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Any tags for the address pool.
     """
     __args__ = dict()
     __args__['poolId'] = pool_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool', __args__, opts=opts, typ=GetPublicIpv4PoolResult).value
@@ -163,10 +175,12 @@ def get_public_ipv4_pool(pool_id: Optional[builtins.str] = None,
         network_border_group=pulumi.get(__ret__, 'network_border_group'),
         pool_address_ranges=pulumi.get(__ret__, 'pool_address_ranges'),
         pool_id=pulumi.get(__ret__, 'pool_id'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         total_address_count=pulumi.get(__ret__, 'total_address_count'),
         total_available_address_count=pulumi.get(__ret__, 'total_available_address_count'))
 def get_public_ipv4_pool_output(pool_id: Optional[pulumi.Input[builtins.str]] = None,
+                                region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicIpv4PoolResult]:
     """
@@ -185,10 +199,12 @@ def get_public_ipv4_pool_output(pool_id: Optional[pulumi.Input[builtins.str]] = 
 
 
     :param builtins.str pool_id: AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Any tags for the address pool.
     """
     __args__ = dict()
     __args__['poolId'] = pool_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getPublicIpv4Pool:getPublicIpv4Pool', __args__, opts=opts, typ=GetPublicIpv4PoolResult)
@@ -198,6 +214,7 @@ def get_public_ipv4_pool_output(pool_id: Optional[pulumi.Input[builtins.str]] = 
         network_border_group=pulumi.get(__response__, 'network_border_group'),
         pool_address_ranges=pulumi.get(__response__, 'pool_address_ranges'),
         pool_id=pulumi.get(__response__, 'pool_id'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         total_address_count=pulumi.get(__response__, 'total_address_count'),
         total_available_address_count=pulumi.get(__response__, 'total_available_address_count')))

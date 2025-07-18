@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,7 +50,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,7 +78,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -108,7 +108,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -154,13 +154,13 @@ type DataQualityRuleset struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
 	RecommendationRunId pulumi.StringOutput `pulumi:"recommendationRunId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 	Ruleset pulumi.StringOutput `pulumi:"ruleset"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
 	TargetTable DataQualityRulesetTargetTablePtrOutput `pulumi:"targetTable"`
@@ -211,13 +211,13 @@ type dataQualityRulesetState struct {
 	Name *string `pulumi:"name"`
 	// When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
 	RecommendationRunId *string `pulumi:"recommendationRunId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 	Ruleset *string `pulumi:"ruleset"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
 	TargetTable *DataQualityRulesetTargetTable `pulumi:"targetTable"`
@@ -236,13 +236,13 @@ type DataQualityRulesetState struct {
 	Name pulumi.StringPtrInput
 	// When a ruleset was created from a recommendation run, this run ID is generated to link the two together.
 	RecommendationRunId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 	Ruleset pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// A Configuration block specifying a target table associated with the data quality ruleset. See `targetTable` below.
 	TargetTable DataQualityRulesetTargetTablePtrInput
@@ -257,6 +257,8 @@ type dataQualityRulesetArgs struct {
 	Description *string `pulumi:"description"`
 	// Name of the data quality ruleset.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 	Ruleset string `pulumi:"ruleset"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -271,6 +273,8 @@ type DataQualityRulesetArgs struct {
 	Description pulumi.StringPtrInput
 	// Name of the data quality ruleset.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 	Ruleset pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -396,6 +400,11 @@ func (o DataQualityRulesetOutput) RecommendationRunId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringOutput { return v.RecommendationRunId }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DataQualityRulesetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // A Data Quality Definition Language (DQDL) ruleset. For more information, see the AWS Glue developer guide.
 func (o DataQualityRulesetOutput) Ruleset() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringOutput { return v.Ruleset }).(pulumi.StringOutput)
@@ -407,8 +416,6 @@ func (o DataQualityRulesetOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o DataQualityRulesetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataQualityRuleset) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

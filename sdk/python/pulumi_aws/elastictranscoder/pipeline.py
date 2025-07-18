@@ -30,6 +30,7 @@ class PipelineArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  notifications: Optional[pulumi.Input['PipelineNotificationsArgs']] = None,
                  output_bucket: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  thumbnail_config: Optional[pulumi.Input['PipelineThumbnailConfigArgs']] = None,
                  thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]]] = None):
         """
@@ -42,6 +43,7 @@ class PipelineArgs:
         :param pulumi.Input[builtins.str] name: The name of the pipeline. Maximum 40 characters
         :param pulumi.Input['PipelineNotificationsArgs'] notifications: The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
         :param pulumi.Input[builtins.str] output_bucket: The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['PipelineThumbnailConfigArgs'] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         :param pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
                
@@ -68,6 +70,8 @@ class PipelineArgs:
             pulumi.set(__self__, "notifications", notifications)
         if output_bucket is not None:
             pulumi.set(__self__, "output_bucket", output_bucket)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if thumbnail_config is not None:
             pulumi.set(__self__, "thumbnail_config", thumbnail_config)
         if thumbnail_config_permissions is not None:
@@ -170,6 +174,18 @@ class PipelineArgs:
         pulumi.set(self, "output_bucket", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="thumbnailConfig")
     def thumbnail_config(self) -> Optional[pulumi.Input['PipelineThumbnailConfigArgs']]:
         """
@@ -214,6 +230,7 @@ class _PipelineState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  notifications: Optional[pulumi.Input['PipelineNotificationsArgs']] = None,
                  output_bucket: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role: Optional[pulumi.Input[builtins.str]] = None,
                  thumbnail_config: Optional[pulumi.Input['PipelineThumbnailConfigArgs']] = None,
                  thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]]] = None):
@@ -227,6 +244,7 @@ class _PipelineState:
         :param pulumi.Input[builtins.str] name: The name of the pipeline. Maximum 40 characters
         :param pulumi.Input['PipelineNotificationsArgs'] notifications: The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
         :param pulumi.Input[builtins.str] output_bucket: The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         :param pulumi.Input['PipelineThumbnailConfigArgs'] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         :param pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
@@ -256,6 +274,8 @@ class _PipelineState:
             pulumi.set(__self__, "notifications", notifications)
         if output_bucket is not None:
             pulumi.set(__self__, "output_bucket", output_bucket)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role is not None:
             pulumi.set(__self__, "role", role)
         if thumbnail_config is not None:
@@ -361,6 +381,18 @@ class _PipelineState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def role(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
@@ -418,12 +450,15 @@ class Pipeline(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  notifications: Optional[pulumi.Input[Union['PipelineNotificationsArgs', 'PipelineNotificationsArgsDict']]] = None,
                  output_bucket: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role: Optional[pulumi.Input[builtins.str]] = None,
                  thumbnail_config: Optional[pulumi.Input[Union['PipelineThumbnailConfigArgs', 'PipelineThumbnailConfigArgsDict']]] = None,
                  thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineThumbnailConfigPermissionArgs', 'PipelineThumbnailConfigPermissionArgsDict']]]]] = None,
                  __props__=None):
         """
         Provides an Elastic Transcoder pipeline resource.
+
+        > **Warning:** This resource is deprecated. Use [AWS Elemental MediaConvert](https://aws.amazon.com/blogs/media/migrating-workflows-from-amazon-elastic-transcoder-to-aws-elemental-mediaconvert/) instead. AWS will [discontinue support for Amazon Elastic Transcoder](https://aws.amazon.com/blogs/media/support-for-amazon-elastic-transcoder-ending-soon/), effective November 13, 2025.
 
         ## Example Usage
 
@@ -462,6 +497,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the pipeline. Maximum 40 characters
         :param pulumi.Input[Union['PipelineNotificationsArgs', 'PipelineNotificationsArgsDict']] notifications: The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
         :param pulumi.Input[builtins.str] output_bucket: The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         :param pulumi.Input[Union['PipelineThumbnailConfigArgs', 'PipelineThumbnailConfigArgsDict']] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineThumbnailConfigPermissionArgs', 'PipelineThumbnailConfigPermissionArgsDict']]]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
@@ -483,6 +519,8 @@ class Pipeline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Elastic Transcoder pipeline resource.
+
+        > **Warning:** This resource is deprecated. Use [AWS Elemental MediaConvert](https://aws.amazon.com/blogs/media/migrating-workflows-from-amazon-elastic-transcoder-to-aws-elemental-mediaconvert/) instead. AWS will [discontinue support for Amazon Elastic Transcoder](https://aws.amazon.com/blogs/media/support-for-amazon-elastic-transcoder-ending-soon/), effective November 13, 2025.
 
         ## Example Usage
 
@@ -534,6 +572,7 @@ class Pipeline(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  notifications: Optional[pulumi.Input[Union['PipelineNotificationsArgs', 'PipelineNotificationsArgsDict']]] = None,
                  output_bucket: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role: Optional[pulumi.Input[builtins.str]] = None,
                  thumbnail_config: Optional[pulumi.Input[Union['PipelineThumbnailConfigArgs', 'PipelineThumbnailConfigArgsDict']]] = None,
                  thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineThumbnailConfigPermissionArgs', 'PipelineThumbnailConfigPermissionArgsDict']]]]] = None,
@@ -555,6 +594,7 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["notifications"] = notifications
             __props__.__dict__["output_bucket"] = output_bucket
+            __props__.__dict__["region"] = region
             if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
             __props__.__dict__["role"] = role
@@ -579,6 +619,7 @@ class Pipeline(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             notifications: Optional[pulumi.Input[Union['PipelineNotificationsArgs', 'PipelineNotificationsArgsDict']]] = None,
             output_bucket: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role: Optional[pulumi.Input[builtins.str]] = None,
             thumbnail_config: Optional[pulumi.Input[Union['PipelineThumbnailConfigArgs', 'PipelineThumbnailConfigArgsDict']]] = None,
             thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PipelineThumbnailConfigPermissionArgs', 'PipelineThumbnailConfigPermissionArgsDict']]]]] = None) -> 'Pipeline':
@@ -597,6 +638,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the pipeline. Maximum 40 characters
         :param pulumi.Input[Union['PipelineNotificationsArgs', 'PipelineNotificationsArgsDict']] notifications: The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
         :param pulumi.Input[builtins.str] output_bucket: The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         :param pulumi.Input[Union['PipelineThumbnailConfigArgs', 'PipelineThumbnailConfigArgsDict']] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineThumbnailConfigPermissionArgs', 'PipelineThumbnailConfigPermissionArgsDict']]]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
@@ -622,6 +664,7 @@ class Pipeline(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["notifications"] = notifications
         __props__.__dict__["output_bucket"] = output_bucket
+        __props__.__dict__["region"] = region
         __props__.__dict__["role"] = role
         __props__.__dict__["thumbnail_config"] = thumbnail_config
         __props__.__dict__["thumbnail_config_permissions"] = thumbnail_config_permissions
@@ -690,6 +733,14 @@ class Pipeline(pulumi.CustomResource):
         The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
         """
         return pulumi.get(self, "output_bucket")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

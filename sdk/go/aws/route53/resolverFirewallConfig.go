@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,6 +64,8 @@ type ResolverFirewallConfig struct {
 	FirewallFailOpen pulumi.StringOutput `pulumi:"firewallFailOpen"`
 	// The AWS account ID of the owner of the VPC that this firewall configuration applies to.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the VPC that the configuration is for.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 }
@@ -105,6 +107,8 @@ type resolverFirewallConfigState struct {
 	FirewallFailOpen *string `pulumi:"firewallFailOpen"`
 	// The AWS account ID of the owner of the VPC that this firewall configuration applies to.
 	OwnerId *string `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the VPC that the configuration is for.
 	ResourceId *string `pulumi:"resourceId"`
 }
@@ -114,6 +118,8 @@ type ResolverFirewallConfigState struct {
 	FirewallFailOpen pulumi.StringPtrInput
 	// The AWS account ID of the owner of the VPC that this firewall configuration applies to.
 	OwnerId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the VPC that the configuration is for.
 	ResourceId pulumi.StringPtrInput
 }
@@ -125,6 +131,8 @@ func (ResolverFirewallConfigState) ElementType() reflect.Type {
 type resolverFirewallConfigArgs struct {
 	// Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
 	FirewallFailOpen *string `pulumi:"firewallFailOpen"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the VPC that the configuration is for.
 	ResourceId string `pulumi:"resourceId"`
 }
@@ -133,6 +141,8 @@ type resolverFirewallConfigArgs struct {
 type ResolverFirewallConfigArgs struct {
 	// Determines how Route 53 Resolver handles queries during failures, for example when all traffic that is sent to DNS Firewall fails to receive a reply. By default, fail open is disabled, which means the failure mode is closed. This approach favors security over availability. DNS Firewall blocks queries that it is unable to evaluate properly. If you enable this option, the failure mode is open. This approach favors availability over security. DNS Firewall allows queries to proceed if it is unable to properly evaluate them. Valid values: `ENABLED`, `DISABLED`.
 	FirewallFailOpen pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the VPC that the configuration is for.
 	ResourceId pulumi.StringInput
 }
@@ -232,6 +242,11 @@ func (o ResolverFirewallConfigOutput) FirewallFailOpen() pulumi.StringOutput {
 // The AWS account ID of the owner of the VPC that this firewall configuration applies to.
 func (o ResolverFirewallConfigOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallConfig) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ResolverFirewallConfigOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverFirewallConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the VPC that the configuration is for.

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/bcmdata"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bcmdata"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,10 +90,12 @@ import (
 type Export struct {
 	pulumi.CustomResourceState
 
+	// Amazon Resource Name (ARN) for this export.
+	// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export ExportExportPtrOutput  `pulumi:"export"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Export   ExportExportPtrOutput   `pulumi:"export"`
+	Tags     pulumi.StringMapOutput  `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput  `pulumi:"tagsAll"`
 	Timeouts ExportTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -128,19 +130,23 @@ func GetExport(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Export resources.
 type exportState struct {
+	// Amazon Resource Name (ARN) for this export.
+	// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+	Arn *string `pulumi:"arn"`
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export *ExportExport     `pulumi:"export"`
-	Tags   map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Export   *ExportExport     `pulumi:"export"`
+	Tags     map[string]string `pulumi:"tags"`
 	TagsAll  map[string]string `pulumi:"tagsAll"`
 	Timeouts *ExportTimeouts   `pulumi:"timeouts"`
 }
 
 type ExportState struct {
+	// Amazon Resource Name (ARN) for this export.
+	// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+	Arn pulumi.StringPtrInput
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
-	Export ExportExportPtrInput
-	Tags   pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Export   ExportExportPtrInput
+	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts ExportTimeoutsPtrInput
 }
@@ -251,6 +257,12 @@ func (o ExportOutput) ToExportOutputWithContext(ctx context.Context) ExportOutpu
 	return o
 }
 
+// Amazon Resource Name (ARN) for this export.
+// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+func (o ExportOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Export) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
 // The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
 func (o ExportOutput) Export() ExportExportPtrOutput {
 	return o.ApplyT(func(v *Export) ExportExportPtrOutput { return v.Export }).(ExportExportPtrOutput)
@@ -260,7 +272,6 @@ func (o ExportOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Export) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ExportOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Export) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

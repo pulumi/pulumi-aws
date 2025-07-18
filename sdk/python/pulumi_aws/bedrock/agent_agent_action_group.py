@@ -32,6 +32,7 @@ class AgentAgentActionGroupArgs:
                  function_schema: Optional[pulumi.Input['AgentAgentActionGroupFunctionSchemaArgs']] = None,
                  parent_action_group_signature: Optional[pulumi.Input[builtins.str]] = None,
                  prepare_agent: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_resource_in_use_check: Optional[pulumi.Input[builtins.bool]] = None,
                  timeouts: Optional[pulumi.Input['AgentAgentActionGroupTimeoutsArgs']] = None):
         """
@@ -50,6 +51,7 @@ class AgentAgentActionGroupArgs:
                See `function_schema` Block for details.
         :param pulumi.Input[builtins.str] parent_action_group_signature: To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
         :param pulumi.Input[builtins.bool] prepare_agent: Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the action group.
         """
         pulumi.set(__self__, "action_group_name", action_group_name)
@@ -69,6 +71,8 @@ class AgentAgentActionGroupArgs:
             pulumi.set(__self__, "parent_action_group_signature", parent_action_group_signature)
         if prepare_agent is not None:
             pulumi.set(__self__, "prepare_agent", prepare_agent)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if skip_resource_in_use_check is not None:
             pulumi.set(__self__, "skip_resource_in_use_check", skip_resource_in_use_check)
         if timeouts is not None:
@@ -199,6 +203,18 @@ class AgentAgentActionGroupArgs:
         pulumi.set(self, "prepare_agent", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="skipResourceInUseCheck")
     def skip_resource_in_use_check(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -234,6 +250,7 @@ class _AgentAgentActionGroupState:
                  function_schema: Optional[pulumi.Input['AgentAgentActionGroupFunctionSchemaArgs']] = None,
                  parent_action_group_signature: Optional[pulumi.Input[builtins.str]] = None,
                  prepare_agent: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_resource_in_use_check: Optional[pulumi.Input[builtins.bool]] = None,
                  timeouts: Optional[pulumi.Input['AgentAgentActionGroupTimeoutsArgs']] = None):
         """
@@ -253,6 +270,7 @@ class _AgentAgentActionGroupState:
                See `function_schema` Block for details.
         :param pulumi.Input[builtins.str] parent_action_group_signature: To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
         :param pulumi.Input[builtins.bool] prepare_agent: Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the action group.
         """
         if action_group_executor is not None:
@@ -277,6 +295,8 @@ class _AgentAgentActionGroupState:
             pulumi.set(__self__, "parent_action_group_signature", parent_action_group_signature)
         if prepare_agent is not None:
             pulumi.set(__self__, "prepare_agent", prepare_agent)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if skip_resource_in_use_check is not None:
             pulumi.set(__self__, "skip_resource_in_use_check", skip_resource_in_use_check)
         if timeouts is not None:
@@ -419,6 +439,18 @@ class _AgentAgentActionGroupState:
         pulumi.set(self, "prepare_agent", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="skipResourceInUseCheck")
     def skip_resource_in_use_check(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -456,6 +488,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
                  function_schema: Optional[pulumi.Input[Union['AgentAgentActionGroupFunctionSchemaArgs', 'AgentAgentActionGroupFunctionSchemaArgsDict']]] = None,
                  parent_action_group_signature: Optional[pulumi.Input[builtins.str]] = None,
                  prepare_agent: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_resource_in_use_check: Optional[pulumi.Input[builtins.bool]] = None,
                  timeouts: Optional[pulumi.Input[Union['AgentAgentActionGroupTimeoutsArgs', 'AgentAgentActionGroupTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -588,6 +621,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
                See `function_schema` Block for details.
         :param pulumi.Input[builtins.str] parent_action_group_signature: To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
         :param pulumi.Input[builtins.bool] prepare_agent: Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the action group.
         """
         ...
@@ -734,6 +768,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
                  function_schema: Optional[pulumi.Input[Union['AgentAgentActionGroupFunctionSchemaArgs', 'AgentAgentActionGroupFunctionSchemaArgsDict']]] = None,
                  parent_action_group_signature: Optional[pulumi.Input[builtins.str]] = None,
                  prepare_agent: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_resource_in_use_check: Optional[pulumi.Input[builtins.bool]] = None,
                  timeouts: Optional[pulumi.Input[Union['AgentAgentActionGroupTimeoutsArgs', 'AgentAgentActionGroupTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -761,6 +796,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
             __props__.__dict__["function_schema"] = function_schema
             __props__.__dict__["parent_action_group_signature"] = parent_action_group_signature
             __props__.__dict__["prepare_agent"] = prepare_agent
+            __props__.__dict__["region"] = region
             __props__.__dict__["skip_resource_in_use_check"] = skip_resource_in_use_check
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["action_group_id"] = None
@@ -785,6 +821,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
             function_schema: Optional[pulumi.Input[Union['AgentAgentActionGroupFunctionSchemaArgs', 'AgentAgentActionGroupFunctionSchemaArgsDict']]] = None,
             parent_action_group_signature: Optional[pulumi.Input[builtins.str]] = None,
             prepare_agent: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             skip_resource_in_use_check: Optional[pulumi.Input[builtins.bool]] = None,
             timeouts: Optional[pulumi.Input[Union['AgentAgentActionGroupTimeoutsArgs', 'AgentAgentActionGroupTimeoutsArgsDict']]] = None) -> 'AgentAgentActionGroup':
         """
@@ -809,6 +846,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
                See `function_schema` Block for details.
         :param pulumi.Input[builtins.str] parent_action_group_signature: To allow your agent to request the user for additional information when trying to complete a task, set this argument to `AMAZON.UserInput`. You must leave the `description`, `api_schema`, and `action_group_executor` arguments blank for this action group. Valid values: `AMAZON.UserInput`.
         :param pulumi.Input[builtins.bool] prepare_agent: Whether or not to prepare the agent after creation or modification. Defaults to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_resource_in_use_check: Whether the in-use check is skipped when deleting the action group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -826,6 +864,7 @@ class AgentAgentActionGroup(pulumi.CustomResource):
         __props__.__dict__["function_schema"] = function_schema
         __props__.__dict__["parent_action_group_signature"] = parent_action_group_signature
         __props__.__dict__["prepare_agent"] = prepare_agent
+        __props__.__dict__["region"] = region
         __props__.__dict__["skip_resource_in_use_check"] = skip_resource_in_use_check
         __props__.__dict__["timeouts"] = timeouts
         return AgentAgentActionGroup(resource_name, opts=opts, __props__=__props__)
@@ -921,6 +960,14 @@ class AgentAgentActionGroup(pulumi.CustomResource):
         Whether or not to prepare the agent after creation or modification. Defaults to `true`.
         """
         return pulumi.get(self, "prepare_agent")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="skipResourceInUseCheck")

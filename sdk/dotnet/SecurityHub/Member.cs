@@ -81,6 +81,12 @@ namespace Pulumi.Aws.SecurityHub
         [Output("memberStatus")]
         public Output<string> MemberStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Member resource with the given unique name, arguments, and options.
@@ -145,6 +151,12 @@ namespace Pulumi.Aws.SecurityHub
         [Input("invite")]
         public Input<bool>? Invite { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public MemberArgs()
         {
         }
@@ -182,6 +194,12 @@ namespace Pulumi.Aws.SecurityHub
         /// </summary>
         [Input("memberStatus")]
         public Input<string>? MemberStatus { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public MemberState()
         {

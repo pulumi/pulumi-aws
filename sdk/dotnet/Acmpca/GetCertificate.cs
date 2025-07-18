@@ -102,6 +102,12 @@ namespace Pulumi.Aws.Acmpca
         [Input("certificateAuthorityArn", required: true)]
         public string CertificateAuthorityArn { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetCertificateArgs()
         {
         }
@@ -121,6 +127,12 @@ namespace Pulumi.Aws.Acmpca
         /// </summary>
         [Input("certificateAuthorityArn", required: true)]
         public Input<string> CertificateAuthorityArn { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetCertificateInvokeArgs()
         {
@@ -146,6 +158,7 @@ namespace Pulumi.Aws.Acmpca
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetCertificateResult(
@@ -157,13 +170,16 @@ namespace Pulumi.Aws.Acmpca
 
             string certificateChain,
 
-            string id)
+            string id,
+
+            string region)
         {
             Arn = arn;
             Certificate = certificate;
             CertificateAuthorityArn = certificateAuthorityArn;
             CertificateChain = certificateChain;
             Id = id;
+            Region = region;
         }
     }
 }

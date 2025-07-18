@@ -114,6 +114,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly dnsServers!: pulumi.Output<string[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
@@ -143,8 +147,6 @@ export class Endpoint extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -184,6 +186,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["disconnectOnSessionTimeout"] = state ? state.disconnectOnSessionTimeout : undefined;
             resourceInputs["dnsName"] = state ? state.dnsName : undefined;
             resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["selfServicePortal"] = state ? state.selfServicePortal : undefined;
             resourceInputs["selfServicePortalUrl"] = state ? state.selfServicePortalUrl : undefined;
@@ -218,6 +221,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["disconnectOnSessionTimeout"] = args ? args.disconnectOnSessionTimeout : undefined;
             resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["selfServicePortal"] = args ? args.selfServicePortal : undefined;
             resourceInputs["serverCertificateArn"] = args ? args.serverCertificateArn : undefined;
@@ -286,6 +290,10 @@ export interface EndpointState {
      */
     dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -315,8 +323,6 @@ export interface EndpointState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -373,6 +379,10 @@ export interface EndpointArgs {
      * Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the connecting device is used.
      */
     dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.
      */

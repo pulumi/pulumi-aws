@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -34,9 +34,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := batch.NewComputeEnvironment(ctx, "example", &batch.ComputeEnvironmentArgs{
-//				ComputeEnvironmentName: pulumi.String("example"),
-//				ServiceRole:            pulumi.Any(exampleAwsIamRole.Arn),
-//				Type:                   pulumi.String("UNMANAGED"),
+//				Name:        pulumi.String("example"),
+//				ServiceRole: pulumi.Any(exampleAwsIamRole.Arn),
+//				Type:        pulumi.String("UNMANAGED"),
 //			})
 //			if err != nil {
 //				return err
@@ -67,6 +67,8 @@ type Tag struct {
 
 	// Tag name.
 	Key pulumi.StringOutput `pulumi:"key"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the ECS resource to tag.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// Tag value.
@@ -114,6 +116,8 @@ func GetTag(ctx *pulumi.Context,
 type tagState struct {
 	// Tag name.
 	Key *string `pulumi:"key"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the ECS resource to tag.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// Tag value.
@@ -123,6 +127,8 @@ type tagState struct {
 type TagState struct {
 	// Tag name.
 	Key pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the ECS resource to tag.
 	ResourceArn pulumi.StringPtrInput
 	// Tag value.
@@ -136,6 +142,8 @@ func (TagState) ElementType() reflect.Type {
 type tagArgs struct {
 	// Tag name.
 	Key string `pulumi:"key"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the ECS resource to tag.
 	ResourceArn string `pulumi:"resourceArn"`
 	// Tag value.
@@ -146,6 +154,8 @@ type tagArgs struct {
 type TagArgs struct {
 	// Tag name.
 	Key pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the ECS resource to tag.
 	ResourceArn pulumi.StringInput
 	// Tag value.
@@ -242,6 +252,11 @@ func (o TagOutput) ToTagOutputWithContext(ctx context.Context) TagOutput {
 // Tag name.
 func (o TagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o TagOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Amazon Resource Name (ARN) of the ECS resource to tag.

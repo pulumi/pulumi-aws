@@ -29,7 +29,7 @@ class GetSubnetResult:
     """
     A collection of values returned by getSubnet.
     """
-    def __init__(__self__, arn=None, assign_ipv6_address_on_creation=None, availability_zone=None, availability_zone_id=None, available_ip_address_count=None, cidr_block=None, customer_owned_ipv4_pool=None, default_for_az=None, enable_dns64=None, enable_lni_at_device_index=None, enable_resource_name_dns_a_record_on_launch=None, enable_resource_name_dns_aaaa_record_on_launch=None, filters=None, id=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, ipv6_native=None, map_customer_owned_ip_on_launch=None, map_public_ip_on_launch=None, outpost_arn=None, owner_id=None, private_dns_hostname_type_on_launch=None, state=None, tags=None, vpc_id=None):
+    def __init__(__self__, arn=None, assign_ipv6_address_on_creation=None, availability_zone=None, availability_zone_id=None, available_ip_address_count=None, cidr_block=None, customer_owned_ipv4_pool=None, default_for_az=None, enable_dns64=None, enable_lni_at_device_index=None, enable_resource_name_dns_a_record_on_launch=None, enable_resource_name_dns_aaaa_record_on_launch=None, filters=None, id=None, ipv6_cidr_block=None, ipv6_cidr_block_association_id=None, ipv6_native=None, map_customer_owned_ip_on_launch=None, map_public_ip_on_launch=None, outpost_arn=None, owner_id=None, private_dns_hostname_type_on_launch=None, region=None, state=None, tags=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -96,6 +96,9 @@ class GetSubnetResult:
         if private_dns_hostname_type_on_launch and not isinstance(private_dns_hostname_type_on_launch, str):
             raise TypeError("Expected argument 'private_dns_hostname_type_on_launch' to be a str")
         pulumi.set(__self__, "private_dns_hostname_type_on_launch", private_dns_hostname_type_on_launch)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -263,6 +266,11 @@ class GetSubnetResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def state(self) -> builtins.str:
         return pulumi.get(self, "state")
 
@@ -305,6 +313,7 @@ class AwaitableGetSubnetResult(GetSubnetResult):
             outpost_arn=self.outpost_arn,
             owner_id=self.owner_id,
             private_dns_hostname_type_on_launch=self.private_dns_hostname_type_on_launch,
+            region=self.region,
             state=self.state,
             tags=self.tags,
             vpc_id=self.vpc_id)
@@ -317,6 +326,7 @@ def get_subnet(availability_zone: Optional[builtins.str] = None,
                filters: Optional[Sequence[Union['GetSubnetFilterArgs', 'GetSubnetFilterArgsDict']]] = None,
                id: Optional[builtins.str] = None,
                ipv6_cidr_block: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                state: Optional[builtins.str] = None,
                tags: Optional[Mapping[str, builtins.str]] = None,
                vpc_id: Optional[builtins.str] = None,
@@ -369,6 +379,7 @@ def get_subnet(availability_zone: Optional[builtins.str] = None,
     :param Sequence[Union['GetSubnetFilterArgs', 'GetSubnetFilterArgsDict']] filters: Configuration block. Detailed below.
     :param builtins.str id: ID of the specific subnet to retrieve.
     :param builtins.str ipv6_cidr_block: IPv6 CIDR block of the desired subnet.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: State that the desired subnet must have.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired subnet.
     :param builtins.str vpc_id: ID of the VPC that the desired subnet belongs to.
@@ -381,6 +392,7 @@ def get_subnet(availability_zone: Optional[builtins.str] = None,
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['ipv6CidrBlock'] = ipv6_cidr_block
+    __args__['region'] = region
     __args__['state'] = state
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
@@ -410,6 +422,7 @@ def get_subnet(availability_zone: Optional[builtins.str] = None,
         outpost_arn=pulumi.get(__ret__, 'outpost_arn'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         private_dns_hostname_type_on_launch=pulumi.get(__ret__, 'private_dns_hostname_type_on_launch'),
+        region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
@@ -420,6 +433,7 @@ def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[builtins
                       filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSubnetFilterArgs', 'GetSubnetFilterArgsDict']]]]] = None,
                       id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       ipv6_cidr_block: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       state: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                       vpc_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -472,6 +486,7 @@ def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[builtins
     :param Sequence[Union['GetSubnetFilterArgs', 'GetSubnetFilterArgsDict']] filters: Configuration block. Detailed below.
     :param builtins.str id: ID of the specific subnet to retrieve.
     :param builtins.str ipv6_cidr_block: IPv6 CIDR block of the desired subnet.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: State that the desired subnet must have.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired subnet.
     :param builtins.str vpc_id: ID of the VPC that the desired subnet belongs to.
@@ -484,6 +499,7 @@ def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[builtins
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['ipv6CidrBlock'] = ipv6_cidr_block
+    __args__['region'] = region
     __args__['state'] = state
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
@@ -512,6 +528,7 @@ def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[builtins
         outpost_arn=pulumi.get(__response__, 'outpost_arn'),
         owner_id=pulumi.get(__response__, 'owner_id'),
         private_dns_hostname_type_on_launch=pulumi.get(__response__, 'private_dns_hostname_type_on_launch'),
+        region=pulumi.get(__response__, 'region'),
         state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags'),
         vpc_id=pulumi.get(__response__, 'vpc_id')))

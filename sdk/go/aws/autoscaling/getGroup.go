@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.Invo
 type LookupGroupArgs struct {
 	// Specify the exact name of the desired autoscaling group.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getGroup.
@@ -95,7 +97,8 @@ type LookupGroupResult struct {
 	// Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
 	PlacementGroup string `pulumi:"placementGroup"`
 	// Predicted capacity of the group.
-	PredictedCapacity int `pulumi:"predictedCapacity"`
+	PredictedCapacity int    `pulumi:"predictedCapacity"`
+	Region            string `pulumi:"region"`
 	// ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.
 	ServiceLinkedRoleArn string `pulumi:"serviceLinkedRoleArn"`
 	// Current state of the group when DeleteAutoScalingGroup is in progress.
@@ -131,6 +134,8 @@ func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...
 type LookupGroupOutputArgs struct {
 	// Specify the exact name of the desired autoscaling group.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupGroupOutputArgs) ElementType() reflect.Type {
@@ -253,6 +258,10 @@ func (o LookupGroupResultOutput) PlacementGroup() pulumi.StringOutput {
 // Predicted capacity of the group.
 func (o LookupGroupResultOutput) PredictedCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupGroupResult) int { return v.PredictedCapacity }).(pulumi.IntOutput)
+}
+
+func (o LookupGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.

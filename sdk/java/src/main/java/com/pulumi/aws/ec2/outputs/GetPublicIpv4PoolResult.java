@@ -32,6 +32,7 @@ public final class GetPublicIpv4PoolResult {
     private String networkBorderGroup;
     private List<GetPublicIpv4PoolPoolAddressRange> poolAddressRanges;
     private String poolId;
+    private String region;
     /**
      * @return Any tags for the address pool.
      * 
@@ -77,6 +78,9 @@ public final class GetPublicIpv4PoolResult {
     public String poolId() {
         return this.poolId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Any tags for the address pool.
      * 
@@ -113,6 +117,7 @@ public final class GetPublicIpv4PoolResult {
         private String networkBorderGroup;
         private List<GetPublicIpv4PoolPoolAddressRange> poolAddressRanges;
         private String poolId;
+        private String region;
         private Map<String,String> tags;
         private Integer totalAddressCount;
         private Integer totalAvailableAddressCount;
@@ -124,6 +129,7 @@ public final class GetPublicIpv4PoolResult {
     	      this.networkBorderGroup = defaults.networkBorderGroup;
     	      this.poolAddressRanges = defaults.poolAddressRanges;
     	      this.poolId = defaults.poolId;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.totalAddressCount = defaults.totalAddressCount;
     	      this.totalAvailableAddressCount = defaults.totalAvailableAddressCount;
@@ -173,6 +179,14 @@ public final class GetPublicIpv4PoolResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetPublicIpv4PoolResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetPublicIpv4PoolResult", "tags");
@@ -203,6 +217,7 @@ public final class GetPublicIpv4PoolResult {
             _resultValue.networkBorderGroup = networkBorderGroup;
             _resultValue.poolAddressRanges = poolAddressRanges;
             _resultValue.poolId = poolId;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.totalAddressCount = totalAddressCount;
             _resultValue.totalAvailableAddressCount = totalAvailableAddressCount;

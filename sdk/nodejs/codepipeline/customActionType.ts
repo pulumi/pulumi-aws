@@ -86,12 +86,14 @@ export class CustomActionType extends pulumi.CustomResource {
      */
     public /*out*/ readonly owner!: pulumi.Output<string>;
     public readonly providerName!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly settings!: pulumi.Output<outputs.codepipeline.CustomActionTypeSettings | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly version!: pulumi.Output<string>;
@@ -116,6 +118,7 @@ export class CustomActionType extends pulumi.CustomResource {
             resourceInputs["outputArtifactDetails"] = state ? state.outputArtifactDetails : undefined;
             resourceInputs["owner"] = state ? state.owner : undefined;
             resourceInputs["providerName"] = state ? state.providerName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["settings"] = state ? state.settings : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -142,6 +145,7 @@ export class CustomActionType extends pulumi.CustomResource {
             resourceInputs["inputArtifactDetails"] = args ? args.inputArtifactDetails : undefined;
             resourceInputs["outputArtifactDetails"] = args ? args.outputArtifactDetails : undefined;
             resourceInputs["providerName"] = args ? args.providerName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["settings"] = args ? args.settings : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
@@ -177,12 +181,14 @@ export interface CustomActionTypeState {
      */
     owner?: pulumi.Input<string>;
     providerName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     settings?: pulumi.Input<inputs.codepipeline.CustomActionTypeSettings>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     version?: pulumi.Input<string>;
@@ -203,6 +209,10 @@ export interface CustomActionTypeArgs {
     inputArtifactDetails: pulumi.Input<inputs.codepipeline.CustomActionTypeInputArtifactDetails>;
     outputArtifactDetails: pulumi.Input<inputs.codepipeline.CustomActionTypeOutputArtifactDetails>;
     providerName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     settings?: pulumi.Input<inputs.codepipeline.CustomActionTypeSettings>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     version: pulumi.Input<string>;

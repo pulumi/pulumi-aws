@@ -27,7 +27,7 @@ class GetAccessPointsResult:
     """
     A collection of values returned by getAccessPoints.
     """
-    def __init__(__self__, arns=None, file_system_id=None, id=None, ids=None):
+    def __init__(__self__, arns=None, file_system_id=None, id=None, ids=None, region=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         pulumi.set(__self__, "arns", arns)
@@ -40,6 +40,9 @@ class GetAccessPointsResult:
         if ids and not isinstance(ids, list):
             raise TypeError("Expected argument 'ids' to be a list")
         pulumi.set(__self__, "ids", ids)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -70,6 +73,11 @@ class GetAccessPointsResult:
         """
         return pulumi.get(self, "ids")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetAccessPointsResult(GetAccessPointsResult):
     # pylint: disable=using-constant-test
@@ -80,10 +88,12 @@ class AwaitableGetAccessPointsResult(GetAccessPointsResult):
             arns=self.arns,
             file_system_id=self.file_system_id,
             id=self.id,
-            ids=self.ids)
+            ids=self.ids,
+            region=self.region)
 
 
 def get_access_points(file_system_id: Optional[builtins.str] = None,
+                      region: Optional[builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPointsResult:
     """
     Provides information about multiple Elastic File System (EFS) Access Points.
@@ -99,9 +109,11 @@ def get_access_points(file_system_id: Optional[builtins.str] = None,
 
 
     :param builtins.str file_system_id: EFS File System identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['fileSystemId'] = file_system_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:efs/getAccessPoints:getAccessPoints', __args__, opts=opts, typ=GetAccessPointsResult).value
 
@@ -109,8 +121,10 @@ def get_access_points(file_system_id: Optional[builtins.str] = None,
         arns=pulumi.get(__ret__, 'arns'),
         file_system_id=pulumi.get(__ret__, 'file_system_id'),
         id=pulumi.get(__ret__, 'id'),
-        ids=pulumi.get(__ret__, 'ids'))
+        ids=pulumi.get(__ret__, 'ids'),
+        region=pulumi.get(__ret__, 'region'))
 def get_access_points_output(file_system_id: Optional[pulumi.Input[builtins.str]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointsResult]:
     """
     Provides information about multiple Elastic File System (EFS) Access Points.
@@ -126,13 +140,16 @@ def get_access_points_output(file_system_id: Optional[pulumi.Input[builtins.str]
 
 
     :param builtins.str file_system_id: EFS File System identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['fileSystemId'] = file_system_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:efs/getAccessPoints:getAccessPoints', __args__, opts=opts, typ=GetAccessPointsResult)
     return __ret__.apply(lambda __response__: GetAccessPointsResult(
         arns=pulumi.get(__response__, 'arns'),
         file_system_id=pulumi.get(__response__, 'file_system_id'),
         id=pulumi.get(__response__, 'id'),
-        ids=pulumi.get(__response__, 'ids')))
+        ids=pulumi.get(__response__, 'ids'),
+        region=pulumi.get(__response__, 'region')))

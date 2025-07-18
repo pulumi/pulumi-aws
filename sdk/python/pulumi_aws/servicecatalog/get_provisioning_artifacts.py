@@ -28,7 +28,7 @@ class GetProvisioningArtifactsResult:
     """
     A collection of values returned by getProvisioningArtifacts.
     """
-    def __init__(__self__, accept_language=None, id=None, product_id=None, provisioning_artifact_details=None):
+    def __init__(__self__, accept_language=None, id=None, product_id=None, provisioning_artifact_details=None, region=None):
         if accept_language and not isinstance(accept_language, str):
             raise TypeError("Expected argument 'accept_language' to be a str")
         pulumi.set(__self__, "accept_language", accept_language)
@@ -41,6 +41,9 @@ class GetProvisioningArtifactsResult:
         if provisioning_artifact_details and not isinstance(provisioning_artifact_details, list):
             raise TypeError("Expected argument 'provisioning_artifact_details' to be a list")
         pulumi.set(__self__, "provisioning_artifact_details", provisioning_artifact_details)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="acceptLanguage")
@@ -68,6 +71,11 @@ class GetProvisioningArtifactsResult:
         """
         return pulumi.get(self, "provisioning_artifact_details")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetProvisioningArtifactsResult(GetProvisioningArtifactsResult):
     # pylint: disable=using-constant-test
@@ -78,11 +86,13 @@ class AwaitableGetProvisioningArtifactsResult(GetProvisioningArtifactsResult):
             accept_language=self.accept_language,
             id=self.id,
             product_id=self.product_id,
-            provisioning_artifact_details=self.provisioning_artifact_details)
+            provisioning_artifact_details=self.provisioning_artifact_details,
+            region=self.region)
 
 
 def get_provisioning_artifacts(accept_language: Optional[builtins.str] = None,
                                product_id: Optional[builtins.str] = None,
+                               region: Optional[builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProvisioningArtifactsResult:
     """
     Lists the provisioning artifacts for the specified product.
@@ -103,10 +113,12 @@ def get_provisioning_artifacts(accept_language: Optional[builtins.str] = None,
     :param builtins.str product_id: Product identifier.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
     __args__['productId'] = product_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts', __args__, opts=opts, typ=GetProvisioningArtifactsResult).value
 
@@ -114,9 +126,11 @@ def get_provisioning_artifacts(accept_language: Optional[builtins.str] = None,
         accept_language=pulumi.get(__ret__, 'accept_language'),
         id=pulumi.get(__ret__, 'id'),
         product_id=pulumi.get(__ret__, 'product_id'),
-        provisioning_artifact_details=pulumi.get(__ret__, 'provisioning_artifact_details'))
+        provisioning_artifact_details=pulumi.get(__ret__, 'provisioning_artifact_details'),
+        region=pulumi.get(__ret__, 'region'))
 def get_provisioning_artifacts_output(accept_language: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                       product_id: Optional[pulumi.Input[builtins.str]] = None,
+                                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProvisioningArtifactsResult]:
     """
     Lists the provisioning artifacts for the specified product.
@@ -137,14 +151,17 @@ def get_provisioning_artifacts_output(accept_language: Optional[pulumi.Input[Opt
     :param builtins.str product_id: Product identifier.
            
            The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['acceptLanguage'] = accept_language
     __args__['productId'] = product_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts', __args__, opts=opts, typ=GetProvisioningArtifactsResult)
     return __ret__.apply(lambda __response__: GetProvisioningArtifactsResult(
         accept_language=pulumi.get(__response__, 'accept_language'),
         id=pulumi.get(__response__, 'id'),
         product_id=pulumi.get(__response__, 'product_id'),
-        provisioning_artifact_details=pulumi.get(__response__, 'provisioning_artifact_details')))
+        provisioning_artifact_details=pulumi.get(__response__, 'provisioning_artifact_details'),
+        region=pulumi.get(__response__, 'region')))

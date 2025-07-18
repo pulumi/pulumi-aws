@@ -145,6 +145,12 @@ namespace Pulumi.Aws.DynamoDB
         public string? ProjectionExpression { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// The name of the table containing the requested item.
         /// </summary>
         [Input("tableName", required: true)]
@@ -183,6 +189,12 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? ProjectionExpression { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The name of the table containing the requested item.
         /// </summary>
         [Input("tableName", required: true)]
@@ -209,6 +221,7 @@ namespace Pulumi.Aws.DynamoDB
         public readonly string Item;
         public readonly string Key;
         public readonly string? ProjectionExpression;
+        public readonly string Region;
         public readonly string TableName;
 
         [OutputConstructor]
@@ -223,6 +236,8 @@ namespace Pulumi.Aws.DynamoDB
 
             string? projectionExpression,
 
+            string region,
+
             string tableName)
         {
             ExpressionAttributeNames = expressionAttributeNames;
@@ -230,6 +245,7 @@ namespace Pulumi.Aws.DynamoDB
             Item = item;
             Key = key;
             ProjectionExpression = projectionExpression;
+            Region = region;
             TableName = tableName;
         }
     }

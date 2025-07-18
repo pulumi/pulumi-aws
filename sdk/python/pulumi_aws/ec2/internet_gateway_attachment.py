@@ -21,14 +21,18 @@ __all__ = ['InternetGatewayAttachmentArgs', 'InternetGatewayAttachment']
 class InternetGatewayAttachmentArgs:
     def __init__(__self__, *,
                  internet_gateway_id: pulumi.Input[builtins.str],
-                 vpc_id: pulumi.Input[builtins.str]):
+                 vpc_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a InternetGatewayAttachment resource.
         :param pulumi.Input[builtins.str] internet_gateway_id: The ID of the internet gateway.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "internet_gateway_id", internet_gateway_id)
         pulumi.set(__self__, "vpc_id", vpc_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="internetGatewayId")
@@ -54,19 +58,35 @@ class InternetGatewayAttachmentArgs:
     def vpc_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "vpc_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _InternetGatewayAttachmentState:
     def __init__(__self__, *,
                  internet_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering InternetGatewayAttachment resources.
         :param pulumi.Input[builtins.str] internet_gateway_id: The ID of the internet gateway.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC.
         """
         if internet_gateway_id is not None:
             pulumi.set(__self__, "internet_gateway_id", internet_gateway_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if vpc_id is not None:
             pulumi.set(__self__, "vpc_id", vpc_id)
 
@@ -81,6 +101,18 @@ class _InternetGatewayAttachmentState:
     @internet_gateway_id.setter
     def internet_gateway_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "internet_gateway_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="vpcId")
@@ -102,6 +134,7 @@ class InternetGatewayAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  internet_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -131,6 +164,7 @@ class InternetGatewayAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] internet_gateway_id: The ID of the internet gateway.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC.
         """
         ...
@@ -179,6 +213,7 @@ class InternetGatewayAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  internet_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -192,6 +227,7 @@ class InternetGatewayAttachment(pulumi.CustomResource):
             if internet_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'internet_gateway_id'")
             __props__.__dict__["internet_gateway_id"] = internet_gateway_id
+            __props__.__dict__["region"] = region
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
@@ -206,6 +242,7 @@ class InternetGatewayAttachment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             internet_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             vpc_id: Optional[pulumi.Input[builtins.str]] = None) -> 'InternetGatewayAttachment':
         """
         Get an existing InternetGatewayAttachment resource's state with the given name, id, and optional extra
@@ -215,6 +252,7 @@ class InternetGatewayAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] internet_gateway_id: The ID of the internet gateway.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -222,6 +260,7 @@ class InternetGatewayAttachment(pulumi.CustomResource):
         __props__ = _InternetGatewayAttachmentState.__new__(_InternetGatewayAttachmentState)
 
         __props__.__dict__["internet_gateway_id"] = internet_gateway_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["vpc_id"] = vpc_id
         return InternetGatewayAttachment(resource_name, opts=opts, __props__=__props__)
 
@@ -232,6 +271,14 @@ class InternetGatewayAttachment(pulumi.CustomResource):
         The ID of the internet gateway.
         """
         return pulumi.get(self, "internet_gateway_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="vpcId")

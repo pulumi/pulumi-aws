@@ -56,6 +56,10 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The target.
      */
     public readonly target!: pulumi.Output<outputs.vpclattice.TargetGroupAttachmentTarget>;
@@ -77,6 +81,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TargetGroupAttachmentState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["target"] = state ? state.target : undefined;
             resourceInputs["targetGroupIdentifier"] = state ? state.targetGroupIdentifier : undefined;
         } else {
@@ -87,6 +92,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
             if ((!args || args.targetGroupIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetGroupIdentifier'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["target"] = args ? args.target : undefined;
             resourceInputs["targetGroupIdentifier"] = args ? args.targetGroupIdentifier : undefined;
         }
@@ -99,6 +105,10 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TargetGroupAttachment resources.
  */
 export interface TargetGroupAttachmentState {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The target.
      */
@@ -113,6 +123,10 @@ export interface TargetGroupAttachmentState {
  * The set of arguments for constructing a TargetGroupAttachment resource.
  */
 export interface TargetGroupAttachmentArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The target.
      */

@@ -95,6 +95,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly outpostArn!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Size of the drive in GiBs.
      */
     public readonly size!: pulumi.Output<number>;
@@ -108,8 +112,6 @@ export class Volume extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -147,6 +149,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["multiAttachEnabled"] = state ? state.multiAttachEnabled : undefined;
             resourceInputs["outpostArn"] = state ? state.outpostArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["size"] = state ? state.size : undefined;
             resourceInputs["snapshotId"] = state ? state.snapshotId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -165,6 +168,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["multiAttachEnabled"] = args ? args.multiAttachEnabled : undefined;
             resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["size"] = args ? args.size : undefined;
             resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -220,6 +224,10 @@ export interface VolumeState {
      */
     outpostArn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Size of the drive in GiBs.
      */
     size?: pulumi.Input<number>;
@@ -233,8 +241,6 @@ export interface VolumeState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -283,6 +289,10 @@ export interface VolumeArgs {
      * Amazon Resource Name (ARN) of the Outpost.
      */
     outpostArn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Size of the drive in GiBs.
      */

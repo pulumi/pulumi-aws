@@ -22,6 +22,7 @@ export function getNamedQuery(args: GetNamedQueryArgs, opts?: pulumi.InvokeOptio
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:athena/getNamedQuery:getNamedQuery", {
         "name": args.name,
+        "region": args.region,
         "workgroup": args.workgroup,
     }, opts);
 }
@@ -34,6 +35,10 @@ export interface GetNamedQueryArgs {
      * The plain language name for the query. Maximum length of 128.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * The workgroup to which the query belongs. Defaults to `primary`.
      */
@@ -58,6 +63,7 @@ export interface GetNamedQueryResult {
     readonly id: string;
     readonly name: string;
     readonly querystring: string;
+    readonly region: string;
     readonly workgroup?: string;
 }
 /**
@@ -78,6 +84,7 @@ export function getNamedQueryOutput(args: GetNamedQueryOutputArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:athena/getNamedQuery:getNamedQuery", {
         "name": args.name,
+        "region": args.region,
         "workgroup": args.workgroup,
     }, opts);
 }
@@ -90,6 +97,10 @@ export interface GetNamedQueryOutputArgs {
      * The plain language name for the query. Maximum length of 128.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The workgroup to which the query belongs. Defaults to `primary`.
      */

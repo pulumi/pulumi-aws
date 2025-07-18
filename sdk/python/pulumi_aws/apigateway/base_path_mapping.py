@@ -24,6 +24,7 @@ class BasePathMappingArgs:
                  rest_api: pulumi.Input[builtins.str],
                  base_path: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  stage_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a BasePathMapping resource.
@@ -31,6 +32,7 @@ class BasePathMappingArgs:
         :param pulumi.Input[builtins.str] rest_api: ID of the API to connect.
         :param pulumi.Input[builtins.str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
         :param pulumi.Input[builtins.str] domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stage_name: Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
         pulumi.set(__self__, "domain_name", domain_name)
@@ -39,6 +41,8 @@ class BasePathMappingArgs:
             pulumi.set(__self__, "base_path", base_path)
         if domain_name_id is not None:
             pulumi.set(__self__, "domain_name_id", domain_name_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if stage_name is not None:
             pulumi.set(__self__, "stage_name", stage_name)
 
@@ -91,6 +95,18 @@ class BasePathMappingArgs:
         pulumi.set(self, "domain_name_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="stageName")
     def stage_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -109,6 +125,7 @@ class _BasePathMappingState:
                  base_path: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
                  stage_name: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -116,6 +133,7 @@ class _BasePathMappingState:
         :param pulumi.Input[builtins.str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
         :param pulumi.Input[builtins.str] domain_name: Already-registered domain name to connect the API to.
         :param pulumi.Input[builtins.str] domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the API to connect.
         :param pulumi.Input[builtins.str] stage_name: Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
@@ -125,6 +143,8 @@ class _BasePathMappingState:
             pulumi.set(__self__, "domain_name", domain_name)
         if domain_name_id is not None:
             pulumi.set(__self__, "domain_name_id", domain_name_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rest_api is not None:
             pulumi.set(__self__, "rest_api", rest_api)
         if stage_name is not None:
@@ -167,6 +187,18 @@ class _BasePathMappingState:
         pulumi.set(self, "domain_name_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -200,6 +232,7 @@ class BasePathMapping(pulumi.CustomResource):
                  base_path: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
                  stage_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -237,6 +270,7 @@ class BasePathMapping(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
         :param pulumi.Input[builtins.str] domain_name: Already-registered domain name to connect the API to.
         :param pulumi.Input[builtins.str] domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the API to connect.
         :param pulumi.Input[builtins.str] stage_name: Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
@@ -293,6 +327,7 @@ class BasePathMapping(pulumi.CustomResource):
                  base_path: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
                  stage_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -309,6 +344,7 @@ class BasePathMapping(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["domain_name_id"] = domain_name_id
+            __props__.__dict__["region"] = region
             if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
             __props__.__dict__["rest_api"] = rest_api
@@ -326,6 +362,7 @@ class BasePathMapping(pulumi.CustomResource):
             base_path: Optional[pulumi.Input[builtins.str]] = None,
             domain_name: Optional[pulumi.Input[builtins.str]] = None,
             domain_name_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rest_api: Optional[pulumi.Input[builtins.str]] = None,
             stage_name: Optional[pulumi.Input[builtins.str]] = None) -> 'BasePathMapping':
         """
@@ -338,6 +375,7 @@ class BasePathMapping(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] base_path: Path segment that must be prepended to the path when accessing the API via this mapping. If omitted, the API is exposed at the root of the given domain.
         :param pulumi.Input[builtins.str] domain_name: Already-registered domain name to connect the API to.
         :param pulumi.Input[builtins.str] domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the API to connect.
         :param pulumi.Input[builtins.str] stage_name: Name of a specific deployment stage to expose at the given path. If omitted, callers may select any stage by including its name as a path element after the base path.
         """
@@ -348,6 +386,7 @@ class BasePathMapping(pulumi.CustomResource):
         __props__.__dict__["base_path"] = base_path
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["domain_name_id"] = domain_name_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["rest_api"] = rest_api
         __props__.__dict__["stage_name"] = stage_name
         return BasePathMapping(resource_name, opts=opts, __props__=__props__)
@@ -375,6 +414,14 @@ class BasePathMapping(pulumi.CustomResource):
         The identifier for the domain name resource. Supported only for private custom domain names.
         """
         return pulumi.get(self, "domain_name_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="restApi")

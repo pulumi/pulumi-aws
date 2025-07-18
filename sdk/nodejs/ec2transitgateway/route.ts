@@ -80,6 +80,10 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly destinationCidrBlock!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
      */
     public readonly transitGatewayAttachmentId!: pulumi.Output<string | undefined>;
@@ -103,6 +107,7 @@ export class Route extends pulumi.CustomResource {
             const state = argsOrState as RouteState | undefined;
             resourceInputs["blackhole"] = state ? state.blackhole : undefined;
             resourceInputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
             resourceInputs["transitGatewayRouteTableId"] = state ? state.transitGatewayRouteTableId : undefined;
         } else {
@@ -115,6 +120,7 @@ export class Route extends pulumi.CustomResource {
             }
             resourceInputs["blackhole"] = args ? args.blackhole : undefined;
             resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
             resourceInputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
         }
@@ -135,6 +141,10 @@ export interface RouteState {
      * IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
      */
     destinationCidrBlock?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
      */
@@ -157,6 +167,10 @@ export interface RouteArgs {
      * IPv4 or IPv6 RFC1924 CIDR used for destination matches. Routing decisions are based on the most specific match.
      */
     destinationCidrBlock: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Attachment (required if `blackhole` is set to false).
      */

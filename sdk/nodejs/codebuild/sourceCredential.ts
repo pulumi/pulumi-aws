@@ -99,6 +99,10 @@ export class SourceCredential extends pulumi.CustomResource {
      */
     public readonly authType!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The source provider used for this project.
      */
     public readonly serverType!: pulumi.Output<string>;
@@ -129,6 +133,7 @@ export class SourceCredential extends pulumi.CustomResource {
             const state = argsOrState as SourceCredentialState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["authType"] = state ? state.authType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serverType"] = state ? state.serverType : undefined;
             resourceInputs["token"] = state ? state.token : undefined;
             resourceInputs["userName"] = state ? state.userName : undefined;
@@ -144,6 +149,7 @@ export class SourceCredential extends pulumi.CustomResource {
                 throw new Error("Missing required property 'token'");
             }
             resourceInputs["authType"] = args ? args.authType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serverType"] = args ? args.serverType : undefined;
             resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
@@ -171,6 +177,10 @@ export interface SourceCredentialState {
      */
     authType?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The source provider used for this project.
      */
     serverType?: pulumi.Input<string>;
@@ -197,6 +207,10 @@ export interface SourceCredentialArgs {
      * `PERSONAL_ACCESS_TOKEN`, `CODECONNECTIONS`, and `SECRETS_MANAGER`. An OAUTH connection is not supported by the API.
      */
     authType: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The source provider used for this project.
      */

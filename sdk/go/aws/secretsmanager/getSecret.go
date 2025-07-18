@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +48,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/secretsmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/secretsmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,6 +82,8 @@ type LookupSecretArgs struct {
 	Arn *string `pulumi:"arn"`
 	// Name of the secret to retrieve.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags of the secret.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -103,6 +105,7 @@ type LookupSecretResult struct {
 	Name            string `pulumi:"name"`
 	// Resource-based policy document that's attached to the secret.
 	Policy string `pulumi:"policy"`
+	Region string `pulumi:"region"`
 	// Tags of the secret.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -122,6 +125,8 @@ type LookupSecretOutputArgs struct {
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Name of the secret to retrieve.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags of the secret.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -182,6 +187,10 @@ func (o LookupSecretResultOutput) Name() pulumi.StringOutput {
 // Resource-based policy document that's attached to the secret.
 func (o LookupSecretResultOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+func (o LookupSecretResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Tags of the secret.

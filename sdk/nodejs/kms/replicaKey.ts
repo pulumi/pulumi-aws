@@ -9,11 +9,32 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### AWS Provider v6 (and below)
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const primary = new aws.kms.Key("primary", {
+ *     description: "Multi-Region primary key",
+ *     deletionWindowInDays: 30,
+ *     multiRegion: true,
+ * });
+ * const replica = new aws.kms.ReplicaKey("replica", {
+ *     description: "Multi-Region replica key",
+ *     deletionWindowInDays: 7,
+ *     primaryKeyArn: primary.arn,
+ * });
+ * ```
+ *
+ * ### AWS Provider v7 (and above)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const primary = new aws.kms.Key("primary", {
+ *     region: "us-east-1",
  *     description: "Multi-Region primary key",
  *     deletionWindowInDays: 30,
  *     multiRegion: true,
@@ -110,13 +131,15 @@ export class ReplicaKey extends pulumi.CustomResource {
      */
     public readonly primaryKeyArn!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -144,6 +167,7 @@ export class ReplicaKey extends pulumi.CustomResource {
             resourceInputs["keyUsage"] = state ? state.keyUsage : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
             resourceInputs["primaryKeyArn"] = state ? state.primaryKeyArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -157,6 +181,7 @@ export class ReplicaKey extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["primaryKeyArn"] = args ? args.primaryKeyArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["keyId"] = undefined /*out*/;
@@ -223,13 +248,15 @@ export interface ReplicaKeyState {
      */
     primaryKeyArn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -266,6 +293,10 @@ export interface ReplicaKeyArgs {
      * The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
      */
     primaryKeyArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

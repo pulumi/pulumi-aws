@@ -25,26 +25,26 @@ class ReportDefinitionArgs:
                  format: pulumi.Input[builtins.str],
                  report_name: pulumi.Input[builtins.str],
                  s3_bucket: pulumi.Input[builtins.str],
+                 s3_prefix: pulumi.Input[builtins.str],
                  s3_region: pulumi.Input[builtins.str],
                  time_unit: pulumi.Input[builtins.str],
                  additional_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  refresh_closed_reports: Optional[pulumi.Input[builtins.bool]] = None,
                  report_versioning: Optional[pulumi.Input[builtins.str]] = None,
-                 s3_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReportDefinition resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
         :param pulumi.Input[builtins.str] compression: Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
         :param pulumi.Input[builtins.str] format: Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
         :param pulumi.Input[builtins.str] report_name: Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         :param pulumi.Input[builtins.str] s3_bucket: Name of the existing S3 bucket to hold generated reports.
+        :param pulumi.Input[builtins.str] s3_prefix: Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
         :param pulumi.Input[builtins.str] s3_region: Region of the existing S3 bucket to hold generated reports.
         :param pulumi.Input[builtins.str] time_unit: The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] additional_artifacts: A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
         :param pulumi.Input[builtins.bool] refresh_closed_reports: Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
         :param pulumi.Input[builtins.str] report_versioning: Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
-        :param pulumi.Input[builtins.str] s3_prefix: Report path prefix. Limited to 256 characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "additional_schema_elements", additional_schema_elements)
@@ -52,6 +52,7 @@ class ReportDefinitionArgs:
         pulumi.set(__self__, "format", format)
         pulumi.set(__self__, "report_name", report_name)
         pulumi.set(__self__, "s3_bucket", s3_bucket)
+        pulumi.set(__self__, "s3_prefix", s3_prefix)
         pulumi.set(__self__, "s3_region", s3_region)
         pulumi.set(__self__, "time_unit", time_unit)
         if additional_artifacts is not None:
@@ -60,8 +61,6 @@ class ReportDefinitionArgs:
             pulumi.set(__self__, "refresh_closed_reports", refresh_closed_reports)
         if report_versioning is not None:
             pulumi.set(__self__, "report_versioning", report_versioning)
-        if s3_prefix is not None:
-            pulumi.set(__self__, "s3_prefix", s3_prefix)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -69,7 +68,7 @@ class ReportDefinitionArgs:
     @pulumi.getter(name="additionalSchemaElements")
     def additional_schema_elements(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
         """
-        A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+        A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
         """
         return pulumi.get(self, "additional_schema_elements")
 
@@ -124,6 +123,18 @@ class ReportDefinitionArgs:
     @s3_bucket.setter
     def s3_bucket(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "s3_bucket", value)
+
+    @property
+    @pulumi.getter(name="s3Prefix")
+    def s3_prefix(self) -> pulumi.Input[builtins.str]:
+        """
+        Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
+        """
+        return pulumi.get(self, "s3_prefix")
+
+    @s3_prefix.setter
+    def s3_prefix(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "s3_prefix", value)
 
     @property
     @pulumi.getter(name="s3Region")
@@ -186,18 +197,6 @@ class ReportDefinitionArgs:
         pulumi.set(self, "report_versioning", value)
 
     @property
-    @pulumi.getter(name="s3Prefix")
-    def s3_prefix(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Report path prefix. Limited to 256 characters.
-        """
-        return pulumi.get(self, "s3_prefix")
-
-    @s3_prefix.setter
-    def s3_prefix(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "s3_prefix", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -230,7 +229,7 @@ class _ReportDefinitionState:
         """
         Input properties used for looking up and filtering ReportDefinition resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] additional_artifacts: A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) specifying the cur report.
         :param pulumi.Input[builtins.str] compression: Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
         :param pulumi.Input[builtins.str] format: Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
@@ -238,7 +237,7 @@ class _ReportDefinitionState:
         :param pulumi.Input[builtins.str] report_name: Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         :param pulumi.Input[builtins.str] report_versioning: Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
         :param pulumi.Input[builtins.str] s3_bucket: Name of the existing S3 bucket to hold generated reports.
-        :param pulumi.Input[builtins.str] s3_prefix: Report path prefix. Limited to 256 characters.
+        :param pulumi.Input[builtins.str] s3_prefix: Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
         :param pulumi.Input[builtins.str] s3_region: Region of the existing S3 bucket to hold generated reports.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -269,9 +268,6 @@ class _ReportDefinitionState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if time_unit is not None:
             pulumi.set(__self__, "time_unit", time_unit)
@@ -292,7 +288,7 @@ class _ReportDefinitionState:
     @pulumi.getter(name="additionalSchemaElements")
     def additional_schema_elements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+        A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
         """
         return pulumi.get(self, "additional_schema_elements")
 
@@ -388,7 +384,7 @@ class _ReportDefinitionState:
     @pulumi.getter(name="s3Prefix")
     def s3_prefix(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Report path prefix. Limited to 256 characters.
+        Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
         """
         return pulumi.get(self, "s3_prefix")
 
@@ -422,7 +418,6 @@ class _ReportDefinitionState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -486,6 +481,7 @@ class ReportDefinition(pulumi.CustomResource):
                 "SPLIT_COST_ALLOCATION_DATA",
             ],
             s3_bucket="example-bucket-name",
+            s3_prefix="example-cur-report",
             s3_region="us-east-1",
             additional_artifacts=[
                 "REDSHIFT",
@@ -504,14 +500,14 @@ class ReportDefinition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] additional_artifacts: A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
         :param pulumi.Input[builtins.str] compression: Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
         :param pulumi.Input[builtins.str] format: Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
         :param pulumi.Input[builtins.bool] refresh_closed_reports: Set to true to update your reports after they have been finalized if AWS detects charges related to previous months.
         :param pulumi.Input[builtins.str] report_name: Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         :param pulumi.Input[builtins.str] report_versioning: Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
         :param pulumi.Input[builtins.str] s3_bucket: Name of the existing S3 bucket to hold generated reports.
-        :param pulumi.Input[builtins.str] s3_prefix: Report path prefix. Limited to 256 characters.
+        :param pulumi.Input[builtins.str] s3_prefix: Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
         :param pulumi.Input[builtins.str] s3_region: Region of the existing S3 bucket to hold generated reports.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] time_unit: The frequency on which report data are measured and displayed.  Valid values are: `DAILY`, `HOURLY`, `MONTHLY`.
@@ -543,6 +539,7 @@ class ReportDefinition(pulumi.CustomResource):
                 "SPLIT_COST_ALLOCATION_DATA",
             ],
             s3_bucket="example-bucket-name",
+            s3_prefix="example-cur-report",
             s3_region="us-east-1",
             additional_artifacts=[
                 "REDSHIFT",
@@ -612,6 +609,8 @@ class ReportDefinition(pulumi.CustomResource):
             if s3_bucket is None and not opts.urn:
                 raise TypeError("Missing required property 's3_bucket'")
             __props__.__dict__["s3_bucket"] = s3_bucket
+            if s3_prefix is None and not opts.urn:
+                raise TypeError("Missing required property 's3_prefix'")
             __props__.__dict__["s3_prefix"] = s3_prefix
             if s3_region is None and not opts.urn:
                 raise TypeError("Missing required property 's3_region'")
@@ -654,7 +653,7 @@ class ReportDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] additional_artifacts: A list of additional artifacts. Valid values are: `REDSHIFT`, `QUICKSIGHT`, `ATHENA`. When ATHENA exists within additional_artifacts, no other artifact type can be declared and report_versioning must be `OVERWRITE_REPORT`.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] additional_schema_elements: A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) specifying the cur report.
         :param pulumi.Input[builtins.str] compression: Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
         :param pulumi.Input[builtins.str] format: Format for report. Valid values are: `textORcsv`, `Parquet`. If `Parquet` is used, then Compression must also be `Parquet`.
@@ -662,7 +661,7 @@ class ReportDefinition(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] report_name: Unique name for the report. Must start with a number/letter and is case sensitive. Limited to 256 characters.
         :param pulumi.Input[builtins.str] report_versioning: Overwrite the previous version of each report or to deliver the report in addition to the previous versions. Valid values are: `CREATE_NEW_REPORT` and `OVERWRITE_REPORT`.
         :param pulumi.Input[builtins.str] s3_bucket: Name of the existing S3 bucket to hold generated reports.
-        :param pulumi.Input[builtins.str] s3_prefix: Report path prefix. Limited to 256 characters.
+        :param pulumi.Input[builtins.str] s3_prefix: Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
         :param pulumi.Input[builtins.str] s3_region: Region of the existing S3 bucket to hold generated reports.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -700,7 +699,7 @@ class ReportDefinition(pulumi.CustomResource):
     @pulumi.getter(name="additionalSchemaElements")
     def additional_schema_elements(self) -> pulumi.Output[Sequence[builtins.str]]:
         """
-        A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`.
+        A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
         """
         return pulumi.get(self, "additional_schema_elements")
 
@@ -762,9 +761,9 @@ class ReportDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="s3Prefix")
-    def s3_prefix(self) -> pulumi.Output[Optional[builtins.str]]:
+    def s3_prefix(self) -> pulumi.Output[builtins.str]:
         """
-        Report path prefix. Limited to 256 characters.
+        Report path prefix. Limited to 256 characters. May be empty (`""`) but the resource can then not be modified via the AWS Console.
         """
         return pulumi.get(self, "s3_prefix")
 
@@ -786,7 +785,6 @@ class ReportDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

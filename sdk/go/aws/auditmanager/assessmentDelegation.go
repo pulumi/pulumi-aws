@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/auditmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,6 +63,8 @@ type AssessmentDelegation struct {
 	ControlSetId pulumi.StringOutput `pulumi:"controlSetId"`
 	// Unique identifier for the delegation.
 	DelegationId pulumi.StringOutput `pulumi:"delegationId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the IAM role.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
@@ -123,6 +125,8 @@ type assessmentDelegationState struct {
 	ControlSetId *string `pulumi:"controlSetId"`
 	// Unique identifier for the delegation.
 	DelegationId *string `pulumi:"delegationId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the IAM role.
 	RoleArn *string `pulumi:"roleArn"`
 	// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
@@ -142,6 +146,8 @@ type AssessmentDelegationState struct {
 	ControlSetId pulumi.StringPtrInput
 	// Unique identifier for the delegation.
 	DelegationId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the IAM role.
 	RoleArn pulumi.StringPtrInput
 	// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
@@ -163,6 +169,8 @@ type assessmentDelegationArgs struct {
 	Comment *string `pulumi:"comment"`
 	// Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
 	ControlSetId string `pulumi:"controlSetId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the IAM role.
 	RoleArn string `pulumi:"roleArn"`
 	// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
@@ -179,6 +187,8 @@ type AssessmentDelegationArgs struct {
 	Comment pulumi.StringPtrInput
 	// Assessment control set name. This value is the control set name used during assessment creation (not the AWS-generated ID). The `_id` suffix on this attribute has been preserved to be consistent with the underlying AWS API.
 	ControlSetId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the IAM role.
 	RoleArn pulumi.StringInput
 	// Type of customer persona. For assessment delegation, type must always be `RESOURCE_OWNER`.
@@ -292,6 +302,11 @@ func (o AssessmentDelegationOutput) ControlSetId() pulumi.StringOutput {
 // Unique identifier for the delegation.
 func (o AssessmentDelegationOutput) DelegationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssessmentDelegation) pulumi.StringOutput { return v.DelegationId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AssessmentDelegationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AssessmentDelegation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Amazon Resource Name (ARN) of the IAM role.

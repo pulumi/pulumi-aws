@@ -28,7 +28,7 @@ class GetConnectionResult:
     """
     A collection of values returned by getConnection.
     """
-    def __init__(__self__, arn=None, athena_properties=None, catalog_id=None, connection_properties=None, connection_type=None, description=None, id=None, match_criterias=None, name=None, physical_connection_requirements=None, tags=None):
+    def __init__(__self__, arn=None, athena_properties=None, catalog_id=None, connection_properties=None, connection_type=None, description=None, id=None, match_criterias=None, name=None, physical_connection_requirements=None, region=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -59,6 +59,9 @@ class GetConnectionResult:
         if physical_connection_requirements and not isinstance(physical_connection_requirements, list):
             raise TypeError("Expected argument 'physical_connection_requirements' to be a list")
         pulumi.set(__self__, "physical_connection_requirements", physical_connection_requirements)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -142,6 +145,11 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Tags assigned to the resource
@@ -165,10 +173,12 @@ class AwaitableGetConnectionResult(GetConnectionResult):
             match_criterias=self.match_criterias,
             name=self.name,
             physical_connection_requirements=self.physical_connection_requirements,
+            region=self.region,
             tags=self.tags)
 
 
 def get_connection(id: Optional[builtins.str] = None,
+                   region: Optional[builtins.str] = None,
                    tags: Optional[Mapping[str, builtins.str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
@@ -186,10 +196,12 @@ def get_connection(id: Optional[builtins.str] = None,
 
     :param builtins.str id: Concatenation of the catalog ID and connection name. For example, if your account ID is
            `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags assigned to the resource
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:glue/getConnection:getConnection', __args__, opts=opts, typ=GetConnectionResult).value
@@ -205,8 +217,10 @@ def get_connection(id: Optional[builtins.str] = None,
         match_criterias=pulumi.get(__ret__, 'match_criterias'),
         name=pulumi.get(__ret__, 'name'),
         physical_connection_requirements=pulumi.get(__ret__, 'physical_connection_requirements'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_connection_output(id: Optional[pulumi.Input[builtins.str]] = None,
+                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
@@ -224,10 +238,12 @@ def get_connection_output(id: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str id: Concatenation of the catalog ID and connection name. For example, if your account ID is
            `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags assigned to the resource
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:glue/getConnection:getConnection', __args__, opts=opts, typ=GetConnectionResult)
@@ -242,4 +258,5 @@ def get_connection_output(id: Optional[pulumi.Input[builtins.str]] = None,
         match_criterias=pulumi.get(__response__, 'match_criterias'),
         name=pulumi.get(__response__, 'name'),
         physical_connection_requirements=pulumi.get(__response__, 'physical_connection_requirements'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

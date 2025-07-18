@@ -28,7 +28,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, cluster_name=None, id=None, pending_tasks_count=None, registered_container_instances_count=None, running_tasks_count=None, service_connect_defaults=None, settings=None, status=None, tags=None):
+    def __init__(__self__, arn=None, cluster_name=None, id=None, pending_tasks_count=None, region=None, registered_container_instances_count=None, running_tasks_count=None, service_connect_defaults=None, settings=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -41,6 +41,9 @@ class GetClusterResult:
         if pending_tasks_count and not isinstance(pending_tasks_count, int):
             raise TypeError("Expected argument 'pending_tasks_count' to be a int")
         pulumi.set(__self__, "pending_tasks_count", pending_tasks_count)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if registered_container_instances_count and not isinstance(registered_container_instances_count, int):
             raise TypeError("Expected argument 'registered_container_instances_count' to be a int")
         pulumi.set(__self__, "registered_container_instances_count", registered_container_instances_count)
@@ -88,6 +91,11 @@ class GetClusterResult:
         Number of pending tasks for the ECS Cluster
         """
         return pulumi.get(self, "pending_tasks_count")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="registeredContainerInstancesCount")
@@ -148,6 +156,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             cluster_name=self.cluster_name,
             id=self.id,
             pending_tasks_count=self.pending_tasks_count,
+            region=self.region,
             registered_container_instances_count=self.registered_container_instances_count,
             running_tasks_count=self.running_tasks_count,
             service_connect_defaults=self.service_connect_defaults,
@@ -157,6 +166,7 @@ class AwaitableGetClusterResult(GetClusterResult):
 
 
 def get_cluster(cluster_name: Optional[builtins.str] = None,
+                region: Optional[builtins.str] = None,
                 tags: Optional[Mapping[str, builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
@@ -174,10 +184,12 @@ def get_cluster(cluster_name: Optional[builtins.str] = None,
 
 
     :param builtins.str cluster_name: Name of the ECS Cluster
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ecs/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
@@ -187,6 +199,7 @@ def get_cluster(cluster_name: Optional[builtins.str] = None,
         cluster_name=pulumi.get(__ret__, 'cluster_name'),
         id=pulumi.get(__ret__, 'id'),
         pending_tasks_count=pulumi.get(__ret__, 'pending_tasks_count'),
+        region=pulumi.get(__ret__, 'region'),
         registered_container_instances_count=pulumi.get(__ret__, 'registered_container_instances_count'),
         running_tasks_count=pulumi.get(__ret__, 'running_tasks_count'),
         service_connect_defaults=pulumi.get(__ret__, 'service_connect_defaults'),
@@ -194,6 +207,7 @@ def get_cluster(cluster_name: Optional[builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_cluster_output(cluster_name: Optional[pulumi.Input[builtins.str]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
@@ -211,10 +225,12 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[builtins.str]] = None
 
 
     :param builtins.str cluster_name: Name of the ECS Cluster
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ecs/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult)
@@ -223,6 +239,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[builtins.str]] = None
         cluster_name=pulumi.get(__response__, 'cluster_name'),
         id=pulumi.get(__response__, 'id'),
         pending_tasks_count=pulumi.get(__response__, 'pending_tasks_count'),
+        region=pulumi.get(__response__, 'region'),
         registered_container_instances_count=pulumi.get(__response__, 'registered_container_instances_count'),
         running_tasks_count=pulumi.get(__response__, 'running_tasks_count'),
         service_connect_defaults=pulumi.get(__response__, 'service_connect_defaults'),

@@ -176,6 +176,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly observabilityConfiguration!: pulumi.Output<outputs.apprunner.ServiceObservabilityConfiguration | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
      */
     public /*out*/ readonly serviceId!: pulumi.Output<string>;
@@ -203,8 +207,6 @@ export class Service extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -228,6 +230,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["instanceConfiguration"] = state ? state.instanceConfiguration : undefined;
             resourceInputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
             resourceInputs["observabilityConfiguration"] = state ? state.observabilityConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceId"] = state ? state.serviceId : undefined;
             resourceInputs["serviceName"] = state ? state.serviceName : undefined;
             resourceInputs["serviceUrl"] = state ? state.serviceUrl : undefined;
@@ -249,6 +252,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["instanceConfiguration"] = args ? args.instanceConfiguration : undefined;
             resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
             resourceInputs["observabilityConfiguration"] = args ? args.observabilityConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["sourceConfiguration"] = args ? args.sourceConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -296,6 +300,10 @@ export interface ServiceState {
      */
     observabilityConfiguration?: pulumi.Input<inputs.apprunner.ServiceObservabilityConfiguration>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
      */
     serviceId?: pulumi.Input<string>;
@@ -323,8 +331,6 @@ export interface ServiceState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -357,6 +363,10 @@ export interface ServiceArgs {
      * The observability configuration of your service. See Observability Configuration below for more details.
      */
     observabilityConfiguration?: pulumi.Input<inputs.apprunner.ServiceObservabilityConfiguration>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the service.
      */

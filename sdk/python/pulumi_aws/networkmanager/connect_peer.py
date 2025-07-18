@@ -31,14 +31,14 @@ class ConnectPeerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConnectPeer resource.
-        :param pulumi.Input[builtins.str] connect_attachment_id: The ID of the connection attachment.
-        :param pulumi.Input[builtins.str] peer_address: The Connect peer address.
+        :param pulumi.Input[builtins.str] connect_attachment_id: ID of the connection attachment.
+        :param pulumi.Input[builtins.str] peer_address: Connect peer address.
                
                The following arguments are optional:
-        :param pulumi.Input['ConnectPeerBgpOptionsArgs'] bgp_options: The Connect peer BGP options.
-        :param pulumi.Input[builtins.str] core_network_address: A Connect peer core network address.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
-        :param pulumi.Input[builtins.str] subnet_arn: The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
+        :param pulumi.Input['ConnectPeerBgpOptionsArgs'] bgp_options: Connect peer BGP options. See bgp_options for more information.
+        :param pulumi.Input[builtins.str] core_network_address: Connect peer core network address.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] inside_cidr_blocks: Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
+        :param pulumi.Input[builtins.str] subnet_arn: Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "connect_attachment_id", connect_attachment_id)
@@ -58,7 +58,7 @@ class ConnectPeerArgs:
     @pulumi.getter(name="connectAttachmentId")
     def connect_attachment_id(self) -> pulumi.Input[builtins.str]:
         """
-        The ID of the connection attachment.
+        ID of the connection attachment.
         """
         return pulumi.get(self, "connect_attachment_id")
 
@@ -70,7 +70,7 @@ class ConnectPeerArgs:
     @pulumi.getter(name="peerAddress")
     def peer_address(self) -> pulumi.Input[builtins.str]:
         """
-        The Connect peer address.
+        Connect peer address.
 
         The following arguments are optional:
         """
@@ -84,7 +84,7 @@ class ConnectPeerArgs:
     @pulumi.getter(name="bgpOptions")
     def bgp_options(self) -> Optional[pulumi.Input['ConnectPeerBgpOptionsArgs']]:
         """
-        The Connect peer BGP options.
+        Connect peer BGP options. See bgp_options for more information.
         """
         return pulumi.get(self, "bgp_options")
 
@@ -96,7 +96,7 @@ class ConnectPeerArgs:
     @pulumi.getter(name="coreNetworkAddress")
     def core_network_address(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A Connect peer core network address.
+        Connect peer core network address.
         """
         return pulumi.get(self, "core_network_address")
 
@@ -108,7 +108,7 @@ class ConnectPeerArgs:
     @pulumi.getter(name="insideCidrBlocks")
     def inside_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
+        Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
         """
         return pulumi.get(self, "inside_cidr_blocks")
 
@@ -120,7 +120,7 @@ class ConnectPeerArgs:
     @pulumi.getter(name="subnetArn")
     def subnet_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
+        Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
         """
         return pulumi.get(self, "subnet_arn")
 
@@ -161,21 +161,23 @@ class _ConnectPeerState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ConnectPeer resources.
-        :param pulumi.Input[builtins.str] arn: The ARN of the attachment.
-        :param pulumi.Input['ConnectPeerBgpOptionsArgs'] bgp_options: The Connect peer BGP options.
-        :param pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationArgs']]] configurations: The configuration of the Connect peer.
-        :param pulumi.Input[builtins.str] connect_attachment_id: The ID of the connection attachment.
-        :param pulumi.Input[builtins.str] core_network_address: A Connect peer core network address.
-        :param pulumi.Input[builtins.str] core_network_id: The ID of a core network.
-        :param pulumi.Input[builtins.str] edge_location: The Region where the peer is located.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
-        :param pulumi.Input[builtins.str] peer_address: The Connect peer address.
+        :param pulumi.Input[builtins.str] arn: ARN of the Connect peer.
+        :param pulumi.Input['ConnectPeerBgpOptionsArgs'] bgp_options: Connect peer BGP options. See bgp_options for more information.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationArgs']]] configurations: Configuration of the Connect peer.
+        :param pulumi.Input[builtins.str] connect_attachment_id: ID of the connection attachment.
+        :param pulumi.Input[builtins.str] connect_peer_id: ID of the Connect peer.
+        :param pulumi.Input[builtins.str] core_network_address: Connect peer core network address.
+        :param pulumi.Input[builtins.str] core_network_id: ID of a core network.
+        :param pulumi.Input[builtins.str] created_at: Timestamp when the Connect peer was created.
+        :param pulumi.Input[builtins.str] edge_location: Region where the peer is located.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] inside_cidr_blocks: Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
+        :param pulumi.Input[builtins.str] peer_address: Connect peer address.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] state: The state of the Connect peer.
-        :param pulumi.Input[builtins.str] subnet_arn: The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
+        :param pulumi.Input[builtins.str] state: State of the Connect peer.
+        :param pulumi.Input[builtins.str] subnet_arn: Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -206,16 +208,13 @@ class _ConnectPeerState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ARN of the attachment.
+        ARN of the Connect peer.
         """
         return pulumi.get(self, "arn")
 
@@ -227,7 +226,7 @@ class _ConnectPeerState:
     @pulumi.getter(name="bgpOptions")
     def bgp_options(self) -> Optional[pulumi.Input['ConnectPeerBgpOptionsArgs']]:
         """
-        The Connect peer BGP options.
+        Connect peer BGP options. See bgp_options for more information.
         """
         return pulumi.get(self, "bgp_options")
 
@@ -239,7 +238,7 @@ class _ConnectPeerState:
     @pulumi.getter
     def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationArgs']]]]:
         """
-        The configuration of the Connect peer.
+        Configuration of the Connect peer.
         """
         return pulumi.get(self, "configurations")
 
@@ -251,7 +250,7 @@ class _ConnectPeerState:
     @pulumi.getter(name="connectAttachmentId")
     def connect_attachment_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ID of the connection attachment.
+        ID of the connection attachment.
         """
         return pulumi.get(self, "connect_attachment_id")
 
@@ -262,6 +261,9 @@ class _ConnectPeerState:
     @property
     @pulumi.getter(name="connectPeerId")
     def connect_peer_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        ID of the Connect peer.
+        """
         return pulumi.get(self, "connect_peer_id")
 
     @connect_peer_id.setter
@@ -272,7 +274,7 @@ class _ConnectPeerState:
     @pulumi.getter(name="coreNetworkAddress")
     def core_network_address(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A Connect peer core network address.
+        Connect peer core network address.
         """
         return pulumi.get(self, "core_network_address")
 
@@ -284,7 +286,7 @@ class _ConnectPeerState:
     @pulumi.getter(name="coreNetworkId")
     def core_network_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ID of a core network.
+        ID of a core network.
         """
         return pulumi.get(self, "core_network_id")
 
@@ -295,6 +297,9 @@ class _ConnectPeerState:
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Timestamp when the Connect peer was created.
+        """
         return pulumi.get(self, "created_at")
 
     @created_at.setter
@@ -305,7 +310,7 @@ class _ConnectPeerState:
     @pulumi.getter(name="edgeLocation")
     def edge_location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Region where the peer is located.
+        Region where the peer is located.
         """
         return pulumi.get(self, "edge_location")
 
@@ -317,7 +322,7 @@ class _ConnectPeerState:
     @pulumi.getter(name="insideCidrBlocks")
     def inside_cidr_blocks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
+        Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
         """
         return pulumi.get(self, "inside_cidr_blocks")
 
@@ -329,7 +334,7 @@ class _ConnectPeerState:
     @pulumi.getter(name="peerAddress")
     def peer_address(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Connect peer address.
+        Connect peer address.
 
         The following arguments are optional:
         """
@@ -343,7 +348,7 @@ class _ConnectPeerState:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The state of the Connect peer.
+        State of the Connect peer.
         """
         return pulumi.get(self, "state")
 
@@ -355,7 +360,7 @@ class _ConnectPeerState:
     @pulumi.getter(name="subnetArn")
     def subnet_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
+        Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
         """
         return pulumi.get(self, "subnet_arn")
 
@@ -377,10 +382,9 @@ class _ConnectPeerState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -404,7 +408,9 @@ class ConnectPeer(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS Network Manager Connect Peer.
+        Manages an AWS Network Manager Connect Peer.
+
+        Use this resource to create a Connect peer in AWS Network Manager. Connect peers establish BGP sessions with your on-premises networks through Connect attachments, enabling dynamic routing between your core network and external networks.
 
         ## Example Usage
 
@@ -454,7 +460,7 @@ class ConnectPeer(pulumi.CustomResource):
             options={
                 "protocol": "GRE",
             },
-            opts = pulumi.ResourceOptions(depends_on=[test]))
+            opts = pulumi.ResourceOptions(depends_on=[example_attachment_accepter]))
         example2 = aws.networkmanager.AttachmentAccepter("example2",
             attachment_id=example_connect_attachment.id,
             attachment_type=example_connect_attachment.attachment_type)
@@ -491,7 +497,7 @@ class ConnectPeer(pulumi.CustomResource):
             bgp_options={
                 "peer_asn": 65000,
             },
-            subnet_arn=test2["arn"])
+            subnet_arn=example2["arn"])
         ```
 
         ## Import
@@ -504,14 +510,14 @@ class ConnectPeer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict']] bgp_options: The Connect peer BGP options.
-        :param pulumi.Input[builtins.str] connect_attachment_id: The ID of the connection attachment.
-        :param pulumi.Input[builtins.str] core_network_address: A Connect peer core network address.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
-        :param pulumi.Input[builtins.str] peer_address: The Connect peer address.
+        :param pulumi.Input[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict']] bgp_options: Connect peer BGP options. See bgp_options for more information.
+        :param pulumi.Input[builtins.str] connect_attachment_id: ID of the connection attachment.
+        :param pulumi.Input[builtins.str] core_network_address: Connect peer core network address.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] inside_cidr_blocks: Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
+        :param pulumi.Input[builtins.str] peer_address: Connect peer address.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] subnet_arn: The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
+        :param pulumi.Input[builtins.str] subnet_arn: Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -521,7 +527,9 @@ class ConnectPeer(pulumi.CustomResource):
                  args: ConnectPeerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS Network Manager Connect Peer.
+        Manages an AWS Network Manager Connect Peer.
+
+        Use this resource to create a Connect peer in AWS Network Manager. Connect peers establish BGP sessions with your on-premises networks through Connect attachments, enabling dynamic routing between your core network and external networks.
 
         ## Example Usage
 
@@ -571,7 +579,7 @@ class ConnectPeer(pulumi.CustomResource):
             options={
                 "protocol": "GRE",
             },
-            opts = pulumi.ResourceOptions(depends_on=[test]))
+            opts = pulumi.ResourceOptions(depends_on=[example_attachment_accepter]))
         example2 = aws.networkmanager.AttachmentAccepter("example2",
             attachment_id=example_connect_attachment.id,
             attachment_type=example_connect_attachment.attachment_type)
@@ -608,7 +616,7 @@ class ConnectPeer(pulumi.CustomResource):
             bgp_options={
                 "peer_asn": 65000,
             },
-            subnet_arn=test2["arn"])
+            subnet_arn=example2["arn"])
         ```
 
         ## Import
@@ -701,21 +709,23 @@ class ConnectPeer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] arn: The ARN of the attachment.
-        :param pulumi.Input[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict']] bgp_options: The Connect peer BGP options.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectPeerConfigurationArgs', 'ConnectPeerConfigurationArgsDict']]]] configurations: The configuration of the Connect peer.
-        :param pulumi.Input[builtins.str] connect_attachment_id: The ID of the connection attachment.
-        :param pulumi.Input[builtins.str] core_network_address: A Connect peer core network address.
-        :param pulumi.Input[builtins.str] core_network_id: The ID of a core network.
-        :param pulumi.Input[builtins.str] edge_location: The Region where the peer is located.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
-        :param pulumi.Input[builtins.str] peer_address: The Connect peer address.
+        :param pulumi.Input[builtins.str] arn: ARN of the Connect peer.
+        :param pulumi.Input[Union['ConnectPeerBgpOptionsArgs', 'ConnectPeerBgpOptionsArgsDict']] bgp_options: Connect peer BGP options. See bgp_options for more information.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectPeerConfigurationArgs', 'ConnectPeerConfigurationArgsDict']]]] configurations: Configuration of the Connect peer.
+        :param pulumi.Input[builtins.str] connect_attachment_id: ID of the connection attachment.
+        :param pulumi.Input[builtins.str] connect_peer_id: ID of the Connect peer.
+        :param pulumi.Input[builtins.str] core_network_address: Connect peer core network address.
+        :param pulumi.Input[builtins.str] core_network_id: ID of a core network.
+        :param pulumi.Input[builtins.str] created_at: Timestamp when the Connect peer was created.
+        :param pulumi.Input[builtins.str] edge_location: Region where the peer is located.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] inside_cidr_blocks: Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
+        :param pulumi.Input[builtins.str] peer_address: Connect peer address.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] state: The state of the Connect peer.
-        :param pulumi.Input[builtins.str] subnet_arn: The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
+        :param pulumi.Input[builtins.str] state: State of the Connect peer.
+        :param pulumi.Input[builtins.str] subnet_arn: Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -742,7 +752,7 @@ class ConnectPeer(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[builtins.str]:
         """
-        The ARN of the attachment.
+        ARN of the Connect peer.
         """
         return pulumi.get(self, "arn")
 
@@ -750,7 +760,7 @@ class ConnectPeer(pulumi.CustomResource):
     @pulumi.getter(name="bgpOptions")
     def bgp_options(self) -> pulumi.Output[Optional['outputs.ConnectPeerBgpOptions']]:
         """
-        The Connect peer BGP options.
+        Connect peer BGP options. See bgp_options for more information.
         """
         return pulumi.get(self, "bgp_options")
 
@@ -758,7 +768,7 @@ class ConnectPeer(pulumi.CustomResource):
     @pulumi.getter
     def configurations(self) -> pulumi.Output[Sequence['outputs.ConnectPeerConfiguration']]:
         """
-        The configuration of the Connect peer.
+        Configuration of the Connect peer.
         """
         return pulumi.get(self, "configurations")
 
@@ -766,20 +776,23 @@ class ConnectPeer(pulumi.CustomResource):
     @pulumi.getter(name="connectAttachmentId")
     def connect_attachment_id(self) -> pulumi.Output[builtins.str]:
         """
-        The ID of the connection attachment.
+        ID of the connection attachment.
         """
         return pulumi.get(self, "connect_attachment_id")
 
     @property
     @pulumi.getter(name="connectPeerId")
     def connect_peer_id(self) -> pulumi.Output[builtins.str]:
+        """
+        ID of the Connect peer.
+        """
         return pulumi.get(self, "connect_peer_id")
 
     @property
     @pulumi.getter(name="coreNetworkAddress")
     def core_network_address(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        A Connect peer core network address.
+        Connect peer core network address.
         """
         return pulumi.get(self, "core_network_address")
 
@@ -787,20 +800,23 @@ class ConnectPeer(pulumi.CustomResource):
     @pulumi.getter(name="coreNetworkId")
     def core_network_id(self) -> pulumi.Output[builtins.str]:
         """
-        The ID of a core network.
+        ID of a core network.
         """
         return pulumi.get(self, "core_network_id")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[builtins.str]:
+        """
+        Timestamp when the Connect peer was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="edgeLocation")
     def edge_location(self) -> pulumi.Output[builtins.str]:
         """
-        The Region where the peer is located.
+        Region where the peer is located.
         """
         return pulumi.get(self, "edge_location")
 
@@ -808,7 +824,7 @@ class ConnectPeer(pulumi.CustomResource):
     @pulumi.getter(name="insideCidrBlocks")
     def inside_cidr_blocks(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
+        Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
         """
         return pulumi.get(self, "inside_cidr_blocks")
 
@@ -816,7 +832,7 @@ class ConnectPeer(pulumi.CustomResource):
     @pulumi.getter(name="peerAddress")
     def peer_address(self) -> pulumi.Output[builtins.str]:
         """
-        The Connect peer address.
+        Connect peer address.
 
         The following arguments are optional:
         """
@@ -826,7 +842,7 @@ class ConnectPeer(pulumi.CustomResource):
     @pulumi.getter
     def state(self) -> pulumi.Output[builtins.str]:
         """
-        The state of the Connect peer.
+        State of the Connect peer.
         """
         return pulumi.get(self, "state")
 
@@ -834,7 +850,7 @@ class ConnectPeer(pulumi.CustomResource):
     @pulumi.getter(name="subnetArn")
     def subnet_arn(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
+        Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
         """
         return pulumi.get(self, "subnet_arn")
 
@@ -848,10 +864,9 @@ class ConnectPeer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

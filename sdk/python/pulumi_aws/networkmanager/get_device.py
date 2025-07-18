@@ -194,7 +194,17 @@ def get_device(device_id: Optional[builtins.str] = None,
                tags: Optional[Mapping[str, builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceResult:
     """
-    Retrieve information about a device.
+    Provides details about an existing Network Manager device.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.networkmanager.get_device(global_network_id=global_network_id,
+        device_id=device_id)
+    ```
 
 
     :param builtins.str device_id: ID of the device.
@@ -227,7 +237,17 @@ def get_device_output(device_id: Optional[pulumi.Input[builtins.str]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceResult]:
     """
-    Retrieve information about a device.
+    Provides details about an existing Network Manager device.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.networkmanager.get_device(global_network_id=global_network_id,
+        device_id=device_id)
+    ```
 
 
     :param builtins.str device_id: ID of the device.

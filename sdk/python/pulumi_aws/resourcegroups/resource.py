@@ -21,14 +21,18 @@ __all__ = ['ResourceArgs', 'Resource']
 class ResourceArgs:
     def __init__(__self__, *,
                  group_arn: pulumi.Input[builtins.str],
-                 resource_arn: pulumi.Input[builtins.str]):
+                 resource_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Resource resource.
         :param pulumi.Input[builtins.str] group_arn: Name or ARN of the resource group to add resources to.
         :param pulumi.Input[builtins.str] resource_arn: ARN of the resource to be added to the group.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "group_arn", group_arn)
         pulumi.set(__self__, "resource_arn", resource_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="groupArn")
@@ -54,21 +58,37 @@ class ResourceArgs:
     def resource_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "resource_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ResourceState:
     def __init__(__self__, *,
                  group_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Resource resources.
         :param pulumi.Input[builtins.str] group_arn: Name or ARN of the resource group to add resources to.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: ARN of the resource to be added to the group.
         :param pulumi.Input[builtins.str] resource_type: The resource type of a resource, such as `AWS::EC2::Instance`.
         """
         if group_arn is not None:
             pulumi.set(__self__, "group_arn", group_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_arn is not None:
             pulumi.set(__self__, "resource_arn", resource_arn)
         if resource_type is not None:
@@ -85,6 +105,18 @@ class _ResourceState:
     @group_arn.setter
     def group_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "group_arn", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -118,6 +150,7 @@ class Resource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -153,6 +186,7 @@ class Resource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] group_arn: Name or ARN of the resource group to add resources to.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: ARN of the resource to be added to the group.
         """
         ...
@@ -207,6 +241,7 @@ class Resource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -220,6 +255,7 @@ class Resource(pulumi.CustomResource):
             if group_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'group_arn'")
             __props__.__dict__["group_arn"] = group_arn
+            __props__.__dict__["region"] = region
             if resource_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_arn'")
             __props__.__dict__["resource_arn"] = resource_arn
@@ -235,6 +271,7 @@ class Resource(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             group_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_arn: Optional[pulumi.Input[builtins.str]] = None,
             resource_type: Optional[pulumi.Input[builtins.str]] = None) -> 'Resource':
         """
@@ -245,6 +282,7 @@ class Resource(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] group_arn: Name or ARN of the resource group to add resources to.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: ARN of the resource to be added to the group.
         :param pulumi.Input[builtins.str] resource_type: The resource type of a resource, such as `AWS::EC2::Instance`.
         """
@@ -253,6 +291,7 @@ class Resource(pulumi.CustomResource):
         __props__ = _ResourceState.__new__(_ResourceState)
 
         __props__.__dict__["group_arn"] = group_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_arn"] = resource_arn
         __props__.__dict__["resource_type"] = resource_type
         return Resource(resource_name, opts=opts, __props__=__props__)
@@ -264,6 +303,14 @@ class Resource(pulumi.CustomResource):
         Name or ARN of the resource group to add resources to.
         """
         return pulumi.get(self, "group_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceArn")

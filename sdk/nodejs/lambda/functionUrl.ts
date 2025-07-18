@@ -8,28 +8,40 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Lambda function URL resource. A function URL is a dedicated HTTP(S) endpoint for a Lambda function.
- *
- * See the [AWS Lambda documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html) for more information.
+ * Manages a Lambda function URL. Creates a dedicated HTTP(S) endpoint for a Lambda function to enable direct invocation via HTTP requests.
  *
  * ## Example Usage
+ *
+ * ### Basic Function URL with No Authentication
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const testLatest = new aws.lambda.FunctionUrl("test_latest", {
- *     functionName: test.functionName,
+ * const example = new aws.lambda.FunctionUrl("example", {
+ *     functionName: exampleAwsLambdaFunction.functionName,
  *     authorizationType: "NONE",
  * });
- * const testLive = new aws.lambda.FunctionUrl("test_live", {
- *     functionName: test.functionName,
+ * ```
+ *
+ * ### Function URL with IAM Authentication and CORS Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.FunctionUrl("example", {
+ *     functionName: exampleAwsLambdaFunction.functionName,
  *     qualifier: "my_alias",
  *     authorizationType: "AWS_IAM",
+ *     invokeMode: "RESPONSE_STREAM",
  *     cors: {
  *         allowCredentials: true,
- *         allowOrigins: ["*"],
- *         allowMethods: ["*"],
+ *         allowOrigins: ["https://example.com"],
+ *         allowMethods: [
+ *             "GET",
+ *             "POST",
+ *         ],
  *         allowHeaders: [
  *             "date",
  *             "keep-alive",
@@ -48,7 +60,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import Lambda function URLs using the `function_name` or `function_name/qualifier`. For example:
  *
  * ```sh
- * $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
+ * $ pulumi import aws:lambda/functionUrl:FunctionUrl example example
  * ```
  */
 export class FunctionUrl extends pulumi.CustomResource {
@@ -80,35 +92,41 @@ export class FunctionUrl extends pulumi.CustomResource {
     }
 
     /**
-     * The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
+     * Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
      */
     public readonly authorizationType!: pulumi.Output<string>;
     /**
-     * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
+     * Cross-origin resource sharing (CORS) settings for the function URL. See below.
      */
     public readonly cors!: pulumi.Output<outputs.lambda.FunctionUrlCors | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the function.
+     * ARN of the Lambda function.
      */
     public /*out*/ readonly functionArn!: pulumi.Output<string>;
     /**
-     * The name (or ARN) of the Lambda function.
+     * Name or ARN of the Lambda function.
+     *
+     * The following arguments are optional:
      */
     public readonly functionName!: pulumi.Output<string>;
     /**
-     * The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
+     * HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
      */
     public /*out*/ readonly functionUrl!: pulumi.Output<string>;
     /**
-     * Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+     * How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
      */
     public readonly invokeMode!: pulumi.Output<string | undefined>;
     /**
-     * The alias name or `"$LATEST"`.
+     * Alias name or `$LATEST`.
      */
     public readonly qualifier!: pulumi.Output<string | undefined>;
     /**
-     * A generated ID for the endpoint.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
+     * Generated ID for the endpoint.
      */
     public /*out*/ readonly urlId!: pulumi.Output<string>;
 
@@ -132,6 +150,7 @@ export class FunctionUrl extends pulumi.CustomResource {
             resourceInputs["functionUrl"] = state ? state.functionUrl : undefined;
             resourceInputs["invokeMode"] = state ? state.invokeMode : undefined;
             resourceInputs["qualifier"] = state ? state.qualifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["urlId"] = state ? state.urlId : undefined;
         } else {
             const args = argsOrState as FunctionUrlArgs | undefined;
@@ -146,6 +165,7 @@ export class FunctionUrl extends pulumi.CustomResource {
             resourceInputs["functionName"] = args ? args.functionName : undefined;
             resourceInputs["invokeMode"] = args ? args.invokeMode : undefined;
             resourceInputs["qualifier"] = args ? args.qualifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["functionUrl"] = undefined /*out*/;
             resourceInputs["urlId"] = undefined /*out*/;
@@ -160,35 +180,41 @@ export class FunctionUrl extends pulumi.CustomResource {
  */
 export interface FunctionUrlState {
     /**
-     * The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
+     * Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
      */
     authorizationType?: pulumi.Input<string>;
     /**
-     * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
+     * Cross-origin resource sharing (CORS) settings for the function URL. See below.
      */
     cors?: pulumi.Input<inputs.lambda.FunctionUrlCors>;
     /**
-     * The Amazon Resource Name (ARN) of the function.
+     * ARN of the Lambda function.
      */
     functionArn?: pulumi.Input<string>;
     /**
-     * The name (or ARN) of the Lambda function.
+     * Name or ARN of the Lambda function.
+     *
+     * The following arguments are optional:
      */
     functionName?: pulumi.Input<string>;
     /**
-     * The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
+     * HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
      */
     functionUrl?: pulumi.Input<string>;
     /**
-     * Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+     * How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
      */
     invokeMode?: pulumi.Input<string>;
     /**
-     * The alias name or `"$LATEST"`.
+     * Alias name or `$LATEST`.
      */
     qualifier?: pulumi.Input<string>;
     /**
-     * A generated ID for the endpoint.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
+     * Generated ID for the endpoint.
      */
     urlId?: pulumi.Input<string>;
 }
@@ -198,23 +224,29 @@ export interface FunctionUrlState {
  */
 export interface FunctionUrlArgs {
     /**
-     * The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
+     * Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
      */
     authorizationType: pulumi.Input<string>;
     /**
-     * The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
+     * Cross-origin resource sharing (CORS) settings for the function URL. See below.
      */
     cors?: pulumi.Input<inputs.lambda.FunctionUrlCors>;
     /**
-     * The name (or ARN) of the Lambda function.
+     * Name or ARN of the Lambda function.
+     *
+     * The following arguments are optional:
      */
     functionName: pulumi.Input<string>;
     /**
-     * Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+     * How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
      */
     invokeMode?: pulumi.Input<string>;
     /**
-     * The alias name or `"$LATEST"`.
+     * Alias name or `$LATEST`.
      */
     qualifier?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

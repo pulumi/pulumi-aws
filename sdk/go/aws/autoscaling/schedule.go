@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,6 +87,8 @@ type Schedule struct {
 	MinSize pulumi.IntOutput `pulumi:"minSize"`
 	// The recurring schedule for this action specified using the Unix cron syntax format.
 	Recurrence pulumi.StringOutput `pulumi:"recurrence"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of this scaling action.
 	//
 	// The following arguments are optional:
@@ -149,6 +151,8 @@ type scheduleState struct {
 	MinSize *int `pulumi:"minSize"`
 	// The recurring schedule for this action specified using the Unix cron syntax format.
 	Recurrence *string `pulumi:"recurrence"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of this scaling action.
 	//
 	// The following arguments are optional:
@@ -176,6 +180,8 @@ type ScheduleState struct {
 	MinSize pulumi.IntPtrInput
 	// The recurring schedule for this action specified using the Unix cron syntax format.
 	Recurrence pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of this scaling action.
 	//
 	// The following arguments are optional:
@@ -205,6 +211,8 @@ type scheduleArgs struct {
 	MinSize *int `pulumi:"minSize"`
 	// The recurring schedule for this action specified using the Unix cron syntax format.
 	Recurrence *string `pulumi:"recurrence"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of this scaling action.
 	//
 	// The following arguments are optional:
@@ -231,6 +239,8 @@ type ScheduleArgs struct {
 	MinSize pulumi.IntPtrInput
 	// The recurring schedule for this action specified using the Unix cron syntax format.
 	Recurrence pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of this scaling action.
 	//
 	// The following arguments are optional:
@@ -363,6 +373,11 @@ func (o ScheduleOutput) MinSize() pulumi.IntOutput {
 // The recurring schedule for this action specified using the Unix cron syntax format.
 func (o ScheduleOutput) Recurrence() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Recurrence }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ScheduleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schedule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of this scaling action.

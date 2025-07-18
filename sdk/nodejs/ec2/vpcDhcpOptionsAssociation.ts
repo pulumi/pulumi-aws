@@ -65,6 +65,10 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
      */
     public readonly dhcpOptionsId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the VPC to which we would like to associate a DHCP Options Set.
      */
     public readonly vpcId!: pulumi.Output<string>;
@@ -83,6 +87,7 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VpcDhcpOptionsAssociationState | undefined;
             resourceInputs["dhcpOptionsId"] = state ? state.dhcpOptionsId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as VpcDhcpOptionsAssociationArgs | undefined;
@@ -93,6 +98,7 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcId'");
             }
             resourceInputs["dhcpOptionsId"] = args ? args.dhcpOptionsId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -109,6 +115,10 @@ export interface VpcDhcpOptionsAssociationState {
      */
     dhcpOptionsId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the VPC to which we would like to associate a DHCP Options Set.
      */
     vpcId?: pulumi.Input<string>;
@@ -122,6 +132,10 @@ export interface VpcDhcpOptionsAssociationArgs {
      * The ID of the DHCP Options Set to associate to the VPC.
      */
     dhcpOptionsId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the VPC to which we would like to associate a DHCP Options Set.
      */

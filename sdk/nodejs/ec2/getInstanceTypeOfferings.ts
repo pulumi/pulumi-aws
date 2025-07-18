@@ -40,6 +40,7 @@ export function getInstanceTypeOfferings(args?: GetInstanceTypeOfferingsArgs, op
     return pulumi.runtime.invoke("aws:ec2/getInstanceTypeOfferings:getInstanceTypeOfferings", {
         "filters": args.filters,
         "locationType": args.locationType,
+        "region": args.region,
     }, opts);
 }
 
@@ -55,6 +56,10 @@ export interface GetInstanceTypeOfferingsArgs {
      * Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
      */
     locationType?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -79,6 +84,7 @@ export interface GetInstanceTypeOfferingsResult {
      * List of locations.
      */
     readonly locations: string[];
+    readonly region: string;
 }
 /**
  * Information about EC2 Instance Type Offerings.
@@ -113,6 +119,7 @@ export function getInstanceTypeOfferingsOutput(args?: GetInstanceTypeOfferingsOu
     return pulumi.runtime.invokeOutput("aws:ec2/getInstanceTypeOfferings:getInstanceTypeOfferings", {
         "filters": args.filters,
         "locationType": args.locationType,
+        "region": args.region,
     }, opts);
 }
 
@@ -128,4 +135,8 @@ export interface GetInstanceTypeOfferingsOutputArgs {
      * Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
      */
     locationType?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

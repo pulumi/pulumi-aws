@@ -116,6 +116,12 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Identifier for the user.
         /// </summary>
         [Input("userId", required: true)]
@@ -168,6 +174,12 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Identifier for the user.
         /// </summary>
         [Input("userId", required: true)]
@@ -201,6 +213,7 @@ namespace Pulumi.Aws.ElastiCache
         public readonly string Id;
         public readonly bool? NoPasswordRequired;
         public readonly ImmutableArray<string> Passwords;
+        public readonly string Region;
         /// <summary>
         /// Identifier for the user.
         /// </summary>
@@ -224,6 +237,8 @@ namespace Pulumi.Aws.ElastiCache
 
             ImmutableArray<string> passwords,
 
+            string region,
+
             string userId,
 
             string? userName)
@@ -234,6 +249,7 @@ namespace Pulumi.Aws.ElastiCache
             Id = id;
             NoPasswordRequired = noPasswordRequired;
             Passwords = passwords;
+            Region = region;
             UserId = userId;
             UserName = userName;
         }

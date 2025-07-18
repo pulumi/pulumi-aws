@@ -27,7 +27,7 @@ class GetBotAliasResult:
     """
     A collection of values returned by getBotAlias.
     """
-    def __init__(__self__, arn=None, bot_name=None, bot_version=None, checksum=None, created_date=None, description=None, id=None, last_updated_date=None, name=None):
+    def __init__(__self__, arn=None, bot_name=None, bot_version=None, checksum=None, created_date=None, description=None, id=None, last_updated_date=None, name=None, region=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -55,6 +55,9 @@ class GetBotAliasResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -128,6 +131,11 @@ class GetBotAliasResult:
         """
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetBotAliasResult(GetBotAliasResult):
     # pylint: disable=using-constant-test
@@ -143,11 +151,13 @@ class AwaitableGetBotAliasResult(GetBotAliasResult):
             description=self.description,
             id=self.id,
             last_updated_date=self.last_updated_date,
-            name=self.name)
+            name=self.name,
+            region=self.region)
 
 
 def get_bot_alias(bot_name: Optional[builtins.str] = None,
                   name: Optional[builtins.str] = None,
+                  region: Optional[builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotAliasResult:
     """
     Provides details about a specific Amazon Lex Bot Alias.
@@ -165,10 +175,12 @@ def get_bot_alias(bot_name: Optional[builtins.str] = None,
 
     :param builtins.str bot_name: Name of the bot.
     :param builtins.str name: Name of the bot alias. The name is case sensitive.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['botName'] = bot_name
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:lex/getBotAlias:getBotAlias', __args__, opts=opts, typ=GetBotAliasResult).value
 
@@ -181,9 +193,11 @@ def get_bot_alias(bot_name: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'))
 def get_bot_alias_output(bot_name: Optional[pulumi.Input[builtins.str]] = None,
                          name: Optional[pulumi.Input[builtins.str]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBotAliasResult]:
     """
     Provides details about a specific Amazon Lex Bot Alias.
@@ -201,10 +215,12 @@ def get_bot_alias_output(bot_name: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str bot_name: Name of the bot.
     :param builtins.str name: Name of the bot alias. The name is case sensitive.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['botName'] = bot_name
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lex/getBotAlias:getBotAlias', __args__, opts=opts, typ=GetBotAliasResult)
     return __ret__.apply(lambda __response__: GetBotAliasResult(
@@ -216,4 +232,5 @@ def get_bot_alias_output(bot_name: Optional[pulumi.Input[builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         last_updated_date=pulumi.get(__response__, 'last_updated_date'),
-        name=pulumi.get(__response__, 'name')))
+        name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region')))

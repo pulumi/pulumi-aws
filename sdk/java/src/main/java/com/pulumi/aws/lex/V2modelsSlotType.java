@@ -8,7 +8,7 @@ import com.pulumi.aws.lex.V2modelsSlotTypeArgs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotTypeState;
 import com.pulumi.aws.lex.outputs.V2modelsSlotTypeCompositeSlotTypeSetting;
 import com.pulumi.aws.lex.outputs.V2modelsSlotTypeExternalSourceSetting;
-import com.pulumi.aws.lex.outputs.V2modelsSlotTypeSlotTypeValues;
+import com.pulumi.aws.lex.outputs.V2modelsSlotTypeSlotTypeValue;
 import com.pulumi.aws.lex.outputs.V2modelsSlotTypeTimeouts;
 import com.pulumi.aws.lex.outputs.V2modelsSlotTypeValueSelectionSetting;
 import com.pulumi.core.Output;
@@ -16,6 +16,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -103,7 +104,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lex.V2modelsSlotType;
  * import com.pulumi.aws.lex.V2modelsSlotTypeArgs;
  * import com.pulumi.aws.lex.inputs.V2modelsSlotTypeValueSelectionSettingArgs;
- * import com.pulumi.aws.lex.inputs.V2modelsSlotTypeSlotTypeValuesArgs;
+ * import com.pulumi.aws.lex.inputs.V2modelsSlotTypeSlotTypeValueArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -128,8 +129,8 @@ import javax.annotation.Nullable;
  *                     .audioRecognitionStrategy("UseSlotValuesAsCustomVocabulary")
  *                     .build())
  *                 .build())
- *             .slotTypeValues(V2modelsSlotTypeSlotTypeValuesArgs.builder()
- *                 .sampleValues(V2modelsSlotTypeSlotTypeValuesSampleValueArgs.builder()
+ *             .slotTypeValues(V2modelsSlotTypeSlotTypeValueArgs.builder()
+ *                 .sampleValues(V2modelsSlotTypeSlotTypeValueSampleValueArgs.builder()
  *                     .value("exampleValue")
  *                     .build())
  *                 .build())
@@ -185,16 +186,16 @@ public class V2modelsSlotType extends com.pulumi.resources.CustomResource {
      * See `composite_slot_type_setting` argument reference below.
      * 
      */
-    @Export(name="compositeSlotTypeSetting", refs={V2modelsSlotTypeCompositeSlotTypeSetting.class}, tree="[0]")
-    private Output</* @Nullable */ V2modelsSlotTypeCompositeSlotTypeSetting> compositeSlotTypeSetting;
+    @Export(name="compositeSlotTypeSettings", refs={List.class,V2modelsSlotTypeCompositeSlotTypeSetting.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<V2modelsSlotTypeCompositeSlotTypeSetting>> compositeSlotTypeSettings;
 
     /**
      * @return Specifications for a composite slot type.
      * See `composite_slot_type_setting` argument reference below.
      * 
      */
-    public Output<Optional<V2modelsSlotTypeCompositeSlotTypeSetting>> compositeSlotTypeSetting() {
-        return Codegen.optional(this.compositeSlotTypeSetting);
+    public Output<Optional<List<V2modelsSlotTypeCompositeSlotTypeSetting>>> compositeSlotTypeSettings() {
+        return Codegen.optional(this.compositeSlotTypeSettings);
     }
     /**
      * Description of the slot type.
@@ -215,16 +216,16 @@ public class V2modelsSlotType extends com.pulumi.resources.CustomResource {
      * See `external_source_setting` argument reference below.
      * 
      */
-    @Export(name="externalSourceSetting", refs={V2modelsSlotTypeExternalSourceSetting.class}, tree="[0]")
-    private Output</* @Nullable */ V2modelsSlotTypeExternalSourceSetting> externalSourceSetting;
+    @Export(name="externalSourceSettings", refs={List.class,V2modelsSlotTypeExternalSourceSetting.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<V2modelsSlotTypeExternalSourceSetting>> externalSourceSettings;
 
     /**
      * @return Type of external information used to create the slot type.
      * See `external_source_setting` argument reference below.
      * 
      */
-    public Output<Optional<V2modelsSlotTypeExternalSourceSetting>> externalSourceSetting() {
-        return Codegen.optional(this.externalSourceSetting);
+    public Output<Optional<List<V2modelsSlotTypeExternalSourceSetting>>> externalSourceSettings() {
+        return Codegen.optional(this.externalSourceSettings);
     }
     /**
      * Identifier of the language and locale where this slot type is used.
@@ -279,6 +280,20 @@ public class V2modelsSlotType extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parentSlotTypeSignature);
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Unique identifier for the slot type.
      * 
      */
@@ -298,8 +313,8 @@ public class V2modelsSlotType extends com.pulumi.resources.CustomResource {
      * See `slot_type_values` argument reference below.
      * 
      */
-    @Export(name="slotTypeValues", refs={V2modelsSlotTypeSlotTypeValues.class}, tree="[0]")
-    private Output</* @Nullable */ V2modelsSlotTypeSlotTypeValues> slotTypeValues;
+    @Export(name="slotTypeValues", refs={List.class,V2modelsSlotTypeSlotTypeValue.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<V2modelsSlotTypeSlotTypeValue>> slotTypeValues;
 
     /**
      * @return List of SlotTypeValue objects that defines the values that the slot type can take.
@@ -307,7 +322,7 @@ public class V2modelsSlotType extends com.pulumi.resources.CustomResource {
      * See `slot_type_values` argument reference below.
      * 
      */
-    public Output<Optional<V2modelsSlotTypeSlotTypeValues>> slotTypeValues() {
+    public Output<Optional<List<V2modelsSlotTypeSlotTypeValue>>> slotTypeValues() {
         return Codegen.optional(this.slotTypeValues);
     }
     @Export(name="timeouts", refs={V2modelsSlotTypeTimeouts.class}, tree="[0]")

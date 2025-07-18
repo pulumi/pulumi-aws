@@ -88,6 +88,12 @@ namespace Pulumi.Aws.Dms
     public sealed class GetReplicationInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// The replication instance identifier.
         /// </summary>
         [Input("replicationInstanceId", required: true)]
@@ -109,6 +115,12 @@ namespace Pulumi.Aws.Dms
 
     public sealed class GetReplicationInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// The replication instance identifier.
         /// </summary>
@@ -173,6 +185,7 @@ namespace Pulumi.Aws.Dms
         /// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         /// </summary>
         public readonly bool PubliclyAccessible;
+        public readonly string Region;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the replication instance.
         /// </summary>
@@ -222,6 +235,8 @@ namespace Pulumi.Aws.Dms
 
             bool publiclyAccessible,
 
+            string region,
+
             string replicationInstanceArn,
 
             string replicationInstanceClass,
@@ -248,6 +263,7 @@ namespace Pulumi.Aws.Dms
             NetworkType = networkType;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;
             PubliclyAccessible = publiclyAccessible;
+            Region = region;
             ReplicationInstanceArn = replicationInstanceArn;
             ReplicationInstanceClass = replicationInstanceClass;
             ReplicationInstanceId = replicationInstanceId;

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ses"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ses"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,6 +86,8 @@ type ReceiptRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of email addresses
 	Recipients pulumi.StringArrayOutput `pulumi:"recipients"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the rule set
 	RuleSetName pulumi.StringOutput `pulumi:"ruleSetName"`
 	// A list of S3 Action blocks. Documented below.
@@ -151,6 +153,8 @@ type receiptRuleState struct {
 	Name *string `pulumi:"name"`
 	// A list of email addresses
 	Recipients []string `pulumi:"recipients"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the rule set
 	RuleSetName *string `pulumi:"ruleSetName"`
 	// A list of S3 Action blocks. Documented below.
@@ -184,6 +188,8 @@ type ReceiptRuleState struct {
 	Name pulumi.StringPtrInput
 	// A list of email addresses
 	Recipients pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the rule set
 	RuleSetName pulumi.StringPtrInput
 	// A list of S3 Action blocks. Documented below.
@@ -219,6 +225,8 @@ type receiptRuleArgs struct {
 	Name *string `pulumi:"name"`
 	// A list of email addresses
 	Recipients []string `pulumi:"recipients"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the rule set
 	RuleSetName string `pulumi:"ruleSetName"`
 	// A list of S3 Action blocks. Documented below.
@@ -251,6 +259,8 @@ type ReceiptRuleArgs struct {
 	Name pulumi.StringPtrInput
 	// A list of email addresses
 	Recipients pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the rule set
 	RuleSetName pulumi.StringInput
 	// A list of S3 Action blocks. Documented below.
@@ -392,6 +402,11 @@ func (o ReceiptRuleOutput) Name() pulumi.StringOutput {
 // A list of email addresses
 func (o ReceiptRuleOutput) Recipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReceiptRule) pulumi.StringArrayOutput { return v.Recipients }).(pulumi.StringArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ReceiptRuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReceiptRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the rule set

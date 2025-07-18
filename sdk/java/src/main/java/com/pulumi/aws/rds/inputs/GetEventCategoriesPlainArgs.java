@@ -15,6 +15,21 @@ public final class GetEventCategoriesPlainArgs extends com.pulumi.resources.Invo
     public static final GetEventCategoriesPlainArgs Empty = new GetEventCategoriesPlainArgs();
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
      * 
      */
@@ -32,6 +47,7 @@ public final class GetEventCategoriesPlainArgs extends com.pulumi.resources.Invo
     private GetEventCategoriesPlainArgs() {}
 
     private GetEventCategoriesPlainArgs(GetEventCategoriesPlainArgs $) {
+        this.region = $.region;
         this.sourceType = $.sourceType;
     }
 
@@ -51,6 +67,17 @@ public final class GetEventCategoriesPlainArgs extends com.pulumi.resources.Invo
 
         public Builder(GetEventCategoriesPlainArgs defaults) {
             $ = new GetEventCategoriesPlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         /**

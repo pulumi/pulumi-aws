@@ -26,6 +26,7 @@ export function getServerlessCollection(args?: GetServerlessCollectionArgs, opts
     return pulumi.runtime.invoke("aws:opensearch/getServerlessCollection:getServerlessCollection", {
         "id": args.id,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -39,8 +40,14 @@ export interface GetServerlessCollectionArgs {
     id?: string;
     /**
      * Name of the collection.
+     *
+     * > Exactly one of `id` or `name` is required.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -82,6 +89,7 @@ export interface GetServerlessCollectionResult {
      */
     readonly lastModifiedDate: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Indicates whether standby replicas should be used for a collection.
      */
@@ -117,6 +125,7 @@ export function getServerlessCollectionOutput(args?: GetServerlessCollectionOutp
     return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessCollection:getServerlessCollection", {
         "id": args.id,
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -130,6 +139,12 @@ export interface GetServerlessCollectionOutputArgs {
     id?: pulumi.Input<string>;
     /**
      * Name of the collection.
+     *
+     * > Exactly one of `id` or `name` is required.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

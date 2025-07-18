@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,8 +27,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,7 +89,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -124,7 +124,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -183,7 +183,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -216,7 +216,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -262,6 +262,8 @@ type Selection struct {
 	NotResources pulumi.StringArrayOutput `pulumi:"notResources"`
 	// The backup plan ID to be associated with the selection of resources.
 	PlanId pulumi.StringOutput `pulumi:"planId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
 	Resources pulumi.StringArrayOutput `pulumi:"resources"`
 	// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
@@ -314,6 +316,8 @@ type selectionState struct {
 	NotResources []string `pulumi:"notResources"`
 	// The backup plan ID to be associated with the selection of resources.
 	PlanId *string `pulumi:"planId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
 	Resources []string `pulumi:"resources"`
 	// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
@@ -331,6 +335,8 @@ type SelectionState struct {
 	NotResources pulumi.StringArrayInput
 	// The backup plan ID to be associated with the selection of resources.
 	PlanId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
 	Resources pulumi.StringArrayInput
 	// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
@@ -352,6 +358,8 @@ type selectionArgs struct {
 	NotResources []string `pulumi:"notResources"`
 	// The backup plan ID to be associated with the selection of resources.
 	PlanId string `pulumi:"planId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
 	Resources []string `pulumi:"resources"`
 	// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
@@ -370,6 +378,8 @@ type SelectionArgs struct {
 	NotResources pulumi.StringArrayInput
 	// The backup plan ID to be associated with the selection of resources.
 	PlanId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
 	Resources pulumi.StringArrayInput
 	// Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
@@ -486,6 +496,11 @@ func (o SelectionOutput) NotResources() pulumi.StringArrayOutput {
 // The backup plan ID to be associated with the selection of resources.
 func (o SelectionOutput) PlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Selection) pulumi.StringOutput { return v.PlanId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o SelectionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Selection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.

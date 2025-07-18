@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Sagemaker
     ///             TaskCount = 1,
     ///             TaskDescription = "example",
     ///             TaskTitle = "example",
-    ///             WorkteamArn = $"arn:aws:sagemaker:{current.Name}:394669845002:workteam/public-crowd/default",
+    ///             WorkteamArn = $"arn:aws:sagemaker:{current.Region}:394669845002:workteam/public-crowd/default",
     ///             PublicWorkforceTaskPrice = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs
     ///             {
     ///                 AmountInUsd = new Aws.Sagemaker.Inputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs
@@ -187,6 +187,12 @@ namespace Pulumi.Aws.Sagemaker
         public Output<Outputs.FlowDefinitionOutputConfig> OutputConfig { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
         /// </summary>
         [Output("roleArn")]
@@ -281,6 +287,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.FlowDefinitionOutputConfigArgs> OutputConfig { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -343,6 +355,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<Inputs.FlowDefinitionOutputConfigGetArgs>? OutputConfig { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
         /// </summary>
         [Input("roleArn")]
@@ -366,7 +384,6 @@ namespace Pulumi.Aws.Sagemaker
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

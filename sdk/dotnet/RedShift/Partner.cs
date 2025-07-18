@@ -69,6 +69,12 @@ namespace Pulumi.Aws.RedShift
         public Output<string> PartnerName { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// (Optional) The partner integration status.
         /// </summary>
         [Output("status")]
@@ -150,6 +156,12 @@ namespace Pulumi.Aws.RedShift
         [Input("partnerName", required: true)]
         public Input<string> PartnerName { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public PartnerArgs()
         {
         }
@@ -181,6 +193,12 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("partnerName")]
         public Input<string>? PartnerName { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// (Optional) The partner integration status.

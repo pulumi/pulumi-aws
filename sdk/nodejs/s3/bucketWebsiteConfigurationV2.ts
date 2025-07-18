@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketWebsiteConfigurationV2("example", {
+ * const example = new aws.s3.BucketWebsiteConfiguration("example", {
  *     bucket: exampleAwsS3Bucket.id,
  *     indexDocument: {
  *         suffix: "index.html",
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketWebsiteConfigurationV2("example", {
+ * const example = new aws.s3.BucketWebsiteConfiguration("example", {
  *     bucket: exampleAwsS3Bucket.id,
  *     indexDocument: {
  *         suffix: "index.html",
@@ -81,6 +81,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name,123456789012
  * ```
+ *
+ * @deprecated aws.s3/bucketwebsiteconfigurationv2.BucketWebsiteConfigurationV2 has been deprecated in favor of aws.s3/bucketwebsiteconfiguration.BucketWebsiteConfiguration
  */
 export class BucketWebsiteConfigurationV2 extends pulumi.CustomResource {
     /**
@@ -93,6 +95,7 @@ export class BucketWebsiteConfigurationV2 extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BucketWebsiteConfigurationV2State, opts?: pulumi.CustomResourceOptions): BucketWebsiteConfigurationV2 {
+        pulumi.log.warn("BucketWebsiteConfigurationV2 is deprecated: aws.s3/bucketwebsiteconfigurationv2.BucketWebsiteConfigurationV2 has been deprecated in favor of aws.s3/bucketwebsiteconfiguration.BucketWebsiteConfiguration")
         return new BucketWebsiteConfigurationV2(name, <any>state, { ...opts, id: id });
     }
 
@@ -131,6 +134,10 @@ export class BucketWebsiteConfigurationV2 extends pulumi.CustomResource {
      */
     public readonly redirectAllRequestsTo!: pulumi.Output<outputs.s3.BucketWebsiteConfigurationV2RedirectAllRequestsTo | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
      */
@@ -155,8 +162,11 @@ export class BucketWebsiteConfigurationV2 extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.s3/bucketwebsiteconfigurationv2.BucketWebsiteConfigurationV2 has been deprecated in favor of aws.s3/bucketwebsiteconfiguration.BucketWebsiteConfiguration */
     constructor(name: string, args: BucketWebsiteConfigurationV2Args, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.s3/bucketwebsiteconfigurationv2.BucketWebsiteConfigurationV2 has been deprecated in favor of aws.s3/bucketwebsiteconfiguration.BucketWebsiteConfiguration */
     constructor(name: string, argsOrState?: BucketWebsiteConfigurationV2Args | BucketWebsiteConfigurationV2State, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BucketWebsiteConfigurationV2 is deprecated: aws.s3/bucketwebsiteconfigurationv2.BucketWebsiteConfigurationV2 has been deprecated in favor of aws.s3/bucketwebsiteconfiguration.BucketWebsiteConfiguration")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
@@ -166,6 +176,7 @@ export class BucketWebsiteConfigurationV2 extends pulumi.CustomResource {
             resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
             resourceInputs["indexDocument"] = state ? state.indexDocument : undefined;
             resourceInputs["redirectAllRequestsTo"] = state ? state.redirectAllRequestsTo : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routingRuleDetails"] = state ? state.routingRuleDetails : undefined;
             resourceInputs["routingRules"] = state ? state.routingRules : undefined;
             resourceInputs["websiteDomain"] = state ? state.websiteDomain : undefined;
@@ -180,12 +191,15 @@ export class BucketWebsiteConfigurationV2 extends pulumi.CustomResource {
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
             resourceInputs["indexDocument"] = args ? args.indexDocument : undefined;
             resourceInputs["redirectAllRequestsTo"] = args ? args.redirectAllRequestsTo : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routingRuleDetails"] = args ? args.routingRuleDetails : undefined;
             resourceInputs["routingRules"] = args ? args.routingRules : undefined;
             resourceInputs["websiteDomain"] = undefined /*out*/;
             resourceInputs["websiteEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BucketWebsiteConfigurationV2.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -214,6 +228,10 @@ export interface BucketWebsiteConfigurationV2State {
      * Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
      */
     redirectAllRequestsTo?: pulumi.Input<inputs.s3.BucketWebsiteConfigurationV2RedirectAllRequestsTo>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
@@ -257,6 +275,10 @@ export interface BucketWebsiteConfigurationV2Args {
      * Redirect behavior for every request to this bucket's website endpoint. See below. Conflicts with `errorDocument`, `indexDocument`, and `routingRule`.
      */
     redirectAllRequestsTo?: pulumi.Input<inputs.s3.BucketWebsiteConfigurationV2RedirectAllRequestsTo>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
      * describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.

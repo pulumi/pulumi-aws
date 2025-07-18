@@ -56,6 +56,10 @@ export class PolicyTableAssociation extends pulumi.CustomResource {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Identifier of the resource
      */
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
@@ -85,6 +89,7 @@ export class PolicyTableAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyTableAssociationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
             resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
@@ -97,6 +102,7 @@ export class PolicyTableAssociation extends pulumi.CustomResource {
             if ((!args || args.transitGatewayPolicyTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayPolicyTableId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
             resourceInputs["transitGatewayPolicyTableId"] = args ? args.transitGatewayPolicyTableId : undefined;
             resourceInputs["resourceId"] = undefined /*out*/;
@@ -111,6 +117,10 @@ export class PolicyTableAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PolicyTableAssociation resources.
  */
 export interface PolicyTableAssociationState {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of the resource
      */
@@ -133,6 +143,10 @@ export interface PolicyTableAssociationState {
  * The set of arguments for constructing a PolicyTableAssociation resource.
  */
 export interface PolicyTableAssociationArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of EC2 Transit Gateway Attachment.
      */

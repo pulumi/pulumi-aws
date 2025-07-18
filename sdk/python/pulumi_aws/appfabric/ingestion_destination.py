@@ -26,6 +26,7 @@ class IngestionDestinationArgs:
                  ingestion_arn: pulumi.Input[builtins.str],
                  destination_configuration: Optional[pulumi.Input['IngestionDestinationDestinationConfigurationArgs']] = None,
                  processing_configuration: Optional[pulumi.Input['IngestionDestinationProcessingConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['IngestionDestinationTimeoutsArgs']] = None):
         """
@@ -34,6 +35,7 @@ class IngestionDestinationArgs:
         :param pulumi.Input[builtins.str] ingestion_arn: The Amazon Resource Name (ARN) of the ingestion to use for the request.
         :param pulumi.Input['IngestionDestinationDestinationConfigurationArgs'] destination_configuration: Contains information about the destination of ingested data.
         :param pulumi.Input['IngestionDestinationProcessingConfigurationArgs'] processing_configuration: Contains information about how ingested data is processed.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "app_bundle_arn", app_bundle_arn)
@@ -42,6 +44,8 @@ class IngestionDestinationArgs:
             pulumi.set(__self__, "destination_configuration", destination_configuration)
         if processing_configuration is not None:
             pulumi.set(__self__, "processing_configuration", processing_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -97,6 +101,18 @@ class IngestionDestinationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -125,6 +141,7 @@ class _IngestionDestinationState:
                  destination_configuration: Optional[pulumi.Input['IngestionDestinationDestinationConfigurationArgs']] = None,
                  ingestion_arn: Optional[pulumi.Input[builtins.str]] = None,
                  processing_configuration: Optional[pulumi.Input['IngestionDestinationProcessingConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['IngestionDestinationTimeoutsArgs']] = None):
@@ -135,6 +152,7 @@ class _IngestionDestinationState:
         :param pulumi.Input['IngestionDestinationDestinationConfigurationArgs'] destination_configuration: Contains information about the destination of ingested data.
         :param pulumi.Input[builtins.str] ingestion_arn: The Amazon Resource Name (ARN) of the ingestion to use for the request.
         :param pulumi.Input['IngestionDestinationProcessingConfigurationArgs'] processing_configuration: Contains information about how ingested data is processed.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -148,11 +166,10 @@ class _IngestionDestinationState:
             pulumi.set(__self__, "ingestion_arn", ingestion_arn)
         if processing_configuration is not None:
             pulumi.set(__self__, "processing_configuration", processing_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
@@ -220,6 +237,18 @@ class _IngestionDestinationState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -232,7 +261,6 @@ class _IngestionDestinationState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -263,6 +291,7 @@ class IngestionDestination(pulumi.CustomResource):
                  destination_configuration: Optional[pulumi.Input[Union['IngestionDestinationDestinationConfigurationArgs', 'IngestionDestinationDestinationConfigurationArgsDict']]] = None,
                  ingestion_arn: Optional[pulumi.Input[builtins.str]] = None,
                  processing_configuration: Optional[pulumi.Input[Union['IngestionDestinationProcessingConfigurationArgs', 'IngestionDestinationProcessingConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['IngestionDestinationTimeoutsArgs', 'IngestionDestinationTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -303,6 +332,7 @@ class IngestionDestination(pulumi.CustomResource):
         :param pulumi.Input[Union['IngestionDestinationDestinationConfigurationArgs', 'IngestionDestinationDestinationConfigurationArgsDict']] destination_configuration: Contains information about the destination of ingested data.
         :param pulumi.Input[builtins.str] ingestion_arn: The Amazon Resource Name (ARN) of the ingestion to use for the request.
         :param pulumi.Input[Union['IngestionDestinationProcessingConfigurationArgs', 'IngestionDestinationProcessingConfigurationArgsDict']] processing_configuration: Contains information about how ingested data is processed.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -361,6 +391,7 @@ class IngestionDestination(pulumi.CustomResource):
                  destination_configuration: Optional[pulumi.Input[Union['IngestionDestinationDestinationConfigurationArgs', 'IngestionDestinationDestinationConfigurationArgsDict']]] = None,
                  ingestion_arn: Optional[pulumi.Input[builtins.str]] = None,
                  processing_configuration: Optional[pulumi.Input[Union['IngestionDestinationProcessingConfigurationArgs', 'IngestionDestinationProcessingConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['IngestionDestinationTimeoutsArgs', 'IngestionDestinationTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -380,6 +411,7 @@ class IngestionDestination(pulumi.CustomResource):
                 raise TypeError("Missing required property 'ingestion_arn'")
             __props__.__dict__["ingestion_arn"] = ingestion_arn
             __props__.__dict__["processing_configuration"] = processing_configuration
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["arn"] = None
@@ -399,6 +431,7 @@ class IngestionDestination(pulumi.CustomResource):
             destination_configuration: Optional[pulumi.Input[Union['IngestionDestinationDestinationConfigurationArgs', 'IngestionDestinationDestinationConfigurationArgsDict']]] = None,
             ingestion_arn: Optional[pulumi.Input[builtins.str]] = None,
             processing_configuration: Optional[pulumi.Input[Union['IngestionDestinationProcessingConfigurationArgs', 'IngestionDestinationProcessingConfigurationArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             timeouts: Optional[pulumi.Input[Union['IngestionDestinationTimeoutsArgs', 'IngestionDestinationTimeoutsArgsDict']]] = None) -> 'IngestionDestination':
@@ -414,6 +447,7 @@ class IngestionDestination(pulumi.CustomResource):
         :param pulumi.Input[Union['IngestionDestinationDestinationConfigurationArgs', 'IngestionDestinationDestinationConfigurationArgsDict']] destination_configuration: Contains information about the destination of ingested data.
         :param pulumi.Input[builtins.str] ingestion_arn: The Amazon Resource Name (ARN) of the ingestion to use for the request.
         :param pulumi.Input[Union['IngestionDestinationProcessingConfigurationArgs', 'IngestionDestinationProcessingConfigurationArgsDict']] processing_configuration: Contains information about how ingested data is processed.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -426,6 +460,7 @@ class IngestionDestination(pulumi.CustomResource):
         __props__.__dict__["destination_configuration"] = destination_configuration
         __props__.__dict__["ingestion_arn"] = ingestion_arn
         __props__.__dict__["processing_configuration"] = processing_configuration
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -473,6 +508,14 @@ class IngestionDestination(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -481,7 +524,6 @@ class IngestionDestination(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

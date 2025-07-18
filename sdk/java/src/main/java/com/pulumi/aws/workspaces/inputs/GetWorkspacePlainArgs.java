@@ -31,6 +31,21 @@ public final class GetWorkspacePlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Tags for the WorkSpace.
      * 
      */
@@ -79,6 +94,7 @@ public final class GetWorkspacePlainArgs extends com.pulumi.resources.InvokeArgs
 
     private GetWorkspacePlainArgs(GetWorkspacePlainArgs $) {
         this.directoryId = $.directoryId;
+        this.region = $.region;
         this.tags = $.tags;
         this.userName = $.userName;
         this.workspaceId = $.workspaceId;
@@ -110,6 +126,17 @@ public final class GetWorkspacePlainArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder directoryId(@Nullable String directoryId) {
             $.directoryId = directoryId;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

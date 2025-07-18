@@ -34,6 +34,7 @@ export function getTableItem(args: GetTableItemArgs, opts?: pulumi.InvokeOptions
         "expressionAttributeNames": args.expressionAttributeNames,
         "key": args.key,
         "projectionExpression": args.projectionExpression,
+        "region": args.region,
         "tableName": args.tableName,
     }, opts);
 }
@@ -56,6 +57,10 @@ export interface GetTableItemArgs {
      */
     projectionExpression?: string;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * The name of the table containing the requested item.
      */
     tableName: string;
@@ -76,6 +81,7 @@ export interface GetTableItemResult {
     readonly item: string;
     readonly key: string;
     readonly projectionExpression?: string;
+    readonly region: string;
     readonly tableName: string;
 }
 /**
@@ -108,6 +114,7 @@ export function getTableItemOutput(args: GetTableItemOutputArgs, opts?: pulumi.I
         "expressionAttributeNames": args.expressionAttributeNames,
         "key": args.key,
         "projectionExpression": args.projectionExpression,
+        "region": args.region,
         "tableName": args.tableName,
     }, opts);
 }
@@ -129,6 +136,10 @@ export interface GetTableItemOutputArgs {
      * If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
      */
     projectionExpression?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the table containing the requested item.
      */

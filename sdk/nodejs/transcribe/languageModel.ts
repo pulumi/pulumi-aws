@@ -48,12 +48,12 @@ import * as utilities from "../utilities";
  *         }],
  *     }),
  * });
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {
+ * const exampleBucket = new aws.s3.Bucket("example", {
  *     bucket: "example-transcribe",
  *     forceDestroy: true,
  * });
  * const object = new aws.s3.BucketObjectv2("object", {
- *     bucket: exampleBucketV2.id,
+ *     bucket: exampleBucket.id,
  *     key: "transcribe/test1.txt",
  *     source: new pulumi.asset.FileAsset("test1.txt"),
  * });
@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  *     baseModelName: "NarrowBand",
  *     inputDataConfig: {
  *         dataAccessRoleArn: exampleRole.arn,
- *         s3Uri: pulumi.interpolate`s3://${exampleBucketV2.id}/transcribe/`,
+ *         s3Uri: pulumi.interpolate`s3://${exampleBucket.id}/transcribe/`,
  *     },
  *     languageCode: "en-US",
  *     tags: {
@@ -127,10 +127,11 @@ export class LanguageModel extends pulumi.CustomResource {
      * The model name.
      */
     public readonly modelName!: pulumi.Output<string>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * @deprecated Please use `tags` instead.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
+    public readonly region!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -151,6 +152,7 @@ export class LanguageModel extends pulumi.CustomResource {
             resourceInputs["inputDataConfig"] = state ? state.inputDataConfig : undefined;
             resourceInputs["languageCode"] = state ? state.languageCode : undefined;
             resourceInputs["modelName"] = state ? state.modelName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -171,6 +173,7 @@ export class LanguageModel extends pulumi.CustomResource {
             resourceInputs["inputDataConfig"] = args ? args.inputDataConfig : undefined;
             resourceInputs["languageCode"] = args ? args.languageCode : undefined;
             resourceInputs["modelName"] = args ? args.modelName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -204,10 +207,11 @@ export interface LanguageModelState {
      * The model name.
      */
     modelName?: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * @deprecated Please use `tags` instead.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
+    region?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -231,5 +235,9 @@ export interface LanguageModelArgs {
      * The model name.
      */
     modelName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

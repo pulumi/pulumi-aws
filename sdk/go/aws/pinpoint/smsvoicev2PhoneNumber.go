@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/pinpoint"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/pinpoint"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,14 +73,14 @@ type Smsvoicev2PhoneNumber struct {
 	OptOutListName pulumi.StringOutput `pulumi:"optOutListName"`
 	// The new phone number that was requested.
 	PhoneNumber pulumi.StringOutput `pulumi:"phoneNumber"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Use this field to attach your phone number for an external registration process.
 	RegistrationId pulumi.StringPtrOutput `pulumi:"registrationId"`
 	// When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
 	SelfManagedOptOutsEnabled pulumi.BoolOutput      `pulumi:"selfManagedOptOutsEnabled"`
 	Tags                      pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput                 `pulumi:"tagsAll"`
 	Timeouts Smsvoicev2PhoneNumberTimeoutsPtrOutput `pulumi:"timeouts"`
 	// The Amazon Resource Name (ARN) of the two way channel.
@@ -151,14 +151,14 @@ type smsvoicev2PhoneNumberState struct {
 	OptOutListName *string `pulumi:"optOutListName"`
 	// The new phone number that was requested.
 	PhoneNumber *string `pulumi:"phoneNumber"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Use this field to attach your phone number for an external registration process.
 	RegistrationId *string `pulumi:"registrationId"`
 	// When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
 	SelfManagedOptOutsEnabled *bool             `pulumi:"selfManagedOptOutsEnabled"`
 	Tags                      map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string              `pulumi:"tagsAll"`
 	Timeouts *Smsvoicev2PhoneNumberTimeouts `pulumi:"timeouts"`
 	// The Amazon Resource Name (ARN) of the two way channel.
@@ -188,14 +188,14 @@ type Smsvoicev2PhoneNumberState struct {
 	OptOutListName pulumi.StringPtrInput
 	// The new phone number that was requested.
 	PhoneNumber pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Use this field to attach your phone number for an external registration process.
 	RegistrationId pulumi.StringPtrInput
 	// When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
 	SelfManagedOptOutsEnabled pulumi.BoolPtrInput
 	Tags                      pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts Smsvoicev2PhoneNumberTimeoutsPtrInput
 	// The Amazon Resource Name (ARN) of the two way channel.
@@ -223,6 +223,8 @@ type smsvoicev2PhoneNumberArgs struct {
 	NumberType string `pulumi:"numberType"`
 	// The name of the opt-out list to associate with the phone number.
 	OptOutListName *string `pulumi:"optOutListName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Use this field to attach your phone number for an external registration process.
 	RegistrationId *string `pulumi:"registrationId"`
 	// When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
@@ -251,6 +253,8 @@ type Smsvoicev2PhoneNumberArgs struct {
 	NumberType pulumi.StringInput
 	// The name of the opt-out list to associate with the phone number.
 	OptOutListName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Use this field to attach your phone number for an external registration process.
 	RegistrationId pulumi.StringPtrInput
 	// When set to `false` an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the opt-out list. When set to true you’re responsible for responding to HELP and STOP requests. You’re also responsible for tracking and honoring opt-out request.
@@ -397,6 +401,11 @@ func (o Smsvoicev2PhoneNumberOutput) PhoneNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringOutput { return v.PhoneNumber }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o Smsvoicev2PhoneNumberOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Use this field to attach your phone number for an external registration process.
 func (o Smsvoicev2PhoneNumberOutput) RegistrationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringPtrOutput { return v.RegistrationId }).(pulumi.StringPtrOutput)
@@ -412,8 +421,6 @@ func (o Smsvoicev2PhoneNumberOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o Smsvoicev2PhoneNumberOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Smsvoicev2PhoneNumber) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -27,7 +27,7 @@ class GetRandomPasswordResult:
     """
     A collection of values returned by getRandomPassword.
     """
-    def __init__(__self__, exclude_characters=None, exclude_lowercase=None, exclude_numbers=None, exclude_punctuation=None, exclude_uppercase=None, id=None, include_space=None, password_length=None, random_password=None, require_each_included_type=None):
+    def __init__(__self__, exclude_characters=None, exclude_lowercase=None, exclude_numbers=None, exclude_punctuation=None, exclude_uppercase=None, id=None, include_space=None, password_length=None, random_password=None, region=None, require_each_included_type=None):
         if exclude_characters and not isinstance(exclude_characters, str):
             raise TypeError("Expected argument 'exclude_characters' to be a str")
         pulumi.set(__self__, "exclude_characters", exclude_characters)
@@ -55,6 +55,9 @@ class GetRandomPasswordResult:
         if random_password and not isinstance(random_password, str):
             raise TypeError("Expected argument 'random_password' to be a str")
         pulumi.set(__self__, "random_password", random_password)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if require_each_included_type and not isinstance(require_each_included_type, bool):
             raise TypeError("Expected argument 'require_each_included_type' to be a bool")
         pulumi.set(__self__, "require_each_included_type", require_each_included_type)
@@ -111,6 +114,11 @@ class GetRandomPasswordResult:
         return pulumi.get(self, "random_password")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="requireEachIncludedType")
     def require_each_included_type(self) -> Optional[builtins.bool]:
         return pulumi.get(self, "require_each_included_type")
@@ -131,6 +139,7 @@ class AwaitableGetRandomPasswordResult(GetRandomPasswordResult):
             include_space=self.include_space,
             password_length=self.password_length,
             random_password=self.random_password,
+            region=self.region,
             require_each_included_type=self.require_each_included_type)
 
 
@@ -141,6 +150,7 @@ def get_random_password(exclude_characters: Optional[builtins.str] = None,
                         exclude_uppercase: Optional[builtins.bool] = None,
                         include_space: Optional[builtins.bool] = None,
                         password_length: Optional[builtins.int] = None,
+                        region: Optional[builtins.str] = None,
                         require_each_included_type: Optional[builtins.bool] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRandomPasswordResult:
     """
@@ -164,6 +174,7 @@ def get_random_password(exclude_characters: Optional[builtins.str] = None,
     :param builtins.bool exclude_uppercase: Specifies whether to exclude uppercase letters from the password.
     :param builtins.bool include_space: Specifies whether to include the space character.
     :param builtins.int password_length: Length of the password.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.bool require_each_included_type: Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
     """
     __args__ = dict()
@@ -174,6 +185,7 @@ def get_random_password(exclude_characters: Optional[builtins.str] = None,
     __args__['excludeUppercase'] = exclude_uppercase
     __args__['includeSpace'] = include_space
     __args__['passwordLength'] = password_length
+    __args__['region'] = region
     __args__['requireEachIncludedType'] = require_each_included_type
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getRandomPassword:getRandomPassword', __args__, opts=opts, typ=GetRandomPasswordResult).value
@@ -188,6 +200,7 @@ def get_random_password(exclude_characters: Optional[builtins.str] = None,
         include_space=pulumi.get(__ret__, 'include_space'),
         password_length=pulumi.get(__ret__, 'password_length'),
         random_password=pulumi.get(__ret__, 'random_password'),
+        region=pulumi.get(__ret__, 'region'),
         require_each_included_type=pulumi.get(__ret__, 'require_each_included_type'))
 def get_random_password_output(exclude_characters: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                exclude_lowercase: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
@@ -196,6 +209,7 @@ def get_random_password_output(exclude_characters: Optional[pulumi.Input[Optiona
                                exclude_uppercase: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                include_space: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                password_length: Optional[pulumi.Input[Optional[builtins.int]]] = None,
+                               region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                require_each_included_type: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRandomPasswordResult]:
     """
@@ -219,6 +233,7 @@ def get_random_password_output(exclude_characters: Optional[pulumi.Input[Optiona
     :param builtins.bool exclude_uppercase: Specifies whether to exclude uppercase letters from the password.
     :param builtins.bool include_space: Specifies whether to include the space character.
     :param builtins.int password_length: Length of the password.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.bool require_each_included_type: Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
     """
     __args__ = dict()
@@ -229,6 +244,7 @@ def get_random_password_output(exclude_characters: Optional[pulumi.Input[Optiona
     __args__['excludeUppercase'] = exclude_uppercase
     __args__['includeSpace'] = include_space
     __args__['passwordLength'] = password_length
+    __args__['region'] = region
     __args__['requireEachIncludedType'] = require_each_included_type
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:secretsmanager/getRandomPassword:getRandomPassword', __args__, opts=opts, typ=GetRandomPasswordResult)
@@ -242,4 +258,5 @@ def get_random_password_output(exclude_characters: Optional[pulumi.Input[Optiona
         include_space=pulumi.get(__response__, 'include_space'),
         password_length=pulumi.get(__response__, 'password_length'),
         random_password=pulumi.get(__response__, 'random_password'),
+        region=pulumi.get(__response__, 'region'),
         require_each_included_type=pulumi.get(__response__, 'require_each_included_type')))

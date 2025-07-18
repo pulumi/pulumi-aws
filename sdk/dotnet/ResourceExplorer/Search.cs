@@ -105,6 +105,12 @@ namespace Pulumi.Aws.ResourceExplorer
         public string QueryString { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
         /// </summary>
         [Input("viewArn")]
@@ -125,6 +131,12 @@ namespace Pulumi.Aws.ResourceExplorer
         /// </summary>
         [Input("queryString", required: true)]
         public Input<string> QueryString { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
@@ -148,6 +160,10 @@ namespace Pulumi.Aws.ResourceExplorer
         public readonly string Id;
         public readonly string QueryString;
         /// <summary>
+        /// Amazon Web Services Region in which the resource was created and exists.
+        /// </summary>
+        public readonly string Region;
+        /// <summary>
         /// Number of resources that match the query. See `resource_count` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.SearchResourceCountResult> ResourceCounts;
@@ -163,6 +179,8 @@ namespace Pulumi.Aws.ResourceExplorer
 
             string queryString,
 
+            string region,
+
             ImmutableArray<Outputs.SearchResourceCountResult> resourceCounts,
 
             ImmutableArray<Outputs.SearchResourceResult> resources,
@@ -171,6 +189,7 @@ namespace Pulumi.Aws.ResourceExplorer
         {
             Id = id;
             QueryString = queryString;
+            Region = region;
             ResourceCounts = resourceCounts;
             Resources = resources;
             ViewArn = viewArn;

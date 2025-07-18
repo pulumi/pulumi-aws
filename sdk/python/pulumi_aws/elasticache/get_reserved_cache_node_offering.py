@@ -27,7 +27,7 @@ class GetReservedCacheNodeOfferingResult:
     """
     A collection of values returned by getReservedCacheNodeOffering.
     """
-    def __init__(__self__, cache_node_type=None, duration=None, fixed_price=None, id=None, offering_id=None, offering_type=None, product_description=None):
+    def __init__(__self__, cache_node_type=None, duration=None, fixed_price=None, id=None, offering_id=None, offering_type=None, product_description=None, region=None):
         if cache_node_type and not isinstance(cache_node_type, str):
             raise TypeError("Expected argument 'cache_node_type' to be a str")
         pulumi.set(__self__, "cache_node_type", cache_node_type)
@@ -49,6 +49,9 @@ class GetReservedCacheNodeOfferingResult:
         if product_description and not isinstance(product_description, str):
             raise TypeError("Expected argument 'product_description' to be a str")
         pulumi.set(__self__, "product_description", product_description)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="cacheNodeType")
@@ -94,6 +97,11 @@ class GetReservedCacheNodeOfferingResult:
     def product_description(self) -> builtins.str:
         return pulumi.get(self, "product_description")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetReservedCacheNodeOfferingResult(GetReservedCacheNodeOfferingResult):
     # pylint: disable=using-constant-test
@@ -107,13 +115,15 @@ class AwaitableGetReservedCacheNodeOfferingResult(GetReservedCacheNodeOfferingRe
             id=self.id,
             offering_id=self.offering_id,
             offering_type=self.offering_type,
-            product_description=self.product_description)
+            product_description=self.product_description,
+            region=self.region)
 
 
 def get_reserved_cache_node_offering(cache_node_type: Optional[builtins.str] = None,
                                      duration: Optional[builtins.str] = None,
                                      offering_type: Optional[builtins.str] = None,
                                      product_description: Optional[builtins.str] = None,
+                                     region: Optional[builtins.str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReservedCacheNodeOfferingResult:
     """
     Information about a single ElastiCache Reserved Cache Node Offering.
@@ -142,12 +152,14 @@ def get_reserved_cache_node_offering(cache_node_type: Optional[builtins.str] = N
            For previous generation modes (i.e. T1, M1, M2, or C1) valid values are `Heavy Utilization`, `Medium Utilization`, and `Light Utilization`.
     :param builtins.str product_description: Engine type for the reserved cache node.
            Valid values are `redis`, `valkey` and `memcached`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['cacheNodeType'] = cache_node_type
     __args__['duration'] = duration
     __args__['offeringType'] = offering_type
     __args__['productDescription'] = product_description
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:elasticache/getReservedCacheNodeOffering:getReservedCacheNodeOffering', __args__, opts=opts, typ=GetReservedCacheNodeOfferingResult).value
 
@@ -158,11 +170,13 @@ def get_reserved_cache_node_offering(cache_node_type: Optional[builtins.str] = N
         id=pulumi.get(__ret__, 'id'),
         offering_id=pulumi.get(__ret__, 'offering_id'),
         offering_type=pulumi.get(__ret__, 'offering_type'),
-        product_description=pulumi.get(__ret__, 'product_description'))
+        product_description=pulumi.get(__ret__, 'product_description'),
+        region=pulumi.get(__ret__, 'region'))
 def get_reserved_cache_node_offering_output(cache_node_type: Optional[pulumi.Input[builtins.str]] = None,
                                             duration: Optional[pulumi.Input[builtins.str]] = None,
                                             offering_type: Optional[pulumi.Input[builtins.str]] = None,
                                             product_description: Optional[pulumi.Input[builtins.str]] = None,
+                                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReservedCacheNodeOfferingResult]:
     """
     Information about a single ElastiCache Reserved Cache Node Offering.
@@ -191,12 +205,14 @@ def get_reserved_cache_node_offering_output(cache_node_type: Optional[pulumi.Inp
            For previous generation modes (i.e. T1, M1, M2, or C1) valid values are `Heavy Utilization`, `Medium Utilization`, and `Light Utilization`.
     :param builtins.str product_description: Engine type for the reserved cache node.
            Valid values are `redis`, `valkey` and `memcached`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['cacheNodeType'] = cache_node_type
     __args__['duration'] = duration
     __args__['offeringType'] = offering_type
     __args__['productDescription'] = product_description
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:elasticache/getReservedCacheNodeOffering:getReservedCacheNodeOffering', __args__, opts=opts, typ=GetReservedCacheNodeOfferingResult)
     return __ret__.apply(lambda __response__: GetReservedCacheNodeOfferingResult(
@@ -206,4 +222,5 @@ def get_reserved_cache_node_offering_output(cache_node_type: Optional[pulumi.Inp
         id=pulumi.get(__response__, 'id'),
         offering_id=pulumi.get(__response__, 'offering_id'),
         offering_type=pulumi.get(__response__, 'offering_type'),
-        product_description=pulumi.get(__response__, 'product_description')))
+        product_description=pulumi.get(__response__, 'product_description'),
+        region=pulumi.get(__response__, 'region')))

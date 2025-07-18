@@ -27,13 +27,16 @@ class GetLbsResult:
     """
     A collection of values returned by getLbs.
     """
-    def __init__(__self__, arns=None, id=None, tags=None):
+    def __init__(__self__, arns=None, id=None, region=None, tags=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         pulumi.set(__self__, "arns", arns)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -56,6 +59,11 @@ class GetLbsResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags")
 
@@ -68,10 +76,12 @@ class AwaitableGetLbsResult(GetLbsResult):
         return GetLbsResult(
             arns=self.arns,
             id=self.id,
+            region=self.region,
             tags=self.tags)
 
 
-def get_lbs(tags: Optional[Mapping[str, builtins.str]] = None,
+def get_lbs(region: Optional[builtins.str] = None,
+            tags: Optional[Mapping[str, builtins.str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLbsResult:
     """
     Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other
@@ -91,10 +101,12 @@ def get_lbs(tags: Optional[Mapping[str, builtins.str]] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired Load Balancers.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:lb/getLbs:getLbs', __args__, opts=opts, typ=GetLbsResult).value
@@ -102,8 +114,10 @@ def get_lbs(tags: Optional[Mapping[str, builtins.str]] = None,
     return AwaitableGetLbsResult(
         arns=pulumi.get(__ret__, 'arns'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_lbs_output(tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
+def get_lbs_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                   tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLbsResult]:
     """
     Use this data source to get a list of Load Balancer ARNs matching the specified criteria. Useful for passing to other
@@ -123,14 +137,17 @@ def get_lbs_output(tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.st
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired Load Balancers.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lb/getLbs:getLbs', __args__, opts=opts, typ=GetLbsResult)
     return __ret__.apply(lambda __response__: GetLbsResult(
         arns=pulumi.get(__response__, 'arns'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

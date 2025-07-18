@@ -21,14 +21,18 @@ __all__ = ['InviteAccepterArgs', 'InviteAccepter']
 class InviteAccepterArgs:
     def __init__(__self__, *,
                  detector_id: pulumi.Input[builtins.str],
-                 master_account_id: pulumi.Input[builtins.str]):
+                 master_account_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a InviteAccepter resource.
         :param pulumi.Input[builtins.str] detector_id: The detector ID of the member GuardDuty account.
         :param pulumi.Input[builtins.str] master_account_id: AWS account ID for primary account.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "detector_id", detector_id)
         pulumi.set(__self__, "master_account_id", master_account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="detectorId")
@@ -54,21 +58,37 @@ class InviteAccepterArgs:
     def master_account_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "master_account_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _InviteAccepterState:
     def __init__(__self__, *,
                  detector_id: Optional[pulumi.Input[builtins.str]] = None,
-                 master_account_id: Optional[pulumi.Input[builtins.str]] = None):
+                 master_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering InviteAccepter resources.
         :param pulumi.Input[builtins.str] detector_id: The detector ID of the member GuardDuty account.
         :param pulumi.Input[builtins.str] master_account_id: AWS account ID for primary account.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if detector_id is not None:
             pulumi.set(__self__, "detector_id", detector_id)
         if master_account_id is not None:
             pulumi.set(__self__, "master_account_id", master_account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="detectorId")
@@ -94,6 +114,18 @@ class _InviteAccepterState:
     def master_account_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "master_account_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:guardduty/inviteAccepter:InviteAccepter")
 class InviteAccepter(pulumi.CustomResource):
@@ -103,6 +135,7 @@ class InviteAccepter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  detector_id: Optional[pulumi.Input[builtins.str]] = None,
                  master_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to accept a pending GuardDuty invite on creation, ensure the detector has the correct primary account on read, and disassociate with the primary account upon removal.
@@ -138,6 +171,7 @@ class InviteAccepter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] detector_id: The detector ID of the member GuardDuty account.
         :param pulumi.Input[builtins.str] master_account_id: AWS account ID for primary account.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -192,6 +226,7 @@ class InviteAccepter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  detector_id: Optional[pulumi.Input[builtins.str]] = None,
                  master_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -207,6 +242,7 @@ class InviteAccepter(pulumi.CustomResource):
             if master_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'master_account_id'")
             __props__.__dict__["master_account_id"] = master_account_id
+            __props__.__dict__["region"] = region
         super(InviteAccepter, __self__).__init__(
             'aws:guardduty/inviteAccepter:InviteAccepter',
             resource_name,
@@ -218,7 +254,8 @@ class InviteAccepter(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             detector_id: Optional[pulumi.Input[builtins.str]] = None,
-            master_account_id: Optional[pulumi.Input[builtins.str]] = None) -> 'InviteAccepter':
+            master_account_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'InviteAccepter':
         """
         Get an existing InviteAccepter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -228,6 +265,7 @@ class InviteAccepter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] detector_id: The detector ID of the member GuardDuty account.
         :param pulumi.Input[builtins.str] master_account_id: AWS account ID for primary account.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -235,6 +273,7 @@ class InviteAccepter(pulumi.CustomResource):
 
         __props__.__dict__["detector_id"] = detector_id
         __props__.__dict__["master_account_id"] = master_account_id
+        __props__.__dict__["region"] = region
         return InviteAccepter(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -252,4 +291,12 @@ class InviteAccepter(pulumi.CustomResource):
         AWS account ID for primary account.
         """
         return pulumi.get(self, "master_account_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,15 +29,15 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			b, err := s3.NewBucketV2(ctx, "b", &s3.BucketV2Args{
+//			b, err := s3.NewBucket(ctx, "b", &s3.BucketArgs{
 //				Bucket: pulumi.String("mybucket"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("My bucket"),
@@ -46,7 +46,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "b_acl", &s3.BucketAclV2Args{
+//			_, err = s3.NewBucketAcl(ctx, "b_acl", &s3.BucketAclArgs{
 //				Bucket: b.ID(),
 //				Acl:    pulumi.String("private"),
 //			})
@@ -192,7 +192,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -259,7 +259,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -325,9 +325,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -346,7 +346,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket:       pulumi.String("testbucket"),
 //				ForceDestroy: pulumi.Bool(true),
 //			})
@@ -357,7 +357,7 @@ import (
 //				Name:         pulumi.String("s3-destination"),
 //				OutputFormat: pulumi.String("parquet"),
 //				DeliveryDestinationConfiguration: &cloudwatch.LogDeliveryDestinationDeliveryDestinationConfigurationArgs{
-//					DestinationResourceArn: exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
+//					DestinationResourceArn: exampleBucket.Arn.ApplyT(func(arn string) (string, error) {
 //						return fmt.Sprintf("%v/prefix", arn), nil
 //					}).(pulumi.StringOutput),
 //				},
@@ -395,6 +395,8 @@ type Distribution struct {
 
 	// Extra CNAMEs (alternate domain names), if any, for this distribution.
 	Aliases pulumi.StringArrayOutput `pulumi:"aliases"`
+	// ID of the Anycast static IP list that is associated with the distribution.
+	AnycastIpListId pulumi.StringPtrOutput `pulumi:"anycastIpListId"`
 	// ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Internal value used by CloudFront to allow future updates to the distribution configuration.
@@ -446,8 +448,6 @@ type Distribution struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
 	TrustedKeyGroups DistributionTrustedKeyGroupArrayOutput `pulumi:"trustedKeyGroups"`
@@ -508,6 +508,8 @@ func GetDistribution(ctx *pulumi.Context,
 type distributionState struct {
 	// Extra CNAMEs (alternate domain names), if any, for this distribution.
 	Aliases []string `pulumi:"aliases"`
+	// ID of the Anycast static IP list that is associated with the distribution.
+	AnycastIpListId *string `pulumi:"anycastIpListId"`
 	// ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
 	Arn *string `pulumi:"arn"`
 	// Internal value used by CloudFront to allow future updates to the distribution configuration.
@@ -559,8 +561,6 @@ type distributionState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
 	TrustedKeyGroups []DistributionTrustedKeyGroup `pulumi:"trustedKeyGroups"`
@@ -577,6 +577,8 @@ type distributionState struct {
 type DistributionState struct {
 	// Extra CNAMEs (alternate domain names), if any, for this distribution.
 	Aliases pulumi.StringArrayInput
+	// ID of the Anycast static IP list that is associated with the distribution.
+	AnycastIpListId pulumi.StringPtrInput
 	// ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
 	Arn pulumi.StringPtrInput
 	// Internal value used by CloudFront to allow future updates to the distribution configuration.
@@ -628,8 +630,6 @@ type DistributionState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// List of nested attributes for active trusted key groups, if the distribution is set up to serve private content with signed URLs.
 	TrustedKeyGroups DistributionTrustedKeyGroupArrayInput
@@ -650,6 +650,8 @@ func (DistributionState) ElementType() reflect.Type {
 type distributionArgs struct {
 	// Extra CNAMEs (alternate domain names), if any, for this distribution.
 	Aliases []string `pulumi:"aliases"`
+	// ID of the Anycast static IP list that is associated with the distribution.
+	AnycastIpListId *string `pulumi:"anycastIpListId"`
 	// Any comments you want to include about the distribution.
 	Comment *string `pulumi:"comment"`
 	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
@@ -696,6 +698,8 @@ type distributionArgs struct {
 type DistributionArgs struct {
 	// Extra CNAMEs (alternate domain names), if any, for this distribution.
 	Aliases pulumi.StringArrayInput
+	// ID of the Anycast static IP list that is associated with the distribution.
+	AnycastIpListId pulumi.StringPtrInput
 	// Any comments you want to include about the distribution.
 	Comment pulumi.StringPtrInput
 	// Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
@@ -830,6 +834,11 @@ func (o DistributionOutput) Aliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringArrayOutput { return v.Aliases }).(pulumi.StringArrayOutput)
 }
 
+// ID of the Anycast static IP list that is associated with the distribution.
+func (o DistributionOutput) AnycastIpListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Distribution) pulumi.StringPtrOutput { return v.AnycastIpListId }).(pulumi.StringPtrOutput)
+}
+
 // ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
 func (o DistributionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
@@ -956,8 +965,6 @@ func (o DistributionOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o DistributionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

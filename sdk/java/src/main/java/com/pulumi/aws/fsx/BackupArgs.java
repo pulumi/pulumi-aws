@@ -32,6 +32,21 @@ public final class BackupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      * 
      */
@@ -49,12 +64,16 @@ public final class BackupArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The ID of the volume to back up. Required if backing up a ONTAP Volume.
      * 
+     * Note - One of `file_system_id` or `volume_id` can be specified. `file_system_id` is used for Lustre and Windows, `volume_id` is used for ONTAP.
+     * 
      */
     @Import(name="volumeId")
     private @Nullable Output<String> volumeId;
 
     /**
      * @return The ID of the volume to back up. Required if backing up a ONTAP Volume.
+     * 
+     * Note - One of `file_system_id` or `volume_id` can be specified. `file_system_id` is used for Lustre and Windows, `volume_id` is used for ONTAP.
      * 
      */
     public Optional<Output<String>> volumeId() {
@@ -65,6 +84,7 @@ public final class BackupArgs extends com.pulumi.resources.ResourceArgs {
 
     private BackupArgs(BackupArgs $) {
         this.fileSystemId = $.fileSystemId;
+        this.region = $.region;
         this.tags = $.tags;
         this.volumeId = $.volumeId;
     }
@@ -109,6 +129,27 @@ public final class BackupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param tags A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
          * 
          * @return builder
@@ -132,6 +173,8 @@ public final class BackupArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param volumeId The ID of the volume to back up. Required if backing up a ONTAP Volume.
          * 
+         * Note - One of `file_system_id` or `volume_id` can be specified. `file_system_id` is used for Lustre and Windows, `volume_id` is used for ONTAP.
+         * 
          * @return builder
          * 
          */
@@ -142,6 +185,8 @@ public final class BackupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param volumeId The ID of the volume to back up. Required if backing up a ONTAP Volume.
+         * 
+         * Note - One of `file_system_id` or `volume_id` can be specified. `file_system_id` is used for Lustre and Windows, `volume_id` is used for ONTAP.
          * 
          * @return builder
          * 

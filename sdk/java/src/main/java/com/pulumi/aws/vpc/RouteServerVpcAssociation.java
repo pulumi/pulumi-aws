@@ -68,6 +68,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:vpc/routeServerVpcAssociation:RouteServerVpcAssociation")
 public class RouteServerVpcAssociation extends com.pulumi.resources.CustomResource {
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The unique identifier for the route server to be associated.
      * 
      */
@@ -90,12 +104,16 @@ public class RouteServerVpcAssociation extends com.pulumi.resources.CustomResour
     /**
      * The ID of the VPC to associate with the route server.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
      * @return The ID of the VPC to associate with the route server.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> vpcId() {

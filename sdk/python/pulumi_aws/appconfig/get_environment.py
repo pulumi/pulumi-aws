@@ -28,7 +28,7 @@ class GetEnvironmentResult:
     """
     A collection of values returned by getEnvironment.
     """
-    def __init__(__self__, application_id=None, arn=None, description=None, environment_id=None, id=None, monitors=None, name=None, state=None, tags=None):
+    def __init__(__self__, application_id=None, arn=None, description=None, environment_id=None, id=None, monitors=None, name=None, region=None, state=None, tags=None):
         if application_id and not isinstance(application_id, str):
             raise TypeError("Expected argument 'application_id' to be a str")
         pulumi.set(__self__, "application_id", application_id)
@@ -50,6 +50,9 @@ class GetEnvironmentResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -109,6 +112,11 @@ class GetEnvironmentResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def state(self) -> builtins.str:
         """
         State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
@@ -138,12 +146,14 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
             id=self.id,
             monitors=self.monitors,
             name=self.name,
+            region=self.region,
             state=self.state,
             tags=self.tags)
 
 
 def get_environment(application_id: Optional[builtins.str] = None,
                     environment_id: Optional[builtins.str] = None,
+                    region: Optional[builtins.str] = None,
                     tags: Optional[Mapping[str, builtins.str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentResult:
     """
@@ -164,11 +174,13 @@ def get_environment(application_id: Optional[builtins.str] = None,
 
     :param builtins.str application_id: ID of the AppConfig Application to which this Environment belongs.
     :param builtins.str environment_id: ID of the AppConfig Environment.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
     __args__['environmentId'] = environment_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:appconfig/getEnvironment:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult).value
@@ -181,10 +193,12 @@ def get_environment(application_id: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         monitors=pulumi.get(__ret__, 'monitors'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_environment_output(application_id: Optional[pulumi.Input[builtins.str]] = None,
                            environment_id: Optional[pulumi.Input[builtins.str]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
@@ -205,11 +219,13 @@ def get_environment_output(application_id: Optional[pulumi.Input[builtins.str]] 
 
     :param builtins.str application_id: ID of the AppConfig Application to which this Environment belongs.
     :param builtins.str environment_id: ID of the AppConfig Environment.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
     __args__['environmentId'] = environment_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:appconfig/getEnvironment:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
@@ -221,5 +237,6 @@ def get_environment_output(application_id: Optional[pulumi.Input[builtins.str]] 
         id=pulumi.get(__response__, 'id'),
         monitors=pulumi.get(__response__, 'monitors'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags')))

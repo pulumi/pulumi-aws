@@ -166,6 +166,21 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Map of request query string parameters and headers that should be passed to the backend responder.
      * For example: `request_parameters = { &#34;integration.request.header.X-Some-Other-Header&#34; = &#34;method.request.header.X-Some-Header&#34; }`
      * 
@@ -303,6 +318,7 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
         this.httpMethod = $.httpMethod;
         this.integrationHttpMethod = $.integrationHttpMethod;
         this.passthroughBehavior = $.passthroughBehavior;
+        this.region = $.region;
         this.requestParameters = $.requestParameters;
         this.requestTemplates = $.requestTemplates;
         this.resourceId = $.resourceId;
@@ -538,6 +554,27 @@ public final class IntegrationArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder passthroughBehavior(String passthroughBehavior) {
             return passthroughBehavior(Output.of(passthroughBehavior));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

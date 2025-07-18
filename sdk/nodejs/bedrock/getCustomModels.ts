@@ -19,10 +19,22 @@ import * as utilities from "../utilities";
  * const test = aws.bedrock.getCustomModels({});
  * ```
  */
-export function getCustomModels(opts?: pulumi.InvokeOptions): Promise<GetCustomModelsResult> {
+export function getCustomModels(args?: GetCustomModelsArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomModelsResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:bedrock/getCustomModels:getCustomModels", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getCustomModels.
+ */
+export interface GetCustomModelsArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -34,6 +46,7 @@ export interface GetCustomModelsResult {
      * Model summaries.
      */
     readonly modelSummaries: outputs.bedrock.GetCustomModelsModelSummary[];
+    readonly region: string;
 }
 /**
  * Returns a list of Amazon Bedrock custom models.
@@ -47,8 +60,20 @@ export interface GetCustomModelsResult {
  * const test = aws.bedrock.getCustomModels({});
  * ```
  */
-export function getCustomModelsOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomModelsResult> {
+export function getCustomModelsOutput(args?: GetCustomModelsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomModelsResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:bedrock/getCustomModels:getCustomModels", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getCustomModels.
+ */
+export interface GetCustomModelsOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

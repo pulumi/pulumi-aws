@@ -29,7 +29,7 @@ class GetServerlessSecurityConfigResult:
     """
     A collection of values returned by getServerlessSecurityConfig.
     """
-    def __init__(__self__, config_version=None, created_date=None, description=None, id=None, last_modified_date=None, saml_options=None, type=None):
+    def __init__(__self__, config_version=None, created_date=None, description=None, id=None, last_modified_date=None, region=None, saml_options=None, type=None):
         if config_version and not isinstance(config_version, str):
             raise TypeError("Expected argument 'config_version' to be a str")
         pulumi.set(__self__, "config_version", config_version)
@@ -45,8 +45,11 @@ class GetServerlessSecurityConfigResult:
         if last_modified_date and not isinstance(last_modified_date, str):
             raise TypeError("Expected argument 'last_modified_date' to be a str")
         pulumi.set(__self__, "last_modified_date", last_modified_date)
-        if saml_options and not isinstance(saml_options, dict):
-            raise TypeError("Expected argument 'saml_options' to be a dict")
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
+        if saml_options and not isinstance(saml_options, list):
+            raise TypeError("Expected argument 'saml_options' to be a list")
         pulumi.set(__self__, "saml_options", saml_options)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -90,8 +93,13 @@ class GetServerlessSecurityConfigResult:
         return pulumi.get(self, "last_modified_date")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="samlOptions")
-    def saml_options(self) -> Optional['outputs.GetServerlessSecurityConfigSamlOptionsResult']:
+    def saml_options(self) -> Optional[Sequence['outputs.GetServerlessSecurityConfigSamlOptionResult']]:
         """
         SAML options for the security configuration.
         """
@@ -117,12 +125,14 @@ class AwaitableGetServerlessSecurityConfigResult(GetServerlessSecurityConfigResu
             description=self.description,
             id=self.id,
             last_modified_date=self.last_modified_date,
+            region=self.region,
             saml_options=self.saml_options,
             type=self.type)
 
 
 def get_serverless_security_config(id: Optional[builtins.str] = None,
-                                   saml_options: Optional[Union['GetServerlessSecurityConfigSamlOptionsArgs', 'GetServerlessSecurityConfigSamlOptionsArgsDict']] = None,
+                                   region: Optional[builtins.str] = None,
+                                   saml_options: Optional[Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerlessSecurityConfigResult:
     """
     Data source for managing an AWS OpenSearch Serverless Security Config.
@@ -140,10 +150,12 @@ def get_serverless_security_config(id: Optional[builtins.str] = None,
 
 
     :param builtins.str id: The unique identifier of the security configuration.
-    :param Union['GetServerlessSecurityConfigSamlOptionsArgs', 'GetServerlessSecurityConfigSamlOptionsArgsDict'] saml_options: SAML options for the security configuration.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    :param Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']] saml_options: SAML options for the security configuration.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     __args__['samlOptions'] = saml_options
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig', __args__, opts=opts, typ=GetServerlessSecurityConfigResult).value
@@ -154,10 +166,12 @@ def get_serverless_security_config(id: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         last_modified_date=pulumi.get(__ret__, 'last_modified_date'),
+        region=pulumi.get(__ret__, 'region'),
         saml_options=pulumi.get(__ret__, 'saml_options'),
         type=pulumi.get(__ret__, 'type'))
 def get_serverless_security_config_output(id: Optional[pulumi.Input[builtins.str]] = None,
-                                          saml_options: Optional[pulumi.Input[Optional[Union['GetServerlessSecurityConfigSamlOptionsArgs', 'GetServerlessSecurityConfigSamlOptionsArgsDict']]]] = None,
+                                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                          saml_options: Optional[pulumi.Input[Optional[Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']]]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessSecurityConfigResult]:
     """
     Data source for managing an AWS OpenSearch Serverless Security Config.
@@ -175,10 +189,12 @@ def get_serverless_security_config_output(id: Optional[pulumi.Input[builtins.str
 
 
     :param builtins.str id: The unique identifier of the security configuration.
-    :param Union['GetServerlessSecurityConfigSamlOptionsArgs', 'GetServerlessSecurityConfigSamlOptionsArgsDict'] saml_options: SAML options for the security configuration.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    :param Sequence[Union['GetServerlessSecurityConfigSamlOptionArgs', 'GetServerlessSecurityConfigSamlOptionArgsDict']] saml_options: SAML options for the security configuration.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     __args__['samlOptions'] = saml_options
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig', __args__, opts=opts, typ=GetServerlessSecurityConfigResult)
@@ -188,5 +204,6 @@ def get_serverless_security_config_output(id: Optional[pulumi.Input[builtins.str
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         last_modified_date=pulumi.get(__response__, 'last_modified_date'),
+        region=pulumi.get(__response__, 'region'),
         saml_options=pulumi.get(__response__, 'saml_options'),
         type=pulumi.get(__response__, 'type')))

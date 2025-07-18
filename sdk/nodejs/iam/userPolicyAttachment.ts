@@ -4,7 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
 import {User} from "./index";
 
 /**
@@ -69,7 +68,7 @@ export class UserPolicyAttachment extends pulumi.CustomResource {
     /**
      * The ARN of the policy you want to apply
      */
-    public readonly policyArn!: pulumi.Output<ARN>;
+    public readonly policyArn!: pulumi.Output<string>;
     /**
      * The user the policy should be applied to
      */
@@ -113,7 +112,7 @@ export interface UserPolicyAttachmentState {
     /**
      * The ARN of the policy you want to apply
      */
-    policyArn?: pulumi.Input<ARN>;
+    policyArn?: pulumi.Input<string>;
     /**
      * The user the policy should be applied to
      */
@@ -127,7 +126,7 @@ export interface UserPolicyAttachmentArgs {
     /**
      * The ARN of the policy you want to apply
      */
-    policyArn: pulumi.Input<ARN>;
+    policyArn: pulumi.Input<string>;
     /**
      * The user the policy should be applied to
      */

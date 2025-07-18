@@ -29,7 +29,7 @@ class GetRouteTableResult:
     """
     A collection of values returned by getRouteTable.
     """
-    def __init__(__self__, arn=None, associations=None, filters=None, gateway_id=None, id=None, owner_id=None, route_table_id=None, routes=None, subnet_id=None, tags=None, vpc_id=None):
+    def __init__(__self__, arn=None, associations=None, filters=None, gateway_id=None, id=None, owner_id=None, region=None, route_table_id=None, routes=None, subnet_id=None, tags=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -48,6 +48,9 @@ class GetRouteTableResult:
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if route_table_id and not isinstance(route_table_id, str):
             raise TypeError("Expected argument 'route_table_id' to be a str")
         pulumi.set(__self__, "route_table_id", route_table_id)
@@ -110,6 +113,11 @@ class GetRouteTableResult:
         return pulumi.get(self, "owner_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> builtins.str:
         """
@@ -156,6 +164,7 @@ class AwaitableGetRouteTableResult(GetRouteTableResult):
             gateway_id=self.gateway_id,
             id=self.id,
             owner_id=self.owner_id,
+            region=self.region,
             route_table_id=self.route_table_id,
             routes=self.routes,
             subnet_id=self.subnet_id,
@@ -165,6 +174,7 @@ class AwaitableGetRouteTableResult(GetRouteTableResult):
 
 def get_route_table(filters: Optional[Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']]] = None,
                     gateway_id: Optional[builtins.str] = None,
+                    region: Optional[builtins.str] = None,
                     route_table_id: Optional[builtins.str] = None,
                     subnet_id: Optional[builtins.str] = None,
                     tags: Optional[Mapping[str, builtins.str]] = None,
@@ -195,6 +205,7 @@ def get_route_table(filters: Optional[Sequence[Union['GetRouteTableFilterArgs', 
 
     :param Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']] filters: Configuration block. Detailed below.
     :param builtins.str gateway_id: ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str route_table_id: ID of the specific Route Table to retrieve.
     :param builtins.str subnet_id: ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Route Table.
@@ -203,6 +214,7 @@ def get_route_table(filters: Optional[Sequence[Union['GetRouteTableFilterArgs', 
     __args__ = dict()
     __args__['filters'] = filters
     __args__['gatewayId'] = gateway_id
+    __args__['region'] = region
     __args__['routeTableId'] = route_table_id
     __args__['subnetId'] = subnet_id
     __args__['tags'] = tags
@@ -217,6 +229,7 @@ def get_route_table(filters: Optional[Sequence[Union['GetRouteTableFilterArgs', 
         gateway_id=pulumi.get(__ret__, 'gateway_id'),
         id=pulumi.get(__ret__, 'id'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
+        region=pulumi.get(__ret__, 'region'),
         route_table_id=pulumi.get(__ret__, 'route_table_id'),
         routes=pulumi.get(__ret__, 'routes'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
@@ -224,6 +237,7 @@ def get_route_table(filters: Optional[Sequence[Union['GetRouteTableFilterArgs', 
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']]]]] = None,
                            gateway_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            route_table_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            subnet_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
@@ -254,6 +268,7 @@ def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
 
     :param Sequence[Union['GetRouteTableFilterArgs', 'GetRouteTableFilterArgsDict']] filters: Configuration block. Detailed below.
     :param builtins.str gateway_id: ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str route_table_id: ID of the specific Route Table to retrieve.
     :param builtins.str subnet_id: ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Route Table.
@@ -262,6 +277,7 @@ def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
     __args__ = dict()
     __args__['filters'] = filters
     __args__['gatewayId'] = gateway_id
+    __args__['region'] = region
     __args__['routeTableId'] = route_table_id
     __args__['subnetId'] = subnet_id
     __args__['tags'] = tags
@@ -275,6 +291,7 @@ def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[Unio
         gateway_id=pulumi.get(__response__, 'gateway_id'),
         id=pulumi.get(__response__, 'id'),
         owner_id=pulumi.get(__response__, 'owner_id'),
+        region=pulumi.get(__response__, 'region'),
         route_table_id=pulumi.get(__response__, 'route_table_id'),
         routes=pulumi.get(__response__, 'routes'),
         subnet_id=pulumi.get(__response__, 'subnet_id'),

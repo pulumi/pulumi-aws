@@ -34,7 +34,7 @@ class GroupArgs:
                  default_instance_warmup: Optional[pulumi.Input[builtins.int]] = None,
                  desired_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  desired_capacity_type: Optional[pulumi.Input[builtins.str]] = None,
-                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]] = None,
                  force_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  force_delete_warm_pool: Optional[pulumi.Input[builtins.bool]] = None,
                  health_check_grace_period: Optional[pulumi.Input[builtins.int]] = None,
@@ -54,6 +54,7 @@ class GroupArgs:
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  placement_group: Optional[pulumi.Input[builtins.str]] = None,
                  protect_from_scale_in: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_linked_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  suspended_processes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]] = None,
@@ -80,7 +81,7 @@ class GroupArgs:
                should be running in the group. (See also Waiting for
                Capacity below.)
         :param pulumi.Input[builtins.str] desired_capacity_type: The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enabled_metrics: List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
+        :param pulumi.Input[Sequence[pulumi.Input['Metric']]] enabled_metrics: List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         :param pulumi.Input[builtins.bool] force_delete: Allows deleting the Auto Scaling Group without waiting
                for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
                even if it's in the process of scaling a resource. Normally, this provider
@@ -121,6 +122,7 @@ class GroupArgs:
                scaling in. For more information about preventing instances from terminating
                on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
                in the Amazon EC2 Auto Scaling User Guide.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_linked_role_arn: ARN of the service-linked role that the ASG will use to call other AWS services
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] suspended_processes: List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
@@ -202,6 +204,8 @@ class GroupArgs:
             pulumi.set(__self__, "placement_group", placement_group)
         if protect_from_scale_in is not None:
             pulumi.set(__self__, "protect_from_scale_in", protect_from_scale_in)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if service_linked_role_arn is not None:
             pulumi.set(__self__, "service_linked_role_arn", service_linked_role_arn)
         if suspended_processes is not None:
@@ -360,14 +364,14 @@ class GroupArgs:
 
     @property
     @pulumi.getter(name="enabledMetrics")
-    def enabled_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def enabled_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]]:
         """
         List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         """
         return pulumi.get(self, "enabled_metrics")
 
     @enabled_metrics.setter
-    def enabled_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def enabled_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]]):
         pulumi.set(self, "enabled_metrics", value)
 
     @property
@@ -620,6 +624,18 @@ class GroupArgs:
         pulumi.set(self, "protect_from_scale_in", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serviceLinkedRoleArn")
     def service_linked_role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -763,7 +779,7 @@ class _GroupState:
                  default_instance_warmup: Optional[pulumi.Input[builtins.int]] = None,
                  desired_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  desired_capacity_type: Optional[pulumi.Input[builtins.str]] = None,
-                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]] = None,
                  force_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  force_delete_warm_pool: Optional[pulumi.Input[builtins.bool]] = None,
                  health_check_grace_period: Optional[pulumi.Input[builtins.int]] = None,
@@ -786,6 +802,7 @@ class _GroupState:
                  placement_group: Optional[pulumi.Input[builtins.str]] = None,
                  predicted_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  protect_from_scale_in: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_linked_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  suspended_processes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]] = None,
@@ -811,7 +828,7 @@ class _GroupState:
                should be running in the group. (See also Waiting for
                Capacity below.)
         :param pulumi.Input[builtins.str] desired_capacity_type: The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enabled_metrics: List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
+        :param pulumi.Input[Sequence[pulumi.Input['Metric']]] enabled_metrics: List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         :param pulumi.Input[builtins.bool] force_delete: Allows deleting the Auto Scaling Group without waiting
                for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
                even if it's in the process of scaling a resource. Normally, this provider
@@ -856,6 +873,7 @@ class _GroupState:
                scaling in. For more information about preventing instances from terminating
                on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
                in the Amazon EC2 Auto Scaling User Guide.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_linked_role_arn: ARN of the service-linked role that the ASG will use to call other AWS services
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] suspended_processes: List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
@@ -944,6 +962,8 @@ class _GroupState:
             pulumi.set(__self__, "predicted_capacity", predicted_capacity)
         if protect_from_scale_in is not None:
             pulumi.set(__self__, "protect_from_scale_in", protect_from_scale_in)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if service_linked_role_arn is not None:
             pulumi.set(__self__, "service_linked_role_arn", service_linked_role_arn)
         if suspended_processes is not None:
@@ -1091,14 +1111,14 @@ class _GroupState:
 
     @property
     @pulumi.getter(name="enabledMetrics")
-    def enabled_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+    def enabled_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]]:
         """
         List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         """
         return pulumi.get(self, "enabled_metrics")
 
     @enabled_metrics.setter
-    def enabled_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+    def enabled_metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]]):
         pulumi.set(self, "enabled_metrics", value)
 
     @property
@@ -1388,6 +1408,18 @@ class _GroupState:
         pulumi.set(self, "protect_from_scale_in", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serviceLinkedRoleArn")
     def service_linked_role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -1545,7 +1577,7 @@ class Group(pulumi.CustomResource):
                  default_instance_warmup: Optional[pulumi.Input[builtins.int]] = None,
                  desired_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  desired_capacity_type: Optional[pulumi.Input[builtins.str]] = None,
-                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]] = None,
                  force_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  force_delete_warm_pool: Optional[pulumi.Input[builtins.bool]] = None,
                  health_check_grace_period: Optional[pulumi.Input[builtins.int]] = None,
@@ -1567,6 +1599,7 @@ class Group(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  placement_group: Optional[pulumi.Input[builtins.str]] = None,
                  protect_from_scale_in: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_linked_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  suspended_processes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupTagArgs', 'GroupTagArgsDict']]]]] = None,
@@ -2021,7 +2054,7 @@ class Group(pulumi.CustomResource):
                should be running in the group. (See also Waiting for
                Capacity below.)
         :param pulumi.Input[builtins.str] desired_capacity_type: The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enabled_metrics: List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
+        :param pulumi.Input[Sequence[pulumi.Input['Metric']]] enabled_metrics: List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         :param pulumi.Input[builtins.bool] force_delete: Allows deleting the Auto Scaling Group without waiting
                for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
                even if it's in the process of scaling a resource. Normally, this provider
@@ -2065,6 +2098,7 @@ class Group(pulumi.CustomResource):
                scaling in. For more information about preventing instances from terminating
                on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
                in the Amazon EC2 Auto Scaling User Guide.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_linked_role_arn: ARN of the service-linked role that the ASG will use to call other AWS services
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] suspended_processes: List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
@@ -2546,7 +2580,7 @@ class Group(pulumi.CustomResource):
                  default_instance_warmup: Optional[pulumi.Input[builtins.int]] = None,
                  desired_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  desired_capacity_type: Optional[pulumi.Input[builtins.str]] = None,
-                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]] = None,
                  force_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  force_delete_warm_pool: Optional[pulumi.Input[builtins.bool]] = None,
                  health_check_grace_period: Optional[pulumi.Input[builtins.int]] = None,
@@ -2568,6 +2602,7 @@ class Group(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  placement_group: Optional[pulumi.Input[builtins.str]] = None,
                  protect_from_scale_in: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_linked_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  suspended_processes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupTagArgs', 'GroupTagArgsDict']]]]] = None,
@@ -2622,6 +2657,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["placement_group"] = placement_group
             __props__.__dict__["protect_from_scale_in"] = protect_from_scale_in
+            __props__.__dict__["region"] = region
             __props__.__dict__["service_linked_role_arn"] = service_linked_role_arn
             __props__.__dict__["suspended_processes"] = suspended_processes
             __props__.__dict__["tags"] = tags
@@ -2655,7 +2691,7 @@ class Group(pulumi.CustomResource):
             default_instance_warmup: Optional[pulumi.Input[builtins.int]] = None,
             desired_capacity: Optional[pulumi.Input[builtins.int]] = None,
             desired_capacity_type: Optional[pulumi.Input[builtins.str]] = None,
-            enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input['Metric']]]] = None,
             force_delete: Optional[pulumi.Input[builtins.bool]] = None,
             force_delete_warm_pool: Optional[pulumi.Input[builtins.bool]] = None,
             health_check_grace_period: Optional[pulumi.Input[builtins.int]] = None,
@@ -2678,6 +2714,7 @@ class Group(pulumi.CustomResource):
             placement_group: Optional[pulumi.Input[builtins.str]] = None,
             predicted_capacity: Optional[pulumi.Input[builtins.int]] = None,
             protect_from_scale_in: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             service_linked_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             suspended_processes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupTagArgs', 'GroupTagArgsDict']]]]] = None,
@@ -2708,7 +2745,7 @@ class Group(pulumi.CustomResource):
                should be running in the group. (See also Waiting for
                Capacity below.)
         :param pulumi.Input[builtins.str] desired_capacity_type: The unit of measurement for the value specified for `desired_capacity`. Supported for attribute-based instance type selection only. Valid values: `"units"`, `"vcpu"`, `"memory-mib"`.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enabled_metrics: List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
+        :param pulumi.Input[Sequence[pulumi.Input['Metric']]] enabled_metrics: List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         :param pulumi.Input[builtins.bool] force_delete: Allows deleting the Auto Scaling Group without waiting
                for all instances in the pool to terminate. You can force an Auto Scaling Group to delete
                even if it's in the process of scaling a resource. Normally, this provider
@@ -2753,6 +2790,7 @@ class Group(pulumi.CustomResource):
                scaling in. For more information about preventing instances from terminating
                on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
                in the Amazon EC2 Auto Scaling User Guide.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_linked_role_arn: ARN of the service-linked role that the ASG will use to call other AWS services
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] suspended_processes: List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
@@ -2812,6 +2850,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["placement_group"] = placement_group
         __props__.__dict__["predicted_capacity"] = predicted_capacity
         __props__.__dict__["protect_from_scale_in"] = protect_from_scale_in
+        __props__.__dict__["region"] = region
         __props__.__dict__["service_linked_role_arn"] = service_linked_role_arn
         __props__.__dict__["suspended_processes"] = suspended_processes
         __props__.__dict__["tags"] = tags
@@ -2909,7 +2948,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enabledMetrics")
-    def enabled_metrics(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
+    def enabled_metrics(self) -> pulumi.Output[Optional[Sequence['Metric']]]:
         """
         List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         """
@@ -3112,6 +3151,14 @@ class Group(pulumi.CustomResource):
         in the Amazon EC2 Auto Scaling User Guide.
         """
         return pulumi.get(self, "protect_from_scale_in")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serviceLinkedRoleArn")

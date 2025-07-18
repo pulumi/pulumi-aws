@@ -66,6 +66,10 @@ export class AccessLogSubscription extends pulumi.CustomResource {
      */
     public readonly destinationArn!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) of the service network or service.
      */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
@@ -80,9 +84,6 @@ export class AccessLogSubscription extends pulumi.CustomResource {
      */
     public readonly serviceNetworkLogType!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -100,6 +101,7 @@ export class AccessLogSubscription extends pulumi.CustomResource {
             const state = argsOrState as AccessLogSubscriptionState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["destinationArn"] = state ? state.destinationArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
             resourceInputs["resourceIdentifier"] = state ? state.resourceIdentifier : undefined;
             resourceInputs["serviceNetworkLogType"] = state ? state.serviceNetworkLogType : undefined;
@@ -114,6 +116,7 @@ export class AccessLogSubscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceIdentifier'");
             }
             resourceInputs["destinationArn"] = args ? args.destinationArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
             resourceInputs["serviceNetworkLogType"] = args ? args.serviceNetworkLogType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -139,6 +142,10 @@ export interface AccessLogSubscriptionState {
      */
     destinationArn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Amazon Resource Name (ARN) of the service network or service.
      */
     resourceArn?: pulumi.Input<string>;
@@ -153,9 +160,6 @@ export interface AccessLogSubscriptionState {
      */
     serviceNetworkLogType?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -167,6 +171,10 @@ export interface AccessLogSubscriptionArgs {
      * Amazon Resource Name (ARN) of the log destination.
      */
     destinationArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
      *

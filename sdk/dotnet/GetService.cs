@@ -30,7 +30,7 @@ namespace Pulumi.Aws
         /// 
         ///     var test = Aws.GetService.Invoke(new()
         ///     {
-        ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+        ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Region),
         ///         ServiceId = "ec2",
         ///     });
         /// 
@@ -95,7 +95,7 @@ namespace Pulumi.Aws
         /// 
         ///     var test = Aws.GetService.Invoke(new()
         ///     {
-        ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+        ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Region),
         ///         ServiceId = "ec2",
         ///     });
         /// 
@@ -160,7 +160,7 @@ namespace Pulumi.Aws
         /// 
         ///     var test = Aws.GetService.Invoke(new()
         ///     {
-        ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+        ///         Region = current.Apply(getRegionResult =&gt; getRegionResult.Region),
         ///         ServiceId = "ec2",
         ///     });
         /// 
@@ -220,7 +220,7 @@ namespace Pulumi.Aws
         public string? Id { get; set; }
 
         /// <summary>
-        /// Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
+        /// Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public string? Region { get; set; }
@@ -261,7 +261,7 @@ namespace Pulumi.Aws
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
+        /// Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,6 +66,8 @@ type AuthenticationProfile struct {
 	AuthenticationProfileContent pulumi.StringOutput `pulumi:"authenticationProfileContent"`
 	// The name of the authentication profile.
 	AuthenticationProfileName pulumi.StringOutput `pulumi:"authenticationProfileName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAuthenticationProfile registers a new resource with the given unique name, arguments, and options.
@@ -108,6 +110,8 @@ type authenticationProfileState struct {
 	AuthenticationProfileContent *string `pulumi:"authenticationProfileContent"`
 	// The name of the authentication profile.
 	AuthenticationProfileName *string `pulumi:"authenticationProfileName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type AuthenticationProfileState struct {
@@ -115,6 +119,8 @@ type AuthenticationProfileState struct {
 	AuthenticationProfileContent pulumi.StringPtrInput
 	// The name of the authentication profile.
 	AuthenticationProfileName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AuthenticationProfileState) ElementType() reflect.Type {
@@ -126,6 +132,8 @@ type authenticationProfileArgs struct {
 	AuthenticationProfileContent string `pulumi:"authenticationProfileContent"`
 	// The name of the authentication profile.
 	AuthenticationProfileName string `pulumi:"authenticationProfileName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AuthenticationProfile resource.
@@ -134,6 +142,8 @@ type AuthenticationProfileArgs struct {
 	AuthenticationProfileContent pulumi.StringInput
 	// The name of the authentication profile.
 	AuthenticationProfileName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AuthenticationProfileArgs) ElementType() reflect.Type {
@@ -231,6 +241,11 @@ func (o AuthenticationProfileOutput) AuthenticationProfileContent() pulumi.Strin
 // The name of the authentication profile.
 func (o AuthenticationProfileOutput) AuthenticationProfileName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthenticationProfile) pulumi.StringOutput { return v.AuthenticationProfileName }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AuthenticationProfileOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AuthenticationProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type AuthenticationProfileArrayOutput struct{ *pulumi.OutputState }

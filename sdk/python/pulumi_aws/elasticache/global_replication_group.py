@@ -29,7 +29,8 @@ class GlobalReplicationGroupArgs:
                  engine_version: Optional[pulumi.Input[builtins.str]] = None,
                  global_replication_group_description: Optional[pulumi.Input[builtins.str]] = None,
                  num_node_groups: Optional[pulumi.Input[builtins.int]] = None,
-                 parameter_group_name: Optional[pulumi.Input[builtins.str]] = None):
+                 parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a GlobalReplicationGroup resource.
         :param pulumi.Input[builtins.str] global_replication_group_id_suffix: The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
@@ -54,6 +55,7 @@ class GlobalReplicationGroupArgs:
                Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
                Specifying without a major version upgrade will fail.
                Note that ElastiCache creates a copy of this parameter group for each member replication group.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "global_replication_group_id_suffix", global_replication_group_id_suffix)
         pulumi.set(__self__, "primary_replication_group_id", primary_replication_group_id)
@@ -69,6 +71,8 @@ class GlobalReplicationGroupArgs:
             pulumi.set(__self__, "num_node_groups", num_node_groups)
         if parameter_group_name is not None:
             pulumi.set(__self__, "parameter_group_name", parameter_group_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="globalReplicationGroupIdSuffix")
@@ -180,6 +184,18 @@ class GlobalReplicationGroupArgs:
     def parameter_group_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "parameter_group_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _GlobalReplicationGroupState:
@@ -200,6 +216,7 @@ class _GlobalReplicationGroupState:
                  num_node_groups: Optional[pulumi.Input[builtins.int]] = None,
                  parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  primary_replication_group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GlobalReplicationGroup resources.
@@ -234,6 +251,7 @@ class _GlobalReplicationGroupState:
                Specifying without a major version upgrade will fail.
                Note that ElastiCache creates a copy of this parameter group for each member replication group.
         :param pulumi.Input[builtins.str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] transit_encryption_enabled: A flag that indicates whether the encryption in transit is enabled.
         """
         if arn is not None:
@@ -268,6 +286,8 @@ class _GlobalReplicationGroupState:
             pulumi.set(__self__, "parameter_group_name", parameter_group_name)
         if primary_replication_group_id is not None:
             pulumi.set(__self__, "primary_replication_group_id", primary_replication_group_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if transit_encryption_enabled is not None:
             pulumi.set(__self__, "transit_encryption_enabled", transit_encryption_enabled)
 
@@ -479,6 +499,18 @@ class _GlobalReplicationGroupState:
         pulumi.set(self, "primary_replication_group_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="transitEncryptionEnabled")
     def transit_encryption_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -505,6 +537,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                  num_node_groups: Optional[pulumi.Input[builtins.int]] = None,
                  parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  primary_replication_group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides an ElastiCache Global Replication Group resource, which manages replication between two or more Replication Groups in different regions. For more information, see the [ElastiCache User Guide](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
@@ -604,6 +637,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                Specifying without a major version upgrade will fail.
                Note that ElastiCache creates a copy of this parameter group for each member replication group.
         :param pulumi.Input[builtins.str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -708,6 +742,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                  num_node_groups: Optional[pulumi.Input[builtins.int]] = None,
                  parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  primary_replication_group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -729,6 +764,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             if primary_replication_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'primary_replication_group_id'")
             __props__.__dict__["primary_replication_group_id"] = primary_replication_group_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["arn"] = None
             __props__.__dict__["at_rest_encryption_enabled"] = None
             __props__.__dict__["auth_token_enabled"] = None
@@ -764,6 +800,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             num_node_groups: Optional[pulumi.Input[builtins.int]] = None,
             parameter_group_name: Optional[pulumi.Input[builtins.str]] = None,
             primary_replication_group_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             transit_encryption_enabled: Optional[pulumi.Input[builtins.bool]] = None) -> 'GlobalReplicationGroup':
         """
         Get an existing GlobalReplicationGroup resource's state with the given name, id, and optional extra
@@ -803,6 +840,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                Specifying without a major version upgrade will fail.
                Note that ElastiCache creates a copy of this parameter group for each member replication group.
         :param pulumi.Input[builtins.str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] transit_encryption_enabled: A flag that indicates whether the encryption in transit is enabled.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -825,6 +863,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["num_node_groups"] = num_node_groups
         __props__.__dict__["parameter_group_name"] = parameter_group_name
         __props__.__dict__["primary_replication_group_id"] = primary_replication_group_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
         return GlobalReplicationGroup(resource_name, opts=opts, __props__=__props__)
 
@@ -970,6 +1009,14 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
         """
         return pulumi.get(self, "primary_replication_group_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="transitEncryptionEnabled")

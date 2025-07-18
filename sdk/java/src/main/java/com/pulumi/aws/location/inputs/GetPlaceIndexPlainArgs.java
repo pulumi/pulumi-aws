@@ -32,6 +32,21 @@ public final class GetPlaceIndexPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key-value map of resource tags for the place index.
      * 
      */
@@ -50,6 +65,7 @@ public final class GetPlaceIndexPlainArgs extends com.pulumi.resources.InvokeArg
 
     private GetPlaceIndexPlainArgs(GetPlaceIndexPlainArgs $) {
         this.indexName = $.indexName;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -79,6 +95,17 @@ public final class GetPlaceIndexPlainArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder indexName(String indexName) {
             $.indexName = indexName;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

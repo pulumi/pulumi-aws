@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Retrieve information about devices.
+ * Provides details about existing Network Manager devices.
  *
  * ## Example Usage
  *
@@ -65,7 +65,7 @@ export interface GetDevicesResult {
     readonly tags?: {[key: string]: string};
 }
 /**
- * Retrieve information about devices.
+ * Provides details about existing Network Manager devices.
  *
  * ## Example Usage
  *

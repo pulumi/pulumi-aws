@@ -112,16 +112,12 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
     /**
      * Refresh cache information. see `cache_attributes` Block for more details.
      * 
-     * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
-     * 
      */
     @Import(name="cacheAttributes")
     private @Nullable Output<SmbFileShareCacheAttributesArgs> cacheAttributes;
 
     /**
      * @return Refresh cache information. see `cache_attributes` Block for more details.
-     * 
-     * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      * 
      */
     public Optional<Output<SmbFileShareCacheAttributesArgs>> cacheAttributes() {
@@ -354,6 +350,21 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
      * 
      */
@@ -401,12 +412,16 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
     /**
      * Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
+     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -416,22 +431,14 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -491,6 +498,7 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
         this.oplocksEnabled = $.oplocksEnabled;
         this.path = $.path;
         this.readOnly = $.readOnly;
+        this.region = $.region;
         this.requesterPays = $.requesterPays;
         this.roleArn = $.roleArn;
         this.smbAclEnabled = $.smbAclEnabled;
@@ -657,8 +665,6 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param cacheAttributes Refresh cache information. see `cache_attributes` Block for more details.
          * 
-         * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
-         * 
          * @return builder
          * 
          */
@@ -669,8 +675,6 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param cacheAttributes Refresh cache information. see `cache_attributes` Block for more details.
-         * 
-         * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
          * 
          * @return builder
          * 
@@ -1005,6 +1009,27 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param requesterPays Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
          * 
          * @return builder
@@ -1070,6 +1095,8 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
+         * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
+         * 
          * @return builder
          * 
          */
@@ -1080,6 +1107,8 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * **Note:** If you have previously included a `cache_attributes` block in your configuration, removing it will not reset the refresh cache value and the previous value will remain. You must explicitly set a new value to change it.
          * 
          * @return builder
          * 
@@ -1093,11 +1122,7 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -1108,11 +1133,7 @@ public final class SmbFileShareState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

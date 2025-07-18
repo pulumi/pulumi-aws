@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Location
         [Input("indexName", required: true)]
         public string IndexName { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.Location
         /// </summary>
         [Input("indexName", required: true)]
         public Input<string> IndexName { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -166,6 +178,7 @@ namespace Pulumi.Aws.Location
         /// </summary>
         public readonly string IndexArn;
         public readonly string IndexName;
+        public readonly string Region;
         /// <summary>
         /// Key-value map of resource tags for the place index.
         /// </summary>
@@ -191,6 +204,8 @@ namespace Pulumi.Aws.Location
 
             string indexName,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             string updateTime)
@@ -202,6 +217,7 @@ namespace Pulumi.Aws.Location
             Id = id;
             IndexArn = indexArn;
             IndexName = indexName;
+            Region = region;
             Tags = tags;
             UpdateTime = updateTime;
         }

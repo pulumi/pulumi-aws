@@ -45,6 +45,7 @@ export function getQueryLogConfig(args?: GetQueryLogConfigArgs, opts?: pulumi.In
     return pulumi.runtime.invoke("aws:route53/getQueryLogConfig:getQueryLogConfig", {
         "filters": args.filters,
         "name": args.name,
+        "region": args.region,
         "resolverQueryLogConfigId": args.resolverQueryLogConfigId,
         "tags": args.tags,
     }, opts);
@@ -64,6 +65,10 @@ export interface GetQueryLogConfigArgs {
      * The name of the query logging configuration.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * ID of the Route53 Resolver Query Logging Configuration.
      */
@@ -99,6 +104,7 @@ export interface GetQueryLogConfigResult {
      * The AWS account ID for the account that created the query logging configuration.
      */
     readonly ownerId: string;
+    readonly region: string;
     readonly resolverQueryLogConfigId?: string;
     /**
      * An indication of whether the query logging configuration is shared with other AWS accounts or was shared with the current account by another AWS account.
@@ -147,6 +153,7 @@ export function getQueryLogConfigOutput(args?: GetQueryLogConfigOutputArgs, opts
     return pulumi.runtime.invokeOutput("aws:route53/getQueryLogConfig:getQueryLogConfig", {
         "filters": args.filters,
         "name": args.name,
+        "region": args.region,
         "resolverQueryLogConfigId": args.resolverQueryLogConfigId,
         "tags": args.tags,
     }, opts);
@@ -166,6 +173,10 @@ export interface GetQueryLogConfigOutputArgs {
      * The name of the query logging configuration.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the Route53 Resolver Query Logging Configuration.
      */

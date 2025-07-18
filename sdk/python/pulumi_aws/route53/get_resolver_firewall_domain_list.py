@@ -27,7 +27,7 @@ class GetResolverFirewallDomainListResult:
     """
     A collection of values returned by getResolverFirewallDomainList.
     """
-    def __init__(__self__, arn=None, creation_time=None, creator_request_id=None, domain_count=None, firewall_domain_list_id=None, id=None, managed_owner_name=None, modification_time=None, name=None, status=None, status_message=None):
+    def __init__(__self__, arn=None, creation_time=None, creator_request_id=None, domain_count=None, firewall_domain_list_id=None, id=None, managed_owner_name=None, modification_time=None, name=None, region=None, status=None, status_message=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -55,6 +55,9 @@ class GetResolverFirewallDomainListResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -133,6 +136,11 @@ class GetResolverFirewallDomainListResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def status(self) -> builtins.str:
         """
         The status of the domain list.
@@ -163,11 +171,13 @@ class AwaitableGetResolverFirewallDomainListResult(GetResolverFirewallDomainList
             managed_owner_name=self.managed_owner_name,
             modification_time=self.modification_time,
             name=self.name,
+            region=self.region,
             status=self.status,
             status_message=self.status_message)
 
 
 def get_resolver_firewall_domain_list(firewall_domain_list_id: Optional[builtins.str] = None,
+                                      region: Optional[builtins.str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverFirewallDomainListResult:
     """
     `route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
@@ -187,9 +197,11 @@ def get_resolver_firewall_domain_list(firewall_domain_list_id: Optional[builtins
 
 
     :param builtins.str firewall_domain_list_id: The ID of the domain list.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['firewallDomainListId'] = firewall_domain_list_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList', __args__, opts=opts, typ=GetResolverFirewallDomainListResult).value
 
@@ -203,9 +215,11 @@ def get_resolver_firewall_domain_list(firewall_domain_list_id: Optional[builtins
         managed_owner_name=pulumi.get(__ret__, 'managed_owner_name'),
         modification_time=pulumi.get(__ret__, 'modification_time'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
         status_message=pulumi.get(__ret__, 'status_message'))
 def get_resolver_firewall_domain_list_output(firewall_domain_list_id: Optional[pulumi.Input[builtins.str]] = None,
+                                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverFirewallDomainListResult]:
     """
     `route53.ResolverFirewallDomainList` Retrieves the specified firewall domain list.
@@ -225,9 +239,11 @@ def get_resolver_firewall_domain_list_output(firewall_domain_list_id: Optional[p
 
 
     :param builtins.str firewall_domain_list_id: The ID of the domain list.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['firewallDomainListId'] = firewall_domain_list_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList', __args__, opts=opts, typ=GetResolverFirewallDomainListResult)
     return __ret__.apply(lambda __response__: GetResolverFirewallDomainListResult(
@@ -240,5 +256,6 @@ def get_resolver_firewall_domain_list_output(firewall_domain_list_id: Optional[p
         managed_owner_name=pulumi.get(__response__, 'managed_owner_name'),
         modification_time=pulumi.get(__response__, 'modification_time'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status'),
         status_message=pulumi.get(__response__, 'status_message')))

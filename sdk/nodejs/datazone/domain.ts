@@ -131,6 +131,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly portalUrl!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
      */
     public readonly singleSignOn!: pulumi.Output<outputs.datazone.DomainSingleSignOn | undefined>;
@@ -141,8 +145,6 @@ export class Domain extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.datazone.DomainTimeouts | undefined>;
@@ -166,6 +168,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["kmsKeyIdentifier"] = state ? state.kmsKeyIdentifier : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["portalUrl"] = state ? state.portalUrl : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["singleSignOn"] = state ? state.singleSignOn : undefined;
             resourceInputs["skipDeletionCheck"] = state ? state.skipDeletionCheck : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -180,6 +183,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["domainExecutionRole"] = args ? args.domainExecutionRole : undefined;
             resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["singleSignOn"] = args ? args.singleSignOn : undefined;
             resourceInputs["skipDeletionCheck"] = args ? args.skipDeletionCheck : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -224,6 +228,10 @@ export interface DomainState {
      */
     portalUrl?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
      */
     singleSignOn?: pulumi.Input<inputs.datazone.DomainSingleSignOn>;
@@ -234,8 +242,6 @@ export interface DomainState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.datazone.DomainTimeouts>;
@@ -263,6 +269,10 @@ export interface DomainArgs {
      * Name of the Domain.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Single sign on options, used to [enable AWS IAM Identity Center](https://docs.aws.amazon.com/datazone/latest/userguide/enable-IAM-identity-center-for-datazone.html) for DataZone.
      */

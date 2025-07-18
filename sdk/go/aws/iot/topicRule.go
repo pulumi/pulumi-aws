@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,106 +21,106 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// mytopic, err := sns.NewTopic(ctx, "mytopic", &sns.TopicArgs{
-// Name: pulumi.String("mytopic"),
-// })
-// if err != nil {
-// return err
-// }
-// myerrortopic, err := sns.NewTopic(ctx, "myerrortopic", &sns.TopicArgs{
-// Name: pulumi.String("myerrortopic"),
-// })
-// if err != nil {
-// return err
-// }
-// _, err = iot.NewTopicRule(ctx, "rule", &iot.TopicRuleArgs{
-// Name: pulumi.String("MyRule"),
-// Description: pulumi.String("Example rule"),
-// Enabled: pulumi.Bool(true),
-// Sql: pulumi.String("SELECT * FROM 'topic/test'"),
-// SqlVersion: pulumi.String("2016-03-23"),
-// Sns: iot.TopicRuleSnsArray{
-// &iot.TopicRuleSnsArgs{
-// MessageFormat: pulumi.String("RAW"),
-// RoleArn: pulumi.Any(role.Arn),
-// TargetArn: mytopic.Arn,
-// },
-// },
-// ErrorAction: &iot.TopicRuleErrorActionArgs{
-// Sns: &iot.TopicRuleErrorActionSnsArgs{
-// MessageFormat: pulumi.String("RAW"),
-// RoleArn: pulumi.Any(role.Arn),
-// TargetArn: myerrortopic.Arn,
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef("Allow"),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "Service",
-// Identifiers: []string{
-// "iot.amazonaws.com",
-// },
-// },
-// },
-// Actions: []string{
-// "sts:AssumeRole",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// myrole, err := iam.NewRole(ctx, "myrole", &iam.RoleArgs{
-// Name: pulumi.String("myrole"),
-// AssumeRolePolicy: pulumi.String(assumeRole.Json),
-// })
-// if err != nil {
-// return err
-// }
-// mypolicy := mytopic.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Effect: "Allow",
-// Actions: []string{
-// "sns:Publish",
-// },
-// Resources: interface{}{
-// arn,
-// },
-// },
-// },
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// _, err = iam.NewRolePolicy(ctx, "mypolicy", &iam.RolePolicyArgs{
-// Name: pulumi.String("mypolicy"),
-// Role: myrole.ID(),
-// Policy: pulumi.String(mypolicy.ApplyT(func(mypolicy iam.GetPolicyDocumentResult) (*string, error) {
-// return &mypolicy.Json, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mytopic, err := sns.NewTopic(ctx, "mytopic", &sns.TopicArgs{
+//				Name: pulumi.String("mytopic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			myerrortopic, err := sns.NewTopic(ctx, "myerrortopic", &sns.TopicArgs{
+//				Name: pulumi.String("myerrortopic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewTopicRule(ctx, "rule", &iot.TopicRuleArgs{
+//				Name:        pulumi.String("MyRule"),
+//				Description: pulumi.String("Example rule"),
+//				Enabled:     pulumi.Bool(true),
+//				Sql:         pulumi.String("SELECT * FROM 'topic/test'"),
+//				SqlVersion:  pulumi.String("2016-03-23"),
+//				Sns: iot.TopicRuleSnsArray{
+//					&iot.TopicRuleSnsArgs{
+//						MessageFormat: pulumi.String("RAW"),
+//						RoleArn:       pulumi.Any(role.Arn),
+//						TargetArn:     mytopic.Arn,
+//					},
+//				},
+//				ErrorAction: &iot.TopicRuleErrorActionArgs{
+//					Sns: &iot.TopicRuleErrorActionSnsArgs{
+//						MessageFormat: pulumi.String("RAW"),
+//						RoleArn:       pulumi.Any(role.Arn),
+//						TargetArn:     myerrortopic.Arn,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"iot.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			myrole, err := iam.NewRole(ctx, "myrole", &iam.RoleArgs{
+//				Name:             pulumi.String("myrole"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mypolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("sns:Publish"),
+//						},
+//						Resources: pulumi.StringArray{
+//							mytopic.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = iam.NewRolePolicy(ctx, "mypolicy", &iam.RolePolicyArgs{
+//				Name: pulumi.String("mypolicy"),
+//				Role: myrole.ID(),
+//				Policy: pulumi.String(mypolicy.ApplyT(func(mypolicy iam.GetPolicyDocumentResult) (*string, error) {
+//					return &mypolicy.Json, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -155,7 +155,9 @@ type TopicRule struct {
 	Kineses      TopicRuleKinesisArrayOutput     `pulumi:"kineses"`
 	Lambdas      TopicRuleLambdaArrayOutput      `pulumi:"lambdas"`
 	// The name of the rule.
-	Name        pulumi.StringOutput           `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region      pulumi.StringOutput           `pulumi:"region"`
 	Republishes TopicRuleRepublishArrayOutput `pulumi:"republishes"`
 	S3          TopicRuleS3ArrayOutput        `pulumi:"s3"`
 	Sns         TopicRuleSnsArrayOutput       `pulumi:"sns"`
@@ -168,8 +170,6 @@ type TopicRule struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll     pulumi.StringMapOutput         `pulumi:"tagsAll"`
 	Timestreams TopicRuleTimestreamArrayOutput `pulumi:"timestreams"`
 }
@@ -235,7 +235,9 @@ type topicRuleState struct {
 	Kineses      []TopicRuleKinesis     `pulumi:"kineses"`
 	Lambdas      []TopicRuleLambda      `pulumi:"lambdas"`
 	// The name of the rule.
-	Name        *string              `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region      *string              `pulumi:"region"`
 	Republishes []TopicRuleRepublish `pulumi:"republishes"`
 	S3          []TopicRuleS3        `pulumi:"s3"`
 	Sns         []TopicRuleSns       `pulumi:"sns"`
@@ -248,8 +250,6 @@ type topicRuleState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll     map[string]string     `pulumi:"tagsAll"`
 	Timestreams []TopicRuleTimestream `pulumi:"timestreams"`
 }
@@ -277,7 +277,9 @@ type TopicRuleState struct {
 	Kineses      TopicRuleKinesisArrayInput
 	Lambdas      TopicRuleLambdaArrayInput
 	// The name of the rule.
-	Name        pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region      pulumi.StringPtrInput
 	Republishes TopicRuleRepublishArrayInput
 	S3          TopicRuleS3ArrayInput
 	Sns         TopicRuleSnsArrayInput
@@ -290,8 +292,6 @@ type TopicRuleState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll     pulumi.StringMapInput
 	Timestreams TopicRuleTimestreamArrayInput
 }
@@ -321,7 +321,9 @@ type topicRuleArgs struct {
 	Kineses      []TopicRuleKinesis     `pulumi:"kineses"`
 	Lambdas      []TopicRuleLambda      `pulumi:"lambdas"`
 	// The name of the rule.
-	Name        *string              `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region      *string              `pulumi:"region"`
 	Republishes []TopicRuleRepublish `pulumi:"republishes"`
 	S3          []TopicRuleS3        `pulumi:"s3"`
 	Sns         []TopicRuleSns       `pulumi:"sns"`
@@ -358,7 +360,9 @@ type TopicRuleArgs struct {
 	Kineses      TopicRuleKinesisArrayInput
 	Lambdas      TopicRuleLambdaArrayInput
 	// The name of the rule.
-	Name        pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region      pulumi.StringPtrInput
 	Republishes TopicRuleRepublishArrayInput
 	S3          TopicRuleS3ArrayInput
 	Sns         TopicRuleSnsArrayInput
@@ -537,6 +541,11 @@ func (o TopicRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TopicRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o TopicRuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TopicRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 func (o TopicRuleOutput) Republishes() TopicRuleRepublishArrayOutput {
 	return o.ApplyT(func(v *TopicRule) TopicRuleRepublishArrayOutput { return v.Republishes }).(TopicRuleRepublishArrayOutput)
 }
@@ -573,8 +582,6 @@ func (o TopicRuleOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o TopicRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TopicRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

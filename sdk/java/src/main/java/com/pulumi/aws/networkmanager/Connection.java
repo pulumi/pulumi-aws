@@ -16,8 +16,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Creates a connection between two devices.
- * The devices can be a physical or virtual appliance that connects to a third-party appliance in a VPC, or a physical appliance that connects to another physical appliance in an on-premises network.
+ * Manages a Network Manager Connection.
+ * 
+ * Use this resource to create a connection between two devices in your global network.
  * 
  * ## Example Usage
  * 
@@ -68,98 +69,102 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:networkmanager/connection:Connection")
 public class Connection extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the connection.
+     * ARN of the connection.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the connection.
+     * @return ARN of the connection.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The ID of the second device in the connection.
+     * ID of the second device in the connection.
      * 
      */
     @Export(name="connectedDeviceId", refs={String.class}, tree="[0]")
     private Output<String> connectedDeviceId;
 
     /**
-     * @return The ID of the second device in the connection.
+     * @return ID of the second device in the connection.
      * 
      */
     public Output<String> connectedDeviceId() {
         return this.connectedDeviceId;
     }
     /**
-     * The ID of the link for the second device.
+     * ID of the link for the second device.
      * 
      */
     @Export(name="connectedLinkId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> connectedLinkId;
 
     /**
-     * @return The ID of the link for the second device.
+     * @return ID of the link for the second device.
      * 
      */
     public Output<Optional<String>> connectedLinkId() {
         return Codegen.optional(this.connectedLinkId);
     }
     /**
-     * A description of the connection.
+     * Description of the connection.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return A description of the connection.
+     * @return Description of the connection.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The ID of the first device in the connection.
+     * ID of the first device in the connection.
      * 
      */
     @Export(name="deviceId", refs={String.class}, tree="[0]")
     private Output<String> deviceId;
 
     /**
-     * @return The ID of the first device in the connection.
+     * @return ID of the first device in the connection.
      * 
      */
     public Output<String> deviceId() {
         return this.deviceId;
     }
     /**
-     * The ID of the global network.
+     * ID of the global network.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="globalNetworkId", refs={String.class}, tree="[0]")
     private Output<String> globalNetworkId;
 
     /**
-     * @return The ID of the global network.
+     * @return ID of the global network.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> globalNetworkId() {
         return this.globalNetworkId;
     }
     /**
-     * The ID of the link for the first device.
+     * ID of the link for the first device.
      * 
      */
     @Export(name="linkId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> linkId;
 
     /**
-     * @return The ID of the link for the first device.
+     * @return ID of the link for the first device.
      * 
      */
     public Output<Optional<String>> linkId() {
@@ -180,18 +185,14 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

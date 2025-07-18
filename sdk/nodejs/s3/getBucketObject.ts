@@ -75,6 +75,7 @@ export function getBucketObject(args: GetBucketObjectArgs, opts?: pulumi.InvokeO
         "bucket": args.bucket,
         "key": args.key,
         "range": args.range,
+        "region": args.region,
         "tags": args.tags,
         "versionId": args.versionId,
     }, opts);
@@ -95,6 +96,10 @@ export interface GetBucketObjectArgs {
      */
     key: string;
     range?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags assigned to the object.
      */
@@ -184,6 +189,7 @@ export interface GetBucketObjectResult {
      */
     readonly objectLockRetainUntilDate: string;
     readonly range?: string;
+    readonly region: string;
     /**
      * If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.
      */
@@ -280,6 +286,7 @@ export function getBucketObjectOutput(args: GetBucketObjectOutputArgs, opts?: pu
         "bucket": args.bucket,
         "key": args.key,
         "range": args.range,
+        "region": args.region,
         "tags": args.tags,
         "versionId": args.versionId,
     }, opts);
@@ -300,6 +307,10 @@ export interface GetBucketObjectOutputArgs {
      */
     key: pulumi.Input<string>;
     range?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the object.
      */

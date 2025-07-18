@@ -1,0 +1,160 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2025-06-03T14:26:15.785847-04:00",
+      "magic": "dfa0a39f34bf6a6fa6242cc6b95b9d227156cf7fa74c7a18a36cad19fd863878",
+      "version": "v3.173.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:EUvmHfGqIVQ=:v1:s9ctC2rw88XHKGVT:pHXgdnDCpMjGDyo1q9g/WJLYWC/VoQ=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::ecr::pulumi:pulumi:Stack::ecr-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "created": "2025-06-03T18:26:10.565387Z",
+        "modified": "2025-06-03T18:26:10.565387Z",
+        "sourcePosition": "project:///node_modules/@pulumi/runtime/stack.ts#37,19"
+      },
+      {
+        "urn": "urn:pulumi:test::ecr::pulumi:providers:aws::prov",
+        "custom": true,
+        "id": "54281bff-9831-4a7b-9949-99d28882d2e4",
+        "type": "pulumi:providers:aws",
+        "inputs": {
+          "__internal": {},
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true",
+          "version": "7.0.0-alpha.0+dev"
+        },
+        "outputs": {
+          "region": "us-west-2",
+          "skipCredentialsValidation": "false",
+          "skipRegionValidation": "true",
+          "version": "7.0.0-alpha.0+dev"
+        },
+        "parent": "urn:pulumi:test::ecr::pulumi:pulumi:Stack::ecr-test",
+        "propertyDependencies": {
+          "region": [],
+          "skipCredentialsValidation": [],
+          "skipRegionValidation": []
+        },
+        "additionalSecretOutputs": [
+          "accessKey",
+          "secretKey",
+          "token"
+        ],
+        "created": "2025-06-03T18:26:14.261304Z",
+        "modified": "2025-06-03T18:26:14.261304Z",
+        "sourcePosition": "project:///node_modules/@pulumi/provider.ts#145,9"
+      },
+      {
+        "urn": "urn:pulumi:test::ecr::aws:ecr/repository:Repository::myrepository",
+        "custom": true,
+        "id": "myrepository-9733a70",
+        "type": "aws:ecr/repository:Repository",
+        "inputs": {
+          "__defaults": [
+            "imageTagMutability",
+            "name"
+          ],
+          "imageTagMutability": "MUTABLE",
+          "name": "myrepository-9733a70"
+        },
+        "outputs": {
+          "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"delete\":1200000000000}}",
+          "arn": "arn:aws:ecr:us-west-2:894850187425:repository/myrepository-9733a70",
+          "encryptionConfigurations": [
+            {
+              "encryptionType": "AES256",
+              "kmsKey": ""
+            }
+          ],
+          "forceDelete": null,
+          "id": "myrepository-9733a70",
+          "imageScanningConfiguration": {
+            "scanOnPush": false
+          },
+          "imageTagMutability": "MUTABLE",
+          "name": "myrepository-9733a70",
+          "registryId": "894850187425",
+          "repositoryUrl": "894850187425.dkr.ecr.us-west-2.amazonaws.com/myrepository-9733a70"
+        },
+        "parent": "urn:pulumi:test::ecr::pulumi:pulumi:Stack::ecr-test",
+        "provider": "urn:pulumi:test::ecr::pulumi:providers:aws::prov::54281bff-9831-4a7b-9949-99d28882d2e4",
+        "created": "2025-06-03T18:26:15.337897Z",
+        "modified": "2025-06-03T18:26:15.337897Z",
+        "sourcePosition": "project:///index.ts#21,20"
+      },
+      {
+        "urn": "urn:pulumi:test::ecr::aws:ecr/lifecyclePolicy:LifecyclePolicy::mylifecyclepolicy",
+        "custom": true,
+        "id": "myrepository-9733a70",
+        "type": "aws:ecr/lifecyclePolicy:LifecyclePolicy",
+        "inputs": {
+          "__defaults": [],
+          "policy": "{\"rules\":[{\"action\":{\"type\":\"expire\"},\"description\":\"Expire images older than 14 days\",\"rulePriority\":1,\"selection\":{\"countNumber\":2,\"countType\":\"sinceImagePushed\",\"countUnit\":\"days\",\"tagStatus\":\"untagged\"}}]}",
+          "repository": "myrepository-9733a70"
+        },
+        "outputs": {
+          "id": "myrepository-9733a70",
+          "policy": "{\"rules\":[{\"action\":{\"type\":\"expire\"},\"description\":\"Expire images older than 14 days\",\"rulePriority\":1,\"selection\":{\"countNumber\":2,\"countType\":\"sinceImagePushed\",\"countUnit\":\"days\",\"tagStatus\":\"untagged\"}}]}",
+          "registryId": "894850187425",
+          "repository": "myrepository-9733a70"
+        },
+        "parent": "urn:pulumi:test::ecr::pulumi:pulumi:Stack::ecr-test",
+        "dependencies": [
+          "urn:pulumi:test::ecr::aws:ecr/repository:Repository::myrepository"
+        ],
+        "provider": "urn:pulumi:test::ecr::pulumi:providers:aws::prov::54281bff-9831-4a7b-9949-99d28882d2e4",
+        "propertyDependencies": {
+          "policy": [],
+          "repository": [
+            "urn:pulumi:test::ecr::aws:ecr/repository:Repository::myrepository"
+          ]
+        },
+        "created": "2025-06-03T18:26:15.725227Z",
+        "modified": "2025-06-03T18:26:15.725227Z",
+        "sourcePosition": "project:///index.ts#51,25"
+      },
+      {
+        "urn": "urn:pulumi:test::ecr::aws:ecr/repositoryPolicy:RepositoryPolicy::myrepositorypolicy",
+        "custom": true,
+        "id": "myrepository-9733a70",
+        "type": "aws:ecr/repositoryPolicy:RepositoryPolicy",
+        "inputs": {
+          "__defaults": [],
+          "policy": "{\"Statement\":[{\"Action\":[\"ecr:GetDownloadUrlForLayer\",\"ecr:BatchGetImage\",\"ecr:BatchCheckLayerAvailability\",\"ecr:PutImage\",\"ecr:InitiateLayerUpload\",\"ecr:UploadLayerPart\",\"ecr:CompleteLayerUpload\",\"ecr:DescribeRepositories\",\"ecr:GetRepositoryPolicy\",\"ecr:ListImages\",\"ecr:DeleteRepository\",\"ecr:BatchDeleteImage\",\"ecr:SetRepositoryPolicy\",\"ecr:DeleteRepositoryPolicy\"],\"Effect\":\"Allow\",\"Principal\":\"*\",\"Sid\":\"new policy\"}],\"Version\":\"2012-10-17\"}",
+          "repository": "myrepository-9733a70"
+        },
+        "outputs": {
+          "id": "myrepository-9733a70",
+          "policy": "{\"Statement\":[{\"Action\":[\"ecr:GetDownloadUrlForLayer\",\"ecr:BatchGetImage\",\"ecr:BatchCheckLayerAvailability\",\"ecr:PutImage\",\"ecr:InitiateLayerUpload\",\"ecr:UploadLayerPart\",\"ecr:CompleteLayerUpload\",\"ecr:DescribeRepositories\",\"ecr:GetRepositoryPolicy\",\"ecr:ListImages\",\"ecr:DeleteRepository\",\"ecr:BatchDeleteImage\",\"ecr:SetRepositoryPolicy\",\"ecr:DeleteRepositoryPolicy\"],\"Effect\":\"Allow\",\"Principal\":\"*\",\"Sid\":\"new policy\"}],\"Version\":\"2012-10-17\"}",
+          "registryId": "894850187425",
+          "repository": "myrepository-9733a70"
+        },
+        "parent": "urn:pulumi:test::ecr::pulumi:pulumi:Stack::ecr-test",
+        "dependencies": [
+          "urn:pulumi:test::ecr::aws:ecr/repository:Repository::myrepository"
+        ],
+        "provider": "urn:pulumi:test::ecr::pulumi:providers:aws::prov::54281bff-9831-4a7b-9949-99d28882d2e4",
+        "propertyDependencies": {
+          "policy": [],
+          "repository": [
+            "urn:pulumi:test::ecr::aws:ecr/repository:Repository::myrepository"
+          ]
+        },
+        "created": "2025-06-03T18:26:15.750932Z",
+        "modified": "2025-06-03T18:26:15.750932Z",
+        "sourcePosition": "project:///index.ts#23,26"
+      }
+    ],
+    "metadata": {}
+  }
+}

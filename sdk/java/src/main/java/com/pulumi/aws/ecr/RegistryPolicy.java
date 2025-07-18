@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *                             jsonProperty("AWS", String.format("arn:%s:iam::%s:root", currentGetPartition.partition(),current.accountId()))
  *                         )),
  *                         jsonProperty("Action", jsonArray("ecr:ReplicateImage")),
- *                         jsonProperty("Resource", jsonArray(String.format("arn:%s:ecr:%s:%s:repository/*", currentGetPartition.partition(),currentGetRegion.name(),current.accountId())))
+ *                         jsonProperty("Resource", jsonArray(String.format("arn:%s:ecr:%s:%s:repository/*", currentGetPartition.partition(),currentGetRegion.region(),current.accountId())))
  *                     )))
  *                 )))
  *             .build());
@@ -103,6 +103,20 @@ public class RegistryPolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<String> policy() {
         return this.policy;
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * The registry ID where the registry was created.

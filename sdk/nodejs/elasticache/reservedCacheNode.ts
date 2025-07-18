@@ -84,6 +84,10 @@ export class ReservedCacheNode extends pulumi.CustomResource {
      */
     public /*out*/ readonly recurringCharges!: pulumi.Output<outputs.elasticache.ReservedCacheNodeRecurringCharge[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the reserved cache node offering to purchase.
      * To determine an `reservedCacheNodesOfferingId`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
      *
@@ -104,8 +108,6 @@ export class ReservedCacheNode extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.elasticache.ReservedCacheNodeTimeouts | undefined>;
@@ -135,6 +137,7 @@ export class ReservedCacheNode extends pulumi.CustomResource {
             resourceInputs["offeringType"] = state ? state.offeringType : undefined;
             resourceInputs["productDescription"] = state ? state.productDescription : undefined;
             resourceInputs["recurringCharges"] = state ? state.recurringCharges : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["reservedCacheNodesOfferingId"] = state ? state.reservedCacheNodesOfferingId : undefined;
             resourceInputs["startTime"] = state ? state.startTime : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
@@ -148,6 +151,7 @@ export class ReservedCacheNode extends pulumi.CustomResource {
                 throw new Error("Missing required property 'reservedCacheNodesOfferingId'");
             }
             resourceInputs["cacheNodeCount"] = args ? args.cacheNodeCount : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["reservedCacheNodesOfferingId"] = args ? args.reservedCacheNodesOfferingId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -206,6 +210,10 @@ export interface ReservedCacheNodeState {
      */
     recurringCharges?: pulumi.Input<pulumi.Input<inputs.elasticache.ReservedCacheNodeRecurringCharge>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ID of the reserved cache node offering to purchase.
      * To determine an `reservedCacheNodesOfferingId`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.
      *
@@ -226,8 +234,6 @@ export interface ReservedCacheNodeState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.elasticache.ReservedCacheNodeTimeouts>;
@@ -246,6 +252,10 @@ export interface ReservedCacheNodeArgs {
      * Default value is `1`.
      */
     cacheNodeCount?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the reserved cache node offering to purchase.
      * To determine an `reservedCacheNodesOfferingId`, see the `aws.elasticache.getReservedCacheNodeOffering` data source.

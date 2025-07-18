@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/outposts"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/outposts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,6 +58,8 @@ type GetOutpostArgs struct {
 	Name *string `pulumi:"name"`
 	// AWS Account identifier of the Outpost owner.
 	OwnerId *string `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Outpost tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -76,6 +78,7 @@ type GetOutpostResult struct {
 	LifecycleStatus string  `pulumi:"lifecycleStatus"`
 	Name            string  `pulumi:"name"`
 	OwnerId         *string `pulumi:"ownerId"`
+	Region          string  `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the site.
 	SiteArn string `pulumi:"siteArn"`
 	// The ID of the site.
@@ -105,6 +108,8 @@ type GetOutpostOutputArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// AWS Account identifier of the Outpost owner.
 	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The Outpost tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -162,6 +167,10 @@ func (o GetOutpostResultOutput) Name() pulumi.StringOutput {
 
 func (o GetOutpostResultOutput) OwnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetOutpostResult) *string { return v.OwnerId }).(pulumi.StringPtrOutput)
+}
+
+func (o GetOutpostResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOutpostResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the site.

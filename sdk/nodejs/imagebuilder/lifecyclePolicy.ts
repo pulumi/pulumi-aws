@@ -119,6 +119,10 @@ export class LifecyclePolicy extends pulumi.CustomResource {
      */
     public readonly policyDetails!: pulumi.Output<outputs.imagebuilder.LifecyclePolicyPolicyDetail[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
      *
      * The following arguments are optional:
@@ -138,8 +142,6 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -161,6 +163,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
             resourceInputs["executionRole"] = state ? state.executionRole : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["policyDetails"] = state ? state.policyDetails : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceSelection"] = state ? state.resourceSelection : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -178,6 +181,7 @@ export class LifecyclePolicy extends pulumi.CustomResource {
             resourceInputs["executionRole"] = args ? args.executionRole : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["policyDetails"] = args ? args.policyDetails : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceSelection"] = args ? args.resourceSelection : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
@@ -215,6 +219,10 @@ export interface LifecyclePolicyState {
      */
     policyDetails?: pulumi.Input<pulumi.Input<inputs.imagebuilder.LifecyclePolicyPolicyDetail>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
      *
      * The following arguments are optional:
@@ -234,8 +242,6 @@ export interface LifecyclePolicyState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -260,6 +266,10 @@ export interface LifecyclePolicyArgs {
      * Configuration block with policy details. Detailed below.
      */
     policyDetails?: pulumi.Input<pulumi.Input<inputs.imagebuilder.LifecyclePolicyPolicyDetail>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
      *

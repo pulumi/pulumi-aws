@@ -46,7 +46,24 @@ public final class StaticIpAttachmentState extends com.pulumi.resources.Resource
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Name of the allocated static IP.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="staticIpName")
@@ -54,6 +71,8 @@ public final class StaticIpAttachmentState extends com.pulumi.resources.Resource
 
     /**
      * @return Name of the allocated static IP.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> staticIpName() {
@@ -65,6 +84,7 @@ public final class StaticIpAttachmentState extends com.pulumi.resources.Resource
     private StaticIpAttachmentState(StaticIpAttachmentState $) {
         this.instanceName = $.instanceName;
         this.ipAddress = $.ipAddress;
+        this.region = $.region;
         this.staticIpName = $.staticIpName;
     }
 
@@ -129,7 +149,30 @@ public final class StaticIpAttachmentState extends com.pulumi.resources.Resource
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param staticIpName Name of the allocated static IP.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -141,6 +184,8 @@ public final class StaticIpAttachmentState extends com.pulumi.resources.Resource
 
         /**
          * @param staticIpName Name of the allocated static IP.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

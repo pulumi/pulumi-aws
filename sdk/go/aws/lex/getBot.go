@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lex"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,6 +53,8 @@ func LookupBot(ctx *pulumi.Context, args *LookupBotArgs, opts ...pulumi.InvokeOp
 type LookupBotArgs struct {
 	// Name of the bot. The name is case sensitive.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Version or alias of the bot.
 	Version *string `pulumi:"version"`
 }
@@ -87,6 +89,7 @@ type LookupBotResult struct {
 	Name string `pulumi:"name"`
 	// The threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot.
 	NluIntentConfidenceThreshold float64 `pulumi:"nluIntentConfidenceThreshold"`
+	Region                       string  `pulumi:"region"`
 	// Status of the bot.
 	Status string `pulumi:"status"`
 	// Version of the bot. For a new bot, the version is always `$LATEST`.
@@ -108,6 +111,8 @@ func LookupBotOutput(ctx *pulumi.Context, args LookupBotOutputArgs, opts ...pulu
 type LookupBotOutputArgs struct {
 	// Name of the bot. The name is case sensitive.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Version or alias of the bot.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
@@ -199,6 +204,10 @@ func (o LookupBotResultOutput) Name() pulumi.StringOutput {
 // The threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot.
 func (o LookupBotResultOutput) NluIntentConfidenceThreshold() pulumi.Float64Output {
 	return o.ApplyT(func(v LookupBotResult) float64 { return v.NluIntentConfidenceThreshold }).(pulumi.Float64Output)
+}
+
+func (o LookupBotResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBotResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Status of the bot.

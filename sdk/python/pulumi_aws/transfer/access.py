@@ -29,6 +29,7 @@ class AccessArgs:
                  home_directory_type: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  posix_profile: Optional[pulumi.Input['AccessPosixProfileArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Access resource.
@@ -39,6 +40,7 @@ class AccessArgs:
         :param pulumi.Input[builtins.str] home_directory_type: The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
         :param pulumi.Input[builtins.str] policy: An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
         :param pulumi.Input['AccessPosixProfileArgs'] posix_profile: Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         """
         pulumi.set(__self__, "external_id", external_id)
@@ -53,6 +55,8 @@ class AccessArgs:
             pulumi.set(__self__, "policy", policy)
         if posix_profile is not None:
             pulumi.set(__self__, "posix_profile", posix_profile)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role is not None:
             pulumi.set(__self__, "role", role)
 
@@ -142,6 +146,18 @@ class AccessArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def role(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
@@ -162,6 +178,7 @@ class _AccessState:
                  home_directory_type: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  posix_profile: Optional[pulumi.Input['AccessPosixProfileArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role: Optional[pulumi.Input[builtins.str]] = None,
                  server_id: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -172,6 +189,7 @@ class _AccessState:
         :param pulumi.Input[builtins.str] home_directory_type: The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
         :param pulumi.Input[builtins.str] policy: An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
         :param pulumi.Input['AccessPosixProfileArgs'] posix_profile: Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         :param pulumi.Input[builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         """
@@ -187,6 +205,8 @@ class _AccessState:
             pulumi.set(__self__, "policy", policy)
         if posix_profile is not None:
             pulumi.set(__self__, "posix_profile", posix_profile)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role is not None:
             pulumi.set(__self__, "role", role)
         if server_id is not None:
@@ -266,6 +286,18 @@ class _AccessState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def role(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
@@ -301,6 +333,7 @@ class Access(pulumi.CustomResource):
                  home_directory_type: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  posix_profile: Optional[pulumi.Input[Union['AccessPosixProfileArgs', 'AccessPosixProfileArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role: Optional[pulumi.Input[builtins.str]] = None,
                  server_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -357,6 +390,7 @@ class Access(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] home_directory_type: The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
         :param pulumi.Input[builtins.str] policy: An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
         :param pulumi.Input[Union['AccessPosixProfileArgs', 'AccessPosixProfileArgsDict']] posix_profile: Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         :param pulumi.Input[builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         """
@@ -432,6 +466,7 @@ class Access(pulumi.CustomResource):
                  home_directory_type: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
                  posix_profile: Optional[pulumi.Input[Union['AccessPosixProfileArgs', 'AccessPosixProfileArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role: Optional[pulumi.Input[builtins.str]] = None,
                  server_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -451,6 +486,7 @@ class Access(pulumi.CustomResource):
             __props__.__dict__["home_directory_type"] = home_directory_type
             __props__.__dict__["policy"] = policy
             __props__.__dict__["posix_profile"] = posix_profile
+            __props__.__dict__["region"] = region
             __props__.__dict__["role"] = role
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
@@ -471,6 +507,7 @@ class Access(pulumi.CustomResource):
             home_directory_type: Optional[pulumi.Input[builtins.str]] = None,
             policy: Optional[pulumi.Input[builtins.str]] = None,
             posix_profile: Optional[pulumi.Input[Union['AccessPosixProfileArgs', 'AccessPosixProfileArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role: Optional[pulumi.Input[builtins.str]] = None,
             server_id: Optional[pulumi.Input[builtins.str]] = None) -> 'Access':
         """
@@ -486,6 +523,7 @@ class Access(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] home_directory_type: The type of landing directory (folder) you mapped for your users' home directory. Valid values are `PATH` and `LOGICAL`.
         :param pulumi.Input[builtins.str] policy: An IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
         :param pulumi.Input[Union['AccessPosixProfileArgs', 'AccessPosixProfileArgsDict']] posix_profile: Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         :param pulumi.Input[builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         """
@@ -499,6 +537,7 @@ class Access(pulumi.CustomResource):
         __props__.__dict__["home_directory_type"] = home_directory_type
         __props__.__dict__["policy"] = policy
         __props__.__dict__["posix_profile"] = posix_profile
+        __props__.__dict__["region"] = region
         __props__.__dict__["role"] = role
         __props__.__dict__["server_id"] = server_id
         return Access(resource_name, opts=opts, __props__=__props__)
@@ -550,6 +589,14 @@ class Access(pulumi.CustomResource):
         Specifies the full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See Posix Profile below.
         """
         return pulumi.get(self, "posix_profile")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

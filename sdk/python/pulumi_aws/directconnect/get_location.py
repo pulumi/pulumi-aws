@@ -27,7 +27,7 @@ class GetLocationResult:
     """
     A collection of values returned by getLocation.
     """
-    def __init__(__self__, available_macsec_port_speeds=None, available_port_speeds=None, available_providers=None, id=None, location_code=None, location_name=None):
+    def __init__(__self__, available_macsec_port_speeds=None, available_port_speeds=None, available_providers=None, id=None, location_code=None, location_name=None, region=None):
         if available_macsec_port_speeds and not isinstance(available_macsec_port_speeds, list):
             raise TypeError("Expected argument 'available_macsec_port_speeds' to be a list")
         pulumi.set(__self__, "available_macsec_port_speeds", available_macsec_port_speeds)
@@ -46,6 +46,9 @@ class GetLocationResult:
         if location_name and not isinstance(location_name, str):
             raise TypeError("Expected argument 'location_name' to be a str")
         pulumi.set(__self__, "location_name", location_name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="availableMacsecPortSpeeds")
@@ -92,6 +95,11 @@ class GetLocationResult:
         """
         return pulumi.get(self, "location_name")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetLocationResult(GetLocationResult):
     # pylint: disable=using-constant-test
@@ -104,10 +112,12 @@ class AwaitableGetLocationResult(GetLocationResult):
             available_providers=self.available_providers,
             id=self.id,
             location_code=self.location_code,
-            location_name=self.location_name)
+            location_name=self.location_name,
+            region=self.region)
 
 
 def get_location(location_code: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLocationResult:
     """
     Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
@@ -126,9 +136,11 @@ def get_location(location_code: Optional[builtins.str] = None,
 
 
     :param builtins.str location_code: Code for the location to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['locationCode'] = location_code
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:directconnect/getLocation:getLocation', __args__, opts=opts, typ=GetLocationResult).value
 
@@ -138,8 +150,10 @@ def get_location(location_code: Optional[builtins.str] = None,
         available_providers=pulumi.get(__ret__, 'available_providers'),
         id=pulumi.get(__ret__, 'id'),
         location_code=pulumi.get(__ret__, 'location_code'),
-        location_name=pulumi.get(__ret__, 'location_name'))
+        location_name=pulumi.get(__ret__, 'location_name'),
+        region=pulumi.get(__ret__, 'region'))
 def get_location_output(location_code: Optional[pulumi.Input[builtins.str]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationResult]:
     """
     Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
@@ -158,9 +172,11 @@ def get_location_output(location_code: Optional[pulumi.Input[builtins.str]] = No
 
 
     :param builtins.str location_code: Code for the location to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['locationCode'] = location_code
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:directconnect/getLocation:getLocation', __args__, opts=opts, typ=GetLocationResult)
     return __ret__.apply(lambda __response__: GetLocationResult(
@@ -169,4 +185,5 @@ def get_location_output(location_code: Optional[pulumi.Input[builtins.str]] = No
         available_providers=pulumi.get(__response__, 'available_providers'),
         id=pulumi.get(__response__, 'id'),
         location_code=pulumi.get(__response__, 'location_code'),
-        location_name=pulumi.get(__response__, 'location_name')))
+        location_name=pulumi.get(__response__, 'location_name'),
+        region=pulumi.get(__response__, 'region')))

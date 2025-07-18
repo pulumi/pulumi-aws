@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,7 +57,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cognito"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cognito"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -104,6 +104,8 @@ type ResourceServer struct {
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// A name for the resource server.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of all scopes configured for this resource server in the format identifier/scope_name.
 	ScopeIdentifiers pulumi.StringArrayOutput `pulumi:"scopeIdentifiers"`
 	// A list of Authorization Scope.
@@ -152,6 +154,8 @@ type resourceServerState struct {
 	Identifier *string `pulumi:"identifier"`
 	// A name for the resource server.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of all scopes configured for this resource server in the format identifier/scope_name.
 	ScopeIdentifiers []string `pulumi:"scopeIdentifiers"`
 	// A list of Authorization Scope.
@@ -165,6 +169,8 @@ type ResourceServerState struct {
 	Identifier pulumi.StringPtrInput
 	// A name for the resource server.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of all scopes configured for this resource server in the format identifier/scope_name.
 	ScopeIdentifiers pulumi.StringArrayInput
 	// A list of Authorization Scope.
@@ -182,6 +188,8 @@ type resourceServerArgs struct {
 	Identifier string `pulumi:"identifier"`
 	// A name for the resource server.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of Authorization Scope.
 	Scopes []ResourceServerScope `pulumi:"scopes"`
 	// User pool the client belongs to.
@@ -194,6 +202,8 @@ type ResourceServerArgs struct {
 	Identifier pulumi.StringInput
 	// A name for the resource server.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of Authorization Scope.
 	Scopes ResourceServerScopeArrayInput
 	// User pool the client belongs to.
@@ -295,6 +305,11 @@ func (o ResourceServerOutput) Identifier() pulumi.StringOutput {
 // A name for the resource server.
 func (o ResourceServerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ResourceServerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceServer) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A list of all scopes configured for this resource server in the format identifier/scope_name.

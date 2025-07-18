@@ -28,6 +28,7 @@ class GrantArgs:
                  constraints: Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]]] = None,
                  grant_creation_tokens: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retire_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  retiring_principal: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -38,6 +39,7 @@ class GrantArgs:
         :param pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]] constraints: A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] grant_creation_tokens: A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
         :param pulumi.Input[builtins.str] name: A friendly name for identifying the grant.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] retire_on_delete: If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
                See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
         :param pulumi.Input[builtins.str] retiring_principal: The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
@@ -51,6 +53,8 @@ class GrantArgs:
             pulumi.set(__self__, "grant_creation_tokens", grant_creation_tokens)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retire_on_delete is not None:
             pulumi.set(__self__, "retire_on_delete", retire_on_delete)
         if retiring_principal is not None:
@@ -129,6 +133,18 @@ class GrantArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="retireOnDelete")
     def retire_on_delete(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -165,6 +181,7 @@ class _GrantState:
                  key_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  operations: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retire_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  retiring_principal: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -177,6 +194,7 @@ class _GrantState:
         :param pulumi.Input[builtins.str] key_id: The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
         :param pulumi.Input[builtins.str] name: A friendly name for identifying the grant.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] operations: A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] retire_on_delete: If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
                See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
         :param pulumi.Input[builtins.str] retiring_principal: The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
@@ -197,6 +215,8 @@ class _GrantState:
             pulumi.set(__self__, "name", name)
         if operations is not None:
             pulumi.set(__self__, "operations", operations)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retire_on_delete is not None:
             pulumi.set(__self__, "retire_on_delete", retire_on_delete)
         if retiring_principal is not None:
@@ -299,6 +319,18 @@ class _GrantState:
         pulumi.set(self, "operations", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="retireOnDelete")
     def retire_on_delete(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -336,6 +368,7 @@ class Grant(pulumi.CustomResource):
                  key_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  operations: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retire_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  retiring_principal: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -359,6 +392,7 @@ class Grant(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] key_id: The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
         :param pulumi.Input[builtins.str] name: A friendly name for identifying the grant.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] operations: A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] retire_on_delete: If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
                See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
         :param pulumi.Input[builtins.str] retiring_principal: The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
@@ -402,6 +436,7 @@ class Grant(pulumi.CustomResource):
                  key_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  operations: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retire_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  retiring_principal: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -425,6 +460,7 @@ class Grant(pulumi.CustomResource):
             if operations is None and not opts.urn:
                 raise TypeError("Missing required property 'operations'")
             __props__.__dict__["operations"] = operations
+            __props__.__dict__["region"] = region
             __props__.__dict__["retire_on_delete"] = retire_on_delete
             __props__.__dict__["retiring_principal"] = retiring_principal
             __props__.__dict__["grant_id"] = None
@@ -449,6 +485,7 @@ class Grant(pulumi.CustomResource):
             key_id: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             operations: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             retire_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
             retiring_principal: Optional[pulumi.Input[builtins.str]] = None) -> 'Grant':
         """
@@ -466,6 +503,7 @@ class Grant(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] key_id: The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
         :param pulumi.Input[builtins.str] name: A friendly name for identifying the grant.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] operations: A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] retire_on_delete: If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
                See [RetireGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html) for more information.
         :param pulumi.Input[builtins.str] retiring_principal: The principal that is given permission to retire the grant by using RetireGrant operation in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
@@ -482,6 +520,7 @@ class Grant(pulumi.CustomResource):
         __props__.__dict__["key_id"] = key_id
         __props__.__dict__["name"] = name
         __props__.__dict__["operations"] = operations
+        __props__.__dict__["region"] = region
         __props__.__dict__["retire_on_delete"] = retire_on_delete
         __props__.__dict__["retiring_principal"] = retiring_principal
         return Grant(resource_name, opts=opts, __props__=__props__)
@@ -549,6 +588,14 @@ class Grant(pulumi.CustomResource):
         A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
         """
         return pulumi.get(self, "operations")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="retireOnDelete")

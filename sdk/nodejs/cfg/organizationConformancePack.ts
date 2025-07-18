@@ -60,9 +60,9 @@ import * as utilities from "../utilities";
  *     awsServiceAccessPrincipals: ["config-multiaccountsetup.amazonaws.com"],
  *     featureSet: "ALL",
  * });
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {bucket: "example"});
+ * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
  * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("example", {
- *     bucket: exampleBucketV2.id,
+ *     bucket: exampleBucket.id,
  *     key: "example-key",
  *     content: `Resources:
  *   IAMPasswordPolicy:
@@ -76,7 +76,7 @@ import * as utilities from "../utilities";
  * });
  * const example = new aws.cfg.OrganizationConformancePack("example", {
  *     name: "example",
- *     templateS3Uri: pulumi.interpolate`s3://${exampleBucketV2.bucket}/${exampleBucketObjectv2.key}`,
+ *     templateS3Uri: pulumi.interpolate`s3://${exampleBucket.bucket}/${exampleBucketObjectv2.key}`,
  * }, {
  *     dependsOn: [
  *         exampleAwsConfigConfigurationRecorder,
@@ -146,6 +146,10 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
      */
     public readonly templateBody!: pulumi.Output<string | undefined>;
@@ -173,6 +177,7 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
             resourceInputs["excludedAccounts"] = state ? state.excludedAccounts : undefined;
             resourceInputs["inputParameters"] = state ? state.inputParameters : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["templateBody"] = state ? state.templateBody : undefined;
             resourceInputs["templateS3Uri"] = state ? state.templateS3Uri : undefined;
         } else {
@@ -182,6 +187,7 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
             resourceInputs["excludedAccounts"] = args ? args.excludedAccounts : undefined;
             resourceInputs["inputParameters"] = args ? args.inputParameters : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["templateBody"] = args ? args.templateBody : undefined;
             resourceInputs["templateS3Uri"] = args ? args.templateS3Uri : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -220,6 +226,10 @@ export interface OrganizationConformancePackState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
      */
     templateBody?: pulumi.Input<string>;
@@ -253,6 +263,10 @@ export interface OrganizationConformancePackArgs {
      * The name of the organization conformance pack. Must begin with a letter and contain from 1 to 128 alphanumeric characters and hyphens.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
      */

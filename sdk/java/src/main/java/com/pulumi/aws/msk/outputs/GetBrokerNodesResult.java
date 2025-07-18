@@ -19,6 +19,7 @@ public final class GetBrokerNodesResult {
      */
     private String id;
     private List<GetBrokerNodesNodeInfoList> nodeInfoLists;
+    private String region;
 
     private GetBrokerNodesResult() {}
     public String clusterArn() {
@@ -34,6 +35,9 @@ public final class GetBrokerNodesResult {
     public List<GetBrokerNodesNodeInfoList> nodeInfoLists() {
         return this.nodeInfoLists;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -47,12 +51,14 @@ public final class GetBrokerNodesResult {
         private String clusterArn;
         private String id;
         private List<GetBrokerNodesNodeInfoList> nodeInfoLists;
+        private String region;
         public Builder() {}
         public Builder(GetBrokerNodesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterArn = defaults.clusterArn;
     	      this.id = defaults.id;
     	      this.nodeInfoLists = defaults.nodeInfoLists;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -82,11 +88,20 @@ public final class GetBrokerNodesResult {
         public Builder nodeInfoLists(GetBrokerNodesNodeInfoList... nodeInfoLists) {
             return nodeInfoLists(List.of(nodeInfoLists));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetBrokerNodesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetBrokerNodesResult build() {
             final var _resultValue = new GetBrokerNodesResult();
             _resultValue.clusterArn = clusterArn;
             _resultValue.id = id;
             _resultValue.nodeInfoLists = nodeInfoLists;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

@@ -28,7 +28,7 @@ class GetRestApiResult:
     """
     A collection of values returned by getRestApi.
     """
-    def __init__(__self__, api_key_source=None, arn=None, binary_media_types=None, description=None, endpoint_configurations=None, execution_arn=None, id=None, minimum_compression_size=None, name=None, policy=None, root_resource_id=None, tags=None):
+    def __init__(__self__, api_key_source=None, arn=None, binary_media_types=None, description=None, endpoint_configurations=None, execution_arn=None, id=None, minimum_compression_size=None, name=None, policy=None, region=None, root_resource_id=None, tags=None):
         if api_key_source and not isinstance(api_key_source, str):
             raise TypeError("Expected argument 'api_key_source' to be a str")
         pulumi.set(__self__, "api_key_source", api_key_source)
@@ -59,6 +59,9 @@ class GetRestApiResult:
         if policy and not isinstance(policy, str):
             raise TypeError("Expected argument 'policy' to be a str")
         pulumi.set(__self__, "policy", policy)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if root_resource_id and not isinstance(root_resource_id, str):
             raise TypeError("Expected argument 'root_resource_id' to be a str")
         pulumi.set(__self__, "root_resource_id", root_resource_id)
@@ -144,6 +147,11 @@ class GetRestApiResult:
         return pulumi.get(self, "policy")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="rootResourceId")
     def root_resource_id(self) -> builtins.str:
         """
@@ -176,11 +184,13 @@ class AwaitableGetRestApiResult(GetRestApiResult):
             minimum_compression_size=self.minimum_compression_size,
             name=self.name,
             policy=self.policy,
+            region=self.region,
             root_resource_id=self.root_resource_id,
             tags=self.tags)
 
 
 def get_rest_api(name: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
                  tags: Optional[Mapping[str, builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRestApiResult:
     """
@@ -200,10 +210,12 @@ def get_rest_api(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:apigateway/getRestApi:getRestApi', __args__, opts=opts, typ=GetRestApiResult).value
@@ -219,9 +231,11 @@ def get_rest_api(name: Optional[builtins.str] = None,
         minimum_compression_size=pulumi.get(__ret__, 'minimum_compression_size'),
         name=pulumi.get(__ret__, 'name'),
         policy=pulumi.get(__ret__, 'policy'),
+        region=pulumi.get(__ret__, 'region'),
         root_resource_id=pulumi.get(__ret__, 'root_resource_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_rest_api_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRestApiResult]:
     """
@@ -241,10 +255,12 @@ def get_rest_api_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:apigateway/getRestApi:getRestApi', __args__, opts=opts, typ=GetRestApiResult)
@@ -259,5 +275,6 @@ def get_rest_api_output(name: Optional[pulumi.Input[builtins.str]] = None,
         minimum_compression_size=pulumi.get(__response__, 'minimum_compression_size'),
         name=pulumi.get(__response__, 'name'),
         policy=pulumi.get(__response__, 'policy'),
+        region=pulumi.get(__response__, 'region'),
         root_resource_id=pulumi.get(__response__, 'root_resource_id'),
         tags=pulumi.get(__response__, 'tags')))

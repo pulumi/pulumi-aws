@@ -28,7 +28,7 @@ class GetResponsePlanResult:
     """
     A collection of values returned by getResponsePlan.
     """
-    def __init__(__self__, actions=None, arn=None, chat_channels=None, display_name=None, engagements=None, id=None, incident_templates=None, integrations=None, name=None, tags=None):
+    def __init__(__self__, actions=None, arn=None, chat_channels=None, display_name=None, engagements=None, id=None, incident_templates=None, integrations=None, name=None, region=None, tags=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -56,6 +56,9 @@ class GetResponsePlanResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -128,6 +131,11 @@ class GetResponsePlanResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         The tags applied to the response plan.
@@ -150,10 +158,12 @@ class AwaitableGetResponsePlanResult(GetResponsePlanResult):
             incident_templates=self.incident_templates,
             integrations=self.integrations,
             name=self.name,
+            region=self.region,
             tags=self.tags)
 
 
 def get_response_plan(arn: Optional[builtins.str] = None,
+                      region: Optional[builtins.str] = None,
                       tags: Optional[Mapping[str, builtins.str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResponsePlanResult:
     """
@@ -163,10 +173,12 @@ def get_response_plan(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: The Amazon Resource Name (ARN) of the response plan.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: The tags applied to the response plan.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ssmincidents/getResponsePlan:getResponsePlan', __args__, opts=opts, typ=GetResponsePlanResult).value
@@ -181,8 +193,10 @@ def get_response_plan(arn: Optional[builtins.str] = None,
         incident_templates=pulumi.get(__ret__, 'incident_templates'),
         integrations=pulumi.get(__ret__, 'integrations'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_response_plan_output(arn: Optional[pulumi.Input[builtins.str]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResponsePlanResult]:
     """
@@ -192,10 +206,12 @@ def get_response_plan_output(arn: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str arn: The Amazon Resource Name (ARN) of the response plan.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: The tags applied to the response plan.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssmincidents/getResponsePlan:getResponsePlan', __args__, opts=opts, typ=GetResponsePlanResult)
@@ -209,4 +225,5 @@ def get_response_plan_output(arn: Optional[pulumi.Input[builtins.str]] = None,
         incident_templates=pulumi.get(__response__, 'incident_templates'),
         integrations=pulumi.get(__response__, 'integrations'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

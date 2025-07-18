@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,6 +84,8 @@ type CapacityBlockReservation struct {
 	OutpostArn pulumi.StringOutput `pulumi:"outpostArn"`
 	// The ARN of the placement group in which to create the Capacity Block Reservation.
 	PlacementGroupArn pulumi.StringOutput `pulumi:"placementGroupArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The type of Capacity Reservation.
 	ReservationType pulumi.StringOutput `pulumi:"reservationType"`
 	// The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -91,8 +93,6 @@ type CapacityBlockReservation struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Indicates the tenancy of the Capacity Block Reservation. Specify either `default` or `dedicated`.
 	Tenancy  pulumi.StringOutput                       `pulumi:"tenancy"`
@@ -159,6 +159,8 @@ type capacityBlockReservationState struct {
 	OutpostArn *string `pulumi:"outpostArn"`
 	// The ARN of the placement group in which to create the Capacity Block Reservation.
 	PlacementGroupArn *string `pulumi:"placementGroupArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The type of Capacity Reservation.
 	ReservationType *string `pulumi:"reservationType"`
 	// The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -166,8 +168,6 @@ type capacityBlockReservationState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Indicates the tenancy of the Capacity Block Reservation. Specify either `default` or `dedicated`.
 	Tenancy  *string                           `pulumi:"tenancy"`
@@ -199,6 +199,8 @@ type CapacityBlockReservationState struct {
 	OutpostArn pulumi.StringPtrInput
 	// The ARN of the placement group in which to create the Capacity Block Reservation.
 	PlacementGroupArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The type of Capacity Reservation.
 	ReservationType pulumi.StringPtrInput
 	// The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -206,8 +208,6 @@ type CapacityBlockReservationState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Indicates the tenancy of the Capacity Block Reservation. Specify either `default` or `dedicated`.
 	Tenancy  pulumi.StringPtrInput
@@ -223,6 +223,8 @@ type capacityBlockReservationArgs struct {
 	CapacityBlockOfferingId string `pulumi:"capacityBlockOfferingId"`
 	// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
 	InstancePlatform string `pulumi:"instancePlatform"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string                 `pulumi:"tags"`
 	Timeouts *CapacityBlockReservationTimeouts `pulumi:"timeouts"`
@@ -234,6 +236,8 @@ type CapacityBlockReservationArgs struct {
 	CapacityBlockOfferingId pulumi.StringInput
 	// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
 	InstancePlatform pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts CapacityBlockReservationTimeoutsPtrInput
@@ -386,6 +390,11 @@ func (o CapacityBlockReservationOutput) PlacementGroupArn() pulumi.StringOutput 
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.StringOutput { return v.PlacementGroupArn }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o CapacityBlockReservationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The type of Capacity Reservation.
 func (o CapacityBlockReservationOutput) ReservationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.StringOutput { return v.ReservationType }).(pulumi.StringOutput)
@@ -402,8 +411,6 @@ func (o CapacityBlockReservationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block
-//
-// Deprecated: Please use `tags` instead.
 func (o CapacityBlockReservationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

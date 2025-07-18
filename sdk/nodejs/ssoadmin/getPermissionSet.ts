@@ -27,6 +27,7 @@ export function getPermissionSet(args: GetPermissionSetArgs, opts?: pulumi.Invok
         "arn": args.arn,
         "instanceArn": args.instanceArn,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -45,8 +46,14 @@ export interface GetPermissionSetArgs {
     instanceArn: string;
     /**
      * Name of the SSO Permission Set.
+     *
+     * > **NOTE:** Either `arn` or `name` must be configured.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Key-value map of resource tags.
      */
@@ -69,6 +76,7 @@ export interface GetPermissionSetResult {
     readonly id: string;
     readonly instanceArn: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Relay state URL used to redirect users within the application during the federation authentication process.
      */
@@ -105,6 +113,7 @@ export function getPermissionSetOutput(args: GetPermissionSetOutputArgs, opts?: 
         "arn": args.arn,
         "instanceArn": args.instanceArn,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -123,8 +132,14 @@ export interface GetPermissionSetOutputArgs {
     instanceArn: pulumi.Input<string>;
     /**
      * Name of the SSO Permission Set.
+     *
+     * > **NOTE:** Either `arn` or `name` must be configured.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags.
      */

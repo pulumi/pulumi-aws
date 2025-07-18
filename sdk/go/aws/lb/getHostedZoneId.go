@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,8 +20,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,8 +66,7 @@ func GetHostedZoneId(ctx *pulumi.Context, args *GetHostedZoneIdArgs, opts ...pul
 type GetHostedZoneIdArgs struct {
 	// Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
 	LoadBalancerType *string `pulumi:"loadBalancerType"`
-	// Name of the region whose AWS ELB HostedZoneId is desired.
-	// Defaults to the region from the AWS provider configuration.
+	// Name of the Region whose AWS ELB HostedZoneId is desired. Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -76,7 +75,7 @@ type GetHostedZoneIdResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id               string  `pulumi:"id"`
 	LoadBalancerType *string `pulumi:"loadBalancerType"`
-	Region           *string `pulumi:"region"`
+	Region           string  `pulumi:"region"`
 }
 
 func GetHostedZoneIdOutput(ctx *pulumi.Context, args GetHostedZoneIdOutputArgs, opts ...pulumi.InvokeOption) GetHostedZoneIdResultOutput {
@@ -92,8 +91,7 @@ func GetHostedZoneIdOutput(ctx *pulumi.Context, args GetHostedZoneIdOutputArgs, 
 type GetHostedZoneIdOutputArgs struct {
 	// Type of load balancer to create. Possible values are `application` or `network`. The default value is `application`.
 	LoadBalancerType pulumi.StringPtrInput `pulumi:"loadBalancerType"`
-	// Name of the region whose AWS ELB HostedZoneId is desired.
-	// Defaults to the region from the AWS provider configuration.
+	// Name of the Region whose AWS ELB HostedZoneId is desired. Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -125,8 +123,8 @@ func (o GetHostedZoneIdResultOutput) LoadBalancerType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetHostedZoneIdResult) *string { return v.LoadBalancerType }).(pulumi.StringPtrOutput)
 }
 
-func (o GetHostedZoneIdResultOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetHostedZoneIdResult) *string { return v.Region }).(pulumi.StringPtrOutput)
+func (o GetHostedZoneIdResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHostedZoneIdResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

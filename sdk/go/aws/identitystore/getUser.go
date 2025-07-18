@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,15 +20,15 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/identitystore"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/identitystore"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -64,14 +64,12 @@ func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.Invoke
 type LookupUserArgs struct {
 	// A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
 	AlternateIdentifier *GetUserAlternateIdentifier `pulumi:"alternateIdentifier"`
-	// Configuration block for filtering by a unique attribute of the user. Detailed below.
-	//
-	// Deprecated: filter is deprecated. Use alternateIdentifier instead.
-	Filter *GetUserFilter `pulumi:"filter"`
 	// Identity Store ID associated with the Single Sign-On Instance.
 	//
 	// The following arguments are optional:
 	IdentityStoreId string `pulumi:"identityStoreId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The identifier for a user in the Identity Store.
 	//
 	// > Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
@@ -89,8 +87,6 @@ type LookupUserResult struct {
 	Emails []GetUserEmail `pulumi:"emails"`
 	// List of identifiers issued to this resource by an external identity provider.
 	ExternalIds []GetUserExternalId `pulumi:"externalIds"`
-	// Deprecated: filter is deprecated. Use alternateIdentifier instead.
-	Filter *GetUserFilter `pulumi:"filter"`
 	// The provider-assigned unique ID for this managed resource.
 	Id              string `pulumi:"id"`
 	IdentityStoreId string `pulumi:"identityStoreId"`
@@ -106,6 +102,8 @@ type LookupUserResult struct {
 	PreferredLanguage string `pulumi:"preferredLanguage"`
 	// An URL that may be associated with the user.
 	ProfileUrl string `pulumi:"profileUrl"`
+	// The region of the address.
+	Region string `pulumi:"region"`
 	// The user's time zone.
 	Timezone string `pulumi:"timezone"`
 	// The user's title.
@@ -130,14 +128,12 @@ func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pu
 type LookupUserOutputArgs struct {
 	// A unique identifier for a user or group that is not the primary identifier. Conflicts with `userId` and `filter`. Detailed below.
 	AlternateIdentifier GetUserAlternateIdentifierPtrInput `pulumi:"alternateIdentifier"`
-	// Configuration block for filtering by a unique attribute of the user. Detailed below.
-	//
-	// Deprecated: filter is deprecated. Use alternateIdentifier instead.
-	Filter GetUserFilterPtrInput `pulumi:"filter"`
 	// Identity Store ID associated with the Single Sign-On Instance.
 	//
 	// The following arguments are optional:
 	IdentityStoreId pulumi.StringInput `pulumi:"identityStoreId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The identifier for a user in the Identity Store.
 	//
 	// > Exactly one of the above arguments must be provided. Passing both `filter` and `userId` is allowed for backwards compatibility.
@@ -187,11 +183,6 @@ func (o LookupUserResultOutput) ExternalIds() GetUserExternalIdArrayOutput {
 	return o.ApplyT(func(v LookupUserResult) []GetUserExternalId { return v.ExternalIds }).(GetUserExternalIdArrayOutput)
 }
 
-// Deprecated: filter is deprecated. Use alternateIdentifier instead.
-func (o LookupUserResultOutput) Filter() GetUserFilterPtrOutput {
-	return o.ApplyT(func(v LookupUserResult) *GetUserFilter { return v.Filter }).(GetUserFilterPtrOutput)
-}
-
 // The provider-assigned unique ID for this managed resource.
 func (o LookupUserResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Id }).(pulumi.StringOutput)
@@ -229,6 +220,11 @@ func (o LookupUserResultOutput) PreferredLanguage() pulumi.StringOutput {
 // An URL that may be associated with the user.
 func (o LookupUserResultOutput) ProfileUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.ProfileUrl }).(pulumi.StringOutput)
+}
+
+// The region of the address.
+func (o LookupUserResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupUserResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The user's time zone.

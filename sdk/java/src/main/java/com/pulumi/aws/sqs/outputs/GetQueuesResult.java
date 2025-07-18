@@ -24,6 +24,7 @@ public final class GetQueuesResult {
      * 
      */
     private List<String> queueUrls;
+    private String region;
 
     private GetQueuesResult() {}
     /**
@@ -43,6 +44,9 @@ public final class GetQueuesResult {
     public List<String> queueUrls() {
         return this.queueUrls;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -56,12 +60,14 @@ public final class GetQueuesResult {
         private String id;
         private @Nullable String queueNamePrefix;
         private List<String> queueUrls;
+        private String region;
         public Builder() {}
         public Builder(GetQueuesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.queueNamePrefix = defaults.queueNamePrefix;
     	      this.queueUrls = defaults.queueUrls;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -89,11 +95,20 @@ public final class GetQueuesResult {
         public Builder queueUrls(String... queueUrls) {
             return queueUrls(List.of(queueUrls));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetQueuesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetQueuesResult build() {
             final var _resultValue = new GetQueuesResult();
             _resultValue.id = id;
             _resultValue.queueNamePrefix = queueNamePrefix;
             _resultValue.queueUrls = queueUrls;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

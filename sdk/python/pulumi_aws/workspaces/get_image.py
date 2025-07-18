@@ -27,7 +27,7 @@ class GetImageResult:
     """
     A collection of values returned by getImage.
     """
-    def __init__(__self__, description=None, id=None, image_id=None, name=None, operating_system_type=None, required_tenancy=None, state=None):
+    def __init__(__self__, description=None, id=None, image_id=None, name=None, operating_system_type=None, region=None, required_tenancy=None, state=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -43,6 +43,9 @@ class GetImageResult:
         if operating_system_type and not isinstance(operating_system_type, str):
             raise TypeError("Expected argument 'operating_system_type' to be a str")
         pulumi.set(__self__, "operating_system_type", operating_system_type)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if required_tenancy and not isinstance(required_tenancy, str):
             raise TypeError("Expected argument 'required_tenancy' to be a str")
         pulumi.set(__self__, "required_tenancy", required_tenancy)
@@ -85,6 +88,11 @@ class GetImageResult:
         return pulumi.get(self, "operating_system_type")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="requiredTenancy")
     def required_tenancy(self) -> builtins.str:
         """
@@ -112,11 +120,13 @@ class AwaitableGetImageResult(GetImageResult):
             image_id=self.image_id,
             name=self.name,
             operating_system_type=self.operating_system_type,
+            region=self.region,
             required_tenancy=self.required_tenancy,
             state=self.state)
 
 
 def get_image(image_id: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
     Use this data source to get information about a Workspaces image.
@@ -132,9 +142,11 @@ def get_image(image_id: Optional[builtins.str] = None,
 
 
     :param builtins.str image_id: ID of the image.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['imageId'] = image_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:workspaces/getImage:getImage', __args__, opts=opts, typ=GetImageResult).value
 
@@ -144,9 +156,11 @@ def get_image(image_id: Optional[builtins.str] = None,
         image_id=pulumi.get(__ret__, 'image_id'),
         name=pulumi.get(__ret__, 'name'),
         operating_system_type=pulumi.get(__ret__, 'operating_system_type'),
+        region=pulumi.get(__ret__, 'region'),
         required_tenancy=pulumi.get(__ret__, 'required_tenancy'),
         state=pulumi.get(__ret__, 'state'))
 def get_image_output(image_id: Optional[pulumi.Input[builtins.str]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
     Use this data source to get information about a Workspaces image.
@@ -162,9 +176,11 @@ def get_image_output(image_id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str image_id: ID of the image.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['imageId'] = image_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:workspaces/getImage:getImage', __args__, opts=opts, typ=GetImageResult)
     return __ret__.apply(lambda __response__: GetImageResult(
@@ -173,5 +189,6 @@ def get_image_output(image_id: Optional[pulumi.Input[builtins.str]] = None,
         image_id=pulumi.get(__response__, 'image_id'),
         name=pulumi.get(__response__, 'name'),
         operating_system_type=pulumi.get(__response__, 'operating_system_type'),
+        region=pulumi.get(__response__, 'region'),
         required_tenancy=pulumi.get(__response__, 'required_tenancy'),
         state=pulumi.get(__response__, 'state')))

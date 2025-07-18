@@ -24,6 +24,7 @@ class AgentArgs:
                  ip_address: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  private_link_endpoint: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -34,6 +35,7 @@ class AgentArgs:
         :param pulumi.Input[builtins.str] ip_address: DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
         :param pulumi.Input[builtins.str] name: Name of the DataSync Agent.
         :param pulumi.Input[builtins.str] private_link_endpoint: The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_arns: The ARNs of the security groups used to protect your data transfer task subnets.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_arns: The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -47,6 +49,8 @@ class AgentArgs:
             pulumi.set(__self__, "name", name)
         if private_link_endpoint is not None:
             pulumi.set(__self__, "private_link_endpoint", private_link_endpoint)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_arns is not None:
             pulumi.set(__self__, "security_group_arns", security_group_arns)
         if subnet_arns is not None:
@@ -105,6 +109,18 @@ class AgentArgs:
         pulumi.set(self, "private_link_endpoint", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupArns")
     def security_group_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -161,6 +177,7 @@ class _AgentState:
                  ip_address: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  private_link_endpoint: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -173,6 +190,7 @@ class _AgentState:
         :param pulumi.Input[builtins.str] ip_address: DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
         :param pulumi.Input[builtins.str] name: Name of the DataSync Agent.
         :param pulumi.Input[builtins.str] private_link_endpoint: The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_arns: The ARNs of the security groups used to protect your data transfer task subnets.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_arns: The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -189,15 +207,14 @@ class _AgentState:
             pulumi.set(__self__, "name", name)
         if private_link_endpoint is not None:
             pulumi.set(__self__, "private_link_endpoint", private_link_endpoint)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_arns is not None:
             pulumi.set(__self__, "security_group_arns", security_group_arns)
         if subnet_arns is not None:
             pulumi.set(__self__, "subnet_arns", subnet_arns)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_endpoint_id is not None:
@@ -264,6 +281,18 @@ class _AgentState:
         pulumi.set(self, "private_link_endpoint", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupArns")
     def security_group_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -301,7 +330,6 @@ class _AgentState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -335,6 +363,7 @@ class Agent(pulumi.CustomResource):
                  ip_address: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  private_link_endpoint: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -364,7 +393,7 @@ class Agent(pulumi.CustomResource):
 
         current = aws.get_region()
         example_vpc_endpoint = aws.ec2.VpcEndpoint("example",
-            service_name=f"com.amazonaws.{current.name}.datasync",
+            service_name=f"com.amazonaws.{current.region}.datasync",
             vpc_id=example_aws_vpc["id"],
             security_group_ids=[example_aws_security_group["id"]],
             subnet_ids=[example_aws_subnet["id"]],
@@ -393,6 +422,7 @@ class Agent(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ip_address: DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
         :param pulumi.Input[builtins.str] name: Name of the DataSync Agent.
         :param pulumi.Input[builtins.str] private_link_endpoint: The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_arns: The ARNs of the security groups used to protect your data transfer task subnets.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_arns: The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -428,7 +458,7 @@ class Agent(pulumi.CustomResource):
 
         current = aws.get_region()
         example_vpc_endpoint = aws.ec2.VpcEndpoint("example",
-            service_name=f"com.amazonaws.{current.name}.datasync",
+            service_name=f"com.amazonaws.{current.region}.datasync",
             vpc_id=example_aws_vpc["id"],
             security_group_ids=[example_aws_security_group["id"]],
             subnet_ids=[example_aws_subnet["id"]],
@@ -470,6 +500,7 @@ class Agent(pulumi.CustomResource):
                  ip_address: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  private_link_endpoint: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -487,6 +518,7 @@ class Agent(pulumi.CustomResource):
             __props__.__dict__["ip_address"] = ip_address
             __props__.__dict__["name"] = name
             __props__.__dict__["private_link_endpoint"] = private_link_endpoint
+            __props__.__dict__["region"] = region
             __props__.__dict__["security_group_arns"] = security_group_arns
             __props__.__dict__["subnet_arns"] = subnet_arns
             __props__.__dict__["tags"] = tags
@@ -508,6 +540,7 @@ class Agent(pulumi.CustomResource):
             ip_address: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             private_link_endpoint: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             subnet_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -525,6 +558,7 @@ class Agent(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ip_address: DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
         :param pulumi.Input[builtins.str] name: Name of the DataSync Agent.
         :param pulumi.Input[builtins.str] private_link_endpoint: The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_arns: The ARNs of the security groups used to protect your data transfer task subnets.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_arns: The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -540,6 +574,7 @@ class Agent(pulumi.CustomResource):
         __props__.__dict__["ip_address"] = ip_address
         __props__.__dict__["name"] = name
         __props__.__dict__["private_link_endpoint"] = private_link_endpoint
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_group_arns"] = security_group_arns
         __props__.__dict__["subnet_arns"] = subnet_arns
         __props__.__dict__["tags"] = tags
@@ -588,6 +623,14 @@ class Agent(pulumi.CustomResource):
         return pulumi.get(self, "private_link_endpoint")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroupArns")
     def security_group_arns(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
@@ -613,7 +656,6 @@ class Agent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

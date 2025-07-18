@@ -65,6 +65,7 @@ public final class GetSnapshotResult {
      */
     private String ownerId;
     private @Nullable List<String> owners;
+    private String region;
     private @Nullable List<String> restorableByUserIds;
     /**
      * @return Snapshot ID (e.g., snap-59fcb34e).
@@ -176,6 +177,9 @@ public final class GetSnapshotResult {
     public List<String> owners() {
         return this.owners == null ? List.of() : this.owners;
     }
+    public String region() {
+        return this.region;
+    }
     public List<String> restorableByUserIds() {
         return this.restorableByUserIds == null ? List.of() : this.restorableByUserIds;
     }
@@ -253,6 +257,7 @@ public final class GetSnapshotResult {
         private String ownerAlias;
         private String ownerId;
         private @Nullable List<String> owners;
+        private String region;
         private @Nullable List<String> restorableByUserIds;
         private String snapshotId;
         private @Nullable List<String> snapshotIds;
@@ -277,6 +282,7 @@ public final class GetSnapshotResult {
     	      this.ownerAlias = defaults.ownerAlias;
     	      this.ownerId = defaults.ownerId;
     	      this.owners = defaults.owners;
+    	      this.region = defaults.region;
     	      this.restorableByUserIds = defaults.restorableByUserIds;
     	      this.snapshotId = defaults.snapshotId;
     	      this.snapshotIds = defaults.snapshotIds;
@@ -385,6 +391,14 @@ public final class GetSnapshotResult {
             return owners(List.of(owners));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder restorableByUserIds(@Nullable List<String> restorableByUserIds) {
 
             this.restorableByUserIds = restorableByUserIds;
@@ -472,6 +486,7 @@ public final class GetSnapshotResult {
             _resultValue.ownerAlias = ownerAlias;
             _resultValue.ownerId = ownerId;
             _resultValue.owners = owners;
+            _resultValue.region = region;
             _resultValue.restorableByUserIds = restorableByUserIds;
             _resultValue.snapshotId = snapshotId;
             _resultValue.snapshotIds = snapshotIds;

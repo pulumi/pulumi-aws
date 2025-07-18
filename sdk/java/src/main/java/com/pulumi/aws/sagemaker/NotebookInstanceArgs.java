@@ -21,29 +21,6 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
     public static final NotebookInstanceArgs Empty = new NotebookInstanceArgs();
 
     /**
-     * A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-     * 
-     * @deprecated
-     * accelerator_types is deprecated. Use instance_type instead.
-     * 
-     */
-    @Deprecated /* accelerator_types is deprecated. Use instance_type instead. */
-    @Import(name="acceleratorTypes")
-    private @Nullable Output<List<String>> acceleratorTypes;
-
-    /**
-     * @return A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-     * 
-     * @deprecated
-     * accelerator_types is deprecated. Use instance_type instead.
-     * 
-     */
-    @Deprecated /* accelerator_types is deprecated. Use instance_type instead. */
-    public Optional<Output<List<String>>> acceleratorTypes() {
-        return Optional.ofNullable(this.acceleratorTypes);
-    }
-
-    /**
      * An array of up to three Git repositories to associate with the notebook instance.
      * These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
      * 
@@ -181,6 +158,21 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
      * 
      */
@@ -273,7 +265,6 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
     private NotebookInstanceArgs() {}
 
     private NotebookInstanceArgs(NotebookInstanceArgs $) {
-        this.acceleratorTypes = $.acceleratorTypes;
         this.additionalCodeRepositories = $.additionalCodeRepositories;
         this.defaultCodeRepository = $.defaultCodeRepository;
         this.directInternetAccess = $.directInternetAccess;
@@ -283,6 +274,7 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
         this.lifecycleConfigName = $.lifecycleConfigName;
         this.name = $.name;
         this.platformIdentifier = $.platformIdentifier;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.rootAccess = $.rootAccess;
         this.securityGroups = $.securityGroups;
@@ -307,49 +299,6 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
 
         public Builder(NotebookInstanceArgs defaults) {
             $ = new NotebookInstanceArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param acceleratorTypes A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * accelerator_types is deprecated. Use instance_type instead.
-         * 
-         */
-        @Deprecated /* accelerator_types is deprecated. Use instance_type instead. */
-        public Builder acceleratorTypes(@Nullable Output<List<String>> acceleratorTypes) {
-            $.acceleratorTypes = acceleratorTypes;
-            return this;
-        }
-
-        /**
-         * @param acceleratorTypes A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * accelerator_types is deprecated. Use instance_type instead.
-         * 
-         */
-        @Deprecated /* accelerator_types is deprecated. Use instance_type instead. */
-        public Builder acceleratorTypes(List<String> acceleratorTypes) {
-            return acceleratorTypes(Output.of(acceleratorTypes));
-        }
-
-        /**
-         * @param acceleratorTypes A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * accelerator_types is deprecated. Use instance_type instead.
-         * 
-         */
-        @Deprecated /* accelerator_types is deprecated. Use instance_type instead. */
-        public Builder acceleratorTypes(String... acceleratorTypes) {
-            return acceleratorTypes(List.of(acceleratorTypes));
         }
 
         /**
@@ -552,6 +501,27 @@ public final class NotebookInstanceArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder platformIdentifier(String platformIdentifier) {
             return platformIdentifier(Output.of(platformIdentifier));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

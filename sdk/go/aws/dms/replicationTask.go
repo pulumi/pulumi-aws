@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,6 +69,8 @@ type ReplicationTask struct {
 	CdcStartTime pulumi.StringPtrOutput `pulumi:"cdcStartTime"`
 	// Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	MigrationType pulumi.StringOutput `pulumi:"migrationType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of the replication instance.
 	ReplicationInstanceArn pulumi.StringOutput `pulumi:"replicationInstanceArn"`
 	// ARN for the replication task.
@@ -90,8 +92,6 @@ type ReplicationTask struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// ARN that uniquely identifies the target endpoint.
 	TargetEndpointArn pulumi.StringOutput `pulumi:"targetEndpointArn"`
@@ -151,6 +151,8 @@ type replicationTaskState struct {
 	CdcStartTime *string `pulumi:"cdcStartTime"`
 	// Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	MigrationType *string `pulumi:"migrationType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the replication instance.
 	ReplicationInstanceArn *string `pulumi:"replicationInstanceArn"`
 	// ARN for the replication task.
@@ -172,8 +174,6 @@ type replicationTaskState struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// ARN that uniquely identifies the target endpoint.
 	TargetEndpointArn *string `pulumi:"targetEndpointArn"`
@@ -186,6 +186,8 @@ type ReplicationTaskState struct {
 	CdcStartTime pulumi.StringPtrInput
 	// Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	MigrationType pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the replication instance.
 	ReplicationInstanceArn pulumi.StringPtrInput
 	// ARN for the replication task.
@@ -207,8 +209,6 @@ type ReplicationTaskState struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// ARN that uniquely identifies the target endpoint.
 	TargetEndpointArn pulumi.StringPtrInput
@@ -225,6 +225,8 @@ type replicationTaskArgs struct {
 	CdcStartTime *string `pulumi:"cdcStartTime"`
 	// Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	MigrationType string `pulumi:"migrationType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the replication instance.
 	ReplicationInstanceArn string `pulumi:"replicationInstanceArn"`
 	// Replication task identifier which must contain from 1 to 255 alphanumeric characters or hyphens, first character must be a letter, cannot end with a hyphen, and cannot contain two consecutive hyphens.
@@ -253,6 +255,8 @@ type ReplicationTaskArgs struct {
 	CdcStartTime pulumi.StringPtrInput
 	// Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
 	MigrationType pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of the replication instance.
 	ReplicationInstanceArn pulumi.StringInput
 	// Replication task identifier which must contain from 1 to 255 alphanumeric characters or hyphens, first character must be a letter, cannot end with a hyphen, and cannot contain two consecutive hyphens.
@@ -375,6 +379,11 @@ func (o ReplicationTaskOutput) MigrationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationTask) pulumi.StringOutput { return v.MigrationType }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ReplicationTaskOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationTask) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // ARN of the replication instance.
 func (o ReplicationTaskOutput) ReplicationInstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationTask) pulumi.StringOutput { return v.ReplicationInstanceArn }).(pulumi.StringOutput)
@@ -426,8 +435,6 @@ func (o ReplicationTaskOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ReplicationTaskOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReplicationTask) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

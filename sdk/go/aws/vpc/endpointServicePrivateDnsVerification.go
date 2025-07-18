@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,7 +29,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpc"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ import (
 type EndpointServicePrivateDnsVerification struct {
 	pulumi.CustomResourceState
 
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the endpoint service.
 	//
 	// The following arguments are optional:
@@ -96,6 +98,8 @@ func GetEndpointServicePrivateDnsVerification(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EndpointServicePrivateDnsVerification resources.
 type endpointServicePrivateDnsVerificationState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the endpoint service.
 	//
 	// The following arguments are optional:
@@ -106,6 +110,8 @@ type endpointServicePrivateDnsVerificationState struct {
 }
 
 type EndpointServicePrivateDnsVerificationState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the endpoint service.
 	//
 	// The following arguments are optional:
@@ -120,6 +126,8 @@ func (EndpointServicePrivateDnsVerificationState) ElementType() reflect.Type {
 }
 
 type endpointServicePrivateDnsVerificationArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the endpoint service.
 	//
 	// The following arguments are optional:
@@ -131,6 +139,8 @@ type endpointServicePrivateDnsVerificationArgs struct {
 
 // The set of arguments for constructing a EndpointServicePrivateDnsVerification resource.
 type EndpointServicePrivateDnsVerificationArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the endpoint service.
 	//
 	// The following arguments are optional:
@@ -225,6 +235,11 @@ func (o EndpointServicePrivateDnsVerificationOutput) ToEndpointServicePrivateDns
 
 func (o EndpointServicePrivateDnsVerificationOutput) ToEndpointServicePrivateDnsVerificationOutputWithContext(ctx context.Context) EndpointServicePrivateDnsVerificationOutput {
 	return o
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o EndpointServicePrivateDnsVerificationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EndpointServicePrivateDnsVerification) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the endpoint service.

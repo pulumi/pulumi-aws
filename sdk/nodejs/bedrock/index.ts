@@ -60,7 +60,7 @@ export const getCustomModel: typeof import("./getCustomModel").getCustomModel = 
 export const getCustomModelOutput: typeof import("./getCustomModel").getCustomModelOutput = null as any;
 utilities.lazyLoad(exports, ["getCustomModel","getCustomModelOutput"], () => require("./getCustomModel"));
 
-export { GetCustomModelsResult } from "./getCustomModels";
+export { GetCustomModelsArgs, GetCustomModelsResult, GetCustomModelsOutputArgs } from "./getCustomModels";
 export const getCustomModels: typeof import("./getCustomModels").getCustomModels = null as any;
 export const getCustomModelsOutput: typeof import("./getCustomModels").getCustomModelsOutput = null as any;
 utilities.lazyLoad(exports, ["getCustomModels","getCustomModelsOutput"], () => require("./getCustomModels"));
@@ -70,7 +70,7 @@ export const getInferenceProfile: typeof import("./getInferenceProfile").getInfe
 export const getInferenceProfileOutput: typeof import("./getInferenceProfile").getInferenceProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getInferenceProfile","getInferenceProfileOutput"], () => require("./getInferenceProfile"));
 
-export { GetInferenceProfilesResult } from "./getInferenceProfiles";
+export { GetInferenceProfilesArgs, GetInferenceProfilesResult, GetInferenceProfilesOutputArgs } from "./getInferenceProfiles";
 export const getInferenceProfiles: typeof import("./getInferenceProfiles").getInferenceProfiles = null as any;
 export const getInferenceProfilesOutput: typeof import("./getInferenceProfiles").getInferenceProfilesOutput = null as any;
 utilities.lazyLoad(exports, ["getInferenceProfiles","getInferenceProfilesOutput"], () => require("./getInferenceProfiles"));

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,8 +41,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,9 +81,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lambda"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -132,6 +131,8 @@ type LookupBucketObjectArgs struct {
 	// Full path to the object inside the bucket
 	Key   string  `pulumi:"key"`
 	Range *string `pulumi:"range"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags assigned to the object.
 	Tags map[string]string `pulumi:"tags"`
 	// Specific version ID of the object returned (defaults to latest version)
@@ -179,6 +180,7 @@ type LookupBucketObjectResult struct {
 	// The date and time when this object's object lock will expire.
 	ObjectLockRetainUntilDate string  `pulumi:"objectLockRetainUntilDate"`
 	Range                     *string `pulumi:"range"`
+	Region                    string  `pulumi:"region"`
 	// If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.
 	ServerSideEncryption string `pulumi:"serverSideEncryption"`
 	// If present, specifies the ID of the Key Management Service (KMS) master encryption key that was used for the object.
@@ -211,6 +213,8 @@ type LookupBucketObjectOutputArgs struct {
 	// Full path to the object inside the bucket
 	Key   pulumi.StringInput    `pulumi:"key"`
 	Range pulumi.StringPtrInput `pulumi:"range"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags assigned to the object.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Specific version ID of the object returned (defaults to latest version)
@@ -336,6 +340,10 @@ func (o LookupBucketObjectResultOutput) ObjectLockRetainUntilDate() pulumi.Strin
 
 func (o LookupBucketObjectResultOutput) Range() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) *string { return v.Range }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupBucketObjectResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.

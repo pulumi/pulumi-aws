@@ -21,14 +21,18 @@ __all__ = ['TagOptionResourceAssociationArgs', 'TagOptionResourceAssociation']
 class TagOptionResourceAssociationArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[builtins.str],
-                 tag_option_id: pulumi.Input[builtins.str]):
+                 tag_option_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a TagOptionResourceAssociation resource.
         :param pulumi.Input[builtins.str] resource_id: Resource identifier.
         :param pulumi.Input[builtins.str] tag_option_id: Tag Option identifier.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "resource_id", resource_id)
         pulumi.set(__self__, "tag_option_id", tag_option_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -54,10 +58,23 @@ class TagOptionResourceAssociationArgs:
     def tag_option_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "tag_option_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _TagOptionResourceAssociationState:
     def __init__(__self__, *,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  resource_created_time: Optional[pulumi.Input[builtins.str]] = None,
                  resource_description: Optional[pulumi.Input[builtins.str]] = None,
@@ -66,6 +83,7 @@ class _TagOptionResourceAssociationState:
                  tag_option_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering TagOptionResourceAssociation resources.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: ARN of the resource.
         :param pulumi.Input[builtins.str] resource_created_time: Creation time of the resource.
         :param pulumi.Input[builtins.str] resource_description: Description of the resource.
@@ -73,6 +91,8 @@ class _TagOptionResourceAssociationState:
         :param pulumi.Input[builtins.str] resource_name: Description of the resource.
         :param pulumi.Input[builtins.str] tag_option_id: Tag Option identifier.
         """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_arn is not None:
             pulumi.set(__self__, "resource_arn", resource_arn)
         if resource_created_time is not None:
@@ -85,6 +105,18 @@ class _TagOptionResourceAssociationState:
             pulumi.set(__self__, "resource_name", resource_name)
         if tag_option_id is not None:
             pulumi.set(__self__, "tag_option_id", tag_option_id)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -165,6 +197,7 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  tag_option_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -196,6 +229,7 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id: Resource identifier.
         :param pulumi.Input[builtins.str] tag_option_id: Tag Option identifier.
         """
@@ -246,6 +280,7 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  tag_option_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -257,6 +292,7 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TagOptionResourceAssociationArgs.__new__(TagOptionResourceAssociationArgs)
 
+            __props__.__dict__["region"] = region
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
@@ -277,6 +313,7 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_arn: Optional[pulumi.Input[builtins.str]] = None,
             resource_created_time: Optional[pulumi.Input[builtins.str]] = None,
             resource_description: Optional[pulumi.Input[builtins.str]] = None,
@@ -290,6 +327,7 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: ARN of the resource.
         :param pulumi.Input[builtins.str] resource_created_time: Creation time of the resource.
         :param pulumi.Input[builtins.str] resource_description: Description of the resource.
@@ -301,6 +339,7 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
 
         __props__ = _TagOptionResourceAssociationState.__new__(_TagOptionResourceAssociationState)
 
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_arn"] = resource_arn
         __props__.__dict__["resource_created_time"] = resource_created_time
         __props__.__dict__["resource_description"] = resource_description
@@ -308,6 +347,14 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
         __props__.__dict__["resource_name"] = resource_name_
         __props__.__dict__["tag_option_id"] = tag_option_id
         return TagOptionResourceAssociation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceArn")

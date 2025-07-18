@@ -22,6 +22,7 @@ export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions):
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:datapipeline/getPipeline:getPipeline", {
         "pipelineId": args.pipelineId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -34,6 +35,10 @@ export interface GetPipelineArgs {
      * ID of the pipeline.
      */
     pipelineId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags assigned to the resource.
      */
@@ -57,6 +62,7 @@ export interface GetPipelineResult {
      */
     readonly name: string;
     readonly pipelineId: string;
+    readonly region: string;
     /**
      * Map of tags assigned to the resource.
      */
@@ -80,6 +86,7 @@ export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:datapipeline/getPipeline:getPipeline", {
         "pipelineId": args.pipelineId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -92,6 +99,10 @@ export interface GetPipelineOutputArgs {
      * ID of the pipeline.
      */
     pipelineId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the resource.
      */

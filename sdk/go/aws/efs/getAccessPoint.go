@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/efs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupAccessPoint(ctx *pulumi.Context, args *LookupAccessPointArgs, opts ..
 type LookupAccessPointArgs struct {
 	// ID that identifies the file system.
 	AccessPointId string `pulumi:"accessPointId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -70,6 +72,7 @@ type LookupAccessPointResult struct {
 	OwnerId string `pulumi:"ownerId"`
 	// Single element list containing operating system user and group applied to all file system requests made using the access point.
 	PosixUsers []GetAccessPointPosixUser `pulumi:"posixUsers"`
+	Region     string                    `pulumi:"region"`
 	// Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
 	RootDirectories []GetAccessPointRootDirectory `pulumi:"rootDirectories"`
 	// Key-value mapping of resource tags.
@@ -89,6 +92,8 @@ func LookupAccessPointOutput(ctx *pulumi.Context, args LookupAccessPointOutputAr
 type LookupAccessPointOutputArgs struct {
 	// ID that identifies the file system.
 	AccessPointId pulumi.StringInput `pulumi:"accessPointId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value mapping of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -143,6 +148,10 @@ func (o LookupAccessPointResultOutput) OwnerId() pulumi.StringOutput {
 // Single element list containing operating system user and group applied to all file system requests made using the access point.
 func (o LookupAccessPointResultOutput) PosixUsers() GetAccessPointPosixUserArrayOutput {
 	return o.ApplyT(func(v LookupAccessPointResult) []GetAccessPointPosixUser { return v.PosixUsers }).(GetAccessPointPosixUserArrayOutput)
+}
+
+func (o LookupAccessPointResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccessPointResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.

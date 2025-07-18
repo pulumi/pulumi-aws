@@ -28,7 +28,7 @@ class GetAccessPointResult:
     """
     A collection of values returned by getAccessPoint.
     """
-    def __init__(__self__, access_point_id=None, arn=None, file_system_arn=None, file_system_id=None, id=None, owner_id=None, posix_users=None, root_directories=None, tags=None):
+    def __init__(__self__, access_point_id=None, arn=None, file_system_arn=None, file_system_id=None, id=None, owner_id=None, posix_users=None, region=None, root_directories=None, tags=None):
         if access_point_id and not isinstance(access_point_id, str):
             raise TypeError("Expected argument 'access_point_id' to be a str")
         pulumi.set(__self__, "access_point_id", access_point_id)
@@ -50,6 +50,9 @@ class GetAccessPointResult:
         if posix_users and not isinstance(posix_users, list):
             raise TypeError("Expected argument 'posix_users' to be a list")
         pulumi.set(__self__, "posix_users", posix_users)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if root_directories and not isinstance(root_directories, list):
             raise TypeError("Expected argument 'root_directories' to be a list")
         pulumi.set(__self__, "root_directories", root_directories)
@@ -108,6 +111,11 @@ class GetAccessPointResult:
         return pulumi.get(self, "posix_users")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="rootDirectories")
     def root_directories(self) -> Sequence['outputs.GetAccessPointRootDirectoryResult']:
         """
@@ -137,11 +145,13 @@ class AwaitableGetAccessPointResult(GetAccessPointResult):
             id=self.id,
             owner_id=self.owner_id,
             posix_users=self.posix_users,
+            region=self.region,
             root_directories=self.root_directories,
             tags=self.tags)
 
 
 def get_access_point(access_point_id: Optional[builtins.str] = None,
+                     region: Optional[builtins.str] = None,
                      tags: Optional[Mapping[str, builtins.str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPointResult:
     """
@@ -158,10 +168,12 @@ def get_access_point(access_point_id: Optional[builtins.str] = None,
 
 
     :param builtins.str access_point_id: ID that identifies the file system.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value mapping of resource tags.
     """
     __args__ = dict()
     __args__['accessPointId'] = access_point_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:efs/getAccessPoint:getAccessPoint', __args__, opts=opts, typ=GetAccessPointResult).value
@@ -174,9 +186,11 @@ def get_access_point(access_point_id: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         posix_users=pulumi.get(__ret__, 'posix_users'),
+        region=pulumi.get(__ret__, 'region'),
         root_directories=pulumi.get(__ret__, 'root_directories'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_access_point_output(access_point_id: Optional[pulumi.Input[builtins.str]] = None,
+                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointResult]:
     """
@@ -193,10 +207,12 @@ def get_access_point_output(access_point_id: Optional[pulumi.Input[builtins.str]
 
 
     :param builtins.str access_point_id: ID that identifies the file system.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value mapping of resource tags.
     """
     __args__ = dict()
     __args__['accessPointId'] = access_point_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:efs/getAccessPoint:getAccessPoint', __args__, opts=opts, typ=GetAccessPointResult)
@@ -208,5 +224,6 @@ def get_access_point_output(access_point_id: Optional[pulumi.Input[builtins.str]
         id=pulumi.get(__response__, 'id'),
         owner_id=pulumi.get(__response__, 'owner_id'),
         posix_users=pulumi.get(__response__, 'posix_users'),
+        region=pulumi.get(__response__, 'region'),
         root_directories=pulumi.get(__response__, 'root_directories'),
         tags=pulumi.get(__response__, 'tags')))

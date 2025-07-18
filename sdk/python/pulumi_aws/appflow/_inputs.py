@@ -3420,7 +3420,8 @@ if not MYPY:
         private_link_service_name: NotRequired[pulumi.Input[builtins.str]]
         region: NotRequired[pulumi.Input[builtins.str]]
         """
-        AWS Region of the Snowflake account.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         """
 elif False:
     ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgsDict: TypeAlias = Mapping[str, Any]
@@ -3439,7 +3440,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeA
         :param pulumi.Input[builtins.str] stage: Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
         :param pulumi.Input[builtins.str] warehouse: The name of the Snowflake warehouse.
         :param pulumi.Input[builtins.str] account_name: The name of the account.
-        :param pulumi.Input[builtins.str] region: AWS Region of the Snowflake account.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+               * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "stage", stage)
@@ -3520,7 +3522,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeA
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        AWS Region of the Snowflake account.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         """
         return pulumi.get(self, "region")
 

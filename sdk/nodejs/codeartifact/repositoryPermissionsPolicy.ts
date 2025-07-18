@@ -93,6 +93,10 @@ export class RepositoryPermissionsPolicy extends pulumi.CustomResource {
      */
     public readonly policyRevision!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the repository to set the resource policy on.
      */
     public readonly repository!: pulumi.Output<string>;
@@ -118,6 +122,7 @@ export class RepositoryPermissionsPolicy extends pulumi.CustomResource {
             resourceInputs["domainOwner"] = state ? state.domainOwner : undefined;
             resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
             resourceInputs["policyRevision"] = state ? state.policyRevision : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["repository"] = state ? state.repository : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
@@ -135,6 +140,7 @@ export class RepositoryPermissionsPolicy extends pulumi.CustomResource {
             resourceInputs["domainOwner"] = args ? args.domainOwner : undefined;
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
             resourceInputs["policyRevision"] = args ? args.policyRevision : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["repository"] = args ? args.repository : undefined;
             resourceInputs["resourceArn"] = undefined /*out*/;
         }
@@ -163,6 +169,10 @@ export interface RepositoryPermissionsPolicyState {
      * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
      */
     policyRevision?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the repository to set the resource policy on.
      */
@@ -193,6 +203,10 @@ export interface RepositoryPermissionsPolicyArgs {
      * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
      */
     policyRevision?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the repository to set the resource policy on.
      */

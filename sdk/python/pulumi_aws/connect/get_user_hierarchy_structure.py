@@ -28,7 +28,7 @@ class GetUserHierarchyStructureResult:
     """
     A collection of values returned by getUserHierarchyStructure.
     """
-    def __init__(__self__, hierarchy_structures=None, id=None, instance_id=None):
+    def __init__(__self__, hierarchy_structures=None, id=None, instance_id=None, region=None):
         if hierarchy_structures and not isinstance(hierarchy_structures, list):
             raise TypeError("Expected argument 'hierarchy_structures' to be a list")
         pulumi.set(__self__, "hierarchy_structures", hierarchy_structures)
@@ -38,6 +38,9 @@ class GetUserHierarchyStructureResult:
         if instance_id and not isinstance(instance_id, str):
             raise TypeError("Expected argument 'instance_id' to be a str")
         pulumi.set(__self__, "instance_id", instance_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="hierarchyStructures")
@@ -60,6 +63,11 @@ class GetUserHierarchyStructureResult:
     def instance_id(self) -> builtins.str:
         return pulumi.get(self, "instance_id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetUserHierarchyStructureResult(GetUserHierarchyStructureResult):
     # pylint: disable=using-constant-test
@@ -69,10 +77,12 @@ class AwaitableGetUserHierarchyStructureResult(GetUserHierarchyStructureResult):
         return GetUserHierarchyStructureResult(
             hierarchy_structures=self.hierarchy_structures,
             id=self.id,
-            instance_id=self.instance_id)
+            instance_id=self.instance_id,
+            region=self.region)
 
 
 def get_user_hierarchy_structure(instance_id: Optional[builtins.str] = None,
+                                 region: Optional[builtins.str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserHierarchyStructureResult:
     """
     Provides details about a specific Amazon Connect User Hierarchy Structure
@@ -88,17 +98,21 @@ def get_user_hierarchy_structure(instance_id: Optional[builtins.str] = None,
 
 
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:connect/getUserHierarchyStructure:getUserHierarchyStructure', __args__, opts=opts, typ=GetUserHierarchyStructureResult).value
 
     return AwaitableGetUserHierarchyStructureResult(
         hierarchy_structures=pulumi.get(__ret__, 'hierarchy_structures'),
         id=pulumi.get(__ret__, 'id'),
-        instance_id=pulumi.get(__ret__, 'instance_id'))
+        instance_id=pulumi.get(__ret__, 'instance_id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_user_hierarchy_structure_output(instance_id: Optional[pulumi.Input[builtins.str]] = None,
+                                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserHierarchyStructureResult]:
     """
     Provides details about a specific Amazon Connect User Hierarchy Structure
@@ -114,12 +128,15 @@ def get_user_hierarchy_structure_output(instance_id: Optional[pulumi.Input[built
 
 
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getUserHierarchyStructure:getUserHierarchyStructure', __args__, opts=opts, typ=GetUserHierarchyStructureResult)
     return __ret__.apply(lambda __response__: GetUserHierarchyStructureResult(
         hierarchy_structures=pulumi.get(__response__, 'hierarchy_structures'),
         id=pulumi.get(__response__, 'id'),
-        instance_id=pulumi.get(__response__, 'instance_id')))
+        instance_id=pulumi.get(__response__, 'instance_id'),
+        region=pulumi.get(__response__, 'region')))

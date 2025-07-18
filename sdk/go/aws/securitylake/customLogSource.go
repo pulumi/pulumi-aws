@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securitylake"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securitylake"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,6 +77,8 @@ type CustomLogSource struct {
 	EventClasses pulumi.StringArrayOutput `pulumi:"eventClasses"`
 	// The details of the log provider for a third-party custom source.
 	ProviderDetails CustomLogSourceProviderDetailArrayOutput `pulumi:"providerDetails"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Specify the name for a third-party custom source.
 	// This must be a Regionally unique value.
 	// Has a maximum length of 20.
@@ -126,6 +128,8 @@ type customLogSourceState struct {
 	EventClasses []string `pulumi:"eventClasses"`
 	// The details of the log provider for a third-party custom source.
 	ProviderDetails []CustomLogSourceProviderDetail `pulumi:"providerDetails"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specify the name for a third-party custom source.
 	// This must be a Regionally unique value.
 	// Has a maximum length of 20.
@@ -143,6 +147,8 @@ type CustomLogSourceState struct {
 	EventClasses pulumi.StringArrayInput
 	// The details of the log provider for a third-party custom source.
 	ProviderDetails CustomLogSourceProviderDetailArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specify the name for a third-party custom source.
 	// This must be a Regionally unique value.
 	// Has a maximum length of 20.
@@ -160,6 +166,8 @@ type customLogSourceArgs struct {
 	Configuration *CustomLogSourceConfiguration `pulumi:"configuration"`
 	// The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
 	EventClasses []string `pulumi:"eventClasses"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Specify the name for a third-party custom source.
 	// This must be a Regionally unique value.
 	// Has a maximum length of 20.
@@ -174,6 +182,8 @@ type CustomLogSourceArgs struct {
 	Configuration CustomLogSourceConfigurationPtrInput
 	// The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
 	EventClasses pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Specify the name for a third-party custom source.
 	// This must be a Regionally unique value.
 	// Has a maximum length of 20.
@@ -287,6 +297,11 @@ func (o CustomLogSourceOutput) EventClasses() pulumi.StringArrayOutput {
 // The details of the log provider for a third-party custom source.
 func (o CustomLogSourceOutput) ProviderDetails() CustomLogSourceProviderDetailArrayOutput {
 	return o.ApplyT(func(v *CustomLogSource) CustomLogSourceProviderDetailArrayOutput { return v.ProviderDetails }).(CustomLogSourceProviderDetailArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o CustomLogSourceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CustomLogSource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Specify the name for a third-party custom source.

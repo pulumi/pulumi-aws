@@ -52,6 +52,7 @@ public final class GetResolverFirewallDomainListResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return The status of the domain list.
      * 
@@ -123,6 +124,9 @@ public final class GetResolverFirewallDomainListResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The status of the domain list.
      * 
@@ -156,6 +160,7 @@ public final class GetResolverFirewallDomainListResult {
         private String managedOwnerName;
         private String modificationTime;
         private String name;
+        private String region;
         private String status;
         private String statusMessage;
         public Builder() {}
@@ -170,6 +175,7 @@ public final class GetResolverFirewallDomainListResult {
     	      this.managedOwnerName = defaults.managedOwnerName;
     	      this.modificationTime = defaults.modificationTime;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
     	      this.statusMessage = defaults.statusMessage;
         }
@@ -247,6 +253,14 @@ public final class GetResolverFirewallDomainListResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallDomainListResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetResolverFirewallDomainListResult", "status");
@@ -273,6 +287,7 @@ public final class GetResolverFirewallDomainListResult {
             _resultValue.managedOwnerName = managedOwnerName;
             _resultValue.modificationTime = modificationTime;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.status = status;
             _resultValue.statusMessage = statusMessage;
             return _resultValue;

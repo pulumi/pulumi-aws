@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,6 +50,8 @@ func GetLocalGatewayVirtualInterfaceGroups(ctx *pulumi.Context, args *GetLocalGa
 type GetLocalGatewayVirtualInterfaceGroupsArgs struct {
 	// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
 	Filters []GetLocalGatewayVirtualInterfaceGroupsFilter `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -63,6 +65,7 @@ type GetLocalGatewayVirtualInterfaceGroupsResult struct {
 	Ids []string `pulumi:"ids"`
 	// Set of EC2 Local Gateway Virtual Interface identifiers.
 	LocalGatewayVirtualInterfaceIds []string          `pulumi:"localGatewayVirtualInterfaceIds"`
+	Region                          string            `pulumi:"region"`
 	Tags                            map[string]string `pulumi:"tags"`
 }
 
@@ -79,6 +82,8 @@ func GetLocalGatewayVirtualInterfaceGroupsOutput(ctx *pulumi.Context, args GetLo
 type GetLocalGatewayVirtualInterfaceGroupsOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
 	Filters GetLocalGatewayVirtualInterfaceGroupsFilterArrayInput `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -121,6 +126,10 @@ func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) Ids() pulumi.StringAr
 // Set of EC2 Local Gateway Virtual Interface identifiers.
 func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) LocalGatewayVirtualInterfaceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupsResult) []string { return v.LocalGatewayVirtualInterfaceIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceGroupsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetLocalGatewayVirtualInterfaceGroupsResultOutput) Tags() pulumi.StringMapOutput {

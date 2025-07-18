@@ -17,9 +17,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Lambda Provisioned Concurrency Configuration.
+ * Manages an AWS Lambda Provisioned Concurrency Configuration. Use this resource to configure provisioned concurrency for Lambda functions.
  * 
- * &gt; **NOTE:** Setting `skip_destroy` to `true` means that the AWS Provider will _not_ destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is _not_ managed by Pulumi and may incur extra expense in your AWS account.
+ * &gt; **Note:** Setting `skip_destroy` to `true` means that the AWS Provider will not destroy a provisioned concurrency configuration, even when running `pulumi destroy`. The configuration is thus an intentional dangling resource that is not managed by Pulumi and may incur extra expense in your AWS account.
  * 
  * ## Example Usage
  * 
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For example:
  * 
  * ```sh
- * $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example my_function,production
+ * $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example example,production
  * ```
  * 
  */
@@ -123,14 +123,14 @@ public class ProvisionedConcurrencyConfig extends com.pulumi.resources.CustomRes
         return this.functionName;
     }
     /**
-     * Amount of capacity to allocate. Must be greater than or equal to `1`.
+     * Amount of capacity to allocate. Must be greater than or equal to 1.
      * 
      */
     @Export(name="provisionedConcurrentExecutions", refs={Integer.class}, tree="[0]")
     private Output<Integer> provisionedConcurrentExecutions;
 
     /**
-     * @return Amount of capacity to allocate. Must be greater than or equal to `1`.
+     * @return Amount of capacity to allocate. Must be greater than or equal to 1.
      * 
      */
     public Output<Integer> provisionedConcurrentExecutions() {
@@ -155,14 +155,28 @@ public class ProvisionedConcurrencyConfig extends com.pulumi.resources.CustomRes
         return this.qualifier;
     }
     /**
-     * Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
+     * Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
      * 
      */
     @Export(name="skipDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipDestroy;
 
     /**
-     * @return Whether to retain the provisoned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource in simply removed from state instead.
+     * @return Whether to retain the provisioned concurrency configuration upon destruction. Defaults to `false`. If set to `true`, the resource is simply removed from state instead.
      * 
      */
     public Output<Optional<Boolean>> skipDestroy() {

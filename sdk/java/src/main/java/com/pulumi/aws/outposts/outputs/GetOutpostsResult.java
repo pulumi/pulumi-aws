@@ -29,6 +29,7 @@ public final class GetOutpostsResult {
      */
     private List<String> ids;
     private String ownerId;
+    private String region;
     private String siteId;
 
     private GetOutpostsResult() {}
@@ -62,6 +63,9 @@ public final class GetOutpostsResult {
     public String ownerId() {
         return this.ownerId;
     }
+    public String region() {
+        return this.region;
+    }
     public String siteId() {
         return this.siteId;
     }
@@ -81,6 +85,7 @@ public final class GetOutpostsResult {
         private String id;
         private List<String> ids;
         private String ownerId;
+        private String region;
         private String siteId;
         public Builder() {}
         public Builder(GetOutpostsResult defaults) {
@@ -91,6 +96,7 @@ public final class GetOutpostsResult {
     	      this.id = defaults.id;
     	      this.ids = defaults.ids;
     	      this.ownerId = defaults.ownerId;
+    	      this.region = defaults.region;
     	      this.siteId = defaults.siteId;
         }
 
@@ -149,6 +155,14 @@ public final class GetOutpostsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetOutpostsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder siteId(String siteId) {
             if (siteId == null) {
               throw new MissingRequiredPropertyException("GetOutpostsResult", "siteId");
@@ -164,6 +178,7 @@ public final class GetOutpostsResult {
             _resultValue.id = id;
             _resultValue.ids = ids;
             _resultValue.ownerId = ownerId;
+            _resultValue.region = region;
             _resultValue.siteId = siteId;
             return _resultValue;
         }

@@ -74,6 +74,10 @@ export class PolicyTemplate extends pulumi.CustomResource {
      */
     public /*out*/ readonly policyTemplateId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Defines the content of the statement, written in Cedar policy language.
      *
      * The following arguments are optional:
@@ -97,6 +101,7 @@ export class PolicyTemplate extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["policyStoreId"] = state ? state.policyStoreId : undefined;
             resourceInputs["policyTemplateId"] = state ? state.policyTemplateId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["statement"] = state ? state.statement : undefined;
         } else {
             const args = argsOrState as PolicyTemplateArgs | undefined;
@@ -108,6 +113,7 @@ export class PolicyTemplate extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["policyStoreId"] = args ? args.policyStoreId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["statement"] = args ? args.statement : undefined;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["policyTemplateId"] = undefined /*out*/;
@@ -138,6 +144,10 @@ export interface PolicyTemplateState {
      */
     policyTemplateId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Defines the content of the statement, written in Cedar policy language.
      *
      * The following arguments are optional:
@@ -157,6 +167,10 @@ export interface PolicyTemplateArgs {
      * The ID of the Policy Store.
      */
     policyStoreId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Defines the content of the statement, written in Cedar policy language.
      *

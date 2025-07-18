@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Mq.Outputs
     [OutputType]
     public sealed class GetBrokerEncryptionOptionResult
     {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest.
+        /// </summary>
         public readonly string KmsKeyId;
+        /// <summary>
+        /// Whether to enable an AWS-owned KMS CMK that is not in your account.
+        /// </summary>
         public readonly bool UseAwsOwnedKey;
 
         [OutputConstructor]

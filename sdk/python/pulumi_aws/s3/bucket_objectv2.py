@@ -42,6 +42,7 @@ class BucketObjectv2Args:
                  object_lock_mode: Optional[pulumi.Input[builtins.str]] = None,
                  object_lock_retain_until_date: Optional[pulumi.Input[builtins.str]] = None,
                  override_provider: Optional[pulumi.Input['BucketObjectv2OverrideProviderArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
                  source_hash: Optional[pulumi.Input[builtins.str]] = None,
@@ -72,6 +73,7 @@ class BucketObjectv2Args:
         :param pulumi.Input[builtins.str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[builtins.str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         :param pulumi.Input['BucketObjectv2OverrideProviderArgs'] override_provider: Override provider-level configuration options. See Override Provider below for more details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_side_encryption: Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: Path to a file that will be read and uploaded as raw bytes for the object content.
         :param pulumi.Input[builtins.str] source_hash: Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
@@ -124,6 +126,8 @@ class BucketObjectv2Args:
             pulumi.set(__self__, "object_lock_retain_until_date", object_lock_retain_until_date)
         if override_provider is not None:
             pulumi.set(__self__, "override_provider", override_provider)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if server_side_encryption is not None:
             pulumi.set(__self__, "server_side_encryption", server_side_encryption)
         if source is not None:
@@ -380,6 +384,18 @@ class BucketObjectv2Args:
         pulumi.set(self, "override_provider", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -487,6 +503,7 @@ class _BucketObjectv2State:
                  object_lock_mode: Optional[pulumi.Input[builtins.str]] = None,
                  object_lock_retain_until_date: Optional[pulumi.Input[builtins.str]] = None,
                  override_provider: Optional[pulumi.Input['BucketObjectv2OverrideProviderArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
                  source_hash: Optional[pulumi.Input[builtins.str]] = None,
@@ -525,6 +542,7 @@ class _BucketObjectv2State:
         :param pulumi.Input[builtins.str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[builtins.str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         :param pulumi.Input['BucketObjectv2OverrideProviderArgs'] override_provider: Override provider-level configuration options. See Override Provider below for more details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_side_encryption: Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: Path to a file that will be read and uploaded as raw bytes for the object content.
         :param pulumi.Input[builtins.str] source_hash: Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
@@ -592,6 +610,8 @@ class _BucketObjectv2State:
             pulumi.set(__self__, "object_lock_retain_until_date", object_lock_retain_until_date)
         if override_provider is not None:
             pulumi.set(__self__, "override_provider", override_provider)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if server_side_encryption is not None:
             pulumi.set(__self__, "server_side_encryption", server_side_encryption)
         if source is not None:
@@ -602,9 +622,6 @@ class _BucketObjectv2State:
             pulumi.set(__self__, "storage_class", storage_class)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if version_id is not None:
@@ -927,6 +944,18 @@ class _BucketObjectv2State:
         pulumi.set(self, "override_provider", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -988,7 +1017,6 @@ class _BucketObjectv2State:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1056,6 +1084,7 @@ class BucketObjectv2(pulumi.CustomResource):
                  object_lock_mode: Optional[pulumi.Input[builtins.str]] = None,
                  object_lock_retain_until_date: Optional[pulumi.Input[builtins.str]] = None,
                  override_provider: Optional[pulumi.Input[Union['BucketObjectv2OverrideProviderArgs', 'BucketObjectv2OverrideProviderArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
                  source_hash: Optional[pulumi.Input[builtins.str]] = None,
@@ -1091,8 +1120,8 @@ class BucketObjectv2(pulumi.CustomResource):
         examplekms = aws.kms.Key("examplekms",
             description="KMS key 1",
             deletion_window_in_days=7)
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
-        example = aws.s3.BucketAclV2("example",
+        examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAcl("example",
             bucket=examplebucket.id,
             acl="private")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
@@ -1108,8 +1137,8 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
-        example = aws.s3.BucketAclV2("example",
+        examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAcl("example",
             bucket=examplebucket.id,
             acl="private")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
@@ -1125,8 +1154,8 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
-        example = aws.s3.BucketAclV2("example",
+        examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAcl("example",
             bucket=examplebucket.id,
             acl="private")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
@@ -1142,13 +1171,13 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket",
+        examplebucket = aws.s3.Bucket("examplebucket",
             bucket="examplebuckettftest",
             object_lock_enabled=True)
-        example = aws.s3.BucketAclV2("example",
+        example = aws.s3.BucketAcl("example",
             bucket=examplebucket.id,
             acl="private")
-        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("example",
+        example_bucket_versioning = aws.s3.BucketVersioning("example",
             bucket=examplebucket.id,
             versioning_configuration={
                 "status": "Enabled",
@@ -1161,7 +1190,7 @@ class BucketObjectv2(pulumi.CustomResource):
             object_lock_mode="GOVERNANCE",
             object_lock_retain_until_date="2021-12-31T23:59:60Z",
             force_destroy=True,
-            opts = pulumi.ResourceOptions(depends_on=[example_bucket_versioning_v2]))
+            opts = pulumi.ResourceOptions(depends_on=[example_bucket_versioning]))
         ```
 
         ### Ignoring Provider `default_tags`
@@ -1175,7 +1204,7 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
         examplebucket_object = aws.s3.BucketObjectv2("examplebucket_object",
             key="someobject",
             bucket=examplebucket.id,
@@ -1231,6 +1260,7 @@ class BucketObjectv2(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[builtins.str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         :param pulumi.Input[Union['BucketObjectv2OverrideProviderArgs', 'BucketObjectv2OverrideProviderArgsDict']] override_provider: Override provider-level configuration options. See Override Provider below for more details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_side_encryption: Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: Path to a file that will be read and uploaded as raw bytes for the object content.
         :param pulumi.Input[builtins.str] source_hash: Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
@@ -1278,8 +1308,8 @@ class BucketObjectv2(pulumi.CustomResource):
         examplekms = aws.kms.Key("examplekms",
             description="KMS key 1",
             deletion_window_in_days=7)
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
-        example = aws.s3.BucketAclV2("example",
+        examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAcl("example",
             bucket=examplebucket.id,
             acl="private")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
@@ -1295,8 +1325,8 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
-        example = aws.s3.BucketAclV2("example",
+        examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAcl("example",
             bucket=examplebucket.id,
             acl="private")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
@@ -1312,8 +1342,8 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
-        example = aws.s3.BucketAclV2("example",
+        examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
+        example = aws.s3.BucketAcl("example",
             bucket=examplebucket.id,
             acl="private")
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
@@ -1329,13 +1359,13 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket",
+        examplebucket = aws.s3.Bucket("examplebucket",
             bucket="examplebuckettftest",
             object_lock_enabled=True)
-        example = aws.s3.BucketAclV2("example",
+        example = aws.s3.BucketAcl("example",
             bucket=examplebucket.id,
             acl="private")
-        example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("example",
+        example_bucket_versioning = aws.s3.BucketVersioning("example",
             bucket=examplebucket.id,
             versioning_configuration={
                 "status": "Enabled",
@@ -1348,7 +1378,7 @@ class BucketObjectv2(pulumi.CustomResource):
             object_lock_mode="GOVERNANCE",
             object_lock_retain_until_date="2021-12-31T23:59:60Z",
             force_destroy=True,
-            opts = pulumi.ResourceOptions(depends_on=[example_bucket_versioning_v2]))
+            opts = pulumi.ResourceOptions(depends_on=[example_bucket_versioning]))
         ```
 
         ### Ignoring Provider `default_tags`
@@ -1362,7 +1392,7 @@ class BucketObjectv2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplebucket = aws.s3.BucketV2("examplebucket", bucket="examplebuckettftest")
+        examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
         examplebucket_object = aws.s3.BucketObjectv2("examplebucket_object",
             key="someobject",
             bucket=examplebucket.id,
@@ -1429,6 +1459,7 @@ class BucketObjectv2(pulumi.CustomResource):
                  object_lock_mode: Optional[pulumi.Input[builtins.str]] = None,
                  object_lock_retain_until_date: Optional[pulumi.Input[builtins.str]] = None,
                  override_provider: Optional[pulumi.Input[Union['BucketObjectv2OverrideProviderArgs', 'BucketObjectv2OverrideProviderArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_side_encryption: Optional[pulumi.Input[builtins.str]] = None,
                  source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
                  source_hash: Optional[pulumi.Input[builtins.str]] = None,
@@ -1466,6 +1497,7 @@ class BucketObjectv2(pulumi.CustomResource):
             __props__.__dict__["object_lock_mode"] = object_lock_mode
             __props__.__dict__["object_lock_retain_until_date"] = object_lock_retain_until_date
             __props__.__dict__["override_provider"] = override_provider
+            __props__.__dict__["region"] = region
             __props__.__dict__["server_side_encryption"] = server_side_encryption
             __props__.__dict__["source"] = source
             __props__.__dict__["source_hash"] = source_hash
@@ -1518,6 +1550,7 @@ class BucketObjectv2(pulumi.CustomResource):
             object_lock_mode: Optional[pulumi.Input[builtins.str]] = None,
             object_lock_retain_until_date: Optional[pulumi.Input[builtins.str]] = None,
             override_provider: Optional[pulumi.Input[Union['BucketObjectv2OverrideProviderArgs', 'BucketObjectv2OverrideProviderArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             server_side_encryption: Optional[pulumi.Input[builtins.str]] = None,
             source: Optional[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]] = None,
             source_hash: Optional[pulumi.Input[builtins.str]] = None,
@@ -1561,6 +1594,7 @@ class BucketObjectv2(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] object_lock_mode: Object lock [retention mode](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-modes) that you want to apply to this object. Valid values are `GOVERNANCE` and `COMPLIANCE`.
         :param pulumi.Input[builtins.str] object_lock_retain_until_date: Date and time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), when this object's object lock will [expire](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock-overview.html#object-lock-retention-periods).
         :param pulumi.Input[Union['BucketObjectv2OverrideProviderArgs', 'BucketObjectv2OverrideProviderArgsDict']] override_provider: Override provider-level configuration options. See Override Provider below for more details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_side_encryption: Server-side encryption of the object in S3. Valid values are "`AES256`" and "`aws:kms`".
         :param pulumi.Input[Union[pulumi.Asset, pulumi.Archive]] source: Path to a file that will be read and uploaded as raw bytes for the object content.
         :param pulumi.Input[builtins.str] source_hash: Triggers updates like `etag` but useful to address `etag` encryption limitations. (The value is only stored in state and not saved by AWS.)
@@ -1606,6 +1640,7 @@ class BucketObjectv2(pulumi.CustomResource):
         __props__.__dict__["object_lock_mode"] = object_lock_mode
         __props__.__dict__["object_lock_retain_until_date"] = object_lock_retain_until_date
         __props__.__dict__["override_provider"] = override_provider
+        __props__.__dict__["region"] = region
         __props__.__dict__["server_side_encryption"] = server_side_encryption
         __props__.__dict__["source"] = source
         __props__.__dict__["source_hash"] = source_hash
@@ -1827,6 +1862,14 @@ class BucketObjectv2(pulumi.CustomResource):
         return pulumi.get(self, "override_provider")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> pulumi.Output[builtins.str]:
         """
@@ -1868,7 +1911,6 @@ class BucketObjectv2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

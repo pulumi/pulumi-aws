@@ -30,30 +30,17 @@ class CertificateArgs:
                  key_algorithm: Optional[pulumi.Input[builtins.str]] = None,
                  options: Optional[pulumi.Input['CertificateOptionsArgs']] = None,
                  private_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  validation_method: Optional[pulumi.Input[builtins.str]] = None,
                  validation_options: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]] = None):
         """
         The set of arguments for constructing a Certificate resource.
-        :param pulumi.Input[builtins.str] certificate_authority_arn: ARN of an ACM PCA
-        :param pulumi.Input[builtins.str] certificate_body: Certificate's PEM-formatted public key
-        :param pulumi.Input[builtins.str] certificate_chain: Certificate's PEM-formatted chain
-               * Creating a private CA issued certificate
         :param pulumi.Input[builtins.str] domain_name: Fully qualified domain name (FQDN) in the certificate.
-        :param pulumi.Input[builtins.str] early_renewal_duration: Amount of time to start automatic renewal process before expiration.
-               Has no effect if less than 60 days.
-               Represented by either
-               a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
-               or a string such as `2160h`.
-        :param pulumi.Input[builtins.str] key_algorithm: Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
-        :param pulumi.Input['CertificateOptionsArgs'] options: Configuration block used to set certificate options. Detailed below.
-        :param pulumi.Input[builtins.str] private_key: Certificate's PEM-formatted private key
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+               * Creating an Amazon issued certificate
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[builtins.str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-        :param pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
-               * Importing an existing certificate
         """
         if certificate_authority_arn is not None:
             pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
@@ -71,6 +58,8 @@ class CertificateArgs:
             pulumi.set(__self__, "options", options)
         if private_key is not None:
             pulumi.set(__self__, "private_key", private_key)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if subject_alternative_names is not None:
             pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
         if tags is not None:
@@ -83,9 +72,6 @@ class CertificateArgs:
     @property
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        ARN of an ACM PCA
-        """
         return pulumi.get(self, "certificate_authority_arn")
 
     @certificate_authority_arn.setter
@@ -95,9 +81,6 @@ class CertificateArgs:
     @property
     @pulumi.getter(name="certificateBody")
     def certificate_body(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Certificate's PEM-formatted public key
-        """
         return pulumi.get(self, "certificate_body")
 
     @certificate_body.setter
@@ -107,10 +90,6 @@ class CertificateArgs:
     @property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Certificate's PEM-formatted chain
-        * Creating a private CA issued certificate
-        """
         return pulumi.get(self, "certificate_chain")
 
     @certificate_chain.setter
@@ -132,13 +111,6 @@ class CertificateArgs:
     @property
     @pulumi.getter(name="earlyRenewalDuration")
     def early_renewal_duration(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Amount of time to start automatic renewal process before expiration.
-        Has no effect if less than 60 days.
-        Represented by either
-        a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
-        or a string such as `2160h`.
-        """
         return pulumi.get(self, "early_renewal_duration")
 
     @early_renewal_duration.setter
@@ -148,9 +120,6 @@ class CertificateArgs:
     @property
     @pulumi.getter(name="keyAlgorithm")
     def key_algorithm(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
-        """
         return pulumi.get(self, "key_algorithm")
 
     @key_algorithm.setter
@@ -160,9 +129,6 @@ class CertificateArgs:
     @property
     @pulumi.getter
     def options(self) -> Optional[pulumi.Input['CertificateOptionsArgs']]:
-        """
-        Configuration block used to set certificate options. Detailed below.
-        """
         return pulumi.get(self, "options")
 
     @options.setter
@@ -172,9 +138,6 @@ class CertificateArgs:
     @property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Certificate's PEM-formatted private key
-        """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
@@ -182,11 +145,21 @@ class CertificateArgs:
         pulumi.set(self, "private_key", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        * Creating an Amazon issued certificate
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
-        """
-        Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
-        """
         return pulumi.get(self, "subject_alternative_names")
 
     @subject_alternative_names.setter
@@ -208,9 +181,6 @@ class CertificateArgs:
     @property
     @pulumi.getter(name="validationMethod")
     def validation_method(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-        """
         return pulumi.get(self, "validation_method")
 
     @validation_method.setter
@@ -220,10 +190,6 @@ class CertificateArgs:
     @property
     @pulumi.getter(name="validationOptions")
     def validation_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]]:
-        """
-        Configuration block used to specify information about the initial validation of each domain name. Detailed below.
-        * Importing an existing certificate
-        """
         return pulumi.get(self, "validation_options")
 
     @validation_options.setter
@@ -247,6 +213,7 @@ class _CertificateState:
                  options: Optional[pulumi.Input['CertificateOptionsArgs']] = None,
                  pending_renewal: Optional[pulumi.Input[builtins.bool]] = None,
                  private_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  renewal_eligibility: Optional[pulumi.Input[builtins.str]] = None,
                  renewal_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateRenewalSummaryArgs']]]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
@@ -260,36 +227,22 @@ class _CertificateState:
         """
         Input properties used for looking up and filtering Certificate resources.
         :param pulumi.Input[builtins.str] arn: ARN of the certificate
-        :param pulumi.Input[builtins.str] certificate_authority_arn: ARN of an ACM PCA
-        :param pulumi.Input[builtins.str] certificate_body: Certificate's PEM-formatted public key
-        :param pulumi.Input[builtins.str] certificate_chain: Certificate's PEM-formatted chain
-               * Creating a private CA issued certificate
         :param pulumi.Input[builtins.str] domain_name: Fully qualified domain name (FQDN) in the certificate.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation.
                Can have more than one element, e.g., if SANs are defined.
                Only set if `DNS`-validation was used.
-        :param pulumi.Input[builtins.str] early_renewal_duration: Amount of time to start automatic renewal process before expiration.
-               Has no effect if less than 60 days.
-               Represented by either
-               a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
-               or a string such as `2160h`.
-        :param pulumi.Input[builtins.str] key_algorithm: Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
         :param pulumi.Input[builtins.str] not_after: Expiration date and time of the certificate.
         :param pulumi.Input[builtins.str] not_before: Start of the validity period of the certificate.
-        :param pulumi.Input['CertificateOptionsArgs'] options: Configuration block used to set certificate options. Detailed below.
         :param pulumi.Input[builtins.bool] pending_renewal: `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
-        :param pulumi.Input[builtins.str] private_key: Certificate's PEM-formatted private key
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+               * Creating an Amazon issued certificate
         :param pulumi.Input[builtins.str] renewal_eligibility: Whether the certificate is eligible for managed renewal.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateRenewalSummaryArgs']]] renewal_summaries: Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
         :param pulumi.Input[builtins.str] status: Status of the certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: Source of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] validation_emails: List of addresses that received a validation email. Only set if `EMAIL` validation was used.
-        :param pulumi.Input[builtins.str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-        :param pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
-               * Importing an existing certificate
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -317,6 +270,8 @@ class _CertificateState:
             pulumi.set(__self__, "pending_renewal", pending_renewal)
         if private_key is not None:
             pulumi.set(__self__, "private_key", private_key)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if renewal_eligibility is not None:
             pulumi.set(__self__, "renewal_eligibility", renewal_eligibility)
         if renewal_summaries is not None:
@@ -327,9 +282,6 @@ class _CertificateState:
             pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
@@ -356,9 +308,6 @@ class _CertificateState:
     @property
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        ARN of an ACM PCA
-        """
         return pulumi.get(self, "certificate_authority_arn")
 
     @certificate_authority_arn.setter
@@ -368,9 +317,6 @@ class _CertificateState:
     @property
     @pulumi.getter(name="certificateBody")
     def certificate_body(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Certificate's PEM-formatted public key
-        """
         return pulumi.get(self, "certificate_body")
 
     @certificate_body.setter
@@ -380,10 +326,6 @@ class _CertificateState:
     @property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Certificate's PEM-formatted chain
-        * Creating a private CA issued certificate
-        """
         return pulumi.get(self, "certificate_chain")
 
     @certificate_chain.setter
@@ -419,13 +361,6 @@ class _CertificateState:
     @property
     @pulumi.getter(name="earlyRenewalDuration")
     def early_renewal_duration(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Amount of time to start automatic renewal process before expiration.
-        Has no effect if less than 60 days.
-        Represented by either
-        a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
-        or a string such as `2160h`.
-        """
         return pulumi.get(self, "early_renewal_duration")
 
     @early_renewal_duration.setter
@@ -435,9 +370,6 @@ class _CertificateState:
     @property
     @pulumi.getter(name="keyAlgorithm")
     def key_algorithm(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
-        """
         return pulumi.get(self, "key_algorithm")
 
     @key_algorithm.setter
@@ -471,9 +403,6 @@ class _CertificateState:
     @property
     @pulumi.getter
     def options(self) -> Optional[pulumi.Input['CertificateOptionsArgs']]:
-        """
-        Configuration block used to set certificate options. Detailed below.
-        """
         return pulumi.get(self, "options")
 
     @options.setter
@@ -495,14 +424,24 @@ class _CertificateState:
     @property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Certificate's PEM-formatted private key
-        """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
     def private_key(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "private_key", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        * Creating an Amazon issued certificate
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="renewalEligibility")
@@ -543,9 +482,6 @@ class _CertificateState:
     @property
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
-        """
-        Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
-        """
         return pulumi.get(self, "subject_alternative_names")
 
     @subject_alternative_names.setter
@@ -566,7 +502,6 @@ class _CertificateState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -604,9 +539,6 @@ class _CertificateState:
     @property
     @pulumi.getter(name="validationMethod")
     def validation_method(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-        """
         return pulumi.get(self, "validation_method")
 
     @validation_method.setter
@@ -616,10 +548,6 @@ class _CertificateState:
     @property
     @pulumi.getter(name="validationOptions")
     def validation_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]]:
-        """
-        Configuration block used to specify information about the initial validation of each domain name. Detailed below.
-        * Importing an existing certificate
-        """
         return pulumi.get(self, "validation_options")
 
     @validation_options.setter
@@ -641,6 +569,7 @@ class Certificate(pulumi.CustomResource):
                  key_algorithm: Optional[pulumi.Input[builtins.str]] = None,
                  options: Optional[pulumi.Input[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict']]] = None,
                  private_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  validation_method: Optional[pulumi.Input[builtins.str]] = None,
@@ -761,24 +690,10 @@ class Certificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] certificate_authority_arn: ARN of an ACM PCA
-        :param pulumi.Input[builtins.str] certificate_body: Certificate's PEM-formatted public key
-        :param pulumi.Input[builtins.str] certificate_chain: Certificate's PEM-formatted chain
-               * Creating a private CA issued certificate
         :param pulumi.Input[builtins.str] domain_name: Fully qualified domain name (FQDN) in the certificate.
-        :param pulumi.Input[builtins.str] early_renewal_duration: Amount of time to start automatic renewal process before expiration.
-               Has no effect if less than 60 days.
-               Represented by either
-               a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
-               or a string such as `2160h`.
-        :param pulumi.Input[builtins.str] key_algorithm: Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
-        :param pulumi.Input[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict']] options: Configuration block used to set certificate options. Detailed below.
-        :param pulumi.Input[builtins.str] private_key: Certificate's PEM-formatted private key
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+               * Creating an Amazon issued certificate
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[builtins.str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateValidationOptionArgs', 'CertificateValidationOptionArgsDict']]]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
-               * Importing an existing certificate
         """
         ...
     @overload
@@ -922,6 +837,7 @@ class Certificate(pulumi.CustomResource):
                  key_algorithm: Optional[pulumi.Input[builtins.str]] = None,
                  options: Optional[pulumi.Input[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict']]] = None,
                  private_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  validation_method: Optional[pulumi.Input[builtins.str]] = None,
@@ -943,6 +859,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["key_algorithm"] = key_algorithm
             __props__.__dict__["options"] = options
             __props__.__dict__["private_key"] = None if private_key is None else pulumi.Output.secret(private_key)
+            __props__.__dict__["region"] = region
             __props__.__dict__["subject_alternative_names"] = subject_alternative_names
             __props__.__dict__["tags"] = tags
             __props__.__dict__["validation_method"] = validation_method
@@ -983,6 +900,7 @@ class Certificate(pulumi.CustomResource):
             options: Optional[pulumi.Input[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict']]] = None,
             pending_renewal: Optional[pulumi.Input[builtins.bool]] = None,
             private_key: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             renewal_eligibility: Optional[pulumi.Input[builtins.str]] = None,
             renewal_summaries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CertificateRenewalSummaryArgs', 'CertificateRenewalSummaryArgsDict']]]]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
@@ -1001,36 +919,22 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] arn: ARN of the certificate
-        :param pulumi.Input[builtins.str] certificate_authority_arn: ARN of an ACM PCA
-        :param pulumi.Input[builtins.str] certificate_body: Certificate's PEM-formatted public key
-        :param pulumi.Input[builtins.str] certificate_chain: Certificate's PEM-formatted chain
-               * Creating a private CA issued certificate
         :param pulumi.Input[builtins.str] domain_name: Fully qualified domain name (FQDN) in the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict']]]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation.
                Can have more than one element, e.g., if SANs are defined.
                Only set if `DNS`-validation was used.
-        :param pulumi.Input[builtins.str] early_renewal_duration: Amount of time to start automatic renewal process before expiration.
-               Has no effect if less than 60 days.
-               Represented by either
-               a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
-               or a string such as `2160h`.
-        :param pulumi.Input[builtins.str] key_algorithm: Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
         :param pulumi.Input[builtins.str] not_after: Expiration date and time of the certificate.
         :param pulumi.Input[builtins.str] not_before: Start of the validity period of the certificate.
-        :param pulumi.Input[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict']] options: Configuration block used to set certificate options. Detailed below.
         :param pulumi.Input[builtins.bool] pending_renewal: `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
-        :param pulumi.Input[builtins.str] private_key: Certificate's PEM-formatted private key
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+               * Creating an Amazon issued certificate
         :param pulumi.Input[builtins.str] renewal_eligibility: Whether the certificate is eligible for managed renewal.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateRenewalSummaryArgs', 'CertificateRenewalSummaryArgsDict']]]] renewal_summaries: Contains information about the status of ACM's [managed renewal](https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html) for the certificate.
         :param pulumi.Input[builtins.str] status: Status of the certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] type: Source of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] validation_emails: List of addresses that received a validation email. Only set if `EMAIL` validation was used.
-        :param pulumi.Input[builtins.str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateValidationOptionArgs', 'CertificateValidationOptionArgsDict']]]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
-               * Importing an existing certificate
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1049,6 +953,7 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["options"] = options
         __props__.__dict__["pending_renewal"] = pending_renewal
         __props__.__dict__["private_key"] = private_key
+        __props__.__dict__["region"] = region
         __props__.__dict__["renewal_eligibility"] = renewal_eligibility
         __props__.__dict__["renewal_summaries"] = renewal_summaries
         __props__.__dict__["status"] = status
@@ -1072,26 +977,16 @@ class Certificate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        ARN of an ACM PCA
-        """
         return pulumi.get(self, "certificate_authority_arn")
 
     @property
     @pulumi.getter(name="certificateBody")
     def certificate_body(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        Certificate's PEM-formatted public key
-        """
         return pulumi.get(self, "certificate_body")
 
     @property
     @pulumi.getter(name="certificateChain")
     def certificate_chain(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        Certificate's PEM-formatted chain
-        * Creating a private CA issued certificate
-        """
         return pulumi.get(self, "certificate_chain")
 
     @property
@@ -1115,21 +1010,11 @@ class Certificate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="earlyRenewalDuration")
     def early_renewal_duration(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        Amount of time to start automatic renewal process before expiration.
-        Has no effect if less than 60 days.
-        Represented by either
-        a subset of [RFC 3339 duration](https://www.rfc-editor.org/rfc/rfc3339) supporting years, months, and days (e.g., `P90D`),
-        or a string such as `2160h`.
-        """
         return pulumi.get(self, "early_renewal_duration")
 
     @property
     @pulumi.getter(name="keyAlgorithm")
     def key_algorithm(self) -> pulumi.Output[builtins.str]:
-        """
-        Specifies the algorithm of the public and private key pair that your Amazon issued certificate uses to encrypt data. See [ACM Certificate characteristics](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) for more details.
-        """
         return pulumi.get(self, "key_algorithm")
 
     @property
@@ -1151,9 +1036,6 @@ class Certificate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def options(self) -> pulumi.Output['outputs.CertificateOptions']:
-        """
-        Configuration block used to set certificate options. Detailed below.
-        """
         return pulumi.get(self, "options")
 
     @property
@@ -1167,10 +1049,16 @@ class Certificate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        Certificate's PEM-formatted private key
-        """
         return pulumi.get(self, "private_key")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        * Creating an Amazon issued certificate
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="renewalEligibility")
@@ -1199,9 +1087,6 @@ class Certificate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> pulumi.Output[Sequence[builtins.str]]:
-        """
-        Set of domains that should be SANs in the issued certificate.  To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
-        """
         return pulumi.get(self, "subject_alternative_names")
 
     @property
@@ -1214,7 +1099,6 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1240,17 +1124,10 @@ class Certificate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="validationMethod")
     def validation_method(self) -> pulumi.Output[builtins.str]:
-        """
-        Which method to use for validation. `DNS` or `EMAIL` are valid. This parameter must not be set for certificates that were imported into ACM and then into Pulumi.
-        """
         return pulumi.get(self, "validation_method")
 
     @property
     @pulumi.getter(name="validationOptions")
     def validation_options(self) -> pulumi.Output[Optional[Sequence['outputs.CertificateValidationOption']]]:
-        """
-        Configuration block used to specify information about the initial validation of each domain name. Detailed below.
-        * Importing an existing certificate
-        """
         return pulumi.get(self, "validation_options")
 

@@ -32,6 +32,7 @@ class PolicyArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_type: Optional[pulumi.Input[builtins.str]] = None,
                  predictive_scaling_configuration: Optional[pulumi.Input['PolicyPredictiveScalingConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_adjustment: Optional[pulumi.Input[builtins.int]] = None,
                  step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyStepAdjustmentArgs']]]] = None,
                  target_tracking_configuration: Optional[pulumi.Input['PolicyTargetTrackingConfigurationArgs']] = None):
@@ -51,6 +52,7 @@ class PolicyArgs:
         :param pulumi.Input[builtins.str] name: Name of the policy.
         :param pulumi.Input[builtins.str] policy_type: Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         :param pulumi.Input['PolicyPredictiveScalingConfigurationArgs'] predictive_scaling_configuration: Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] scaling_adjustment: Number of members by which to
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
@@ -111,6 +113,8 @@ class PolicyArgs:
             pulumi.set(__self__, "policy_type", policy_type)
         if predictive_scaling_configuration is not None:
             pulumi.set(__self__, "predictive_scaling_configuration", predictive_scaling_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scaling_adjustment is not None:
             pulumi.set(__self__, "scaling_adjustment", scaling_adjustment)
         if step_adjustments is not None:
@@ -243,6 +247,18 @@ class PolicyArgs:
         pulumi.set(self, "predictive_scaling_configuration", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="scalingAdjustment")
     def scaling_adjustment(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -330,6 +346,7 @@ class _PolicyState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_type: Optional[pulumi.Input[builtins.str]] = None,
                  predictive_scaling_configuration: Optional[pulumi.Input['PolicyPredictiveScalingConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_adjustment: Optional[pulumi.Input[builtins.int]] = None,
                  step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyStepAdjustmentArgs']]]] = None,
                  target_tracking_configuration: Optional[pulumi.Input['PolicyTargetTrackingConfigurationArgs']] = None):
@@ -350,6 +367,7 @@ class _PolicyState:
         :param pulumi.Input[builtins.str] name: Name of the policy.
         :param pulumi.Input[builtins.str] policy_type: Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         :param pulumi.Input['PolicyPredictiveScalingConfigurationArgs'] predictive_scaling_configuration: Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] scaling_adjustment: Number of members by which to
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
@@ -413,6 +431,8 @@ class _PolicyState:
             pulumi.set(__self__, "policy_type", policy_type)
         if predictive_scaling_configuration is not None:
             pulumi.set(__self__, "predictive_scaling_configuration", predictive_scaling_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scaling_adjustment is not None:
             pulumi.set(__self__, "scaling_adjustment", scaling_adjustment)
         if step_adjustments is not None:
@@ -557,6 +577,18 @@ class _PolicyState:
         pulumi.set(self, "predictive_scaling_configuration", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="scalingAdjustment")
     def scaling_adjustment(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -646,6 +678,7 @@ class Policy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_type: Optional[pulumi.Input[builtins.str]] = None,
                  predictive_scaling_configuration: Optional[pulumi.Input[Union['PolicyPredictiveScalingConfigurationArgs', 'PolicyPredictiveScalingConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_adjustment: Optional[pulumi.Input[builtins.int]] = None,
                  step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyStepAdjustmentArgs', 'PolicyStepAdjustmentArgsDict']]]]] = None,
                  target_tracking_configuration: Optional[pulumi.Input[Union['PolicyTargetTrackingConfigurationArgs', 'PolicyTargetTrackingConfigurationArgsDict']]] = None,
@@ -849,6 +882,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the policy.
         :param pulumi.Input[builtins.str] policy_type: Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         :param pulumi.Input[Union['PolicyPredictiveScalingConfigurationArgs', 'PolicyPredictiveScalingConfigurationArgsDict']] predictive_scaling_configuration: Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] scaling_adjustment: Number of members by which to
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
@@ -1104,6 +1138,7 @@ class Policy(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_type: Optional[pulumi.Input[builtins.str]] = None,
                  predictive_scaling_configuration: Optional[pulumi.Input[Union['PolicyPredictiveScalingConfigurationArgs', 'PolicyPredictiveScalingConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_adjustment: Optional[pulumi.Input[builtins.int]] = None,
                  step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyStepAdjustmentArgs', 'PolicyStepAdjustmentArgsDict']]]]] = None,
                  target_tracking_configuration: Optional[pulumi.Input[Union['PolicyTargetTrackingConfigurationArgs', 'PolicyTargetTrackingConfigurationArgsDict']]] = None,
@@ -1128,6 +1163,7 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["policy_type"] = policy_type
             __props__.__dict__["predictive_scaling_configuration"] = predictive_scaling_configuration
+            __props__.__dict__["region"] = region
             __props__.__dict__["scaling_adjustment"] = scaling_adjustment
             __props__.__dict__["step_adjustments"] = step_adjustments
             __props__.__dict__["target_tracking_configuration"] = target_tracking_configuration
@@ -1153,6 +1189,7 @@ class Policy(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             policy_type: Optional[pulumi.Input[builtins.str]] = None,
             predictive_scaling_configuration: Optional[pulumi.Input[Union['PolicyPredictiveScalingConfigurationArgs', 'PolicyPredictiveScalingConfigurationArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             scaling_adjustment: Optional[pulumi.Input[builtins.int]] = None,
             step_adjustments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyStepAdjustmentArgs', 'PolicyStepAdjustmentArgsDict']]]]] = None,
             target_tracking_configuration: Optional[pulumi.Input[Union['PolicyTargetTrackingConfigurationArgs', 'PolicyTargetTrackingConfigurationArgsDict']]] = None) -> 'Policy':
@@ -1178,6 +1215,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the policy.
         :param pulumi.Input[builtins.str] policy_type: Policy type, either "SimpleScaling", "StepScaling", "TargetTrackingScaling", or "PredictiveScaling". If this value isn't provided, AWS will default to "SimpleScaling."
         :param pulumi.Input[Union['PolicyPredictiveScalingConfigurationArgs', 'PolicyPredictiveScalingConfigurationArgsDict']] predictive_scaling_configuration: Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] scaling_adjustment: Number of members by which to
                scale, when the adjustment bounds are breached. A positive value scales
                up. A negative value scales down.
@@ -1234,6 +1272,7 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["policy_type"] = policy_type
         __props__.__dict__["predictive_scaling_configuration"] = predictive_scaling_configuration
+        __props__.__dict__["region"] = region
         __props__.__dict__["scaling_adjustment"] = scaling_adjustment
         __props__.__dict__["step_adjustments"] = step_adjustments
         __props__.__dict__["target_tracking_configuration"] = target_tracking_configuration
@@ -1330,6 +1369,14 @@ class Policy(pulumi.CustomResource):
         Predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.
         """
         return pulumi.get(self, "predictive_scaling_configuration")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="scalingAdjustment")

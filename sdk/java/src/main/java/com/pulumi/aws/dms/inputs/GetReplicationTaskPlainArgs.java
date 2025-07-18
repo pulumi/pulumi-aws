@@ -17,12 +17,22 @@ public final class GetReplicationTaskPlainArgs extends com.pulumi.resources.Invo
     public static final GetReplicationTaskPlainArgs Empty = new GetReplicationTaskPlainArgs();
 
     /**
-     * The replication task identifier.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
-     * - Must contain from 1 to 255 alphanumeric characters or hyphens.
-     * - First character must be a letter.
-     * - Cannot end with a hyphen.
-     * - Cannot contain two consecutive hyphens.
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
+     * The replication task identifier.
      * 
      */
     @Import(name="replicationTaskId", required=true)
@@ -30,11 +40,6 @@ public final class GetReplicationTaskPlainArgs extends com.pulumi.resources.Invo
 
     /**
      * @return The replication task identifier.
-     * 
-     * - Must contain from 1 to 255 alphanumeric characters or hyphens.
-     * - First character must be a letter.
-     * - Cannot end with a hyphen.
-     * - Cannot contain two consecutive hyphens.
      * 
      */
     public String replicationTaskId() {
@@ -51,6 +56,7 @@ public final class GetReplicationTaskPlainArgs extends com.pulumi.resources.Invo
     private GetReplicationTaskPlainArgs() {}
 
     private GetReplicationTaskPlainArgs(GetReplicationTaskPlainArgs $) {
+        this.region = $.region;
         this.replicationTaskId = $.replicationTaskId;
         this.tags = $.tags;
     }
@@ -74,12 +80,18 @@ public final class GetReplicationTaskPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param replicationTaskId The replication task identifier.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
-         * - Must contain from 1 to 255 alphanumeric characters or hyphens.
-         * - First character must be a letter.
-         * - Cannot end with a hyphen.
-         * - Cannot contain two consecutive hyphens.
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param replicationTaskId The replication task identifier.
          * 
          * @return builder
          * 

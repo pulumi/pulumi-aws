@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *                         .build(),
  *                     GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("ArnLike")
- *                         .values(String.format("arn:%s:bedrock:%s:%s:agent/*", currentGetPartition.partition(),currentGetRegion.name(),current.accountId()))
+ *                         .values(String.format("arn:%s:bedrock:%s:%s:agent/*", currentGetPartition.partition(),currentGetRegion.region(),current.accountId()))
  *                         .variable("AWS:SourceArn")
  *                         .build())
  *                 .build())
@@ -96,15 +96,15 @@ import javax.annotation.Nullable;
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .actions("bedrock:InvokeModel")
- *                     .resources(String.format("arn:%s:bedrock:%s::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0", currentGetPartition.partition(),currentGetRegion.name()))
+ *                     .resources(String.format("arn:%s:bedrock:%s::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0", currentGetPartition.partition(),currentGetRegion.region()))
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .actions(                    
  *                         "bedrock:GetAgentAlias",
  *                         "bedrock:InvokeAgent")
  *                     .resources(                    
- *                         String.format("arn:%s:bedrock:%s:%s:agent/*", currentAgent.partition(),currentGetRegion.name(),current.accountId()),
- *                         String.format("arn:%s:bedrock:%s:%s:agent-alias/*", currentAgent.partition(),currentGetRegion.name(),current.accountId()))
+ *                         String.format("arn:%s:bedrock:%s:%s:agent/*", currentAgent.partition(),currentGetRegion.region(),current.accountId()),
+ *                         String.format("arn:%s:bedrock:%s:%s:agent-alias/*", currentAgent.partition(),currentGetRegion.region(),current.accountId()))
  *                     .build())
  *             .build());
  * 
@@ -242,6 +242,20 @@ public class AgentAgentCollaborator extends com.pulumi.resources.CustomResource 
      */
     public Output<Boolean> prepareAgent() {
         return this.prepareAgent;
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * Configure relaying the history to the collaborator.

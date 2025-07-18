@@ -9,6 +9,32 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.paymentcryptography.Key("test", {
+ *     exportable: true,
+ *     keyAttributes: [{
+ *         keyAlgorithm: "TDES_3KEY",
+ *         keyClass: "SYMMETRIC_KEY",
+ *         keyUsage: "TR31_P0_PIN_ENCRYPTION_KEY",
+ *         keyModesOfUses: [{
+ *             decrypt: true,
+ *             encrypt: true,
+ *             wrap: true,
+ *             unwrap: true,
+ *         }],
+ *     }],
+ * });
+ * const testKeyAlias = new aws.paymentcryptography.KeyAlias("test", {
+ *     aliasName: "alias/test-alias",
+ *     keyArn: test.arn,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Payment Cryptography Control Plane Key Alias using the `alias/4681482429376900170`. For example:
@@ -55,6 +81,10 @@ export class KeyAlias extends pulumi.CustomResource {
      * ARN of the key.
      */
     public readonly keyArn!: pulumi.Output<string | undefined>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a KeyAlias resource with the given unique name, arguments, and options.
@@ -71,6 +101,7 @@ export class KeyAlias extends pulumi.CustomResource {
             const state = argsOrState as KeyAliasState | undefined;
             resourceInputs["aliasName"] = state ? state.aliasName : undefined;
             resourceInputs["keyArn"] = state ? state.keyArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as KeyAliasArgs | undefined;
             if ((!args || args.aliasName === undefined) && !opts.urn) {
@@ -78,6 +109,7 @@ export class KeyAlias extends pulumi.CustomResource {
             }
             resourceInputs["aliasName"] = args ? args.aliasName : undefined;
             resourceInputs["keyArn"] = args ? args.keyArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(KeyAlias.__pulumiType, name, resourceInputs, opts);
@@ -98,6 +130,10 @@ export interface KeyAliasState {
      * ARN of the key.
      */
     keyArn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -114,4 +150,8 @@ export interface KeyAliasArgs {
      * ARN of the key.
      */
     keyArn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

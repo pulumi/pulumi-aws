@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Mq.Outputs
     public sealed class GetInstanceTypeOfferingsBrokerInstanceOptionResult
     {
         /// <summary>
-        /// List of available AZs. See Availability Zones. below
+        /// List of available Availability Zones. See Availability Zones below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult> AvailabilityZones;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Aws.Mq.Outputs
         /// </summary>
         public readonly string StorageType;
         /// <summary>
-        /// The list of supported deployment modes.
+        /// List of supported deployment modes.
         /// </summary>
         public readonly ImmutableArray<string> SupportedDeploymentModes;
         /// <summary>
-        /// The list of supported engine versions.
+        /// List of supported engine versions.
         /// </summary>
         public readonly ImmutableArray<string> SupportedEngineVersions;
 

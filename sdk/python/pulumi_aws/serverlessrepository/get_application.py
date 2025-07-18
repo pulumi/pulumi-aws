@@ -27,7 +27,7 @@ class GetApplicationResult:
     """
     A collection of values returned by getApplication.
     """
-    def __init__(__self__, application_id=None, id=None, name=None, required_capabilities=None, semantic_version=None, source_code_url=None, template_url=None):
+    def __init__(__self__, application_id=None, id=None, name=None, region=None, required_capabilities=None, semantic_version=None, source_code_url=None, template_url=None):
         if application_id and not isinstance(application_id, str):
             raise TypeError("Expected argument 'application_id' to be a str")
         pulumi.set(__self__, "application_id", application_id)
@@ -37,6 +37,9 @@ class GetApplicationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if required_capabilities and not isinstance(required_capabilities, list):
             raise TypeError("Expected argument 'required_capabilities' to be a list")
         pulumi.set(__self__, "required_capabilities", required_capabilities)
@@ -73,6 +76,11 @@ class GetApplicationResult:
         Name of the application.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="requiredCapabilities")
@@ -113,6 +121,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             application_id=self.application_id,
             id=self.id,
             name=self.name,
+            region=self.region,
             required_capabilities=self.required_capabilities,
             semantic_version=self.semantic_version,
             source_code_url=self.source_code_url,
@@ -120,6 +129,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
 
 
 def get_application(application_id: Optional[builtins.str] = None,
+                    region: Optional[builtins.str] = None,
                     semantic_version: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
@@ -141,10 +151,12 @@ def get_application(application_id: Optional[builtins.str] = None,
 
 
     :param builtins.str application_id: ARN of the application.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str semantic_version: Requested version of the application. By default, retrieves the latest version.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
+    __args__['region'] = region
     __args__['semanticVersion'] = semantic_version
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:serverlessrepository/getApplication:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
@@ -153,11 +165,13 @@ def get_application(application_id: Optional[builtins.str] = None,
         application_id=pulumi.get(__ret__, 'application_id'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         required_capabilities=pulumi.get(__ret__, 'required_capabilities'),
         semantic_version=pulumi.get(__ret__, 'semantic_version'),
         source_code_url=pulumi.get(__ret__, 'source_code_url'),
         template_url=pulumi.get(__ret__, 'template_url'))
 def get_application_output(application_id: Optional[pulumi.Input[builtins.str]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            semantic_version: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
@@ -179,10 +193,12 @@ def get_application_output(application_id: Optional[pulumi.Input[builtins.str]] 
 
 
     :param builtins.str application_id: ARN of the application.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str semantic_version: Requested version of the application. By default, retrieves the latest version.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
+    __args__['region'] = region
     __args__['semanticVersion'] = semantic_version
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:serverlessrepository/getApplication:getApplication', __args__, opts=opts, typ=GetApplicationResult)
@@ -190,6 +206,7 @@ def get_application_output(application_id: Optional[pulumi.Input[builtins.str]] 
         application_id=pulumi.get(__response__, 'application_id'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         required_capabilities=pulumi.get(__response__, 'required_capabilities'),
         semantic_version=pulumi.get(__response__, 'semantic_version'),
         source_code_url=pulumi.get(__response__, 'source_code_url'),

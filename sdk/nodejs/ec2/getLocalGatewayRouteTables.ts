@@ -31,6 +31,7 @@ export function getLocalGatewayRouteTables(args?: GetLocalGatewayRouteTablesArgs
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -46,6 +47,10 @@ export interface GetLocalGatewayRouteTablesArgs {
      * which take the following arguments:
      */
     filters?: inputs.ec2.GetLocalGatewayRouteTablesFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.
@@ -66,6 +71,7 @@ export interface GetLocalGatewayRouteTablesResult {
      * Set of Local Gateway Route Table identifiers
      */
     readonly ids: string[];
+    readonly region: string;
     readonly tags: {[key: string]: string};
 }
 /**
@@ -92,6 +98,7 @@ export function getLocalGatewayRouteTablesOutput(args?: GetLocalGatewayRouteTabl
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -107,6 +114,10 @@ export interface GetLocalGatewayRouteTablesOutputArgs {
      * which take the following arguments:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewayRouteTablesFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local gateway route table.

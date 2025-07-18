@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,8 +29,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,7 +56,7 @@ import (
 //			defaultClusterInstance, err := rds.NewClusterInstance(ctx, "default", &rds.ClusterInstanceArgs{
 //				Identifier:        pulumi.String("aurora-instance-demo"),
 //				ClusterIdentifier: _default.ClusterIdentifier,
-//				Engine:            _default.Engine,
+//				Engine:            _default.Engine.ApplyT(func(x *string) rds.EngineType { return rds.EngineType(*x) }).(rds.EngineTypeOutput),
 //				InstanceClass:     pulumi.String(rds.InstanceType_R6G_Large),
 //			})
 //			if err != nil {
@@ -105,6 +105,8 @@ type ClusterActivityStream struct {
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
 	Mode pulumi.StringOutput `pulumi:"mode"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the DB cluster.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 }
@@ -159,6 +161,8 @@ type clusterActivityStreamState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
 	Mode *string `pulumi:"mode"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the DB cluster.
 	ResourceArn *string `pulumi:"resourceArn"`
 }
@@ -175,6 +179,8 @@ type ClusterActivityStreamState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
 	Mode pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the DB cluster.
 	ResourceArn pulumi.StringPtrInput
 }
@@ -193,6 +199,8 @@ type clusterActivityStreamArgs struct {
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
 	Mode string `pulumi:"mode"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the DB cluster.
 	ResourceArn string `pulumi:"resourceArn"`
 }
@@ -208,6 +216,8 @@ type ClusterActivityStreamArgs struct {
 	KmsKeyId pulumi.StringInput
 	// Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
 	Mode pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the DB cluster.
 	ResourceArn pulumi.StringInput
 }
@@ -320,6 +330,11 @@ func (o ClusterActivityStreamOutput) KmsKeyId() pulumi.StringOutput {
 // Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
 func (o ClusterActivityStreamOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterActivityStream) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ClusterActivityStreamOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterActivityStream) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the DB cluster.

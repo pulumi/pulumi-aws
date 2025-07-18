@@ -105,6 +105,12 @@ namespace Pulumi.Aws.DataPipeline
         [Input("pipelineId", required: true)]
         public string PipelineId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetPipelineDefinitionArgs()
         {
         }
@@ -130,6 +136,12 @@ namespace Pulumi.Aws.DataPipeline
         /// </summary>
         [Input("pipelineId", required: true)]
         public Input<string> PipelineId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetPipelineDefinitionInvokeArgs()
         {
@@ -158,6 +170,7 @@ namespace Pulumi.Aws.DataPipeline
         /// Objects defined in the pipeline. See below
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPipelineDefinitionPipelineObjectResult> PipelineObjects;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetPipelineDefinitionResult(
@@ -169,13 +182,16 @@ namespace Pulumi.Aws.DataPipeline
 
             string pipelineId,
 
-            ImmutableArray<Outputs.GetPipelineDefinitionPipelineObjectResult> pipelineObjects)
+            ImmutableArray<Outputs.GetPipelineDefinitionPipelineObjectResult> pipelineObjects,
+
+            string region)
         {
             Id = id;
             ParameterObjects = parameterObjects;
             ParameterValues = parameterValues;
             PipelineId = pipelineId;
             PipelineObjects = pipelineObjects;
+            Region = region;
         }
     }
 }

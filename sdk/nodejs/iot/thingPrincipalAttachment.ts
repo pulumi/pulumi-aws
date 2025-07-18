@@ -4,8 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
-
 /**
  * Attaches Principal to AWS IoT Thing.
  *
@@ -60,7 +58,11 @@ export class ThingPrincipalAttachment extends pulumi.CustomResource {
     /**
      * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
      */
-    public readonly principal!: pulumi.Output<ARN>;
+    public readonly principal!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     /**
      * The name of the thing.
      */
@@ -80,6 +82,7 @@ export class ThingPrincipalAttachment extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ThingPrincipalAttachmentState | undefined;
             resourceInputs["principal"] = state ? state.principal : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["thing"] = state ? state.thing : undefined;
         } else {
             const args = argsOrState as ThingPrincipalAttachmentArgs | undefined;
@@ -90,6 +93,7 @@ export class ThingPrincipalAttachment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'thing'");
             }
             resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["thing"] = args ? args.thing : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -104,7 +108,11 @@ export interface ThingPrincipalAttachmentState {
     /**
      * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
      */
-    principal?: pulumi.Input<ARN>;
+    principal?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the thing.
      */
@@ -118,7 +126,11 @@ export interface ThingPrincipalAttachmentArgs {
     /**
      * The AWS IoT Certificate ARN or Amazon Cognito Identity ID.
      */
-    principal: pulumi.Input<ARN>;
+    principal: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the thing.
      */

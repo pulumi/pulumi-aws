@@ -24,10 +24,34 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     var example = new Aws.Sagemaker.ImageVersion("example", new()
+    ///     {
+    ///         ImageName = test.Id,
+    ///         BaseImage = "012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### With Aliases
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
     ///     var test = new Aws.Sagemaker.ImageVersion("test", new()
     ///     {
     ///         ImageName = testAwsSagemakerImage.Id,
     ///         BaseImage = "012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest",
+    ///         Aliases = new[]
+    ///         {
+    ///             "latest",
+    ///             "stable",
+    ///         },
     ///     });
     /// 
     /// });
@@ -35,15 +59,21 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SageMaker AI Image Versions using the `name`. For example:
+    /// Using `pulumi import`, import SageMaker AI Image Versions using a comma-delimited string concatenating `image_name` and `version`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
+    /// $ pulumi import aws:sagemaker/imageVersion:ImageVersion example example-name,1
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/imageVersion:ImageVersion")]
     public partial class ImageVersion : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A list of aliases for the image version.
+        /// </summary>
+        [Output("aliases")]
+        public Output<ImmutableArray<string>> Aliases { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
         /// </summary>
@@ -100,6 +130,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Output("programmingLang")]
         public Output<string?> ProgrammingLang { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// The maintainer description of the image version.
@@ -165,6 +201,18 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class ImageVersionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("aliases")]
+        private InputList<string>? _aliases;
+
+        /// <summary>
+        /// A list of aliases for the image version.
+        /// </summary>
+        public InputList<string> Aliases
+        {
+            get => _aliases ?? (_aliases = new InputList<string>());
+            set => _aliases = value;
+        }
+
         /// <summary>
         /// The registry path of the container image on which this image version is based.
         /// </summary>
@@ -208,6 +256,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? ProgrammingLang { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The maintainer description of the image version.
         /// </summary>
         [Input("releaseNotes")]
@@ -227,6 +281,18 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class ImageVersionState : global::Pulumi.ResourceArgs
     {
+        [Input("aliases")]
+        private InputList<string>? _aliases;
+
+        /// <summary>
+        /// A list of aliases for the image version.
+        /// </summary>
+        public InputList<string> Aliases
+        {
+            get => _aliases ?? (_aliases = new InputList<string>());
+            set => _aliases = value;
+        }
+
         /// <summary>
         /// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
         /// </summary>
@@ -283,6 +349,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Input("programmingLang")]
         public Input<string>? ProgrammingLang { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The maintainer description of the image version.

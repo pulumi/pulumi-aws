@@ -30,16 +30,16 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var b = new Aws.S3.BucketV2("b", new()
+    ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
-    ///         Bucket = "mybucket",
+    ///         BucketName = "mybucket",
     ///         Tags = 
     ///         {
     ///             { "Name", "My bucket" },
     ///         },
     ///     });
     /// 
-    ///     var bAcl = new Aws.S3.BucketAclV2("b_acl", new()
+    ///     var bAcl = new Aws.S3.BucketAcl("b_acl", new()
     ///     {
     ///         Bucket = b.Id,
     ///         Acl = "private",
@@ -357,9 +357,9 @@ namespace Pulumi.Aws.CloudFront
     ///         ResourceArn = example.Arn,
     ///     });
     /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "testbucket",
+    ///         BucketName = "testbucket",
     ///         ForceDestroy = true,
     ///     });
     /// 
@@ -369,7 +369,7 @@ namespace Pulumi.Aws.CloudFront
     ///         OutputFormat = "parquet",
     ///         DeliveryDestinationConfiguration = new Aws.CloudWatch.Inputs.LogDeliveryDestinationDeliveryDestinationConfigurationArgs
     ///         {
-    ///             DestinationResourceArn = exampleBucketV2.Arn.Apply(arn =&gt; $"{arn}/prefix"),
+    ///             DestinationResourceArn = exampleBucket.Arn.Apply(arn =&gt; $"{arn}/prefix"),
     ///         },
     ///     });
     /// 
@@ -405,6 +405,12 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Output("aliases")]
         public Output<ImmutableArray<string>> Aliases { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of the Anycast static IP list that is associated with the distribution.
+        /// </summary>
+        [Output("anycastIpListId")]
+        public Output<string?> AnycastIpListId { get; private set; } = null!;
 
         /// <summary>
         /// ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
@@ -651,6 +657,12 @@ namespace Pulumi.Aws.CloudFront
         }
 
         /// <summary>
+        /// ID of the Anycast static IP list that is associated with the distribution.
+        /// </summary>
+        [Input("anycastIpListId")]
+        public Input<string>? AnycastIpListId { get; set; }
+
+        /// <summary>
         /// Any comments you want to include about the distribution.
         /// </summary>
         [Input("comment")]
@@ -819,6 +831,12 @@ namespace Pulumi.Aws.CloudFront
             get => _aliases ?? (_aliases = new InputList<string>());
             set => _aliases = value;
         }
+
+        /// <summary>
+        /// ID of the Anycast static IP list that is associated with the distribution.
+        /// </summary>
+        [Input("anycastIpListId")]
+        public Input<string>? AnycastIpListId { get; set; }
 
         /// <summary>
         /// ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
@@ -1006,7 +1024,6 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

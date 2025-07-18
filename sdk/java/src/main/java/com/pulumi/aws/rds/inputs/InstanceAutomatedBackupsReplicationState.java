@@ -47,6 +47,21 @@ public final class InstanceAutomatedBackupsReplicationState extends com.pulumi.r
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The retention period for the replicated automated backups, defaults to `7`.
      * 
      */
@@ -81,6 +96,7 @@ public final class InstanceAutomatedBackupsReplicationState extends com.pulumi.r
     private InstanceAutomatedBackupsReplicationState(InstanceAutomatedBackupsReplicationState $) {
         this.kmsKeyId = $.kmsKeyId;
         this.preSignedUrl = $.preSignedUrl;
+        this.region = $.region;
         this.retentionPeriod = $.retentionPeriod;
         this.sourceDbInstanceArn = $.sourceDbInstanceArn;
     }
@@ -143,6 +159,27 @@ public final class InstanceAutomatedBackupsReplicationState extends com.pulumi.r
          */
         public Builder preSignedUrl(String preSignedUrl) {
             return preSignedUrl(Output.of(preSignedUrl));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

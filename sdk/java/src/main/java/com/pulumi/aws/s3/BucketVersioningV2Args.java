@@ -63,6 +63,21 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration block for the versioning parameters. See below.
      * 
      */
@@ -83,6 +98,7 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.ResourceA
         this.bucket = $.bucket;
         this.expectedBucketOwner = $.expectedBucketOwner;
         this.mfa = $.mfa;
+        this.region = $.region;
         this.versioningConfiguration = $.versioningConfiguration;
     }
 
@@ -165,6 +181,27 @@ public final class BucketVersioningV2Args extends com.pulumi.resources.ResourceA
          */
         public Builder mfa(String mfa) {
             return mfa(Output.of(mfa));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

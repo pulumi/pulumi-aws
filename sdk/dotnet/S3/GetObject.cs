@@ -291,6 +291,12 @@ namespace Pulumi.Aws.S3
         [Input("range")]
         public string? Range { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -337,6 +343,12 @@ namespace Pulumi.Aws.S3
 
         [Input("range")]
         public Input<string>? Range { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -462,6 +474,7 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string ObjectLockRetainUntilDate;
         public readonly string? Range;
+        public readonly string Region;
         /// <summary>
         /// If the object is stored using server-side encryption (KMS or Amazon S3-managed encryption key), this field includes the chosen encryption and algorithm used.
         /// </summary>
@@ -543,6 +556,8 @@ namespace Pulumi.Aws.S3
 
             string? range,
 
+            string region,
+
             string serverSideEncryption,
 
             string sseKmsKeyId,
@@ -582,6 +597,7 @@ namespace Pulumi.Aws.S3
             ObjectLockMode = objectLockMode;
             ObjectLockRetainUntilDate = objectLockRetainUntilDate;
             Range = range;
+            Region = region;
             ServerSideEncryption = serverSideEncryption;
             SseKmsKeyId = sseKmsKeyId;
             StorageClass = storageClass;

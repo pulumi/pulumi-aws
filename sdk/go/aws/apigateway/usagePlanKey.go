@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -83,6 +83,8 @@ type UsagePlanKey struct {
 	KeyType pulumi.StringOutput `pulumi:"keyType"`
 	// Name of a usage plan key.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Id of the usage plan resource representing to associate the key to.
 	UsagePlanId pulumi.StringOutput `pulumi:"usagePlanId"`
 	// Value of a usage plan key.
@@ -134,6 +136,8 @@ type usagePlanKeyState struct {
 	KeyType *string `pulumi:"keyType"`
 	// Name of a usage plan key.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Id of the usage plan resource representing to associate the key to.
 	UsagePlanId *string `pulumi:"usagePlanId"`
 	// Value of a usage plan key.
@@ -147,6 +151,8 @@ type UsagePlanKeyState struct {
 	KeyType pulumi.StringPtrInput
 	// Name of a usage plan key.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Id of the usage plan resource representing to associate the key to.
 	UsagePlanId pulumi.StringPtrInput
 	// Value of a usage plan key.
@@ -162,6 +168,8 @@ type usagePlanKeyArgs struct {
 	KeyId string `pulumi:"keyId"`
 	// Type of the API key resource. Currently, the valid key type is API_KEY.
 	KeyType string `pulumi:"keyType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Id of the usage plan resource representing to associate the key to.
 	UsagePlanId string `pulumi:"usagePlanId"`
 }
@@ -172,6 +180,8 @@ type UsagePlanKeyArgs struct {
 	KeyId pulumi.StringInput
 	// Type of the API key resource. Currently, the valid key type is API_KEY.
 	KeyType pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Id of the usage plan resource representing to associate the key to.
 	UsagePlanId pulumi.StringInput
 }
@@ -276,6 +286,11 @@ func (o UsagePlanKeyOutput) KeyType() pulumi.StringOutput {
 // Name of a usage plan key.
 func (o UsagePlanKeyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *UsagePlanKey) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o UsagePlanKeyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *UsagePlanKey) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Id of the usage plan resource representing to associate the key to.

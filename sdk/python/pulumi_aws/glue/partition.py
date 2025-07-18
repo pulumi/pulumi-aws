@@ -27,6 +27,7 @@ class PartitionArgs:
                  table_name: pulumi.Input[builtins.str],
                  catalog_id: Optional[pulumi.Input[builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_descriptor: Optional[pulumi.Input['PartitionStorageDescriptorArgs']] = None):
         """
         The set of arguments for constructing a Partition resource.
@@ -34,6 +35,7 @@ class PartitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] partition_values: The values that define the partition.
         :param pulumi.Input[builtins.str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: Properties associated with this table, as a list of key-value pairs.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['PartitionStorageDescriptorArgs'] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
         """
         pulumi.set(__self__, "database_name", database_name)
@@ -43,6 +45,8 @@ class PartitionArgs:
             pulumi.set(__self__, "catalog_id", catalog_id)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if storage_descriptor is not None:
             pulumi.set(__self__, "storage_descriptor", storage_descriptor)
 
@@ -104,6 +108,18 @@ class PartitionArgs:
         pulumi.set(self, "parameters", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="storageDescriptor")
     def storage_descriptor(self) -> Optional[pulumi.Input['PartitionStorageDescriptorArgs']]:
         """
@@ -126,6 +142,7 @@ class _PartitionState:
                  last_analyzed_time: Optional[pulumi.Input[builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  partition_values: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_descriptor: Optional[pulumi.Input['PartitionStorageDescriptorArgs']] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -137,6 +154,7 @@ class _PartitionState:
         :param pulumi.Input[builtins.str] last_analyzed_time: The last time at which column statistics were computed for this partition.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: Properties associated with this table, as a list of key-value pairs.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] partition_values: The values that define the partition.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['PartitionStorageDescriptorArgs'] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
         """
         if catalog_id is not None:
@@ -153,6 +171,8 @@ class _PartitionState:
             pulumi.set(__self__, "parameters", parameters)
         if partition_values is not None:
             pulumi.set(__self__, "partition_values", partition_values)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if storage_descriptor is not None:
             pulumi.set(__self__, "storage_descriptor", storage_descriptor)
         if table_name is not None:
@@ -243,6 +263,18 @@ class _PartitionState:
         pulumi.set(self, "partition_values", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="storageDescriptor")
     def storage_descriptor(self) -> Optional[pulumi.Input['PartitionStorageDescriptorArgs']]:
         """
@@ -274,6 +306,7 @@ class Partition(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  partition_values: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_descriptor: Optional[pulumi.Input[Union['PartitionStorageDescriptorArgs', 'PartitionStorageDescriptorArgsDict']]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -306,6 +339,7 @@ class Partition(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: Properties associated with this table, as a list of key-value pairs.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] partition_values: The values that define the partition.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['PartitionStorageDescriptorArgs', 'PartitionStorageDescriptorArgsDict']] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
         """
         ...
@@ -356,6 +390,7 @@ class Partition(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  partition_values: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  storage_descriptor: Optional[pulumi.Input[Union['PartitionStorageDescriptorArgs', 'PartitionStorageDescriptorArgsDict']]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -375,6 +410,7 @@ class Partition(pulumi.CustomResource):
             if partition_values is None and not opts.urn:
                 raise TypeError("Missing required property 'partition_values'")
             __props__.__dict__["partition_values"] = partition_values
+            __props__.__dict__["region"] = region
             __props__.__dict__["storage_descriptor"] = storage_descriptor
             if table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_name'")
@@ -399,6 +435,7 @@ class Partition(pulumi.CustomResource):
             last_analyzed_time: Optional[pulumi.Input[builtins.str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             partition_values: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             storage_descriptor: Optional[pulumi.Input[Union['PartitionStorageDescriptorArgs', 'PartitionStorageDescriptorArgsDict']]] = None,
             table_name: Optional[pulumi.Input[builtins.str]] = None) -> 'Partition':
         """
@@ -415,6 +452,7 @@ class Partition(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] last_analyzed_time: The last time at which column statistics were computed for this partition.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: Properties associated with this table, as a list of key-value pairs.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] partition_values: The values that define the partition.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['PartitionStorageDescriptorArgs', 'PartitionStorageDescriptorArgsDict']] storage_descriptor: A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -428,6 +466,7 @@ class Partition(pulumi.CustomResource):
         __props__.__dict__["last_analyzed_time"] = last_analyzed_time
         __props__.__dict__["parameters"] = parameters
         __props__.__dict__["partition_values"] = partition_values
+        __props__.__dict__["region"] = region
         __props__.__dict__["storage_descriptor"] = storage_descriptor
         __props__.__dict__["table_name"] = table_name
         return Partition(resource_name, opts=opts, __props__=__props__)
@@ -487,6 +526,14 @@ class Partition(pulumi.CustomResource):
         The values that define the partition.
         """
         return pulumi.get(self, "partition_values")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="storageDescriptor")

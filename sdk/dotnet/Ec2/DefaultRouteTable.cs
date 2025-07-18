@@ -114,6 +114,12 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> PropagatingVgws { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Set of objects. Detailed below
         /// </summary>
         [Output("routes")]
@@ -203,6 +209,12 @@ namespace Pulumi.Aws.Ec2
             set => _propagatingVgws = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("routes")]
         private InputList<Inputs.DefaultRouteTableRouteArgs>? _routes;
 
@@ -267,6 +279,12 @@ namespace Pulumi.Aws.Ec2
             set => _propagatingVgws = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("routes")]
         private InputList<Inputs.DefaultRouteTableRouteGetArgs>? _routes;
 
@@ -297,7 +315,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

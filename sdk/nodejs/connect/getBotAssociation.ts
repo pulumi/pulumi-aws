@@ -31,6 +31,7 @@ export function getBotAssociation(args: GetBotAssociationArgs, opts?: pulumi.Inv
     return pulumi.runtime.invoke("aws:connect/getBotAssociation:getBotAssociation", {
         "instanceId": args.instanceId,
         "lexBot": args.lexBot,
+        "region": args.region,
     }, opts);
 }
 
@@ -46,6 +47,10 @@ export interface GetBotAssociationArgs {
      * Configuration information of an Amazon Lex (V1) bot. Detailed below.
      */
     lexBot: inputs.connect.GetBotAssociationLexBot;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -58,6 +63,7 @@ export interface GetBotAssociationResult {
     readonly id: string;
     readonly instanceId: string;
     readonly lexBot: outputs.connect.GetBotAssociationLexBot;
+    readonly region: string;
 }
 /**
  * Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
@@ -83,6 +89,7 @@ export function getBotAssociationOutput(args: GetBotAssociationOutputArgs, opts?
     return pulumi.runtime.invokeOutput("aws:connect/getBotAssociation:getBotAssociation", {
         "instanceId": args.instanceId,
         "lexBot": args.lexBot,
+        "region": args.region,
     }, opts);
 }
 
@@ -98,4 +105,8 @@ export interface GetBotAssociationOutputArgs {
      * Configuration information of an Amazon Lex (V1) bot. Detailed below.
      */
     lexBot: pulumi.Input<inputs.connect.GetBotAssociationLexBotArgs>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

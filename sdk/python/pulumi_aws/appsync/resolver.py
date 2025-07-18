@@ -31,6 +31,7 @@ class ResolverArgs:
                  kind: Optional[pulumi.Input[builtins.str]] = None,
                  max_batch_size: Optional[pulumi.Input[builtins.int]] = None,
                  pipeline_config: Optional[pulumi.Input['ResolverPipelineConfigArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_template: Optional[pulumi.Input[builtins.str]] = None,
                  response_template: Optional[pulumi.Input[builtins.str]] = None,
                  runtime: Optional[pulumi.Input['ResolverRuntimeArgs']] = None,
@@ -46,6 +47,7 @@ class ResolverArgs:
         :param pulumi.Input[builtins.str] kind: Resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input[builtins.int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input['ResolverPipelineConfigArgs'] pipeline_config: The caching configuration for the resolver. See Pipeline Config.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] request_template: Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[builtins.str] response_template: Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input['ResolverRuntimeArgs'] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
@@ -66,6 +68,8 @@ class ResolverArgs:
             pulumi.set(__self__, "max_batch_size", max_batch_size)
         if pipeline_config is not None:
             pulumi.set(__self__, "pipeline_config", pipeline_config)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if request_template is not None:
             pulumi.set(__self__, "request_template", request_template)
         if response_template is not None:
@@ -184,6 +188,18 @@ class ResolverArgs:
         pulumi.set(self, "pipeline_config", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requestTemplate")
     def request_template(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -244,6 +260,7 @@ class _ResolverState:
                  kind: Optional[pulumi.Input[builtins.str]] = None,
                  max_batch_size: Optional[pulumi.Input[builtins.int]] = None,
                  pipeline_config: Optional[pulumi.Input['ResolverPipelineConfigArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_template: Optional[pulumi.Input[builtins.str]] = None,
                  response_template: Optional[pulumi.Input[builtins.str]] = None,
                  runtime: Optional[pulumi.Input['ResolverRuntimeArgs']] = None,
@@ -260,6 +277,7 @@ class _ResolverState:
         :param pulumi.Input[builtins.str] kind: Resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input[builtins.int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input['ResolverPipelineConfigArgs'] pipeline_config: The caching configuration for the resolver. See Pipeline Config.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] request_template: Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[builtins.str] response_template: Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input['ResolverRuntimeArgs'] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
@@ -284,6 +302,8 @@ class _ResolverState:
             pulumi.set(__self__, "max_batch_size", max_batch_size)
         if pipeline_config is not None:
             pulumi.set(__self__, "pipeline_config", pipeline_config)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if request_template is not None:
             pulumi.set(__self__, "request_template", request_template)
         if response_template is not None:
@@ -404,6 +424,18 @@ class _ResolverState:
         pulumi.set(self, "pipeline_config", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requestTemplate")
     def request_template(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -478,6 +510,7 @@ class Resolver(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[builtins.str]] = None,
                  max_batch_size: Optional[pulumi.Input[builtins.int]] = None,
                  pipeline_config: Optional[pulumi.Input[Union['ResolverPipelineConfigArgs', 'ResolverPipelineConfigArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_template: Optional[pulumi.Input[builtins.str]] = None,
                  response_template: Optional[pulumi.Input[builtins.str]] = None,
                  runtime: Optional[pulumi.Input[Union['ResolverRuntimeArgs', 'ResolverRuntimeArgsDict']]] = None,
@@ -606,6 +639,7 @@ class Resolver(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] kind: Resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input[builtins.int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input[Union['ResolverPipelineConfigArgs', 'ResolverPipelineConfigArgsDict']] pipeline_config: The caching configuration for the resolver. See Pipeline Config.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] request_template: Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[builtins.str] response_template: Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[Union['ResolverRuntimeArgs', 'ResolverRuntimeArgsDict']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
@@ -753,6 +787,7 @@ class Resolver(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[builtins.str]] = None,
                  max_batch_size: Optional[pulumi.Input[builtins.int]] = None,
                  pipeline_config: Optional[pulumi.Input[Union['ResolverPipelineConfigArgs', 'ResolverPipelineConfigArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_template: Optional[pulumi.Input[builtins.str]] = None,
                  response_template: Optional[pulumi.Input[builtins.str]] = None,
                  runtime: Optional[pulumi.Input[Union['ResolverRuntimeArgs', 'ResolverRuntimeArgsDict']]] = None,
@@ -779,6 +814,7 @@ class Resolver(pulumi.CustomResource):
             __props__.__dict__["kind"] = kind
             __props__.__dict__["max_batch_size"] = max_batch_size
             __props__.__dict__["pipeline_config"] = pipeline_config
+            __props__.__dict__["region"] = region
             __props__.__dict__["request_template"] = request_template
             __props__.__dict__["response_template"] = response_template
             __props__.__dict__["runtime"] = runtime
@@ -806,6 +842,7 @@ class Resolver(pulumi.CustomResource):
             kind: Optional[pulumi.Input[builtins.str]] = None,
             max_batch_size: Optional[pulumi.Input[builtins.int]] = None,
             pipeline_config: Optional[pulumi.Input[Union['ResolverPipelineConfigArgs', 'ResolverPipelineConfigArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             request_template: Optional[pulumi.Input[builtins.str]] = None,
             response_template: Optional[pulumi.Input[builtins.str]] = None,
             runtime: Optional[pulumi.Input[Union['ResolverRuntimeArgs', 'ResolverRuntimeArgsDict']]] = None,
@@ -827,6 +864,7 @@ class Resolver(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] kind: Resolver type. Valid values are `UNIT` and `PIPELINE`.
         :param pulumi.Input[builtins.int] max_batch_size: Maximum batching size for a resolver. Valid values are between `0` and `2000`.
         :param pulumi.Input[Union['ResolverPipelineConfigArgs', 'ResolverPipelineConfigArgsDict']] pipeline_config: The caching configuration for the resolver. See Pipeline Config.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] request_template: Request mapping template for UNIT resolver or 'before mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[builtins.str] response_template: Response mapping template for UNIT resolver or 'after mapping template' for PIPELINE resolver. Required for non-Lambda resolvers.
         :param pulumi.Input[Union['ResolverRuntimeArgs', 'ResolverRuntimeArgsDict']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified. See Runtime.
@@ -846,6 +884,7 @@ class Resolver(pulumi.CustomResource):
         __props__.__dict__["kind"] = kind
         __props__.__dict__["max_batch_size"] = max_batch_size
         __props__.__dict__["pipeline_config"] = pipeline_config
+        __props__.__dict__["region"] = region
         __props__.__dict__["request_template"] = request_template
         __props__.__dict__["response_template"] = response_template
         __props__.__dict__["runtime"] = runtime
@@ -924,6 +963,14 @@ class Resolver(pulumi.CustomResource):
         The caching configuration for the resolver. See Pipeline Config.
         """
         return pulumi.get(self, "pipeline_config")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="requestTemplate")

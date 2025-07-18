@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,6 +55,8 @@ type LookupFaqArgs struct {
 	FaqId string `pulumi:"faqId"`
 	// Identifier of the index that contains the FAQ.
 	IndexId string `pulumi:"indexId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Metadata that helps organize the FAQs you create.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -78,7 +80,8 @@ type LookupFaqResult struct {
 	// Code for a language. This shows a supported language for the FAQ document. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html).
 	LanguageCode string `pulumi:"languageCode"`
 	// Name of the FAQ.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn string `pulumi:"roleArn"`
 	// S3 location of the FAQ input data. Detailed below.
@@ -106,6 +109,8 @@ type LookupFaqOutputArgs struct {
 	FaqId pulumi.StringInput `pulumi:"faqId"`
 	// Identifier of the index that contains the FAQ.
 	IndexId pulumi.StringInput `pulumi:"indexId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Metadata that helps organize the FAQs you create.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -175,6 +180,10 @@ func (o LookupFaqResultOutput) LanguageCode() pulumi.StringOutput {
 // Name of the FAQ.
 func (o LookupFaqResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFaqResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupFaqResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFaqResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).

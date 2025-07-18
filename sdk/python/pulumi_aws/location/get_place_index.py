@@ -28,7 +28,7 @@ class GetPlaceIndexResult:
     """
     A collection of values returned by getPlaceIndex.
     """
-    def __init__(__self__, create_time=None, data_source=None, data_source_configurations=None, description=None, id=None, index_arn=None, index_name=None, tags=None, update_time=None):
+    def __init__(__self__, create_time=None, data_source=None, data_source_configurations=None, description=None, id=None, index_arn=None, index_name=None, region=None, tags=None, update_time=None):
         if create_time and not isinstance(create_time, str):
             raise TypeError("Expected argument 'create_time' to be a str")
         pulumi.set(__self__, "create_time", create_time)
@@ -50,6 +50,9 @@ class GetPlaceIndexResult:
         if index_name and not isinstance(index_name, str):
             raise TypeError("Expected argument 'index_name' to be a str")
         pulumi.set(__self__, "index_name", index_name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -112,6 +115,11 @@ class GetPlaceIndexResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Key-value map of resource tags for the place index.
@@ -140,11 +148,13 @@ class AwaitableGetPlaceIndexResult(GetPlaceIndexResult):
             id=self.id,
             index_arn=self.index_arn,
             index_name=self.index_name,
+            region=self.region,
             tags=self.tags,
             update_time=self.update_time)
 
 
 def get_place_index(index_name: Optional[builtins.str] = None,
+                    region: Optional[builtins.str] = None,
                     tags: Optional[Mapping[str, builtins.str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPlaceIndexResult:
     """
@@ -161,10 +171,12 @@ def get_place_index(index_name: Optional[builtins.str] = None,
 
 
     :param builtins.str index_name: Name of the place index resource.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the place index.
     """
     __args__ = dict()
     __args__['indexName'] = index_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:location/getPlaceIndex:getPlaceIndex', __args__, opts=opts, typ=GetPlaceIndexResult).value
@@ -177,9 +189,11 @@ def get_place_index(index_name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         index_arn=pulumi.get(__ret__, 'index_arn'),
         index_name=pulumi.get(__ret__, 'index_name'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
 def get_place_index_output(index_name: Optional[pulumi.Input[builtins.str]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlaceIndexResult]:
     """
@@ -196,10 +210,12 @@ def get_place_index_output(index_name: Optional[pulumi.Input[builtins.str]] = No
 
 
     :param builtins.str index_name: Name of the place index resource.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the place index.
     """
     __args__ = dict()
     __args__['indexName'] = index_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:location/getPlaceIndex:getPlaceIndex', __args__, opts=opts, typ=GetPlaceIndexResult)
@@ -211,5 +227,6 @@ def get_place_index_output(index_name: Optional[pulumi.Input[builtins.str]] = No
         id=pulumi.get(__response__, 'id'),
         index_arn=pulumi.get(__response__, 'index_arn'),
         index_name=pulumi.get(__response__, 'index_name'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         update_time=pulumi.get(__response__, 'update_time')))

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,6 +69,8 @@ import (
 type IndexingConfiguration struct {
 	pulumi.CustomResourceState
 
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Thing group indexing configuration. See below.
 	ThingGroupIndexingConfiguration IndexingConfigurationThingGroupIndexingConfigurationOutput `pulumi:"thingGroupIndexingConfiguration"`
 	// Thing indexing configuration. See below.
@@ -105,6 +107,8 @@ func GetIndexingConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IndexingConfiguration resources.
 type indexingConfigurationState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Thing group indexing configuration. See below.
 	ThingGroupIndexingConfiguration *IndexingConfigurationThingGroupIndexingConfiguration `pulumi:"thingGroupIndexingConfiguration"`
 	// Thing indexing configuration. See below.
@@ -112,6 +116,8 @@ type indexingConfigurationState struct {
 }
 
 type IndexingConfigurationState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Thing group indexing configuration. See below.
 	ThingGroupIndexingConfiguration IndexingConfigurationThingGroupIndexingConfigurationPtrInput
 	// Thing indexing configuration. See below.
@@ -123,6 +129,8 @@ func (IndexingConfigurationState) ElementType() reflect.Type {
 }
 
 type indexingConfigurationArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Thing group indexing configuration. See below.
 	ThingGroupIndexingConfiguration *IndexingConfigurationThingGroupIndexingConfiguration `pulumi:"thingGroupIndexingConfiguration"`
 	// Thing indexing configuration. See below.
@@ -131,6 +139,8 @@ type indexingConfigurationArgs struct {
 
 // The set of arguments for constructing a IndexingConfiguration resource.
 type IndexingConfigurationArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Thing group indexing configuration. See below.
 	ThingGroupIndexingConfiguration IndexingConfigurationThingGroupIndexingConfigurationPtrInput
 	// Thing indexing configuration. See below.
@@ -222,6 +232,11 @@ func (o IndexingConfigurationOutput) ToIndexingConfigurationOutput() IndexingCon
 
 func (o IndexingConfigurationOutput) ToIndexingConfigurationOutputWithContext(ctx context.Context) IndexingConfigurationOutput {
 	return o
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o IndexingConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *IndexingConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Thing group indexing configuration. See below.

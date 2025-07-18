@@ -189,6 +189,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -226,6 +232,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
             get => _filters ?? (_filters = new InputList<Inputs.GetConnectPeerFilterInputArgs>());
             set => _filters = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -284,6 +296,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// IP addressed assigned to customer device, which is used as tunnel endpoint
         /// </summary>
         public readonly string PeerAddress;
+        public readonly string Region;
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Connect Peer
         /// </summary>
@@ -316,6 +329,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string peerAddress,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             string transitGatewayAddress,
@@ -332,6 +347,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
             Id = id;
             InsideCidrBlocks = insideCidrBlocks;
             PeerAddress = peerAddress;
+            Region = region;
             Tags = tags;
             TransitGatewayAddress = transitGatewayAddress;
             TransitGatewayAttachmentId = transitGatewayAttachmentId;

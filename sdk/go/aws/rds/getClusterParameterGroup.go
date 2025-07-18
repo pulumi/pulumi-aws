@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupClusterParameterGroup(ctx *pulumi.Context, args *LookupClusterParamet
 type LookupClusterParameterGroupArgs struct {
 	// DB cluster parameter group name.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getClusterParameterGroup.
@@ -63,8 +65,9 @@ type LookupClusterParameterGroupResult struct {
 	// Family of the cluster parameter group.
 	Family string `pulumi:"family"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 }
 
 func LookupClusterParameterGroupOutput(ctx *pulumi.Context, args LookupClusterParameterGroupOutputArgs, opts ...pulumi.InvokeOption) LookupClusterParameterGroupResultOutput {
@@ -80,6 +83,8 @@ func LookupClusterParameterGroupOutput(ctx *pulumi.Context, args LookupClusterPa
 type LookupClusterParameterGroupOutputArgs struct {
 	// DB cluster parameter group name.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupClusterParameterGroupOutputArgs) ElementType() reflect.Type {
@@ -123,6 +128,10 @@ func (o LookupClusterParameterGroupResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupClusterParameterGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterParameterGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterParameterGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterParameterGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

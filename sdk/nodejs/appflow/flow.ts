@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleSourceBucketV2 = new aws.s3.BucketV2("example_source", {bucket: "example-source"});
+ * const exampleSourceBucket = new aws.s3.Bucket("example_source", {bucket: "example-source"});
  * const exampleSource = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "AllowAppFlowSourceActions",
@@ -36,15 +36,15 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const exampleSourceBucketPolicy = new aws.s3.BucketPolicy("example_source", {
- *     bucket: exampleSourceBucketV2.id,
+ *     bucket: exampleSourceBucket.id,
  *     policy: exampleSource.then(exampleSource => exampleSource.json),
  * });
  * const example = new aws.s3.BucketObjectv2("example", {
- *     bucket: exampleSourceBucketV2.id,
+ *     bucket: exampleSourceBucket.id,
  *     key: "example_source.csv",
  *     source: new pulumi.asset.FileAsset("example_source.csv"),
  * });
- * const exampleDestinationBucketV2 = new aws.s3.BucketV2("example_destination", {bucket: "example-destination"});
+ * const exampleDestinationBucket = new aws.s3.Bucket("example_destination", {bucket: "example-destination"});
  * const exampleDestination = aws.iam.getPolicyDocument({
  *     statements: [{
  *         sid: "AllowAppFlowDestinationActions",
@@ -68,7 +68,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const exampleDestinationBucketPolicy = new aws.s3.BucketPolicy("example_destination", {
- *     bucket: exampleDestinationBucketV2.id,
+ *     bucket: exampleDestinationBucket.id,
  *     policy: exampleDestination.then(exampleDestination => exampleDestination.json),
  * });
  * const exampleFlow = new aws.appflow.Flow("example", {
@@ -111,10 +111,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import AppFlow flows using the `arn`. For example:
+ * Using `pulumi import`, import AppFlow flows using the `name`. For example:
  *
  * ```sh
- * $ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
+ * $ pulumi import aws:appflow/flow:Flow example example-flow
  * ```
  */
 export class Flow extends pulumi.CustomResource {
@@ -174,6 +174,10 @@ export class Flow extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
      */
     public readonly sourceFlowConfig!: pulumi.Output<outputs.appflow.FlowSourceFlowConfig>;
@@ -183,8 +187,6 @@ export class Flow extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -216,6 +218,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["kmsArn"] = state ? state.kmsArn : undefined;
             resourceInputs["metadataCatalogConfig"] = state ? state.metadataCatalogConfig : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sourceFlowConfig"] = state ? state.sourceFlowConfig : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -240,6 +243,7 @@ export class Flow extends pulumi.CustomResource {
             resourceInputs["kmsArn"] = args ? args.kmsArn : undefined;
             resourceInputs["metadataCatalogConfig"] = args ? args.metadataCatalogConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sourceFlowConfig"] = args ? args.sourceFlowConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tasks"] = args ? args.tasks : undefined;
@@ -286,6 +290,10 @@ export interface FlowState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
      */
     sourceFlowConfig?: pulumi.Input<inputs.appflow.FlowSourceFlowConfig>;
@@ -295,8 +303,6 @@ export interface FlowState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -333,6 +339,10 @@ export interface FlowArgs {
      * Name of the flow.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Source Flow Config that controls how Amazon AppFlow retrieves data from the source connector.
      */

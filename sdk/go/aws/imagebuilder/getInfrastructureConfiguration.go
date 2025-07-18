@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupInfrastructureConfiguration(ctx *pulumi.Context, args *LookupInfrastr
 type LookupInfrastructureConfigurationArgs struct {
 	// ARN of the infrastructure configuration.
 	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// Key-value map of resource tags for the infrastructure configuration.
@@ -82,6 +84,7 @@ type LookupInfrastructureConfigurationResult struct {
 	Name string `pulumi:"name"`
 	// Placement settings that define where the instances that are launched from your image will run.
 	Placements []GetInfrastructureConfigurationPlacement `pulumi:"placements"`
+	Region     string                                    `pulumi:"region"`
 	// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// Set of EC2 Security Group identifiers associated with the configuration.
@@ -109,6 +112,8 @@ func LookupInfrastructureConfigurationOutput(ctx *pulumi.Context, args LookupInf
 type LookupInfrastructureConfigurationOutputArgs struct {
 	// ARN of the infrastructure configuration.
 	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
 	ResourceTags pulumi.StringMapInput `pulumi:"resourceTags"`
 	// Key-value map of resource tags for the infrastructure configuration.
@@ -196,6 +201,10 @@ func (o LookupInfrastructureConfigurationResultOutput) Placements() GetInfrastru
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) []GetInfrastructureConfigurationPlacement {
 		return v.Placements
 	}).(GetInfrastructureConfigurationPlacementArrayOutput)
+}
+
+func (o LookupInfrastructureConfigurationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags for the infrastructure created by the infrastructure configuration.

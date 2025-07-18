@@ -28,7 +28,7 @@ class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, arn=None, availability_zones=None, default_cooldown=None, desired_capacity=None, desired_capacity_type=None, enabled_metrics=None, health_check_grace_period=None, health_check_type=None, id=None, instance_maintenance_policies=None, launch_configuration=None, launch_templates=None, load_balancers=None, max_instance_lifetime=None, max_size=None, min_size=None, mixed_instances_policies=None, name=None, new_instances_protected_from_scale_in=None, placement_group=None, predicted_capacity=None, service_linked_role_arn=None, status=None, suspended_processes=None, tags=None, target_group_arns=None, termination_policies=None, traffic_sources=None, vpc_zone_identifier=None, warm_pool_size=None, warm_pools=None):
+    def __init__(__self__, arn=None, availability_zones=None, default_cooldown=None, desired_capacity=None, desired_capacity_type=None, enabled_metrics=None, health_check_grace_period=None, health_check_type=None, id=None, instance_maintenance_policies=None, launch_configuration=None, launch_templates=None, load_balancers=None, max_instance_lifetime=None, max_size=None, min_size=None, mixed_instances_policies=None, name=None, new_instances_protected_from_scale_in=None, placement_group=None, predicted_capacity=None, region=None, service_linked_role_arn=None, status=None, suspended_processes=None, tags=None, target_group_arns=None, termination_policies=None, traffic_sources=None, vpc_zone_identifier=None, warm_pool_size=None, warm_pools=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -92,6 +92,9 @@ class GetGroupResult:
         if predicted_capacity and not isinstance(predicted_capacity, int):
             raise TypeError("Expected argument 'predicted_capacity' to be a int")
         pulumi.set(__self__, "predicted_capacity", predicted_capacity)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if service_linked_role_arn and not isinstance(service_linked_role_arn, str):
             raise TypeError("Expected argument 'service_linked_role_arn' to be a str")
         pulumi.set(__self__, "service_linked_role_arn", service_linked_role_arn)
@@ -286,6 +289,11 @@ class GetGroupResult:
         return pulumi.get(self, "predicted_capacity")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="serviceLinkedRoleArn")
     def service_linked_role_arn(self) -> builtins.str:
         """
@@ -393,6 +401,7 @@ class AwaitableGetGroupResult(GetGroupResult):
             new_instances_protected_from_scale_in=self.new_instances_protected_from_scale_in,
             placement_group=self.placement_group,
             predicted_capacity=self.predicted_capacity,
+            region=self.region,
             service_linked_role_arn=self.service_linked_role_arn,
             status=self.status,
             suspended_processes=self.suspended_processes,
@@ -406,6 +415,7 @@ class AwaitableGetGroupResult(GetGroupResult):
 
 
 def get_group(name: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGroupResult:
     """
     Use this data source to get information on an existing autoscaling group.
@@ -421,9 +431,11 @@ def get_group(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Specify the exact name of the desired autoscaling group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:autoscaling/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
@@ -449,6 +461,7 @@ def get_group(name: Optional[builtins.str] = None,
         new_instances_protected_from_scale_in=pulumi.get(__ret__, 'new_instances_protected_from_scale_in'),
         placement_group=pulumi.get(__ret__, 'placement_group'),
         predicted_capacity=pulumi.get(__ret__, 'predicted_capacity'),
+        region=pulumi.get(__ret__, 'region'),
         service_linked_role_arn=pulumi.get(__ret__, 'service_linked_role_arn'),
         status=pulumi.get(__ret__, 'status'),
         suspended_processes=pulumi.get(__ret__, 'suspended_processes'),
@@ -460,6 +473,7 @@ def get_group(name: Optional[builtins.str] = None,
         warm_pool_size=pulumi.get(__ret__, 'warm_pool_size'),
         warm_pools=pulumi.get(__ret__, 'warm_pools'))
 def get_group_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     Use this data source to get information on an existing autoscaling group.
@@ -475,9 +489,11 @@ def get_group_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Specify the exact name of the desired autoscaling group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:autoscaling/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult)
     return __ret__.apply(lambda __response__: GetGroupResult(
@@ -502,6 +518,7 @@ def get_group_output(name: Optional[pulumi.Input[builtins.str]] = None,
         new_instances_protected_from_scale_in=pulumi.get(__response__, 'new_instances_protected_from_scale_in'),
         placement_group=pulumi.get(__response__, 'placement_group'),
         predicted_capacity=pulumi.get(__response__, 'predicted_capacity'),
+        region=pulumi.get(__response__, 'region'),
         service_linked_role_arn=pulumi.get(__response__, 'service_linked_role_arn'),
         status=pulumi.get(__response__, 'status'),
         suspended_processes=pulumi.get(__response__, 'suspended_processes'),

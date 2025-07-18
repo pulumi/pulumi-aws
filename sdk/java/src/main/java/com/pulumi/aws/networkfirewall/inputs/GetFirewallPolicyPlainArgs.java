@@ -50,6 +50,21 @@ public final class GetFirewallPolicyPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Key-value tags for the firewall policy.
      * 
      */
@@ -69,6 +84,7 @@ public final class GetFirewallPolicyPlainArgs extends com.pulumi.resources.Invok
     private GetFirewallPolicyPlainArgs(GetFirewallPolicyPlainArgs $) {
         this.arn = $.arn;
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -111,6 +127,17 @@ public final class GetFirewallPolicyPlainArgs extends com.pulumi.resources.Invok
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

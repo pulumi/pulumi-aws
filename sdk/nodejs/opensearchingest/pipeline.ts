@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *     - s3:
  *         aws:
  *           sts_role_arn: "${arn}"
- *           region: "${current.name}"
+ *           region: "${current.region}"
  *         bucket: "example"
  *         threshold:
  *           event_collect_timeout: "60s"
@@ -145,12 +145,13 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly pipelineName!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.opensearchingest.PipelineTimeouts | undefined>;
     /**
@@ -180,6 +181,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["pipelineArn"] = state ? state.pipelineArn : undefined;
             resourceInputs["pipelineConfigurationBody"] = state ? state.pipelineConfigurationBody : undefined;
             resourceInputs["pipelineName"] = state ? state.pipelineName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -205,6 +207,7 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["minUnits"] = args ? args.minUnits : undefined;
             resourceInputs["pipelineConfigurationBody"] = args ? args.pipelineConfigurationBody : undefined;
             resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
@@ -260,12 +263,13 @@ export interface PipelineState {
      */
     pipelineName?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.opensearchingest.PipelineTimeouts>;
     /**
@@ -308,6 +312,10 @@ export interface PipelineArgs {
      * The following arguments are optional:
      */
     pipelineName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the pipeline. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,14 +22,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -58,6 +58,8 @@ func GetPermissionSets(ctx *pulumi.Context, args *GetPermissionSetsArgs, opts ..
 type GetPermissionSetsArgs struct {
 	// ARN of the SSO Instance associated with the permission set.
 	InstanceArn string `pulumi:"instanceArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPermissionSets.
@@ -66,6 +68,7 @@ type GetPermissionSetsResult struct {
 	Arns        []string `pulumi:"arns"`
 	Id          string   `pulumi:"id"`
 	InstanceArn string   `pulumi:"instanceArn"`
+	Region      string   `pulumi:"region"`
 }
 
 func GetPermissionSetsOutput(ctx *pulumi.Context, args GetPermissionSetsOutputArgs, opts ...pulumi.InvokeOption) GetPermissionSetsResultOutput {
@@ -81,6 +84,8 @@ func GetPermissionSetsOutput(ctx *pulumi.Context, args GetPermissionSetsOutputAr
 type GetPermissionSetsOutputArgs struct {
 	// ARN of the SSO Instance associated with the permission set.
 	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetPermissionSetsOutputArgs) ElementType() reflect.Type {
@@ -113,6 +118,10 @@ func (o GetPermissionSetsResultOutput) Id() pulumi.StringOutput {
 
 func (o GetPermissionSetsResultOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPermissionSetsResult) string { return v.InstanceArn }).(pulumi.StringOutput)
+}
+
+func (o GetPermissionSetsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPermissionSetsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -27,10 +27,13 @@ class GetSlackWorkspaceResult:
     """
     A collection of values returned by getSlackWorkspace.
     """
-    def __init__(__self__, id=None, slack_team_id=None, slack_team_name=None):
+    def __init__(__self__, id=None, region=None, slack_team_id=None, slack_team_name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if slack_team_id and not isinstance(slack_team_id, str):
             raise TypeError("Expected argument 'slack_team_id' to be a str")
         pulumi.set(__self__, "slack_team_id", slack_team_id)
@@ -45,6 +48,11 @@ class GetSlackWorkspaceResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="slackTeamId")
@@ -67,11 +75,13 @@ class AwaitableGetSlackWorkspaceResult(GetSlackWorkspaceResult):
             yield self
         return GetSlackWorkspaceResult(
             id=self.id,
+            region=self.region,
             slack_team_id=self.slack_team_id,
             slack_team_name=self.slack_team_name)
 
 
-def get_slack_workspace(slack_team_name: Optional[builtins.str] = None,
+def get_slack_workspace(region: Optional[builtins.str] = None,
+                        slack_team_name: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSlackWorkspaceResult:
     """
     Data source for managing an AWS Chatbot Slack Workspace.
@@ -88,18 +98,22 @@ def get_slack_workspace(slack_team_name: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str slack_team_name: Slack workspace name configured with AWS Chatbot.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['slackTeamName'] = slack_team_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:chatbot/getSlackWorkspace:getSlackWorkspace', __args__, opts=opts, typ=GetSlackWorkspaceResult).value
 
     return AwaitableGetSlackWorkspaceResult(
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         slack_team_id=pulumi.get(__ret__, 'slack_team_id'),
         slack_team_name=pulumi.get(__ret__, 'slack_team_name'))
-def get_slack_workspace_output(slack_team_name: Optional[pulumi.Input[builtins.str]] = None,
+def get_slack_workspace_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                               slack_team_name: Optional[pulumi.Input[builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSlackWorkspaceResult]:
     """
     Data source for managing an AWS Chatbot Slack Workspace.
@@ -116,13 +130,16 @@ def get_slack_workspace_output(slack_team_name: Optional[pulumi.Input[builtins.s
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str slack_team_name: Slack workspace name configured with AWS Chatbot.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['slackTeamName'] = slack_team_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:chatbot/getSlackWorkspace:getSlackWorkspace', __args__, opts=opts, typ=GetSlackWorkspaceResult)
     return __ret__.apply(lambda __response__: GetSlackWorkspaceResult(
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         slack_team_id=pulumi.get(__response__, 'slack_team_id'),
         slack_team_name=pulumi.get(__response__, 'slack_team_name')))

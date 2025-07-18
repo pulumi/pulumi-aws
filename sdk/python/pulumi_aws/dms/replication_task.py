@@ -28,6 +28,7 @@ class ReplicationTaskArgs:
                  target_endpoint_arn: pulumi.Input[builtins.str],
                  cdc_start_position: Optional[pulumi.Input[builtins.str]] = None,
                  cdc_start_time: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_task_settings: Optional[pulumi.Input[builtins.str]] = None,
                  resource_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  start_replication_task: Optional[pulumi.Input[builtins.bool]] = None,
@@ -42,6 +43,7 @@ class ReplicationTaskArgs:
         :param pulumi.Input[builtins.str] target_endpoint_arn: ARN that uniquely identifies the target endpoint.
         :param pulumi.Input[builtins.str] cdc_start_position: Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         :param pulumi.Input[builtins.str] cdc_start_time: RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_task_settings: Escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html). Note that `Logging.CloudWatchLogGroup` and `Logging.CloudWatchLogStream` are read only and should not be defined, even as `null`, in the configuration since AWS provides a value for these settings.
         :param pulumi.Input[builtins.str] resource_identifier: A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
         :param pulumi.Input[builtins.bool] start_replication_task: Whether to run or stop the replication task.
@@ -57,6 +59,8 @@ class ReplicationTaskArgs:
             pulumi.set(__self__, "cdc_start_position", cdc_start_position)
         if cdc_start_time is not None:
             pulumi.set(__self__, "cdc_start_time", cdc_start_time)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replication_task_settings is not None:
             pulumi.set(__self__, "replication_task_settings", replication_task_settings)
         if resource_identifier is not None:
@@ -163,6 +167,18 @@ class ReplicationTaskArgs:
         pulumi.set(self, "cdc_start_time", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replicationTaskSettings")
     def replication_task_settings(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -217,6 +233,7 @@ class _ReplicationTaskState:
                  cdc_start_position: Optional[pulumi.Input[builtins.str]] = None,
                  cdc_start_time: Optional[pulumi.Input[builtins.str]] = None,
                  migration_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_instance_arn: Optional[pulumi.Input[builtins.str]] = None,
                  replication_task_arn: Optional[pulumi.Input[builtins.str]] = None,
                  replication_task_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -234,6 +251,7 @@ class _ReplicationTaskState:
         :param pulumi.Input[builtins.str] cdc_start_position: Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         :param pulumi.Input[builtins.str] cdc_start_time: RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
         :param pulumi.Input[builtins.str] migration_type: Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_instance_arn: ARN of the replication instance.
         :param pulumi.Input[builtins.str] replication_task_arn: ARN for the replication task.
         :param pulumi.Input[builtins.str] replication_task_id: Replication task identifier which must contain from 1 to 255 alphanumeric characters or hyphens, first character must be a letter, cannot end with a hyphen, and cannot contain two consecutive hyphens.
@@ -253,6 +271,8 @@ class _ReplicationTaskState:
             pulumi.set(__self__, "cdc_start_time", cdc_start_time)
         if migration_type is not None:
             pulumi.set(__self__, "migration_type", migration_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replication_instance_arn is not None:
             pulumi.set(__self__, "replication_instance_arn", replication_instance_arn)
         if replication_task_arn is not None:
@@ -273,9 +293,6 @@ class _ReplicationTaskState:
             pulumi.set(__self__, "table_mappings", table_mappings)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if target_endpoint_arn is not None:
@@ -316,6 +333,18 @@ class _ReplicationTaskState:
     @migration_type.setter
     def migration_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "migration_type", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="replicationInstanceArn")
@@ -439,7 +468,6 @@ class _ReplicationTaskState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -472,6 +500,7 @@ class ReplicationTask(pulumi.CustomResource):
                  cdc_start_position: Optional[pulumi.Input[builtins.str]] = None,
                  cdc_start_time: Optional[pulumi.Input[builtins.str]] = None,
                  migration_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_instance_arn: Optional[pulumi.Input[builtins.str]] = None,
                  replication_task_id: Optional[pulumi.Input[builtins.str]] = None,
                  replication_task_settings: Optional[pulumi.Input[builtins.str]] = None,
@@ -521,6 +550,7 @@ class ReplicationTask(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cdc_start_position: Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         :param pulumi.Input[builtins.str] cdc_start_time: RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
         :param pulumi.Input[builtins.str] migration_type: Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_instance_arn: ARN of the replication instance.
         :param pulumi.Input[builtins.str] replication_task_id: Replication task identifier which must contain from 1 to 255 alphanumeric characters or hyphens, first character must be a letter, cannot end with a hyphen, and cannot contain two consecutive hyphens.
         :param pulumi.Input[builtins.str] replication_task_settings: Escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html). Note that `Logging.CloudWatchLogGroup` and `Logging.CloudWatchLogStream` are read only and should not be defined, even as `null`, in the configuration since AWS provides a value for these settings.
@@ -589,6 +619,7 @@ class ReplicationTask(pulumi.CustomResource):
                  cdc_start_position: Optional[pulumi.Input[builtins.str]] = None,
                  cdc_start_time: Optional[pulumi.Input[builtins.str]] = None,
                  migration_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_instance_arn: Optional[pulumi.Input[builtins.str]] = None,
                  replication_task_id: Optional[pulumi.Input[builtins.str]] = None,
                  replication_task_settings: Optional[pulumi.Input[builtins.str]] = None,
@@ -612,6 +643,7 @@ class ReplicationTask(pulumi.CustomResource):
             if migration_type is None and not opts.urn:
                 raise TypeError("Missing required property 'migration_type'")
             __props__.__dict__["migration_type"] = migration_type
+            __props__.__dict__["region"] = region
             if replication_instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'replication_instance_arn'")
             __props__.__dict__["replication_instance_arn"] = replication_instance_arn
@@ -647,6 +679,7 @@ class ReplicationTask(pulumi.CustomResource):
             cdc_start_position: Optional[pulumi.Input[builtins.str]] = None,
             cdc_start_time: Optional[pulumi.Input[builtins.str]] = None,
             migration_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replication_instance_arn: Optional[pulumi.Input[builtins.str]] = None,
             replication_task_arn: Optional[pulumi.Input[builtins.str]] = None,
             replication_task_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -669,6 +702,7 @@ class ReplicationTask(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cdc_start_position: Indicates when you want a change data capture (CDC) operation to start. The value can be a RFC3339 formatted date, a checkpoint, or a LSN/SCN format depending on the source engine. For more information see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         :param pulumi.Input[builtins.str] cdc_start_time: RFC3339 formatted date string or UNIX timestamp for the start of the Change Data Capture (CDC) operation.
         :param pulumi.Input[builtins.str] migration_type: Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_instance_arn: ARN of the replication instance.
         :param pulumi.Input[builtins.str] replication_task_arn: ARN for the replication task.
         :param pulumi.Input[builtins.str] replication_task_id: Replication task identifier which must contain from 1 to 255 alphanumeric characters or hyphens, first character must be a letter, cannot end with a hyphen, and cannot contain two consecutive hyphens.
@@ -689,6 +723,7 @@ class ReplicationTask(pulumi.CustomResource):
         __props__.__dict__["cdc_start_position"] = cdc_start_position
         __props__.__dict__["cdc_start_time"] = cdc_start_time
         __props__.__dict__["migration_type"] = migration_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["replication_instance_arn"] = replication_instance_arn
         __props__.__dict__["replication_task_arn"] = replication_task_arn
         __props__.__dict__["replication_task_id"] = replication_task_id
@@ -726,6 +761,14 @@ class ReplicationTask(pulumi.CustomResource):
         Migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
         """
         return pulumi.get(self, "migration_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="replicationInstanceArn")
@@ -809,7 +852,6 @@ class ReplicationTask(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

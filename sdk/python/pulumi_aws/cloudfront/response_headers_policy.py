@@ -25,7 +25,6 @@ class ResponseHeadersPolicyArgs:
                  comment: Optional[pulumi.Input[builtins.str]] = None,
                  cors_config: Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigArgs']] = None,
                  custom_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']] = None,
-                 etag: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  remove_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs']] = None,
                  security_headers_config: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']] = None,
@@ -35,7 +34,6 @@ class ResponseHeadersPolicyArgs:
         :param pulumi.Input[builtins.str] comment: A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         :param pulumi.Input['ResponseHeadersPolicyCorsConfigArgs'] cors_config: A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
         :param pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs'] custom_headers_config: Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
-        :param pulumi.Input[builtins.str] etag: The current version of the response headers policy.
         :param pulumi.Input[builtins.str] name: A unique name to identify the response headers policy.
         :param pulumi.Input['ResponseHeadersPolicyRemoveHeadersConfigArgs'] remove_headers_config: A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
         :param pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs'] security_headers_config: A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
@@ -47,8 +45,6 @@ class ResponseHeadersPolicyArgs:
             pulumi.set(__self__, "cors_config", cors_config)
         if custom_headers_config is not None:
             pulumi.set(__self__, "custom_headers_config", custom_headers_config)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if remove_headers_config is not None:
@@ -93,18 +89,6 @@ class ResponseHeadersPolicyArgs:
     @custom_headers_config.setter
     def custom_headers_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']]):
         pulumi.set(self, "custom_headers_config", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The current version of the response headers policy.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter
@@ -316,7 +300,6 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[builtins.str]] = None,
                  cors_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyCorsConfigArgs', 'ResponseHeadersPolicyCorsConfigArgsDict']]] = None,
                  custom_headers_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyCustomHeadersConfigArgs', 'ResponseHeadersPolicyCustomHeadersConfigArgsDict']]] = None,
-                 etag: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  remove_headers_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyRemoveHeadersConfigArgs', 'ResponseHeadersPolicyRemoveHeadersConfigArgsDict']]] = None,
                  security_headers_config: Optional[pulumi.Input[Union['ResponseHeadersPolicySecurityHeadersConfigArgs', 'ResponseHeadersPolicySecurityHeadersConfigArgsDict']]] = None,
@@ -417,7 +400,6 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] comment: A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         :param pulumi.Input[Union['ResponseHeadersPolicyCorsConfigArgs', 'ResponseHeadersPolicyCorsConfigArgsDict']] cors_config: A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
         :param pulumi.Input[Union['ResponseHeadersPolicyCustomHeadersConfigArgs', 'ResponseHeadersPolicyCustomHeadersConfigArgsDict']] custom_headers_config: Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
-        :param pulumi.Input[builtins.str] etag: The current version of the response headers policy.
         :param pulumi.Input[builtins.str] name: A unique name to identify the response headers policy.
         :param pulumi.Input[Union['ResponseHeadersPolicyRemoveHeadersConfigArgs', 'ResponseHeadersPolicyRemoveHeadersConfigArgsDict']] remove_headers_config: A configuration for a set of HTTP headers to remove from the HTTP response. Object that contains an attribute `items` that contains a list of headers. See Remove Header for more information.
         :param pulumi.Input[Union['ResponseHeadersPolicySecurityHeadersConfigArgs', 'ResponseHeadersPolicySecurityHeadersConfigArgsDict']] security_headers_config: A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
@@ -537,7 +519,6 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                  comment: Optional[pulumi.Input[builtins.str]] = None,
                  cors_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyCorsConfigArgs', 'ResponseHeadersPolicyCorsConfigArgsDict']]] = None,
                  custom_headers_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyCustomHeadersConfigArgs', 'ResponseHeadersPolicyCustomHeadersConfigArgsDict']]] = None,
-                 etag: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  remove_headers_config: Optional[pulumi.Input[Union['ResponseHeadersPolicyRemoveHeadersConfigArgs', 'ResponseHeadersPolicyRemoveHeadersConfigArgsDict']]] = None,
                  security_headers_config: Optional[pulumi.Input[Union['ResponseHeadersPolicySecurityHeadersConfigArgs', 'ResponseHeadersPolicySecurityHeadersConfigArgsDict']]] = None,
@@ -554,12 +535,12 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             __props__.__dict__["comment"] = comment
             __props__.__dict__["cors_config"] = cors_config
             __props__.__dict__["custom_headers_config"] = custom_headers_config
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["name"] = name
             __props__.__dict__["remove_headers_config"] = remove_headers_config
             __props__.__dict__["security_headers_config"] = security_headers_config
             __props__.__dict__["server_timing_headers_config"] = server_timing_headers_config
             __props__.__dict__["arn"] = None
+            __props__.__dict__["etag"] = None
         super(ResponseHeadersPolicy, __self__).__init__(
             'aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy',
             resource_name,

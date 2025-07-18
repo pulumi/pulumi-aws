@@ -28,7 +28,7 @@ class GetUserResult:
     """
     A collection of values returned by getUser.
     """
-    def __init__(__self__, arn=None, directory_user_id=None, hierarchy_group_id=None, id=None, identity_infos=None, instance_id=None, name=None, phone_configs=None, routing_profile_id=None, security_profile_ids=None, tags=None, user_id=None):
+    def __init__(__self__, arn=None, directory_user_id=None, hierarchy_group_id=None, id=None, identity_infos=None, instance_id=None, name=None, phone_configs=None, region=None, routing_profile_id=None, security_profile_ids=None, tags=None, user_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -53,6 +53,9 @@ class GetUserResult:
         if phone_configs and not isinstance(phone_configs, list):
             raise TypeError("Expected argument 'phone_configs' to be a list")
         pulumi.set(__self__, "phone_configs", phone_configs)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if routing_profile_id and not isinstance(routing_profile_id, str):
             raise TypeError("Expected argument 'routing_profile_id' to be a str")
         pulumi.set(__self__, "routing_profile_id", routing_profile_id)
@@ -128,6 +131,11 @@ class GetUserResult:
         return pulumi.get(self, "phone_configs")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="routingProfileId")
     def routing_profile_id(self) -> builtins.str:
         """
@@ -171,6 +179,7 @@ class AwaitableGetUserResult(GetUserResult):
             instance_id=self.instance_id,
             name=self.name,
             phone_configs=self.phone_configs,
+            region=self.region,
             routing_profile_id=self.routing_profile_id,
             security_profile_ids=self.security_profile_ids,
             tags=self.tags,
@@ -179,6 +188,7 @@ class AwaitableGetUserResult(GetUserResult):
 
 def get_user(instance_id: Optional[builtins.str] = None,
              name: Optional[builtins.str] = None,
+             region: Optional[builtins.str] = None,
              tags: Optional[Mapping[str, builtins.str]] = None,
              user_id: Optional[builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
@@ -210,6 +220,7 @@ def get_user(instance_id: Optional[builtins.str] = None,
 
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param builtins.str name: Returns information on a specific User by name
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags to assign to the User.
     :param builtins.str user_id: Returns information on a specific User by User id
            
@@ -218,6 +229,7 @@ def get_user(instance_id: Optional[builtins.str] = None,
     __args__ = dict()
     __args__['instanceId'] = instance_id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['userId'] = user_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -232,12 +244,14 @@ def get_user(instance_id: Optional[builtins.str] = None,
         instance_id=pulumi.get(__ret__, 'instance_id'),
         name=pulumi.get(__ret__, 'name'),
         phone_configs=pulumi.get(__ret__, 'phone_configs'),
+        region=pulumi.get(__ret__, 'region'),
         routing_profile_id=pulumi.get(__ret__, 'routing_profile_id'),
         security_profile_ids=pulumi.get(__ret__, 'security_profile_ids'),
         tags=pulumi.get(__ret__, 'tags'),
         user_id=pulumi.get(__ret__, 'user_id'))
 def get_user_output(instance_id: Optional[pulumi.Input[builtins.str]] = None,
                     name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                    region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                     user_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
@@ -269,6 +283,7 @@ def get_user_output(instance_id: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str instance_id: Reference to the hosting Amazon Connect Instance
     :param builtins.str name: Returns information on a specific User by name
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags to assign to the User.
     :param builtins.str user_id: Returns information on a specific User by User id
            
@@ -277,6 +292,7 @@ def get_user_output(instance_id: Optional[pulumi.Input[builtins.str]] = None,
     __args__ = dict()
     __args__['instanceId'] = instance_id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['userId'] = user_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -290,6 +306,7 @@ def get_user_output(instance_id: Optional[pulumi.Input[builtins.str]] = None,
         instance_id=pulumi.get(__response__, 'instance_id'),
         name=pulumi.get(__response__, 'name'),
         phone_configs=pulumi.get(__response__, 'phone_configs'),
+        region=pulumi.get(__response__, 'region'),
         routing_profile_id=pulumi.get(__response__, 'routing_profile_id'),
         security_profile_ids=pulumi.get(__response__, 'security_profile_ids'),
         tags=pulumi.get(__response__, 'tags'),

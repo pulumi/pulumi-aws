@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,6 +64,8 @@ type AuthorizeVpcEndpointAccess struct {
 	AuthorizedPrincipals AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput `pulumi:"authorizedPrincipals"`
 	// Name of OpenSearch Service domain to provide access to.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewAuthorizeVpcEndpointAccess registers a new resource with the given unique name, arguments, and options.
@@ -108,6 +110,8 @@ type authorizeVpcEndpointAccessState struct {
 	AuthorizedPrincipals []AuthorizeVpcEndpointAccessAuthorizedPrincipal `pulumi:"authorizedPrincipals"`
 	// Name of OpenSearch Service domain to provide access to.
 	DomainName *string `pulumi:"domainName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type AuthorizeVpcEndpointAccessState struct {
@@ -117,6 +121,8 @@ type AuthorizeVpcEndpointAccessState struct {
 	AuthorizedPrincipals AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayInput
 	// Name of OpenSearch Service domain to provide access to.
 	DomainName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AuthorizeVpcEndpointAccessState) ElementType() reflect.Type {
@@ -128,6 +134,8 @@ type authorizeVpcEndpointAccessArgs struct {
 	Account string `pulumi:"account"`
 	// Name of OpenSearch Service domain to provide access to.
 	DomainName string `pulumi:"domainName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a AuthorizeVpcEndpointAccess resource.
@@ -136,6 +144,8 @@ type AuthorizeVpcEndpointAccessArgs struct {
 	Account pulumi.StringInput
 	// Name of OpenSearch Service domain to provide access to.
 	DomainName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (AuthorizeVpcEndpointAccessArgs) ElementType() reflect.Type {
@@ -240,6 +250,11 @@ func (o AuthorizeVpcEndpointAccessOutput) AuthorizedPrincipals() AuthorizeVpcEnd
 // Name of OpenSearch Service domain to provide access to.
 func (o AuthorizeVpcEndpointAccessOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthorizeVpcEndpointAccess) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AuthorizeVpcEndpointAccessOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AuthorizeVpcEndpointAccess) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type AuthorizeVpcEndpointAccessArrayOutput struct{ *pulumi.OutputState }

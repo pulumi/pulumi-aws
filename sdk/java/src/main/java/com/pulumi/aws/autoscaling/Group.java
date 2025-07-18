@@ -5,6 +5,7 @@ package com.pulumi.aws.autoscaling;
 
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.autoscaling.GroupArgs;
+import com.pulumi.aws.autoscaling.enums.Metric;
 import com.pulumi.aws.autoscaling.inputs.GroupState;
 import com.pulumi.aws.autoscaling.outputs.GroupAvailabilityZoneDistribution;
 import com.pulumi.aws.autoscaling.outputs.GroupCapacityReservationSpecification;
@@ -874,14 +875,14 @@ public class Group extends com.pulumi.resources.CustomResource {
      * List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      * 
      */
-    @Export(name="enabledMetrics", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> enabledMetrics;
+    @Export(name="enabledMetrics", refs={List.class,Metric.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<Metric>> enabledMetrics;
 
     /**
      * @return List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
      * 
      */
-    public Output<Optional<List<String>>> enabledMetrics() {
+    public Output<Optional<List<Metric>>> enabledMetrics() {
         return Codegen.optional(this.enabledMetrics);
     }
     /**
@@ -1235,6 +1236,20 @@ public class Group extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> protectFromScaleIn() {
         return Codegen.optional(this.protectFromScaleIn);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * ARN of the service-linked role that the ASG will use to call other AWS services

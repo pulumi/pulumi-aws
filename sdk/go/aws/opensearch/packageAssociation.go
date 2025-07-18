@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,6 +71,8 @@ type PackageAssociation struct {
 	// Internal ID of the package to associate with a domain.
 	PackageId     pulumi.StringOutput `pulumi:"packageId"`
 	ReferencePath pulumi.StringOutput `pulumi:"referencePath"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewPackageAssociation registers a new resource with the given unique name, arguments, and options.
@@ -114,6 +116,8 @@ type packageAssociationState struct {
 	// Internal ID of the package to associate with a domain.
 	PackageId     *string `pulumi:"packageId"`
 	ReferencePath *string `pulumi:"referencePath"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type PackageAssociationState struct {
@@ -122,6 +126,8 @@ type PackageAssociationState struct {
 	// Internal ID of the package to associate with a domain.
 	PackageId     pulumi.StringPtrInput
 	ReferencePath pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PackageAssociationState) ElementType() reflect.Type {
@@ -133,6 +139,8 @@ type packageAssociationArgs struct {
 	DomainName string `pulumi:"domainName"`
 	// Internal ID of the package to associate with a domain.
 	PackageId string `pulumi:"packageId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a PackageAssociation resource.
@@ -141,6 +149,8 @@ type PackageAssociationArgs struct {
 	DomainName pulumi.StringInput
 	// Internal ID of the package to associate with a domain.
 	PackageId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PackageAssociationArgs) ElementType() reflect.Type {
@@ -242,6 +252,11 @@ func (o PackageAssociationOutput) PackageId() pulumi.StringOutput {
 
 func (o PackageAssociationOutput) ReferencePath() pulumi.StringOutput {
 	return o.ApplyT(func(v *PackageAssociation) pulumi.StringOutput { return v.ReferencePath }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o PackageAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *PackageAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type PackageAssociationArrayOutput struct{ *pulumi.OutputState }

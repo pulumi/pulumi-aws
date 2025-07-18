@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/inspector2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,8 +56,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/inspector2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/inspector2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,6 +91,8 @@ type Enabler struct {
 	// Set of account IDs.
 	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
 	AccountIds pulumi.StringArrayOutput `pulumi:"accountIds"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Type of resources to scan.
 	// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
 	// At least one item is required.
@@ -136,6 +138,8 @@ type enablerState struct {
 	// Set of account IDs.
 	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
 	AccountIds []string `pulumi:"accountIds"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Type of resources to scan.
 	// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
 	// At least one item is required.
@@ -146,6 +150,8 @@ type EnablerState struct {
 	// Set of account IDs.
 	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
 	AccountIds pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Type of resources to scan.
 	// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
 	// At least one item is required.
@@ -160,6 +166,8 @@ type enablerArgs struct {
 	// Set of account IDs.
 	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
 	AccountIds []string `pulumi:"accountIds"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Type of resources to scan.
 	// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
 	// At least one item is required.
@@ -171,6 +179,8 @@ type EnablerArgs struct {
 	// Set of account IDs.
 	// Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
 	AccountIds pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Type of resources to scan.
 	// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
 	// At least one item is required.
@@ -268,6 +278,11 @@ func (o EnablerOutput) ToEnablerOutputWithContext(ctx context.Context) EnablerOu
 // Can contain one of: the Organization's Administrator Account, or one or more Member Accounts.
 func (o EnablerOutput) AccountIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Enabler) pulumi.StringArrayOutput { return v.AccountIds }).(pulumi.StringArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o EnablerOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Enabler) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Type of resources to scan.

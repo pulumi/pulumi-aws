@@ -60,6 +60,10 @@ export class ServiceSetting extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the service setting.
      */
     public readonly settingId!: pulumi.Output<string>;
@@ -86,6 +90,7 @@ export class ServiceSetting extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ServiceSettingState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["settingId"] = state ? state.settingId : undefined;
             resourceInputs["settingValue"] = state ? state.settingValue : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -97,6 +102,7 @@ export class ServiceSetting extends pulumi.CustomResource {
             if ((!args || args.settingValue === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'settingValue'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["settingId"] = args ? args.settingId : undefined;
             resourceInputs["settingValue"] = args ? args.settingValue : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -116,6 +122,10 @@ export interface ServiceSettingState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ID of the service setting.
      */
     settingId?: pulumi.Input<string>;
@@ -133,6 +143,10 @@ export interface ServiceSettingState {
  * The set of arguments for constructing a ServiceSetting resource.
  */
 export interface ServiceSettingArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the service setting.
      */

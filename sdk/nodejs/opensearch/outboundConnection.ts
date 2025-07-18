@@ -25,12 +25,12 @@ import * as utilities from "../utilities";
  *     connectionMode: "DIRECT",
  *     localDomainInfo: {
  *         ownerId: current.then(current => current.accountId),
- *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.name),
+ *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.region),
  *         domainName: localDomain.domainName,
  *     },
  *     remoteDomainInfo: {
  *         ownerId: current.then(current => current.accountId),
- *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.name),
+ *         region: currentGetRegion.then(currentGetRegion => currentGetRegion.region),
  *         domainName: remoteDomain.domainName,
  *     },
  * });
@@ -97,6 +97,10 @@ export class OutboundConnection extends pulumi.CustomResource {
      */
     public readonly localDomainInfo!: pulumi.Output<outputs.opensearch.OutboundConnectionLocalDomainInfo>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block for the remote Opensearch domain.
      */
     public readonly remoteDomainInfo!: pulumi.Output<outputs.opensearch.OutboundConnectionRemoteDomainInfo>;
@@ -120,6 +124,7 @@ export class OutboundConnection extends pulumi.CustomResource {
             resourceInputs["connectionProperties"] = state ? state.connectionProperties : undefined;
             resourceInputs["connectionStatus"] = state ? state.connectionStatus : undefined;
             resourceInputs["localDomainInfo"] = state ? state.localDomainInfo : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["remoteDomainInfo"] = state ? state.remoteDomainInfo : undefined;
         } else {
             const args = argsOrState as OutboundConnectionArgs | undefined;
@@ -137,6 +142,7 @@ export class OutboundConnection extends pulumi.CustomResource {
             resourceInputs["connectionMode"] = args ? args.connectionMode : undefined;
             resourceInputs["connectionProperties"] = args ? args.connectionProperties : undefined;
             resourceInputs["localDomainInfo"] = args ? args.localDomainInfo : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["remoteDomainInfo"] = args ? args.remoteDomainInfo : undefined;
             resourceInputs["connectionStatus"] = undefined /*out*/;
         }
@@ -174,6 +180,10 @@ export interface OutboundConnectionState {
      */
     localDomainInfo?: pulumi.Input<inputs.opensearch.OutboundConnectionLocalDomainInfo>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block for the remote Opensearch domain.
      */
     remoteDomainInfo?: pulumi.Input<inputs.opensearch.OutboundConnectionRemoteDomainInfo>;
@@ -203,6 +213,10 @@ export interface OutboundConnectionArgs {
      * Configuration block for the local Opensearch domain.
      */
     localDomainInfo: pulumi.Input<inputs.opensearch.OutboundConnectionLocalDomainInfo>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for the remote Opensearch domain.
      */

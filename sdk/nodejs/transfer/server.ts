@@ -244,6 +244,10 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly protocols!: pulumi.Output<string[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
      */
     public readonly s3StorageOptions!: pulumi.Output<outputs.transfer.ServerS3StorageOptions>;
@@ -284,8 +288,6 @@ export class Server extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -328,6 +330,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["preAuthenticationLoginBanner"] = state ? state.preAuthenticationLoginBanner : undefined;
             resourceInputs["protocolDetails"] = state ? state.protocolDetails : undefined;
             resourceInputs["protocols"] = state ? state.protocols : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["s3StorageOptions"] = state ? state.s3StorageOptions : undefined;
             resourceInputs["securityPolicyName"] = state ? state.securityPolicyName : undefined;
             resourceInputs["sftpAuthenticationMethods"] = state ? state.sftpAuthenticationMethods : undefined;
@@ -353,6 +356,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["preAuthenticationLoginBanner"] = args?.preAuthenticationLoginBanner ? pulumi.secret(args.preAuthenticationLoginBanner) : undefined;
             resourceInputs["protocolDetails"] = args ? args.protocolDetails : undefined;
             resourceInputs["protocols"] = args ? args.protocols : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["s3StorageOptions"] = args ? args.s3StorageOptions : undefined;
             resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
             resourceInputs["sftpAuthenticationMethods"] = args ? args.sftpAuthenticationMethods : undefined;
@@ -453,6 +457,10 @@ export interface ServerState {
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
      */
     s3StorageOptions?: pulumi.Input<inputs.transfer.ServerS3StorageOptions>;
@@ -493,8 +501,6 @@ export interface ServerState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -575,6 +581,10 @@ export interface ServerArgs {
      * * `FTP`: Unencrypted file transfer
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default. See `s3StorageOptions` Block below for details.
      */

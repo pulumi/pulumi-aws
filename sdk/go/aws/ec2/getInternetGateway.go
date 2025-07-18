@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -65,6 +65,8 @@ type LookupInternetGatewayArgs struct {
 	Filters []GetInternetGatewayFilter `pulumi:"filters"`
 	// ID of the specific Internet Gateway to retrieve.
 	InternetGatewayId *string `pulumi:"internetGatewayId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired Internet Gateway.
 	Tags map[string]string `pulumi:"tags"`
@@ -81,6 +83,7 @@ type LookupInternetGatewayResult struct {
 	InternetGatewayId string `pulumi:"internetGatewayId"`
 	// ID of the AWS account that owns the internet gateway.
 	OwnerId string            `pulumi:"ownerId"`
+	Region  string            `pulumi:"region"`
 	Tags    map[string]string `pulumi:"tags"`
 }
 
@@ -102,6 +105,8 @@ type LookupInternetGatewayOutputArgs struct {
 	Filters GetInternetGatewayFilterArrayInput `pulumi:"filters"`
 	// ID of the specific Internet Gateway to retrieve.
 	InternetGatewayId pulumi.StringPtrInput `pulumi:"internetGatewayId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired Internet Gateway.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -151,6 +156,10 @@ func (o LookupInternetGatewayResultOutput) InternetGatewayId() pulumi.StringOutp
 // ID of the AWS account that owns the internet gateway.
 func (o LookupInternetGatewayResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInternetGatewayResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o LookupInternetGatewayResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupInternetGatewayResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupInternetGatewayResultOutput) Tags() pulumi.StringMapOutput {

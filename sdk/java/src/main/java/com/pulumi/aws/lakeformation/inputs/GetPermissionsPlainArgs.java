@@ -148,6 +148,21 @@ public final class GetPermissionsPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration block for a table resource. Detailed below.
      * 
      */
@@ -192,6 +207,7 @@ public final class GetPermissionsPlainArgs extends com.pulumi.resources.InvokeAr
         this.lfTag = $.lfTag;
         this.lfTagPolicy = $.lfTagPolicy;
         this.principal = $.principal;
+        this.region = $.region;
         this.table = $.table;
         this.tableWithColumns = $.tableWithColumns;
     }
@@ -301,6 +317,17 @@ public final class GetPermissionsPlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder principal(String principal) {
             $.principal = principal;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

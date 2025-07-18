@@ -69,6 +69,10 @@ export class EipDomainName extends pulumi.CustomResource {
      * The DNS pointer (PTR) record for the IP address.
      */
     public /*out*/ readonly ptrRecord!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly timeouts!: pulumi.Output<outputs.ec2.EipDomainNameTimeouts | undefined>;
 
     /**
@@ -87,6 +91,7 @@ export class EipDomainName extends pulumi.CustomResource {
             resourceInputs["allocationId"] = state ? state.allocationId : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["ptrRecord"] = state ? state.ptrRecord : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as EipDomainNameArgs | undefined;
@@ -98,6 +103,7 @@ export class EipDomainName extends pulumi.CustomResource {
             }
             resourceInputs["allocationId"] = args ? args.allocationId : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["ptrRecord"] = undefined /*out*/;
         }
@@ -122,6 +128,10 @@ export interface EipDomainNameState {
      * The DNS pointer (PTR) record for the IP address.
      */
     ptrRecord?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2.EipDomainNameTimeouts>;
 }
 
@@ -137,5 +147,9 @@ export interface EipDomainNameArgs {
      * The domain name to modify for the IP address.
      */
     domainName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.ec2.EipDomainNameTimeouts>;
 }

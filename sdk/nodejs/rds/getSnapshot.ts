@@ -48,6 +48,7 @@ export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions)
         "includePublic": args.includePublic,
         "includeShared": args.includeShared,
         "mostRecent": args.mostRecent,
+        "region": args.region,
         "snapshotType": args.snapshotType,
         "tags": args.tags,
     }, opts);
@@ -81,6 +82,10 @@ export interface GetSnapshotArgs {
      * recent Snapshot.
      */
     mostRecent?: boolean;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Type of snapshots to be returned. If you don't specify a SnapshotType
      * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
@@ -154,6 +159,7 @@ export interface GetSnapshotResult {
      */
     readonly originalSnapshotCreateTime: string;
     readonly port: number;
+    readonly region: string;
     /**
      * Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes for the copy when the snapshot is copied.
      */
@@ -225,6 +231,7 @@ export function getSnapshotOutput(args?: GetSnapshotOutputArgs, opts?: pulumi.In
         "includePublic": args.includePublic,
         "includeShared": args.includeShared,
         "mostRecent": args.mostRecent,
+        "region": args.region,
         "snapshotType": args.snapshotType,
         "tags": args.tags,
     }, opts);
@@ -258,6 +265,10 @@ export interface GetSnapshotOutputArgs {
      * recent Snapshot.
      */
     mostRecent?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Type of snapshots to be returned. If you don't specify a SnapshotType
      * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not

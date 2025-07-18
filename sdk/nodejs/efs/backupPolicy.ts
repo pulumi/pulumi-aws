@@ -70,6 +70,10 @@ export class BackupPolicy extends pulumi.CustomResource {
      * The ID of the EFS file system.
      */
     public readonly fileSystemId!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a BackupPolicy resource with the given unique name, arguments, and options.
@@ -86,6 +90,7 @@ export class BackupPolicy extends pulumi.CustomResource {
             const state = argsOrState as BackupPolicyState | undefined;
             resourceInputs["backupPolicy"] = state ? state.backupPolicy : undefined;
             resourceInputs["fileSystemId"] = state ? state.fileSystemId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as BackupPolicyArgs | undefined;
             if ((!args || args.backupPolicy === undefined) && !opts.urn) {
@@ -96,6 +101,7 @@ export class BackupPolicy extends pulumi.CustomResource {
             }
             resourceInputs["backupPolicy"] = args ? args.backupPolicy : undefined;
             resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BackupPolicy.__pulumiType, name, resourceInputs, opts);
@@ -114,6 +120,10 @@ export interface BackupPolicyState {
      * The ID of the EFS file system.
      */
     fileSystemId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -128,4 +138,8 @@ export interface BackupPolicyArgs {
      * The ID of the EFS file system.
      */
     fileSystemId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

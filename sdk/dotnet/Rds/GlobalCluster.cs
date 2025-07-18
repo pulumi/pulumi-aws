@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Rds
     /// 
     ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance("primary", new()
     ///     {
-    ///         Engine = example.Engine,
+    ///         Engine = example.Engine.Apply(System.Enum.Parse&lt;Aws.Rds.EngineType&gt;),
     ///         EngineVersion = example.EngineVersion,
     ///         Identifier = "test-primary-cluster-instance",
     ///         ClusterIdentifier = primary.Id,
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Rds
     /// 
     ///     var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondary", new()
     ///     {
-    ///         Engine = example.Engine,
+    ///         Engine = example.Engine.Apply(System.Enum.Parse&lt;Aws.Rds.EngineType&gt;),
     ///         EngineVersion = example.EngineVersion,
     ///         Identifier = "test-secondary-cluster-instance",
     ///         ClusterIdentifier = secondary.Id,
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Rds
     /// 
     ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance("primary", new()
     ///     {
-    ///         Engine = example.Engine,
+    ///         Engine = example.Engine.Apply(System.Enum.Parse&lt;Aws.Rds.EngineType&gt;),
     ///         EngineVersion = example.EngineVersion,
     ///         Identifier = "test-primary-cluster-instance",
     ///         ClusterIdentifier = primary.Id,
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Rds
     /// 
     ///     var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondary", new()
     ///     {
-    ///         Engine = example.Engine,
+    ///         Engine = example.Engine.Apply(System.Enum.Parse&lt;Aws.Rds.EngineType&gt;),
     ///         EngineVersion = example.EngineVersion,
     ///         Identifier = "test-secondary-cluster-instance",
     ///         ClusterIdentifier = secondary.Id,
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.Rds
     ///     {
     ///         ApplyImmediately = true,
     ///         ClusterIdentifier = primary.Id,
-    ///         Engine = primary.Engine,
+    ///         Engine = primary.Engine.Apply(System.Enum.Parse&lt;Aws.Rds.EngineType&gt;),
     ///         EngineVersion = primary.EngineVersion,
     ///         Identifier = "donetsklviv",
     ///         InstanceClass = Aws.Rds.InstanceType.R4_Large,
@@ -303,6 +303,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Output("globalClusterResourceId")]
         public Output<string> GlobalClusterResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engine_version`. This allows upgrading the engine version of the Global Cluster.
@@ -417,6 +423,12 @@ namespace Pulumi.Aws.Rds
         public Input<string> GlobalClusterIdentifier { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engine_version`. This allows upgrading the engine version of the Global Cluster.
         /// </summary>
         [Input("sourceDbClusterIdentifier")]
@@ -524,6 +536,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? GlobalClusterResourceId { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engine_version`. This allows upgrading the engine version of the Global Cluster.
         /// </summary>
         [Input("sourceDbClusterIdentifier")]
@@ -553,7 +571,6 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

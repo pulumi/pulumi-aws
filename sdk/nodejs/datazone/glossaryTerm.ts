@@ -149,6 +149,10 @@ export class GlossaryTerm extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Short description of entry.
      */
     public readonly shortDescription!: pulumi.Output<string | undefined>;
@@ -181,6 +185,7 @@ export class GlossaryTerm extends pulumi.CustomResource {
             resourceInputs["glossaryIdentifier"] = state ? state.glossaryIdentifier : undefined;
             resourceInputs["longDescription"] = state ? state.longDescription : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["shortDescription"] = state ? state.shortDescription : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["termRelations"] = state ? state.termRelations : undefined;
@@ -194,6 +199,7 @@ export class GlossaryTerm extends pulumi.CustomResource {
             resourceInputs["glossaryIdentifier"] = args ? args.glossaryIdentifier : undefined;
             resourceInputs["longDescription"] = args ? args.longDescription : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["shortDescription"] = args ? args.shortDescription : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["termRelations"] = args ? args.termRelations : undefined;
@@ -237,6 +243,10 @@ export interface GlossaryTermState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Short description of entry.
      */
     shortDescription?: pulumi.Input<string>;
@@ -273,6 +283,10 @@ export interface GlossaryTermArgs {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Short description of entry.
      */

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/opensearch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,7 +55,11 @@ type LookupServerlessCollectionArgs struct {
 	// ID of the collection.
 	Id *string `pulumi:"id"`
 	// Name of the collection.
+	//
+	// > Exactly one of `id` or `name` is required.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getServerlessCollection.
@@ -79,6 +83,7 @@ type LookupServerlessCollectionResult struct {
 	// Date the Collection was last modified.
 	LastModifiedDate string `pulumi:"lastModifiedDate"`
 	Name             string `pulumi:"name"`
+	Region           string `pulumi:"region"`
 	// Indicates whether standby replicas should be used for a collection.
 	StandbyReplicas string `pulumi:"standbyReplicas"`
 	// A map of tags to assign to the collection.
@@ -101,7 +106,11 @@ type LookupServerlessCollectionOutputArgs struct {
 	// ID of the collection.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the collection.
+	//
+	// > Exactly one of `id` or `name` is required.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupServerlessCollectionOutputArgs) ElementType() reflect.Type {
@@ -173,6 +182,10 @@ func (o LookupServerlessCollectionResultOutput) LastModifiedDate() pulumi.String
 
 func (o LookupServerlessCollectionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupServerlessCollectionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Indicates whether standby replicas should be used for a collection.

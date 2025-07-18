@@ -75,6 +75,21 @@ public final class GroupMembershipState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.membershipId);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GroupMembershipState() {}
 
     private GroupMembershipState(GroupMembershipState $) {
@@ -82,6 +97,7 @@ public final class GroupMembershipState extends com.pulumi.resources.ResourceArg
         this.identityStoreId = $.identityStoreId;
         this.memberId = $.memberId;
         this.membershipId = $.membershipId;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -184,6 +200,27 @@ public final class GroupMembershipState extends com.pulumi.resources.ResourceArg
          */
         public Builder membershipId(String membershipId) {
             return membershipId(Output.of(membershipId));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GroupMembershipState build() {

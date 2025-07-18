@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,7 +31,9 @@ type GcmChannel struct {
 	ApplicationId               pulumi.StringOutput    `pulumi:"applicationId"`
 	DefaultAuthenticationMethod pulumi.StringPtrOutput `pulumi:"defaultAuthenticationMethod"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled     pulumi.BoolPtrOutput   `pulumi:"enabled"`
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region      pulumi.StringOutput    `pulumi:"region"`
 	ServiceJson pulumi.StringPtrOutput `pulumi:"serviceJson"`
 }
 
@@ -85,7 +87,9 @@ type gcmChannelState struct {
 	ApplicationId               *string `pulumi:"applicationId"`
 	DefaultAuthenticationMethod *string `pulumi:"defaultAuthenticationMethod"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled     *bool   `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region      *string `pulumi:"region"`
 	ServiceJson *string `pulumi:"serviceJson"`
 }
 
@@ -96,7 +100,9 @@ type GcmChannelState struct {
 	ApplicationId               pulumi.StringPtrInput
 	DefaultAuthenticationMethod pulumi.StringPtrInput
 	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled     pulumi.BoolPtrInput
+	Enabled pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region      pulumi.StringPtrInput
 	ServiceJson pulumi.StringPtrInput
 }
 
@@ -111,7 +117,9 @@ type gcmChannelArgs struct {
 	ApplicationId               string  `pulumi:"applicationId"`
 	DefaultAuthenticationMethod *string `pulumi:"defaultAuthenticationMethod"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled     *bool   `pulumi:"enabled"`
+	Enabled *bool `pulumi:"enabled"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region      *string `pulumi:"region"`
 	ServiceJson *string `pulumi:"serviceJson"`
 }
 
@@ -123,7 +131,9 @@ type GcmChannelArgs struct {
 	ApplicationId               pulumi.StringInput
 	DefaultAuthenticationMethod pulumi.StringPtrInput
 	// Whether the channel is enabled or disabled. Defaults to `true`.
-	Enabled     pulumi.BoolPtrInput
+	Enabled pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region      pulumi.StringPtrInput
 	ServiceJson pulumi.StringPtrInput
 }
 
@@ -231,6 +241,11 @@ func (o GcmChannelOutput) DefaultAuthenticationMethod() pulumi.StringPtrOutput {
 // Whether the channel is enabled or disabled. Defaults to `true`.
 func (o GcmChannelOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GcmChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o GcmChannelOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *GcmChannel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GcmChannelOutput) ServiceJson() pulumi.StringPtrOutput {

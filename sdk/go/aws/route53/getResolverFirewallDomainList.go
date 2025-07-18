@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,6 +56,8 @@ func LookupResolverFirewallDomainList(ctx *pulumi.Context, args *LookupResolverF
 type LookupResolverFirewallDomainListArgs struct {
 	// The ID of the domain list.
 	FirewallDomainListId string `pulumi:"firewallDomainListId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getResolverFirewallDomainList.
@@ -76,7 +78,8 @@ type LookupResolverFirewallDomainListResult struct {
 	// The date and time that the domain list was last modified, in Unix time format and Coordinated Universal Time (UTC).
 	ModificationTime string `pulumi:"modificationTime"`
 	// The name of the domain list.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// The status of the domain list.
 	Status string `pulumi:"status"`
 	// Additional information about the status of the list, if available.
@@ -96,6 +99,8 @@ func LookupResolverFirewallDomainListOutput(ctx *pulumi.Context, args LookupReso
 type LookupResolverFirewallDomainListOutputArgs struct {
 	// The ID of the domain list.
 	FirewallDomainListId pulumi.StringInput `pulumi:"firewallDomainListId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupResolverFirewallDomainListOutputArgs) ElementType() reflect.Type {
@@ -159,6 +164,10 @@ func (o LookupResolverFirewallDomainListResultOutput) ModificationTime() pulumi.
 // The name of the domain list.
 func (o LookupResolverFirewallDomainListResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupResolverFirewallDomainListResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The status of the domain list.

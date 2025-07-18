@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *             },
  *             {
  *                 test: "ArnLike",
- *                 values: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.name}:${current1.accountId}:agent/*`],
+ *                 values: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.region}:${current1.accountId}:agent/*`],
  *                 variable: "AWS:SourceArn",
  *             },
  *         ],
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * const exampleAgentPermissions = Promise.all([currentGetPartition, currentGetRegion]).then(([currentGetPartition, currentGetRegion]) => aws.iam.getPolicyDocument({
  *     statements: [{
  *         actions: ["bedrock:InvokeModel"],
- *         resources: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.name}::foundation-model/anthropic.claude-v2`],
+ *         resources: [`arn:${currentGetPartition.partition}:bedrock:${currentGetRegion.region}::foundation-model/anthropic.claude-v2`],
  *     }],
  * }));
  * const example = new aws.iam.Role("example", {
@@ -167,6 +167,10 @@ export class AgentAgent extends pulumi.CustomResource {
      */
     public readonly promptOverrideConfigurations!: pulumi.Output<outputs.bedrock.AgentAgentPromptOverrideConfiguration[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether the in-use check is skipped when deleting the agent.
      */
     public readonly skipResourceInUseCheck!: pulumi.Output<boolean>;
@@ -176,8 +180,6 @@ export class AgentAgent extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.bedrock.AgentAgentTimeouts | undefined>;
@@ -211,6 +213,7 @@ export class AgentAgent extends pulumi.CustomResource {
             resourceInputs["prepareAgent"] = state ? state.prepareAgent : undefined;
             resourceInputs["preparedAt"] = state ? state.preparedAt : undefined;
             resourceInputs["promptOverrideConfigurations"] = state ? state.promptOverrideConfigurations : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["skipResourceInUseCheck"] = state ? state.skipResourceInUseCheck : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -238,6 +241,7 @@ export class AgentAgent extends pulumi.CustomResource {
             resourceInputs["memoryConfigurations"] = args ? args.memoryConfigurations : undefined;
             resourceInputs["prepareAgent"] = args ? args.prepareAgent : undefined;
             resourceInputs["promptOverrideConfigurations"] = args ? args.promptOverrideConfigurations : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["skipResourceInUseCheck"] = args ? args.skipResourceInUseCheck : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -323,6 +327,10 @@ export interface AgentAgentState {
      */
     promptOverrideConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentPromptOverrideConfiguration>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Whether the in-use check is skipped when deleting the agent.
      */
     skipResourceInUseCheck?: pulumi.Input<boolean>;
@@ -332,8 +340,6 @@ export interface AgentAgentState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentAgentTimeouts>;
@@ -393,6 +399,10 @@ export interface AgentAgentArgs {
      * Configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html). See `promptOverrideConfiguration` Block for details.
      */
     promptOverrideConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentAgentPromptOverrideConfiguration>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether the in-use check is skipped when deleting the agent.
      */

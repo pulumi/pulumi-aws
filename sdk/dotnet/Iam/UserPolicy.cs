@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Iam
         /// The policy document. This is a JSON formatted string.
         /// </summary>
         [Input("policy", required: true)]
-        public Input<string> Policy { get; set; } = null!;
+        public InputUnion<string, Inputs.PolicyDocumentArgs> Policy { get; set; } = null!;
 
         /// <summary>
         /// IAM user to which to attach this policy.
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Iam
         /// The policy document. This is a JSON formatted string.
         /// </summary>
         [Input("policy")]
-        public Input<string>? Policy { get; set; }
+        public InputUnion<string, Inputs.PolicyDocumentGetArgs>? Policy { get; set; }
 
         /// <summary>
         /// IAM user to which to attach this policy.

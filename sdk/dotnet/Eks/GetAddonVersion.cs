@@ -166,6 +166,12 @@ namespace Pulumi.Aws.Eks
         [Input("mostRecent")]
         public bool? MostRecent { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetAddonVersionArgs()
         {
         }
@@ -193,6 +199,12 @@ namespace Pulumi.Aws.Eks
         [Input("mostRecent")]
         public Input<bool>? MostRecent { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetAddonVersionInvokeArgs()
         {
         }
@@ -210,6 +222,7 @@ namespace Pulumi.Aws.Eks
         public readonly string Id;
         public readonly string KubernetesVersion;
         public readonly bool? MostRecent;
+        public readonly string Region;
         /// <summary>
         /// Version of the EKS add-on.
         /// </summary>
@@ -225,12 +238,15 @@ namespace Pulumi.Aws.Eks
 
             bool? mostRecent,
 
+            string region,
+
             string version)
         {
             AddonName = addonName;
             Id = id;
             KubernetesVersion = kubernetesVersion;
             MostRecent = mostRecent;
+            Region = region;
             Version = version;
         }
     }

@@ -19,6 +19,25 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs ex
     public static final FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs Empty = new FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs();
 
     /**
+     * Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
+     * 
+     * For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
+     * 
+     */
+    @Import(name="deepThreatInspection")
+    private @Nullable Output<String> deepThreatInspection;
+
+    /**
+     * @return Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
+     * 
+     * For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
+     * 
+     */
+    public Optional<Output<String>> deepThreatInspection() {
+        return Optional.ofNullable(this.deepThreatInspection);
+    }
+
+    /**
      * Configuration block for override values
      * 
      */
@@ -66,6 +85,7 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs ex
     private FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs() {}
 
     private FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs $) {
+        this.deepThreatInspection = $.deepThreatInspection;
         this.override = $.override;
         this.priority = $.priority;
         this.resourceArn = $.resourceArn;
@@ -87,6 +107,31 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs ex
 
         public Builder(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs defaults) {
             $ = new FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param deepThreatInspection Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
+         * 
+         * For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deepThreatInspection(@Nullable Output<String> deepThreatInspection) {
+            $.deepThreatInspection = deepThreatInspection;
+            return this;
+        }
+
+        /**
+         * @param deepThreatInspection Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
+         * 
+         * For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deepThreatInspection(String deepThreatInspection) {
+            return deepThreatInspection(Output.of(deepThreatInspection));
         }
 
         /**

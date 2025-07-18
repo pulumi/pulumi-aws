@@ -70,9 +70,17 @@ namespace Pulumi.Aws.LightSail
 
         /// <summary>
         /// Name of the load balancer to which you want to enable session stickiness.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("lbName")]
         public Output<string> LbName { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
 
         /// <summary>
@@ -134,9 +142,17 @@ namespace Pulumi.Aws.LightSail
 
         /// <summary>
         /// Name of the load balancer to which you want to enable session stickiness.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("lbName", required: true)]
         public Input<string> LbName { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public LbStickinessPolicyArgs()
         {
@@ -160,9 +176,17 @@ namespace Pulumi.Aws.LightSail
 
         /// <summary>
         /// Name of the load balancer to which you want to enable session stickiness.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("lbName")]
         public Input<string>? LbName { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public LbStickinessPolicyState()
         {

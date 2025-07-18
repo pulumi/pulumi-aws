@@ -86,6 +86,12 @@ namespace Pulumi.Aws.CodePipeline
         [Output("providerName")]
         public Output<string> ProviderName { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("settings")]
         public Output<Outputs.CustomActionTypeSettings?> Settings { get; private set; } = null!;
 
@@ -174,6 +180,12 @@ namespace Pulumi.Aws.CodePipeline
         [Input("providerName", required: true)]
         public Input<string> ProviderName { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("settings")]
         public Input<Inputs.CustomActionTypeSettingsArgs>? Settings { get; set; }
 
@@ -235,6 +247,12 @@ namespace Pulumi.Aws.CodePipeline
         [Input("providerName")]
         public Input<string>? ProviderName { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("settings")]
         public Input<Inputs.CustomActionTypeSettingsGetArgs>? Settings { get; set; }
 
@@ -252,7 +270,6 @@ namespace Pulumi.Aws.CodePipeline
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

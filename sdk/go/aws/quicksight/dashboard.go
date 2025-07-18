@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,6 +84,8 @@ type Dashboard struct {
 	Parameters DashboardParametersOutput `pulumi:"parameters"`
 	// A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
 	Permissions DashboardPermissionArrayOutput `pulumi:"permissions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity DashboardSourceEntityPtrOutput `pulumi:"sourceEntity"`
 	// Amazon Resource Name (ARN) of a template that was used to create this dashboard.
@@ -93,8 +95,6 @@ type Dashboard struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
 	ThemeArn pulumi.StringPtrOutput `pulumi:"themeArn"`
@@ -161,6 +161,8 @@ type dashboardState struct {
 	Parameters *DashboardParameters `pulumi:"parameters"`
 	// A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
 	Permissions []DashboardPermission `pulumi:"permissions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity *DashboardSourceEntity `pulumi:"sourceEntity"`
 	// Amazon Resource Name (ARN) of a template that was used to create this dashboard.
@@ -170,8 +172,6 @@ type dashboardState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
 	ThemeArn *string `pulumi:"themeArn"`
@@ -203,6 +203,8 @@ type DashboardState struct {
 	Parameters DashboardParametersPtrInput
 	// A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
 	Permissions DashboardPermissionArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity DashboardSourceEntityPtrInput
 	// Amazon Resource Name (ARN) of a template that was used to create this dashboard.
@@ -212,8 +214,6 @@ type DashboardState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
 	ThemeArn pulumi.StringPtrInput
@@ -242,6 +242,8 @@ type dashboardArgs struct {
 	Parameters *DashboardParameters `pulumi:"parameters"`
 	// A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
 	Permissions []DashboardPermission `pulumi:"permissions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity *DashboardSourceEntity `pulumi:"sourceEntity"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -268,6 +270,8 @@ type DashboardArgs struct {
 	Parameters DashboardParametersPtrInput
 	// A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
 	Permissions DashboardPermissionArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity DashboardSourceEntityPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -416,6 +420,11 @@ func (o DashboardOutput) Permissions() DashboardPermissionArrayOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardPermissionArrayOutput { return v.Permissions }).(DashboardPermissionArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DashboardOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 func (o DashboardOutput) SourceEntity() DashboardSourceEntityPtrOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardSourceEntityPtrOutput { return v.SourceEntity }).(DashboardSourceEntityPtrOutput)
@@ -437,8 +446,6 @@ func (o DashboardOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o DashboardOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

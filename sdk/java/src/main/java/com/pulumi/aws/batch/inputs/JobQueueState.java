@@ -52,29 +52,6 @@ public final class JobQueueState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
-     * 
-     * @deprecated
-     * This parameter will be replaced by `compute_environment_order`.
-     * 
-     */
-    @Deprecated /* This parameter will be replaced by `compute_environment_order`. */
-    @Import(name="computeEnvironments")
-    private @Nullable Output<List<String>> computeEnvironments;
-
-    /**
-     * @return (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
-     * 
-     * @deprecated
-     * This parameter will be replaced by `compute_environment_order`.
-     * 
-     */
-    @Deprecated /* This parameter will be replaced by `compute_environment_order`. */
-    public Optional<Output<List<String>>> computeEnvironments() {
-        return Optional.ofNullable(this.computeEnvironments);
-    }
-
-    /**
      * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
      * 
      */
@@ -119,6 +96,21 @@ public final class JobQueueState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> priority() {
         return Optional.ofNullable(this.priority);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -169,22 +161,14 @@ public final class JobQueueState extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -201,10 +185,10 @@ public final class JobQueueState extends com.pulumi.resources.ResourceArgs {
     private JobQueueState(JobQueueState $) {
         this.arn = $.arn;
         this.computeEnvironmentOrders = $.computeEnvironmentOrders;
-        this.computeEnvironments = $.computeEnvironments;
         this.jobStateTimeLimitActions = $.jobStateTimeLimitActions;
         this.name = $.name;
         this.priority = $.priority;
+        this.region = $.region;
         this.schedulingPolicyArn = $.schedulingPolicyArn;
         this.state = $.state;
         this.tags = $.tags;
@@ -283,49 +267,6 @@ public final class JobQueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeEnvironments (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This parameter will be replaced by `compute_environment_order`.
-         * 
-         */
-        @Deprecated /* This parameter will be replaced by `compute_environment_order`. */
-        public Builder computeEnvironments(@Nullable Output<List<String>> computeEnvironments) {
-            $.computeEnvironments = computeEnvironments;
-            return this;
-        }
-
-        /**
-         * @param computeEnvironments (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This parameter will be replaced by `compute_environment_order`.
-         * 
-         */
-        @Deprecated /* This parameter will be replaced by `compute_environment_order`. */
-        public Builder computeEnvironments(List<String> computeEnvironments) {
-            return computeEnvironments(Output.of(computeEnvironments));
-        }
-
-        /**
-         * @param computeEnvironments (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This parameter will be replaced by `compute_environment_order`.
-         * 
-         */
-        @Deprecated /* This parameter will be replaced by `compute_environment_order`. */
-        public Builder computeEnvironments(String... computeEnvironments) {
-            return computeEnvironments(List.of(computeEnvironments));
-        }
-
-        /**
          * @param jobStateTimeLimitActions The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
          * 
          * @return builder
@@ -401,6 +342,27 @@ public final class JobQueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param schedulingPolicyArn The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn&#39;t specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can&#39;t remove the fair share scheduling policy.
          * 
          * @return builder
@@ -468,11 +430,7 @@ public final class JobQueueState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -483,11 +441,7 @@ public final class JobQueueState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

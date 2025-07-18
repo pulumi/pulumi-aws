@@ -29,7 +29,7 @@ class GetVpcResult:
     """
     A collection of values returned by getVpc.
     """
-    def __init__(__self__, arn=None, cidr_block=None, cidr_block_associations=None, default=None, dhcp_options_id=None, enable_dns_hostnames=None, enable_dns_support=None, enable_network_address_usage_metrics=None, filters=None, id=None, instance_tenancy=None, ipv6_association_id=None, ipv6_cidr_block=None, main_route_table_id=None, owner_id=None, state=None, tags=None):
+    def __init__(__self__, arn=None, cidr_block=None, cidr_block_associations=None, default=None, dhcp_options_id=None, enable_dns_hostnames=None, enable_dns_support=None, enable_network_address_usage_metrics=None, filters=None, id=None, instance_tenancy=None, ipv6_association_id=None, ipv6_cidr_block=None, main_route_table_id=None, owner_id=None, region=None, state=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -75,6 +75,9 @@ class GetVpcResult:
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -190,6 +193,11 @@ class GetVpcResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def state(self) -> builtins.str:
         """
         State of the association.
@@ -223,6 +231,7 @@ class AwaitableGetVpcResult(GetVpcResult):
             ipv6_cidr_block=self.ipv6_cidr_block,
             main_route_table_id=self.main_route_table_id,
             owner_id=self.owner_id,
+            region=self.region,
             state=self.state,
             tags=self.tags)
 
@@ -232,6 +241,7 @@ def get_vpc(cidr_block: Optional[builtins.str] = None,
             dhcp_options_id: Optional[builtins.str] = None,
             filters: Optional[Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict']]] = None,
             id: Optional[builtins.str] = None,
+            region: Optional[builtins.str] = None,
             state: Optional[builtins.str] = None,
             tags: Optional[Mapping[str, builtins.str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcResult:
@@ -271,6 +281,7 @@ def get_vpc(cidr_block: Optional[builtins.str] = None,
     :param builtins.str dhcp_options_id: DHCP options id of the desired VPC.
     :param Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict']] filters: Custom filter block as described below.
     :param builtins.str id: ID of the specific VPC to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: Current state of the desired VPC.
            Can be either `"pending"` or `"available"`.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
@@ -285,6 +296,7 @@ def get_vpc(cidr_block: Optional[builtins.str] = None,
     __args__['dhcpOptionsId'] = dhcp_options_id
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['state'] = state
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -306,6 +318,7 @@ def get_vpc(cidr_block: Optional[builtins.str] = None,
         ipv6_cidr_block=pulumi.get(__ret__, 'ipv6_cidr_block'),
         main_route_table_id=pulumi.get(__ret__, 'main_route_table_id'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
+        region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_vpc_output(cidr_block: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -313,6 +326,7 @@ def get_vpc_output(cidr_block: Optional[pulumi.Input[Optional[builtins.str]]] = 
                    dhcp_options_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                    filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict']]]]] = None,
                    id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                    state: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcResult]:
@@ -352,6 +366,7 @@ def get_vpc_output(cidr_block: Optional[pulumi.Input[Optional[builtins.str]]] = 
     :param builtins.str dhcp_options_id: DHCP options id of the desired VPC.
     :param Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict']] filters: Custom filter block as described below.
     :param builtins.str id: ID of the specific VPC to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str state: Current state of the desired VPC.
            Can be either `"pending"` or `"available"`.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
@@ -366,6 +381,7 @@ def get_vpc_output(cidr_block: Optional[pulumi.Input[Optional[builtins.str]]] = 
     __args__['dhcpOptionsId'] = dhcp_options_id
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['state'] = state
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -386,5 +402,6 @@ def get_vpc_output(cidr_block: Optional[pulumi.Input[Optional[builtins.str]]] = 
         ipv6_cidr_block=pulumi.get(__response__, 'ipv6_cidr_block'),
         main_route_table_id=pulumi.get(__response__, 'main_route_table_id'),
         owner_id=pulumi.get(__response__, 'owner_id'),
+        region=pulumi.get(__response__, 'region'),
         state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags')))

@@ -76,6 +76,10 @@ export class RouteServerEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly eniId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The unique identifier of the route server endpoint.
      */
     public /*out*/ readonly routeServerEndpointId!: pulumi.Output<string>;
@@ -95,8 +99,6 @@ export class RouteServerEndpoint extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.vpc.RouteServerEndpointTimeouts | undefined>;
@@ -121,6 +123,7 @@ export class RouteServerEndpoint extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["eniAddress"] = state ? state.eniAddress : undefined;
             resourceInputs["eniId"] = state ? state.eniId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routeServerEndpointId"] = state ? state.routeServerEndpointId : undefined;
             resourceInputs["routeServerId"] = state ? state.routeServerId : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
@@ -136,6 +139,7 @@ export class RouteServerEndpoint extends pulumi.CustomResource {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routeServerId"] = args ? args.routeServerId : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -169,6 +173,10 @@ export interface RouteServerEndpointState {
      */
     eniId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The unique identifier of the route server endpoint.
      */
     routeServerEndpointId?: pulumi.Input<string>;
@@ -188,8 +196,6 @@ export interface RouteServerEndpointState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.vpc.RouteServerEndpointTimeouts>;
@@ -203,6 +209,10 @@ export interface RouteServerEndpointState {
  * The set of arguments for constructing a RouteServerEndpoint resource.
  */
 export interface RouteServerEndpointArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the route server for which to create an endpoint.
      */

@@ -15,7 +15,6 @@
 // This file defines schema for SQS redrive policies:
 // http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html#API_CreateQueue_RequestParameters
 
-import { ARN } from "../arn";
 
 /**
  * The string that includes the parameters for the dead-letter queue functionality of the source queue. For more
@@ -28,7 +27,7 @@ export interface RedrivePolicy {
      * The Amazon Resource Name (ARN) of the dead-letter queue to which Amazon SQS moves messages after the value of
      * `maxReceiveCount` is exceeded.
      */
-    deadLetterTargetArn: ARN;
+    deadLetterTargetArn: string;
     /**
      * The number of times a message is delivered to the source queue before being moved to the dead-letter queue.
      *

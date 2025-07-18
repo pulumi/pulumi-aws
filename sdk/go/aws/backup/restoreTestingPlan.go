@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,6 +68,8 @@ type RestoreTestingPlan struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
 	RecoveryPointSelection RestoreTestingPlanRecoveryPointSelectionPtrOutput `pulumi:"recoveryPointSelection"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The schedule expression for the restore testing plan.
 	ScheduleExpression pulumi.StringOutput `pulumi:"scheduleExpression"`
 	// The timezone for the schedule expression. If not provided, the state value will be used.
@@ -76,8 +78,6 @@ type RestoreTestingPlan struct {
 	StartWindowHours pulumi.IntOutput       `pulumi:"startWindowHours"`
 	Tags             pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -120,6 +120,8 @@ type restoreTestingPlanState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
 	RecoveryPointSelection *RestoreTestingPlanRecoveryPointSelection `pulumi:"recoveryPointSelection"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The schedule expression for the restore testing plan.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 	// The timezone for the schedule expression. If not provided, the state value will be used.
@@ -128,8 +130,6 @@ type restoreTestingPlanState struct {
 	StartWindowHours *int              `pulumi:"startWindowHours"`
 	Tags             map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -140,6 +140,8 @@ type RestoreTestingPlanState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
 	RecoveryPointSelection RestoreTestingPlanRecoveryPointSelectionPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The schedule expression for the restore testing plan.
 	ScheduleExpression pulumi.StringPtrInput
 	// The timezone for the schedule expression. If not provided, the state value will be used.
@@ -148,8 +150,6 @@ type RestoreTestingPlanState struct {
 	StartWindowHours pulumi.IntPtrInput
 	Tags             pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -162,6 +162,8 @@ type restoreTestingPlanArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
 	RecoveryPointSelection *RestoreTestingPlanRecoveryPointSelection `pulumi:"recoveryPointSelection"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The schedule expression for the restore testing plan.
 	ScheduleExpression string `pulumi:"scheduleExpression"`
 	// The timezone for the schedule expression. If not provided, the state value will be used.
@@ -177,6 +179,8 @@ type RestoreTestingPlanArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
 	RecoveryPointSelection RestoreTestingPlanRecoveryPointSelectionPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The schedule expression for the restore testing plan.
 	ScheduleExpression pulumi.StringInput
 	// The timezone for the schedule expression. If not provided, the state value will be used.
@@ -290,6 +294,11 @@ func (o RestoreTestingPlanOutput) RecoveryPointSelection() RestoreTestingPlanRec
 	}).(RestoreTestingPlanRecoveryPointSelectionPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o RestoreTestingPlanOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The schedule expression for the restore testing plan.
 func (o RestoreTestingPlanOutput) ScheduleExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.StringOutput { return v.ScheduleExpression }).(pulumi.StringOutput)
@@ -310,8 +319,6 @@ func (o RestoreTestingPlanOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o RestoreTestingPlanOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RestoreTestingPlan) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

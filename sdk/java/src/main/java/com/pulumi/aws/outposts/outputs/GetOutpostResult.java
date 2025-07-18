@@ -37,6 +37,7 @@ public final class GetOutpostResult {
     private String lifecycleStatus;
     private String name;
     private @Nullable String ownerId;
+    private String region;
     /**
      * @return The Amazon Resource Name (ARN) of the site.
      * 
@@ -99,6 +100,9 @@ public final class GetOutpostResult {
     public Optional<String> ownerId() {
         return Optional.ofNullable(this.ownerId);
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The Amazon Resource Name (ARN) of the site.
      * 
@@ -145,6 +149,7 @@ public final class GetOutpostResult {
         private String lifecycleStatus;
         private String name;
         private @Nullable String ownerId;
+        private String region;
         private String siteArn;
         private String siteId;
         private String supportedHardwareType;
@@ -160,6 +165,7 @@ public final class GetOutpostResult {
     	      this.lifecycleStatus = defaults.lifecycleStatus;
     	      this.name = defaults.name;
     	      this.ownerId = defaults.ownerId;
+    	      this.region = defaults.region;
     	      this.siteArn = defaults.siteArn;
     	      this.siteId = defaults.siteId;
     	      this.supportedHardwareType = defaults.supportedHardwareType;
@@ -229,6 +235,14 @@ public final class GetOutpostResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetOutpostResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder siteArn(String siteArn) {
             if (siteArn == null) {
               throw new MissingRequiredPropertyException("GetOutpostResult", "siteArn");
@@ -270,6 +284,7 @@ public final class GetOutpostResult {
             _resultValue.lifecycleStatus = lifecycleStatus;
             _resultValue.name = name;
             _resultValue.ownerId = ownerId;
+            _resultValue.region = region;
             _resultValue.siteArn = siteArn;
             _resultValue.siteId = siteId;
             _resultValue.supportedHardwareType = supportedHardwareType;

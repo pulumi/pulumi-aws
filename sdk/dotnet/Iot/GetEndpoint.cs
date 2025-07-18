@@ -39,6 +39,12 @@ namespace Pulumi.Aws.Iot
         [Input("endpointType")]
         public string? EndpointType { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetEndpointArgs()
         {
         }
@@ -52,6 +58,12 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         [Input("endpointType")]
         public Input<string>? EndpointType { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetEndpointInvokeArgs()
         {
@@ -77,6 +89,7 @@ namespace Pulumi.Aws.Iot
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetEndpointResult(
@@ -84,11 +97,14 @@ namespace Pulumi.Aws.Iot
 
             string? endpointType,
 
-            string id)
+            string id,
+
+            string region)
         {
             EndpointAddress = endpointAddress;
             EndpointType = endpointType;
             Id = id;
+            Region = region;
         }
     }
 }

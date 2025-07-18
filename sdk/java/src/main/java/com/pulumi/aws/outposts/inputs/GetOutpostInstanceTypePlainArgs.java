@@ -65,12 +65,28 @@ public final class GetOutpostInstanceTypePlainArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.preferredInstanceTypes);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetOutpostInstanceTypePlainArgs() {}
 
     private GetOutpostInstanceTypePlainArgs(GetOutpostInstanceTypePlainArgs $) {
         this.arn = $.arn;
         this.instanceType = $.instanceType;
         this.preferredInstanceTypes = $.preferredInstanceTypes;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -134,6 +150,17 @@ public final class GetOutpostInstanceTypePlainArgs extends com.pulumi.resources.
          */
         public Builder preferredInstanceTypes(String... preferredInstanceTypes) {
             return preferredInstanceTypes(List.of(preferredInstanceTypes));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         public GetOutpostInstanceTypePlainArgs build() {

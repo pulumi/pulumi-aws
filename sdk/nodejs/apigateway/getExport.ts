@@ -24,6 +24,7 @@ export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Pro
         "accepts": args.accepts,
         "exportType": args.exportType,
         "parameters": args.parameters,
+        "region": args.region,
         "restApiId": args.restApiId,
         "stageName": args.stageName,
     }, opts);
@@ -45,6 +46,10 @@ export interface GetExportArgs {
      * Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
      */
     parameters?: {[key: string]: string};
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Identifier of the associated REST API.
      */
@@ -78,6 +83,7 @@ export interface GetExportResult {
      */
     readonly id: string;
     readonly parameters?: {[key: string]: string};
+    readonly region: string;
     readonly restApiId: string;
     readonly stageName: string;
 }
@@ -101,6 +107,7 @@ export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeO
         "accepts": args.accepts,
         "exportType": args.exportType,
         "parameters": args.parameters,
+        "region": args.region,
         "restApiId": args.restApiId,
         "stageName": args.stageName,
     }, opts);
@@ -122,6 +129,10 @@ export interface GetExportOutputArgs {
      * Key-value map of query string parameters that specify properties of the export. the following parameters are supported: `extensions='integrations'` or `extensions='apigateway'` will export the API with x-amazon-apigateway-integration extensions. `extensions='authorizers'` will export the API with x-amazon-apigateway-authorizer extensions.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of the associated REST API.
      */

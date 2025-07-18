@@ -99,6 +99,12 @@ namespace Pulumi.Aws.ServiceCatalog
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetAppregistryApplicationArgs()
         {
         }
@@ -112,6 +118,12 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetAppregistryApplicationInvokeArgs()
         {
@@ -140,6 +152,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// Name of the application.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// A map of tags assigned to the Application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
@@ -157,6 +170,8 @@ namespace Pulumi.Aws.ServiceCatalog
 
             string name,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             ApplicationTag = applicationTag;
@@ -164,6 +179,7 @@ namespace Pulumi.Aws.ServiceCatalog
             Description = description;
             Id = id;
             Name = name;
+            Region = region;
             Tags = tags;
         }
     }

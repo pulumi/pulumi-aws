@@ -206,6 +206,12 @@ namespace Pulumi.Aws.Acm
         public Output<string> CertificateArn { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// List of FQDNs that implement the validation. Only valid for DNS validation method ACM certificates. If this is set, the resource can implement additional sanity checks and has an explicit dependency on the resource that is implementing the validation
         /// </summary>
         [Output("validationRecordFqdns")]
@@ -263,6 +269,12 @@ namespace Pulumi.Aws.Acm
         [Input("certificateArn", required: true)]
         public Input<string> CertificateArn { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("validationRecordFqdns")]
         private InputList<string>? _validationRecordFqdns;
 
@@ -288,6 +300,12 @@ namespace Pulumi.Aws.Acm
         /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("validationRecordFqdns")]
         private InputList<string>? _validationRecordFqdns;

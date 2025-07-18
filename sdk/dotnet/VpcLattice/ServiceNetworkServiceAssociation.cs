@@ -69,6 +69,12 @@ namespace Pulumi.Aws.VpcLattice
         public Output<ImmutableArray<Outputs.ServiceNetworkServiceAssociationDnsEntry>> DnsEntries { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service.
         /// </summary>
         [Output("serviceIdentifier")]
@@ -76,7 +82,6 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-        /// The following arguments are optional:
         /// </summary>
         [Output("serviceNetworkIdentifier")]
         public Output<string> ServiceNetworkIdentifier { get; private set; } = null!;
@@ -146,6 +151,12 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class ServiceNetworkServiceAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service.
         /// </summary>
         [Input("serviceIdentifier", required: true)]
@@ -153,7 +164,6 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-        /// The following arguments are optional:
         /// </summary>
         [Input("serviceNetworkIdentifier", required: true)]
         public Input<string> ServiceNetworkIdentifier { get; set; } = null!;
@@ -209,6 +219,12 @@ namespace Pulumi.Aws.VpcLattice
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service.
         /// </summary>
         [Input("serviceIdentifier")]
@@ -216,7 +232,6 @@ namespace Pulumi.Aws.VpcLattice
 
         /// <summary>
         /// The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-        /// The following arguments are optional:
         /// </summary>
         [Input("serviceNetworkIdentifier")]
         public Input<string>? ServiceNetworkIdentifier { get; set; }
@@ -245,7 +260,6 @@ namespace Pulumi.Aws.VpcLattice
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

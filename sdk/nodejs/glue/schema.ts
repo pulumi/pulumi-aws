@@ -83,6 +83,10 @@ export class Schema extends pulumi.CustomResource {
      */
     public /*out*/ readonly nextSchemaVersion!: pulumi.Output<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the Glue Registry to create the schema in.
      */
     public readonly registryArn!: pulumi.Output<string>;
@@ -108,8 +112,6 @@ export class Schema extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -132,6 +134,7 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["latestSchemaVersion"] = state ? state.latestSchemaVersion : undefined;
             resourceInputs["nextSchemaVersion"] = state ? state.nextSchemaVersion : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["registryArn"] = state ? state.registryArn : undefined;
             resourceInputs["registryName"] = state ? state.registryName : undefined;
             resourceInputs["schemaCheckpoint"] = state ? state.schemaCheckpoint : undefined;
@@ -156,6 +159,7 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["compatibility"] = args ? args.compatibility : undefined;
             resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["registryArn"] = args ? args.registryArn : undefined;
             resourceInputs["schemaDefinition"] = args ? args.schemaDefinition : undefined;
             resourceInputs["schemaName"] = args ? args.schemaName : undefined;
@@ -201,6 +205,10 @@ export interface SchemaState {
      */
     nextSchemaVersion?: pulumi.Input<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ARN of the Glue Registry to create the schema in.
      */
     registryArn?: pulumi.Input<string>;
@@ -226,8 +234,6 @@ export interface SchemaState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -248,6 +254,10 @@ export interface SchemaArgs {
      * A description of the schema.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the Glue Registry to create the schema in.
      */

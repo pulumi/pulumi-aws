@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,14 +25,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -66,15 +66,15 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/identitystore"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/identitystore"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -138,6 +138,8 @@ type ManagedPolicyAttachment struct {
 	ManagedPolicyName pulumi.StringOutput `pulumi:"managedPolicyName"`
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn pulumi.StringOutput `pulumi:"permissionSetArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewManagedPolicyAttachment registers a new resource with the given unique name, arguments, and options.
@@ -187,6 +189,8 @@ type managedPolicyAttachmentState struct {
 	ManagedPolicyName *string `pulumi:"managedPolicyName"`
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn *string `pulumi:"permissionSetArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ManagedPolicyAttachmentState struct {
@@ -198,6 +202,8 @@ type ManagedPolicyAttachmentState struct {
 	ManagedPolicyName pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ManagedPolicyAttachmentState) ElementType() reflect.Type {
@@ -211,6 +217,8 @@ type managedPolicyAttachmentArgs struct {
 	ManagedPolicyArn string `pulumi:"managedPolicyArn"`
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn string `pulumi:"permissionSetArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ManagedPolicyAttachment resource.
@@ -221,6 +229,8 @@ type ManagedPolicyAttachmentArgs struct {
 	ManagedPolicyArn pulumi.StringInput
 	// The Amazon Resource Name (ARN) of the Permission Set.
 	PermissionSetArn pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ManagedPolicyAttachmentArgs) ElementType() reflect.Type {
@@ -328,6 +338,11 @@ func (o ManagedPolicyAttachmentOutput) ManagedPolicyName() pulumi.StringOutput {
 // The Amazon Resource Name (ARN) of the Permission Set.
 func (o ManagedPolicyAttachmentOutput) PermissionSetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedPolicyAttachment) pulumi.StringOutput { return v.PermissionSetArn }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ManagedPolicyAttachmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedPolicyAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ManagedPolicyAttachmentArrayOutput struct{ *pulumi.OutputState }

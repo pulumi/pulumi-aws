@@ -28,13 +28,13 @@ class TaskDefinitionArgs:
                  enable_fault_injection: Optional[pulumi.Input[builtins.bool]] = None,
                  ephemeral_storage: Optional[pulumi.Input['TaskDefinitionEphemeralStorageArgs']] = None,
                  execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]]] = None,
                  ipc_mode: Optional[pulumi.Input[builtins.str]] = None,
                  memory: Optional[pulumi.Input[builtins.str]] = None,
                  network_mode: Optional[pulumi.Input[builtins.str]] = None,
                  pid_mode: Optional[pulumi.Input[builtins.str]] = None,
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionPlacementConstraintArgs']]]] = None,
                  proxy_configuration: Optional[pulumi.Input['TaskDefinitionProxyConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  runtime_platform: Optional[pulumi.Input['TaskDefinitionRuntimePlatformArgs']] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
@@ -50,17 +50,15 @@ class TaskDefinitionArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] cpu: Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[builtins.bool] enable_fault_injection: Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-               
-               **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         :param pulumi.Input['TaskDefinitionEphemeralStorageArgs'] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[builtins.str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
-        :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]] inference_accelerators: Configuration block(s) with Inference Accelerators settings. Detailed below.
         :param pulumi.Input[builtins.str] ipc_mode: IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         :param pulumi.Input[builtins.str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
         :param pulumi.Input[builtins.str] pid_mode: Process namespace to use for the containers in the task. The valid values are `host` and `task`.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionPlacementConstraintArgs']]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         :param pulumi.Input['TaskDefinitionProxyConfigurationArgs'] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] requires_compatibilities: Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
         :param pulumi.Input['TaskDefinitionRuntimePlatformArgs'] runtime_platform: Configuration block for runtime_platform that containers in your task may use.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
@@ -70,6 +68,8 @@ class TaskDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]] volumes: Configuration block for volumes that containers in your task may use. Detailed below.
                
                > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\\"` in the JSON,  e.g., `"value": "I \\"love\\" escaped quotes"`. If using a variable value, they should be escaped as `\\\\\\"` in the variable, e.g., `value = "I \\\\\\"love\\\\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+               
+               > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         """
         pulumi.set(__self__, "container_definitions", container_definitions)
         pulumi.set(__self__, "family", family)
@@ -81,8 +81,6 @@ class TaskDefinitionArgs:
             pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
         if execution_role_arn is not None:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
-        if inference_accelerators is not None:
-            pulumi.set(__self__, "inference_accelerators", inference_accelerators)
         if ipc_mode is not None:
             pulumi.set(__self__, "ipc_mode", ipc_mode)
         if memory is not None:
@@ -95,6 +93,8 @@ class TaskDefinitionArgs:
             pulumi.set(__self__, "placement_constraints", placement_constraints)
         if proxy_configuration is not None:
             pulumi.set(__self__, "proxy_configuration", proxy_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if requires_compatibilities is not None:
             pulumi.set(__self__, "requires_compatibilities", requires_compatibilities)
         if runtime_platform is not None:
@@ -153,8 +153,6 @@ class TaskDefinitionArgs:
     def enable_fault_injection(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-
-        **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         """
         return pulumi.get(self, "enable_fault_injection")
 
@@ -185,18 +183,6 @@ class TaskDefinitionArgs:
     @execution_role_arn.setter
     def execution_role_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "execution_role_arn", value)
-
-    @property
-    @pulumi.getter(name="inferenceAccelerators")
-    def inference_accelerators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]]]:
-        """
-        Configuration block(s) with Inference Accelerators settings. Detailed below.
-        """
-        return pulumi.get(self, "inference_accelerators")
-
-    @inference_accelerators.setter
-    def inference_accelerators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]]]):
-        pulumi.set(self, "inference_accelerators", value)
 
     @property
     @pulumi.getter(name="ipcMode")
@@ -269,6 +255,18 @@ class TaskDefinitionArgs:
     @proxy_configuration.setter
     def proxy_configuration(self, value: Optional[pulumi.Input['TaskDefinitionProxyConfigurationArgs']]):
         pulumi.set(self, "proxy_configuration", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="requiresCompatibilities")
@@ -349,6 +347,8 @@ class TaskDefinitionArgs:
         Configuration block for volumes that containers in your task may use. Detailed below.
 
         > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\\"` in the JSON,  e.g., `"value": "I \\"love\\" escaped quotes"`. If using a variable value, they should be escaped as `\\\\\\"` in the variable, e.g., `value = "I \\\\\\"love\\\\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+
+        > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         """
         return pulumi.get(self, "volumes")
 
@@ -368,13 +368,13 @@ class _TaskDefinitionState:
                  ephemeral_storage: Optional[pulumi.Input['TaskDefinitionEphemeralStorageArgs']] = None,
                  execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  family: Optional[pulumi.Input[builtins.str]] = None,
-                 inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]]] = None,
                  ipc_mode: Optional[pulumi.Input[builtins.str]] = None,
                  memory: Optional[pulumi.Input[builtins.str]] = None,
                  network_mode: Optional[pulumi.Input[builtins.str]] = None,
                  pid_mode: Optional[pulumi.Input[builtins.str]] = None,
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionPlacementConstraintArgs']]]] = None,
                  proxy_configuration: Optional[pulumi.Input['TaskDefinitionProxyConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  revision: Optional[pulumi.Input[builtins.int]] = None,
                  runtime_platform: Optional[pulumi.Input['TaskDefinitionRuntimePlatformArgs']] = None,
@@ -391,20 +391,18 @@ class _TaskDefinitionState:
         :param pulumi.Input[builtins.str] container_definitions: A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
         :param pulumi.Input[builtins.str] cpu: Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[builtins.bool] enable_fault_injection: Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-               
-               **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         :param pulumi.Input['TaskDefinitionEphemeralStorageArgs'] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[builtins.str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[builtins.str] family: A unique name for your task definition.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]] inference_accelerators: Configuration block(s) with Inference Accelerators settings. Detailed below.
         :param pulumi.Input[builtins.str] ipc_mode: IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         :param pulumi.Input[builtins.str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
         :param pulumi.Input[builtins.str] pid_mode: Process namespace to use for the containers in the task. The valid values are `host` and `task`.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionPlacementConstraintArgs']]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         :param pulumi.Input['TaskDefinitionProxyConfigurationArgs'] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] requires_compatibilities: Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
         :param pulumi.Input[builtins.int] revision: Revision of the task in a particular family.
         :param pulumi.Input['TaskDefinitionRuntimePlatformArgs'] runtime_platform: Configuration block for runtime_platform that containers in your task may use.
@@ -416,6 +414,8 @@ class _TaskDefinitionState:
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]] volumes: Configuration block for volumes that containers in your task may use. Detailed below.
                
                > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\\"` in the JSON,  e.g., `"value": "I \\"love\\" escaped quotes"`. If using a variable value, they should be escaped as `\\\\\\"` in the variable, e.g., `value = "I \\\\\\"love\\\\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+               
+               > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -433,8 +433,6 @@ class _TaskDefinitionState:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if family is not None:
             pulumi.set(__self__, "family", family)
-        if inference_accelerators is not None:
-            pulumi.set(__self__, "inference_accelerators", inference_accelerators)
         if ipc_mode is not None:
             pulumi.set(__self__, "ipc_mode", ipc_mode)
         if memory is not None:
@@ -447,6 +445,8 @@ class _TaskDefinitionState:
             pulumi.set(__self__, "placement_constraints", placement_constraints)
         if proxy_configuration is not None:
             pulumi.set(__self__, "proxy_configuration", proxy_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if requires_compatibilities is not None:
             pulumi.set(__self__, "requires_compatibilities", requires_compatibilities)
         if revision is not None:
@@ -457,9 +457,6 @@ class _TaskDefinitionState:
             pulumi.set(__self__, "skip_destroy", skip_destroy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if task_role_arn is not None:
@@ -522,8 +519,6 @@ class _TaskDefinitionState:
     def enable_fault_injection(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-
-        **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         """
         return pulumi.get(self, "enable_fault_injection")
 
@@ -568,18 +563,6 @@ class _TaskDefinitionState:
     @family.setter
     def family(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "family", value)
-
-    @property
-    @pulumi.getter(name="inferenceAccelerators")
-    def inference_accelerators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]]]:
-        """
-        Configuration block(s) with Inference Accelerators settings. Detailed below.
-        """
-        return pulumi.get(self, "inference_accelerators")
-
-    @inference_accelerators.setter
-    def inference_accelerators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionInferenceAcceleratorArgs']]]]):
-        pulumi.set(self, "inference_accelerators", value)
 
     @property
     @pulumi.getter(name="ipcMode")
@@ -652,6 +635,18 @@ class _TaskDefinitionState:
     @proxy_configuration.setter
     def proxy_configuration(self, value: Optional[pulumi.Input['TaskDefinitionProxyConfigurationArgs']]):
         pulumi.set(self, "proxy_configuration", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="requiresCompatibilities")
@@ -715,7 +710,6 @@ class _TaskDefinitionState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -757,6 +751,8 @@ class _TaskDefinitionState:
         Configuration block for volumes that containers in your task may use. Detailed below.
 
         > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\\"` in the JSON,  e.g., `"value": "I \\"love\\" escaped quotes"`. If using a variable value, they should be escaped as `\\\\\\"` in the variable, e.g., `value = "I \\\\\\"love\\\\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+
+        > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         """
         return pulumi.get(self, "volumes")
 
@@ -777,13 +773,13 @@ class TaskDefinition(pulumi.CustomResource):
                  ephemeral_storage: Optional[pulumi.Input[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict']]] = None,
                  execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  family: Optional[pulumi.Input[builtins.str]] = None,
-                 inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionInferenceAcceleratorArgs', 'TaskDefinitionInferenceAcceleratorArgsDict']]]]] = None,
                  ipc_mode: Optional[pulumi.Input[builtins.str]] = None,
                  memory: Optional[pulumi.Input[builtins.str]] = None,
                  network_mode: Optional[pulumi.Input[builtins.str]] = None,
                  pid_mode: Optional[pulumi.Input[builtins.str]] = None,
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]]] = None,
                  proxy_configuration: Optional[pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  runtime_platform: Optional[pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
@@ -943,7 +939,7 @@ class TaskDefinition(pulumi.CustomResource):
             }])
         ```
 
-        ### Example Using `container_definitions` and `inference_accelerator`
+        ### Example Using `container_definitions`
 
         ```python
         import pulumi
@@ -968,20 +964,10 @@ class TaskDefinition(pulumi.CustomResource):
                 "containerPort": 80,
                 "hostPort": 8080
               }
-            ],
-                "resourceRequirements":[
-                    {
-                        "type":"InferenceAccelerator",
-                        "value":"device_1"
-                    }
-                ]
+            ]
           }
         ]
-        \"\"\",
-            inference_accelerators=[{
-                "device_name": "device_1",
-                "device_type": "eia1.medium",
-            }])
+        \"\"\")
         ```
 
         ### Example Using `runtime_platform` and `fargate`
@@ -1025,20 +1011,18 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] container_definitions: A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
         :param pulumi.Input[builtins.str] cpu: Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[builtins.bool] enable_fault_injection: Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-               
-               **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         :param pulumi.Input[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict']] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[builtins.str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[builtins.str] family: A unique name for your task definition.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionInferenceAcceleratorArgs', 'TaskDefinitionInferenceAcceleratorArgsDict']]]] inference_accelerators: Configuration block(s) with Inference Accelerators settings. Detailed below.
         :param pulumi.Input[builtins.str] ipc_mode: IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         :param pulumi.Input[builtins.str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
         :param pulumi.Input[builtins.str] pid_mode: Process namespace to use for the containers in the task. The valid values are `host` and `task`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         :param pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] requires_compatibilities: Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
         :param pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']] runtime_platform: Configuration block for runtime_platform that containers in your task may use.
         :param pulumi.Input[builtins.bool] skip_destroy: Whether to retain the old revision when the resource is destroyed or replacement is necessary. Default is `false`.
@@ -1048,6 +1032,8 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict']]]] volumes: Configuration block for volumes that containers in your task may use. Detailed below.
                
                > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\\"` in the JSON,  e.g., `"value": "I \\"love\\" escaped quotes"`. If using a variable value, they should be escaped as `\\\\\\"` in the variable, e.g., `value = "I \\\\\\"love\\\\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+               
+               > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         """
         ...
     @overload
@@ -1206,7 +1192,7 @@ class TaskDefinition(pulumi.CustomResource):
             }])
         ```
 
-        ### Example Using `container_definitions` and `inference_accelerator`
+        ### Example Using `container_definitions`
 
         ```python
         import pulumi
@@ -1231,20 +1217,10 @@ class TaskDefinition(pulumi.CustomResource):
                 "containerPort": 80,
                 "hostPort": 8080
               }
-            ],
-                "resourceRequirements":[
-                    {
-                        "type":"InferenceAccelerator",
-                        "value":"device_1"
-                    }
-                ]
+            ]
           }
         ]
-        \"\"\",
-            inference_accelerators=[{
-                "device_name": "device_1",
-                "device_type": "eia1.medium",
-            }])
+        \"\"\")
         ```
 
         ### Example Using `runtime_platform` and `fargate`
@@ -1304,13 +1280,13 @@ class TaskDefinition(pulumi.CustomResource):
                  ephemeral_storage: Optional[pulumi.Input[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict']]] = None,
                  execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  family: Optional[pulumi.Input[builtins.str]] = None,
-                 inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionInferenceAcceleratorArgs', 'TaskDefinitionInferenceAcceleratorArgsDict']]]]] = None,
                  ipc_mode: Optional[pulumi.Input[builtins.str]] = None,
                  memory: Optional[pulumi.Input[builtins.str]] = None,
                  network_mode: Optional[pulumi.Input[builtins.str]] = None,
                  pid_mode: Optional[pulumi.Input[builtins.str]] = None,
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]]] = None,
                  proxy_configuration: Optional[pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  runtime_platform: Optional[pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']]] = None,
                  skip_destroy: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1337,13 +1313,13 @@ class TaskDefinition(pulumi.CustomResource):
             if family is None and not opts.urn:
                 raise TypeError("Missing required property 'family'")
             __props__.__dict__["family"] = family
-            __props__.__dict__["inference_accelerators"] = inference_accelerators
             __props__.__dict__["ipc_mode"] = ipc_mode
             __props__.__dict__["memory"] = memory
             __props__.__dict__["network_mode"] = network_mode
             __props__.__dict__["pid_mode"] = pid_mode
             __props__.__dict__["placement_constraints"] = placement_constraints
             __props__.__dict__["proxy_configuration"] = proxy_configuration
+            __props__.__dict__["region"] = region
             __props__.__dict__["requires_compatibilities"] = requires_compatibilities
             __props__.__dict__["runtime_platform"] = runtime_platform
             __props__.__dict__["skip_destroy"] = skip_destroy
@@ -1373,13 +1349,13 @@ class TaskDefinition(pulumi.CustomResource):
             ephemeral_storage: Optional[pulumi.Input[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict']]] = None,
             execution_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             family: Optional[pulumi.Input[builtins.str]] = None,
-            inference_accelerators: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionInferenceAcceleratorArgs', 'TaskDefinitionInferenceAcceleratorArgsDict']]]]] = None,
             ipc_mode: Optional[pulumi.Input[builtins.str]] = None,
             memory: Optional[pulumi.Input[builtins.str]] = None,
             network_mode: Optional[pulumi.Input[builtins.str]] = None,
             pid_mode: Optional[pulumi.Input[builtins.str]] = None,
             placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]]] = None,
             proxy_configuration: Optional[pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             revision: Optional[pulumi.Input[builtins.int]] = None,
             runtime_platform: Optional[pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']]] = None,
@@ -1401,20 +1377,18 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] container_definitions: A list of valid [container definitions](http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html) provided as a single valid JSON document. Please note that you should only provide values that are part of the container definition document. For a detailed description of what parameters are available, see the [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html) section from the official [Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide).
         :param pulumi.Input[builtins.str] cpu: Number of cpu units used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[builtins.bool] enable_fault_injection: Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-               
-               **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         :param pulumi.Input[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict']] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See Ephemeral Storage.
         :param pulumi.Input[builtins.str] execution_role_arn: ARN of the task execution role that the Amazon ECS container agent and the Docker daemon can assume.
         :param pulumi.Input[builtins.str] family: A unique name for your task definition.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionInferenceAcceleratorArgs', 'TaskDefinitionInferenceAcceleratorArgsDict']]]] inference_accelerators: Configuration block(s) with Inference Accelerators settings. Detailed below.
         :param pulumi.Input[builtins.str] ipc_mode: IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
         :param pulumi.Input[builtins.str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values are `none`, `bridge`, `awsvpc`, and `host`.
         :param pulumi.Input[builtins.str] pid_mode: Process namespace to use for the containers in the task. The valid values are `host` and `task`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         :param pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] requires_compatibilities: Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
         :param pulumi.Input[builtins.int] revision: Revision of the task in a particular family.
         :param pulumi.Input[Union['TaskDefinitionRuntimePlatformArgs', 'TaskDefinitionRuntimePlatformArgsDict']] runtime_platform: Configuration block for runtime_platform that containers in your task may use.
@@ -1426,6 +1400,8 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionVolumeArgs', 'TaskDefinitionVolumeArgsDict']]]] volumes: Configuration block for volumes that containers in your task may use. Detailed below.
                
                > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\\"` in the JSON,  e.g., `"value": "I \\"love\\" escaped quotes"`. If using a variable value, they should be escaped as `\\\\\\"` in the variable, e.g., `value = "I \\\\\\"love\\\\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+               
+               > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1439,13 +1415,13 @@ class TaskDefinition(pulumi.CustomResource):
         __props__.__dict__["ephemeral_storage"] = ephemeral_storage
         __props__.__dict__["execution_role_arn"] = execution_role_arn
         __props__.__dict__["family"] = family
-        __props__.__dict__["inference_accelerators"] = inference_accelerators
         __props__.__dict__["ipc_mode"] = ipc_mode
         __props__.__dict__["memory"] = memory
         __props__.__dict__["network_mode"] = network_mode
         __props__.__dict__["pid_mode"] = pid_mode
         __props__.__dict__["placement_constraints"] = placement_constraints
         __props__.__dict__["proxy_configuration"] = proxy_configuration
+        __props__.__dict__["region"] = region
         __props__.__dict__["requires_compatibilities"] = requires_compatibilities
         __props__.__dict__["revision"] = revision
         __props__.__dict__["runtime_platform"] = runtime_platform
@@ -1494,8 +1470,6 @@ class TaskDefinition(pulumi.CustomResource):
     def enable_fault_injection(self) -> pulumi.Output[builtins.bool]:
         """
         Enables fault injection and allows for fault injection requests to be accepted from the task's containers. Default is `false`.
-
-        **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         """
         return pulumi.get(self, "enable_fault_injection")
 
@@ -1524,14 +1498,6 @@ class TaskDefinition(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "family")
-
-    @property
-    @pulumi.getter(name="inferenceAccelerators")
-    def inference_accelerators(self) -> pulumi.Output[Optional[Sequence['outputs.TaskDefinitionInferenceAccelerator']]]:
-        """
-        Configuration block(s) with Inference Accelerators settings. Detailed below.
-        """
-        return pulumi.get(self, "inference_accelerators")
 
     @property
     @pulumi.getter(name="ipcMode")
@@ -1582,6 +1548,14 @@ class TaskDefinition(pulumi.CustomResource):
         return pulumi.get(self, "proxy_configuration")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="requiresCompatibilities")
     def requires_compatibilities(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
@@ -1623,7 +1597,6 @@ class TaskDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1653,6 +1626,8 @@ class TaskDefinition(pulumi.CustomResource):
         Configuration block for volumes that containers in your task may use. Detailed below.
 
         > **NOTE:** Proper escaping is required for JSON field values containing quotes (`"`) such as `environment` values. If directly setting the JSON, they should be escaped as `\\"` in the JSON,  e.g., `"value": "I \\"love\\" escaped quotes"`. If using a variable value, they should be escaped as `\\\\\\"` in the variable, e.g., `value = "I \\\\\\"love\\\\\\" escaped quotes"` in the variable and `"value": "${var.myvariable}"` in the JSON.
+
+        > **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn't available on Windows.
         """
         return pulumi.get(self, "volumes")
 

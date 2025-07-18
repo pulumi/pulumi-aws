@@ -119,10 +119,18 @@ export class Policy extends pulumi.CustomResource {
      */
     public /*out*/ readonly policyUpdateToken!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
      */
     public readonly remediationEnabled!: pulumi.Output<boolean | undefined>;
     public readonly resourceSetIds!: pulumi.Output<string[]>;
+    /**
+     * Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+     */
+    public readonly resourceTagLogicalOperator!: pulumi.Output<string>;
     /**
      * A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
      */
@@ -145,8 +153,6 @@ export class Policy extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -172,8 +178,10 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["includeMap"] = state ? state.includeMap : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["policyUpdateToken"] = state ? state.policyUpdateToken : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["remediationEnabled"] = state ? state.remediationEnabled : undefined;
             resourceInputs["resourceSetIds"] = state ? state.resourceSetIds : undefined;
+            resourceInputs["resourceTagLogicalOperator"] = state ? state.resourceTagLogicalOperator : undefined;
             resourceInputs["resourceTags"] = state ? state.resourceTags : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
             resourceInputs["resourceTypeLists"] = state ? state.resourceTypeLists : undefined;
@@ -195,8 +203,10 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["excludeResourceTags"] = args ? args.excludeResourceTags : undefined;
             resourceInputs["includeMap"] = args ? args.includeMap : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["remediationEnabled"] = args ? args.remediationEnabled : undefined;
             resourceInputs["resourceSetIds"] = args ? args.resourceSetIds : undefined;
+            resourceInputs["resourceTagLogicalOperator"] = args ? args.resourceTagLogicalOperator : undefined;
             resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
             resourceInputs["resourceTypeLists"] = args ? args.resourceTypeLists : undefined;
@@ -249,10 +259,18 @@ export interface PolicyState {
      */
     policyUpdateToken?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
      */
     remediationEnabled?: pulumi.Input<boolean>;
     resourceSetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+     */
+    resourceTagLogicalOperator?: pulumi.Input<string>;
     /**
      * A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
      */
@@ -275,8 +293,6 @@ export interface PolicyState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -314,10 +330,18 @@ export interface PolicyArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
      */
     remediationEnabled?: pulumi.Input<boolean>;
     resourceSetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+     */
+    resourceTagLogicalOperator?: pulumi.Input<string>;
     /**
      * A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
      */

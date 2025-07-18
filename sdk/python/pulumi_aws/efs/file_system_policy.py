@@ -22,7 +22,8 @@ class FileSystemPolicyArgs:
     def __init__(__self__, *,
                  file_system_id: pulumi.Input[builtins.str],
                  policy: pulumi.Input[builtins.str],
-                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[builtins.bool]] = None):
+                 bypass_policy_lockout_safety_check: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a FileSystemPolicy resource.
         :param pulumi.Input[builtins.str] file_system_id: The ID of the EFS file system.
@@ -30,11 +31,14 @@ class FileSystemPolicyArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.bool] bypass_policy_lockout_safety_check: A flag to indicate whether to bypass the `efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypass_policy_lockout_safety_check` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "file_system_id", file_system_id)
         pulumi.set(__self__, "policy", policy)
         if bypass_policy_lockout_safety_check is not None:
             pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="fileSystemId")
@@ -74,13 +78,26 @@ class FileSystemPolicyArgs:
     def bypass_policy_lockout_safety_check(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "bypass_policy_lockout_safety_check", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _FileSystemPolicyState:
     def __init__(__self__, *,
                  bypass_policy_lockout_safety_check: Optional[pulumi.Input[builtins.bool]] = None,
                  file_system_id: Optional[pulumi.Input[builtins.str]] = None,
-                 policy: Optional[pulumi.Input[builtins.str]] = None):
+                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering FileSystemPolicy resources.
         :param pulumi.Input[builtins.bool] bypass_policy_lockout_safety_check: A flag to indicate whether to bypass the `efs.FileSystemPolicy` lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request will be locked out from making future `PutFileSystemPolicy` requests on the file system. Set `bypass_policy_lockout_safety_check` to `true` only when you intend to prevent the principal that is making the request from making a subsequent `PutFileSystemPolicy` request on the file system. The default value is `false`.
@@ -88,6 +105,7 @@ class _FileSystemPolicyState:
         :param pulumi.Input[builtins.str] policy: The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if bypass_policy_lockout_safety_check is not None:
             pulumi.set(__self__, "bypass_policy_lockout_safety_check", bypass_policy_lockout_safety_check)
@@ -95,6 +113,8 @@ class _FileSystemPolicyState:
             pulumi.set(__self__, "file_system_id", file_system_id)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="bypassPolicyLockoutSafetyCheck")
@@ -134,6 +154,18 @@ class _FileSystemPolicyState:
     def policy(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "policy", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:efs/fileSystemPolicy:FileSystemPolicy")
 class FileSystemPolicy(pulumi.CustomResource):
@@ -144,6 +176,7 @@ class FileSystemPolicy(pulumi.CustomResource):
                  bypass_policy_lockout_safety_check: Optional[pulumi.Input[builtins.bool]] = None,
                  file_system_id: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides an Elastic File System (EFS) File System Policy resource.
@@ -193,6 +226,7 @@ class FileSystemPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] policy: The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -259,6 +293,7 @@ class FileSystemPolicy(pulumi.CustomResource):
                  bypass_policy_lockout_safety_check: Optional[pulumi.Input[builtins.bool]] = None,
                  file_system_id: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -275,6 +310,7 @@ class FileSystemPolicy(pulumi.CustomResource):
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
+            __props__.__dict__["region"] = region
         super(FileSystemPolicy, __self__).__init__(
             'aws:efs/fileSystemPolicy:FileSystemPolicy',
             resource_name,
@@ -287,7 +323,8 @@ class FileSystemPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             bypass_policy_lockout_safety_check: Optional[pulumi.Input[builtins.bool]] = None,
             file_system_id: Optional[pulumi.Input[builtins.str]] = None,
-            policy: Optional[pulumi.Input[builtins.str]] = None) -> 'FileSystemPolicy':
+            policy: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'FileSystemPolicy':
         """
         Get an existing FileSystemPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -300,6 +337,7 @@ class FileSystemPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] policy: The JSON formatted file system policy for the EFS file system. see [Docs](https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies) for more info.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -308,6 +346,7 @@ class FileSystemPolicy(pulumi.CustomResource):
         __props__.__dict__["bypass_policy_lockout_safety_check"] = bypass_policy_lockout_safety_check
         __props__.__dict__["file_system_id"] = file_system_id
         __props__.__dict__["policy"] = policy
+        __props__.__dict__["region"] = region
         return FileSystemPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -335,4 +374,12 @@ class FileSystemPolicy(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

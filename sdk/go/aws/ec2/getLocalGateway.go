@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -59,6 +59,8 @@ type GetLocalGatewayArgs struct {
 	Filters []GetLocalGatewayFilter `pulumi:"filters"`
 	// Id of the specific Local Gateway to retrieve.
 	Id *string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Current state of the desired Local Gateway.
 	// Can be either `"pending"` or `"available"`.
 	State *string `pulumi:"state"`
@@ -79,6 +81,7 @@ type GetLocalGatewayResult struct {
 	OutpostArn string `pulumi:"outpostArn"`
 	// AWS account identifier that owns the Local Gateway.
 	OwnerId string `pulumi:"ownerId"`
+	Region  string `pulumi:"region"`
 	// State of the local gateway.
 	State string            `pulumi:"state"`
 	Tags  map[string]string `pulumi:"tags"`
@@ -99,6 +102,8 @@ type GetLocalGatewayOutputArgs struct {
 	Filters GetLocalGatewayFilterArrayInput `pulumi:"filters"`
 	// Id of the specific Local Gateway to retrieve.
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Current state of the desired Local Gateway.
 	// Can be either `"pending"` or `"available"`.
 	State pulumi.StringPtrInput `pulumi:"state"`
@@ -146,6 +151,10 @@ func (o GetLocalGatewayResultOutput) OutpostArn() pulumi.StringOutput {
 // AWS account identifier that owns the Local Gateway.
 func (o GetLocalGatewayResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalGatewayResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o GetLocalGatewayResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // State of the local gateway.

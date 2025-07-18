@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetInstanceTypeOfferingsResult {
     /**
-     * @return Option for host instance type. See Broker Instance Options below.
+     * @return List of broker instance options. See Broker Instance Options below.
      * 
      */
     private List<GetInstanceTypeOfferingsBrokerInstanceOption> brokerInstanceOptions;
@@ -34,6 +34,7 @@ public final class GetInstanceTypeOfferingsResult {
      * 
      */
     private String id;
+    private String region;
     /**
      * @return Broker&#39;s storage type.
      * 
@@ -42,7 +43,7 @@ public final class GetInstanceTypeOfferingsResult {
 
     private GetInstanceTypeOfferingsResult() {}
     /**
-     * @return Option for host instance type. See Broker Instance Options below.
+     * @return List of broker instance options. See Broker Instance Options below.
      * 
      */
     public List<GetInstanceTypeOfferingsBrokerInstanceOption> brokerInstanceOptions() {
@@ -69,6 +70,9 @@ public final class GetInstanceTypeOfferingsResult {
     public String id() {
         return this.id;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Broker&#39;s storage type.
      * 
@@ -90,6 +94,7 @@ public final class GetInstanceTypeOfferingsResult {
         private @Nullable String engineType;
         private @Nullable String hostInstanceType;
         private String id;
+        private String region;
         private @Nullable String storageType;
         public Builder() {}
         public Builder(GetInstanceTypeOfferingsResult defaults) {
@@ -98,6 +103,7 @@ public final class GetInstanceTypeOfferingsResult {
     	      this.engineType = defaults.engineType;
     	      this.hostInstanceType = defaults.hostInstanceType;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.storageType = defaults.storageType;
         }
 
@@ -133,6 +139,14 @@ public final class GetInstanceTypeOfferingsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetInstanceTypeOfferingsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder storageType(@Nullable String storageType) {
 
             this.storageType = storageType;
@@ -144,6 +158,7 @@ public final class GetInstanceTypeOfferingsResult {
             _resultValue.engineType = engineType;
             _resultValue.hostInstanceType = hostInstanceType;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.storageType = storageType;
             return _resultValue;
         }

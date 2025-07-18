@@ -24,6 +24,7 @@ class PortfolioShareArgs:
                  principal_id: pulumi.Input[builtins.str],
                  type: pulumi.Input[builtins.str],
                  accept_language: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  share_principals: Optional[pulumi.Input[builtins.bool]] = None,
                  share_tag_options: Optional[pulumi.Input[builtins.bool]] = None,
                  wait_for_acceptance: Optional[pulumi.Input[builtins.bool]] = None):
@@ -35,6 +36,7 @@ class PortfolioShareArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] share_principals: Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
         :param pulumi.Input[builtins.bool] share_tag_options: Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
         :param pulumi.Input[builtins.bool] wait_for_acceptance: Whether to wait (up to the timeout) for the share to be accepted. Organizational shares are automatically accepted.
@@ -44,6 +46,8 @@ class PortfolioShareArgs:
         pulumi.set(__self__, "type", type)
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if share_principals is not None:
             pulumi.set(__self__, "share_principals", share_principals)
         if share_tag_options is not None:
@@ -102,6 +106,18 @@ class PortfolioShareArgs:
         pulumi.set(self, "accept_language", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sharePrincipals")
     def share_principals(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -145,6 +161,7 @@ class _PortfolioShareState:
                  accepted: Optional[pulumi.Input[builtins.bool]] = None,
                  portfolio_id: Optional[pulumi.Input[builtins.str]] = None,
                  principal_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  share_principals: Optional[pulumi.Input[builtins.bool]] = None,
                  share_tag_options: Optional[pulumi.Input[builtins.bool]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
@@ -155,6 +172,7 @@ class _PortfolioShareState:
         :param pulumi.Input[builtins.bool] accepted: Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
         :param pulumi.Input[builtins.str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[builtins.str] principal_id: Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] share_principals: Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
         :param pulumi.Input[builtins.bool] share_tag_options: Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
         :param pulumi.Input[builtins.str] type: Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
@@ -170,6 +188,8 @@ class _PortfolioShareState:
             pulumi.set(__self__, "portfolio_id", portfolio_id)
         if principal_id is not None:
             pulumi.set(__self__, "principal_id", principal_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if share_principals is not None:
             pulumi.set(__self__, "share_principals", share_principals)
         if share_tag_options is not None:
@@ -226,6 +246,18 @@ class _PortfolioShareState:
     @principal_id.setter
     def principal_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="sharePrincipals")
@@ -287,6 +319,7 @@ class PortfolioShare(pulumi.CustomResource):
                  accept_language: Optional[pulumi.Input[builtins.str]] = None,
                  portfolio_id: Optional[pulumi.Input[builtins.str]] = None,
                  principal_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  share_principals: Optional[pulumi.Input[builtins.bool]] = None,
                  share_tag_options: Optional[pulumi.Input[builtins.bool]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
@@ -330,6 +363,7 @@ class PortfolioShare(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] accept_language: Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
         :param pulumi.Input[builtins.str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[builtins.str] principal_id: Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] share_principals: Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
         :param pulumi.Input[builtins.bool] share_tag_options: Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
         :param pulumi.Input[builtins.str] type: Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
@@ -394,6 +428,7 @@ class PortfolioShare(pulumi.CustomResource):
                  accept_language: Optional[pulumi.Input[builtins.str]] = None,
                  portfolio_id: Optional[pulumi.Input[builtins.str]] = None,
                  principal_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  share_principals: Optional[pulumi.Input[builtins.bool]] = None,
                  share_tag_options: Optional[pulumi.Input[builtins.bool]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
@@ -414,6 +449,7 @@ class PortfolioShare(pulumi.CustomResource):
             if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")
             __props__.__dict__["principal_id"] = principal_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["share_principals"] = share_principals
             __props__.__dict__["share_tag_options"] = share_tag_options
             if type is None and not opts.urn:
@@ -435,6 +471,7 @@ class PortfolioShare(pulumi.CustomResource):
             accepted: Optional[pulumi.Input[builtins.bool]] = None,
             portfolio_id: Optional[pulumi.Input[builtins.str]] = None,
             principal_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             share_principals: Optional[pulumi.Input[builtins.bool]] = None,
             share_tag_options: Optional[pulumi.Input[builtins.bool]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None,
@@ -450,6 +487,7 @@ class PortfolioShare(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] accepted: Whether the shared portfolio is imported by the recipient account. If the recipient is organizational, the share is automatically imported, and the field is always set to true.
         :param pulumi.Input[builtins.str] portfolio_id: Portfolio identifier.
         :param pulumi.Input[builtins.str] principal_id: Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] share_principals: Enables or disables Principal sharing when creating the portfolio share. If this flag is not provided, principal sharing is disabled.
         :param pulumi.Input[builtins.bool] share_tag_options: Whether to enable sharing of `servicecatalog.TagOption` resources when creating the portfolio share.
         :param pulumi.Input[builtins.str] type: Type of portfolio share. Valid values are `ACCOUNT` (an external account), `ORGANIZATION` (a share to every account in an organization), `ORGANIZATIONAL_UNIT`, `ORGANIZATION_MEMBER_ACCOUNT` (a share to an account in an organization).
@@ -465,6 +503,7 @@ class PortfolioShare(pulumi.CustomResource):
         __props__.__dict__["accepted"] = accepted
         __props__.__dict__["portfolio_id"] = portfolio_id
         __props__.__dict__["principal_id"] = principal_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["share_principals"] = share_principals
         __props__.__dict__["share_tag_options"] = share_tag_options
         __props__.__dict__["type"] = type
@@ -502,6 +541,14 @@ class PortfolioShare(pulumi.CustomResource):
         Identifier of the principal with whom you will share the portfolio. Valid values AWS account IDs and ARNs of AWS Organizations and organizational units.
         """
         return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sharePrincipals")

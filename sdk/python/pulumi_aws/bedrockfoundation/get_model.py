@@ -27,7 +27,7 @@ class GetModelResult:
     """
     A collection of values returned by getModel.
     """
-    def __init__(__self__, customizations_supporteds=None, id=None, inference_types_supporteds=None, input_modalities=None, model_arn=None, model_id=None, model_name=None, output_modalities=None, provider_name=None, response_streaming_supported=None):
+    def __init__(__self__, customizations_supporteds=None, id=None, inference_types_supporteds=None, input_modalities=None, model_arn=None, model_id=None, model_name=None, output_modalities=None, provider_name=None, region=None, response_streaming_supported=None):
         if customizations_supporteds and not isinstance(customizations_supporteds, list):
             raise TypeError("Expected argument 'customizations_supporteds' to be a list")
         pulumi.set(__self__, "customizations_supporteds", customizations_supporteds)
@@ -55,6 +55,9 @@ class GetModelResult:
         if provider_name and not isinstance(provider_name, str):
             raise TypeError("Expected argument 'provider_name' to be a str")
         pulumi.set(__self__, "provider_name", provider_name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if response_streaming_supported and not isinstance(response_streaming_supported, bool):
             raise TypeError("Expected argument 'response_streaming_supported' to be a bool")
         pulumi.set(__self__, "response_streaming_supported", response_streaming_supported)
@@ -126,6 +129,11 @@ class GetModelResult:
         return pulumi.get(self, "provider_name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="responseStreamingSupported")
     def response_streaming_supported(self) -> builtins.bool:
         """
@@ -149,10 +157,12 @@ class AwaitableGetModelResult(GetModelResult):
             model_name=self.model_name,
             output_modalities=self.output_modalities,
             provider_name=self.provider_name,
+            region=self.region,
             response_streaming_supported=self.response_streaming_supported)
 
 
 def get_model(model_id: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetModelResult:
     """
     Data source for managing an AWS Bedrock Foundation Model.
@@ -171,9 +181,11 @@ def get_model(model_id: Optional[builtins.str] = None,
 
 
     :param builtins.str model_id: Model identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['modelId'] = model_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:bedrockfoundation/getModel:getModel', __args__, opts=opts, typ=GetModelResult).value
 
@@ -187,8 +199,10 @@ def get_model(model_id: Optional[builtins.str] = None,
         model_name=pulumi.get(__ret__, 'model_name'),
         output_modalities=pulumi.get(__ret__, 'output_modalities'),
         provider_name=pulumi.get(__ret__, 'provider_name'),
+        region=pulumi.get(__ret__, 'region'),
         response_streaming_supported=pulumi.get(__ret__, 'response_streaming_supported'))
 def get_model_output(model_id: Optional[pulumi.Input[builtins.str]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelResult]:
     """
     Data source for managing an AWS Bedrock Foundation Model.
@@ -207,9 +221,11 @@ def get_model_output(model_id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str model_id: Model identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['modelId'] = model_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:bedrockfoundation/getModel:getModel', __args__, opts=opts, typ=GetModelResult)
     return __ret__.apply(lambda __response__: GetModelResult(
@@ -222,4 +238,5 @@ def get_model_output(model_id: Optional[pulumi.Input[builtins.str]] = None,
         model_name=pulumi.get(__response__, 'model_name'),
         output_modalities=pulumi.get(__response__, 'output_modalities'),
         provider_name=pulumi.get(__response__, 'provider_name'),
+        region=pulumi.get(__response__, 'region'),
         response_streaming_supported=pulumi.get(__response__, 'response_streaming_supported')))

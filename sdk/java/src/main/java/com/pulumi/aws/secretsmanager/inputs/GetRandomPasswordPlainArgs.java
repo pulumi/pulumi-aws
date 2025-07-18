@@ -122,6 +122,21 @@ public final class GetRandomPasswordPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
      * 
      */
@@ -146,6 +161,7 @@ public final class GetRandomPasswordPlainArgs extends com.pulumi.resources.Invok
         this.excludeUppercase = $.excludeUppercase;
         this.includeSpace = $.includeSpace;
         this.passwordLength = $.passwordLength;
+        this.region = $.region;
         this.requireEachIncludedType = $.requireEachIncludedType;
     }
 
@@ -241,6 +257,17 @@ public final class GetRandomPasswordPlainArgs extends com.pulumi.resources.Invok
          */
         public Builder passwordLength(@Nullable Integer passwordLength) {
             $.passwordLength = passwordLength;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

@@ -18,6 +18,21 @@ public final class RouteServerVpcAssociationArgs extends com.pulumi.resources.Re
     public static final RouteServerVpcAssociationArgs Empty = new RouteServerVpcAssociationArgs();
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The unique identifier for the route server to be associated.
      * 
      */
@@ -42,12 +57,16 @@ public final class RouteServerVpcAssociationArgs extends com.pulumi.resources.Re
     /**
      * The ID of the VPC to associate with the route server.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
     /**
      * @return The ID of the VPC to associate with the route server.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> vpcId() {
@@ -57,6 +76,7 @@ public final class RouteServerVpcAssociationArgs extends com.pulumi.resources.Re
     private RouteServerVpcAssociationArgs() {}
 
     private RouteServerVpcAssociationArgs(RouteServerVpcAssociationArgs $) {
+        this.region = $.region;
         this.routeServerId = $.routeServerId;
         this.timeouts = $.timeouts;
         this.vpcId = $.vpcId;
@@ -78,6 +98,27 @@ public final class RouteServerVpcAssociationArgs extends com.pulumi.resources.Re
 
         public Builder(RouteServerVpcAssociationArgs defaults) {
             $ = new RouteServerVpcAssociationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -113,6 +154,8 @@ public final class RouteServerVpcAssociationArgs extends com.pulumi.resources.Re
         /**
          * @param vpcId The ID of the VPC to associate with the route server.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -123,6 +166,8 @@ public final class RouteServerVpcAssociationArgs extends com.pulumi.resources.Re
 
         /**
          * @param vpcId The ID of the VPC to associate with the route server.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

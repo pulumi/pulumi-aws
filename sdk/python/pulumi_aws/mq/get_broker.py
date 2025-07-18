@@ -28,7 +28,7 @@ class GetBrokerResult:
     """
     A collection of values returned by getBroker.
     """
-    def __init__(__self__, arn=None, authentication_strategy=None, auto_minor_version_upgrade=None, broker_id=None, broker_name=None, configuration=None, deployment_mode=None, encryption_options=None, engine_type=None, engine_version=None, host_instance_type=None, id=None, instances=None, ldap_server_metadatas=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, security_groups=None, storage_type=None, subnet_ids=None, tags=None, users=None):
+    def __init__(__self__, arn=None, authentication_strategy=None, auto_minor_version_upgrade=None, broker_id=None, broker_name=None, configuration=None, deployment_mode=None, encryption_options=None, engine_type=None, engine_version=None, host_instance_type=None, id=None, instances=None, ldap_server_metadatas=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, region=None, security_groups=None, storage_type=None, subnet_ids=None, tags=None, users=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -80,6 +80,9 @@ class GetBrokerResult:
         if publicly_accessible and not isinstance(publicly_accessible, bool):
             raise TypeError("Expected argument 'publicly_accessible' to be a bool")
         pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_groups and not isinstance(security_groups, list):
             raise TypeError("Expected argument 'security_groups' to be a list")
         pulumi.set(__self__, "security_groups", security_groups)
@@ -99,16 +102,25 @@ class GetBrokerResult:
     @property
     @pulumi.getter
     def arn(self) -> builtins.str:
+        """
+        ARN of the broker.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="authenticationStrategy")
     def authentication_strategy(self) -> builtins.str:
+        """
+        Authentication strategy used to secure the broker.
+        """
         return pulumi.get(self, "authentication_strategy")
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> builtins.bool:
+        """
+        Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
+        """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
     @property
@@ -124,31 +136,49 @@ class GetBrokerResult:
     @property
     @pulumi.getter
     def configuration(self) -> 'outputs.GetBrokerConfigurationResult':
+        """
+        Configuration block for broker configuration. See Configuration below.
+        """
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter(name="deploymentMode")
     def deployment_mode(self) -> builtins.str:
+        """
+        Deployment mode of the broker.
+        """
         return pulumi.get(self, "deployment_mode")
 
     @property
     @pulumi.getter(name="encryptionOptions")
     def encryption_options(self) -> Sequence['outputs.GetBrokerEncryptionOptionResult']:
+        """
+        Configuration block containing encryption options. See Encryption Options below.
+        """
         return pulumi.get(self, "encryption_options")
 
     @property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> builtins.str:
+        """
+        Type of broker engine.
+        """
         return pulumi.get(self, "engine_type")
 
     @property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> builtins.str:
+        """
+        Version of the broker engine.
+        """
         return pulumi.get(self, "engine_version")
 
     @property
     @pulumi.getter(name="hostInstanceType")
     def host_instance_type(self) -> builtins.str:
+        """
+        Broker's instance type.
+        """
         return pulumi.get(self, "host_instance_type")
 
     @property
@@ -162,51 +192,86 @@ class GetBrokerResult:
     @property
     @pulumi.getter
     def instances(self) -> Sequence['outputs.GetBrokerInstanceResult']:
+        """
+        List of information about allocated brokers (both active & standby). See Instances below.
+        """
         return pulumi.get(self, "instances")
 
     @property
     @pulumi.getter(name="ldapServerMetadatas")
     def ldap_server_metadatas(self) -> Sequence['outputs.GetBrokerLdapServerMetadataResult']:
+        """
+        Configuration block for the LDAP server used to authenticate and authorize connections to the broker. See LDAP Server Metadata below.
+        """
         return pulumi.get(self, "ldap_server_metadatas")
 
     @property
     @pulumi.getter
     def logs(self) -> 'outputs.GetBrokerLogsResult':
+        """
+        Configuration block for the logging configuration of the broker. See Logs below.
+        """
         return pulumi.get(self, "logs")
 
     @property
     @pulumi.getter(name="maintenanceWindowStartTime")
     def maintenance_window_start_time(self) -> 'outputs.GetBrokerMaintenanceWindowStartTimeResult':
+        """
+        Configuration block for the maintenance window start time. See Maintenance Window Start Time below.
+        """
         return pulumi.get(self, "maintenance_window_start_time")
 
     @property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> builtins.bool:
+        """
+        Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
+        """
         return pulumi.get(self, "publicly_accessible")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[builtins.str]:
+        """
+        List of security group IDs assigned to the broker.
+        """
         return pulumi.get(self, "security_groups")
 
     @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> builtins.str:
+        """
+        Storage type of the broker.
+        """
         return pulumi.get(self, "storage_type")
 
     @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Sequence[builtins.str]:
+        """
+        List of subnet IDs in which to launch the broker.
+        """
         return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
+        """
+        Map of tags assigned to the broker.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def users(self) -> Sequence['outputs.GetBrokerUserResult']:
+        """
+        Configuration block for broker users. See User below.
+        """
         return pulumi.get(self, "users")
 
 
@@ -233,6 +298,7 @@ class AwaitableGetBrokerResult(GetBrokerResult):
             logs=self.logs,
             maintenance_window_start_time=self.maintenance_window_start_time,
             publicly_accessible=self.publicly_accessible,
+            region=self.region,
             security_groups=self.security_groups,
             storage_type=self.storage_type,
             subnet_ids=self.subnet_ids,
@@ -242,35 +308,23 @@ class AwaitableGetBrokerResult(GetBrokerResult):
 
 def get_broker(broker_id: Optional[builtins.str] = None,
                broker_name: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                tags: Optional[Mapping[str, builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBrokerResult:
     """
-    Provides information about a MQ Broker.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    broker_id = config.get("brokerId")
-    if broker_id is None:
-        broker_id = ""
-    broker_name = config.get("brokerName")
-    if broker_name is None:
-        broker_name = ""
-    by_id = aws.mq.get_broker(broker_id=broker_id)
-    by_name = aws.mq.get_broker(broker_name=broker_name)
-    ```
+    Provides details about an existing Amazon MQ broker. Use this data source to retrieve configuration and metadata for an Amazon MQ broker by ID or name.
 
 
-    :param builtins.str broker_id: Unique id of the mq broker.
-    :param builtins.str broker_name: Unique name of the mq broker.
+    :param builtins.str broker_id: Unique ID of the MQ broker.
+    :param builtins.str broker_name: Unique name of the MQ broker.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+           > **Note:** Either `broker_id` or `broker_name` must be specified.
+    :param Mapping[str, builtins.str] tags: Map of tags assigned to the broker.
     """
     __args__ = dict()
     __args__['brokerId'] = broker_id
     __args__['brokerName'] = broker_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:mq/getBroker:getBroker', __args__, opts=opts, typ=GetBrokerResult).value
@@ -293,6 +347,7 @@ def get_broker(broker_id: Optional[builtins.str] = None,
         logs=pulumi.get(__ret__, 'logs'),
         maintenance_window_start_time=pulumi.get(__ret__, 'maintenance_window_start_time'),
         publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
+        region=pulumi.get(__ret__, 'region'),
         security_groups=pulumi.get(__ret__, 'security_groups'),
         storage_type=pulumi.get(__ret__, 'storage_type'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
@@ -300,35 +355,23 @@ def get_broker(broker_id: Optional[builtins.str] = None,
         users=pulumi.get(__ret__, 'users'))
 def get_broker_output(broker_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       broker_name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrokerResult]:
     """
-    Provides information about a MQ Broker.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-    config = pulumi.Config()
-    broker_id = config.get("brokerId")
-    if broker_id is None:
-        broker_id = ""
-    broker_name = config.get("brokerName")
-    if broker_name is None:
-        broker_name = ""
-    by_id = aws.mq.get_broker(broker_id=broker_id)
-    by_name = aws.mq.get_broker(broker_name=broker_name)
-    ```
+    Provides details about an existing Amazon MQ broker. Use this data source to retrieve configuration and metadata for an Amazon MQ broker by ID or name.
 
 
-    :param builtins.str broker_id: Unique id of the mq broker.
-    :param builtins.str broker_name: Unique name of the mq broker.
+    :param builtins.str broker_id: Unique ID of the MQ broker.
+    :param builtins.str broker_name: Unique name of the MQ broker.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+           > **Note:** Either `broker_id` or `broker_name` must be specified.
+    :param Mapping[str, builtins.str] tags: Map of tags assigned to the broker.
     """
     __args__ = dict()
     __args__['brokerId'] = broker_id
     __args__['brokerName'] = broker_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:mq/getBroker:getBroker', __args__, opts=opts, typ=GetBrokerResult)
@@ -350,6 +393,7 @@ def get_broker_output(broker_id: Optional[pulumi.Input[Optional[builtins.str]]] 
         logs=pulumi.get(__response__, 'logs'),
         maintenance_window_start_time=pulumi.get(__response__, 'maintenance_window_start_time'),
         publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
+        region=pulumi.get(__response__, 'region'),
         security_groups=pulumi.get(__response__, 'security_groups'),
         storage_type=pulumi.get(__response__, 'storage_type'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),

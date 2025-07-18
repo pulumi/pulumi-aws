@@ -99,6 +99,12 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string?> PrivateKey { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         /// </summary>
         [Output("teamId")]
@@ -246,6 +252,12 @@ namespace Pulumi.Aws.Pinpoint
             }
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("teamId")]
         private Input<string>? _teamId;
 
@@ -376,6 +388,12 @@ namespace Pulumi.Aws.Pinpoint
                 _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("teamId")]
         private Input<string>? _teamId;

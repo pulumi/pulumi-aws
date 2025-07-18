@@ -218,6 +218,12 @@ namespace Pulumi.Aws.NetworkFirewall
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -251,6 +257,12 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -314,6 +326,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// Descriptive name of the firewall.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// A flag indicating whether the firewall is protected against changes to the subnet associations.
         /// </summary>
@@ -357,6 +370,8 @@ namespace Pulumi.Aws.NetworkFirewall
 
             string name,
 
+            string region,
+
             bool subnetChangeProtection,
 
             ImmutableArray<Outputs.GetFirewallSubnetMappingResult> subnetMappings,
@@ -377,6 +392,7 @@ namespace Pulumi.Aws.NetworkFirewall
             FirewallStatuses = firewallStatuses;
             Id = id;
             Name = name;
+            Region = region;
             SubnetChangeProtection = subnetChangeProtection;
             SubnetMappings = subnetMappings;
             Tags = tags;

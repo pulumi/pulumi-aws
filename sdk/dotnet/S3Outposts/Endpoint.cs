@@ -86,6 +86,12 @@ namespace Pulumi.Aws.S3Outposts
         public Output<string> OutpostId { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Identifier of the EC2 Security Group.
         /// </summary>
         [Output("securityGroupId")]
@@ -162,6 +168,12 @@ namespace Pulumi.Aws.S3Outposts
         public Input<string> OutpostId { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Identifier of the EC2 Security Group.
         /// </summary>
         [Input("securityGroupId", required: true)]
@@ -228,6 +240,12 @@ namespace Pulumi.Aws.S3Outposts
         /// </summary>
         [Input("outpostId")]
         public Input<string>? OutpostId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Identifier of the EC2 Security Group.

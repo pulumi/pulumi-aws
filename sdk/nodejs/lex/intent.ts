@@ -200,6 +200,10 @@ export class Intent extends pulumi.CustomResource {
      */
     public readonly parentIntentSignature!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * When the user answers "no" to the question defined in
      * `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
      * canceled. You must provide both the `rejectionStatement` and the `confirmationPrompt`, or neither.
@@ -248,6 +252,7 @@ export class Intent extends pulumi.CustomResource {
             resourceInputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["parentIntentSignature"] = state ? state.parentIntentSignature : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rejectionStatement"] = state ? state.rejectionStatement : undefined;
             resourceInputs["sampleUtterances"] = state ? state.sampleUtterances : undefined;
             resourceInputs["slots"] = state ? state.slots : undefined;
@@ -266,6 +271,7 @@ export class Intent extends pulumi.CustomResource {
             resourceInputs["fulfillmentActivity"] = args ? args.fulfillmentActivity : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parentIntentSignature"] = args ? args.parentIntentSignature : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rejectionStatement"] = args ? args.rejectionStatement : undefined;
             resourceInputs["sampleUtterances"] = args ? args.sampleUtterances : undefined;
             resourceInputs["slots"] = args ? args.slots : undefined;
@@ -354,6 +360,10 @@ export interface IntentState {
      */
     parentIntentSignature?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * When the user answers "no" to the question defined in
      * `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was
      * canceled. You must provide both the `rejectionStatement` and the `confirmationPrompt`, or neither.
@@ -433,6 +443,10 @@ export interface IntentArgs {
      * in the Alexa Skills Kit.
      */
     parentIntentSignature?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * When the user answers "no" to the question defined in
      * `confirmationPrompt`, Amazon Lex responds with this statement to acknowledge that the intent was

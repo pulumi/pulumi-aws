@@ -26,12 +26,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "example-bucket"});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
+ * const example = new aws.s3.Bucket("example", {bucket: "example-bucket"});
+ * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
  *     bucket: example.id,
  *     acl: "private",
  * });
- * const versioningExample = new aws.s3.BucketVersioningV2("versioning_example", {
+ * const versioningExample = new aws.s3.BucketVersioning("versioning_example", {
  *     bucket: example.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
@@ -45,12 +45,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "example-bucket"});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
+ * const example = new aws.s3.Bucket("example", {bucket: "example-bucket"});
+ * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
  *     bucket: example.id,
  *     acl: "private",
  * });
- * const versioningExample = new aws.s3.BucketVersioningV2("versioning_example", {
+ * const versioningExample = new aws.s3.BucketVersioning("versioning_example", {
  *     bucket: example.id,
  *     versioningConfiguration: {
  *         status: "Disabled",
@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  *
  * ### Object Dependency On Versioning
  *
- * When you create an object whose `versionId` you need and an `aws.s3.BucketVersioningV2` resource in the same configuration, you are more likely to have success by ensuring the `s3Object` depends either implicitly (see below) or explicitly (i.e., using `dependsOn = [aws_s3_bucket_versioning.example]`) on the `aws.s3.BucketVersioningV2` resource.
+ * When you create an object whose `versionId` you need and an `aws.s3.BucketVersioning` resource in the same configuration, you are more likely to have success by ensuring the `s3Object` depends either implicitly (see below) or explicitly (i.e., using `dependsOn = [aws_s3_bucket_versioning.example]`) on the `aws.s3.BucketVersioning` resource.
  *
  * > **NOTE:** For critical and/or production S3 objects, do not create a bucket, enable versioning, and create an object in the bucket within the same configuration. Doing so will not allow the AWS-recommended 15 minutes between enabling versioning and writing to the bucket.
  *
@@ -70,15 +70,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "yotto"});
- * const exampleBucketVersioningV2 = new aws.s3.BucketVersioningV2("example", {
+ * const example = new aws.s3.Bucket("example", {bucket: "yotto"});
+ * const exampleBucketVersioning = new aws.s3.BucketVersioning("example", {
  *     bucket: example.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
  * });
  * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("example", {
- *     bucket: exampleBucketVersioningV2.id,
+ *     bucket: exampleBucketVersioning.id,
  *     key: "droeloe",
  *     source: new pulumi.asset.FileAsset("example.txt"),
  * });
@@ -100,6 +100,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:s3/bucketVersioningV2:BucketVersioningV2 example bucket-name,123456789012
  * ```
+ *
+ * @deprecated aws.s3/bucketversioningv2.BucketVersioningV2 has been deprecated in favor of aws.s3/bucketversioning.BucketVersioning
  */
 export class BucketVersioningV2 extends pulumi.CustomResource {
     /**
@@ -112,6 +114,7 @@ export class BucketVersioningV2 extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BucketVersioningV2State, opts?: pulumi.CustomResourceOptions): BucketVersioningV2 {
+        pulumi.log.warn("BucketVersioningV2 is deprecated: aws.s3/bucketversioningv2.BucketVersioningV2 has been deprecated in favor of aws.s3/bucketversioning.BucketVersioning")
         return new BucketVersioningV2(name, <any>state, { ...opts, id: id });
     }
 
@@ -142,6 +145,10 @@ export class BucketVersioningV2 extends pulumi.CustomResource {
      */
     public readonly mfa!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block for the versioning parameters. See below.
      */
     public readonly versioningConfiguration!: pulumi.Output<outputs.s3.BucketVersioningV2VersioningConfiguration>;
@@ -153,8 +160,11 @@ export class BucketVersioningV2 extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.s3/bucketversioningv2.BucketVersioningV2 has been deprecated in favor of aws.s3/bucketversioning.BucketVersioning */
     constructor(name: string, args: BucketVersioningV2Args, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.s3/bucketversioningv2.BucketVersioningV2 has been deprecated in favor of aws.s3/bucketversioning.BucketVersioning */
     constructor(name: string, argsOrState?: BucketVersioningV2Args | BucketVersioningV2State, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BucketVersioningV2 is deprecated: aws.s3/bucketversioningv2.BucketVersioningV2 has been deprecated in favor of aws.s3/bucketversioning.BucketVersioning")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
@@ -162,6 +172,7 @@ export class BucketVersioningV2 extends pulumi.CustomResource {
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
             resourceInputs["mfa"] = state ? state.mfa : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["versioningConfiguration"] = state ? state.versioningConfiguration : undefined;
         } else {
             const args = argsOrState as BucketVersioningV2Args | undefined;
@@ -174,9 +185,12 @@ export class BucketVersioningV2 extends pulumi.CustomResource {
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
             resourceInputs["mfa"] = args ? args.mfa : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["versioningConfiguration"] = args ? args.versioningConfiguration : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "aws:s3/bucketVersioningV2:BucketVersioningV2" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BucketVersioningV2.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -197,6 +211,10 @@ export interface BucketVersioningV2State {
      * Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
      */
     mfa?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for the versioning parameters. See below.
      */
@@ -219,6 +237,10 @@ export interface BucketVersioningV2Args {
      * Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
      */
     mfa?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block for the versioning parameters. See below.
      */

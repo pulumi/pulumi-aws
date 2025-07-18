@@ -205,6 +205,12 @@ namespace Pulumi.Aws.Ec2
         public string? NetworkInterfaceId { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// ID of the specific Route Table containing the Route entry.
         /// </summary>
         [Input("routeTableId", required: true)]
@@ -299,6 +305,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? NetworkInterfaceId { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ID of the specific Route Table containing the Route entry.
         /// </summary>
         [Input("routeTableId", required: true)]
@@ -343,6 +355,7 @@ namespace Pulumi.Aws.Ec2
         public readonly string LocalGatewayId;
         public readonly string NatGatewayId;
         public readonly string NetworkInterfaceId;
+        public readonly string Region;
         public readonly string RouteTableId;
         public readonly string TransitGatewayId;
         public readonly string VpcPeeringConnectionId;
@@ -373,6 +386,8 @@ namespace Pulumi.Aws.Ec2
 
             string networkInterfaceId,
 
+            string region,
+
             string routeTableId,
 
             string transitGatewayId,
@@ -391,6 +406,7 @@ namespace Pulumi.Aws.Ec2
             LocalGatewayId = localGatewayId;
             NatGatewayId = natGatewayId;
             NetworkInterfaceId = networkInterfaceId;
+            Region = region;
             RouteTableId = routeTableId;
             TransitGatewayId = transitGatewayId;
             VpcPeeringConnectionId = vpcPeeringConnectionId;

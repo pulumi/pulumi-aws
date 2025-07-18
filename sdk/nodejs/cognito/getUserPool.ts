@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
 export function getUserPool(args: GetUserPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cognito/getUserPool:getUserPool", {
+        "region": args.region,
         "userPoolId": args.userPoolId,
     }, opts);
 }
@@ -34,6 +35,10 @@ export function getUserPool(args: GetUserPoolArgs, opts?: pulumi.InvokeOptions):
  * A collection of arguments for invoking getUserPool.
  */
 export interface GetUserPoolArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * The cognito pool ID
      */
@@ -95,6 +100,7 @@ export interface GetUserPoolResult {
      * - Name of the attribute.
      */
     readonly name: string;
+    readonly region: string;
     readonly schemaAttributes: outputs.cognito.GetUserPoolSchemaAttribute[];
     /**
      * The contents of the SMS authentication message.
@@ -145,6 +151,7 @@ export interface GetUserPoolResult {
 export function getUserPoolOutput(args: GetUserPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cognito/getUserPool:getUserPool", {
+        "region": args.region,
         "userPoolId": args.userPoolId,
     }, opts);
 }
@@ -153,6 +160,10 @@ export function getUserPoolOutput(args: GetUserPoolOutputArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getUserPool.
  */
 export interface GetUserPoolOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The cognito pool ID
      */

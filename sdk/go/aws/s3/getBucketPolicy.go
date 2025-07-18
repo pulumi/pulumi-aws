@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,6 +55,8 @@ func LookupBucketPolicy(ctx *pulumi.Context, args *LookupBucketPolicyArgs, opts 
 type LookupBucketPolicyArgs struct {
 	// Bucket name.
 	Bucket string `pulumi:"bucket"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getBucketPolicy.
@@ -64,6 +66,7 @@ type LookupBucketPolicyResult struct {
 	Id string `pulumi:"id"`
 	// IAM bucket policy.
 	Policy string `pulumi:"policy"`
+	Region string `pulumi:"region"`
 }
 
 func LookupBucketPolicyOutput(ctx *pulumi.Context, args LookupBucketPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupBucketPolicyResultOutput {
@@ -79,6 +82,8 @@ func LookupBucketPolicyOutput(ctx *pulumi.Context, args LookupBucketPolicyOutput
 type LookupBucketPolicyOutputArgs struct {
 	// Bucket name.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupBucketPolicyOutputArgs) ElementType() reflect.Type {
@@ -112,6 +117,10 @@ func (o LookupBucketPolicyResultOutput) Id() pulumi.StringOutput {
 // IAM bucket policy.
 func (o LookupBucketPolicyResultOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketPolicyResult) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+func (o LookupBucketPolicyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketPolicyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

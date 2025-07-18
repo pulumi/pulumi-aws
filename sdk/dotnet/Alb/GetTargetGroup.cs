@@ -132,6 +132,12 @@ namespace Pulumi.Aws.Alb
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -168,6 +174,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -213,6 +225,7 @@ namespace Pulumi.Aws.Alb
         public readonly string Protocol;
         public readonly string ProtocolVersion;
         public readonly bool ProxyProtocolV2;
+        public readonly string Region;
         public readonly int SlowStart;
         public readonly Outputs.GetTargetGroupStickinessResult Stickiness;
         public readonly ImmutableDictionary<string, string> Tags;
@@ -255,6 +268,8 @@ namespace Pulumi.Aws.Alb
 
             bool proxyProtocolV2,
 
+            string region,
+
             int slowStart,
 
             Outputs.GetTargetGroupStickinessResult stickiness,
@@ -282,6 +297,7 @@ namespace Pulumi.Aws.Alb
             Protocol = protocol;
             ProtocolVersion = protocolVersion;
             ProxyProtocolV2 = proxyProtocolV2;
+            Region = region;
             SlowStart = slowStart;
             Stickiness = stickiness;
             Tags = tags;

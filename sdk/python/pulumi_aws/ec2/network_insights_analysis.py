@@ -24,6 +24,7 @@ class NetworkInsightsAnalysisArgs:
     def __init__(__self__, *,
                  network_insights_path_id: pulumi.Input[builtins.str],
                  filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  wait_for_completion: Optional[pulumi.Input[builtins.bool]] = None):
         """
@@ -32,12 +33,15 @@ class NetworkInsightsAnalysisArgs:
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] filter_in_arns: A list of ARNs for resources the path must traverse.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.bool] wait_for_completion: If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
         """
         pulumi.set(__self__, "network_insights_path_id", network_insights_path_id)
         if filter_in_arns is not None:
             pulumi.set(__self__, "filter_in_arns", filter_in_arns)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if wait_for_completion is not None:
@@ -68,6 +72,18 @@ class NetworkInsightsAnalysisArgs:
     @filter_in_arns.setter
     def filter_in_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "filter_in_arns", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -104,6 +120,7 @@ class _NetworkInsightsAnalysisState:
                  forward_path_components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentArgs']]]] = None,
                  network_insights_path_id: Optional[pulumi.Input[builtins.str]] = None,
                  path_found: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  return_path_components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentArgs']]]] = None,
                  start_date: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
@@ -123,6 +140,7 @@ class _NetworkInsightsAnalysisState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.bool] path_found: Set to `true` if the destination was reachable.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentArgs']]] return_path_components: The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
         :param pulumi.Input[builtins.str] start_date: The date/time the analysis was started.
         :param pulumi.Input[builtins.str] status: The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
@@ -146,6 +164,8 @@ class _NetworkInsightsAnalysisState:
             pulumi.set(__self__, "network_insights_path_id", network_insights_path_id)
         if path_found is not None:
             pulumi.set(__self__, "path_found", path_found)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if return_path_components is not None:
             pulumi.set(__self__, "return_path_components", return_path_components)
         if start_date is not None:
@@ -156,9 +176,6 @@ class _NetworkInsightsAnalysisState:
             pulumi.set(__self__, "status_message", status_message)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if wait_for_completion is not None:
@@ -253,6 +270,18 @@ class _NetworkInsightsAnalysisState:
         pulumi.set(self, "path_found", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="returnPathComponents")
     def return_path_components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentArgs']]]]:
         """
@@ -314,7 +343,6 @@ class _NetworkInsightsAnalysisState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -358,6 +386,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  network_insights_path_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  wait_for_completion: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
@@ -391,6 +420,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] network_insights_path_id: ID of the Network Insights Path to run an analysis on.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.bool] wait_for_completion: If enabled, the resource will wait for the Network Insights Analysis status to change to `succeeded` or `failed`. Setting this to `false` will skip the process. Default: `true`.
         """
@@ -441,6 +471,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  filter_in_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  network_insights_path_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  wait_for_completion: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
@@ -456,6 +487,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
             if network_insights_path_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_insights_path_id'")
             __props__.__dict__["network_insights_path_id"] = network_insights_path_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["wait_for_completion"] = wait_for_completion
             __props__.__dict__["alternate_path_hints"] = None
@@ -486,6 +518,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
             forward_path_components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisForwardPathComponentArgs', 'NetworkInsightsAnalysisForwardPathComponentArgsDict']]]]] = None,
             network_insights_path_id: Optional[pulumi.Input[builtins.str]] = None,
             path_found: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             return_path_components: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisReturnPathComponentArgs', 'NetworkInsightsAnalysisReturnPathComponentArgsDict']]]]] = None,
             start_date: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
@@ -510,6 +543,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.bool] path_found: Set to `true` if the destination was reachable.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkInsightsAnalysisReturnPathComponentArgs', 'NetworkInsightsAnalysisReturnPathComponentArgsDict']]]] return_path_components: The components in the path from destination to source. See the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_PathComponent.html) for details.
         :param pulumi.Input[builtins.str] start_date: The date/time the analysis was started.
         :param pulumi.Input[builtins.str] status: The status of the analysis. `succeeded` means the analysis was completed, not that a path was found, for that see `path_found`.
@@ -530,6 +564,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         __props__.__dict__["forward_path_components"] = forward_path_components
         __props__.__dict__["network_insights_path_id"] = network_insights_path_id
         __props__.__dict__["path_found"] = path_found
+        __props__.__dict__["region"] = region
         __props__.__dict__["return_path_components"] = return_path_components
         __props__.__dict__["start_date"] = start_date
         __props__.__dict__["status"] = status
@@ -599,6 +634,14 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
         return pulumi.get(self, "path_found")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="returnPathComponents")
     def return_path_components(self) -> pulumi.Output[Sequence['outputs.NetworkInsightsAnalysisReturnPathComponent']]:
         """
@@ -640,7 +683,6 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

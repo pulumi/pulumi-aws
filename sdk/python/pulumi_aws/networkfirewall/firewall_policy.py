@@ -26,6 +26,7 @@ class FirewallPolicyArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  encryption_configuration: Optional[pulumi.Input['FirewallPolicyEncryptionConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a FirewallPolicy resource.
@@ -33,6 +34,7 @@ class FirewallPolicyArgs:
         :param pulumi.Input[builtins.str] description: A friendly description of the firewall policy.
         :param pulumi.Input['FirewallPolicyEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[builtins.str] name: A friendly name of the firewall policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "firewall_policy", firewall_policy)
@@ -42,6 +44,8 @@ class FirewallPolicyArgs:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -95,6 +99,18 @@ class FirewallPolicyArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -114,6 +130,7 @@ class _FirewallPolicyState:
                  encryption_configuration: Optional[pulumi.Input['FirewallPolicyEncryptionConfigurationArgs']] = None,
                  firewall_policy: Optional[pulumi.Input['FirewallPolicyFirewallPolicyArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  update_token: Optional[pulumi.Input[builtins.str]] = None):
@@ -124,6 +141,7 @@ class _FirewallPolicyState:
         :param pulumi.Input['FirewallPolicyEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input['FirewallPolicyFirewallPolicyArgs'] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         :param pulumi.Input[builtins.str] name: A friendly name of the firewall policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] update_token: A string token used when updating a firewall policy.
@@ -138,11 +156,10 @@ class _FirewallPolicyState:
             pulumi.set(__self__, "firewall_policy", firewall_policy)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if update_token is not None:
@@ -210,6 +227,18 @@ class _FirewallPolicyState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -222,7 +251,6 @@ class _FirewallPolicyState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -256,6 +284,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  encryption_configuration: Optional[pulumi.Input[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict']]] = None,
                  firewall_policy: Optional[pulumi.Input[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -267,6 +296,9 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        current = aws.get_region()
+        current_get_partition = aws.get_partition()
+        current_get_caller_identity = aws.get_caller_identity()
         example = aws.networkfirewall.FirewallPolicy("example",
             name="example",
             firewall_policy={
@@ -276,7 +308,7 @@ class FirewallPolicy(pulumi.CustomResource):
                     "priority": 1,
                     "resource_arn": example_aws_networkfirewall_rule_group["arn"],
                 }],
-                "tls_inspection_configuration_arn": "arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
+                "tls_inspection_configuration_arn": f"arn:{current_get_partition.partition}:network-firewall:{current.region}:{current_get_caller_identity.account_id}:tls-configuration/example",
             },
             tags={
                 "Tag1": "Value1",
@@ -323,7 +355,7 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.networkfirewall.FirewallPolicy("test",
+        example = aws.networkfirewall.FirewallPolicy("example",
             name="example",
             firewall_policy={
                 "stateless_default_actions": [
@@ -340,6 +372,50 @@ class FirewallPolicy(pulumi.CustomResource):
                         },
                     },
                     "action_name": "ExampleCustomAction",
+                }],
+            })
+        ```
+
+        ## Policy with Active Threat Defense in Action Order
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        current_get_partition = aws.get_partition()
+        example = aws.networkfirewall.FirewallPolicy("example",
+            name="example",
+            firewall_policy={
+                "stateless_fragment_default_actions": ["aws:drop"],
+                "stateless_default_actions": ["aws:pass"],
+                "stateful_rule_group_references": [{
+                    "deep_threat_inspection": "true",
+                    "resource_arn": f"arn:{current_get_partition.partition}:network-firewall:{current.region}:aws-managed:stateful-rulegroup/AttackInfrastructureActionOrder",
+                }],
+            })
+        ```
+
+        ## Policy with Active Threat Defense in Strict Order
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        current_get_partition = aws.get_partition()
+        example = aws.networkfirewall.FirewallPolicy("example",
+            name="example",
+            firewall_policy={
+                "stateless_fragment_default_actions": ["aws:drop"],
+                "stateless_default_actions": ["aws:pass"],
+                "stateful_engine_options": {
+                    "rule_order": "STRICT_ORDER",
+                },
+                "stateful_rule_group_references": [{
+                    "deep_threat_inspection": "false",
+                    "priority": 1,
+                    "resource_arn": f"arn:{current_get_partition.partition}:network-firewall:{current.region}:aws-managed:stateful-rulegroup/AttackInfrastructureStrictOrder",
                 }],
             })
         ```
@@ -358,6 +434,7 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict']] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         :param pulumi.Input[builtins.str] name: A friendly name of the firewall policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -375,6 +452,9 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        current = aws.get_region()
+        current_get_partition = aws.get_partition()
+        current_get_caller_identity = aws.get_caller_identity()
         example = aws.networkfirewall.FirewallPolicy("example",
             name="example",
             firewall_policy={
@@ -384,7 +464,7 @@ class FirewallPolicy(pulumi.CustomResource):
                     "priority": 1,
                     "resource_arn": example_aws_networkfirewall_rule_group["arn"],
                 }],
-                "tls_inspection_configuration_arn": "arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
+                "tls_inspection_configuration_arn": f"arn:{current_get_partition.partition}:network-firewall:{current.region}:{current_get_caller_identity.account_id}:tls-configuration/example",
             },
             tags={
                 "Tag1": "Value1",
@@ -431,7 +511,7 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.networkfirewall.FirewallPolicy("test",
+        example = aws.networkfirewall.FirewallPolicy("example",
             name="example",
             firewall_policy={
                 "stateless_default_actions": [
@@ -448,6 +528,50 @@ class FirewallPolicy(pulumi.CustomResource):
                         },
                     },
                     "action_name": "ExampleCustomAction",
+                }],
+            })
+        ```
+
+        ## Policy with Active Threat Defense in Action Order
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        current_get_partition = aws.get_partition()
+        example = aws.networkfirewall.FirewallPolicy("example",
+            name="example",
+            firewall_policy={
+                "stateless_fragment_default_actions": ["aws:drop"],
+                "stateless_default_actions": ["aws:pass"],
+                "stateful_rule_group_references": [{
+                    "deep_threat_inspection": "true",
+                    "resource_arn": f"arn:{current_get_partition.partition}:network-firewall:{current.region}:aws-managed:stateful-rulegroup/AttackInfrastructureActionOrder",
+                }],
+            })
+        ```
+
+        ## Policy with Active Threat Defense in Strict Order
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        current_get_partition = aws.get_partition()
+        example = aws.networkfirewall.FirewallPolicy("example",
+            name="example",
+            firewall_policy={
+                "stateless_fragment_default_actions": ["aws:drop"],
+                "stateless_default_actions": ["aws:pass"],
+                "stateful_engine_options": {
+                    "rule_order": "STRICT_ORDER",
+                },
+                "stateful_rule_group_references": [{
+                    "deep_threat_inspection": "false",
+                    "priority": 1,
+                    "resource_arn": f"arn:{current_get_partition.partition}:network-firewall:{current.region}:aws-managed:stateful-rulegroup/AttackInfrastructureStrictOrder",
                 }],
             })
         ```
@@ -479,6 +603,7 @@ class FirewallPolicy(pulumi.CustomResource):
                  encryption_configuration: Optional[pulumi.Input[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict']]] = None,
                  firewall_policy: Optional[pulumi.Input[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -495,6 +620,7 @@ class FirewallPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'firewall_policy'")
             __props__.__dict__["firewall_policy"] = firewall_policy
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -514,6 +640,7 @@ class FirewallPolicy(pulumi.CustomResource):
             encryption_configuration: Optional[pulumi.Input[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict']]] = None,
             firewall_policy: Optional[pulumi.Input[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             update_token: Optional[pulumi.Input[builtins.str]] = None) -> 'FirewallPolicy':
@@ -529,6 +656,7 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[Union['FirewallPolicyEncryptionConfigurationArgs', 'FirewallPolicyEncryptionConfigurationArgsDict']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[Union['FirewallPolicyFirewallPolicyArgs', 'FirewallPolicyFirewallPolicyArgsDict']] firewall_policy: A configuration block describing the rule groups and policy actions to use in the firewall policy. See Firewall Policy below for details.
         :param pulumi.Input[builtins.str] name: A friendly name of the firewall policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] update_token: A string token used when updating a firewall policy.
@@ -542,6 +670,7 @@ class FirewallPolicy(pulumi.CustomResource):
         __props__.__dict__["encryption_configuration"] = encryption_configuration
         __props__.__dict__["firewall_policy"] = firewall_policy
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["update_token"] = update_token
@@ -589,6 +718,14 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -597,7 +734,6 @@ class FirewallPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

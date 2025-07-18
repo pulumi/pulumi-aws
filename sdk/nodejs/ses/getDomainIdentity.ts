@@ -22,6 +22,7 @@ export function getDomainIdentity(args: GetDomainIdentityArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ses/getDomainIdentity:getDomainIdentity", {
         "domain": args.domain,
+        "region": args.region,
     }, opts);
 }
 
@@ -33,6 +34,10 @@ export interface GetDomainIdentityArgs {
      * Name of the domain
      */
     domain: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -51,6 +56,7 @@ export interface GetDomainIdentityResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf.
      */
@@ -74,6 +80,7 @@ export function getDomainIdentityOutput(args: GetDomainIdentityOutputArgs, opts?
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ses/getDomainIdentity:getDomainIdentity", {
         "domain": args.domain,
+        "region": args.region,
     }, opts);
 }
 
@@ -85,4 +92,8 @@ export interface GetDomainIdentityOutputArgs {
      * Name of the domain
      */
     domain: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

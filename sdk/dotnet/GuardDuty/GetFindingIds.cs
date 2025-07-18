@@ -99,6 +99,12 @@ namespace Pulumi.Aws.GuardDuty
         [Input("detectorId", required: true)]
         public string DetectorId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetFindingIdsArgs()
         {
         }
@@ -112,6 +118,12 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Input("detectorId", required: true)]
         public Input<string> DetectorId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetFindingIdsInvokeArgs()
         {
@@ -133,6 +145,7 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         public readonly bool HasFindings;
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetFindingIdsResult(
@@ -142,12 +155,15 @@ namespace Pulumi.Aws.GuardDuty
 
             bool hasFindings,
 
-            string id)
+            string id,
+
+            string region)
         {
             DetectorId = detectorId;
             FindingIds = findingIds;
             HasFindings = hasFindings;
             Id = id;
+            Region = region;
         }
     }
 }

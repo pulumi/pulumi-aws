@@ -42,8 +42,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.inputs.GetPartitionArgs;
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleBucketV2 = new BucketV2("exampleBucketV2", BucketV2Args.builder()
+ *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
  *             .bucket("my-test-trail")
  *             .forceDestroy(true)
  *             .build());
@@ -92,11 +92,11 @@ import javax.annotation.Nullable;
  *                         .identifiers("cloudtrail.amazonaws.com")
  *                         .build())
  *                     .actions("s3:GetBucketAcl")
- *                     .resources(exampleBucketV2.arn())
+ *                     .resources(exampleBucket.arn())
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("StringEquals")
  *                         .variable("aws:SourceArn")
- *                         .values(String.format("arn:%s:cloudtrail:%s:%s:trail/example", currentGetPartition.partition(),currentGetRegion.name(),current.accountId()))
+ *                         .values(String.format("arn:%s:cloudtrail:%s:%s:trail/example", currentGetPartition.partition(),currentGetRegion.region(),current.accountId()))
  *                         .build())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *                         .identifiers("cloudtrail.amazonaws.com")
  *                         .build())
  *                     .actions("s3:PutObject")
- *                     .resources(exampleBucketV2.arn().applyValue(_arn -> String.format("%s/prefix/AWSLogs/%s/*", _arn,current.accountId())))
+ *                     .resources(exampleBucket.arn().applyValue(_arn -> String.format("%s/prefix/AWSLogs/%s/*", _arn,current.accountId())))
  *                     .conditions(                    
  *                         GetPolicyDocumentStatementConditionArgs.builder()
  *                             .test("StringEquals")
@@ -117,19 +117,19 @@ import javax.annotation.Nullable;
  *                         GetPolicyDocumentStatementConditionArgs.builder()
  *                             .test("StringEquals")
  *                             .variable("aws:SourceArn")
- *                             .values(String.format("arn:%s:cloudtrail:%s:%s:trail/example", currentGetPartition.partition(),currentGetRegion.name(),current.accountId()))
+ *                             .values(String.format("arn:%s:cloudtrail:%s:%s:trail/example", currentGetPartition.partition(),currentGetRegion.region(),current.accountId()))
  *                             .build())
  *                     .build())
  *             .build());
  * 
  *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
- *             .bucket(exampleBucketV2.id())
+ *             .bucket(exampleBucket.id())
  *             .policy(example.applyValue(_example -> _example.json()))
  *             .build());
  * 
  *         var exampleTrail = new Trail("exampleTrail", TrailArgs.builder()
  *             .name("example")
- *             .s3BucketName(exampleBucketV2.id())
+ *             .s3BucketName(exampleBucket.id())
  *             .s3KeyPrefix("prefix")
  *             .includeGlobalServiceEvents(false)
  *             .build(), CustomResourceOptions.builder()
@@ -706,6 +706,20 @@ public class Trail extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Name of the S3 bucket designated for publishing log files.
      * 
      * The following arguments are optional:
@@ -782,11 +796,7 @@ public class Trail extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

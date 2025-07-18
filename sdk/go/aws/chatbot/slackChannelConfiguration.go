@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chatbot"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chatbot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,6 +68,8 @@ type SlackChannelConfiguration struct {
 	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
 	// Logging levels include `ERROR`, `INFO`, or `NONE`.
 	LoggingLevel pulumi.StringOutput `pulumi:"loggingLevel"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the Slack channel. For example, `C07EZ1ABC23`.
 	SlackChannelId pulumi.StringOutput `pulumi:"slackChannelId"`
 	// Name of the Slack channel.
@@ -83,8 +85,6 @@ type SlackChannelConfiguration struct {
 	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput                     `pulumi:"tagsAll"`
 	Timeouts SlackChannelConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Enables use of a user role requirement in your chat configuration.
@@ -143,6 +143,8 @@ type slackChannelConfigurationState struct {
 	IamRoleArn *string `pulumi:"iamRoleArn"`
 	// Logging levels include `ERROR`, `INFO`, or `NONE`.
 	LoggingLevel *string `pulumi:"loggingLevel"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the Slack channel. For example, `C07EZ1ABC23`.
 	SlackChannelId *string `pulumi:"slackChannelId"`
 	// Name of the Slack channel.
@@ -158,8 +160,6 @@ type slackChannelConfigurationState struct {
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string                  `pulumi:"tagsAll"`
 	Timeouts *SlackChannelConfigurationTimeouts `pulumi:"timeouts"`
 	// Enables use of a user role requirement in your chat configuration.
@@ -177,6 +177,8 @@ type SlackChannelConfigurationState struct {
 	IamRoleArn pulumi.StringPtrInput
 	// Logging levels include `ERROR`, `INFO`, or `NONE`.
 	LoggingLevel pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the Slack channel. For example, `C07EZ1ABC23`.
 	SlackChannelId pulumi.StringPtrInput
 	// Name of the Slack channel.
@@ -192,8 +194,6 @@ type SlackChannelConfigurationState struct {
 	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts SlackChannelConfigurationTimeoutsPtrInput
 	// Enables use of a user role requirement in your chat configuration.
@@ -213,6 +213,8 @@ type slackChannelConfigurationArgs struct {
 	IamRoleArn string `pulumi:"iamRoleArn"`
 	// Logging levels include `ERROR`, `INFO`, or `NONE`.
 	LoggingLevel *string `pulumi:"loggingLevel"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the Slack channel. For example, `C07EZ1ABC23`.
 	SlackChannelId string `pulumi:"slackChannelId"`
 	// ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
@@ -238,6 +240,8 @@ type SlackChannelConfigurationArgs struct {
 	IamRoleArn pulumi.StringInput
 	// Logging levels include `ERROR`, `INFO`, or `NONE`.
 	LoggingLevel pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the Slack channel. For example, `C07EZ1ABC23`.
 	SlackChannelId pulumi.StringInput
 	// ID of the Slack workspace authorized with AWS Chatbot. For example, `T07EA123LEP`.
@@ -365,6 +369,11 @@ func (o SlackChannelConfigurationOutput) LoggingLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringOutput { return v.LoggingLevel }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o SlackChannelConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // ID of the Slack channel. For example, `C07EZ1ABC23`.
 func (o SlackChannelConfigurationOutput) SlackChannelId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringOutput { return v.SlackChannelId }).(pulumi.StringOutput)
@@ -398,8 +407,6 @@ func (o SlackChannelConfigurationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o SlackChannelConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

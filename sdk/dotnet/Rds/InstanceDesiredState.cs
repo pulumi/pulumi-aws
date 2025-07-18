@@ -53,6 +53,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> Identifier { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configured state of the DB Instance. Valid values are `available` and `stopped`.
         /// </summary>
         [Output("state")]
@@ -114,6 +120,12 @@ namespace Pulumi.Aws.Rds
         public Input<string> Identifier { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configured state of the DB Instance. Valid values are `available` and `stopped`.
         /// </summary>
         [Input("state", required: true)]
@@ -135,6 +147,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("identifier")]
         public Input<string>? Identifier { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configured state of the DB Instance. Valid values are `available` and `stopped`.

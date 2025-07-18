@@ -29,6 +29,7 @@ class CollaborationArgs:
                  data_encryption_metadata: Optional[pulumi.Input['CollaborationDataEncryptionMetadataArgs']] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Collaboration resource.
@@ -51,6 +52,7 @@ class CollaborationArgs:
                * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
                * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
         :param pulumi.Input[builtins.str] name: The name of the collaboration.  Collaboration names do not need to be unique.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key value pairs which tag the collaboration.
         """
         pulumi.set(__self__, "creator_display_name", creator_display_name)
@@ -63,6 +65,8 @@ class CollaborationArgs:
             pulumi.set(__self__, "members", members)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -164,6 +168,18 @@ class CollaborationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key value pairs which tag the collaboration.
@@ -187,6 +203,7 @@ class _CollaborationState:
                  members: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  query_log_status: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  update_time: Optional[pulumi.Input[builtins.str]] = None):
@@ -214,6 +231,7 @@ class _CollaborationState:
         :param pulumi.Input[builtins.str] name: The name of the collaboration.  Collaboration names do not need to be unique.
         :param pulumi.Input[builtins.str] query_log_status: Determines if members of the collaboration can enable query logs within their own.
                emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key value pairs which tag the collaboration.
         """
         if arn is not None:
@@ -234,11 +252,10 @@ class _CollaborationState:
             pulumi.set(__self__, "name", name)
         if query_log_status is not None:
             pulumi.set(__self__, "query_log_status", query_log_status)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if update_time is not None:
@@ -367,6 +384,18 @@ class _CollaborationState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key value pairs which tag the collaboration.
@@ -379,7 +408,6 @@ class _CollaborationState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -410,6 +438,7 @@ class Collaboration(pulumi.CustomResource):
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CollaborationMemberArgs', 'CollaborationMemberArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  query_log_status: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -478,6 +507,7 @@ class Collaboration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the collaboration.  Collaboration names do not need to be unique.
         :param pulumi.Input[builtins.str] query_log_status: Determines if members of the collaboration can enable query logs within their own.
                emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key value pairs which tag the collaboration.
         """
         ...
@@ -553,6 +583,7 @@ class Collaboration(pulumi.CustomResource):
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CollaborationMemberArgs', 'CollaborationMemberArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  query_log_status: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -578,6 +609,7 @@ class Collaboration(pulumi.CustomResource):
             if query_log_status is None and not opts.urn:
                 raise TypeError("Missing required property 'query_log_status'")
             __props__.__dict__["query_log_status"] = query_log_status
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["create_time"] = None
@@ -602,6 +634,7 @@ class Collaboration(pulumi.CustomResource):
             members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CollaborationMemberArgs', 'CollaborationMemberArgsDict']]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             query_log_status: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             update_time: Optional[pulumi.Input[builtins.str]] = None) -> 'Collaboration':
@@ -634,6 +667,7 @@ class Collaboration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the collaboration.  Collaboration names do not need to be unique.
         :param pulumi.Input[builtins.str] query_log_status: Determines if members of the collaboration can enable query logs within their own.
                emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key value pairs which tag the collaboration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -649,6 +683,7 @@ class Collaboration(pulumi.CustomResource):
         __props__.__dict__["members"] = members
         __props__.__dict__["name"] = name
         __props__.__dict__["query_log_status"] = query_log_status
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["update_time"] = update_time
@@ -741,6 +776,14 @@ class Collaboration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         Key value pairs which tag the collaboration.
@@ -749,7 +792,6 @@ class Collaboration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

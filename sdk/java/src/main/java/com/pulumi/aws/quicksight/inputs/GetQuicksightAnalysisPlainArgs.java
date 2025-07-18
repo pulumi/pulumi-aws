@@ -46,6 +46,21 @@ public final class GetQuicksightAnalysisPlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.awsAccountId);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
@@ -58,6 +73,7 @@ public final class GetQuicksightAnalysisPlainArgs extends com.pulumi.resources.I
     private GetQuicksightAnalysisPlainArgs(GetQuicksightAnalysisPlainArgs $) {
         this.analysisId = $.analysisId;
         this.awsAccountId = $.awsAccountId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -98,6 +114,17 @@ public final class GetQuicksightAnalysisPlainArgs extends com.pulumi.resources.I
          */
         public Builder awsAccountId(@Nullable String awsAccountId) {
             $.awsAccountId = awsAccountId;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

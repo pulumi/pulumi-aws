@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpc"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpc"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,9 +53,13 @@ import (
 type RouteServerPropagation struct {
 	pulumi.CustomResourceState
 
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The unique identifier for the route server to be associated.
 	RouteServerId pulumi.StringOutput `pulumi:"routeServerId"`
 	// The ID of the route table to which route server will propagate routes.
+	//
+	// The following arguments are optional:
 	RouteTableId pulumi.StringOutput                     `pulumi:"routeTableId"`
 	Timeouts     RouteServerPropagationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -96,17 +100,25 @@ func GetRouteServerPropagation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteServerPropagation resources.
 type routeServerPropagationState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The unique identifier for the route server to be associated.
 	RouteServerId *string `pulumi:"routeServerId"`
 	// The ID of the route table to which route server will propagate routes.
+	//
+	// The following arguments are optional:
 	RouteTableId *string                         `pulumi:"routeTableId"`
 	Timeouts     *RouteServerPropagationTimeouts `pulumi:"timeouts"`
 }
 
 type RouteServerPropagationState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The unique identifier for the route server to be associated.
 	RouteServerId pulumi.StringPtrInput
 	// The ID of the route table to which route server will propagate routes.
+	//
+	// The following arguments are optional:
 	RouteTableId pulumi.StringPtrInput
 	Timeouts     RouteServerPropagationTimeoutsPtrInput
 }
@@ -116,18 +128,26 @@ func (RouteServerPropagationState) ElementType() reflect.Type {
 }
 
 type routeServerPropagationArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The unique identifier for the route server to be associated.
 	RouteServerId string `pulumi:"routeServerId"`
 	// The ID of the route table to which route server will propagate routes.
+	//
+	// The following arguments are optional:
 	RouteTableId string                          `pulumi:"routeTableId"`
 	Timeouts     *RouteServerPropagationTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a RouteServerPropagation resource.
 type RouteServerPropagationArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The unique identifier for the route server to be associated.
 	RouteServerId pulumi.StringInput
 	// The ID of the route table to which route server will propagate routes.
+	//
+	// The following arguments are optional:
 	RouteTableId pulumi.StringInput
 	Timeouts     RouteServerPropagationTimeoutsPtrInput
 }
@@ -219,12 +239,19 @@ func (o RouteServerPropagationOutput) ToRouteServerPropagationOutputWithContext(
 	return o
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o RouteServerPropagationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RouteServerPropagation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The unique identifier for the route server to be associated.
 func (o RouteServerPropagationOutput) RouteServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerPropagation) pulumi.StringOutput { return v.RouteServerId }).(pulumi.StringOutput)
 }
 
 // The ID of the route table to which route server will propagate routes.
+//
+// The following arguments are optional:
 func (o RouteServerPropagationOutput) RouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteServerPropagation) pulumi.StringOutput { return v.RouteTableId }).(pulumi.StringOutput)
 }

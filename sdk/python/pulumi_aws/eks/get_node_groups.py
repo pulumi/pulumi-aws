@@ -27,7 +27,7 @@ class GetNodeGroupsResult:
     """
     A collection of values returned by getNodeGroups.
     """
-    def __init__(__self__, cluster_name=None, id=None, names=None):
+    def __init__(__self__, cluster_name=None, id=None, names=None, region=None):
         if cluster_name and not isinstance(cluster_name, str):
             raise TypeError("Expected argument 'cluster_name' to be a str")
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -37,6 +37,9 @@ class GetNodeGroupsResult:
         if names and not isinstance(names, list):
             raise TypeError("Expected argument 'names' to be a list")
         pulumi.set(__self__, "names", names)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -59,6 +62,11 @@ class GetNodeGroupsResult:
         """
         return pulumi.get(self, "names")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetNodeGroupsResult(GetNodeGroupsResult):
     # pylint: disable=using-constant-test
@@ -68,10 +76,12 @@ class AwaitableGetNodeGroupsResult(GetNodeGroupsResult):
         return GetNodeGroupsResult(
             cluster_name=self.cluster_name,
             id=self.id,
-            names=self.names)
+            names=self.names,
+            region=self.region)
 
 
 def get_node_groups(cluster_name: Optional[builtins.str] = None,
+                    region: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNodeGroupsResult:
     """
     Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
@@ -89,17 +99,21 @@ def get_node_groups(cluster_name: Optional[builtins.str] = None,
 
 
     :param builtins.str cluster_name: Name of the cluster.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:eks/getNodeGroups:getNodeGroups', __args__, opts=opts, typ=GetNodeGroupsResult).value
 
     return AwaitableGetNodeGroupsResult(
         cluster_name=pulumi.get(__ret__, 'cluster_name'),
         id=pulumi.get(__ret__, 'id'),
-        names=pulumi.get(__ret__, 'names'))
+        names=pulumi.get(__ret__, 'names'),
+        region=pulumi.get(__ret__, 'region'))
 def get_node_groups_output(cluster_name: Optional[pulumi.Input[builtins.str]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNodeGroupsResult]:
     """
     Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
@@ -117,12 +131,15 @@ def get_node_groups_output(cluster_name: Optional[pulumi.Input[builtins.str]] = 
 
 
     :param builtins.str cluster_name: Name of the cluster.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:eks/getNodeGroups:getNodeGroups', __args__, opts=opts, typ=GetNodeGroupsResult)
     return __ret__.apply(lambda __response__: GetNodeGroupsResult(
         cluster_name=pulumi.get(__response__, 'cluster_name'),
         id=pulumi.get(__response__, 'id'),
-        names=pulumi.get(__response__, 'names')))
+        names=pulumi.get(__response__, 'names'),
+        region=pulumi.get(__response__, 'region')))

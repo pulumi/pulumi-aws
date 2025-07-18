@@ -42,7 +42,7 @@ namespace Pulumi.Aws.ServerlessRepository
     ///             {
     ///                 var currentGetRegion = values.Item1;
     ///                 var current = values.Item2;
-    ///                 return $"secretsmanager.{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}.{current.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}";
+    ///                 return $"secretsmanager.{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}.{current.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}";
     ///             }) },
     ///         },
     ///     });
@@ -90,6 +90,12 @@ namespace Pulumi.Aws.ServerlessRepository
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// The version of the application to deploy. If not supplied, deploys the latest version.
@@ -192,6 +198,12 @@ namespace Pulumi.Aws.ServerlessRepository
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The version of the application to deploy. If not supplied, deploys the latest version.
         /// </summary>
         [Input("semanticVersion")]
@@ -266,6 +278,12 @@ namespace Pulumi.Aws.ServerlessRepository
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The version of the application to deploy. If not supplied, deploys the latest version.
         /// </summary>
         [Input("semanticVersion")]
@@ -289,7 +307,6 @@ namespace Pulumi.Aws.ServerlessRepository
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

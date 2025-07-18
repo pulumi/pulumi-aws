@@ -93,6 +93,12 @@ namespace Pulumi.Aws.Ec2
         [Input("instanceType", required: true)]
         public string InstanceType { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetInstanceTypeArgs()
         {
         }
@@ -106,6 +112,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetInstanceTypeInvokeArgs()
         {
@@ -339,6 +351,7 @@ namespace Pulumi.Aws.Ec2
         /// `true` if a local Precision Time Protocol (PTP) hardware clock (PHC) is supported.
         /// </summary>
         public readonly string PhcSupport;
+        public readonly string Region;
         /// <summary>
         /// A list of strings of architectures supported by the instance type.
         /// </summary>
@@ -500,6 +513,8 @@ namespace Pulumi.Aws.Ec2
 
             string phcSupport,
 
+            string region,
+
             ImmutableArray<string> supportedArchitectures,
 
             ImmutableArray<string> supportedCpuFeatures,
@@ -579,6 +594,7 @@ namespace Pulumi.Aws.Ec2
             NitroTpmSupport = nitroTpmSupport;
             NitroTpmSupportedVersions = nitroTpmSupportedVersions;
             PhcSupport = phcSupport;
+            Region = region;
             SupportedArchitectures = supportedArchitectures;
             SupportedCpuFeatures = supportedCpuFeatures;
             SupportedPlacementStrategies = supportedPlacementStrategies;

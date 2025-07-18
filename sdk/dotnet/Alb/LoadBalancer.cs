@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Alb
         public Output<Outputs.LoadBalancerAccessLogs?> AccessLogs { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the load balancer (matches `id`).
+        /// ARN of the load balancer.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -203,6 +203,7 @@ namespace Pulumi.Aws.Alb
 
         /// <summary>
         /// DNS name of the load balancer.
+        /// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
         /// </summary>
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
@@ -295,7 +296,7 @@ namespace Pulumi.Aws.Alb
         /// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         /// </summary>
         [Output("loadBalancerType")]
-        public Output<string?> LoadBalancerType { get; private set; } = null!;
+        public Output<Pulumi.Aws.Alb.LoadBalancerType?> LoadBalancerType { get; private set; } = null!;
 
         /// <summary>
         /// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
@@ -320,6 +321,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Output("preserveHostHeader")]
         public Output<bool?> PreserveHostHeader { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
@@ -526,7 +533,7 @@ namespace Pulumi.Aws.Alb
         /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         /// </summary>
         [Input("ipAddressType")]
-        public Input<string>? IpAddressType { get; set; }
+        public InputUnion<string, Pulumi.Aws.Alb.IpAddressType>? IpAddressType { get; set; }
 
         /// <summary>
         /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
@@ -538,7 +545,7 @@ namespace Pulumi.Aws.Alb
         /// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         /// </summary>
         [Input("loadBalancerType")]
-        public Input<string>? LoadBalancerType { get; set; }
+        public Input<Pulumi.Aws.Alb.LoadBalancerType>? LoadBalancerType { get; set; }
 
         /// <summary>
         /// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
@@ -563,6 +570,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Input("preserveHostHeader")]
         public Input<bool>? PreserveHostHeader { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
@@ -637,7 +650,7 @@ namespace Pulumi.Aws.Alb
         public Input<Inputs.LoadBalancerAccessLogsGetArgs>? AccessLogs { get; set; }
 
         /// <summary>
-        /// ARN of the load balancer (matches `id`).
+        /// ARN of the load balancer.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -674,6 +687,7 @@ namespace Pulumi.Aws.Alb
 
         /// <summary>
         /// DNS name of the load balancer.
+        /// * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
         /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
@@ -754,7 +768,7 @@ namespace Pulumi.Aws.Alb
         /// Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
         /// </summary>
         [Input("ipAddressType")]
-        public Input<string>? IpAddressType { get; set; }
+        public InputUnion<string, Pulumi.Aws.Alb.IpAddressType>? IpAddressType { get; set; }
 
         /// <summary>
         /// . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipam_pools for more information.
@@ -766,7 +780,7 @@ namespace Pulumi.Aws.Alb
         /// Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
         /// </summary>
         [Input("loadBalancerType")]
-        public Input<string>? LoadBalancerType { get; set; }
+        public Input<Pulumi.Aws.Alb.LoadBalancerType>? LoadBalancerType { get; set; }
 
         /// <summary>
         /// Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
@@ -791,6 +805,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Input("preserveHostHeader")]
         public Input<bool>? PreserveHostHeader { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
@@ -846,7 +866,6 @@ namespace Pulumi.Aws.Alb
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

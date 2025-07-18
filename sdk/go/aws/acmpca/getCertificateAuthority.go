@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acmpca"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/acmpca"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupCertificateAuthority(ctx *pulumi.Context, args *LookupCertificateAuth
 type LookupCertificateAuthorityArgs struct {
 	// ARN of the certificate authority.
 	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of user-defined tags that are attached to the certificate authority.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -72,6 +74,7 @@ type LookupCertificateAuthorityResult struct {
 	NotAfter string `pulumi:"notAfter"`
 	// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
 	NotBefore string `pulumi:"notBefore"`
+	Region    string `pulumi:"region"`
 	// Nested attribute containing revocation configuration.
 	RevocationConfigurations []GetCertificateAuthorityRevocationConfiguration `pulumi:"revocationConfigurations"`
 	// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
@@ -99,6 +102,8 @@ func LookupCertificateAuthorityOutput(ctx *pulumi.Context, args LookupCertificat
 type LookupCertificateAuthorityOutputArgs struct {
 	// ARN of the certificate authority.
 	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of user-defined tags that are attached to the certificate authority.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -158,6 +163,10 @@ func (o LookupCertificateAuthorityResultOutput) NotAfter() pulumi.StringOutput {
 // Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
 func (o LookupCertificateAuthorityResultOutput) NotBefore() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.NotBefore }).(pulumi.StringOutput)
+}
+
+func (o LookupCertificateAuthorityResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Nested attribute containing revocation configuration.

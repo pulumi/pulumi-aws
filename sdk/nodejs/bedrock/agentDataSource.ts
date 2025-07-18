@@ -93,6 +93,10 @@ export class AgentDataSource extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
      */
     public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.bedrock.AgentDataSourceServerSideEncryptionConfiguration | undefined>;
@@ -121,6 +125,7 @@ export class AgentDataSource extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["knowledgeBaseId"] = state ? state.knowledgeBaseId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serverSideEncryptionConfiguration"] = state ? state.serverSideEncryptionConfiguration : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
             resourceInputs["vectorIngestionConfiguration"] = state ? state.vectorIngestionConfiguration : undefined;
@@ -134,6 +139,7 @@ export class AgentDataSource extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["knowledgeBaseId"] = args ? args.knowledgeBaseId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["vectorIngestionConfiguration"] = args ? args.vectorIngestionConfiguration : undefined;
@@ -175,6 +181,10 @@ export interface AgentDataSourceState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
      */
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.bedrock.AgentDataSourceServerSideEncryptionConfiguration>;
@@ -211,6 +221,10 @@ export interface AgentDataSourceArgs {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Details about the configuration of the server-side encryption. See `serverSideEncryptionConfiguration` block for details.
      */

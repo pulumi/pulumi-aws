@@ -108,6 +108,12 @@ namespace Pulumi.Aws.AppConfig
         [Input("applicationId", required: true)]
         public string ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetConfigurationProfilesArgs()
         {
         }
@@ -121,6 +127,12 @@ namespace Pulumi.Aws.AppConfig
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetConfigurationProfilesInvokeArgs()
         {
@@ -141,6 +153,7 @@ namespace Pulumi.Aws.AppConfig
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetConfigurationProfilesResult(
@@ -148,11 +161,14 @@ namespace Pulumi.Aws.AppConfig
 
             ImmutableArray<string> configurationProfileIds,
 
-            string id)
+            string id,
+
+            string region)
         {
             ApplicationId = applicationId;
             ConfigurationProfileIds = configurationProfileIds;
             Id = id;
+            Region = region;
         }
     }
 }

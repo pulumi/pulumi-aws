@@ -29,7 +29,7 @@ class GetSecretsResult:
     """
     A collection of values returned by getSecrets.
     """
-    def __init__(__self__, arns=None, filters=None, id=None, names=None):
+    def __init__(__self__, arns=None, filters=None, id=None, names=None, region=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         pulumi.set(__self__, "arns", arns)
@@ -42,6 +42,9 @@ class GetSecretsResult:
         if names and not isinstance(names, list):
             raise TypeError("Expected argument 'names' to be a list")
         pulumi.set(__self__, "names", names)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -72,6 +75,11 @@ class GetSecretsResult:
         """
         return pulumi.get(self, "names")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetSecretsResult(GetSecretsResult):
     # pylint: disable=using-constant-test
@@ -82,10 +90,12 @@ class AwaitableGetSecretsResult(GetSecretsResult):
             arns=self.arns,
             filters=self.filters,
             id=self.id,
-            names=self.names)
+            names=self.names,
+            region=self.region)
 
 
 def get_secrets(filters: Optional[Sequence[Union['GetSecretsFilterArgs', 'GetSecretsFilterArgsDict']]] = None,
+                region: Optional[builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretsResult:
     """
     Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
@@ -104,9 +114,11 @@ def get_secrets(filters: Optional[Sequence[Union['GetSecretsFilterArgs', 'GetSec
 
 
     :param Sequence[Union['GetSecretsFilterArgs', 'GetSecretsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecrets:getSecrets', __args__, opts=opts, typ=GetSecretsResult).value
 
@@ -114,8 +126,10 @@ def get_secrets(filters: Optional[Sequence[Union['GetSecretsFilterArgs', 'GetSec
         arns=pulumi.get(__ret__, 'arns'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
-        names=pulumi.get(__ret__, 'names'))
+        names=pulumi.get(__ret__, 'names'),
+        region=pulumi.get(__ret__, 'region'))
 def get_secrets_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSecretsFilterArgs', 'GetSecretsFilterArgsDict']]]]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretsResult]:
     """
     Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
@@ -134,13 +148,16 @@ def get_secrets_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['G
 
 
     :param Sequence[Union['GetSecretsFilterArgs', 'GetSecretsFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:secretsmanager/getSecrets:getSecrets', __args__, opts=opts, typ=GetSecretsResult)
     return __ret__.apply(lambda __response__: GetSecretsResult(
         arns=pulumi.get(__response__, 'arns'),
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
-        names=pulumi.get(__response__, 'names')))
+        names=pulumi.get(__response__, 'names'),
+        region=pulumi.get(__response__, 'region')))

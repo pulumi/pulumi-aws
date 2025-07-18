@@ -29,7 +29,7 @@ class GetInstancesResult:
     """
     A collection of values returned by getInstances.
     """
-    def __init__(__self__, filters=None, id=None, ids=None, instance_state_names=None, instance_tags=None, ipv6_addresses=None, private_ips=None, public_ips=None):
+    def __init__(__self__, filters=None, id=None, ids=None, instance_state_names=None, instance_tags=None, ipv6_addresses=None, private_ips=None, public_ips=None, region=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -54,6 +54,9 @@ class GetInstancesResult:
         if public_ips and not isinstance(public_ips, list):
             raise TypeError("Expected argument 'public_ips' to be a list")
         pulumi.set(__self__, "public_ips", public_ips)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -110,6 +113,11 @@ class GetInstancesResult:
         """
         return pulumi.get(self, "public_ips")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetInstancesResult(GetInstancesResult):
     # pylint: disable=using-constant-test
@@ -124,12 +132,14 @@ class AwaitableGetInstancesResult(GetInstancesResult):
             instance_tags=self.instance_tags,
             ipv6_addresses=self.ipv6_addresses,
             private_ips=self.private_ips,
-            public_ips=self.public_ips)
+            public_ips=self.public_ips,
+            region=self.region)
 
 
 def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']]] = None,
                   instance_state_names: Optional[Sequence[builtins.str]] = None,
                   instance_tags: Optional[Mapping[str, builtins.str]] = None,
+                  region: Optional[builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstancesResult:
     """
     Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
@@ -172,11 +182,13 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
     :param Sequence[builtins.str] instance_state_names: List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
     :param Mapping[str, builtins.str] instance_tags: Map of tags, each pair of which must
            exactly match a pair on desired instances.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['instanceStateNames'] = instance_state_names
     __args__['instanceTags'] = instance_tags
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getInstances:getInstances', __args__, opts=opts, typ=GetInstancesResult).value
 
@@ -188,10 +200,12 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
         instance_tags=pulumi.get(__ret__, 'instance_tags'),
         ipv6_addresses=pulumi.get(__ret__, 'ipv6_addresses'),
         private_ips=pulumi.get(__ret__, 'private_ips'),
-        public_ips=pulumi.get(__ret__, 'public_ips'))
+        public_ips=pulumi.get(__ret__, 'public_ips'),
+        region=pulumi.get(__ret__, 'region'))
 def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']]]]] = None,
                          instance_state_names: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                          instance_tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstancesResult]:
     """
     Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
@@ -234,11 +248,13 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
     :param Sequence[builtins.str] instance_state_names: List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
     :param Mapping[str, builtins.str] instance_tags: Map of tags, each pair of which must
            exactly match a pair on desired instances.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['instanceStateNames'] = instance_state_names
     __args__['instanceTags'] = instance_tags
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getInstances:getInstances', __args__, opts=opts, typ=GetInstancesResult)
     return __ret__.apply(lambda __response__: GetInstancesResult(
@@ -249,4 +265,5 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
         instance_tags=pulumi.get(__response__, 'instance_tags'),
         ipv6_addresses=pulumi.get(__response__, 'ipv6_addresses'),
         private_ips=pulumi.get(__response__, 'private_ips'),
-        public_ips=pulumi.get(__response__, 'public_ips')))
+        public_ips=pulumi.get(__response__, 'public_ips'),
+        region=pulumi.get(__response__, 'region')))

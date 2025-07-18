@@ -258,6 +258,10 @@ export class PatchBaseline extends pulumi.CustomResource {
      */
     public readonly operatingSystem!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of rejected patches.
      */
     public readonly rejectedPatches!: pulumi.Output<string[] | undefined>;
@@ -275,8 +279,6 @@ export class PatchBaseline extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -303,6 +305,7 @@ export class PatchBaseline extends pulumi.CustomResource {
             resourceInputs["json"] = state ? state.json : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["operatingSystem"] = state ? state.operatingSystem : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rejectedPatches"] = state ? state.rejectedPatches : undefined;
             resourceInputs["rejectedPatchesAction"] = state ? state.rejectedPatchesAction : undefined;
             resourceInputs["sources"] = state ? state.sources : undefined;
@@ -318,6 +321,7 @@ export class PatchBaseline extends pulumi.CustomResource {
             resourceInputs["globalFilters"] = args ? args.globalFilters : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rejectedPatches"] = args ? args.rejectedPatches : undefined;
             resourceInputs["rejectedPatchesAction"] = args ? args.rejectedPatchesAction : undefined;
             resourceInputs["sources"] = args ? args.sources : undefined;
@@ -378,6 +382,10 @@ export interface PatchBaselineState {
      */
     operatingSystem?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of rejected patches.
      */
     rejectedPatches?: pulumi.Input<pulumi.Input<string>[]>;
@@ -395,8 +403,6 @@ export interface PatchBaselineState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -439,6 +445,10 @@ export interface PatchBaselineArgs {
      * Operating system the patch baseline applies to. Valid values are `ALMA_LINUX`, `AMAZON_LINUX`, `AMAZON_LINUX_2`, `AMAZON_LINUX_2022`, `AMAZON_LINUX_2023`, `CENTOS`, `DEBIAN`, `MACOS`, `ORACLE_LINUX`, `RASPBIAN`, `REDHAT_ENTERPRISE_LINUX`, `ROCKY_LINUX`, `SUSE`, `UBUNTU`, and `WINDOWS`. The default value is `WINDOWS`.
      */
     operatingSystem?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of rejected patches.
      */

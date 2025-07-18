@@ -29,7 +29,7 @@ class GetDevEnvironmentResult:
     """
     A collection of values returned by getDevEnvironment.
     """
-    def __init__(__self__, alias=None, creator_id=None, env_id=None, id=None, ides=None, inactivity_timeout_minutes=None, instance_type=None, last_updated_time=None, persistent_storages=None, project_name=None, repositories=None, space_name=None, status=None, status_reason=None, tags=None):
+    def __init__(__self__, alias=None, creator_id=None, env_id=None, id=None, ides=None, inactivity_timeout_minutes=None, instance_type=None, last_updated_time=None, persistent_storages=None, project_name=None, region=None, repositories=None, space_name=None, status=None, status_reason=None, tags=None):
         if alias and not isinstance(alias, str):
             raise TypeError("Expected argument 'alias' to be a str")
         pulumi.set(__self__, "alias", alias)
@@ -60,6 +60,9 @@ class GetDevEnvironmentResult:
         if project_name and not isinstance(project_name, str):
             raise TypeError("Expected argument 'project_name' to be a str")
         pulumi.set(__self__, "project_name", project_name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if repositories and not isinstance(repositories, list):
             raise TypeError("Expected argument 'repositories' to be a list")
         pulumi.set(__self__, "repositories", repositories)
@@ -152,6 +155,11 @@ class GetDevEnvironmentResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def repositories(self) -> Optional[Sequence['outputs.GetDevEnvironmentRepositoryResult']]:
         """
         The source repository that contains the branch to clone into the Dev Environment.
@@ -201,6 +209,7 @@ class AwaitableGetDevEnvironmentResult(GetDevEnvironmentResult):
             last_updated_time=self.last_updated_time,
             persistent_storages=self.persistent_storages,
             project_name=self.project_name,
+            region=self.region,
             repositories=self.repositories,
             space_name=self.space_name,
             status=self.status,
@@ -212,6 +221,7 @@ def get_dev_environment(alias: Optional[builtins.str] = None,
                         creator_id: Optional[builtins.str] = None,
                         env_id: Optional[builtins.str] = None,
                         project_name: Optional[builtins.str] = None,
+                        region: Optional[builtins.str] = None,
                         repositories: Optional[Sequence[Union['GetDevEnvironmentRepositoryArgs', 'GetDevEnvironmentRepositoryArgsDict']]] = None,
                         space_name: Optional[builtins.str] = None,
                         tags: Optional[Mapping[str, builtins.str]] = None,
@@ -237,6 +247,7 @@ def get_dev_environment(alias: Optional[builtins.str] = None,
     :param builtins.str creator_id: The system-generated unique ID of the user who created the Dev Environment.
     :param builtins.str env_id: - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
     :param builtins.str project_name: The name of the project in the space.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[Union['GetDevEnvironmentRepositoryArgs', 'GetDevEnvironmentRepositoryArgsDict']] repositories: The source repository that contains the branch to clone into the Dev Environment.
     :param builtins.str space_name: The name of the space.
     """
@@ -245,6 +256,7 @@ def get_dev_environment(alias: Optional[builtins.str] = None,
     __args__['creatorId'] = creator_id
     __args__['envId'] = env_id
     __args__['projectName'] = project_name
+    __args__['region'] = region
     __args__['repositories'] = repositories
     __args__['spaceName'] = space_name
     __args__['tags'] = tags
@@ -262,6 +274,7 @@ def get_dev_environment(alias: Optional[builtins.str] = None,
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         persistent_storages=pulumi.get(__ret__, 'persistent_storages'),
         project_name=pulumi.get(__ret__, 'project_name'),
+        region=pulumi.get(__ret__, 'region'),
         repositories=pulumi.get(__ret__, 'repositories'),
         space_name=pulumi.get(__ret__, 'space_name'),
         status=pulumi.get(__ret__, 'status'),
@@ -271,6 +284,7 @@ def get_dev_environment_output(alias: Optional[pulumi.Input[Optional[builtins.st
                                creator_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                env_id: Optional[pulumi.Input[builtins.str]] = None,
                                project_name: Optional[pulumi.Input[builtins.str]] = None,
+                               region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                repositories: Optional[pulumi.Input[Optional[Sequence[Union['GetDevEnvironmentRepositoryArgs', 'GetDevEnvironmentRepositoryArgsDict']]]]] = None,
                                space_name: Optional[pulumi.Input[builtins.str]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
@@ -296,6 +310,7 @@ def get_dev_environment_output(alias: Optional[pulumi.Input[Optional[builtins.st
     :param builtins.str creator_id: The system-generated unique ID of the user who created the Dev Environment.
     :param builtins.str env_id: - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
     :param builtins.str project_name: The name of the project in the space.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[Union['GetDevEnvironmentRepositoryArgs', 'GetDevEnvironmentRepositoryArgsDict']] repositories: The source repository that contains the branch to clone into the Dev Environment.
     :param builtins.str space_name: The name of the space.
     """
@@ -304,6 +319,7 @@ def get_dev_environment_output(alias: Optional[pulumi.Input[Optional[builtins.st
     __args__['creatorId'] = creator_id
     __args__['envId'] = env_id
     __args__['projectName'] = project_name
+    __args__['region'] = region
     __args__['repositories'] = repositories
     __args__['spaceName'] = space_name
     __args__['tags'] = tags
@@ -320,6 +336,7 @@ def get_dev_environment_output(alias: Optional[pulumi.Input[Optional[builtins.st
         last_updated_time=pulumi.get(__response__, 'last_updated_time'),
         persistent_storages=pulumi.get(__response__, 'persistent_storages'),
         project_name=pulumi.get(__response__, 'project_name'),
+        region=pulumi.get(__response__, 'region'),
         repositories=pulumi.get(__response__, 'repositories'),
         space_name=pulumi.get(__response__, 'space_name'),
         status=pulumi.get(__response__, 'status'),

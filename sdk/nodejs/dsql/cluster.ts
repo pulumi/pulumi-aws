@@ -87,13 +87,15 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly multiRegionProperties!: pulumi.Output<outputs.dsql.ClusterMultiRegionProperties | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Set of tags to be associated with the AWS DSQL Cluster resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.dsql.ClusterTimeouts | undefined>;
@@ -121,6 +123,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["identifier"] = state ? state.identifier : undefined;
             resourceInputs["kmsEncryptionKey"] = state ? state.kmsEncryptionKey : undefined;
             resourceInputs["multiRegionProperties"] = state ? state.multiRegionProperties : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -130,6 +133,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["deletionProtectionEnabled"] = args ? args.deletionProtectionEnabled : undefined;
             resourceInputs["kmsEncryptionKey"] = args ? args.kmsEncryptionKey : undefined;
             resourceInputs["multiRegionProperties"] = args ? args.multiRegionProperties : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -172,13 +176,15 @@ export interface ClusterState {
      */
     multiRegionProperties?: pulumi.Input<inputs.dsql.ClusterMultiRegionProperties>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Set of tags to be associated with the AWS DSQL Cluster resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.dsql.ClusterTimeouts>;
@@ -204,6 +210,10 @@ export interface ClusterArgs {
      * Multi-region properties of the DSQL Cluster.
      */
     multiRegionProperties?: pulumi.Input<inputs.dsql.ClusterMultiRegionProperties>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Set of tags to be associated with the AWS DSQL Cluster resource.
      */

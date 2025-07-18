@@ -131,6 +131,10 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
      */
     public readonly preferredSubnetId!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
      */
     public readonly rootVolumeConfiguration!: pulumi.Output<outputs.fsx.OpenZfsFileSystemRootVolumeConfiguration>;
@@ -168,8 +172,6 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -217,6 +219,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
             resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["preferredSubnetId"] = state ? state.preferredSubnetId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["rootVolumeConfiguration"] = state ? state.rootVolumeConfiguration : undefined;
             resourceInputs["rootVolumeId"] = state ? state.rootVolumeId : undefined;
             resourceInputs["routeTableIds"] = state ? state.routeTableIds : undefined;
@@ -253,6 +256,7 @@ export class OpenZfsFileSystem extends pulumi.CustomResource {
             resourceInputs["finalBackupTags"] = args ? args.finalBackupTags : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["preferredSubnetId"] = args ? args.preferredSubnetId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["rootVolumeConfiguration"] = args ? args.rootVolumeConfiguration : undefined;
             resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
@@ -350,6 +354,10 @@ export interface OpenZfsFileSystemState {
      */
     preferredSubnetId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
      */
     rootVolumeConfiguration?: pulumi.Input<inputs.fsx.OpenZfsFileSystemRootVolumeConfiguration>;
@@ -387,8 +395,6 @@ export interface OpenZfsFileSystemState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -459,6 +465,10 @@ export interface OpenZfsFileSystemArgs {
      * (Multi-AZ only) Required when `deploymentType` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
      */
     preferredSubnetId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The configuration for the root volume of the file system. All other volumes are children or the root volume. See `rootVolumeConfiguration` Block for details.
      */

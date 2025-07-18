@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -71,6 +71,8 @@ type LookupLoadBalancerArgs struct {
 	Arn *string `pulumi:"arn"`
 	// Unique name of the load balancer.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
 	//
 	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
@@ -106,6 +108,7 @@ type LookupLoadBalancerResult struct {
 	LoadBalancerType        string                         `pulumi:"loadBalancerType"`
 	Name                    string                         `pulumi:"name"`
 	PreserveHostHeader      bool                           `pulumi:"preserveHostHeader"`
+	Region                  string                         `pulumi:"region"`
 	SecurityGroups          []string                       `pulumi:"securityGroups"`
 	SubnetMappings          []GetLoadBalancerSubnetMapping `pulumi:"subnetMappings"`
 	Subnets                 []string                       `pulumi:"subnets"`
@@ -130,6 +133,8 @@ type LookupLoadBalancerOutputArgs struct {
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// Unique name of the load balancer.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
 	//
 	// > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence. `tags` has lowest precedence.
@@ -258,6 +263,10 @@ func (o LookupLoadBalancerResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupLoadBalancerResultOutput) PreserveHostHeader() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.PreserveHostHeader }).(pulumi.BoolOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupLoadBalancerResultOutput) SecurityGroups() pulumi.StringArrayOutput {

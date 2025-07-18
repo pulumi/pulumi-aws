@@ -27,7 +27,7 @@ class GetMountTargetResult:
     """
     A collection of values returned by getMountTarget.
     """
-    def __init__(__self__, access_point_id=None, availability_zone_id=None, availability_zone_name=None, dns_name=None, file_system_arn=None, file_system_id=None, id=None, ip_address=None, mount_target_dns_name=None, mount_target_id=None, network_interface_id=None, owner_id=None, security_groups=None, subnet_id=None):
+    def __init__(__self__, access_point_id=None, availability_zone_id=None, availability_zone_name=None, dns_name=None, file_system_arn=None, file_system_id=None, id=None, ip_address=None, mount_target_dns_name=None, mount_target_id=None, network_interface_id=None, owner_id=None, region=None, security_groups=None, subnet_id=None):
         if access_point_id and not isinstance(access_point_id, str):
             raise TypeError("Expected argument 'access_point_id' to be a str")
         pulumi.set(__self__, "access_point_id", access_point_id)
@@ -64,6 +64,9 @@ class GetMountTargetResult:
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_groups and not isinstance(security_groups, list):
             raise TypeError("Expected argument 'security_groups' to be a list")
         pulumi.set(__self__, "security_groups", security_groups)
@@ -159,6 +162,11 @@ class GetMountTargetResult:
         return pulumi.get(self, "owner_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[builtins.str]:
         """
@@ -193,6 +201,7 @@ class AwaitableGetMountTargetResult(GetMountTargetResult):
             mount_target_id=self.mount_target_id,
             network_interface_id=self.network_interface_id,
             owner_id=self.owner_id,
+            region=self.region,
             security_groups=self.security_groups,
             subnet_id=self.subnet_id)
 
@@ -200,6 +209,7 @@ class AwaitableGetMountTargetResult(GetMountTargetResult):
 def get_mount_target(access_point_id: Optional[builtins.str] = None,
                      file_system_id: Optional[builtins.str] = None,
                      mount_target_id: Optional[builtins.str] = None,
+                     region: Optional[builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMountTargetResult:
     """
     Provides information about an Elastic File System Mount Target (EFS).
@@ -221,11 +231,13 @@ def get_mount_target(access_point_id: Optional[builtins.str] = None,
     :param builtins.str access_point_id: ID or ARN of the access point whose mount target that you want to find. It must be included if a `file_system_id` and `mount_target_id` are not included.
     :param builtins.str file_system_id: ID or ARN of the file system whose mount target that you want to find. It must be included if an `access_point_id` and `mount_target_id` are not included.
     :param builtins.str mount_target_id: ID or ARN of the mount target that you want to find. It must be included in your request if an `access_point_id` and `file_system_id` are not included.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['accessPointId'] = access_point_id
     __args__['fileSystemId'] = file_system_id
     __args__['mountTargetId'] = mount_target_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:efs/getMountTarget:getMountTarget', __args__, opts=opts, typ=GetMountTargetResult).value
 
@@ -242,11 +254,13 @@ def get_mount_target(access_point_id: Optional[builtins.str] = None,
         mount_target_id=pulumi.get(__ret__, 'mount_target_id'),
         network_interface_id=pulumi.get(__ret__, 'network_interface_id'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
+        region=pulumi.get(__ret__, 'region'),
         security_groups=pulumi.get(__ret__, 'security_groups'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'))
 def get_mount_target_output(access_point_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             file_system_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             mount_target_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMountTargetResult]:
     """
     Provides information about an Elastic File System Mount Target (EFS).
@@ -268,11 +282,13 @@ def get_mount_target_output(access_point_id: Optional[pulumi.Input[Optional[buil
     :param builtins.str access_point_id: ID or ARN of the access point whose mount target that you want to find. It must be included if a `file_system_id` and `mount_target_id` are not included.
     :param builtins.str file_system_id: ID or ARN of the file system whose mount target that you want to find. It must be included if an `access_point_id` and `mount_target_id` are not included.
     :param builtins.str mount_target_id: ID or ARN of the mount target that you want to find. It must be included in your request if an `access_point_id` and `file_system_id` are not included.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['accessPointId'] = access_point_id
     __args__['fileSystemId'] = file_system_id
     __args__['mountTargetId'] = mount_target_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:efs/getMountTarget:getMountTarget', __args__, opts=opts, typ=GetMountTargetResult)
     return __ret__.apply(lambda __response__: GetMountTargetResult(
@@ -288,5 +304,6 @@ def get_mount_target_output(access_point_id: Optional[pulumi.Input[Optional[buil
         mount_target_id=pulumi.get(__response__, 'mount_target_id'),
         network_interface_id=pulumi.get(__response__, 'network_interface_id'),
         owner_id=pulumi.get(__response__, 'owner_id'),
+        region=pulumi.get(__response__, 'region'),
         security_groups=pulumi.get(__response__, 'security_groups'),
         subnet_id=pulumi.get(__response__, 'subnet_id')))

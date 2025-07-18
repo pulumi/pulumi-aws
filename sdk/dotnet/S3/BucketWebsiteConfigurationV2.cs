@@ -26,26 +26,26 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketWebsiteConfigurationV2("example", new()
+    ///     var example = new Aws.S3.BucketWebsiteConfiguration("example", new()
     ///     {
     ///         Bucket = exampleAwsS3Bucket.Id,
-    ///         IndexDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationV2IndexDocumentArgs
+    ///         IndexDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationIndexDocumentArgs
     ///         {
     ///             Suffix = "index.html",
     ///         },
-    ///         ErrorDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationV2ErrorDocumentArgs
+    ///         ErrorDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationErrorDocumentArgs
     ///         {
     ///             Key = "error.html",
     ///         },
     ///         RoutingRules = new[]
     ///         {
-    ///             new Aws.S3.Inputs.BucketWebsiteConfigurationV2RoutingRuleArgs
+    ///             new Aws.S3.Inputs.BucketWebsiteConfigurationRoutingRuleArgs
     ///             {
-    ///                 Condition = new Aws.S3.Inputs.BucketWebsiteConfigurationV2RoutingRuleConditionArgs
+    ///                 Condition = new Aws.S3.Inputs.BucketWebsiteConfigurationRoutingRuleConditionArgs
     ///                 {
     ///                     KeyPrefixEquals = "docs/",
     ///                 },
-    ///                 Redirect = new Aws.S3.Inputs.BucketWebsiteConfigurationV2RoutingRuleRedirectArgs
+    ///                 Redirect = new Aws.S3.Inputs.BucketWebsiteConfigurationRoutingRuleRedirectArgs
     ///                 {
     ///                     ReplaceKeyPrefixWith = "documents/",
     ///                 },
@@ -66,14 +66,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.S3.BucketWebsiteConfigurationV2("example", new()
+    ///     var example = new Aws.S3.BucketWebsiteConfiguration("example", new()
     ///     {
     ///         Bucket = exampleAwsS3Bucket.Id,
-    ///         IndexDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationV2IndexDocumentArgs
+    ///         IndexDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationIndexDocumentArgs
     ///         {
     ///             Suffix = "index.html",
     ///         },
-    ///         ErrorDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationV2ErrorDocumentArgs
+    ///         ErrorDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationErrorDocumentArgs
     ///         {
     ///             Key = "error.html",
     ///         },
@@ -108,6 +108,7 @@ namespace Pulumi.Aws.S3
     /// $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name,123456789012
     /// ```
     /// </summary>
+    [Obsolete(@"aws.s3/bucketwebsiteconfigurationv2.BucketWebsiteConfigurationV2 has been deprecated in favor of aws.s3/bucketwebsiteconfiguration.BucketWebsiteConfiguration")]
     [AwsResourceType("aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2")]
     public partial class BucketWebsiteConfigurationV2 : global::Pulumi.CustomResource
     {
@@ -140,6 +141,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("redirectAllRequestsTo")]
         public Output<Outputs.BucketWebsiteConfigurationV2RedirectAllRequestsTo?> RedirectAllRequestsTo { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
@@ -189,6 +196,10 @@ namespace Pulumi.Aws.S3
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2" },
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -241,6 +252,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("redirectAllRequestsTo")]
         public Input<Inputs.BucketWebsiteConfigurationV2RedirectAllRequestsToArgs>? RedirectAllRequestsTo { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
@@ -298,6 +315,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("redirectAllRequestsTo")]
         public Input<Inputs.BucketWebsiteConfigurationV2RedirectAllRequestsToGetArgs>? RedirectAllRequestsTo { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// JSON array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)

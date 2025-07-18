@@ -118,6 +118,12 @@ namespace Pulumi.Aws.AppStream
         public string? NameRegex { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// The type of image which must be (PUBLIC, PRIVATE, or SHARED).
         /// </summary>
         [Input("type")]
@@ -154,6 +160,12 @@ namespace Pulumi.Aws.AppStream
         /// </summary>
         [Input("nameRegex")]
         public Input<string>? NameRegex { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The type of image which must be (PUBLIC, PRIVATE, or SHARED).
@@ -221,6 +233,7 @@ namespace Pulumi.Aws.AppStream
         /// </summary>
         public readonly string Platform;
         public readonly string PublicBaseImageReleasedDate;
+        public readonly string Region;
         /// <summary>
         /// Current state of image. Image starts in PENDING state which changes to AVAILABLE if creation passes and FAILED if it fails. Values will be from: PENDING | AVAILABLE | FAILED | COPYING | DELETING | CREATING | IMPORTING.
         /// </summary>
@@ -262,6 +275,8 @@ namespace Pulumi.Aws.AppStream
 
             string publicBaseImageReleasedDate,
 
+            string region,
+
             string state,
 
             ImmutableArray<Outputs.GetImageStateChangeReasonResult> stateChangeReasons,
@@ -284,6 +299,7 @@ namespace Pulumi.Aws.AppStream
             NameRegex = nameRegex;
             Platform = platform;
             PublicBaseImageReleasedDate = publicBaseImageReleasedDate;
+            Region = region;
             State = state;
             StateChangeReasons = stateChangeReasons;
             Type = type;

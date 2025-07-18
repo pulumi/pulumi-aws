@@ -138,6 +138,10 @@ export class Recorder extends pulumi.CustomResource {
      */
     public readonly recordingMode!: pulumi.Output<outputs.cfg.RecorderRecordingMode>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -158,6 +162,7 @@ export class Recorder extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["recordingGroup"] = state ? state.recordingGroup : undefined;
             resourceInputs["recordingMode"] = state ? state.recordingMode : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as RecorderArgs | undefined;
@@ -167,6 +172,7 @@ export class Recorder extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["recordingGroup"] = args ? args.recordingGroup : undefined;
             resourceInputs["recordingMode"] = args ? args.recordingMode : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -191,6 +197,10 @@ export interface RecorderState {
      */
     recordingMode?: pulumi.Input<inputs.cfg.RecorderRecordingMode>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */
     roleArn?: pulumi.Input<string>;
@@ -212,6 +222,10 @@ export interface RecorderArgs {
      * Recording mode - see below.
      */
     recordingMode?: pulumi.Input<inputs.cfg.RecorderRecordingMode>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */

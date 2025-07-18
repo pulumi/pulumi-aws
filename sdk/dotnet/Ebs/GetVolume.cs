@@ -168,6 +168,12 @@ namespace Pulumi.Aws.Ebs
         [Input("mostRecent")]
         public bool? MostRecent { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -208,6 +214,12 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         [Input("mostRecent")]
         public Input<bool>? MostRecent { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -269,6 +281,7 @@ namespace Pulumi.Aws.Ebs
         /// ARN of the Outpost.
         /// </summary>
         public readonly string OutpostArn;
+        public readonly string Region;
         /// <summary>
         /// Size of the drive in GiBs.
         /// </summary>
@@ -318,6 +331,8 @@ namespace Pulumi.Aws.Ebs
 
             string outpostArn,
 
+            string region,
+
             int size,
 
             string snapshotId,
@@ -341,6 +356,7 @@ namespace Pulumi.Aws.Ebs
             MostRecent = mostRecent;
             MultiAttachEnabled = multiAttachEnabled;
             OutpostArn = outpostArn;
+            Region = region;
             Size = size;
             SnapshotId = snapshotId;
             Tags = tags;

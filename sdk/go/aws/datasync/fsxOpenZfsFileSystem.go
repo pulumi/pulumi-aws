@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datasync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,6 +68,8 @@ type FsxOpenZfsFileSystem struct {
 	FsxFilesystemArn pulumi.StringOutput `pulumi:"fsxFilesystemArn"`
 	// The type of protocol that DataSync uses to access your file system. See below.
 	Protocol FsxOpenZfsFileSystemProtocolOutput `pulumi:"protocol"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
 	SecurityGroupArns pulumi.StringArrayOutput `pulumi:"securityGroupArns"`
 	// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
@@ -75,8 +77,6 @@ type FsxOpenZfsFileSystem struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The URL of the FSx for openzfs location that was described.
 	Uri pulumi.StringOutput `pulumi:"uri"`
@@ -129,6 +129,8 @@ type fsxOpenZfsFileSystemState struct {
 	FsxFilesystemArn *string `pulumi:"fsxFilesystemArn"`
 	// The type of protocol that DataSync uses to access your file system. See below.
 	Protocol *FsxOpenZfsFileSystemProtocol `pulumi:"protocol"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
 	// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
@@ -136,8 +138,6 @@ type fsxOpenZfsFileSystemState struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The URL of the FSx for openzfs location that was described.
 	Uri *string `pulumi:"uri"`
@@ -152,6 +152,8 @@ type FsxOpenZfsFileSystemState struct {
 	FsxFilesystemArn pulumi.StringPtrInput
 	// The type of protocol that DataSync uses to access your file system. See below.
 	Protocol FsxOpenZfsFileSystemProtocolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
 	SecurityGroupArns pulumi.StringArrayInput
 	// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
@@ -159,8 +161,6 @@ type FsxOpenZfsFileSystemState struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The URL of the FSx for openzfs location that was described.
 	Uri pulumi.StringPtrInput
@@ -175,6 +175,8 @@ type fsxOpenZfsFileSystemArgs struct {
 	FsxFilesystemArn string `pulumi:"fsxFilesystemArn"`
 	// The type of protocol that DataSync uses to access your file system. See below.
 	Protocol FsxOpenZfsFileSystemProtocol `pulumi:"protocol"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
 	// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
@@ -189,6 +191,8 @@ type FsxOpenZfsFileSystemArgs struct {
 	FsxFilesystemArn pulumi.StringInput
 	// The type of protocol that DataSync uses to access your file system. See below.
 	Protocol FsxOpenZfsFileSystemProtocolInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
 	SecurityGroupArns pulumi.StringArrayInput
 	// Subdirectory to perform actions as source or destination. Must start with `/fsx`.
@@ -304,6 +308,11 @@ func (o FsxOpenZfsFileSystemOutput) Protocol() FsxOpenZfsFileSystemProtocolOutpu
 	return o.ApplyT(func(v *FsxOpenZfsFileSystem) FsxOpenZfsFileSystemProtocolOutput { return v.Protocol }).(FsxOpenZfsFileSystemProtocolOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o FsxOpenZfsFileSystemOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *FsxOpenZfsFileSystem) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for openzfs file system.
 func (o FsxOpenZfsFileSystemOutput) SecurityGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FsxOpenZfsFileSystem) pulumi.StringArrayOutput { return v.SecurityGroupArns }).(pulumi.StringArrayOutput)
@@ -320,8 +329,6 @@ func (o FsxOpenZfsFileSystemOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o FsxOpenZfsFileSystemOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FsxOpenZfsFileSystem) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

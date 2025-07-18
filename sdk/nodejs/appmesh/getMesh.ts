@@ -37,6 +37,7 @@ export function getMesh(args: GetMeshArgs, opts?: pulumi.InvokeOptions): Promise
     return pulumi.runtime.invoke("aws:appmesh/getMesh:getMesh", {
         "meshOwner": args.meshOwner,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -53,6 +54,10 @@ export interface GetMeshArgs {
      * Name of the service mesh.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags.
      */
@@ -81,6 +86,7 @@ export interface GetMeshResult {
     readonly lastUpdatedDate: string;
     readonly meshOwner: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Resource owner's AWS account ID.
      */
@@ -124,6 +130,7 @@ export function getMeshOutput(args: GetMeshOutputArgs, opts?: pulumi.InvokeOutpu
     return pulumi.runtime.invokeOutput("aws:appmesh/getMesh:getMesh", {
         "meshOwner": args.meshOwner,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -140,6 +147,10 @@ export interface GetMeshOutputArgs {
      * Name of the service mesh.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags.
      */

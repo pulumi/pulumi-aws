@@ -26,7 +26,8 @@ class CatalogTableOptimizerArgs:
                  database_name: pulumi.Input[builtins.str],
                  table_name: pulumi.Input[builtins.str],
                  type: pulumi.Input[builtins.str],
-                 configuration: Optional[pulumi.Input['CatalogTableOptimizerConfigurationArgs']] = None):
+                 configuration: Optional[pulumi.Input['CatalogTableOptimizerConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a CatalogTableOptimizer resource.
         :param pulumi.Input[builtins.str] catalog_id: The Catalog ID of the table.
@@ -34,6 +35,7 @@ class CatalogTableOptimizerArgs:
         :param pulumi.Input[builtins.str] table_name: The name of the table.
         :param pulumi.Input[builtins.str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         :param pulumi.Input['CatalogTableOptimizerConfigurationArgs'] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "database_name", database_name)
@@ -41,6 +43,8 @@ class CatalogTableOptimizerArgs:
         pulumi.set(__self__, "type", type)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -102,6 +106,18 @@ class CatalogTableOptimizerArgs:
     def configuration(self, value: Optional[pulumi.Input['CatalogTableOptimizerConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _CatalogTableOptimizerState:
@@ -109,6 +125,7 @@ class _CatalogTableOptimizerState:
                  catalog_id: Optional[pulumi.Input[builtins.str]] = None,
                  configuration: Optional[pulumi.Input['CatalogTableOptimizerConfigurationArgs']] = None,
                  database_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -116,6 +133,7 @@ class _CatalogTableOptimizerState:
         :param pulumi.Input[builtins.str] catalog_id: The Catalog ID of the table.
         :param pulumi.Input['CatalogTableOptimizerConfigurationArgs'] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
         :param pulumi.Input[builtins.str] database_name: The name of the database in the catalog in which the table resides.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_name: The name of the table.
         :param pulumi.Input[builtins.str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
@@ -125,6 +143,8 @@ class _CatalogTableOptimizerState:
             pulumi.set(__self__, "configuration", configuration)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
         if type is not None:
@@ -167,6 +187,18 @@ class _CatalogTableOptimizerState:
         pulumi.set(self, "database_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -200,6 +232,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
                  catalog_id: Optional[pulumi.Input[builtins.str]] = None,
                  configuration: Optional[pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict']]] = None,
                  database_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -285,6 +318,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] catalog_id: The Catalog ID of the table.
         :param pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict']] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
         :param pulumi.Input[builtins.str] database_name: The name of the database in the catalog in which the table resides.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_name: The name of the table.
         :param pulumi.Input[builtins.str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
@@ -389,6 +423,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
                  catalog_id: Optional[pulumi.Input[builtins.str]] = None,
                  configuration: Optional[pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict']]] = None,
                  database_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -407,6 +442,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["region"] = region
             if table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_name'")
             __props__.__dict__["table_name"] = table_name
@@ -426,6 +462,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
             catalog_id: Optional[pulumi.Input[builtins.str]] = None,
             configuration: Optional[pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict']]] = None,
             database_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             table_name: Optional[pulumi.Input[builtins.str]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None) -> 'CatalogTableOptimizer':
         """
@@ -438,6 +475,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] catalog_id: The Catalog ID of the table.
         :param pulumi.Input[Union['CatalogTableOptimizerConfigurationArgs', 'CatalogTableOptimizerConfigurationArgsDict']] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
         :param pulumi.Input[builtins.str] database_name: The name of the database in the catalog in which the table resides.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_name: The name of the table.
         :param pulumi.Input[builtins.str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
         """
@@ -448,6 +486,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         __props__.__dict__["catalog_id"] = catalog_id
         __props__.__dict__["configuration"] = configuration
         __props__.__dict__["database_name"] = database_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["table_name"] = table_name
         __props__.__dict__["type"] = type
         return CatalogTableOptimizer(resource_name, opts=opts, __props__=__props__)
@@ -475,6 +514,14 @@ class CatalogTableOptimizer(pulumi.CustomResource):
         The name of the database in the catalog in which the table resides.
         """
         return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="tableName")

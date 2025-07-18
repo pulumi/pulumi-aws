@@ -172,7 +172,7 @@ class GetKeyMultiRegionConfigurationPrimaryKeyResult(dict):
                  region: builtins.str):
         """
         :param builtins.str arn: The key ARN of a primary or replica key of a multi-Region key.
-        :param builtins.str region: The AWS Region of a primary or replica key in a multi-Region key.
+        :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "region", region)
@@ -189,7 +189,7 @@ class GetKeyMultiRegionConfigurationPrimaryKeyResult(dict):
     @pulumi.getter
     def region(self) -> builtins.str:
         """
-        The AWS Region of a primary or replica key in a multi-Region key.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -201,7 +201,7 @@ class GetKeyMultiRegionConfigurationReplicaKeyResult(dict):
                  region: builtins.str):
         """
         :param builtins.str arn: The key ARN of a primary or replica key of a multi-Region key.
-        :param builtins.str region: The AWS Region of a primary or replica key in a multi-Region key.
+        :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "region", region)
@@ -218,7 +218,7 @@ class GetKeyMultiRegionConfigurationReplicaKeyResult(dict):
     @pulumi.getter
     def region(self) -> builtins.str:
         """
-        The AWS Region of a primary or replica key in a multi-Region key.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

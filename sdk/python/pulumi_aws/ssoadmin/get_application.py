@@ -15,7 +15,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetApplicationResult',
@@ -29,7 +28,7 @@ class GetApplicationResult:
     """
     A collection of values returned by getApplication.
     """
-    def __init__(__self__, application_account=None, application_arn=None, application_provider_arn=None, description=None, id=None, instance_arn=None, name=None, portal_options=None, status=None):
+    def __init__(__self__, application_account=None, application_arn=None, application_provider_arn=None, description=None, id=None, instance_arn=None, name=None, portal_options=None, region=None, status=None):
         if application_account and not isinstance(application_account, str):
             raise TypeError("Expected argument 'application_account' to be a str")
         pulumi.set(__self__, "application_account", application_account)
@@ -54,6 +53,9 @@ class GetApplicationResult:
         if portal_options and not isinstance(portal_options, list):
             raise TypeError("Expected argument 'portal_options' to be a list")
         pulumi.set(__self__, "portal_options", portal_options)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -113,11 +115,16 @@ class GetApplicationResult:
 
     @property
     @pulumi.getter(name="portalOptions")
-    def portal_options(self) -> Optional[Sequence['outputs.GetApplicationPortalOptionResult']]:
+    def portal_options(self) -> Sequence['outputs.GetApplicationPortalOptionResult']:
         """
         Options for the portal associated with an application. See the `ssoadmin.Application` resource documentation. The attributes are the same.
         """
         return pulumi.get(self, "portal_options")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter
@@ -142,11 +149,12 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             instance_arn=self.instance_arn,
             name=self.name,
             portal_options=self.portal_options,
+            region=self.region,
             status=self.status)
 
 
 def get_application(application_arn: Optional[builtins.str] = None,
-                    portal_options: Optional[Sequence[Union['GetApplicationPortalOptionArgs', 'GetApplicationPortalOptionArgsDict']]] = None,
+                    region: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Data source for managing an AWS SSO Admin Application.
@@ -164,11 +172,11 @@ def get_application(application_arn: Optional[builtins.str] = None,
 
 
     :param builtins.str application_arn: ARN of the application.
-    :param Sequence[Union['GetApplicationPortalOptionArgs', 'GetApplicationPortalOptionArgsDict']] portal_options: Options for the portal associated with an application. See the `ssoadmin.Application` resource documentation. The attributes are the same.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['applicationArn'] = application_arn
-    __args__['portalOptions'] = portal_options
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ssoadmin/getApplication:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
@@ -181,9 +189,10 @@ def get_application(application_arn: Optional[builtins.str] = None,
         instance_arn=pulumi.get(__ret__, 'instance_arn'),
         name=pulumi.get(__ret__, 'name'),
         portal_options=pulumi.get(__ret__, 'portal_options'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'))
 def get_application_output(application_arn: Optional[pulumi.Input[builtins.str]] = None,
-                           portal_options: Optional[pulumi.Input[Optional[Sequence[Union['GetApplicationPortalOptionArgs', 'GetApplicationPortalOptionArgsDict']]]]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Data source for managing an AWS SSO Admin Application.
@@ -201,11 +210,11 @@ def get_application_output(application_arn: Optional[pulumi.Input[builtins.str]]
 
 
     :param builtins.str application_arn: ARN of the application.
-    :param Sequence[Union['GetApplicationPortalOptionArgs', 'GetApplicationPortalOptionArgsDict']] portal_options: Options for the portal associated with an application. See the `ssoadmin.Application` resource documentation. The attributes are the same.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['applicationArn'] = application_arn
-    __args__['portalOptions'] = portal_options
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssoadmin/getApplication:getApplication', __args__, opts=opts, typ=GetApplicationResult)
     return __ret__.apply(lambda __response__: GetApplicationResult(
@@ -217,4 +226,5 @@ def get_application_output(application_arn: Optional[pulumi.Input[builtins.str]]
         instance_arn=pulumi.get(__response__, 'instance_arn'),
         name=pulumi.get(__response__, 'name'),
         portal_options=pulumi.get(__response__, 'portal_options'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status')))

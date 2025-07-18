@@ -31,6 +31,7 @@ class EnvironmentArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  glossary_terms: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['EnvironmentTimeoutsArgs']] = None,
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]]] = None):
         """
@@ -46,6 +47,7 @@ class EnvironmentArgs:
         :param pulumi.Input[builtins.str] description: The description of the environment.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] glossary_terms: The business glossary terms that can be used in this environment.
         :param pulumi.Input[builtins.str] name: The name of the environment.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]] user_parameters: The user parameters that are used in the environment. See User Parameters for more information.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
@@ -63,6 +65,8 @@ class EnvironmentArgs:
             pulumi.set(__self__, "glossary_terms", glossary_terms)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
         if user_parameters is not None:
@@ -180,6 +184,18 @@ class EnvironmentArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['EnvironmentTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -217,6 +233,7 @@ class _EnvironmentState:
                  project_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  provider_environment: Optional[pulumi.Input[builtins.str]] = None,
                  provisioned_resources: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentProvisionedResourceArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['EnvironmentTimeoutsArgs']] = None,
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]]] = None):
         """
@@ -236,6 +253,7 @@ class _EnvironmentState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] provider_environment: The provider of the environment.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentUserParameterArgs']]] user_parameters: The user parameters that are used in the environment. See User Parameters for more information.
         """
         if account_identifier is not None:
@@ -266,6 +284,8 @@ class _EnvironmentState:
             pulumi.set(__self__, "provider_environment", provider_environment)
         if provisioned_resources is not None:
             pulumi.set(__self__, "provisioned_resources", provisioned_resources)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
         if user_parameters is not None:
@@ -440,6 +460,18 @@ class _EnvironmentState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['EnvironmentTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -475,6 +507,7 @@ class Environment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  profile_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  project_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict']]] = None,
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict']]]]] = None,
                  __props__=None):
@@ -534,6 +567,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] project_identifier: The ID of the project where the environment exists.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict']]]] user_parameters: The user parameters that are used in the environment. See User Parameters for more information.
         """
         ...
@@ -609,6 +643,7 @@ class Environment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  profile_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  project_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict']]] = None,
                  user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict']]]]] = None,
                  __props__=None):
@@ -635,6 +670,7 @@ class Environment(pulumi.CustomResource):
             if project_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'project_identifier'")
             __props__.__dict__["project_identifier"] = project_identifier
+            __props__.__dict__["region"] = region
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["user_parameters"] = user_parameters
             __props__.__dict__["created_at"] = None
@@ -666,6 +702,7 @@ class Environment(pulumi.CustomResource):
             project_identifier: Optional[pulumi.Input[builtins.str]] = None,
             provider_environment: Optional[pulumi.Input[builtins.str]] = None,
             provisioned_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentProvisionedResourceArgs', 'EnvironmentProvisionedResourceArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             timeouts: Optional[pulumi.Input[Union['EnvironmentTimeoutsArgs', 'EnvironmentTimeoutsArgsDict']]] = None,
             user_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict']]]]] = None) -> 'Environment':
         """
@@ -690,6 +727,7 @@ class Environment(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] provider_environment: The provider of the environment.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentUserParameterArgs', 'EnvironmentUserParameterArgsDict']]]] user_parameters: The user parameters that are used in the environment. See User Parameters for more information.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -710,6 +748,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["project_identifier"] = project_identifier
         __props__.__dict__["provider_environment"] = provider_environment
         __props__.__dict__["provisioned_resources"] = provisioned_resources
+        __props__.__dict__["region"] = region
         __props__.__dict__["timeouts"] = timeouts
         __props__.__dict__["user_parameters"] = user_parameters
         return Environment(resource_name, opts=opts, __props__=__props__)
@@ -824,6 +863,14 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="provisionedResources")
     def provisioned_resources(self) -> pulumi.Output[Sequence['outputs.EnvironmentProvisionedResource']]:
         return pulumi.get(self, "provisioned_resources")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

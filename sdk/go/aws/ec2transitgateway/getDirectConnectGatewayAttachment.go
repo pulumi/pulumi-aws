@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,6 +57,8 @@ type GetDirectConnectGatewayAttachmentArgs struct {
 	DxGatewayId *string `pulumi:"dxGatewayId"`
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetDirectConnectGatewayAttachmentFilter `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
 	Tags map[string]string `pulumi:"tags"`
 	// Identifier of the EC2 Transit Gateway.
@@ -70,7 +72,8 @@ type GetDirectConnectGatewayAttachmentResult struct {
 	DxGatewayId *string                                   `pulumi:"dxGatewayId"`
 	Filters     []GetDirectConnectGatewayAttachmentFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Attachment.
 	Tags             map[string]string `pulumi:"tags"`
 	TransitGatewayId *string           `pulumi:"transitGatewayId"`
@@ -91,6 +94,8 @@ type GetDirectConnectGatewayAttachmentOutputArgs struct {
 	DxGatewayId pulumi.StringPtrInput `pulumi:"dxGatewayId"`
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetDirectConnectGatewayAttachmentFilterArrayInput `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Identifier of the EC2 Transit Gateway.
@@ -134,6 +139,10 @@ func (o GetDirectConnectGatewayAttachmentResultOutput) Filters() GetDirectConnec
 // The provider-assigned unique ID for this managed resource.
 func (o GetDirectConnectGatewayAttachmentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDirectConnectGatewayAttachmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetDirectConnectGatewayAttachmentResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectConnectGatewayAttachmentResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value tags for the EC2 Transit Gateway Attachment.

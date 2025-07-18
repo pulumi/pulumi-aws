@@ -94,6 +94,12 @@ namespace Pulumi.Aws.Athena
         public string Name { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// The workgroup to which the query belongs. Defaults to `primary`.
         /// </summary>
         [Input("workgroup")]
@@ -112,6 +118,12 @@ namespace Pulumi.Aws.Athena
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The workgroup to which the query belongs. Defaults to `primary`.
@@ -143,6 +155,7 @@ namespace Pulumi.Aws.Athena
         public readonly string Id;
         public readonly string Name;
         public readonly string Querystring;
+        public readonly string Region;
         public readonly string? Workgroup;
 
         [OutputConstructor]
@@ -157,6 +170,8 @@ namespace Pulumi.Aws.Athena
 
             string querystring,
 
+            string region,
+
             string? workgroup)
         {
             Database = database;
@@ -164,6 +179,7 @@ namespace Pulumi.Aws.Athena
             Id = id;
             Name = name;
             Querystring = querystring;
+            Region = region;
             Workgroup = workgroup;
         }
     }

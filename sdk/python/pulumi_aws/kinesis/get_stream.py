@@ -28,7 +28,7 @@ class GetStreamResult:
     """
     A collection of values returned by getStream.
     """
-    def __init__(__self__, arn=None, closed_shards=None, creation_timestamp=None, encryption_type=None, id=None, kms_key_id=None, name=None, open_shards=None, retention_period=None, shard_level_metrics=None, status=None, stream_mode_details=None, tags=None):
+    def __init__(__self__, arn=None, closed_shards=None, creation_timestamp=None, encryption_type=None, id=None, kms_key_id=None, name=None, open_shards=None, region=None, retention_period=None, shard_level_metrics=None, status=None, stream_mode_details=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -53,6 +53,9 @@ class GetStreamResult:
         if open_shards and not isinstance(open_shards, list):
             raise TypeError("Expected argument 'open_shards' to be a list")
         pulumi.set(__self__, "open_shards", open_shards)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if retention_period and not isinstance(retention_period, int):
             raise TypeError("Expected argument 'retention_period' to be a int")
         pulumi.set(__self__, "retention_period", retention_period)
@@ -134,6 +137,11 @@ class GetStreamResult:
         return pulumi.get(self, "open_shards")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> builtins.int:
         """
@@ -188,6 +196,7 @@ class AwaitableGetStreamResult(GetStreamResult):
             kms_key_id=self.kms_key_id,
             name=self.name,
             open_shards=self.open_shards,
+            region=self.region,
             retention_period=self.retention_period,
             shard_level_metrics=self.shard_level_metrics,
             status=self.status,
@@ -196,6 +205,7 @@ class AwaitableGetStreamResult(GetStreamResult):
 
 
 def get_stream(name: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                tags: Optional[Mapping[str, builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamResult:
     """
@@ -215,10 +225,12 @@ def get_stream(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the Kinesis Stream.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assigned to the stream.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:kinesis/getStream:getStream', __args__, opts=opts, typ=GetStreamResult).value
@@ -232,12 +244,14 @@ def get_stream(name: Optional[builtins.str] = None,
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         name=pulumi.get(__ret__, 'name'),
         open_shards=pulumi.get(__ret__, 'open_shards'),
+        region=pulumi.get(__ret__, 'region'),
         retention_period=pulumi.get(__ret__, 'retention_period'),
         shard_level_metrics=pulumi.get(__ret__, 'shard_level_metrics'),
         status=pulumi.get(__ret__, 'status'),
         stream_mode_details=pulumi.get(__ret__, 'stream_mode_details'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_stream_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamResult]:
     """
@@ -257,10 +271,12 @@ def get_stream_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the Kinesis Stream.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags to assigned to the stream.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kinesis/getStream:getStream', __args__, opts=opts, typ=GetStreamResult)
@@ -273,6 +289,7 @@ def get_stream_output(name: Optional[pulumi.Input[builtins.str]] = None,
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
         name=pulumi.get(__response__, 'name'),
         open_shards=pulumi.get(__response__, 'open_shards'),
+        region=pulumi.get(__response__, 'region'),
         retention_period=pulumi.get(__response__, 'retention_period'),
         shard_level_metrics=pulumi.get(__response__, 'shard_level_metrics'),
         status=pulumi.get(__response__, 'status'),

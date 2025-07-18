@@ -27,7 +27,7 @@ class GetStreamConsumerResult:
     """
     A collection of values returned by getStreamConsumer.
     """
-    def __init__(__self__, arn=None, creation_timestamp=None, id=None, name=None, status=None, stream_arn=None):
+    def __init__(__self__, arn=None, creation_timestamp=None, id=None, name=None, region=None, status=None, stream_arn=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,12 +40,18 @@ class GetStreamConsumerResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
         if stream_arn and not isinstance(stream_arn, str):
             raise TypeError("Expected argument 'stream_arn' to be a str")
         pulumi.set(__self__, "stream_arn", stream_arn)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -75,6 +81,11 @@ class GetStreamConsumerResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def status(self) -> builtins.str:
         """
         Current status of the stream consumer.
@@ -85,6 +96,11 @@ class GetStreamConsumerResult:
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> builtins.str:
         return pulumi.get(self, "stream_arn")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, builtins.str]:
+        return pulumi.get(self, "tags")
 
 
 class AwaitableGetStreamConsumerResult(GetStreamConsumerResult):
@@ -97,13 +113,17 @@ class AwaitableGetStreamConsumerResult(GetStreamConsumerResult):
             creation_timestamp=self.creation_timestamp,
             id=self.id,
             name=self.name,
+            region=self.region,
             status=self.status,
-            stream_arn=self.stream_arn)
+            stream_arn=self.stream_arn,
+            tags=self.tags)
 
 
 def get_stream_consumer(arn: Optional[builtins.str] = None,
                         name: Optional[builtins.str] = None,
+                        region: Optional[builtins.str] = None,
                         stream_arn: Optional[builtins.str] = None,
+                        tags: Optional[Mapping[str, builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamConsumerResult:
     """
     Provides details about a Kinesis Stream Consumer.
@@ -123,12 +143,15 @@ def get_stream_consumer(arn: Optional[builtins.str] = None,
 
     :param builtins.str arn: ARN of the stream consumer.
     :param builtins.str name: Name of the stream consumer.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str stream_arn: ARN of the data stream the consumer is registered with.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
+    __args__['region'] = region
     __args__['streamArn'] = stream_arn
+    __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:kinesis/getStreamConsumer:getStreamConsumer', __args__, opts=opts, typ=GetStreamConsumerResult).value
 
@@ -137,11 +160,15 @@ def get_stream_consumer(arn: Optional[builtins.str] = None,
         creation_timestamp=pulumi.get(__ret__, 'creation_timestamp'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
-        stream_arn=pulumi.get(__ret__, 'stream_arn'))
+        stream_arn=pulumi.get(__ret__, 'stream_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_stream_consumer_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                               region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                stream_arn: Optional[pulumi.Input[builtins.str]] = None,
+                               tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamConsumerResult]:
     """
     Provides details about a Kinesis Stream Consumer.
@@ -161,12 +188,15 @@ def get_stream_consumer_output(arn: Optional[pulumi.Input[Optional[builtins.str]
 
     :param builtins.str arn: ARN of the stream consumer.
     :param builtins.str name: Name of the stream consumer.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str stream_arn: ARN of the data stream the consumer is registered with.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
+    __args__['region'] = region
     __args__['streamArn'] = stream_arn
+    __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kinesis/getStreamConsumer:getStreamConsumer', __args__, opts=opts, typ=GetStreamConsumerResult)
     return __ret__.apply(lambda __response__: GetStreamConsumerResult(
@@ -174,5 +204,7 @@ def get_stream_consumer_output(arn: Optional[pulumi.Input[Optional[builtins.str]
         creation_timestamp=pulumi.get(__response__, 'creation_timestamp'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status'),
-        stream_arn=pulumi.get(__response__, 'stream_arn')))
+        stream_arn=pulumi.get(__response__, 'stream_arn'),
+        tags=pulumi.get(__response__, 'tags')))

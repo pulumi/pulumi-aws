@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/medialive"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/medialive"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -92,13 +92,14 @@ type Input struct {
 	MediaConnectFlows InputMediaConnectFlowArrayOutput `pulumi:"mediaConnectFlows"`
 	// Name of the input.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the role this input assumes during and after creation.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The source URLs for a PULL-type input. See Sources for more details.
 	Sources InputSourceArrayOutput `pulumi:"sources"`
 	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The different types of inputs that AWS Elemental MediaLive supports.
 	//
@@ -161,13 +162,14 @@ type inputState struct {
 	MediaConnectFlows []InputMediaConnectFlow `pulumi:"mediaConnectFlows"`
 	// Name of the input.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the role this input assumes during and after creation.
 	RoleArn *string `pulumi:"roleArn"`
 	// The source URLs for a PULL-type input. See Sources for more details.
 	Sources []InputSource `pulumi:"sources"`
 	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The different types of inputs that AWS Elemental MediaLive supports.
 	//
@@ -198,13 +200,14 @@ type InputState struct {
 	MediaConnectFlows InputMediaConnectFlowArrayInput
 	// Name of the input.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the role this input assumes during and after creation.
 	RoleArn pulumi.StringPtrInput
 	// The source URLs for a PULL-type input. See Sources for more details.
 	Sources InputSourceArrayInput
 	// A map of tags to assign to the Input. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// The different types of inputs that AWS Elemental MediaLive supports.
 	//
@@ -229,6 +232,8 @@ type inputArgs struct {
 	MediaConnectFlows []InputMediaConnectFlow `pulumi:"mediaConnectFlows"`
 	// Name of the input.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the role this input assumes during and after creation.
 	RoleArn *string `pulumi:"roleArn"`
 	// The source URLs for a PULL-type input. See Sources for more details.
@@ -255,6 +260,8 @@ type InputArgs struct {
 	MediaConnectFlows InputMediaConnectFlowArrayInput
 	// Name of the input.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the role this input assumes during and after creation.
 	RoleArn pulumi.StringPtrInput
 	// The source URLs for a PULL-type input. See Sources for more details.
@@ -406,6 +413,11 @@ func (o InputOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Input) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o InputOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Input) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The ARN of the role this input assumes during and after creation.
 func (o InputOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Input) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
@@ -421,7 +433,6 @@ func (o InputOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Input) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o InputOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Input) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

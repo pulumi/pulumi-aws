@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const example = new aws.ec2.VpcIpam("example", {operatingRegions: [{
- *     regionName: current.then(current => current.name),
+ *     regionName: current.then(current => current.region),
  * }]});
  * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("example", {
  *     addressFamily: "ipv4",
  *     ipamScopeId: example.privateDefaultScopeId,
- *     locale: current.then(current => current.name),
+ *     locale: current.then(current => current.region),
  * });
  * ```
  *
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const example = new aws.ec2.VpcIpam("example", {operatingRegions: [{
- *     regionName: current.then(current => current.name),
+ *     regionName: current.then(current => current.region),
  * }]});
  * const parent = new aws.ec2.VpcIpamPool("parent", {
  *     addressFamily: "ipv4",
@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  * const child = new aws.ec2.VpcIpamPool("child", {
  *     addressFamily: "ipv4",
  *     ipamScopeId: example.privateDefaultScopeId,
- *     locale: current.then(current => current.name),
+ *     locale: current.then(current => current.region),
  *     sourceIpamPoolId: parent.id,
  * });
  * const childTest = new aws.ec2.VpcIpamPoolCidr("child_test", {
@@ -152,6 +152,10 @@ export class VpcIpamPool extends pulumi.CustomResource {
      */
     public readonly publiclyAdvertisable!: pulumi.Output<boolean | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
      */
     public readonly sourceIpamPoolId!: pulumi.Output<string | undefined>;
@@ -165,8 +169,6 @@ export class VpcIpamPool extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -199,6 +201,7 @@ export class VpcIpamPool extends pulumi.CustomResource {
             resourceInputs["poolDepth"] = state ? state.poolDepth : undefined;
             resourceInputs["publicIpSource"] = state ? state.publicIpSource : undefined;
             resourceInputs["publiclyAdvertisable"] = state ? state.publiclyAdvertisable : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sourceIpamPoolId"] = state ? state.sourceIpamPoolId : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -224,6 +227,7 @@ export class VpcIpamPool extends pulumi.CustomResource {
             resourceInputs["locale"] = args ? args.locale : undefined;
             resourceInputs["publicIpSource"] = args ? args.publicIpSource : undefined;
             resourceInputs["publiclyAdvertisable"] = args ? args.publiclyAdvertisable : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sourceIpamPoolId"] = args ? args.sourceIpamPoolId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -301,6 +305,10 @@ export interface VpcIpamPoolState {
      */
     publiclyAdvertisable?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
      */
     sourceIpamPoolId?: pulumi.Input<string>;
@@ -314,8 +322,6 @@ export interface VpcIpamPoolState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -377,6 +383,10 @@ export interface VpcIpamPoolArgs {
      * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This argument is required if `addressFamily = "ipv6"` and `publicIpSource = "byoip"`, default is `false`. This option is not available for IPv4 pool space or if `publicIpSource = "amazon"`. Setting this argument to `true` when it is not available may result in erroneous differences being reported.
      */
     publiclyAdvertisable?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
      */

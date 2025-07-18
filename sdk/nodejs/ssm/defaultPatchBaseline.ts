@@ -101,6 +101,10 @@ export class DefaultPatchBaseline extends pulumi.CustomResource {
      * `WINDOWS`.
      */
     public readonly operatingSystem!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DefaultPatchBaseline resource with the given unique name, arguments, and options.
@@ -117,6 +121,7 @@ export class DefaultPatchBaseline extends pulumi.CustomResource {
             const state = argsOrState as DefaultPatchBaselineState | undefined;
             resourceInputs["baselineId"] = state ? state.baselineId : undefined;
             resourceInputs["operatingSystem"] = state ? state.operatingSystem : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DefaultPatchBaselineArgs | undefined;
             if ((!args || args.baselineId === undefined) && !opts.urn) {
@@ -127,6 +132,7 @@ export class DefaultPatchBaseline extends pulumi.CustomResource {
             }
             resourceInputs["baselineId"] = args ? args.baselineId : undefined;
             resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DefaultPatchBaseline.__pulumiType, name, resourceInputs, opts);
@@ -161,6 +167,10 @@ export interface DefaultPatchBaselineState {
      * `WINDOWS`.
      */
     operatingSystem?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -191,4 +201,8 @@ export interface DefaultPatchBaselineArgs {
      * `WINDOWS`.
      */
     operatingSystem: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

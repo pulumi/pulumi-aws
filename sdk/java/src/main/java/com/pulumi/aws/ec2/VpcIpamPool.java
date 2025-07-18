@@ -57,14 +57,14 @@ import javax.annotation.Nullable;
  * 
  *         var example = new VpcIpam("example", VpcIpamArgs.builder()
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.name())
+ *                 .regionName(current.region())
  *                 .build())
  *             .build());
  * 
  *         var exampleVpcIpamPool = new VpcIpamPool("exampleVpcIpamPool", VpcIpamPoolArgs.builder()
  *             .addressFamily("ipv4")
  *             .ipamScopeId(example.privateDefaultScopeId())
- *             .locale(current.name())
+ *             .locale(current.region())
  *             .build());
  * 
  *     }
@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new VpcIpam("example", VpcIpamArgs.builder()
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.name())
+ *                 .regionName(current.region())
  *                 .build())
  *             .build());
  * 
@@ -127,7 +127,7 @@ import javax.annotation.Nullable;
  *         var child = new VpcIpamPool("child", VpcIpamPoolArgs.builder()
  *             .addressFamily("ipv4")
  *             .ipamScopeId(example.privateDefaultScopeId())
- *             .locale(current.name())
+ *             .locale(current.region())
  *             .sourceIpamPoolId(parent.id())
  *             .build());
  * 
@@ -364,6 +364,20 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.publiclyAdvertisable);
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
      * 
      */
@@ -408,11 +422,7 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

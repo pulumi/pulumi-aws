@@ -32,6 +32,7 @@ export function getInternetGateway(args?: GetInternetGatewayArgs, opts?: pulumi.
     return pulumi.runtime.invoke("aws:ec2/getInternetGateway:getInternetGateway", {
         "filters": args.filters,
         "internetGatewayId": args.internetGatewayId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -51,6 +52,10 @@ export interface GetInternetGatewayArgs {
      * ID of the specific Internet Gateway to retrieve.
      */
     internetGatewayId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired Internet Gateway.
@@ -77,6 +82,7 @@ export interface GetInternetGatewayResult {
      * ID of the AWS account that owns the internet gateway.
      */
     readonly ownerId: string;
+    readonly region: string;
     readonly tags: {[key: string]: string};
 }
 /**
@@ -104,6 +110,7 @@ export function getInternetGatewayOutput(args?: GetInternetGatewayOutputArgs, op
     return pulumi.runtime.invokeOutput("aws:ec2/getInternetGateway:getInternetGateway", {
         "filters": args.filters,
         "internetGatewayId": args.internetGatewayId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -123,6 +130,10 @@ export interface GetInternetGatewayOutputArgs {
      * ID of the specific Internet Gateway to retrieve.
      */
     internetGatewayId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired Internet Gateway.

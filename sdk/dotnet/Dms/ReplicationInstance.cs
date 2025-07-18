@@ -194,11 +194,6 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-        /// 
-        /// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-        /// - Format: `ddd:hh24:mi-ddd:hh24:mi`
-        /// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-        /// - Constraints: Minimum 30-minute window.
         /// </summary>
         [Output("preferredMaintenanceWindow")]
         public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
@@ -208,6 +203,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Output("publiclyAccessible")]
         public Output<bool> PubliclyAccessible { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the replication instance.
@@ -223,11 +224,6 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// The replication instance identifier. This parameter is stored as a lowercase string.
-        /// 
-        /// - Must contain from 1 to 63 alphanumeric characters or hyphens.
-        /// - First character must be a letter.
-        /// - Cannot end with a hyphen
-        /// - Cannot contain two consecutive hyphens.
         /// </summary>
         [Output("replicationInstanceId")]
         public Output<string> ReplicationInstanceId { get; private set; } = null!;
@@ -370,11 +366,6 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-        /// 
-        /// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-        /// - Format: `ddd:hh24:mi-ddd:hh24:mi`
-        /// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-        /// - Constraints: Minimum 30-minute window.
         /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
@@ -386,6 +377,12 @@ namespace Pulumi.Aws.Dms
         public Input<bool>? PubliclyAccessible { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         /// </summary>
         [Input("replicationInstanceClass", required: true)]
@@ -393,11 +390,6 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// The replication instance identifier. This parameter is stored as a lowercase string.
-        /// 
-        /// - Must contain from 1 to 63 alphanumeric characters or hyphens.
-        /// - First character must be a letter.
-        /// - Cannot end with a hyphen
-        /// - Cannot contain two consecutive hyphens.
         /// </summary>
         [Input("replicationInstanceId", required: true)]
         public Input<string> ReplicationInstanceId { get; set; } = null!;
@@ -496,11 +488,6 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
-        /// 
-        /// - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-        /// - Format: `ddd:hh24:mi-ddd:hh24:mi`
-        /// - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-        /// - Constraints: Minimum 30-minute window.
         /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
@@ -510,6 +497,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the replication instance.
@@ -525,11 +518,6 @@ namespace Pulumi.Aws.Dms
 
         /// <summary>
         /// The replication instance identifier. This parameter is stored as a lowercase string.
-        /// 
-        /// - Must contain from 1 to 63 alphanumeric characters or hyphens.
-        /// - First character must be a letter.
-        /// - Cannot end with a hyphen
-        /// - Cannot contain two consecutive hyphens.
         /// </summary>
         [Input("replicationInstanceId")]
         public Input<string>? ReplicationInstanceId { get; set; }
@@ -582,7 +570,6 @@ namespace Pulumi.Aws.Dms
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

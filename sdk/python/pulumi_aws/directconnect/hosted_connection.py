@@ -107,6 +107,7 @@ class _HostedConnectionState:
                  aws_device: Optional[pulumi.Input[builtins.str]] = None,
                  bandwidth: Optional[pulumi.Input[builtins.str]] = None,
                  connection_id: Optional[pulumi.Input[builtins.str]] = None,
+                 connection_region: Optional[pulumi.Input[builtins.str]] = None,
                  has_logical_redundancy: Optional[pulumi.Input[builtins.str]] = None,
                  jumbo_frame_capable: Optional[pulumi.Input[builtins.bool]] = None,
                  lag_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -124,6 +125,7 @@ class _HostedConnectionState:
         :param pulumi.Input[builtins.str] aws_device: The Direct Connect endpoint on which the physical connection terminates.
         :param pulumi.Input[builtins.str] bandwidth: The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
         :param pulumi.Input[builtins.str] connection_id: The ID of the interconnect or LAG.
+        :param pulumi.Input[builtins.str] connection_region: The AWS Region where the connection is located.
         :param pulumi.Input[builtins.str] has_logical_redundancy: Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
         :param pulumi.Input[builtins.bool] jumbo_frame_capable: Boolean value representing if jumbo frames have been enabled for this connection.
         :param pulumi.Input[builtins.str] lag_id: The ID of the LAG.
@@ -133,7 +135,7 @@ class _HostedConnectionState:
         :param pulumi.Input[builtins.str] owner_account_id: The ID of the AWS account of the customer for the connection.
         :param pulumi.Input[builtins.str] partner_name: The name of the AWS Direct Connect service provider associated with the connection.
         :param pulumi.Input[builtins.str] provider_name: The name of the service provider associated with the connection.
-        :param pulumi.Input[builtins.str] region: The AWS Region where the connection is located.
+        :param pulumi.Input[builtins.str] region: (**Deprecated**) The AWS Region where the connection is located. Use `connection_region` instead.
         :param pulumi.Input[builtins.str] state: The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
         :param pulumi.Input[builtins.int] vlan: The dedicated VLAN provisioned to the hosted connection.
         """
@@ -143,6 +145,8 @@ class _HostedConnectionState:
             pulumi.set(__self__, "bandwidth", bandwidth)
         if connection_id is not None:
             pulumi.set(__self__, "connection_id", connection_id)
+        if connection_region is not None:
+            pulumi.set(__self__, "connection_region", connection_region)
         if has_logical_redundancy is not None:
             pulumi.set(__self__, "has_logical_redundancy", has_logical_redundancy)
         if jumbo_frame_capable is not None:
@@ -161,6 +165,9 @@ class _HostedConnectionState:
             pulumi.set(__self__, "partner_name", partner_name)
         if provider_name is not None:
             pulumi.set(__self__, "provider_name", provider_name)
+        if region is not None:
+            warnings.warn("""region is deprecated. Use connection_region instead.""", DeprecationWarning)
+            pulumi.log.warn("""region is deprecated: region is deprecated. Use connection_region instead.""")
         if region is not None:
             pulumi.set(__self__, "region", region)
         if state is not None:
@@ -203,6 +210,18 @@ class _HostedConnectionState:
     @connection_id.setter
     def connection_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "connection_id", value)
+
+    @property
+    @pulumi.getter(name="connectionRegion")
+    def connection_region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The AWS Region where the connection is located.
+        """
+        return pulumi.get(self, "connection_region")
+
+    @connection_region.setter
+    def connection_region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "connection_region", value)
 
     @property
     @pulumi.getter(name="hasLogicalRedundancy")
@@ -314,9 +333,10 @@ class _HostedConnectionState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""region is deprecated. Use connection_region instead.""")
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The AWS Region where the connection is located.
+        (**Deprecated**) The AWS Region where the connection is located. Use `connection_region` instead.
         """
         return pulumi.get(self, "region")
 
@@ -452,6 +472,7 @@ class HostedConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'vlan'")
             __props__.__dict__["vlan"] = vlan
             __props__.__dict__["aws_device"] = None
+            __props__.__dict__["connection_region"] = None
             __props__.__dict__["has_logical_redundancy"] = None
             __props__.__dict__["jumbo_frame_capable"] = None
             __props__.__dict__["lag_id"] = None
@@ -474,6 +495,7 @@ class HostedConnection(pulumi.CustomResource):
             aws_device: Optional[pulumi.Input[builtins.str]] = None,
             bandwidth: Optional[pulumi.Input[builtins.str]] = None,
             connection_id: Optional[pulumi.Input[builtins.str]] = None,
+            connection_region: Optional[pulumi.Input[builtins.str]] = None,
             has_logical_redundancy: Optional[pulumi.Input[builtins.str]] = None,
             jumbo_frame_capable: Optional[pulumi.Input[builtins.bool]] = None,
             lag_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -496,6 +518,7 @@ class HostedConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] aws_device: The Direct Connect endpoint on which the physical connection terminates.
         :param pulumi.Input[builtins.str] bandwidth: The bandwidth of the connection. Valid values for dedicated connections: 1Gbps, 10Gbps. Valid values for hosted connections: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps, and 25Gbps. Case sensitive. Refer to the AWS Direct Connection supported bandwidths for [Hosted Connections](https://docs.aws.amazon.com/directconnect/latest/UserGuide/hosted_connection.html).
         :param pulumi.Input[builtins.str] connection_id: The ID of the interconnect or LAG.
+        :param pulumi.Input[builtins.str] connection_region: The AWS Region where the connection is located.
         :param pulumi.Input[builtins.str] has_logical_redundancy: Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).
         :param pulumi.Input[builtins.bool] jumbo_frame_capable: Boolean value representing if jumbo frames have been enabled for this connection.
         :param pulumi.Input[builtins.str] lag_id: The ID of the LAG.
@@ -505,7 +528,7 @@ class HostedConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] owner_account_id: The ID of the AWS account of the customer for the connection.
         :param pulumi.Input[builtins.str] partner_name: The name of the AWS Direct Connect service provider associated with the connection.
         :param pulumi.Input[builtins.str] provider_name: The name of the service provider associated with the connection.
-        :param pulumi.Input[builtins.str] region: The AWS Region where the connection is located.
+        :param pulumi.Input[builtins.str] region: (**Deprecated**) The AWS Region where the connection is located. Use `connection_region` instead.
         :param pulumi.Input[builtins.str] state: The state of the connection. Possible values include: ordering, requested, pending, available, down, deleting, deleted, rejected, unknown. See [AllocateHostedConnection](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_AllocateHostedConnection.html) for a description of each connection state.
         :param pulumi.Input[builtins.int] vlan: The dedicated VLAN provisioned to the hosted connection.
         """
@@ -516,6 +539,7 @@ class HostedConnection(pulumi.CustomResource):
         __props__.__dict__["aws_device"] = aws_device
         __props__.__dict__["bandwidth"] = bandwidth
         __props__.__dict__["connection_id"] = connection_id
+        __props__.__dict__["connection_region"] = connection_region
         __props__.__dict__["has_logical_redundancy"] = has_logical_redundancy
         __props__.__dict__["jumbo_frame_capable"] = jumbo_frame_capable
         __props__.__dict__["lag_id"] = lag_id
@@ -553,6 +577,14 @@ class HostedConnection(pulumi.CustomResource):
         The ID of the interconnect or LAG.
         """
         return pulumi.get(self, "connection_id")
+
+    @property
+    @pulumi.getter(name="connectionRegion")
+    def connection_region(self) -> pulumi.Output[builtins.str]:
+        """
+        The AWS Region where the connection is located.
+        """
+        return pulumi.get(self, "connection_region")
 
     @property
     @pulumi.getter(name="hasLogicalRedundancy")
@@ -628,9 +660,10 @@ class HostedConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""region is deprecated. Use connection_region instead.""")
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        The AWS Region where the connection is located.
+        (**Deprecated**) The AWS Region where the connection is located. Use `connection_region` instead.
         """
         return pulumi.get(self, "region")
 

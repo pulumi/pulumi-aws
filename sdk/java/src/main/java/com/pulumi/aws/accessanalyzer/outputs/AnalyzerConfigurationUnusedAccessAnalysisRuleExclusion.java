@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion {
     /**
-     * @return A list of account IDs to exclude from the analysis.
+     * @return List of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
      * 
      */
     private @Nullable List<String> accountIds;
     /**
-     * @return A list of key-value pairs for resource tags to exclude from the analysis.
+     * @return List of key-value pairs for resource tags to exclude from the analysis.
      * 
      */
     private @Nullable List<Map<String,String>> resourceTags;
 
     private AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion() {}
     /**
-     * @return A list of account IDs to exclude from the analysis.
+     * @return List of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
      * 
      */
     public List<String> accountIds() {
         return this.accountIds == null ? List.of() : this.accountIds;
     }
     /**
-     * @return A list of key-value pairs for resource tags to exclude from the analysis.
+     * @return List of key-value pairs for resource tags to exclude from the analysis.
      * 
      */
     public List<Map<String,String>> resourceTags() {

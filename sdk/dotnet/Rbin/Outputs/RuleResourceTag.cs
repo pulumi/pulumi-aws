@@ -14,13 +14,13 @@ namespace Pulumi.Aws.Rbin.Outputs
     public sealed class RuleResourceTag
     {
         /// <summary>
-        /// The tag key.
+        /// Tag key.
         /// 
         /// The following argument is optional:
         /// </summary>
         public readonly string ResourceTagKey;
         /// <summary>
-        /// The tag value.
+        /// Tag value.
         /// </summary>
         public readonly string? ResourceTagValue;
 

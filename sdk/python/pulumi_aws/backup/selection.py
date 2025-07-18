@@ -27,6 +27,7 @@ class SelectionArgs:
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]] = None):
         """
@@ -36,6 +37,7 @@ class SelectionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SelectionConditionArgs']]] conditions: Condition-based filters used to specify sets of resources for a backup plan. See below for details.
         :param pulumi.Input[builtins.str] name: The display name of a resource selection document.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] not_resources: An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resources: An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
         :param pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]] selection_tags: Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
         """
@@ -47,6 +49,8 @@ class SelectionArgs:
             pulumi.set(__self__, "name", name)
         if not_resources is not None:
             pulumi.set(__self__, "not_resources", not_resources)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resources is not None:
             pulumi.set(__self__, "resources", resources)
         if selection_tags is not None:
@@ -114,6 +118,18 @@ class SelectionArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
         An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
@@ -145,6 +161,7 @@ class _SelectionState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  plan_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]] = None):
         """
@@ -154,6 +171,7 @@ class _SelectionState:
         :param pulumi.Input[builtins.str] name: The display name of a resource selection document.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] not_resources: An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
         :param pulumi.Input[builtins.str] plan_id: The backup plan ID to be associated with the selection of resources.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resources: An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
         :param pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]] selection_tags: Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
         """
@@ -167,6 +185,8 @@ class _SelectionState:
             pulumi.set(__self__, "not_resources", not_resources)
         if plan_id is not None:
             pulumi.set(__self__, "plan_id", plan_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resources is not None:
             pulumi.set(__self__, "resources", resources)
         if selection_tags is not None:
@@ -234,6 +254,18 @@ class _SelectionState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
         An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
@@ -268,6 +300,7 @@ class Selection(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  plan_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SelectionSelectionTagArgs', 'SelectionSelectionTagArgsDict']]]]] = None,
                  __props__=None):
@@ -400,6 +433,7 @@ class Selection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The display name of a resource selection document.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] not_resources: An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
         :param pulumi.Input[builtins.str] plan_id: The backup plan ID to be associated with the selection of resources.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resources: An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SelectionSelectionTagArgs', 'SelectionSelectionTagArgsDict']]]] selection_tags: Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
         """
@@ -551,6 +585,7 @@ class Selection(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  plan_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SelectionSelectionTagArgs', 'SelectionSelectionTagArgsDict']]]]] = None,
                  __props__=None):
@@ -571,6 +606,7 @@ class Selection(pulumi.CustomResource):
             if plan_id is None and not opts.urn:
                 raise TypeError("Missing required property 'plan_id'")
             __props__.__dict__["plan_id"] = plan_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["resources"] = resources
             __props__.__dict__["selection_tags"] = selection_tags
         super(Selection, __self__).__init__(
@@ -588,6 +624,7 @@ class Selection(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             plan_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resources: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SelectionSelectionTagArgs', 'SelectionSelectionTagArgsDict']]]]] = None) -> 'Selection':
         """
@@ -602,6 +639,7 @@ class Selection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The display name of a resource selection document.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] not_resources: An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
         :param pulumi.Input[builtins.str] plan_id: The backup plan ID to be associated with the selection of resources.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resources: An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SelectionSelectionTagArgs', 'SelectionSelectionTagArgsDict']]]] selection_tags: Tag-based conditions used to specify a set of resources to assign to a backup plan. See below for details.
         """
@@ -614,6 +652,7 @@ class Selection(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["not_resources"] = not_resources
         __props__.__dict__["plan_id"] = plan_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["resources"] = resources
         __props__.__dict__["selection_tags"] = selection_tags
         return Selection(resource_name, opts=opts, __props__=__props__)
@@ -657,6 +696,14 @@ class Selection(pulumi.CustomResource):
         The backup plan ID to be associated with the selection of resources.
         """
         return pulumi.get(self, "plan_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

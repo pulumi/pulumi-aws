@@ -16,6 +16,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const current = aws.getRegion({});
+ * const currentGetPartition = aws.getPartition({});
+ * const currentGetCallerIdentity = aws.getCallerIdentity({});
  * const example = new aws.networkfirewall.FirewallPolicy("example", {
  *     name: "example",
  *     firewallPolicy: {
@@ -25,7 +28,7 @@ import * as utilities from "../utilities";
  *             priority: 1,
  *             resourceArn: exampleAwsNetworkfirewallRuleGroup.arn,
  *         }],
- *         tlsInspectionConfigurationArn: "arn:aws:network-firewall:REGION:ACCT:tls-configuration/example",
+ *         tlsInspectionConfigurationArn: Promise.all([currentGetPartition, current, currentGetCallerIdentity]).then(([currentGetPartition, current, currentGetCallerIdentity]) => `arn:${currentGetPartition.partition}:network-firewall:${current.region}:${currentGetCallerIdentity.accountId}:tls-configuration/example`),
  *     },
  *     tags: {
  *         Tag1: "Value1",
@@ -74,7 +77,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.networkfirewall.FirewallPolicy("test", {
+ * const example = new aws.networkfirewall.FirewallPolicy("example", {
  *     name: "example",
  *     firewallPolicy: {
  *         statelessDefaultActions: [
@@ -91,6 +94,52 @@ import * as utilities from "../utilities";
  *                 },
  *             },
  *             actionName: "ExampleCustomAction",
+ *         }],
+ *     },
+ * });
+ * ```
+ *
+ * ## Policy with Active Threat Defense in Action Order
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getRegion({});
+ * const currentGetPartition = aws.getPartition({});
+ * const example = new aws.networkfirewall.FirewallPolicy("example", {
+ *     name: "example",
+ *     firewallPolicy: {
+ *         statelessFragmentDefaultActions: ["aws:drop"],
+ *         statelessDefaultActions: ["aws:pass"],
+ *         statefulRuleGroupReferences: [{
+ *             deepThreatInspection: "true",
+ *             resourceArn: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:network-firewall:${current.region}:aws-managed:stateful-rulegroup/AttackInfrastructureActionOrder`),
+ *         }],
+ *     },
+ * });
+ * ```
+ *
+ * ## Policy with Active Threat Defense in Strict Order
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getRegion({});
+ * const currentGetPartition = aws.getPartition({});
+ * const example = new aws.networkfirewall.FirewallPolicy("example", {
+ *     name: "example",
+ *     firewallPolicy: {
+ *         statelessFragmentDefaultActions: ["aws:drop"],
+ *         statelessDefaultActions: ["aws:pass"],
+ *         statefulEngineOptions: {
+ *             ruleOrder: "STRICT_ORDER",
+ *         },
+ *         statefulRuleGroupReferences: [{
+ *             deepThreatInspection: "false",
+ *             priority: 1,
+ *             resourceArn: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:network-firewall:${current.region}:aws-managed:stateful-rulegroup/AttackInfrastructureStrictOrder`),
  *         }],
  *     },
  * });
@@ -153,13 +202,15 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -185,6 +236,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
             resourceInputs["firewallPolicy"] = state ? state.firewallPolicy : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["updateToken"] = state ? state.updateToken : undefined;
@@ -197,6 +249,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
             resourceInputs["firewallPolicy"] = args ? args.firewallPolicy : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -232,13 +285,15 @@ export interface FirewallPolicyState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -267,6 +322,10 @@ export interface FirewallPolicyArgs {
      * A friendly name of the firewall policy.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

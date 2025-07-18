@@ -29,7 +29,7 @@ class GetNetworkInterfacesResult:
     """
     A collection of values returned by getNetworkInterfaces.
     """
-    def __init__(__self__, filters=None, id=None, ids=None, tags=None):
+    def __init__(__self__, filters=None, id=None, ids=None, region=None, tags=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -39,6 +39,9 @@ class GetNetworkInterfacesResult:
         if ids and not isinstance(ids, list):
             raise TypeError("Expected argument 'ids' to be a list")
         pulumi.set(__self__, "ids", ids)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -66,6 +69,11 @@ class GetNetworkInterfacesResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         return pulumi.get(self, "tags")
 
@@ -79,10 +87,12 @@ class AwaitableGetNetworkInterfacesResult(GetNetworkInterfacesResult):
             filters=self.filters,
             id=self.id,
             ids=self.ids,
+            region=self.region,
             tags=self.tags)
 
 
 def get_network_interfaces(filters: Optional[Sequence[Union['GetNetworkInterfacesFilterArgs', 'GetNetworkInterfacesFilterArgsDict']]] = None,
+                           region: Optional[builtins.str] = None,
                            tags: Optional[Mapping[str, builtins.str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkInterfacesResult:
     """
@@ -126,11 +136,13 @@ def get_network_interfaces(filters: Optional[Sequence[Union['GetNetworkInterface
 
 
     :param Sequence[Union['GetNetworkInterfacesFilterArgs', 'GetNetworkInterfacesFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired network interfaces.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNetworkInterfaces:getNetworkInterfaces', __args__, opts=opts, typ=GetNetworkInterfacesResult).value
@@ -139,8 +151,10 @@ def get_network_interfaces(filters: Optional[Sequence[Union['GetNetworkInterface
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_network_interfaces_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkInterfacesFilterArgs', 'GetNetworkInterfacesFilterArgsDict']]]]] = None,
+                                  region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                   tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInterfacesResult]:
     """
@@ -184,11 +198,13 @@ def get_network_interfaces_output(filters: Optional[pulumi.Input[Optional[Sequen
 
 
     :param Sequence[Union['GetNetworkInterfacesFilterArgs', 'GetNetworkInterfacesFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired network interfaces.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getNetworkInterfaces:getNetworkInterfaces', __args__, opts=opts, typ=GetNetworkInterfacesResult)
@@ -196,4 +212,5 @@ def get_network_interfaces_output(filters: Optional[pulumi.Input[Optional[Sequen
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         ids=pulumi.get(__response__, 'ids'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

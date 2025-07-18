@@ -27,7 +27,7 @@ class GetDomainResult:
     """
     A collection of values returned by getDomain.
     """
-    def __init__(__self__, arn=None, created_at=None, description=None, domain_version=None, id=None, last_updated_at=None, managed_account_id=None, name=None, portal_url=None, status=None):
+    def __init__(__self__, arn=None, created_at=None, description=None, domain_version=None, id=None, last_updated_at=None, managed_account_id=None, name=None, portal_url=None, region=None, status=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -55,6 +55,9 @@ class GetDomainResult:
         if portal_url and not isinstance(portal_url, str):
             raise TypeError("Expected argument 'portal_url' to be a str")
         pulumi.set(__self__, "portal_url", portal_url)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -127,6 +130,11 @@ class GetDomainResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def status(self) -> builtins.str:
         """
         Status of the Domain.
@@ -149,11 +157,13 @@ class AwaitableGetDomainResult(GetDomainResult):
             managed_account_id=self.managed_account_id,
             name=self.name,
             portal_url=self.portal_url,
+            region=self.region,
             status=self.status)
 
 
 def get_domain(id: Optional[builtins.str] = None,
                name: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
     Data source for managing an AWS DataZone Domain.
@@ -172,10 +182,12 @@ def get_domain(id: Optional[builtins.str] = None,
 
     :param builtins.str id: ID of the Domain. One of `name` or `id` is required
     :param builtins.str name: Name of the Domain. One of `name` or `id` is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:datazone/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult).value
 
@@ -189,9 +201,11 @@ def get_domain(id: Optional[builtins.str] = None,
         managed_account_id=pulumi.get(__ret__, 'managed_account_id'),
         name=pulumi.get(__ret__, 'name'),
         portal_url=pulumi.get(__ret__, 'portal_url'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'))
 def get_domain_output(id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
     Data source for managing an AWS DataZone Domain.
@@ -210,10 +224,12 @@ def get_domain_output(id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
 
     :param builtins.str id: ID of the Domain. One of `name` or `id` is required
     :param builtins.str name: Name of the Domain. One of `name` or `id` is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:datazone/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult)
     return __ret__.apply(lambda __response__: GetDomainResult(
@@ -226,4 +242,5 @@ def get_domain_output(id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
         managed_account_id=pulumi.get(__response__, 'managed_account_id'),
         name=pulumi.get(__response__, 'name'),
         portal_url=pulumi.get(__response__, 'portal_url'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status')))

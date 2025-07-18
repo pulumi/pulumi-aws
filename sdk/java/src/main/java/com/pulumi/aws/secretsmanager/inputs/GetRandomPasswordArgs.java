@@ -123,6 +123,21 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Specifies whether to include at least one upper and lowercase letter, one number, and one punctuation.
      * 
      */
@@ -147,6 +162,7 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
         this.excludeUppercase = $.excludeUppercase;
         this.includeSpace = $.includeSpace;
         this.passwordLength = $.passwordLength;
+        this.region = $.region;
         this.requireEachIncludedType = $.requireEachIncludedType;
     }
 
@@ -313,6 +329,27 @@ public final class GetRandomPasswordArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder passwordLength(Integer passwordLength) {
             return passwordLength(Output.of(passwordLength));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

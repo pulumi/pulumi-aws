@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -93,13 +93,13 @@ type Theme struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions ThemePermissionArrayOutput `pulumi:"permissions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The theme creation status.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Identifier of the theme.
 	ThemeId pulumi.StringOutput `pulumi:"themeId"`
@@ -163,13 +163,13 @@ type themeState struct {
 	Name *string `pulumi:"name"`
 	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions []ThemePermission `pulumi:"permissions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The theme creation status.
 	Status *string `pulumi:"status"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Identifier of the theme.
 	ThemeId *string `pulumi:"themeId"`
@@ -198,13 +198,13 @@ type ThemeState struct {
 	Name pulumi.StringPtrInput
 	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions ThemePermissionArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The theme creation status.
 	Status pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Identifier of the theme.
 	ThemeId pulumi.StringPtrInput
@@ -231,6 +231,8 @@ type themeArgs struct {
 	Name *string `pulumi:"name"`
 	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions []ThemePermission `pulumi:"permissions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Identifier of the theme.
@@ -253,6 +255,8 @@ type ThemeArgs struct {
 	Name pulumi.StringPtrInput
 	// A set of resource permissions on the theme. Maximum of 64 items. See permissions.
 	Permissions ThemePermissionArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Identifier of the theme.
@@ -390,6 +394,11 @@ func (o ThemeOutput) Permissions() ThemePermissionArrayOutput {
 	return o.ApplyT(func(v *Theme) ThemePermissionArrayOutput { return v.Permissions }).(ThemePermissionArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ThemeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The theme creation status.
 func (o ThemeOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
@@ -401,8 +410,6 @@ func (o ThemeOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ThemeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

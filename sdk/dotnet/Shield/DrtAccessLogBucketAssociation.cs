@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Shield
     /// {
     ///     var test = new Aws.Shield.DrtAccessRoleArnAssociation("test", new()
     ///     {
-    ///         RoleArn = $"arn:aws:iam:{current.Name}:{currentAwsCallerIdentity.AccountId}:{shieldDrtAccessRoleName}",
+    ///         RoleArn = $"arn:aws:iam:{current.Region}:{currentAwsCallerIdentity.AccountId}:{shieldDrtAccessRoleName}",
     ///     });
     /// 
     ///     var testDrtAccessLogBucketAssociation = new Aws.Shield.DrtAccessLogBucketAssociation("test", new()

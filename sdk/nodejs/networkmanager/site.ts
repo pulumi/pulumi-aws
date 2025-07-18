@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Creates a site in a global network.
+ * Manages a Network Manager site. Use this resource to create a site in a global network.
  *
  * ## Example Usage
  *
@@ -57,7 +57,7 @@ export class Site extends pulumi.CustomResource {
     }
 
     /**
-     * Site Amazon Resource Name (ARN)
+     * Site ARN.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -65,11 +65,13 @@ export class Site extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the Global Network to create the site in.
+     * ID of the Global Network to create the site in.
+     *
+     * The following arguments are optional:
      */
     public readonly globalNetworkId!: pulumi.Output<string>;
     /**
-     * The site location as documented below.
+     * Site location. See below.
      */
     public readonly location!: pulumi.Output<outputs.networkmanager.SiteLocation | undefined>;
     /**
@@ -77,9 +79,7 @@ export class Site extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -124,7 +124,7 @@ export class Site extends pulumi.CustomResource {
  */
 export interface SiteState {
     /**
-     * Site Amazon Resource Name (ARN)
+     * Site ARN.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -132,11 +132,13 @@ export interface SiteState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The ID of the Global Network to create the site in.
+     * ID of the Global Network to create the site in.
+     *
+     * The following arguments are optional:
      */
     globalNetworkId?: pulumi.Input<string>;
     /**
-     * The site location as documented below.
+     * Site location. See below.
      */
     location?: pulumi.Input<inputs.networkmanager.SiteLocation>;
     /**
@@ -144,9 +146,7 @@ export interface SiteState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -160,11 +160,13 @@ export interface SiteArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The ID of the Global Network to create the site in.
+     * ID of the Global Network to create the site in.
+     *
+     * The following arguments are optional:
      */
     globalNetworkId: pulumi.Input<string>;
     /**
-     * The site location as documented below.
+     * Site location. See below.
      */
     location?: pulumi.Input<inputs.networkmanager.SiteLocation>;
     /**

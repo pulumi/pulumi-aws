@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/location"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/location"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,6 +55,8 @@ func LookupTrackerAssociation(ctx *pulumi.Context, args *LookupTrackerAssociatio
 type LookupTrackerAssociationArgs struct {
 	// ARN of the geofence collection associated to tracker resource.
 	ConsumerArn string `pulumi:"consumerArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the tracker resource associated with a geofence collection.
 	TrackerName string `pulumi:"trackerName"`
 }
@@ -64,6 +66,7 @@ type LookupTrackerAssociationResult struct {
 	ConsumerArn string `pulumi:"consumerArn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id          string `pulumi:"id"`
+	Region      string `pulumi:"region"`
 	TrackerName string `pulumi:"trackerName"`
 }
 
@@ -80,6 +83,8 @@ func LookupTrackerAssociationOutput(ctx *pulumi.Context, args LookupTrackerAssoc
 type LookupTrackerAssociationOutputArgs struct {
 	// ARN of the geofence collection associated to tracker resource.
 	ConsumerArn pulumi.StringInput `pulumi:"consumerArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Name of the tracker resource associated with a geofence collection.
 	TrackerName pulumi.StringInput `pulumi:"trackerName"`
 }
@@ -110,6 +115,10 @@ func (o LookupTrackerAssociationResultOutput) ConsumerArn() pulumi.StringOutput 
 // The provider-assigned unique ID for this managed resource.
 func (o LookupTrackerAssociationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTrackerAssociationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupTrackerAssociationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTrackerAssociationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupTrackerAssociationResultOutput) TrackerName() pulumi.StringOutput {

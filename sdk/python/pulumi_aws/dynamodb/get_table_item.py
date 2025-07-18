@@ -27,7 +27,7 @@ class GetTableItemResult:
     """
     A collection of values returned by getTableItem.
     """
-    def __init__(__self__, expression_attribute_names=None, id=None, item=None, key=None, projection_expression=None, table_name=None):
+    def __init__(__self__, expression_attribute_names=None, id=None, item=None, key=None, projection_expression=None, region=None, table_name=None):
         if expression_attribute_names and not isinstance(expression_attribute_names, dict):
             raise TypeError("Expected argument 'expression_attribute_names' to be a dict")
         pulumi.set(__self__, "expression_attribute_names", expression_attribute_names)
@@ -43,6 +43,9 @@ class GetTableItemResult:
         if projection_expression and not isinstance(projection_expression, str):
             raise TypeError("Expected argument 'projection_expression' to be a str")
         pulumi.set(__self__, "projection_expression", projection_expression)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if table_name and not isinstance(table_name, str):
             raise TypeError("Expected argument 'table_name' to be a str")
         pulumi.set(__self__, "table_name", table_name)
@@ -79,6 +82,11 @@ class GetTableItemResult:
         return pulumi.get(self, "projection_expression")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> builtins.str:
         return pulumi.get(self, "table_name")
@@ -95,12 +103,14 @@ class AwaitableGetTableItemResult(GetTableItemResult):
             item=self.item,
             key=self.key,
             projection_expression=self.projection_expression,
+            region=self.region,
             table_name=self.table_name)
 
 
 def get_table_item(expression_attribute_names: Optional[Mapping[str, builtins.str]] = None,
                    key: Optional[builtins.str] = None,
                    projection_expression: Optional[builtins.str] = None,
+                   region: Optional[builtins.str] = None,
                    table_name: Optional[builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableItemResult:
     """
@@ -132,12 +142,14 @@ def get_table_item(expression_attribute_names: Optional[Mapping[str, builtins.st
            The following arguments are optional:
     :param builtins.str projection_expression: A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
            If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str table_name: The name of the table containing the requested item.
     """
     __args__ = dict()
     __args__['expressionAttributeNames'] = expression_attribute_names
     __args__['key'] = key
     __args__['projectionExpression'] = projection_expression
+    __args__['region'] = region
     __args__['tableName'] = table_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:dynamodb/getTableItem:getTableItem', __args__, opts=opts, typ=GetTableItemResult).value
@@ -148,10 +160,12 @@ def get_table_item(expression_attribute_names: Optional[Mapping[str, builtins.st
         item=pulumi.get(__ret__, 'item'),
         key=pulumi.get(__ret__, 'key'),
         projection_expression=pulumi.get(__ret__, 'projection_expression'),
+        region=pulumi.get(__ret__, 'region'),
         table_name=pulumi.get(__ret__, 'table_name'))
 def get_table_item_output(expression_attribute_names: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                           key: Optional[pulumi.Input[builtins.str]] = None,
                           projection_expression: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           table_name: Optional[pulumi.Input[builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableItemResult]:
     """
@@ -183,12 +197,14 @@ def get_table_item_output(expression_attribute_names: Optional[pulumi.Input[Opti
            The following arguments are optional:
     :param builtins.str projection_expression: A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
            If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str table_name: The name of the table containing the requested item.
     """
     __args__ = dict()
     __args__['expressionAttributeNames'] = expression_attribute_names
     __args__['key'] = key
     __args__['projectionExpression'] = projection_expression
+    __args__['region'] = region
     __args__['tableName'] = table_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:dynamodb/getTableItem:getTableItem', __args__, opts=opts, typ=GetTableItemResult)
@@ -198,4 +214,5 @@ def get_table_item_output(expression_attribute_names: Optional[pulumi.Input[Opti
         item=pulumi.get(__response__, 'item'),
         key=pulumi.get(__response__, 'key'),
         projection_expression=pulumi.get(__response__, 'projection_expression'),
+        region=pulumi.get(__response__, 'region'),
         table_name=pulumi.get(__response__, 'table_name')))

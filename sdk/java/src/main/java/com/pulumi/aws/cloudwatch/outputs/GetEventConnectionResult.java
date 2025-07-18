@@ -31,6 +31,7 @@ public final class GetEventConnectionResult {
      */
     private String kmsKeyIdentifier;
     private String name;
+    private String region;
     /**
      * @return ARN of the secret created from the authorization parameters specified for the connection.
      * 
@@ -69,6 +70,9 @@ public final class GetEventConnectionResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return ARN of the secret created from the authorization parameters specified for the connection.
      * 
@@ -91,6 +95,7 @@ public final class GetEventConnectionResult {
         private String id;
         private String kmsKeyIdentifier;
         private String name;
+        private String region;
         private String secretArn;
         public Builder() {}
         public Builder(GetEventConnectionResult defaults) {
@@ -100,6 +105,7 @@ public final class GetEventConnectionResult {
     	      this.id = defaults.id;
     	      this.kmsKeyIdentifier = defaults.kmsKeyIdentifier;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.secretArn = defaults.secretArn;
         }
 
@@ -144,6 +150,14 @@ public final class GetEventConnectionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEventConnectionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder secretArn(String secretArn) {
             if (secretArn == null) {
               throw new MissingRequiredPropertyException("GetEventConnectionResult", "secretArn");
@@ -158,6 +172,7 @@ public final class GetEventConnectionResult {
             _resultValue.id = id;
             _resultValue.kmsKeyIdentifier = kmsKeyIdentifier;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.secretArn = secretArn;
             return _resultValue;
         }

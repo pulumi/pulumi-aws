@@ -28,6 +28,7 @@ class RadiusSettingsArgs:
                  radius_servers: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
                  radius_timeout: pulumi.Input[builtins.int],
                  shared_secret: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  use_same_username: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The set of arguments for constructing a RadiusSettings resource.
@@ -39,6 +40,7 @@ class RadiusSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] radius_servers: An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
         :param pulumi.Input[builtins.int] radius_timeout: The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
         :param pulumi.Input[builtins.str] shared_secret: Required for enabling RADIUS on the directory.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] use_same_username: Not currently used.
         """
         pulumi.set(__self__, "authentication_protocol", authentication_protocol)
@@ -49,6 +51,8 @@ class RadiusSettingsArgs:
         pulumi.set(__self__, "radius_servers", radius_servers)
         pulumi.set(__self__, "radius_timeout", radius_timeout)
         pulumi.set(__self__, "shared_secret", shared_secret)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if use_same_username is not None:
             pulumi.set(__self__, "use_same_username", use_same_username)
 
@@ -149,6 +153,18 @@ class RadiusSettingsArgs:
         pulumi.set(self, "shared_secret", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="useSameUsername")
     def use_same_username(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -171,6 +187,7 @@ class _RadiusSettingsState:
                  radius_retries: Optional[pulumi.Input[builtins.int]] = None,
                  radius_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  radius_timeout: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shared_secret: Optional[pulumi.Input[builtins.str]] = None,
                  use_same_username: Optional[pulumi.Input[builtins.bool]] = None):
         """
@@ -182,6 +199,7 @@ class _RadiusSettingsState:
         :param pulumi.Input[builtins.int] radius_retries: The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] radius_servers: An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
         :param pulumi.Input[builtins.int] radius_timeout: The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] shared_secret: Required for enabling RADIUS on the directory.
         :param pulumi.Input[builtins.bool] use_same_username: Not currently used.
         """
@@ -199,6 +217,8 @@ class _RadiusSettingsState:
             pulumi.set(__self__, "radius_servers", radius_servers)
         if radius_timeout is not None:
             pulumi.set(__self__, "radius_timeout", radius_timeout)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if shared_secret is not None:
             pulumi.set(__self__, "shared_secret", shared_secret)
         if use_same_username is not None:
@@ -289,6 +309,18 @@ class _RadiusSettingsState:
         pulumi.set(self, "radius_timeout", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sharedSecret")
     def shared_secret(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -326,6 +358,7 @@ class RadiusSettings(pulumi.CustomResource):
                  radius_retries: Optional[pulumi.Input[builtins.int]] = None,
                  radius_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  radius_timeout: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shared_secret: Optional[pulumi.Input[builtins.str]] = None,
                  use_same_username: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
@@ -366,6 +399,7 @@ class RadiusSettings(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] radius_retries: The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] radius_servers: An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
         :param pulumi.Input[builtins.int] radius_timeout: The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] shared_secret: Required for enabling RADIUS on the directory.
         :param pulumi.Input[builtins.bool] use_same_username: Not currently used.
         """
@@ -425,6 +459,7 @@ class RadiusSettings(pulumi.CustomResource):
                  radius_retries: Optional[pulumi.Input[builtins.int]] = None,
                  radius_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  radius_timeout: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shared_secret: Optional[pulumi.Input[builtins.str]] = None,
                  use_same_username: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
@@ -457,6 +492,7 @@ class RadiusSettings(pulumi.CustomResource):
             if radius_timeout is None and not opts.urn:
                 raise TypeError("Missing required property 'radius_timeout'")
             __props__.__dict__["radius_timeout"] = radius_timeout
+            __props__.__dict__["region"] = region
             if shared_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'shared_secret'")
             __props__.__dict__["shared_secret"] = None if shared_secret is None else pulumi.Output.secret(shared_secret)
@@ -480,6 +516,7 @@ class RadiusSettings(pulumi.CustomResource):
             radius_retries: Optional[pulumi.Input[builtins.int]] = None,
             radius_servers: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             radius_timeout: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             shared_secret: Optional[pulumi.Input[builtins.str]] = None,
             use_same_username: Optional[pulumi.Input[builtins.bool]] = None) -> 'RadiusSettings':
         """
@@ -496,6 +533,7 @@ class RadiusSettings(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] radius_retries: The maximum number of times that communication with the RADIUS server is attempted. Minimum value of `0`. Maximum value of `10`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] radius_servers: An array of strings that contains the fully qualified domain name (FQDN) or IP addresses of the RADIUS server endpoints, or the FQDN or IP addresses of your RADIUS server load balancer.
         :param pulumi.Input[builtins.int] radius_timeout: The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] shared_secret: Required for enabling RADIUS on the directory.
         :param pulumi.Input[builtins.bool] use_same_username: Not currently used.
         """
@@ -510,6 +548,7 @@ class RadiusSettings(pulumi.CustomResource):
         __props__.__dict__["radius_retries"] = radius_retries
         __props__.__dict__["radius_servers"] = radius_servers
         __props__.__dict__["radius_timeout"] = radius_timeout
+        __props__.__dict__["region"] = region
         __props__.__dict__["shared_secret"] = shared_secret
         __props__.__dict__["use_same_username"] = use_same_username
         return RadiusSettings(resource_name, opts=opts, __props__=__props__)
@@ -569,6 +608,14 @@ class RadiusSettings(pulumi.CustomResource):
         The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
         """
         return pulumi.get(self, "radius_timeout")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sharedSecret")

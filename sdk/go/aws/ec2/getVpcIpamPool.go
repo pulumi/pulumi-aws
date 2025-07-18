@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,7 +28,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,6 +86,8 @@ type LookupVpcIpamPoolArgs struct {
 	Id *string `pulumi:"id"`
 	// ID of the IPAM pool you would like information on.
 	IpamPoolId *string `pulumi:"ipamPoolId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags to assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -121,7 +123,8 @@ type LookupVpcIpamPoolResult struct {
 	Locale    string `pulumi:"locale"`
 	PoolDepth int    `pulumi:"poolDepth"`
 	// Defines whether or not IPv6 pool space is publicly advertisable over the internet.
-	PubliclyAdvertisable bool `pulumi:"publiclyAdvertisable"`
+	PubliclyAdvertisable bool   `pulumi:"publiclyAdvertisable"`
+	Region               string `pulumi:"region"`
 	// ID of the source IPAM pool.
 	SourceIpamPoolId string `pulumi:"sourceIpamPoolId"`
 	State            string `pulumi:"state"`
@@ -148,6 +151,8 @@ type LookupVpcIpamPoolOutputArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// ID of the IPAM pool you would like information on.
 	IpamPoolId pulumi.StringPtrInput `pulumi:"ipamPoolId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags to assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -250,6 +255,10 @@ func (o LookupVpcIpamPoolResultOutput) PoolDepth() pulumi.IntOutput {
 // Defines whether or not IPv6 pool space is publicly advertisable over the internet.
 func (o LookupVpcIpamPoolResultOutput) PubliclyAdvertisable() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVpcIpamPoolResult) bool { return v.PubliclyAdvertisable }).(pulumi.BoolOutput)
+}
+
+func (o LookupVpcIpamPoolResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcIpamPoolResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the source IPAM pool.

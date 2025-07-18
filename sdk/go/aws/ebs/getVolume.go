@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ebs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,6 +72,8 @@ type LookupVolumeArgs struct {
 	// If more than one result is returned, use the most
 	// recent volume.
 	MostRecent *bool `pulumi:"mostRecent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -98,6 +100,7 @@ type LookupVolumeResult struct {
 	MultiAttachEnabled bool `pulumi:"multiAttachEnabled"`
 	// ARN of the Outpost.
 	OutpostArn string `pulumi:"outpostArn"`
+	Region     string `pulumi:"region"`
 	// Size of the drive in GiBs.
 	Size int `pulumi:"size"`
 	// Snapshot_id the EBS volume is based off.
@@ -130,6 +133,8 @@ type LookupVolumeOutputArgs struct {
 	// If more than one result is returned, use the most
 	// recent volume.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -204,6 +209,10 @@ func (o LookupVolumeResultOutput) MultiAttachEnabled() pulumi.BoolOutput {
 // ARN of the Outpost.
 func (o LookupVolumeResultOutput) OutpostArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.OutpostArn }).(pulumi.StringOutput)
+}
+
+func (o LookupVolumeResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVolumeResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Size of the drive in GiBs.

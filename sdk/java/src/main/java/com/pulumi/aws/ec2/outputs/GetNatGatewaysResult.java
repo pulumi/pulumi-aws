@@ -26,6 +26,7 @@ public final class GetNatGatewaysResult {
      * 
      */
     private List<String> ids;
+    private String region;
     private Map<String,String> tags;
     private @Nullable String vpcId;
 
@@ -47,6 +48,9 @@ public final class GetNatGatewaysResult {
     public List<String> ids() {
         return this.ids;
     }
+    public String region() {
+        return this.region;
+    }
     public Map<String,String> tags() {
         return this.tags;
     }
@@ -66,6 +70,7 @@ public final class GetNatGatewaysResult {
         private @Nullable List<GetNatGatewaysFilter> filters;
         private String id;
         private List<String> ids;
+        private String region;
         private Map<String,String> tags;
         private @Nullable String vpcId;
         public Builder() {}
@@ -74,6 +79,7 @@ public final class GetNatGatewaysResult {
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.ids = defaults.ids;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.vpcId = defaults.vpcId;
         }
@@ -107,6 +113,14 @@ public final class GetNatGatewaysResult {
             return ids(List.of(ids));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetNatGatewaysResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetNatGatewaysResult", "tags");
@@ -125,6 +139,7 @@ public final class GetNatGatewaysResult {
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.ids = ids;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.vpcId = vpcId;
             return _resultValue;

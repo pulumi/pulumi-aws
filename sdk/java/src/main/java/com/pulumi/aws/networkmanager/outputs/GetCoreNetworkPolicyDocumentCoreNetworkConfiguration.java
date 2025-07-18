@@ -21,6 +21,11 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
      */
     private List<String> asnRanges;
     /**
+     * @return Indicates whether DNS resolution is enabled for the core network. The value can be either `true` or `false`. When set to `true`, DNS resolution is enabled for VPCs attached to the core network, allowing resources in different VPCs to resolve each other&#39;s domain names. The default is `true`.
+     * 
+     */
+    private @Nullable Boolean dnsSupport;
+    /**
      * @return A block value of AWS Region locations where you&#39;re creating Core Network Edges. Detailed below.
      * 
      */
@@ -30,6 +35,11 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
      * 
      */
     private @Nullable List<String> insideCidrBlocks;
+    /**
+     * @return — (Optional) Indicates whether security group referencing is enabled for the core network. The value can be either `true` or `false`. When set to `true`, security groups in one VPC can reference security groups in another VPC attached to the core network, enabling more flexible security configurations across your network. The default is `false`.
+     * 
+     */
+    private @Nullable Boolean securityGroupReferencingSupport;
     /**
      * @return Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
      * 
@@ -45,6 +55,13 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
         return this.asnRanges;
     }
     /**
+     * @return Indicates whether DNS resolution is enabled for the core network. The value can be either `true` or `false`. When set to `true`, DNS resolution is enabled for VPCs attached to the core network, allowing resources in different VPCs to resolve each other&#39;s domain names. The default is `true`.
+     * 
+     */
+    public Optional<Boolean> dnsSupport() {
+        return Optional.ofNullable(this.dnsSupport);
+    }
+    /**
      * @return A block value of AWS Region locations where you&#39;re creating Core Network Edges. Detailed below.
      * 
      */
@@ -57,6 +74,13 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
      */
     public List<String> insideCidrBlocks() {
         return this.insideCidrBlocks == null ? List.of() : this.insideCidrBlocks;
+    }
+    /**
+     * @return — (Optional) Indicates whether security group referencing is enabled for the core network. The value can be either `true` or `false`. When set to `true`, security groups in one VPC can reference security groups in another VPC attached to the core network, enabling more flexible security configurations across your network. The default is `false`.
+     * 
+     */
+    public Optional<Boolean> securityGroupReferencingSupport() {
+        return Optional.ofNullable(this.securityGroupReferencingSupport);
     }
     /**
      * @return Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
@@ -76,15 +100,19 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private List<String> asnRanges;
+        private @Nullable Boolean dnsSupport;
         private List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation> edgeLocations;
         private @Nullable List<String> insideCidrBlocks;
+        private @Nullable Boolean securityGroupReferencingSupport;
         private @Nullable Boolean vpnEcmpSupport;
         public Builder() {}
         public Builder(GetCoreNetworkPolicyDocumentCoreNetworkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.asnRanges = defaults.asnRanges;
+    	      this.dnsSupport = defaults.dnsSupport;
     	      this.edgeLocations = defaults.edgeLocations;
     	      this.insideCidrBlocks = defaults.insideCidrBlocks;
+    	      this.securityGroupReferencingSupport = defaults.securityGroupReferencingSupport;
     	      this.vpnEcmpSupport = defaults.vpnEcmpSupport;
         }
 
@@ -98,6 +126,12 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
         }
         public Builder asnRanges(String... asnRanges) {
             return asnRanges(List.of(asnRanges));
+        }
+        @CustomType.Setter
+        public Builder dnsSupport(@Nullable Boolean dnsSupport) {
+
+            this.dnsSupport = dnsSupport;
+            return this;
         }
         @CustomType.Setter
         public Builder edgeLocations(List<GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation> edgeLocations) {
@@ -120,6 +154,12 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
             return insideCidrBlocks(List.of(insideCidrBlocks));
         }
         @CustomType.Setter
+        public Builder securityGroupReferencingSupport(@Nullable Boolean securityGroupReferencingSupport) {
+
+            this.securityGroupReferencingSupport = securityGroupReferencingSupport;
+            return this;
+        }
+        @CustomType.Setter
         public Builder vpnEcmpSupport(@Nullable Boolean vpnEcmpSupport) {
 
             this.vpnEcmpSupport = vpnEcmpSupport;
@@ -128,8 +168,10 @@ public final class GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
         public GetCoreNetworkPolicyDocumentCoreNetworkConfiguration build() {
             final var _resultValue = new GetCoreNetworkPolicyDocumentCoreNetworkConfiguration();
             _resultValue.asnRanges = asnRanges;
+            _resultValue.dnsSupport = dnsSupport;
             _resultValue.edgeLocations = edgeLocations;
             _resultValue.insideCidrBlocks = insideCidrBlocks;
+            _resultValue.securityGroupReferencingSupport = securityGroupReferencingSupport;
             _resultValue.vpnEcmpSupport = vpnEcmpSupport;
             return _resultValue;
         }

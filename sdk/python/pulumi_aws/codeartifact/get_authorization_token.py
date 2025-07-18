@@ -27,7 +27,7 @@ class GetAuthorizationTokenResult:
     """
     A collection of values returned by getAuthorizationToken.
     """
-    def __init__(__self__, authorization_token=None, domain=None, domain_owner=None, duration_seconds=None, expiration=None, id=None):
+    def __init__(__self__, authorization_token=None, domain=None, domain_owner=None, duration_seconds=None, expiration=None, id=None, region=None):
         if authorization_token and not isinstance(authorization_token, str):
             raise TypeError("Expected argument 'authorization_token' to be a str")
         pulumi.set(__self__, "authorization_token", authorization_token)
@@ -46,6 +46,9 @@ class GetAuthorizationTokenResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="authorizationToken")
@@ -86,6 +89,11 @@ class GetAuthorizationTokenResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetAuthorizationTokenResult(GetAuthorizationTokenResult):
     # pylint: disable=using-constant-test
@@ -98,12 +106,14 @@ class AwaitableGetAuthorizationTokenResult(GetAuthorizationTokenResult):
             domain_owner=self.domain_owner,
             duration_seconds=self.duration_seconds,
             expiration=self.expiration,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
 def get_authorization_token(domain: Optional[builtins.str] = None,
                             domain_owner: Optional[builtins.str] = None,
                             duration_seconds: Optional[builtins.int] = None,
+                            region: Optional[builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthorizationTokenResult:
     """
     The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
@@ -121,11 +131,13 @@ def get_authorization_token(domain: Optional[builtins.str] = None,
     :param builtins.str domain: Name of the domain that is in scope for the generated authorization token.
     :param builtins.str domain_owner: Account number of the AWS account that owns the domain.
     :param builtins.int duration_seconds: Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['domain'] = domain
     __args__['domainOwner'] = domain_owner
     __args__['durationSeconds'] = duration_seconds
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:codeartifact/getAuthorizationToken:getAuthorizationToken', __args__, opts=opts, typ=GetAuthorizationTokenResult).value
 
@@ -135,10 +147,12 @@ def get_authorization_token(domain: Optional[builtins.str] = None,
         domain_owner=pulumi.get(__ret__, 'domain_owner'),
         duration_seconds=pulumi.get(__ret__, 'duration_seconds'),
         expiration=pulumi.get(__ret__, 'expiration'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_authorization_token_output(domain: Optional[pulumi.Input[builtins.str]] = None,
                                    domain_owner: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    duration_seconds: Optional[pulumi.Input[Optional[builtins.int]]] = None,
+                                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationTokenResult]:
     """
     The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
@@ -156,11 +170,13 @@ def get_authorization_token_output(domain: Optional[pulumi.Input[builtins.str]] 
     :param builtins.str domain: Name of the domain that is in scope for the generated authorization token.
     :param builtins.str domain_owner: Account number of the AWS account that owns the domain.
     :param builtins.int duration_seconds: Time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['domain'] = domain
     __args__['domainOwner'] = domain_owner
     __args__['durationSeconds'] = duration_seconds
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:codeartifact/getAuthorizationToken:getAuthorizationToken', __args__, opts=opts, typ=GetAuthorizationTokenResult)
     return __ret__.apply(lambda __response__: GetAuthorizationTokenResult(
@@ -169,4 +185,5 @@ def get_authorization_token_output(domain: Optional[pulumi.Input[builtins.str]] 
         domain_owner=pulumi.get(__response__, 'domain_owner'),
         duration_seconds=pulumi.get(__response__, 'duration_seconds'),
         expiration=pulumi.get(__response__, 'expiration'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

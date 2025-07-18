@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,15 +23,15 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := autoscaling.NewGroup(ctx, "test", &autoscaling.GroupArgs{
+//			example, err := autoscaling.NewGroup(ctx, "example", &autoscaling.GroupArgs{
 //				Tags: autoscaling.GroupTagArray{
 //					&autoscaling.GroupTagArgs{
 //						Key:               pulumi.String("AmazonECSManaged"),
@@ -43,10 +43,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ecs.NewCapacityProvider(ctx, "test", &ecs.CapacityProviderArgs{
-//				Name: pulumi.String("test"),
+//			_, err = ecs.NewCapacityProvider(ctx, "example", &ecs.CapacityProviderArgs{
+//				Name: pulumi.String("example"),
 //				AutoScalingGroupProvider: &ecs.CapacityProviderAutoScalingGroupProviderArgs{
-//					AutoScalingGroupArn:          test.Arn,
+//					AutoScalingGroupArn:          example.Arn,
 //					ManagedTerminationProtection: pulumi.String("ENABLED"),
 //					ManagedScaling: &ecs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs{
 //						MaximumScalingStepSize: pulumi.Int(1000),
@@ -67,10 +67,10 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import ECS Capacity Providers using the `name`. For example:
+// Using `pulumi import`, import ECS Capacity Providers using the `arn`. For example:
 //
 // ```sh
-// $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
+// $ pulumi import aws:ecs/capacityProvider:CapacityProvider example arn:aws:ecs:us-west-2:123456789012:capacity-provider/example
 // ```
 type CapacityProvider struct {
 	pulumi.CustomResourceState
@@ -81,11 +81,11 @@ type CapacityProvider struct {
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderOutput `pulumi:"autoScalingGroupProvider"`
 	// Name of the capacity provider.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -128,11 +128,11 @@ type capacityProviderState struct {
 	AutoScalingGroupProvider *CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
 	// Name of the capacity provider.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -143,11 +143,11 @@ type CapacityProviderState struct {
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderPtrInput
 	// Name of the capacity provider.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -160,6 +160,8 @@ type capacityProviderArgs struct {
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
 	// Name of the capacity provider.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -170,6 +172,8 @@ type CapacityProviderArgs struct {
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderInput
 	// Name of the capacity provider.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -278,14 +282,17 @@ func (o CapacityProviderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o CapacityProviderOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *CapacityProvider) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CapacityProviderOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o CapacityProviderOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

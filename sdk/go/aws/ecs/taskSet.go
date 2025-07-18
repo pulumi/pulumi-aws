@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,7 +60,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -109,6 +109,8 @@ type TaskSet struct {
 	NetworkConfiguration TaskSetNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
 	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion pulumi.StringOutput `pulumi:"platformVersion"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
 	Scale TaskSetScaleOutput `pulumi:"scale"`
 	// The short name or ARN of the ECS service.
@@ -122,8 +124,6 @@ type TaskSet struct {
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 	//
@@ -194,6 +194,8 @@ type taskSetState struct {
 	NetworkConfiguration *TaskSetNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion *string `pulumi:"platformVersion"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
 	Scale *TaskSetScale `pulumi:"scale"`
 	// The short name or ARN of the ECS service.
@@ -207,8 +209,6 @@ type taskSetState struct {
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 	//
@@ -241,6 +241,8 @@ type TaskSetState struct {
 	NetworkConfiguration TaskSetNetworkConfigurationPtrInput
 	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
 	Scale TaskSetScalePtrInput
 	// The short name or ARN of the ECS service.
@@ -254,8 +256,6 @@ type TaskSetState struct {
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 	//
@@ -290,6 +290,8 @@ type taskSetArgs struct {
 	NetworkConfiguration *TaskSetNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion *string `pulumi:"platformVersion"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
 	Scale *TaskSetScale `pulumi:"scale"`
 	// The short name or ARN of the ECS service.
@@ -326,6 +328,8 @@ type TaskSetArgs struct {
 	NetworkConfiguration TaskSetNetworkConfigurationPtrInput
 	// The platform version on which to run your service. Only applicable for `launchType` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
 	PlatformVersion pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
 	Scale TaskSetScalePtrInput
 	// The short name or ARN of the ECS service.
@@ -476,6 +480,11 @@ func (o TaskSetOutput) PlatformVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.PlatformVersion }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o TaskSetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
 func (o TaskSetOutput) Scale() TaskSetScaleOutput {
 	return o.ApplyT(func(v *TaskSet) TaskSetScaleOutput { return v.Scale }).(TaskSetScaleOutput)
@@ -507,8 +516,6 @@ func (o TaskSetOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o TaskSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

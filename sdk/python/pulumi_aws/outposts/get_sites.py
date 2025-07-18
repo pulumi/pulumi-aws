@@ -27,13 +27,16 @@ class GetSitesResult:
     """
     A collection of values returned by getSites.
     """
-    def __init__(__self__, id=None, ids=None):
+    def __init__(__self__, id=None, ids=None, region=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if ids and not isinstance(ids, list):
             raise TypeError("Expected argument 'ids' to be a list")
         pulumi.set(__self__, "ids", ids)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -51,6 +54,11 @@ class GetSitesResult:
         """
         return pulumi.get(self, "ids")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetSitesResult(GetSitesResult):
     # pylint: disable=using-constant-test
@@ -59,10 +67,12 @@ class AwaitableGetSitesResult(GetSitesResult):
             yield self
         return GetSitesResult(
             id=self.id,
-            ids=self.ids)
+            ids=self.ids,
+            region=self.region)
 
 
-def get_sites(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSitesResult:
+def get_sites(region: Optional[builtins.str] = None,
+              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSitesResult:
     """
     Provides details about multiple Outposts Sites.
 
@@ -74,15 +84,21 @@ def get_sites(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSitesR
 
     all = aws.outposts.get_sites()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:outposts/getSites:getSites', __args__, opts=opts, typ=GetSitesResult).value
 
     return AwaitableGetSitesResult(
         id=pulumi.get(__ret__, 'id'),
-        ids=pulumi.get(__ret__, 'ids'))
-def get_sites_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSitesResult]:
+        ids=pulumi.get(__ret__, 'ids'),
+        region=pulumi.get(__ret__, 'region'))
+def get_sites_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSitesResult]:
     """
     Provides details about multiple Outposts Sites.
 
@@ -94,10 +110,15 @@ def get_sites_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOut
 
     all = aws.outposts.get_sites()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:outposts/getSites:getSites', __args__, opts=opts, typ=GetSitesResult)
     return __ret__.apply(lambda __response__: GetSitesResult(
         id=pulumi.get(__response__, 'id'),
-        ids=pulumi.get(__response__, 'ids')))
+        ids=pulumi.get(__response__, 'ids'),
+        region=pulumi.get(__response__, 'region')))

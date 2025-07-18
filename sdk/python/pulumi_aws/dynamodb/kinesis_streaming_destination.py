@@ -22,17 +22,21 @@ class KinesisStreamingDestinationArgs:
     def __init__(__self__, *,
                  stream_arn: pulumi.Input[builtins.str],
                  table_name: pulumi.Input[builtins.str],
-                 approximate_creation_date_time_precision: Optional[pulumi.Input[builtins.str]] = None):
+                 approximate_creation_date_time_precision: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a KinesisStreamingDestination resource.
         :param pulumi.Input[builtins.str] stream_arn: The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
         :param pulumi.Input[builtins.str] table_name: The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         :param pulumi.Input[builtins.str] approximate_creation_date_time_precision: Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "stream_arn", stream_arn)
         pulumi.set(__self__, "table_name", table_name)
         if approximate_creation_date_time_precision is not None:
             pulumi.set(__self__, "approximate_creation_date_time_precision", approximate_creation_date_time_precision)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="streamArn")
@@ -70,21 +74,37 @@ class KinesisStreamingDestinationArgs:
     def approximate_creation_date_time_precision(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "approximate_creation_date_time_precision", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _KinesisStreamingDestinationState:
     def __init__(__self__, *,
                  approximate_creation_date_time_precision: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  stream_arn: Optional[pulumi.Input[builtins.str]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering KinesisStreamingDestination resources.
         :param pulumi.Input[builtins.str] approximate_creation_date_time_precision: Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stream_arn: The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
         :param pulumi.Input[builtins.str] table_name: The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         """
         if approximate_creation_date_time_precision is not None:
             pulumi.set(__self__, "approximate_creation_date_time_precision", approximate_creation_date_time_precision)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if stream_arn is not None:
             pulumi.set(__self__, "stream_arn", stream_arn)
         if table_name is not None:
@@ -101,6 +121,18 @@ class _KinesisStreamingDestinationState:
     @approximate_creation_date_time_precision.setter
     def approximate_creation_date_time_precision(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "approximate_creation_date_time_precision", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="streamArn")
@@ -134,6 +166,7 @@ class KinesisStreamingDestination(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  approximate_creation_date_time_precision: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  stream_arn: Optional[pulumi.Input[builtins.str]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -173,6 +206,7 @@ class KinesisStreamingDestination(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] approximate_creation_date_time_precision: Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stream_arn: The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
         :param pulumi.Input[builtins.str] table_name: The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         """
@@ -231,6 +265,7 @@ class KinesisStreamingDestination(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  approximate_creation_date_time_precision: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  stream_arn: Optional[pulumi.Input[builtins.str]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -243,6 +278,7 @@ class KinesisStreamingDestination(pulumi.CustomResource):
             __props__ = KinesisStreamingDestinationArgs.__new__(KinesisStreamingDestinationArgs)
 
             __props__.__dict__["approximate_creation_date_time_precision"] = approximate_creation_date_time_precision
+            __props__.__dict__["region"] = region
             if stream_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_arn'")
             __props__.__dict__["stream_arn"] = stream_arn
@@ -260,6 +296,7 @@ class KinesisStreamingDestination(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             approximate_creation_date_time_precision: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             stream_arn: Optional[pulumi.Input[builtins.str]] = None,
             table_name: Optional[pulumi.Input[builtins.str]] = None) -> 'KinesisStreamingDestination':
         """
@@ -270,6 +307,7 @@ class KinesisStreamingDestination(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] approximate_creation_date_time_precision: Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] stream_arn: The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
         :param pulumi.Input[builtins.str] table_name: The name of the DynamoDB table. There can only be one Kinesis streaming destination for a given DynamoDB table.
         """
@@ -278,6 +316,7 @@ class KinesisStreamingDestination(pulumi.CustomResource):
         __props__ = _KinesisStreamingDestinationState.__new__(_KinesisStreamingDestinationState)
 
         __props__.__dict__["approximate_creation_date_time_precision"] = approximate_creation_date_time_precision
+        __props__.__dict__["region"] = region
         __props__.__dict__["stream_arn"] = stream_arn
         __props__.__dict__["table_name"] = table_name
         return KinesisStreamingDestination(resource_name, opts=opts, __props__=__props__)
@@ -289,6 +328,14 @@ class KinesisStreamingDestination(pulumi.CustomResource):
         Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
         """
         return pulumi.get(self, "approximate_creation_date_time_precision")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="streamArn")

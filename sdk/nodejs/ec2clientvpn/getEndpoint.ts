@@ -43,6 +43,7 @@ export function getEndpoint(args?: GetEndpointArgs, opts?: pulumi.InvokeOptions)
     return pulumi.runtime.invoke("aws:ec2clientvpn/getEndpoint:getEndpoint", {
         "clientVpnEndpointId": args.clientVpnEndpointId,
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -59,6 +60,10 @@ export interface GetEndpointArgs {
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
     filters?: inputs.ec2clientvpn.GetEndpointFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired endpoint.
      */
@@ -115,6 +120,7 @@ export interface GetEndpointResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * IDs of the security groups for the target network associated with the Client VPN endpoint.
      */
@@ -189,6 +195,7 @@ export function getEndpointOutput(args?: GetEndpointOutputArgs, opts?: pulumi.In
     return pulumi.runtime.invokeOutput("aws:ec2clientvpn/getEndpoint:getEndpoint", {
         "clientVpnEndpointId": args.clientVpnEndpointId,
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -205,6 +212,10 @@ export interface GetEndpointOutputArgs {
      * One or more configuration blocks containing name-values filters. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2clientvpn.GetEndpointFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired endpoint.
      */

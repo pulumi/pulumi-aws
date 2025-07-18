@@ -97,6 +97,10 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
      */
     public /*out*/ readonly phoneNumber!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Use this field to attach your phone number for an external registration process.
      */
     public readonly registrationId!: pulumi.Output<string | undefined>;
@@ -107,8 +111,6 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.pinpoint.Smsvoicev2PhoneNumberTimeouts | undefined>;
@@ -147,6 +149,7 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
             resourceInputs["numberType"] = state ? state.numberType : undefined;
             resourceInputs["optOutListName"] = state ? state.optOutListName : undefined;
             resourceInputs["phoneNumber"] = state ? state.phoneNumber : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["registrationId"] = state ? state.registrationId : undefined;
             resourceInputs["selfManagedOptOutsEnabled"] = state ? state.selfManagedOptOutsEnabled : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -175,6 +178,7 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
             resourceInputs["numberCapabilities"] = args ? args.numberCapabilities : undefined;
             resourceInputs["numberType"] = args ? args.numberType : undefined;
             resourceInputs["optOutListName"] = args ? args.optOutListName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["registrationId"] = args ? args.registrationId : undefined;
             resourceInputs["selfManagedOptOutsEnabled"] = args ? args.selfManagedOptOutsEnabled : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -233,6 +237,10 @@ export interface Smsvoicev2PhoneNumberState {
      */
     phoneNumber?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Use this field to attach your phone number for an external registration process.
      */
     registrationId?: pulumi.Input<string>;
@@ -243,8 +251,6 @@ export interface Smsvoicev2PhoneNumberState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.pinpoint.Smsvoicev2PhoneNumberTimeouts>;
@@ -290,6 +296,10 @@ export interface Smsvoicev2PhoneNumberArgs {
      * The name of the opt-out list to associate with the phone number.
      */
     optOutListName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Use this field to attach your phone number for an external registration process.
      */

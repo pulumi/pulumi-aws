@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fsx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +48,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fsx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,8 +90,10 @@ type LookupOntapStorageVirtualMachineArgs struct {
 	// Identifier of the storage virtual machine (e.g. `svm-12345678`).
 	//
 	// The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
-	Id   *string           `pulumi:"id"`
-	Tags map[string]string `pulumi:"tags"`
+	Id *string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getOntapStorageVirtualMachine.
@@ -114,7 +116,8 @@ type LookupOntapStorageVirtualMachineResult struct {
 	// Describes why the SVM lifecycle state changed. See Lifecycle Transition Reason below.
 	LifecycleTransitionReasons []GetOntapStorageVirtualMachineLifecycleTransitionReason `pulumi:"lifecycleTransitionReasons"`
 	// The name of the SVM, if provisioned.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// The SVM's subtype.
 	Subtype string            `pulumi:"subtype"`
 	Tags    map[string]string `pulumi:"tags"`
@@ -138,8 +141,10 @@ type LookupOntapStorageVirtualMachineOutputArgs struct {
 	// Identifier of the storage virtual machine (e.g. `svm-12345678`).
 	//
 	// The arguments of this data source act as filters for querying the available ONTAP Storage Virtual Machines in the current region. The given filters must match exactly one Storage Virtual Machine whose data will be exported as attributes.
-	Id   pulumi.StringPtrInput `pulumi:"id"`
-	Tags pulumi.StringMapInput `pulumi:"tags"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupOntapStorageVirtualMachineOutputArgs) ElementType() reflect.Type {
@@ -214,6 +219,10 @@ func (o LookupOntapStorageVirtualMachineResultOutput) LifecycleTransitionReasons
 // The name of the SVM, if provisioned.
 func (o LookupOntapStorageVirtualMachineResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupOntapStorageVirtualMachineResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOntapStorageVirtualMachineResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The SVM's subtype.

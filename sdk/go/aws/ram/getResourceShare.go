@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ram"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ram"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,7 +47,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ram"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ram"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,6 +89,8 @@ type LookupResourceShareArgs struct {
 	Filters []GetResourceShareFilter `pulumi:"filters"`
 	// Name of the resource share to retrieve.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
 	ResourceOwner string `pulumi:"resourceOwner"`
 	// Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
@@ -107,6 +109,7 @@ type LookupResourceShareResult struct {
 	Name string `pulumi:"name"`
 	// ID of the AWS account that owns the resource share.
 	OwningAccountId string `pulumi:"owningAccountId"`
+	Region          string `pulumi:"region"`
 	// A list of resource ARNs associated with the resource share.
 	ResourceArns        []string `pulumi:"resourceArns"`
 	ResourceOwner       string   `pulumi:"resourceOwner"`
@@ -132,6 +135,8 @@ type LookupResourceShareOutputArgs struct {
 	Filters GetResourceShareFilterArrayInput `pulumi:"filters"`
 	// Name of the resource share to retrieve.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
 	ResourceOwner pulumi.StringInput `pulumi:"resourceOwner"`
 	// Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
@@ -180,6 +185,10 @@ func (o LookupResourceShareResultOutput) Name() pulumi.StringOutput {
 // ID of the AWS account that owns the resource share.
 func (o LookupResourceShareResultOutput) OwningAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourceShareResult) string { return v.OwningAccountId }).(pulumi.StringOutput)
+}
+
+func (o LookupResourceShareResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResourceShareResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // A list of resource ARNs associated with the resource share.

@@ -25,6 +25,7 @@ export function getServerlessLifecyclePolicy(args: GetServerlessLifecyclePolicyA
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", {
         "name": args.name,
+        "region": args.region,
         "type": args.type,
     }, opts);
 }
@@ -37,6 +38,10 @@ export interface GetServerlessLifecyclePolicyArgs {
      * Name of the policy
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Type of lifecycle policy. Must be `retention`.
      */
@@ -69,6 +74,7 @@ export interface GetServerlessLifecyclePolicyResult {
      * Version of the policy.
      */
     readonly policyVersion: string;
+    readonly region: string;
     readonly type: string;
 }
 /**
@@ -92,6 +98,7 @@ export function getServerlessLifecyclePolicyOutput(args: GetServerlessLifecycleP
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", {
         "name": args.name,
+        "region": args.region,
         "type": args.type,
     }, opts);
 }
@@ -104,6 +111,10 @@ export interface GetServerlessLifecyclePolicyOutputArgs {
      * Name of the policy
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Type of lifecycle policy. Must be `retention`.
      */

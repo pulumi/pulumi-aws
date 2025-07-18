@@ -13,50 +13,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FunctionLoggingConfig {
     /**
-     * @return for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+     * @return Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
      * 
      */
     private @Nullable String applicationLogLevel;
     /**
-     * @return select between `Text` and structured `JSON` format for your function&#39;s logs.
+     * @return Log format. Valid values: `Text`, `JSON`.
      * 
      */
     private String logFormat;
     /**
-     * @return the CloudWatch log group your function sends logs to.
+     * @return CloudWatch log group where logs are sent.
      * 
      */
     private @Nullable String logGroup;
     /**
-     * @return for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
+     * @return Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
      * 
      */
     private @Nullable String systemLogLevel;
 
     private FunctionLoggingConfig() {}
     /**
-     * @return for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+     * @return Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
      * 
      */
     public Optional<String> applicationLogLevel() {
         return Optional.ofNullable(this.applicationLogLevel);
     }
     /**
-     * @return select between `Text` and structured `JSON` format for your function&#39;s logs.
+     * @return Log format. Valid values: `Text`, `JSON`.
      * 
      */
     public String logFormat() {
         return this.logFormat;
     }
     /**
-     * @return the CloudWatch log group your function sends logs to.
+     * @return CloudWatch log group where logs are sent.
      * 
      */
     public Optional<String> logGroup() {
         return Optional.ofNullable(this.logGroup);
     }
     /**
-     * @return for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
+     * @return Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
      * 
      */
     public Optional<String> systemLogLevel() {

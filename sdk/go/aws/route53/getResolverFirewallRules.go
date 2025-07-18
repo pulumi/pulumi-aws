@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,6 +58,8 @@ type GetResolverFirewallRulesArgs struct {
 	FirewallRuleGroupId string `pulumi:"firewallRuleGroupId"`
 	// The setting that determines the processing order of the rules in a rule group.
 	Priority *int `pulumi:"priority"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getResolverFirewallRules.
@@ -69,6 +71,7 @@ type GetResolverFirewallRulesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id       string `pulumi:"id"`
 	Priority *int   `pulumi:"priority"`
+	Region   string `pulumi:"region"`
 }
 
 func GetResolverFirewallRulesOutput(ctx *pulumi.Context, args GetResolverFirewallRulesOutputArgs, opts ...pulumi.InvokeOption) GetResolverFirewallRulesResultOutput {
@@ -88,6 +91,8 @@ type GetResolverFirewallRulesOutputArgs struct {
 	FirewallRuleGroupId pulumi.StringInput `pulumi:"firewallRuleGroupId"`
 	// The setting that determines the processing order of the rules in a rule group.
 	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetResolverFirewallRulesOutputArgs) ElementType() reflect.Type {
@@ -129,6 +134,10 @@ func (o GetResolverFirewallRulesResultOutput) Id() pulumi.StringOutput {
 
 func (o GetResolverFirewallRulesResultOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetResolverFirewallRulesResult) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+func (o GetResolverFirewallRulesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetResolverFirewallRulesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

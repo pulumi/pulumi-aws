@@ -21,14 +21,18 @@ __all__ = ['BudgetResourceAssociationArgs', 'BudgetResourceAssociation']
 class BudgetResourceAssociationArgs:
     def __init__(__self__, *,
                  budget_name: pulumi.Input[builtins.str],
-                 resource_id: pulumi.Input[builtins.str]):
+                 resource_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a BudgetResourceAssociation resource.
         :param pulumi.Input[builtins.str] budget_name: Budget name.
         :param pulumi.Input[builtins.str] resource_id: Resource identifier.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "budget_name", budget_name)
         pulumi.set(__self__, "resource_id", resource_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="budgetName")
@@ -54,19 +58,35 @@ class BudgetResourceAssociationArgs:
     def resource_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "resource_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _BudgetResourceAssociationState:
     def __init__(__self__, *,
                  budget_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering BudgetResourceAssociation resources.
         :param pulumi.Input[builtins.str] budget_name: Budget name.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id: Resource identifier.
         """
         if budget_name is not None:
             pulumi.set(__self__, "budget_name", budget_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
 
@@ -81,6 +101,18 @@ class _BudgetResourceAssociationState:
     @budget_name.setter
     def budget_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "budget_name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -102,6 +134,7 @@ class BudgetResourceAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  budget_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -133,6 +166,7 @@ class BudgetResourceAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] budget_name: Budget name.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id: Resource identifier.
         """
         ...
@@ -183,6 +217,7 @@ class BudgetResourceAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  budget_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -196,6 +231,7 @@ class BudgetResourceAssociation(pulumi.CustomResource):
             if budget_name is None and not opts.urn:
                 raise TypeError("Missing required property 'budget_name'")
             __props__.__dict__["budget_name"] = budget_name
+            __props__.__dict__["region"] = region
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
@@ -210,6 +246,7 @@ class BudgetResourceAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             budget_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_id: Optional[pulumi.Input[builtins.str]] = None) -> 'BudgetResourceAssociation':
         """
         Get an existing BudgetResourceAssociation resource's state with the given name, id, and optional extra
@@ -219,6 +256,7 @@ class BudgetResourceAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] budget_name: Budget name.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id: Resource identifier.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -226,6 +264,7 @@ class BudgetResourceAssociation(pulumi.CustomResource):
         __props__ = _BudgetResourceAssociationState.__new__(_BudgetResourceAssociationState)
 
         __props__.__dict__["budget_name"] = budget_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_id"] = resource_id
         return BudgetResourceAssociation(resource_name, opts=opts, __props__=__props__)
 
@@ -236,6 +275,14 @@ class BudgetResourceAssociation(pulumi.CustomResource):
         Budget name.
         """
         return pulumi.get(self, "budget_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceId")

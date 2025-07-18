@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,6 +56,8 @@ func LookupResolverFirewallRuleGroupAssociation(ctx *pulumi.Context, args *Looku
 type LookupResolverFirewallRuleGroupAssociationArgs struct {
 	// The identifier for the association.
 	FirewallRuleGroupAssociationId string `pulumi:"firewallRuleGroupAssociationId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getResolverFirewallRuleGroupAssociation.
@@ -80,7 +82,8 @@ type LookupResolverFirewallRuleGroupAssociationResult struct {
 	// The name of the association.
 	Name string `pulumi:"name"`
 	// The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC.
-	Priority int `pulumi:"priority"`
+	Priority int    `pulumi:"priority"`
+	Region   string `pulumi:"region"`
 	// The current status of the association.
 	Status string `pulumi:"status"`
 	// Additional information about the status of the response, if available.
@@ -102,6 +105,8 @@ func LookupResolverFirewallRuleGroupAssociationOutput(ctx *pulumi.Context, args 
 type LookupResolverFirewallRuleGroupAssociationOutputArgs struct {
 	// The identifier for the association.
 	FirewallRuleGroupAssociationId pulumi.StringInput `pulumi:"firewallRuleGroupAssociationId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupResolverFirewallRuleGroupAssociationOutputArgs) ElementType() reflect.Type {
@@ -177,6 +182,10 @@ func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Name() pulumi.St
 // The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC.
 func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The current status of the association.

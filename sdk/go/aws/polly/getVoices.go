@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/polly"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/polly"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +46,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/polly"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/polly"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,6 +82,8 @@ type GetVoicesArgs struct {
 	IncludeAdditionalLanguageCodes *bool `pulumi:"includeAdditionalLanguageCodes"`
 	// Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
 	LanguageCode *string `pulumi:"languageCode"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of voices with their properties. See `voices` Attribute Reference below.
 	Voices []GetVoicesVoice `pulumi:"voices"`
 }
@@ -94,6 +96,7 @@ type GetVoicesResult struct {
 	IncludeAdditionalLanguageCodes *bool  `pulumi:"includeAdditionalLanguageCodes"`
 	// Language code of the voice.
 	LanguageCode *string `pulumi:"languageCode"`
+	Region       string  `pulumi:"region"`
 	// List of voices with their properties. See `voices` Attribute Reference below.
 	Voices []GetVoicesVoice `pulumi:"voices"`
 }
@@ -115,6 +118,8 @@ type GetVoicesOutputArgs struct {
 	IncludeAdditionalLanguageCodes pulumi.BoolPtrInput `pulumi:"includeAdditionalLanguageCodes"`
 	// Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
 	LanguageCode pulumi.StringPtrInput `pulumi:"languageCode"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// List of voices with their properties. See `voices` Attribute Reference below.
 	Voices GetVoicesVoiceArrayInput `pulumi:"voices"`
 }
@@ -154,6 +159,10 @@ func (o GetVoicesResultOutput) IncludeAdditionalLanguageCodes() pulumi.BoolPtrOu
 // Language code of the voice.
 func (o GetVoicesResultOutput) LanguageCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetVoicesResult) *string { return v.LanguageCode }).(pulumi.StringPtrOutput)
+}
+
+func (o GetVoicesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVoicesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // List of voices with their properties. See `voices` Attribute Reference below.

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func LookupVpcIpam(ctx *pulumi.Context, args *LookupVpcIpamArgs, opts ...pulumi.
 type LookupVpcIpamArgs struct {
 	// ID of the IPAM.
 	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getVpcIpam.
@@ -80,6 +82,7 @@ type LookupVpcIpamResult struct {
 	PrivateDefaultScopeId string `pulumi:"privateDefaultScopeId"`
 	// ID of the default public scope.
 	PublicDefaultScopeId string `pulumi:"publicDefaultScopeId"`
+	Region               string `pulumi:"region"`
 	// Number of resource discovery associations.
 	ResourceDiscoveryAssociationCount int `pulumi:"resourceDiscoveryAssociationCount"`
 	// Number of scopes on this IPAM.
@@ -107,6 +110,8 @@ func LookupVpcIpamOutput(ctx *pulumi.Context, args LookupVpcIpamOutputArgs, opts
 type LookupVpcIpamOutputArgs struct {
 	// ID of the IPAM.
 	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupVpcIpamOutputArgs) ElementType() reflect.Type {
@@ -181,6 +186,10 @@ func (o LookupVpcIpamResultOutput) PrivateDefaultScopeId() pulumi.StringOutput {
 // ID of the default public scope.
 func (o LookupVpcIpamResultOutput) PublicDefaultScopeId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.PublicDefaultScopeId }).(pulumi.StringOutput)
+}
+
+func (o LookupVpcIpamResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcIpamResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Number of resource discovery associations.

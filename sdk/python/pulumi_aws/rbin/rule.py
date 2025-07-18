@@ -25,25 +25,33 @@ class RuleArgs:
                  resource_type: pulumi.Input[builtins.str],
                  retention_period: pulumi.Input['RuleRetentionPeriodArgs'],
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 exclude_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleExcludeResourceTagArgs']]]] = None,
                  lock_configuration: Optional[pulumi.Input['RuleLockConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Rule resource.
-        :param pulumi.Input[builtins.str] resource_type: The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+        :param pulumi.Input[builtins.str] resource_type: Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
         :param pulumi.Input['RuleRetentionPeriodArgs'] retention_period: Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] description: The retention rule description.
+        :param pulumi.Input[builtins.str] description: Retention rule description.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleExcludeResourceTagArgs']]] exclude_resource_tags: Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
         :param pulumi.Input['RuleLockConfigurationArgs'] lock_configuration: Information about the retention rule lock configuration. See `lock_configuration` below.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]] resource_tags: Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]] resource_tags: Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
         """
         pulumi.set(__self__, "resource_type", resource_type)
         pulumi.set(__self__, "retention_period", retention_period)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if exclude_resource_tags is not None:
+            pulumi.set(__self__, "exclude_resource_tags", exclude_resource_tags)
         if lock_configuration is not None:
             pulumi.set(__self__, "lock_configuration", lock_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_tags is not None:
             pulumi.set(__self__, "resource_tags", resource_tags)
         if tags is not None:
@@ -53,7 +61,7 @@ class RuleArgs:
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Input[builtins.str]:
         """
-        The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+        Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
         """
         return pulumi.get(self, "resource_type")
 
@@ -79,13 +87,25 @@ class RuleArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The retention rule description.
+        Retention rule description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="excludeResourceTags")
+    def exclude_resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleExcludeResourceTagArgs']]]]:
+        """
+        Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
+        """
+        return pulumi.get(self, "exclude_resource_tags")
+
+    @exclude_resource_tags.setter
+    def exclude_resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleExcludeResourceTagArgs']]]]):
+        pulumi.set(self, "exclude_resource_tags", value)
 
     @property
     @pulumi.getter(name="lockConfiguration")
@@ -100,10 +120,22 @@ class RuleArgs:
         pulumi.set(self, "lock_configuration", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]]]:
         """
-        Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+        Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
         """
         return pulumi.get(self, "resource_tags")
 
@@ -126,9 +158,11 @@ class _RuleState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 exclude_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleExcludeResourceTagArgs']]]] = None,
                  lock_configuration: Optional[pulumi.Input['RuleLockConfigurationArgs']] = None,
                  lock_end_time: Optional[pulumi.Input[builtins.str]] = None,
                  lock_state: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period: Optional[pulumi.Input['RuleRetentionPeriodArgs']] = None,
@@ -137,27 +171,33 @@ class _RuleState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Rule resources.
-        :param pulumi.Input[builtins.str] description: The retention rule description.
+        :param pulumi.Input[builtins.str] description: Retention rule description.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleExcludeResourceTagArgs']]] exclude_resource_tags: Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
         :param pulumi.Input['RuleLockConfigurationArgs'] lock_configuration: Information about the retention rule lock configuration. See `lock_configuration` below.
-        :param pulumi.Input[builtins.str] lock_end_time: (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
-        :param pulumi.Input[builtins.str] lock_state: (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]] resource_tags: Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
-        :param pulumi.Input[builtins.str] resource_type: The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+        :param pulumi.Input[builtins.str] lock_end_time: (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
+        :param pulumi.Input[builtins.str] lock_state: (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]] resource_tags: Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+        :param pulumi.Input[builtins.str] resource_type: Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
         :param pulumi.Input['RuleRetentionPeriodArgs'] retention_period: Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] status: (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
+        :param pulumi.Input[builtins.str] status: (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if exclude_resource_tags is not None:
+            pulumi.set(__self__, "exclude_resource_tags", exclude_resource_tags)
         if lock_configuration is not None:
             pulumi.set(__self__, "lock_configuration", lock_configuration)
         if lock_end_time is not None:
             pulumi.set(__self__, "lock_end_time", lock_end_time)
         if lock_state is not None:
             pulumi.set(__self__, "lock_state", lock_state)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_tags is not None:
             pulumi.set(__self__, "resource_tags", resource_tags)
         if resource_type is not None:
@@ -168,9 +208,6 @@ class _RuleState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -187,13 +224,25 @@ class _RuleState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The retention rule description.
+        Retention rule description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="excludeResourceTags")
+    def exclude_resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleExcludeResourceTagArgs']]]]:
+        """
+        Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
+        """
+        return pulumi.get(self, "exclude_resource_tags")
+
+    @exclude_resource_tags.setter
+    def exclude_resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleExcludeResourceTagArgs']]]]):
+        pulumi.set(self, "exclude_resource_tags", value)
 
     @property
     @pulumi.getter(name="lockConfiguration")
@@ -211,7 +260,7 @@ class _RuleState:
     @pulumi.getter(name="lockEndTime")
     def lock_end_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
+        (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
         """
         return pulumi.get(self, "lock_end_time")
 
@@ -223,7 +272,7 @@ class _RuleState:
     @pulumi.getter(name="lockState")
     def lock_state(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
+        (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
         """
         return pulumi.get(self, "lock_state")
 
@@ -232,10 +281,22 @@ class _RuleState:
         pulumi.set(self, "lock_state", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]]]:
         """
-        Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+        Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
         """
         return pulumi.get(self, "resource_tags")
 
@@ -247,7 +308,7 @@ class _RuleState:
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+        Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
         """
         return pulumi.get(self, "resource_type")
 
@@ -273,7 +334,7 @@ class _RuleState:
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
+        (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
         """
         return pulumi.get(self, "status")
 
@@ -292,7 +353,6 @@ class _RuleState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -308,7 +368,9 @@ class Rule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 exclude_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleExcludeResourceTagArgs', 'RuleExcludeResourceTagArgsDict']]]]] = None,
                  lock_configuration: Optional[pulumi.Input[Union['RuleLockConfigurationArgs', 'RuleLockConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict']]] = None,
@@ -326,9 +388,31 @@ class Rule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rbin.Rule("example",
-            description="example_rule",
+            description="Example tag-level retention rule",
             resource_type="EBS_SNAPSHOT",
             resource_tags=[{
+                "resource_tag_key": "tag_key",
+                "resource_tag_value": "tag_value",
+            }],
+            retention_period={
+                "retention_period_value": 10,
+                "retention_period_unit": "DAYS",
+            },
+            tags={
+                "test_tag_key": "test_tag_value",
+            })
+        ```
+
+        ### Region-Level Retention Rule
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.rbin.Rule("example",
+            description="Example region-level retention rule with exclusion tags",
+            resource_type="EC2_IMAGE",
+            exclude_resource_tags=[{
                 "resource_tag_key": "tag_key",
                 "resource_tag_value": "tag_value",
             }],
@@ -351,10 +435,12 @@ class Rule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] description: The retention rule description.
+        :param pulumi.Input[builtins.str] description: Retention rule description.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleExcludeResourceTagArgs', 'RuleExcludeResourceTagArgsDict']]]] exclude_resource_tags: Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
         :param pulumi.Input[Union['RuleLockConfigurationArgs', 'RuleLockConfigurationArgsDict']] lock_configuration: Information about the retention rule lock configuration. See `lock_configuration` below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]] resource_tags: Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
-        :param pulumi.Input[builtins.str] resource_type: The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]] resource_tags: Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+        :param pulumi.Input[builtins.str] resource_type: Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
         :param pulumi.Input[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict']] retention_period: Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
                
                The following arguments are optional:
@@ -377,9 +463,31 @@ class Rule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rbin.Rule("example",
-            description="example_rule",
+            description="Example tag-level retention rule",
             resource_type="EBS_SNAPSHOT",
             resource_tags=[{
+                "resource_tag_key": "tag_key",
+                "resource_tag_value": "tag_value",
+            }],
+            retention_period={
+                "retention_period_value": 10,
+                "retention_period_unit": "DAYS",
+            },
+            tags={
+                "test_tag_key": "test_tag_value",
+            })
+        ```
+
+        ### Region-Level Retention Rule
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.rbin.Rule("example",
+            description="Example region-level retention rule with exclusion tags",
+            resource_type="EC2_IMAGE",
+            exclude_resource_tags=[{
                 "resource_tag_key": "tag_key",
                 "resource_tag_value": "tag_value",
             }],
@@ -416,7 +524,9 @@ class Rule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 exclude_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleExcludeResourceTagArgs', 'RuleExcludeResourceTagArgsDict']]]]] = None,
                  lock_configuration: Optional[pulumi.Input[Union['RuleLockConfigurationArgs', 'RuleLockConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period: Optional[pulumi.Input[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict']]] = None,
@@ -431,7 +541,9 @@ class Rule(pulumi.CustomResource):
             __props__ = RuleArgs.__new__(RuleArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["exclude_resource_tags"] = exclude_resource_tags
             __props__.__dict__["lock_configuration"] = lock_configuration
+            __props__.__dict__["region"] = region
             __props__.__dict__["resource_tags"] = resource_tags
             if resource_type is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type'")
@@ -457,9 +569,11 @@ class Rule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
+            exclude_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleExcludeResourceTagArgs', 'RuleExcludeResourceTagArgsDict']]]]] = None,
             lock_configuration: Optional[pulumi.Input[Union['RuleLockConfigurationArgs', 'RuleLockConfigurationArgsDict']]] = None,
             lock_end_time: Optional[pulumi.Input[builtins.str]] = None,
             lock_state: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]]] = None,
             resource_type: Optional[pulumi.Input[builtins.str]] = None,
             retention_period: Optional[pulumi.Input[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict']]] = None,
@@ -473,16 +587,18 @@ class Rule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] description: The retention rule description.
+        :param pulumi.Input[builtins.str] description: Retention rule description.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleExcludeResourceTagArgs', 'RuleExcludeResourceTagArgsDict']]]] exclude_resource_tags: Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
         :param pulumi.Input[Union['RuleLockConfigurationArgs', 'RuleLockConfigurationArgsDict']] lock_configuration: Information about the retention rule lock configuration. See `lock_configuration` below.
-        :param pulumi.Input[builtins.str] lock_end_time: (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
-        :param pulumi.Input[builtins.str] lock_state: (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]] resource_tags: Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
-        :param pulumi.Input[builtins.str] resource_type: The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+        :param pulumi.Input[builtins.str] lock_end_time: (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
+        :param pulumi.Input[builtins.str] lock_state: (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]] resource_tags: Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+        :param pulumi.Input[builtins.str] resource_type: Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
         :param pulumi.Input[Union['RuleRetentionPeriodArgs', 'RuleRetentionPeriodArgsDict']] retention_period: Information about the retention period for which the retention rule is to retain resources. See `retention_period` below.
                
                The following arguments are optional:
-        :param pulumi.Input[builtins.str] status: (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
+        :param pulumi.Input[builtins.str] status: (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -490,9 +606,11 @@ class Rule(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["description"] = description
+        __props__.__dict__["exclude_resource_tags"] = exclude_resource_tags
         __props__.__dict__["lock_configuration"] = lock_configuration
         __props__.__dict__["lock_end_time"] = lock_end_time
         __props__.__dict__["lock_state"] = lock_state
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_tags"] = resource_tags
         __props__.__dict__["resource_type"] = resource_type
         __props__.__dict__["retention_period"] = retention_period
@@ -510,9 +628,17 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[builtins.str]:
         """
-        The retention rule description.
+        Retention rule description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="excludeResourceTags")
+    def exclude_resource_tags(self) -> pulumi.Output[Optional[Sequence['outputs.RuleExcludeResourceTag']]]:
+        """
+        Exclusion tags to use to identify resources that are to be excluded, or ignored, by a Region-level retention rule. See `exclude_resource_tags` below.
+        """
+        return pulumi.get(self, "exclude_resource_tags")
 
     @property
     @pulumi.getter(name="lockConfiguration")
@@ -526,7 +652,7 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter(name="lockEndTime")
     def lock_end_time(self) -> pulumi.Output[builtins.str]:
         """
-        (Timestamp) The date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
+        (Timestamp) Date and time at which the unlock delay is set to expire. Only returned for retention rules that have been unlocked and that are still within the unlock delay period.
         """
         return pulumi.get(self, "lock_end_time")
 
@@ -534,15 +660,23 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter(name="lockState")
     def lock_state(self) -> pulumi.Output[builtins.str]:
         """
-        (Optional) The lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
+        (Optional) Lock state of the retention rules to list. Only retention rules with the specified lock state are returned. Valid values are `locked`, `pending_unlock`, `unlocked`.
         """
         return pulumi.get(self, "lock_state")
 
     @property
-    @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> pulumi.Output[Sequence['outputs.RuleResourceTag']]:
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> pulumi.Output[Optional[Sequence['outputs.RuleResourceTag']]]:
+        """
+        Resource tags to use to identify resources that are to be retained by a tag-level retention rule. See `resource_tags` below.
         """
         return pulumi.get(self, "resource_tags")
 
@@ -550,7 +684,7 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter(name="resourceType")
     def resource_type(self) -> pulumi.Output[builtins.str]:
         """
-        The resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
+        Resource type to be retained by the retention rule. Valid values are `EBS_SNAPSHOT` and `EC2_IMAGE`.
         """
         return pulumi.get(self, "resource_type")
 
@@ -568,7 +702,7 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[builtins.str]:
         """
-        (String) The state of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
+        (String) State of the retention rule. Only retention rules that are in the `available` state retain resources. Valid values include `pending` and `available`.
         """
         return pulumi.get(self, "status")
 
@@ -579,7 +713,6 @@ class Rule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

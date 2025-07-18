@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mskconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/mskconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupCustomPlugin(ctx *pulumi.Context, args *LookupCustomPluginArgs, opts 
 type LookupCustomPluginArgs struct {
 	// Name of the custom plugin.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -67,6 +69,7 @@ type LookupCustomPluginResult struct {
 	// an ID of the latest successfully created revision of the custom plugin.
 	LatestRevision int    `pulumi:"latestRevision"`
 	Name           string `pulumi:"name"`
+	Region         string `pulumi:"region"`
 	// the state of the custom plugin.
 	State string `pulumi:"state"`
 	// A map of tags assigned to the resource.
@@ -86,6 +89,8 @@ func LookupCustomPluginOutput(ctx *pulumi.Context, args LookupCustomPluginOutput
 type LookupCustomPluginOutputArgs struct {
 	// Name of the custom plugin.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -131,6 +136,10 @@ func (o LookupCustomPluginResultOutput) LatestRevision() pulumi.IntOutput {
 
 func (o LookupCustomPluginResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCustomPluginResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupCustomPluginResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCustomPluginResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // the state of the custom plugin.

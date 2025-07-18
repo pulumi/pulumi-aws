@@ -461,6 +461,10 @@ __all__ = [
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeader',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfig',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallenge',
+    'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpression',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection',
     'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField',
@@ -14930,14 +14934,14 @@ class WebAclAssociationConfigRequestBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "apiGateways":
-            suggest = "api_gateways"
-        elif key == "appRunnerServices":
-            suggest = "app_runner_services"
-        elif key == "cognitoUserPools":
-            suggest = "cognito_user_pools"
-        elif key == "verifiedAccessInstances":
-            suggest = "verified_access_instances"
+        if key == "apiGateway":
+            suggest = "api_gateway"
+        elif key == "appRunnerService":
+            suggest = "app_runner_service"
+        elif key == "cognitoUserPool":
+            suggest = "cognito_user_pool"
+        elif key == "verifiedAccessInstance":
+            suggest = "verified_access_instance"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WebAclAssociationConfigRequestBody. Access the value via the '{suggest}' property getter instead.")
@@ -14951,68 +14955,68 @@ class WebAclAssociationConfigRequestBody(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 api_gateways: Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyApiGateway']] = None,
-                 app_runner_services: Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyAppRunnerService']] = None,
-                 cloudfronts: Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyCloudfront']] = None,
-                 cognito_user_pools: Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyCognitoUserPool']] = None,
-                 verified_access_instances: Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstance']] = None):
+                 api_gateway: Optional['outputs.WebAclAssociationConfigRequestBodyApiGateway'] = None,
+                 app_runner_service: Optional['outputs.WebAclAssociationConfigRequestBodyAppRunnerService'] = None,
+                 cloudfront: Optional['outputs.WebAclAssociationConfigRequestBodyCloudfront'] = None,
+                 cognito_user_pool: Optional['outputs.WebAclAssociationConfigRequestBodyCognitoUserPool'] = None,
+                 verified_access_instance: Optional['outputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstance'] = None):
         """
-        :param Sequence['WebAclAssociationConfigRequestBodyApiGatewayArgs'] api_gateways: Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `api_gateway` below for details.
-        :param Sequence['WebAclAssociationConfigRequestBodyAppRunnerServiceArgs'] app_runner_services: Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `app_runner_service` below for details.
-        :param Sequence['WebAclAssociationConfigRequestBodyCloudfrontArgs'] cloudfronts: Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
-        :param Sequence['WebAclAssociationConfigRequestBodyCognitoUserPoolArgs'] cognito_user_pools: Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognito_user_pool` below for details.
-        :param Sequence['WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs'] verified_access_instances: Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verified_access_instance` below for details.
+        :param 'WebAclAssociationConfigRequestBodyApiGatewayArgs' api_gateway: Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `api_gateway` below for details.
+        :param 'WebAclAssociationConfigRequestBodyAppRunnerServiceArgs' app_runner_service: Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `app_runner_service` below for details.
+        :param 'WebAclAssociationConfigRequestBodyCloudfrontArgs' cloudfront: Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
+        :param 'WebAclAssociationConfigRequestBodyCognitoUserPoolArgs' cognito_user_pool: Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognito_user_pool` below for details.
+        :param 'WebAclAssociationConfigRequestBodyVerifiedAccessInstanceArgs' verified_access_instance: Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verified_access_instance` below for details.
         """
-        if api_gateways is not None:
-            pulumi.set(__self__, "api_gateways", api_gateways)
-        if app_runner_services is not None:
-            pulumi.set(__self__, "app_runner_services", app_runner_services)
-        if cloudfronts is not None:
-            pulumi.set(__self__, "cloudfronts", cloudfronts)
-        if cognito_user_pools is not None:
-            pulumi.set(__self__, "cognito_user_pools", cognito_user_pools)
-        if verified_access_instances is not None:
-            pulumi.set(__self__, "verified_access_instances", verified_access_instances)
+        if api_gateway is not None:
+            pulumi.set(__self__, "api_gateway", api_gateway)
+        if app_runner_service is not None:
+            pulumi.set(__self__, "app_runner_service", app_runner_service)
+        if cloudfront is not None:
+            pulumi.set(__self__, "cloudfront", cloudfront)
+        if cognito_user_pool is not None:
+            pulumi.set(__self__, "cognito_user_pool", cognito_user_pool)
+        if verified_access_instance is not None:
+            pulumi.set(__self__, "verified_access_instance", verified_access_instance)
 
     @property
-    @pulumi.getter(name="apiGateways")
-    def api_gateways(self) -> Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyApiGateway']]:
+    @pulumi.getter(name="apiGateway")
+    def api_gateway(self) -> Optional['outputs.WebAclAssociationConfigRequestBodyApiGateway']:
         """
         Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `api_gateway` below for details.
         """
-        return pulumi.get(self, "api_gateways")
+        return pulumi.get(self, "api_gateway")
 
     @property
-    @pulumi.getter(name="appRunnerServices")
-    def app_runner_services(self) -> Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyAppRunnerService']]:
+    @pulumi.getter(name="appRunnerService")
+    def app_runner_service(self) -> Optional['outputs.WebAclAssociationConfigRequestBodyAppRunnerService']:
         """
         Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `app_runner_service` below for details.
         """
-        return pulumi.get(self, "app_runner_services")
+        return pulumi.get(self, "app_runner_service")
 
     @property
     @pulumi.getter
-    def cloudfronts(self) -> Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyCloudfront']]:
+    def cloudfront(self) -> Optional['outputs.WebAclAssociationConfigRequestBodyCloudfront']:
         """
         Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
         """
-        return pulumi.get(self, "cloudfronts")
+        return pulumi.get(self, "cloudfront")
 
     @property
-    @pulumi.getter(name="cognitoUserPools")
-    def cognito_user_pools(self) -> Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyCognitoUserPool']]:
+    @pulumi.getter(name="cognitoUserPool")
+    def cognito_user_pool(self) -> Optional['outputs.WebAclAssociationConfigRequestBodyCognitoUserPool']:
         """
         Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognito_user_pool` below for details.
         """
-        return pulumi.get(self, "cognito_user_pools")
+        return pulumi.get(self, "cognito_user_pool")
 
     @property
-    @pulumi.getter(name="verifiedAccessInstances")
-    def verified_access_instances(self) -> Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstance']]:
+    @pulumi.getter(name="verifiedAccessInstance")
+    def verified_access_instance(self) -> Optional['outputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstance']:
         """
         Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verified_access_instance` below for details.
         """
-        return pulumi.get(self, "verified_access_instances")
+        return pulumi.get(self, "verified_access_instance")
 
 
 @pulumi.output_type
@@ -18671,6 +18675,8 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig(dict):
         suggest = None
         if key == "awsManagedRulesAcfpRuleSet":
             suggest = "aws_managed_rules_acfp_rule_set"
+        elif key == "awsManagedRulesAntiDdosRuleSet":
+            suggest = "aws_managed_rules_anti_ddos_rule_set"
         elif key == "awsManagedRulesAtpRuleSet":
             suggest = "aws_managed_rules_atp_rule_set"
         elif key == "awsManagedRulesBotControlRuleSet":
@@ -18697,6 +18703,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig(dict):
 
     def __init__(__self__, *,
                  aws_managed_rules_acfp_rule_set: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet'] = None,
+                 aws_managed_rules_anti_ddos_rule_set: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet'] = None,
                  aws_managed_rules_atp_rule_set: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet'] = None,
                  aws_managed_rules_bot_control_rule_set: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet'] = None,
                  login_path: Optional[builtins.str] = None,
@@ -18705,6 +18712,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig(dict):
                  username_field: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField'] = None):
         """
         :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs' aws_managed_rules_acfp_rule_set: Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgs' aws_managed_rules_anti_ddos_rule_set: Configuration for using the anti-DDoS managed rule group. See `aws_managed_rules_anti_ddos_rule_set` for more details.
         :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs' aws_managed_rules_atp_rule_set: Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
         :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs' aws_managed_rules_bot_control_rule_set: Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `aws_managed_rules_bot_control_rule_set` for more details
         :param builtins.str login_path: The path of the login endpoint for your application.
@@ -18714,6 +18722,8 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig(dict):
         """
         if aws_managed_rules_acfp_rule_set is not None:
             pulumi.set(__self__, "aws_managed_rules_acfp_rule_set", aws_managed_rules_acfp_rule_set)
+        if aws_managed_rules_anti_ddos_rule_set is not None:
+            pulumi.set(__self__, "aws_managed_rules_anti_ddos_rule_set", aws_managed_rules_anti_ddos_rule_set)
         if aws_managed_rules_atp_rule_set is not None:
             pulumi.set(__self__, "aws_managed_rules_atp_rule_set", aws_managed_rules_atp_rule_set)
         if aws_managed_rules_bot_control_rule_set is not None:
@@ -18734,6 +18744,14 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig(dict):
         Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
         """
         return pulumi.get(self, "aws_managed_rules_acfp_rule_set")
+
+    @property
+    @pulumi.getter(name="awsManagedRulesAntiDdosRuleSet")
+    def aws_managed_rules_anti_ddos_rule_set(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet']:
+        """
+        Configuration for using the anti-DDoS managed rule group. See `aws_managed_rules_anti_ddos_rule_set` for more details.
+        """
+        return pulumi.get(self, "aws_managed_rules_anti_ddos_rule_set")
 
     @property
     @pulumi.getter(name="awsManagedRulesAtpRuleSet")
@@ -19357,6 +19375,170 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientSideActionConfig":
+            suggest = "client_side_action_config"
+        elif key == "sensitivityToBlock":
+            suggest = "sensitivity_to_block"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_side_action_config: 'outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfig',
+                 sensitivity_to_block: Optional[builtins.str] = None):
+        """
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigArgs' client_side_action_config: Configuration for the request handling that's applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack. See `client_side_action_config` for more details.
+        :param builtins.str sensitivity_to_block: Sensitivity that the rule group rule DDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW` (Default), `MEDIUM`, and `HIGH`.
+        """
+        pulumi.set(__self__, "client_side_action_config", client_side_action_config)
+        if sensitivity_to_block is not None:
+            pulumi.set(__self__, "sensitivity_to_block", sensitivity_to_block)
+
+    @property
+    @pulumi.getter(name="clientSideActionConfig")
+    def client_side_action_config(self) -> 'outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfig':
+        """
+        Configuration for the request handling that's applied by the managed rule group rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` during a distributed denial of service (DDoS) attack. See `client_side_action_config` for more details.
+        """
+        return pulumi.get(self, "client_side_action_config")
+
+    @property
+    @pulumi.getter(name="sensitivityToBlock")
+    def sensitivity_to_block(self) -> Optional[builtins.str]:
+        """
+        Sensitivity that the rule group rule DDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW` (Default), `MEDIUM`, and `HIGH`.
+        """
+        return pulumi.get(self, "sensitivity_to_block")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfig(dict):
+    def __init__(__self__, *,
+                 challenge: 'outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallenge'):
+        """
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeArgs' challenge: Configuration for the use of the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests`.
+        """
+        pulumi.set(__self__, "challenge", challenge)
+
+    @property
+    @pulumi.getter
+    def challenge(self) -> 'outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallenge':
+        """
+        Configuration for the use of the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests`.
+        """
+        return pulumi.get(self, "challenge")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallenge(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "usageOfAction":
+            suggest = "usage_of_action"
+        elif key == "exemptUriRegularExpressions":
+            suggest = "exempt_uri_regular_expressions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallenge. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallenge.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallenge.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 usage_of_action: builtins.str,
+                 exempt_uri_regular_expressions: Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpression']] = None,
+                 sensitivity: Optional[builtins.str] = None):
+        """
+        :param builtins.str usage_of_action: Configuration whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation. Valid values are `ENABLED` and `DISABLED`.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpressionArgs'] exempt_uri_regular_expressions: Block for the list of the regular expressions to match against the web request URI, used to identify requests that can't handle a silent browser challenge.
+        :param builtins.str sensitivity: Sensitivity that the rule group rule ChallengeDDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW`, `MEDIUM` and `HIGH` (Default).
+        """
+        pulumi.set(__self__, "usage_of_action", usage_of_action)
+        if exempt_uri_regular_expressions is not None:
+            pulumi.set(__self__, "exempt_uri_regular_expressions", exempt_uri_regular_expressions)
+        if sensitivity is not None:
+            pulumi.set(__self__, "sensitivity", sensitivity)
+
+    @property
+    @pulumi.getter(name="usageOfAction")
+    def usage_of_action(self) -> builtins.str:
+        """
+        Configuration whether to use the `AWSManagedRulesAntiDDoSRuleSet` rules `ChallengeAllDuringEvent` and `ChallengeDDoSRequests` in the rule group evaluation. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "usage_of_action")
+
+    @property
+    @pulumi.getter(name="exemptUriRegularExpressions")
+    def exempt_uri_regular_expressions(self) -> Optional[Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpression']]:
+        """
+        Block for the list of the regular expressions to match against the web request URI, used to identify requests that can't handle a silent browser challenge.
+        """
+        return pulumi.get(self, "exempt_uri_regular_expressions")
+
+    @property
+    @pulumi.getter
+    def sensitivity(self) -> Optional[builtins.str]:
+        """
+        Sensitivity that the rule group rule ChallengeDDoSRequests uses when matching against the DDoS suspicion labeling on a request. Valid values are `LOW`, `MEDIUM` and `HIGH` (Default).
+        """
+        return pulumi.get(self, "sensitivity")
+
+
+@pulumi.output_type
+class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpression(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regexString":
+            suggest = "regex_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpression. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpression.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetClientSideActionConfigChallengeExemptUriRegularExpression.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 regex_string: Optional[builtins.str] = None):
+        """
+        :param builtins.str regex_string: Regular expression string.
+        """
+        if regex_string is not None:
+            pulumi.set(__self__, "regex_string", regex_string)
+
+    @property
+    @pulumi.getter(name="regexString")
+    def regex_string(self) -> Optional[builtins.str]:
+        """
+        Regular expression string.
+        """
+        return pulumi.get(self, "regex_string")
+
+
+@pulumi.output_type
 class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -19959,7 +20141,6 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse(
                  count: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount'] = None):
         """
         :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs' captcha: Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs' challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -19993,9 +20174,6 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse(
     @property
     @pulumi.getter
     def challenge(self) -> Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge']:
-        """
-        Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-        """
         return pulumi.get(self, "challenge")
 
     @property
@@ -35443,7 +35621,6 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
                  count: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount'] = None):
         """
         :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs' captcha: Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs' challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -35477,9 +35654,6 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
     @property
     @pulumi.getter
     def challenge(self) -> Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge']:
-        """
-        Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-        """
         return pulumi.get(self, "challenge")
 
     @property

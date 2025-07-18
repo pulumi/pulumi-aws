@@ -109,10 +109,24 @@ namespace Pulumi.Aws.Kinesis
         public string? Name { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// ARN of the data stream the consumer is registered with.
         /// </summary>
         [Input("streamArn", required: true)]
         public string StreamArn { get; set; } = null!;
+
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
 
         public GetStreamConsumerArgs()
         {
@@ -135,10 +149,24 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ARN of the data stream the consumer is registered with.
         /// </summary>
         [Input("streamArn", required: true)]
         public Input<string> StreamArn { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public GetStreamConsumerInvokeArgs()
         {
@@ -160,11 +188,13 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Current status of the stream consumer.
         /// </summary>
         public readonly string Status;
         public readonly string StreamArn;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetStreamConsumerResult(
@@ -176,16 +206,22 @@ namespace Pulumi.Aws.Kinesis
 
             string name,
 
+            string region,
+
             string status,
 
-            string streamArn)
+            string streamArn,
+
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             CreationTimestamp = creationTimestamp;
             Id = id;
             Name = name;
+            Region = region;
             Status = status;
             StreamArn = streamArn;
+            Tags = tags;
         }
     }
 }

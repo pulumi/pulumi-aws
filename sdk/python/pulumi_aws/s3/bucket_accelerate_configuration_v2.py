@@ -22,17 +22,21 @@ class BucketAccelerateConfigurationV2Args:
     def __init__(__self__, *,
                  bucket: pulumi.Input[builtins.str],
                  status: pulumi.Input[builtins.str],
-                 expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None):
+                 expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a BucketAccelerateConfigurationV2 resource.
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] status: Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "status", status)
         if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -70,23 +74,39 @@ class BucketAccelerateConfigurationV2Args:
     def expected_bucket_owner(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _BucketAccelerateConfigurationV2State:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketAccelerateConfigurationV2 resources.
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
         if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -116,6 +136,18 @@ class _BucketAccelerateConfigurationV2State:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
@@ -127,14 +159,20 @@ class _BucketAccelerateConfigurationV2State:
         pulumi.set(self, "status", value)
 
 
+warnings.warn("""aws.s3/bucketaccelerateconfigurationv2.BucketAccelerateConfigurationV2 has been deprecated in favor of aws.s3/bucketaccelerateconfiguration.BucketAccelerateConfiguration""", DeprecationWarning)
+
+
 @pulumi.type_token("aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2")
 class BucketAccelerateConfigurationV2(pulumi.CustomResource):
+    warnings.warn("""aws.s3/bucketaccelerateconfigurationv2.BucketAccelerateConfigurationV2 has been deprecated in favor of aws.s3/bucketaccelerateconfiguration.BucketAccelerateConfiguration""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -148,8 +186,8 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        mybucket = aws.s3.BucketV2("mybucket", bucket="mybucket")
-        example = aws.s3.BucketAccelerateConfigurationV2("example",
+        mybucket = aws.s3.Bucket("mybucket", bucket="mybucket")
+        example = aws.s3.BucketAccelerateConfiguration("example",
             bucket=mybucket.id,
             status="Enabled")
         ```
@@ -175,6 +213,7 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
         """
         ...
@@ -194,8 +233,8 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        mybucket = aws.s3.BucketV2("mybucket", bucket="mybucket")
-        example = aws.s3.BucketAccelerateConfigurationV2("example",
+        mybucket = aws.s3.Bucket("mybucket", bucket="mybucket")
+        example = aws.s3.BucketAccelerateConfiguration("example",
             bucket=mybucket.id,
             status="Enabled")
         ```
@@ -234,8 +273,10 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
+        pulumi.log.warn("""BucketAccelerateConfigurationV2 is deprecated: aws.s3/bucketaccelerateconfigurationv2.BucketAccelerateConfigurationV2 has been deprecated in favor of aws.s3/bucketaccelerateconfiguration.BucketAccelerateConfiguration""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -248,9 +289,12 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
                 raise TypeError("Missing required property 'bucket'")
             __props__.__dict__["bucket"] = bucket
             __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
+            __props__.__dict__["region"] = region
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")
             __props__.__dict__["status"] = status
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BucketAccelerateConfigurationV2, __self__).__init__(
             'aws:s3/bucketAccelerateConfigurationV2:BucketAccelerateConfigurationV2',
             resource_name,
@@ -263,6 +307,7 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             bucket: Optional[pulumi.Input[builtins.str]] = None,
             expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None) -> 'BucketAccelerateConfigurationV2':
         """
         Get an existing BucketAccelerateConfigurationV2 resource's state with the given name, id, and optional extra
@@ -273,6 +318,7 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: Transfer acceleration state of the bucket. Valid values: `Enabled`, `Suspended`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -281,6 +327,7 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
 
         __props__.__dict__["bucket"] = bucket
         __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
+        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         return BucketAccelerateConfigurationV2(resource_name, opts=opts, __props__=__props__)
 
@@ -299,6 +346,14 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
         Account ID of the expected bucket owner.
         """
         return pulumi.get(self, "expected_bucket_owner")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

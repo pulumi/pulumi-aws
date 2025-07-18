@@ -31,6 +31,7 @@ export function getStack(args: GetStackArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:cloudformation/getStack:getStack", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -43,6 +44,10 @@ export interface GetStackArgs {
      * Name of the stack
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags associated with this stack.
      */
@@ -86,6 +91,7 @@ export interface GetStackResult {
      * Map of parameters that specify input parameters for the stack.
      */
     readonly parameters: {[key: string]: string};
+    readonly region: string;
     /**
      * Map of tags associated with this stack.
      */
@@ -126,6 +132,7 @@ export function getStackOutput(args: GetStackOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:cloudformation/getStack:getStack", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -138,6 +145,10 @@ export interface GetStackOutputArgs {
      * Name of the stack
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags associated with this stack.
      */

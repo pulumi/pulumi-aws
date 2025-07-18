@@ -105,6 +105,10 @@ export class FargateProfile extends pulumi.CustomResource {
      */
     public readonly podExecutionRoleArn!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
      */
     public readonly selectors!: pulumi.Output<outputs.eks.FargateProfileSelector[]>;
@@ -124,8 +128,6 @@ export class FargateProfile extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -146,6 +148,7 @@ export class FargateProfile extends pulumi.CustomResource {
             resourceInputs["clusterName"] = state ? state.clusterName : undefined;
             resourceInputs["fargateProfileName"] = state ? state.fargateProfileName : undefined;
             resourceInputs["podExecutionRoleArn"] = state ? state.podExecutionRoleArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["selectors"] = state ? state.selectors : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
@@ -165,6 +168,7 @@ export class FargateProfile extends pulumi.CustomResource {
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["fargateProfileName"] = args ? args.fargateProfileName : undefined;
             resourceInputs["podExecutionRoleArn"] = args ? args.podExecutionRoleArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["selectors"] = args ? args.selectors : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -198,6 +202,10 @@ export interface FargateProfileState {
      */
     podExecutionRoleArn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
      */
     selectors?: pulumi.Input<pulumi.Input<inputs.eks.FargateProfileSelector>[]>;
@@ -217,8 +225,6 @@ export interface FargateProfileState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -239,6 +245,10 @@ export interface FargateProfileArgs {
      * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
      */
     podExecutionRoleArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
      */

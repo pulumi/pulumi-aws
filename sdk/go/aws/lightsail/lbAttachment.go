@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,7 +89,11 @@ type LbAttachment struct {
 	// Name of the instance to attach to the load balancer.
 	InstanceName pulumi.StringOutput `pulumi:"instanceName"`
 	// Name of the Lightsail load balancer.
+	//
+	// The following arguments are optional:
 	LbName pulumi.StringOutput `pulumi:"lbName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewLbAttachment registers a new resource with the given unique name, arguments, and options.
@@ -131,14 +135,22 @@ type lbAttachmentState struct {
 	// Name of the instance to attach to the load balancer.
 	InstanceName *string `pulumi:"instanceName"`
 	// Name of the Lightsail load balancer.
+	//
+	// The following arguments are optional:
 	LbName *string `pulumi:"lbName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type LbAttachmentState struct {
 	// Name of the instance to attach to the load balancer.
 	InstanceName pulumi.StringPtrInput
 	// Name of the Lightsail load balancer.
+	//
+	// The following arguments are optional:
 	LbName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LbAttachmentState) ElementType() reflect.Type {
@@ -149,7 +161,11 @@ type lbAttachmentArgs struct {
 	// Name of the instance to attach to the load balancer.
 	InstanceName string `pulumi:"instanceName"`
 	// Name of the Lightsail load balancer.
+	//
+	// The following arguments are optional:
 	LbName string `pulumi:"lbName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a LbAttachment resource.
@@ -157,7 +173,11 @@ type LbAttachmentArgs struct {
 	// Name of the instance to attach to the load balancer.
 	InstanceName pulumi.StringInput
 	// Name of the Lightsail load balancer.
+	//
+	// The following arguments are optional:
 	LbName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (LbAttachmentArgs) ElementType() reflect.Type {
@@ -253,8 +273,15 @@ func (o LbAttachmentOutput) InstanceName() pulumi.StringOutput {
 }
 
 // Name of the Lightsail load balancer.
+//
+// The following arguments are optional:
 func (o LbAttachmentOutput) LbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbAttachment) pulumi.StringOutput { return v.LbName }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LbAttachmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LbAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type LbAttachmentArrayOutput struct{ *pulumi.OutputState }

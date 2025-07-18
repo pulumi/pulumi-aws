@@ -218,6 +218,10 @@ export class Gateway extends pulumi.CustomResource {
      */
     public readonly mediumChangerType!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      */
     public readonly smbActiveDirectorySettings!: pulumi.Output<outputs.storagegateway.GatewaySmbActiveDirectorySettings | undefined>;
@@ -241,8 +245,6 @@ export class Gateway extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -280,6 +282,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["hostEnvironment"] = state ? state.hostEnvironment : undefined;
             resourceInputs["maintenanceStartTime"] = state ? state.maintenanceStartTime : undefined;
             resourceInputs["mediumChangerType"] = state ? state.mediumChangerType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["smbActiveDirectorySettings"] = state ? state.smbActiveDirectorySettings : undefined;
             resourceInputs["smbFileShareVisibility"] = state ? state.smbFileShareVisibility : undefined;
             resourceInputs["smbGuestPassword"] = state ? state.smbGuestPassword : undefined;
@@ -306,6 +309,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["gatewayVpcEndpoint"] = args ? args.gatewayVpcEndpoint : undefined;
             resourceInputs["maintenanceStartTime"] = args ? args.maintenanceStartTime : undefined;
             resourceInputs["mediumChangerType"] = args ? args.mediumChangerType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["smbActiveDirectorySettings"] = args ? args.smbActiveDirectorySettings : undefined;
             resourceInputs["smbFileShareVisibility"] = args ? args.smbFileShareVisibility : undefined;
             resourceInputs["smbGuestPassword"] = args?.smbGuestPassword ? pulumi.secret(args.smbGuestPassword) : undefined;
@@ -400,6 +404,10 @@ export interface GatewayState {
      */
     mediumChangerType?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      */
     smbActiveDirectorySettings?: pulumi.Input<inputs.storagegateway.GatewaySmbActiveDirectorySettings>;
@@ -423,8 +431,6 @@ export interface GatewayState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -481,6 +487,10 @@ export interface GatewayArgs {
      * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
      */
     mediumChangerType?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
      */

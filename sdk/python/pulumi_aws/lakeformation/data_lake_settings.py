@@ -32,6 +32,7 @@ class DataLakeSettingsArgs:
                  external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataLakeSettings resource.
@@ -45,6 +46,7 @@ class DataLakeSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] external_data_filtering_allow_lists: A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] read_only_admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trusted_resource_owners: List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
                
                > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
@@ -69,6 +71,8 @@ class DataLakeSettingsArgs:
             pulumi.set(__self__, "parameters", parameters)
         if read_only_admins is not None:
             pulumi.set(__self__, "read_only_admins", read_only_admins)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if trusted_resource_owners is not None:
             pulumi.set(__self__, "trusted_resource_owners", trusted_resource_owners)
 
@@ -191,6 +195,18 @@ class DataLakeSettingsArgs:
     @read_only_admins.setter
     def read_only_admins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "read_only_admins", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="trustedResourceOwners")
@@ -220,6 +236,7 @@ class _DataLakeSettingsState:
                  external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering DataLakeSettings resources.
@@ -233,6 +250,7 @@ class _DataLakeSettingsState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] external_data_filtering_allow_lists: A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] read_only_admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trusted_resource_owners: List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
                
                > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
@@ -257,6 +275,8 @@ class _DataLakeSettingsState:
             pulumi.set(__self__, "parameters", parameters)
         if read_only_admins is not None:
             pulumi.set(__self__, "read_only_admins", read_only_admins)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if trusted_resource_owners is not None:
             pulumi.set(__self__, "trusted_resource_owners", trusted_resource_owners)
 
@@ -379,6 +399,18 @@ class _DataLakeSettingsState:
     @read_only_admins.setter
     def read_only_admins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "read_only_admins", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="trustedResourceOwners")
@@ -411,6 +443,7 @@ class DataLakeSettings(pulumi.CustomResource):
                  external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -512,6 +545,7 @@ class DataLakeSettings(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] external_data_filtering_allow_lists: A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] read_only_admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trusted_resource_owners: List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
                
                > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
@@ -634,6 +668,7 @@ class DataLakeSettings(pulumi.CustomResource):
                  external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -654,6 +689,7 @@ class DataLakeSettings(pulumi.CustomResource):
             __props__.__dict__["external_data_filtering_allow_lists"] = external_data_filtering_allow_lists
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["read_only_admins"] = read_only_admins
+            __props__.__dict__["region"] = region
             __props__.__dict__["trusted_resource_owners"] = trusted_resource_owners
         super(DataLakeSettings, __self__).__init__(
             'aws:lakeformation/dataLakeSettings:DataLakeSettings',
@@ -675,6 +711,7 @@ class DataLakeSettings(pulumi.CustomResource):
             external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None) -> 'DataLakeSettings':
         """
         Get an existing DataLakeSettings resource's state with the given name, id, and optional extra
@@ -693,6 +730,7 @@ class DataLakeSettings(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] external_data_filtering_allow_lists: A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: Key-value map of additional configuration. Valid values for the `CROSS_ACCOUNT_VERSION` key are `"1"`, `"2"`, `"3"`, or `"4"`. `SET_CONTEXT` is also returned with a value of `TRUE`. In a fresh account, prior to configuring, `CROSS_ACCOUNT_VERSION` is `"1"`. Destroying this resource sets the `CROSS_ACCOUNT_VERSION` to `"1"`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] read_only_admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] trusted_resource_owners: List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
                
                > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, `parameters`, and/or `trusted_resource_owners` results in the setting being cleared.
@@ -711,6 +749,7 @@ class DataLakeSettings(pulumi.CustomResource):
         __props__.__dict__["external_data_filtering_allow_lists"] = external_data_filtering_allow_lists
         __props__.__dict__["parameters"] = parameters
         __props__.__dict__["read_only_admins"] = read_only_admins
+        __props__.__dict__["region"] = region
         __props__.__dict__["trusted_resource_owners"] = trusted_resource_owners
         return DataLakeSettings(resource_name, opts=opts, __props__=__props__)
 
@@ -793,6 +832,14 @@ class DataLakeSettings(pulumi.CustomResource):
         Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
         """
         return pulumi.get(self, "read_only_admins")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="trustedResourceOwners")

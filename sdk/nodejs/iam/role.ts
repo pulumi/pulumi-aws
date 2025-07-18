@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {PolicyDocument} from "./index";
-
 /**
  * Provides an IAM role.
  *
@@ -280,8 +278,6 @@ export class Role extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -358,7 +354,7 @@ export interface RoleState {
      *
      * The following arguments are optional:
      */
-    assumeRolePolicy?: pulumi.Input<string | PolicyDocument>;
+    assumeRolePolicy?: pulumi.Input<string | inputs.iam.PolicyDocument>;
     /**
      * Creation date of the IAM role.
      */
@@ -405,8 +401,6 @@ export interface RoleState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -426,7 +420,7 @@ export interface RoleArgs {
      *
      * The following arguments are optional:
      */
-    assumeRolePolicy: pulumi.Input<string | PolicyDocument>;
+    assumeRolePolicy: pulumi.Input<string | inputs.iam.PolicyDocument>;
     /**
      * Description of the role.
      */

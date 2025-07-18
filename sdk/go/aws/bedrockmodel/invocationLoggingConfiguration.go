@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,6 +16,94 @@ import (
 // > Model invocation logging is configured per AWS region. To avoid overwriting settings, this resource should not be defined in multiple configurations.
 //
 // ## Example Usage
+//
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrockmodel"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
+//				Bucket:       pulumi.String("example"),
+//				ForceDestroy: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
+//				Bucket: example.Bucket,
+//				Policy: example.Arn.ApplyT(func(arn string) (string, error) {
+//					return fmt.Sprintf(`{
+//	  "Version": "2012-10-17",
+//	  "Statement": [
+//	    {
+//	      "Effect": "Allow",
+//	      "Principal": {
+//	        "Service": "bedrock.amazonaws.com"
+//	      },
+//	      "Action": [
+//	        "s3:*"
+//	      ],
+//	      "Resource": [
+//	        "%v/*"
+//	      ],
+//	      "Condition": {
+//	        "StringEquals": {
+//	          "aws:SourceAccount": "%v"
+//	        },
+//	        "ArnLike": {
+//	          "aws:SourceArn": "arn:aws:bedrock:us-east-1:%v:*"
+//	        }
+//	      }
+//	    }
+//	  ]
+//	}
+//
+// `, arn, current.AccountId, current.AccountId), nil
+//
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bedrockmodel.NewInvocationLoggingConfiguration(ctx, "example", &bedrockmodel.InvocationLoggingConfigurationArgs{
+//				LoggingConfig: &bedrockmodel.InvocationLoggingConfigurationLoggingConfigArgs{
+//					EmbeddingDataDeliveryEnabled: pulumi.Bool(true),
+//					ImageDataDeliveryEnabled:     pulumi.Bool(true),
+//					TextDataDeliveryEnabled:      pulumi.Bool(true),
+//					VideoDataDeliveryEnabled:     pulumi.Bool(true),
+//					S3Config: &bedrockmodel.InvocationLoggingConfigurationLoggingConfigS3ConfigArgs{
+//						BucketName: example.ID(),
+//						KeyPrefix:  pulumi.String("bedrock"),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleBucketPolicy,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //
@@ -29,6 +117,8 @@ type InvocationLoggingConfiguration struct {
 
 	// The logging configuration values to set. See `loggingConfig` Block for details.
 	LoggingConfig InvocationLoggingConfigurationLoggingConfigPtrOutput `pulumi:"loggingConfig"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewInvocationLoggingConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -63,11 +153,15 @@ func GetInvocationLoggingConfiguration(ctx *pulumi.Context,
 type invocationLoggingConfigurationState struct {
 	// The logging configuration values to set. See `loggingConfig` Block for details.
 	LoggingConfig *InvocationLoggingConfigurationLoggingConfig `pulumi:"loggingConfig"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type InvocationLoggingConfigurationState struct {
 	// The logging configuration values to set. See `loggingConfig` Block for details.
 	LoggingConfig InvocationLoggingConfigurationLoggingConfigPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (InvocationLoggingConfigurationState) ElementType() reflect.Type {
@@ -77,12 +171,16 @@ func (InvocationLoggingConfigurationState) ElementType() reflect.Type {
 type invocationLoggingConfigurationArgs struct {
 	// The logging configuration values to set. See `loggingConfig` Block for details.
 	LoggingConfig *InvocationLoggingConfigurationLoggingConfig `pulumi:"loggingConfig"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a InvocationLoggingConfiguration resource.
 type InvocationLoggingConfigurationArgs struct {
 	// The logging configuration values to set. See `loggingConfig` Block for details.
 	LoggingConfig InvocationLoggingConfigurationLoggingConfigPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (InvocationLoggingConfigurationArgs) ElementType() reflect.Type {
@@ -177,6 +275,11 @@ func (o InvocationLoggingConfigurationOutput) LoggingConfig() InvocationLoggingC
 	return o.ApplyT(func(v *InvocationLoggingConfiguration) InvocationLoggingConfigurationLoggingConfigPtrOutput {
 		return v.LoggingConfig
 	}).(InvocationLoggingConfigurationLoggingConfigPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o InvocationLoggingConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *InvocationLoggingConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type InvocationLoggingConfigurationArrayOutput struct{ *pulumi.OutputState }

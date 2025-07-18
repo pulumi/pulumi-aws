@@ -32,6 +32,21 @@ public final class GetDnsNamespacePlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Map of tags for the resource.
      * 
      */
@@ -65,6 +80,7 @@ public final class GetDnsNamespacePlainArgs extends com.pulumi.resources.InvokeA
 
     private GetDnsNamespacePlainArgs(GetDnsNamespacePlainArgs $) {
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
         this.type = $.type;
     }
@@ -95,6 +111,17 @@ public final class GetDnsNamespacePlainArgs extends com.pulumi.resources.InvokeA
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

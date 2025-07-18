@@ -22,16 +22,20 @@ class EventStreamArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[builtins.str],
                  destination_stream_arn: pulumi.Input[builtins.str],
-                 role_arn: pulumi.Input[builtins.str]):
+                 role_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a EventStream resource.
         :param pulumi.Input[builtins.str] application_id: The application ID.
         :param pulumi.Input[builtins.str] destination_stream_arn: The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
         :param pulumi.Input[builtins.str] role_arn: The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "destination_stream_arn", destination_stream_arn)
         pulumi.set(__self__, "role_arn", role_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -69,23 +73,39 @@ class EventStreamArgs:
     def role_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "role_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _EventStreamState:
     def __init__(__self__, *,
                  application_id: Optional[pulumi.Input[builtins.str]] = None,
                  destination_stream_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventStream resources.
         :param pulumi.Input[builtins.str] application_id: The application ID.
         :param pulumi.Input[builtins.str] destination_stream_arn: The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
         if destination_stream_arn is not None:
             pulumi.set(__self__, "destination_stream_arn", destination_stream_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
 
@@ -114,6 +134,18 @@ class _EventStreamState:
         pulumi.set(self, "destination_stream_arn", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -134,6 +166,7 @@ class EventStream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[builtins.str]] = None,
                  destination_stream_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -188,6 +221,7 @@ class EventStream(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] application_id: The application ID.
         :param pulumi.Input[builtins.str] destination_stream_arn: The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
         """
         ...
@@ -261,6 +295,7 @@ class EventStream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[builtins.str]] = None,
                  destination_stream_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -277,6 +312,7 @@ class EventStream(pulumi.CustomResource):
             if destination_stream_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_stream_arn'")
             __props__.__dict__["destination_stream_arn"] = destination_stream_arn
+            __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -292,6 +328,7 @@ class EventStream(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             application_id: Optional[pulumi.Input[builtins.str]] = None,
             destination_stream_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'EventStream':
         """
         Get an existing EventStream resource's state with the given name, id, and optional extra
@@ -302,6 +339,7 @@ class EventStream(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] application_id: The application ID.
         :param pulumi.Input[builtins.str] destination_stream_arn: The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -310,6 +348,7 @@ class EventStream(pulumi.CustomResource):
 
         __props__.__dict__["application_id"] = application_id
         __props__.__dict__["destination_stream_arn"] = destination_stream_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         return EventStream(resource_name, opts=opts, __props__=__props__)
 
@@ -328,6 +367,14 @@ class EventStream(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
         """
         return pulumi.get(self, "destination_stream_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")

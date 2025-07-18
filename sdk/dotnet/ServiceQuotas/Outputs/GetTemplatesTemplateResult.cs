@@ -26,11 +26,11 @@ namespace Pulumi.Aws.ServiceQuotas.Outputs
         /// </summary>
         public readonly string QuotaName;
         /// <summary>
-        /// AWS Region to which the quota increases apply.
+        /// AWS Region to which the quota increases apply. Use `aws.getRegion` instead.
         /// </summary>
         public readonly string Region;
         /// <summary>
-        /// (Required) Service identifier.
+        /// Service identifier.
         /// </summary>
         public readonly string ServiceCode;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.ServiceQuotas.Outputs
         /// </summary>
         public readonly string Unit;
         /// <summary>
-        /// (Required) The new, increased value for the quota.
+        /// The new, increased value for the quota.
         /// </summary>
         public readonly double Value;
 

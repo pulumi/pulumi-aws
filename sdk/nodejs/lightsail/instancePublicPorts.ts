@@ -80,13 +80,19 @@ export class InstancePublicPorts extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the Lightsail Instance.
+     * Name of the instance for which to open ports.
      */
     public readonly instanceName!: pulumi.Output<string>;
     /**
-     * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
+     * Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
+     *
+     * The following arguments are optional:
      */
     public readonly portInfos!: pulumi.Output<outputs.lightsail.InstancePublicPortsPortInfo[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a InstancePublicPorts resource with the given unique name, arguments, and options.
@@ -103,6 +109,7 @@ export class InstancePublicPorts extends pulumi.CustomResource {
             const state = argsOrState as InstancePublicPortsState | undefined;
             resourceInputs["instanceName"] = state ? state.instanceName : undefined;
             resourceInputs["portInfos"] = state ? state.portInfos : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as InstancePublicPortsArgs | undefined;
             if ((!args || args.instanceName === undefined) && !opts.urn) {
@@ -113,6 +120,7 @@ export class InstancePublicPorts extends pulumi.CustomResource {
             }
             resourceInputs["instanceName"] = args ? args.instanceName : undefined;
             resourceInputs["portInfos"] = args ? args.portInfos : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(InstancePublicPorts.__pulumiType, name, resourceInputs, opts);
@@ -124,13 +132,19 @@ export class InstancePublicPorts extends pulumi.CustomResource {
  */
 export interface InstancePublicPortsState {
     /**
-     * Name of the Lightsail Instance.
+     * Name of the instance for which to open ports.
      */
     instanceName?: pulumi.Input<string>;
     /**
-     * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
+     * Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
+     *
+     * The following arguments are optional:
      */
     portInfos?: pulumi.Input<pulumi.Input<inputs.lightsail.InstancePublicPortsPortInfo>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -138,11 +152,17 @@ export interface InstancePublicPortsState {
  */
 export interface InstancePublicPortsArgs {
     /**
-     * Name of the Lightsail Instance.
+     * Name of the instance for which to open ports.
      */
     instanceName: pulumi.Input<string>;
     /**
-     * Configuration block with port information. AWS closes all currently open ports that are not included in the `portInfo`. See below.
+     * Descriptor of the ports to open for the specified instance. AWS closes all currently open ports that are not included in this argument. See `portInfo` Block for details.
+     *
+     * The following arguments are optional:
      */
     portInfos: pulumi.Input<pulumi.Input<inputs.lightsail.InstancePublicPortsPortInfo>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

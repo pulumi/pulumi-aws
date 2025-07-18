@@ -167,6 +167,10 @@ export class Channel extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Concise argument description.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
@@ -178,9 +182,6 @@ export class Channel extends pulumi.CustomResource {
      * A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Settings for the VPC outputs. See VPC for more details.
@@ -211,6 +212,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["logLevel"] = state ? state.logLevel : undefined;
             resourceInputs["maintenance"] = state ? state.maintenance : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["startChannel"] = state ? state.startChannel : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -242,6 +244,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["logLevel"] = args ? args.logLevel : undefined;
             resourceInputs["maintenance"] = args ? args.maintenance : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["startChannel"] = args ? args.startChannel : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -306,6 +309,10 @@ export interface ChannelState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Concise argument description.
      */
     roleArn?: pulumi.Input<string>;
@@ -317,9 +324,6 @@ export interface ChannelState {
      * A map of tags to assign to the channel. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Settings for the VPC outputs. See VPC for more details.
@@ -369,6 +373,10 @@ export interface ChannelArgs {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Concise argument description.
      */

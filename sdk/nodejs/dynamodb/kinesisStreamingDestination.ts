@@ -73,6 +73,10 @@ export class KinesisStreamingDestination extends pulumi.CustomResource {
      */
     public readonly approximateCreationDateTimePrecision!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
      */
     public readonly streamArn!: pulumi.Output<string>;
@@ -95,6 +99,7 @@ export class KinesisStreamingDestination extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as KinesisStreamingDestinationState | undefined;
             resourceInputs["approximateCreationDateTimePrecision"] = state ? state.approximateCreationDateTimePrecision : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["streamArn"] = state ? state.streamArn : undefined;
             resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
@@ -106,6 +111,7 @@ export class KinesisStreamingDestination extends pulumi.CustomResource {
                 throw new Error("Missing required property 'tableName'");
             }
             resourceInputs["approximateCreationDateTimePrecision"] = args ? args.approximateCreationDateTimePrecision : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["streamArn"] = args ? args.streamArn : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
@@ -122,6 +128,10 @@ export interface KinesisStreamingDestinationState {
      * Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
      */
     approximateCreationDateTimePrecision?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
      */
@@ -140,6 +150,10 @@ export interface KinesisStreamingDestinationArgs {
      * Toggle for the precision of Kinesis data stream timestamp. Valid values: `MILLISECOND` and `MICROSECOND`.
      */
     approximateCreationDateTimePrecision?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
      */

@@ -12,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class RuleLockConfigurationUnlockDelay {
     /**
-     * @return The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
+     * @return Unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
      * 
      */
     private String unlockDelayUnit;
     /**
-     * @return The unlock delay period, measured in the unit specified for UnlockDelayUnit.
+     * @return Unlock delay period, measured in the unit specified for UnlockDelayUnit.
      * 
      */
     private Integer unlockDelayValue;
 
     private RuleLockConfigurationUnlockDelay() {}
     /**
-     * @return The unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
+     * @return Unit of time in which to measure the unlock delay. Currently, the unlock delay can be measure only in days.
      * 
      */
     public String unlockDelayUnit() {
         return this.unlockDelayUnit;
     }
     /**
-     * @return The unlock delay period, measured in the unit specified for UnlockDelayUnit.
+     * @return Unlock delay period, measured in the unit specified for UnlockDelayUnit.
      * 
      */
     public Integer unlockDelayValue() {

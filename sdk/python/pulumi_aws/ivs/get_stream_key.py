@@ -27,7 +27,7 @@ class GetStreamKeyResult:
     """
     A collection of values returned by getStreamKey.
     """
-    def __init__(__self__, arn=None, channel_arn=None, id=None, tags=None, value=None):
+    def __init__(__self__, arn=None, channel_arn=None, id=None, region=None, tags=None, value=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +37,9 @@ class GetStreamKeyResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -67,6 +70,11 @@ class GetStreamKeyResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Map of tags assigned to the resource.
@@ -91,11 +99,13 @@ class AwaitableGetStreamKeyResult(GetStreamKeyResult):
             arn=self.arn,
             channel_arn=self.channel_arn,
             id=self.id,
+            region=self.region,
             tags=self.tags,
             value=self.value)
 
 
 def get_stream_key(channel_arn: Optional[builtins.str] = None,
+                   region: Optional[builtins.str] = None,
                    tags: Optional[Mapping[str, builtins.str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamKeyResult:
     """
@@ -114,10 +124,12 @@ def get_stream_key(channel_arn: Optional[builtins.str] = None,
 
 
     :param builtins.str channel_arn: ARN of the Channel.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['channelArn'] = channel_arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ivs/getStreamKey:getStreamKey', __args__, opts=opts, typ=GetStreamKeyResult).value
@@ -126,9 +138,11 @@ def get_stream_key(channel_arn: Optional[builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         channel_arn=pulumi.get(__ret__, 'channel_arn'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         value=pulumi.get(__ret__, 'value'))
 def get_stream_key_output(channel_arn: Optional[pulumi.Input[builtins.str]] = None,
+                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamKeyResult]:
     """
@@ -147,10 +161,12 @@ def get_stream_key_output(channel_arn: Optional[pulumi.Input[builtins.str]] = No
 
 
     :param builtins.str channel_arn: ARN of the Channel.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['channelArn'] = channel_arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ivs/getStreamKey:getStreamKey', __args__, opts=opts, typ=GetStreamKeyResult)
@@ -158,5 +174,6 @@ def get_stream_key_output(channel_arn: Optional[pulumi.Input[builtins.str]] = No
         arn=pulumi.get(__response__, 'arn'),
         channel_arn=pulumi.get(__response__, 'channel_arn'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         value=pulumi.get(__response__, 'value')))

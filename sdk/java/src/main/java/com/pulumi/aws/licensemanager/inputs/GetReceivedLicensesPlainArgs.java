@@ -5,6 +5,7 @@ package com.pulumi.aws.licensemanager.inputs;
 
 import com.pulumi.aws.licensemanager.inputs.GetReceivedLicensesFilter;
 import com.pulumi.core.annotations.Import;
+import java.lang.String;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,10 +31,26 @@ public final class GetReceivedLicensesPlainArgs extends com.pulumi.resources.Inv
         return Optional.ofNullable(this.filters);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetReceivedLicensesPlainArgs() {}
 
     private GetReceivedLicensesPlainArgs(GetReceivedLicensesPlainArgs $) {
         this.filters = $.filters;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -73,6 +90,17 @@ public final class GetReceivedLicensesPlainArgs extends com.pulumi.resources.Inv
          */
         public Builder filters(GetReceivedLicensesFilter... filters) {
             return filters(List.of(filters));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
         }
 
         public GetReceivedLicensesPlainArgs build() {

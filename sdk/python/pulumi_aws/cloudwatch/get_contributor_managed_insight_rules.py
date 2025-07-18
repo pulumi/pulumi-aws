@@ -28,13 +28,16 @@ class GetContributorManagedInsightRulesResult:
     """
     A collection of values returned by getContributorManagedInsightRules.
     """
-    def __init__(__self__, id=None, managed_rules=None, resource_arn=None):
+    def __init__(__self__, id=None, managed_rules=None, region=None, resource_arn=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if managed_rules and not isinstance(managed_rules, list):
             raise TypeError("Expected argument 'managed_rules' to be a list")
         pulumi.set(__self__, "managed_rules", managed_rules)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if resource_arn and not isinstance(resource_arn, str):
             raise TypeError("Expected argument 'resource_arn' to be a str")
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -56,6 +59,11 @@ class GetContributorManagedInsightRulesResult:
         return pulumi.get(self, "managed_rules")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> builtins.str:
         """
@@ -72,10 +80,12 @@ class AwaitableGetContributorManagedInsightRulesResult(GetContributorManagedInsi
         return GetContributorManagedInsightRulesResult(
             id=self.id,
             managed_rules=self.managed_rules,
+            region=self.region,
             resource_arn=self.resource_arn)
 
 
-def get_contributor_managed_insight_rules(resource_arn: Optional[builtins.str] = None,
+def get_contributor_managed_insight_rules(region: Optional[builtins.str] = None,
+                                          resource_arn: Optional[builtins.str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContributorManagedInsightRulesResult:
     """
     Data source for managing an AWS CloudWatch Contributor Managed Insight Rules.
@@ -92,9 +102,11 @@ def get_contributor_managed_insight_rules(resource_arn: Optional[builtins.str] =
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resource_arn: ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['resourceArn'] = resource_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:cloudwatch/getContributorManagedInsightRules:getContributorManagedInsightRules', __args__, opts=opts, typ=GetContributorManagedInsightRulesResult).value
@@ -102,8 +114,10 @@ def get_contributor_managed_insight_rules(resource_arn: Optional[builtins.str] =
     return AwaitableGetContributorManagedInsightRulesResult(
         id=pulumi.get(__ret__, 'id'),
         managed_rules=pulumi.get(__ret__, 'managed_rules'),
+        region=pulumi.get(__ret__, 'region'),
         resource_arn=pulumi.get(__ret__, 'resource_arn'))
-def get_contributor_managed_insight_rules_output(resource_arn: Optional[pulumi.Input[builtins.str]] = None,
+def get_contributor_managed_insight_rules_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                                 resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContributorManagedInsightRulesResult]:
     """
     Data source for managing an AWS CloudWatch Contributor Managed Insight Rules.
@@ -120,13 +134,16 @@ def get_contributor_managed_insight_rules_output(resource_arn: Optional[pulumi.I
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str resource_arn: ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['resourceArn'] = resource_arn
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudwatch/getContributorManagedInsightRules:getContributorManagedInsightRules', __args__, opts=opts, typ=GetContributorManagedInsightRulesResult)
     return __ret__.apply(lambda __response__: GetContributorManagedInsightRulesResult(
         id=pulumi.get(__response__, 'id'),
         managed_rules=pulumi.get(__response__, 'managed_rules'),
+        region=pulumi.get(__response__, 'region'),
         resource_arn=pulumi.get(__response__, 'resource_arn')))

@@ -27,7 +27,7 @@ class GetWorkerConfigurationResult:
     """
     A collection of values returned by getWorkerConfiguration.
     """
-    def __init__(__self__, arn=None, description=None, id=None, latest_revision=None, name=None, properties_file_content=None, tags=None):
+    def __init__(__self__, arn=None, description=None, id=None, latest_revision=None, name=None, properties_file_content=None, region=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -46,6 +46,9 @@ class GetWorkerConfigurationResult:
         if properties_file_content and not isinstance(properties_file_content, str):
             raise TypeError("Expected argument 'properties_file_content' to be a str")
         pulumi.set(__self__, "properties_file_content", properties_file_content)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -97,6 +100,11 @@ class GetWorkerConfigurationResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         A map of tags assigned to the resource.
@@ -116,10 +124,12 @@ class AwaitableGetWorkerConfigurationResult(GetWorkerConfigurationResult):
             latest_revision=self.latest_revision,
             name=self.name,
             properties_file_content=self.properties_file_content,
+            region=self.region,
             tags=self.tags)
 
 
 def get_worker_configuration(name: Optional[builtins.str] = None,
+                             region: Optional[builtins.str] = None,
                              tags: Optional[Mapping[str, builtins.str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkerConfigurationResult:
     """
@@ -136,10 +146,12 @@ def get_worker_configuration(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the worker configuration.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration', __args__, opts=opts, typ=GetWorkerConfigurationResult).value
@@ -151,8 +163,10 @@ def get_worker_configuration(name: Optional[builtins.str] = None,
         latest_revision=pulumi.get(__ret__, 'latest_revision'),
         name=pulumi.get(__ret__, 'name'),
         properties_file_content=pulumi.get(__ret__, 'properties_file_content'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_worker_configuration_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                                    region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkerConfigurationResult]:
     """
@@ -169,10 +183,12 @@ def get_worker_configuration_output(name: Optional[pulumi.Input[builtins.str]] =
 
 
     :param builtins.str name: Name of the worker configuration.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration', __args__, opts=opts, typ=GetWorkerConfigurationResult)
@@ -183,4 +199,5 @@ def get_worker_configuration_output(name: Optional[pulumi.Input[builtins.str]] =
         latest_revision=pulumi.get(__response__, 'latest_revision'),
         name=pulumi.get(__response__, 'name'),
         properties_file_content=pulumi.get(__response__, 'properties_file_content'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

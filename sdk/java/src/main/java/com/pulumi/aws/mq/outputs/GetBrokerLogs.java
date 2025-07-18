@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrokerLogs {
+    /**
+     * @return Whether audit logging is enabled.
+     * 
+     */
     private Boolean audit;
+    /**
+     * @return Whether general logging is enabled.
+     * 
+     */
     private Boolean general;
 
     private GetBrokerLogs() {}
+    /**
+     * @return Whether audit logging is enabled.
+     * 
+     */
     public Boolean audit() {
         return this.audit;
     }
+    /**
+     * @return Whether general logging is enabled.
+     * 
+     */
     public Boolean general() {
         return this.general;
     }

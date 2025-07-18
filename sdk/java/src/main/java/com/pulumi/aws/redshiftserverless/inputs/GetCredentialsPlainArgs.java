@@ -47,6 +47,21 @@ public final class GetCredentialsPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The name of the workgroup associated with the database.
      * 
      */
@@ -66,6 +81,7 @@ public final class GetCredentialsPlainArgs extends com.pulumi.resources.InvokeAr
     private GetCredentialsPlainArgs(GetCredentialsPlainArgs $) {
         this.dbName = $.dbName;
         this.durationSeconds = $.durationSeconds;
+        this.region = $.region;
         this.workgroupName = $.workgroupName;
     }
 
@@ -106,6 +122,17 @@ public final class GetCredentialsPlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder durationSeconds(@Nullable Integer durationSeconds) {
             $.durationSeconds = durationSeconds;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

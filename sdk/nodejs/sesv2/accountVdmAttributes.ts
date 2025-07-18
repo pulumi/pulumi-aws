@@ -74,6 +74,10 @@ export class AccountVdmAttributes extends pulumi.CustomResource {
      */
     public readonly guardianAttributes!: pulumi.Output<outputs.sesv2.AccountVdmAttributesGuardianAttributes>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
      *
      * The following arguments are optional:
@@ -95,6 +99,7 @@ export class AccountVdmAttributes extends pulumi.CustomResource {
             const state = argsOrState as AccountVdmAttributesState | undefined;
             resourceInputs["dashboardAttributes"] = state ? state.dashboardAttributes : undefined;
             resourceInputs["guardianAttributes"] = state ? state.guardianAttributes : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["vdmEnabled"] = state ? state.vdmEnabled : undefined;
         } else {
             const args = argsOrState as AccountVdmAttributesArgs | undefined;
@@ -103,6 +108,7 @@ export class AccountVdmAttributes extends pulumi.CustomResource {
             }
             resourceInputs["dashboardAttributes"] = args ? args.dashboardAttributes : undefined;
             resourceInputs["guardianAttributes"] = args ? args.guardianAttributes : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["vdmEnabled"] = args ? args.vdmEnabled : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -123,6 +129,10 @@ export interface AccountVdmAttributesState {
      */
     guardianAttributes?: pulumi.Input<inputs.sesv2.AccountVdmAttributesGuardianAttributes>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
      *
      * The following arguments are optional:
@@ -142,6 +152,10 @@ export interface AccountVdmAttributesArgs {
      * Specifies additional settings for your VDM configuration as applicable to the Guardian.
      */
     guardianAttributes?: pulumi.Input<inputs.sesv2.AccountVdmAttributesGuardianAttributes>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
      *

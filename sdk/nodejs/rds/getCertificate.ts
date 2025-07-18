@@ -25,6 +25,7 @@ export function getCertificate(args?: GetCertificateArgs, opts?: pulumi.InvokeOp
         "defaultForNewLaunches": args.defaultForNewLaunches,
         "id": args.id,
         "latestValidTill": args.latestValidTill,
+        "region": args.region,
     }, opts);
 }
 
@@ -44,6 +45,10 @@ export interface GetCertificateArgs {
      * When enabled, returns the certificate with the latest `ValidTill`.
      */
     latestValidTill?: boolean;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -69,6 +74,7 @@ export interface GetCertificateResult {
     readonly defaultForNewLaunches?: boolean;
     readonly id: string;
     readonly latestValidTill?: boolean;
+    readonly region: string;
     /**
      * Thumbprint of the certificate.
      */
@@ -103,6 +109,7 @@ export function getCertificateOutput(args?: GetCertificateOutputArgs, opts?: pul
         "defaultForNewLaunches": args.defaultForNewLaunches,
         "id": args.id,
         "latestValidTill": args.latestValidTill,
+        "region": args.region,
     }, opts);
 }
 
@@ -122,4 +129,8 @@ export interface GetCertificateOutputArgs {
      * When enabled, returns the certificate with the latest `ValidTill`.
      */
     latestValidTill?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

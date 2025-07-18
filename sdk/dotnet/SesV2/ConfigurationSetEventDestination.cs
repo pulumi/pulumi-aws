@@ -232,6 +232,12 @@ namespace Pulumi.Aws.SesV2
         [Output("eventDestinationName")]
         public Output<string> EventDestinationName { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ConfigurationSetEventDestination resource with the given unique name, arguments, and options.
@@ -296,6 +302,12 @@ namespace Pulumi.Aws.SesV2
         [Input("eventDestinationName", required: true)]
         public Input<string> EventDestinationName { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public ConfigurationSetEventDestinationArgs()
         {
         }
@@ -321,6 +333,12 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         [Input("eventDestinationName")]
         public Input<string>? EventDestinationName { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public ConfigurationSetEventDestinationState()
         {

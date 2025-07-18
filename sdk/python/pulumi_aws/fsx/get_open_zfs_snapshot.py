@@ -29,7 +29,7 @@ class GetOpenZfsSnapshotResult:
     """
     A collection of values returned by getOpenZfsSnapshot.
     """
-    def __init__(__self__, arn=None, creation_time=None, filters=None, id=None, most_recent=None, name=None, snapshot_id=None, snapshot_ids=None, tags=None, volume_id=None):
+    def __init__(__self__, arn=None, creation_time=None, filters=None, id=None, most_recent=None, name=None, region=None, snapshot_id=None, snapshot_ids=None, tags=None, volume_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -48,6 +48,9 @@ class GetOpenZfsSnapshotResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if snapshot_id and not isinstance(snapshot_id, str):
             raise TypeError("Expected argument 'snapshot_id' to be a str")
         pulumi.set(__self__, "snapshot_id", snapshot_id)
@@ -104,6 +107,11 @@ class GetOpenZfsSnapshotResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> builtins.str:
         """
@@ -145,6 +153,7 @@ class AwaitableGetOpenZfsSnapshotResult(GetOpenZfsSnapshotResult):
             id=self.id,
             most_recent=self.most_recent,
             name=self.name,
+            region=self.region,
             snapshot_id=self.snapshot_id,
             snapshot_ids=self.snapshot_ids,
             tags=self.tags,
@@ -154,6 +163,7 @@ class AwaitableGetOpenZfsSnapshotResult(GetOpenZfsSnapshotResult):
 def get_open_zfs_snapshot(filters: Optional[Sequence[Union['GetOpenZfsSnapshotFilterArgs', 'GetOpenZfsSnapshotFilterArgsDict']]] = None,
                           most_recent: Optional[builtins.bool] = None,
                           name: Optional[builtins.str] = None,
+                          region: Optional[builtins.str] = None,
                           snapshot_ids: Optional[Sequence[builtins.str]] = None,
                           tags: Optional[Mapping[str, builtins.str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenZfsSnapshotResult:
@@ -180,6 +190,7 @@ def get_open_zfs_snapshot(filters: Optional[Sequence[Union['GetOpenZfsSnapshotFi
            supported names are file-system-id or volume-id.
     :param builtins.bool most_recent: If more than one result is returned, use the most recent snapshot.
     :param builtins.str name: Name of the snapshot.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[builtins.str] snapshot_ids: Returns information on a specific snapshot_id.
     :param Mapping[str, builtins.str] tags: List of Tag values, with a maximum of 50 elements.
     """
@@ -187,6 +198,7 @@ def get_open_zfs_snapshot(filters: Optional[Sequence[Union['GetOpenZfsSnapshotFi
     __args__['filters'] = filters
     __args__['mostRecent'] = most_recent
     __args__['name'] = name
+    __args__['region'] = region
     __args__['snapshotIds'] = snapshot_ids
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -199,6 +211,7 @@ def get_open_zfs_snapshot(filters: Optional[Sequence[Union['GetOpenZfsSnapshotFi
         id=pulumi.get(__ret__, 'id'),
         most_recent=pulumi.get(__ret__, 'most_recent'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         snapshot_id=pulumi.get(__ret__, 'snapshot_id'),
         snapshot_ids=pulumi.get(__ret__, 'snapshot_ids'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -206,6 +219,7 @@ def get_open_zfs_snapshot(filters: Optional[Sequence[Union['GetOpenZfsSnapshotFi
 def get_open_zfs_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetOpenZfsSnapshotFilterArgs', 'GetOpenZfsSnapshotFilterArgsDict']]]]] = None,
                                  most_recent: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                  name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                 region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  snapshot_ids: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenZfsSnapshotResult]:
@@ -232,6 +246,7 @@ def get_open_zfs_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequenc
            supported names are file-system-id or volume-id.
     :param builtins.bool most_recent: If more than one result is returned, use the most recent snapshot.
     :param builtins.str name: Name of the snapshot.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[builtins.str] snapshot_ids: Returns information on a specific snapshot_id.
     :param Mapping[str, builtins.str] tags: List of Tag values, with a maximum of 50 elements.
     """
@@ -239,6 +254,7 @@ def get_open_zfs_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequenc
     __args__['filters'] = filters
     __args__['mostRecent'] = most_recent
     __args__['name'] = name
+    __args__['region'] = region
     __args__['snapshotIds'] = snapshot_ids
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -250,6 +266,7 @@ def get_open_zfs_snapshot_output(filters: Optional[pulumi.Input[Optional[Sequenc
         id=pulumi.get(__response__, 'id'),
         most_recent=pulumi.get(__response__, 'most_recent'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         snapshot_id=pulumi.get(__response__, 'snapshot_id'),
         snapshot_ids=pulumi.get(__response__, 'snapshot_ids'),
         tags=pulumi.get(__response__, 'tags'),

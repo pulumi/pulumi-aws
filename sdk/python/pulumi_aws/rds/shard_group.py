@@ -28,6 +28,7 @@ class ShardGroupArgs:
                  compute_redundancy: Optional[pulumi.Input[builtins.int]] = None,
                  min_acu: Optional[pulumi.Input[builtins.float]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ShardGroupTimeoutsArgs']] = None):
         """
@@ -38,6 +39,7 @@ class ShardGroupArgs:
         :param pulumi.Input[builtins.int] compute_redundancy: Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
         :param pulumi.Input[builtins.float] min_acu: The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
         :param pulumi.Input[builtins.bool] publicly_accessible: Indicates whether the DB shard group is publicly accessible.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
@@ -51,6 +53,8 @@ class ShardGroupArgs:
             pulumi.set(__self__, "min_acu", min_acu)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -130,6 +134,18 @@ class ShardGroupArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -164,6 +180,7 @@ class _ShardGroupState:
                  max_acu: Optional[pulumi.Input[builtins.float]] = None,
                  min_acu: Optional[pulumi.Input[builtins.float]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ShardGroupTimeoutsArgs']] = None):
@@ -178,6 +195,7 @@ class _ShardGroupState:
         :param pulumi.Input[builtins.float] max_acu: The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
         :param pulumi.Input[builtins.float] min_acu: The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
         :param pulumi.Input[builtins.bool] publicly_accessible: Indicates whether the DB shard group is publicly accessible.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
@@ -201,11 +219,10 @@ class _ShardGroupState:
             pulumi.set(__self__, "min_acu", min_acu)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
@@ -321,6 +338,18 @@ class _ShardGroupState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -335,7 +364,6 @@ class _ShardGroupState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -368,6 +396,7 @@ class ShardGroup(pulumi.CustomResource):
                  max_acu: Optional[pulumi.Input[builtins.float]] = None,
                  min_acu: Optional[pulumi.Input[builtins.float]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['ShardGroupTimeoutsArgs', 'ShardGroupTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -418,6 +447,7 @@ class ShardGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.float] max_acu: The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
         :param pulumi.Input[builtins.float] min_acu: The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
         :param pulumi.Input[builtins.bool] publicly_accessible: Indicates whether the DB shard group is publicly accessible.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
@@ -488,6 +518,7 @@ class ShardGroup(pulumi.CustomResource):
                  max_acu: Optional[pulumi.Input[builtins.float]] = None,
                  min_acu: Optional[pulumi.Input[builtins.float]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['ShardGroupTimeoutsArgs', 'ShardGroupTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -511,6 +542,7 @@ class ShardGroup(pulumi.CustomResource):
             __props__.__dict__["max_acu"] = max_acu
             __props__.__dict__["min_acu"] = min_acu
             __props__.__dict__["publicly_accessible"] = publicly_accessible
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["arn"] = None
@@ -536,6 +568,7 @@ class ShardGroup(pulumi.CustomResource):
             max_acu: Optional[pulumi.Input[builtins.float]] = None,
             min_acu: Optional[pulumi.Input[builtins.float]] = None,
             publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             timeouts: Optional[pulumi.Input[Union['ShardGroupTimeoutsArgs', 'ShardGroupTimeoutsArgsDict']]] = None) -> 'ShardGroup':
@@ -555,6 +588,7 @@ class ShardGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.float] max_acu: The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
         :param pulumi.Input[builtins.float] min_acu: The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
         :param pulumi.Input[builtins.bool] publicly_accessible: Indicates whether the DB shard group is publicly accessible.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
@@ -573,6 +607,7 @@ class ShardGroup(pulumi.CustomResource):
         __props__.__dict__["max_acu"] = max_acu
         __props__.__dict__["min_acu"] = min_acu
         __props__.__dict__["publicly_accessible"] = publicly_accessible
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -652,6 +687,14 @@ class ShardGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -662,7 +705,6 @@ class ShardGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

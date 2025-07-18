@@ -27,7 +27,7 @@ class GetRouteCalculatorResult:
     """
     A collection of values returned by getRouteCalculator.
     """
-    def __init__(__self__, calculator_arn=None, calculator_name=None, create_time=None, data_source=None, description=None, id=None, tags=None, update_time=None):
+    def __init__(__self__, calculator_arn=None, calculator_name=None, create_time=None, data_source=None, description=None, id=None, region=None, tags=None, update_time=None):
         if calculator_arn and not isinstance(calculator_arn, str):
             raise TypeError("Expected argument 'calculator_arn' to be a str")
         pulumi.set(__self__, "calculator_arn", calculator_arn)
@@ -46,6 +46,9 @@ class GetRouteCalculatorResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -100,6 +103,11 @@ class GetRouteCalculatorResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Key-value map of resource tags for the route calculator.
@@ -127,11 +135,13 @@ class AwaitableGetRouteCalculatorResult(GetRouteCalculatorResult):
             data_source=self.data_source,
             description=self.description,
             id=self.id,
+            region=self.region,
             tags=self.tags,
             update_time=self.update_time)
 
 
 def get_route_calculator(calculator_name: Optional[builtins.str] = None,
+                         region: Optional[builtins.str] = None,
                          tags: Optional[Mapping[str, builtins.str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteCalculatorResult:
     """
@@ -148,10 +158,12 @@ def get_route_calculator(calculator_name: Optional[builtins.str] = None,
 
 
     :param builtins.str calculator_name: Name of the route calculator resource.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the route calculator.
     """
     __args__ = dict()
     __args__['calculatorName'] = calculator_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:location/getRouteCalculator:getRouteCalculator', __args__, opts=opts, typ=GetRouteCalculatorResult).value
@@ -163,9 +175,11 @@ def get_route_calculator(calculator_name: Optional[builtins.str] = None,
         data_source=pulumi.get(__ret__, 'data_source'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
 def get_route_calculator_output(calculator_name: Optional[pulumi.Input[builtins.str]] = None,
+                                region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteCalculatorResult]:
     """
@@ -182,10 +196,12 @@ def get_route_calculator_output(calculator_name: Optional[pulumi.Input[builtins.
 
 
     :param builtins.str calculator_name: Name of the route calculator resource.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the route calculator.
     """
     __args__ = dict()
     __args__['calculatorName'] = calculator_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:location/getRouteCalculator:getRouteCalculator', __args__, opts=opts, typ=GetRouteCalculatorResult)
@@ -196,5 +212,6 @@ def get_route_calculator_output(calculator_name: Optional[pulumi.Input[builtins.
         data_source=pulumi.get(__response__, 'data_source'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         update_time=pulumi.get(__response__, 'update_time')))

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ type GetApiKeysArgs struct {
 	CustomerId *string `pulumi:"customerId"`
 	// Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
 	IncludeValues *bool `pulumi:"includeValues"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getApiKeys.
@@ -62,7 +64,8 @@ type GetApiKeysResult struct {
 	Id            string `pulumi:"id"`
 	IncludeValues *bool  `pulumi:"includeValues"`
 	// List of objects containing API Key information. See below.
-	Items []GetApiKeysItem `pulumi:"items"`
+	Items  []GetApiKeysItem `pulumi:"items"`
+	Region string           `pulumi:"region"`
 }
 
 func GetApiKeysOutput(ctx *pulumi.Context, args GetApiKeysOutputArgs, opts ...pulumi.InvokeOption) GetApiKeysResultOutput {
@@ -80,6 +83,8 @@ type GetApiKeysOutputArgs struct {
 	CustomerId pulumi.StringPtrInput `pulumi:"customerId"`
 	// Set this value to `true` if you wish the result contains the key value. Defaults to `false`.
 	IncludeValues pulumi.BoolPtrInput `pulumi:"includeValues"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetApiKeysOutputArgs) ElementType() reflect.Type {
@@ -118,6 +123,10 @@ func (o GetApiKeysResultOutput) IncludeValues() pulumi.BoolPtrOutput {
 // List of objects containing API Key information. See below.
 func (o GetApiKeysResultOutput) Items() GetApiKeysItemArrayOutput {
 	return o.ApplyT(func(v GetApiKeysResult) []GetApiKeysItem { return v.Items }).(GetApiKeysItemArrayOutput)
+}
+
+func (o GetApiKeysResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApiKeysResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -24,14 +24,18 @@ class DefaultRouteTablePropagationArgs:
     def __init__(__self__, *,
                  transit_gateway_id: pulumi.Input[builtins.str],
                  transit_gateway_route_table_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['DefaultRouteTablePropagationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a DefaultRouteTablePropagation resource.
         :param pulumi.Input[builtins.str] transit_gateway_id: ID of the Transit Gateway to change the default association route table on.
         :param pulumi.Input[builtins.str] transit_gateway_route_table_id: ID of the Transit Gateway Route Table to be made the default association route table.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         pulumi.set(__self__, "transit_gateway_route_table_id", transit_gateway_route_table_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -61,6 +65,18 @@ class DefaultRouteTablePropagationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['DefaultRouteTablePropagationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -73,16 +89,20 @@ class DefaultRouteTablePropagationArgs:
 class _DefaultRouteTablePropagationState:
     def __init__(__self__, *,
                  original_default_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['DefaultRouteTablePropagationTimeoutsArgs']] = None,
                  transit_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_route_table_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering DefaultRouteTablePropagation resources.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] transit_gateway_id: ID of the Transit Gateway to change the default association route table on.
         :param pulumi.Input[builtins.str] transit_gateway_route_table_id: ID of the Transit Gateway Route Table to be made the default association route table.
         """
         if original_default_route_table_id is not None:
             pulumi.set(__self__, "original_default_route_table_id", original_default_route_table_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
         if transit_gateway_id is not None:
@@ -98,6 +118,18 @@ class _DefaultRouteTablePropagationState:
     @original_default_route_table_id.setter
     def original_default_route_table_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "original_default_route_table_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -139,6 +171,7 @@ class DefaultRouteTablePropagation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['DefaultRouteTablePropagationTimeoutsArgs', 'DefaultRouteTablePropagationTimeoutsArgsDict']]] = None,
                  transit_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -161,6 +194,7 @@ class DefaultRouteTablePropagation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] transit_gateway_id: ID of the Transit Gateway to change the default association route table on.
         :param pulumi.Input[builtins.str] transit_gateway_route_table_id: ID of the Transit Gateway Route Table to be made the default association route table.
         """
@@ -201,6 +235,7 @@ class DefaultRouteTablePropagation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['DefaultRouteTablePropagationTimeoutsArgs', 'DefaultRouteTablePropagationTimeoutsArgsDict']]] = None,
                  transit_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -213,6 +248,7 @@ class DefaultRouteTablePropagation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DefaultRouteTablePropagationArgs.__new__(DefaultRouteTablePropagationArgs)
 
+            __props__.__dict__["region"] = region
             __props__.__dict__["timeouts"] = timeouts
             if transit_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_id'")
@@ -232,6 +268,7 @@ class DefaultRouteTablePropagation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             original_default_route_table_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             timeouts: Optional[pulumi.Input[Union['DefaultRouteTablePropagationTimeoutsArgs', 'DefaultRouteTablePropagationTimeoutsArgsDict']]] = None,
             transit_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
             transit_gateway_route_table_id: Optional[pulumi.Input[builtins.str]] = None) -> 'DefaultRouteTablePropagation':
@@ -242,6 +279,7 @@ class DefaultRouteTablePropagation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] transit_gateway_id: ID of the Transit Gateway to change the default association route table on.
         :param pulumi.Input[builtins.str] transit_gateway_route_table_id: ID of the Transit Gateway Route Table to be made the default association route table.
         """
@@ -250,6 +288,7 @@ class DefaultRouteTablePropagation(pulumi.CustomResource):
         __props__ = _DefaultRouteTablePropagationState.__new__(_DefaultRouteTablePropagationState)
 
         __props__.__dict__["original_default_route_table_id"] = original_default_route_table_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["timeouts"] = timeouts
         __props__.__dict__["transit_gateway_id"] = transit_gateway_id
         __props__.__dict__["transit_gateway_route_table_id"] = transit_gateway_route_table_id
@@ -259,6 +298,14 @@ class DefaultRouteTablePropagation(pulumi.CustomResource):
     @pulumi.getter(name="originalDefaultRouteTableId")
     def original_default_route_table_id(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "original_default_route_table_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

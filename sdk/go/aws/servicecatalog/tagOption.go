@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,6 +58,8 @@ type TagOption struct {
 	// Tag option key.
 	Key   pulumi.StringOutput `pulumi:"key"`
 	Owner pulumi.StringOutput `pulumi:"owner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Tag option value.
 	//
 	// The following arguments are optional:
@@ -105,6 +107,8 @@ type tagOptionState struct {
 	// Tag option key.
 	Key   *string `pulumi:"key"`
 	Owner *string `pulumi:"owner"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tag option value.
 	//
 	// The following arguments are optional:
@@ -117,6 +121,8 @@ type TagOptionState struct {
 	// Tag option key.
 	Key   pulumi.StringPtrInput
 	Owner pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tag option value.
 	//
 	// The following arguments are optional:
@@ -132,6 +138,8 @@ type tagOptionArgs struct {
 	Active *bool `pulumi:"active"`
 	// Tag option key.
 	Key string `pulumi:"key"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tag option value.
 	//
 	// The following arguments are optional:
@@ -144,6 +152,8 @@ type TagOptionArgs struct {
 	Active pulumi.BoolPtrInput
 	// Tag option key.
 	Key pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tag option value.
 	//
 	// The following arguments are optional:
@@ -249,6 +259,11 @@ func (o TagOptionOutput) Key() pulumi.StringOutput {
 
 func (o TagOptionOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagOption) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o TagOptionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TagOption) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Tag option value.

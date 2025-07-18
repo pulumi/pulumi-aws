@@ -93,6 +93,10 @@ export class ApprovalRuleTemplate extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The SHA-256 hash signature for the content of the approval rule template.
      */
     public /*out*/ readonly ruleContentSha256!: pulumi.Output<string>;
@@ -117,6 +121,7 @@ export class ApprovalRuleTemplate extends pulumi.CustomResource {
             resourceInputs["lastModifiedDate"] = state ? state.lastModifiedDate : undefined;
             resourceInputs["lastModifiedUser"] = state ? state.lastModifiedUser : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["ruleContentSha256"] = state ? state.ruleContentSha256 : undefined;
         } else {
             const args = argsOrState as ApprovalRuleTemplateArgs | undefined;
@@ -126,6 +131,7 @@ export class ApprovalRuleTemplate extends pulumi.CustomResource {
             resourceInputs["content"] = args ? args.content : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["approvalRuleTemplateId"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["lastModifiedDate"] = undefined /*out*/;
@@ -170,6 +176,10 @@ export interface ApprovalRuleTemplateState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The SHA-256 hash signature for the content of the approval rule template.
      */
     ruleContentSha256?: pulumi.Input<string>;
@@ -191,4 +201,8 @@ export interface ApprovalRuleTemplateArgs {
      * The name for the approval rule template. Maximum of 100 characters.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

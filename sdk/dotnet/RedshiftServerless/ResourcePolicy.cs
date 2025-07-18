@@ -72,6 +72,12 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<string> Policy { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
         /// </summary>
         [Output("resourceArn")]
@@ -130,6 +136,12 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<string> Policy { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
         /// </summary>
         [Input("resourceArn", required: true)]
@@ -148,6 +160,12 @@ namespace Pulumi.Aws.RedshiftServerless
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the account to create or update a resource policy for.

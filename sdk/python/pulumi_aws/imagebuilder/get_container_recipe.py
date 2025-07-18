@@ -28,7 +28,7 @@ class GetContainerRecipeResult:
     """
     A collection of values returned by getContainerRecipe.
     """
-    def __init__(__self__, arn=None, components=None, container_type=None, date_created=None, description=None, dockerfile_template_data=None, encrypted=None, id=None, instance_configurations=None, kms_key_id=None, name=None, owner=None, parent_image=None, platform=None, tags=None, target_repositories=None, version=None, working_directory=None):
+    def __init__(__self__, arn=None, components=None, container_type=None, date_created=None, description=None, dockerfile_template_data=None, encrypted=None, id=None, instance_configurations=None, kms_key_id=None, name=None, owner=None, parent_image=None, platform=None, region=None, tags=None, target_repositories=None, version=None, working_directory=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -71,6 +71,9 @@ class GetContainerRecipeResult:
         if platform and not isinstance(platform, str):
             raise TypeError("Expected argument 'platform' to be a str")
         pulumi.set(__self__, "platform", platform)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -195,6 +198,11 @@ class GetContainerRecipeResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Key-value map of resource tags for the container recipe.
@@ -246,6 +254,7 @@ class AwaitableGetContainerRecipeResult(GetContainerRecipeResult):
             owner=self.owner,
             parent_image=self.parent_image,
             platform=self.platform,
+            region=self.region,
             tags=self.tags,
             target_repositories=self.target_repositories,
             version=self.version,
@@ -253,6 +262,7 @@ class AwaitableGetContainerRecipeResult(GetContainerRecipeResult):
 
 
 def get_container_recipe(arn: Optional[builtins.str] = None,
+                         region: Optional[builtins.str] = None,
                          tags: Optional[Mapping[str, builtins.str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerRecipeResult:
     """
@@ -269,10 +279,12 @@ def get_container_recipe(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: ARN of the container recipe.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the container recipe.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:imagebuilder/getContainerRecipe:getContainerRecipe', __args__, opts=opts, typ=GetContainerRecipeResult).value
@@ -292,11 +304,13 @@ def get_container_recipe(arn: Optional[builtins.str] = None,
         owner=pulumi.get(__ret__, 'owner'),
         parent_image=pulumi.get(__ret__, 'parent_image'),
         platform=pulumi.get(__ret__, 'platform'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         target_repositories=pulumi.get(__ret__, 'target_repositories'),
         version=pulumi.get(__ret__, 'version'),
         working_directory=pulumi.get(__ret__, 'working_directory'))
 def get_container_recipe_output(arn: Optional[pulumi.Input[builtins.str]] = None,
+                                region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerRecipeResult]:
     """
@@ -313,10 +327,12 @@ def get_container_recipe_output(arn: Optional[pulumi.Input[builtins.str]] = None
 
 
     :param builtins.str arn: ARN of the container recipe.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the container recipe.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getContainerRecipe:getContainerRecipe', __args__, opts=opts, typ=GetContainerRecipeResult)
@@ -335,6 +351,7 @@ def get_container_recipe_output(arn: Optional[pulumi.Input[builtins.str]] = None
         owner=pulumi.get(__response__, 'owner'),
         parent_image=pulumi.get(__response__, 'parent_image'),
         platform=pulumi.get(__response__, 'platform'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         target_repositories=pulumi.get(__response__, 'target_repositories'),
         version=pulumi.get(__response__, 'version'),

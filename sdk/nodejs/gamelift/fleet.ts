@@ -120,6 +120,10 @@ export class Fleet extends pulumi.CustomResource {
      */
     public /*out*/ readonly operatingSystem!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
      */
     public readonly resourceCreationLimitPolicy!: pulumi.Output<outputs.gamelift.FleetResourceCreationLimitPolicy | undefined>;
@@ -141,8 +145,6 @@ export class Fleet extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -173,6 +175,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["newGameSessionProtectionPolicy"] = state ? state.newGameSessionProtectionPolicy : undefined;
             resourceInputs["operatingSystem"] = state ? state.operatingSystem : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceCreationLimitPolicy"] = state ? state.resourceCreationLimitPolicy : undefined;
             resourceInputs["runtimeConfiguration"] = state ? state.runtimeConfiguration : undefined;
             resourceInputs["scriptArn"] = state ? state.scriptArn : undefined;
@@ -194,6 +197,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["metricGroups"] = args ? args.metricGroups : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["newGameSessionProtectionPolicy"] = args ? args.newGameSessionProtectionPolicy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceCreationLimitPolicy"] = args ? args.resourceCreationLimitPolicy : undefined;
             resourceInputs["runtimeConfiguration"] = args ? args.runtimeConfiguration : undefined;
             resourceInputs["scriptId"] = args ? args.scriptId : undefined;
@@ -268,6 +272,10 @@ export interface FleetState {
      */
     operatingSystem?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
      */
     resourceCreationLimitPolicy?: pulumi.Input<inputs.gamelift.FleetResourceCreationLimitPolicy>;
@@ -289,8 +297,6 @@ export interface FleetState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -339,6 +345,10 @@ export interface FleetArgs {
      * Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
      */
     newGameSessionProtectionPolicy?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
      */

@@ -80,6 +80,12 @@ namespace Pulumi.Aws.Inspector2
         public Output<ImmutableArray<string>> AccountIds { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Type of resources to scan.
         /// Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
         /// At least one item is required.
@@ -146,6 +152,12 @@ namespace Pulumi.Aws.Inspector2
             set => _accountIds = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resourceTypes", required: true)]
         private InputList<string>? _resourceTypes;
 
@@ -180,6 +192,12 @@ namespace Pulumi.Aws.Inspector2
             get => _accountIds ?? (_accountIds = new InputList<string>());
             set => _accountIds = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("resourceTypes")]
         private InputList<string>? _resourceTypes;

@@ -27,6 +27,7 @@ class ApplicationArgs:
                  grouping_type: Optional[pulumi.Input[builtins.str]] = None,
                  ops_center_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  ops_item_sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
@@ -39,6 +40,7 @@ class ApplicationArgs:
         :param pulumi.Input[builtins.str] grouping_type: Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
         :param pulumi.Input[builtins.bool] ops_center_enabled: When set to `true`, creates opsItems for any problems detected on an application.
         :param pulumi.Input[builtins.str] ops_item_sns_topic_arn: SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -54,6 +56,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "ops_center_enabled", ops_center_enabled)
         if ops_item_sns_topic_arn is not None:
             pulumi.set(__self__, "ops_item_sns_topic_arn", ops_item_sns_topic_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -145,6 +149,18 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -166,6 +182,7 @@ class _ApplicationState:
                  grouping_type: Optional[pulumi.Input[builtins.str]] = None,
                  ops_center_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  ops_item_sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -178,6 +195,7 @@ class _ApplicationState:
         :param pulumi.Input[builtins.str] grouping_type: Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
         :param pulumi.Input[builtins.bool] ops_center_enabled: When set to `true`, creates opsItems for any problems detected on an application.
         :param pulumi.Input[builtins.str] ops_item_sns_topic_arn: SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_group_name: Name of the resource group.
                
                The following arguments are optional:
@@ -198,13 +216,12 @@ class _ApplicationState:
             pulumi.set(__self__, "ops_center_enabled", ops_center_enabled)
         if ops_item_sns_topic_arn is not None:
             pulumi.set(__self__, "ops_item_sns_topic_arn", ops_item_sns_topic_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -293,6 +310,18 @@ class _ApplicationState:
         pulumi.set(self, "ops_item_sns_topic_arn", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -320,7 +349,6 @@ class _ApplicationState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -344,6 +372,7 @@ class Application(pulumi.CustomResource):
                  grouping_type: Optional[pulumi.Input[builtins.str]] = None,
                  ops_center_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  ops_item_sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -387,6 +416,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] grouping_type: Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
         :param pulumi.Input[builtins.bool] ops_center_enabled: When set to `true`, creates opsItems for any problems detected on an application.
         :param pulumi.Input[builtins.str] ops_item_sns_topic_arn: SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_group_name: Name of the resource group.
                
                The following arguments are optional:
@@ -451,6 +481,7 @@ class Application(pulumi.CustomResource):
                  grouping_type: Optional[pulumi.Input[builtins.str]] = None,
                  ops_center_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  ops_item_sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -468,6 +499,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["grouping_type"] = grouping_type
             __props__.__dict__["ops_center_enabled"] = ops_center_enabled
             __props__.__dict__["ops_item_sns_topic_arn"] = ops_item_sns_topic_arn
+            __props__.__dict__["region"] = region
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -491,6 +523,7 @@ class Application(pulumi.CustomResource):
             grouping_type: Optional[pulumi.Input[builtins.str]] = None,
             ops_center_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             ops_item_sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Application':
@@ -508,6 +541,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] grouping_type: Application Insights can create applications based on a resource group or on an account. To create an account-based application using all of the resources in the account, set this parameter to `ACCOUNT_BASED`.
         :param pulumi.Input[builtins.bool] ops_center_enabled: When set to `true`, creates opsItems for any problems detected on an application.
         :param pulumi.Input[builtins.str] ops_item_sns_topic_arn: SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_group_name: Name of the resource group.
                
                The following arguments are optional:
@@ -525,6 +559,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["grouping_type"] = grouping_type
         __props__.__dict__["ops_center_enabled"] = ops_center_enabled
         __props__.__dict__["ops_item_sns_topic_arn"] = ops_item_sns_topic_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -587,6 +622,14 @@ class Application(pulumi.CustomResource):
         return pulumi.get(self, "ops_item_sns_topic_arn")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[builtins.str]:
         """
@@ -606,7 +649,6 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

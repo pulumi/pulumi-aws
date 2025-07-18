@@ -25,6 +25,7 @@ public final class GetResolverFirewallConfigResult {
      * 
      */
     private String ownerId;
+    private String region;
     private String resourceId;
 
     private GetResolverFirewallConfigResult() {}
@@ -49,6 +50,9 @@ public final class GetResolverFirewallConfigResult {
     public String ownerId() {
         return this.ownerId;
     }
+    public String region() {
+        return this.region;
+    }
     public String resourceId() {
         return this.resourceId;
     }
@@ -65,6 +69,7 @@ public final class GetResolverFirewallConfigResult {
         private String firewallFailOpen;
         private String id;
         private String ownerId;
+        private String region;
         private String resourceId;
         public Builder() {}
         public Builder(GetResolverFirewallConfigResult defaults) {
@@ -72,6 +77,7 @@ public final class GetResolverFirewallConfigResult {
     	      this.firewallFailOpen = defaults.firewallFailOpen;
     	      this.id = defaults.id;
     	      this.ownerId = defaults.ownerId;
+    	      this.region = defaults.region;
     	      this.resourceId = defaults.resourceId;
         }
 
@@ -100,6 +106,14 @@ public final class GetResolverFirewallConfigResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallConfigResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceId(String resourceId) {
             if (resourceId == null) {
               throw new MissingRequiredPropertyException("GetResolverFirewallConfigResult", "resourceId");
@@ -112,6 +126,7 @@ public final class GetResolverFirewallConfigResult {
             _resultValue.firewallFailOpen = firewallFailOpen;
             _resultValue.id = id;
             _resultValue.ownerId = ownerId;
+            _resultValue.region = region;
             _resultValue.resourceId = resourceId;
             return _resultValue;
         }

@@ -39,6 +39,12 @@ namespace Pulumi.Aws.Glue
         [Input("catalogId", required: true)]
         public string CatalogId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetDataCatalogEncryptionSettingsArgs()
         {
         }
@@ -52,6 +58,12 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("catalogId", required: true)]
         public Input<string> CatalogId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetDataCatalogEncryptionSettingsInvokeArgs()
         {
@@ -72,6 +84,7 @@ namespace Pulumi.Aws.Glue
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetDataCatalogEncryptionSettingsResult(
@@ -79,11 +92,14 @@ namespace Pulumi.Aws.Glue
 
             ImmutableArray<Outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult> dataCatalogEncryptionSettings,
 
-            string id)
+            string id,
+
+            string region)
         {
             CatalogId = catalogId;
             DataCatalogEncryptionSettings = dataCatalogEncryptionSettings;
             Id = id;
+            Region = region;
         }
     }
 }

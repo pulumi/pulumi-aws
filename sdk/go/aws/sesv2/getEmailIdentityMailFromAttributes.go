@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,6 +60,8 @@ func LookupEmailIdentityMailFromAttributes(ctx *pulumi.Context, args *LookupEmai
 type LookupEmailIdentityMailFromAttributesArgs struct {
 	// The name of the email identity.
 	EmailIdentity string `pulumi:"emailIdentity"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getEmailIdentityMailFromAttributes.
@@ -71,6 +73,7 @@ type LookupEmailIdentityMailFromAttributesResult struct {
 	Id string `pulumi:"id"`
 	// The custom MAIL FROM domain that you want the verified identity to use.
 	MailFromDomain string `pulumi:"mailFromDomain"`
+	Region         string `pulumi:"region"`
 }
 
 func LookupEmailIdentityMailFromAttributesOutput(ctx *pulumi.Context, args LookupEmailIdentityMailFromAttributesOutputArgs, opts ...pulumi.InvokeOption) LookupEmailIdentityMailFromAttributesResultOutput {
@@ -86,6 +89,8 @@ func LookupEmailIdentityMailFromAttributesOutput(ctx *pulumi.Context, args Looku
 type LookupEmailIdentityMailFromAttributesOutputArgs struct {
 	// The name of the email identity.
 	EmailIdentity pulumi.StringInput `pulumi:"emailIdentity"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupEmailIdentityMailFromAttributesOutputArgs) ElementType() reflect.Type {
@@ -124,6 +129,10 @@ func (o LookupEmailIdentityMailFromAttributesResultOutput) Id() pulumi.StringOut
 // The custom MAIL FROM domain that you want the verified identity to use.
 func (o LookupEmailIdentityMailFromAttributesResultOutput) MailFromDomain() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailIdentityMailFromAttributesResult) string { return v.MailFromDomain }).(pulumi.StringOutput)
+}
+
+func (o LookupEmailIdentityMailFromAttributesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEmailIdentityMailFromAttributesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

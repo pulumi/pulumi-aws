@@ -28,7 +28,7 @@ class GetReceivedLicenseResult:
     """
     A collection of values returned by getReceivedLicense.
     """
-    def __init__(__self__, beneficiary=None, consumption_configurations=None, create_time=None, entitlements=None, home_region=None, id=None, issuers=None, license_arn=None, license_metadatas=None, license_name=None, product_name=None, product_sku=None, received_metadatas=None, status=None, validities=None, version=None):
+    def __init__(__self__, beneficiary=None, consumption_configurations=None, create_time=None, entitlements=None, home_region=None, id=None, issuers=None, license_arn=None, license_metadatas=None, license_name=None, product_name=None, product_sku=None, received_metadatas=None, region=None, status=None, validities=None, version=None):
         if beneficiary and not isinstance(beneficiary, str):
             raise TypeError("Expected argument 'beneficiary' to be a str")
         pulumi.set(__self__, "beneficiary", beneficiary)
@@ -68,6 +68,9 @@ class GetReceivedLicenseResult:
         if received_metadatas and not isinstance(received_metadatas, list):
             raise TypeError("Expected argument 'received_metadatas' to be a list")
         pulumi.set(__self__, "received_metadatas", received_metadatas)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -182,6 +185,11 @@ class GetReceivedLicenseResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def status(self) -> builtins.str:
         """
         Granted license status.
@@ -224,12 +232,14 @@ class AwaitableGetReceivedLicenseResult(GetReceivedLicenseResult):
             product_name=self.product_name,
             product_sku=self.product_sku,
             received_metadatas=self.received_metadatas,
+            region=self.region,
             status=self.status,
             validities=self.validities,
             version=self.version)
 
 
 def get_received_license(license_arn: Optional[builtins.str] = None,
+                         region: Optional[builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReceivedLicenseResult:
     """
     This resource can be used to get data on a received license using an ARN. This can be helpful for pulling in data on a license from the AWS marketplace and sharing that license with another account.
@@ -247,9 +257,11 @@ def get_received_license(license_arn: Optional[builtins.str] = None,
 
 
     :param builtins.str license_arn: The ARN of the received license you want data for.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['licenseArn'] = license_arn
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:licensemanager/getReceivedLicense:getReceivedLicense', __args__, opts=opts, typ=GetReceivedLicenseResult).value
 
@@ -267,10 +279,12 @@ def get_received_license(license_arn: Optional[builtins.str] = None,
         product_name=pulumi.get(__ret__, 'product_name'),
         product_sku=pulumi.get(__ret__, 'product_sku'),
         received_metadatas=pulumi.get(__ret__, 'received_metadatas'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
         validities=pulumi.get(__ret__, 'validities'),
         version=pulumi.get(__ret__, 'version'))
 def get_received_license_output(license_arn: Optional[pulumi.Input[builtins.str]] = None,
+                                region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReceivedLicenseResult]:
     """
     This resource can be used to get data on a received license using an ARN. This can be helpful for pulling in data on a license from the AWS marketplace and sharing that license with another account.
@@ -288,9 +302,11 @@ def get_received_license_output(license_arn: Optional[pulumi.Input[builtins.str]
 
 
     :param builtins.str license_arn: The ARN of the received license you want data for.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['licenseArn'] = license_arn
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:licensemanager/getReceivedLicense:getReceivedLicense', __args__, opts=opts, typ=GetReceivedLicenseResult)
     return __ret__.apply(lambda __response__: GetReceivedLicenseResult(
@@ -307,6 +323,7 @@ def get_received_license_output(license_arn: Optional[pulumi.Input[builtins.str]
         product_name=pulumi.get(__response__, 'product_name'),
         product_sku=pulumi.get(__response__, 'product_sku'),
         received_metadatas=pulumi.get(__response__, 'received_metadatas'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status'),
         validities=pulumi.get(__response__, 'validities'),
         version=pulumi.get(__response__, 'version')))

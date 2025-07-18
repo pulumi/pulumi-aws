@@ -25,6 +25,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getCluster:getCluster", {
         "clusterIdentifier": args.clusterIdentifier,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,10 @@ export interface GetClusterArgs {
      * Cluster identifier of the RDS cluster.
      */
     clusterIdentifier: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * A map of tags assigned to the resource.
      */
@@ -83,6 +88,7 @@ export interface GetClusterResult {
     readonly preferredBackupWindow: string;
     readonly preferredMaintenanceWindow: string;
     readonly readerEndpoint: string;
+    readonly region: string;
     readonly replicationSourceIdentifier: string;
     readonly storageEncrypted: boolean;
     /**
@@ -109,6 +115,7 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:rds/getCluster:getCluster", {
         "clusterIdentifier": args.clusterIdentifier,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -121,6 +128,10 @@ export interface GetClusterOutputArgs {
      * Cluster identifier of the RDS cluster.
      */
     clusterIdentifier: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags assigned to the resource.
      */

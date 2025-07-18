@@ -41,6 +41,7 @@ export function getNatGateway(args?: GetNatGatewayArgs, opts?: pulumi.InvokeOpti
     return pulumi.runtime.invoke("aws:ec2/getNatGateway:getNatGateway", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "state": args.state,
         "subnetId": args.subnetId,
         "tags": args.tags,
@@ -64,6 +65,10 @@ export interface GetNatGatewayArgs {
      * ID of the specific NAT Gateway to retrieve.
      */
     id?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * State of the NAT Gateway (pending | failed | available | deleting | deleted ).
      */
@@ -113,6 +118,7 @@ export interface GetNatGatewayResult {
      * Public IP (EIP) address of the selected NAT Gateway.
      */
     readonly publicIp: string;
+    readonly region: string;
     /**
      * Secondary allocation EIP IDs for the selected NAT Gateway.
      */
@@ -164,6 +170,7 @@ export function getNatGatewayOutput(args?: GetNatGatewayOutputArgs, opts?: pulum
     return pulumi.runtime.invokeOutput("aws:ec2/getNatGateway:getNatGateway", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "state": args.state,
         "subnetId": args.subnetId,
         "tags": args.tags,
@@ -187,6 +194,10 @@ export interface GetNatGatewayOutputArgs {
      * ID of the specific NAT Gateway to retrieve.
      */
     id?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * State of the NAT Gateway (pending | failed | available | deleting | deleted ).
      */

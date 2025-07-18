@@ -52,6 +52,7 @@ export function getExperimentTemplates(args?: GetExperimentTemplatesArgs, opts?:
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:fis/getExperimentTemplates:getExperimentTemplates", {
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -60,6 +61,10 @@ export function getExperimentTemplates(args?: GetExperimentTemplatesArgs, opts?:
  * A collection of arguments for invoking getExperimentTemplates.
  */
 export interface GetExperimentTemplatesArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired experiment templates.
@@ -79,6 +84,7 @@ export interface GetExperimentTemplatesResult {
      * List of all the experiment template ids found.
      */
     readonly ids: string[];
+    readonly region: string;
     readonly tags?: {[key: string]: string};
 }
 /**
@@ -129,6 +135,7 @@ export function getExperimentTemplatesOutput(args?: GetExperimentTemplatesOutput
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:fis/getExperimentTemplates:getExperimentTemplates", {
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -137,6 +144,10 @@ export function getExperimentTemplatesOutput(args?: GetExperimentTemplatesOutput
  * A collection of arguments for invoking getExperimentTemplates.
  */
 export interface GetExperimentTemplatesOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired experiment templates.

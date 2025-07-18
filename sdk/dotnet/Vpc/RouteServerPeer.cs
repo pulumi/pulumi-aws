@@ -154,7 +154,15 @@ namespace Pulumi.Aws.Vpc
         public Output<string> PeerAddress { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the route server endpoint for which to create a peer.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("routeServerEndpointId")]
         public Output<string> RouteServerEndpointId { get; private set; } = null!;
@@ -177,6 +185,9 @@ namespace Pulumi.Aws.Vpc
         [Output("subnetId")]
         public Output<string> SubnetId { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -254,13 +265,25 @@ namespace Pulumi.Aws.Vpc
         public Input<string> PeerAddress { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID of the route server endpoint for which to create a peer.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("routeServerEndpointId", required: true)]
         public Input<string> RouteServerEndpointId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -309,7 +332,15 @@ namespace Pulumi.Aws.Vpc
         public Input<string>? PeerAddress { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID of the route server endpoint for which to create a peer.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("routeServerEndpointId")]
         public Input<string>? RouteServerEndpointId { get; set; }
@@ -334,6 +365,10 @@ namespace Pulumi.Aws.Vpc
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -346,7 +381,6 @@ namespace Pulumi.Aws.Vpc
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

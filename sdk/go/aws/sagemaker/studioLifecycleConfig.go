@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -63,6 +63,8 @@ type StudioLifecycleConfig struct {
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
 	StudioLifecycleConfigAppType pulumi.StringOutput `pulumi:"studioLifecycleConfigAppType"`
 	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
@@ -72,8 +74,6 @@ type StudioLifecycleConfig struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -118,6 +118,8 @@ func GetStudioLifecycleConfig(ctx *pulumi.Context,
 type studioLifecycleConfigState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
 	Arn *string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
 	StudioLifecycleConfigAppType *string `pulumi:"studioLifecycleConfigAppType"`
 	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
@@ -127,14 +129,14 @@ type studioLifecycleConfigState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type StudioLifecycleConfigState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
 	Arn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
 	StudioLifecycleConfigAppType pulumi.StringPtrInput
 	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
@@ -144,8 +146,6 @@ type StudioLifecycleConfigState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -154,6 +154,8 @@ func (StudioLifecycleConfigState) ElementType() reflect.Type {
 }
 
 type studioLifecycleConfigArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
 	StudioLifecycleConfigAppType string `pulumi:"studioLifecycleConfigAppType"`
 	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
@@ -166,6 +168,8 @@ type studioLifecycleConfigArgs struct {
 
 // The set of arguments for constructing a StudioLifecycleConfig resource.
 type StudioLifecycleConfigArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
 	StudioLifecycleConfigAppType pulumi.StringInput
 	// The content of your Studio Lifecycle Configuration script. This content must be base64 encoded.
@@ -268,6 +272,11 @@ func (o StudioLifecycleConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioLifecycleConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o StudioLifecycleConfigOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *StudioLifecycleConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
 func (o StudioLifecycleConfigOutput) StudioLifecycleConfigAppType() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioLifecycleConfig) pulumi.StringOutput { return v.StudioLifecycleConfigAppType }).(pulumi.StringOutput)
@@ -289,8 +298,6 @@ func (o StudioLifecycleConfigOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o StudioLifecycleConfigOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StudioLifecycleConfig) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

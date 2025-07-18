@@ -84,15 +84,15 @@ namespace Pulumi.Aws.Transcribe
     ///         }),
     ///     });
     /// 
-    ///     var exampleBucketV2 = new Aws.S3.BucketV2("example", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         Bucket = "example-transcribe",
+    ///         BucketName = "example-transcribe",
     ///         ForceDestroy = true,
     ///     });
     /// 
     ///     var @object = new Aws.S3.BucketObjectv2("object", new()
     ///     {
-    ///         Bucket = exampleBucketV2.Id,
+    ///         Bucket = exampleBucket.Id,
     ///         Key = "transcribe/test1.txt",
     ///         Source = new FileAsset("test1.txt"),
     ///     });
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Transcribe
     ///         InputDataConfig = new Aws.Transcribe.Inputs.LanguageModelInputDataConfigArgs
     ///         {
     ///             DataAccessRoleArn = exampleRole.Arn,
-    ///             S3Uri = exampleBucketV2.Id.Apply(id =&gt; $"s3://{id}/transcribe/"),
+    ///             S3Uri = exampleBucket.Id.Apply(id =&gt; $"s3://{id}/transcribe/"),
     ///         },
     ///         LanguageCode = "en-US",
     ///         Tags = 
@@ -156,6 +156,12 @@ namespace Pulumi.Aws.Transcribe
         /// </summary>
         [Output("modelName")]
         public Output<string> ModelName { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -233,6 +239,12 @@ namespace Pulumi.Aws.Transcribe
         [Input("modelName", required: true)]
         public Input<string> ModelName { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
         public InputMap<string> Tags
@@ -279,6 +291,12 @@ namespace Pulumi.Aws.Transcribe
         [Input("modelName")]
         public Input<string>? ModelName { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
         public InputMap<string> Tags
@@ -289,7 +307,6 @@ namespace Pulumi.Aws.Transcribe
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

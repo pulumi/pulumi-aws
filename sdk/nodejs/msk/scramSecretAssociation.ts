@@ -110,6 +110,10 @@ export class ScramSecretAssociation extends pulumi.CustomResource {
      */
     public readonly clusterArn!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of AWS Secrets Manager secret ARNs.
      */
     public readonly secretArnLists!: pulumi.Output<string[]>;
@@ -128,6 +132,7 @@ export class ScramSecretAssociation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ScramSecretAssociationState | undefined;
             resourceInputs["clusterArn"] = state ? state.clusterArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["secretArnLists"] = state ? state.secretArnLists : undefined;
         } else {
             const args = argsOrState as ScramSecretAssociationArgs | undefined;
@@ -138,6 +143,7 @@ export class ScramSecretAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'secretArnLists'");
             }
             resourceInputs["clusterArn"] = args ? args.clusterArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["secretArnLists"] = args ? args.secretArnLists : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -154,6 +160,10 @@ export interface ScramSecretAssociationState {
      */
     clusterArn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of AWS Secrets Manager secret ARNs.
      */
     secretArnLists?: pulumi.Input<pulumi.Input<string>[]>;
@@ -167,6 +177,10 @@ export interface ScramSecretAssociationArgs {
      * Amazon Resource Name (ARN) of the MSK cluster.
      */
     clusterArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of AWS Secrets Manager secret ARNs.
      */

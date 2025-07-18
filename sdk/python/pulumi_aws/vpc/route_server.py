@@ -25,6 +25,7 @@ class RouteServerArgs:
                  amazon_side_asn: pulumi.Input[builtins.int],
                  persist_routes: Optional[pulumi.Input[builtins.str]] = None,
                  persist_routes_duration: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sns_notifications_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['RouteServerTimeoutsArgs']] = None):
@@ -35,6 +36,7 @@ class RouteServerArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] persist_routes: Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
         :param pulumi.Input[builtins.int] persist_routes_duration: The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] sns_notifications_enabled: Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -43,6 +45,8 @@ class RouteServerArgs:
             pulumi.set(__self__, "persist_routes", persist_routes)
         if persist_routes_duration is not None:
             pulumi.set(__self__, "persist_routes_duration", persist_routes_duration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sns_notifications_enabled is not None:
             pulumi.set(__self__, "sns_notifications_enabled", sns_notifications_enabled)
         if tags is not None:
@@ -89,6 +93,18 @@ class RouteServerArgs:
         pulumi.set(self, "persist_routes_duration", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="snsNotificationsEnabled")
     def sns_notifications_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -129,6 +145,7 @@ class _RouteServerState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  persist_routes: Optional[pulumi.Input[builtins.str]] = None,
                  persist_routes_duration: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_server_id: Optional[pulumi.Input[builtins.str]] = None,
                  sns_notifications_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -143,6 +160,7 @@ class _RouteServerState:
         :param pulumi.Input[builtins.str] arn: The ARN of the route server.
         :param pulumi.Input[builtins.str] persist_routes: Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
         :param pulumi.Input[builtins.int] persist_routes_duration: The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_server_id: The unique identifier of the route server.
         :param pulumi.Input[builtins.bool] sns_notifications_enabled: Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
         :param pulumi.Input[builtins.str] sns_topic_arn: The ARN of the SNS topic where notifications are published.
@@ -157,6 +175,8 @@ class _RouteServerState:
             pulumi.set(__self__, "persist_routes", persist_routes)
         if persist_routes_duration is not None:
             pulumi.set(__self__, "persist_routes_duration", persist_routes_duration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if route_server_id is not None:
             pulumi.set(__self__, "route_server_id", route_server_id)
         if sns_notifications_enabled is not None:
@@ -165,9 +185,6 @@ class _RouteServerState:
             pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
@@ -224,6 +241,18 @@ class _RouteServerState:
         pulumi.set(self, "persist_routes_duration", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="routeServerId")
     def route_server_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -273,7 +302,6 @@ class _RouteServerState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -303,6 +331,7 @@ class RouteServer(pulumi.CustomResource):
                  amazon_side_asn: Optional[pulumi.Input[builtins.int]] = None,
                  persist_routes: Optional[pulumi.Input[builtins.str]] = None,
                  persist_routes_duration: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sns_notifications_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['RouteServerTimeoutsArgs', 'RouteServerTimeoutsArgsDict']]] = None,
@@ -356,6 +385,7 @@ class RouteServer(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] persist_routes: Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
         :param pulumi.Input[builtins.int] persist_routes_duration: The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] sns_notifications_enabled: Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -425,6 +455,7 @@ class RouteServer(pulumi.CustomResource):
                  amazon_side_asn: Optional[pulumi.Input[builtins.int]] = None,
                  persist_routes: Optional[pulumi.Input[builtins.str]] = None,
                  persist_routes_duration: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sns_notifications_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['RouteServerTimeoutsArgs', 'RouteServerTimeoutsArgsDict']]] = None,
@@ -442,6 +473,7 @@ class RouteServer(pulumi.CustomResource):
             __props__.__dict__["amazon_side_asn"] = amazon_side_asn
             __props__.__dict__["persist_routes"] = persist_routes
             __props__.__dict__["persist_routes_duration"] = persist_routes_duration
+            __props__.__dict__["region"] = region
             __props__.__dict__["sns_notifications_enabled"] = sns_notifications_enabled
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
@@ -463,6 +495,7 @@ class RouteServer(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             persist_routes: Optional[pulumi.Input[builtins.str]] = None,
             persist_routes_duration: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             route_server_id: Optional[pulumi.Input[builtins.str]] = None,
             sns_notifications_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -482,6 +515,7 @@ class RouteServer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: The ARN of the route server.
         :param pulumi.Input[builtins.str] persist_routes: Indicates whether routes should be persisted after all BGP sessions are terminated. Valid values are `enable`, `disable`, `reset`
         :param pulumi.Input[builtins.int] persist_routes_duration: The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if `persist_routes` is enabled.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_server_id: The unique identifier of the route server.
         :param pulumi.Input[builtins.bool] sns_notifications_enabled: Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by AWS`.
         :param pulumi.Input[builtins.str] sns_topic_arn: The ARN of the SNS topic where notifications are published.
@@ -496,6 +530,7 @@ class RouteServer(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["persist_routes"] = persist_routes
         __props__.__dict__["persist_routes_duration"] = persist_routes_duration
+        __props__.__dict__["region"] = region
         __props__.__dict__["route_server_id"] = route_server_id
         __props__.__dict__["sns_notifications_enabled"] = sns_notifications_enabled
         __props__.__dict__["sns_topic_arn"] = sns_topic_arn
@@ -539,6 +574,14 @@ class RouteServer(pulumi.CustomResource):
         return pulumi.get(self, "persist_routes_duration")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="routeServerId")
     def route_server_id(self) -> pulumi.Output[builtins.str]:
         """
@@ -572,7 +615,6 @@ class RouteServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

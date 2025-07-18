@@ -38,9 +38,11 @@ class AppArgs:
                  enable_branch_auto_deletion: Optional[pulumi.Input[builtins.bool]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  iam_service_role_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 job_config: Optional[pulumi.Input['AppJobConfigArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  oauth_token: Optional[pulumi.Input[builtins.str]] = None,
                  platform: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -61,9 +63,11 @@ class AppArgs:
         :param pulumi.Input[builtins.bool] enable_branch_auto_deletion: Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables map for an Amplify app.
         :param pulumi.Input[builtins.str] iam_service_role_arn: AWS Identity and Access Management (IAM) service role for an Amplify app.
+        :param pulumi.Input['AppJobConfigArgs'] job_config: Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
         :param pulumi.Input[builtins.str] name: Name for an Amplify app.
         :param pulumi.Input[builtins.str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
         :param pulumi.Input[builtins.str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository: Repository for an Amplify app.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -99,12 +103,16 @@ class AppArgs:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if iam_service_role_arn is not None:
             pulumi.set(__self__, "iam_service_role_arn", iam_service_role_arn)
+        if job_config is not None:
+            pulumi.set(__self__, "job_config", job_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if oauth_token is not None:
             pulumi.set(__self__, "oauth_token", oauth_token)
         if platform is not None:
             pulumi.set(__self__, "platform", platform)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
         if tags is not None:
@@ -303,6 +311,18 @@ class AppArgs:
         pulumi.set(self, "iam_service_role_arn", value)
 
     @property
+    @pulumi.getter(name="jobConfig")
+    def job_config(self) -> Optional[pulumi.Input['AppJobConfigArgs']]:
+        """
+        Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+        """
+        return pulumi.get(self, "job_config")
+
+    @job_config.setter
+    def job_config(self, value: Optional[pulumi.Input['AppJobConfigArgs']]):
+        pulumi.set(self, "job_config", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -337,6 +357,18 @@ class AppArgs:
     @platform.setter
     def platform(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "platform", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -384,10 +416,12 @@ class _AppState:
                  enable_branch_auto_deletion: Optional[pulumi.Input[builtins.bool]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  iam_service_role_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 job_config: Optional[pulumi.Input['AppJobConfigArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  oauth_token: Optional[pulumi.Input[builtins.str]] = None,
                  platform: Optional[pulumi.Input[builtins.str]] = None,
                  production_branches: Optional[pulumi.Input[Sequence[pulumi.Input['AppProductionBranchArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -411,10 +445,12 @@ class _AppState:
         :param pulumi.Input[builtins.bool] enable_branch_auto_deletion: Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables map for an Amplify app.
         :param pulumi.Input[builtins.str] iam_service_role_arn: AWS Identity and Access Management (IAM) service role for an Amplify app.
+        :param pulumi.Input['AppJobConfigArgs'] job_config: Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
         :param pulumi.Input[builtins.str] name: Name for an Amplify app.
         :param pulumi.Input[builtins.str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
         :param pulumi.Input[builtins.str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
         :param pulumi.Input[Sequence[pulumi.Input['AppProductionBranchArgs']]] production_branches: Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository: Repository for an Amplify app.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -455,6 +491,8 @@ class _AppState:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if iam_service_role_arn is not None:
             pulumi.set(__self__, "iam_service_role_arn", iam_service_role_arn)
+        if job_config is not None:
+            pulumi.set(__self__, "job_config", job_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if oauth_token is not None:
@@ -463,13 +501,12 @@ class _AppState:
             pulumi.set(__self__, "platform", platform)
         if production_branches is not None:
             pulumi.set(__self__, "production_branches", production_branches)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -690,6 +727,18 @@ class _AppState:
         pulumi.set(self, "iam_service_role_arn", value)
 
     @property
+    @pulumi.getter(name="jobConfig")
+    def job_config(self) -> Optional[pulumi.Input['AppJobConfigArgs']]:
+        """
+        Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+        """
+        return pulumi.get(self, "job_config")
+
+    @job_config.setter
+    def job_config(self, value: Optional[pulumi.Input['AppJobConfigArgs']]):
+        pulumi.set(self, "job_config", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -739,6 +788,18 @@ class _AppState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Repository for an Amplify app.
@@ -763,7 +824,6 @@ class _AppState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -797,9 +857,11 @@ class App(pulumi.CustomResource):
                  enable_branch_auto_deletion: Optional[pulumi.Input[builtins.bool]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  iam_service_role_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 job_config: Optional[pulumi.Input[Union['AppJobConfigArgs', 'AppJobConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  oauth_token: Optional[pulumi.Input[builtins.str]] = None,
                  platform: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -950,6 +1012,19 @@ class App(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ### Job Config
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amplify.App("example",
+            name="example",
+            job_config={
+                "build_compute_type": "STANDARD_8GB",
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Amplify App using Amplify App ID (appId). For example:
@@ -977,9 +1052,11 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enable_branch_auto_deletion: Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables map for an Amplify app.
         :param pulumi.Input[builtins.str] iam_service_role_arn: AWS Identity and Access Management (IAM) service role for an Amplify app.
+        :param pulumi.Input[Union['AppJobConfigArgs', 'AppJobConfigArgsDict']] job_config: Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
         :param pulumi.Input[builtins.str] name: Name for an Amplify app.
         :param pulumi.Input[builtins.str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
         :param pulumi.Input[builtins.str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository: Repository for an Amplify app.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -1136,6 +1213,19 @@ class App(pulumi.CustomResource):
         \"\"\")
         ```
 
+        ### Job Config
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amplify.App("example",
+            name="example",
+            job_config={
+                "build_compute_type": "STANDARD_8GB",
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Amplify App using Amplify App ID (appId). For example:
@@ -1176,9 +1266,11 @@ class App(pulumi.CustomResource):
                  enable_branch_auto_deletion: Optional[pulumi.Input[builtins.bool]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  iam_service_role_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 job_config: Optional[pulumi.Input[Union['AppJobConfigArgs', 'AppJobConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  oauth_token: Optional[pulumi.Input[builtins.str]] = None,
                  platform: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -1206,9 +1298,11 @@ class App(pulumi.CustomResource):
             __props__.__dict__["enable_branch_auto_deletion"] = enable_branch_auto_deletion
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["iam_service_role_arn"] = iam_service_role_arn
+            __props__.__dict__["job_config"] = job_config
             __props__.__dict__["name"] = name
             __props__.__dict__["oauth_token"] = None if oauth_token is None else pulumi.Output.secret(oauth_token)
             __props__.__dict__["platform"] = platform
+            __props__.__dict__["region"] = region
             __props__.__dict__["repository"] = repository
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -1245,10 +1339,12 @@ class App(pulumi.CustomResource):
             enable_branch_auto_deletion: Optional[pulumi.Input[builtins.bool]] = None,
             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             iam_service_role_arn: Optional[pulumi.Input[builtins.str]] = None,
+            job_config: Optional[pulumi.Input[Union['AppJobConfigArgs', 'AppJobConfigArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             oauth_token: Optional[pulumi.Input[builtins.str]] = None,
             platform: Optional[pulumi.Input[builtins.str]] = None,
             production_branches: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppProductionBranchArgs', 'AppProductionBranchArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             repository: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'App':
@@ -1277,10 +1373,12 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enable_branch_auto_deletion: Automatically disconnects a branch in the Amplify Console when you delete a branch from your Git repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] environment_variables: Environment variables map for an Amplify app.
         :param pulumi.Input[builtins.str] iam_service_role_arn: AWS Identity and Access Management (IAM) service role for an Amplify app.
+        :param pulumi.Input[Union['AppJobConfigArgs', 'AppJobConfigArgsDict']] job_config: Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
         :param pulumi.Input[builtins.str] name: Name for an Amplify app.
         :param pulumi.Input[builtins.str] oauth_token: OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key. The OAuth token is not stored.
         :param pulumi.Input[builtins.str] platform: Platform or framework for an Amplify app. Valid values: `WEB`, `WEB_COMPUTE`. Default value: `WEB`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppProductionBranchArgs', 'AppProductionBranchArgsDict']]]] production_branches: Describes the information about a production branch for an Amplify app. A `production_branch` block is documented below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository: Repository for an Amplify app.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1307,10 +1405,12 @@ class App(pulumi.CustomResource):
         __props__.__dict__["enable_branch_auto_deletion"] = enable_branch_auto_deletion
         __props__.__dict__["environment_variables"] = environment_variables
         __props__.__dict__["iam_service_role_arn"] = iam_service_role_arn
+        __props__.__dict__["job_config"] = job_config
         __props__.__dict__["name"] = name
         __props__.__dict__["oauth_token"] = oauth_token
         __props__.__dict__["platform"] = platform
         __props__.__dict__["production_branches"] = production_branches
+        __props__.__dict__["region"] = region
         __props__.__dict__["repository"] = repository
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -1461,6 +1561,14 @@ class App(pulumi.CustomResource):
         return pulumi.get(self, "iam_service_role_arn")
 
     @property
+    @pulumi.getter(name="jobConfig")
+    def job_config(self) -> pulumi.Output['outputs.AppJobConfig']:
+        """
+        Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+        """
+        return pulumi.get(self, "job_config")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
@@ -1494,6 +1602,14 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def repository(self) -> pulumi.Output[Optional[builtins.str]]:
         """
         Repository for an Amplify app.
@@ -1510,7 +1626,6 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

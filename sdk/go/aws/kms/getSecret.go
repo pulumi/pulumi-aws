@@ -7,10 +7,11 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **WARNING:** This data source's functionality was removed in version 2.0.0 of the AWS Provider. You can migrate existing configurations to the `kms.getSecrets` data source following instructions available in the Version 2 Upgrade Guide. This data source will be removed in a future version.
 func GetSecret(ctx *pulumi.Context, args *GetSecretArgs, opts ...pulumi.InvokeOption) (*GetSecretResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecretResult
@@ -23,6 +24,7 @@ func GetSecret(ctx *pulumi.Context, args *GetSecretArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getSecret.
 type GetSecretArgs struct {
+	Region  *string           `pulumi:"region"`
 	Secrets []GetSecretSecret `pulumi:"secrets"`
 }
 
@@ -30,6 +32,7 @@ type GetSecretArgs struct {
 type GetSecretResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id      string            `pulumi:"id"`
+	Region  string            `pulumi:"region"`
 	Secrets []GetSecretSecret `pulumi:"secrets"`
 }
 
@@ -44,6 +47,7 @@ func GetSecretOutput(ctx *pulumi.Context, args GetSecretOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getSecret.
 type GetSecretOutputArgs struct {
+	Region  pulumi.StringPtrInput     `pulumi:"region"`
 	Secrets GetSecretSecretArrayInput `pulumi:"secrets"`
 }
 
@@ -69,6 +73,10 @@ func (o GetSecretResultOutput) ToGetSecretResultOutputWithContext(ctx context.Co
 // The provider-assigned unique ID for this managed resource.
 func (o GetSecretResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetSecretResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetSecretResultOutput) Secrets() GetSecretSecretArrayOutput {

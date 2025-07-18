@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -1818,6 +1818,8 @@ func (o TablePointInTimeRecoveryPtrOutput) RecoveryPeriodInDays() pulumi.IntPtrO
 type TableReplicaType struct {
 	// ARN of the table
 	Arn *string `pulumi:"arn"`
+	// Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
+	ConsistencyMode *string `pulumi:"consistencyMode"`
 	// ARN of the CMK that should be used for the AWS KMS encryption.
 	// This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
 	// **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
@@ -1854,6 +1856,8 @@ type TableReplicaTypeInput interface {
 type TableReplicaTypeArgs struct {
 	// ARN of the table
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	// Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
+	ConsistencyMode pulumi.StringPtrInput `pulumi:"consistencyMode"`
 	// ARN of the CMK that should be used for the AWS KMS encryption.
 	// This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
 	// **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
@@ -1930,6 +1934,11 @@ func (o TableReplicaTypeOutput) ToTableReplicaTypeOutputWithContext(ctx context.
 // ARN of the table
 func (o TableReplicaTypeOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableReplicaType) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
+func (o TableReplicaTypeOutput) ConsistencyMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableReplicaType) *string { return v.ConsistencyMode }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the CMK that should be used for the AWS KMS encryption.

@@ -22,14 +22,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "my-tf-example-bucket"});
+ * const example = new aws.s3.Bucket("example", {bucket: "my-tf-example-bucket"});
  * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
  *     bucket: example.id,
  *     rule: {
  *         objectOwnership: "BucketOwnerPreferred",
  *     },
  * });
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
+ * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
  *     bucket: example.id,
  *     acl: "private",
  * }, {
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.s3.BucketV2("example", {bucket: "my-tf-example-bucket"});
+ * const example = new aws.s3.Bucket("example", {bucket: "my-tf-example-bucket"});
  * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
  *     bucket: example.id,
  *     rule: {
@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  *     ignorePublicAcls: false,
  *     restrictPublicBuckets: false,
  * });
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
+ * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
  *     bucket: example.id,
  *     acl: "public-read",
  * }, {
@@ -78,14 +78,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.s3.getCanonicalUserId({});
- * const example = new aws.s3.BucketV2("example", {bucket: "my-tf-example-bucket"});
+ * const example = new aws.s3.Bucket("example", {bucket: "my-tf-example-bucket"});
  * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
  *     bucket: example.id,
  *     rule: {
  *         objectOwnership: "BucketOwnerPreferred",
  *     },
  * });
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("example", {
+ * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
  *     bucket: example.id,
  *     accessControlPolicy: {
  *         grants: [
@@ -146,6 +146,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012,private
  * ```
+ *
+ * @deprecated aws.s3/bucketaclv2.BucketAclV2 has been deprecated in favor of aws.s3/bucketacl.BucketAcl
  */
 export class BucketAclV2 extends pulumi.CustomResource {
     /**
@@ -158,6 +160,7 @@ export class BucketAclV2 extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BucketAclV2State, opts?: pulumi.CustomResourceOptions): BucketAclV2 {
+        pulumi.log.warn("BucketAclV2 is deprecated: aws.s3/bucketaclv2.BucketAclV2 has been deprecated in favor of aws.s3/bucketacl.BucketAcl")
         return new BucketAclV2(name, <any>state, { ...opts, id: id });
     }
 
@@ -191,6 +194,10 @@ export class BucketAclV2 extends pulumi.CustomResource {
      * Account ID of the expected bucket owner.
      */
     public readonly expectedBucketOwner!: pulumi.Output<string | undefined>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a BucketAclV2 resource with the given unique name, arguments, and options.
@@ -199,8 +206,11 @@ export class BucketAclV2 extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated aws.s3/bucketaclv2.BucketAclV2 has been deprecated in favor of aws.s3/bucketacl.BucketAcl */
     constructor(name: string, args: BucketAclV2Args, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated aws.s3/bucketaclv2.BucketAclV2 has been deprecated in favor of aws.s3/bucketacl.BucketAcl */
     constructor(name: string, argsOrState?: BucketAclV2Args | BucketAclV2State, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BucketAclV2 is deprecated: aws.s3/bucketaclv2.BucketAclV2 has been deprecated in favor of aws.s3/bucketacl.BucketAcl")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
@@ -209,6 +219,7 @@ export class BucketAclV2 extends pulumi.CustomResource {
             resourceInputs["acl"] = state ? state.acl : undefined;
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as BucketAclV2Args | undefined;
             if ((!args || args.bucket === undefined) && !opts.urn) {
@@ -218,8 +229,11 @@ export class BucketAclV2 extends pulumi.CustomResource {
             resourceInputs["acl"] = args ? args.acl : undefined;
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "aws:s3/bucketAclV2:BucketAclV2" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BucketAclV2.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -244,6 +258,10 @@ export interface BucketAclV2State {
      * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -266,4 +284,8 @@ export interface BucketAclV2Args {
      * Account ID of the expected bucket owner.
      */
     expectedBucketOwner?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

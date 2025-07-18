@@ -23,13 +23,15 @@ class UserPoolUICustomizationArgs:
                  user_pool_id: pulumi.Input[builtins.str],
                  client_id: Optional[pulumi.Input[builtins.str]] = None,
                  css: Optional[pulumi.Input[builtins.str]] = None,
-                 image_file: Optional[pulumi.Input[builtins.str]] = None):
+                 image_file: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a UserPoolUICustomization resource.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID for the user pool.
         :param pulumi.Input[builtins.str] client_id: The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
         :param pulumi.Input[builtins.str] css: The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
         :param pulumi.Input[builtins.str] image_file: The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "user_pool_id", user_pool_id)
         if client_id is not None:
@@ -38,6 +40,8 @@ class UserPoolUICustomizationArgs:
             pulumi.set(__self__, "css", css)
         if image_file is not None:
             pulumi.set(__self__, "image_file", image_file)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="userPoolId")
@@ -87,6 +91,18 @@ class UserPoolUICustomizationArgs:
     def image_file(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "image_file", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _UserPoolUICustomizationState:
@@ -98,6 +114,7 @@ class _UserPoolUICustomizationState:
                  image_file: Optional[pulumi.Input[builtins.str]] = None,
                  image_url: Optional[pulumi.Input[builtins.str]] = None,
                  last_modified_date: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  user_pool_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserPoolUICustomization resources.
@@ -108,6 +125,7 @@ class _UserPoolUICustomizationState:
         :param pulumi.Input[builtins.str] image_file: The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
         :param pulumi.Input[builtins.str] image_url: The logo image URL for the UI customization.
         :param pulumi.Input[builtins.str] last_modified_date: The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID for the user pool.
         """
         if client_id is not None:
@@ -124,6 +142,8 @@ class _UserPoolUICustomizationState:
             pulumi.set(__self__, "image_url", image_url)
         if last_modified_date is not None:
             pulumi.set(__self__, "last_modified_date", last_modified_date)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if user_pool_id is not None:
             pulumi.set(__self__, "user_pool_id", user_pool_id)
 
@@ -212,6 +232,18 @@ class _UserPoolUICustomizationState:
         pulumi.set(self, "last_modified_date", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -233,6 +265,7 @@ class UserPoolUICustomization(pulumi.CustomResource):
                  client_id: Optional[pulumi.Input[builtins.str]] = None,
                  css: Optional[pulumi.Input[builtins.str]] = None,
                  image_file: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  user_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -293,6 +326,7 @@ class UserPoolUICustomization(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] client_id: The client ID for the client app. Defaults to `ALL`. If `ALL` is specified, the `css` and/or `image_file` settings will be used for every client that has no UI customization set previously.
         :param pulumi.Input[builtins.str] css: The CSS values in the UI customization, provided as a String. At least one of `css` or `image_file` is required.
         :param pulumi.Input[builtins.str] image_file: The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID for the user pool.
         """
         ...
@@ -372,6 +406,7 @@ class UserPoolUICustomization(pulumi.CustomResource):
                  client_id: Optional[pulumi.Input[builtins.str]] = None,
                  css: Optional[pulumi.Input[builtins.str]] = None,
                  image_file: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  user_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -385,6 +420,7 @@ class UserPoolUICustomization(pulumi.CustomResource):
             __props__.__dict__["client_id"] = client_id
             __props__.__dict__["css"] = css
             __props__.__dict__["image_file"] = image_file
+            __props__.__dict__["region"] = region
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
             __props__.__dict__["user_pool_id"] = user_pool_id
@@ -409,6 +445,7 @@ class UserPoolUICustomization(pulumi.CustomResource):
             image_file: Optional[pulumi.Input[builtins.str]] = None,
             image_url: Optional[pulumi.Input[builtins.str]] = None,
             last_modified_date: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             user_pool_id: Optional[pulumi.Input[builtins.str]] = None) -> 'UserPoolUICustomization':
         """
         Get an existing UserPoolUICustomization resource's state with the given name, id, and optional extra
@@ -424,6 +461,7 @@ class UserPoolUICustomization(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] image_file: The uploaded logo image for the UI customization, provided as a base64-encoded String. Drift detection is not possible for this argument. At least one of `css` or `image_file` is required.
         :param pulumi.Input[builtins.str] image_url: The logo image URL for the UI customization.
         :param pulumi.Input[builtins.str] last_modified_date: The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID for the user pool.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -437,6 +475,7 @@ class UserPoolUICustomization(pulumi.CustomResource):
         __props__.__dict__["image_file"] = image_file
         __props__.__dict__["image_url"] = image_url
         __props__.__dict__["last_modified_date"] = last_modified_date
+        __props__.__dict__["region"] = region
         __props__.__dict__["user_pool_id"] = user_pool_id
         return UserPoolUICustomization(resource_name, opts=opts, __props__=__props__)
 
@@ -495,6 +534,14 @@ class UserPoolUICustomization(pulumi.CustomResource):
         The last-modified date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) for the UI customization.
         """
         return pulumi.get(self, "last_modified_date")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="userPoolId")

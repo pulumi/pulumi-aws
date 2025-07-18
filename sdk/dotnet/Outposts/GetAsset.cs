@@ -45,6 +45,12 @@ namespace Pulumi.Aws.Outposts
         [Input("assetId", required: true)]
         public string AssetId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetAssetArgs()
         {
         }
@@ -64,6 +70,12 @@ namespace Pulumi.Aws.Outposts
         /// </summary>
         [Input("assetId", required: true)]
         public Input<string> AssetId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetAssetInvokeArgs()
         {
@@ -97,6 +109,7 @@ namespace Pulumi.Aws.Outposts
         /// Rack ID of the asset.
         /// </summary>
         public readonly string RackId;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetAssetResult(
@@ -112,7 +125,9 @@ namespace Pulumi.Aws.Outposts
 
             int rackElevation,
 
-            string rackId)
+            string rackId,
+
+            string region)
         {
             Arn = arn;
             AssetId = assetId;
@@ -121,6 +136,7 @@ namespace Pulumi.Aws.Outposts
             Id = id;
             RackElevation = rackElevation;
             RackId = rackId;
+            Region = region;
         }
     }
 }

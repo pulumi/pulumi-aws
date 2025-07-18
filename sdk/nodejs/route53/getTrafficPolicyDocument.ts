@@ -26,12 +26,12 @@ import * as utilities from "../utilities";
  *         {
  *             id: "my_elb",
  *             type: "elastic-load-balancer",
- *             value: `elb-111111.${current.name}.elb.amazonaws.com`,
+ *             value: `elb-111111.${current.region}.elb.amazonaws.com`,
  *         },
  *         {
  *             id: "site_down_banner",
  *             type: "s3-website",
- *             region: current1.name,
+ *             region: current1.region,
  *             value: "www.example.com",
  *         },
  *     ],
@@ -211,12 +211,12 @@ export interface GetTrafficPolicyDocumentResult {
  *         {
  *             id: "my_elb",
  *             type: "elastic-load-balancer",
- *             value: `elb-111111.${current.name}.elb.amazonaws.com`,
+ *             value: `elb-111111.${current.region}.elb.amazonaws.com`,
  *         },
  *         {
  *             id: "site_down_banner",
  *             type: "s3-website",
- *             region: current1.name,
+ *             region: current1.region,
  *             value: "www.example.com",
  *         },
  *     ],

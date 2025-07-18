@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -103,11 +103,11 @@ type ContainerRecipe struct {
 	Platform pulumi.StringOutput `pulumi:"platform"`
 	// Specifies the operating system platform when you use a custom base image.
 	PlatformOverride pulumi.StringPtrOutput `pulumi:"platformOverride"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The destination repository for the container image. Detailed below.
 	TargetRepository ContainerRecipeTargetRepositoryOutput `pulumi:"targetRepository"`
@@ -194,11 +194,11 @@ type containerRecipeState struct {
 	Platform *string `pulumi:"platform"`
 	// Specifies the operating system platform when you use a custom base image.
 	PlatformOverride *string `pulumi:"platformOverride"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The destination repository for the container image. Detailed below.
 	TargetRepository *ContainerRecipeTargetRepository `pulumi:"targetRepository"`
@@ -241,11 +241,11 @@ type ContainerRecipeState struct {
 	Platform pulumi.StringPtrInput
 	// Specifies the operating system platform when you use a custom base image.
 	PlatformOverride pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The destination repository for the container image. Detailed below.
 	TargetRepository ContainerRecipeTargetRepositoryPtrInput
@@ -282,6 +282,8 @@ type containerRecipeArgs struct {
 	ParentImage string `pulumi:"parentImage"`
 	// Specifies the operating system platform when you use a custom base image.
 	PlatformOverride *string `pulumi:"platformOverride"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The destination repository for the container image. Detailed below.
@@ -316,6 +318,8 @@ type ContainerRecipeArgs struct {
 	ParentImage pulumi.StringInput
 	// Specifies the operating system platform when you use a custom base image.
 	PlatformOverride pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The destination repository for the container image. Detailed below.
@@ -490,14 +494,17 @@ func (o ContainerRecipeOutput) PlatformOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringPtrOutput { return v.PlatformOverride }).(pulumi.StringPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ContainerRecipeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Key-value map of resource tags for the container recipe. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ContainerRecipeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ContainerRecipeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

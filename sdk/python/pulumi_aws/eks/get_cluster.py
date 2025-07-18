@@ -28,7 +28,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, access_configs=None, arn=None, certificate_authorities=None, cluster_id=None, compute_configs=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kubernetes_network_configs=None, name=None, outpost_configs=None, platform_version=None, remote_network_configs=None, role_arn=None, status=None, storage_configs=None, tags=None, upgrade_policies=None, version=None, vpc_config=None, zonal_shift_configs=None):
+    def __init__(__self__, access_configs=None, arn=None, certificate_authorities=None, cluster_id=None, compute_configs=None, created_at=None, enabled_cluster_log_types=None, endpoint=None, id=None, identities=None, kubernetes_network_configs=None, name=None, outpost_configs=None, platform_version=None, region=None, remote_network_configs=None, role_arn=None, status=None, storage_configs=None, tags=None, upgrade_policies=None, version=None, vpc_config=None, zonal_shift_configs=None):
         if access_configs and not isinstance(access_configs, list):
             raise TypeError("Expected argument 'access_configs' to be a list")
         pulumi.set(__self__, "access_configs", access_configs)
@@ -71,6 +71,9 @@ class GetClusterResult:
         if platform_version and not isinstance(platform_version, str):
             raise TypeError("Expected argument 'platform_version' to be a str")
         pulumi.set(__self__, "platform_version", platform_version)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if remote_network_configs and not isinstance(remote_network_configs, list):
             raise TypeError("Expected argument 'remote_network_configs' to be a list")
         pulumi.set(__self__, "remote_network_configs", remote_network_configs)
@@ -209,6 +212,11 @@ class GetClusterResult:
         return pulumi.get(self, "platform_version")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="remoteNetworkConfigs")
     def remote_network_configs(self) -> Sequence['outputs.GetClusterRemoteNetworkConfigResult']:
         """
@@ -301,6 +309,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             name=self.name,
             outpost_configs=self.outpost_configs,
             platform_version=self.platform_version,
+            region=self.region,
             remote_network_configs=self.remote_network_configs,
             role_arn=self.role_arn,
             status=self.status,
@@ -313,6 +322,7 @@ class AwaitableGetClusterResult(GetClusterResult):
 
 
 def get_cluster(name: Optional[builtins.str] = None,
+                region: Optional[builtins.str] = None,
                 tags: Optional[Mapping[str, builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
@@ -331,10 +341,12 @@ def get_cluster(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the cluster.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:eks/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult).value
@@ -354,6 +366,7 @@ def get_cluster(name: Optional[builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         outpost_configs=pulumi.get(__ret__, 'outpost_configs'),
         platform_version=pulumi.get(__ret__, 'platform_version'),
+        region=pulumi.get(__ret__, 'region'),
         remote_network_configs=pulumi.get(__ret__, 'remote_network_configs'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         status=pulumi.get(__ret__, 'status'),
@@ -364,6 +377,7 @@ def get_cluster(name: Optional[builtins.str] = None,
         vpc_config=pulumi.get(__ret__, 'vpc_config'),
         zonal_shift_configs=pulumi.get(__ret__, 'zonal_shift_configs'))
 def get_cluster_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
@@ -382,10 +396,12 @@ def get_cluster_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the cluster.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:eks/getCluster:getCluster', __args__, opts=opts, typ=GetClusterResult)
@@ -404,6 +420,7 @@ def get_cluster_output(name: Optional[pulumi.Input[builtins.str]] = None,
         name=pulumi.get(__response__, 'name'),
         outpost_configs=pulumi.get(__response__, 'outpost_configs'),
         platform_version=pulumi.get(__response__, 'platform_version'),
+        region=pulumi.get(__response__, 'region'),
         remote_network_configs=pulumi.get(__response__, 'remote_network_configs'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         status=pulumi.get(__response__, 'status'),

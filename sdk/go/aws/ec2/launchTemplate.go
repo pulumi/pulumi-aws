@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,15 +46,6 @@ type LaunchTemplate struct {
 	DisableApiTermination pulumi.BoolPtrOutput `pulumi:"disableApiTermination"`
 	// If `true`, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized pulumi.StringPtrOutput `pulumi:"ebsOptimized"`
-	// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-	// below for more details.
-	//
-	// Deprecated: elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-	ElasticGpuSpecifications LaunchTemplateElasticGpuSpecificationArrayOutput `pulumi:"elasticGpuSpecifications"`
-	// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-	//
-	// Deprecated: elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-	ElasticInferenceAccelerator LaunchTemplateElasticInferenceAcceleratorPtrOutput `pulumi:"elasticInferenceAccelerator"`
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions LaunchTemplateEnclaveOptionsPtrOutput `pulumi:"enclaveOptions"`
 	// The hibernation options for the instance. See Hibernation Options below for more details.
@@ -101,6 +92,8 @@ type LaunchTemplate struct {
 	PrivateDnsNameOptions LaunchTemplatePrivateDnsNameOptionsPtrOutput `pulumi:"privateDnsNameOptions"`
 	// The ID of the RAM disk.
 	RamDiskId pulumi.StringPtrOutput `pulumi:"ramDiskId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
 	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
@@ -109,8 +102,6 @@ type LaunchTemplate struct {
 	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
 	UpdateDefaultVersion pulumi.BoolPtrOutput `pulumi:"updateDefaultVersion"`
@@ -173,15 +164,6 @@ type launchTemplateState struct {
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
 	// If `true`, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized *string `pulumi:"ebsOptimized"`
-	// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-	// below for more details.
-	//
-	// Deprecated: elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-	ElasticGpuSpecifications []LaunchTemplateElasticGpuSpecification `pulumi:"elasticGpuSpecifications"`
-	// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-	//
-	// Deprecated: elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-	ElasticInferenceAccelerator *LaunchTemplateElasticInferenceAccelerator `pulumi:"elasticInferenceAccelerator"`
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions *LaunchTemplateEnclaveOptions `pulumi:"enclaveOptions"`
 	// The hibernation options for the instance. See Hibernation Options below for more details.
@@ -228,6 +210,8 @@ type launchTemplateState struct {
 	PrivateDnsNameOptions *LaunchTemplatePrivateDnsNameOptions `pulumi:"privateDnsNameOptions"`
 	// The ID of the RAM disk.
 	RamDiskId *string `pulumi:"ramDiskId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
@@ -236,8 +220,6 @@ type launchTemplateState struct {
 	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
 	UpdateDefaultVersion *bool `pulumi:"updateDefaultVersion"`
@@ -271,15 +253,6 @@ type LaunchTemplateState struct {
 	DisableApiTermination pulumi.BoolPtrInput
 	// If `true`, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized pulumi.StringPtrInput
-	// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-	// below for more details.
-	//
-	// Deprecated: elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-	ElasticGpuSpecifications LaunchTemplateElasticGpuSpecificationArrayInput
-	// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-	//
-	// Deprecated: elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-	ElasticInferenceAccelerator LaunchTemplateElasticInferenceAcceleratorPtrInput
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions LaunchTemplateEnclaveOptionsPtrInput
 	// The hibernation options for the instance. See Hibernation Options below for more details.
@@ -326,6 +299,8 @@ type LaunchTemplateState struct {
 	PrivateDnsNameOptions LaunchTemplatePrivateDnsNameOptionsPtrInput
 	// The ID of the RAM disk.
 	RamDiskId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
 	SecurityGroupNames pulumi.StringArrayInput
@@ -334,8 +309,6 @@ type LaunchTemplateState struct {
 	// A map of tags to assign to the launch template. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Whether to update Default Version each update. Conflicts with `defaultVersion`.
 	UpdateDefaultVersion pulumi.BoolPtrInput
@@ -371,15 +344,6 @@ type launchTemplateArgs struct {
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
 	// If `true`, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized *string `pulumi:"ebsOptimized"`
-	// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-	// below for more details.
-	//
-	// Deprecated: elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-	ElasticGpuSpecifications []LaunchTemplateElasticGpuSpecification `pulumi:"elasticGpuSpecifications"`
-	// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-	//
-	// Deprecated: elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-	ElasticInferenceAccelerator *LaunchTemplateElasticInferenceAccelerator `pulumi:"elasticInferenceAccelerator"`
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions *LaunchTemplateEnclaveOptions `pulumi:"enclaveOptions"`
 	// The hibernation options for the instance. See Hibernation Options below for more details.
@@ -424,6 +388,8 @@ type launchTemplateArgs struct {
 	PrivateDnsNameOptions *LaunchTemplatePrivateDnsNameOptions `pulumi:"privateDnsNameOptions"`
 	// The ID of the RAM disk.
 	RamDiskId *string `pulumi:"ramDiskId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
@@ -462,15 +428,6 @@ type LaunchTemplateArgs struct {
 	DisableApiTermination pulumi.BoolPtrInput
 	// If `true`, the launched EC2 instance will be EBS-optimized.
 	EbsOptimized pulumi.StringPtrInput
-	// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-	// below for more details.
-	//
-	// Deprecated: elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-	ElasticGpuSpecifications LaunchTemplateElasticGpuSpecificationArrayInput
-	// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-	//
-	// Deprecated: elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-	ElasticInferenceAccelerator LaunchTemplateElasticInferenceAcceleratorPtrInput
 	// Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 	EnclaveOptions LaunchTemplateEnclaveOptionsPtrInput
 	// The hibernation options for the instance. See Hibernation Options below for more details.
@@ -515,6 +472,8 @@ type LaunchTemplateArgs struct {
 	PrivateDnsNameOptions LaunchTemplatePrivateDnsNameOptionsPtrInput
 	// The ID of the RAM disk.
 	RamDiskId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
 	SecurityGroupNames pulumi.StringArrayInput
@@ -672,25 +631,6 @@ func (o LaunchTemplateOutput) EbsOptimized() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.EbsOptimized }).(pulumi.StringPtrOutput)
 }
 
-// **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-// below for more details.
-//
-// Deprecated: elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-func (o LaunchTemplateOutput) ElasticGpuSpecifications() LaunchTemplateElasticGpuSpecificationArrayOutput {
-	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateElasticGpuSpecificationArrayOutput {
-		return v.ElasticGpuSpecifications
-	}).(LaunchTemplateElasticGpuSpecificationArrayOutput)
-}
-
-// **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-//
-// Deprecated: elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-func (o LaunchTemplateOutput) ElasticInferenceAccelerator() LaunchTemplateElasticInferenceAcceleratorPtrOutput {
-	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateElasticInferenceAcceleratorPtrOutput {
-		return v.ElasticInferenceAccelerator
-	}).(LaunchTemplateElasticInferenceAcceleratorPtrOutput)
-}
-
 // Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
 func (o LaunchTemplateOutput) EnclaveOptions() LaunchTemplateEnclaveOptionsPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateEnclaveOptionsPtrOutput { return v.EnclaveOptions }).(LaunchTemplateEnclaveOptionsPtrOutput)
@@ -800,6 +740,11 @@ func (o LaunchTemplateOutput) RamDiskId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.RamDiskId }).(pulumi.StringPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LaunchTemplateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // A list of security group names to associate with. If you are creating Instances in a VPC, use
 // `vpcSecurityGroupIds` instead.
 func (o LaunchTemplateOutput) SecurityGroupNames() pulumi.StringArrayOutput {
@@ -817,8 +762,6 @@ func (o LaunchTemplateOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o LaunchTemplateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

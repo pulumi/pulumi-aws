@@ -28,13 +28,16 @@ class GetRouterConfigurationResult:
     """
     A collection of values returned by getRouterConfiguration.
     """
-    def __init__(__self__, customer_router_config=None, id=None, router_type_identifier=None, routers=None, virtual_interface_id=None, virtual_interface_name=None):
+    def __init__(__self__, customer_router_config=None, id=None, region=None, router_type_identifier=None, routers=None, virtual_interface_id=None, virtual_interface_name=None):
         if customer_router_config and not isinstance(customer_router_config, str):
             raise TypeError("Expected argument 'customer_router_config' to be a str")
         pulumi.set(__self__, "customer_router_config", customer_router_config)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if router_type_identifier and not isinstance(router_type_identifier, str):
             raise TypeError("Expected argument 'router_type_identifier' to be a str")
         pulumi.set(__self__, "router_type_identifier", router_type_identifier)
@@ -63,6 +66,11 @@ class GetRouterConfigurationResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="routerTypeIdentifier")
@@ -99,13 +107,15 @@ class AwaitableGetRouterConfigurationResult(GetRouterConfigurationResult):
         return GetRouterConfigurationResult(
             customer_router_config=self.customer_router_config,
             id=self.id,
+            region=self.region,
             router_type_identifier=self.router_type_identifier,
             routers=self.routers,
             virtual_interface_id=self.virtual_interface_id,
             virtual_interface_name=self.virtual_interface_name)
 
 
-def get_router_configuration(router_type_identifier: Optional[builtins.str] = None,
+def get_router_configuration(region: Optional[builtins.str] = None,
+                             router_type_identifier: Optional[builtins.str] = None,
                              virtual_interface_id: Optional[builtins.str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouterConfigurationResult:
     """
@@ -124,6 +134,7 @@ def get_router_configuration(router_type_identifier: Optional[builtins.str] = No
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str router_type_identifier: ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
            
            There is currently no AWS API to retrieve the full list of `router_type_identifier` values. Here is a list of known `RouterType` objects that can be used:
@@ -145,6 +156,7 @@ def get_router_configuration(router_type_identifier: Optional[builtins.str] = No
     :param builtins.str virtual_interface_id: ID of the Direct Connect Virtual Interface
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['routerTypeIdentifier'] = router_type_identifier
     __args__['virtualInterfaceId'] = virtual_interface_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -153,11 +165,13 @@ def get_router_configuration(router_type_identifier: Optional[builtins.str] = No
     return AwaitableGetRouterConfigurationResult(
         customer_router_config=pulumi.get(__ret__, 'customer_router_config'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         router_type_identifier=pulumi.get(__ret__, 'router_type_identifier'),
         routers=pulumi.get(__ret__, 'routers'),
         virtual_interface_id=pulumi.get(__ret__, 'virtual_interface_id'),
         virtual_interface_name=pulumi.get(__ret__, 'virtual_interface_name'))
-def get_router_configuration_output(router_type_identifier: Optional[pulumi.Input[builtins.str]] = None,
+def get_router_configuration_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                    router_type_identifier: Optional[pulumi.Input[builtins.str]] = None,
                                     virtual_interface_id: Optional[pulumi.Input[builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouterConfigurationResult]:
     """
@@ -176,6 +190,7 @@ def get_router_configuration_output(router_type_identifier: Optional[pulumi.Inpu
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str router_type_identifier: ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
            
            There is currently no AWS API to retrieve the full list of `router_type_identifier` values. Here is a list of known `RouterType` objects that can be used:
@@ -197,6 +212,7 @@ def get_router_configuration_output(router_type_identifier: Optional[pulumi.Inpu
     :param builtins.str virtual_interface_id: ID of the Direct Connect Virtual Interface
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['routerTypeIdentifier'] = router_type_identifier
     __args__['virtualInterfaceId'] = virtual_interface_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -204,6 +220,7 @@ def get_router_configuration_output(router_type_identifier: Optional[pulumi.Inpu
     return __ret__.apply(lambda __response__: GetRouterConfigurationResult(
         customer_router_config=pulumi.get(__response__, 'customer_router_config'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         router_type_identifier=pulumi.get(__response__, 'router_type_identifier'),
         routers=pulumi.get(__response__, 'routers'),
         virtual_interface_id=pulumi.get(__response__, 'virtual_interface_id'),

@@ -29,6 +29,7 @@ class ScheduledActionArgs:
                  enable: Optional[pulumi.Input[builtins.bool]] = None,
                  end_time: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  start_time: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ScheduledAction resource.
@@ -39,6 +40,7 @@ class ScheduledActionArgs:
         :param pulumi.Input[builtins.bool] enable: Whether to enable the scheduled action. Default is `true` .
         :param pulumi.Input[builtins.str] end_time: The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         :param pulumi.Input[builtins.str] name: The scheduled action name.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] start_time: The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         """
         pulumi.set(__self__, "iam_role", iam_role)
@@ -52,6 +54,8 @@ class ScheduledActionArgs:
             pulumi.set(__self__, "end_time", end_time)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if start_time is not None:
             pulumi.set(__self__, "start_time", start_time)
 
@@ -140,6 +144,18 @@ class ScheduledActionArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -160,6 +176,7 @@ class _ScheduledActionState:
                  end_time: Optional[pulumi.Input[builtins.str]] = None,
                  iam_role: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input[builtins.str]] = None,
                  start_time: Optional[pulumi.Input[builtins.str]] = None,
                  target_action: Optional[pulumi.Input['ScheduledActionTargetActionArgs']] = None):
@@ -170,6 +187,7 @@ class _ScheduledActionState:
         :param pulumi.Input[builtins.str] end_time: The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         :param pulumi.Input[builtins.str] iam_role: The IAM role to assume to run the scheduled action.
         :param pulumi.Input[builtins.str] name: The scheduled action name.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule: The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
         :param pulumi.Input[builtins.str] start_time: The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         :param pulumi.Input['ScheduledActionTargetActionArgs'] target_action: Target action. Documented below.
@@ -184,6 +202,8 @@ class _ScheduledActionState:
             pulumi.set(__self__, "iam_role", iam_role)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
         if start_time is not None:
@@ -253,6 +273,18 @@ class _ScheduledActionState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
@@ -299,6 +331,7 @@ class ScheduledAction(pulumi.CustomResource):
                  end_time: Optional[pulumi.Input[builtins.str]] = None,
                  iam_role: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input[builtins.str]] = None,
                  start_time: Optional[pulumi.Input[builtins.str]] = None,
                  target_action: Optional[pulumi.Input[Union['ScheduledActionTargetActionArgs', 'ScheduledActionTargetActionArgsDict']]] = None,
@@ -384,6 +417,7 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] end_time: The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         :param pulumi.Input[builtins.str] iam_role: The IAM role to assume to run the scheduled action.
         :param pulumi.Input[builtins.str] name: The scheduled action name.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule: The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
         :param pulumi.Input[builtins.str] start_time: The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         :param pulumi.Input[Union['ScheduledActionTargetActionArgs', 'ScheduledActionTargetActionArgsDict']] target_action: Target action. Documented below.
@@ -488,6 +522,7 @@ class ScheduledAction(pulumi.CustomResource):
                  end_time: Optional[pulumi.Input[builtins.str]] = None,
                  iam_role: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule: Optional[pulumi.Input[builtins.str]] = None,
                  start_time: Optional[pulumi.Input[builtins.str]] = None,
                  target_action: Optional[pulumi.Input[Union['ScheduledActionTargetActionArgs', 'ScheduledActionTargetActionArgsDict']]] = None,
@@ -507,6 +542,7 @@ class ScheduledAction(pulumi.CustomResource):
                 raise TypeError("Missing required property 'iam_role'")
             __props__.__dict__["iam_role"] = iam_role
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if schedule is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule'")
             __props__.__dict__["schedule"] = schedule
@@ -529,6 +565,7 @@ class ScheduledAction(pulumi.CustomResource):
             end_time: Optional[pulumi.Input[builtins.str]] = None,
             iam_role: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             schedule: Optional[pulumi.Input[builtins.str]] = None,
             start_time: Optional[pulumi.Input[builtins.str]] = None,
             target_action: Optional[pulumi.Input[Union['ScheduledActionTargetActionArgs', 'ScheduledActionTargetActionArgsDict']]] = None) -> 'ScheduledAction':
@@ -544,6 +581,7 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] end_time: The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         :param pulumi.Input[builtins.str] iam_role: The IAM role to assume to run the scheduled action.
         :param pulumi.Input[builtins.str] name: The scheduled action name.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule: The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
         :param pulumi.Input[builtins.str] start_time: The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
         :param pulumi.Input[Union['ScheduledActionTargetActionArgs', 'ScheduledActionTargetActionArgsDict']] target_action: Target action. Documented below.
@@ -557,6 +595,7 @@ class ScheduledAction(pulumi.CustomResource):
         __props__.__dict__["end_time"] = end_time
         __props__.__dict__["iam_role"] = iam_role
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["schedule"] = schedule
         __props__.__dict__["start_time"] = start_time
         __props__.__dict__["target_action"] = target_action
@@ -601,6 +640,14 @@ class ScheduledAction(pulumi.CustomResource):
         The scheduled action name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

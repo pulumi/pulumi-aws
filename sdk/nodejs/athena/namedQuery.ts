@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const hoge = new aws.s3.BucketV2("hoge", {bucket: "tf-test"});
+ * const hoge = new aws.s3.Bucket("hoge", {bucket: "tf-test"});
  * const test = new aws.kms.Key("test", {
  *     deletionWindowInDays: 7,
  *     description: "Athena KMS Key",
@@ -94,6 +94,10 @@ export class NamedQuery extends pulumi.CustomResource {
      */
     public readonly query!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Workgroup to which the query belongs. Defaults to `primary`
      */
     public readonly workgroup!: pulumi.Output<string | undefined>;
@@ -115,6 +119,7 @@ export class NamedQuery extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["query"] = state ? state.query : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["workgroup"] = state ? state.workgroup : undefined;
         } else {
             const args = argsOrState as NamedQueryArgs | undefined;
@@ -128,6 +133,7 @@ export class NamedQuery extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["query"] = args ? args.query : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["workgroup"] = args ? args.workgroup : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -156,6 +162,10 @@ export interface NamedQueryState {
      */
     query?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Workgroup to which the query belongs. Defaults to `primary`
      */
     workgroup?: pulumi.Input<string>;
@@ -181,6 +191,10 @@ export interface NamedQueryArgs {
      * Text of the query itself. In other words, all query statements. Maximum length of 262144.
      */
     query: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Workgroup to which the query belongs. Defaults to `primary`
      */

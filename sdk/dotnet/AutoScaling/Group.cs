@@ -710,7 +710,7 @@ namespace Pulumi.Aws.AutoScaling
         /// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         /// </summary>
         [Output("enabledMetrics")]
-        public Output<ImmutableArray<string>> EnabledMetrics { get; private set; } = null!;
+        public Output<ImmutableArray<Pulumi.Aws.AutoScaling.Metric>> EnabledMetrics { get; private set; } = null!;
 
         /// <summary>
         /// Allows deleting the Auto Scaling Group without waiting
@@ -865,6 +865,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Output("protectFromScaleIn")]
         public Output<bool?> ProtectFromScaleIn { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the service-linked role that the ASG will use to call other AWS services
@@ -1051,14 +1057,14 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? DesiredCapacityType { get; set; }
 
         [Input("enabledMetrics")]
-        private InputList<string>? _enabledMetrics;
+        private InputList<Pulumi.Aws.AutoScaling.Metric>? _enabledMetrics;
 
         /// <summary>
         /// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         /// </summary>
-        public InputList<string> EnabledMetrics
+        public InputList<Pulumi.Aws.AutoScaling.Metric> EnabledMetrics
         {
-            get => _enabledMetrics ?? (_enabledMetrics = new InputList<string>());
+            get => _enabledMetrics ?? (_enabledMetrics = new InputList<Pulumi.Aws.AutoScaling.Metric>());
             set => _enabledMetrics = value;
         }
 
@@ -1221,6 +1227,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("protectFromScaleIn")]
         public Input<bool>? ProtectFromScaleIn { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of the service-linked role that the ASG will use to call other AWS services
@@ -1405,14 +1417,14 @@ namespace Pulumi.Aws.AutoScaling
         public Input<string>? DesiredCapacityType { get; set; }
 
         [Input("enabledMetrics")]
-        private InputList<string>? _enabledMetrics;
+        private InputList<Pulumi.Aws.AutoScaling.Metric>? _enabledMetrics;
 
         /// <summary>
         /// List of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         /// </summary>
-        public InputList<string> EnabledMetrics
+        public InputList<Pulumi.Aws.AutoScaling.Metric> EnabledMetrics
         {
-            get => _enabledMetrics ?? (_enabledMetrics = new InputList<string>());
+            get => _enabledMetrics ?? (_enabledMetrics = new InputList<Pulumi.Aws.AutoScaling.Metric>());
             set => _enabledMetrics = value;
         }
 
@@ -1581,6 +1593,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("protectFromScaleIn")]
         public Input<bool>? ProtectFromScaleIn { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// ARN of the service-linked role that the ASG will use to call other AWS services

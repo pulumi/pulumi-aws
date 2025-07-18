@@ -86,21 +86,23 @@ namespace Pulumi.Aws.Iam
     public partial class RolePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the role policy. If omitted, this provider will
-        /// assign a random, unique name.
+        /// The name of the role policy.
+        /// If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix.
+        /// Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
         public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
-        /// The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+        /// The inline policy document.
+        /// This is a JSON formatted string.
+        /// For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -158,24 +160,26 @@ namespace Pulumi.Aws.Iam
     public sealed class RolePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the role policy. If omitted, this provider will
-        /// assign a random, unique name.
+        /// The name of the role policy.
+        /// If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix.
+        /// Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+        /// The inline policy document.
+        /// This is a JSON formatted string.
+        /// For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
         /// </summary>
         [Input("policy", required: true)]
-        public Input<string> Policy { get; set; } = null!;
+        public InputUnion<string, Inputs.PolicyDocumentArgs> Policy { get; set; } = null!;
 
         /// <summary>
         /// The name of the IAM role to attach to the policy.
@@ -192,24 +196,26 @@ namespace Pulumi.Aws.Iam
     public sealed class RolePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the role policy. If omitted, this provider will
-        /// assign a random, unique name.
+        /// The name of the role policy.
+        /// If omitted, the provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates a unique name beginning with the specified
-        /// prefix. Conflicts with `name`.
+        /// Creates a unique name beginning with the specified prefix.
+        /// Conflicts with `name`.
         /// </summary>
         [Input("namePrefix")]
         public Input<string>? NamePrefix { get; set; }
 
         /// <summary>
-        /// The inline policy document. This is a JSON formatted string. For more information about building IAM policy documents with the provider, see the AWS IAM Policy Document Guide
+        /// The inline policy document.
+        /// This is a JSON formatted string.
+        /// For more information about building IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide
         /// </summary>
         [Input("policy")]
-        public Input<string>? Policy { get; set; }
+        public InputUnion<string, Inputs.PolicyDocumentGetArgs>? Policy { get; set; }
 
         /// <summary>
         /// The name of the IAM role to attach to the policy.

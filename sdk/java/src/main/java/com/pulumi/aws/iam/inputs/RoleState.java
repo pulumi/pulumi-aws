@@ -3,7 +3,9 @@
 
 package com.pulumi.aws.iam.inputs;
 
+import com.pulumi.aws.iam.inputs.PolicyDocumentArgs;
 import com.pulumi.aws.iam.inputs.RoleInlinePolicyArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -44,7 +46,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="assumeRolePolicy")
-    private @Nullable Output<String> assumeRolePolicy;
+    private @Nullable Output<Either<String,PolicyDocumentArgs>> assumeRolePolicy;
 
     /**
      * @return Policy that grants an entity permission to assume the role.
@@ -54,7 +56,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<String>> assumeRolePolicy() {
+    public Optional<Output<Either<String,PolicyDocumentArgs>>> assumeRolePolicy() {
         return Optional.ofNullable(this.assumeRolePolicy);
     }
 
@@ -226,22 +228,14 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -330,7 +324,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder assumeRolePolicy(@Nullable Output<String> assumeRolePolicy) {
+        public Builder assumeRolePolicy(@Nullable Output<Either<String,PolicyDocumentArgs>> assumeRolePolicy) {
             $.assumeRolePolicy = assumeRolePolicy;
             return this;
         }
@@ -345,8 +339,36 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder assumeRolePolicy(String assumeRolePolicy) {
+        public Builder assumeRolePolicy(Either<String,PolicyDocumentArgs> assumeRolePolicy) {
             return assumeRolePolicy(Output.of(assumeRolePolicy));
+        }
+
+        /**
+         * @param assumeRolePolicy Policy that grants an entity permission to assume the role.
+         * 
+         * &gt; **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder assumeRolePolicy(String assumeRolePolicy) {
+            return assumeRolePolicy(Either.ofLeft(assumeRolePolicy));
+        }
+
+        /**
+         * @param assumeRolePolicy Policy that grants an entity permission to assume the role.
+         * 
+         * &gt; **NOTE:** The `assume_role_policy` is very similar to but slightly different than a standard IAM policy and cannot use an `aws.iam.Policy` resource.  However, it _can_ use an `aws.iam.getPolicyDocument` data source. See the example above of how this works.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder assumeRolePolicy(PolicyDocumentArgs assumeRolePolicy) {
+            return assumeRolePolicy(Either.ofRight(assumeRolePolicy));
         }
 
         /**
@@ -605,11 +627,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -620,11 +638,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

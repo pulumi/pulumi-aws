@@ -74,6 +74,10 @@ export class Tag extends pulumi.CustomResource {
      */
     public readonly key!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the EC2 resource to manage the tag for.
      */
     public readonly resourceId!: pulumi.Output<string>;
@@ -96,6 +100,7 @@ export class Tag extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as TagState | undefined;
             resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
             resourceInputs["value"] = state ? state.value : undefined;
         } else {
@@ -110,6 +115,7 @@ export class Tag extends pulumi.CustomResource {
                 throw new Error("Missing required property 'value'");
             }
             resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["value"] = args ? args.value : undefined;
         }
@@ -126,6 +132,10 @@ export interface TagState {
      * The tag name.
      */
     key?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the EC2 resource to manage the tag for.
      */
@@ -144,6 +154,10 @@ export interface TagArgs {
      * The tag name.
      */
     key: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the EC2 resource to manage the tag for.
      */

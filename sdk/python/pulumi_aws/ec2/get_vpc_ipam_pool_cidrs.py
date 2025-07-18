@@ -29,7 +29,7 @@ class GetVpcIpamPoolCidrsResult:
     """
     A collection of values returned by getVpcIpamPoolCidrs.
     """
-    def __init__(__self__, filters=None, id=None, ipam_pool_cidrs=None, ipam_pool_id=None):
+    def __init__(__self__, filters=None, id=None, ipam_pool_cidrs=None, ipam_pool_id=None, region=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -42,6 +42,9 @@ class GetVpcIpamPoolCidrsResult:
         if ipam_pool_id and not isinstance(ipam_pool_id, str):
             raise TypeError("Expected argument 'ipam_pool_id' to be a str")
         pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -69,6 +72,11 @@ class GetVpcIpamPoolCidrsResult:
     def ipam_pool_id(self) -> builtins.str:
         return pulumi.get(self, "ipam_pool_id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetVpcIpamPoolCidrsResult(GetVpcIpamPoolCidrsResult):
     # pylint: disable=using-constant-test
@@ -79,11 +87,13 @@ class AwaitableGetVpcIpamPoolCidrsResult(GetVpcIpamPoolCidrsResult):
             filters=self.filters,
             id=self.id,
             ipam_pool_cidrs=self.ipam_pool_cidrs,
-            ipam_pool_id=self.ipam_pool_id)
+            ipam_pool_id=self.ipam_pool_id,
+            region=self.region)
 
 
 def get_vpc_ipam_pool_cidrs(filters: Optional[Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict']]] = None,
                             ipam_pool_id: Optional[builtins.str] = None,
+                            region: Optional[builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIpamPoolCidrsResult:
     """
     `ec2_get_vpc_ipam_pool_cidrs` provides details about an IPAM pool.
@@ -136,10 +146,12 @@ def get_vpc_ipam_pool_cidrs(filters: Optional[Sequence[Union['GetVpcIpamPoolCidr
 
     :param Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict']] filters: Custom filter block as described below.
     :param builtins.str ipam_pool_id: ID of the IPAM pool you would like the list of provisioned CIDRs.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['ipamPoolId'] = ipam_pool_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcIpamPoolCidrs:getVpcIpamPoolCidrs', __args__, opts=opts, typ=GetVpcIpamPoolCidrsResult).value
 
@@ -147,9 +159,11 @@ def get_vpc_ipam_pool_cidrs(filters: Optional[Sequence[Union['GetVpcIpamPoolCidr
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         ipam_pool_cidrs=pulumi.get(__ret__, 'ipam_pool_cidrs'),
-        ipam_pool_id=pulumi.get(__ret__, 'ipam_pool_id'))
+        ipam_pool_id=pulumi.get(__ret__, 'ipam_pool_id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_vpc_ipam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict']]]]] = None,
                                    ipam_pool_id: Optional[pulumi.Input[builtins.str]] = None,
+                                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcIpamPoolCidrsResult]:
     """
     `ec2_get_vpc_ipam_pool_cidrs` provides details about an IPAM pool.
@@ -202,14 +216,17 @@ def get_vpc_ipam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Seque
 
     :param Sequence[Union['GetVpcIpamPoolCidrsFilterArgs', 'GetVpcIpamPoolCidrsFilterArgsDict']] filters: Custom filter block as described below.
     :param builtins.str ipam_pool_id: ID of the IPAM pool you would like the list of provisioned CIDRs.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['ipamPoolId'] = ipam_pool_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcIpamPoolCidrs:getVpcIpamPoolCidrs', __args__, opts=opts, typ=GetVpcIpamPoolCidrsResult)
     return __ret__.apply(lambda __response__: GetVpcIpamPoolCidrsResult(
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         ipam_pool_cidrs=pulumi.get(__response__, 'ipam_pool_cidrs'),
-        ipam_pool_id=pulumi.get(__response__, 'ipam_pool_id')))
+        ipam_pool_id=pulumi.get(__response__, 'ipam_pool_id'),
+        region=pulumi.get(__response__, 'region')))

@@ -83,6 +83,10 @@ export class Group extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly identityStoreId!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -102,6 +106,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["externalIds"] = state ? state.externalIds : undefined;
             resourceInputs["groupId"] = state ? state.groupId : undefined;
             resourceInputs["identityStoreId"] = state ? state.identityStoreId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -113,6 +118,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["identityStoreId"] = args ? args.identityStoreId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["externalIds"] = undefined /*out*/;
             resourceInputs["groupId"] = undefined /*out*/;
         }
@@ -147,6 +153,10 @@ export interface GroupState {
      * The following arguments are optional:
      */
     identityStoreId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -167,4 +177,8 @@ export interface GroupArgs {
      * The following arguments are optional:
      */
     identityStoreId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

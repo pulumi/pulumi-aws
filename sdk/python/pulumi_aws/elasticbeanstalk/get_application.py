@@ -28,7 +28,7 @@ class GetApplicationResult:
     """
     A collection of values returned by getApplication.
     """
-    def __init__(__self__, appversion_lifecycle=None, arn=None, description=None, id=None, name=None):
+    def __init__(__self__, appversion_lifecycle=None, arn=None, description=None, id=None, name=None, region=None):
         if appversion_lifecycle and not isinstance(appversion_lifecycle, dict):
             raise TypeError("Expected argument 'appversion_lifecycle' to be a dict")
         pulumi.set(__self__, "appversion_lifecycle", appversion_lifecycle)
@@ -44,6 +44,9 @@ class GetApplicationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="appversionLifecycle")
@@ -79,6 +82,11 @@ class GetApplicationResult:
     def name(self) -> builtins.str:
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetApplicationResult(GetApplicationResult):
     # pylint: disable=using-constant-test
@@ -90,10 +98,12 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             arn=self.arn,
             description=self.description,
             id=self.id,
-            name=self.name)
+            name=self.name,
+            region=self.region)
 
 
 def get_application(name: Optional[builtins.str] = None,
+                    region: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Retrieve information about an Elastic Beanstalk Application.
@@ -111,9 +121,11 @@ def get_application(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the application
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:elasticbeanstalk/getApplication:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
@@ -122,8 +134,10 @@ def get_application(name: Optional[builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'))
 def get_application_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Retrieve information about an Elastic Beanstalk Application.
@@ -141,9 +155,11 @@ def get_application_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the application
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:elasticbeanstalk/getApplication:getApplication', __args__, opts=opts, typ=GetApplicationResult)
     return __ret__.apply(lambda __response__: GetApplicationResult(
@@ -151,4 +167,5 @@ def get_application_output(name: Optional[pulumi.Input[builtins.str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name')))
+        name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region')))

@@ -13,19 +13,19 @@ namespace Pulumi.Aws.NetworkManager.Inputs
     public sealed class DeviceLocationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The physical address.
+        /// Physical address.
         /// </summary>
         [Input("address")]
         public Input<string>? Address { get; set; }
 
         /// <summary>
-        /// The latitude.
+        /// Latitude.
         /// </summary>
         [Input("latitude")]
         public Input<string>? Latitude { get; set; }
 
         /// <summary>
-        /// The longitude.
+        /// Longitude.
         /// </summary>
         [Input("longitude")]
         public Input<string>? Longitude { get; set; }

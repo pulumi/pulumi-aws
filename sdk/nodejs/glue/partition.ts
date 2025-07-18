@@ -88,6 +88,10 @@ export class Partition extends pulumi.CustomResource {
      */
     public readonly partitionValues!: pulumi.Output<string[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      */
     public readonly storageDescriptor!: pulumi.Output<outputs.glue.PartitionStorageDescriptor | undefined>;
@@ -113,6 +117,7 @@ export class Partition extends pulumi.CustomResource {
             resourceInputs["lastAnalyzedTime"] = state ? state.lastAnalyzedTime : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["partitionValues"] = state ? state.partitionValues : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["storageDescriptor"] = state ? state.storageDescriptor : undefined;
             resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
@@ -130,6 +135,7 @@ export class Partition extends pulumi.CustomResource {
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["partitionValues"] = args ? args.partitionValues : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["storageDescriptor"] = args ? args.storageDescriptor : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
             resourceInputs["creationTime"] = undefined /*out*/;
@@ -174,6 +180,10 @@ export interface PartitionState {
      */
     partitionValues?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      */
     storageDescriptor?: pulumi.Input<inputs.glue.PartitionStorageDescriptor>;
@@ -200,6 +210,10 @@ export interface PartitionArgs {
      * The values that define the partition.
      */
     partitionValues: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A storage descriptor object containing information about the physical storage of this table. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor) for a full explanation of this object.
      */

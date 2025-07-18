@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecommit"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codecommit"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,6 +50,8 @@ func LookupRepository(ctx *pulumi.Context, args *LookupRepositoryArgs, opts ...p
 
 // A collection of arguments for invoking getRepository.
 type LookupRepositoryArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name for the repository. This needs to be less than 100 characters.
 	RepositoryName string `pulumi:"repositoryName"`
 }
@@ -66,6 +68,7 @@ type LookupRepositoryResult struct {
 	Id string `pulumi:"id"`
 	// The ID of the encryption key.
 	KmsKeyId string `pulumi:"kmsKeyId"`
+	Region   string `pulumi:"region"`
 	// ID of the repository.
 	RepositoryId   string `pulumi:"repositoryId"`
 	RepositoryName string `pulumi:"repositoryName"`
@@ -82,6 +85,8 @@ func LookupRepositoryOutput(ctx *pulumi.Context, args LookupRepositoryOutputArgs
 
 // A collection of arguments for invoking getRepository.
 type LookupRepositoryOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Name for the repository. This needs to be less than 100 characters.
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
 }
@@ -128,6 +133,10 @@ func (o LookupRepositoryResultOutput) Id() pulumi.StringOutput {
 // The ID of the encryption key.
 func (o LookupRepositoryResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+func (o LookupRepositoryResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the repository.

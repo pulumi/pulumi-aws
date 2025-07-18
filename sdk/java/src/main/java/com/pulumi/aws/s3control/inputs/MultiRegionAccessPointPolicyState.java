@@ -76,6 +76,21 @@ public final class MultiRegionAccessPointPolicyState extends com.pulumi.resource
         return Optional.ofNullable(this.proposed);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private MultiRegionAccessPointPolicyState() {}
 
     private MultiRegionAccessPointPolicyState(MultiRegionAccessPointPolicyState $) {
@@ -83,6 +98,7 @@ public final class MultiRegionAccessPointPolicyState extends com.pulumi.resource
         this.details = $.details;
         this.established = $.established;
         this.proposed = $.proposed;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -185,6 +201,27 @@ public final class MultiRegionAccessPointPolicyState extends com.pulumi.resource
          */
         public Builder proposed(String proposed) {
             return proposed(Output.of(proposed));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public MultiRegionAccessPointPolicyState build() {

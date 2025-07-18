@@ -140,7 +140,7 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Unique name for your Lambda Layer
+     * Unique name for your Lambda Layer.
      * 
      * The following arguments are optional:
      * 
@@ -149,7 +149,7 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> layerName;
 
     /**
-     * @return Unique name for your Lambda Layer
+     * @return Unique name for your Lambda Layer.
      * 
      * The following arguments are optional:
      * 
@@ -171,6 +171,21 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> licenseInfo() {
         return Optional.ofNullable(this.licenseInfo);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -264,14 +279,14 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+     * Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256(&#34;file.zip&#34;)` or `base64sha256(file(&#34;file.zip&#34;))`, where &#34;file.zip&#34; is the local filename of the lambda layer source archive.
      * 
      */
     @Import(name="sourceCodeHash")
     private @Nullable Output<String> sourceCodeHash;
 
     /**
-     * @return Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+     * @return Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256(&#34;file.zip&#34;)` or `base64sha256(file(&#34;file.zip&#34;))`, where &#34;file.zip&#34; is the local filename of the lambda layer source archive.
      * 
      */
     public Optional<Output<String>> sourceCodeHash() {
@@ -321,6 +336,7 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
         this.layerArn = $.layerArn;
         this.layerName = $.layerName;
         this.licenseInfo = $.licenseInfo;
+        this.region = $.region;
         this.s3Bucket = $.s3Bucket;
         this.s3Key = $.s3Key;
         this.s3ObjectVersion = $.s3ObjectVersion;
@@ -539,7 +555,7 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param layerName Unique name for your Lambda Layer
+         * @param layerName Unique name for your Lambda Layer.
          * 
          * The following arguments are optional:
          * 
@@ -552,7 +568,7 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param layerName Unique name for your Lambda Layer
+         * @param layerName Unique name for your Lambda Layer.
          * 
          * The following arguments are optional:
          * 
@@ -582,6 +598,27 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder licenseInfo(String licenseInfo) {
             return licenseInfo(Output.of(licenseInfo));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -711,7 +748,7 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceCodeHash Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+         * @param sourceCodeHash Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256(&#34;file.zip&#34;)` or `base64sha256(file(&#34;file.zip&#34;))`, where &#34;file.zip&#34; is the local filename of the lambda layer source archive.
          * 
          * @return builder
          * 
@@ -722,7 +759,7 @@ public final class LayerVersionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceCodeHash Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`.
+         * @param sourceCodeHash Virtual attribute used to trigger replacement when source code changes. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `filebase64sha256(&#34;file.zip&#34;)` or `base64sha256(file(&#34;file.zip&#34;))`, where &#34;file.zip&#34; is the local filename of the lambda layer source archive.
          * 
          * @return builder
          * 

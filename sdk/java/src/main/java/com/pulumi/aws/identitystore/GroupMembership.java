@@ -27,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+ * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
  * import com.pulumi.aws.identitystore.User;
  * import com.pulumi.aws.identitystore.UserArgs;
  * import com.pulumi.aws.identitystore.inputs.UserNameArgs;
@@ -47,7 +48,8 @@ import javax.annotation.Nullable;
  *     }}{@code
  * 
  *     public static void stack(Context ctx) }{{@code
- *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+ *             .build());
  * 
  *         var exampleUser = new User("exampleUser", UserArgs.builder()
  *             .identityStoreId(example.identityStoreIds()[0])
@@ -143,6 +145,20 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
      */
     public Output<String> membershipId() {
         return this.membershipId;
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
 
     /**

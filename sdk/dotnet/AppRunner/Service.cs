@@ -209,6 +209,12 @@ namespace Pulumi.Aws.AppRunner
         public Output<Outputs.ServiceObservabilityConfiguration?> ObservabilityConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
         /// </summary>
         [Output("serviceId")]
@@ -335,6 +341,12 @@ namespace Pulumi.Aws.AppRunner
         public Input<Inputs.ServiceObservabilityConfigurationArgs>? ObservabilityConfiguration { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Name of the service.
         /// </summary>
         [Input("serviceName", required: true)]
@@ -411,6 +423,12 @@ namespace Pulumi.Aws.AppRunner
         public Input<Inputs.ServiceObservabilityConfigurationGetArgs>? ObservabilityConfiguration { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
         /// </summary>
         [Input("serviceId")]
@@ -460,7 +478,6 @@ namespace Pulumi.Aws.AppRunner
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

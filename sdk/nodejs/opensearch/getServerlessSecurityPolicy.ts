@@ -23,6 +23,7 @@ export function getServerlessSecurityPolicy(args: GetServerlessSecurityPolicyArg
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy", {
         "name": args.name,
+        "region": args.region,
         "type": args.type,
     }, opts);
 }
@@ -35,6 +36,10 @@ export interface GetServerlessSecurityPolicyArgs {
      * Name of the policy
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Type of security policy. One of `encryption` or `network`.
      */
@@ -70,6 +75,7 @@ export interface GetServerlessSecurityPolicyResult {
      * Version of the policy.
      */
     readonly policyVersion: string;
+    readonly region: string;
     readonly type: string;
 }
 /**
@@ -91,6 +97,7 @@ export function getServerlessSecurityPolicyOutput(args: GetServerlessSecurityPol
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy", {
         "name": args.name,
+        "region": args.region,
         "type": args.type,
     }, opts);
 }
@@ -103,6 +110,10 @@ export interface GetServerlessSecurityPolicyOutputArgs {
      * Name of the policy
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Type of security policy. One of `encryption` or `network`.
      */

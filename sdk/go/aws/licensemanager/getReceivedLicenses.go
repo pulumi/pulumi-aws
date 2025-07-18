@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/licensemanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,6 +61,8 @@ func GetReceivedLicenses(ctx *pulumi.Context, args *GetReceivedLicensesArgs, opt
 type GetReceivedLicensesArgs struct {
 	// Custom filter block as described below.
 	Filters []GetReceivedLicensesFilter `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getReceivedLicenses.
@@ -69,7 +71,8 @@ type GetReceivedLicensesResult struct {
 	Arns    []string                    `pulumi:"arns"`
 	Filters []GetReceivedLicensesFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func GetReceivedLicensesOutput(ctx *pulumi.Context, args GetReceivedLicensesOutputArgs, opts ...pulumi.InvokeOption) GetReceivedLicensesResultOutput {
@@ -85,6 +88,8 @@ func GetReceivedLicensesOutput(ctx *pulumi.Context, args GetReceivedLicensesOutp
 type GetReceivedLicensesOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetReceivedLicensesFilterArrayInput `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetReceivedLicensesOutputArgs) ElementType() reflect.Type {
@@ -118,6 +123,10 @@ func (o GetReceivedLicensesResultOutput) Filters() GetReceivedLicensesFilterArra
 // The provider-assigned unique ID for this managed resource.
 func (o GetReceivedLicensesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicensesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetReceivedLicensesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReceivedLicensesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

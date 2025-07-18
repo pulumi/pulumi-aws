@@ -44,6 +44,7 @@ export function getRouteTables(args?: GetRouteTablesArgs, opts?: pulumi.InvokeOp
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getRouteTables:getRouteTables", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
@@ -57,6 +58,10 @@ export interface GetRouteTablesArgs {
      * Custom filter block as described below.
      */
     filters?: inputs.ec2.GetRouteTablesFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired route tables.
@@ -81,6 +86,7 @@ export interface GetRouteTablesResult {
      * List of all the route table ids found.
      */
     readonly ids: string[];
+    readonly region: string;
     readonly tags: {[key: string]: string};
     readonly vpcId?: string;
 }
@@ -121,6 +127,7 @@ export function getRouteTablesOutput(args?: GetRouteTablesOutputArgs, opts?: pul
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getRouteTables:getRouteTables", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
@@ -134,6 +141,10 @@ export interface GetRouteTablesOutputArgs {
      * Custom filter block as described below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetRouteTablesFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired route tables.

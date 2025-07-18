@@ -28,7 +28,7 @@ class GetListenerResult:
     """
     A collection of values returned by getListener.
     """
-    def __init__(__self__, alpn_policy=None, arn=None, certificate_arn=None, default_actions=None, id=None, load_balancer_arn=None, mutual_authentications=None, port=None, protocol=None, ssl_policy=None, tags=None):
+    def __init__(__self__, alpn_policy=None, arn=None, certificate_arn=None, default_actions=None, id=None, load_balancer_arn=None, mutual_authentications=None, port=None, protocol=None, region=None, ssl_policy=None, tags=None):
         if alpn_policy and not isinstance(alpn_policy, str):
             raise TypeError("Expected argument 'alpn_policy' to be a str")
         pulumi.set(__self__, "alpn_policy", alpn_policy)
@@ -56,6 +56,9 @@ class GetListenerResult:
         if protocol and not isinstance(protocol, str):
             raise TypeError("Expected argument 'protocol' to be a str")
         pulumi.set(__self__, "protocol", protocol)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if ssl_policy and not isinstance(ssl_policy, str):
             raise TypeError("Expected argument 'ssl_policy' to be a str")
         pulumi.set(__self__, "ssl_policy", ssl_policy)
@@ -112,6 +115,11 @@ class GetListenerResult:
         return pulumi.get(self, "protocol")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="sslPolicy")
     def ssl_policy(self) -> builtins.str:
         return pulumi.get(self, "ssl_policy")
@@ -137,6 +145,7 @@ class AwaitableGetListenerResult(GetListenerResult):
             mutual_authentications=self.mutual_authentications,
             port=self.port,
             protocol=self.protocol,
+            region=self.region,
             ssl_policy=self.ssl_policy,
             tags=self.tags)
 
@@ -144,6 +153,7 @@ class AwaitableGetListenerResult(GetListenerResult):
 def get_listener(arn: Optional[builtins.str] = None,
                  load_balancer_arn: Optional[builtins.str] = None,
                  port: Optional[builtins.int] = None,
+                 region: Optional[builtins.str] = None,
                  tags: Optional[Mapping[str, builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetListenerResult:
     """
@@ -172,11 +182,13 @@ def get_listener(arn: Optional[builtins.str] = None,
     :param builtins.str arn: ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
     :param builtins.str load_balancer_arn: ARN of the load balancer. Required if `arn` is not set.
     :param builtins.int port: Port of the listener. Required if `arn` is not set.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['loadBalancerArn'] = load_balancer_arn
     __args__['port'] = port
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:lb/getListener:getListener', __args__, opts=opts, typ=GetListenerResult).value
@@ -191,11 +203,13 @@ def get_listener(arn: Optional[builtins.str] = None,
         mutual_authentications=pulumi.get(__ret__, 'mutual_authentications'),
         port=pulumi.get(__ret__, 'port'),
         protocol=pulumi.get(__ret__, 'protocol'),
+        region=pulumi.get(__ret__, 'region'),
         ssl_policy=pulumi.get(__ret__, 'ssl_policy'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_listener_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         load_balancer_arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         port: Optional[pulumi.Input[Optional[builtins.int]]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListenerResult]:
     """
@@ -224,11 +238,13 @@ def get_listener_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = No
     :param builtins.str arn: ARN of the listener. Required if `load_balancer_arn` and `port` is not set.
     :param builtins.str load_balancer_arn: ARN of the load balancer. Required if `arn` is not set.
     :param builtins.int port: Port of the listener. Required if `arn` is not set.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['loadBalancerArn'] = load_balancer_arn
     __args__['port'] = port
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lb/getListener:getListener', __args__, opts=opts, typ=GetListenerResult)
@@ -242,5 +258,6 @@ def get_listener_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = No
         mutual_authentications=pulumi.get(__response__, 'mutual_authentications'),
         port=pulumi.get(__response__, 'port'),
         protocol=pulumi.get(__response__, 'protocol'),
+        region=pulumi.get(__response__, 'region'),
         ssl_policy=pulumi.get(__response__, 'ssl_policy'),
         tags=pulumi.get(__response__, 'tags')))

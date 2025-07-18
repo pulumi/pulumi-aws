@@ -99,6 +99,12 @@ namespace Pulumi.Aws.Dms
         [Input("certificateId", required: true)]
         public string CertificateId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
         public Dictionary<string, string> Tags
@@ -120,6 +126,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Input("certificateId", required: true)]
         public Input<string> CertificateId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -168,6 +180,7 @@ namespace Pulumi.Aws.Dms
         /// The key length of the cryptographic algorithm being used.
         /// </summary>
         public readonly int KeyLength;
+        public readonly string Region;
         /// <summary>
         /// The algorithm for the certificate.
         /// </summary>
@@ -200,6 +213,8 @@ namespace Pulumi.Aws.Dms
 
             int keyLength,
 
+            string region,
+
             string signingAlgorithm,
 
             ImmutableDictionary<string, string> tags,
@@ -216,6 +231,7 @@ namespace Pulumi.Aws.Dms
             CertificateWallet = certificateWallet;
             Id = id;
             KeyLength = keyLength;
+            Region = region;
             SigningAlgorithm = signingAlgorithm;
             Tags = tags;
             ValidFromDate = validFromDate;

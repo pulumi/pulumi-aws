@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3control"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3control"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -99,13 +99,13 @@ type StorageLensConfiguration struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the S3 Storage Lens configuration.
 	ConfigId pulumi.StringOutput `pulumi:"configId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
 	StorageLensConfiguration StorageLensConfigurationStorageLensConfigurationOutput `pulumi:"storageLensConfiguration"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -151,13 +151,13 @@ type storageLensConfigurationState struct {
 	Arn *string `pulumi:"arn"`
 	// The ID of the S3 Storage Lens configuration.
 	ConfigId *string `pulumi:"configId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
 	StorageLensConfiguration *StorageLensConfigurationStorageLensConfiguration `pulumi:"storageLensConfiguration"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -168,13 +168,13 @@ type StorageLensConfigurationState struct {
 	Arn pulumi.StringPtrInput
 	// The ID of the S3 Storage Lens configuration.
 	ConfigId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
 	StorageLensConfiguration StorageLensConfigurationStorageLensConfigurationPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -187,6 +187,8 @@ type storageLensConfigurationArgs struct {
 	AccountId *string `pulumi:"accountId"`
 	// The ID of the S3 Storage Lens configuration.
 	ConfigId string `pulumi:"configId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
 	StorageLensConfiguration StorageLensConfigurationStorageLensConfiguration `pulumi:"storageLensConfiguration"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -199,6 +201,8 @@ type StorageLensConfigurationArgs struct {
 	AccountId pulumi.StringPtrInput
 	// The ID of the S3 Storage Lens configuration.
 	ConfigId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
 	StorageLensConfiguration StorageLensConfigurationStorageLensConfigurationInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -307,6 +311,11 @@ func (o StorageLensConfigurationOutput) ConfigId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageLensConfiguration) pulumi.StringOutput { return v.ConfigId }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o StorageLensConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *StorageLensConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The S3 Storage Lens configuration. See Storage Lens Configuration below for more details.
 func (o StorageLensConfigurationOutput) StorageLensConfiguration() StorageLensConfigurationStorageLensConfigurationOutput {
 	return o.ApplyT(func(v *StorageLensConfiguration) StorageLensConfigurationStorageLensConfigurationOutput {
@@ -320,8 +329,6 @@ func (o StorageLensConfigurationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o StorageLensConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StorageLensConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -103,6 +103,10 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly onDemandOptions!: pulumi.Output<outputs.ec2.FleetOnDemandOptions | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
      */
     public readonly replaceUnhealthyInstances!: pulumi.Output<boolean | undefined>;
@@ -116,8 +120,6 @@ export class Fleet extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -167,6 +169,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["fulfilledOnDemandCapacity"] = state ? state.fulfilledOnDemandCapacity : undefined;
             resourceInputs["launchTemplateConfigs"] = state ? state.launchTemplateConfigs : undefined;
             resourceInputs["onDemandOptions"] = state ? state.onDemandOptions : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replaceUnhealthyInstances"] = state ? state.replaceUnhealthyInstances : undefined;
             resourceInputs["spotOptions"] = state ? state.spotOptions : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -193,6 +196,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["fulfilledOnDemandCapacity"] = args ? args.fulfilledOnDemandCapacity : undefined;
             resourceInputs["launchTemplateConfigs"] = args ? args.launchTemplateConfigs : undefined;
             resourceInputs["onDemandOptions"] = args ? args.onDemandOptions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
             resourceInputs["spotOptions"] = args ? args.spotOptions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -251,6 +255,10 @@ export interface FleetState {
      */
     onDemandOptions?: pulumi.Input<inputs.ec2.FleetOnDemandOptions>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
      */
     replaceUnhealthyInstances?: pulumi.Input<boolean>;
@@ -264,8 +272,6 @@ export interface FleetState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -330,6 +336,10 @@ export interface FleetArgs {
      * Nested argument containing On-Demand configurations. Defined below.
      */
     onDemandOptions?: pulumi.Input<inputs.ec2.FleetOnDemandOptions>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`. Supported only for fleets of type `maintain`.
      */

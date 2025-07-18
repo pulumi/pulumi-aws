@@ -27,7 +27,7 @@ class GetApprovalRuleTemplateResult:
     """
     A collection of values returned by getApprovalRuleTemplate.
     """
-    def __init__(__self__, approval_rule_template_id=None, content=None, creation_date=None, description=None, id=None, last_modified_date=None, last_modified_user=None, name=None, rule_content_sha256=None):
+    def __init__(__self__, approval_rule_template_id=None, content=None, creation_date=None, description=None, id=None, last_modified_date=None, last_modified_user=None, name=None, region=None, rule_content_sha256=None):
         if approval_rule_template_id and not isinstance(approval_rule_template_id, str):
             raise TypeError("Expected argument 'approval_rule_template_id' to be a str")
         pulumi.set(__self__, "approval_rule_template_id", approval_rule_template_id)
@@ -52,6 +52,9 @@ class GetApprovalRuleTemplateResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if rule_content_sha256 and not isinstance(rule_content_sha256, str):
             raise TypeError("Expected argument 'rule_content_sha256' to be a str")
         pulumi.set(__self__, "rule_content_sha256", rule_content_sha256)
@@ -118,6 +121,11 @@ class GetApprovalRuleTemplateResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="ruleContentSha256")
     def rule_content_sha256(self) -> builtins.str:
         """
@@ -140,10 +148,12 @@ class AwaitableGetApprovalRuleTemplateResult(GetApprovalRuleTemplateResult):
             last_modified_date=self.last_modified_date,
             last_modified_user=self.last_modified_user,
             name=self.name,
+            region=self.region,
             rule_content_sha256=self.rule_content_sha256)
 
 
 def get_approval_rule_template(name: Optional[builtins.str] = None,
+                               region: Optional[builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApprovalRuleTemplateResult:
     """
     Provides details about a specific CodeCommit Approval Rule Template.
@@ -159,9 +169,11 @@ def get_approval_rule_template(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name for the approval rule template. This needs to be less than 100 characters.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate', __args__, opts=opts, typ=GetApprovalRuleTemplateResult).value
 
@@ -174,8 +186,10 @@ def get_approval_rule_template(name: Optional[builtins.str] = None,
         last_modified_date=pulumi.get(__ret__, 'last_modified_date'),
         last_modified_user=pulumi.get(__ret__, 'last_modified_user'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         rule_content_sha256=pulumi.get(__ret__, 'rule_content_sha256'))
 def get_approval_rule_template_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApprovalRuleTemplateResult]:
     """
     Provides details about a specific CodeCommit Approval Rule Template.
@@ -191,9 +205,11 @@ def get_approval_rule_template_output(name: Optional[pulumi.Input[builtins.str]]
 
 
     :param builtins.str name: Name for the approval rule template. This needs to be less than 100 characters.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate', __args__, opts=opts, typ=GetApprovalRuleTemplateResult)
     return __ret__.apply(lambda __response__: GetApprovalRuleTemplateResult(
@@ -205,4 +221,5 @@ def get_approval_rule_template_output(name: Optional[pulumi.Input[builtins.str]]
         last_modified_date=pulumi.get(__response__, 'last_modified_date'),
         last_modified_user=pulumi.get(__response__, 'last_modified_user'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         rule_content_sha256=pulumi.get(__response__, 'rule_content_sha256')))

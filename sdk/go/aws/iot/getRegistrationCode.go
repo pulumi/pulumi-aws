@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
 //	"github.com/pulumi/pulumi-tls/sdk/v4/go/tls"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := iot.GetRegistrationCode(ctx, map[string]interface{}{}, nil)
+//			example, err := iot.GetRegistrationCode(ctx, &iot.GetRegistrationCodeArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -55,29 +55,48 @@ import (
 //	}
 //
 // ```
-func GetRegistrationCode(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRegistrationCodeResult, error) {
+func GetRegistrationCode(ctx *pulumi.Context, args *GetRegistrationCodeArgs, opts ...pulumi.InvokeOption) (*GetRegistrationCodeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRegistrationCodeResult
-	err := ctx.Invoke("aws:iot/getRegistrationCode:getRegistrationCode", nil, &rv, opts...)
+	err := ctx.Invoke("aws:iot/getRegistrationCode:getRegistrationCode", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
 }
 
+// A collection of arguments for invoking getRegistrationCode.
+type GetRegistrationCodeArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
+}
+
 // A collection of values returned by getRegistrationCode.
 type GetRegistrationCodeResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// The CA certificate registration code.
 	RegistrationCode string `pulumi:"registrationCode"`
 }
 
-func GetRegistrationCodeOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetRegistrationCodeResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetRegistrationCodeResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:iot/getRegistrationCode:getRegistrationCode", nil, GetRegistrationCodeResultOutput{}, options).(GetRegistrationCodeResultOutput), nil
-	}).(GetRegistrationCodeResultOutput)
+func GetRegistrationCodeOutput(ctx *pulumi.Context, args GetRegistrationCodeOutputArgs, opts ...pulumi.InvokeOption) GetRegistrationCodeResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetRegistrationCodeResultOutput, error) {
+			args := v.(GetRegistrationCodeArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:iot/getRegistrationCode:getRegistrationCode", args, GetRegistrationCodeResultOutput{}, options).(GetRegistrationCodeResultOutput), nil
+		}).(GetRegistrationCodeResultOutput)
+}
+
+// A collection of arguments for invoking getRegistrationCode.
+type GetRegistrationCodeOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetRegistrationCodeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRegistrationCodeArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getRegistrationCode.
@@ -98,6 +117,10 @@ func (o GetRegistrationCodeResultOutput) ToGetRegistrationCodeResultOutputWithCo
 // The provider-assigned unique ID for this managed resource.
 func (o GetRegistrationCodeResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRegistrationCodeResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetRegistrationCodeResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRegistrationCodeResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The CA certificate registration code.

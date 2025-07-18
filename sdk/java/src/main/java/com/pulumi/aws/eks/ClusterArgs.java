@@ -74,13 +74,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.computeConfig);
     }
 
-    @Import(name="defaultAddonsToRemoves")
-    private @Nullable Output<List<String>> defaultAddonsToRemoves;
-
-    public Optional<Output<List<String>>> defaultAddonsToRemoves() {
-        return Optional.ofNullable(this.defaultAddonsToRemoves);
-    }
-
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      * 
@@ -169,6 +162,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<ClusterOutpostConfigArgs>> outpostConfig() {
         return Optional.ofNullable(this.outpostConfig);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -301,13 +309,13 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.accessConfig = $.accessConfig;
         this.bootstrapSelfManagedAddons = $.bootstrapSelfManagedAddons;
         this.computeConfig = $.computeConfig;
-        this.defaultAddonsToRemoves = $.defaultAddonsToRemoves;
         this.enabledClusterLogTypes = $.enabledClusterLogTypes;
         this.encryptionConfig = $.encryptionConfig;
         this.forceUpdateVersion = $.forceUpdateVersion;
         this.kubernetesNetworkConfig = $.kubernetesNetworkConfig;
         this.name = $.name;
         this.outpostConfig = $.outpostConfig;
+        this.region = $.region;
         this.remoteNetworkConfig = $.remoteNetworkConfig;
         this.roleArn = $.roleArn;
         this.storageConfig = $.storageConfig;
@@ -397,19 +405,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder computeConfig(ClusterComputeConfigArgs computeConfig) {
             return computeConfig(Output.of(computeConfig));
-        }
-
-        public Builder defaultAddonsToRemoves(@Nullable Output<List<String>> defaultAddonsToRemoves) {
-            $.defaultAddonsToRemoves = defaultAddonsToRemoves;
-            return this;
-        }
-
-        public Builder defaultAddonsToRemoves(List<String> defaultAddonsToRemoves) {
-            return defaultAddonsToRemoves(Output.of(defaultAddonsToRemoves));
-        }
-
-        public Builder defaultAddonsToRemoves(String... defaultAddonsToRemoves) {
-            return defaultAddonsToRemoves(List.of(defaultAddonsToRemoves));
         }
 
         /**
@@ -546,6 +541,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder outpostConfig(ClusterOutpostConfigArgs outpostConfig) {
             return outpostConfig(Output.of(outpostConfig));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func LookupEmailIdentity(ctx *pulumi.Context, args *LookupEmailIdentityArgs, opt
 type LookupEmailIdentityArgs struct {
 	// The name of the email identity.
 	EmailIdentity string `pulumi:"emailIdentity"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -70,6 +72,7 @@ type LookupEmailIdentityResult struct {
 	Id string `pulumi:"id"`
 	// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
 	IdentityType string `pulumi:"identityType"`
+	Region       string `pulumi:"region"`
 	// Key-value mapping of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Specifies whether or not the identity is verified.
@@ -89,6 +92,8 @@ func LookupEmailIdentityOutput(ctx *pulumi.Context, args LookupEmailIdentityOutp
 type LookupEmailIdentityOutputArgs struct {
 	// The name of the email identity.
 	EmailIdentity pulumi.StringInput `pulumi:"emailIdentity"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value mapping of resource tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -140,6 +145,10 @@ func (o LookupEmailIdentityResultOutput) Id() pulumi.StringOutput {
 // The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
 func (o LookupEmailIdentityResultOutput) IdentityType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) string { return v.IdentityType }).(pulumi.StringOutput)
+}
+
+func (o LookupEmailIdentityResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEmailIdentityResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value mapping of resource tags.

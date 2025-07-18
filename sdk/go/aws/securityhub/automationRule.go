@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -93,6 +93,8 @@ type AutomationRule struct {
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
 	IsTerminal pulumi.BoolOutput `pulumi:"isTerminal"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the rule.
 	RuleName pulumi.StringOutput `pulumi:"ruleName"`
 	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
@@ -100,8 +102,7 @@ type AutomationRule struct {
 	// Whether the rule is active after it is created.
 	RuleStatus pulumi.StringOutput    `pulumi:"ruleStatus"`
 	Tags       pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll    pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewAutomationRule registers a new resource with the given unique name, arguments, and options.
@@ -153,6 +154,8 @@ type automationRuleState struct {
 	Description *string `pulumi:"description"`
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
 	IsTerminal *bool `pulumi:"isTerminal"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the rule.
 	RuleName *string `pulumi:"ruleName"`
 	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
@@ -160,8 +163,7 @@ type automationRuleState struct {
 	// Whether the rule is active after it is created.
 	RuleStatus *string           `pulumi:"ruleStatus"`
 	Tags       map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll    map[string]string `pulumi:"tagsAll"`
 }
 
 type AutomationRuleState struct {
@@ -175,6 +177,8 @@ type AutomationRuleState struct {
 	Description pulumi.StringPtrInput
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
 	IsTerminal pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the rule.
 	RuleName pulumi.StringPtrInput
 	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
@@ -182,8 +186,7 @@ type AutomationRuleState struct {
 	// Whether the rule is active after it is created.
 	RuleStatus pulumi.StringPtrInput
 	Tags       pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
+	TagsAll    pulumi.StringMapInput
 }
 
 func (AutomationRuleState) ElementType() reflect.Type {
@@ -199,6 +202,8 @@ type automationRuleArgs struct {
 	Description string `pulumi:"description"`
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
 	IsTerminal *bool `pulumi:"isTerminal"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the rule.
 	RuleName string `pulumi:"ruleName"`
 	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
@@ -218,6 +223,8 @@ type AutomationRuleArgs struct {
 	Description pulumi.StringInput
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
 	IsTerminal pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the rule.
 	RuleName pulumi.StringInput
 	// An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
@@ -339,6 +346,11 @@ func (o AutomationRuleOutput) IsTerminal() pulumi.BoolOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.BoolOutput { return v.IsTerminal }).(pulumi.BoolOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AutomationRuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The name of the rule.
 func (o AutomationRuleOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringOutput { return v.RuleName }).(pulumi.StringOutput)
@@ -358,7 +370,6 @@ func (o AutomationRuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o AutomationRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AutomationRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

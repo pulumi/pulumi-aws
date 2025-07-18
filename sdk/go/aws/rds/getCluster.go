@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.
 type LookupClusterArgs struct {
 	// Cluster identifier of the RDS cluster.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -92,6 +94,7 @@ type LookupClusterResult struct {
 	PreferredBackupWindow       string                       `pulumi:"preferredBackupWindow"`
 	PreferredMaintenanceWindow  string                       `pulumi:"preferredMaintenanceWindow"`
 	ReaderEndpoint              string                       `pulumi:"readerEndpoint"`
+	Region                      string                       `pulumi:"region"`
 	ReplicationSourceIdentifier string                       `pulumi:"replicationSourceIdentifier"`
 	StorageEncrypted            bool                         `pulumi:"storageEncrypted"`
 	// A map of tags assigned to the resource.
@@ -112,6 +115,8 @@ func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts
 type LookupClusterOutputArgs struct {
 	// Cluster identifier of the RDS cluster.
 	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -266,6 +271,10 @@ func (o LookupClusterResultOutput) PreferredMaintenanceWindow() pulumi.StringOut
 
 func (o LookupClusterResultOutput) ReaderEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ReaderEndpoint }).(pulumi.StringOutput)
+}
+
+func (o LookupClusterResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupClusterResultOutput) ReplicationSourceIdentifier() pulumi.StringOutput {

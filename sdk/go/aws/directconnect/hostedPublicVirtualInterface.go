@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,6 +82,8 @@ type HostedPublicVirtualInterface struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The AWS account that will own the new virtual interface.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes pulumi.StringArrayOutput `pulumi:"routeFilterPrefixes"`
 	// The VLAN ID.
@@ -157,6 +159,8 @@ type hostedPublicVirtualInterfaceState struct {
 	Name *string `pulumi:"name"`
 	// The AWS account that will own the new virtual interface.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes []string `pulumi:"routeFilterPrefixes"`
 	// The VLAN ID.
@@ -185,6 +189,8 @@ type HostedPublicVirtualInterfaceState struct {
 	Name pulumi.StringPtrInput
 	// The AWS account that will own the new virtual interface.
 	OwnerAccountId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes pulumi.StringArrayInput
 	// The VLAN ID.
@@ -212,6 +218,8 @@ type hostedPublicVirtualInterfaceArgs struct {
 	Name *string `pulumi:"name"`
 	// The AWS account that will own the new virtual interface.
 	OwnerAccountId string `pulumi:"ownerAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes []string `pulumi:"routeFilterPrefixes"`
 	// The VLAN ID.
@@ -236,6 +244,8 @@ type HostedPublicVirtualInterfaceArgs struct {
 	Name pulumi.StringPtrInput
 	// The AWS account that will own the new virtual interface.
 	OwnerAccountId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of routes to be advertised to the AWS network in this region.
 	RouteFilterPrefixes pulumi.StringArrayInput
 	// The VLAN ID.
@@ -381,6 +391,11 @@ func (o HostedPublicVirtualInterfaceOutput) Name() pulumi.StringOutput {
 // The AWS account that will own the new virtual interface.
 func (o HostedPublicVirtualInterfaceOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o HostedPublicVirtualInterfaceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *HostedPublicVirtualInterface) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // A list of routes to be advertised to the AWS network in this region.

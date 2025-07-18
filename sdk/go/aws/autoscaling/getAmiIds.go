@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/autoscaling"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,11 +49,11 @@ import (
 //			}
 //			_, err = autoscaling.NewNotification(ctx, "slack_notifications", &autoscaling.NotificationArgs{
 //				GroupNames: interface{}(groups.Names),
-//				Notifications: pulumi.StringArray{
-//					pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH"),
-//					pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE"),
-//					pulumi.String("autoscaling:EC2_INSTANCE_LAUNCH_ERROR"),
-//					pulumi.String("autoscaling:EC2_INSTANCE_TERMINATE_ERROR"),
+//				Notifications: autoscaling.NotificationTypeArray{
+//					autoscaling.NotificationTypeInstanceLaunch,
+//					autoscaling.NotificationTypeInstanceTerminate,
+//					autoscaling.NotificationTypeInstanceLaunchError,
+//					autoscaling.NotificationTypeInstanceTerminateError,
 //				},
 //				TopicArn: pulumi.String("TOPIC ARN"),
 //			})
@@ -81,6 +81,8 @@ type GetAmiIdsArgs struct {
 	Filters []GetAmiIdsFilter `pulumi:"filters"`
 	// List of autoscaling group names
 	Names []string `pulumi:"names"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getAmiIds.
@@ -91,7 +93,8 @@ type GetAmiIdsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of the Autoscaling Groups in the current region.
-	Names []string `pulumi:"names"`
+	Names  []string `pulumi:"names"`
+	Region string   `pulumi:"region"`
 }
 
 func GetAmiIdsOutput(ctx *pulumi.Context, args GetAmiIdsOutputArgs, opts ...pulumi.InvokeOption) GetAmiIdsResultOutput {
@@ -109,6 +112,8 @@ type GetAmiIdsOutputArgs struct {
 	Filters GetAmiIdsFilterArrayInput `pulumi:"filters"`
 	// List of autoscaling group names
 	Names pulumi.StringArrayInput `pulumi:"names"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetAmiIdsOutputArgs) ElementType() reflect.Type {
@@ -147,6 +152,10 @@ func (o GetAmiIdsResultOutput) Id() pulumi.StringOutput {
 // List of the Autoscaling Groups in the current region.
 func (o GetAmiIdsResultOutput) Names() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAmiIdsResult) []string { return v.Names }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAmiIdsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAmiIdsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

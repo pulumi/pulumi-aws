@@ -34,6 +34,7 @@ class TableArgs:
                  point_in_time_recovery: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']] = None,
                  range_key: Optional[pulumi.Input[builtins.str]] = None,
                  read_capacity: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]] = None,
                  restore_date_time: Optional[pulumi.Input[builtins.str]] = None,
                  restore_source_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -62,6 +63,7 @@ class TableArgs:
         :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[builtins.str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         :param pulumi.Input[builtins.int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         :param pulumi.Input[builtins.str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[builtins.str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
@@ -101,6 +103,8 @@ class TableArgs:
             pulumi.set(__self__, "range_key", range_key)
         if read_capacity is not None:
             pulumi.set(__self__, "read_capacity", read_capacity)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replicas is not None:
             pulumi.set(__self__, "replicas", replicas)
         if restore_date_time is not None:
@@ -274,6 +278,18 @@ class TableArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]]:
         """
         Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
@@ -435,6 +451,7 @@ class _TableState:
                  point_in_time_recovery: Optional[pulumi.Input['TablePointInTimeRecoveryArgs']] = None,
                  range_key: Optional[pulumi.Input[builtins.str]] = None,
                  read_capacity: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]] = None,
                  restore_date_time: Optional[pulumi.Input[builtins.str]] = None,
                  restore_source_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -467,6 +484,7 @@ class _TableState:
         :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[builtins.str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         :param pulumi.Input[builtins.int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         :param pulumi.Input[builtins.str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[builtins.str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
@@ -511,6 +529,8 @@ class _TableState:
             pulumi.set(__self__, "range_key", range_key)
         if read_capacity is not None:
             pulumi.set(__self__, "read_capacity", read_capacity)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replicas is not None:
             pulumi.set(__self__, "replicas", replicas)
         if restore_date_time is not None:
@@ -535,9 +555,6 @@ class _TableState:
             pulumi.set(__self__, "table_class", table_class)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if ttl is not None:
@@ -705,6 +722,18 @@ class _TableState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]]:
         """
         Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
@@ -851,7 +880,6 @@ class _TableState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -905,6 +933,7 @@ class Table(pulumi.CustomResource):
                  point_in_time_recovery: Optional[pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
                  range_key: Optional[pulumi.Input[builtins.str]] = None,
                  read_capacity: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]]] = None,
                  restore_date_time: Optional[pulumi.Input[builtins.str]] = None,
                  restore_source_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1014,6 +1043,40 @@ class Table(pulumi.CustomResource):
             ])
         ```
 
+        ### Global Tables with Multi-Region Strong Consistency
+
+        A global table configured for Multi-Region strong consistency (MRSC) provides the ability to perform a strongly consistent read with multi-Region scope. Performing a strongly consistent read on an MRSC table ensures you're always reading the latest version of an item, irrespective of the Region in which you're performing the read.
+
+        **Note** Please see detailed information, restrictions, caveats etc on the [AWS Support Page](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/multi-region-strong-consistency-gt.html).
+
+        Consistency Mode (`consistency_mode`) is a new argument on the embedded `replica` that allows you to configure consistency mode for Global Tables.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.dynamodb.Table("example",
+            name="example",
+            hash_key="TestTableHashKey",
+            billing_mode="PAY_PER_REQUEST",
+            stream_enabled=True,
+            stream_view_type="NEW_AND_OLD_IMAGES",
+            attributes=[{
+                "name": "TestTableHashKey",
+                "type": "S",
+            }],
+            replicas=[
+                {
+                    "region_name": "us-east-2",
+                    "consistency_mode": "STRONG",
+                },
+                {
+                    "region_name": "us-west-2",
+                    "consistency_mode": "STRONG",
+                },
+            ])
+        ```
+
         ### Replica Tagging
 
         You can manage global table replicas' tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `dynamodb.Tag` resource for the other.
@@ -1051,7 +1114,7 @@ class Table(pulumi.CustomResource):
             })
         example_tag = aws.dynamodb.Tag("example",
             resource_arn=example.arn.apply(lambda arn: std.replace(text=arn,
-                search=current.name,
+                search=current.region,
                 replace=alternate.name)).apply(lambda invoke: invoke.result),
             key="Architect",
             value="Gigi")
@@ -1081,6 +1144,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[builtins.str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         :param pulumi.Input[builtins.int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         :param pulumi.Input[builtins.str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[builtins.str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
@@ -1198,6 +1262,40 @@ class Table(pulumi.CustomResource):
             ])
         ```
 
+        ### Global Tables with Multi-Region Strong Consistency
+
+        A global table configured for Multi-Region strong consistency (MRSC) provides the ability to perform a strongly consistent read with multi-Region scope. Performing a strongly consistent read on an MRSC table ensures you're always reading the latest version of an item, irrespective of the Region in which you're performing the read.
+
+        **Note** Please see detailed information, restrictions, caveats etc on the [AWS Support Page](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/multi-region-strong-consistency-gt.html).
+
+        Consistency Mode (`consistency_mode`) is a new argument on the embedded `replica` that allows you to configure consistency mode for Global Tables.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.dynamodb.Table("example",
+            name="example",
+            hash_key="TestTableHashKey",
+            billing_mode="PAY_PER_REQUEST",
+            stream_enabled=True,
+            stream_view_type="NEW_AND_OLD_IMAGES",
+            attributes=[{
+                "name": "TestTableHashKey",
+                "type": "S",
+            }],
+            replicas=[
+                {
+                    "region_name": "us-east-2",
+                    "consistency_mode": "STRONG",
+                },
+                {
+                    "region_name": "us-west-2",
+                    "consistency_mode": "STRONG",
+                },
+            ])
+        ```
+
         ### Replica Tagging
 
         You can manage global table replicas' tags in various ways. This example shows using `replica.*.propagate_tags` for the first replica and the `dynamodb.Tag` resource for the other.
@@ -1235,7 +1333,7 @@ class Table(pulumi.CustomResource):
             })
         example_tag = aws.dynamodb.Tag("example",
             resource_arn=example.arn.apply(lambda arn: std.replace(text=arn,
-                search=current.name,
+                search=current.region,
                 replace=alternate.name)).apply(lambda invoke: invoke.result),
             key="Architect",
             value="Gigi")
@@ -1276,6 +1374,7 @@ class Table(pulumi.CustomResource):
                  point_in_time_recovery: Optional[pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
                  range_key: Optional[pulumi.Input[builtins.str]] = None,
                  read_capacity: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]]] = None,
                  restore_date_time: Optional[pulumi.Input[builtins.str]] = None,
                  restore_source_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1309,6 +1408,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["point_in_time_recovery"] = point_in_time_recovery
             __props__.__dict__["range_key"] = range_key
             __props__.__dict__["read_capacity"] = read_capacity
+            __props__.__dict__["region"] = region
             __props__.__dict__["replicas"] = replicas
             __props__.__dict__["restore_date_time"] = restore_date_time
             __props__.__dict__["restore_source_name"] = restore_source_name
@@ -1348,6 +1448,7 @@ class Table(pulumi.CustomResource):
             point_in_time_recovery: Optional[pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']]] = None,
             range_key: Optional[pulumi.Input[builtins.str]] = None,
             read_capacity: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]]] = None,
             restore_date_time: Optional[pulumi.Input[builtins.str]] = None,
             restore_source_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1385,6 +1486,7 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Union['TablePointInTimeRecoveryArgs', 'TablePointInTimeRecoveryArgsDict']] point_in_time_recovery: Enable point-in-time recovery options. See below.
         :param pulumi.Input[builtins.str] range_key: Attribute to use as the range (sort) key. Must also be defined as an `attribute`, see below.
         :param pulumi.Input[builtins.int] read_capacity: Number of read units for this table. If the `billing_mode` is `PROVISIONED`, this field is required.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableReplicaArgs', 'TableReplicaArgsDict']]]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         :param pulumi.Input[builtins.str] restore_date_time: Time of the point-in-time recovery point to restore.
         :param pulumi.Input[builtins.str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
@@ -1420,6 +1522,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["point_in_time_recovery"] = point_in_time_recovery
         __props__.__dict__["range_key"] = range_key
         __props__.__dict__["read_capacity"] = read_capacity
+        __props__.__dict__["region"] = region
         __props__.__dict__["replicas"] = replicas
         __props__.__dict__["restore_date_time"] = restore_date_time
         __props__.__dict__["restore_source_name"] = restore_source_name
@@ -1545,6 +1648,14 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def replicas(self) -> pulumi.Output[Optional[Sequence['outputs.TableReplica']]]:
         """
         Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
@@ -1643,7 +1754,6 @@ class Table(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

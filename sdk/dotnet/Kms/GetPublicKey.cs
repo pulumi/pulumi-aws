@@ -154,6 +154,12 @@ namespace Pulumi.Aws.Kms
         [Input("keyId", required: true)]
         public string KeyId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetPublicKeyArgs()
         {
         }
@@ -183,6 +189,12 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         [Input("keyId", required: true)]
         public Input<string> KeyId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetPublicKeyInvokeArgs()
         {
@@ -224,6 +236,7 @@ namespace Pulumi.Aws.Kms
         /// Exported public key. The value is Privacy Enhanced Mail (PEM) encoded.
         /// </summary>
         public readonly string PublicKeyPem;
+        public readonly string Region;
         /// <summary>
         /// Signing algorithms that AWS KMS supports for this key. Only set when the `key_usage` of the public key is `SIGN_VERIFY`.
         /// </summary>
@@ -249,6 +262,8 @@ namespace Pulumi.Aws.Kms
 
             string publicKeyPem,
 
+            string region,
+
             ImmutableArray<string> signingAlgorithms)
         {
             Arn = arn;
@@ -260,6 +275,7 @@ namespace Pulumi.Aws.Kms
             KeyUsage = keyUsage;
             PublicKey = publicKey;
             PublicKeyPem = publicKeyPem;
+            Region = region;
             SigningAlgorithms = signingAlgorithms;
         }
     }

@@ -45,6 +45,12 @@ namespace Pulumi.Aws.Rds
         [Output("certificateIdentifier")]
         public Output<string> CertificateIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Certificate resource with the given unique name, arguments, and options.
@@ -97,6 +103,12 @@ namespace Pulumi.Aws.Rds
         [Input("certificateIdentifier", required: true)]
         public Input<string> CertificateIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public CertificateArgs()
         {
         }
@@ -110,6 +122,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("certificateIdentifier")]
         public Input<string>? CertificateIdentifier { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public CertificateState()
         {

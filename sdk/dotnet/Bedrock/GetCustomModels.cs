@@ -29,8 +29,8 @@ namespace Pulumi.Aws.Bedrock
         /// });
         /// ```
         /// </summary>
-        public static Task<GetCustomModelsResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomModelsResult>("aws:bedrock/getCustomModels:getCustomModels", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetCustomModelsResult> InvokeAsync(GetCustomModelsArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomModelsResult>("aws:bedrock/getCustomModels:getCustomModels", args ?? new GetCustomModelsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a list of Amazon Bedrock custom models.
@@ -50,8 +50,8 @@ namespace Pulumi.Aws.Bedrock
         /// });
         /// ```
         /// </summary>
-        public static Output<GetCustomModelsResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetCustomModelsResult>("aws:bedrock/getCustomModels:getCustomModels", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetCustomModelsResult> Invoke(GetCustomModelsInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomModelsResult>("aws:bedrock/getCustomModels:getCustomModels", args ?? new GetCustomModelsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a list of Amazon Bedrock custom models.
@@ -71,8 +71,37 @@ namespace Pulumi.Aws.Bedrock
         /// });
         /// ```
         /// </summary>
-        public static Output<GetCustomModelsResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetCustomModelsResult>("aws:bedrock/getCustomModels:getCustomModels", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetCustomModelsResult> Invoke(GetCustomModelsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomModelsResult>("aws:bedrock/getCustomModels:getCustomModels", args ?? new GetCustomModelsInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetCustomModelsArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        public GetCustomModelsArgs()
+        {
+        }
+        public static new GetCustomModelsArgs Empty => new GetCustomModelsArgs();
+    }
+
+    public sealed class GetCustomModelsInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetCustomModelsInvokeArgs()
+        {
+        }
+        public static new GetCustomModelsInvokeArgs Empty => new GetCustomModelsInvokeArgs();
     }
 
 
@@ -84,15 +113,19 @@ namespace Pulumi.Aws.Bedrock
         /// Model summaries.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCustomModelsModelSummaryResult> ModelSummaries;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetCustomModelsResult(
             string id,
 
-            ImmutableArray<Outputs.GetCustomModelsModelSummaryResult> modelSummaries)
+            ImmutableArray<Outputs.GetCustomModelsModelSummaryResult> modelSummaries,
+
+            string region)
         {
             Id = id;
             ModelSummaries = modelSummaries;
+            Region = region;
         }
     }
 }

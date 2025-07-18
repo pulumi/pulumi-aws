@@ -16,11 +16,13 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Network Manager Attachment Accepter.
+ * Manages an AWS Network Manager Attachment Accepter.
+ * 
+ * Use this resource to accept cross-account attachments in AWS Network Manager. When an attachment is created in one account and needs to be accepted by another account that owns the core network, this resource handles the acceptance process.
  * 
  * ## Example Usage
  * 
- * ### Example with VPC attachment
+ * ### VPC Attachment
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -45,9 +47,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AttachmentAccepter("test", AttachmentAccepterArgs.builder()
- *             .attachmentId(vpc.id())
- *             .attachmentType(vpc.attachmentType())
+ *         var example = new AttachmentAccepter("example", AttachmentAccepterArgs.builder()
+ *             .attachmentId(exampleAwsNetworkmanagerVpcAttachment.id())
+ *             .attachmentType(exampleAwsNetworkmanagerVpcAttachment.attachmentType())
  *             .build());
  * 
  *     }
@@ -56,7 +58,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Example with site-to-site VPN attachment
+ * ### Site-to-Site VPN Attachment
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -81,9 +83,117 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var test = new AttachmentAccepter("test", AttachmentAccepterArgs.builder()
- *             .attachmentId(vpn.id())
- *             .attachmentType(vpn.attachmentType())
+ *         var example = new AttachmentAccepter("example", AttachmentAccepterArgs.builder()
+ *             .attachmentId(exampleAwsNetworkmanagerSiteToSiteVpnAttachment.id())
+ *             .attachmentType(exampleAwsNetworkmanagerSiteToSiteVpnAttachment.attachmentType())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Connect Attachment
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.networkmanager.AttachmentAccepter;
+ * import com.pulumi.aws.networkmanager.AttachmentAccepterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AttachmentAccepter("example", AttachmentAccepterArgs.builder()
+ *             .attachmentId(exampleAwsNetworkmanagerConnectAttachment.id())
+ *             .attachmentType(exampleAwsNetworkmanagerConnectAttachment.attachmentType())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Transit Gateway Route Table Attachment
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.networkmanager.AttachmentAccepter;
+ * import com.pulumi.aws.networkmanager.AttachmentAccepterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AttachmentAccepter("example", AttachmentAccepterArgs.builder()
+ *             .attachmentId(exampleAwsNetworkmanagerTransitGatewayRouteTableAttachment.id())
+ *             .attachmentType(exampleAwsNetworkmanagerTransitGatewayRouteTableAttachment.attachmentType())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Direct Connect Gateway Attachment
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.networkmanager.AttachmentAccepter;
+ * import com.pulumi.aws.networkmanager.AttachmentAccepterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AttachmentAccepter("example", AttachmentAccepterArgs.builder()
+ *             .attachmentId(exampleAwsNetworkmanagerDxGatewayAttachment.id())
+ *             .attachmentType(exampleAwsNetworkmanagerDxGatewayAttachment.attachmentType())
  *             .build());
  * 
  *     }
@@ -96,154 +206,154 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:networkmanager/attachmentAccepter:AttachmentAccepter")
 public class AttachmentAccepter extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the attachment.
+     * ID of the attachment.
      * 
      */
     @Export(name="attachmentId", refs={String.class}, tree="[0]")
     private Output<String> attachmentId;
 
     /**
-     * @return The ID of the attachment.
+     * @return ID of the attachment.
      * 
      */
     public Output<String> attachmentId() {
         return this.attachmentId;
     }
     /**
-     * The policy rule number associated with the attachment.
+     * Policy rule number associated with the attachment.
      * 
      */
     @Export(name="attachmentPolicyRuleNumber", refs={Integer.class}, tree="[0]")
     private Output<Integer> attachmentPolicyRuleNumber;
 
     /**
-     * @return The policy rule number associated with the attachment.
+     * @return Policy rule number associated with the attachment.
      * 
      */
     public Output<Integer> attachmentPolicyRuleNumber() {
         return this.attachmentPolicyRuleNumber;
     }
     /**
-     * The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+     * Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
      * 
      */
     @Export(name="attachmentType", refs={String.class}, tree="[0]")
     private Output<String> attachmentType;
 
     /**
-     * @return The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+     * @return Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
      * 
      */
     public Output<String> attachmentType() {
         return this.attachmentType;
     }
     /**
-     * The ARN of a core network.
+     * ARN of the core network.
      * 
      */
     @Export(name="coreNetworkArn", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkArn;
 
     /**
-     * @return The ARN of a core network.
+     * @return ARN of the core network.
      * 
      */
     public Output<String> coreNetworkArn() {
         return this.coreNetworkArn;
     }
     /**
-     * The id of a core network.
+     * ID of the core network.
      * 
      */
     @Export(name="coreNetworkId", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkId;
 
     /**
-     * @return The id of a core network.
+     * @return ID of the core network.
      * 
      */
     public Output<String> coreNetworkId() {
         return this.coreNetworkId;
     }
     /**
-     * The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
+     * Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edge_locations`.
      * 
      */
     @Export(name="edgeLocation", refs={String.class}, tree="[0]")
     private Output<String> edgeLocation;
 
     /**
-     * @return The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
+     * @return Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edge_locations`.
      * 
      */
     public Output<String> edgeLocation() {
         return this.edgeLocation;
     }
     /**
-     * The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+     * Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`.
      * 
      */
     @Export(name="edgeLocations", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> edgeLocations;
 
     /**
-     * @return The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+     * @return Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`.
      * 
      */
     public Output<List<String>> edgeLocations() {
         return this.edgeLocations;
     }
     /**
-     * The ID of the attachment account owner.
+     * ID of the attachment account owner.
      * 
      */
     @Export(name="ownerAccountId", refs={String.class}, tree="[0]")
     private Output<String> ownerAccountId;
 
     /**
-     * @return The ID of the attachment account owner.
+     * @return ID of the attachment account owner.
      * 
      */
     public Output<String> ownerAccountId() {
         return this.ownerAccountId;
     }
     /**
-     * The attachment resource ARN.
+     * Attachment resource ARN.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return The attachment resource ARN.
+     * @return Attachment resource ARN.
      * 
      */
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
     /**
-     * The name of the segment attachment.
+     * Name of the segment attachment.
      * 
      */
     @Export(name="segmentName", refs={String.class}, tree="[0]")
     private Output<String> segmentName;
 
     /**
-     * @return The name of the segment attachment.
+     * @return Name of the segment attachment.
      * 
      */
     public Output<String> segmentName() {
         return this.segmentName;
     }
     /**
-     * The state of the attachment.
+     * State of the attachment.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
-     * @return The state of the attachment.
+     * @return State of the attachment.
      * 
      */
     public Output<String> state() {

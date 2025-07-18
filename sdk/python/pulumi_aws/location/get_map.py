@@ -28,7 +28,7 @@ class GetMapResult:
     """
     A collection of values returned by getMap.
     """
-    def __init__(__self__, configurations=None, create_time=None, description=None, id=None, map_arn=None, map_name=None, tags=None, update_time=None):
+    def __init__(__self__, configurations=None, create_time=None, description=None, id=None, map_arn=None, map_name=None, region=None, tags=None, update_time=None):
         if configurations and not isinstance(configurations, list):
             raise TypeError("Expected argument 'configurations' to be a list")
         pulumi.set(__self__, "configurations", configurations)
@@ -47,6 +47,9 @@ class GetMapResult:
         if map_name and not isinstance(map_name, str):
             raise TypeError("Expected argument 'map_name' to be a str")
         pulumi.set(__self__, "map_name", map_name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -101,6 +104,11 @@ class GetMapResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Key-value map of resource tags for the map.
@@ -128,11 +136,13 @@ class AwaitableGetMapResult(GetMapResult):
             id=self.id,
             map_arn=self.map_arn,
             map_name=self.map_name,
+            region=self.region,
             tags=self.tags,
             update_time=self.update_time)
 
 
 def get_map(map_name: Optional[builtins.str] = None,
+            region: Optional[builtins.str] = None,
             tags: Optional[Mapping[str, builtins.str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMapResult:
     """
@@ -149,10 +159,12 @@ def get_map(map_name: Optional[builtins.str] = None,
 
 
     :param builtins.str map_name: Name of the map resource.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the map.
     """
     __args__ = dict()
     __args__['mapName'] = map_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:location/getMap:getMap', __args__, opts=opts, typ=GetMapResult).value
@@ -164,9 +176,11 @@ def get_map(map_name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         map_arn=pulumi.get(__ret__, 'map_arn'),
         map_name=pulumi.get(__ret__, 'map_name'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
 def get_map_output(map_name: Optional[pulumi.Input[builtins.str]] = None,
+                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMapResult]:
     """
@@ -183,10 +197,12 @@ def get_map_output(map_name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str map_name: Name of the map resource.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the map.
     """
     __args__ = dict()
     __args__['mapName'] = map_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:location/getMap:getMap', __args__, opts=opts, typ=GetMapResult)
@@ -197,5 +213,6 @@ def get_map_output(map_name: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         map_arn=pulumi.get(__response__, 'map_arn'),
         map_name=pulumi.get(__response__, 'map_name'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         update_time=pulumi.get(__response__, 'update_time')))

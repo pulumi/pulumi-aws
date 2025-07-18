@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codebuild"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codebuild"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,7 +61,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codebuild"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codebuild"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -114,13 +114,14 @@ type Fleet struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
 	OverflowBehavior pulumi.StringOutput `pulumi:"overflowBehavior"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
 	ScalingConfiguration FleetScalingConfigurationPtrOutput `pulumi:"scalingConfiguration"`
 	// Nested attribute containing information about the current status of the fleet.
 	Statuses FleetStatusArrayOutput `pulumi:"statuses"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block. See `vpcConfig` below.
 	VpcConfigs FleetVpcConfigArrayOutput `pulumi:"vpcConfigs"`
@@ -189,13 +190,14 @@ type fleetState struct {
 	Name *string `pulumi:"name"`
 	// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
 	OverflowBehavior *string `pulumi:"overflowBehavior"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
 	ScalingConfiguration *FleetScalingConfiguration `pulumi:"scalingConfiguration"`
 	// Nested attribute containing information about the current status of the fleet.
 	Statuses []FleetStatus `pulumi:"statuses"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block. See `vpcConfig` below.
 	VpcConfigs []FleetVpcConfig `pulumi:"vpcConfigs"`
@@ -226,13 +228,14 @@ type FleetState struct {
 	Name pulumi.StringPtrInput
 	// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
 	OverflowBehavior pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
 	ScalingConfiguration FleetScalingConfigurationPtrInput
 	// Nested attribute containing information about the current status of the fleet.
 	Statuses FleetStatusArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Configuration block. See `vpcConfig` below.
 	VpcConfigs FleetVpcConfigArrayInput
@@ -261,6 +264,8 @@ type fleetArgs struct {
 	Name *string `pulumi:"name"`
 	// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
 	OverflowBehavior *string `pulumi:"overflowBehavior"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
 	ScalingConfiguration *FleetScalingConfiguration `pulumi:"scalingConfiguration"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -289,6 +294,8 @@ type FleetArgs struct {
 	Name pulumi.StringPtrInput
 	// Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
 	OverflowBehavior pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
 	ScalingConfiguration FleetScalingConfigurationPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -441,6 +448,11 @@ func (o FleetOutput) OverflowBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.OverflowBehavior }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o FleetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Configuration block. This option is only valid when your overflow behavior is `QUEUE`. See `scalingConfiguration` below.
 func (o FleetOutput) ScalingConfiguration() FleetScalingConfigurationPtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetScalingConfigurationPtrOutput { return v.ScalingConfiguration }).(FleetScalingConfigurationPtrOutput)
@@ -456,7 +468,6 @@ func (o FleetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o FleetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -66,6 +66,10 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      */
     public readonly studioLifecycleConfigAppType!: pulumi.Output<string>;
@@ -83,8 +87,6 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -102,6 +104,7 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as StudioLifecycleConfigState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["studioLifecycleConfigAppType"] = state ? state.studioLifecycleConfigAppType : undefined;
             resourceInputs["studioLifecycleConfigContent"] = state ? state.studioLifecycleConfigContent : undefined;
             resourceInputs["studioLifecycleConfigName"] = state ? state.studioLifecycleConfigName : undefined;
@@ -118,6 +121,7 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
             if ((!args || args.studioLifecycleConfigName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'studioLifecycleConfigName'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["studioLifecycleConfigAppType"] = args ? args.studioLifecycleConfigAppType : undefined;
             resourceInputs["studioLifecycleConfigContent"] = args ? args.studioLifecycleConfigContent : undefined;
             resourceInputs["studioLifecycleConfigName"] = args ? args.studioLifecycleConfigName : undefined;
@@ -139,6 +143,10 @@ export interface StudioLifecycleConfigState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      */
     studioLifecycleConfigAppType?: pulumi.Input<string>;
@@ -156,8 +164,6 @@ export interface StudioLifecycleConfigState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -166,6 +172,10 @@ export interface StudioLifecycleConfigState {
  * The set of arguments for constructing a StudioLifecycleConfig resource.
  */
 export interface StudioLifecycleConfigArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The App type that the Lifecycle Configuration is attached to. Valid values are `JupyterServer`, `JupyterLab`, `CodeEditor` and `KernelGateway`.
      */

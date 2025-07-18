@@ -18,14 +18,14 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
     public static final AttachmentAccepterState Empty = new AttachmentAccepterState();
 
     /**
-     * The ID of the attachment.
+     * ID of the attachment.
      * 
      */
     @Import(name="attachmentId")
     private @Nullable Output<String> attachmentId;
 
     /**
-     * @return The ID of the attachment.
+     * @return ID of the attachment.
      * 
      */
     public Optional<Output<String>> attachmentId() {
@@ -33,14 +33,14 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The policy rule number associated with the attachment.
+     * Policy rule number associated with the attachment.
      * 
      */
     @Import(name="attachmentPolicyRuleNumber")
     private @Nullable Output<Integer> attachmentPolicyRuleNumber;
 
     /**
-     * @return The policy rule number associated with the attachment.
+     * @return Policy rule number associated with the attachment.
      * 
      */
     public Optional<Output<Integer>> attachmentPolicyRuleNumber() {
@@ -48,14 +48,14 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+     * Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
      * 
      */
     @Import(name="attachmentType")
     private @Nullable Output<String> attachmentType;
 
     /**
-     * @return The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+     * @return Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
      * 
      */
     public Optional<Output<String>> attachmentType() {
@@ -63,14 +63,14 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The ARN of a core network.
+     * ARN of the core network.
      * 
      */
     @Import(name="coreNetworkArn")
     private @Nullable Output<String> coreNetworkArn;
 
     /**
-     * @return The ARN of a core network.
+     * @return ARN of the core network.
      * 
      */
     public Optional<Output<String>> coreNetworkArn() {
@@ -78,14 +78,14 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The id of a core network.
+     * ID of the core network.
      * 
      */
     @Import(name="coreNetworkId")
     private @Nullable Output<String> coreNetworkId;
 
     /**
-     * @return The id of a core network.
+     * @return ID of the core network.
      * 
      */
     public Optional<Output<String>> coreNetworkId() {
@@ -93,14 +93,14 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
+     * Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edge_locations`.
      * 
      */
     @Import(name="edgeLocation")
     private @Nullable Output<String> edgeLocation;
 
     /**
-     * @return The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
+     * @return Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edge_locations`.
      * 
      */
     public Optional<Output<String>> edgeLocation() {
@@ -108,14 +108,14 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+     * Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`.
      * 
      */
     @Import(name="edgeLocations")
     private @Nullable Output<List<String>> edgeLocations;
 
     /**
-     * @return The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+     * @return Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`.
      * 
      */
     public Optional<Output<List<String>>> edgeLocations() {
@@ -123,14 +123,14 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The ID of the attachment account owner.
+     * ID of the attachment account owner.
      * 
      */
     @Import(name="ownerAccountId")
     private @Nullable Output<String> ownerAccountId;
 
     /**
-     * @return The ID of the attachment account owner.
+     * @return ID of the attachment account owner.
      * 
      */
     public Optional<Output<String>> ownerAccountId() {
@@ -138,14 +138,14 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The attachment resource ARN.
+     * Attachment resource ARN.
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return The attachment resource ARN.
+     * @return Attachment resource ARN.
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -153,14 +153,14 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the segment attachment.
+     * Name of the segment attachment.
      * 
      */
     @Import(name="segmentName")
     private @Nullable Output<String> segmentName;
 
     /**
-     * @return The name of the segment attachment.
+     * @return Name of the segment attachment.
      * 
      */
     public Optional<Output<String>> segmentName() {
@@ -168,14 +168,14 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The state of the attachment.
+     * State of the attachment.
      * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
-     * @return The state of the attachment.
+     * @return State of the attachment.
      * 
      */
     public Optional<Output<String>> state() {
@@ -217,7 +217,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param attachmentId The ID of the attachment.
+         * @param attachmentId ID of the attachment.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param attachmentId The ID of the attachment.
+         * @param attachmentId ID of the attachment.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param attachmentPolicyRuleNumber The policy rule number associated with the attachment.
+         * @param attachmentPolicyRuleNumber Policy rule number associated with the attachment.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param attachmentPolicyRuleNumber The policy rule number associated with the attachment.
+         * @param attachmentPolicyRuleNumber Policy rule number associated with the attachment.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param attachmentType The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+         * @param attachmentType Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param attachmentType The type of attachment. Valid values can be found in the [AWS Documentation](https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_ListAttachments.html#API_ListAttachments_RequestSyntax)
+         * @param attachmentType Type of attachment. Valid values: `CONNECT`, `DIRECT_CONNECT_GATEWAY`, `SITE_TO_SITE_VPN`, `TRANSIT_GATEWAY_ROUTE_TABLE`, `VPC`.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param coreNetworkArn The ARN of a core network.
+         * @param coreNetworkArn ARN of the core network.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param coreNetworkArn The ARN of a core network.
+         * @param coreNetworkArn ARN of the core network.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param coreNetworkId The id of a core network.
+         * @param coreNetworkId ID of the core network.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param coreNetworkId The id of a core network.
+         * @param coreNetworkId ID of the core network.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param edgeLocation The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
+         * @param edgeLocation Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edge_locations`.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param edgeLocation The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns `edge_locations`.
+         * @param edgeLocation Region where the edge is located. This is returned for all attachment types except Direct Connect gateway attachments, which instead return `edge_locations`.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param edgeLocations The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+         * @param edgeLocations Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param edgeLocations The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+         * @param edgeLocations Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`.
          * 
          * @return builder
          * 
@@ -364,7 +364,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param edgeLocations The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`
+         * @param edgeLocations Edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types return `edge_location`.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ownerAccountId The ID of the attachment account owner.
+         * @param ownerAccountId ID of the attachment account owner.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ownerAccountId The ID of the attachment account owner.
+         * @param ownerAccountId ID of the attachment account owner.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param resourceArn The attachment resource ARN.
+         * @param resourceArn Attachment resource ARN.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param resourceArn The attachment resource ARN.
+         * @param resourceArn Attachment resource ARN.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param segmentName The name of the segment attachment.
+         * @param segmentName Name of the segment attachment.
          * 
          * @return builder
          * 
@@ -427,7 +427,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param segmentName The name of the segment attachment.
+         * @param segmentName Name of the segment attachment.
          * 
          * @return builder
          * 
@@ -437,7 +437,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param state The state of the attachment.
+         * @param state State of the attachment.
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class AttachmentAccepterState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param state The state of the attachment.
+         * @param state State of the attachment.
          * 
          * @return builder
          * 

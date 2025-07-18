@@ -29,7 +29,8 @@ class StackSetInstanceArgs:
                  operation_preferences: Optional[pulumi.Input['StackSetInstanceOperationPreferencesArgs']] = None,
                  parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
-                 retain_stack: Optional[pulumi.Input[builtins.bool]] = None):
+                 retain_stack: Optional[pulumi.Input[builtins.bool]] = None,
+                 stack_set_instance_region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a StackSetInstance resource.
         :param pulumi.Input[builtins.str] stack_set_name: Name of the StackSet.
@@ -38,8 +39,9 @@ class StackSetInstanceArgs:
         :param pulumi.Input['StackSetInstanceDeploymentTargetsArgs'] deployment_targets: AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
         :param pulumi.Input['StackSetInstanceOperationPreferencesArgs'] operation_preferences: Preferences for how AWS CloudFormation performs a stack set operation.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameter_overrides: Key-value map of input parameters to override from the StackSet for this Instance.
-        :param pulumi.Input[builtins.str] region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        :param pulumi.Input[builtins.str] region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
         :param pulumi.Input[builtins.bool] retain_stack: During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
+        :param pulumi.Input[builtins.str] stack_set_instance_region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
         """
         pulumi.set(__self__, "stack_set_name", stack_set_name)
         if account_id is not None:
@@ -53,9 +55,14 @@ class StackSetInstanceArgs:
         if parameter_overrides is not None:
             pulumi.set(__self__, "parameter_overrides", parameter_overrides)
         if region is not None:
+            warnings.warn("""region is deprecated. Use stack_set_instance_region instead.""", DeprecationWarning)
+            pulumi.log.warn("""region is deprecated: region is deprecated. Use stack_set_instance_region instead.""")
+        if region is not None:
             pulumi.set(__self__, "region", region)
         if retain_stack is not None:
             pulumi.set(__self__, "retain_stack", retain_stack)
+        if stack_set_instance_region is not None:
+            pulumi.set(__self__, "stack_set_instance_region", stack_set_instance_region)
 
     @property
     @pulumi.getter(name="stackSetName")
@@ -131,9 +138,10 @@ class StackSetInstanceArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""region is deprecated. Use stack_set_instance_region instead.""")
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
         """
         return pulumi.get(self, "region")
 
@@ -153,6 +161,18 @@ class StackSetInstanceArgs:
     def retain_stack(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "retain_stack", value)
 
+    @property
+    @pulumi.getter(name="stackSetInstanceRegion")
+    def stack_set_instance_region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        """
+        return pulumi.get(self, "stack_set_instance_region")
+
+    @stack_set_instance_region.setter
+    def stack_set_instance_region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "stack_set_instance_region", value)
+
 
 @pulumi.input_type
 class _StackSetInstanceState:
@@ -167,6 +187,7 @@ class _StackSetInstanceState:
                  retain_stack: Optional[pulumi.Input[builtins.bool]] = None,
                  stack_id: Optional[pulumi.Input[builtins.str]] = None,
                  stack_instance_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetInstanceStackInstanceSummaryArgs']]]] = None,
+                 stack_set_instance_region: Optional[pulumi.Input[builtins.str]] = None,
                  stack_set_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering StackSetInstance resources.
@@ -176,10 +197,11 @@ class _StackSetInstanceState:
         :param pulumi.Input['StackSetInstanceOperationPreferencesArgs'] operation_preferences: Preferences for how AWS CloudFormation performs a stack set operation.
         :param pulumi.Input[builtins.str] organizational_unit_id: Organizational unit ID in which the stack is deployed.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameter_overrides: Key-value map of input parameters to override from the StackSet for this Instance.
-        :param pulumi.Input[builtins.str] region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        :param pulumi.Input[builtins.str] region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
         :param pulumi.Input[builtins.bool] retain_stack: During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
         :param pulumi.Input[builtins.str] stack_id: Stack identifier.
         :param pulumi.Input[Sequence[pulumi.Input['StackSetInstanceStackInstanceSummaryArgs']]] stack_instance_summaries: List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+        :param pulumi.Input[builtins.str] stack_set_instance_region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
         :param pulumi.Input[builtins.str] stack_set_name: Name of the StackSet.
         """
         if account_id is not None:
@@ -195,6 +217,9 @@ class _StackSetInstanceState:
         if parameter_overrides is not None:
             pulumi.set(__self__, "parameter_overrides", parameter_overrides)
         if region is not None:
+            warnings.warn("""region is deprecated. Use stack_set_instance_region instead.""", DeprecationWarning)
+            pulumi.log.warn("""region is deprecated: region is deprecated. Use stack_set_instance_region instead.""")
+        if region is not None:
             pulumi.set(__self__, "region", region)
         if retain_stack is not None:
             pulumi.set(__self__, "retain_stack", retain_stack)
@@ -202,6 +227,8 @@ class _StackSetInstanceState:
             pulumi.set(__self__, "stack_id", stack_id)
         if stack_instance_summaries is not None:
             pulumi.set(__self__, "stack_instance_summaries", stack_instance_summaries)
+        if stack_set_instance_region is not None:
+            pulumi.set(__self__, "stack_set_instance_region", stack_set_instance_region)
         if stack_set_name is not None:
             pulumi.set(__self__, "stack_set_name", stack_set_name)
 
@@ -279,9 +306,10 @@ class _StackSetInstanceState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""region is deprecated. Use stack_set_instance_region instead.""")
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
         """
         return pulumi.get(self, "region")
 
@@ -326,6 +354,18 @@ class _StackSetInstanceState:
         pulumi.set(self, "stack_instance_summaries", value)
 
     @property
+    @pulumi.getter(name="stackSetInstanceRegion")
+    def stack_set_instance_region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        """
+        return pulumi.get(self, "stack_set_instance_region")
+
+    @stack_set_instance_region.setter
+    def stack_set_instance_region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "stack_set_instance_region", value)
+
+    @property
     @pulumi.getter(name="stackSetName")
     def stack_set_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -351,6 +391,7 @@ class StackSetInstance(pulumi.CustomResource):
                  parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  retain_stack: Optional[pulumi.Input[builtins.bool]] = None,
+                 stack_set_instance_region: Optional[pulumi.Input[builtins.str]] = None,
                  stack_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -370,7 +411,7 @@ class StackSetInstance(pulumi.CustomResource):
 
         example = aws.cloudformation.StackSetInstance("example",
             account_id="123456789012",
-            region="us-east-1",
+            stack_set_instance_region="us-east-1",
             stack_set_name=example_aws_cloudformation_stack_set["name"])
         ```
 
@@ -418,7 +459,7 @@ class StackSetInstance(pulumi.CustomResource):
             deployment_targets={
                 "organizational_unit_ids": [example_aws_organizations_organization["roots"][0]["id"]],
             },
-            region="us-east-1",
+            stack_set_instance_region="us-east-1",
             stack_set_name=example_aws_cloudformation_stack_set["name"])
         ```
 
@@ -451,8 +492,9 @@ class StackSetInstance(pulumi.CustomResource):
         :param pulumi.Input[Union['StackSetInstanceDeploymentTargetsArgs', 'StackSetInstanceDeploymentTargetsArgsDict']] deployment_targets: AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
         :param pulumi.Input[Union['StackSetInstanceOperationPreferencesArgs', 'StackSetInstanceOperationPreferencesArgsDict']] operation_preferences: Preferences for how AWS CloudFormation performs a stack set operation.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameter_overrides: Key-value map of input parameters to override from the StackSet for this Instance.
-        :param pulumi.Input[builtins.str] region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        :param pulumi.Input[builtins.str] region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
         :param pulumi.Input[builtins.bool] retain_stack: During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
+        :param pulumi.Input[builtins.str] stack_set_instance_region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
         :param pulumi.Input[builtins.str] stack_set_name: Name of the StackSet.
         """
         ...
@@ -478,7 +520,7 @@ class StackSetInstance(pulumi.CustomResource):
 
         example = aws.cloudformation.StackSetInstance("example",
             account_id="123456789012",
-            region="us-east-1",
+            stack_set_instance_region="us-east-1",
             stack_set_name=example_aws_cloudformation_stack_set["name"])
         ```
 
@@ -526,7 +568,7 @@ class StackSetInstance(pulumi.CustomResource):
             deployment_targets={
                 "organizational_unit_ids": [example_aws_organizations_organization["roots"][0]["id"]],
             },
-            region="us-east-1",
+            stack_set_instance_region="us-east-1",
             stack_set_name=example_aws_cloudformation_stack_set["name"])
         ```
 
@@ -574,6 +616,7 @@ class StackSetInstance(pulumi.CustomResource):
                  parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  retain_stack: Optional[pulumi.Input[builtins.bool]] = None,
+                 stack_set_instance_region: Optional[pulumi.Input[builtins.str]] = None,
                  stack_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -591,6 +634,7 @@ class StackSetInstance(pulumi.CustomResource):
             __props__.__dict__["parameter_overrides"] = parameter_overrides
             __props__.__dict__["region"] = region
             __props__.__dict__["retain_stack"] = retain_stack
+            __props__.__dict__["stack_set_instance_region"] = stack_set_instance_region
             if stack_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stack_set_name'")
             __props__.__dict__["stack_set_name"] = stack_set_name
@@ -617,6 +661,7 @@ class StackSetInstance(pulumi.CustomResource):
             retain_stack: Optional[pulumi.Input[builtins.bool]] = None,
             stack_id: Optional[pulumi.Input[builtins.str]] = None,
             stack_instance_summaries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StackSetInstanceStackInstanceSummaryArgs', 'StackSetInstanceStackInstanceSummaryArgsDict']]]]] = None,
+            stack_set_instance_region: Optional[pulumi.Input[builtins.str]] = None,
             stack_set_name: Optional[pulumi.Input[builtins.str]] = None) -> 'StackSetInstance':
         """
         Get an existing StackSetInstance resource's state with the given name, id, and optional extra
@@ -631,10 +676,11 @@ class StackSetInstance(pulumi.CustomResource):
         :param pulumi.Input[Union['StackSetInstanceOperationPreferencesArgs', 'StackSetInstanceOperationPreferencesArgsDict']] operation_preferences: Preferences for how AWS CloudFormation performs a stack set operation.
         :param pulumi.Input[builtins.str] organizational_unit_id: Organizational unit ID in which the stack is deployed.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameter_overrides: Key-value map of input parameters to override from the StackSet for this Instance.
-        :param pulumi.Input[builtins.str] region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        :param pulumi.Input[builtins.str] region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
         :param pulumi.Input[builtins.bool] retain_stack: During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
         :param pulumi.Input[builtins.str] stack_id: Stack identifier.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StackSetInstanceStackInstanceSummaryArgs', 'StackSetInstanceStackInstanceSummaryArgsDict']]]] stack_instance_summaries: List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
+        :param pulumi.Input[builtins.str] stack_set_instance_region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
         :param pulumi.Input[builtins.str] stack_set_name: Name of the StackSet.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -651,6 +697,7 @@ class StackSetInstance(pulumi.CustomResource):
         __props__.__dict__["retain_stack"] = retain_stack
         __props__.__dict__["stack_id"] = stack_id
         __props__.__dict__["stack_instance_summaries"] = stack_instance_summaries
+        __props__.__dict__["stack_set_instance_region"] = stack_set_instance_region
         __props__.__dict__["stack_set_name"] = stack_set_name
         return StackSetInstance(resource_name, opts=opts, __props__=__props__)
 
@@ -704,9 +751,10 @@ class StackSetInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""region is deprecated. Use stack_set_instance_region instead.""")
     def region(self) -> pulumi.Output[builtins.str]:
         """
-        Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
         """
         return pulumi.get(self, "region")
 
@@ -733,6 +781,14 @@ class StackSetInstance(pulumi.CustomResource):
         List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set. See `stack_instance_summaries`.
         """
         return pulumi.get(self, "stack_instance_summaries")
+
+    @property
+    @pulumi.getter(name="stackSetInstanceRegion")
+    def stack_set_instance_region(self) -> pulumi.Output[builtins.str]:
+        """
+        Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+        """
+        return pulumi.get(self, "stack_set_instance_region")
 
     @property
     @pulumi.getter(name="stackSetName")

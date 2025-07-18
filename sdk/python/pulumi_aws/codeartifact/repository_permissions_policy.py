@@ -24,7 +24,8 @@ class RepositoryPermissionsPolicyArgs:
                  policy_document: pulumi.Input[builtins.str],
                  repository: pulumi.Input[builtins.str],
                  domain_owner: Optional[pulumi.Input[builtins.str]] = None,
-                 policy_revision: Optional[pulumi.Input[builtins.str]] = None):
+                 policy_revision: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a RepositoryPermissionsPolicy resource.
         :param pulumi.Input[builtins.str] domain: The name of the domain on which to set the resource policy.
@@ -32,6 +33,7 @@ class RepositoryPermissionsPolicyArgs:
         :param pulumi.Input[builtins.str] repository: The name of the repository to set the resource policy on.
         :param pulumi.Input[builtins.str] domain_owner: The account number of the AWS account that owns the domain.
         :param pulumi.Input[builtins.str] policy_revision: The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "policy_document", policy_document)
@@ -40,6 +42,8 @@ class RepositoryPermissionsPolicyArgs:
             pulumi.set(__self__, "domain_owner", domain_owner)
         if policy_revision is not None:
             pulumi.set(__self__, "policy_revision", policy_revision)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -101,6 +105,18 @@ class RepositoryPermissionsPolicyArgs:
     def policy_revision(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "policy_revision", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _RepositoryPermissionsPolicyState:
@@ -109,6 +125,7 @@ class _RepositoryPermissionsPolicyState:
                  domain_owner: Optional[pulumi.Input[builtins.str]] = None,
                  policy_document: Optional[pulumi.Input[builtins.str]] = None,
                  policy_revision: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository: Optional[pulumi.Input[builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -117,6 +134,7 @@ class _RepositoryPermissionsPolicyState:
         :param pulumi.Input[builtins.str] domain_owner: The account number of the AWS account that owns the domain.
         :param pulumi.Input[builtins.str] policy_document: A JSON policy string to be set as the access control resource policy on the provided domain.
         :param pulumi.Input[builtins.str] policy_revision: The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository: The name of the repository to set the resource policy on.
         :param pulumi.Input[builtins.str] resource_arn: The ARN of the resource associated with the resource policy.
         """
@@ -128,6 +146,8 @@ class _RepositoryPermissionsPolicyState:
             pulumi.set(__self__, "policy_document", policy_document)
         if policy_revision is not None:
             pulumi.set(__self__, "policy_revision", policy_revision)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if repository is not None:
             pulumi.set(__self__, "repository", repository)
         if resource_arn is not None:
@@ -183,6 +203,18 @@ class _RepositoryPermissionsPolicyState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def repository(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The name of the repository to set the resource policy on.
@@ -216,6 +248,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
                  domain_owner: Optional[pulumi.Input[builtins.str]] = None,
                  policy_document: Optional[pulumi.Input[builtins.str]] = None,
                  policy_revision: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -263,6 +296,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain_owner: The account number of the AWS account that owns the domain.
         :param pulumi.Input[builtins.str] policy_document: A JSON policy string to be set as the access control resource policy on the provided domain.
         :param pulumi.Input[builtins.str] policy_revision: The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository: The name of the repository to set the resource policy on.
         """
         ...
@@ -329,6 +363,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
                  domain_owner: Optional[pulumi.Input[builtins.str]] = None,
                  policy_document: Optional[pulumi.Input[builtins.str]] = None,
                  policy_revision: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  repository: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -347,6 +382,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy_document'")
             __props__.__dict__["policy_document"] = policy_document
             __props__.__dict__["policy_revision"] = policy_revision
+            __props__.__dict__["region"] = region
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
@@ -365,6 +401,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
             domain_owner: Optional[pulumi.Input[builtins.str]] = None,
             policy_document: Optional[pulumi.Input[builtins.str]] = None,
             policy_revision: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             repository: Optional[pulumi.Input[builtins.str]] = None,
             resource_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'RepositoryPermissionsPolicy':
         """
@@ -378,6 +415,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] domain_owner: The account number of the AWS account that owns the domain.
         :param pulumi.Input[builtins.str] policy_document: A JSON policy string to be set as the access control resource policy on the provided domain.
         :param pulumi.Input[builtins.str] policy_revision: The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] repository: The name of the repository to set the resource policy on.
         :param pulumi.Input[builtins.str] resource_arn: The ARN of the resource associated with the resource policy.
         """
@@ -389,6 +427,7 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
         __props__.__dict__["domain_owner"] = domain_owner
         __props__.__dict__["policy_document"] = policy_document
         __props__.__dict__["policy_revision"] = policy_revision
+        __props__.__dict__["region"] = region
         __props__.__dict__["repository"] = repository
         __props__.__dict__["resource_arn"] = resource_arn
         return RepositoryPermissionsPolicy(resource_name, opts=opts, __props__=__props__)
@@ -424,6 +463,14 @@ class RepositoryPermissionsPolicy(pulumi.CustomResource):
         The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
         """
         return pulumi.get(self, "policy_revision")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

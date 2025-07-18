@@ -4723,7 +4723,7 @@ class GetCatalogTableTargetTableResult(dict):
         :param builtins.str catalog_id: ID of the Glue Catalog and database where the table metadata resides. If omitted, this defaults to the current AWS Account ID.
         :param builtins.str database_name: Name of the metadata database where the table metadata resides.
         :param builtins.str name: Name of the table.
-        :param builtins.str region: Region of the target table.
+        :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "catalog_id", catalog_id)
         pulumi.set(__self__, "database_name", database_name)
@@ -4758,7 +4758,7 @@ class GetCatalogTableTargetTableResult(dict):
     @pulumi.getter
     def region(self) -> builtins.str:
         """
-        Region of the target table.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

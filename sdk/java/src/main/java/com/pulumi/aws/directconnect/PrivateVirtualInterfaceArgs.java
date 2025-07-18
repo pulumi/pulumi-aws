@@ -157,6 +157,21 @@ public final class PrivateVirtualInterfaceArgs extends com.pulumi.resources.Reso
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Indicates whether to enable or disable SiteLink.
      * 
      */
@@ -228,6 +243,7 @@ public final class PrivateVirtualInterfaceArgs extends com.pulumi.resources.Reso
         this.dxGatewayId = $.dxGatewayId;
         this.mtu = $.mtu;
         this.name = $.name;
+        this.region = $.region;
         this.sitelinkEnabled = $.sitelinkEnabled;
         this.tags = $.tags;
         this.vlan = $.vlan;
@@ -441,6 +457,27 @@ public final class PrivateVirtualInterfaceArgs extends com.pulumi.resources.Reso
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

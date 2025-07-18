@@ -106,6 +106,10 @@ export class WorkspaceConfiguration extends pulumi.CustomResource {
      */
     public readonly limitsPerLabelSets!: pulumi.Output<outputs.amp.WorkspaceConfigurationLimitsPerLabelSet[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Number of days to retain metric data in the workspace.
      */
     public readonly retentionPeriodInDays!: pulumi.Output<number>;
@@ -131,6 +135,7 @@ export class WorkspaceConfiguration extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as WorkspaceConfigurationState | undefined;
             resourceInputs["limitsPerLabelSets"] = state ? state.limitsPerLabelSets : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["retentionPeriodInDays"] = state ? state.retentionPeriodInDays : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
             resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
@@ -140,6 +145,7 @@ export class WorkspaceConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceId'");
             }
             resourceInputs["limitsPerLabelSets"] = args ? args.limitsPerLabelSets : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retentionPeriodInDays"] = args ? args.retentionPeriodInDays : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
@@ -157,6 +163,10 @@ export interface WorkspaceConfigurationState {
      * Configuration block for setting limits on metrics with specific label sets. Detailed below.
      */
     limitsPerLabelSets?: pulumi.Input<pulumi.Input<inputs.amp.WorkspaceConfigurationLimitsPerLabelSet>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Number of days to retain metric data in the workspace.
      */
@@ -178,6 +188,10 @@ export interface WorkspaceConfigurationArgs {
      * Configuration block for setting limits on metrics with specific label sets. Detailed below.
      */
     limitsPerLabelSets?: pulumi.Input<pulumi.Input<inputs.amp.WorkspaceConfigurationLimitsPerLabelSet>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Number of days to retain metric data in the workspace.
      */

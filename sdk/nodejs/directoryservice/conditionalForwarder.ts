@@ -68,6 +68,10 @@ export class ConditionalForwarder extends pulumi.CustomResource {
      */
     public readonly dnsIps!: pulumi.Output<string[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The fully qualified domain name of the remote domain for which forwarders will be used.
      */
     public readonly remoteDomainName!: pulumi.Output<string>;
@@ -87,6 +91,7 @@ export class ConditionalForwarder extends pulumi.CustomResource {
             const state = argsOrState as ConditionalForwarderState | undefined;
             resourceInputs["directoryId"] = state ? state.directoryId : undefined;
             resourceInputs["dnsIps"] = state ? state.dnsIps : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["remoteDomainName"] = state ? state.remoteDomainName : undefined;
         } else {
             const args = argsOrState as ConditionalForwarderArgs | undefined;
@@ -101,6 +106,7 @@ export class ConditionalForwarder extends pulumi.CustomResource {
             }
             resourceInputs["directoryId"] = args ? args.directoryId : undefined;
             resourceInputs["dnsIps"] = args ? args.dnsIps : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["remoteDomainName"] = args ? args.remoteDomainName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -123,6 +129,10 @@ export interface ConditionalForwarderState {
      */
     dnsIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The fully qualified domain name of the remote domain for which forwarders will be used.
      */
     remoteDomainName?: pulumi.Input<string>;
@@ -140,6 +150,10 @@ export interface ConditionalForwarderArgs {
      * A list of forwarder IP addresses.
      */
     dnsIps: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The fully qualified domain name of the remote domain for which forwarders will be used.
      */

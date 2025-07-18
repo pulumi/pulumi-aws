@@ -21,14 +21,18 @@ __all__ = ['WorkingStorageArgs', 'WorkingStorage']
 class WorkingStorageArgs:
     def __init__(__self__, *,
                  disk_id: pulumi.Input[builtins.str],
-                 gateway_arn: pulumi.Input[builtins.str]):
+                 gateway_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a WorkingStorage resource.
         :param pulumi.Input[builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "disk_id", disk_id)
         pulumi.set(__self__, "gateway_arn", gateway_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="diskId")
@@ -54,21 +58,37 @@ class WorkingStorageArgs:
     def gateway_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "gateway_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _WorkingStorageState:
     def __init__(__self__, *,
                  disk_id: Optional[pulumi.Input[builtins.str]] = None,
-                 gateway_arn: Optional[pulumi.Input[builtins.str]] = None):
+                 gateway_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkingStorage resources.
         :param pulumi.Input[builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if disk_id is not None:
             pulumi.set(__self__, "disk_id", disk_id)
         if gateway_arn is not None:
             pulumi.set(__self__, "gateway_arn", gateway_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="diskId")
@@ -94,6 +114,18 @@ class _WorkingStorageState:
     def gateway_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "gateway_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:storagegateway/workingStorage:WorkingStorage")
 class WorkingStorage(pulumi.CustomResource):
@@ -103,6 +135,7 @@ class WorkingStorage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disk_id: Optional[pulumi.Input[builtins.str]] = None,
                  gateway_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Manages an AWS Storage Gateway working storage.
@@ -132,6 +165,7 @@ class WorkingStorage(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -180,6 +214,7 @@ class WorkingStorage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disk_id: Optional[pulumi.Input[builtins.str]] = None,
                  gateway_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -195,6 +230,7 @@ class WorkingStorage(pulumi.CustomResource):
             if gateway_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_arn'")
             __props__.__dict__["gateway_arn"] = gateway_arn
+            __props__.__dict__["region"] = region
         super(WorkingStorage, __self__).__init__(
             'aws:storagegateway/workingStorage:WorkingStorage',
             resource_name,
@@ -206,7 +242,8 @@ class WorkingStorage(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             disk_id: Optional[pulumi.Input[builtins.str]] = None,
-            gateway_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'WorkingStorage':
+            gateway_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'WorkingStorage':
         """
         Get an existing WorkingStorage resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -216,6 +253,7 @@ class WorkingStorage(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
         :param pulumi.Input[builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -223,6 +261,7 @@ class WorkingStorage(pulumi.CustomResource):
 
         __props__.__dict__["disk_id"] = disk_id
         __props__.__dict__["gateway_arn"] = gateway_arn
+        __props__.__dict__["region"] = region
         return WorkingStorage(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -240,4 +279,12 @@ class WorkingStorage(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the gateway.
         """
         return pulumi.get(self, "gateway_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

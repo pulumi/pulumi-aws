@@ -25,6 +25,7 @@ class QuicksetupConfigurationManagerArgs:
                  configuration_definition: Optional[pulumi.Input['QuicksetupConfigurationManagerConfigurationDefinitionArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['QuicksetupConfigurationManagerTimeoutsArgs']] = None):
         """
@@ -34,6 +35,7 @@ class QuicksetupConfigurationManagerArgs:
         :param pulumi.Input[builtins.str] name: Configuration manager name.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if configuration_definition is not None:
@@ -42,6 +44,8 @@ class QuicksetupConfigurationManagerArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -87,6 +91,18 @@ class QuicksetupConfigurationManagerArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -114,6 +130,7 @@ class _QuicksetupConfigurationManagerState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  manager_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['QuicksetupConfigurationManagerStatusSummaryArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -126,6 +143,7 @@ class _QuicksetupConfigurationManagerState:
         :param pulumi.Input[builtins.str] name: Configuration manager name.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['QuicksetupConfigurationManagerStatusSummaryArgs']]] status_summaries: A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `status_summaries` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -138,13 +156,12 @@ class _QuicksetupConfigurationManagerState:
             pulumi.set(__self__, "manager_arn", manager_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status_summaries is not None:
             pulumi.set(__self__, "status_summaries", status_summaries)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
@@ -201,6 +218,18 @@ class _QuicksetupConfigurationManagerState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="statusSummaries")
     def status_summaries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QuicksetupConfigurationManagerStatusSummaryArgs']]]]:
         """
@@ -226,7 +255,6 @@ class _QuicksetupConfigurationManagerState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -256,6 +284,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
                  configuration_definition: Optional[pulumi.Input[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['QuicksetupConfigurationManagerTimeoutsArgs', 'QuicksetupConfigurationManagerTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -293,7 +322,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
                     "ConfigurationOptionsPatchOperation": "Scan",
                     "ConfigurationOptionsScanValue": "cron(0 1 * * ? *)",
                     "ConfigurationOptionsScanNextInterval": "false",
-                    "PatchBaselineRegion": current_get_region.name,
+                    "PatchBaselineRegion": current_get_region.region,
                     "PatchBaselineUseDefault": "default",
                     "PatchPolicyName": "example",
                     "SelectedPatchBaselines": selected_patch_baselines,
@@ -302,7 +331,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
                     "RateControlErrorThreshold": "2%",
                     "IsPolicyAttachAllowed": "false",
                     "TargetAccounts": current.account_id,
-                    "TargetRegions": current_get_region.name,
+                    "TargetRegions": current_get_region.region,
                     "TargetType": "*",
                 },
             })
@@ -323,6 +352,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Configuration manager name.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -365,7 +395,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
                     "ConfigurationOptionsPatchOperation": "Scan",
                     "ConfigurationOptionsScanValue": "cron(0 1 * * ? *)",
                     "ConfigurationOptionsScanNextInterval": "false",
-                    "PatchBaselineRegion": current_get_region.name,
+                    "PatchBaselineRegion": current_get_region.region,
                     "PatchBaselineUseDefault": "default",
                     "PatchPolicyName": "example",
                     "SelectedPatchBaselines": selected_patch_baselines,
@@ -374,7 +404,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
                     "RateControlErrorThreshold": "2%",
                     "IsPolicyAttachAllowed": "false",
                     "TargetAccounts": current.account_id,
-                    "TargetRegions": current_get_region.name,
+                    "TargetRegions": current_get_region.region,
                     "TargetType": "*",
                 },
             })
@@ -406,6 +436,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
                  configuration_definition: Optional[pulumi.Input[Union['QuicksetupConfigurationManagerConfigurationDefinitionArgs', 'QuicksetupConfigurationManagerConfigurationDefinitionArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['QuicksetupConfigurationManagerTimeoutsArgs', 'QuicksetupConfigurationManagerTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -420,6 +451,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
             __props__.__dict__["configuration_definition"] = configuration_definition
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["manager_arn"] = None
@@ -439,6 +471,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             manager_arn: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status_summaries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['QuicksetupConfigurationManagerStatusSummaryArgs', 'QuicksetupConfigurationManagerStatusSummaryArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -456,6 +489,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Configuration manager name.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['QuicksetupConfigurationManagerStatusSummaryArgs', 'QuicksetupConfigurationManagerStatusSummaryArgsDict']]]] status_summaries: A summary of the state of the configuration manager. This includes deployment statuses, association statuses, drift statuses, health checks, and more. See `status_summaries` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -468,6 +502,7 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["manager_arn"] = manager_arn
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["status_summaries"] = status_summaries
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -509,6 +544,14 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="statusSummaries")
     def status_summaries(self) -> pulumi.Output[Sequence['outputs.QuicksetupConfigurationManagerStatusSummary']]:
         """
@@ -526,7 +569,6 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -27,6 +27,7 @@ export function getQuerySuggestionsBlockList(args: GetQuerySuggestionsBlockListA
     return pulumi.runtime.invoke("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", {
         "indexId": args.indexId,
         "querySuggestionsBlockListId": args.querySuggestionsBlockListId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -43,6 +44,10 @@ export interface GetQuerySuggestionsBlockListArgs {
      * Identifier of the block list.
      */
     querySuggestionsBlockListId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Metadata that helps organize the block list you create.
      */
@@ -87,6 +92,7 @@ export interface GetQuerySuggestionsBlockListResult {
      */
     readonly name: string;
     readonly querySuggestionsBlockListId: string;
+    readonly region: string;
     /**
      * ARN of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      */
@@ -128,6 +134,7 @@ export function getQuerySuggestionsBlockListOutput(args: GetQuerySuggestionsBloc
     return pulumi.runtime.invokeOutput("aws:kendra/getQuerySuggestionsBlockList:getQuerySuggestionsBlockList", {
         "indexId": args.indexId,
         "querySuggestionsBlockListId": args.querySuggestionsBlockListId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -144,6 +151,10 @@ export interface GetQuerySuggestionsBlockListOutputArgs {
      * Identifier of the block list.
      */
     querySuggestionsBlockListId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Metadata that helps organize the block list you create.
      */

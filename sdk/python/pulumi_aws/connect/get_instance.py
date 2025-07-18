@@ -27,7 +27,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, arn=None, auto_resolve_best_voices_enabled=None, contact_flow_logs_enabled=None, contact_lens_enabled=None, created_time=None, early_media_enabled=None, id=None, identity_management_type=None, inbound_calls_enabled=None, instance_alias=None, instance_id=None, multi_party_conference_enabled=None, outbound_calls_enabled=None, service_role=None, status=None, tags=None):
+    def __init__(__self__, arn=None, auto_resolve_best_voices_enabled=None, contact_flow_logs_enabled=None, contact_lens_enabled=None, created_time=None, early_media_enabled=None, id=None, identity_management_type=None, inbound_calls_enabled=None, instance_alias=None, instance_id=None, multi_party_conference_enabled=None, outbound_calls_enabled=None, region=None, service_role=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -67,6 +67,9 @@ class GetInstanceResult:
         if outbound_calls_enabled and not isinstance(outbound_calls_enabled, bool):
             raise TypeError("Expected argument 'outbound_calls_enabled' to be a bool")
         pulumi.set(__self__, "outbound_calls_enabled", outbound_calls_enabled)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if service_role and not isinstance(service_role, str):
             raise TypeError("Expected argument 'service_role' to be a str")
         pulumi.set(__self__, "service_role", service_role)
@@ -173,6 +176,11 @@ class GetInstanceResult:
         return pulumi.get(self, "outbound_calls_enabled")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="serviceRole")
     def service_role(self) -> builtins.str:
         """
@@ -216,6 +224,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             instance_id=self.instance_id,
             multi_party_conference_enabled=self.multi_party_conference_enabled,
             outbound_calls_enabled=self.outbound_calls_enabled,
+            region=self.region,
             service_role=self.service_role,
             status=self.status,
             tags=self.tags)
@@ -223,6 +232,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
 
 def get_instance(instance_alias: Optional[builtins.str] = None,
                  instance_id: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
                  tags: Optional[Mapping[str, builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceResult:
     """
@@ -253,11 +263,13 @@ def get_instance(instance_alias: Optional[builtins.str] = None,
            
            > **NOTE:** One of either `instance_id` or `instance_alias` is required.
     :param builtins.str instance_id: Returns information on a specific connect instance by id
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags to assigned to the instance.
     """
     __args__ = dict()
     __args__['instanceAlias'] = instance_alias
     __args__['instanceId'] = instance_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:connect/getInstance:getInstance', __args__, opts=opts, typ=GetInstanceResult).value
@@ -276,11 +288,13 @@ def get_instance(instance_alias: Optional[builtins.str] = None,
         instance_id=pulumi.get(__ret__, 'instance_id'),
         multi_party_conference_enabled=pulumi.get(__ret__, 'multi_party_conference_enabled'),
         outbound_calls_enabled=pulumi.get(__ret__, 'outbound_calls_enabled'),
+        region=pulumi.get(__ret__, 'region'),
         service_role=pulumi.get(__ret__, 'service_role'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_instance_output(instance_alias: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         instance_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
     """
@@ -311,11 +325,13 @@ def get_instance_output(instance_alias: Optional[pulumi.Input[Optional[builtins.
            
            > **NOTE:** One of either `instance_id` or `instance_alias` is required.
     :param builtins.str instance_id: Returns information on a specific connect instance by id
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: A map of tags to assigned to the instance.
     """
     __args__ = dict()
     __args__['instanceAlias'] = instance_alias
     __args__['instanceId'] = instance_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:connect/getInstance:getInstance', __args__, opts=opts, typ=GetInstanceResult)
@@ -333,6 +349,7 @@ def get_instance_output(instance_alias: Optional[pulumi.Input[Optional[builtins.
         instance_id=pulumi.get(__response__, 'instance_id'),
         multi_party_conference_enabled=pulumi.get(__response__, 'multi_party_conference_enabled'),
         outbound_calls_enabled=pulumi.get(__response__, 'outbound_calls_enabled'),
+        region=pulumi.get(__response__, 'region'),
         service_role=pulumi.get(__response__, 'service_role'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

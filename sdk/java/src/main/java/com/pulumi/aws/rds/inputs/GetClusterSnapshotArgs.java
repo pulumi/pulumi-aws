@@ -99,6 +99,21 @@ public final class GetClusterSnapshotArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Type of snapshots to be returned. If you don&#39;t specify a SnapshotType
      * value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
      * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
@@ -142,6 +157,7 @@ public final class GetClusterSnapshotArgs extends com.pulumi.resources.InvokeArg
         this.includePublic = $.includePublic;
         this.includeShared = $.includeShared;
         this.mostRecent = $.mostRecent;
+        this.region = $.region;
         this.snapshotType = $.snapshotType;
         this.tags = $.tags;
     }
@@ -273,6 +289,27 @@ public final class GetClusterSnapshotArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder mostRecent(Boolean mostRecent) {
             return mostRecent(Output.of(mostRecent));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

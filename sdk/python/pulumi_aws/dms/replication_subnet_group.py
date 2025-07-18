@@ -23,17 +23,21 @@ class ReplicationSubnetGroupArgs:
                  replication_subnet_group_description: pulumi.Input[builtins.str],
                  replication_subnet_group_id: pulumi.Input[builtins.str],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReplicationSubnetGroup resource.
         :param pulumi.Input[builtins.str] replication_subnet_group_description: Description for the subnet group.
         :param pulumi.Input[builtins.str] replication_subnet_group_id: Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "replication_subnet_group_description", replication_subnet_group_description)
         pulumi.set(__self__, "replication_subnet_group_id", replication_subnet_group_id)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -75,6 +79,18 @@ class ReplicationSubnetGroupArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -89,6 +105,7 @@ class ReplicationSubnetGroupArgs:
 @pulumi.input_type
 class _ReplicationSubnetGroupState:
     def __init__(__self__, *,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_subnet_group_arn: Optional[pulumi.Input[builtins.str]] = None,
                  replication_subnet_group_description: Optional[pulumi.Input[builtins.str]] = None,
                  replication_subnet_group_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -98,6 +115,7 @@ class _ReplicationSubnetGroupState:
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReplicationSubnetGroup resources.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_subnet_group_description: Description for the subnet group.
         :param pulumi.Input[builtins.str] replication_subnet_group_id: Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
@@ -105,6 +123,8 @@ class _ReplicationSubnetGroupState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC the subnet group is in.
         """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replication_subnet_group_arn is not None:
             pulumi.set(__self__, "replication_subnet_group_arn", replication_subnet_group_arn)
         if replication_subnet_group_description is not None:
@@ -116,12 +136,21 @@ class _ReplicationSubnetGroupState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_id is not None:
             pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="replicationSubnetGroupArn")
@@ -182,7 +211,6 @@ class _ReplicationSubnetGroupState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -212,6 +240,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_subnet_group_description: Optional[pulumi.Input[builtins.str]] = None,
                  replication_subnet_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -291,6 +320,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_subnet_group_description: Description for the subnet group.
         :param pulumi.Input[builtins.str] replication_subnet_group_id: Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
@@ -389,6 +419,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_subnet_group_description: Optional[pulumi.Input[builtins.str]] = None,
                  replication_subnet_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -402,6 +433,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReplicationSubnetGroupArgs.__new__(ReplicationSubnetGroupArgs)
 
+            __props__.__dict__["region"] = region
             if replication_subnet_group_description is None and not opts.urn:
                 raise TypeError("Missing required property 'replication_subnet_group_description'")
             __props__.__dict__["replication_subnet_group_description"] = replication_subnet_group_description
@@ -425,6 +457,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replication_subnet_group_arn: Optional[pulumi.Input[builtins.str]] = None,
             replication_subnet_group_description: Optional[pulumi.Input[builtins.str]] = None,
             replication_subnet_group_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -439,6 +472,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_subnet_group_description: Description for the subnet group.
         :param pulumi.Input[builtins.str] replication_subnet_group_id: Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: List of at least 2 EC2 subnet IDs for the subnet group. The subnets must cover at least 2 availability zones.
@@ -450,6 +484,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
 
         __props__ = _ReplicationSubnetGroupState.__new__(_ReplicationSubnetGroupState)
 
+        __props__.__dict__["region"] = region
         __props__.__dict__["replication_subnet_group_arn"] = replication_subnet_group_arn
         __props__.__dict__["replication_subnet_group_description"] = replication_subnet_group_description
         __props__.__dict__["replication_subnet_group_id"] = replication_subnet_group_id
@@ -458,6 +493,14 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["vpc_id"] = vpc_id
         return ReplicationSubnetGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="replicationSubnetGroupArn")
@@ -498,7 +541,6 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

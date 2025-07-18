@@ -21,14 +21,18 @@ __all__ = ['ResolverQueryLogConfigAssociationArgs', 'ResolverQueryLogConfigAssoc
 class ResolverQueryLogConfigAssociationArgs:
     def __init__(__self__, *,
                  resolver_query_log_config_id: pulumi.Input[builtins.str],
-                 resource_id: pulumi.Input[builtins.str]):
+                 resource_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ResolverQueryLogConfigAssociation resource.
         :param pulumi.Input[builtins.str] resolver_query_log_config_id: The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
         :param pulumi.Input[builtins.str] resource_id: The ID of a VPC that you want this query logging configuration to log queries for.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "resolver_query_log_config_id", resolver_query_log_config_id)
         pulumi.set(__self__, "resource_id", resource_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="resolverQueryLogConfigId")
@@ -54,21 +58,49 @@ class ResolverQueryLogConfigAssociationArgs:
     def resource_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "resource_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ResolverQueryLogConfigAssociationState:
     def __init__(__self__, *,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resolver_query_log_config_id: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResolverQueryLogConfigAssociation resources.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resolver_query_log_config_id: The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
         :param pulumi.Input[builtins.str] resource_id: The ID of a VPC that you want this query logging configuration to log queries for.
         """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resolver_query_log_config_id is not None:
             pulumi.set(__self__, "resolver_query_log_config_id", resolver_query_log_config_id)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resolverQueryLogConfigId")
@@ -101,6 +133,7 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resolver_query_log_config_id: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -128,6 +161,7 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resolver_query_log_config_id: The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
         :param pulumi.Input[builtins.str] resource_id: The ID of a VPC that you want this query logging configuration to log queries for.
         """
@@ -174,6 +208,7 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resolver_query_log_config_id: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -185,6 +220,7 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResolverQueryLogConfigAssociationArgs.__new__(ResolverQueryLogConfigAssociationArgs)
 
+            __props__.__dict__["region"] = region
             if resolver_query_log_config_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resolver_query_log_config_id'")
             __props__.__dict__["resolver_query_log_config_id"] = resolver_query_log_config_id
@@ -201,6 +237,7 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resolver_query_log_config_id: Optional[pulumi.Input[builtins.str]] = None,
             resource_id: Optional[pulumi.Input[builtins.str]] = None) -> 'ResolverQueryLogConfigAssociation':
         """
@@ -210,6 +247,7 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resolver_query_log_config_id: The ID of the Route 53 Resolver query logging configuration that you want to associate a VPC with.
         :param pulumi.Input[builtins.str] resource_id: The ID of a VPC that you want this query logging configuration to log queries for.
         """
@@ -217,9 +255,18 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
 
         __props__ = _ResolverQueryLogConfigAssociationState.__new__(_ResolverQueryLogConfigAssociationState)
 
+        __props__.__dict__["region"] = region
         __props__.__dict__["resolver_query_log_config_id"] = resolver_query_log_config_id
         __props__.__dict__["resource_id"] = resource_id
         return ResolverQueryLogConfigAssociation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resolverQueryLogConfigId")

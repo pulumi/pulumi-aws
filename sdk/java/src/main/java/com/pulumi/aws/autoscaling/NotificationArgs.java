@@ -3,12 +3,15 @@
 
 package com.pulumi.aws.autoscaling;
 
+import com.pulumi.aws.autoscaling.enums.NotificationType;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
@@ -36,15 +39,30 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="notifications", required=true)
-    private Output<List<String>> notifications;
+    private Output<List<NotificationType>> notifications;
 
     /**
      * @return List of Notification Types that trigger
      * notifications. Acceptable values are documented [in the AWS documentation here](https://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_NotificationConfiguration.html)
      * 
      */
-    public Output<List<String>> notifications() {
+    public Output<List<NotificationType>> notifications() {
         return this.notifications;
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -67,6 +85,7 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
     private NotificationArgs(NotificationArgs $) {
         this.groupNames = $.groupNames;
         this.notifications = $.notifications;
+        this.region = $.region;
         this.topicArn = $.topicArn;
     }
 
@@ -126,7 +145,7 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder notifications(Output<List<String>> notifications) {
+        public Builder notifications(Output<List<NotificationType>> notifications) {
             $.notifications = notifications;
             return this;
         }
@@ -138,7 +157,7 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder notifications(List<String> notifications) {
+        public Builder notifications(List<NotificationType> notifications) {
             return notifications(Output.of(notifications));
         }
 
@@ -149,8 +168,29 @@ public final class NotificationArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder notifications(String... notifications) {
+        public Builder notifications(NotificationType... notifications) {
             return notifications(List.of(notifications));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

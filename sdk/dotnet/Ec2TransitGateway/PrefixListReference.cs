@@ -81,6 +81,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Output<string> PrefixListOwnerId { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Identifier of EC2 Transit Gateway Attachment.
         /// </summary>
         [Output("transitGatewayAttachmentId")]
@@ -153,6 +159,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public Input<string> PrefixListId { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Identifier of EC2 Transit Gateway Attachment.
         /// </summary>
         [Input("transitGatewayAttachmentId")]
@@ -188,6 +200,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         [Input("prefixListOwnerId")]
         public Input<string>? PrefixListOwnerId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Identifier of EC2 Transit Gateway Attachment.

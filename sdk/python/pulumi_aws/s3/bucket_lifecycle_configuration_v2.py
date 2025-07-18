@@ -24,6 +24,7 @@ class BucketLifecycleConfigurationV2Args:
     def __init__(__self__, *,
                  bucket: pulumi.Input[builtins.str],
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]]] = None,
                  timeouts: Optional[pulumi.Input['BucketLifecycleConfigurationV2TimeoutsArgs']] = None,
                  transition_default_minimum_object_size: Optional[pulumi.Input[builtins.str]] = None):
@@ -31,12 +32,15 @@ class BucketLifecycleConfigurationV2Args:
         The set of arguments for constructing a BucketLifecycleConfigurationV2 resource.
         :param pulumi.Input[builtins.str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]] rules: List of configuration blocks describing the rules managing the replication. See below.
         :param pulumi.Input[builtins.str] transition_default_minimum_object_size: The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
         pulumi.set(__self__, "bucket", bucket)
         if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
         if timeouts is not None:
@@ -67,6 +71,18 @@ class BucketLifecycleConfigurationV2Args:
     @expected_bucket_owner.setter
     def expected_bucket_owner(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -107,6 +123,7 @@ class _BucketLifecycleConfigurationV2State:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]]] = None,
                  timeouts: Optional[pulumi.Input['BucketLifecycleConfigurationV2TimeoutsArgs']] = None,
                  transition_default_minimum_object_size: Optional[pulumi.Input[builtins.str]] = None):
@@ -114,6 +131,7 @@ class _BucketLifecycleConfigurationV2State:
         Input properties used for looking up and filtering BucketLifecycleConfigurationV2 resources.
         :param pulumi.Input[builtins.str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleArgs']]] rules: List of configuration blocks describing the rules managing the replication. See below.
         :param pulumi.Input[builtins.str] transition_default_minimum_object_size: The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
@@ -121,6 +139,8 @@ class _BucketLifecycleConfigurationV2State:
             pulumi.set(__self__, "bucket", bucket)
         if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
         if timeouts is not None:
@@ -151,6 +171,18 @@ class _BucketLifecycleConfigurationV2State:
     @expected_bucket_owner.setter
     def expected_bucket_owner(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "expected_bucket_owner", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -186,14 +218,20 @@ class _BucketLifecycleConfigurationV2State:
         pulumi.set(self, "transition_default_minimum_object_size", value)
 
 
+warnings.warn("""aws.s3/bucketlifecycleconfigurationv2.BucketLifecycleConfigurationV2 has been deprecated in favor of aws.s3/bucketlifecycleconfiguration.BucketLifecycleConfiguration""", DeprecationWarning)
+
+
 @pulumi.type_token("aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2")
 class BucketLifecycleConfigurationV2(pulumi.CustomResource):
+    warnings.warn("""aws.s3/bucketlifecycleconfigurationv2.BucketLifecycleConfigurationV2 has been deprecated in favor of aws.s3/bucketlifecycleconfiguration.BucketLifecycleConfiguration""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['BucketLifecycleConfigurationV2TimeoutsArgs', 'BucketLifecycleConfigurationV2TimeoutsArgsDict']]] = None,
                  transition_default_minimum_object_size: Optional[pulumi.Input[builtins.str]] = None,
@@ -209,7 +247,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         For more information see the Amazon S3 User Guide on [`Lifecycle Configuration Elements`](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html).
 
-        > S3 Buckets only support a single lifecycle configuration. Declaring multiple `s3.BucketLifecycleConfigurationV2` resources to the same S3 Bucket will cause a perpetual difference in configuration.
+        > S3 Buckets only support a single lifecycle configuration. Declaring multiple `s3.BucketLifecycleConfiguration` resources to the same S3 Bucket will cause a perpetual difference in configuration.
 
         > Lifecycle configurations may take some time to fully propagate to all AWS S3 systems.
         Running Pulumi operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence.
@@ -222,13 +260,13 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         The Lifecycle rule applies to a subset of objects based on the key name prefix (`""`).
 
         This configuration is intended to replicate the default behavior of the `lifecycle_rule`
-        parameter in the AWS Provider `s3.BucketV2` resource prior to `v4.0`.
+        parameter in the AWS Provider `s3.Bucket` resource prior to `v4.0`.
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketLifecycleConfigurationV2("example",
+        example = aws.s3.BucketLifecycleConfiguration("example",
             bucket=bucket["id"],
             rules=[{
                 "id": "rule-1",
@@ -244,7 +282,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketLifecycleConfigurationV2("example",
+        example = aws.s3.BucketLifecycleConfiguration("example",
             bucket=bucket["id"],
             rules=[{
                 "id": "rule-1",
@@ -261,7 +299,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketLifecycleConfigurationV2("example",
+        example = aws.s3.BucketLifecycleConfiguration("example",
             bucket=bucket["id"],
             rules=[{
                 "id": "rule-1",
@@ -278,7 +316,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketLifecycleConfigurationV2("example",
+        example = aws.s3.BucketLifecycleConfiguration("example",
             bucket=bucket["id"],
             rules=[
                 {
@@ -306,7 +344,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketLifecycleConfigurationV2("example",
+        example = aws.s3.BucketLifecycleConfiguration("example",
             bucket=bucket["id"],
             rules=[{
                 "id": "rule-1",
@@ -328,7 +366,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketLifecycleConfigurationV2("example",
+        example = aws.s3.BucketLifecycleConfiguration("example",
             bucket=bucket["id"],
             rules=[{
                 "id": "rule-1",
@@ -352,7 +390,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketLifecycleConfigurationV2("example",
+        example = aws.s3.BucketLifecycleConfiguration("example",
             bucket=bucket["id"],
             rules=[{
                 "id": "rule-1",
@@ -377,7 +415,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketLifecycleConfigurationV2("example",
+        example = aws.s3.BucketLifecycleConfiguration("example",
             bucket=bucket["id"],
             rules=[{
                 "id": "Allow small object transitions",
@@ -400,7 +438,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketLifecycleConfigurationV2("example",
+        example = aws.s3.BucketLifecycleConfiguration("example",
             bucket=bucket["id"],
             rules=[{
                 "id": "rule-1",
@@ -421,11 +459,11 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="my-bucket")
-        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
+        bucket = aws.s3.Bucket("bucket", bucket="my-bucket")
+        bucket_acl = aws.s3.BucketAcl("bucket_acl",
             bucket=bucket.id,
             acl="private")
-        bucket_config = aws.s3.BucketLifecycleConfigurationV2("bucket-config",
+        bucket_config = aws.s3.BucketLifecycleConfiguration("bucket-config",
             bucket=bucket.id,
             rules=[
                 {
@@ -465,16 +503,16 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                     "status": "Enabled",
                 },
             ])
-        versioning_bucket = aws.s3.BucketV2("versioning_bucket", bucket="my-versioning-bucket")
-        versioning_bucket_acl = aws.s3.BucketAclV2("versioning_bucket_acl",
+        versioning_bucket = aws.s3.Bucket("versioning_bucket", bucket="my-versioning-bucket")
+        versioning_bucket_acl = aws.s3.BucketAcl("versioning_bucket_acl",
             bucket=versioning_bucket.id,
             acl="private")
-        versioning = aws.s3.BucketVersioningV2("versioning",
+        versioning = aws.s3.BucketVersioning("versioning",
             bucket=versioning_bucket.id,
             versioning_configuration={
                 "status": "Enabled",
             })
-        versioning_bucket_config = aws.s3.BucketLifecycleConfigurationV2("versioning-bucket-config",
+        versioning_bucket_config = aws.s3.BucketLifecycleConfiguration("versioning-bucket-config",
             bucket=versioning_bucket.id,
             rules=[{
                 "id": "config",
@@ -520,6 +558,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]] rules: List of configuration blocks describing the rules managing the replication. See below.
         :param pulumi.Input[builtins.str] transition_default_minimum_object_size: The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
@@ -540,7 +579,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         For more information see the Amazon S3 User Guide on [`Lifecycle Configuration Elements`](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-rules.html).
 
-        > S3 Buckets only support a single lifecycle configuration. Declaring multiple `s3.BucketLifecycleConfigurationV2` resources to the same S3 Bucket will cause a perpetual difference in configuration.
+        > S3 Buckets only support a single lifecycle configuration. Declaring multiple `s3.BucketLifecycleConfiguration` resources to the same S3 Bucket will cause a perpetual difference in configuration.
 
         > Lifecycle configurations may take some time to fully propagate to all AWS S3 systems.
         Running Pulumi operations shortly after creating a lifecycle configuration may result in changes that affect configuration idempotence.
@@ -553,13 +592,13 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         The Lifecycle rule applies to a subset of objects based on the key name prefix (`""`).
 
         This configuration is intended to replicate the default behavior of the `lifecycle_rule`
-        parameter in the AWS Provider `s3.BucketV2` resource prior to `v4.0`.
+        parameter in the AWS Provider `s3.Bucket` resource prior to `v4.0`.
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketLifecycleConfigurationV2("example",
+        example = aws.s3.BucketLifecycleConfiguration("example",
             bucket=bucket["id"],
             rules=[{
                 "id": "rule-1",
@@ -575,7 +614,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketLifecycleConfigurationV2("example",
+        example = aws.s3.BucketLifecycleConfiguration("example",
             bucket=bucket["id"],
             rules=[{
                 "id": "rule-1",
@@ -592,7 +631,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketLifecycleConfigurationV2("example",
+        example = aws.s3.BucketLifecycleConfiguration("example",
             bucket=bucket["id"],
             rules=[{
                 "id": "rule-1",
@@ -609,7 +648,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketLifecycleConfigurationV2("example",
+        example = aws.s3.BucketLifecycleConfiguration("example",
             bucket=bucket["id"],
             rules=[
                 {
@@ -637,7 +676,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketLifecycleConfigurationV2("example",
+        example = aws.s3.BucketLifecycleConfiguration("example",
             bucket=bucket["id"],
             rules=[{
                 "id": "rule-1",
@@ -659,7 +698,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketLifecycleConfigurationV2("example",
+        example = aws.s3.BucketLifecycleConfiguration("example",
             bucket=bucket["id"],
             rules=[{
                 "id": "rule-1",
@@ -683,7 +722,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketLifecycleConfigurationV2("example",
+        example = aws.s3.BucketLifecycleConfiguration("example",
             bucket=bucket["id"],
             rules=[{
                 "id": "rule-1",
@@ -708,7 +747,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketLifecycleConfigurationV2("example",
+        example = aws.s3.BucketLifecycleConfiguration("example",
             bucket=bucket["id"],
             rules=[{
                 "id": "Allow small object transitions",
@@ -731,7 +770,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketLifecycleConfigurationV2("example",
+        example = aws.s3.BucketLifecycleConfiguration("example",
             bucket=bucket["id"],
             rules=[{
                 "id": "rule-1",
@@ -752,11 +791,11 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        bucket = aws.s3.BucketV2("bucket", bucket="my-bucket")
-        bucket_acl = aws.s3.BucketAclV2("bucket_acl",
+        bucket = aws.s3.Bucket("bucket", bucket="my-bucket")
+        bucket_acl = aws.s3.BucketAcl("bucket_acl",
             bucket=bucket.id,
             acl="private")
-        bucket_config = aws.s3.BucketLifecycleConfigurationV2("bucket-config",
+        bucket_config = aws.s3.BucketLifecycleConfiguration("bucket-config",
             bucket=bucket.id,
             rules=[
                 {
@@ -796,16 +835,16 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                     "status": "Enabled",
                 },
             ])
-        versioning_bucket = aws.s3.BucketV2("versioning_bucket", bucket="my-versioning-bucket")
-        versioning_bucket_acl = aws.s3.BucketAclV2("versioning_bucket_acl",
+        versioning_bucket = aws.s3.Bucket("versioning_bucket", bucket="my-versioning-bucket")
+        versioning_bucket_acl = aws.s3.BucketAcl("versioning_bucket_acl",
             bucket=versioning_bucket.id,
             acl="private")
-        versioning = aws.s3.BucketVersioningV2("versioning",
+        versioning = aws.s3.BucketVersioning("versioning",
             bucket=versioning_bucket.id,
             versioning_configuration={
                 "status": "Enabled",
             })
-        versioning_bucket_config = aws.s3.BucketLifecycleConfigurationV2("versioning-bucket-config",
+        versioning_bucket_config = aws.s3.BucketLifecycleConfiguration("versioning-bucket-config",
             bucket=versioning_bucket.id,
             rules=[{
                 "id": "config",
@@ -864,10 +903,12 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['BucketLifecycleConfigurationV2TimeoutsArgs', 'BucketLifecycleConfigurationV2TimeoutsArgsDict']]] = None,
                  transition_default_minimum_object_size: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
+        pulumi.log.warn("""BucketLifecycleConfigurationV2 is deprecated: aws.s3/bucketlifecycleconfigurationv2.BucketLifecycleConfigurationV2 has been deprecated in favor of aws.s3/bucketlifecycleconfiguration.BucketLifecycleConfiguration""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -880,9 +921,12 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
                 raise TypeError("Missing required property 'bucket'")
             __props__.__dict__["bucket"] = bucket
             __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
+            __props__.__dict__["region"] = region
             __props__.__dict__["rules"] = rules
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["transition_default_minimum_object_size"] = transition_default_minimum_object_size
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BucketLifecycleConfigurationV2, __self__).__init__(
             'aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2',
             resource_name,
@@ -895,6 +939,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             bucket: Optional[pulumi.Input[builtins.str]] = None,
             expected_bucket_owner: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]]] = None,
             timeouts: Optional[pulumi.Input[Union['BucketLifecycleConfigurationV2TimeoutsArgs', 'BucketLifecycleConfigurationV2TimeoutsArgsDict']]] = None,
             transition_default_minimum_object_size: Optional[pulumi.Input[builtins.str]] = None) -> 'BucketLifecycleConfigurationV2':
@@ -907,6 +952,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bucket: Name of the source S3 bucket you want Amazon S3 to monitor.
         :param pulumi.Input[builtins.str] expected_bucket_owner: Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationV2RuleArgs', 'BucketLifecycleConfigurationV2RuleArgsDict']]]] rules: List of configuration blocks describing the rules managing the replication. See below.
         :param pulumi.Input[builtins.str] transition_default_minimum_object_size: The default minimum object size behavior applied to the lifecycle configuration. Valid values: `all_storage_classes_128K` (default), `varies_by_storage_class`. To customize the minimum object size for any transition you can add a `filter` that specifies a custom `object_size_greater_than` or `object_size_less_than` value. Custom filters always take precedence over the default transition behavior.
         """
@@ -916,6 +962,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
 
         __props__.__dict__["bucket"] = bucket
         __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
+        __props__.__dict__["region"] = region
         __props__.__dict__["rules"] = rules
         __props__.__dict__["timeouts"] = timeouts
         __props__.__dict__["transition_default_minimum_object_size"] = transition_default_minimum_object_size
@@ -936,6 +983,14 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
         """
         return pulumi.get(self, "expected_bucket_owner")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

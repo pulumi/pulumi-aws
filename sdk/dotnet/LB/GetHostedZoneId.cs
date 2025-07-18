@@ -133,8 +133,7 @@ namespace Pulumi.Aws.LB
         public string? LoadBalancerType { get; set; }
 
         /// <summary>
-        /// Name of the region whose AWS ELB HostedZoneId is desired.
-        /// Defaults to the region from the AWS provider configuration.
+        /// Name of the Region whose AWS ELB HostedZoneId is desired. Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public string? Region { get; set; }
@@ -154,8 +153,7 @@ namespace Pulumi.Aws.LB
         public Input<string>? LoadBalancerType { get; set; }
 
         /// <summary>
-        /// Name of the region whose AWS ELB HostedZoneId is desired.
-        /// Defaults to the region from the AWS provider configuration.
+        /// Name of the Region whose AWS ELB HostedZoneId is desired. Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -175,7 +173,7 @@ namespace Pulumi.Aws.LB
         /// </summary>
         public readonly string Id;
         public readonly string? LoadBalancerType;
-        public readonly string? Region;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetHostedZoneIdResult(
@@ -183,7 +181,7 @@ namespace Pulumi.Aws.LB
 
             string? loadBalancerType,
 
-            string? region)
+            string region)
         {
             Id = id;
             LoadBalancerType = loadBalancerType;

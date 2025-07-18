@@ -17,14 +17,18 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetFunctionUrlArgs Empty = new GetFunctionUrlArgs();
 
     /**
-     * The name (or ARN) of the Lambda function.
+     * Name or ARN of the Lambda function.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="functionName", required=true)
     private Output<String> functionName;
 
     /**
-     * @return The name (or ARN) of the Lambda function.
+     * @return Name or ARN of the Lambda function.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> functionName() {
@@ -32,18 +36,33 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Alias name or `&#34;$LATEST&#34;`.
+     * Alias name or `$LATEST`.
      * 
      */
     @Import(name="qualifier")
     private @Nullable Output<String> qualifier;
 
     /**
-     * @return Alias name or `&#34;$LATEST&#34;`.
+     * @return Alias name or `$LATEST`.
      * 
      */
     public Optional<Output<String>> qualifier() {
         return Optional.ofNullable(this.qualifier);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetFunctionUrlArgs() {}
@@ -51,6 +70,7 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
     private GetFunctionUrlArgs(GetFunctionUrlArgs $) {
         this.functionName = $.functionName;
         this.qualifier = $.qualifier;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -72,7 +92,9 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param functionName The name (or ARN) of the Lambda function.
+         * @param functionName Name or ARN of the Lambda function.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -83,7 +105,9 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param functionName The name (or ARN) of the Lambda function.
+         * @param functionName Name or ARN of the Lambda function.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -93,7 +117,7 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param qualifier Alias name or `&#34;$LATEST&#34;`.
+         * @param qualifier Alias name or `$LATEST`.
          * 
          * @return builder
          * 
@@ -104,13 +128,34 @@ public final class GetFunctionUrlArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param qualifier Alias name or `&#34;$LATEST&#34;`.
+         * @param qualifier Alias name or `$LATEST`.
          * 
          * @return builder
          * 
          */
         public Builder qualifier(String qualifier) {
             return qualifier(Output.of(qualifier));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetFunctionUrlArgs build() {

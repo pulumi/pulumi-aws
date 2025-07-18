@@ -216,9 +216,22 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Encrypt at rest options. See `server_side_encryption` block below for details.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
-     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
+     * Encrypt at rest options. See `server_side_encryption` block below for details.
      * 
      */
     @Import(name="serverSideEncryption")
@@ -226,8 +239,6 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
 
     /**
      * @return Encrypt at rest options. See `server_side_encryption` block below for details.
-     * 
-     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamServerSideEncryptionArgs>> serverSideEncryption() {
@@ -252,12 +263,16 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
     /**
      * Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
      * 
+     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+     * 
      */
     @Import(name="splunkConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamSplunkConfigurationArgs> splunkConfiguration;
 
     /**
      * @return Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
+     * 
+     * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamSplunkConfigurationArgs>> splunkConfiguration() {
@@ -282,22 +297,14 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -325,6 +332,7 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
         this.opensearchConfiguration = $.opensearchConfiguration;
         this.opensearchserverlessConfiguration = $.opensearchserverlessConfiguration;
         this.redshiftConfiguration = $.redshiftConfiguration;
+        this.region = $.region;
         this.serverSideEncryption = $.serverSideEncryption;
         this.snowflakeConfiguration = $.snowflakeConfiguration;
         this.splunkConfiguration = $.splunkConfiguration;
@@ -613,9 +621,28 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param serverSideEncryption Encrypt at rest options. See `server_side_encryption` block below for details.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
-         * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
+         * @param serverSideEncryption Encrypt at rest options. See `server_side_encryption` block below for details.
          * 
          * @return builder
          * 
@@ -627,8 +654,6 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
 
         /**
          * @param serverSideEncryption Encrypt at rest options. See `server_side_encryption` block below for details.
-         * 
-         * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
          * 
          * @return builder
          * 
@@ -661,6 +686,8 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
         /**
          * @param splunkConfiguration Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
          * 
+         * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
+         * 
          * @return builder
          * 
          */
@@ -671,6 +698,8 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
 
         /**
          * @param splunkConfiguration Configuration options when `destination` is `splunk`. See `splunk_configuration` block below for details.
+         * 
+         * **NOTE:** Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
          * 
          * @return builder
          * 
@@ -705,11 +734,7 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -720,11 +745,7 @@ public final class FirehoseDeliveryStreamState extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

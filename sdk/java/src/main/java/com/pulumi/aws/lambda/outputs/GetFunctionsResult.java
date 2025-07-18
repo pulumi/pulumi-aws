@@ -12,12 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetFunctionsResult {
     /**
-     * @return A list of Lambda Function ARNs.
+     * @return List of Lambda Function ARNs.
      * 
      */
     private List<String> functionArns;
     /**
-     * @return A list of Lambda Function names.
+     * @return List of Lambda Function names.
      * 
      */
     private List<String> functionNames;
@@ -26,17 +26,18 @@ public final class GetFunctionsResult {
      * 
      */
     private String id;
+    private String region;
 
     private GetFunctionsResult() {}
     /**
-     * @return A list of Lambda Function ARNs.
+     * @return List of Lambda Function ARNs.
      * 
      */
     public List<String> functionArns() {
         return this.functionArns;
     }
     /**
-     * @return A list of Lambda Function names.
+     * @return List of Lambda Function names.
      * 
      */
     public List<String> functionNames() {
@@ -48,6 +49,9 @@ public final class GetFunctionsResult {
      */
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
 
     public static Builder builder() {
@@ -62,12 +66,14 @@ public final class GetFunctionsResult {
         private List<String> functionArns;
         private List<String> functionNames;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetFunctionsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.functionArns = defaults.functionArns;
     	      this.functionNames = defaults.functionNames;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -100,11 +106,20 @@ public final class GetFunctionsResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetFunctionsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetFunctionsResult build() {
             final var _resultValue = new GetFunctionsResult();
             _resultValue.functionArns = functionArns;
             _resultValue.functionNames = functionNames;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

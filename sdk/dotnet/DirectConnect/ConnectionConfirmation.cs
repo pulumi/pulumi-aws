@@ -39,6 +39,12 @@ namespace Pulumi.Aws.DirectConnect
         [Output("connectionId")]
         public Output<string> ConnectionId { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ConnectionConfirmation resource with the given unique name, arguments, and options.
@@ -91,6 +97,12 @@ namespace Pulumi.Aws.DirectConnect
         [Input("connectionId", required: true)]
         public Input<string> ConnectionId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public ConnectionConfirmationArgs()
         {
         }
@@ -104,6 +116,12 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("connectionId")]
         public Input<string>? ConnectionId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public ConnectionConfirmationState()
         {

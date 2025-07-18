@@ -223,7 +223,7 @@ def get_principal_policy_simulation(action_names: Optional[Sequence[builtins.str
 
     current = aws.get_caller_identity()
     example = aws.iam.User("example", name="example")
-    example_bucket_v2 = aws.s3.BucketV2("example", bucket="my-test-bucket")
+    example_bucket = aws.s3.Bucket("example", bucket="my-test-bucket")
     s3_access = aws.iam.UserPolicy("s3_access",
         name="example_s3_access",
         user=example.name,
@@ -232,11 +232,11 @@ def get_principal_policy_simulation(action_names: Optional[Sequence[builtins.str
             "Statement": [{
                 "Action": "s3:GetObject",
                 "Effect": "Allow",
-                "Resource": example_bucket_v2.arn,
+                "Resource": example_bucket.arn,
             }],
         }))
     account_access = aws.s3.BucketPolicy("account_access",
-        bucket=example_bucket_v2.bucket,
+        bucket=example_bucket.bucket,
         policy=pulumi.Output.json_dumps({
             "Version": "2012-10-17",
             "Statement": [{
@@ -246,14 +246,14 @@ def get_principal_policy_simulation(action_names: Optional[Sequence[builtins.str
                     "AWS": current.account_id,
                 },
                 "Resource": [
-                    example_bucket_v2.arn,
-                    example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
+                    example_bucket.arn,
+                    example_bucket.arn.apply(lambda arn: f"{arn}/*"),
                 ],
             }],
         }))
     s3_object_access = aws.iam.get_principal_policy_simulation_output(action_names=["s3:GetObject"],
         policy_source_arn=example.arn,
-        resource_arns=[example_bucket_v2.arn],
+        resource_arns=[example_bucket.arn],
         resource_policy_json=account_access.policy)
     ```
 
@@ -373,7 +373,7 @@ def get_principal_policy_simulation_output(action_names: Optional[pulumi.Input[S
 
     current = aws.get_caller_identity()
     example = aws.iam.User("example", name="example")
-    example_bucket_v2 = aws.s3.BucketV2("example", bucket="my-test-bucket")
+    example_bucket = aws.s3.Bucket("example", bucket="my-test-bucket")
     s3_access = aws.iam.UserPolicy("s3_access",
         name="example_s3_access",
         user=example.name,
@@ -382,11 +382,11 @@ def get_principal_policy_simulation_output(action_names: Optional[pulumi.Input[S
             "Statement": [{
                 "Action": "s3:GetObject",
                 "Effect": "Allow",
-                "Resource": example_bucket_v2.arn,
+                "Resource": example_bucket.arn,
             }],
         }))
     account_access = aws.s3.BucketPolicy("account_access",
-        bucket=example_bucket_v2.bucket,
+        bucket=example_bucket.bucket,
         policy=pulumi.Output.json_dumps({
             "Version": "2012-10-17",
             "Statement": [{
@@ -396,14 +396,14 @@ def get_principal_policy_simulation_output(action_names: Optional[pulumi.Input[S
                     "AWS": current.account_id,
                 },
                 "Resource": [
-                    example_bucket_v2.arn,
-                    example_bucket_v2.arn.apply(lambda arn: f"{arn}/*"),
+                    example_bucket.arn,
+                    example_bucket.arn.apply(lambda arn: f"{arn}/*"),
                 ],
             }],
         }))
     s3_object_access = aws.iam.get_principal_policy_simulation_output(action_names=["s3:GetObject"],
         policy_source_arn=example.arn,
-        resource_arns=[example_bucket_v2.arn],
+        resource_arns=[example_bucket.arn],
         resource_policy_json=account_access.policy)
     ```
 

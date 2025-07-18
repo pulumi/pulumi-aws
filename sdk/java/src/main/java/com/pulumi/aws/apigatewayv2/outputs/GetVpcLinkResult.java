@@ -27,6 +27,7 @@ public final class GetVpcLinkResult {
      * 
      */
     private String name;
+    private String region;
     /**
      * @return List of security groups associated with the VPC Link.
      * 
@@ -66,6 +67,9 @@ public final class GetVpcLinkResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return List of security groups associated with the VPC Link.
      * 
@@ -103,6 +107,7 @@ public final class GetVpcLinkResult {
         private String arn;
         private String id;
         private String name;
+        private String region;
         private List<String> securityGroupIds;
         private List<String> subnetIds;
         private Map<String,String> tags;
@@ -113,6 +118,7 @@ public final class GetVpcLinkResult {
     	      this.arn = defaults.arn;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
     	      this.securityGroupIds = defaults.securityGroupIds;
     	      this.subnetIds = defaults.subnetIds;
     	      this.tags = defaults.tags;
@@ -141,6 +147,14 @@ public final class GetVpcLinkResult {
               throw new MissingRequiredPropertyException("GetVpcLinkResult", "name");
             }
             this.name = name;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetVpcLinkResult", "region");
+            }
+            this.region = region;
             return this;
         }
         @CustomType.Setter
@@ -186,6 +200,7 @@ public final class GetVpcLinkResult {
             _resultValue.arn = arn;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             _resultValue.securityGroupIds = securityGroupIds;
             _resultValue.subnetIds = subnetIds;
             _resultValue.tags = tags;

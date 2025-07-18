@@ -28,6 +28,7 @@ class AutomationRuleArgs:
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionArgs']]]] = None,
                  criteria: Optional[pulumi.Input['AutomationRuleCriteriaArgs']] = None,
                  is_terminal: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -38,6 +39,7 @@ class AutomationRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AutomationRuleActionArgs']]] actions: A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
         :param pulumi.Input['AutomationRuleCriteriaArgs'] criteria: A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
         :param pulumi.Input[builtins.bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_status: Whether the rule is active after it is created.
         """
         pulumi.set(__self__, "description", description)
@@ -49,6 +51,8 @@ class AutomationRuleArgs:
             pulumi.set(__self__, "criteria", criteria)
         if is_terminal is not None:
             pulumi.set(__self__, "is_terminal", is_terminal)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rule_status is not None:
             pulumi.set(__self__, "rule_status", rule_status)
         if tags is not None:
@@ -127,6 +131,18 @@ class AutomationRuleArgs:
         pulumi.set(self, "is_terminal", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="ruleStatus")
     def rule_status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -156,6 +172,7 @@ class _AutomationRuleState:
                  criteria: Optional[pulumi.Input['AutomationRuleCriteriaArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  is_terminal: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_name: Optional[pulumi.Input[builtins.str]] = None,
                  rule_order: Optional[pulumi.Input[builtins.int]] = None,
                  rule_status: Optional[pulumi.Input[builtins.str]] = None,
@@ -168,6 +185,7 @@ class _AutomationRuleState:
         :param pulumi.Input['AutomationRuleCriteriaArgs'] criteria: A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
         :param pulumi.Input[builtins.str] description: The description of the rule.
         :param pulumi.Input[builtins.bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_name: The name of the rule.
         :param pulumi.Input[builtins.int] rule_order: An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
         :param pulumi.Input[builtins.str] rule_status: Whether the rule is active after it is created.
@@ -182,6 +200,8 @@ class _AutomationRuleState:
             pulumi.set(__self__, "description", description)
         if is_terminal is not None:
             pulumi.set(__self__, "is_terminal", is_terminal)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rule_name is not None:
             pulumi.set(__self__, "rule_name", rule_name)
         if rule_order is not None:
@@ -190,9 +210,6 @@ class _AutomationRuleState:
             pulumi.set(__self__, "rule_status", rule_status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -257,6 +274,18 @@ class _AutomationRuleState:
         pulumi.set(self, "is_terminal", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -303,7 +332,6 @@ class _AutomationRuleState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -322,6 +350,7 @@ class AutomationRule(pulumi.CustomResource):
                  criteria: Optional[pulumi.Input[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  is_terminal: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_name: Optional[pulumi.Input[builtins.str]] = None,
                  rule_order: Optional[pulumi.Input[builtins.int]] = None,
                  rule_status: Optional[pulumi.Input[builtins.str]] = None,
@@ -381,6 +410,7 @@ class AutomationRule(pulumi.CustomResource):
         :param pulumi.Input[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']] criteria: A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
         :param pulumi.Input[builtins.str] description: The description of the rule.
         :param pulumi.Input[builtins.bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_name: The name of the rule.
         :param pulumi.Input[builtins.int] rule_order: An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
         :param pulumi.Input[builtins.str] rule_status: Whether the rule is active after it is created.
@@ -458,6 +488,7 @@ class AutomationRule(pulumi.CustomResource):
                  criteria: Optional[pulumi.Input[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  is_terminal: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_name: Optional[pulumi.Input[builtins.str]] = None,
                  rule_order: Optional[pulumi.Input[builtins.int]] = None,
                  rule_status: Optional[pulumi.Input[builtins.str]] = None,
@@ -477,6 +508,7 @@ class AutomationRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
             __props__.__dict__["is_terminal"] = is_terminal
+            __props__.__dict__["region"] = region
             if rule_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_name'")
             __props__.__dict__["rule_name"] = rule_name
@@ -502,6 +534,7 @@ class AutomationRule(pulumi.CustomResource):
             criteria: Optional[pulumi.Input[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             is_terminal: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rule_name: Optional[pulumi.Input[builtins.str]] = None,
             rule_order: Optional[pulumi.Input[builtins.int]] = None,
             rule_status: Optional[pulumi.Input[builtins.str]] = None,
@@ -519,6 +552,7 @@ class AutomationRule(pulumi.CustomResource):
         :param pulumi.Input[Union['AutomationRuleCriteriaArgs', 'AutomationRuleCriteriaArgsDict']] criteria: A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
         :param pulumi.Input[builtins.str] description: The description of the rule.
         :param pulumi.Input[builtins.bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_name: The name of the rule.
         :param pulumi.Input[builtins.int] rule_order: An integer ranging from 1 to 1000 that represents the order in which the rule action is applied to findings. Security Hub applies rules with lower values for this parameter first.
         :param pulumi.Input[builtins.str] rule_status: Whether the rule is active after it is created.
@@ -532,6 +566,7 @@ class AutomationRule(pulumi.CustomResource):
         __props__.__dict__["criteria"] = criteria
         __props__.__dict__["description"] = description
         __props__.__dict__["is_terminal"] = is_terminal
+        __props__.__dict__["region"] = region
         __props__.__dict__["rule_name"] = rule_name
         __props__.__dict__["rule_order"] = rule_order
         __props__.__dict__["rule_status"] = rule_status
@@ -580,6 +615,14 @@ class AutomationRule(pulumi.CustomResource):
         return pulumi.get(self, "is_terminal")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Output[builtins.str]:
         """
@@ -610,7 +653,6 @@ class AutomationRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

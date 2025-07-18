@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {IpAddressType, LoadBalancerType} from "./index";
-
 /**
  * Provides a Load Balancer resource.
  *
@@ -143,7 +141,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly accessLogs!: pulumi.Output<outputs.alb.LoadBalancerAccessLogs | undefined>;
     /**
-     * ARN of the load balancer (matches `id`).
+     * ARN of the load balancer.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -168,6 +166,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     public readonly desyncMitigationMode!: pulumi.Output<string | undefined>;
     /**
      * DNS name of the load balancer.
+     * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
@@ -221,7 +220,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      */
-    public readonly ipAddressType!: pulumi.Output<IpAddressType>;
+    public readonly ipAddressType!: pulumi.Output<string>;
     /**
      * . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
      */
@@ -229,7 +228,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
-    public readonly loadBalancerType!: pulumi.Output<LoadBalancerType | undefined>;
+    public readonly loadBalancerType!: pulumi.Output<enums.alb.LoadBalancerType | undefined>;
     /**
      * Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
      */
@@ -246,6 +245,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      * Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      */
     public readonly preserveHostHeader!: pulumi.Output<boolean | undefined>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     /**
      * List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      */
@@ -264,8 +267,6 @@ export class LoadBalancer extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly vpcId!: pulumi.Output<string>;
@@ -322,6 +323,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["preserveHostHeader"] = state ? state.preserveHostHeader : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
             resourceInputs["subnetMappings"] = state ? state.subnetMappings : undefined;
             resourceInputs["subnets"] = state ? state.subnets : undefined;
@@ -356,6 +358,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["preserveHostHeader"] = args ? args.preserveHostHeader : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
             resourceInputs["subnetMappings"] = args ? args.subnetMappings : undefined;
             resourceInputs["subnets"] = args ? args.subnets : undefined;
@@ -384,7 +387,7 @@ export interface LoadBalancerState {
      */
     accessLogs?: pulumi.Input<inputs.alb.LoadBalancerAccessLogs>;
     /**
-     * ARN of the load balancer (matches `id`).
+     * ARN of the load balancer.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -409,6 +412,7 @@ export interface LoadBalancerState {
     desyncMitigationMode?: pulumi.Input<string>;
     /**
      * DNS name of the load balancer.
+     * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
      */
     dnsName?: pulumi.Input<string>;
     /**
@@ -462,7 +466,7 @@ export interface LoadBalancerState {
     /**
      * Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      */
-    ipAddressType?: pulumi.Input<IpAddressType>;
+    ipAddressType?: pulumi.Input<string | enums.alb.IpAddressType>;
     /**
      * . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
      */
@@ -470,7 +474,7 @@ export interface LoadBalancerState {
     /**
      * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
-    loadBalancerType?: pulumi.Input<LoadBalancerType>;
+    loadBalancerType?: pulumi.Input<enums.alb.LoadBalancerType>;
     /**
      * Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
      */
@@ -487,6 +491,10 @@ export interface LoadBalancerState {
      * Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      */
     preserveHostHeader?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      */
@@ -505,8 +513,6 @@ export interface LoadBalancerState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     vpcId?: pulumi.Input<string>;
@@ -599,7 +605,7 @@ export interface LoadBalancerArgs {
     /**
      * Type of IP addresses used by the subnets for your load balancer. The possible values depend upon the load balancer type: `ipv4` (all load balancer types), `dualstack` (all load balancer types), and `dualstack-without-public-ipv4` (type `application` only).
      */
-    ipAddressType?: pulumi.Input<IpAddressType>;
+    ipAddressType?: pulumi.Input<string | enums.alb.IpAddressType>;
     /**
      * . The IPAM pools to use with the load balancer.  Only valid for Load Balancers of type `application`. See ipamPools for more information.
      */
@@ -607,7 +613,7 @@ export interface LoadBalancerArgs {
     /**
      * Type of load balancer to create. Possible values are `application`, `gateway`, or `network`. The default value is `application`.
      */
-    loadBalancerType?: pulumi.Input<LoadBalancerType>;
+    loadBalancerType?: pulumi.Input<enums.alb.LoadBalancerType>;
     /**
      * Minimum capacity for a load balancer. Only valid for Load Balancers of type `application` or `network`.
      */
@@ -624,6 +630,10 @@ export interface LoadBalancerArgs {
      * Whether the Application Load Balancer should preserve the Host header in the HTTP request and send it to the target without any change. Defaults to `false`.
      */
     preserveHostHeader?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      */

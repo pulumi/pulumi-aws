@@ -24,6 +24,7 @@ class TableReplicaInitArgs:
                  deletion_protection_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  point_in_time_recovery: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_class_override: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -34,6 +35,7 @@ class TableReplicaInitArgs:
         :param pulumi.Input[builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled (true) or disabled (false) on the table replica.
         :param pulumi.Input[builtins.str] kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
         :param pulumi.Input[builtins.bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the table replica. Default is `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_class_override: Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -44,6 +46,8 @@ class TableReplicaInitArgs:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if point_in_time_recovery is not None:
             pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if table_class_override is not None:
             pulumi.set(__self__, "table_class_override", table_class_override)
         if tags is not None:
@@ -100,6 +104,18 @@ class TableReplicaInitArgs:
         pulumi.set(self, "point_in_time_recovery", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="tableClassOverride")
     def table_class_override(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -132,6 +148,7 @@ class _TableReplicaState:
                  global_table_arn: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  point_in_time_recovery: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_class_override: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -144,6 +161,7 @@ class _TableReplicaState:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
         :param pulumi.Input[builtins.bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the table replica. Default is `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_class_override: Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -158,13 +176,12 @@ class _TableReplicaState:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if point_in_time_recovery is not None:
             pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if table_class_override is not None:
             pulumi.set(__self__, "table_class_override", table_class_override)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -231,6 +248,18 @@ class _TableReplicaState:
         pulumi.set(self, "point_in_time_recovery", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="tableClassOverride")
     def table_class_override(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -256,7 +285,6 @@ class _TableReplicaState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -278,6 +306,7 @@ class TableReplica(pulumi.CustomResource):
                  global_table_arn: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  point_in_time_recovery: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_class_override: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -332,6 +361,7 @@ class TableReplica(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
         :param pulumi.Input[builtins.bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the table replica. Default is `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_class_override: Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -403,6 +433,7 @@ class TableReplica(pulumi.CustomResource):
                  global_table_arn: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  point_in_time_recovery: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_class_override: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -420,6 +451,7 @@ class TableReplica(pulumi.CustomResource):
             __props__.__dict__["global_table_arn"] = global_table_arn
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["point_in_time_recovery"] = point_in_time_recovery
+            __props__.__dict__["region"] = region
             __props__.__dict__["table_class_override"] = table_class_override
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -439,6 +471,7 @@ class TableReplica(pulumi.CustomResource):
             global_table_arn: Optional[pulumi.Input[builtins.str]] = None,
             kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
             point_in_time_recovery: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             table_class_override: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'TableReplica':
@@ -456,6 +489,7 @@ class TableReplica(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[builtins.str] kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
         :param pulumi.Input[builtins.bool] point_in_time_recovery: Whether to enable Point In Time Recovery for the table replica. Default is `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_class_override: Storage class of the table replica. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`. If not used, the table replica will use the same class as the global table.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -469,6 +503,7 @@ class TableReplica(pulumi.CustomResource):
         __props__.__dict__["global_table_arn"] = global_table_arn
         __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["point_in_time_recovery"] = point_in_time_recovery
+        __props__.__dict__["region"] = region
         __props__.__dict__["table_class_override"] = table_class_override
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -517,6 +552,14 @@ class TableReplica(pulumi.CustomResource):
         return pulumi.get(self, "point_in_time_recovery")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="tableClassOverride")
     def table_class_override(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -534,7 +577,6 @@ class TableReplica(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

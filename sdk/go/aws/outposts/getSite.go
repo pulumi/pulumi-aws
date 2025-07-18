@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/outposts"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/outposts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ type GetSiteArgs struct {
 	Id *string `pulumi:"id"`
 	// Name of the Site.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getSite.
@@ -64,6 +66,7 @@ type GetSiteResult struct {
 	Description string `pulumi:"description"`
 	Id          string `pulumi:"id"`
 	Name        string `pulumi:"name"`
+	Region      string `pulumi:"region"`
 }
 
 func GetSiteOutput(ctx *pulumi.Context, args GetSiteOutputArgs, opts ...pulumi.InvokeOption) GetSiteResultOutput {
@@ -81,6 +84,8 @@ type GetSiteOutputArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Name of the Site.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetSiteOutputArgs) ElementType() reflect.Type {
@@ -118,6 +123,10 @@ func (o GetSiteResultOutput) Id() pulumi.StringOutput {
 
 func (o GetSiteResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSiteResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetSiteResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSiteResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

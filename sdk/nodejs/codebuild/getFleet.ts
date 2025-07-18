@@ -51,6 +51,7 @@ export function getFleet(args: GetFleetArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:codebuild/getFleet:getFleet", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -63,6 +64,10 @@ export interface GetFleetArgs {
      * Fleet name.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Mapping of Key-Value tags for the resource.
      */
@@ -118,6 +123,7 @@ export interface GetFleetResult {
      * Overflow behavior for compute fleet.
      */
     readonly overflowBehavior: string;
+    readonly region: string;
     /**
      * Nested attribute containing information about the scaling configuration.
      */
@@ -179,6 +185,7 @@ export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:codebuild/getFleet:getFleet", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -191,6 +198,10 @@ export interface GetFleetOutputArgs {
      * Fleet name.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Mapping of Key-Value tags for the resource.
      */

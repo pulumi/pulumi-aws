@@ -54,6 +54,21 @@ public final class ConfigurationSetArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set. See `reputation_options` Block for details.
      * 
      */
@@ -148,6 +163,7 @@ public final class ConfigurationSetArgs extends com.pulumi.resources.ResourceArg
     private ConfigurationSetArgs(ConfigurationSetArgs $) {
         this.configurationSetName = $.configurationSetName;
         this.deliveryOptions = $.deliveryOptions;
+        this.region = $.region;
         this.reputationOptions = $.reputationOptions;
         this.sendingOptions = $.sendingOptions;
         this.suppressionOptions = $.suppressionOptions;
@@ -214,6 +230,27 @@ public final class ConfigurationSetArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder deliveryOptions(ConfigurationSetDeliveryOptionsArgs deliveryOptions) {
             return deliveryOptions(Output.of(deliveryOptions));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -31,6 +31,7 @@ class RouteArgs:
                  local_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  nat_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_peering_connection_id: Optional[pulumi.Input[builtins.str]] = None):
@@ -51,6 +52,7 @@ class RouteArgs:
         :param pulumi.Input[builtins.str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[builtins.str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[builtins.str] network_interface_id: Identifier of an EC2 network interface.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
         :param pulumi.Input[builtins.str] vpc_endpoint_id: Identifier of a VPC Endpoint.
         :param pulumi.Input[builtins.str] vpc_peering_connection_id: Identifier of a VPC peering connection.
@@ -78,6 +80,8 @@ class RouteArgs:
             pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if transit_gateway_id is not None:
             pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         if vpc_endpoint_id is not None:
@@ -222,6 +226,18 @@ class RouteArgs:
         pulumi.set(self, "network_interface_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="transitGatewayId")
     def transit_gateway_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -276,6 +292,7 @@ class _RouteState:
                  nat_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
                  origin: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_table_id: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -298,6 +315,7 @@ class _RouteState:
         :param pulumi.Input[builtins.str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[builtins.str] network_interface_id: Identifier of an EC2 network interface.
         :param pulumi.Input[builtins.str] origin: How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_table_id: The ID of the routing table.
                
                One of the following destination arguments must be supplied:
@@ -334,6 +352,8 @@ class _RouteState:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
         if origin is not None:
             pulumi.set(__self__, "origin", origin)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if route_table_id is not None:
             pulumi.set(__self__, "route_table_id", route_table_id)
         if state is not None:
@@ -504,6 +524,18 @@ class _RouteState:
         pulumi.set(self, "origin", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="routeTableId")
     def route_table_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -584,6 +616,7 @@ class Route(pulumi.CustomResource):
                  local_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  nat_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_table_id: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -664,6 +697,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[builtins.str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[builtins.str] network_interface_id: Identifier of an EC2 network interface.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_table_id: The ID of the routing table.
                
                One of the following destination arguments must be supplied:
@@ -765,6 +799,7 @@ class Route(pulumi.CustomResource):
                  local_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  nat_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_table_id: Optional[pulumi.Input[builtins.str]] = None,
                  transit_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -788,6 +823,7 @@ class Route(pulumi.CustomResource):
             __props__.__dict__["local_gateway_id"] = local_gateway_id
             __props__.__dict__["nat_gateway_id"] = nat_gateway_id
             __props__.__dict__["network_interface_id"] = network_interface_id
+            __props__.__dict__["region"] = region
             if route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'route_table_id'")
             __props__.__dict__["route_table_id"] = route_table_id
@@ -821,6 +857,7 @@ class Route(pulumi.CustomResource):
             nat_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
             network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
             origin: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             route_table_id: Optional[pulumi.Input[builtins.str]] = None,
             state: Optional[pulumi.Input[builtins.str]] = None,
             transit_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -848,6 +885,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[builtins.str] network_interface_id: Identifier of an EC2 network interface.
         :param pulumi.Input[builtins.str] origin: How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_table_id: The ID of the routing table.
                
                One of the following destination arguments must be supplied:
@@ -875,6 +913,7 @@ class Route(pulumi.CustomResource):
         __props__.__dict__["nat_gateway_id"] = nat_gateway_id
         __props__.__dict__["network_interface_id"] = network_interface_id
         __props__.__dict__["origin"] = origin
+        __props__.__dict__["region"] = region
         __props__.__dict__["route_table_id"] = route_table_id
         __props__.__dict__["state"] = state
         __props__.__dict__["transit_gateway_id"] = transit_gateway_id
@@ -987,6 +1026,14 @@ class Route(pulumi.CustomResource):
         How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
         """
         return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="routeTableId")

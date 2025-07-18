@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getCallerIdentity({});
  * const currentGetRegion = aws.getRegion({});
- * const gdBucket = new aws.s3.BucketV2("gd_bucket", {
+ * const gdBucket = new aws.s3.Bucket("gd_bucket", {
  *     bucket: "example",
  *     forceDestroy: true,
  * });
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *         {
  *             sid: "Allow GuardDuty to encrypt findings",
  *             actions: ["kms:GenerateDataKey"],
- *             resources: [`arn:aws:kms:${currentGetRegion.name}:${current.accountId}:key/*`],
+ *             resources: [`arn:aws:kms:${currentGetRegion.region}:${current.accountId}:key/*`],
  *             principals: [{
  *                 type: "Service",
  *                 identifiers: ["guardduty.amazonaws.com"],
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *         {
  *             sid: "Allow all users to modify/delete key (test only)",
  *             actions: ["kms:*"],
- *             resources: [`arn:aws:kms:${currentGetRegion1.name}:${current1.accountId}:key/*`],
+ *             resources: [`arn:aws:kms:${currentGetRegion1.region}:${current1.accountId}:key/*`],
  *             principals: [{
  *                 type: "AWS",
  *                 identifiers: [`arn:aws:iam::${current2.accountId}:root`],
@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *     ],
  * }));
  * const testGd = new aws.guardduty.Detector("test_gd", {enable: true});
- * const gdBucketAcl = new aws.s3.BucketAclV2("gd_bucket_acl", {
+ * const gdBucketAcl = new aws.s3.BucketAcl("gd_bucket_acl", {
  *     bucket: gdBucket.id,
  *     acl: "private",
  * });
@@ -142,6 +142,10 @@ export class PublishingDestination extends pulumi.CustomResource {
      * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      */
     public readonly kmsKeyArn!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a PublishingDestination resource with the given unique name, arguments, and options.
@@ -160,6 +164,7 @@ export class PublishingDestination extends pulumi.CustomResource {
             resourceInputs["destinationType"] = state ? state.destinationType : undefined;
             resourceInputs["detectorId"] = state ? state.detectorId : undefined;
             resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as PublishingDestinationArgs | undefined;
             if ((!args || args.destinationArn === undefined) && !opts.urn) {
@@ -175,6 +180,7 @@ export class PublishingDestination extends pulumi.CustomResource {
             resourceInputs["destinationType"] = args ? args.destinationType : undefined;
             resourceInputs["detectorId"] = args ? args.detectorId : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PublishingDestination.__pulumiType, name, resourceInputs, opts);
@@ -203,6 +209,10 @@ export interface PublishingDestinationState {
      * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      */
     kmsKeyArn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -227,4 +237,8 @@ export interface PublishingDestinationArgs {
      * The ARN of the KMS key used to encrypt GuardDuty findings. GuardDuty enforces this to be encrypted.
      */
     kmsKeyArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

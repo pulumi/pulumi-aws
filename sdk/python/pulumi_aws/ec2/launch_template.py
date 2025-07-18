@@ -31,8 +31,6 @@ class LaunchTemplateArgs:
                  disable_api_stop: Optional[pulumi.Input[builtins.bool]] = None,
                  disable_api_termination: Optional[pulumi.Input[builtins.bool]] = None,
                  ebs_optimized: Optional[pulumi.Input[builtins.str]] = None,
-                 elastic_gpu_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]]] = None,
-                 elastic_inference_accelerator: Optional[pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs']] = None,
                  enclave_options: Optional[pulumi.Input['LaunchTemplateEnclaveOptionsArgs']] = None,
                  hibernation_options: Optional[pulumi.Input['LaunchTemplateHibernationOptionsArgs']] = None,
                  iam_instance_profile: Optional[pulumi.Input['LaunchTemplateIamInstanceProfileArgs']] = None,
@@ -53,6 +51,7 @@ class LaunchTemplateArgs:
                  placement: Optional[pulumi.Input['LaunchTemplatePlacementArgs']] = None,
                  private_dns_name_options: Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']] = None,
                  ram_disk_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -73,9 +72,6 @@ class LaunchTemplateArgs:
         :param pulumi.Input[builtins.bool] disable_api_termination: If `true`, enables [EC2 Instance
                Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         :param pulumi.Input[builtins.str] ebs_optimized: If `true`, the launched EC2 instance will be EBS-optimized.
-        :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]] elastic_gpu_specifications: **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-               below for more details.
-        :param pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs'] elastic_inference_accelerator: **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         :param pulumi.Input['LaunchTemplateEnclaveOptionsArgs'] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         :param pulumi.Input['LaunchTemplateHibernationOptionsArgs'] hibernation_options: The hibernation options for the instance. See Hibernation Options below for more details.
         :param pulumi.Input['LaunchTemplateIamInstanceProfileArgs'] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
@@ -100,6 +96,7 @@ class LaunchTemplateArgs:
         :param pulumi.Input['LaunchTemplatePlacementArgs'] placement: The placement of the instance. See Placement below for more details.
         :param pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs'] private_dns_name_options: The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[builtins.str] ram_disk_id: The ID of the RAM disk.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_names: A list of security group names to associate with. If you are creating Instances in a VPC, use
                `vpc_security_group_ids` instead.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
@@ -126,16 +123,6 @@ class LaunchTemplateArgs:
             pulumi.set(__self__, "disable_api_termination", disable_api_termination)
         if ebs_optimized is not None:
             pulumi.set(__self__, "ebs_optimized", ebs_optimized)
-        if elastic_gpu_specifications is not None:
-            warnings.warn("""elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.""", DeprecationWarning)
-            pulumi.log.warn("""elastic_gpu_specifications is deprecated: elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.""")
-        if elastic_gpu_specifications is not None:
-            pulumi.set(__self__, "elastic_gpu_specifications", elastic_gpu_specifications)
-        if elastic_inference_accelerator is not None:
-            warnings.warn("""elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.""", DeprecationWarning)
-            pulumi.log.warn("""elastic_inference_accelerator is deprecated: elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.""")
-        if elastic_inference_accelerator is not None:
-            pulumi.set(__self__, "elastic_inference_accelerator", elastic_inference_accelerator)
         if enclave_options is not None:
             pulumi.set(__self__, "enclave_options", enclave_options)
         if hibernation_options is not None:
@@ -176,6 +163,8 @@ class LaunchTemplateArgs:
             pulumi.set(__self__, "private_dns_name_options", private_dns_name_options)
         if ram_disk_id is not None:
             pulumi.set(__self__, "ram_disk_id", ram_disk_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_names is not None:
             pulumi.set(__self__, "security_group_names", security_group_names)
         if tag_specifications is not None:
@@ -299,33 +288,6 @@ class LaunchTemplateArgs:
     @ebs_optimized.setter
     def ebs_optimized(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "ebs_optimized", value)
-
-    @property
-    @pulumi.getter(name="elasticGpuSpecifications")
-    @_utilities.deprecated("""elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.""")
-    def elastic_gpu_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]]]:
-        """
-        **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-        below for more details.
-        """
-        return pulumi.get(self, "elastic_gpu_specifications")
-
-    @elastic_gpu_specifications.setter
-    def elastic_gpu_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]]]):
-        pulumi.set(self, "elastic_gpu_specifications", value)
-
-    @property
-    @pulumi.getter(name="elasticInferenceAccelerator")
-    @_utilities.deprecated("""elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.""")
-    def elastic_inference_accelerator(self) -> Optional[pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs']]:
-        """
-        **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-        """
-        return pulumi.get(self, "elastic_inference_accelerator")
-
-    @elastic_inference_accelerator.setter
-    def elastic_inference_accelerator(self, value: Optional[pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs']]):
-        pulumi.set(self, "elastic_inference_accelerator", value)
 
     @property
     @pulumi.getter(name="enclaveOptions")
@@ -572,6 +534,18 @@ class LaunchTemplateArgs:
         pulumi.set(self, "ram_disk_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupNames")
     def security_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -658,8 +632,6 @@ class _LaunchTemplateState:
                  disable_api_stop: Optional[pulumi.Input[builtins.bool]] = None,
                  disable_api_termination: Optional[pulumi.Input[builtins.bool]] = None,
                  ebs_optimized: Optional[pulumi.Input[builtins.str]] = None,
-                 elastic_gpu_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]]] = None,
-                 elastic_inference_accelerator: Optional[pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs']] = None,
                  enclave_options: Optional[pulumi.Input['LaunchTemplateEnclaveOptionsArgs']] = None,
                  hibernation_options: Optional[pulumi.Input['LaunchTemplateHibernationOptionsArgs']] = None,
                  iam_instance_profile: Optional[pulumi.Input['LaunchTemplateIamInstanceProfileArgs']] = None,
@@ -681,6 +653,7 @@ class _LaunchTemplateState:
                  placement: Optional[pulumi.Input['LaunchTemplatePlacementArgs']] = None,
                  private_dns_name_options: Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']] = None,
                  ram_disk_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -703,9 +676,6 @@ class _LaunchTemplateState:
         :param pulumi.Input[builtins.bool] disable_api_termination: If `true`, enables [EC2 Instance
                Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         :param pulumi.Input[builtins.str] ebs_optimized: If `true`, the launched EC2 instance will be EBS-optimized.
-        :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]] elastic_gpu_specifications: **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-               below for more details.
-        :param pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs'] elastic_inference_accelerator: **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         :param pulumi.Input['LaunchTemplateEnclaveOptionsArgs'] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         :param pulumi.Input['LaunchTemplateHibernationOptionsArgs'] hibernation_options: The hibernation options for the instance. See Hibernation Options below for more details.
         :param pulumi.Input['LaunchTemplateIamInstanceProfileArgs'] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
@@ -731,6 +701,7 @@ class _LaunchTemplateState:
         :param pulumi.Input['LaunchTemplatePlacementArgs'] placement: The placement of the instance. See Placement below for more details.
         :param pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs'] private_dns_name_options: The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[builtins.str] ram_disk_id: The ID of the RAM disk.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_names: A list of security group names to associate with. If you are creating Instances in a VPC, use
                `vpc_security_group_ids` instead.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
@@ -760,16 +731,6 @@ class _LaunchTemplateState:
             pulumi.set(__self__, "disable_api_termination", disable_api_termination)
         if ebs_optimized is not None:
             pulumi.set(__self__, "ebs_optimized", ebs_optimized)
-        if elastic_gpu_specifications is not None:
-            warnings.warn("""elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.""", DeprecationWarning)
-            pulumi.log.warn("""elastic_gpu_specifications is deprecated: elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.""")
-        if elastic_gpu_specifications is not None:
-            pulumi.set(__self__, "elastic_gpu_specifications", elastic_gpu_specifications)
-        if elastic_inference_accelerator is not None:
-            warnings.warn("""elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.""", DeprecationWarning)
-            pulumi.log.warn("""elastic_inference_accelerator is deprecated: elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.""")
-        if elastic_inference_accelerator is not None:
-            pulumi.set(__self__, "elastic_inference_accelerator", elastic_inference_accelerator)
         if enclave_options is not None:
             pulumi.set(__self__, "enclave_options", enclave_options)
         if hibernation_options is not None:
@@ -812,15 +773,14 @@ class _LaunchTemplateState:
             pulumi.set(__self__, "private_dns_name_options", private_dns_name_options)
         if ram_disk_id is not None:
             pulumi.set(__self__, "ram_disk_id", ram_disk_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_names is not None:
             pulumi.set(__self__, "security_group_names", security_group_names)
         if tag_specifications is not None:
             pulumi.set(__self__, "tag_specifications", tag_specifications)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if update_default_version is not None:
@@ -952,33 +912,6 @@ class _LaunchTemplateState:
     @ebs_optimized.setter
     def ebs_optimized(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "ebs_optimized", value)
-
-    @property
-    @pulumi.getter(name="elasticGpuSpecifications")
-    @_utilities.deprecated("""elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.""")
-    def elastic_gpu_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]]]:
-        """
-        **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-        below for more details.
-        """
-        return pulumi.get(self, "elastic_gpu_specifications")
-
-    @elastic_gpu_specifications.setter
-    def elastic_gpu_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateElasticGpuSpecificationArgs']]]]):
-        pulumi.set(self, "elastic_gpu_specifications", value)
-
-    @property
-    @pulumi.getter(name="elasticInferenceAccelerator")
-    @_utilities.deprecated("""elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.""")
-    def elastic_inference_accelerator(self) -> Optional[pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs']]:
-        """
-        **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-        """
-        return pulumi.get(self, "elastic_inference_accelerator")
-
-    @elastic_inference_accelerator.setter
-    def elastic_inference_accelerator(self, value: Optional[pulumi.Input['LaunchTemplateElasticInferenceAcceleratorArgs']]):
-        pulumi.set(self, "elastic_inference_accelerator", value)
 
     @property
     @pulumi.getter(name="enclaveOptions")
@@ -1237,6 +1170,18 @@ class _LaunchTemplateState:
         pulumi.set(self, "ram_disk_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupNames")
     def security_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -1275,7 +1220,6 @@ class _LaunchTemplateState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1338,8 +1282,6 @@ class LaunchTemplate(pulumi.CustomResource):
                  disable_api_stop: Optional[pulumi.Input[builtins.bool]] = None,
                  disable_api_termination: Optional[pulumi.Input[builtins.bool]] = None,
                  ebs_optimized: Optional[pulumi.Input[builtins.str]] = None,
-                 elastic_gpu_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateElasticGpuSpecificationArgs', 'LaunchTemplateElasticGpuSpecificationArgsDict']]]]] = None,
-                 elastic_inference_accelerator: Optional[pulumi.Input[Union['LaunchTemplateElasticInferenceAcceleratorArgs', 'LaunchTemplateElasticInferenceAcceleratorArgsDict']]] = None,
                  enclave_options: Optional[pulumi.Input[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict']]] = None,
                  hibernation_options: Optional[pulumi.Input[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict']]] = None,
                  iam_instance_profile: Optional[pulumi.Input[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict']]] = None,
@@ -1360,6 +1302,7 @@ class LaunchTemplate(pulumi.CustomResource):
                  placement: Optional[pulumi.Input[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict']]] = None,
                  private_dns_name_options: Optional[pulumi.Input[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']]] = None,
                  ram_disk_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -1392,9 +1335,6 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] disable_api_termination: If `true`, enables [EC2 Instance
                Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         :param pulumi.Input[builtins.str] ebs_optimized: If `true`, the launched EC2 instance will be EBS-optimized.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateElasticGpuSpecificationArgs', 'LaunchTemplateElasticGpuSpecificationArgsDict']]]] elastic_gpu_specifications: **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-               below for more details.
-        :param pulumi.Input[Union['LaunchTemplateElasticInferenceAcceleratorArgs', 'LaunchTemplateElasticInferenceAcceleratorArgsDict']] elastic_inference_accelerator: **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         :param pulumi.Input[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         :param pulumi.Input[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict']] hibernation_options: The hibernation options for the instance. See Hibernation Options below for more details.
         :param pulumi.Input[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict']] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
@@ -1419,6 +1359,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict']] placement: The placement of the instance. See Placement below for more details.
         :param pulumi.Input[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']] private_dns_name_options: The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[builtins.str] ram_disk_id: The ID of the RAM disk.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_names: A list of security group names to associate with. If you are creating Instances in a VPC, use
                `vpc_security_group_ids` instead.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
@@ -1468,8 +1409,6 @@ class LaunchTemplate(pulumi.CustomResource):
                  disable_api_stop: Optional[pulumi.Input[builtins.bool]] = None,
                  disable_api_termination: Optional[pulumi.Input[builtins.bool]] = None,
                  ebs_optimized: Optional[pulumi.Input[builtins.str]] = None,
-                 elastic_gpu_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateElasticGpuSpecificationArgs', 'LaunchTemplateElasticGpuSpecificationArgsDict']]]]] = None,
-                 elastic_inference_accelerator: Optional[pulumi.Input[Union['LaunchTemplateElasticInferenceAcceleratorArgs', 'LaunchTemplateElasticInferenceAcceleratorArgsDict']]] = None,
                  enclave_options: Optional[pulumi.Input[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict']]] = None,
                  hibernation_options: Optional[pulumi.Input[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict']]] = None,
                  iam_instance_profile: Optional[pulumi.Input[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict']]] = None,
@@ -1490,6 +1429,7 @@ class LaunchTemplate(pulumi.CustomResource):
                  placement: Optional[pulumi.Input[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict']]] = None,
                  private_dns_name_options: Optional[pulumi.Input[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']]] = None,
                  ram_disk_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -1514,8 +1454,6 @@ class LaunchTemplate(pulumi.CustomResource):
             __props__.__dict__["disable_api_stop"] = disable_api_stop
             __props__.__dict__["disable_api_termination"] = disable_api_termination
             __props__.__dict__["ebs_optimized"] = ebs_optimized
-            __props__.__dict__["elastic_gpu_specifications"] = elastic_gpu_specifications
-            __props__.__dict__["elastic_inference_accelerator"] = elastic_inference_accelerator
             __props__.__dict__["enclave_options"] = enclave_options
             __props__.__dict__["hibernation_options"] = hibernation_options
             __props__.__dict__["iam_instance_profile"] = iam_instance_profile
@@ -1536,6 +1474,7 @@ class LaunchTemplate(pulumi.CustomResource):
             __props__.__dict__["placement"] = placement
             __props__.__dict__["private_dns_name_options"] = private_dns_name_options
             __props__.__dict__["ram_disk_id"] = ram_disk_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["security_group_names"] = security_group_names
             __props__.__dict__["tag_specifications"] = tag_specifications
             __props__.__dict__["tags"] = tags
@@ -1565,8 +1504,6 @@ class LaunchTemplate(pulumi.CustomResource):
             disable_api_stop: Optional[pulumi.Input[builtins.bool]] = None,
             disable_api_termination: Optional[pulumi.Input[builtins.bool]] = None,
             ebs_optimized: Optional[pulumi.Input[builtins.str]] = None,
-            elastic_gpu_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateElasticGpuSpecificationArgs', 'LaunchTemplateElasticGpuSpecificationArgsDict']]]]] = None,
-            elastic_inference_accelerator: Optional[pulumi.Input[Union['LaunchTemplateElasticInferenceAcceleratorArgs', 'LaunchTemplateElasticInferenceAcceleratorArgsDict']]] = None,
             enclave_options: Optional[pulumi.Input[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict']]] = None,
             hibernation_options: Optional[pulumi.Input[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict']]] = None,
             iam_instance_profile: Optional[pulumi.Input[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict']]] = None,
@@ -1588,6 +1525,7 @@ class LaunchTemplate(pulumi.CustomResource):
             placement: Optional[pulumi.Input[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict']]] = None,
             private_dns_name_options: Optional[pulumi.Input[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']]] = None,
             ram_disk_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -1615,9 +1553,6 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] disable_api_termination: If `true`, enables [EC2 Instance
                Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingDisableAPITermination.html)
         :param pulumi.Input[builtins.str] ebs_optimized: If `true`, the launched EC2 instance will be EBS-optimized.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateElasticGpuSpecificationArgs', 'LaunchTemplateElasticGpuSpecificationArgsDict']]]] elastic_gpu_specifications: **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-               below for more details.
-        :param pulumi.Input[Union['LaunchTemplateElasticInferenceAcceleratorArgs', 'LaunchTemplateElasticInferenceAcceleratorArgsDict']] elastic_inference_accelerator: **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
         :param pulumi.Input[Union['LaunchTemplateEnclaveOptionsArgs', 'LaunchTemplateEnclaveOptionsArgsDict']] enclave_options: Enable Nitro Enclaves on launched instances. See Enclave Options below for more details.
         :param pulumi.Input[Union['LaunchTemplateHibernationOptionsArgs', 'LaunchTemplateHibernationOptionsArgsDict']] hibernation_options: The hibernation options for the instance. See Hibernation Options below for more details.
         :param pulumi.Input[Union['LaunchTemplateIamInstanceProfileArgs', 'LaunchTemplateIamInstanceProfileArgsDict']] iam_instance_profile: The IAM Instance Profile to launch the instance with. See Instance Profile
@@ -1643,6 +1578,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict']] placement: The placement of the instance. See Placement below for more details.
         :param pulumi.Input[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']] private_dns_name_options: The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[builtins.str] ram_disk_id: The ID of the RAM disk.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_names: A list of security group names to associate with. If you are creating Instances in a VPC, use
                `vpc_security_group_ids` instead.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]] tag_specifications: The tags to apply to the resources during launch. See Tag Specifications below for more details. Default tags are currently not propagated to ASG created resources so you may wish to inject your default tags into this variable against the relevant child resource types created.
@@ -1666,8 +1602,6 @@ class LaunchTemplate(pulumi.CustomResource):
         __props__.__dict__["disable_api_stop"] = disable_api_stop
         __props__.__dict__["disable_api_termination"] = disable_api_termination
         __props__.__dict__["ebs_optimized"] = ebs_optimized
-        __props__.__dict__["elastic_gpu_specifications"] = elastic_gpu_specifications
-        __props__.__dict__["elastic_inference_accelerator"] = elastic_inference_accelerator
         __props__.__dict__["enclave_options"] = enclave_options
         __props__.__dict__["hibernation_options"] = hibernation_options
         __props__.__dict__["iam_instance_profile"] = iam_instance_profile
@@ -1689,6 +1623,7 @@ class LaunchTemplate(pulumi.CustomResource):
         __props__.__dict__["placement"] = placement
         __props__.__dict__["private_dns_name_options"] = private_dns_name_options
         __props__.__dict__["ram_disk_id"] = ram_disk_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_group_names"] = security_group_names
         __props__.__dict__["tag_specifications"] = tag_specifications
         __props__.__dict__["tags"] = tags
@@ -1780,25 +1715,6 @@ class LaunchTemplate(pulumi.CustomResource):
         If `true`, the launched EC2 instance will be EBS-optimized.
         """
         return pulumi.get(self, "ebs_optimized")
-
-    @property
-    @pulumi.getter(name="elasticGpuSpecifications")
-    @_utilities.deprecated("""elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.""")
-    def elastic_gpu_specifications(self) -> pulumi.Output[Optional[Sequence['outputs.LaunchTemplateElasticGpuSpecification']]]:
-        """
-        **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-        below for more details.
-        """
-        return pulumi.get(self, "elastic_gpu_specifications")
-
-    @property
-    @pulumi.getter(name="elasticInferenceAccelerator")
-    @_utilities.deprecated("""elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.""")
-    def elastic_inference_accelerator(self) -> pulumi.Output[Optional['outputs.LaunchTemplateElasticInferenceAccelerator']]:
-        """
-        **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-        """
-        return pulumi.get(self, "elastic_inference_accelerator")
 
     @property
     @pulumi.getter(name="enclaveOptions")
@@ -1973,6 +1889,14 @@ class LaunchTemplate(pulumi.CustomResource):
         return pulumi.get(self, "ram_disk_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroupNames")
     def security_group_names(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
@@ -1999,7 +1923,6 @@ class LaunchTemplate(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -61,6 +61,8 @@ type PullThroughCacheRule struct {
 	CustomRoleArn pulumi.StringPtrOutput `pulumi:"customRoleArn"`
 	// The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don't have an associated pull through cache rule.
 	EcrRepositoryPrefix pulumi.StringOutput `pulumi:"ecrRepositoryPrefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The registry ID where the repository was created.
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
 	// The registry URL of the upstream registry to use as the source.
@@ -111,6 +113,8 @@ type pullThroughCacheRuleState struct {
 	CustomRoleArn *string `pulumi:"customRoleArn"`
 	// The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don't have an associated pull through cache rule.
 	EcrRepositoryPrefix *string `pulumi:"ecrRepositoryPrefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The registry ID where the repository was created.
 	RegistryId *string `pulumi:"registryId"`
 	// The registry URL of the upstream registry to use as the source.
@@ -126,6 +130,8 @@ type PullThroughCacheRuleState struct {
 	CustomRoleArn pulumi.StringPtrInput
 	// The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don't have an associated pull through cache rule.
 	EcrRepositoryPrefix pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The registry ID where the repository was created.
 	RegistryId pulumi.StringPtrInput
 	// The registry URL of the upstream registry to use as the source.
@@ -145,6 +151,8 @@ type pullThroughCacheRuleArgs struct {
 	CustomRoleArn *string `pulumi:"customRoleArn"`
 	// The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don't have an associated pull through cache rule.
 	EcrRepositoryPrefix string `pulumi:"ecrRepositoryPrefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The registry URL of the upstream registry to use as the source.
 	UpstreamRegistryUrl string `pulumi:"upstreamRegistryUrl"`
 	// The upstream repository prefix associated with the pull through cache rule. Used if the upstream registry is an ECR private registry. If not specified, it's set to `ROOT`, which allows matching with any upstream repository. See [AWS Document - Customizing repository prefixes for ECR to ECR pull through cache](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private-wildcards.html).
@@ -159,6 +167,8 @@ type PullThroughCacheRuleArgs struct {
 	CustomRoleArn pulumi.StringPtrInput
 	// The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don't have an associated pull through cache rule.
 	EcrRepositoryPrefix pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The registry URL of the upstream registry to use as the source.
 	UpstreamRegistryUrl pulumi.StringInput
 	// The upstream repository prefix associated with the pull through cache rule. Used if the upstream registry is an ECR private registry. If not specified, it's set to `ROOT`, which allows matching with any upstream repository. See [AWS Document - Customizing repository prefixes for ECR to ECR pull through cache](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache-private-wildcards.html).
@@ -265,6 +275,11 @@ func (o PullThroughCacheRuleOutput) CustomRoleArn() pulumi.StringPtrOutput {
 // The repository name prefix to use when caching images from the source registry. Use `ROOT` as the prefix to apply a template to all repositories in your registry that don't have an associated pull through cache rule.
 func (o PullThroughCacheRuleOutput) EcrRepositoryPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v *PullThroughCacheRule) pulumi.StringOutput { return v.EcrRepositoryPrefix }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o PullThroughCacheRuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *PullThroughCacheRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The registry ID where the repository was created.

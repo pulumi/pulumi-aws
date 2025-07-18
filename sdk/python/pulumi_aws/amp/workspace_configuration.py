@@ -24,6 +24,7 @@ class WorkspaceConfigurationArgs:
     def __init__(__self__, *,
                  workspace_id: pulumi.Input[builtins.str],
                  limits_per_label_sets: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  timeouts: Optional[pulumi.Input['WorkspaceConfigurationTimeoutsArgs']] = None):
         """
@@ -32,11 +33,14 @@ class WorkspaceConfigurationArgs:
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetArgs']]] limits_per_label_sets: Configuration block for setting limits on metrics with specific label sets. Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period_in_days: Number of days to retain metric data in the workspace.
         """
         pulumi.set(__self__, "workspace_id", workspace_id)
         if limits_per_label_sets is not None:
             pulumi.set(__self__, "limits_per_label_sets", limits_per_label_sets)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retention_period_in_days is not None:
             pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
         if timeouts is not None:
@@ -69,6 +73,18 @@ class WorkspaceConfigurationArgs:
         pulumi.set(self, "limits_per_label_sets", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="retentionPeriodInDays")
     def retention_period_in_days(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -94,12 +110,14 @@ class WorkspaceConfigurationArgs:
 class _WorkspaceConfigurationState:
     def __init__(__self__, *,
                  limits_per_label_sets: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  timeouts: Optional[pulumi.Input['WorkspaceConfigurationTimeoutsArgs']] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceConfiguration resources.
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetArgs']]] limits_per_label_sets: Configuration block for setting limits on metrics with specific label sets. Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period_in_days: Number of days to retain metric data in the workspace.
         :param pulumi.Input[builtins.str] workspace_id: ID of the workspace to configure.
                
@@ -107,6 +125,8 @@ class _WorkspaceConfigurationState:
         """
         if limits_per_label_sets is not None:
             pulumi.set(__self__, "limits_per_label_sets", limits_per_label_sets)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retention_period_in_days is not None:
             pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
         if timeouts is not None:
@@ -125,6 +145,18 @@ class _WorkspaceConfigurationState:
     @limits_per_label_sets.setter
     def limits_per_label_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetArgs']]]]):
         pulumi.set(self, "limits_per_label_sets", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="retentionPeriodInDays")
@@ -169,6 +201,7 @@ class WorkspaceConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  limits_per_label_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  timeouts: Optional[pulumi.Input[Union['WorkspaceConfigurationTimeoutsArgs', 'WorkspaceConfigurationTimeoutsArgsDict']]] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -240,6 +273,7 @@ class WorkspaceConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict']]]] limits_per_label_sets: Configuration block for setting limits on metrics with specific label sets. Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period_in_days: Number of days to retain metric data in the workspace.
         :param pulumi.Input[builtins.str] workspace_id: ID of the workspace to configure.
                
@@ -331,6 +365,7 @@ class WorkspaceConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  limits_per_label_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retention_period_in_days: Optional[pulumi.Input[builtins.int]] = None,
                  timeouts: Optional[pulumi.Input[Union['WorkspaceConfigurationTimeoutsArgs', 'WorkspaceConfigurationTimeoutsArgsDict']]] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -344,6 +379,7 @@ class WorkspaceConfiguration(pulumi.CustomResource):
             __props__ = WorkspaceConfigurationArgs.__new__(WorkspaceConfigurationArgs)
 
             __props__.__dict__["limits_per_label_sets"] = limits_per_label_sets
+            __props__.__dict__["region"] = region
             __props__.__dict__["retention_period_in_days"] = retention_period_in_days
             __props__.__dict__["timeouts"] = timeouts
             if workspace_id is None and not opts.urn:
@@ -360,6 +396,7 @@ class WorkspaceConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             limits_per_label_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             retention_period_in_days: Optional[pulumi.Input[builtins.int]] = None,
             timeouts: Optional[pulumi.Input[Union['WorkspaceConfigurationTimeoutsArgs', 'WorkspaceConfigurationTimeoutsArgsDict']]] = None,
             workspace_id: Optional[pulumi.Input[builtins.str]] = None) -> 'WorkspaceConfiguration':
@@ -371,6 +408,7 @@ class WorkspaceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict']]]] limits_per_label_sets: Configuration block for setting limits on metrics with specific label sets. Detailed below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] retention_period_in_days: Number of days to retain metric data in the workspace.
         :param pulumi.Input[builtins.str] workspace_id: ID of the workspace to configure.
                
@@ -381,6 +419,7 @@ class WorkspaceConfiguration(pulumi.CustomResource):
         __props__ = _WorkspaceConfigurationState.__new__(_WorkspaceConfigurationState)
 
         __props__.__dict__["limits_per_label_sets"] = limits_per_label_sets
+        __props__.__dict__["region"] = region
         __props__.__dict__["retention_period_in_days"] = retention_period_in_days
         __props__.__dict__["timeouts"] = timeouts
         __props__.__dict__["workspace_id"] = workspace_id
@@ -393,6 +432,14 @@ class WorkspaceConfiguration(pulumi.CustomResource):
         Configuration block for setting limits on metrics with specific label sets. Detailed below.
         """
         return pulumi.get(self, "limits_per_label_sets")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="retentionPeriodInDays")

@@ -82,6 +82,10 @@ export class User extends pulumi.CustomResource {
      */
     public readonly lastName!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Send an email notification.
      */
     public readonly sendEmailNotification!: pulumi.Output<boolean | undefined>;
@@ -111,6 +115,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["firstName"] = state ? state.firstName : undefined;
             resourceInputs["lastName"] = state ? state.lastName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sendEmailNotification"] = state ? state.sendEmailNotification : undefined;
             resourceInputs["userName"] = state ? state.userName : undefined;
         } else {
@@ -125,6 +130,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["firstName"] = args ? args.firstName : undefined;
             resourceInputs["lastName"] = args ? args.lastName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sendEmailNotification"] = args ? args.sendEmailNotification : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -164,6 +170,10 @@ export interface UserState {
      */
     lastName?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Send an email notification.
      */
     sendEmailNotification?: pulumi.Input<boolean>;
@@ -195,6 +205,10 @@ export interface UserArgs {
      * Last name, or surname, of the user.
      */
     lastName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Send an email notification.
      */

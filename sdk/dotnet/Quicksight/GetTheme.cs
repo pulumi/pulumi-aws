@@ -99,6 +99,12 @@ namespace Pulumi.Aws.Quicksight
         [Input("awsAccountId")]
         public string? AwsAccountId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -132,6 +138,12 @@ namespace Pulumi.Aws.Quicksight
         /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -196,6 +208,7 @@ namespace Pulumi.Aws.Quicksight
         /// A set of resource permissions on the theme. See permissions.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetThemePermissionResult> Permissions;
+        public readonly string Region;
         /// <summary>
         /// The theme creation status.
         /// </summary>
@@ -234,6 +247,8 @@ namespace Pulumi.Aws.Quicksight
 
             ImmutableArray<Outputs.GetThemePermissionResult> permissions,
 
+            string region,
+
             string status,
 
             ImmutableDictionary<string, string> tags,
@@ -253,6 +268,7 @@ namespace Pulumi.Aws.Quicksight
             LastUpdatedTime = lastUpdatedTime;
             Name = name;
             Permissions = permissions;
+            Region = region;
             Status = status;
             Tags = tags;
             ThemeId = themeId;

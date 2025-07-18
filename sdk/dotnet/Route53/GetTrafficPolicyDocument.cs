@@ -38,13 +38,13 @@ namespace Pulumi.Aws.Route53
         ///             {
         ///                 Id = "my_elb",
         ///                 Type = "elastic-load-balancer",
-        ///                 Value = $"elb-111111.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.elb.amazonaws.com",
+        ///                 Value = $"elb-111111.{current.Apply(getRegionResult =&gt; getRegionResult.Region)}.elb.amazonaws.com",
         ///             },
         ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
         ///             {
         ///                 Id = "site_down_banner",
         ///                 Type = "s3-website",
-        ///                 Region = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+        ///                 Region = current.Apply(getRegionResult =&gt; getRegionResult.Region),
         ///                 Value = "www.example.com",
         ///             },
         ///         },
@@ -206,13 +206,13 @@ namespace Pulumi.Aws.Route53
         ///             {
         ///                 Id = "my_elb",
         ///                 Type = "elastic-load-balancer",
-        ///                 Value = $"elb-111111.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.elb.amazonaws.com",
+        ///                 Value = $"elb-111111.{current.Apply(getRegionResult =&gt; getRegionResult.Region)}.elb.amazonaws.com",
         ///             },
         ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
         ///             {
         ///                 Id = "site_down_banner",
         ///                 Type = "s3-website",
-        ///                 Region = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+        ///                 Region = current.Apply(getRegionResult =&gt; getRegionResult.Region),
         ///                 Value = "www.example.com",
         ///             },
         ///         },
@@ -374,13 +374,13 @@ namespace Pulumi.Aws.Route53
         ///             {
         ///                 Id = "my_elb",
         ///                 Type = "elastic-load-balancer",
-        ///                 Value = $"elb-111111.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.elb.amazonaws.com",
+        ///                 Value = $"elb-111111.{current.Apply(getRegionResult =&gt; getRegionResult.Region)}.elb.amazonaws.com",
         ///             },
         ///             new Aws.Route53.Inputs.GetTrafficPolicyDocumentEndpointInputArgs
         ///             {
         ///                 Id = "site_down_banner",
         ///                 Type = "s3-website",
-        ///                 Region = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+        ///                 Region = current.Apply(getRegionResult =&gt; getRegionResult.Region),
         ///                 Value = "www.example.com",
         ///             },
         ///         },

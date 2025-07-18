@@ -28,7 +28,7 @@ class GetLinkResult:
     """
     A collection of values returned by getLink.
     """
-    def __init__(__self__, arn=None, id=None, label=None, label_template=None, link_configurations=None, link_id=None, link_identifier=None, resource_types=None, sink_arn=None, tags=None):
+    def __init__(__self__, arn=None, id=None, label=None, label_template=None, link_configurations=None, link_id=None, link_identifier=None, region=None, resource_types=None, sink_arn=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -50,6 +50,9 @@ class GetLinkResult:
         if link_identifier and not isinstance(link_identifier, str):
             raise TypeError("Expected argument 'link_identifier' to be a str")
         pulumi.set(__self__, "link_identifier", link_identifier)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if resource_types and not isinstance(resource_types, list):
             raise TypeError("Expected argument 'resource_types' to be a list")
         pulumi.set(__self__, "resource_types", resource_types)
@@ -114,6 +117,11 @@ class GetLinkResult:
         return pulumi.get(self, "link_identifier")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> Sequence[builtins.str]:
         """
@@ -148,12 +156,14 @@ class AwaitableGetLinkResult(GetLinkResult):
             link_configurations=self.link_configurations,
             link_id=self.link_id,
             link_identifier=self.link_identifier,
+            region=self.region,
             resource_types=self.resource_types,
             sink_arn=self.sink_arn,
             tags=self.tags)
 
 
 def get_link(link_identifier: Optional[builtins.str] = None,
+             region: Optional[builtins.str] = None,
              tags: Optional[Mapping[str, builtins.str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLinkResult:
     """
@@ -172,9 +182,11 @@ def get_link(link_identifier: Optional[builtins.str] = None,
 
 
     :param builtins.str link_identifier: ARN of the link.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['linkIdentifier'] = link_identifier
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:oam/getLink:getLink', __args__, opts=opts, typ=GetLinkResult).value
@@ -187,10 +199,12 @@ def get_link(link_identifier: Optional[builtins.str] = None,
         link_configurations=pulumi.get(__ret__, 'link_configurations'),
         link_id=pulumi.get(__ret__, 'link_id'),
         link_identifier=pulumi.get(__ret__, 'link_identifier'),
+        region=pulumi.get(__ret__, 'region'),
         resource_types=pulumi.get(__ret__, 'resource_types'),
         sink_arn=pulumi.get(__ret__, 'sink_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_link_output(link_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                    region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkResult]:
     """
@@ -209,9 +223,11 @@ def get_link_output(link_identifier: Optional[pulumi.Input[builtins.str]] = None
 
 
     :param builtins.str link_identifier: ARN of the link.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['linkIdentifier'] = link_identifier
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:oam/getLink:getLink', __args__, opts=opts, typ=GetLinkResult)
@@ -223,6 +239,7 @@ def get_link_output(link_identifier: Optional[pulumi.Input[builtins.str]] = None
         link_configurations=pulumi.get(__response__, 'link_configurations'),
         link_id=pulumi.get(__response__, 'link_id'),
         link_identifier=pulumi.get(__response__, 'link_identifier'),
+        region=pulumi.get(__response__, 'region'),
         resource_types=pulumi.get(__response__, 'resource_types'),
         sink_arn=pulumi.get(__response__, 'sink_arn'),
         tags=pulumi.get(__response__, 'tags')))

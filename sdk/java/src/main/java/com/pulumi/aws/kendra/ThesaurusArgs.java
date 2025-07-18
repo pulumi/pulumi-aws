@@ -55,6 +55,13 @@ public final class ThesaurusArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
      * 
@@ -98,6 +105,7 @@ public final class ThesaurusArgs extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.indexId = $.indexId;
         this.name = $.name;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.sourceS3Path = $.sourceS3Path;
         this.tags = $.tags;
@@ -170,6 +178,15 @@ public final class ThesaurusArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

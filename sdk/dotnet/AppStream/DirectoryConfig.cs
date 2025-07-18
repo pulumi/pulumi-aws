@@ -69,6 +69,12 @@ namespace Pulumi.Aws.AppStream
         public Output<ImmutableArray<string>> OrganizationalUnitDistinguishedNames { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
         /// </summary>
         [Output("serviceAccountCredentials")]
@@ -139,6 +145,12 @@ namespace Pulumi.Aws.AppStream
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
         /// </summary>
         [Input("serviceAccountCredentials", required: true)]
@@ -175,6 +187,12 @@ namespace Pulumi.Aws.AppStream
             get => _organizationalUnitDistinguishedNames ?? (_organizationalUnitDistinguishedNames = new InputList<string>());
             set => _organizationalUnitDistinguishedNames = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.

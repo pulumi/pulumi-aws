@@ -195,6 +195,21 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Number of members by which to
      * scale, when the adjustment bounds are breached. A positive value scales
      * up. A negative value scales down.
@@ -435,6 +450,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.policyType = $.policyType;
         this.predictiveScalingConfiguration = $.predictiveScalingConfiguration;
+        this.region = $.region;
         this.scalingAdjustment = $.scalingAdjustment;
         this.stepAdjustments = $.stepAdjustments;
         this.targetTrackingConfiguration = $.targetTrackingConfiguration;
@@ -695,6 +711,27 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder predictiveScalingConfiguration(PolicyPredictiveScalingConfigurationArgs predictiveScalingConfiguration) {
             return predictiveScalingConfiguration(Output.of(predictiveScalingConfiguration));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

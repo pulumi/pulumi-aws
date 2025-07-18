@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dataexchange"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dataexchange"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,11 +72,11 @@ type RevisionAssets struct {
 	DataSetId    pulumi.StringOutput  `pulumi:"dataSetId"`
 	Finalized    pulumi.BoolOutput    `pulumi:"finalized"`
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput          `pulumi:"tagsAll"`
 	Timeouts RevisionAssetsTimeoutsPtrOutput `pulumi:"timeouts"`
 	// The timestamp when the revision was last updated, in RFC3339 format.
@@ -130,11 +130,11 @@ type revisionAssetsState struct {
 	DataSetId    *string `pulumi:"dataSetId"`
 	Finalized    *bool   `pulumi:"finalized"`
 	ForceDestroy *bool   `pulumi:"forceDestroy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string       `pulumi:"tagsAll"`
 	Timeouts *RevisionAssetsTimeouts `pulumi:"timeouts"`
 	// The timestamp when the revision was last updated, in RFC3339 format.
@@ -156,11 +156,11 @@ type RevisionAssetsState struct {
 	DataSetId    pulumi.StringPtrInput
 	Finalized    pulumi.BoolPtrInput
 	ForceDestroy pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts RevisionAssetsTimeoutsPtrInput
 	// The timestamp when the revision was last updated, in RFC3339 format.
@@ -182,6 +182,8 @@ type revisionAssetsArgs struct {
 	DataSetId    string `pulumi:"dataSetId"`
 	Finalized    *bool  `pulumi:"finalized"`
 	ForceDestroy *bool  `pulumi:"forceDestroy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string       `pulumi:"tags"`
 	Timeouts *RevisionAssetsTimeouts `pulumi:"timeouts"`
@@ -199,6 +201,8 @@ type RevisionAssetsArgs struct {
 	DataSetId    pulumi.StringInput
 	Finalized    pulumi.BoolPtrInput
 	ForceDestroy pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts RevisionAssetsTimeoutsPtrInput
@@ -326,14 +330,17 @@ func (o RevisionAssetsOutput) ForceDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RevisionAssets) pulumi.BoolPtrOutput { return v.ForceDestroy }).(pulumi.BoolPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o RevisionAssetsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RevisionAssets) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RevisionAssetsOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RevisionAssets) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o RevisionAssetsOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RevisionAssets) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

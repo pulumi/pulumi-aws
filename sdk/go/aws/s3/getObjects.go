@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +38,8 @@ type GetObjectsArgs struct {
 	MaxKeys *int `pulumi:"maxKeys"`
 	// Limits results to object keys with this prefix (Default: none)
 	Prefix *string `pulumi:"prefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
 	RequestPayer *string `pulumi:"requestPayer"`
 	// Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
@@ -60,6 +62,7 @@ type GetObjectsResult struct {
 	// List of strings representing object owner IDs (see `fetchOwner` above)
 	Owners []string `pulumi:"owners"`
 	Prefix *string  `pulumi:"prefix"`
+	Region string   `pulumi:"region"`
 	// If present, indicates that the requester was successfully charged for the request.
 	RequestCharged string  `pulumi:"requestCharged"`
 	RequestPayer   *string `pulumi:"requestPayer"`
@@ -89,6 +92,8 @@ type GetObjectsOutputArgs struct {
 	MaxKeys pulumi.IntPtrInput `pulumi:"maxKeys"`
 	// Limits results to object keys with this prefix (Default: none)
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Confirms that the requester knows that they will be charged for the request. Bucket owners need not specify this parameter in their requests. If included, the only valid value is `requester`.
 	RequestPayer pulumi.StringPtrInput `pulumi:"requestPayer"`
 	// Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
@@ -156,6 +161,10 @@ func (o GetObjectsResultOutput) Owners() pulumi.StringArrayOutput {
 
 func (o GetObjectsResultOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetObjectsResult) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+func (o GetObjectsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetObjectsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // If present, indicates that the requester was successfully charged for the request.

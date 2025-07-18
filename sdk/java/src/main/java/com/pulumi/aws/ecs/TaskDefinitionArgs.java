@@ -4,7 +4,6 @@
 package com.pulumi.aws.ecs;
 
 import com.pulumi.aws.ecs.inputs.TaskDefinitionEphemeralStorageArgs;
-import com.pulumi.aws.ecs.inputs.TaskDefinitionInferenceAcceleratorArgs;
 import com.pulumi.aws.ecs.inputs.TaskDefinitionPlacementConstraintArgs;
 import com.pulumi.aws.ecs.inputs.TaskDefinitionProxyConfigurationArgs;
 import com.pulumi.aws.ecs.inputs.TaskDefinitionRuntimePlatformArgs;
@@ -58,16 +57,12 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * Enables fault injection and allows for fault injection requests to be accepted from the task&#39;s containers. Default is `false`.
      * 
-     * **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn&#39;t available on Windows.
-     * 
      */
     @Import(name="enableFaultInjection")
     private @Nullable Output<Boolean> enableFaultInjection;
 
     /**
      * @return Enables fault injection and allows for fault injection requests to be accepted from the task&#39;s containers. Default is `false`.
-     * 
-     * **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn&#39;t available on Windows.
      * 
      */
     public Optional<Output<Boolean>> enableFaultInjection() {
@@ -121,21 +116,6 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
      */
     public Output<String> family() {
         return this.family;
-    }
-
-    /**
-     * Configuration block(s) with Inference Accelerators settings. Detailed below.
-     * 
-     */
-    @Import(name="inferenceAccelerators")
-    private @Nullable Output<List<TaskDefinitionInferenceAcceleratorArgs>> inferenceAccelerators;
-
-    /**
-     * @return Configuration block(s) with Inference Accelerators settings. Detailed below.
-     * 
-     */
-    public Optional<Output<List<TaskDefinitionInferenceAcceleratorArgs>>> inferenceAccelerators() {
-        return Optional.ofNullable(this.inferenceAccelerators);
     }
 
     /**
@@ -226,6 +206,21 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<TaskDefinitionProxyConfigurationArgs>> proxyConfiguration() {
         return Optional.ofNullable(this.proxyConfiguration);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -323,6 +318,8 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
      * 
      * &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`&#34;`) such as `environment` values. If directly setting the JSON, they should be escaped as `\&#34;` in the JSON,  e.g., `&#34;value&#34;: &#34;I \&#34;love\&#34; escaped quotes&#34;`. If using a variable value, they should be escaped as `\\\&#34;` in the variable, e.g., `value = &#34;I \\\&#34;love\\\&#34; escaped quotes&#34;` in the variable and `&#34;value&#34;: &#34;${var.myvariable}&#34;` in the JSON.
      * 
+     * &gt; **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn&#39;t available on Windows.
+     * 
      */
     @Import(name="volumes")
     private @Nullable Output<List<TaskDefinitionVolumeArgs>> volumes;
@@ -331,6 +328,8 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
      * @return Configuration block for volumes that containers in your task may use. Detailed below.
      * 
      * &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`&#34;`) such as `environment` values. If directly setting the JSON, they should be escaped as `\&#34;` in the JSON,  e.g., `&#34;value&#34;: &#34;I \&#34;love\&#34; escaped quotes&#34;`. If using a variable value, they should be escaped as `\\\&#34;` in the variable, e.g., `value = &#34;I \\\&#34;love\\\&#34; escaped quotes&#34;` in the variable and `&#34;value&#34;: &#34;${var.myvariable}&#34;` in the JSON.
+     * 
+     * &gt; **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn&#39;t available on Windows.
      * 
      */
     public Optional<Output<List<TaskDefinitionVolumeArgs>>> volumes() {
@@ -346,13 +345,13 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
         this.ephemeralStorage = $.ephemeralStorage;
         this.executionRoleArn = $.executionRoleArn;
         this.family = $.family;
-        this.inferenceAccelerators = $.inferenceAccelerators;
         this.ipcMode = $.ipcMode;
         this.memory = $.memory;
         this.networkMode = $.networkMode;
         this.pidMode = $.pidMode;
         this.placementConstraints = $.placementConstraints;
         this.proxyConfiguration = $.proxyConfiguration;
+        this.region = $.region;
         this.requiresCompatibilities = $.requiresCompatibilities;
         this.runtimePlatform = $.runtimePlatform;
         this.skipDestroy = $.skipDestroy;
@@ -425,8 +424,6 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param enableFaultInjection Enables fault injection and allows for fault injection requests to be accepted from the task&#39;s containers. Default is `false`.
          * 
-         * **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn&#39;t available on Windows.
-         * 
          * @return builder
          * 
          */
@@ -437,8 +434,6 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param enableFaultInjection Enables fault injection and allows for fault injection requests to be accepted from the task&#39;s containers. Default is `false`.
-         * 
-         * **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn&#39;t available on Windows.
          * 
          * @return builder
          * 
@@ -512,37 +507,6 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder family(String family) {
             return family(Output.of(family));
-        }
-
-        /**
-         * @param inferenceAccelerators Configuration block(s) with Inference Accelerators settings. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder inferenceAccelerators(@Nullable Output<List<TaskDefinitionInferenceAcceleratorArgs>> inferenceAccelerators) {
-            $.inferenceAccelerators = inferenceAccelerators;
-            return this;
-        }
-
-        /**
-         * @param inferenceAccelerators Configuration block(s) with Inference Accelerators settings. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder inferenceAccelerators(List<TaskDefinitionInferenceAcceleratorArgs> inferenceAccelerators) {
-            return inferenceAccelerators(Output.of(inferenceAccelerators));
-        }
-
-        /**
-         * @param inferenceAccelerators Configuration block(s) with Inference Accelerators settings. Detailed below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder inferenceAccelerators(TaskDefinitionInferenceAcceleratorArgs... inferenceAccelerators) {
-            return inferenceAccelerators(List.of(inferenceAccelerators));
         }
 
         /**
@@ -679,6 +643,27 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder proxyConfiguration(TaskDefinitionProxyConfigurationArgs proxyConfiguration) {
             return proxyConfiguration(Output.of(proxyConfiguration));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -822,6 +807,8 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
          * 
          * &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`&#34;`) such as `environment` values. If directly setting the JSON, they should be escaped as `\&#34;` in the JSON,  e.g., `&#34;value&#34;: &#34;I \&#34;love\&#34; escaped quotes&#34;`. If using a variable value, they should be escaped as `\\\&#34;` in the variable, e.g., `value = &#34;I \\\&#34;love\\\&#34; escaped quotes&#34;` in the variable and `&#34;value&#34;: &#34;${var.myvariable}&#34;` in the JSON.
          * 
+         * &gt; **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn&#39;t available on Windows.
+         * 
          * @return builder
          * 
          */
@@ -835,6 +822,8 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
          * 
          * &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`&#34;`) such as `environment` values. If directly setting the JSON, they should be escaped as `\&#34;` in the JSON,  e.g., `&#34;value&#34;: &#34;I \&#34;love\&#34; escaped quotes&#34;`. If using a variable value, they should be escaped as `\\\&#34;` in the variable, e.g., `value = &#34;I \\\&#34;love\\\&#34; escaped quotes&#34;` in the variable and `&#34;value&#34;: &#34;${var.myvariable}&#34;` in the JSON.
          * 
+         * &gt; **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn&#39;t available on Windows.
+         * 
          * @return builder
          * 
          */
@@ -846,6 +835,8 @@ public final class TaskDefinitionArgs extends com.pulumi.resources.ResourceArgs 
          * @param volumes Configuration block for volumes that containers in your task may use. Detailed below.
          * 
          * &gt; **NOTE:** Proper escaping is required for JSON field values containing quotes (`&#34;`) such as `environment` values. If directly setting the JSON, they should be escaped as `\&#34;` in the JSON,  e.g., `&#34;value&#34;: &#34;I \&#34;love\&#34; escaped quotes&#34;`. If using a variable value, they should be escaped as `\\\&#34;` in the variable, e.g., `value = &#34;I \\\&#34;love\\\&#34; escaped quotes&#34;` in the variable and `&#34;value&#34;: &#34;${var.myvariable}&#34;` in the JSON.
+         * 
+         * &gt; **Note:** Fault injection only works with tasks using the `awsvpc` or `host` network modes. Fault injection isn&#39;t available on Windows.
          * 
          * @return builder
          * 

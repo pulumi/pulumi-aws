@@ -100,6 +100,12 @@ namespace Pulumi.Aws.Ecs
         public string ClusterArn { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Name of the ECS Service
         /// </summary>
         [Input("serviceName", required: true)]
@@ -130,6 +136,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Name of the ECS Service
@@ -177,6 +189,7 @@ namespace Pulumi.Aws.Ecs
         /// Launch type for the ECS Service
         /// </summary>
         public readonly string LaunchType;
+        public readonly string Region;
         /// <summary>
         /// Scheduling strategy for the ECS Service
         /// </summary>
@@ -205,6 +218,8 @@ namespace Pulumi.Aws.Ecs
 
             string launchType,
 
+            string region,
+
             string schedulingStrategy,
 
             string serviceName,
@@ -219,6 +234,7 @@ namespace Pulumi.Aws.Ecs
             DesiredCount = desiredCount;
             Id = id;
             LaunchType = launchType;
+            Region = region;
             SchedulingStrategy = schedulingStrategy;
             ServiceName = serviceName;
             Tags = tags;

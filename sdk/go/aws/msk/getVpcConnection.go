@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/msk"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupVpcConnection(ctx *pulumi.Context, args *LookupVpcConnectionArgs, opt
 type LookupVpcConnectionArgs struct {
 	// ARN of the VPC Connection.
 	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of key-value pairs assigned to the VPC Connection.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -64,7 +66,8 @@ type LookupVpcConnectionResult struct {
 	// The list of subnets in the client VPC.
 	ClientSubnets []string `pulumi:"clientSubnets"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 	// The security groups attached to the ENIs for the broker nodes.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// Map of key-value pairs assigned to the VPC Connection.
@@ -88,6 +91,8 @@ func LookupVpcConnectionOutput(ctx *pulumi.Context, args LookupVpcConnectionOutp
 type LookupVpcConnectionOutputArgs struct {
 	// ARN of the VPC Connection.
 	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of key-value pairs assigned to the VPC Connection.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -128,6 +133,10 @@ func (o LookupVpcConnectionResultOutput) ClientSubnets() pulumi.StringArrayOutpu
 // The provider-assigned unique ID for this managed resource.
 func (o LookupVpcConnectionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcConnectionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupVpcConnectionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcConnectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The security groups attached to the ENIs for the broker nodes.

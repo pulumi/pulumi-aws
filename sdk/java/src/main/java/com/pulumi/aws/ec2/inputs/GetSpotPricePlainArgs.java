@@ -61,12 +61,28 @@ public final class GetSpotPricePlainArgs extends com.pulumi.resources.InvokeArgs
         return Optional.ofNullable(this.instanceType);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private GetSpotPricePlainArgs() {}
 
     private GetSpotPricePlainArgs(GetSpotPricePlainArgs $) {
         this.availabilityZone = $.availabilityZone;
         this.filters = $.filters;
         this.instanceType = $.instanceType;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -127,6 +143,17 @@ public final class GetSpotPricePlainArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder instanceType(@Nullable String instanceType) {
             $.instanceType = instanceType;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

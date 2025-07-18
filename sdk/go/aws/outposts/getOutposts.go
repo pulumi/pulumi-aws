@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/outposts"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/outposts"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,6 +56,8 @@ type GetOutpostsArgs struct {
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
 	// AWS Account identifier of the Outpost owner.
 	OwnerId *string `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Site identifier.
 	SiteId *string `pulumi:"siteId"`
 }
@@ -71,6 +73,7 @@ type GetOutpostsResult struct {
 	// Set of identifiers.
 	Ids     []string `pulumi:"ids"`
 	OwnerId string   `pulumi:"ownerId"`
+	Region  string   `pulumi:"region"`
 	SiteId  string   `pulumi:"siteId"`
 }
 
@@ -91,6 +94,8 @@ type GetOutpostsOutputArgs struct {
 	AvailabilityZoneId pulumi.StringPtrInput `pulumi:"availabilityZoneId"`
 	// AWS Account identifier of the Outpost owner.
 	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Site identifier.
 	SiteId pulumi.StringPtrInput `pulumi:"siteId"`
 }
@@ -139,6 +144,10 @@ func (o GetOutpostsResultOutput) Ids() pulumi.StringArrayOutput {
 
 func (o GetOutpostsResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOutpostsResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o GetOutpostsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOutpostsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetOutpostsResultOutput) SiteId() pulumi.StringOutput {

@@ -88,6 +88,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly outpostId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Identifier of the EC2 Security Group.
      */
     public readonly securityGroupId!: pulumi.Output<string>;
@@ -116,6 +120,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
             resourceInputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
             resourceInputs["outpostId"] = state ? state.outpostId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
@@ -132,6 +137,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["accessType"] = args ? args.accessType : undefined;
             resourceInputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
             resourceInputs["outpostId"] = args ? args.outpostId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -177,6 +183,10 @@ export interface EndpointState {
      */
     outpostId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Identifier of the EC2 Security Group.
      */
     securityGroupId?: pulumi.Input<string>;
@@ -202,6 +212,10 @@ export interface EndpointArgs {
      * Identifier of the Outpost to contain this endpoint.
      */
     outpostId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of the EC2 Security Group.
      */

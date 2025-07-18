@@ -17,14 +17,14 @@ public final class FunctionLoggingConfigArgs extends com.pulumi.resources.Resour
     public static final FunctionLoggingConfigArgs Empty = new FunctionLoggingConfigArgs();
 
     /**
-     * for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+     * Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
      * 
      */
     @Import(name="applicationLogLevel")
     private @Nullable Output<String> applicationLogLevel;
 
     /**
-     * @return for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+     * @return Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
      * 
      */
     public Optional<Output<String>> applicationLogLevel() {
@@ -32,14 +32,14 @@ public final class FunctionLoggingConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * select between `Text` and structured `JSON` format for your function&#39;s logs.
+     * Log format. Valid values: `Text`, `JSON`.
      * 
      */
     @Import(name="logFormat", required=true)
     private Output<String> logFormat;
 
     /**
-     * @return select between `Text` and structured `JSON` format for your function&#39;s logs.
+     * @return Log format. Valid values: `Text`, `JSON`.
      * 
      */
     public Output<String> logFormat() {
@@ -47,14 +47,14 @@ public final class FunctionLoggingConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * the CloudWatch log group your function sends logs to.
+     * CloudWatch log group where logs are sent.
      * 
      */
     @Import(name="logGroup")
     private @Nullable Output<String> logGroup;
 
     /**
-     * @return the CloudWatch log group your function sends logs to.
+     * @return CloudWatch log group where logs are sent.
      * 
      */
     public Optional<Output<String>> logGroup() {
@@ -62,14 +62,14 @@ public final class FunctionLoggingConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
+     * Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
      * 
      */
     @Import(name="systemLogLevel")
     private @Nullable Output<String> systemLogLevel;
 
     /**
-     * @return for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
+     * @return Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
      * 
      */
     public Optional<Output<String>> systemLogLevel() {
@@ -104,7 +104,7 @@ public final class FunctionLoggingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param applicationLogLevel for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+         * @param applicationLogLevel Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class FunctionLoggingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param applicationLogLevel for JSON structured logs, choose the detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+         * @param applicationLogLevel Detail level of application logs. Valid values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class FunctionLoggingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param logFormat select between `Text` and structured `JSON` format for your function&#39;s logs.
+         * @param logFormat Log format. Valid values: `Text`, `JSON`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class FunctionLoggingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param logFormat select between `Text` and structured `JSON` format for your function&#39;s logs.
+         * @param logFormat Log format. Valid values: `Text`, `JSON`.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class FunctionLoggingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param logGroup the CloudWatch log group your function sends logs to.
+         * @param logGroup CloudWatch log group where logs are sent.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class FunctionLoggingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param logGroup the CloudWatch log group your function sends logs to.
+         * @param logGroup CloudWatch log group where logs are sent.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class FunctionLoggingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param systemLogLevel for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
+         * @param systemLogLevel Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class FunctionLoggingConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param systemLogLevel for JSON structured logs, choose the detail level of the Lambda platform event logs sent to CloudWatch, such as `WARN`, `DEBUG`, or `INFO`.
+         * @param systemLogLevel Detail level of Lambda platform logs. Valid values: `DEBUG`, `INFO`, `WARN`.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketObjectLockConfigurationRule
     {
         /// <summary>
-        /// The default retention period that you want to apply to new objects placed in this bucket.
+        /// Configuration block for specifying the default Object Lock retention settings for new objects placed in the specified bucket. See below.
         /// </summary>
         public readonly Outputs.BucketObjectLockConfigurationRuleDefaultRetention DefaultRetention;
 

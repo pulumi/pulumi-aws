@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/mediaconvert"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/mediaconvert"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,6 +59,8 @@ type Queue struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
 	PricingPlan pulumi.StringPtrOutput `pulumi:"pricingPlan"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A detail pricing plan of the  reserved queue. See below.
 	ReservationPlanSettings QueueReservationPlanSettingsOutput `pulumi:"reservationPlanSettings"`
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
@@ -66,8 +68,6 @@ type Queue struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -111,6 +111,8 @@ type queueState struct {
 	Name *string `pulumi:"name"`
 	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
 	PricingPlan *string `pulumi:"pricingPlan"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A detail pricing plan of the  reserved queue. See below.
 	ReservationPlanSettings *QueueReservationPlanSettings `pulumi:"reservationPlanSettings"`
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
@@ -118,8 +120,6 @@ type queueState struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -134,6 +134,8 @@ type QueueState struct {
 	Name pulumi.StringPtrInput
 	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
 	PricingPlan pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A detail pricing plan of the  reserved queue. See below.
 	ReservationPlanSettings QueueReservationPlanSettingsPtrInput
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
@@ -141,8 +143,6 @@ type QueueState struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -159,6 +159,8 @@ type queueArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
 	PricingPlan *string `pulumi:"pricingPlan"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A detail pricing plan of the  reserved queue. See below.
 	ReservationPlanSettings *QueueReservationPlanSettings `pulumi:"reservationPlanSettings"`
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
@@ -177,6 +179,8 @@ type QueueArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies whether the pricing plan for the queue is on-demand or reserved. Valid values are `ON_DEMAND` or `RESERVED`. Default to `ON_DEMAND`.
 	PricingPlan pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A detail pricing plan of the  reserved queue. See below.
 	ReservationPlanSettings QueueReservationPlanSettingsPtrInput
 	// A status of the queue. Valid values are `ACTIVE` or `RESERVED`. Default to `PAUSED`.
@@ -297,6 +301,11 @@ func (o QueueOutput) PricingPlan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringPtrOutput { return v.PricingPlan }).(pulumi.StringPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o QueueOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // A detail pricing plan of the  reserved queue. See below.
 func (o QueueOutput) ReservationPlanSettings() QueueReservationPlanSettingsOutput {
 	return o.ApplyT(func(v *Queue) QueueReservationPlanSettingsOutput { return v.ReservationPlanSettings }).(QueueReservationPlanSettingsOutput)
@@ -313,8 +322,6 @@ func (o QueueOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o QueueOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

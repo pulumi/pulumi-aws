@@ -28,6 +28,7 @@ class DocumentArgs:
                  document_format: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_type: Optional[pulumi.Input[builtins.str]] = None,
                  version_name: Optional[pulumi.Input[builtins.str]] = None):
@@ -39,6 +40,7 @@ class DocumentArgs:
         :param pulumi.Input[builtins.str] document_format: The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
         :param pulumi.Input[builtins.str] name: The name of the document.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] permissions: Additional permissions to attach to the document. See Permissions below for details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] target_type: The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
         :param pulumi.Input[builtins.str] version_name: The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
@@ -53,6 +55,8 @@ class DocumentArgs:
             pulumi.set(__self__, "name", name)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if target_type is not None:
@@ -134,6 +138,18 @@ class DocumentArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -189,6 +205,7 @@ class _DocumentState:
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentParameterArgs']]]] = None,
                  permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  platform_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schema_version: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -214,6 +231,7 @@ class _DocumentState:
         :param pulumi.Input[Sequence[pulumi.Input['DocumentParameterArgs']]] parameters: One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] permissions: Additional permissions to attach to the document. See Permissions below for details.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] platform_types: The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schema_version: The schema version of the document.
         :param pulumi.Input[builtins.str] status: The status of the SSM document. Valid values: `Creating`, `Active`, `Updating`, `Deleting`, `Failed`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -255,15 +273,14 @@ class _DocumentState:
             pulumi.set(__self__, "permissions", permissions)
         if platform_types is not None:
             pulumi.set(__self__, "platform_types", platform_types)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schema_version is not None:
             pulumi.set(__self__, "schema_version", schema_version)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if target_type is not None:
@@ -476,6 +493,18 @@ class _DocumentState:
         pulumi.set(self, "platform_types", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="schemaVersion")
     def schema_version(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -513,7 +542,6 @@ class _DocumentState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -561,6 +589,7 @@ class Document(pulumi.CustomResource):
                  document_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_type: Optional[pulumi.Input[builtins.str]] = None,
                  version_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -641,6 +670,7 @@ class Document(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] document_type: The type of the document. For a list of valid values, see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-DocumentType).
         :param pulumi.Input[builtins.str] name: The name of the document.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] permissions: Additional permissions to attach to the document. See Permissions below for details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] target_type: The target type which defines the kinds of resources the document can run on. For example, `/AWS::EC2::Instance`. For a list of valid resource types, see [AWS resource and property types reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html).
         :param pulumi.Input[builtins.str] version_name: The version of the artifact associated with the document. For example, `12.6`. This value is unique across all versions of a document, and can't be changed.
@@ -740,6 +770,7 @@ class Document(pulumi.CustomResource):
                  document_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  target_type: Optional[pulumi.Input[builtins.str]] = None,
                  version_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -762,6 +793,7 @@ class Document(pulumi.CustomResource):
             __props__.__dict__["document_type"] = document_type
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_type"] = target_type
             __props__.__dict__["version_name"] = version_name
@@ -806,6 +838,7 @@ class Document(pulumi.CustomResource):
             parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DocumentParameterArgs', 'DocumentParameterArgsDict']]]]] = None,
             permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             platform_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             schema_version: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -836,6 +869,7 @@ class Document(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['DocumentParameterArgs', 'DocumentParameterArgsDict']]]] parameters: One or more configuration blocks describing the parameters for the document. See `parameter` block below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] permissions: Additional permissions to attach to the document. See Permissions below for details.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] platform_types: The list of operating system (OS) platforms compatible with this SSM document. Valid values: `Windows`, `Linux`, `MacOS`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schema_version: The schema version of the document.
         :param pulumi.Input[builtins.str] status: The status of the SSM document. Valid values: `Creating`, `Active`, `Updating`, `Deleting`, `Failed`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -864,6 +898,7 @@ class Document(pulumi.CustomResource):
         __props__.__dict__["parameters"] = parameters
         __props__.__dict__["permissions"] = permissions
         __props__.__dict__["platform_types"] = platform_types
+        __props__.__dict__["region"] = region
         __props__.__dict__["schema_version"] = schema_version
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
@@ -1009,6 +1044,14 @@ class Document(pulumi.CustomResource):
         return pulumi.get(self, "platform_types")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="schemaVersion")
     def schema_version(self) -> pulumi.Output[builtins.str]:
         """
@@ -1034,7 +1077,6 @@ class Document(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

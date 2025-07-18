@@ -123,6 +123,12 @@ namespace Pulumi.Aws.Ec2
         [Input("id")]
         public string? Id { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -160,6 +166,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -206,6 +218,7 @@ namespace Pulumi.Aws.Ec2
         /// Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the peer.
         /// </summary>
         public readonly int PeerBgpAsn;
+        public readonly string Region;
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// Virtual Local Area Network.
@@ -230,6 +243,8 @@ namespace Pulumi.Aws.Ec2
 
             int peerBgpAsn,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             int vlan)
@@ -242,6 +257,7 @@ namespace Pulumi.Aws.Ec2
             LocalGatewayVirtualInterfaceIds = localGatewayVirtualInterfaceIds;
             PeerAddress = peerAddress;
             PeerBgpAsn = peerBgpAsn;
+            Region = region;
             Tags = tags;
             Vlan = vlan;
         }

@@ -31,6 +31,7 @@ class MLTransformArgs:
                  max_retries: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  number_of_workers: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeout: Optional[pulumi.Input[builtins.int]] = None,
                  worker_type: Optional[pulumi.Input[builtins.str]] = None):
@@ -45,6 +46,7 @@ class MLTransformArgs:
         :param pulumi.Input[builtins.int] max_retries: The maximum number of times to retry this ML Transform if it fails.
         :param pulumi.Input[builtins.str] name: The name you assign to this ML Transform. It must be unique in your account.
         :param pulumi.Input[builtins.int] number_of_workers: The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.int] timeout: The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
         :param pulumi.Input[builtins.str] worker_type: The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
@@ -64,6 +66,8 @@ class MLTransformArgs:
             pulumi.set(__self__, "name", name)
         if number_of_workers is not None:
             pulumi.set(__self__, "number_of_workers", number_of_workers)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeout is not None:
@@ -181,6 +185,18 @@ class MLTransformArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -229,6 +245,7 @@ class _MLTransformState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  number_of_workers: Optional[pulumi.Input[builtins.int]] = None,
                  parameters: Optional[pulumi.Input['MLTransformParametersArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  schemas: Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformSchemaArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -247,6 +264,7 @@ class _MLTransformState:
         :param pulumi.Input[builtins.str] name: The name you assign to this ML Transform. It must be unique in your account.
         :param pulumi.Input[builtins.int] number_of_workers: The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
         :param pulumi.Input['MLTransformParametersArgs'] parameters: The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role associated with this ML Transform.
         :param pulumi.Input[Sequence[pulumi.Input['MLTransformSchemaArgs']]] schemas: The object that represents the schema that this transform accepts. see Schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -274,15 +292,14 @@ class _MLTransformState:
             pulumi.set(__self__, "number_of_workers", number_of_workers)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if schemas is not None:
             pulumi.set(__self__, "schemas", schemas)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeout is not None:
@@ -411,6 +428,18 @@ class _MLTransformState:
         pulumi.set(self, "parameters", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -448,7 +477,6 @@ class _MLTransformState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -498,6 +526,7 @@ class MLTransform(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  number_of_workers: Optional[pulumi.Input[builtins.int]] = None,
                  parameters: Optional[pulumi.Input[Union['MLTransformParametersArgs', 'MLTransformParametersArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeout: Optional[pulumi.Input[builtins.int]] = None,
@@ -612,6 +641,7 @@ class MLTransform(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name you assign to this ML Transform. It must be unique in your account.
         :param pulumi.Input[builtins.int] number_of_workers: The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
         :param pulumi.Input[Union['MLTransformParametersArgs', 'MLTransformParametersArgsDict']] parameters: The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role associated with this ML Transform.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.int] timeout: The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
@@ -745,6 +775,7 @@ class MLTransform(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  number_of_workers: Optional[pulumi.Input[builtins.int]] = None,
                  parameters: Optional[pulumi.Input[Union['MLTransformParametersArgs', 'MLTransformParametersArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeout: Optional[pulumi.Input[builtins.int]] = None,
@@ -770,6 +801,7 @@ class MLTransform(pulumi.CustomResource):
             if parameters is None and not opts.urn:
                 raise TypeError("Missing required property 'parameters'")
             __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -800,6 +832,7 @@ class MLTransform(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             number_of_workers: Optional[pulumi.Input[builtins.int]] = None,
             parameters: Optional[pulumi.Input[Union['MLTransformParametersArgs', 'MLTransformParametersArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             schemas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MLTransformSchemaArgs', 'MLTransformSchemaArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -823,6 +856,7 @@ class MLTransform(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name you assign to this ML Transform. It must be unique in your account.
         :param pulumi.Input[builtins.int] number_of_workers: The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
         :param pulumi.Input[Union['MLTransformParametersArgs', 'MLTransformParametersArgsDict']] parameters: The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role associated with this ML Transform.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MLTransformSchemaArgs', 'MLTransformSchemaArgsDict']]]] schemas: The object that represents the schema that this transform accepts. see Schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -844,6 +878,7 @@ class MLTransform(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["number_of_workers"] = number_of_workers
         __props__.__dict__["parameters"] = parameters
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["schemas"] = schemas
         __props__.__dict__["tags"] = tags
@@ -933,6 +968,14 @@ class MLTransform(pulumi.CustomResource):
         return pulumi.get(self, "parameters")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[builtins.str]:
         """
@@ -958,7 +1001,6 @@ class MLTransform(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

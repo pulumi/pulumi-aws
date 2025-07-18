@@ -69,6 +69,13 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
      * 
@@ -124,22 +131,14 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -158,6 +157,7 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.indexId = $.indexId;
         this.name = $.name;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.sourceS3Path = $.sourceS3Path;
         this.status = $.status;
@@ -256,6 +256,15 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
         /**
          * @param roleArn The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
          * 
@@ -333,11 +342,7 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -348,11 +353,7 @@ public final class ThesaurusState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

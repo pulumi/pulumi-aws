@@ -605,6 +605,21 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
      * 
      */
@@ -785,6 +800,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         this.parquetTimestampInMillisecond = $.parquetTimestampInMillisecond;
         this.parquetVersion = $.parquetVersion;
         this.preserveTransactions = $.preserveTransactions;
+        this.region = $.region;
         this.rfc4180 = $.rfc4180;
         this.rowGroupLength = $.rowGroupLength;
         this.serverSideEncryptionKmsKeyId = $.serverSideEncryptionKmsKeyId;
@@ -1631,6 +1647,27 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder preserveTransactions(Boolean preserveTransactions) {
             return preserveTransactions(Output.of(preserveTransactions));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -28,8 +28,8 @@ export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): P
     return pulumi.runtime.invoke("aws:quicksight/getDataSet:getDataSet", {
         "awsAccountId": args.awsAccountId,
         "dataSetId": args.dataSetId,
+        "region": args.region,
         "tags": args.tags,
-        "tagsAll": args.tagsAll,
     }, opts);
 }
 
@@ -45,11 +45,11 @@ export interface GetDataSetArgs {
      * Identifier for the data set.
      */
     dataSetId: string;
-    tags?: {[key: string]: string};
     /**
-     * @deprecated tags_all is deprecated. This argument will be removed in a future major version.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    tagsAll?: {[key: string]: string};
+    region?: string;
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -72,13 +72,10 @@ export interface GetDataSetResult {
     readonly name: string;
     readonly permissions: outputs.quicksight.GetDataSetPermission[];
     readonly physicalTableMaps: outputs.quicksight.GetDataSetPhysicalTableMap[];
+    readonly region: string;
     readonly rowLevelPermissionDataSets: outputs.quicksight.GetDataSetRowLevelPermissionDataSet[];
     readonly rowLevelPermissionTagConfigurations: outputs.quicksight.GetDataSetRowLevelPermissionTagConfiguration[];
     readonly tags: {[key: string]: string};
-    /**
-     * @deprecated tags_all is deprecated. This argument will be removed in a future major version.
-     */
-    readonly tagsAll: {[key: string]: string};
 }
 /**
  * Data source for managing a QuickSight Data Set.
@@ -101,8 +98,8 @@ export function getDataSetOutput(args: GetDataSetOutputArgs, opts?: pulumi.Invok
     return pulumi.runtime.invokeOutput("aws:quicksight/getDataSet:getDataSet", {
         "awsAccountId": args.awsAccountId,
         "dataSetId": args.dataSetId,
+        "region": args.region,
         "tags": args.tags,
-        "tagsAll": args.tagsAll,
     }, opts);
 }
 
@@ -118,9 +115,9 @@ export interface GetDataSetOutputArgs {
      * Identifier for the data set.
      */
     dataSetId: pulumi.Input<string>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * @deprecated tags_all is deprecated. This argument will be removed in a future major version.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    region?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

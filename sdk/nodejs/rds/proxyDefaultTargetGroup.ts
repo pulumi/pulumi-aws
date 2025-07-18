@@ -102,6 +102,10 @@ export class ProxyDefaultTargetGroup extends pulumi.CustomResource {
      * The name of the default target group.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ProxyDefaultTargetGroup resource with the given unique name, arguments, and options.
@@ -120,6 +124,7 @@ export class ProxyDefaultTargetGroup extends pulumi.CustomResource {
             resourceInputs["connectionPoolConfig"] = state ? state.connectionPoolConfig : undefined;
             resourceInputs["dbProxyName"] = state ? state.dbProxyName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ProxyDefaultTargetGroupArgs | undefined;
             if ((!args || args.dbProxyName === undefined) && !opts.urn) {
@@ -127,6 +132,7 @@ export class ProxyDefaultTargetGroup extends pulumi.CustomResource {
             }
             resourceInputs["connectionPoolConfig"] = args ? args.connectionPoolConfig : undefined;
             resourceInputs["dbProxyName"] = args ? args.dbProxyName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         }
@@ -155,6 +161,10 @@ export interface ProxyDefaultTargetGroupState {
      * The name of the default target group.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -169,4 +179,8 @@ export interface ProxyDefaultTargetGroupArgs {
      * Name of the RDS DB Proxy.
      */
     dbProxyName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

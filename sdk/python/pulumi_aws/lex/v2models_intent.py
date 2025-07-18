@@ -36,6 +36,7 @@ class V2modelsIntentArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_contexts: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]]] = None,
                  parent_intent_signature: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]]] = None,
                  slot_priorities: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]]] = None,
                  timeouts: Optional[pulumi.Input['V2modelsIntentTimeoutsArgs']] = None):
@@ -56,6 +57,7 @@ class V2modelsIntentArgs:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]] output_contexts: Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
         :param pulumi.Input[builtins.str] parent_intent_signature: Identifier for the built-in intent to base this intent on.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]] sample_utterances: Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]] slot_priorities: Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
         """
@@ -84,6 +86,8 @@ class V2modelsIntentArgs:
             pulumi.set(__self__, "output_contexts", output_contexts)
         if parent_intent_signature is not None:
             pulumi.set(__self__, "parent_intent_signature", parent_intent_signature)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sample_utterances is not None:
             pulumi.set(__self__, "sample_utterances", sample_utterances)
         if slot_priorities is not None:
@@ -259,6 +263,18 @@ class V2modelsIntentArgs:
         pulumi.set(self, "parent_intent_signature", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sampleUtterances")
     def sample_utterances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]]]:
         """
@@ -312,6 +328,7 @@ class _V2modelsIntentState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_contexts: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]]] = None,
                  parent_intent_signature: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]]] = None,
                  slot_priorities: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]]] = None,
                  timeouts: Optional[pulumi.Input['V2modelsIntentTimeoutsArgs']] = None):
@@ -335,6 +352,7 @@ class _V2modelsIntentState:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]] output_contexts: Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
         :param pulumi.Input[builtins.str] parent_intent_signature: Identifier for the built-in intent to base this intent on.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]] sample_utterances: Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]] slot_priorities: Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
         """
@@ -372,6 +390,8 @@ class _V2modelsIntentState:
             pulumi.set(__self__, "output_contexts", output_contexts)
         if parent_intent_signature is not None:
             pulumi.set(__self__, "parent_intent_signature", parent_intent_signature)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if sample_utterances is not None:
             pulumi.set(__self__, "sample_utterances", sample_utterances)
         if slot_priorities is not None:
@@ -583,6 +603,18 @@ class _V2modelsIntentState:
         pulumi.set(self, "parent_intent_signature", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sampleUtterances")
     def sample_utterances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]]]:
         """
@@ -636,6 +668,7 @@ class V2modelsIntent(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_contexts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentOutputContextArgs', 'V2modelsIntentOutputContextArgsDict']]]]] = None,
                  parent_intent_signature: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSampleUtteranceArgs', 'V2modelsIntentSampleUtteranceArgsDict']]]]] = None,
                  slot_priorities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSlotPriorityArgs', 'V2modelsIntentSlotPriorityArgsDict']]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['V2modelsIntentTimeoutsArgs', 'V2modelsIntentTimeoutsArgsDict']]] = None,
@@ -666,6 +699,7 @@ class V2modelsIntent(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentOutputContextArgs', 'V2modelsIntentOutputContextArgsDict']]]] output_contexts: Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
         :param pulumi.Input[builtins.str] parent_intent_signature: Identifier for the built-in intent to base this intent on.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSampleUtteranceArgs', 'V2modelsIntentSampleUtteranceArgsDict']]]] sample_utterances: Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSlotPriorityArgs', 'V2modelsIntentSlotPriorityArgsDict']]]] slot_priorities: Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
         """
@@ -713,6 +747,7 @@ class V2modelsIntent(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_contexts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentOutputContextArgs', 'V2modelsIntentOutputContextArgsDict']]]]] = None,
                  parent_intent_signature: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSampleUtteranceArgs', 'V2modelsIntentSampleUtteranceArgsDict']]]]] = None,
                  slot_priorities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSlotPriorityArgs', 'V2modelsIntentSlotPriorityArgsDict']]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['V2modelsIntentTimeoutsArgs', 'V2modelsIntentTimeoutsArgsDict']]] = None,
@@ -745,6 +780,7 @@ class V2modelsIntent(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["output_contexts"] = output_contexts
             __props__.__dict__["parent_intent_signature"] = parent_intent_signature
+            __props__.__dict__["region"] = region
             __props__.__dict__["sample_utterances"] = sample_utterances
             __props__.__dict__["slot_priorities"] = slot_priorities
             __props__.__dict__["timeouts"] = timeouts
@@ -778,6 +814,7 @@ class V2modelsIntent(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             output_contexts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentOutputContextArgs', 'V2modelsIntentOutputContextArgsDict']]]]] = None,
             parent_intent_signature: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSampleUtteranceArgs', 'V2modelsIntentSampleUtteranceArgsDict']]]]] = None,
             slot_priorities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSlotPriorityArgs', 'V2modelsIntentSlotPriorityArgsDict']]]]] = None,
             timeouts: Optional[pulumi.Input[Union['V2modelsIntentTimeoutsArgs', 'V2modelsIntentTimeoutsArgsDict']]] = None) -> 'V2modelsIntent':
@@ -806,6 +843,7 @@ class V2modelsIntent(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentOutputContextArgs', 'V2modelsIntentOutputContextArgsDict']]]] output_contexts: Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
         :param pulumi.Input[builtins.str] parent_intent_signature: Identifier for the built-in intent to base this intent on.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSampleUtteranceArgs', 'V2modelsIntentSampleUtteranceArgsDict']]]] sample_utterances: Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSlotPriorityArgs', 'V2modelsIntentSlotPriorityArgsDict']]]] slot_priorities: Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
         """
@@ -830,6 +868,7 @@ class V2modelsIntent(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["output_contexts"] = output_contexts
         __props__.__dict__["parent_intent_signature"] = parent_intent_signature
+        __props__.__dict__["region"] = region
         __props__.__dict__["sample_utterances"] = sample_utterances
         __props__.__dict__["slot_priorities"] = slot_priorities
         __props__.__dict__["timeouts"] = timeouts
@@ -969,6 +1008,14 @@ class V2modelsIntent(pulumi.CustomResource):
         Identifier for the built-in intent to base this intent on.
         """
         return pulumi.get(self, "parent_intent_signature")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sampleUtterances")

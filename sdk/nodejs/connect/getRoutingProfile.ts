@@ -41,6 +41,7 @@ export function getRoutingProfile(args: GetRoutingProfileArgs, opts?: pulumi.Inv
     return pulumi.runtime.invoke("aws:connect/getRoutingProfile:getRoutingProfile", {
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "routingProfileId": args.routingProfileId,
         "tags": args.tags,
     }, opts);
@@ -58,6 +59,10 @@ export interface GetRoutingProfileArgs {
      * Returns information on a specific Routing Profile by name
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Returns information on a specific Routing Profile by Routing Profile id
      *
@@ -100,6 +105,7 @@ export interface GetRoutingProfileResult {
      * One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
      */
     readonly queueConfigs: outputs.connect.GetRoutingProfileQueueConfig[];
+    readonly region: string;
     readonly routingProfileId: string;
     /**
      * Map of tags to assign to the Routing Profile.
@@ -140,6 +146,7 @@ export function getRoutingProfileOutput(args: GetRoutingProfileOutputArgs, opts?
     return pulumi.runtime.invokeOutput("aws:connect/getRoutingProfile:getRoutingProfile", {
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "routingProfileId": args.routingProfileId,
         "tags": args.tags,
     }, opts);
@@ -157,6 +164,10 @@ export interface GetRoutingProfileOutputArgs {
      * Returns information on a specific Routing Profile by name
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Returns information on a specific Routing Profile by Routing Profile id
      *

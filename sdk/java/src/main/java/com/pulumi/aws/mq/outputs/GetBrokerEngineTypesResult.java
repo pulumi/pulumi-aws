@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetBrokerEngineTypesResult {
     /**
-     * @return A list of available engine types and versions. See Engine Types.
+     * @return List of available engine types and versions. See Engine Types.
      * 
      */
     private List<GetBrokerEngineTypesBrokerEngineType> brokerEngineTypes;
     /**
-     * @return The broker&#39;s engine type.
+     * @return Broker&#39;s engine type.
      * 
      */
     private @Nullable String engineType;
@@ -29,17 +29,18 @@ public final class GetBrokerEngineTypesResult {
      * 
      */
     private String id;
+    private String region;
 
     private GetBrokerEngineTypesResult() {}
     /**
-     * @return A list of available engine types and versions. See Engine Types.
+     * @return List of available engine types and versions. See Engine Types.
      * 
      */
     public List<GetBrokerEngineTypesBrokerEngineType> brokerEngineTypes() {
         return this.brokerEngineTypes;
     }
     /**
-     * @return The broker&#39;s engine type.
+     * @return Broker&#39;s engine type.
      * 
      */
     public Optional<String> engineType() {
@@ -51,6 +52,9 @@ public final class GetBrokerEngineTypesResult {
      */
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
 
     public static Builder builder() {
@@ -65,12 +69,14 @@ public final class GetBrokerEngineTypesResult {
         private List<GetBrokerEngineTypesBrokerEngineType> brokerEngineTypes;
         private @Nullable String engineType;
         private String id;
+        private String region;
         public Builder() {}
         public Builder(GetBrokerEngineTypesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.brokerEngineTypes = defaults.brokerEngineTypes;
     	      this.engineType = defaults.engineType;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -98,11 +104,20 @@ public final class GetBrokerEngineTypesResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetBrokerEngineTypesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetBrokerEngineTypesResult build() {
             final var _resultValue = new GetBrokerEngineTypesResult();
             _resultValue.brokerEngineTypes = brokerEngineTypes;
             _resultValue.engineType = engineType;
             _resultValue.id = id;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

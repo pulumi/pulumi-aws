@@ -79,6 +79,10 @@ export class V2modelsSlot extends pulumi.CustomResource {
      */
     public readonly obfuscationSettings!: pulumi.Output<outputs.lex.V2modelsSlotObfuscationSetting[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Unique identifier associated with the slot.
      */
     public /*out*/ readonly slotId!: pulumi.Output<string>;
@@ -115,6 +119,7 @@ export class V2modelsSlot extends pulumi.CustomResource {
             resourceInputs["multipleValuesSettings"] = state ? state.multipleValuesSettings : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["obfuscationSettings"] = state ? state.obfuscationSettings : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["slotId"] = state ? state.slotId : undefined;
             resourceInputs["slotTypeId"] = state ? state.slotTypeId : undefined;
             resourceInputs["subSlotSettings"] = state ? state.subSlotSettings : undefined;
@@ -142,6 +147,7 @@ export class V2modelsSlot extends pulumi.CustomResource {
             resourceInputs["multipleValuesSettings"] = args ? args.multipleValuesSettings : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["obfuscationSettings"] = args ? args.obfuscationSettings : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["slotTypeId"] = args ? args.slotTypeId : undefined;
             resourceInputs["subSlotSettings"] = args ? args.subSlotSettings : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -191,6 +197,10 @@ export interface V2modelsSlotState {
      * See the `obfuscationSetting` argument reference below.
      */
     obfuscationSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotObfuscationSetting>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Unique identifier associated with the slot.
      */
@@ -246,6 +256,10 @@ export interface V2modelsSlotArgs {
      * See the `obfuscationSetting` argument reference below.
      */
     obfuscationSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotObfuscationSetting>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Unique identifier for the slot type associated with this slot.
      */

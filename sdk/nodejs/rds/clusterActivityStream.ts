@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * const defaultClusterInstance = new aws.rds.ClusterInstance("default", {
  *     identifier: "aurora-instance-demo",
  *     clusterIdentifier: _default.clusterIdentifier,
- *     engine: _default.engine,
+ *     engine: _default.engine.apply((x) => aws.rds.EngineType[x]),
  *     instanceClass: aws.rds.InstanceType.R6G_Large,
  * });
  * const defaultKey = new aws.kms.Key("default", {description: "AWS KMS Key to encrypt Database Activity Stream"});
@@ -106,6 +106,10 @@ export class ClusterActivityStream extends pulumi.CustomResource {
      */
     public readonly mode!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the DB cluster.
      */
     public readonly resourceArn!: pulumi.Output<string>;
@@ -127,6 +131,7 @@ export class ClusterActivityStream extends pulumi.CustomResource {
             resourceInputs["kinesisStreamName"] = state ? state.kinesisStreamName : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["mode"] = state ? state.mode : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as ClusterActivityStreamArgs | undefined;
@@ -142,6 +147,7 @@ export class ClusterActivityStream extends pulumi.CustomResource {
             resourceInputs["engineNativeAuditFieldsIncluded"] = args ? args.engineNativeAuditFieldsIncluded : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
             resourceInputs["kinesisStreamName"] = undefined /*out*/;
         }
@@ -174,6 +180,10 @@ export interface ClusterActivityStreamState {
      */
     mode?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) of the DB cluster.
      */
     resourceArn?: pulumi.Input<string>;
@@ -198,6 +208,10 @@ export interface ClusterActivityStreamArgs {
      * Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
      */
     mode: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the DB cluster.
      */

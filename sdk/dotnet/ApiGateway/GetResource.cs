@@ -115,6 +115,12 @@ namespace Pulumi.Aws.ApiGateway
         public string Path { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// REST API id that owns the resource. If no REST API is found, an error will be returned.
         /// </summary>
         [Input("restApiId", required: true)]
@@ -133,6 +139,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// REST API id that owns the resource. If no REST API is found, an error will be returned.
@@ -163,6 +175,7 @@ namespace Pulumi.Aws.ApiGateway
         /// Set to the path relative to the parent Resource.
         /// </summary>
         public readonly string PathPart;
+        public readonly string Region;
         public readonly string RestApiId;
 
         [OutputConstructor]
@@ -175,12 +188,15 @@ namespace Pulumi.Aws.ApiGateway
 
             string pathPart,
 
+            string region,
+
             string restApiId)
         {
             Id = id;
             ParentId = parentId;
             Path = path;
             PathPart = pathPart;
+            Region = region;
             RestApiId = restApiId;
         }
     }

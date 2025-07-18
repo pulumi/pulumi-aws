@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,6 +64,8 @@ type LookupVpcEndpointArgs struct {
 	Filters []GetVpcEndpointFilter `pulumi:"filters"`
 	// ID of the specific VPC Endpoint to retrieve.
 	Id *string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName *string `pulumi:"serviceName"`
 	// State of the specific VPC Endpoint to retrieve.
@@ -100,7 +102,8 @@ type LookupVpcEndpointResult struct {
 	// Prefix list ID of the exposed AWS service. Applicable for endpoints of type `Gateway`.
 	PrefixListId string `pulumi:"prefixListId"`
 	// Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
-	PrivateDnsEnabled bool `pulumi:"privateDnsEnabled"`
+	PrivateDnsEnabled bool   `pulumi:"privateDnsEnabled"`
+	Region            string `pulumi:"region"`
 	// Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.
 	RequesterManaged bool `pulumi:"requesterManaged"`
 	// One or more route tables associated with the VPC Endpoint. Applicable for endpoints of type `Gateway`.
@@ -132,6 +135,8 @@ type LookupVpcEndpointOutputArgs struct {
 	Filters GetVpcEndpointFilterArrayInput `pulumi:"filters"`
 	// ID of the specific VPC Endpoint to retrieve.
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker AI Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`
 	// State of the specific VPC Endpoint to retrieve.
@@ -220,6 +225,10 @@ func (o LookupVpcEndpointResultOutput) PrefixListId() pulumi.StringOutput {
 // Whether or not the VPC is associated with a private hosted zone - `true` or `false`. Applicable for endpoints of type `Interface`.
 func (o LookupVpcEndpointResultOutput) PrivateDnsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupVpcEndpointResult) bool { return v.PrivateDnsEnabled }).(pulumi.BoolOutput)
+}
+
+func (o LookupVpcEndpointResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Whether or not the VPC Endpoint is being managed by its service - `true` or `false`.

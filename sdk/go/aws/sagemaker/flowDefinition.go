@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,7 +65,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -81,7 +81,7 @@ import (
 //					TaskCount:                         pulumi.Int(1),
 //					TaskDescription:                   pulumi.String("example"),
 //					TaskTitle:                         pulumi.String("example"),
-//					WorkteamArn:                       pulumi.Sprintf("arn:aws:sagemaker:%v:394669845002:workteam/public-crowd/default", current.Name),
+//					WorkteamArn:                       pulumi.Sprintf("arn:aws:sagemaker:%v:394669845002:workteam/public-crowd/default", current.Region),
 //					PublicWorkforceTaskPrice: &sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs{
 //						AmountInUsd: &sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs{
 //							Cents:                 pulumi.Int(1),
@@ -111,7 +111,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -184,13 +184,13 @@ type FlowDefinition struct {
 	HumanLoopRequestSource FlowDefinitionHumanLoopRequestSourcePtrOutput `pulumi:"humanLoopRequestSource"`
 	// An object containing information about where the human review results will be uploaded. See Output Config details below.
 	OutputConfig FlowDefinitionOutputConfigOutput `pulumi:"outputConfig"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -248,13 +248,13 @@ type flowDefinitionState struct {
 	HumanLoopRequestSource *FlowDefinitionHumanLoopRequestSource `pulumi:"humanLoopRequestSource"`
 	// An object containing information about where the human review results will be uploaded. See Output Config details below.
 	OutputConfig *FlowDefinitionOutputConfig `pulumi:"outputConfig"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -271,13 +271,13 @@ type FlowDefinitionState struct {
 	HumanLoopRequestSource FlowDefinitionHumanLoopRequestSourcePtrInput
 	// An object containing information about where the human review results will be uploaded. See Output Config details below.
 	OutputConfig FlowDefinitionOutputConfigPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
 	RoleArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -296,6 +296,8 @@ type flowDefinitionArgs struct {
 	HumanLoopRequestSource *FlowDefinitionHumanLoopRequestSource `pulumi:"humanLoopRequestSource"`
 	// An object containing information about where the human review results will be uploaded. See Output Config details below.
 	OutputConfig FlowDefinitionOutputConfig `pulumi:"outputConfig"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -314,6 +316,8 @@ type FlowDefinitionArgs struct {
 	HumanLoopRequestSource FlowDefinitionHumanLoopRequestSourcePtrInput
 	// An object containing information about where the human review results will be uploaded. See Output Config details below.
 	OutputConfig FlowDefinitionOutputConfigInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
 	RoleArn pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -439,6 +443,11 @@ func (o FlowDefinitionOutput) OutputConfig() FlowDefinitionOutputConfigOutput {
 	return o.ApplyT(func(v *FlowDefinition) FlowDefinitionOutputConfigOutput { return v.OutputConfig }).(FlowDefinitionOutputConfigOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o FlowDefinitionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *FlowDefinition) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
 func (o FlowDefinitionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowDefinition) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
@@ -450,8 +459,6 @@ func (o FlowDefinitionOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o FlowDefinitionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlowDefinition) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

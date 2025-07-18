@@ -128,6 +128,9 @@ namespace Pulumi.Aws.Ec2
         [Output("privateDnsHostnameTypeOnLaunch")]
         public Output<string> PrivateDnsHostnameTypeOnLaunch { get; private set; } = null!;
 
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -232,6 +235,9 @@ namespace Pulumi.Aws.Ec2
         [Input("privateDnsHostnameTypeOnLaunch")]
         public Input<string>? PrivateDnsHostnameTypeOnLaunch { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
         public InputMap<string> Tags
@@ -324,6 +330,9 @@ namespace Pulumi.Aws.Ec2
         [Input("privateDnsHostnameTypeOnLaunch")]
         public Input<string>? PrivateDnsHostnameTypeOnLaunch { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
         public InputMap<string> Tags
@@ -334,7 +343,6 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

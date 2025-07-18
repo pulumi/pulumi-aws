@@ -89,6 +89,12 @@ namespace Pulumi.Aws.DataSync
         public Output<string> ContainerUrl { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         /// </summary>
         [Output("sasConfiguration")]
@@ -198,6 +204,12 @@ namespace Pulumi.Aws.DataSync
         public Input<string> ContainerUrl { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         /// </summary>
         [Input("sasConfiguration")]
@@ -272,6 +284,12 @@ namespace Pulumi.Aws.DataSync
         public Input<string>? ContainerUrl { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         /// </summary>
         [Input("sasConfiguration")]
@@ -301,7 +319,6 @@ namespace Pulumi.Aws.DataSync
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -22,7 +22,8 @@ class InstanceStateArgs:
     def __init__(__self__, *,
                  instance_id: pulumi.Input[builtins.str],
                  state: pulumi.Input[builtins.str],
-                 force: Optional[pulumi.Input[builtins.bool]] = None):
+                 force: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a InstanceState resource.
         :param pulumi.Input[builtins.str] instance_id: ID of the instance.
@@ -30,11 +31,14 @@ class InstanceStateArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.bool] force: Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "state", state)
         if force is not None:
             pulumi.set(__self__, "force", force)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="instanceId")
@@ -74,17 +78,31 @@ class InstanceStateArgs:
     def force(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "force", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _InstanceStateState:
     def __init__(__self__, *,
                  force: Optional[pulumi.Input[builtins.bool]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering InstanceState resources.
         :param pulumi.Input[builtins.bool] force: Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
         :param pulumi.Input[builtins.str] instance_id: ID of the instance.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: State of the instance. Valid values are `stopped`, `running`.
                
                The following arguments are optional:
@@ -93,6 +111,8 @@ class _InstanceStateState:
             pulumi.set(__self__, "force", force)
         if instance_id is not None:
             pulumi.set(__self__, "instance_id", instance_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if state is not None:
             pulumi.set(__self__, "state", state)
 
@@ -122,6 +142,18 @@ class _InstanceStateState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def state(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         State of the instance. Valid values are `stopped`, `running`.
@@ -143,6 +175,7 @@ class InstanceState(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  force: Optional[pulumi.Input[builtins.bool]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -191,6 +224,7 @@ class InstanceState(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] force: Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
         :param pulumi.Input[builtins.str] instance_id: ID of the instance.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: State of the instance. Valid values are `stopped`, `running`.
                
                The following arguments are optional:
@@ -260,6 +294,7 @@ class InstanceState(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  force: Optional[pulumi.Input[builtins.bool]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -274,6 +309,7 @@ class InstanceState(pulumi.CustomResource):
             if instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_id'")
             __props__.__dict__["instance_id"] = instance_id
+            __props__.__dict__["region"] = region
             if state is None and not opts.urn:
                 raise TypeError("Missing required property 'state'")
             __props__.__dict__["state"] = state
@@ -289,6 +325,7 @@ class InstanceState(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             force: Optional[pulumi.Input[builtins.bool]] = None,
             instance_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             state: Optional[pulumi.Input[builtins.str]] = None) -> 'InstanceState':
         """
         Get an existing InstanceState resource's state with the given name, id, and optional extra
@@ -299,6 +336,7 @@ class InstanceState(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.bool] force: Whether to request a forced stop when `state` is `stopped`. Otherwise (_i.e._, `state` is `running`), ignored. When an instance is forced to stop, it does not flush file system caches or file system metadata, and you must subsequently perform file system check and repair. Not recommended for Windows instances. Defaults to `false`.
         :param pulumi.Input[builtins.str] instance_id: ID of the instance.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: State of the instance. Valid values are `stopped`, `running`.
                
                The following arguments are optional:
@@ -309,6 +347,7 @@ class InstanceState(pulumi.CustomResource):
 
         __props__.__dict__["force"] = force
         __props__.__dict__["instance_id"] = instance_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["state"] = state
         return InstanceState(resource_name, opts=opts, __props__=__props__)
 
@@ -327,6 +366,14 @@ class InstanceState(pulumi.CustomResource):
         ID of the instance.
         """
         return pulumi.get(self, "instance_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

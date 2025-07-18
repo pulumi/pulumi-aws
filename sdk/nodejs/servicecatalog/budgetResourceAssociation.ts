@@ -64,6 +64,10 @@ export class BudgetResourceAssociation extends pulumi.CustomResource {
      */
     public readonly budgetName!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Resource identifier.
      */
     public readonly resourceId!: pulumi.Output<string>;
@@ -82,6 +86,7 @@ export class BudgetResourceAssociation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as BudgetResourceAssociationState | undefined;
             resourceInputs["budgetName"] = state ? state.budgetName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
         } else {
             const args = argsOrState as BudgetResourceAssociationArgs | undefined;
@@ -92,6 +97,7 @@ export class BudgetResourceAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceId'");
             }
             resourceInputs["budgetName"] = args ? args.budgetName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -108,6 +114,10 @@ export interface BudgetResourceAssociationState {
      */
     budgetName?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Resource identifier.
      */
     resourceId?: pulumi.Input<string>;
@@ -121,6 +131,10 @@ export interface BudgetResourceAssociationArgs {
      * Budget name.
      */
     budgetName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Resource identifier.
      */

@@ -29,7 +29,7 @@ class GetManagedPrefixListResult:
     """
     A collection of values returned by getManagedPrefixList.
     """
-    def __init__(__self__, address_family=None, arn=None, entries=None, filters=None, id=None, max_entries=None, name=None, owner_id=None, tags=None, version=None):
+    def __init__(__self__, address_family=None, arn=None, entries=None, filters=None, id=None, max_entries=None, name=None, owner_id=None, region=None, tags=None, version=None):
         if address_family and not isinstance(address_family, str):
             raise TypeError("Expected argument 'address_family' to be a str")
         pulumi.set(__self__, "address_family", address_family)
@@ -54,6 +54,9 @@ class GetManagedPrefixListResult:
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -124,6 +127,11 @@ class GetManagedPrefixListResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Map of tags assigned to the resource.
@@ -150,6 +158,7 @@ class AwaitableGetManagedPrefixListResult(GetManagedPrefixListResult):
             max_entries=self.max_entries,
             name=self.name,
             owner_id=self.owner_id,
+            region=self.region,
             tags=self.tags,
             version=self.version)
 
@@ -157,6 +166,7 @@ class AwaitableGetManagedPrefixListResult(GetManagedPrefixListResult):
 def get_managed_prefix_list(filters: Optional[Sequence[Union['GetManagedPrefixListFilterArgs', 'GetManagedPrefixListFilterArgsDict']]] = None,
                             id: Optional[builtins.str] = None,
                             name: Optional[builtins.str] = None,
+                            region: Optional[builtins.str] = None,
                             tags: Optional[Mapping[str, builtins.str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedPrefixListResult:
     """
@@ -172,7 +182,7 @@ def get_managed_prefix_list(filters: Optional[Sequence[Union['GetManagedPrefixLi
     import pulumi_aws as aws
 
     current = aws.get_region()
-    example = aws.ec2.get_managed_prefix_list(name=f"com.amazonaws.{current.name}.dynamodb")
+    example = aws.ec2.get_managed_prefix_list(name=f"com.amazonaws.{current.region}.dynamodb")
     ```
 
     ### Find a managed prefix list using filters
@@ -195,12 +205,14 @@ def get_managed_prefix_list(filters: Optional[Sequence[Union['GetManagedPrefixLi
            whose data will be exported as attributes.
     :param builtins.str id: ID of the prefix list to select.
     :param builtins.str name: Name of the prefix list to select.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getManagedPrefixList:getManagedPrefixList', __args__, opts=opts, typ=GetManagedPrefixListResult).value
@@ -214,11 +226,13 @@ def get_managed_prefix_list(filters: Optional[Sequence[Union['GetManagedPrefixLi
         max_entries=pulumi.get(__ret__, 'max_entries'),
         name=pulumi.get(__ret__, 'name'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
 def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetManagedPrefixListFilterArgs', 'GetManagedPrefixListFilterArgsDict']]]]] = None,
                                    id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedPrefixListResult]:
     """
@@ -234,7 +248,7 @@ def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Seque
     import pulumi_aws as aws
 
     current = aws.get_region()
-    example = aws.ec2.get_managed_prefix_list(name=f"com.amazonaws.{current.name}.dynamodb")
+    example = aws.ec2.get_managed_prefix_list(name=f"com.amazonaws.{current.region}.dynamodb")
     ```
 
     ### Find a managed prefix list using filters
@@ -257,12 +271,14 @@ def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Seque
            whose data will be exported as attributes.
     :param builtins.str id: ID of the prefix list to select.
     :param builtins.str name: Name of the prefix list to select.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getManagedPrefixList:getManagedPrefixList', __args__, opts=opts, typ=GetManagedPrefixListResult)
@@ -275,5 +291,6 @@ def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Seque
         max_entries=pulumi.get(__response__, 'max_entries'),
         name=pulumi.get(__response__, 'name'),
         owner_id=pulumi.get(__response__, 'owner_id'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         version=pulumi.get(__response__, 'version')))

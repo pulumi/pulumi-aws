@@ -77,6 +77,10 @@ export class Deployment extends pulumi.CustomResource {
     public readonly environmentId!: pulumi.Output<string>;
     public readonly forceStop!: pulumi.Output<boolean | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Start the application once deployed.
      */
     public readonly start!: pulumi.Output<boolean>;
@@ -100,6 +104,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["deploymentId"] = state ? state.deploymentId : undefined;
             resourceInputs["environmentId"] = state ? state.environmentId : undefined;
             resourceInputs["forceStop"] = state ? state.forceStop : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["start"] = state ? state.start : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
@@ -120,6 +125,7 @@ export class Deployment extends pulumi.CustomResource {
             resourceInputs["applicationVersion"] = args ? args.applicationVersion : undefined;
             resourceInputs["environmentId"] = args ? args.environmentId : undefined;
             resourceInputs["forceStop"] = args ? args.forceStop : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["start"] = args ? args.start : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["deploymentId"] = undefined /*out*/;
@@ -148,6 +154,10 @@ export interface DeploymentState {
     environmentId?: pulumi.Input<string>;
     forceStop?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Start the application once deployed.
      */
     start?: pulumi.Input<boolean>;
@@ -171,6 +181,10 @@ export interface DeploymentArgs {
      */
     environmentId: pulumi.Input<string>;
     forceStop?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Start the application once deployed.
      */

@@ -97,9 +97,13 @@ export class Assessment extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of roles for the assessment. See `roles` below.
      */
-    public readonly roles!: pulumi.Output<outputs.auditmanager.AssessmentRole[]>;
+    public readonly roles!: pulumi.Output<outputs.auditmanager.AssessmentRole[] | undefined>;
     /**
      * Complete list of all roles with access to the assessment. This includes both roles explicitly configured via the `roles` block, and any roles which have access to all Audit Manager assessments by default.
      */
@@ -118,9 +122,6 @@ export class Assessment extends pulumi.CustomResource {
      * A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -141,6 +142,7 @@ export class Assessment extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["frameworkId"] = state ? state.frameworkId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roles"] = state ? state.roles : undefined;
             resourceInputs["rolesAlls"] = state ? state.rolesAlls : undefined;
             resourceInputs["scope"] = state ? state.scope : undefined;
@@ -152,13 +154,11 @@ export class Assessment extends pulumi.CustomResource {
             if ((!args || args.frameworkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'frameworkId'");
             }
-            if ((!args || args.roles === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'roles'");
-            }
             resourceInputs["assessmentReportsDestination"] = args ? args.assessmentReportsDestination : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["frameworkId"] = args ? args.frameworkId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roles"] = args ? args.roles : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -197,6 +197,10 @@ export interface AssessmentState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of roles for the assessment. See `roles` below.
      */
     roles?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentRole>[]>;
@@ -218,9 +222,6 @@ export interface AssessmentState {
      * A map of tags to assign to the assessment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -245,9 +246,13 @@ export interface AssessmentArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of roles for the assessment. See `roles` below.
      */
-    roles: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentRole>[]>;
+    roles?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentRole>[]>;
     /**
      * Amazon Web Services accounts and services that are in scope for the assessment. See `scope` below.
      *

@@ -31,6 +31,13 @@ public final class DefaultVpcDhcpOptionsArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.ownerId);
     }
 
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     /**
      * A map of tags to assign to the resource.
      * 
@@ -50,6 +57,7 @@ public final class DefaultVpcDhcpOptionsArgs extends com.pulumi.resources.Resour
 
     private DefaultVpcDhcpOptionsArgs(DefaultVpcDhcpOptionsArgs $) {
         this.ownerId = $.ownerId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -90,6 +98,15 @@ public final class DefaultVpcDhcpOptionsArgs extends com.pulumi.resources.Resour
          */
         public Builder ownerId(String ownerId) {
             return ownerId(Output.of(ownerId));
+        }
+
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

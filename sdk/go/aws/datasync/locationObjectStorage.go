@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datasync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -64,6 +64,8 @@ type LocationObjectStorage struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The bucket on the self-managed object storage server that is used to read data from.
 	BucketName pulumi.StringOutput `pulumi:"bucketName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
 	SecretKey pulumi.StringPtrOutput `pulumi:"secretKey"`
 	// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
@@ -79,8 +81,6 @@ type LocationObjectStorage struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The URL of the Object Storage location that was described.
 	Uri pulumi.StringOutput `pulumi:"uri"`
@@ -140,6 +140,8 @@ type locationObjectStorageState struct {
 	Arn *string `pulumi:"arn"`
 	// The bucket on the self-managed object storage server that is used to read data from.
 	BucketName *string `pulumi:"bucketName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
 	SecretKey *string `pulumi:"secretKey"`
 	// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
@@ -155,8 +157,6 @@ type locationObjectStorageState struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The URL of the Object Storage location that was described.
 	Uri *string `pulumi:"uri"`
@@ -171,6 +171,8 @@ type LocationObjectStorageState struct {
 	Arn pulumi.StringPtrInput
 	// The bucket on the self-managed object storage server that is used to read data from.
 	BucketName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
 	SecretKey pulumi.StringPtrInput
 	// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
@@ -186,8 +188,6 @@ type LocationObjectStorageState struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The URL of the Object Storage location that was described.
 	Uri pulumi.StringPtrInput
@@ -204,6 +204,8 @@ type locationObjectStorageArgs struct {
 	AgentArns []string `pulumi:"agentArns"`
 	// The bucket on the self-managed object storage server that is used to read data from.
 	BucketName string `pulumi:"bucketName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
 	SecretKey *string `pulumi:"secretKey"`
 	// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
@@ -228,6 +230,8 @@ type LocationObjectStorageArgs struct {
 	AgentArns pulumi.StringArrayInput
 	// The bucket on the self-managed object storage server that is used to read data from.
 	BucketName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
 	SecretKey pulumi.StringPtrInput
 	// Specifies a certificate to authenticate with an object storage system that uses a private or self-signed certificate authority (CA). You must specify a Base64-encoded .pem string. The certificate can be up to 32768 bytes (before Base64 encoding).
@@ -351,6 +355,11 @@ func (o LocationObjectStorageOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringOutput { return v.BucketName }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LocationObjectStorageOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The secret key is used if credentials are required to access the self-managed object storage server. If your object storage requires a user name and password to authenticate, use `accessKey` and `secretKey` to provide the user name and password, respectively.
 func (o LocationObjectStorageOutput) SecretKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringPtrOutput { return v.SecretKey }).(pulumi.StringPtrOutput)
@@ -387,8 +396,6 @@ func (o LocationObjectStorageOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o LocationObjectStorageOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LocationObjectStorage) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

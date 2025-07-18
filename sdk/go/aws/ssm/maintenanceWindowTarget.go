@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,7 +69,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -124,6 +124,8 @@ type MaintenanceWindowTarget struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
 	OwnerInformation pulumi.StringPtrOutput `pulumi:"ownerInformation"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
 	// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
@@ -178,6 +180,8 @@ type maintenanceWindowTargetState struct {
 	Name *string `pulumi:"name"`
 	// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
 	OwnerInformation *string `pulumi:"ownerInformation"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
 	ResourceType *string `pulumi:"resourceType"`
 	// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
@@ -194,6 +198,8 @@ type MaintenanceWindowTargetState struct {
 	Name pulumi.StringPtrInput
 	// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
 	OwnerInformation pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
 	ResourceType pulumi.StringPtrInput
 	// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
@@ -214,6 +220,8 @@ type maintenanceWindowTargetArgs struct {
 	Name *string `pulumi:"name"`
 	// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
 	OwnerInformation *string `pulumi:"ownerInformation"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
 	ResourceType string `pulumi:"resourceType"`
 	// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
@@ -231,6 +239,8 @@ type MaintenanceWindowTargetArgs struct {
 	Name pulumi.StringPtrInput
 	// User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
 	OwnerInformation pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.
 	ResourceType pulumi.StringInput
 	// The targets to register with the maintenance window. In other words, the instances to run commands on when the maintenance window runs. You can specify targets using instance IDs, resource group names, or tags that have been applied to instances. For more information about these examples formats see
@@ -340,6 +350,11 @@ func (o MaintenanceWindowTargetOutput) Name() pulumi.StringOutput {
 // User-provided value that will be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
 func (o MaintenanceWindowTargetOutput) OwnerInformation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTarget) pulumi.StringPtrOutput { return v.OwnerInformation }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o MaintenanceWindowTargetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *MaintenanceWindowTarget) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The type of target being registered with the Maintenance Window. Possible values are `INSTANCE` and `RESOURCE_GROUP`.

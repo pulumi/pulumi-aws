@@ -29,7 +29,7 @@ class GetVpcAttachmentsResult:
     """
     A collection of values returned by getVpcAttachments.
     """
-    def __init__(__self__, filters=None, id=None, ids=None):
+    def __init__(__self__, filters=None, id=None, ids=None, region=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -39,6 +39,9 @@ class GetVpcAttachmentsResult:
         if ids and not isinstance(ids, list):
             raise TypeError("Expected argument 'ids' to be a list")
         pulumi.set(__self__, "ids", ids)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -61,6 +64,11 @@ class GetVpcAttachmentsResult:
         """
         return pulumi.get(self, "ids")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetVpcAttachmentsResult(GetVpcAttachmentsResult):
     # pylint: disable=using-constant-test
@@ -70,10 +78,12 @@ class AwaitableGetVpcAttachmentsResult(GetVpcAttachmentsResult):
         return GetVpcAttachmentsResult(
             filters=self.filters,
             id=self.id,
-            ids=self.ids)
+            ids=self.ids,
+            region=self.region)
 
 
 def get_vpc_attachments(filters: Optional[Sequence[Union['GetVpcAttachmentsFilterArgs', 'GetVpcAttachmentsFilterArgsDict']]] = None,
+                        region: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcAttachmentsResult:
     """
     Get information on EC2 Transit Gateway VPC Attachments.
@@ -95,17 +105,21 @@ def get_vpc_attachments(filters: Optional[Sequence[Union['GetVpcAttachmentsFilte
 
 
     :param Sequence[Union['GetVpcAttachmentsFilterArgs', 'GetVpcAttachmentsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2transitgateway/getVpcAttachments:getVpcAttachments', __args__, opts=opts, typ=GetVpcAttachmentsResult).value
 
     return AwaitableGetVpcAttachmentsResult(
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
-        ids=pulumi.get(__ret__, 'ids'))
+        ids=pulumi.get(__ret__, 'ids'),
+        region=pulumi.get(__ret__, 'region'))
 def get_vpc_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcAttachmentsFilterArgs', 'GetVpcAttachmentsFilterArgsDict']]]]] = None,
+                               region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcAttachmentsResult]:
     """
     Get information on EC2 Transit Gateway VPC Attachments.
@@ -127,12 +141,15 @@ def get_vpc_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[
 
 
     :param Sequence[Union['GetVpcAttachmentsFilterArgs', 'GetVpcAttachmentsFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2transitgateway/getVpcAttachments:getVpcAttachments', __args__, opts=opts, typ=GetVpcAttachmentsResult)
     return __ret__.apply(lambda __response__: GetVpcAttachmentsResult(
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
-        ids=pulumi.get(__response__, 'ids')))
+        ids=pulumi.get(__response__, 'ids'),
+        region=pulumi.get(__response__, 'region')))

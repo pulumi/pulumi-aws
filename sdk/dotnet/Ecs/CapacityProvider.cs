@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var test = new Aws.AutoScaling.Group("test", new()
+    ///     var example = new Aws.AutoScaling.Group("example", new()
     ///     {
     ///         Tags = new[]
     ///         {
@@ -37,12 +37,12 @@ namespace Pulumi.Aws.Ecs
     ///         },
     ///     });
     /// 
-    ///     var testCapacityProvider = new Aws.Ecs.CapacityProvider("test", new()
+    ///     var exampleCapacityProvider = new Aws.Ecs.CapacityProvider("example", new()
     ///     {
-    ///         Name = "test",
+    ///         Name = "example",
     ///         AutoScalingGroupProvider = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderArgs
     ///         {
-    ///             AutoScalingGroupArn = test.Arn,
+    ///             AutoScalingGroupArn = example.Arn,
     ///             ManagedTerminationProtection = "ENABLED",
     ///             ManagedScaling = new Aws.Ecs.Inputs.CapacityProviderAutoScalingGroupProviderManagedScalingArgs
     ///             {
@@ -59,10 +59,10 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import ECS Capacity Providers using the `name`. For example:
+    /// Using `pulumi import`, import ECS Capacity Providers using the `arn`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
+    /// $ pulumi import aws:ecs/capacityProvider:CapacityProvider example arn:aws:ecs:us-west-2:123456789012:capacity-provider/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecs/capacityProvider:CapacityProvider")]
@@ -85,6 +85,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -156,6 +162,12 @@ namespace Pulumi.Aws.Ecs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -194,6 +206,12 @@ namespace Pulumi.Aws.Ecs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -212,7 +230,6 @@ namespace Pulumi.Aws.Ecs
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

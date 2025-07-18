@@ -32,6 +32,7 @@ class DataSourceArgs:
                  lambda_config: Optional[pulumi.Input['DataSourceLambdaConfigArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  opensearchservice_config: Optional[pulumi.Input['DataSourceOpensearchserviceConfigArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  relational_database_config: Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']] = None,
                  service_role_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -46,6 +47,7 @@ class DataSourceArgs:
         :param pulumi.Input['DataSourceLambdaConfigArgs'] lambda_config: AWS Lambda settings. See `lambda_config` Block for details.
         :param pulumi.Input[builtins.str] name: User-supplied name for the data source.
         :param pulumi.Input['DataSourceOpensearchserviceConfigArgs'] opensearchservice_config: Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DataSourceRelationalDatabaseConfigArgs'] relational_database_config: AWS RDS settings. See `relational_database_config` Block for details.
         :param pulumi.Input[builtins.str] service_role_arn: IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         """
@@ -67,6 +69,8 @@ class DataSourceArgs:
             pulumi.set(__self__, "name", name)
         if opensearchservice_config is not None:
             pulumi.set(__self__, "opensearchservice_config", opensearchservice_config)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if relational_database_config is not None:
             pulumi.set(__self__, "relational_database_config", relational_database_config)
         if service_role_arn is not None:
@@ -193,6 +197,18 @@ class DataSourceArgs:
         pulumi.set(self, "opensearchservice_config", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="relationalDatabaseConfig")
     def relational_database_config(self) -> Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']]:
         """
@@ -230,6 +246,7 @@ class _DataSourceState:
                  lambda_config: Optional[pulumi.Input['DataSourceLambdaConfigArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  opensearchservice_config: Optional[pulumi.Input['DataSourceOpensearchserviceConfigArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  relational_database_config: Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']] = None,
                  service_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
@@ -245,6 +262,7 @@ class _DataSourceState:
         :param pulumi.Input['DataSourceLambdaConfigArgs'] lambda_config: AWS Lambda settings. See `lambda_config` Block for details.
         :param pulumi.Input[builtins.str] name: User-supplied name for the data source.
         :param pulumi.Input['DataSourceOpensearchserviceConfigArgs'] opensearchservice_config: Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DataSourceRelationalDatabaseConfigArgs'] relational_database_config: AWS RDS settings. See `relational_database_config` Block for details.
         :param pulumi.Input[builtins.str] service_role_arn: IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         :param pulumi.Input[builtins.str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
@@ -269,6 +287,8 @@ class _DataSourceState:
             pulumi.set(__self__, "name", name)
         if opensearchservice_config is not None:
             pulumi.set(__self__, "opensearchservice_config", opensearchservice_config)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if relational_database_config is not None:
             pulumi.set(__self__, "relational_database_config", relational_database_config)
         if service_role_arn is not None:
@@ -397,6 +417,18 @@ class _DataSourceState:
         pulumi.set(self, "opensearchservice_config", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="relationalDatabaseConfig")
     def relational_database_config(self) -> Optional[pulumi.Input['DataSourceRelationalDatabaseConfigArgs']]:
         """
@@ -448,6 +480,7 @@ class DataSource(pulumi.CustomResource):
                  lambda_config: Optional[pulumi.Input[Union['DataSourceLambdaConfigArgs', 'DataSourceLambdaConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  opensearchservice_config: Optional[pulumi.Input[Union['DataSourceOpensearchserviceConfigArgs', 'DataSourceOpensearchserviceConfigArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  relational_database_config: Optional[pulumi.Input[Union['DataSourceRelationalDatabaseConfigArgs', 'DataSourceRelationalDatabaseConfigArgsDict']]] = None,
                  service_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
@@ -522,6 +555,7 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[Union['DataSourceLambdaConfigArgs', 'DataSourceLambdaConfigArgsDict']] lambda_config: AWS Lambda settings. See `lambda_config` Block for details.
         :param pulumi.Input[builtins.str] name: User-supplied name for the data source.
         :param pulumi.Input[Union['DataSourceOpensearchserviceConfigArgs', 'DataSourceOpensearchserviceConfigArgsDict']] opensearchservice_config: Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DataSourceRelationalDatabaseConfigArgs', 'DataSourceRelationalDatabaseConfigArgsDict']] relational_database_config: AWS RDS settings. See `relational_database_config` Block for details.
         :param pulumi.Input[builtins.str] service_role_arn: IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         :param pulumi.Input[builtins.str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
@@ -615,6 +649,7 @@ class DataSource(pulumi.CustomResource):
                  lambda_config: Optional[pulumi.Input[Union['DataSourceLambdaConfigArgs', 'DataSourceLambdaConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  opensearchservice_config: Optional[pulumi.Input[Union['DataSourceOpensearchserviceConfigArgs', 'DataSourceOpensearchserviceConfigArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  relational_database_config: Optional[pulumi.Input[Union['DataSourceRelationalDatabaseConfigArgs', 'DataSourceRelationalDatabaseConfigArgsDict']]] = None,
                  service_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
@@ -638,6 +673,7 @@ class DataSource(pulumi.CustomResource):
             __props__.__dict__["lambda_config"] = lambda_config
             __props__.__dict__["name"] = name
             __props__.__dict__["opensearchservice_config"] = opensearchservice_config
+            __props__.__dict__["region"] = region
             __props__.__dict__["relational_database_config"] = relational_database_config
             __props__.__dict__["service_role_arn"] = service_role_arn
             if type is None and not opts.urn:
@@ -664,6 +700,7 @@ class DataSource(pulumi.CustomResource):
             lambda_config: Optional[pulumi.Input[Union['DataSourceLambdaConfigArgs', 'DataSourceLambdaConfigArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             opensearchservice_config: Optional[pulumi.Input[Union['DataSourceOpensearchserviceConfigArgs', 'DataSourceOpensearchserviceConfigArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             relational_database_config: Optional[pulumi.Input[Union['DataSourceRelationalDatabaseConfigArgs', 'DataSourceRelationalDatabaseConfigArgsDict']]] = None,
             service_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None) -> 'DataSource':
@@ -684,6 +721,7 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[Union['DataSourceLambdaConfigArgs', 'DataSourceLambdaConfigArgsDict']] lambda_config: AWS Lambda settings. See `lambda_config` Block for details.
         :param pulumi.Input[builtins.str] name: User-supplied name for the data source.
         :param pulumi.Input[Union['DataSourceOpensearchserviceConfigArgs', 'DataSourceOpensearchserviceConfigArgsDict']] opensearchservice_config: Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DataSourceRelationalDatabaseConfigArgs', 'DataSourceRelationalDatabaseConfigArgsDict']] relational_database_config: AWS RDS settings. See `relational_database_config` Block for details.
         :param pulumi.Input[builtins.str] service_role_arn: IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         :param pulumi.Input[builtins.str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
@@ -702,6 +740,7 @@ class DataSource(pulumi.CustomResource):
         __props__.__dict__["lambda_config"] = lambda_config
         __props__.__dict__["name"] = name
         __props__.__dict__["opensearchservice_config"] = opensearchservice_config
+        __props__.__dict__["region"] = region
         __props__.__dict__["relational_database_config"] = relational_database_config
         __props__.__dict__["service_role_arn"] = service_role_arn
         __props__.__dict__["type"] = type
@@ -786,6 +825,14 @@ class DataSource(pulumi.CustomResource):
         Amazon OpenSearch Service settings. See `opensearchservice_config` Block for details.
         """
         return pulumi.get(self, "opensearchservice_config")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="relationalDatabaseConfig")

@@ -27,13 +27,16 @@ class GetRulesPackagesResult:
     """
     A collection of values returned by getRulesPackages.
     """
-    def __init__(__self__, arns=None, id=None):
+    def __init__(__self__, arns=None, id=None, region=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         pulumi.set(__self__, "arns", arns)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -51,6 +54,11 @@ class GetRulesPackagesResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetRulesPackagesResult(GetRulesPackagesResult):
     # pylint: disable=using-constant-test
@@ -59,10 +67,12 @@ class AwaitableGetRulesPackagesResult(GetRulesPackagesResult):
             yield self
         return GetRulesPackagesResult(
             arns=self.arns,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
-def get_rules_packages(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRulesPackagesResult:
+def get_rules_packages(region: Optional[builtins.str] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRulesPackagesResult:
     """
     The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
     Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
@@ -89,15 +99,21 @@ def get_rules_packages(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitable
         duration=60,
         rules_package_arns=rules.arns)
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:inspector/getRulesPackages:getRulesPackages', __args__, opts=opts, typ=GetRulesPackagesResult).value
 
     return AwaitableGetRulesPackagesResult(
         arns=pulumi.get(__ret__, 'arns'),
-        id=pulumi.get(__ret__, 'id'))
-def get_rules_packages_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRulesPackagesResult]:
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
+def get_rules_packages_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRulesPackagesResult]:
     """
     The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
     Inspector Rules Packages which can be used by Amazon Inspector Classic within the region
@@ -124,10 +140,15 @@ def get_rules_packages_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.
         duration=60,
         rules_package_arns=rules.arns)
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:inspector/getRulesPackages:getRulesPackages', __args__, opts=opts, typ=GetRulesPackagesResult)
     return __ret__.apply(lambda __response__: GetRulesPackagesResult(
         arns=pulumi.get(__response__, 'arns'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

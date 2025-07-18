@@ -17,6 +17,21 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
 
     public static final ReplicationSubnetGroupState Empty = new ReplicationSubnetGroupState();
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="replicationSubnetGroupArn")
     private @Nullable Output<String> replicationSubnetGroupArn;
 
@@ -87,22 +102,14 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -125,6 +132,7 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
     private ReplicationSubnetGroupState() {}
 
     private ReplicationSubnetGroupState(ReplicationSubnetGroupState $) {
+        this.region = $.region;
         this.replicationSubnetGroupArn = $.replicationSubnetGroupArn;
         this.replicationSubnetGroupDescription = $.replicationSubnetGroupDescription;
         this.replicationSubnetGroupId = $.replicationSubnetGroupId;
@@ -150,6 +158,27 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
 
         public Builder(ReplicationSubnetGroupState defaults) {
             $ = new ReplicationSubnetGroupState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder replicationSubnetGroupArn(@Nullable Output<String> replicationSubnetGroupArn) {
@@ -260,11 +289,7 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -275,11 +300,7 @@ public final class ReplicationSubnetGroupState extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

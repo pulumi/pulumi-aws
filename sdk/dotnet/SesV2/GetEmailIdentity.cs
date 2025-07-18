@@ -99,6 +99,12 @@ namespace Pulumi.Aws.SesV2
         [Input("emailIdentity", required: true)]
         public string EmailIdentity { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -124,6 +130,12 @@ namespace Pulumi.Aws.SesV2
         /// </summary>
         [Input("emailIdentity", required: true)]
         public Input<string> EmailIdentity { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -165,6 +177,7 @@ namespace Pulumi.Aws.SesV2
         /// The email identity type. Valid values: `EMAIL_ADDRESS`, `DOMAIN`.
         /// </summary>
         public readonly string IdentityType;
+        public readonly string Region;
         /// <summary>
         /// Key-value mapping of resource tags.
         /// </summary>
@@ -188,6 +201,8 @@ namespace Pulumi.Aws.SesV2
 
             string identityType,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             bool verifiedForSendingStatus)
@@ -198,6 +213,7 @@ namespace Pulumi.Aws.SesV2
             EmailIdentity = emailIdentity;
             Id = id;
             IdentityType = identityType;
+            Region = region;
             Tags = tags;
             VerifiedForSendingStatus = verifiedForSendingStatus;
         }

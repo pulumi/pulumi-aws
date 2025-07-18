@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,15 +27,15 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := ssoadmin.GetInstances(ctx, map[string]interface{}{}, nil)
+//			example, err := ssoadmin.GetInstances(ctx, &ssoadmin.GetInstancesArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -96,7 +96,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -135,6 +135,8 @@ type PermissionsBoundaryAttachment struct {
 	PermissionSetArn pulumi.StringOutput `pulumi:"permissionSetArn"`
 	// The permissions boundary policy. See below.
 	PermissionsBoundary PermissionsBoundaryAttachmentPermissionsBoundaryOutput `pulumi:"permissionsBoundary"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewPermissionsBoundaryAttachment registers a new resource with the given unique name, arguments, and options.
@@ -182,6 +184,8 @@ type permissionsBoundaryAttachmentState struct {
 	PermissionSetArn *string `pulumi:"permissionSetArn"`
 	// The permissions boundary policy. See below.
 	PermissionsBoundary *PermissionsBoundaryAttachmentPermissionsBoundary `pulumi:"permissionsBoundary"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type PermissionsBoundaryAttachmentState struct {
@@ -191,6 +195,8 @@ type PermissionsBoundaryAttachmentState struct {
 	PermissionSetArn pulumi.StringPtrInput
 	// The permissions boundary policy. See below.
 	PermissionsBoundary PermissionsBoundaryAttachmentPermissionsBoundaryPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PermissionsBoundaryAttachmentState) ElementType() reflect.Type {
@@ -204,6 +210,8 @@ type permissionsBoundaryAttachmentArgs struct {
 	PermissionSetArn string `pulumi:"permissionSetArn"`
 	// The permissions boundary policy. See below.
 	PermissionsBoundary PermissionsBoundaryAttachmentPermissionsBoundary `pulumi:"permissionsBoundary"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a PermissionsBoundaryAttachment resource.
@@ -214,6 +222,8 @@ type PermissionsBoundaryAttachmentArgs struct {
 	PermissionSetArn pulumi.StringInput
 	// The permissions boundary policy. See below.
 	PermissionsBoundary PermissionsBoundaryAttachmentPermissionsBoundaryInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (PermissionsBoundaryAttachmentArgs) ElementType() reflect.Type {
@@ -318,6 +328,11 @@ func (o PermissionsBoundaryAttachmentOutput) PermissionsBoundary() PermissionsBo
 	return o.ApplyT(func(v *PermissionsBoundaryAttachment) PermissionsBoundaryAttachmentPermissionsBoundaryOutput {
 		return v.PermissionsBoundary
 	}).(PermissionsBoundaryAttachmentPermissionsBoundaryOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o PermissionsBoundaryAttachmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *PermissionsBoundaryAttachment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type PermissionsBoundaryAttachmentArrayOutput struct{ *pulumi.OutputState }

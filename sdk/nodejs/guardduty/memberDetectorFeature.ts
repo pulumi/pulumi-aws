@@ -22,18 +22,8 @@ import * as utilities from "../utilities";
  * const runtimeMonitoring = new aws.guardduty.MemberDetectorFeature("runtime_monitoring", {
  *     detectorId: example.id,
  *     accountId: "123456789012",
- *     name: "RUNTIME_MONITORING",
+ *     name: "S3_DATA_EVENTS",
  *     status: "ENABLED",
- *     additionalConfigurations: [
- *         {
- *             name: "EKS_ADDON_MANAGEMENT",
- *             status: "ENABLED",
- *         },
- *         {
- *             name: "ECS_FARGATE_AGENT_MANAGEMENT",
- *             status: "ENABLED",
- *         },
- *     ],
  * });
  * ```
  */
@@ -82,6 +72,10 @@ export class MemberDetectorFeature extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      */
     public readonly status!: pulumi.Output<string>;
@@ -103,6 +97,7 @@ export class MemberDetectorFeature extends pulumi.CustomResource {
             resourceInputs["additionalConfigurations"] = state ? state.additionalConfigurations : undefined;
             resourceInputs["detectorId"] = state ? state.detectorId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as MemberDetectorFeatureArgs | undefined;
@@ -119,6 +114,7 @@ export class MemberDetectorFeature extends pulumi.CustomResource {
             resourceInputs["additionalConfigurations"] = args ? args.additionalConfigurations : undefined;
             resourceInputs["detectorId"] = args ? args.detectorId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -147,6 +143,10 @@ export interface MemberDetectorFeatureState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      */
     status?: pulumi.Input<string>;
@@ -172,6 +172,10 @@ export interface MemberDetectorFeatureArgs {
      * The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
      */

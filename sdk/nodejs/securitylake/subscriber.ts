@@ -21,12 +21,12 @@ import * as utilities from "../utilities";
  * const example = new aws.securitylake.Subscriber("example", {
  *     subscriberName: "example-name",
  *     accessType: "S3",
- *     source: {
+ *     sources: [{
  *         awsLogSourceResource: {
  *             sourceName: "ROUTE53",
  *             sourceVersion: "1.0",
  *         },
- *     },
+ *     }],
  *     subscriberIdentity: {
  *         externalId: "example",
  *         principal: "1234567890",
@@ -81,6 +81,10 @@ export class Subscriber extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
      */
     public /*out*/ readonly resourceShareArn!: pulumi.Output<string>;
@@ -99,7 +103,7 @@ export class Subscriber extends pulumi.CustomResource {
     /**
      * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      */
-    public readonly source!: pulumi.Output<outputs.securitylake.SubscriberSource | undefined>;
+    public readonly sources!: pulumi.Output<outputs.securitylake.SubscriberSource[] | undefined>;
     /**
      * The description for your subscriber account in Security Lake.
      */
@@ -126,8 +130,6 @@ export class Subscriber extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.securitylake.SubscriberTimeouts | undefined>;
@@ -147,11 +149,12 @@ export class Subscriber extends pulumi.CustomResource {
             const state = argsOrState as SubscriberState | undefined;
             resourceInputs["accessType"] = state ? state.accessType : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceShareArn"] = state ? state.resourceShareArn : undefined;
             resourceInputs["resourceShareName"] = state ? state.resourceShareName : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["s3BucketArn"] = state ? state.s3BucketArn : undefined;
-            resourceInputs["source"] = state ? state.source : undefined;
+            resourceInputs["sources"] = state ? state.sources : undefined;
             resourceInputs["subscriberDescription"] = state ? state.subscriberDescription : undefined;
             resourceInputs["subscriberEndpoint"] = state ? state.subscriberEndpoint : undefined;
             resourceInputs["subscriberIdentity"] = state ? state.subscriberIdentity : undefined;
@@ -163,7 +166,8 @@ export class Subscriber extends pulumi.CustomResource {
         } else {
             const args = argsOrState as SubscriberArgs | undefined;
             resourceInputs["accessType"] = args ? args.accessType : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["sources"] = args ? args.sources : undefined;
             resourceInputs["subscriberDescription"] = args ? args.subscriberDescription : undefined;
             resourceInputs["subscriberIdentity"] = args ? args.subscriberIdentity : undefined;
             resourceInputs["subscriberName"] = args ? args.subscriberName : undefined;
@@ -196,6 +200,10 @@ export interface SubscriberState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
      */
     resourceShareArn?: pulumi.Input<string>;
@@ -214,7 +222,7 @@ export interface SubscriberState {
     /**
      * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      */
-    source?: pulumi.Input<inputs.securitylake.SubscriberSource>;
+    sources?: pulumi.Input<pulumi.Input<inputs.securitylake.SubscriberSource>[]>;
     /**
      * The description for your subscriber account in Security Lake.
      */
@@ -241,8 +249,6 @@ export interface SubscriberState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.securitylake.SubscriberTimeouts>;
@@ -257,9 +263,13 @@ export interface SubscriberArgs {
      */
     accessType?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      */
-    source?: pulumi.Input<inputs.securitylake.SubscriberSource>;
+    sources?: pulumi.Input<pulumi.Input<inputs.securitylake.SubscriberSource>[]>;
     /**
      * The description for your subscriber account in Security Lake.
      */

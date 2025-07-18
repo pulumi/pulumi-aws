@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,6 +59,8 @@ func GetMaintenanceWindows(ctx *pulumi.Context, args *GetMaintenanceWindowsArgs,
 type GetMaintenanceWindowsArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetMaintenanceWindowsFilter `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getMaintenanceWindows.
@@ -67,7 +69,8 @@ type GetMaintenanceWindowsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of window IDs of the matched SSM maintenance windows.
-	Ids []string `pulumi:"ids"`
+	Ids    []string `pulumi:"ids"`
+	Region string   `pulumi:"region"`
 }
 
 func GetMaintenanceWindowsOutput(ctx *pulumi.Context, args GetMaintenanceWindowsOutputArgs, opts ...pulumi.InvokeOption) GetMaintenanceWindowsResultOutput {
@@ -83,6 +86,8 @@ func GetMaintenanceWindowsOutput(ctx *pulumi.Context, args GetMaintenanceWindows
 type GetMaintenanceWindowsOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetMaintenanceWindowsFilterArrayInput `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetMaintenanceWindowsOutputArgs) ElementType() reflect.Type {
@@ -116,6 +121,10 @@ func (o GetMaintenanceWindowsResultOutput) Id() pulumi.StringOutput {
 // List of window IDs of the matched SSM maintenance windows.
 func (o GetMaintenanceWindowsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetMaintenanceWindowsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetMaintenanceWindowsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMaintenanceWindowsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

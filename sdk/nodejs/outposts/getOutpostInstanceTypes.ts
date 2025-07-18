@@ -22,6 +22,7 @@ export function getOutpostInstanceTypes(args: GetOutpostInstanceTypesArgs, opts?
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes", {
         "arn": args.arn,
+        "region": args.region,
     }, opts);
 }
 
@@ -33,6 +34,10 @@ export interface GetOutpostInstanceTypesArgs {
      * Outpost ARN.
      */
     arn: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -48,6 +53,7 @@ export interface GetOutpostInstanceTypesResult {
      * Set of instance types.
      */
     readonly instanceTypes: string[];
+    readonly region: string;
 }
 /**
  * Information about Outposts Instance Types.
@@ -67,6 +73,7 @@ export function getOutpostInstanceTypesOutput(args: GetOutpostInstanceTypesOutpu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes", {
         "arn": args.arn,
+        "region": args.region,
     }, opts);
 }
 
@@ -78,4 +85,8 @@ export interface GetOutpostInstanceTypesOutputArgs {
      * Outpost ARN.
      */
     arn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

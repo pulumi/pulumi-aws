@@ -25,6 +25,7 @@ export function getDirectory(args: GetDirectoryArgs, opts?: pulumi.InvokeOptions
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:directoryservice/getDirectory:getDirectory", {
         "directoryId": args.directoryId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,10 @@ export interface GetDirectoryArgs {
      * ID of the directory.
      */
     directoryId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * A map of tags assigned to the directory/connector.
      */
@@ -82,6 +87,7 @@ export interface GetDirectoryResult {
      */
     readonly name: string;
     readonly radiusSettings: outputs.directoryservice.GetDirectoryRadiusSetting[];
+    readonly region: string;
     /**
      * ID of the security group created by the directory/connector.
      */
@@ -122,6 +128,7 @@ export function getDirectoryOutput(args: GetDirectoryOutputArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:directoryservice/getDirectory:getDirectory", {
         "directoryId": args.directoryId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -134,6 +141,10 @@ export interface GetDirectoryOutputArgs {
      * ID of the directory.
      */
     directoryId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags assigned to the directory/connector.
      */

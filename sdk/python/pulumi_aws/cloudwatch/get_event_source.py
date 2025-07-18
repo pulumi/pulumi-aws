@@ -27,7 +27,7 @@ class GetEventSourceResult:
     """
     A collection of values returned by getEventSource.
     """
-    def __init__(__self__, arn=None, created_by=None, id=None, name=None, name_prefix=None, state=None):
+    def __init__(__self__, arn=None, created_by=None, id=None, name=None, name_prefix=None, region=None, state=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -43,6 +43,9 @@ class GetEventSourceResult:
         if name_prefix and not isinstance(name_prefix, str):
             raise TypeError("Expected argument 'name_prefix' to be a str")
         pulumi.set(__self__, "name_prefix", name_prefix)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -86,6 +89,11 @@ class GetEventSourceResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def state(self) -> builtins.str:
         """
         State of the event source (`ACTIVE` or `PENDING`)
@@ -104,10 +112,12 @@ class AwaitableGetEventSourceResult(GetEventSourceResult):
             id=self.id,
             name=self.name,
             name_prefix=self.name_prefix,
+            region=self.region,
             state=self.state)
 
 
 def get_event_source(name_prefix: Optional[builtins.str] = None,
+                     region: Optional[builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventSourceResult:
     """
     Use this data source to get information about an EventBridge Partner Event Source. This data source will only return one partner event source. An error will be returned if multiple sources match the same name prefix.
@@ -125,9 +135,11 @@ def get_event_source(name_prefix: Optional[builtins.str] = None,
 
 
     :param builtins.str name_prefix: Specifying this limits the results to only those partner event sources with names that start with the specified prefix
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['namePrefix'] = name_prefix
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:cloudwatch/getEventSource:getEventSource', __args__, opts=opts, typ=GetEventSourceResult).value
 
@@ -137,8 +149,10 @@ def get_event_source(name_prefix: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         name_prefix=pulumi.get(__ret__, 'name_prefix'),
+        region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'))
 def get_event_source_output(name_prefix: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventSourceResult]:
     """
     Use this data source to get information about an EventBridge Partner Event Source. This data source will only return one partner event source. An error will be returned if multiple sources match the same name prefix.
@@ -156,9 +170,11 @@ def get_event_source_output(name_prefix: Optional[pulumi.Input[Optional[builtins
 
 
     :param builtins.str name_prefix: Specifying this limits the results to only those partner event sources with names that start with the specified prefix
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['namePrefix'] = name_prefix
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudwatch/getEventSource:getEventSource', __args__, opts=opts, typ=GetEventSourceResult)
     return __ret__.apply(lambda __response__: GetEventSourceResult(
@@ -167,4 +183,5 @@ def get_event_source_output(name_prefix: Optional[pulumi.Input[Optional[builtins
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         name_prefix=pulumi.get(__response__, 'name_prefix'),
+        region=pulumi.get(__response__, 'region'),
         state=pulumi.get(__response__, 'state')))

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,8 +24,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/licensemanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/licensemanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,6 +68,8 @@ func GetLicenseGrants(ctx *pulumi.Context, args *GetLicenseGrantsArgs, opts ...p
 type GetLicenseGrantsArgs struct {
 	// Custom filter block as described below.
 	Filters []GetLicenseGrantsFilter `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLicenseGrants.
@@ -76,7 +78,8 @@ type GetLicenseGrantsResult struct {
 	Arns    []string                 `pulumi:"arns"`
 	Filters []GetLicenseGrantsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func GetLicenseGrantsOutput(ctx *pulumi.Context, args GetLicenseGrantsOutputArgs, opts ...pulumi.InvokeOption) GetLicenseGrantsResultOutput {
@@ -92,6 +95,8 @@ func GetLicenseGrantsOutput(ctx *pulumi.Context, args GetLicenseGrantsOutputArgs
 type GetLicenseGrantsOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetLicenseGrantsFilterArrayInput `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetLicenseGrantsOutputArgs) ElementType() reflect.Type {
@@ -125,6 +130,10 @@ func (o GetLicenseGrantsResultOutput) Filters() GetLicenseGrantsFilterArrayOutpu
 // The provider-assigned unique ID for this managed resource.
 func (o GetLicenseGrantsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLicenseGrantsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetLicenseGrantsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLicenseGrantsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

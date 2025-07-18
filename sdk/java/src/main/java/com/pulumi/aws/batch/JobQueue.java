@@ -175,24 +175,6 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.computeEnvironmentOrders);
     }
     /**
-     * (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
-     * 
-     * @deprecated
-     * This parameter will be replaced by `compute_environment_order`.
-     * 
-     */
-    @Deprecated /* This parameter will be replaced by `compute_environment_order`. */
-    @Export(name="computeEnvironments", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> computeEnvironments;
-
-    /**
-     * @return (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
-     * 
-     */
-    public Output<Optional<List<String>>> computeEnvironments() {
-        return Codegen.optional(this.computeEnvironments);
-    }
-    /**
      * The set of job state time limit actions mapped to a job queue. Specifies an action that AWS Batch will take after the job has remained at the head of the queue in the specified state for longer than the specified time.
      * 
      */
@@ -235,6 +217,20 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> priority() {
         return this.priority;
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * The ARN of the fair share scheduling policy. If this parameter is specified, the job queue uses a fair share scheduling policy. If this parameter isn&#39;t specified, the job queue uses a first in, first out (FIFO) scheduling policy. After a job queue is created, you can replace but can&#39;t remove the fair share scheduling policy.
@@ -281,11 +277,7 @@ public class JobQueue extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

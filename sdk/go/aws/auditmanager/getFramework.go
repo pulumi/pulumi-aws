@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/auditmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,10 +53,11 @@ func LookupFramework(ctx *pulumi.Context, args *LookupFrameworkArgs, opts ...pul
 
 // A collection of arguments for invoking getFramework.
 type LookupFrameworkArgs struct {
-	ControlSets   []GetFrameworkControlSet `pulumi:"controlSets"`
-	FrameworkType string                   `pulumi:"frameworkType"`
+	FrameworkType string `pulumi:"frameworkType"`
 	// Name of the framework.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getFramework.
@@ -68,6 +69,7 @@ type LookupFrameworkResult struct {
 	FrameworkType  string                   `pulumi:"frameworkType"`
 	Id             string                   `pulumi:"id"`
 	Name           string                   `pulumi:"name"`
+	Region         string                   `pulumi:"region"`
 	Tags           map[string]string        `pulumi:"tags"`
 }
 
@@ -82,10 +84,11 @@ func LookupFrameworkOutput(ctx *pulumi.Context, args LookupFrameworkOutputArgs, 
 
 // A collection of arguments for invoking getFramework.
 type LookupFrameworkOutputArgs struct {
-	ControlSets   GetFrameworkControlSetArrayInput `pulumi:"controlSets"`
-	FrameworkType pulumi.StringInput               `pulumi:"frameworkType"`
+	FrameworkType pulumi.StringInput `pulumi:"frameworkType"`
 	// Name of the framework.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupFrameworkOutputArgs) ElementType() reflect.Type {
@@ -133,6 +136,10 @@ func (o LookupFrameworkResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupFrameworkResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFrameworkResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupFrameworkResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFrameworkResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupFrameworkResultOutput) Tags() pulumi.StringMapOutput {

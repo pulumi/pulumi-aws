@@ -7,11 +7,13 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.s3.BucketAclV2Args;
 import com.pulumi.aws.s3.inputs.BucketAclV2State;
 import com.pulumi.aws.s3.outputs.BucketAclV2AccessControlPolicy;
+import com.pulumi.core.Alias;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -34,13 +36,13 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3.BucketOwnershipControls;
  * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
  * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -55,7 +57,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()
+ *         var example = new Bucket("example", BucketArgs.builder()
  *             .bucket("my-tf-example-bucket")
  *             .build());
  * 
@@ -66,7 +68,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
+ *         var exampleBucketAcl = new BucketAcl("exampleBucketAcl", BucketAclArgs.builder()
  *             .bucket(example.id())
  *             .acl("private")
  *             .build(), CustomResourceOptions.builder()
@@ -92,15 +94,15 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3.BucketOwnershipControls;
  * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
  * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
  * import com.pulumi.aws.s3.BucketPublicAccessBlock;
  * import com.pulumi.aws.s3.BucketPublicAccessBlockArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -115,7 +117,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new BucketV2("example", BucketV2Args.builder()
+ *         var example = new Bucket("example", BucketArgs.builder()
  *             .bucket("my-tf-example-bucket")
  *             .build());
  * 
@@ -134,7 +136,7 @@ import javax.annotation.Nullable;
  *             .restrictPublicBuckets(false)
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
+ *         var exampleBucketAcl = new BucketAcl("exampleBucketAcl", BucketAclArgs.builder()
  *             .bucket(example.id())
  *             .acl("public-read")
  *             .build(), CustomResourceOptions.builder()
@@ -160,15 +162,15 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.S3Functions;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3.BucketOwnershipControls;
  * import com.pulumi.aws.s3.BucketOwnershipControlsArgs;
  * import com.pulumi.aws.s3.inputs.BucketOwnershipControlsRuleArgs;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
- * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyArgs;
- * import com.pulumi.aws.s3.inputs.BucketAclV2AccessControlPolicyOwnerArgs;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
+ * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
+ * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -185,7 +187,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = S3Functions.getCanonicalUserId(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
  * 
- *         var example = new BucketV2("example", BucketV2Args.builder()
+ *         var example = new Bucket("example", BucketArgs.builder()
  *             .bucket("my-tf-example-bucket")
  *             .build());
  * 
@@ -196,25 +198,25 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var exampleBucketAclV2 = new BucketAclV2("exampleBucketAclV2", BucketAclV2Args.builder()
+ *         var exampleBucketAcl = new BucketAcl("exampleBucketAcl", BucketAclArgs.builder()
  *             .bucket(example.id())
- *             .accessControlPolicy(BucketAclV2AccessControlPolicyArgs.builder()
+ *             .accessControlPolicy(BucketAclAccessControlPolicyArgs.builder()
  *                 .grants(                
- *                     BucketAclV2AccessControlPolicyGrantArgs.builder()
- *                         .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
+ *                     BucketAclAccessControlPolicyGrantArgs.builder()
+ *                         .grantee(BucketAclAccessControlPolicyGrantGranteeArgs.builder()
  *                             .id(current.id())
  *                             .type("CanonicalUser")
  *                             .build())
  *                         .permission("READ")
  *                         .build(),
- *                     BucketAclV2AccessControlPolicyGrantArgs.builder()
- *                         .grantee(BucketAclV2AccessControlPolicyGrantGranteeArgs.builder()
+ *                     BucketAclAccessControlPolicyGrantArgs.builder()
+ *                         .grantee(BucketAclAccessControlPolicyGrantGranteeArgs.builder()
  *                             .type("Group")
  *                             .uri("http://acs.amazonaws.com/groups/s3/LogDelivery")
  *                             .build())
  *                         .permission("READ_ACP")
  *                         .build())
- *                 .owner(BucketAclV2AccessControlPolicyOwnerArgs.builder()
+ *                 .owner(BucketAclAccessControlPolicyOwnerArgs.builder()
  *                     .id(current.id())
  *                     .build())
  *                 .build())
@@ -262,7 +264,11 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012,private
  * ```
  * 
+ * @deprecated
+ * aws.s3/bucketaclv2.BucketAclV2 has been deprecated in favor of aws.s3/bucketacl.BucketAcl
+ * 
  */
+@Deprecated /* aws.s3/bucketaclv2.BucketAclV2 has been deprecated in favor of aws.s3/bucketacl.BucketAcl */
 @ResourceType(type="aws:s3/bucketAclV2:BucketAclV2")
 public class BucketAclV2 extends com.pulumi.resources.CustomResource {
     /**
@@ -321,6 +327,20 @@ public class BucketAclV2 extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> expectedBucketOwner() {
         return Codegen.optional(this.expectedBucketOwner);
     }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
 
     /**
      *
@@ -361,6 +381,9 @@ public class BucketAclV2 extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .aliases(List.of(
+                Output.of(Alias.builder().type("aws:s3/bucketAclV2:BucketAclV2").build())
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

@@ -105,6 +105,12 @@ namespace Pulumi.Aws.BedrockFoundation
         [Input("modelId", required: true)]
         public string ModelId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetModelArgs()
         {
         }
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.BedrockFoundation
         /// </summary>
         [Input("modelId", required: true)]
         public Input<string> ModelId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetModelInvokeArgs()
         {
@@ -159,6 +171,7 @@ namespace Pulumi.Aws.BedrockFoundation
         /// Model provider name.
         /// </summary>
         public readonly string ProviderName;
+        public readonly string Region;
         /// <summary>
         /// Indicates whether the model supports streaming.
         /// </summary>
@@ -184,6 +197,8 @@ namespace Pulumi.Aws.BedrockFoundation
 
             string providerName,
 
+            string region,
+
             bool responseStreamingSupported)
         {
             CustomizationsSupporteds = customizationsSupporteds;
@@ -195,6 +210,7 @@ namespace Pulumi.Aws.BedrockFoundation
             ModelName = modelName;
             OutputModalities = outputModalities;
             ProviderName = providerName;
+            Region = region;
             ResponseStreamingSupported = responseStreamingSupported;
         }
     }

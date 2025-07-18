@@ -75,6 +75,10 @@ export class DomainPolicy extends pulumi.CustomResource {
      * Name of the domain.
      */
     public readonly domainName!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DomainPolicy resource with the given unique name, arguments, and options.
@@ -91,6 +95,7 @@ export class DomainPolicy extends pulumi.CustomResource {
             const state = argsOrState as DomainPolicyState | undefined;
             resourceInputs["accessPolicies"] = state ? state.accessPolicies : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DomainPolicyArgs | undefined;
             if ((!args || args.accessPolicies === undefined) && !opts.urn) {
@@ -101,6 +106,7 @@ export class DomainPolicy extends pulumi.CustomResource {
             }
             resourceInputs["accessPolicies"] = args ? args.accessPolicies : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DomainPolicy.__pulumiType, name, resourceInputs, opts);
@@ -119,6 +125,10 @@ export interface DomainPolicyState {
      * Name of the domain.
      */
     domainName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -133,4 +143,8 @@ export interface DomainPolicyArgs {
      * Name of the domain.
      */
     domainName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

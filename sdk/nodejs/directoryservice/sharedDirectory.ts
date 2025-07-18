@@ -84,6 +84,10 @@ export class SharedDirectory extends pulumi.CustomResource {
      */
     public readonly notes!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
      */
     public /*out*/ readonly sharedDirectoryId!: pulumi.Output<string>;
@@ -110,6 +114,7 @@ export class SharedDirectory extends pulumi.CustomResource {
             resourceInputs["directoryId"] = state ? state.directoryId : undefined;
             resourceInputs["method"] = state ? state.method : undefined;
             resourceInputs["notes"] = state ? state.notes : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sharedDirectoryId"] = state ? state.sharedDirectoryId : undefined;
             resourceInputs["target"] = state ? state.target : undefined;
         } else {
@@ -123,6 +128,7 @@ export class SharedDirectory extends pulumi.CustomResource {
             resourceInputs["directoryId"] = args ? args.directoryId : undefined;
             resourceInputs["method"] = args ? args.method : undefined;
             resourceInputs["notes"] = args?.notes ? pulumi.secret(args.notes) : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["target"] = args ? args.target : undefined;
             resourceInputs["sharedDirectoryId"] = undefined /*out*/;
         }
@@ -149,6 +155,10 @@ export interface SharedDirectoryState {
      * Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
      */
     notes?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier of the directory that is stored in the directory consumer account that corresponds to the shared directory in the owner account.
      */
@@ -177,6 +187,10 @@ export interface SharedDirectoryArgs {
      * Message sent by the directory owner to the directory consumer to help the directory consumer administrator determine whether to approve or reject the share invitation.
      */
     notes?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Identifier for the directory consumer account with whom the directory is to be shared. See below.
      *

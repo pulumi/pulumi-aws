@@ -26,6 +26,7 @@ class OrganizationManagedRuleArgs:
                  input_parameters: Optional[pulumi.Input[builtins.str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id_scope: Optional[pulumi.Input[builtins.str]] = None,
                  resource_types_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tag_key_scope: Optional[pulumi.Input[builtins.str]] = None,
@@ -38,6 +39,7 @@ class OrganizationManagedRuleArgs:
         :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config Rule Lambda Function
         :param pulumi.Input[builtins.str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
         :param pulumi.Input[builtins.str] name: The name of the rule
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id_scope: Identifier of the AWS resource to evaluate
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types_scopes: List of types of AWS resources to evaluate
         :param pulumi.Input[builtins.str] tag_key_scope: Tag key of AWS resources to evaluate
@@ -54,6 +56,8 @@ class OrganizationManagedRuleArgs:
             pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_id_scope is not None:
             pulumi.set(__self__, "resource_id_scope", resource_id_scope)
         if resource_types_scopes is not None:
@@ -136,6 +140,18 @@ class OrganizationManagedRuleArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceIdScope")
     def resource_id_scope(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -193,6 +209,7 @@ class _OrganizationManagedRuleState:
                  input_parameters: Optional[pulumi.Input[builtins.str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id_scope: Optional[pulumi.Input[builtins.str]] = None,
                  resource_types_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  rule_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -206,6 +223,7 @@ class _OrganizationManagedRuleState:
         :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config Rule Lambda Function
         :param pulumi.Input[builtins.str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
         :param pulumi.Input[builtins.str] name: The name of the rule
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id_scope: Identifier of the AWS resource to evaluate
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types_scopes: List of types of AWS resources to evaluate
         :param pulumi.Input[builtins.str] rule_identifier: Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
@@ -224,6 +242,8 @@ class _OrganizationManagedRuleState:
             pulumi.set(__self__, "maximum_execution_frequency", maximum_execution_frequency)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_id_scope is not None:
             pulumi.set(__self__, "resource_id_scope", resource_id_scope)
         if resource_types_scopes is not None:
@@ -308,6 +328,18 @@ class _OrganizationManagedRuleState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceIdScope")
     def resource_id_scope(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -379,6 +411,7 @@ class OrganizationManagedRule(pulumi.CustomResource):
                  input_parameters: Optional[pulumi.Input[builtins.str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id_scope: Optional[pulumi.Input[builtins.str]] = None,
                  resource_types_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  rule_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -422,6 +455,7 @@ class OrganizationManagedRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config Rule Lambda Function
         :param pulumi.Input[builtins.str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
         :param pulumi.Input[builtins.str] name: The name of the rule
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id_scope: Identifier of the AWS resource to evaluate
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types_scopes: List of types of AWS resources to evaluate
         :param pulumi.Input[builtins.str] rule_identifier: Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
@@ -484,6 +518,7 @@ class OrganizationManagedRule(pulumi.CustomResource):
                  input_parameters: Optional[pulumi.Input[builtins.str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_id_scope: Optional[pulumi.Input[builtins.str]] = None,
                  resource_types_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  rule_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -503,6 +538,7 @@ class OrganizationManagedRule(pulumi.CustomResource):
             __props__.__dict__["input_parameters"] = input_parameters
             __props__.__dict__["maximum_execution_frequency"] = maximum_execution_frequency
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["resource_id_scope"] = resource_id_scope
             __props__.__dict__["resource_types_scopes"] = resource_types_scopes
             if rule_identifier is None and not opts.urn:
@@ -527,6 +563,7 @@ class OrganizationManagedRule(pulumi.CustomResource):
             input_parameters: Optional[pulumi.Input[builtins.str]] = None,
             maximum_execution_frequency: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_id_scope: Optional[pulumi.Input[builtins.str]] = None,
             resource_types_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             rule_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -545,6 +582,7 @@ class OrganizationManagedRule(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config Rule Lambda Function
         :param pulumi.Input[builtins.str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
         :param pulumi.Input[builtins.str] name: The name of the rule
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_id_scope: Identifier of the AWS resource to evaluate
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_types_scopes: List of types of AWS resources to evaluate
         :param pulumi.Input[builtins.str] rule_identifier: Identifier of an available AWS Config Managed Rule to call. For available values, see the [List of AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html) documentation
@@ -561,6 +599,7 @@ class OrganizationManagedRule(pulumi.CustomResource):
         __props__.__dict__["input_parameters"] = input_parameters
         __props__.__dict__["maximum_execution_frequency"] = maximum_execution_frequency
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_id_scope"] = resource_id_scope
         __props__.__dict__["resource_types_scopes"] = resource_types_scopes
         __props__.__dict__["rule_identifier"] = rule_identifier
@@ -615,6 +654,14 @@ class OrganizationManagedRule(pulumi.CustomResource):
         The name of the rule
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceIdScope")

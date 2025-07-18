@@ -27,7 +27,7 @@ class GetBotResult:
     """
     A collection of values returned by getBot.
     """
-    def __init__(__self__, arn=None, checksum=None, child_directed=None, created_date=None, description=None, detect_sentiment=None, enable_model_improvements=None, failure_reason=None, id=None, idle_session_ttl_in_seconds=None, last_updated_date=None, locale=None, name=None, nlu_intent_confidence_threshold=None, status=None, version=None, voice_id=None):
+    def __init__(__self__, arn=None, checksum=None, child_directed=None, created_date=None, description=None, detect_sentiment=None, enable_model_improvements=None, failure_reason=None, id=None, idle_session_ttl_in_seconds=None, last_updated_date=None, locale=None, name=None, nlu_intent_confidence_threshold=None, region=None, status=None, version=None, voice_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -70,6 +70,9 @@ class GetBotResult:
         if nlu_intent_confidence_threshold and not isinstance(nlu_intent_confidence_threshold, float):
             raise TypeError("Expected argument 'nlu_intent_confidence_threshold' to be a float")
         pulumi.set(__self__, "nlu_intent_confidence_threshold", nlu_intent_confidence_threshold)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -194,6 +197,11 @@ class GetBotResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def status(self) -> builtins.str:
         """
         Status of the bot.
@@ -237,12 +245,14 @@ class AwaitableGetBotResult(GetBotResult):
             locale=self.locale,
             name=self.name,
             nlu_intent_confidence_threshold=self.nlu_intent_confidence_threshold,
+            region=self.region,
             status=self.status,
             version=self.version,
             voice_id=self.voice_id)
 
 
 def get_bot(name: Optional[builtins.str] = None,
+            region: Optional[builtins.str] = None,
             version: Optional[builtins.str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBotResult:
     """
@@ -260,10 +270,12 @@ def get_bot(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the bot. The name is case sensitive.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str version: Version or alias of the bot.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['version'] = version
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:lex/getBot:getBot', __args__, opts=opts, typ=GetBotResult).value
@@ -283,10 +295,12 @@ def get_bot(name: Optional[builtins.str] = None,
         locale=pulumi.get(__ret__, 'locale'),
         name=pulumi.get(__ret__, 'name'),
         nlu_intent_confidence_threshold=pulumi.get(__ret__, 'nlu_intent_confidence_threshold'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
         version=pulumi.get(__ret__, 'version'),
         voice_id=pulumi.get(__ret__, 'voice_id'))
 def get_bot_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                    version: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBotResult]:
     """
@@ -304,10 +318,12 @@ def get_bot_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the bot. The name is case sensitive.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str version: Version or alias of the bot.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['version'] = version
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lex/getBot:getBot', __args__, opts=opts, typ=GetBotResult)
@@ -326,6 +342,7 @@ def get_bot_output(name: Optional[pulumi.Input[builtins.str]] = None,
         locale=pulumi.get(__response__, 'locale'),
         name=pulumi.get(__response__, 'name'),
         nlu_intent_confidence_threshold=pulumi.get(__response__, 'nlu_intent_confidence_threshold'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status'),
         version=pulumi.get(__response__, 'version'),
         voice_id=pulumi.get(__response__, 'voice_id')))

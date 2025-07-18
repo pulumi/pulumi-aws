@@ -26,7 +26,8 @@ class BotAliasArgs:
                  bot_version: pulumi.Input[builtins.str],
                  conversation_logs: Optional[pulumi.Input['BotAliasConversationLogsArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a BotAlias resource.
         :param pulumi.Input[builtins.str] bot_name: The name of the bot.
@@ -34,6 +35,7 @@ class BotAliasArgs:
         :param pulumi.Input['BotAliasConversationLogsArgs'] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
         :param pulumi.Input[builtins.str] description: A description of the alias. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[builtins.str] name: The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bot_name", bot_name)
         pulumi.set(__self__, "bot_version", bot_version)
@@ -43,6 +45,8 @@ class BotAliasArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="botName")
@@ -104,6 +108,18 @@ class BotAliasArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _BotAliasState:
@@ -116,7 +132,8 @@ class _BotAliasState:
                  created_date: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  last_updated_date: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering BotAlias resources.
         :param pulumi.Input[builtins.str] arn: The ARN of the bot alias.
@@ -128,6 +145,7 @@ class _BotAliasState:
         :param pulumi.Input[builtins.str] description: A description of the alias. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[builtins.str] last_updated_date: The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
         :param pulumi.Input[builtins.str] name: The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -147,6 +165,8 @@ class _BotAliasState:
             pulumi.set(__self__, "last_updated_date", last_updated_date)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -256,6 +276,18 @@ class _BotAliasState:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:lex/botAlias:BotAlias")
 class BotAlias(pulumi.CustomResource):
@@ -268,6 +300,7 @@ class BotAlias(pulumi.CustomResource):
                  conversation_logs: Optional[pulumi.Input[Union['BotAliasConversationLogsArgs', 'BotAliasConversationLogsArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides an Amazon Lex Bot Alias resource. For more information see
@@ -301,6 +334,7 @@ class BotAlias(pulumi.CustomResource):
         :param pulumi.Input[Union['BotAliasConversationLogsArgs', 'BotAliasConversationLogsArgsDict']] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
         :param pulumi.Input[builtins.str] description: A description of the alias. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[builtins.str] name: The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -353,6 +387,7 @@ class BotAlias(pulumi.CustomResource):
                  conversation_logs: Optional[pulumi.Input[Union['BotAliasConversationLogsArgs', 'BotAliasConversationLogsArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -371,6 +406,7 @@ class BotAlias(pulumi.CustomResource):
             __props__.__dict__["conversation_logs"] = conversation_logs
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["arn"] = None
             __props__.__dict__["checksum"] = None
             __props__.__dict__["created_date"] = None
@@ -393,7 +429,8 @@ class BotAlias(pulumi.CustomResource):
             created_date: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             last_updated_date: Optional[pulumi.Input[builtins.str]] = None,
-            name: Optional[pulumi.Input[builtins.str]] = None) -> 'BotAlias':
+            name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'BotAlias':
         """
         Get an existing BotAlias resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -410,6 +447,7 @@ class BotAlias(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] description: A description of the alias. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[builtins.str] last_updated_date: The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
         :param pulumi.Input[builtins.str] name: The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -424,6 +462,7 @@ class BotAlias(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["last_updated_date"] = last_updated_date
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         return BotAlias(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -497,4 +536,12 @@ class BotAlias(pulumi.CustomResource):
         The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

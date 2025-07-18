@@ -89,6 +89,10 @@ export class LocationAzureBlob extends pulumi.CustomResource {
      */
     public readonly containerUrl!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
      */
     public readonly sasConfiguration!: pulumi.Output<outputs.datasync.LocationAzureBlobSasConfiguration | undefined>;
@@ -102,8 +106,6 @@ export class LocationAzureBlob extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly uri!: pulumi.Output<string>;
@@ -127,6 +129,7 @@ export class LocationAzureBlob extends pulumi.CustomResource {
             resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
             resourceInputs["blobType"] = state ? state.blobType : undefined;
             resourceInputs["containerUrl"] = state ? state.containerUrl : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sasConfiguration"] = state ? state.sasConfiguration : undefined;
             resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -148,6 +151,7 @@ export class LocationAzureBlob extends pulumi.CustomResource {
             resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
             resourceInputs["blobType"] = args ? args.blobType : undefined;
             resourceInputs["containerUrl"] = args ? args.containerUrl : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sasConfiguration"] = args ? args.sasConfiguration : undefined;
             resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -189,6 +193,10 @@ export interface LocationAzureBlobState {
      */
     containerUrl?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
      */
     sasConfiguration?: pulumi.Input<inputs.datasync.LocationAzureBlobSasConfiguration>;
@@ -202,8 +210,6 @@ export interface LocationAzureBlobState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     uri?: pulumi.Input<string>;
@@ -233,6 +239,10 @@ export interface LocationAzureBlobArgs {
      * The URL of the Azure Blob Storage container involved in your transfer.
      */
     containerUrl: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
      */

@@ -26,6 +26,7 @@ export function getResolverFirewallRuleGroup(args: GetResolverFirewallRuleGroupA
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", {
         "firewallRuleGroupId": args.firewallRuleGroupId,
+        "region": args.region,
     }, opts);
 }
 
@@ -37,6 +38,10 @@ export interface GetResolverFirewallRuleGroupArgs {
      * The ID of the rule group.
      */
     firewallRuleGroupId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -72,6 +77,7 @@ export interface GetResolverFirewallRuleGroupResult {
      * The Amazon Web Services account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
      */
     readonly ownerId: string;
+    readonly region: string;
     /**
      * The number of rules in the rule group.
      */
@@ -111,6 +117,7 @@ export function getResolverFirewallRuleGroupOutput(args: GetResolverFirewallRule
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", {
         "firewallRuleGroupId": args.firewallRuleGroupId,
+        "region": args.region,
     }, opts);
 }
 
@@ -122,4 +129,8 @@ export interface GetResolverFirewallRuleGroupOutputArgs {
      * The ID of the rule group.
      */
     firewallRuleGroupId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

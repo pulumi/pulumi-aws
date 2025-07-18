@@ -29,7 +29,7 @@ class GetReceivedLicensesResult:
     """
     A collection of values returned by getReceivedLicenses.
     """
-    def __init__(__self__, arns=None, filters=None, id=None):
+    def __init__(__self__, arns=None, filters=None, id=None, region=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         pulumi.set(__self__, "arns", arns)
@@ -39,6 +39,9 @@ class GetReceivedLicensesResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -61,6 +64,11 @@ class GetReceivedLicensesResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetReceivedLicensesResult(GetReceivedLicensesResult):
     # pylint: disable=using-constant-test
@@ -70,10 +78,12 @@ class AwaitableGetReceivedLicensesResult(GetReceivedLicensesResult):
         return GetReceivedLicensesResult(
             arns=self.arns,
             filters=self.filters,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
 def get_received_licenses(filters: Optional[Sequence[Union['GetReceivedLicensesFilterArgs', 'GetReceivedLicensesFilterArgsDict']]] = None,
+                          region: Optional[builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReceivedLicensesResult:
     """
     This resource can be used to get a set of license ARNs matching a filter.
@@ -94,17 +104,21 @@ def get_received_licenses(filters: Optional[Sequence[Union['GetReceivedLicensesF
 
 
     :param Sequence[Union['GetReceivedLicensesFilterArgs', 'GetReceivedLicensesFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:licensemanager/getReceivedLicenses:getReceivedLicenses', __args__, opts=opts, typ=GetReceivedLicensesResult).value
 
     return AwaitableGetReceivedLicensesResult(
         arns=pulumi.get(__ret__, 'arns'),
         filters=pulumi.get(__ret__, 'filters'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
 def get_received_licenses_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetReceivedLicensesFilterArgs', 'GetReceivedLicensesFilterArgsDict']]]]] = None,
+                                 region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReceivedLicensesResult]:
     """
     This resource can be used to get a set of license ARNs matching a filter.
@@ -125,12 +139,15 @@ def get_received_licenses_output(filters: Optional[pulumi.Input[Optional[Sequenc
 
 
     :param Sequence[Union['GetReceivedLicensesFilterArgs', 'GetReceivedLicensesFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:licensemanager/getReceivedLicenses:getReceivedLicenses', __args__, opts=opts, typ=GetReceivedLicensesResult)
     return __ret__.apply(lambda __response__: GetReceivedLicensesResult(
         arns=pulumi.get(__response__, 'arns'),
         filters=pulumi.get(__response__, 'filters'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

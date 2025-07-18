@@ -55,6 +55,21 @@ public final class GetVolumePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Map of tags for the resource.
      * 
      */
@@ -74,6 +89,7 @@ public final class GetVolumePlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetVolumePlainArgs(GetVolumePlainArgs $) {
         this.filters = $.filters;
         this.mostRecent = $.mostRecent;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -129,6 +145,17 @@ public final class GetVolumePlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder mostRecent(@Nullable Boolean mostRecent) {
             $.mostRecent = mostRecent;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

@@ -25,6 +25,7 @@ export function getUserHierarchyStructure(args: GetUserHierarchyStructureArgs, o
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:connect/getUserHierarchyStructure:getUserHierarchyStructure", {
         "instanceId": args.instanceId,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,6 +37,10 @@ export interface GetUserHierarchyStructureArgs {
      * Reference to the hosting Amazon Connect Instance
      */
     instanceId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -51,6 +56,7 @@ export interface GetUserHierarchyStructureResult {
      */
     readonly id: string;
     readonly instanceId: string;
+    readonly region: string;
 }
 /**
  * Provides details about a specific Amazon Connect User Hierarchy Structure
@@ -70,6 +76,7 @@ export function getUserHierarchyStructureOutput(args: GetUserHierarchyStructureO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:connect/getUserHierarchyStructure:getUserHierarchyStructure", {
         "instanceId": args.instanceId,
+        "region": args.region,
     }, opts);
 }
 
@@ -81,4 +88,8 @@ export interface GetUserHierarchyStructureOutputArgs {
      * Reference to the hosting Amazon Connect Instance
      */
     instanceId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

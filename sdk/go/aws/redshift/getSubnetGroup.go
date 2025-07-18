@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupSubnetGroup(ctx *pulumi.Context, args *LookupSubnetGroupArgs, opts ..
 type LookupSubnetGroupArgs struct {
 	// Name of the cluster subnet group for which information is requested.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags associated to the Subnet Group
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -63,8 +65,9 @@ type LookupSubnetGroupResult struct {
 	// Description of the Redshift Subnet group.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// An array of VPC subnet IDs.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Tags associated to the Subnet Group
@@ -84,6 +87,8 @@ func LookupSubnetGroupOutput(ctx *pulumi.Context, args LookupSubnetGroupOutputAr
 type LookupSubnetGroupOutputArgs struct {
 	// Name of the cluster subnet group for which information is requested.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags associated to the Subnet Group
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -124,6 +129,10 @@ func (o LookupSubnetGroupResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupSubnetGroupResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupSubnetGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // An array of VPC subnet IDs.

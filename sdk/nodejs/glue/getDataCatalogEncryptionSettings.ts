@@ -14,6 +14,7 @@ export function getDataCatalogEncryptionSettings(args: GetDataCatalogEncryptionS
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", {
         "catalogId": args.catalogId,
+        "region": args.region,
     }, opts);
 }
 
@@ -25,6 +26,10 @@ export interface GetDataCatalogEncryptionSettingsArgs {
      * ID of the Data Catalog. This is typically the AWS account ID.
      */
     catalogId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -40,6 +45,7 @@ export interface GetDataCatalogEncryptionSettingsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
@@ -48,6 +54,7 @@ export function getDataCatalogEncryptionSettingsOutput(args: GetDataCatalogEncry
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", {
         "catalogId": args.catalogId,
+        "region": args.region,
     }, opts);
 }
 
@@ -59,4 +66,8 @@ export interface GetDataCatalogEncryptionSettingsOutputArgs {
      * ID of the Data Catalog. This is typically the AWS account ID.
      */
     catalogId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

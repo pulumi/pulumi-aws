@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -92,6 +92,8 @@ type ReservedInstance struct {
 	ProductDescription pulumi.StringOutput `pulumi:"productDescription"`
 	// Recurring price charged to run this reserved DB instance.
 	RecurringCharges ReservedInstanceRecurringChargeArrayOutput `pulumi:"recurringCharges"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Customer-specified identifier to track this reservation.
 	ReservationId pulumi.StringPtrOutput `pulumi:"reservationId"`
 	// Time the reservation started.
@@ -101,8 +103,6 @@ type ReservedInstance struct {
 	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Hourly price charged for this reserved DB instance.
 	UsagePrice pulumi.Float64Output `pulumi:"usagePrice"`
@@ -167,6 +167,8 @@ type reservedInstanceState struct {
 	ProductDescription *string `pulumi:"productDescription"`
 	// Recurring price charged to run this reserved DB instance.
 	RecurringCharges []ReservedInstanceRecurringCharge `pulumi:"recurringCharges"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Customer-specified identifier to track this reservation.
 	ReservationId *string `pulumi:"reservationId"`
 	// Time the reservation started.
@@ -176,8 +178,6 @@ type reservedInstanceState struct {
 	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Hourly price charged for this reserved DB instance.
 	UsagePrice *float64 `pulumi:"usagePrice"`
@@ -210,6 +210,8 @@ type ReservedInstanceState struct {
 	ProductDescription pulumi.StringPtrInput
 	// Recurring price charged to run this reserved DB instance.
 	RecurringCharges ReservedInstanceRecurringChargeArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Customer-specified identifier to track this reservation.
 	ReservationId pulumi.StringPtrInput
 	// Time the reservation started.
@@ -219,8 +221,6 @@ type ReservedInstanceState struct {
 	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Hourly price charged for this reserved DB instance.
 	UsagePrice pulumi.Float64PtrInput
@@ -237,6 +237,8 @@ type reservedInstanceArgs struct {
 	//
 	// The following arguments are optional:
 	OfferingId string `pulumi:"offeringId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Customer-specified identifier to track this reservation.
 	ReservationId *string `pulumi:"reservationId"`
 	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -251,6 +253,8 @@ type ReservedInstanceArgs struct {
 	//
 	// The following arguments are optional:
 	OfferingId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Customer-specified identifier to track this reservation.
 	ReservationId pulumi.StringPtrInput
 	// Map of tags to assign to the DB reservation. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -406,6 +410,11 @@ func (o ReservedInstanceOutput) RecurringCharges() ReservedInstanceRecurringChar
 	return o.ApplyT(func(v *ReservedInstance) ReservedInstanceRecurringChargeArrayOutput { return v.RecurringCharges }).(ReservedInstanceRecurringChargeArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ReservedInstanceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReservedInstance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Customer-specified identifier to track this reservation.
 func (o ReservedInstanceOutput) ReservationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringPtrOutput { return v.ReservationId }).(pulumi.StringPtrOutput)
@@ -427,8 +436,6 @@ func (o ReservedInstanceOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ReservedInstanceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReservedInstance) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

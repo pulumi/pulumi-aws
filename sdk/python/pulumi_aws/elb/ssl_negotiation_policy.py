@@ -26,6 +26,7 @@ class SslNegotiationPolicyArgs:
                  load_balancer: pulumi.Input[builtins.str],
                  attributes: Optional[pulumi.Input[Sequence[pulumi.Input['SslNegotiationPolicyAttributeArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a SslNegotiationPolicy resource.
@@ -36,6 +37,7 @@ class SslNegotiationPolicyArgs:
                should be attached.
         :param pulumi.Input[Sequence[pulumi.Input['SslNegotiationPolicyAttributeArgs']]] attributes: An SSL Negotiation policy attribute. Each has two properties:
         :param pulumi.Input[builtins.str] name: The name of the SSL negotiation policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
                
                To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
@@ -48,6 +50,8 @@ class SslNegotiationPolicyArgs:
             pulumi.set(__self__, "attributes", attributes)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if triggers is not None:
             pulumi.set(__self__, "triggers", triggers)
 
@@ -104,6 +108,18 @@ class SslNegotiationPolicyArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of arbitrary keys and values that, when changed, will trigger a redeployment.
@@ -126,6 +142,7 @@ class _SslNegotiationPolicyState:
                  lb_port: Optional[pulumi.Input[builtins.int]] = None,
                  load_balancer: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering SslNegotiationPolicy resources.
@@ -136,6 +153,7 @@ class _SslNegotiationPolicyState:
         :param pulumi.Input[builtins.str] load_balancer: The load balancer to which the policy
                should be attached.
         :param pulumi.Input[builtins.str] name: The name of the SSL negotiation policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
                
                To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
@@ -150,6 +168,8 @@ class _SslNegotiationPolicyState:
             pulumi.set(__self__, "load_balancer", load_balancer)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if triggers is not None:
             pulumi.set(__self__, "triggers", triggers)
 
@@ -206,6 +226,18 @@ class _SslNegotiationPolicyState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of arbitrary keys and values that, when changed, will trigger a redeployment.
@@ -231,6 +263,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                  lb_port: Optional[pulumi.Input[builtins.int]] = None,
                  load_balancer: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
@@ -297,6 +330,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] load_balancer: The load balancer to which the policy
                should be attached.
         :param pulumi.Input[builtins.str] name: The name of the SSL negotiation policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
                
                To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
@@ -383,6 +417,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                  lb_port: Optional[pulumi.Input[builtins.int]] = None,
                  load_balancer: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -401,6 +436,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'load_balancer'")
             __props__.__dict__["load_balancer"] = load_balancer
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["triggers"] = triggers
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="aws:elasticloadbalancing/sslNegotiationPolicy:SslNegotiationPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -418,6 +454,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
             lb_port: Optional[pulumi.Input[builtins.int]] = None,
             load_balancer: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'SslNegotiationPolicy':
         """
         Get an existing SslNegotiationPolicy resource's state with the given name, id, and optional extra
@@ -433,6 +470,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] load_balancer: The load balancer to which the policy
                should be attached.
         :param pulumi.Input[builtins.str] name: The name of the SSL negotiation policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
                
                To set your attributes, please see the [AWS Elastic Load Balancing Developer Guide](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-security-policy-table.html) for a listing of the supported SSL protocols, SSL options, and SSL ciphers.
@@ -447,6 +485,7 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         __props__.__dict__["lb_port"] = lb_port
         __props__.__dict__["load_balancer"] = load_balancer
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["triggers"] = triggers
         return SslNegotiationPolicy(resource_name, opts=opts, __props__=__props__)
 
@@ -484,6 +523,14 @@ class SslNegotiationPolicy(pulumi.CustomResource):
         The name of the SSL negotiation policy.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

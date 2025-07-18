@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,6 +53,8 @@ type SmsPreferences struct {
 	DeliveryStatusSuccessSamplingRate pulumi.StringPtrOutput `pulumi:"deliveryStatusSuccessSamplingRate"`
 	// The maximum amount in USD that you are willing to spend each month to send SMS messages.
 	MonthlySpendLimit pulumi.IntOutput `pulumi:"monthlySpendLimit"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
 	UsageReportS3Bucket pulumi.StringPtrOutput `pulumi:"usageReportS3Bucket"`
 }
@@ -97,6 +99,8 @@ type smsPreferencesState struct {
 	DeliveryStatusSuccessSamplingRate *string `pulumi:"deliveryStatusSuccessSamplingRate"`
 	// The maximum amount in USD that you are willing to spend each month to send SMS messages.
 	MonthlySpendLimit *int `pulumi:"monthlySpendLimit"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
 	UsageReportS3Bucket *string `pulumi:"usageReportS3Bucket"`
 }
@@ -112,6 +116,8 @@ type SmsPreferencesState struct {
 	DeliveryStatusSuccessSamplingRate pulumi.StringPtrInput
 	// The maximum amount in USD that you are willing to spend each month to send SMS messages.
 	MonthlySpendLimit pulumi.IntPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
 	UsageReportS3Bucket pulumi.StringPtrInput
 }
@@ -131,6 +137,8 @@ type smsPreferencesArgs struct {
 	DeliveryStatusSuccessSamplingRate *string `pulumi:"deliveryStatusSuccessSamplingRate"`
 	// The maximum amount in USD that you are willing to spend each month to send SMS messages.
 	MonthlySpendLimit *int `pulumi:"monthlySpendLimit"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
 	UsageReportS3Bucket *string `pulumi:"usageReportS3Bucket"`
 }
@@ -147,6 +155,8 @@ type SmsPreferencesArgs struct {
 	DeliveryStatusSuccessSamplingRate pulumi.StringPtrInput
 	// The maximum amount in USD that you are willing to spend each month to send SMS messages.
 	MonthlySpendLimit pulumi.IntPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
 	UsageReportS3Bucket pulumi.StringPtrInput
 }
@@ -261,6 +271,11 @@ func (o SmsPreferencesOutput) DeliveryStatusSuccessSamplingRate() pulumi.StringP
 // The maximum amount in USD that you are willing to spend each month to send SMS messages.
 func (o SmsPreferencesOutput) MonthlySpendLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v *SmsPreferences) pulumi.IntOutput { return v.MonthlySpendLimit }).(pulumi.IntOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o SmsPreferencesOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SmsPreferences) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.

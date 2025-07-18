@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/neptune"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/neptune"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,6 +65,8 @@ type GetOrderableDbInstanceArgs struct {
 	LicenseModel *string `pulumi:"licenseModel"`
 	// Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
 	PreferredInstanceClasses []string `pulumi:"preferredInstanceClasses"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Enable to show only VPC offerings.
 	Vpc *bool `pulumi:"vpc"`
 }
@@ -95,7 +97,8 @@ type GetOrderableDbInstanceResult struct {
 	MultiAzCapable           bool     `pulumi:"multiAzCapable"`
 	PreferredInstanceClasses []string `pulumi:"preferredInstanceClasses"`
 	// Whether a DB instance can have a read replica.
-	ReadReplicaCapable bool `pulumi:"readReplicaCapable"`
+	ReadReplicaCapable bool   `pulumi:"readReplicaCapable"`
+	Region             string `pulumi:"region"`
 	// Storage type for a DB instance.
 	StorageType string `pulumi:"storageType"`
 	// Whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
@@ -132,6 +135,8 @@ type GetOrderableDbInstanceOutputArgs struct {
 	LicenseModel pulumi.StringPtrInput `pulumi:"licenseModel"`
 	// Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
 	PreferredInstanceClasses pulumi.StringArrayInput `pulumi:"preferredInstanceClasses"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Enable to show only VPC offerings.
 	Vpc pulumi.BoolPtrInput `pulumi:"vpc"`
 }
@@ -223,6 +228,10 @@ func (o GetOrderableDbInstanceResultOutput) PreferredInstanceClasses() pulumi.St
 // Whether a DB instance can have a read replica.
 func (o GetOrderableDbInstanceResultOutput) ReadReplicaCapable() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.ReadReplicaCapable }).(pulumi.BoolOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Storage type for a DB instance.

@@ -4,7 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
 import {Group, Role, User} from "./index";
 
 /**
@@ -100,7 +99,7 @@ export class PolicyAttachment extends pulumi.CustomResource {
     /**
      * ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
      */
-    public readonly policyArn!: pulumi.Output<ARN>;
+    public readonly policyArn!: pulumi.Output<string>;
     /**
      * Role(s) the policy should be applied to.
      */
@@ -159,7 +158,7 @@ export interface PolicyAttachmentState {
     /**
      * ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
      */
-    policyArn?: pulumi.Input<ARN>;
+    policyArn?: pulumi.Input<string>;
     /**
      * Role(s) the policy should be applied to.
      */
@@ -185,7 +184,7 @@ export interface PolicyAttachmentArgs {
     /**
      * ARN of the policy you want to apply. Typically this should be a reference to the ARN of another resource to ensure dependency ordering, such as `aws_iam_policy.example.arn`.
      */
-    policyArn: pulumi.Input<ARN>;
+    policyArn: pulumi.Input<string>;
     /**
      * Role(s) the policy should be applied to.
      */

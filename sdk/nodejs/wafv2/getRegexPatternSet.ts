@@ -26,6 +26,7 @@ export function getRegexPatternSet(args: GetRegexPatternSetArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:wafv2/getRegexPatternSet:getRegexPatternSet", {
         "name": args.name,
+        "region": args.region,
         "scope": args.scope,
     }, opts);
 }
@@ -38,6 +39,10 @@ export interface GetRegexPatternSetArgs {
      * Name of the WAFv2 Regex Pattern Set.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */
@@ -61,6 +66,7 @@ export interface GetRegexPatternSetResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * One or more blocks of regular expression patterns that AWS WAF is searching for. See Regular Expression below for details.
      */
@@ -86,6 +92,7 @@ export function getRegexPatternSetOutput(args: GetRegexPatternSetOutputArgs, opt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:wafv2/getRegexPatternSet:getRegexPatternSet", {
         "name": args.name,
+        "region": args.region,
         "scope": args.scope,
     }, opts);
 }
@@ -98,6 +105,10 @@ export interface GetRegexPatternSetOutputArgs {
      * Name of the WAFv2 Regex Pattern Set.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
      */

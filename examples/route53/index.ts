@@ -25,7 +25,7 @@ const www_dev = new aws.route53.Record("www-dev", {
     records: ["dev.example.com"],
     setIdentifier: "dev",
     ttl: 5,
-    type: aws.route53.RecordTypes.CNAME,
+    type: aws.route53.RecordType.CNAME,
     weightedRoutingPolicies: [{
         weight: 10,
     }],

@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
 export function getServerlessVpcEndpoint(args: GetServerlessVpcEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessVpcEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint", {
+        "region": args.region,
         "vpcEndpointId": args.vpcEndpointId,
     }, opts);
 }
@@ -29,6 +30,10 @@ export function getServerlessVpcEndpoint(args: GetServerlessVpcEndpointArgs, opt
  * A collection of arguments for invoking getServerlessVpcEndpoint.
  */
 export interface GetServerlessVpcEndpointArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * The unique identifier of the endpoint.
      */
@@ -51,6 +56,7 @@ export interface GetServerlessVpcEndpointResult {
      * The name of the endpoint.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * The IDs of the security groups that define the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
      */
@@ -82,6 +88,7 @@ export interface GetServerlessVpcEndpointResult {
 export function getServerlessVpcEndpointOutput(args: GetServerlessVpcEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerlessVpcEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessVpcEndpoint:getServerlessVpcEndpoint", {
+        "region": args.region,
         "vpcEndpointId": args.vpcEndpointId,
     }, opts);
 }
@@ -90,6 +97,10 @@ export function getServerlessVpcEndpointOutput(args: GetServerlessVpcEndpointOut
  * A collection of arguments for invoking getServerlessVpcEndpoint.
  */
 export interface GetServerlessVpcEndpointOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The unique identifier of the endpoint.
      */

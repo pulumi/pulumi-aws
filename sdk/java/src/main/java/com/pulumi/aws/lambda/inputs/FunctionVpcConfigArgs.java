@@ -19,14 +19,14 @@ public final class FunctionVpcConfigArgs extends com.pulumi.resources.ResourceAr
     public static final FunctionVpcConfigArgs Empty = new FunctionVpcConfigArgs();
 
     /**
-     * Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
+     * Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
      * 
      */
     @Import(name="ipv6AllowedForDualStack")
     private @Nullable Output<Boolean> ipv6AllowedForDualStack;
 
     /**
-     * @return Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
+     * @return Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
      * 
      */
     public Optional<Output<Boolean>> ipv6AllowedForDualStack() {
@@ -106,7 +106,7 @@ public final class FunctionVpcConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param ipv6AllowedForDualStack Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
+         * @param ipv6AllowedForDualStack Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class FunctionVpcConfigArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param ipv6AllowedForDualStack Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets. Default is `false`.
+         * @param ipv6AllowedForDualStack Whether to allow outbound IPv6 traffic on VPC functions connected to dual-stack subnets. Default: `false`.
          * 
          * @return builder
          * 

@@ -30,6 +30,7 @@ class FileSystemArgs:
                  performance_mode: Optional[pulumi.Input[builtins.str]] = None,
                  protection: Optional[pulumi.Input['FileSystemProtectionArgs']] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[builtins.float]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  throughput_mode: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -45,6 +46,7 @@ class FileSystemArgs:
         :param pulumi.Input[builtins.str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         :param pulumi.Input['FileSystemProtectionArgs'] protection: A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
         :param pulumi.Input[builtins.float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] throughput_mode: Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
         """
@@ -64,6 +66,8 @@ class FileSystemArgs:
             pulumi.set(__self__, "protection", protection)
         if provisioned_throughput_in_mibps is not None:
             pulumi.set(__self__, "provisioned_throughput_in_mibps", provisioned_throughput_in_mibps)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if throughput_mode is not None:
@@ -170,6 +174,18 @@ class FileSystemArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -210,6 +226,7 @@ class _FileSystemState:
                  performance_mode: Optional[pulumi.Input[builtins.str]] = None,
                  protection: Optional[pulumi.Input['FileSystemProtectionArgs']] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[builtins.float]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  size_in_bytes: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemSizeInByteArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -233,6 +250,7 @@ class _FileSystemState:
         :param pulumi.Input[builtins.str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         :param pulumi.Input['FileSystemProtectionArgs'] protection: A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
         :param pulumi.Input[builtins.float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['FileSystemSizeInByteArgs']]] size_in_bytes: The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -266,13 +284,12 @@ class _FileSystemState:
             pulumi.set(__self__, "protection", protection)
         if provisioned_throughput_in_mibps is not None:
             pulumi.set(__self__, "provisioned_throughput_in_mibps", provisioned_throughput_in_mibps)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if size_in_bytes is not None:
             pulumi.set(__self__, "size_in_bytes", size_in_bytes)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if throughput_mode is not None:
@@ -450,6 +467,18 @@ class _FileSystemState:
         pulumi.set(self, "provisioned_throughput_in_mibps", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sizeInBytes")
     def size_in_bytes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemSizeInByteArgs']]]]:
         """
@@ -475,7 +504,6 @@ class _FileSystemState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -513,6 +541,7 @@ class FileSystem(pulumi.CustomResource):
                  performance_mode: Optional[pulumi.Input[builtins.str]] = None,
                  protection: Optional[pulumi.Input[Union['FileSystemProtectionArgs', 'FileSystemProtectionArgsDict']]] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[builtins.float]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  throughput_mode: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -568,6 +597,7 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         :param pulumi.Input[Union['FileSystemProtectionArgs', 'FileSystemProtectionArgsDict']] protection: A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
         :param pulumi.Input[builtins.float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] throughput_mode: Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`, or `elastic`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
         """
@@ -639,6 +669,7 @@ class FileSystem(pulumi.CustomResource):
                  performance_mode: Optional[pulumi.Input[builtins.str]] = None,
                  protection: Optional[pulumi.Input[Union['FileSystemProtectionArgs', 'FileSystemProtectionArgsDict']]] = None,
                  provisioned_throughput_in_mibps: Optional[pulumi.Input[builtins.float]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  throughput_mode: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -658,6 +689,7 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["performance_mode"] = performance_mode
             __props__.__dict__["protection"] = protection
             __props__.__dict__["provisioned_throughput_in_mibps"] = provisioned_throughput_in_mibps
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["throughput_mode"] = throughput_mode
             __props__.__dict__["arn"] = None
@@ -692,6 +724,7 @@ class FileSystem(pulumi.CustomResource):
             performance_mode: Optional[pulumi.Input[builtins.str]] = None,
             protection: Optional[pulumi.Input[Union['FileSystemProtectionArgs', 'FileSystemProtectionArgsDict']]] = None,
             provisioned_throughput_in_mibps: Optional[pulumi.Input[builtins.float]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             size_in_bytes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FileSystemSizeInByteArgs', 'FileSystemSizeInByteArgsDict']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -720,6 +753,7 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         :param pulumi.Input[Union['FileSystemProtectionArgs', 'FileSystemProtectionArgsDict']] protection: A file system [protection](https://docs.aws.amazon.com/efs/latest/ug/API_FileSystemProtectionDescription.html) object. See `protection` block below for details.
         :param pulumi.Input[builtins.float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FileSystemSizeInByteArgs', 'FileSystemSizeInByteArgsDict']]]] size_in_bytes: The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -743,6 +777,7 @@ class FileSystem(pulumi.CustomResource):
         __props__.__dict__["performance_mode"] = performance_mode
         __props__.__dict__["protection"] = protection
         __props__.__dict__["provisioned_throughput_in_mibps"] = provisioned_throughput_in_mibps
+        __props__.__dict__["region"] = region
         __props__.__dict__["size_in_bytes"] = size_in_bytes
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -865,6 +900,14 @@ class FileSystem(pulumi.CustomResource):
         return pulumi.get(self, "provisioned_throughput_in_mibps")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="sizeInBytes")
     def size_in_bytes(self) -> pulumi.Output[Sequence['outputs.FileSystemSizeInByte']]:
         """
@@ -882,7 +925,6 @@ class FileSystem(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

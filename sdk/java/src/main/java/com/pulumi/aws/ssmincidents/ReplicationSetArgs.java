@@ -6,7 +6,6 @@ package com.pulumi.aws.ssmincidents;
 import com.pulumi.aws.ssmincidents.inputs.ReplicationSetRegionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -20,18 +19,41 @@ public final class ReplicationSetArgs extends com.pulumi.resources.ResourceArgs 
     public static final ReplicationSetArgs Empty = new ReplicationSetArgs();
 
     /**
-     * The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+     * The replication set&#39;s Regions. Use `regions` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use regions instead.
      * 
      */
-    @Import(name="regions", required=true)
-    private Output<List<ReplicationSetRegionArgs>> regions;
+    @Deprecated /* region is deprecated. Use regions instead. */
+    @Import(name="region")
+    private @Nullable Output<List<ReplicationSetRegionArgs>> region;
 
     /**
-     * @return The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+     * @return The replication set&#39;s Regions. Use `regions` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use regions instead.
      * 
      */
-    public Output<List<ReplicationSetRegionArgs>> regions() {
-        return this.regions;
+    @Deprecated /* region is deprecated. Use regions instead. */
+    public Optional<Output<List<ReplicationSetRegionArgs>>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
+     * The replication set&#39;s Regions.
+     * 
+     */
+    @Import(name="regions")
+    private @Nullable Output<List<ReplicationSetRegionArgs>> regions;
+
+    /**
+     * @return The replication set&#39;s Regions.
+     * 
+     */
+    public Optional<Output<List<ReplicationSetRegionArgs>>> regions() {
+        return Optional.ofNullable(this.regions);
     }
 
     /**
@@ -76,6 +98,7 @@ public final class ReplicationSetArgs extends com.pulumi.resources.ResourceArgs 
     private ReplicationSetArgs() {}
 
     private ReplicationSetArgs(ReplicationSetArgs $) {
+        this.region = $.region;
         this.regions = $.regions;
         this.tags = $.tags;
     }
@@ -99,18 +122,61 @@ public final class ReplicationSetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param regions The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+         * @param region The replication set&#39;s Regions. Use `regions` instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * region is deprecated. Use regions instead.
+         * 
+         */
+        @Deprecated /* region is deprecated. Use regions instead. */
+        public Builder region(@Nullable Output<List<ReplicationSetRegionArgs>> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region The replication set&#39;s Regions. Use `regions` instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * region is deprecated. Use regions instead.
+         * 
+         */
+        @Deprecated /* region is deprecated. Use regions instead. */
+        public Builder region(List<ReplicationSetRegionArgs> region) {
+            return region(Output.of(region));
+        }
+
+        /**
+         * @param region The replication set&#39;s Regions. Use `regions` instead.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * region is deprecated. Use regions instead.
+         * 
+         */
+        @Deprecated /* region is deprecated. Use regions instead. */
+        public Builder region(ReplicationSetRegionArgs... region) {
+            return region(List.of(region));
+        }
+
+        /**
+         * @param regions The replication set&#39;s Regions.
          * 
          * @return builder
          * 
          */
-        public Builder regions(Output<List<ReplicationSetRegionArgs>> regions) {
+        public Builder regions(@Nullable Output<List<ReplicationSetRegionArgs>> regions) {
             $.regions = regions;
             return this;
         }
 
         /**
-         * @param regions The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+         * @param regions The replication set&#39;s Regions.
          * 
          * @return builder
          * 
@@ -120,7 +186,7 @@ public final class ReplicationSetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param regions The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+         * @param regions The replication set&#39;s Regions.
          * 
          * @return builder
          * 
@@ -175,9 +241,6 @@ public final class ReplicationSetArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ReplicationSetArgs build() {
-            if ($.regions == null) {
-                throw new MissingRequiredPropertyException("ReplicationSetArgs", "regions");
-            }
             return $;
         }
     }

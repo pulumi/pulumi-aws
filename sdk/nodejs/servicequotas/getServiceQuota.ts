@@ -33,6 +33,7 @@ export function getServiceQuota(args: GetServiceQuotaArgs, opts?: pulumi.InvokeO
     return pulumi.runtime.invoke("aws:servicequotas/getServiceQuota:getServiceQuota", {
         "quotaCode": args.quotaCode,
         "quotaName": args.quotaName,
+        "region": args.region,
         "serviceCode": args.serviceCode,
     }, opts);
 }
@@ -51,6 +52,10 @@ export interface GetServiceQuotaArgs {
      * > *NOTE:* Either `quotaCode` or `quotaName` must be configured.
      */
     quotaName?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      */
@@ -83,6 +88,7 @@ export interface GetServiceQuotaResult {
     readonly id: string;
     readonly quotaCode: string;
     readonly quotaName: string;
+    readonly region: string;
     readonly serviceCode: string;
     /**
      * Name of the service.
@@ -123,6 +129,7 @@ export function getServiceQuotaOutput(args: GetServiceQuotaOutputArgs, opts?: pu
     return pulumi.runtime.invokeOutput("aws:servicequotas/getServiceQuota:getServiceQuota", {
         "quotaCode": args.quotaCode,
         "quotaName": args.quotaName,
+        "region": args.region,
         "serviceCode": args.serviceCode,
     }, opts);
 }
@@ -141,6 +148,10 @@ export interface GetServiceQuotaOutputArgs {
      * > *NOTE:* Either `quotaCode` or `quotaName` must be configured.
      */
     quotaName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
      */

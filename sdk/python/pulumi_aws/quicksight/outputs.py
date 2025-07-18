@@ -137,7 +137,6 @@ __all__ = [
     'ThemeConfigurationUiColorPalette',
     'ThemePermission',
     'VpcConnectionTimeouts',
-    'GetAnalysisPermissionResult',
     'GetDataSetColumnGroupResult',
     'GetDataSetColumnGroupGeoSpatialColumnGroupResult',
     'GetDataSetColumnLevelPermissionRuleResult',
@@ -5935,25 +5934,6 @@ class VpcConnectionTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
         """
         return pulumi.get(self, "update")
-
-
-@pulumi.output_type
-class GetAnalysisPermissionResult(dict):
-    def __init__(__self__, *,
-                 actions: Sequence[builtins.str],
-                 principal: builtins.str):
-        pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "principal", principal)
-
-    @property
-    @pulumi.getter
-    def actions(self) -> Sequence[builtins.str]:
-        return pulumi.get(self, "actions")
-
-    @property
-    @pulumi.getter
-    def principal(self) -> builtins.str:
-        return pulumi.get(self, "principal")
 
 
 @pulumi.output_type

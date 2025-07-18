@@ -81,6 +81,10 @@ export class ServiceAction extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ServiceAction resource with the given unique name, arguments, and options.
@@ -99,6 +103,7 @@ export class ServiceAction extends pulumi.CustomResource {
             resourceInputs["definition"] = state ? state.definition : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ServiceActionArgs | undefined;
             if ((!args || args.definition === undefined) && !opts.urn) {
@@ -108,6 +113,7 @@ export class ServiceAction extends pulumi.CustomResource {
             resourceInputs["definition"] = args ? args.definition : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ServiceAction.__pulumiType, name, resourceInputs, opts);
@@ -136,6 +142,10 @@ export interface ServiceActionState {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -160,4 +170,8 @@ export interface ServiceActionArgs {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

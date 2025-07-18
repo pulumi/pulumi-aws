@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +46,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,6 +87,8 @@ type LookupResolverEndpointArgs struct {
 	// several valid keys, for a full reference, check out
 	// [Route53resolver Filter value in the AWS API reference][1].
 	Filters []GetResolverEndpointFilter `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the Route53 Resolver Endpoint.
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
 }
@@ -105,6 +107,7 @@ type LookupResolverEndpointResult struct {
 	Name        string   `pulumi:"name"`
 	// The protocols used by the Resolver endpoint.
 	Protocols          []string `pulumi:"protocols"`
+	Region             string   `pulumi:"region"`
 	ResolverEndpointId *string  `pulumi:"resolverEndpointId"`
 	// The Resolver endpoint IP address type.
 	ResolverEndpointType string `pulumi:"resolverEndpointType"`
@@ -129,6 +132,8 @@ type LookupResolverEndpointOutputArgs struct {
 	// several valid keys, for a full reference, check out
 	// [Route53resolver Filter value in the AWS API reference][1].
 	Filters GetResolverEndpointFilterArrayInput `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the Route53 Resolver Endpoint.
 	ResolverEndpointId pulumi.StringPtrInput `pulumi:"resolverEndpointId"`
 }
@@ -183,6 +188,10 @@ func (o LookupResolverEndpointResultOutput) Name() pulumi.StringOutput {
 // The protocols used by the Resolver endpoint.
 func (o LookupResolverEndpointResultOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) []string { return v.Protocols }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupResolverEndpointResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupResolverEndpointResultOutput) ResolverEndpointId() pulumi.StringPtrOutput {

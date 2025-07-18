@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/efs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -68,6 +68,8 @@ type LookupFileSystemArgs struct {
 	CreationToken *string `pulumi:"creationToken"`
 	// ID that identifies the file system (e.g., fs-ccfc0d65).
 	FileSystemId *string `pulumi:"fileSystemId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Restricts the list to the file system with these tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -89,12 +91,9 @@ type LookupFileSystemResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// ARN for the KMS encryption key.
-	KmsKeyId          string                         `pulumi:"kmsKeyId"`
-	LifecyclePolicies []GetFileSystemLifecyclePolicy `pulumi:"lifecyclePolicies"`
+	KmsKeyId string `pulumi:"kmsKeyId"`
 	// File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
-	//
-	// Deprecated: Use `lifecyclePolicies` instead. This field will be removed in the next major version.
-	LifecyclePolicy GetFileSystemLifecyclePolicy `pulumi:"lifecyclePolicy"`
+	LifecyclePolicies []GetFileSystemLifecyclePolicy `pulumi:"lifecyclePolicies"`
 	// The value of the file system's `Name` tag.
 	Name string `pulumi:"name"`
 	// File system performance mode.
@@ -102,6 +101,7 @@ type LookupFileSystemResult struct {
 	Protections     []GetFileSystemProtection `pulumi:"protections"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system.
 	ProvisionedThroughputInMibps float64 `pulumi:"provisionedThroughputInMibps"`
+	Region                       string  `pulumi:"region"`
 	// Current byte count used by the file system.
 	SizeInBytes int `pulumi:"sizeInBytes"`
 	// A map of tags to assign to the file system.
@@ -125,6 +125,8 @@ type LookupFileSystemOutputArgs struct {
 	CreationToken pulumi.StringPtrInput `pulumi:"creationToken"`
 	// ID that identifies the file system (e.g., fs-ccfc0d65).
 	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Restricts the list to the file system with these tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -191,15 +193,9 @@ func (o LookupFileSystemResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
+// File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
 func (o LookupFileSystemResultOutput) LifecyclePolicies() GetFileSystemLifecyclePolicyArrayOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) []GetFileSystemLifecyclePolicy { return v.LifecyclePolicies }).(GetFileSystemLifecyclePolicyArrayOutput)
-}
-
-// File system [lifecycle policy](https://docs.aws.amazon.com/efs/latest/ug/API_LifecyclePolicy.html) object.
-//
-// Deprecated: Use `lifecyclePolicies` instead. This field will be removed in the next major version.
-func (o LookupFileSystemResultOutput) LifecyclePolicy() GetFileSystemLifecyclePolicyOutput {
-	return o.ApplyT(func(v LookupFileSystemResult) GetFileSystemLifecyclePolicy { return v.LifecyclePolicy }).(GetFileSystemLifecyclePolicyOutput)
 }
 
 // The value of the file system's `Name` tag.
@@ -219,6 +215,10 @@ func (o LookupFileSystemResultOutput) Protections() GetFileSystemProtectionArray
 // The throughput, measured in MiB/s, that you want to provision for the file system.
 func (o LookupFileSystemResultOutput) ProvisionedThroughputInMibps() pulumi.Float64Output {
 	return o.ApplyT(func(v LookupFileSystemResult) float64 { return v.ProvisionedThroughputInMibps }).(pulumi.Float64Output)
+}
+
+func (o LookupFileSystemResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Current byte count used by the file system.

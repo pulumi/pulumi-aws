@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,7 +70,7 @@ type InstanceGroup struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -111,6 +111,8 @@ type InstanceGroup struct {
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The number of instances currently running in this instance group.
 	RunningInstanceCount pulumi.IntOutput `pulumi:"runningInstanceCount"`
 	// The current status of the instance group.
@@ -165,7 +167,7 @@ type instanceGroupState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -206,6 +208,8 @@ type instanceGroupState struct {
 	InstanceType *string `pulumi:"instanceType"`
 	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The number of instances currently running in this instance group.
 	RunningInstanceCount *int `pulumi:"runningInstanceCount"`
 	// The current status of the instance group.
@@ -225,7 +229,7 @@ type InstanceGroupState struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -266,6 +270,8 @@ type InstanceGroupState struct {
 	InstanceType pulumi.StringPtrInput
 	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The number of instances currently running in this instance group.
 	RunningInstanceCount pulumi.IntPtrInput
 	// The current status of the instance group.
@@ -289,7 +295,7 @@ type instanceGroupArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -330,6 +336,8 @@ type instanceGroupArgs struct {
 	InstanceType string `pulumi:"instanceType"`
 	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a InstanceGroup resource.
@@ -346,7 +354,7 @@ type InstanceGroupArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+	// 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -387,6 +395,8 @@ type InstanceGroupArgs struct {
 	InstanceType pulumi.StringInput
 	// Human friendly name given to the instance group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (InstanceGroupArgs) ElementType() reflect.Type {
@@ -498,7 +508,7 @@ func (o InstanceGroupOutput) ClusterId() pulumi.StringOutput {
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/emr"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -559,6 +569,11 @@ func (o InstanceGroupOutput) InstanceType() pulumi.StringOutput {
 // Human friendly name given to the instance group. Changing this forces a new resource to be created.
 func (o InstanceGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o InstanceGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *InstanceGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The number of instances currently running in this instance group.

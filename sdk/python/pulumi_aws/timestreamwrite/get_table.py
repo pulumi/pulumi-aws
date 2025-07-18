@@ -28,7 +28,7 @@ class GetTableResult:
     """
     A collection of values returned by getTable.
     """
-    def __init__(__self__, arn=None, creation_time=None, database_name=None, id=None, last_updated_time=None, magnetic_store_write_properties=None, name=None, retention_properties=None, schemas=None, table_status=None):
+    def __init__(__self__, arn=None, creation_time=None, database_name=None, id=None, last_updated_time=None, magnetic_store_write_properties=None, name=None, region=None, retention_properties=None, schemas=None, table_status=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -50,6 +50,9 @@ class GetTableResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if retention_properties and not isinstance(retention_properties, list):
             raise TypeError("Expected argument 'retention_properties' to be a list")
         pulumi.set(__self__, "retention_properties", retention_properties)
@@ -117,6 +120,11 @@ class GetTableResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="retentionProperties")
     def retention_properties(self) -> Sequence['outputs.GetTableRetentionPropertyResult']:
         """
@@ -154,6 +162,7 @@ class AwaitableGetTableResult(GetTableResult):
             last_updated_time=self.last_updated_time,
             magnetic_store_write_properties=self.magnetic_store_write_properties,
             name=self.name,
+            region=self.region,
             retention_properties=self.retention_properties,
             schemas=self.schemas,
             table_status=self.table_status)
@@ -161,6 +170,7 @@ class AwaitableGetTableResult(GetTableResult):
 
 def get_table(database_name: Optional[builtins.str] = None,
               name: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResult:
     """
     Data source for managing an AWS Timestream Write Table.
@@ -180,10 +190,12 @@ def get_table(database_name: Optional[builtins.str] = None,
 
     :param builtins.str database_name: Name of the Timestream database.
     :param builtins.str name: Name of the Timestream table.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['databaseName'] = database_name
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:timestreamwrite/getTable:getTable', __args__, opts=opts, typ=GetTableResult).value
 
@@ -195,11 +207,13 @@ def get_table(database_name: Optional[builtins.str] = None,
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         magnetic_store_write_properties=pulumi.get(__ret__, 'magnetic_store_write_properties'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         retention_properties=pulumi.get(__ret__, 'retention_properties'),
         schemas=pulumi.get(__ret__, 'schemas'),
         table_status=pulumi.get(__ret__, 'table_status'))
 def get_table_output(database_name: Optional[pulumi.Input[builtins.str]] = None,
                      name: Optional[pulumi.Input[builtins.str]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
     """
     Data source for managing an AWS Timestream Write Table.
@@ -219,10 +233,12 @@ def get_table_output(database_name: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str database_name: Name of the Timestream database.
     :param builtins.str name: Name of the Timestream table.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['databaseName'] = database_name
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:timestreamwrite/getTable:getTable', __args__, opts=opts, typ=GetTableResult)
     return __ret__.apply(lambda __response__: GetTableResult(
@@ -233,6 +249,7 @@ def get_table_output(database_name: Optional[pulumi.Input[builtins.str]] = None,
         last_updated_time=pulumi.get(__response__, 'last_updated_time'),
         magnetic_store_write_properties=pulumi.get(__response__, 'magnetic_store_write_properties'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         retention_properties=pulumi.get(__response__, 'retention_properties'),
         schemas=pulumi.get(__response__, 'schemas'),
         table_status=pulumi.get(__response__, 'table_status')))

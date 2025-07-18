@@ -99,18 +99,14 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
     }
 
     /**
-     * AWS Region for the distribution.
-     * 
-     * The following arguments are optional:
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region", required=true)
     private Output<String> region;
 
     /**
-     * @return AWS Region for the distribution.
-     * 
-     * The following arguments are optional:
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {
@@ -314,9 +310,7 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
         }
 
         /**
-         * @param region AWS Region for the distribution.
-         * 
-         * The following arguments are optional:
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -327,9 +321,7 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
         }
 
         /**
-         * @param region AWS Region for the distribution.
-         * 
-         * The following arguments are optional:
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

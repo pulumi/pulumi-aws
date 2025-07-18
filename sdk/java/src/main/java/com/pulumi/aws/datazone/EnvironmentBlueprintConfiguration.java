@@ -24,54 +24,6 @@ import javax.annotation.Nullable;
  * ### Basic Usage
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.datazone.Domain;
- * import com.pulumi.aws.datazone.DomainArgs;
- * import com.pulumi.aws.datazone.DatazoneFunctions;
- * import com.pulumi.aws.datazone.inputs.GetEnvironmentBlueprintArgs;
- * import com.pulumi.aws.datazone.EnvironmentBlueprintConfiguration;
- * import com.pulumi.aws.datazone.EnvironmentBlueprintConfigurationArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Domain("example", DomainArgs.builder()
- *             .name("example_domain")
- *             .domainExecutionRole(domainExecutionRole.arn())
- *             .build());
- * 
- *         final var defaultDataLake = DatazoneFunctions.getEnvironmentBlueprint(GetEnvironmentBlueprintArgs.builder()
- *             .domainId(example.id())
- *             .name("DefaultDataLake")
- *             .managed(true)
- *             .build());
- * 
- *         var exampleEnvironmentBlueprintConfiguration = new EnvironmentBlueprintConfiguration("exampleEnvironmentBlueprintConfiguration", EnvironmentBlueprintConfigurationArgs.builder()
- *             .domainId(example.id())
- *             .environmentBlueprintId(defaultDataLake.applyValue(_defaultDataLake -> _defaultDataLake.id()))
- *             .enabledRegions("us-east-1")
- *             .regionalParameters(Map.of("us-east-1", Map.of("s3Location", "s3://my-amazon-datazone-bucket")))
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
@@ -160,17 +112,31 @@ public class EnvironmentBlueprintConfiguration extends com.pulumi.resources.Cust
         return Codegen.optional(this.provisioningRoleArn);
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Parameters for each region in which the blueprint is enabled
      * 
      */
-    @Export(name="regionalParameters", refs={Map.class,String.class}, tree="[0,1,[0,1,1]]")
-    private Output</* @Nullable */ Map<String,Map<String,String>>> regionalParameters;
+    @Export(name="regionalParameters", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> regionalParameters;
 
     /**
      * @return Parameters for each region in which the blueprint is enabled
      * 
      */
-    public Output<Optional<Map<String,Map<String,String>>>> regionalParameters() {
+    public Output<Optional<Map<String,String>>> regionalParameters() {
         return Codegen.optional(this.regionalParameters);
     }
 

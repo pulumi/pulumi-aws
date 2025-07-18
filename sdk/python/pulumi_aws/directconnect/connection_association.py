@@ -21,14 +21,18 @@ __all__ = ['ConnectionAssociationArgs', 'ConnectionAssociation']
 class ConnectionAssociationArgs:
     def __init__(__self__, *,
                  connection_id: pulumi.Input[builtins.str],
-                 lag_id: pulumi.Input[builtins.str]):
+                 lag_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectionAssociation resource.
         :param pulumi.Input[builtins.str] connection_id: The ID of the connection.
         :param pulumi.Input[builtins.str] lag_id: The ID of the LAG with which to associate the connection.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "connection_id", connection_id)
         pulumi.set(__self__, "lag_id", lag_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="connectionId")
@@ -54,21 +58,37 @@ class ConnectionAssociationArgs:
     def lag_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "lag_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ConnectionAssociationState:
     def __init__(__self__, *,
                  connection_id: Optional[pulumi.Input[builtins.str]] = None,
-                 lag_id: Optional[pulumi.Input[builtins.str]] = None):
+                 lag_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ConnectionAssociation resources.
         :param pulumi.Input[builtins.str] connection_id: The ID of the connection.
         :param pulumi.Input[builtins.str] lag_id: The ID of the LAG with which to associate the connection.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if connection_id is not None:
             pulumi.set(__self__, "connection_id", connection_id)
         if lag_id is not None:
             pulumi.set(__self__, "lag_id", lag_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="connectionId")
@@ -94,6 +114,18 @@ class _ConnectionAssociationState:
     def lag_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "lag_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:directconnect/connectionAssociation:ConnectionAssociation")
 class ConnectionAssociation(pulumi.CustomResource):
@@ -103,6 +135,7 @@ class ConnectionAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_id: Optional[pulumi.Input[builtins.str]] = None,
                  lag_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Associates a Direct Connect Connection with a LAG.
@@ -130,6 +163,7 @@ class ConnectionAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] connection_id: The ID of the connection.
         :param pulumi.Input[builtins.str] lag_id: The ID of the LAG with which to associate the connection.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -176,6 +210,7 @@ class ConnectionAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_id: Optional[pulumi.Input[builtins.str]] = None,
                  lag_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -191,6 +226,7 @@ class ConnectionAssociation(pulumi.CustomResource):
             if lag_id is None and not opts.urn:
                 raise TypeError("Missing required property 'lag_id'")
             __props__.__dict__["lag_id"] = lag_id
+            __props__.__dict__["region"] = region
         super(ConnectionAssociation, __self__).__init__(
             'aws:directconnect/connectionAssociation:ConnectionAssociation',
             resource_name,
@@ -202,7 +238,8 @@ class ConnectionAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             connection_id: Optional[pulumi.Input[builtins.str]] = None,
-            lag_id: Optional[pulumi.Input[builtins.str]] = None) -> 'ConnectionAssociation':
+            lag_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'ConnectionAssociation':
         """
         Get an existing ConnectionAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -212,6 +249,7 @@ class ConnectionAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] connection_id: The ID of the connection.
         :param pulumi.Input[builtins.str] lag_id: The ID of the LAG with which to associate the connection.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -219,6 +257,7 @@ class ConnectionAssociation(pulumi.CustomResource):
 
         __props__.__dict__["connection_id"] = connection_id
         __props__.__dict__["lag_id"] = lag_id
+        __props__.__dict__["region"] = region
         return ConnectionAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -236,4 +275,12 @@ class ConnectionAssociation(pulumi.CustomResource):
         The ID of the LAG with which to associate the connection.
         """
         return pulumi.get(self, "lag_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

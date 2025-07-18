@@ -66,6 +66,12 @@ namespace Pulumi.Aws.Eks
         public Output<Outputs.IdentityProviderConfigOidc> Oidc { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Status of the EKS Identity Provider Configuration.
         /// </summary>
         [Output("status")]
@@ -141,6 +147,12 @@ namespace Pulumi.Aws.Eks
         [Input("oidc", required: true)]
         public Input<Inputs.IdentityProviderConfigOidcArgs> Oidc { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -180,6 +192,12 @@ namespace Pulumi.Aws.Eks
         public Input<Inputs.IdentityProviderConfigOidcGetArgs>? Oidc { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Status of the EKS Identity Provider Configuration.
         /// </summary>
         [Input("status")]
@@ -203,7 +221,6 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

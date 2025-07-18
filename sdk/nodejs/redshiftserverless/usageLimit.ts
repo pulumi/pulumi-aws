@@ -77,6 +77,10 @@ export class UsageLimit extends pulumi.CustomResource {
      */
     public readonly period!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
      */
     public readonly resourceArn!: pulumi.Output<string>;
@@ -102,6 +106,7 @@ export class UsageLimit extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["breachAction"] = state ? state.breachAction : undefined;
             resourceInputs["period"] = state ? state.period : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
             resourceInputs["usageType"] = state ? state.usageType : undefined;
         } else {
@@ -118,6 +123,7 @@ export class UsageLimit extends pulumi.CustomResource {
             resourceInputs["amount"] = args ? args.amount : undefined;
             resourceInputs["breachAction"] = args ? args.breachAction : undefined;
             resourceInputs["period"] = args ? args.period : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
             resourceInputs["usageType"] = args ? args.usageType : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -148,6 +154,10 @@ export interface UsageLimitState {
      */
     period?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
      */
     resourceArn?: pulumi.Input<string>;
@@ -173,6 +183,10 @@ export interface UsageLimitArgs {
      * The time period that the amount applies to. A weekly period begins on Sunday. Valid values are `daily`, `weekly`, and `monthly`. The default is `monthly`.
      */
     period?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
      */

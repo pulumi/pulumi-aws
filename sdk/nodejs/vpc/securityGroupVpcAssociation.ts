@@ -59,6 +59,10 @@ export class SecurityGroupVpcAssociation extends pulumi.CustomResource {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the security group.
      */
     public readonly securityGroupId!: pulumi.Output<string>;
@@ -85,6 +89,7 @@ export class SecurityGroupVpcAssociation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityGroupVpcAssociationState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
@@ -97,6 +102,7 @@ export class SecurityGroupVpcAssociation extends pulumi.CustomResource {
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
@@ -111,6 +117,10 @@ export class SecurityGroupVpcAssociation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SecurityGroupVpcAssociation resources.
  */
 export interface SecurityGroupVpcAssociationState {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the security group.
      */
@@ -130,6 +140,10 @@ export interface SecurityGroupVpcAssociationState {
  * The set of arguments for constructing a SecurityGroupVpcAssociation resource.
  */
 export interface SecurityGroupVpcAssociationArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the security group.
      */

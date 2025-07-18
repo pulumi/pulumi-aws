@@ -25,6 +25,7 @@ public final class GetSnapshotIdsResult {
      */
     private List<String> ids;
     private @Nullable List<String> owners;
+    private String region;
     private @Nullable List<String> restorableByUserIds;
 
     private GetSnapshotIdsResult() {}
@@ -48,6 +49,9 @@ public final class GetSnapshotIdsResult {
     public List<String> owners() {
         return this.owners == null ? List.of() : this.owners;
     }
+    public String region() {
+        return this.region;
+    }
     public List<String> restorableByUserIds() {
         return this.restorableByUserIds == null ? List.of() : this.restorableByUserIds;
     }
@@ -65,6 +69,7 @@ public final class GetSnapshotIdsResult {
         private String id;
         private List<String> ids;
         private @Nullable List<String> owners;
+        private String region;
         private @Nullable List<String> restorableByUserIds;
         public Builder() {}
         public Builder(GetSnapshotIdsResult defaults) {
@@ -73,6 +78,7 @@ public final class GetSnapshotIdsResult {
     	      this.id = defaults.id;
     	      this.ids = defaults.ids;
     	      this.owners = defaults.owners;
+    	      this.region = defaults.region;
     	      this.restorableByUserIds = defaults.restorableByUserIds;
         }
 
@@ -114,6 +120,14 @@ public final class GetSnapshotIdsResult {
             return owners(List.of(owners));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSnapshotIdsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder restorableByUserIds(@Nullable List<String> restorableByUserIds) {
 
             this.restorableByUserIds = restorableByUserIds;
@@ -128,6 +142,7 @@ public final class GetSnapshotIdsResult {
             _resultValue.id = id;
             _resultValue.ids = ids;
             _resultValue.owners = owners;
+            _resultValue.region = region;
             _resultValue.restorableByUserIds = restorableByUserIds;
             return _resultValue;
         }

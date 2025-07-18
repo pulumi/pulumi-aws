@@ -77,6 +77,10 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
      */
     public readonly enableWwwSubdomain!: pulumi.Output<boolean | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of the App Runner service.
      */
     public readonly serviceArn!: pulumi.Output<string>;
@@ -102,6 +106,7 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
             resourceInputs["dnsTarget"] = state ? state.dnsTarget : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["enableWwwSubdomain"] = state ? state.enableWwwSubdomain : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceArn"] = state ? state.serviceArn : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
         } else {
@@ -114,6 +119,7 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
             }
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["enableWwwSubdomain"] = args ? args.enableWwwSubdomain : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceArn"] = args ? args.serviceArn : undefined;
             resourceInputs["certificateValidationRecords"] = undefined /*out*/;
             resourceInputs["dnsTarget"] = undefined /*out*/;
@@ -145,6 +151,10 @@ export interface CustomDomainAssociationState {
      */
     enableWwwSubdomain?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ARN of the App Runner service.
      */
     serviceArn?: pulumi.Input<string>;
@@ -166,6 +176,10 @@ export interface CustomDomainAssociationArgs {
      * Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
      */
     enableWwwSubdomain?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the App Runner service.
      */

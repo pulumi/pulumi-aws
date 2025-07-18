@@ -28,7 +28,7 @@ class GetDomainResult:
     """
     A collection of values returned by getDomain.
     """
-    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, auto_tune_options=None, cluster_configs=None, cognito_options=None, created=None, deleted=None, domain_id=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encryption_at_rests=None, endpoint=None, id=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryptions=None, processing=None, snapshot_options=None, tags=None, vpc_options=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, auto_tune_options=None, cluster_configs=None, cognito_options=None, created=None, deleted=None, domain_id=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encryption_at_rests=None, endpoint=None, id=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryptions=None, processing=None, region=None, snapshot_options=None, tags=None, vpc_options=None):
         if access_policies and not isinstance(access_policies, str):
             raise TypeError("Expected argument 'access_policies' to be a str")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -89,6 +89,9 @@ class GetDomainResult:
         if processing and not isinstance(processing, bool):
             raise TypeError("Expected argument 'processing' to be a bool")
         pulumi.set(__self__, "processing", processing)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if snapshot_options and not isinstance(snapshot_options, list):
             raise TypeError("Expected argument 'snapshot_options' to be a list")
         pulumi.set(__self__, "snapshot_options", snapshot_options)
@@ -257,6 +260,11 @@ class GetDomainResult:
         return pulumi.get(self, "processing")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="snapshotOptions")
     def snapshot_options(self) -> Sequence['outputs.GetDomainSnapshotOptionResult']:
         """
@@ -307,12 +315,14 @@ class AwaitableGetDomainResult(GetDomainResult):
             log_publishing_options=self.log_publishing_options,
             node_to_node_encryptions=self.node_to_node_encryptions,
             processing=self.processing,
+            region=self.region,
             snapshot_options=self.snapshot_options,
             tags=self.tags,
             vpc_options=self.vpc_options)
 
 
 def get_domain(domain_name: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                tags: Optional[Mapping[str, builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainResult:
     """
@@ -329,10 +339,12 @@ def get_domain(domain_name: Optional[builtins.str] = None,
 
 
     :param builtins.str domain_name: Name of the domain.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags assigned to the domain.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:elasticsearch/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult).value
@@ -358,10 +370,12 @@ def get_domain(domain_name: Optional[builtins.str] = None,
         log_publishing_options=pulumi.get(__ret__, 'log_publishing_options'),
         node_to_node_encryptions=pulumi.get(__ret__, 'node_to_node_encryptions'),
         processing=pulumi.get(__ret__, 'processing'),
+        region=pulumi.get(__ret__, 'region'),
         snapshot_options=pulumi.get(__ret__, 'snapshot_options'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_options=pulumi.get(__ret__, 'vpc_options'))
 def get_domain_output(domain_name: Optional[pulumi.Input[builtins.str]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
@@ -378,10 +392,12 @@ def get_domain_output(domain_name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str domain_name: Name of the domain.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags assigned to the domain.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:elasticsearch/getDomain:getDomain', __args__, opts=opts, typ=GetDomainResult)
@@ -406,6 +422,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[builtins.str]] = None,
         log_publishing_options=pulumi.get(__response__, 'log_publishing_options'),
         node_to_node_encryptions=pulumi.get(__response__, 'node_to_node_encryptions'),
         processing=pulumi.get(__response__, 'processing'),
+        region=pulumi.get(__response__, 'region'),
         snapshot_options=pulumi.get(__response__, 'snapshot_options'),
         tags=pulumi.get(__response__, 'tags'),
         vpc_options=pulumi.get(__response__, 'vpc_options')))

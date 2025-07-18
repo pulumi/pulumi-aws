@@ -189,6 +189,10 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
      */
     public readonly manifestHash!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
      */
     public readonly sourceImageId!: pulumi.Output<string | undefined>;
@@ -202,8 +206,6 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -235,6 +237,7 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
             resourceInputs["manifest"] = state ? state.manifest : undefined;
             resourceInputs["manifestComputed"] = state ? state.manifestComputed : undefined;
             resourceInputs["manifestHash"] = state ? state.manifestHash : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sourceImageId"] = state ? state.sourceImageId : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -256,6 +259,7 @@ export class CustomDbEngineVersion extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["manifest"] = args ? args.manifest : undefined;
             resourceInputs["manifestHash"] = args ? args.manifestHash : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sourceImageId"] = args ? args.sourceImageId : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -337,6 +341,10 @@ export interface CustomDbEngineVersionState {
      */
     manifestHash?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
      */
     sourceImageId?: pulumi.Input<string>;
@@ -350,8 +358,6 @@ export interface CustomDbEngineVersionState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -396,6 +402,10 @@ export interface CustomDbEngineVersionArgs {
      * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
      */
     manifestHash?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
      */

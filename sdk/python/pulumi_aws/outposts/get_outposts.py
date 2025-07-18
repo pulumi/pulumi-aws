@@ -27,7 +27,7 @@ class GetOutpostsResult:
     """
     A collection of values returned by getOutposts.
     """
-    def __init__(__self__, arns=None, availability_zone=None, availability_zone_id=None, id=None, ids=None, owner_id=None, site_id=None):
+    def __init__(__self__, arns=None, availability_zone=None, availability_zone_id=None, id=None, ids=None, owner_id=None, region=None, site_id=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         pulumi.set(__self__, "arns", arns)
@@ -46,6 +46,9 @@ class GetOutpostsResult:
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if site_id and not isinstance(site_id, str):
             raise TypeError("Expected argument 'site_id' to be a str")
         pulumi.set(__self__, "site_id", site_id)
@@ -90,6 +93,11 @@ class GetOutpostsResult:
         return pulumi.get(self, "owner_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="siteId")
     def site_id(self) -> builtins.str:
         return pulumi.get(self, "site_id")
@@ -107,12 +115,14 @@ class AwaitableGetOutpostsResult(GetOutpostsResult):
             id=self.id,
             ids=self.ids,
             owner_id=self.owner_id,
+            region=self.region,
             site_id=self.site_id)
 
 
 def get_outposts(availability_zone: Optional[builtins.str] = None,
                  availability_zone_id: Optional[builtins.str] = None,
                  owner_id: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
                  site_id: Optional[builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutpostsResult:
     """
@@ -131,12 +141,14 @@ def get_outposts(availability_zone: Optional[builtins.str] = None,
     :param builtins.str availability_zone: Availability Zone name.
     :param builtins.str availability_zone_id: Availability Zone identifier.
     :param builtins.str owner_id: AWS Account identifier of the Outpost owner.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str site_id: Site identifier.
     """
     __args__ = dict()
     __args__['availabilityZone'] = availability_zone
     __args__['availabilityZoneId'] = availability_zone_id
     __args__['ownerId'] = owner_id
+    __args__['region'] = region
     __args__['siteId'] = site_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:outposts/getOutposts:getOutposts', __args__, opts=opts, typ=GetOutpostsResult).value
@@ -148,10 +160,12 @@ def get_outposts(availability_zone: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
+        region=pulumi.get(__ret__, 'region'),
         site_id=pulumi.get(__ret__, 'site_id'))
 def get_outposts_output(availability_zone: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         availability_zone_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         owner_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         site_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutpostsResult]:
     """
@@ -170,12 +184,14 @@ def get_outposts_output(availability_zone: Optional[pulumi.Input[Optional[builti
     :param builtins.str availability_zone: Availability Zone name.
     :param builtins.str availability_zone_id: Availability Zone identifier.
     :param builtins.str owner_id: AWS Account identifier of the Outpost owner.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str site_id: Site identifier.
     """
     __args__ = dict()
     __args__['availabilityZone'] = availability_zone
     __args__['availabilityZoneId'] = availability_zone_id
     __args__['ownerId'] = owner_id
+    __args__['region'] = region
     __args__['siteId'] = site_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:outposts/getOutposts:getOutposts', __args__, opts=opts, typ=GetOutpostsResult)
@@ -186,4 +202,5 @@ def get_outposts_output(availability_zone: Optional[pulumi.Input[Optional[builti
         id=pulumi.get(__response__, 'id'),
         ids=pulumi.get(__response__, 'ids'),
         owner_id=pulumi.get(__response__, 'owner_id'),
+        region=pulumi.get(__response__, 'region'),
         site_id=pulumi.get(__response__, 'site_id')))

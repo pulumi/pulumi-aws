@@ -32,6 +32,7 @@ export function getDevEnvironment(args: GetDevEnvironmentArgs, opts?: pulumi.Inv
         "creatorId": args.creatorId,
         "envId": args.envId,
         "projectName": args.projectName,
+        "region": args.region,
         "repositories": args.repositories,
         "spaceName": args.spaceName,
         "tags": args.tags,
@@ -58,6 +59,10 @@ export interface GetDevEnvironmentArgs {
      * The name of the project in the space.
      */
     projectName: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * The source repository that contains the branch to clone into the Dev Environment.
      */
@@ -107,6 +112,7 @@ export interface GetDevEnvironmentResult {
      */
     readonly persistentStorages: outputs.codecatalyst.GetDevEnvironmentPersistentStorage[];
     readonly projectName: string;
+    readonly region: string;
     /**
      * The source repository that contains the branch to clone into the Dev Environment.
      */
@@ -147,6 +153,7 @@ export function getDevEnvironmentOutput(args: GetDevEnvironmentOutputArgs, opts?
         "creatorId": args.creatorId,
         "envId": args.envId,
         "projectName": args.projectName,
+        "region": args.region,
         "repositories": args.repositories,
         "spaceName": args.spaceName,
         "tags": args.tags,
@@ -173,6 +180,10 @@ export interface GetDevEnvironmentOutputArgs {
      * The name of the project in the space.
      */
     projectName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The source repository that contains the branch to clone into the Dev Environment.
      */

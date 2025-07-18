@@ -105,6 +105,12 @@ namespace Pulumi.Aws.Route53
         [Input("firewallRuleGroupId", required: true)]
         public string FirewallRuleGroupId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetResolverFirewallRuleGroupArgs()
         {
         }
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Input("firewallRuleGroupId", required: true)]
         public Input<string> FirewallRuleGroupId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetResolverFirewallRuleGroupInvokeArgs()
         {
@@ -158,6 +170,7 @@ namespace Pulumi.Aws.Route53
         /// The Amazon Web Services account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
         /// </summary>
         public readonly string OwnerId;
+        public readonly string Region;
         /// <summary>
         /// The number of rules in the rule group.
         /// </summary>
@@ -193,6 +206,8 @@ namespace Pulumi.Aws.Route53
 
             string ownerId,
 
+            string region,
+
             int ruleCount,
 
             string shareStatus,
@@ -209,6 +224,7 @@ namespace Pulumi.Aws.Route53
             ModificationTime = modificationTime;
             Name = name;
             OwnerId = ownerId;
+            Region = region;
             RuleCount = ruleCount;
             ShareStatus = shareStatus;
             Status = status;

@@ -65,6 +65,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string?> ModelSelectionExpression { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Response models for the route response.
         /// </summary>
         [Output("responseModels")]
@@ -140,6 +146,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Input("modelSelectionExpression")]
         public Input<string>? ModelSelectionExpression { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("responseModels")]
         private InputMap<string>? _responseModels;
 
@@ -183,6 +195,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Input("modelSelectionExpression")]
         public Input<string>? ModelSelectionExpression { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("responseModels")]
         private InputMap<string>? _responseModels;

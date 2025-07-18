@@ -78,6 +78,21 @@ public final class GetVpcIpamPoolPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Map of tags to assigned to the resource.
      * 
      */
@@ -99,6 +114,7 @@ public final class GetVpcIpamPoolPlainArgs extends com.pulumi.resources.InvokeAr
         this.filters = $.filters;
         this.id = $.id;
         this.ipamPoolId = $.ipamPoolId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -171,6 +187,17 @@ public final class GetVpcIpamPoolPlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder ipamPoolId(@Nullable String ipamPoolId) {
             $.ipamPoolId = ipamPoolId;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

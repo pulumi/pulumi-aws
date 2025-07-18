@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,6 +62,8 @@ type GetPrincipalApplicationAssignmentsArgs struct {
 	PrincipalId string `pulumi:"principalId"`
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 	PrincipalType string `pulumi:"principalType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getPrincipalApplicationAssignments.
@@ -74,6 +76,7 @@ type GetPrincipalApplicationAssignmentsResult struct {
 	PrincipalId string `pulumi:"principalId"`
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 	PrincipalType string `pulumi:"principalType"`
+	Region        string `pulumi:"region"`
 }
 
 func GetPrincipalApplicationAssignmentsOutput(ctx *pulumi.Context, args GetPrincipalApplicationAssignmentsOutputArgs, opts ...pulumi.InvokeOption) GetPrincipalApplicationAssignmentsResultOutput {
@@ -95,6 +98,8 @@ type GetPrincipalApplicationAssignmentsOutputArgs struct {
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 	PrincipalType pulumi.StringInput `pulumi:"principalType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetPrincipalApplicationAssignmentsOutputArgs) ElementType() reflect.Type {
@@ -139,6 +144,10 @@ func (o GetPrincipalApplicationAssignmentsResultOutput) PrincipalId() pulumi.Str
 // Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 func (o GetPrincipalApplicationAssignmentsResultOutput) PrincipalType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPrincipalApplicationAssignmentsResult) string { return v.PrincipalType }).(pulumi.StringOutput)
+}
+
+func (o GetPrincipalApplicationAssignmentsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPrincipalApplicationAssignmentsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

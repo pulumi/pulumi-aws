@@ -29,7 +29,7 @@ class GetImageRecipesResult:
     """
     A collection of values returned by getImageRecipes.
     """
-    def __init__(__self__, arns=None, filters=None, id=None, names=None, owner=None):
+    def __init__(__self__, arns=None, filters=None, id=None, names=None, owner=None, region=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         pulumi.set(__self__, "arns", arns)
@@ -45,6 +45,9 @@ class GetImageRecipesResult:
         if owner and not isinstance(owner, str):
             raise TypeError("Expected argument 'owner' to be a str")
         pulumi.set(__self__, "owner", owner)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -80,6 +83,11 @@ class GetImageRecipesResult:
     def owner(self) -> Optional[builtins.str]:
         return pulumi.get(self, "owner")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetImageRecipesResult(GetImageRecipesResult):
     # pylint: disable=using-constant-test
@@ -91,11 +99,13 @@ class AwaitableGetImageRecipesResult(GetImageRecipesResult):
             filters=self.filters,
             id=self.id,
             names=self.names,
-            owner=self.owner)
+            owner=self.owner,
+            region=self.region)
 
 
 def get_image_recipes(filters: Optional[Sequence[Union['GetImageRecipesFilterArgs', 'GetImageRecipesFilterArgsDict']]] = None,
                       owner: Optional[builtins.str] = None,
+                      region: Optional[builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageRecipesResult:
     """
     Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
@@ -116,10 +126,12 @@ def get_image_recipes(filters: Optional[Sequence[Union['GetImageRecipesFilterArg
 
     :param Sequence[Union['GetImageRecipesFilterArgs', 'GetImageRecipesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param builtins.str owner: Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['owner'] = owner
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:imagebuilder/getImageRecipes:getImageRecipes', __args__, opts=opts, typ=GetImageRecipesResult).value
 
@@ -128,9 +140,11 @@ def get_image_recipes(filters: Optional[Sequence[Union['GetImageRecipesFilterArg
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         names=pulumi.get(__ret__, 'names'),
-        owner=pulumi.get(__ret__, 'owner'))
+        owner=pulumi.get(__ret__, 'owner'),
+        region=pulumi.get(__ret__, 'region'))
 def get_image_recipes_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetImageRecipesFilterArgs', 'GetImageRecipesFilterArgsDict']]]]] = None,
                              owner: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageRecipesResult]:
     """
     Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
@@ -151,10 +165,12 @@ def get_image_recipes_output(filters: Optional[pulumi.Input[Optional[Sequence[Un
 
     :param Sequence[Union['GetImageRecipesFilterArgs', 'GetImageRecipesFilterArgsDict']] filters: Configuration block(s) for filtering. Detailed below.
     :param builtins.str owner: Owner of the image recipes. Valid values are `Self`, `Shared`, `Amazon` and `ThirdParty`. Defaults to `Self`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['owner'] = owner
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getImageRecipes:getImageRecipes', __args__, opts=opts, typ=GetImageRecipesResult)
     return __ret__.apply(lambda __response__: GetImageRecipesResult(
@@ -162,4 +178,5 @@ def get_image_recipes_output(filters: Optional[pulumi.Input[Optional[Sequence[Un
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         names=pulumi.get(__response__, 'names'),
-        owner=pulumi.get(__response__, 'owner')))
+        owner=pulumi.get(__response__, 'owner'),
+        region=pulumi.get(__response__, 'region')))

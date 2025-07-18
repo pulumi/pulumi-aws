@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Lambda.Outputs
     public sealed class EventSourceMappingDocumentDbEventSourceConfig
     {
         /// <summary>
-        /// The name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
+        /// Name of the collection to consume within the database. If you do not specify a collection, Lambda consumes all collections.
         /// </summary>
         public readonly string? CollectionName;
         /// <summary>
-        /// The name of the database to consume within the DocumentDB cluster.
+        /// Name of the database to consume within the DocumentDB cluster.
         /// </summary>
         public readonly string DatabaseName;
         /// <summary>

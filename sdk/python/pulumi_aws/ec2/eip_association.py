@@ -25,7 +25,8 @@ class EipAssociationArgs:
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
                  private_ip_address: Optional[pulumi.Input[builtins.str]] = None,
-                 public_ip: Optional[pulumi.Input[builtins.str]] = None):
+                 public_ip: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a EipAssociation resource.
         :param pulumi.Input[builtins.str] allocation_id: ID of the associated Elastic IP.
@@ -41,6 +42,7 @@ class EipAssociationArgs:
         :param pulumi.Input[builtins.str] private_ip_address: Primary or secondary private IP address to associate with the Elastic IP address.
                If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         :param pulumi.Input[builtins.str] public_ip: ) Address of the associated Elastic IP.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if allocation_id is not None:
             pulumi.set(__self__, "allocation_id", allocation_id)
@@ -54,6 +56,8 @@ class EipAssociationArgs:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
         if public_ip is not None:
             pulumi.set(__self__, "public_ip", public_ip)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="allocationId")
@@ -134,6 +138,18 @@ class EipAssociationArgs:
     def public_ip(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "public_ip", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _EipAssociationState:
@@ -143,7 +159,8 @@ class _EipAssociationState:
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
                  private_ip_address: Optional[pulumi.Input[builtins.str]] = None,
-                 public_ip: Optional[pulumi.Input[builtins.str]] = None):
+                 public_ip: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering EipAssociation resources.
         :param pulumi.Input[builtins.str] allocation_id: ID of the associated Elastic IP.
@@ -159,6 +176,7 @@ class _EipAssociationState:
         :param pulumi.Input[builtins.str] private_ip_address: Primary or secondary private IP address to associate with the Elastic IP address.
                If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         :param pulumi.Input[builtins.str] public_ip: ) Address of the associated Elastic IP.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if allocation_id is not None:
             pulumi.set(__self__, "allocation_id", allocation_id)
@@ -172,6 +190,8 @@ class _EipAssociationState:
             pulumi.set(__self__, "private_ip_address", private_ip_address)
         if public_ip is not None:
             pulumi.set(__self__, "public_ip", public_ip)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="allocationId")
@@ -252,6 +272,18 @@ class _EipAssociationState:
     def public_ip(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "public_ip", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:ec2/eipAssociation:EipAssociation")
 class EipAssociation(pulumi.CustomResource):
@@ -265,6 +297,7 @@ class EipAssociation(pulumi.CustomResource):
                  network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
                  private_ip_address: Optional[pulumi.Input[builtins.str]] = None,
                  public_ip: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides an AWS EIP Association as a top level resource, to associate and disassociate Elastic IPs from AWS Instances and Network Interfaces.
@@ -315,6 +348,7 @@ class EipAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] private_ip_address: Primary or secondary private IP address to associate with the Elastic IP address.
                If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         :param pulumi.Input[builtins.str] public_ip: ) Address of the associated Elastic IP.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -377,6 +411,7 @@ class EipAssociation(pulumi.CustomResource):
                  network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
                  private_ip_address: Optional[pulumi.Input[builtins.str]] = None,
                  public_ip: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -392,6 +427,7 @@ class EipAssociation(pulumi.CustomResource):
             __props__.__dict__["network_interface_id"] = network_interface_id
             __props__.__dict__["private_ip_address"] = private_ip_address
             __props__.__dict__["public_ip"] = public_ip
+            __props__.__dict__["region"] = region
         super(EipAssociation, __self__).__init__(
             'aws:ec2/eipAssociation:EipAssociation',
             resource_name,
@@ -407,7 +443,8 @@ class EipAssociation(pulumi.CustomResource):
             instance_id: Optional[pulumi.Input[builtins.str]] = None,
             network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
             private_ip_address: Optional[pulumi.Input[builtins.str]] = None,
-            public_ip: Optional[pulumi.Input[builtins.str]] = None) -> 'EipAssociation':
+            public_ip: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'EipAssociation':
         """
         Get an existing EipAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -428,6 +465,7 @@ class EipAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] private_ip_address: Primary or secondary private IP address to associate with the Elastic IP address.
                If no private IP address is specified, the Elastic IP address is associated with the primary private IP address.
         :param pulumi.Input[builtins.str] public_ip: ) Address of the associated Elastic IP.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -439,6 +477,7 @@ class EipAssociation(pulumi.CustomResource):
         __props__.__dict__["network_interface_id"] = network_interface_id
         __props__.__dict__["private_ip_address"] = private_ip_address
         __props__.__dict__["public_ip"] = public_ip
+        __props__.__dict__["region"] = region
         return EipAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -495,4 +534,12 @@ class EipAssociation(pulumi.CustomResource):
         ) Address of the associated Elastic IP.
         """
         return pulumi.get(self, "public_ip")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

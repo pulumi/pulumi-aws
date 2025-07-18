@@ -63,14 +63,14 @@ import javax.annotation.Nullable;
  * 
  *         var example = new VpcIpam("example", VpcIpamArgs.builder()
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.name())
+ *                 .regionName(current.region())
  *                 .build())
  *             .build());
  * 
  *         var exampleVpcIpamPool = new VpcIpamPool("exampleVpcIpamPool", VpcIpamPoolArgs.builder()
  *             .addressFamily("ipv4")
  *             .ipamScopeId(example.privateDefaultScopeId())
- *             .locale(current.name())
+ *             .locale(current.region())
  *             .build());
  * 
  *         var exampleVpcIpamPoolCidr = new VpcIpamPoolCidr("exampleVpcIpamPoolCidr", VpcIpamPoolCidrArgs.builder()
@@ -121,7 +121,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new VpcIpam("example", VpcIpamArgs.builder()
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.name())
+ *                 .regionName(current.region())
  *                 .build())
  *             .build());
  * 
@@ -228,6 +228,20 @@ public class VpcIpamPoolCidr extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> netmaskLength() {
         return Codegen.optional(this.netmaskLength);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
 
     /**

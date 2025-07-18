@@ -25,6 +25,7 @@ class MlflowTrackingServerArgs:
                  tracking_server_name: pulumi.Input[builtins.str],
                  automatic_model_registration: Optional[pulumi.Input[builtins.bool]] = None,
                  mlflow_version: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tracking_server_size: Optional[pulumi.Input[builtins.str]] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[builtins.str]] = None):
@@ -35,6 +36,7 @@ class MlflowTrackingServerArgs:
         :param pulumi.Input[builtins.str] tracking_server_name: A unique string identifying the tracking server name. This string is part of the tracking server ARN.
         :param pulumi.Input[builtins.bool] automatic_model_registration: A list of Member Definitions that contains objects that identify the workers that make up the work team.
         :param pulumi.Input[builtins.str] mlflow_version: The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] tracking_server_size: The size of the tracking server you want to create. You can choose between "Small", "Medium", and "Large". The default MLflow Tracking Server configuration size is "Small". You can choose a size depending on the projected use of the tracking server such as the volume of data logged, number of users, and frequency of use.
         :param pulumi.Input[builtins.str] weekly_maintenance_window_start: The day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: TUE:03:30.
@@ -46,6 +48,8 @@ class MlflowTrackingServerArgs:
             pulumi.set(__self__, "automatic_model_registration", automatic_model_registration)
         if mlflow_version is not None:
             pulumi.set(__self__, "mlflow_version", mlflow_version)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tracking_server_size is not None:
@@ -115,6 +119,18 @@ class MlflowTrackingServerArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -157,6 +173,7 @@ class _MlflowTrackingServerState:
                  artifact_store_uri: Optional[pulumi.Input[builtins.str]] = None,
                  automatic_model_registration: Optional[pulumi.Input[builtins.bool]] = None,
                  mlflow_version: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -170,6 +187,7 @@ class _MlflowTrackingServerState:
         :param pulumi.Input[builtins.str] artifact_store_uri: The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
         :param pulumi.Input[builtins.bool] automatic_model_registration: A list of Member Definitions that contains objects that identify the workers that make up the work team.
         :param pulumi.Input[builtins.str] mlflow_version: The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -186,13 +204,12 @@ class _MlflowTrackingServerState:
             pulumi.set(__self__, "automatic_model_registration", automatic_model_registration)
         if mlflow_version is not None:
             pulumi.set(__self__, "mlflow_version", mlflow_version)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tracking_server_name is not None:
@@ -253,6 +270,18 @@ class _MlflowTrackingServerState:
         pulumi.set(self, "mlflow_version", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -278,7 +307,6 @@ class _MlflowTrackingServerState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -347,6 +375,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
                  artifact_store_uri: Optional[pulumi.Input[builtins.str]] = None,
                  automatic_model_registration: Optional[pulumi.Input[builtins.bool]] = None,
                  mlflow_version: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tracking_server_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -383,6 +412,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] artifact_store_uri: The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
         :param pulumi.Input[builtins.bool] automatic_model_registration: A list of Member Definitions that contains objects that identify the workers that make up the work team.
         :param pulumi.Input[builtins.str] mlflow_version: The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] tracking_server_name: A unique string identifying the tracking server name. This string is part of the tracking server ARN.
@@ -438,6 +468,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
                  artifact_store_uri: Optional[pulumi.Input[builtins.str]] = None,
                  automatic_model_registration: Optional[pulumi.Input[builtins.bool]] = None,
                  mlflow_version: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tracking_server_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -457,6 +488,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
             __props__.__dict__["artifact_store_uri"] = artifact_store_uri
             __props__.__dict__["automatic_model_registration"] = automatic_model_registration
             __props__.__dict__["mlflow_version"] = mlflow_version
+            __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -483,6 +515,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
             artifact_store_uri: Optional[pulumi.Input[builtins.str]] = None,
             automatic_model_registration: Optional[pulumi.Input[builtins.bool]] = None,
             mlflow_version: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -501,6 +534,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] artifact_store_uri: The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
         :param pulumi.Input[builtins.bool] automatic_model_registration: A list of Member Definitions that contains objects that identify the workers that make up the work team.
         :param pulumi.Input[builtins.str] mlflow_version: The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -517,6 +551,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
         __props__.__dict__["artifact_store_uri"] = artifact_store_uri
         __props__.__dict__["automatic_model_registration"] = automatic_model_registration
         __props__.__dict__["mlflow_version"] = mlflow_version
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -559,6 +594,14 @@ class MlflowTrackingServer(pulumi.CustomResource):
         return pulumi.get(self, "mlflow_version")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[builtins.str]:
         """
@@ -576,7 +619,6 @@ class MlflowTrackingServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

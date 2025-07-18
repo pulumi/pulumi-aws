@@ -60,12 +60,28 @@ public final class BucketRequestPaymentConfigurationV2State extends com.pulumi.r
         return Optional.ofNullable(this.payer);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private BucketRequestPaymentConfigurationV2State() {}
 
     private BucketRequestPaymentConfigurationV2State(BucketRequestPaymentConfigurationV2State $) {
         this.bucket = $.bucket;
         this.expectedBucketOwner = $.expectedBucketOwner;
         this.payer = $.payer;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -147,6 +163,27 @@ public final class BucketRequestPaymentConfigurationV2State extends com.pulumi.r
          */
         public Builder payer(String payer) {
             return payer(Output.of(payer));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public BucketRequestPaymentConfigurationV2State build() {

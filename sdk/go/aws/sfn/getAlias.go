@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sfn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,6 +57,8 @@ type LookupAliasArgs struct {
 	Description *string `pulumi:"description"`
 	// Name of the State Machine alias.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the State Machine.
 	StatemachineArn string `pulumi:"statemachineArn"`
 }
@@ -70,8 +72,9 @@ type LookupAliasResult struct {
 	// Description of state machine alias.
 	Description *string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Routing Configuration of state machine alias
 	RoutingConfigurations []GetAliasRoutingConfiguration `pulumi:"routingConfigurations"`
 	StatemachineArn       string                         `pulumi:"statemachineArn"`
@@ -92,6 +95,8 @@ type LookupAliasOutputArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Name of the State Machine alias.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ARN of the State Machine.
 	StatemachineArn pulumi.StringInput `pulumi:"statemachineArn"`
 }
@@ -137,6 +142,10 @@ func (o LookupAliasResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupAliasResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupAliasResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAliasResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Routing Configuration of state machine alias

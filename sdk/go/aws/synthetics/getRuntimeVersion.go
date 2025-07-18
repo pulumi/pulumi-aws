@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/synthetics"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/synthetics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/synthetics"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/synthetics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -86,6 +86,8 @@ type GetRuntimeVersionArgs struct {
 	//
 	// The following arguments are optional:
 	Prefix string `pulumi:"prefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
 	Version *string `pulumi:"version"`
 }
@@ -100,6 +102,7 @@ type GetRuntimeVersionResult struct {
 	Id     string `pulumi:"id"`
 	Latest *bool  `pulumi:"latest"`
 	Prefix string `pulumi:"prefix"`
+	Region string `pulumi:"region"`
 	// Date that the runtime version was released.
 	ReleaseDate string  `pulumi:"releaseDate"`
 	Version     *string `pulumi:"version"`
@@ -124,6 +127,8 @@ type GetRuntimeVersionOutputArgs struct {
 	//
 	// The following arguments are optional:
 	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
@@ -168,6 +173,10 @@ func (o GetRuntimeVersionResultOutput) Latest() pulumi.BoolPtrOutput {
 
 func (o GetRuntimeVersionResultOutput) Prefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRuntimeVersionResult) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+func (o GetRuntimeVersionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRuntimeVersionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Date that the runtime version was released.

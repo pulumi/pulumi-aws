@@ -61,6 +61,12 @@ namespace Pulumi.Aws.Ec2
         [Output("internetGatewayBlockMode")]
         public Output<string> InternetGatewayBlockMode { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         [Output("timeouts")]
         public Output<Outputs.VpcBlockPublicAccessOptionsTimeouts?> Timeouts { get; private set; } = null!;
 
@@ -116,6 +122,12 @@ namespace Pulumi.Aws.Ec2
         [Input("internetGatewayBlockMode", required: true)]
         public Input<string> InternetGatewayBlockMode { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("timeouts")]
         public Input<Inputs.VpcBlockPublicAccessOptionsTimeoutsArgs>? Timeouts { get; set; }
 
@@ -144,6 +156,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("internetGatewayBlockMode")]
         public Input<string>? InternetGatewayBlockMode { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.VpcBlockPublicAccessOptionsTimeoutsGetArgs>? Timeouts { get; set; }

@@ -35,6 +35,7 @@ export function getNatGateways(args?: GetNatGatewaysArgs, opts?: pulumi.InvokeOp
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getNatGateways:getNatGateways", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
@@ -48,6 +49,10 @@ export interface GetNatGatewaysArgs {
      * Custom filter block as described below.
      */
     filters?: inputs.ec2.GetNatGatewaysFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired NAT Gateways.
@@ -72,6 +77,7 @@ export interface GetNatGatewaysResult {
      * List of all the NAT gateway ids found.
      */
     readonly ids: string[];
+    readonly region: string;
     readonly tags: {[key: string]: string};
     readonly vpcId?: string;
 }
@@ -103,6 +109,7 @@ export function getNatGatewaysOutput(args?: GetNatGatewaysOutputArgs, opts?: pul
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getNatGateways:getNatGateways", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
         "vpcId": args.vpcId,
     }, opts);
@@ -116,6 +123,10 @@ export interface GetNatGatewaysOutputArgs {
      * Custom filter block as described below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNatGatewaysFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match
      * a pair on the desired NAT Gateways.

@@ -4,7 +4,6 @@
 package com.pulumi.aws.identitystore.inputs;
 
 import com.pulumi.aws.identitystore.inputs.GetUserAlternateIdentifier;
-import com.pulumi.aws.identitystore.inputs.GetUserFilter;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -33,29 +32,6 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Configuration block for filtering by a unique attribute of the user. Detailed below.
-     * 
-     * @deprecated
-     * filter is deprecated. Use alternate_identifier instead.
-     * 
-     */
-    @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
-    @Import(name="filter")
-    private @Nullable GetUserFilter filter;
-
-    /**
-     * @return Configuration block for filtering by a unique attribute of the user. Detailed below.
-     * 
-     * @deprecated
-     * filter is deprecated. Use alternate_identifier instead.
-     * 
-     */
-    @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
-    public Optional<GetUserFilter> filter() {
-        return Optional.ofNullable(this.filter);
-    }
-
-    /**
      * Identity Store ID associated with the Single Sign-On Instance.
      * 
      * The following arguments are optional:
@@ -72,6 +48,21 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
      */
     public String identityStoreId() {
         return this.identityStoreId;
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -97,8 +88,8 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetUserPlainArgs(GetUserPlainArgs $) {
         this.alternateIdentifier = $.alternateIdentifier;
-        this.filter = $.filter;
         this.identityStoreId = $.identityStoreId;
+        this.region = $.region;
         this.userId = $.userId;
     }
 
@@ -132,21 +123,6 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filter Configuration block for filtering by a unique attribute of the user. Detailed below.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * filter is deprecated. Use alternate_identifier instead.
-         * 
-         */
-        @Deprecated /* filter is deprecated. Use alternate_identifier instead. */
-        public Builder filter(@Nullable GetUserFilter filter) {
-            $.filter = filter;
-            return this;
-        }
-
-        /**
          * @param identityStoreId Identity Store ID associated with the Single Sign-On Instance.
          * 
          * The following arguments are optional:
@@ -156,6 +132,17 @@ public final class GetUserPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder identityStoreId(String identityStoreId) {
             $.identityStoreId = identityStoreId;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

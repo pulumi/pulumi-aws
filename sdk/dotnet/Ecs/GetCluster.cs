@@ -96,6 +96,12 @@ namespace Pulumi.Aws.Ecs
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -121,6 +127,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -157,6 +169,7 @@ namespace Pulumi.Aws.Ecs
         /// Number of pending tasks for the ECS Cluster
         /// </summary>
         public readonly int PendingTasksCount;
+        public readonly string Region;
         /// <summary>
         /// The number of registered container instances for the ECS Cluster
         /// </summary>
@@ -192,6 +205,8 @@ namespace Pulumi.Aws.Ecs
 
             int pendingTasksCount,
 
+            string region,
+
             int registeredContainerInstancesCount,
 
             int runningTasksCount,
@@ -208,6 +223,7 @@ namespace Pulumi.Aws.Ecs
             ClusterName = clusterName;
             Id = id;
             PendingTasksCount = pendingTasksCount;
+            Region = region;
             RegisteredContainerInstancesCount = registeredContainerInstancesCount;
             RunningTasksCount = runningTasksCount;
             ServiceConnectDefaults = serviceConnectDefaults;

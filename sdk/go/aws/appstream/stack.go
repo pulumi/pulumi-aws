@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appstream"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -123,6 +123,8 @@ type Stack struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl pulumi.StringOutput `pulumi:"redirectUrl"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
 	StorageConnectors StackStorageConnectorArrayOutput `pulumi:"storageConnectors"`
@@ -130,8 +132,7 @@ type Stack struct {
 	// See `streamingExperienceSettings` below.
 	StreamingExperienceSettings StackStreamingExperienceSettingsOutput `pulumi:"streamingExperienceSettings"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
 	// See `userSettings` below.
@@ -192,6 +193,8 @@ type stackState struct {
 	Name *string `pulumi:"name"`
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl *string `pulumi:"redirectUrl"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
 	StorageConnectors []StackStorageConnector `pulumi:"storageConnectors"`
@@ -199,8 +202,7 @@ type stackState struct {
 	// See `streamingExperienceSettings` below.
 	StreamingExperienceSettings *StackStreamingExperienceSettings `pulumi:"streamingExperienceSettings"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
 	// See `userSettings` below.
@@ -232,6 +234,8 @@ type StackState struct {
 	Name pulumi.StringPtrInput
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
 	StorageConnectors StackStorageConnectorArrayInput
@@ -239,8 +243,7 @@ type StackState struct {
 	// See `streamingExperienceSettings` below.
 	StreamingExperienceSettings StackStreamingExperienceSettingsPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. If not provided, these settings are configured automatically by AWS. If provided, the configuration should include a block for each configurable action.
 	// See `userSettings` below.
@@ -272,6 +275,8 @@ type stackArgs struct {
 	Name *string `pulumi:"name"`
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl *string `pulumi:"redirectUrl"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
 	StorageConnectors []StackStorageConnector `pulumi:"storageConnectors"`
@@ -307,6 +312,8 @@ type StackArgs struct {
 	Name pulumi.StringPtrInput
 	// URL that users are redirected to after their streaming session ends.
 	RedirectUrl pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration block for the storage connectors to enable.
 	// See `storageConnectors` below.
 	StorageConnectors StackStorageConnectorArrayInput
@@ -461,6 +468,11 @@ func (o StackOutput) RedirectUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.RedirectUrl }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o StackOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Stack) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Configuration block for the storage connectors to enable.
 // See `storageConnectors` below.
 func (o StackOutput) StorageConnectors() StackStorageConnectorArrayOutput {
@@ -478,7 +490,6 @@ func (o StackOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o StackOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

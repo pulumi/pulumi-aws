@@ -42,6 +42,7 @@ export function getQuickConnect(args: GetQuickConnectArgs, opts?: pulumi.InvokeO
         "instanceId": args.instanceId,
         "name": args.name,
         "quickConnectId": args.quickConnectId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -64,6 +65,10 @@ export interface GetQuickConnectArgs {
      * Returns information on a specific Quick Connect by Quick Connect id
      */
     quickConnectId?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags to assign to the Quick Connect.
      */
@@ -96,6 +101,7 @@ export interface GetQuickConnectResult {
      * Identifier for the Quick Connect.
      */
     readonly quickConnectId: string;
+    readonly region: string;
     /**
      * Map of tags to assign to the Quick Connect.
      */
@@ -136,6 +142,7 @@ export function getQuickConnectOutput(args: GetQuickConnectOutputArgs, opts?: pu
         "instanceId": args.instanceId,
         "name": args.name,
         "quickConnectId": args.quickConnectId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -158,6 +165,10 @@ export interface GetQuickConnectOutputArgs {
      * Returns information on a specific Quick Connect by Quick Connect id
      */
     quickConnectId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the Quick Connect.
      */

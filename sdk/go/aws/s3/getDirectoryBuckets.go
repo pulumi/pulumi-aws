@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,14 +20,14 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := s3.GetDirectoryBuckets(ctx, map[string]interface{}{}, nil)
+//			_, err := s3.GetDirectoryBuckets(ctx, &s3.GetDirectoryBucketsArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -36,14 +36,20 @@ import (
 //	}
 //
 // ```
-func GetDirectoryBuckets(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetDirectoryBucketsResult, error) {
+func GetDirectoryBuckets(ctx *pulumi.Context, args *GetDirectoryBucketsArgs, opts ...pulumi.InvokeOption) (*GetDirectoryBucketsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDirectoryBucketsResult
-	err := ctx.Invoke("aws:s3/getDirectoryBuckets:getDirectoryBuckets", nil, &rv, opts...)
+	err := ctx.Invoke("aws:s3/getDirectoryBuckets:getDirectoryBuckets", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getDirectoryBuckets.
+type GetDirectoryBucketsArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDirectoryBuckets.
@@ -53,13 +59,26 @@ type GetDirectoryBucketsResult struct {
 	// Buckets names.
 	Buckets []string `pulumi:"buckets"`
 	Id      string   `pulumi:"id"`
+	Region  string   `pulumi:"region"`
 }
 
-func GetDirectoryBucketsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetDirectoryBucketsResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetDirectoryBucketsResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:s3/getDirectoryBuckets:getDirectoryBuckets", nil, GetDirectoryBucketsResultOutput{}, options).(GetDirectoryBucketsResultOutput), nil
-	}).(GetDirectoryBucketsResultOutput)
+func GetDirectoryBucketsOutput(ctx *pulumi.Context, args GetDirectoryBucketsOutputArgs, opts ...pulumi.InvokeOption) GetDirectoryBucketsResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (GetDirectoryBucketsResultOutput, error) {
+			args := v.(GetDirectoryBucketsArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:s3/getDirectoryBuckets:getDirectoryBuckets", args, GetDirectoryBucketsResultOutput{}, options).(GetDirectoryBucketsResultOutput), nil
+		}).(GetDirectoryBucketsResultOutput)
+}
+
+// A collection of arguments for invoking getDirectoryBuckets.
+type GetDirectoryBucketsOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+}
+
+func (GetDirectoryBucketsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDirectoryBucketsArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getDirectoryBuckets.
@@ -89,6 +108,10 @@ func (o GetDirectoryBucketsResultOutput) Buckets() pulumi.StringArrayOutput {
 
 func (o GetDirectoryBucketsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDirectoryBucketsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetDirectoryBucketsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDirectoryBucketsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

@@ -25,6 +25,7 @@ export function getContainerRecipe(args: GetContainerRecipeArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:imagebuilder/getContainerRecipe:getContainerRecipe", {
         "arn": args.arn,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,10 @@ export interface GetContainerRecipeArgs {
      * ARN of the container recipe.
      */
     arn: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Key-value map of resource tags for the container recipe.
      */
@@ -100,6 +105,7 @@ export interface GetContainerRecipeResult {
      * Platform of the container recipe.
      */
     readonly platform: string;
+    readonly region: string;
     /**
      * Key-value map of resource tags for the container recipe.
      */
@@ -135,6 +141,7 @@ export function getContainerRecipeOutput(args: GetContainerRecipeOutputArgs, opt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:imagebuilder/getContainerRecipe:getContainerRecipe", {
         "arn": args.arn,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -147,6 +154,10 @@ export interface GetContainerRecipeOutputArgs {
      * ARN of the container recipe.
      */
     arn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the container recipe.
      */

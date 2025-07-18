@@ -23,6 +23,7 @@ class RoleAssociationArgs:
                  role: pulumi.Input[builtins.str],
                  workspace_id: pulumi.Input[builtins.str],
                  group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a RoleAssociation resource.
@@ -31,12 +32,15 @@ class RoleAssociationArgs:
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] group_ids: The AWS SSO group ids to be assigned the role given in `role`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_ids: The AWS SSO user ids to be assigned the role given in `role`.
         """
         pulumi.set(__self__, "role", role)
         pulumi.set(__self__, "workspace_id", workspace_id)
         if group_ids is not None:
             pulumi.set(__self__, "group_ids", group_ids)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if user_ids is not None:
             pulumi.set(__self__, "user_ids", user_ids)
 
@@ -79,6 +83,18 @@ class RoleAssociationArgs:
         pulumi.set(self, "group_ids", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="userIds")
     def user_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -95,12 +111,14 @@ class RoleAssociationArgs:
 class _RoleAssociationState:
     def __init__(__self__, *,
                  group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role: Optional[pulumi.Input[builtins.str]] = None,
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering RoleAssociation resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] group_ids: The AWS SSO group ids to be assigned the role given in `role`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_ids: The AWS SSO user ids to be assigned the role given in `role`.
         :param pulumi.Input[builtins.str] workspace_id: The workspace id.
@@ -109,6 +127,8 @@ class _RoleAssociationState:
         """
         if group_ids is not None:
             pulumi.set(__self__, "group_ids", group_ids)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role is not None:
             pulumi.set(__self__, "role", role)
         if user_ids is not None:
@@ -127,6 +147,18 @@ class _RoleAssociationState:
     @group_ids.setter
     def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "group_ids", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -174,6 +206,7 @@ class RoleAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role: Optional[pulumi.Input[builtins.str]] = None,
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -220,6 +253,7 @@ class RoleAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] group_ids: The AWS SSO group ids to be assigned the role given in `role`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_ids: The AWS SSO user ids to be assigned the role given in `role`.
         :param pulumi.Input[builtins.str] workspace_id: The workspace id.
@@ -287,6 +321,7 @@ class RoleAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role: Optional[pulumi.Input[builtins.str]] = None,
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  workspace_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -300,6 +335,7 @@ class RoleAssociation(pulumi.CustomResource):
             __props__ = RoleAssociationArgs.__new__(RoleAssociationArgs)
 
             __props__.__dict__["group_ids"] = group_ids
+            __props__.__dict__["region"] = region
             if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
             __props__.__dict__["role"] = role
@@ -318,6 +354,7 @@ class RoleAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role: Optional[pulumi.Input[builtins.str]] = None,
             user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             workspace_id: Optional[pulumi.Input[builtins.str]] = None) -> 'RoleAssociation':
@@ -329,6 +366,7 @@ class RoleAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] group_ids: The AWS SSO group ids to be assigned the role given in `role`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role: The grafana role. Valid values can be found [here](https://docs.aws.amazon.com/grafana/latest/APIReference/API_UpdateInstruction.html#ManagedGrafana-Type-UpdateInstruction-role).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_ids: The AWS SSO user ids to be assigned the role given in `role`.
         :param pulumi.Input[builtins.str] workspace_id: The workspace id.
@@ -340,6 +378,7 @@ class RoleAssociation(pulumi.CustomResource):
         __props__ = _RoleAssociationState.__new__(_RoleAssociationState)
 
         __props__.__dict__["group_ids"] = group_ids
+        __props__.__dict__["region"] = region
         __props__.__dict__["role"] = role
         __props__.__dict__["user_ids"] = user_ids
         __props__.__dict__["workspace_id"] = workspace_id
@@ -352,6 +391,14 @@ class RoleAssociation(pulumi.CustomResource):
         The AWS SSO group ids to be assigned the role given in `role`.
         """
         return pulumi.get(self, "group_ids")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

@@ -55,8 +55,20 @@ public final class GetVpcPeeringConnectionResult {
      */
     private List<GetVpcPeeringConnectionPeerIpv6CidrBlockSet> peerIpv6CidrBlockSets;
     private String peerOwnerId;
+    /**
+     * @return Region of the accepter VPC.
+     * 
+     */
     private String peerRegion;
     private String peerVpcId;
+    /**
+     * @return (**Deprecated**) Region of the requester VPC. Use `requester_region` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use requester_region instead.
+     * 
+     */
+    @Deprecated /* region is deprecated. Use requester_region instead. */
     private String region;
     /**
      * @return Configuration block that describes [VPC Peering Connection]
@@ -64,6 +76,11 @@ public final class GetVpcPeeringConnectionResult {
      * 
      */
     private Map<String,Boolean> requester;
+    /**
+     * @return Region of the requester VPC.
+     * 
+     */
+    private String requesterRegion;
     private String status;
     private Map<String,String> tags;
     private String vpcId;
@@ -127,12 +144,24 @@ public final class GetVpcPeeringConnectionResult {
     public String peerOwnerId() {
         return this.peerOwnerId;
     }
+    /**
+     * @return Region of the accepter VPC.
+     * 
+     */
     public String peerRegion() {
         return this.peerRegion;
     }
     public String peerVpcId() {
         return this.peerVpcId;
     }
+    /**
+     * @return (**Deprecated**) Region of the requester VPC. Use `requester_region` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use requester_region instead.
+     * 
+     */
+    @Deprecated /* region is deprecated. Use requester_region instead. */
     public String region() {
         return this.region;
     }
@@ -143,6 +172,13 @@ public final class GetVpcPeeringConnectionResult {
      */
     public Map<String,Boolean> requester() {
         return this.requester;
+    }
+    /**
+     * @return Region of the requester VPC.
+     * 
+     */
+    public String requesterRegion() {
+        return this.requesterRegion;
     }
     public String status() {
         return this.status;
@@ -178,6 +214,7 @@ public final class GetVpcPeeringConnectionResult {
         private String peerVpcId;
         private String region;
         private Map<String,Boolean> requester;
+        private String requesterRegion;
         private String status;
         private Map<String,String> tags;
         private String vpcId;
@@ -199,6 +236,7 @@ public final class GetVpcPeeringConnectionResult {
     	      this.peerVpcId = defaults.peerVpcId;
     	      this.region = defaults.region;
     	      this.requester = defaults.requester;
+    	      this.requesterRegion = defaults.requesterRegion;
     	      this.status = defaults.status;
     	      this.tags = defaults.tags;
     	      this.vpcId = defaults.vpcId;
@@ -338,6 +376,14 @@ public final class GetVpcPeeringConnectionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder requesterRegion(String requesterRegion) {
+            if (requesterRegion == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "requesterRegion");
+            }
+            this.requesterRegion = requesterRegion;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "status");
@@ -378,6 +424,7 @@ public final class GetVpcPeeringConnectionResult {
             _resultValue.peerVpcId = peerVpcId;
             _resultValue.region = region;
             _resultValue.requester = requester;
+            _resultValue.requesterRegion = requesterRegion;
             _resultValue.status = status;
             _resultValue.tags = tags;
             _resultValue.vpcId = vpcId;

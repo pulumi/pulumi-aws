@@ -98,6 +98,10 @@ export class ConfiguredTable extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A reference to the AWS Glue table which will be used to create the configured table.
      * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
      * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
@@ -107,9 +111,6 @@ export class ConfiguredTable extends pulumi.CustomResource {
      * Key value pairs which tag the configured table.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The date and time the configured table was last updated.
@@ -135,6 +136,7 @@ export class ConfiguredTable extends pulumi.CustomResource {
             resourceInputs["createTime"] = state ? state.createTime : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tableReference"] = state ? state.tableReference : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -154,6 +156,7 @@ export class ConfiguredTable extends pulumi.CustomResource {
             resourceInputs["analysisMethod"] = args ? args.analysisMethod : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tableReference"] = args ? args.tableReference : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -195,6 +198,10 @@ export interface ConfiguredTableState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A reference to the AWS Glue table which will be used to create the configured table.
      * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.
      * * `table_reference.table_name` - (Required - Forces new resource) - The name of the AWS Glue table which will be used to create the configured table.
@@ -204,9 +211,6 @@ export interface ConfiguredTableState {
      * Key value pairs which tag the configured table.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The date and time the configured table was last updated.
@@ -234,6 +238,10 @@ export interface ConfiguredTableArgs {
      * The name of the configured table.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A reference to the AWS Glue table which will be used to create the configured table.
      * * `table_reference.database_name` - (Required - Forces new resource) - The name of the AWS Glue database which contains the table.

@@ -30,8 +30,10 @@ class PolicyArgs:
                  exclude_map: Optional[pulumi.Input['PolicyExcludeMapArgs']] = None,
                  include_map: Optional[pulumi.Input['PolicyIncludeMapArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remediation_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 resource_tag_logical_operator: Optional[pulumi.Input[builtins.str]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
                  resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -46,7 +48,9 @@ class PolicyArgs:
         :param pulumi.Input['PolicyExcludeMapArgs'] exclude_map: A map of lists of accounts and OU's to exclude from the policy. See the `exclude_map` block.
         :param pulumi.Input['PolicyIncludeMapArgs'] include_map: A map of lists of accounts and OU's to include in the policy. See the `include_map` block.
         :param pulumi.Input[builtins.str] name: The friendly name of the AWS Firewall Manager Policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] remediation_enabled: A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
+        :param pulumi.Input[builtins.str] resource_tag_logical_operator: Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] resource_tags: A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
         :param pulumi.Input[builtins.str] resource_type: A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_type_lists: A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
@@ -66,10 +70,14 @@ class PolicyArgs:
             pulumi.set(__self__, "include_map", include_map)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if remediation_enabled is not None:
             pulumi.set(__self__, "remediation_enabled", remediation_enabled)
         if resource_set_ids is not None:
             pulumi.set(__self__, "resource_set_ids", resource_set_ids)
+        if resource_tag_logical_operator is not None:
+            pulumi.set(__self__, "resource_tag_logical_operator", resource_tag_logical_operator)
         if resource_tags is not None:
             pulumi.set(__self__, "resource_tags", resource_tags)
         if resource_type is not None:
@@ -176,6 +184,18 @@ class PolicyArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="remediationEnabled")
     def remediation_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -195,6 +215,18 @@ class PolicyArgs:
     @resource_set_ids.setter
     def resource_set_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "resource_set_ids", value)
+
+    @property
+    @pulumi.getter(name="resourceTagLogicalOperator")
+    def resource_tag_logical_operator(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+        """
+        return pulumi.get(self, "resource_tag_logical_operator")
+
+    @resource_tag_logical_operator.setter
+    def resource_tag_logical_operator(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "resource_tag_logical_operator", value)
 
     @property
     @pulumi.getter(name="resourceTags")
@@ -257,8 +289,10 @@ class _PolicyState:
                  include_map: Optional[pulumi.Input['PolicyIncludeMapArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_update_token: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remediation_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 resource_tag_logical_operator: Optional[pulumi.Input[builtins.str]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
                  resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -275,7 +309,9 @@ class _PolicyState:
         :param pulumi.Input['PolicyIncludeMapArgs'] include_map: A map of lists of accounts and OU's to include in the policy. See the `include_map` block.
         :param pulumi.Input[builtins.str] name: The friendly name of the AWS Firewall Manager Policy.
         :param pulumi.Input[builtins.str] policy_update_token: A unique identifier for each update to the policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] remediation_enabled: A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
+        :param pulumi.Input[builtins.str] resource_tag_logical_operator: Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] resource_tags: A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
         :param pulumi.Input[builtins.str] resource_type: A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_type_lists: A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
@@ -301,10 +337,14 @@ class _PolicyState:
             pulumi.set(__self__, "name", name)
         if policy_update_token is not None:
             pulumi.set(__self__, "policy_update_token", policy_update_token)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if remediation_enabled is not None:
             pulumi.set(__self__, "remediation_enabled", remediation_enabled)
         if resource_set_ids is not None:
             pulumi.set(__self__, "resource_set_ids", resource_set_ids)
+        if resource_tag_logical_operator is not None:
+            pulumi.set(__self__, "resource_tag_logical_operator", resource_tag_logical_operator)
         if resource_tags is not None:
             pulumi.set(__self__, "resource_tags", resource_tags)
         if resource_type is not None:
@@ -315,9 +355,6 @@ class _PolicyState:
             pulumi.set(__self__, "security_service_policy_data", security_service_policy_data)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -427,6 +464,18 @@ class _PolicyState:
         pulumi.set(self, "policy_update_token", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="remediationEnabled")
     def remediation_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -446,6 +495,18 @@ class _PolicyState:
     @resource_set_ids.setter
     def resource_set_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "resource_set_ids", value)
+
+    @property
+    @pulumi.getter(name="resourceTagLogicalOperator")
+    def resource_tag_logical_operator(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+        """
+        return pulumi.get(self, "resource_tag_logical_operator")
+
+    @resource_tag_logical_operator.setter
+    def resource_tag_logical_operator(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "resource_tag_logical_operator", value)
 
     @property
     @pulumi.getter(name="resourceTags")
@@ -509,7 +570,6 @@ class _PolicyState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -534,8 +594,10 @@ class Policy(pulumi.CustomResource):
                  exclude_resource_tags: Optional[pulumi.Input[builtins.bool]] = None,
                  include_map: Optional[pulumi.Input[Union['PolicyIncludeMapArgs', 'PolicyIncludeMapArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remediation_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 resource_tag_logical_operator: Optional[pulumi.Input[builtins.str]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
                  resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -600,7 +662,9 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] exclude_resource_tags: A boolean value, if true the tags that are specified in the `resource_tags` are not protected by this policy. If set to false and resource_tags are populated, resources that contain tags will be protected by this policy.
         :param pulumi.Input[Union['PolicyIncludeMapArgs', 'PolicyIncludeMapArgsDict']] include_map: A map of lists of accounts and OU's to include in the policy. See the `include_map` block.
         :param pulumi.Input[builtins.str] name: The friendly name of the AWS Firewall Manager Policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] remediation_enabled: A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
+        :param pulumi.Input[builtins.str] resource_tag_logical_operator: Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] resource_tags: A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
         :param pulumi.Input[builtins.str] resource_type: A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_type_lists: A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
@@ -684,8 +748,10 @@ class Policy(pulumi.CustomResource):
                  exclude_resource_tags: Optional[pulumi.Input[builtins.bool]] = None,
                  include_map: Optional[pulumi.Input[Union['PolicyIncludeMapArgs', 'PolicyIncludeMapArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  remediation_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 resource_tag_logical_operator: Optional[pulumi.Input[builtins.str]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
                  resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -709,8 +775,10 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["exclude_resource_tags"] = exclude_resource_tags
             __props__.__dict__["include_map"] = include_map
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["remediation_enabled"] = remediation_enabled
             __props__.__dict__["resource_set_ids"] = resource_set_ids
+            __props__.__dict__["resource_tag_logical_operator"] = resource_tag_logical_operator
             __props__.__dict__["resource_tags"] = resource_tags
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["resource_type_lists"] = resource_type_lists
@@ -740,8 +808,10 @@ class Policy(pulumi.CustomResource):
             include_map: Optional[pulumi.Input[Union['PolicyIncludeMapArgs', 'PolicyIncludeMapArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             policy_update_token: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             remediation_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            resource_tag_logical_operator: Optional[pulumi.Input[builtins.str]] = None,
             resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             resource_type: Optional[pulumi.Input[builtins.str]] = None,
             resource_type_lists: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -763,7 +833,9 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[Union['PolicyIncludeMapArgs', 'PolicyIncludeMapArgsDict']] include_map: A map of lists of accounts and OU's to include in the policy. See the `include_map` block.
         :param pulumi.Input[builtins.str] name: The friendly name of the AWS Firewall Manager Policy.
         :param pulumi.Input[builtins.str] policy_update_token: A unique identifier for each update to the policy.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] remediation_enabled: A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
+        :param pulumi.Input[builtins.str] resource_tag_logical_operator: Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] resource_tags: A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
         :param pulumi.Input[builtins.str] resource_type: A resource type to protect. Conflicts with `resource_type_list`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] resource_type_lists: A list of resource types to protect. Conflicts with `resource_type`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values. Lists with only one element are not supported, instead use `resource_type`.
@@ -784,8 +856,10 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["include_map"] = include_map
         __props__.__dict__["name"] = name
         __props__.__dict__["policy_update_token"] = policy_update_token
+        __props__.__dict__["region"] = region
         __props__.__dict__["remediation_enabled"] = remediation_enabled
         __props__.__dict__["resource_set_ids"] = resource_set_ids
+        __props__.__dict__["resource_tag_logical_operator"] = resource_tag_logical_operator
         __props__.__dict__["resource_tags"] = resource_tags
         __props__.__dict__["resource_type"] = resource_type
         __props__.__dict__["resource_type_lists"] = resource_type_lists
@@ -864,6 +938,14 @@ class Policy(pulumi.CustomResource):
         return pulumi.get(self, "policy_update_token")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="remediationEnabled")
     def remediation_enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
@@ -875,6 +957,14 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter(name="resourceSetIds")
     def resource_set_ids(self) -> pulumi.Output[Sequence[builtins.str]]:
         return pulumi.get(self, "resource_set_ids")
+
+    @property
+    @pulumi.getter(name="resourceTagLogicalOperator")
+    def resource_tag_logical_operator(self) -> pulumi.Output[builtins.str]:
+        """
+        Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+        """
+        return pulumi.get(self, "resource_tag_logical_operator")
 
     @property
     @pulumi.getter(name="resourceTags")
@@ -918,7 +1008,6 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

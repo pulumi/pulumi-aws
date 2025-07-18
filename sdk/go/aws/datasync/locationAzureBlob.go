@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/datasync"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datasync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,6 +71,8 @@ type LocationAzureBlob struct {
 	BlobType pulumi.StringPtrOutput `pulumi:"blobType"`
 	// The URL of the Azure Blob Storage container involved in your transfer.
 	ContainerUrl pulumi.StringOutput `pulumi:"containerUrl"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
 	SasConfiguration LocationAzureBlobSasConfigurationPtrOutput `pulumi:"sasConfiguration"`
 	// Path segments if you want to limit your transfer to a virtual directory in the container.
@@ -78,8 +80,6 @@ type LocationAzureBlob struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	Uri     pulumi.StringOutput    `pulumi:"uri"`
 }
@@ -135,6 +135,8 @@ type locationAzureBlobState struct {
 	BlobType *string `pulumi:"blobType"`
 	// The URL of the Azure Blob Storage container involved in your transfer.
 	ContainerUrl *string `pulumi:"containerUrl"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
 	SasConfiguration *LocationAzureBlobSasConfiguration `pulumi:"sasConfiguration"`
 	// Path segments if you want to limit your transfer to a virtual directory in the container.
@@ -142,8 +144,6 @@ type locationAzureBlobState struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	Uri     *string           `pulumi:"uri"`
 }
@@ -161,6 +161,8 @@ type LocationAzureBlobState struct {
 	BlobType pulumi.StringPtrInput
 	// The URL of the Azure Blob Storage container involved in your transfer.
 	ContainerUrl pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
 	SasConfiguration LocationAzureBlobSasConfigurationPtrInput
 	// Path segments if you want to limit your transfer to a virtual directory in the container.
@@ -168,8 +170,6 @@ type LocationAzureBlobState struct {
 	// Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	Uri     pulumi.StringPtrInput
 }
@@ -189,6 +189,8 @@ type locationAzureBlobArgs struct {
 	BlobType *string `pulumi:"blobType"`
 	// The URL of the Azure Blob Storage container involved in your transfer.
 	ContainerUrl string `pulumi:"containerUrl"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
 	SasConfiguration *LocationAzureBlobSasConfiguration `pulumi:"sasConfiguration"`
 	// Path segments if you want to limit your transfer to a virtual directory in the container.
@@ -209,6 +211,8 @@ type LocationAzureBlobArgs struct {
 	BlobType pulumi.StringPtrInput
 	// The URL of the Azure Blob Storage container involved in your transfer.
 	ContainerUrl pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
 	SasConfiguration LocationAzureBlobSasConfigurationPtrInput
 	// Path segments if you want to limit your transfer to a virtual directory in the container.
@@ -334,6 +338,11 @@ func (o LocationAzureBlobOutput) ContainerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringOutput { return v.ContainerUrl }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o LocationAzureBlobOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
 func (o LocationAzureBlobOutput) SasConfiguration() LocationAzureBlobSasConfigurationPtrOutput {
 	return o.ApplyT(func(v *LocationAzureBlob) LocationAzureBlobSasConfigurationPtrOutput { return v.SasConfiguration }).(LocationAzureBlobSasConfigurationPtrOutput)
@@ -350,8 +359,6 @@ func (o LocationAzureBlobOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o LocationAzureBlobOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

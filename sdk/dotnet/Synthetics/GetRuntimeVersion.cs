@@ -168,6 +168,12 @@ namespace Pulumi.Aws.Synthetics
         public string Prefix { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
         /// </summary>
         [Input("version")]
@@ -194,6 +200,12 @@ namespace Pulumi.Aws.Synthetics
         /// </summary>
         [Input("prefix", required: true)]
         public Input<string> Prefix { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Version of the runtime to be fetched (for example, `9.0`). Conflicts with `latest`.
@@ -225,6 +237,7 @@ namespace Pulumi.Aws.Synthetics
         public readonly string Id;
         public readonly bool? Latest;
         public readonly string Prefix;
+        public readonly string Region;
         /// <summary>
         /// Date that the runtime version was released.
         /// </summary>
@@ -247,6 +260,8 @@ namespace Pulumi.Aws.Synthetics
 
             string prefix,
 
+            string region,
+
             string releaseDate,
 
             string? version,
@@ -258,6 +273,7 @@ namespace Pulumi.Aws.Synthetics
             Id = id;
             Latest = latest;
             Prefix = prefix;
+            Region = region;
             ReleaseDate = releaseDate;
             Version = version;
             VersionName = versionName;

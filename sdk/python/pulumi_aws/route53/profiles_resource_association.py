@@ -25,6 +25,7 @@ class ProfilesResourceAssociationArgs:
                  profile_id: pulumi.Input[builtins.str],
                  resource_arn: pulumi.Input[builtins.str],
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_properties: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['ProfilesResourceAssociationTimeoutsArgs']] = None):
         """
@@ -32,12 +33,15 @@ class ProfilesResourceAssociationArgs:
         :param pulumi.Input[builtins.str] profile_id: ID of the profile associated with the VPC.
         :param pulumi.Input[builtins.str] resource_arn: Resource ID of the resource to be associated with the profile.
         :param pulumi.Input[builtins.str] name: Name of the Profile Resource Association.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_properties: Resource properties for the resource to be associated with the profile.
         """
         pulumi.set(__self__, "profile_id", profile_id)
         pulumi.set(__self__, "resource_arn", resource_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_properties is not None:
             pulumi.set(__self__, "resource_properties", resource_properties)
         if timeouts is not None:
@@ -80,6 +84,18 @@ class ProfilesResourceAssociationArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resourceProperties")
     def resource_properties(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -107,6 +123,7 @@ class _ProfilesResourceAssociationState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
                  profile_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  resource_properties: Optional[pulumi.Input[builtins.str]] = None,
                  resource_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -117,6 +134,7 @@ class _ProfilesResourceAssociationState:
         Input properties used for looking up and filtering ProfilesResourceAssociation resources.
         :param pulumi.Input[builtins.str] name: Name of the Profile Resource Association.
         :param pulumi.Input[builtins.str] profile_id: ID of the profile associated with the VPC.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: Resource ID of the resource to be associated with the profile.
         :param pulumi.Input[builtins.str] resource_properties: Resource properties for the resource to be associated with the profile.
         :param pulumi.Input[builtins.str] resource_type: Type of resource associated with the profile.
@@ -129,6 +147,8 @@ class _ProfilesResourceAssociationState:
             pulumi.set(__self__, "owner_id", owner_id)
         if profile_id is not None:
             pulumi.set(__self__, "profile_id", profile_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_arn is not None:
             pulumi.set(__self__, "resource_arn", resource_arn)
         if resource_properties is not None:
@@ -174,6 +194,18 @@ class _ProfilesResourceAssociationState:
     @profile_id.setter
     def profile_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "profile_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -253,6 +285,7 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  profile_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  resource_properties: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['ProfilesResourceAssociationTimeoutsArgs', 'ProfilesResourceAssociationTimeoutsArgsDict']]] = None,
@@ -274,6 +307,7 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: Name of the Profile Resource Association.
         :param pulumi.Input[builtins.str] profile_id: ID of the profile associated with the VPC.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: Resource ID of the resource to be associated with the profile.
         :param pulumi.Input[builtins.str] resource_properties: Resource properties for the resource to be associated with the profile.
         """
@@ -313,6 +347,7 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  profile_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  resource_properties: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['ProfilesResourceAssociationTimeoutsArgs', 'ProfilesResourceAssociationTimeoutsArgsDict']]] = None,
@@ -329,6 +364,7 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
             if profile_id is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_id'")
             __props__.__dict__["profile_id"] = profile_id
+            __props__.__dict__["region"] = region
             if resource_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_arn'")
             __props__.__dict__["resource_arn"] = resource_arn
@@ -351,6 +387,7 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             owner_id: Optional[pulumi.Input[builtins.str]] = None,
             profile_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_arn: Optional[pulumi.Input[builtins.str]] = None,
             resource_properties: Optional[pulumi.Input[builtins.str]] = None,
             resource_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -366,6 +403,7 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] name: Name of the Profile Resource Association.
         :param pulumi.Input[builtins.str] profile_id: ID of the profile associated with the VPC.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: Resource ID of the resource to be associated with the profile.
         :param pulumi.Input[builtins.str] resource_properties: Resource properties for the resource to be associated with the profile.
         :param pulumi.Input[builtins.str] resource_type: Type of resource associated with the profile.
@@ -379,6 +417,7 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["profile_id"] = profile_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_arn"] = resource_arn
         __props__.__dict__["resource_properties"] = resource_properties
         __props__.__dict__["resource_type"] = resource_type
@@ -409,6 +448,14 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
         return pulumi.get(self, "profile_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[builtins.str]:
         """
@@ -418,7 +465,7 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="resourceProperties")
-    def resource_properties(self) -> pulumi.Output[Optional[builtins.str]]:
+    def resource_properties(self) -> pulumi.Output[builtins.str]:
         """
         Resource properties for the resource to be associated with the profile.
         """

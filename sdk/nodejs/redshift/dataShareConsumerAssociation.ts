@@ -99,6 +99,10 @@ export class DataShareConsumerAssociation extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of the producer.
      */
     public /*out*/ readonly producerArn!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DataShareConsumerAssociation resource with the given unique name, arguments, and options.
@@ -120,6 +124,7 @@ export class DataShareConsumerAssociation extends pulumi.CustomResource {
             resourceInputs["dataShareArn"] = state ? state.dataShareArn : undefined;
             resourceInputs["managedBy"] = state ? state.managedBy : undefined;
             resourceInputs["producerArn"] = state ? state.producerArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DataShareConsumerAssociationArgs | undefined;
             if ((!args || args.dataShareArn === undefined) && !opts.urn) {
@@ -130,6 +135,7 @@ export class DataShareConsumerAssociation extends pulumi.CustomResource {
             resourceInputs["consumerArn"] = args ? args.consumerArn : undefined;
             resourceInputs["consumerRegion"] = args ? args.consumerRegion : undefined;
             resourceInputs["dataShareArn"] = args ? args.dataShareArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["producerArn"] = undefined /*out*/;
         }
@@ -172,6 +178,10 @@ export interface DataShareConsumerAssociationState {
      * Amazon Resource Name (ARN) of the producer.
      */
     producerArn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -200,4 +210,8 @@ export interface DataShareConsumerAssociationArgs {
      * The following arguments are optional:
      */
     dataShareArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

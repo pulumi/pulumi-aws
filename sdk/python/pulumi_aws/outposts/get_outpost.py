@@ -27,7 +27,7 @@ class GetOutpostResult:
     """
     A collection of values returned by getOutpost.
     """
-    def __init__(__self__, arn=None, availability_zone=None, availability_zone_id=None, description=None, id=None, lifecycle_status=None, name=None, owner_id=None, site_arn=None, site_id=None, supported_hardware_type=None, tags=None):
+    def __init__(__self__, arn=None, availability_zone=None, availability_zone_id=None, description=None, id=None, lifecycle_status=None, name=None, owner_id=None, region=None, site_arn=None, site_id=None, supported_hardware_type=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -52,6 +52,9 @@ class GetOutpostResult:
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if site_arn and not isinstance(site_arn, str):
             raise TypeError("Expected argument 'site_arn' to be a str")
         pulumi.set(__self__, "site_arn", site_arn)
@@ -118,6 +121,11 @@ class GetOutpostResult:
         return pulumi.get(self, "owner_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="siteArn")
     def site_arn(self) -> builtins.str:
         """
@@ -164,6 +172,7 @@ class AwaitableGetOutpostResult(GetOutpostResult):
             lifecycle_status=self.lifecycle_status,
             name=self.name,
             owner_id=self.owner_id,
+            region=self.region,
             site_arn=self.site_arn,
             site_id=self.site_id,
             supported_hardware_type=self.supported_hardware_type,
@@ -174,6 +183,7 @@ def get_outpost(arn: Optional[builtins.str] = None,
                 id: Optional[builtins.str] = None,
                 name: Optional[builtins.str] = None,
                 owner_id: Optional[builtins.str] = None,
+                region: Optional[builtins.str] = None,
                 tags: Optional[Mapping[str, builtins.str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOutpostResult:
     """
@@ -193,6 +203,7 @@ def get_outpost(arn: Optional[builtins.str] = None,
     :param builtins.str id: Identifier of the Outpost.
     :param builtins.str name: Name of the Outpost.
     :param builtins.str owner_id: AWS Account identifier of the Outpost owner.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: The Outpost tags.
     """
     __args__ = dict()
@@ -200,6 +211,7 @@ def get_outpost(arn: Optional[builtins.str] = None,
     __args__['id'] = id
     __args__['name'] = name
     __args__['ownerId'] = owner_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:outposts/getOutpost:getOutpost', __args__, opts=opts, typ=GetOutpostResult).value
@@ -213,6 +225,7 @@ def get_outpost(arn: Optional[builtins.str] = None,
         lifecycle_status=pulumi.get(__ret__, 'lifecycle_status'),
         name=pulumi.get(__ret__, 'name'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
+        region=pulumi.get(__ret__, 'region'),
         site_arn=pulumi.get(__ret__, 'site_arn'),
         site_id=pulumi.get(__ret__, 'site_id'),
         supported_hardware_type=pulumi.get(__ret__, 'supported_hardware_type'),
@@ -221,6 +234,7 @@ def get_outpost_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = Non
                        id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        owner_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutpostResult]:
     """
@@ -240,6 +254,7 @@ def get_outpost_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = Non
     :param builtins.str id: Identifier of the Outpost.
     :param builtins.str name: Name of the Outpost.
     :param builtins.str owner_id: AWS Account identifier of the Outpost owner.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: The Outpost tags.
     """
     __args__ = dict()
@@ -247,6 +262,7 @@ def get_outpost_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = Non
     __args__['id'] = id
     __args__['name'] = name
     __args__['ownerId'] = owner_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:outposts/getOutpost:getOutpost', __args__, opts=opts, typ=GetOutpostResult)
@@ -259,6 +275,7 @@ def get_outpost_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = Non
         lifecycle_status=pulumi.get(__response__, 'lifecycle_status'),
         name=pulumi.get(__response__, 'name'),
         owner_id=pulumi.get(__response__, 'owner_id'),
+        region=pulumi.get(__response__, 'region'),
         site_arn=pulumi.get(__response__, 'site_arn'),
         site_id=pulumi.get(__response__, 'site_id'),
         supported_hardware_type=pulumi.get(__response__, 'supported_hardware_type'),

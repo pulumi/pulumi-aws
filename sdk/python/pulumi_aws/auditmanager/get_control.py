@@ -15,7 +15,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetControlResult',
@@ -29,7 +28,7 @@ class GetControlResult:
     """
     A collection of values returned by getControl.
     """
-    def __init__(__self__, action_plan_instructions=None, action_plan_title=None, arn=None, control_mapping_sources=None, description=None, id=None, name=None, tags=None, testing_information=None, type=None):
+    def __init__(__self__, action_plan_instructions=None, action_plan_title=None, arn=None, control_mapping_sources=None, description=None, id=None, name=None, region=None, tags=None, testing_information=None, type=None):
         if action_plan_instructions and not isinstance(action_plan_instructions, str):
             raise TypeError("Expected argument 'action_plan_instructions' to be a str")
         pulumi.set(__self__, "action_plan_instructions", action_plan_instructions)
@@ -51,6 +50,9 @@ class GetControlResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -78,7 +80,7 @@ class GetControlResult:
 
     @property
     @pulumi.getter(name="controlMappingSources")
-    def control_mapping_sources(self) -> Optional[Sequence['outputs.GetControlControlMappingSourceResult']]:
+    def control_mapping_sources(self) -> Sequence['outputs.GetControlControlMappingSourceResult']:
         return pulumi.get(self, "control_mapping_sources")
 
     @property
@@ -95,6 +97,11 @@ class GetControlResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter
@@ -125,13 +132,14 @@ class AwaitableGetControlResult(GetControlResult):
             description=self.description,
             id=self.id,
             name=self.name,
+            region=self.region,
             tags=self.tags,
             testing_information=self.testing_information,
             type=self.type)
 
 
-def get_control(control_mapping_sources: Optional[Sequence[Union['GetControlControlMappingSourceArgs', 'GetControlControlMappingSourceArgsDict']]] = None,
-                name: Optional[builtins.str] = None,
+def get_control(name: Optional[builtins.str] = None,
+                region: Optional[builtins.str] = None,
                 type: Optional[builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetControlResult:
     """
@@ -179,11 +187,12 @@ def get_control(control_mapping_sources: Optional[Sequence[Union['GetControlCont
 
 
     :param builtins.str name: Name of the control.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str type: Type of control. Valid values are `Custom` and `Standard`.
     """
     __args__ = dict()
-    __args__['controlMappingSources'] = control_mapping_sources
     __args__['name'] = name
+    __args__['region'] = region
     __args__['type'] = type
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:auditmanager/getControl:getControl', __args__, opts=opts, typ=GetControlResult).value
@@ -196,11 +205,12 @@ def get_control(control_mapping_sources: Optional[Sequence[Union['GetControlCont
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         testing_information=pulumi.get(__ret__, 'testing_information'),
         type=pulumi.get(__ret__, 'type'))
-def get_control_output(control_mapping_sources: Optional[pulumi.Input[Optional[Sequence[Union['GetControlControlMappingSourceArgs', 'GetControlControlMappingSourceArgsDict']]]]] = None,
-                       name: Optional[pulumi.Input[builtins.str]] = None,
+def get_control_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        type: Optional[pulumi.Input[builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetControlResult]:
     """
@@ -248,11 +258,12 @@ def get_control_output(control_mapping_sources: Optional[pulumi.Input[Optional[S
 
 
     :param builtins.str name: Name of the control.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str type: Type of control. Valid values are `Custom` and `Standard`.
     """
     __args__ = dict()
-    __args__['controlMappingSources'] = control_mapping_sources
     __args__['name'] = name
+    __args__['region'] = region
     __args__['type'] = type
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:auditmanager/getControl:getControl', __args__, opts=opts, typ=GetControlResult)
@@ -264,6 +275,7 @@ def get_control_output(control_mapping_sources: Optional[pulumi.Input[Optional[S
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         testing_information=pulumi.get(__response__, 'testing_information'),
         type=pulumi.get(__response__, 'type')))

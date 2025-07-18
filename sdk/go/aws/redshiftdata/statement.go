@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshiftdata"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshiftdata"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +52,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshiftdata"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshiftdata"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,6 +90,8 @@ type Statement struct {
 	// The database user name.
 	DbUser     pulumi.StringPtrOutput        `pulumi:"dbUser"`
 	Parameters StatementParameterArrayOutput `pulumi:"parameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The name or ARN of the secret that enables access to the database.
 	SecretArn pulumi.StringPtrOutput `pulumi:"secretArn"`
 	// The SQL statement text to run.
@@ -147,6 +149,8 @@ type statementState struct {
 	// The database user name.
 	DbUser     *string              `pulumi:"dbUser"`
 	Parameters []StatementParameter `pulumi:"parameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name or ARN of the secret that enables access to the database.
 	SecretArn *string `pulumi:"secretArn"`
 	// The SQL statement text to run.
@@ -169,6 +173,8 @@ type StatementState struct {
 	// The database user name.
 	DbUser     pulumi.StringPtrInput
 	Parameters StatementParameterArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name or ARN of the secret that enables access to the database.
 	SecretArn pulumi.StringPtrInput
 	// The SQL statement text to run.
@@ -195,6 +201,8 @@ type statementArgs struct {
 	// The database user name.
 	DbUser     *string              `pulumi:"dbUser"`
 	Parameters []StatementParameter `pulumi:"parameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The name or ARN of the secret that enables access to the database.
 	SecretArn *string `pulumi:"secretArn"`
 	// The SQL statement text to run.
@@ -218,6 +226,8 @@ type StatementArgs struct {
 	// The database user name.
 	DbUser     pulumi.StringPtrInput
 	Parameters StatementParameterArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The name or ARN of the secret that enables access to the database.
 	SecretArn pulumi.StringPtrInput
 	// The SQL statement text to run.
@@ -336,6 +346,11 @@ func (o StatementOutput) DbUser() pulumi.StringPtrOutput {
 
 func (o StatementOutput) Parameters() StatementParameterArrayOutput {
 	return o.ApplyT(func(v *Statement) StatementParameterArrayOutput { return v.Parameters }).(StatementParameterArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o StatementOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Statement) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The name or ARN of the secret that enables access to the database.

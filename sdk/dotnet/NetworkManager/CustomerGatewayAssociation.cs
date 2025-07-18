@@ -10,8 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.NetworkManager
 {
     /// <summary>
-    /// Associates a customer gateway with a device and optionally, with a link.
-    /// If you specify a link, it must be associated with the specified device.
+    /// Manages a Network Manager Customer Gateway Association.
+    /// 
+    /// Use this resource to associate a customer gateway with a device and optionally, with a link. If you specify a link, it must be associated with the specified device.
     /// 
     /// ## Example Usage
     /// 
@@ -96,25 +97,27 @@ namespace Pulumi.Aws.NetworkManager
     public partial class CustomerGatewayAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the customer gateway.
+        /// ARN of the customer gateway.
         /// </summary>
         [Output("customerGatewayArn")]
         public Output<string> CustomerGatewayArn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the device.
+        /// ID of the device.
         /// </summary>
         [Output("deviceId")]
         public Output<string> DeviceId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the global network.
+        /// ID of the global network.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("globalNetworkId")]
         public Output<string> GlobalNetworkId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the link.
+        /// ID of the link.
         /// </summary>
         [Output("linkId")]
         public Output<string?> LinkId { get; private set; } = null!;
@@ -166,25 +169,27 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class CustomerGatewayAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the customer gateway.
+        /// ARN of the customer gateway.
         /// </summary>
         [Input("customerGatewayArn", required: true)]
         public Input<string> CustomerGatewayArn { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the device.
+        /// ID of the device.
         /// </summary>
         [Input("deviceId", required: true)]
         public Input<string> DeviceId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the global network.
+        /// ID of the global network.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("globalNetworkId", required: true)]
         public Input<string> GlobalNetworkId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the link.
+        /// ID of the link.
         /// </summary>
         [Input("linkId")]
         public Input<string>? LinkId { get; set; }
@@ -198,25 +203,27 @@ namespace Pulumi.Aws.NetworkManager
     public sealed class CustomerGatewayAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the customer gateway.
+        /// ARN of the customer gateway.
         /// </summary>
         [Input("customerGatewayArn")]
         public Input<string>? CustomerGatewayArn { get; set; }
 
         /// <summary>
-        /// The ID of the device.
+        /// ID of the device.
         /// </summary>
         [Input("deviceId")]
         public Input<string>? DeviceId { get; set; }
 
         /// <summary>
-        /// The ID of the global network.
+        /// ID of the global network.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("globalNetworkId")]
         public Input<string>? GlobalNetworkId { get; set; }
 
         /// <summary>
-        /// The ID of the link.
+        /// ID of the link.
         /// </summary>
         [Input("linkId")]
         public Input<string>? LinkId { get; set; }

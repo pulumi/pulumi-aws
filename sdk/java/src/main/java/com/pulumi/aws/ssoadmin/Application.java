@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+ * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
  * import com.pulumi.aws.ssoadmin.Application;
  * import com.pulumi.aws.ssoadmin.ApplicationArgs;
  * import java.util.List;
@@ -51,7 +52,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+ *             .build());
  * 
  *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
  *             .name("example")
@@ -76,6 +78,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ssoadmin.SsoadminFunctions;
+ * import com.pulumi.aws.ssoadmin.inputs.GetInstancesArgs;
  * import com.pulumi.aws.ssoadmin.Application;
  * import com.pulumi.aws.ssoadmin.ApplicationArgs;
  * import com.pulumi.aws.ssoadmin.inputs.ApplicationPortalOptionsArgs;
@@ -93,7 +96,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = SsoadminFunctions.getInstances(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ *         final var example = SsoadminFunctions.getInstances(GetInstancesArgs.builder()
+ *             .build());
  * 
  *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
  *             .name("example")
@@ -140,14 +144,18 @@ public class Application extends com.pulumi.resources.CustomResource {
         return this.applicationAccount;
     }
     /**
-     * ARN of the application.
+     * (**Deprecated** Reference `arn` instead) ARN of the application.
+     * 
+     * @deprecated
+     * Use &#39;arn&#39; instead. This attribute will be removed in a future verion of the provider.
      * 
      */
+    @Deprecated /* Use 'arn' instead. This attribute will be removed in a future verion of the provider. */
     @Export(name="applicationArn", refs={String.class}, tree="[0]")
     private Output<String> applicationArn;
 
     /**
-     * @return ARN of the application.
+     * @return (**Deprecated** Reference `arn` instead) ARN of the application.
      * 
      */
     public Output<String> applicationArn() {
@@ -166,6 +174,20 @@ public class Application extends com.pulumi.resources.CustomResource {
      */
     public Output<String> applicationProviderArn() {
         return this.applicationProviderArn;
+    }
+    /**
+     * ARN of the application.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return ARN of the application.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
     }
     /**
      * A unique, case-sensitive ID that you provide to ensure the idempotency of the request. AWS generates a random value when not provided.
@@ -242,6 +264,20 @@ public class Application extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.portalOptions);
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Status of the application. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
@@ -272,11 +308,7 @@ public class Application extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

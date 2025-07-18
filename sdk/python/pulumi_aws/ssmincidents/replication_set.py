@@ -22,11 +22,13 @@ __all__ = ['ReplicationSetArgs', 'ReplicationSet']
 @pulumi.input_type
 class ReplicationSetArgs:
     def __init__(__self__, *,
-                 regions: pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]],
+                 region: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]] = None,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a ReplicationSet resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]] regions: The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]] region: The replication set's Regions. Use `regions` instead.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]] regions: The replication set's Regions.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
@@ -41,20 +43,39 @@ class ReplicationSetArgs:
                
                > **NOTE:** If possible, create all the customer managed keys you need (using the deploy command) before you create the replication set, or create the keys and replication set in the same deploy command. Otherwise, to delete a replication set, you must run one deploy command to delete the replication set and another to delete the AWS KMS keys used by the replication set. Deleting the AWS KMS keys before deleting the replication set results in an error. In that case, you must manually reenable the deleted key using the AWS Management Console before you can delete the replication set.
         """
-        pulumi.set(__self__, "regions", regions)
+        if region is not None:
+            warnings.warn("""region is deprecated. Use regions instead.""", DeprecationWarning)
+            pulumi.log.warn("""region is deprecated: region is deprecated. Use regions instead.""")
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
-    def regions(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]:
+    @_utilities.deprecated("""region is deprecated. Use regions instead.""")
+    def region(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]:
         """
-        The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+        The replication set's Regions. Use `regions` instead.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]:
+        """
+        The replication set's Regions.
         """
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]):
+    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]):
         pulumi.set(self, "regions", value)
 
     @property
@@ -89,6 +110,7 @@ class _ReplicationSetState:
                  created_by: Optional[pulumi.Input[builtins.str]] = None,
                  deletion_protected: Optional[pulumi.Input[builtins.bool]] = None,
                  last_modified_by: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -99,7 +121,8 @@ class _ReplicationSetState:
         :param pulumi.Input[builtins.str] created_by: The ARN of the user who created the replication set.
         :param pulumi.Input[builtins.bool] deletion_protected: If `true`, the last region in a replication set cannot be deleted.
         :param pulumi.Input[builtins.str] last_modified_by: A timestamp showing when the replication set was last modified.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]] regions: The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]] region: The replication set's Regions. Use `regions` instead.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]] regions: The replication set's Regions.
         :param pulumi.Input[builtins.str] status: The current status of the Region.
                * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -125,15 +148,17 @@ class _ReplicationSetState:
             pulumi.set(__self__, "deletion_protected", deletion_protected)
         if last_modified_by is not None:
             pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if region is not None:
+            warnings.warn("""region is deprecated. Use regions instead.""", DeprecationWarning)
+            pulumi.log.warn("""region is deprecated: region is deprecated. Use regions instead.""")
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if regions is not None:
             pulumi.set(__self__, "regions", regions)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -187,9 +212,22 @@ class _ReplicationSetState:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""region is deprecated. Use regions instead.""")
+    def region(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]:
+        """
+        The replication set's Regions. Use `regions` instead.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]:
         """
-        The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+        The replication set's Regions.
         """
         return pulumi.get(self, "regions")
 
@@ -236,7 +274,6 @@ class _ReplicationSetState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -254,6 +291,7 @@ class ReplicationSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -337,7 +375,8 @@ class ReplicationSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]] regions: The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]] region: The replication set's Regions. Use `regions` instead.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]] regions: The replication set's Regions.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
                For information about the maximum allowed number of Regions and tag value constraints, see [CreateReplicationSet in the *AWS Systems Manager Incident Manager API Reference*](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateReplicationSet.html).
@@ -356,7 +395,7 @@ class ReplicationSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ReplicationSetArgs,
+                 args: Optional[ReplicationSetArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource for managing a replication set in AWS Systems Manager Incident Manager.
@@ -451,6 +490,7 @@ class ReplicationSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -462,8 +502,7 @@ class ReplicationSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReplicationSetArgs.__new__(ReplicationSetArgs)
 
-            if regions is None and not opts.urn:
-                raise TypeError("Missing required property 'regions'")
+            __props__.__dict__["region"] = region
             __props__.__dict__["regions"] = regions
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -486,6 +525,7 @@ class ReplicationSet(pulumi.CustomResource):
             created_by: Optional[pulumi.Input[builtins.str]] = None,
             deletion_protected: Optional[pulumi.Input[builtins.bool]] = None,
             last_modified_by: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
             regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -501,7 +541,8 @@ class ReplicationSet(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] created_by: The ARN of the user who created the replication set.
         :param pulumi.Input[builtins.bool] deletion_protected: If `true`, the last region in a replication set cannot be deleted.
         :param pulumi.Input[builtins.str] last_modified_by: A timestamp showing when the replication set was last modified.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]] regions: The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]] region: The replication set's Regions. Use `regions` instead.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationSetRegionArgs', 'ReplicationSetRegionArgsDict']]]] regions: The replication set's Regions.
         :param pulumi.Input[builtins.str] status: The current status of the Region.
                * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -527,6 +568,7 @@ class ReplicationSet(pulumi.CustomResource):
         __props__.__dict__["created_by"] = created_by
         __props__.__dict__["deletion_protected"] = deletion_protected
         __props__.__dict__["last_modified_by"] = last_modified_by
+        __props__.__dict__["region"] = region
         __props__.__dict__["regions"] = regions
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
@@ -567,9 +609,18 @@ class ReplicationSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""region is deprecated. Use regions instead.""")
+    def region(self) -> pulumi.Output[Sequence['outputs.ReplicationSetRegion']]:
+        """
+        The replication set's Regions. Use `regions` instead.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def regions(self) -> pulumi.Output[Sequence['outputs.ReplicationSetRegion']]:
         """
-        The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+        The replication set's Regions.
         """
         return pulumi.get(self, "regions")
 
@@ -604,7 +655,6 @@ class ReplicationSet(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

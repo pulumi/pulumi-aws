@@ -29,7 +29,7 @@ class GetVpcIpamsResult:
     """
     A collection of values returned by getVpcIpams.
     """
-    def __init__(__self__, filters=None, id=None, ipam_ids=None, ipams=None):
+    def __init__(__self__, filters=None, id=None, ipam_ids=None, ipams=None, region=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -42,6 +42,9 @@ class GetVpcIpamsResult:
         if ipams and not isinstance(ipams, list):
             raise TypeError("Expected argument 'ipams' to be a list")
         pulumi.set(__self__, "ipams", ipams)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -69,6 +72,11 @@ class GetVpcIpamsResult:
         """
         return pulumi.get(self, "ipams")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetVpcIpamsResult(GetVpcIpamsResult):
     # pylint: disable=using-constant-test
@@ -79,11 +87,13 @@ class AwaitableGetVpcIpamsResult(GetVpcIpamsResult):
             filters=self.filters,
             id=self.id,
             ipam_ids=self.ipam_ids,
-            ipams=self.ipams)
+            ipams=self.ipams,
+            region=self.region)
 
 
 def get_vpc_ipams(filters: Optional[Sequence[Union['GetVpcIpamsFilterArgs', 'GetVpcIpamsFilterArgsDict']]] = None,
                   ipam_ids: Optional[Sequence[builtins.str]] = None,
+                  region: Optional[builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIpamsResult:
     """
     Data source for managing VPC IPAMs.
@@ -128,10 +138,12 @@ def get_vpc_ipams(filters: Optional[Sequence[Union['GetVpcIpamsFilterArgs', 'Get
            
            The arguments of this data source act as filters for querying the available IPAMs.
     :param Sequence[builtins.str] ipam_ids: IDs of the IPAM resources to query for.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['ipamIds'] = ipam_ids
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getVpcIpams:getVpcIpams', __args__, opts=opts, typ=GetVpcIpamsResult).value
 
@@ -139,9 +151,11 @@ def get_vpc_ipams(filters: Optional[Sequence[Union['GetVpcIpamsFilterArgs', 'Get
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         ipam_ids=pulumi.get(__ret__, 'ipam_ids'),
-        ipams=pulumi.get(__ret__, 'ipams'))
+        ipams=pulumi.get(__ret__, 'ipams'),
+        region=pulumi.get(__ret__, 'region'))
 def get_vpc_ipams_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetVpcIpamsFilterArgs', 'GetVpcIpamsFilterArgsDict']]]]] = None,
                          ipam_ids: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcIpamsResult]:
     """
     Data source for managing VPC IPAMs.
@@ -186,14 +200,17 @@ def get_vpc_ipams_output(filters: Optional[pulumi.Input[Optional[Sequence[Union[
            
            The arguments of this data source act as filters for querying the available IPAMs.
     :param Sequence[builtins.str] ipam_ids: IDs of the IPAM resources to query for.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['ipamIds'] = ipam_ids
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getVpcIpams:getVpcIpams', __args__, opts=opts, typ=GetVpcIpamsResult)
     return __ret__.apply(lambda __response__: GetVpcIpamsResult(
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         ipam_ids=pulumi.get(__response__, 'ipam_ids'),
-        ipams=pulumi.get(__response__, 'ipams')))
+        ipams=pulumi.get(__response__, 'ipams'),
+        region=pulumi.get(__response__, 'region')))

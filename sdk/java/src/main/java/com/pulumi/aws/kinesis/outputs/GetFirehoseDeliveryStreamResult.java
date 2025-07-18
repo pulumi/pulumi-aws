@@ -21,6 +21,7 @@ public final class GetFirehoseDeliveryStreamResult {
      */
     private String id;
     private String name;
+    private String region;
 
     private GetFirehoseDeliveryStreamResult() {}
     /**
@@ -40,6 +41,9 @@ public final class GetFirehoseDeliveryStreamResult {
     public String name() {
         return this.name;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -53,12 +57,14 @@ public final class GetFirehoseDeliveryStreamResult {
         private String arn;
         private String id;
         private String name;
+        private String region;
         public Builder() {}
         public Builder(GetFirehoseDeliveryStreamResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -85,11 +91,20 @@ public final class GetFirehoseDeliveryStreamResult {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetFirehoseDeliveryStreamResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetFirehoseDeliveryStreamResult build() {
             final var _resultValue = new GetFirehoseDeliveryStreamResult();
             _resultValue.arn = arn;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

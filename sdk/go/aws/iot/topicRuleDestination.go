@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,7 +19,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iot"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,6 +57,8 @@ type TopicRuleDestination struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether or not to enable the destination. Default: `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
 	VpcConfiguration TopicRuleDestinationVpcConfigurationOutput `pulumi:"vpcConfiguration"`
 }
@@ -98,6 +100,8 @@ type topicRuleDestinationState struct {
 	Arn *string `pulumi:"arn"`
 	// Whether or not to enable the destination. Default: `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
 	VpcConfiguration *TopicRuleDestinationVpcConfiguration `pulumi:"vpcConfiguration"`
 }
@@ -107,6 +111,8 @@ type TopicRuleDestinationState struct {
 	Arn pulumi.StringPtrInput
 	// Whether or not to enable the destination. Default: `true`.
 	Enabled pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
 	VpcConfiguration TopicRuleDestinationVpcConfigurationPtrInput
 }
@@ -118,6 +124,8 @@ func (TopicRuleDestinationState) ElementType() reflect.Type {
 type topicRuleDestinationArgs struct {
 	// Whether or not to enable the destination. Default: `true`.
 	Enabled *bool `pulumi:"enabled"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
 	VpcConfiguration TopicRuleDestinationVpcConfiguration `pulumi:"vpcConfiguration"`
 }
@@ -126,6 +134,8 @@ type topicRuleDestinationArgs struct {
 type TopicRuleDestinationArgs struct {
 	// Whether or not to enable the destination. Default: `true`.
 	Enabled pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
 	VpcConfiguration TopicRuleDestinationVpcConfigurationInput
 }
@@ -225,6 +235,11 @@ func (o TopicRuleDestinationOutput) Arn() pulumi.StringOutput {
 // Whether or not to enable the destination. Default: `true`.
 func (o TopicRuleDestinationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDestination) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o TopicRuleDestinationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TopicRuleDestination) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).

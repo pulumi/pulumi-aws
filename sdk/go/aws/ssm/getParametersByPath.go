@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,6 +27,8 @@ type GetParametersByPathArgs struct {
 	Path string `pulumi:"path"`
 	// Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
 	Recursive *bool `pulumi:"recursive"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
 	WithDecryption *bool `pulumi:"withDecryption"`
 }
@@ -41,6 +43,7 @@ type GetParametersByPathResult struct {
 	Names     []string `pulumi:"names"`
 	Path      string   `pulumi:"path"`
 	Recursive *bool    `pulumi:"recursive"`
+	Region    string   `pulumi:"region"`
 	// A list that contains the types (`String`, `StringList`, or `SecureString`) of retrieved parameters.
 	Types []string `pulumi:"types"`
 	// A list that contains the retrieved parameter values. **Note:** This value is always marked as sensitive in the pulumi preview output, regardless of whether any retrieved parameters are of `SecureString` type. Use the `nonsensitive` function to override the behavior at your own risk and discretion, if you are certain that there are no sensitive values being retrieved.
@@ -63,6 +66,8 @@ type GetParametersByPathOutputArgs struct {
 	Path pulumi.StringInput `pulumi:"path"`
 	// Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
 	Recursive pulumi.BoolPtrInput `pulumi:"recursive"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
 	WithDecryption pulumi.BoolPtrInput `pulumi:"withDecryption"`
 }
@@ -107,6 +112,10 @@ func (o GetParametersByPathResultOutput) Path() pulumi.StringOutput {
 
 func (o GetParametersByPathResultOutput) Recursive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetParametersByPathResult) *bool { return v.Recursive }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetParametersByPathResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetParametersByPathResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // A list that contains the types (`String`, `StringList`, or `SecureString`) of retrieved parameters.

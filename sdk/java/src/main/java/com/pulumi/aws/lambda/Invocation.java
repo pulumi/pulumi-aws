@@ -16,15 +16,15 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Use this resource to invoke a lambda function. The lambda function is invoked with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
+ * Manages an AWS Lambda Function invocation. Use this resource to invoke a Lambda function with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
  * 
- * &gt; **NOTE:** By default this resource _only_ invokes the function when the arguments call for a create or replace. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `aws.lambda.Invocation` data source. To invoke the lambda function when the Pulumi resource is updated and deleted, see the CRUD Lifecycle Scope example below.
+ * &gt; **Note:** By default this resource _only_ invokes the function when the arguments call for a create or replace. After an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the `aws.lambda.Invocation` data source. To invoke the Lambda function when the Pulumi resource is updated and deleted, see the CRUD Lifecycle Management example below.
  * 
- * &gt; **NOTE:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking an `aws.lambda.Function` with environment variables, the IAM role associated with the function may have been deleted and recreated _after_ the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role, or 2) by using Pulumi to `taint` the function and `apply` your configuration again to recreate the function. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
+ * &gt; **Note:** If you get a `KMSAccessDeniedException: Lambda was unable to decrypt the environment variables because KMS access was denied` error when invoking a Lambda function with environment variables, the IAM role associated with the function may have been deleted and recreated after the function was created. You can fix the problem two ways: 1) updating the function&#39;s role to another role and then updating it back again to the recreated role. (When you create a function, Lambda grants permissions on the KMS key to the function&#39;s IAM role. If the IAM role is recreated, the grant is no longer valid. Changing the function&#39;s role or recreating the function causes Lambda to update the grant.)
  * 
  * ## Example Usage
  * 
- * ### Dynamic Invocation Example Using Triggers
+ * ### Dynamic Invocation with Triggers
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -37,7 +37,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lambda.Invocation;
  * import com.pulumi.aws.lambda.InvocationArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Sha1Args;
+ * import com.pulumi.std.inputs.TimestampArgs;
+ * import com.pulumi.std.inputs.Sha256Args;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -53,15 +54,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Invocation("example", InvocationArgs.builder()
- *             .functionName(lambdaFunctionTest.functionName())
- *             .triggers(Map.of("redeployment", StdFunctions.sha1(Sha1Args.builder()
- *                 .input(serializeJson(
- *                     jsonArray(exampleAwsLambdaFunction.environment())))
- *                 .build()).result()))
+ *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .triggers(Map.ofEntries(
+ *                 Map.entry("function_version", exampleAwsLambdaFunction.version()),
+ *                 Map.entry("config_hash", StdFunctions.sha256(Sha256Args.builder()
+ *                     .input(serializeJson(
+ *                         jsonObject(
+ *                             jsonProperty("environment", environment),
+ *                             jsonProperty("timestamp", StdFunctions.timestamp(TimestampArgs.builder()
+ *                                 .build()).result())
+ *                         )))
+ *                     .build()).applyValue(_invoke -> _invoke.result()))
+ *             ))
  *             .input(serializeJson(
  *                 jsonObject(
- *                     jsonProperty("key1", "value1"),
- *                     jsonProperty("key2", "value2")
+ *                     jsonProperty("operation", "process_data"),
+ *                     jsonProperty("environment", environment),
+ *                     jsonProperty("batch_id", batchId.result())
  *                 )))
  *             .build());
  * 
@@ -71,7 +80,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### CRUD Lifecycle Scope
+ * ### CRUD Lifecycle Management
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -98,11 +107,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Invocation("example", InvocationArgs.builder()
- *             .functionName(lambdaFunctionTest.functionName())
+ *             .functionName(exampleAwsLambdaFunction.functionName())
  *             .input(serializeJson(
  *                 jsonObject(
- *                     jsonProperty("key1", "value1"),
- *                     jsonProperty("key2", "value2")
+ *                     jsonProperty("resource_name", "database_setup"),
+ *                     jsonProperty("database_url", exampleAwsDbInstance.endpoint()),
+ *                     jsonProperty("credentials", jsonObject(
+ *                         jsonProperty("username", dbUsername),
+ *                         jsonProperty("password", dbPassword)
+ *                     ))
  *                 )))
  *             .lifecycleScope("CRUD")
  *             .build());
@@ -113,38 +126,38 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * &gt; **NOTE:** `lifecycle_scope = &#34;CRUD&#34;` will inject a key `tf` in the input event to pass lifecycle information! This allows the lambda function to handle different lifecycle transitions uniquely.  If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumi_key` argument.
+ * &gt; **Note:** `lifecycle_scope = &#34;CRUD&#34;` will inject a key `tf` in the input event to pass lifecycle information! This allows the Lambda function to handle different lifecycle transitions uniquely. If you need to use a key `tf` in your own input JSON, the default key name can be overridden with the `pulumi_key` argument.
  * 
- * The key `tf` gets added with subkeys:
+ * The lifecycle key gets added with subkeys:
  * 
  * * `action` - Action Pulumi performs on the resource. Values are `create`, `update`, or `delete`.
  * * `prev_input` - Input JSON payload from the previous invocation. This can be used to handle update and delete events.
  * 
- * When the resource from the example above is created, the Lambda will get following JSON payload:
+ * When the resource from the CRUD example above is created, the Lambda will receive the following JSON payload:
  * 
- * If the input value of `key1` changes to &#34;valueB&#34;, then the lambda will be invoked again with the following JSON payload:
+ * If the `database_url` changes, the Lambda will be invoked again with:
  * 
- * When the invocation resource is removed, the final invocation will have the following JSON payload:
+ * When the invocation resource is removed, the final invocation will have:
  * 
  */
 @ResourceType(type="aws:lambda/invocation:Invocation")
 public class Invocation extends com.pulumi.resources.CustomResource {
     /**
-     * Name of the lambda function.
+     * Name of the Lambda function.
      * 
      */
     @Export(name="functionName", refs={String.class}, tree="[0]")
     private Output<String> functionName;
 
     /**
-     * @return Name of the lambda function.
+     * @return Name of the Lambda function.
      * 
      */
     public Output<String> functionName() {
         return this.functionName;
     }
     /**
-     * JSON payload to the lambda function.
+     * JSON payload to the Lambda function.
      * 
      * The following arguments are optional:
      * 
@@ -153,7 +166,7 @@ public class Invocation extends com.pulumi.resources.CustomResource {
     private Output<String> input;
 
     /**
-     * @return JSON payload to the lambda function.
+     * @return JSON payload to the Lambda function.
      * 
      * The following arguments are optional:
      * 
@@ -176,28 +189,42 @@ public class Invocation extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.lifecycleScope);
     }
     /**
-     * Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+     * Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
      * 
      */
     @Export(name="qualifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> qualifier;
 
     /**
-     * @return Qualifier (i.e., version) of the lambda function. Defaults to `$LATEST`.
+     * @return Qualifier (i.e., version) of the Lambda function. Defaults to `$LATEST`.
      * 
      */
     public Output<Optional<String>> qualifier() {
         return Codegen.optional(this.qualifier);
     }
     /**
-     * String result of the lambda function invocation.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
+     * String result of the Lambda function invocation.
      * 
      */
     @Export(name="result", refs={String.class}, tree="[0]")
     private Output<String> result;
 
     /**
-     * @return String result of the lambda function invocation.
+     * @return String result of the Lambda function invocation.
      * 
      */
     public Output<String> result() {

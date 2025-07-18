@@ -23,6 +23,7 @@ import * as utilities from "../utilities";
 export function getReplicationTask(args: GetReplicationTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:dms/getReplicationTask:getReplicationTask", {
+        "region": args.region,
         "replicationTaskId": args.replicationTaskId,
         "tags": args.tags,
     }, opts);
@@ -33,12 +34,11 @@ export function getReplicationTask(args: GetReplicationTaskArgs, opts?: pulumi.I
  */
 export interface GetReplicationTaskArgs {
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * The replication task identifier.
-     *
-     * - Must contain from 1 to 255 alphanumeric characters or hyphens.
-     * - First character must be a letter.
-     * - Cannot end with a hyphen.
-     * - Cannot contain two consecutive hyphens.
      */
     replicationTaskId: string;
     tags?: {[key: string]: string};
@@ -64,6 +64,7 @@ export interface GetReplicationTaskResult {
      * The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
      */
     readonly migrationType: string;
+    readonly region: string;
     /**
      * The Amazon Resource Name (ARN) of the replication instance.
      */
@@ -118,6 +119,7 @@ export interface GetReplicationTaskResult {
 export function getReplicationTaskOutput(args: GetReplicationTaskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:dms/getReplicationTask:getReplicationTask", {
+        "region": args.region,
         "replicationTaskId": args.replicationTaskId,
         "tags": args.tags,
     }, opts);
@@ -128,12 +130,11 @@ export function getReplicationTaskOutput(args: GetReplicationTaskOutputArgs, opt
  */
 export interface GetReplicationTaskOutputArgs {
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The replication task identifier.
-     *
-     * - Must contain from 1 to 255 alphanumeric characters or hyphens.
-     * - First character must be a letter.
-     * - Cannot end with a hyphen.
-     * - Cannot contain two consecutive hyphens.
      */
     replicationTaskId: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

@@ -68,6 +68,10 @@ export class LocationFsxLustre extends pulumi.CustomResource {
      */
     public readonly fsxFilesystemArn!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
      */
     public readonly securityGroupArns!: pulumi.Output<string[]>;
@@ -81,8 +85,6 @@ export class LocationFsxLustre extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -106,6 +108,7 @@ export class LocationFsxLustre extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["creationTime"] = state ? state.creationTime : undefined;
             resourceInputs["fsxFilesystemArn"] = state ? state.fsxFilesystemArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupArns"] = state ? state.securityGroupArns : undefined;
             resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -120,6 +123,7 @@ export class LocationFsxLustre extends pulumi.CustomResource {
                 throw new Error("Missing required property 'securityGroupArns'");
             }
             resourceInputs["fsxFilesystemArn"] = args ? args.fsxFilesystemArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupArns"] = args ? args.securityGroupArns : undefined;
             resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -150,6 +154,10 @@ export interface LocationFsxLustreState {
      */
     fsxFilesystemArn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
      */
     securityGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
@@ -163,8 +171,6 @@ export interface LocationFsxLustreState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -181,6 +187,10 @@ export interface LocationFsxLustreArgs {
      * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
      */
     fsxFilesystemArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
      */

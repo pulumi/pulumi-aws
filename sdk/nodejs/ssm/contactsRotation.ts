@@ -176,6 +176,10 @@ export class ContactsRotation extends pulumi.CustomResource {
      */
     public readonly recurrence!: pulumi.Output<outputs.ssm.ContactsRotationRecurrence | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The date and time, in RFC 3339 format, that the rotation goes into effect.
      */
     public readonly startTime!: pulumi.Output<string | undefined>;
@@ -185,8 +189,6 @@ export class ContactsRotation extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -211,6 +213,7 @@ export class ContactsRotation extends pulumi.CustomResource {
             resourceInputs["contactIds"] = state ? state.contactIds : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["recurrence"] = state ? state.recurrence : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["startTime"] = state ? state.startTime : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -226,6 +229,7 @@ export class ContactsRotation extends pulumi.CustomResource {
             resourceInputs["contactIds"] = args ? args.contactIds : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["recurrence"] = args ? args.recurrence : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["startTime"] = args ? args.startTime : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeZoneId"] = args ? args.timeZoneId : undefined;
@@ -260,6 +264,10 @@ export interface ContactsRotationState {
      */
     recurrence?: pulumi.Input<inputs.ssm.ContactsRotationRecurrence>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The date and time, in RFC 3339 format, that the rotation goes into effect.
      */
     startTime?: pulumi.Input<string>;
@@ -269,8 +277,6 @@ export interface ContactsRotationState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -297,6 +303,10 @@ export interface ContactsRotationArgs {
      * The following arguments are optional:
      */
     recurrence?: pulumi.Input<inputs.ssm.ContactsRotationRecurrence>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The date and time, in RFC 3339 format, that the rotation goes into effect.
      */

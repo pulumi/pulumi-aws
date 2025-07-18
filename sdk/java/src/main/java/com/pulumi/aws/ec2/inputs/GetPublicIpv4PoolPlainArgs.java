@@ -32,6 +32,21 @@ public final class GetPublicIpv4PoolPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Any tags for the address pool.
      * 
      */
@@ -50,6 +65,7 @@ public final class GetPublicIpv4PoolPlainArgs extends com.pulumi.resources.Invok
 
     private GetPublicIpv4PoolPlainArgs(GetPublicIpv4PoolPlainArgs $) {
         this.poolId = $.poolId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -79,6 +95,17 @@ public final class GetPublicIpv4PoolPlainArgs extends com.pulumi.resources.Invok
          */
         public Builder poolId(String poolId) {
             $.poolId = poolId;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

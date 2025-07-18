@@ -39,6 +39,7 @@ export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions)
         "filters": args.filters,
         "mostRecent": args.mostRecent,
         "owners": args.owners,
+        "region": args.region,
         "restorableByUserIds": args.restorableByUserIds,
         "snapshotIds": args.snapshotIds,
         "tags": args.tags,
@@ -50,9 +51,7 @@ export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions)
  */
 export interface GetSnapshotArgs {
     /**
-     * One or more name/value pairs to filter off of. There are
-     * several valid keys, for a full reference, check out
-     * [describe-snapshots in the AWS CLI reference][1].
+     * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
      */
     filters?: inputs.ebs.GetSnapshotFilter[];
     /**
@@ -63,6 +62,10 @@ export interface GetSnapshotArgs {
      * Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
      */
     owners?: string[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * One or more AWS accounts IDs that can create volumes from the snapshot.
      */
@@ -120,6 +123,7 @@ export interface GetSnapshotResult {
      */
     readonly ownerId: string;
     readonly owners?: string[];
+    readonly region: string;
     readonly restorableByUserIds?: string[];
     /**
      * Snapshot ID (e.g., snap-59fcb34e).
@@ -183,6 +187,7 @@ export function getSnapshotOutput(args?: GetSnapshotOutputArgs, opts?: pulumi.In
         "filters": args.filters,
         "mostRecent": args.mostRecent,
         "owners": args.owners,
+        "region": args.region,
         "restorableByUserIds": args.restorableByUserIds,
         "snapshotIds": args.snapshotIds,
         "tags": args.tags,
@@ -194,9 +199,7 @@ export function getSnapshotOutput(args?: GetSnapshotOutputArgs, opts?: pulumi.In
  */
 export interface GetSnapshotOutputArgs {
     /**
-     * One or more name/value pairs to filter off of. There are
-     * several valid keys, for a full reference, check out
-     * [describe-snapshots in the AWS CLI reference][1].
+     * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ebs.GetSnapshotFilterArgs>[]>;
     /**
@@ -207,6 +210,10 @@ export interface GetSnapshotOutputArgs {
      * Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
      */
     owners?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * One or more AWS accounts IDs that can create volumes from the snapshot.
      */

@@ -28,7 +28,7 @@ class GetListenerResult:
     """
     A collection of values returned by getListener.
     """
-    def __init__(__self__, arn=None, created_at=None, default_actions=None, id=None, last_updated_at=None, listener_id=None, listener_identifier=None, name=None, port=None, protocol=None, service_arn=None, service_id=None, service_identifier=None, tags=None):
+    def __init__(__self__, arn=None, created_at=None, default_actions=None, id=None, last_updated_at=None, listener_id=None, listener_identifier=None, name=None, port=None, protocol=None, region=None, service_arn=None, service_id=None, service_identifier=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -59,6 +59,9 @@ class GetListenerResult:
         if protocol and not isinstance(protocol, str):
             raise TypeError("Expected argument 'protocol' to be a str")
         pulumi.set(__self__, "protocol", protocol)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if service_arn and not isinstance(service_arn, str):
             raise TypeError("Expected argument 'service_arn' to be a str")
         pulumi.set(__self__, "service_arn", service_arn)
@@ -150,6 +153,11 @@ class GetListenerResult:
         return pulumi.get(self, "protocol")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> builtins.str:
         """
@@ -195,6 +203,7 @@ class AwaitableGetListenerResult(GetListenerResult):
             name=self.name,
             port=self.port,
             protocol=self.protocol,
+            region=self.region,
             service_arn=self.service_arn,
             service_id=self.service_id,
             service_identifier=self.service_identifier,
@@ -202,6 +211,7 @@ class AwaitableGetListenerResult(GetListenerResult):
 
 
 def get_listener(listener_identifier: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
                  service_identifier: Optional[builtins.str] = None,
                  tags: Optional[Mapping[str, builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetListenerResult:
@@ -221,11 +231,13 @@ def get_listener(listener_identifier: Optional[builtins.str] = None,
 
 
     :param builtins.str listener_identifier: ID or Amazon Resource Name (ARN) of the listener
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_identifier: ID or Amazon Resource Name (ARN) of the service network
     :param Mapping[str, builtins.str] tags: List of tags associated with the listener.
     """
     __args__ = dict()
     __args__['listenerIdentifier'] = listener_identifier
+    __args__['region'] = region
     __args__['serviceIdentifier'] = service_identifier
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -242,11 +254,13 @@ def get_listener(listener_identifier: Optional[builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         port=pulumi.get(__ret__, 'port'),
         protocol=pulumi.get(__ret__, 'protocol'),
+        region=pulumi.get(__ret__, 'region'),
         service_arn=pulumi.get(__ret__, 'service_arn'),
         service_id=pulumi.get(__ret__, 'service_id'),
         service_identifier=pulumi.get(__ret__, 'service_identifier'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_listener_output(listener_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         service_identifier: Optional[pulumi.Input[builtins.str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListenerResult]:
@@ -266,11 +280,13 @@ def get_listener_output(listener_identifier: Optional[pulumi.Input[builtins.str]
 
 
     :param builtins.str listener_identifier: ID or Amazon Resource Name (ARN) of the listener
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str service_identifier: ID or Amazon Resource Name (ARN) of the service network
     :param Mapping[str, builtins.str] tags: List of tags associated with the listener.
     """
     __args__ = dict()
     __args__['listenerIdentifier'] = listener_identifier
+    __args__['region'] = region
     __args__['serviceIdentifier'] = service_identifier
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -286,6 +302,7 @@ def get_listener_output(listener_identifier: Optional[pulumi.Input[builtins.str]
         name=pulumi.get(__response__, 'name'),
         port=pulumi.get(__response__, 'port'),
         protocol=pulumi.get(__response__, 'protocol'),
+        region=pulumi.get(__response__, 'region'),
         service_arn=pulumi.get(__response__, 'service_arn'),
         service_id=pulumi.get(__response__, 'service_id'),
         service_identifier=pulumi.get(__response__, 'service_identifier'),

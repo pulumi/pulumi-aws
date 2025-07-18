@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sfn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func LookupStateMachine(ctx *pulumi.Context, args *LookupStateMachineArgs, opts 
 type LookupStateMachineArgs struct {
 	// Friendly name of the state machine to match.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getStateMachine.
@@ -66,8 +68,9 @@ type LookupStateMachineResult struct {
 	Definition  string `pulumi:"definition"`
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// The revision identifier for the state machine.
 	RevisionId string `pulumi:"revisionId"`
 	// Set to the roleArn used by the state function.
@@ -89,6 +92,8 @@ func LookupStateMachineOutput(ctx *pulumi.Context, args LookupStateMachineOutput
 type LookupStateMachineOutputArgs struct {
 	// Friendly name of the state machine to match.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupStateMachineOutputArgs) ElementType() reflect.Type {
@@ -136,6 +141,10 @@ func (o LookupStateMachineResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupStateMachineResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupStateMachineResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStateMachineResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The revision identifier for the state machine.

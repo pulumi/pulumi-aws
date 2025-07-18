@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,6 +63,8 @@ type ResolverQueryLogConfig struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The AWS account ID of the account that created the query logging configuration.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
 	// Sharing is configured through AWS Resource Access Manager (AWS RAM).
 	// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
@@ -70,8 +72,6 @@ type ResolverQueryLogConfig struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -117,6 +117,8 @@ type resolverQueryLogConfigState struct {
 	Name *string `pulumi:"name"`
 	// The AWS account ID of the account that created the query logging configuration.
 	OwnerId *string `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
 	// Sharing is configured through AWS Resource Access Manager (AWS RAM).
 	// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
@@ -124,8 +126,6 @@ type resolverQueryLogConfigState struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -139,6 +139,8 @@ type ResolverQueryLogConfigState struct {
 	Name pulumi.StringPtrInput
 	// The AWS account ID of the account that created the query logging configuration.
 	OwnerId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
 	// Sharing is configured through AWS Resource Access Manager (AWS RAM).
 	// Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
@@ -146,8 +148,6 @@ type ResolverQueryLogConfigState struct {
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -161,6 +161,8 @@ type resolverQueryLogConfigArgs struct {
 	DestinationArn string `pulumi:"destinationArn"`
 	// The name of the Route 53 Resolver query logging configuration.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -172,6 +174,8 @@ type ResolverQueryLogConfigArgs struct {
 	DestinationArn pulumi.StringInput
 	// The name of the Route 53 Resolver query logging configuration.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -284,6 +288,11 @@ func (o ResolverQueryLogConfigOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverQueryLogConfig) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ResolverQueryLogConfigOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverQueryLogConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // An indication of whether the query logging configuration is shared with other AWS accounts, or was shared with the current account by another AWS account.
 // Sharing is configured through AWS Resource Access Manager (AWS RAM).
 // Values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
@@ -297,8 +306,6 @@ func (o ResolverQueryLogConfigOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ResolverQueryLogConfigOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ResolverQueryLogConfig) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

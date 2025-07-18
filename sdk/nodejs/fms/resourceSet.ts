@@ -65,13 +65,14 @@ export class ResourceSet extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
      */
     public readonly resourceSets!: pulumi.Output<outputs.fms.ResourceSetResourceSet[] | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.fms.ResourceSetTimeouts | undefined>;
 
@@ -89,12 +90,14 @@ export class ResourceSet extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ResourceSetState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceSets"] = state ? state.resourceSets : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as ResourceSetArgs | undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceSets"] = args ? args.resourceSets : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
@@ -115,13 +118,14 @@ export interface ResourceSetState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
      */
     resourceSets?: pulumi.Input<pulumi.Input<inputs.fms.ResourceSetResourceSet>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.fms.ResourceSetTimeouts>;
 }
@@ -130,6 +134,10 @@ export interface ResourceSetState {
  * The set of arguments for constructing a ResourceSet resource.
  */
 export interface ResourceSetArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Details about the resource set to be created or updated. See `resourceSet` Attribute Reference below.
      */

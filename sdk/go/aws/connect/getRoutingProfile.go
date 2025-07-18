@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -84,6 +84,8 @@ type LookupRoutingProfileArgs struct {
 	InstanceId string `pulumi:"instanceId"`
 	// Returns information on a specific Routing Profile by name
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Returns information on a specific Routing Profile by Routing Profile id
 	//
 	// > **NOTE:** `instanceId` and one of either `name` or `routingProfileId` is required.
@@ -108,6 +110,7 @@ type LookupRoutingProfileResult struct {
 	Name               string                              `pulumi:"name"`
 	// One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 	QueueConfigs     []GetRoutingProfileQueueConfig `pulumi:"queueConfigs"`
+	Region           string                         `pulumi:"region"`
 	RoutingProfileId string                         `pulumi:"routingProfileId"`
 	// Map of tags to assign to the Routing Profile.
 	Tags map[string]string `pulumi:"tags"`
@@ -128,6 +131,8 @@ type LookupRoutingProfileOutputArgs struct {
 	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 	// Returns information on a specific Routing Profile by name
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Returns information on a specific Routing Profile by Routing Profile id
 	//
 	// > **NOTE:** `instanceId` and one of either `name` or `routingProfileId` is required.
@@ -191,6 +196,10 @@ func (o LookupRoutingProfileResultOutput) Name() pulumi.StringOutput {
 // One or more `queueConfigs` blocks that specify the inbound queues associated with the routing profile. If no queue is added, the agent only can make outbound calls. The `queueConfigs` block is documented below.
 func (o LookupRoutingProfileResultOutput) QueueConfigs() GetRoutingProfileQueueConfigArrayOutput {
 	return o.ApplyT(func(v LookupRoutingProfileResult) []GetRoutingProfileQueueConfig { return v.QueueConfigs }).(GetRoutingProfileQueueConfigArrayOutput)
+}
+
+func (o LookupRoutingProfileResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRoutingProfileResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupRoutingProfileResultOutput) RoutingProfileId() pulumi.StringOutput {

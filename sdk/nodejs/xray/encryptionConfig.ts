@@ -89,6 +89,10 @@ export class EncryptionConfig extends pulumi.CustomResource {
      */
     public readonly keyId!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
      */
     public readonly type!: pulumi.Output<string>;
@@ -107,6 +111,7 @@ export class EncryptionConfig extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EncryptionConfigState | undefined;
             resourceInputs["keyId"] = state ? state.keyId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as EncryptionConfigArgs | undefined;
@@ -114,6 +119,7 @@ export class EncryptionConfig extends pulumi.CustomResource {
                 throw new Error("Missing required property 'type'");
             }
             resourceInputs["keyId"] = args ? args.keyId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -130,6 +136,10 @@ export interface EncryptionConfigState {
      */
     keyId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
      */
     type?: pulumi.Input<string>;
@@ -143,6 +153,10 @@ export interface EncryptionConfigArgs {
      * An AWS KMS customer master key (CMK) ARN.
      */
     keyId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
      */

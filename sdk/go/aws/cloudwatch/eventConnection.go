@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,7 +57,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -91,7 +91,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -152,7 +152,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -217,9 +217,9 @@ import (
 //	"encoding/json"
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -329,6 +329,8 @@ type EventConnection struct {
 	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
 	// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
 	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
 }
@@ -383,6 +385,8 @@ type eventConnectionState struct {
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
 	SecretArn *string `pulumi:"secretArn"`
 }
@@ -402,6 +406,8 @@ type EventConnectionState struct {
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
 	SecretArn pulumi.StringPtrInput
 }
@@ -423,6 +429,8 @@ type eventConnectionArgs struct {
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EventConnection resource.
@@ -439,6 +447,8 @@ type EventConnectionArgs struct {
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EventConnectionArgs) ElementType() reflect.Type {
@@ -563,6 +573,11 @@ func (o EventConnectionOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 // The name for the connection. Maximum of 64 characters consisting of numbers, lower/upper case letters, .,-,_.
 func (o EventConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o EventConnectionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventConnection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.

@@ -27,6 +27,7 @@ export function getQuicksightUser(args: GetQuicksightUserArgs, opts?: pulumi.Inv
     return pulumi.runtime.invoke("aws:quicksight/getQuicksightUser:getQuicksightUser", {
         "awsAccountId": args.awsAccountId,
         "namespace": args.namespace,
+        "region": args.region,
         "userName": args.userName,
     }, opts);
 }
@@ -43,6 +44,10 @@ export interface GetQuicksightUserArgs {
      * QuickSight namespace. Defaults to `default`.
      */
     namespace?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * The name of the user that you want to match.
      *
@@ -81,6 +86,7 @@ export interface GetQuicksightUserResult {
      * The principal ID of the user.
      */
     readonly principalId: string;
+    readonly region: string;
     readonly userName: string;
     /**
      * The Amazon QuickSight role for the user. The user role can be one of the following:.
@@ -113,6 +119,7 @@ export function getQuicksightUserOutput(args: GetQuicksightUserOutputArgs, opts?
     return pulumi.runtime.invokeOutput("aws:quicksight/getQuicksightUser:getQuicksightUser", {
         "awsAccountId": args.awsAccountId,
         "namespace": args.namespace,
+        "region": args.region,
         "userName": args.userName,
     }, opts);
 }
@@ -129,6 +136,10 @@ export interface GetQuicksightUserOutputArgs {
      * QuickSight namespace. Defaults to `default`.
      */
     namespace?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the user that you want to match.
      *

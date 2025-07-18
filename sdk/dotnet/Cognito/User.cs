@@ -155,6 +155,12 @@ namespace Pulumi.Aws.Cognito
         public Output<string> PreferredMfaSetting { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// current user status.
         /// </summary>
         [Output("status")]
@@ -315,6 +321,12 @@ namespace Pulumi.Aws.Cognito
             }
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("temporaryPassword")]
         private Input<string>? _temporaryPassword;
 
@@ -453,6 +465,12 @@ namespace Pulumi.Aws.Cognito
 
         [Input("preferredMfaSetting")]
         public Input<string>? PreferredMfaSetting { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// current user status.

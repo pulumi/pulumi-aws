@@ -22,16 +22,20 @@ class NetworkInterfaceAttachmentInitArgs:
     def __init__(__self__, *,
                  device_index: pulumi.Input[builtins.int],
                  instance_id: pulumi.Input[builtins.str],
-                 network_interface_id: pulumi.Input[builtins.str]):
+                 network_interface_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkInterfaceAttachment resource.
         :param pulumi.Input[builtins.int] device_index: Network interface index (int).
         :param pulumi.Input[builtins.str] instance_id: Instance ID to attach.
         :param pulumi.Input[builtins.str] network_interface_id: ENI ID to attach.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "device_index", device_index)
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="deviceIndex")
@@ -69,6 +73,18 @@ class NetworkInterfaceAttachmentInitArgs:
     def network_interface_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "network_interface_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _NetworkInterfaceAttachmentState:
@@ -77,6 +93,7 @@ class _NetworkInterfaceAttachmentState:
                  device_index: Optional[pulumi.Input[builtins.int]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering NetworkInterfaceAttachment resources.
@@ -84,6 +101,7 @@ class _NetworkInterfaceAttachmentState:
         :param pulumi.Input[builtins.int] device_index: Network interface index (int).
         :param pulumi.Input[builtins.str] instance_id: Instance ID to attach.
         :param pulumi.Input[builtins.str] network_interface_id: ENI ID to attach.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of the Network Interface Attachment.
         """
         if attachment_id is not None:
@@ -94,6 +112,8 @@ class _NetworkInterfaceAttachmentState:
             pulumi.set(__self__, "instance_id", instance_id)
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -147,6 +167,18 @@ class _NetworkInterfaceAttachmentState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def status(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The status of the Network Interface Attachment.
@@ -167,6 +199,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
                  device_index: Optional[pulumi.Input[builtins.int]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Attach an Elastic network interface (ENI) resource with EC2 instance.
@@ -196,6 +229,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] device_index: Network interface index (int).
         :param pulumi.Input[builtins.str] instance_id: Instance ID to attach.
         :param pulumi.Input[builtins.str] network_interface_id: ENI ID to attach.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -244,6 +278,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
                  device_index: Optional[pulumi.Input[builtins.int]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -262,6 +297,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
             if network_interface_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_interface_id'")
             __props__.__dict__["network_interface_id"] = network_interface_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["attachment_id"] = None
             __props__.__dict__["status"] = None
         super(NetworkInterfaceAttachment, __self__).__init__(
@@ -278,6 +314,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
             device_index: Optional[pulumi.Input[builtins.int]] = None,
             instance_id: Optional[pulumi.Input[builtins.str]] = None,
             network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None) -> 'NetworkInterfaceAttachment':
         """
         Get an existing NetworkInterfaceAttachment resource's state with the given name, id, and optional extra
@@ -290,6 +327,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] device_index: Network interface index (int).
         :param pulumi.Input[builtins.str] instance_id: Instance ID to attach.
         :param pulumi.Input[builtins.str] network_interface_id: ENI ID to attach.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The status of the Network Interface Attachment.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -300,6 +338,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         __props__.__dict__["device_index"] = device_index
         __props__.__dict__["instance_id"] = instance_id
         __props__.__dict__["network_interface_id"] = network_interface_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         return NetworkInterfaceAttachment(resource_name, opts=opts, __props__=__props__)
 
@@ -334,6 +373,14 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         ENI ID to attach.
         """
         return pulumi.get(self, "network_interface_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

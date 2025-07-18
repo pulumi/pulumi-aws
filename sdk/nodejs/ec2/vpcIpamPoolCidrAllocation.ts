@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const exampleVpcIpam = new aws.ec2.VpcIpam("example", {operatingRegions: [{
- *     regionName: current.then(current => current.name),
+ *     regionName: current.then(current => current.region),
  * }]});
  * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("example", {
  *     addressFamily: "ipv4",
  *     ipamScopeId: exampleVpcIpam.privateDefaultScopeId,
- *     locale: current.then(current => current.name),
+ *     locale: current.then(current => current.region),
  * });
  * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("example", {
  *     ipamPoolId: exampleVpcIpamPool.id,
@@ -44,12 +44,12 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const exampleVpcIpam = new aws.ec2.VpcIpam("example", {operatingRegions: [{
- *     regionName: current.then(current => current.name),
+ *     regionName: current.then(current => current.region),
  * }]});
  * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("example", {
  *     addressFamily: "ipv4",
  *     ipamScopeId: exampleVpcIpam.privateDefaultScopeId,
- *     locale: current.then(current => current.name),
+ *     locale: current.then(current => current.region),
  * });
  * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("example", {
  *     ipamPoolId: exampleVpcIpamPool.id,
@@ -122,6 +122,10 @@ export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
      */
     public readonly netmaskLength!: pulumi.Output<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the resource.
      */
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
@@ -153,6 +157,7 @@ export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
             resourceInputs["ipamPoolAllocationId"] = state ? state.ipamPoolAllocationId : undefined;
             resourceInputs["ipamPoolId"] = state ? state.ipamPoolId : undefined;
             resourceInputs["netmaskLength"] = state ? state.netmaskLength : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
             resourceInputs["resourceOwner"] = state ? state.resourceOwner : undefined;
             resourceInputs["resourceType"] = state ? state.resourceType : undefined;
@@ -166,6 +171,7 @@ export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
             resourceInputs["disallowedCidrs"] = args ? args.disallowedCidrs : undefined;
             resourceInputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
             resourceInputs["netmaskLength"] = args ? args.netmaskLength : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["ipamPoolAllocationId"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["resourceOwner"] = undefined /*out*/;
@@ -201,6 +207,10 @@ export interface VpcIpamPoolCidrAllocationState {
      * The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
      */
     netmaskLength?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the resource.
      */
@@ -239,4 +249,8 @@ export interface VpcIpamPoolCidrAllocationArgs {
      * The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
      */
     netmaskLength?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -29,7 +29,7 @@ class GetSnapshotIdsResult:
     """
     A collection of values returned by getSnapshotIds.
     """
-    def __init__(__self__, filters=None, id=None, ids=None, owners=None, restorable_by_user_ids=None):
+    def __init__(__self__, filters=None, id=None, ids=None, owners=None, region=None, restorable_by_user_ids=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -42,6 +42,9 @@ class GetSnapshotIdsResult:
         if owners and not isinstance(owners, list):
             raise TypeError("Expected argument 'owners' to be a list")
         pulumi.set(__self__, "owners", owners)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if restorable_by_user_ids and not isinstance(restorable_by_user_ids, list):
             raise TypeError("Expected argument 'restorable_by_user_ids' to be a list")
         pulumi.set(__self__, "restorable_by_user_ids", restorable_by_user_ids)
@@ -73,6 +76,11 @@ class GetSnapshotIdsResult:
         return pulumi.get(self, "owners")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="restorableByUserIds")
     def restorable_by_user_ids(self) -> Optional[Sequence[builtins.str]]:
         return pulumi.get(self, "restorable_by_user_ids")
@@ -88,11 +96,13 @@ class AwaitableGetSnapshotIdsResult(GetSnapshotIdsResult):
             id=self.id,
             ids=self.ids,
             owners=self.owners,
+            region=self.region,
             restorable_by_user_ids=self.restorable_by_user_ids)
 
 
 def get_snapshot_ids(filters: Optional[Sequence[Union['GetSnapshotIdsFilterArgs', 'GetSnapshotIdsFilterArgsDict']]] = None,
                      owners: Optional[Sequence[builtins.str]] = None,
+                     region: Optional[builtins.str] = None,
                      restorable_by_user_ids: Optional[Sequence[builtins.str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotIdsResult:
     """
@@ -119,15 +129,15 @@ def get_snapshot_ids(filters: Optional[Sequence[Union['GetSnapshotIdsFilterArgs'
     ```
 
 
-    :param Sequence[Union['GetSnapshotIdsFilterArgs', 'GetSnapshotIdsFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
-           several valid keys, for a full reference, check out
-           [describe-volumes in the AWS CLI reference][1].
+    :param Sequence[Union['GetSnapshotIdsFilterArgs', 'GetSnapshotIdsFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
     :param Sequence[builtins.str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[builtins.str] restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['owners'] = owners
+    __args__['region'] = region
     __args__['restorableByUserIds'] = restorable_by_user_ids
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ebs/getSnapshotIds:getSnapshotIds', __args__, opts=opts, typ=GetSnapshotIdsResult).value
@@ -137,9 +147,11 @@ def get_snapshot_ids(filters: Optional[Sequence[Union['GetSnapshotIdsFilterArgs'
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
         owners=pulumi.get(__ret__, 'owners'),
+        region=pulumi.get(__ret__, 'region'),
         restorable_by_user_ids=pulumi.get(__ret__, 'restorable_by_user_ids'))
 def get_snapshot_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetSnapshotIdsFilterArgs', 'GetSnapshotIdsFilterArgsDict']]]]] = None,
                             owners: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
+                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             restorable_by_user_ids: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotIdsResult]:
     """
@@ -166,15 +178,15 @@ def get_snapshot_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
     ```
 
 
-    :param Sequence[Union['GetSnapshotIdsFilterArgs', 'GetSnapshotIdsFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
-           several valid keys, for a full reference, check out
-           [describe-volumes in the AWS CLI reference][1].
+    :param Sequence[Union['GetSnapshotIdsFilterArgs', 'GetSnapshotIdsFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-volumes in the AWS CLI reference][1].
     :param Sequence[builtins.str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[builtins.str] restorable_by_user_ids: One or more AWS accounts IDs that can create volumes from the snapshot.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['owners'] = owners
+    __args__['region'] = region
     __args__['restorableByUserIds'] = restorable_by_user_ids
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ebs/getSnapshotIds:getSnapshotIds', __args__, opts=opts, typ=GetSnapshotIdsResult)
@@ -183,4 +195,5 @@ def get_snapshot_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
         id=pulumi.get(__response__, 'id'),
         ids=pulumi.get(__response__, 'ids'),
         owners=pulumi.get(__response__, 'owners'),
+        region=pulumi.get(__response__, 'region'),
         restorable_by_user_ids=pulumi.get(__response__, 'restorable_by_user_ids')))

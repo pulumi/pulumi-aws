@@ -11,7 +11,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
-import java.util.Optional;
+import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
@@ -65,28 +65,42 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the account ID and region. For example:
+ * Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the region. For example:
  * 
  * ```sh
- * $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
+ * $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example us-west-2
  * ```
  * 
  */
 @ResourceType(type="aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration")
 public class ClassificationExportConfiguration extends com.pulumi.resources.CustomResource {
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Configuration block for a S3 Destination. Defined below
      * 
      */
     @Export(name="s3Destination", refs={ClassificationExportConfigurationS3Destination.class}, tree="[0]")
-    private Output</* @Nullable */ ClassificationExportConfigurationS3Destination> s3Destination;
+    private Output<ClassificationExportConfigurationS3Destination> s3Destination;
 
     /**
      * @return Configuration block for a S3 Destination. Defined below
      * 
      */
-    public Output<Optional<ClassificationExportConfigurationS3Destination>> s3Destination() {
-        return Codegen.optional(this.s3Destination);
+    public Output<ClassificationExportConfigurationS3Destination> s3Destination() {
+        return this.s3Destination;
     }
 
     /**
@@ -101,7 +115,7 @@ public class ClassificationExportConfiguration extends com.pulumi.resources.Cust
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ClassificationExportConfiguration(java.lang.String name, @Nullable ClassificationExportConfigurationArgs args) {
+    public ClassificationExportConfiguration(java.lang.String name, ClassificationExportConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -110,7 +124,7 @@ public class ClassificationExportConfiguration extends com.pulumi.resources.Cust
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ClassificationExportConfiguration(java.lang.String name, @Nullable ClassificationExportConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public ClassificationExportConfiguration(java.lang.String name, ClassificationExportConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -118,7 +132,7 @@ public class ClassificationExportConfiguration extends com.pulumi.resources.Cust
         super("aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static ClassificationExportConfigurationArgs makeArgs(@Nullable ClassificationExportConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static ClassificationExportConfigurationArgs makeArgs(ClassificationExportConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

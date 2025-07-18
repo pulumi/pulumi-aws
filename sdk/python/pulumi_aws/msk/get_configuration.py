@@ -27,7 +27,7 @@ class GetConfigurationResult:
     """
     A collection of values returned by getConfiguration.
     """
-    def __init__(__self__, arn=None, description=None, id=None, kafka_versions=None, latest_revision=None, name=None, server_properties=None):
+    def __init__(__self__, arn=None, description=None, id=None, kafka_versions=None, latest_revision=None, name=None, region=None, server_properties=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -46,6 +46,9 @@ class GetConfigurationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if server_properties and not isinstance(server_properties, str):
             raise TypeError("Expected argument 'server_properties' to be a str")
         pulumi.set(__self__, "server_properties", server_properties)
@@ -96,6 +99,11 @@ class GetConfigurationResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="serverProperties")
     def server_properties(self) -> builtins.str:
         """
@@ -116,10 +124,12 @@ class AwaitableGetConfigurationResult(GetConfigurationResult):
             kafka_versions=self.kafka_versions,
             latest_revision=self.latest_revision,
             name=self.name,
+            region=self.region,
             server_properties=self.server_properties)
 
 
 def get_configuration(name: Optional[builtins.str] = None,
+                      region: Optional[builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationResult:
     """
     Get information on an Amazon MSK Configuration.
@@ -135,9 +145,11 @@ def get_configuration(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Name of the configuration.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:msk/getConfiguration:getConfiguration', __args__, opts=opts, typ=GetConfigurationResult).value
 
@@ -148,8 +160,10 @@ def get_configuration(name: Optional[builtins.str] = None,
         kafka_versions=pulumi.get(__ret__, 'kafka_versions'),
         latest_revision=pulumi.get(__ret__, 'latest_revision'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         server_properties=pulumi.get(__ret__, 'server_properties'))
 def get_configuration_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationResult]:
     """
     Get information on an Amazon MSK Configuration.
@@ -165,9 +179,11 @@ def get_configuration_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Name of the configuration.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:msk/getConfiguration:getConfiguration', __args__, opts=opts, typ=GetConfigurationResult)
     return __ret__.apply(lambda __response__: GetConfigurationResult(
@@ -177,4 +193,5 @@ def get_configuration_output(name: Optional[pulumi.Input[builtins.str]] = None,
         kafka_versions=pulumi.get(__response__, 'kafka_versions'),
         latest_revision=pulumi.get(__response__, 'latest_revision'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         server_properties=pulumi.get(__response__, 'server_properties')))

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/quicksight"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/quicksight"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,10 +55,10 @@ type LookupDataSetArgs struct {
 	// AWS account ID.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Identifier for the data set.
-	DataSetId string            `pulumi:"dataSetId"`
-	Tags      map[string]string `pulumi:"tags"`
-	// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	DataSetId string `pulumi:"dataSetId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getDataSet.
@@ -77,11 +77,10 @@ type LookupDataSetResult struct {
 	Name                                string                                         `pulumi:"name"`
 	Permissions                         []GetDataSetPermission                         `pulumi:"permissions"`
 	PhysicalTableMaps                   []GetDataSetPhysicalTableMap                   `pulumi:"physicalTableMaps"`
+	Region                              string                                         `pulumi:"region"`
 	RowLevelPermissionDataSets          []GetDataSetRowLevelPermissionDataSet          `pulumi:"rowLevelPermissionDataSets"`
 	RowLevelPermissionTagConfigurations []GetDataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfigurations"`
 	Tags                                map[string]string                              `pulumi:"tags"`
-	// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 func LookupDataSetOutput(ctx *pulumi.Context, args LookupDataSetOutputArgs, opts ...pulumi.InvokeOption) LookupDataSetResultOutput {
@@ -98,10 +97,10 @@ type LookupDataSetOutputArgs struct {
 	// AWS account ID.
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
 	// Identifier for the data set.
-	DataSetId pulumi.StringInput    `pulumi:"dataSetId"`
-	Tags      pulumi.StringMapInput `pulumi:"tags"`
-	// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
-	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
+	DataSetId pulumi.StringInput `pulumi:"dataSetId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupDataSetOutputArgs) ElementType() reflect.Type {
@@ -176,6 +175,10 @@ func (o LookupDataSetResultOutput) PhysicalTableMaps() GetDataSetPhysicalTableMa
 	return o.ApplyT(func(v LookupDataSetResult) []GetDataSetPhysicalTableMap { return v.PhysicalTableMaps }).(GetDataSetPhysicalTableMapArrayOutput)
 }
 
+func (o LookupDataSetResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDataSetResult) string { return v.Region }).(pulumi.StringOutput)
+}
+
 func (o LookupDataSetResultOutput) RowLevelPermissionDataSets() GetDataSetRowLevelPermissionDataSetArrayOutput {
 	return o.ApplyT(func(v LookupDataSetResult) []GetDataSetRowLevelPermissionDataSet { return v.RowLevelPermissionDataSets }).(GetDataSetRowLevelPermissionDataSetArrayOutput)
 }
@@ -188,11 +191,6 @@ func (o LookupDataSetResultOutput) RowLevelPermissionTagConfigurations() GetData
 
 func (o LookupDataSetResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupDataSetResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Deprecated: tags_all is deprecated. This argument will be removed in a future major version.
-func (o LookupDataSetResultOutput) TagsAll() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LookupDataSetResult) map[string]string { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 func init() {

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupContactsRotation(ctx *pulumi.Context, args *LookupContactsRotationArg
 type LookupContactsRotationArgs struct {
 	// The Amazon Resource Name (ARN) of the rotation.
 	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getContactsRotation.
@@ -64,6 +66,7 @@ type LookupContactsRotationResult struct {
 	Name string `pulumi:"name"`
 	// Information about when an on-call rotation is in effect and how long the rotation period lasts.
 	Recurrences []GetContactsRotationRecurrence `pulumi:"recurrences"`
+	Region      string                          `pulumi:"region"`
 	// The date and time, in RFC 3339 format, that the rotation goes into effect.
 	StartTime string `pulumi:"startTime"`
 	// A map of tags to assign to the resource.
@@ -85,6 +88,8 @@ func LookupContactsRotationOutput(ctx *pulumi.Context, args LookupContactsRotati
 type LookupContactsRotationOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the rotation.
 	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupContactsRotationOutputArgs) ElementType() reflect.Type {
@@ -127,6 +132,10 @@ func (o LookupContactsRotationResultOutput) Name() pulumi.StringOutput {
 // Information about when an on-call rotation is in effect and how long the rotation period lasts.
 func (o LookupContactsRotationResultOutput) Recurrences() GetContactsRotationRecurrenceArrayOutput {
 	return o.ApplyT(func(v LookupContactsRotationResult) []GetContactsRotationRecurrence { return v.Recurrences }).(GetContactsRotationRecurrenceArrayOutput)
+}
+
+func (o LookupContactsRotationResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContactsRotationResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The date and time, in RFC 3339 format, that the rotation goes into effect.

@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const main = new aws.ec2.VpcIpam("main", {
  *     description: "My IPAM",
  *     operatingRegions: [{
- *         regionName: current.then(current => current.name),
+ *         regionName: current.then(current => current.region),
  *     }],
  *     tags: {
  *         Test: "Main",
@@ -106,6 +106,10 @@ export class VpcIpam extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicDefaultScopeId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The number of scopes in the IPAM.
      */
     public /*out*/ readonly scopeCount!: pulumi.Output<number>;
@@ -115,8 +119,6 @@ export class VpcIpam extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -146,6 +148,7 @@ export class VpcIpam extends pulumi.CustomResource {
             resourceInputs["operatingRegions"] = state ? state.operatingRegions : undefined;
             resourceInputs["privateDefaultScopeId"] = state ? state.privateDefaultScopeId : undefined;
             resourceInputs["publicDefaultScopeId"] = state ? state.publicDefaultScopeId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scopeCount"] = state ? state.scopeCount : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -159,6 +162,7 @@ export class VpcIpam extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enablePrivateGua"] = args ? args.enablePrivateGua : undefined;
             resourceInputs["operatingRegions"] = args ? args.operatingRegions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tier"] = args ? args.tier : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -216,6 +220,10 @@ export interface VpcIpamState {
      */
     publicDefaultScopeId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The number of scopes in the IPAM.
      */
     scopeCount?: pulumi.Input<number>;
@@ -225,8 +233,6 @@ export interface VpcIpamState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -255,6 +261,10 @@ export interface VpcIpamArgs {
      * Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
      */
     operatingRegions: pulumi.Input<pulumi.Input<inputs.ec2.VpcIpamOperatingRegion>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

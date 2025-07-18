@@ -27,13 +27,16 @@ class GetClustersResult:
     """
     A collection of values returned by getClusters.
     """
-    def __init__(__self__, cluster_arns=None, id=None):
+    def __init__(__self__, cluster_arns=None, id=None, region=None):
         if cluster_arns and not isinstance(cluster_arns, list):
             raise TypeError("Expected argument 'cluster_arns' to be a list")
         pulumi.set(__self__, "cluster_arns", cluster_arns)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="clusterArns")
@@ -51,6 +54,11 @@ class GetClustersResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetClustersResult(GetClustersResult):
     # pylint: disable=using-constant-test
@@ -59,10 +67,12 @@ class AwaitableGetClustersResult(GetClustersResult):
             yield self
         return GetClustersResult(
             cluster_arns=self.cluster_arns,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
-def get_clusters(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClustersResult:
+def get_clusters(region: Optional[builtins.str] = None,
+                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClustersResult:
     """
     Data source for managing an AWS ECS (Elastic Container) Clusters.
 
@@ -76,15 +86,21 @@ def get_clusters(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClu
 
     example = aws.ecs.get_clusters()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ecs/getClusters:getClusters', __args__, opts=opts, typ=GetClustersResult).value
 
     return AwaitableGetClustersResult(
         cluster_arns=pulumi.get(__ret__, 'cluster_arns'),
-        id=pulumi.get(__ret__, 'id'))
-def get_clusters_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClustersResult]:
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
+def get_clusters_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClustersResult]:
     """
     Data source for managing an AWS ECS (Elastic Container) Clusters.
 
@@ -98,10 +114,15 @@ def get_clusters_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.Invoke
 
     example = aws.ecs.get_clusters()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ecs/getClusters:getClusters', __args__, opts=opts, typ=GetClustersResult)
     return __ret__.apply(lambda __response__: GetClustersResult(
         cluster_arns=pulumi.get(__response__, 'cluster_arns'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

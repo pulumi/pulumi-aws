@@ -34,6 +34,7 @@ class AmiArgs:
                  kernel_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  ramdisk_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  root_device_name: Optional[pulumi.Input[builtins.str]] = None,
                  sriov_net_support: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -53,6 +54,7 @@ class AmiArgs:
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[builtins.str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         :param pulumi.Input[builtins.str] name: Region-unique name for the AMI.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
@@ -85,6 +87,8 @@ class AmiArgs:
             pulumi.set(__self__, "name", name)
         if ramdisk_id is not None:
             pulumi.set(__self__, "ramdisk_id", ramdisk_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if root_device_name is not None:
             pulumi.set(__self__, "root_device_name", root_device_name)
         if sriov_net_support is not None:
@@ -236,6 +240,18 @@ class AmiArgs:
         pulumi.set(self, "ramdisk_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="rootDeviceName")
     def root_device_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -332,6 +348,7 @@ class _AmiState:
                  platform_details: Optional[pulumi.Input[builtins.str]] = None,
                  public: Optional[pulumi.Input[builtins.bool]] = None,
                  ramdisk_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  root_device_name: Optional[pulumi.Input[builtins.str]] = None,
                  root_snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  sriov_net_support: Optional[pulumi.Input[builtins.str]] = None,
@@ -363,6 +380,7 @@ class _AmiState:
         :param pulumi.Input[builtins.str] platform: This value is set to windows for Windows AMIs; otherwise, it is blank.
         :param pulumi.Input[builtins.str] platform_details: Platform details associated with the billing code of the AMI.
         :param pulumi.Input[builtins.bool] public: Whether the image has public launch permissions.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         :param pulumi.Input[builtins.str] root_snapshot_id: Snapshot ID for the root volume (for EBS-backed AMIs)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -418,6 +436,8 @@ class _AmiState:
             pulumi.set(__self__, "public", public)
         if ramdisk_id is not None:
             pulumi.set(__self__, "ramdisk_id", ramdisk_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if root_device_name is not None:
             pulumi.set(__self__, "root_device_name", root_device_name)
         if root_snapshot_id is not None:
@@ -426,9 +446,6 @@ class _AmiState:
             pulumi.set(__self__, "sriov_net_support", sriov_net_support)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if tpm_support is not None:
@@ -695,6 +712,18 @@ class _AmiState:
         pulumi.set(self, "ramdisk_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="rootDeviceName")
     def root_device_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -741,7 +770,6 @@ class _AmiState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -821,6 +849,7 @@ class Ami(pulumi.CustomResource):
                  kernel_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  ramdisk_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  root_device_name: Optional[pulumi.Input[builtins.str]] = None,
                  sriov_net_support: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -880,6 +909,7 @@ class Ami(pulumi.CustomResource):
                should be attached to created instances. The structure of this block is described below.
         :param pulumi.Input[builtins.str] imds_support: If EC2 instances started from this image should require the use of the Instance Metadata Service V2 (IMDSv2), set this argument to `v2.0`. For more information, see [Configure instance metadata options for new instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration).
         :param pulumi.Input[builtins.str] name: Region-unique name for the AMI.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[builtins.str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
@@ -960,6 +990,7 @@ class Ami(pulumi.CustomResource):
                  kernel_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  ramdisk_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  root_device_name: Optional[pulumi.Input[builtins.str]] = None,
                  sriov_net_support: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -987,6 +1018,7 @@ class Ami(pulumi.CustomResource):
             __props__.__dict__["kernel_id"] = kernel_id
             __props__.__dict__["name"] = name
             __props__.__dict__["ramdisk_id"] = ramdisk_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["root_device_name"] = root_device_name
             __props__.__dict__["sriov_net_support"] = sriov_net_support
             __props__.__dict__["tags"] = tags
@@ -1038,6 +1070,7 @@ class Ami(pulumi.CustomResource):
             platform_details: Optional[pulumi.Input[builtins.str]] = None,
             public: Optional[pulumi.Input[builtins.bool]] = None,
             ramdisk_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             root_device_name: Optional[pulumi.Input[builtins.str]] = None,
             root_snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
             sriov_net_support: Optional[pulumi.Input[builtins.str]] = None,
@@ -1074,6 +1107,7 @@ class Ami(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] platform: This value is set to windows for Windows AMIs; otherwise, it is blank.
         :param pulumi.Input[builtins.str] platform_details: Platform details associated with the billing code of the AMI.
         :param pulumi.Input[builtins.bool] public: Whether the image has public launch permissions.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] root_device_name: Name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         :param pulumi.Input[builtins.str] root_snapshot_id: Snapshot ID for the root volume (for EBS-backed AMIs)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1111,6 +1145,7 @@ class Ami(pulumi.CustomResource):
         __props__.__dict__["platform_details"] = platform_details
         __props__.__dict__["public"] = public
         __props__.__dict__["ramdisk_id"] = ramdisk_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["root_device_name"] = root_device_name
         __props__.__dict__["root_snapshot_id"] = root_snapshot_id
         __props__.__dict__["sriov_net_support"] = sriov_net_support
@@ -1289,6 +1324,14 @@ class Ami(pulumi.CustomResource):
         return pulumi.get(self, "ramdisk_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="rootDeviceName")
     def root_device_name(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -1319,7 +1362,6 @@ class Ami(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

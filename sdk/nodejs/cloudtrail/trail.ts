@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const exampleBucketV2 = new aws.s3.BucketV2("example", {
+ * const exampleBucket = new aws.s3.Bucket("example", {
  *     bucket: "my-test-trail",
  *     forceDestroy: true,
  * });
@@ -42,11 +42,11 @@ import * as utilities from "../utilities";
  *                 identifiers: ["cloudtrail.amazonaws.com"],
  *             }],
  *             actions: ["s3:GetBucketAcl"],
- *             resources: [exampleBucketV2.arn],
+ *             resources: [exampleBucket.arn],
  *             conditions: [{
  *                 test: "StringEquals",
  *                 variable: "aws:SourceArn",
- *                 values: [Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:cloudtrail:${currentGetRegion.name}:${current.accountId}:trail/example`)],
+ *                 values: [Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:cloudtrail:${currentGetRegion.region}:${current.accountId}:trail/example`)],
  *             }],
  *         },
  *         {
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *                 identifiers: ["cloudtrail.amazonaws.com"],
  *             }],
  *             actions: ["s3:PutObject"],
- *             resources: [pulumi.all([exampleBucketV2.arn, current]).apply(([arn, current]) => `${arn}/prefix/AWSLogs/${current.accountId}/*`)],
+ *             resources: [pulumi.all([exampleBucket.arn, current]).apply(([arn, current]) => `${arn}/prefix/AWSLogs/${current.accountId}/*`)],
  *             conditions: [
  *                 {
  *                     test: "StringEquals",
@@ -67,19 +67,19 @@ import * as utilities from "../utilities";
  *                 {
  *                     test: "StringEquals",
  *                     variable: "aws:SourceArn",
- *                     values: [Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:cloudtrail:${currentGetRegion.name}:${current.accountId}:trail/example`)],
+ *                     values: [Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => `arn:${currentGetPartition.partition}:cloudtrail:${currentGetRegion.region}:${current.accountId}:trail/example`)],
  *                 },
  *             ],
  *         },
  *     ],
  * });
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
- *     bucket: exampleBucketV2.id,
+ *     bucket: exampleBucket.id,
  *     policy: example.apply(example => example.json),
  * });
  * const exampleTrail = new aws.cloudtrail.Trail("example", {
  *     name: "example",
- *     s3BucketName: exampleBucketV2.id,
+ *     s3BucketName: exampleBucket.id,
  *     s3KeyPrefix: "prefix",
  *     includeGlobalServiceEvents: false,
  * }, {
@@ -366,6 +366,10 @@ export class Trail extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the S3 bucket designated for publishing log files.
      *
      * The following arguments are optional:
@@ -389,8 +393,6 @@ export class Trail extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -421,6 +423,7 @@ export class Trail extends pulumi.CustomResource {
             resourceInputs["isOrganizationTrail"] = state ? state.isOrganizationTrail : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["s3BucketName"] = state ? state.s3BucketName : undefined;
             resourceInputs["s3KeyPrefix"] = state ? state.s3KeyPrefix : undefined;
             resourceInputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
@@ -444,6 +447,7 @@ export class Trail extends pulumi.CustomResource {
             resourceInputs["isOrganizationTrail"] = args ? args.isOrganizationTrail : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["s3BucketName"] = args ? args.s3BucketName : undefined;
             resourceInputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
             resourceInputs["snsTopicName"] = args ? args.snsTopicName : undefined;
@@ -519,6 +523,10 @@ export interface TrailState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Name of the S3 bucket designated for publishing log files.
      *
      * The following arguments are optional:
@@ -542,8 +550,6 @@ export interface TrailState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -600,6 +606,10 @@ export interface TrailArgs {
      * Name of the trail.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the S3 bucket designated for publishing log files.
      *

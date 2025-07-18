@@ -3,11 +3,9 @@
 
 package com.pulumi.aws.auditmanager.inputs;
 
-import com.pulumi.aws.auditmanager.inputs.GetControlControlMappingSource;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,13 +14,6 @@ import javax.annotation.Nullable;
 public final class GetControlPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetControlPlainArgs Empty = new GetControlPlainArgs();
-
-    @Import(name="controlMappingSources")
-    private @Nullable List<GetControlControlMappingSource> controlMappingSources;
-
-    public Optional<List<GetControlControlMappingSource>> controlMappingSources() {
-        return Optional.ofNullable(this.controlMappingSources);
-    }
 
     /**
      * Name of the control.
@@ -37,6 +28,21 @@ public final class GetControlPlainArgs extends com.pulumi.resources.InvokeArgs {
      */
     public String name() {
         return this.name;
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -57,8 +63,8 @@ public final class GetControlPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetControlPlainArgs() {}
 
     private GetControlPlainArgs(GetControlPlainArgs $) {
-        this.controlMappingSources = $.controlMappingSources;
         this.name = $.name;
+        this.region = $.region;
         this.type = $.type;
     }
 
@@ -80,15 +86,6 @@ public final class GetControlPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetControlPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder controlMappingSources(@Nullable List<GetControlControlMappingSource> controlMappingSources) {
-            $.controlMappingSources = controlMappingSources;
-            return this;
-        }
-
-        public Builder controlMappingSources(GetControlControlMappingSource... controlMappingSources) {
-            return controlMappingSources(List.of(controlMappingSources));
-        }
-
         /**
          * @param name Name of the control.
          * 
@@ -97,6 +94,17 @@ public final class GetControlPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

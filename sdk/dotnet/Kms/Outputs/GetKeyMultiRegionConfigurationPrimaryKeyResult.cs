@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Kms.Outputs
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// The AWS Region of a primary or replica key in a multi-Region key.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         public readonly string Region;
 

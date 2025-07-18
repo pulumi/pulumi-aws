@@ -67,6 +67,21 @@ public final class GetQuickConnectArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Map of tags to assign to the Quick Connect.
      * 
      */
@@ -87,6 +102,7 @@ public final class GetQuickConnectArgs extends com.pulumi.resources.InvokeArgs {
         this.instanceId = $.instanceId;
         this.name = $.name;
         this.quickConnectId = $.quickConnectId;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -173,6 +189,27 @@ public final class GetQuickConnectArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder quickConnectId(String quickConnectId) {
             return quickConnectId(Output.of(quickConnectId));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

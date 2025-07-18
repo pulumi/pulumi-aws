@@ -260,10 +260,10 @@ public final class AwsFunctions {
     }
     /**
      * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
-     * in the current region.
+     * in the current Region.
      * 
      * This can be used both to validate an availability zone given in a variable
-     * and to split the AZ name into its component parts of an AWS region and an
+     * and to split the AZ name into its component parts of an AWS Region and an
      * AZ identifier letter. The latter may be useful e.g., for implementing a
      * consistent subnet numbering scheme across several regions by mapping both
      * the region and the subnet letter to network numbers.
@@ -358,10 +358,10 @@ public final class AwsFunctions {
     }
     /**
      * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
-     * in the current region.
+     * in the current Region.
      * 
      * This can be used both to validate an availability zone given in a variable
-     * and to split the AZ name into its component parts of an AWS region and an
+     * and to split the AZ name into its component parts of an AWS Region and an
      * AZ identifier letter. The latter may be useful e.g., for implementing a
      * consistent subnet numbering scheme across several regions by mapping both
      * the region and the subnet letter to network numbers.
@@ -456,10 +456,10 @@ public final class AwsFunctions {
     }
     /**
      * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
-     * in the current region.
+     * in the current Region.
      * 
      * This can be used both to validate an availability zone given in a variable
-     * and to split the AZ name into its component parts of an AWS region and an
+     * and to split the AZ name into its component parts of an AWS Region and an
      * AZ identifier letter. The latter may be useful e.g., for implementing a
      * consistent subnet numbering scheme across several regions by mapping both
      * the region and the subnet letter to network numbers.
@@ -554,10 +554,10 @@ public final class AwsFunctions {
     }
     /**
      * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
-     * in the current region.
+     * in the current Region.
      * 
      * This can be used both to validate an availability zone given in a variable
-     * and to split the AZ name into its component parts of an AWS region and an
+     * and to split the AZ name into its component parts of an AWS Region and an
      * AZ identifier letter. The latter may be useful e.g., for implementing a
      * consistent subnet numbering scheme across several regions by mapping both
      * the region and the subnet letter to network numbers.
@@ -652,10 +652,10 @@ public final class AwsFunctions {
     }
     /**
      * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
-     * in the current region.
+     * in the current Region.
      * 
      * This can be used both to validate an availability zone given in a variable
-     * and to split the AZ name into its component parts of an AWS region and an
+     * and to split the AZ name into its component parts of an AWS Region and an
      * AZ identifier letter. The latter may be useful e.g., for implementing a
      * consistent subnet numbering scheme across several regions by mapping both
      * the region and the subnet letter to network numbers.
@@ -750,10 +750,10 @@ public final class AwsFunctions {
     }
     /**
      * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
-     * in the current region.
+     * in the current Region.
      * 
      * This can be used both to validate an availability zone given in a variable
-     * and to split the AZ name into its component parts of an AWS region and an
+     * and to split the AZ name into its component parts of an AWS Region and an
      * AZ identifier letter. The latter may be useful e.g., for implementing a
      * consistent subnet numbering scheme across several regions by mapping both
      * the region and the subnet letter to network numbers.
@@ -848,10 +848,10 @@ public final class AwsFunctions {
     }
     /**
      * `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
-     * in the current region.
+     * in the current Region.
      * 
      * This can be used both to validate an availability zone given in a variable
-     * and to split the AZ name into its component parts of an AWS region and an
+     * and to split the AZ name into its component parts of an AWS Region and an
      * AZ identifier letter. The latter may be useful e.g., for implementing a
      * consistent subnet numbering scheme across several regions by mapping both
      * the region and the subnet letter to network numbers.
@@ -1967,10 +1967,10 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -1991,11 +1991,11 @@ public final class AwsFunctions {
      *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
+     *         var billingLogs = new Bucket("billingLogs", BucketArgs.builder()
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()
+     *         var billingLogsAcl = new BucketAcl("billingLogsAcl", BucketAclArgs.builder()
      *             .bucket(billingLogs.id())
      *             .acl("private")
      *             .build());
@@ -2058,10 +2058,10 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -2082,11 +2082,11 @@ public final class AwsFunctions {
      *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
+     *         var billingLogs = new Bucket("billingLogs", BucketArgs.builder()
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()
+     *         var billingLogsAcl = new BucketAcl("billingLogsAcl", BucketAclArgs.builder()
      *             .bucket(billingLogs.id())
      *             .acl("private")
      *             .build());
@@ -2149,10 +2149,10 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -2173,11 +2173,11 @@ public final class AwsFunctions {
      *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
+     *         var billingLogs = new Bucket("billingLogs", BucketArgs.builder()
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()
+     *         var billingLogsAcl = new BucketAcl("billingLogsAcl", BucketAclArgs.builder()
      *             .bucket(billingLogs.id())
      *             .acl("private")
      *             .build());
@@ -2240,10 +2240,10 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -2264,11 +2264,11 @@ public final class AwsFunctions {
      *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
+     *         var billingLogs = new Bucket("billingLogs", BucketArgs.builder()
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()
+     *         var billingLogsAcl = new BucketAcl("billingLogsAcl", BucketAclArgs.builder()
      *             .bucket(billingLogs.id())
      *             .acl("private")
      *             .build());
@@ -2331,10 +2331,10 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -2355,11 +2355,11 @@ public final class AwsFunctions {
      *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
+     *         var billingLogs = new Bucket("billingLogs", BucketArgs.builder()
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()
+     *         var billingLogsAcl = new BucketAcl("billingLogsAcl", BucketAclArgs.builder()
      *             .bucket(billingLogs.id())
      *             .acl("private")
      *             .build());
@@ -2422,10 +2422,10 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -2446,11 +2446,11 @@ public final class AwsFunctions {
      *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
+     *         var billingLogs = new Bucket("billingLogs", BucketArgs.builder()
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()
+     *         var billingLogsAcl = new BucketAcl("billingLogsAcl", BucketAclArgs.builder()
      *             .bucket(billingLogs.id())
      *             .acl("private")
      *             .build());
@@ -2513,10 +2513,10 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetBillingServiceAccountArgs;
-     * import com.pulumi.aws.s3.BucketV2;
-     * import com.pulumi.aws.s3.BucketV2Args;
-     * import com.pulumi.aws.s3.BucketAclV2;
-     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.Bucket;
+     * import com.pulumi.aws.s3.BucketArgs;
+     * import com.pulumi.aws.s3.BucketAcl;
+     * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
@@ -2537,11 +2537,11 @@ public final class AwsFunctions {
      *         final var main = AwsFunctions.getBillingServiceAccount(GetBillingServiceAccountArgs.builder()
      *             .build());
      * 
-     *         var billingLogs = new BucketV2("billingLogs", BucketV2Args.builder()
+     *         var billingLogs = new Bucket("billingLogs", BucketArgs.builder()
      *             .bucket("my-billing-tf-test-bucket")
      *             .build());
      * 
-     *         var billingLogsAcl = new BucketAclV2("billingLogsAcl", BucketAclV2Args.builder()
+     *         var billingLogsAcl = new BucketAcl("billingLogsAcl", BucketAclArgs.builder()
      *             .bucket(billingLogs.id())
      *             .acl("private")
      *             .build());
@@ -3934,17 +3934,17 @@ public final class AwsFunctions {
         return Deployment.getInstance().invokeAsync("aws:index/getPartition:getPartition", TypeShape.of(GetPartitionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.getRegion` provides details about a specific AWS region.
+     * `aws.getRegion` provides details about a specific AWS Region.
      * 
-     * As well as validating a given region name this resource can be used to
-     * discover the name of the region configured within the provider. The latter
+     * As well as validating a given Region name this resource can be used to
+     * discover the name of the Region configured within the provider. The latter
      * can be useful in a child module which is inheriting an AWS provider
      * configuration from its parent module.
      * 
      * ## Example Usage
      * 
      * The following example shows how the resource might be used to obtain
-     * the name of the AWS region configured on the provider.
+     * the name of the AWS Region configured on the provider.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -3983,17 +3983,17 @@ public final class AwsFunctions {
         return getRegion(GetRegionArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * `aws.getRegion` provides details about a specific AWS region.
+     * `aws.getRegion` provides details about a specific AWS Region.
      * 
-     * As well as validating a given region name this resource can be used to
-     * discover the name of the region configured within the provider. The latter
+     * As well as validating a given Region name this resource can be used to
+     * discover the name of the Region configured within the provider. The latter
      * can be useful in a child module which is inheriting an AWS provider
      * configuration from its parent module.
      * 
      * ## Example Usage
      * 
      * The following example shows how the resource might be used to obtain
-     * the name of the AWS region configured on the provider.
+     * the name of the AWS Region configured on the provider.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -4032,17 +4032,17 @@ public final class AwsFunctions {
         return getRegionPlain(GetRegionPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * `aws.getRegion` provides details about a specific AWS region.
+     * `aws.getRegion` provides details about a specific AWS Region.
      * 
-     * As well as validating a given region name this resource can be used to
-     * discover the name of the region configured within the provider. The latter
+     * As well as validating a given Region name this resource can be used to
+     * discover the name of the Region configured within the provider. The latter
      * can be useful in a child module which is inheriting an AWS provider
      * configuration from its parent module.
      * 
      * ## Example Usage
      * 
      * The following example shows how the resource might be used to obtain
-     * the name of the AWS region configured on the provider.
+     * the name of the AWS Region configured on the provider.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -4081,17 +4081,17 @@ public final class AwsFunctions {
         return getRegion(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.getRegion` provides details about a specific AWS region.
+     * `aws.getRegion` provides details about a specific AWS Region.
      * 
-     * As well as validating a given region name this resource can be used to
-     * discover the name of the region configured within the provider. The latter
+     * As well as validating a given Region name this resource can be used to
+     * discover the name of the Region configured within the provider. The latter
      * can be useful in a child module which is inheriting an AWS provider
      * configuration from its parent module.
      * 
      * ## Example Usage
      * 
      * The following example shows how the resource might be used to obtain
-     * the name of the AWS region configured on the provider.
+     * the name of the AWS Region configured on the provider.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -4130,17 +4130,17 @@ public final class AwsFunctions {
         return getRegionPlain(args, InvokeOptions.Empty);
     }
     /**
-     * `aws.getRegion` provides details about a specific AWS region.
+     * `aws.getRegion` provides details about a specific AWS Region.
      * 
-     * As well as validating a given region name this resource can be used to
-     * discover the name of the region configured within the provider. The latter
+     * As well as validating a given Region name this resource can be used to
+     * discover the name of the Region configured within the provider. The latter
      * can be useful in a child module which is inheriting an AWS provider
      * configuration from its parent module.
      * 
      * ## Example Usage
      * 
      * The following example shows how the resource might be used to obtain
-     * the name of the AWS region configured on the provider.
+     * the name of the AWS Region configured on the provider.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -4179,17 +4179,17 @@ public final class AwsFunctions {
         return Deployment.getInstance().invoke("aws:index/getRegion:getRegion", TypeShape.of(GetRegionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.getRegion` provides details about a specific AWS region.
+     * `aws.getRegion` provides details about a specific AWS Region.
      * 
-     * As well as validating a given region name this resource can be used to
-     * discover the name of the region configured within the provider. The latter
+     * As well as validating a given Region name this resource can be used to
+     * discover the name of the Region configured within the provider. The latter
      * can be useful in a child module which is inheriting an AWS provider
      * configuration from its parent module.
      * 
      * ## Example Usage
      * 
      * The following example shows how the resource might be used to obtain
-     * the name of the AWS region configured on the provider.
+     * the name of the AWS Region configured on the provider.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -4228,17 +4228,17 @@ public final class AwsFunctions {
         return Deployment.getInstance().invoke("aws:index/getRegion:getRegion", TypeShape.of(GetRegionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * `aws.getRegion` provides details about a specific AWS region.
+     * `aws.getRegion` provides details about a specific AWS Region.
      * 
-     * As well as validating a given region name this resource can be used to
-     * discover the name of the region configured within the provider. The latter
+     * As well as validating a given Region name this resource can be used to
+     * discover the name of the Region configured within the provider. The latter
      * can be useful in a child module which is inheriting an AWS provider
      * configuration from its parent module.
      * 
      * ## Example Usage
      * 
      * The following example shows how the resource might be used to obtain
-     * the name of the AWS region configured on the provider.
+     * the name of the AWS Region configured on the provider.
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
      * <pre>
@@ -5130,7 +5130,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.name())
+     *             .region(current.region())
      *             .serviceId("ec2")
      *             .build());
      * 
@@ -5249,7 +5249,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.name())
+     *             .region(current.region())
      *             .serviceId("ec2")
      *             .build());
      * 
@@ -5368,7 +5368,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.name())
+     *             .region(current.region())
      *             .serviceId("ec2")
      *             .build());
      * 
@@ -5487,7 +5487,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.name())
+     *             .region(current.region())
      *             .serviceId("ec2")
      *             .build());
      * 
@@ -5606,7 +5606,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.name())
+     *             .region(current.region())
      *             .serviceId("ec2")
      *             .build());
      * 
@@ -5725,7 +5725,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.name())
+     *             .region(current.region())
      *             .serviceId("ec2")
      *             .build());
      * 
@@ -5844,7 +5844,7 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         final var test = AwsFunctions.getService(GetServiceArgs.builder()
-     *             .region(current.name())
+     *             .region(current.region())
      *             .serviceId("ec2")
      *             .build());
      * 

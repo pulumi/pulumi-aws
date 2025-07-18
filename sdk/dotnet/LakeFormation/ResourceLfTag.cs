@@ -68,6 +68,12 @@ namespace Pulumi.Aws.LakeFormation
         public Output<Outputs.ResourceLfTagLfTag?> LfTag { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for a table resource. See Table for more details.
         /// </summary>
         [Output("table")]
@@ -151,6 +157,12 @@ namespace Pulumi.Aws.LakeFormation
         public Input<Inputs.ResourceLfTagLfTagArgs>? LfTag { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for a table resource. See Table for more details.
         /// </summary>
         [Input("table")]
@@ -194,6 +206,12 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         [Input("lfTag")]
         public Input<Inputs.ResourceLfTagLfTagGetArgs>? LfTag { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Configuration block for a table resource. See Table for more details.

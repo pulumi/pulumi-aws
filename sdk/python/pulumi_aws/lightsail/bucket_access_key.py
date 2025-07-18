@@ -20,12 +20,16 @@ __all__ = ['BucketAccessKeyArgs', 'BucketAccessKey']
 @pulumi.input_type
 class BucketAccessKeyArgs:
     def __init__(__self__, *,
-                 bucket_name: pulumi.Input[builtins.str]):
+                 bucket_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a BucketAccessKey resource.
         :param pulumi.Input[builtins.str] bucket_name: Name of the bucket that the access key will belong to and grant access to.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -39,6 +43,18 @@ class BucketAccessKeyArgs:
     def bucket_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "bucket_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _BucketAccessKeyState:
@@ -46,6 +62,7 @@ class _BucketAccessKeyState:
                  access_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  bucket_name: Optional[pulumi.Input[builtins.str]] = None,
                  created_at: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  secret_access_key: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -53,6 +70,7 @@ class _BucketAccessKeyState:
         :param pulumi.Input[builtins.str] access_key_id: Access key ID.
         :param pulumi.Input[builtins.str] bucket_name: Name of the bucket that the access key will belong to and grant access to.
         :param pulumi.Input[builtins.str] created_at: Date and time when the access key was created.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_access_key: Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
         :param pulumi.Input[builtins.str] status: Status of the access key.
         """
@@ -62,6 +80,8 @@ class _BucketAccessKeyState:
             pulumi.set(__self__, "bucket_name", bucket_name)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if secret_access_key is not None:
             pulumi.set(__self__, "secret_access_key", secret_access_key)
         if status is not None:
@@ -104,6 +124,18 @@ class _BucketAccessKeyState:
         pulumi.set(self, "created_at", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="secretAccessKey")
     def secret_access_key(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -135,6 +167,7 @@ class BucketAccessKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Manages a Lightsail bucket access key. Use this resource to create credentials that allow programmatic access to your Lightsail bucket via API requests.
@@ -162,6 +195,7 @@ class BucketAccessKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] bucket_name: Name of the bucket that the access key will belong to and grant access to.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -208,6 +242,7 @@ class BucketAccessKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -220,6 +255,7 @@ class BucketAccessKey(pulumi.CustomResource):
             if bucket_name is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket_name'")
             __props__.__dict__["bucket_name"] = bucket_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["access_key_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["secret_access_key"] = None
@@ -237,6 +273,7 @@ class BucketAccessKey(pulumi.CustomResource):
             access_key_id: Optional[pulumi.Input[builtins.str]] = None,
             bucket_name: Optional[pulumi.Input[builtins.str]] = None,
             created_at: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             secret_access_key: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None) -> 'BucketAccessKey':
         """
@@ -249,6 +286,7 @@ class BucketAccessKey(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] access_key_id: Access key ID.
         :param pulumi.Input[builtins.str] bucket_name: Name of the bucket that the access key will belong to and grant access to.
         :param pulumi.Input[builtins.str] created_at: Date and time when the access key was created.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] secret_access_key: Secret access key used to sign requests. This attribute is not available for imported resources. Note that this will be written to the state file.
         :param pulumi.Input[builtins.str] status: Status of the access key.
         """
@@ -259,6 +297,7 @@ class BucketAccessKey(pulumi.CustomResource):
         __props__.__dict__["access_key_id"] = access_key_id
         __props__.__dict__["bucket_name"] = bucket_name
         __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["region"] = region
         __props__.__dict__["secret_access_key"] = secret_access_key
         __props__.__dict__["status"] = status
         return BucketAccessKey(resource_name, opts=opts, __props__=__props__)
@@ -286,6 +325,14 @@ class BucketAccessKey(pulumi.CustomResource):
         Date and time when the access key was created.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="secretAccessKey")

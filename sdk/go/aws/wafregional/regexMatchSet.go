@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafregional"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,6 +73,8 @@ type RegexMatchSet struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
 	RegexMatchTuples RegexMatchSetRegexMatchTupleArrayOutput `pulumi:"regexMatchTuples"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewRegexMatchSet registers a new resource with the given unique name, arguments, and options.
@@ -109,6 +111,8 @@ type regexMatchSetState struct {
 	Name *string `pulumi:"name"`
 	// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
 	RegexMatchTuples []RegexMatchSetRegexMatchTuple `pulumi:"regexMatchTuples"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type RegexMatchSetState struct {
@@ -116,6 +120,8 @@ type RegexMatchSetState struct {
 	Name pulumi.StringPtrInput
 	// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
 	RegexMatchTuples RegexMatchSetRegexMatchTupleArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (RegexMatchSetState) ElementType() reflect.Type {
@@ -127,6 +133,8 @@ type regexMatchSetArgs struct {
 	Name *string `pulumi:"name"`
 	// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
 	RegexMatchTuples []RegexMatchSetRegexMatchTuple `pulumi:"regexMatchTuples"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a RegexMatchSet resource.
@@ -135,6 +143,8 @@ type RegexMatchSetArgs struct {
 	Name pulumi.StringPtrInput
 	// The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
 	RegexMatchTuples RegexMatchSetRegexMatchTupleArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (RegexMatchSetArgs) ElementType() reflect.Type {
@@ -232,6 +242,11 @@ func (o RegexMatchSetOutput) Name() pulumi.StringOutput {
 // The regular expression pattern that you want AWS WAF to search for in web requests, the location in requests that you want AWS WAF to search, and other settings. See below.
 func (o RegexMatchSetOutput) RegexMatchTuples() RegexMatchSetRegexMatchTupleArrayOutput {
 	return o.ApplyT(func(v *RegexMatchSet) RegexMatchSetRegexMatchTupleArrayOutput { return v.RegexMatchTuples }).(RegexMatchSetRegexMatchTupleArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o RegexMatchSetOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegexMatchSet) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type RegexMatchSetArrayOutput struct{ *pulumi.OutputState }

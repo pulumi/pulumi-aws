@@ -22,6 +22,7 @@ public final class GetInferenceProfilesResult {
      * 
      */
     private List<GetInferenceProfilesInferenceProfileSummary> inferenceProfileSummaries;
+    private String region;
 
     private GetInferenceProfilesResult() {}
     /**
@@ -38,6 +39,9 @@ public final class GetInferenceProfilesResult {
     public List<GetInferenceProfilesInferenceProfileSummary> inferenceProfileSummaries() {
         return this.inferenceProfileSummaries;
     }
+    public String region() {
+        return this.region;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -50,11 +54,13 @@ public final class GetInferenceProfilesResult {
     public static final class Builder {
         private String id;
         private List<GetInferenceProfilesInferenceProfileSummary> inferenceProfileSummaries;
+        private String region;
         public Builder() {}
         public Builder(GetInferenceProfilesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.inferenceProfileSummaries = defaults.inferenceProfileSummaries;
+    	      this.region = defaults.region;
         }
 
         @CustomType.Setter
@@ -76,10 +82,19 @@ public final class GetInferenceProfilesResult {
         public Builder inferenceProfileSummaries(GetInferenceProfilesInferenceProfileSummary... inferenceProfileSummaries) {
             return inferenceProfileSummaries(List.of(inferenceProfileSummaries));
         }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetInferenceProfilesResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
         public GetInferenceProfilesResult build() {
             final var _resultValue = new GetInferenceProfilesResult();
             _resultValue.id = id;
             _resultValue.inferenceProfileSummaries = inferenceProfileSummaries;
+            _resultValue.region = region;
             return _resultValue;
         }
     }

@@ -74,6 +74,10 @@ export class Thing extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The thing type name.
      */
     public readonly thingTypeName!: pulumi.Output<string | undefined>;
@@ -99,12 +103,14 @@ export class Thing extends pulumi.CustomResource {
             resourceInputs["attributes"] = state ? state.attributes : undefined;
             resourceInputs["defaultClientId"] = state ? state.defaultClientId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["thingTypeName"] = state ? state.thingTypeName : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ThingArgs | undefined;
             resourceInputs["attributes"] = args ? args.attributes : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["thingTypeName"] = args ? args.thingTypeName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["defaultClientId"] = undefined /*out*/;
@@ -136,6 +142,10 @@ export interface ThingState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The thing type name.
      */
     thingTypeName?: pulumi.Input<string>;
@@ -157,6 +167,10 @@ export interface ThingArgs {
      * The name of the thing.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The thing type name.
      */

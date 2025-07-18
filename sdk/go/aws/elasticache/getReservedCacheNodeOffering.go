@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -68,6 +68,8 @@ type GetReservedCacheNodeOfferingArgs struct {
 	// Engine type for the reserved cache node.
 	// Valid values are `redis`, `valkey` and `memcached`.
 	ProductDescription string `pulumi:"productDescription"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getReservedCacheNodeOffering.
@@ -82,6 +84,7 @@ type GetReservedCacheNodeOfferingResult struct {
 	OfferingId         string `pulumi:"offeringId"`
 	OfferingType       string `pulumi:"offeringType"`
 	ProductDescription string `pulumi:"productDescription"`
+	Region             string `pulumi:"region"`
 }
 
 func GetReservedCacheNodeOfferingOutput(ctx *pulumi.Context, args GetReservedCacheNodeOfferingOutputArgs, opts ...pulumi.InvokeOption) GetReservedCacheNodeOfferingResultOutput {
@@ -110,6 +113,8 @@ type GetReservedCacheNodeOfferingOutputArgs struct {
 	// Engine type for the reserved cache node.
 	// Valid values are `redis`, `valkey` and `memcached`.
 	ProductDescription pulumi.StringInput `pulumi:"productDescription"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetReservedCacheNodeOfferingOutputArgs) ElementType() reflect.Type {
@@ -160,6 +165,10 @@ func (o GetReservedCacheNodeOfferingResultOutput) OfferingType() pulumi.StringOu
 
 func (o GetReservedCacheNodeOfferingResultOutput) ProductDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReservedCacheNodeOfferingResult) string { return v.ProductDescription }).(pulumi.StringOutput)
+}
+
+func (o GetReservedCacheNodeOfferingResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReservedCacheNodeOfferingResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

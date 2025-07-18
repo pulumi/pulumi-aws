@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appsync"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appsync"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,6 +78,8 @@ type Type struct {
 	Format pulumi.StringOutput `pulumi:"format"`
 	// The type name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewType registers a new resource with the given unique name, arguments, and options.
@@ -131,6 +133,8 @@ type typeState struct {
 	Format *string `pulumi:"format"`
 	// The type name.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type TypeState struct {
@@ -146,6 +150,8 @@ type TypeState struct {
 	Format pulumi.StringPtrInput
 	// The type name.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (TypeState) ElementType() reflect.Type {
@@ -159,6 +165,8 @@ type typeArgs struct {
 	Definition string `pulumi:"definition"`
 	// The type format: `SDL` or `JSON`.
 	Format string `pulumi:"format"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a Type resource.
@@ -169,6 +177,8 @@ type TypeArgs struct {
 	Definition pulumi.StringInput
 	// The type format: `SDL` or `JSON`.
 	Format pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (TypeArgs) ElementType() reflect.Type {
@@ -286,6 +296,11 @@ func (o TypeOutput) Format() pulumi.StringOutput {
 // The type name.
 func (o TypeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Type) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o TypeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Type) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type TypeArrayOutput struct{ *pulumi.OutputState }

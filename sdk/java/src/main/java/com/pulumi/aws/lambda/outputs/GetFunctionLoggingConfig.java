@@ -10,21 +10,53 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFunctionLoggingConfig {
+    /**
+     * @return Detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+     * 
+     */
     private String applicationLogLevel;
+    /**
+     * @return Format for your function&#39;s logs. Valid values: `Text`, `JSON`.
+     * 
+     */
     private String logFormat;
+    /**
+     * @return CloudWatch log group your function sends logs to.
+     * 
+     */
     private String logGroup;
+    /**
+     * @return Detail level of the Lambda platform event logs sent to CloudWatch.
+     * 
+     */
     private String systemLogLevel;
 
     private GetFunctionLoggingConfig() {}
+    /**
+     * @return Detail level of the logs your application sends to CloudWatch when using supported logging libraries.
+     * 
+     */
     public String applicationLogLevel() {
         return this.applicationLogLevel;
     }
+    /**
+     * @return Format for your function&#39;s logs. Valid values: `Text`, `JSON`.
+     * 
+     */
     public String logFormat() {
         return this.logFormat;
     }
+    /**
+     * @return CloudWatch log group your function sends logs to.
+     * 
+     */
     public String logGroup() {
         return this.logGroup;
     }
+    /**
+     * @return Detail level of the Lambda platform event logs sent to CloudWatch.
+     * 
+     */
     public String systemLogLevel() {
         return this.systemLogLevel;
     }

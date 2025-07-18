@@ -68,7 +68,6 @@ class InstanceArgs:
                  monitoring_interval: Optional[pulumi.Input[builtins.int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  multi_az: Optional[pulumi.Input[builtins.bool]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
                  nchar_character_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  network_type: Optional[pulumi.Input[builtins.str]] = None,
                  option_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -79,6 +78,7 @@ class InstanceArgs:
                  performance_insights_retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replica_mode: Optional[pulumi.Input[builtins.str]] = None,
                  replicate_source_db: Optional[pulumi.Input[builtins.str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input['InstanceRestoreToPointInTimeArgs']] = None,
@@ -205,6 +205,7 @@ class InstanceArgs:
         :param pulumi.Input[builtins.int] port: The port on which the DB accepts connections.
         :param pulumi.Input[builtins.bool] publicly_accessible: Bool to control if instance is publicly
                accessible. Default is `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replica_mode: Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
                is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         :param pulumi.Input[builtins.str] replicate_source_db: Specifies that this resource is a Replica database, and to use this value as the source database.
@@ -335,11 +336,6 @@ class InstanceArgs:
             pulumi.set(__self__, "monitoring_role_arn", monitoring_role_arn)
         if multi_az is not None:
             pulumi.set(__self__, "multi_az", multi_az)
-        if name is not None:
-            warnings.warn("""This property has been deprecated. Please use 'dbName' instead.""", DeprecationWarning)
-            pulumi.log.warn("""name is deprecated: This property has been deprecated. Please use 'dbName' instead.""")
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if nchar_character_set_name is not None:
             pulumi.set(__self__, "nchar_character_set_name", nchar_character_set_name)
         if network_type is not None:
@@ -360,6 +356,8 @@ class InstanceArgs:
             pulumi.set(__self__, "port", port)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replica_mode is not None:
             pulumi.set(__self__, "replica_mode", replica_mode)
         if replicate_source_db is not None:
@@ -983,16 +981,6 @@ class InstanceArgs:
         pulumi.set(self, "multi_az", value)
 
     @property
-    @pulumi.getter
-    @_utilities.deprecated("""This property has been deprecated. Please use 'dbName' instead.""")
-    def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="ncharCharacterSetName")
     def nchar_character_set_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -1113,6 +1101,18 @@ class InstanceArgs:
     @publicly_accessible.setter
     def publicly_accessible(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "publicly_accessible", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="replicaMode")
@@ -1365,7 +1365,6 @@ class _InstanceState:
                  monitoring_interval: Optional[pulumi.Input[builtins.int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  multi_az: Optional[pulumi.Input[builtins.bool]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
                  nchar_character_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  network_type: Optional[pulumi.Input[builtins.str]] = None,
                  option_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1376,6 +1375,7 @@ class _InstanceState:
                  performance_insights_retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replica_mode: Optional[pulumi.Input[builtins.str]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  replicate_source_db: Optional[pulumi.Input[builtins.str]] = None,
@@ -1514,6 +1514,7 @@ class _InstanceState:
         :param pulumi.Input[builtins.int] port: The port on which the DB accepts connections.
         :param pulumi.Input[builtins.bool] publicly_accessible: Bool to control if instance is publicly
                accessible. Default is `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replica_mode: Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
                is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         :param pulumi.Input[builtins.str] replicate_source_db: Specifies that this resource is a Replica database, and to use this value as the source database.
@@ -1664,11 +1665,6 @@ class _InstanceState:
             pulumi.set(__self__, "monitoring_role_arn", monitoring_role_arn)
         if multi_az is not None:
             pulumi.set(__self__, "multi_az", multi_az)
-        if name is not None:
-            warnings.warn("""This property has been deprecated. Please use 'dbName' instead.""", DeprecationWarning)
-            pulumi.log.warn("""name is deprecated: This property has been deprecated. Please use 'dbName' instead.""")
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if nchar_character_set_name is not None:
             pulumi.set(__self__, "nchar_character_set_name", nchar_character_set_name)
         if network_type is not None:
@@ -1689,6 +1685,8 @@ class _InstanceState:
             pulumi.set(__self__, "port", port)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replica_mode is not None:
             pulumi.set(__self__, "replica_mode", replica_mode)
         if replicas is not None:
@@ -1715,9 +1713,6 @@ class _InstanceState:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timezone is not None:
@@ -2419,16 +2414,6 @@ class _InstanceState:
         pulumi.set(self, "multi_az", value)
 
     @property
-    @pulumi.getter
-    @_utilities.deprecated("""This property has been deprecated. Please use 'dbName' instead.""")
-    def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="ncharCharacterSetName")
     def nchar_character_set_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -2549,6 +2534,18 @@ class _InstanceState:
     @publicly_accessible.setter
     def publicly_accessible(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "publicly_accessible", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="replicaMode")
@@ -2724,7 +2721,6 @@ class _InstanceState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -2842,7 +2838,6 @@ class Instance(pulumi.CustomResource):
                  monitoring_interval: Optional[pulumi.Input[builtins.int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  multi_az: Optional[pulumi.Input[builtins.bool]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
                  nchar_character_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  network_type: Optional[pulumi.Input[builtins.str]] = None,
                  option_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -2853,6 +2848,7 @@ class Instance(pulumi.CustomResource):
                  performance_insights_retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replica_mode: Optional[pulumi.Input[builtins.str]] = None,
                  replicate_source_db: Optional[pulumi.Input[builtins.str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input[Union['InstanceRestoreToPointInTimeArgs', 'InstanceRestoreToPointInTimeArgsDict']]] = None,
@@ -3233,6 +3229,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] port: The port on which the DB accepts connections.
         :param pulumi.Input[builtins.bool] publicly_accessible: Bool to control if instance is publicly
                accessible. Default is `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replica_mode: Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
                is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         :param pulumi.Input[builtins.str] replicate_source_db: Specifies that this resource is a Replica database, and to use this value as the source database.
@@ -3593,7 +3590,6 @@ class Instance(pulumi.CustomResource):
                  monitoring_interval: Optional[pulumi.Input[builtins.int]] = None,
                  monitoring_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  multi_az: Optional[pulumi.Input[builtins.bool]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
                  nchar_character_set_name: Optional[pulumi.Input[builtins.str]] = None,
                  network_type: Optional[pulumi.Input[builtins.str]] = None,
                  option_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -3604,6 +3600,7 @@ class Instance(pulumi.CustomResource):
                  performance_insights_retention_period: Optional[pulumi.Input[builtins.int]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replica_mode: Optional[pulumi.Input[builtins.str]] = None,
                  replicate_source_db: Optional[pulumi.Input[builtins.str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input[Union['InstanceRestoreToPointInTimeArgs', 'InstanceRestoreToPointInTimeArgsDict']]] = None,
@@ -3674,7 +3671,6 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["monitoring_interval"] = monitoring_interval
             __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
             __props__.__dict__["multi_az"] = multi_az
-            __props__.__dict__["name"] = name
             __props__.__dict__["nchar_character_set_name"] = nchar_character_set_name
             __props__.__dict__["network_type"] = network_type
             __props__.__dict__["option_group_name"] = option_group_name
@@ -3685,6 +3681,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["performance_insights_retention_period"] = performance_insights_retention_period
             __props__.__dict__["port"] = port
             __props__.__dict__["publicly_accessible"] = publicly_accessible
+            __props__.__dict__["region"] = region
             __props__.__dict__["replica_mode"] = replica_mode
             __props__.__dict__["replicate_source_db"] = replicate_source_db
             __props__.__dict__["restore_to_point_in_time"] = restore_to_point_in_time
@@ -3776,7 +3773,6 @@ class Instance(pulumi.CustomResource):
             monitoring_interval: Optional[pulumi.Input[builtins.int]] = None,
             monitoring_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             multi_az: Optional[pulumi.Input[builtins.bool]] = None,
-            name: Optional[pulumi.Input[builtins.str]] = None,
             nchar_character_set_name: Optional[pulumi.Input[builtins.str]] = None,
             network_type: Optional[pulumi.Input[builtins.str]] = None,
             option_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -3787,6 +3783,7 @@ class Instance(pulumi.CustomResource):
             performance_insights_retention_period: Optional[pulumi.Input[builtins.int]] = None,
             port: Optional[pulumi.Input[builtins.int]] = None,
             publicly_accessible: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replica_mode: Optional[pulumi.Input[builtins.str]] = None,
             replicas: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             replicate_source_db: Optional[pulumi.Input[builtins.str]] = None,
@@ -3930,6 +3927,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] port: The port on which the DB accepts connections.
         :param pulumi.Input[builtins.bool] publicly_accessible: Bool to control if instance is publicly
                accessible. Default is `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replica_mode: Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
                is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         :param pulumi.Input[builtins.str] replicate_source_db: Specifies that this resource is a Replica database, and to use this value as the source database.
@@ -4031,7 +4029,6 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["monitoring_interval"] = monitoring_interval
         __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
         __props__.__dict__["multi_az"] = multi_az
-        __props__.__dict__["name"] = name
         __props__.__dict__["nchar_character_set_name"] = nchar_character_set_name
         __props__.__dict__["network_type"] = network_type
         __props__.__dict__["option_group_name"] = option_group_name
@@ -4042,6 +4039,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["performance_insights_retention_period"] = performance_insights_retention_period
         __props__.__dict__["port"] = port
         __props__.__dict__["publicly_accessible"] = publicly_accessible
+        __props__.__dict__["region"] = region
         __props__.__dict__["replica_mode"] = replica_mode
         __props__.__dict__["replicas"] = replicas
         __props__.__dict__["replicate_source_db"] = replicate_source_db
@@ -4540,12 +4538,6 @@ class Instance(pulumi.CustomResource):
         return pulumi.get(self, "multi_az")
 
     @property
-    @pulumi.getter
-    @_utilities.deprecated("""This property has been deprecated. Please use 'dbName' instead.""")
-    def name(self) -> pulumi.Output[Optional[builtins.str]]:
-        return pulumi.get(self, "name")
-
-    @property
     @pulumi.getter(name="ncharCharacterSetName")
     def nchar_character_set_name(self) -> pulumi.Output[builtins.str]:
         """
@@ -4626,6 +4618,14 @@ class Instance(pulumi.CustomResource):
         accessible. Default is `false`.
         """
         return pulumi.get(self, "publicly_accessible")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="replicaMode")
@@ -4749,7 +4749,6 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

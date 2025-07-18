@@ -28,7 +28,7 @@ class GetConfigurationSetResult:
     """
     A collection of values returned by getConfigurationSet.
     """
-    def __init__(__self__, arn=None, configuration_set_name=None, delivery_options=None, id=None, reputation_options=None, sending_options=None, suppression_options=None, tags=None, tracking_options=None, vdm_options=None):
+    def __init__(__self__, arn=None, configuration_set_name=None, delivery_options=None, id=None, region=None, reputation_options=None, sending_options=None, suppression_options=None, tags=None, tracking_options=None, vdm_options=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -41,6 +41,9 @@ class GetConfigurationSetResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if reputation_options and not isinstance(reputation_options, list):
             raise TypeError("Expected argument 'reputation_options' to be a list")
         pulumi.set(__self__, "reputation_options", reputation_options)
@@ -85,6 +88,11 @@ class GetConfigurationSetResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="reputationOptions")
@@ -145,6 +153,7 @@ class AwaitableGetConfigurationSetResult(GetConfigurationSetResult):
             configuration_set_name=self.configuration_set_name,
             delivery_options=self.delivery_options,
             id=self.id,
+            region=self.region,
             reputation_options=self.reputation_options,
             sending_options=self.sending_options,
             suppression_options=self.suppression_options,
@@ -154,6 +163,7 @@ class AwaitableGetConfigurationSetResult(GetConfigurationSetResult):
 
 
 def get_configuration_set(configuration_set_name: Optional[builtins.str] = None,
+                          region: Optional[builtins.str] = None,
                           tags: Optional[Mapping[str, builtins.str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationSetResult:
     """
@@ -172,10 +182,12 @@ def get_configuration_set(configuration_set_name: Optional[builtins.str] = None,
 
 
     :param builtins.str configuration_set_name: The name of the configuration set.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the container recipe.
     """
     __args__ = dict()
     __args__['configurationSetName'] = configuration_set_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:sesv2/getConfigurationSet:getConfigurationSet', __args__, opts=opts, typ=GetConfigurationSetResult).value
@@ -185,6 +197,7 @@ def get_configuration_set(configuration_set_name: Optional[builtins.str] = None,
         configuration_set_name=pulumi.get(__ret__, 'configuration_set_name'),
         delivery_options=pulumi.get(__ret__, 'delivery_options'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         reputation_options=pulumi.get(__ret__, 'reputation_options'),
         sending_options=pulumi.get(__ret__, 'sending_options'),
         suppression_options=pulumi.get(__ret__, 'suppression_options'),
@@ -192,6 +205,7 @@ def get_configuration_set(configuration_set_name: Optional[builtins.str] = None,
         tracking_options=pulumi.get(__ret__, 'tracking_options'),
         vdm_options=pulumi.get(__ret__, 'vdm_options'))
 def get_configuration_set_output(configuration_set_name: Optional[pulumi.Input[builtins.str]] = None,
+                                 region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationSetResult]:
     """
@@ -210,10 +224,12 @@ def get_configuration_set_output(configuration_set_name: Optional[pulumi.Input[b
 
 
     :param builtins.str configuration_set_name: The name of the configuration set.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the container recipe.
     """
     __args__ = dict()
     __args__['configurationSetName'] = configuration_set_name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:sesv2/getConfigurationSet:getConfigurationSet', __args__, opts=opts, typ=GetConfigurationSetResult)
@@ -222,6 +238,7 @@ def get_configuration_set_output(configuration_set_name: Optional[pulumi.Input[b
         configuration_set_name=pulumi.get(__response__, 'configuration_set_name'),
         delivery_options=pulumi.get(__response__, 'delivery_options'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         reputation_options=pulumi.get(__response__, 'reputation_options'),
         sending_options=pulumi.get(__response__, 'sending_options'),
         suppression_options=pulumi.get(__response__, 'suppression_options'),

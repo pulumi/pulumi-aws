@@ -77,6 +77,10 @@ export class BucketPolicy extends pulumi.CustomResource {
      * JSON string of the resource policy.
      */
     public readonly policy!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a BucketPolicy resource with the given unique name, arguments, and options.
@@ -93,6 +97,7 @@ export class BucketPolicy extends pulumi.CustomResource {
             const state = argsOrState as BucketPolicyState | undefined;
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as BucketPolicyArgs | undefined;
             if ((!args || args.bucket === undefined) && !opts.urn) {
@@ -103,6 +108,7 @@ export class BucketPolicy extends pulumi.CustomResource {
             }
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BucketPolicy.__pulumiType, name, resourceInputs, opts);
@@ -121,6 +127,10 @@ export interface BucketPolicyState {
      * JSON string of the resource policy.
      */
     policy?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -135,4 +145,8 @@ export interface BucketPolicyArgs {
      * JSON string of the resource policy.
      */
     policy: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -25,6 +25,7 @@ class WorkforceArgs:
                  workforce_name: pulumi.Input[builtins.str],
                  cognito_config: Optional[pulumi.Input['WorkforceCognitoConfigArgs']] = None,
                  oidc_config: Optional[pulumi.Input['WorkforceOidcConfigArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_ip_config: Optional[pulumi.Input['WorkforceSourceIpConfigArgs']] = None,
                  workforce_vpc_config: Optional[pulumi.Input['WorkforceWorkforceVpcConfigArgs']] = None):
         """
@@ -32,6 +33,7 @@ class WorkforceArgs:
         :param pulumi.Input[builtins.str] workforce_name: The name of the Workforce (must be unique).
         :param pulumi.Input['WorkforceCognitoConfigArgs'] cognito_config: Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
         :param pulumi.Input['WorkforceOidcConfigArgs'] oidc_config: Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['WorkforceSourceIpConfigArgs'] source_ip_config: A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
         :param pulumi.Input['WorkforceWorkforceVpcConfigArgs'] workforce_vpc_config: configure a workforce using VPC. see Workforce VPC Config details below.
         """
@@ -40,6 +42,8 @@ class WorkforceArgs:
             pulumi.set(__self__, "cognito_config", cognito_config)
         if oidc_config is not None:
             pulumi.set(__self__, "oidc_config", oidc_config)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source_ip_config is not None:
             pulumi.set(__self__, "source_ip_config", source_ip_config)
         if workforce_vpc_config is not None:
@@ -82,6 +86,18 @@ class WorkforceArgs:
         pulumi.set(self, "oidc_config", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sourceIpConfig")
     def source_ip_config(self) -> Optional[pulumi.Input['WorkforceSourceIpConfigArgs']]:
         """
@@ -112,6 +128,7 @@ class _WorkforceState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  cognito_config: Optional[pulumi.Input['WorkforceCognitoConfigArgs']] = None,
                  oidc_config: Optional[pulumi.Input['WorkforceOidcConfigArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_ip_config: Optional[pulumi.Input['WorkforceSourceIpConfigArgs']] = None,
                  subdomain: Optional[pulumi.Input[builtins.str]] = None,
                  workforce_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -121,6 +138,7 @@ class _WorkforceState:
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
         :param pulumi.Input['WorkforceCognitoConfigArgs'] cognito_config: Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
         :param pulumi.Input['WorkforceOidcConfigArgs'] oidc_config: Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['WorkforceSourceIpConfigArgs'] source_ip_config: A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
         :param pulumi.Input[builtins.str] subdomain: The subdomain for your OIDC Identity Provider.
         :param pulumi.Input[builtins.str] workforce_name: The name of the Workforce (must be unique).
@@ -132,6 +150,8 @@ class _WorkforceState:
             pulumi.set(__self__, "cognito_config", cognito_config)
         if oidc_config is not None:
             pulumi.set(__self__, "oidc_config", oidc_config)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source_ip_config is not None:
             pulumi.set(__self__, "source_ip_config", source_ip_config)
         if subdomain is not None:
@@ -176,6 +196,18 @@ class _WorkforceState:
     @oidc_config.setter
     def oidc_config(self, value: Optional[pulumi.Input['WorkforceOidcConfigArgs']]):
         pulumi.set(self, "oidc_config", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="sourceIpConfig")
@@ -234,6 +266,7 @@ class Workforce(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cognito_config: Optional[pulumi.Input[Union['WorkforceCognitoConfigArgs', 'WorkforceCognitoConfigArgsDict']]] = None,
                  oidc_config: Optional[pulumi.Input[Union['WorkforceOidcConfigArgs', 'WorkforceOidcConfigArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_ip_config: Optional[pulumi.Input[Union['WorkforceSourceIpConfigArgs', 'WorkforceSourceIpConfigArgsDict']]] = None,
                  workforce_name: Optional[pulumi.Input[builtins.str]] = None,
                  workforce_vpc_config: Optional[pulumi.Input[Union['WorkforceWorkforceVpcConfigArgs', 'WorkforceWorkforceVpcConfigArgsDict']]] = None,
@@ -297,6 +330,7 @@ class Workforce(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['WorkforceCognitoConfigArgs', 'WorkforceCognitoConfigArgsDict']] cognito_config: Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
         :param pulumi.Input[Union['WorkforceOidcConfigArgs', 'WorkforceOidcConfigArgsDict']] oidc_config: Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['WorkforceSourceIpConfigArgs', 'WorkforceSourceIpConfigArgsDict']] source_ip_config: A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
         :param pulumi.Input[builtins.str] workforce_name: The name of the Workforce (must be unique).
         :param pulumi.Input[Union['WorkforceWorkforceVpcConfigArgs', 'WorkforceWorkforceVpcConfigArgsDict']] workforce_vpc_config: configure a workforce using VPC. see Workforce VPC Config details below.
@@ -379,6 +413,7 @@ class Workforce(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cognito_config: Optional[pulumi.Input[Union['WorkforceCognitoConfigArgs', 'WorkforceCognitoConfigArgsDict']]] = None,
                  oidc_config: Optional[pulumi.Input[Union['WorkforceOidcConfigArgs', 'WorkforceOidcConfigArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_ip_config: Optional[pulumi.Input[Union['WorkforceSourceIpConfigArgs', 'WorkforceSourceIpConfigArgsDict']]] = None,
                  workforce_name: Optional[pulumi.Input[builtins.str]] = None,
                  workforce_vpc_config: Optional[pulumi.Input[Union['WorkforceWorkforceVpcConfigArgs', 'WorkforceWorkforceVpcConfigArgsDict']]] = None,
@@ -393,6 +428,7 @@ class Workforce(pulumi.CustomResource):
 
             __props__.__dict__["cognito_config"] = cognito_config
             __props__.__dict__["oidc_config"] = oidc_config
+            __props__.__dict__["region"] = region
             __props__.__dict__["source_ip_config"] = source_ip_config
             if workforce_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workforce_name'")
@@ -413,6 +449,7 @@ class Workforce(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             cognito_config: Optional[pulumi.Input[Union['WorkforceCognitoConfigArgs', 'WorkforceCognitoConfigArgsDict']]] = None,
             oidc_config: Optional[pulumi.Input[Union['WorkforceOidcConfigArgs', 'WorkforceOidcConfigArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             source_ip_config: Optional[pulumi.Input[Union['WorkforceSourceIpConfigArgs', 'WorkforceSourceIpConfigArgsDict']]] = None,
             subdomain: Optional[pulumi.Input[builtins.str]] = None,
             workforce_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -427,6 +464,7 @@ class Workforce(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Workforce.
         :param pulumi.Input[Union['WorkforceCognitoConfigArgs', 'WorkforceCognitoConfigArgsDict']] cognito_config: Use this parameter to configure an Amazon Cognito private workforce. A single Cognito workforce is created using and corresponds to a single Amazon Cognito user pool. Conflicts with `oidc_config`. see Cognito Config details below.
         :param pulumi.Input[Union['WorkforceOidcConfigArgs', 'WorkforceOidcConfigArgsDict']] oidc_config: Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['WorkforceSourceIpConfigArgs', 'WorkforceSourceIpConfigArgsDict']] source_ip_config: A list of IP address ranges Used to create an allow list of IP addresses for a private workforce. By default, a workforce isn't restricted to specific IP addresses. see Source Ip Config details below.
         :param pulumi.Input[builtins.str] subdomain: The subdomain for your OIDC Identity Provider.
         :param pulumi.Input[builtins.str] workforce_name: The name of the Workforce (must be unique).
@@ -439,6 +477,7 @@ class Workforce(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["cognito_config"] = cognito_config
         __props__.__dict__["oidc_config"] = oidc_config
+        __props__.__dict__["region"] = region
         __props__.__dict__["source_ip_config"] = source_ip_config
         __props__.__dict__["subdomain"] = subdomain
         __props__.__dict__["workforce_name"] = workforce_name
@@ -468,6 +507,14 @@ class Workforce(pulumi.CustomResource):
         Use this parameter to configure a private workforce using your own OIDC Identity Provider. Conflicts with `cognito_config`. see OIDC Config details below.
         """
         return pulumi.get(self, "oidc_config")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sourceIpConfig")

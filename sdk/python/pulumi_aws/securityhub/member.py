@@ -22,18 +22,22 @@ class MemberArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[builtins.str],
                  email: Optional[pulumi.Input[builtins.str]] = None,
-                 invite: Optional[pulumi.Input[builtins.bool]] = None):
+                 invite: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Member resource.
         :param pulumi.Input[builtins.str] account_id: The ID of the member AWS account.
         :param pulumi.Input[builtins.str] email: The email of the member AWS account.
         :param pulumi.Input[builtins.bool] invite: Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "account_id", account_id)
         if email is not None:
             pulumi.set(__self__, "email", email)
         if invite is not None:
             pulumi.set(__self__, "invite", invite)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="accountId")
@@ -71,6 +75,18 @@ class MemberArgs:
     def invite(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "invite", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _MemberState:
@@ -79,7 +95,8 @@ class _MemberState:
                  email: Optional[pulumi.Input[builtins.str]] = None,
                  invite: Optional[pulumi.Input[builtins.bool]] = None,
                  master_id: Optional[pulumi.Input[builtins.str]] = None,
-                 member_status: Optional[pulumi.Input[builtins.str]] = None):
+                 member_status: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Member resources.
         :param pulumi.Input[builtins.str] account_id: The ID of the member AWS account.
@@ -87,6 +104,7 @@ class _MemberState:
         :param pulumi.Input[builtins.bool] invite: Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
         :param pulumi.Input[builtins.str] master_id: The ID of the master Security Hub AWS account.
         :param pulumi.Input[builtins.str] member_status: The status of the member account relationship.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -98,6 +116,8 @@ class _MemberState:
             pulumi.set(__self__, "master_id", master_id)
         if member_status is not None:
             pulumi.set(__self__, "member_status", member_status)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="accountId")
@@ -159,6 +179,18 @@ class _MemberState:
     def member_status(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "member_status", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:securityhub/member:Member")
 class Member(pulumi.CustomResource):
@@ -169,6 +201,7 @@ class Member(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
                  email: Optional[pulumi.Input[builtins.str]] = None,
                  invite: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a Security Hub member resource.
@@ -200,6 +233,7 @@ class Member(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] account_id: The ID of the member AWS account.
         :param pulumi.Input[builtins.str] email: The email of the member AWS account.
         :param pulumi.Input[builtins.bool] invite: Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -250,6 +284,7 @@ class Member(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
                  email: Optional[pulumi.Input[builtins.str]] = None,
                  invite: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -264,6 +299,7 @@ class Member(pulumi.CustomResource):
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["email"] = email
             __props__.__dict__["invite"] = invite
+            __props__.__dict__["region"] = region
             __props__.__dict__["master_id"] = None
             __props__.__dict__["member_status"] = None
         super(Member, __self__).__init__(
@@ -280,7 +316,8 @@ class Member(pulumi.CustomResource):
             email: Optional[pulumi.Input[builtins.str]] = None,
             invite: Optional[pulumi.Input[builtins.bool]] = None,
             master_id: Optional[pulumi.Input[builtins.str]] = None,
-            member_status: Optional[pulumi.Input[builtins.str]] = None) -> 'Member':
+            member_status: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'Member':
         """
         Get an existing Member resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -293,6 +330,7 @@ class Member(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] invite: Boolean whether to invite the account to Security Hub as a member. Defaults to `false`.
         :param pulumi.Input[builtins.str] master_id: The ID of the master Security Hub AWS account.
         :param pulumi.Input[builtins.str] member_status: The status of the member account relationship.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -303,6 +341,7 @@ class Member(pulumi.CustomResource):
         __props__.__dict__["invite"] = invite
         __props__.__dict__["master_id"] = master_id
         __props__.__dict__["member_status"] = member_status
+        __props__.__dict__["region"] = region
         return Member(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -344,4 +383,12 @@ class Member(pulumi.CustomResource):
         The status of the member account relationship.
         """
         return pulumi.get(self, "member_status")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

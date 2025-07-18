@@ -33,9 +33,17 @@ public final class MultiRegionAccessPointDetailsArgs extends com.pulumi.resource
         return Optional.ofNullable(this.publicAccessBlock);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     @Import(name="regions", required=true)
     private Output<List<MultiRegionAccessPointDetailsRegionArgs>> regions;
 
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
     public Output<List<MultiRegionAccessPointDetailsRegionArgs>> regions() {
         return this.regions;
     }
@@ -84,15 +92,33 @@ public final class MultiRegionAccessPointDetailsArgs extends com.pulumi.resource
             return publicAccessBlock(Output.of(publicAccessBlock));
         }
 
+        /**
+         * @param regions Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder regions(Output<List<MultiRegionAccessPointDetailsRegionArgs>> regions) {
             $.regions = regions;
             return this;
         }
 
+        /**
+         * @param regions Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder regions(List<MultiRegionAccessPointDetailsRegionArgs> regions) {
             return regions(Output.of(regions));
         }
 
+        /**
+         * @param regions Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder regions(MultiRegionAccessPointDetailsRegionArgs... regions) {
             return regions(List.of(regions));
         }

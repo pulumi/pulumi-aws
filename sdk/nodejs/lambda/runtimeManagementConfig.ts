@@ -5,12 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS Lambda Runtime Management Config.
+ * Manages an AWS Lambda Runtime Management Config. Use this resource to control how Lambda updates the runtime for your function.
  *
  * Refer to the [AWS Lambda documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html) for supported runtimes.
  *
- * > Deletion of this resource returns the runtime update mode to `Auto` (the default behavior).
- * To leave the configured runtime management options in-place, use a `removed` block with the destroy lifecycle set to `false`.
+ * > **Note:** Deletion of this resource returns the runtime update mode to `Auto` (the default behavior). To leave the configured runtime management options in-place, use a `removed` block with the destroy lifecycle set to `false`.
  *
  * ## Example Usage
  *
@@ -21,32 +20,32 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.RuntimeManagementConfig("example", {
- *     functionName: test.functionName,
+ *     functionName: exampleAwsLambdaFunction.functionName,
  *     updateRuntimeOn: "FunctionUpdate",
  * });
  * ```
  *
- * ### `Manual` Update
+ * ### Manual Update
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.RuntimeManagementConfig("example", {
- *     functionName: test.functionName,
+ *     functionName: exampleAwsLambdaFunction.functionName,
  *     updateRuntimeOn: "Manual",
  *     runtimeVersionArn: "arn:aws:lambda:us-east-1::runtime:abcd1234",
  * });
  * ```
  *
- * > Once the runtime update mode is set to `Manual`, the `aws.lambda.Function` `runtime` cannot be updated. To upgrade a runtime, the `updateRuntimeOn` argument must be set to `Auto` or `FunctionUpdate` prior to changing the function's `runtime` argument.
+ * > **Note:** Once the runtime update mode is set to `Manual`, the `aws.lambda.Function` `runtime` cannot be updated. To upgrade a runtime, the `updateRuntimeOn` argument must be set to `Auto` or `FunctionUpdate` prior to changing the function's `runtime` argument.
  *
  * ## Import
  *
  * Using `pulumi import`, import Lambda Runtime Management Config using a comma-delimited string combining `function_name` and `qualifier`. For example:
  *
  * ```sh
- * $ pulumi import aws:lambda/runtimeManagementConfig:RuntimeManagementConfig example my-function,$LATEST
+ * $ pulumi import aws:lambda/runtimeManagementConfig:RuntimeManagementConfig example example,$LATEST
  * ```
  */
 export class RuntimeManagementConfig extends pulumi.CustomResource {
@@ -92,6 +91,10 @@ export class RuntimeManagementConfig extends pulumi.CustomResource {
      */
     public readonly qualifier!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
      */
     public readonly runtimeVersionArn!: pulumi.Output<string | undefined>;
@@ -116,6 +119,7 @@ export class RuntimeManagementConfig extends pulumi.CustomResource {
             resourceInputs["functionArn"] = state ? state.functionArn : undefined;
             resourceInputs["functionName"] = state ? state.functionName : undefined;
             resourceInputs["qualifier"] = state ? state.qualifier : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["runtimeVersionArn"] = state ? state.runtimeVersionArn : undefined;
             resourceInputs["updateRuntimeOn"] = state ? state.updateRuntimeOn : undefined;
         } else {
@@ -125,6 +129,7 @@ export class RuntimeManagementConfig extends pulumi.CustomResource {
             }
             resourceInputs["functionName"] = args ? args.functionName : undefined;
             resourceInputs["qualifier"] = args ? args.qualifier : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["runtimeVersionArn"] = args ? args.runtimeVersionArn : undefined;
             resourceInputs["updateRuntimeOn"] = args ? args.updateRuntimeOn : undefined;
             resourceInputs["functionArn"] = undefined /*out*/;
@@ -153,6 +158,10 @@ export interface RuntimeManagementConfigState {
      */
     qualifier?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
      */
     runtimeVersionArn?: pulumi.Input<string>;
@@ -176,6 +185,10 @@ export interface RuntimeManagementConfigArgs {
      * Version of the function. This can be `$LATEST` or a published version number. If omitted, this resource will manage the runtime configuration for `$LATEST`.
      */
     qualifier?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ARN of the runtime version. Only required when `updateRuntimeOn` is `Manual`.
      */

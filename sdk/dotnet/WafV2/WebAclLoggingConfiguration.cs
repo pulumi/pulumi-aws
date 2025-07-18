@@ -144,6 +144,12 @@ namespace Pulumi.Aws.WafV2
         public Output<ImmutableArray<Outputs.WebAclLoggingConfigurationRedactedField>> RedactedFields { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
         /// </summary>
         [Output("resourceArn")]
@@ -226,6 +232,12 @@ namespace Pulumi.Aws.WafV2
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.
         /// </summary>
         [Input("resourceArn", required: true)]
@@ -268,6 +280,12 @@ namespace Pulumi.Aws.WafV2
             get => _redactedFields ?? (_redactedFields = new InputList<Inputs.WebAclLoggingConfigurationRedactedFieldGetArgs>());
             set => _redactedFields = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the web ACL that you want to associate with `log_destination_configs`.

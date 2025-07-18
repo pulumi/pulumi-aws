@@ -182,6 +182,10 @@ export class ServerlessCache extends pulumi.CustomResource {
      */
     public /*out*/ readonly readerEndpoints!: pulumi.Output<outputs.elasticache.ServerlessCacheReaderEndpoint[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
      */
     public readonly securityGroupIds!: pulumi.Output<string[]>;
@@ -205,9 +209,6 @@ export class ServerlessCache extends pulumi.CustomResource {
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly timeouts!: pulumi.Output<outputs.elasticache.ServerlessCacheTimeouts | undefined>;
     /**
@@ -240,6 +241,7 @@ export class ServerlessCache extends pulumi.CustomResource {
             resourceInputs["majorEngineVersion"] = state ? state.majorEngineVersion : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["readerEndpoints"] = state ? state.readerEndpoints : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["snapshotArnsToRestores"] = state ? state.snapshotArnsToRestores : undefined;
             resourceInputs["snapshotRetentionLimit"] = state ? state.snapshotRetentionLimit : undefined;
@@ -261,6 +263,7 @@ export class ServerlessCache extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["majorEngineVersion"] = args ? args.majorEngineVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["snapshotArnsToRestores"] = args ? args.snapshotArnsToRestores : undefined;
             resourceInputs["snapshotRetentionLimit"] = args ? args.snapshotRetentionLimit : undefined;
@@ -337,6 +340,10 @@ export interface ServerlessCacheState {
      */
     readerEndpoints?: pulumi.Input<pulumi.Input<inputs.elasticache.ServerlessCacheReaderEndpoint>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -360,9 +367,6 @@ export interface ServerlessCacheState {
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.elasticache.ServerlessCacheTimeouts>;
     /**
@@ -406,6 +410,10 @@ export interface ServerlessCacheArgs {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
      */

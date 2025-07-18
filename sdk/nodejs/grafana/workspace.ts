@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * The optional argument `configuration` is a JSON string that enables the unified `Grafana Alerting` (Grafana version 10 or newer) and `Plugins Management` (Grafana version 9 or newer) on the Grafana Workspaces.
+ * The optional argument `configuration` is a JSON string that disables the unified `Grafana Alerting` (Grafana version 10 or newer) and enables `Plugin Management` (Grafana version 9 or newer) on the Grafana Workspaces.
  *
  * For more information about using Grafana alerting, and the effects of turning it on or off, see [Alerts in Grafana version 10](https://docs.aws.amazon.com/grafana/latest/userguide/v10-alerts.html).
  *
@@ -119,7 +119,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly configuration!: pulumi.Output<string>;
     /**
-     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
+     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
      */
     public readonly dataSources!: pulumi.Output<string[] | undefined>;
     /**
@@ -161,6 +161,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly permissionType!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The IAM role ARN that the workspace assumes.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
@@ -175,8 +179,6 @@ export class Workspace extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -211,6 +213,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["organizationRoleName"] = state ? state.organizationRoleName : undefined;
             resourceInputs["organizationalUnits"] = state ? state.organizationalUnits : undefined;
             resourceInputs["permissionType"] = state ? state.permissionType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["samlConfigurationStatus"] = state ? state.samlConfigurationStatus : undefined;
             resourceInputs["stackSetName"] = state ? state.stackSetName : undefined;
@@ -240,6 +243,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["organizationRoleName"] = args ? args.organizationRoleName : undefined;
             resourceInputs["organizationalUnits"] = args ? args.organizationalUnits : undefined;
             resourceInputs["permissionType"] = args ? args.permissionType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stackSetName"] = args ? args.stackSetName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -275,7 +279,7 @@ export interface WorkspaceState {
      */
     configuration?: pulumi.Input<string>;
     /**
-     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
+     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
      */
     dataSources?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -317,6 +321,10 @@ export interface WorkspaceState {
      */
     permissionType?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The IAM role ARN that the workspace assumes.
      */
     roleArn?: pulumi.Input<string>;
@@ -331,8 +339,6 @@ export interface WorkspaceState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -358,7 +364,7 @@ export interface WorkspaceArgs {
      */
     configuration?: pulumi.Input<string>;
     /**
-     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
+     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
      */
     dataSources?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -395,6 +401,10 @@ export interface WorkspaceArgs {
      * The following arguments are optional:
      */
     permissionType: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The IAM role ARN that the workspace assumes.
      */

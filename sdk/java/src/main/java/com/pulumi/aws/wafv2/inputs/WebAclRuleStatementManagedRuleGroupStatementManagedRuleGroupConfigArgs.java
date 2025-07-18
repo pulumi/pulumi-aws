@@ -4,6 +4,7 @@
 package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs;
@@ -33,6 +34,21 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
      */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs>> awsManagedRulesAcfpRuleSet() {
         return Optional.ofNullable(this.awsManagedRulesAcfpRuleSet);
+    }
+
+    /**
+     * Configuration for using the anti-DDoS managed rule group. See `aws_managed_rules_anti_ddos_rule_set` for more details.
+     * 
+     */
+    @Import(name="awsManagedRulesAntiDdosRuleSet")
+    private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgs> awsManagedRulesAntiDdosRuleSet;
+
+    /**
+     * @return Configuration for using the anti-DDoS managed rule group. See `aws_managed_rules_anti_ddos_rule_set` for more details.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgs>> awsManagedRulesAntiDdosRuleSet() {
+        return Optional.ofNullable(this.awsManagedRulesAntiDdosRuleSet);
     }
 
     /**
@@ -129,6 +145,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
 
     private WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs $) {
         this.awsManagedRulesAcfpRuleSet = $.awsManagedRulesAcfpRuleSet;
+        this.awsManagedRulesAntiDdosRuleSet = $.awsManagedRulesAntiDdosRuleSet;
         this.awsManagedRulesAtpRuleSet = $.awsManagedRulesAtpRuleSet;
         this.awsManagedRulesBotControlRuleSet = $.awsManagedRulesBotControlRuleSet;
         this.loginPath = $.loginPath;
@@ -174,6 +191,27 @@ public final class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupC
          */
         public Builder awsManagedRulesAcfpRuleSet(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs awsManagedRulesAcfpRuleSet) {
             return awsManagedRulesAcfpRuleSet(Output.of(awsManagedRulesAcfpRuleSet));
+        }
+
+        /**
+         * @param awsManagedRulesAntiDdosRuleSet Configuration for using the anti-DDoS managed rule group. See `aws_managed_rules_anti_ddos_rule_set` for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsManagedRulesAntiDdosRuleSet(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgs> awsManagedRulesAntiDdosRuleSet) {
+            $.awsManagedRulesAntiDdosRuleSet = awsManagedRulesAntiDdosRuleSet;
+            return this;
+        }
+
+        /**
+         * @param awsManagedRulesAntiDdosRuleSet Configuration for using the anti-DDoS managed rule group. See `aws_managed_rules_anti_ddos_rule_set` for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsManagedRulesAntiDdosRuleSet(WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAntiDdosRuleSetArgs awsManagedRulesAntiDdosRuleSet) {
+            return awsManagedRulesAntiDdosRuleSet(Output.of(awsManagedRulesAntiDdosRuleSet));
         }
 
         /**

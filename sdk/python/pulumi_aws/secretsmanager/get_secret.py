@@ -27,7 +27,7 @@ class GetSecretResult:
     """
     A collection of values returned by getSecret.
     """
-    def __init__(__self__, arn=None, created_date=None, description=None, id=None, kms_key_id=None, last_changed_date=None, name=None, policy=None, tags=None):
+    def __init__(__self__, arn=None, created_date=None, description=None, id=None, kms_key_id=None, last_changed_date=None, name=None, policy=None, region=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -52,6 +52,9 @@ class GetSecretResult:
         if policy and not isinstance(policy, str):
             raise TypeError("Expected argument 'policy' to be a str")
         pulumi.set(__self__, "policy", policy)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -119,6 +122,11 @@ class GetSecretResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Tags of the secret.
@@ -140,11 +148,13 @@ class AwaitableGetSecretResult(GetSecretResult):
             last_changed_date=self.last_changed_date,
             name=self.name,
             policy=self.policy,
+            region=self.region,
             tags=self.tags)
 
 
 def get_secret(arn: Optional[builtins.str] = None,
                name: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                tags: Optional[Mapping[str, builtins.str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
@@ -173,11 +183,13 @@ def get_secret(arn: Optional[builtins.str] = None,
 
     :param builtins.str arn: ARN of the secret to retrieve.
     :param builtins.str name: Name of the secret to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags of the secret.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecret:getSecret', __args__, opts=opts, typ=GetSecretResult).value
@@ -191,9 +203,11 @@ def get_secret(arn: Optional[builtins.str] = None,
         last_changed_date=pulumi.get(__ret__, 'last_changed_date'),
         name=pulumi.get(__ret__, 'name'),
         policy=pulumi.get(__ret__, 'policy'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_secret_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretResult]:
     """
@@ -222,11 +236,13 @@ def get_secret_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None
 
     :param builtins.str arn: ARN of the secret to retrieve.
     :param builtins.str name: Name of the secret to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Tags of the secret.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:secretsmanager/getSecret:getSecret', __args__, opts=opts, typ=GetSecretResult)
@@ -239,4 +255,5 @@ def get_secret_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None
         last_changed_date=pulumi.get(__response__, 'last_changed_date'),
         name=pulumi.get(__response__, 'name'),
         policy=pulumi.get(__response__, 'policy'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

@@ -24,6 +24,7 @@ class ModelArgs:
                  rest_api: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schema: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Model resource.
@@ -31,6 +32,7 @@ class ModelArgs:
         :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] description: Description of the model
         :param pulumi.Input[builtins.str] name: Name of the model
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schema: Schema of the model in a JSON form
         """
         pulumi.set(__self__, "content_type", content_type)
@@ -39,6 +41,8 @@ class ModelArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
 
@@ -92,6 +96,18 @@ class ModelArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Schema of the model in a JSON form
@@ -109,6 +125,7 @@ class _ModelState:
                  content_type: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
                  schema: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -116,6 +133,7 @@ class _ModelState:
         :param pulumi.Input[builtins.str] content_type: Content type of the model
         :param pulumi.Input[builtins.str] description: Description of the model
         :param pulumi.Input[builtins.str] name: Name of the model
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] schema: Schema of the model in a JSON form
         """
@@ -125,6 +143,8 @@ class _ModelState:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rest_api is not None:
             pulumi.set(__self__, "rest_api", rest_api)
         if schema is not None:
@@ -167,6 +187,18 @@ class _ModelState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -200,6 +232,7 @@ class Model(pulumi.CustomResource):
                  content_type: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
                  schema: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -239,6 +272,7 @@ class Model(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] content_type: Content type of the model
         :param pulumi.Input[builtins.str] description: Description of the model
         :param pulumi.Input[builtins.str] name: Name of the model
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] schema: Schema of the model in a JSON form
         """
@@ -297,6 +331,7 @@ class Model(pulumi.CustomResource):
                  content_type: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
                  schema: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -313,6 +348,7 @@ class Model(pulumi.CustomResource):
             __props__.__dict__["content_type"] = content_type
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
             __props__.__dict__["rest_api"] = rest_api
@@ -330,6 +366,7 @@ class Model(pulumi.CustomResource):
             content_type: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rest_api: Optional[pulumi.Input[builtins.str]] = None,
             schema: Optional[pulumi.Input[builtins.str]] = None) -> 'Model':
         """
@@ -342,6 +379,7 @@ class Model(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] content_type: Content type of the model
         :param pulumi.Input[builtins.str] description: Description of the model
         :param pulumi.Input[builtins.str] name: Name of the model
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[builtins.str] schema: Schema of the model in a JSON form
         """
@@ -352,6 +390,7 @@ class Model(pulumi.CustomResource):
         __props__.__dict__["content_type"] = content_type
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["rest_api"] = rest_api
         __props__.__dict__["schema"] = schema
         return Model(resource_name, opts=opts, __props__=__props__)
@@ -379,6 +418,14 @@ class Model(pulumi.CustomResource):
         Name of the model
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="restApi")

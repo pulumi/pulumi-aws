@@ -20,12 +20,16 @@ __all__ = ['OrganizationAdminAccountArgs', 'OrganizationAdminAccount']
 @pulumi.input_type
 class OrganizationAdminAccountArgs:
     def __init__(__self__, *,
-                 account_id: pulumi.Input[builtins.str]):
+                 account_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a OrganizationAdminAccount resource.
         :param pulumi.Input[builtins.str] account_id: AWS account identifier to designate as a delegated administrator for Detective.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "account_id", account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="accountId")
@@ -39,17 +43,33 @@ class OrganizationAdminAccountArgs:
     def account_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "account_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _OrganizationAdminAccountState:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[builtins.str]] = None):
+                 account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering OrganizationAdminAccount resources.
         :param pulumi.Input[builtins.str] account_id: AWS account identifier to designate as a delegated administrator for Detective.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="accountId")
@@ -63,6 +83,18 @@ class _OrganizationAdminAccountState:
     def account_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "account_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:detective/organizationAdminAccount:OrganizationAdminAccount")
 class OrganizationAdminAccount(pulumi.CustomResource):
@@ -71,6 +103,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Manages a Detective Organization Admin Account. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in Detective can be found in the [Detective User Guide](https://docs.aws.amazon.com/detective/latest/adminguide/accounts-orgs-transition.html).
@@ -99,6 +132,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_id: AWS account identifier to designate as a delegated administrator for Detective.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -146,6 +180,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -158,6 +193,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
             if account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'account_id'")
             __props__.__dict__["account_id"] = account_id
+            __props__.__dict__["region"] = region
         super(OrganizationAdminAccount, __self__).__init__(
             'aws:detective/organizationAdminAccount:OrganizationAdminAccount',
             resource_name,
@@ -168,7 +204,8 @@ class OrganizationAdminAccount(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_id: Optional[pulumi.Input[builtins.str]] = None) -> 'OrganizationAdminAccount':
+            account_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'OrganizationAdminAccount':
         """
         Get an existing OrganizationAdminAccount resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -177,12 +214,14 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] account_id: AWS account identifier to designate as a delegated administrator for Detective.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _OrganizationAdminAccountState.__new__(_OrganizationAdminAccountState)
 
         __props__.__dict__["account_id"] = account_id
+        __props__.__dict__["region"] = region
         return OrganizationAdminAccount(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -192,4 +231,12 @@ class OrganizationAdminAccount(pulumi.CustomResource):
         AWS account identifier to designate as a delegated administrator for Detective.
         """
         return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

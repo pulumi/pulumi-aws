@@ -159,14 +159,14 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.accessLogs);
     }
     /**
-     * ARN of the load balancer (matches `id`).
+     * ARN of the load balancer.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return ARN of the load balancer (matches `id`).
+     * @return ARN of the load balancer.
      * 
      */
     public Output<String> arn() {
@@ -244,6 +244,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
     }
     /**
      * DNS name of the load balancer.
+     * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
      * 
      */
     @Export(name="dnsName", refs={String.class}, tree="[0]")
@@ -251,6 +252,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
 
     /**
      * @return DNS name of the load balancer.
+     * * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
      * 
      */
     public Output<String> dnsName() {
@@ -523,6 +525,20 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.preserveHostHeader);
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * List of security group IDs to assign to the LB. Only valid for Load Balancers of type `application` or `network`. For load balancers of type `network` security groups cannot be added if none are currently present, and cannot all be removed once added. If either of these conditions are met, this will force a recreation of the resource.
      * 
      */
@@ -581,11 +597,7 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

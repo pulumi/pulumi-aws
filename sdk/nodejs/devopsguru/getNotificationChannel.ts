@@ -28,6 +28,7 @@ export function getNotificationChannel(args: GetNotificationChannelArgs, opts?: 
     return pulumi.runtime.invoke("aws:devopsguru/getNotificationChannel:getNotificationChannel", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "sns": args.sns,
     }, opts);
 }
@@ -45,6 +46,10 @@ export interface GetNotificationChannelArgs {
      */
     id: string;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * SNS noficiation channel configurations. See the `sns` attribute reference below.
      */
     sns?: inputs.devopsguru.GetNotificationChannelSn[];
@@ -59,6 +64,7 @@ export interface GetNotificationChannelResult {
      */
     readonly filters?: outputs.devopsguru.GetNotificationChannelFilter[];
     readonly id: string;
+    readonly region: string;
     /**
      * SNS noficiation channel configurations. See the `sns` attribute reference below.
      */
@@ -85,6 +91,7 @@ export function getNotificationChannelOutput(args: GetNotificationChannelOutputA
     return pulumi.runtime.invokeOutput("aws:devopsguru/getNotificationChannel:getNotificationChannel", {
         "filters": args.filters,
         "id": args.id,
+        "region": args.region,
         "sns": args.sns,
     }, opts);
 }
@@ -101,6 +108,10 @@ export interface GetNotificationChannelOutputArgs {
      * Unique identifier for the notification channel.
      */
     id: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * SNS noficiation channel configurations. See the `sns` attribute reference below.
      */

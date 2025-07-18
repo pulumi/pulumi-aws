@@ -96,16 +96,24 @@ public final class StackSetInstanceArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use stack_set_instance_region instead.
      * 
      */
+    @Deprecated /* region is deprecated. Use stack_set_instance_region instead. */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+     * @return Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use stack_set_instance_region instead.
      * 
      */
+    @Deprecated /* region is deprecated. Use stack_set_instance_region instead. */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -123,6 +131,21 @@ public final class StackSetInstanceArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<Boolean>> retainStack() {
         return Optional.ofNullable(this.retainStack);
+    }
+
+    /**
+     * Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+     * 
+     */
+    @Import(name="stackSetInstanceRegion")
+    private @Nullable Output<String> stackSetInstanceRegion;
+
+    /**
+     * @return Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+     * 
+     */
+    public Optional<Output<String>> stackSetInstanceRegion() {
+        return Optional.ofNullable(this.stackSetInstanceRegion);
     }
 
     /**
@@ -150,6 +173,7 @@ public final class StackSetInstanceArgs extends com.pulumi.resources.ResourceArg
         this.parameterOverrides = $.parameterOverrides;
         this.region = $.region;
         this.retainStack = $.retainStack;
+        this.stackSetInstanceRegion = $.stackSetInstanceRegion;
         this.stackSetName = $.stackSetName;
     }
 
@@ -277,22 +301,30 @@ public final class StackSetInstanceArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param region Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+         * @param region Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * region is deprecated. Use stack_set_instance_region instead.
+         * 
          */
+        @Deprecated /* region is deprecated. Use stack_set_instance_region instead. */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
         /**
-         * @param region Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+         * @param region Target AWS Region to create a Stack based on the StackSet. Defaults to current region. Use `stack_set_instance_region` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * region is deprecated. Use stack_set_instance_region instead.
+         * 
          */
+        @Deprecated /* region is deprecated. Use stack_set_instance_region instead. */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -316,6 +348,27 @@ public final class StackSetInstanceArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder retainStack(Boolean retainStack) {
             return retainStack(Output.of(retainStack));
+        }
+
+        /**
+         * @param stackSetInstanceRegion Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder stackSetInstanceRegion(@Nullable Output<String> stackSetInstanceRegion) {
+            $.stackSetInstanceRegion = stackSetInstanceRegion;
+            return this;
+        }
+
+        /**
+         * @param stackSetInstanceRegion Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder stackSetInstanceRegion(String stackSetInstanceRegion) {
+            return stackSetInstanceRegion(Output.of(stackSetInstanceRegion));
         }
 
         /**

@@ -182,6 +182,10 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the config rule
      */
     public /*out*/ readonly ruleId!: pulumi.Output<string>;
@@ -199,8 +203,6 @@ export class Rule extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -223,6 +225,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["inputParameters"] = state ? state.inputParameters : undefined;
             resourceInputs["maximumExecutionFrequency"] = state ? state.maximumExecutionFrequency : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["ruleId"] = state ? state.ruleId : undefined;
             resourceInputs["scope"] = state ? state.scope : undefined;
             resourceInputs["source"] = state ? state.source : undefined;
@@ -238,6 +241,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["inputParameters"] = args ? args.inputParameters : undefined;
             resourceInputs["maximumExecutionFrequency"] = args ? args.maximumExecutionFrequency : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -279,6 +283,10 @@ export interface RuleState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the config rule
      */
     ruleId?: pulumi.Input<string>;
@@ -296,8 +304,6 @@ export interface RuleState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -326,6 +332,10 @@ export interface RuleArgs {
      * The name of the rule
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Scope defines which resources can trigger an evaluation for the rule. See Scope Below.
      */

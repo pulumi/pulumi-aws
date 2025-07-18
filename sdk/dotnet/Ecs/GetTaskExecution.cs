@@ -244,6 +244,12 @@ namespace Pulumi.Aws.Ecs
         public string? ReferenceId { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// An optional tag specified when a task is started.
         /// </summary>
         [Input("startedBy")]
@@ -386,6 +392,12 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? ReferenceId { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// An optional tag specified when a task is started.
         /// </summary>
         [Input("startedBy")]
@@ -440,6 +452,7 @@ namespace Pulumi.Aws.Ecs
         public readonly string? PlatformVersion;
         public readonly string? PropagateTags;
         public readonly string? ReferenceId;
+        public readonly string Region;
         public readonly string? StartedBy;
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -482,6 +495,8 @@ namespace Pulumi.Aws.Ecs
 
             string? referenceId,
 
+            string region,
+
             string? startedBy,
 
             ImmutableDictionary<string, string>? tags,
@@ -506,6 +521,7 @@ namespace Pulumi.Aws.Ecs
             PlatformVersion = platformVersion;
             PropagateTags = propagateTags;
             ReferenceId = referenceId;
+            Region = region;
             StartedBy = startedBy;
             Tags = tags;
             TaskArns = taskArns;

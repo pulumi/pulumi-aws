@@ -101,6 +101,10 @@ export class MultiplexProgram extends pulumi.CustomResource {
      * Unique program name.
      */
     public readonly programName!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly timeouts!: pulumi.Output<outputs.medialive.MultiplexProgramTimeouts | undefined>;
 
     /**
@@ -119,6 +123,7 @@ export class MultiplexProgram extends pulumi.CustomResource {
             resourceInputs["multiplexId"] = state ? state.multiplexId : undefined;
             resourceInputs["multiplexProgramSettings"] = state ? state.multiplexProgramSettings : undefined;
             resourceInputs["programName"] = state ? state.programName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
             const args = argsOrState as MultiplexProgramArgs | undefined;
@@ -131,6 +136,7 @@ export class MultiplexProgram extends pulumi.CustomResource {
             resourceInputs["multiplexId"] = args ? args.multiplexId : undefined;
             resourceInputs["multiplexProgramSettings"] = args ? args.multiplexProgramSettings : undefined;
             resourceInputs["programName"] = args ? args.programName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -156,6 +162,10 @@ export interface MultiplexProgramState {
      * Unique program name.
      */
     programName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.medialive.MultiplexProgramTimeouts>;
 }
 
@@ -177,5 +187,9 @@ export interface MultiplexProgramArgs {
      * Unique program name.
      */
     programName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.medialive.MultiplexProgramTimeouts>;
 }

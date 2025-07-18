@@ -117,6 +117,10 @@ export class IdentitySource extends pulumi.CustomResource {
      * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
      */
     public readonly principalEntityType!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a IdentitySource resource with the given unique name, arguments, and options.
@@ -134,6 +138,7 @@ export class IdentitySource extends pulumi.CustomResource {
             resourceInputs["configuration"] = state ? state.configuration : undefined;
             resourceInputs["policyStoreId"] = state ? state.policyStoreId : undefined;
             resourceInputs["principalEntityType"] = state ? state.principalEntityType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as IdentitySourceArgs | undefined;
             if ((!args || args.policyStoreId === undefined) && !opts.urn) {
@@ -142,6 +147,7 @@ export class IdentitySource extends pulumi.CustomResource {
             resourceInputs["configuration"] = args ? args.configuration : undefined;
             resourceInputs["policyStoreId"] = args ? args.policyStoreId : undefined;
             resourceInputs["principalEntityType"] = args ? args.principalEntityType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(IdentitySource.__pulumiType, name, resourceInputs, opts);
@@ -164,6 +170,10 @@ export interface IdentitySourceState {
      * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
      */
     principalEntityType?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -182,4 +192,8 @@ export interface IdentitySourceArgs {
      * Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
      */
     principalEntityType?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

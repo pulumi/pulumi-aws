@@ -94,6 +94,12 @@ namespace Pulumi.Aws.Dms
     public sealed class GetReplicationSubnetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
         /// </summary>
         [Input("replicationSubnetGroupId", required: true)]
@@ -115,6 +121,12 @@ namespace Pulumi.Aws.Dms
 
     public sealed class GetReplicationSubnetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// Name for the replication subnet group. This value is stored as a lowercase string. It must contain no more than 255 alphanumeric characters, periods, spaces, underscores, or hyphens and cannot be `default`.
         /// </summary>
@@ -143,6 +155,7 @@ namespace Pulumi.Aws.Dms
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         public readonly string ReplicationSubnetGroupArn;
         /// <summary>
         /// Description for the subnet group.
@@ -164,6 +177,8 @@ namespace Pulumi.Aws.Dms
         private GetReplicationSubnetGroupResult(
             string id,
 
+            string region,
+
             string replicationSubnetGroupArn,
 
             string replicationSubnetGroupDescription,
@@ -179,6 +194,7 @@ namespace Pulumi.Aws.Dms
             string vpcId)
         {
             Id = id;
+            Region = region;
             ReplicationSubnetGroupArn = replicationSubnetGroupArn;
             ReplicationSubnetGroupDescription = replicationSubnetGroupDescription;
             ReplicationSubnetGroupId = replicationSubnetGroupId;

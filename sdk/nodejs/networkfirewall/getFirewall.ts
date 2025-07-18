@@ -52,6 +52,7 @@ export function getFirewall(args?: GetFirewallArgs, opts?: pulumi.InvokeOptions)
     return pulumi.runtime.invoke("aws:networkfirewall/getFirewall:getFirewall", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -70,6 +71,10 @@ export interface GetFirewallArgs {
      * One or more of these arguments is required.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -120,6 +125,7 @@ export interface GetFirewallResult {
      * Descriptive name of the firewall.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * A flag indicating whether the firewall is protected against changes to the subnet associations.
      */
@@ -186,6 +192,7 @@ export function getFirewallOutput(args?: GetFirewallOutputArgs, opts?: pulumi.In
     return pulumi.runtime.invokeOutput("aws:networkfirewall/getFirewall:getFirewall", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -204,6 +211,10 @@ export interface GetFirewallOutputArgs {
      * One or more of these arguments is required.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

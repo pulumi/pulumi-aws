@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
@@ -69,6 +69,8 @@ type LookupRouteTableArgs struct {
 	Filters []GetRouteTableFilter `pulumi:"filters"`
 	// ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
 	GatewayId *string `pulumi:"gatewayId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the specific Route Table to retrieve.
 	RouteTableId *string `pulumi:"routeTableId"`
 	// ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
@@ -92,6 +94,7 @@ type LookupRouteTableResult struct {
 	Id string `pulumi:"id"`
 	// ID of the AWS account that owns the route table.
 	OwnerId string `pulumi:"ownerId"`
+	Region  string `pulumi:"region"`
 	// Route Table ID.
 	RouteTableId string `pulumi:"routeTableId"`
 	// List of routes with attributes detailed below.
@@ -117,6 +120,8 @@ type LookupRouteTableOutputArgs struct {
 	Filters GetRouteTableFilterArrayInput `pulumi:"filters"`
 	// ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
 	GatewayId pulumi.StringPtrInput `pulumi:"gatewayId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the specific Route Table to retrieve.
 	RouteTableId pulumi.StringPtrInput `pulumi:"routeTableId"`
 	// ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
@@ -173,6 +178,10 @@ func (o LookupRouteTableResultOutput) Id() pulumi.StringOutput {
 // ID of the AWS account that owns the route table.
 func (o LookupRouteTableResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRouteTableResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o LookupRouteTableResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRouteTableResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Route Table ID.

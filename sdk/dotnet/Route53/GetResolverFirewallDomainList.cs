@@ -105,6 +105,12 @@ namespace Pulumi.Aws.Route53
         [Input("firewallDomainListId", required: true)]
         public string FirewallDomainListId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetResolverFirewallDomainListArgs()
         {
         }
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Input("firewallDomainListId", required: true)]
         public Input<string> FirewallDomainListId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetResolverFirewallDomainListInvokeArgs()
         {
@@ -162,6 +174,7 @@ namespace Pulumi.Aws.Route53
         /// The name of the domain list.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// The status of the domain list.
         /// </summary>
@@ -191,6 +204,8 @@ namespace Pulumi.Aws.Route53
 
             string name,
 
+            string region,
+
             string status,
 
             string statusMessage)
@@ -204,6 +219,7 @@ namespace Pulumi.Aws.Route53
             ManagedOwnerName = managedOwnerName;
             ModificationTime = modificationTime;
             Name = name;
+            Region = region;
             Status = status;
             StatusMessage = statusMessage;
         }

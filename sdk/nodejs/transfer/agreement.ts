@@ -90,6 +90,10 @@ export class Agreement extends pulumi.CustomResource {
      */
     public readonly partnerProfileId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The unique server identifier for the server instance. This is the specific server the agreement uses.
      */
     public readonly serverId!: pulumi.Output<string>;
@@ -98,9 +102,6 @@ export class Agreement extends pulumi.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -123,6 +124,7 @@ export class Agreement extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["localProfileId"] = state ? state.localProfileId : undefined;
             resourceInputs["partnerProfileId"] = state ? state.partnerProfileId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serverId"] = state ? state.serverId : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -149,6 +151,7 @@ export class Agreement extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["localProfileId"] = args ? args.localProfileId : undefined;
             resourceInputs["partnerProfileId"] = args ? args.partnerProfileId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serverId"] = args ? args.serverId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["agreementId"] = undefined /*out*/;
@@ -194,6 +197,10 @@ export interface AgreementState {
      */
     partnerProfileId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The unique server identifier for the server instance. This is the specific server the agreement uses.
      */
     serverId?: pulumi.Input<string>;
@@ -202,9 +209,6 @@ export interface AgreementState {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -232,6 +236,10 @@ export interface AgreementArgs {
      * The unique identifier for the AS2 partner profile.
      */
     partnerProfileId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The unique server identifier for the server instance. This is the specific server the agreement uses.
      */

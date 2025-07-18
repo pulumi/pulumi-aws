@@ -47,6 +47,21 @@ public final class PolicyTemplateArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Defines the content of the statement, written in Cedar policy language.
      * 
      * The following arguments are optional:
@@ -70,6 +85,7 @@ public final class PolicyTemplateArgs extends com.pulumi.resources.ResourceArgs 
     private PolicyTemplateArgs(PolicyTemplateArgs $) {
         this.description = $.description;
         this.policyStoreId = $.policyStoreId;
+        this.region = $.region;
         this.statement = $.statement;
     }
 
@@ -131,6 +147,27 @@ public final class PolicyTemplateArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder policyStoreId(String policyStoreId) {
             return policyStoreId(Output.of(policyStoreId));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

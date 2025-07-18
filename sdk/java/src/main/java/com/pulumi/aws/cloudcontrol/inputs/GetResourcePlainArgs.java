@@ -31,6 +31,21 @@ public final class GetResourcePlainArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ARN of the IAM Role to assume for operations.
      * 
      */
@@ -83,6 +98,7 @@ public final class GetResourcePlainArgs extends com.pulumi.resources.InvokeArgs 
 
     private GetResourcePlainArgs(GetResourcePlainArgs $) {
         this.identifier = $.identifier;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.typeName = $.typeName;
         this.typeVersionId = $.typeVersionId;
@@ -114,6 +130,17 @@ public final class GetResourcePlainArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder identifier(String identifier) {
             $.identifier = identifier;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

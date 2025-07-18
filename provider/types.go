@@ -132,8 +132,13 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 			Type: "string",
 		},
 		Enum: []schema.EnumValueSpec{
-			{Name: "Ipv4", Value: "ipv4"},
-			{Name: "Dualstack", Value: "dualstack"},
+			{Name: "Ipv4", Value: "ipv4", Description: "IPv4 addresses"},
+			{Name: "Dualstack", Value: "dualstack", Description: "IPv4 and IPv6 addresses"},
+			{
+				Name:        "DualstackWithoutPublicIpv4",
+				Value:       "dualstack-without-public-ipv4",
+				Description: "Public IPv6 addresses and private IPv4 and IPv6 addresses",
+			},
 		},
 	},
 	"aws:alb/LoadBalancerType:LoadBalancerType": {
@@ -425,6 +430,345 @@ var extraTypes = map[string]schema.ComplexTypeSpec{
 			{Value: "String"},
 			{Value: "StringList"},
 			{Value: "SecureString"},
+		},
+	},
+	"aws:iam/PolicyDocument:PolicyDocument": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type:        "object",
+			Description: "Represents an AWS IAM policy document that defines permissions for AWS resources and actions.",
+			Properties: map[string]schema.PropertySpec{
+				"Version": {
+					TypeSpec: schema.TypeSpec{
+						Type: "string",
+						Ref:  "#/types/aws:iam/PolicyDocumentVersion:PolicyDocumentVersion",
+					},
+					// TODO: sharing types messes up converter
+					// Description: "The version of the policy language that you want to use. As a best practice, use the latest '2012-10-17' version.",
+				},
+				"Id": {
+					TypeSpec: schema.TypeSpec{
+						Type: "string",
+					},
+					// Description: "An optional document ID.",
+				},
+				"Statement": {
+					TypeSpec: schema.TypeSpec{
+						Type:  "array",
+						Items: &schema.TypeSpec{Ref: "#/types/aws:iam/PolicyStatement:PolicyStatement"},
+					},
+					// Description: "One or more policy statements, describing the effect, principal, action, resource, and condition.",
+				},
+			},
+			Required: []string{"Version", "Statement"},
+		},
+	},
+	"aws:iam/PolicyDocumentVersion:PolicyDocumentVersion": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Description: "The version of the policy language that you want to use. As a best practice, use the latest '2012-10-17' version.",
+			Type:        "string",
+		},
+		Enum: []schema.EnumValueSpec{
+			{Name: "2012-10-17", Value: "2012-10-17"},
+			{Name: "2008-10-17", Value: "2008-10-17"},
+		},
+	},
+	"aws:iam/PolicyStatementEffect:PolicyStatementEffect": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Description: "Indicate whether the policy allows or denies access.",
+			Type:        "string",
+		},
+		Enum: []schema.EnumValueSpec{
+			{Name: "ALLOW", Value: "Allow"},
+			{Name: "DENY", Value: "Deny"},
+		},
+	},
+	"aws:iam/PolicyStatement:PolicyStatement": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type:        "object",
+			Description: "The Statement element is the main element for a policy. This element is required. It can include multiple elements (see the subsequent sections in this page). The Statement element contains an array of individual statements.",
+			Properties: map[string]schema.PropertySpec{
+				"Sid": {
+					TypeSpec: schema.TypeSpec{
+						Type: "string",
+					},
+					Description: "An optional statement ID to differentiate between your statements.",
+				},
+				"Effect": {
+					TypeSpec: schema.TypeSpec{
+						Type: "string",
+						Ref:  "#/types/aws:iam/PolicyStatementEffect:PolicyStatementEffect",
+					},
+					Description: "Indicate whether the policy allows or denies access.",
+				},
+				"Principal": {
+					TypeSpec: schema.TypeSpec{
+						OneOf: []schema.TypeSpec{
+							{Type: "string"},
+							{Ref: "#/types/aws:iam/AWSPrincipal:AWSPrincipal"},
+							{Ref: "#/types/aws:iam/ServicePrincipal:ServicePrincipal"},
+							{Ref: "#/types/aws:iam/FederatedPrincipal:FederatedPrincipal"},
+						},
+					},
+					Description: "Indicate the account, user, role, or federated user to which you would like to allow or deny access. If you are creating a policy to attach to a user or role, you cannot include this element. The principal is implied as that user or role.",
+				},
+				"NotPrincipal": {
+					TypeSpec: schema.TypeSpec{
+						OneOf: []schema.TypeSpec{
+							{Type: "string"},
+							{Ref: "#/types/aws:iam/AWSPrincipal:AWSPrincipal"},
+							{Ref: "#/types/aws:iam/ServicePrincipal:ServicePrincipal"},
+							{Ref: "#/types/aws:iam/FederatedPrincipal:FederatedPrincipal"},
+						},
+					},
+					Description: "Indicate the account, user, role, or federated user to which this policy does not apply.",
+				},
+				"Action": {
+					TypeSpec: schema.TypeSpec{
+						OneOf: []schema.TypeSpec{
+							{Type: "string"},
+							{Type: "array", Items: &schema.TypeSpec{Type: "string"}},
+						},
+					},
+					Description: "Include a list of actions that the policy allows or denies. Required (either Action or NotAction)",
+				},
+				"NotAction": {
+					TypeSpec: schema.TypeSpec{
+						OneOf: []schema.TypeSpec{
+							{Type: "string"},
+							{Type: "array", Items: &schema.TypeSpec{Type: "string"}},
+						},
+					},
+					Description: "Include a list of actions that are not covered by this policy. Required (either Action or NotAction)",
+				},
+				"Resource": {
+					TypeSpec: schema.TypeSpec{
+						OneOf: []schema.TypeSpec{
+							{Type: "string"},
+							{Type: "array", Items: &schema.TypeSpec{Type: "string"}},
+						},
+					},
+					Description: "A list of resources to which the actions apply.",
+				},
+				"NotResource": {
+					TypeSpec: schema.TypeSpec{
+						OneOf: []schema.TypeSpec{
+							{Type: "string"},
+							{Type: "array", Items: &schema.TypeSpec{Type: "string"}},
+						},
+					},
+					Description: "A list of resources that are specifically excluded by this policy.",
+				},
+				// TODO[pulumi/pulumi-terraform-bridge#3103] this does not generate in Go
+				// "Condition": {
+				// 	TypeSpec: schema.TypeSpec{
+				// 		Type: "object",
+				// 		AdditionalProperties: &schema.TypeSpec{
+				// 			Type: "object",
+				// 			AdditionalProperties: &schema.TypeSpec{
+				// 				OneOf: []schema.TypeSpec{
+				// 					{Type: "string"},
+				// 					{Type: "array", Items: &schema.TypeSpec{Type: "string"}},
+				// 				},
+				// 			},
+				// 		},
+				// 	},
+				// 	Description: "Specify the circumstances under which the policy grants permission.",
+				// },
+				"Condition": {
+					TypeSpec: schema.TypeSpec{
+						Type: "object",
+						AdditionalProperties: &schema.TypeSpec{
+							Ref: "pulumi.json#/Any",
+						},
+					},
+					Description: "Specify the circumstances under which the policy grants permission.",
+				},
+			},
+			Required: []string{"Effect"},
+		},
+	},
+	"aws:iam/AWSPrincipal:AWSPrincipal": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type:        "object",
+			Description: "When you use an AWS account identifier as the principal in a policy, the permissions in the policy statement can be granted to all identities contained in that account. This includes IAM users and roles in that account.",
+			Properties: map[string]schema.PropertySpec{
+				"AWS": {
+					TypeSpec: schema.TypeSpec{
+						OneOf: []schema.TypeSpec{
+							{Type: "string"},
+							{Type: "array", Items: &schema.TypeSpec{Type: "string"}},
+						},
+					},
+					Description: "AWS account identifier or ARN.",
+				},
+			},
+			Required: []string{"AWS"},
+		},
+	},
+	"aws:iam/ServicePrincipal:ServicePrincipal": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type:        "object",
+			Description: "IAM roles that can be assumed by an AWS service are called service roles. Service roles must include a trust policy. A service principal is an identifier that is used to grant permissions to a service.",
+			Properties: map[string]schema.PropertySpec{
+				"Service": {
+					TypeSpec: schema.TypeSpec{
+						OneOf: []schema.TypeSpec{
+							{Type: "string"},
+							{Type: "array", Items: &schema.TypeSpec{Type: "string"}},
+						},
+					},
+					Description: "The service principal identifier.",
+				},
+			},
+			Required: []string{"Service"},
+		},
+	},
+	"aws:iam/FederatedPrincipal:FederatedPrincipal": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type:        "object",
+			Description: "Federated principal for identity providers.",
+			Properties: map[string]schema.PropertySpec{
+				"Federated": {
+					TypeSpec: schema.TypeSpec{
+						OneOf: []schema.TypeSpec{
+							{Type: "string"},
+							{Type: "array", Items: &schema.TypeSpec{Type: "string"}},
+						},
+					},
+					Description: "The federated principal identifier.",
+				},
+			},
+			Required: []string{"Federated"},
+		},
+	},
+	"aws:ecr/LifecyclePolicyDocument:LifecyclePolicyDocument": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type:        "object",
+			Description: "Represents an ECR lifecycle policy document.",
+			Properties: map[string]schema.PropertySpec{
+				"rules": {
+					TypeSpec: schema.TypeSpec{
+						Type: "array",
+						Items: &schema.TypeSpec{
+							Ref: "#/types/aws:ecr/LifecyclePolicyRule:LifecyclePolicyRule",
+						},
+					},
+					Description: "The rules that comprise the lifecycle policy.",
+				},
+			},
+			Required: []string{"rules"},
+		},
+	},
+	"aws:ecr/LifecyclePolicyRule:LifecyclePolicyRule": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type:        "object",
+			Description: "Represents a rule in an ECR lifecycle policy.",
+			Properties: map[string]schema.PropertySpec{
+				"rulePriority": {
+					TypeSpec:    schema.TypeSpec{Type: "integer"},
+					Description: "The priority of the rule, must be unique within the policy.",
+				},
+				"description": {
+					TypeSpec:    schema.TypeSpec{Type: "string"},
+					Description: "A description of the rule.",
+				},
+				"selection": {
+					TypeSpec: schema.TypeSpec{
+						Ref: "#/types/aws:ecr/LifecyclePolicySelection:LifecyclePolicySelection",
+					},
+					Description: "The selection criteria for the rule.",
+				},
+				"action": {
+					TypeSpec: schema.TypeSpec{
+						Ref: "#/types/aws:ecr/LifecyclePolicyAction:LifecyclePolicyAction",
+					},
+					Description: "The action to take when the rule is triggered.",
+				},
+			},
+			Required: []string{"rulePriority", "selection", "action"},
+		},
+	},
+	"aws:ecr/LifecyclePolicySelection:LifecyclePolicySelection": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type:        "object",
+			Description: "Represents selection criteria for an ECR lifecycle policy rule.",
+			Properties: map[string]schema.PropertySpec{
+				"tagStatus": {
+					TypeSpec: schema.TypeSpec{
+						Type: "string",
+						Ref:  "#/types/aws:ecr/LifecyclePolicyTagStatus:LifecyclePolicyTagStatus",
+					},
+					Description: "The tag status of the image. Either 'tagged', 'untagged', or 'any'.",
+				},
+				"tagPrefixList": {
+					TypeSpec: schema.TypeSpec{
+						Type:  "array",
+						Items: &schema.TypeSpec{Type: "string"},
+					},
+					Description: "A list of image tag prefixes on which to take action.",
+				},
+				"countType": {
+					TypeSpec: schema.TypeSpec{
+						Type: "string",
+						Ref:  "#/types/aws:ecr/LifecyclePolicyCountType:LifecyclePolicyCountType",
+					},
+					Description: "The type of count to perform. Either 'imageCountMoreThan' or 'sinceImagePushed'.",
+				},
+				"countNumber": {
+					TypeSpec:    schema.TypeSpec{Type: "integer"},
+					Description: "The count number to use with the count type.",
+				},
+				"countUnit": {
+					TypeSpec:    schema.TypeSpec{Type: "string"},
+					Description: "The unit of time for sinceImagePushed. Either 'days'.",
+				},
+			},
+			Required: []string{"tagStatus", "countType", "countNumber"},
+		},
+	},
+	"aws:ecr/LifecyclePolicyTagStatus:LifecyclePolicyTagStatus": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type:        "string",
+			Description: "The tag status of the image.",
+		},
+		Enum: []schema.EnumValueSpec{
+			{Name: "Tagged", Value: "tagged"},
+			{Name: "Untagged", Value: "untagged"},
+			{Name: "Any", Value: "any"},
+		},
+	},
+	"aws:ecr/LifecyclePolicyCountType:LifecyclePolicyCountType": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type:        "string",
+			Description: "The type of count to perform.",
+		},
+		Enum: []schema.EnumValueSpec{
+			{Name: "ImageCountMoreThan", Value: "imageCountMoreThan"},
+			{Name: "SinceImagePushed", Value: "sinceImagePushed"},
+		},
+	},
+	"aws:ecr/LifecyclePolicyActionType:LifecyclePolicyActionType": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type:        "string",
+			Description: "The type of action to take.",
+		},
+		Enum: []schema.EnumValueSpec{
+			{Name: "Expire", Value: "expire"},
+		},
+	},
+	"aws:ecr/LifecyclePolicyAction:LifecyclePolicyAction": {
+		ObjectTypeSpec: schema.ObjectTypeSpec{
+			Type: "object",
+			Properties: map[string]schema.PropertySpec{
+				"type": {
+					TypeSpec: schema.TypeSpec{
+						Type: "string",
+						Ref:  "#/types/aws:ecr/LifecyclePolicyActionType:LifecyclePolicyActionType",
+					},
+					Description: "The type of action to take. Currently only 'expire' is supported.",
+				},
+			},
+			Required: []string{"type"},
 		},
 	},
 }

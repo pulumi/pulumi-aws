@@ -7,207 +7,137 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 var _ = internal.GetEnvOrDefault
 
-type KeyKeyAttributes struct {
+type KeyKeyAttribute struct {
 	// Key algorithm to be use during creation of an AWS Payment Cryptography key.
 	KeyAlgorithm string `pulumi:"keyAlgorithm"`
 	// Type of AWS Payment Cryptography key to create.
 	KeyClass string `pulumi:"keyClass"`
 	// List of cryptographic operations that you can perform using the key.
-	KeyModesOfUse *KeyKeyAttributesKeyModesOfUse `pulumi:"keyModesOfUse"`
+	KeyModesOfUses []KeyKeyAttributeKeyModesOfUse `pulumi:"keyModesOfUses"`
 	// Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
 	KeyUsage string `pulumi:"keyUsage"`
 }
 
-// KeyKeyAttributesInput is an input type that accepts KeyKeyAttributesArgs and KeyKeyAttributesOutput values.
-// You can construct a concrete instance of `KeyKeyAttributesInput` via:
+// KeyKeyAttributeInput is an input type that accepts KeyKeyAttributeArgs and KeyKeyAttributeOutput values.
+// You can construct a concrete instance of `KeyKeyAttributeInput` via:
 //
-//	KeyKeyAttributesArgs{...}
-type KeyKeyAttributesInput interface {
+//	KeyKeyAttributeArgs{...}
+type KeyKeyAttributeInput interface {
 	pulumi.Input
 
-	ToKeyKeyAttributesOutput() KeyKeyAttributesOutput
-	ToKeyKeyAttributesOutputWithContext(context.Context) KeyKeyAttributesOutput
+	ToKeyKeyAttributeOutput() KeyKeyAttributeOutput
+	ToKeyKeyAttributeOutputWithContext(context.Context) KeyKeyAttributeOutput
 }
 
-type KeyKeyAttributesArgs struct {
+type KeyKeyAttributeArgs struct {
 	// Key algorithm to be use during creation of an AWS Payment Cryptography key.
 	KeyAlgorithm pulumi.StringInput `pulumi:"keyAlgorithm"`
 	// Type of AWS Payment Cryptography key to create.
 	KeyClass pulumi.StringInput `pulumi:"keyClass"`
 	// List of cryptographic operations that you can perform using the key.
-	KeyModesOfUse KeyKeyAttributesKeyModesOfUsePtrInput `pulumi:"keyModesOfUse"`
+	KeyModesOfUses KeyKeyAttributeKeyModesOfUseArrayInput `pulumi:"keyModesOfUses"`
 	// Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
 	KeyUsage pulumi.StringInput `pulumi:"keyUsage"`
 }
 
-func (KeyKeyAttributesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyKeyAttributes)(nil)).Elem()
+func (KeyKeyAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyKeyAttribute)(nil)).Elem()
 }
 
-func (i KeyKeyAttributesArgs) ToKeyKeyAttributesOutput() KeyKeyAttributesOutput {
-	return i.ToKeyKeyAttributesOutputWithContext(context.Background())
+func (i KeyKeyAttributeArgs) ToKeyKeyAttributeOutput() KeyKeyAttributeOutput {
+	return i.ToKeyKeyAttributeOutputWithContext(context.Background())
 }
 
-func (i KeyKeyAttributesArgs) ToKeyKeyAttributesOutputWithContext(ctx context.Context) KeyKeyAttributesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyKeyAttributesOutput)
+func (i KeyKeyAttributeArgs) ToKeyKeyAttributeOutputWithContext(ctx context.Context) KeyKeyAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyKeyAttributeOutput)
 }
 
-func (i KeyKeyAttributesArgs) ToKeyKeyAttributesPtrOutput() KeyKeyAttributesPtrOutput {
-	return i.ToKeyKeyAttributesPtrOutputWithContext(context.Background())
-}
-
-func (i KeyKeyAttributesArgs) ToKeyKeyAttributesPtrOutputWithContext(ctx context.Context) KeyKeyAttributesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyKeyAttributesOutput).ToKeyKeyAttributesPtrOutputWithContext(ctx)
-}
-
-// KeyKeyAttributesPtrInput is an input type that accepts KeyKeyAttributesArgs, KeyKeyAttributesPtr and KeyKeyAttributesPtrOutput values.
-// You can construct a concrete instance of `KeyKeyAttributesPtrInput` via:
+// KeyKeyAttributeArrayInput is an input type that accepts KeyKeyAttributeArray and KeyKeyAttributeArrayOutput values.
+// You can construct a concrete instance of `KeyKeyAttributeArrayInput` via:
 //
-//	        KeyKeyAttributesArgs{...}
-//
-//	or:
-//
-//	        nil
-type KeyKeyAttributesPtrInput interface {
+//	KeyKeyAttributeArray{ KeyKeyAttributeArgs{...} }
+type KeyKeyAttributeArrayInput interface {
 	pulumi.Input
 
-	ToKeyKeyAttributesPtrOutput() KeyKeyAttributesPtrOutput
-	ToKeyKeyAttributesPtrOutputWithContext(context.Context) KeyKeyAttributesPtrOutput
+	ToKeyKeyAttributeArrayOutput() KeyKeyAttributeArrayOutput
+	ToKeyKeyAttributeArrayOutputWithContext(context.Context) KeyKeyAttributeArrayOutput
 }
 
-type keyKeyAttributesPtrType KeyKeyAttributesArgs
+type KeyKeyAttributeArray []KeyKeyAttributeInput
 
-func KeyKeyAttributesPtr(v *KeyKeyAttributesArgs) KeyKeyAttributesPtrInput {
-	return (*keyKeyAttributesPtrType)(v)
+func (KeyKeyAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyKeyAttribute)(nil)).Elem()
 }
 
-func (*keyKeyAttributesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyKeyAttributes)(nil)).Elem()
+func (i KeyKeyAttributeArray) ToKeyKeyAttributeArrayOutput() KeyKeyAttributeArrayOutput {
+	return i.ToKeyKeyAttributeArrayOutputWithContext(context.Background())
 }
 
-func (i *keyKeyAttributesPtrType) ToKeyKeyAttributesPtrOutput() KeyKeyAttributesPtrOutput {
-	return i.ToKeyKeyAttributesPtrOutputWithContext(context.Background())
+func (i KeyKeyAttributeArray) ToKeyKeyAttributeArrayOutputWithContext(ctx context.Context) KeyKeyAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyKeyAttributeArrayOutput)
 }
 
-func (i *keyKeyAttributesPtrType) ToKeyKeyAttributesPtrOutputWithContext(ctx context.Context) KeyKeyAttributesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyKeyAttributesPtrOutput)
+type KeyKeyAttributeOutput struct{ *pulumi.OutputState }
+
+func (KeyKeyAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyKeyAttribute)(nil)).Elem()
 }
 
-type KeyKeyAttributesOutput struct{ *pulumi.OutputState }
-
-func (KeyKeyAttributesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyKeyAttributes)(nil)).Elem()
-}
-
-func (o KeyKeyAttributesOutput) ToKeyKeyAttributesOutput() KeyKeyAttributesOutput {
+func (o KeyKeyAttributeOutput) ToKeyKeyAttributeOutput() KeyKeyAttributeOutput {
 	return o
 }
 
-func (o KeyKeyAttributesOutput) ToKeyKeyAttributesOutputWithContext(ctx context.Context) KeyKeyAttributesOutput {
+func (o KeyKeyAttributeOutput) ToKeyKeyAttributeOutputWithContext(ctx context.Context) KeyKeyAttributeOutput {
 	return o
-}
-
-func (o KeyKeyAttributesOutput) ToKeyKeyAttributesPtrOutput() KeyKeyAttributesPtrOutput {
-	return o.ToKeyKeyAttributesPtrOutputWithContext(context.Background())
-}
-
-func (o KeyKeyAttributesOutput) ToKeyKeyAttributesPtrOutputWithContext(ctx context.Context) KeyKeyAttributesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyKeyAttributes) *KeyKeyAttributes {
-		return &v
-	}).(KeyKeyAttributesPtrOutput)
 }
 
 // Key algorithm to be use during creation of an AWS Payment Cryptography key.
-func (o KeyKeyAttributesOutput) KeyAlgorithm() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyKeyAttributes) string { return v.KeyAlgorithm }).(pulumi.StringOutput)
+func (o KeyKeyAttributeOutput) KeyAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyKeyAttribute) string { return v.KeyAlgorithm }).(pulumi.StringOutput)
 }
 
 // Type of AWS Payment Cryptography key to create.
-func (o KeyKeyAttributesOutput) KeyClass() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyKeyAttributes) string { return v.KeyClass }).(pulumi.StringOutput)
+func (o KeyKeyAttributeOutput) KeyClass() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyKeyAttribute) string { return v.KeyClass }).(pulumi.StringOutput)
 }
 
 // List of cryptographic operations that you can perform using the key.
-func (o KeyKeyAttributesOutput) KeyModesOfUse() KeyKeyAttributesKeyModesOfUsePtrOutput {
-	return o.ApplyT(func(v KeyKeyAttributes) *KeyKeyAttributesKeyModesOfUse { return v.KeyModesOfUse }).(KeyKeyAttributesKeyModesOfUsePtrOutput)
+func (o KeyKeyAttributeOutput) KeyModesOfUses() KeyKeyAttributeKeyModesOfUseArrayOutput {
+	return o.ApplyT(func(v KeyKeyAttribute) []KeyKeyAttributeKeyModesOfUse { return v.KeyModesOfUses }).(KeyKeyAttributeKeyModesOfUseArrayOutput)
 }
 
 // Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
-func (o KeyKeyAttributesOutput) KeyUsage() pulumi.StringOutput {
-	return o.ApplyT(func(v KeyKeyAttributes) string { return v.KeyUsage }).(pulumi.StringOutput)
+func (o KeyKeyAttributeOutput) KeyUsage() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyKeyAttribute) string { return v.KeyUsage }).(pulumi.StringOutput)
 }
 
-type KeyKeyAttributesPtrOutput struct{ *pulumi.OutputState }
+type KeyKeyAttributeArrayOutput struct{ *pulumi.OutputState }
 
-func (KeyKeyAttributesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyKeyAttributes)(nil)).Elem()
+func (KeyKeyAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyKeyAttribute)(nil)).Elem()
 }
 
-func (o KeyKeyAttributesPtrOutput) ToKeyKeyAttributesPtrOutput() KeyKeyAttributesPtrOutput {
+func (o KeyKeyAttributeArrayOutput) ToKeyKeyAttributeArrayOutput() KeyKeyAttributeArrayOutput {
 	return o
 }
 
-func (o KeyKeyAttributesPtrOutput) ToKeyKeyAttributesPtrOutputWithContext(ctx context.Context) KeyKeyAttributesPtrOutput {
+func (o KeyKeyAttributeArrayOutput) ToKeyKeyAttributeArrayOutputWithContext(ctx context.Context) KeyKeyAttributeArrayOutput {
 	return o
 }
 
-func (o KeyKeyAttributesPtrOutput) Elem() KeyKeyAttributesOutput {
-	return o.ApplyT(func(v *KeyKeyAttributes) KeyKeyAttributes {
-		if v != nil {
-			return *v
-		}
-		var ret KeyKeyAttributes
-		return ret
-	}).(KeyKeyAttributesOutput)
+func (o KeyKeyAttributeArrayOutput) Index(i pulumi.IntInput) KeyKeyAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyKeyAttribute {
+		return vs[0].([]KeyKeyAttribute)[vs[1].(int)]
+	}).(KeyKeyAttributeOutput)
 }
 
-// Key algorithm to be use during creation of an AWS Payment Cryptography key.
-func (o KeyKeyAttributesPtrOutput) KeyAlgorithm() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyKeyAttributes) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.KeyAlgorithm
-	}).(pulumi.StringPtrOutput)
-}
-
-// Type of AWS Payment Cryptography key to create.
-func (o KeyKeyAttributesPtrOutput) KeyClass() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyKeyAttributes) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.KeyClass
-	}).(pulumi.StringPtrOutput)
-}
-
-// List of cryptographic operations that you can perform using the key.
-func (o KeyKeyAttributesPtrOutput) KeyModesOfUse() KeyKeyAttributesKeyModesOfUsePtrOutput {
-	return o.ApplyT(func(v *KeyKeyAttributes) *KeyKeyAttributesKeyModesOfUse {
-		if v == nil {
-			return nil
-		}
-		return v.KeyModesOfUse
-	}).(KeyKeyAttributesKeyModesOfUsePtrOutput)
-}
-
-// Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
-func (o KeyKeyAttributesPtrOutput) KeyUsage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KeyKeyAttributes) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.KeyUsage
-	}).(pulumi.StringPtrOutput)
-}
-
-type KeyKeyAttributesKeyModesOfUse struct {
+type KeyKeyAttributeKeyModesOfUse struct {
 	// Whether an AWS Payment Cryptography key can be used to decrypt data.
 	Decrypt *bool `pulumi:"decrypt"`
 	// Whether an AWS Payment Cryptography key can be used to derive new keys.
@@ -228,18 +158,18 @@ type KeyKeyAttributesKeyModesOfUse struct {
 	Wrap *bool `pulumi:"wrap"`
 }
 
-// KeyKeyAttributesKeyModesOfUseInput is an input type that accepts KeyKeyAttributesKeyModesOfUseArgs and KeyKeyAttributesKeyModesOfUseOutput values.
-// You can construct a concrete instance of `KeyKeyAttributesKeyModesOfUseInput` via:
+// KeyKeyAttributeKeyModesOfUseInput is an input type that accepts KeyKeyAttributeKeyModesOfUseArgs and KeyKeyAttributeKeyModesOfUseOutput values.
+// You can construct a concrete instance of `KeyKeyAttributeKeyModesOfUseInput` via:
 //
-//	KeyKeyAttributesKeyModesOfUseArgs{...}
-type KeyKeyAttributesKeyModesOfUseInput interface {
+//	KeyKeyAttributeKeyModesOfUseArgs{...}
+type KeyKeyAttributeKeyModesOfUseInput interface {
 	pulumi.Input
 
-	ToKeyKeyAttributesKeyModesOfUseOutput() KeyKeyAttributesKeyModesOfUseOutput
-	ToKeyKeyAttributesKeyModesOfUseOutputWithContext(context.Context) KeyKeyAttributesKeyModesOfUseOutput
+	ToKeyKeyAttributeKeyModesOfUseOutput() KeyKeyAttributeKeyModesOfUseOutput
+	ToKeyKeyAttributeKeyModesOfUseOutputWithContext(context.Context) KeyKeyAttributeKeyModesOfUseOutput
 }
 
-type KeyKeyAttributesKeyModesOfUseArgs struct {
+type KeyKeyAttributeKeyModesOfUseArgs struct {
 	// Whether an AWS Payment Cryptography key can be used to decrypt data.
 	Decrypt pulumi.BoolPtrInput `pulumi:"decrypt"`
 	// Whether an AWS Payment Cryptography key can be used to derive new keys.
@@ -260,240 +190,120 @@ type KeyKeyAttributesKeyModesOfUseArgs struct {
 	Wrap pulumi.BoolPtrInput `pulumi:"wrap"`
 }
 
-func (KeyKeyAttributesKeyModesOfUseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyKeyAttributesKeyModesOfUse)(nil)).Elem()
+func (KeyKeyAttributeKeyModesOfUseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyKeyAttributeKeyModesOfUse)(nil)).Elem()
 }
 
-func (i KeyKeyAttributesKeyModesOfUseArgs) ToKeyKeyAttributesKeyModesOfUseOutput() KeyKeyAttributesKeyModesOfUseOutput {
-	return i.ToKeyKeyAttributesKeyModesOfUseOutputWithContext(context.Background())
+func (i KeyKeyAttributeKeyModesOfUseArgs) ToKeyKeyAttributeKeyModesOfUseOutput() KeyKeyAttributeKeyModesOfUseOutput {
+	return i.ToKeyKeyAttributeKeyModesOfUseOutputWithContext(context.Background())
 }
 
-func (i KeyKeyAttributesKeyModesOfUseArgs) ToKeyKeyAttributesKeyModesOfUseOutputWithContext(ctx context.Context) KeyKeyAttributesKeyModesOfUseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyKeyAttributesKeyModesOfUseOutput)
+func (i KeyKeyAttributeKeyModesOfUseArgs) ToKeyKeyAttributeKeyModesOfUseOutputWithContext(ctx context.Context) KeyKeyAttributeKeyModesOfUseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyKeyAttributeKeyModesOfUseOutput)
 }
 
-func (i KeyKeyAttributesKeyModesOfUseArgs) ToKeyKeyAttributesKeyModesOfUsePtrOutput() KeyKeyAttributesKeyModesOfUsePtrOutput {
-	return i.ToKeyKeyAttributesKeyModesOfUsePtrOutputWithContext(context.Background())
-}
-
-func (i KeyKeyAttributesKeyModesOfUseArgs) ToKeyKeyAttributesKeyModesOfUsePtrOutputWithContext(ctx context.Context) KeyKeyAttributesKeyModesOfUsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyKeyAttributesKeyModesOfUseOutput).ToKeyKeyAttributesKeyModesOfUsePtrOutputWithContext(ctx)
-}
-
-// KeyKeyAttributesKeyModesOfUsePtrInput is an input type that accepts KeyKeyAttributesKeyModesOfUseArgs, KeyKeyAttributesKeyModesOfUsePtr and KeyKeyAttributesKeyModesOfUsePtrOutput values.
-// You can construct a concrete instance of `KeyKeyAttributesKeyModesOfUsePtrInput` via:
+// KeyKeyAttributeKeyModesOfUseArrayInput is an input type that accepts KeyKeyAttributeKeyModesOfUseArray and KeyKeyAttributeKeyModesOfUseArrayOutput values.
+// You can construct a concrete instance of `KeyKeyAttributeKeyModesOfUseArrayInput` via:
 //
-//	        KeyKeyAttributesKeyModesOfUseArgs{...}
-//
-//	or:
-//
-//	        nil
-type KeyKeyAttributesKeyModesOfUsePtrInput interface {
+//	KeyKeyAttributeKeyModesOfUseArray{ KeyKeyAttributeKeyModesOfUseArgs{...} }
+type KeyKeyAttributeKeyModesOfUseArrayInput interface {
 	pulumi.Input
 
-	ToKeyKeyAttributesKeyModesOfUsePtrOutput() KeyKeyAttributesKeyModesOfUsePtrOutput
-	ToKeyKeyAttributesKeyModesOfUsePtrOutputWithContext(context.Context) KeyKeyAttributesKeyModesOfUsePtrOutput
+	ToKeyKeyAttributeKeyModesOfUseArrayOutput() KeyKeyAttributeKeyModesOfUseArrayOutput
+	ToKeyKeyAttributeKeyModesOfUseArrayOutputWithContext(context.Context) KeyKeyAttributeKeyModesOfUseArrayOutput
 }
 
-type keyKeyAttributesKeyModesOfUsePtrType KeyKeyAttributesKeyModesOfUseArgs
+type KeyKeyAttributeKeyModesOfUseArray []KeyKeyAttributeKeyModesOfUseInput
 
-func KeyKeyAttributesKeyModesOfUsePtr(v *KeyKeyAttributesKeyModesOfUseArgs) KeyKeyAttributesKeyModesOfUsePtrInput {
-	return (*keyKeyAttributesKeyModesOfUsePtrType)(v)
+func (KeyKeyAttributeKeyModesOfUseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyKeyAttributeKeyModesOfUse)(nil)).Elem()
 }
 
-func (*keyKeyAttributesKeyModesOfUsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyKeyAttributesKeyModesOfUse)(nil)).Elem()
+func (i KeyKeyAttributeKeyModesOfUseArray) ToKeyKeyAttributeKeyModesOfUseArrayOutput() KeyKeyAttributeKeyModesOfUseArrayOutput {
+	return i.ToKeyKeyAttributeKeyModesOfUseArrayOutputWithContext(context.Background())
 }
 
-func (i *keyKeyAttributesKeyModesOfUsePtrType) ToKeyKeyAttributesKeyModesOfUsePtrOutput() KeyKeyAttributesKeyModesOfUsePtrOutput {
-	return i.ToKeyKeyAttributesKeyModesOfUsePtrOutputWithContext(context.Background())
+func (i KeyKeyAttributeKeyModesOfUseArray) ToKeyKeyAttributeKeyModesOfUseArrayOutputWithContext(ctx context.Context) KeyKeyAttributeKeyModesOfUseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyKeyAttributeKeyModesOfUseArrayOutput)
 }
 
-func (i *keyKeyAttributesKeyModesOfUsePtrType) ToKeyKeyAttributesKeyModesOfUsePtrOutputWithContext(ctx context.Context) KeyKeyAttributesKeyModesOfUsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeyKeyAttributesKeyModesOfUsePtrOutput)
+type KeyKeyAttributeKeyModesOfUseOutput struct{ *pulumi.OutputState }
+
+func (KeyKeyAttributeKeyModesOfUseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyKeyAttributeKeyModesOfUse)(nil)).Elem()
 }
 
-type KeyKeyAttributesKeyModesOfUseOutput struct{ *pulumi.OutputState }
-
-func (KeyKeyAttributesKeyModesOfUseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeyKeyAttributesKeyModesOfUse)(nil)).Elem()
-}
-
-func (o KeyKeyAttributesKeyModesOfUseOutput) ToKeyKeyAttributesKeyModesOfUseOutput() KeyKeyAttributesKeyModesOfUseOutput {
+func (o KeyKeyAttributeKeyModesOfUseOutput) ToKeyKeyAttributeKeyModesOfUseOutput() KeyKeyAttributeKeyModesOfUseOutput {
 	return o
 }
 
-func (o KeyKeyAttributesKeyModesOfUseOutput) ToKeyKeyAttributesKeyModesOfUseOutputWithContext(ctx context.Context) KeyKeyAttributesKeyModesOfUseOutput {
+func (o KeyKeyAttributeKeyModesOfUseOutput) ToKeyKeyAttributeKeyModesOfUseOutputWithContext(ctx context.Context) KeyKeyAttributeKeyModesOfUseOutput {
 	return o
-}
-
-func (o KeyKeyAttributesKeyModesOfUseOutput) ToKeyKeyAttributesKeyModesOfUsePtrOutput() KeyKeyAttributesKeyModesOfUsePtrOutput {
-	return o.ToKeyKeyAttributesKeyModesOfUsePtrOutputWithContext(context.Background())
-}
-
-func (o KeyKeyAttributesKeyModesOfUseOutput) ToKeyKeyAttributesKeyModesOfUsePtrOutputWithContext(ctx context.Context) KeyKeyAttributesKeyModesOfUsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyKeyAttributesKeyModesOfUse) *KeyKeyAttributesKeyModesOfUse {
-		return &v
-	}).(KeyKeyAttributesKeyModesOfUsePtrOutput)
 }
 
 // Whether an AWS Payment Cryptography key can be used to decrypt data.
-func (o KeyKeyAttributesKeyModesOfUseOutput) Decrypt() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KeyKeyAttributesKeyModesOfUse) *bool { return v.Decrypt }).(pulumi.BoolPtrOutput)
+func (o KeyKeyAttributeKeyModesOfUseOutput) Decrypt() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KeyKeyAttributeKeyModesOfUse) *bool { return v.Decrypt }).(pulumi.BoolPtrOutput)
 }
 
 // Whether an AWS Payment Cryptography key can be used to derive new keys.
-func (o KeyKeyAttributesKeyModesOfUseOutput) DeriveKey() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KeyKeyAttributesKeyModesOfUse) *bool { return v.DeriveKey }).(pulumi.BoolPtrOutput)
+func (o KeyKeyAttributeKeyModesOfUseOutput) DeriveKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KeyKeyAttributeKeyModesOfUse) *bool { return v.DeriveKey }).(pulumi.BoolPtrOutput)
 }
 
 // Whether an AWS Payment Cryptography key can be used to encrypt data.
-func (o KeyKeyAttributesKeyModesOfUseOutput) Encrypt() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KeyKeyAttributesKeyModesOfUse) *bool { return v.Encrypt }).(pulumi.BoolPtrOutput)
+func (o KeyKeyAttributeKeyModesOfUseOutput) Encrypt() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KeyKeyAttributeKeyModesOfUse) *bool { return v.Encrypt }).(pulumi.BoolPtrOutput)
 }
 
 // Whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
-func (o KeyKeyAttributesKeyModesOfUseOutput) Generate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KeyKeyAttributesKeyModesOfUse) *bool { return v.Generate }).(pulumi.BoolPtrOutput)
+func (o KeyKeyAttributeKeyModesOfUseOutput) Generate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KeyKeyAttributeKeyModesOfUse) *bool { return v.Generate }).(pulumi.BoolPtrOutput)
 }
 
 // Whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by KeyUsage.
-func (o KeyKeyAttributesKeyModesOfUseOutput) NoRestrictions() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KeyKeyAttributesKeyModesOfUse) *bool { return v.NoRestrictions }).(pulumi.BoolPtrOutput)
+func (o KeyKeyAttributeKeyModesOfUseOutput) NoRestrictions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KeyKeyAttributeKeyModesOfUse) *bool { return v.NoRestrictions }).(pulumi.BoolPtrOutput)
 }
 
 // Whether an AWS Payment Cryptography key can be used for signing.
-func (o KeyKeyAttributesKeyModesOfUseOutput) Sign() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KeyKeyAttributesKeyModesOfUse) *bool { return v.Sign }).(pulumi.BoolPtrOutput)
+func (o KeyKeyAttributeKeyModesOfUseOutput) Sign() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KeyKeyAttributeKeyModesOfUse) *bool { return v.Sign }).(pulumi.BoolPtrOutput)
 }
 
 // Whether an AWS Payment Cryptography key can be used to unwrap other keys.
-func (o KeyKeyAttributesKeyModesOfUseOutput) Unwrap() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KeyKeyAttributesKeyModesOfUse) *bool { return v.Unwrap }).(pulumi.BoolPtrOutput)
+func (o KeyKeyAttributeKeyModesOfUseOutput) Unwrap() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KeyKeyAttributeKeyModesOfUse) *bool { return v.Unwrap }).(pulumi.BoolPtrOutput)
 }
 
 // Whether an AWS Payment Cryptography key can be used to verify signatures.
-func (o KeyKeyAttributesKeyModesOfUseOutput) Verify() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KeyKeyAttributesKeyModesOfUse) *bool { return v.Verify }).(pulumi.BoolPtrOutput)
+func (o KeyKeyAttributeKeyModesOfUseOutput) Verify() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KeyKeyAttributeKeyModesOfUse) *bool { return v.Verify }).(pulumi.BoolPtrOutput)
 }
 
 // Whether an AWS Payment Cryptography key can be used to wrap other keys.
-func (o KeyKeyAttributesKeyModesOfUseOutput) Wrap() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KeyKeyAttributesKeyModesOfUse) *bool { return v.Wrap }).(pulumi.BoolPtrOutput)
+func (o KeyKeyAttributeKeyModesOfUseOutput) Wrap() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KeyKeyAttributeKeyModesOfUse) *bool { return v.Wrap }).(pulumi.BoolPtrOutput)
 }
 
-type KeyKeyAttributesKeyModesOfUsePtrOutput struct{ *pulumi.OutputState }
+type KeyKeyAttributeKeyModesOfUseArrayOutput struct{ *pulumi.OutputState }
 
-func (KeyKeyAttributesKeyModesOfUsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeyKeyAttributesKeyModesOfUse)(nil)).Elem()
+func (KeyKeyAttributeKeyModesOfUseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KeyKeyAttributeKeyModesOfUse)(nil)).Elem()
 }
 
-func (o KeyKeyAttributesKeyModesOfUsePtrOutput) ToKeyKeyAttributesKeyModesOfUsePtrOutput() KeyKeyAttributesKeyModesOfUsePtrOutput {
+func (o KeyKeyAttributeKeyModesOfUseArrayOutput) ToKeyKeyAttributeKeyModesOfUseArrayOutput() KeyKeyAttributeKeyModesOfUseArrayOutput {
 	return o
 }
 
-func (o KeyKeyAttributesKeyModesOfUsePtrOutput) ToKeyKeyAttributesKeyModesOfUsePtrOutputWithContext(ctx context.Context) KeyKeyAttributesKeyModesOfUsePtrOutput {
+func (o KeyKeyAttributeKeyModesOfUseArrayOutput) ToKeyKeyAttributeKeyModesOfUseArrayOutputWithContext(ctx context.Context) KeyKeyAttributeKeyModesOfUseArrayOutput {
 	return o
 }
 
-func (o KeyKeyAttributesKeyModesOfUsePtrOutput) Elem() KeyKeyAttributesKeyModesOfUseOutput {
-	return o.ApplyT(func(v *KeyKeyAttributesKeyModesOfUse) KeyKeyAttributesKeyModesOfUse {
-		if v != nil {
-			return *v
-		}
-		var ret KeyKeyAttributesKeyModesOfUse
-		return ret
-	}).(KeyKeyAttributesKeyModesOfUseOutput)
-}
-
-// Whether an AWS Payment Cryptography key can be used to decrypt data.
-func (o KeyKeyAttributesKeyModesOfUsePtrOutput) Decrypt() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KeyKeyAttributesKeyModesOfUse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Decrypt
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether an AWS Payment Cryptography key can be used to derive new keys.
-func (o KeyKeyAttributesKeyModesOfUsePtrOutput) DeriveKey() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KeyKeyAttributesKeyModesOfUse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.DeriveKey
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether an AWS Payment Cryptography key can be used to encrypt data.
-func (o KeyKeyAttributesKeyModesOfUsePtrOutput) Encrypt() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KeyKeyAttributesKeyModesOfUse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Encrypt
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether an AWS Payment Cryptography key can be used to generate and verify other card and PIN verification keys.
-func (o KeyKeyAttributesKeyModesOfUsePtrOutput) Generate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KeyKeyAttributesKeyModesOfUse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Generate
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether an AWS Payment Cryptography key has no special restrictions other than the restrictions implied by KeyUsage.
-func (o KeyKeyAttributesKeyModesOfUsePtrOutput) NoRestrictions() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KeyKeyAttributesKeyModesOfUse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.NoRestrictions
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether an AWS Payment Cryptography key can be used for signing.
-func (o KeyKeyAttributesKeyModesOfUsePtrOutput) Sign() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KeyKeyAttributesKeyModesOfUse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Sign
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether an AWS Payment Cryptography key can be used to unwrap other keys.
-func (o KeyKeyAttributesKeyModesOfUsePtrOutput) Unwrap() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KeyKeyAttributesKeyModesOfUse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Unwrap
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether an AWS Payment Cryptography key can be used to verify signatures.
-func (o KeyKeyAttributesKeyModesOfUsePtrOutput) Verify() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KeyKeyAttributesKeyModesOfUse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Verify
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether an AWS Payment Cryptography key can be used to wrap other keys.
-func (o KeyKeyAttributesKeyModesOfUsePtrOutput) Wrap() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *KeyKeyAttributesKeyModesOfUse) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Wrap
-	}).(pulumi.BoolPtrOutput)
+func (o KeyKeyAttributeKeyModesOfUseArrayOutput) Index(i pulumi.IntInput) KeyKeyAttributeKeyModesOfUseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeyKeyAttributeKeyModesOfUse {
+		return vs[0].([]KeyKeyAttributeKeyModesOfUse)[vs[1].(int)]
+	}).(KeyKeyAttributeKeyModesOfUseOutput)
 }
 
 type KeyTimeouts struct {
@@ -672,16 +482,16 @@ func (o KeyTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*KeyKeyAttributesInput)(nil)).Elem(), KeyKeyAttributesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KeyKeyAttributesPtrInput)(nil)).Elem(), KeyKeyAttributesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KeyKeyAttributesKeyModesOfUseInput)(nil)).Elem(), KeyKeyAttributesKeyModesOfUseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KeyKeyAttributesKeyModesOfUsePtrInput)(nil)).Elem(), KeyKeyAttributesKeyModesOfUseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyKeyAttributeInput)(nil)).Elem(), KeyKeyAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyKeyAttributeArrayInput)(nil)).Elem(), KeyKeyAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyKeyAttributeKeyModesOfUseInput)(nil)).Elem(), KeyKeyAttributeKeyModesOfUseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyKeyAttributeKeyModesOfUseArrayInput)(nil)).Elem(), KeyKeyAttributeKeyModesOfUseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyTimeoutsInput)(nil)).Elem(), KeyTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyTimeoutsPtrInput)(nil)).Elem(), KeyTimeoutsArgs{})
-	pulumi.RegisterOutputType(KeyKeyAttributesOutput{})
-	pulumi.RegisterOutputType(KeyKeyAttributesPtrOutput{})
-	pulumi.RegisterOutputType(KeyKeyAttributesKeyModesOfUseOutput{})
-	pulumi.RegisterOutputType(KeyKeyAttributesKeyModesOfUsePtrOutput{})
+	pulumi.RegisterOutputType(KeyKeyAttributeOutput{})
+	pulumi.RegisterOutputType(KeyKeyAttributeArrayOutput{})
+	pulumi.RegisterOutputType(KeyKeyAttributeKeyModesOfUseOutput{})
+	pulumi.RegisterOutputType(KeyKeyAttributeKeyModesOfUseArrayOutput{})
 	pulumi.RegisterOutputType(KeyTimeoutsOutput{})
 	pulumi.RegisterOutputType(KeyTimeoutsPtrOutput{})
 }

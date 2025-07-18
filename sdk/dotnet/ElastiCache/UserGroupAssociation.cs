@@ -79,6 +79,12 @@ namespace Pulumi.Aws.ElastiCache
     public partial class UserGroupAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// ID of the user group.
         /// </summary>
         [Output("userGroupId")]
@@ -137,6 +143,12 @@ namespace Pulumi.Aws.ElastiCache
     public sealed class UserGroupAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// ID of the user group.
         /// </summary>
         [Input("userGroupId", required: true)]
@@ -156,6 +168,12 @@ namespace Pulumi.Aws.ElastiCache
 
     public sealed class UserGroupAssociationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// ID of the user group.
         /// </summary>

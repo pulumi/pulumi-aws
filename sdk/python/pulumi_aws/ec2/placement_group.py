@@ -24,6 +24,7 @@ class PlacementGroupArgs:
                  strategy: pulumi.Input[Union[builtins.str, 'PlacementStrategy']],
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  partition_count: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  spread_level: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -33,6 +34,7 @@ class PlacementGroupArgs:
         :param pulumi.Input[builtins.int] partition_count: The number of partitions to create in the
                placement group.  Can only be specified when the `strategy` is set to
                `partition`.  Valid values are 1 - 7 (default is `2`).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] spread_level: Determines how placement groups spread instances. Can only be used
                when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -42,6 +44,8 @@ class PlacementGroupArgs:
             pulumi.set(__self__, "name", name)
         if partition_count is not None:
             pulumi.set(__self__, "partition_count", partition_count)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if spread_level is not None:
             pulumi.set(__self__, "spread_level", spread_level)
         if tags is not None:
@@ -86,6 +90,18 @@ class PlacementGroupArgs:
         pulumi.set(self, "partition_count", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="spreadLevel")
     def spread_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -118,6 +134,7 @@ class _PlacementGroupState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  partition_count: Optional[pulumi.Input[builtins.int]] = None,
                  placement_group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  spread_level: Optional[pulumi.Input[builtins.str]] = None,
                  strategy: Optional[pulumi.Input[Union[builtins.str, 'PlacementStrategy']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -130,6 +147,7 @@ class _PlacementGroupState:
                placement group.  Can only be specified when the `strategy` is set to
                `partition`.  Valid values are 1 - 7 (default is `2`).
         :param pulumi.Input[builtins.str] placement_group_id: The ID of the placement group.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] spread_level: Determines how placement groups spread instances. Can only be used
                when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
         :param pulumi.Input[Union[builtins.str, 'PlacementStrategy']] strategy: The placement strategy. Can be `cluster`, `partition` or `spread`.
@@ -144,15 +162,14 @@ class _PlacementGroupState:
             pulumi.set(__self__, "partition_count", partition_count)
         if placement_group_id is not None:
             pulumi.set(__self__, "placement_group_id", placement_group_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if spread_level is not None:
             pulumi.set(__self__, "spread_level", spread_level)
         if strategy is not None:
             pulumi.set(__self__, "strategy", strategy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -207,6 +224,18 @@ class _PlacementGroupState:
         pulumi.set(self, "placement_group_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="spreadLevel")
     def spread_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -245,7 +274,6 @@ class _PlacementGroupState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -265,6 +293,7 @@ class PlacementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  partition_count: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  spread_level: Optional[pulumi.Input[builtins.str]] = None,
                  strategy: Optional[pulumi.Input[Union[builtins.str, 'PlacementStrategy']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -298,6 +327,7 @@ class PlacementGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] partition_count: The number of partitions to create in the
                placement group.  Can only be specified when the `strategy` is set to
                `partition`.  Valid values are 1 - 7 (default is `2`).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] spread_level: Determines how placement groups spread instances. Can only be used
                when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
         :param pulumi.Input[Union[builtins.str, 'PlacementStrategy']] strategy: The placement strategy. Can be `cluster`, `partition` or `spread`.
@@ -349,6 +379,7 @@ class PlacementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  partition_count: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  spread_level: Optional[pulumi.Input[builtins.str]] = None,
                  strategy: Optional[pulumi.Input[Union[builtins.str, 'PlacementStrategy']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -363,6 +394,7 @@ class PlacementGroup(pulumi.CustomResource):
 
             __props__.__dict__["name"] = name
             __props__.__dict__["partition_count"] = partition_count
+            __props__.__dict__["region"] = region
             __props__.__dict__["spread_level"] = spread_level
             if strategy is None and not opts.urn:
                 raise TypeError("Missing required property 'strategy'")
@@ -385,6 +417,7 @@ class PlacementGroup(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             partition_count: Optional[pulumi.Input[builtins.int]] = None,
             placement_group_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             spread_level: Optional[pulumi.Input[builtins.str]] = None,
             strategy: Optional[pulumi.Input[Union[builtins.str, 'PlacementStrategy']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -402,6 +435,7 @@ class PlacementGroup(pulumi.CustomResource):
                placement group.  Can only be specified when the `strategy` is set to
                `partition`.  Valid values are 1 - 7 (default is `2`).
         :param pulumi.Input[builtins.str] placement_group_id: The ID of the placement group.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] spread_level: Determines how placement groups spread instances. Can only be used
                when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
         :param pulumi.Input[Union[builtins.str, 'PlacementStrategy']] strategy: The placement strategy. Can be `cluster`, `partition` or `spread`.
@@ -416,6 +450,7 @@ class PlacementGroup(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["partition_count"] = partition_count
         __props__.__dict__["placement_group_id"] = placement_group_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["spread_level"] = spread_level
         __props__.__dict__["strategy"] = strategy
         __props__.__dict__["tags"] = tags
@@ -457,6 +492,14 @@ class PlacementGroup(pulumi.CustomResource):
         return pulumi.get(self, "placement_group_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="spreadLevel")
     def spread_level(self) -> pulumi.Output[builtins.str]:
         """
@@ -483,7 +526,6 @@ class PlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

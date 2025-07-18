@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafregional"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,6 +79,8 @@ type GetSubscribedRuleGroupArgs struct {
 	MetricName *string `pulumi:"metricName"`
 	// Name of the WAF rule group.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getSubscribedRuleGroup.
@@ -87,6 +89,7 @@ type GetSubscribedRuleGroupResult struct {
 	Id         string  `pulumi:"id"`
 	MetricName *string `pulumi:"metricName"`
 	Name       *string `pulumi:"name"`
+	Region     string  `pulumi:"region"`
 }
 
 func GetSubscribedRuleGroupOutput(ctx *pulumi.Context, args GetSubscribedRuleGroupOutputArgs, opts ...pulumi.InvokeOption) GetSubscribedRuleGroupResultOutput {
@@ -106,6 +109,8 @@ type GetSubscribedRuleGroupOutputArgs struct {
 	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
 	// Name of the WAF rule group.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetSubscribedRuleGroupOutputArgs) ElementType() reflect.Type {
@@ -138,6 +143,10 @@ func (o GetSubscribedRuleGroupResultOutput) MetricName() pulumi.StringPtrOutput 
 
 func (o GetSubscribedRuleGroupResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSubscribedRuleGroupResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o GetSubscribedRuleGroupResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubscribedRuleGroupResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

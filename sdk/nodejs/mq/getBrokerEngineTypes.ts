@@ -8,11 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Retrieve information about available broker engines.
+ * Provides details about available MQ broker engine types. Use this data source to retrieve supported engine types and their versions for Amazon MQ brokers.
  *
  * ## Example Usage
- *
- * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -28,6 +26,7 @@ export function getBrokerEngineTypes(args?: GetBrokerEngineTypesArgs, opts?: pul
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", {
         "engineType": args.engineType,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,9 +35,13 @@ export function getBrokerEngineTypes(args?: GetBrokerEngineTypesArgs, opts?: pul
  */
 export interface GetBrokerEngineTypesArgs {
     /**
-     * The MQ engine type to return version details for.
+     * MQ engine type to return version details for.
      */
     engineType?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -46,24 +49,23 @@ export interface GetBrokerEngineTypesArgs {
  */
 export interface GetBrokerEngineTypesResult {
     /**
-     * A list of available engine types and versions. See Engine Types.
+     * List of available engine types and versions. See Engine Types.
      */
     readonly brokerEngineTypes: outputs.mq.GetBrokerEngineTypesBrokerEngineType[];
     /**
-     * The broker's engine type.
+     * Broker's engine type.
      */
     readonly engineType?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
- * Retrieve information about available broker engines.
+ * Provides details about available MQ broker engine types. Use this data source to retrieve supported engine types and their versions for Amazon MQ brokers.
  *
  * ## Example Usage
- *
- * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -79,6 +81,7 @@ export function getBrokerEngineTypesOutput(args?: GetBrokerEngineTypesOutputArgs
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", {
         "engineType": args.engineType,
+        "region": args.region,
     }, opts);
 }
 
@@ -87,7 +90,11 @@ export function getBrokerEngineTypesOutput(args?: GetBrokerEngineTypesOutputArgs
  */
 export interface GetBrokerEngineTypesOutputArgs {
     /**
-     * The MQ engine type to return version details for.
+     * MQ engine type to return version details for.
      */
     engineType?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

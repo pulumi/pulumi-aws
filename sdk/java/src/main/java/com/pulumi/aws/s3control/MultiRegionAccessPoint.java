@@ -31,8 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3control.MultiRegionAccessPoint;
  * import com.pulumi.aws.s3control.MultiRegionAccessPointArgs;
  * import com.pulumi.aws.s3control.inputs.MultiRegionAccessPointDetailsArgs;
@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var fooBucket = new BucketV2("fooBucket", BucketV2Args.builder()
+ *         var fooBucket = new Bucket("fooBucket", BucketArgs.builder()
  *             .bucket("example-bucket-foo")
  *             .build());
  * 
- *         var barBucket = new BucketV2("barBucket", BucketV2Args.builder()
+ *         var barBucket = new Bucket("barBucket", BucketArgs.builder()
  *             .bucket("example-bucket-bar")
  *             .build());
  * 
@@ -156,6 +156,20 @@ public class MultiRegionAccessPoint extends com.pulumi.resources.CustomResource 
      */
     public Output<String> domainName() {
         return this.domainName;
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,6 +28,8 @@ func LookupResponsePlan(ctx *pulumi.Context, args *LookupResponsePlanArgs, opts 
 type LookupResponsePlanArgs struct {
 	// The Amazon Resource Name (ARN) of the response plan.
 	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The tags applied to the response plan.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -49,7 +51,8 @@ type LookupResponsePlanResult struct {
 	// Information about third-party services integrated into the response plan. The following values are supported:
 	Integrations []GetResponsePlanIntegration `pulumi:"integrations"`
 	// The name of the PagerDuty configuration.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// The tags applied to the response plan.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -67,6 +70,8 @@ func LookupResponsePlanOutput(ctx *pulumi.Context, args LookupResponsePlanOutput
 type LookupResponsePlanOutputArgs struct {
 	// The Amazon Resource Name (ARN) of the response plan.
 	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The tags applied to the response plan.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -131,6 +136,10 @@ func (o LookupResponsePlanResultOutput) Integrations() GetResponsePlanIntegratio
 // The name of the PagerDuty configuration.
 func (o LookupResponsePlanResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupResponsePlanResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupResponsePlanResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The tags applied to the response plan.

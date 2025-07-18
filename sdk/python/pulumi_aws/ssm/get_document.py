@@ -27,7 +27,7 @@ class GetDocumentResult:
     """
     A collection of values returned by getDocument.
     """
-    def __init__(__self__, arn=None, content=None, document_format=None, document_type=None, document_version=None, id=None, name=None):
+    def __init__(__self__, arn=None, content=None, document_format=None, document_type=None, document_version=None, id=None, name=None, region=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +49,9 @@ class GetDocumentResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -97,6 +100,11 @@ class GetDocumentResult:
     def name(self) -> builtins.str:
         return pulumi.get(self, "name")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetDocumentResult(GetDocumentResult):
     # pylint: disable=using-constant-test
@@ -110,12 +118,14 @@ class AwaitableGetDocumentResult(GetDocumentResult):
             document_type=self.document_type,
             document_version=self.document_version,
             id=self.id,
-            name=self.name)
+            name=self.name,
+            region=self.region)
 
 
 def get_document(document_format: Optional[builtins.str] = None,
                  document_version: Optional[builtins.str] = None,
                  name: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDocumentResult:
     """
     Gets the contents of the specified Systems Manager document.
@@ -147,11 +157,13 @@ def get_document(document_format: Optional[builtins.str] = None,
     :param builtins.str document_format: The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
     :param builtins.str document_version: The document version.
     :param builtins.str name: The name of the document.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['documentFormat'] = document_format
     __args__['documentVersion'] = document_version
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ssm/getDocument:getDocument', __args__, opts=opts, typ=GetDocumentResult).value
 
@@ -162,10 +174,12 @@ def get_document(document_format: Optional[builtins.str] = None,
         document_type=pulumi.get(__ret__, 'document_type'),
         document_version=pulumi.get(__ret__, 'document_version'),
         id=pulumi.get(__ret__, 'id'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'))
 def get_document_output(document_format: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         document_version: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         name: Optional[pulumi.Input[builtins.str]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDocumentResult]:
     """
     Gets the contents of the specified Systems Manager document.
@@ -197,11 +211,13 @@ def get_document_output(document_format: Optional[pulumi.Input[Optional[builtins
     :param builtins.str document_format: The format of the document. Valid values: `JSON`, `TEXT`, `YAML`.
     :param builtins.str document_version: The document version.
     :param builtins.str name: The name of the document.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['documentFormat'] = document_format
     __args__['documentVersion'] = document_version
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssm/getDocument:getDocument', __args__, opts=opts, typ=GetDocumentResult)
     return __ret__.apply(lambda __response__: GetDocumentResult(
@@ -211,4 +227,5 @@ def get_document_output(document_format: Optional[pulumi.Input[Optional[builtins
         document_type=pulumi.get(__response__, 'document_type'),
         document_version=pulumi.get(__response__, 'document_version'),
         id=pulumi.get(__response__, 'id'),
-        name=pulumi.get(__response__, 'name')))
+        name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region')))

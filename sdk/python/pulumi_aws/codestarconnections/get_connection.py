@@ -27,7 +27,7 @@ class GetConnectionResult:
     """
     A collection of values returned by getConnection.
     """
-    def __init__(__self__, arn=None, connection_status=None, host_arn=None, id=None, name=None, provider_type=None, tags=None):
+    def __init__(__self__, arn=None, connection_status=None, host_arn=None, id=None, name=None, provider_type=None, region=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -46,6 +46,9 @@ class GetConnectionResult:
         if provider_type and not isinstance(provider_type, str):
             raise TypeError("Expected argument 'provider_type' to be a str")
         pulumi.set(__self__, "provider_type", provider_type)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -97,6 +100,11 @@ class GetConnectionResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Map of key-value resource tags to associate with the resource.
@@ -116,11 +124,13 @@ class AwaitableGetConnectionResult(GetConnectionResult):
             id=self.id,
             name=self.name,
             provider_type=self.provider_type,
+            region=self.region,
             tags=self.tags)
 
 
 def get_connection(arn: Optional[builtins.str] = None,
                    name: Optional[builtins.str] = None,
+                   region: Optional[builtins.str] = None,
                    tags: Optional[Mapping[str, builtins.str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
@@ -151,11 +161,13 @@ def get_connection(arn: Optional[builtins.str] = None,
     :param builtins.str name: CodeStar Connection name.
            
            > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of key-value resource tags to associate with the resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:codestarconnections/getConnection:getConnection', __args__, opts=opts, typ=GetConnectionResult).value
@@ -167,9 +179,11 @@ def get_connection(arn: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         provider_type=pulumi.get(__ret__, 'provider_type'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_connection_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionResult]:
     """
@@ -200,11 +214,13 @@ def get_connection_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = 
     :param builtins.str name: CodeStar Connection name.
            
            > **NOTE:** When both `arn` and `name` are specified, `arn` takes precedence.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of key-value resource tags to associate with the resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:codestarconnections/getConnection:getConnection', __args__, opts=opts, typ=GetConnectionResult)
@@ -215,4 +231,5 @@ def get_connection_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = 
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         provider_type=pulumi.get(__response__, 'provider_type'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

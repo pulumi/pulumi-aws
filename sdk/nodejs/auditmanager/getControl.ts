@@ -60,8 +60,8 @@ import * as utilities from "../utilities";
 export function getControl(args: GetControlArgs, opts?: pulumi.InvokeOptions): Promise<GetControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:auditmanager/getControl:getControl", {
-        "controlMappingSources": args.controlMappingSources,
         "name": args.name,
+        "region": args.region,
         "type": args.type,
     }, opts);
 }
@@ -70,11 +70,14 @@ export function getControl(args: GetControlArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getControl.
  */
 export interface GetControlArgs {
-    controlMappingSources?: inputs.auditmanager.GetControlControlMappingSource[];
     /**
      * Name of the control.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Type of control. Valid values are `Custom` and `Standard`.
      */
@@ -88,10 +91,11 @@ export interface GetControlResult {
     readonly actionPlanInstructions: string;
     readonly actionPlanTitle: string;
     readonly arn: string;
-    readonly controlMappingSources?: outputs.auditmanager.GetControlControlMappingSource[];
+    readonly controlMappingSources: outputs.auditmanager.GetControlControlMappingSource[];
     readonly description: string;
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     readonly tags: {[key: string]: string};
     readonly testingInformation: string;
     readonly type: string;
@@ -149,8 +153,8 @@ export interface GetControlResult {
 export function getControlOutput(args: GetControlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:auditmanager/getControl:getControl", {
-        "controlMappingSources": args.controlMappingSources,
         "name": args.name,
+        "region": args.region,
         "type": args.type,
     }, opts);
 }
@@ -159,11 +163,14 @@ export function getControlOutput(args: GetControlOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getControl.
  */
 export interface GetControlOutputArgs {
-    controlMappingSources?: pulumi.Input<pulumi.Input<inputs.auditmanager.GetControlControlMappingSourceArgs>[]>;
     /**
      * Name of the control.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Type of control. Valid values are `Custom` and `Standard`.
      */

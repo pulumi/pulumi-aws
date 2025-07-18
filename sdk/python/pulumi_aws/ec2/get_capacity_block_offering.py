@@ -27,7 +27,7 @@ class GetCapacityBlockOfferingResult:
     """
     A collection of values returned by getCapacityBlockOffering.
     """
-    def __init__(__self__, availability_zone=None, capacity_block_offering_id=None, capacity_duration_hours=None, currency_code=None, end_date_range=None, id=None, instance_count=None, instance_type=None, start_date_range=None, tenancy=None, upfront_fee=None):
+    def __init__(__self__, availability_zone=None, capacity_block_offering_id=None, capacity_duration_hours=None, currency_code=None, end_date_range=None, id=None, instance_count=None, instance_type=None, region=None, start_date_range=None, tenancy=None, upfront_fee=None):
         if availability_zone and not isinstance(availability_zone, str):
             raise TypeError("Expected argument 'availability_zone' to be a str")
         pulumi.set(__self__, "availability_zone", availability_zone)
@@ -52,6 +52,9 @@ class GetCapacityBlockOfferingResult:
         if instance_type and not isinstance(instance_type, str):
             raise TypeError("Expected argument 'instance_type' to be a str")
         pulumi.set(__self__, "instance_type", instance_type)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if start_date_range and not isinstance(start_date_range, str):
             raise TypeError("Expected argument 'start_date_range' to be a str")
         pulumi.set(__self__, "start_date_range", start_date_range)
@@ -115,6 +118,11 @@ class GetCapacityBlockOfferingResult:
         return pulumi.get(self, "instance_type")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="startDateRange")
     def start_date_range(self) -> builtins.str:
         return pulumi.get(self, "start_date_range")
@@ -150,6 +158,7 @@ class AwaitableGetCapacityBlockOfferingResult(GetCapacityBlockOfferingResult):
             id=self.id,
             instance_count=self.instance_count,
             instance_type=self.instance_type,
+            region=self.region,
             start_date_range=self.start_date_range,
             tenancy=self.tenancy,
             upfront_fee=self.upfront_fee)
@@ -159,6 +168,7 @@ def get_capacity_block_offering(capacity_duration_hours: Optional[builtins.int] 
                                 end_date_range: Optional[builtins.str] = None,
                                 instance_count: Optional[builtins.int] = None,
                                 instance_type: Optional[builtins.str] = None,
+                                region: Optional[builtins.str] = None,
                                 start_date_range: Optional[builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityBlockOfferingResult:
     """
@@ -182,6 +192,7 @@ def get_capacity_block_offering(capacity_duration_hours: Optional[builtins.int] 
     :param builtins.str end_date_range: The date and time at which the Capacity Block Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
     :param builtins.int instance_count: The number of instances for which to reserve capacity.
     :param builtins.str instance_type: The instance type for which to reserve capacity.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str start_date_range: The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
     """
     __args__ = dict()
@@ -189,6 +200,7 @@ def get_capacity_block_offering(capacity_duration_hours: Optional[builtins.int] 
     __args__['endDateRange'] = end_date_range
     __args__['instanceCount'] = instance_count
     __args__['instanceType'] = instance_type
+    __args__['region'] = region
     __args__['startDateRange'] = start_date_range
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering', __args__, opts=opts, typ=GetCapacityBlockOfferingResult).value
@@ -202,6 +214,7 @@ def get_capacity_block_offering(capacity_duration_hours: Optional[builtins.int] 
         id=pulumi.get(__ret__, 'id'),
         instance_count=pulumi.get(__ret__, 'instance_count'),
         instance_type=pulumi.get(__ret__, 'instance_type'),
+        region=pulumi.get(__ret__, 'region'),
         start_date_range=pulumi.get(__ret__, 'start_date_range'),
         tenancy=pulumi.get(__ret__, 'tenancy'),
         upfront_fee=pulumi.get(__ret__, 'upfront_fee'))
@@ -209,6 +222,7 @@ def get_capacity_block_offering_output(capacity_duration_hours: Optional[pulumi.
                                        end_date_range: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                        instance_count: Optional[pulumi.Input[builtins.int]] = None,
                                        instance_type: Optional[pulumi.Input[builtins.str]] = None,
+                                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                        start_date_range: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityBlockOfferingResult]:
     """
@@ -232,6 +246,7 @@ def get_capacity_block_offering_output(capacity_duration_hours: Optional[pulumi.
     :param builtins.str end_date_range: The date and time at which the Capacity Block Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
     :param builtins.int instance_count: The number of instances for which to reserve capacity.
     :param builtins.str instance_type: The instance type for which to reserve capacity.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str start_date_range: The date and time at which the Capacity Block Reservation starts. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
     """
     __args__ = dict()
@@ -239,6 +254,7 @@ def get_capacity_block_offering_output(capacity_duration_hours: Optional[pulumi.
     __args__['endDateRange'] = end_date_range
     __args__['instanceCount'] = instance_count
     __args__['instanceType'] = instance_type
+    __args__['region'] = region
     __args__['startDateRange'] = start_date_range
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering', __args__, opts=opts, typ=GetCapacityBlockOfferingResult)
@@ -251,6 +267,7 @@ def get_capacity_block_offering_output(capacity_duration_hours: Optional[pulumi.
         id=pulumi.get(__response__, 'id'),
         instance_count=pulumi.get(__response__, 'instance_count'),
         instance_type=pulumi.get(__response__, 'instance_type'),
+        region=pulumi.get(__response__, 'region'),
         start_date_range=pulumi.get(__response__, 'start_date_range'),
         tenancy=pulumi.get(__response__, 'tenancy'),
         upfront_fee=pulumi.get(__response__, 'upfront_fee')))

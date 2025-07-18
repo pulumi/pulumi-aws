@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/backup"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/backup"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,6 +98,8 @@ type VaultPolicy struct {
 	BackupVaultName pulumi.StringOutput `pulumi:"backupVaultName"`
 	// The backup vault access policy document in JSON format.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewVaultPolicy registers a new resource with the given unique name, arguments, and options.
@@ -142,6 +144,8 @@ type vaultPolicyState struct {
 	BackupVaultName *string `pulumi:"backupVaultName"`
 	// The backup vault access policy document in JSON format.
 	Policy *string `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type VaultPolicyState struct {
@@ -151,6 +155,8 @@ type VaultPolicyState struct {
 	BackupVaultName pulumi.StringPtrInput
 	// The backup vault access policy document in JSON format.
 	Policy pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (VaultPolicyState) ElementType() reflect.Type {
@@ -162,6 +168,8 @@ type vaultPolicyArgs struct {
 	BackupVaultName string `pulumi:"backupVaultName"`
 	// The backup vault access policy document in JSON format.
 	Policy string `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a VaultPolicy resource.
@@ -170,6 +178,8 @@ type VaultPolicyArgs struct {
 	BackupVaultName pulumi.StringInput
 	// The backup vault access policy document in JSON format.
 	Policy pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (VaultPolicyArgs) ElementType() reflect.Type {
@@ -272,6 +282,11 @@ func (o VaultPolicyOutput) BackupVaultName() pulumi.StringOutput {
 // The backup vault access policy document in JSON format.
 func (o VaultPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o VaultPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *VaultPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type VaultPolicyArrayOutput struct{ *pulumi.OutputState }

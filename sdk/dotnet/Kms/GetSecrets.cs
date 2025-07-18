@@ -84,6 +84,9 @@ namespace Pulumi.Aws.Kms
 
     public sealed class GetSecretsArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("secrets", required: true)]
         private List<Inputs.GetSecretsSecretArgs>? _secrets;
 
@@ -104,6 +107,9 @@ namespace Pulumi.Aws.Kms
 
     public sealed class GetSecretsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("secrets", required: true)]
         private InputList<Inputs.GetSecretsSecretInputArgs>? _secrets;
 
@@ -134,6 +140,7 @@ namespace Pulumi.Aws.Kms
         /// Map containing each `secret` `name` as the key with its decrypted plaintext value
         /// </summary>
         public readonly ImmutableDictionary<string, string> Plaintext;
+        public readonly string Region;
         public readonly ImmutableArray<Outputs.GetSecretsSecretResult> Secrets;
 
         [OutputConstructor]
@@ -142,10 +149,13 @@ namespace Pulumi.Aws.Kms
 
             ImmutableDictionary<string, string> plaintext,
 
+            string region,
+
             ImmutableArray<Outputs.GetSecretsSecretResult> secrets)
         {
             Id = id;
             Plaintext = plaintext;
+            Region = region;
             Secrets = secrets;
         }
     }

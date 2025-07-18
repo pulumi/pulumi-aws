@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codecommit"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/codegurureviewer"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codecommit"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/codegurureviewer"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -76,6 +76,8 @@ type RepositoryAssociation struct {
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// The provider type of the repository association.
 	ProviderType pulumi.StringOutput `pulumi:"providerType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
 	//
 	// The following arguments are optional:
@@ -86,8 +88,7 @@ type RepositoryAssociation struct {
 	// A description of why the repository association is in the current state.
 	StateReason pulumi.StringOutput    `pulumi:"stateReason"`
 	Tags        pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll     pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewRepositoryAssociation registers a new resource with the given unique name, arguments, and options.
@@ -137,6 +138,8 @@ type repositoryAssociationState struct {
 	Owner *string `pulumi:"owner"`
 	// The provider type of the repository association.
 	ProviderType *string `pulumi:"providerType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
 	//
 	// The following arguments are optional:
@@ -147,8 +150,7 @@ type repositoryAssociationState struct {
 	// A description of why the repository association is in the current state.
 	StateReason *string           `pulumi:"stateReason"`
 	Tags        map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll     map[string]string `pulumi:"tagsAll"`
 }
 
 type RepositoryAssociationState struct {
@@ -166,6 +168,8 @@ type RepositoryAssociationState struct {
 	Owner pulumi.StringPtrInput
 	// The provider type of the repository association.
 	ProviderType pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
 	//
 	// The following arguments are optional:
@@ -176,8 +180,7 @@ type RepositoryAssociationState struct {
 	// A description of why the repository association is in the current state.
 	StateReason pulumi.StringPtrInput
 	Tags        pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
 }
 
 func (RepositoryAssociationState) ElementType() reflect.Type {
@@ -187,6 +190,8 @@ func (RepositoryAssociationState) ElementType() reflect.Type {
 type repositoryAssociationArgs struct {
 	// An object describing the KMS key to asssociate. Block is documented below.
 	KmsKeyDetails *RepositoryAssociationKmsKeyDetails `pulumi:"kmsKeyDetails"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
 	//
 	// The following arguments are optional:
@@ -198,6 +203,8 @@ type repositoryAssociationArgs struct {
 type RepositoryAssociationArgs struct {
 	// An object describing the KMS key to asssociate. Block is documented below.
 	KmsKeyDetails RepositoryAssociationKmsKeyDetailsPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
 	//
 	// The following arguments are optional:
@@ -327,6 +334,11 @@ func (o RepositoryAssociationOutput) ProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringOutput { return v.ProviderType }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o RepositoryAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `githubEnterpriseServer`, or `s3Bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `githubEnterpriseServer`) the connection must be in `Available` status prior to creating this resource.
 //
 // The following arguments are optional:
@@ -354,7 +366,6 @@ func (o RepositoryAssociationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o RepositoryAssociationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *RepositoryAssociation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

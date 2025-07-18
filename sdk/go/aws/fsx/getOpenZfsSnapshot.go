@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fsx"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fsx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,6 +67,8 @@ type LookupOpenZfsSnapshotArgs struct {
 	MostRecent *bool `pulumi:"mostRecent"`
 	// Name of the snapshot.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Returns information on a specific snapshot_id.
 	SnapshotIds []string `pulumi:"snapshotIds"`
 	// List of Tag values, with a maximum of 50 elements.
@@ -84,7 +86,8 @@ type LookupOpenZfsSnapshotResult struct {
 	Id         string `pulumi:"id"`
 	MostRecent *bool  `pulumi:"mostRecent"`
 	// Name of the snapshot.
-	Name *string `pulumi:"name"`
+	Name   *string `pulumi:"name"`
+	Region string  `pulumi:"region"`
 	// ID of the snapshot.
 	SnapshotId  string   `pulumi:"snapshotId"`
 	SnapshotIds []string `pulumi:"snapshotIds"`
@@ -112,6 +115,8 @@ type LookupOpenZfsSnapshotOutputArgs struct {
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
 	// Name of the snapshot.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Returns information on a specific snapshot_id.
 	SnapshotIds pulumi.StringArrayInput `pulumi:"snapshotIds"`
 	// List of Tag values, with a maximum of 50 elements.
@@ -163,6 +168,10 @@ func (o LookupOpenZfsSnapshotResultOutput) MostRecent() pulumi.BoolPtrOutput {
 // Name of the snapshot.
 func (o LookupOpenZfsSnapshotResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupOpenZfsSnapshotResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the snapshot.

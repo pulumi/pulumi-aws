@@ -25,7 +25,7 @@ const b = new aws.s3.Bucket('bucket', {});
 
 // Pass an unknown into assumeRole.roleArn.
 const provider = new aws.Provider("provider", {
-    assumeRole: {roleArn: b.id.apply(_ => "TODO")},
+    assumeRoles: [{roleArn: b.id.apply(_ => "TODO")}],
 });
 
 // If the bug is active, this fails because `pulumi preview` panics when trying to create the provider.

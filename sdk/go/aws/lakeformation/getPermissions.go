@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lakeformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,7 +53,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lakeformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -83,7 +83,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lakeformation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -149,6 +149,8 @@ type LookupPermissionsArgs struct {
 	//
 	// One of the following is required:
 	Principal string `pulumi:"principal"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Configuration block for a table resource. Detailed below.
 	Table *GetPermissionsTable `pulumi:"table"`
 	// Configuration block for a table with columns resource. Detailed below.
@@ -173,6 +175,7 @@ type LookupPermissionsResult struct {
 	// Subset of `permissions` which the principal can pass.
 	PermissionsWithGrantOptions []string                       `pulumi:"permissionsWithGrantOptions"`
 	Principal                   string                         `pulumi:"principal"`
+	Region                      string                         `pulumi:"region"`
 	Table                       GetPermissionsTable            `pulumi:"table"`
 	TableWithColumns            GetPermissionsTableWithColumns `pulumi:"tableWithColumns"`
 }
@@ -206,6 +209,8 @@ type LookupPermissionsOutputArgs struct {
 	//
 	// One of the following is required:
 	Principal pulumi.StringInput `pulumi:"principal"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Configuration block for a table resource. Detailed below.
 	Table GetPermissionsTablePtrInput `pulumi:"table"`
 	// Configuration block for a table with columns resource. Detailed below.
@@ -278,6 +283,10 @@ func (o LookupPermissionsResultOutput) PermissionsWithGrantOptions() pulumi.Stri
 
 func (o LookupPermissionsResultOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionsResult) string { return v.Principal }).(pulumi.StringOutput)
+}
+
+func (o LookupPermissionsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPermissionsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupPermissionsResultOutput) Table() GetPermissionsTableOutput {

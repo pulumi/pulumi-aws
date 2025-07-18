@@ -78,6 +78,10 @@ export class VpcEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Options to specify the subnets and security groups for the endpoint.
      */
     public readonly vpcOptions!: pulumi.Output<outputs.opensearch.VpcEndpointVpcOptions>;
@@ -97,6 +101,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
             const state = argsOrState as VpcEndpointState | undefined;
             resourceInputs["domainArn"] = state ? state.domainArn : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["vpcOptions"] = state ? state.vpcOptions : undefined;
         } else {
             const args = argsOrState as VpcEndpointArgs | undefined;
@@ -107,6 +112,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcOptions'");
             }
             resourceInputs["domainArn"] = args ? args.domainArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["vpcOptions"] = args ? args.vpcOptions : undefined;
             resourceInputs["endpoint"] = undefined /*out*/;
         }
@@ -128,6 +134,10 @@ export interface VpcEndpointState {
      */
     endpoint?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Options to specify the subnets and security groups for the endpoint.
      */
     vpcOptions?: pulumi.Input<inputs.opensearch.VpcEndpointVpcOptions>;
@@ -141,6 +151,10 @@ export interface VpcEndpointArgs {
      * Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
      */
     domainArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Options to specify the subnets and security groups for the endpoint.
      */

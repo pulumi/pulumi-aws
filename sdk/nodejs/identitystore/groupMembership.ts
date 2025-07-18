@@ -87,6 +87,10 @@ export class GroupMembership extends pulumi.CustomResource {
      * The identifier of the newly created group membership in the Identity Store.
      */
     public /*out*/ readonly membershipId!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a GroupMembership resource with the given unique name, arguments, and options.
@@ -105,6 +109,7 @@ export class GroupMembership extends pulumi.CustomResource {
             resourceInputs["identityStoreId"] = state ? state.identityStoreId : undefined;
             resourceInputs["memberId"] = state ? state.memberId : undefined;
             resourceInputs["membershipId"] = state ? state.membershipId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as GroupMembershipArgs | undefined;
             if ((!args || args.groupId === undefined) && !opts.urn) {
@@ -119,6 +124,7 @@ export class GroupMembership extends pulumi.CustomResource {
             resourceInputs["groupId"] = args ? args.groupId : undefined;
             resourceInputs["identityStoreId"] = args ? args.identityStoreId : undefined;
             resourceInputs["memberId"] = args ? args.memberId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["membershipId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -146,6 +152,10 @@ export interface GroupMembershipState {
      * The identifier of the newly created group membership in the Identity Store.
      */
     membershipId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -164,4 +174,8 @@ export interface GroupMembershipArgs {
      * The identifier for a user in the Identity Store.
      */
     memberId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

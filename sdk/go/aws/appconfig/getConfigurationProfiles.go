@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,6 +29,8 @@ func GetConfigurationProfiles(ctx *pulumi.Context, args *GetConfigurationProfile
 type GetConfigurationProfilesArgs struct {
 	// ID of the AppConfig Application.
 	ApplicationId string `pulumi:"applicationId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getConfigurationProfiles.
@@ -37,7 +39,8 @@ type GetConfigurationProfilesResult struct {
 	// Set of Configuration Profile IDs associated with the AppConfig Application.
 	ConfigurationProfileIds []string `pulumi:"configurationProfileIds"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id     string `pulumi:"id"`
+	Region string `pulumi:"region"`
 }
 
 func GetConfigurationProfilesOutput(ctx *pulumi.Context, args GetConfigurationProfilesOutputArgs, opts ...pulumi.InvokeOption) GetConfigurationProfilesResultOutput {
@@ -53,6 +56,8 @@ func GetConfigurationProfilesOutput(ctx *pulumi.Context, args GetConfigurationPr
 type GetConfigurationProfilesOutputArgs struct {
 	// ID of the AppConfig Application.
 	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetConfigurationProfilesOutputArgs) ElementType() reflect.Type {
@@ -86,6 +91,10 @@ func (o GetConfigurationProfilesResultOutput) ConfigurationProfileIds() pulumi.S
 // The provider-assigned unique ID for this managed resource.
 func (o GetConfigurationProfilesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConfigurationProfilesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetConfigurationProfilesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationProfilesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

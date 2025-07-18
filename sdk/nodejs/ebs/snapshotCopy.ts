@@ -101,6 +101,10 @@ export class SnapshotCopy extends pulumi.CustomResource {
      */
     public readonly permanentRestore!: pulumi.Output<boolean | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The region of the source snapshot.
      */
     public readonly sourceRegion!: pulumi.Output<string>;
@@ -118,8 +122,6 @@ export class SnapshotCopy extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -155,6 +157,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
             resourceInputs["ownerAlias"] = state ? state.ownerAlias : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["permanentRestore"] = state ? state.permanentRestore : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sourceRegion"] = state ? state.sourceRegion : undefined;
             resourceInputs["sourceSnapshotId"] = state ? state.sourceSnapshotId : undefined;
             resourceInputs["storageTier"] = state ? state.storageTier : undefined;
@@ -176,6 +179,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
             resourceInputs["encrypted"] = args ? args.encrypted : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["permanentRestore"] = args ? args.permanentRestore : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sourceRegion"] = args ? args.sourceRegion : undefined;
             resourceInputs["sourceSnapshotId"] = args ? args.sourceSnapshotId : undefined;
             resourceInputs["storageTier"] = args ? args.storageTier : undefined;
@@ -237,6 +241,10 @@ export interface SnapshotCopyState {
      */
     permanentRestore?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The region of the source snapshot.
      */
     sourceRegion?: pulumi.Input<string>;
@@ -254,8 +262,6 @@ export interface SnapshotCopyState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -293,6 +299,10 @@ export interface SnapshotCopyArgs {
      * Indicates whether to permanently restore an archived snapshot.
      */
     permanentRestore?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The region of the source snapshot.
      */

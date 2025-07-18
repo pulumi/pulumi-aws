@@ -137,6 +137,12 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
     public Output<String> querySuggestionsBlockListId() {
         return this.querySuggestionsBlockListId;
     }
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    public Output<String> region() {
+        return this.region;
+    }
     /**
      * IAM (Identity and Access Management) role used to access the block list text file in S3.
      * 
@@ -180,11 +186,7 @@ public class QuerySuggestionsBlockList extends com.pulumi.resources.CustomResour
     /**
      * Map of tags assigned to the resource, including those inherited from the provider&#39;s default_tags configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

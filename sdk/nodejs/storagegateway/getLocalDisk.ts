@@ -25,6 +25,7 @@ export function getLocalDisk(args: GetLocalDiskArgs, opts?: pulumi.InvokeOptions
         "diskNode": args.diskNode,
         "diskPath": args.diskPath,
         "gatewayArn": args.gatewayArn,
+        "region": args.region,
     }, opts);
 }
 
@@ -44,6 +45,10 @@ export interface GetLocalDiskArgs {
      * ARN of the gateway.
      */
     gatewayArn: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -61,6 +66,7 @@ export interface GetLocalDiskResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Retrieve information about a Storage Gateway local disk. The disk identifier is useful for adding the disk as a cache or upload buffer to a gateway.
@@ -83,6 +89,7 @@ export function getLocalDiskOutput(args: GetLocalDiskOutputArgs, opts?: pulumi.I
         "diskNode": args.diskNode,
         "diskPath": args.diskPath,
         "gatewayArn": args.gatewayArn,
+        "region": args.region,
     }, opts);
 }
 
@@ -102,4 +109,8 @@ export interface GetLocalDiskOutputArgs {
      * ARN of the gateway.
      */
     gatewayArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

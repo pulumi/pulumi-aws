@@ -21,14 +21,18 @@ __all__ = ['LambdaFunctionAssociationArgs', 'LambdaFunctionAssociation']
 class LambdaFunctionAssociationArgs:
     def __init__(__self__, *,
                  function_arn: pulumi.Input[builtins.str],
-                 instance_id: pulumi.Input[builtins.str]):
+                 instance_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LambdaFunctionAssociation resource.
         :param pulumi.Input[builtins.str] function_arn: Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
         :param pulumi.Input[builtins.str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "function_arn", function_arn)
         pulumi.set(__self__, "instance_id", instance_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="functionArn")
@@ -54,21 +58,37 @@ class LambdaFunctionAssociationArgs:
     def instance_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "instance_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _LambdaFunctionAssociationState:
     def __init__(__self__, *,
                  function_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[builtins.str]] = None):
+                 instance_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering LambdaFunctionAssociation resources.
         :param pulumi.Input[builtins.str] function_arn: Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
         :param pulumi.Input[builtins.str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if function_arn is not None:
             pulumi.set(__self__, "function_arn", function_arn)
         if instance_id is not None:
             pulumi.set(__self__, "instance_id", instance_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="functionArn")
@@ -94,6 +114,18 @@ class _LambdaFunctionAssociationState:
     def instance_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "instance_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation")
 class LambdaFunctionAssociation(pulumi.CustomResource):
@@ -103,6 +135,7 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  function_arn: Optional[pulumi.Input[builtins.str]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides an Amazon Connect Lambda Function Association. For more information see
@@ -131,6 +164,7 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] function_arn: Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
         :param pulumi.Input[builtins.str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -178,6 +212,7 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  function_arn: Optional[pulumi.Input[builtins.str]] = None,
                  instance_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -193,6 +228,7 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
             if instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_id'")
             __props__.__dict__["instance_id"] = instance_id
+            __props__.__dict__["region"] = region
         super(LambdaFunctionAssociation, __self__).__init__(
             'aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation',
             resource_name,
@@ -204,7 +240,8 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             function_arn: Optional[pulumi.Input[builtins.str]] = None,
-            instance_id: Optional[pulumi.Input[builtins.str]] = None) -> 'LambdaFunctionAssociation':
+            instance_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'LambdaFunctionAssociation':
         """
         Get an existing LambdaFunctionAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -214,6 +251,7 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] function_arn: Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
         :param pulumi.Input[builtins.str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -221,6 +259,7 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
 
         __props__.__dict__["function_arn"] = function_arn
         __props__.__dict__["instance_id"] = instance_id
+        __props__.__dict__["region"] = region
         return LambdaFunctionAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -238,4 +277,12 @@ class LambdaFunctionAssociation(pulumi.CustomResource):
         The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
         """
         return pulumi.get(self, "instance_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

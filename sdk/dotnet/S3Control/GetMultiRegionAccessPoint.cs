@@ -99,6 +99,12 @@ namespace Pulumi.Aws.S3Control
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetMultiRegionAccessPointArgs()
         {
         }
@@ -118,6 +124,12 @@ namespace Pulumi.Aws.S3Control
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetMultiRegionAccessPointInvokeArgs()
         {
@@ -156,6 +168,10 @@ namespace Pulumi.Aws.S3Control
         /// </summary>
         public readonly ImmutableArray<Outputs.GetMultiRegionAccessPointPublicAccessBlockResult> PublicAccessBlocks;
         /// <summary>
+        /// The name of the region.
+        /// </summary>
+        public readonly string Region;
+        /// <summary>
         /// A collection of the regions and buckets associated with the Multi-Region Access Point.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetMultiRegionAccessPointRegionResult> Regions;
@@ -182,6 +198,8 @@ namespace Pulumi.Aws.S3Control
 
             ImmutableArray<Outputs.GetMultiRegionAccessPointPublicAccessBlockResult> publicAccessBlocks,
 
+            string region,
+
             ImmutableArray<Outputs.GetMultiRegionAccessPointRegionResult> regions,
 
             string status)
@@ -194,6 +212,7 @@ namespace Pulumi.Aws.S3Control
             Id = id;
             Name = name;
             PublicAccessBlocks = publicAccessBlocks;
+            Region = region;
             Regions = regions;
             Status = status;
         }

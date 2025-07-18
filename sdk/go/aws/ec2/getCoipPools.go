@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,6 +29,8 @@ type GetCoipPoolsArgs struct {
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
 	// which take the following arguments:
 	Filters []GetCoipPoolsFilter `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired aws_ec2_coip_pools.
 	Tags map[string]string `pulumi:"tags"`
@@ -41,6 +43,7 @@ type GetCoipPoolsResult struct {
 	Id string `pulumi:"id"`
 	// Set of COIP Pool Identifiers
 	PoolIds []string          `pulumi:"poolIds"`
+	Region  string            `pulumi:"region"`
 	Tags    map[string]string `pulumi:"tags"`
 }
 
@@ -60,6 +63,8 @@ type GetCoipPoolsOutputArgs struct {
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
 	// which take the following arguments:
 	Filters GetCoipPoolsFilterArrayInput `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Mapping of tags, each pair of which must exactly match
 	// a pair on the desired aws_ec2_coip_pools.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -96,6 +101,10 @@ func (o GetCoipPoolsResultOutput) Id() pulumi.StringOutput {
 // Set of COIP Pool Identifiers
 func (o GetCoipPoolsResultOutput) PoolIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetCoipPoolsResult) []string { return v.PoolIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetCoipPoolsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoipPoolsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetCoipPoolsResultOutput) Tags() pulumi.StringMapOutput {

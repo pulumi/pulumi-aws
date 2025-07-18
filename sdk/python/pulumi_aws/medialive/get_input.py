@@ -28,7 +28,7 @@ class GetInputResult:
     """
     A collection of values returned by getInput.
     """
-    def __init__(__self__, arn=None, attached_channels=None, destinations=None, id=None, input_class=None, input_devices=None, input_partner_ids=None, input_source_type=None, media_connect_flows=None, name=None, role_arn=None, security_groups=None, sources=None, state=None, tags=None, type=None):
+    def __init__(__self__, arn=None, attached_channels=None, destinations=None, id=None, input_class=None, input_devices=None, input_partner_ids=None, input_source_type=None, media_connect_flows=None, name=None, region=None, role_arn=None, security_groups=None, sources=None, state=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -59,6 +59,9 @@ class GetInputResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -153,6 +156,11 @@ class GetInputResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> builtins.str:
         """
@@ -217,6 +225,7 @@ class AwaitableGetInputResult(GetInputResult):
             input_source_type=self.input_source_type,
             media_connect_flows=self.media_connect_flows,
             name=self.name,
+            region=self.region,
             role_arn=self.role_arn,
             security_groups=self.security_groups,
             sources=self.sources,
@@ -226,6 +235,7 @@ class AwaitableGetInputResult(GetInputResult):
 
 
 def get_input(id: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInputResult:
     """
     Data source for managing an AWS Elemental MediaLive Input.
@@ -243,9 +253,11 @@ def get_input(id: Optional[builtins.str] = None,
 
 
     :param builtins.str id: The ID of the Input.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:medialive/getInput:getInput', __args__, opts=opts, typ=GetInputResult).value
 
@@ -260,6 +272,7 @@ def get_input(id: Optional[builtins.str] = None,
         input_source_type=pulumi.get(__ret__, 'input_source_type'),
         media_connect_flows=pulumi.get(__ret__, 'media_connect_flows'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         security_groups=pulumi.get(__ret__, 'security_groups'),
         sources=pulumi.get(__ret__, 'sources'),
@@ -267,6 +280,7 @@ def get_input(id: Optional[builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_input_output(id: Optional[pulumi.Input[builtins.str]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInputResult]:
     """
     Data source for managing an AWS Elemental MediaLive Input.
@@ -284,9 +298,11 @@ def get_input_output(id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str id: The ID of the Input.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:medialive/getInput:getInput', __args__, opts=opts, typ=GetInputResult)
     return __ret__.apply(lambda __response__: GetInputResult(
@@ -300,6 +316,7 @@ def get_input_output(id: Optional[pulumi.Input[builtins.str]] = None,
         input_source_type=pulumi.get(__response__, 'input_source_type'),
         media_connect_flows=pulumi.get(__response__, 'media_connect_flows'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         security_groups=pulumi.get(__response__, 'security_groups'),
         sources=pulumi.get(__response__, 'sources'),

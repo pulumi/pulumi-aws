@@ -28,6 +28,7 @@ export function getVirtualNode(args: GetVirtualNodeArgs, opts?: pulumi.InvokeOpt
         "meshName": args.meshName,
         "meshOwner": args.meshOwner,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -48,6 +49,10 @@ export interface GetVirtualNodeArgs {
      * Name of the virtual node.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags.
      */
@@ -77,6 +82,7 @@ export interface GetVirtualNodeResult {
     readonly meshName: string;
     readonly meshOwner: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Resource owner's AWS account ID.
      */
@@ -111,6 +117,7 @@ export function getVirtualNodeOutput(args: GetVirtualNodeOutputArgs, opts?: pulu
         "meshName": args.meshName,
         "meshOwner": args.meshOwner,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -131,6 +138,10 @@ export interface GetVirtualNodeOutputArgs {
      * Name of the virtual node.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags.
      */

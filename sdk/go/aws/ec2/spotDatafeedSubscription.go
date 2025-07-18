@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,15 +24,15 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_default, err := s3.NewBucketV2(ctx, "default", &s3.BucketV2Args{
+//			_default, err := s3.NewBucket(ctx, "default", &s3.BucketArgs{
 //				Bucket: pulumi.String("tf-spot-datafeed"),
 //			})
 //			if err != nil {
@@ -65,6 +65,8 @@ type SpotDatafeedSubscription struct {
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Path of folder inside bucket to place spot pricing data.
 	Prefix pulumi.StringPtrOutput `pulumi:"prefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewSpotDatafeedSubscription registers a new resource with the given unique name, arguments, and options.
@@ -104,6 +106,8 @@ type spotDatafeedSubscriptionState struct {
 	Bucket *string `pulumi:"bucket"`
 	// Path of folder inside bucket to place spot pricing data.
 	Prefix *string `pulumi:"prefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type SpotDatafeedSubscriptionState struct {
@@ -111,6 +115,8 @@ type SpotDatafeedSubscriptionState struct {
 	Bucket pulumi.StringPtrInput
 	// Path of folder inside bucket to place spot pricing data.
 	Prefix pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (SpotDatafeedSubscriptionState) ElementType() reflect.Type {
@@ -122,6 +128,8 @@ type spotDatafeedSubscriptionArgs struct {
 	Bucket string `pulumi:"bucket"`
 	// Path of folder inside bucket to place spot pricing data.
 	Prefix *string `pulumi:"prefix"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a SpotDatafeedSubscription resource.
@@ -130,6 +138,8 @@ type SpotDatafeedSubscriptionArgs struct {
 	Bucket pulumi.StringInput
 	// Path of folder inside bucket to place spot pricing data.
 	Prefix pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (SpotDatafeedSubscriptionArgs) ElementType() reflect.Type {
@@ -227,6 +237,11 @@ func (o SpotDatafeedSubscriptionOutput) Bucket() pulumi.StringOutput {
 // Path of folder inside bucket to place spot pricing data.
 func (o SpotDatafeedSubscriptionOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpotDatafeedSubscription) pulumi.StringPtrOutput { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o SpotDatafeedSubscriptionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SpotDatafeedSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type SpotDatafeedSubscriptionArrayOutput struct{ *pulumi.OutputState }

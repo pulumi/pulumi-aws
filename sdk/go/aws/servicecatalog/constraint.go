@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +27,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,7 +79,9 @@ type Constraint struct {
 	PortfolioId pulumi.StringOutput `pulumi:"portfolioId"`
 	// Product identifier.
 	ProductId pulumi.StringOutput `pulumi:"productId"`
-	Status    pulumi.StringOutput `pulumi:"status"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
+	Status pulumi.StringOutput `pulumi:"status"`
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
 	//
 	// The following arguments are optional:
@@ -140,7 +142,9 @@ type constraintState struct {
 	PortfolioId *string `pulumi:"portfolioId"`
 	// Product identifier.
 	ProductId *string `pulumi:"productId"`
-	Status    *string `pulumi:"status"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
+	Status *string `pulumi:"status"`
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
 	//
 	// The following arguments are optional:
@@ -160,7 +164,9 @@ type ConstraintState struct {
 	PortfolioId pulumi.StringPtrInput
 	// Product identifier.
 	ProductId pulumi.StringPtrInput
-	Status    pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
+	Status pulumi.StringPtrInput
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
 	//
 	// The following arguments are optional:
@@ -182,6 +188,8 @@ type constraintArgs struct {
 	PortfolioId string `pulumi:"portfolioId"`
 	// Product identifier.
 	ProductId string `pulumi:"productId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
 	//
 	// The following arguments are optional:
@@ -200,6 +208,8 @@ type ConstraintArgs struct {
 	PortfolioId pulumi.StringInput
 	// Product identifier.
 	ProductId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `RESOURCE_UPDATE`, `STACKSET`, and `TEMPLATE`.
 	//
 	// The following arguments are optional:
@@ -321,6 +331,11 @@ func (o ConstraintOutput) PortfolioId() pulumi.StringOutput {
 // Product identifier.
 func (o ConstraintOutput) ProductId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Constraint) pulumi.StringOutput { return v.ProductId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ConstraintOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Constraint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o ConstraintOutput) Status() pulumi.StringOutput {

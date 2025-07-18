@@ -110,6 +110,10 @@ export class HostedTransitVirtualInterface extends pulumi.CustomResource {
      */
     public readonly ownerAccountId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The VLAN ID.
      */
     public readonly vlan!: pulumi.Output<number>;
@@ -140,6 +144,7 @@ export class HostedTransitVirtualInterface extends pulumi.CustomResource {
             resourceInputs["mtu"] = state ? state.mtu : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["vlan"] = state ? state.vlan : undefined;
         } else {
             const args = argsOrState as HostedTransitVirtualInterfaceArgs | undefined;
@@ -167,6 +172,7 @@ export class HostedTransitVirtualInterface extends pulumi.CustomResource {
             resourceInputs["mtu"] = args ? args.mtu : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["ownerAccountId"] = args ? args.ownerAccountId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["vlan"] = args ? args.vlan : undefined;
             resourceInputs["amazonSideAsn"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -232,6 +238,10 @@ export interface HostedTransitVirtualInterfaceState {
      */
     ownerAccountId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The VLAN ID.
      */
     vlan?: pulumi.Input<number>;
@@ -277,6 +287,10 @@ export interface HostedTransitVirtualInterfaceArgs {
      * The AWS account that will own the new virtual interface.
      */
     ownerAccountId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The VLAN ID.
      */

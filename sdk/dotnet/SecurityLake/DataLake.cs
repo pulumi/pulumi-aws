@@ -122,6 +122,12 @@ namespace Pulumi.Aws.SecurityLake
         public Output<string> MetaStoreManagerRoleArn { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS Regions where Security Lake is automatically enabled.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN for the Amazon Security Lake Amazon S3 bucket.
         /// </summary>
         [Output("s3BucketArn")]
@@ -200,6 +206,12 @@ namespace Pulumi.Aws.SecurityLake
         [Input("metaStoreManagerRoleArn", required: true)]
         public Input<string> MetaStoreManagerRoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS Regions where Security Lake is automatically enabled.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -242,6 +254,12 @@ namespace Pulumi.Aws.SecurityLake
         public Input<string>? MetaStoreManagerRoleArn { get; set; }
 
         /// <summary>
+        /// The AWS Regions where Security Lake is automatically enabled.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN for the Amazon Security Lake Amazon S3 bucket.
         /// </summary>
         [Input("s3BucketArn")]
@@ -265,7 +283,6 @@ namespace Pulumi.Aws.SecurityLake
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

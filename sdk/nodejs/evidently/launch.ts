@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Provides a CloudWatch Evidently Launch resource.
  *
+ * > **Warning:** This resource is deprecated. Use [AWS AppConfig feature flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/) instead.
+ *
  * ## Example Usage
  *
  * ### Basic
@@ -347,6 +349,10 @@ export class Launch extends pulumi.CustomResource {
      */
     public readonly randomizationSalt!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
      */
     public readonly scheduledSplitsConfig!: pulumi.Output<outputs.evidently.LaunchScheduledSplitsConfig | undefined>;
@@ -364,8 +370,6 @@ export class Launch extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -396,6 +400,7 @@ export class Launch extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["project"] = state ? state.project : undefined;
             resourceInputs["randomizationSalt"] = state ? state.randomizationSalt : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scheduledSplitsConfig"] = state ? state.scheduledSplitsConfig : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["statusReason"] = state ? state.statusReason : undefined;
@@ -416,6 +421,7 @@ export class Launch extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["project"] = args ? args.project : undefined;
             resourceInputs["randomizationSalt"] = args ? args.randomizationSalt : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scheduledSplitsConfig"] = args ? args.scheduledSplitsConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -477,6 +483,10 @@ export interface LaunchState {
      */
     randomizationSalt?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
      */
     scheduledSplitsConfig?: pulumi.Input<inputs.evidently.LaunchScheduledSplitsConfig>;
@@ -494,8 +504,6 @@ export interface LaunchState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -532,6 +540,10 @@ export interface LaunchArgs {
      * When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and randomizationSalt. If you omit randomizationSalt, Evidently uses the launch name as the randomizationSalt.
      */
     randomizationSalt?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
      */

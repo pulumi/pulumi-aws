@@ -22,6 +22,7 @@ class ContributorInsightRuleArgs:
     def __init__(__self__, *,
                  rule_definition: pulumi.Input[builtins.str],
                  rule_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_state: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -30,10 +31,13 @@ class ContributorInsightRuleArgs:
         :param pulumi.Input[builtins.str] rule_name: Unique name of the rule.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_state: State of the rule. Valid values are `ENABLED` and `DISABLED`.
         """
         pulumi.set(__self__, "rule_definition", rule_definition)
         pulumi.set(__self__, "rule_name", rule_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rule_state is not None:
             pulumi.set(__self__, "rule_state", rule_state)
         if tags is not None:
@@ -66,6 +70,18 @@ class ContributorInsightRuleArgs:
         pulumi.set(self, "rule_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="ruleState")
     def rule_state(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -90,6 +106,7 @@ class ContributorInsightRuleArgs:
 @pulumi.input_type
 class _ContributorInsightRuleState:
     def __init__(__self__, *,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  rule_definition: Optional[pulumi.Input[builtins.str]] = None,
                  rule_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -98,6 +115,7 @@ class _ContributorInsightRuleState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering ContributorInsightRule resources.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: ARN of the Contributor Insight Rule.
         :param pulumi.Input[builtins.str] rule_definition: Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
         :param pulumi.Input[builtins.str] rule_name: Unique name of the rule.
@@ -105,6 +123,8 @@ class _ContributorInsightRuleState:
                The following arguments are optional:
         :param pulumi.Input[builtins.str] rule_state: State of the rule. Valid values are `ENABLED` and `DISABLED`.
         """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_arn is not None:
             pulumi.set(__self__, "resource_arn", resource_arn)
         if rule_definition is not None:
@@ -116,10 +136,19 @@ class _ContributorInsightRuleState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -182,7 +211,6 @@ class _ContributorInsightRuleState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -197,6 +225,7 @@ class ContributorInsightRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_definition: Optional[pulumi.Input[builtins.str]] = None,
                  rule_name: Optional[pulumi.Input[builtins.str]] = None,
                  rule_state: Optional[pulumi.Input[builtins.str]] = None,
@@ -229,6 +258,7 @@ class ContributorInsightRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rule_definition: Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
         :param pulumi.Input[builtins.str] rule_name: Unique name of the rule.
                
@@ -281,6 +311,7 @@ class ContributorInsightRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rule_definition: Optional[pulumi.Input[builtins.str]] = None,
                  rule_name: Optional[pulumi.Input[builtins.str]] = None,
                  rule_state: Optional[pulumi.Input[builtins.str]] = None,
@@ -294,6 +325,7 @@ class ContributorInsightRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ContributorInsightRuleArgs.__new__(ContributorInsightRuleArgs)
 
+            __props__.__dict__["region"] = region
             if rule_definition is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_definition'")
             __props__.__dict__["rule_definition"] = rule_definition
@@ -314,6 +346,7 @@ class ContributorInsightRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_arn: Optional[pulumi.Input[builtins.str]] = None,
             rule_definition: Optional[pulumi.Input[builtins.str]] = None,
             rule_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -327,6 +360,7 @@ class ContributorInsightRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: ARN of the Contributor Insight Rule.
         :param pulumi.Input[builtins.str] rule_definition: Definition of the rule, as a JSON object. For details on the valid syntax, see [Contributor Insights Rule Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights-RuleSyntax.html).
         :param pulumi.Input[builtins.str] rule_name: Unique name of the rule.
@@ -338,6 +372,7 @@ class ContributorInsightRule(pulumi.CustomResource):
 
         __props__ = _ContributorInsightRuleState.__new__(_ContributorInsightRuleState)
 
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_arn"] = resource_arn
         __props__.__dict__["rule_definition"] = rule_definition
         __props__.__dict__["rule_name"] = rule_name
@@ -345,6 +380,14 @@ class ContributorInsightRule(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return ContributorInsightRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -387,7 +430,6 @@ class ContributorInsightRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

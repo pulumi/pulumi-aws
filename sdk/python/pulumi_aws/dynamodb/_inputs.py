@@ -865,6 +865,10 @@ if not MYPY:
         """
         ARN of the table
         """
+        consistency_mode: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
+        """
         kms_key_arn: NotRequired[pulumi.Input[builtins.str]]
         """
         ARN of the CMK that should be used for the AWS KMS encryption.
@@ -901,6 +905,7 @@ class TableReplicaArgs:
     def __init__(__self__, *,
                  region_name: pulumi.Input[builtins.str],
                  arn: Optional[pulumi.Input[builtins.str]] = None,
+                 consistency_mode: Optional[pulumi.Input[builtins.str]] = None,
                  kms_key_arn: Optional[pulumi.Input[builtins.str]] = None,
                  point_in_time_recovery: Optional[pulumi.Input[builtins.bool]] = None,
                  propagate_tags: Optional[pulumi.Input[builtins.bool]] = None,
@@ -909,6 +914,7 @@ class TableReplicaArgs:
         """
         :param pulumi.Input[builtins.str] region_name: Region name of the replica.
         :param pulumi.Input[builtins.str] arn: ARN of the table
+        :param pulumi.Input[builtins.str] consistency_mode: Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
         :param pulumi.Input[builtins.str] kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption.
                This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
                **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
@@ -926,6 +932,8 @@ class TableReplicaArgs:
         pulumi.set(__self__, "region_name", region_name)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if consistency_mode is not None:
+            pulumi.set(__self__, "consistency_mode", consistency_mode)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if point_in_time_recovery is not None:
@@ -960,6 +968,18 @@ class TableReplicaArgs:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="consistencyMode")
+    def consistency_mode(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
+        """
+        return pulumi.get(self, "consistency_mode")
+
+    @consistency_mode.setter
+    def consistency_mode(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "consistency_mode", value)
 
     @property
     @pulumi.getter(name="kmsKeyArn")

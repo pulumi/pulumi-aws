@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ebs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ebs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,14 +67,14 @@ func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulum
 
 // A collection of arguments for invoking getSnapshot.
 type LookupSnapshotArgs struct {
-	// One or more name/value pairs to filter off of. There are
-	// several valid keys, for a full reference, check out
-	// [describe-snapshots in the AWS CLI reference][1].
+	// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
 	Filters []GetSnapshotFilter `pulumi:"filters"`
 	// If more than one result is returned, use the most recent snapshot.
 	MostRecent *bool `pulumi:"mostRecent"`
 	// Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
 	Owners []string `pulumi:"owners"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// One or more AWS accounts IDs that can create volumes from the snapshot.
 	RestorableByUserIds []string `pulumi:"restorableByUserIds"`
 	// Returns information on a specific snapshot_id.
@@ -106,6 +106,7 @@ type LookupSnapshotResult struct {
 	// AWS account ID of the EBS snapshot owner.
 	OwnerId             string   `pulumi:"ownerId"`
 	Owners              []string `pulumi:"owners"`
+	Region              string   `pulumi:"region"`
 	RestorableByUserIds []string `pulumi:"restorableByUserIds"`
 	// Snapshot ID (e.g., snap-59fcb34e).
 	SnapshotId  string   `pulumi:"snapshotId"`
@@ -135,14 +136,14 @@ func LookupSnapshotOutput(ctx *pulumi.Context, args LookupSnapshotOutputArgs, op
 
 // A collection of arguments for invoking getSnapshot.
 type LookupSnapshotOutputArgs struct {
-	// One or more name/value pairs to filter off of. There are
-	// several valid keys, for a full reference, check out
-	// [describe-snapshots in the AWS CLI reference][1].
+	// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
 	Filters GetSnapshotFilterArrayInput `pulumi:"filters"`
 	// If more than one result is returned, use the most recent snapshot.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
 	// Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
 	Owners pulumi.StringArrayInput `pulumi:"owners"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// One or more AWS accounts IDs that can create volumes from the snapshot.
 	RestorableByUserIds pulumi.StringArrayInput `pulumi:"restorableByUserIds"`
 	// Returns information on a specific snapshot_id.
@@ -225,6 +226,10 @@ func (o LookupSnapshotResultOutput) OwnerId() pulumi.StringOutput {
 
 func (o LookupSnapshotResultOutput) Owners() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) []string { return v.Owners }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupSnapshotResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupSnapshotResultOutput) RestorableByUserIds() pulumi.StringArrayOutput {

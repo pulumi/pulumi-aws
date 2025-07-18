@@ -30,6 +30,7 @@ export function getClusterAuth(args: GetClusterAuthArgs, opts?: pulumi.InvokeOpt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:eks/getClusterAuth:getClusterAuth", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -41,6 +42,10 @@ export interface GetClusterAuthArgs {
      * Name of the cluster
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -52,6 +57,7 @@ export interface GetClusterAuthResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Token to use to authenticate with the cluster.
      */
@@ -83,6 +89,7 @@ export function getClusterAuthOutput(args: GetClusterAuthOutputArgs, opts?: pulu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:eks/getClusterAuth:getClusterAuth", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -94,4 +101,8 @@ export interface GetClusterAuthOutputArgs {
      * Name of the cluster
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,7 +52,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/redshift"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/redshift"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -133,7 +133,8 @@ type Cluster struct {
 	// The Elastic IP (EIP) address for the cluster.
 	ElasticIp pulumi.StringPtrOutput `pulumi:"elasticIp"`
 	// If true , the data in the cluster is encrypted at rest.
-	Encrypted pulumi.BoolPtrOutput `pulumi:"encrypted"`
+	// Default is `true`.
+	Encrypted pulumi.StringPtrOutput `pulumi:"encrypted"`
 	// The connection endpoint
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// If true , enhanced VPC routing is enabled.
@@ -144,10 +145,6 @@ type Cluster struct {
 	IamRoles pulumi.StringArrayOutput `pulumi:"iamRoles"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// Logging, documented below.
-	//
-	// Deprecated: logging is deprecated. Use the redshift.Logging resource instead. This argument will be removed in a future major version.
-	Logging ClusterLoggingOutput `pulumi:"logging"`
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName pulumi.StringPtrOutput `pulumi:"maintenanceTrackName"`
 	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
@@ -184,18 +181,16 @@ type Cluster struct {
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
 	// Format: ddd:hh24:mi-ddd:hh24:mi
 	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
-	// If true, the cluster can be accessed from a public network. Default is `true`.
+	// If true, the cluster can be accessed from a public network. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
 	SkipFinalSnapshot pulumi.BoolPtrOutput `pulumi:"skipFinalSnapshot"`
 	// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
 	SnapshotArn pulumi.StringPtrOutput `pulumi:"snapshotArn"`
 	// The name of the cluster the source snapshot was created from.
 	SnapshotClusterIdentifier pulumi.StringPtrOutput `pulumi:"snapshotClusterIdentifier"`
-	// Configuration of automatic copy of snapshots from one region to another. Documented below.
-	//
-	// Deprecated: snapshot_copy is deprecated. Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
-	SnapshotCopy ClusterSnapshotCopyOutput `pulumi:"snapshotCopy"`
 	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier pulumi.StringPtrOutput `pulumi:"snapshotIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -204,8 +199,6 @@ type Cluster struct {
 	// the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
@@ -301,7 +294,8 @@ type clusterState struct {
 	// The Elastic IP (EIP) address for the cluster.
 	ElasticIp *string `pulumi:"elasticIp"`
 	// If true , the data in the cluster is encrypted at rest.
-	Encrypted *bool `pulumi:"encrypted"`
+	// Default is `true`.
+	Encrypted *string `pulumi:"encrypted"`
 	// The connection endpoint
 	Endpoint *string `pulumi:"endpoint"`
 	// If true , enhanced VPC routing is enabled.
@@ -312,10 +306,6 @@ type clusterState struct {
 	IamRoles []string `pulumi:"iamRoles"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Logging, documented below.
-	//
-	// Deprecated: logging is deprecated. Use the redshift.Logging resource instead. This argument will be removed in a future major version.
-	Logging *ClusterLogging `pulumi:"logging"`
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName *string `pulumi:"maintenanceTrackName"`
 	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
@@ -352,18 +342,16 @@ type clusterState struct {
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
 	// Format: ddd:hh24:mi-ddd:hh24:mi
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
-	// If true, the cluster can be accessed from a public network. Default is `true`.
+	// If true, the cluster can be accessed from a public network. Default is `false`.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
 	SkipFinalSnapshot *bool `pulumi:"skipFinalSnapshot"`
 	// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
 	SnapshotArn *string `pulumi:"snapshotArn"`
 	// The name of the cluster the source snapshot was created from.
 	SnapshotClusterIdentifier *string `pulumi:"snapshotClusterIdentifier"`
-	// Configuration of automatic copy of snapshots from one region to another. Documented below.
-	//
-	// Deprecated: snapshot_copy is deprecated. Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
-	SnapshotCopy *ClusterSnapshotCopy `pulumi:"snapshotCopy"`
 	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -372,8 +360,6 @@ type clusterState struct {
 	// the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -427,7 +413,8 @@ type ClusterState struct {
 	// The Elastic IP (EIP) address for the cluster.
 	ElasticIp pulumi.StringPtrInput
 	// If true , the data in the cluster is encrypted at rest.
-	Encrypted pulumi.BoolPtrInput
+	// Default is `true`.
+	Encrypted pulumi.StringPtrInput
 	// The connection endpoint
 	Endpoint pulumi.StringPtrInput
 	// If true , enhanced VPC routing is enabled.
@@ -438,10 +425,6 @@ type ClusterState struct {
 	IamRoles pulumi.StringArrayInput
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
-	// Logging, documented below.
-	//
-	// Deprecated: logging is deprecated. Use the redshift.Logging resource instead. This argument will be removed in a future major version.
-	Logging ClusterLoggingPtrInput
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName pulumi.StringPtrInput
 	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
@@ -478,18 +461,16 @@ type ClusterState struct {
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
 	// Format: ddd:hh24:mi-ddd:hh24:mi
 	PreferredMaintenanceWindow pulumi.StringPtrInput
-	// If true, the cluster can be accessed from a public network. Default is `true`.
+	// If true, the cluster can be accessed from a public network. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
 	SkipFinalSnapshot pulumi.BoolPtrInput
 	// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
 	SnapshotArn pulumi.StringPtrInput
 	// The name of the cluster the source snapshot was created from.
 	SnapshotClusterIdentifier pulumi.StringPtrInput
-	// Configuration of automatic copy of snapshots from one region to another. Documented below.
-	//
-	// Deprecated: snapshot_copy is deprecated. Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
-	SnapshotCopy ClusterSnapshotCopyPtrInput
 	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -498,8 +479,6 @@ type ClusterState struct {
 	// the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -530,10 +509,6 @@ type clusterArgs struct {
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// The name of the parameter group to be associated with this cluster.
 	ClusterParameterGroupName *string `pulumi:"clusterParameterGroupName"`
-	// The public key for the cluster
-	ClusterPublicKey *string `pulumi:"clusterPublicKey"`
-	// The specific revision number of the database in the cluster
-	ClusterRevisionNumber *string `pulumi:"clusterRevisionNumber"`
 	// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
 	ClusterSubnetGroupName *string `pulumi:"clusterSubnetGroupName"`
 	// The cluster type to use. Either `single-node` or `multi-node`.
@@ -549,9 +524,8 @@ type clusterArgs struct {
 	// The Elastic IP (EIP) address for the cluster.
 	ElasticIp *string `pulumi:"elasticIp"`
 	// If true , the data in the cluster is encrypted at rest.
-	Encrypted *bool `pulumi:"encrypted"`
-	// The connection endpoint
-	Endpoint *string `pulumi:"endpoint"`
+	// Default is `true`.
+	Encrypted *string `pulumi:"encrypted"`
 	// If true , enhanced VPC routing is enabled.
 	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
 	// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
@@ -560,10 +534,6 @@ type clusterArgs struct {
 	IamRoles []string `pulumi:"iamRoles"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Logging, documented below.
-	//
-	// Deprecated: logging is deprecated. Use the redshift.Logging resource instead. This argument will be removed in a future major version.
-	Logging *ClusterLogging `pulumi:"logging"`
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName *string `pulumi:"maintenanceTrackName"`
 	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
@@ -598,18 +568,16 @@ type clusterArgs struct {
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
 	// Format: ddd:hh24:mi-ddd:hh24:mi
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
-	// If true, the cluster can be accessed from a public network. Default is `true`.
+	// If true, the cluster can be accessed from a public network. Default is `false`.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
 	SkipFinalSnapshot *bool `pulumi:"skipFinalSnapshot"`
 	// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
 	SnapshotArn *string `pulumi:"snapshotArn"`
 	// The name of the cluster the source snapshot was created from.
 	SnapshotClusterIdentifier *string `pulumi:"snapshotClusterIdentifier"`
-	// Configuration of automatic copy of snapshots from one region to another. Documented below.
-	//
-	// Deprecated: snapshot_copy is deprecated. Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
-	SnapshotCopy *ClusterSnapshotCopy `pulumi:"snapshotCopy"`
 	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier *string `pulumi:"snapshotIdentifier"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -643,10 +611,6 @@ type ClusterArgs struct {
 	ClusterIdentifier pulumi.StringInput
 	// The name of the parameter group to be associated with this cluster.
 	ClusterParameterGroupName pulumi.StringPtrInput
-	// The public key for the cluster
-	ClusterPublicKey pulumi.StringPtrInput
-	// The specific revision number of the database in the cluster
-	ClusterRevisionNumber pulumi.StringPtrInput
 	// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
 	ClusterSubnetGroupName pulumi.StringPtrInput
 	// The cluster type to use. Either `single-node` or `multi-node`.
@@ -662,9 +626,8 @@ type ClusterArgs struct {
 	// The Elastic IP (EIP) address for the cluster.
 	ElasticIp pulumi.StringPtrInput
 	// If true , the data in the cluster is encrypted at rest.
-	Encrypted pulumi.BoolPtrInput
-	// The connection endpoint
-	Endpoint pulumi.StringPtrInput
+	// Default is `true`.
+	Encrypted pulumi.StringPtrInput
 	// If true , enhanced VPC routing is enabled.
 	EnhancedVpcRouting pulumi.BoolPtrInput
 	// The identifier of the final snapshot that is to be created immediately before deleting the cluster. If this parameter is provided, `skipFinalSnapshot` must be false.
@@ -673,10 +636,6 @@ type ClusterArgs struct {
 	IamRoles pulumi.StringArrayInput
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
-	// Logging, documented below.
-	//
-	// Deprecated: logging is deprecated. Use the redshift.Logging resource instead. This argument will be removed in a future major version.
-	Logging ClusterLoggingPtrInput
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName pulumi.StringPtrInput
 	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
@@ -711,18 +670,16 @@ type ClusterArgs struct {
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
 	// Format: ddd:hh24:mi-ddd:hh24:mi
 	PreferredMaintenanceWindow pulumi.StringPtrInput
-	// If true, the cluster can be accessed from a public network. Default is `true`.
+	// If true, the cluster can be accessed from a public network. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
 	SkipFinalSnapshot pulumi.BoolPtrInput
 	// The ARN of the snapshot from which to create the new cluster. Conflicts with `snapshotIdentifier`.
 	SnapshotArn pulumi.StringPtrInput
 	// The name of the cluster the source snapshot was created from.
 	SnapshotClusterIdentifier pulumi.StringPtrInput
-	// Configuration of automatic copy of snapshots from one region to another. Documented below.
-	//
-	// Deprecated: snapshot_copy is deprecated. Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
-	SnapshotCopy ClusterSnapshotCopyPtrInput
 	// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 	SnapshotIdentifier pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -928,8 +885,9 @@ func (o ClusterOutput) ElasticIp() pulumi.StringPtrOutput {
 }
 
 // If true , the data in the cluster is encrypted at rest.
-func (o ClusterOutput) Encrypted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.Encrypted }).(pulumi.BoolPtrOutput)
+// Default is `true`.
+func (o ClusterOutput) Encrypted() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Encrypted }).(pulumi.StringPtrOutput)
 }
 
 // The connection endpoint
@@ -955,13 +913,6 @@ func (o ClusterOutput) IamRoles() pulumi.StringArrayOutput {
 // The ARN for the KMS encryption key. When specifying `kmsKeyId`, `encrypted` needs to be set to true.
 func (o ClusterOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
-}
-
-// Logging, documented below.
-//
-// Deprecated: logging is deprecated. Use the redshift.Logging resource instead. This argument will be removed in a future major version.
-func (o ClusterOutput) Logging() ClusterLoggingOutput {
-	return o.ApplyT(func(v *Cluster) ClusterLoggingOutput { return v.Logging }).(ClusterLoggingOutput)
 }
 
 // The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
@@ -1039,9 +990,14 @@ func (o ClusterOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
 }
 
-// If true, the cluster can be accessed from a public network. Default is `true`.
+// If true, the cluster can be accessed from a public network. Default is `false`.
 func (o ClusterOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ClusterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
@@ -1059,13 +1015,6 @@ func (o ClusterOutput) SnapshotClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SnapshotClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// Configuration of automatic copy of snapshots from one region to another. Documented below.
-//
-// Deprecated: snapshot_copy is deprecated. Use the redshift.SnapshotCopy resource instead. This argument will be removed in a future major version.
-func (o ClusterOutput) SnapshotCopy() ClusterSnapshotCopyOutput {
-	return o.ApplyT(func(v *Cluster) ClusterSnapshotCopyOutput { return v.SnapshotCopy }).(ClusterSnapshotCopyOutput)
-}
-
 // The name of the snapshot from which to create the new cluster.  Conflicts with `snapshotArn`.
 func (o ClusterOutput) SnapshotIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.SnapshotIdentifier }).(pulumi.StringPtrOutput)
@@ -1080,8 +1029,6 @@ func (o ClusterOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

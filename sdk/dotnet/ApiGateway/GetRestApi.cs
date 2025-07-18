@@ -102,6 +102,12 @@ namespace Pulumi.Aws.ApiGateway
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -127,6 +133,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -187,6 +199,7 @@ namespace Pulumi.Aws.ApiGateway
         /// JSON formatted policy document that controls access to the API Gateway.
         /// </summary>
         public readonly string Policy;
+        public readonly string Region;
         /// <summary>
         /// Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
         /// </summary>
@@ -218,6 +231,8 @@ namespace Pulumi.Aws.ApiGateway
 
             string policy,
 
+            string region,
+
             string rootResourceId,
 
             ImmutableDictionary<string, string> tags)
@@ -232,6 +247,7 @@ namespace Pulumi.Aws.ApiGateway
             MinimumCompressionSize = minimumCompressionSize;
             Name = name;
             Policy = policy;
+            Region = region;
             RootResourceId = rootResourceId;
             Tags = tags;
         }

@@ -61,6 +61,21 @@ public final class VpcBlockPublicAccessOptionsState extends com.pulumi.resources
         return Optional.ofNullable(this.internetGatewayBlockMode);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     @Import(name="timeouts")
     private @Nullable Output<VpcBlockPublicAccessOptionsTimeoutsArgs> timeouts;
 
@@ -74,6 +89,7 @@ public final class VpcBlockPublicAccessOptionsState extends com.pulumi.resources
         this.awsAccountId = $.awsAccountId;
         this.awsRegion = $.awsRegion;
         this.internetGatewayBlockMode = $.internetGatewayBlockMode;
+        this.region = $.region;
         this.timeouts = $.timeouts;
     }
 
@@ -156,6 +172,27 @@ public final class VpcBlockPublicAccessOptionsState extends com.pulumi.resources
          */
         public Builder internetGatewayBlockMode(String internetGatewayBlockMode) {
             return internetGatewayBlockMode(Output.of(internetGatewayBlockMode));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public Builder timeouts(@Nullable Output<VpcBlockPublicAccessOptionsTimeoutsArgs> timeouts) {

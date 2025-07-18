@@ -28,6 +28,7 @@ class EnvironmentArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  platform_arn: Optional[pulumi.Input[builtins.str]] = None,
                  poll_interval: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentSettingArgs']]]] = None,
                  solution_stack_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -50,6 +51,7 @@ class EnvironmentArgs:
                check if changes have been applied. Use this to adjust the rate of API calls
                for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
                use the default behavior, which is an exponential backoff
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentSettingArgs']]] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
@@ -78,6 +80,8 @@ class EnvironmentArgs:
             pulumi.set(__self__, "platform_arn", platform_arn)
         if poll_interval is not None:
             pulumi.set(__self__, "poll_interval", poll_interval)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
         if solution_stack_name is not None:
@@ -171,6 +175,18 @@ class EnvironmentArgs:
     @poll_interval.setter
     def poll_interval(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "poll_interval", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -284,6 +300,7 @@ class _EnvironmentState:
                  platform_arn: Optional[pulumi.Input[builtins.str]] = None,
                  poll_interval: Optional[pulumi.Input[builtins.str]] = None,
                  queues: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentSettingArgs']]]] = None,
                  solution_stack_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -318,6 +335,7 @@ class _EnvironmentState:
                for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
                use the default behavior, which is an exponential backoff
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] queues: SQS queues in use by this Environment.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentSettingArgs']]] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
@@ -367,15 +385,14 @@ class _EnvironmentState:
             pulumi.set(__self__, "poll_interval", poll_interval)
         if queues is not None:
             pulumi.set(__self__, "queues", queues)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
         if solution_stack_name is not None:
             pulumi.set(__self__, "solution_stack_name", solution_stack_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if template_name is not None:
@@ -577,6 +594,18 @@ class _EnvironmentState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentSettingArgs']]]]:
         """
         Option settings to configure the new Environment. These
@@ -616,7 +645,6 @@ class _EnvironmentState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -706,6 +734,7 @@ class Environment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  platform_arn: Optional[pulumi.Input[builtins.str]] = None,
                  poll_interval: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict']]]]] = None,
                  solution_stack_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -799,6 +828,7 @@ class Environment(pulumi.CustomResource):
                check if changes have been applied. Use this to adjust the rate of API calls
                for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
                use the default behavior, which is an exponential backoff
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict']]]] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
@@ -913,6 +943,7 @@ class Environment(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  platform_arn: Optional[pulumi.Input[builtins.str]] = None,
                  poll_interval: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict']]]]] = None,
                  solution_stack_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -937,6 +968,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["platform_arn"] = platform_arn
             __props__.__dict__["poll_interval"] = poll_interval
+            __props__.__dict__["region"] = region
             __props__.__dict__["settings"] = settings
             __props__.__dict__["solution_stack_name"] = solution_stack_name
             __props__.__dict__["tags"] = tags
@@ -980,6 +1012,7 @@ class Environment(pulumi.CustomResource):
             platform_arn: Optional[pulumi.Input[builtins.str]] = None,
             poll_interval: Optional[pulumi.Input[builtins.str]] = None,
             queues: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict']]]]] = None,
             solution_stack_name: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -1019,6 +1052,7 @@ class Environment(pulumi.CustomResource):
                for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
                use the default behavior, which is an exponential backoff
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] queues: SQS queues in use by this Environment.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentSettingArgs', 'EnvironmentSettingArgsDict']]]] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
@@ -1057,6 +1091,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["platform_arn"] = platform_arn
         __props__.__dict__["poll_interval"] = poll_interval
         __props__.__dict__["queues"] = queues
+        __props__.__dict__["region"] = region
         __props__.__dict__["settings"] = settings
         __props__.__dict__["solution_stack_name"] = solution_stack_name
         __props__.__dict__["tags"] = tags
@@ -1196,6 +1231,14 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def settings(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentSetting']]]:
         """
         Option settings to configure the new Environment. These
@@ -1223,7 +1266,6 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

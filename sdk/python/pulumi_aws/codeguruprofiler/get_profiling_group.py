@@ -28,7 +28,7 @@ class GetProfilingGroupResult:
     """
     A collection of values returned by getProfilingGroup.
     """
-    def __init__(__self__, agent_orchestration_configs=None, arn=None, compute_platform=None, created_at=None, id=None, name=None, profiling_statuses=None, tags=None, updated_at=None):
+    def __init__(__self__, agent_orchestration_configs=None, arn=None, compute_platform=None, created_at=None, id=None, name=None, profiling_statuses=None, region=None, tags=None, updated_at=None):
         if agent_orchestration_configs and not isinstance(agent_orchestration_configs, list):
             raise TypeError("Expected argument 'agent_orchestration_configs' to be a list")
         pulumi.set(__self__, "agent_orchestration_configs", agent_orchestration_configs)
@@ -50,6 +50,9 @@ class GetProfilingGroupResult:
         if profiling_statuses and not isinstance(profiling_statuses, list):
             raise TypeError("Expected argument 'profiling_statuses' to be a list")
         pulumi.set(__self__, "profiling_statuses", profiling_statuses)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -109,6 +112,11 @@ class GetProfilingGroupResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Mapping of Key-Value tags for the resource.
@@ -137,11 +145,13 @@ class AwaitableGetProfilingGroupResult(GetProfilingGroupResult):
             id=self.id,
             name=self.name,
             profiling_statuses=self.profiling_statuses,
+            region=self.region,
             tags=self.tags,
             updated_at=self.updated_at)
 
 
 def get_profiling_group(name: Optional[builtins.str] = None,
+                        region: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfilingGroupResult:
     """
     Data source for managing an AWS CodeGuru Profiler Profiling Group.
@@ -159,9 +169,11 @@ def get_profiling_group(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: The name of the profiling group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:codeguruprofiler/getProfilingGroup:getProfilingGroup', __args__, opts=opts, typ=GetProfilingGroupResult).value
 
@@ -173,9 +185,11 @@ def get_profiling_group(name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         profiling_statuses=pulumi.get(__ret__, 'profiling_statuses'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_profiling_group_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                               region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfilingGroupResult]:
     """
     Data source for managing an AWS CodeGuru Profiler Profiling Group.
@@ -193,9 +207,11 @@ def get_profiling_group_output(name: Optional[pulumi.Input[builtins.str]] = None
 
 
     :param builtins.str name: The name of the profiling group.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:codeguruprofiler/getProfilingGroup:getProfilingGroup', __args__, opts=opts, typ=GetProfilingGroupResult)
     return __ret__.apply(lambda __response__: GetProfilingGroupResult(
@@ -206,5 +222,6 @@ def get_profiling_group_output(name: Optional[pulumi.Input[builtins.str]] = None
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         profiling_statuses=pulumi.get(__response__, 'profiling_statuses'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         updated_at=pulumi.get(__response__, 'updated_at')))

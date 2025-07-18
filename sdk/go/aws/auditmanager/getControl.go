@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/auditmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/auditmanager"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/auditmanager"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -111,9 +111,10 @@ func LookupControl(ctx *pulumi.Context, args *LookupControlArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getControl.
 type LookupControlArgs struct {
-	ControlMappingSources []GetControlControlMappingSource `pulumi:"controlMappingSources"`
 	// Name of the control.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Type of control. Valid values are `Custom` and `Standard`.
 	Type string `pulumi:"type"`
 }
@@ -127,6 +128,7 @@ type LookupControlResult struct {
 	Description            string                           `pulumi:"description"`
 	Id                     string                           `pulumi:"id"`
 	Name                   string                           `pulumi:"name"`
+	Region                 string                           `pulumi:"region"`
 	Tags                   map[string]string                `pulumi:"tags"`
 	TestingInformation     string                           `pulumi:"testingInformation"`
 	Type                   string                           `pulumi:"type"`
@@ -143,9 +145,10 @@ func LookupControlOutput(ctx *pulumi.Context, args LookupControlOutputArgs, opts
 
 // A collection of arguments for invoking getControl.
 type LookupControlOutputArgs struct {
-	ControlMappingSources GetControlControlMappingSourceArrayInput `pulumi:"controlMappingSources"`
 	// Name of the control.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Type of control. Valid values are `Custom` and `Standard`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -195,6 +198,10 @@ func (o LookupControlResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupControlResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupControlResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupControlResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupControlResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o LookupControlResultOutput) Tags() pulumi.StringMapOutput {

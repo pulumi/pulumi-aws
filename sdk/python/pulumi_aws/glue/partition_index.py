@@ -25,19 +25,23 @@ class PartitionIndexArgs:
                  database_name: pulumi.Input[builtins.str],
                  partition_index: pulumi.Input['PartitionIndexPartitionIndexArgs'],
                  table_name: pulumi.Input[builtins.str],
-                 catalog_id: Optional[pulumi.Input[builtins.str]] = None):
+                 catalog_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a PartitionIndex resource.
         :param pulumi.Input[builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         :param pulumi.Input['PartitionIndexPartitionIndexArgs'] partition_index: Configuration block for a partition index. See `partition_index` below.
         :param pulumi.Input[builtins.str] table_name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         :param pulumi.Input[builtins.str] catalog_id: The catalog ID where the table resides.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "partition_index", partition_index)
         pulumi.set(__self__, "table_name", table_name)
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -87,6 +91,18 @@ class PartitionIndexArgs:
     def catalog_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "catalog_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _PartitionIndexState:
@@ -94,12 +110,14 @@ class _PartitionIndexState:
                  catalog_id: Optional[pulumi.Input[builtins.str]] = None,
                  database_name: Optional[pulumi.Input[builtins.str]] = None,
                  partition_index: Optional[pulumi.Input['PartitionIndexPartitionIndexArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering PartitionIndex resources.
         :param pulumi.Input[builtins.str] catalog_id: The catalog ID where the table resides.
         :param pulumi.Input[builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         :param pulumi.Input['PartitionIndexPartitionIndexArgs'] partition_index: Configuration block for a partition index. See `partition_index` below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         """
         if catalog_id is not None:
@@ -108,6 +126,8 @@ class _PartitionIndexState:
             pulumi.set(__self__, "database_name", database_name)
         if partition_index is not None:
             pulumi.set(__self__, "partition_index", partition_index)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
 
@@ -148,6 +168,18 @@ class _PartitionIndexState:
         pulumi.set(self, "partition_index", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -169,6 +201,7 @@ class PartitionIndex(pulumi.CustomResource):
                  catalog_id: Optional[pulumi.Input[builtins.str]] = None,
                  database_name: Optional[pulumi.Input[builtins.str]] = None,
                  partition_index: Optional[pulumi.Input[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -269,6 +302,7 @@ class PartitionIndex(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] catalog_id: The catalog ID where the table resides.
         :param pulumi.Input[builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         :param pulumi.Input[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']] partition_index: Configuration block for a partition index. See `partition_index` below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         """
         ...
@@ -388,6 +422,7 @@ class PartitionIndex(pulumi.CustomResource):
                  catalog_id: Optional[pulumi.Input[builtins.str]] = None,
                  database_name: Optional[pulumi.Input[builtins.str]] = None,
                  partition_index: Optional[pulumi.Input[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  table_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -405,6 +440,7 @@ class PartitionIndex(pulumi.CustomResource):
             if partition_index is None and not opts.urn:
                 raise TypeError("Missing required property 'partition_index'")
             __props__.__dict__["partition_index"] = partition_index
+            __props__.__dict__["region"] = region
             if table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_name'")
             __props__.__dict__["table_name"] = table_name
@@ -421,6 +457,7 @@ class PartitionIndex(pulumi.CustomResource):
             catalog_id: Optional[pulumi.Input[builtins.str]] = None,
             database_name: Optional[pulumi.Input[builtins.str]] = None,
             partition_index: Optional[pulumi.Input[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             table_name: Optional[pulumi.Input[builtins.str]] = None) -> 'PartitionIndex':
         """
         Get an existing PartitionIndex resource's state with the given name, id, and optional extra
@@ -432,6 +469,7 @@ class PartitionIndex(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] catalog_id: The catalog ID where the table resides.
         :param pulumi.Input[builtins.str] database_name: Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
         :param pulumi.Input[Union['PartitionIndexPartitionIndexArgs', 'PartitionIndexPartitionIndexArgsDict']] partition_index: Configuration block for a partition index. See `partition_index` below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] table_name: Name of the table. For Hive compatibility, this must be entirely lowercase.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -441,6 +479,7 @@ class PartitionIndex(pulumi.CustomResource):
         __props__.__dict__["catalog_id"] = catalog_id
         __props__.__dict__["database_name"] = database_name
         __props__.__dict__["partition_index"] = partition_index
+        __props__.__dict__["region"] = region
         __props__.__dict__["table_name"] = table_name
         return PartitionIndex(resource_name, opts=opts, __props__=__props__)
 
@@ -467,6 +506,14 @@ class PartitionIndex(pulumi.CustomResource):
         Configuration block for a partition index. See `partition_index` below.
         """
         return pulumi.get(self, "partition_index")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="tableName")

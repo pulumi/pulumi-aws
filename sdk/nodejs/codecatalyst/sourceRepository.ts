@@ -73,6 +73,10 @@ export class SourceRepository extends pulumi.CustomResource {
      */
     public readonly projectName!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the CodeCatalyst space.
      */
     public readonly spaceName!: pulumi.Output<string>;
@@ -93,6 +97,7 @@ export class SourceRepository extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["projectName"] = state ? state.projectName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["spaceName"] = state ? state.spaceName : undefined;
         } else {
             const args = argsOrState as SourceRepositoryArgs | undefined;
@@ -105,6 +110,7 @@ export class SourceRepository extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["spaceName"] = args ? args.spaceName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -131,6 +137,10 @@ export interface SourceRepositoryState {
      */
     projectName?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The name of the CodeCatalyst space.
      */
     spaceName?: pulumi.Input<string>;
@@ -154,6 +164,10 @@ export interface SourceRepositoryArgs {
      * The following arguments are optional:
      */
     projectName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the CodeCatalyst space.
      */

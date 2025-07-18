@@ -10,7 +10,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
-import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -529,7 +528,27 @@ public class Eip extends com.pulumi.resources.CustomResource {
         return this.publicIpv4Pool;
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+     * Including both will **not** return an error from the AWS API, but will have undefined behavior.
+     * See the relevant [AssociateAddress API Call][1] for more information.
+     * 
+     * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -538,6 +557,12 @@ public class Eip extends com.pulumi.resources.CustomResource {
     /**
      * @return Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
+     * Including both will **not** return an error from the AWS API, but will have undefined behavior.
+     * See the relevant [AssociateAddress API Call][1] for more information.
+     * 
+     * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
+     * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
@@ -545,11 +570,7 @@ public class Eip extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
@@ -559,36 +580,6 @@ public class Eip extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
-    }
-    /**
-     * Boolean if the EIP is in a VPC or not. Use `domain` instead.
-     * Defaults to `true` unless the region supports EC2-Classic.
-     * 
-     * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-     * 
-     * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error but `address` will be used in the
-     * case both options are defined as the api only requires one or the other.
-     * 
-     * @deprecated
-     * vpc is deprecated. Use domain instead.
-     * 
-     */
-    @Deprecated /* vpc is deprecated. Use domain instead. */
-    @Export(name="vpc", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> vpc;
-
-    /**
-     * @return Boolean if the EIP is in a VPC or not. Use `domain` instead.
-     * Defaults to `true` unless the region supports EC2-Classic.
-     * 
-     * &gt; **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both. Including both will **not** return an error from the AWS API, but will have undefined behavior. See the relevant [AssociateAddress API Call][1] for more information.
-     * 
-     * &gt; **NOTE:** Specifying both `public_ipv4_pool` and `address` won&#39;t cause an error but `address` will be used in the
-     * case both options are defined as the api only requires one or the other.
-     * 
-     */
-    public Output<Boolean> vpc() {
-        return this.vpc;
     }
 
     /**

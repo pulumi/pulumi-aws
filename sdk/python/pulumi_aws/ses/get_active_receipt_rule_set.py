@@ -27,13 +27,16 @@ class GetActiveReceiptRuleSetResult:
     """
     A collection of values returned by getActiveReceiptRuleSet.
     """
-    def __init__(__self__, arn=None, id=None, rule_set_name=None):
+    def __init__(__self__, arn=None, id=None, region=None, rule_set_name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if rule_set_name and not isinstance(rule_set_name, str):
             raise TypeError("Expected argument 'rule_set_name' to be a str")
         pulumi.set(__self__, "rule_set_name", rule_set_name)
@@ -55,6 +58,11 @@ class GetActiveReceiptRuleSetResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="ruleSetName")
     def rule_set_name(self) -> builtins.str:
         """
@@ -71,10 +79,12 @@ class AwaitableGetActiveReceiptRuleSetResult(GetActiveReceiptRuleSetResult):
         return GetActiveReceiptRuleSetResult(
             arn=self.arn,
             id=self.id,
+            region=self.region,
             rule_set_name=self.rule_set_name)
 
 
-def get_active_receipt_rule_set(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActiveReceiptRuleSetResult:
+def get_active_receipt_rule_set(region: Optional[builtins.str] = None,
+                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActiveReceiptRuleSetResult:
     """
     Retrieve the active SES receipt rule set
 
@@ -86,16 +96,22 @@ def get_active_receipt_rule_set(opts: Optional[pulumi.InvokeOptions] = None) -> 
 
     main = aws.ses.get_active_receipt_rule_set()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet', __args__, opts=opts, typ=GetActiveReceiptRuleSetResult).value
 
     return AwaitableGetActiveReceiptRuleSetResult(
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         rule_set_name=pulumi.get(__ret__, 'rule_set_name'))
-def get_active_receipt_rule_set_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActiveReceiptRuleSetResult]:
+def get_active_receipt_rule_set_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActiveReceiptRuleSetResult]:
     """
     Retrieve the active SES receipt rule set
 
@@ -107,11 +123,16 @@ def get_active_receipt_rule_set_output(opts: Optional[Union[pulumi.InvokeOptions
 
     main = aws.ses.get_active_receipt_rule_set()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ses/getActiveReceiptRuleSet:getActiveReceiptRuleSet', __args__, opts=opts, typ=GetActiveReceiptRuleSetResult)
     return __ret__.apply(lambda __response__: GetActiveReceiptRuleSetResult(
         arn=pulumi.get(__response__, 'arn'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         rule_set_name=pulumi.get(__response__, 'rule_set_name')))

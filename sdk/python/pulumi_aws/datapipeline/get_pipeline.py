@@ -27,7 +27,7 @@ class GetPipelineResult:
     """
     A collection of values returned by getPipeline.
     """
-    def __init__(__self__, description=None, id=None, name=None, pipeline_id=None, tags=None):
+    def __init__(__self__, description=None, id=None, name=None, pipeline_id=None, region=None, tags=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -40,6 +40,9 @@ class GetPipelineResult:
         if pipeline_id and not isinstance(pipeline_id, str):
             raise TypeError("Expected argument 'pipeline_id' to be a str")
         pulumi.set(__self__, "pipeline_id", pipeline_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -75,6 +78,11 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Map of tags assigned to the resource.
@@ -92,10 +100,12 @@ class AwaitableGetPipelineResult(GetPipelineResult):
             id=self.id,
             name=self.name,
             pipeline_id=self.pipeline_id,
+            region=self.region,
             tags=self.tags)
 
 
 def get_pipeline(pipeline_id: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
                  tags: Optional[Mapping[str, builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineResult:
     """
@@ -112,10 +122,12 @@ def get_pipeline(pipeline_id: Optional[builtins.str] = None,
 
 
     :param builtins.str pipeline_id: ID of the pipeline.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['pipelineId'] = pipeline_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:datapipeline/getPipeline:getPipeline', __args__, opts=opts, typ=GetPipelineResult).value
@@ -125,8 +137,10 @@ def get_pipeline(pipeline_id: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         pipeline_id=pulumi.get(__ret__, 'pipeline_id'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_pipeline_output(pipeline_id: Optional[pulumi.Input[builtins.str]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineResult]:
     """
@@ -143,10 +157,12 @@ def get_pipeline_output(pipeline_id: Optional[pulumi.Input[builtins.str]] = None
 
 
     :param builtins.str pipeline_id: ID of the pipeline.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['pipelineId'] = pipeline_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:datapipeline/getPipeline:getPipeline', __args__, opts=opts, typ=GetPipelineResult)
@@ -155,4 +171,5 @@ def get_pipeline_output(pipeline_id: Optional[pulumi.Input[builtins.str]] = None
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         pipeline_id=pulumi.get(__response__, 'pipeline_id'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

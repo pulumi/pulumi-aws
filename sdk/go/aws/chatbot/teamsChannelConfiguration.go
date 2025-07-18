@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/chatbot"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/chatbot"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,13 +75,13 @@ type TeamsChannelConfiguration struct {
 	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
 	// Logging levels include `ERROR`, `INFO`, or `NONE`.
 	LoggingLevel pulumi.StringOutput `pulumi:"loggingLevel"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
 	SnsTopicArns pulumi.StringArrayOutput `pulumi:"snsTopicArns"`
 	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
 	TeamId pulumi.StringOutput `pulumi:"teamId"`
@@ -155,13 +155,13 @@ type teamsChannelConfigurationState struct {
 	IamRoleArn *string `pulumi:"iamRoleArn"`
 	// Logging levels include `ERROR`, `INFO`, or `NONE`.
 	LoggingLevel *string `pulumi:"loggingLevel"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
 	SnsTopicArns []string `pulumi:"snsTopicArns"`
 	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
 	TeamId *string `pulumi:"teamId"`
@@ -191,13 +191,13 @@ type TeamsChannelConfigurationState struct {
 	IamRoleArn pulumi.StringPtrInput
 	// Logging levels include `ERROR`, `INFO`, or `NONE`.
 	LoggingLevel pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
 	SnsTopicArns pulumi.StringArrayInput
 	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// ID of the Microsoft Team authorized with AWS Chatbot. To get the team ID, you must perform the initial authorization flow with Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the console.
 	TeamId pulumi.StringPtrInput
@@ -229,6 +229,8 @@ type teamsChannelConfigurationArgs struct {
 	IamRoleArn string `pulumi:"iamRoleArn"`
 	// Logging levels include `ERROR`, `INFO`, or `NONE`.
 	LoggingLevel *string `pulumi:"loggingLevel"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
 	SnsTopicArns []string `pulumi:"snsTopicArns"`
 	// Map of tags assigned to the resource.
@@ -260,6 +262,8 @@ type TeamsChannelConfigurationArgs struct {
 	IamRoleArn pulumi.StringInput
 	// Logging levels include `ERROR`, `INFO`, or `NONE`.
 	LoggingLevel pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARNs of the SNS topics that deliver notifications to AWS Chatbot.
 	SnsTopicArns pulumi.StringArrayInput
 	// Map of tags assigned to the resource.
@@ -399,6 +403,11 @@ func (o TeamsChannelConfigurationOutput) LoggingLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.StringOutput { return v.LoggingLevel }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o TeamsChannelConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // ARNs of the SNS topics that deliver notifications to AWS Chatbot.
 func (o TeamsChannelConfigurationOutput) SnsTopicArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.StringArrayOutput { return v.SnsTopicArns }).(pulumi.StringArrayOutput)
@@ -410,8 +419,6 @@ func (o TeamsChannelConfigurationOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o TeamsChannelConfigurationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TeamsChannelConfiguration) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

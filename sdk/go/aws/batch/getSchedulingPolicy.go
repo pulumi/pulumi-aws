@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/batch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupSchedulingPolicy(ctx *pulumi.Context, args *LookupSchedulingPolicyArg
 type LookupSchedulingPolicyArgs struct {
 	// ARN of the scheduling policy.
 	Arn string `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -63,7 +65,8 @@ type LookupSchedulingPolicyResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Name of the scheduling policy.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Key-value map of resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -81,6 +84,8 @@ func LookupSchedulingPolicyOutput(ctx *pulumi.Context, args LookupSchedulingPoli
 type LookupSchedulingPolicyOutputArgs struct {
 	// ARN of the scheduling policy.
 	Arn pulumi.StringInput `pulumi:"arn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value map of resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -120,6 +125,10 @@ func (o LookupSchedulingPolicyResultOutput) Id() pulumi.StringOutput {
 // Name of the scheduling policy.
 func (o LookupSchedulingPolicyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSchedulingPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupSchedulingPolicyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSchedulingPolicyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags

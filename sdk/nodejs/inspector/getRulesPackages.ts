@@ -33,10 +33,22 @@ import * as utilities from "../utilities";
  * });
  * ```
  */
-export function getRulesPackages(opts?: pulumi.InvokeOptions): Promise<GetRulesPackagesResult> {
+export function getRulesPackages(args?: GetRulesPackagesArgs, opts?: pulumi.InvokeOptions): Promise<GetRulesPackagesResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:inspector/getRulesPackages:getRulesPackages", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getRulesPackages.
+ */
+export interface GetRulesPackagesArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -51,6 +63,7 @@ export interface GetRulesPackagesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * The Amazon Inspector Classic Rules Packages data source allows access to the list of AWS
@@ -81,8 +94,20 @@ export interface GetRulesPackagesResult {
  * });
  * ```
  */
-export function getRulesPackagesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRulesPackagesResult> {
+export function getRulesPackagesOutput(args?: GetRulesPackagesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRulesPackagesResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:inspector/getRulesPackages:getRulesPackages", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getRulesPackages.
+ */
+export interface GetRulesPackagesOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -7,8 +7,6 @@ import com.pulumi.aws.ec2.inputs.LaunchTemplateBlockDeviceMappingArgs;
 import com.pulumi.aws.ec2.inputs.LaunchTemplateCapacityReservationSpecificationArgs;
 import com.pulumi.aws.ec2.inputs.LaunchTemplateCpuOptionsArgs;
 import com.pulumi.aws.ec2.inputs.LaunchTemplateCreditSpecificationArgs;
-import com.pulumi.aws.ec2.inputs.LaunchTemplateElasticGpuSpecificationArgs;
-import com.pulumi.aws.ec2.inputs.LaunchTemplateElasticInferenceAcceleratorArgs;
 import com.pulumi.aws.ec2.inputs.LaunchTemplateEnclaveOptionsArgs;
 import com.pulumi.aws.ec2.inputs.LaunchTemplateHibernationOptionsArgs;
 import com.pulumi.aws.ec2.inputs.LaunchTemplateIamInstanceProfileArgs;
@@ -177,54 +175,6 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<String>> ebsOptimized() {
         return Optional.ofNullable(this.ebsOptimized);
-    }
-
-    /**
-     * **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-     * below for more details.
-     * 
-     * @deprecated
-     * elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-     * 
-     */
-    @Deprecated /* elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service. */
-    @Import(name="elasticGpuSpecifications")
-    private @Nullable Output<List<LaunchTemplateElasticGpuSpecificationArgs>> elasticGpuSpecifications;
-
-    /**
-     * @return **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-     * below for more details.
-     * 
-     * @deprecated
-     * elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-     * 
-     */
-    @Deprecated /* elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service. */
-    public Optional<Output<List<LaunchTemplateElasticGpuSpecificationArgs>>> elasticGpuSpecifications() {
-        return Optional.ofNullable(this.elasticGpuSpecifications);
-    }
-
-    /**
-     * **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-     * 
-     * @deprecated
-     * elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-     * 
-     */
-    @Deprecated /* elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service. */
-    @Import(name="elasticInferenceAccelerator")
-    private @Nullable Output<LaunchTemplateElasticInferenceAcceleratorArgs> elasticInferenceAccelerator;
-
-    /**
-     * @return **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-     * 
-     * @deprecated
-     * elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-     * 
-     */
-    @Deprecated /* elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service. */
-    public Optional<Output<LaunchTemplateElasticInferenceAcceleratorArgs>> elasticInferenceAccelerator() {
-        return Optional.ofNullable(this.elasticInferenceAccelerator);
     }
 
     /**
@@ -536,6 +486,21 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
      * `vpc_security_group_ids` instead.
      * 
@@ -639,8 +604,6 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.ResourceArgs 
         this.disableApiStop = $.disableApiStop;
         this.disableApiTermination = $.disableApiTermination;
         this.ebsOptimized = $.ebsOptimized;
-        this.elasticGpuSpecifications = $.elasticGpuSpecifications;
-        this.elasticInferenceAccelerator = $.elasticInferenceAccelerator;
         this.enclaveOptions = $.enclaveOptions;
         this.hibernationOptions = $.hibernationOptions;
         this.iamInstanceProfile = $.iamInstanceProfile;
@@ -661,6 +624,7 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.ResourceArgs 
         this.placement = $.placement;
         this.privateDnsNameOptions = $.privateDnsNameOptions;
         this.ramDiskId = $.ramDiskId;
+        this.region = $.region;
         this.securityGroupNames = $.securityGroupNames;
         this.tagSpecifications = $.tagSpecifications;
         this.tags = $.tags;
@@ -891,81 +855,6 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder ebsOptimized(String ebsOptimized) {
             return ebsOptimized(Output.of(ebsOptimized));
-        }
-
-        /**
-         * @param elasticGpuSpecifications **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-         * below for more details.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-         * 
-         */
-        @Deprecated /* elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service. */
-        public Builder elasticGpuSpecifications(@Nullable Output<List<LaunchTemplateElasticGpuSpecificationArgs>> elasticGpuSpecifications) {
-            $.elasticGpuSpecifications = elasticGpuSpecifications;
-            return this;
-        }
-
-        /**
-         * @param elasticGpuSpecifications **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-         * below for more details.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-         * 
-         */
-        @Deprecated /* elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service. */
-        public Builder elasticGpuSpecifications(List<LaunchTemplateElasticGpuSpecificationArgs> elasticGpuSpecifications) {
-            return elasticGpuSpecifications(Output.of(elasticGpuSpecifications));
-        }
-
-        /**
-         * @param elasticGpuSpecifications **DEPRECATED** The elastic GPU to attach to the instance. See Elastic GPU
-         * below for more details.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service.
-         * 
-         */
-        @Deprecated /* elastic_gpu_specifications is deprecated. AWS no longer supports the Elastic Graphics service. */
-        public Builder elasticGpuSpecifications(LaunchTemplateElasticGpuSpecificationArgs... elasticGpuSpecifications) {
-            return elasticGpuSpecifications(List.of(elasticGpuSpecifications));
-        }
-
-        /**
-         * @param elasticInferenceAccelerator **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-         * 
-         */
-        @Deprecated /* elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service. */
-        public Builder elasticInferenceAccelerator(@Nullable Output<LaunchTemplateElasticInferenceAcceleratorArgs> elasticInferenceAccelerator) {
-            $.elasticInferenceAccelerator = elasticInferenceAccelerator;
-            return this;
-        }
-
-        /**
-         * @param elasticInferenceAccelerator **DEPRECATED** Configuration block containing an Elastic Inference Accelerator to attach to the instance. See Elastic Inference Accelerator below for more details.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service.
-         * 
-         */
-        @Deprecated /* elastic_inference_accelerator is deprecated. AWS no longer supports the Elastic Inference service. */
-        public Builder elasticInferenceAccelerator(LaunchTemplateElasticInferenceAcceleratorArgs elasticInferenceAccelerator) {
-            return elasticInferenceAccelerator(Output.of(elasticInferenceAccelerator));
         }
 
         /**
@@ -1415,6 +1304,27 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder ramDiskId(String ramDiskId) {
             return ramDiskId(Output.of(ramDiskId));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

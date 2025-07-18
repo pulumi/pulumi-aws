@@ -46,6 +46,21 @@ public final class GetQuicksightUserPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The name of the user that you want to match.
      * 
      * The following arguments are optional:
@@ -69,6 +84,7 @@ public final class GetQuicksightUserPlainArgs extends com.pulumi.resources.Invok
     private GetQuicksightUserPlainArgs(GetQuicksightUserPlainArgs $) {
         this.awsAccountId = $.awsAccountId;
         this.namespace = $.namespace;
+        this.region = $.region;
         this.userName = $.userName;
     }
 
@@ -109,6 +125,17 @@ public final class GetQuicksightUserPlainArgs extends com.pulumi.resources.Invok
          */
         public Builder namespace(@Nullable String namespace) {
             $.namespace = namespace;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

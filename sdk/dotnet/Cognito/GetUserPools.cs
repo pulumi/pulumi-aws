@@ -132,6 +132,12 @@ namespace Pulumi.Aws.Cognito
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetUserPoolsArgs()
         {
         }
@@ -145,6 +151,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetUserPoolsInvokeArgs()
         {
@@ -169,6 +181,7 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Name;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetUserPoolsResult(
@@ -178,12 +191,15 @@ namespace Pulumi.Aws.Cognito
 
             ImmutableArray<string> ids,
 
-            string name)
+            string name,
+
+            string region)
         {
             Arns = arns;
             Id = id;
             Ids = ids;
             Name = name;
+            Region = region;
         }
     }
 }

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/networkmonitor"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/networkmonitor"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,13 +78,13 @@ type Probe struct {
 	ProbeId    pulumi.StringOutput `pulumi:"probeId"`
 	// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the subnet.
 	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
 	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	VpcId   pulumi.StringOutput    `pulumi:"vpcId"`
 }
@@ -145,13 +145,13 @@ type probeState struct {
 	ProbeId    *string `pulumi:"probeId"`
 	// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
 	Protocol *string `pulumi:"protocol"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the subnet.
 	SourceArn *string `pulumi:"sourceArn"`
 	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	VpcId   *string           `pulumi:"vpcId"`
 }
@@ -171,13 +171,13 @@ type ProbeState struct {
 	ProbeId    pulumi.StringPtrInput
 	// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
 	Protocol pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the subnet.
 	SourceArn pulumi.StringPtrInput
 	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	VpcId   pulumi.StringPtrInput
 }
@@ -197,6 +197,8 @@ type probeArgs struct {
 	PacketSize *int `pulumi:"packetSize"`
 	// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
 	Protocol string `pulumi:"protocol"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the subnet.
 	SourceArn string `pulumi:"sourceArn"`
 	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -215,6 +217,8 @@ type ProbeArgs struct {
 	PacketSize pulumi.IntPtrInput
 	// The protocol used for the network traffic between the source and destination. This must be either TCP or ICMP.
 	Protocol pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the subnet.
 	SourceArn pulumi.StringInput
 	// Key-value tags for the monitor. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -346,6 +350,11 @@ func (o ProbeOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ProbeOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Probe) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The ARN of the subnet.
 func (o ProbeOutput) SourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringOutput { return v.SourceArn }).(pulumi.StringOutput)
@@ -357,8 +366,6 @@ func (o ProbeOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ProbeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Probe) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

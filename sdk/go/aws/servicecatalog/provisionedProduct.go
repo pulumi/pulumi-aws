@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,7 +30,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicecatalog"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicecatalog"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -110,6 +110,8 @@ type ProvisionedProduct struct {
 	ProvisioningArtifactName pulumi.StringPtrOutput `pulumi:"provisioningArtifactName"`
 	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
 	ProvisioningParameters ProvisionedProductProvisioningParameterArrayOutput `pulumi:"provisioningParameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
 	RetainPhysicalResources pulumi.BoolPtrOutput `pulumi:"retainPhysicalResources"`
 	// Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
@@ -121,8 +123,6 @@ type ProvisionedProduct struct {
 	// Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -198,6 +198,8 @@ type provisionedProductState struct {
 	ProvisioningArtifactName *string `pulumi:"provisioningArtifactName"`
 	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
 	ProvisioningParameters []ProvisionedProductProvisioningParameter `pulumi:"provisioningParameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
 	RetainPhysicalResources *bool `pulumi:"retainPhysicalResources"`
 	// Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
@@ -209,8 +211,6 @@ type provisionedProductState struct {
 	// Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
 	Type *string `pulumi:"type"`
@@ -257,6 +257,8 @@ type ProvisionedProductState struct {
 	ProvisioningArtifactName pulumi.StringPtrInput
 	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
 	ProvisioningParameters ProvisionedProductProvisioningParameterArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
 	RetainPhysicalResources pulumi.BoolPtrInput
 	// Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
@@ -268,8 +270,6 @@ type ProvisionedProductState struct {
 	// Tags to apply to the provisioned product. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Type of provisioned product. Valid values are `CFN_STACK` and `CFN_STACKSET`.
 	Type pulumi.StringPtrInput
@@ -304,6 +304,8 @@ type provisionedProductArgs struct {
 	ProvisioningArtifactName *string `pulumi:"provisioningArtifactName"`
 	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
 	ProvisioningParameters []ProvisionedProductProvisioningParameter `pulumi:"provisioningParameters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
 	RetainPhysicalResources *bool `pulumi:"retainPhysicalResources"`
 	// Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
@@ -338,6 +340,8 @@ type ProvisionedProductArgs struct {
 	ProvisioningArtifactName pulumi.StringPtrInput
 	// Configuration block with parameters specified by the administrator that are required for provisioning the product. See `provisioningParameters` Block for details.
 	ProvisioningParameters ProvisionedProductProvisioningParameterArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
 	RetainPhysicalResources pulumi.BoolPtrInput
 	// Configuration block with information about the provisioning preferences for a stack set. See `stackSetProvisioningPreferences` Block for details.
@@ -532,6 +536,11 @@ func (o ProvisionedProductOutput) ProvisioningParameters() ProvisionedProductPro
 	}).(ProvisionedProductProvisioningParameterArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ProvisionedProductOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // _Only applies to deleting._ Whether to delete the Service Catalog provisioned product but leave the CloudFormation stack, stack set, or the underlying resources of the deleted provisioned product. The default value is `false`.
 func (o ProvisionedProductOutput) RetainPhysicalResources() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ProvisionedProduct) pulumi.BoolPtrOutput { return v.RetainPhysicalResources }).(pulumi.BoolPtrOutput)
@@ -560,8 +569,6 @@ func (o ProvisionedProductOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ProvisionedProductOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProvisionedProduct) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

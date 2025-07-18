@@ -44,6 +44,7 @@ export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOption
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:rds/getInstances:getInstances", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -56,6 +57,10 @@ export interface GetInstancesArgs {
      * Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
      */
     filters?: inputs.rds.GetInstancesFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired instances.
      */
@@ -79,6 +84,7 @@ export interface GetInstancesResult {
      * Identifiers of the matched RDS instances.
      */
     readonly instanceIdentifiers: string[];
+    readonly region: string;
     readonly tags: {[key: string]: string};
 }
 /**
@@ -118,6 +124,7 @@ export function getInstancesOutput(args?: GetInstancesOutputArgs, opts?: pulumi.
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:rds/getInstances:getInstances", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -130,6 +137,10 @@ export interface GetInstancesOutputArgs {
      * Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.rds.GetInstancesFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired instances.
      */

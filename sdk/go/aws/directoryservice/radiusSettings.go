@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directoryservice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,6 +73,8 @@ type RadiusSettings struct {
 	RadiusServers pulumi.StringArrayOutput `pulumi:"radiusServers"`
 	// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
 	RadiusTimeout pulumi.IntOutput `pulumi:"radiusTimeout"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Required for enabling RADIUS on the directory.
 	SharedSecret pulumi.StringOutput `pulumi:"sharedSecret"`
 	// Not currently used.
@@ -154,6 +156,8 @@ type radiusSettingsState struct {
 	RadiusServers []string `pulumi:"radiusServers"`
 	// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
 	RadiusTimeout *int `pulumi:"radiusTimeout"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Required for enabling RADIUS on the directory.
 	SharedSecret *string `pulumi:"sharedSecret"`
 	// Not currently used.
@@ -175,6 +179,8 @@ type RadiusSettingsState struct {
 	RadiusServers pulumi.StringArrayInput
 	// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
 	RadiusTimeout pulumi.IntPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Required for enabling RADIUS on the directory.
 	SharedSecret pulumi.StringPtrInput
 	// Not currently used.
@@ -200,6 +206,8 @@ type radiusSettingsArgs struct {
 	RadiusServers []string `pulumi:"radiusServers"`
 	// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
 	RadiusTimeout int `pulumi:"radiusTimeout"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Required for enabling RADIUS on the directory.
 	SharedSecret string `pulumi:"sharedSecret"`
 	// Not currently used.
@@ -222,6 +230,8 @@ type RadiusSettingsArgs struct {
 	RadiusServers pulumi.StringArrayInput
 	// The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
 	RadiusTimeout pulumi.IntInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Required for enabling RADIUS on the directory.
 	SharedSecret pulumi.StringInput
 	// Not currently used.
@@ -348,6 +358,11 @@ func (o RadiusSettingsOutput) RadiusServers() pulumi.StringArrayOutput {
 // The amount of time, in seconds, to wait for the RADIUS server to respond. Minimum value of `1`. Maximum value of `50`.
 func (o RadiusSettingsOutput) RadiusTimeout() pulumi.IntOutput {
 	return o.ApplyT(func(v *RadiusSettings) pulumi.IntOutput { return v.RadiusTimeout }).(pulumi.IntOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o RadiusSettingsOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RadiusSettings) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Required for enabling RADIUS on the directory.

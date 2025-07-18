@@ -21,16 +21,20 @@ __all__ = ['ProxyProtocolPolicyArgs', 'ProxyProtocolPolicy']
 class ProxyProtocolPolicyArgs:
     def __init__(__self__, *,
                  instance_ports: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
-                 load_balancer: pulumi.Input[builtins.str]):
+                 load_balancer: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ProxyProtocolPolicy resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] instance_ports: List of instance ports to which the policy
                should be applied. This can be specified if the protocol is SSL or TCP.
         :param pulumi.Input[builtins.str] load_balancer: The load balancer to which the policy
                should be attached.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "instance_ports", instance_ports)
         pulumi.set(__self__, "load_balancer", load_balancer)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="instancePorts")
@@ -58,23 +62,39 @@ class ProxyProtocolPolicyArgs:
     def load_balancer(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "load_balancer", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ProxyProtocolPolicyState:
     def __init__(__self__, *,
                  instance_ports: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 load_balancer: Optional[pulumi.Input[builtins.str]] = None):
+                 load_balancer: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProxyProtocolPolicy resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] instance_ports: List of instance ports to which the policy
                should be applied. This can be specified if the protocol is SSL or TCP.
         :param pulumi.Input[builtins.str] load_balancer: The load balancer to which the policy
                should be attached.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if instance_ports is not None:
             pulumi.set(__self__, "instance_ports", instance_ports)
         if load_balancer is not None:
             pulumi.set(__self__, "load_balancer", load_balancer)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="instancePorts")
@@ -102,6 +122,18 @@ class _ProxyProtocolPolicyState:
     def load_balancer(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "load_balancer", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy")
 class ProxyProtocolPolicy(pulumi.CustomResource):
@@ -111,6 +143,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_ports: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  load_balancer: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
@@ -152,6 +185,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
                should be applied. This can be specified if the protocol is SSL or TCP.
         :param pulumi.Input[builtins.str] load_balancer: The load balancer to which the policy
                should be attached.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -210,6 +244,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_ports: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  load_balancer: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -225,6 +260,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
             if load_balancer is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer'")
             __props__.__dict__["load_balancer"] = load_balancer
+            __props__.__dict__["region"] = region
         super(ProxyProtocolPolicy, __self__).__init__(
             'aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy',
             resource_name,
@@ -236,7 +272,8 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             instance_ports: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-            load_balancer: Optional[pulumi.Input[builtins.str]] = None) -> 'ProxyProtocolPolicy':
+            load_balancer: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'ProxyProtocolPolicy':
         """
         Get an existing ProxyProtocolPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -248,6 +285,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
                should be applied. This can be specified if the protocol is SSL or TCP.
         :param pulumi.Input[builtins.str] load_balancer: The load balancer to which the policy
                should be attached.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -255,6 +293,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
 
         __props__.__dict__["instance_ports"] = instance_ports
         __props__.__dict__["load_balancer"] = load_balancer
+        __props__.__dict__["region"] = region
         return ProxyProtocolPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -274,4 +313,12 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         should be attached.
         """
         return pulumi.get(self, "load_balancer")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

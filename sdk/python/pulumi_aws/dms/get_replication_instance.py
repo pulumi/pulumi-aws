@@ -27,7 +27,7 @@ class GetReplicationInstanceResult:
     """
     A collection of values returned by getReplicationInstance.
     """
-    def __init__(__self__, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, engine_version=None, id=None, kms_key_arn=None, multi_az=None, network_type=None, preferred_maintenance_window=None, publicly_accessible=None, replication_instance_arn=None, replication_instance_class=None, replication_instance_id=None, replication_instance_private_ips=None, replication_instance_public_ips=None, replication_subnet_group_id=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, engine_version=None, id=None, kms_key_arn=None, multi_az=None, network_type=None, preferred_maintenance_window=None, publicly_accessible=None, region=None, replication_instance_arn=None, replication_instance_class=None, replication_instance_id=None, replication_instance_private_ips=None, replication_instance_public_ips=None, replication_subnet_group_id=None, tags=None, vpc_security_group_ids=None):
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -58,6 +58,9 @@ class GetReplicationInstanceResult:
         if publicly_accessible and not isinstance(publicly_accessible, bool):
             raise TypeError("Expected argument 'publicly_accessible' to be a bool")
         pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if replication_instance_arn and not isinstance(replication_instance_arn, str):
             raise TypeError("Expected argument 'replication_instance_arn' to be a str")
         pulumi.set(__self__, "replication_instance_arn", replication_instance_arn)
@@ -164,6 +167,11 @@ class GetReplicationInstanceResult:
         return pulumi.get(self, "publicly_accessible")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="replicationInstanceArn")
     def replication_instance_arn(self) -> builtins.str:
         """
@@ -238,6 +246,7 @@ class AwaitableGetReplicationInstanceResult(GetReplicationInstanceResult):
             network_type=self.network_type,
             preferred_maintenance_window=self.preferred_maintenance_window,
             publicly_accessible=self.publicly_accessible,
+            region=self.region,
             replication_instance_arn=self.replication_instance_arn,
             replication_instance_class=self.replication_instance_class,
             replication_instance_id=self.replication_instance_id,
@@ -248,7 +257,8 @@ class AwaitableGetReplicationInstanceResult(GetReplicationInstanceResult):
             vpc_security_group_ids=self.vpc_security_group_ids)
 
 
-def get_replication_instance(replication_instance_id: Optional[builtins.str] = None,
+def get_replication_instance(region: Optional[builtins.str] = None,
+                             replication_instance_id: Optional[builtins.str] = None,
                              tags: Optional[Mapping[str, builtins.str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationInstanceResult:
     """
@@ -264,9 +274,11 @@ def get_replication_instance(replication_instance_id: Optional[builtins.str] = N
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str replication_instance_id: The replication instance identifier.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['replicationInstanceId'] = replication_instance_id
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -283,6 +295,7 @@ def get_replication_instance(replication_instance_id: Optional[builtins.str] = N
         network_type=pulumi.get(__ret__, 'network_type'),
         preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
         publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
+        region=pulumi.get(__ret__, 'region'),
         replication_instance_arn=pulumi.get(__ret__, 'replication_instance_arn'),
         replication_instance_class=pulumi.get(__ret__, 'replication_instance_class'),
         replication_instance_id=pulumi.get(__ret__, 'replication_instance_id'),
@@ -291,7 +304,8 @@ def get_replication_instance(replication_instance_id: Optional[builtins.str] = N
         replication_subnet_group_id=pulumi.get(__ret__, 'replication_subnet_group_id'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
-def get_replication_instance_output(replication_instance_id: Optional[pulumi.Input[builtins.str]] = None,
+def get_replication_instance_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                    replication_instance_id: Optional[pulumi.Input[builtins.str]] = None,
                                     tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationInstanceResult]:
     """
@@ -307,9 +321,11 @@ def get_replication_instance_output(replication_instance_id: Optional[pulumi.Inp
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str replication_instance_id: The replication instance identifier.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['replicationInstanceId'] = replication_instance_id
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -325,6 +341,7 @@ def get_replication_instance_output(replication_instance_id: Optional[pulumi.Inp
         network_type=pulumi.get(__response__, 'network_type'),
         preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window'),
         publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
+        region=pulumi.get(__response__, 'region'),
         replication_instance_arn=pulumi.get(__response__, 'replication_instance_arn'),
         replication_instance_class=pulumi.get(__response__, 'replication_instance_class'),
         replication_instance_id=pulumi.get(__response__, 'replication_instance_id'),

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/guardduty"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/guardduty"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,18 +39,8 @@ import (
 //			_, err = guardduty.NewMemberDetectorFeature(ctx, "runtime_monitoring", &guardduty.MemberDetectorFeatureArgs{
 //				DetectorId: example.ID(),
 //				AccountId:  pulumi.String("123456789012"),
-//				Name:       pulumi.String("RUNTIME_MONITORING"),
+//				Name:       pulumi.String("S3_DATA_EVENTS"),
 //				Status:     pulumi.String("ENABLED"),
-//				AdditionalConfigurations: guardduty.MemberDetectorFeatureAdditionalConfigurationArray{
-//					&guardduty.MemberDetectorFeatureAdditionalConfigurationArgs{
-//						Name:   pulumi.String("EKS_ADDON_MANAGEMENT"),
-//						Status: pulumi.String("ENABLED"),
-//					},
-//					&guardduty.MemberDetectorFeatureAdditionalConfigurationArgs{
-//						Name:   pulumi.String("ECS_FARGATE_AGENT_MANAGEMENT"),
-//						Status: pulumi.String("ENABLED"),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -71,6 +61,8 @@ type MemberDetectorFeature struct {
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
 	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
 	Status pulumi.StringOutput `pulumi:"status"`
 }
@@ -122,6 +114,8 @@ type memberDetectorFeatureState struct {
 	DetectorId *string `pulumi:"detectorId"`
 	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
 	Status *string `pulumi:"status"`
 }
@@ -135,6 +129,8 @@ type MemberDetectorFeatureState struct {
 	DetectorId pulumi.StringPtrInput
 	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
 	Status pulumi.StringPtrInput
 }
@@ -152,6 +148,8 @@ type memberDetectorFeatureArgs struct {
 	DetectorId string `pulumi:"detectorId"`
 	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
 	Status string `pulumi:"status"`
 }
@@ -166,6 +164,8 @@ type MemberDetectorFeatureArgs struct {
 	DetectorId pulumi.StringInput
 	// The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
 	Status pulumi.StringInput
 }
@@ -277,6 +277,11 @@ func (o MemberDetectorFeatureOutput) DetectorId() pulumi.StringOutput {
 // The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`,`RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
 func (o MemberDetectorFeatureOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MemberDetectorFeature) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o MemberDetectorFeatureOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *MemberDetectorFeature) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.

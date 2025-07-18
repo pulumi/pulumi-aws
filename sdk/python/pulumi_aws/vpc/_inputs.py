@@ -133,8 +133,6 @@ if not MYPY:
         peer_liveness_detection: NotRequired[pulumi.Input[builtins.str]]
         """
         The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
-
-        The following arguments are optional:
         """
 elif False:
     RouteServerPeerBgpOptionsArgsDict: TypeAlias = Mapping[str, Any]
@@ -147,8 +145,6 @@ class RouteServerPeerBgpOptionsArgs:
         """
         :param pulumi.Input[builtins.int] peer_asn: The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
         :param pulumi.Input[builtins.str] peer_liveness_detection: The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
-               
-               The following arguments are optional:
         """
         pulumi.set(__self__, "peer_asn", peer_asn)
         if peer_liveness_detection is not None:
@@ -171,8 +167,6 @@ class RouteServerPeerBgpOptionsArgs:
     def peer_liveness_detection(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "peer_liveness_detection")
 

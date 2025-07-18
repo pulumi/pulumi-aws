@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,7 +55,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,6 +87,8 @@ func LookupMulticastDomain(ctx *pulumi.Context, args *LookupMulticastDomainArgs,
 type LookupMulticastDomainArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters []GetMulticastDomainFilter `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Multicast Domain.
 	Tags map[string]string `pulumi:"tags"`
 	// Identifier of the EC2 Transit Gateway Multicast Domain.
@@ -110,6 +112,7 @@ type LookupMulticastDomainResult struct {
 	Members []GetMulticastDomainMember `pulumi:"members"`
 	// Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
 	OwnerId string `pulumi:"ownerId"`
+	Region  string `pulumi:"region"`
 	// EC2 Multicast Domain Group Sources
 	Sources []GetMulticastDomainSource `pulumi:"sources"`
 	State   string                     `pulumi:"state"`
@@ -137,6 +140,8 @@ func LookupMulticastDomainOutput(ctx *pulumi.Context, args LookupMulticastDomain
 type LookupMulticastDomainOutputArgs struct {
 	// One or more configuration blocks containing name-values filters. Detailed below.
 	Filters GetMulticastDomainFilterArrayInput `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Key-value tags for the EC2 Transit Gateway Multicast Domain.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Identifier of the EC2 Transit Gateway Multicast Domain.
@@ -199,6 +204,10 @@ func (o LookupMulticastDomainResultOutput) Members() GetMulticastDomainMemberArr
 // Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
 func (o LookupMulticastDomainResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMulticastDomainResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o LookupMulticastDomainResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMulticastDomainResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // EC2 Multicast Domain Group Sources

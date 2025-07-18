@@ -28,6 +28,7 @@ class MethodArgs:
                  authorization_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  authorizer_id: Optional[pulumi.Input[builtins.str]] = None,
                  operation_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
                  request_validator_id: Optional[pulumi.Input[builtins.str]] = None):
@@ -41,6 +42,7 @@ class MethodArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] authorization_scopes: Authorization scopes used when the authorization is `COGNITO_USER_POOLS`
         :param pulumi.Input[builtins.str] authorizer_id: Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         :param pulumi.Input[builtins.str] operation_name: Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_models: Map of the API models used for the request's content type
                where key is the content type (e.g., `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
@@ -60,6 +62,8 @@ class MethodArgs:
             pulumi.set(__self__, "authorizer_id", authorizer_id)
         if operation_name is not None:
             pulumi.set(__self__, "operation_name", operation_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if request_models is not None:
             pulumi.set(__self__, "request_models", request_models)
         if request_parameters is not None:
@@ -164,6 +168,18 @@ class MethodArgs:
         pulumi.set(self, "operation_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requestModels")
     def request_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -212,6 +228,7 @@ class _MethodState:
                  authorizer_id: Optional[pulumi.Input[builtins.str]] = None,
                  http_method: Optional[pulumi.Input[builtins.str]] = None,
                  operation_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
                  request_validator_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -225,6 +242,7 @@ class _MethodState:
         :param pulumi.Input[builtins.str] authorizer_id: Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         :param pulumi.Input[builtins.str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[builtins.str] operation_name: Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_models: Map of the API models used for the request's content type
                where key is the content type (e.g., `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
@@ -246,6 +264,8 @@ class _MethodState:
             pulumi.set(__self__, "http_method", http_method)
         if operation_name is not None:
             pulumi.set(__self__, "operation_name", operation_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if request_models is not None:
             pulumi.set(__self__, "request_models", request_models)
         if request_parameters is not None:
@@ -330,6 +350,18 @@ class _MethodState:
         pulumi.set(self, "operation_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requestModels")
     def request_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -405,6 +437,7 @@ class Method(pulumi.CustomResource):
                  authorizer_id: Optional[pulumi.Input[builtins.str]] = None,
                  http_method: Optional[pulumi.Input[builtins.str]] = None,
                  operation_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
                  request_validator_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -480,6 +513,7 @@ class Method(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] authorizer_id: Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         :param pulumi.Input[builtins.str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[builtins.str] operation_name: Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_models: Map of the API models used for the request's content type
                where key is the content type (e.g., `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
@@ -577,6 +611,7 @@ class Method(pulumi.CustomResource):
                  authorizer_id: Optional[pulumi.Input[builtins.str]] = None,
                  http_method: Optional[pulumi.Input[builtins.str]] = None,
                  operation_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
                  request_validator_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -601,6 +636,7 @@ class Method(pulumi.CustomResource):
                 raise TypeError("Missing required property 'http_method'")
             __props__.__dict__["http_method"] = http_method
             __props__.__dict__["operation_name"] = operation_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["request_models"] = request_models
             __props__.__dict__["request_parameters"] = request_parameters
             __props__.__dict__["request_validator_id"] = request_validator_id
@@ -626,6 +662,7 @@ class Method(pulumi.CustomResource):
             authorizer_id: Optional[pulumi.Input[builtins.str]] = None,
             http_method: Optional[pulumi.Input[builtins.str]] = None,
             operation_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.bool]]]] = None,
             request_validator_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -644,6 +681,7 @@ class Method(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] authorizer_id: Authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         :param pulumi.Input[builtins.str] http_method: HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[builtins.str] operation_name: Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_models: Map of the API models used for the request's content type
                where key is the content type (e.g., `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
@@ -663,6 +701,7 @@ class Method(pulumi.CustomResource):
         __props__.__dict__["authorizer_id"] = authorizer_id
         __props__.__dict__["http_method"] = http_method
         __props__.__dict__["operation_name"] = operation_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["request_models"] = request_models
         __props__.__dict__["request_parameters"] = request_parameters
         __props__.__dict__["request_validator_id"] = request_validator_id
@@ -717,6 +756,14 @@ class Method(pulumi.CustomResource):
         Function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         """
         return pulumi.get(self, "operation_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="requestModels")

@@ -53,6 +53,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Period { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         /// </summary>
         [Output("source")]
@@ -123,6 +129,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Metric { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.
         /// </summary>
         [Input("source", required: true)]
@@ -159,6 +171,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("period")]
         public Input<string>? Period { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The source Region or Availability Zone that the metric subscription is enabled for. For example, `us-east-1`.

@@ -21,14 +21,18 @@ __all__ = ['ResourceAssociationArgs', 'ResourceAssociation']
 class ResourceAssociationArgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[builtins.str],
-                 resource_share_arn: pulumi.Input[builtins.str]):
+                 resource_share_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ResourceAssociation resource.
         :param pulumi.Input[builtins.str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
         :param pulumi.Input[builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
         pulumi.set(__self__, "resource_share_arn", resource_share_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -54,21 +58,49 @@ class ResourceAssociationArgs:
     def resource_share_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "resource_share_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ResourceAssociationState:
     def __init__(__self__, *,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  resource_share_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ResourceAssociation resources.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
         :param pulumi.Input[builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
         """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resource_arn is not None:
             pulumi.set(__self__, "resource_arn", resource_arn)
         if resource_share_arn is not None:
             pulumi.set(__self__, "resource_share_arn", resource_share_arn)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -101,6 +133,7 @@ class ResourceAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  resource_share_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -130,6 +163,7 @@ class ResourceAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
         :param pulumi.Input[builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
         """
@@ -178,6 +212,7 @@ class ResourceAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resource_arn: Optional[pulumi.Input[builtins.str]] = None,
                  resource_share_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -189,6 +224,7 @@ class ResourceAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResourceAssociationArgs.__new__(ResourceAssociationArgs)
 
+            __props__.__dict__["region"] = region
             if resource_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_arn'")
             __props__.__dict__["resource_arn"] = resource_arn
@@ -205,6 +241,7 @@ class ResourceAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resource_arn: Optional[pulumi.Input[builtins.str]] = None,
             resource_share_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'ResourceAssociation':
         """
@@ -214,6 +251,7 @@ class ResourceAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
         :param pulumi.Input[builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
         """
@@ -221,9 +259,18 @@ class ResourceAssociation(pulumi.CustomResource):
 
         __props__ = _ResourceAssociationState.__new__(_ResourceAssociationState)
 
+        __props__.__dict__["region"] = region
         __props__.__dict__["resource_arn"] = resource_arn
         __props__.__dict__["resource_share_arn"] = resource_share_arn
         return ResourceAssociation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceArn")

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/docdb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/docdb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,7 +66,9 @@ type ClusterSnapshot struct {
 	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Port that the DocumentDB cluster was listening on at the time of the snapshot.
-	Port                       pulumi.IntOutput    `pulumi:"port"`
+	Port pulumi.IntOutput `pulumi:"port"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region                     pulumi.StringOutput `pulumi:"region"`
 	SnapshotType               pulumi.StringOutput `pulumi:"snapshotType"`
 	SourceDbClusterSnapshotArn pulumi.StringOutput `pulumi:"sourceDbClusterSnapshotArn"`
 	// The status of this DocumentDB Cluster Snapshot.
@@ -128,7 +130,9 @@ type clusterSnapshotState struct {
 	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Port that the DocumentDB cluster was listening on at the time of the snapshot.
-	Port                       *int    `pulumi:"port"`
+	Port *int `pulumi:"port"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region                     *string `pulumi:"region"`
 	SnapshotType               *string `pulumi:"snapshotType"`
 	SourceDbClusterSnapshotArn *string `pulumi:"sourceDbClusterSnapshotArn"`
 	// The status of this DocumentDB Cluster Snapshot.
@@ -155,7 +159,9 @@ type ClusterSnapshotState struct {
 	// If storageEncrypted is true, the AWS KMS key identifier for the encrypted DocumentDB cluster snapshot.
 	KmsKeyId pulumi.StringPtrInput
 	// Port that the DocumentDB cluster was listening on at the time of the snapshot.
-	Port                       pulumi.IntPtrInput
+	Port pulumi.IntPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region                     pulumi.StringPtrInput
 	SnapshotType               pulumi.StringPtrInput
 	SourceDbClusterSnapshotArn pulumi.StringPtrInput
 	// The status of this DocumentDB Cluster Snapshot.
@@ -175,6 +181,8 @@ type clusterSnapshotArgs struct {
 	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier string `pulumi:"dbClusterSnapshotIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ClusterSnapshot resource.
@@ -183,6 +191,8 @@ type ClusterSnapshotArgs struct {
 	DbClusterIdentifier pulumi.StringInput
 	// The Identifier for the snapshot.
 	DbClusterSnapshotIdentifier pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ClusterSnapshotArgs) ElementType() reflect.Type {
@@ -310,6 +320,11 @@ func (o ClusterSnapshotOutput) KmsKeyId() pulumi.StringOutput {
 // Port that the DocumentDB cluster was listening on at the time of the snapshot.
 func (o ClusterSnapshotOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.IntOutput { return v.Port }).(pulumi.IntOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ClusterSnapshotOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o ClusterSnapshotOutput) SnapshotType() pulumi.StringOutput {

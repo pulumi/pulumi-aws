@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Batch
         /// {
         ///     var batch_mongo = Aws.Batch.GetComputeEnvironment.Invoke(new()
         ///     {
-        ///         ComputeEnvironmentName = "batch-mongo-production",
+        ///         Name = "batch-mongo-production",
         ///     });
         /// 
         /// });
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Batch
         /// {
         ///     var batch_mongo = Aws.Batch.GetComputeEnvironment.Invoke(new()
         ///     {
-        ///         ComputeEnvironmentName = "batch-mongo-production",
+        ///         Name = "batch-mongo-production",
         ///     });
         /// 
         /// });
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Batch
         /// {
         ///     var batch_mongo = Aws.Batch.GetComputeEnvironment.Invoke(new()
         ///     {
-        ///         ComputeEnvironmentName = "batch-mongo-production",
+        ///         Name = "batch-mongo-production",
         ///     });
         /// 
         /// });
@@ -93,8 +93,14 @@ namespace Pulumi.Aws.Batch
         /// <summary>
         /// Name of the Batch Compute Environment
         /// </summary>
-        [Input("computeEnvironmentName", required: true)]
-        public string ComputeEnvironmentName { get; set; } = null!;
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -119,8 +125,14 @@ namespace Pulumi.Aws.Batch
         /// <summary>
         /// Name of the Batch Compute Environment
         /// </summary>
-        [Input("computeEnvironmentName", required: true)]
-        public Input<string> ComputeEnvironmentName { get; set; } = null!;
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -148,7 +160,6 @@ namespace Pulumi.Aws.Batch
         /// ARN of the compute environment.
         /// </summary>
         public readonly string Arn;
-        public readonly string ComputeEnvironmentName;
         /// <summary>
         /// ARN of the underlying Amazon ECS cluster used by the compute environment.
         /// </summary>
@@ -157,6 +168,8 @@ namespace Pulumi.Aws.Batch
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         /// </summary>
@@ -190,11 +203,13 @@ namespace Pulumi.Aws.Batch
         private GetComputeEnvironmentResult(
             string arn,
 
-            string computeEnvironmentName,
-
             string ecsClusterArn,
 
             string id,
+
+            string name,
+
+            string region,
 
             string serviceRole,
 
@@ -211,9 +226,10 @@ namespace Pulumi.Aws.Batch
             ImmutableArray<Outputs.GetComputeEnvironmentUpdatePolicyResult> updatePolicies)
         {
             Arn = arn;
-            ComputeEnvironmentName = computeEnvironmentName;
             EcsClusterArn = ecsClusterArn;
             Id = id;
+            Name = name;
+            Region = region;
             ServiceRole = serviceRole;
             State = state;
             Status = status;

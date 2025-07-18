@@ -867,6 +867,12 @@ namespace Pulumi.Aws.Glue
         [Input("language")]
         public string? Language { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetScriptArgs()
         {
         }
@@ -905,6 +911,12 @@ namespace Pulumi.Aws.Glue
         [Input("language")]
         public Input<string>? Language { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetScriptInvokeArgs()
         {
         }
@@ -926,6 +938,7 @@ namespace Pulumi.Aws.Glue
         /// Python script generated from the DAG when the `language` argument is set to `PYTHON`.
         /// </summary>
         public readonly string PythonScript;
+        public readonly string Region;
         /// <summary>
         /// Scala code generated from the DAG when the `language` argument is set to `SCALA`.
         /// </summary>
@@ -943,6 +956,8 @@ namespace Pulumi.Aws.Glue
 
             string pythonScript,
 
+            string region,
+
             string scalaCode)
         {
             DagEdges = dagEdges;
@@ -950,6 +965,7 @@ namespace Pulumi.Aws.Glue
             Id = id;
             Language = language;
             PythonScript = pythonScript;
+            Region = region;
             ScalaCode = scalaCode;
         }
     }

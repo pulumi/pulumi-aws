@@ -83,6 +83,10 @@ export class BgpPeer extends pulumi.CustomResource {
      */
     public readonly customerAddress!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the Direct Connect virtual interface on which to create the BGP peer.
      */
     public readonly virtualInterfaceId!: pulumi.Output<string>;
@@ -108,6 +112,7 @@ export class BgpPeer extends pulumi.CustomResource {
             resourceInputs["bgpPeerId"] = state ? state.bgpPeerId : undefined;
             resourceInputs["bgpStatus"] = state ? state.bgpStatus : undefined;
             resourceInputs["customerAddress"] = state ? state.customerAddress : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["virtualInterfaceId"] = state ? state.virtualInterfaceId : undefined;
         } else {
             const args = argsOrState as BgpPeerArgs | undefined;
@@ -125,6 +130,7 @@ export class BgpPeer extends pulumi.CustomResource {
             resourceInputs["bgpAsn"] = args ? args.bgpAsn : undefined;
             resourceInputs["bgpAuthKey"] = args ? args.bgpAuthKey : undefined;
             resourceInputs["customerAddress"] = args ? args.customerAddress : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["virtualInterfaceId"] = args ? args.virtualInterfaceId : undefined;
             resourceInputs["awsDevice"] = undefined /*out*/;
             resourceInputs["bgpPeerId"] = undefined /*out*/;
@@ -174,6 +180,10 @@ export interface BgpPeerState {
      */
     customerAddress?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ID of the Direct Connect virtual interface on which to create the BGP peer.
      */
     virtualInterfaceId?: pulumi.Input<string>;
@@ -205,6 +215,10 @@ export interface BgpPeerArgs {
      * Required for IPv4 BGP peers on public virtual interfaces.
      */
     customerAddress?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the Direct Connect virtual interface on which to create the BGP peer.
      */

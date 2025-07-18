@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sfn"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sfn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func GetStateMachineVersions(ctx *pulumi.Context, args *GetStateMachineVersionsA
 
 // A collection of arguments for invoking getStateMachineVersions.
 type GetStateMachineVersionsArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of the State Machine.
 	StatemachineArn string `pulumi:"statemachineArn"`
 }
@@ -60,6 +62,7 @@ type GetStateMachineVersionsArgs struct {
 type GetStateMachineVersionsResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id              string `pulumi:"id"`
+	Region          string `pulumi:"region"`
 	StatemachineArn string `pulumi:"statemachineArn"`
 	// ARN List identifying the statemachine versions.
 	StatemachineVersions []string `pulumi:"statemachineVersions"`
@@ -76,6 +79,8 @@ func GetStateMachineVersionsOutput(ctx *pulumi.Context, args GetStateMachineVers
 
 // A collection of arguments for invoking getStateMachineVersions.
 type GetStateMachineVersionsOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ARN of the State Machine.
 	StatemachineArn pulumi.StringInput `pulumi:"statemachineArn"`
 }
@@ -102,6 +107,10 @@ func (o GetStateMachineVersionsResultOutput) ToGetStateMachineVersionsResultOutp
 // The provider-assigned unique ID for this managed resource.
 func (o GetStateMachineVersionsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStateMachineVersionsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetStateMachineVersionsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStateMachineVersionsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetStateMachineVersionsResultOutput) StatemachineArn() pulumi.StringOutput {

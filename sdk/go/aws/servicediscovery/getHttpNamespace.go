@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -18,7 +18,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/servicediscovery"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/servicediscovery"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,6 +50,8 @@ func LookupHttpNamespace(ctx *pulumi.Context, args *LookupHttpNamespaceArgs, opt
 type LookupHttpNamespaceArgs struct {
 	// Name of the http namespace.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -63,8 +65,9 @@ type LookupHttpNamespaceResult struct {
 	// Name of an HTTP namespace.
 	HttpName string `pulumi:"httpName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -82,6 +85,8 @@ func LookupHttpNamespaceOutput(ctx *pulumi.Context, args LookupHttpNamespaceOutp
 type LookupHttpNamespaceOutputArgs struct {
 	// Name of the http namespace.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags for the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -127,6 +132,10 @@ func (o LookupHttpNamespaceResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupHttpNamespaceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupHttpNamespaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupHttpNamespaceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupHttpNamespaceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Map of tags for the resource.

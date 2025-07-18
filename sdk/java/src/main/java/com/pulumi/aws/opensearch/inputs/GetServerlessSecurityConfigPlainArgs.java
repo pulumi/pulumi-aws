@@ -3,10 +3,11 @@
 
 package com.pulumi.aws.opensearch.inputs;
 
-import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigSamlOptions;
+import com.pulumi.aws.opensearch.inputs.GetServerlessSecurityConfigSamlOption;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -32,17 +33,32 @@ public final class GetServerlessSecurityConfigPlainArgs extends com.pulumi.resou
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * SAML options for the security configuration.
      * 
      */
     @Import(name="samlOptions")
-    private @Nullable GetServerlessSecurityConfigSamlOptions samlOptions;
+    private @Nullable List<GetServerlessSecurityConfigSamlOption> samlOptions;
 
     /**
      * @return SAML options for the security configuration.
      * 
      */
-    public Optional<GetServerlessSecurityConfigSamlOptions> samlOptions() {
+    public Optional<List<GetServerlessSecurityConfigSamlOption>> samlOptions() {
         return Optional.ofNullable(this.samlOptions);
     }
 
@@ -50,6 +66,7 @@ public final class GetServerlessSecurityConfigPlainArgs extends com.pulumi.resou
 
     private GetServerlessSecurityConfigPlainArgs(GetServerlessSecurityConfigPlainArgs $) {
         this.id = $.id;
+        this.region = $.region;
         this.samlOptions = $.samlOptions;
     }
 
@@ -83,14 +100,35 @@ public final class GetServerlessSecurityConfigPlainArgs extends com.pulumi.resou
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
          * @param samlOptions SAML options for the security configuration.
          * 
          * @return builder
          * 
          */
-        public Builder samlOptions(@Nullable GetServerlessSecurityConfigSamlOptions samlOptions) {
+        public Builder samlOptions(@Nullable List<GetServerlessSecurityConfigSamlOption> samlOptions) {
             $.samlOptions = samlOptions;
             return this;
+        }
+
+        /**
+         * @param samlOptions SAML options for the security configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder samlOptions(GetServerlessSecurityConfigSamlOption... samlOptions) {
+            return samlOptions(List.of(samlOptions));
         }
 
         public GetServerlessSecurityConfigPlainArgs build() {

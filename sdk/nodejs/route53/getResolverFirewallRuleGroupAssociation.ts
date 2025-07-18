@@ -26,6 +26,7 @@ export function getResolverFirewallRuleGroupAssociation(args: GetResolverFirewal
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", {
         "firewallRuleGroupAssociationId": args.firewallRuleGroupAssociationId,
+        "region": args.region,
     }, opts);
 }
 
@@ -37,6 +38,10 @@ export interface GetResolverFirewallRuleGroupAssociationArgs {
      * The identifier for the association.
      */
     firewallRuleGroupAssociationId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -84,6 +89,7 @@ export interface GetResolverFirewallRuleGroupAssociationResult {
      * The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC.
      */
     readonly priority: number;
+    readonly region: string;
     /**
      * The current status of the association.
      */
@@ -119,6 +125,7 @@ export function getResolverFirewallRuleGroupAssociationOutput(args: GetResolverF
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", {
         "firewallRuleGroupAssociationId": args.firewallRuleGroupAssociationId,
+        "region": args.region,
     }, opts);
 }
 
@@ -130,4 +137,8 @@ export interface GetResolverFirewallRuleGroupAssociationOutputArgs {
      * The identifier for the association.
      */
     firewallRuleGroupAssociationId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

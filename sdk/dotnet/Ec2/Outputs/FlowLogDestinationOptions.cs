@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class FlowLogDestinationOptions
     {
         /// <summary>
-        /// The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+        /// File format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
         /// </summary>
         public readonly string? FileFormat;
         /// <summary>

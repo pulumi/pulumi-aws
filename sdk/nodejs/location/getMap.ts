@@ -25,6 +25,7 @@ export function getMap(args: GetMapArgs, opts?: pulumi.InvokeOptions): Promise<G
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:location/getMap:getMap", {
         "mapName": args.mapName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,10 @@ export interface GetMapArgs {
      * Name of the map resource.
      */
     mapName: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Key-value map of resource tags for the map.
      */
@@ -68,6 +73,7 @@ export interface GetMapResult {
      */
     readonly mapArn: string;
     readonly mapName: string;
+    readonly region: string;
     /**
      * Key-value map of resource tags for the map.
      */
@@ -95,6 +101,7 @@ export function getMapOutput(args: GetMapOutputArgs, opts?: pulumi.InvokeOutputO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:location/getMap:getMap", {
         "mapName": args.mapName,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -107,6 +114,10 @@ export interface GetMapOutputArgs {
      * Name of the map resource.
      */
     mapName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags for the map.
      */

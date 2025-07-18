@@ -7,11 +7,588 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 var _ = internal.GetEnvOrDefault
+
+type LifecyclePolicyAction struct {
+	// The type of action to take. Currently only 'expire' is supported.
+	Type LifecyclePolicyActionType `pulumi:"type"`
+}
+
+// LifecyclePolicyActionInput is an input type that accepts LifecyclePolicyActionArgs and LifecyclePolicyActionOutput values.
+// You can construct a concrete instance of `LifecyclePolicyActionInput` via:
+//
+//	LifecyclePolicyActionArgs{...}
+type LifecyclePolicyActionInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyActionOutput() LifecyclePolicyActionOutput
+	ToLifecyclePolicyActionOutputWithContext(context.Context) LifecyclePolicyActionOutput
+}
+
+type LifecyclePolicyActionArgs struct {
+	// The type of action to take. Currently only 'expire' is supported.
+	Type LifecyclePolicyActionTypeInput `pulumi:"type"`
+}
+
+func (LifecyclePolicyActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyAction)(nil)).Elem()
+}
+
+func (i LifecyclePolicyActionArgs) ToLifecyclePolicyActionOutput() LifecyclePolicyActionOutput {
+	return i.ToLifecyclePolicyActionOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyActionArgs) ToLifecyclePolicyActionOutputWithContext(ctx context.Context) LifecyclePolicyActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyActionOutput)
+}
+
+type LifecyclePolicyActionOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyAction)(nil)).Elem()
+}
+
+func (o LifecyclePolicyActionOutput) ToLifecyclePolicyActionOutput() LifecyclePolicyActionOutput {
+	return o
+}
+
+func (o LifecyclePolicyActionOutput) ToLifecyclePolicyActionOutputWithContext(ctx context.Context) LifecyclePolicyActionOutput {
+	return o
+}
+
+// The type of action to take. Currently only 'expire' is supported.
+func (o LifecyclePolicyActionOutput) Type() LifecyclePolicyActionTypeOutput {
+	return o.ApplyT(func(v LifecyclePolicyAction) LifecyclePolicyActionType { return v.Type }).(LifecyclePolicyActionTypeOutput)
+}
+
+// Represents an ECR lifecycle policy document.
+type LifecyclePolicyDocument struct {
+	// The rules that comprise the lifecycle policy.
+	Rules []LifecyclePolicyRule `pulumi:"rules"`
+}
+
+// LifecyclePolicyDocumentInput is an input type that accepts LifecyclePolicyDocumentArgs and LifecyclePolicyDocumentOutput values.
+// You can construct a concrete instance of `LifecyclePolicyDocumentInput` via:
+//
+//	LifecyclePolicyDocumentArgs{...}
+type LifecyclePolicyDocumentInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyDocumentOutput() LifecyclePolicyDocumentOutput
+	ToLifecyclePolicyDocumentOutputWithContext(context.Context) LifecyclePolicyDocumentOutput
+}
+
+// Represents an ECR lifecycle policy document.
+type LifecyclePolicyDocumentArgs struct {
+	// The rules that comprise the lifecycle policy.
+	Rules LifecyclePolicyRuleArrayInput `pulumi:"rules"`
+}
+
+func (LifecyclePolicyDocumentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyDocument)(nil)).Elem()
+}
+
+func (i LifecyclePolicyDocumentArgs) ToLifecyclePolicyDocumentOutput() LifecyclePolicyDocumentOutput {
+	return i.ToLifecyclePolicyDocumentOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyDocumentArgs) ToLifecyclePolicyDocumentOutputWithContext(ctx context.Context) LifecyclePolicyDocumentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyDocumentOutput)
+}
+
+func (i LifecyclePolicyDocumentArgs) ToLifecyclePolicyDocumentPtrOutput() LifecyclePolicyDocumentPtrOutput {
+	return i.ToLifecyclePolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyDocumentArgs) ToLifecyclePolicyDocumentPtrOutputWithContext(ctx context.Context) LifecyclePolicyDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyDocumentOutput).ToLifecyclePolicyDocumentPtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyDocumentPtrInput is an input type that accepts LifecyclePolicyDocumentArgs, LifecyclePolicyDocumentPtr and LifecyclePolicyDocumentPtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyDocumentPtrInput` via:
+//
+//	        LifecyclePolicyDocumentArgs{...}
+//
+//	or:
+//
+//	        nil
+type LifecyclePolicyDocumentPtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyDocumentPtrOutput() LifecyclePolicyDocumentPtrOutput
+	ToLifecyclePolicyDocumentPtrOutputWithContext(context.Context) LifecyclePolicyDocumentPtrOutput
+}
+
+type lifecyclePolicyDocumentPtrType LifecyclePolicyDocumentArgs
+
+func LifecyclePolicyDocumentPtr(v *LifecyclePolicyDocumentArgs) LifecyclePolicyDocumentPtrInput {
+	return (*lifecyclePolicyDocumentPtrType)(v)
+}
+
+func (*lifecyclePolicyDocumentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyDocument)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyDocumentPtrType) ToLifecyclePolicyDocumentPtrOutput() LifecyclePolicyDocumentPtrOutput {
+	return i.ToLifecyclePolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyDocumentPtrType) ToLifecyclePolicyDocumentPtrOutputWithContext(ctx context.Context) LifecyclePolicyDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyDocumentPtrOutput)
+}
+
+// Represents an ECR lifecycle policy document.
+type LifecyclePolicyDocumentOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyDocumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyDocument)(nil)).Elem()
+}
+
+func (o LifecyclePolicyDocumentOutput) ToLifecyclePolicyDocumentOutput() LifecyclePolicyDocumentOutput {
+	return o
+}
+
+func (o LifecyclePolicyDocumentOutput) ToLifecyclePolicyDocumentOutputWithContext(ctx context.Context) LifecyclePolicyDocumentOutput {
+	return o
+}
+
+func (o LifecyclePolicyDocumentOutput) ToLifecyclePolicyDocumentPtrOutput() LifecyclePolicyDocumentPtrOutput {
+	return o.ToLifecyclePolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyDocumentOutput) ToLifecyclePolicyDocumentPtrOutputWithContext(ctx context.Context) LifecyclePolicyDocumentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyDocument) *LifecyclePolicyDocument {
+		return &v
+	}).(LifecyclePolicyDocumentPtrOutput)
+}
+
+// The rules that comprise the lifecycle policy.
+func (o LifecyclePolicyDocumentOutput) Rules() LifecyclePolicyRuleArrayOutput {
+	return o.ApplyT(func(v LifecyclePolicyDocument) []LifecyclePolicyRule { return v.Rules }).(LifecyclePolicyRuleArrayOutput)
+}
+
+type LifecyclePolicyDocumentPtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyDocumentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyDocument)(nil)).Elem()
+}
+
+func (o LifecyclePolicyDocumentPtrOutput) ToLifecyclePolicyDocumentPtrOutput() LifecyclePolicyDocumentPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyDocumentPtrOutput) ToLifecyclePolicyDocumentPtrOutputWithContext(ctx context.Context) LifecyclePolicyDocumentPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyDocumentPtrOutput) Elem() LifecyclePolicyDocumentOutput {
+	return o.ApplyT(func(v *LifecyclePolicyDocument) LifecyclePolicyDocument {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyDocument
+		return ret
+	}).(LifecyclePolicyDocumentOutput)
+}
+
+// The rules that comprise the lifecycle policy.
+func (o LifecyclePolicyDocumentPtrOutput) Rules() LifecyclePolicyRuleArrayOutput {
+	return o.ApplyT(func(v *LifecyclePolicyDocument) []LifecyclePolicyRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(LifecyclePolicyRuleArrayOutput)
+}
+
+// Represents a rule in an ECR lifecycle policy.
+type LifecyclePolicyRule struct {
+	// The action to take when the rule is triggered.
+	Action LifecyclePolicyAction `pulumi:"action"`
+	// A description of the rule.
+	Description *string `pulumi:"description"`
+	// The priority of the rule, must be unique within the policy.
+	RulePriority int `pulumi:"rulePriority"`
+	// The selection criteria for the rule.
+	Selection LifecyclePolicySelection `pulumi:"selection"`
+}
+
+// LifecyclePolicyRuleInput is an input type that accepts LifecyclePolicyRuleArgs and LifecyclePolicyRuleOutput values.
+// You can construct a concrete instance of `LifecyclePolicyRuleInput` via:
+//
+//	LifecyclePolicyRuleArgs{...}
+type LifecyclePolicyRuleInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyRuleOutput() LifecyclePolicyRuleOutput
+	ToLifecyclePolicyRuleOutputWithContext(context.Context) LifecyclePolicyRuleOutput
+}
+
+// Represents a rule in an ECR lifecycle policy.
+type LifecyclePolicyRuleArgs struct {
+	// The action to take when the rule is triggered.
+	Action LifecyclePolicyActionInput `pulumi:"action"`
+	// A description of the rule.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The priority of the rule, must be unique within the policy.
+	RulePriority pulumi.IntInput `pulumi:"rulePriority"`
+	// The selection criteria for the rule.
+	Selection LifecyclePolicySelectionInput `pulumi:"selection"`
+}
+
+func (LifecyclePolicyRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyRule)(nil)).Elem()
+}
+
+func (i LifecyclePolicyRuleArgs) ToLifecyclePolicyRuleOutput() LifecyclePolicyRuleOutput {
+	return i.ToLifecyclePolicyRuleOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyRuleArgs) ToLifecyclePolicyRuleOutputWithContext(ctx context.Context) LifecyclePolicyRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyRuleOutput)
+}
+
+// LifecyclePolicyRuleArrayInput is an input type that accepts LifecyclePolicyRuleArray and LifecyclePolicyRuleArrayOutput values.
+// You can construct a concrete instance of `LifecyclePolicyRuleArrayInput` via:
+//
+//	LifecyclePolicyRuleArray{ LifecyclePolicyRuleArgs{...} }
+type LifecyclePolicyRuleArrayInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyRuleArrayOutput() LifecyclePolicyRuleArrayOutput
+	ToLifecyclePolicyRuleArrayOutputWithContext(context.Context) LifecyclePolicyRuleArrayOutput
+}
+
+type LifecyclePolicyRuleArray []LifecyclePolicyRuleInput
+
+func (LifecyclePolicyRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LifecyclePolicyRule)(nil)).Elem()
+}
+
+func (i LifecyclePolicyRuleArray) ToLifecyclePolicyRuleArrayOutput() LifecyclePolicyRuleArrayOutput {
+	return i.ToLifecyclePolicyRuleArrayOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyRuleArray) ToLifecyclePolicyRuleArrayOutputWithContext(ctx context.Context) LifecyclePolicyRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyRuleArrayOutput)
+}
+
+// Represents a rule in an ECR lifecycle policy.
+type LifecyclePolicyRuleOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyRuleOutput) ToLifecyclePolicyRuleOutput() LifecyclePolicyRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyRuleOutput) ToLifecyclePolicyRuleOutputWithContext(ctx context.Context) LifecyclePolicyRuleOutput {
+	return o
+}
+
+// The action to take when the rule is triggered.
+func (o LifecyclePolicyRuleOutput) Action() LifecyclePolicyActionOutput {
+	return o.ApplyT(func(v LifecyclePolicyRule) LifecyclePolicyAction { return v.Action }).(LifecyclePolicyActionOutput)
+}
+
+// A description of the rule.
+func (o LifecyclePolicyRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyRule) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The priority of the rule, must be unique within the policy.
+func (o LifecyclePolicyRuleOutput) RulePriority() pulumi.IntOutput {
+	return o.ApplyT(func(v LifecyclePolicyRule) int { return v.RulePriority }).(pulumi.IntOutput)
+}
+
+// The selection criteria for the rule.
+func (o LifecyclePolicyRuleOutput) Selection() LifecyclePolicySelectionOutput {
+	return o.ApplyT(func(v LifecyclePolicyRule) LifecyclePolicySelection { return v.Selection }).(LifecyclePolicySelectionOutput)
+}
+
+type LifecyclePolicyRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LifecyclePolicyRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyRuleArrayOutput) ToLifecyclePolicyRuleArrayOutput() LifecyclePolicyRuleArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyRuleArrayOutput) ToLifecyclePolicyRuleArrayOutputWithContext(ctx context.Context) LifecyclePolicyRuleArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyRuleArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LifecyclePolicyRule {
+		return vs[0].([]LifecyclePolicyRule)[vs[1].(int)]
+	}).(LifecyclePolicyRuleOutput)
+}
+
+// Represents selection criteria for an ECR lifecycle policy rule.
+type LifecyclePolicySelection struct {
+	// The count number to use with the count type.
+	CountNumber int `pulumi:"countNumber"`
+	// The type of count to perform. Either 'imageCountMoreThan' or 'sinceImagePushed'.
+	CountType LifecyclePolicyCountType `pulumi:"countType"`
+	// The unit of time for sinceImagePushed. Either 'days'.
+	CountUnit *string `pulumi:"countUnit"`
+	// A list of image tag prefixes on which to take action.
+	TagPrefixList []string `pulumi:"tagPrefixList"`
+	// The tag status of the image. Either 'tagged', 'untagged', or 'any'.
+	TagStatus LifecyclePolicyTagStatus `pulumi:"tagStatus"`
+}
+
+// LifecyclePolicySelectionInput is an input type that accepts LifecyclePolicySelectionArgs and LifecyclePolicySelectionOutput values.
+// You can construct a concrete instance of `LifecyclePolicySelectionInput` via:
+//
+//	LifecyclePolicySelectionArgs{...}
+type LifecyclePolicySelectionInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicySelectionOutput() LifecyclePolicySelectionOutput
+	ToLifecyclePolicySelectionOutputWithContext(context.Context) LifecyclePolicySelectionOutput
+}
+
+// Represents selection criteria for an ECR lifecycle policy rule.
+type LifecyclePolicySelectionArgs struct {
+	// The count number to use with the count type.
+	CountNumber pulumi.IntInput `pulumi:"countNumber"`
+	// The type of count to perform. Either 'imageCountMoreThan' or 'sinceImagePushed'.
+	CountType LifecyclePolicyCountTypeInput `pulumi:"countType"`
+	// The unit of time for sinceImagePushed. Either 'days'.
+	CountUnit pulumi.StringPtrInput `pulumi:"countUnit"`
+	// A list of image tag prefixes on which to take action.
+	TagPrefixList pulumi.StringArrayInput `pulumi:"tagPrefixList"`
+	// The tag status of the image. Either 'tagged', 'untagged', or 'any'.
+	TagStatus LifecyclePolicyTagStatusInput `pulumi:"tagStatus"`
+}
+
+func (LifecyclePolicySelectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicySelection)(nil)).Elem()
+}
+
+func (i LifecyclePolicySelectionArgs) ToLifecyclePolicySelectionOutput() LifecyclePolicySelectionOutput {
+	return i.ToLifecyclePolicySelectionOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicySelectionArgs) ToLifecyclePolicySelectionOutputWithContext(ctx context.Context) LifecyclePolicySelectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicySelectionOutput)
+}
+
+// Represents selection criteria for an ECR lifecycle policy rule.
+type LifecyclePolicySelectionOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicySelectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicySelection)(nil)).Elem()
+}
+
+func (o LifecyclePolicySelectionOutput) ToLifecyclePolicySelectionOutput() LifecyclePolicySelectionOutput {
+	return o
+}
+
+func (o LifecyclePolicySelectionOutput) ToLifecyclePolicySelectionOutputWithContext(ctx context.Context) LifecyclePolicySelectionOutput {
+	return o
+}
+
+// The count number to use with the count type.
+func (o LifecyclePolicySelectionOutput) CountNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v LifecyclePolicySelection) int { return v.CountNumber }).(pulumi.IntOutput)
+}
+
+// The type of count to perform. Either 'imageCountMoreThan' or 'sinceImagePushed'.
+func (o LifecyclePolicySelectionOutput) CountType() LifecyclePolicyCountTypeOutput {
+	return o.ApplyT(func(v LifecyclePolicySelection) LifecyclePolicyCountType { return v.CountType }).(LifecyclePolicyCountTypeOutput)
+}
+
+// The unit of time for sinceImagePushed. Either 'days'.
+func (o LifecyclePolicySelectionOutput) CountUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicySelection) *string { return v.CountUnit }).(pulumi.StringPtrOutput)
+}
+
+// A list of image tag prefixes on which to take action.
+func (o LifecyclePolicySelectionOutput) TagPrefixList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LifecyclePolicySelection) []string { return v.TagPrefixList }).(pulumi.StringArrayOutput)
+}
+
+// The tag status of the image. Either 'tagged', 'untagged', or 'any'.
+func (o LifecyclePolicySelectionOutput) TagStatus() LifecyclePolicyTagStatusOutput {
+	return o.ApplyT(func(v LifecyclePolicySelection) LifecyclePolicyTagStatus { return v.TagStatus }).(LifecyclePolicyTagStatusOutput)
+}
+
+// Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
+type PolicyDocument struct {
+	Id        *string                   `pulumi:"Id"`
+	Statement []iam.PolicyStatement     `pulumi:"Statement"`
+	Version   iam.PolicyDocumentVersion `pulumi:"Version"`
+}
+
+// PolicyDocumentInput is an input type that accepts PolicyDocumentArgs and PolicyDocumentOutput values.
+// You can construct a concrete instance of `PolicyDocumentInput` via:
+//
+//	PolicyDocumentArgs{...}
+type PolicyDocumentInput interface {
+	pulumi.Input
+
+	ToPolicyDocumentOutput() PolicyDocumentOutput
+	ToPolicyDocumentOutputWithContext(context.Context) PolicyDocumentOutput
+}
+
+// Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
+type PolicyDocumentArgs struct {
+	Id        pulumi.StringPtrInput          `pulumi:"Id"`
+	Statement iam.PolicyStatementArrayInput  `pulumi:"Statement"`
+	Version   iam.PolicyDocumentVersionInput `pulumi:"Version"`
+}
+
+func (PolicyDocumentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDocument)(nil)).Elem()
+}
+
+func (i PolicyDocumentArgs) ToPolicyDocumentOutput() PolicyDocumentOutput {
+	return i.ToPolicyDocumentOutputWithContext(context.Background())
+}
+
+func (i PolicyDocumentArgs) ToPolicyDocumentOutputWithContext(ctx context.Context) PolicyDocumentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDocumentOutput)
+}
+
+func (i PolicyDocumentArgs) ToPolicyDocumentPtrOutput() PolicyDocumentPtrOutput {
+	return i.ToPolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyDocumentArgs) ToPolicyDocumentPtrOutputWithContext(ctx context.Context) PolicyDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDocumentOutput).ToPolicyDocumentPtrOutputWithContext(ctx)
+}
+
+// PolicyDocumentPtrInput is an input type that accepts PolicyDocumentArgs, PolicyDocumentPtr and PolicyDocumentPtrOutput values.
+// You can construct a concrete instance of `PolicyDocumentPtrInput` via:
+//
+//	        PolicyDocumentArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyDocumentPtrInput interface {
+	pulumi.Input
+
+	ToPolicyDocumentPtrOutput() PolicyDocumentPtrOutput
+	ToPolicyDocumentPtrOutputWithContext(context.Context) PolicyDocumentPtrOutput
+}
+
+type policyDocumentPtrType PolicyDocumentArgs
+
+func PolicyDocumentPtr(v *PolicyDocumentArgs) PolicyDocumentPtrInput {
+	return (*policyDocumentPtrType)(v)
+}
+
+func (*policyDocumentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyDocument)(nil)).Elem()
+}
+
+func (i *policyDocumentPtrType) ToPolicyDocumentPtrOutput() PolicyDocumentPtrOutput {
+	return i.ToPolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (i *policyDocumentPtrType) ToPolicyDocumentPtrOutputWithContext(ctx context.Context) PolicyDocumentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyDocumentPtrOutput)
+}
+
+// Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
+type PolicyDocumentOutput struct{ *pulumi.OutputState }
+
+func (PolicyDocumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyDocument)(nil)).Elem()
+}
+
+func (o PolicyDocumentOutput) ToPolicyDocumentOutput() PolicyDocumentOutput {
+	return o
+}
+
+func (o PolicyDocumentOutput) ToPolicyDocumentOutputWithContext(ctx context.Context) PolicyDocumentOutput {
+	return o
+}
+
+func (o PolicyDocumentOutput) ToPolicyDocumentPtrOutput() PolicyDocumentPtrOutput {
+	return o.ToPolicyDocumentPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyDocumentOutput) ToPolicyDocumentPtrOutputWithContext(ctx context.Context) PolicyDocumentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyDocument) *PolicyDocument {
+		return &v
+	}).(PolicyDocumentPtrOutput)
+}
+
+func (o PolicyDocumentOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyDocument) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o PolicyDocumentOutput) Statement() iam.PolicyStatementArrayOutput {
+	return o.ApplyT(func(v PolicyDocument) []iam.PolicyStatement { return v.Statement }).(iam.PolicyStatementArrayOutput)
+}
+
+func (o PolicyDocumentOutput) Version() iam.PolicyDocumentVersionOutput {
+	return o.ApplyT(func(v PolicyDocument) iam.PolicyDocumentVersion { return v.Version }).(iam.PolicyDocumentVersionOutput)
+}
+
+type PolicyDocumentPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyDocumentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyDocument)(nil)).Elem()
+}
+
+func (o PolicyDocumentPtrOutput) ToPolicyDocumentPtrOutput() PolicyDocumentPtrOutput {
+	return o
+}
+
+func (o PolicyDocumentPtrOutput) ToPolicyDocumentPtrOutputWithContext(ctx context.Context) PolicyDocumentPtrOutput {
+	return o
+}
+
+func (o PolicyDocumentPtrOutput) Elem() PolicyDocumentOutput {
+	return o.ApplyT(func(v *PolicyDocument) PolicyDocument {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyDocument
+		return ret
+	}).(PolicyDocumentOutput)
+}
+
+func (o PolicyDocumentPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyDocument) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PolicyDocumentPtrOutput) Statement() iam.PolicyStatementArrayOutput {
+	return o.ApplyT(func(v *PolicyDocument) []iam.PolicyStatement {
+		if v == nil {
+			return nil
+		}
+		return v.Statement
+	}).(iam.PolicyStatementArrayOutput)
+}
+
+func (o PolicyDocumentPtrOutput) Version() iam.PolicyDocumentVersionPtrOutput {
+	return o.ApplyT(func(v *PolicyDocument) *iam.PolicyDocumentVersion {
+		if v == nil {
+			return nil
+		}
+		return &v.Version
+	}).(iam.PolicyDocumentVersionPtrOutput)
+}
 
 type RegistryScanningConfigurationRule struct {
 	// One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
@@ -1836,6 +2413,14 @@ func (o GetRepositoryImageScanningConfigurationArrayOutput) Index(i pulumi.IntIn
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyActionInput)(nil)).Elem(), LifecyclePolicyActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyDocumentInput)(nil)).Elem(), LifecyclePolicyDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyDocumentPtrInput)(nil)).Elem(), LifecyclePolicyDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyRuleInput)(nil)).Elem(), LifecyclePolicyRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyRuleArrayInput)(nil)).Elem(), LifecyclePolicyRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicySelectionInput)(nil)).Elem(), LifecyclePolicySelectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDocumentInput)(nil)).Elem(), PolicyDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDocumentPtrInput)(nil)).Elem(), PolicyDocumentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationRuleInput)(nil)).Elem(), RegistryScanningConfigurationRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationRuleArrayInput)(nil)).Elem(), RegistryScanningConfigurationRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationRuleRepositoryFilterInput)(nil)).Elem(), RegistryScanningConfigurationRuleRepositoryFilterArgs{})
@@ -1866,6 +2451,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryEncryptionConfigurationArrayInput)(nil)).Elem(), GetRepositoryEncryptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryImageScanningConfigurationInput)(nil)).Elem(), GetRepositoryImageScanningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryImageScanningConfigurationArrayInput)(nil)).Elem(), GetRepositoryImageScanningConfigurationArray{})
+	pulumi.RegisterOutputType(LifecyclePolicyActionOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyDocumentOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyDocumentPtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyRuleOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyRuleArrayOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicySelectionOutput{})
+	pulumi.RegisterOutputType(PolicyDocumentOutput{})
+	pulumi.RegisterOutputType(PolicyDocumentPtrOutput{})
 	pulumi.RegisterOutputType(RegistryScanningConfigurationRuleOutput{})
 	pulumi.RegisterOutputType(RegistryScanningConfigurationRuleArrayOutput{})
 	pulumi.RegisterOutputType(RegistryScanningConfigurationRuleRepositoryFilterOutput{})

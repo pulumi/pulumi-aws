@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/imagebuilder"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,6 +78,8 @@ type Component struct {
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// Platform of the component.
 	Platform pulumi.StringOutput `pulumi:"platform"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 	// Set of Operating Systems (OS) supported by the component.
@@ -85,8 +87,6 @@ type Component struct {
 	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Type of the component.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -156,6 +156,8 @@ type componentState struct {
 	Owner *string `pulumi:"owner"`
 	// Platform of the component.
 	Platform *string `pulumi:"platform"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Set of Operating Systems (OS) supported by the component.
@@ -163,8 +165,6 @@ type componentState struct {
 	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Type of the component.
 	Type *string `pulumi:"type"`
@@ -199,6 +199,8 @@ type ComponentState struct {
 	Owner pulumi.StringPtrInput
 	// Platform of the component.
 	Platform pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
 	SkipDestroy pulumi.BoolPtrInput
 	// Set of Operating Systems (OS) supported by the component.
@@ -206,8 +208,6 @@ type ComponentState struct {
 	// Key-value map of resource tags for the component. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Type of the component.
 	Type pulumi.StringPtrInput
@@ -238,6 +238,8 @@ type componentArgs struct {
 	Name *string `pulumi:"name"`
 	// Platform of the component.
 	Platform string `pulumi:"platform"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Set of Operating Systems (OS) supported by the component.
@@ -268,6 +270,8 @@ type ComponentArgs struct {
 	Name pulumi.StringPtrInput
 	// Platform of the component.
 	Platform pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
 	SkipDestroy pulumi.BoolPtrInput
 	// Set of Operating Systems (OS) supported by the component.
@@ -421,6 +425,11 @@ func (o ComponentOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ComponentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
 func (o ComponentOutput) SkipDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
@@ -437,8 +446,6 @@ func (o ComponentOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ComponentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

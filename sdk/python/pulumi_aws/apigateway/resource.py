@@ -22,16 +22,20 @@ class ResourceArgs:
     def __init__(__self__, *,
                  parent_id: pulumi.Input[builtins.str],
                  path_part: pulumi.Input[builtins.str],
-                 rest_api: pulumi.Input[builtins.str]):
+                 rest_api: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Resource resource.
         :param pulumi.Input[builtins.str] parent_id: ID of the parent API resource
         :param pulumi.Input[builtins.str] path_part: Last path segment of this API resource.
         :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "parent_id", parent_id)
         pulumi.set(__self__, "path_part", path_part)
         pulumi.set(__self__, "rest_api", rest_api)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="parentId")
@@ -69,6 +73,18 @@ class ResourceArgs:
     def rest_api(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "rest_api", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ResourceState:
@@ -76,12 +92,14 @@ class _ResourceState:
                  parent_id: Optional[pulumi.Input[builtins.str]] = None,
                  path: Optional[pulumi.Input[builtins.str]] = None,
                  path_part: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Resource resources.
         :param pulumi.Input[builtins.str] parent_id: ID of the parent API resource
         :param pulumi.Input[builtins.str] path: Complete path for this API resource, including all parent paths.
         :param pulumi.Input[builtins.str] path_part: Last path segment of this API resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
         """
         if parent_id is not None:
@@ -90,6 +108,8 @@ class _ResourceState:
             pulumi.set(__self__, "path", path)
         if path_part is not None:
             pulumi.set(__self__, "path_part", path_part)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rest_api is not None:
             pulumi.set(__self__, "rest_api", rest_api)
 
@@ -130,6 +150,18 @@ class _ResourceState:
         pulumi.set(self, "path_part", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="restApi")
     def rest_api(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -150,6 +182,7 @@ class Resource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  parent_id: Optional[pulumi.Input[builtins.str]] = None,
                  path_part: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -182,6 +215,7 @@ class Resource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] parent_id: ID of the parent API resource
         :param pulumi.Input[builtins.str] path_part: Last path segment of this API resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
         """
         ...
@@ -233,6 +267,7 @@ class Resource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  parent_id: Optional[pulumi.Input[builtins.str]] = None,
                  path_part: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -249,6 +284,7 @@ class Resource(pulumi.CustomResource):
             if path_part is None and not opts.urn:
                 raise TypeError("Missing required property 'path_part'")
             __props__.__dict__["path_part"] = path_part
+            __props__.__dict__["region"] = region
             if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
             __props__.__dict__["rest_api"] = rest_api
@@ -266,6 +302,7 @@ class Resource(pulumi.CustomResource):
             parent_id: Optional[pulumi.Input[builtins.str]] = None,
             path: Optional[pulumi.Input[builtins.str]] = None,
             path_part: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rest_api: Optional[pulumi.Input[builtins.str]] = None) -> 'Resource':
         """
         Get an existing Resource resource's state with the given name, id, and optional extra
@@ -277,6 +314,7 @@ class Resource(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] parent_id: ID of the parent API resource
         :param pulumi.Input[builtins.str] path: Complete path for this API resource, including all parent paths.
         :param pulumi.Input[builtins.str] path_part: Last path segment of this API resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: ID of the associated REST API
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -286,6 +324,7 @@ class Resource(pulumi.CustomResource):
         __props__.__dict__["parent_id"] = parent_id
         __props__.__dict__["path"] = path
         __props__.__dict__["path_part"] = path_part
+        __props__.__dict__["region"] = region
         __props__.__dict__["rest_api"] = rest_api
         return Resource(resource_name, opts=opts, __props__=__props__)
 
@@ -312,6 +351,14 @@ class Resource(pulumi.CustomResource):
         Last path segment of this API resource.
         """
         return pulumi.get(self, "path_part")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="restApi")

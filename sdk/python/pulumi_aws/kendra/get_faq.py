@@ -28,7 +28,7 @@ class GetFaqResult:
     """
     A collection of values returned by getFaq.
     """
-    def __init__(__self__, arn=None, created_at=None, description=None, error_message=None, faq_id=None, file_format=None, id=None, index_id=None, language_code=None, name=None, role_arn=None, s3_paths=None, status=None, tags=None, updated_at=None):
+    def __init__(__self__, arn=None, created_at=None, description=None, error_message=None, faq_id=None, file_format=None, id=None, index_id=None, language_code=None, name=None, region=None, role_arn=None, s3_paths=None, status=None, tags=None, updated_at=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -59,6 +59,9 @@ class GetFaqResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -150,6 +153,11 @@ class GetFaqResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> builtins.str:
         """
@@ -206,6 +214,7 @@ class AwaitableGetFaqResult(GetFaqResult):
             index_id=self.index_id,
             language_code=self.language_code,
             name=self.name,
+            region=self.region,
             role_arn=self.role_arn,
             s3_paths=self.s3_paths,
             status=self.status,
@@ -215,6 +224,7 @@ class AwaitableGetFaqResult(GetFaqResult):
 
 def get_faq(faq_id: Optional[builtins.str] = None,
             index_id: Optional[builtins.str] = None,
+            region: Optional[builtins.str] = None,
             tags: Optional[Mapping[str, builtins.str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFaqResult:
     """
@@ -233,11 +243,13 @@ def get_faq(faq_id: Optional[builtins.str] = None,
 
     :param builtins.str faq_id: Identifier of the FAQ.
     :param builtins.str index_id: Identifier of the index that contains the FAQ.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that helps organize the FAQs you create.
     """
     __args__ = dict()
     __args__['faqId'] = faq_id
     __args__['indexId'] = index_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:kendra/getFaq:getFaq', __args__, opts=opts, typ=GetFaqResult).value
@@ -253,6 +265,7 @@ def get_faq(faq_id: Optional[builtins.str] = None,
         index_id=pulumi.get(__ret__, 'index_id'),
         language_code=pulumi.get(__ret__, 'language_code'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         s3_paths=pulumi.get(__ret__, 's3_paths'),
         status=pulumi.get(__ret__, 'status'),
@@ -260,6 +273,7 @@ def get_faq(faq_id: Optional[builtins.str] = None,
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_faq_output(faq_id: Optional[pulumi.Input[builtins.str]] = None,
                    index_id: Optional[pulumi.Input[builtins.str]] = None,
+                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFaqResult]:
     """
@@ -278,11 +292,13 @@ def get_faq_output(faq_id: Optional[pulumi.Input[builtins.str]] = None,
 
     :param builtins.str faq_id: Identifier of the FAQ.
     :param builtins.str index_id: Identifier of the index that contains the FAQ.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Metadata that helps organize the FAQs you create.
     """
     __args__ = dict()
     __args__['faqId'] = faq_id
     __args__['indexId'] = index_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kendra/getFaq:getFaq', __args__, opts=opts, typ=GetFaqResult)
@@ -297,6 +313,7 @@ def get_faq_output(faq_id: Optional[pulumi.Input[builtins.str]] = None,
         index_id=pulumi.get(__response__, 'index_id'),
         language_code=pulumi.get(__response__, 'language_code'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         s3_paths=pulumi.get(__response__, 's3_paths'),
         status=pulumi.get(__response__, 'status'),

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,6 +79,8 @@ type LookupKeyArgs struct {
 	// * Alias name. E.g.: `alias/my-key`
 	// * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
 	KeyId string `pulumi:"keyId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getKey.
@@ -93,7 +95,7 @@ type LookupKeyResult struct {
 	CreationDate string `pulumi:"creationDate"`
 	// A unique identifier for the custom key store that contains the KMS key.
 	CustomKeyStoreId string `pulumi:"customKeyStoreId"`
-	// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
+	// See `keySpec`.
 	CustomerMasterKeySpec string `pulumi:"customerMasterKeySpec"`
 	// The date and time after which AWS KMS deletes the key. This value is present only when `keyState` is `PendingDeletion`, otherwise this value is 0
 	DeletionDate string `pulumi:"deletionDate"`
@@ -123,6 +125,8 @@ type LookupKeyResult struct {
 	Origin string `pulumi:"origin"`
 	// The waiting period before the primary key in a multi-Region key is deleted.
 	PendingDeletionWindowInDays int `pulumi:"pendingDeletionWindowInDays"`
+	// The AWS Region of a primary or replica key in a multi-Region key.
+	Region string `pulumi:"region"`
 	// The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expirationModel` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0
 	ValidTo string `pulumi:"validTo"`
 	// Information about the external key that is associated with a KMS key in an external key store.
@@ -148,6 +152,8 @@ type LookupKeyOutputArgs struct {
 	// * Alias name. E.g.: `alias/my-key`
 	// * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
 	KeyId pulumi.StringInput `pulumi:"keyId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupKeyOutputArgs) ElementType() reflect.Type {
@@ -194,7 +200,7 @@ func (o LookupKeyResultOutput) CustomKeyStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.CustomKeyStoreId }).(pulumi.StringOutput)
 }
 
-// Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports
+// See `keySpec`.
 func (o LookupKeyResultOutput) CustomerMasterKeySpec() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.CustomerMasterKeySpec }).(pulumi.StringOutput)
 }
@@ -270,6 +276,11 @@ func (o LookupKeyResultOutput) Origin() pulumi.StringOutput {
 // The waiting period before the primary key in a multi-Region key is deleted.
 func (o LookupKeyResultOutput) PendingDeletionWindowInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupKeyResult) int { return v.PendingDeletionWindowInDays }).(pulumi.IntOutput)
+}
+
+// The AWS Region of a primary or replica key in a multi-Region key.
+func (o LookupKeyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupKeyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The time at which the imported key material expires. This value is present only when `origin` is `EXTERNAL` and whose `expirationModel` is `KEY_MATERIAL_EXPIRES`, otherwise this value is 0

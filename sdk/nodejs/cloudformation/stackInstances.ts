@@ -151,6 +151,10 @@ export class StackInstances extends pulumi.CustomResource {
      */
     public readonly parameterOverrides!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Regions where you want to create stack instances in the specified `accounts`.
      */
     public readonly regions!: pulumi.Output<string[]>;
@@ -191,6 +195,7 @@ export class StackInstances extends pulumi.CustomResource {
             resourceInputs["deploymentTargets"] = state ? state.deploymentTargets : undefined;
             resourceInputs["operationPreferences"] = state ? state.operationPreferences : undefined;
             resourceInputs["parameterOverrides"] = state ? state.parameterOverrides : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["regions"] = state ? state.regions : undefined;
             resourceInputs["retainStacks"] = state ? state.retainStacks : undefined;
             resourceInputs["stackInstanceSummaries"] = state ? state.stackInstanceSummaries : undefined;
@@ -206,6 +211,7 @@ export class StackInstances extends pulumi.CustomResource {
             resourceInputs["deploymentTargets"] = args ? args.deploymentTargets : undefined;
             resourceInputs["operationPreferences"] = args ? args.operationPreferences : undefined;
             resourceInputs["parameterOverrides"] = args ? args.parameterOverrides : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["regions"] = args ? args.regions : undefined;
             resourceInputs["retainStacks"] = args ? args.retainStacks : undefined;
             resourceInputs["stackSetName"] = args ? args.stackSetName : undefined;
@@ -241,6 +247,10 @@ export interface StackInstancesState {
      * Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
      */
     parameterOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Regions where you want to create stack instances in the specified `accounts`.
      */
@@ -289,6 +299,10 @@ export interface StackInstancesArgs {
      * Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
      */
     parameterOverrides?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Regions where you want to create stack instances in the specified `accounts`.
      */

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,10 +98,6 @@ import (
 type NotebookInstance struct {
 	pulumi.CustomResourceState
 
-	// A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-	//
-	// Deprecated: accelerator_types is deprecated. Use instanceType instead.
-	AcceleratorTypes pulumi.StringArrayOutput `pulumi:"acceleratorTypes"`
 	// An array of up to three Git repositories to associate with the notebook instance.
 	// These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
 	AdditionalCodeRepositories pulumi.StringArrayOutput `pulumi:"additionalCodeRepositories"`
@@ -125,6 +121,8 @@ type NotebookInstance struct {
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
 	// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
 	PlatformIdentifier pulumi.StringOutput `pulumi:"platformIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
@@ -136,8 +134,6 @@ type NotebookInstance struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -181,10 +177,6 @@ func GetNotebookInstance(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NotebookInstance resources.
 type notebookInstanceState struct {
-	// A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-	//
-	// Deprecated: accelerator_types is deprecated. Use instanceType instead.
-	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
 	// An array of up to three Git repositories to associate with the notebook instance.
 	// These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
 	AdditionalCodeRepositories []string `pulumi:"additionalCodeRepositories"`
@@ -208,6 +200,8 @@ type notebookInstanceState struct {
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
 	PlatformIdentifier *string `pulumi:"platformIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
 	// Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
@@ -219,8 +213,6 @@ type notebookInstanceState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
 	Url *string `pulumi:"url"`
@@ -229,10 +221,6 @@ type notebookInstanceState struct {
 }
 
 type NotebookInstanceState struct {
-	// A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-	//
-	// Deprecated: accelerator_types is deprecated. Use instanceType instead.
-	AcceleratorTypes pulumi.StringArrayInput
 	// An array of up to three Git repositories to associate with the notebook instance.
 	// These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
 	AdditionalCodeRepositories pulumi.StringArrayInput
@@ -256,6 +244,8 @@ type NotebookInstanceState struct {
 	NetworkInterfaceId pulumi.StringPtrInput
 	// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
 	PlatformIdentifier pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
 	RoleArn pulumi.StringPtrInput
 	// Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
@@ -267,8 +257,6 @@ type NotebookInstanceState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
 	Url pulumi.StringPtrInput
@@ -281,10 +269,6 @@ func (NotebookInstanceState) ElementType() reflect.Type {
 }
 
 type notebookInstanceArgs struct {
-	// A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-	//
-	// Deprecated: accelerator_types is deprecated. Use instanceType instead.
-	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
 	// An array of up to three Git repositories to associate with the notebook instance.
 	// These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
 	AdditionalCodeRepositories []string `pulumi:"additionalCodeRepositories"`
@@ -304,6 +288,8 @@ type notebookInstanceArgs struct {
 	Name *string `pulumi:"name"`
 	// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
 	PlatformIdentifier *string `pulumi:"platformIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
@@ -320,10 +306,6 @@ type notebookInstanceArgs struct {
 
 // The set of arguments for constructing a NotebookInstance resource.
 type NotebookInstanceArgs struct {
-	// A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-	//
-	// Deprecated: accelerator_types is deprecated. Use instanceType instead.
-	AcceleratorTypes pulumi.StringArrayInput
 	// An array of up to three Git repositories to associate with the notebook instance.
 	// These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
 	AdditionalCodeRepositories pulumi.StringArrayInput
@@ -343,6 +325,8 @@ type NotebookInstanceArgs struct {
 	Name pulumi.StringPtrInput
 	// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
 	PlatformIdentifier pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
 	RoleArn pulumi.StringInput
 	// Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
@@ -444,13 +428,6 @@ func (o NotebookInstanceOutput) ToNotebookInstanceOutputWithContext(ctx context.
 	return o
 }
 
-// A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-//
-// Deprecated: accelerator_types is deprecated. Use instanceType instead.
-func (o NotebookInstanceOutput) AcceleratorTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *NotebookInstance) pulumi.StringArrayOutput { return v.AcceleratorTypes }).(pulumi.StringArrayOutput)
-}
-
 // An array of up to three Git repositories to associate with the notebook instance.
 // These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
 func (o NotebookInstanceOutput) AdditionalCodeRepositories() pulumi.StringArrayOutput {
@@ -509,6 +486,11 @@ func (o NotebookInstanceOutput) PlatformIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotebookInstance) pulumi.StringOutput { return v.PlatformIdentifier }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o NotebookInstanceOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *NotebookInstance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
 func (o NotebookInstanceOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotebookInstance) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
@@ -535,8 +517,6 @@ func (o NotebookInstanceOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o NotebookInstanceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NotebookInstance) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

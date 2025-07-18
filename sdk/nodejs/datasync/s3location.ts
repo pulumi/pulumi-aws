@@ -7,8 +7,6 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
-import {ARN} from "..";
-
 /**
  * Manages an S3 Location within AWS DataSync.
  *
@@ -91,9 +89,13 @@ export class S3Location extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      */
-    public readonly s3BucketArn!: pulumi.Output<ARN>;
+    public readonly s3BucketArn!: pulumi.Output<string>;
     /**
      * Configuration block containing information for connecting to S3.
      */
@@ -112,8 +114,6 @@ export class S3Location extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly uri!: pulumi.Output<string>;
@@ -133,6 +133,7 @@ export class S3Location extends pulumi.CustomResource {
             const state = argsOrState as S3LocationState | undefined;
             resourceInputs["agentArns"] = state ? state.agentArns : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["s3BucketArn"] = state ? state.s3BucketArn : undefined;
             resourceInputs["s3Config"] = state ? state.s3Config : undefined;
             resourceInputs["s3StorageClass"] = state ? state.s3StorageClass : undefined;
@@ -152,6 +153,7 @@ export class S3Location extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subdirectory'");
             }
             resourceInputs["agentArns"] = args ? args.agentArns : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["s3BucketArn"] = args ? args.s3BucketArn : undefined;
             resourceInputs["s3Config"] = args ? args.s3Config : undefined;
             resourceInputs["s3StorageClass"] = args ? args.s3StorageClass : undefined;
@@ -179,9 +181,13 @@ export interface S3LocationState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      */
-    s3BucketArn?: pulumi.Input<ARN>;
+    s3BucketArn?: pulumi.Input<string>;
     /**
      * Configuration block containing information for connecting to S3.
      */
@@ -200,8 +206,6 @@ export interface S3LocationState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     uri?: pulumi.Input<string>;
@@ -216,9 +220,13 @@ export interface S3LocationArgs {
      */
     agentArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      */
-    s3BucketArn: pulumi.Input<ARN>;
+    s3BucketArn: pulumi.Input<string>;
     /**
      * Configuration block containing information for connecting to S3.
      */

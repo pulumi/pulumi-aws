@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -31,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssoadmin.NewApplicationAssignment(ctx, "example", &ssoadmin.ApplicationAssignmentArgs{
-//				ApplicationArn: pulumi.Any(exampleAwsSsoadminApplication.ApplicationArn),
+//				ApplicationArn: pulumi.Any(exampleAwsSsoadminApplication.Arn),
 //				PrincipalId:    pulumi.Any(exampleAwsIdentitystoreUser.UserId),
 //				PrincipalType:  pulumi.String("USER"),
 //			})
@@ -51,7 +51,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,7 +59,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssoadmin.NewApplicationAssignment(ctx, "example", &ssoadmin.ApplicationAssignmentArgs{
-//				ApplicationArn: pulumi.Any(exampleAwsSsoadminApplication.ApplicationArn),
+//				ApplicationArn: pulumi.Any(exampleAwsSsoadminApplication.Arn),
 //				PrincipalId:    pulumi.Any(exampleAwsIdentitystoreGroup.GroupId),
 //				PrincipalType:  pulumi.String("GROUP"),
 //			})
@@ -88,6 +88,8 @@ type ApplicationAssignment struct {
 	PrincipalId pulumi.StringOutput `pulumi:"principalId"`
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 	PrincipalType pulumi.StringOutput `pulumi:"principalType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewApplicationAssignment registers a new resource with the given unique name, arguments, and options.
@@ -135,6 +137,8 @@ type applicationAssignmentState struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 	PrincipalType *string `pulumi:"principalType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ApplicationAssignmentState struct {
@@ -144,6 +148,8 @@ type ApplicationAssignmentState struct {
 	PrincipalId pulumi.StringPtrInput
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 	PrincipalType pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ApplicationAssignmentState) ElementType() reflect.Type {
@@ -157,6 +163,8 @@ type applicationAssignmentArgs struct {
 	PrincipalId string `pulumi:"principalId"`
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 	PrincipalType string `pulumi:"principalType"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ApplicationAssignment resource.
@@ -167,6 +175,8 @@ type ApplicationAssignmentArgs struct {
 	PrincipalId pulumi.StringInput
 	// Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 	PrincipalType pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ApplicationAssignmentArgs) ElementType() reflect.Type {
@@ -269,6 +279,11 @@ func (o ApplicationAssignmentOutput) PrincipalId() pulumi.StringOutput {
 // Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
 func (o ApplicationAssignmentOutput) PrincipalType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationAssignment) pulumi.StringOutput { return v.PrincipalType }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ApplicationAssignmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ApplicationAssignment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ApplicationAssignmentArrayOutput struct{ *pulumi.OutputState }

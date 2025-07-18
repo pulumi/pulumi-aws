@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
 export function getAuthorizers(args: GetAuthorizersArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:apigateway/getAuthorizers:getAuthorizers", {
+        "region": args.region,
         "restApiId": args.restApiId,
     }, opts);
 }
@@ -29,6 +30,10 @@ export function getAuthorizers(args: GetAuthorizersArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getAuthorizers.
  */
 export interface GetAuthorizersArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * ID of the associated REST API.
      */
@@ -47,6 +52,7 @@ export interface GetAuthorizersResult {
      * List of Authorizer identifiers.
      */
     readonly ids: string[];
+    readonly region: string;
     readonly restApiId: string;
 }
 /**
@@ -66,6 +72,7 @@ export interface GetAuthorizersResult {
 export function getAuthorizersOutput(args: GetAuthorizersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthorizersResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:apigateway/getAuthorizers:getAuthorizers", {
+        "region": args.region,
         "restApiId": args.restApiId,
     }, opts);
 }
@@ -74,6 +81,10 @@ export function getAuthorizersOutput(args: GetAuthorizersOutputArgs, opts?: pulu
  * A collection of arguments for invoking getAuthorizers.
  */
 export interface GetAuthorizersOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the associated REST API.
      */

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/schemas"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/schemas"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,6 +82,8 @@ type RegistryPolicy struct {
 
 	// Resource Policy for EventBridge Schema Registry
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Name of EventBridge Schema Registry
 	RegistryName pulumi.StringOutput `pulumi:"registryName"`
 }
@@ -124,6 +126,8 @@ func GetRegistryPolicy(ctx *pulumi.Context,
 type registryPolicyState struct {
 	// Resource Policy for EventBridge Schema Registry
 	Policy *string `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of EventBridge Schema Registry
 	RegistryName *string `pulumi:"registryName"`
 }
@@ -131,6 +135,8 @@ type registryPolicyState struct {
 type RegistryPolicyState struct {
 	// Resource Policy for EventBridge Schema Registry
 	Policy pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of EventBridge Schema Registry
 	RegistryName pulumi.StringPtrInput
 }
@@ -142,6 +148,8 @@ func (RegistryPolicyState) ElementType() reflect.Type {
 type registryPolicyArgs struct {
 	// Resource Policy for EventBridge Schema Registry
 	Policy string `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of EventBridge Schema Registry
 	RegistryName string `pulumi:"registryName"`
 }
@@ -150,6 +158,8 @@ type registryPolicyArgs struct {
 type RegistryPolicyArgs struct {
 	// Resource Policy for EventBridge Schema Registry
 	Policy pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of EventBridge Schema Registry
 	RegistryName pulumi.StringInput
 }
@@ -244,6 +254,11 @@ func (o RegistryPolicyOutput) ToRegistryPolicyOutputWithContext(ctx context.Cont
 // Resource Policy for EventBridge Schema Registry
 func (o RegistryPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o RegistryPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegistryPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Name of EventBridge Schema Registry

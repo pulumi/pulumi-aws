@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,6 +53,8 @@ func LookupThesaurus(ctx *pulumi.Context, args *LookupThesaurusArgs, opts ...pul
 type LookupThesaurusArgs struct {
 	// Identifier of the index that contains the Thesaurus.
 	IndexId string `pulumi:"indexId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Metadata that helps organize the Thesaurus you create.
 	Tags map[string]string `pulumi:"tags"`
 	// Identifier of the Thesaurus.
@@ -75,7 +77,8 @@ type LookupThesaurusResult struct {
 	Id      string `pulumi:"id"`
 	IndexId string `pulumi:"indexId"`
 	// Name of the Thesaurus.
-	Name string `pulumi:"name"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
 	// ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn string `pulumi:"roleArn"`
 	// S3 location of the Thesaurus input data. Detailed below.
@@ -106,6 +109,8 @@ func LookupThesaurusOutput(ctx *pulumi.Context, args LookupThesaurusOutputArgs, 
 type LookupThesaurusOutputArgs struct {
 	// Identifier of the index that contains the Thesaurus.
 	IndexId pulumi.StringInput `pulumi:"indexId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Metadata that helps organize the Thesaurus you create.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Identifier of the Thesaurus.
@@ -168,6 +173,10 @@ func (o LookupThesaurusResultOutput) IndexId() pulumi.StringOutput {
 // Name of the Thesaurus.
 func (o LookupThesaurusResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupThesaurusResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupThesaurusResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupThesaurusResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of a role with permission to access the S3 bucket that contains the Thesaurus. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).

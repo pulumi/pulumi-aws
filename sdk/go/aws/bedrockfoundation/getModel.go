@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/bedrockfoundation"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrockfoundation"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,6 +58,8 @@ func GetModel(ctx *pulumi.Context, args *GetModelArgs, opts ...pulumi.InvokeOpti
 type GetModelArgs struct {
 	// Model identifier.
 	ModelId string `pulumi:"modelId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getModel.
@@ -78,6 +80,7 @@ type GetModelResult struct {
 	OutputModalities []string `pulumi:"outputModalities"`
 	// Model provider name.
 	ProviderName string `pulumi:"providerName"`
+	Region       string `pulumi:"region"`
 	// Indicates whether the model supports streaming.
 	ResponseStreamingSupported bool `pulumi:"responseStreamingSupported"`
 }
@@ -95,6 +98,8 @@ func GetModelOutput(ctx *pulumi.Context, args GetModelOutputArgs, opts ...pulumi
 type GetModelOutputArgs struct {
 	// Model identifier.
 	ModelId pulumi.StringInput `pulumi:"modelId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetModelOutputArgs) ElementType() reflect.Type {
@@ -157,6 +162,10 @@ func (o GetModelResultOutput) OutputModalities() pulumi.StringArrayOutput {
 // Model provider name.
 func (o GetModelResultOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetModelResult) string { return v.ProviderName }).(pulumi.StringOutput)
+}
+
+func (o GetModelResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetModelResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Indicates whether the model supports streaming.

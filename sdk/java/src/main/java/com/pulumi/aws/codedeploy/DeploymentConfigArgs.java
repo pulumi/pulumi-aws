@@ -64,6 +64,21 @@ public final class DeploymentConfigArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A traffic_routing_config block. Traffic Routing Config is documented below.
      * 
      */
@@ -99,6 +114,7 @@ public final class DeploymentConfigArgs extends com.pulumi.resources.ResourceArg
         this.computePlatform = $.computePlatform;
         this.deploymentConfigName = $.deploymentConfigName;
         this.minimumHealthyHosts = $.minimumHealthyHosts;
+        this.region = $.region;
         this.trafficRoutingConfig = $.trafficRoutingConfig;
         this.zonalConfig = $.zonalConfig;
     }
@@ -182,6 +198,27 @@ public final class DeploymentConfigArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder minimumHealthyHosts(DeploymentConfigMinimumHealthyHostsArgs minimumHealthyHosts) {
             return minimumHealthyHosts(Output.of(minimumHealthyHosts));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

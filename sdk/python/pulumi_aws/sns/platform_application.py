@@ -31,6 +31,7 @@ class PlatformApplicationArgs:
                  failure_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  platform_principal: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  success_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  success_feedback_sample_rate: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -46,6 +47,7 @@ class PlatformApplicationArgs:
         :param pulumi.Input[builtins.str] failure_feedback_role_arn: The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         :param pulumi.Input[builtins.str] name: The friendly name for the SNS platform application
         :param pulumi.Input[builtins.str] platform_principal: Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] success_feedback_role_arn: The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         :param pulumi.Input[builtins.str] success_feedback_sample_rate: The sample rate percentage (0-100) of successfully delivered messages.
                
@@ -71,6 +73,8 @@ class PlatformApplicationArgs:
             pulumi.set(__self__, "name", name)
         if platform_principal is not None:
             pulumi.set(__self__, "platform_principal", platform_principal)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if success_feedback_role_arn is not None:
             pulumi.set(__self__, "success_feedback_role_arn", success_feedback_role_arn)
         if success_feedback_sample_rate is not None:
@@ -209,6 +213,18 @@ class PlatformApplicationArgs:
         pulumi.set(self, "platform_principal", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="successFeedbackRoleArn")
     def success_feedback_role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -250,6 +266,7 @@ class _PlatformApplicationState:
                  platform: Optional[pulumi.Input[builtins.str]] = None,
                  platform_credential: Optional[pulumi.Input[builtins.str]] = None,
                  platform_principal: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  success_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  success_feedback_sample_rate: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -266,6 +283,7 @@ class _PlatformApplicationState:
         :param pulumi.Input[builtins.str] platform: The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
         :param pulumi.Input[builtins.str] platform_credential: Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         :param pulumi.Input[builtins.str] platform_principal: Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] success_feedback_role_arn: The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         :param pulumi.Input[builtins.str] success_feedback_sample_rate: The sample rate percentage (0-100) of successfully delivered messages.
                
@@ -295,6 +313,8 @@ class _PlatformApplicationState:
             pulumi.set(__self__, "platform_credential", platform_credential)
         if platform_principal is not None:
             pulumi.set(__self__, "platform_principal", platform_principal)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if success_feedback_role_arn is not None:
             pulumi.set(__self__, "success_feedback_role_arn", success_feedback_role_arn)
         if success_feedback_sample_rate is not None:
@@ -445,6 +465,18 @@ class _PlatformApplicationState:
         pulumi.set(self, "platform_principal", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="successFeedbackRoleArn")
     def success_feedback_role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -488,6 +520,7 @@ class PlatformApplication(pulumi.CustomResource):
                  platform: Optional[pulumi.Input[builtins.str]] = None,
                  platform_credential: Optional[pulumi.Input[builtins.str]] = None,
                  platform_principal: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  success_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  success_feedback_sample_rate: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -557,6 +590,7 @@ class PlatformApplication(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] platform: The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
         :param pulumi.Input[builtins.str] platform_credential: Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         :param pulumi.Input[builtins.str] platform_principal: Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] success_feedback_role_arn: The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         :param pulumi.Input[builtins.str] success_feedback_sample_rate: The sample rate percentage (0-100) of successfully delivered messages.
                
@@ -647,6 +681,7 @@ class PlatformApplication(pulumi.CustomResource):
                  platform: Optional[pulumi.Input[builtins.str]] = None,
                  platform_credential: Optional[pulumi.Input[builtins.str]] = None,
                  platform_principal: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  success_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  success_feedback_sample_rate: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -673,6 +708,7 @@ class PlatformApplication(pulumi.CustomResource):
                 raise TypeError("Missing required property 'platform_credential'")
             __props__.__dict__["platform_credential"] = None if platform_credential is None else pulumi.Output.secret(platform_credential)
             __props__.__dict__["platform_principal"] = None if platform_principal is None else pulumi.Output.secret(platform_principal)
+            __props__.__dict__["region"] = region
             __props__.__dict__["success_feedback_role_arn"] = success_feedback_role_arn
             __props__.__dict__["success_feedback_sample_rate"] = success_feedback_sample_rate
             __props__.__dict__["arn"] = None
@@ -700,6 +736,7 @@ class PlatformApplication(pulumi.CustomResource):
             platform: Optional[pulumi.Input[builtins.str]] = None,
             platform_credential: Optional[pulumi.Input[builtins.str]] = None,
             platform_principal: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             success_feedback_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             success_feedback_sample_rate: Optional[pulumi.Input[builtins.str]] = None) -> 'PlatformApplication':
         """
@@ -721,6 +758,7 @@ class PlatformApplication(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] platform: The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
         :param pulumi.Input[builtins.str] platform_credential: Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         :param pulumi.Input[builtins.str] platform_principal: Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] success_feedback_role_arn: The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         :param pulumi.Input[builtins.str] success_feedback_sample_rate: The sample rate percentage (0-100) of successfully delivered messages.
                
@@ -742,6 +780,7 @@ class PlatformApplication(pulumi.CustomResource):
         __props__.__dict__["platform"] = platform
         __props__.__dict__["platform_credential"] = platform_credential
         __props__.__dict__["platform_principal"] = platform_principal
+        __props__.__dict__["region"] = region
         __props__.__dict__["success_feedback_role_arn"] = success_feedback_role_arn
         __props__.__dict__["success_feedback_sample_rate"] = success_feedback_sample_rate
         return PlatformApplication(resource_name, opts=opts, __props__=__props__)
@@ -841,6 +880,14 @@ class PlatformApplication(pulumi.CustomResource):
         Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         """
         return pulumi.get(self, "platform_principal")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="successFeedbackRoleArn")

@@ -91,6 +91,9 @@ namespace Pulumi.Aws.Ec2
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
 
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
         /// <summary>
         /// A map of tags to assign to the resource.
         /// </summary>
@@ -152,6 +155,9 @@ namespace Pulumi.Aws.Ec2
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -208,6 +214,9 @@ namespace Pulumi.Aws.Ec2
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
 
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -222,7 +231,6 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

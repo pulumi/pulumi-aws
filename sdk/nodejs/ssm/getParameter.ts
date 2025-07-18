@@ -24,6 +24,7 @@ export function getParameter(args: GetParameterArgs, opts?: pulumi.InvokeOptions
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssm/getParameter:getParameter", {
         "name": args.name,
+        "region": args.region,
         "withDecryption": args.withDecryption,
     }, opts);
 }
@@ -36,6 +37,10 @@ export interface GetParameterArgs {
      * Name of the parameter.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Whether to return decrypted `SecureString` value. Defaults to `true`.
      */
@@ -62,6 +67,7 @@ export interface GetParameterResult {
      * Name of the parameter.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      */
@@ -96,6 +102,7 @@ export function getParameterOutput(args: GetParameterOutputArgs, opts?: pulumi.I
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssm/getParameter:getParameter", {
         "name": args.name,
+        "region": args.region,
         "withDecryption": args.withDecryption,
     }, opts);
 }
@@ -108,6 +115,10 @@ export interface GetParameterOutputArgs {
      * Name of the parameter.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether to return decrypted `SecureString` value. Defaults to `true`.
      */

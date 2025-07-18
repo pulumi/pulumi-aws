@@ -132,6 +132,12 @@ namespace Pulumi.Aws.RedShift
             set => _preferredNodeTypes = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetOrderableClusterArgs()
         {
         }
@@ -170,6 +176,12 @@ namespace Pulumi.Aws.RedShift
             set => _preferredNodeTypes = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetOrderableClusterInvokeArgs()
         {
         }
@@ -192,6 +204,7 @@ namespace Pulumi.Aws.RedShift
         public readonly string Id;
         public readonly string NodeType;
         public readonly ImmutableArray<string> PreferredNodeTypes;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetOrderableClusterResult(
@@ -205,7 +218,9 @@ namespace Pulumi.Aws.RedShift
 
             string nodeType,
 
-            ImmutableArray<string> preferredNodeTypes)
+            ImmutableArray<string> preferredNodeTypes,
+
+            string region)
         {
             AvailabilityZones = availabilityZones;
             ClusterType = clusterType;
@@ -213,6 +228,7 @@ namespace Pulumi.Aws.RedShift
             Id = id;
             NodeType = nodeType;
             PreferredNodeTypes = preferredNodeTypes;
+            Region = region;
         }
     }
 }

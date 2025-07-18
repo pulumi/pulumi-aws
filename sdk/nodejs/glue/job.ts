@@ -269,6 +269,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly glueVersion!: pulumi.Output<string>;
     /**
+     * Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+     */
+    public readonly jobMode!: pulumi.Output<string>;
+    /**
      * Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
      */
     public readonly jobRunQueuingEnabled!: pulumi.Output<boolean | undefined>;
@@ -301,6 +305,10 @@ export class Job extends pulumi.CustomResource {
      */
     public readonly numberOfWorkers!: pulumi.Output<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the IAM role associated with this job.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -318,8 +326,6 @@ export class Job extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -359,6 +365,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["executionClass"] = state ? state.executionClass : undefined;
             resourceInputs["executionProperty"] = state ? state.executionProperty : undefined;
             resourceInputs["glueVersion"] = state ? state.glueVersion : undefined;
+            resourceInputs["jobMode"] = state ? state.jobMode : undefined;
             resourceInputs["jobRunQueuingEnabled"] = state ? state.jobRunQueuingEnabled : undefined;
             resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
             resourceInputs["maxCapacity"] = state ? state.maxCapacity : undefined;
@@ -367,6 +374,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["nonOverridableArguments"] = state ? state.nonOverridableArguments : undefined;
             resourceInputs["notificationProperty"] = state ? state.notificationProperty : undefined;
             resourceInputs["numberOfWorkers"] = state ? state.numberOfWorkers : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
             resourceInputs["sourceControlDetails"] = state ? state.sourceControlDetails : undefined;
@@ -389,6 +397,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["executionClass"] = args ? args.executionClass : undefined;
             resourceInputs["executionProperty"] = args ? args.executionProperty : undefined;
             resourceInputs["glueVersion"] = args ? args.glueVersion : undefined;
+            resourceInputs["jobMode"] = args ? args.jobMode : undefined;
             resourceInputs["jobRunQueuingEnabled"] = args ? args.jobRunQueuingEnabled : undefined;
             resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
@@ -397,6 +406,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["nonOverridableArguments"] = args ? args.nonOverridableArguments : undefined;
             resourceInputs["notificationProperty"] = args ? args.notificationProperty : undefined;
             resourceInputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
             resourceInputs["sourceControlDetails"] = args ? args.sourceControlDetails : undefined;
@@ -448,6 +458,10 @@ export interface JobState {
      */
     glueVersion?: pulumi.Input<string>;
     /**
+     * Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+     */
+    jobMode?: pulumi.Input<string>;
+    /**
      * Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
      */
     jobRunQueuingEnabled?: pulumi.Input<boolean>;
@@ -480,6 +494,10 @@ export interface JobState {
      */
     numberOfWorkers?: pulumi.Input<number>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ARN of the IAM role associated with this job.
      */
     roleArn?: pulumi.Input<string>;
@@ -497,8 +515,6 @@ export interface JobState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -551,6 +567,10 @@ export interface JobArgs {
      */
     glueVersion?: pulumi.Input<string>;
     /**
+     * Describes how a job was created. Valid values are `SCRIPT`, `NOTEBOOK` and `VISUAL`.
+     */
+    jobMode?: pulumi.Input<string>;
+    /**
      * Specifies whether job run queuing is enabled for the job runs for this job. A value of true means job run queuing is enabled for the job runs. If false or not populated, the job runs will not be considered for queueing.
      */
     jobRunQueuingEnabled?: pulumi.Input<boolean>;
@@ -582,6 +602,10 @@ export interface JobArgs {
      * The number of workers of a defined workerType that are allocated when a job runs.
      */
     numberOfWorkers?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role associated with this job.
      */

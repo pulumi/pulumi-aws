@@ -21,14 +21,18 @@ __all__ = ['AppregistryAttributeGroupAssociationArgs', 'AppregistryAttributeGrou
 class AppregistryAttributeGroupAssociationArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[builtins.str],
-                 attribute_group_id: pulumi.Input[builtins.str]):
+                 attribute_group_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a AppregistryAttributeGroupAssociation resource.
         :param pulumi.Input[builtins.str] application_id: ID of the application.
         :param pulumi.Input[builtins.str] attribute_group_id: ID of the attribute group to associate with the application.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "attribute_group_id", attribute_group_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -54,21 +58,37 @@ class AppregistryAttributeGroupAssociationArgs:
     def attribute_group_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "attribute_group_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _AppregistryAttributeGroupAssociationState:
     def __init__(__self__, *,
                  application_id: Optional[pulumi.Input[builtins.str]] = None,
-                 attribute_group_id: Optional[pulumi.Input[builtins.str]] = None):
+                 attribute_group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering AppregistryAttributeGroupAssociation resources.
         :param pulumi.Input[builtins.str] application_id: ID of the application.
         :param pulumi.Input[builtins.str] attribute_group_id: ID of the attribute group to associate with the application.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
         if attribute_group_id is not None:
             pulumi.set(__self__, "attribute_group_id", attribute_group_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="applicationId")
@@ -94,6 +114,18 @@ class _AppregistryAttributeGroupAssociationState:
     def attribute_group_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "attribute_group_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation")
 class AppregistryAttributeGroupAssociation(pulumi.CustomResource):
@@ -103,6 +135,7 @@ class AppregistryAttributeGroupAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[builtins.str]] = None,
                  attribute_group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Service Catalog AppRegistry Attribute Group Association.
@@ -141,6 +174,7 @@ class AppregistryAttributeGroupAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] application_id: ID of the application.
         :param pulumi.Input[builtins.str] attribute_group_id: ID of the attribute group to associate with the application.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -198,6 +232,7 @@ class AppregistryAttributeGroupAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[builtins.str]] = None,
                  attribute_group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -213,6 +248,7 @@ class AppregistryAttributeGroupAssociation(pulumi.CustomResource):
             if attribute_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'attribute_group_id'")
             __props__.__dict__["attribute_group_id"] = attribute_group_id
+            __props__.__dict__["region"] = region
         super(AppregistryAttributeGroupAssociation, __self__).__init__(
             'aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation',
             resource_name,
@@ -224,7 +260,8 @@ class AppregistryAttributeGroupAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             application_id: Optional[pulumi.Input[builtins.str]] = None,
-            attribute_group_id: Optional[pulumi.Input[builtins.str]] = None) -> 'AppregistryAttributeGroupAssociation':
+            attribute_group_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'AppregistryAttributeGroupAssociation':
         """
         Get an existing AppregistryAttributeGroupAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -234,6 +271,7 @@ class AppregistryAttributeGroupAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] application_id: ID of the application.
         :param pulumi.Input[builtins.str] attribute_group_id: ID of the attribute group to associate with the application.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -241,6 +279,7 @@ class AppregistryAttributeGroupAssociation(pulumi.CustomResource):
 
         __props__.__dict__["application_id"] = application_id
         __props__.__dict__["attribute_group_id"] = attribute_group_id
+        __props__.__dict__["region"] = region
         return AppregistryAttributeGroupAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -258,4 +297,12 @@ class AppregistryAttributeGroupAssociation(pulumi.CustomResource):
         ID of the attribute group to associate with the application.
         """
         return pulumi.get(self, "attribute_group_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

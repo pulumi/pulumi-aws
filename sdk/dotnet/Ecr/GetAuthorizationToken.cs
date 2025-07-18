@@ -79,6 +79,12 @@ namespace Pulumi.Aws.Ecr
     public sealed class GetAuthorizationTokenArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// AWS account ID of the ECR Repository. If not specified the default account is assumed.
         /// </summary>
         [Input("registryId")]
@@ -92,6 +98,12 @@ namespace Pulumi.Aws.Ecr
 
     public sealed class GetAuthorizationTokenInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// AWS account ID of the ECR Repository. If not specified the default account is assumed.
         /// </summary>
@@ -128,6 +140,7 @@ namespace Pulumi.Aws.Ecr
         /// Registry URL to use in the docker login command.
         /// </summary>
         public readonly string ProxyEndpoint;
+        public readonly string Region;
         public readonly string? RegistryId;
         /// <summary>
         /// User name decoded from the authorization token.
@@ -146,6 +159,8 @@ namespace Pulumi.Aws.Ecr
 
             string proxyEndpoint,
 
+            string region,
+
             string? registryId,
 
             string userName)
@@ -155,6 +170,7 @@ namespace Pulumi.Aws.Ecr
             Id = id;
             Password = password;
             ProxyEndpoint = proxyEndpoint;
+            Region = region;
             RegistryId = registryId;
             UserName = userName;
         }

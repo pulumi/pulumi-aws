@@ -99,6 +99,12 @@ namespace Pulumi.Aws.Dms
         [Input("endpointId", required: true)]
         public string EndpointId { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
         public Dictionary<string, string> Tags
@@ -120,6 +126,12 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Input("endpointId", required: true)]
         public Input<string> EndpointId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -160,6 +172,7 @@ namespace Pulumi.Aws.Dms
         public readonly ImmutableArray<Outputs.GetEndpointPostgresSettingResult> PostgresSettings;
         public readonly ImmutableArray<Outputs.GetEndpointRedisSettingResult> RedisSettings;
         public readonly ImmutableArray<Outputs.GetEndpointRedshiftSettingResult> RedshiftSettings;
+        public readonly string Region;
         public readonly ImmutableArray<Outputs.GetEndpointS3SettingResult> S3Settings;
         public readonly string SecretsManagerAccessRoleArn;
         public readonly string SecretsManagerArn;
@@ -207,6 +220,8 @@ namespace Pulumi.Aws.Dms
 
             ImmutableArray<Outputs.GetEndpointRedshiftSettingResult> redshiftSettings,
 
+            string region,
+
             ImmutableArray<Outputs.GetEndpointS3SettingResult> s3Settings,
 
             string secretsManagerAccessRoleArn,
@@ -241,6 +256,7 @@ namespace Pulumi.Aws.Dms
             PostgresSettings = postgresSettings;
             RedisSettings = redisSettings;
             RedshiftSettings = redshiftSettings;
+            Region = region;
             S3Settings = s3Settings;
             SecretsManagerAccessRoleArn = secretsManagerAccessRoleArn;
             SecretsManagerArn = secretsManagerArn;

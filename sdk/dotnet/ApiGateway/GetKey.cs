@@ -96,6 +96,12 @@ namespace Pulumi.Aws.ApiGateway
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -121,6 +127,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -173,6 +185,7 @@ namespace Pulumi.Aws.ApiGateway
         /// Set to the name of the API Key.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Map of tags for the resource.
         /// </summary>
@@ -200,6 +213,8 @@ namespace Pulumi.Aws.ApiGateway
 
             string name,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             string value)
@@ -212,6 +227,7 @@ namespace Pulumi.Aws.ApiGateway
             Id = id;
             LastUpdatedDate = lastUpdatedDate;
             Name = name;
+            Region = region;
             Tags = tags;
             Value = value;
         }

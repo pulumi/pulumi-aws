@@ -102,6 +102,12 @@ namespace Pulumi.Aws.EmrContainers
 
     public sealed class GetVirtualClusterArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -128,6 +134,12 @@ namespace Pulumi.Aws.EmrContainers
 
     public sealed class GetVirtualClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -176,6 +188,7 @@ namespace Pulumi.Aws.EmrContainers
         /// Name of the cluster.
         /// </summary>
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// Status of the EKS cluster. One of `RUNNING`, `TERMINATING`, `TERMINATED`, `ARRESTED`.
         /// </summary>
@@ -198,6 +211,8 @@ namespace Pulumi.Aws.EmrContainers
 
             string name,
 
+            string region,
+
             string state,
 
             ImmutableDictionary<string, string> tags,
@@ -209,6 +224,7 @@ namespace Pulumi.Aws.EmrContainers
             CreatedAt = createdAt;
             Id = id;
             Name = name;
+            Region = region;
             State = state;
             Tags = tags;
             VirtualClusterId = virtualClusterId;

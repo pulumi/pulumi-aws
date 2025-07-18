@@ -24,6 +24,7 @@ class UserProfileArgs:
     def __init__(__self__, *,
                  domain_identifier: pulumi.Input[builtins.str],
                  user_identifier: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['UserProfileTimeoutsArgs']] = None,
                  user_type: Optional[pulumi.Input[builtins.str]] = None):
@@ -33,11 +34,14 @@ class UserProfileArgs:
         :param pulumi.Input[builtins.str] user_identifier: The user identifier.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The user profile status.
         :param pulumi.Input[builtins.str] user_type: The user type.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         pulumi.set(__self__, "user_identifier", user_identifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if timeouts is not None:
@@ -70,6 +74,18 @@ class UserProfileArgs:
     @user_identifier.setter
     def user_identifier(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "user_identifier", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -110,6 +126,7 @@ class _UserProfileState:
     def __init__(__self__, *,
                  details: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileDetailArgs']]]] = None,
                  domain_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['UserProfileTimeoutsArgs']] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
@@ -119,6 +136,7 @@ class _UserProfileState:
         Input properties used for looking up and filtering UserProfile resources.
         :param pulumi.Input[Sequence[pulumi.Input['UserProfileDetailArgs']]] details: Details about the user profile.
         :param pulumi.Input[builtins.str] domain_identifier: The domain identifier.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The user profile status.
         :param pulumi.Input[builtins.str] type: The user profile type.
         :param pulumi.Input[builtins.str] user_identifier: The user identifier.
@@ -130,6 +148,8 @@ class _UserProfileState:
             pulumi.set(__self__, "details", details)
         if domain_identifier is not None:
             pulumi.set(__self__, "domain_identifier", domain_identifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if timeouts is not None:
@@ -164,6 +184,18 @@ class _UserProfileState:
     @domain_identifier.setter
     def domain_identifier(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "domain_identifier", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -232,6 +264,7 @@ class UserProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['UserProfileTimeoutsArgs', 'UserProfileTimeoutsArgsDict']]] = None,
                  user_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -265,6 +298,7 @@ class UserProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] domain_identifier: The domain identifier.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The user profile status.
         :param pulumi.Input[builtins.str] user_identifier: The user identifier.
                
@@ -318,6 +352,7 @@ class UserProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['UserProfileTimeoutsArgs', 'UserProfileTimeoutsArgsDict']]] = None,
                  user_identifier: Optional[pulumi.Input[builtins.str]] = None,
@@ -334,6 +369,7 @@ class UserProfile(pulumi.CustomResource):
             if domain_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_identifier'")
             __props__.__dict__["domain_identifier"] = domain_identifier
+            __props__.__dict__["region"] = region
             __props__.__dict__["status"] = status
             __props__.__dict__["timeouts"] = timeouts
             if user_identifier is None and not opts.urn:
@@ -354,6 +390,7 @@ class UserProfile(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['UserProfileDetailArgs', 'UserProfileDetailArgsDict']]]]] = None,
             domain_identifier: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             timeouts: Optional[pulumi.Input[Union['UserProfileTimeoutsArgs', 'UserProfileTimeoutsArgsDict']]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None,
@@ -368,6 +405,7 @@ class UserProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['UserProfileDetailArgs', 'UserProfileDetailArgsDict']]]] details: Details about the user profile.
         :param pulumi.Input[builtins.str] domain_identifier: The domain identifier.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] status: The user profile status.
         :param pulumi.Input[builtins.str] type: The user profile type.
         :param pulumi.Input[builtins.str] user_identifier: The user identifier.
@@ -381,6 +419,7 @@ class UserProfile(pulumi.CustomResource):
 
         __props__.__dict__["details"] = details
         __props__.__dict__["domain_identifier"] = domain_identifier
+        __props__.__dict__["region"] = region
         __props__.__dict__["status"] = status
         __props__.__dict__["timeouts"] = timeouts
         __props__.__dict__["type"] = type
@@ -403,6 +442,14 @@ class UserProfile(pulumi.CustomResource):
         The domain identifier.
         """
         return pulumi.get(self, "domain_identifier")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

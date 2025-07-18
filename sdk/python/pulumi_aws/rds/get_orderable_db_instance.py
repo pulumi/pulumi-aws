@@ -27,7 +27,7 @@ class GetOrderableDbInstanceResult:
     """
     A collection of values returned by getOrderableDbInstance.
     """
-    def __init__(__self__, availability_zone_group=None, availability_zones=None, engine=None, engine_latest_version=None, engine_version=None, id=None, instance_class=None, license_model=None, max_iops_per_db_instance=None, max_iops_per_gib=None, max_storage_size=None, min_iops_per_db_instance=None, min_iops_per_gib=None, min_storage_size=None, multi_az_capable=None, outpost_capable=None, preferred_engine_versions=None, preferred_instance_classes=None, read_replica_capable=None, storage_type=None, supported_engine_modes=None, supported_network_types=None, supports_clusters=None, supports_enhanced_monitoring=None, supports_global_databases=None, supports_iam_database_authentication=None, supports_iops=None, supports_kerberos_authentication=None, supports_multi_az=None, supports_performance_insights=None, supports_storage_autoscaling=None, supports_storage_encryption=None, vpc=None):
+    def __init__(__self__, availability_zone_group=None, availability_zones=None, engine=None, engine_latest_version=None, engine_version=None, id=None, instance_class=None, license_model=None, max_iops_per_db_instance=None, max_iops_per_gib=None, max_storage_size=None, min_iops_per_db_instance=None, min_iops_per_gib=None, min_storage_size=None, multi_az_capable=None, outpost_capable=None, preferred_engine_versions=None, preferred_instance_classes=None, read_replica_capable=None, region=None, storage_type=None, supported_engine_modes=None, supported_network_types=None, supports_clusters=None, supports_enhanced_monitoring=None, supports_global_databases=None, supports_iam_database_authentication=None, supports_iops=None, supports_kerberos_authentication=None, supports_multi_az=None, supports_performance_insights=None, supports_storage_autoscaling=None, supports_storage_encryption=None, vpc=None):
         if availability_zone_group and not isinstance(availability_zone_group, str):
             raise TypeError("Expected argument 'availability_zone_group' to be a str")
         pulumi.set(__self__, "availability_zone_group", availability_zone_group)
@@ -85,6 +85,9 @@ class GetOrderableDbInstanceResult:
         if read_replica_capable and not isinstance(read_replica_capable, bool):
             raise TypeError("Expected argument 'read_replica_capable' to be a bool")
         pulumi.set(__self__, "read_replica_capable", read_replica_capable)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if storage_type and not isinstance(storage_type, str):
             raise TypeError("Expected argument 'storage_type' to be a str")
         pulumi.set(__self__, "storage_type", storage_type)
@@ -254,6 +257,11 @@ class GetOrderableDbInstanceResult:
         return pulumi.get(self, "read_replica_capable")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="storageType")
     def storage_type(self) -> builtins.str:
         return pulumi.get(self, "storage_type")
@@ -349,6 +357,7 @@ class AwaitableGetOrderableDbInstanceResult(GetOrderableDbInstanceResult):
             preferred_engine_versions=self.preferred_engine_versions,
             preferred_instance_classes=self.preferred_instance_classes,
             read_replica_capable=self.read_replica_capable,
+            region=self.region,
             storage_type=self.storage_type,
             supported_engine_modes=self.supported_engine_modes,
             supported_network_types=self.supported_network_types,
@@ -374,6 +383,7 @@ def get_orderable_db_instance(availability_zone_group: Optional[builtins.str] = 
                               preferred_engine_versions: Optional[Sequence[builtins.str]] = None,
                               preferred_instance_classes: Optional[Sequence[builtins.str]] = None,
                               read_replica_capable: Optional[builtins.bool] = None,
+                              region: Optional[builtins.str] = None,
                               storage_type: Optional[builtins.str] = None,
                               supported_engine_modes: Optional[Sequence[builtins.str]] = None,
                               supported_network_types: Optional[Sequence[builtins.str]] = None,
@@ -439,6 +449,7 @@ def get_orderable_db_instance(availability_zone_group: Optional[builtins.str] = 
     :param Sequence[builtins.str] preferred_engine_versions: Ordered list of preferred RDS DB instance engine versions. When `engine_latest_version` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. **CAUTION:** We don't recommend using `preferred_engine_versions` without `preferred_instance_classes` since the data source returns an arbitrary `instance_class` based on the first one AWS returns that matches the engine version and any other criteria.
     :param Sequence[builtins.str] preferred_instance_classes: Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. If you use `preferred_instance_classes` without `preferred_engine_versions` or `engine_latest_version`, the data source returns an arbitrary `engine_version` based on the first one AWS returns matching the instance class and any other criteria.
     :param builtins.bool read_replica_capable: Whether a DB instance can have a read replica.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str storage_type: Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
     :param Sequence[builtins.str] supported_engine_modes: Use to limit results to engine modes such as `provisioned`.
     :param Sequence[builtins.str] supported_network_types: Use to limit results to network types `IPV4` or `DUAL`.
@@ -464,6 +475,7 @@ def get_orderable_db_instance(availability_zone_group: Optional[builtins.str] = 
     __args__['preferredEngineVersions'] = preferred_engine_versions
     __args__['preferredInstanceClasses'] = preferred_instance_classes
     __args__['readReplicaCapable'] = read_replica_capable
+    __args__['region'] = region
     __args__['storageType'] = storage_type
     __args__['supportedEngineModes'] = supported_engine_modes
     __args__['supportedNetworkTypes'] = supported_network_types
@@ -501,6 +513,7 @@ def get_orderable_db_instance(availability_zone_group: Optional[builtins.str] = 
         preferred_engine_versions=pulumi.get(__ret__, 'preferred_engine_versions'),
         preferred_instance_classes=pulumi.get(__ret__, 'preferred_instance_classes'),
         read_replica_capable=pulumi.get(__ret__, 'read_replica_capable'),
+        region=pulumi.get(__ret__, 'region'),
         storage_type=pulumi.get(__ret__, 'storage_type'),
         supported_engine_modes=pulumi.get(__ret__, 'supported_engine_modes'),
         supported_network_types=pulumi.get(__ret__, 'supported_network_types'),
@@ -524,6 +537,7 @@ def get_orderable_db_instance_output(availability_zone_group: Optional[pulumi.In
                                      preferred_engine_versions: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                                      preferred_instance_classes: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                                      read_replica_capable: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
+                                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      storage_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      supported_engine_modes: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                                      supported_network_types: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
@@ -589,6 +603,7 @@ def get_orderable_db_instance_output(availability_zone_group: Optional[pulumi.In
     :param Sequence[builtins.str] preferred_engine_versions: Ordered list of preferred RDS DB instance engine versions. When `engine_latest_version` is not set, the data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. **CAUTION:** We don't recommend using `preferred_engine_versions` without `preferred_instance_classes` since the data source returns an arbitrary `instance_class` based on the first one AWS returns that matches the engine version and any other criteria.
     :param Sequence[builtins.str] preferred_instance_classes: Ordered list of preferred RDS DB instance classes. The data source will return the first match in this list that matches any other criteria. If the data source finds no preferred matches or multiple matches without `engine_latest_version`, it returns an error. If you use `preferred_instance_classes` without `preferred_engine_versions` or `engine_latest_version`, the data source returns an arbitrary `engine_version` based on the first one AWS returns matching the instance class and any other criteria.
     :param builtins.bool read_replica_capable: Whether a DB instance can have a read replica.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str storage_type: Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
     :param Sequence[builtins.str] supported_engine_modes: Use to limit results to engine modes such as `provisioned`.
     :param Sequence[builtins.str] supported_network_types: Use to limit results to network types `IPV4` or `DUAL`.
@@ -614,6 +629,7 @@ def get_orderable_db_instance_output(availability_zone_group: Optional[pulumi.In
     __args__['preferredEngineVersions'] = preferred_engine_versions
     __args__['preferredInstanceClasses'] = preferred_instance_classes
     __args__['readReplicaCapable'] = read_replica_capable
+    __args__['region'] = region
     __args__['storageType'] = storage_type
     __args__['supportedEngineModes'] = supported_engine_modes
     __args__['supportedNetworkTypes'] = supported_network_types
@@ -650,6 +666,7 @@ def get_orderable_db_instance_output(availability_zone_group: Optional[pulumi.In
         preferred_engine_versions=pulumi.get(__response__, 'preferred_engine_versions'),
         preferred_instance_classes=pulumi.get(__response__, 'preferred_instance_classes'),
         read_replica_capable=pulumi.get(__response__, 'read_replica_capable'),
+        region=pulumi.get(__response__, 'region'),
         storage_type=pulumi.get(__response__, 'storage_type'),
         supported_engine_modes=pulumi.get(__response__, 'supported_engine_modes'),
         supported_network_types=pulumi.get(__response__, 'supported_network_types'),

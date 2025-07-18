@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/timestreamwrite"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/timestreamwrite"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,6 +53,8 @@ func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulum
 // A collection of arguments for invoking getDatabase.
 type LookupDatabaseArgs struct {
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getDatabase.
@@ -68,6 +70,7 @@ type LookupDatabaseResult struct {
 	// Last time database was updated.
 	LastUpdatedTime string `pulumi:"lastUpdatedTime"`
 	Name            string `pulumi:"name"`
+	Region          string `pulumi:"region"`
 	// Total number of tables in the Timestream database.
 	TableCount int `pulumi:"tableCount"`
 }
@@ -84,6 +87,8 @@ func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, op
 // A collection of arguments for invoking getDatabase.
 type LookupDatabaseOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupDatabaseOutputArgs) ElementType() reflect.Type {
@@ -132,6 +137,10 @@ func (o LookupDatabaseResultOutput) LastUpdatedTime() pulumi.StringOutput {
 
 func (o LookupDatabaseResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupDatabaseResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Total number of tables in the Timestream database.

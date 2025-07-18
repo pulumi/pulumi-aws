@@ -126,6 +126,10 @@ export class NatGateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly publicIp!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A list of secondary allocation EIP IDs for this NAT Gateway.
      */
     public readonly secondaryAllocationIds!: pulumi.Output<string[] | undefined>;
@@ -147,8 +151,6 @@ export class NatGateway extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -171,6 +173,7 @@ export class NatGateway extends pulumi.CustomResource {
             resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
             resourceInputs["privateIp"] = state ? state.privateIp : undefined;
             resourceInputs["publicIp"] = state ? state.publicIp : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["secondaryAllocationIds"] = state ? state.secondaryAllocationIds : undefined;
             resourceInputs["secondaryPrivateIpAddressCount"] = state ? state.secondaryPrivateIpAddressCount : undefined;
             resourceInputs["secondaryPrivateIpAddresses"] = state ? state.secondaryPrivateIpAddresses : undefined;
@@ -185,6 +188,7 @@ export class NatGateway extends pulumi.CustomResource {
             resourceInputs["allocationId"] = args ? args.allocationId : undefined;
             resourceInputs["connectivityType"] = args ? args.connectivityType : undefined;
             resourceInputs["privateIp"] = args ? args.privateIp : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["secondaryAllocationIds"] = args ? args.secondaryAllocationIds : undefined;
             resourceInputs["secondaryPrivateIpAddressCount"] = args ? args.secondaryPrivateIpAddressCount : undefined;
             resourceInputs["secondaryPrivateIpAddresses"] = args ? args.secondaryPrivateIpAddresses : undefined;
@@ -229,6 +233,10 @@ export interface NatGatewayState {
      */
     publicIp?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A list of secondary allocation EIP IDs for this NAT Gateway.
      */
     secondaryAllocationIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -250,8 +258,6 @@ export interface NatGatewayState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -272,6 +278,10 @@ export interface NatGatewayArgs {
      * The private IPv4 address to assign to the NAT Gateway. If you don't provide an address, a private IPv4 address will be automatically assigned.
      */
     privateIp?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of secondary allocation EIP IDs for this NAT Gateway.
      */

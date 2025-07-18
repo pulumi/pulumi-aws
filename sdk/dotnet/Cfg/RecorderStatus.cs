@@ -24,15 +24,15 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var b = new Aws.S3.BucketV2("b", new()
+    ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
-    ///         Bucket = "awsconfig-example",
+    ///         BucketName = "awsconfig-example",
     ///     });
     /// 
     ///     var fooDeliveryChannel = new Aws.Cfg.DeliveryChannel("foo", new()
     ///     {
     ///         Name = "example",
-    ///         S3BucketName = b.Bucket,
+    ///         S3BucketName = b.BucketName,
     ///     });
     /// 
     ///     var assumeRole = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -144,6 +144,12 @@ namespace Pulumi.Aws.Cfg
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a RecorderStatus resource with the given unique name, arguments, and options.
@@ -202,6 +208,12 @@ namespace Pulumi.Aws.Cfg
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public RecorderStatusArgs()
         {
         }
@@ -221,6 +233,12 @@ namespace Pulumi.Aws.Cfg
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public RecorderStatusState()
         {

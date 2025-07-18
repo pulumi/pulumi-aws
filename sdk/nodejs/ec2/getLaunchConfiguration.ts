@@ -25,6 +25,7 @@ export function getLaunchConfiguration(args: GetLaunchConfigurationArgs, opts?: 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,6 +37,10 @@ export interface GetLaunchConfigurationArgs {
      * Name of the launch configuration.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -98,6 +103,7 @@ export interface GetLaunchConfigurationResult {
      * Tenancy of the instance.
      */
     readonly placementTenancy: string;
+    readonly region: string;
     /**
      * Root Block Device of the instance.
      */
@@ -133,6 +139,7 @@ export function getLaunchConfigurationOutput(args: GetLaunchConfigurationOutputA
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -144,4 +151,8 @@ export interface GetLaunchConfigurationOutputArgs {
      * Name of the launch configuration.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -58,7 +58,7 @@ namespace Pulumi.Aws.ImageBuilder
     ///             },
     ///         },
     ///         Name = "example",
-    ///         ParentImage = $"arn:{current.Partition}:imagebuilder:{currentAwsRegion.Name}:aws:image/amazon-linux-2-x86/x.x.x",
+    ///         ParentImage = $"arn:{current.Partition}:imagebuilder:{currentAwsRegion.Region}:aws:image/amazon-linux-2-x86/x.x.x",
     ///         Version = "1.0.0",
     ///     });
     /// 
@@ -129,6 +129,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Output("platform")]
         public Output<string> Platform { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
@@ -257,6 +263,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string> ParentImage { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
         /// </summary>
         [Input("systemsManagerAgent")]
@@ -369,6 +381,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Platform { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Configuration block for the Systems Manager Agent installed by default by Image Builder. Detailed below.
         /// </summary>
         [Input("systemsManagerAgent")]
@@ -392,7 +410,6 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

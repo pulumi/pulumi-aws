@@ -71,6 +71,10 @@ export class Template extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The subject line of the email.
      */
     public readonly subject!: pulumi.Output<string | undefined>;
@@ -95,12 +99,14 @@ export class Template extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["html"] = state ? state.html : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["subject"] = state ? state.subject : undefined;
             resourceInputs["text"] = state ? state.text : undefined;
         } else {
             const args = argsOrState as TemplateArgs | undefined;
             resourceInputs["html"] = args ? args.html : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subject"] = args ? args.subject : undefined;
             resourceInputs["text"] = args ? args.text : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -127,6 +133,10 @@ export interface TemplateState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The subject line of the email.
      */
     subject?: pulumi.Input<string>;
@@ -148,6 +158,10 @@ export interface TemplateArgs {
      * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The subject line of the email.
      */

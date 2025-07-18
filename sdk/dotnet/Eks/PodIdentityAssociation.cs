@@ -112,10 +112,28 @@ namespace Pulumi.Aws.Eks
         public Output<string> ClusterName { get; private set; } = null!;
 
         /// <summary>
+        /// Disable the tags that are automatically added to role session by Amazon EKS.
+        /// </summary>
+        [Output("disableSessionTags")]
+        public Output<bool> DisableSessionTags { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique identifier for this association for a target IAM role. You put this value in the trust policy of the target role, in a Condition to match the sts.ExternalId.
+        /// </summary>
+        [Output("externalId")]
+        public Output<string> ExternalId { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
         /// </summary>
         [Output("namespace")]
         public Output<string> Namespace { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
@@ -142,6 +160,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+        /// </summary>
+        [Output("targetRoleArn")]
+        public Output<string?> TargetRoleArn { get; private set; } = null!;
 
 
         /// <summary>
@@ -196,10 +220,22 @@ namespace Pulumi.Aws.Eks
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
+        /// Disable the tags that are automatically added to role session by Amazon EKS.
+        /// </summary>
+        [Input("disableSessionTags")]
+        public Input<bool>? DisableSessionTags { get; set; }
+
+        /// <summary>
         /// The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
         /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
@@ -226,6 +262,12 @@ namespace Pulumi.Aws.Eks
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+        /// </summary>
+        [Input("targetRoleArn")]
+        public Input<string>? TargetRoleArn { get; set; }
 
         public PodIdentityAssociationArgs()
         {
@@ -254,10 +296,28 @@ namespace Pulumi.Aws.Eks
         public Input<string>? ClusterName { get; set; }
 
         /// <summary>
+        /// Disable the tags that are automatically added to role session by Amazon EKS.
+        /// </summary>
+        [Input("disableSessionTags")]
+        public Input<bool>? DisableSessionTags { get; set; }
+
+        /// <summary>
+        /// The unique identifier for this association for a target IAM role. You put this value in the trust policy of the target role, in a Condition to match the sts.ExternalId.
+        /// </summary>
+        [Input("externalId")]
+        public Input<string>? ExternalId { get; set; }
+
+        /// <summary>
         /// The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
         /// </summary>
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
@@ -291,12 +351,17 @@ namespace Pulumi.Aws.Eks
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+        /// </summary>
+        [Input("targetRoleArn")]
+        public Input<string>? TargetRoleArn { get; set; }
 
         public PodIdentityAssociationState()
         {

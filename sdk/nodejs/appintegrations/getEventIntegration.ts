@@ -25,6 +25,7 @@ export function getEventIntegration(args: GetEventIntegrationArgs, opts?: pulumi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:appintegrations/getEventIntegration:getEventIntegration", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,10 @@ export interface GetEventIntegrationArgs {
      * The AppIntegrations Event Integration name.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Metadata that you can assign to help organize the report plans you create.
      */
@@ -68,6 +73,7 @@ export interface GetEventIntegrationResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Metadata that you can assign to help organize the report plans you create.
      */
@@ -91,6 +97,7 @@ export function getEventIntegrationOutput(args: GetEventIntegrationOutputArgs, o
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:appintegrations/getEventIntegration:getEventIntegration", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -103,6 +110,10 @@ export interface GetEventIntegrationOutputArgs {
      * The AppIntegrations Event Integration name.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Metadata that you can assign to help organize the report plans you create.
      */

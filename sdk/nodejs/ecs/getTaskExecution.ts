@@ -51,6 +51,7 @@ export function getTaskExecution(args: GetTaskExecutionArgs, opts?: pulumi.Invok
         "platformVersion": args.platformVersion,
         "propagateTags": args.propagateTags,
         "referenceId": args.referenceId,
+        "region": args.region,
         "startedBy": args.startedBy,
         "tags": args.tags,
         "taskDefinition": args.taskDefinition,
@@ -122,6 +123,10 @@ export interface GetTaskExecutionArgs {
      */
     referenceId?: string;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * An optional tag specified when a task is started.
      */
     startedBy?: string;
@@ -160,6 +165,7 @@ export interface GetTaskExecutionResult {
     readonly platformVersion?: string;
     readonly propagateTags?: string;
     readonly referenceId?: string;
+    readonly region: string;
     readonly startedBy?: string;
     readonly tags?: {[key: string]: string};
     /**
@@ -212,6 +218,7 @@ export function getTaskExecutionOutput(args: GetTaskExecutionOutputArgs, opts?: 
         "platformVersion": args.platformVersion,
         "propagateTags": args.propagateTags,
         "referenceId": args.referenceId,
+        "region": args.region,
         "startedBy": args.startedBy,
         "tags": args.tags,
         "taskDefinition": args.taskDefinition,
@@ -282,6 +289,10 @@ export interface GetTaskExecutionOutputArgs {
      * The reference ID to use for the task.
      */
     referenceId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * An optional tag specified when a task is started.
      */

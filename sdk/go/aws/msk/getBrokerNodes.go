@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/msk"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func GetBrokerNodes(ctx *pulumi.Context, args *GetBrokerNodesArgs, opts ...pulum
 type GetBrokerNodesArgs struct {
 	// ARN of the cluster the nodes belong to.
 	ClusterArn string `pulumi:"clusterArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getBrokerNodes.
@@ -60,6 +62,7 @@ type GetBrokerNodesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id            string                       `pulumi:"id"`
 	NodeInfoLists []GetBrokerNodesNodeInfoList `pulumi:"nodeInfoLists"`
+	Region        string                       `pulumi:"region"`
 }
 
 func GetBrokerNodesOutput(ctx *pulumi.Context, args GetBrokerNodesOutputArgs, opts ...pulumi.InvokeOption) GetBrokerNodesResultOutput {
@@ -75,6 +78,8 @@ func GetBrokerNodesOutput(ctx *pulumi.Context, args GetBrokerNodesOutputArgs, op
 type GetBrokerNodesOutputArgs struct {
 	// ARN of the cluster the nodes belong to.
 	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetBrokerNodesOutputArgs) ElementType() reflect.Type {
@@ -107,6 +112,10 @@ func (o GetBrokerNodesResultOutput) Id() pulumi.StringOutput {
 
 func (o GetBrokerNodesResultOutput) NodeInfoLists() GetBrokerNodesNodeInfoListArrayOutput {
 	return o.ApplyT(func(v GetBrokerNodesResult) []GetBrokerNodesNodeInfoList { return v.NodeInfoLists }).(GetBrokerNodesNodeInfoListArrayOutput)
+}
+
+func (o GetBrokerNodesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrokerNodesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

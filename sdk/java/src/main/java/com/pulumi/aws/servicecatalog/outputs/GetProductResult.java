@@ -51,6 +51,7 @@ public final class GetProductResult {
      * 
      */
     private String owner;
+    private String region;
     /**
      * @return Status of the product.
      * 
@@ -138,6 +139,9 @@ public final class GetProductResult {
     public String owner() {
         return this.owner;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Status of the product.
      * 
@@ -199,6 +203,7 @@ public final class GetProductResult {
         private String id;
         private String name;
         private String owner;
+        private String region;
         private String status;
         private String supportDescription;
         private String supportEmail;
@@ -217,6 +222,7 @@ public final class GetProductResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.owner = defaults.owner;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
     	      this.supportDescription = defaults.supportDescription;
     	      this.supportEmail = defaults.supportEmail;
@@ -296,6 +302,14 @@ public final class GetProductResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetProductResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetProductResult", "status");
@@ -354,6 +368,7 @@ public final class GetProductResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.owner = owner;
+            _resultValue.region = region;
             _resultValue.status = status;
             _resultValue.supportDescription = supportDescription;
             _resultValue.supportEmail = supportEmail;

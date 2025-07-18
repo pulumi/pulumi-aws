@@ -37,14 +37,14 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the listener (matches `id`).
+     * ARN of the listener.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN of the listener (matches `id`).
+     * @return ARN of the listener.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -143,6 +143,21 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> protocol() {
         return Optional.ofNullable(this.protocol);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -467,22 +482,14 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -513,6 +520,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         this.mutualAuthentication = $.mutualAuthentication;
         this.port = $.port;
         this.protocol = $.protocol;
+        this.region = $.region;
         this.routingHttpRequestXAmznMtlsClientcertHeaderName = $.routingHttpRequestXAmznMtlsClientcertHeaderName;
         this.routingHttpRequestXAmznMtlsClientcertIssuerHeaderName = $.routingHttpRequestXAmznMtlsClientcertIssuerHeaderName;
         this.routingHttpRequestXAmznMtlsClientcertLeafHeaderName = $.routingHttpRequestXAmznMtlsClientcertLeafHeaderName;
@@ -578,7 +586,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the listener (matches `id`).
+         * @param arn ARN of the listener.
          * 
          * @return builder
          * 
@@ -589,7 +597,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn ARN of the listener (matches `id`).
+         * @param arn ARN of the listener.
          * 
          * @return builder
          * 
@@ -736,6 +744,27 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder protocol(String protocol) {
             return protocol(Output.of(protocol));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -1188,11 +1217,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -1203,11 +1228,7 @@ public final class ListenerState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

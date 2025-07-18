@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,7 +29,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,7 +60,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -223,6 +223,8 @@ type S3Endpoint struct {
 	ParquetVersion pulumi.StringPtrOutput `pulumi:"parquetVersion"`
 	// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
 	PreserveTransactions pulumi.BoolPtrOutput `pulumi:"preserveTransactions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
 	Rfc4180 pulumi.BoolPtrOutput `pulumi:"rfc4180"`
 	// Number of rows in a row group. (AWS default is `10000`.)
@@ -240,8 +242,6 @@ type S3Endpoint struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Column to add with timestamp information to the endpoint data for an Amazon S3 target.
 	TimestampColumnName pulumi.StringPtrOutput `pulumi:"timestampColumnName"`
@@ -377,6 +377,8 @@ type s3endpointState struct {
 	ParquetVersion *string `pulumi:"parquetVersion"`
 	// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
 	PreserveTransactions *bool `pulumi:"preserveTransactions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
 	Rfc4180 *bool `pulumi:"rfc4180"`
 	// Number of rows in a row group. (AWS default is `10000`.)
@@ -394,8 +396,6 @@ type s3endpointState struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Column to add with timestamp information to the endpoint data for an Amazon S3 target.
 	TimestampColumnName *string `pulumi:"timestampColumnName"`
@@ -490,6 +490,8 @@ type S3EndpointState struct {
 	ParquetVersion pulumi.StringPtrInput
 	// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
 	PreserveTransactions pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
 	Rfc4180 pulumi.BoolPtrInput
 	// Number of rows in a row group. (AWS default is `10000`.)
@@ -507,8 +509,6 @@ type S3EndpointState struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// Column to add with timestamp information to the endpoint data for an Amazon S3 target.
 	TimestampColumnName pulumi.StringPtrInput
@@ -601,6 +601,8 @@ type s3endpointArgs struct {
 	ParquetVersion *string `pulumi:"parquetVersion"`
 	// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
 	PreserveTransactions *bool `pulumi:"preserveTransactions"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
 	Rfc4180 *bool `pulumi:"rfc4180"`
 	// Number of rows in a row group. (AWS default is `10000`.)
@@ -703,6 +705,8 @@ type S3EndpointArgs struct {
 	ParquetVersion pulumi.StringPtrInput
 	// Whether DMS saves the transaction order for a CDC load on the S3 target specified by `cdcPath`. Default is `false`. (Ignored for source endpoints.)
 	PreserveTransactions pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
 	Rfc4180 pulumi.BoolPtrInput
 	// Number of rows in a row group. (AWS default is `10000`.)
@@ -1022,6 +1026,11 @@ func (o S3EndpointOutput) PreserveTransactions() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.BoolPtrOutput { return v.PreserveTransactions }).(pulumi.BoolPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o S3EndpointOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *S3Endpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // For an S3 source, whether each leading double quotation mark has to be followed by an ending double quotation mark. Default is `true`.
 func (o S3EndpointOutput) Rfc4180() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.BoolPtrOutput { return v.Rfc4180 }).(pulumi.BoolPtrOutput)
@@ -1060,8 +1069,6 @@ func (o S3EndpointOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o S3EndpointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

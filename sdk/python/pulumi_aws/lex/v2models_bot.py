@@ -28,6 +28,7 @@ class V2modelsBotArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsBotMemberArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  test_bot_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['V2modelsBotTimeoutsArgs']] = None,
@@ -42,6 +43,7 @@ class V2modelsBotArgs:
         :param pulumi.Input[builtins.str] description: Description of the bot. It appears in lists to help you identify a particular bot.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsBotMemberArgs']]] members: List of bot members in a network to be created. See `bot_members`.
         :param pulumi.Input[builtins.str] name: Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: List of tags to add to the bot. You can only add tags when you create a bot.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] test_bot_alias_tags: List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
         :param pulumi.Input[builtins.str] type: Type of a bot to create. Possible values are `"Bot"` and `"BotNetwork"`.
@@ -56,6 +58,8 @@ class V2modelsBotArgs:
             pulumi.set(__self__, "members", members)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if test_bot_alias_tags is not None:
@@ -141,6 +145,18 @@ class V2modelsBotArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         List of tags to add to the bot. You can only add tags when you create a bot.
@@ -194,6 +210,7 @@ class _V2modelsBotState:
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsBotMemberArgs']]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -207,6 +224,7 @@ class _V2modelsBotState:
         :param pulumi.Input[builtins.int] idle_session_ttl_in_seconds: Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsBotMemberArgs']]] members: List of bot members in a network to be created. See `bot_members`.
         :param pulumi.Input[builtins.str] name: Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN of an IAM role that has permission to access the bot.
                
                The following arguments are optional:
@@ -226,13 +244,12 @@ class _V2modelsBotState:
             pulumi.set(__self__, "members", members)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if test_bot_alias_tags is not None:
@@ -312,6 +329,18 @@ class _V2modelsBotState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -339,7 +368,6 @@ class _V2modelsBotState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -392,6 +420,7 @@ class V2modelsBot(pulumi.CustomResource):
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotMemberArgs', 'V2modelsBotMemberArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  test_bot_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -455,6 +484,7 @@ class V2modelsBot(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] idle_session_ttl_in_seconds: Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotMemberArgs', 'V2modelsBotMemberArgsDict']]]] members: List of bot members in a network to be created. See `bot_members`.
         :param pulumi.Input[builtins.str] name: Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN of an IAM role that has permission to access the bot.
                
                The following arguments are optional:
@@ -538,6 +568,7 @@ class V2modelsBot(pulumi.CustomResource):
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[builtins.int]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotMemberArgs', 'V2modelsBotMemberArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  test_bot_alias_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -559,6 +590,7 @@ class V2modelsBot(pulumi.CustomResource):
             __props__.__dict__["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
             __props__.__dict__["members"] = members
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -584,6 +616,7 @@ class V2modelsBot(pulumi.CustomResource):
             idle_session_ttl_in_seconds: Optional[pulumi.Input[builtins.int]] = None,
             members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotMemberArgs', 'V2modelsBotMemberArgsDict']]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -602,6 +635,7 @@ class V2modelsBot(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] idle_session_ttl_in_seconds: Time, in seconds, that Amazon Lex should keep information about a user's conversation with the bot. You can specify between 60 (1 minute) and 86,400 (24 hours) seconds.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsBotMemberArgs', 'V2modelsBotMemberArgsDict']]]] members: List of bot members in a network to be created. See `bot_members`.
         :param pulumi.Input[builtins.str] name: Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: ARN of an IAM role that has permission to access the bot.
                
                The following arguments are optional:
@@ -619,6 +653,7 @@ class V2modelsBot(pulumi.CustomResource):
         __props__.__dict__["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
         __props__.__dict__["members"] = members
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -673,6 +708,14 @@ class V2modelsBot(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[builtins.str]:
         """
@@ -692,7 +735,6 @@ class V2modelsBot(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/workspaces"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/workspaces"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,13 +56,13 @@ type ConnectionAlias struct {
 	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
 	// The identifier of the Amazon Web Services account that owns the connection alias.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The current state of the connection alias.
 	State pulumi.StringOutput `pulumi:"state"`
 	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput           `pulumi:"tagsAll"`
 	Timeouts ConnectionAliasTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -104,13 +104,13 @@ type connectionAliasState struct {
 	ConnectionString *string `pulumi:"connectionString"`
 	// The identifier of the Amazon Web Services account that owns the connection alias.
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The current state of the connection alias.
 	State *string `pulumi:"state"`
 	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string        `pulumi:"tagsAll"`
 	Timeouts *ConnectionAliasTimeouts `pulumi:"timeouts"`
 }
@@ -120,13 +120,13 @@ type ConnectionAliasState struct {
 	ConnectionString pulumi.StringPtrInput
 	// The identifier of the Amazon Web Services account that owns the connection alias.
 	OwnerAccountId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The current state of the connection alias.
 	State pulumi.StringPtrInput
 	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts ConnectionAliasTimeoutsPtrInput
 }
@@ -138,6 +138,8 @@ func (ConnectionAliasState) ElementType() reflect.Type {
 type connectionAliasArgs struct {
 	// The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.
 	ConnectionString string `pulumi:"connectionString"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string        `pulumi:"tags"`
 	Timeouts *ConnectionAliasTimeouts `pulumi:"timeouts"`
@@ -147,6 +149,8 @@ type connectionAliasArgs struct {
 type ConnectionAliasArgs struct {
 	// The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.
 	ConnectionString pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A map of tags assigned to the WorkSpaces Connection Alias. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts ConnectionAliasTimeoutsPtrInput
@@ -249,6 +253,11 @@ func (o ConnectionAliasOutput) OwnerAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionAlias) pulumi.StringOutput { return v.OwnerAccountId }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ConnectionAliasOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectionAlias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The current state of the connection alias.
 func (o ConnectionAliasOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionAlias) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
@@ -260,8 +269,6 @@ func (o ConnectionAliasOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ConnectionAliasOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ConnectionAlias) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

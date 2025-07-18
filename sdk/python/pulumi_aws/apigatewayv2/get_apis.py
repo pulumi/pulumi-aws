@@ -27,7 +27,7 @@ class GetApisResult:
     """
     A collection of values returned by getApis.
     """
-    def __init__(__self__, id=None, ids=None, name=None, protocol_type=None, tags=None):
+    def __init__(__self__, id=None, ids=None, name=None, protocol_type=None, region=None, tags=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -40,6 +40,9 @@ class GetApisResult:
         if protocol_type and not isinstance(protocol_type, str):
             raise TypeError("Expected argument 'protocol_type' to be a str")
         pulumi.set(__self__, "protocol_type", protocol_type)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -72,6 +75,11 @@ class GetApisResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags")
 
@@ -86,11 +94,13 @@ class AwaitableGetApisResult(GetApisResult):
             ids=self.ids,
             name=self.name,
             protocol_type=self.protocol_type,
+            region=self.region,
             tags=self.tags)
 
 
 def get_apis(name: Optional[builtins.str] = None,
              protocol_type: Optional[builtins.str] = None,
+             region: Optional[builtins.str] = None,
              tags: Optional[Mapping[str, builtins.str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApisResult:
     """
@@ -108,12 +118,14 @@ def get_apis(name: Optional[builtins.str] = None,
 
     :param builtins.str name: API name.
     :param builtins.str protocol_type: API protocol.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired APIs.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['protocolType'] = protocol_type
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:apigatewayv2/getApis:getApis', __args__, opts=opts, typ=GetApisResult).value
@@ -123,9 +135,11 @@ def get_apis(name: Optional[builtins.str] = None,
         ids=pulumi.get(__ret__, 'ids'),
         name=pulumi.get(__ret__, 'name'),
         protocol_type=pulumi.get(__ret__, 'protocol_type'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_apis_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     protocol_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                    region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApisResult]:
     """
@@ -143,12 +157,14 @@ def get_apis_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
 
     :param builtins.str name: API name.
     :param builtins.str protocol_type: API protocol.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired APIs.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['protocolType'] = protocol_type
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:apigatewayv2/getApis:getApis', __args__, opts=opts, typ=GetApisResult)
@@ -157,4 +173,5 @@ def get_apis_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
         ids=pulumi.get(__response__, 'ids'),
         name=pulumi.get(__response__, 'name'),
         protocol_type=pulumi.get(__response__, 'protocol_type'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

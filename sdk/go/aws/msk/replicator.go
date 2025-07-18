@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/msk"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -108,6 +108,8 @@ type Replicator struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A list of Kafka clusters which are targets of the replicator.
 	KafkaClusters ReplicatorKafkaClusterArrayOutput `pulumi:"kafkaClusters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 	ReplicationInfoList ReplicatorReplicationInfoListOutput `pulumi:"replicationInfoList"`
 	// The name of the replicator.
@@ -117,8 +119,6 @@ type Replicator struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -171,6 +171,8 @@ type replicatorState struct {
 	Description *string `pulumi:"description"`
 	// A list of Kafka clusters which are targets of the replicator.
 	KafkaClusters []ReplicatorKafkaCluster `pulumi:"kafkaClusters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 	ReplicationInfoList *ReplicatorReplicationInfoList `pulumi:"replicationInfoList"`
 	// The name of the replicator.
@@ -180,8 +182,6 @@ type replicatorState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -193,6 +193,8 @@ type ReplicatorState struct {
 	Description pulumi.StringPtrInput
 	// A list of Kafka clusters which are targets of the replicator.
 	KafkaClusters ReplicatorKafkaClusterArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 	ReplicationInfoList ReplicatorReplicationInfoListPtrInput
 	// The name of the replicator.
@@ -202,8 +204,6 @@ type ReplicatorState struct {
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -216,6 +216,8 @@ type replicatorArgs struct {
 	Description *string `pulumi:"description"`
 	// A list of Kafka clusters which are targets of the replicator.
 	KafkaClusters []ReplicatorKafkaCluster `pulumi:"kafkaClusters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 	ReplicationInfoList ReplicatorReplicationInfoList `pulumi:"replicationInfoList"`
 	// The name of the replicator.
@@ -232,6 +234,8 @@ type ReplicatorArgs struct {
 	Description pulumi.StringPtrInput
 	// A list of Kafka clusters which are targets of the replicator.
 	KafkaClusters ReplicatorKafkaClusterArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 	ReplicationInfoList ReplicatorReplicationInfoListInput
 	// The name of the replicator.
@@ -348,6 +352,11 @@ func (o ReplicatorOutput) KafkaClusters() ReplicatorKafkaClusterArrayOutput {
 	return o.ApplyT(func(v *Replicator) ReplicatorKafkaClusterArrayOutput { return v.KafkaClusters }).(ReplicatorKafkaClusterArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ReplicatorOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Replicator) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
 func (o ReplicatorOutput) ReplicationInfoList() ReplicatorReplicationInfoListOutput {
 	return o.ApplyT(func(v *Replicator) ReplicatorReplicationInfoListOutput { return v.ReplicationInfoList }).(ReplicatorReplicationInfoListOutput)
@@ -369,8 +378,6 @@ func (o ReplicatorOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ReplicatorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Replicator) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

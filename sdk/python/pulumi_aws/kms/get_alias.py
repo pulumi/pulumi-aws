@@ -27,7 +27,7 @@ class GetAliasResult:
     """
     A collection of values returned by getAlias.
     """
-    def __init__(__self__, arn=None, id=None, name=None, target_key_arn=None, target_key_id=None):
+    def __init__(__self__, arn=None, id=None, name=None, region=None, target_key_arn=None, target_key_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +37,9 @@ class GetAliasResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if target_key_arn and not isinstance(target_key_arn, str):
             raise TypeError("Expected argument 'target_key_arn' to be a str")
         pulumi.set(__self__, "target_key_arn", target_key_arn)
@@ -69,6 +72,11 @@ class GetAliasResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="targetKeyArn")
     def target_key_arn(self) -> builtins.str:
         """
@@ -94,11 +102,13 @@ class AwaitableGetAliasResult(GetAliasResult):
             arn=self.arn,
             id=self.id,
             name=self.name,
+            region=self.region,
             target_key_arn=self.target_key_arn,
             target_key_id=self.target_key_id)
 
 
 def get_alias(name: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAliasResult:
     """
     Use this data source to get the ARN of a KMS key alias.
@@ -116,9 +126,11 @@ def get_alias(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:kms/getAlias:getAlias', __args__, opts=opts, typ=GetAliasResult).value
 
@@ -126,9 +138,11 @@ def get_alias(name: Optional[builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         target_key_arn=pulumi.get(__ret__, 'target_key_arn'),
         target_key_id=pulumi.get(__ret__, 'target_key_id'))
 def get_alias_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAliasResult]:
     """
     Use this data source to get the ARN of a KMS key alias.
@@ -146,14 +160,17 @@ def get_alias_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Display name of the alias. The name must start with the word "alias" followed by a forward slash (alias/)
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kms/getAlias:getAlias', __args__, opts=opts, typ=GetAliasResult)
     return __ret__.apply(lambda __response__: GetAliasResult(
         arn=pulumi.get(__response__, 'arn'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         target_key_arn=pulumi.get(__response__, 'target_key_arn'),
         target_key_id=pulumi.get(__response__, 'target_key_id')))

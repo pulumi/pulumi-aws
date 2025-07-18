@@ -28,7 +28,7 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, access_logs=None, arn=None, availability_zones=None, connection_draining=None, connection_draining_timeout=None, cross_zone_load_balancing=None, desync_mitigation_mode=None, dns_name=None, health_check=None, id=None, idle_timeout=None, instances=None, internal=None, listeners=None, name=None, security_groups=None, source_security_group=None, source_security_group_id=None, subnets=None, tags=None, zone_id=None):
+    def __init__(__self__, access_logs=None, arn=None, availability_zones=None, connection_draining=None, connection_draining_timeout=None, cross_zone_load_balancing=None, desync_mitigation_mode=None, dns_name=None, health_check=None, id=None, idle_timeout=None, instances=None, internal=None, listeners=None, name=None, region=None, security_groups=None, source_security_group=None, source_security_group_id=None, subnets=None, tags=None, zone_id=None):
         if access_logs and not isinstance(access_logs, dict):
             raise TypeError("Expected argument 'access_logs' to be a dict")
         pulumi.set(__self__, "access_logs", access_logs)
@@ -74,6 +74,9 @@ class GetLoadBalancerResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_groups and not isinstance(security_groups, list):
             raise TypeError("Expected argument 'security_groups' to be a list")
         pulumi.set(__self__, "security_groups", security_groups)
@@ -172,6 +175,11 @@ class GetLoadBalancerResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[builtins.str]:
         return pulumi.get(self, "security_groups")
@@ -223,6 +231,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             internal=self.internal,
             listeners=self.listeners,
             name=self.name,
+            region=self.region,
             security_groups=self.security_groups,
             source_security_group=self.source_security_group,
             source_security_group_id=self.source_security_group_id,
@@ -232,6 +241,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
 
 
 def get_load_balancer(name: Optional[builtins.str] = None,
+                      region: Optional[builtins.str] = None,
                       tags: Optional[Mapping[str, builtins.str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerResult:
     """
@@ -258,9 +268,11 @@ def get_load_balancer(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Unique name of the load balancer.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:elb/getLoadBalancer:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult).value
@@ -281,6 +293,7 @@ def get_load_balancer(name: Optional[builtins.str] = None,
         internal=pulumi.get(__ret__, 'internal'),
         listeners=pulumi.get(__ret__, 'listeners'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         security_groups=pulumi.get(__ret__, 'security_groups'),
         source_security_group=pulumi.get(__ret__, 'source_security_group'),
         source_security_group_id=pulumi.get(__ret__, 'source_security_group_id'),
@@ -288,6 +301,7 @@ def get_load_balancer(name: Optional[builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         zone_id=pulumi.get(__ret__, 'zone_id'))
 def get_load_balancer_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
@@ -314,9 +328,11 @@ def get_load_balancer_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Unique name of the load balancer.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:elb/getLoadBalancer:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult)
@@ -336,6 +352,7 @@ def get_load_balancer_output(name: Optional[pulumi.Input[builtins.str]] = None,
         internal=pulumi.get(__response__, 'internal'),
         listeners=pulumi.get(__response__, 'listeners'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         security_groups=pulumi.get(__response__, 'security_groups'),
         source_security_group=pulumi.get(__response__, 'source_security_group'),
         source_security_group_id=pulumi.get(__response__, 'source_security_group_id'),

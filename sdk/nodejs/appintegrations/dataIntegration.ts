@@ -85,6 +85,10 @@ export class DataIntegration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
      */
     public readonly scheduleConfig!: pulumi.Output<outputs.appintegrations.DataIntegrationScheduleConfig>;
@@ -98,8 +102,6 @@ export class DataIntegration extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -120,6 +122,7 @@ export class DataIntegration extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["kmsKey"] = state ? state.kmsKey : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scheduleConfig"] = state ? state.scheduleConfig : undefined;
             resourceInputs["sourceUri"] = state ? state.sourceUri : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -138,6 +141,7 @@ export class DataIntegration extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scheduleConfig"] = args ? args.scheduleConfig : undefined;
             resourceInputs["sourceUri"] = args ? args.sourceUri : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -170,6 +174,10 @@ export interface DataIntegrationState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
      */
     scheduleConfig?: pulumi.Input<inputs.appintegrations.DataIntegrationScheduleConfig>;
@@ -183,8 +191,6 @@ export interface DataIntegrationState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -205,6 +211,10 @@ export interface DataIntegrationArgs {
      * Specifies the name of the Data Integration.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A block that defines the name of the data and how often it should be pulled from the source. The Schedule Config block is documented below.
      */

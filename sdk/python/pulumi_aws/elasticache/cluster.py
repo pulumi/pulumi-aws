@@ -42,6 +42,7 @@ class ClusterArgs:
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  preferred_outpost_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  snapshot_arns: Optional[pulumi.Input[builtins.str]] = None,
@@ -84,11 +85,10 @@ class ClusterArgs:
         :param pulumi.Input[builtins.int] num_cache_nodes: The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
         :param pulumi.Input[builtins.str] outpost_mode: Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
         :param pulumi.Input[builtins.str] parameter_group_name: The name of the parameter group to associate with this cache cluster.
-               
-               The following arguments are optional:
         :param pulumi.Input[builtins.int] port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] preferred_availability_zones: List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         :param pulumi.Input[builtins.str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_group_id: ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
         :param pulumi.Input[builtins.str] snapshot_arns: Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
@@ -139,6 +139,8 @@ class ClusterArgs:
             pulumi.set(__self__, "preferred_availability_zones", preferred_availability_zones)
         if preferred_outpost_arn is not None:
             pulumi.set(__self__, "preferred_outpost_arn", preferred_outpost_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replication_group_id is not None:
             pulumi.set(__self__, "replication_group_id", replication_group_id)
         if security_group_ids is not None:
@@ -369,8 +371,6 @@ class ClusterArgs:
     def parameter_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The name of the parameter group to associate with this cache cluster.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "parameter_group_name")
 
@@ -413,6 +413,18 @@ class ClusterArgs:
     @preferred_outpost_arn.setter
     def preferred_outpost_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "preferred_outpost_arn", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="replicationGroupId")
@@ -551,6 +563,7 @@ class _ClusterState:
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  preferred_outpost_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  snapshot_arns: Optional[pulumi.Input[builtins.str]] = None,
@@ -599,11 +612,10 @@ class _ClusterState:
         :param pulumi.Input[builtins.int] num_cache_nodes: The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
         :param pulumi.Input[builtins.str] outpost_mode: Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
         :param pulumi.Input[builtins.str] parameter_group_name: The name of the parameter group to associate with this cache cluster.
-               
-               The following arguments are optional:
         :param pulumi.Input[builtins.int] port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] preferred_availability_zones: List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         :param pulumi.Input[builtins.str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_group_id: ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
         :param pulumi.Input[builtins.str] snapshot_arns: Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
@@ -665,6 +677,8 @@ class _ClusterState:
             pulumi.set(__self__, "preferred_availability_zones", preferred_availability_zones)
         if preferred_outpost_arn is not None:
             pulumi.set(__self__, "preferred_outpost_arn", preferred_outpost_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replication_group_id is not None:
             pulumi.set(__self__, "replication_group_id", replication_group_id)
         if security_group_ids is not None:
@@ -681,9 +695,6 @@ class _ClusterState:
             pulumi.set(__self__, "subnet_group_name", subnet_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if transit_encryption_enabled is not None:
@@ -960,8 +971,6 @@ class _ClusterState:
     def parameter_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The name of the parameter group to associate with this cache cluster.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "parameter_group_name")
 
@@ -1004,6 +1013,18 @@ class _ClusterState:
     @preferred_outpost_arn.setter
     def preferred_outpost_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "preferred_outpost_arn", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="replicationGroupId")
@@ -1103,7 +1124,6 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1153,6 +1173,7 @@ class Cluster(pulumi.CustomResource):
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  preferred_outpost_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  snapshot_arns: Optional[pulumi.Input[builtins.str]] = None,
@@ -1329,11 +1350,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] num_cache_nodes: The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
         :param pulumi.Input[builtins.str] outpost_mode: Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
         :param pulumi.Input[builtins.str] parameter_group_name: The name of the parameter group to associate with this cache cluster.
-               
-               The following arguments are optional:
         :param pulumi.Input[builtins.int] port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] preferred_availability_zones: List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         :param pulumi.Input[builtins.str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_group_id: ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
         :param pulumi.Input[builtins.str] snapshot_arns: Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
@@ -1518,6 +1538,7 @@ class Cluster(pulumi.CustomResource):
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  preferred_outpost_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  snapshot_arns: Optional[pulumi.Input[builtins.str]] = None,
@@ -1556,6 +1577,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["port"] = port
             __props__.__dict__["preferred_availability_zones"] = preferred_availability_zones
             __props__.__dict__["preferred_outpost_arn"] = preferred_outpost_arn
+            __props__.__dict__["region"] = region
             __props__.__dict__["replication_group_id"] = replication_group_id
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["snapshot_arns"] = snapshot_arns
@@ -1606,6 +1628,7 @@ class Cluster(pulumi.CustomResource):
             port: Optional[pulumi.Input[builtins.int]] = None,
             preferred_availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             preferred_outpost_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replication_group_id: Optional[pulumi.Input[builtins.str]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             snapshot_arns: Optional[pulumi.Input[builtins.str]] = None,
@@ -1659,11 +1682,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] num_cache_nodes: The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
         :param pulumi.Input[builtins.str] outpost_mode: Specify the outpost mode that will apply to the cache cluster creation. Valid values are `"single-outpost"` and `"cross-outpost"`, however AWS currently only supports `"single-outpost"` mode.
         :param pulumi.Input[builtins.str] parameter_group_name: The name of the parameter group to associate with this cache cluster.
-               
-               The following arguments are optional:
         :param pulumi.Input[builtins.int] port: The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] preferred_availability_zones: List of the Availability Zones in which cache nodes are created. If you are creating your cluster in an Amazon VPC you can only locate nodes in Availability Zones that are associated with the subnets in the selected subnet group. The number of Availability Zones listed must equal the value of `num_cache_nodes`. If you want all the nodes in the same Availability Zone, use `availability_zone` instead, or repeat the Availability Zone multiple times in the list. Default: System chosen Availability Zones. Detecting drift of existing node availability zone is not currently supported. Updating this argument by itself to migrate existing node availability zones is not currently supported and will show a perpetual difference.
         :param pulumi.Input[builtins.str] preferred_outpost_arn: The outpost ARN in which the cache cluster will be created.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_group_id: ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_group_ids: One or more VPC security groups associated with the cache cluster. Cannot be provided with `replication_group_id.`
         :param pulumi.Input[builtins.str] snapshot_arns: Single-element string list containing an Amazon Resource Name (ARN) of a Redis RDB snapshot file stored in Amazon S3. The object name cannot contain any commas. Changing `snapshot_arns` forces a new resource.
@@ -1704,6 +1726,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["port"] = port
         __props__.__dict__["preferred_availability_zones"] = preferred_availability_zones
         __props__.__dict__["preferred_outpost_arn"] = preferred_outpost_arn
+        __props__.__dict__["region"] = region
         __props__.__dict__["replication_group_id"] = replication_group_id
         __props__.__dict__["security_group_ids"] = security_group_ids
         __props__.__dict__["snapshot_arns"] = snapshot_arns
@@ -1903,8 +1926,6 @@ class Cluster(pulumi.CustomResource):
     def parameter_group_name(self) -> pulumi.Output[builtins.str]:
         """
         The name of the parameter group to associate with this cache cluster.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "parameter_group_name")
 
@@ -1931,6 +1952,14 @@ class Cluster(pulumi.CustomResource):
         The outpost ARN in which the cache cluster will be created.
         """
         return pulumi.get(self, "preferred_outpost_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="replicationGroupId")
@@ -1998,7 +2027,6 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

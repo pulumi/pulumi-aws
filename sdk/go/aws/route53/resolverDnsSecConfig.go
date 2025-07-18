@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -63,6 +63,8 @@ type ResolverDnsSecConfig struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
@@ -106,6 +108,8 @@ type resolverDnsSecConfigState struct {
 	Arn *string `pulumi:"arn"`
 	// The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
 	OwnerId *string `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
 	ResourceId *string `pulumi:"resourceId"`
 	// The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
@@ -117,6 +121,8 @@ type ResolverDnsSecConfigState struct {
 	Arn pulumi.StringPtrInput
 	// The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
 	OwnerId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
 	ResourceId pulumi.StringPtrInput
 	// The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
@@ -128,12 +134,16 @@ func (ResolverDnsSecConfigState) ElementType() reflect.Type {
 }
 
 type resolverDnsSecConfigArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
 	ResourceId string `pulumi:"resourceId"`
 }
 
 // The set of arguments for constructing a ResolverDnsSecConfig resource.
 type ResolverDnsSecConfigArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
 	ResourceId pulumi.StringInput
 }
@@ -233,6 +243,11 @@ func (o ResolverDnsSecConfigOutput) Arn() pulumi.StringOutput {
 // The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
 func (o ResolverDnsSecConfigOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverDnsSecConfig) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ResolverDnsSecConfigOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResolverDnsSecConfig) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.

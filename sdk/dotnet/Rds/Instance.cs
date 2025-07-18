@@ -732,9 +732,6 @@ namespace Pulumi.Aws.Rds
         [Output("multiAz")]
         public Output<bool> MultiAz { get; private set; } = null!;
 
-        [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
-
         /// <summary>
         /// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
         /// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
@@ -796,6 +793,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Output("publiclyAccessible")]
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
@@ -1313,9 +1316,6 @@ namespace Pulumi.Aws.Rds
         [Input("multiAz")]
         public Input<bool>? MultiAz { get; set; }
 
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
         /// <summary>
         /// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
         /// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
@@ -1387,6 +1387,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
@@ -1913,9 +1919,6 @@ namespace Pulumi.Aws.Rds
         [Input("multiAz")]
         public Input<bool>? MultiAz { get; set; }
 
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
         /// <summary>
         /// The national character set is used in the NCHAR, NVARCHAR2, and NCLOB data types for Oracle instances. This can't be changed. See [Oracle Character Sets
         /// Supported in Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.OracleCharacterSets.html).
@@ -1987,6 +1990,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
@@ -2099,7 +2108,6 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

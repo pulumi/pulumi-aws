@@ -10,7 +10,7 @@ export type AlertManagerDefinition = import("./alertManagerDefinition").AlertMan
 export const AlertManagerDefinition: typeof import("./alertManagerDefinition").AlertManagerDefinition = null as any;
 utilities.lazyLoad(exports, ["AlertManagerDefinition"], () => require("./alertManagerDefinition"));
 
-export { GetDefaultScraperConfigurationResult } from "./getDefaultScraperConfiguration";
+export { GetDefaultScraperConfigurationArgs, GetDefaultScraperConfigurationResult, GetDefaultScraperConfigurationOutputArgs } from "./getDefaultScraperConfiguration";
 export const getDefaultScraperConfiguration: typeof import("./getDefaultScraperConfiguration").getDefaultScraperConfiguration = null as any;
 export const getDefaultScraperConfigurationOutput: typeof import("./getDefaultScraperConfiguration").getDefaultScraperConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getDefaultScraperConfiguration","getDefaultScraperConfigurationOutput"], () => require("./getDefaultScraperConfiguration"));
@@ -24,6 +24,11 @@ export { GetWorkspacesArgs, GetWorkspacesResult, GetWorkspacesOutputArgs } from 
 export const getWorkspaces: typeof import("./getWorkspaces").getWorkspaces = null as any;
 export const getWorkspacesOutput: typeof import("./getWorkspaces").getWorkspacesOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspaces","getWorkspacesOutput"], () => require("./getWorkspaces"));
+
+export { QueryLoggingConfigurationArgs, QueryLoggingConfigurationState } from "./queryLoggingConfiguration";
+export type QueryLoggingConfiguration = import("./queryLoggingConfiguration").QueryLoggingConfiguration;
+export const QueryLoggingConfiguration: typeof import("./queryLoggingConfiguration").QueryLoggingConfiguration = null as any;
+utilities.lazyLoad(exports, ["QueryLoggingConfiguration"], () => require("./queryLoggingConfiguration"));
 
 export { RuleGroupNamespaceArgs, RuleGroupNamespaceState } from "./ruleGroupNamespace";
 export type RuleGroupNamespace = import("./ruleGroupNamespace").RuleGroupNamespace;
@@ -52,6 +57,8 @@ const _module = {
         switch (type) {
             case "aws:amp/alertManagerDefinition:AlertManagerDefinition":
                 return new AlertManagerDefinition(name, <any>undefined, { urn })
+            case "aws:amp/queryLoggingConfiguration:QueryLoggingConfiguration":
+                return new QueryLoggingConfiguration(name, <any>undefined, { urn })
             case "aws:amp/ruleGroupNamespace:RuleGroupNamespace":
                 return new RuleGroupNamespace(name, <any>undefined, { urn })
             case "aws:amp/scraper:Scraper":
@@ -66,6 +73,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "amp/alertManagerDefinition", _module)
+pulumi.runtime.registerResourceModule("aws", "amp/queryLoggingConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "amp/ruleGroupNamespace", _module)
 pulumi.runtime.registerResourceModule("aws", "amp/scraper", _module)
 pulumi.runtime.registerResourceModule("aws", "amp/workspace", _module)

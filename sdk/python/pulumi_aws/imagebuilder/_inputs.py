@@ -601,9 +601,7 @@ if not MYPY:
     class DistributionConfigurationDistributionArgsDict(TypedDict):
         region: pulumi.Input[builtins.str]
         """
-        AWS Region for the distribution.
-
-        The following arguments are optional:
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ami_distribution_configuration: NotRequired[pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationArgsDict']]
         """
@@ -648,9 +646,7 @@ class DistributionConfigurationDistributionArgs:
                  s3_export_configuration: Optional[pulumi.Input['DistributionConfigurationDistributionS3ExportConfigurationArgs']] = None,
                  ssm_parameter_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionSsmParameterConfigurationArgs']]]] = None):
         """
-        :param pulumi.Input[builtins.str] region: AWS Region for the distribution.
-               
-               The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationArgs'] ami_distribution_configuration: Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
         :param pulumi.Input['DistributionConfigurationDistributionContainerDistributionConfigurationArgs'] container_distribution_configuration: Configuration block with container distribution settings. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionFastLaunchConfigurationArgs']]] fast_launch_configurations: Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
@@ -679,9 +675,7 @@ class DistributionConfigurationDistributionArgs:
     @pulumi.getter
     def region(self) -> pulumi.Input[builtins.str]:
         """
-        AWS Region for the distribution.
-
-        The following arguments are optional:
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -1792,7 +1786,7 @@ if not MYPY:
         """
         region: NotRequired[pulumi.Input[builtins.str]]
         """
-        Region of the container image.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
 elif False:
     ImageOutputResourceAmiArgsDict: TypeAlias = Mapping[str, Any]
@@ -1810,7 +1804,7 @@ class ImageOutputResourceAmiArgs:
         :param pulumi.Input[builtins.str] description: Description of the AMI.
         :param pulumi.Input[builtins.str] image: Identifier of the AMI.
         :param pulumi.Input[builtins.str] name: Name of the AMI.
-        :param pulumi.Input[builtins.str] region: Region of the container image.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -1875,7 +1869,7 @@ class ImageOutputResourceAmiArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Region of the container image.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -1892,7 +1886,7 @@ if not MYPY:
         """
         region: NotRequired[pulumi.Input[builtins.str]]
         """
-        Region of the container image.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
 elif False:
     ImageOutputResourceContainerArgsDict: TypeAlias = Mapping[str, Any]
@@ -1904,7 +1898,7 @@ class ImageOutputResourceContainerArgs:
                  region: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] image_uris: Set of URIs for created containers.
-        :param pulumi.Input[builtins.str] region: Region of the container image.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if image_uris is not None:
             pulumi.set(__self__, "image_uris", image_uris)
@@ -1927,7 +1921,7 @@ class ImageOutputResourceContainerArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Region of the container image.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

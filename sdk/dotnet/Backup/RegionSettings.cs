@@ -68,6 +68,12 @@ namespace Pulumi.Aws.Backup
     public partial class RegionSettings : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A map of service names to their full management preferences for the Region. For more information, see the AWS Documentation on [what full management is](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#full-management) and [which services support full management](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource).
         /// </summary>
         [Output("resourceTypeManagementPreference")]
@@ -125,6 +131,12 @@ namespace Pulumi.Aws.Backup
 
     public sealed class RegionSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resourceTypeManagementPreference")]
         private InputMap<bool>? _resourceTypeManagementPreference;
 
@@ -157,6 +169,12 @@ namespace Pulumi.Aws.Backup
 
     public sealed class RegionSettingsState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resourceTypeManagementPreference")]
         private InputMap<bool>? _resourceTypeManagementPreference;
 

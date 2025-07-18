@@ -106,6 +106,12 @@ namespace Pulumi.Aws.Connect
         public string InstanceId { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
         /// </summary>
         [Input("resourceType", required: true)]
@@ -132,6 +138,12 @@ namespace Pulumi.Aws.Connect
         public Input<string> InstanceId { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` |  `SCREEN_RECORDINGS`.
         /// </summary>
         [Input("resourceType", required: true)]
@@ -153,6 +165,7 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public readonly string Id;
         public readonly string InstanceId;
+        public readonly string Region;
         public readonly string ResourceType;
         /// <summary>
         /// Specifies the storage configuration options for the Connect Instance. Documented below.
@@ -167,6 +180,8 @@ namespace Pulumi.Aws.Connect
 
             string instanceId,
 
+            string region,
+
             string resourceType,
 
             ImmutableArray<Outputs.GetInstanceStorageConfigStorageConfigResult> storageConfigs)
@@ -174,6 +189,7 @@ namespace Pulumi.Aws.Connect
             AssociationId = associationId;
             Id = id;
             InstanceId = instanceId;
+            Region = region;
             ResourceType = resourceType;
             StorageConfigs = storageConfigs;
         }

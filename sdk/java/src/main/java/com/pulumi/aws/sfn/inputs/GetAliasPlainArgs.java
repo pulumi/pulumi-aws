@@ -46,6 +46,21 @@ public final class GetAliasPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * ARN of the State Machine.
      * 
      */
@@ -65,6 +80,7 @@ public final class GetAliasPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetAliasPlainArgs(GetAliasPlainArgs $) {
         this.description = $.description;
         this.name = $.name;
+        this.region = $.region;
         this.statemachineArn = $.statemachineArn;
     }
 
@@ -105,6 +121,17 @@ public final class GetAliasPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -113,6 +113,8 @@ type GetOrderableDbInstanceArgs struct {
 	PreferredInstanceClasses []string `pulumi:"preferredInstanceClasses"`
 	// Whether a DB instance can have a read replica.
 	ReadReplicaCapable *bool `pulumi:"readReplicaCapable"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
 	StorageType *string `pulumi:"storageType"`
 	// Use to limit results to engine modes such as `provisioned`.
@@ -174,6 +176,7 @@ type GetOrderableDbInstanceResult struct {
 	PreferredEngineVersions           []string `pulumi:"preferredEngineVersions"`
 	PreferredInstanceClasses          []string `pulumi:"preferredInstanceClasses"`
 	ReadReplicaCapable                bool     `pulumi:"readReplicaCapable"`
+	Region                            string   `pulumi:"region"`
 	StorageType                       string   `pulumi:"storageType"`
 	SupportedEngineModes              []string `pulumi:"supportedEngineModes"`
 	SupportedNetworkTypes             []string `pulumi:"supportedNetworkTypes"`
@@ -219,6 +222,8 @@ type GetOrderableDbInstanceOutputArgs struct {
 	PreferredInstanceClasses pulumi.StringArrayInput `pulumi:"preferredInstanceClasses"`
 	// Whether a DB instance can have a read replica.
 	ReadReplicaCapable pulumi.BoolPtrInput `pulumi:"readReplicaCapable"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
 	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
 	// Use to limit results to engine modes such as `provisioned`.
@@ -352,6 +357,10 @@ func (o GetOrderableDbInstanceResultOutput) PreferredInstanceClasses() pulumi.St
 
 func (o GetOrderableDbInstanceResultOutput) ReadReplicaCapable() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetOrderableDbInstanceResult) bool { return v.ReadReplicaCapable }).(pulumi.BoolOutput)
+}
+
+func (o GetOrderableDbInstanceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrderableDbInstanceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetOrderableDbInstanceResultOutput) StorageType() pulumi.StringOutput {

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,6 +57,8 @@ type AccessLogSubscription struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Amazon Resource Name (ARN) of the log destination.
 	DestinationArn pulumi.StringOutput `pulumi:"destinationArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the service network or service.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
@@ -66,8 +68,7 @@ type AccessLogSubscription struct {
 	// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
 	ServiceNetworkLogType pulumi.StringOutput    `pulumi:"serviceNetworkLogType"`
 	Tags                  pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll               pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewAccessLogSubscription registers a new resource with the given unique name, arguments, and options.
@@ -110,6 +111,8 @@ type accessLogSubscriptionState struct {
 	Arn *string `pulumi:"arn"`
 	// Amazon Resource Name (ARN) of the log destination.
 	DestinationArn *string `pulumi:"destinationArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Amazon Resource Name (ARN) of the service network or service.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
@@ -119,8 +122,7 @@ type accessLogSubscriptionState struct {
 	// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
 	ServiceNetworkLogType *string           `pulumi:"serviceNetworkLogType"`
 	Tags                  map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll               map[string]string `pulumi:"tagsAll"`
 }
 
 type AccessLogSubscriptionState struct {
@@ -128,6 +130,8 @@ type AccessLogSubscriptionState struct {
 	Arn pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the log destination.
 	DestinationArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the service network or service.
 	ResourceArn pulumi.StringPtrInput
 	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
@@ -137,8 +141,7 @@ type AccessLogSubscriptionState struct {
 	// Type of log that monitors your Amazon VPC Lattice service networks. Valid values are: `SERVICE`, `RESOURCE`. Defaults to `SERVICE`.
 	ServiceNetworkLogType pulumi.StringPtrInput
 	Tags                  pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
-	TagsAll pulumi.StringMapInput
+	TagsAll               pulumi.StringMapInput
 }
 
 func (AccessLogSubscriptionState) ElementType() reflect.Type {
@@ -148,6 +151,8 @@ func (AccessLogSubscriptionState) ElementType() reflect.Type {
 type accessLogSubscriptionArgs struct {
 	// Amazon Resource Name (ARN) of the log destination.
 	DestinationArn string `pulumi:"destinationArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 	//
 	// The following arguments are optional:
@@ -161,6 +166,8 @@ type accessLogSubscriptionArgs struct {
 type AccessLogSubscriptionArgs struct {
 	// Amazon Resource Name (ARN) of the log destination.
 	DestinationArn pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
 	//
 	// The following arguments are optional:
@@ -267,6 +274,11 @@ func (o AccessLogSubscriptionOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.DestinationArn }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AccessLogSubscriptionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Amazon Resource Name (ARN) of the service network or service.
 func (o AccessLogSubscriptionOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
@@ -288,7 +300,6 @@ func (o AccessLogSubscriptionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o AccessLogSubscriptionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

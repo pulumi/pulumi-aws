@@ -68,6 +68,7 @@ export function getElasticIp(args?: GetElasticIpArgs, opts?: pulumi.InvokeOption
         "filters": args.filters,
         "id": args.id,
         "publicIp": args.publicIp,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -88,6 +89,10 @@ export interface GetElasticIpArgs {
      * Public IP of the specific EIP to retrieve.
      */
     publicIp?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
      *
@@ -168,6 +173,7 @@ export interface GetElasticIpResult {
      * ID of an address pool.
      */
     readonly publicIpv4Pool: string;
+    readonly region: string;
     /**
      * Key-value map of tags associated with Elastic IP.
      */
@@ -234,6 +240,7 @@ export function getElasticIpOutput(args?: GetElasticIpOutputArgs, opts?: pulumi.
         "filters": args.filters,
         "id": args.id,
         "publicIp": args.publicIp,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -254,6 +261,10 @@ export interface GetElasticIpOutputArgs {
      * Public IP of the specific EIP to retrieve.
      */
     publicIp?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
      *

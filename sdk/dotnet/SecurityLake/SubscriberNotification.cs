@@ -78,6 +78,12 @@ namespace Pulumi.Aws.SecurityLake
         public Output<string> EndpointId { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The subscriber endpoint to which exception messages are posted.
         /// </summary>
         [Output("subscriberEndpoint")]
@@ -142,6 +148,12 @@ namespace Pulumi.Aws.SecurityLake
         public Input<Inputs.SubscriberNotificationConfigurationArgs>? Configuration { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The subscriber ID for the notification subscription.
         /// </summary>
         [Input("subscriberId", required: true)]
@@ -166,6 +178,12 @@ namespace Pulumi.Aws.SecurityLake
         /// </summary>
         [Input("endpointId")]
         public Input<string>? EndpointId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The subscriber endpoint to which exception messages are posted.

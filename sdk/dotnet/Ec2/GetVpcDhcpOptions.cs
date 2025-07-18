@@ -219,6 +219,12 @@ namespace Pulumi.Aws.Ec2
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -256,6 +262,12 @@ namespace Pulumi.Aws.Ec2
             get => _filters ?? (_filters = new InputList<Inputs.GetVpcDhcpOptionsFilterInputArgs>());
             set => _filters = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -320,6 +332,7 @@ namespace Pulumi.Aws.Ec2
         /// ID of the AWS account that owns the DHCP options set.
         /// </summary>
         public readonly string OwnerId;
+        public readonly string Region;
         /// <summary>
         /// Map of tags assigned to the resource.
         /// </summary>
@@ -349,6 +362,8 @@ namespace Pulumi.Aws.Ec2
 
             string ownerId,
 
+            string region,
+
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
@@ -362,6 +377,7 @@ namespace Pulumi.Aws.Ec2
             NetbiosNodeType = netbiosNodeType;
             NtpServers = ntpServers;
             OwnerId = ownerId;
+            Region = region;
             Tags = tags;
         }
     }

@@ -137,6 +137,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<Outputs.InfrastructureConfigurationPlacement?> Placement { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value map of resource tags to assign to infrastructure created by the configuration.
         /// </summary>
         [Output("resourceTags")]
@@ -280,6 +286,12 @@ namespace Pulumi.Aws.ImageBuilder
         [Input("placement")]
         public Input<Inputs.InfrastructureConfigurationPlacementArgs>? Placement { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resourceTags")]
         private InputMap<string>? _resourceTags;
 
@@ -416,6 +428,12 @@ namespace Pulumi.Aws.ImageBuilder
         [Input("placement")]
         public Input<Inputs.InfrastructureConfigurationPlacementGetArgs>? Placement { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("resourceTags")]
         private InputMap<string>? _resourceTags;
 
@@ -470,7 +488,6 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

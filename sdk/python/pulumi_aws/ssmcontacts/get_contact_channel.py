@@ -28,7 +28,7 @@ class GetContactChannelResult:
     """
     A collection of values returned by getContactChannel.
     """
-    def __init__(__self__, activation_status=None, arn=None, contact_id=None, delivery_addresses=None, id=None, name=None, type=None):
+    def __init__(__self__, activation_status=None, arn=None, contact_id=None, delivery_addresses=None, id=None, name=None, region=None, type=None):
         if activation_status and not isinstance(activation_status, str):
             raise TypeError("Expected argument 'activation_status' to be a str")
         pulumi.set(__self__, "activation_status", activation_status)
@@ -47,6 +47,9 @@ class GetContactChannelResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -98,6 +101,11 @@ class GetContactChannelResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def type(self) -> builtins.str:
         """
         Type of the contact channel.
@@ -117,10 +125,12 @@ class AwaitableGetContactChannelResult(GetContactChannelResult):
             delivery_addresses=self.delivery_addresses,
             id=self.id,
             name=self.name,
+            region=self.region,
             type=self.type)
 
 
 def get_contact_channel(arn: Optional[builtins.str] = None,
+                        region: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactChannelResult:
     """
     Data source for managing an AWS SSM Contacts Contact Channel.
@@ -138,9 +148,11 @@ def get_contact_channel(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: Amazon Resource Name (ARN) of the contact channel.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ssmcontacts/getContactChannel:getContactChannel', __args__, opts=opts, typ=GetContactChannelResult).value
 
@@ -151,8 +163,10 @@ def get_contact_channel(arn: Optional[builtins.str] = None,
         delivery_addresses=pulumi.get(__ret__, 'delivery_addresses'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         type=pulumi.get(__ret__, 'type'))
 def get_contact_channel_output(arn: Optional[pulumi.Input[builtins.str]] = None,
+                               region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactChannelResult]:
     """
     Data source for managing an AWS SSM Contacts Contact Channel.
@@ -170,9 +184,11 @@ def get_contact_channel_output(arn: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str arn: Amazon Resource Name (ARN) of the contact channel.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssmcontacts/getContactChannel:getContactChannel', __args__, opts=opts, typ=GetContactChannelResult)
     return __ret__.apply(lambda __response__: GetContactChannelResult(
@@ -182,4 +198,5 @@ def get_contact_channel_output(arn: Optional[pulumi.Input[builtins.str]] = None,
         delivery_addresses=pulumi.get(__response__, 'delivery_addresses'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         type=pulumi.get(__response__, 'type')))

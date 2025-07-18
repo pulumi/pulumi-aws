@@ -34,12 +34,12 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('allowedAccountIds')
 
     @property
-    def assume_role(self) -> Optional[str]:
-        return __config__.get('assumeRole')
-
-    @property
     def assume_role_with_web_identity(self) -> Optional[str]:
         return __config__.get('assumeRoleWithWebIdentity')
+
+    @property
+    def assume_roles(self) -> Optional[str]:
+        return __config__.get('assumeRoles')
 
     @property
     def custom_ca_bundle(self) -> Optional[str]:

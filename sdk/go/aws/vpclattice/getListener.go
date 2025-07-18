@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/vpclattice"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpclattice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupListener(ctx *pulumi.Context, args *LookupListenerArgs, opts ...pulum
 type LookupListenerArgs struct {
 	// ID or Amazon Resource Name (ARN) of the listener
 	ListenerIdentifier string `pulumi:"listenerIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID or Amazon Resource Name (ARN) of the service network
 	ServiceIdentifier string `pulumi:"serviceIdentifier"`
 	// List of tags associated with the listener.
@@ -79,6 +81,7 @@ type LookupListenerResult struct {
 	Port int `pulumi:"port"`
 	// The listener protocol. Either `HTTPS` or `HTTP`.
 	Protocol string `pulumi:"protocol"`
+	Region   string `pulumi:"region"`
 	// The ARN of the service.
 	ServiceArn string `pulumi:"serviceArn"`
 	// The ID of the service.
@@ -101,6 +104,8 @@ func LookupListenerOutput(ctx *pulumi.Context, args LookupListenerOutputArgs, op
 type LookupListenerOutputArgs struct {
 	// ID or Amazon Resource Name (ARN) of the listener
 	ListenerIdentifier pulumi.StringInput `pulumi:"listenerIdentifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID or Amazon Resource Name (ARN) of the service network
 	ServiceIdentifier pulumi.StringInput `pulumi:"serviceIdentifier"`
 	// List of tags associated with the listener.
@@ -173,6 +178,10 @@ func (o LookupListenerResultOutput) Port() pulumi.IntOutput {
 // The listener protocol. Either `HTTPS` or `HTTP`.
 func (o LookupListenerResultOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupListenerResult) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+func (o LookupListenerResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupListenerResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of the service.

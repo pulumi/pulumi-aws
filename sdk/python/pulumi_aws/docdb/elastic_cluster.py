@@ -32,6 +32,7 @@ class ElasticClusterArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ElasticClusterTimeoutsArgs']] = None,
@@ -50,6 +51,7 @@ class ElasticClusterArgs:
         :param pulumi.Input[builtins.str] name: Name of the Elastic DocumentDB cluster
         :param pulumi.Input[builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
         :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subnet_ids: IDs of subnets in which the Elastic DocumentDB Cluster operates.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Elastic DocumentDB Cluster
@@ -72,6 +74,8 @@ class ElasticClusterArgs:
             pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
@@ -204,6 +208,18 @@ class ElasticClusterArgs:
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="subnetIds")
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -265,6 +281,7 @@ class _ElasticClusterState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shard_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  shard_count: Optional[pulumi.Input[builtins.int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -284,6 +301,7 @@ class _ElasticClusterState:
         :param pulumi.Input[builtins.str] name: Name of the Elastic DocumentDB cluster
         :param pulumi.Input[builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
         :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] shard_capacity: Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
         :param pulumi.Input[builtins.int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
                
@@ -315,6 +333,8 @@ class _ElasticClusterState:
             pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if shard_capacity is not None:
             pulumi.set(__self__, "shard_capacity", shard_capacity)
         if shard_count is not None:
@@ -323,9 +343,6 @@ class _ElasticClusterState:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
@@ -454,6 +471,18 @@ class _ElasticClusterState:
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="shardCapacity")
     def shard_capacity(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -505,7 +534,6 @@ class _ElasticClusterState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags_all")
 
@@ -552,6 +580,7 @@ class ElasticCluster(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shard_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  shard_count: Optional[pulumi.Input[builtins.int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -597,6 +626,7 @@ class ElasticCluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the Elastic DocumentDB cluster
         :param pulumi.Input[builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
         :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] shard_capacity: Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
         :param pulumi.Input[builtins.int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
                
@@ -665,6 +695,7 @@ class ElasticCluster(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  shard_capacity: Optional[pulumi.Input[builtins.int]] = None,
                  shard_count: Optional[pulumi.Input[builtins.int]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -694,6 +725,7 @@ class ElasticCluster(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
+            __props__.__dict__["region"] = region
             if shard_capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'shard_capacity'")
             __props__.__dict__["shard_capacity"] = shard_capacity
@@ -729,6 +761,7 @@ class ElasticCluster(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
             preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             shard_capacity: Optional[pulumi.Input[builtins.int]] = None,
             shard_count: Optional[pulumi.Input[builtins.int]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -753,6 +786,7 @@ class ElasticCluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the Elastic DocumentDB cluster
         :param pulumi.Input[builtins.str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled, as determined by the `backup_retention_period`.
         :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] shard_capacity: Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
         :param pulumi.Input[builtins.int] shard_count: Number of shards assigned to the elastic cluster. Maximum is 32
                
@@ -778,6 +812,7 @@ class ElasticCluster(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["preferred_backup_window"] = preferred_backup_window
         __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
+        __props__.__dict__["region"] = region
         __props__.__dict__["shard_capacity"] = shard_capacity
         __props__.__dict__["shard_count"] = shard_count
         __props__.__dict__["subnet_ids"] = subnet_ids
@@ -868,6 +903,14 @@ class ElasticCluster(pulumi.CustomResource):
         return pulumi.get(self, "preferred_maintenance_window")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="shardCapacity")
     def shard_capacity(self) -> pulumi.Output[builtins.int]:
         """
@@ -903,7 +946,6 @@ class ElasticCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "tags_all")
 

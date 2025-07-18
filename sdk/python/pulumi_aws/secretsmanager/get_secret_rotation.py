@@ -28,10 +28,13 @@ class GetSecretRotationResult:
     """
     A collection of values returned by getSecretRotation.
     """
-    def __init__(__self__, id=None, rotation_enabled=None, rotation_lambda_arn=None, rotation_rules=None, secret_id=None):
+    def __init__(__self__, id=None, region=None, rotation_enabled=None, rotation_lambda_arn=None, rotation_rules=None, secret_id=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if rotation_enabled and not isinstance(rotation_enabled, bool):
             raise TypeError("Expected argument 'rotation_enabled' to be a bool")
         pulumi.set(__self__, "rotation_enabled", rotation_enabled)
@@ -52,6 +55,11 @@ class GetSecretRotationResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="rotationEnabled")
@@ -90,13 +98,15 @@ class AwaitableGetSecretRotationResult(GetSecretRotationResult):
             yield self
         return GetSecretRotationResult(
             id=self.id,
+            region=self.region,
             rotation_enabled=self.rotation_enabled,
             rotation_lambda_arn=self.rotation_lambda_arn,
             rotation_rules=self.rotation_rules,
             secret_id=self.secret_id)
 
 
-def get_secret_rotation(secret_id: Optional[builtins.str] = None,
+def get_secret_rotation(region: Optional[builtins.str] = None,
+                        secret_id: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretRotationResult:
     """
     Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `secretsmanager.Secret` data source. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.
@@ -113,20 +123,24 @@ def get_secret_rotation(secret_id: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['secretId'] = secret_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:secretsmanager/getSecretRotation:getSecretRotation', __args__, opts=opts, typ=GetSecretRotationResult).value
 
     return AwaitableGetSecretRotationResult(
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         rotation_enabled=pulumi.get(__ret__, 'rotation_enabled'),
         rotation_lambda_arn=pulumi.get(__ret__, 'rotation_lambda_arn'),
         rotation_rules=pulumi.get(__ret__, 'rotation_rules'),
         secret_id=pulumi.get(__ret__, 'secret_id'))
-def get_secret_rotation_output(secret_id: Optional[pulumi.Input[builtins.str]] = None,
+def get_secret_rotation_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                               secret_id: Optional[pulumi.Input[builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretRotationResult]:
     """
     Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `secretsmanager.Secret` data source. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.
@@ -143,14 +157,17 @@ def get_secret_rotation_output(secret_id: Optional[pulumi.Input[builtins.str]] =
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str secret_id: Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['secretId'] = secret_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:secretsmanager/getSecretRotation:getSecretRotation', __args__, opts=opts, typ=GetSecretRotationResult)
     return __ret__.apply(lambda __response__: GetSecretRotationResult(
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         rotation_enabled=pulumi.get(__response__, 'rotation_enabled'),
         rotation_lambda_arn=pulumi.get(__response__, 'rotation_lambda_arn'),
         rotation_rules=pulumi.get(__response__, 'rotation_rules'),

@@ -24,7 +24,6 @@ class NotebookInstanceArgs:
     def __init__(__self__, *,
                  instance_type: pulumi.Input[builtins.str],
                  role_arn: pulumi.Input[builtins.str],
-                 accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  additional_code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  default_code_repository: Optional[pulumi.Input[builtins.str]] = None,
                  direct_internet_access: Optional[pulumi.Input[builtins.str]] = None,
@@ -33,6 +32,7 @@ class NotebookInstanceArgs:
                  lifecycle_config_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  platform_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  root_access: Optional[pulumi.Input[builtins.str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -42,7 +42,6 @@ class NotebookInstanceArgs:
         The set of arguments for constructing a NotebookInstance resource.
         :param pulumi.Input[builtins.str] instance_type: The name of ML compute instance type.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] accelerator_types: A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] additional_code_repositories: An array of up to three Git repositories to associate with the notebook instance.
                These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
         :param pulumi.Input[builtins.str] default_code_repository: The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
@@ -52,6 +51,7 @@ class NotebookInstanceArgs:
         :param pulumi.Input[builtins.str] lifecycle_config_name: The name of a lifecycle configuration to associate with the notebook instance.
         :param pulumi.Input[builtins.str] name: The name of the notebook instance (must be unique).
         :param pulumi.Input[builtins.str] platform_identifier: The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] root_access: Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: The associated security groups.
         :param pulumi.Input[builtins.str] subnet_id: The VPC subnet ID.
@@ -60,11 +60,6 @@ class NotebookInstanceArgs:
         """
         pulumi.set(__self__, "instance_type", instance_type)
         pulumi.set(__self__, "role_arn", role_arn)
-        if accelerator_types is not None:
-            warnings.warn("""accelerator_types is deprecated. Use instance_type instead.""", DeprecationWarning)
-            pulumi.log.warn("""accelerator_types is deprecated: accelerator_types is deprecated. Use instance_type instead.""")
-        if accelerator_types is not None:
-            pulumi.set(__self__, "accelerator_types", accelerator_types)
         if additional_code_repositories is not None:
             pulumi.set(__self__, "additional_code_repositories", additional_code_repositories)
         if default_code_repository is not None:
@@ -81,6 +76,8 @@ class NotebookInstanceArgs:
             pulumi.set(__self__, "name", name)
         if platform_identifier is not None:
             pulumi.set(__self__, "platform_identifier", platform_identifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if root_access is not None:
             pulumi.set(__self__, "root_access", root_access)
         if security_groups is not None:
@@ -115,19 +112,6 @@ class NotebookInstanceArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "role_arn", value)
-
-    @property
-    @pulumi.getter(name="acceleratorTypes")
-    @_utilities.deprecated("""accelerator_types is deprecated. Use instance_type instead.""")
-    def accelerator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
-        """
-        A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-        """
-        return pulumi.get(self, "accelerator_types")
-
-    @accelerator_types.setter
-    def accelerator_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "accelerator_types", value)
 
     @property
     @pulumi.getter(name="additionalCodeRepositories")
@@ -227,6 +211,18 @@ class NotebookInstanceArgs:
         pulumi.set(self, "platform_identifier", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="rootAccess")
     def root_access(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -290,7 +286,6 @@ class NotebookInstanceArgs:
 @pulumi.input_type
 class _NotebookInstanceState:
     def __init__(__self__, *,
-                 accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  additional_code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  default_code_repository: Optional[pulumi.Input[builtins.str]] = None,
@@ -302,6 +297,7 @@ class _NotebookInstanceState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
                  platform_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  root_access: Optional[pulumi.Input[builtins.str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -312,7 +308,6 @@ class _NotebookInstanceState:
                  volume_size: Optional[pulumi.Input[builtins.int]] = None):
         """
         Input properties used for looking up and filtering NotebookInstance resources.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] accelerator_types: A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] additional_code_repositories: An array of up to three Git repositories to associate with the notebook instance.
                These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
@@ -325,6 +320,7 @@ class _NotebookInstanceState:
         :param pulumi.Input[builtins.str] name: The name of the notebook instance (must be unique).
         :param pulumi.Input[builtins.str] network_interface_id: The network interface ID that Amazon SageMaker AI created at the time of creating the instance. Only available when setting `subnet_id`.
         :param pulumi.Input[builtins.str] platform_identifier: The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
         :param pulumi.Input[builtins.str] root_access: Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: The associated security groups.
@@ -334,11 +330,6 @@ class _NotebookInstanceState:
         :param pulumi.Input[builtins.str] url: The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
         :param pulumi.Input[builtins.int] volume_size: The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
         """
-        if accelerator_types is not None:
-            warnings.warn("""accelerator_types is deprecated. Use instance_type instead.""", DeprecationWarning)
-            pulumi.log.warn("""accelerator_types is deprecated: accelerator_types is deprecated. Use instance_type instead.""")
-        if accelerator_types is not None:
-            pulumi.set(__self__, "accelerator_types", accelerator_types)
         if additional_code_repositories is not None:
             pulumi.set(__self__, "additional_code_repositories", additional_code_repositories)
         if arn is not None:
@@ -361,6 +352,8 @@ class _NotebookInstanceState:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
         if platform_identifier is not None:
             pulumi.set(__self__, "platform_identifier", platform_identifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if root_access is not None:
@@ -372,27 +365,11 @@ class _NotebookInstanceState:
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
-        if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if url is not None:
             pulumi.set(__self__, "url", url)
         if volume_size is not None:
             pulumi.set(__self__, "volume_size", volume_size)
-
-    @property
-    @pulumi.getter(name="acceleratorTypes")
-    @_utilities.deprecated("""accelerator_types is deprecated. Use instance_type instead.""")
-    def accelerator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
-        """
-        A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-        """
-        return pulumi.get(self, "accelerator_types")
-
-    @accelerator_types.setter
-    def accelerator_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "accelerator_types", value)
 
     @property
     @pulumi.getter(name="additionalCodeRepositories")
@@ -528,6 +505,18 @@ class _NotebookInstanceState:
         pulumi.set(self, "platform_identifier", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -589,7 +578,6 @@ class _NotebookInstanceState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -631,7 +619,6 @@ class NotebookInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  additional_code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  default_code_repository: Optional[pulumi.Input[builtins.str]] = None,
                  direct_internet_access: Optional[pulumi.Input[builtins.str]] = None,
@@ -641,6 +628,7 @@ class NotebookInstance(pulumi.CustomResource):
                  lifecycle_config_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  platform_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  root_access: Optional[pulumi.Input[builtins.str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -699,7 +687,6 @@ class NotebookInstance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] accelerator_types: A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] additional_code_repositories: An array of up to three Git repositories to associate with the notebook instance.
                These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
         :param pulumi.Input[builtins.str] default_code_repository: The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
@@ -710,6 +697,7 @@ class NotebookInstance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] lifecycle_config_name: The name of a lifecycle configuration to associate with the notebook instance.
         :param pulumi.Input[builtins.str] name: The name of the notebook instance (must be unique).
         :param pulumi.Input[builtins.str] platform_identifier: The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
         :param pulumi.Input[builtins.str] root_access: Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: The associated security groups.
@@ -787,7 +775,6 @@ class NotebookInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  additional_code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  default_code_repository: Optional[pulumi.Input[builtins.str]] = None,
                  direct_internet_access: Optional[pulumi.Input[builtins.str]] = None,
@@ -797,6 +784,7 @@ class NotebookInstance(pulumi.CustomResource):
                  lifecycle_config_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  platform_identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  root_access: Optional[pulumi.Input[builtins.str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -812,7 +800,6 @@ class NotebookInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NotebookInstanceArgs.__new__(NotebookInstanceArgs)
 
-            __props__.__dict__["accelerator_types"] = accelerator_types
             __props__.__dict__["additional_code_repositories"] = additional_code_repositories
             __props__.__dict__["default_code_repository"] = default_code_repository
             __props__.__dict__["direct_internet_access"] = direct_internet_access
@@ -824,6 +811,7 @@ class NotebookInstance(pulumi.CustomResource):
             __props__.__dict__["lifecycle_config_name"] = lifecycle_config_name
             __props__.__dict__["name"] = name
             __props__.__dict__["platform_identifier"] = platform_identifier
+            __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -846,7 +834,6 @@ class NotebookInstance(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             additional_code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             default_code_repository: Optional[pulumi.Input[builtins.str]] = None,
@@ -858,6 +845,7 @@ class NotebookInstance(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             network_interface_id: Optional[pulumi.Input[builtins.str]] = None,
             platform_identifier: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             root_access: Optional[pulumi.Input[builtins.str]] = None,
             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -873,7 +861,6 @@ class NotebookInstance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] accelerator_types: A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] additional_code_repositories: An array of up to three Git repositories to associate with the notebook instance.
                These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
@@ -886,6 +873,7 @@ class NotebookInstance(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: The name of the notebook instance (must be unique).
         :param pulumi.Input[builtins.str] network_interface_id: The network interface ID that Amazon SageMaker AI created at the time of creating the instance. Only available when setting `subnet_id`.
         :param pulumi.Input[builtins.str] platform_identifier: The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, `notebook-al2-v2`, or `notebook-al2-v3`, depending on which version of Amazon Linux you require.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the IAM role to be used by the notebook instance which allows SageMaker AI to call other services on your behalf.
         :param pulumi.Input[builtins.str] root_access: Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] security_groups: The associated security groups.
@@ -899,7 +887,6 @@ class NotebookInstance(pulumi.CustomResource):
 
         __props__ = _NotebookInstanceState.__new__(_NotebookInstanceState)
 
-        __props__.__dict__["accelerator_types"] = accelerator_types
         __props__.__dict__["additional_code_repositories"] = additional_code_repositories
         __props__.__dict__["arn"] = arn
         __props__.__dict__["default_code_repository"] = default_code_repository
@@ -911,6 +898,7 @@ class NotebookInstance(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["network_interface_id"] = network_interface_id
         __props__.__dict__["platform_identifier"] = platform_identifier
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["root_access"] = root_access
         __props__.__dict__["security_groups"] = security_groups
@@ -920,15 +908,6 @@ class NotebookInstance(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         __props__.__dict__["volume_size"] = volume_size
         return NotebookInstance(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="acceleratorTypes")
-    @_utilities.deprecated("""accelerator_types is deprecated. Use instance_type instead.""")
-    def accelerator_types(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
-        """
-        A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
-        """
-        return pulumi.get(self, "accelerator_types")
 
     @property
     @pulumi.getter(name="additionalCodeRepositories")
@@ -1020,6 +999,14 @@ class NotebookInstance(pulumi.CustomResource):
         return pulumi.get(self, "platform_identifier")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[builtins.str]:
         """
@@ -1061,7 +1048,6 @@ class NotebookInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

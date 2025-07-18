@@ -28,6 +28,7 @@ class StackInstancesArgs:
                  deployment_targets: Optional[pulumi.Input['StackInstancesDeploymentTargetsArgs']] = None,
                  operation_preferences: Optional[pulumi.Input['StackInstancesOperationPreferencesArgs']] = None,
                  parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  retain_stacks: Optional[pulumi.Input[builtins.bool]] = None):
         """
@@ -40,6 +41,7 @@ class StackInstancesArgs:
         :param pulumi.Input['StackInstancesDeploymentTargetsArgs'] deployment_targets: AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
         :param pulumi.Input['StackInstancesOperationPreferencesArgs'] operation_preferences: Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameter_overrides: Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] regions: Regions where you want to create stack instances in the specified `accounts`.
         :param pulumi.Input[builtins.bool] retain_stacks: Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retain_stacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
         """
@@ -54,6 +56,8 @@ class StackInstancesArgs:
             pulumi.set(__self__, "operation_preferences", operation_preferences)
         if parameter_overrides is not None:
             pulumi.set(__self__, "parameter_overrides", parameter_overrides)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if regions is not None:
             pulumi.set(__self__, "regions", regions)
         if retain_stacks is not None:
@@ -135,6 +139,18 @@ class StackInstancesArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
         Regions where you want to create stack instances in the specified `accounts`.
@@ -166,6 +182,7 @@ class _StackInstancesState:
                  deployment_targets: Optional[pulumi.Input['StackInstancesDeploymentTargetsArgs']] = None,
                  operation_preferences: Optional[pulumi.Input['StackInstancesOperationPreferencesArgs']] = None,
                  parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  retain_stacks: Optional[pulumi.Input[builtins.bool]] = None,
                  stack_instance_summaries: Optional[pulumi.Input[Sequence[pulumi.Input['StackInstancesStackInstanceSummaryArgs']]]] = None,
@@ -178,6 +195,7 @@ class _StackInstancesState:
         :param pulumi.Input['StackInstancesDeploymentTargetsArgs'] deployment_targets: AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
         :param pulumi.Input['StackInstancesOperationPreferencesArgs'] operation_preferences: Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameter_overrides: Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] regions: Regions where you want to create stack instances in the specified `accounts`.
         :param pulumi.Input[builtins.bool] retain_stacks: Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retain_stacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['StackInstancesStackInstanceSummaryArgs']]] stack_instance_summaries: List of stack instances created from an organizational unit deployment target. This may not always be set depending on whether CloudFormation returns summaries for your configuration. See `stack_instance_summaries`.
@@ -196,6 +214,8 @@ class _StackInstancesState:
             pulumi.set(__self__, "operation_preferences", operation_preferences)
         if parameter_overrides is not None:
             pulumi.set(__self__, "parameter_overrides", parameter_overrides)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if regions is not None:
             pulumi.set(__self__, "regions", regions)
         if retain_stacks is not None:
@@ -266,6 +286,18 @@ class _StackInstancesState:
     @parameter_overrides.setter
     def parameter_overrides(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "parameter_overrides", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -341,6 +373,7 @@ class StackInstances(pulumi.CustomResource):
                  deployment_targets: Optional[pulumi.Input[Union['StackInstancesDeploymentTargetsArgs', 'StackInstancesDeploymentTargetsArgsDict']]] = None,
                  operation_preferences: Optional[pulumi.Input[Union['StackInstancesOperationPreferencesArgs', 'StackInstancesOperationPreferencesArgsDict']]] = None,
                  parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  retain_stacks: Optional[pulumi.Input[builtins.bool]] = None,
                  stack_set_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -439,6 +472,7 @@ class StackInstances(pulumi.CustomResource):
         :param pulumi.Input[Union['StackInstancesDeploymentTargetsArgs', 'StackInstancesDeploymentTargetsArgsDict']] deployment_targets: AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
         :param pulumi.Input[Union['StackInstancesOperationPreferencesArgs', 'StackInstancesOperationPreferencesArgsDict']] operation_preferences: Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameter_overrides: Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] regions: Regions where you want to create stack instances in the specified `accounts`.
         :param pulumi.Input[builtins.bool] retain_stacks: Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retain_stacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
         :param pulumi.Input[builtins.str] stack_set_name: Name of the stack set.
@@ -558,6 +592,7 @@ class StackInstances(pulumi.CustomResource):
                  deployment_targets: Optional[pulumi.Input[Union['StackInstancesDeploymentTargetsArgs', 'StackInstancesDeploymentTargetsArgsDict']]] = None,
                  operation_preferences: Optional[pulumi.Input[Union['StackInstancesOperationPreferencesArgs', 'StackInstancesOperationPreferencesArgsDict']]] = None,
                  parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  regions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  retain_stacks: Optional[pulumi.Input[builtins.bool]] = None,
                  stack_set_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -575,6 +610,7 @@ class StackInstances(pulumi.CustomResource):
             __props__.__dict__["deployment_targets"] = deployment_targets
             __props__.__dict__["operation_preferences"] = operation_preferences
             __props__.__dict__["parameter_overrides"] = parameter_overrides
+            __props__.__dict__["region"] = region
             __props__.__dict__["regions"] = regions
             __props__.__dict__["retain_stacks"] = retain_stacks
             if stack_set_name is None and not opts.urn:
@@ -597,6 +633,7 @@ class StackInstances(pulumi.CustomResource):
             deployment_targets: Optional[pulumi.Input[Union['StackInstancesDeploymentTargetsArgs', 'StackInstancesDeploymentTargetsArgsDict']]] = None,
             operation_preferences: Optional[pulumi.Input[Union['StackInstancesOperationPreferencesArgs', 'StackInstancesOperationPreferencesArgsDict']]] = None,
             parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             regions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             retain_stacks: Optional[pulumi.Input[builtins.bool]] = None,
             stack_instance_summaries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StackInstancesStackInstanceSummaryArgs', 'StackInstancesStackInstanceSummaryArgsDict']]]]] = None,
@@ -614,6 +651,7 @@ class StackInstances(pulumi.CustomResource):
         :param pulumi.Input[Union['StackInstancesDeploymentTargetsArgs', 'StackInstancesDeploymentTargetsArgsDict']] deployment_targets: AWS Organizations accounts for which to create stack instances in the `regions`. stack sets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for most of this argument. See deployment_targets below.
         :param pulumi.Input[Union['StackInstancesOperationPreferencesArgs', 'StackInstancesOperationPreferencesArgsDict']] operation_preferences: Preferences for how AWS CloudFormation performs a stack set operation. See operation_preferences below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameter_overrides: Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] regions: Regions where you want to create stack instances in the specified `accounts`.
         :param pulumi.Input[builtins.bool] retain_stacks: Whether to remove the stack instances from the stack set, but not delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. To retain the stack, ensure `retain_stacks = true` has been successfully applied _before_ an apply that would destroy the resource. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StackInstancesStackInstanceSummaryArgs', 'StackInstancesStackInstanceSummaryArgsDict']]]] stack_instance_summaries: List of stack instances created from an organizational unit deployment target. This may not always be set depending on whether CloudFormation returns summaries for your configuration. See `stack_instance_summaries`.
@@ -631,6 +669,7 @@ class StackInstances(pulumi.CustomResource):
         __props__.__dict__["deployment_targets"] = deployment_targets
         __props__.__dict__["operation_preferences"] = operation_preferences
         __props__.__dict__["parameter_overrides"] = parameter_overrides
+        __props__.__dict__["region"] = region
         __props__.__dict__["regions"] = regions
         __props__.__dict__["retain_stacks"] = retain_stacks
         __props__.__dict__["stack_instance_summaries"] = stack_instance_summaries
@@ -677,6 +716,14 @@ class StackInstances(pulumi.CustomResource):
         Key-value map of input parameters to override from the stack set for these instances. This argument's drift detection is limited to the first account and region since each instance can have unique parameters.
         """
         return pulumi.get(self, "parameter_overrides")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

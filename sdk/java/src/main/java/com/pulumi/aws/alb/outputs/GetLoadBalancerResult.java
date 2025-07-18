@@ -48,6 +48,7 @@ public final class GetLoadBalancerResult {
     private String loadBalancerType;
     private String name;
     private Boolean preserveHostHeader;
+    private String region;
     private List<String> securityGroups;
     private List<GetLoadBalancerSubnetMapping> subnetMappings;
     private List<String> subnets;
@@ -139,6 +140,9 @@ public final class GetLoadBalancerResult {
     public Boolean preserveHostHeader() {
         return this.preserveHostHeader;
     }
+    public String region() {
+        return this.region;
+    }
     public List<String> securityGroups() {
         return this.securityGroups;
     }
@@ -196,6 +200,7 @@ public final class GetLoadBalancerResult {
         private String loadBalancerType;
         private String name;
         private Boolean preserveHostHeader;
+        private String region;
         private List<String> securityGroups;
         private List<GetLoadBalancerSubnetMapping> subnetMappings;
         private List<String> subnets;
@@ -232,6 +237,7 @@ public final class GetLoadBalancerResult {
     	      this.loadBalancerType = defaults.loadBalancerType;
     	      this.name = defaults.name;
     	      this.preserveHostHeader = defaults.preserveHostHeader;
+    	      this.region = defaults.region;
     	      this.securityGroups = defaults.securityGroups;
     	      this.subnetMappings = defaults.subnetMappings;
     	      this.subnets = defaults.subnets;
@@ -456,6 +462,14 @@ public final class GetLoadBalancerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
             if (securityGroups == null) {
               throw new MissingRequiredPropertyException("GetLoadBalancerResult", "securityGroups");
@@ -548,6 +562,7 @@ public final class GetLoadBalancerResult {
             _resultValue.loadBalancerType = loadBalancerType;
             _resultValue.name = name;
             _resultValue.preserveHostHeader = preserveHostHeader;
+            _resultValue.region = region;
             _resultValue.securityGroups = securityGroups;
             _resultValue.subnetMappings = subnetMappings;
             _resultValue.subnets = subnets;

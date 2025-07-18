@@ -22,6 +22,7 @@ export function getApprovalRuleTemplate(args: GetApprovalRuleTemplateArgs, opts?
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -33,6 +34,10 @@ export interface GetApprovalRuleTemplateArgs {
      * Name for the approval rule template. This needs to be less than 100 characters.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -68,6 +73,7 @@ export interface GetApprovalRuleTemplateResult {
      */
     readonly lastModifiedUser: string;
     readonly name: string;
+    readonly region: string;
     /**
      * SHA-256 hash signature for the content of the approval rule template.
      */
@@ -91,6 +97,7 @@ export function getApprovalRuleTemplateOutput(args: GetApprovalRuleTemplateOutpu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:codecommit/getApprovalRuleTemplate:getApprovalRuleTemplate", {
         "name": args.name,
+        "region": args.region,
     }, opts);
 }
 
@@ -102,4 +109,8 @@ export interface GetApprovalRuleTemplateOutputArgs {
      * Name for the approval rule template. This needs to be less than 100 characters.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

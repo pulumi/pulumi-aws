@@ -50,14 +50,14 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+     * The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
      * 
      */
     @Import(name="codeEditorAppImageConfig")
     private @Nullable Output<AppImageConfigCodeEditorAppImageConfigArgs> codeEditorAppImageConfig;
 
     /**
-     * @return The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+     * @return The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
      * 
      */
     public Optional<Output<AppImageConfigCodeEditorAppImageConfigArgs>> codeEditorAppImageConfig() {
@@ -65,14 +65,14 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+     * The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
      * 
      */
     @Import(name="jupyterLabImageConfig")
     private @Nullable Output<AppImageConfigJupyterLabImageConfigArgs> jupyterLabImageConfig;
 
     /**
-     * @return The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+     * @return The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
      * 
      */
     public Optional<Output<AppImageConfigJupyterLabImageConfigArgs>> jupyterLabImageConfig() {
@@ -95,7 +95,24 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * &gt; **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
      * 
      */
     @Import(name="tags")
@@ -103,6 +120,8 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
 
     /**
      * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * &gt; **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -112,22 +131,14 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -140,6 +151,7 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
         this.codeEditorAppImageConfig = $.codeEditorAppImageConfig;
         this.jupyterLabImageConfig = $.jupyterLabImageConfig;
         this.kernelGatewayImageConfig = $.kernelGatewayImageConfig;
+        this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -205,7 +217,7 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param codeEditorAppImageConfig The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+         * @param codeEditorAppImageConfig The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
          * 
          * @return builder
          * 
@@ -216,7 +228,7 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param codeEditorAppImageConfig The CodeEditorAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in Code Editor. See Code Editor App Image Config details below.
+         * @param codeEditorAppImageConfig The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
          * 
          * @return builder
          * 
@@ -226,7 +238,7 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param jupyterLabImageConfig The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+         * @param jupyterLabImageConfig The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
          * 
          * @return builder
          * 
@@ -237,7 +249,7 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param jupyterLabImageConfig The JupyterLabAppImageConfig. You can only specify one image kernel in the AppImageConfig API. This kernel is shown to users before the image starts. After the image runs, all kernels are visible in JupyterLab. See Jupyter Lab Image Config details below.
+         * @param jupyterLabImageConfig The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
          * 
          * @return builder
          * 
@@ -268,7 +280,30 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * &gt; **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
          * 
          * @return builder
          * 
@@ -280,6 +315,8 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * &gt; **NOTE:** Exactly one of `code_editor_app_image_config`, `jupyter_lab_image_config`, or `kernel_gateway_image_config` must be configured. Empty blocks (e.g., `code_editor_app_image_config {}`) are valid configurations.
          * 
          * @return builder
          * 
@@ -293,11 +330,7 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -308,11 +341,7 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

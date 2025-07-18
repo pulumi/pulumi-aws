@@ -30,6 +30,7 @@ class RouteArgs:
                  authorizer_id: Optional[pulumi.Input[builtins.str]] = None,
                  model_selection_expression: Optional[pulumi.Input[builtins.str]] = None,
                  operation_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  request_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RouteRequestParameterArgs']]]] = None,
                  route_response_selection_expression: Optional[pulumi.Input[builtins.str]] = None,
@@ -47,6 +48,7 @@ class RouteArgs:
         :param pulumi.Input[builtins.str] authorizer_id: Identifier of the `apigatewayv2.Authorizer` resource to be associated with this route.
         :param pulumi.Input[builtins.str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[builtins.str] operation_name: Operation name for the route. Must be between 1 and 64 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_models: Request models for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[Sequence[pulumi.Input['RouteRequestParameterArgs']]] request_parameters: Request parameters for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[builtins.str] route_response_selection_expression: The [route response selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-route-response-selection-expressions) for the route. Supported only for WebSocket APIs.
@@ -66,6 +68,8 @@ class RouteArgs:
             pulumi.set(__self__, "model_selection_expression", model_selection_expression)
         if operation_name is not None:
             pulumi.set(__self__, "operation_name", operation_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if request_models is not None:
             pulumi.set(__self__, "request_models", request_models)
         if request_parameters is not None:
@@ -175,6 +179,18 @@ class RouteArgs:
         pulumi.set(self, "operation_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requestModels")
     def request_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -233,6 +249,7 @@ class _RouteState:
                  authorizer_id: Optional[pulumi.Input[builtins.str]] = None,
                  model_selection_expression: Optional[pulumi.Input[builtins.str]] = None,
                  operation_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  request_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RouteRequestParameterArgs']]]] = None,
                  route_key: Optional[pulumi.Input[builtins.str]] = None,
@@ -250,6 +267,7 @@ class _RouteState:
         :param pulumi.Input[builtins.str] authorizer_id: Identifier of the `apigatewayv2.Authorizer` resource to be associated with this route.
         :param pulumi.Input[builtins.str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[builtins.str] operation_name: Operation name for the route. Must be between 1 and 64 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_models: Request models for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[Sequence[pulumi.Input['RouteRequestParameterArgs']]] request_parameters: Request parameters for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[builtins.str] route_key: Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
@@ -270,6 +288,8 @@ class _RouteState:
             pulumi.set(__self__, "model_selection_expression", model_selection_expression)
         if operation_name is not None:
             pulumi.set(__self__, "operation_name", operation_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if request_models is not None:
             pulumi.set(__self__, "request_models", request_models)
         if request_parameters is not None:
@@ -369,6 +389,18 @@ class _RouteState:
         pulumi.set(self, "operation_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requestModels")
     def request_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -442,6 +474,7 @@ class Route(pulumi.CustomResource):
                  authorizer_id: Optional[pulumi.Input[builtins.str]] = None,
                  model_selection_expression: Optional[pulumi.Input[builtins.str]] = None,
                  operation_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  request_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]]] = None,
                  route_key: Optional[pulumi.Input[builtins.str]] = None,
@@ -510,6 +543,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] authorizer_id: Identifier of the `apigatewayv2.Authorizer` resource to be associated with this route.
         :param pulumi.Input[builtins.str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[builtins.str] operation_name: Operation name for the route. Must be between 1 and 64 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_models: Request models for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]] request_parameters: Request parameters for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[builtins.str] route_key: Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
@@ -594,6 +628,7 @@ class Route(pulumi.CustomResource):
                  authorizer_id: Optional[pulumi.Input[builtins.str]] = None,
                  model_selection_expression: Optional[pulumi.Input[builtins.str]] = None,
                  operation_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  request_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]]] = None,
                  route_key: Optional[pulumi.Input[builtins.str]] = None,
@@ -617,6 +652,7 @@ class Route(pulumi.CustomResource):
             __props__.__dict__["authorizer_id"] = authorizer_id
             __props__.__dict__["model_selection_expression"] = model_selection_expression
             __props__.__dict__["operation_name"] = operation_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["request_models"] = request_models
             __props__.__dict__["request_parameters"] = request_parameters
             if route_key is None and not opts.urn:
@@ -641,6 +677,7 @@ class Route(pulumi.CustomResource):
             authorizer_id: Optional[pulumi.Input[builtins.str]] = None,
             model_selection_expression: Optional[pulumi.Input[builtins.str]] = None,
             operation_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             request_models: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             request_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]]] = None,
             route_key: Optional[pulumi.Input[builtins.str]] = None,
@@ -663,6 +700,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] authorizer_id: Identifier of the `apigatewayv2.Authorizer` resource to be associated with this route.
         :param pulumi.Input[builtins.str] model_selection_expression: The [model selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[builtins.str] operation_name: Operation name for the route. Must be between 1 and 64 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_models: Request models for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RouteRequestParameterArgs', 'RouteRequestParameterArgsDict']]]] request_parameters: Request parameters for the route. Supported only for WebSocket APIs.
         :param pulumi.Input[builtins.str] route_key: Route key for the route. For HTTP APIs, the route key can be either `$default`, or a combination of an HTTP method and resource path, for example, `GET /pets`.
@@ -680,6 +718,7 @@ class Route(pulumi.CustomResource):
         __props__.__dict__["authorizer_id"] = authorizer_id
         __props__.__dict__["model_selection_expression"] = model_selection_expression
         __props__.__dict__["operation_name"] = operation_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["request_models"] = request_models
         __props__.__dict__["request_parameters"] = request_parameters
         __props__.__dict__["route_key"] = route_key
@@ -745,6 +784,14 @@ class Route(pulumi.CustomResource):
         Operation name for the route. Must be between 1 and 64 characters in length.
         """
         return pulumi.get(self, "operation_name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="requestModels")

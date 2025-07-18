@@ -67,6 +67,10 @@ export class DedicatedIpAssignment extends pulumi.CustomResource {
      * Dedicated IP address.
      */
     public readonly ip!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a DedicatedIpAssignment resource with the given unique name, arguments, and options.
@@ -83,6 +87,7 @@ export class DedicatedIpAssignment extends pulumi.CustomResource {
             const state = argsOrState as DedicatedIpAssignmentState | undefined;
             resourceInputs["destinationPoolName"] = state ? state.destinationPoolName : undefined;
             resourceInputs["ip"] = state ? state.ip : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as DedicatedIpAssignmentArgs | undefined;
             if ((!args || args.destinationPoolName === undefined) && !opts.urn) {
@@ -93,6 +98,7 @@ export class DedicatedIpAssignment extends pulumi.CustomResource {
             }
             resourceInputs["destinationPoolName"] = args ? args.destinationPoolName : undefined;
             resourceInputs["ip"] = args ? args.ip : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DedicatedIpAssignment.__pulumiType, name, resourceInputs, opts);
@@ -111,6 +117,10 @@ export interface DedicatedIpAssignmentState {
      * Dedicated IP address.
      */
     ip?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -125,4 +135,8 @@ export interface DedicatedIpAssignmentArgs {
      * Dedicated IP address.
      */
     ip: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -37,14 +37,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBucketV2, err := s3.NewBucketV2(ctx, "example", &s3.BucketV2Args{
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
 //				Bucket: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleBucketOwnershipControls, err := s3.NewBucketOwnershipControls(ctx, "example", &s3.BucketOwnershipControlsArgs{
-//				Bucket: exampleBucketV2.ID(),
+//				Bucket: exampleBucket.ID(),
 //				Rule: &s3.BucketOwnershipControlsRuleArgs{
 //					ObjectOwnership: pulumi.String("BucketOwnerPreferred"),
 //				},
@@ -52,19 +52,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketAclV2(ctx, "example", &s3.BucketAclV2Args{
-//				Bucket: exampleBucketV2.ID(),
-//				AccessControlPolicy: &s3.BucketAclV2AccessControlPolicyArgs{
-//					Grants: s3.BucketAclV2AccessControlPolicyGrantArray{
-//						&s3.BucketAclV2AccessControlPolicyGrantArgs{
-//							Grantee: &s3.BucketAclV2AccessControlPolicyGrantGranteeArgs{
+//			_, err = s3.NewBucketAcl(ctx, "example", &s3.BucketAclArgs{
+//				Bucket: exampleBucket.ID(),
+//				AccessControlPolicy: &s3.BucketAclAccessControlPolicyArgs{
+//					Grants: s3.BucketAclAccessControlPolicyGrantArray{
+//						&s3.BucketAclAccessControlPolicyGrantArgs{
+//							Grantee: &s3.BucketAclAccessControlPolicyGrantGranteeArgs{
 //								Id:   pulumi.String(example.Id),
 //								Type: pulumi.String("CanonicalUser"),
 //							},
 //							Permission: pulumi.String("FULL_CONTROL"),
 //						},
 //					},
-//					Owner: &s3.BucketAclV2AccessControlPolicyOwnerArgs{
+//					Owner: &s3.BucketAclAccessControlPolicyOwnerArgs{
 //						Id: pulumi.String(current.Id),
 //					},
 //				},
@@ -91,7 +91,7 @@ func GetLogDeliveryCanonicalUserId(ctx *pulumi.Context, args *GetLogDeliveryCano
 
 // A collection of arguments for invoking getLogDeliveryCanonicalUserId.
 type GetLogDeliveryCanonicalUserIdArgs struct {
-	// Region you'd like the zone for. By default, fetches the current region.
+	// Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
@@ -113,7 +113,7 @@ func GetLogDeliveryCanonicalUserIdOutput(ctx *pulumi.Context, args GetLogDeliver
 
 // A collection of arguments for invoking getLogDeliveryCanonicalUserId.
 type GetLogDeliveryCanonicalUserIdOutputArgs struct {
-	// Region you'd like the zone for. By default, fetches the current region.
+	// Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 

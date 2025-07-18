@@ -103,6 +103,12 @@ namespace Pulumi.Aws.Location
         public string ConsumerArn { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Name of the tracker resource associated with a geofence collection.
         /// </summary>
         [Input("trackerName", required: true)]
@@ -121,6 +127,12 @@ namespace Pulumi.Aws.Location
         /// </summary>
         [Input("consumerArn", required: true)]
         public Input<string> ConsumerArn { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Name of the tracker resource associated with a geofence collection.
@@ -143,6 +155,7 @@ namespace Pulumi.Aws.Location
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         public readonly string TrackerName;
 
         [OutputConstructor]
@@ -151,10 +164,13 @@ namespace Pulumi.Aws.Location
 
             string id,
 
+            string region,
+
             string trackerName)
         {
             ConsumerArn = consumerArn;
             Id = id;
+            Region = region;
             TrackerName = trackerName;
         }
     }

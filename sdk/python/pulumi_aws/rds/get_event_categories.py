@@ -27,13 +27,16 @@ class GetEventCategoriesResult:
     """
     A collection of values returned by getEventCategories.
     """
-    def __init__(__self__, event_categories=None, id=None, source_type=None):
+    def __init__(__self__, event_categories=None, id=None, region=None, source_type=None):
         if event_categories and not isinstance(event_categories, list):
             raise TypeError("Expected argument 'event_categories' to be a list")
         pulumi.set(__self__, "event_categories", event_categories)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if source_type and not isinstance(source_type, str):
             raise TypeError("Expected argument 'source_type' to be a str")
         pulumi.set(__self__, "source_type", source_type)
@@ -55,6 +58,11 @@ class GetEventCategoriesResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> Optional[builtins.str]:
         return pulumi.get(self, "source_type")
@@ -68,10 +76,12 @@ class AwaitableGetEventCategoriesResult(GetEventCategoriesResult):
         return GetEventCategoriesResult(
             event_categories=self.event_categories,
             id=self.id,
+            region=self.region,
             source_type=self.source_type)
 
 
-def get_event_categories(source_type: Optional[builtins.str] = None,
+def get_event_categories(region: Optional[builtins.str] = None,
+                         source_type: Optional[builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventCategoriesResult:
     """
     ## Example Usage
@@ -97,9 +107,11 @@ def get_event_categories(source_type: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str source_type: Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['sourceType'] = source_type
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:rds/getEventCategories:getEventCategories', __args__, opts=opts, typ=GetEventCategoriesResult).value
@@ -107,8 +119,10 @@ def get_event_categories(source_type: Optional[builtins.str] = None,
     return AwaitableGetEventCategoriesResult(
         event_categories=pulumi.get(__ret__, 'event_categories'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         source_type=pulumi.get(__ret__, 'source_type'))
-def get_event_categories_output(source_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+def get_event_categories_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                source_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventCategoriesResult]:
     """
     ## Example Usage
@@ -134,13 +148,16 @@ def get_event_categories_output(source_type: Optional[pulumi.Input[Optional[buil
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str source_type: Type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['sourceType'] = source_type
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getEventCategories:getEventCategories', __args__, opts=opts, typ=GetEventCategoriesResult)
     return __ret__.apply(lambda __response__: GetEventCategoriesResult(
         event_categories=pulumi.get(__response__, 'event_categories'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         source_type=pulumi.get(__response__, 'source_type')))

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apprunner"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apprunner"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/route53"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,14 +65,13 @@ func GetHostedZoneId(ctx *pulumi.Context, args *GetHostedZoneIdArgs, opts ...pul
 
 // A collection of arguments for invoking getHostedZoneId.
 type GetHostedZoneIdArgs struct {
-	// Name of the region whose AWS App Runner service HostedZoneId is desired.
-	// Defaults to the region from the AWS provider configuration.
+	// Name of the Region whose AWS App Runner service HostedZoneId is desired. Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getHostedZoneId.
 type GetHostedZoneIdResult struct {
-	// ID of the AWS App Runner service HostedZoneId in the selected region.
+	// ID of the AWS App Runner service HostedZoneId in the selected Region.
 	Id     string `pulumi:"id"`
 	Region string `pulumi:"region"`
 }
@@ -88,8 +87,7 @@ func GetHostedZoneIdOutput(ctx *pulumi.Context, args GetHostedZoneIdOutputArgs, 
 
 // A collection of arguments for invoking getHostedZoneId.
 type GetHostedZoneIdOutputArgs struct {
-	// Name of the region whose AWS App Runner service HostedZoneId is desired.
-	// Defaults to the region from the AWS provider configuration.
+	// Name of the Region whose AWS App Runner service HostedZoneId is desired. Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -112,7 +110,7 @@ func (o GetHostedZoneIdResultOutput) ToGetHostedZoneIdResultOutputWithContext(ct
 	return o
 }
 
-// ID of the AWS App Runner service HostedZoneId in the selected region.
+// ID of the AWS App Runner service HostedZoneId in the selected Region.
 func (o GetHostedZoneIdResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetHostedZoneIdResult) string { return v.Id }).(pulumi.StringOutput)
 }

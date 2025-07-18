@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/fms"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/wafregional"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/wafregional"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -111,9 +111,13 @@ type Policy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A unique identifier for each update to the policy.
 	PolicyUpdateToken pulumi.StringOutput `pulumi:"policyUpdateToken"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
 	RemediationEnabled pulumi.BoolPtrOutput     `pulumi:"remediationEnabled"`
 	ResourceSetIds     pulumi.StringArrayOutput `pulumi:"resourceSetIds"`
+	// Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+	ResourceTagLogicalOperator pulumi.StringOutput `pulumi:"resourceTagLogicalOperator"`
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags pulumi.StringMapOutput `pulumi:"resourceTags"`
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
@@ -125,8 +129,6 @@ type Policy struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -183,9 +185,13 @@ type policyState struct {
 	Name *string `pulumi:"name"`
 	// A unique identifier for each update to the policy.
 	PolicyUpdateToken *string `pulumi:"policyUpdateToken"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
 	RemediationEnabled *bool    `pulumi:"remediationEnabled"`
 	ResourceSetIds     []string `pulumi:"resourceSetIds"`
+	// Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+	ResourceTagLogicalOperator *string `pulumi:"resourceTagLogicalOperator"`
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
@@ -197,8 +203,6 @@ type policyState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -220,9 +224,13 @@ type PolicyState struct {
 	Name pulumi.StringPtrInput
 	// A unique identifier for each update to the policy.
 	PolicyUpdateToken pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
 	RemediationEnabled pulumi.BoolPtrInput
 	ResourceSetIds     pulumi.StringArrayInput
+	// Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+	ResourceTagLogicalOperator pulumi.StringPtrInput
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags pulumi.StringMapInput
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
@@ -234,8 +242,6 @@ type PolicyState struct {
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -258,9 +264,13 @@ type policyArgs struct {
 	IncludeMap *PolicyIncludeMap `pulumi:"includeMap"`
 	// The friendly name of the AWS Firewall Manager Policy.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
 	RemediationEnabled *bool    `pulumi:"remediationEnabled"`
 	ResourceSetIds     []string `pulumi:"resourceSetIds"`
+	// Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+	ResourceTagLogicalOperator *string `pulumi:"resourceTagLogicalOperator"`
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
@@ -289,9 +299,13 @@ type PolicyArgs struct {
 	IncludeMap PolicyIncludeMapPtrInput
 	// The friendly name of the AWS Firewall Manager Policy.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
 	RemediationEnabled pulumi.BoolPtrInput
 	ResourceSetIds     pulumi.StringArrayInput
+	// Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+	ResourceTagLogicalOperator pulumi.StringPtrInput
 	// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
 	ResourceTags pulumi.StringMapInput
 	// A resource type to protect. Conflicts with `resourceTypeList`. See the [FMS API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_Policy.html#fms-Type-Policy-ResourceType) for more information about supported values.
@@ -435,6 +449,11 @@ func (o PolicyOutput) PolicyUpdateToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.PolicyUpdateToken }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o PolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
 func (o PolicyOutput) RemediationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.BoolPtrOutput { return v.RemediationEnabled }).(pulumi.BoolPtrOutput)
@@ -442,6 +461,11 @@ func (o PolicyOutput) RemediationEnabled() pulumi.BoolPtrOutput {
 
 func (o PolicyOutput) ResourceSetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.ResourceSetIds }).(pulumi.StringArrayOutput)
+}
+
+// Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+func (o PolicyOutput) ResourceTagLogicalOperator() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.ResourceTagLogicalOperator }).(pulumi.StringOutput)
 }
 
 // A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
@@ -470,8 +494,6 @@ func (o PolicyOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o PolicyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

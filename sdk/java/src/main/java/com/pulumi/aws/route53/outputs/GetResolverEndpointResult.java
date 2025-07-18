@@ -41,6 +41,7 @@ public final class GetResolverEndpointResult {
      * 
      */
     private List<String> protocols;
+    private String region;
     private @Nullable String resolverEndpointId;
     /**
      * @return The Resolver endpoint IP address type.
@@ -100,6 +101,9 @@ public final class GetResolverEndpointResult {
     public List<String> protocols() {
         return this.protocols;
     }
+    public String region() {
+        return this.region;
+    }
     public Optional<String> resolverEndpointId() {
         return Optional.ofNullable(this.resolverEndpointId);
     }
@@ -141,6 +145,7 @@ public final class GetResolverEndpointResult {
         private List<String> ipAddresses;
         private String name;
         private List<String> protocols;
+        private String region;
         private @Nullable String resolverEndpointId;
         private String resolverEndpointType;
         private String status;
@@ -155,6 +160,7 @@ public final class GetResolverEndpointResult {
     	      this.ipAddresses = defaults.ipAddresses;
     	      this.name = defaults.name;
     	      this.protocols = defaults.protocols;
+    	      this.region = defaults.region;
     	      this.resolverEndpointId = defaults.resolverEndpointId;
     	      this.resolverEndpointType = defaults.resolverEndpointType;
     	      this.status = defaults.status;
@@ -225,6 +231,14 @@ public final class GetResolverEndpointResult {
             return protocols(List.of(protocols));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetResolverEndpointResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resolverEndpointId(@Nullable String resolverEndpointId) {
 
             this.resolverEndpointId = resolverEndpointId;
@@ -263,6 +277,7 @@ public final class GetResolverEndpointResult {
             _resultValue.ipAddresses = ipAddresses;
             _resultValue.name = name;
             _resultValue.protocols = protocols;
+            _resultValue.region = region;
             _resultValue.resolverEndpointId = resolverEndpointId;
             _resultValue.resolverEndpointType = resolverEndpointType;
             _resultValue.status = status;

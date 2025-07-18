@@ -4,7 +4,6 @@
 package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.aws.ecs.outputs.GetTaskDefinitionEphemeralStorage;
-import com.pulumi.aws.ecs.outputs.GetTaskDefinitionInferenceAccelerator;
 import com.pulumi.aws.ecs.outputs.GetTaskDefinitionPlacementConstraint;
 import com.pulumi.aws.ecs.outputs.GetTaskDefinitionProxyConfiguration;
 import com.pulumi.aws.ecs.outputs.GetTaskDefinitionRuntimePlatform;
@@ -66,11 +65,6 @@ public final class GetTaskDefinitionResult {
      */
     private String id;
     /**
-     * @return Configuration block(s) with Inference Accelerators settings. Detailed below.
-     * 
-     */
-    private List<GetTaskDefinitionInferenceAccelerator> inferenceAccelerators;
-    /**
      * @return IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      * 
      */
@@ -100,6 +94,7 @@ public final class GetTaskDefinitionResult {
      * 
      */
     private List<GetTaskDefinitionProxyConfiguration> proxyConfigurations;
+    private String region;
     /**
      * @return Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      * 
@@ -198,13 +193,6 @@ public final class GetTaskDefinitionResult {
         return this.id;
     }
     /**
-     * @return Configuration block(s) with Inference Accelerators settings. Detailed below.
-     * 
-     */
-    public List<GetTaskDefinitionInferenceAccelerator> inferenceAccelerators() {
-        return this.inferenceAccelerators;
-    }
-    /**
      * @return IPC resource namespace to be used for the containers in the task The valid values are `host`, `task`, and `none`.
      * 
      */
@@ -245,6 +233,9 @@ public final class GetTaskDefinitionResult {
      */
     public List<GetTaskDefinitionProxyConfiguration> proxyConfigurations() {
         return this.proxyConfigurations;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
@@ -310,13 +301,13 @@ public final class GetTaskDefinitionResult {
         private String executionRoleArn;
         private String family;
         private String id;
-        private List<GetTaskDefinitionInferenceAccelerator> inferenceAccelerators;
         private String ipcMode;
         private String memory;
         private String networkMode;
         private String pidMode;
         private List<GetTaskDefinitionPlacementConstraint> placementConstraints;
         private List<GetTaskDefinitionProxyConfiguration> proxyConfigurations;
+        private String region;
         private List<String> requiresCompatibilities;
         private Integer revision;
         private List<GetTaskDefinitionRuntimePlatform> runtimePlatforms;
@@ -336,13 +327,13 @@ public final class GetTaskDefinitionResult {
     	      this.executionRoleArn = defaults.executionRoleArn;
     	      this.family = defaults.family;
     	      this.id = defaults.id;
-    	      this.inferenceAccelerators = defaults.inferenceAccelerators;
     	      this.ipcMode = defaults.ipcMode;
     	      this.memory = defaults.memory;
     	      this.networkMode = defaults.networkMode;
     	      this.pidMode = defaults.pidMode;
     	      this.placementConstraints = defaults.placementConstraints;
     	      this.proxyConfigurations = defaults.proxyConfigurations;
+    	      this.region = defaults.region;
     	      this.requiresCompatibilities = defaults.requiresCompatibilities;
     	      this.revision = defaults.revision;
     	      this.runtimePlatforms = defaults.runtimePlatforms;
@@ -428,17 +419,6 @@ public final class GetTaskDefinitionResult {
             return this;
         }
         @CustomType.Setter
-        public Builder inferenceAccelerators(List<GetTaskDefinitionInferenceAccelerator> inferenceAccelerators) {
-            if (inferenceAccelerators == null) {
-              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "inferenceAccelerators");
-            }
-            this.inferenceAccelerators = inferenceAccelerators;
-            return this;
-        }
-        public Builder inferenceAccelerators(GetTaskDefinitionInferenceAccelerator... inferenceAccelerators) {
-            return inferenceAccelerators(List.of(inferenceAccelerators));
-        }
-        @CustomType.Setter
         public Builder ipcMode(String ipcMode) {
             if (ipcMode == null) {
               throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "ipcMode");
@@ -491,6 +471,14 @@ public final class GetTaskDefinitionResult {
         }
         public Builder proxyConfigurations(GetTaskDefinitionProxyConfiguration... proxyConfigurations) {
             return proxyConfigurations(List.of(proxyConfigurations));
+        }
+        @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetTaskDefinitionResult", "region");
+            }
+            this.region = region;
+            return this;
         }
         @CustomType.Setter
         public Builder requiresCompatibilities(List<String> requiresCompatibilities) {
@@ -568,13 +556,13 @@ public final class GetTaskDefinitionResult {
             _resultValue.executionRoleArn = executionRoleArn;
             _resultValue.family = family;
             _resultValue.id = id;
-            _resultValue.inferenceAccelerators = inferenceAccelerators;
             _resultValue.ipcMode = ipcMode;
             _resultValue.memory = memory;
             _resultValue.networkMode = networkMode;
             _resultValue.pidMode = pidMode;
             _resultValue.placementConstraints = placementConstraints;
             _resultValue.proxyConfigurations = proxyConfigurations;
+            _resultValue.region = region;
             _resultValue.requiresCompatibilities = requiresCompatibilities;
             _resultValue.revision = revision;
             _resultValue.runtimePlatforms = runtimePlatforms;

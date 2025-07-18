@@ -28,7 +28,7 @@ class GetDetectorResult:
     """
     A collection of values returned by getDetector.
     """
-    def __init__(__self__, arn=None, features=None, finding_publishing_frequency=None, id=None, service_role_arn=None, status=None, tags=None):
+    def __init__(__self__, arn=None, features=None, finding_publishing_frequency=None, id=None, region=None, service_role_arn=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -41,6 +41,9 @@ class GetDetectorResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if service_role_arn and not isinstance(service_role_arn, str):
             raise TypeError("Expected argument 'service_role_arn' to be a str")
         pulumi.set(__self__, "service_role_arn", service_role_arn)
@@ -81,6 +84,11 @@ class GetDetectorResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> builtins.str:
         """
@@ -115,12 +123,14 @@ class AwaitableGetDetectorResult(GetDetectorResult):
             features=self.features,
             finding_publishing_frequency=self.finding_publishing_frequency,
             id=self.id,
+            region=self.region,
             service_role_arn=self.service_role_arn,
             status=self.status,
             tags=self.tags)
 
 
 def get_detector(id: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
                  tags: Optional[Mapping[str, builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDetectorResult:
     """
@@ -137,10 +147,12 @@ def get_detector(id: Optional[builtins.str] = None,
 
 
     :param builtins.str id: ID of the detector.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:guardduty/getDetector:getDetector', __args__, opts=opts, typ=GetDetectorResult).value
@@ -150,10 +162,12 @@ def get_detector(id: Optional[builtins.str] = None,
         features=pulumi.get(__ret__, 'features'),
         finding_publishing_frequency=pulumi.get(__ret__, 'finding_publishing_frequency'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         service_role_arn=pulumi.get(__ret__, 'service_role_arn'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_detector_output(id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDetectorResult]:
     """
@@ -170,10 +184,12 @@ def get_detector_output(id: Optional[pulumi.Input[Optional[builtins.str]]] = Non
 
 
     :param builtins.str id: ID of the detector.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:guardduty/getDetector:getDetector', __args__, opts=opts, typ=GetDetectorResult)
@@ -182,6 +198,7 @@ def get_detector_output(id: Optional[pulumi.Input[Optional[builtins.str]]] = Non
         features=pulumi.get(__response__, 'features'),
         finding_publishing_frequency=pulumi.get(__response__, 'finding_publishing_frequency'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         service_role_arn=pulumi.get(__response__, 'service_role_arn'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

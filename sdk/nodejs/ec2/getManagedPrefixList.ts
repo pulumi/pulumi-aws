@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const example = current.then(current => aws.ec2.getManagedPrefixList({
- *     name: `com.amazonaws.${current.name}.dynamodb`,
+ *     name: `com.amazonaws.${current.region}.dynamodb`,
  * }));
  * ```
  *
@@ -46,6 +46,7 @@ export function getManagedPrefixList(args?: GetManagedPrefixListArgs, opts?: pul
         "filters": args.filters,
         "id": args.id,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -70,6 +71,10 @@ export interface GetManagedPrefixListArgs {
      * Name of the prefix list to select.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags assigned to the resource.
      */
@@ -109,6 +114,7 @@ export interface GetManagedPrefixListResult {
      * Account ID of the owner of a customer-managed prefix list, or `AWS` otherwise.
      */
     readonly ownerId: string;
+    readonly region: string;
     /**
      * Map of tags assigned to the resource.
      */
@@ -129,7 +135,7 @@ export interface GetManagedPrefixListResult {
  *
  * const current = aws.getRegion({});
  * const example = current.then(current => aws.ec2.getManagedPrefixList({
- *     name: `com.amazonaws.${current.name}.dynamodb`,
+ *     name: `com.amazonaws.${current.region}.dynamodb`,
  * }));
  * ```
  *
@@ -154,6 +160,7 @@ export function getManagedPrefixListOutput(args?: GetManagedPrefixListOutputArgs
         "filters": args.filters,
         "id": args.id,
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -178,6 +185,10 @@ export interface GetManagedPrefixListOutputArgs {
      * Name of the prefix list to select.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags assigned to the resource.
      */

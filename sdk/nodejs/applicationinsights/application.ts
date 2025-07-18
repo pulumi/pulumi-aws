@@ -93,6 +93,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly opsItemSnsTopicArn!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the resource group.
      *
      * The following arguments are optional:
@@ -104,8 +108,6 @@ export class Application extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -129,6 +131,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["groupingType"] = state ? state.groupingType : undefined;
             resourceInputs["opsCenterEnabled"] = state ? state.opsCenterEnabled : undefined;
             resourceInputs["opsItemSnsTopicArn"] = state ? state.opsItemSnsTopicArn : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -143,6 +146,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["groupingType"] = args ? args.groupingType : undefined;
             resourceInputs["opsCenterEnabled"] = args ? args.opsCenterEnabled : undefined;
             resourceInputs["opsItemSnsTopicArn"] = args ? args.opsItemSnsTopicArn : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -186,6 +190,10 @@ export interface ApplicationState {
      */
     opsItemSnsTopicArn?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Name of the resource group.
      *
      * The following arguments are optional:
@@ -197,8 +205,6 @@ export interface ApplicationState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -231,6 +237,10 @@ export interface ApplicationArgs {
      * SNS topic provided to Application Insights that is associated to the created opsItem. Allows you to receive notifications for updates to the opsItem.
      */
     opsItemSnsTopicArn?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the resource group.
      *

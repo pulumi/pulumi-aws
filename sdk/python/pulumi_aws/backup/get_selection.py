@@ -27,7 +27,7 @@ class GetSelectionResult:
     """
     A collection of values returned by getSelection.
     """
-    def __init__(__self__, iam_role_arn=None, id=None, name=None, plan_id=None, resources=None, selection_id=None):
+    def __init__(__self__, iam_role_arn=None, id=None, name=None, plan_id=None, region=None, resources=None, selection_id=None):
         if iam_role_arn and not isinstance(iam_role_arn, str):
             raise TypeError("Expected argument 'iam_role_arn' to be a str")
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
@@ -40,6 +40,9 @@ class GetSelectionResult:
         if plan_id and not isinstance(plan_id, str):
             raise TypeError("Expected argument 'plan_id' to be a str")
         pulumi.set(__self__, "plan_id", plan_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if resources and not isinstance(resources, list):
             raise TypeError("Expected argument 'resources' to be a list")
         pulumi.set(__self__, "resources", resources)
@@ -78,6 +81,11 @@ class GetSelectionResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def resources(self) -> Sequence[builtins.str]:
         """
         An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
@@ -100,11 +108,13 @@ class AwaitableGetSelectionResult(GetSelectionResult):
             id=self.id,
             name=self.name,
             plan_id=self.plan_id,
+            region=self.region,
             resources=self.resources,
             selection_id=self.selection_id)
 
 
 def get_selection(plan_id: Optional[builtins.str] = None,
+                  region: Optional[builtins.str] = None,
                   selection_id: Optional[builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSelectionResult:
     """
@@ -122,10 +132,12 @@ def get_selection(plan_id: Optional[builtins.str] = None,
 
 
     :param builtins.str plan_id: Backup plan ID associated with the selection of resources.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str selection_id: Backup selection ID.
     """
     __args__ = dict()
     __args__['planId'] = plan_id
+    __args__['region'] = region
     __args__['selectionId'] = selection_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:backup/getSelection:getSelection', __args__, opts=opts, typ=GetSelectionResult).value
@@ -135,9 +147,11 @@ def get_selection(plan_id: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         plan_id=pulumi.get(__ret__, 'plan_id'),
+        region=pulumi.get(__ret__, 'region'),
         resources=pulumi.get(__ret__, 'resources'),
         selection_id=pulumi.get(__ret__, 'selection_id'))
 def get_selection_output(plan_id: Optional[pulumi.Input[builtins.str]] = None,
+                         region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          selection_id: Optional[pulumi.Input[builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSelectionResult]:
     """
@@ -155,10 +169,12 @@ def get_selection_output(plan_id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str plan_id: Backup plan ID associated with the selection of resources.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str selection_id: Backup selection ID.
     """
     __args__ = dict()
     __args__['planId'] = plan_id
+    __args__['region'] = region
     __args__['selectionId'] = selection_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:backup/getSelection:getSelection', __args__, opts=opts, typ=GetSelectionResult)
@@ -167,5 +183,6 @@ def get_selection_output(plan_id: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         plan_id=pulumi.get(__response__, 'plan_id'),
+        region=pulumi.get(__response__, 'region'),
         resources=pulumi.get(__response__, 'resources'),
         selection_id=pulumi.get(__response__, 'selection_id')))

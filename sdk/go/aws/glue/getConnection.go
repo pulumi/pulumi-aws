@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -53,6 +53,8 @@ type LookupConnectionArgs struct {
 	// Concatenation of the catalog ID and connection name. For example, if your account ID is
 	// `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
 	Id string `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags assigned to the resource
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -78,6 +80,7 @@ type LookupConnectionResult struct {
 	Name string `pulumi:"name"`
 	// A map of physical connection requirements, such as VPC and SecurityGroup.
 	PhysicalConnectionRequirements []GetConnectionPhysicalConnectionRequirement `pulumi:"physicalConnectionRequirements"`
+	Region                         string                                       `pulumi:"region"`
 	// Tags assigned to the resource
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -96,6 +99,8 @@ type LookupConnectionOutputArgs struct {
 	// Concatenation of the catalog ID and connection name. For example, if your account ID is
 	// `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
 	Id pulumi.StringInput `pulumi:"id"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags assigned to the resource
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -168,6 +173,10 @@ func (o LookupConnectionResultOutput) PhysicalConnectionRequirements() GetConnec
 	return o.ApplyT(func(v LookupConnectionResult) []GetConnectionPhysicalConnectionRequirement {
 		return v.PhysicalConnectionRequirements
 	}).(GetConnectionPhysicalConnectionRequirementArrayOutput)
+}
+
+func (o LookupConnectionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConnectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Tags assigned to the resource

@@ -129,6 +129,12 @@ namespace Pulumi.Aws.ServiceQuotas
         public string? QuotaName { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
         /// </summary>
         [Input("serviceCode", required: true)]
@@ -155,6 +161,12 @@ namespace Pulumi.Aws.ServiceQuotas
         /// </summary>
         [Input("quotaName")]
         public Input<string>? QuotaName { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
@@ -194,6 +206,7 @@ namespace Pulumi.Aws.ServiceQuotas
         public readonly string Id;
         public readonly string QuotaCode;
         public readonly string QuotaName;
+        public readonly string Region;
         public readonly string ServiceCode;
         /// <summary>
         /// Name of the service.
@@ -224,6 +237,8 @@ namespace Pulumi.Aws.ServiceQuotas
 
             string quotaName,
 
+            string region,
+
             string serviceCode,
 
             string serviceName,
@@ -239,6 +254,7 @@ namespace Pulumi.Aws.ServiceQuotas
             Id = id;
             QuotaCode = quotaCode;
             QuotaName = quotaName;
+            Region = region;
             ServiceCode = serviceCode;
             ServiceName = serviceName;
             UsageMetrics = usageMetrics;

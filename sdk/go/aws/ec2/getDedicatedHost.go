@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,7 +50,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -93,7 +93,9 @@ type LookupDedicatedHostArgs struct {
 	//
 	// The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
 	// The given filters must match exactly one host whose data will be exported as attributes.
-	HostId *string           `pulumi:"hostId"`
+	HostId *string `pulumi:"hostId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
 }
 
@@ -123,6 +125,7 @@ type LookupDedicatedHostResult struct {
 	OutpostArn string `pulumi:"outpostArn"`
 	// ID of the AWS account that owns the Dedicated Host.
 	OwnerId string `pulumi:"ownerId"`
+	Region  string `pulumi:"region"`
 	// Number of sockets on the Dedicated Host.
 	Sockets int               `pulumi:"sockets"`
 	Tags    map[string]string `pulumi:"tags"`
@@ -148,6 +151,8 @@ type LookupDedicatedHostOutputArgs struct {
 	// The arguments of this data source act as filters for querying the available EC2 Hosts in the current region.
 	// The given filters must match exactly one host whose data will be exported as attributes.
 	HostId pulumi.StringPtrInput `pulumi:"hostId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -231,6 +236,10 @@ func (o LookupDedicatedHostResultOutput) OutpostArn() pulumi.StringOutput {
 // ID of the AWS account that owns the Dedicated Host.
 func (o LookupDedicatedHostResultOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+func (o LookupDedicatedHostResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Number of sockets on the Dedicated Host.

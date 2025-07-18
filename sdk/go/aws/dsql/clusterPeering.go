@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dsql"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dsql"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,8 +89,10 @@ type ClusterPeering struct {
 	// List of DSQL Cluster ARNs to be peered to this cluster.
 	Clusters pulumi.StringArrayOutput `pulumi:"clusters"`
 	// DSQL Cluster Identifier.
-	Identifier pulumi.StringOutput             `pulumi:"identifier"`
-	Timeouts   ClusterPeeringTimeoutsPtrOutput `pulumi:"timeouts"`
+	Identifier pulumi.StringOutput `pulumi:"identifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringOutput             `pulumi:"region"`
+	Timeouts ClusterPeeringTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Witness region for a multi-region cluster.
 	WitnessRegion pulumi.StringOutput `pulumi:"witnessRegion"`
 }
@@ -137,8 +139,10 @@ type clusterPeeringState struct {
 	// List of DSQL Cluster ARNs to be peered to this cluster.
 	Clusters []string `pulumi:"clusters"`
 	// DSQL Cluster Identifier.
-	Identifier *string                 `pulumi:"identifier"`
-	Timeouts   *ClusterPeeringTimeouts `pulumi:"timeouts"`
+	Identifier *string `pulumi:"identifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   *string                 `pulumi:"region"`
+	Timeouts *ClusterPeeringTimeouts `pulumi:"timeouts"`
 	// Witness region for a multi-region cluster.
 	WitnessRegion *string `pulumi:"witnessRegion"`
 }
@@ -148,7 +152,9 @@ type ClusterPeeringState struct {
 	Clusters pulumi.StringArrayInput
 	// DSQL Cluster Identifier.
 	Identifier pulumi.StringPtrInput
-	Timeouts   ClusterPeeringTimeoutsPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts ClusterPeeringTimeoutsPtrInput
 	// Witness region for a multi-region cluster.
 	WitnessRegion pulumi.StringPtrInput
 }
@@ -161,8 +167,10 @@ type clusterPeeringArgs struct {
 	// List of DSQL Cluster ARNs to be peered to this cluster.
 	Clusters []string `pulumi:"clusters"`
 	// DSQL Cluster Identifier.
-	Identifier string                  `pulumi:"identifier"`
-	Timeouts   *ClusterPeeringTimeouts `pulumi:"timeouts"`
+	Identifier string `pulumi:"identifier"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   *string                 `pulumi:"region"`
+	Timeouts *ClusterPeeringTimeouts `pulumi:"timeouts"`
 	// Witness region for a multi-region cluster.
 	WitnessRegion string `pulumi:"witnessRegion"`
 }
@@ -173,7 +181,9 @@ type ClusterPeeringArgs struct {
 	Clusters pulumi.StringArrayInput
 	// DSQL Cluster Identifier.
 	Identifier pulumi.StringInput
-	Timeouts   ClusterPeeringTimeoutsPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Timeouts ClusterPeeringTimeoutsPtrInput
 	// Witness region for a multi-region cluster.
 	WitnessRegion pulumi.StringInput
 }
@@ -273,6 +283,11 @@ func (o ClusterPeeringOutput) Clusters() pulumi.StringArrayOutput {
 // DSQL Cluster Identifier.
 func (o ClusterPeeringOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterPeering) pulumi.StringOutput { return v.Identifier }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ClusterPeeringOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ClusterPeering) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o ClusterPeeringOutput) Timeouts() ClusterPeeringTimeoutsPtrOutput {

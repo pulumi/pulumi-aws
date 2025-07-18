@@ -169,6 +169,10 @@ export class Endpoint extends pulumi.CustomResource {
     public readonly policyDocument!: pulumi.Output<string | undefined>;
     public readonly rdsOptions!: pulumi.Output<outputs.verifiedaccess.EndpointRdsOptions | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      */
     public readonly securityGroupIds!: pulumi.Output<string[] | undefined>;
@@ -180,9 +184,6 @@ export class Endpoint extends pulumi.CustomResource {
      * Key-value tags for the Verified Access Endpoint. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the Verified Access group to associate the endpoint with.
@@ -218,6 +219,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["networkInterfaceOptions"] = state ? state.networkInterfaceOptions : undefined;
             resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
             resourceInputs["rdsOptions"] = state ? state.rdsOptions : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
             resourceInputs["sseSpecification"] = state ? state.sseSpecification : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -246,6 +248,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["networkInterfaceOptions"] = args ? args.networkInterfaceOptions : undefined;
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
             resourceInputs["rdsOptions"] = args ? args.rdsOptions : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -314,6 +317,10 @@ export interface EndpointState {
     policyDocument?: pulumi.Input<string>;
     rdsOptions?: pulumi.Input<inputs.verifiedaccess.EndpointRdsOptions>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
@@ -325,9 +332,6 @@ export interface EndpointState {
      * Key-value tags for the Verified Access Endpoint. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * @deprecated Please use `tags` instead.
-     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the Verified Access group to associate the endpoint with.
@@ -383,6 +387,10 @@ export interface EndpointArgs {
      */
     policyDocument?: pulumi.Input<string>;
     rdsOptions?: pulumi.Input<inputs.verifiedaccess.EndpointRdsOptions>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * List of the the security groups IDs to associate with the Verified Access endpoint.
      */

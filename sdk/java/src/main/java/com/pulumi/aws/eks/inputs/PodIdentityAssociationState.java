@@ -5,6 +5,7 @@ package com.pulumi.aws.eks.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -62,6 +63,36 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
     }
 
     /**
+     * Disable the tags that are automatically added to role session by Amazon EKS.
+     * 
+     */
+    @Import(name="disableSessionTags")
+    private @Nullable Output<Boolean> disableSessionTags;
+
+    /**
+     * @return Disable the tags that are automatically added to role session by Amazon EKS.
+     * 
+     */
+    public Optional<Output<Boolean>> disableSessionTags() {
+        return Optional.ofNullable(this.disableSessionTags);
+    }
+
+    /**
+     * The unique identifier for this association for a target IAM role. You put this value in the trust policy of the target role, in a Condition to match the sts.ExternalId.
+     * 
+     */
+    @Import(name="externalId")
+    private @Nullable Output<String> externalId;
+
+    /**
+     * @return The unique identifier for this association for a target IAM role. You put this value in the trust policy of the target role, in a Condition to match the sts.ExternalId.
+     * 
+     */
+    public Optional<Output<String>> externalId() {
+        return Optional.ofNullable(this.externalId);
+    }
+
+    /**
      * The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
      * 
      */
@@ -74,6 +105,21 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
      */
     public Optional<Output<String>> namespace() {
         return Optional.ofNullable(this.namespace);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -128,24 +174,31 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
+    }
+
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+     * 
+     */
+    @Import(name="targetRoleArn")
+    private @Nullable Output<String> targetRoleArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+     * 
+     */
+    public Optional<Output<String>> targetRoleArn() {
+        return Optional.ofNullable(this.targetRoleArn);
     }
 
     private PodIdentityAssociationState() {}
@@ -154,11 +207,15 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
         this.associationArn = $.associationArn;
         this.associationId = $.associationId;
         this.clusterName = $.clusterName;
+        this.disableSessionTags = $.disableSessionTags;
+        this.externalId = $.externalId;
         this.namespace = $.namespace;
+        this.region = $.region;
         this.roleArn = $.roleArn;
         this.serviceAccount = $.serviceAccount;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.targetRoleArn = $.targetRoleArn;
     }
 
     public static Builder builder() {
@@ -243,6 +300,48 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
         }
 
         /**
+         * @param disableSessionTags Disable the tags that are automatically added to role session by Amazon EKS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableSessionTags(@Nullable Output<Boolean> disableSessionTags) {
+            $.disableSessionTags = disableSessionTags;
+            return this;
+        }
+
+        /**
+         * @param disableSessionTags Disable the tags that are automatically added to role session by Amazon EKS.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableSessionTags(Boolean disableSessionTags) {
+            return disableSessionTags(Output.of(disableSessionTags));
+        }
+
+        /**
+         * @param externalId The unique identifier for this association for a target IAM role. You put this value in the trust policy of the target role, in a Condition to match the sts.ExternalId.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalId(@Nullable Output<String> externalId) {
+            $.externalId = externalId;
+            return this;
+        }
+
+        /**
+         * @param externalId The unique identifier for this association for a target IAM role. You put this value in the trust policy of the target role, in a Condition to match the sts.ExternalId.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalId(String externalId) {
+            return externalId(Output.of(externalId));
+        }
+
+        /**
          * @param namespace The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.
          * 
          * @return builder
@@ -261,6 +360,27 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
          */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**
@@ -335,11 +455,7 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -350,13 +466,30 @@ public final class PodIdentityAssociationState extends com.pulumi.resources.Reso
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param targetRoleArn The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetRoleArn(@Nullable Output<String> targetRoleArn) {
+            $.targetRoleArn = targetRoleArn;
+            return this;
+        }
+
+        /**
+         * @param targetRoleArn The Amazon Resource Name (ARN) of the IAM role to be chained to the the IAM role specified as `role_arn`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetRoleArn(String targetRoleArn) {
+            return targetRoleArn(Output.of(targetRoleArn));
         }
 
         public PodIdentityAssociationState build() {

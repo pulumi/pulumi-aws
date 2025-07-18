@@ -63,6 +63,21 @@ public final class ControlTowerControlState extends com.pulumi.resources.Resourc
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ARN of the organizational unit.
      * 
      * The following arguments are optional:
@@ -87,6 +102,7 @@ public final class ControlTowerControlState extends com.pulumi.resources.Resourc
         this.arn = $.arn;
         this.controlIdentifier = $.controlIdentifier;
         this.parameters = $.parameters;
+        this.region = $.region;
         this.targetIdentifier = $.targetIdentifier;
     }
 
@@ -179,6 +195,27 @@ public final class ControlTowerControlState extends com.pulumi.resources.Resourc
          */
         public Builder parameters(ControlTowerControlParameterArgs... parameters) {
             return parameters(List.of(parameters));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

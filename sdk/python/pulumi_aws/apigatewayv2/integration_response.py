@@ -24,6 +24,7 @@ class IntegrationResponseArgs:
                  integration_id: pulumi.Input[builtins.str],
                  integration_response_key: pulumi.Input[builtins.str],
                  content_handling_strategy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  template_selection_expression: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -32,6 +33,7 @@ class IntegrationResponseArgs:
         :param pulumi.Input[builtins.str] integration_id: Identifier of the `apigatewayv2.Integration`.
         :param pulumi.Input[builtins.str] integration_response_key: Integration response key.
         :param pulumi.Input[builtins.str] content_handling_strategy: How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_templates: Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         :param pulumi.Input[builtins.str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
@@ -40,6 +42,8 @@ class IntegrationResponseArgs:
         pulumi.set(__self__, "integration_response_key", integration_response_key)
         if content_handling_strategy is not None:
             pulumi.set(__self__, "content_handling_strategy", content_handling_strategy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if response_templates is not None:
             pulumi.set(__self__, "response_templates", response_templates)
         if template_selection_expression is not None:
@@ -94,6 +98,18 @@ class IntegrationResponseArgs:
         pulumi.set(self, "content_handling_strategy", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="responseTemplates")
     def response_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -125,6 +141,7 @@ class _IntegrationResponseState:
                  content_handling_strategy: Optional[pulumi.Input[builtins.str]] = None,
                  integration_id: Optional[pulumi.Input[builtins.str]] = None,
                  integration_response_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  template_selection_expression: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -133,6 +150,7 @@ class _IntegrationResponseState:
         :param pulumi.Input[builtins.str] content_handling_strategy: How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
         :param pulumi.Input[builtins.str] integration_id: Identifier of the `apigatewayv2.Integration`.
         :param pulumi.Input[builtins.str] integration_response_key: Integration response key.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_templates: Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         :param pulumi.Input[builtins.str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
@@ -144,6 +162,8 @@ class _IntegrationResponseState:
             pulumi.set(__self__, "integration_id", integration_id)
         if integration_response_key is not None:
             pulumi.set(__self__, "integration_response_key", integration_response_key)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if response_templates is not None:
             pulumi.set(__self__, "response_templates", response_templates)
         if template_selection_expression is not None:
@@ -198,6 +218,18 @@ class _IntegrationResponseState:
         pulumi.set(self, "integration_response_key", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="responseTemplates")
     def response_templates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -232,6 +264,7 @@ class IntegrationResponse(pulumi.CustomResource):
                  content_handling_strategy: Optional[pulumi.Input[builtins.str]] = None,
                  integration_id: Optional[pulumi.Input[builtins.str]] = None,
                  integration_response_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  template_selection_expression: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -267,6 +300,7 @@ class IntegrationResponse(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] content_handling_strategy: How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
         :param pulumi.Input[builtins.str] integration_id: Identifier of the `apigatewayv2.Integration`.
         :param pulumi.Input[builtins.str] integration_response_key: Integration response key.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_templates: Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         :param pulumi.Input[builtins.str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
@@ -321,6 +355,7 @@ class IntegrationResponse(pulumi.CustomResource):
                  content_handling_strategy: Optional[pulumi.Input[builtins.str]] = None,
                  integration_id: Optional[pulumi.Input[builtins.str]] = None,
                  integration_response_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  template_selection_expression: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -342,6 +377,7 @@ class IntegrationResponse(pulumi.CustomResource):
             if integration_response_key is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_response_key'")
             __props__.__dict__["integration_response_key"] = integration_response_key
+            __props__.__dict__["region"] = region
             __props__.__dict__["response_templates"] = response_templates
             __props__.__dict__["template_selection_expression"] = template_selection_expression
         super(IntegrationResponse, __self__).__init__(
@@ -358,6 +394,7 @@ class IntegrationResponse(pulumi.CustomResource):
             content_handling_strategy: Optional[pulumi.Input[builtins.str]] = None,
             integration_id: Optional[pulumi.Input[builtins.str]] = None,
             integration_response_key: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             template_selection_expression: Optional[pulumi.Input[builtins.str]] = None) -> 'IntegrationResponse':
         """
@@ -371,6 +408,7 @@ class IntegrationResponse(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] content_handling_strategy: How to handle response payload content type conversions. Valid values: `CONVERT_TO_BINARY`, `CONVERT_TO_TEXT`.
         :param pulumi.Input[builtins.str] integration_id: Identifier of the `apigatewayv2.Integration`.
         :param pulumi.Input[builtins.str] integration_response_key: Integration response key.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] response_templates: Map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client.
         :param pulumi.Input[builtins.str] template_selection_expression: The [template selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-template-selection-expressions) for the integration response.
         """
@@ -382,6 +420,7 @@ class IntegrationResponse(pulumi.CustomResource):
         __props__.__dict__["content_handling_strategy"] = content_handling_strategy
         __props__.__dict__["integration_id"] = integration_id
         __props__.__dict__["integration_response_key"] = integration_response_key
+        __props__.__dict__["region"] = region
         __props__.__dict__["response_templates"] = response_templates
         __props__.__dict__["template_selection_expression"] = template_selection_expression
         return IntegrationResponse(resource_name, opts=opts, __props__=__props__)
@@ -417,6 +456,14 @@ class IntegrationResponse(pulumi.CustomResource):
         Integration response key.
         """
         return pulumi.get(self, "integration_response_key")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="responseTemplates")

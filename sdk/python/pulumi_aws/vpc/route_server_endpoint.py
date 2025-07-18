@@ -24,6 +24,7 @@ class RouteServerEndpointArgs:
     def __init__(__self__, *,
                  route_server_id: pulumi.Input[builtins.str],
                  subnet_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['RouteServerEndpointTimeoutsArgs']] = None):
         """
@@ -32,10 +33,13 @@ class RouteServerEndpointArgs:
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet in which to create the route server endpoint.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "route_server_id", route_server_id)
         pulumi.set(__self__, "subnet_id", subnet_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -69,6 +73,18 @@ class RouteServerEndpointArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -95,6 +111,7 @@ class _RouteServerEndpointState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  eni_address: Optional[pulumi.Input[builtins.str]] = None,
                  eni_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_server_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
                  route_server_id: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -107,6 +124,7 @@ class _RouteServerEndpointState:
         :param pulumi.Input[builtins.str] arn: The ARN of the route server endpoint.
         :param pulumi.Input[builtins.str] eni_address: The IP address of the Elastic network interface for the endpoint.
         :param pulumi.Input[builtins.str] eni_id: The ID of the Elastic network interface for the endpoint.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_server_endpoint_id: The unique identifier of the route server endpoint.
         :param pulumi.Input[builtins.str] route_server_id: The ID of the route server for which to create an endpoint.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet in which to create the route server endpoint.
@@ -122,6 +140,8 @@ class _RouteServerEndpointState:
             pulumi.set(__self__, "eni_address", eni_address)
         if eni_id is not None:
             pulumi.set(__self__, "eni_id", eni_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if route_server_endpoint_id is not None:
             pulumi.set(__self__, "route_server_endpoint_id", route_server_endpoint_id)
         if route_server_id is not None:
@@ -130,9 +150,6 @@ class _RouteServerEndpointState:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
@@ -175,6 +192,18 @@ class _RouteServerEndpointState:
     @eni_id.setter
     def eni_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "eni_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="routeServerEndpointId")
@@ -228,7 +257,6 @@ class _RouteServerEndpointState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -267,6 +295,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_server_id: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -301,6 +330,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_server_id: The ID of the route server for which to create an endpoint.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet in which to create the route server endpoint.
                
@@ -355,6 +385,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  route_server_id: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -368,6 +399,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RouteServerEndpointArgs.__new__(RouteServerEndpointArgs)
 
+            __props__.__dict__["region"] = region
             if route_server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'route_server_id'")
             __props__.__dict__["route_server_id"] = route_server_id
@@ -395,6 +427,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             eni_address: Optional[pulumi.Input[builtins.str]] = None,
             eni_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             route_server_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
             route_server_id: Optional[pulumi.Input[builtins.str]] = None,
             subnet_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -412,6 +445,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] arn: The ARN of the route server endpoint.
         :param pulumi.Input[builtins.str] eni_address: The IP address of the Elastic network interface for the endpoint.
         :param pulumi.Input[builtins.str] eni_id: The ID of the Elastic network interface for the endpoint.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] route_server_endpoint_id: The unique identifier of the route server endpoint.
         :param pulumi.Input[builtins.str] route_server_id: The ID of the route server for which to create an endpoint.
         :param pulumi.Input[builtins.str] subnet_id: The ID of the subnet in which to create the route server endpoint.
@@ -428,6 +462,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["eni_address"] = eni_address
         __props__.__dict__["eni_id"] = eni_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["route_server_endpoint_id"] = route_server_endpoint_id
         __props__.__dict__["route_server_id"] = route_server_id
         __props__.__dict__["subnet_id"] = subnet_id
@@ -460,6 +495,14 @@ class RouteServerEndpoint(pulumi.CustomResource):
         The ID of the Elastic network interface for the endpoint.
         """
         return pulumi.get(self, "eni_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="routeServerEndpointId")
@@ -497,7 +540,6 @@ class RouteServerEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

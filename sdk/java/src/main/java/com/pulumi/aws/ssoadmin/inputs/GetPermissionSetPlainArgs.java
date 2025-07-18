@@ -49,6 +49,8 @@ public final class GetPermissionSetPlainArgs extends com.pulumi.resources.Invoke
     /**
      * Name of the SSO Permission Set.
      * 
+     * &gt; **NOTE:** Either `arn` or `name` must be configured.
+     * 
      */
     @Import(name="name")
     private @Nullable String name;
@@ -56,9 +58,26 @@ public final class GetPermissionSetPlainArgs extends com.pulumi.resources.Invoke
     /**
      * @return Name of the SSO Permission Set.
      * 
+     * &gt; **NOTE:** Either `arn` or `name` must be configured.
+     * 
      */
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -82,6 +101,7 @@ public final class GetPermissionSetPlainArgs extends com.pulumi.resources.Invoke
         this.arn = $.arn;
         this.instanceArn = $.instanceArn;
         this.name = $.name;
+        this.region = $.region;
         this.tags = $.tags;
     }
 
@@ -128,11 +148,24 @@ public final class GetPermissionSetPlainArgs extends com.pulumi.resources.Invoke
         /**
          * @param name Name of the SSO Permission Set.
          * 
+         * &gt; **NOTE:** Either `arn` or `name` must be configured.
+         * 
          * @return builder
          * 
          */
         public Builder name(@Nullable String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

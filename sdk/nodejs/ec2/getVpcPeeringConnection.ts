@@ -42,9 +42,7 @@ export function getVpcPeeringConnection(args?: GetVpcPeeringConnectionArgs, opts
         "ownerId": args.ownerId,
         "peerCidrBlock": args.peerCidrBlock,
         "peerOwnerId": args.peerOwnerId,
-        "peerRegion": args.peerRegion,
         "peerVpcId": args.peerVpcId,
-        "region": args.region,
         "status": args.status,
         "tags": args.tags,
         "vpcId": args.vpcId,
@@ -80,17 +78,9 @@ export interface GetVpcPeeringConnectionArgs {
      */
     peerOwnerId?: string;
     /**
-     * Region of the accepter VPC of the specific VPC Peering Connection to retrieve.
-     */
-    peerRegion?: string;
-    /**
      * ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
     peerVpcId?: string;
-    /**
-     * Region of the requester VPC of the specific VPC Peering Connection to retrieve.
-     */
-    region?: string;
     /**
      * Status of the specific VPC Peering Connection to retrieve.
      */
@@ -143,14 +133,26 @@ export interface GetVpcPeeringConnectionResult {
      */
     readonly peerIpv6CidrBlockSets: outputs.ec2.GetVpcPeeringConnectionPeerIpv6CidrBlockSet[];
     readonly peerOwnerId: string;
+    /**
+     * Region of the accepter VPC.
+     */
     readonly peerRegion: string;
     readonly peerVpcId: string;
+    /**
+     * (**Deprecated**) Region of the requester VPC. Use `requesterRegion` instead.
+     *
+     * @deprecated region is deprecated. Use requesterRegion instead.
+     */
     readonly region: string;
     /**
      * Configuration block that describes [VPC Peering Connection]
      * (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
      */
     readonly requester: {[key: string]: boolean};
+    /**
+     * Region of the requester VPC.
+     */
+    readonly requesterRegion: string;
     readonly status: string;
     readonly tags: {[key: string]: string};
     readonly vpcId: string;
@@ -190,9 +192,7 @@ export function getVpcPeeringConnectionOutput(args?: GetVpcPeeringConnectionOutp
         "ownerId": args.ownerId,
         "peerCidrBlock": args.peerCidrBlock,
         "peerOwnerId": args.peerOwnerId,
-        "peerRegion": args.peerRegion,
         "peerVpcId": args.peerVpcId,
-        "region": args.region,
         "status": args.status,
         "tags": args.tags,
         "vpcId": args.vpcId,
@@ -228,17 +228,9 @@ export interface GetVpcPeeringConnectionOutputArgs {
      */
     peerOwnerId?: pulumi.Input<string>;
     /**
-     * Region of the accepter VPC of the specific VPC Peering Connection to retrieve.
-     */
-    peerRegion?: pulumi.Input<string>;
-    /**
      * ID of the accepter VPC of the specific VPC Peering Connection to retrieve.
      */
     peerVpcId?: pulumi.Input<string>;
-    /**
-     * Region of the requester VPC of the specific VPC Peering Connection to retrieve.
-     */
-    region?: pulumi.Input<string>;
     /**
      * Status of the specific VPC Peering Connection to retrieve.
      */

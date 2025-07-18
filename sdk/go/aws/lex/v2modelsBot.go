@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lex"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lex"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -105,13 +105,14 @@ type V2modelsBot struct {
 	Members V2modelsBotMemberArrayOutput `pulumi:"members"`
 	// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of an IAM role that has permission to access the bot.
 	//
 	// The following arguments are optional:
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// List of tags to add to the bot. You can only add tags when you create a bot.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
 	TestBotAliasTags pulumi.StringMapOutput       `pulumi:"testBotAliasTags"`
@@ -167,13 +168,14 @@ type v2modelsBotState struct {
 	Members []V2modelsBotMember `pulumi:"members"`
 	// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of an IAM role that has permission to access the bot.
 	//
 	// The following arguments are optional:
 	RoleArn *string `pulumi:"roleArn"`
 	// List of tags to add to the bot. You can only add tags when you create a bot.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
 	TestBotAliasTags map[string]string    `pulumi:"testBotAliasTags"`
@@ -194,13 +196,14 @@ type V2modelsBotState struct {
 	Members V2modelsBotMemberArrayInput
 	// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of an IAM role that has permission to access the bot.
 	//
 	// The following arguments are optional:
 	RoleArn pulumi.StringPtrInput
 	// List of tags to add to the bot. You can only add tags when you create a bot.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// List of tags to add to the test alias for a bot. You can only add tags when you create a bot.
 	TestBotAliasTags pulumi.StringMapInput
@@ -224,6 +227,8 @@ type v2modelsBotArgs struct {
 	Members []V2modelsBotMember `pulumi:"members"`
 	// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ARN of an IAM role that has permission to access the bot.
 	//
 	// The following arguments are optional:
@@ -249,6 +254,8 @@ type V2modelsBotArgs struct {
 	Members V2modelsBotMemberArrayInput
 	// Name of the bot. The bot name must be unique in the account that creates the bot. Type String. Length Constraints: Minimum length of 1. Maximum length of 100.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ARN of an IAM role that has permission to access the bot.
 	//
 	// The following arguments are optional:
@@ -378,6 +385,11 @@ func (o V2modelsBotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsBot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o V2modelsBotOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *V2modelsBot) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // ARN of an IAM role that has permission to access the bot.
 //
 // The following arguments are optional:
@@ -390,7 +402,6 @@ func (o V2modelsBotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *V2modelsBot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o V2modelsBotOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *V2modelsBot) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -38,6 +38,7 @@ class NfsFileShareArgs:
                  notification_policy: Optional[pulumi.Input[builtins.str]] = None,
                  object_acl: Optional[pulumi.Input[builtins.str]] = None,
                  read_only: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requester_pays: Optional[pulumi.Input[builtins.bool]] = None,
                  squash: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -60,6 +61,7 @@ class NfsFileShareArgs:
         :param pulumi.Input[builtins.str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         :param pulumi.Input[builtins.str] object_acl: Access Control List permission for S3 objects. Defaults to `private`.
         :param pulumi.Input[builtins.bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[builtins.str] squash: Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -93,6 +95,8 @@ class NfsFileShareArgs:
             pulumi.set(__self__, "object_acl", object_acl)
         if read_only is not None:
             pulumi.set(__self__, "read_only", read_only)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if requester_pays is not None:
             pulumi.set(__self__, "requester_pays", requester_pays)
         if squash is not None:
@@ -295,6 +299,18 @@ class NfsFileShareArgs:
         pulumi.set(self, "read_only", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requesterPays")
     def requester_pays(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -364,6 +380,7 @@ class _NfsFileShareState:
                  object_acl: Optional[pulumi.Input[builtins.str]] = None,
                  path: Optional[pulumi.Input[builtins.str]] = None,
                  read_only: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requester_pays: Optional[pulumi.Input[builtins.bool]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  squash: Optional[pulumi.Input[builtins.str]] = None,
@@ -390,6 +407,7 @@ class _NfsFileShareState:
         :param pulumi.Input[builtins.str] object_acl: Access Control List permission for S3 objects. Defaults to `private`.
         :param pulumi.Input[builtins.str] path: File share path used by the NFS client to identify the mount point.
         :param pulumi.Input[builtins.bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         :param pulumi.Input[builtins.str] squash: Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
@@ -433,6 +451,8 @@ class _NfsFileShareState:
             pulumi.set(__self__, "path", path)
         if read_only is not None:
             pulumi.set(__self__, "read_only", read_only)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if requester_pays is not None:
             pulumi.set(__self__, "requester_pays", requester_pays)
         if role_arn is not None:
@@ -441,9 +461,6 @@ class _NfsFileShareState:
             pulumi.set(__self__, "squash", squash)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_endpoint_dns_name is not None:
@@ -666,6 +683,18 @@ class _NfsFileShareState:
         pulumi.set(self, "read_only", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requesterPays")
     def requester_pays(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -715,7 +744,6 @@ class _NfsFileShareState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -760,6 +788,7 @@ class NfsFileShare(pulumi.CustomResource):
                  notification_policy: Optional[pulumi.Input[builtins.str]] = None,
                  object_acl: Optional[pulumi.Input[builtins.str]] = None,
                  read_only: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requester_pays: Optional[pulumi.Input[builtins.bool]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  squash: Optional[pulumi.Input[builtins.str]] = None,
@@ -807,6 +836,7 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         :param pulumi.Input[builtins.str] object_acl: Access Control List permission for S3 objects. Defaults to `private`.
         :param pulumi.Input[builtins.bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         :param pulumi.Input[builtins.str] squash: Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
@@ -873,6 +903,7 @@ class NfsFileShare(pulumi.CustomResource):
                  notification_policy: Optional[pulumi.Input[builtins.str]] = None,
                  object_acl: Optional[pulumi.Input[builtins.str]] = None,
                  read_only: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  requester_pays: Optional[pulumi.Input[builtins.bool]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  squash: Optional[pulumi.Input[builtins.str]] = None,
@@ -908,6 +939,7 @@ class NfsFileShare(pulumi.CustomResource):
             __props__.__dict__["notification_policy"] = notification_policy
             __props__.__dict__["object_acl"] = object_acl
             __props__.__dict__["read_only"] = read_only
+            __props__.__dict__["region"] = region
             __props__.__dict__["requester_pays"] = requester_pays
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
@@ -947,6 +979,7 @@ class NfsFileShare(pulumi.CustomResource):
             object_acl: Optional[pulumi.Input[builtins.str]] = None,
             path: Optional[pulumi.Input[builtins.str]] = None,
             read_only: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             requester_pays: Optional[pulumi.Input[builtins.bool]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             squash: Optional[pulumi.Input[builtins.str]] = None,
@@ -978,6 +1011,7 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] object_acl: Access Control List permission for S3 objects. Defaults to `private`.
         :param pulumi.Input[builtins.str] path: File share path used by the NFS client to identify the mount point.
         :param pulumi.Input[builtins.bool] read_only: Boolean to indicate write status of file share. File share does not accept writes if `true`. Defaults to `false`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[builtins.str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         :param pulumi.Input[builtins.str] squash: Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
@@ -1007,6 +1041,7 @@ class NfsFileShare(pulumi.CustomResource):
         __props__.__dict__["object_acl"] = object_acl
         __props__.__dict__["path"] = path
         __props__.__dict__["read_only"] = read_only
+        __props__.__dict__["region"] = region
         __props__.__dict__["requester_pays"] = requester_pays
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["squash"] = squash
@@ -1160,6 +1195,14 @@ class NfsFileShare(pulumi.CustomResource):
         return pulumi.get(self, "read_only")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="requesterPays")
     def requester_pays(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
@@ -1193,7 +1236,6 @@ class NfsFileShare(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

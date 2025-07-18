@@ -258,6 +258,21 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ARN of the IAM role that enables CodeBuild to access the CloudWatch Logs and
      * Amazon S3 artifacts for the project&#39;s builds in order to display them publicly. Only applicable if
      * `project_visibility` is `PUBLIC_READ`.
@@ -425,6 +440,7 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.projectVisibility = $.projectVisibility;
         this.queuedTimeout = $.queuedTimeout;
+        this.region = $.region;
         this.resourceAccessRole = $.resourceAccessRole;
         this.secondaryArtifacts = $.secondaryArtifacts;
         this.secondarySourceVersions = $.secondarySourceVersions;
@@ -773,6 +789,27 @@ public final class ProjectArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder queuedTimeout(Integer queuedTimeout) {
             return queuedTimeout(Output.of(queuedTimeout));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

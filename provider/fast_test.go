@@ -3,7 +3,7 @@ package provider
 import (
 	"testing"
 
-	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
+	"github.com/pulumi/pulumi-aws/provider/v7/pkg/version"
 )
 
 func init() {

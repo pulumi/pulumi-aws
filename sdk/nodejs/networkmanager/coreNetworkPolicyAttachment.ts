@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Core Network Policy Attachment resource. This puts a Core Network Policy to an existing Core Network and executes the change set, which deploys changes globally based on the policy submitted (Sets the policy to `LIVE`).
+ * Manages a Network Manager Core Network Policy Attachment.
+ *
+ * Use this resource to attach a Core Network Policy to an existing Core Network and execute the change set, which deploys changes globally based on the policy submitted (sets the policy to `LIVE`).
  *
  * > **NOTE:** Deleting this resource will not delete the current policy defined in this resource. Deleting this resource will also not revert the current `LIVE` policy to the previous version.
  *
@@ -316,7 +318,7 @@ export class CoreNetworkPolicyAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the core network that a policy will be attached to and made `LIVE`.
+     * ID of the core network that a policy will be attached to and made `LIVE`.
      */
     public readonly coreNetworkId!: pulumi.Output<string>;
     /**
@@ -366,7 +368,7 @@ export class CoreNetworkPolicyAttachment extends pulumi.CustomResource {
  */
 export interface CoreNetworkPolicyAttachmentState {
     /**
-     * The ID of the core network that a policy will be attached to and made `LIVE`.
+     * ID of the core network that a policy will be attached to and made `LIVE`.
      */
     coreNetworkId?: pulumi.Input<string>;
     /**
@@ -384,7 +386,7 @@ export interface CoreNetworkPolicyAttachmentState {
  */
 export interface CoreNetworkPolicyAttachmentArgs {
     /**
-     * The ID of the core network that a policy will be attached to and made `LIVE`.
+     * ID of the core network that a policy will be attached to and made `LIVE`.
      */
     coreNetworkId: pulumi.Input<string>;
     /**

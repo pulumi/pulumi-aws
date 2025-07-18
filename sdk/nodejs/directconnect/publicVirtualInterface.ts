@@ -102,6 +102,10 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A list of routes to be advertised to the AWS network in this region.
      */
     public readonly routeFilterPrefixes!: pulumi.Output<string[]>;
@@ -111,8 +115,6 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -143,6 +145,7 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
             resourceInputs["connectionId"] = state ? state.connectionId : undefined;
             resourceInputs["customerAddress"] = state ? state.customerAddress : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["routeFilterPrefixes"] = state ? state.routeFilterPrefixes : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -171,6 +174,7 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
             resourceInputs["connectionId"] = args ? args.connectionId : undefined;
             resourceInputs["customerAddress"] = args ? args.customerAddress : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["routeFilterPrefixes"] = args ? args.routeFilterPrefixes : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vlan"] = args ? args.vlan : undefined;
@@ -226,6 +230,10 @@ export interface PublicVirtualInterfaceState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A list of routes to be advertised to the AWS network in this region.
      */
     routeFilterPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
@@ -235,8 +243,6 @@ export interface PublicVirtualInterfaceState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -277,6 +283,10 @@ export interface PublicVirtualInterfaceArgs {
      * The name for the virtual interface.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of routes to be advertised to the AWS network in this region.
      */

@@ -27,6 +27,7 @@ class VpcEndpointServiceArgs:
                  gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  private_dns_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  supported_ip_address_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  supported_regions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -37,6 +38,7 @@ class VpcEndpointServiceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] gateway_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         :param pulumi.Input[builtins.str] private_dns_name: The private DNS name for the service.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_ip_address_types: The supported IP address types. The possible values are `ipv4` and `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_regions: The set of regions from which service consumers can access the service.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -50,6 +52,8 @@ class VpcEndpointServiceArgs:
             pulumi.set(__self__, "network_load_balancer_arns", network_load_balancer_arns)
         if private_dns_name is not None:
             pulumi.set(__self__, "private_dns_name", private_dns_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if supported_ip_address_types is not None:
             pulumi.set(__self__, "supported_ip_address_types", supported_ip_address_types)
         if supported_regions is not None:
@@ -118,6 +122,18 @@ class VpcEndpointServiceArgs:
         pulumi.set(self, "private_dns_name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="supportedIpAddressTypes")
     def supported_ip_address_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
@@ -167,6 +183,7 @@ class _VpcEndpointServiceState:
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  private_dns_name: Optional[pulumi.Input[builtins.str]] = None,
                  private_dns_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointServicePrivateDnsNameConfigurationArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  service_name: Optional[pulumi.Input[builtins.str]] = None,
                  service_type: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
@@ -186,6 +203,7 @@ class _VpcEndpointServiceState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         :param pulumi.Input[builtins.str] private_dns_name: The private DNS name for the service.
         :param pulumi.Input[Sequence[pulumi.Input['VpcEndpointServicePrivateDnsNameConfigurationArgs']]] private_dns_name_configurations: List of objects containing information about the endpoint service private DNS name configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_name: The service name.
         :param pulumi.Input[builtins.str] service_type: The service type, `Gateway` or `Interface`.
         :param pulumi.Input[builtins.str] state: Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
@@ -214,6 +232,8 @@ class _VpcEndpointServiceState:
             pulumi.set(__self__, "private_dns_name", private_dns_name)
         if private_dns_name_configurations is not None:
             pulumi.set(__self__, "private_dns_name_configurations", private_dns_name_configurations)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if service_name is not None:
             pulumi.set(__self__, "service_name", service_name)
         if service_type is not None:
@@ -226,9 +246,6 @@ class _VpcEndpointServiceState:
             pulumi.set(__self__, "supported_regions", supported_regions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -353,6 +370,18 @@ class _VpcEndpointServiceState:
         pulumi.set(self, "private_dns_name_configurations", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -426,7 +455,6 @@ class _VpcEndpointServiceState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -449,6 +477,7 @@ class VpcEndpointService(pulumi.CustomResource):
                  gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  private_dns_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  supported_ip_address_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  supported_regions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -502,6 +531,7 @@ class VpcEndpointService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] gateway_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         :param pulumi.Input[builtins.str] private_dns_name: The private DNS name for the service.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_ip_address_types: The supported IP address types. The possible values are `ipv4` and `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] supported_regions: The set of regions from which service consumers can access the service.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -574,6 +604,7 @@ class VpcEndpointService(pulumi.CustomResource):
                  gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  private_dns_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  supported_ip_address_types: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  supported_regions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -593,6 +624,7 @@ class VpcEndpointService(pulumi.CustomResource):
             __props__.__dict__["gateway_load_balancer_arns"] = gateway_load_balancer_arns
             __props__.__dict__["network_load_balancer_arns"] = network_load_balancer_arns
             __props__.__dict__["private_dns_name"] = private_dns_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["supported_ip_address_types"] = supported_ip_address_types
             __props__.__dict__["supported_regions"] = supported_regions
             __props__.__dict__["tags"] = tags
@@ -625,6 +657,7 @@ class VpcEndpointService(pulumi.CustomResource):
             network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             private_dns_name: Optional[pulumi.Input[builtins.str]] = None,
             private_dns_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointServicePrivateDnsNameConfigurationArgs', 'VpcEndpointServicePrivateDnsNameConfigurationArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             service_name: Optional[pulumi.Input[builtins.str]] = None,
             service_type: Optional[pulumi.Input[builtins.str]] = None,
             state: Optional[pulumi.Input[builtins.str]] = None,
@@ -649,6 +682,7 @@ class VpcEndpointService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         :param pulumi.Input[builtins.str] private_dns_name: The private DNS name for the service.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpcEndpointServicePrivateDnsNameConfigurationArgs', 'VpcEndpointServicePrivateDnsNameConfigurationArgsDict']]]] private_dns_name_configurations: List of objects containing information about the endpoint service private DNS name configuration.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] service_name: The service name.
         :param pulumi.Input[builtins.str] service_type: The service type, `Gateway` or `Interface`.
         :param pulumi.Input[builtins.str] state: Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
@@ -671,6 +705,7 @@ class VpcEndpointService(pulumi.CustomResource):
         __props__.__dict__["network_load_balancer_arns"] = network_load_balancer_arns
         __props__.__dict__["private_dns_name"] = private_dns_name
         __props__.__dict__["private_dns_name_configurations"] = private_dns_name_configurations
+        __props__.__dict__["region"] = region
         __props__.__dict__["service_name"] = service_name
         __props__.__dict__["service_type"] = service_type
         __props__.__dict__["state"] = state
@@ -761,6 +796,14 @@ class VpcEndpointService(pulumi.CustomResource):
         return pulumi.get(self, "private_dns_name_configurations")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Output[builtins.str]:
         """
@@ -810,7 +853,6 @@ class VpcEndpointService(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

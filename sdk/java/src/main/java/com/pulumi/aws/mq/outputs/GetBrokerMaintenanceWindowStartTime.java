@@ -10,17 +10,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBrokerMaintenanceWindowStartTime {
+    /**
+     * @return Day of the week.
+     * 
+     */
     private String dayOfWeek;
+    /**
+     * @return Time, in 24-hour format.
+     * 
+     */
     private String timeOfDay;
+    /**
+     * @return Time zone in either the Country/City format or the UTC offset format.
+     * 
+     */
     private String timeZone;
 
     private GetBrokerMaintenanceWindowStartTime() {}
+    /**
+     * @return Day of the week.
+     * 
+     */
     public String dayOfWeek() {
         return this.dayOfWeek;
     }
+    /**
+     * @return Time, in 24-hour format.
+     * 
+     */
     public String timeOfDay() {
         return this.timeOfDay;
     }
+    /**
+     * @return Time zone in either the Country/City format or the UTC offset format.
+     * 
+     */
     public String timeZone() {
         return this.timeZone;
     }

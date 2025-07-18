@@ -133,6 +133,12 @@ namespace Pulumi.Aws.Fms
         public Output<string> PolicyUpdateToken { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
         /// </summary>
         [Output("remediationEnabled")]
@@ -140,6 +146,12 @@ namespace Pulumi.Aws.Fms
 
         [Output("resourceSetIds")]
         public Output<ImmutableArray<string>> ResourceSetIds { get; private set; } = null!;
+
+        /// <summary>
+        /// Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+        /// </summary>
+        [Output("resourceTagLogicalOperator")]
+        public Output<string> ResourceTagLogicalOperator { get; private set; } = null!;
 
         /// <summary>
         /// A map of resource tags, that if present will filter protections on resources based on the exclude_resource_tags.
@@ -266,6 +278,12 @@ namespace Pulumi.Aws.Fms
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
         /// </summary>
         [Input("remediationEnabled")]
@@ -278,6 +296,12 @@ namespace Pulumi.Aws.Fms
             get => _resourceSetIds ?? (_resourceSetIds = new InputList<string>());
             set => _resourceSetIds = value;
         }
+
+        /// <summary>
+        /// Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+        /// </summary>
+        [Input("resourceTagLogicalOperator")]
+        public Input<string>? ResourceTagLogicalOperator { get; set; }
 
         [Input("resourceTags")]
         private InputMap<string>? _resourceTags;
@@ -387,6 +411,12 @@ namespace Pulumi.Aws.Fms
         public Input<string>? PolicyUpdateToken { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A boolean value, indicates if the policy should automatically applied to resources that already exist in the account.
         /// </summary>
         [Input("remediationEnabled")]
@@ -399,6 +429,12 @@ namespace Pulumi.Aws.Fms
             get => _resourceSetIds ?? (_resourceSetIds = new InputList<string>());
             set => _resourceSetIds = value;
         }
+
+        /// <summary>
+        /// Controls how multiple resource tags are combined: with AND, so that a resource must have all tags to be included or excluded, or OR, so that a resource must have at least one tag. The valid values are `AND` and `OR`.
+        /// </summary>
+        [Input("resourceTagLogicalOperator")]
+        public Input<string>? ResourceTagLogicalOperator { get; set; }
 
         [Input("resourceTags")]
         private InputMap<string>? _resourceTags;
@@ -454,7 +490,6 @@ namespace Pulumi.Aws.Fms
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -48,6 +48,21 @@ public final class ArchiveRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Rule name.
      * 
      */
@@ -67,6 +82,7 @@ public final class ArchiveRuleState extends com.pulumi.resources.ResourceArgs {
     private ArchiveRuleState(ArchiveRuleState $) {
         this.analyzerName = $.analyzerName;
         this.filters = $.filters;
+        this.region = $.region;
         this.ruleName = $.ruleName;
     }
 
@@ -138,6 +154,27 @@ public final class ArchiveRuleState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder filters(ArchiveRuleFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -28,7 +28,7 @@ class GetDistributionConfigurationResult:
     """
     A collection of values returned by getDistributionConfiguration.
     """
-    def __init__(__self__, arn=None, date_created=None, date_updated=None, description=None, distributions=None, id=None, name=None, tags=None):
+    def __init__(__self__, arn=None, date_created=None, date_updated=None, description=None, distributions=None, id=None, name=None, region=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -50,6 +50,9 @@ class GetDistributionConfigurationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -109,6 +112,14 @@ class GetDistributionConfigurationResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        """
+        AWS Region of distribution.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Key-value map of resource tags for the distribution configuration.
@@ -129,10 +140,12 @@ class AwaitableGetDistributionConfigurationResult(GetDistributionConfigurationRe
             distributions=self.distributions,
             id=self.id,
             name=self.name,
+            region=self.region,
             tags=self.tags)
 
 
 def get_distribution_configuration(arn: Optional[builtins.str] = None,
+                                   region: Optional[builtins.str] = None,
                                    tags: Optional[Mapping[str, builtins.str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDistributionConfigurationResult:
     """
@@ -149,10 +162,12 @@ def get_distribution_configuration(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: ARN of the distribution configuration.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the distribution configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration', __args__, opts=opts, typ=GetDistributionConfigurationResult).value
@@ -165,8 +180,10 @@ def get_distribution_configuration(arn: Optional[builtins.str] = None,
         distributions=pulumi.get(__ret__, 'distributions'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_distribution_configuration_output(arn: Optional[pulumi.Input[builtins.str]] = None,
+                                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                           tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDistributionConfigurationResult]:
     """
@@ -183,10 +200,12 @@ def get_distribution_configuration_output(arn: Optional[pulumi.Input[builtins.st
 
 
     :param builtins.str arn: ARN of the distribution configuration.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the distribution configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration', __args__, opts=opts, typ=GetDistributionConfigurationResult)
@@ -198,4 +217,5 @@ def get_distribution_configuration_output(arn: Optional[pulumi.Input[builtins.st
         distributions=pulumi.get(__response__, 'distributions'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

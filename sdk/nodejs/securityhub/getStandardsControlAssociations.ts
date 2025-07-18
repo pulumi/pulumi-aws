@@ -27,6 +27,7 @@ import * as utilities from "../utilities";
 export function getStandardsControlAssociations(args: GetStandardsControlAssociationsArgs, opts?: pulumi.InvokeOptions): Promise<GetStandardsControlAssociationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations", {
+        "region": args.region,
         "securityControlId": args.securityControlId,
     }, opts);
 }
@@ -35,6 +36,10 @@ export function getStandardsControlAssociations(args: GetStandardsControlAssocia
  * A collection of arguments for invoking getStandardsControlAssociations.
  */
 export interface GetStandardsControlAssociationsArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
      */
@@ -46,6 +51,7 @@ export interface GetStandardsControlAssociationsArgs {
  */
 export interface GetStandardsControlAssociationsResult {
     readonly id: string;
+    readonly region: string;
     /**
      * ID of the security control.
      */
@@ -76,6 +82,7 @@ export interface GetStandardsControlAssociationsResult {
 export function getStandardsControlAssociationsOutput(args: GetStandardsControlAssociationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStandardsControlAssociationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:securityhub/getStandardsControlAssociations:getStandardsControlAssociations", {
+        "region": args.region,
         "securityControlId": args.securityControlId,
     }, opts);
 }
@@ -84,6 +91,10 @@ export function getStandardsControlAssociationsOutput(args: GetStandardsControlA
  * A collection of arguments for invoking getStandardsControlAssociations.
  */
 export interface GetStandardsControlAssociationsOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The identifier of the control (identified with `SecurityControlId`, `SecurityControlArn`, or a mix of both parameters).
      */

@@ -101,6 +101,10 @@ export class SnapshotImport extends pulumi.CustomResource {
      */
     public readonly permanentRestore!: pulumi.Output<boolean | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
      */
     public readonly roleName!: pulumi.Output<string | undefined>;
@@ -114,8 +118,6 @@ export class SnapshotImport extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -152,6 +154,7 @@ export class SnapshotImport extends pulumi.CustomResource {
             resourceInputs["ownerAlias"] = state ? state.ownerAlias : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["permanentRestore"] = state ? state.permanentRestore : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["roleName"] = state ? state.roleName : undefined;
             resourceInputs["storageTier"] = state ? state.storageTier : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -170,6 +173,7 @@ export class SnapshotImport extends pulumi.CustomResource {
             resourceInputs["encrypted"] = args ? args.encrypted : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["permanentRestore"] = args ? args.permanentRestore : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["roleName"] = args ? args.roleName : undefined;
             resourceInputs["storageTier"] = args ? args.storageTier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -234,6 +238,10 @@ export interface SnapshotImportState {
      */
     permanentRestore?: pulumi.Input<boolean>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
      */
     roleName?: pulumi.Input<string>;
@@ -247,8 +255,6 @@ export interface SnapshotImportState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -290,6 +296,10 @@ export interface SnapshotImportArgs {
      * Indicates whether to permanently restore an archived snapshot.
      */
     permanentRestore?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
      */

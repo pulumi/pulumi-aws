@@ -28,7 +28,7 @@ class GetServerlessCacheResult:
     """
     A collection of values returned by getServerlessCache.
     """
-    def __init__(__self__, arn=None, cache_usage_limits=None, create_time=None, daily_snapshot_time=None, description=None, endpoint=None, engine=None, full_engine_version=None, id=None, kms_key_id=None, major_engine_version=None, name=None, reader_endpoint=None, security_group_ids=None, snapshot_retention_limit=None, status=None, subnet_ids=None, user_group_id=None):
+    def __init__(__self__, arn=None, cache_usage_limits=None, create_time=None, daily_snapshot_time=None, description=None, endpoint=None, engine=None, full_engine_version=None, id=None, kms_key_id=None, major_engine_version=None, name=None, reader_endpoint=None, region=None, security_group_ids=None, snapshot_retention_limit=None, status=None, subnet_ids=None, user_group_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -68,6 +68,9 @@ class GetServerlessCacheResult:
         if reader_endpoint and not isinstance(reader_endpoint, dict):
             raise TypeError("Expected argument 'reader_endpoint' to be a dict")
         pulumi.set(__self__, "reader_endpoint", reader_endpoint)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if security_group_ids and not isinstance(security_group_ids, list):
             raise TypeError("Expected argument 'security_group_ids' to be a list")
         pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -186,6 +189,11 @@ class GetServerlessCacheResult:
         return pulumi.get(self, "reader_endpoint")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Sequence[builtins.str]:
         """
@@ -245,6 +253,7 @@ class AwaitableGetServerlessCacheResult(GetServerlessCacheResult):
             major_engine_version=self.major_engine_version,
             name=self.name,
             reader_endpoint=self.reader_endpoint,
+            region=self.region,
             security_group_ids=self.security_group_ids,
             snapshot_retention_limit=self.snapshot_retention_limit,
             status=self.status,
@@ -253,6 +262,7 @@ class AwaitableGetServerlessCacheResult(GetServerlessCacheResult):
 
 
 def get_serverless_cache(name: Optional[builtins.str] = None,
+                         region: Optional[builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerlessCacheResult:
     """
     Use this data source to get information about an ElastiCache Serverless Cache.
@@ -268,9 +278,11 @@ def get_serverless_cache(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Identifier for the serverless cache.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:elasticache/getServerlessCache:getServerlessCache', __args__, opts=opts, typ=GetServerlessCacheResult).value
 
@@ -288,12 +300,14 @@ def get_serverless_cache(name: Optional[builtins.str] = None,
         major_engine_version=pulumi.get(__ret__, 'major_engine_version'),
         name=pulumi.get(__ret__, 'name'),
         reader_endpoint=pulumi.get(__ret__, 'reader_endpoint'),
+        region=pulumi.get(__ret__, 'region'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         snapshot_retention_limit=pulumi.get(__ret__, 'snapshot_retention_limit'),
         status=pulumi.get(__ret__, 'status'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         user_group_id=pulumi.get(__ret__, 'user_group_id'))
 def get_serverless_cache_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                                region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessCacheResult]:
     """
     Use this data source to get information about an ElastiCache Serverless Cache.
@@ -309,9 +323,11 @@ def get_serverless_cache_output(name: Optional[pulumi.Input[builtins.str]] = Non
 
 
     :param builtins.str name: Identifier for the serverless cache.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:elasticache/getServerlessCache:getServerlessCache', __args__, opts=opts, typ=GetServerlessCacheResult)
     return __ret__.apply(lambda __response__: GetServerlessCacheResult(
@@ -328,6 +344,7 @@ def get_serverless_cache_output(name: Optional[pulumi.Input[builtins.str]] = Non
         major_engine_version=pulumi.get(__response__, 'major_engine_version'),
         name=pulumi.get(__response__, 'name'),
         reader_endpoint=pulumi.get(__response__, 'reader_endpoint'),
+        region=pulumi.get(__response__, 'region'),
         security_group_ids=pulumi.get(__response__, 'security_group_ids'),
         snapshot_retention_limit=pulumi.get(__response__, 'snapshot_retention_limit'),
         status=pulumi.get(__response__, 'status'),

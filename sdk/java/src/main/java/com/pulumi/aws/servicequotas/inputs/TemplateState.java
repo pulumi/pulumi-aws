@@ -18,6 +18,21 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
     public static final TemplateState Empty = new TemplateState();
 
     /**
+     * AWS Region to which the template applies.
+     * 
+     */
+    @Import(name="awsRegion")
+    private @Nullable Output<String> awsRegion;
+
+    /**
+     * @return AWS Region to which the template applies.
+     * 
+     */
+    public Optional<Output<String>> awsRegion() {
+        return Optional.ofNullable(this.awsRegion);
+    }
+
+    /**
      * Indicates whether the quota is global.
      * 
      */
@@ -63,16 +78,24 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * AWS Region to which the template applies.
+     * AWS Region to which the template applies. Use `aws.getRegion` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use aws.getRegion instead.
      * 
      */
+    @Deprecated /* region is deprecated. Use aws.getRegion instead. */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return AWS Region to which the template applies.
+     * @return AWS Region to which the template applies. Use `aws.getRegion` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use aws.getRegion instead.
      * 
      */
+    @Deprecated /* region is deprecated. Use aws.getRegion instead. */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -140,6 +163,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
     private TemplateState() {}
 
     private TemplateState(TemplateState $) {
+        this.awsRegion = $.awsRegion;
         this.globalQuota = $.globalQuota;
         this.quotaCode = $.quotaCode;
         this.quotaName = $.quotaName;
@@ -166,6 +190,27 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
 
         public Builder(TemplateState defaults) {
             $ = new TemplateState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param awsRegion AWS Region to which the template applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsRegion(@Nullable Output<String> awsRegion) {
+            $.awsRegion = awsRegion;
+            return this;
+        }
+
+        /**
+         * @param awsRegion AWS Region to which the template applies.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsRegion(String awsRegion) {
+            return awsRegion(Output.of(awsRegion));
         }
 
         /**
@@ -232,22 +277,30 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region AWS Region to which the template applies.
+         * @param region AWS Region to which the template applies. Use `aws.getRegion` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * region is deprecated. Use aws.getRegion instead.
+         * 
          */
+        @Deprecated /* region is deprecated. Use aws.getRegion instead. */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
         /**
-         * @param region AWS Region to which the template applies.
+         * @param region AWS Region to which the template applies. Use `aws.getRegion` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * region is deprecated. Use aws.getRegion instead.
+         * 
          */
+        @Deprecated /* region is deprecated. Use aws.getRegion instead. */
         public Builder region(String region) {
             return region(Output.of(region));
         }

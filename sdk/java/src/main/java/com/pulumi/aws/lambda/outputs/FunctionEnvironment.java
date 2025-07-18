@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FunctionEnvironment {
     /**
-     * @return Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
+     * @return Map of environment variables available to your Lambda function during execution.
      * 
      */
     private @Nullable Map<String,String> variables;
 
     private FunctionEnvironment() {}
     /**
-     * @return Map of environment variables that are accessible from the function code during execution. If provided at least one key must be present.
+     * @return Map of environment variables available to your Lambda function during execution.
      * 
      */
     public Map<String,String> variables() {

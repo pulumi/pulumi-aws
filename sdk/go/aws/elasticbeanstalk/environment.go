@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticbeanstalk"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticbeanstalk"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -73,7 +73,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticbeanstalk"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticbeanstalk"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -161,6 +161,8 @@ type Environment struct {
 	PollInterval pulumi.StringPtrOutput `pulumi:"pollInterval"`
 	// SQS queues in use by this Environment.
 	Queues pulumi.StringArrayOutput `pulumi:"queues"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
 	// below in Option Settings
@@ -171,8 +173,6 @@ type Environment struct {
 	// A set of tags to apply to the Environment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The name of the Elastic Beanstalk Configuration
 	// template to use in deployment
@@ -263,6 +263,8 @@ type environmentState struct {
 	PollInterval *string `pulumi:"pollInterval"`
 	// SQS queues in use by this Environment.
 	Queues []string `pulumi:"queues"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
 	// below in Option Settings
@@ -273,8 +275,6 @@ type environmentState struct {
 	// A set of tags to apply to the Environment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The name of the Elastic Beanstalk Configuration
 	// template to use in deployment
@@ -286,7 +286,7 @@ type environmentState struct {
 	Triggers []string `pulumi:"triggers"`
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
-	Version *string `pulumi:"version"`
+	Version interface{} `pulumi:"version"`
 	// The maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
@@ -333,6 +333,8 @@ type EnvironmentState struct {
 	PollInterval pulumi.StringPtrInput
 	// SQS queues in use by this Environment.
 	Queues pulumi.StringArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
 	// below in Option Settings
@@ -343,8 +345,6 @@ type EnvironmentState struct {
 	// A set of tags to apply to the Environment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The name of the Elastic Beanstalk Configuration
 	// template to use in deployment
@@ -356,7 +356,7 @@ type EnvironmentState struct {
 	Triggers pulumi.StringArrayInput
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
-	Version pulumi.StringPtrInput
+	Version pulumi.Input
 	// The maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
@@ -388,6 +388,8 @@ type environmentArgs struct {
 	// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
 	// use the default behavior, which is an exponential backoff
 	PollInterval *string `pulumi:"pollInterval"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
 	// below in Option Settings
@@ -405,7 +407,7 @@ type environmentArgs struct {
 	Tier *string `pulumi:"tier"`
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
-	Version *string `pulumi:"version"`
+	Version interface{} `pulumi:"version"`
 	// The maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
@@ -434,6 +436,8 @@ type EnvironmentArgs struct {
 	// for any `create` or `update` action. Minimum `10s`, maximum `180s`. Omit this to
 	// use the default behavior, which is an exponential backoff
 	PollInterval pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Option settings to configure the new Environment. These
 	// override specific values that are set as defaults. The format is detailed
 	// below in Option Settings
@@ -451,7 +455,7 @@ type EnvironmentArgs struct {
 	Tier pulumi.StringPtrInput
 	// The name of the Elastic Beanstalk Application Version
 	// to use in deployment.
-	Version pulumi.StringPtrInput
+	Version pulumi.Input
 	// The maximum
 	// [duration](https://golang.org/pkg/time/#ParseDuration) that this provider should
 	// wait for an Elastic Beanstalk Environment to be in a ready state before timing
@@ -629,6 +633,11 @@ func (o EnvironmentOutput) Queues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringArrayOutput { return v.Queues }).(pulumi.StringArrayOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o EnvironmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Option settings to configure the new Environment. These
 // override specific values that are set as defaults. The format is detailed
 // below in Option Settings
@@ -648,8 +657,6 @@ func (o EnvironmentOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o EnvironmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

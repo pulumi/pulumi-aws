@@ -106,6 +106,10 @@ export class V2modelsBotLocale extends pulumi.CustomResource {
      * Specified locale name.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
     public readonly timeouts!: pulumi.Output<outputs.lex.V2modelsBotLocaleTimeouts | undefined>;
     /**
      * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
@@ -131,6 +135,7 @@ export class V2modelsBotLocale extends pulumi.CustomResource {
             resourceInputs["localeId"] = state ? state.localeId : undefined;
             resourceInputs["nLuIntentConfidenceThreshold"] = state ? state.nLuIntentConfidenceThreshold : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
             resourceInputs["voiceSettings"] = state ? state.voiceSettings : undefined;
         } else {
@@ -153,6 +158,7 @@ export class V2modelsBotLocale extends pulumi.CustomResource {
             resourceInputs["localeId"] = args ? args.localeId : undefined;
             resourceInputs["nLuIntentConfidenceThreshold"] = args ? args.nLuIntentConfidenceThreshold : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["voiceSettings"] = args ? args.voiceSettings : undefined;
         }
@@ -191,6 +197,10 @@ export interface V2modelsBotLocaleState {
      * Specified locale name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsBotLocaleTimeouts>;
     /**
      * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.
@@ -228,6 +238,10 @@ export interface V2modelsBotLocaleArgs {
      * Specified locale name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsBotLocaleTimeouts>;
     /**
      * Amazon Polly voice ID that Amazon Lex uses for voice interaction with the user. See `voiceSettings`.

@@ -27,6 +27,7 @@ export function getServerlessSecurityConfig(args: GetServerlessSecurityConfigArg
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig", {
         "id": args.id,
+        "region": args.region,
         "samlOptions": args.samlOptions,
     }, opts);
 }
@@ -40,9 +41,13 @@ export interface GetServerlessSecurityConfigArgs {
      */
     id: string;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * SAML options for the security configuration.
      */
-    samlOptions?: inputs.opensearch.GetServerlessSecurityConfigSamlOptions;
+    samlOptions?: inputs.opensearch.GetServerlessSecurityConfigSamlOption[];
 }
 
 /**
@@ -66,10 +71,11 @@ export interface GetServerlessSecurityConfigResult {
      * The date the configuration was last modified.
      */
     readonly lastModifiedDate: string;
+    readonly region: string;
     /**
      * SAML options for the security configuration.
      */
-    readonly samlOptions?: outputs.opensearch.GetServerlessSecurityConfigSamlOptions;
+    readonly samlOptions?: outputs.opensearch.GetServerlessSecurityConfigSamlOption[];
     /**
      * The type of security configuration.
      */
@@ -95,6 +101,7 @@ export function getServerlessSecurityConfigOutput(args: GetServerlessSecurityCon
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig", {
         "id": args.id,
+        "region": args.region,
         "samlOptions": args.samlOptions,
     }, opts);
 }
@@ -108,7 +115,11 @@ export interface GetServerlessSecurityConfigOutputArgs {
      */
     id: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * SAML options for the security configuration.
      */
-    samlOptions?: pulumi.Input<inputs.opensearch.GetServerlessSecurityConfigSamlOptionsArgs>;
+    samlOptions?: pulumi.Input<pulumi.Input<inputs.opensearch.GetServerlessSecurityConfigSamlOptionArgs>[]>;
 }

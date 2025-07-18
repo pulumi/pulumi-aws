@@ -22,17 +22,21 @@ class ReceiptFilterArgs:
     def __init__(__self__, *,
                  cidr: pulumi.Input[builtins.str],
                  policy: pulumi.Input[builtins.str],
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ReceiptFilter resource.
         :param pulumi.Input[builtins.str] cidr: The IP address or address range to filter, in CIDR notation
         :param pulumi.Input[builtins.str] policy: Block or Allow
         :param pulumi.Input[builtins.str] name: The name of the filter
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "cidr", cidr)
         pulumi.set(__self__, "policy", policy)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -70,6 +74,18 @@ class ReceiptFilterArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ReceiptFilterState:
@@ -77,13 +93,15 @@ class _ReceiptFilterState:
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  cidr: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
-                 policy: Optional[pulumi.Input[builtins.str]] = None):
+                 policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ReceiptFilter resources.
         :param pulumi.Input[builtins.str] arn: The SES receipt filter ARN.
         :param pulumi.Input[builtins.str] cidr: The IP address or address range to filter, in CIDR notation
         :param pulumi.Input[builtins.str] name: The name of the filter
         :param pulumi.Input[builtins.str] policy: Block or Allow
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -93,6 +111,8 @@ class _ReceiptFilterState:
             pulumi.set(__self__, "name", name)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -142,6 +162,18 @@ class _ReceiptFilterState:
     def policy(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "policy", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:ses/receiptFilter:ReceiptFilter")
 class ReceiptFilter(pulumi.CustomResource):
@@ -152,6 +184,7 @@ class ReceiptFilter(pulumi.CustomResource):
                  cidr: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides an SES receipt filter resource
@@ -181,6 +214,7 @@ class ReceiptFilter(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cidr: The IP address or address range to filter, in CIDR notation
         :param pulumi.Input[builtins.str] name: The name of the filter
         :param pulumi.Input[builtins.str] policy: Block or Allow
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -229,6 +263,7 @@ class ReceiptFilter(pulumi.CustomResource):
                  cidr: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  policy: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -245,6 +280,7 @@ class ReceiptFilter(pulumi.CustomResource):
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
+            __props__.__dict__["region"] = region
             __props__.__dict__["arn"] = None
         super(ReceiptFilter, __self__).__init__(
             'aws:ses/receiptFilter:ReceiptFilter',
@@ -259,7 +295,8 @@ class ReceiptFilter(pulumi.CustomResource):
             arn: Optional[pulumi.Input[builtins.str]] = None,
             cidr: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
-            policy: Optional[pulumi.Input[builtins.str]] = None) -> 'ReceiptFilter':
+            policy: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'ReceiptFilter':
         """
         Get an existing ReceiptFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -271,6 +308,7 @@ class ReceiptFilter(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] cidr: The IP address or address range to filter, in CIDR notation
         :param pulumi.Input[builtins.str] name: The name of the filter
         :param pulumi.Input[builtins.str] policy: Block or Allow
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -280,6 +318,7 @@ class ReceiptFilter(pulumi.CustomResource):
         __props__.__dict__["cidr"] = cidr
         __props__.__dict__["name"] = name
         __props__.__dict__["policy"] = policy
+        __props__.__dict__["region"] = region
         return ReceiptFilter(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -313,4 +352,12 @@ class ReceiptFilter(pulumi.CustomResource):
         Block or Allow
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

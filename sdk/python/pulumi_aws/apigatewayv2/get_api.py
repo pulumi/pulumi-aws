@@ -28,7 +28,7 @@ class GetApiResult:
     """
     A collection of values returned by getApi.
     """
-    def __init__(__self__, api_endpoint=None, api_id=None, api_key_selection_expression=None, arn=None, cors_configurations=None, description=None, disable_execute_api_endpoint=None, execution_arn=None, id=None, ip_address_type=None, name=None, protocol_type=None, route_selection_expression=None, tags=None, version=None):
+    def __init__(__self__, api_endpoint=None, api_id=None, api_key_selection_expression=None, arn=None, cors_configurations=None, description=None, disable_execute_api_endpoint=None, execution_arn=None, id=None, ip_address_type=None, name=None, protocol_type=None, region=None, route_selection_expression=None, tags=None, version=None):
         if api_endpoint and not isinstance(api_endpoint, str):
             raise TypeError("Expected argument 'api_endpoint' to be a str")
         pulumi.set(__self__, "api_endpoint", api_endpoint)
@@ -65,6 +65,9 @@ class GetApiResult:
         if protocol_type and not isinstance(protocol_type, str):
             raise TypeError("Expected argument 'protocol_type' to be a str")
         pulumi.set(__self__, "protocol_type", protocol_type)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if route_selection_expression and not isinstance(route_selection_expression, str):
             raise TypeError("Expected argument 'route_selection_expression' to be a str")
         pulumi.set(__self__, "route_selection_expression", route_selection_expression)
@@ -170,6 +173,11 @@ class GetApiResult:
         return pulumi.get(self, "protocol_type")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="routeSelectionExpression")
     def route_selection_expression(self) -> builtins.str:
         """
@@ -212,12 +220,14 @@ class AwaitableGetApiResult(GetApiResult):
             ip_address_type=self.ip_address_type,
             name=self.name,
             protocol_type=self.protocol_type,
+            region=self.region,
             route_selection_expression=self.route_selection_expression,
             tags=self.tags,
             version=self.version)
 
 
 def get_api(api_id: Optional[builtins.str] = None,
+            region: Optional[builtins.str] = None,
             tags: Optional[Mapping[str, builtins.str]] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiResult:
     """
@@ -234,10 +244,12 @@ def get_api(api_id: Optional[builtins.str] = None,
 
 
     :param builtins.str api_id: API identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of resource tags.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:apigatewayv2/getApi:getApi', __args__, opts=opts, typ=GetApiResult).value
@@ -255,10 +267,12 @@ def get_api(api_id: Optional[builtins.str] = None,
         ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
         name=pulumi.get(__ret__, 'name'),
         protocol_type=pulumi.get(__ret__, 'protocol_type'),
+        region=pulumi.get(__ret__, 'region'),
         route_selection_expression=pulumi.get(__ret__, 'route_selection_expression'),
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
 def get_api_output(api_id: Optional[pulumi.Input[builtins.str]] = None,
+                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiResult]:
     """
@@ -275,10 +289,12 @@ def get_api_output(api_id: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str api_id: API identifier.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of resource tags.
     """
     __args__ = dict()
     __args__['apiId'] = api_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:apigatewayv2/getApi:getApi', __args__, opts=opts, typ=GetApiResult)
@@ -295,6 +311,7 @@ def get_api_output(api_id: Optional[pulumi.Input[builtins.str]] = None,
         ip_address_type=pulumi.get(__response__, 'ip_address_type'),
         name=pulumi.get(__response__, 'name'),
         protocol_type=pulumi.get(__response__, 'protocol_type'),
+        region=pulumi.get(__response__, 'region'),
         route_selection_expression=pulumi.get(__response__, 'route_selection_expression'),
         tags=pulumi.get(__response__, 'tags'),
         version=pulumi.get(__response__, 'version')))

@@ -16,6 +16,21 @@ public final class StandardsSubscriptionState extends com.pulumi.resources.Resou
     public static final StandardsSubscriptionState Empty = new StandardsSubscriptionState();
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ARN of a standard - see below.
      * 
      * Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):
@@ -57,6 +72,7 @@ public final class StandardsSubscriptionState extends com.pulumi.resources.Resou
     private StandardsSubscriptionState() {}
 
     private StandardsSubscriptionState(StandardsSubscriptionState $) {
+        this.region = $.region;
         this.standardsArn = $.standardsArn;
     }
 
@@ -76,6 +92,27 @@ public final class StandardsSubscriptionState extends com.pulumi.resources.Resou
 
         public Builder(StandardsSubscriptionState defaults) {
             $ = new StandardsSubscriptionState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

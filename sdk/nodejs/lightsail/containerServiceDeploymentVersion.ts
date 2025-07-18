@@ -99,6 +99,10 @@ export class ContainerServiceDeploymentVersion extends pulumi.CustomResource {
      */
     public readonly publicEndpoint!: pulumi.Output<outputs.lightsail.ContainerServiceDeploymentVersionPublicEndpoint | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Name of the container service.
      *
      * The following arguments are optional:
@@ -129,6 +133,7 @@ export class ContainerServiceDeploymentVersion extends pulumi.CustomResource {
             resourceInputs["containers"] = state ? state.containers : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["publicEndpoint"] = state ? state.publicEndpoint : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["serviceName"] = state ? state.serviceName : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
@@ -142,6 +147,7 @@ export class ContainerServiceDeploymentVersion extends pulumi.CustomResource {
             }
             resourceInputs["containers"] = args ? args.containers : undefined;
             resourceInputs["publicEndpoint"] = args ? args.publicEndpoint : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -168,6 +174,10 @@ export interface ContainerServiceDeploymentVersionState {
      * Configuration block that describes the settings of the public endpoint for the container service. See below.
      */
     publicEndpoint?: pulumi.Input<inputs.lightsail.ContainerServiceDeploymentVersionPublicEndpoint>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the container service.
      *
@@ -196,6 +206,10 @@ export interface ContainerServiceDeploymentVersionArgs {
      * Configuration block that describes the settings of the public endpoint for the container service. See below.
      */
     publicEndpoint?: pulumi.Input<inputs.lightsail.ContainerServiceDeploymentVersionPublicEndpoint>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the container service.
      *

@@ -24,18 +24,22 @@ class BucketMetricArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[builtins.str],
                  filter: Optional[pulumi.Input['BucketMetricFilterArgs']] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a BucketMetric resource.
         :param pulumi.Input[builtins.str] bucket: Name of the bucket to put metric configuration.
         :param pulumi.Input['BucketMetricFilterArgs'] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[builtins.str] name: Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket", bucket)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -73,18 +77,32 @@ class BucketMetricArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _BucketMetricState:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  filter: Optional[pulumi.Input['BucketMetricFilterArgs']] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering BucketMetric resources.
         :param pulumi.Input[builtins.str] bucket: Name of the bucket to put metric configuration.
         :param pulumi.Input['BucketMetricFilterArgs'] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[builtins.str] name: Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -92,6 +110,8 @@ class _BucketMetricState:
             pulumi.set(__self__, "filter", filter)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -129,6 +149,18 @@ class _BucketMetricState:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:s3/bucketMetric:BucketMetric")
 class BucketMetric(pulumi.CustomResource):
@@ -139,6 +171,7 @@ class BucketMetric(pulumi.CustomResource):
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  filter: Optional[pulumi.Input[Union['BucketMetricFilterArgs', 'BucketMetricFilterArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a S3 bucket [metrics configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html) resource.
@@ -153,7 +186,7 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_entire_bucket = aws.s3.BucketMetric("example-entire-bucket",
             bucket=example.id,
             name="EntireBucket")
@@ -165,7 +198,7 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_filtered = aws.s3.BucketMetric("example-filtered",
             bucket=example.id,
             name="ImportantBlueDocuments",
@@ -184,7 +217,7 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_access_point = aws.s3.AccessPoint("example-access-point",
             bucket=example.id,
             name="example-access-point")
@@ -213,6 +246,7 @@ class BucketMetric(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket: Name of the bucket to put metric configuration.
         :param pulumi.Input[Union['BucketMetricFilterArgs', 'BucketMetricFilterArgsDict']] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[builtins.str] name: Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -233,7 +267,7 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_entire_bucket = aws.s3.BucketMetric("example-entire-bucket",
             bucket=example.id,
             name="EntireBucket")
@@ -245,7 +279,7 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_filtered = aws.s3.BucketMetric("example-filtered",
             bucket=example.id,
             name="ImportantBlueDocuments",
@@ -264,7 +298,7 @@ class BucketMetric(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.s3.BucketV2("example", bucket="example")
+        example = aws.s3.Bucket("example", bucket="example")
         example_access_point = aws.s3.AccessPoint("example-access-point",
             bucket=example.id,
             name="example-access-point")
@@ -306,6 +340,7 @@ class BucketMetric(pulumi.CustomResource):
                  bucket: Optional[pulumi.Input[builtins.str]] = None,
                  filter: Optional[pulumi.Input[Union['BucketMetricFilterArgs', 'BucketMetricFilterArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -320,6 +355,7 @@ class BucketMetric(pulumi.CustomResource):
             __props__.__dict__["bucket"] = bucket
             __props__.__dict__["filter"] = filter
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
         super(BucketMetric, __self__).__init__(
             'aws:s3/bucketMetric:BucketMetric',
             resource_name,
@@ -332,7 +368,8 @@ class BucketMetric(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             bucket: Optional[pulumi.Input[builtins.str]] = None,
             filter: Optional[pulumi.Input[Union['BucketMetricFilterArgs', 'BucketMetricFilterArgsDict']]] = None,
-            name: Optional[pulumi.Input[builtins.str]] = None) -> 'BucketMetric':
+            name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'BucketMetric':
         """
         Get an existing BucketMetric resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -343,6 +380,7 @@ class BucketMetric(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bucket: Name of the bucket to put metric configuration.
         :param pulumi.Input[Union['BucketMetricFilterArgs', 'BucketMetricFilterArgsDict']] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
         :param pulumi.Input[builtins.str] name: Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -351,6 +389,7 @@ class BucketMetric(pulumi.CustomResource):
         __props__.__dict__["bucket"] = bucket
         __props__.__dict__["filter"] = filter
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         return BucketMetric(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -376,4 +415,12 @@ class BucketMetric(pulumi.CustomResource):
         Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

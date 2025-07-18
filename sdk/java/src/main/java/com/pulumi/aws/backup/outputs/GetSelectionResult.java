@@ -27,6 +27,7 @@ public final class GetSelectionResult {
      */
     private String name;
     private String planId;
+    private String region;
     /**
      * @return An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
      * 
@@ -59,6 +60,9 @@ public final class GetSelectionResult {
     public String planId() {
         return this.planId;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
      * 
@@ -83,6 +87,7 @@ public final class GetSelectionResult {
         private String id;
         private String name;
         private String planId;
+        private String region;
         private List<String> resources;
         private String selectionId;
         public Builder() {}
@@ -92,6 +97,7 @@ public final class GetSelectionResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.planId = defaults.planId;
+    	      this.region = defaults.region;
     	      this.resources = defaults.resources;
     	      this.selectionId = defaults.selectionId;
         }
@@ -129,6 +135,14 @@ public final class GetSelectionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetSelectionResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resources(List<String> resources) {
             if (resources == null) {
               throw new MissingRequiredPropertyException("GetSelectionResult", "resources");
@@ -153,6 +167,7 @@ public final class GetSelectionResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.planId = planId;
+            _resultValue.region = region;
             _resultValue.resources = resources;
             _resultValue.selectionId = selectionId;
             return _resultValue;

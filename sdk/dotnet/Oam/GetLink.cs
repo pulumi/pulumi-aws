@@ -99,6 +99,12 @@ namespace Pulumi.Aws.Oam
         [Input("linkIdentifier", required: true)]
         public string LinkIdentifier { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
         public Dictionary<string, string> Tags
@@ -120,6 +126,12 @@ namespace Pulumi.Aws.Oam
         /// </summary>
         [Input("linkIdentifier", required: true)]
         public Input<string> LinkIdentifier { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -164,6 +176,7 @@ namespace Pulumi.Aws.Oam
         /// </summary>
         public readonly string LinkId;
         public readonly string LinkIdentifier;
+        public readonly string Region;
         /// <summary>
         /// Types of data that the source account shares with the monitoring account.
         /// </summary>
@@ -190,6 +203,8 @@ namespace Pulumi.Aws.Oam
 
             string linkIdentifier,
 
+            string region,
+
             ImmutableArray<string> resourceTypes,
 
             string sinkArn,
@@ -203,6 +218,7 @@ namespace Pulumi.Aws.Oam
             LinkConfigurations = linkConfigurations;
             LinkId = linkId;
             LinkIdentifier = linkIdentifier;
+            Region = region;
             ResourceTypes = resourceTypes;
             SinkArn = sinkArn;
             Tags = tags;

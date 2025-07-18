@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
 /**
  * Provides a CloudWatch Evidently Launch resource.
  * 
+ * &gt; **Warning:** This resource is deprecated. Use [AWS AppConfig feature flags](https://aws.amazon.com/blogs/mt/using-aws-appconfig-feature-flags/) instead.
+ * 
  * ## Example Usage
  * 
  * ### Basic
@@ -603,6 +605,20 @@ public class Launch extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.randomizationSalt);
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * A block that defines the traffic allocation percentages among the feature variations during each step of the launch. Detailed below.
      * 
      */
@@ -661,11 +677,7 @@ public class Launch extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

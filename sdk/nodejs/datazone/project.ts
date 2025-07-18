@@ -97,6 +97,10 @@ export class Project extends pulumi.CustomResource {
      */
     public /*out*/ readonly projectStatus!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Optional flag to delete all child entities within the project.
      */
     public readonly skipDeletionCheck!: pulumi.Output<boolean | undefined>;
@@ -124,6 +128,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["lastUpdatedAt"] = state ? state.lastUpdatedAt : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["projectStatus"] = state ? state.projectStatus : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["skipDeletionCheck"] = state ? state.skipDeletionCheck : undefined;
             resourceInputs["timeouts"] = state ? state.timeouts : undefined;
         } else {
@@ -135,6 +140,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
             resourceInputs["glossaryTerms"] = args ? args.glossaryTerms : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["skipDeletionCheck"] = args ? args.skipDeletionCheck : undefined;
             resourceInputs["timeouts"] = args ? args.timeouts : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -191,6 +197,10 @@ export interface ProjectState {
      */
     projectStatus?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Optional flag to delete all child entities within the project.
      */
     skipDeletionCheck?: pulumi.Input<boolean>;
@@ -219,6 +229,10 @@ export interface ProjectArgs {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Optional flag to delete all child entities within the project.
      */

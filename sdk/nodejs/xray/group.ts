@@ -79,13 +79,15 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly insightsConfiguration!: pulumi.Output<outputs.xray.GroupInsightsConfiguration>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -106,6 +108,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["filterExpression"] = state ? state.filterExpression : undefined;
             resourceInputs["groupName"] = state ? state.groupName : undefined;
             resourceInputs["insightsConfiguration"] = state ? state.insightsConfiguration : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -119,6 +122,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["filterExpression"] = args ? args.filterExpression : undefined;
             resourceInputs["groupName"] = args ? args.groupName : undefined;
             resourceInputs["insightsConfiguration"] = args ? args.insightsConfiguration : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -149,13 +153,15 @@ export interface GroupState {
      */
     insightsConfiguration?: pulumi.Input<inputs.xray.GroupInsightsConfiguration>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -176,6 +182,10 @@ export interface GroupArgs {
      * Configuration options for enabling insights.
      */
     insightsConfiguration?: pulumi.Input<inputs.xray.GroupInsightsConfiguration>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
      */

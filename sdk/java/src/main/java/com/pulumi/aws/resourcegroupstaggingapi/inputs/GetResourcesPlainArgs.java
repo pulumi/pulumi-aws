@@ -48,6 +48,21 @@ public final class GetResourcesPlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable String region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
      * 
      */
@@ -97,6 +112,7 @@ public final class GetResourcesPlainArgs extends com.pulumi.resources.InvokeArgs
     private GetResourcesPlainArgs(GetResourcesPlainArgs $) {
         this.excludeCompliantResources = $.excludeCompliantResources;
         this.includeComplianceDetails = $.includeComplianceDetails;
+        this.region = $.region;
         this.resourceArnLists = $.resourceArnLists;
         this.resourceTypeFilters = $.resourceTypeFilters;
         this.tagFilters = $.tagFilters;
@@ -139,6 +155,17 @@ public final class GetResourcesPlainArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder includeComplianceDetails(@Nullable Boolean includeComplianceDetails) {
             $.includeComplianceDetails = includeComplianceDetails;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable String region) {
+            $.region = region;
             return this;
         }
 

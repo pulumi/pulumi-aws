@@ -162,6 +162,21 @@ public final class TableExportState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Name of the Amazon S3 bucket to export the snapshot to. See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport_Requesting.html#S3DataExport_Requesting_Permissions) for information on how configure this S3 bucket.
      * 
      */
@@ -283,6 +298,7 @@ public final class TableExportState extends com.pulumi.resources.ResourceArgs {
         this.incrementalExportSpecification = $.incrementalExportSpecification;
         this.itemCount = $.itemCount;
         this.manifestFilesS3Key = $.manifestFilesS3Key;
+        this.region = $.region;
         this.s3Bucket = $.s3Bucket;
         this.s3BucketOwner = $.s3BucketOwner;
         this.s3Prefix = $.s3Prefix;
@@ -508,6 +524,27 @@ public final class TableExportState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder manifestFilesS3Key(String manifestFilesS3Key) {
             return manifestFilesS3Key(Output.of(manifestFilesS3Key));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

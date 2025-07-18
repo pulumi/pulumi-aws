@@ -39,6 +39,7 @@ export function getGroupMemberships(args: GetGroupMembershipsArgs, opts?: pulumi
     return pulumi.runtime.invoke("aws:identitystore/getGroupMemberships:getGroupMemberships", {
         "groupId": args.groupId,
         "identityStoreId": args.identityStoreId,
+        "region": args.region,
     }, opts);
 }
 
@@ -54,6 +55,10 @@ export interface GetGroupMembershipsArgs {
      * Identity Store ID associated with the Single Sign-On Instance.
      */
     identityStoreId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -76,6 +81,7 @@ export interface GetGroupMembershipsResult {
      * Identity store identifier.
      */
     readonly identityStoreId: string;
+    readonly region: string;
 }
 /**
  * Use this data source to get a list of members in an Identity Store Group.
@@ -109,6 +115,7 @@ export function getGroupMembershipsOutput(args: GetGroupMembershipsOutputArgs, o
     return pulumi.runtime.invokeOutput("aws:identitystore/getGroupMemberships:getGroupMemberships", {
         "groupId": args.groupId,
         "identityStoreId": args.identityStoreId,
+        "region": args.region,
     }, opts);
 }
 
@@ -124,4 +131,8 @@ export interface GetGroupMembershipsOutputArgs {
      * Identity Store ID associated with the Single Sign-On Instance.
      */
     identityStoreId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

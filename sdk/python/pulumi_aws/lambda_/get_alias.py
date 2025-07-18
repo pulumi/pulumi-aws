@@ -27,7 +27,7 @@ class GetAliasResult:
     """
     A collection of values returned by getAlias.
     """
-    def __init__(__self__, arn=None, description=None, function_name=None, function_version=None, id=None, invoke_arn=None, name=None):
+    def __init__(__self__, arn=None, description=None, function_name=None, function_version=None, id=None, invoke_arn=None, name=None, region=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +49,9 @@ class GetAliasResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -62,7 +65,7 @@ class GetAliasResult:
     @pulumi.getter
     def description(self) -> builtins.str:
         """
-        Description of alias.
+        Description of the alias.
         """
         return pulumi.get(self, "description")
 
@@ -91,7 +94,7 @@ class GetAliasResult:
     @pulumi.getter(name="invokeArn")
     def invoke_arn(self) -> builtins.str:
         """
-        ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's `uri`.
+        ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
         """
         return pulumi.get(self, "invoke_arn")
 
@@ -99,6 +102,11 @@ class GetAliasResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
 
 class AwaitableGetAliasResult(GetAliasResult):
@@ -113,32 +121,116 @@ class AwaitableGetAliasResult(GetAliasResult):
             function_version=self.function_version,
             id=self.id,
             invoke_arn=self.invoke_arn,
-            name=self.name)
+            name=self.name,
+            region=self.region)
 
 
 def get_alias(function_name: Optional[builtins.str] = None,
               name: Optional[builtins.str] = None,
+              region: Optional[builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAliasResult:
     """
-    Provides information about a Lambda Alias.
+    Provides details about an AWS Lambda Alias. Use this data source to retrieve information about an existing Lambda function alias for traffic management, deployment strategies, or API integrations.
 
     ## Example Usage
+
+    ### Basic Usage
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    production = aws.lambda.get_alias(function_name="my-lambda-func",
+    example = aws.lambda.get_alias(function_name="my-lambda-function",
         name="production")
+    pulumi.export("aliasArn", example.arn)
+    ```
+
+    ### API Gateway Integration
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    api_handler = aws.lambda.get_alias(function_name="api-handler",
+        name="live")
+    example = aws.apigateway.Integration("example",
+        rest_api=example_aws_api_gateway_rest_api["id"],
+        resource_id=example_aws_api_gateway_resource["id"],
+        http_method=example_aws_api_gateway_method["httpMethod"],
+        integration_http_method="POST",
+        type="AWS_PROXY",
+        uri=api_handler.invoke_arn)
+    # Grant API Gateway permission to invoke the alias
+    api_gateway = aws.lambda_.Permission("api_gateway",
+        statement_id="AllowExecutionFromAPIGateway",
+        action="lambda:InvokeFunction",
+        function=api_handler.function_name,
+        principal="apigateway.amazonaws.com",
+        qualifier=api_handler.name,
+        source_arn=f"{example_aws_api_gateway_rest_api['executionArn']}/*/*")
+    ```
+
+    ### Deployment Version Tracking
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    # Get production alias details
+    production = aws.lambda.get_alias(function_name="payment-processor",
+        name="production")
+    # Get staging alias details
+    staging = aws.lambda.get_alias(function_name="payment-processor",
+        name="staging")
+    version_drift = production.function_version != staging.function_version
+    pulumi.export("deploymentStatus", {
+        "productionVersion": production.function_version,
+        "stagingVersion": staging.function_version,
+        "versionDrift": version_drift,
+        "readyForPromotion": not version_drift,
+    })
+    ```
+
+    ### EventBridge Rule Target
+
+    ```python
+    import pulumi
+    import json
+    import pulumi_aws as aws
+
+    event_processor = aws.lambda.get_alias(function_name="event-processor",
+        name="stable")
+    example = aws.cloudwatch.EventRule("example",
+        name="capture-events",
+        description="Capture events for processing",
+        event_pattern=json.dumps({
+            "source": ["myapp.orders"],
+            "detail-type": ["Order Placed"],
+        }))
+    lambda_ = aws.cloudwatch.EventTarget("lambda",
+        rule=example.name,
+        target_id="SendToLambda",
+        arn=event_processor.arn)
+    allow_eventbridge = aws.lambda_.Permission("allow_eventbridge",
+        statement_id="AllowExecutionFromEventBridge",
+        action="lambda:InvokeFunction",
+        function=event_processor.function_name,
+        principal="events.amazonaws.com",
+        qualifier=event_processor.name,
+        source_arn=example.arn)
     ```
 
 
     :param builtins.str function_name: Name of the aliased Lambda function.
     :param builtins.str name: Name of the Lambda alias.
+           
+           The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['functionName'] = function_name
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:lambda/getAlias:getAlias', __args__, opts=opts, typ=GetAliasResult).value
 
@@ -149,30 +241,114 @@ def get_alias(function_name: Optional[builtins.str] = None,
         function_version=pulumi.get(__ret__, 'function_version'),
         id=pulumi.get(__ret__, 'id'),
         invoke_arn=pulumi.get(__ret__, 'invoke_arn'),
-        name=pulumi.get(__ret__, 'name'))
+        name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'))
 def get_alias_output(function_name: Optional[pulumi.Input[builtins.str]] = None,
                      name: Optional[pulumi.Input[builtins.str]] = None,
+                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAliasResult]:
     """
-    Provides information about a Lambda Alias.
+    Provides details about an AWS Lambda Alias. Use this data source to retrieve information about an existing Lambda function alias for traffic management, deployment strategies, or API integrations.
 
     ## Example Usage
+
+    ### Basic Usage
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
-    production = aws.lambda.get_alias(function_name="my-lambda-func",
+    example = aws.lambda.get_alias(function_name="my-lambda-function",
         name="production")
+    pulumi.export("aliasArn", example.arn)
+    ```
+
+    ### API Gateway Integration
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    api_handler = aws.lambda.get_alias(function_name="api-handler",
+        name="live")
+    example = aws.apigateway.Integration("example",
+        rest_api=example_aws_api_gateway_rest_api["id"],
+        resource_id=example_aws_api_gateway_resource["id"],
+        http_method=example_aws_api_gateway_method["httpMethod"],
+        integration_http_method="POST",
+        type="AWS_PROXY",
+        uri=api_handler.invoke_arn)
+    # Grant API Gateway permission to invoke the alias
+    api_gateway = aws.lambda_.Permission("api_gateway",
+        statement_id="AllowExecutionFromAPIGateway",
+        action="lambda:InvokeFunction",
+        function=api_handler.function_name,
+        principal="apigateway.amazonaws.com",
+        qualifier=api_handler.name,
+        source_arn=f"{example_aws_api_gateway_rest_api['executionArn']}/*/*")
+    ```
+
+    ### Deployment Version Tracking
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    # Get production alias details
+    production = aws.lambda.get_alias(function_name="payment-processor",
+        name="production")
+    # Get staging alias details
+    staging = aws.lambda.get_alias(function_name="payment-processor",
+        name="staging")
+    version_drift = production.function_version != staging.function_version
+    pulumi.export("deploymentStatus", {
+        "productionVersion": production.function_version,
+        "stagingVersion": staging.function_version,
+        "versionDrift": version_drift,
+        "readyForPromotion": not version_drift,
+    })
+    ```
+
+    ### EventBridge Rule Target
+
+    ```python
+    import pulumi
+    import json
+    import pulumi_aws as aws
+
+    event_processor = aws.lambda.get_alias(function_name="event-processor",
+        name="stable")
+    example = aws.cloudwatch.EventRule("example",
+        name="capture-events",
+        description="Capture events for processing",
+        event_pattern=json.dumps({
+            "source": ["myapp.orders"],
+            "detail-type": ["Order Placed"],
+        }))
+    lambda_ = aws.cloudwatch.EventTarget("lambda",
+        rule=example.name,
+        target_id="SendToLambda",
+        arn=event_processor.arn)
+    allow_eventbridge = aws.lambda_.Permission("allow_eventbridge",
+        statement_id="AllowExecutionFromEventBridge",
+        action="lambda:InvokeFunction",
+        function=event_processor.function_name,
+        principal="events.amazonaws.com",
+        qualifier=event_processor.name,
+        source_arn=example.arn)
     ```
 
 
     :param builtins.str function_name: Name of the aliased Lambda function.
     :param builtins.str name: Name of the Lambda alias.
+           
+           The following arguments are optional:
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['functionName'] = function_name
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:lambda/getAlias:getAlias', __args__, opts=opts, typ=GetAliasResult)
     return __ret__.apply(lambda __response__: GetAliasResult(
@@ -182,4 +358,5 @@ def get_alias_output(function_name: Optional[pulumi.Input[builtins.str]] = None,
         function_version=pulumi.get(__response__, 'function_version'),
         id=pulumi.get(__response__, 'id'),
         invoke_arn=pulumi.get(__response__, 'invoke_arn'),
-        name=pulumi.get(__response__, 'name')))
+        name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region')))

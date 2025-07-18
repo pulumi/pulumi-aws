@@ -66,6 +66,10 @@ export class UserStackAssociation extends pulumi.CustomResource {
      */
     public readonly authenticationType!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Whether a welcome email is sent to a user after the user is created in the user pool.
      */
     public readonly sendEmailNotification!: pulumi.Output<boolean | undefined>;
@@ -94,6 +98,7 @@ export class UserStackAssociation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as UserStackAssociationState | undefined;
             resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sendEmailNotification"] = state ? state.sendEmailNotification : undefined;
             resourceInputs["stackName"] = state ? state.stackName : undefined;
             resourceInputs["userName"] = state ? state.userName : undefined;
@@ -109,6 +114,7 @@ export class UserStackAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'userName'");
             }
             resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sendEmailNotification"] = args ? args.sendEmailNotification : undefined;
             resourceInputs["stackName"] = args ? args.stackName : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
@@ -126,6 +132,10 @@ export interface UserStackAssociationState {
      * Authentication type for the user.
      */
     authenticationType?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether a welcome email is sent to a user after the user is created in the user pool.
      */
@@ -150,6 +160,10 @@ export interface UserStackAssociationArgs {
      * Authentication type for the user.
      */
     authenticationType: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Whether a welcome email is sent to a user after the user is created in the user pool.
      */

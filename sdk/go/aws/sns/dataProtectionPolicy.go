@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sns"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,6 +87,8 @@ type DataProtectionPolicy struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
 	Policy pulumi.StringOutput `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewDataProtectionPolicy registers a new resource with the given unique name, arguments, and options.
@@ -129,6 +131,8 @@ type dataProtectionPolicyState struct {
 	Arn *string `pulumi:"arn"`
 	// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
 	Policy *string `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type DataProtectionPolicyState struct {
@@ -136,6 +140,8 @@ type DataProtectionPolicyState struct {
 	Arn pulumi.StringPtrInput
 	// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
 	Policy pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DataProtectionPolicyState) ElementType() reflect.Type {
@@ -147,6 +153,8 @@ type dataProtectionPolicyArgs struct {
 	Arn string `pulumi:"arn"`
 	// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
 	Policy string `pulumi:"policy"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a DataProtectionPolicy resource.
@@ -155,6 +163,8 @@ type DataProtectionPolicyArgs struct {
 	Arn pulumi.StringInput
 	// The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
 	Policy pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (DataProtectionPolicyArgs) ElementType() reflect.Type {
@@ -252,6 +262,11 @@ func (o DataProtectionPolicyOutput) Arn() pulumi.StringOutput {
 // The fully-formed AWS policy as JSON. For more information about building AWS IAM policy documents with this provider, see the AWS IAM Policy Document Guide.
 func (o DataProtectionPolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataProtectionPolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DataProtectionPolicyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataProtectionPolicy) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type DataProtectionPolicyArrayOutput struct{ *pulumi.OutputState }

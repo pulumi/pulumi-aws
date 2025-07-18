@@ -38,6 +38,7 @@ export function getSecurityProfile(args: GetSecurityProfileArgs, opts?: pulumi.I
     return pulumi.runtime.invoke("aws:connect/getSecurityProfile:getSecurityProfile", {
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "securityProfileId": args.securityProfileId,
         "tags": args.tags,
     }, opts);
@@ -57,6 +58,10 @@ export interface GetSecurityProfileArgs {
      * > **NOTE:** `instanceId` and one of either `name` or `securityProfileId` is required.
      */
     name?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Returns information on a specific Security Profile by Security Profile id
      */
@@ -93,6 +98,7 @@ export interface GetSecurityProfileResult {
      * List of permissions assigned to the security profile.
      */
     readonly permissions: string[];
+    readonly region: string;
     readonly securityProfileId: string;
     /**
      * Map of tags to assign to the Security Profile.
@@ -133,6 +139,7 @@ export function getSecurityProfileOutput(args: GetSecurityProfileOutputArgs, opt
     return pulumi.runtime.invokeOutput("aws:connect/getSecurityProfile:getSecurityProfile", {
         "instanceId": args.instanceId,
         "name": args.name,
+        "region": args.region,
         "securityProfileId": args.securityProfileId,
         "tags": args.tags,
     }, opts);
@@ -152,6 +159,10 @@ export interface GetSecurityProfileOutputArgs {
      * > **NOTE:** `instanceId` and one of either `name` or `securityProfileId` is required.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Returns information on a specific Security Profile by Security Profile id
      */

@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     ],
  *     parameters: {
  *         functionName: "func-postgres-rotator",
- *         endpoint: Promise.all([currentGetRegion, current]).then(([currentGetRegion, current]) => `secretsmanager.${currentGetRegion.name}.${current.dnsSuffix}`),
+ *         endpoint: Promise.all([currentGetRegion, current]).then(([currentGetRegion, current]) => `secretsmanager.${currentGetRegion.region}.${current.dnsSuffix}`),
  *     },
  * });
  * ```
@@ -86,6 +86,10 @@ export class CloudFormationStack extends pulumi.CustomResource {
      */
     public readonly parameters!: pulumi.Output<{[key: string]: string}>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The version of the application to deploy. If not supplied, deploys the latest version.
      */
     public readonly semanticVersion!: pulumi.Output<string>;
@@ -95,8 +99,6 @@ export class CloudFormationStack extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -118,6 +120,7 @@ export class CloudFormationStack extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["outputs"] = state ? state.outputs : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["semanticVersion"] = state ? state.semanticVersion : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -133,6 +136,7 @@ export class CloudFormationStack extends pulumi.CustomResource {
             resourceInputs["capabilities"] = args ? args.capabilities : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["semanticVersion"] = args ? args.semanticVersion : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["outputs"] = undefined /*out*/;
@@ -168,6 +172,10 @@ export interface CloudFormationStackState {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The version of the application to deploy. If not supplied, deploys the latest version.
      */
     semanticVersion?: pulumi.Input<string>;
@@ -177,8 +185,6 @@ export interface CloudFormationStackState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -203,6 +209,10 @@ export interface CloudFormationStackArgs {
      * A map of Parameter structures that specify input parameters for the stack.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The version of the application to deploy. If not supplied, deploys the latest version.
      */

@@ -122,6 +122,12 @@ namespace Pulumi.Aws.Cognito
         public Output<int?> Precedence { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the IAM role to be associated with the user group.
         /// </summary>
         [Output("roleArn")]
@@ -198,6 +204,12 @@ namespace Pulumi.Aws.Cognito
         public Input<int>? Precedence { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ARN of the IAM role to be associated with the user group.
         /// </summary>
         [Input("roleArn")]
@@ -234,6 +246,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("precedence")]
         public Input<int>? Precedence { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ARN of the IAM role to be associated with the user group.

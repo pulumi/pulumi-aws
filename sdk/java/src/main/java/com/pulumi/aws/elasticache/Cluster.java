@@ -625,16 +625,12 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * The name of the parameter group to associate with this cache cluster.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="parameterGroupName", refs={String.class}, tree="[0]")
     private Output<String> parameterGroupName;
 
     /**
      * @return The name of the parameter group to associate with this cache cluster.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> parameterGroupName() {
@@ -681,6 +677,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> preferredOutpostArn() {
         return this.preferredOutpostArn;
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
     /**
      * ID of the replication group to which this cluster should belong. If this parameter is specified, the cluster is added to the specified replication group as a read replica; otherwise, the cluster is a standalone primary that is not part of any replication group.
@@ -797,11 +807,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

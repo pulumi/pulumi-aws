@@ -24,7 +24,8 @@ class GroupArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[builtins.str],
                  identity_store_id: pulumi.Input[builtins.str],
-                 description: Optional[pulumi.Input[builtins.str]] = None):
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Group resource.
         :param pulumi.Input[builtins.str] display_name: A string containing the name of the group. This value is commonly displayed when the group is referenced.
@@ -32,11 +33,14 @@ class GroupArgs:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] description: A string containing the description of the group.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "identity_store_id", identity_store_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="displayName")
@@ -76,6 +80,18 @@ class GroupArgs:
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _GroupState:
@@ -84,7 +100,8 @@ class _GroupState:
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
                  external_ids: Optional[pulumi.Input[Sequence[pulumi.Input['GroupExternalIdArgs']]]] = None,
                  group_id: Optional[pulumi.Input[builtins.str]] = None,
-                 identity_store_id: Optional[pulumi.Input[builtins.str]] = None):
+                 identity_store_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Group resources.
         :param pulumi.Input[builtins.str] description: A string containing the description of the group.
@@ -94,6 +111,7 @@ class _GroupState:
         :param pulumi.Input[builtins.str] identity_store_id: The globally unique identifier for the identity store.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -105,6 +123,8 @@ class _GroupState:
             pulumi.set(__self__, "group_id", group_id)
         if identity_store_id is not None:
             pulumi.set(__self__, "identity_store_id", identity_store_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -168,6 +188,18 @@ class _GroupState:
     def identity_store_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "identity_store_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:identitystore/group:Group")
 class Group(pulumi.CustomResource):
@@ -178,6 +210,7 @@ class Group(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
                  identity_store_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS IdentityStore Group.
@@ -211,6 +244,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] identity_store_id: The globally unique identifier for the identity store.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -261,6 +295,7 @@ class Group(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  display_name: Optional[pulumi.Input[builtins.str]] = None,
                  identity_store_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -277,6 +312,7 @@ class Group(pulumi.CustomResource):
             if identity_store_id is None and not opts.urn:
                 raise TypeError("Missing required property 'identity_store_id'")
             __props__.__dict__["identity_store_id"] = identity_store_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["external_ids"] = None
             __props__.__dict__["group_id"] = None
         super(Group, __self__).__init__(
@@ -293,7 +329,8 @@ class Group(pulumi.CustomResource):
             display_name: Optional[pulumi.Input[builtins.str]] = None,
             external_ids: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GroupExternalIdArgs', 'GroupExternalIdArgsDict']]]]] = None,
             group_id: Optional[pulumi.Input[builtins.str]] = None,
-            identity_store_id: Optional[pulumi.Input[builtins.str]] = None) -> 'Group':
+            identity_store_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'Group':
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -308,6 +345,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] identity_store_id: The globally unique identifier for the identity store.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -318,6 +356,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["external_ids"] = external_ids
         __props__.__dict__["group_id"] = group_id
         __props__.__dict__["identity_store_id"] = identity_store_id
+        __props__.__dict__["region"] = region
         return Group(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -361,4 +400,12 @@ class Group(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "identity_store_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

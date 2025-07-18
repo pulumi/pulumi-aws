@@ -29,7 +29,7 @@ class GetAmiIdsResult:
     """
     A collection of values returned by getAmiIds.
     """
-    def __init__(__self__, executable_users=None, filters=None, id=None, ids=None, include_deprecated=None, name_regex=None, owners=None, sort_ascending=None):
+    def __init__(__self__, executable_users=None, filters=None, id=None, ids=None, include_deprecated=None, name_regex=None, owners=None, region=None, sort_ascending=None):
         if executable_users and not isinstance(executable_users, list):
             raise TypeError("Expected argument 'executable_users' to be a list")
         pulumi.set(__self__, "executable_users", executable_users)
@@ -51,6 +51,9 @@ class GetAmiIdsResult:
         if owners and not isinstance(owners, list):
             raise TypeError("Expected argument 'owners' to be a list")
         pulumi.set(__self__, "owners", owners)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if sort_ascending and not isinstance(sort_ascending, bool):
             raise TypeError("Expected argument 'sort_ascending' to be a bool")
         pulumi.set(__self__, "sort_ascending", sort_ascending)
@@ -97,6 +100,11 @@ class GetAmiIdsResult:
         return pulumi.get(self, "owners")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="sortAscending")
     def sort_ascending(self) -> Optional[builtins.bool]:
         return pulumi.get(self, "sort_ascending")
@@ -115,6 +123,7 @@ class AwaitableGetAmiIdsResult(GetAmiIdsResult):
             include_deprecated=self.include_deprecated,
             name_regex=self.name_regex,
             owners=self.owners,
+            region=self.region,
             sort_ascending=self.sort_ascending)
 
 
@@ -123,6 +132,7 @@ def get_ami_ids(executable_users: Optional[Sequence[builtins.str]] = None,
                 include_deprecated: Optional[builtins.bool] = None,
                 name_regex: Optional[builtins.str] = None,
                 owners: Optional[Sequence[builtins.str]] = None,
+                region: Optional[builtins.str] = None,
                 sort_ascending: Optional[builtins.bool] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAmiIdsResult:
     """
@@ -155,6 +165,7 @@ def get_ami_ids(executable_users: Optional[Sequence[builtins.str]] = None,
            impact if the result is large. Combine this with other
            options to narrow down the list AWS returns.
     :param Sequence[builtins.str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.bool sort_ascending: Used to sort AMIs by creation time.
            If no value is specified, the default value is `false`.
     """
@@ -164,6 +175,7 @@ def get_ami_ids(executable_users: Optional[Sequence[builtins.str]] = None,
     __args__['includeDeprecated'] = include_deprecated
     __args__['nameRegex'] = name_regex
     __args__['owners'] = owners
+    __args__['region'] = region
     __args__['sortAscending'] = sort_ascending
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getAmiIds:getAmiIds', __args__, opts=opts, typ=GetAmiIdsResult).value
@@ -176,12 +188,14 @@ def get_ami_ids(executable_users: Optional[Sequence[builtins.str]] = None,
         include_deprecated=pulumi.get(__ret__, 'include_deprecated'),
         name_regex=pulumi.get(__ret__, 'name_regex'),
         owners=pulumi.get(__ret__, 'owners'),
+        region=pulumi.get(__ret__, 'region'),
         sort_ascending=pulumi.get(__ret__, 'sort_ascending'))
 def get_ami_ids_output(executable_users: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                        filters: Optional[pulumi.Input[Optional[Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']]]]] = None,
                        include_deprecated: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                        name_regex: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        owners: Optional[pulumi.Input[Sequence[builtins.str]]] = None,
+                       region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                        sort_ascending: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAmiIdsResult]:
     """
@@ -214,6 +228,7 @@ def get_ami_ids_output(executable_users: Optional[pulumi.Input[Optional[Sequence
            impact if the result is large. Combine this with other
            options to narrow down the list AWS returns.
     :param Sequence[builtins.str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.bool sort_ascending: Used to sort AMIs by creation time.
            If no value is specified, the default value is `false`.
     """
@@ -223,6 +238,7 @@ def get_ami_ids_output(executable_users: Optional[pulumi.Input[Optional[Sequence
     __args__['includeDeprecated'] = include_deprecated
     __args__['nameRegex'] = name_regex
     __args__['owners'] = owners
+    __args__['region'] = region
     __args__['sortAscending'] = sort_ascending
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getAmiIds:getAmiIds', __args__, opts=opts, typ=GetAmiIdsResult)
@@ -234,4 +250,5 @@ def get_ami_ids_output(executable_users: Optional[pulumi.Input[Optional[Sequence
         include_deprecated=pulumi.get(__response__, 'include_deprecated'),
         name_regex=pulumi.get(__response__, 'name_regex'),
         owners=pulumi.get(__response__, 'owners'),
+        region=pulumi.get(__response__, 'region'),
         sort_ascending=pulumi.get(__response__, 'sort_ascending')))

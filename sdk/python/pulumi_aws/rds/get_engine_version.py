@@ -29,7 +29,7 @@ class GetEngineVersionResult:
     """
     A collection of values returned by getEngineVersion.
     """
-    def __init__(__self__, default_character_set=None, default_only=None, engine=None, engine_description=None, exportable_log_types=None, filters=None, has_major_target=None, has_minor_target=None, id=None, include_all=None, latest=None, parameter_group_family=None, preferred_major_targets=None, preferred_upgrade_targets=None, preferred_versions=None, status=None, supported_character_sets=None, supported_feature_names=None, supported_modes=None, supported_timezones=None, supports_certificate_rotation_without_restart=None, supports_global_databases=None, supports_integrations=None, supports_limitless_database=None, supports_local_write_forwarding=None, supports_log_exports_to_cloudwatch=None, supports_parallel_query=None, supports_read_replica=None, valid_major_targets=None, valid_minor_targets=None, valid_upgrade_targets=None, version=None, version_actual=None, version_description=None):
+    def __init__(__self__, default_character_set=None, default_only=None, engine=None, engine_description=None, exportable_log_types=None, filters=None, has_major_target=None, has_minor_target=None, id=None, include_all=None, latest=None, parameter_group_family=None, preferred_major_targets=None, preferred_upgrade_targets=None, preferred_versions=None, region=None, status=None, supported_character_sets=None, supported_feature_names=None, supported_modes=None, supported_timezones=None, supports_certificate_rotation_without_restart=None, supports_global_databases=None, supports_integrations=None, supports_limitless_database=None, supports_local_write_forwarding=None, supports_log_exports_to_cloudwatch=None, supports_parallel_query=None, supports_read_replica=None, valid_major_targets=None, valid_minor_targets=None, valid_upgrade_targets=None, version=None, version_actual=None, version_description=None):
         if default_character_set and not isinstance(default_character_set, str):
             raise TypeError("Expected argument 'default_character_set' to be a str")
         pulumi.set(__self__, "default_character_set", default_character_set)
@@ -75,6 +75,9 @@ class GetEngineVersionResult:
         if preferred_versions and not isinstance(preferred_versions, list):
             raise TypeError("Expected argument 'preferred_versions' to be a list")
         pulumi.set(__self__, "preferred_versions", preferred_versions)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -219,6 +222,11 @@ class GetEngineVersionResult:
     @pulumi.getter(name="preferredVersions")
     def preferred_versions(self) -> Optional[Sequence[builtins.str]]:
         return pulumi.get(self, "preferred_versions")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter
@@ -391,6 +399,7 @@ class AwaitableGetEngineVersionResult(GetEngineVersionResult):
             preferred_major_targets=self.preferred_major_targets,
             preferred_upgrade_targets=self.preferred_upgrade_targets,
             preferred_versions=self.preferred_versions,
+            region=self.region,
             status=self.status,
             supported_character_sets=self.supported_character_sets,
             supported_feature_names=self.supported_feature_names,
@@ -423,6 +432,7 @@ def get_engine_version(default_only: Optional[builtins.bool] = None,
                        preferred_major_targets: Optional[Sequence[builtins.str]] = None,
                        preferred_upgrade_targets: Optional[Sequence[builtins.str]] = None,
                        preferred_versions: Optional[Sequence[builtins.str]] = None,
+                       region: Optional[builtins.str] = None,
                        version: Optional[builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEngineVersionResult:
     """
@@ -472,6 +482,7 @@ def get_engine_version(default_only: Optional[builtins.bool] = None,
     :param Sequence[builtins.str] preferred_major_targets: Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_major_targets`.
     :param Sequence[builtins.str] preferred_upgrade_targets: Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_upgrade_targets`.
     :param Sequence[builtins.str] preferred_versions: Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_versions`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['defaultOnly'] = default_only
@@ -485,6 +496,7 @@ def get_engine_version(default_only: Optional[builtins.bool] = None,
     __args__['preferredMajorTargets'] = preferred_major_targets
     __args__['preferredUpgradeTargets'] = preferred_upgrade_targets
     __args__['preferredVersions'] = preferred_versions
+    __args__['region'] = region
     __args__['version'] = version
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:rds/getEngineVersion:getEngineVersion', __args__, opts=opts, typ=GetEngineVersionResult).value
@@ -505,6 +517,7 @@ def get_engine_version(default_only: Optional[builtins.bool] = None,
         preferred_major_targets=pulumi.get(__ret__, 'preferred_major_targets'),
         preferred_upgrade_targets=pulumi.get(__ret__, 'preferred_upgrade_targets'),
         preferred_versions=pulumi.get(__ret__, 'preferred_versions'),
+        region=pulumi.get(__ret__, 'region'),
         status=pulumi.get(__ret__, 'status'),
         supported_character_sets=pulumi.get(__ret__, 'supported_character_sets'),
         supported_feature_names=pulumi.get(__ret__, 'supported_feature_names'),
@@ -535,6 +548,7 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[built
                               preferred_major_targets: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                               preferred_upgrade_targets: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                               preferred_versions: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
+                              region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               version: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEngineVersionResult]:
     """
@@ -584,6 +598,7 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[built
     :param Sequence[builtins.str] preferred_major_targets: Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_major_targets`.
     :param Sequence[builtins.str] preferred_upgrade_targets: Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_upgrade_targets`.
     :param Sequence[builtins.str] preferred_versions: Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferred_versions`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['defaultOnly'] = default_only
@@ -597,6 +612,7 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[built
     __args__['preferredMajorTargets'] = preferred_major_targets
     __args__['preferredUpgradeTargets'] = preferred_upgrade_targets
     __args__['preferredVersions'] = preferred_versions
+    __args__['region'] = region
     __args__['version'] = version
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getEngineVersion:getEngineVersion', __args__, opts=opts, typ=GetEngineVersionResult)
@@ -616,6 +632,7 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[built
         preferred_major_targets=pulumi.get(__response__, 'preferred_major_targets'),
         preferred_upgrade_targets=pulumi.get(__response__, 'preferred_upgrade_targets'),
         preferred_versions=pulumi.get(__response__, 'preferred_versions'),
+        region=pulumi.get(__response__, 'region'),
         status=pulumi.get(__response__, 'status'),
         supported_character_sets=pulumi.get(__response__, 'supported_character_sets'),
         supported_feature_names=pulumi.get(__response__, 'supported_feature_names'),

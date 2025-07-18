@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/qbusiness"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/qbusiness"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,11 +72,11 @@ type Application struct {
 	// ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
 	//
 	// The following arguments are optional:
-	IdentityCenterInstanceArn pulumi.StringOutput    `pulumi:"identityCenterInstanceArn"`
-	Tags                      pulumi.StringMapOutput `pulumi:"tags"`
+	IdentityCenterInstanceArn pulumi.StringOutput `pulumi:"identityCenterInstanceArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput    `pulumi:"region"`
+	Tags   pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput       `pulumi:"tagsAll"`
 	Timeouts ApplicationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -137,11 +137,11 @@ type applicationState struct {
 	// ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
 	//
 	// The following arguments are optional:
-	IdentityCenterInstanceArn *string           `pulumi:"identityCenterInstanceArn"`
-	Tags                      map[string]string `pulumi:"tags"`
+	IdentityCenterInstanceArn *string `pulumi:"identityCenterInstanceArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string    `pulumi:"tagsAll"`
 	Timeouts *ApplicationTimeouts `pulumi:"timeouts"`
 }
@@ -165,10 +165,10 @@ type ApplicationState struct {
 	//
 	// The following arguments are optional:
 	IdentityCenterInstanceArn pulumi.StringPtrInput
-	Tags                      pulumi.StringMapInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts ApplicationTimeoutsPtrInput
 }
@@ -191,9 +191,11 @@ type applicationArgs struct {
 	// ARN of the IAM Identity Center instance you are either creating for — or connecting to — your Amazon Q Business application.
 	//
 	// The following arguments are optional:
-	IdentityCenterInstanceArn string               `pulumi:"identityCenterInstanceArn"`
-	Tags                      map[string]string    `pulumi:"tags"`
-	Timeouts                  *ApplicationTimeouts `pulumi:"timeouts"`
+	IdentityCenterInstanceArn string `pulumi:"identityCenterInstanceArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   *string              `pulumi:"region"`
+	Tags     map[string]string    `pulumi:"tags"`
+	Timeouts *ApplicationTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -212,8 +214,10 @@ type ApplicationArgs struct {
 	//
 	// The following arguments are optional:
 	IdentityCenterInstanceArn pulumi.StringInput
-	Tags                      pulumi.StringMapInput
-	Timeouts                  ApplicationTimeoutsPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region   pulumi.StringPtrInput
+	Tags     pulumi.StringMapInput
+	Timeouts ApplicationTimeoutsPtrInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {
@@ -345,13 +349,16 @@ func (o ApplicationOutput) IdentityCenterInstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.IdentityCenterInstanceArn }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ApplicationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o ApplicationOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

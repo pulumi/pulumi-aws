@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,6 +28,8 @@ func GetEbsVolumes(ctx *pulumi.Context, args *GetEbsVolumesArgs, opts ...pulumi.
 type GetEbsVolumesArgs struct {
 	// Custom filter block as described below.
 	Filters []GetEbsVolumesFilter `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired volumes.
 	//
@@ -43,8 +45,9 @@ type GetEbsVolumesResult struct {
 	Id string `pulumi:"id"`
 	// Set of all the EBS Volume IDs found. This data source will fail if
 	// no volumes match the provided criteria.
-	Ids  []string          `pulumi:"ids"`
-	Tags map[string]string `pulumi:"tags"`
+	Ids    []string          `pulumi:"ids"`
+	Region string            `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 func GetEbsVolumesOutput(ctx *pulumi.Context, args GetEbsVolumesOutputArgs, opts ...pulumi.InvokeOption) GetEbsVolumesResultOutput {
@@ -60,6 +63,8 @@ func GetEbsVolumesOutput(ctx *pulumi.Context, args GetEbsVolumesOutputArgs, opts
 type GetEbsVolumesOutputArgs struct {
 	// Custom filter block as described below.
 	Filters GetEbsVolumesFilterArrayInput `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Map of tags, each pair of which must exactly match
 	// a pair on the desired volumes.
 	//
@@ -100,6 +105,10 @@ func (o GetEbsVolumesResultOutput) Id() pulumi.StringOutput {
 // no volumes match the provided criteria.
 func (o GetEbsVolumesResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEbsVolumesResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetEbsVolumesResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEbsVolumesResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetEbsVolumesResultOutput) Tags() pulumi.StringMapOutput {

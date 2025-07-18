@@ -18,14 +18,14 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetLayerVersionArgs Empty = new GetLayerVersionArgs();
 
     /**
-     * Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+     * Specific architecture the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
      * 
      */
     @Import(name="compatibleArchitecture")
     private @Nullable Output<String> compatibleArchitecture;
 
     /**
-     * @return Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+     * @return Specific architecture the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
      * 
      */
     public Optional<Output<String>> compatibleArchitecture() {
@@ -48,18 +48,37 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Name of the lambda layer.
+     * Name of the Lambda layer.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="layerName", required=true)
     private Output<String> layerName;
 
     /**
-     * @return Name of the lambda layer.
+     * @return Name of the Lambda layer.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> layerName() {
         return this.layerName;
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -83,6 +102,7 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
         this.compatibleArchitecture = $.compatibleArchitecture;
         this.compatibleRuntime = $.compatibleRuntime;
         this.layerName = $.layerName;
+        this.region = $.region;
         this.version = $.version;
     }
 
@@ -105,7 +125,7 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param compatibleArchitecture Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+         * @param compatibleArchitecture Specific architecture the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
          * 
          * @return builder
          * 
@@ -116,7 +136,7 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param compatibleArchitecture Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+         * @param compatibleArchitecture Specific architecture the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
          * 
          * @return builder
          * 
@@ -147,7 +167,9 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param layerName Name of the lambda layer.
+         * @param layerName Name of the Lambda layer.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -158,13 +180,36 @@ public final class GetLayerVersionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param layerName Name of the lambda layer.
+         * @param layerName Name of the Lambda layer.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
          */
         public Builder layerName(String layerName) {
             return layerName(Output.of(layerName));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

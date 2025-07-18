@@ -18,14 +18,14 @@ public final class BrokerLdapServerMetadataArgs extends com.pulumi.resources.Res
     public static final BrokerLdapServerMetadataArgs Empty = new BrokerLdapServerMetadataArgs();
 
     /**
-     * List of a fully qualified domain name of the LDAP server and an optional failover server.
+     * List of fully qualified domain names of the LDAP server and optional failover server.
      * 
      */
     @Import(name="hosts")
     private @Nullable Output<List<String>> hosts;
 
     /**
-     * @return List of a fully qualified domain name of the LDAP server and an optional failover server.
+     * @return List of fully qualified domain names of the LDAP server and optional failover server.
      * 
      */
     public Optional<Output<List<String>>> hosts() {
@@ -33,14 +33,14 @@ public final class BrokerLdapServerMetadataArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Fully qualified name of the directory to search for a user’s groups.
+     * Fully qualified name of the directory to search for a user&#39;s groups.
      * 
      */
     @Import(name="roleBase")
     private @Nullable Output<String> roleBase;
 
     /**
-     * @return Fully qualified name of the directory to search for a user’s groups.
+     * @return Fully qualified name of the directory to search for a user&#39;s groups.
      * 
      */
     public Optional<Output<String>> roleBase() {
@@ -48,14 +48,14 @@ public final class BrokerLdapServerMetadataArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+     * LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
      * 
      */
     @Import(name="roleName")
     private @Nullable Output<String> roleName;
 
     /**
-     * @return Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+     * @return LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
      * 
      */
     public Optional<Output<String>> roleName() {
@@ -138,14 +138,14 @@ public final class BrokerLdapServerMetadataArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Specifies the name of the LDAP attribute for the user group membership.
+     * Name of the LDAP attribute for the user group membership.
      * 
      */
     @Import(name="userRoleName")
     private @Nullable Output<String> userRoleName;
 
     /**
-     * @return Specifies the name of the LDAP attribute for the user group membership.
+     * @return Name of the LDAP attribute for the user group membership.
      * 
      */
     public Optional<Output<String>> userRoleName() {
@@ -217,7 +217,7 @@ public final class BrokerLdapServerMetadataArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param hosts List of a fully qualified domain name of the LDAP server and an optional failover server.
+         * @param hosts List of fully qualified domain names of the LDAP server and optional failover server.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class BrokerLdapServerMetadataArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param hosts List of a fully qualified domain name of the LDAP server and an optional failover server.
+         * @param hosts List of fully qualified domain names of the LDAP server and optional failover server.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class BrokerLdapServerMetadataArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param hosts List of a fully qualified domain name of the LDAP server and an optional failover server.
+         * @param hosts List of fully qualified domain names of the LDAP server and optional failover server.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class BrokerLdapServerMetadataArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param roleBase Fully qualified name of the directory to search for a user’s groups.
+         * @param roleBase Fully qualified name of the directory to search for a user&#39;s groups.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class BrokerLdapServerMetadataArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param roleBase Fully qualified name of the directory to search for a user’s groups.
+         * @param roleBase Fully qualified name of the directory to search for a user&#39;s groups.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class BrokerLdapServerMetadataArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param roleName Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+         * @param roleName LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class BrokerLdapServerMetadataArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param roleName Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
+         * @param roleName LDAP attribute that identifies the group name attribute in the object returned from the group membership query.
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class BrokerLdapServerMetadataArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param userRoleName Specifies the name of the LDAP attribute for the user group membership.
+         * @param userRoleName Name of the LDAP attribute for the user group membership.
          * 
          * @return builder
          * 
@@ -406,7 +406,7 @@ public final class BrokerLdapServerMetadataArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param userRoleName Specifies the name of the LDAP attribute for the user group membership.
+         * @param userRoleName Name of the LDAP attribute for the user group membership.
          * 
          * @return builder
          * 

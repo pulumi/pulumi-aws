@@ -112,6 +112,21 @@ public final class SnapshotImportArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
      * 
      */
@@ -180,6 +195,7 @@ public final class SnapshotImportArgs extends com.pulumi.resources.ResourceArgs 
         this.encrypted = $.encrypted;
         this.kmsKeyId = $.kmsKeyId;
         this.permanentRestore = $.permanentRestore;
+        this.region = $.region;
         this.roleName = $.roleName;
         this.storageTier = $.storageTier;
         this.tags = $.tags;
@@ -328,6 +344,27 @@ public final class SnapshotImportArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder permanentRestore(Boolean permanentRestore) {
             return permanentRestore(Output.of(permanentRestore));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

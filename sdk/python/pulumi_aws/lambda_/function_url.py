@@ -26,14 +26,18 @@ class FunctionUrlArgs:
                  function_name: pulumi.Input[builtins.str],
                  cors: Optional[pulumi.Input['FunctionUrlCorsArgs']] = None,
                  invoke_mode: Optional[pulumi.Input[builtins.str]] = None,
-                 qualifier: Optional[pulumi.Input[builtins.str]] = None):
+                 qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionUrl resource.
-        :param pulumi.Input[builtins.str] authorization_type: The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
-        :param pulumi.Input[builtins.str] function_name: The name (or ARN) of the Lambda function.
-        :param pulumi.Input['FunctionUrlCorsArgs'] cors: The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
-        :param pulumi.Input[builtins.str] invoke_mode: Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
-        :param pulumi.Input[builtins.str] qualifier: The alias name or `"$LATEST"`.
+        :param pulumi.Input[builtins.str] authorization_type: Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
+        :param pulumi.Input[builtins.str] function_name: Name or ARN of the Lambda function.
+               
+               The following arguments are optional:
+        :param pulumi.Input['FunctionUrlCorsArgs'] cors: Cross-origin resource sharing (CORS) settings for the function URL. See below.
+        :param pulumi.Input[builtins.str] invoke_mode: How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
+        :param pulumi.Input[builtins.str] qualifier: Alias name or `$LATEST`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "authorization_type", authorization_type)
         pulumi.set(__self__, "function_name", function_name)
@@ -43,12 +47,14 @@ class FunctionUrlArgs:
             pulumi.set(__self__, "invoke_mode", invoke_mode)
         if qualifier is not None:
             pulumi.set(__self__, "qualifier", qualifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="authorizationType")
     def authorization_type(self) -> pulumi.Input[builtins.str]:
         """
-        The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
+        Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
         """
         return pulumi.get(self, "authorization_type")
 
@@ -60,7 +66,9 @@ class FunctionUrlArgs:
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name (or ARN) of the Lambda function.
+        Name or ARN of the Lambda function.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "function_name")
 
@@ -72,7 +80,7 @@ class FunctionUrlArgs:
     @pulumi.getter
     def cors(self) -> Optional[pulumi.Input['FunctionUrlCorsArgs']]:
         """
-        The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
+        Cross-origin resource sharing (CORS) settings for the function URL. See below.
         """
         return pulumi.get(self, "cors")
 
@@ -84,7 +92,7 @@ class FunctionUrlArgs:
     @pulumi.getter(name="invokeMode")
     def invoke_mode(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+        How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
         """
         return pulumi.get(self, "invoke_mode")
 
@@ -96,13 +104,25 @@ class FunctionUrlArgs:
     @pulumi.getter
     def qualifier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The alias name or `"$LATEST"`.
+        Alias name or `$LATEST`.
         """
         return pulumi.get(self, "qualifier")
 
     @qualifier.setter
     def qualifier(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "qualifier", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
@@ -115,17 +135,21 @@ class _FunctionUrlState:
                  function_url: Optional[pulumi.Input[builtins.str]] = None,
                  invoke_mode: Optional[pulumi.Input[builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  url_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionUrl resources.
-        :param pulumi.Input[builtins.str] authorization_type: The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
-        :param pulumi.Input['FunctionUrlCorsArgs'] cors: The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
-        :param pulumi.Input[builtins.str] function_arn: The Amazon Resource Name (ARN) of the function.
-        :param pulumi.Input[builtins.str] function_name: The name (or ARN) of the Lambda function.
-        :param pulumi.Input[builtins.str] function_url: The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
-        :param pulumi.Input[builtins.str] invoke_mode: Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
-        :param pulumi.Input[builtins.str] qualifier: The alias name or `"$LATEST"`.
-        :param pulumi.Input[builtins.str] url_id: A generated ID for the endpoint.
+        :param pulumi.Input[builtins.str] authorization_type: Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
+        :param pulumi.Input['FunctionUrlCorsArgs'] cors: Cross-origin resource sharing (CORS) settings for the function URL. See below.
+        :param pulumi.Input[builtins.str] function_arn: ARN of the Lambda function.
+        :param pulumi.Input[builtins.str] function_name: Name or ARN of the Lambda function.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] function_url: HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
+        :param pulumi.Input[builtins.str] invoke_mode: How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
+        :param pulumi.Input[builtins.str] qualifier: Alias name or `$LATEST`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] url_id: Generated ID for the endpoint.
         """
         if authorization_type is not None:
             pulumi.set(__self__, "authorization_type", authorization_type)
@@ -141,6 +165,8 @@ class _FunctionUrlState:
             pulumi.set(__self__, "invoke_mode", invoke_mode)
         if qualifier is not None:
             pulumi.set(__self__, "qualifier", qualifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if url_id is not None:
             pulumi.set(__self__, "url_id", url_id)
 
@@ -148,7 +174,7 @@ class _FunctionUrlState:
     @pulumi.getter(name="authorizationType")
     def authorization_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
+        Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
         """
         return pulumi.get(self, "authorization_type")
 
@@ -160,7 +186,7 @@ class _FunctionUrlState:
     @pulumi.getter
     def cors(self) -> Optional[pulumi.Input['FunctionUrlCorsArgs']]:
         """
-        The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
+        Cross-origin resource sharing (CORS) settings for the function URL. See below.
         """
         return pulumi.get(self, "cors")
 
@@ -172,7 +198,7 @@ class _FunctionUrlState:
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the function.
+        ARN of the Lambda function.
         """
         return pulumi.get(self, "function_arn")
 
@@ -184,7 +210,9 @@ class _FunctionUrlState:
     @pulumi.getter(name="functionName")
     def function_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name (or ARN) of the Lambda function.
+        Name or ARN of the Lambda function.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "function_name")
 
@@ -196,7 +224,7 @@ class _FunctionUrlState:
     @pulumi.getter(name="functionUrl")
     def function_url(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
+        HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
         """
         return pulumi.get(self, "function_url")
 
@@ -208,7 +236,7 @@ class _FunctionUrlState:
     @pulumi.getter(name="invokeMode")
     def invoke_mode(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+        How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
         """
         return pulumi.get(self, "invoke_mode")
 
@@ -220,7 +248,7 @@ class _FunctionUrlState:
     @pulumi.getter
     def qualifier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The alias name or `"$LATEST"`.
+        Alias name or `$LATEST`.
         """
         return pulumi.get(self, "qualifier")
 
@@ -229,10 +257,22 @@ class _FunctionUrlState:
         pulumi.set(self, "qualifier", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="urlId")
     def url_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A generated ID for the endpoint.
+        Generated ID for the endpoint.
         """
         return pulumi.get(self, "url_id")
 
@@ -252,29 +292,42 @@ class FunctionUrl(pulumi.CustomResource):
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
                  invoke_mode: Optional[pulumi.Input[builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Lambda function URL resource. A function URL is a dedicated HTTP(S) endpoint for a Lambda function.
-
-        See the [AWS Lambda documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html) for more information.
+        Manages a Lambda function URL. Creates a dedicated HTTP(S) endpoint for a Lambda function to enable direct invocation via HTTP requests.
 
         ## Example Usage
+
+        ### Basic Function URL with No Authentication
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_latest = aws.lambda_.FunctionUrl("test_latest",
-            function_name=test["functionName"],
+        example = aws.lambda_.FunctionUrl("example",
+            function_name=example_aws_lambda_function["functionName"],
             authorization_type="NONE")
-        test_live = aws.lambda_.FunctionUrl("test_live",
-            function_name=test["functionName"],
+        ```
+
+        ### Function URL with IAM Authentication and CORS Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.FunctionUrl("example",
+            function_name=example_aws_lambda_function["functionName"],
             qualifier="my_alias",
             authorization_type="AWS_IAM",
+            invoke_mode="RESPONSE_STREAM",
             cors={
                 "allow_credentials": True,
-                "allow_origins": ["*"],
-                "allow_methods": ["*"],
+                "allow_origins": ["https://example.com"],
+                "allow_methods": [
+                    "GET",
+                    "POST",
+                ],
                 "allow_headers": [
                     "date",
                     "keep-alive",
@@ -292,16 +345,19 @@ class FunctionUrl(pulumi.CustomResource):
         Using `pulumi import`, import Lambda function URLs using the `function_name` or `function_name/qualifier`. For example:
 
         ```sh
-        $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
+        $ pulumi import aws:lambda/functionUrl:FunctionUrl example example
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] authorization_type: The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
-        :param pulumi.Input[Union['FunctionUrlCorsArgs', 'FunctionUrlCorsArgsDict']] cors: The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
-        :param pulumi.Input[builtins.str] function_name: The name (or ARN) of the Lambda function.
-        :param pulumi.Input[builtins.str] invoke_mode: Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
-        :param pulumi.Input[builtins.str] qualifier: The alias name or `"$LATEST"`.
+        :param pulumi.Input[builtins.str] authorization_type: Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
+        :param pulumi.Input[Union['FunctionUrlCorsArgs', 'FunctionUrlCorsArgsDict']] cors: Cross-origin resource sharing (CORS) settings for the function URL. See below.
+        :param pulumi.Input[builtins.str] function_name: Name or ARN of the Lambda function.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] invoke_mode: How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
+        :param pulumi.Input[builtins.str] qualifier: Alias name or `$LATEST`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -310,27 +366,39 @@ class FunctionUrl(pulumi.CustomResource):
                  args: FunctionUrlArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Lambda function URL resource. A function URL is a dedicated HTTP(S) endpoint for a Lambda function.
-
-        See the [AWS Lambda documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html) for more information.
+        Manages a Lambda function URL. Creates a dedicated HTTP(S) endpoint for a Lambda function to enable direct invocation via HTTP requests.
 
         ## Example Usage
+
+        ### Basic Function URL with No Authentication
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        test_latest = aws.lambda_.FunctionUrl("test_latest",
-            function_name=test["functionName"],
+        example = aws.lambda_.FunctionUrl("example",
+            function_name=example_aws_lambda_function["functionName"],
             authorization_type="NONE")
-        test_live = aws.lambda_.FunctionUrl("test_live",
-            function_name=test["functionName"],
+        ```
+
+        ### Function URL with IAM Authentication and CORS Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lambda_.FunctionUrl("example",
+            function_name=example_aws_lambda_function["functionName"],
             qualifier="my_alias",
             authorization_type="AWS_IAM",
+            invoke_mode="RESPONSE_STREAM",
             cors={
                 "allow_credentials": True,
-                "allow_origins": ["*"],
-                "allow_methods": ["*"],
+                "allow_origins": ["https://example.com"],
+                "allow_methods": [
+                    "GET",
+                    "POST",
+                ],
                 "allow_headers": [
                     "date",
                     "keep-alive",
@@ -348,7 +416,7 @@ class FunctionUrl(pulumi.CustomResource):
         Using `pulumi import`, import Lambda function URLs using the `function_name` or `function_name/qualifier`. For example:
 
         ```sh
-        $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
+        $ pulumi import aws:lambda/functionUrl:FunctionUrl example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -371,6 +439,7 @@ class FunctionUrl(pulumi.CustomResource):
                  function_name: Optional[pulumi.Input[builtins.str]] = None,
                  invoke_mode: Optional[pulumi.Input[builtins.str]] = None,
                  qualifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -389,6 +458,7 @@ class FunctionUrl(pulumi.CustomResource):
             __props__.__dict__["function_name"] = function_name
             __props__.__dict__["invoke_mode"] = invoke_mode
             __props__.__dict__["qualifier"] = qualifier
+            __props__.__dict__["region"] = region
             __props__.__dict__["function_arn"] = None
             __props__.__dict__["function_url"] = None
             __props__.__dict__["url_id"] = None
@@ -409,6 +479,7 @@ class FunctionUrl(pulumi.CustomResource):
             function_url: Optional[pulumi.Input[builtins.str]] = None,
             invoke_mode: Optional[pulumi.Input[builtins.str]] = None,
             qualifier: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             url_id: Optional[pulumi.Input[builtins.str]] = None) -> 'FunctionUrl':
         """
         Get an existing FunctionUrl resource's state with the given name, id, and optional extra
@@ -417,14 +488,17 @@ class FunctionUrl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] authorization_type: The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
-        :param pulumi.Input[Union['FunctionUrlCorsArgs', 'FunctionUrlCorsArgsDict']] cors: The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
-        :param pulumi.Input[builtins.str] function_arn: The Amazon Resource Name (ARN) of the function.
-        :param pulumi.Input[builtins.str] function_name: The name (or ARN) of the Lambda function.
-        :param pulumi.Input[builtins.str] function_url: The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
-        :param pulumi.Input[builtins.str] invoke_mode: Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
-        :param pulumi.Input[builtins.str] qualifier: The alias name or `"$LATEST"`.
-        :param pulumi.Input[builtins.str] url_id: A generated ID for the endpoint.
+        :param pulumi.Input[builtins.str] authorization_type: Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
+        :param pulumi.Input[Union['FunctionUrlCorsArgs', 'FunctionUrlCorsArgsDict']] cors: Cross-origin resource sharing (CORS) settings for the function URL. See below.
+        :param pulumi.Input[builtins.str] function_arn: ARN of the Lambda function.
+        :param pulumi.Input[builtins.str] function_name: Name or ARN of the Lambda function.
+               
+               The following arguments are optional:
+        :param pulumi.Input[builtins.str] function_url: HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
+        :param pulumi.Input[builtins.str] invoke_mode: How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
+        :param pulumi.Input[builtins.str] qualifier: Alias name or `$LATEST`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[builtins.str] url_id: Generated ID for the endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -437,6 +511,7 @@ class FunctionUrl(pulumi.CustomResource):
         __props__.__dict__["function_url"] = function_url
         __props__.__dict__["invoke_mode"] = invoke_mode
         __props__.__dict__["qualifier"] = qualifier
+        __props__.__dict__["region"] = region
         __props__.__dict__["url_id"] = url_id
         return FunctionUrl(resource_name, opts=opts, __props__=__props__)
 
@@ -444,7 +519,7 @@ class FunctionUrl(pulumi.CustomResource):
     @pulumi.getter(name="authorizationType")
     def authorization_type(self) -> pulumi.Output[builtins.str]:
         """
-        The type of authentication that the function URL uses. Set to `"AWS_IAM"` to restrict access to authenticated IAM users only. Set to `"NONE"` to bypass IAM authentication and create a public endpoint. See the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) for more details.
+        Type of authentication that the function URL uses. Valid values are `AWS_IAM` and `NONE`.
         """
         return pulumi.get(self, "authorization_type")
 
@@ -452,7 +527,7 @@ class FunctionUrl(pulumi.CustomResource):
     @pulumi.getter
     def cors(self) -> pulumi.Output[Optional['outputs.FunctionUrlCors']]:
         """
-        The [cross-origin resource sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for the function URL. Documented below.
+        Cross-origin resource sharing (CORS) settings for the function URL. See below.
         """
         return pulumi.get(self, "cors")
 
@@ -460,7 +535,7 @@ class FunctionUrl(pulumi.CustomResource):
     @pulumi.getter(name="functionArn")
     def function_arn(self) -> pulumi.Output[builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the function.
+        ARN of the Lambda function.
         """
         return pulumi.get(self, "function_arn")
 
@@ -468,7 +543,9 @@ class FunctionUrl(pulumi.CustomResource):
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Output[builtins.str]:
         """
-        The name (or ARN) of the Lambda function.
+        Name or ARN of the Lambda function.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "function_name")
 
@@ -476,7 +553,7 @@ class FunctionUrl(pulumi.CustomResource):
     @pulumi.getter(name="functionUrl")
     def function_url(self) -> pulumi.Output[builtins.str]:
         """
-        The HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
+        HTTP URL endpoint for the function in the format `https://<url_id>.lambda-url.<region>.on.aws/`.
         """
         return pulumi.get(self, "function_url")
 
@@ -484,7 +561,7 @@ class FunctionUrl(pulumi.CustomResource):
     @pulumi.getter(name="invokeMode")
     def invoke_mode(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Determines how the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`. See more in [Configuring a Lambda function to stream responses](https://docs.aws.amazon.com/lambda/latest/dg/configuration-response-streaming.html).
+        How the Lambda function responds to an invocation. Valid values are `BUFFERED` (default) and `RESPONSE_STREAM`.
         """
         return pulumi.get(self, "invoke_mode")
 
@@ -492,15 +569,23 @@ class FunctionUrl(pulumi.CustomResource):
     @pulumi.getter
     def qualifier(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The alias name or `"$LATEST"`.
+        Alias name or `$LATEST`.
         """
         return pulumi.get(self, "qualifier")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="urlId")
     def url_id(self) -> pulumi.Output[builtins.str]:
         """
-        A generated ID for the endpoint.
+        Generated ID for the endpoint.
         """
         return pulumi.get(self, "url_id")
 

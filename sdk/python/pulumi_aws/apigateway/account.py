@@ -23,21 +23,16 @@ __all__ = ['AccountArgs', 'Account']
 class AccountArgs:
     def __init__(__self__, *,
                  cloudwatch_role_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 reset_on_delete: Optional[pulumi.Input[builtins.bool]] = None):
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[builtins.str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-        :param pulumi.Input[builtins.bool] reset_on_delete: If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-               Defaults to `false`.
-               Will be removed in a future major version of the provider.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if cloudwatch_role_arn is not None:
             pulumi.set(__self__, "cloudwatch_role_arn", cloudwatch_role_arn)
-        if reset_on_delete is not None:
-            warnings.warn("""The \"reset_on_delete\" attribute will be removed in a future version of the provider""", DeprecationWarning)
-            pulumi.log.warn("""reset_on_delete is deprecated: The \"reset_on_delete\" attribute will be removed in a future version of the provider""")
-        if reset_on_delete is not None:
-            pulumi.set(__self__, "reset_on_delete", reset_on_delete)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="cloudwatchRoleArn")
@@ -52,19 +47,16 @@ class AccountArgs:
         pulumi.set(self, "cloudwatch_role_arn", value)
 
     @property
-    @pulumi.getter(name="resetOnDelete")
-    @_utilities.deprecated("""The \"reset_on_delete\" attribute will be removed in a future version of the provider""")
-    def reset_on_delete(self) -> Optional[pulumi.Input[builtins.bool]]:
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-        Defaults to `false`.
-        Will be removed in a future major version of the provider.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
-        return pulumi.get(self, "reset_on_delete")
+        return pulumi.get(self, "region")
 
-    @reset_on_delete.setter
-    def reset_on_delete(self, value: Optional[pulumi.Input[builtins.bool]]):
-        pulumi.set(self, "reset_on_delete", value)
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
@@ -73,16 +65,14 @@ class _AccountState:
                  api_key_version: Optional[pulumi.Input[builtins.str]] = None,
                  cloudwatch_role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-                 reset_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  throttle_settings: Optional[pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input[builtins.str] api_key_version: The version of the API keys used for the account.
         :param pulumi.Input[builtins.str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] features: A list of features supported for the account.
-        :param pulumi.Input[builtins.bool] reset_on_delete: If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-               Defaults to `false`.
-               Will be removed in a future major version of the provider.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]] throttle_settings: Account-Level throttle settings. See exported fields below.
         """
         if api_key_version is not None:
@@ -91,11 +81,8 @@ class _AccountState:
             pulumi.set(__self__, "cloudwatch_role_arn", cloudwatch_role_arn)
         if features is not None:
             pulumi.set(__self__, "features", features)
-        if reset_on_delete is not None:
-            warnings.warn("""The \"reset_on_delete\" attribute will be removed in a future version of the provider""", DeprecationWarning)
-            pulumi.log.warn("""reset_on_delete is deprecated: The \"reset_on_delete\" attribute will be removed in a future version of the provider""")
-        if reset_on_delete is not None:
-            pulumi.set(__self__, "reset_on_delete", reset_on_delete)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if throttle_settings is not None:
             pulumi.set(__self__, "throttle_settings", throttle_settings)
 
@@ -136,19 +123,16 @@ class _AccountState:
         pulumi.set(self, "features", value)
 
     @property
-    @pulumi.getter(name="resetOnDelete")
-    @_utilities.deprecated("""The \"reset_on_delete\" attribute will be removed in a future version of the provider""")
-    def reset_on_delete(self) -> Optional[pulumi.Input[builtins.bool]]:
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-        Defaults to `false`.
-        Will be removed in a future major version of the provider.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
-        return pulumi.get(self, "reset_on_delete")
+        return pulumi.get(self, "region")
 
-    @reset_on_delete.setter
-    def reset_on_delete(self, value: Optional[pulumi.Input[builtins.bool]]):
-        pulumi.set(self, "reset_on_delete", value)
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="throttleSettings")
@@ -170,7 +154,7 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloudwatch_role_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 reset_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a settings of an API Gateway Account. Settings is applied region-wide per `provider` block.
@@ -216,18 +200,16 @@ class Account(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For example:
+        Using `pulumi import`, import API Gateway Accounts using the account ID. For example:
 
         ```sh
-        $ pulumi import aws:apigateway/account:Account demo api-gateway-account
+        $ pulumi import aws:apigateway/account:Account demo 123456789012
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
-        :param pulumi.Input[builtins.bool] reset_on_delete: If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-               Defaults to `false`.
-               Will be removed in a future major version of the provider.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -279,10 +261,10 @@ class Account(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For example:
+        Using `pulumi import`, import API Gateway Accounts using the account ID. For example:
 
         ```sh
-        $ pulumi import aws:apigateway/account:Account demo api-gateway-account
+        $ pulumi import aws:apigateway/account:Account demo 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -301,7 +283,7 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloudwatch_role_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 reset_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -312,7 +294,7 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["cloudwatch_role_arn"] = cloudwatch_role_arn
-            __props__.__dict__["reset_on_delete"] = reset_on_delete
+            __props__.__dict__["region"] = region
             __props__.__dict__["api_key_version"] = None
             __props__.__dict__["features"] = None
             __props__.__dict__["throttle_settings"] = None
@@ -329,7 +311,7 @@ class Account(pulumi.CustomResource):
             api_key_version: Optional[pulumi.Input[builtins.str]] = None,
             cloudwatch_role_arn: Optional[pulumi.Input[builtins.str]] = None,
             features: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
-            reset_on_delete: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             throttle_settings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AccountThrottleSettingArgs', 'AccountThrottleSettingArgsDict']]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
@@ -341,9 +323,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] api_key_version: The version of the API keys used for the account.
         :param pulumi.Input[builtins.str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] features: A list of features supported for the account.
-        :param pulumi.Input[builtins.bool] reset_on_delete: If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-               Defaults to `false`.
-               Will be removed in a future major version of the provider.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AccountThrottleSettingArgs', 'AccountThrottleSettingArgsDict']]]] throttle_settings: Account-Level throttle settings. See exported fields below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -353,7 +333,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["api_key_version"] = api_key_version
         __props__.__dict__["cloudwatch_role_arn"] = cloudwatch_role_arn
         __props__.__dict__["features"] = features
-        __props__.__dict__["reset_on_delete"] = reset_on_delete
+        __props__.__dict__["region"] = region
         __props__.__dict__["throttle_settings"] = throttle_settings
         return Account(resource_name, opts=opts, __props__=__props__)
 
@@ -382,15 +362,12 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "features")
 
     @property
-    @pulumi.getter(name="resetOnDelete")
-    @_utilities.deprecated("""The \"reset_on_delete\" attribute will be removed in a future version of the provider""")
-    def reset_on_delete(self) -> pulumi.Output[Optional[builtins.bool]]:
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
         """
-        If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-        Defaults to `false`.
-        Will be removed in a future major version of the provider.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
-        return pulumi.get(self, "reset_on_delete")
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="throttleSettings")

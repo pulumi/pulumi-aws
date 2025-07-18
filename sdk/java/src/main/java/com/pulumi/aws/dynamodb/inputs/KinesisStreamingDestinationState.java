@@ -31,6 +31,21 @@ public final class KinesisStreamingDestinationState extends com.pulumi.resources
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The ARN for a Kinesis data stream. This must exist in the same account and region as the DynamoDB table.
      * 
      */
@@ -64,6 +79,7 @@ public final class KinesisStreamingDestinationState extends com.pulumi.resources
 
     private KinesisStreamingDestinationState(KinesisStreamingDestinationState $) {
         this.approximateCreationDateTimePrecision = $.approximateCreationDateTimePrecision;
+        this.region = $.region;
         this.streamArn = $.streamArn;
         this.tableName = $.tableName;
     }
@@ -105,6 +121,27 @@ public final class KinesisStreamingDestinationState extends com.pulumi.resources
          */
         public Builder approximateCreationDateTimePrecision(String approximateCreationDateTimePrecision) {
             return approximateCreationDateTimePrecision(Output.of(approximateCreationDateTimePrecision));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

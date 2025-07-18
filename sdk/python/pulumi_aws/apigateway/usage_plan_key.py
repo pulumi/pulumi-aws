@@ -22,16 +22,20 @@ class UsagePlanKeyArgs:
     def __init__(__self__, *,
                  key_id: pulumi.Input[builtins.str],
                  key_type: pulumi.Input[builtins.str],
-                 usage_plan_id: pulumi.Input[builtins.str]):
+                 usage_plan_id: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a UsagePlanKey resource.
         :param pulumi.Input[builtins.str] key_id: Identifier of the API key resource.
         :param pulumi.Input[builtins.str] key_type: Type of the API key resource. Currently, the valid key type is API_KEY.
         :param pulumi.Input[builtins.str] usage_plan_id: Id of the usage plan resource representing to associate the key to.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "key_id", key_id)
         pulumi.set(__self__, "key_type", key_type)
         pulumi.set(__self__, "usage_plan_id", usage_plan_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="keyId")
@@ -69,6 +73,18 @@ class UsagePlanKeyArgs:
     def usage_plan_id(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "usage_plan_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _UsagePlanKeyState:
@@ -76,6 +92,7 @@ class _UsagePlanKeyState:
                  key_id: Optional[pulumi.Input[builtins.str]] = None,
                  key_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  usage_plan_id: Optional[pulumi.Input[builtins.str]] = None,
                  value: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -83,6 +100,7 @@ class _UsagePlanKeyState:
         :param pulumi.Input[builtins.str] key_id: Identifier of the API key resource.
         :param pulumi.Input[builtins.str] key_type: Type of the API key resource. Currently, the valid key type is API_KEY.
         :param pulumi.Input[builtins.str] name: Name of a usage plan key.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] usage_plan_id: Id of the usage plan resource representing to associate the key to.
         :param pulumi.Input[builtins.str] value: Value of a usage plan key.
         """
@@ -92,6 +110,8 @@ class _UsagePlanKeyState:
             pulumi.set(__self__, "key_type", key_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if usage_plan_id is not None:
             pulumi.set(__self__, "usage_plan_id", usage_plan_id)
         if value is not None:
@@ -134,6 +154,18 @@ class _UsagePlanKeyState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="usagePlanId")
     def usage_plan_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -166,6 +198,7 @@ class UsagePlanKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key_id: Optional[pulumi.Input[builtins.str]] = None,
                  key_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  usage_plan_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -204,6 +237,7 @@ class UsagePlanKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] key_id: Identifier of the API key resource.
         :param pulumi.Input[builtins.str] key_type: Type of the API key resource. Currently, the valid key type is API_KEY.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] usage_plan_id: Id of the usage plan resource representing to associate the key to.
         """
         ...
@@ -261,6 +295,7 @@ class UsagePlanKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key_id: Optional[pulumi.Input[builtins.str]] = None,
                  key_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  usage_plan_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -277,6 +312,7 @@ class UsagePlanKey(pulumi.CustomResource):
             if key_type is None and not opts.urn:
                 raise TypeError("Missing required property 'key_type'")
             __props__.__dict__["key_type"] = key_type
+            __props__.__dict__["region"] = region
             if usage_plan_id is None and not opts.urn:
                 raise TypeError("Missing required property 'usage_plan_id'")
             __props__.__dict__["usage_plan_id"] = usage_plan_id
@@ -295,6 +331,7 @@ class UsagePlanKey(pulumi.CustomResource):
             key_id: Optional[pulumi.Input[builtins.str]] = None,
             key_type: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             usage_plan_id: Optional[pulumi.Input[builtins.str]] = None,
             value: Optional[pulumi.Input[builtins.str]] = None) -> 'UsagePlanKey':
         """
@@ -307,6 +344,7 @@ class UsagePlanKey(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] key_id: Identifier of the API key resource.
         :param pulumi.Input[builtins.str] key_type: Type of the API key resource. Currently, the valid key type is API_KEY.
         :param pulumi.Input[builtins.str] name: Name of a usage plan key.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] usage_plan_id: Id of the usage plan resource representing to associate the key to.
         :param pulumi.Input[builtins.str] value: Value of a usage plan key.
         """
@@ -317,6 +355,7 @@ class UsagePlanKey(pulumi.CustomResource):
         __props__.__dict__["key_id"] = key_id
         __props__.__dict__["key_type"] = key_type
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["usage_plan_id"] = usage_plan_id
         __props__.__dict__["value"] = value
         return UsagePlanKey(resource_name, opts=opts, __props__=__props__)
@@ -344,6 +383,14 @@ class UsagePlanKey(pulumi.CustomResource):
         Name of a usage plan key.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="usagePlanId")

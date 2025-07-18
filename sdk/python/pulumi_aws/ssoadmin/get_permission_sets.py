@@ -27,7 +27,7 @@ class GetPermissionSetsResult:
     """
     A collection of values returned by getPermissionSets.
     """
-    def __init__(__self__, arns=None, id=None, instance_arn=None):
+    def __init__(__self__, arns=None, id=None, instance_arn=None, region=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         pulumi.set(__self__, "arns", arns)
@@ -37,6 +37,9 @@ class GetPermissionSetsResult:
         if instance_arn and not isinstance(instance_arn, str):
             raise TypeError("Expected argument 'instance_arn' to be a str")
         pulumi.set(__self__, "instance_arn", instance_arn)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -56,6 +59,11 @@ class GetPermissionSetsResult:
     def instance_arn(self) -> builtins.str:
         return pulumi.get(self, "instance_arn")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetPermissionSetsResult(GetPermissionSetsResult):
     # pylint: disable=using-constant-test
@@ -65,10 +73,12 @@ class AwaitableGetPermissionSetsResult(GetPermissionSetsResult):
         return GetPermissionSetsResult(
             arns=self.arns,
             id=self.id,
-            instance_arn=self.instance_arn)
+            instance_arn=self.instance_arn,
+            region=self.region)
 
 
 def get_permission_sets(instance_arn: Optional[builtins.str] = None,
+                        region: Optional[builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPermissionSetsResult:
     """
     Data source returning the ARN of all AWS SSO Admin Permission Sets.
@@ -87,17 +97,21 @@ def get_permission_sets(instance_arn: Optional[builtins.str] = None,
 
 
     :param builtins.str instance_arn: ARN of the SSO Instance associated with the permission set.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['instanceArn'] = instance_arn
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ssoadmin/getPermissionSets:getPermissionSets', __args__, opts=opts, typ=GetPermissionSetsResult).value
 
     return AwaitableGetPermissionSetsResult(
         arns=pulumi.get(__ret__, 'arns'),
         id=pulumi.get(__ret__, 'id'),
-        instance_arn=pulumi.get(__ret__, 'instance_arn'))
+        instance_arn=pulumi.get(__ret__, 'instance_arn'),
+        region=pulumi.get(__ret__, 'region'))
 def get_permission_sets_output(instance_arn: Optional[pulumi.Input[builtins.str]] = None,
+                               region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionSetsResult]:
     """
     Data source returning the ARN of all AWS SSO Admin Permission Sets.
@@ -116,12 +130,15 @@ def get_permission_sets_output(instance_arn: Optional[pulumi.Input[builtins.str]
 
 
     :param builtins.str instance_arn: ARN of the SSO Instance associated with the permission set.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['instanceArn'] = instance_arn
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ssoadmin/getPermissionSets:getPermissionSets', __args__, opts=opts, typ=GetPermissionSetsResult)
     return __ret__.apply(lambda __response__: GetPermissionSetsResult(
         arns=pulumi.get(__response__, 'arns'),
         id=pulumi.get(__response__, 'id'),
-        instance_arn=pulumi.get(__response__, 'instance_arn')))
+        instance_arn=pulumi.get(__response__, 'instance_arn'),
+        region=pulumi.get(__response__, 'region')))

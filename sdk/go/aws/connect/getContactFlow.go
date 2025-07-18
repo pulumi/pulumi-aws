@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -49,7 +49,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -88,6 +88,8 @@ type LookupContactFlowArgs struct {
 	//
 	// > **NOTE:** `instanceId` and one of either `name` or `contactFlowId` is required.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags to assign to the Contact Flow.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of Contact Flow.
@@ -107,6 +109,7 @@ type LookupContactFlowResult struct {
 	Id         string `pulumi:"id"`
 	InstanceId string `pulumi:"instanceId"`
 	Name       string `pulumi:"name"`
+	Region     string `pulumi:"region"`
 	// Tags to assign to the Contact Flow.
 	Tags map[string]string `pulumi:"tags"`
 	// Type of Contact Flow.
@@ -132,6 +135,8 @@ type LookupContactFlowOutputArgs struct {
 	//
 	// > **NOTE:** `instanceId` and one of either `name` or `contactFlowId` is required.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Tags to assign to the Contact Flow.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Type of Contact Flow.
@@ -187,6 +192,10 @@ func (o LookupContactFlowResultOutput) InstanceId() pulumi.StringOutput {
 
 func (o LookupContactFlowResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactFlowResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupContactFlowResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupContactFlowResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Tags to assign to the Contact Flow.

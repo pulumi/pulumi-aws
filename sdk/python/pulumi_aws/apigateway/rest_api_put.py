@@ -26,6 +26,7 @@ class RestApiPutArgs:
                  rest_api_id: pulumi.Input[builtins.str],
                  fail_on_warnings: Optional[pulumi.Input[builtins.bool]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['RestApiPutTimeoutsArgs']] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -36,6 +37,7 @@ class RestApiPutArgs:
                The following arguments are optional:
         :param pulumi.Input[builtins.bool] fail_on_warnings: Whether to rollback the API update when a warning is encountered. The default value is `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment. To force a redeployment without changing these keys/values, use the `-replace` option with `pulumi preview` or `pulumi up`.
         """
         pulumi.set(__self__, "body", body)
@@ -44,6 +46,8 @@ class RestApiPutArgs:
             pulumi.set(__self__, "fail_on_warnings", fail_on_warnings)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
         if triggers is not None:
@@ -101,6 +105,18 @@ class RestApiPutArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['RestApiPutTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -127,6 +143,7 @@ class _RestApiPutState:
                  body: Optional[pulumi.Input[builtins.str]] = None,
                  fail_on_warnings: Optional[pulumi.Input[builtins.bool]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api_id: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['RestApiPutTimeoutsArgs']] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -135,6 +152,7 @@ class _RestApiPutState:
         :param pulumi.Input[builtins.str] body: PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
         :param pulumi.Input[builtins.bool] fail_on_warnings: Whether to rollback the API update when a warning is encountered. The default value is `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api_id: Identifier of the associated REST API.
                
                The following arguments are optional:
@@ -146,6 +164,8 @@ class _RestApiPutState:
             pulumi.set(__self__, "fail_on_warnings", fail_on_warnings)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rest_api_id is not None:
             pulumi.set(__self__, "rest_api_id", rest_api_id)
         if timeouts is not None:
@@ -188,6 +208,18 @@ class _RestApiPutState:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="restApiId")
@@ -234,6 +266,7 @@ class RestApiPut(pulumi.CustomResource):
                  body: Optional[pulumi.Input[builtins.str]] = None,
                  fail_on_warnings: Optional[pulumi.Input[builtins.bool]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api_id: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['RestApiPutTimeoutsArgs', 'RestApiPutTimeoutsArgsDict']]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -295,6 +328,7 @@ class RestApiPut(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] body: PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
         :param pulumi.Input[builtins.bool] fail_on_warnings: Whether to rollback the API update when a warning is encountered. The default value is `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api_id: Identifier of the associated REST API.
                
                The following arguments are optional:
@@ -376,6 +410,7 @@ class RestApiPut(pulumi.CustomResource):
                  body: Optional[pulumi.Input[builtins.str]] = None,
                  fail_on_warnings: Optional[pulumi.Input[builtins.bool]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api_id: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['RestApiPutTimeoutsArgs', 'RestApiPutTimeoutsArgsDict']]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -393,6 +428,7 @@ class RestApiPut(pulumi.CustomResource):
             __props__.__dict__["body"] = body
             __props__.__dict__["fail_on_warnings"] = fail_on_warnings
             __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["region"] = region
             if rest_api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api_id'")
             __props__.__dict__["rest_api_id"] = rest_api_id
@@ -411,6 +447,7 @@ class RestApiPut(pulumi.CustomResource):
             body: Optional[pulumi.Input[builtins.str]] = None,
             fail_on_warnings: Optional[pulumi.Input[builtins.bool]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rest_api_id: Optional[pulumi.Input[builtins.str]] = None,
             timeouts: Optional[pulumi.Input[Union['RestApiPutTimeoutsArgs', 'RestApiPutTimeoutsArgsDict']]] = None,
             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'RestApiPut':
@@ -424,6 +461,7 @@ class RestApiPut(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] body: PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.
         :param pulumi.Input[builtins.bool] fail_on_warnings: Whether to rollback the API update when a warning is encountered. The default value is `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api_id: Identifier of the associated REST API.
                
                The following arguments are optional:
@@ -436,6 +474,7 @@ class RestApiPut(pulumi.CustomResource):
         __props__.__dict__["body"] = body
         __props__.__dict__["fail_on_warnings"] = fail_on_warnings
         __props__.__dict__["parameters"] = parameters
+        __props__.__dict__["region"] = region
         __props__.__dict__["rest_api_id"] = rest_api_id
         __props__.__dict__["timeouts"] = timeouts
         __props__.__dict__["triggers"] = triggers
@@ -464,6 +503,14 @@ class RestApiPut(pulumi.CustomResource):
         Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, use `ignore = "documentation"`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="restApiId")

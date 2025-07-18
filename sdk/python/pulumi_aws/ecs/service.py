@@ -45,6 +45,7 @@ class ServiceArgs:
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]] = None,
                  platform_version: Optional[pulumi.Input[builtins.str]] = None,
                  propagate_tags: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scheduling_strategy: Optional[pulumi.Input[builtins.str]] = None,
                  service_connect_configuration: Optional[pulumi.Input['ServiceServiceConnectConfigurationArgs']] = None,
                  service_registries: Optional[pulumi.Input['ServiceServiceRegistriesArgs']] = None,
@@ -82,6 +83,7 @@ class ServiceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]] placement_constraints: Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
         :param pulumi.Input[builtins.str] platform_version: Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         :param pulumi.Input[builtins.str] propagate_tags: Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] scheduling_strategy: Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
         :param pulumi.Input['ServiceServiceConnectConfigurationArgs'] service_connect_configuration: ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
         :param pulumi.Input['ServiceServiceRegistriesArgs'] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
@@ -138,6 +140,8 @@ class ServiceArgs:
             pulumi.set(__self__, "platform_version", platform_version)
         if propagate_tags is not None:
             pulumi.set(__self__, "propagate_tags", propagate_tags)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scheduling_strategy is not None:
             pulumi.set(__self__, "scheduling_strategy", scheduling_strategy)
         if service_connect_configuration is not None:
@@ -435,6 +439,18 @@ class ServiceArgs:
     @propagate_tags.setter
     def propagate_tags(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "propagate_tags", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="schedulingStrategy")
@@ -549,6 +565,7 @@ class ServiceArgs:
 class _ServiceState:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input['ServiceAlarmsArgs']] = None,
+                 arn: Optional[pulumi.Input[builtins.str]] = None,
                  availability_zone_rebalancing: Optional[pulumi.Input[builtins.str]] = None,
                  capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]]] = None,
                  cluster: Optional[pulumi.Input[builtins.str]] = None,
@@ -571,6 +588,7 @@ class _ServiceState:
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]] = None,
                  platform_version: Optional[pulumi.Input[builtins.str]] = None,
                  propagate_tags: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scheduling_strategy: Optional[pulumi.Input[builtins.str]] = None,
                  service_connect_configuration: Optional[pulumi.Input['ServiceServiceConnectConfigurationArgs']] = None,
                  service_registries: Optional[pulumi.Input['ServiceServiceRegistriesArgs']] = None,
@@ -584,6 +602,7 @@ class _ServiceState:
         """
         Input properties used for looking up and filtering Service resources.
         :param pulumi.Input['ServiceAlarmsArgs'] alarms: Information about the CloudWatch alarms. See below.
+        :param pulumi.Input[builtins.str] arn: ARN that identifies the service.
         :param pulumi.Input[builtins.str] availability_zone_rebalancing: ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
         :param pulumi.Input[builtins.str] cluster: ARN of an ECS cluster.
@@ -609,6 +628,7 @@ class _ServiceState:
         :param pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]] placement_constraints: Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
         :param pulumi.Input[builtins.str] platform_version: Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         :param pulumi.Input[builtins.str] propagate_tags: Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] scheduling_strategy: Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
         :param pulumi.Input['ServiceServiceConnectConfigurationArgs'] service_connect_configuration: ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
         :param pulumi.Input['ServiceServiceRegistriesArgs'] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
@@ -622,6 +642,8 @@ class _ServiceState:
         """
         if alarms is not None:
             pulumi.set(__self__, "alarms", alarms)
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if availability_zone_rebalancing is not None:
             pulumi.set(__self__, "availability_zone_rebalancing", availability_zone_rebalancing)
         if capacity_provider_strategies is not None:
@@ -666,6 +688,8 @@ class _ServiceState:
             pulumi.set(__self__, "platform_version", platform_version)
         if propagate_tags is not None:
             pulumi.set(__self__, "propagate_tags", propagate_tags)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scheduling_strategy is not None:
             pulumi.set(__self__, "scheduling_strategy", scheduling_strategy)
         if service_connect_configuration is not None:
@@ -674,9 +698,6 @@ class _ServiceState:
             pulumi.set(__self__, "service_registries", service_registries)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if task_definition is not None:
@@ -701,6 +722,18 @@ class _ServiceState:
     @alarms.setter
     def alarms(self, value: Optional[pulumi.Input['ServiceAlarmsArgs']]):
         pulumi.set(self, "alarms", value)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        ARN that identifies the service.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "arn", value)
 
     @property
     @pulumi.getter(name="availabilityZoneRebalancing")
@@ -970,6 +1003,18 @@ class _ServiceState:
         pulumi.set(self, "propagate_tags", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="schedulingStrategy")
     def scheduling_strategy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -1019,7 +1064,6 @@ class _ServiceState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1120,6 +1164,7 @@ class Service(pulumi.CustomResource):
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict']]]]] = None,
                  platform_version: Optional[pulumi.Input[builtins.str]] = None,
                  propagate_tags: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scheduling_strategy: Optional[pulumi.Input[builtins.str]] = None,
                  service_connect_configuration: Optional[pulumi.Input[Union['ServiceServiceConnectConfigurationArgs', 'ServiceServiceConnectConfigurationArgsDict']]] = None,
                  service_registries: Optional[pulumi.Input[Union['ServiceServiceRegistriesArgs', 'ServiceServiceRegistriesArgsDict']]] = None,
@@ -1270,6 +1315,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict']]]] placement_constraints: Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
         :param pulumi.Input[builtins.str] platform_version: Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         :param pulumi.Input[builtins.str] propagate_tags: Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] scheduling_strategy: Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
         :param pulumi.Input[Union['ServiceServiceConnectConfigurationArgs', 'ServiceServiceConnectConfigurationArgsDict']] service_connect_configuration: ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
         :param pulumi.Input[Union['ServiceServiceRegistriesArgs', 'ServiceServiceRegistriesArgsDict']] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
@@ -1436,6 +1482,7 @@ class Service(pulumi.CustomResource):
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict']]]]] = None,
                  platform_version: Optional[pulumi.Input[builtins.str]] = None,
                  propagate_tags: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scheduling_strategy: Optional[pulumi.Input[builtins.str]] = None,
                  service_connect_configuration: Optional[pulumi.Input[Union['ServiceServiceConnectConfigurationArgs', 'ServiceServiceConnectConfigurationArgsDict']]] = None,
                  service_registries: Optional[pulumi.Input[Union['ServiceServiceRegistriesArgs', 'ServiceServiceRegistriesArgsDict']]] = None,
@@ -1477,6 +1524,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["placement_constraints"] = placement_constraints
             __props__.__dict__["platform_version"] = platform_version
             __props__.__dict__["propagate_tags"] = propagate_tags
+            __props__.__dict__["region"] = region
             __props__.__dict__["scheduling_strategy"] = scheduling_strategy
             __props__.__dict__["service_connect_configuration"] = service_connect_configuration
             __props__.__dict__["service_registries"] = service_registries
@@ -1486,6 +1534,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["volume_configuration"] = volume_configuration
             __props__.__dict__["vpc_lattice_configurations"] = vpc_lattice_configurations
             __props__.__dict__["wait_for_steady_state"] = wait_for_steady_state
+            __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
         super(Service, __self__).__init__(
             'aws:ecs/service:Service',
@@ -1498,6 +1547,7 @@ class Service(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             alarms: Optional[pulumi.Input[Union['ServiceAlarmsArgs', 'ServiceAlarmsArgsDict']]] = None,
+            arn: Optional[pulumi.Input[builtins.str]] = None,
             availability_zone_rebalancing: Optional[pulumi.Input[builtins.str]] = None,
             capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyArgs', 'ServiceCapacityProviderStrategyArgsDict']]]]] = None,
             cluster: Optional[pulumi.Input[builtins.str]] = None,
@@ -1520,6 +1570,7 @@ class Service(pulumi.CustomResource):
             placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict']]]]] = None,
             platform_version: Optional[pulumi.Input[builtins.str]] = None,
             propagate_tags: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             scheduling_strategy: Optional[pulumi.Input[builtins.str]] = None,
             service_connect_configuration: Optional[pulumi.Input[Union['ServiceServiceConnectConfigurationArgs', 'ServiceServiceConnectConfigurationArgsDict']]] = None,
             service_registries: Optional[pulumi.Input[Union['ServiceServiceRegistriesArgs', 'ServiceServiceRegistriesArgsDict']]] = None,
@@ -1538,6 +1589,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceAlarmsArgs', 'ServiceAlarmsArgsDict']] alarms: Information about the CloudWatch alarms. See below.
+        :param pulumi.Input[builtins.str] arn: ARN that identifies the service.
         :param pulumi.Input[builtins.str] availability_zone_rebalancing: ECS automatically redistributes tasks within a service across Availability Zones (AZs) to mitigate the risk of impaired application availability due to underlying infrastructure failures and task lifecycle activities. The valid values are `ENABLED` and `DISABLED`. Defaults to `DISABLED`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyArgs', 'ServiceCapacityProviderStrategyArgsDict']]]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below. Conflicts with `launch_type`.
         :param pulumi.Input[builtins.str] cluster: ARN of an ECS cluster.
@@ -1563,6 +1615,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServicePlacementConstraintArgs', 'ServicePlacementConstraintArgsDict']]]] placement_constraints: Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
         :param pulumi.Input[builtins.str] platform_version: Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         :param pulumi.Input[builtins.str] propagate_tags: Whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] scheduling_strategy: Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
         :param pulumi.Input[Union['ServiceServiceConnectConfigurationArgs', 'ServiceServiceConnectConfigurationArgsDict']] service_connect_configuration: ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
         :param pulumi.Input[Union['ServiceServiceRegistriesArgs', 'ServiceServiceRegistriesArgsDict']] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
@@ -1579,6 +1632,7 @@ class Service(pulumi.CustomResource):
         __props__ = _ServiceState.__new__(_ServiceState)
 
         __props__.__dict__["alarms"] = alarms
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["availability_zone_rebalancing"] = availability_zone_rebalancing
         __props__.__dict__["capacity_provider_strategies"] = capacity_provider_strategies
         __props__.__dict__["cluster"] = cluster
@@ -1601,6 +1655,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["placement_constraints"] = placement_constraints
         __props__.__dict__["platform_version"] = platform_version
         __props__.__dict__["propagate_tags"] = propagate_tags
+        __props__.__dict__["region"] = region
         __props__.__dict__["scheduling_strategy"] = scheduling_strategy
         __props__.__dict__["service_connect_configuration"] = service_connect_configuration
         __props__.__dict__["service_registries"] = service_registries
@@ -1620,6 +1675,14 @@ class Service(pulumi.CustomResource):
         Information about the CloudWatch alarms. See below.
         """
         return pulumi.get(self, "alarms")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[builtins.str]:
+        """
+        ARN that identifies the service.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="availabilityZoneRebalancing")
@@ -1801,6 +1864,14 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "propagate_tags")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="schedulingStrategy")
     def scheduling_strategy(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -1834,7 +1905,6 @@ class Service(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

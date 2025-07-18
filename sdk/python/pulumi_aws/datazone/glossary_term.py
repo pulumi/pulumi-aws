@@ -26,6 +26,7 @@ class GlossaryTermArgs:
                  domain_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  long_description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  short_description: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  term_relations: Optional[pulumi.Input['GlossaryTermTermRelationsArgs']] = None,
@@ -38,6 +39,7 @@ class GlossaryTermArgs:
         :param pulumi.Input[builtins.str] name: Name of glossary term.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] short_description: Short description of entry.
         :param pulumi.Input[builtins.str] status: If glossary term is ENABLED or DISABLED.
         :param pulumi.Input['GlossaryTermTermRelationsArgs'] term_relations: Object classifying the term relations through the following attributes:
@@ -49,6 +51,8 @@ class GlossaryTermArgs:
             pulumi.set(__self__, "long_description", long_description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if short_description is not None:
             pulumi.set(__self__, "short_description", short_description)
         if status is not None:
@@ -109,6 +113,18 @@ class GlossaryTermArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="shortDescription")
     def short_description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -163,6 +179,7 @@ class _GlossaryTermState:
                  glossary_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  long_description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  short_description: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  term_relations: Optional[pulumi.Input['GlossaryTermTermRelationsArgs']] = None,
@@ -177,6 +194,7 @@ class _GlossaryTermState:
         :param pulumi.Input[builtins.str] name: Name of glossary term.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] short_description: Short description of entry.
         :param pulumi.Input[builtins.str] status: If glossary term is ENABLED or DISABLED.
         :param pulumi.Input['GlossaryTermTermRelationsArgs'] term_relations: Object classifying the term relations through the following attributes:
@@ -193,6 +211,8 @@ class _GlossaryTermState:
             pulumi.set(__self__, "long_description", long_description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if short_description is not None:
             pulumi.set(__self__, "short_description", short_description)
         if status is not None:
@@ -277,6 +297,18 @@ class _GlossaryTermState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="shortDescription")
     def short_description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -332,6 +364,7 @@ class GlossaryTerm(pulumi.CustomResource):
                  glossary_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  long_description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  short_description: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  term_relations: Optional[pulumi.Input[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict']]] = None,
@@ -428,6 +461,7 @@ class GlossaryTerm(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of glossary term.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] short_description: Short description of entry.
         :param pulumi.Input[builtins.str] status: If glossary term is ENABLED or DISABLED.
         :param pulumi.Input[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict']] term_relations: Object classifying the term relations through the following attributes:
@@ -540,6 +574,7 @@ class GlossaryTerm(pulumi.CustomResource):
                  glossary_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  long_description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  short_description: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  term_relations: Optional[pulumi.Input[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict']]] = None,
@@ -559,6 +594,7 @@ class GlossaryTerm(pulumi.CustomResource):
             __props__.__dict__["glossary_identifier"] = glossary_identifier
             __props__.__dict__["long_description"] = long_description
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["short_description"] = short_description
             __props__.__dict__["status"] = status
             __props__.__dict__["term_relations"] = term_relations
@@ -581,6 +617,7 @@ class GlossaryTerm(pulumi.CustomResource):
             glossary_identifier: Optional[pulumi.Input[builtins.str]] = None,
             long_description: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             short_description: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             term_relations: Optional[pulumi.Input[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict']]] = None,
@@ -600,6 +637,7 @@ class GlossaryTerm(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of glossary term.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] short_description: Short description of entry.
         :param pulumi.Input[builtins.str] status: If glossary term is ENABLED or DISABLED.
         :param pulumi.Input[Union['GlossaryTermTermRelationsArgs', 'GlossaryTermTermRelationsArgsDict']] term_relations: Object classifying the term relations through the following attributes:
@@ -614,6 +652,7 @@ class GlossaryTerm(pulumi.CustomResource):
         __props__.__dict__["glossary_identifier"] = glossary_identifier
         __props__.__dict__["long_description"] = long_description
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["short_description"] = short_description
         __props__.__dict__["status"] = status
         __props__.__dict__["term_relations"] = term_relations
@@ -669,6 +708,14 @@ class GlossaryTerm(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="shortDescription")

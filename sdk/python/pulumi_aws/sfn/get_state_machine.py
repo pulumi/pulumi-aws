@@ -27,7 +27,7 @@ class GetStateMachineResult:
     """
     A collection of values returned by getStateMachine.
     """
-    def __init__(__self__, arn=None, creation_date=None, definition=None, description=None, id=None, name=None, revision_id=None, role_arn=None, status=None):
+    def __init__(__self__, arn=None, creation_date=None, definition=None, description=None, id=None, name=None, region=None, revision_id=None, role_arn=None, status=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -46,6 +46,9 @@ class GetStateMachineResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if revision_id and not isinstance(revision_id, str):
             raise TypeError("Expected argument 'revision_id' to be a str")
         pulumi.set(__self__, "revision_id", revision_id)
@@ -99,6 +102,11 @@ class GetStateMachineResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="revisionId")
     def revision_id(self) -> builtins.str:
         """
@@ -135,12 +143,14 @@ class AwaitableGetStateMachineResult(GetStateMachineResult):
             description=self.description,
             id=self.id,
             name=self.name,
+            region=self.region,
             revision_id=self.revision_id,
             role_arn=self.role_arn,
             status=self.status)
 
 
 def get_state_machine(name: Optional[builtins.str] = None,
+                      region: Optional[builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStateMachineResult:
     """
     Use this data source to get the ARN of a State Machine in AWS Step
@@ -158,9 +168,11 @@ def get_state_machine(name: Optional[builtins.str] = None,
 
 
     :param builtins.str name: Friendly name of the state machine to match.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:sfn/getStateMachine:getStateMachine', __args__, opts=opts, typ=GetStateMachineResult).value
 
@@ -171,10 +183,12 @@ def get_state_machine(name: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         revision_id=pulumi.get(__ret__, 'revision_id'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         status=pulumi.get(__ret__, 'status'))
 def get_state_machine_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStateMachineResult]:
     """
     Use this data source to get the ARN of a State Machine in AWS Step
@@ -192,9 +206,11 @@ def get_state_machine_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str name: Friendly name of the state machine to match.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:sfn/getStateMachine:getStateMachine', __args__, opts=opts, typ=GetStateMachineResult)
     return __ret__.apply(lambda __response__: GetStateMachineResult(
@@ -204,6 +220,7 @@ def get_state_machine_output(name: Optional[pulumi.Input[builtins.str]] = None,
         description=pulumi.get(__response__, 'description'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         revision_id=pulumi.get(__response__, 'revision_id'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         status=pulumi.get(__response__, 'status')))

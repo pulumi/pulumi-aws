@@ -3,11 +3,15 @@
 
 package com.pulumi.aws.elasticsearch;
 
+import com.pulumi.aws.elasticsearch.inputs.PolicyDocumentArgs;
+import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class DomainPolicyArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,13 +23,13 @@ public final class DomainPolicyArgs extends com.pulumi.resources.ResourceArgs {
      * 
      */
     @Import(name="accessPolicies", required=true)
-    private Output<String> accessPolicies;
+    private Output<Either<String,PolicyDocumentArgs>> accessPolicies;
 
     /**
      * @return IAM policy document specifying the access policies for the domain
      * 
      */
-    public Output<String> accessPolicies() {
+    public Output<Either<String,PolicyDocumentArgs>> accessPolicies() {
         return this.accessPolicies;
     }
 
@@ -44,11 +48,27 @@ public final class DomainPolicyArgs extends com.pulumi.resources.ResourceArgs {
         return this.domainName;
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
     private DomainPolicyArgs() {}
 
     private DomainPolicyArgs(DomainPolicyArgs $) {
         this.accessPolicies = $.accessPolicies;
         this.domainName = $.domainName;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -75,7 +95,7 @@ public final class DomainPolicyArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder accessPolicies(Output<String> accessPolicies) {
+        public Builder accessPolicies(Output<Either<String,PolicyDocumentArgs>> accessPolicies) {
             $.accessPolicies = accessPolicies;
             return this;
         }
@@ -86,8 +106,28 @@ public final class DomainPolicyArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder accessPolicies(String accessPolicies) {
+        public Builder accessPolicies(Either<String,PolicyDocumentArgs> accessPolicies) {
             return accessPolicies(Output.of(accessPolicies));
+        }
+
+        /**
+         * @param accessPolicies IAM policy document specifying the access policies for the domain
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessPolicies(String accessPolicies) {
+            return accessPolicies(Either.ofLeft(accessPolicies));
+        }
+
+        /**
+         * @param accessPolicies IAM policy document specifying the access policies for the domain
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessPolicies(PolicyDocumentArgs accessPolicies) {
+            return accessPolicies(Either.ofRight(accessPolicies));
         }
 
         /**
@@ -109,6 +149,27 @@ public final class DomainPolicyArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public DomainPolicyArgs build() {

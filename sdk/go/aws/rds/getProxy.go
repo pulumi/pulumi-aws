@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupProxy(ctx *pulumi.Context, args *LookupProxyArgs, opts ...pulumi.Invo
 type LookupProxyArgs struct {
 	// Name of the DB proxy.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getProxy.
@@ -71,6 +73,7 @@ type LookupProxyResult struct {
 	// Number of seconds a connection to the proxy can have no activity before the proxy drops the client connection.
 	IdleClientTimeout int    `pulumi:"idleClientTimeout"`
 	Name              string `pulumi:"name"`
+	Region            string `pulumi:"region"`
 	// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
 	RequireTls bool `pulumi:"requireTls"`
 	// ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
@@ -96,6 +99,8 @@ func LookupProxyOutput(ctx *pulumi.Context, args LookupProxyOutputArgs, opts ...
 type LookupProxyOutputArgs struct {
 	// Name of the DB proxy.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupProxyOutputArgs) ElementType() reflect.Type {
@@ -154,6 +159,10 @@ func (o LookupProxyResultOutput) IdleClientTimeout() pulumi.IntOutput {
 
 func (o LookupProxyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProxyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupProxyResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProxyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.

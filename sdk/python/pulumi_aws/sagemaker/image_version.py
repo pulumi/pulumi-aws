@@ -22,27 +22,33 @@ class ImageVersionArgs:
     def __init__(__self__, *,
                  base_image: pulumi.Input[builtins.str],
                  image_name: pulumi.Input[builtins.str],
+                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  horovod: Optional[pulumi.Input[builtins.bool]] = None,
                  job_type: Optional[pulumi.Input[builtins.str]] = None,
                  ml_framework: Optional[pulumi.Input[builtins.str]] = None,
                  processor: Optional[pulumi.Input[builtins.str]] = None,
                  programming_lang: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  release_notes: Optional[pulumi.Input[builtins.str]] = None,
                  vendor_guidance: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ImageVersion resource.
         :param pulumi.Input[builtins.str] base_image: The registry path of the container image on which this image version is based.
         :param pulumi.Input[builtins.str] image_name: The name of the image. Must be unique to your account.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] aliases: A list of aliases for the image version.
         :param pulumi.Input[builtins.bool] horovod: Indicates Horovod compatibility.
         :param pulumi.Input[builtins.str] job_type: Indicates SageMaker AI job type compatibility. Valid values are: `TRAINING`, `INFERENCE`, and `NOTEBOOK_KERNEL`.
         :param pulumi.Input[builtins.str] ml_framework: The machine learning framework vended in the image version.
         :param pulumi.Input[builtins.str] processor: Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
         :param pulumi.Input[builtins.str] programming_lang: The supported programming language and its version.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] release_notes: The maintainer description of the image version.
         :param pulumi.Input[builtins.str] vendor_guidance: The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
         """
         pulumi.set(__self__, "base_image", base_image)
         pulumi.set(__self__, "image_name", image_name)
+        if aliases is not None:
+            pulumi.set(__self__, "aliases", aliases)
         if horovod is not None:
             pulumi.set(__self__, "horovod", horovod)
         if job_type is not None:
@@ -53,6 +59,8 @@ class ImageVersionArgs:
             pulumi.set(__self__, "processor", processor)
         if programming_lang is not None:
             pulumi.set(__self__, "programming_lang", programming_lang)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if release_notes is not None:
             pulumi.set(__self__, "release_notes", release_notes)
         if vendor_guidance is not None:
@@ -81,6 +89,18 @@ class ImageVersionArgs:
     @image_name.setter
     def image_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "image_name", value)
+
+    @property
+    @pulumi.getter
+    def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        A list of aliases for the image version.
+        """
+        return pulumi.get(self, "aliases")
+
+    @aliases.setter
+    def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "aliases", value)
 
     @property
     @pulumi.getter
@@ -143,6 +163,18 @@ class ImageVersionArgs:
         pulumi.set(self, "programming_lang", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="releaseNotes")
     def release_notes(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -170,6 +202,7 @@ class ImageVersionArgs:
 @pulumi.input_type
 class _ImageVersionState:
     def __init__(__self__, *,
+                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
                  base_image: Optional[pulumi.Input[builtins.str]] = None,
                  container_image: Optional[pulumi.Input[builtins.str]] = None,
@@ -180,11 +213,13 @@ class _ImageVersionState:
                  ml_framework: Optional[pulumi.Input[builtins.str]] = None,
                  processor: Optional[pulumi.Input[builtins.str]] = None,
                  programming_lang: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  release_notes: Optional[pulumi.Input[builtins.str]] = None,
                  vendor_guidance: Optional[pulumi.Input[builtins.str]] = None,
                  version: Optional[pulumi.Input[builtins.int]] = None):
         """
         Input properties used for looking up and filtering ImageVersion resources.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] aliases: A list of aliases for the image version.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
         :param pulumi.Input[builtins.str] base_image: The registry path of the container image on which this image version is based.
         :param pulumi.Input[builtins.str] container_image: The registry path of the container image that contains this image version.
@@ -194,10 +229,13 @@ class _ImageVersionState:
         :param pulumi.Input[builtins.str] ml_framework: The machine learning framework vended in the image version.
         :param pulumi.Input[builtins.str] processor: Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
         :param pulumi.Input[builtins.str] programming_lang: The supported programming language and its version.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] release_notes: The maintainer description of the image version.
         :param pulumi.Input[builtins.str] vendor_guidance: The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
         :param pulumi.Input[builtins.int] version: The version of the image. If not specified, the latest version is described.
         """
+        if aliases is not None:
+            pulumi.set(__self__, "aliases", aliases)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if base_image is not None:
@@ -218,12 +256,26 @@ class _ImageVersionState:
             pulumi.set(__self__, "processor", processor)
         if programming_lang is not None:
             pulumi.set(__self__, "programming_lang", programming_lang)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if release_notes is not None:
             pulumi.set(__self__, "release_notes", release_notes)
         if vendor_guidance is not None:
             pulumi.set(__self__, "vendor_guidance", vendor_guidance)
         if version is not None:
             pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        A list of aliases for the image version.
+        """
+        return pulumi.get(self, "aliases")
+
+    @aliases.setter
+    def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "aliases", value)
 
     @property
     @pulumi.getter
@@ -343,6 +395,18 @@ class _ImageVersionState:
         pulumi.set(self, "programming_lang", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="releaseNotes")
     def release_notes(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -385,6 +449,7 @@ class ImageVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  base_image: Optional[pulumi.Input[builtins.str]] = None,
                  horovod: Optional[pulumi.Input[builtins.bool]] = None,
                  image_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -392,6 +457,7 @@ class ImageVersion(pulumi.CustomResource):
                  ml_framework: Optional[pulumi.Input[builtins.str]] = None,
                  processor: Optional[pulumi.Input[builtins.str]] = None,
                  programming_lang: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  release_notes: Optional[pulumi.Input[builtins.str]] = None,
                  vendor_guidance: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -406,21 +472,37 @@ class ImageVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        example = aws.sagemaker.ImageVersion("example",
+            image_name=test["id"],
+            base_image="012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest")
+        ```
+
+        ### With Aliases
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
         test = aws.sagemaker.ImageVersion("test",
             image_name=test_aws_sagemaker_image["id"],
-            base_image="012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest")
+            base_image="012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest",
+            aliases=[
+                "latest",
+                "stable",
+            ])
         ```
 
         ## Import
 
-        Using `pulumi import`, import SageMaker AI Image Versions using the `name`. For example:
+        Using `pulumi import`, import SageMaker AI Image Versions using a comma-delimited string concatenating `image_name` and `version`. For example:
 
         ```sh
-        $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
+        $ pulumi import aws:sagemaker/imageVersion:ImageVersion example example-name,1
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] aliases: A list of aliases for the image version.
         :param pulumi.Input[builtins.str] base_image: The registry path of the container image on which this image version is based.
         :param pulumi.Input[builtins.bool] horovod: Indicates Horovod compatibility.
         :param pulumi.Input[builtins.str] image_name: The name of the image. Must be unique to your account.
@@ -428,6 +510,7 @@ class ImageVersion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ml_framework: The machine learning framework vended in the image version.
         :param pulumi.Input[builtins.str] processor: Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
         :param pulumi.Input[builtins.str] programming_lang: The supported programming language and its version.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] release_notes: The maintainer description of the image version.
         :param pulumi.Input[builtins.str] vendor_guidance: The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
         """
@@ -448,17 +531,32 @@ class ImageVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        example = aws.sagemaker.ImageVersion("example",
+            image_name=test["id"],
+            base_image="012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest")
+        ```
+
+        ### With Aliases
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
         test = aws.sagemaker.ImageVersion("test",
             image_name=test_aws_sagemaker_image["id"],
-            base_image="012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest")
+            base_image="012345678912.dkr.ecr.us-west-2.amazonaws.com/image:latest",
+            aliases=[
+                "latest",
+                "stable",
+            ])
         ```
 
         ## Import
 
-        Using `pulumi import`, import SageMaker AI Image Versions using the `name`. For example:
+        Using `pulumi import`, import SageMaker AI Image Versions using a comma-delimited string concatenating `image_name` and `version`. For example:
 
         ```sh
-        $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo
+        $ pulumi import aws:sagemaker/imageVersion:ImageVersion example example-name,1
         ```
 
         :param str resource_name: The name of the resource.
@@ -476,6 +574,7 @@ class ImageVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 aliases: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  base_image: Optional[pulumi.Input[builtins.str]] = None,
                  horovod: Optional[pulumi.Input[builtins.bool]] = None,
                  image_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -483,6 +582,7 @@ class ImageVersion(pulumi.CustomResource):
                  ml_framework: Optional[pulumi.Input[builtins.str]] = None,
                  processor: Optional[pulumi.Input[builtins.str]] = None,
                  programming_lang: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  release_notes: Optional[pulumi.Input[builtins.str]] = None,
                  vendor_guidance: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -494,6 +594,7 @@ class ImageVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ImageVersionArgs.__new__(ImageVersionArgs)
 
+            __props__.__dict__["aliases"] = aliases
             if base_image is None and not opts.urn:
                 raise TypeError("Missing required property 'base_image'")
             __props__.__dict__["base_image"] = base_image
@@ -505,6 +606,7 @@ class ImageVersion(pulumi.CustomResource):
             __props__.__dict__["ml_framework"] = ml_framework
             __props__.__dict__["processor"] = processor
             __props__.__dict__["programming_lang"] = programming_lang
+            __props__.__dict__["region"] = region
             __props__.__dict__["release_notes"] = release_notes
             __props__.__dict__["vendor_guidance"] = vendor_guidance
             __props__.__dict__["arn"] = None
@@ -521,6 +623,7 @@ class ImageVersion(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            aliases: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
             base_image: Optional[pulumi.Input[builtins.str]] = None,
             container_image: Optional[pulumi.Input[builtins.str]] = None,
@@ -531,6 +634,7 @@ class ImageVersion(pulumi.CustomResource):
             ml_framework: Optional[pulumi.Input[builtins.str]] = None,
             processor: Optional[pulumi.Input[builtins.str]] = None,
             programming_lang: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             release_notes: Optional[pulumi.Input[builtins.str]] = None,
             vendor_guidance: Optional[pulumi.Input[builtins.str]] = None,
             version: Optional[pulumi.Input[builtins.int]] = None) -> 'ImageVersion':
@@ -541,6 +645,7 @@ class ImageVersion(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] aliases: A list of aliases for the image version.
         :param pulumi.Input[builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
         :param pulumi.Input[builtins.str] base_image: The registry path of the container image on which this image version is based.
         :param pulumi.Input[builtins.str] container_image: The registry path of the container image that contains this image version.
@@ -550,6 +655,7 @@ class ImageVersion(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] ml_framework: The machine learning framework vended in the image version.
         :param pulumi.Input[builtins.str] processor: Indicates CPU or GPU compatibility. Valid values are: `CPU` and `GPU`.
         :param pulumi.Input[builtins.str] programming_lang: The supported programming language and its version.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] release_notes: The maintainer description of the image version.
         :param pulumi.Input[builtins.str] vendor_guidance: The stability of the image version, specified by the maintainer. Valid values are: `NOT_PROVIDED`, `STABLE`, `TO_BE_ARCHIVED`, and `ARCHIVED`.
         :param pulumi.Input[builtins.int] version: The version of the image. If not specified, the latest version is described.
@@ -558,6 +664,7 @@ class ImageVersion(pulumi.CustomResource):
 
         __props__ = _ImageVersionState.__new__(_ImageVersionState)
 
+        __props__.__dict__["aliases"] = aliases
         __props__.__dict__["arn"] = arn
         __props__.__dict__["base_image"] = base_image
         __props__.__dict__["container_image"] = container_image
@@ -568,10 +675,19 @@ class ImageVersion(pulumi.CustomResource):
         __props__.__dict__["ml_framework"] = ml_framework
         __props__.__dict__["processor"] = processor
         __props__.__dict__["programming_lang"] = programming_lang
+        __props__.__dict__["region"] = region
         __props__.__dict__["release_notes"] = release_notes
         __props__.__dict__["vendor_guidance"] = vendor_guidance
         __props__.__dict__["version"] = version
         return ImageVersion(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def aliases(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
+        """
+        A list of aliases for the image version.
+        """
+        return pulumi.get(self, "aliases")
 
     @property
     @pulumi.getter
@@ -649,6 +765,14 @@ class ImageVersion(pulumi.CustomResource):
         The supported programming language and its version.
         """
         return pulumi.get(self, "programming_lang")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="releaseNotes")

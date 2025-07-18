@@ -25,12 +25,12 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const example = new aws.ec2.VpcIpam("example", {operatingRegions: [{
- *     regionName: current.then(current => current.name),
+ *     regionName: current.then(current => current.region),
  * }]});
  * const exampleVpcIpamPool = new aws.ec2.VpcIpamPool("example", {
  *     addressFamily: "ipv4",
  *     ipamScopeId: example.privateDefaultScopeId,
- *     locale: current.then(current => current.name),
+ *     locale: current.then(current => current.region),
  * });
  * const exampleVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("example", {
  *     ipamPoolId: exampleVpcIpamPool.id,
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const example = new aws.ec2.VpcIpam("example", {operatingRegions: [{
- *     regionName: current.then(current => current.name),
+ *     regionName: current.then(current => current.region),
  * }]});
  * const ipv6TestPublic = new aws.ec2.VpcIpamPool("ipv6_test_public", {
  *     addressFamily: "ipv6",
@@ -121,6 +121,10 @@ export class VpcIpamPoolCidr extends pulumi.CustomResource {
      * If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
      */
     public readonly netmaskLength!: pulumi.Output<number | undefined>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a VpcIpamPoolCidr resource with the given unique name, arguments, and options.
@@ -140,6 +144,7 @@ export class VpcIpamPoolCidr extends pulumi.CustomResource {
             resourceInputs["ipamPoolCidrId"] = state ? state.ipamPoolCidrId : undefined;
             resourceInputs["ipamPoolId"] = state ? state.ipamPoolId : undefined;
             resourceInputs["netmaskLength"] = state ? state.netmaskLength : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as VpcIpamPoolCidrArgs | undefined;
             if ((!args || args.ipamPoolId === undefined) && !opts.urn) {
@@ -149,6 +154,7 @@ export class VpcIpamPoolCidr extends pulumi.CustomResource {
             resourceInputs["cidrAuthorizationContext"] = args ? args.cidrAuthorizationContext : undefined;
             resourceInputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
             resourceInputs["netmaskLength"] = args ? args.netmaskLength : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["ipamPoolCidrId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -180,6 +186,10 @@ export interface VpcIpamPoolCidrState {
      * If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
      */
     netmaskLength?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -202,4 +212,8 @@ export interface VpcIpamPoolCidrArgs {
      * If provided, the cidr provisioned into the specified pool will be the next available cidr given this declared netmask length. Conflicts with `cidr`.
      */
     netmaskLength?: pulumi.Input<number>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

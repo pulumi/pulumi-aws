@@ -95,6 +95,21 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
      * 
      */
@@ -147,6 +162,7 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
         this.protectedResourceArns = $.protectedResourceArns;
         this.protectedResourceConditions = $.protectedResourceConditions;
         this.protectedResourceType = $.protectedResourceType;
+        this.region = $.region;
         this.restoreMetadataOverrides = $.restoreMetadataOverrides;
         this.restoreTestingPlanName = $.restoreTestingPlanName;
         this.validationWindowHours = $.validationWindowHours;
@@ -283,6 +299,27 @@ public final class RestoreTestingSelectionState extends com.pulumi.resources.Res
          */
         public Builder protectedResourceType(String protectedResourceType) {
             return protectedResourceType(Output.of(protectedResourceType));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

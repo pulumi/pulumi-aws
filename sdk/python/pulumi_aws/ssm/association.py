@@ -27,12 +27,12 @@ class AssociationArgs:
                  automation_target_parameter_name: Optional[pulumi.Input[builtins.str]] = None,
                  compliance_severity: Optional[pulumi.Input[builtins.str]] = None,
                  document_version: Optional[pulumi.Input[builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  max_concurrency: Optional[pulumi.Input[builtins.str]] = None,
                  max_errors: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_location: Optional[pulumi.Input['AssociationOutputLocationArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_expression: Optional[pulumi.Input[builtins.str]] = None,
                  sync_compliance: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -45,12 +45,12 @@ class AssociationArgs:
         :param pulumi.Input[builtins.str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
         :param pulumi.Input[builtins.str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         :param pulumi.Input[builtins.str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
-        :param pulumi.Input[builtins.str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
         :param pulumi.Input[builtins.str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
         :param pulumi.Input[builtins.str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         :param pulumi.Input[builtins.str] name: The name of the SSM document to apply.
         :param pulumi.Input['AssociationOutputLocationArgs'] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[builtins.str] sync_compliance: The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -69,11 +69,6 @@ class AssociationArgs:
             pulumi.set(__self__, "compliance_severity", compliance_severity)
         if document_version is not None:
             pulumi.set(__self__, "document_version", document_version)
-        if instance_id is not None:
-            warnings.warn("""instance_id is deprecated. Use targets instead.""", DeprecationWarning)
-            pulumi.log.warn("""instance_id is deprecated: instance_id is deprecated. Use targets instead.""")
-        if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
         if max_concurrency is not None:
             pulumi.set(__self__, "max_concurrency", max_concurrency)
         if max_errors is not None:
@@ -84,6 +79,8 @@ class AssociationArgs:
             pulumi.set(__self__, "output_location", output_location)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schedule_expression is not None:
             pulumi.set(__self__, "schedule_expression", schedule_expression)
         if sync_compliance is not None:
@@ -156,19 +153,6 @@ class AssociationArgs:
         pulumi.set(self, "document_version", value)
 
     @property
-    @pulumi.getter(name="instanceId")
-    @_utilities.deprecated("""instance_id is deprecated. Use targets instead.""")
-    def instance_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-        """
-        return pulumi.get(self, "instance_id")
-
-    @instance_id.setter
-    def instance_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "instance_id", value)
-
-    @property
     @pulumi.getter(name="maxConcurrency")
     def max_concurrency(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -227,6 +211,18 @@ class AssociationArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="scheduleExpression")
@@ -301,12 +297,12 @@ class _AssociationState:
                  automation_target_parameter_name: Optional[pulumi.Input[builtins.str]] = None,
                  compliance_severity: Optional[pulumi.Input[builtins.str]] = None,
                  document_version: Optional[pulumi.Input[builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  max_concurrency: Optional[pulumi.Input[builtins.str]] = None,
                  max_errors: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_location: Optional[pulumi.Input['AssociationOutputLocationArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_expression: Optional[pulumi.Input[builtins.str]] = None,
                  sync_compliance: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -322,12 +318,12 @@ class _AssociationState:
         :param pulumi.Input[builtins.str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
         :param pulumi.Input[builtins.str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         :param pulumi.Input[builtins.str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
-        :param pulumi.Input[builtins.str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
         :param pulumi.Input[builtins.str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
         :param pulumi.Input[builtins.str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         :param pulumi.Input[builtins.str] name: The name of the SSM document to apply.
         :param pulumi.Input['AssociationOutputLocationArgs'] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[builtins.str] sync_compliance: The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -351,11 +347,6 @@ class _AssociationState:
             pulumi.set(__self__, "compliance_severity", compliance_severity)
         if document_version is not None:
             pulumi.set(__self__, "document_version", document_version)
-        if instance_id is not None:
-            warnings.warn("""instance_id is deprecated. Use targets instead.""", DeprecationWarning)
-            pulumi.log.warn("""instance_id is deprecated: instance_id is deprecated. Use targets instead.""")
-        if instance_id is not None:
-            pulumi.set(__self__, "instance_id", instance_id)
         if max_concurrency is not None:
             pulumi.set(__self__, "max_concurrency", max_concurrency)
         if max_errors is not None:
@@ -366,15 +357,14 @@ class _AssociationState:
             pulumi.set(__self__, "output_location", output_location)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if schedule_expression is not None:
             pulumi.set(__self__, "schedule_expression", schedule_expression)
         if sync_compliance is not None:
             pulumi.set(__self__, "sync_compliance", sync_compliance)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if targets is not None:
@@ -467,19 +457,6 @@ class _AssociationState:
         pulumi.set(self, "document_version", value)
 
     @property
-    @pulumi.getter(name="instanceId")
-    @_utilities.deprecated("""instance_id is deprecated. Use targets instead.""")
-    def instance_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-        """
-        return pulumi.get(self, "instance_id")
-
-    @instance_id.setter
-    def instance_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "instance_id", value)
-
-    @property
     @pulumi.getter(name="maxConcurrency")
     def max_concurrency(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -540,6 +517,18 @@ class _AssociationState:
         pulumi.set(self, "parameters", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -577,7 +566,6 @@ class _AssociationState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -626,12 +614,12 @@ class Association(pulumi.CustomResource):
                  automation_target_parameter_name: Optional[pulumi.Input[builtins.str]] = None,
                  compliance_severity: Optional[pulumi.Input[builtins.str]] = None,
                  document_version: Optional[pulumi.Input[builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  max_concurrency: Optional[pulumi.Input[builtins.str]] = None,
                  max_errors: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_location: Optional[pulumi.Input[Union['AssociationOutputLocationArgs', 'AssociationOutputLocationArgsDict']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_expression: Optional[pulumi.Input[builtins.str]] = None,
                  sync_compliance: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -864,12 +852,12 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
         :param pulumi.Input[builtins.str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         :param pulumi.Input[builtins.str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
-        :param pulumi.Input[builtins.str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
         :param pulumi.Input[builtins.str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
         :param pulumi.Input[builtins.str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         :param pulumi.Input[builtins.str] name: The name of the SSM document to apply.
         :param pulumi.Input[Union['AssociationOutputLocationArgs', 'AssociationOutputLocationArgsDict']] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[builtins.str] sync_compliance: The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1123,12 +1111,12 @@ class Association(pulumi.CustomResource):
                  automation_target_parameter_name: Optional[pulumi.Input[builtins.str]] = None,
                  compliance_severity: Optional[pulumi.Input[builtins.str]] = None,
                  document_version: Optional[pulumi.Input[builtins.str]] = None,
-                 instance_id: Optional[pulumi.Input[builtins.str]] = None,
                  max_concurrency: Optional[pulumi.Input[builtins.str]] = None,
                  max_errors: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  output_location: Optional[pulumi.Input[Union['AssociationOutputLocationArgs', 'AssociationOutputLocationArgsDict']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  schedule_expression: Optional[pulumi.Input[builtins.str]] = None,
                  sync_compliance: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -1148,12 +1136,12 @@ class Association(pulumi.CustomResource):
             __props__.__dict__["automation_target_parameter_name"] = automation_target_parameter_name
             __props__.__dict__["compliance_severity"] = compliance_severity
             __props__.__dict__["document_version"] = document_version
-            __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["max_concurrency"] = max_concurrency
             __props__.__dict__["max_errors"] = max_errors
             __props__.__dict__["name"] = name
             __props__.__dict__["output_location"] = output_location
             __props__.__dict__["parameters"] = parameters
+            __props__.__dict__["region"] = region
             __props__.__dict__["schedule_expression"] = schedule_expression
             __props__.__dict__["sync_compliance"] = sync_compliance
             __props__.__dict__["tags"] = tags
@@ -1179,12 +1167,12 @@ class Association(pulumi.CustomResource):
             automation_target_parameter_name: Optional[pulumi.Input[builtins.str]] = None,
             compliance_severity: Optional[pulumi.Input[builtins.str]] = None,
             document_version: Optional[pulumi.Input[builtins.str]] = None,
-            instance_id: Optional[pulumi.Input[builtins.str]] = None,
             max_concurrency: Optional[pulumi.Input[builtins.str]] = None,
             max_errors: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             output_location: Optional[pulumi.Input[Union['AssociationOutputLocationArgs', 'AssociationOutputLocationArgsDict']]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             schedule_expression: Optional[pulumi.Input[builtins.str]] = None,
             sync_compliance: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -1205,12 +1193,12 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
         :param pulumi.Input[builtins.str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         :param pulumi.Input[builtins.str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
-        :param pulumi.Input[builtins.str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
         :param pulumi.Input[builtins.str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
         :param pulumi.Input[builtins.str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         :param pulumi.Input[builtins.str] name: The name of the SSM document to apply.
         :param pulumi.Input[Union['AssociationOutputLocationArgs', 'AssociationOutputLocationArgsDict']] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[builtins.str] sync_compliance: The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1231,12 +1219,12 @@ class Association(pulumi.CustomResource):
         __props__.__dict__["automation_target_parameter_name"] = automation_target_parameter_name
         __props__.__dict__["compliance_severity"] = compliance_severity
         __props__.__dict__["document_version"] = document_version
-        __props__.__dict__["instance_id"] = instance_id
         __props__.__dict__["max_concurrency"] = max_concurrency
         __props__.__dict__["max_errors"] = max_errors
         __props__.__dict__["name"] = name
         __props__.__dict__["output_location"] = output_location
         __props__.__dict__["parameters"] = parameters
+        __props__.__dict__["region"] = region
         __props__.__dict__["schedule_expression"] = schedule_expression
         __props__.__dict__["sync_compliance"] = sync_compliance
         __props__.__dict__["tags"] = tags
@@ -1302,15 +1290,6 @@ class Association(pulumi.CustomResource):
         return pulumi.get(self, "document_version")
 
     @property
-    @pulumi.getter(name="instanceId")
-    @_utilities.deprecated("""instance_id is deprecated. Use targets instead.""")
-    def instance_id(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above. Use the `targets` attribute instead.
-        """
-        return pulumi.get(self, "instance_id")
-
-    @property
     @pulumi.getter(name="maxConcurrency")
     def max_concurrency(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -1351,6 +1330,14 @@ class Association(pulumi.CustomResource):
         return pulumi.get(self, "parameters")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -1376,7 +1363,6 @@ class Association(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

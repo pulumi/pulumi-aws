@@ -6,6 +6,7 @@ package com.pulumi.aws.amplify.inputs;
 import com.pulumi.aws.amplify.inputs.AppAutoBranchCreationConfigArgs;
 import com.pulumi.aws.amplify.inputs.AppCacheConfigArgs;
 import com.pulumi.aws.amplify.inputs.AppCustomRuleArgs;
+import com.pulumi.aws.amplify.inputs.AppJobConfigArgs;
 import com.pulumi.aws.amplify.inputs.AppProductionBranchArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -293,6 +294,21 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+     * 
+     */
+    @Import(name="jobConfig")
+    private @Nullable Output<AppJobConfigArgs> jobConfig;
+
+    /**
+     * @return Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+     * 
+     */
+    public Optional<Output<AppJobConfigArgs>> jobConfig() {
+        return Optional.ofNullable(this.jobConfig);
+    }
+
+    /**
      * Name for an Amplify app.
      * 
      */
@@ -353,6 +369,21 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Repository for an Amplify app.
      * 
      */
@@ -385,22 +416,14 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
      * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     public Optional<Output<Map<String,String>>> tagsAll() {
         return Optional.ofNullable(this.tagsAll);
     }
@@ -426,10 +449,12 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         this.enableBranchAutoDeletion = $.enableBranchAutoDeletion;
         this.environmentVariables = $.environmentVariables;
         this.iamServiceRoleArn = $.iamServiceRoleArn;
+        this.jobConfig = $.jobConfig;
         this.name = $.name;
         this.oauthToken = $.oauthToken;
         this.platform = $.platform;
         this.productionBranches = $.productionBranches;
+        this.region = $.region;
         this.repository = $.repository;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -852,6 +877,27 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param jobConfig Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobConfig(@Nullable Output<AppJobConfigArgs> jobConfig) {
+            $.jobConfig = jobConfig;
+            return this;
+        }
+
+        /**
+         * @param jobConfig Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobConfig(AppJobConfigArgs jobConfig) {
+            return jobConfig(Output.of(jobConfig));
+        }
+
+        /**
          * @param name Name for an Amplify app.
          * 
          * @return builder
@@ -946,6 +992,27 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
          * @param repository Repository for an Amplify app.
          * 
          * @return builder
@@ -992,11 +1059,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
             $.tagsAll = tagsAll;
             return this;
@@ -1007,11 +1070,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Please use `tags` instead.
-         * 
          */
-        @Deprecated /* Please use `tags` instead. */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
         }

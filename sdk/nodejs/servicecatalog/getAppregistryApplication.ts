@@ -24,6 +24,7 @@ export function getAppregistryApplication(args: GetAppregistryApplicationArgs, o
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:servicecatalog/getAppregistryApplication:getAppregistryApplication", {
         "id": args.id,
+        "region": args.region,
     }, opts);
 }
 
@@ -35,6 +36,10 @@ export interface GetAppregistryApplicationArgs {
      * Application identifier.
      */
     id: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -58,6 +63,7 @@ export interface GetAppregistryApplicationResult {
      * Name of the application.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * A map of tags assigned to the Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -83,6 +89,7 @@ export function getAppregistryApplicationOutput(args: GetAppregistryApplicationO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:servicecatalog/getAppregistryApplication:getAppregistryApplication", {
         "id": args.id,
+        "region": args.region,
     }, opts);
 }
 
@@ -94,4 +101,8 @@ export interface GetAppregistryApplicationOutputArgs {
      * Application identifier.
      */
     id: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

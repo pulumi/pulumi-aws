@@ -80,10 +80,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.asset.FileAsset;
@@ -105,11 +105,11 @@ import javax.annotation.Nullable;
  *             .deletionWindowInDays(7)
  *             .build());
  * 
- *         var examplebucket = new BucketV2("examplebucket", BucketV2Args.builder()
+ *         var examplebucket = new Bucket("examplebucket", BucketArgs.builder()
  *             .bucket("examplebuckettftest")
  *             .build());
  * 
- *         var example = new BucketAclV2("example", BucketAclV2Args.builder()
+ *         var example = new BucketAcl("example", BucketAclArgs.builder()
  *             .bucket(examplebucket.id())
  *             .acl("private")
  *             .build());
@@ -137,10 +137,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.asset.FileAsset;
@@ -157,11 +157,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplebucket = new BucketV2("examplebucket", BucketV2Args.builder()
+ *         var examplebucket = new Bucket("examplebucket", BucketArgs.builder()
  *             .bucket("examplebuckettftest")
  *             .build());
  * 
- *         var example = new BucketAclV2("example", BucketAclV2Args.builder()
+ *         var example = new BucketAcl("example", BucketAclArgs.builder()
  *             .bucket(examplebucket.id())
  *             .acl("private")
  *             .build());
@@ -189,10 +189,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.asset.FileAsset;
@@ -209,11 +209,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplebucket = new BucketV2("examplebucket", BucketV2Args.builder()
+ *         var examplebucket = new Bucket("examplebucket", BucketArgs.builder()
  *             .bucket("examplebuckettftest")
  *             .build());
  * 
- *         var example = new BucketAclV2("example", BucketAclV2Args.builder()
+ *         var example = new BucketAcl("example", BucketAclArgs.builder()
  *             .bucket(examplebucket.id())
  *             .acl("private")
  *             .build());
@@ -241,13 +241,13 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
- * import com.pulumi.aws.s3.BucketAclV2;
- * import com.pulumi.aws.s3.BucketAclV2Args;
- * import com.pulumi.aws.s3.BucketVersioningV2;
- * import com.pulumi.aws.s3.BucketVersioningV2Args;
- * import com.pulumi.aws.s3.inputs.BucketVersioningV2VersioningConfigurationArgs;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.s3.BucketAcl;
+ * import com.pulumi.aws.s3.BucketAclArgs;
+ * import com.pulumi.aws.s3.BucketVersioning;
+ * import com.pulumi.aws.s3.BucketVersioningArgs;
+ * import com.pulumi.aws.s3.inputs.BucketVersioningVersioningConfigurationArgs;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.asset.FileAsset;
@@ -265,19 +265,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplebucket = new BucketV2("examplebucket", BucketV2Args.builder()
+ *         var examplebucket = new Bucket("examplebucket", BucketArgs.builder()
  *             .bucket("examplebuckettftest")
  *             .objectLockEnabled(true)
  *             .build());
  * 
- *         var example = new BucketAclV2("example", BucketAclV2Args.builder()
+ *         var example = new BucketAcl("example", BucketAclArgs.builder()
  *             .bucket(examplebucket.id())
  *             .acl("private")
  *             .build());
  * 
- *         var exampleBucketVersioningV2 = new BucketVersioningV2("exampleBucketVersioningV2", BucketVersioningV2Args.builder()
+ *         var exampleBucketVersioning = new BucketVersioning("exampleBucketVersioning", BucketVersioningArgs.builder()
  *             .bucket(examplebucket.id())
- *             .versioningConfiguration(BucketVersioningV2VersioningConfigurationArgs.builder()
+ *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
  *             .build());
@@ -291,7 +291,7 @@ import javax.annotation.Nullable;
  *             .objectLockRetainUntilDate("2021-12-31T23:59:60Z")
  *             .forceDestroy(true)
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleBucketVersioningV2)
+ *                 .dependsOn(exampleBucketVersioning)
  *                 .build());
  * 
  *     }
@@ -315,8 +315,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
- * import com.pulumi.aws.s3.BucketV2;
- * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3.BucketObjectv2;
  * import com.pulumi.aws.s3.BucketObjectv2Args;
  * import com.pulumi.aws.s3.inputs.BucketObjectv2OverrideProviderArgs;
@@ -335,7 +335,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var examplebucket = new BucketV2("examplebucket", BucketV2Args.builder()
+ *         var examplebucket = new Bucket("examplebucket", BucketArgs.builder()
  *             .bucket("examplebuckettftest")
  *             .build());
  * 
@@ -747,6 +747,20 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.overrideProvider);
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Server-side encryption of the object in S3. Valid values are &#34;`AES256`&#34; and &#34;`aws:kms`&#34;.
      * 
      */
@@ -819,11 +833,7 @@ public class BucketObjectv2 extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 

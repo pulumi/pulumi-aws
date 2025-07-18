@@ -226,6 +226,12 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> PrimaryReplicationGroupId { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// A flag that indicates whether the encryption in transit is enabled.
         /// </summary>
         [Output("transitEncryptionEnabled")]
@@ -338,6 +344,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("primaryReplicationGroupId", required: true)]
         public Input<string> PrimaryReplicationGroupId { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GlobalReplicationGroupArgs()
         {
@@ -463,6 +475,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("primaryReplicationGroupId")]
         public Input<string>? PrimaryReplicationGroupId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// A flag that indicates whether the encryption in transit is enabled.

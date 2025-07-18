@@ -32,6 +32,7 @@ export function getPrincipalApplicationAssignments(args: GetPrincipalApplication
         "instanceArn": args.instanceArn,
         "principalId": args.principalId,
         "principalType": args.principalType,
+        "region": args.region,
     }, opts);
 }
 
@@ -55,6 +56,10 @@ export interface GetPrincipalApplicationAssignmentsArgs {
      * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
      */
     principalType: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -75,6 +80,7 @@ export interface GetPrincipalApplicationAssignmentsResult {
      * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
      */
     readonly principalType: string;
+    readonly region: string;
 }
 /**
  * Data source for viewing AWS SSO Admin Principal Application Assignments.
@@ -101,6 +107,7 @@ export function getPrincipalApplicationAssignmentsOutput(args: GetPrincipalAppli
         "instanceArn": args.instanceArn,
         "principalId": args.principalId,
         "principalType": args.principalType,
+        "region": args.region,
     }, opts);
 }
 
@@ -124,4 +131,8 @@ export interface GetPrincipalApplicationAssignmentsOutputArgs {
      * Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
      */
     principalType: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -42,7 +42,7 @@ class GetServiceAccountResult:
     @pulumi.getter
     def arn(self) -> builtins.str:
         """
-        ARN of the AWS CloudTrail service account in the selected region.
+        ARN of the AWS CloudTrail service account in the selected Region.
         """
         return pulumi.get(self, "arn")
 
@@ -56,7 +56,7 @@ class GetServiceAccountResult:
 
     @property
     @pulumi.getter
-    def region(self) -> Optional[builtins.str]:
+    def region(self) -> builtins.str:
         return pulumi.get(self, "region")
 
 
@@ -77,7 +77,7 @@ def get_service_account(region: Optional[builtins.str] = None,
     Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
     in a given region for the purpose of allowing CloudTrail to store trail data in S3.
 
-    > **Note:** AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+    > **Warning:** This data source is deprecated. The AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
 
     ## Example Usage
 
@@ -86,7 +86,7 @@ def get_service_account(region: Optional[builtins.str] = None,
     import pulumi_aws as aws
 
     main = aws.cloudtrail.get_service_account()
-    bucket = aws.s3.BucketV2("bucket",
+    bucket = aws.s3.Bucket("bucket",
         bucket="tf-cloudtrail-logging-test-bucket",
         force_destroy=True)
     allow_cloudtrail_logging = pulumi.Output.all(
@@ -121,8 +121,7 @@ def get_service_account(region: Optional[builtins.str] = None,
     ```
 
 
-    :param builtins.str region: Name of the region whose AWS CloudTrail account ID is desired.
-           Defaults to the region from the AWS provider configuration.
+    :param builtins.str region: Name of the Region whose AWS CloudTrail account ID is desired. Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -139,7 +138,7 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[builtins.s
     Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
     in a given region for the purpose of allowing CloudTrail to store trail data in S3.
 
-    > **Note:** AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
+    > **Warning:** This data source is deprecated. The AWS documentation [states that](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/create-s3-bucket-policy-for-cloudtrail.html#troubleshooting-s3-bucket-policy) a [service principal name](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services) should be used instead of an AWS account ID in any relevant IAM policy.
 
     ## Example Usage
 
@@ -148,7 +147,7 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[builtins.s
     import pulumi_aws as aws
 
     main = aws.cloudtrail.get_service_account()
-    bucket = aws.s3.BucketV2("bucket",
+    bucket = aws.s3.Bucket("bucket",
         bucket="tf-cloudtrail-logging-test-bucket",
         force_destroy=True)
     allow_cloudtrail_logging = pulumi.Output.all(
@@ -183,8 +182,7 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[builtins.s
     ```
 
 
-    :param builtins.str region: Name of the region whose AWS CloudTrail account ID is desired.
-           Defaults to the region from the AWS provider configuration.
+    :param builtins.str region: Name of the Region whose AWS CloudTrail account ID is desired. Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region

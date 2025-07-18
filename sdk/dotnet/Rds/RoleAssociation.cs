@@ -41,6 +41,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> FeatureName { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
         /// </summary>
         [Output("roleArn")]
@@ -105,6 +111,12 @@ namespace Pulumi.Aws.Rds
         public Input<string> FeatureName { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
         /// </summary>
         [Input("roleArn", required: true)]
@@ -129,6 +141,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("featureName")]
         public Input<string>? FeatureName { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.

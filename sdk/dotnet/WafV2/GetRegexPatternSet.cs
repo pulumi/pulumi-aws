@@ -97,6 +97,12 @@ namespace Pulumi.Aws.WafV2
         public string Name { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         /// </summary>
         [Input("scope", required: true)]
@@ -115,6 +121,12 @@ namespace Pulumi.Aws.WafV2
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
@@ -145,6 +157,7 @@ namespace Pulumi.Aws.WafV2
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
         /// <summary>
         /// One or more blocks of regular expression patterns that AWS WAF is searching for. See Regular Expression below for details.
         /// </summary>
@@ -161,6 +174,8 @@ namespace Pulumi.Aws.WafV2
 
             string name,
 
+            string region,
+
             ImmutableArray<Outputs.GetRegexPatternSetRegularExpressionResult> regularExpressions,
 
             string scope)
@@ -169,6 +184,7 @@ namespace Pulumi.Aws.WafV2
             Description = description;
             Id = id;
             Name = name;
+            Region = region;
             RegularExpressions = regularExpressions;
             Scope = scope;
         }

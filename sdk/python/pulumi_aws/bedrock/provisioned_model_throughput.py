@@ -26,6 +26,7 @@ class ProvisionedModelThroughputArgs:
                  model_units: pulumi.Input[builtins.int],
                  provisioned_model_name: pulumi.Input[builtins.str],
                  commitment_duration: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ProvisionedModelThroughputTimeoutsArgs']] = None):
         """
@@ -34,6 +35,7 @@ class ProvisionedModelThroughputArgs:
         :param pulumi.Input[builtins.int] model_units: Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
         :param pulumi.Input[builtins.str] provisioned_model_name: Unique name for this Provisioned Throughput.
         :param pulumi.Input[builtins.str] commitment_duration: Commitment duration requested for the Provisioned Throughput. For custom models, you can purchase on-demand Provisioned Throughput by omitting this argument. Valid values: `OneMonth`, `SixMonths`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "model_arn", model_arn)
@@ -41,6 +43,8 @@ class ProvisionedModelThroughputArgs:
         pulumi.set(__self__, "provisioned_model_name", provisioned_model_name)
         if commitment_duration is not None:
             pulumi.set(__self__, "commitment_duration", commitment_duration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -96,6 +100,18 @@ class ProvisionedModelThroughputArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -124,6 +140,7 @@ class _ProvisionedModelThroughputState:
                  model_units: Optional[pulumi.Input[builtins.int]] = None,
                  provisioned_model_arn: Optional[pulumi.Input[builtins.str]] = None,
                  provisioned_model_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['ProvisionedModelThroughputTimeoutsArgs']] = None):
@@ -134,6 +151,7 @@ class _ProvisionedModelThroughputState:
         :param pulumi.Input[builtins.int] model_units: Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
         :param pulumi.Input[builtins.str] provisioned_model_arn: The ARN of the Provisioned Throughput.
         :param pulumi.Input[builtins.str] provisioned_model_name: Unique name for this Provisioned Throughput.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -147,11 +165,10 @@ class _ProvisionedModelThroughputState:
             pulumi.set(__self__, "provisioned_model_arn", provisioned_model_arn)
         if provisioned_model_name is not None:
             pulumi.set(__self__, "provisioned_model_name", provisioned_model_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
@@ -219,6 +236,18 @@ class _ProvisionedModelThroughputState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -231,7 +260,6 @@ class _ProvisionedModelThroughputState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -262,6 +290,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
                  model_arn: Optional[pulumi.Input[builtins.str]] = None,
                  model_units: Optional[pulumi.Input[builtins.int]] = None,
                  provisioned_model_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['ProvisionedModelThroughputTimeoutsArgs', 'ProvisionedModelThroughputTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -295,6 +324,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] model_arn: ARN of the model to associate with this Provisioned Throughput.
         :param pulumi.Input[builtins.int] model_units: Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
         :param pulumi.Input[builtins.str] provisioned_model_name: Unique name for this Provisioned Throughput.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -346,6 +376,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
                  model_arn: Optional[pulumi.Input[builtins.str]] = None,
                  model_units: Optional[pulumi.Input[builtins.int]] = None,
                  provisioned_model_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['ProvisionedModelThroughputTimeoutsArgs', 'ProvisionedModelThroughputTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -367,6 +398,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
             if provisioned_model_name is None and not opts.urn:
                 raise TypeError("Missing required property 'provisioned_model_name'")
             __props__.__dict__["provisioned_model_name"] = provisioned_model_name
+            __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["provisioned_model_arn"] = None
@@ -386,6 +418,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
             model_units: Optional[pulumi.Input[builtins.int]] = None,
             provisioned_model_arn: Optional[pulumi.Input[builtins.str]] = None,
             provisioned_model_name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             timeouts: Optional[pulumi.Input[Union['ProvisionedModelThroughputTimeoutsArgs', 'ProvisionedModelThroughputTimeoutsArgsDict']]] = None) -> 'ProvisionedModelThroughput':
@@ -401,6 +434,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] model_units: Number of model units to allocate. A model unit delivers a specific throughput level for the specified model.
         :param pulumi.Input[builtins.str] provisioned_model_arn: The ARN of the Provisioned Throughput.
         :param pulumi.Input[builtins.str] provisioned_model_name: Unique name for this Provisioned Throughput.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -413,6 +447,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
         __props__.__dict__["model_units"] = model_units
         __props__.__dict__["provisioned_model_arn"] = provisioned_model_arn
         __props__.__dict__["provisioned_model_name"] = provisioned_model_name
+        __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -460,6 +495,14 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -468,7 +511,6 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

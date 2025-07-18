@@ -86,6 +86,10 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
      * Name of the stickiness policy.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a AppCookieStickinessPolicy resource with the given unique name, arguments, and options.
@@ -104,6 +108,7 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
             resourceInputs["lbPort"] = state ? state.lbPort : undefined;
             resourceInputs["loadBalancer"] = state ? state.loadBalancer : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AppCookieStickinessPolicyArgs | undefined;
             if ((!args || args.cookieName === undefined) && !opts.urn) {
@@ -119,6 +124,7 @@ export class AppCookieStickinessPolicy extends pulumi.CustomResource {
             resourceInputs["lbPort"] = args ? args.lbPort : undefined;
             resourceInputs["loadBalancer"] = args ? args.loadBalancer : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/appCookieStickinessPolicy:AppCookieStickinessPolicy" }] };
@@ -150,6 +156,10 @@ export interface AppCookieStickinessPolicyState {
      * Name of the stickiness policy.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -175,4 +185,8 @@ export interface AppCookieStickinessPolicyArgs {
      * Name of the stickiness policy.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

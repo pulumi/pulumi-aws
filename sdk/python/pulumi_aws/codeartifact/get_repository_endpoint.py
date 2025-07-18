@@ -27,7 +27,7 @@ class GetRepositoryEndpointResult:
     """
     A collection of values returned by getRepositoryEndpoint.
     """
-    def __init__(__self__, domain=None, domain_owner=None, format=None, id=None, repository=None, repository_endpoint=None):
+    def __init__(__self__, domain=None, domain_owner=None, format=None, id=None, region=None, repository=None, repository_endpoint=None):
         if domain and not isinstance(domain, str):
             raise TypeError("Expected argument 'domain' to be a str")
         pulumi.set(__self__, "domain", domain)
@@ -40,6 +40,9 @@ class GetRepositoryEndpointResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if repository and not isinstance(repository, str):
             raise TypeError("Expected argument 'repository' to be a str")
         pulumi.set(__self__, "repository", repository)
@@ -72,6 +75,11 @@ class GetRepositoryEndpointResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def repository(self) -> builtins.str:
         return pulumi.get(self, "repository")
 
@@ -94,6 +102,7 @@ class AwaitableGetRepositoryEndpointResult(GetRepositoryEndpointResult):
             domain_owner=self.domain_owner,
             format=self.format,
             id=self.id,
+            region=self.region,
             repository=self.repository,
             repository_endpoint=self.repository_endpoint)
 
@@ -101,6 +110,7 @@ class AwaitableGetRepositoryEndpointResult(GetRepositoryEndpointResult):
 def get_repository_endpoint(domain: Optional[builtins.str] = None,
                             domain_owner: Optional[builtins.str] = None,
                             format: Optional[builtins.str] = None,
+                            region: Optional[builtins.str] = None,
                             repository: Optional[builtins.str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRepositoryEndpointResult:
     """
@@ -121,12 +131,14 @@ def get_repository_endpoint(domain: Optional[builtins.str] = None,
     :param builtins.str domain: Name of the domain that contains the repository.
     :param builtins.str domain_owner: Account number of the AWS account that owns the domain.
     :param builtins.str format: Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str repository: Name of the repository.
     """
     __args__ = dict()
     __args__['domain'] = domain
     __args__['domainOwner'] = domain_owner
     __args__['format'] = format
+    __args__['region'] = region
     __args__['repository'] = repository
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint', __args__, opts=opts, typ=GetRepositoryEndpointResult).value
@@ -136,11 +148,13 @@ def get_repository_endpoint(domain: Optional[builtins.str] = None,
         domain_owner=pulumi.get(__ret__, 'domain_owner'),
         format=pulumi.get(__ret__, 'format'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         repository=pulumi.get(__ret__, 'repository'),
         repository_endpoint=pulumi.get(__ret__, 'repository_endpoint'))
 def get_repository_endpoint_output(domain: Optional[pulumi.Input[builtins.str]] = None,
                                    domain_owner: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    format: Optional[pulumi.Input[builtins.str]] = None,
+                                   region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                    repository: Optional[pulumi.Input[builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryEndpointResult]:
     """
@@ -161,12 +175,14 @@ def get_repository_endpoint_output(domain: Optional[pulumi.Input[builtins.str]] 
     :param builtins.str domain: Name of the domain that contains the repository.
     :param builtins.str domain_owner: Account number of the AWS account that owns the domain.
     :param builtins.str format: Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str repository: Name of the repository.
     """
     __args__ = dict()
     __args__['domain'] = domain
     __args__['domainOwner'] = domain_owner
     __args__['format'] = format
+    __args__['region'] = region
     __args__['repository'] = repository
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint', __args__, opts=opts, typ=GetRepositoryEndpointResult)
@@ -175,5 +191,6 @@ def get_repository_endpoint_output(domain: Optional[pulumi.Input[builtins.str]] 
         domain_owner=pulumi.get(__response__, 'domain_owner'),
         format=pulumi.get(__response__, 'format'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         repository=pulumi.get(__response__, 'repository'),
         repository_endpoint=pulumi.get(__response__, 'repository_endpoint')))

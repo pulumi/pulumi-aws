@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/accessanalyzer"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/accessanalyzer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,6 +75,8 @@ type ArchiveRule struct {
 	AnalyzerName pulumi.StringOutput `pulumi:"analyzerName"`
 	// Filter criteria for the archive rule. See Filter for more details.
 	Filters ArchiveRuleFilterArrayOutput `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Rule name.
 	RuleName pulumi.StringOutput `pulumi:"ruleName"`
 }
@@ -122,6 +124,8 @@ type archiveRuleState struct {
 	AnalyzerName *string `pulumi:"analyzerName"`
 	// Filter criteria for the archive rule. See Filter for more details.
 	Filters []ArchiveRuleFilter `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Rule name.
 	RuleName *string `pulumi:"ruleName"`
 }
@@ -131,6 +135,8 @@ type ArchiveRuleState struct {
 	AnalyzerName pulumi.StringPtrInput
 	// Filter criteria for the archive rule. See Filter for more details.
 	Filters ArchiveRuleFilterArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Rule name.
 	RuleName pulumi.StringPtrInput
 }
@@ -144,6 +150,8 @@ type archiveRuleArgs struct {
 	AnalyzerName string `pulumi:"analyzerName"`
 	// Filter criteria for the archive rule. See Filter for more details.
 	Filters []ArchiveRuleFilter `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Rule name.
 	RuleName string `pulumi:"ruleName"`
 }
@@ -154,6 +162,8 @@ type ArchiveRuleArgs struct {
 	AnalyzerName pulumi.StringInput
 	// Filter criteria for the archive rule. See Filter for more details.
 	Filters ArchiveRuleFilterArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Rule name.
 	RuleName pulumi.StringInput
 }
@@ -253,6 +263,11 @@ func (o ArchiveRuleOutput) AnalyzerName() pulumi.StringOutput {
 // Filter criteria for the archive rule. See Filter for more details.
 func (o ArchiveRuleOutput) Filters() ArchiveRuleFilterArrayOutput {
 	return o.ApplyT(func(v *ArchiveRule) ArchiveRuleFilterArrayOutput { return v.Filters }).(ArchiveRuleFilterArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ArchiveRuleOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ArchiveRule) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Rule name.

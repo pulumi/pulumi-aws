@@ -27,7 +27,7 @@ class GetSinkResult:
     """
     A collection of values returned by getSink.
     """
-    def __init__(__self__, arn=None, id=None, name=None, sink_id=None, sink_identifier=None, tags=None):
+    def __init__(__self__, arn=None, id=None, name=None, region=None, sink_id=None, sink_identifier=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +37,9 @@ class GetSinkResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if sink_id and not isinstance(sink_id, str):
             raise TypeError("Expected argument 'sink_id' to be a str")
         pulumi.set(__self__, "sink_id", sink_id)
@@ -72,6 +75,11 @@ class GetSinkResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="sinkId")
     def sink_id(self) -> builtins.str:
         """
@@ -102,12 +110,14 @@ class AwaitableGetSinkResult(GetSinkResult):
             arn=self.arn,
             id=self.id,
             name=self.name,
+            region=self.region,
             sink_id=self.sink_id,
             sink_identifier=self.sink_identifier,
             tags=self.tags)
 
 
-def get_sink(sink_identifier: Optional[builtins.str] = None,
+def get_sink(region: Optional[builtins.str] = None,
+             sink_identifier: Optional[builtins.str] = None,
              tags: Optional[Mapping[str, builtins.str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSinkResult:
     """
@@ -125,10 +135,12 @@ def get_sink(sink_identifier: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str sink_identifier: ARN of the sink.
     :param Mapping[str, builtins.str] tags: Tags assigned to the sink.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['sinkIdentifier'] = sink_identifier
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -138,10 +150,12 @@ def get_sink(sink_identifier: Optional[builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         sink_id=pulumi.get(__ret__, 'sink_id'),
         sink_identifier=pulumi.get(__ret__, 'sink_identifier'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_sink_output(sink_identifier: Optional[pulumi.Input[builtins.str]] = None,
+def get_sink_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                    sink_identifier: Optional[pulumi.Input[builtins.str]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSinkResult]:
     """
@@ -159,10 +173,12 @@ def get_sink_output(sink_identifier: Optional[pulumi.Input[builtins.str]] = None
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str sink_identifier: ARN of the sink.
     :param Mapping[str, builtins.str] tags: Tags assigned to the sink.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['sinkIdentifier'] = sink_identifier
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -171,6 +187,7 @@ def get_sink_output(sink_identifier: Optional[pulumi.Input[builtins.str]] = None
         arn=pulumi.get(__response__, 'arn'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         sink_id=pulumi.get(__response__, 'sink_id'),
         sink_identifier=pulumi.get(__response__, 'sink_identifier'),
         tags=pulumi.get(__response__, 'tags')))

@@ -121,6 +121,10 @@ export class ReservedInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly recurringCharges!: pulumi.Output<outputs.rds.ReservedInstanceRecurringCharge[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Customer-specified identifier to track this reservation.
      */
     public readonly reservationId!: pulumi.Output<string | undefined>;
@@ -138,8 +142,6 @@ export class ReservedInstance extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -172,6 +174,7 @@ export class ReservedInstance extends pulumi.CustomResource {
             resourceInputs["offeringType"] = state ? state.offeringType : undefined;
             resourceInputs["productDescription"] = state ? state.productDescription : undefined;
             resourceInputs["recurringCharges"] = state ? state.recurringCharges : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["reservationId"] = state ? state.reservationId : undefined;
             resourceInputs["startTime"] = state ? state.startTime : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
@@ -185,6 +188,7 @@ export class ReservedInstance extends pulumi.CustomResource {
             }
             resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
             resourceInputs["offeringId"] = args ? args.offeringId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["reservationId"] = args ? args.reservationId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -262,6 +266,10 @@ export interface ReservedInstanceState {
      */
     recurringCharges?: pulumi.Input<pulumi.Input<inputs.rds.ReservedInstanceRecurringCharge>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Customer-specified identifier to track this reservation.
      */
     reservationId?: pulumi.Input<string>;
@@ -279,8 +287,6 @@ export interface ReservedInstanceState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -303,6 +309,10 @@ export interface ReservedInstanceArgs {
      * The following arguments are optional:
      */
     offeringId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Customer-specified identifier to track this reservation.
      */

@@ -108,6 +108,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetApplicationArgs()
         {
         }
@@ -121,6 +127,12 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public GetApplicationInvokeArgs()
         {
@@ -146,6 +158,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetApplicationResult(
@@ -157,13 +170,16 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
             string id,
 
-            string name)
+            string name,
+
+            string region)
         {
             AppversionLifecycle = appversionLifecycle;
             Arn = arn;
             Description = description;
             Id = id;
             Name = name;
+            Region = region;
         }
     }
 }

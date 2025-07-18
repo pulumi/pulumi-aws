@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Retrieve information about a link.
+ * Provides details about an existing Network Manager link.
  *
  * ## Example Usage
  *
@@ -89,7 +89,7 @@ export interface GetLinkResult {
     readonly type: string;
 }
 /**
- * Retrieve information about a link.
+ * Provides details about an existing Network Manager link.
  *
  * ## Example Usage
  *

@@ -75,6 +75,10 @@ export class Resource extends pulumi.CustomResource {
      */
     public readonly pathPart!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * ID of the associated REST API
      */
     public readonly restApi!: pulumi.Output<string>;
@@ -95,6 +99,7 @@ export class Resource extends pulumi.CustomResource {
             resourceInputs["parentId"] = state ? state.parentId : undefined;
             resourceInputs["path"] = state ? state.path : undefined;
             resourceInputs["pathPart"] = state ? state.pathPart : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["restApi"] = state ? state.restApi : undefined;
         } else {
             const args = argsOrState as ResourceArgs | undefined;
@@ -109,6 +114,7 @@ export class Resource extends pulumi.CustomResource {
             }
             resourceInputs["parentId"] = args ? args.parentId : undefined;
             resourceInputs["pathPart"] = args ? args.pathPart : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["restApi"] = args ? args.restApi : undefined;
             resourceInputs["path"] = undefined /*out*/;
         }
@@ -134,6 +140,10 @@ export interface ResourceState {
      */
     pathPart?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ID of the associated REST API
      */
     restApi?: pulumi.Input<string | RestApi>;
@@ -151,6 +161,10 @@ export interface ResourceArgs {
      * Last path segment of this API resource.
      */
     pathPart: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the associated REST API
      */

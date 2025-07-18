@@ -165,6 +165,12 @@ namespace Pulumi.Aws.Connect
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -204,6 +210,12 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -264,6 +276,7 @@ namespace Pulumi.Aws.Connect
         /// A block that contains information about the phone settings for the user. Documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUserPhoneConfigResult> PhoneConfigs;
+        public readonly string Region;
         /// <summary>
         /// The identifier of the routing profile for the user.
         /// </summary>
@@ -296,6 +309,8 @@ namespace Pulumi.Aws.Connect
 
             ImmutableArray<Outputs.GetUserPhoneConfigResult> phoneConfigs,
 
+            string region,
+
             string routingProfileId,
 
             ImmutableArray<string> securityProfileIds,
@@ -312,6 +327,7 @@ namespace Pulumi.Aws.Connect
             InstanceId = instanceId;
             Name = name;
             PhoneConfigs = phoneConfigs;
+            Region = region;
             RoutingProfileId = routingProfileId;
             SecurityProfileIds = securityProfileIds;
             Tags = tags;

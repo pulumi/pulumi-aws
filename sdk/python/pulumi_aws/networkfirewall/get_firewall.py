@@ -28,7 +28,7 @@ class GetFirewallResult:
     """
     A collection of values returned by getFirewall.
     """
-    def __init__(__self__, arn=None, delete_protection=None, description=None, enabled_analysis_types=None, encryption_configurations=None, firewall_policy_arn=None, firewall_policy_change_protection=None, firewall_statuses=None, id=None, name=None, subnet_change_protection=None, subnet_mappings=None, tags=None, update_token=None, vpc_id=None):
+    def __init__(__self__, arn=None, delete_protection=None, description=None, enabled_analysis_types=None, encryption_configurations=None, firewall_policy_arn=None, firewall_policy_change_protection=None, firewall_statuses=None, id=None, name=None, region=None, subnet_change_protection=None, subnet_mappings=None, tags=None, update_token=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -59,6 +59,9 @@ class GetFirewallResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if subnet_change_protection and not isinstance(subnet_change_protection, bool):
             raise TypeError("Expected argument 'subnet_change_protection' to be a bool")
         pulumi.set(__self__, "subnet_change_protection", subnet_change_protection)
@@ -156,6 +159,11 @@ class GetFirewallResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="subnetChangeProtection")
     def subnet_change_protection(self) -> builtins.bool:
         """
@@ -212,6 +220,7 @@ class AwaitableGetFirewallResult(GetFirewallResult):
             firewall_statuses=self.firewall_statuses,
             id=self.id,
             name=self.name,
+            region=self.region,
             subnet_change_protection=self.subnet_change_protection,
             subnet_mappings=self.subnet_mappings,
             tags=self.tags,
@@ -221,6 +230,7 @@ class AwaitableGetFirewallResult(GetFirewallResult):
 
 def get_firewall(arn: Optional[builtins.str] = None,
                  name: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
                  tags: Optional[Mapping[str, builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFirewallResult:
     """
@@ -261,11 +271,13 @@ def get_firewall(arn: Optional[builtins.str] = None,
     :param builtins.str name: Descriptive name of the firewall.
            
            One or more of these arguments is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:networkfirewall/getFirewall:getFirewall', __args__, opts=opts, typ=GetFirewallResult).value
@@ -281,6 +293,7 @@ def get_firewall(arn: Optional[builtins.str] = None,
         firewall_statuses=pulumi.get(__ret__, 'firewall_statuses'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         subnet_change_protection=pulumi.get(__ret__, 'subnet_change_protection'),
         subnet_mappings=pulumi.get(__ret__, 'subnet_mappings'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -288,6 +301,7 @@ def get_firewall(arn: Optional[builtins.str] = None,
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_firewall_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallResult]:
     """
@@ -328,11 +342,13 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = No
     :param builtins.str name: Descriptive name of the firewall.
            
            One or more of these arguments is required.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
     __args__ = dict()
     __args__['arn'] = arn
     __args__['name'] = name
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:networkfirewall/getFirewall:getFirewall', __args__, opts=opts, typ=GetFirewallResult)
@@ -347,6 +363,7 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[builtins.str]]] = No
         firewall_statuses=pulumi.get(__response__, 'firewall_statuses'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         subnet_change_protection=pulumi.get(__response__, 'subnet_change_protection'),
         subnet_mappings=pulumi.get(__response__, 'subnet_mappings'),
         tags=pulumi.get(__response__, 'tags'),

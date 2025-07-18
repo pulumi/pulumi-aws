@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/dms"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dms"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,6 +50,8 @@ func LookupReplicationInstance(ctx *pulumi.Context, args *LookupReplicationInsta
 
 // A collection of arguments for invoking getReplicationInstance.
 type LookupReplicationInstanceArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The replication instance identifier.
 	ReplicationInstanceId string            `pulumi:"replicationInstanceId"`
 	Tags                  map[string]string `pulumi:"tags"`
@@ -76,7 +78,8 @@ type LookupReplicationInstanceResult struct {
 	// The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 	PreferredMaintenanceWindow string `pulumi:"preferredMaintenanceWindow"`
 	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
-	PubliclyAccessible bool `pulumi:"publiclyAccessible"`
+	PubliclyAccessible bool   `pulumi:"publiclyAccessible"`
+	Region             string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of the replication instance.
 	ReplicationInstanceArn string `pulumi:"replicationInstanceArn"`
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for information on instance classes.
@@ -104,6 +107,8 @@ func LookupReplicationInstanceOutput(ctx *pulumi.Context, args LookupReplication
 
 // A collection of arguments for invoking getReplicationInstance.
 type LookupReplicationInstanceOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The replication instance identifier.
 	ReplicationInstanceId pulumi.StringInput    `pulumi:"replicationInstanceId"`
 	Tags                  pulumi.StringMapInput `pulumi:"tags"`
@@ -176,6 +181,10 @@ func (o LookupReplicationInstanceResultOutput) PreferredMaintenanceWindow() pulu
 // Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
 func (o LookupReplicationInstanceResultOutput) PubliclyAccessible() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupReplicationInstanceResult) bool { return v.PubliclyAccessible }).(pulumi.BoolOutput)
+}
+
+func (o LookupReplicationInstanceResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupReplicationInstanceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Amazon Resource Name (ARN) of the replication instance.

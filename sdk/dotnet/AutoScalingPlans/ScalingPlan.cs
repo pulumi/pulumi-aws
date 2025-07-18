@@ -43,6 +43,12 @@ namespace Pulumi.Aws.AutoScalingPlans
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Scaling instructions. More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_ScalingInstruction.html).
         /// </summary>
         [Output("scalingInstructions")]
@@ -112,6 +118,12 @@ namespace Pulumi.Aws.AutoScalingPlans
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("scalingInstructions", required: true)]
         private InputList<Inputs.ScalingPlanScalingInstructionArgs>? _scalingInstructions;
 
@@ -143,6 +155,12 @@ namespace Pulumi.Aws.AutoScalingPlans
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("scalingInstructions")]
         private InputList<Inputs.ScalingPlanScalingInstructionGetArgs>? _scalingInstructions;

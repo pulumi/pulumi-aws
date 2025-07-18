@@ -69,6 +69,10 @@ export class ClusterIamRoles extends pulumi.CustomResource {
      * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
      */
     public readonly iamRoleArns!: pulumi.Output<string[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a ClusterIamRoles resource with the given unique name, arguments, and options.
@@ -86,6 +90,7 @@ export class ClusterIamRoles extends pulumi.CustomResource {
             resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
             resourceInputs["defaultIamRoleArn"] = state ? state.defaultIamRoleArn : undefined;
             resourceInputs["iamRoleArns"] = state ? state.iamRoleArns : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as ClusterIamRolesArgs | undefined;
             if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
@@ -94,6 +99,7 @@ export class ClusterIamRoles extends pulumi.CustomResource {
             resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
             resourceInputs["defaultIamRoleArn"] = args ? args.defaultIamRoleArn : undefined;
             resourceInputs["iamRoleArns"] = args ? args.iamRoleArns : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ClusterIamRoles.__pulumiType, name, resourceInputs, opts);
@@ -116,6 +122,10 @@ export interface ClusterIamRolesState {
      * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
      */
     iamRoleArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -134,4 +144,8 @@ export interface ClusterIamRolesArgs {
      * A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
      */
     iamRoleArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

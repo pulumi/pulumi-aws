@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/bedrock"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,11 +77,12 @@ type InferenceProfile struct {
 	Models InferenceProfileModelArrayOutput `pulumi:"models"`
 	// The name of the inference profile.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Key-value mapping of resource tags for the inference profile.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags     pulumi.StringMapOutput            `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput            `pulumi:"tagsAll"`
 	Timeouts InferenceProfileTimeoutsPtrOutput `pulumi:"timeouts"`
 	// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
@@ -134,11 +135,12 @@ type inferenceProfileState struct {
 	Models []InferenceProfileModel `pulumi:"models"`
 	// The name of the inference profile.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
 	Status *string `pulumi:"status"`
 	// Key-value mapping of resource tags for the inference profile.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags     map[string]string         `pulumi:"tags"`
 	TagsAll  map[string]string         `pulumi:"tagsAll"`
 	Timeouts *InferenceProfileTimeouts `pulumi:"timeouts"`
 	// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
@@ -162,11 +164,12 @@ type InferenceProfileState struct {
 	Models InferenceProfileModelArrayInput
 	// The name of the inference profile.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
 	Status pulumi.StringPtrInput
 	// Key-value mapping of resource tags for the inference profile.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts InferenceProfileTimeoutsPtrInput
 	// The type of the inference profile. `SYSTEM_DEFINED` means that the inference profile is defined by Amazon Bedrock. `APPLICATION` means that the inference profile is defined by the user.
@@ -188,6 +191,8 @@ type inferenceProfileArgs struct {
 	ModelSource *InferenceProfileModelSource `pulumi:"modelSource"`
 	// The name of the inference profile.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Key-value mapping of resource tags for the inference profile.
 	Tags     map[string]string         `pulumi:"tags"`
 	Timeouts *InferenceProfileTimeouts `pulumi:"timeouts"`
@@ -203,6 +208,8 @@ type InferenceProfileArgs struct {
 	ModelSource InferenceProfileModelSourcePtrInput
 	// The name of the inference profile.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Key-value mapping of resource tags for the inference profile.
 	Tags     pulumi.StringMapInput
 	Timeouts InferenceProfileTimeoutsPtrInput
@@ -327,6 +334,11 @@ func (o InferenceProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o InferenceProfileOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *InferenceProfile) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The status of the inference profile. `ACTIVE` means that the inference profile is available to use.
 func (o InferenceProfileOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceProfile) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
@@ -337,7 +349,6 @@ func (o InferenceProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InferenceProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o InferenceProfileOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InferenceProfile) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

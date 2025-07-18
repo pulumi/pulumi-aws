@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/eks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,8 +56,10 @@ type LookupAddonArgs struct {
 	// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
 	AddonName string `pulumi:"addonName"`
 	// Name of the EKS Cluster.
-	ClusterName string            `pulumi:"clusterName"`
-	Tags        map[string]string `pulumi:"tags"`
+	ClusterName string `pulumi:"clusterName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getAddon.
@@ -78,6 +80,7 @@ type LookupAddonResult struct {
 	ModifiedAt string `pulumi:"modifiedAt"`
 	// Pod identity association for the EKS add-on.
 	PodIdentityAssociations []GetAddonPodIdentityAssociation `pulumi:"podIdentityAssociations"`
+	Region                  string                           `pulumi:"region"`
 	// ARN of IAM role used for EKS add-on. If value is empty -
 	// then add-on uses the IAM role assigned to the EKS Cluster node.
 	ServiceAccountRoleArn string            `pulumi:"serviceAccountRoleArn"`
@@ -99,8 +102,10 @@ type LookupAddonOutputArgs struct {
 	// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
 	AddonName pulumi.StringInput `pulumi:"addonName"`
 	// Name of the EKS Cluster.
-	ClusterName pulumi.StringInput    `pulumi:"clusterName"`
-	Tags        pulumi.StringMapInput `pulumi:"tags"`
+	ClusterName pulumi.StringInput `pulumi:"clusterName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupAddonOutputArgs) ElementType() reflect.Type {
@@ -163,6 +168,10 @@ func (o LookupAddonResultOutput) ModifiedAt() pulumi.StringOutput {
 // Pod identity association for the EKS add-on.
 func (o LookupAddonResultOutput) PodIdentityAssociations() GetAddonPodIdentityAssociationArrayOutput {
 	return o.ApplyT(func(v LookupAddonResult) []GetAddonPodIdentityAssociation { return v.PodIdentityAssociations }).(GetAddonPodIdentityAssociationArrayOutput)
+}
+
+func (o LookupAddonResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAddonResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of IAM role used for EKS add-on. If value is empty -

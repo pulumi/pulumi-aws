@@ -26,6 +26,7 @@ export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): P
     return pulumi.runtime.invoke("aws:cloudhsmv2/getCluster:getCluster", {
         "clusterId": args.clusterId,
         "clusterState": args.clusterState,
+        "region": args.region,
     }, opts);
 }
 
@@ -41,6 +42,10 @@ export interface GetClusterArgs {
      * State of the cluster to be found.
      */
     clusterState?: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -57,6 +62,7 @@ export interface GetClusterResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * ID of the security group associated with the CloudHSM cluster.
      */
@@ -89,6 +95,7 @@ export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.Invok
     return pulumi.runtime.invokeOutput("aws:cloudhsmv2/getCluster:getCluster", {
         "clusterId": args.clusterId,
         "clusterState": args.clusterState,
+        "region": args.region,
     }, opts);
 }
 
@@ -104,4 +111,8 @@ export interface GetClusterOutputArgs {
      * State of the cluster to be found.
      */
     clusterState?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

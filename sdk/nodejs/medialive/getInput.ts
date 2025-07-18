@@ -27,6 +27,7 @@ export function getInput(args: GetInputArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:medialive/getInput:getInput", {
         "id": args.id,
+        "region": args.region,
     }, opts);
 }
 
@@ -38,6 +39,10 @@ export interface GetInputArgs {
      * The ID of the Input.
      */
     id: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -78,6 +83,7 @@ export interface GetInputResult {
      * Name of the input.
      */
     readonly name: string;
+    readonly region: string;
     /**
      * The ARN of the role this input assumes during and after creation.
      */
@@ -123,6 +129,7 @@ export function getInputOutput(args: GetInputOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:medialive/getInput:getInput", {
         "id": args.id,
+        "region": args.region,
     }, opts);
 }
 
@@ -134,4 +141,8 @@ export interface GetInputOutputArgs {
      * The ID of the Input.
      */
     id: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

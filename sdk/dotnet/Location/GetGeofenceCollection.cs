@@ -105,6 +105,12 @@ namespace Pulumi.Aws.Location
         [Input("kmsKeyId")]
         public string? KmsKeyId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -136,6 +142,12 @@ namespace Pulumi.Aws.Location
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -180,6 +192,7 @@ namespace Pulumi.Aws.Location
         /// Key identifier for an AWS KMS customer managed key assigned to the Amazon Location resource.
         /// </summary>
         public readonly string KmsKeyId;
+        public readonly string Region;
         /// <summary>
         /// Key-value map of resource tags for the geofence collection.
         /// </summary>
@@ -203,6 +216,8 @@ namespace Pulumi.Aws.Location
 
             string kmsKeyId,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             string updateTime)
@@ -213,6 +228,7 @@ namespace Pulumi.Aws.Location
             Description = description;
             Id = id;
             KmsKeyId = kmsKeyId;
+            Region = region;
             Tags = tags;
             UpdateTime = updateTime;
         }

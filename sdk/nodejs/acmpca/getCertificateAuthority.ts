@@ -25,6 +25,7 @@ export function getCertificateAuthority(args: GetCertificateAuthorityArgs, opts?
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:acmpca/getCertificateAuthority:getCertificateAuthority", {
         "arn": args.arn,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -37,6 +38,10 @@ export interface GetCertificateAuthorityArgs {
      * ARN of the certificate authority.
      */
     arn: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Key-value map of user-defined tags that are attached to the certificate authority.
      */
@@ -73,6 +78,7 @@ export interface GetCertificateAuthorityResult {
      * Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
      */
     readonly notBefore: string;
+    readonly region: string;
     /**
      * Nested attribute containing revocation configuration.
      */
@@ -116,6 +122,7 @@ export function getCertificateAuthorityOutput(args: GetCertificateAuthorityOutpu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:acmpca/getCertificateAuthority:getCertificateAuthority", {
         "arn": args.arn,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -128,6 +135,10 @@ export interface GetCertificateAuthorityOutputArgs {
      * ARN of the certificate authority.
      */
     arn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Key-value map of user-defined tags that are attached to the certificate authority.
      */

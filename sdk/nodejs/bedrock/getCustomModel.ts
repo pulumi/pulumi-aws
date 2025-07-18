@@ -25,6 +25,7 @@ export function getCustomModel(args: GetCustomModelArgs, opts?: pulumi.InvokeOpt
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:bedrock/getCustomModel:getCustomModel", {
         "modelId": args.modelId,
+        "region": args.region,
     }, opts);
 }
 
@@ -36,6 +37,10 @@ export interface GetCustomModelArgs {
      * Name or ARN of the custom model.
      */
     modelId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -88,6 +93,7 @@ export interface GetCustomModelResult {
      * Output data configuration associated with this custom model.
      */
     readonly outputDataConfigs: outputs.bedrock.GetCustomModelOutputDataConfig[];
+    readonly region: string;
     /**
      * Information about the training dataset.
      */
@@ -123,6 +129,7 @@ export function getCustomModelOutput(args: GetCustomModelOutputArgs, opts?: pulu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:bedrock/getCustomModel:getCustomModel", {
         "modelId": args.modelId,
+        "region": args.region,
     }, opts);
 }
 
@@ -134,4 +141,8 @@ export interface GetCustomModelOutputArgs {
      * Name or ARN of the custom model.
      */
     modelId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

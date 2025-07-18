@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,7 +27,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lightsail"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lightsail"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,6 +87,8 @@ type ContainerServiceDeploymentVersion struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Configuration block that describes the settings of the public endpoint for the container service. See below.
 	PublicEndpoint ContainerServiceDeploymentVersionPublicEndpointPtrOutput `pulumi:"publicEndpoint"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Name of the container service.
 	//
 	// The following arguments are optional:
@@ -139,6 +141,8 @@ type containerServiceDeploymentVersionState struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// Configuration block that describes the settings of the public endpoint for the container service. See below.
 	PublicEndpoint *ContainerServiceDeploymentVersionPublicEndpoint `pulumi:"publicEndpoint"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the container service.
 	//
 	// The following arguments are optional:
@@ -156,6 +160,8 @@ type ContainerServiceDeploymentVersionState struct {
 	CreatedAt pulumi.StringPtrInput
 	// Configuration block that describes the settings of the public endpoint for the container service. See below.
 	PublicEndpoint ContainerServiceDeploymentVersionPublicEndpointPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the container service.
 	//
 	// The following arguments are optional:
@@ -175,6 +181,8 @@ type containerServiceDeploymentVersionArgs struct {
 	Containers []ContainerServiceDeploymentVersionContainer `pulumi:"containers"`
 	// Configuration block that describes the settings of the public endpoint for the container service. See below.
 	PublicEndpoint *ContainerServiceDeploymentVersionPublicEndpoint `pulumi:"publicEndpoint"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the container service.
 	//
 	// The following arguments are optional:
@@ -187,6 +195,8 @@ type ContainerServiceDeploymentVersionArgs struct {
 	Containers ContainerServiceDeploymentVersionContainerArrayInput
 	// Configuration block that describes the settings of the public endpoint for the container service. See below.
 	PublicEndpoint ContainerServiceDeploymentVersionPublicEndpointPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the container service.
 	//
 	// The following arguments are optional:
@@ -297,6 +307,11 @@ func (o ContainerServiceDeploymentVersionOutput) PublicEndpoint() ContainerServi
 	return o.ApplyT(func(v *ContainerServiceDeploymentVersion) ContainerServiceDeploymentVersionPublicEndpointPtrOutput {
 		return v.PublicEndpoint
 	}).(ContainerServiceDeploymentVersionPublicEndpointPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ContainerServiceDeploymentVersionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerServiceDeploymentVersion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Name of the container service.

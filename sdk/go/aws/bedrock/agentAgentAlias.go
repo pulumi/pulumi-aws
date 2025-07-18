@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,13 +38,13 @@ type AgentAgentAlias struct {
 	AgentId pulumi.StringOutput `pulumi:"agentId"`
 	// Description of the alias.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
 	RoutingConfigurations AgentAgentAliasRoutingConfigurationArrayOutput `pulumi:"routingConfigurations"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapOutput           `pulumi:"tagsAll"`
 	Timeouts AgentAgentAliasTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -97,13 +97,13 @@ type agentAgentAliasState struct {
 	AgentId *string `pulumi:"agentId"`
 	// Description of the alias.
 	Description *string `pulumi:"description"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
 	RoutingConfigurations []AgentAgentAliasRoutingConfiguration `pulumi:"routingConfigurations"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  map[string]string        `pulumi:"tagsAll"`
 	Timeouts *AgentAgentAliasTimeouts `pulumi:"timeouts"`
 }
@@ -121,13 +121,13 @@ type AgentAgentAliasState struct {
 	AgentId pulumi.StringPtrInput
 	// Description of the alias.
 	Description pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
 	RoutingConfigurations AgentAgentAliasRoutingConfigurationArrayInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll  pulumi.StringMapInput
 	Timeouts AgentAgentAliasTimeoutsPtrInput
 }
@@ -145,6 +145,8 @@ type agentAgentAliasArgs struct {
 	AgentId string `pulumi:"agentId"`
 	// Description of the alias.
 	Description *string `pulumi:"description"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
 	RoutingConfigurations []AgentAgentAliasRoutingConfiguration `pulumi:"routingConfigurations"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -162,6 +164,8 @@ type AgentAgentAliasArgs struct {
 	AgentId pulumi.StringInput
 	// Description of the alias.
 	Description pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
 	RoutingConfigurations AgentAgentAliasRoutingConfigurationArrayInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -283,6 +287,11 @@ func (o AgentAgentAliasOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentAgentAlias) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AgentAgentAliasOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AgentAgentAlias) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Details about the routing configuration of the alias. See `routingConfiguration` Block for details.
 func (o AgentAgentAliasOutput) RoutingConfigurations() AgentAgentAliasRoutingConfigurationArrayOutput {
 	return o.ApplyT(func(v *AgentAgentAlias) AgentAgentAliasRoutingConfigurationArrayOutput {
@@ -296,8 +305,6 @@ func (o AgentAgentAliasOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o AgentAgentAliasOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentAgentAlias) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

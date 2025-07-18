@@ -3,12 +3,10 @@
 
 package com.pulumi.aws.ssoadmin.inputs;
 
-import com.pulumi.aws.ssoadmin.inputs.GetApplicationAssignmentsApplicationAssignmentArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -34,25 +32,25 @@ public final class GetApplicationAssignmentsArgs extends com.pulumi.resources.In
     }
 
     /**
-     * List of principals assigned to the application. See the `application_assignments` attribute reference below.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    @Import(name="applicationAssignments")
-    private @Nullable Output<List<GetApplicationAssignmentsApplicationAssignmentArgs>> applicationAssignments;
+    @Import(name="region")
+    private @Nullable Output<String> region;
 
     /**
-     * @return List of principals assigned to the application. See the `application_assignments` attribute reference below.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
-    public Optional<Output<List<GetApplicationAssignmentsApplicationAssignmentArgs>>> applicationAssignments() {
-        return Optional.ofNullable(this.applicationAssignments);
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private GetApplicationAssignmentsArgs() {}
 
     private GetApplicationAssignmentsArgs(GetApplicationAssignmentsArgs $) {
         this.applicationArn = $.applicationArn;
-        this.applicationAssignments = $.applicationAssignments;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -95,34 +93,24 @@ public final class GetApplicationAssignmentsArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param applicationAssignments List of principals assigned to the application. See the `application_assignments` attribute reference below.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
          */
-        public Builder applicationAssignments(@Nullable Output<List<GetApplicationAssignmentsApplicationAssignmentArgs>> applicationAssignments) {
-            $.applicationAssignments = applicationAssignments;
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
             return this;
         }
 
         /**
-         * @param applicationAssignments List of principals assigned to the application. See the `application_assignments` attribute reference below.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
          */
-        public Builder applicationAssignments(List<GetApplicationAssignmentsApplicationAssignmentArgs> applicationAssignments) {
-            return applicationAssignments(Output.of(applicationAssignments));
-        }
-
-        /**
-         * @param applicationAssignments List of principals assigned to the application. See the `application_assignments` attribute reference below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder applicationAssignments(GetApplicationAssignmentsApplicationAssignmentArgs... applicationAssignments) {
-            return applicationAssignments(List.of(applicationAssignments));
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public GetApplicationAssignmentsArgs build() {

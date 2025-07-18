@@ -176,6 +176,12 @@ namespace Pulumi.Aws.Ec2
         public string? Id { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// State of the NAT Gateway (pending | failed | available | deleting | deleted ).
         /// </summary>
         [Input("state")]
@@ -235,6 +241,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// State of the NAT Gateway (pending | failed | available | deleting | deleted ).
@@ -303,6 +315,7 @@ namespace Pulumi.Aws.Ec2
         /// Public IP (EIP) address of the selected NAT Gateway.
         /// </summary>
         public readonly string PublicIp;
+        public readonly string Region;
         /// <summary>
         /// Secondary allocation EIP IDs for the selected NAT Gateway.
         /// </summary>
@@ -338,6 +351,8 @@ namespace Pulumi.Aws.Ec2
 
             string publicIp,
 
+            string region,
+
             ImmutableArray<string> secondaryAllocationIds,
 
             int secondaryPrivateIpAddressCount,
@@ -360,6 +375,7 @@ namespace Pulumi.Aws.Ec2
             NetworkInterfaceId = networkInterfaceId;
             PrivateIp = privateIp;
             PublicIp = publicIp;
+            Region = region;
             SecondaryAllocationIds = secondaryAllocationIds;
             SecondaryPrivateIpAddressCount = secondaryPrivateIpAddressCount;
             SecondaryPrivateIpAddresses = secondaryPrivateIpAddresses;

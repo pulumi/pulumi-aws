@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/rds"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,6 +90,8 @@ type LookupSnapshotArgs struct {
 	// If more than one result is returned, use the most
 	// recent Snapshot.
 	MostRecent *bool `pulumi:"mostRecent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Type of snapshots to be returned. If you don't specify a SnapshotType
 	// value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
@@ -133,6 +135,7 @@ type LookupSnapshotResult struct {
 	// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Doesn't change when the snapshot is copied.
 	OriginalSnapshotCreateTime string `pulumi:"originalSnapshotCreateTime"`
 	Port                       int    `pulumi:"port"`
+	Region                     string `pulumi:"region"`
 	// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes for the copy when the snapshot is copied.
 	SnapshotCreateTime string  `pulumi:"snapshotCreateTime"`
 	SnapshotType       *string `pulumi:"snapshotType"`
@@ -174,6 +177,8 @@ type LookupSnapshotOutputArgs struct {
 	// If more than one result is returned, use the most
 	// recent Snapshot.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Type of snapshots to be returned. If you don't specify a SnapshotType
 	// value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
 	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
@@ -286,6 +291,10 @@ func (o LookupSnapshotResultOutput) OriginalSnapshotCreateTime() pulumi.StringOu
 
 func (o LookupSnapshotResultOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o LookupSnapshotResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSnapshotResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes for the copy when the snapshot is copied.

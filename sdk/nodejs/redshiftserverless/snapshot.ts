@@ -88,6 +88,10 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerAccount!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * How long to retain the created snapshot. Default value is `-1`.
      */
     public readonly retentionPeriod!: pulumi.Output<number | undefined>;
@@ -117,6 +121,7 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["namespaceArn"] = state ? state.namespaceArn : undefined;
             resourceInputs["namespaceName"] = state ? state.namespaceName : undefined;
             resourceInputs["ownerAccount"] = state ? state.ownerAccount : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["retentionPeriod"] = state ? state.retentionPeriod : undefined;
             resourceInputs["snapshotName"] = state ? state.snapshotName : undefined;
         } else {
@@ -128,6 +133,7 @@ export class Snapshot extends pulumi.CustomResource {
                 throw new Error("Missing required property 'snapshotName'");
             }
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
             resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
             resourceInputs["accountsWithProvisionedRestoreAccesses"] = undefined /*out*/;
@@ -180,6 +186,10 @@ export interface SnapshotState {
      */
     ownerAccount?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * How long to retain the created snapshot. Default value is `-1`.
      */
     retentionPeriod?: pulumi.Input<number>;
@@ -197,6 +207,10 @@ export interface SnapshotArgs {
      * The namespace to create a snapshot for.
      */
     namespaceName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * How long to retain the created snapshot. Default value is `-1`.
      */

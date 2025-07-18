@@ -28,7 +28,7 @@ class GetImagePipelineResult:
     """
     A collection of values returned by getImagePipeline.
     """
-    def __init__(__self__, arn=None, container_recipe_arn=None, date_created=None, date_last_run=None, date_next_run=None, date_updated=None, description=None, distribution_configuration_arn=None, enhanced_image_metadata_enabled=None, id=None, image_recipe_arn=None, image_scanning_configurations=None, image_tests_configurations=None, infrastructure_configuration_arn=None, name=None, platform=None, schedules=None, status=None, tags=None):
+    def __init__(__self__, arn=None, container_recipe_arn=None, date_created=None, date_last_run=None, date_next_run=None, date_updated=None, description=None, distribution_configuration_arn=None, enhanced_image_metadata_enabled=None, id=None, image_recipe_arn=None, image_scanning_configurations=None, image_tests_configurations=None, infrastructure_configuration_arn=None, name=None, platform=None, region=None, schedules=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -77,6 +77,9 @@ class GetImagePipelineResult:
         if platform and not isinstance(platform, str):
             raise TypeError("Expected argument 'platform' to be a str")
         pulumi.set(__self__, "platform", platform)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if schedules and not isinstance(schedules, list):
             raise TypeError("Expected argument 'schedules' to be a list")
         pulumi.set(__self__, "schedules", schedules)
@@ -211,6 +214,11 @@ class GetImagePipelineResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def schedules(self) -> Sequence['outputs.GetImagePipelineScheduleResult']:
         """
         List of an object with schedule settings.
@@ -256,12 +264,14 @@ class AwaitableGetImagePipelineResult(GetImagePipelineResult):
             infrastructure_configuration_arn=self.infrastructure_configuration_arn,
             name=self.name,
             platform=self.platform,
+            region=self.region,
             schedules=self.schedules,
             status=self.status,
             tags=self.tags)
 
 
 def get_image_pipeline(arn: Optional[builtins.str] = None,
+                       region: Optional[builtins.str] = None,
                        tags: Optional[Mapping[str, builtins.str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImagePipelineResult:
     """
@@ -278,10 +288,12 @@ def get_image_pipeline(arn: Optional[builtins.str] = None,
 
 
     :param builtins.str arn: ARN of the image pipeline.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the image pipeline.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:imagebuilder/getImagePipeline:getImagePipeline', __args__, opts=opts, typ=GetImagePipelineResult).value
@@ -303,10 +315,12 @@ def get_image_pipeline(arn: Optional[builtins.str] = None,
         infrastructure_configuration_arn=pulumi.get(__ret__, 'infrastructure_configuration_arn'),
         name=pulumi.get(__ret__, 'name'),
         platform=pulumi.get(__ret__, 'platform'),
+        region=pulumi.get(__ret__, 'region'),
         schedules=pulumi.get(__ret__, 'schedules'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_image_pipeline_output(arn: Optional[pulumi.Input[builtins.str]] = None,
+                              region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImagePipelineResult]:
     """
@@ -323,10 +337,12 @@ def get_image_pipeline_output(arn: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str arn: ARN of the image pipeline.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the image pipeline.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:imagebuilder/getImagePipeline:getImagePipeline', __args__, opts=opts, typ=GetImagePipelineResult)
@@ -347,6 +363,7 @@ def get_image_pipeline_output(arn: Optional[pulumi.Input[builtins.str]] = None,
         infrastructure_configuration_arn=pulumi.get(__response__, 'infrastructure_configuration_arn'),
         name=pulumi.get(__response__, 'name'),
         platform=pulumi.get(__response__, 'platform'),
+        region=pulumi.get(__response__, 'region'),
         schedules=pulumi.get(__response__, 'schedules'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

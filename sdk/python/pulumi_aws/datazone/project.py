@@ -26,6 +26,7 @@ class ProjectArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  glossary_terms: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_deletion_check: Optional[pulumi.Input[builtins.bool]] = None,
                  timeouts: Optional[pulumi.Input['ProjectTimeoutsArgs']] = None):
         """
@@ -36,6 +37,7 @@ class ProjectArgs:
         :param pulumi.Input[builtins.str] name: Name of the project. Must follow the regex of `^[\\w -]+$`. and have a length of at most 64.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_deletion_check: Optional flag to delete all child entities within the project.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
@@ -45,6 +47,8 @@ class ProjectArgs:
             pulumi.set(__self__, "glossary_terms", glossary_terms)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if skip_deletion_check is not None:
             pulumi.set(__self__, "skip_deletion_check", skip_deletion_check)
         if timeouts is not None:
@@ -101,6 +105,18 @@ class ProjectArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="skipDeletionCheck")
     def skip_deletion_check(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -134,6 +150,7 @@ class _ProjectState:
                  last_updated_at: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  project_status: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_deletion_check: Optional[pulumi.Input[builtins.bool]] = None,
                  timeouts: Optional[pulumi.Input['ProjectTimeoutsArgs']] = None):
         """
@@ -149,6 +166,7 @@ class _ProjectState:
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] project_status: Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_deletion_check: Optional flag to delete all child entities within the project.
         """
         if created_at is not None:
@@ -169,6 +187,8 @@ class _ProjectState:
             pulumi.set(__self__, "name", name)
         if project_status is not None:
             pulumi.set(__self__, "project_status", project_status)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if skip_deletion_check is not None:
             pulumi.set(__self__, "skip_deletion_check", skip_deletion_check)
         if timeouts is not None:
@@ -285,6 +305,18 @@ class _ProjectState:
         pulumi.set(self, "project_status", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="skipDeletionCheck")
     def skip_deletion_check(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -316,6 +348,7 @@ class Project(pulumi.CustomResource):
                  domain_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  glossary_terms: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_deletion_check: Optional[pulumi.Input[builtins.bool]] = None,
                  timeouts: Optional[pulumi.Input[Union['ProjectTimeoutsArgs', 'ProjectTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -349,6 +382,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of the project. Must follow the regex of `^[\\w -]+$`. and have a length of at most 64.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_deletion_check: Optional flag to delete all child entities within the project.
         """
         ...
@@ -398,6 +432,7 @@ class Project(pulumi.CustomResource):
                  domain_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  glossary_terms: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  skip_deletion_check: Optional[pulumi.Input[builtins.bool]] = None,
                  timeouts: Optional[pulumi.Input[Union['ProjectTimeoutsArgs', 'ProjectTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -415,6 +450,7 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["domain_identifier"] = domain_identifier
             __props__.__dict__["glossary_terms"] = glossary_terms
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["skip_deletion_check"] = skip_deletion_check
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["created_at"] = None
@@ -441,6 +477,7 @@ class Project(pulumi.CustomResource):
             last_updated_at: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             project_status: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             skip_deletion_check: Optional[pulumi.Input[builtins.bool]] = None,
             timeouts: Optional[pulumi.Input[Union['ProjectTimeoutsArgs', 'ProjectTimeoutsArgsDict']]] = None) -> 'Project':
         """
@@ -461,6 +498,7 @@ class Project(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[builtins.str] project_status: Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] skip_deletion_check: Optional flag to delete all child entities within the project.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -476,6 +514,7 @@ class Project(pulumi.CustomResource):
         __props__.__dict__["last_updated_at"] = last_updated_at
         __props__.__dict__["name"] = name
         __props__.__dict__["project_status"] = project_status
+        __props__.__dict__["region"] = region
         __props__.__dict__["skip_deletion_check"] = skip_deletion_check
         __props__.__dict__["timeouts"] = timeouts
         return Project(resource_name, opts=opts, __props__=__props__)
@@ -553,6 +592,14 @@ class Project(pulumi.CustomResource):
         Enum that conveys state of project. Can be `ACTIVE`, `DELETING`, or `DELETE_FAILED`.
         """
         return pulumi.get(self, "project_status")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="skipDeletionCheck")

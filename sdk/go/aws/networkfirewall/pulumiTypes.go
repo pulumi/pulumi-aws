@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -1555,6 +1555,10 @@ func (o FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsPtrOutput) 
 }
 
 type FirewallPolicyFirewallPolicyStatefulRuleGroupReference struct {
+	// Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
+	//
+	// For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
+	DeepThreatInspection *string `pulumi:"deepThreatInspection"`
 	// Configuration block for override values
 	Override *FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride `pulumi:"override"`
 	// An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
@@ -1575,6 +1579,10 @@ type FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceInput interface {
 }
 
 type FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs struct {
+	// Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
+	//
+	// For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
+	DeepThreatInspection pulumi.StringPtrInput `pulumi:"deepThreatInspection"`
 	// Configuration block for override values
 	Override FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverridePtrInput `pulumi:"override"`
 	// An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
@@ -1632,6 +1640,13 @@ func (o FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) ToFirewall
 
 func (o FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) ToFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput {
 	return o
+}
+
+// Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
+//
+// For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
+func (o FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) DeepThreatInspection() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyFirewallPolicyStatefulRuleGroupReference) *string { return v.DeepThreatInspection }).(pulumi.StringPtrOutput)
 }
 
 // Configuration block for override values
@@ -8886,9 +8901,10 @@ func (o GetFirewallPolicyFirewallPolicyStatefulEngineOptionArrayOutput) Index(i 
 }
 
 type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference struct {
-	Overrides   []GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride `pulumi:"overrides"`
-	Priority    int                                                                 `pulumi:"priority"`
-	ResourceArn string                                                              `pulumi:"resourceArn"`
+	DeepThreatInspection string                                                              `pulumi:"deepThreatInspection"`
+	Overrides            []GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverride `pulumi:"overrides"`
+	Priority             int                                                                 `pulumi:"priority"`
+	ResourceArn          string                                                              `pulumi:"resourceArn"`
 }
 
 // GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceInput is an input type that accepts GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs and GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput values.
@@ -8903,9 +8919,10 @@ type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceInput interface {
 }
 
 type GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs struct {
-	Overrides   GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayInput `pulumi:"overrides"`
-	Priority    pulumi.IntInput                                                             `pulumi:"priority"`
-	ResourceArn pulumi.StringInput                                                          `pulumi:"resourceArn"`
+	DeepThreatInspection pulumi.StringInput                                                          `pulumi:"deepThreatInspection"`
+	Overrides            GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayInput `pulumi:"overrides"`
+	Priority             pulumi.IntInput                                                             `pulumi:"priority"`
+	ResourceArn          pulumi.StringInput                                                          `pulumi:"resourceArn"`
 }
 
 func (GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs) ElementType() reflect.Type {
@@ -8957,6 +8974,12 @@ func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) ToGetFi
 
 func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) ToGetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutputWithContext(ctx context.Context) GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput {
 	return o
+}
+
+func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) DeepThreatInspection() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFirewallPolicyFirewallPolicyStatefulRuleGroupReference) string {
+		return v.DeepThreatInspection
+	}).(pulumi.StringOutput)
 }
 
 func (o GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput) Overrides() GetFirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArrayOutput {

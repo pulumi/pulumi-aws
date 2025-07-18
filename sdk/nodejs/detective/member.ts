@@ -89,6 +89,10 @@ export class Member extends pulumi.CustomResource {
      */
     public readonly message!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Current membership status of the member account.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -122,6 +126,7 @@ export class Member extends pulumi.CustomResource {
             resourceInputs["graphArn"] = state ? state.graphArn : undefined;
             resourceInputs["invitedTime"] = state ? state.invitedTime : undefined;
             resourceInputs["message"] = state ? state.message : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["updatedTime"] = state ? state.updatedTime : undefined;
             resourceInputs["volumeUsageInBytes"] = state ? state.volumeUsageInBytes : undefined;
@@ -141,6 +146,7 @@ export class Member extends pulumi.CustomResource {
             resourceInputs["emailAddress"] = args ? args.emailAddress : undefined;
             resourceInputs["graphArn"] = args ? args.graphArn : undefined;
             resourceInputs["message"] = args ? args.message : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["administratorId"] = undefined /*out*/;
             resourceInputs["disabledReason"] = undefined /*out*/;
             resourceInputs["invitedTime"] = undefined /*out*/;
@@ -187,6 +193,10 @@ export interface MemberState {
      */
     message?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Current membership status of the member account.
      */
     status?: pulumi.Input<string>;
@@ -224,4 +234,8 @@ export interface MemberArgs {
      * A custom message to include in the invitation. Amazon Detective adds this message to the standard content that it sends for an invitation.
      */
     message?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

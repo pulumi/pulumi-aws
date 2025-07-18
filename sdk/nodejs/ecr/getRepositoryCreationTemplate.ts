@@ -25,6 +25,7 @@ export function getRepositoryCreationTemplate(args: GetRepositoryCreationTemplat
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ecr/getRepositoryCreationTemplate:getRepositoryCreationTemplate", {
         "prefix": args.prefix,
+        "region": args.region,
         "resourceTags": args.resourceTags,
     }, opts);
 }
@@ -37,6 +38,10 @@ export interface GetRepositoryCreationTemplateArgs {
      * The repository name prefix that the template matches against.
      */
     prefix: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * A map of tags to assign to any created repositories.
      */
@@ -76,6 +81,7 @@ export interface GetRepositoryCreationTemplateResult {
      */
     readonly lifecyclePolicy: string;
     readonly prefix: string;
+    readonly region: string;
     /**
      * The registry ID the repository creation template applies to.
      */
@@ -107,6 +113,7 @@ export function getRepositoryCreationTemplateOutput(args: GetRepositoryCreationT
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ecr/getRepositoryCreationTemplate:getRepositoryCreationTemplate", {
         "prefix": args.prefix,
+        "region": args.region,
         "resourceTags": args.resourceTags,
     }, opts);
 }
@@ -119,6 +126,10 @@ export interface GetRepositoryCreationTemplateOutputArgs {
      * The repository name prefix that the template matches against.
      */
     prefix: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A map of tags to assign to any created repositories.
      */

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -24,7 +24,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -90,6 +90,8 @@ type EipAssociation struct {
 	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
 	// ) Address of the associated Elastic IP.
 	PublicIp pulumi.StringOutput `pulumi:"publicIp"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewEipAssociation registers a new resource with the given unique name, arguments, and options.
@@ -141,6 +143,8 @@ type eipAssociationState struct {
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// ) Address of the associated Elastic IP.
 	PublicIp *string `pulumi:"publicIp"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type EipAssociationState struct {
@@ -163,6 +167,8 @@ type EipAssociationState struct {
 	PrivateIpAddress pulumi.StringPtrInput
 	// ) Address of the associated Elastic IP.
 	PublicIp pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EipAssociationState) ElementType() reflect.Type {
@@ -189,6 +195,8 @@ type eipAssociationArgs struct {
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// ) Address of the associated Elastic IP.
 	PublicIp *string `pulumi:"publicIp"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a EipAssociation resource.
@@ -212,6 +220,8 @@ type EipAssociationArgs struct {
 	PrivateIpAddress pulumi.StringPtrInput
 	// ) Address of the associated Elastic IP.
 	PublicIp pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (EipAssociationArgs) ElementType() reflect.Type {
@@ -336,6 +346,11 @@ func (o EipAssociationOutput) PrivateIpAddress() pulumi.StringOutput {
 // ) Address of the associated Elastic IP.
 func (o EipAssociationOutput) PublicIp() pulumi.StringOutput {
 	return o.ApplyT(func(v *EipAssociation) pulumi.StringOutput { return v.PublicIp }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o EipAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *EipAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type EipAssociationArrayOutput struct{ *pulumi.OutputState }

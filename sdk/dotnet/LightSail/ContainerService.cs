@@ -210,6 +210,12 @@ namespace Pulumi.Aws.LightSail
         public Output<Outputs.ContainerServicePublicDomainNames?> PublicDomainNames { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Lightsail resource type of the container service (i.e., ContainerService).
         /// </summary>
         [Output("resourceType")]
@@ -324,6 +330,12 @@ namespace Pulumi.Aws.LightSail
         public Input<Inputs.ContainerServicePublicDomainNamesArgs>? PublicDomainNames { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Scale specification for the container service. The scale specifies the allocated compute nodes of the container service.
         /// 
         /// The following arguments are optional:
@@ -418,6 +430,12 @@ namespace Pulumi.Aws.LightSail
         public Input<Inputs.ContainerServicePublicDomainNamesGetArgs>? PublicDomainNames { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Lightsail resource type of the container service (i.e., ContainerService).
         /// </summary>
         [Input("resourceType")]
@@ -455,7 +473,6 @@ namespace Pulumi.Aws.LightSail
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

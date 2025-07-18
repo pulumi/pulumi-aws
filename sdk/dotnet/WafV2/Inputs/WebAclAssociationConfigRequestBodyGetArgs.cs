@@ -12,65 +12,35 @@ namespace Pulumi.Aws.WafV2.Inputs
 
     public sealed class WebAclAssociationConfigRequestBodyGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("apiGateways")]
-        private InputList<Inputs.WebAclAssociationConfigRequestBodyApiGatewayGetArgs>? _apiGateways;
-
         /// <summary>
         /// Customizes the request body that your protected Amazon API Gateway REST APIs forward to AWS WAF for inspection. Applicable only when `scope` is set to `CLOUDFRONT`. See `api_gateway` below for details.
         /// </summary>
-        public InputList<Inputs.WebAclAssociationConfigRequestBodyApiGatewayGetArgs> ApiGateways
-        {
-            get => _apiGateways ?? (_apiGateways = new InputList<Inputs.WebAclAssociationConfigRequestBodyApiGatewayGetArgs>());
-            set => _apiGateways = value;
-        }
-
-        [Input("appRunnerServices")]
-        private InputList<Inputs.WebAclAssociationConfigRequestBodyAppRunnerServiceGetArgs>? _appRunnerServices;
+        [Input("apiGateway")]
+        public Input<Inputs.WebAclAssociationConfigRequestBodyApiGatewayGetArgs>? ApiGateway { get; set; }
 
         /// <summary>
         /// Customizes the request body that your protected Amazon App Runner services forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `app_runner_service` below for details.
         /// </summary>
-        public InputList<Inputs.WebAclAssociationConfigRequestBodyAppRunnerServiceGetArgs> AppRunnerServices
-        {
-            get => _appRunnerServices ?? (_appRunnerServices = new InputList<Inputs.WebAclAssociationConfigRequestBodyAppRunnerServiceGetArgs>());
-            set => _appRunnerServices = value;
-        }
-
-        [Input("cloudfronts")]
-        private InputList<Inputs.WebAclAssociationConfigRequestBodyCloudfrontGetArgs>? _cloudfronts;
+        [Input("appRunnerService")]
+        public Input<Inputs.WebAclAssociationConfigRequestBodyAppRunnerServiceGetArgs>? AppRunnerService { get; set; }
 
         /// <summary>
         /// Customizes the request body that your protected Amazon CloudFront distributions forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cloudfront` below for details.
         /// </summary>
-        public InputList<Inputs.WebAclAssociationConfigRequestBodyCloudfrontGetArgs> Cloudfronts
-        {
-            get => _cloudfronts ?? (_cloudfronts = new InputList<Inputs.WebAclAssociationConfigRequestBodyCloudfrontGetArgs>());
-            set => _cloudfronts = value;
-        }
-
-        [Input("cognitoUserPools")]
-        private InputList<Inputs.WebAclAssociationConfigRequestBodyCognitoUserPoolGetArgs>? _cognitoUserPools;
+        [Input("cloudfront")]
+        public Input<Inputs.WebAclAssociationConfigRequestBodyCloudfrontGetArgs>? Cloudfront { get; set; }
 
         /// <summary>
         /// Customizes the request body that your protected Amazon Cognito user pools forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `cognito_user_pool` below for details.
         /// </summary>
-        public InputList<Inputs.WebAclAssociationConfigRequestBodyCognitoUserPoolGetArgs> CognitoUserPools
-        {
-            get => _cognitoUserPools ?? (_cognitoUserPools = new InputList<Inputs.WebAclAssociationConfigRequestBodyCognitoUserPoolGetArgs>());
-            set => _cognitoUserPools = value;
-        }
-
-        [Input("verifiedAccessInstances")]
-        private InputList<Inputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstanceGetArgs>? _verifiedAccessInstances;
+        [Input("cognitoUserPool")]
+        public Input<Inputs.WebAclAssociationConfigRequestBodyCognitoUserPoolGetArgs>? CognitoUserPool { get; set; }
 
         /// <summary>
         /// Customizes the request body that your protected AWS Verfied Access instances forward to AWS WAF for inspection. Applicable only when `scope` is set to `REGIONAL`. See `verified_access_instance` below for details.
         /// </summary>
-        public InputList<Inputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstanceGetArgs> VerifiedAccessInstances
-        {
-            get => _verifiedAccessInstances ?? (_verifiedAccessInstances = new InputList<Inputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstanceGetArgs>());
-            set => _verifiedAccessInstances = value;
-        }
+        [Input("verifiedAccessInstance")]
+        public Input<Inputs.WebAclAssociationConfigRequestBodyVerifiedAccessInstanceGetArgs>? VerifiedAccessInstance { get; set; }
 
         public WebAclAssociationConfigRequestBodyGetArgs()
         {

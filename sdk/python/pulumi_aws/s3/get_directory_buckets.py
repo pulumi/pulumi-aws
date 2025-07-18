@@ -27,7 +27,7 @@ class GetDirectoryBucketsResult:
     """
     A collection of values returned by getDirectoryBuckets.
     """
-    def __init__(__self__, arns=None, buckets=None, id=None):
+    def __init__(__self__, arns=None, buckets=None, id=None, region=None):
         if arns and not isinstance(arns, list):
             raise TypeError("Expected argument 'arns' to be a list")
         pulumi.set(__self__, "arns", arns)
@@ -37,6 +37,9 @@ class GetDirectoryBucketsResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -59,6 +62,11 @@ class GetDirectoryBucketsResult:
     def id(self) -> builtins.str:
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetDirectoryBucketsResult(GetDirectoryBucketsResult):
     # pylint: disable=using-constant-test
@@ -68,10 +76,12 @@ class AwaitableGetDirectoryBucketsResult(GetDirectoryBucketsResult):
         return GetDirectoryBucketsResult(
             arns=self.arns,
             buckets=self.buckets,
-            id=self.id)
+            id=self.id,
+            region=self.region)
 
 
-def get_directory_buckets(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDirectoryBucketsResult:
+def get_directory_buckets(region: Optional[builtins.str] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDirectoryBucketsResult:
     """
     Lists Amazon S3 Express directory buckets.
 
@@ -83,16 +93,22 @@ def get_directory_buckets(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
 
     example = aws.s3.get_directory_buckets()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:s3/getDirectoryBuckets:getDirectoryBuckets', __args__, opts=opts, typ=GetDirectoryBucketsResult).value
 
     return AwaitableGetDirectoryBucketsResult(
         arns=pulumi.get(__ret__, 'arns'),
         buckets=pulumi.get(__ret__, 'buckets'),
-        id=pulumi.get(__ret__, 'id'))
-def get_directory_buckets_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectoryBucketsResult]:
+        id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'))
+def get_directory_buckets_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectoryBucketsResult]:
     """
     Lists Amazon S3 Express directory buckets.
 
@@ -104,11 +120,16 @@ def get_directory_buckets_output(opts: Optional[Union[pulumi.InvokeOptions, pulu
 
     example = aws.s3.get_directory_buckets()
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:s3/getDirectoryBuckets:getDirectoryBuckets', __args__, opts=opts, typ=GetDirectoryBucketsResult)
     return __ret__.apply(lambda __response__: GetDirectoryBucketsResult(
         arns=pulumi.get(__response__, 'arns'),
         buckets=pulumi.get(__response__, 'buckets'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region')))

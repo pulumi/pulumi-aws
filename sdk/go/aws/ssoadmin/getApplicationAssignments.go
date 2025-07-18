@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssoadmin"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssoadmin.GetApplicationAssignments(ctx, &ssoadmin.GetApplicationAssignmentsArgs{
-//				ApplicationArn: exampleAwsSsoadminApplication.ApplicationArn,
+//				ApplicationArn: exampleAwsSsoadminApplication.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -54,8 +54,8 @@ func GetApplicationAssignments(ctx *pulumi.Context, args *GetApplicationAssignme
 type GetApplicationAssignmentsArgs struct {
 	// ARN of the application.
 	ApplicationArn string `pulumi:"applicationArn"`
-	// List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
-	ApplicationAssignments []GetApplicationAssignmentsApplicationAssignment `pulumi:"applicationAssignments"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getApplicationAssignments.
@@ -65,6 +65,7 @@ type GetApplicationAssignmentsResult struct {
 	// List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
 	ApplicationAssignments []GetApplicationAssignmentsApplicationAssignment `pulumi:"applicationAssignments"`
 	Id                     string                                           `pulumi:"id"`
+	Region                 string                                           `pulumi:"region"`
 }
 
 func GetApplicationAssignmentsOutput(ctx *pulumi.Context, args GetApplicationAssignmentsOutputArgs, opts ...pulumi.InvokeOption) GetApplicationAssignmentsResultOutput {
@@ -80,8 +81,8 @@ func GetApplicationAssignmentsOutput(ctx *pulumi.Context, args GetApplicationAss
 type GetApplicationAssignmentsOutputArgs struct {
 	// ARN of the application.
 	ApplicationArn pulumi.StringInput `pulumi:"applicationArn"`
-	// List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
-	ApplicationAssignments GetApplicationAssignmentsApplicationAssignmentArrayInput `pulumi:"applicationAssignments"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetApplicationAssignmentsOutputArgs) ElementType() reflect.Type {
@@ -117,6 +118,10 @@ func (o GetApplicationAssignmentsResultOutput) ApplicationAssignments() GetAppli
 
 func (o GetApplicationAssignmentsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationAssignmentsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetApplicationAssignmentsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationAssignmentsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func init() {

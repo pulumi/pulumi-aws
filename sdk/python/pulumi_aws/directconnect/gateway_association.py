@@ -25,7 +25,7 @@ class GatewayAssociationArgs:
                  associated_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  associated_gateway_owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  proposal_id: Optional[pulumi.Input[builtins.str]] = None,
-                 vpn_gateway_id: Optional[pulumi.Input[builtins.str]] = None):
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a GatewayAssociation resource.
         :param pulumi.Input[builtins.str] dx_gateway_id: The ID of the Direct Connect gateway.
@@ -40,6 +40,7 @@ class GatewayAssociationArgs:
                Used for cross-account Direct Connect gateway associations.
         :param pulumi.Input[builtins.str] proposal_id: The ID of the Direct Connect gateway association proposal.
                Used for cross-account Direct Connect gateway associations.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "dx_gateway_id", dx_gateway_id)
         if allowed_prefixes is not None:
@@ -50,11 +51,8 @@ class GatewayAssociationArgs:
             pulumi.set(__self__, "associated_gateway_owner_account_id", associated_gateway_owner_account_id)
         if proposal_id is not None:
             pulumi.set(__self__, "proposal_id", proposal_id)
-        if vpn_gateway_id is not None:
-            warnings.warn("""vpn_gateway_id is deprecated. Use associated_gateway_id instead.""", DeprecationWarning)
-            pulumi.log.warn("""vpn_gateway_id is deprecated: vpn_gateway_id is deprecated. Use associated_gateway_id instead.""")
-        if vpn_gateway_id is not None:
-            pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="dxGatewayId")
@@ -124,14 +122,16 @@ class GatewayAssociationArgs:
         pulumi.set(self, "proposal_id", value)
 
     @property
-    @pulumi.getter(name="vpnGatewayId")
-    @_utilities.deprecated("""vpn_gateway_id is deprecated. Use associated_gateway_id instead.""")
-    def vpn_gateway_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "vpn_gateway_id")
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
-    @vpn_gateway_id.setter
-    def vpn_gateway_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "vpn_gateway_id", value)
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
 
 @pulumi.input_type
@@ -145,7 +145,7 @@ class _GatewayAssociationState:
                  dx_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  dx_gateway_owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  proposal_id: Optional[pulumi.Input[builtins.str]] = None,
-                 vpn_gateway_id: Optional[pulumi.Input[builtins.str]] = None):
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering GatewayAssociation resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_prefixes: VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
@@ -163,6 +163,7 @@ class _GatewayAssociationState:
         :param pulumi.Input[builtins.str] dx_gateway_owner_account_id: The ID of the AWS account that owns the Direct Connect gateway.
         :param pulumi.Input[builtins.str] proposal_id: The ID of the Direct Connect gateway association proposal.
                Used for cross-account Direct Connect gateway associations.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if allowed_prefixes is not None:
             pulumi.set(__self__, "allowed_prefixes", allowed_prefixes)
@@ -180,11 +181,8 @@ class _GatewayAssociationState:
             pulumi.set(__self__, "dx_gateway_owner_account_id", dx_gateway_owner_account_id)
         if proposal_id is not None:
             pulumi.set(__self__, "proposal_id", proposal_id)
-        if vpn_gateway_id is not None:
-            warnings.warn("""vpn_gateway_id is deprecated. Use associated_gateway_id instead.""", DeprecationWarning)
-            pulumi.log.warn("""vpn_gateway_id is deprecated: vpn_gateway_id is deprecated. Use associated_gateway_id instead.""")
-        if vpn_gateway_id is not None:
-            pulumi.set(__self__, "vpn_gateway_id", vpn_gateway_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="allowedPrefixes")
@@ -290,14 +288,16 @@ class _GatewayAssociationState:
         pulumi.set(self, "proposal_id", value)
 
     @property
-    @pulumi.getter(name="vpnGatewayId")
-    @_utilities.deprecated("""vpn_gateway_id is deprecated. Use associated_gateway_id instead.""")
-    def vpn_gateway_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "vpn_gateway_id")
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
-    @vpn_gateway_id.setter
-    def vpn_gateway_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "vpn_gateway_id", value)
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
 
 @pulumi.type_token("aws:directconnect/gatewayAssociation:GatewayAssociation")
@@ -311,7 +311,7 @@ class GatewayAssociation(pulumi.CustomResource):
                  associated_gateway_owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  dx_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  proposal_id: Optional[pulumi.Input[builtins.str]] = None,
-                 vpn_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Associates a Direct Connect Gateway with a VGW or transit gateway.
@@ -399,6 +399,7 @@ class GatewayAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] dx_gateway_id: The ID of the Direct Connect gateway.
         :param pulumi.Input[builtins.str] proposal_id: The ID of the Direct Connect gateway association proposal.
                Used for cross-account Direct Connect gateway associations.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -498,7 +499,7 @@ class GatewayAssociation(pulumi.CustomResource):
                  associated_gateway_owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  dx_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  proposal_id: Optional[pulumi.Input[builtins.str]] = None,
-                 vpn_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -515,7 +516,7 @@ class GatewayAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'dx_gateway_id'")
             __props__.__dict__["dx_gateway_id"] = dx_gateway_id
             __props__.__dict__["proposal_id"] = proposal_id
-            __props__.__dict__["vpn_gateway_id"] = vpn_gateway_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["associated_gateway_type"] = None
             __props__.__dict__["dx_gateway_association_id"] = None
             __props__.__dict__["dx_gateway_owner_account_id"] = None
@@ -537,7 +538,7 @@ class GatewayAssociation(pulumi.CustomResource):
             dx_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
             dx_gateway_owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
             proposal_id: Optional[pulumi.Input[builtins.str]] = None,
-            vpn_gateway_id: Optional[pulumi.Input[builtins.str]] = None) -> 'GatewayAssociation':
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'GatewayAssociation':
         """
         Get an existing GatewayAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -560,6 +561,7 @@ class GatewayAssociation(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] dx_gateway_owner_account_id: The ID of the AWS account that owns the Direct Connect gateway.
         :param pulumi.Input[builtins.str] proposal_id: The ID of the Direct Connect gateway association proposal.
                Used for cross-account Direct Connect gateway associations.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -573,7 +575,7 @@ class GatewayAssociation(pulumi.CustomResource):
         __props__.__dict__["dx_gateway_id"] = dx_gateway_id
         __props__.__dict__["dx_gateway_owner_account_id"] = dx_gateway_owner_account_id
         __props__.__dict__["proposal_id"] = proposal_id
-        __props__.__dict__["vpn_gateway_id"] = vpn_gateway_id
+        __props__.__dict__["region"] = region
         return GatewayAssociation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -648,8 +650,10 @@ class GatewayAssociation(pulumi.CustomResource):
         return pulumi.get(self, "proposal_id")
 
     @property
-    @pulumi.getter(name="vpnGatewayId")
-    @_utilities.deprecated("""vpn_gateway_id is deprecated. Use associated_gateway_id instead.""")
-    def vpn_gateway_id(self) -> pulumi.Output[Optional[builtins.str]]:
-        return pulumi.get(self, "vpn_gateway_id")
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

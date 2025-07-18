@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/glue"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/glue"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -66,6 +66,8 @@ type Schema struct {
 	LatestSchemaVersion pulumi.IntOutput `pulumi:"latestSchemaVersion"`
 	// The next version of the schema associated with the returned schema definition.
 	NextSchemaVersion pulumi.IntOutput `pulumi:"nextSchemaVersion"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of the Glue Registry to create the schema in.
 	RegistryArn pulumi.StringOutput `pulumi:"registryArn"`
 	// The name of the Glue Registry.
@@ -79,8 +81,6 @@ type Schema struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -138,6 +138,8 @@ type schemaState struct {
 	LatestSchemaVersion *int `pulumi:"latestSchemaVersion"`
 	// The next version of the schema associated with the returned schema definition.
 	NextSchemaVersion *int `pulumi:"nextSchemaVersion"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the Glue Registry to create the schema in.
 	RegistryArn *string `pulumi:"registryArn"`
 	// The name of the Glue Registry.
@@ -151,8 +153,6 @@ type schemaState struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -169,6 +169,8 @@ type SchemaState struct {
 	LatestSchemaVersion pulumi.IntPtrInput
 	// The next version of the schema associated with the returned schema definition.
 	NextSchemaVersion pulumi.IntPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the Glue Registry to create the schema in.
 	RegistryArn pulumi.StringPtrInput
 	// The name of the Glue Registry.
@@ -182,8 +184,6 @@ type SchemaState struct {
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -198,6 +198,8 @@ type schemaArgs struct {
 	DataFormat string `pulumi:"dataFormat"`
 	// A description of the schema.
 	Description *string `pulumi:"description"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of the Glue Registry to create the schema in.
 	RegistryArn *string `pulumi:"registryArn"`
 	// The schema definition using the `dataFormat` setting for `schemaName`.
@@ -216,6 +218,8 @@ type SchemaArgs struct {
 	DataFormat pulumi.StringInput
 	// A description of the schema.
 	Description pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of the Glue Registry to create the schema in.
 	RegistryArn pulumi.StringPtrInput
 	// The schema definition using the `dataFormat` setting for `schemaName`.
@@ -343,6 +347,11 @@ func (o SchemaOutput) NextSchemaVersion() pulumi.IntOutput {
 	return o.ApplyT(func(v *Schema) pulumi.IntOutput { return v.NextSchemaVersion }).(pulumi.IntOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o SchemaOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The ARN of the Glue Registry to create the schema in.
 func (o SchemaOutput) RegistryArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.RegistryArn }).(pulumi.StringOutput)
@@ -374,8 +383,6 @@ func (o SchemaOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o SchemaOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

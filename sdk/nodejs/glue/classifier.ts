@@ -133,6 +133,10 @@ export class Classifier extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A classifier for XML content. Defined below.
      */
     public readonly xmlClassifier!: pulumi.Output<outputs.glue.ClassifierXmlClassifier | undefined>;
@@ -154,6 +158,7 @@ export class Classifier extends pulumi.CustomResource {
             resourceInputs["grokClassifier"] = state ? state.grokClassifier : undefined;
             resourceInputs["jsonClassifier"] = state ? state.jsonClassifier : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["xmlClassifier"] = state ? state.xmlClassifier : undefined;
         } else {
             const args = argsOrState as ClassifierArgs | undefined;
@@ -161,6 +166,7 @@ export class Classifier extends pulumi.CustomResource {
             resourceInputs["grokClassifier"] = args ? args.grokClassifier : undefined;
             resourceInputs["jsonClassifier"] = args ? args.jsonClassifier : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["xmlClassifier"] = args ? args.xmlClassifier : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -189,6 +195,10 @@ export interface ClassifierState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A classifier for XML content. Defined below.
      */
     xmlClassifier?: pulumi.Input<inputs.glue.ClassifierXmlClassifier>;
@@ -214,6 +224,10 @@ export interface ClassifierArgs {
      * The name of the classifier.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A classifier for XML content. Defined below.
      */

@@ -24,6 +24,7 @@ class EventSubscriptionArgs:
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  event_categories: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  severity: Optional[pulumi.Input[builtins.str]] = None,
                  source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  source_type: Optional[pulumi.Input[builtins.str]] = None,
@@ -34,6 +35,7 @@ class EventSubscriptionArgs:
         :param pulumi.Input[builtins.bool] enabled: A boolean flag to enable/disable the subscription. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_categories: A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
         :param pulumi.Input[builtins.str] name: The name of the Redshift event subscription.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] severity: The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_ids: A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.
         :param pulumi.Input[builtins.str] source_type: The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
@@ -46,6 +48,8 @@ class EventSubscriptionArgs:
             pulumi.set(__self__, "event_categories", event_categories)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if severity is not None:
             pulumi.set(__self__, "severity", severity)
         if source_ids is not None:
@@ -105,6 +109,18 @@ class EventSubscriptionArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def severity(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
@@ -160,6 +176,7 @@ class _EventSubscriptionState:
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  event_categories: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  severity: Optional[pulumi.Input[builtins.str]] = None,
                  sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -174,6 +191,7 @@ class _EventSubscriptionState:
         :param pulumi.Input[builtins.bool] enabled: A boolean flag to enable/disable the subscription. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_categories: A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
         :param pulumi.Input[builtins.str] name: The name of the Redshift event subscription.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] severity: The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
         :param pulumi.Input[builtins.str] sns_topic_arn: The ARN of the SNS topic to send events to.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_ids: A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.
@@ -191,6 +209,8 @@ class _EventSubscriptionState:
             pulumi.set(__self__, "event_categories", event_categories)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if severity is not None:
             pulumi.set(__self__, "severity", severity)
         if sns_topic_arn is not None:
@@ -203,9 +223,6 @@ class _EventSubscriptionState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -268,6 +285,18 @@ class _EventSubscriptionState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -340,7 +369,6 @@ class _EventSubscriptionState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -361,6 +389,7 @@ class EventSubscription(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  event_categories: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  severity: Optional[pulumi.Input[builtins.str]] = None,
                  sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -410,6 +439,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: A boolean flag to enable/disable the subscription. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_categories: A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
         :param pulumi.Input[builtins.str] name: The name of the Redshift event subscription.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] severity: The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
         :param pulumi.Input[builtins.str] sns_topic_arn: The ARN of the SNS topic to send events to.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_ids: A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.
@@ -478,6 +508,7 @@ class EventSubscription(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  event_categories: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  severity: Optional[pulumi.Input[builtins.str]] = None,
                  sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
                  source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -495,6 +526,7 @@ class EventSubscription(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["event_categories"] = event_categories
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["severity"] = severity
             if sns_topic_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'sns_topic_arn'")
@@ -521,6 +553,7 @@ class EventSubscription(pulumi.CustomResource):
             enabled: Optional[pulumi.Input[builtins.bool]] = None,
             event_categories: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             severity: Optional[pulumi.Input[builtins.str]] = None,
             sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
             source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
@@ -540,6 +573,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enabled: A boolean flag to enable/disable the subscription. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_categories: A list of event categories for a SourceType that you want to subscribe to. See https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html or run `aws redshift describe-event-categories`.
         :param pulumi.Input[builtins.str] name: The name of the Redshift event subscription.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] severity: The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
         :param pulumi.Input[builtins.str] sns_topic_arn: The ARN of the SNS topic to send events to.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] source_ids: A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.
@@ -556,6 +590,7 @@ class EventSubscription(pulumi.CustomResource):
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["event_categories"] = event_categories
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["severity"] = severity
         __props__.__dict__["sns_topic_arn"] = sns_topic_arn
         __props__.__dict__["source_ids"] = source_ids
@@ -607,6 +642,14 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def severity(self) -> pulumi.Output[Optional[builtins.str]]:
         """
         The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
@@ -652,7 +695,6 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

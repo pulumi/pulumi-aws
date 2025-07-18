@@ -89,6 +89,12 @@ namespace Pulumi.Aws.SecurityHub
         public Output<string> DisabledReason { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The list of requirements that are related to this control.
         /// </summary>
         [Output("relatedRequirements")]
@@ -177,6 +183,12 @@ namespace Pulumi.Aws.SecurityHub
         public Input<string>? DisabledReason { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The standards control ARN. See the AWS documentation for how to list existing controls using [`get-enabled-standards`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/get-enabled-standards.html) and [`describe-standards-controls`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/securityhub/describe-standards-controls.html).
         /// </summary>
         [Input("standardsControlArn", required: true)]
@@ -219,6 +231,12 @@ namespace Pulumi.Aws.SecurityHub
         /// </summary>
         [Input("disabledReason")]
         public Input<string>? DisabledReason { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("relatedRequirements")]
         private InputList<string>? _relatedRequirements;

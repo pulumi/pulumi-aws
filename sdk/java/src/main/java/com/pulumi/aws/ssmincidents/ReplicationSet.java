@@ -259,14 +259,32 @@ public class ReplicationSet extends com.pulumi.resources.CustomResource {
         return this.lastModifiedBy;
     }
     /**
-     * The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+     * The replication set&#39;s Regions. Use `regions` instead.
+     * 
+     * @deprecated
+     * region is deprecated. Use regions instead.
+     * 
+     */
+    @Deprecated /* region is deprecated. Use regions instead. */
+    @Export(name="region", refs={List.class,ReplicationSetRegion.class}, tree="[0,1]")
+    private Output<List<ReplicationSetRegion>> region;
+
+    /**
+     * @return The replication set&#39;s Regions. Use `regions` instead.
+     * 
+     */
+    public Output<List<ReplicationSetRegion>> region() {
+        return this.region;
+    }
+    /**
+     * The replication set&#39;s Regions.
      * 
      */
     @Export(name="regions", refs={List.class,ReplicationSetRegion.class}, tree="[0,1]")
     private Output<List<ReplicationSetRegion>> regions;
 
     /**
-     * @return The Regions that Incident Manager replicates your data to. You can have up to three Regions in your replication set.
+     * @return The replication set&#39;s Regions.
      * 
      */
     public Output<List<ReplicationSetRegion>> regions() {
@@ -329,11 +347,7 @@ public class ReplicationSet extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
-     * @deprecated
-     * Please use `tags` instead.
-     * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
@@ -357,7 +371,7 @@ public class ReplicationSet extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ReplicationSet(java.lang.String name, ReplicationSetArgs args) {
+    public ReplicationSet(java.lang.String name, @Nullable ReplicationSetArgs args) {
         this(name, args, null);
     }
     /**
@@ -366,7 +380,7 @@ public class ReplicationSet extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ReplicationSet(java.lang.String name, ReplicationSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public ReplicationSet(java.lang.String name, @Nullable ReplicationSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ssmincidents/replicationSet:ReplicationSet", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -374,7 +388,7 @@ public class ReplicationSet extends com.pulumi.resources.CustomResource {
         super("aws:ssmincidents/replicationSet:ReplicationSet", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static ReplicationSetArgs makeArgs(ReplicationSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static ReplicationSetArgs makeArgs(@Nullable ReplicationSetArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

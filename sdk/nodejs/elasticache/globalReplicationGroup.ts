@@ -195,6 +195,10 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
      */
     public readonly primaryReplicationGroupId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A flag that indicates whether the encryption in transit is enabled.
      */
     public /*out*/ readonly transitEncryptionEnabled!: pulumi.Output<boolean>;
@@ -228,6 +232,7 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
             resourceInputs["numNodeGroups"] = state ? state.numNodeGroups : undefined;
             resourceInputs["parameterGroupName"] = state ? state.parameterGroupName : undefined;
             resourceInputs["primaryReplicationGroupId"] = state ? state.primaryReplicationGroupId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["transitEncryptionEnabled"] = state ? state.transitEncryptionEnabled : undefined;
         } else {
             const args = argsOrState as GlobalReplicationGroupArgs | undefined;
@@ -245,6 +250,7 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
             resourceInputs["numNodeGroups"] = args ? args.numNodeGroups : undefined;
             resourceInputs["parameterGroupName"] = args ? args.parameterGroupName : undefined;
             resourceInputs["primaryReplicationGroupId"] = args ? args.primaryReplicationGroupId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["atRestEncryptionEnabled"] = undefined /*out*/;
             resourceInputs["authTokenEnabled"] = undefined /*out*/;
@@ -344,6 +350,10 @@ export interface GlobalReplicationGroupState {
      */
     primaryReplicationGroupId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A flag that indicates whether the encryption in transit is enabled.
      */
     transitEncryptionEnabled?: pulumi.Input<boolean>;
@@ -399,4 +409,8 @@ export interface GlobalReplicationGroupArgs {
      * The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
      */
     primaryReplicationGroupId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -60,6 +60,10 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ID of the resolver rule that you want to associate with the VPC.
      */
     public readonly resolverRuleId!: pulumi.Output<string>;
@@ -82,6 +86,7 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ResolverRuleAssociationState | undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resolverRuleId"] = state ? state.resolverRuleId : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
@@ -93,6 +98,7 @@ export class ResolverRuleAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcId'");
             }
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resolverRuleId"] = args ? args.resolverRuleId : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
         }
@@ -109,6 +115,10 @@ export interface ResolverRuleAssociationState {
      * A name for the association that you're creating between a resolver rule and a VPC.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the resolver rule that you want to associate with the VPC.
      */
@@ -127,6 +137,10 @@ export interface ResolverRuleAssociationArgs {
      * A name for the association that you're creating between a resolver rule and a VPC.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ID of the resolver rule that you want to associate with the VPC.
      */

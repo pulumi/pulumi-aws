@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -58,6 +58,8 @@ type SubnetCidrReservation struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// ID of the AWS account that owns this CIDR reservation.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The type of reservation to create. Valid values: `explicit`, `prefix`
 	ReservationType pulumi.StringOutput `pulumi:"reservationType"`
 	// The ID of the subnet to create the reservation for.
@@ -109,6 +111,8 @@ type subnetCidrReservationState struct {
 	Description *string `pulumi:"description"`
 	// ID of the AWS account that owns this CIDR reservation.
 	OwnerId *string `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The type of reservation to create. Valid values: `explicit`, `prefix`
 	ReservationType *string `pulumi:"reservationType"`
 	// The ID of the subnet to create the reservation for.
@@ -122,6 +126,8 @@ type SubnetCidrReservationState struct {
 	Description pulumi.StringPtrInput
 	// ID of the AWS account that owns this CIDR reservation.
 	OwnerId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The type of reservation to create. Valid values: `explicit`, `prefix`
 	ReservationType pulumi.StringPtrInput
 	// The ID of the subnet to create the reservation for.
@@ -137,6 +143,8 @@ type subnetCidrReservationArgs struct {
 	CidrBlock string `pulumi:"cidrBlock"`
 	// A brief description of the reservation.
 	Description *string `pulumi:"description"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The type of reservation to create. Valid values: `explicit`, `prefix`
 	ReservationType string `pulumi:"reservationType"`
 	// The ID of the subnet to create the reservation for.
@@ -149,6 +157,8 @@ type SubnetCidrReservationArgs struct {
 	CidrBlock pulumi.StringInput
 	// A brief description of the reservation.
 	Description pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The type of reservation to create. Valid values: `explicit`, `prefix`
 	ReservationType pulumi.StringInput
 	// The ID of the subnet to create the reservation for.
@@ -255,6 +265,11 @@ func (o SubnetCidrReservationOutput) Description() pulumi.StringPtrOutput {
 // ID of the AWS account that owns this CIDR reservation.
 func (o SubnetCidrReservationOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SubnetCidrReservation) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o SubnetCidrReservationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *SubnetCidrReservation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The type of reservation to create. Valid values: `explicit`, `prefix`

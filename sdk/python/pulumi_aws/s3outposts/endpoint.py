@@ -26,7 +26,8 @@ class EndpointArgs:
                  security_group_id: pulumi.Input[builtins.str],
                  subnet_id: pulumi.Input[builtins.str],
                  access_type: Optional[pulumi.Input[builtins.str]] = None,
-                 customer_owned_ipv4_pool: Optional[pulumi.Input[builtins.str]] = None):
+                 customer_owned_ipv4_pool: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
         :param pulumi.Input[builtins.str] outpost_id: Identifier of the Outpost to contain this endpoint.
@@ -34,6 +35,7 @@ class EndpointArgs:
         :param pulumi.Input[builtins.str] subnet_id: Identifier of the EC2 Subnet.
         :param pulumi.Input[builtins.str] access_type: Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
         :param pulumi.Input[builtins.str] customer_owned_ipv4_pool: The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "outpost_id", outpost_id)
         pulumi.set(__self__, "security_group_id", security_group_id)
@@ -42,6 +44,8 @@ class EndpointArgs:
             pulumi.set(__self__, "access_type", access_type)
         if customer_owned_ipv4_pool is not None:
             pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="outpostId")
@@ -103,6 +107,18 @@ class EndpointArgs:
     def customer_owned_ipv4_pool(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "customer_owned_ipv4_pool", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _EndpointState:
@@ -114,6 +130,7 @@ class _EndpointState:
                  customer_owned_ipv4_pool: Optional[pulumi.Input[builtins.str]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]] = None,
                  outpost_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -125,6 +142,7 @@ class _EndpointState:
         :param pulumi.Input[builtins.str] customer_owned_ipv4_pool: The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
         :param pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]] network_interfaces: Set of nested attributes for associated Elastic Network Interfaces (ENIs).
         :param pulumi.Input[builtins.str] outpost_id: Identifier of the Outpost to contain this endpoint.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_group_id: Identifier of the EC2 Security Group.
         :param pulumi.Input[builtins.str] subnet_id: Identifier of the EC2 Subnet.
         """
@@ -142,6 +160,8 @@ class _EndpointState:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if outpost_id is not None:
             pulumi.set(__self__, "outpost_id", outpost_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if security_group_id is not None:
             pulumi.set(__self__, "security_group_id", security_group_id)
         if subnet_id is not None:
@@ -232,6 +252,18 @@ class _EndpointState:
         pulumi.set(self, "outpost_id", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -265,6 +297,7 @@ class Endpoint(pulumi.CustomResource):
                  access_type: Optional[pulumi.Input[builtins.str]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[builtins.str]] = None,
                  outpost_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -296,6 +329,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] access_type: Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
         :param pulumi.Input[builtins.str] customer_owned_ipv4_pool: The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
         :param pulumi.Input[builtins.str] outpost_id: Identifier of the Outpost to contain this endpoint.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_group_id: Identifier of the EC2 Security Group.
         :param pulumi.Input[builtins.str] subnet_id: Identifier of the EC2 Subnet.
         """
@@ -346,6 +380,7 @@ class Endpoint(pulumi.CustomResource):
                  access_type: Optional[pulumi.Input[builtins.str]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[builtins.str]] = None,
                  outpost_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  security_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -362,6 +397,7 @@ class Endpoint(pulumi.CustomResource):
             if outpost_id is None and not opts.urn:
                 raise TypeError("Missing required property 'outpost_id'")
             __props__.__dict__["outpost_id"] = outpost_id
+            __props__.__dict__["region"] = region
             if security_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_id'")
             __props__.__dict__["security_group_id"] = security_group_id
@@ -389,6 +425,7 @@ class Endpoint(pulumi.CustomResource):
             customer_owned_ipv4_pool: Optional[pulumi.Input[builtins.str]] = None,
             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict']]]]] = None,
             outpost_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             security_group_id: Optional[pulumi.Input[builtins.str]] = None,
             subnet_id: Optional[pulumi.Input[builtins.str]] = None) -> 'Endpoint':
         """
@@ -405,6 +442,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] customer_owned_ipv4_pool: The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointNetworkInterfaceArgs', 'EndpointNetworkInterfaceArgsDict']]]] network_interfaces: Set of nested attributes for associated Elastic Network Interfaces (ENIs).
         :param pulumi.Input[builtins.str] outpost_id: Identifier of the Outpost to contain this endpoint.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] security_group_id: Identifier of the EC2 Security Group.
         :param pulumi.Input[builtins.str] subnet_id: Identifier of the EC2 Subnet.
         """
@@ -419,6 +457,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
         __props__.__dict__["network_interfaces"] = network_interfaces
         __props__.__dict__["outpost_id"] = outpost_id
+        __props__.__dict__["region"] = region
         __props__.__dict__["security_group_id"] = security_group_id
         __props__.__dict__["subnet_id"] = subnet_id
         return Endpoint(resource_name, opts=opts, __props__=__props__)
@@ -478,6 +517,14 @@ class Endpoint(pulumi.CustomResource):
         Identifier of the Outpost to contain this endpoint.
         """
         return pulumi.get(self, "outpost_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="securityGroupId")

@@ -82,6 +82,10 @@ export class SigningProfile extends pulumi.CustomResource {
      */
     public readonly platformId!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Revocation information for a signing profile. See `revocationRecord` Block below for details.
      */
     public /*out*/ readonly revocationRecords!: pulumi.Output<outputs.signer.SigningProfileRevocationRecord[]>;
@@ -103,8 +107,6 @@ export class SigningProfile extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -134,6 +136,7 @@ export class SigningProfile extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
             resourceInputs["platformDisplayName"] = state ? state.platformDisplayName : undefined;
             resourceInputs["platformId"] = state ? state.platformId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["revocationRecords"] = state ? state.revocationRecords : undefined;
             resourceInputs["signatureValidityPeriod"] = state ? state.signatureValidityPeriod : undefined;
             resourceInputs["signingMaterial"] = state ? state.signingMaterial : undefined;
@@ -150,6 +153,7 @@ export class SigningProfile extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["platformId"] = args ? args.platformId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["signatureValidityPeriod"] = args ? args.signatureValidityPeriod : undefined;
             resourceInputs["signingMaterial"] = args ? args.signingMaterial : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -185,6 +189,10 @@ export interface SigningProfileState {
      */
     platformId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * Revocation information for a signing profile. See `revocationRecord` Block below for details.
      */
     revocationRecords?: pulumi.Input<pulumi.Input<inputs.signer.SigningProfileRevocationRecord>[]>;
@@ -206,8 +214,6 @@ export interface SigningProfileState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -230,6 +236,10 @@ export interface SigningProfileArgs {
      * The ID of the platform that is used by the target signing profile.
      */
     platformId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The validity period for a signing job. See `signatureValidityPeriod` Block below for details.
      */

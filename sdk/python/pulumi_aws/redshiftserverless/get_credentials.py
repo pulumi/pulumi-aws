@@ -27,7 +27,7 @@ class GetCredentialsResult:
     """
     A collection of values returned by getCredentials.
     """
-    def __init__(__self__, db_name=None, db_password=None, db_user=None, duration_seconds=None, expiration=None, id=None, workgroup_name=None):
+    def __init__(__self__, db_name=None, db_password=None, db_user=None, duration_seconds=None, expiration=None, id=None, region=None, workgroup_name=None):
         if db_name and not isinstance(db_name, str):
             raise TypeError("Expected argument 'db_name' to be a str")
         pulumi.set(__self__, "db_name", db_name)
@@ -46,6 +46,9 @@ class GetCredentialsResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if workgroup_name and not isinstance(workgroup_name, str):
             raise TypeError("Expected argument 'workgroup_name' to be a str")
         pulumi.set(__self__, "workgroup_name", workgroup_name)
@@ -93,6 +96,11 @@ class GetCredentialsResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="workgroupName")
     def workgroup_name(self) -> builtins.str:
         return pulumi.get(self, "workgroup_name")
@@ -110,11 +118,13 @@ class AwaitableGetCredentialsResult(GetCredentialsResult):
             duration_seconds=self.duration_seconds,
             expiration=self.expiration,
             id=self.id,
+            region=self.region,
             workgroup_name=self.workgroup_name)
 
 
 def get_credentials(db_name: Optional[builtins.str] = None,
                     duration_seconds: Optional[builtins.int] = None,
+                    region: Optional[builtins.str] = None,
                     workgroup_name: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCredentialsResult:
     """
@@ -132,11 +142,13 @@ def get_credentials(db_name: Optional[builtins.str] = None,
 
     :param builtins.str db_name: The name of the database to get temporary authorization to log on to.
     :param builtins.int duration_seconds: The number of seconds until the returned temporary password expires. The minimum is 900 seconds, and the maximum is 3600 seconds.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str workgroup_name: The name of the workgroup associated with the database.
     """
     __args__ = dict()
     __args__['dbName'] = db_name
     __args__['durationSeconds'] = duration_seconds
+    __args__['region'] = region
     __args__['workgroupName'] = workgroup_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:redshiftserverless/getCredentials:getCredentials', __args__, opts=opts, typ=GetCredentialsResult).value
@@ -148,9 +160,11 @@ def get_credentials(db_name: Optional[builtins.str] = None,
         duration_seconds=pulumi.get(__ret__, 'duration_seconds'),
         expiration=pulumi.get(__ret__, 'expiration'),
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         workgroup_name=pulumi.get(__ret__, 'workgroup_name'))
 def get_credentials_output(db_name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            duration_seconds: Optional[pulumi.Input[Optional[builtins.int]]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            workgroup_name: Optional[pulumi.Input[builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCredentialsResult]:
     """
@@ -168,11 +182,13 @@ def get_credentials_output(db_name: Optional[pulumi.Input[Optional[builtins.str]
 
     :param builtins.str db_name: The name of the database to get temporary authorization to log on to.
     :param builtins.int duration_seconds: The number of seconds until the returned temporary password expires. The minimum is 900 seconds, and the maximum is 3600 seconds.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str workgroup_name: The name of the workgroup associated with the database.
     """
     __args__ = dict()
     __args__['dbName'] = db_name
     __args__['durationSeconds'] = duration_seconds
+    __args__['region'] = region
     __args__['workgroupName'] = workgroup_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:redshiftserverless/getCredentials:getCredentials', __args__, opts=opts, typ=GetCredentialsResult)
@@ -183,4 +199,5 @@ def get_credentials_output(db_name: Optional[pulumi.Input[Optional[builtins.str]
         duration_seconds=pulumi.get(__response__, 'duration_seconds'),
         expiration=pulumi.get(__response__, 'expiration'),
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         workgroup_name=pulumi.get(__response__, 'workgroup_name')))

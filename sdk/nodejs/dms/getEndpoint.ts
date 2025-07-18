@@ -27,6 +27,7 @@ export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions):
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:dms/getEndpoint:getEndpoint", {
         "endpointId": args.endpointId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -39,6 +40,10 @@ export interface GetEndpointArgs {
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      */
     endpointId: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     tags?: {[key: string]: string};
 }
 
@@ -67,6 +72,7 @@ export interface GetEndpointResult {
     readonly postgresSettings: outputs.dms.GetEndpointPostgresSetting[];
     readonly redisSettings: outputs.dms.GetEndpointRedisSetting[];
     readonly redshiftSettings: outputs.dms.GetEndpointRedshiftSetting[];
+    readonly region: string;
     readonly s3Settings: outputs.dms.GetEndpointS3Setting[];
     readonly secretsManagerAccessRoleArn: string;
     readonly secretsManagerArn: string;
@@ -96,6 +102,7 @@ export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:dms/getEndpoint:getEndpoint", {
         "endpointId": args.endpointId,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -108,5 +115,9 @@ export interface GetEndpointOutputArgs {
      * Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
      */
     endpointId: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

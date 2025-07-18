@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/batch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +48,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/batch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/batch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -83,6 +83,8 @@ type LookupJobDefinitionArgs struct {
 	Arn *string `pulumi:"arn"`
 	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The revision of the job definition.
 	Revision *int `pulumi:"revision"`
 	// The status of the job definition.
@@ -103,6 +105,7 @@ type LookupJobDefinitionResult struct {
 	Name *string `pulumi:"name"`
 	// An object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see Multi-node Parallel Jobs in the AWS Batch User Guide. If the job definition's type parameter is container, then you must specify either containerProperties or nodeProperties.
 	NodeProperties []GetJobDefinitionNodeProperty `pulumi:"nodeProperties"`
+	Region         string                         `pulumi:"region"`
 	// The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that's specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn't retried.
 	RetryStrategies []GetJobDefinitionRetryStrategy `pulumi:"retryStrategies"`
 	Revision        *int                            `pulumi:"revision"`
@@ -131,6 +134,8 @@ type LookupJobDefinitionOutputArgs struct {
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The revision of the job definition.
 	Revision pulumi.IntPtrInput `pulumi:"revision"`
 	// The status of the job definition.
@@ -187,6 +192,10 @@ func (o LookupJobDefinitionResultOutput) Name() pulumi.StringPtrOutput {
 // An object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see Multi-node Parallel Jobs in the AWS Batch User Guide. If the job definition's type parameter is container, then you must specify either containerProperties or nodeProperties.
 func (o LookupJobDefinitionResultOutput) NodeProperties() GetJobDefinitionNodePropertyArrayOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) []GetJobDefinitionNodeProperty { return v.NodeProperties }).(GetJobDefinitionNodePropertyArrayOutput)
+}
+
+func (o LookupJobDefinitionResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that's specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn't retried.

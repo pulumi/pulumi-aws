@@ -26,9 +26,9 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     ///     var currentGetRegion = Aws.GetRegion.Invoke();
     /// 
-    ///     var gdBucket = new Aws.S3.BucketV2("gd_bucket", new()
+    ///     var gdBucket = new Aws.S3.Bucket("gd_bucket", new()
     ///     {
-    ///         Bucket = "example",
+    ///         BucketName = "example",
     ///         ForceDestroy = true,
     ///     });
     /// 
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.GuardDuty
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"arn:aws:kms:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:key/*",
+    ///                     $"arn:aws:kms:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:key/*",
     ///                 },
     ///                 Principals = new[]
     ///                 {
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.GuardDuty
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     $"arn:aws:kms:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Name)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:key/*",
+    ///                     $"arn:aws:kms:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:key/*",
     ///                 },
     ///                 Principals = new[]
     ///                 {
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.GuardDuty
     ///         Enable = true,
     ///     });
     /// 
-    ///     var gdBucketAcl = new Aws.S3.BucketAclV2("gd_bucket_acl", new()
+    ///     var gdBucketAcl = new Aws.S3.BucketAcl("gd_bucket_acl", new()
     ///     {
     ///         Bucket = gdBucket.Id,
     ///         Acl = "private",
@@ -217,6 +217,12 @@ namespace Pulumi.Aws.GuardDuty
         [Output("kmsKeyArn")]
         public Output<string> KmsKeyArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a PublishingDestination resource with the given unique name, arguments, and options.
@@ -289,6 +295,12 @@ namespace Pulumi.Aws.GuardDuty
         [Input("kmsKeyArn", required: true)]
         public Input<string> KmsKeyArn { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public PublishingDestinationArgs()
         {
         }
@@ -322,6 +334,12 @@ namespace Pulumi.Aws.GuardDuty
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public PublishingDestinationState()
         {

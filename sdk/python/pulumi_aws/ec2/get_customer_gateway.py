@@ -29,7 +29,7 @@ class GetCustomerGatewayResult:
     """
     A collection of values returned by getCustomerGateway.
     """
-    def __init__(__self__, arn=None, bgp_asn=None, bgp_asn_extended=None, certificate_arn=None, device_name=None, filters=None, id=None, ip_address=None, tags=None, type=None):
+    def __init__(__self__, arn=None, bgp_asn=None, bgp_asn_extended=None, certificate_arn=None, device_name=None, filters=None, id=None, ip_address=None, region=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -54,6 +54,9 @@ class GetCustomerGatewayResult:
         if ip_address and not isinstance(ip_address, str):
             raise TypeError("Expected argument 'ip_address' to be a str")
         pulumi.set(__self__, "ip_address", ip_address)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -121,6 +124,11 @@ class GetCustomerGatewayResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Map of key-value pairs assigned to the gateway.
@@ -150,12 +158,14 @@ class AwaitableGetCustomerGatewayResult(GetCustomerGatewayResult):
             filters=self.filters,
             id=self.id,
             ip_address=self.ip_address,
+            region=self.region,
             tags=self.tags,
             type=self.type)
 
 
 def get_customer_gateway(filters: Optional[Sequence[Union['GetCustomerGatewayFilterArgs', 'GetCustomerGatewayFilterArgsDict']]] = None,
                          id: Optional[builtins.str] = None,
+                         region: Optional[builtins.str] = None,
                          tags: Optional[Mapping[str, builtins.str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomerGatewayResult:
     """
@@ -186,11 +196,13 @@ def get_customer_gateway(filters: Optional[Sequence[Union['GetCustomerGatewayFil
            
            [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
     :param builtins.str id: ID of the gateway.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of key-value pairs assigned to the gateway.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getCustomerGateway:getCustomerGateway', __args__, opts=opts, typ=GetCustomerGatewayResult).value
@@ -204,10 +216,12 @@ def get_customer_gateway(filters: Optional[Sequence[Union['GetCustomerGatewayFil
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         ip_address=pulumi.get(__ret__, 'ip_address'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_customer_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetCustomerGatewayFilterArgs', 'GetCustomerGatewayFilterArgsDict']]]]] = None,
                                 id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomerGatewayResult]:
     """
@@ -238,11 +252,13 @@ def get_customer_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
            
            [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
     :param builtins.str id: ID of the gateway.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of key-value pairs assigned to the gateway.
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getCustomerGateway:getCustomerGateway', __args__, opts=opts, typ=GetCustomerGatewayResult)
@@ -255,5 +271,6 @@ def get_customer_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         ip_address=pulumi.get(__response__, 'ip_address'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

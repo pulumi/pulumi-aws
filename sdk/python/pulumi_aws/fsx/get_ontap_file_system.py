@@ -28,7 +28,7 @@ class GetOntapFileSystemResult:
     """
     A collection of values returned by getOntapFileSystem.
     """
-    def __init__(__self__, arn=None, automatic_backup_retention_days=None, daily_automatic_backup_start_time=None, deployment_type=None, disk_iops_configurations=None, dns_name=None, endpoint_ip_address_range=None, endpoints=None, ha_pairs=None, id=None, kms_key_id=None, network_interface_ids=None, owner_id=None, preferred_subnet_id=None, route_table_ids=None, storage_capacity=None, storage_type=None, subnet_ids=None, tags=None, throughput_capacity=None, throughput_capacity_per_ha_pair=None, vpc_id=None, weekly_maintenance_start_time=None):
+    def __init__(__self__, arn=None, automatic_backup_retention_days=None, daily_automatic_backup_start_time=None, deployment_type=None, disk_iops_configurations=None, dns_name=None, endpoint_ip_address_range=None, endpoints=None, ha_pairs=None, id=None, kms_key_id=None, network_interface_ids=None, owner_id=None, preferred_subnet_id=None, region=None, route_table_ids=None, storage_capacity=None, storage_type=None, subnet_ids=None, tags=None, throughput_capacity=None, throughput_capacity_per_ha_pair=None, vpc_id=None, weekly_maintenance_start_time=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -71,6 +71,9 @@ class GetOntapFileSystemResult:
         if preferred_subnet_id and not isinstance(preferred_subnet_id, str):
             raise TypeError("Expected argument 'preferred_subnet_id' to be a str")
         pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if route_table_ids and not isinstance(route_table_ids, list):
             raise TypeError("Expected argument 'route_table_ids' to be a list")
         pulumi.set(__self__, "route_table_ids", route_table_ids)
@@ -212,6 +215,11 @@ class GetOntapFileSystemResult:
         return pulumi.get(self, "preferred_subnet_id")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="routeTableIds")
     def route_table_ids(self) -> Sequence[builtins.str]:
         """
@@ -304,6 +312,7 @@ class AwaitableGetOntapFileSystemResult(GetOntapFileSystemResult):
             network_interface_ids=self.network_interface_ids,
             owner_id=self.owner_id,
             preferred_subnet_id=self.preferred_subnet_id,
+            region=self.region,
             route_table_ids=self.route_table_ids,
             storage_capacity=self.storage_capacity,
             storage_type=self.storage_type,
@@ -316,6 +325,7 @@ class AwaitableGetOntapFileSystemResult(GetOntapFileSystemResult):
 
 
 def get_ontap_file_system(id: Optional[builtins.str] = None,
+                          region: Optional[builtins.str] = None,
                           tags: Optional[Mapping[str, builtins.str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOntapFileSystemResult:
     """
@@ -334,10 +344,12 @@ def get_ontap_file_system(id: Optional[builtins.str] = None,
 
 
     :param builtins.str id: Identifier of the file system (e.g. `fs-12345678`).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: The tags associated with the file system.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:fsx/getOntapFileSystem:getOntapFileSystem', __args__, opts=opts, typ=GetOntapFileSystemResult).value
@@ -357,6 +369,7 @@ def get_ontap_file_system(id: Optional[builtins.str] = None,
         network_interface_ids=pulumi.get(__ret__, 'network_interface_ids'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         preferred_subnet_id=pulumi.get(__ret__, 'preferred_subnet_id'),
+        region=pulumi.get(__ret__, 'region'),
         route_table_ids=pulumi.get(__ret__, 'route_table_ids'),
         storage_capacity=pulumi.get(__ret__, 'storage_capacity'),
         storage_type=pulumi.get(__ret__, 'storage_type'),
@@ -367,6 +380,7 @@ def get_ontap_file_system(id: Optional[builtins.str] = None,
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         weekly_maintenance_start_time=pulumi.get(__ret__, 'weekly_maintenance_start_time'))
 def get_ontap_file_system_output(id: Optional[pulumi.Input[builtins.str]] = None,
+                                 region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOntapFileSystemResult]:
     """
@@ -385,10 +399,12 @@ def get_ontap_file_system_output(id: Optional[pulumi.Input[builtins.str]] = None
 
 
     :param builtins.str id: Identifier of the file system (e.g. `fs-12345678`).
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: The tags associated with the file system.
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:fsx/getOntapFileSystem:getOntapFileSystem', __args__, opts=opts, typ=GetOntapFileSystemResult)
@@ -407,6 +423,7 @@ def get_ontap_file_system_output(id: Optional[pulumi.Input[builtins.str]] = None
         network_interface_ids=pulumi.get(__response__, 'network_interface_ids'),
         owner_id=pulumi.get(__response__, 'owner_id'),
         preferred_subnet_id=pulumi.get(__response__, 'preferred_subnet_id'),
+        region=pulumi.get(__response__, 'region'),
         route_table_ids=pulumi.get(__response__, 'route_table_ids'),
         storage_capacity=pulumi.get(__response__, 'storage_capacity'),
         storage_type=pulumi.get(__response__, 'storage_type'),

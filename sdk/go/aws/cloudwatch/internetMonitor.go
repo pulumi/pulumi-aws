@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -62,6 +62,8 @@ type InternetMonitor struct {
 	//
 	// The following arguments are optional:
 	MonitorName pulumi.StringOutput `pulumi:"monitorName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
 	Resources pulumi.StringArrayOutput `pulumi:"resources"`
 	// The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
@@ -69,8 +71,6 @@ type InternetMonitor struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
 	TrafficPercentageToMonitor pulumi.IntPtrOutput `pulumi:"trafficPercentageToMonitor"`
@@ -121,6 +121,8 @@ type internetMonitorState struct {
 	//
 	// The following arguments are optional:
 	MonitorName *string `pulumi:"monitorName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
 	Resources []string `pulumi:"resources"`
 	// The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
@@ -128,8 +130,6 @@ type internetMonitorState struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
 	TrafficPercentageToMonitor *int `pulumi:"trafficPercentageToMonitor"`
@@ -148,6 +148,8 @@ type InternetMonitorState struct {
 	//
 	// The following arguments are optional:
 	MonitorName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
 	Resources pulumi.StringArrayInput
 	// The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
@@ -155,8 +157,6 @@ type InternetMonitorState struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 	// The percentage of the internet-facing traffic for your application that you want to monitor with this monitor.
 	TrafficPercentageToMonitor pulumi.IntPtrInput
@@ -177,6 +177,8 @@ type internetMonitorArgs struct {
 	//
 	// The following arguments are optional:
 	MonitorName string `pulumi:"monitorName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
 	Resources []string `pulumi:"resources"`
 	// The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
@@ -199,6 +201,8 @@ type InternetMonitorArgs struct {
 	//
 	// The following arguments are optional:
 	MonitorName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
 	Resources pulumi.StringArrayInput
 	// The status for a monitor. The accepted values for Status with the UpdateMonitor API call are the following: `ACTIVE` and `INACTIVE`.
@@ -325,6 +329,11 @@ func (o InternetMonitorOutput) MonitorName() pulumi.StringOutput {
 	return o.ApplyT(func(v *InternetMonitor) pulumi.StringOutput { return v.MonitorName }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o InternetMonitorOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *InternetMonitor) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
 func (o InternetMonitorOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InternetMonitor) pulumi.StringArrayOutput { return v.Resources }).(pulumi.StringArrayOutput)
@@ -341,8 +350,6 @@ func (o InternetMonitorOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o InternetMonitorOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InternetMonitor) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -2,9 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
-
-import {PolicyDocument} from "../iam";
 
 /**
  * Provides a resource to manage a CloudWatch log resource policy.
@@ -106,6 +107,10 @@ export class LogResourcePolicy extends pulumi.CustomResource {
      * Name of the resource policy.
      */
     public readonly policyName!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LogResourcePolicy resource with the given unique name, arguments, and options.
@@ -122,6 +127,7 @@ export class LogResourcePolicy extends pulumi.CustomResource {
             const state = argsOrState as LogResourcePolicyState | undefined;
             resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
             resourceInputs["policyName"] = state ? state.policyName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LogResourcePolicyArgs | undefined;
             if ((!args || args.policyDocument === undefined) && !opts.urn) {
@@ -132,6 +138,7 @@ export class LogResourcePolicy extends pulumi.CustomResource {
             }
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
             resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogResourcePolicy.__pulumiType, name, resourceInputs, opts);
@@ -145,11 +152,15 @@ export interface LogResourcePolicyState {
     /**
      * Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
      */
-    policyDocument?: pulumi.Input<string | PolicyDocument>;
+    policyDocument?: pulumi.Input<string | inputs.cloudwatch.PolicyDocument>;
     /**
      * Name of the resource policy.
      */
     policyName?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -159,9 +170,13 @@ export interface LogResourcePolicyArgs {
     /**
      * Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
      */
-    policyDocument: pulumi.Input<string | PolicyDocument>;
+    policyDocument: pulumi.Input<string | inputs.cloudwatch.PolicyDocument>;
     /**
      * Name of the resource policy.
      */
     policyName: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

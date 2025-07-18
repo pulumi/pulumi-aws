@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AnalyzerConfigurationUnusedAccessAnalysisRule {
     /**
-     * @return A block for the analyzer rules containing criteria to exclude from analysis. Documented below
+     * @return List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
      * 
      */
     private @Nullable List<AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion> exclusions;
 
     private AnalyzerConfigurationUnusedAccessAnalysisRule() {}
     /**
-     * @return A block for the analyzer rules containing criteria to exclude from analysis. Documented below
+     * @return List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
      * 
      */
     public List<AnalyzerConfigurationUnusedAccessAnalysisRuleExclusion> exclusions() {

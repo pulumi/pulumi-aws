@@ -113,6 +113,12 @@ namespace Pulumi.Aws.Backup
         public Output<string> ProtectedResourceType { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Override certain restore metadata keys. See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
         /// </summary>
         [Output("restoreMetadataOverrides")]
@@ -212,6 +218,12 @@ namespace Pulumi.Aws.Backup
         [Input("protectedResourceType", required: true)]
         public Input<string> ProtectedResourceType { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("restoreMetadataOverrides")]
         private InputMap<string>? _restoreMetadataOverrides;
 
@@ -279,6 +291,12 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         [Input("protectedResourceType")]
         public Input<string>? ProtectedResourceType { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("restoreMetadataOverrides")]
         private InputMap<string>? _restoreMetadataOverrides;

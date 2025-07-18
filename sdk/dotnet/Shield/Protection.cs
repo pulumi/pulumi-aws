@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Shield
     ///             var current = values.Item1;
     ///             var currentGetCallerIdentity = values.Item2;
     ///             var id = values.Item3;
-    ///             return $"arn:aws:ec2:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
+    ///             return $"arn:aws:ec2:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:eip-allocation/{id}";
     ///         }),
     ///         Tags = 
     ///         {
@@ -210,7 +210,6 @@ namespace Pulumi.Aws.Shield
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

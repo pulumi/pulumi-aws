@@ -99,6 +99,12 @@ namespace Pulumi.Aws.ImageBuilder
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -124,6 +130,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -205,6 +217,10 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly string Platform;
         /// <summary>
+        /// Region of the container image.
+        /// </summary>
+        public readonly string Region;
+        /// <summary>
         /// Key-value map of resource tags for the image.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -245,6 +261,8 @@ namespace Pulumi.Aws.ImageBuilder
 
             string platform,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             string version)
@@ -264,6 +282,7 @@ namespace Pulumi.Aws.ImageBuilder
             OsVersion = osVersion;
             OutputResources = outputResources;
             Platform = platform;
+            Region = region;
             Tags = tags;
             Version = version;
         }

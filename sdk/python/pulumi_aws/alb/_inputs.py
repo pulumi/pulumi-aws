@@ -1066,7 +1066,7 @@ if not MYPY:
     class ListenerMutualAuthenticationArgsDict(TypedDict):
         mode: pulumi.Input[builtins.str]
         """
-        Valid values are `off`, `verify` and `passthrough`.
+        Valid values are `off`, `passthrough`, and `verify`.
         """
         advertise_trust_store_ca_names: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -1074,7 +1074,8 @@ if not MYPY:
         """
         ignore_client_certificate_expiry: NotRequired[pulumi.Input[builtins.bool]]
         """
-        Whether client certificate expiry is ignored. Default is `false`.
+        Whether client certificate expiry is ignored.
+        Default is `false`.
         """
         trust_store_arn: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -1091,9 +1092,10 @@ class ListenerMutualAuthenticationArgs:
                  ignore_client_certificate_expiry: Optional[pulumi.Input[builtins.bool]] = None,
                  trust_store_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] mode: Valid values are `off`, `verify` and `passthrough`.
+        :param pulumi.Input[builtins.str] mode: Valid values are `off`, `passthrough`, and `verify`.
         :param pulumi.Input[builtins.str] advertise_trust_store_ca_names: Valid values are `off` and `on`.
-        :param pulumi.Input[builtins.bool] ignore_client_certificate_expiry: Whether client certificate expiry is ignored. Default is `false`.
+        :param pulumi.Input[builtins.bool] ignore_client_certificate_expiry: Whether client certificate expiry is ignored.
+               Default is `false`.
         :param pulumi.Input[builtins.str] trust_store_arn: ARN of the elbv2 Trust Store.
         """
         pulumi.set(__self__, "mode", mode)
@@ -1108,7 +1110,7 @@ class ListenerMutualAuthenticationArgs:
     @pulumi.getter
     def mode(self) -> pulumi.Input[builtins.str]:
         """
-        Valid values are `off`, `verify` and `passthrough`.
+        Valid values are `off`, `passthrough`, and `verify`.
         """
         return pulumi.get(self, "mode")
 
@@ -1132,7 +1134,8 @@ class ListenerMutualAuthenticationArgs:
     @pulumi.getter(name="ignoreClientCertificateExpiry")
     def ignore_client_certificate_expiry(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Whether client certificate expiry is ignored. Default is `false`.
+        Whether client certificate expiry is ignored.
+        Default is `false`.
         """
         return pulumi.get(self, "ignore_client_certificate_expiry")
 

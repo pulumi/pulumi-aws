@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,16 +21,16 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			hogeBucketV2, err := s3.NewBucketV2(ctx, "hoge", &s3.BucketV2Args{
+//			hogeBucket, err := s3.NewBucket(ctx, "hoge", &s3.BucketArgs{
 //				Bucket: pulumi.String("tf-test-bucket-1234"),
 //			})
 //			if err != nil {
@@ -89,7 +89,7 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketPolicy(ctx, "hoge", &s3.BucketPolicyArgs{
-//				Bucket: hogeBucketV2.ID(),
+//				Bucket: hogeBucket.ID(),
 //				Policy: pulumi.String(hoge.Json),
 //			})
 //			if err != nil {
@@ -98,8 +98,8 @@ import (
 //			_, err = ssm.NewResourceDataSync(ctx, "foo", &ssm.ResourceDataSyncArgs{
 //				Name: pulumi.String("foo"),
 //				S3Destination: &ssm.ResourceDataSyncS3DestinationArgs{
-//					BucketName: hogeBucketV2.Bucket,
-//					Region:     hogeBucketV2.Region,
+//					BucketName: hogeBucket.Bucket,
+//					Region:     hogeBucket.Region,
 //				},
 //			})
 //			if err != nil {
@@ -123,6 +123,8 @@ type ResourceDataSync struct {
 
 	// Name for the configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Amazon S3 configuration details for the sync.
 	S3Destination ResourceDataSyncS3DestinationOutput `pulumi:"s3Destination"`
 }
@@ -162,6 +164,8 @@ func GetResourceDataSync(ctx *pulumi.Context,
 type resourceDataSyncState struct {
 	// Name for the configuration.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Amazon S3 configuration details for the sync.
 	S3Destination *ResourceDataSyncS3Destination `pulumi:"s3Destination"`
 }
@@ -169,6 +173,8 @@ type resourceDataSyncState struct {
 type ResourceDataSyncState struct {
 	// Name for the configuration.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Amazon S3 configuration details for the sync.
 	S3Destination ResourceDataSyncS3DestinationPtrInput
 }
@@ -180,6 +186,8 @@ func (ResourceDataSyncState) ElementType() reflect.Type {
 type resourceDataSyncArgs struct {
 	// Name for the configuration.
 	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Amazon S3 configuration details for the sync.
 	S3Destination ResourceDataSyncS3Destination `pulumi:"s3Destination"`
 }
@@ -188,6 +196,8 @@ type resourceDataSyncArgs struct {
 type ResourceDataSyncArgs struct {
 	// Name for the configuration.
 	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Amazon S3 configuration details for the sync.
 	S3Destination ResourceDataSyncS3DestinationInput
 }
@@ -282,6 +292,11 @@ func (o ResourceDataSyncOutput) ToResourceDataSyncOutputWithContext(ctx context.
 // Name for the configuration.
 func (o ResourceDataSyncOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ResourceDataSyncOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceDataSync) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Amazon S3 configuration details for the sync.

@@ -35,6 +35,7 @@ export function getLocalGateways(args?: GetLocalGatewaysArgs, opts?: pulumi.Invo
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ec2/getLocalGateways:getLocalGateways", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -50,6 +51,10 @@ export interface GetLocalGatewaysArgs {
      * which take the following arguments:
      */
     filters?: inputs.ec2.GetLocalGatewaysFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local_gateways.
@@ -70,6 +75,7 @@ export interface GetLocalGatewaysResult {
      * Set of all the Local Gateway identifiers
      */
     readonly ids: string[];
+    readonly region: string;
     readonly tags: {[key: string]: string};
 }
 /**
@@ -100,6 +106,7 @@ export function getLocalGatewaysOutput(args?: GetLocalGatewaysOutputArgs, opts?:
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ec2/getLocalGateways:getLocalGateways", {
         "filters": args.filters,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -115,6 +122,10 @@ export interface GetLocalGatewaysOutputArgs {
      * which take the following arguments:
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewaysFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Mapping of tags, each pair of which must exactly match
      * a pair on the desired local_gateways.

@@ -23,19 +23,23 @@ class GatewayAssociationProposalArgs:
                  associated_gateway_id: pulumi.Input[builtins.str],
                  dx_gateway_id: pulumi.Input[builtins.str],
                  dx_gateway_owner_account_id: pulumi.Input[builtins.str],
-                 allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+                 allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a GatewayAssociationProposal resource.
         :param pulumi.Input[builtins.str] associated_gateway_id: The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
         :param pulumi.Input[builtins.str] dx_gateway_id: Direct Connect Gateway identifier.
         :param pulumi.Input[builtins.str] dx_gateway_owner_account_id: AWS Account identifier of the Direct Connect Gateway's owner.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_prefixes: VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "associated_gateway_id", associated_gateway_id)
         pulumi.set(__self__, "dx_gateway_id", dx_gateway_id)
         pulumi.set(__self__, "dx_gateway_owner_account_id", dx_gateway_owner_account_id)
         if allowed_prefixes is not None:
             pulumi.set(__self__, "allowed_prefixes", allowed_prefixes)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="associatedGatewayId")
@@ -85,6 +89,18 @@ class GatewayAssociationProposalArgs:
     def allowed_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "allowed_prefixes", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _GatewayAssociationProposalState:
@@ -94,7 +110,8 @@ class _GatewayAssociationProposalState:
                  associated_gateway_owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
                  associated_gateway_type: Optional[pulumi.Input[builtins.str]] = None,
                  dx_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
-                 dx_gateway_owner_account_id: Optional[pulumi.Input[builtins.str]] = None):
+                 dx_gateway_owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering GatewayAssociationProposal resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_prefixes: VPC prefixes (CIDRs) to advertise to the Direct Connect gateway. Defaults to the CIDR block of the VPC associated with the Virtual Gateway. To enable drift detection, must be configured.
@@ -103,6 +120,7 @@ class _GatewayAssociationProposalState:
         :param pulumi.Input[builtins.str] associated_gateway_type: The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
         :param pulumi.Input[builtins.str] dx_gateway_id: Direct Connect Gateway identifier.
         :param pulumi.Input[builtins.str] dx_gateway_owner_account_id: AWS Account identifier of the Direct Connect Gateway's owner.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if allowed_prefixes is not None:
             pulumi.set(__self__, "allowed_prefixes", allowed_prefixes)
@@ -116,6 +134,8 @@ class _GatewayAssociationProposalState:
             pulumi.set(__self__, "dx_gateway_id", dx_gateway_id)
         if dx_gateway_owner_account_id is not None:
             pulumi.set(__self__, "dx_gateway_owner_account_id", dx_gateway_owner_account_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="allowedPrefixes")
@@ -189,6 +209,18 @@ class _GatewayAssociationProposalState:
     def dx_gateway_owner_account_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "dx_gateway_owner_account_id", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal")
 class GatewayAssociationProposal(pulumi.CustomResource):
@@ -200,6 +232,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
                  associated_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  dx_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  dx_gateway_owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the `directconnect.GatewayAssociation` resource.
@@ -241,6 +274,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] associated_gateway_id: The ID of the VGW or transit gateway with which to associate the Direct Connect gateway.
         :param pulumi.Input[builtins.str] dx_gateway_id: Direct Connect Gateway identifier.
         :param pulumi.Input[builtins.str] dx_gateway_owner_account_id: AWS Account identifier of the Direct Connect Gateway's owner.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -301,6 +335,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
                  associated_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  dx_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
                  dx_gateway_owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -320,6 +355,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
             if dx_gateway_owner_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dx_gateway_owner_account_id'")
             __props__.__dict__["dx_gateway_owner_account_id"] = dx_gateway_owner_account_id
+            __props__.__dict__["region"] = region
             __props__.__dict__["associated_gateway_owner_account_id"] = None
             __props__.__dict__["associated_gateway_type"] = None
         super(GatewayAssociationProposal, __self__).__init__(
@@ -337,7 +373,8 @@ class GatewayAssociationProposal(pulumi.CustomResource):
             associated_gateway_owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
             associated_gateway_type: Optional[pulumi.Input[builtins.str]] = None,
             dx_gateway_id: Optional[pulumi.Input[builtins.str]] = None,
-            dx_gateway_owner_account_id: Optional[pulumi.Input[builtins.str]] = None) -> 'GatewayAssociationProposal':
+            dx_gateway_owner_account_id: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'GatewayAssociationProposal':
         """
         Get an existing GatewayAssociationProposal resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -351,6 +388,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] associated_gateway_type: The type of the associated gateway, `transitGateway` or `virtualPrivateGateway`.
         :param pulumi.Input[builtins.str] dx_gateway_id: Direct Connect Gateway identifier.
         :param pulumi.Input[builtins.str] dx_gateway_owner_account_id: AWS Account identifier of the Direct Connect Gateway's owner.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -362,6 +400,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         __props__.__dict__["associated_gateway_type"] = associated_gateway_type
         __props__.__dict__["dx_gateway_id"] = dx_gateway_id
         __props__.__dict__["dx_gateway_owner_account_id"] = dx_gateway_owner_account_id
+        __props__.__dict__["region"] = region
         return GatewayAssociationProposal(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -411,4 +450,12 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         AWS Account identifier of the Direct Connect Gateway's owner.
         """
         return pulumi.get(self, "dx_gateway_owner_account_id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -26,7 +26,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,7 +56,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/connect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/connect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -114,12 +114,12 @@ type UserHierarchyGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
 	ParentGroupId pulumi.StringPtrOutput `pulumi:"parentGroupId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Tags to apply to the hierarchy group. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -170,12 +170,12 @@ type userHierarchyGroupState struct {
 	Name *string `pulumi:"name"`
 	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
 	ParentGroupId *string `pulumi:"parentGroupId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags to apply to the hierarchy group. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -194,12 +194,12 @@ type UserHierarchyGroupState struct {
 	Name pulumi.StringPtrInput
 	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
 	ParentGroupId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tags to apply to the hierarchy group. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -214,6 +214,8 @@ type userHierarchyGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
 	ParentGroupId *string `pulumi:"parentGroupId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Tags to apply to the hierarchy group. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -227,6 +229,8 @@ type UserHierarchyGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.
 	ParentGroupId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Tags to apply to the hierarchy group. If configured with a provider
 	// `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -354,6 +358,11 @@ func (o UserHierarchyGroupOutput) ParentGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringPtrOutput { return v.ParentGroupId }).(pulumi.StringPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o UserHierarchyGroupOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Tags to apply to the hierarchy group. If configured with a provider
 // `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o UserHierarchyGroupOutput) Tags() pulumi.StringMapOutput {
@@ -361,8 +370,6 @@ func (o UserHierarchyGroupOutput) Tags() pulumi.StringMapOutput {
 }
 
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o UserHierarchyGroupOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

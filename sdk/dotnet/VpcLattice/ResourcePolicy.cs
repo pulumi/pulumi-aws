@@ -88,6 +88,12 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> Policy { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
         /// </summary>
         [Output("resourceArn")]
@@ -146,6 +152,12 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string> Policy { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
         /// </summary>
         [Input("resourceArn", required: true)]
@@ -164,6 +176,12 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.

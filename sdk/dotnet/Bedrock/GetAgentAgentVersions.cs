@@ -111,6 +111,12 @@ namespace Pulumi.Aws.Bedrock
             set => _agentVersionSummaries = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         public GetAgentAgentVersionsArgs()
         {
         }
@@ -137,6 +143,12 @@ namespace Pulumi.Aws.Bedrock
             set => _agentVersionSummaries = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         public GetAgentAgentVersionsInvokeArgs()
         {
         }
@@ -156,6 +168,7 @@ namespace Pulumi.Aws.Bedrock
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
 
         [OutputConstructor]
         private GetAgentAgentVersionsResult(
@@ -163,11 +176,14 @@ namespace Pulumi.Aws.Bedrock
 
             ImmutableArray<Outputs.GetAgentAgentVersionsAgentVersionSummaryResult> agentVersionSummaries,
 
-            string id)
+            string id,
+
+            string region)
         {
             AgentId = agentId;
             AgentVersionSummaries = agentVersionSummaries;
             Id = id;
+            Region = region;
         }
     }
 }

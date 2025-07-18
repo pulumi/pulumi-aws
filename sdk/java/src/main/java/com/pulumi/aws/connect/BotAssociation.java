@@ -136,7 +136,7 @@ import javax.annotation.Nullable;
  *         var exampleBotAssociation = new BotAssociation("exampleBotAssociation", BotAssociationArgs.builder()
  *             .instanceId(exampleAwsConnectInstance.id())
  *             .lexBot(BotAssociationLexBotArgs.builder()
- *                 .lexRegion(current.name())
+ *                 .lexRegion(current.region())
  *                 .name(exampleBot.name())
  *                 .build())
  *             .build());
@@ -185,6 +185,20 @@ public class BotAssociation extends com.pulumi.resources.CustomResource {
      */
     public Output<BotAssociationLexBot> lexBot() {
         return this.lexBot;
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
 
     /**

@@ -17,13 +17,177 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages an asynchronous invocation configuration for a Lambda Function or Alias. More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
+ * Manages an AWS Lambda Function Event Invoke Config. Use this resource to configure error handling and destinations for asynchronous Lambda function invocations.
+ * 
+ * More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
  * 
  * ## Example Usage
  * 
- * ### Destination Configuration
+ * ### Complete Error Handling and Destinations
  * 
- * &gt; **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
+ * &gt; **Note:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sqs.Queue;
+ * import com.pulumi.aws.sqs.QueueArgs;
+ * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
+ * import com.pulumi.aws.lambda.FunctionEventInvokeConfig;
+ * import com.pulumi.aws.lambda.FunctionEventInvokeConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionEventInvokeConfigDestinationConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // SQS queue for failed invocations
+ *         var dlq = new Queue("dlq", QueueArgs.builder()
+ *             .name("lambda-dlq")
+ *             .tags(Map.ofEntries(
+ *                 Map.entry("Environment", "production"),
+ *                 Map.entry("Purpose", "lambda-error-handling")
+ *             ))
+ *             .build());
+ * 
+ *         // SNS topic for successful invocations
+ *         var success = new Topic("success", TopicArgs.builder()
+ *             .name("lambda-success-notifications")
+ *             .tags(Map.ofEntries(
+ *                 Map.entry("Environment", "production"),
+ *                 Map.entry("Purpose", "lambda-success-notifications")
+ *             ))
+ *             .build());
+ * 
+ *         // Complete event invoke configuration
+ *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()
+ *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .maximumEventAgeInSeconds(300)
+ *             .maximumRetryAttempts(1)
+ *             .destinationConfig(FunctionEventInvokeConfigDestinationConfigArgs.builder()
+ *                 .onFailure(FunctionEventInvokeConfigDestinationConfigOnFailureArgs.builder()
+ *                     .destination(dlq.arn())
+ *                     .build())
+ *                 .onSuccess(FunctionEventInvokeConfigDestinationConfigOnSuccessArgs.builder()
+ *                     .destination(success.arn())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Error Handling Only
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.FunctionEventInvokeConfig;
+ * import com.pulumi.aws.lambda.FunctionEventInvokeConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()
+ *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .maximumEventAgeInSeconds(60)
+ *             .maximumRetryAttempts(0)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Configuration for Lambda Alias
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.Alias;
+ * import com.pulumi.aws.lambda.AliasArgs;
+ * import com.pulumi.aws.lambda.FunctionEventInvokeConfig;
+ * import com.pulumi.aws.lambda.FunctionEventInvokeConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionEventInvokeConfigDestinationConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Alias("example", AliasArgs.builder()
+ *             .name("production")
+ *             .description("Production alias")
+ *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .functionVersion(exampleAwsLambdaFunction.version())
+ *             .build());
+ * 
+ *         var exampleFunctionEventInvokeConfig = new FunctionEventInvokeConfig("exampleFunctionEventInvokeConfig", FunctionEventInvokeConfigArgs.builder()
+ *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .qualifier(example.name())
+ *             .maximumEventAgeInSeconds(1800)
+ *             .maximumRetryAttempts(2)
+ *             .destinationConfig(FunctionEventInvokeConfigDestinationConfigArgs.builder()
+ *                 .onFailure(FunctionEventInvokeConfigDestinationConfigOnFailureArgs.builder()
+ *                     .destination(productionDlq.arn())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Configuration for Published Version
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -52,13 +216,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()
- *             .functionName(exampleAwsLambdaAlias.functionName())
+ *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .qualifier(exampleAwsLambdaFunction.version())
+ *             .maximumEventAgeInSeconds(21600)
+ *             .maximumRetryAttempts(2)
  *             .destinationConfig(FunctionEventInvokeConfigDestinationConfigArgs.builder()
  *                 .onFailure(FunctionEventInvokeConfigDestinationConfigOnFailureArgs.builder()
- *                     .destination(exampleAwsSqsQueue.arn())
+ *                     .destination(versionDlq.arn())
  *                     .build())
  *                 .onSuccess(FunctionEventInvokeConfigDestinationConfigOnSuccessArgs.builder()
- *                     .destination(exampleAwsSnsTopic.arn())
+ *                     .destination(versionSuccess.arn())
  *                     .build())
  *                 .build())
  *             .build());
@@ -69,7 +236,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Error Handling Configuration
+ * ### Configuration for Latest Version
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -81,79 +248,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lambda.FunctionEventInvokeConfig;
  * import com.pulumi.aws.lambda.FunctionEventInvokeConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()
- *             .functionName(exampleAwsLambdaAlias.functionName())
- *             .maximumEventAgeInSeconds(60)
- *             .maximumRetryAttempts(0)
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * ### Configuration for Alias Name
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.FunctionEventInvokeConfig;
- * import com.pulumi.aws.lambda.FunctionEventInvokeConfigArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()
- *             .functionName(exampleAwsLambdaAlias.functionName())
- *             .qualifier(exampleAwsLambdaAlias.name())
- *             .build());
- * 
- *     }
- * }
- * }
- * </pre>
- * &lt;!--End PulumiCodeChooser --&gt;
- * 
- * ### Configuration for Function Latest Unpublished Version
- * 
- * &lt;!--Start PulumiCodeChooser --&gt;
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.lambda.FunctionEventInvokeConfig;
- * import com.pulumi.aws.lambda.FunctionEventInvokeConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionEventInvokeConfigDestinationConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -170,6 +266,13 @@ import javax.annotation.Nullable;
  *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()
  *             .functionName(exampleAwsLambdaFunction.functionName())
  *             .qualifier("$LATEST")
+ *             .maximumEventAgeInSeconds(120)
+ *             .maximumRetryAttempts(0)
+ *             .destinationConfig(FunctionEventInvokeConfigDestinationConfigArgs.builder()
+ *                 .onFailure(FunctionEventInvokeConfigDestinationConfigOnFailureArgs.builder()
+ *                     .destination(devDlq.arn())
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -178,7 +281,7 @@ import javax.annotation.Nullable;
  * </pre>
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
- * ### Configuration for Function Published Version
+ * ### Multiple Destination Types
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * <pre>
@@ -188,8 +291,15 @@ import javax.annotation.Nullable;
  * import com.pulumi.Context;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.cloudwatch.EventBus;
+ * import com.pulumi.aws.cloudwatch.EventBusArgs;
  * import com.pulumi.aws.lambda.FunctionEventInvokeConfig;
  * import com.pulumi.aws.lambda.FunctionEventInvokeConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionEventInvokeConfigDestinationConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionEventInvokeConfigDestinationConfigOnFailureArgs;
+ * import com.pulumi.aws.lambda.inputs.FunctionEventInvokeConfigDestinationConfigOnSuccessArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -203,9 +313,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
+ *         // S3 bucket for archiving successful events
+ *         var lambdaSuccessArchive = new Bucket("lambdaSuccessArchive", BucketArgs.builder()
+ *             .bucket(String.format("lambda-success-archive-%s", bucketSuffix.hex()))
+ *             .build());
+ * 
+ *         // EventBridge custom bus for failed events
+ *         var lambdaFailures = new EventBus("lambdaFailures", EventBusArgs.builder()
+ *             .name("lambda-failure-events")
+ *             .build());
+ * 
  *         var example = new FunctionEventInvokeConfig("example", FunctionEventInvokeConfigArgs.builder()
  *             .functionName(exampleAwsLambdaFunction.functionName())
- *             .qualifier(exampleAwsLambdaFunction.version())
+ *             .destinationConfig(FunctionEventInvokeConfigDestinationConfigArgs.builder()
+ *                 .onFailure(FunctionEventInvokeConfigDestinationConfigOnFailureArgs.builder()
+ *                     .destination(lambdaFailures.arn())
+ *                     .build())
+ *                 .onSuccess(FunctionEventInvokeConfigDestinationConfigOnSuccessArgs.builder()
+ *                     .destination(lambdaSuccessArchive.arn())
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -222,48 +349,48 @@ import javax.annotation.Nullable;
  * 
  * Name with qualifier:
  * 
- * __Using `pulumi import` to import__ Lambda Function Event Invoke Configs using the fully qualified Function name or Amazon Resource Name (ARN). For example:
+ * For backwards compatibility, the following legacy `pulumi import` commands are also supported:
  * 
- * ARN without qualifier (all versions and aliases):
+ * Using ARN without qualifier:
  * 
  * ```sh
- * $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
+ * $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:lambda:us-east-1:123456789012:function:example
  * ```
- * ARN with qualifier:
+ * Using ARN with qualifier:
  * 
  * ```sh
- * $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
+ * $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:lambda:us-east-1:123456789012:function:example:production
  * ```
  * Name without qualifier (all versions and aliases):
  * 
  * ```sh
- * $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
+ * $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example example
  * ```
  * Name with qualifier:
  * 
  * ```sh
- * $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
+ * $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example example:production
  * ```
  * 
  */
 @ResourceType(type="aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig")
 public class FunctionEventInvokeConfig extends com.pulumi.resources.CustomResource {
     /**
-     * Configuration block with destination configuration. See below for details.
+     * Configuration block with destination configuration. See below.
      * 
      */
     @Export(name="destinationConfig", refs={FunctionEventInvokeConfigDestinationConfig.class}, tree="[0]")
     private Output</* @Nullable */ FunctionEventInvokeConfigDestinationConfig> destinationConfig;
 
     /**
-     * @return Configuration block with destination configuration. See below for details.
+     * @return Configuration block with destination configuration. See below.
      * 
      */
     public Output<Optional<FunctionEventInvokeConfigDestinationConfig>> destinationConfig() {
         return Codegen.optional(this.destinationConfig);
     }
     /**
-     * Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     * Name or ARN of the Lambda Function, omitting any version or alias qualifier.
      * 
      * The following arguments are optional:
      * 
@@ -272,7 +399,7 @@ public class FunctionEventInvokeConfig extends com.pulumi.resources.CustomResour
     private Output<String> functionName;
 
     /**
-     * @return Name or Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+     * @return Name or ARN of the Lambda Function, omitting any version or alias qualifier.
      * 
      * The following arguments are optional:
      * 
@@ -321,6 +448,20 @@ public class FunctionEventInvokeConfig extends com.pulumi.resources.CustomResour
      */
     public Output<Optional<String>> qualifier() {
         return Codegen.optional(this.qualifier);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
     }
 
     /**

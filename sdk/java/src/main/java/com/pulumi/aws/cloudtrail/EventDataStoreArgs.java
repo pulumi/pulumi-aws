@@ -111,6 +111,21 @@ public final class EventDataStoreArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * The retention period of the event data store, in days. You can set a retention period of up to 2555 days, the equivalent of seven years. Default: `2555`.
      * 
      */
@@ -179,6 +194,7 @@ public final class EventDataStoreArgs extends com.pulumi.resources.ResourceArgs 
         this.multiRegionEnabled = $.multiRegionEnabled;
         this.name = $.name;
         this.organizationEnabled = $.organizationEnabled;
+        this.region = $.region;
         this.retentionPeriod = $.retentionPeriod;
         this.suspend = $.suspend;
         this.tags = $.tags;
@@ -337,6 +353,27 @@ public final class EventDataStoreArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder organizationEnabled(Boolean organizationEnabled) {
             return organizationEnabled(Output.of(organizationEnabled));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.s3.BucketV2("default", {bucket: "tf-spot-datafeed"});
+ * const _default = new aws.s3.Bucket("default", {bucket: "tf-spot-datafeed"});
  * const defaultSpotDatafeedSubscription = new aws.ec2.SpotDatafeedSubscription("default", {
  *     bucket: _default.id,
  *     prefix: "my_subdirectory",
@@ -67,6 +67,10 @@ export class SpotDatafeedSubscription extends pulumi.CustomResource {
      * Path of folder inside bucket to place spot pricing data.
      */
     public readonly prefix!: pulumi.Output<string | undefined>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a SpotDatafeedSubscription resource with the given unique name, arguments, and options.
@@ -83,6 +87,7 @@ export class SpotDatafeedSubscription extends pulumi.CustomResource {
             const state = argsOrState as SpotDatafeedSubscriptionState | undefined;
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["prefix"] = state ? state.prefix : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as SpotDatafeedSubscriptionArgs | undefined;
             if ((!args || args.bucket === undefined) && !opts.urn) {
@@ -90,6 +95,7 @@ export class SpotDatafeedSubscription extends pulumi.CustomResource {
             }
             resourceInputs["bucket"] = args ? args.bucket : undefined;
             resourceInputs["prefix"] = args ? args.prefix : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(SpotDatafeedSubscription.__pulumiType, name, resourceInputs, opts);
@@ -108,6 +114,10 @@ export interface SpotDatafeedSubscriptionState {
      * Path of folder inside bucket to place spot pricing data.
      */
     prefix?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -122,4 +132,8 @@ export interface SpotDatafeedSubscriptionArgs {
      * Path of folder inside bucket to place spot pricing data.
      */
     prefix?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

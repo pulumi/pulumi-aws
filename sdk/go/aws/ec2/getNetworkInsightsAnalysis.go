@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,8 +57,10 @@ type LookupNetworkInsightsAnalysisArgs struct {
 	// whose data will be exported as attributes.
 	Filters []GetNetworkInsightsAnalysisFilter `pulumi:"filters"`
 	// ID of the Network Insights Analysis to select.
-	NetworkInsightsAnalysisId *string           `pulumi:"networkInsightsAnalysisId"`
-	Tags                      map[string]string `pulumi:"tags"`
+	NetworkInsightsAnalysisId *string `pulumi:"networkInsightsAnalysisId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getNetworkInsightsAnalysis.
@@ -80,7 +82,8 @@ type LookupNetworkInsightsAnalysisResult struct {
 	// The ID of the path.
 	NetworkInsightsPathId string `pulumi:"networkInsightsPathId"`
 	// Set to `true` if the destination was reachable.
-	PathFound bool `pulumi:"pathFound"`
+	PathFound bool   `pulumi:"pathFound"`
+	Region    string `pulumi:"region"`
 	// The components in the path from destination to source.
 	ReturnPathComponents []GetNetworkInsightsAnalysisReturnPathComponent `pulumi:"returnPathComponents"`
 	// Date/time the analysis was started.
@@ -113,7 +116,9 @@ type LookupNetworkInsightsAnalysisOutputArgs struct {
 	Filters GetNetworkInsightsAnalysisFilterArrayInput `pulumi:"filters"`
 	// ID of the Network Insights Analysis to select.
 	NetworkInsightsAnalysisId pulumi.StringPtrInput `pulumi:"networkInsightsAnalysisId"`
-	Tags                      pulumi.StringMapInput `pulumi:"tags"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Tags   pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupNetworkInsightsAnalysisOutputArgs) ElementType() reflect.Type {
@@ -187,6 +192,10 @@ func (o LookupNetworkInsightsAnalysisResultOutput) NetworkInsightsPathId() pulum
 // Set to `true` if the destination was reachable.
 func (o LookupNetworkInsightsAnalysisResultOutput) PathFound() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) bool { return v.PathFound }).(pulumi.BoolOutput)
+}
+
+func (o LookupNetworkInsightsAnalysisResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The components in the path from destination to source.

@@ -10,6 +10,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class DirectoryConfigArgs extends com.pulumi.resources.ResourceArgs {
@@ -47,6 +49,21 @@ public final class DirectoryConfigArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
      * Configuration block for the name of the directory and organizational unit (OU) to use to join the directory config to a Microsoft Active Directory domain. See `service_account_credentials` below.
      * 
      */
@@ -66,6 +83,7 @@ public final class DirectoryConfigArgs extends com.pulumi.resources.ResourceArgs
     private DirectoryConfigArgs(DirectoryConfigArgs $) {
         this.directoryName = $.directoryName;
         this.organizationalUnitDistinguishedNames = $.organizationalUnitDistinguishedNames;
+        this.region = $.region;
         this.serviceAccountCredentials = $.serviceAccountCredentials;
     }
 
@@ -137,6 +155,27 @@ public final class DirectoryConfigArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder organizationalUnitDistinguishedNames(String... organizationalUnitDistinguishedNames) {
             return organizationalUnitDistinguishedNames(List.of(organizationalUnitDistinguishedNames));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acm"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/acm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,6 +82,8 @@ type LookupCertificateArgs struct {
 	KeyTypes []string `pulumi:"keyTypes"`
 	// If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
 	MostRecent *bool `pulumi:"mostRecent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
 	// `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
 	// are returned.
@@ -105,6 +107,7 @@ type LookupCertificateResult struct {
 	Id         string   `pulumi:"id"`
 	KeyTypes   []string `pulumi:"keyTypes"`
 	MostRecent *bool    `pulumi:"mostRecent"`
+	Region     string   `pulumi:"region"`
 	// Status of the found certificate.
 	Status   string   `pulumi:"status"`
 	Statuses []string `pulumi:"statuses"`
@@ -130,6 +133,8 @@ type LookupCertificateOutputArgs struct {
 	KeyTypes pulumi.StringArrayInput `pulumi:"keyTypes"`
 	// If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
 	// `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
 	// are returned.
@@ -189,6 +194,10 @@ func (o LookupCertificateResultOutput) KeyTypes() pulumi.StringArrayOutput {
 
 func (o LookupCertificateResultOutput) MostRecent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupCertificateResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupCertificateResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Status of the found certificate.

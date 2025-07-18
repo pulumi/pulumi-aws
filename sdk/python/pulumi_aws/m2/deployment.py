@@ -27,6 +27,7 @@ class DeploymentArgs:
                  environment_id: pulumi.Input[builtins.str],
                  start: pulumi.Input[builtins.bool],
                  force_stop: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['DeploymentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Deployment resource.
@@ -34,6 +35,7 @@ class DeploymentArgs:
         :param pulumi.Input[builtins.int] application_version: Version to application to deploy
         :param pulumi.Input[builtins.str] environment_id: Environment to deploy application to.
         :param pulumi.Input[builtins.bool] start: Start the application once deployed.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "application_version", application_version)
@@ -41,6 +43,8 @@ class DeploymentArgs:
         pulumi.set(__self__, "start", start)
         if force_stop is not None:
             pulumi.set(__self__, "force_stop", force_stop)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -103,6 +107,18 @@ class DeploymentArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['DeploymentTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -119,6 +135,7 @@ class _DeploymentState:
                  deployment_id: Optional[pulumi.Input[builtins.str]] = None,
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
                  force_stop: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  start: Optional[pulumi.Input[builtins.bool]] = None,
                  timeouts: Optional[pulumi.Input['DeploymentTimeoutsArgs']] = None):
         """
@@ -126,6 +143,7 @@ class _DeploymentState:
         :param pulumi.Input[builtins.str] application_id: Application to deploy.
         :param pulumi.Input[builtins.int] application_version: Version to application to deploy
         :param pulumi.Input[builtins.str] environment_id: Environment to deploy application to.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] start: Start the application once deployed.
         """
         if application_id is not None:
@@ -138,6 +156,8 @@ class _DeploymentState:
             pulumi.set(__self__, "environment_id", environment_id)
         if force_stop is not None:
             pulumi.set(__self__, "force_stop", force_stop)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if start is not None:
             pulumi.set(__self__, "start", start)
         if timeouts is not None:
@@ -199,6 +219,18 @@ class _DeploymentState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def start(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
         Start the application once deployed.
@@ -229,6 +261,7 @@ class Deployment(pulumi.CustomResource):
                  application_version: Optional[pulumi.Input[builtins.int]] = None,
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
                  force_stop: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  start: Optional[pulumi.Input[builtins.bool]] = None,
                  timeouts: Optional[pulumi.Input[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -263,6 +296,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] application_id: Application to deploy.
         :param pulumi.Input[builtins.int] application_version: Version to application to deploy
         :param pulumi.Input[builtins.str] environment_id: Environment to deploy application to.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] start: Start the application once deployed.
         """
         ...
@@ -316,6 +350,7 @@ class Deployment(pulumi.CustomResource):
                  application_version: Optional[pulumi.Input[builtins.int]] = None,
                  environment_id: Optional[pulumi.Input[builtins.str]] = None,
                  force_stop: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  start: Optional[pulumi.Input[builtins.bool]] = None,
                  timeouts: Optional[pulumi.Input[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -337,6 +372,7 @@ class Deployment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'environment_id'")
             __props__.__dict__["environment_id"] = environment_id
             __props__.__dict__["force_stop"] = force_stop
+            __props__.__dict__["region"] = region
             if start is None and not opts.urn:
                 raise TypeError("Missing required property 'start'")
             __props__.__dict__["start"] = start
@@ -357,6 +393,7 @@ class Deployment(pulumi.CustomResource):
             deployment_id: Optional[pulumi.Input[builtins.str]] = None,
             environment_id: Optional[pulumi.Input[builtins.str]] = None,
             force_stop: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             start: Optional[pulumi.Input[builtins.bool]] = None,
             timeouts: Optional[pulumi.Input[Union['DeploymentTimeoutsArgs', 'DeploymentTimeoutsArgsDict']]] = None) -> 'Deployment':
         """
@@ -369,6 +406,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] application_id: Application to deploy.
         :param pulumi.Input[builtins.int] application_version: Version to application to deploy
         :param pulumi.Input[builtins.str] environment_id: Environment to deploy application to.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.bool] start: Start the application once deployed.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -380,6 +418,7 @@ class Deployment(pulumi.CustomResource):
         __props__.__dict__["deployment_id"] = deployment_id
         __props__.__dict__["environment_id"] = environment_id
         __props__.__dict__["force_stop"] = force_stop
+        __props__.__dict__["region"] = region
         __props__.__dict__["start"] = start
         __props__.__dict__["timeouts"] = timeouts
         return Deployment(resource_name, opts=opts, __props__=__props__)
@@ -417,6 +456,14 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="forceStop")
     def force_stop(self) -> pulumi.Output[Optional[builtins.bool]]:
         return pulumi.get(self, "force_stop")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

@@ -25,6 +25,7 @@ class LogSubscriptionFilterArgs:
                  log_group: pulumi.Input[builtins.str],
                  distribution: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LogSubscriptionFilter resource.
@@ -33,6 +34,7 @@ class LogSubscriptionFilterArgs:
         :param pulumi.Input[builtins.str] log_group: The name of the log group to associate the subscription filter with
         :param pulumi.Input[builtins.str] distribution: The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. Valid values are "Random" and "ByLogStream".
         :param pulumi.Input[builtins.str] name: A name for the subscription filter
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
@@ -42,6 +44,8 @@ class LogSubscriptionFilterArgs:
             pulumi.set(__self__, "distribution", distribution)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
 
@@ -106,6 +110,18 @@ class LogSubscriptionFilterArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -126,6 +142,7 @@ class _LogSubscriptionFilterState:
                  filter_pattern: Optional[pulumi.Input[builtins.str]] = None,
                  log_group: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering LogSubscriptionFilter resources.
@@ -134,6 +151,7 @@ class _LogSubscriptionFilterState:
         :param pulumi.Input[builtins.str] filter_pattern: A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         :param pulumi.Input[builtins.str] log_group: The name of the log group to associate the subscription filter with
         :param pulumi.Input[builtins.str] name: A name for the subscription filter
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
         """
         if destination_arn is not None:
@@ -146,6 +164,8 @@ class _LogSubscriptionFilterState:
             pulumi.set(__self__, "log_group", log_group)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
 
@@ -210,6 +230,18 @@ class _LogSubscriptionFilterState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -233,6 +265,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
                  filter_pattern: Optional[pulumi.Input[builtins.str]] = None,
                  log_group: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -268,6 +301,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] filter_pattern: A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         :param pulumi.Input[builtins.str] log_group: The name of the log group to associate the subscription filter with
         :param pulumi.Input[builtins.str] name: A name for the subscription filter
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
         """
         ...
@@ -322,6 +356,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
                  filter_pattern: Optional[pulumi.Input[builtins.str]] = None,
                  log_group: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -343,6 +378,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
                 raise TypeError("Missing required property 'log_group'")
             __props__.__dict__["log_group"] = log_group
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             __props__.__dict__["role_arn"] = role_arn
         super(LogSubscriptionFilter, __self__).__init__(
             'aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter',
@@ -359,6 +395,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
             filter_pattern: Optional[pulumi.Input[builtins.str]] = None,
             log_group: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'LogSubscriptionFilter':
         """
         Get an existing LogSubscriptionFilter resource's state with the given name, id, and optional extra
@@ -372,6 +409,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] filter_pattern: A valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events. Use empty string `""` to match everything. For more information, see the [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         :param pulumi.Input[builtins.str] log_group: The name of the log group to associate the subscription filter with
         :param pulumi.Input[builtins.str] name: A name for the subscription filter
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_arn: The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to deliver ingested log events to the destination. If you use Lambda as a destination, you should skip this argument and use `lambda.Permission` resource for granting access from CloudWatch logs to the destination Lambda function.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -383,6 +421,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         __props__.__dict__["filter_pattern"] = filter_pattern
         __props__.__dict__["log_group"] = log_group
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_arn"] = role_arn
         return LogSubscriptionFilter(resource_name, opts=opts, __props__=__props__)
 
@@ -425,6 +464,14 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         A name for the subscription filter
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="roleArn")

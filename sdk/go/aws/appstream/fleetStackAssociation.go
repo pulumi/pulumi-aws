@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/appstream"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/appstream"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,6 +70,8 @@ type FleetStackAssociation struct {
 
 	// Name of the fleet.
 	FleetName pulumi.StringOutput `pulumi:"fleetName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Name of the stack.
 	StackName pulumi.StringOutput `pulumi:"stackName"`
 }
@@ -112,6 +114,8 @@ func GetFleetStackAssociation(ctx *pulumi.Context,
 type fleetStackAssociationState struct {
 	// Name of the fleet.
 	FleetName *string `pulumi:"fleetName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the stack.
 	StackName *string `pulumi:"stackName"`
 }
@@ -119,6 +123,8 @@ type fleetStackAssociationState struct {
 type FleetStackAssociationState struct {
 	// Name of the fleet.
 	FleetName pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the stack.
 	StackName pulumi.StringPtrInput
 }
@@ -130,6 +136,8 @@ func (FleetStackAssociationState) ElementType() reflect.Type {
 type fleetStackAssociationArgs struct {
 	// Name of the fleet.
 	FleetName string `pulumi:"fleetName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Name of the stack.
 	StackName string `pulumi:"stackName"`
 }
@@ -138,6 +146,8 @@ type fleetStackAssociationArgs struct {
 type FleetStackAssociationArgs struct {
 	// Name of the fleet.
 	FleetName pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Name of the stack.
 	StackName pulumi.StringInput
 }
@@ -232,6 +242,11 @@ func (o FleetStackAssociationOutput) ToFleetStackAssociationOutputWithContext(ct
 // Name of the fleet.
 func (o FleetStackAssociationOutput) FleetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FleetStackAssociation) pulumi.StringOutput { return v.FleetName }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o FleetStackAssociationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *FleetStackAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Name of the stack.

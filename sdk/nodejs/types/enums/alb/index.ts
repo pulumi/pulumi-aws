@@ -3,8 +3,18 @@
 
 
 export const IpAddressType = {
+    /**
+     * IPv4 addresses
+     */
     Ipv4: "ipv4",
+    /**
+     * IPv4 and IPv6 addresses
+     */
     Dualstack: "dualstack",
+    /**
+     * Public IPv6 addresses and private IPv4 and IPv6 addresses
+     */
+    DualstackWithoutPublicIpv4: "dualstack-without-public-ipv4",
 } as const;
 
 export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];

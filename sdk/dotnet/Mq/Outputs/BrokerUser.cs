@@ -22,17 +22,19 @@ namespace Pulumi.Aws.Mq.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Groups;
         /// <summary>
-        /// Password of the user. It must be 12 to 250 characters long, at least 4 unique characters, and must not contain commas.
+        /// Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
         /// </summary>
         public readonly string Password;
         /// <summary>
-        /// Whether to set set replication user. Defaults to `false`.
+        /// Whether to set replication user. Defaults to `false`.
+        /// 
+        /// &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
         /// </summary>
         public readonly bool? ReplicationUser;
         /// <summary>
         /// Username of the user.
         /// 
-        /// &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
+        /// The following arguments are optional:
         /// </summary>
         public readonly string Username;
 

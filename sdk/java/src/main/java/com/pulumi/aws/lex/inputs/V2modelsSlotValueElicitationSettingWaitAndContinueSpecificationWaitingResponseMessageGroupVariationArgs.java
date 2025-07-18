@@ -9,7 +9,6 @@ import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingWaitAndConti
 import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -19,11 +18,11 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
 
     public static final V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs Empty = new V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs();
 
-    @Import(name="customPayloads")
-    private @Nullable Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs>> customPayloads;
+    @Import(name="customPayload")
+    private @Nullable Output<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs> customPayload;
 
-    public Optional<Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs>>> customPayloads() {
-        return Optional.ofNullable(this.customPayloads);
+    public Optional<Output<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs>> customPayload() {
+        return Optional.ofNullable(this.customPayload);
     }
 
     @Import(name="imageResponseCard")
@@ -50,7 +49,7 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
     private V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs() {}
 
     private V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs $) {
-        this.customPayloads = $.customPayloads;
+        this.customPayload = $.customPayload;
         this.imageResponseCard = $.imageResponseCard;
         this.plainTextMessage = $.plainTextMessage;
         this.ssmlMessage = $.ssmlMessage;
@@ -74,17 +73,13 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
             $ = new V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder customPayloads(@Nullable Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs>> customPayloads) {
-            $.customPayloads = customPayloads;
+        public Builder customPayload(@Nullable Output<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs> customPayload) {
+            $.customPayload = customPayload;
             return this;
         }
 
-        public Builder customPayloads(List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs> customPayloads) {
-            return customPayloads(Output.of(customPayloads));
-        }
-
-        public Builder customPayloads(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs... customPayloads) {
-            return customPayloads(List.of(customPayloads));
+        public Builder customPayload(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs customPayload) {
+            return customPayload(Output.of(customPayload));
         }
 
         public Builder imageResponseCard(@Nullable Output<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgs> imageResponseCard) {

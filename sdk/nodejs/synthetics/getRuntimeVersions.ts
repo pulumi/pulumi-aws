@@ -25,7 +25,7 @@ export function getRuntimeVersions(args?: GetRuntimeVersionsArgs, opts?: pulumi.
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:synthetics/getRuntimeVersions:getRuntimeVersions", {
-        "runtimeVersions": args.runtimeVersions,
+        "region": args.region,
     }, opts);
 }
 
@@ -34,9 +34,9 @@ export function getRuntimeVersions(args?: GetRuntimeVersionsArgs, opts?: pulumi.
  */
 export interface GetRuntimeVersionsArgs {
     /**
-     * List of runtime versions. See `runtimeVersions` attribute reference.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    runtimeVersions?: inputs.synthetics.GetRuntimeVersionsRuntimeVersion[];
+    region?: string;
 }
 
 /**
@@ -47,10 +47,11 @@ export interface GetRuntimeVersionsResult {
      * Name of the AWS region from which runtime versions are fetched.
      */
     readonly id: string;
+    readonly region: string;
     /**
      * List of runtime versions. See `runtimeVersions` attribute reference.
      */
-    readonly runtimeVersions?: outputs.synthetics.GetRuntimeVersionsRuntimeVersion[];
+    readonly runtimeVersions: outputs.synthetics.GetRuntimeVersionsRuntimeVersion[];
 }
 /**
  * Data source for managing an AWS CloudWatch Synthetics Runtime Versions.
@@ -70,7 +71,7 @@ export function getRuntimeVersionsOutput(args?: GetRuntimeVersionsOutputArgs, op
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:synthetics/getRuntimeVersions:getRuntimeVersions", {
-        "runtimeVersions": args.runtimeVersions,
+        "region": args.region,
     }, opts);
 }
 
@@ -79,7 +80,7 @@ export function getRuntimeVersionsOutput(args?: GetRuntimeVersionsOutputArgs, op
  */
 export interface GetRuntimeVersionsOutputArgs {
     /**
-     * List of runtime versions. See `runtimeVersions` attribute reference.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    runtimeVersions?: pulumi.Input<pulumi.Input<inputs.synthetics.GetRuntimeVersionsRuntimeVersionArgs>[]>;
+    region?: pulumi.Input<string>;
 }

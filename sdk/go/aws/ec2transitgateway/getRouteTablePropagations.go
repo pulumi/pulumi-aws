@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2transitgateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2transitgateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -57,6 +57,8 @@ type GetRouteTablePropagationsArgs struct {
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
 	// which take the following arguments:
 	Filters []GetRouteTablePropagationsFilter `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Identifier of EC2 Transit Gateway Route Table.
 	TransitGatewayRouteTableId string `pulumi:"transitGatewayRouteTableId"`
 }
@@ -68,6 +70,7 @@ type GetRouteTablePropagationsResult struct {
 	Id string `pulumi:"id"`
 	// Set of Transit Gateway Route Table Association identifiers.
 	Ids                        []string `pulumi:"ids"`
+	Region                     string   `pulumi:"region"`
 	TransitGatewayRouteTableId string   `pulumi:"transitGatewayRouteTableId"`
 }
 
@@ -87,6 +90,8 @@ type GetRouteTablePropagationsOutputArgs struct {
 	// More complex filters can be expressed using one or more `filter` sub-blocks,
 	// which take the following arguments:
 	Filters GetRouteTablePropagationsFilterArrayInput `pulumi:"filters"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Identifier of EC2 Transit Gateway Route Table.
 	TransitGatewayRouteTableId pulumi.StringInput `pulumi:"transitGatewayRouteTableId"`
 }
@@ -122,6 +127,10 @@ func (o GetRouteTablePropagationsResultOutput) Id() pulumi.StringOutput {
 // Set of Transit Gateway Route Table Association identifiers.
 func (o GetRouteTablePropagationsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRouteTablePropagationsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetRouteTablePropagationsResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTablePropagationsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetRouteTablePropagationsResultOutput) TransitGatewayRouteTableId() pulumi.StringOutput {

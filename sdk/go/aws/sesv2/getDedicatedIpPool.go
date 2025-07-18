@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sesv2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sesv2"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,6 +54,8 @@ func LookupDedicatedIpPool(ctx *pulumi.Context, args *LookupDedicatedIpPoolArgs,
 type LookupDedicatedIpPoolArgs struct {
 	// Name of the dedicated IP pool.
 	PoolName string `pulumi:"poolName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// A map of tags attached to the pool.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -67,6 +69,7 @@ type LookupDedicatedIpPoolResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id       string `pulumi:"id"`
 	PoolName string `pulumi:"poolName"`
+	Region   string `pulumi:"region"`
 	// (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
 	ScalingMode string `pulumi:"scalingMode"`
 	// A map of tags attached to the pool.
@@ -86,6 +89,8 @@ func LookupDedicatedIpPoolOutput(ctx *pulumi.Context, args LookupDedicatedIpPool
 type LookupDedicatedIpPoolOutputArgs struct {
 	// Name of the dedicated IP pool.
 	PoolName pulumi.StringInput `pulumi:"poolName"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// A map of tags attached to the pool.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -126,6 +131,10 @@ func (o LookupDedicatedIpPoolResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupDedicatedIpPoolResultOutput) PoolName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedIpPoolResult) string { return v.PoolName }).(pulumi.StringOutput)
+}
+
+func (o LookupDedicatedIpPoolResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDedicatedIpPoolResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.

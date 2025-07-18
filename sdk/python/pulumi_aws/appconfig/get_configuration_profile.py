@@ -28,7 +28,7 @@ class GetConfigurationProfileResult:
     """
     A collection of values returned by getConfigurationProfile.
     """
-    def __init__(__self__, application_id=None, arn=None, configuration_profile_id=None, description=None, id=None, kms_key_identifier=None, location_uri=None, name=None, retrieval_role_arn=None, tags=None, type=None, validators=None):
+    def __init__(__self__, application_id=None, arn=None, configuration_profile_id=None, description=None, id=None, kms_key_identifier=None, location_uri=None, name=None, region=None, retrieval_role_arn=None, tags=None, type=None, validators=None):
         if application_id and not isinstance(application_id, str):
             raise TypeError("Expected argument 'application_id' to be a str")
         pulumi.set(__self__, "application_id", application_id)
@@ -53,6 +53,9 @@ class GetConfigurationProfileResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if retrieval_role_arn and not isinstance(retrieval_role_arn, str):
             raise TypeError("Expected argument 'retrieval_role_arn' to be a str")
         pulumi.set(__self__, "retrieval_role_arn", retrieval_role_arn)
@@ -122,6 +125,11 @@ class GetConfigurationProfileResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="retrievalRoleArn")
     def retrieval_role_arn(self) -> builtins.str:
         """
@@ -168,6 +176,7 @@ class AwaitableGetConfigurationProfileResult(GetConfigurationProfileResult):
             kms_key_identifier=self.kms_key_identifier,
             location_uri=self.location_uri,
             name=self.name,
+            region=self.region,
             retrieval_role_arn=self.retrieval_role_arn,
             tags=self.tags,
             type=self.type,
@@ -176,6 +185,7 @@ class AwaitableGetConfigurationProfileResult(GetConfigurationProfileResult):
 
 def get_configuration_profile(application_id: Optional[builtins.str] = None,
                               configuration_profile_id: Optional[builtins.str] = None,
+                              region: Optional[builtins.str] = None,
                               tags: Optional[Mapping[str, builtins.str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfileResult:
     """
@@ -196,11 +206,13 @@ def get_configuration_profile(application_id: Optional[builtins.str] = None,
 
     :param builtins.str application_id: ID of the AppConfig application to which this configuration profile belongs.
     :param builtins.str configuration_profile_id: ID of the Configuration Profile.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
     __args__['configurationProfileId'] = configuration_profile_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:appconfig/getConfigurationProfile:getConfigurationProfile', __args__, opts=opts, typ=GetConfigurationProfileResult).value
@@ -214,12 +226,14 @@ def get_configuration_profile(application_id: Optional[builtins.str] = None,
         kms_key_identifier=pulumi.get(__ret__, 'kms_key_identifier'),
         location_uri=pulumi.get(__ret__, 'location_uri'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         retrieval_role_arn=pulumi.get(__ret__, 'retrieval_role_arn'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         validators=pulumi.get(__ret__, 'validators'))
 def get_configuration_profile_output(application_id: Optional[pulumi.Input[builtins.str]] = None,
                                      configuration_profile_id: Optional[pulumi.Input[builtins.str]] = None,
+                                     region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                      tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfileResult]:
     """
@@ -240,11 +254,13 @@ def get_configuration_profile_output(application_id: Optional[pulumi.Input[built
 
     :param builtins.str application_id: ID of the AppConfig application to which this configuration profile belongs.
     :param builtins.str configuration_profile_id: ID of the Configuration Profile.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags for the resource.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
     __args__['configurationProfileId'] = configuration_profile_id
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:appconfig/getConfigurationProfile:getConfigurationProfile', __args__, opts=opts, typ=GetConfigurationProfileResult)
@@ -257,6 +273,7 @@ def get_configuration_profile_output(application_id: Optional[pulumi.Input[built
         kms_key_identifier=pulumi.get(__response__, 'kms_key_identifier'),
         location_uri=pulumi.get(__response__, 'location_uri'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         retrieval_role_arn=pulumi.get(__response__, 'retrieval_role_arn'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type'),

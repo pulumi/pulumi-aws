@@ -54,6 +54,7 @@ export function getBucket(args: GetBucketArgs, opts?: pulumi.InvokeOptions): Pro
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:s3/getBucket:getBucket", {
         "bucket": args.bucket,
+        "region": args.region,
     }, opts);
 }
 
@@ -65,6 +66,10 @@ export interface GetBucketArgs {
      * Name of the bucket
      */
     bucket: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -81,6 +86,10 @@ export interface GetBucketResult {
      */
     readonly bucketDomainName: string;
     /**
+     * AWS region this bucket resides in.
+     */
+    readonly bucketRegion: string;
+    /**
      * The bucket region-specific domain name. The bucket domain name including the region name. Please refer to the [S3 endpoints reference](https://docs.aws.amazon.com/general/latest/gr/s3.html#s3_region) for format. Note: AWS CloudFront allows specifying an S3 region-specific endpoint when creating an S3 origin. This will prevent redirect issues from CloudFront to the S3 Origin URL. For more information, see the [Virtual Hosted-Style Requests for Other Regions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/VirtualHosting.html#deprecated-global-endpoint) section in the AWS S3 User Guide.
      */
     readonly bucketRegionalDomainName: string;
@@ -92,9 +101,6 @@ export interface GetBucketResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * AWS region this bucket resides in.
-     */
     readonly region: string;
     /**
      * Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records.
@@ -155,6 +161,7 @@ export function getBucketOutput(args: GetBucketOutputArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:s3/getBucket:getBucket", {
         "bucket": args.bucket,
+        "region": args.region,
     }, opts);
 }
 
@@ -166,4 +173,8 @@ export interface GetBucketOutputArgs {
      * Name of the bucket
      */
     bucket: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -6,6 +6,7 @@ import * as alb from "./alb";
 import * as applicationloadbalancing from "./applicationloadbalancing";
 import * as autoscaling from "./autoscaling";
 import * as ec2 from "./ec2";
+import * as ecr from "./ecr";
 import * as iam from "./iam";
 import * as lambda from "./lambda";
 import * as rds from "./rds";
@@ -18,6 +19,7 @@ export {
     applicationloadbalancing,
     autoscaling,
     ec2,
+    ecr,
     iam,
     lambda,
     rds,

@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  *
  * const current = aws.getRegion({});
  * const test = current.then(current => aws.getService({
- *     region: current.name,
+ *     region: current.region,
  *     serviceId: "ec2",
  * }));
  * ```
@@ -67,7 +67,7 @@ export interface GetServiceArgs {
     dnsName?: string;
     id?: string;
     /**
-     * Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
+     * Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`). Defaults to the Region set in the provider configuration.
      */
     region?: string;
     /**
@@ -113,7 +113,7 @@ export interface GetServiceResult {
  *
  * const current = aws.getRegion({});
  * const test = current.then(current => aws.getService({
- *     region: current.name,
+ *     region: current.region,
  *     serviceId: "ec2",
  * }));
  * ```
@@ -163,7 +163,7 @@ export interface GetServiceOutputArgs {
     dnsName?: pulumi.Input<string>;
     id?: pulumi.Input<string>;
     /**
-     * Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`).
+     * Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
     /**

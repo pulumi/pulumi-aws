@@ -24,6 +24,7 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
     return pulumi.runtime.invoke("aws:acmpca/getCertificate:getCertificate", {
         "arn": args.arn,
         "certificateAuthorityArn": args.certificateAuthorityArn,
+        "region": args.region,
     }, opts);
 }
 
@@ -39,6 +40,10 @@ export interface GetCertificateArgs {
      * ARN of the certificate authority.
      */
     certificateAuthorityArn: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -59,6 +64,7 @@ export interface GetCertificateResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
@@ -80,6 +86,7 @@ export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulu
     return pulumi.runtime.invokeOutput("aws:acmpca/getCertificate:getCertificate", {
         "arn": args.arn,
         "certificateAuthorityArn": args.certificateAuthorityArn,
+        "region": args.region,
     }, opts);
 }
 
@@ -95,4 +102,8 @@ export interface GetCertificateOutputArgs {
      * ARN of the certificate authority.
      */
     certificateAuthorityArn: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

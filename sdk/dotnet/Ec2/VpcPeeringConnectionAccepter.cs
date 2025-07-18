@@ -21,6 +21,8 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// ### Cross-Account Peering Or Cross-Region Peering AWS Provider v6 (and below)
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,6 +60,55 @@ namespace Pulumi.Aws.Ec2
     ///     // Accepter's side of the connection.
     ///     var peerVpcPeeringConnectionAccepter = new Aws.Ec2.VpcPeeringConnectionAccepter("peer", new()
     ///     {
+    ///         VpcPeeringConnectionId = peerVpcPeeringConnection.Id,
+    ///         AutoAccept = true,
+    ///         Tags = 
+    ///         {
+    ///             { "Side", "Accepter" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Cross-Region Peering (Same Account) AWS Provider v7 (and above)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var main = new Aws.Ec2.Vpc("main", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
+    /// 
+    ///     var peer = new Aws.Ec2.Vpc("peer", new()
+    ///     {
+    ///         Region = "us-west-2",
+    ///         CidrBlock = "10.1.0.0/16",
+    ///     });
+    /// 
+    ///     // Requester's side of the connection.
+    ///     var peerVpcPeeringConnection = new Aws.Ec2.VpcPeeringConnection("peer", new()
+    ///     {
+    ///         VpcId = main.Id,
+    ///         PeerVpcId = peer.Id,
+    ///         PeerRegion = "us-west-2",
+    ///         AutoAccept = false,
+    ///         Tags = 
+    ///         {
+    ///             { "Side", "Requester" },
+    ///         },
+    ///     });
+    /// 
+    ///     // Accepter's side of the connection.
+    ///     var peerVpcPeeringConnectionAccepter = new Aws.Ec2.VpcPeeringConnectionAccepter("peer", new()
+    ///     {
+    ///         Region = "us-west-2",
     ///         VpcPeeringConnectionId = peerVpcPeeringConnection.Id,
     ///         AutoAccept = true,
     ///         Tags = 
@@ -117,6 +168,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("peerVpcId")]
         public Output<string> PeerVpcId { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// A configuration block that describes [VPC Peering Connection]
@@ -209,6 +266,12 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? AutoAccept { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A configuration block that describes [VPC Peering Connection]
         /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         /// </summary>
@@ -279,6 +342,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PeerVpcId { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// A configuration block that describes [VPC Peering Connection]
         /// (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         /// </summary>
@@ -303,7 +372,6 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

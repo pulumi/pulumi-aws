@@ -253,6 +253,10 @@ export class Directory extends pulumi.CustomResource {
      */
     public readonly ipGroupIds!: pulumi.Output<string[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      */
     public /*out*/ readonly registrationCode!: pulumi.Output<string>;
@@ -274,8 +278,6 @@ export class Directory extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -332,6 +334,7 @@ export class Directory extends pulumi.CustomResource {
             resourceInputs["dnsIpAddresses"] = state ? state.dnsIpAddresses : undefined;
             resourceInputs["iamRoleId"] = state ? state.iamRoleId : undefined;
             resourceInputs["ipGroupIds"] = state ? state.ipGroupIds : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["registrationCode"] = state ? state.registrationCode : undefined;
             resourceInputs["samlProperties"] = state ? state.samlProperties : undefined;
             resourceInputs["selfServicePermissions"] = state ? state.selfServicePermissions : undefined;
@@ -351,6 +354,7 @@ export class Directory extends pulumi.CustomResource {
             resourceInputs["certificateBasedAuthProperties"] = args ? args.certificateBasedAuthProperties : undefined;
             resourceInputs["directoryId"] = args ? args.directoryId : undefined;
             resourceInputs["ipGroupIds"] = args ? args.ipGroupIds : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["samlProperties"] = args ? args.samlProperties : undefined;
             resourceInputs["selfServicePermissions"] = args ? args.selfServicePermissions : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -421,6 +425,10 @@ export interface DirectoryState {
      */
     ipGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The registration code for the directory. This is the code that users enter in their Amazon WorkSpaces client application to connect to the directory.
      */
     registrationCode?: pulumi.Input<string>;
@@ -442,8 +450,6 @@ export interface DirectoryState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -498,6 +504,10 @@ export interface DirectoryArgs {
      * The identifiers of the IP access control groups associated with the directory.
      */
     ipGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Configuration of SAML authentication integration. Defined below.
      */

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -50,6 +50,8 @@ func GetAuthorizers(ctx *pulumi.Context, args *GetAuthorizersArgs, opts ...pulum
 
 // A collection of arguments for invoking getAuthorizers.
 type GetAuthorizersArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the associated REST API.
 	RestApiId string `pulumi:"restApiId"`
 }
@@ -60,6 +62,7 @@ type GetAuthorizersResult struct {
 	Id string `pulumi:"id"`
 	// List of Authorizer identifiers.
 	Ids       []string `pulumi:"ids"`
+	Region    string   `pulumi:"region"`
 	RestApiId string   `pulumi:"restApiId"`
 }
 
@@ -74,6 +77,8 @@ func GetAuthorizersOutput(ctx *pulumi.Context, args GetAuthorizersOutputArgs, op
 
 // A collection of arguments for invoking getAuthorizers.
 type GetAuthorizersOutputArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// ID of the associated REST API.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
 }
@@ -105,6 +110,10 @@ func (o GetAuthorizersResultOutput) Id() pulumi.StringOutput {
 // List of Authorizer identifiers.
 func (o GetAuthorizersResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAuthorizersResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
+}
+
+func (o GetAuthorizersResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAuthorizersResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 func (o GetAuthorizersResultOutput) RestApiId() pulumi.StringOutput {

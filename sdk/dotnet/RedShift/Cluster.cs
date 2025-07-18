@@ -195,9 +195,10 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// If true , the data in the cluster is encrypted at rest.
+        /// Default is `true`.
         /// </summary>
         [Output("encrypted")]
-        public Output<bool?> Encrypted { get; private set; } = null!;
+        public Output<string?> Encrypted { get; private set; } = null!;
 
         /// <summary>
         /// The connection endpoint
@@ -228,12 +229,6 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
-
-        /// <summary>
-        /// Logging, documented below.
-        /// </summary>
-        [Output("logging")]
-        public Output<Outputs.ClusterLogging> Logging { get; private set; } = null!;
 
         /// <summary>
         /// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
@@ -324,10 +319,16 @@ namespace Pulumi.Aws.RedShift
         public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
 
         /// <summary>
-        /// If true, the cluster can be accessed from a public network. Default is `true`.
+        /// If true, the cluster can be accessed from a public network. Default is `false`.
         /// </summary>
         [Output("publiclyAccessible")]
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
@@ -346,12 +347,6 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Output("snapshotClusterIdentifier")]
         public Output<string?> SnapshotClusterIdentifier { get; private set; } = null!;
-
-        /// <summary>
-        /// Configuration of automatic copy of snapshots from one region to another. Documented below.
-        /// </summary>
-        [Output("snapshotCopy")]
-        public Output<Outputs.ClusterSnapshotCopy> SnapshotCopy { get; private set; } = null!;
 
         /// <summary>
         /// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
@@ -481,18 +476,6 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? ClusterParameterGroupName { get; set; }
 
         /// <summary>
-        /// The public key for the cluster
-        /// </summary>
-        [Input("clusterPublicKey")]
-        public Input<string>? ClusterPublicKey { get; set; }
-
-        /// <summary>
-        /// The specific revision number of the database in the cluster
-        /// </summary>
-        [Input("clusterRevisionNumber")]
-        public Input<string>? ClusterRevisionNumber { get; set; }
-
-        /// <summary>
         /// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
         /// </summary>
         [Input("clusterSubnetGroupName")]
@@ -532,15 +515,10 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// If true , the data in the cluster is encrypted at rest.
+        /// Default is `true`.
         /// </summary>
         [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
-
-        /// <summary>
-        /// The connection endpoint
-        /// </summary>
-        [Input("endpoint")]
-        public Input<string>? Endpoint { get; set; }
+        public Input<string>? Encrypted { get; set; }
 
         /// <summary>
         /// If true , enhanced VPC routing is enabled.
@@ -571,12 +549,6 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
-
-        /// <summary>
-        /// Logging, documented below.
-        /// </summary>
-        [Input("logging")]
-        public Input<Inputs.ClusterLoggingArgs>? Logging { get; set; }
 
         /// <summary>
         /// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
@@ -671,10 +643,16 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
         /// <summary>
-        /// If true, the cluster can be accessed from a public network. Default is `true`.
+        /// If true, the cluster can be accessed from a public network. Default is `false`.
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
@@ -693,12 +671,6 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("snapshotClusterIdentifier")]
         public Input<string>? SnapshotClusterIdentifier { get; set; }
-
-        /// <summary>
-        /// Configuration of automatic copy of snapshots from one region to another. Documented below.
-        /// </summary>
-        [Input("snapshotCopy")]
-        public Input<Inputs.ClusterSnapshotCopyArgs>? SnapshotCopy { get; set; }
 
         /// <summary>
         /// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
@@ -873,9 +845,10 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// If true , the data in the cluster is encrypted at rest.
+        /// Default is `true`.
         /// </summary>
         [Input("encrypted")]
-        public Input<bool>? Encrypted { get; set; }
+        public Input<string>? Encrypted { get; set; }
 
         /// <summary>
         /// The connection endpoint
@@ -912,12 +885,6 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
-
-        /// <summary>
-        /// Logging, documented below.
-        /// </summary>
-        [Input("logging")]
-        public Input<Inputs.ClusterLoggingGetArgs>? Logging { get; set; }
 
         /// <summary>
         /// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
@@ -1018,10 +985,16 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? PreferredMaintenanceWindow { get; set; }
 
         /// <summary>
-        /// If true, the cluster can be accessed from a public network. Default is `true`.
+        /// If true, the cluster can be accessed from a public network. Default is `false`.
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Determines whether a final snapshot of the cluster is created before Amazon Redshift deletes the cluster. If true , a final cluster snapshot is not created. If false , a final cluster snapshot is created before the cluster is deleted. Default is false.
@@ -1040,12 +1013,6 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         [Input("snapshotClusterIdentifier")]
         public Input<string>? SnapshotClusterIdentifier { get; set; }
-
-        /// <summary>
-        /// Configuration of automatic copy of snapshots from one region to another. Documented below.
-        /// </summary>
-        [Input("snapshotCopy")]
-        public Input<Inputs.ClusterSnapshotCopyGetArgs>? SnapshotCopy { get; set; }
 
         /// <summary>
         /// The name of the snapshot from which to create the new cluster.  Conflicts with `snapshot_arn`.
@@ -1074,7 +1041,6 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

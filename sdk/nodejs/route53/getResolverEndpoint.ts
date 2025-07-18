@@ -40,6 +40,7 @@ export function getResolverEndpoint(args?: GetResolverEndpointArgs, opts?: pulum
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:route53/getResolverEndpoint:getResolverEndpoint", {
         "filters": args.filters,
+        "region": args.region,
         "resolverEndpointId": args.resolverEndpointId,
     }, opts);
 }
@@ -54,6 +55,10 @@ export interface GetResolverEndpointArgs {
      * [Route53resolver Filter value in the AWS API reference][1].
      */
     filters?: inputs.route53.GetResolverEndpointFilter[];
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * ID of the Route53 Resolver Endpoint.
      */
@@ -86,6 +91,7 @@ export interface GetResolverEndpointResult {
      * The protocols used by the Resolver endpoint.
      */
     readonly protocols: string[];
+    readonly region: string;
     readonly resolverEndpointId?: string;
     /**
      * The Resolver endpoint IP address type.
@@ -133,6 +139,7 @@ export function getResolverEndpointOutput(args?: GetResolverEndpointOutputArgs, 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:route53/getResolverEndpoint:getResolverEndpoint", {
         "filters": args.filters,
+        "region": args.region,
         "resolverEndpointId": args.resolverEndpointId,
     }, opts);
 }
@@ -147,6 +154,10 @@ export interface GetResolverEndpointOutputArgs {
      * [Route53resolver Filter value in the AWS API reference][1].
      */
     filters?: pulumi.Input<pulumi.Input<inputs.route53.GetResolverEndpointFilterArgs>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * ID of the Route53 Resolver Endpoint.
      */

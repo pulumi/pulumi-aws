@@ -97,6 +97,12 @@ namespace Pulumi.Aws.DirectConnect
     public sealed class GetRouterConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
         /// 
         /// There is currently no AWS API to retrieve the full list of `router_type_identifier` values. Here is a list of known `RouterType` objects that can be used:
@@ -133,6 +139,12 @@ namespace Pulumi.Aws.DirectConnect
 
     public sealed class GetRouterConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         /// <summary>
         /// ID of the Router Type. For example: `CiscoSystemsInc-2900SeriesRouters-IOS124`
         /// 
@@ -180,6 +192,7 @@ namespace Pulumi.Aws.DirectConnect
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Region;
         /// <summary>
         /// Router type identifier
         /// </summary>
@@ -197,6 +210,8 @@ namespace Pulumi.Aws.DirectConnect
 
             string id,
 
+            string region,
+
             string routerTypeIdentifier,
 
             ImmutableArray<Outputs.GetRouterConfigurationRouterResult> routers,
@@ -207,6 +222,7 @@ namespace Pulumi.Aws.DirectConnect
         {
             CustomerRouterConfig = customerRouterConfig;
             Id = id;
+            Region = region;
             RouterTypeIdentifier = routerTypeIdentifier;
             Routers = routers;
             VirtualInterfaceId = virtualInterfaceId;

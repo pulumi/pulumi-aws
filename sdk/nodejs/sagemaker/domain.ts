@@ -43,6 +43,45 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Using Custom Images
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.sagemaker.Image("example", {
+ *     imageName: "example",
+ *     roleArn: exampleAwsIamRole.arn,
+ * });
+ * const exampleAppImageConfig = new aws.sagemaker.AppImageConfig("example", {
+ *     appImageConfigName: "example",
+ *     kernelGatewayImageConfig: {
+ *         kernelSpecs: [{
+ *             name: "example",
+ *         }],
+ *     },
+ * });
+ * const exampleImageVersion = new aws.sagemaker.ImageVersion("example", {
+ *     imageName: example.id,
+ *     baseImage: "base-image",
+ * });
+ * const exampleDomain = new aws.sagemaker.Domain("example", {
+ *     domainName: "example",
+ *     authMode: "IAM",
+ *     vpcId: exampleAwsVpc.id,
+ *     subnetIds: [exampleAwsSubnet.id],
+ *     defaultUserSettings: {
+ *         executionRole: exampleAwsIamRole.arn,
+ *         kernelGatewayAppSettings: {
+ *             customImages: [{
+ *                 appImageConfigName: exampleAppImageConfig.appImageConfigName,
+ *                 imageName: exampleImageVersion.imageName,
+ *             }],
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker AI Domains using the `id`. For example:
@@ -120,6 +159,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
      */
     public readonly retentionPolicy!: pulumi.Output<outputs.sagemaker.DomainRetentionPolicy | undefined>;
@@ -149,8 +192,6 @@ export class Domain extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -187,6 +228,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["domainSettings"] = state ? state.domainSettings : undefined;
             resourceInputs["homeEfsFileSystemId"] = state ? state.homeEfsFileSystemId : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
             resourceInputs["securityGroupIdForDomainBoundary"] = state ? state.securityGroupIdForDomainBoundary : undefined;
             resourceInputs["singleSignOnApplicationArn"] = state ? state.singleSignOnApplicationArn : undefined;
@@ -222,6 +264,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["domainSettings"] = args ? args.domainSettings : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tagPropagation"] = args ? args.tagPropagation : undefined;
@@ -285,6 +328,10 @@ export interface DomainState {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
      */
     retentionPolicy?: pulumi.Input<inputs.sagemaker.DomainRetentionPolicy>;
@@ -314,8 +361,6 @@ export interface DomainState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -366,6 +411,10 @@ export interface DomainArgs {
      * The AWS KMS customer managed CMK used to encrypt the EFS volume attached to the domain.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The retention policy for this domain, which specifies whether resources will be retained after the Domain is deleted. By default, all resources are retained. See `retentionPolicy` Block below.
      */

@@ -28,7 +28,7 @@ class GetEventBusesResult:
     """
     A collection of values returned by getEventBuses.
     """
-    def __init__(__self__, event_buses=None, id=None, name_prefix=None):
+    def __init__(__self__, event_buses=None, id=None, name_prefix=None, region=None):
         if event_buses and not isinstance(event_buses, list):
             raise TypeError("Expected argument 'event_buses' to be a list")
         pulumi.set(__self__, "event_buses", event_buses)
@@ -38,6 +38,9 @@ class GetEventBusesResult:
         if name_prefix and not isinstance(name_prefix, str):
             raise TypeError("Expected argument 'name_prefix' to be a str")
         pulumi.set(__self__, "name_prefix", name_prefix)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="eventBuses")
@@ -60,6 +63,11 @@ class GetEventBusesResult:
     def name_prefix(self) -> Optional[builtins.str]:
         return pulumi.get(self, "name_prefix")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetEventBusesResult(GetEventBusesResult):
     # pylint: disable=using-constant-test
@@ -69,10 +77,12 @@ class AwaitableGetEventBusesResult(GetEventBusesResult):
         return GetEventBusesResult(
             event_buses=self.event_buses,
             id=self.id,
-            name_prefix=self.name_prefix)
+            name_prefix=self.name_prefix,
+            region=self.region)
 
 
 def get_event_buses(name_prefix: Optional[builtins.str] = None,
+                    region: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventBusesResult:
     """
     Data source for managing an AWS EventBridge Event Buses.
@@ -90,17 +100,21 @@ def get_event_buses(name_prefix: Optional[builtins.str] = None,
 
 
     :param builtins.str name_prefix: Specifying this limits the results to only those event buses with names that start with the specified prefix.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['namePrefix'] = name_prefix
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:cloudwatch/getEventBuses:getEventBuses', __args__, opts=opts, typ=GetEventBusesResult).value
 
     return AwaitableGetEventBusesResult(
         event_buses=pulumi.get(__ret__, 'event_buses'),
         id=pulumi.get(__ret__, 'id'),
-        name_prefix=pulumi.get(__ret__, 'name_prefix'))
+        name_prefix=pulumi.get(__ret__, 'name_prefix'),
+        region=pulumi.get(__ret__, 'region'))
 def get_event_buses_output(name_prefix: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                           region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventBusesResult]:
     """
     Data source for managing an AWS EventBridge Event Buses.
@@ -118,12 +132,15 @@ def get_event_buses_output(name_prefix: Optional[pulumi.Input[Optional[builtins.
 
 
     :param builtins.str name_prefix: Specifying this limits the results to only those event buses with names that start with the specified prefix.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['namePrefix'] = name_prefix
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:cloudwatch/getEventBuses:getEventBuses', __args__, opts=opts, typ=GetEventBusesResult)
     return __ret__.apply(lambda __response__: GetEventBusesResult(
         event_buses=pulumi.get(__response__, 'event_buses'),
         id=pulumi.get(__response__, 'id'),
-        name_prefix=pulumi.get(__response__, 'name_prefix')))
+        name_prefix=pulumi.get(__response__, 'name_prefix'),
+        region=pulumi.get(__response__, 'region')))

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directconnect"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directconnect"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,6 +44,8 @@ type ConnectionConfirmation struct {
 
 	// The ID of the hosted connection.
 	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewConnectionConfirmation registers a new resource with the given unique name, arguments, and options.
@@ -81,11 +83,15 @@ func GetConnectionConfirmation(ctx *pulumi.Context,
 type connectionConfirmationState struct {
 	// The ID of the hosted connection.
 	ConnectionId *string `pulumi:"connectionId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ConnectionConfirmationState struct {
 	// The ID of the hosted connection.
 	ConnectionId pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ConnectionConfirmationState) ElementType() reflect.Type {
@@ -95,12 +101,16 @@ func (ConnectionConfirmationState) ElementType() reflect.Type {
 type connectionConfirmationArgs struct {
 	// The ID of the hosted connection.
 	ConnectionId string `pulumi:"connectionId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ConnectionConfirmation resource.
 type ConnectionConfirmationArgs struct {
 	// The ID of the hosted connection.
 	ConnectionId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ConnectionConfirmationArgs) ElementType() reflect.Type {
@@ -193,6 +203,11 @@ func (o ConnectionConfirmationOutput) ToConnectionConfirmationOutputWithContext(
 // The ID of the hosted connection.
 func (o ConnectionConfirmationOutput) ConnectionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionConfirmation) pulumi.StringOutput { return v.ConnectionId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ConnectionConfirmationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConnectionConfirmation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ConnectionConfirmationArrayOutput struct{ *pulumi.OutputState }

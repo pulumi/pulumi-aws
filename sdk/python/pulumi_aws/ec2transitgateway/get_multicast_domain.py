@@ -29,7 +29,7 @@ class GetMulticastDomainResult:
     """
     A collection of values returned by getMulticastDomain.
     """
-    def __init__(__self__, arn=None, associations=None, auto_accept_shared_associations=None, filters=None, id=None, igmpv2_support=None, members=None, owner_id=None, sources=None, state=None, static_sources_support=None, tags=None, transit_gateway_attachment_id=None, transit_gateway_id=None, transit_gateway_multicast_domain_id=None):
+    def __init__(__self__, arn=None, associations=None, auto_accept_shared_associations=None, filters=None, id=None, igmpv2_support=None, members=None, owner_id=None, region=None, sources=None, state=None, static_sources_support=None, tags=None, transit_gateway_attachment_id=None, transit_gateway_id=None, transit_gateway_multicast_domain_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -54,6 +54,9 @@ class GetMulticastDomainResult:
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if sources and not isinstance(sources, list):
             raise TypeError("Expected argument 'sources' to be a list")
         pulumi.set(__self__, "sources", sources)
@@ -139,6 +142,11 @@ class GetMulticastDomainResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def sources(self) -> Sequence['outputs.GetMulticastDomainSourceResult']:
         """
         EC2 Multicast Domain Group Sources
@@ -202,6 +210,7 @@ class AwaitableGetMulticastDomainResult(GetMulticastDomainResult):
             igmpv2_support=self.igmpv2_support,
             members=self.members,
             owner_id=self.owner_id,
+            region=self.region,
             sources=self.sources,
             state=self.state,
             static_sources_support=self.static_sources_support,
@@ -212,6 +221,7 @@ class AwaitableGetMulticastDomainResult(GetMulticastDomainResult):
 
 
 def get_multicast_domain(filters: Optional[Sequence[Union['GetMulticastDomainFilterArgs', 'GetMulticastDomainFilterArgsDict']]] = None,
+                         region: Optional[builtins.str] = None,
                          tags: Optional[Mapping[str, builtins.str]] = None,
                          transit_gateway_multicast_domain_id: Optional[builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMulticastDomainResult:
@@ -243,11 +253,13 @@ def get_multicast_domain(filters: Optional[Sequence[Union['GetMulticastDomainFil
 
 
     :param Sequence[Union['GetMulticastDomainFilterArgs', 'GetMulticastDomainFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain.
     :param builtins.str transit_gateway_multicast_domain_id: Identifier of the EC2 Transit Gateway Multicast Domain.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['transitGatewayMulticastDomainId'] = transit_gateway_multicast_domain_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -262,6 +274,7 @@ def get_multicast_domain(filters: Optional[Sequence[Union['GetMulticastDomainFil
         igmpv2_support=pulumi.get(__ret__, 'igmpv2_support'),
         members=pulumi.get(__ret__, 'members'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
+        region=pulumi.get(__ret__, 'region'),
         sources=pulumi.get(__ret__, 'sources'),
         state=pulumi.get(__ret__, 'state'),
         static_sources_support=pulumi.get(__ret__, 'static_sources_support'),
@@ -270,6 +283,7 @@ def get_multicast_domain(filters: Optional[Sequence[Union['GetMulticastDomainFil
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
         transit_gateway_multicast_domain_id=pulumi.get(__ret__, 'transit_gateway_multicast_domain_id'))
 def get_multicast_domain_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetMulticastDomainFilterArgs', 'GetMulticastDomainFilterArgsDict']]]]] = None,
+                                region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                                 transit_gateway_multicast_domain_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMulticastDomainResult]:
@@ -301,11 +315,13 @@ def get_multicast_domain_output(filters: Optional[pulumi.Input[Optional[Sequence
 
 
     :param Sequence[Union['GetMulticastDomainFilterArgs', 'GetMulticastDomainFilterArgsDict']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain.
     :param builtins.str transit_gateway_multicast_domain_id: Identifier of the EC2 Transit Gateway Multicast Domain.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['transitGatewayMulticastDomainId'] = transit_gateway_multicast_domain_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -319,6 +335,7 @@ def get_multicast_domain_output(filters: Optional[pulumi.Input[Optional[Sequence
         igmpv2_support=pulumi.get(__response__, 'igmpv2_support'),
         members=pulumi.get(__response__, 'members'),
         owner_id=pulumi.get(__response__, 'owner_id'),
+        region=pulumi.get(__response__, 'region'),
         sources=pulumi.get(__response__, 'sources'),
         state=pulumi.get(__response__, 'state'),
         static_sources_support=pulumi.get(__response__, 'static_sources_support'),

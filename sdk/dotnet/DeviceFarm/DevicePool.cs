@@ -82,6 +82,12 @@ namespace Pulumi.Aws.DeviceFarm
         public Output<string> ProjectArn { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// The device pool's rules. See Rule.
         /// </summary>
         [Output("rules")]
@@ -172,6 +178,12 @@ namespace Pulumi.Aws.DeviceFarm
         [Input("projectArn", required: true)]
         public Input<string> ProjectArn { get; set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("rules", required: true)]
         private InputList<Inputs.DevicePoolRuleArgs>? _rules;
 
@@ -234,6 +246,12 @@ namespace Pulumi.Aws.DeviceFarm
         [Input("projectArn")]
         public Input<string>? ProjectArn { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("rules")]
         private InputList<Inputs.DevicePoolRuleGetArgs>? _rules;
 
@@ -264,7 +282,6 @@ namespace Pulumi.Aws.DeviceFarm
         /// <summary>
         /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

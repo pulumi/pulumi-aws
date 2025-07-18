@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/kendra"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kendra"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -55,6 +55,8 @@ type LookupQuerySuggestionsBlockListArgs struct {
 	IndexId string `pulumi:"indexId"`
 	// Identifier of the block list.
 	QuerySuggestionsBlockListId string `pulumi:"querySuggestionsBlockListId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Metadata that helps organize the block list you create.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -79,6 +81,7 @@ type LookupQuerySuggestionsBlockListResult struct {
 	// Name of the block list.
 	Name                        string `pulumi:"name"`
 	QuerySuggestionsBlockListId string `pulumi:"querySuggestionsBlockListId"`
+	Region                      string `pulumi:"region"`
 	// ARN of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn string `pulumi:"roleArn"`
 	// S3 location of the block list input data. Detailed below.
@@ -106,6 +109,8 @@ type LookupQuerySuggestionsBlockListOutputArgs struct {
 	IndexId pulumi.StringInput `pulumi:"indexId"`
 	// Identifier of the block list.
 	QuerySuggestionsBlockListId pulumi.StringInput `pulumi:"querySuggestionsBlockListId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Metadata that helps organize the block list you create.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
@@ -175,6 +180,10 @@ func (o LookupQuerySuggestionsBlockListResultOutput) Name() pulumi.StringOutput 
 
 func (o LookupQuerySuggestionsBlockListResultOutput) QuerySuggestionsBlockListId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQuerySuggestionsBlockListResult) string { return v.QuerySuggestionsBlockListId }).(pulumi.StringOutput)
+}
+
+func (o LookupQuerySuggestionsBlockListResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupQuerySuggestionsBlockListResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // ARN of a role with permission to access the S3 bucket that contains the block list. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).

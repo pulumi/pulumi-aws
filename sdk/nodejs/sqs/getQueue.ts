@@ -26,6 +26,7 @@ export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:sqs/getQueue:getQueue", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -38,6 +39,10 @@ export interface GetQueueArgs {
      * Name of the queue to match.
      */
     name: string;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Map of tags for the resource.
      */
@@ -57,6 +62,7 @@ export interface GetQueueResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Map of tags for the resource.
      */
@@ -88,6 +94,7 @@ export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:sqs/getQueue:getQueue", {
         "name": args.name,
+        "region": args.region,
         "tags": args.tags,
     }, opts);
 }
@@ -100,6 +107,10 @@ export interface GetQueueOutputArgs {
      * Name of the queue to match.
      */
     name: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Map of tags for the resource.
      */

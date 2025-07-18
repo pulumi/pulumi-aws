@@ -28,6 +28,7 @@ class SnapshotImportArgs:
                  encrypted: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  permanent_restore: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_name: Optional[pulumi.Input[builtins.str]] = None,
                  storage_tier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -40,6 +41,7 @@ class SnapshotImportArgs:
         :param pulumi.Input[builtins.bool] encrypted: Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
         :param pulumi.Input[builtins.str] kms_key_id: An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
         :param pulumi.Input[builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_name: The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
         :param pulumi.Input[builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the snapshot.
@@ -56,6 +58,8 @@ class SnapshotImportArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if permanent_restore is not None:
             pulumi.set(__self__, "permanent_restore", permanent_restore)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_name is not None:
             pulumi.set(__self__, "role_name", role_name)
         if storage_tier is not None:
@@ -138,6 +142,18 @@ class SnapshotImportArgs:
         pulumi.set(self, "permanent_restore", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -200,6 +216,7 @@ class _SnapshotImportState:
                  owner_alias: Optional[pulumi.Input[builtins.str]] = None,
                  owner_id: Optional[pulumi.Input[builtins.str]] = None,
                  permanent_restore: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_name: Optional[pulumi.Input[builtins.str]] = None,
                  storage_tier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -219,6 +236,7 @@ class _SnapshotImportState:
         :param pulumi.Input[builtins.str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[builtins.str] owner_id: The AWS account ID of the EBS snapshot owner.
         :param pulumi.Input[builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_name: The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
         :param pulumi.Input[builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the snapshot.
@@ -248,15 +266,14 @@ class _SnapshotImportState:
             pulumi.set(__self__, "owner_id", owner_id)
         if permanent_restore is not None:
             pulumi.set(__self__, "permanent_restore", permanent_restore)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if role_name is not None:
             pulumi.set(__self__, "role_name", role_name)
         if storage_tier is not None:
             pulumi.set(__self__, "storage_tier", storage_tier)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if temporary_restore_days is not None:
@@ -396,6 +413,18 @@ class _SnapshotImportState:
         pulumi.set(self, "permanent_restore", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -433,7 +462,6 @@ class _SnapshotImportState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -490,6 +518,7 @@ class SnapshotImport(pulumi.CustomResource):
                  encrypted: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  permanent_restore: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_name: Optional[pulumi.Input[builtins.str]] = None,
                  storage_tier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -526,6 +555,7 @@ class SnapshotImport(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] encrypted: Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
         :param pulumi.Input[builtins.str] kms_key_id: An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
         :param pulumi.Input[builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_name: The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
         :param pulumi.Input[builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the snapshot.
@@ -581,6 +611,7 @@ class SnapshotImport(pulumi.CustomResource):
                  encrypted: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  permanent_restore: Optional[pulumi.Input[builtins.bool]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  role_name: Optional[pulumi.Input[builtins.str]] = None,
                  storage_tier: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -602,6 +633,7 @@ class SnapshotImport(pulumi.CustomResource):
             __props__.__dict__["encrypted"] = encrypted
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["permanent_restore"] = permanent_restore
+            __props__.__dict__["region"] = region
             __props__.__dict__["role_name"] = role_name
             __props__.__dict__["storage_tier"] = storage_tier
             __props__.__dict__["tags"] = tags
@@ -635,6 +667,7 @@ class SnapshotImport(pulumi.CustomResource):
             owner_alias: Optional[pulumi.Input[builtins.str]] = None,
             owner_id: Optional[pulumi.Input[builtins.str]] = None,
             permanent_restore: Optional[pulumi.Input[builtins.bool]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             role_name: Optional[pulumi.Input[builtins.str]] = None,
             storage_tier: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -659,6 +692,7 @@ class SnapshotImport(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[builtins.str] owner_id: The AWS account ID of the EBS snapshot owner.
         :param pulumi.Input[builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] role_name: The name of the IAM Role the VM Import/Export service will assume. This role needs certain permissions. See https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html#vmimport-role. Default: `vmimport`
         :param pulumi.Input[builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: A map of tags to assign to the snapshot.
@@ -681,6 +715,7 @@ class SnapshotImport(pulumi.CustomResource):
         __props__.__dict__["owner_alias"] = owner_alias
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["permanent_restore"] = permanent_restore
+        __props__.__dict__["region"] = region
         __props__.__dict__["role_name"] = role_name
         __props__.__dict__["storage_tier"] = storage_tier
         __props__.__dict__["tags"] = tags
@@ -776,6 +811,14 @@ class SnapshotImport(pulumi.CustomResource):
         return pulumi.get(self, "permanent_restore")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="roleName")
     def role_name(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -801,7 +844,6 @@ class SnapshotImport(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

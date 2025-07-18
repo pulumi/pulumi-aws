@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ssoadmin.getApplicationAssignments({
- *     applicationArn: exampleAwsSsoadminApplication.applicationArn,
+ *     applicationArn: exampleAwsSsoadminApplication.arn,
  * });
  * ```
  */
@@ -27,7 +27,7 @@ export function getApplicationAssignments(args: GetApplicationAssignmentsArgs, o
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", {
         "applicationArn": args.applicationArn,
-        "applicationAssignments": args.applicationAssignments,
+        "region": args.region,
     }, opts);
 }
 
@@ -40,9 +40,9 @@ export interface GetApplicationAssignmentsArgs {
      */
     applicationArn: string;
     /**
-     * List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    applicationAssignments?: inputs.ssoadmin.GetApplicationAssignmentsApplicationAssignment[];
+    region?: string;
 }
 
 /**
@@ -56,8 +56,9 @@ export interface GetApplicationAssignmentsResult {
     /**
      * List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
      */
-    readonly applicationAssignments?: outputs.ssoadmin.GetApplicationAssignmentsApplicationAssignment[];
+    readonly applicationAssignments: outputs.ssoadmin.GetApplicationAssignmentsApplicationAssignment[];
     readonly id: string;
+    readonly region: string;
 }
 /**
  * Data source for managing AWS SSO Admin Application Assignments.
@@ -71,7 +72,7 @@ export interface GetApplicationAssignmentsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ssoadmin.getApplicationAssignments({
- *     applicationArn: exampleAwsSsoadminApplication.applicationArn,
+ *     applicationArn: exampleAwsSsoadminApplication.arn,
  * });
  * ```
  */
@@ -79,7 +80,7 @@ export function getApplicationAssignmentsOutput(args: GetApplicationAssignmentsO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", {
         "applicationArn": args.applicationArn,
-        "applicationAssignments": args.applicationAssignments,
+        "region": args.region,
     }, opts);
 }
 
@@ -92,7 +93,7 @@ export interface GetApplicationAssignmentsOutputArgs {
      */
     applicationArn: pulumi.Input<string>;
     /**
-     * List of principals assigned to the application. See the `applicationAssignments` attribute reference below.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
-    applicationAssignments?: pulumi.Input<pulumi.Input<inputs.ssoadmin.GetApplicationAssignmentsApplicationAssignmentArgs>[]>;
+    region?: pulumi.Input<string>;
 }

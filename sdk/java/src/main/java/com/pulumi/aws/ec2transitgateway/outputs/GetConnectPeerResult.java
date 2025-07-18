@@ -50,6 +50,7 @@ public final class GetConnectPeerResult {
      * 
      */
     private String peerAddress;
+    private String region;
     /**
      * @return Key-value tags for the EC2 Transit Gateway Connect Peer
      * 
@@ -120,6 +121,9 @@ public final class GetConnectPeerResult {
     public String peerAddress() {
         return this.peerAddress;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return Key-value tags for the EC2 Transit Gateway Connect Peer
      * 
@@ -162,6 +166,7 @@ public final class GetConnectPeerResult {
         private String id;
         private List<String> insideCidrBlocks;
         private String peerAddress;
+        private String region;
         private Map<String,String> tags;
         private String transitGatewayAddress;
         private String transitGatewayAttachmentId;
@@ -177,6 +182,7 @@ public final class GetConnectPeerResult {
     	      this.id = defaults.id;
     	      this.insideCidrBlocks = defaults.insideCidrBlocks;
     	      this.peerAddress = defaults.peerAddress;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
     	      this.transitGatewayAddress = defaults.transitGatewayAddress;
     	      this.transitGatewayAttachmentId = defaults.transitGatewayAttachmentId;
@@ -255,6 +261,14 @@ public final class GetConnectPeerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetConnectPeerResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetConnectPeerResult", "tags");
@@ -296,6 +310,7 @@ public final class GetConnectPeerResult {
             _resultValue.id = id;
             _resultValue.insideCidrBlocks = insideCidrBlocks;
             _resultValue.peerAddress = peerAddress;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             _resultValue.transitGatewayAddress = transitGatewayAddress;
             _resultValue.transitGatewayAttachmentId = transitGatewayAttachmentId;

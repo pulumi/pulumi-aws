@@ -27,7 +27,7 @@ class GetTrackerResult:
     """
     A collection of values returned by getTracker.
     """
-    def __init__(__self__, create_time=None, description=None, id=None, kms_key_id=None, position_filtering=None, tags=None, tracker_arn=None, tracker_name=None, update_time=None):
+    def __init__(__self__, create_time=None, description=None, id=None, kms_key_id=None, position_filtering=None, region=None, tags=None, tracker_arn=None, tracker_name=None, update_time=None):
         if create_time and not isinstance(create_time, str):
             raise TypeError("Expected argument 'create_time' to be a str")
         pulumi.set(__self__, "create_time", create_time)
@@ -43,6 +43,9 @@ class GetTrackerResult:
         if position_filtering and not isinstance(position_filtering, str):
             raise TypeError("Expected argument 'position_filtering' to be a str")
         pulumi.set(__self__, "position_filtering", position_filtering)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -98,6 +101,11 @@ class GetTrackerResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Key-value map of resource tags for the tracker.
@@ -137,13 +145,15 @@ class AwaitableGetTrackerResult(GetTrackerResult):
             id=self.id,
             kms_key_id=self.kms_key_id,
             position_filtering=self.position_filtering,
+            region=self.region,
             tags=self.tags,
             tracker_arn=self.tracker_arn,
             tracker_name=self.tracker_name,
             update_time=self.update_time)
 
 
-def get_tracker(tags: Optional[Mapping[str, builtins.str]] = None,
+def get_tracker(region: Optional[builtins.str] = None,
+                tags: Optional[Mapping[str, builtins.str]] = None,
                 tracker_name: Optional[builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrackerResult:
     """
@@ -159,10 +169,12 @@ def get_tracker(tags: Optional[Mapping[str, builtins.str]] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the tracker.
     :param builtins.str tracker_name: Name of the tracker resource.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['trackerName'] = tracker_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -174,11 +186,13 @@ def get_tracker(tags: Optional[Mapping[str, builtins.str]] = None,
         id=pulumi.get(__ret__, 'id'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         position_filtering=pulumi.get(__ret__, 'position_filtering'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         tracker_arn=pulumi.get(__ret__, 'tracker_arn'),
         tracker_name=pulumi.get(__ret__, 'tracker_name'),
         update_time=pulumi.get(__ret__, 'update_time'))
-def get_tracker_output(tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
+def get_tracker_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                       tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                        tracker_name: Optional[pulumi.Input[builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrackerResult]:
     """
@@ -194,10 +208,12 @@ def get_tracker_output(tags: Optional[pulumi.Input[Optional[Mapping[str, builtin
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Key-value map of resource tags for the tracker.
     :param builtins.str tracker_name: Name of the tracker resource.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['trackerName'] = tracker_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -208,6 +224,7 @@ def get_tracker_output(tags: Optional[pulumi.Input[Optional[Mapping[str, builtin
         id=pulumi.get(__response__, 'id'),
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
         position_filtering=pulumi.get(__response__, 'position_filtering'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         tracker_arn=pulumi.get(__response__, 'tracker_arn'),
         tracker_name=pulumi.get(__response__, 'tracker_name'),

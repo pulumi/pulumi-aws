@@ -25,7 +25,8 @@ class ServiceActionArgs:
                  definition: pulumi.Input['ServiceActionDefinitionArgs'],
                  accept_language: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceAction resource.
         :param pulumi.Input['ServiceActionDefinitionArgs'] definition: Self-service action definition configuration block. Detailed below.
@@ -34,6 +35,7 @@ class ServiceActionArgs:
         :param pulumi.Input[builtins.str] name: Self-service action name.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "definition", definition)
         if accept_language is not None:
@@ -42,6 +44,8 @@ class ServiceActionArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -93,6 +97,18 @@ class ServiceActionArgs:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ServiceActionState:
@@ -100,7 +116,8 @@ class _ServiceActionState:
                  accept_language: Optional[pulumi.Input[builtins.str]] = None,
                  definition: Optional[pulumi.Input['ServiceActionDefinitionArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None):
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServiceAction resources.
         :param pulumi.Input[builtins.str] accept_language: Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
@@ -109,6 +126,7 @@ class _ServiceActionState:
         :param pulumi.Input[builtins.str] name: Self-service action name.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
@@ -118,6 +136,8 @@ class _ServiceActionState:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="acceptLanguage")
@@ -169,6 +189,18 @@ class _ServiceActionState:
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:servicecatalog/serviceAction:ServiceAction")
 class ServiceAction(pulumi.CustomResource):
@@ -180,6 +212,7 @@ class ServiceAction(pulumi.CustomResource):
                  definition: Optional[pulumi.Input[Union['ServiceActionDefinitionArgs', 'ServiceActionDefinitionArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Manages a Service Catalog self-service action.
@@ -216,6 +249,7 @@ class ServiceAction(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Self-service action name.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -269,6 +303,7 @@ class ServiceAction(pulumi.CustomResource):
                  definition: Optional[pulumi.Input[Union['ServiceActionDefinitionArgs', 'ServiceActionDefinitionArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -284,6 +319,7 @@ class ServiceAction(pulumi.CustomResource):
             __props__.__dict__["definition"] = definition
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
         super(ServiceAction, __self__).__init__(
             'aws:servicecatalog/serviceAction:ServiceAction',
             resource_name,
@@ -297,7 +333,8 @@ class ServiceAction(pulumi.CustomResource):
             accept_language: Optional[pulumi.Input[builtins.str]] = None,
             definition: Optional[pulumi.Input[Union['ServiceActionDefinitionArgs', 'ServiceActionDefinitionArgsDict']]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
-            name: Optional[pulumi.Input[builtins.str]] = None) -> 'ServiceAction':
+            name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'ServiceAction':
         """
         Get an existing ServiceAction resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -311,6 +348,7 @@ class ServiceAction(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Self-service action name.
                
                The following arguments are optional:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -320,6 +358,7 @@ class ServiceAction(pulumi.CustomResource):
         __props__.__dict__["definition"] = definition
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         return ServiceAction(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -355,4 +394,12 @@ class ServiceAction(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

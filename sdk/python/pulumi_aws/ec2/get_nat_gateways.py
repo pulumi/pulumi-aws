@@ -29,7 +29,7 @@ class GetNatGatewaysResult:
     """
     A collection of values returned by getNatGateways.
     """
-    def __init__(__self__, filters=None, id=None, ids=None, tags=None, vpc_id=None):
+    def __init__(__self__, filters=None, id=None, ids=None, region=None, tags=None, vpc_id=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -39,6 +39,9 @@ class GetNatGatewaysResult:
         if ids and not isinstance(ids, list):
             raise TypeError("Expected argument 'ids' to be a list")
         pulumi.set(__self__, "ids", ids)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -69,6 +72,11 @@ class GetNatGatewaysResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         return pulumi.get(self, "tags")
 
@@ -87,11 +95,13 @@ class AwaitableGetNatGatewaysResult(GetNatGatewaysResult):
             filters=self.filters,
             id=self.id,
             ids=self.ids,
+            region=self.region,
             tags=self.tags,
             vpc_id=self.vpc_id)
 
 
 def get_nat_gateways(filters: Optional[Sequence[Union['GetNatGatewaysFilterArgs', 'GetNatGatewaysFilterArgsDict']]] = None,
+                     region: Optional[builtins.str] = None,
                      tags: Optional[Mapping[str, builtins.str]] = None,
                      vpc_id: Optional[builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNatGatewaysResult:
@@ -116,12 +126,14 @@ def get_nat_gateways(filters: Optional[Sequence[Union['GetNatGatewaysFilterArgs'
 
 
     :param Sequence[Union['GetNatGatewaysFilterArgs', 'GetNatGatewaysFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired NAT Gateways.
     :param builtins.str vpc_id: VPC ID that you want to filter from.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -131,9 +143,11 @@ def get_nat_gateways(filters: Optional[Sequence[Union['GetNatGatewaysFilterArgs'
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_nat_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetNatGatewaysFilterArgs', 'GetNatGatewaysFilterArgsDict']]]]] = None,
+                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                             vpc_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNatGatewaysResult]:
@@ -158,12 +172,14 @@ def get_nat_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
 
 
     :param Sequence[Union['GetNatGatewaysFilterArgs', 'GetNatGatewaysFilterArgsDict']] filters: Custom filter block as described below.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired NAT Gateways.
     :param builtins.str vpc_id: VPC ID that you want to filter from.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['vpcId'] = vpc_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -172,5 +188,6 @@ def get_nat_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[Uni
         filters=pulumi.get(__response__, 'filters'),
         id=pulumi.get(__response__, 'id'),
         ids=pulumi.get(__response__, 'ids'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags'),
         vpc_id=pulumi.get(__response__, 'vpc_id')))

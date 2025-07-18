@@ -22,16 +22,20 @@ class SshKeyArgs:
     def __init__(__self__, *,
                  body: pulumi.Input[builtins.str],
                  server_id: pulumi.Input[builtins.str],
-                 user_name: pulumi.Input[builtins.str]):
+                 user_name: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a SshKey resource.
         :param pulumi.Input[builtins.str] body: The public key portion of an SSH key pair.
         :param pulumi.Input[builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         :param pulumi.Input[builtins.str] user_name: The name of the user account that is assigned to one or more servers.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "body", body)
         pulumi.set(__self__, "server_id", server_id)
         pulumi.set(__self__, "user_name", user_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -69,22 +73,38 @@ class SshKeyArgs:
     def user_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "user_name", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _SshKeyState:
     def __init__(__self__, *,
                  body: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_id: Optional[pulumi.Input[builtins.str]] = None,
                  ssh_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering SshKey resources.
         :param pulumi.Input[builtins.str] body: The public key portion of an SSH key pair.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         :param pulumi.Input[builtins.str] user_name: The name of the user account that is assigned to one or more servers.
         """
         if body is not None:
             pulumi.set(__self__, "body", body)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if server_id is not None:
             pulumi.set(__self__, "server_id", server_id)
         if ssh_key_id is not None:
@@ -103,6 +123,18 @@ class _SshKeyState:
     @body.setter
     def body(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "body", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="serverId")
@@ -145,6 +177,7 @@ class SshKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  body: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_id: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -212,6 +245,7 @@ class SshKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] body: The public key portion of an SSH key pair.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         :param pulumi.Input[builtins.str] user_name: The name of the user account that is assigned to one or more servers.
         """
@@ -298,6 +332,7 @@ class SshKey(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  body: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  server_id: Optional[pulumi.Input[builtins.str]] = None,
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -312,6 +347,7 @@ class SshKey(pulumi.CustomResource):
             if body is None and not opts.urn:
                 raise TypeError("Missing required property 'body'")
             __props__.__dict__["body"] = body
+            __props__.__dict__["region"] = region
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
             __props__.__dict__["server_id"] = server_id
@@ -330,6 +366,7 @@ class SshKey(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             body: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             server_id: Optional[pulumi.Input[builtins.str]] = None,
             ssh_key_id: Optional[pulumi.Input[builtins.str]] = None,
             user_name: Optional[pulumi.Input[builtins.str]] = None) -> 'SshKey':
@@ -341,6 +378,7 @@ class SshKey(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] body: The public key portion of an SSH key pair.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         :param pulumi.Input[builtins.str] user_name: The name of the user account that is assigned to one or more servers.
         """
@@ -349,6 +387,7 @@ class SshKey(pulumi.CustomResource):
         __props__ = _SshKeyState.__new__(_SshKeyState)
 
         __props__.__dict__["body"] = body
+        __props__.__dict__["region"] = region
         __props__.__dict__["server_id"] = server_id
         __props__.__dict__["ssh_key_id"] = ssh_key_id
         __props__.__dict__["user_name"] = user_name
@@ -361,6 +400,14 @@ class SshKey(pulumi.CustomResource):
         The public key portion of an SSH key pair.
         """
         return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="serverId")

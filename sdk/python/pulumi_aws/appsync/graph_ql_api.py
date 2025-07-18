@@ -33,6 +33,7 @@ class GraphQLApiArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  openid_connect_config: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']] = None,
                  query_depth_limit: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resolver_count_limit: Optional[pulumi.Input[builtins.int]] = None,
                  schema: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -56,6 +57,7 @@ class GraphQLApiArgs:
         :param pulumi.Input[builtins.int] query_depth_limit: The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
                
                Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] resolver_count_limit: The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
         :param pulumi.Input[builtins.str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -84,6 +86,8 @@ class GraphQLApiArgs:
             pulumi.set(__self__, "openid_connect_config", openid_connect_config)
         if query_depth_limit is not None:
             pulumi.set(__self__, "query_depth_limit", query_depth_limit)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resolver_count_limit is not None:
             pulumi.set(__self__, "resolver_count_limit", resolver_count_limit)
         if schema is not None:
@@ -234,6 +238,18 @@ class GraphQLApiArgs:
         pulumi.set(self, "query_depth_limit", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resolverCountLimit")
     def resolver_count_limit(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -321,6 +337,7 @@ class _GraphQLApiState:
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  openid_connect_config: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']] = None,
                  query_depth_limit: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resolver_count_limit: Optional[pulumi.Input[builtins.int]] = None,
                  schema: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -347,6 +364,7 @@ class _GraphQLApiState:
         :param pulumi.Input[builtins.int] query_depth_limit: The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
                
                Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] resolver_count_limit: The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
         :param pulumi.Input[builtins.str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -380,15 +398,14 @@ class _GraphQLApiState:
             pulumi.set(__self__, "openid_connect_config", openid_connect_config)
         if query_depth_limit is not None:
             pulumi.set(__self__, "query_depth_limit", query_depth_limit)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if resolver_count_limit is not None:
             pulumi.set(__self__, "resolver_count_limit", resolver_count_limit)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if uris is not None:
@@ -549,6 +566,18 @@ class _GraphQLApiState:
         pulumi.set(self, "query_depth_limit", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="resolverCountLimit")
     def resolver_count_limit(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -586,7 +615,6 @@ class _GraphQLApiState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -663,6 +691,7 @@ class GraphQLApi(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  openid_connect_config: Optional[pulumi.Input[Union['GraphQLApiOpenidConnectConfigArgs', 'GraphQLApiOpenidConnectConfigArgsDict']]] = None,
                  query_depth_limit: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resolver_count_limit: Optional[pulumi.Input[builtins.int]] = None,
                  schema: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -689,6 +718,7 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] query_depth_limit: The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
                
                Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] resolver_count_limit: The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
         :param pulumi.Input[builtins.str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -730,6 +760,7 @@ class GraphQLApi(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  openid_connect_config: Optional[pulumi.Input[Union['GraphQLApiOpenidConnectConfigArgs', 'GraphQLApiOpenidConnectConfigArgsDict']]] = None,
                  query_depth_limit: Optional[pulumi.Input[builtins.int]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  resolver_count_limit: Optional[pulumi.Input[builtins.int]] = None,
                  schema: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -758,6 +789,7 @@ class GraphQLApi(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["openid_connect_config"] = openid_connect_config
             __props__.__dict__["query_depth_limit"] = query_depth_limit
+            __props__.__dict__["region"] = region
             __props__.__dict__["resolver_count_limit"] = resolver_count_limit
             __props__.__dict__["schema"] = schema
             __props__.__dict__["tags"] = tags
@@ -789,6 +821,7 @@ class GraphQLApi(pulumi.CustomResource):
             name: Optional[pulumi.Input[builtins.str]] = None,
             openid_connect_config: Optional[pulumi.Input[Union['GraphQLApiOpenidConnectConfigArgs', 'GraphQLApiOpenidConnectConfigArgsDict']]] = None,
             query_depth_limit: Optional[pulumi.Input[builtins.int]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             resolver_count_limit: Optional[pulumi.Input[builtins.int]] = None,
             schema: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -820,6 +853,7 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] query_depth_limit: The maximum depth a query can have in a single request. Depth refers to the amount of nested levels allowed in the body of query. The default value is `0` (or unspecified), which indicates there's no depth limit. If you set a limit, it can be between `1` and `75` nested levels. This field will produce a limit error if the operation falls out of bounds.
                
                Note that fields can still be set to nullable or non-nullable. If a non-nullable field produces an error, the error will be thrown upwards to the first nullable field available.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.int] resolver_count_limit: The maximum number of resolvers that can be invoked in a single request. The default value is `0` (or unspecified), which will set the limit to `10000`. When specified, the limit value can be between `1` and `10000`. This field will produce a limit error if the operation falls out of bounds.
         :param pulumi.Input[builtins.str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -845,6 +879,7 @@ class GraphQLApi(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["openid_connect_config"] = openid_connect_config
         __props__.__dict__["query_depth_limit"] = query_depth_limit
+        __props__.__dict__["region"] = region
         __props__.__dict__["resolver_count_limit"] = resolver_count_limit
         __props__.__dict__["schema"] = schema
         __props__.__dict__["tags"] = tags
@@ -956,6 +991,14 @@ class GraphQLApi(pulumi.CustomResource):
         return pulumi.get(self, "query_depth_limit")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resolverCountLimit")
     def resolver_count_limit(self) -> pulumi.Output[Optional[builtins.int]]:
         """
@@ -981,7 +1024,6 @@ class GraphQLApi(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

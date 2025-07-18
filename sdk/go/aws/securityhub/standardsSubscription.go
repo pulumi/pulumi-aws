@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -48,7 +48,7 @@ import (
 //				return err
 //			}
 //			_, err = securityhub.NewStandardsSubscription(ctx, "pci_321", &securityhub.StandardsSubscriptionArgs{
-//				StandardsArn: pulumi.Sprintf("arn:aws:securityhub:%v::standards/pci-dss/v/3.2.1", current.Name),
+//				StandardsArn: pulumi.Sprintf("arn:aws:securityhub:%v::standards/pci-dss/v/3.2.1", current.Region),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				example,
 //			}))
@@ -77,6 +77,8 @@ import (
 type StandardsSubscription struct {
 	pulumi.CustomResourceState
 
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The ARN of a standard - see below.
 	//
 	// Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):
@@ -126,6 +128,8 @@ func GetStandardsSubscription(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StandardsSubscription resources.
 type standardsSubscriptionState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of a standard - see below.
 	//
 	// Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):
@@ -143,6 +147,8 @@ type standardsSubscriptionState struct {
 }
 
 type StandardsSubscriptionState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of a standard - see below.
 	//
 	// Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):
@@ -164,6 +170,8 @@ func (StandardsSubscriptionState) ElementType() reflect.Type {
 }
 
 type standardsSubscriptionArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The ARN of a standard - see below.
 	//
 	// Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):
@@ -182,6 +190,8 @@ type standardsSubscriptionArgs struct {
 
 // The set of arguments for constructing a StandardsSubscription resource.
 type StandardsSubscriptionArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The ARN of a standard - see below.
 	//
 	// Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):
@@ -283,6 +293,11 @@ func (o StandardsSubscriptionOutput) ToStandardsSubscriptionOutput() StandardsSu
 
 func (o StandardsSubscriptionOutput) ToStandardsSubscriptionOutputWithContext(ctx context.Context) StandardsSubscriptionOutput {
 	return o
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o StandardsSubscriptionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *StandardsSubscription) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The ARN of a standard - see below.

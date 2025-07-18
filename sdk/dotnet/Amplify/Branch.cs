@@ -306,6 +306,12 @@ namespace Pulumi.Aws.Amplify
         public Output<bool?> EnablePullRequestPreview { get; private set; } = null!;
 
         /// <summary>
+        /// Enables skew protection for the branch.
+        /// </summary>
+        [Output("enableSkewProtection")]
+        public Output<bool?> EnableSkewProtection { get; private set; } = null!;
+
+        /// <summary>
         /// Environment variables for the branch.
         /// </summary>
         [Output("environmentVariables")]
@@ -322,6 +328,12 @@ namespace Pulumi.Aws.Amplify
         /// </summary>
         [Output("pullRequestEnvironmentName")]
         public Output<string?> PullRequestEnvironmentName { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Source branch if the branch is a pull request branch.
@@ -479,6 +491,12 @@ namespace Pulumi.Aws.Amplify
         [Input("enablePullRequestPreview")]
         public Input<bool>? EnablePullRequestPreview { get; set; }
 
+        /// <summary>
+        /// Enables skew protection for the branch.
+        /// </summary>
+        [Input("enableSkewProtection")]
+        public Input<bool>? EnableSkewProtection { get; set; }
+
         [Input("environmentVariables")]
         private InputMap<string>? _environmentVariables;
 
@@ -502,6 +520,12 @@ namespace Pulumi.Aws.Amplify
         /// </summary>
         [Input("pullRequestEnvironmentName")]
         public Input<string>? PullRequestEnvironmentName { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Describes the current stage for the branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
@@ -647,6 +671,12 @@ namespace Pulumi.Aws.Amplify
         [Input("enablePullRequestPreview")]
         public Input<bool>? EnablePullRequestPreview { get; set; }
 
+        /// <summary>
+        /// Enables skew protection for the branch.
+        /// </summary>
+        [Input("enableSkewProtection")]
+        public Input<bool>? EnableSkewProtection { get; set; }
+
         [Input("environmentVariables")]
         private InputMap<string>? _environmentVariables;
 
@@ -670,6 +700,12 @@ namespace Pulumi.Aws.Amplify
         /// </summary>
         [Input("pullRequestEnvironmentName")]
         public Input<string>? PullRequestEnvironmentName { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Source branch if the branch is a pull request branch.
@@ -701,7 +737,6 @@ namespace Pulumi.Aws.Amplify
         /// <summary>
         /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
-        [Obsolete(@"Please use `tags` instead.")]
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

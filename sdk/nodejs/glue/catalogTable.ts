@@ -157,6 +157,10 @@ export class CatalogTable extends pulumi.CustomResource {
      */
     public readonly partitionKeys!: pulumi.Output<outputs.glue.CatalogTablePartitionKey[] | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * Retention time for this table.
      */
     public readonly retention!: pulumi.Output<number | undefined>;
@@ -204,6 +208,7 @@ export class CatalogTable extends pulumi.CustomResource {
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["partitionIndices"] = state ? state.partitionIndices : undefined;
             resourceInputs["partitionKeys"] = state ? state.partitionKeys : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["retention"] = state ? state.retention : undefined;
             resourceInputs["storageDescriptor"] = state ? state.storageDescriptor : undefined;
             resourceInputs["tableType"] = state ? state.tableType : undefined;
@@ -224,6 +229,7 @@ export class CatalogTable extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["partitionIndices"] = args ? args.partitionIndices : undefined;
             resourceInputs["partitionKeys"] = args ? args.partitionKeys : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["retention"] = args ? args.retention : undefined;
             resourceInputs["storageDescriptor"] = args ? args.storageDescriptor : undefined;
             resourceInputs["tableType"] = args ? args.tableType : undefined;
@@ -283,6 +289,10 @@ export interface CatalogTableState {
      * Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
      */
     partitionKeys?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionKey>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Retention time for this table.
      */
@@ -351,6 +361,10 @@ export interface CatalogTableArgs {
      * Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
      */
     partitionKeys?: pulumi.Input<pulumi.Input<inputs.glue.CatalogTablePartitionKey>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Retention time for this table.
      */

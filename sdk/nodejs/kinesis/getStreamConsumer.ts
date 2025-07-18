@@ -26,7 +26,9 @@ export function getStreamConsumer(args: GetStreamConsumerArgs, opts?: pulumi.Inv
     return pulumi.runtime.invoke("aws:kinesis/getStreamConsumer:getStreamConsumer", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
         "streamArn": args.streamArn,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -43,9 +45,14 @@ export interface GetStreamConsumerArgs {
      */
     name?: string;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * ARN of the data stream the consumer is registered with.
      */
     streamArn: string;
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -62,11 +69,13 @@ export interface GetStreamConsumerResult {
      */
     readonly id: string;
     readonly name: string;
+    readonly region: string;
     /**
      * Current status of the stream consumer.
      */
     readonly status: string;
     readonly streamArn: string;
+    readonly tags: {[key: string]: string};
 }
 /**
  * Provides details about a Kinesis Stream Consumer.
@@ -90,7 +99,9 @@ export function getStreamConsumerOutput(args: GetStreamConsumerOutputArgs, opts?
     return pulumi.runtime.invokeOutput("aws:kinesis/getStreamConsumer:getStreamConsumer", {
         "arn": args.arn,
         "name": args.name,
+        "region": args.region,
         "streamArn": args.streamArn,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -107,7 +118,12 @@ export interface GetStreamConsumerOutputArgs {
      */
     name?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * ARN of the data stream the consumer is registered with.
      */
     streamArn: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticache"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -52,6 +52,8 @@ func LookupServerlessCache(ctx *pulumi.Context, args *LookupServerlessCacheArgs,
 type LookupServerlessCacheArgs struct {
 	// Identifier for the serverless cache.
 	Name string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // A collection of values returned by getServerlessCache.
@@ -81,6 +83,7 @@ type LookupServerlessCacheResult struct {
 	Name               string `pulumi:"name"`
 	// Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
 	ReaderEndpoint GetServerlessCacheReaderEndpoint `pulumi:"readerEndpoint"`
+	Region         string                           `pulumi:"region"`
 	// A list of the one or more VPC security groups associated with the serverless cache.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The number of snapshots that will be retained for the serverless cache. Available for Redis only.
@@ -106,6 +109,8 @@ func LookupServerlessCacheOutput(ctx *pulumi.Context, args LookupServerlessCache
 type LookupServerlessCacheOutputArgs struct {
 	// Identifier for the serverless cache.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (LookupServerlessCacheOutputArgs) ElementType() reflect.Type {
@@ -189,6 +194,10 @@ func (o LookupServerlessCacheResultOutput) Name() pulumi.StringOutput {
 // Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
 func (o LookupServerlessCacheResultOutput) ReaderEndpoint() GetServerlessCacheReaderEndpointOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) GetServerlessCacheReaderEndpoint { return v.ReaderEndpoint }).(GetServerlessCacheReaderEndpointOutput)
+}
+
+func (o LookupServerlessCacheResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerlessCacheResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // A list of the one or more VPC security groups associated with the serverless cache.

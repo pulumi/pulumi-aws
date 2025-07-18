@@ -35,6 +35,7 @@ class TrailArgs:
                  is_organization_trail: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  sns_topic_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
@@ -55,6 +56,7 @@ class TrailArgs:
         :param pulumi.Input[builtins.bool] is_organization_trail: Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
         :param pulumi.Input[builtins.str] kms_key_id: KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         :param pulumi.Input[builtins.str] name: Name of the trail.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_key_prefix: S3 key prefix that follows the name of the bucket you have designated for log file delivery.
         :param pulumi.Input[builtins.str] sns_topic_name: Name of the Amazon SNS topic defined for notification of log file delivery. Specify the SNS topic ARN if it resides in another region.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the trail. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -84,6 +86,8 @@ class TrailArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if s3_key_prefix is not None:
             pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
         if sns_topic_name is not None:
@@ -250,6 +254,18 @@ class TrailArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="s3KeyPrefix")
     def s3_key_prefix(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -303,6 +319,7 @@ class _TrailState:
                  is_organization_trail: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket_name: Optional[pulumi.Input[builtins.str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -325,6 +342,7 @@ class _TrailState:
         :param pulumi.Input[builtins.bool] is_organization_trail: Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
         :param pulumi.Input[builtins.str] kms_key_id: KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         :param pulumi.Input[builtins.str] name: Name of the trail.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_name: Name of the S3 bucket designated for publishing log files.
                
                The following arguments are optional:
@@ -362,6 +380,8 @@ class _TrailState:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if s3_bucket_name is not None:
             pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_key_prefix is not None:
@@ -372,9 +392,6 @@ class _TrailState:
             pulumi.set(__self__, "sns_topic_name", sns_topic_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
 
@@ -547,6 +564,18 @@ class _TrailState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -610,7 +639,6 @@ class _TrailState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -640,6 +668,7 @@ class Trail(pulumi.CustomResource):
                  is_organization_trail: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket_name: Optional[pulumi.Input[builtins.str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  sns_topic_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -663,7 +692,7 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example",
+        example_bucket = aws.s3.Bucket("example",
             bucket="my-test-trail",
             force_destroy=True)
         current = aws.get_caller_identity()
@@ -678,11 +707,11 @@ class Trail(pulumi.CustomResource):
                     "identifiers": ["cloudtrail.amazonaws.com"],
                 }],
                 "actions": ["s3:GetBucketAcl"],
-                "resources": [example_bucket_v2.arn],
+                "resources": [example_bucket.arn],
                 "conditions": [{
                     "test": "StringEquals",
                     "variable": "aws:SourceArn",
-                    "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.name}:{current.account_id}:trail/example"],
+                    "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.region}:{current.account_id}:trail/example"],
                 }],
             },
             {
@@ -693,7 +722,7 @@ class Trail(pulumi.CustomResource):
                     "identifiers": ["cloudtrail.amazonaws.com"],
                 }],
                 "actions": ["s3:PutObject"],
-                "resources": [example_bucket_v2.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current.account_id}/*")],
+                "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current.account_id}/*")],
                 "conditions": [
                     {
                         "test": "StringEquals",
@@ -703,17 +732,17 @@ class Trail(pulumi.CustomResource):
                     {
                         "test": "StringEquals",
                         "variable": "aws:SourceArn",
-                        "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.name}:{current.account_id}:trail/example"],
+                        "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.region}:{current.account_id}:trail/example"],
                     },
                 ],
             },
         ])
         example_bucket_policy = aws.s3.BucketPolicy("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             policy=example.json)
         example_trail = aws.cloudtrail.Trail("example",
             name="example",
-            s3_bucket_name=example_bucket_v2.id,
+            s3_bucket_name=example_bucket.id,
             s3_key_prefix="prefix",
             include_global_service_events=False,
             opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
@@ -915,6 +944,7 @@ class Trail(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] is_organization_trail: Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
         :param pulumi.Input[builtins.str] kms_key_id: KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         :param pulumi.Input[builtins.str] name: Name of the trail.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_name: Name of the S3 bucket designated for publishing log files.
                
                The following arguments are optional:
@@ -946,7 +976,7 @@ class Trail(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_bucket_v2 = aws.s3.BucketV2("example",
+        example_bucket = aws.s3.Bucket("example",
             bucket="my-test-trail",
             force_destroy=True)
         current = aws.get_caller_identity()
@@ -961,11 +991,11 @@ class Trail(pulumi.CustomResource):
                     "identifiers": ["cloudtrail.amazonaws.com"],
                 }],
                 "actions": ["s3:GetBucketAcl"],
-                "resources": [example_bucket_v2.arn],
+                "resources": [example_bucket.arn],
                 "conditions": [{
                     "test": "StringEquals",
                     "variable": "aws:SourceArn",
-                    "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.name}:{current.account_id}:trail/example"],
+                    "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.region}:{current.account_id}:trail/example"],
                 }],
             },
             {
@@ -976,7 +1006,7 @@ class Trail(pulumi.CustomResource):
                     "identifiers": ["cloudtrail.amazonaws.com"],
                 }],
                 "actions": ["s3:PutObject"],
-                "resources": [example_bucket_v2.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current.account_id}/*")],
+                "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current.account_id}/*")],
                 "conditions": [
                     {
                         "test": "StringEquals",
@@ -986,17 +1016,17 @@ class Trail(pulumi.CustomResource):
                     {
                         "test": "StringEquals",
                         "variable": "aws:SourceArn",
-                        "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.name}:{current.account_id}:trail/example"],
+                        "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.region}:{current.account_id}:trail/example"],
                     },
                 ],
             },
         ])
         example_bucket_policy = aws.s3.BucketPolicy("example",
-            bucket=example_bucket_v2.id,
+            bucket=example_bucket.id,
             policy=example.json)
         example_trail = aws.cloudtrail.Trail("example",
             name="example",
-            s3_bucket_name=example_bucket_v2.id,
+            s3_bucket_name=example_bucket.id,
             s3_key_prefix="prefix",
             include_global_service_events=False,
             opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
@@ -1211,6 +1241,7 @@ class Trail(pulumi.CustomResource):
                  is_organization_trail: Optional[pulumi.Input[builtins.bool]] = None,
                  kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  s3_bucket_name: Optional[pulumi.Input[builtins.str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[builtins.str]] = None,
                  sns_topic_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -1236,6 +1267,7 @@ class Trail(pulumi.CustomResource):
             __props__.__dict__["is_organization_trail"] = is_organization_trail
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["region"] = region
             if s3_bucket_name is None and not opts.urn:
                 raise TypeError("Missing required property 's3_bucket_name'")
             __props__.__dict__["s3_bucket_name"] = s3_bucket_name
@@ -1270,6 +1302,7 @@ class Trail(pulumi.CustomResource):
             is_organization_trail: Optional[pulumi.Input[builtins.bool]] = None,
             kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             s3_bucket_name: Optional[pulumi.Input[builtins.str]] = None,
             s3_key_prefix: Optional[pulumi.Input[builtins.str]] = None,
             sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
@@ -1297,6 +1330,7 @@ class Trail(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] is_organization_trail: Whether the trail is an AWS Organizations trail. Organization trails log events for the master account and all member accounts. Can only be created in the organization master account. Defaults to `false`.
         :param pulumi.Input[builtins.str] kms_key_id: KMS key ARN to use to encrypt the logs delivered by CloudTrail.
         :param pulumi.Input[builtins.str] name: Name of the trail.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] s3_bucket_name: Name of the S3 bucket designated for publishing log files.
                
                The following arguments are optional:
@@ -1324,6 +1358,7 @@ class Trail(pulumi.CustomResource):
         __props__.__dict__["is_organization_trail"] = is_organization_trail
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["region"] = region
         __props__.__dict__["s3_bucket_name"] = s3_bucket_name
         __props__.__dict__["s3_key_prefix"] = s3_key_prefix
         __props__.__dict__["sns_topic_arn"] = sns_topic_arn
@@ -1445,6 +1480,14 @@ class Trail(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> pulumi.Output[builtins.str]:
         """
@@ -1488,7 +1531,6 @@ class Trail(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

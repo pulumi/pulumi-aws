@@ -19,7 +19,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS Network Manager Connect Peer.
+ * Manages an AWS Network Manager Connect Peer.
+ * 
+ * Use this resource to create a Connect peer in AWS Network Manager. Connect peers establish BGP sessions with your on-premises networks through Connect attachments, enabling dynamic routing between your core network and external networks.
  * 
  * ## Example Usage
  * 
@@ -137,7 +139,7 @@ import javax.annotation.Nullable;
  *                 .protocol("GRE")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(test)
+ *                 .dependsOn(exampleAttachmentAccepter)
  *                 .build());
  * 
  *         var example2 = new AttachmentAccepter("example2", AttachmentAccepterArgs.builder()
@@ -214,7 +216,7 @@ import javax.annotation.Nullable;
  *             .bgpOptions(ConnectPeerBgpOptionsArgs.builder()
  *                 .peerAsn(65000)
  *                 .build())
- *             .subnetArn(test2.arn())
+ *             .subnetArn(example2.arn())
  *             .build());
  * 
  *     }
@@ -235,131 +237,147 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:networkmanager/connectPeer:ConnectPeer")
 public class ConnectPeer extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the attachment.
+     * ARN of the Connect peer.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the attachment.
+     * @return ARN of the Connect peer.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The Connect peer BGP options.
+     * Connect peer BGP options. See bgp_options for more information.
      * 
      */
     @Export(name="bgpOptions", refs={ConnectPeerBgpOptions.class}, tree="[0]")
     private Output</* @Nullable */ ConnectPeerBgpOptions> bgpOptions;
 
     /**
-     * @return The Connect peer BGP options.
+     * @return Connect peer BGP options. See bgp_options for more information.
      * 
      */
     public Output<Optional<ConnectPeerBgpOptions>> bgpOptions() {
         return Codegen.optional(this.bgpOptions);
     }
     /**
-     * The configuration of the Connect peer.
+     * Configuration of the Connect peer.
      * 
      */
     @Export(name="configurations", refs={List.class,ConnectPeerConfiguration.class}, tree="[0,1]")
     private Output<List<ConnectPeerConfiguration>> configurations;
 
     /**
-     * @return The configuration of the Connect peer.
+     * @return Configuration of the Connect peer.
      * 
      */
     public Output<List<ConnectPeerConfiguration>> configurations() {
         return this.configurations;
     }
     /**
-     * The ID of the connection attachment.
+     * ID of the connection attachment.
      * 
      */
     @Export(name="connectAttachmentId", refs={String.class}, tree="[0]")
     private Output<String> connectAttachmentId;
 
     /**
-     * @return The ID of the connection attachment.
+     * @return ID of the connection attachment.
      * 
      */
     public Output<String> connectAttachmentId() {
         return this.connectAttachmentId;
     }
+    /**
+     * ID of the Connect peer.
+     * 
+     */
     @Export(name="connectPeerId", refs={String.class}, tree="[0]")
     private Output<String> connectPeerId;
 
+    /**
+     * @return ID of the Connect peer.
+     * 
+     */
     public Output<String> connectPeerId() {
         return this.connectPeerId;
     }
     /**
-     * A Connect peer core network address.
+     * Connect peer core network address.
      * 
      */
     @Export(name="coreNetworkAddress", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> coreNetworkAddress;
 
     /**
-     * @return A Connect peer core network address.
+     * @return Connect peer core network address.
      * 
      */
     public Output<Optional<String>> coreNetworkAddress() {
         return Codegen.optional(this.coreNetworkAddress);
     }
     /**
-     * The ID of a core network.
+     * ID of a core network.
      * 
      */
     @Export(name="coreNetworkId", refs={String.class}, tree="[0]")
     private Output<String> coreNetworkId;
 
     /**
-     * @return The ID of a core network.
+     * @return ID of a core network.
      * 
      */
     public Output<String> coreNetworkId() {
         return this.coreNetworkId;
     }
+    /**
+     * Timestamp when the Connect peer was created.
+     * 
+     */
     @Export(name="createdAt", refs={String.class}, tree="[0]")
     private Output<String> createdAt;
 
+    /**
+     * @return Timestamp when the Connect peer was created.
+     * 
+     */
     public Output<String> createdAt() {
         return this.createdAt;
     }
     /**
-     * The Region where the peer is located.
+     * Region where the peer is located.
      * 
      */
     @Export(name="edgeLocation", refs={String.class}, tree="[0]")
     private Output<String> edgeLocation;
 
     /**
-     * @return The Region where the peer is located.
+     * @return Region where the peer is located.
      * 
      */
     public Output<String> edgeLocation() {
         return this.edgeLocation;
     }
     /**
-     * The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
+     * Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     @Export(name="insideCidrBlocks", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> insideCidrBlocks;
 
     /**
-     * @return The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
+     * @return Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     public Output<Optional<List<String>>> insideCidrBlocks() {
         return Codegen.optional(this.insideCidrBlocks);
     }
     /**
-     * The Connect peer address.
+     * Connect peer address.
      * 
      * The following arguments are optional:
      * 
@@ -368,7 +386,7 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
     private Output<String> peerAddress;
 
     /**
-     * @return The Connect peer address.
+     * @return Connect peer address.
      * 
      * The following arguments are optional:
      * 
@@ -377,28 +395,28 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
         return this.peerAddress;
     }
     /**
-     * The state of the Connect peer.
+     * State of the Connect peer.
      * 
      */
     @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
-     * @return The state of the Connect peer.
+     * @return State of the Connect peer.
      * 
      */
     public Output<String> state() {
         return this.state;
     }
     /**
-     * The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+     * Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     @Export(name="subnetArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subnetArn;
 
     /**
-     * @return The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
+     * @return Subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `aws.networkmanager.ConnectAttachment` for details.
      * 
      */
     public Output<Optional<String>> subnetArn() {
@@ -419,18 +437,14 @@ public class ConnectPeer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-     * 
-     * @deprecated
-     * Please use `tags` instead.
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
-    @Deprecated /* Please use `tags` instead. */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

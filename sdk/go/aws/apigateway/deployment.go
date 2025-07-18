@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,8 +19,6 @@ import (
 // * For REST APIs that are configured via OpenAPI specification (`apigateway.RestApi` resource `body` argument), no special dependency setup is needed beyond referencing the  `id` attribute of that resource unless additional resources have further customized the REST API.
 // * When the REST API configuration involves other resources (`apigateway.Integration` resource), the dependency setup can be done with implicit resource references in the `triggers` argument or explicit resource references using the [resource `dependsOn` custom option](https://www.pulumi.com/docs/intro/concepts/resources/#dependson). The `triggers` argument should be preferred over `dependsOn`, since `dependsOn` can only capture dependency ordering and will not cause the resource to recreate (redeploy the REST API) with upstream configuration changes.
 //
-// !> **WARNING:** It is recommended to use the `apigateway.Stage` resource instead of managing an API Gateway Stage via the `stageName` argument of this resource. When this resource is recreated (REST API redeployment) with the `stageName` configured, the stage is deleted and recreated. This will cause a temporary service interruption, increase provide plan differences, and can require a second apply to recreate any downstream stage configuration such as associated `awsApiMethodSettings` resources.
-//
 // ## Example Usage
 //
 // ## Import
@@ -30,49 +28,23 @@ import (
 // ```sh
 // $ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
 // ```
-// The `stage_name`, `stage_description`, and `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
+// The `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
 //
 // The `triggers` argument cannot be imported.
 type Deployment struct {
 	pulumi.CustomResourceState
 
-	// Input configuration for the canary deployment when the deployment is a canary release deployment.
-	// See `canarySettings below.
-	// Has no effect when `stageName` is not set.
-	//
-	// Deprecated: canary_settings is deprecated. Use the apigateway.Stage resource instead.
-	CanarySettings DeploymentCanarySettingsPtrOutput `pulumi:"canarySettings"`
 	// Creation date of the deployment
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
-	// Description of the deployment
+	// Description of the deployment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// **DEPRECATED: Use the `apigateway.Stage` resource instead.** Execution ARN to be used in `lambdaPermission`'s `sourceArn`
-	// when allowing API Gateway to invoke a Lambda function,
-	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-	//
-	// Deprecated: execution_arn is deprecated. Use the apigateway.Stage resource instead.
-	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
-	// **DEPRECATED: Use the `apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
-	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-	//
-	// Deprecated: invoke_url is deprecated. Use the apigateway.Stage resource instead.
-	InvokeUrl pulumi.StringOutput `pulumi:"invokeUrl"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// REST API identifier.
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
-	// Description to set on the stage managed by the `stageName` argument.
-	// Has no effect when `stageName` is not set.
-	//
-	// Deprecated: stage_description is deprecated. Use the apigateway.Stage resource instead.
-	StageDescription pulumi.StringPtrOutput `pulumi:"stageDescription"`
-	// Name of the stage to create with this deployment.
-	// If the specified stage already exists, it will be updated to point to the new deployment.
-	// We recommend using the `apigateway.Stage` resource instead to manage stages.
-	//
-	// Deprecated: stage_name is deprecated. Use the apigateway.Stage resource instead.
-	StageName pulumi.StringPtrOutput `pulumi:"stageName"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers pulumi.StringMapOutput `pulumi:"triggers"`
-	// Map to set on the stage managed by the `stageName` argument.
+	// Map to set on the related stage.
 	Variables pulumi.StringMapOutput `pulumi:"variables"`
 }
 
@@ -109,84 +81,32 @@ func GetDeployment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Deployment resources.
 type deploymentState struct {
-	// Input configuration for the canary deployment when the deployment is a canary release deployment.
-	// See `canarySettings below.
-	// Has no effect when `stageName` is not set.
-	//
-	// Deprecated: canary_settings is deprecated. Use the apigateway.Stage resource instead.
-	CanarySettings *DeploymentCanarySettings `pulumi:"canarySettings"`
 	// Creation date of the deployment
 	CreatedDate *string `pulumi:"createdDate"`
-	// Description of the deployment
+	// Description of the deployment.
 	Description *string `pulumi:"description"`
-	// **DEPRECATED: Use the `apigateway.Stage` resource instead.** Execution ARN to be used in `lambdaPermission`'s `sourceArn`
-	// when allowing API Gateway to invoke a Lambda function,
-	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-	//
-	// Deprecated: execution_arn is deprecated. Use the apigateway.Stage resource instead.
-	ExecutionArn *string `pulumi:"executionArn"`
-	// **DEPRECATED: Use the `apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
-	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-	//
-	// Deprecated: invoke_url is deprecated. Use the apigateway.Stage resource instead.
-	InvokeUrl *string `pulumi:"invokeUrl"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// REST API identifier.
 	RestApi interface{} `pulumi:"restApi"`
-	// Description to set on the stage managed by the `stageName` argument.
-	// Has no effect when `stageName` is not set.
-	//
-	// Deprecated: stage_description is deprecated. Use the apigateway.Stage resource instead.
-	StageDescription *string `pulumi:"stageDescription"`
-	// Name of the stage to create with this deployment.
-	// If the specified stage already exists, it will be updated to point to the new deployment.
-	// We recommend using the `apigateway.Stage` resource instead to manage stages.
-	//
-	// Deprecated: stage_name is deprecated. Use the apigateway.Stage resource instead.
-	StageName *string `pulumi:"stageName"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers map[string]string `pulumi:"triggers"`
-	// Map to set on the stage managed by the `stageName` argument.
+	// Map to set on the related stage.
 	Variables map[string]string `pulumi:"variables"`
 }
 
 type DeploymentState struct {
-	// Input configuration for the canary deployment when the deployment is a canary release deployment.
-	// See `canarySettings below.
-	// Has no effect when `stageName` is not set.
-	//
-	// Deprecated: canary_settings is deprecated. Use the apigateway.Stage resource instead.
-	CanarySettings DeploymentCanarySettingsPtrInput
 	// Creation date of the deployment
 	CreatedDate pulumi.StringPtrInput
-	// Description of the deployment
+	// Description of the deployment.
 	Description pulumi.StringPtrInput
-	// **DEPRECATED: Use the `apigateway.Stage` resource instead.** Execution ARN to be used in `lambdaPermission`'s `sourceArn`
-	// when allowing API Gateway to invoke a Lambda function,
-	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-	//
-	// Deprecated: execution_arn is deprecated. Use the apigateway.Stage resource instead.
-	ExecutionArn pulumi.StringPtrInput
-	// **DEPRECATED: Use the `apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
-	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-	//
-	// Deprecated: invoke_url is deprecated. Use the apigateway.Stage resource instead.
-	InvokeUrl pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// REST API identifier.
 	RestApi pulumi.Input
-	// Description to set on the stage managed by the `stageName` argument.
-	// Has no effect when `stageName` is not set.
-	//
-	// Deprecated: stage_description is deprecated. Use the apigateway.Stage resource instead.
-	StageDescription pulumi.StringPtrInput
-	// Name of the stage to create with this deployment.
-	// If the specified stage already exists, it will be updated to point to the new deployment.
-	// We recommend using the `apigateway.Stage` resource instead to manage stages.
-	//
-	// Deprecated: stage_name is deprecated. Use the apigateway.Stage resource instead.
-	StageName pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers pulumi.StringMapInput
-	// Map to set on the stage managed by the `stageName` argument.
+	// Map to set on the related stage.
 	Variables pulumi.StringMapInput
 }
 
@@ -195,59 +115,29 @@ func (DeploymentState) ElementType() reflect.Type {
 }
 
 type deploymentArgs struct {
-	// Input configuration for the canary deployment when the deployment is a canary release deployment.
-	// See `canarySettings below.
-	// Has no effect when `stageName` is not set.
-	//
-	// Deprecated: canary_settings is deprecated. Use the apigateway.Stage resource instead.
-	CanarySettings *DeploymentCanarySettings `pulumi:"canarySettings"`
-	// Description of the deployment
+	// Description of the deployment.
 	Description *string `pulumi:"description"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// REST API identifier.
 	RestApi interface{} `pulumi:"restApi"`
-	// Description to set on the stage managed by the `stageName` argument.
-	// Has no effect when `stageName` is not set.
-	//
-	// Deprecated: stage_description is deprecated. Use the apigateway.Stage resource instead.
-	StageDescription *string `pulumi:"stageDescription"`
-	// Name of the stage to create with this deployment.
-	// If the specified stage already exists, it will be updated to point to the new deployment.
-	// We recommend using the `apigateway.Stage` resource instead to manage stages.
-	//
-	// Deprecated: stage_name is deprecated. Use the apigateway.Stage resource instead.
-	StageName *string `pulumi:"stageName"`
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers map[string]string `pulumi:"triggers"`
-	// Map to set on the stage managed by the `stageName` argument.
+	// Map to set on the related stage.
 	Variables map[string]string `pulumi:"variables"`
 }
 
 // The set of arguments for constructing a Deployment resource.
 type DeploymentArgs struct {
-	// Input configuration for the canary deployment when the deployment is a canary release deployment.
-	// See `canarySettings below.
-	// Has no effect when `stageName` is not set.
-	//
-	// Deprecated: canary_settings is deprecated. Use the apigateway.Stage resource instead.
-	CanarySettings DeploymentCanarySettingsPtrInput
-	// Description of the deployment
+	// Description of the deployment.
 	Description pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// REST API identifier.
 	RestApi pulumi.Input
-	// Description to set on the stage managed by the `stageName` argument.
-	// Has no effect when `stageName` is not set.
-	//
-	// Deprecated: stage_description is deprecated. Use the apigateway.Stage resource instead.
-	StageDescription pulumi.StringPtrInput
-	// Name of the stage to create with this deployment.
-	// If the specified stage already exists, it will be updated to point to the new deployment.
-	// We recommend using the `apigateway.Stage` resource instead to manage stages.
-	//
-	// Deprecated: stage_name is deprecated. Use the apigateway.Stage resource instead.
-	StageName pulumi.StringPtrInput
 	// Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 	Triggers pulumi.StringMapInput
-	// Map to set on the stage managed by the `stageName` argument.
+	// Map to set on the related stage.
 	Variables pulumi.StringMapInput
 }
 
@@ -338,40 +228,19 @@ func (o DeploymentOutput) ToDeploymentOutputWithContext(ctx context.Context) Dep
 	return o
 }
 
-// Input configuration for the canary deployment when the deployment is a canary release deployment.
-// See `canarySettings below.
-// Has no effect when `stageName` is not set.
-//
-// Deprecated: canary_settings is deprecated. Use the apigateway.Stage resource instead.
-func (o DeploymentOutput) CanarySettings() DeploymentCanarySettingsPtrOutput {
-	return o.ApplyT(func(v *Deployment) DeploymentCanarySettingsPtrOutput { return v.CanarySettings }).(DeploymentCanarySettingsPtrOutput)
-}
-
 // Creation date of the deployment
 func (o DeploymentOutput) CreatedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.CreatedDate }).(pulumi.StringOutput)
 }
 
-// Description of the deployment
+// Description of the deployment.
 func (o DeploymentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// **DEPRECATED: Use the `apigateway.Stage` resource instead.** Execution ARN to be used in `lambdaPermission`'s `sourceArn`
-// when allowing API Gateway to invoke a Lambda function,
-// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-//
-// Deprecated: execution_arn is deprecated. Use the apigateway.Stage resource instead.
-func (o DeploymentOutput) ExecutionArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.ExecutionArn }).(pulumi.StringOutput)
-}
-
-// **DEPRECATED: Use the `apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
-// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-//
-// Deprecated: invoke_url is deprecated. Use the apigateway.Stage resource instead.
-func (o DeploymentOutput) InvokeUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.InvokeUrl }).(pulumi.StringOutput)
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DeploymentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // REST API identifier.
@@ -379,29 +248,12 @@ func (o DeploymentOutput) RestApi() pulumi.StringOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringOutput { return v.RestApi }).(pulumi.StringOutput)
 }
 
-// Description to set on the stage managed by the `stageName` argument.
-// Has no effect when `stageName` is not set.
-//
-// Deprecated: stage_description is deprecated. Use the apigateway.Stage resource instead.
-func (o DeploymentOutput) StageDescription() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.StageDescription }).(pulumi.StringPtrOutput)
-}
-
-// Name of the stage to create with this deployment.
-// If the specified stage already exists, it will be updated to point to the new deployment.
-// We recommend using the `apigateway.Stage` resource instead to manage stages.
-//
-// Deprecated: stage_name is deprecated. Use the apigateway.Stage resource instead.
-func (o DeploymentOutput) StageName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.StageName }).(pulumi.StringPtrOutput)
-}
-
 // Map of arbitrary keys and values that, when changed, will trigger a redeployment.
 func (o DeploymentOutput) Triggers() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringMapOutput { return v.Triggers }).(pulumi.StringMapOutput)
 }
 
-// Map to set on the stage managed by the `stageName` argument.
+// Map to set on the related stage.
 func (o DeploymentOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringMapOutput { return v.Variables }).(pulumi.StringMapOutput)
 }

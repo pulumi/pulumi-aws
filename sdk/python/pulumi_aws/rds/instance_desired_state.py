@@ -24,14 +24,18 @@ class InstanceDesiredStateArgs:
     def __init__(__self__, *,
                  identifier: pulumi.Input[builtins.str],
                  state: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['InstanceDesiredStateTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a InstanceDesiredState resource.
         :param pulumi.Input[builtins.str] identifier: DB Instance Identifier
         :param pulumi.Input[builtins.str] state: Configured state of the DB Instance. Valid values are `available` and `stopped`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "identifier", identifier)
         pulumi.set(__self__, "state", state)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -61,6 +65,18 @@ class InstanceDesiredStateArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['InstanceDesiredStateTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -73,15 +89,19 @@ class InstanceDesiredStateArgs:
 class _InstanceDesiredStateState:
     def __init__(__self__, *,
                  identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['InstanceDesiredStateTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering InstanceDesiredState resources.
         :param pulumi.Input[builtins.str] identifier: DB Instance Identifier
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: Configured state of the DB Instance. Valid values are `available` and `stopped`.
         """
         if identifier is not None:
             pulumi.set(__self__, "identifier", identifier)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if timeouts is not None:
@@ -98,6 +118,18 @@ class _InstanceDesiredStateState:
     @identifier.setter
     def identifier(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "identifier", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -128,6 +160,7 @@ class InstanceDesiredState(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['InstanceDesiredStateTimeoutsArgs', 'InstanceDesiredStateTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -160,6 +193,7 @@ class InstanceDesiredState(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] identifier: DB Instance Identifier
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: Configured state of the DB Instance. Valid values are `available` and `stopped`.
         """
         ...
@@ -210,6 +244,7 @@ class InstanceDesiredState(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identifier: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  state: Optional[pulumi.Input[builtins.str]] = None,
                  timeouts: Optional[pulumi.Input[Union['InstanceDesiredStateTimeoutsArgs', 'InstanceDesiredStateTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -224,6 +259,7 @@ class InstanceDesiredState(pulumi.CustomResource):
             if identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'identifier'")
             __props__.__dict__["identifier"] = identifier
+            __props__.__dict__["region"] = region
             if state is None and not opts.urn:
                 raise TypeError("Missing required property 'state'")
             __props__.__dict__["state"] = state
@@ -239,6 +275,7 @@ class InstanceDesiredState(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             identifier: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             state: Optional[pulumi.Input[builtins.str]] = None,
             timeouts: Optional[pulumi.Input[Union['InstanceDesiredStateTimeoutsArgs', 'InstanceDesiredStateTimeoutsArgsDict']]] = None) -> 'InstanceDesiredState':
         """
@@ -249,6 +286,7 @@ class InstanceDesiredState(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] identifier: DB Instance Identifier
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] state: Configured state of the DB Instance. Valid values are `available` and `stopped`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -256,6 +294,7 @@ class InstanceDesiredState(pulumi.CustomResource):
         __props__ = _InstanceDesiredStateState.__new__(_InstanceDesiredStateState)
 
         __props__.__dict__["identifier"] = identifier
+        __props__.__dict__["region"] = region
         __props__.__dict__["state"] = state
         __props__.__dict__["timeouts"] = timeouts
         return InstanceDesiredState(resource_name, opts=opts, __props__=__props__)
@@ -267,6 +306,14 @@ class InstanceDesiredState(pulumi.CustomResource):
         DB Instance Identifier
         """
         return pulumi.get(self, "identifier")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

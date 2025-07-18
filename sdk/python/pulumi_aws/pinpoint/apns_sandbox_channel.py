@@ -26,6 +26,7 @@ class ApnsSandboxChannelArgs:
                  default_authentication_method: Optional[pulumi.Input[builtins.str]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  private_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  team_id: Optional[pulumi.Input[builtins.str]] = None,
                  token_key: Optional[pulumi.Input[builtins.str]] = None,
                  token_key_id: Optional[pulumi.Input[builtins.str]] = None):
@@ -46,6 +47,7 @@ class ApnsSandboxChannelArgs:
         :param pulumi.Input[builtins.str] private_key: The Certificate Private Key file (ie. `.key` file).
                
                If you choose to use __Key credentials__ you will have to provide:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] team_id: The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         :param pulumi.Input[builtins.str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key.
         :param pulumi.Input[builtins.str] token_key_id: The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
@@ -61,6 +63,8 @@ class ApnsSandboxChannelArgs:
             pulumi.set(__self__, "enabled", enabled)
         if private_key is not None:
             pulumi.set(__self__, "private_key", private_key)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if team_id is not None:
             pulumi.set(__self__, "team_id", team_id)
         if token_key is not None:
@@ -150,6 +154,18 @@ class ApnsSandboxChannelArgs:
         pulumi.set(self, "private_key", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="teamId")
     def team_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -195,6 +211,7 @@ class _ApnsSandboxChannelState:
                  default_authentication_method: Optional[pulumi.Input[builtins.str]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  private_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  team_id: Optional[pulumi.Input[builtins.str]] = None,
                  token_key: Optional[pulumi.Input[builtins.str]] = None,
                  token_key_id: Optional[pulumi.Input[builtins.str]] = None):
@@ -215,6 +232,7 @@ class _ApnsSandboxChannelState:
         :param pulumi.Input[builtins.str] private_key: The Certificate Private Key file (ie. `.key` file).
                
                If you choose to use __Key credentials__ you will have to provide:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] team_id: The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         :param pulumi.Input[builtins.str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key.
         :param pulumi.Input[builtins.str] token_key_id: The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
@@ -231,6 +249,8 @@ class _ApnsSandboxChannelState:
             pulumi.set(__self__, "enabled", enabled)
         if private_key is not None:
             pulumi.set(__self__, "private_key", private_key)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if team_id is not None:
             pulumi.set(__self__, "team_id", team_id)
         if token_key is not None:
@@ -320,6 +340,18 @@ class _ApnsSandboxChannelState:
         pulumi.set(self, "private_key", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="teamId")
     def team_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -368,6 +400,7 @@ class ApnsSandboxChannel(pulumi.CustomResource):
                  default_authentication_method: Optional[pulumi.Input[builtins.str]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  private_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  team_id: Optional[pulumi.Input[builtins.str]] = None,
                  token_key: Optional[pulumi.Input[builtins.str]] = None,
                  token_key_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -415,6 +448,7 @@ class ApnsSandboxChannel(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] private_key: The Certificate Private Key file (ie. `.key` file).
                
                If you choose to use __Key credentials__ you will have to provide:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] team_id: The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         :param pulumi.Input[builtins.str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key.
         :param pulumi.Input[builtins.str] token_key_id: The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
@@ -472,6 +506,7 @@ class ApnsSandboxChannel(pulumi.CustomResource):
                  default_authentication_method: Optional[pulumi.Input[builtins.str]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  private_key: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  team_id: Optional[pulumi.Input[builtins.str]] = None,
                  token_key: Optional[pulumi.Input[builtins.str]] = None,
                  token_key_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -492,6 +527,7 @@ class ApnsSandboxChannel(pulumi.CustomResource):
             __props__.__dict__["default_authentication_method"] = default_authentication_method
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["private_key"] = None if private_key is None else pulumi.Output.secret(private_key)
+            __props__.__dict__["region"] = region
             __props__.__dict__["team_id"] = None if team_id is None else pulumi.Output.secret(team_id)
             __props__.__dict__["token_key"] = None if token_key is None else pulumi.Output.secret(token_key)
             __props__.__dict__["token_key_id"] = None if token_key_id is None else pulumi.Output.secret(token_key_id)
@@ -513,6 +549,7 @@ class ApnsSandboxChannel(pulumi.CustomResource):
             default_authentication_method: Optional[pulumi.Input[builtins.str]] = None,
             enabled: Optional[pulumi.Input[builtins.bool]] = None,
             private_key: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             team_id: Optional[pulumi.Input[builtins.str]] = None,
             token_key: Optional[pulumi.Input[builtins.str]] = None,
             token_key_id: Optional[pulumi.Input[builtins.str]] = None) -> 'ApnsSandboxChannel':
@@ -538,6 +575,7 @@ class ApnsSandboxChannel(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] private_key: The Certificate Private Key file (ie. `.key` file).
                
                If you choose to use __Key credentials__ you will have to provide:
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] team_id: The ID assigned to your Apple developer account team. This value is provided on the Membership page.
         :param pulumi.Input[builtins.str] token_key: The `.p8` file that you download from your Apple developer account when you create an authentication key.
         :param pulumi.Input[builtins.str] token_key_id: The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
@@ -552,6 +590,7 @@ class ApnsSandboxChannel(pulumi.CustomResource):
         __props__.__dict__["default_authentication_method"] = default_authentication_method
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["private_key"] = private_key
+        __props__.__dict__["region"] = region
         __props__.__dict__["team_id"] = team_id
         __props__.__dict__["token_key"] = token_key
         __props__.__dict__["token_key_id"] = token_key_id
@@ -613,6 +652,14 @@ class ApnsSandboxChannel(pulumi.CustomResource):
         If you choose to use __Key credentials__ you will have to provide:
         """
         return pulumi.get(self, "private_key")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="teamId")

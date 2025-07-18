@@ -20,6 +20,7 @@ public final class GetNotificationChannelResult {
      */
     private @Nullable List<GetNotificationChannelFilter> filters;
     private String id;
+    private String region;
     /**
      * @return SNS noficiation channel configurations. See the `sns` attribute reference below.
      * 
@@ -36,6 +37,9 @@ public final class GetNotificationChannelResult {
     }
     public String id() {
         return this.id;
+    }
+    public String region() {
+        return this.region;
     }
     /**
      * @return SNS noficiation channel configurations. See the `sns` attribute reference below.
@@ -56,12 +60,14 @@ public final class GetNotificationChannelResult {
     public static final class Builder {
         private @Nullable List<GetNotificationChannelFilter> filters;
         private String id;
+        private String region;
         private @Nullable List<GetNotificationChannelSn> sns;
         public Builder() {}
         public Builder(GetNotificationChannelResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
+    	      this.region = defaults.region;
     	      this.sns = defaults.sns;
         }
 
@@ -83,6 +89,14 @@ public final class GetNotificationChannelResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetNotificationChannelResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sns(@Nullable List<GetNotificationChannelSn> sns) {
 
             this.sns = sns;
@@ -95,6 +109,7 @@ public final class GetNotificationChannelResult {
             final var _resultValue = new GetNotificationChannelResult();
             _resultValue.filters = filters;
             _resultValue.id = id;
+            _resultValue.region = region;
             _resultValue.sns = sns;
             return _resultValue;
         }

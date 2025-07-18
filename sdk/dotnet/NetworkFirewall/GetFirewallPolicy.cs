@@ -230,6 +230,12 @@ namespace Pulumi.Aws.NetworkFirewall
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -263,6 +269,12 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -300,6 +312,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public readonly string Id;
         public readonly string? Name;
+        public readonly string Region;
         /// <summary>
         /// Key-value tags for the firewall policy.
         /// </summary>
@@ -321,6 +334,8 @@ namespace Pulumi.Aws.NetworkFirewall
 
             string? name,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             string updateToken)
@@ -330,6 +345,7 @@ namespace Pulumi.Aws.NetworkFirewall
             FirewallPolicies = firewallPolicies;
             Id = id;
             Name = name;
+            Region = region;
             Tags = tags;
             UpdateToken = updateToken;
         }

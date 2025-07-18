@@ -120,6 +120,20 @@ public class Enabler extends com.pulumi.resources.CustomResource {
         return this.accountIds;
     }
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Export(name="region", refs={String.class}, tree="[0]")
+    private Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Output<String> region() {
+        return this.region;
+    }
+    /**
      * Type of resources to scan.
      * Valid values are `EC2`, `ECR`, `LAMBDA` and `LAMBDA_CODE`.
      * At least one item is required.

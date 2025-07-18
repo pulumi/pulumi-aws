@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -494,15 +494,15 @@ type GetTemplatesTemplate struct {
 	QuotaCode string `pulumi:"quotaCode"`
 	// Quota name.
 	QuotaName string `pulumi:"quotaName"`
-	// AWS Region to which the quota increases apply.
+	// AWS Region to which the quota increases apply. Use `getRegion` instead.
 	Region string `pulumi:"region"`
-	// (Required) Service identifier.
+	// Service identifier.
 	ServiceCode string `pulumi:"serviceCode"`
 	// Service name.
 	ServiceName string `pulumi:"serviceName"`
 	// Unit of measurement.
 	Unit string `pulumi:"unit"`
-	// (Required) The new, increased value for the quota.
+	// The new, increased value for the quota.
 	Value float64 `pulumi:"value"`
 }
 
@@ -524,15 +524,15 @@ type GetTemplatesTemplateArgs struct {
 	QuotaCode pulumi.StringInput `pulumi:"quotaCode"`
 	// Quota name.
 	QuotaName pulumi.StringInput `pulumi:"quotaName"`
-	// AWS Region to which the quota increases apply.
+	// AWS Region to which the quota increases apply. Use `getRegion` instead.
 	Region pulumi.StringInput `pulumi:"region"`
-	// (Required) Service identifier.
+	// Service identifier.
 	ServiceCode pulumi.StringInput `pulumi:"serviceCode"`
 	// Service name.
 	ServiceName pulumi.StringInput `pulumi:"serviceName"`
 	// Unit of measurement.
 	Unit pulumi.StringInput `pulumi:"unit"`
-	// (Required) The new, increased value for the quota.
+	// The new, increased value for the quota.
 	Value pulumi.Float64Input `pulumi:"value"`
 }
 
@@ -602,12 +602,12 @@ func (o GetTemplatesTemplateOutput) QuotaName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTemplatesTemplate) string { return v.QuotaName }).(pulumi.StringOutput)
 }
 
-// AWS Region to which the quota increases apply.
+// AWS Region to which the quota increases apply. Use `getRegion` instead.
 func (o GetTemplatesTemplateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTemplatesTemplate) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// (Required) Service identifier.
+// Service identifier.
 func (o GetTemplatesTemplateOutput) ServiceCode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTemplatesTemplate) string { return v.ServiceCode }).(pulumi.StringOutput)
 }
@@ -622,7 +622,7 @@ func (o GetTemplatesTemplateOutput) Unit() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTemplatesTemplate) string { return v.Unit }).(pulumi.StringOutput)
 }
 
-// (Required) The new, increased value for the quota.
+// The new, increased value for the quota.
 func (o GetTemplatesTemplateOutput) Value() pulumi.Float64Output {
 	return o.ApplyT(func(v GetTemplatesTemplate) float64 { return v.Value }).(pulumi.Float64Output)
 }

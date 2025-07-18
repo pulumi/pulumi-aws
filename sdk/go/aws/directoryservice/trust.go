@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,7 +29,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directoryservice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -83,7 +83,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/directoryservice"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/directoryservice"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -151,6 +151,8 @@ type Trust struct {
 	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
 	// Date and time when the Trust was last updated.
 	LastUpdatedDateTime pulumi.StringOutput `pulumi:"lastUpdatedDateTime"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Fully qualified domain name of the remote Directory.
 	RemoteDomainName pulumi.StringOutput `pulumi:"remoteDomainName"`
 	// Whether to enable selective authentication.
@@ -231,6 +233,8 @@ type trustState struct {
 	DirectoryId *string `pulumi:"directoryId"`
 	// Date and time when the Trust was last updated.
 	LastUpdatedDateTime *string `pulumi:"lastUpdatedDateTime"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Fully qualified domain name of the remote Directory.
 	RemoteDomainName *string `pulumi:"remoteDomainName"`
 	// Whether to enable selective authentication.
@@ -270,6 +274,8 @@ type TrustState struct {
 	DirectoryId pulumi.StringPtrInput
 	// Date and time when the Trust was last updated.
 	LastUpdatedDateTime pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Fully qualified domain name of the remote Directory.
 	RemoteDomainName pulumi.StringPtrInput
 	// Whether to enable selective authentication.
@@ -309,6 +315,8 @@ type trustArgs struct {
 	DeleteAssociatedConditionalForwarder *bool `pulumi:"deleteAssociatedConditionalForwarder"`
 	// ID of the Directory.
 	DirectoryId string `pulumi:"directoryId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Fully qualified domain name of the remote Directory.
 	RemoteDomainName string `pulumi:"remoteDomainName"`
 	// Whether to enable selective authentication.
@@ -338,6 +346,8 @@ type TrustArgs struct {
 	DeleteAssociatedConditionalForwarder pulumi.BoolPtrInput
 	// ID of the Directory.
 	DirectoryId pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Fully qualified domain name of the remote Directory.
 	RemoteDomainName pulumi.StringInput
 	// Whether to enable selective authentication.
@@ -469,6 +479,11 @@ func (o TrustOutput) DirectoryId() pulumi.StringOutput {
 // Date and time when the Trust was last updated.
 func (o TrustOutput) LastUpdatedDateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.LastUpdatedDateTime }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o TrustOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Trust) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // Fully qualified domain name of the remote Directory.

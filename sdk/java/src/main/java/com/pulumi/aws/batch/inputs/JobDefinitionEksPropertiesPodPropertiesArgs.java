@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.batch.inputs;
 
-import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesContainersArgs;
+import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesContainerArgs;
 import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs;
 import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesInitContainerArgs;
 import com.pulumi.aws.batch.inputs.JobDefinitionEksPropertiesPodPropertiesMetadataArgs;
@@ -28,13 +28,13 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
      * 
      */
     @Import(name="containers", required=true)
-    private Output<JobDefinitionEksPropertiesPodPropertiesContainersArgs> containers;
+    private Output<List<JobDefinitionEksPropertiesPodPropertiesContainerArgs>> containers;
 
     /**
      * @return Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
      * 
      */
-    public Output<JobDefinitionEksPropertiesPodPropertiesContainersArgs> containers() {
+    public Output<List<JobDefinitionEksPropertiesPodPropertiesContainerArgs>> containers() {
         return this.containers;
     }
 
@@ -196,7 +196,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
          * @return builder
          * 
          */
-        public Builder containers(Output<JobDefinitionEksPropertiesPodPropertiesContainersArgs> containers) {
+        public Builder containers(Output<List<JobDefinitionEksPropertiesPodPropertiesContainerArgs>> containers) {
             $.containers = containers;
             return this;
         }
@@ -207,8 +207,18 @@ public final class JobDefinitionEksPropertiesPodPropertiesArgs extends com.pulum
          * @return builder
          * 
          */
-        public Builder containers(JobDefinitionEksPropertiesPodPropertiesContainersArgs containers) {
+        public Builder containers(List<JobDefinitionEksPropertiesPodPropertiesContainerArgs> containers) {
             return containers(Output.of(containers));
+        }
+
+        /**
+         * @param containers Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder containers(JobDefinitionEksPropertiesPodPropertiesContainerArgs... containers) {
+            return containers(List.of(containers));
         }
 
         /**

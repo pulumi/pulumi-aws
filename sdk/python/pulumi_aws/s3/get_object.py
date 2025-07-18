@@ -27,7 +27,7 @@ class GetObjectResult:
     """
     A collection of values returned by getObject.
     """
-    def __init__(__self__, arn=None, body=None, bucket=None, bucket_key_enabled=None, cache_control=None, checksum_crc32=None, checksum_crc32c=None, checksum_crc64nvme=None, checksum_mode=None, checksum_sha1=None, checksum_sha256=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, etag=None, expiration=None, expires=None, id=None, key=None, last_modified=None, metadata=None, object_lock_legal_hold_status=None, object_lock_mode=None, object_lock_retain_until_date=None, range=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None):
+    def __init__(__self__, arn=None, body=None, bucket=None, bucket_key_enabled=None, cache_control=None, checksum_crc32=None, checksum_crc32c=None, checksum_crc64nvme=None, checksum_mode=None, checksum_sha1=None, checksum_sha256=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, etag=None, expiration=None, expires=None, id=None, key=None, last_modified=None, metadata=None, object_lock_legal_hold_status=None, object_lock_mode=None, object_lock_retain_until_date=None, range=None, region=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -109,6 +109,9 @@ class GetObjectResult:
         if range and not isinstance(range, str):
             raise TypeError("Expected argument 'range' to be a str")
         pulumi.set(__self__, "range", range)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if server_side_encryption and not isinstance(server_side_encryption, str):
             raise TypeError("Expected argument 'server_side_encryption' to be a str")
         pulumi.set(__self__, "server_side_encryption", server_side_encryption)
@@ -333,6 +336,11 @@ class GetObjectResult:
         return pulumi.get(self, "range")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> builtins.str:
         """
@@ -414,6 +422,7 @@ class AwaitableGetObjectResult(GetObjectResult):
             object_lock_mode=self.object_lock_mode,
             object_lock_retain_until_date=self.object_lock_retain_until_date,
             range=self.range,
+            region=self.region,
             server_side_encryption=self.server_side_encryption,
             sse_kms_key_id=self.sse_kms_key_id,
             storage_class=self.storage_class,
@@ -426,6 +435,7 @@ def get_object(bucket: Optional[builtins.str] = None,
                checksum_mode: Optional[builtins.str] = None,
                key: Optional[builtins.str] = None,
                range: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                tags: Optional[Mapping[str, builtins.str]] = None,
                version_id: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetObjectResult:
@@ -491,6 +501,7 @@ def get_object(bucket: Optional[builtins.str] = None,
     :param builtins.str bucket: Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
     :param builtins.str checksum_mode: To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
     :param builtins.str key: Full path to the object inside the bucket
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the object.
     :param builtins.str version_id: Specific version ID of the object returned (defaults to latest version)
     """
@@ -499,6 +510,7 @@ def get_object(bucket: Optional[builtins.str] = None,
     __args__['checksumMode'] = checksum_mode
     __args__['key'] = key
     __args__['range'] = range
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['versionId'] = version_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -532,6 +544,7 @@ def get_object(bucket: Optional[builtins.str] = None,
         object_lock_mode=pulumi.get(__ret__, 'object_lock_mode'),
         object_lock_retain_until_date=pulumi.get(__ret__, 'object_lock_retain_until_date'),
         range=pulumi.get(__ret__, 'range'),
+        region=pulumi.get(__ret__, 'region'),
         server_side_encryption=pulumi.get(__ret__, 'server_side_encryption'),
         sse_kms_key_id=pulumi.get(__ret__, 'sse_kms_key_id'),
         storage_class=pulumi.get(__ret__, 'storage_class'),
@@ -542,6 +555,7 @@ def get_object_output(bucket: Optional[pulumi.Input[builtins.str]] = None,
                       checksum_mode: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       key: Optional[pulumi.Input[builtins.str]] = None,
                       range: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                       version_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetObjectResult]:
@@ -607,6 +621,7 @@ def get_object_output(bucket: Optional[pulumi.Input[builtins.str]] = None,
     :param builtins.str bucket: Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
     :param builtins.str checksum_mode: To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
     :param builtins.str key: Full path to the object inside the bucket
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags assigned to the object.
     :param builtins.str version_id: Specific version ID of the object returned (defaults to latest version)
     """
@@ -615,6 +630,7 @@ def get_object_output(bucket: Optional[pulumi.Input[builtins.str]] = None,
     __args__['checksumMode'] = checksum_mode
     __args__['key'] = key
     __args__['range'] = range
+    __args__['region'] = region
     __args__['tags'] = tags
     __args__['versionId'] = version_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -647,6 +663,7 @@ def get_object_output(bucket: Optional[pulumi.Input[builtins.str]] = None,
         object_lock_mode=pulumi.get(__response__, 'object_lock_mode'),
         object_lock_retain_until_date=pulumi.get(__response__, 'object_lock_retain_until_date'),
         range=pulumi.get(__response__, 'range'),
+        region=pulumi.get(__response__, 'region'),
         server_side_encryption=pulumi.get(__response__, 'server_side_encryption'),
         sse_kms_key_id=pulumi.get(__response__, 'sse_kms_key_id'),
         storage_class=pulumi.get(__response__, 'storage_class'),

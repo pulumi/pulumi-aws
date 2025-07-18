@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,14 +53,15 @@ type Environment struct {
 	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
 	// Allow applications deployed to this environment to be publicly accessible.
 	PubliclyAccessible pulumi.BoolOutput `pulumi:"publiclyAccessible"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// List of security group ids.
 	SecurityGroupIds     pulumi.StringArrayOutput                 `pulumi:"securityGroupIds"`
 	StorageConfiguration EnvironmentStorageConfigurationPtrOutput `pulumi:"storageConfiguration"`
 	// List of subnet ids to deploy environment to.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags     pulumi.StringMapOutput       `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput       `pulumi:"tagsAll"`
 	Timeouts EnvironmentTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -128,14 +129,15 @@ type environmentState struct {
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Allow applications deployed to this environment to be publicly accessible.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of security group ids.
 	SecurityGroupIds     []string                         `pulumi:"securityGroupIds"`
 	StorageConfiguration *EnvironmentStorageConfiguration `pulumi:"storageConfiguration"`
 	// List of subnet ids to deploy environment to.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags     map[string]string    `pulumi:"tags"`
 	TagsAll  map[string]string    `pulumi:"tagsAll"`
 	Timeouts *EnvironmentTimeouts `pulumi:"timeouts"`
 }
@@ -168,14 +170,15 @@ type EnvironmentState struct {
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Allow applications deployed to this environment to be publicly accessible.
 	PubliclyAccessible pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of security group ids.
 	SecurityGroupIds     pulumi.StringArrayInput
 	StorageConfiguration EnvironmentStorageConfigurationPtrInput
 	// List of subnet ids to deploy environment to.
 	SubnetIds pulumi.StringArrayInput
 	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts EnvironmentTimeoutsPtrInput
 }
@@ -206,6 +209,8 @@ type environmentArgs struct {
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Allow applications deployed to this environment to be publicly accessible.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// List of security group ids.
 	SecurityGroupIds     []string                         `pulumi:"securityGroupIds"`
 	StorageConfiguration *EnvironmentStorageConfiguration `pulumi:"storageConfiguration"`
@@ -239,6 +244,8 @@ type EnvironmentArgs struct {
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Allow applications deployed to this environment to be publicly accessible.
 	PubliclyAccessible pulumi.BoolPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// List of security group ids.
 	SecurityGroupIds     pulumi.StringArrayInput
 	StorageConfiguration EnvironmentStorageConfigurationPtrInput
@@ -405,6 +412,11 @@ func (o EnvironmentOutput) PubliclyAccessible() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Environment) pulumi.BoolOutput { return v.PubliclyAccessible }).(pulumi.BoolOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o EnvironmentOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // List of security group ids.
 func (o EnvironmentOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -424,7 +436,6 @@ func (o EnvironmentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o EnvironmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

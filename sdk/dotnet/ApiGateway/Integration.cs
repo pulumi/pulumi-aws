@@ -334,6 +334,12 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> PassthroughBehavior { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Map of request query string parameters and headers that should be passed to the backend responder.
         /// For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         /// </summary>
@@ -495,6 +501,12 @@ namespace Pulumi.Aws.ApiGateway
         [Input("passthroughBehavior")]
         public Input<string>? PassthroughBehavior { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("requestParameters")]
         private InputMap<string>? _requestParameters;
 
@@ -630,6 +642,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("passthroughBehavior")]
         public Input<string>? PassthroughBehavior { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("requestParameters")]
         private InputMap<string>? _requestParameters;

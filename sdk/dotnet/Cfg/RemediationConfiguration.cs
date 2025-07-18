@@ -125,6 +125,12 @@ namespace Pulumi.Aws.Cfg
         public Output<ImmutableArray<Outputs.RemediationConfigurationParameter>> Parameters { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Type of resource.
         /// </summary>
         [Output("resourceType")]
@@ -239,6 +245,12 @@ namespace Pulumi.Aws.Cfg
         }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Type of resource.
         /// </summary>
         [Input("resourceType")]
@@ -319,6 +331,12 @@ namespace Pulumi.Aws.Cfg
             get => _parameters ?? (_parameters = new InputList<Inputs.RemediationConfigurationParameterGetArgs>());
             set => _parameters = value;
         }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Type of resource.

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,8 +25,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/acm"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/acm"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,6 +72,8 @@ type ListenerCertificate struct {
 	CertificateArn pulumi.StringOutput `pulumi:"certificateArn"`
 	// The ARN of the listener to which to attach the certificate.
 	ListenerArn pulumi.StringOutput `pulumi:"listenerArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 }
 
 // NewListenerCertificate registers a new resource with the given unique name, arguments, and options.
@@ -120,6 +122,8 @@ type listenerCertificateState struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The ARN of the listener to which to attach the certificate.
 	ListenerArn *string `pulumi:"listenerArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 type ListenerCertificateState struct {
@@ -127,6 +131,8 @@ type ListenerCertificateState struct {
 	CertificateArn pulumi.StringPtrInput
 	// The ARN of the listener to which to attach the certificate.
 	ListenerArn pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ListenerCertificateState) ElementType() reflect.Type {
@@ -138,6 +144,8 @@ type listenerCertificateArgs struct {
 	CertificateArn string `pulumi:"certificateArn"`
 	// The ARN of the listener to which to attach the certificate.
 	ListenerArn string `pulumi:"listenerArn"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 }
 
 // The set of arguments for constructing a ListenerCertificate resource.
@@ -146,6 +154,8 @@ type ListenerCertificateArgs struct {
 	CertificateArn pulumi.StringInput
 	// The ARN of the listener to which to attach the certificate.
 	ListenerArn pulumi.StringInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 }
 
 func (ListenerCertificateArgs) ElementType() reflect.Type {
@@ -243,6 +253,11 @@ func (o ListenerCertificateOutput) CertificateArn() pulumi.StringOutput {
 // The ARN of the listener to which to attach the certificate.
 func (o ListenerCertificateOutput) ListenerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ListenerCertificate) pulumi.StringOutput { return v.ListenerArn }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ListenerCertificateOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ListenerCertificate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 type ListenerCertificateArrayOutput struct{ *pulumi.OutputState }

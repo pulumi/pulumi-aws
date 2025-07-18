@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/apigateway"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -72,6 +72,8 @@ type DocumentationVersion struct {
 
 	// Description of the API documentation version.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// ID of the associated Rest API
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
 	// Version identifier of the API documentation snapshot.
@@ -116,6 +118,8 @@ func GetDocumentationVersion(ctx *pulumi.Context,
 type documentationVersionState struct {
 	// Description of the API documentation version.
 	Description *string `pulumi:"description"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the associated Rest API
 	RestApiId *string `pulumi:"restApiId"`
 	// Version identifier of the API documentation snapshot.
@@ -125,6 +129,8 @@ type documentationVersionState struct {
 type DocumentationVersionState struct {
 	// Description of the API documentation version.
 	Description pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the associated Rest API
 	RestApiId pulumi.StringPtrInput
 	// Version identifier of the API documentation snapshot.
@@ -138,6 +144,8 @@ func (DocumentationVersionState) ElementType() reflect.Type {
 type documentationVersionArgs struct {
 	// Description of the API documentation version.
 	Description *string `pulumi:"description"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// ID of the associated Rest API
 	RestApiId string `pulumi:"restApiId"`
 	// Version identifier of the API documentation snapshot.
@@ -148,6 +156,8 @@ type documentationVersionArgs struct {
 type DocumentationVersionArgs struct {
 	// Description of the API documentation version.
 	Description pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// ID of the associated Rest API
 	RestApiId pulumi.StringInput
 	// Version identifier of the API documentation snapshot.
@@ -244,6 +254,11 @@ func (o DocumentationVersionOutput) ToDocumentationVersionOutputWithContext(ctx 
 // Description of the API documentation version.
 func (o DocumentationVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentationVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o DocumentationVersionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *DocumentationVersion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // ID of the associated Rest API

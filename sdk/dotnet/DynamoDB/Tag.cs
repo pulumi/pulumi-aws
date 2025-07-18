@@ -52,7 +52,7 @@ namespace Pulumi.Aws.DynamoDB
     ///             return Std.Replace.Invoke(new()
     ///             {
     ///                 Text = arn,
-    ///                 Search = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///                 Search = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///                 Replace = replica.Apply(getRegionResult =&gt; getRegionResult.Name),
     ///             });
     ///         }).Apply(invoke =&gt; invoke.Result),
@@ -79,6 +79,12 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Output("key")]
         public Output<string> Key { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
@@ -145,6 +151,12 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the DynamoDB resource to tag.
         /// </summary>
         [Input("resourceArn", required: true)]
@@ -169,6 +181,12 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Input("key")]
         public Input<string>? Key { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the DynamoDB resource to tag.

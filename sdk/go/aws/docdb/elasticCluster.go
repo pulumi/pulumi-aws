@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/docdb"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/docdb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,6 +77,8 @@ type ElasticCluster struct {
 	PreferredBackupWindow pulumi.StringOutput `pulumi:"preferredBackupWindow"`
 	// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
 	ShardCapacity pulumi.IntOutput `pulumi:"shardCapacity"`
 	// Number of shards assigned to the elastic cluster. Maximum is 32
@@ -86,8 +88,7 @@ type ElasticCluster struct {
 	// IDs of subnets in which the Elastic DocumentDB Cluster operates.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags     pulumi.StringMapOutput          `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput          `pulumi:"tagsAll"`
 	Timeouts ElasticClusterTimeoutsPtrOutput `pulumi:"timeouts"`
 	// List of VPC security groups to associate with the Elastic DocumentDB Cluster
@@ -169,6 +170,8 @@ type elasticClusterState struct {
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
 	ShardCapacity *int `pulumi:"shardCapacity"`
 	// Number of shards assigned to the elastic cluster. Maximum is 32
@@ -178,8 +181,7 @@ type elasticClusterState struct {
 	// IDs of subnets in which the Elastic DocumentDB Cluster operates.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
-	// Deprecated: Please use `tags` instead.
+	Tags     map[string]string       `pulumi:"tags"`
 	TagsAll  map[string]string       `pulumi:"tagsAll"`
 	Timeouts *ElasticClusterTimeouts `pulumi:"timeouts"`
 	// List of VPC security groups to associate with the Elastic DocumentDB Cluster
@@ -210,6 +212,8 @@ type ElasticClusterState struct {
 	PreferredBackupWindow pulumi.StringPtrInput
 	// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 	PreferredMaintenanceWindow pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
 	ShardCapacity pulumi.IntPtrInput
 	// Number of shards assigned to the elastic cluster. Maximum is 32
@@ -219,8 +223,7 @@ type ElasticClusterState struct {
 	// IDs of subnets in which the Elastic DocumentDB Cluster operates.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
-	// Deprecated: Please use `tags` instead.
+	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
 	Timeouts ElasticClusterTimeoutsPtrInput
 	// List of VPC security groups to associate with the Elastic DocumentDB Cluster
@@ -251,6 +254,8 @@ type elasticClusterArgs struct {
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
 	// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
 	ShardCapacity int `pulumi:"shardCapacity"`
 	// Number of shards assigned to the elastic cluster. Maximum is 32
@@ -287,6 +292,8 @@ type ElasticClusterArgs struct {
 	PreferredBackupWindow pulumi.StringPtrInput
 	// Weekly time range during which system maintenance can occur in UTC. Format: `ddd:hh24:mi-ddd:hh24:mi`. If not specified, AWS will choose a random 30-minute window on a random day of the week.
 	PreferredMaintenanceWindow pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
 	ShardCapacity pulumi.IntInput
 	// Number of shards assigned to the elastic cluster. Maximum is 32
@@ -442,6 +449,11 @@ func (o ElasticClusterOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElasticCluster) pulumi.StringOutput { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o ElasticClusterOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElasticCluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Number of vCPUs assigned to each elastic cluster shard. Maximum is 64. Allowed values are 2, 4, 8, 16, 32, 64
 func (o ElasticClusterOutput) ShardCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *ElasticCluster) pulumi.IntOutput { return v.ShardCapacity }).(pulumi.IntOutput)
@@ -464,7 +476,6 @@ func (o ElasticClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ElasticCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Deprecated: Please use `tags` instead.
 func (o ElasticClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ElasticCluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

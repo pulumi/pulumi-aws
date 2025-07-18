@@ -10,11 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lambda
 {
     /// <summary>
-    /// Resource for managing an AWS Lambda Function Recursion Config.
+    /// Manages an AWS Lambda Function Recursion Config. Use this resource to control how Lambda handles recursive function invocations to prevent infinite loops.
     /// 
-    /// &gt; Destruction of this resource will return the `recursive_loop` configuration back to the default value of `Terminate`.
+    /// &gt; **Note:** Destruction of this resource will return the `recursive_loop` configuration back to the default value of `Terminate`.
     /// 
     /// ## Example Usage
+    /// 
+    /// ### Allow Recursive Invocations
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -24,10 +26,56 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
+    ///     // Lambda function that may need to call itself
+    ///     var example = new Aws.Lambda.Function("example", new()
+    ///     {
+    ///         Code = new FileArchive("function.zip"),
+    ///         Name = "recursive_processor",
+    ///         Role = lambdaRole.Arn,
+    ///         Handler = "index.handler",
+    ///         Runtime = Aws.Lambda.Runtime.Python3d12,
+    ///     });
+    /// 
+    ///     // Allow the function to invoke itself recursively
+    ///     var exampleFunctionRecursionConfig = new Aws.Lambda.FunctionRecursionConfig("example", new()
+    ///     {
+    ///         FunctionName = example.Name,
+    ///         RecursiveLoop = "Allow",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Production Safety Configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // Production function with recursion protection
+    ///     var productionProcessor = new Aws.Lambda.Function("production_processor", new()
+    ///     {
+    ///         Code = new FileArchive("processor.zip"),
+    ///         Name = "production-data-processor",
+    ///         Role = lambdaRole.Arn,
+    ///         Handler = "app.handler",
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS20dX,
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "production" },
+    ///             { "Purpose", "data-processing" },
+    ///         },
+    ///     });
+    /// 
+    ///     // Prevent infinite loops in production
     ///     var example = new Aws.Lambda.FunctionRecursionConfig("example", new()
     ///     {
-    ///         FunctionName = "SomeFunction",
-    ///         RecursiveLoop = "Allow",
+    ///         FunctionName = productionProcessor.Name,
+    ///         RecursiveLoop = "Terminate",
     ///     });
     /// 
     /// });
@@ -35,26 +83,34 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import AWS Lambda Function Recursion Config using the `function_name`. For example:
+    /// For backwards compatibility, the following legacy `pulumi import` command is also supported:
     /// 
     /// ```sh
-    /// $ pulumi import aws:lambda/functionRecursionConfig:FunctionRecursionConfig example SomeFunction
+    /// $ pulumi import aws:lambda/functionRecursionConfig:FunctionRecursionConfig example recursive_processor
     /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/functionRecursionConfig:FunctionRecursionConfig")]
     public partial class FunctionRecursionConfig : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Lambda function name.
+        /// Name of the Lambda function.
         /// </summary>
         [Output("functionName")]
         public Output<string> FunctionName { get; private set; } = null!;
 
         /// <summary>
         /// Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("recursiveLoop")]
         public Output<string> RecursiveLoop { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
 
         /// <summary>
@@ -103,16 +159,24 @@ namespace Pulumi.Aws.Lambda
     public sealed class FunctionRecursionConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Lambda function name.
+        /// Name of the Lambda function.
         /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
 
         /// <summary>
         /// Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("recursiveLoop", required: true)]
         public Input<string> RecursiveLoop { get; set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public FunctionRecursionConfigArgs()
         {
@@ -123,16 +187,24 @@ namespace Pulumi.Aws.Lambda
     public sealed class FunctionRecursionConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Lambda function name.
+        /// Name of the Lambda function.
         /// </summary>
         [Input("functionName")]
         public Input<string>? FunctionName { get; set; }
 
         /// <summary>
         /// Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("recursiveLoop")]
         public Input<string>? RecursiveLoop { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public FunctionRecursionConfigState()
         {

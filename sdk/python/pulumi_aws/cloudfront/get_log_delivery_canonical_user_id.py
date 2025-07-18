@@ -73,14 +73,14 @@ def get_log_delivery_canonical_user_id(region: Optional[builtins.str] = None,
 
     current = aws.s3.get_canonical_user_id()
     example = aws.cloudfront.get_log_delivery_canonical_user_id()
-    example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+    example_bucket = aws.s3.Bucket("example", bucket="example")
     example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
-        bucket=example_bucket_v2.id,
+        bucket=example_bucket.id,
         rule={
             "object_ownership": "BucketOwnerPreferred",
         })
-    example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
-        bucket=example_bucket_v2.id,
+    example_bucket_acl = aws.s3.BucketAcl("example",
+        bucket=example_bucket.id,
         access_control_policy={
             "grants": [{
                 "grantee": {
@@ -97,7 +97,7 @@ def get_log_delivery_canonical_user_id(region: Optional[builtins.str] = None,
     ```
 
 
-    :param builtins.str region: Region you'd like the zone for. By default, fetches the current region.
+    :param builtins.str region: Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -121,14 +121,14 @@ def get_log_delivery_canonical_user_id_output(region: Optional[pulumi.Input[Opti
 
     current = aws.s3.get_canonical_user_id()
     example = aws.cloudfront.get_log_delivery_canonical_user_id()
-    example_bucket_v2 = aws.s3.BucketV2("example", bucket="example")
+    example_bucket = aws.s3.Bucket("example", bucket="example")
     example_bucket_ownership_controls = aws.s3.BucketOwnershipControls("example",
-        bucket=example_bucket_v2.id,
+        bucket=example_bucket.id,
         rule={
             "object_ownership": "BucketOwnerPreferred",
         })
-    example_bucket_acl_v2 = aws.s3.BucketAclV2("example",
-        bucket=example_bucket_v2.id,
+    example_bucket_acl = aws.s3.BucketAcl("example",
+        bucket=example_bucket.id,
         access_control_policy={
             "grants": [{
                 "grantee": {
@@ -145,7 +145,7 @@ def get_log_delivery_canonical_user_id_output(region: Optional[pulumi.Input[Opti
     ```
 
 
-    :param builtins.str region: Region you'd like the zone for. By default, fetches the current region.
+    :param builtins.str region: Name of the Region whose canonical user ID is desired. Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['region'] = region

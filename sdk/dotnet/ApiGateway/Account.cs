@@ -98,10 +98,10 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For example:
+    /// Using `pulumi import`, import API Gateway Accounts using the account ID. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:apigateway/account:Account demo api-gateway-account
+    /// $ pulumi import aws:apigateway/account:Account demo 123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/account:Account")]
@@ -126,12 +126,10 @@ namespace Pulumi.Aws.ApiGateway
         public Output<ImmutableArray<string>> Features { get; private set; } = null!;
 
         /// <summary>
-        /// If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-        /// Defaults to `false`.
-        /// Will be removed in a future major version of the provider.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
-        [Output("resetOnDelete")]
-        public Output<bool?> ResetOnDelete { get; private set; } = null!;
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Account-Level throttle settings. See exported fields below.
@@ -192,12 +190,10 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? CloudwatchRoleArn { get; set; }
 
         /// <summary>
-        /// If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-        /// Defaults to `false`.
-        /// Will be removed in a future major version of the provider.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
-        [Input("resetOnDelete")]
-        public Input<bool>? ResetOnDelete { get; set; }
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         public AccountArgs()
         {
@@ -232,12 +228,10 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         /// <summary>
-        /// If `true`, destroying the resource will reset account settings to default, otherwise account settings are not modified.
-        /// Defaults to `false`.
-        /// Will be removed in a future major version of the provider.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
-        [Input("resetOnDelete")]
-        public Input<bool>? ResetOnDelete { get; set; }
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         [Input("throttleSettings")]
         private InputList<Inputs.AccountThrottleSettingGetArgs>? _throttleSettings;

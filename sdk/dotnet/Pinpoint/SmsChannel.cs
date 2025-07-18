@@ -62,6 +62,12 @@ namespace Pulumi.Aws.Pinpoint
         public Output<int> PromotionalMessagesPerSecond { get; private set; } = null!;
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
         /// Identifier of the sender for your messages.
         /// </summary>
         [Output("senderId")]
@@ -138,6 +144,12 @@ namespace Pulumi.Aws.Pinpoint
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
         /// Identifier of the sender for your messages.
         /// </summary>
         [Input("senderId")]
@@ -174,6 +186,12 @@ namespace Pulumi.Aws.Pinpoint
         /// </summary>
         [Input("promotionalMessagesPerSecond")]
         public Input<int>? PromotionalMessagesPerSecond { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// Identifier of the sender for your messages.

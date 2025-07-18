@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,7 +60,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ecr"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ecr"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -109,6 +109,8 @@ import (
 type RegistryScanningConfiguration struct {
 	pulumi.CustomResourceState
 
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The registry ID the scanning configuration applies to.
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
 	// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
@@ -150,6 +152,8 @@ func GetRegistryScanningConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegistryScanningConfiguration resources.
 type registryScanningConfigurationState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The registry ID the scanning configuration applies to.
 	RegistryId *string `pulumi:"registryId"`
 	// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
@@ -159,6 +163,8 @@ type registryScanningConfigurationState struct {
 }
 
 type RegistryScanningConfigurationState struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The registry ID the scanning configuration applies to.
 	RegistryId pulumi.StringPtrInput
 	// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
@@ -172,6 +178,8 @@ func (RegistryScanningConfigurationState) ElementType() reflect.Type {
 }
 
 type registryScanningConfigurationArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
 	Rules []RegistryScanningConfigurationRule `pulumi:"rules"`
 	// the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
@@ -180,6 +188,8 @@ type registryScanningConfigurationArgs struct {
 
 // The set of arguments for constructing a RegistryScanningConfiguration resource.
 type RegistryScanningConfigurationArgs struct {
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// One or multiple blocks specifying scanning rules to determine which repository filters are used and at what frequency scanning will occur. See below for schema.
 	Rules RegistryScanningConfigurationRuleArrayInput
 	// the scanning type to set for the registry. Can be either `ENHANCED` or `BASIC`.
@@ -271,6 +281,11 @@ func (o RegistryScanningConfigurationOutput) ToRegistryScanningConfigurationOutp
 
 func (o RegistryScanningConfigurationOutput) ToRegistryScanningConfigurationOutputWithContext(ctx context.Context) RegistryScanningConfigurationOutput {
 	return o
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o RegistryScanningConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegistryScanningConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The registry ID the scanning configuration applies to.

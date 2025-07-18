@@ -25,7 +25,8 @@ class BgpPeerArgs:
                  virtual_interface_id: pulumi.Input[builtins.str],
                  amazon_address: Optional[pulumi.Input[builtins.str]] = None,
                  bgp_auth_key: Optional[pulumi.Input[builtins.str]] = None,
-                 customer_address: Optional[pulumi.Input[builtins.str]] = None):
+                 customer_address: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a BgpPeer resource.
         :param pulumi.Input[builtins.str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
@@ -36,6 +37,7 @@ class BgpPeerArgs:
         :param pulumi.Input[builtins.str] bgp_auth_key: The authentication key for BGP configuration.
         :param pulumi.Input[builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic.
                Required for IPv4 BGP peers on public virtual interfaces.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "address_family", address_family)
         pulumi.set(__self__, "bgp_asn", bgp_asn)
@@ -46,6 +48,8 @@ class BgpPeerArgs:
             pulumi.set(__self__, "bgp_auth_key", bgp_auth_key)
         if customer_address is not None:
             pulumi.set(__self__, "customer_address", customer_address)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -121,6 +125,18 @@ class BgpPeerArgs:
     def customer_address(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "customer_address", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _BgpPeerState:
@@ -133,6 +149,7 @@ class _BgpPeerState:
                  bgp_peer_id: Optional[pulumi.Input[builtins.str]] = None,
                  bgp_status: Optional[pulumi.Input[builtins.str]] = None,
                  customer_address: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  virtual_interface_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering BgpPeer resources.
@@ -146,6 +163,7 @@ class _BgpPeerState:
         :param pulumi.Input[builtins.str] bgp_status: The Up/Down state of the BGP peer.
         :param pulumi.Input[builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic.
                Required for IPv4 BGP peers on public virtual interfaces.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] virtual_interface_id: The ID of the Direct Connect virtual interface on which to create the BGP peer.
         """
         if address_family is not None:
@@ -164,6 +182,8 @@ class _BgpPeerState:
             pulumi.set(__self__, "bgp_status", bgp_status)
         if customer_address is not None:
             pulumi.set(__self__, "customer_address", customer_address)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if virtual_interface_id is not None:
             pulumi.set(__self__, "virtual_interface_id", virtual_interface_id)
 
@@ -266,6 +286,18 @@ class _BgpPeerState:
         pulumi.set(self, "customer_address", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="virtualInterfaceId")
     def virtual_interface_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -289,6 +321,7 @@ class BgpPeer(pulumi.CustomResource):
                  bgp_asn: Optional[pulumi.Input[builtins.int]] = None,
                  bgp_auth_key: Optional[pulumi.Input[builtins.str]] = None,
                  customer_address: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  virtual_interface_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -315,6 +348,7 @@ class BgpPeer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bgp_auth_key: The authentication key for BGP configuration.
         :param pulumi.Input[builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic.
                Required for IPv4 BGP peers on public virtual interfaces.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] virtual_interface_id: The ID of the Direct Connect virtual interface on which to create the BGP peer.
         """
         ...
@@ -358,6 +392,7 @@ class BgpPeer(pulumi.CustomResource):
                  bgp_asn: Optional[pulumi.Input[builtins.int]] = None,
                  bgp_auth_key: Optional[pulumi.Input[builtins.str]] = None,
                  customer_address: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  virtual_interface_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -377,6 +412,7 @@ class BgpPeer(pulumi.CustomResource):
             __props__.__dict__["bgp_asn"] = bgp_asn
             __props__.__dict__["bgp_auth_key"] = bgp_auth_key
             __props__.__dict__["customer_address"] = customer_address
+            __props__.__dict__["region"] = region
             if virtual_interface_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_interface_id'")
             __props__.__dict__["virtual_interface_id"] = virtual_interface_id
@@ -401,6 +437,7 @@ class BgpPeer(pulumi.CustomResource):
             bgp_peer_id: Optional[pulumi.Input[builtins.str]] = None,
             bgp_status: Optional[pulumi.Input[builtins.str]] = None,
             customer_address: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             virtual_interface_id: Optional[pulumi.Input[builtins.str]] = None) -> 'BgpPeer':
         """
         Get an existing BgpPeer resource's state with the given name, id, and optional extra
@@ -419,6 +456,7 @@ class BgpPeer(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] bgp_status: The Up/Down state of the BGP peer.
         :param pulumi.Input[builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic.
                Required for IPv4 BGP peers on public virtual interfaces.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] virtual_interface_id: The ID of the Direct Connect virtual interface on which to create the BGP peer.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -433,6 +471,7 @@ class BgpPeer(pulumi.CustomResource):
         __props__.__dict__["bgp_peer_id"] = bgp_peer_id
         __props__.__dict__["bgp_status"] = bgp_status
         __props__.__dict__["customer_address"] = customer_address
+        __props__.__dict__["region"] = region
         __props__.__dict__["virtual_interface_id"] = virtual_interface_id
         return BgpPeer(resource_name, opts=opts, __props__=__props__)
 
@@ -501,6 +540,14 @@ class BgpPeer(pulumi.CustomResource):
         Required for IPv4 BGP peers on public virtual interfaces.
         """
         return pulumi.get(self, "customer_address")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="virtualInterfaceId")

@@ -27,7 +27,7 @@ class GetDatabaseResult:
     """
     A collection of values returned by getDatabase.
     """
-    def __init__(__self__, arn=None, created_time=None, id=None, kms_key_id=None, last_updated_time=None, name=None, table_count=None):
+    def __init__(__self__, arn=None, created_time=None, id=None, kms_key_id=None, last_updated_time=None, name=None, region=None, table_count=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -46,6 +46,9 @@ class GetDatabaseResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if table_count and not isinstance(table_count, int):
             raise TypeError("Expected argument 'table_count' to be a int")
         pulumi.set(__self__, "table_count", table_count)
@@ -96,6 +99,11 @@ class GetDatabaseResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="tableCount")
     def table_count(self) -> builtins.int:
         """
@@ -116,10 +124,12 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             kms_key_id=self.kms_key_id,
             last_updated_time=self.last_updated_time,
             name=self.name,
+            region=self.region,
             table_count=self.table_count)
 
 
 def get_database(name: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
     Data source for managing an AWS Timestream Write Database.
@@ -134,9 +144,13 @@ def get_database(name: Optional[builtins.str] = None,
 
     test = aws.timestreamwrite.get_database(name="database-example")
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:timestreamwrite/getDatabase:getDatabase', __args__, opts=opts, typ=GetDatabaseResult).value
 
@@ -147,8 +161,10 @@ def get_database(name: Optional[builtins.str] = None,
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
         table_count=pulumi.get(__ret__, 'table_count'))
 def get_database_output(name: Optional[pulumi.Input[builtins.str]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Data source for managing an AWS Timestream Write Database.
@@ -163,9 +179,13 @@ def get_database_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
     test = aws.timestreamwrite.get_database(name="database-example")
     ```
+
+
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:timestreamwrite/getDatabase:getDatabase', __args__, opts=opts, typ=GetDatabaseResult)
     return __ret__.apply(lambda __response__: GetDatabaseResult(
@@ -175,4 +195,5 @@ def get_database_output(name: Optional[pulumi.Input[builtins.str]] = None,
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
         last_updated_time=pulumi.get(__response__, 'last_updated_time'),
         name=pulumi.get(__response__, 'name'),
+        region=pulumi.get(__response__, 'region'),
         table_count=pulumi.get(__response__, 'table_count')))

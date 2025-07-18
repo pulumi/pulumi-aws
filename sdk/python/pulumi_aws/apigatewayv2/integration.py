@@ -34,6 +34,7 @@ class IntegrationArgs:
                  integration_uri: Optional[pulumi.Input[builtins.str]] = None,
                  passthrough_behavior: Optional[pulumi.Input[builtins.str]] = None,
                  payload_format_version: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  response_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]] = None,
@@ -57,6 +58,7 @@ class IntegrationArgs:
         :param pulumi.Input[builtins.str] passthrough_behavior: Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
                Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
         :param pulumi.Input[builtins.str] payload_format_version: The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_parameters: For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
                For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
                For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
@@ -91,6 +93,8 @@ class IntegrationArgs:
             pulumi.set(__self__, "passthrough_behavior", passthrough_behavior)
         if payload_format_version is not None:
             pulumi.set(__self__, "payload_format_version", payload_format_version)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if request_parameters is not None:
             pulumi.set(__self__, "request_parameters", request_parameters)
         if request_templates is not None:
@@ -252,6 +256,18 @@ class IntegrationArgs:
         pulumi.set(self, "payload_format_version", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -345,6 +361,7 @@ class _IntegrationState:
                  integration_uri: Optional[pulumi.Input[builtins.str]] = None,
                  passthrough_behavior: Optional[pulumi.Input[builtins.str]] = None,
                  payload_format_version: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  response_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationResponseParameterArgs']]]] = None,
@@ -369,6 +386,7 @@ class _IntegrationState:
         :param pulumi.Input[builtins.str] passthrough_behavior: Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
                Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
         :param pulumi.Input[builtins.str] payload_format_version: The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_parameters: For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
                For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
                For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
@@ -407,6 +425,8 @@ class _IntegrationState:
             pulumi.set(__self__, "passthrough_behavior", passthrough_behavior)
         if payload_format_version is not None:
             pulumi.set(__self__, "payload_format_version", payload_format_version)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if request_parameters is not None:
             pulumi.set(__self__, "request_parameters", request_parameters)
         if request_templates is not None:
@@ -580,6 +600,18 @@ class _IntegrationState:
         pulumi.set(self, "payload_format_version", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="requestParameters")
     def request_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -675,6 +707,7 @@ class Integration(pulumi.CustomResource):
                  integration_uri: Optional[pulumi.Input[builtins.str]] = None,
                  passthrough_behavior: Optional[pulumi.Input[builtins.str]] = None,
                  payload_format_version: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  response_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResponseParameterArgs', 'IntegrationResponseParameterArgsDict']]]]] = None,
@@ -804,6 +837,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] passthrough_behavior: Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
                Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
         :param pulumi.Input[builtins.str] payload_format_version: The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_parameters: For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
                For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
                For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
@@ -954,6 +988,7 @@ class Integration(pulumi.CustomResource):
                  integration_uri: Optional[pulumi.Input[builtins.str]] = None,
                  passthrough_behavior: Optional[pulumi.Input[builtins.str]] = None,
                  payload_format_version: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  response_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResponseParameterArgs', 'IntegrationResponseParameterArgsDict']]]]] = None,
@@ -985,6 +1020,7 @@ class Integration(pulumi.CustomResource):
             __props__.__dict__["integration_uri"] = integration_uri
             __props__.__dict__["passthrough_behavior"] = passthrough_behavior
             __props__.__dict__["payload_format_version"] = payload_format_version
+            __props__.__dict__["region"] = region
             __props__.__dict__["request_parameters"] = request_parameters
             __props__.__dict__["request_templates"] = request_templates
             __props__.__dict__["response_parameters"] = response_parameters
@@ -1015,6 +1051,7 @@ class Integration(pulumi.CustomResource):
             integration_uri: Optional[pulumi.Input[builtins.str]] = None,
             passthrough_behavior: Optional[pulumi.Input[builtins.str]] = None,
             payload_format_version: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             response_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationResponseParameterArgs', 'IntegrationResponseParameterArgsDict']]]]] = None,
@@ -1044,6 +1081,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] passthrough_behavior: Pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the `request_templates` attribute.
                Valid values: `WHEN_NO_MATCH`, `WHEN_NO_TEMPLATES`, `NEVER`. Default is `WHEN_NO_MATCH`. Supported only for WebSocket APIs.
         :param pulumi.Input[builtins.str] payload_format_version: The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] request_parameters: For WebSocket APIs, a key-value map specifying request parameters that are passed from the method request to the backend.
                For HTTP APIs with a specified `integration_subtype`, a key-value map specifying parameters that are passed to `AWS_PROXY` integrations.
                For HTTP APIs without a specified `integration_subtype`, a key-value map specifying how to transform HTTP requests before sending them to the backend.
@@ -1073,6 +1111,7 @@ class Integration(pulumi.CustomResource):
         __props__.__dict__["integration_uri"] = integration_uri
         __props__.__dict__["passthrough_behavior"] = passthrough_behavior
         __props__.__dict__["payload_format_version"] = payload_format_version
+        __props__.__dict__["region"] = region
         __props__.__dict__["request_parameters"] = request_parameters
         __props__.__dict__["request_templates"] = request_templates
         __props__.__dict__["response_parameters"] = response_parameters
@@ -1187,6 +1226,14 @@ class Integration(pulumi.CustomResource):
         The [format of the payload](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) sent to an integration. Valid values: `1.0`, `2.0`. Default is `1.0`.
         """
         return pulumi.get(self, "payload_format_version")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="requestParameters")

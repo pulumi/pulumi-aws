@@ -112,6 +112,10 @@ export class Replicator extends pulumi.CustomResource {
      */
     public readonly kafkaClusters!: pulumi.Output<outputs.msk.ReplicatorKafkaCluster[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
      */
     public readonly replicationInfoList!: pulumi.Output<outputs.msk.ReplicatorReplicationInfoList>;
@@ -129,8 +133,6 @@ export class Replicator extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -151,6 +153,7 @@ export class Replicator extends pulumi.CustomResource {
             resourceInputs["currentVersion"] = state ? state.currentVersion : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["kafkaClusters"] = state ? state.kafkaClusters : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["replicationInfoList"] = state ? state.replicationInfoList : undefined;
             resourceInputs["replicatorName"] = state ? state.replicatorName : undefined;
             resourceInputs["serviceExecutionRoleArn"] = state ? state.serviceExecutionRoleArn : undefined;
@@ -172,6 +175,7 @@ export class Replicator extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["kafkaClusters"] = args ? args.kafkaClusters : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["replicationInfoList"] = args ? args.replicationInfoList : undefined;
             resourceInputs["replicatorName"] = args ? args.replicatorName : undefined;
             resourceInputs["serviceExecutionRoleArn"] = args ? args.serviceExecutionRoleArn : undefined;
@@ -203,6 +207,10 @@ export interface ReplicatorState {
      */
     kafkaClusters?: pulumi.Input<pulumi.Input<inputs.msk.ReplicatorKafkaCluster>[]>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
      */
     replicationInfoList?: pulumi.Input<inputs.msk.ReplicatorReplicationInfoList>;
@@ -220,8 +228,6 @@ export interface ReplicatorState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-     *
-     * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -238,6 +244,10 @@ export interface ReplicatorArgs {
      * A list of Kafka clusters which are targets of the replicator.
      */
     kafkaClusters: pulumi.Input<pulumi.Input<inputs.msk.ReplicatorKafkaCluster>[]>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
      */

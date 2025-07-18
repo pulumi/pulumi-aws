@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class FunctionRecursionConfigArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,14 +17,14 @@ public final class FunctionRecursionConfigArgs extends com.pulumi.resources.Reso
     public static final FunctionRecursionConfigArgs Empty = new FunctionRecursionConfigArgs();
 
     /**
-     * Lambda function name.
+     * Name of the Lambda function.
      * 
      */
     @Import(name="functionName", required=true)
     private Output<String> functionName;
 
     /**
-     * @return Lambda function name.
+     * @return Name of the Lambda function.
      * 
      */
     public Output<String> functionName() {
@@ -32,6 +34,8 @@ public final class FunctionRecursionConfigArgs extends com.pulumi.resources.Reso
     /**
      * Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="recursiveLoop", required=true)
     private Output<String> recursiveLoop;
@@ -39,9 +43,26 @@ public final class FunctionRecursionConfigArgs extends com.pulumi.resources.Reso
     /**
      * @return Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> recursiveLoop() {
         return this.recursiveLoop;
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     private FunctionRecursionConfigArgs() {}
@@ -49,6 +70,7 @@ public final class FunctionRecursionConfigArgs extends com.pulumi.resources.Reso
     private FunctionRecursionConfigArgs(FunctionRecursionConfigArgs $) {
         this.functionName = $.functionName;
         this.recursiveLoop = $.recursiveLoop;
+        this.region = $.region;
     }
 
     public static Builder builder() {
@@ -70,7 +92,7 @@ public final class FunctionRecursionConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param functionName Lambda function name.
+         * @param functionName Name of the Lambda function.
          * 
          * @return builder
          * 
@@ -81,7 +103,7 @@ public final class FunctionRecursionConfigArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param functionName Lambda function name.
+         * @param functionName Name of the Lambda function.
          * 
          * @return builder
          * 
@@ -92,6 +114,8 @@ public final class FunctionRecursionConfigArgs extends com.pulumi.resources.Reso
 
         /**
          * @param recursiveLoop Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -104,11 +128,34 @@ public final class FunctionRecursionConfigArgs extends com.pulumi.resources.Reso
         /**
          * @param recursiveLoop Lambda function recursion configuration. Valid values are `Allow` or `Terminate`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
         public Builder recursiveLoop(String recursiveLoop) {
             return recursiveLoop(Output.of(recursiveLoop));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         public FunctionRecursionConfigArgs build() {

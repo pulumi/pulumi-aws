@@ -27,10 +27,13 @@ class GetStateMachineVersionsResult:
     """
     A collection of values returned by getStateMachineVersions.
     """
-    def __init__(__self__, id=None, statemachine_arn=None, statemachine_versions=None):
+    def __init__(__self__, id=None, region=None, statemachine_arn=None, statemachine_versions=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if statemachine_arn and not isinstance(statemachine_arn, str):
             raise TypeError("Expected argument 'statemachine_arn' to be a str")
         pulumi.set(__self__, "statemachine_arn", statemachine_arn)
@@ -45,6 +48,11 @@ class GetStateMachineVersionsResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="statemachineArn")
@@ -67,11 +75,13 @@ class AwaitableGetStateMachineVersionsResult(GetStateMachineVersionsResult):
             yield self
         return GetStateMachineVersionsResult(
             id=self.id,
+            region=self.region,
             statemachine_arn=self.statemachine_arn,
             statemachine_versions=self.statemachine_versions)
 
 
-def get_state_machine_versions(statemachine_arn: Optional[builtins.str] = None,
+def get_state_machine_versions(region: Optional[builtins.str] = None,
+                               statemachine_arn: Optional[builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStateMachineVersionsResult:
     """
     Data source for managing an AWS SFN (Step Functions) State Machine Versions.
@@ -88,18 +98,22 @@ def get_state_machine_versions(statemachine_arn: Optional[builtins.str] = None,
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str statemachine_arn: ARN of the State Machine.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['statemachineArn'] = statemachine_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:sfn/getStateMachineVersions:getStateMachineVersions', __args__, opts=opts, typ=GetStateMachineVersionsResult).value
 
     return AwaitableGetStateMachineVersionsResult(
         id=pulumi.get(__ret__, 'id'),
+        region=pulumi.get(__ret__, 'region'),
         statemachine_arn=pulumi.get(__ret__, 'statemachine_arn'),
         statemachine_versions=pulumi.get(__ret__, 'statemachine_versions'))
-def get_state_machine_versions_output(statemachine_arn: Optional[pulumi.Input[builtins.str]] = None,
+def get_state_machine_versions_output(region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                                      statemachine_arn: Optional[pulumi.Input[builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStateMachineVersionsResult]:
     """
     Data source for managing an AWS SFN (Step Functions) State Machine Versions.
@@ -116,13 +130,16 @@ def get_state_machine_versions_output(statemachine_arn: Optional[pulumi.Input[bu
     ```
 
 
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param builtins.str statemachine_arn: ARN of the State Machine.
     """
     __args__ = dict()
+    __args__['region'] = region
     __args__['statemachineArn'] = statemachine_arn
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:sfn/getStateMachineVersions:getStateMachineVersions', __args__, opts=opts, typ=GetStateMachineVersionsResult)
     return __ret__.apply(lambda __response__: GetStateMachineVersionsResult(
         id=pulumi.get(__response__, 'id'),
+        region=pulumi.get(__response__, 'region'),
         statemachine_arn=pulumi.get(__response__, 'statemachine_arn'),
         statemachine_versions=pulumi.get(__response__, 'statemachine_versions')))

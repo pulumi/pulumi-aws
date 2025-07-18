@@ -25,6 +25,7 @@ class CustomLogSourceArgs:
                  source_name: pulumi.Input[builtins.str],
                  configuration: Optional[pulumi.Input['CustomLogSourceConfigurationArgs']] = None,
                  event_classes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_version: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a CustomLogSource resource.
@@ -33,6 +34,7 @@ class CustomLogSourceArgs:
                Has a maximum length of 20.
         :param pulumi.Input['CustomLogSourceConfigurationArgs'] configuration: The configuration for the third-party custom source.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_classes: The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_version: Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
         """
         pulumi.set(__self__, "source_name", source_name)
@@ -40,6 +42,8 @@ class CustomLogSourceArgs:
             pulumi.set(__self__, "configuration", configuration)
         if event_classes is not None:
             pulumi.set(__self__, "event_classes", event_classes)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source_version is not None:
             pulumi.set(__self__, "source_version", source_version)
 
@@ -82,6 +86,18 @@ class CustomLogSourceArgs:
         pulumi.set(self, "event_classes", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sourceVersion")
     def source_version(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -101,6 +117,7 @@ class _CustomLogSourceState:
                  configuration: Optional[pulumi.Input['CustomLogSourceConfigurationArgs']] = None,
                  event_classes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  provider_details: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLogSourceProviderDetailArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_name: Optional[pulumi.Input[builtins.str]] = None,
                  source_version: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -109,6 +126,7 @@ class _CustomLogSourceState:
         :param pulumi.Input['CustomLogSourceConfigurationArgs'] configuration: The configuration for the third-party custom source.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_classes: The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
         :param pulumi.Input[Sequence[pulumi.Input['CustomLogSourceProviderDetailArgs']]] provider_details: The details of the log provider for a third-party custom source.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_name: Specify the name for a third-party custom source.
                This must be a Regionally unique value.
                Has a maximum length of 20.
@@ -122,6 +140,8 @@ class _CustomLogSourceState:
             pulumi.set(__self__, "event_classes", event_classes)
         if provider_details is not None:
             pulumi.set(__self__, "provider_details", provider_details)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if source_name is not None:
             pulumi.set(__self__, "source_name", source_name)
         if source_version is not None:
@@ -176,6 +196,18 @@ class _CustomLogSourceState:
         pulumi.set(self, "provider_details", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="sourceName")
     def source_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -210,6 +242,7 @@ class CustomLogSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration: Optional[pulumi.Input[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']]] = None,
                  event_classes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_name: Optional[pulumi.Input[builtins.str]] = None,
                  source_version: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -254,6 +287,7 @@ class CustomLogSource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']] configuration: The configuration for the third-party custom source.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_classes: The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_name: Specify the name for a third-party custom source.
                This must be a Regionally unique value.
                Has a maximum length of 20.
@@ -319,6 +353,7 @@ class CustomLogSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration: Optional[pulumi.Input[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']]] = None,
                  event_classes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  source_name: Optional[pulumi.Input[builtins.str]] = None,
                  source_version: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -332,6 +367,7 @@ class CustomLogSource(pulumi.CustomResource):
 
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["event_classes"] = event_classes
+            __props__.__dict__["region"] = region
             if source_name is None and not opts.urn:
                 raise TypeError("Missing required property 'source_name'")
             __props__.__dict__["source_name"] = source_name
@@ -352,6 +388,7 @@ class CustomLogSource(pulumi.CustomResource):
             configuration: Optional[pulumi.Input[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']]] = None,
             event_classes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             provider_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CustomLogSourceProviderDetailArgs', 'CustomLogSourceProviderDetailArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             source_name: Optional[pulumi.Input[builtins.str]] = None,
             source_version: Optional[pulumi.Input[builtins.str]] = None) -> 'CustomLogSource':
         """
@@ -365,6 +402,7 @@ class CustomLogSource(pulumi.CustomResource):
         :param pulumi.Input[Union['CustomLogSourceConfigurationArgs', 'CustomLogSourceConfigurationArgsDict']] configuration: The configuration for the third-party custom source.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] event_classes: The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CustomLogSourceProviderDetailArgs', 'CustomLogSourceProviderDetailArgsDict']]]] provider_details: The details of the log provider for a third-party custom source.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] source_name: Specify the name for a third-party custom source.
                This must be a Regionally unique value.
                Has a maximum length of 20.
@@ -378,6 +416,7 @@ class CustomLogSource(pulumi.CustomResource):
         __props__.__dict__["configuration"] = configuration
         __props__.__dict__["event_classes"] = event_classes
         __props__.__dict__["provider_details"] = provider_details
+        __props__.__dict__["region"] = region
         __props__.__dict__["source_name"] = source_name
         __props__.__dict__["source_version"] = source_version
         return CustomLogSource(resource_name, opts=opts, __props__=__props__)
@@ -413,6 +452,14 @@ class CustomLogSource(pulumi.CustomResource):
         The details of the log provider for a third-party custom source.
         """
         return pulumi.get(self, "provider_details")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="sourceName")

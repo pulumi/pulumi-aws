@@ -28,7 +28,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, database_insights_mode=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_user_secrets=None, master_username=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_throughput=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None):
+    def __init__(__self__, address=None, allocated_storage=None, auto_minor_version_upgrade=None, availability_zone=None, backup_retention_period=None, ca_cert_identifier=None, database_insights_mode=None, db_cluster_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_identifier=None, db_instance_port=None, db_name=None, db_parameter_groups=None, db_subnet_group=None, enabled_cloudwatch_logs_exports=None, endpoint=None, engine=None, engine_version=None, hosted_zone_id=None, id=None, iops=None, kms_key_id=None, license_model=None, master_user_secrets=None, master_username=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_memberships=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, publicly_accessible=None, region=None, replicate_source_db=None, resource_id=None, storage_encrypted=None, storage_throughput=None, storage_type=None, tags=None, timezone=None, vpc_security_groups=None):
         if address and not isinstance(address, str):
             raise TypeError("Expected argument 'address' to be a str")
         pulumi.set(__self__, "address", address)
@@ -137,6 +137,9 @@ class GetInstanceResult:
         if publicly_accessible and not isinstance(publicly_accessible, bool):
             raise TypeError("Expected argument 'publicly_accessible' to be a bool")
         pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if replicate_source_db and not isinstance(replicate_source_db, str):
             raise TypeError("Expected argument 'replicate_source_db' to be a str")
         pulumi.set(__self__, "replicate_source_db", replicate_source_db)
@@ -448,6 +451,11 @@ class GetInstanceResult:
         return pulumi.get(self, "publicly_accessible")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="replicateSourceDb")
     def replicate_source_db(self) -> builtins.str:
         """
@@ -551,6 +559,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             preferred_backup_window=self.preferred_backup_window,
             preferred_maintenance_window=self.preferred_maintenance_window,
             publicly_accessible=self.publicly_accessible,
+            region=self.region,
             replicate_source_db=self.replicate_source_db,
             resource_id=self.resource_id,
             storage_encrypted=self.storage_encrypted,
@@ -562,6 +571,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
 
 
 def get_instance(db_instance_identifier: Optional[builtins.str] = None,
+                 region: Optional[builtins.str] = None,
                  tags: Optional[Mapping[str, builtins.str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceResult:
     """
@@ -578,10 +588,12 @@ def get_instance(db_instance_identifier: Optional[builtins.str] = None,
 
 
     :param builtins.str db_instance_identifier: Name of the RDS instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired instance.
     """
     __args__ = dict()
     __args__['dbInstanceIdentifier'] = db_instance_identifier
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:rds/getInstance:getInstance', __args__, opts=opts, typ=GetInstanceResult).value
@@ -623,6 +635,7 @@ def get_instance(db_instance_identifier: Optional[builtins.str] = None,
         preferred_backup_window=pulumi.get(__ret__, 'preferred_backup_window'),
         preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
         publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
+        region=pulumi.get(__ret__, 'region'),
         replicate_source_db=pulumi.get(__ret__, 'replicate_source_db'),
         resource_id=pulumi.get(__ret__, 'resource_id'),
         storage_encrypted=pulumi.get(__ret__, 'storage_encrypted'),
@@ -632,6 +645,7 @@ def get_instance(db_instance_identifier: Optional[builtins.str] = None,
         timezone=pulumi.get(__ret__, 'timezone'),
         vpc_security_groups=pulumi.get(__ret__, 'vpc_security_groups'))
 def get_instance_output(db_instance_identifier: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                        region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
     """
@@ -648,10 +662,12 @@ def get_instance_output(db_instance_identifier: Optional[pulumi.Input[Optional[b
 
 
     :param builtins.str db_instance_identifier: Name of the RDS instance.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired instance.
     """
     __args__ = dict()
     __args__['dbInstanceIdentifier'] = db_instance_identifier
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:rds/getInstance:getInstance', __args__, opts=opts, typ=GetInstanceResult)
@@ -692,6 +708,7 @@ def get_instance_output(db_instance_identifier: Optional[pulumi.Input[Optional[b
         preferred_backup_window=pulumi.get(__response__, 'preferred_backup_window'),
         preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window'),
         publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
+        region=pulumi.get(__response__, 'region'),
         replicate_source_db=pulumi.get(__response__, 'replicate_source_db'),
         resource_id=pulumi.get(__response__, 'resource_id'),
         storage_encrypted=pulumi.get(__response__, 'storage_encrypted'),

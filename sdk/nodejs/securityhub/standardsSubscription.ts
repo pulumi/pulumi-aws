@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const cis = new aws.securityhub.StandardsSubscription("cis", {standardsArn: "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"}, {
  *     dependsOn: [example],
  * });
- * const pci321 = new aws.securityhub.StandardsSubscription("pci_321", {standardsArn: current.then(current => `arn:aws:securityhub:${current.name}::standards/pci-dss/v/3.2.1`)}, {
+ * const pci321 = new aws.securityhub.StandardsSubscription("pci_321", {standardsArn: current.then(current => `arn:aws:securityhub:${current.region}::standards/pci-dss/v/3.2.1`)}, {
  *     dependsOn: [example],
  * });
  * ```
@@ -66,6 +66,10 @@ export class StandardsSubscription extends pulumi.CustomResource {
     }
 
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of a standard - see below.
      *
      * Currently available standards (remember to replace `${var.partition}` and `${var.region}` as appropriate):
@@ -95,12 +99,14 @@ export class StandardsSubscription extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StandardsSubscriptionState | undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["standardsArn"] = state ? state.standardsArn : undefined;
         } else {
             const args = argsOrState as StandardsSubscriptionArgs | undefined;
             if ((!args || args.standardsArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'standardsArn'");
             }
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["standardsArn"] = args ? args.standardsArn : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -112,6 +118,10 @@ export class StandardsSubscription extends pulumi.CustomResource {
  * Input properties used for looking up and filtering StandardsSubscription resources.
  */
 export interface StandardsSubscriptionState {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of a standard - see below.
      *
@@ -134,6 +144,10 @@ export interface StandardsSubscriptionState {
  * The set of arguments for constructing a StandardsSubscription resource.
  */
 export interface StandardsSubscriptionArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * The ARN of a standard - see below.
      *

@@ -36,6 +36,7 @@ class EventTargetArgs:
                  input_transformer: Optional[pulumi.Input['EventTargetInputTransformerArgs']] = None,
                  kinesis_target: Optional[pulumi.Input['EventTargetKinesisTargetArgs']] = None,
                  redshift_target: Optional[pulumi.Input['EventTargetRedshiftTargetArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retry_policy: Optional[pulumi.Input['EventTargetRetryPolicyArgs']] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  run_command_targets: Optional[pulumi.Input[Sequence[pulumi.Input['EventTargetRunCommandTargetArgs']]]] = None,
@@ -61,6 +62,7 @@ class EventTargetArgs:
         :param pulumi.Input['EventTargetInputTransformerArgs'] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
         :param pulumi.Input['EventTargetKinesisTargetArgs'] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetRedshiftTargetArgs'] redshift_target: Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['EventTargetRetryPolicyArgs'] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[Sequence[pulumi.Input['EventTargetRunCommandTargetArgs']]] run_command_targets: Parameters used when you are using the rule to invoke Amazon EC2 Run Command. Documented below. A maximum of 5 are allowed.
@@ -94,6 +96,8 @@ class EventTargetArgs:
             pulumi.set(__self__, "kinesis_target", kinesis_target)
         if redshift_target is not None:
             pulumi.set(__self__, "redshift_target", redshift_target)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retry_policy is not None:
             pulumi.set(__self__, "retry_policy", retry_policy)
         if role_arn is not None:
@@ -279,6 +283,18 @@ class EventTargetArgs:
         pulumi.set(self, "redshift_target", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="retryPolicy")
     def retry_policy(self) -> Optional[pulumi.Input['EventTargetRetryPolicyArgs']]:
         """
@@ -367,6 +383,7 @@ class _EventTargetState:
                  input_transformer: Optional[pulumi.Input['EventTargetInputTransformerArgs']] = None,
                  kinesis_target: Optional[pulumi.Input['EventTargetKinesisTargetArgs']] = None,
                  redshift_target: Optional[pulumi.Input['EventTargetRedshiftTargetArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retry_policy: Optional[pulumi.Input['EventTargetRetryPolicyArgs']] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  rule: Optional[pulumi.Input[builtins.str]] = None,
@@ -390,6 +407,7 @@ class _EventTargetState:
         :param pulumi.Input['EventTargetInputTransformerArgs'] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
         :param pulumi.Input['EventTargetKinesisTargetArgs'] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input['EventTargetRedshiftTargetArgs'] redshift_target: Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['EventTargetRetryPolicyArgs'] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[builtins.str] rule: The name of the rule you want to add targets to.
@@ -426,6 +444,8 @@ class _EventTargetState:
             pulumi.set(__self__, "kinesis_target", kinesis_target)
         if redshift_target is not None:
             pulumi.set(__self__, "redshift_target", redshift_target)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if retry_policy is not None:
             pulumi.set(__self__, "retry_policy", retry_policy)
         if role_arn is not None:
@@ -599,6 +619,18 @@ class _EventTargetState:
         pulumi.set(self, "redshift_target", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="retryPolicy")
     def retry_policy(self) -> Optional[pulumi.Input['EventTargetRetryPolicyArgs']]:
         """
@@ -704,6 +736,7 @@ class EventTarget(pulumi.CustomResource):
                  input_transformer: Optional[pulumi.Input[Union['EventTargetInputTransformerArgs', 'EventTargetInputTransformerArgsDict']]] = None,
                  kinesis_target: Optional[pulumi.Input[Union['EventTargetKinesisTargetArgs', 'EventTargetKinesisTargetArgsDict']]] = None,
                  redshift_target: Optional[pulumi.Input[Union['EventTargetRedshiftTargetArgs', 'EventTargetRedshiftTargetArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retry_policy: Optional[pulumi.Input[Union['EventTargetRetryPolicyArgs', 'EventTargetRetryPolicyArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  rule: Optional[pulumi.Input[builtins.str]] = None,
@@ -1176,6 +1209,7 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[Union['EventTargetInputTransformerArgs', 'EventTargetInputTransformerArgsDict']] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
         :param pulumi.Input[Union['EventTargetKinesisTargetArgs', 'EventTargetKinesisTargetArgsDict']] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[Union['EventTargetRedshiftTargetArgs', 'EventTargetRedshiftTargetArgsDict']] redshift_target: Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['EventTargetRetryPolicyArgs', 'EventTargetRetryPolicyArgsDict']] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[builtins.str] rule: The name of the rule you want to add targets to.
@@ -1668,6 +1702,7 @@ class EventTarget(pulumi.CustomResource):
                  input_transformer: Optional[pulumi.Input[Union['EventTargetInputTransformerArgs', 'EventTargetInputTransformerArgsDict']]] = None,
                  kinesis_target: Optional[pulumi.Input[Union['EventTargetKinesisTargetArgs', 'EventTargetKinesisTargetArgsDict']]] = None,
                  redshift_target: Optional[pulumi.Input[Union['EventTargetRedshiftTargetArgs', 'EventTargetRedshiftTargetArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  retry_policy: Optional[pulumi.Input[Union['EventTargetRetryPolicyArgs', 'EventTargetRetryPolicyArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[builtins.str]] = None,
                  rule: Optional[pulumi.Input[builtins.str]] = None,
@@ -1699,6 +1734,7 @@ class EventTarget(pulumi.CustomResource):
             __props__.__dict__["input_transformer"] = input_transformer
             __props__.__dict__["kinesis_target"] = kinesis_target
             __props__.__dict__["redshift_target"] = redshift_target
+            __props__.__dict__["region"] = region
             __props__.__dict__["retry_policy"] = retry_policy
             __props__.__dict__["role_arn"] = role_arn
             if rule is None and not opts.urn:
@@ -1731,6 +1767,7 @@ class EventTarget(pulumi.CustomResource):
             input_transformer: Optional[pulumi.Input[Union['EventTargetInputTransformerArgs', 'EventTargetInputTransformerArgsDict']]] = None,
             kinesis_target: Optional[pulumi.Input[Union['EventTargetKinesisTargetArgs', 'EventTargetKinesisTargetArgsDict']]] = None,
             redshift_target: Optional[pulumi.Input[Union['EventTargetRedshiftTargetArgs', 'EventTargetRedshiftTargetArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             retry_policy: Optional[pulumi.Input[Union['EventTargetRetryPolicyArgs', 'EventTargetRetryPolicyArgsDict']]] = None,
             role_arn: Optional[pulumi.Input[builtins.str]] = None,
             rule: Optional[pulumi.Input[builtins.str]] = None,
@@ -1759,6 +1796,7 @@ class EventTarget(pulumi.CustomResource):
         :param pulumi.Input[Union['EventTargetInputTransformerArgs', 'EventTargetInputTransformerArgsDict']] input_transformer: Parameters used when you are providing a custom input to a target based on certain event data. Conflicts with `input` and `input_path`.
         :param pulumi.Input[Union['EventTargetKinesisTargetArgs', 'EventTargetKinesisTargetArgsDict']] kinesis_target: Parameters used when you are using the rule to invoke an Amazon Kinesis Stream. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[Union['EventTargetRedshiftTargetArgs', 'EventTargetRedshiftTargetArgsDict']] redshift_target: Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['EventTargetRetryPolicyArgs', 'EventTargetRetryPolicyArgsDict']] retry_policy: Parameters used when you are providing retry policies. Documented below. A maximum of 1 are allowed.
         :param pulumi.Input[builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. Required if `ecs_target` is used or target in `arn` is EC2 instance, Kinesis data stream, Step Functions state machine, or Event Bus in different account or region.
         :param pulumi.Input[builtins.str] rule: The name of the rule you want to add targets to.
@@ -1786,6 +1824,7 @@ class EventTarget(pulumi.CustomResource):
         __props__.__dict__["input_transformer"] = input_transformer
         __props__.__dict__["kinesis_target"] = kinesis_target
         __props__.__dict__["redshift_target"] = redshift_target
+        __props__.__dict__["region"] = region
         __props__.__dict__["retry_policy"] = retry_policy
         __props__.__dict__["role_arn"] = role_arn
         __props__.__dict__["rule"] = rule
@@ -1899,6 +1938,14 @@ class EventTarget(pulumi.CustomResource):
         Parameters used when you are using the rule to invoke an Amazon Redshift Statement. Documented below. A maximum of 1 are allowed.
         """
         return pulumi.get(self, "redshift_target")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="retryPolicy")

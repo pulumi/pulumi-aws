@@ -16,14 +16,14 @@ public final class FunctionEphemeralStorageArgs extends com.pulumi.resources.Res
     public static final FunctionEphemeralStorageArgs Empty = new FunctionEphemeralStorageArgs();
 
     /**
-     * The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeral_storage` value defaults to `512`MB and the maximum supported value is `10240`MB.
+     * Amount of ephemeral storage (`/tmp`) in MB. Valid between 512 MB and 10,240 MB (10 GB).
      * 
      */
     @Import(name="size")
     private @Nullable Output<Integer> size;
 
     /**
-     * @return The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeral_storage` value defaults to `512`MB and the maximum supported value is `10240`MB.
+     * @return Amount of ephemeral storage (`/tmp`) in MB. Valid between 512 MB and 10,240 MB (10 GB).
      * 
      */
     public Optional<Output<Integer>> size() {
@@ -55,7 +55,7 @@ public final class FunctionEphemeralStorageArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param size The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeral_storage` value defaults to `512`MB and the maximum supported value is `10240`MB.
+         * @param size Amount of ephemeral storage (`/tmp`) in MB. Valid between 512 MB and 10,240 MB (10 GB).
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class FunctionEphemeralStorageArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param size The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeral_storage` value defaults to `512`MB and the maximum supported value is `10240`MB.
+         * @param size Amount of ephemeral storage (`/tmp`) in MB. Valid between 512 MB and 10,240 MB (10 GB).
          * 
          * @return builder
          * 

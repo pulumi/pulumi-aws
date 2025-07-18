@@ -26,6 +26,7 @@ export function getRepositoryEndpoint(args: GetRepositoryEndpointArgs, opts?: pu
         "domain": args.domain,
         "domainOwner": args.domainOwner,
         "format": args.format,
+        "region": args.region,
         "repository": args.repository,
     }, opts);
 }
@@ -47,6 +48,10 @@ export interface GetRepositoryEndpointArgs {
      */
     format: string;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
+    /**
      * Name of the repository.
      */
     repository: string;
@@ -63,6 +68,7 @@ export interface GetRepositoryEndpointResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly region: string;
     readonly repository: string;
     /**
      * URL of the returned endpoint.
@@ -91,6 +97,7 @@ export function getRepositoryEndpointOutput(args: GetRepositoryEndpointOutputArg
         "domain": args.domain,
         "domainOwner": args.domainOwner,
         "format": args.format,
+        "region": args.region,
         "repository": args.repository,
     }, opts);
 }
@@ -111,6 +118,10 @@ export interface GetRepositoryEndpointOutputArgs {
      * Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
      */
     format: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Name of the repository.
      */

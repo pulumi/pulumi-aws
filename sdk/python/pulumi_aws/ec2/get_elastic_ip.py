@@ -29,7 +29,7 @@ class GetElasticIpResult:
     """
     A collection of values returned by getElasticIp.
     """
-    def __init__(__self__, arn=None, association_id=None, carrier_ip=None, customer_owned_ip=None, customer_owned_ipv4_pool=None, domain=None, filters=None, id=None, instance_id=None, ipam_pool_id=None, network_interface_id=None, network_interface_owner_id=None, private_dns=None, private_ip=None, ptr_record=None, public_dns=None, public_ip=None, public_ipv4_pool=None, tags=None):
+    def __init__(__self__, arn=None, association_id=None, carrier_ip=None, customer_owned_ip=None, customer_owned_ipv4_pool=None, domain=None, filters=None, id=None, instance_id=None, ipam_pool_id=None, network_interface_id=None, network_interface_owner_id=None, private_dns=None, private_ip=None, ptr_record=None, public_dns=None, public_ip=None, public_ipv4_pool=None, region=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -84,6 +84,9 @@ class GetElasticIpResult:
         if public_ipv4_pool and not isinstance(public_ipv4_pool, str):
             raise TypeError("Expected argument 'public_ipv4_pool' to be a str")
         pulumi.set(__self__, "public_ipv4_pool", public_ipv4_pool)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -228,6 +231,11 @@ class GetElasticIpResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, builtins.str]:
         """
         Key-value map of tags associated with Elastic IP.
@@ -259,12 +267,14 @@ class AwaitableGetElasticIpResult(GetElasticIpResult):
             public_dns=self.public_dns,
             public_ip=self.public_ip,
             public_ipv4_pool=self.public_ipv4_pool,
+            region=self.region,
             tags=self.tags)
 
 
 def get_elastic_ip(filters: Optional[Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict']]] = None,
                    id: Optional[builtins.str] = None,
                    public_ip: Optional[builtins.str] = None,
+                   region: Optional[builtins.str] = None,
                    tags: Optional[Mapping[str, builtins.str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetElasticIpResult:
     """
@@ -317,6 +327,7 @@ def get_elastic_ip(filters: Optional[Sequence[Union['GetElasticIpFilterArgs', 'G
     :param Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
     :param builtins.str id: Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
     :param builtins.str public_ip: Public IP of the specific EIP to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
            
            The arguments of this data source act as filters for querying the available
@@ -327,6 +338,7 @@ def get_elastic_ip(filters: Optional[Sequence[Union['GetElasticIpFilterArgs', 'G
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['publicIp'] = public_ip
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:ec2/getElasticIp:getElasticIp', __args__, opts=opts, typ=GetElasticIpResult).value
@@ -350,10 +362,12 @@ def get_elastic_ip(filters: Optional[Sequence[Union['GetElasticIpFilterArgs', 'G
         public_dns=pulumi.get(__ret__, 'public_dns'),
         public_ip=pulumi.get(__ret__, 'public_ip'),
         public_ipv4_pool=pulumi.get(__ret__, 'public_ipv4_pool'),
+        region=pulumi.get(__ret__, 'region'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict']]]]] = None,
                           id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           public_ip: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElasticIpResult]:
     """
@@ -406,6 +420,7 @@ def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
     :param Sequence[Union['GetElasticIpFilterArgs', 'GetElasticIpFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
     :param builtins.str id: Allocation ID of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `public_ip`
     :param builtins.str public_ip: Public IP of the specific EIP to retrieve.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IP.
            
            The arguments of this data source act as filters for querying the available
@@ -416,6 +431,7 @@ def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
     __args__['filters'] = filters
     __args__['id'] = id
     __args__['publicIp'] = public_ip
+    __args__['region'] = region
     __args__['tags'] = tags
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getElasticIp:getElasticIp', __args__, opts=opts, typ=GetElasticIpResult)
@@ -438,4 +454,5 @@ def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[Union
         public_dns=pulumi.get(__response__, 'public_dns'),
         public_ip=pulumi.get(__response__, 'public_ip'),
         public_ipv4_pool=pulumi.get(__response__, 'public_ipv4_pool'),
+        region=pulumi.get(__response__, 'region'),
         tags=pulumi.get(__response__, 'tags')))

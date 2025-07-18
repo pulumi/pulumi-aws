@@ -23,6 +23,7 @@ class LogAccountPolicyArgs:
                  policy_document: pulumi.Input[builtins.str],
                  policy_name: pulumi.Input[builtins.str],
                  policy_type: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scope: Optional[pulumi.Input[builtins.str]] = None,
                  selection_criteria: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -30,12 +31,15 @@ class LogAccountPolicyArgs:
         :param pulumi.Input[builtins.str] policy_document: Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
         :param pulumi.Input[builtins.str] policy_name: Name of the account policy.
         :param pulumi.Input[builtins.str] policy_type: Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] scope: Currently defaults to and only accepts the value: `ALL`.
         :param pulumi.Input[builtins.str] selection_criteria: Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
         """
         pulumi.set(__self__, "policy_document", policy_document)
         pulumi.set(__self__, "policy_name", policy_name)
         pulumi.set(__self__, "policy_type", policy_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
         if selection_criteria is not None:
@@ -79,6 +83,18 @@ class LogAccountPolicyArgs:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Currently defaults to and only accepts the value: `ALL`.
@@ -108,6 +124,7 @@ class _LogAccountPolicyState:
                  policy_document: Optional[pulumi.Input[builtins.str]] = None,
                  policy_name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scope: Optional[pulumi.Input[builtins.str]] = None,
                  selection_criteria: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -115,6 +132,7 @@ class _LogAccountPolicyState:
         :param pulumi.Input[builtins.str] policy_document: Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
         :param pulumi.Input[builtins.str] policy_name: Name of the account policy.
         :param pulumi.Input[builtins.str] policy_type: Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] scope: Currently defaults to and only accepts the value: `ALL`.
         :param pulumi.Input[builtins.str] selection_criteria: Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
         """
@@ -124,6 +142,8 @@ class _LogAccountPolicyState:
             pulumi.set(__self__, "policy_name", policy_name)
         if policy_type is not None:
             pulumi.set(__self__, "policy_type", policy_type)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
         if selection_criteria is not None:
@@ -167,6 +187,18 @@ class _LogAccountPolicyState:
 
     @property
     @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[builtins.str]]:
         """
         Currently defaults to and only accepts the value: `ALL`.
@@ -199,6 +231,7 @@ class LogAccountPolicy(pulumi.CustomResource):
                  policy_document: Optional[pulumi.Input[builtins.str]] = None,
                  policy_name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scope: Optional[pulumi.Input[builtins.str]] = None,
                  selection_criteria: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -291,6 +324,7 @@ class LogAccountPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] policy_document: Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
         :param pulumi.Input[builtins.str] policy_name: Name of the account policy.
         :param pulumi.Input[builtins.str] policy_type: Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] scope: Currently defaults to and only accepts the value: `ALL`.
         :param pulumi.Input[builtins.str] selection_criteria: Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
         """
@@ -402,6 +436,7 @@ class LogAccountPolicy(pulumi.CustomResource):
                  policy_document: Optional[pulumi.Input[builtins.str]] = None,
                  policy_name: Optional[pulumi.Input[builtins.str]] = None,
                  policy_type: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  scope: Optional[pulumi.Input[builtins.str]] = None,
                  selection_criteria: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -422,6 +457,7 @@ class LogAccountPolicy(pulumi.CustomResource):
             if policy_type is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_type'")
             __props__.__dict__["policy_type"] = policy_type
+            __props__.__dict__["region"] = region
             __props__.__dict__["scope"] = scope
             __props__.__dict__["selection_criteria"] = selection_criteria
         super(LogAccountPolicy, __self__).__init__(
@@ -437,6 +473,7 @@ class LogAccountPolicy(pulumi.CustomResource):
             policy_document: Optional[pulumi.Input[builtins.str]] = None,
             policy_name: Optional[pulumi.Input[builtins.str]] = None,
             policy_type: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             scope: Optional[pulumi.Input[builtins.str]] = None,
             selection_criteria: Optional[pulumi.Input[builtins.str]] = None) -> 'LogAccountPolicy':
         """
@@ -449,6 +486,7 @@ class LogAccountPolicy(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] policy_document: Text of the account policy. Refer to the [AWS docs](https://docs.aws.amazon.com/cli/latest/reference/logs/put-account-policy.html) for more information.
         :param pulumi.Input[builtins.str] policy_name: Name of the account policy.
         :param pulumi.Input[builtins.str] policy_type: Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] scope: Currently defaults to and only accepts the value: `ALL`.
         :param pulumi.Input[builtins.str] selection_criteria: Criteria for applying a subscription filter policy to a selection of log groups. The only allowable criteria selector is `LogGroupName NOT IN []`.
         """
@@ -459,6 +497,7 @@ class LogAccountPolicy(pulumi.CustomResource):
         __props__.__dict__["policy_document"] = policy_document
         __props__.__dict__["policy_name"] = policy_name
         __props__.__dict__["policy_type"] = policy_type
+        __props__.__dict__["region"] = region
         __props__.__dict__["scope"] = scope
         __props__.__dict__["selection_criteria"] = selection_criteria
         return LogAccountPolicy(resource_name, opts=opts, __props__=__props__)
@@ -486,6 +525,14 @@ class LogAccountPolicy(pulumi.CustomResource):
         Type of account policy. One of `DATA_PROTECTION_POLICY`, `SUBSCRIPTION_FILTER_POLICY`, `FIELD_INDEX_POLICY` or `TRANSFORMER_POLICY`. You can have one account policy per type in an account.
         """
         return pulumi.get(self, "policy_type")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter

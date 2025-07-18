@@ -30,6 +30,7 @@ public final class GetEipsResult {
      * 
      */
     private List<String> publicIps;
+    private String region;
     private @Nullable Map<String,String> tags;
 
     private GetEipsResult() {}
@@ -57,6 +58,9 @@ public final class GetEipsResult {
     public List<String> publicIps() {
         return this.publicIps;
     }
+    public String region() {
+        return this.region;
+    }
     public Map<String,String> tags() {
         return this.tags == null ? Map.of() : this.tags;
     }
@@ -74,6 +78,7 @@ public final class GetEipsResult {
         private @Nullable List<GetEipsFilter> filters;
         private String id;
         private List<String> publicIps;
+        private String region;
         private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(GetEipsResult defaults) {
@@ -82,6 +87,7 @@ public final class GetEipsResult {
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
     	      this.publicIps = defaults.publicIps;
+    	      this.region = defaults.region;
     	      this.tags = defaults.tags;
         }
 
@@ -125,6 +131,14 @@ public final class GetEipsResult {
             return publicIps(List.of(publicIps));
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetEipsResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
 
             this.tags = tags;
@@ -136,6 +150,7 @@ public final class GetEipsResult {
             _resultValue.filters = filters;
             _resultValue.id = id;
             _resultValue.publicIps = publicIps;
+            _resultValue.region = region;
             _resultValue.tags = tags;
             return _resultValue;
         }

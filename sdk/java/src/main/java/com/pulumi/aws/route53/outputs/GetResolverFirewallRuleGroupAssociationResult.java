@@ -62,6 +62,7 @@ public final class GetResolverFirewallRuleGroupAssociationResult {
      * 
      */
     private Integer priority;
+    private String region;
     /**
      * @return The current status of the association.
      * 
@@ -152,6 +153,9 @@ public final class GetResolverFirewallRuleGroupAssociationResult {
     public Integer priority() {
         return this.priority;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return The current status of the association.
      * 
@@ -194,6 +198,7 @@ public final class GetResolverFirewallRuleGroupAssociationResult {
         private String mutationProtection;
         private String name;
         private Integer priority;
+        private String region;
         private String status;
         private String statusMessage;
         private String vpcId;
@@ -211,6 +216,7 @@ public final class GetResolverFirewallRuleGroupAssociationResult {
     	      this.mutationProtection = defaults.mutationProtection;
     	      this.name = defaults.name;
     	      this.priority = defaults.priority;
+    	      this.region = defaults.region;
     	      this.status = defaults.status;
     	      this.statusMessage = defaults.statusMessage;
     	      this.vpcId = defaults.vpcId;
@@ -305,6 +311,14 @@ public final class GetResolverFirewallRuleGroupAssociationResult {
             return this;
         }
         @CustomType.Setter
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupAssociationResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
         public Builder status(String status) {
             if (status == null) {
               throw new MissingRequiredPropertyException("GetResolverFirewallRuleGroupAssociationResult", "status");
@@ -341,6 +355,7 @@ public final class GetResolverFirewallRuleGroupAssociationResult {
             _resultValue.mutationProtection = mutationProtection;
             _resultValue.name = name;
             _resultValue.priority = priority;
+            _resultValue.region = region;
             _resultValue.status = status;
             _resultValue.statusMessage = statusMessage;
             _resultValue.vpcId = vpcId;

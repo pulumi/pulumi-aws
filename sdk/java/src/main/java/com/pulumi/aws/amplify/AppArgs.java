@@ -6,6 +6,7 @@ package com.pulumi.aws.amplify;
 import com.pulumi.aws.amplify.inputs.AppAutoBranchCreationConfigArgs;
 import com.pulumi.aws.amplify.inputs.AppCacheConfigArgs;
 import com.pulumi.aws.amplify.inputs.AppCustomRuleArgs;
+import com.pulumi.aws.amplify.inputs.AppJobConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -262,6 +263,21 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+     * 
+     */
+    @Import(name="jobConfig")
+    private @Nullable Output<AppJobConfigArgs> jobConfig;
+
+    /**
+     * @return Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+     * 
+     */
+    public Optional<Output<AppJobConfigArgs>> jobConfig() {
+        return Optional.ofNullable(this.jobConfig);
+    }
+
+    /**
      * Name for an Amplify app.
      * 
      */
@@ -304,6 +320,21 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> platform() {
         return Optional.ofNullable(this.platform);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
     }
 
     /**
@@ -355,9 +386,11 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         this.enableBranchAutoDeletion = $.enableBranchAutoDeletion;
         this.environmentVariables = $.environmentVariables;
         this.iamServiceRoleArn = $.iamServiceRoleArn;
+        this.jobConfig = $.jobConfig;
         this.name = $.name;
         this.oauthToken = $.oauthToken;
         this.platform = $.platform;
+        this.region = $.region;
         this.repository = $.repository;
         this.tags = $.tags;
     }
@@ -737,6 +770,27 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param jobConfig Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobConfig(@Nullable Output<AppJobConfigArgs> jobConfig) {
+            $.jobConfig = jobConfig;
+            return this;
+        }
+
+        /**
+         * @param jobConfig Used to configure the [Amplify Application build settings](https://docs.aws.amazon.com/amplify/latest/userguide/build-settings.html). See `job_config` Block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jobConfig(AppJobConfigArgs jobConfig) {
+            return jobConfig(Output.of(jobConfig));
+        }
+
+        /**
          * @param name Name for an Amplify app.
          * 
          * @return builder
@@ -797,6 +851,27 @@ public final class AppArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder platform(String platform) {
             return platform(Output.of(platform));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
         }
 
         /**

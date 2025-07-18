@@ -20,12 +20,16 @@ __all__ = ['InvitationAccepterArgs', 'InvitationAccepter']
 @pulumi.input_type
 class InvitationAccepterArgs:
     def __init__(__self__, *,
-                 graph_arn: pulumi.Input[builtins.str]):
+                 graph_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a InvitationAccepter resource.
         :param pulumi.Input[builtins.str] graph_arn: ARN of the behavior graph that the member account is accepting the invitation for.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "graph_arn", graph_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="graphArn")
@@ -39,17 +43,33 @@ class InvitationAccepterArgs:
     def graph_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "graph_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _InvitationAccepterState:
     def __init__(__self__, *,
-                 graph_arn: Optional[pulumi.Input[builtins.str]] = None):
+                 graph_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering InvitationAccepter resources.
         :param pulumi.Input[builtins.str] graph_arn: ARN of the behavior graph that the member account is accepting the invitation for.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if graph_arn is not None:
             pulumi.set(__self__, "graph_arn", graph_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="graphArn")
@@ -63,6 +83,18 @@ class _InvitationAccepterState:
     def graph_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "graph_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:detective/invitationAccepter:InvitationAccepter")
 class InvitationAccepter(pulumi.CustomResource):
@@ -71,6 +103,7 @@ class InvitationAccepter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  graph_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Provides a resource to manage an [Amazon Detective Invitation Accepter](https://docs.aws.amazon.com/detective/latest/APIReference/API_AcceptInvitation.html). Ensure that the accepter is configured to use the AWS account you wish to _accept_ the invitation from the primary graph owner account.
@@ -102,6 +135,7 @@ class InvitationAccepter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] graph_arn: ARN of the behavior graph that the member account is accepting the invitation for.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -152,6 +186,7 @@ class InvitationAccepter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  graph_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -164,6 +199,7 @@ class InvitationAccepter(pulumi.CustomResource):
             if graph_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'graph_arn'")
             __props__.__dict__["graph_arn"] = graph_arn
+            __props__.__dict__["region"] = region
         super(InvitationAccepter, __self__).__init__(
             'aws:detective/invitationAccepter:InvitationAccepter',
             resource_name,
@@ -174,7 +210,8 @@ class InvitationAccepter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            graph_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'InvitationAccepter':
+            graph_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'InvitationAccepter':
         """
         Get an existing InvitationAccepter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -183,12 +220,14 @@ class InvitationAccepter(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] graph_arn: ARN of the behavior graph that the member account is accepting the invitation for.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _InvitationAccepterState.__new__(_InvitationAccepterState)
 
         __props__.__dict__["graph_arn"] = graph_arn
+        __props__.__dict__["region"] = region
         return InvitationAccepter(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -198,4 +237,12 @@ class InvitationAccepter(pulumi.CustomResource):
         ARN of the behavior graph that the member account is accepting the invitation for.
         """
         return pulumi.get(self, "graph_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

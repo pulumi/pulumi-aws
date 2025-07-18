@@ -88,6 +88,10 @@ export class DomainPermissions extends pulumi.CustomResource {
      */
     public readonly policyRevision!: pulumi.Output<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * The ARN of the resource associated with the resource policy.
      */
     public /*out*/ readonly resourceArn!: pulumi.Output<string>;
@@ -109,19 +113,18 @@ export class DomainPermissions extends pulumi.CustomResource {
             resourceInputs["domainOwner"] = state ? state.domainOwner : undefined;
             resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
             resourceInputs["policyRevision"] = state ? state.policyRevision : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as DomainPermissionsArgs | undefined;
             if ((!args || args.domain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            if ((!args || args.policyDocument === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'policyDocument'");
-            }
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["domainOwner"] = args ? args.domainOwner : undefined;
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
             resourceInputs["policyRevision"] = args ? args.policyRevision : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["resourceArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -150,6 +153,10 @@ export interface DomainPermissionsState {
      */
     policyRevision?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * The ARN of the resource associated with the resource policy.
      */
     resourceArn?: pulumi.Input<string>;
@@ -170,9 +177,13 @@ export interface DomainPermissionsArgs {
     /**
      * A JSON policy string to be set as the access control resource policy on the provided domain.
      */
-    policyDocument: pulumi.Input<string>;
+    policyDocument?: pulumi.Input<string>;
     /**
      * The current revision of the resource policy to be set. This revision is used for optimistic locking, which prevents others from overwriting your changes to the domain's resource policy.
      */
     policyRevision?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

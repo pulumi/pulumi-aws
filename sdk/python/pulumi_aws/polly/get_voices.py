@@ -29,7 +29,7 @@ class GetVoicesResult:
     """
     A collection of values returned by getVoices.
     """
-    def __init__(__self__, engine=None, id=None, include_additional_language_codes=None, language_code=None, voices=None):
+    def __init__(__self__, engine=None, id=None, include_additional_language_codes=None, language_code=None, region=None, voices=None):
         if engine and not isinstance(engine, str):
             raise TypeError("Expected argument 'engine' to be a str")
         pulumi.set(__self__, "engine", engine)
@@ -42,6 +42,9 @@ class GetVoicesResult:
         if language_code and not isinstance(language_code, str):
             raise TypeError("Expected argument 'language_code' to be a str")
         pulumi.set(__self__, "language_code", language_code)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if voices and not isinstance(voices, list):
             raise TypeError("Expected argument 'voices' to be a list")
         pulumi.set(__self__, "voices", voices)
@@ -74,6 +77,11 @@ class GetVoicesResult:
 
     @property
     @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
     def voices(self) -> Optional[Sequence['outputs.GetVoicesVoiceResult']]:
         """
         List of voices with their properties. See `voices` Attribute Reference below.
@@ -91,12 +99,14 @@ class AwaitableGetVoicesResult(GetVoicesResult):
             id=self.id,
             include_additional_language_codes=self.include_additional_language_codes,
             language_code=self.language_code,
+            region=self.region,
             voices=self.voices)
 
 
 def get_voices(engine: Optional[builtins.str] = None,
                include_additional_language_codes: Optional[builtins.bool] = None,
                language_code: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                voices: Optional[Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict']]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVoicesResult:
     """
@@ -126,12 +136,14 @@ def get_voices(engine: Optional[builtins.str] = None,
     :param builtins.str engine: Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `standard`, `neural`, and `long-form`.
     :param builtins.bool include_additional_language_codes: Whether to return any bilingual voices that use the specified language as an additional language.
     :param builtins.str language_code: Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict']] voices: List of voices with their properties. See `voices` Attribute Reference below.
     """
     __args__ = dict()
     __args__['engine'] = engine
     __args__['includeAdditionalLanguageCodes'] = include_additional_language_codes
     __args__['languageCode'] = language_code
+    __args__['region'] = region
     __args__['voices'] = voices
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:polly/getVoices:getVoices', __args__, opts=opts, typ=GetVoicesResult).value
@@ -141,10 +153,12 @@ def get_voices(engine: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         include_additional_language_codes=pulumi.get(__ret__, 'include_additional_language_codes'),
         language_code=pulumi.get(__ret__, 'language_code'),
+        region=pulumi.get(__ret__, 'region'),
         voices=pulumi.get(__ret__, 'voices'))
 def get_voices_output(engine: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       include_additional_language_codes: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                       language_code: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       voices: Optional[pulumi.Input[Optional[Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict']]]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVoicesResult]:
     """
@@ -174,12 +188,14 @@ def get_voices_output(engine: Optional[pulumi.Input[Optional[builtins.str]]] = N
     :param builtins.str engine: Engine used by Amazon Polly when processing input text for speech synthesis. Valid values are `standard`, `neural`, and `long-form`.
     :param builtins.bool include_additional_language_codes: Whether to return any bilingual voices that use the specified language as an additional language.
     :param builtins.str language_code: Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Sequence[Union['GetVoicesVoiceArgs', 'GetVoicesVoiceArgsDict']] voices: List of voices with their properties. See `voices` Attribute Reference below.
     """
     __args__ = dict()
     __args__['engine'] = engine
     __args__['includeAdditionalLanguageCodes'] = include_additional_language_codes
     __args__['languageCode'] = language_code
+    __args__['region'] = region
     __args__['voices'] = voices
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:polly/getVoices:getVoices', __args__, opts=opts, typ=GetVoicesResult)
@@ -188,4 +204,5 @@ def get_voices_output(engine: Optional[pulumi.Input[Optional[builtins.str]]] = N
         id=pulumi.get(__response__, 'id'),
         include_additional_language_codes=pulumi.get(__response__, 'include_additional_language_codes'),
         language_code=pulumi.get(__response__, 'language_code'),
+        region=pulumi.get(__response__, 'region'),
         voices=pulumi.get(__response__, 'voices')))

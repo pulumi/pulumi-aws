@@ -22,17 +22,21 @@ class DocumentationVersionArgs:
     def __init__(__self__, *,
                  rest_api_id: pulumi.Input[builtins.str],
                  version: pulumi.Input[builtins.str],
-                 description: Optional[pulumi.Input[builtins.str]] = None):
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a DocumentationVersion resource.
         :param pulumi.Input[builtins.str] rest_api_id: ID of the associated Rest API
         :param pulumi.Input[builtins.str] version: Version identifier of the API documentation snapshot.
         :param pulumi.Input[builtins.str] description: Description of the API documentation version.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "rest_api_id", rest_api_id)
         pulumi.set(__self__, "version", version)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="restApiId")
@@ -70,21 +74,37 @@ class DocumentationVersionArgs:
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _DocumentationVersionState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api_id: Optional[pulumi.Input[builtins.str]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering DocumentationVersion resources.
         :param pulumi.Input[builtins.str] description: Description of the API documentation version.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api_id: ID of the associated Rest API
         :param pulumi.Input[builtins.str] version: Version identifier of the API documentation snapshot.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rest_api_id is not None:
             pulumi.set(__self__, "rest_api_id", rest_api_id)
         if version is not None:
@@ -101,6 +121,18 @@ class _DocumentationVersionState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="restApiId")
@@ -134,6 +166,7 @@ class DocumentationVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api_id: Optional[pulumi.Input[builtins.str]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -171,6 +204,7 @@ class DocumentationVersion(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: Description of the API documentation version.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api_id: ID of the associated Rest API
         :param pulumi.Input[builtins.str] version: Version identifier of the API documentation snapshot.
         """
@@ -227,6 +261,7 @@ class DocumentationVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api_id: Optional[pulumi.Input[builtins.str]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -239,6 +274,7 @@ class DocumentationVersion(pulumi.CustomResource):
             __props__ = DocumentationVersionArgs.__new__(DocumentationVersionArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["region"] = region
             if rest_api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api_id'")
             __props__.__dict__["rest_api_id"] = rest_api_id
@@ -256,6 +292,7 @@ class DocumentationVersion(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rest_api_id: Optional[pulumi.Input[builtins.str]] = None,
             version: Optional[pulumi.Input[builtins.str]] = None) -> 'DocumentationVersion':
         """
@@ -266,6 +303,7 @@ class DocumentationVersion(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: Description of the API documentation version.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api_id: ID of the associated Rest API
         :param pulumi.Input[builtins.str] version: Version identifier of the API documentation snapshot.
         """
@@ -274,6 +312,7 @@ class DocumentationVersion(pulumi.CustomResource):
         __props__ = _DocumentationVersionState.__new__(_DocumentationVersionState)
 
         __props__.__dict__["description"] = description
+        __props__.__dict__["region"] = region
         __props__.__dict__["rest_api_id"] = rest_api_id
         __props__.__dict__["version"] = version
         return DocumentationVersion(resource_name, opts=opts, __props__=__props__)
@@ -285,6 +324,14 @@ class DocumentationVersion(pulumi.CustomResource):
         Description of the API documentation version.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="restApiId")

@@ -27,7 +27,7 @@ class GetQueuesResult:
     """
     A collection of values returned by getQueues.
     """
-    def __init__(__self__, id=None, queue_name_prefix=None, queue_urls=None):
+    def __init__(__self__, id=None, queue_name_prefix=None, queue_urls=None, region=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -37,6 +37,9 @@ class GetQueuesResult:
         if queue_urls and not isinstance(queue_urls, list):
             raise TypeError("Expected argument 'queue_urls' to be a list")
         pulumi.set(__self__, "queue_urls", queue_urls)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -59,6 +62,11 @@ class GetQueuesResult:
         """
         return pulumi.get(self, "queue_urls")
 
+    @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
 
 class AwaitableGetQueuesResult(GetQueuesResult):
     # pylint: disable=using-constant-test
@@ -68,10 +76,12 @@ class AwaitableGetQueuesResult(GetQueuesResult):
         return GetQueuesResult(
             id=self.id,
             queue_name_prefix=self.queue_name_prefix,
-            queue_urls=self.queue_urls)
+            queue_urls=self.queue_urls,
+            region=self.region)
 
 
 def get_queues(queue_name_prefix: Optional[builtins.str] = None,
+               region: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueuesResult:
     """
     Data source for managing an AWS SQS (Simple Queue) Queues.
@@ -89,17 +99,21 @@ def get_queues(queue_name_prefix: Optional[builtins.str] = None,
 
 
     :param builtins.str queue_name_prefix: A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['queueNamePrefix'] = queue_name_prefix
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:sqs/getQueues:getQueues', __args__, opts=opts, typ=GetQueuesResult).value
 
     return AwaitableGetQueuesResult(
         id=pulumi.get(__ret__, 'id'),
         queue_name_prefix=pulumi.get(__ret__, 'queue_name_prefix'),
-        queue_urls=pulumi.get(__ret__, 'queue_urls'))
+        queue_urls=pulumi.get(__ret__, 'queue_urls'),
+        region=pulumi.get(__ret__, 'region'))
 def get_queues_output(queue_name_prefix: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                      region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueuesResult]:
     """
     Data source for managing an AWS SQS (Simple Queue) Queues.
@@ -117,12 +131,15 @@ def get_queues_output(queue_name_prefix: Optional[pulumi.Input[Optional[builtins
 
 
     :param builtins.str queue_name_prefix: A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['queueNamePrefix'] = queue_name_prefix
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:sqs/getQueues:getQueues', __args__, opts=opts, typ=GetQueuesResult)
     return __ret__.apply(lambda __response__: GetQueuesResult(
         id=pulumi.get(__response__, 'id'),
         queue_name_prefix=pulumi.get(__response__, 'queue_name_prefix'),
-        queue_urls=pulumi.get(__response__, 'queue_urls')))
+        queue_urls=pulumi.get(__response__, 'queue_urls'),
+        region=pulumi.get(__response__, 'region')))

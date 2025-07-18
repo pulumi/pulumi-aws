@@ -26,6 +26,7 @@ class RiskConfigurationArgs:
                  account_takeover_risk_configuration: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationArgs']] = None,
                  client_id: Optional[pulumi.Input[builtins.str]] = None,
                  compromised_credentials_risk_configuration: Optional[pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  risk_exception_configuration: Optional[pulumi.Input['RiskConfigurationRiskExceptionConfigurationArgs']] = None):
         """
         The set of arguments for constructing a RiskConfiguration resource.
@@ -33,6 +34,7 @@ class RiskConfigurationArgs:
         :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationArgs'] account_takeover_risk_configuration: The account takeover risk configuration. See details below.
         :param pulumi.Input[builtins.str] client_id: The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
         :param pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs'] compromised_credentials_risk_configuration: The compromised credentials risk configuration. See details below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['RiskConfigurationRiskExceptionConfigurationArgs'] risk_exception_configuration: The configuration to override the risk decision. See details below.
         """
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -42,6 +44,8 @@ class RiskConfigurationArgs:
             pulumi.set(__self__, "client_id", client_id)
         if compromised_credentials_risk_configuration is not None:
             pulumi.set(__self__, "compromised_credentials_risk_configuration", compromised_credentials_risk_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if risk_exception_configuration is not None:
             pulumi.set(__self__, "risk_exception_configuration", risk_exception_configuration)
 
@@ -94,6 +98,18 @@ class RiskConfigurationArgs:
         pulumi.set(self, "compromised_credentials_risk_configuration", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="riskExceptionConfiguration")
     def risk_exception_configuration(self) -> Optional[pulumi.Input['RiskConfigurationRiskExceptionConfigurationArgs']]:
         """
@@ -112,6 +128,7 @@ class _RiskConfigurationState:
                  account_takeover_risk_configuration: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationArgs']] = None,
                  client_id: Optional[pulumi.Input[builtins.str]] = None,
                  compromised_credentials_risk_configuration: Optional[pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs']] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  risk_exception_configuration: Optional[pulumi.Input['RiskConfigurationRiskExceptionConfigurationArgs']] = None,
                  user_pool_id: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -119,6 +136,7 @@ class _RiskConfigurationState:
         :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationArgs'] account_takeover_risk_configuration: The account takeover risk configuration. See details below.
         :param pulumi.Input[builtins.str] client_id: The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
         :param pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs'] compromised_credentials_risk_configuration: The compromised credentials risk configuration. See details below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['RiskConfigurationRiskExceptionConfigurationArgs'] risk_exception_configuration: The configuration to override the risk decision. See details below.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID.
         """
@@ -128,6 +146,8 @@ class _RiskConfigurationState:
             pulumi.set(__self__, "client_id", client_id)
         if compromised_credentials_risk_configuration is not None:
             pulumi.set(__self__, "compromised_credentials_risk_configuration", compromised_credentials_risk_configuration)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if risk_exception_configuration is not None:
             pulumi.set(__self__, "risk_exception_configuration", risk_exception_configuration)
         if user_pool_id is not None:
@@ -170,6 +190,18 @@ class _RiskConfigurationState:
         pulumi.set(self, "compromised_credentials_risk_configuration", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="riskExceptionConfiguration")
     def risk_exception_configuration(self) -> Optional[pulumi.Input['RiskConfigurationRiskExceptionConfigurationArgs']]:
         """
@@ -203,6 +235,7 @@ class RiskConfiguration(pulumi.CustomResource):
                  account_takeover_risk_configuration: Optional[pulumi.Input[Union['RiskConfigurationAccountTakeoverRiskConfigurationArgs', 'RiskConfigurationAccountTakeoverRiskConfigurationArgsDict']]] = None,
                  client_id: Optional[pulumi.Input[builtins.str]] = None,
                  compromised_credentials_risk_configuration: Optional[pulumi.Input[Union['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs', 'RiskConfigurationCompromisedCredentialsRiskConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  risk_exception_configuration: Optional[pulumi.Input[Union['RiskConfigurationRiskExceptionConfigurationArgs', 'RiskConfigurationRiskExceptionConfigurationArgsDict']]] = None,
                  user_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -244,6 +277,7 @@ class RiskConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Union['RiskConfigurationAccountTakeoverRiskConfigurationArgs', 'RiskConfigurationAccountTakeoverRiskConfigurationArgsDict']] account_takeover_risk_configuration: The account takeover risk configuration. See details below.
         :param pulumi.Input[builtins.str] client_id: The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
         :param pulumi.Input[Union['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs', 'RiskConfigurationCompromisedCredentialsRiskConfigurationArgsDict']] compromised_credentials_risk_configuration: The compromised credentials risk configuration. See details below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['RiskConfigurationRiskExceptionConfigurationArgs', 'RiskConfigurationRiskExceptionConfigurationArgsDict']] risk_exception_configuration: The configuration to override the risk decision. See details below.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID.
         """
@@ -304,6 +338,7 @@ class RiskConfiguration(pulumi.CustomResource):
                  account_takeover_risk_configuration: Optional[pulumi.Input[Union['RiskConfigurationAccountTakeoverRiskConfigurationArgs', 'RiskConfigurationAccountTakeoverRiskConfigurationArgsDict']]] = None,
                  client_id: Optional[pulumi.Input[builtins.str]] = None,
                  compromised_credentials_risk_configuration: Optional[pulumi.Input[Union['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs', 'RiskConfigurationCompromisedCredentialsRiskConfigurationArgsDict']]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  risk_exception_configuration: Optional[pulumi.Input[Union['RiskConfigurationRiskExceptionConfigurationArgs', 'RiskConfigurationRiskExceptionConfigurationArgsDict']]] = None,
                  user_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
@@ -318,6 +353,7 @@ class RiskConfiguration(pulumi.CustomResource):
             __props__.__dict__["account_takeover_risk_configuration"] = account_takeover_risk_configuration
             __props__.__dict__["client_id"] = client_id
             __props__.__dict__["compromised_credentials_risk_configuration"] = compromised_credentials_risk_configuration
+            __props__.__dict__["region"] = region
             __props__.__dict__["risk_exception_configuration"] = risk_exception_configuration
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
@@ -335,6 +371,7 @@ class RiskConfiguration(pulumi.CustomResource):
             account_takeover_risk_configuration: Optional[pulumi.Input[Union['RiskConfigurationAccountTakeoverRiskConfigurationArgs', 'RiskConfigurationAccountTakeoverRiskConfigurationArgsDict']]] = None,
             client_id: Optional[pulumi.Input[builtins.str]] = None,
             compromised_credentials_risk_configuration: Optional[pulumi.Input[Union['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs', 'RiskConfigurationCompromisedCredentialsRiskConfigurationArgsDict']]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             risk_exception_configuration: Optional[pulumi.Input[Union['RiskConfigurationRiskExceptionConfigurationArgs', 'RiskConfigurationRiskExceptionConfigurationArgsDict']]] = None,
             user_pool_id: Optional[pulumi.Input[builtins.str]] = None) -> 'RiskConfiguration':
         """
@@ -347,6 +384,7 @@ class RiskConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Union['RiskConfigurationAccountTakeoverRiskConfigurationArgs', 'RiskConfigurationAccountTakeoverRiskConfigurationArgsDict']] account_takeover_risk_configuration: The account takeover risk configuration. See details below.
         :param pulumi.Input[builtins.str] client_id: The app client ID. When the client ID is not provided, the same risk configuration is applied to all the clients in the User Pool.
         :param pulumi.Input[Union['RiskConfigurationCompromisedCredentialsRiskConfigurationArgs', 'RiskConfigurationCompromisedCredentialsRiskConfigurationArgsDict']] compromised_credentials_risk_configuration: The compromised credentials risk configuration. See details below.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['RiskConfigurationRiskExceptionConfigurationArgs', 'RiskConfigurationRiskExceptionConfigurationArgsDict']] risk_exception_configuration: The configuration to override the risk decision. See details below.
         :param pulumi.Input[builtins.str] user_pool_id: The user pool ID.
         """
@@ -357,6 +395,7 @@ class RiskConfiguration(pulumi.CustomResource):
         __props__.__dict__["account_takeover_risk_configuration"] = account_takeover_risk_configuration
         __props__.__dict__["client_id"] = client_id
         __props__.__dict__["compromised_credentials_risk_configuration"] = compromised_credentials_risk_configuration
+        __props__.__dict__["region"] = region
         __props__.__dict__["risk_exception_configuration"] = risk_exception_configuration
         __props__.__dict__["user_pool_id"] = user_pool_id
         return RiskConfiguration(resource_name, opts=opts, __props__=__props__)
@@ -384,6 +423,14 @@ class RiskConfiguration(pulumi.CustomResource):
         The compromised credentials risk configuration. See details below.
         """
         return pulumi.get(self, "compromised_credentials_risk_configuration")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="riskExceptionConfiguration")

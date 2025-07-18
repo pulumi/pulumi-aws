@@ -18,10 +18,22 @@ import * as utilities from "../utilities";
  * export const identityStoreId = example.then(example => example.identityStoreIds?.[0]);
  * ```
  */
-export function getInstances(opts?: pulumi.InvokeOptions): Promise<GetInstancesResult> {
+export function getInstances(args?: GetInstancesArgs, opts?: pulumi.InvokeOptions): Promise<GetInstancesResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssoadmin/getInstances:getInstances", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getInstances.
+ */
+export interface GetInstancesArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
 }
 
 /**
@@ -40,6 +52,7 @@ export interface GetInstancesResult {
      * Set of identifiers of the identity stores connected to the SSO Instances.
      */
     readonly identityStoreIds: string[];
+    readonly region: string;
 }
 /**
  * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
@@ -55,8 +68,20 @@ export interface GetInstancesResult {
  * export const identityStoreId = example.then(example => example.identityStoreIds?.[0]);
  * ```
  */
-export function getInstancesOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInstancesResult> {
+export function getInstancesOutput(args?: GetInstancesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInstancesResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssoadmin/getInstances:getInstances", {
+        "region": args.region,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getInstances.
+ */
+export interface GetInstancesOutputArgs {
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

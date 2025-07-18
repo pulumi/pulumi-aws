@@ -68,6 +68,10 @@ export class LogIndexPolicy extends pulumi.CustomResource {
      * JSON policy document. This is a JSON formatted string.
      */
     public readonly policyDocument!: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a LogIndexPolicy resource with the given unique name, arguments, and options.
@@ -84,6 +88,7 @@ export class LogIndexPolicy extends pulumi.CustomResource {
             const state = argsOrState as LogIndexPolicyState | undefined;
             resourceInputs["logGroupName"] = state ? state.logGroupName : undefined;
             resourceInputs["policyDocument"] = state ? state.policyDocument : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as LogIndexPolicyArgs | undefined;
             if ((!args || args.logGroupName === undefined) && !opts.urn) {
@@ -94,6 +99,7 @@ export class LogIndexPolicy extends pulumi.CustomResource {
             }
             resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LogIndexPolicy.__pulumiType, name, resourceInputs, opts);
@@ -112,6 +118,10 @@ export interface LogIndexPolicyState {
      * JSON policy document. This is a JSON formatted string.
      */
     policyDocument?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -126,4 +136,8 @@ export interface LogIndexPolicyArgs {
      * JSON policy document. This is a JSON formatted string.
      */
     policyDocument: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

@@ -27,7 +27,7 @@ class GetPublicKeyResult:
     """
     A collection of values returned by getPublicKey.
     """
-    def __init__(__self__, arn=None, customer_master_key_spec=None, encryption_algorithms=None, grant_tokens=None, id=None, key_id=None, key_usage=None, public_key=None, public_key_pem=None, signing_algorithms=None):
+    def __init__(__self__, arn=None, customer_master_key_spec=None, encryption_algorithms=None, grant_tokens=None, id=None, key_id=None, key_usage=None, public_key=None, public_key_pem=None, region=None, signing_algorithms=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -55,6 +55,9 @@ class GetPublicKeyResult:
         if public_key_pem and not isinstance(public_key_pem, str):
             raise TypeError("Expected argument 'public_key_pem' to be a str")
         pulumi.set(__self__, "public_key_pem", public_key_pem)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if signing_algorithms and not isinstance(signing_algorithms, list):
             raise TypeError("Expected argument 'signing_algorithms' to be a list")
         pulumi.set(__self__, "signing_algorithms", signing_algorithms)
@@ -126,6 +129,11 @@ class GetPublicKeyResult:
         return pulumi.get(self, "public_key_pem")
 
     @property
+    @pulumi.getter
+    def region(self) -> builtins.str:
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="signingAlgorithms")
     def signing_algorithms(self) -> Sequence[builtins.str]:
         """
@@ -149,11 +157,13 @@ class AwaitableGetPublicKeyResult(GetPublicKeyResult):
             key_usage=self.key_usage,
             public_key=self.public_key,
             public_key_pem=self.public_key_pem,
+            region=self.region,
             signing_algorithms=self.signing_algorithms)
 
 
 def get_public_key(grant_tokens: Optional[Sequence[builtins.str]] = None,
                    key_id: Optional[builtins.str] = None,
+                   region: Optional[builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicKeyResult:
     """
     Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
@@ -177,10 +187,12 @@ def get_public_key(grant_tokens: Optional[Sequence[builtins.str]] = None,
            * Key ARN. E.g. - `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
            * Alias name. E.g. - `alias/my-key`
            * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['grantTokens'] = grant_tokens
     __args__['keyId'] = key_id
+    __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:kms/getPublicKey:getPublicKey', __args__, opts=opts, typ=GetPublicKeyResult).value
 
@@ -194,9 +206,11 @@ def get_public_key(grant_tokens: Optional[Sequence[builtins.str]] = None,
         key_usage=pulumi.get(__ret__, 'key_usage'),
         public_key=pulumi.get(__ret__, 'public_key'),
         public_key_pem=pulumi.get(__ret__, 'public_key_pem'),
+        region=pulumi.get(__ret__, 'region'),
         signing_algorithms=pulumi.get(__ret__, 'signing_algorithms'))
 def get_public_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[builtins.str]]]] = None,
                           key_id: Optional[pulumi.Input[builtins.str]] = None,
+                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicKeyResult]:
     """
     Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
@@ -220,10 +234,12 @@ def get_public_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[
            * Key ARN. E.g. - `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
            * Alias name. E.g. - `alias/my-key`
            * Alias ARN - E.g. - `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+    :param builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
     __args__['grantTokens'] = grant_tokens
     __args__['keyId'] = key_id
+    __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:kms/getPublicKey:getPublicKey', __args__, opts=opts, typ=GetPublicKeyResult)
     return __ret__.apply(lambda __response__: GetPublicKeyResult(
@@ -236,4 +252,5 @@ def get_public_key_output(grant_tokens: Optional[pulumi.Input[Optional[Sequence[
         key_usage=pulumi.get(__response__, 'key_usage'),
         public_key=pulumi.get(__response__, 'public_key'),
         public_key_pem=pulumi.get(__response__, 'public_key_pem'),
+        region=pulumi.get(__response__, 'region'),
         signing_algorithms=pulumi.get(__response__, 'signing_algorithms')))

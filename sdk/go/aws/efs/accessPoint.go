@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/efs"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/efs"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,13 +59,13 @@ type AccessPoint struct {
 	OwnerId      pulumi.StringOutput `pulumi:"ownerId"`
 	// Operating system user and group applied to all file system requests made using the access point. Detailed below.
 	PosixUser AccessPointPosixUserPtrOutput `pulumi:"posixUser"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory AccessPointRootDirectoryOutput `pulumi:"rootDirectory"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -111,13 +111,13 @@ type accessPointState struct {
 	OwnerId      *string `pulumi:"ownerId"`
 	// Operating system user and group applied to all file system requests made using the access point. Detailed below.
 	PosixUser *AccessPointPosixUser `pulumi:"posixUser"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory *AccessPointRootDirectory `pulumi:"rootDirectory"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -131,13 +131,13 @@ type AccessPointState struct {
 	OwnerId      pulumi.StringPtrInput
 	// Operating system user and group applied to all file system requests made using the access point. Detailed below.
 	PosixUser AccessPointPosixUserPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory AccessPointRootDirectoryPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-	//
-	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -150,6 +150,8 @@ type accessPointArgs struct {
 	FileSystemId string `pulumi:"fileSystemId"`
 	// Operating system user and group applied to all file system requests made using the access point. Detailed below.
 	PosixUser *AccessPointPosixUser `pulumi:"posixUser"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory *AccessPointRootDirectory `pulumi:"rootDirectory"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -162,6 +164,8 @@ type AccessPointArgs struct {
 	FileSystemId pulumi.StringInput
 	// Operating system user and group applied to all file system requests made using the access point. Detailed below.
 	PosixUser AccessPointPosixUserPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory AccessPointRootDirectoryPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -279,6 +283,11 @@ func (o AccessPointOutput) PosixUser() AccessPointPosixUserPtrOutput {
 	return o.ApplyT(func(v *AccessPoint) AccessPointPosixUserPtrOutput { return v.PosixUser }).(AccessPointPosixUserPtrOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o AccessPointOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *AccessPoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
 // Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 func (o AccessPointOutput) RootDirectory() AccessPointRootDirectoryOutput {
 	return o.ApplyT(func(v *AccessPoint) AccessPointRootDirectoryOutput { return v.RootDirectory }).(AccessPointRootDirectoryOutput)
@@ -290,8 +299,6 @@ func (o AccessPointOutput) Tags() pulumi.StringMapOutput {
 }
 
 // Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
-//
-// Deprecated: Please use `tags` instead.
 func (o AccessPointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -189,6 +189,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
         [Input("tags")]
         private Dictionary<string, string>? _tags;
 
@@ -227,6 +233,12 @@ namespace Pulumi.Aws.Ec2TransitGateway
             set => _filters = value;
         }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -264,6 +276,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Tunnel protocol
         /// </summary>
         public readonly string Protocol;
+        public readonly string Region;
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Connect
         /// </summary>
@@ -286,6 +299,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string protocol,
 
+            string region,
+
             ImmutableDictionary<string, string> tags,
 
             string transitGatewayConnectId,
@@ -297,6 +312,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
             Filters = filters;
             Id = id;
             Protocol = protocol;
+            Region = region;
             Tags = tags;
             TransitGatewayConnectId = transitGatewayConnectId;
             TransitGatewayId = transitGatewayId;

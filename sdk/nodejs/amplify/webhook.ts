@@ -78,6 +78,10 @@ export class Webhook extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
      * URL of the webhook.
      */
     public /*out*/ readonly url!: pulumi.Output<string>;
@@ -99,6 +103,7 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["branchName"] = state ? state.branchName : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as WebhookArgs | undefined;
@@ -111,6 +116,7 @@ export class Webhook extends pulumi.CustomResource {
             resourceInputs["appId"] = args ? args.appId : undefined;
             resourceInputs["branchName"] = args ? args.branchName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         }
@@ -140,6 +146,10 @@ export interface WebhookState {
      */
     description?: pulumi.Input<string>;
     /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
+    /**
      * URL of the webhook.
      */
     url?: pulumi.Input<string>;
@@ -161,4 +171,8 @@ export interface WebhookArgs {
      * Description for a webhook.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

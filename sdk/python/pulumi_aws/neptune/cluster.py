@@ -44,6 +44,7 @@ class ClusterArgs:
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_source_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  serverless_v2_scaling_configuration: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
@@ -75,12 +76,13 @@ class ClusterArgs:
         :param pulumi.Input[builtins.int] port: Port on which the Neptune accepts connections. Default is `8182`.
         :param pulumi.Input[builtins.str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_source_identifier: ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
         :param pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs'] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[builtins.str] snapshot_identifier: Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         :param pulumi.Input[builtins.bool] storage_encrypted: Whether the Neptune cluster is encrypted. The default is `false` if not specified.
-        :param pulumi.Input[builtins.str] storage_type: Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+        :param pulumi.Input[builtins.str] storage_type: Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
@@ -128,6 +130,8 @@ class ClusterArgs:
             pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replication_source_identifier is not None:
             pulumi.set(__self__, "replication_source_identifier", replication_source_identifier)
         if serverless_v2_scaling_configuration is not None:
@@ -407,6 +411,18 @@ class ClusterArgs:
         pulumi.set(self, "preferred_maintenance_window", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replicationSourceIdentifier")
     def replication_source_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -470,7 +486,7 @@ class ClusterArgs:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+        Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
         """
         return pulumi.get(self, "storage_type")
 
@@ -534,6 +550,7 @@ class _ClusterState:
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
                  reader_endpoint: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_source_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  serverless_v2_scaling_configuration: Optional[pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs']] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
@@ -572,12 +589,13 @@ class _ClusterState:
         :param pulumi.Input[builtins.str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         :param pulumi.Input[builtins.str] reader_endpoint: Read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_source_identifier: ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
         :param pulumi.Input['ClusterServerlessV2ScalingConfigurationArgs'] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[builtins.str] snapshot_identifier: Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         :param pulumi.Input[builtins.bool] storage_encrypted: Whether the Neptune cluster is encrypted. The default is `false` if not specified.
-        :param pulumi.Input[builtins.str] storage_type: Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+        :param pulumi.Input[builtins.str] storage_type: Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
@@ -638,6 +656,8 @@ class _ClusterState:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if reader_endpoint is not None:
             pulumi.set(__self__, "reader_endpoint", reader_endpoint)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if replication_source_identifier is not None:
             pulumi.set(__self__, "replication_source_identifier", replication_source_identifier)
         if serverless_v2_scaling_configuration is not None:
@@ -652,9 +672,6 @@ class _ClusterState:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            warnings.warn("""Please use `tags` instead.""", DeprecationWarning)
-            pulumi.log.warn("""tags_all is deprecated: Please use `tags` instead.""")
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
         if vpc_security_group_ids is not None:
@@ -994,6 +1011,18 @@ class _ClusterState:
         pulumi.set(self, "reader_endpoint", value)
 
     @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @property
     @pulumi.getter(name="replicationSourceIdentifier")
     def replication_source_identifier(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -1057,7 +1086,7 @@ class _ClusterState:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+        Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
         """
         return pulumi.get(self, "storage_type")
 
@@ -1079,7 +1108,6 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1131,6 +1159,7 @@ class Cluster(pulumi.CustomResource):
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_source_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  serverless_v2_scaling_configuration: Optional[pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1201,12 +1230,13 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] port: Port on which the Neptune accepts connections. Default is `8182`.
         :param pulumi.Input[builtins.str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_source_identifier: ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
         :param pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[builtins.str] snapshot_identifier: Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         :param pulumi.Input[builtins.bool] storage_encrypted: Whether the Neptune cluster is encrypted. The default is `false` if not specified.
-        :param pulumi.Input[builtins.str] storage_type: Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+        :param pulumi.Input[builtins.str] storage_type: Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
         """
@@ -1291,6 +1321,7 @@ class Cluster(pulumi.CustomResource):
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  replication_source_identifier: Optional[pulumi.Input[builtins.str]] = None,
                  serverless_v2_scaling_configuration: Optional[pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
                  skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1330,6 +1361,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["port"] = port
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
+            __props__.__dict__["region"] = region
             __props__.__dict__["replication_source_identifier"] = replication_source_identifier
             __props__.__dict__["serverless_v2_scaling_configuration"] = serverless_v2_scaling_configuration
             __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
@@ -1383,6 +1415,7 @@ class Cluster(pulumi.CustomResource):
             preferred_backup_window: Optional[pulumi.Input[builtins.str]] = None,
             preferred_maintenance_window: Optional[pulumi.Input[builtins.str]] = None,
             reader_endpoint: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             replication_source_identifier: Optional[pulumi.Input[builtins.str]] = None,
             serverless_v2_scaling_configuration: Optional[pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']]] = None,
             skip_final_snapshot: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1426,12 +1459,13 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         :param pulumi.Input[builtins.str] preferred_maintenance_window: Weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         :param pulumi.Input[builtins.str] reader_endpoint: Read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] replication_source_identifier: ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
         :param pulumi.Input[Union['ClusterServerlessV2ScalingConfigurationArgs', 'ClusterServerlessV2ScalingConfigurationArgsDict']] serverless_v2_scaling_configuration: If set, create the Neptune cluster as a serverless one. See Serverless for example block attributes.
         :param pulumi.Input[builtins.bool] skip_final_snapshot: Whether a final Neptune snapshot is created before the Neptune cluster is deleted. If true is specified, no Neptune snapshot is created. If false is specified, a Neptune snapshot is created before the Neptune cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[builtins.str] snapshot_identifier: Whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a Neptune cluster snapshot, or the ARN when specifying a Neptune snapshot. Automated snapshots **should not** be used for this attribute, unless from a different cluster. Automated snapshots are deleted as part of cluster destruction when the resource is replaced.
         :param pulumi.Input[builtins.bool] storage_encrypted: Whether the Neptune cluster is encrypted. The default is `false` if not specified.
-        :param pulumi.Input[builtins.str] storage_type: Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+        :param pulumi.Input[builtins.str] storage_type: Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Map of tags to assign to the Neptune cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] vpc_security_group_ids: List of VPC security groups to associate with the Cluster
@@ -1468,6 +1502,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["preferred_backup_window"] = preferred_backup_window
         __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
         __props__.__dict__["reader_endpoint"] = reader_endpoint
+        __props__.__dict__["region"] = region
         __props__.__dict__["replication_source_identifier"] = replication_source_identifier
         __props__.__dict__["serverless_v2_scaling_configuration"] = serverless_v2_scaling_configuration
         __props__.__dict__["skip_final_snapshot"] = skip_final_snapshot
@@ -1701,6 +1736,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "reader_endpoint")
 
     @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="replicationSourceIdentifier")
     def replication_source_identifier(self) -> pulumi.Output[Optional[builtins.str]]:
         """
@@ -1744,7 +1787,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Output[builtins.str]:
         """
-        Storage type associated with the cluster `standard/iopt1`. Default: `standard`
+        Storage type associated with the cluster `standard/iopt1`. Default: `standard`.
         """
         return pulumi.get(self, "storage_type")
 
@@ -1758,7 +1801,6 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tagsAll")
-    @_utilities.deprecated("""Please use `tags` instead.""")
     def tags_all(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         """
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

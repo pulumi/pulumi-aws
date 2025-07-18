@@ -70,6 +70,10 @@ export class Account extends pulumi.CustomResource {
      * Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
      */
     public readonly enableDefaultStandards!: pulumi.Output<boolean | undefined>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    public readonly region!: pulumi.Output<string>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -88,11 +92,13 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["autoEnableControls"] = state ? state.autoEnableControls : undefined;
             resourceInputs["controlFindingGenerator"] = state ? state.controlFindingGenerator : undefined;
             resourceInputs["enableDefaultStandards"] = state ? state.enableDefaultStandards : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
             resourceInputs["autoEnableControls"] = args ? args.autoEnableControls : undefined;
             resourceInputs["controlFindingGenerator"] = args ? args.controlFindingGenerator : undefined;
             resourceInputs["enableDefaultStandards"] = args ? args.enableDefaultStandards : undefined;
+            resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -120,6 +126,10 @@ export interface AccountState {
      * Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
      */
     enableDefaultStandards?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }
 
 /**
@@ -138,4 +148,8 @@ export interface AccountArgs {
      * Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
      */
     enableDefaultStandards?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
 }

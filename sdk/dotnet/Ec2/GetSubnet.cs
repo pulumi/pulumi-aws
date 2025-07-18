@@ -298,6 +298,12 @@ namespace Pulumi.Aws.Ec2
         public string? Ipv6CidrBlock { get; set; }
 
         /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public string? Region { get; set; }
+
+        /// <summary>
         /// State that the desired subnet must have.
         /// </summary>
         [Input("state")]
@@ -376,6 +382,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
 
         /// <summary>
         /// State that the desired subnet must have.
@@ -478,6 +490,7 @@ namespace Pulumi.Aws.Ec2
         /// The type of hostnames assigned to instances in the subnet at launch.
         /// </summary>
         public readonly string PrivateDnsHostnameTypeOnLaunch;
+        public readonly string Region;
         public readonly string State;
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly string VpcId;
@@ -528,6 +541,8 @@ namespace Pulumi.Aws.Ec2
 
             string privateDnsHostnameTypeOnLaunch,
 
+            string region,
+
             string state,
 
             ImmutableDictionary<string, string> tags,
@@ -556,6 +571,7 @@ namespace Pulumi.Aws.Ec2
             OutpostArn = outpostArn;
             OwnerId = ownerId;
             PrivateDnsHostnameTypeOnLaunch = privateDnsHostnameTypeOnLaunch;
+            Region = region;
             State = state;
             Tags = tags;
             VpcId = vpcId;

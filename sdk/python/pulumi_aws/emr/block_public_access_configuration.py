@@ -23,17 +23,21 @@ __all__ = ['BlockPublicAccessConfigurationArgs', 'BlockPublicAccessConfiguration
 class BlockPublicAccessConfigurationArgs:
     def __init__(__self__, *,
                  block_public_security_group_rules: pulumi.Input[builtins.bool],
-                 permitted_public_security_group_rule_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]] = None):
+                 permitted_public_security_group_rule_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a BlockPublicAccessConfiguration resource.
         :param pulumi.Input[builtins.bool] block_public_security_group_rules: Enable or disable EMR Block Public Access.
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]] permitted_public_security_group_rule_ranges: Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "block_public_security_group_rules", block_public_security_group_rules)
         if permitted_public_security_group_rule_ranges is not None:
             pulumi.set(__self__, "permitted_public_security_group_rule_ranges", permitted_public_security_group_rule_ranges)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="blockPublicSecurityGroupRules")
@@ -61,23 +65,39 @@ class BlockPublicAccessConfigurationArgs:
     def permitted_public_security_group_rule_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]]):
         pulumi.set(self, "permitted_public_security_group_rule_ranges", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _BlockPublicAccessConfigurationState:
     def __init__(__self__, *,
                  block_public_security_group_rules: Optional[pulumi.Input[builtins.bool]] = None,
-                 permitted_public_security_group_rule_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]] = None):
+                 permitted_public_security_group_rule_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering BlockPublicAccessConfiguration resources.
         :param pulumi.Input[builtins.bool] block_public_security_group_rules: Enable or disable EMR Block Public Access.
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]] permitted_public_security_group_rule_ranges: Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if block_public_security_group_rules is not None:
             pulumi.set(__self__, "block_public_security_group_rules", block_public_security_group_rules)
         if permitted_public_security_group_rule_ranges is not None:
             pulumi.set(__self__, "permitted_public_security_group_rule_ranges", permitted_public_security_group_rule_ranges)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="blockPublicSecurityGroupRules")
@@ -105,6 +125,18 @@ class _BlockPublicAccessConfigurationState:
     def permitted_public_security_group_rule_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs']]]]):
         pulumi.set(self, "permitted_public_security_group_rule_ranges", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration")
 class BlockPublicAccessConfiguration(pulumi.CustomResource):
@@ -114,6 +146,7 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  block_public_security_group_rules: Optional[pulumi.Input[builtins.bool]] = None,
                  permitted_public_security_group_rule_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs', 'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Resource for managing an AWS EMR block public access configuration. This region level security configuration restricts the launch of EMR clusters that have associated security groups permitting public access on unspecified ports. See the [EMR Block Public Access Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-block-public-access.html) documentation for further information.
@@ -194,6 +227,7 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs', 'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgsDict']]]] permitted_public_security_group_rule_ranges: Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -291,6 +325,7 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  block_public_security_group_rules: Optional[pulumi.Input[builtins.bool]] = None,
                  permitted_public_security_group_rule_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs', 'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgsDict']]]]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -304,6 +339,7 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'block_public_security_group_rules'")
             __props__.__dict__["block_public_security_group_rules"] = block_public_security_group_rules
             __props__.__dict__["permitted_public_security_group_rule_ranges"] = permitted_public_security_group_rule_ranges
+            __props__.__dict__["region"] = region
         super(BlockPublicAccessConfiguration, __self__).__init__(
             'aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration',
             resource_name,
@@ -315,7 +351,8 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             block_public_security_group_rules: Optional[pulumi.Input[builtins.bool]] = None,
-            permitted_public_security_group_rule_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs', 'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgsDict']]]]] = None) -> 'BlockPublicAccessConfiguration':
+            permitted_public_security_group_rule_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs', 'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgsDict']]]]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'BlockPublicAccessConfiguration':
         """
         Get an existing BlockPublicAccessConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -327,6 +364,7 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs', 'BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgsDict']]]] permitted_public_security_group_rule_ranges: Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -334,6 +372,7 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
 
         __props__.__dict__["block_public_security_group_rules"] = block_public_security_group_rules
         __props__.__dict__["permitted_public_security_group_rule_ranges"] = permitted_public_security_group_rule_ranges
+        __props__.__dict__["region"] = region
         return BlockPublicAccessConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -353,4 +392,12 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
         Configuration block for defining permitted public security group rule port ranges. Can be defined multiple times per resource. Only valid if `block_public_security_group_rules` is set to `true`.
         """
         return pulumi.get(self, "permitted_public_security_group_rule_ranges")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

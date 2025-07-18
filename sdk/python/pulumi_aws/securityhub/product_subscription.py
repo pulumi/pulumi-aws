@@ -20,7 +20,8 @@ __all__ = ['ProductSubscriptionArgs', 'ProductSubscription']
 @pulumi.input_type
 class ProductSubscriptionArgs:
     def __init__(__self__, *,
-                 product_arn: pulumi.Input[builtins.str]):
+                 product_arn: pulumi.Input[builtins.str],
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ProductSubscription resource.
         :param pulumi.Input[builtins.str] product_arn: The ARN of the product that generates findings that you want to import into Security Hub - see below.
@@ -62,8 +63,11 @@ class ProductSubscriptionArgs:
                * `arn:aws:securityhub:${var.region}::product/trend-micro/deep-security`
                * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
                * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "product_arn", product_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter(name="productArn")
@@ -115,12 +119,25 @@ class ProductSubscriptionArgs:
     def product_arn(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "product_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.input_type
 class _ProductSubscriptionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[builtins.str]] = None,
-                 product_arn: Optional[pulumi.Input[builtins.str]] = None):
+                 product_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProductSubscription resources.
         :param pulumi.Input[builtins.str] arn: The ARN of a resource that represents your subscription to the product that generates the findings that you want to import into Security Hub.
@@ -163,11 +180,14 @@ class _ProductSubscriptionState:
                * `arn:aws:securityhub:${var.region}::product/trend-micro/deep-security`
                * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
                * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if product_arn is not None:
             pulumi.set(__self__, "product_arn", product_arn)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
 
     @property
     @pulumi.getter
@@ -231,6 +251,18 @@ class _ProductSubscriptionState:
     def product_arn(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "product_arn", value)
 
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
+
 
 @pulumi.type_token("aws:securityhub/productSubscription:ProductSubscription")
 class ProductSubscription(pulumi.CustomResource):
@@ -239,6 +271,7 @@ class ProductSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  product_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Subscribes to a Security Hub product.
@@ -251,7 +284,7 @@ class ProductSubscription(pulumi.CustomResource):
 
         example = aws.securityhub.Account("example")
         current = aws.get_region()
-        example_product_subscription = aws.securityhub.ProductSubscription("example", product_arn=f"arn:aws:securityhub:{current.name}:733251395267:product/alertlogic/althreatmanagement",
+        example_product_subscription = aws.securityhub.ProductSubscription("example", product_arn=f"arn:aws:securityhub:{current.region}:733251395267:product/alertlogic/althreatmanagement",
         opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -304,6 +337,7 @@ class ProductSubscription(pulumi.CustomResource):
                * `arn:aws:securityhub:${var.region}::product/trend-micro/deep-security`
                * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
                * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -322,7 +356,7 @@ class ProductSubscription(pulumi.CustomResource):
 
         example = aws.securityhub.Account("example")
         current = aws.get_region()
-        example_product_subscription = aws.securityhub.ProductSubscription("example", product_arn=f"arn:aws:securityhub:{current.name}:733251395267:product/alertlogic/althreatmanagement",
+        example_product_subscription = aws.securityhub.ProductSubscription("example", product_arn=f"arn:aws:securityhub:{current.region}:733251395267:product/alertlogic/althreatmanagement",
         opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -350,6 +384,7 @@ class ProductSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  product_arn: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -362,6 +397,7 @@ class ProductSubscription(pulumi.CustomResource):
             if product_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'product_arn'")
             __props__.__dict__["product_arn"] = product_arn
+            __props__.__dict__["region"] = region
             __props__.__dict__["arn"] = None
         super(ProductSubscription, __self__).__init__(
             'aws:securityhub/productSubscription:ProductSubscription',
@@ -374,7 +410,8 @@ class ProductSubscription(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[builtins.str]] = None,
-            product_arn: Optional[pulumi.Input[builtins.str]] = None) -> 'ProductSubscription':
+            product_arn: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None) -> 'ProductSubscription':
         """
         Get an existing ProductSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -422,6 +459,7 @@ class ProductSubscription(pulumi.CustomResource):
                * `arn:aws:securityhub:${var.region}::product/trend-micro/deep-security`
                * `arn:aws:securityhub:${var.region}::product/turbot/turbot`
                * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -429,6 +467,7 @@ class ProductSubscription(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["product_arn"] = product_arn
+        __props__.__dict__["region"] = region
         return ProductSubscription(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -484,4 +523,12 @@ class ProductSubscription(pulumi.CustomResource):
         * `arn:aws:securityhub:${var.region}::product/twistlock/twistlock-enterprise`
         """
         return pulumi.get(self, "product_arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
 

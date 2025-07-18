@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/internal"
+	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +23,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/computeoptimizer"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/computeoptimizer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -54,7 +54,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/computeoptimizer"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/computeoptimizer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -110,6 +110,8 @@ type RecommendationPreferences struct {
 	LookBackPeriod pulumi.StringOutput `pulumi:"lookBackPeriod"`
 	// The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
 	PreferredResources RecommendationPreferencesPreferredResourceArrayOutput `pulumi:"preferredResources"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringOutput `pulumi:"region"`
 	// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
 	// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
@@ -163,6 +165,8 @@ type recommendationPreferencesState struct {
 	LookBackPeriod *string `pulumi:"lookBackPeriod"`
 	// The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
 	PreferredResources []RecommendationPreferencesPreferredResource `pulumi:"preferredResources"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
 	ResourceType *string `pulumi:"resourceType"`
 	// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
@@ -184,6 +188,8 @@ type RecommendationPreferencesState struct {
 	LookBackPeriod pulumi.StringPtrInput
 	// The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
 	PreferredResources RecommendationPreferencesPreferredResourceArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
 	ResourceType pulumi.StringPtrInput
 	// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
@@ -209,6 +215,8 @@ type recommendationPreferencesArgs struct {
 	LookBackPeriod *string `pulumi:"lookBackPeriod"`
 	// The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
 	PreferredResources []RecommendationPreferencesPreferredResource `pulumi:"preferredResources"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region *string `pulumi:"region"`
 	// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
 	ResourceType string `pulumi:"resourceType"`
 	// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
@@ -231,6 +239,8 @@ type RecommendationPreferencesArgs struct {
 	LookBackPeriod pulumi.StringPtrInput
 	// The preference to control which resource type values are considered when generating rightsizing recommendations. See Preferred Resources below.
 	PreferredResources RecommendationPreferencesPreferredResourceArrayInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringPtrInput
 	// The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.
 	ResourceType pulumi.StringInput
 	// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
@@ -355,6 +365,11 @@ func (o RecommendationPreferencesOutput) PreferredResources() RecommendationPref
 	return o.ApplyT(func(v *RecommendationPreferences) RecommendationPreferencesPreferredResourceArrayOutput {
 		return v.PreferredResources
 	}).(RecommendationPreferencesPreferredResourceArrayOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o RecommendationPreferencesOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v *RecommendationPreferences) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
 // The target resource type of the recommendation preferences. Valid values: `Ec2Instance`, `AutoScalingGroup`, `RdsDBInstance`.

@@ -14,8 +14,6 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
-from ._inputs import *
 
 __all__ = ['DeploymentArgs', 'Deployment']
 
@@ -23,45 +21,23 @@ __all__ = ['DeploymentArgs', 'Deployment']
 class DeploymentArgs:
     def __init__(__self__, *,
                  rest_api: pulumi.Input[builtins.str],
-                 canary_settings: Optional[pulumi.Input['DeploymentCanarySettingsArgs']] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 stage_description: Optional[pulumi.Input[builtins.str]] = None,
-                 stage_name: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a Deployment resource.
         :param pulumi.Input[builtins.str] rest_api: REST API identifier.
-        :param pulumi.Input['DeploymentCanarySettingsArgs'] canary_settings: Input configuration for the canary deployment when the deployment is a canary release deployment.
-               See `canary_settings below.
-               Has no effect when `stage_name` is not set.
-        :param pulumi.Input[builtins.str] description: Description of the deployment
-        :param pulumi.Input[builtins.str] stage_description: Description to set on the stage managed by the `stage_name` argument.
-               Has no effect when `stage_name` is not set.
-        :param pulumi.Input[builtins.str] stage_name: Name of the stage to create with this deployment.
-               If the specified stage already exists, it will be updated to point to the new deployment.
-               We recommend using the `apigateway.Stage` resource instead to manage stages.
+        :param pulumi.Input[builtins.str] description: Description of the deployment.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map to set on the stage managed by the `stage_name` argument.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map to set on the related stage.
         """
         pulumi.set(__self__, "rest_api", rest_api)
-        if canary_settings is not None:
-            warnings.warn("""canary_settings is deprecated. Use the apigateway.Stage resource instead.""", DeprecationWarning)
-            pulumi.log.warn("""canary_settings is deprecated: canary_settings is deprecated. Use the apigateway.Stage resource instead.""")
-        if canary_settings is not None:
-            pulumi.set(__self__, "canary_settings", canary_settings)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if stage_description is not None:
-            warnings.warn("""stage_description is deprecated. Use the apigateway.Stage resource instead.""", DeprecationWarning)
-            pulumi.log.warn("""stage_description is deprecated: stage_description is deprecated. Use the apigateway.Stage resource instead.""")
-        if stage_description is not None:
-            pulumi.set(__self__, "stage_description", stage_description)
-        if stage_name is not None:
-            warnings.warn("""stage_name is deprecated. Use the apigateway.Stage resource instead.""", DeprecationWarning)
-            pulumi.log.warn("""stage_name is deprecated: stage_name is deprecated. Use the apigateway.Stage resource instead.""")
-        if stage_name is not None:
-            pulumi.set(__self__, "stage_name", stage_name)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if triggers is not None:
             pulumi.set(__self__, "triggers", triggers)
         if variables is not None:
@@ -80,25 +56,10 @@ class DeploymentArgs:
         pulumi.set(self, "rest_api", value)
 
     @property
-    @pulumi.getter(name="canarySettings")
-    @_utilities.deprecated("""canary_settings is deprecated. Use the apigateway.Stage resource instead.""")
-    def canary_settings(self) -> Optional[pulumi.Input['DeploymentCanarySettingsArgs']]:
-        """
-        Input configuration for the canary deployment when the deployment is a canary release deployment.
-        See `canary_settings below.
-        Has no effect when `stage_name` is not set.
-        """
-        return pulumi.get(self, "canary_settings")
-
-    @canary_settings.setter
-    def canary_settings(self, value: Optional[pulumi.Input['DeploymentCanarySettingsArgs']]):
-        pulumi.set(self, "canary_settings", value)
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Description of the deployment
+        Description of the deployment.
         """
         return pulumi.get(self, "description")
 
@@ -107,33 +68,16 @@ class DeploymentArgs:
         pulumi.set(self, "description", value)
 
     @property
-    @pulumi.getter(name="stageDescription")
-    @_utilities.deprecated("""stage_description is deprecated. Use the apigateway.Stage resource instead.""")
-    def stage_description(self) -> Optional[pulumi.Input[builtins.str]]:
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Description to set on the stage managed by the `stage_name` argument.
-        Has no effect when `stage_name` is not set.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
-        return pulumi.get(self, "stage_description")
+        return pulumi.get(self, "region")
 
-    @stage_description.setter
-    def stage_description(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "stage_description", value)
-
-    @property
-    @pulumi.getter(name="stageName")
-    @_utilities.deprecated("""stage_name is deprecated. Use the apigateway.Stage resource instead.""")
-    def stage_name(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Name of the stage to create with this deployment.
-        If the specified stage already exists, it will be updated to point to the new deployment.
-        We recommend using the `apigateway.Stage` resource instead to manage stages.
-        """
-        return pulumi.get(self, "stage_name")
-
-    @stage_name.setter
-    def stage_name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "stage_name", value)
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter
@@ -151,7 +95,7 @@ class DeploymentArgs:
     @pulumi.getter
     def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Map to set on the stage managed by the `stage_name` argument.
+        Map to set on the related stage.
         """
         return pulumi.get(self, "variables")
 
@@ -163,87 +107,33 @@ class DeploymentArgs:
 @pulumi.input_type
 class _DeploymentState:
     def __init__(__self__, *,
-                 canary_settings: Optional[pulumi.Input['DeploymentCanarySettingsArgs']] = None,
                  created_date: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
-                 execution_arn: Optional[pulumi.Input[builtins.str]] = None,
-                 invoke_url: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
-                 stage_description: Optional[pulumi.Input[builtins.str]] = None,
-                 stage_name: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Deployment resources.
-        :param pulumi.Input['DeploymentCanarySettingsArgs'] canary_settings: Input configuration for the canary deployment when the deployment is a canary release deployment.
-               See `canary_settings below.
-               Has no effect when `stage_name` is not set.
         :param pulumi.Input[builtins.str] created_date: Creation date of the deployment
-        :param pulumi.Input[builtins.str] description: Description of the deployment
-        :param pulumi.Input[builtins.str] execution_arn: **DEPRECATED: Use the `apigateway.Stage` resource instead.** Execution ARN to be used in `lambda_permission`'s `source_arn`
-               when allowing API Gateway to invoke a Lambda function,
-               e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-        :param pulumi.Input[builtins.str] invoke_url: **DEPRECATED: Use the `apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
-               e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+        :param pulumi.Input[builtins.str] description: Description of the deployment.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: REST API identifier.
-        :param pulumi.Input[builtins.str] stage_description: Description to set on the stage managed by the `stage_name` argument.
-               Has no effect when `stage_name` is not set.
-        :param pulumi.Input[builtins.str] stage_name: Name of the stage to create with this deployment.
-               If the specified stage already exists, it will be updated to point to the new deployment.
-               We recommend using the `apigateway.Stage` resource instead to manage stages.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map to set on the stage managed by the `stage_name` argument.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map to set on the related stage.
         """
-        if canary_settings is not None:
-            warnings.warn("""canary_settings is deprecated. Use the apigateway.Stage resource instead.""", DeprecationWarning)
-            pulumi.log.warn("""canary_settings is deprecated: canary_settings is deprecated. Use the apigateway.Stage resource instead.""")
-        if canary_settings is not None:
-            pulumi.set(__self__, "canary_settings", canary_settings)
         if created_date is not None:
             pulumi.set(__self__, "created_date", created_date)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if execution_arn is not None:
-            warnings.warn("""execution_arn is deprecated. Use the apigateway.Stage resource instead.""", DeprecationWarning)
-            pulumi.log.warn("""execution_arn is deprecated: execution_arn is deprecated. Use the apigateway.Stage resource instead.""")
-        if execution_arn is not None:
-            pulumi.set(__self__, "execution_arn", execution_arn)
-        if invoke_url is not None:
-            warnings.warn("""invoke_url is deprecated. Use the apigateway.Stage resource instead.""", DeprecationWarning)
-            pulumi.log.warn("""invoke_url is deprecated: invoke_url is deprecated. Use the apigateway.Stage resource instead.""")
-        if invoke_url is not None:
-            pulumi.set(__self__, "invoke_url", invoke_url)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
         if rest_api is not None:
             pulumi.set(__self__, "rest_api", rest_api)
-        if stage_description is not None:
-            warnings.warn("""stage_description is deprecated. Use the apigateway.Stage resource instead.""", DeprecationWarning)
-            pulumi.log.warn("""stage_description is deprecated: stage_description is deprecated. Use the apigateway.Stage resource instead.""")
-        if stage_description is not None:
-            pulumi.set(__self__, "stage_description", stage_description)
-        if stage_name is not None:
-            warnings.warn("""stage_name is deprecated. Use the apigateway.Stage resource instead.""", DeprecationWarning)
-            pulumi.log.warn("""stage_name is deprecated: stage_name is deprecated. Use the apigateway.Stage resource instead.""")
-        if stage_name is not None:
-            pulumi.set(__self__, "stage_name", stage_name)
         if triggers is not None:
             pulumi.set(__self__, "triggers", triggers)
         if variables is not None:
             pulumi.set(__self__, "variables", variables)
-
-    @property
-    @pulumi.getter(name="canarySettings")
-    @_utilities.deprecated("""canary_settings is deprecated. Use the apigateway.Stage resource instead.""")
-    def canary_settings(self) -> Optional[pulumi.Input['DeploymentCanarySettingsArgs']]:
-        """
-        Input configuration for the canary deployment when the deployment is a canary release deployment.
-        See `canary_settings below.
-        Has no effect when `stage_name` is not set.
-        """
-        return pulumi.get(self, "canary_settings")
-
-    @canary_settings.setter
-    def canary_settings(self, value: Optional[pulumi.Input['DeploymentCanarySettingsArgs']]):
-        pulumi.set(self, "canary_settings", value)
 
     @property
     @pulumi.getter(name="createdDate")
@@ -261,7 +151,7 @@ class _DeploymentState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Description of the deployment
+        Description of the deployment.
         """
         return pulumi.get(self, "description")
 
@@ -270,33 +160,16 @@ class _DeploymentState:
         pulumi.set(self, "description", value)
 
     @property
-    @pulumi.getter(name="executionArn")
-    @_utilities.deprecated("""execution_arn is deprecated. Use the apigateway.Stage resource instead.""")
-    def execution_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        **DEPRECATED: Use the `apigateway.Stage` resource instead.** Execution ARN to be used in `lambda_permission`'s `source_arn`
-        when allowing API Gateway to invoke a Lambda function,
-        e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
-        return pulumi.get(self, "execution_arn")
+        return pulumi.get(self, "region")
 
-    @execution_arn.setter
-    def execution_arn(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "execution_arn", value)
-
-    @property
-    @pulumi.getter(name="invokeUrl")
-    @_utilities.deprecated("""invoke_url is deprecated. Use the apigateway.Stage resource instead.""")
-    def invoke_url(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        **DEPRECATED: Use the `apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
-        e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-        """
-        return pulumi.get(self, "invoke_url")
-
-    @invoke_url.setter
-    def invoke_url(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "invoke_url", value)
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "region", value)
 
     @property
     @pulumi.getter(name="restApi")
@@ -309,35 +182,6 @@ class _DeploymentState:
     @rest_api.setter
     def rest_api(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "rest_api", value)
-
-    @property
-    @pulumi.getter(name="stageDescription")
-    @_utilities.deprecated("""stage_description is deprecated. Use the apigateway.Stage resource instead.""")
-    def stage_description(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Description to set on the stage managed by the `stage_name` argument.
-        Has no effect when `stage_name` is not set.
-        """
-        return pulumi.get(self, "stage_description")
-
-    @stage_description.setter
-    def stage_description(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "stage_description", value)
-
-    @property
-    @pulumi.getter(name="stageName")
-    @_utilities.deprecated("""stage_name is deprecated. Use the apigateway.Stage resource instead.""")
-    def stage_name(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        Name of the stage to create with this deployment.
-        If the specified stage already exists, it will be updated to point to the new deployment.
-        We recommend using the `apigateway.Stage` resource instead to manage stages.
-        """
-        return pulumi.get(self, "stage_name")
-
-    @stage_name.setter
-    def stage_name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "stage_name", value)
 
     @property
     @pulumi.getter
@@ -355,7 +199,7 @@ class _DeploymentState:
     @pulumi.getter
     def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Map to set on the stage managed by the `stage_name` argument.
+        Map to set on the related stage.
         """
         return pulumi.get(self, "variables")
 
@@ -370,11 +214,9 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 canary_settings: Optional[pulumi.Input[Union['DeploymentCanarySettingsArgs', 'DeploymentCanarySettingsArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
-                 stage_description: Optional[pulumi.Input[builtins.str]] = None,
-                 stage_name: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -386,8 +228,6 @@ class Deployment(pulumi.CustomResource):
         * For REST APIs that are configured via OpenAPI specification (`apigateway.RestApi` resource `body` argument), no special dependency setup is needed beyond referencing the  `id` attribute of that resource unless additional resources have further customized the REST API.
         * When the REST API configuration involves other resources (`apigateway.Integration` resource), the dependency setup can be done with implicit resource references in the `triggers` argument or explicit resource references using the [resource `dependsOn` custom option](https://www.pulumi.com/docs/intro/concepts/resources/#dependson). The `triggers` argument should be preferred over `depends_on`, since `depends_on` can only capture dependency ordering and will not cause the resource to recreate (redeploy the REST API) with upstream configuration changes.
 
-        !> **WARNING:** It is recommended to use the `apigateway.Stage` resource instead of managing an API Gateway Stage via the `stage_name` argument of this resource. When this resource is recreated (REST API redeployment) with the `stage_name` configured, the stage is deleted and recreated. This will cause a temporary service interruption, increase provide plan differences, and can require a second apply to recreate any downstream stage configuration such as associated `aws_api_method_settings` resources.
-
         ## Example Usage
 
         ## Import
@@ -397,24 +237,17 @@ class Deployment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
         ```
-        The `stage_name`, `stage_description`, and `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
+        The `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
 
         The `triggers` argument cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DeploymentCanarySettingsArgs', 'DeploymentCanarySettingsArgsDict']] canary_settings: Input configuration for the canary deployment when the deployment is a canary release deployment.
-               See `canary_settings below.
-               Has no effect when `stage_name` is not set.
-        :param pulumi.Input[builtins.str] description: Description of the deployment
+        :param pulumi.Input[builtins.str] description: Description of the deployment.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: REST API identifier.
-        :param pulumi.Input[builtins.str] stage_description: Description to set on the stage managed by the `stage_name` argument.
-               Has no effect when `stage_name` is not set.
-        :param pulumi.Input[builtins.str] stage_name: Name of the stage to create with this deployment.
-               If the specified stage already exists, it will be updated to point to the new deployment.
-               We recommend using the `apigateway.Stage` resource instead to manage stages.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map to set on the stage managed by the `stage_name` argument.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map to set on the related stage.
         """
         ...
     @overload
@@ -430,8 +263,6 @@ class Deployment(pulumi.CustomResource):
         * For REST APIs that are configured via OpenAPI specification (`apigateway.RestApi` resource `body` argument), no special dependency setup is needed beyond referencing the  `id` attribute of that resource unless additional resources have further customized the REST API.
         * When the REST API configuration involves other resources (`apigateway.Integration` resource), the dependency setup can be done with implicit resource references in the `triggers` argument or explicit resource references using the [resource `dependsOn` custom option](https://www.pulumi.com/docs/intro/concepts/resources/#dependson). The `triggers` argument should be preferred over `depends_on`, since `depends_on` can only capture dependency ordering and will not cause the resource to recreate (redeploy the REST API) with upstream configuration changes.
 
-        !> **WARNING:** It is recommended to use the `apigateway.Stage` resource instead of managing an API Gateway Stage via the `stage_name` argument of this resource. When this resource is recreated (REST API redeployment) with the `stage_name` configured, the stage is deleted and recreated. This will cause a temporary service interruption, increase provide plan differences, and can require a second apply to recreate any downstream stage configuration such as associated `aws_api_method_settings` resources.
-
         ## Example Usage
 
         ## Import
@@ -441,7 +272,7 @@ class Deployment(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
         ```
-        The `stage_name`, `stage_description`, and `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
+        The `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
 
         The `triggers` argument cannot be imported.
 
@@ -460,11 +291,9 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 canary_settings: Optional[pulumi.Input[Union['DeploymentCanarySettingsArgs', 'DeploymentCanarySettingsArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 region: Optional[pulumi.Input[builtins.str]] = None,
                  rest_api: Optional[pulumi.Input[builtins.str]] = None,
-                 stage_description: Optional[pulumi.Input[builtins.str]] = None,
-                 stage_name: Optional[pulumi.Input[builtins.str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
@@ -476,18 +305,14 @@ class Deployment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeploymentArgs.__new__(DeploymentArgs)
 
-            __props__.__dict__["canary_settings"] = canary_settings
             __props__.__dict__["description"] = description
+            __props__.__dict__["region"] = region
             if rest_api is None and not opts.urn:
                 raise TypeError("Missing required property 'rest_api'")
             __props__.__dict__["rest_api"] = rest_api
-            __props__.__dict__["stage_description"] = stage_description
-            __props__.__dict__["stage_name"] = stage_name
             __props__.__dict__["triggers"] = triggers
             __props__.__dict__["variables"] = variables
             __props__.__dict__["created_date"] = None
-            __props__.__dict__["execution_arn"] = None
-            __props__.__dict__["invoke_url"] = None
         super(Deployment, __self__).__init__(
             'aws:apigateway/deployment:Deployment',
             resource_name,
@@ -498,14 +323,10 @@ class Deployment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            canary_settings: Optional[pulumi.Input[Union['DeploymentCanarySettingsArgs', 'DeploymentCanarySettingsArgsDict']]] = None,
             created_date: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
-            execution_arn: Optional[pulumi.Input[builtins.str]] = None,
-            invoke_url: Optional[pulumi.Input[builtins.str]] = None,
+            region: Optional[pulumi.Input[builtins.str]] = None,
             rest_api: Optional[pulumi.Input[builtins.str]] = None,
-            stage_description: Optional[pulumi.Input[builtins.str]] = None,
-            stage_name: Optional[pulumi.Input[builtins.str]] = None,
             triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'Deployment':
         """
@@ -515,51 +336,24 @@ class Deployment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DeploymentCanarySettingsArgs', 'DeploymentCanarySettingsArgsDict']] canary_settings: Input configuration for the canary deployment when the deployment is a canary release deployment.
-               See `canary_settings below.
-               Has no effect when `stage_name` is not set.
         :param pulumi.Input[builtins.str] created_date: Creation date of the deployment
-        :param pulumi.Input[builtins.str] description: Description of the deployment
-        :param pulumi.Input[builtins.str] execution_arn: **DEPRECATED: Use the `apigateway.Stage` resource instead.** Execution ARN to be used in `lambda_permission`'s `source_arn`
-               when allowing API Gateway to invoke a Lambda function,
-               e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
-        :param pulumi.Input[builtins.str] invoke_url: **DEPRECATED: Use the `apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
-               e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+        :param pulumi.Input[builtins.str] description: Description of the deployment.
+        :param pulumi.Input[builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[builtins.str] rest_api: REST API identifier.
-        :param pulumi.Input[builtins.str] stage_description: Description to set on the stage managed by the `stage_name` argument.
-               Has no effect when `stage_name` is not set.
-        :param pulumi.Input[builtins.str] stage_name: Name of the stage to create with this deployment.
-               If the specified stage already exists, it will be updated to point to the new deployment.
-               We recommend using the `apigateway.Stage` resource instead to manage stages.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger a redeployment.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map to set on the stage managed by the `stage_name` argument.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] variables: Map to set on the related stage.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _DeploymentState.__new__(_DeploymentState)
 
-        __props__.__dict__["canary_settings"] = canary_settings
         __props__.__dict__["created_date"] = created_date
         __props__.__dict__["description"] = description
-        __props__.__dict__["execution_arn"] = execution_arn
-        __props__.__dict__["invoke_url"] = invoke_url
+        __props__.__dict__["region"] = region
         __props__.__dict__["rest_api"] = rest_api
-        __props__.__dict__["stage_description"] = stage_description
-        __props__.__dict__["stage_name"] = stage_name
         __props__.__dict__["triggers"] = triggers
         __props__.__dict__["variables"] = variables
         return Deployment(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="canarySettings")
-    @_utilities.deprecated("""canary_settings is deprecated. Use the apigateway.Stage resource instead.""")
-    def canary_settings(self) -> pulumi.Output[Optional['outputs.DeploymentCanarySettings']]:
-        """
-        Input configuration for the canary deployment when the deployment is a canary release deployment.
-        See `canary_settings below.
-        Has no effect when `stage_name` is not set.
-        """
-        return pulumi.get(self, "canary_settings")
 
     @property
     @pulumi.getter(name="createdDate")
@@ -573,30 +367,17 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Description of the deployment
+        Description of the deployment.
         """
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="executionArn")
-    @_utilities.deprecated("""execution_arn is deprecated. Use the apigateway.Stage resource instead.""")
-    def execution_arn(self) -> pulumi.Output[builtins.str]:
+    @pulumi.getter
+    def region(self) -> pulumi.Output[builtins.str]:
         """
-        **DEPRECATED: Use the `apigateway.Stage` resource instead.** Execution ARN to be used in `lambda_permission`'s `source_arn`
-        when allowing API Gateway to invoke a Lambda function,
-        e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
-        return pulumi.get(self, "execution_arn")
-
-    @property
-    @pulumi.getter(name="invokeUrl")
-    @_utilities.deprecated("""invoke_url is deprecated. Use the apigateway.Stage resource instead.""")
-    def invoke_url(self) -> pulumi.Output[builtins.str]:
-        """
-        **DEPRECATED: Use the `apigateway.Stage` resource instead.** URL to invoke the API pointing to the stage,
-        e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
-        """
-        return pulumi.get(self, "invoke_url")
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="restApi")
@@ -605,27 +386,6 @@ class Deployment(pulumi.CustomResource):
         REST API identifier.
         """
         return pulumi.get(self, "rest_api")
-
-    @property
-    @pulumi.getter(name="stageDescription")
-    @_utilities.deprecated("""stage_description is deprecated. Use the apigateway.Stage resource instead.""")
-    def stage_description(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        Description to set on the stage managed by the `stage_name` argument.
-        Has no effect when `stage_name` is not set.
-        """
-        return pulumi.get(self, "stage_description")
-
-    @property
-    @pulumi.getter(name="stageName")
-    @_utilities.deprecated("""stage_name is deprecated. Use the apigateway.Stage resource instead.""")
-    def stage_name(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        Name of the stage to create with this deployment.
-        If the specified stage already exists, it will be updated to point to the new deployment.
-        We recommend using the `apigateway.Stage` resource instead to manage stages.
-        """
-        return pulumi.get(self, "stage_name")
 
     @property
     @pulumi.getter
@@ -639,7 +399,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter
     def variables(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Map to set on the stage managed by the `stage_name` argument.
+        Map to set on the related stage.
         """
         return pulumi.get(self, "variables")
 

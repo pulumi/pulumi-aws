@@ -11,6 +11,7 @@ export function getSecretVersions(args: GetSecretVersionsArgs, opts?: pulumi.Inv
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:secretsmanager/getSecretVersions:getSecretVersions", {
         "includeDeprecated": args.includeDeprecated,
+        "region": args.region,
         "secretId": args.secretId,
     }, opts);
 }
@@ -24,6 +25,10 @@ export interface GetSecretVersionsArgs {
      * If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
      */
     includeDeprecated?: boolean;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: string;
     /**
      * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      */
@@ -44,6 +49,7 @@ export interface GetSecretVersionsResult {
     readonly id: string;
     readonly includeDeprecated?: boolean;
     readonly name: string;
+    readonly region: string;
     readonly secretId: string;
     /**
      * List of the versions of the secret. Attributes are specified below.
@@ -54,6 +60,7 @@ export function getSecretVersionsOutput(args: GetSecretVersionsOutputArgs, opts?
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:secretsmanager/getSecretVersions:getSecretVersions", {
         "includeDeprecated": args.includeDeprecated,
+        "region": args.region,
         "secretId": args.secretId,
     }, opts);
 }
@@ -67,6 +74,10 @@ export interface GetSecretVersionsOutputArgs {
      * If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
      */
     includeDeprecated?: pulumi.Input<boolean>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     */
+    region?: pulumi.Input<string>;
     /**
      * Specifies the secret containing the version that you want to retrieve. You can specify either the ARN or the friendly name of the secret.
      */

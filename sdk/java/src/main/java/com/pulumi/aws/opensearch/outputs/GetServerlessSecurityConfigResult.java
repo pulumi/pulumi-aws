@@ -3,12 +3,12 @@
 
 package com.pulumi.aws.opensearch.outputs;
 
-import com.pulumi.aws.opensearch.outputs.GetServerlessSecurityConfigSamlOptions;
+import com.pulumi.aws.opensearch.outputs.GetServerlessSecurityConfigSamlOption;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -34,11 +34,12 @@ public final class GetServerlessSecurityConfigResult {
      * 
      */
     private String lastModifiedDate;
+    private String region;
     /**
      * @return SAML options for the security configuration.
      * 
      */
-    private @Nullable GetServerlessSecurityConfigSamlOptions samlOptions;
+    private @Nullable List<GetServerlessSecurityConfigSamlOption> samlOptions;
     /**
      * @return The type of security configuration.
      * 
@@ -77,12 +78,15 @@ public final class GetServerlessSecurityConfigResult {
     public String lastModifiedDate() {
         return this.lastModifiedDate;
     }
+    public String region() {
+        return this.region;
+    }
     /**
      * @return SAML options for the security configuration.
      * 
      */
-    public Optional<GetServerlessSecurityConfigSamlOptions> samlOptions() {
-        return Optional.ofNullable(this.samlOptions);
+    public List<GetServerlessSecurityConfigSamlOption> samlOptions() {
+        return this.samlOptions == null ? List.of() : this.samlOptions;
     }
     /**
      * @return The type of security configuration.
@@ -106,7 +110,8 @@ public final class GetServerlessSecurityConfigResult {
         private String description;
         private String id;
         private String lastModifiedDate;
-        private @Nullable GetServerlessSecurityConfigSamlOptions samlOptions;
+        private String region;
+        private @Nullable List<GetServerlessSecurityConfigSamlOption> samlOptions;
         private String type;
         public Builder() {}
         public Builder(GetServerlessSecurityConfigResult defaults) {
@@ -116,6 +121,7 @@ public final class GetServerlessSecurityConfigResult {
     	      this.description = defaults.description;
     	      this.id = defaults.id;
     	      this.lastModifiedDate = defaults.lastModifiedDate;
+    	      this.region = defaults.region;
     	      this.samlOptions = defaults.samlOptions;
     	      this.type = defaults.type;
         }
@@ -161,10 +167,21 @@ public final class GetServerlessSecurityConfigResult {
             return this;
         }
         @CustomType.Setter
-        public Builder samlOptions(@Nullable GetServerlessSecurityConfigSamlOptions samlOptions) {
+        public Builder region(String region) {
+            if (region == null) {
+              throw new MissingRequiredPropertyException("GetServerlessSecurityConfigResult", "region");
+            }
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder samlOptions(@Nullable List<GetServerlessSecurityConfigSamlOption> samlOptions) {
 
             this.samlOptions = samlOptions;
             return this;
+        }
+        public Builder samlOptions(GetServerlessSecurityConfigSamlOption... samlOptions) {
+            return samlOptions(List.of(samlOptions));
         }
         @CustomType.Setter
         public Builder type(String type) {
@@ -181,6 +198,7 @@ public final class GetServerlessSecurityConfigResult {
             _resultValue.description = description;
             _resultValue.id = id;
             _resultValue.lastModifiedDate = lastModifiedDate;
+            _resultValue.region = region;
             _resultValue.samlOptions = samlOptions;
             _resultValue.type = type;
             return _resultValue;
